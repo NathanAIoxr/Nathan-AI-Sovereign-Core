@@ -1,0 +1,17 @@
+# Nathan AI — Sudoku Master
+
+Single-file React app with puzzle generation, solver, notes, hints, and Skyscraper detection.
+
+**Stack**: Vite + React + TypeScript + TailwindCSS. Ships with a GitHub Actions workflow for GitHub Pages.
+
+## Quick start
+```bash
+# 1) Install deps
+npm i
+
+# 2) Run dev server
+npm run dev
+
+# 3) Build for production
+npm run build
+npm run preview
