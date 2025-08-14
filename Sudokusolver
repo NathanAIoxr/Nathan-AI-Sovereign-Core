@@ -1,0 +1,208 @@
+import random
+from typing import List, Optional, Tuple
+
+# === Nathan AI - Sudoku Logic Engine ===
+# This script contains the core, self-contained logic for a Sudoku game.
+# It can generate puzzles, solve them, and find advanced hints like the
+# Skyscraper pattern. It is designed to be a "sandboxed" component that
+# can be imported and used by a larger application (e.g., a web or OXR app).
+
+# === Type Definitions ===
+# We use standard Python lists for our grid representation.
+Grid = List[List[Optional[int]]]
+
+# === Helper Functions (Internal Logic) ===
+def _is_valid(board: List[List[int]], r: int, c: int, num: int) -> bool:
+    """
+    Checks if a number is valid at a given position on the board.
+    This helper function is used internally for both puzzle generation and solving.
+    """
+    # Check row
+    if num in board[r]:
+        return False
+    # Check column
+    if num in [board[i][c] for i in range(9)]:
+        return False
+    # Check 3x3 box
+    start_row, start_col = 3 * (r // 3), 3 * (c // 3)
+    for i in range(3):
+        for j in range(3):
+            if board[start_row + i][start_col + j] == num:
+                return False
+    return True
+
+def _solve_single(board: Grid) -> Optional[List[List[int]]]:
+    """
+    A simple backtracking solver to find ONE solution.
+    This is faster than solve_all and is used for the hint function.
+    """
+    for r in range(9):
+        for c in range(9):
+            if board[r][c] is None:
+                shuffled_nums = random.sample(range(1, 10), 9)
+                for num in shuffled_nums:
+                    if _is_valid(board, r, c, num):
+                        board[r][c] = num
+                        if _solve_single(board):
+                            return board
+                        board[r][c] = None  # Backtrack
+                return None
+    return board
+
+def _solve_all(board: Grid, solutions: List[Grid]) -> None:
+    """
+    A backtracking solver to find ALL solutions. Used for uniqueness check.
+    """
+    if len(solutions) > 1: # Optimization to exit early
+        return
+    
+    for r in range(9):
+        for c in range(9):
+            if board[r][c] is None:
+                for num in range(1, 10):
+                    if _is_valid(board, r, c, num):
+                        board[r][c] = num
+                        _solve_all(board, solutions)
+                        board[r][c] = None  # Backtrack
+                return
+    solutions.append([row[:] for row in board])
+
+
+def _get_candidates(grid: Grid) -> List[List[List[int]]]:
+    """
+    Calculates and returns the possible candidates for each empty cell.
+    """
+    candidates = [[[] for _ in range(9)] for _ in range(9)]
+    for r in range(9):
+        for c in range(9):
+            if grid[r][c] is None:
+                for num in range(1, 10):
+                    if _is_valid(grid, r, c, num):
+                        candidates[r][c].append(num)
+    return candidates
+
+def _detect_skyscraper(candidates: List[List[List[int]]]) -> Optional[dict]:
+    """
+    Implements the Skyscraper detection algorithm for a single digit.
+    This function analyzes the candidate grid to find this advanced pattern.
+    """
+    for digit in range(1, 10):
+        row_twos = []
+        for r in range(9):
+            cols = [c for c in range(9) if digit in candidates[r][c]]
+            if len(cols) == 2:
+                row_twos.append({'r': r, 'cols': cols})
+
+        for i in range(len(row_twos)):
+            for j in range(i + 1, len(row_twos)):
+                A, B = row_twos[i], row_twos[j]
+                shared = [c for c in A['cols'] if c in B['cols']]
+                if len(shared) == 1:
+                    base_col = shared[0]
+                    top_a = [c for c in A['cols'] if c != base_col][0]
+                    top_b = [c for c in B['cols'] if c != base_col][0]
+                    
+                    box_id = lambda r, c: (r // 3) * 3 + (c // 3)
+                    if box_id(A['r'], top_a) != box_id(B['r'], top_b):
+                        eliminations = []
+                        for r_elim in range(9):
+                            if r_elim not in [A['r'], B['r']]:
+                                eliminations.append({'r': r_elim, 'c': top_a})
+                                eliminations.append({'r': r_elim, 'c': top_b})
+                        
+                        unique_eliminations = {f"{e['r']}-{e['c']}": e for e in eliminations}.values()
+                        
+                        return {
+                            'kind': 'row-skyscraper',
+                            'digit': digit,
+                            'base': [{'r': A['r'], 'c': base_col}, {'r': B['r'], 'c': base_col}],
+                            'tops': [{'r': A['r'], 'c': top_a}, {'r': B['r'], 'c': top_b}],
+                            'eliminations': list(unique_eliminations)
+                        }
+    return None
+
+# === Public API (Functions to be used by your app) ===
+
+def generate_new_puzzle(difficulty: str) -> Tuple[Grid, Grid]:
+    """
+    Generates a new Sudoku puzzle with a unique solution.
+    Returns the puzzle and its solved version.
+    'difficulty' can be 'easy', 'medium', or 'hard'.
+    """
+    difficulty_map = {'easy': 40, 'medium': 30, 'hard': 25}
+    num_givens = difficulty_map.get(difficulty, 40)
+    
+    # 1. Generate a full, solved board
+    solved_board = [[0 for _ in range(9)] for _ in range(9)]
+    _solve_single(solved_board)
+    
+    # 2. Copy the solved board and remove cells
+    puzzle = [row[:] for row in solved_board]
+    
+    cells_to_remove = 81 - num_givens
+    while cells_to_remove > 0:
+        r, c = random.randint(0, 8), random.randint(0, 8)
+        if puzzle[r][c] is not None:
+            temp_val = puzzle[r][c]
+            puzzle[r][c] = None
+            solutions = []
+            _solve_all(puzzle, solutions)
+            if len(solutions) != 1:
+                puzzle[r][c] = temp_val
+            else:
+                cells_to_remove -= 1
+                
+    return puzzle, solved_board
+
+def get_logical_hint(grid: Grid) -> Optional[dict]:
+    """
+    Analyzes the current grid and provides a logical hint.
+    Prioritizes single candidates, then looks for a Skyscraper pattern.
+    """
+    candidates = _get_candidates(grid)
+    
+    # 1. Find a single candidate (the easiest hint)
+    for r in range(9):
+        for c in range(9):
+            if grid[r][c] is None and len(candidates[r][c]) == 1:
+                return {
+                    'type': 'single_candidate',
+                    'r': r,
+                    'c': c,
+                    'value': candidates[r][c][0]
+                }
+                
+    # 2. Look for a Skyscraper pattern (an advanced hint)
+    skyscraper_hint = _detect_skyscraper(candidates)
+    if skyscraper_hint:
+        return skyscraper_hint
+
+    return None
+
+# === Example Usage ===
+if __name__ == "__main__":
+    print("--- Nathan AI - Sudoku Logic Demonstration ---")
+    
+    # Generate an "easy" puzzle
+    puzzle_board, solved_board = generate_new_puzzle('easy')
+    
+    print("\nGenerated Puzzle:")
+    for row in puzzle_board:
+        print([x if x is not None else 0 for x in row])
+        
+    # Get a hint
+    hint = get_logical_hint(puzzle_board)
+    if hint and hint['type'] == 'single_candidate':
+        print(f"\nHint found! A 'single candidate' for row {hint['r']+1}, column {hint['c']+1} is {hint['value']}.")
+    elif hint and hint['kind'] == 'row-skyscraper':
+        print(f"\nAdvanced Hint: Skyscraper pattern for digit {hint['digit']} detected!")
+        print(f"Base cells: {hint['base']}")
+        print(f"Top cells: {hint['tops']}")
+    else:
+        print("\nNo easy hints found.")
+        
+    # Solve the puzzle
+    solved_result = _solve_single(puzzle_board)
+    print("\nSolved Board:")
+    for row in solved_result:
+        print(row)
