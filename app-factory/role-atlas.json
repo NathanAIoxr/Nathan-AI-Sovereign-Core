@@ -1,6 +1,6 @@
 {
   "schema": "tabor123.role-atlas.v1",
-  "version": "2026-10-09",
+  "version": "2026-10-09-rev2",
   "purpose": "Functional role comparison, not an assessment of someone's human worth or theological truth.",
   "important": "Historical events, fictional narratives, religious claims and legends are explicitly distinguished. An attached link does not prove every interpretation; entries without links are starting points for research.",
   "roles": [
@@ -949,8 +949,8 @@
       "method": "Revelation 20 describes Satan's final punishment",
       "result": "Future narrative ending",
       "proof": "Contradicts blanket claim biblical evil can never end",
-      "source": null,
-      "verification": "Source verification needed"
+      "source": "https://www.biblegateway.com/passage/?search=Revelation+20%3A10&version=KJV",
+      "verification": "Source attached; review interpretation"
     },
     {
       "id": 56,
@@ -1285,7 +1285,7 @@
     },
     {
       "id": 76,
-      "era": "Medieval",
+      "era": "Modern",
       "region": "England",
       "name": "William Wilberforce",
       "kind": "Historical",
@@ -1378,7 +1378,7 @@
       "method": "Leads Union in Civil War; supports 13th Amendment",
       "result": "Major institutional change",
       "proof": "Legal slavery abolished nationally with exception; racism not abolished",
-      "source": "https://www.nps.gov/people/frederick-douglass.htm",
+      "source": "https://www.archives.gov/milestone-documents/13th-amendment",
       "verification": "Source attached; review interpretation"
     },
     {
@@ -1442,8 +1442,8 @@
       "method": "Helps negotiate end of apartheid and democratic transition",
       "result": "Major structural change",
       "proof": "Legal apartheid ended; inequality continued",
-      "source": null,
-      "verification": "Source verification needed"
+      "source": "https://www.nelsonmandela.org/democracy",
+      "verification": "Source attached; review interpretation"
     },
     {
       "id": 86,
@@ -1539,8 +1539,8 @@
       "method": "Coordinated vaccines and surveillance",
       "result": "Verified eradication",
       "proof": "Cattle plague eradicated globally in 2011",
-      "source": null,
-      "verification": "Source verification needed"
+      "source": "https://www.fao.org/animal-health/news-events/news/detail/safeguarding-the-legacy-of-rinderpest-eradication/",
+      "verification": "Source attached; review interpretation"
     },
     {
       "id": 92,
@@ -1738,6 +1738,529 @@
       "proof": "Future meaningful stories continue without resurrecting same harm",
       "source": null,
       "verification": "Source verification needed"
+    },
+    {
+      "id": 104,
+      "era": "Ancient",
+      "region": "Egypt",
+      "name": "Cleopatra VII",
+      "kind": "Historical",
+      "labels": [
+        "Pharaoh",
+        "ruler",
+        "strategist"
+      ],
+      "method": "Negotiates alliances and fights for dynastic power",
+      "result": "Regime defeated",
+      "proof": "Ptolemaic rule ends after her death",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 105,
+      "era": "Ancient",
+      "region": "Carthage",
+      "name": "Hannibal Barca",
+      "kind": "Historical",
+      "labels": [
+        "Commander",
+        "rival",
+        "enemy of Rome"
+      ],
+      "method": "Leads campaign against Roman Republic",
+      "result": "Military impact",
+      "proof": "Wins battles but loses strategic war",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 106,
+      "era": "Ancient",
+      "region": "Britain",
+      "name": "Boudica",
+      "kind": "Historical",
+      "labels": [
+        "Queen",
+        "resistance leader"
+      ],
+      "method": "Leads uprising against Roman rule",
+      "result": "Rebellion defeated",
+      "proof": "Revolt suppressed; Roman occupation continues",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 107,
+      "era": "Ancient",
+      "region": "Palmyra",
+      "name": "Zenobia",
+      "kind": "Historical",
+      "labels": [
+        "Queen",
+        "empire-builder"
+      ],
+      "method": "Challenges Roman control of eastern provinces",
+      "result": "Regime defeated",
+      "proof": "Roman power restored; her reign ends",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 108,
+      "era": "Ancient",
+      "region": "Alexandria",
+      "name": "Hypatia",
+      "kind": "Historical",
+      "labels": [
+        "Philosopher",
+        "scholar",
+        "teacher"
+      ],
+      "method": "Teaches mathematics and philosophy",
+      "result": "Intellectual legacy",
+      "proof": "Murdered; scholarship survives",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 109,
+      "era": "Ancient",
+      "region": "West Africa",
+      "name": "Queen Amina of Zazzau",
+      "kind": "Historical / legendary",
+      "labels": [
+        "Queen",
+        "warrior",
+        "ruler"
+      ],
+      "method": "Associated with territorial campaigns",
+      "result": "Tradition-dependent",
+      "proof": "Much narrative comes from later oral traditions",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 110,
+      "era": "Early modern",
+      "region": "Angola / Ndongo",
+      "name": "Nzinga Mbande",
+      "kind": "Historical",
+      "labels": [
+        "Queen",
+        "negotiator",
+        "resistance leader"
+      ],
+      "method": "Resists Portuguese expansion and slave trading",
+      "result": "Sustained resistance",
+      "proof": "Maintained sovereignty through diplomacy and war",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 111,
+      "era": "Early modern",
+      "region": "Europe",
+      "name": "Olaudah Equiano",
+      "kind": "Historical",
+      "labels": [
+        "Formerly enslaved author",
+        "abolitionist"
+      ],
+      "method": "Publishes account and campaigns against slave trade",
+      "result": "Advocacy impact",
+      "proof": "Helped change public debate, institution ended later",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 112,
+      "era": "Modern",
+      "region": "United States",
+      "name": "Sojourner Truth",
+      "kind": "Historical",
+      "labels": [
+        "Abolitionist",
+        "women's rights advocate"
+      ],
+      "method": "Speaks against enslavement and unequal rights",
+      "result": "Institutional progress",
+      "proof": "Public activism contributed; injustices remained",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 113,
+      "era": "Modern",
+      "region": "United States",
+      "name": "Ida B. Wells",
+      "kind": "Historical",
+      "labels": [
+        "Journalist",
+        "investigator",
+        "anti-lynching advocate"
+      ],
+      "method": "Exposes lynching and institutional complicity",
+      "result": "Long-term advocacy",
+      "proof": "Documentation spread; violence persisted",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 114,
+      "era": "Modern",
+      "region": "United States",
+      "name": "Rosa Parks",
+      "kind": "Historical",
+      "labels": [
+        "Civil rights organizer",
+        "protest catalyst"
+      ],
+      "method": "Refuses segregation on Montgomery bus; sustains organizing",
+      "result": "Institutional change",
+      "proof": "Desegregation case progresses; racial inequality remains",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 115,
+      "era": "Modern",
+      "region": "United States",
+      "name": "Ella Baker",
+      "kind": "Historical",
+      "labels": [
+        "Organizer",
+        "grassroots leader"
+      ],
+      "method": "Builds community organizing infrastructure",
+      "result": "Structural advocacy",
+      "proof": "Leadership capacity expanded; mission ongoing",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 116,
+      "era": "Modern",
+      "region": "United States",
+      "name": "Sarah Winnemucca",
+      "kind": "Historical",
+      "labels": [
+        "Paiute advocate",
+        "educator"
+      ],
+      "method": "Advocates Indigenous rights and documents abuses",
+      "result": "Advocacy impact",
+      "proof": "Advances testimony and aid, dispossession persists",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 117,
+      "era": "Modern",
+      "region": "United States",
+      "name": "Standing Bear (Ponca)",
+      "kind": "Historical",
+      "labels": [
+        "Chief",
+        "legal rights advocate"
+      ],
+      "method": "Challenges unlawful military detention in court",
+      "result": "Specific legal victory",
+      "proof": "Recognition in habeas corpus case; broader rights struggle continues",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 118,
+      "era": "Modern",
+      "region": "United States",
+      "name": "Wilma Mankiller",
+      "kind": "Historical",
+      "labels": [
+        "Cherokee chief",
+        "institution builder"
+      ],
+      "method": "Expands tribal community services",
+      "result": "Institutional improvement",
+      "proof": "Durable local improvements without universal remedy",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 119,
+      "era": "Modern",
+      "region": "Ghana",
+      "name": "Yaa Asantewaa",
+      "kind": "Historical",
+      "labels": [
+        "Queen mother",
+        "resistance commander"
+      ],
+      "method": "Leads resistance to British colonial rule",
+      "result": "Resistance defeated",
+      "proof": "Uprising suppressed; legacy persists",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 120,
+      "era": "Modern",
+      "region": "Kenya",
+      "name": "Wangari Maathai",
+      "kind": "Historical",
+      "labels": [
+        "Environmental organizer",
+        "Nobel laureate"
+      ],
+      "method": "Establishes tree planting and women's organizing movement",
+      "result": "Continuing improvement",
+      "proof": "Millions of trees planted; deforestation continues",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 121,
+      "era": "Modern",
+      "region": "Pakistan",
+      "name": "Malala Yousafzai",
+      "kind": "Historical",
+      "labels": [
+        "Education advocate",
+        "survivor"
+      ],
+      "method": "Campaigns for girls' education",
+      "result": "Continuing advocacy",
+      "proof": "Significant awareness and policy advocacy; barriers persist",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 122,
+      "era": "Modern",
+      "region": "Guatemala",
+      "name": "Rigoberta Menchú",
+      "kind": "Historical",
+      "labels": [
+        "Indigenous rights advocate",
+        "Nobel laureate"
+      ],
+      "method": "Documents violence and campaigns for rights",
+      "result": "Continuing advocacy",
+      "proof": "International attention; structural inequities persist",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 123,
+      "era": "Modern",
+      "region": "Americas",
+      "name": "Simón Bolívar",
+      "kind": "Historical",
+      "labels": [
+        "Liberator",
+        "general",
+        "state-builder"
+      ],
+      "method": "Leads independence campaigns in South America",
+      "result": "Major political change",
+      "proof": "Colonial regimes overthrown; political instability followed",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 124,
+      "era": "Modern",
+      "region": "Argentina / Chile / Peru",
+      "name": "José de San Martín",
+      "kind": "Historical",
+      "labels": [
+        "Liberator",
+        "military organizer"
+      ],
+      "method": "Leads South American independence campaigns",
+      "result": "Major political change",
+      "proof": "Independence achieved in several territories; inequality persists",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 125,
+      "era": "Modern",
+      "region": "Mexico",
+      "name": "José María Morelos",
+      "kind": "Historical",
+      "labels": [
+        "Insurgent leader",
+        "priest"
+      ],
+      "method": "Fights for Mexican independence and legal change",
+      "result": "Partial campaign",
+      "proof": "Executed; Mexican independence arrived later",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 126,
+      "era": "Modern",
+      "region": "India",
+      "name": "Sarojini Naidu",
+      "kind": "Historical",
+      "labels": [
+        "Independence advocate",
+        "political organizer"
+      ],
+      "method": "Participates in nonviolent movement and women's organizing",
+      "result": "Institutional progress",
+      "proof": "Political independence achieved with many participants",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 127,
+      "era": "Modern",
+      "region": "United States",
+      "name": "Jonas Salk",
+      "kind": "Historical",
+      "labels": [
+        "Vaccine scientist"
+      ],
+      "method": "Develops inactivated polio vaccine",
+      "result": "Foundational discovery",
+      "proof": "Enables disease prevention but polio not yet eradicated",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 128,
+      "era": "Modern",
+      "region": "Global public health",
+      "name": "Ignaz Semmelweis",
+      "kind": "Historical",
+      "labels": [
+        "Physician",
+        "handwashing advocate"
+      ],
+      "method": "Introduces hand hygiene for obstetric wards",
+      "result": "Local evidence / later adoption",
+      "proof": "Maternal death rates improved in his setting; wider adoption delayed",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 129,
+      "era": "Modern",
+      "region": "Global public health",
+      "name": "Florence Nightingale",
+      "kind": "Historical",
+      "labels": [
+        "Nurse",
+        "statistician",
+        "reformer"
+      ],
+      "method": "Improves nursing institutions and hospital records",
+      "result": "Institutional reform",
+      "proof": "System practices influenced; preventable illness persists",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 130,
+      "era": "Modern",
+      "region": "Bangladesh",
+      "name": "Muhammad Yunus",
+      "kind": "Historical",
+      "labels": [
+        "Microfinance founder",
+        "social entrepreneur"
+      ],
+      "method": "Develops microcredit institutions",
+      "result": "Contested institutional impact",
+      "proof": "Finance model expanded; results vary across contexts",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 131,
+      "era": "Fiction",
+      "region": "Moana",
+      "name": "Moana",
+      "kind": "Film fictional",
+      "labels": [
+        "Voyager",
+        "restorer",
+        "protagonist"
+      ],
+      "method": "Restores heart of Te Fiti and restores balance",
+      "result": "Root repaired",
+      "proof": "Central ecological disruption repaired; further adventures possible",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 132,
+      "era": "Fiction",
+      "region": "Avatar The Last Airbender",
+      "name": "Aang",
+      "kind": "TV fictional",
+      "labels": [
+        "Avatar",
+        "chosen one",
+        "peacekeeper"
+      ],
+      "method": "Ends Hundred Year War and confronts Fire Lord",
+      "result": "Major political change",
+      "proof": "War ends; wider societal work continues",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 133,
+      "era": "Fiction",
+      "region": "The Hunger Games",
+      "name": "Katniss Everdeen",
+      "kind": "Literary fictional",
+      "labels": [
+        "Reluctant symbol",
+        "revolutionary"
+      ],
+      "method": "Opposes Capitol domination",
+      "result": "Regime defeated",
+      "proof": "Specific regime overthrown, new governance remains challenge",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 134,
+      "era": "Fiction",
+      "region": "The Lion King",
+      "name": "Simba",
+      "kind": "Film fictional",
+      "labels": [
+        "Heir",
+        "restorer"
+      ],
+      "method": "Overthrows Scar and returns as king",
+      "result": "Status quo restoration",
+      "proof": "Pride Lands restored; structure of monarchy remains",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 135,
+      "era": "Fiction",
+      "region": "The Chronicles of Narnia",
+      "name": "Aslan",
+      "kind": "Literary fictional",
+      "labels": [
+        "Redeemer",
+        "lion",
+        "king"
+      ],
+      "method": "Sacrifices self and returns to overcome White Witch",
+      "result": "Specific divine victory",
+      "proof": "Witch's reign ends; later stories have other threats",
+      "source": null,
+      "verification": "Source verification needed"
     }
-  ]
+  ],
+  "recordCount": 135
 }
