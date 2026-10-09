@@ -47,3 +47,6 @@ There is no server-side access to all of a user's past ChatGPT chats or ChatGPT 
 
 ## 1420: The Crowning Jewel
 Play: [1420: The Crowning Jewel](./games/crowning-jewel.html). Source: [game engine](./games/crowning-jewel.js) and [historical blueprint](./games/CROWNING-JEWEL-BLUEPRINT.md). Offline-capable browser prototype features a 1420 Tábor community-defense chapter, a separate 1872 Knights and Daughters of Tabor civic chapter, and a jointly unlocked historical archive puzzle. Historical era links are clearly identified as creative fiction. Validate rules with `node app-factory/games/crowning-jewel.test.cjs`. The actual cloud/native app builds and store submissions remain future tasks.
+
+## ONE — The Last App
+An independent universal personal OS project that can replace supported life modules or connect to other services with user grants. [Open ONE](./one/index.html) · [Architecture & constraints](./one/ONE-TECHNICAL-BUILD.md) · `node app-factory/one/one.test.cjs`. This is a local browser prototype, not an app with unrestricted access to all installed iPhone/Android apps.
