@@ -26,4 +26,6 @@
 | TaborTales | concept | Character/story/mount-basin/school vertical slice specified; original art in private package |
 | Work handoff | working | Public `WORK_BUILD_HANDOFF.md`, detailed private ZIP prepared in chat |
 
+| 1420: The Crowning Jewel | prototype | `app-factory/games/crowning-jewel.html`; two playable campaigns, cross-century archive, 12 self-tests passing; no complete production game yet |
+
 **Work's task:** Update this document after each milestone with exact tests, URLs/PRs, blockers, and account approvals. Do not claim an outside action completed based on plan text alone.
