@@ -67,3 +67,11 @@ A repo audit, green CI, working secure staging login, private two-account isolat
 
 **Immediate action for Work:** import this private archive into secure user-specific catalog tables without merging source identities; implement relational edge graph connected to a permissioned TABOR-ROOT for accounts, vault assets, version provenance, history research, AI interchange, and publishing/builds. Per-app stories, asset rights, owners, edits, revenue, release gates and historic eras remain sovereign. Label mythology/faith/fiction and historical facts separately; review dates and source evidence. Public `app-factory/root-constellation.html` is a local-only reader that contains no private idea list. **Never push the private idea catalog to public GitHub without explicit approval.** See `GAP_REGISTER.json` for implementation order.
 
+
+## ONE — THE LAST APP (separate flagship personal OS product)
+**Product:** ONE by Nathan Tabor, personal operating system and permissioned app-orchestration shell. **Keep ONE independent from TABOR 1-2-3 FACTORY**, sharing only approved root infrastructure/assets. The 101–901 ONE architecture codes (frontend, orchestration, vault, workflows, cloud, identity, payments, AI router, native OS bridge) are distinct from Factory's 101–901 creative-history category numbers.
+
+**Prototype:** `app-factory/one/index.html` and `one.js`; 26 A–Z life domains, 19 provider descriptions, local tasks/notes/events, DO bar, Morning/Work/Sleep local flows, export, Zero Mode and action history. Connections to banking, health, communication and installed apps are **not live**. DO NOT claim any real transactions, background OS control, deep scanning or granted OAuth. Document: `app-factory/one/ONE-TECHNICAL-BUILD.md`. Engine tests: `node app-factory/one/one.test.cjs`.
+
+**Build priority:** SwiftUI app + Android Compose shell, private user account, signed-in tenant isolation, EventKit, HealthKit and document picker with individual permissions, Android equivalents, OAuth approved connectors, consent expiration/revoke UI, user-confirmed action plans and durable audit. Only native OS/public APIs allowed; iOS/Android cannot arbitrarily control every installed app. Read whole technical handoff and update Work status as integrations actually pass tests.
+
