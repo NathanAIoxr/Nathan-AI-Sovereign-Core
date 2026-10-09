@@ -30,4 +30,6 @@
 
 | 101–901 Root Constellation | prototype | Public local JSON importer, private ZIP of 496 new concepts / 101 original games / 150 prior records; secure hosted registry not connected |
 
+| ONE — The Last App | prototype | `app-factory/one/index.html` and `one.js`; A–Z domains, local flows, DO commands; **no external app/financial/health access** |
+
 **Work's task:** Update this document after each milestone with exact tests, URLs/PRs, blockers, and account approvals. Do not claim an outside action completed based on plan text alone.
