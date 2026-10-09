@@ -28,4 +28,6 @@
 
 | 1420: The Crowning Jewel | prototype | `app-factory/games/crowning-jewel.html`; two playable campaigns, cross-century archive, 12 self-tests passing; no complete production game yet |
 
+| 101–901 Root Constellation | prototype | Public local JSON importer, private ZIP of 496 new concepts / 101 original games / 150 prior records; secure hosted registry not connected |
+
 **Work's task:** Update this document after each milestone with exact tests, URLs/PRs, blockers, and account approvals. Do not claim an outside action completed based on plan text alone.
