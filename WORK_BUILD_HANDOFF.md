@@ -75,3 +75,18 @@ A repo audit, green CI, working secure staging login, private two-account isolat
 
 **Build priority:** SwiftUI app + Android Compose shell, private user account, signed-in tenant isolation, EventKit, HealthKit and document picker with individual permissions, Android equivalents, OAuth approved connectors, consent expiration/revoke UI, user-confirmed action plans and durable audit. Only native OS/public APIs allowed; iOS/Android cannot arbitrarily control every installed app. Read whole technical handoff and update Work status as integrations actually pass tests.
 
+
+
+## V1.0 MASTER PYTHON SEED — PRIVATE COMPANION FILES
+
+The creator provided a 22-section Python master specification for TABOR 1-2-3 FACTORY and ONE, including:
+- Exact XY canon: `XY = GROUNDED (X) WITH WANDER (Y)`, `3 + 1 = 4`, fifth `UNDETERMINED / WHO YOU ARE`, `X = MORAL ABSOLUTES`, `Y = WHY AREN'T MORAL ABSOLUTES ENFORCED`, and `ESTABLISH PEACE AND ORDER`.
+- Three sovereign states (positive, negative, neutral), symbolic negative scale and conceptual matrix.
+- ONE's A-Z life domains, nine distinct technical layers (101-901) and explicit consent-based connectors.
+- TABOR WORLD, 404 target characters, independent Healers & Protectors and archived Maters & Taters, TaborTales, Project Innocence/ACT, Name in the Stars, books, product concepts, creative policies and six build phases.
+
+**Private handoff:** `TABOR_MASTER_V1_WORK_HANDOFF.zip` is available in the creator's ChatGPT conversation. It contains an executable Python seed exporter, `tabor_master_database.json`, `tabor_work_build_brief.md`, validation and namespace-reconciliation JSON, and snapshots of earlier inventory catalogs. It does NOT automatically contain every historic image or conversation and is not a production app. The generated exporter is a faithful structured reconstruction, NOT a byte-for-byte copy of the creator's original pasted Python.
+
+**Mandatory identity guard:** The creator's flagship IDs `TW001–TW008` in this V1 script must **not replace** original inventory `TW-001–TW-101`. Maintain cross-references or aliases. Likewise `one:layer:101` must remain distinct from `factory:category:101`. No existing original files, game titles, or rights metadata should be destroyed, conflated, or silently rewritten.
+
+**Next Work task:** Ingest the private V1 ZIP alongside the earlier private full-build and 101-901 packages; cross-check against the creator's original pasted Python and preserve any source details not captured in the reconstructed seed. Extend database migrations and write tests before importing catalog records. Keep all private archives out of public GitHub without explicit authorization.
