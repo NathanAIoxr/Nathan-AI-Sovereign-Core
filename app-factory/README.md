@@ -28,3 +28,18 @@
 
 ## iPhone quick launch
 After deploying the dashboard to a website, open it in Safari > Share > Add to Home Screen.
+
+
+## Universal Creator Vault (implemented local prototype)
+- Open `vault.html` (also linked in Factory Home, Settings and top navigation).
+- Import original media, documents, code and other files using the iPhone file chooser.
+- Supports Factory starter ZIP packs and ChatGPT `conversations.json` / export ZIP where supported by the browser. Large/compressed archives may need extraction in iPhone Files.
+- Original bytes live in **browser IndexedDB** with search, type/project filters, thumbnails, preview, tags, duplicate detection, downloads, and links to Factory Projects.
+- Keep an original ZIP backup; **Export Vault Index** saves metadata only, not the actual image/video bytes.
+- Reimport files or updated ChatGPT exports for ongoing work. Identical imports are skipped; changed ChatGPT conversations can be retained as new revisions.
+- **Other users:** each person can use the prototype in their own browser profile; accounts, multi-user isolation, cloud backup, provider OAuth, recurring background sync and shared team workspaces are **not yet connected**. On a shared browser profile, local data is not private from other people using that profile.
+- No private personal media are copied to this **public GitHub repository** by the local importer.
+- Full security, service adapters, scopes, cloud architecture and acceptance tests: [UNIVERSAL-CREATOR-VAULT.md](./UNIVERSAL-CREATOR-VAULT.md).
+
+## What is not yet automated
+There is no server-side access to all of a user's past ChatGPT chats or ChatGPT Library imagery via this public website; users must provide an export or compatible files. The Factory cannot silently access other people's files or auto-publish them. A production user account and explicit, scoped authorization are prerequisites for online/cloud synchronization.
