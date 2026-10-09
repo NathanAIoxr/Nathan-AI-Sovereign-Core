@@ -15,6 +15,13 @@
     'field','field','road','marsh','field',
     'hill','field','road','field','hill'
   ];
+  const ARCHIVE_QUESTIONS=[
+    {question:'The fortified settlement central to the 1420 chapter was in which region?',answers:['Bohemia','Missouri','Mississippi'],correct:0,explain:'Tábor is in historic Bohemia, now in the Czech Republic.'},
+    {question:'Who founded the American Knights and Daughters of Tabor in 1872?',answers:['Moses Dickson','Jan Žižka','John Wycliffe'],correct:0,explain:'Rev. Moses Dickson founded the African American fraternal order in Independence, Missouri.'},
+    {question:'Which location inspired the American order’s name?',answers:['Biblical Mount Tabor','Fortress Tábor in Bohemia','A medieval European guild'],correct:0,explain:'According to the museum research, the order’s name refers to Mount Tabor in the biblical Book of Judges. A direct organizational link to Bohemia has not been documented.'},
+    {question:'What numbers appeared on the fraternal jewel and in the elaborate 1899 publication title?',answers:['777 and 333','1420 and 1872','12 and 25 only'],correct:0,explain:'The symbols 777 and 333 appear with the twelve-pointed emblem, and the 1899 Dickson publication title uses them.'},
+    {question:'What completes the fictional Crowning Jewel mission?',answers:['Safeguarding people and creating enduring support','Erasing the nineteenth-century timeline','Claiming both groups fought side by side in 1420'],correct:0,explain:'This original cross-century story honors lasting protection and mutual aid without inventing a literal historic alliance.'}
+  ];
   const actionCosts={
     fortify:'2 timber; choose a location on the board',
     rescue:'2 stores; shelter two residents',
@@ -183,16 +190,19 @@
     test('Legacy funds may be earned',()=>{let x=legacyAction(makeLegacy(),'fundraise');assert(x.state.treasury===9,'Fundraising failed')});
     test('Legacy rejects unaffordable action',()=>{let s=makeLegacy();s.treasury=0;let x=legacyAction(s,'care');assert(!x.accepted&&x.state.turn===1,'Unexpected cost')});
     test('Legacy may achieve victory',()=>{let s=makeLegacy();for(const action of ['fundraise','aid','school','care','fundraise','outreach','constitution','aid']){const r=legacyAction(s,action);assert(r.accepted,'Rejected '+action);s=r.state}assert(s.over&&s.result==='victory','Expected victory')});
+    test('Archive has five unique supported-answer clues',()=>{assert(ARCHIVE_QUESTIONS.length===5,'Wrong number of clues');assert(ARCHIVE_QUESTIONS.every(q=>q.answers.length>=3&&q.correct>=0&&q.correct<q.answers.length),'Invalid clue')});
     test('Defense timeline terminates',()=>{let s=makeDefense('story');for(let n=0;n<10;n++){let r=defenseAction(s,'rescue');if(!r.accepted)r=defenseAction(s,'gather');if(!r.accepted)r=defenseAction(s,'scout');s=r.state;if(s.over)break}assert(s.over,'Did not terminate')});
     return tests;
   }
-  const ENGINE={makeDefense,defenseAction,makeLegacy,legacyAction,runTests,constants:{SIZE,CORE,MAX_TURNS,LEGACY_TURNS,TERRAINS,actionCosts,legacyActions}};
+  const ENGINE={makeDefense,defenseAction,makeLegacy,legacyAction,runTests,archiveQuestions:ARCHIVE_QUESTIONS,constants:{SIZE,CORE,MAX_TURNS,LEGACY_TURNS,TERRAINS,actionCosts,legacyActions}};
   root.CrowningJewelEngine=ENGINE;
 
   if(typeof document==='undefined'||!document.getElementById('cj-board'))return;
 
   const $=id=>document.getElementById(id);
   let state=makeDefense(),mode='defense',chosen='fortify';
+  let archiveStage=0;
+
   const buttons=['fortify','rescue','gather','council','scout'];
   const labelTerrain={hill:'⛰',field:'🌾',road:'▫',marsh:'≈'};
   function pushStatus(message){$('cj-status').textContent=message}
@@ -210,7 +220,7 @@
     const result=mode==='defense'?defenseAction(state,action,spot):legacyAction(state,action);
     if(!result.accepted){pushStatus(result.message);return}
     state=result.state;
-    if(state.over){saveTopScore('cj_best_'+mode,score(state));$('cj-finale').hidden=false;$('cj-finale').textContent=state.result==='victory'?'MISSION COMPLETE · '+state.log[0]:'CHAPTER COMPLETE · '+state.log[0]}
+    if(state.over){saveTopScore('cj_best_'+mode,score(state));if(state.result==='victory'){try{localStorage.setItem('cj_completed_'+mode,'1')}catch(e){}}$('cj-finale').hidden=false;$('cj-finale').textContent=state.result==='victory'?'MISSION COMPLETE · '+state.log[0]:'CHAPTER COMPLETE · '+state.log[0]}
     render();pushStatus(result.message);
   }
   function drawBoard(){
@@ -260,6 +270,38 @@
     const log=$('cj-log');log.replaceChildren();
     state.log.slice(0,6).forEach(l=>log.append(create('li','',l)));
   }
+  function archiveReady(){
+    try{return localStorage.getItem('cj_completed_defense')==='1'&&localStorage.getItem('cj_completed_legacy')==='1'}catch(e){return false}
+  }
+  function renderArchive(){
+    const ready=archiveReady();
+    $('cj-archive').hidden=!ready;
+    $('cj-unlock').textContent=ready?'Unlocked: complete the five archival clues to earn the Crowning Jewel. This connects stories through documented shared symbolism and a fictional portal.':'Locked: earn a victory in both the 1420 and 1872 chapters.';
+    if(!ready)return;
+    const box=$('cj-archive-options');box.replaceChildren();
+    if(archiveStage>=ARCHIVE_QUESTIONS.length){
+      $('cj-archive-title').textContent='♛ The Crowning Jewel restored';
+      $('cj-archive-question').textContent='Two distinct historical chapters are now connected by an original story about protecting innocence and building lasting community institutions.';
+      $('cj-archive-feedback').textContent='ARCHIVE COMPLETED · Your jewel is preserved on this device.';
+      try{localStorage.setItem('cj_archive_completed','1')}catch(e){}
+      return;
+    }
+    const q=ARCHIVE_QUESTIONS[archiveStage];
+    $('cj-archive-title').textContent='Archive clue '+(archiveStage+1)+' / '+ARCHIVE_QUESTIONS.length;
+    $('cj-archive-question').textContent=q.question;
+    $('cj-archive-feedback').textContent='Choose the historically supported answer.';
+    q.answers.forEach((answer,index)=>{
+      const button=create('button','cj-action',answer);
+      button.onclick=()=>{
+        if(index===q.correct){
+          archiveStage++;
+          renderArchive();
+          if(archiveStage<ARCHIVE_QUESTIONS.length)$('cj-archive-feedback').textContent=q.explain+' Next clue unlocked.';
+        }else $('cj-archive-feedback').textContent='Not quite. Try again: '+q.explain;
+      };
+      box.append(button);
+    });
+  }
   function render(){
     $('cj-siege').hidden=mode!=='defense';
     $('cj-civic').hidden=mode!=='legacy';
@@ -280,7 +322,7 @@
       ].join(' · '));
       val('cj-best',readTopScore('cj_best_legacy'));
     }
-    drawActions();drawLog();
+    drawActions();drawLog();renderArchive();
     val('cj-objective',mode==='defense'?'Protect Tábor through ten turns and shelter at least four of six residents. Fortify the approaches, coordinate supplies, scout or negotiate.':'By turn eight, create aid, education and care programs; serve at least six members, and preserve community trust.');
     $('cj-finale').hidden=!state.over;
     if(state.over)$('cj-finale').textContent=state.result==='victory'?'MISSION COMPLETE · '+state.log[0]:'CHAPTER COMPLETE · '+state.log[0];
@@ -293,6 +335,7 @@
   $('cj-defense-tab').onclick=()=>switchMode('defense');
   $('cj-legacy-tab').onclick=()=>switchMode('legacy');
   $('cj-restart').onclick=()=>switchMode(mode);
+  $('cj-archive-reset').onclick=()=>{archiveStage=0;renderArchive()};
   $('cj-difficulty').onchange=()=>{if(mode==='defense')switchMode('defense')};
   $('cj-tests').onclick=()=>{const report=runTests();const failures=report.filter(x=>!x.passed);pushStatus('Self-tests: '+(report.length-failures.length)+'/'+report.length+' passed'+(failures.length?'. '+failures.map(x=>x.name+': '+x.error).join('; '):'.'))};
   render();
