@@ -43,3 +43,7 @@ After deploying the dashboard to a website, open it in Safari > Share > Add to H
 
 ## What is not yet automated
 There is no server-side access to all of a user's past ChatGPT chats or ChatGPT Library imagery via this public website; users must provide an export or compatible files. The Factory cannot silently access other people's files or auto-publish them. A production user account and explicit, scoped authorization are prerequisites for online/cloud synchronization.
+
+
+## 1420: The Crowning Jewel
+Play: [1420: The Crowning Jewel](./games/crowning-jewel.html). Source: [game engine](./games/crowning-jewel.js) and [historical blueprint](./games/CROWNING-JEWEL-BLUEPRINT.md). Offline-capable browser prototype features a 1420 Tábor community-defense chapter, a separate 1872 Knights and Daughters of Tabor civic chapter, and a jointly unlocked historical archive puzzle. Historical era links are clearly identified as creative fiction. Validate rules with `node app-factory/games/crowning-jewel.test.cjs`. The actual cloud/native app builds and store submissions remain future tasks.
