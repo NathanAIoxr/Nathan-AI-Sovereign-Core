@@ -12,10 +12,10 @@ Status: working browser-game prototype with two original campaigns, not commerci
 
 ## Implemented prototype
 * Play: `crowning-jewel.html` within this folder.
-* Logic: `crowning-jewel.js`, self-tested with 11 checks.
+* Logic: `crowning-jewel.js`, self-tested with 12 checks.
 * Mode A: ten-turn 5×5 Tábor defense-and-rescue puzzle. Protect the center, shelter four of six residents, coordinate timber, supplies and community cohesion. Options: fortify with an abstract protective wagon, rescue, gather, council and scout.
 * Mode B: eight-turn 1872 fraternal civic challenge. Establish mutual-aid, education and community-care programs; serve members and preserve trust.
-* Each campaign has restart, event log, outcomes and local scores.
+* Each campaign has restart, event log, outcomes and local scores. Winning both campaigns unlocks a five-clue 1899-themed archival puzzle about the shared name, historical distinctions, and the 777/333 symbols.
 * This is strategic abstraction, not an accurate battlefield reenactment.
 
 ## Historical references and accuracy
