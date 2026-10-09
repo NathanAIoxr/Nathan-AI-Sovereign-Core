@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#13181c">
+<link rel="manifest" href="../manifest.webmanifest"><link rel="icon" href="../icon.svg">
+<title>1420 · THE CROWNING JEWEL | TABOR 1-2-3 FACTORY</title>
+<style>
+:root{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color-scheme:dark;--bg:#101418;--panel:#1b2227;--elev:#252e33;--rule:#374347;--ink:#f6f2e7;--muted:#b9bcb4;--amber:#e7bd75;--mint:#a8d1a9;--red:#dc8b7d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 60% -15%,#3f3026 0,transparent 34%),var(--bg);color:var(--ink)}main{max-width:1020px;margin:0 auto;padding:18px 16px 96px}p{line-height:1.55;color:var(--muted)}h1{font-size:clamp(2rem,7vw,4.2rem);font-weight:850;line-height:1.02;letter-spacing:-.04em;margin:16px 0 14px}h2{font-size:clamp(1.25rem,4vw,1.7rem);margin:0 0 8px;letter-spacing:-.02em}h3{font-size:1.05rem;margin:8px 0;color:var(--ink)}small,.muted{color:var(--muted)}a{color:#eccc95}a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid #f7d8a1;outline-offset:3px}
+header{display:flex;justify-content:space-between;align-items:center;gap:14px}.eyebrow{color:var(--amber);font-weight:700;letter-spacing:.11em;text-transform:uppercase;font-size:.75rem}.symbol{font-size:3rem;filter:drop-shadow(0 6px 10px #0007)}
+section{margin:18px 0}.hero{border:1px solid #796448;border-radius:22px;background:linear-gradient(145deg,#27251f,#162024 60%,#1a2625);padding:clamp(18px,4vw,30px);position:relative;overflow:hidden}.hero:after{content:"✦";position:absolute;right:-36px;bottom:-95px;font-size:18rem;color:#e7bd750b;pointer-events:none}.hero p{max-width:680px;position:relative}.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}.card{border:1px solid var(--rule);border-radius:17px;background:var(--panel);padding:16px}.row{display:flex;flex-wrap:wrap;align-items:center;gap:9px}.between{justify-content:space-between}.pill{display:inline-block;border:1px solid #77705b;color:var(--amber);padding:6px 11px;border-radius:60px;font-size:.76rem;line-height:1.2}.statboard{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.stat{background:var(--elev);border:1px solid #425157;border-radius:12px;padding:10px}.stat strong{display:block;font-size:clamp(1.3rem,4.5vw,1.8rem);font-variant-numeric:tabular-nums;margin-top:4px}.stat small{font-size:.77rem}.topstat{display:flex;gap:10px;align-items:center}
+button,.btn,select{font:inherit;border:1px solid #5f6c6c;border-radius:11px;background:#253338;color:var(--ink);padding:11px 14px;cursor:pointer}button[disabled]{opacity:.5;cursor:not-allowed}.primary{background:var(--amber);color:#201710;border-color:#f0ca8e;font-weight:800}.ghost{background:transparent}.btn{text-decoration:none;display:inline-block}.tab[aria-selected="true"],.cj-action.active{background:var(--amber);color:#211b14;border-color:var(--amber);font-weight:800}select{max-width:210px}.controlbar{display:flex;gap:10px;flex-wrap:wrap}.layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(270px,.9fr);gap:15px}.board{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;width:100%;max-width:505px;margin:auto}.cj-tile{aspect-ratio:1;padding:2px;border-radius:13px;background:linear-gradient(145deg,#465644,#293c34);font-size:clamp(1.2rem,5vw,2.15rem);position:relative;display:flex;align-items:center;justify-content:center;min-width:0}.cj-tile span{line-height:1}.cj-tile small{position:absolute;bottom:4px;right:5px;border-radius:4px;background:#171c1bce;padding:1px 4px;font-size:.6rem;color:white}.cj-tile.wet{background:linear-gradient(145deg,#344b55,#223b43)}.cj-tile.core{background:#70592b;border-color:#efc986;box-shadow:0 0 0 2px #e2b86b44 inset}.cj-tile.fort{background:#345e66;border-color:#9fced1}.cj-tile.threat{background:#673c3b;border-color:#e5a29a}.cj-tile:hover:not([disabled]){filter:brightness(1.15)}.boardlegend{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;font-size:.75rem;color:var(--muted);margin-top:13px}.actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.cj-action{min-height:51px;font-size:.91rem}.notice{border-left:3px solid var(--amber);background:#312a21;border-radius:6px;padding:12px;color:#e6dbc9}.status{padding:12px;border:1px solid #475a55;border-radius:11px;background:#23312f;color:#e2f6e6;font-weight:600;min-height:50px}.final{background:#3d3420;border:1px solid var(--amber);padding:14px;border-radius:13px;color:#ffdda5;font-weight:800}.archive{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.archive .card{min-width:0}.source-list{padding-left:20px;line-height:1.8}.source-list a{overflow-wrap:anywhere}ol{line-height:1.65;color:var(--muted)}#cj-log{margin-bottom:0;padding-left:18px}#cj-log li{padding-bottom:7px;border-bottom:1px solid #ffffff11;margin-bottom:7px}footer{font-size:.76rem;color:#919b98;line-height:1.55;margin-top:25px}.warning{font-size:.86rem}.crown{font-size:2.8rem;line-height:1}.mutedlabel{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+@media(max-width:720px){.layout{grid-template-columns:1fr}.archive{grid-template-columns:1fr}.split{grid-template-columns:1fr}main{padding:12px 12px 80px}.hero{border-radius:15px}.board{gap:5px}.cj-tile{border-radius:9px}.card{padding:13px}.statboard{gap:6px}.stat{padding:9px}.actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head>
+<body><main>
+<header><a class="btn ghost" href="../index.html">← TABOR FACTORY</a><span class="eyebrow">World archive · Game 1420</span></header>
+<section class="hero">
+  <div class="row between"><span class="pill">HISTORICAL FICTION · STRATEGY / RESTORATION</span><div class="crown" aria-hidden="true">♛</div></div>
+  <h1>1420<br>THE CROWNING JEWEL</h1>
+  <p>Two centuries. One shared name. Two distinct histories. Build a refuge in medieval Bohemia, then build a legacy of mutual aid in nineteenth-century America.</p>
+  <div class="row"><span class="pill">Tábor · Bohemia · 1420</span><span class="pill">Moses Dickson · Missouri · 1872</span><span class="pill">Playable prototype</span></div>
+</section>
+<section class="card">
+  <div class="row between"><h2>Choose your chapter</h2><span class="pill">5 × 5 Strategy Matrix</span></div>
+  <div class="controlbar" role="tablist" aria-label="Game chapters">
+    <button id="cj-defense-tab" role="tab" aria-selected="true" class="tab">1420 · Siege of Tábor</button>
+    <button id="cj-legacy-tab" role="tab" aria-selected="false" class="tab">1872 · Knights & Daughters</button>
+  </div>
+  <p><strong id="cj-chapter">1420 · Protect the settlement</strong> · Turn <strong id="cj-turn">1/10</strong> · Best score <strong id="cj-best">0</strong></p>
+  <p id="cj-objective">Protect the settlement.</p>
+  <div class="row"><button class="ghost" id="cj-restart">↻ Restart chapter</button>
+  <label id="cj-difficulty-label">Mode <select id="cj-difficulty"><option value="standard">Standard</option><option value="story">Story · gentler</option></select></label>
+  <button class="ghost" id="cj-tests">Run game checks</button></div>
+</section>
+<section class="layout" id="cj-siege">
+ <div class="card">
+  <h2>Wagenburg · Settlement Defense</h2><p class="muted">Click a square to position a protective wagon. On each turn, threats move one square toward the town center. Your goal is to shelter residents and keep the city standing.</p>
+  <div id="cj-board" class="board" role="group" aria-label="Five by five abstract defense board"></div>
+  <div class="boardlegend"><span>🏰 Town</span><span>🛡️ Wagon</span><span>⚑ Approaching force</span><span>≈ Marsh</span><span>🌾 Field</span></div>
+ </div>
+ <div class="card">
+  <h2>Community Resources</h2><div class="statboard">
+   <div class="stat"><small>Town integrity</small><strong id="cj-integrity">7</strong></div>
+   <div class="stat"><small>Residents sheltered</small><strong id="cj-saved">0/6</strong></div>
+   <div class="stat"><small>Timber</small><strong id="cj-wood">7</strong></div>
+   <div class="stat"><small>Stores</small><strong id="cj-stores">6</strong></div>
+   <div class="stat"><small>Cohesion</small><strong id="cj-cohesion">5</strong></div>
+   <div class="stat"><small>Approaching groups</small><strong id="cj-threats">2</strong></div>
+  </div>
+  <h3>Choose a turn action</h3><div id="cj-actions" class="actions"></div>
+  <p class="muted warning">To build a wagon, select Fortify and tap an unoccupied square within two spaces of the town. The other action buttons act immediately. This is an abstract strategy game—not an instruction manual for weapon use.</p>
+ </div>
+</section>
+<section class="card" id="cj-civic" hidden>
+  <h2>Found a mutual-aid network · 1872</h2>
+  <p>The nineteenth-century International Order of Twelve of Knights and Daughters of Tabor was an African American fraternal and mutual-benefit organization founded by Moses Dickson in Missouri. This chapter is a fictional civic strategy inspired by its documented service mission.</p>
+  <div class="statboard">
+   <div class="stat"><small>Treasury</small><strong id="cj-funds">6</strong></div>
+   <div class="stat"><small>Public trust</small><strong id="cj-trust">4</strong></div>
+   <div class="stat"><small>Members</small><strong id="cj-members">3</strong></div>
+   <div class="stat"><small>Members served</small><strong id="cj-served">0</strong></div>
+  </div>
+  <p id="cj-programs">Aid 0 · Education 0 · Care 0</p>
+  <h3>Build your institutions</h3><p>Develop sickness and death benefits, learning opportunities, community care, fair governance and shared resources. This is a noncombat chapter.</p>
+  <div id="cj-civic-actions-note" class="muted">Choose actions below to advance the chapter.</div>
+</section>
+<section class="card">
+  <h2>Command & Community Council</h2>
+  <div class="row" id="cj-shared-actions-label"></div>
+  <p id="cj-status" class="status" role="status" aria-live="polite">The Tábor chapter has begun. Select an action.</p>
+  <div id="cj-finale" class="final" hidden aria-live="polite"></div>
+  <h3>Chapter dispatches</h3>
+  <ol id="cj-log" aria-live="polite"></ol>
+</section>
+<section>
+ <h2>Campaign timeline · source versus story</h2>
+ <div class="archive">
+ <article class="card"><div class="eyebrow">1415–1434 · Bohemia</div><h3>Hussite movement and Tábor</h3><p>The fortified settlement of Tábor emerged in 1420. Jan Žižka led Hussite forces using wagon defenses and combined early firearms with familiar farm equipment. The Hussite factions were not always united.</p><span class="tag pill">Historical setting</span></article>
+ <article class="card"><div class="eyebrow">1872 · United States</div><h3>International Order of Twelve</h3><p>Moses Dickson founded the African American Knights and Daughters of Tabor in Independence, Missouri. It organized aid for members, with men and women participating in its governance.</p><span class="tag pill">Documented association</span></article>
+ <article class="card"><div class="eyebrow">1899 · Publication</div><h3>777 · Twelve · 333</h3><p>An 1899 work attributed to Moses Dickson uses the expanded title <em>International 777 Order of Twelve 333 of Knights and Daughters of Tabor</em>. The game uses the numbers as a fictional archive-puzzle motif.</p><span class="tag pill">Source-linked motif</span></article>
+ </div>
+</section>
+<section class="card">
+<h2>Forensic Archive · design rules</h2>
+<p>Your original concept sets an allegorical conflict of <strong>Táborite defenders versus papal-authorized crusading forces</strong>. The medieval wars are historical; assigning God and Satan to entire groups is a <strong>creative interpretation</strong>, not an established historical finding. Contemporary Catholics are not villains in this game.</p>
+<p>The story links Tábor and the Knights and Daughters through the name and a fictional archival gateway. The American organization was founded centuries later, in a different place and context; there is no documented shared army or literal 1420 alliance. Its name references biblical Mount Tabor, not a demonstrated organizational descent from medieval Tábor.</p>
+<details><summary>Original concept: military systems, engineering, and logistics</summary>
+<p>Wagenburg construction, community pooling, mixed civilian skills, movement restrictions, morale and dwindling supplies inspire the game abstractions. The original submitted report's detailed figures, material specifications and universal claims remain research hypotheses until independently sourced and reviewed. The playable mechanics intentionally omit real-world armament fabrication or combat instructions.</p>
+<p>Future levels: <strong>Sudoměř, Vítkov Hill, Kutná Hora, Lipany</strong>; historical source comparison; engineering puzzles; community rescue; event consequences; a 1872–1899 civic archival investigation; achievements that measure real protection, not simply enemy casualties.</p>
+</details>
+<h3>Historical research links</h3>
+<ul class="source-list">
+<li><a href="https://www.husitskemuzeum.cz/expozice-tabor-pevnost/" target="_blank" rel="noopener noreferrer">Hussite Museum in Tábor: the fortified settlement</a></li>
+<li><a href="https://www.worldhistory.org/Hussite_Wars/" target="_blank" rel="noopener noreferrer">World History Encyclopedia: Hussite Wars, campaigns and divisions</a></li>
+<li><a href="https://www.srmml.org/international-order-of-twelve/" target="_blank" rel="noopener noreferrer">Scottish Rite Masonic Museum & Library: Knights and Daughters of Tabor</a></li>
+<li><a href="https://books.google.com/books/about/International_777_Order_of_Twelve_333_of.html?id=_7xnLDOPHF8C" target="_blank" rel="noopener noreferrer">Moses Dickson: 1899 Order constitution/title, bibliographic record</a></li>
+</ul>
+</section>
+<footer>TABOR 1-2-3 FACTORY™ · 1420: The Crowning Jewel · browser-playable chapter prototype, not a finished commercially released game. Saved high scores are local to this browser and may be cleared with website data.</footer>
+</main><script src="./crowning-jewel.js" defer></script></body></html>
