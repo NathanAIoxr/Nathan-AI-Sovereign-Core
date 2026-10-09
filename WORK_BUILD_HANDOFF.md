@@ -47,3 +47,14 @@ The owner has also prepared a **private ~60 MB downloadable WORK build ZIP** in 
 A repo audit, green CI, working secure staging login, private two-account isolation test, demonstrable original-media import/dedupe and cross-project reuse, portable AI handoff import, detailed implementation status, plus the next production milestone PR. If no external service is connected, ship a tested mock integration with an honest BLOCKED tag; never claim production connection.
 
 **Source:** Creator direction and prototypes from October 9, 2026, with associated recovered originals in the private Work ZIP. No passwords, personal financial credentials or media originals are in this public document.
+
+
+## NEW GAME: 1420 — THE CROWNING JEWEL (committed Oct 9)
+**Status:** playable local-browser prototype, not a finished commercial game or historically complete simulation.
+**Open:** `app-factory/games/crowning-jewel.html`
+**Engine/tests:** `app-factory/games/crowning-jewel.js`, `app-factory/games/crowning-jewel.test.cjs`
+**Game blueprint:** `app-factory/games/CROWNING-JEWEL-BLUEPRINT.md`
+**Current play:** 5×5 turn-based Tábor 1420 settlement-defense and civilian-rescue, 1872 African American Knights and Daughters of Tabor mutual-aid civic builder, and a five-clue unlockable cross-century fictional Crowning Jewel archive puzzle using 1899 Dickson 777/333 imagery.
+**Research:** Tábor founded 1420, Jan Žižka's wagon-defense methods and Hussite divisions; separate Moses Dickson 1872 fraternal society in Independence, Missouri; 1899 Order publication; later Taborian Hospital. The 1872 association is NOT a military branch descended from the Czech Táborites; its name references biblical Mount Tabor. Historical evidence is cited in the game and blueprint.
+**Build next:** make core game part of Factory module registry, asset vault and cross-project publishing pipeline. Add original characters/world art, narrative and diplomacy, save slots, historic chapters Sudoměř/Vítkov Hill/Kutná Hora/Lipany, nineteenth-century benefit programs, 1899 manuscript and later care institution, source audit and educational mode. Preserve current action logic, run `node app-factory/games/crowning-jewel.test.cjs` and add end-to-end mobile browser tests. No real-world armament manufacturing instructions; roles and theological claims are perspectives, not established facts.
+**Package caveat:** This game was added **after** the earlier comprehensive Work ZIP. ChatGPT Work must pull current GitHub `main` as authoritative for 1420 alongside the original ZIP.
