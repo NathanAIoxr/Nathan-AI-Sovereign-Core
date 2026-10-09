@@ -32,4 +32,6 @@
 
 | ONE — The Last App | prototype | `app-factory/one/index.html` and `one.js`; A–Z domains, local flows, DO commands; **no external app/financial/health access** |
 
+| Nathan AI LET/TET/PPL | prototype | Independent v2 Python package in private conversation ZIP; 14 passing unit tests, original PPL source recovered; no trained AI or live model API yet |
+
 **Work's task:** Update this document after each milestone with exact tests, URLs/PRs, blockers, and account approvals. Do not claim an outside action completed based on plan text alone.
