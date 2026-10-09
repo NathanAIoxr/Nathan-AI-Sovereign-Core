@@ -1,0 +1,1743 @@
+{
+  "schema": "tabor123.role-atlas.v1",
+  "version": "2026-10-09",
+  "purpose": "Functional role comparison, not an assessment of someone's human worth or theological truth.",
+  "important": "Historical events, fictional narratives, religious claims and legends are explicitly distinguished. An attached link does not prove every interpretation; entries without links are starting points for research.",
+  "roles": [
+    "Hero",
+    "Savior",
+    "Messiah",
+    "Chosen One",
+    "Liberator",
+    "Protector",
+    "Reformer",
+    "Restorer",
+    "Teacher",
+    "Healer",
+    "Founder",
+    "Builder",
+    "Witness",
+    "Trickster",
+    "Antagonist",
+    "Villain",
+    "Adversary",
+    "Enabler",
+    "Oppressor",
+    "Survivor",
+    "Collective"
+  ],
+  "outcomes": [
+    "Verified eradication",
+    "Source of threat destroyed",
+    "Major structural change",
+    "Institutional reform",
+    "Specific rescue",
+    "Specific victory",
+    "Recurring loop",
+    "Unresolved",
+    "Awaited future",
+    "Narrative complex"
+  ],
+  "entries": [
+    {
+      "id": 1,
+      "era": "Ancient",
+      "region": "Mesopotamia",
+      "name": "Gilgamesh",
+      "kind": "Epic / legendary",
+      "labels": [
+        "King",
+        "hero",
+        "seeker"
+      ],
+      "method": "Confronts monsters and seeks immortality",
+      "result": "Unresolved",
+      "proof": "His quest for immortality fails in the epic",
+      "source": "https://www.britishmuseum.org/collection/object/W_K-231",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 2,
+      "era": "Ancient",
+      "region": "Mesopotamia",
+      "name": "Enkidu",
+      "kind": "Epic / legendary",
+      "labels": [
+        "Companion",
+        "challenger",
+        "ally"
+      ],
+      "method": "Confronts Gilgamesh, becomes friend",
+      "result": "Partial",
+      "proof": "Friendship changes Gilgamesh; mortality persists",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 3,
+      "era": "Ancient",
+      "region": "Mesopotamia",
+      "name": "Atrahasis",
+      "kind": "Mythic",
+      "labels": [
+        "Warning recipient",
+        "rescuer",
+        "survivor"
+      ],
+      "method": "Prepares boat during divine flood",
+      "result": "Limited rescue",
+      "proof": "Household and animals survive in the myth",
+      "source": "https://www.britishmuseum.org/collection/image/510209001",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 4,
+      "era": "Ancient",
+      "region": "Mesopotamia",
+      "name": "Enki / Ea",
+      "kind": "Mythic",
+      "labels": [
+        "Wisdom god",
+        "protector",
+        "helper"
+      ],
+      "method": "Warns flood survivor",
+      "result": "Limited rescue",
+      "proof": "Intervenes; flood's cause not abolished",
+      "source": "https://www.britishmuseum.org/collection/image/510209001",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 5,
+      "era": "Ancient",
+      "region": "Mesopotamia",
+      "name": "Inanna / Ishtar",
+      "kind": "Mythic",
+      "labels": [
+        "Goddess",
+        "sovereign",
+        "challenger"
+      ],
+      "method": "Descends to underworld; manifests political and cosmic power",
+      "result": "Narrative complex",
+      "proof": "Cannot reduce diverse traditions to pure hero or villain",
+      "source": "https://www.metmuseum.org/art/collection/search/30000538",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 6,
+      "era": "Ancient",
+      "region": "Mesopotamia",
+      "name": "Marduk",
+      "kind": "Mythic",
+      "labels": [
+        "Champion",
+        "divine king",
+        "cosmic orderer"
+      ],
+      "method": "Defeats Tiamat in Enuma Elish",
+      "result": "Mythic victory",
+      "proof": "An ordered cosmos is established in the narrative",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 7,
+      "era": "Ancient",
+      "region": "Mesopotamia",
+      "name": "Tiamat",
+      "kind": "Mythic",
+      "labels": [
+        "Primordial opponent",
+        "chaos figure"
+      ],
+      "method": "Opposes the younger gods in creation epic",
+      "result": "Defeated in myth",
+      "proof": "Not a historical person",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 8,
+      "era": "Ancient",
+      "region": "Egypt",
+      "name": "Osiris",
+      "kind": "Mythic",
+      "labels": [
+        "King",
+        "judge",
+        "renewal symbol"
+      ],
+      "method": "Slain then associated with afterlife",
+      "result": "Transformation",
+      "proof": "Death is reframed; not abolished",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 9,
+      "era": "Ancient",
+      "region": "Egypt",
+      "name": "Isis",
+      "kind": "Mythic",
+      "labels": [
+        "Restorer",
+        "mother",
+        "healer",
+        "protector"
+      ],
+      "method": "Protects Horus and restores Osiris",
+      "result": "Rescue and repair",
+      "proof": "Provides protection within mythic cycle",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 10,
+      "era": "Ancient",
+      "region": "Egypt",
+      "name": "Horus",
+      "kind": "Mythic",
+      "labels": [
+        "Heir",
+        "defender",
+        "rightful king"
+      ],
+      "method": "Contests Seth for kingship",
+      "result": "Specific victory",
+      "proof": "Kingship dispute addressed in myth; conflict not universal evil",
+      "source": "https://resources.metmuseum.org/resources/metpublications/pdf/The_Metropolitan_Museum_of_Art_Bulletin_v_25_no_7_March_1967.pdf",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 11,
+      "era": "Ancient",
+      "region": "Egypt",
+      "name": "Seth / Set",
+      "kind": "Mythic",
+      "labels": [
+        "Opponent",
+        "rival",
+        "sometimes protector"
+      ],
+      "method": "Contests Horus; also protects solar bark in traditions",
+      "result": "Context-dependent",
+      "proof": "Not always equivalent to absolute evil",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 12,
+      "era": "Ancient",
+      "region": "Egypt",
+      "name": "Hatshepsut",
+      "kind": "Historical",
+      "labels": [
+        "Pharaoh",
+        "king",
+        "ruler"
+      ],
+      "method": "Governs and sponsors major public works",
+      "result": "Historical legacy",
+      "proof": "Power and building evidenced; later memory partly erased",
+      "source": "https://www.metmuseum.org/met-publications/hatshepsut-from-queen-to-pharaoh",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 13,
+      "era": "Ancient",
+      "region": "Egypt",
+      "name": "Akhenaten",
+      "kind": "Historical",
+      "labels": [
+        "Pharaoh",
+        "religious reformer"
+      ],
+      "method": "Promotes Aten-centered worship",
+      "result": "Reversal",
+      "proof": "Major reforms largely overturned after reign",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 14,
+      "era": "Ancient",
+      "region": "Greek",
+      "name": "Prometheus",
+      "kind": "Mythic",
+      "labels": [
+        "Benefactor",
+        "transgressor",
+        "culture-bringer"
+      ],
+      "method": "Brings fire to humanity",
+      "result": "Enduring gift",
+      "proof": "Technology persists in myth; suffering does not end",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 15,
+      "era": "Ancient",
+      "region": "Greek",
+      "name": "Heracles / Hercules",
+      "kind": "Mythic",
+      "labels": [
+        "Hero",
+        "monster-slayer"
+      ],
+      "method": "Performs labors confronting particular dangers",
+      "result": "Specific victories",
+      "proof": "Many tasks completed; not universal abolition of evil",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 16,
+      "era": "Ancient",
+      "region": "Greek",
+      "name": "Perseus",
+      "kind": "Mythic",
+      "labels": [
+        "Rescuer",
+        "monster-slayer"
+      ],
+      "method": "Defeats Medusa; rescues Andromeda",
+      "result": "Specific victory",
+      "proof": "Threats solved at scene level",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 17,
+      "era": "Ancient",
+      "region": "Greek",
+      "name": "Theseus",
+      "kind": "Mythic",
+      "labels": [
+        "Hero",
+        "liberator",
+        "ruler"
+      ],
+      "method": "Kills Minotaur in Cretan narrative",
+      "result": "Specific victory",
+      "proof": "One threat removed; wider injustices remain",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 18,
+      "era": "Ancient",
+      "region": "Greek",
+      "name": "Athena",
+      "kind": "Mythic",
+      "labels": [
+        "Protector",
+        "strategist",
+        "justice figure"
+      ],
+      "method": "Supports heroes and cities",
+      "result": "Context-dependent",
+      "proof": "Patron role does not imply permanent peace",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 19,
+      "era": "Ancient",
+      "region": "Greek",
+      "name": "Zeus",
+      "kind": "Mythic",
+      "labels": [
+        "Supreme ruler",
+        "divine judge"
+      ],
+      "method": "Overthrows Titans, rules Olympians",
+      "result": "Regime change",
+      "proof": "Power structure replaced, strife continues",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 20,
+      "era": "Ancient",
+      "region": "Greek",
+      "name": "Hades",
+      "kind": "Mythic",
+      "labels": [
+        "Underworld ruler"
+      ],
+      "method": "Governs realm of dead",
+      "result": "Neutral / contested",
+      "proof": "Death deity should not automatically equal moral villain",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 21,
+      "era": "Ancient",
+      "region": "Greek",
+      "name": "Achilles",
+      "kind": "Epic / legendary",
+      "labels": [
+        "Warrior",
+        "champion"
+      ],
+      "method": "Fights in Trojan War",
+      "result": "Battlefield impact",
+      "proof": "Excellence in war does not end war",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 22,
+      "era": "Ancient",
+      "region": "Greek",
+      "name": "Odysseus",
+      "kind": "Epic / legendary",
+      "labels": [
+        "Survivor",
+        "strategist",
+        "trickster"
+      ],
+      "method": "Returns home through trials",
+      "result": "Personal victory",
+      "proof": "Household restored; wider conflict remains",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 23,
+      "era": "Ancient",
+      "region": "Rome",
+      "name": "Aeneas",
+      "kind": "Epic / legendary",
+      "labels": [
+        "Chosen founder",
+        "survivor"
+      ],
+      "method": "Escapes Troy, lays legendary foundations for Rome",
+      "result": "Foundational myth",
+      "proof": "Survival and settlement rather than abolition of violence",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 24,
+      "era": "Ancient",
+      "region": "Rome",
+      "name": "Julius Caesar",
+      "kind": "Historical",
+      "labels": [
+        "General",
+        "dictator",
+        "reformer"
+      ],
+      "method": "Conquers territory, centralizes power",
+      "result": "Regime transformation",
+      "proof": "Republican crisis continues after assassination",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 25,
+      "era": "Ancient",
+      "region": "Rome",
+      "name": "Augustus",
+      "kind": "Historical",
+      "labels": [
+        "Princeps",
+        "restorer",
+        "emperor"
+      ],
+      "method": "Reorganizes Roman rule",
+      "result": "Systemic change",
+      "proof": "Pax Romana is relative; imperial coercion persists",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 26,
+      "era": "Ancient",
+      "region": "Iran / Persia",
+      "name": "Zarathustra / Zoroaster",
+      "kind": "Religious / historical uncertain",
+      "labels": [
+        "Prophet",
+        "teacher",
+        "benefactor"
+      ],
+      "method": "Teaches ethical struggle and truth",
+      "result": "Teachings endure",
+      "proof": "Cosmic resolution belongs to theological expectation",
+      "source": "https://www.iranicaonline.org/articles/saosyant/",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 27,
+      "era": "Ancient",
+      "region": "Iran / Persia",
+      "name": "Saoshyant / Astvat-ereta",
+      "kind": "Future theological",
+      "labels": [
+        "Future benefactor",
+        "savior",
+        "renewer"
+      ],
+      "method": "Promised final defeat of evil and renewal",
+      "result": "Awaited final victory",
+      "proof": "A future eschatological expectation, not documented history",
+      "source": "https://www.iranicaonline.org/articles/astvat-ereta-savior/",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 28,
+      "era": "Ancient",
+      "region": "Iran / Persia",
+      "name": "Cyrus II / Cyrus the Great",
+      "kind": "Historical",
+      "labels": [
+        "King",
+        "liberator (some accounts)"
+      ],
+      "method": "Conquers Babylon; allows certain communities to return",
+      "result": "Partial institutional",
+      "proof": "Imperial policy changes but empire and coercion persist",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 29,
+      "era": "Ancient",
+      "region": "India",
+      "name": "Rama",
+      "kind": "Religious / epic",
+      "labels": [
+        "Avatar",
+        "king",
+        "hero"
+      ],
+      "method": "Confronts Ravana in Ramayana",
+      "result": "Mythic specific victory",
+      "proof": "Ravana defeated; story explores continuing duties",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 30,
+      "era": "Ancient",
+      "region": "India",
+      "name": "Sita",
+      "kind": "Religious / epic",
+      "labels": [
+        "Queen",
+        "survivor",
+        "moral exemplar"
+      ],
+      "method": "Survives abduction and scrutiny",
+      "result": "Endurance",
+      "proof": "Agency and treatment vary in readings",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 31,
+      "era": "Ancient",
+      "region": "India",
+      "name": "Hanuman",
+      "kind": "Religious / epic",
+      "labels": [
+        "Devotee",
+        "rescuer",
+        "ally"
+      ],
+      "method": "Finds Sita and aids Rama",
+      "result": "Specific rescue",
+      "proof": "Rescue achieved within epic",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 32,
+      "era": "Ancient",
+      "region": "India",
+      "name": "Krishna",
+      "kind": "Religious / epic",
+      "labels": [
+        "Avatar",
+        "guide",
+        "divine teacher"
+      ],
+      "method": "Guides Arjuna; intervenes in conflicts",
+      "result": "Teaching and conflict",
+      "proof": "Dharma teaching enduring; war still has costs",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 33,
+      "era": "Ancient",
+      "region": "India",
+      "name": "Arjuna",
+      "kind": "Religious / epic",
+      "labels": [
+        "Chosen warrior",
+        "disciple"
+      ],
+      "method": "Fights in Mahabharata conflict",
+      "result": "Pyrrhic victory",
+      "proof": "Victory carries enormous personal/social losses",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 34,
+      "era": "Ancient",
+      "region": "India",
+      "name": "Durga",
+      "kind": "Religious / mythic",
+      "labels": [
+        "Divine defender",
+        "goddess"
+      ],
+      "method": "Defeats Mahishasura",
+      "result": "Mythic victory",
+      "proof": "Demonstrates goddess's protective power",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 35,
+      "era": "Ancient",
+      "region": "India",
+      "name": "Kalki",
+      "kind": "Future theological",
+      "labels": [
+        "Avatar",
+        "world restorer"
+      ],
+      "method": "Expected to end Kali Yuga",
+      "result": "Awaited renewal",
+      "proof": "Do not classify future prophecy as historical result",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 36,
+      "era": "Ancient",
+      "region": "India",
+      "name": "Siddhartha Gautama / Buddha",
+      "kind": "Historical / religious",
+      "labels": [
+        "Awakened teacher",
+        "guide"
+      ],
+      "method": "Teaches path to liberation from suffering",
+      "result": "Teachings endure",
+      "proof": "Individual liberation central; suffering globally persists",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 37,
+      "era": "Ancient",
+      "region": "India",
+      "name": "Avalokiteshvara / Guanyin",
+      "kind": "Religious / mythic",
+      "labels": [
+        "Bodhisattva",
+        "compassion",
+        "helper"
+      ],
+      "method": "Heeds suffering beings",
+      "result": "Ongoing compassionate role",
+      "proof": "Not identical to Christian messiah",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 38,
+      "era": "Ancient",
+      "region": "India",
+      "name": "Ashoka",
+      "kind": "Historical",
+      "labels": [
+        "Emperor",
+        "patron",
+        "reformer"
+      ],
+      "method": "Promotes dharma after imperial violence",
+      "result": "Partial transformation",
+      "proof": "Edicts and governance changed; war/violence not eradicated",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 39,
+      "era": "Ancient",
+      "region": "India",
+      "name": "Mahavira",
+      "kind": "Historical / religious",
+      "labels": [
+        "Jina",
+        "spiritual teacher"
+      ],
+      "method": "Teaches nonviolence and liberation",
+      "result": "Teaching tradition",
+      "proof": "Individual spiritual practice, not universal completed reform",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 40,
+      "era": "Ancient",
+      "region": "China",
+      "name": "Yu the Great",
+      "kind": "Legendary",
+      "labels": [
+        "Flood-tamer",
+        "founder",
+        "culture hero"
+      ],
+      "method": "Redirects water through channels",
+      "result": "Legendary improvement",
+      "proof": "Myth emphasizes managing conditions over fighting a monster",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 41,
+      "era": "Ancient",
+      "region": "China",
+      "name": "Nüwa",
+      "kind": "Mythic",
+      "labels": [
+        "Creator",
+        "restorer",
+        "world-mender"
+      ],
+      "method": "Repairs damaged sky",
+      "result": "Mythic repair",
+      "proof": "Restores environment rather than abolishing all danger",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 42,
+      "era": "Ancient",
+      "region": "China",
+      "name": "Hou Yi",
+      "kind": "Mythic",
+      "labels": [
+        "Archer",
+        "savior figure"
+      ],
+      "method": "Shoots down excess suns",
+      "result": "Mythic rescue",
+      "proof": "Ends specified immediate cosmic peril",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 43,
+      "era": "Ancient",
+      "region": "China",
+      "name": "Sun Wukong / Monkey King",
+      "kind": "Literary / mythic",
+      "labels": [
+        "Trickster",
+        "fighter",
+        "pilgrim"
+      ],
+      "method": "Challenges celestial order; protects pilgrim",
+      "result": "Transformation",
+      "proof": "Moves from rebellion to discipline",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 44,
+      "era": "Ancient",
+      "region": "China",
+      "name": "Maitreya",
+      "kind": "Future theological",
+      "labels": [
+        "Future Buddha",
+        "teacher"
+      ],
+      "method": "Expected to teach in a future age",
+      "result": "Awaited future",
+      "proof": "Not historical completion",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 45,
+      "era": "Ancient",
+      "region": "China",
+      "name": "Confucius / Kongzi",
+      "kind": "Historical",
+      "labels": [
+        "Teacher",
+        "reformer"
+      ],
+      "method": "Advocates ethical government and relationships",
+      "result": "Teaching legacy",
+      "proof": "Systems of thought spread; injustice remains",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 46,
+      "era": "Ancient",
+      "region": "China",
+      "name": "Qin Shi Huang",
+      "kind": "Historical",
+      "labels": [
+        "Unifier",
+        "emperor"
+      ],
+      "method": "Standardizes administration, conquers states",
+      "result": "Regime change",
+      "proof": "Unification with major coercive costs",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 47,
+      "era": "Ancient",
+      "region": "Japan",
+      "name": "Amaterasu",
+      "kind": "Mythic",
+      "labels": [
+        "Sun deity",
+        "legitimacy figure"
+      ],
+      "method": "Restores light after seclusion",
+      "result": "Mythic restoration",
+      "proof": "Light returns; moral evil not extinguished",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 48,
+      "era": "Ancient",
+      "region": "Japan",
+      "name": "Susanoo",
+      "kind": "Mythic",
+      "labels": [
+        "Storm god",
+        "challenger",
+        "monster-slayer"
+      ],
+      "method": "Slays Yamata no Orochi",
+      "result": "Specific victory",
+      "proof": "Complex figure; order and disruption roles coexist",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 49,
+      "era": "Ancient",
+      "region": "Israel / Judea",
+      "name": "Moses",
+      "kind": "Religious / biblical",
+      "labels": [
+        "Prophet",
+        "liberator",
+        "lawgiver"
+      ],
+      "method": "Leads Exodus and gives law",
+      "result": "Narrative liberation",
+      "proof": "Departure from bondage not end of all oppression",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 50,
+      "era": "Ancient",
+      "region": "Israel / Judea",
+      "name": "Deborah",
+      "kind": "Religious / biblical",
+      "labels": [
+        "Judge",
+        "prophetess",
+        "leader"
+      ],
+      "method": "Leads Israelite resistance",
+      "result": "Specific victory",
+      "proof": "Temporary security in Judges narrative",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 51,
+      "era": "Ancient",
+      "region": "Israel / Judea",
+      "name": "Esther",
+      "kind": "Religious / biblical",
+      "labels": [
+        "Queen",
+        "protector",
+        "rescuer"
+      ],
+      "method": "Intervenes against planned destruction",
+      "result": "Specific rescue",
+      "proof": "A people survives; wider injustices remain",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 52,
+      "era": "Ancient",
+      "region": "Israel / Judea",
+      "name": "David",
+      "kind": "Religious / biblical",
+      "labels": [
+        "Anointed king",
+        "warrior"
+      ],
+      "method": "Confronts Goliath and becomes king",
+      "result": "Battle and rule",
+      "proof": "Goliath defeated; later political and moral conflict persists",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 53,
+      "era": "Ancient",
+      "region": "Israel / Judea",
+      "name": "Satan / the adversary",
+      "kind": "Religious / biblical",
+      "labels": [
+        "Accuser",
+        "tempter",
+        "adversary"
+      ],
+      "method": "Opposes or tests in different biblical contexts",
+      "result": "Text-dependent",
+      "proof": "Different biblical books and traditions use distinct portrayals",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 54,
+      "era": "Ancient",
+      "region": "Israel / Judea",
+      "name": "Jesus of Nazareth",
+      "kind": "Historical / religious",
+      "labels": [
+        "Christ",
+        "messiah",
+        "savior in Christianity"
+      ],
+      "method": "Teaches; crucified; resurrection is Christian faith claim",
+      "result": "Theological / historical split",
+      "proof": "Life and execution historical; salvation claims belong to theology",
+      "source": "https://www.biblegateway.com/passage/?search=John+14%3A10-12&version=KJV",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 55,
+      "era": "Ancient",
+      "region": "Early Christianity",
+      "name": "Revelation's final defeat of Satan",
+      "kind": "Religious / biblical",
+      "labels": [
+        "Eschatological adversary defeat"
+      ],
+      "method": "Revelation 20 describes Satan's final punishment",
+      "result": "Future narrative ending",
+      "proof": "Contradicts blanket claim biblical evil can never end",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 56,
+      "era": "Medieval",
+      "region": "Islamic traditions",
+      "name": "Muhammad",
+      "kind": "Historical / religious",
+      "labels": [
+        "Prophet",
+        "messenger",
+        "community founder"
+      ],
+      "method": "Preaches and establishes religious/political community",
+      "result": "Institutional change",
+      "proof": "Religious legacy lasting; conflict continues",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 57,
+      "era": "Medieval",
+      "region": "Islamic traditions",
+      "name": "Al-Mahdi",
+      "kind": "Future theological",
+      "labels": [
+        "Guided one",
+        "eschatological renewer"
+      ],
+      "method": "Expected to restore justice in differing traditions",
+      "result": "Awaited future",
+      "proof": "Do not merge Sunni and Shi'a interpretations indiscriminately",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 58,
+      "era": "Medieval",
+      "region": "Arab world",
+      "name": "Saladin",
+      "kind": "Historical",
+      "labels": [
+        "Sultan",
+        "military leader"
+      ],
+      "method": "Recaptures Jerusalem and governs",
+      "result": "Military and political",
+      "proof": "Specific conquest, not end of religious war",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 59,
+      "era": "Medieval",
+      "region": "West Africa",
+      "name": "Sundiata Keita",
+      "kind": "Historical / epic",
+      "labels": [
+        "Founder",
+        "liberator",
+        "emperor"
+      ],
+      "method": "Unifies Mali in epic and historical traditions",
+      "result": "Foundational regime",
+      "proof": "Empire founded; conflict and hierarchy persist",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 60,
+      "era": "Medieval",
+      "region": "West Africa",
+      "name": "Mansa Musa",
+      "kind": "Historical",
+      "labels": [
+        "Emperor",
+        "patron",
+        "pilgrim"
+      ],
+      "method": "Patronizes scholarship and trade",
+      "result": "Cultural development",
+      "proof": "Patronage is not rescue from all harm",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 61,
+      "era": "Ancient",
+      "region": "Yoruba traditions",
+      "name": "Ogun",
+      "kind": "Religious / mythic",
+      "labels": [
+        "Iron",
+        "craft",
+        "technology",
+        "war deity"
+      ],
+      "method": "Opens paths and symbolizes skilled action",
+      "result": "Ambivalent power",
+      "proof": "Tools protect or harm based on human use",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 62,
+      "era": "Ancient",
+      "region": "Yoruba traditions",
+      "name": "Oshun",
+      "kind": "Religious / mythic",
+      "labels": [
+        "River",
+        "care",
+        "diplomacy",
+        "fertility deity"
+      ],
+      "method": "Restores and sustains relationships",
+      "result": "Restorative role",
+      "proof": "Do not classify all natural power as villainous",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 63,
+      "era": "Ancient",
+      "region": "West African folklore",
+      "name": "Anansi",
+      "kind": "Folklore",
+      "labels": [
+        "Trickster",
+        "culture-bringer"
+      ],
+      "method": "Wins stories through wit",
+      "result": "Narrative achievement",
+      "proof": "Cunning can help or exploit",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 64,
+      "era": "Ancient",
+      "region": "Mesoamerica",
+      "name": "Quetzalcoatl",
+      "kind": "Religious / mythic",
+      "labels": [
+        "Feathered serpent",
+        "culture figure"
+      ],
+      "method": "Associated with wind, knowledge and sacred rulership",
+      "result": "Multiple traditions",
+      "proof": "Separate Aztec and other Mesoamerican variations",
+      "source": "https://www.smithsonianmag.com/history/the-mesoamerican-influences-behind-namor-from-black-panther-wakanda-forever-180981106/",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 65,
+      "era": "Ancient",
+      "region": "Maya traditions",
+      "name": "Kukulkan",
+      "kind": "Religious / mythic",
+      "labels": [
+        "Feathered serpent",
+        "deity"
+      ],
+      "method": "Royal and sacred symbolism",
+      "result": "Tradition-dependent",
+      "proof": "Function overlaps Quetzalcoatl; not automatically same full identity",
+      "source": "https://www.smithsonianmag.com/history/the-mesoamerican-influences-behind-namor-from-black-panther-wakanda-forever-180981106/",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 66,
+      "era": "Ancient",
+      "region": "K'iche' Maya",
+      "name": "Hunahpu and Xbalanque",
+      "kind": "Religious / mythic",
+      "labels": [
+        "Hero Twins",
+        "challengers"
+      ],
+      "method": "Confront Lords of Xibalba in Popol Vuh",
+      "result": "Mythic victory",
+      "proof": "Death-related powers outwitted; meaning text-specific",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 67,
+      "era": "Ancient",
+      "region": "Inca traditions",
+      "name": "Viracocha",
+      "kind": "Religious / mythic",
+      "labels": [
+        "Creator",
+        "civilizer"
+      ],
+      "method": "Creates/organizes world",
+      "result": "Creation",
+      "proof": "Creation is not equivalent to savior or villain defeat",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 68,
+      "era": "Ancient",
+      "region": "Polynesian traditions",
+      "name": "Māui",
+      "kind": "Mythic / folklore",
+      "labels": [
+        "Trickster",
+        "culture hero"
+      ],
+      "method": "Obtains fire and manipulates sun in traditions",
+      "result": "Specific gifts",
+      "proof": "Stories vary among islands and peoples",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 69,
+      "era": "Ancient",
+      "region": "Norse traditions",
+      "name": "Thor",
+      "kind": "Mythic",
+      "labels": [
+        "Protector",
+        "giant-opponent"
+      ],
+      "method": "Defends gods and humanity",
+      "result": "Recurring conflict",
+      "proof": "Ragnarök tradition has finite confrontation",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 70,
+      "era": "Ancient",
+      "region": "Norse traditions",
+      "name": "Loki",
+      "kind": "Mythic",
+      "labels": [
+        "Trickster",
+        "antagonist",
+        "shapeshifter"
+      ],
+      "method": "Helps and harms gods in different narratives",
+      "result": "Ambivalent",
+      "proof": "Cannot reduce early Loki to single pure-evil label",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 71,
+      "era": "Ancient",
+      "region": "Norse traditions",
+      "name": "Odin",
+      "kind": "Mythic",
+      "labels": [
+        "All-father",
+        "ruler",
+        "seeker"
+      ],
+      "method": "Seeks knowledge, prepares for Ragnarök",
+      "result": "Preparation",
+      "proof": "Foreknowledge does not avert Ragnarok in myth",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 72,
+      "era": "Ancient",
+      "region": "Norse traditions",
+      "name": "Baldr",
+      "kind": "Mythic",
+      "labels": [
+        "Beloved figure",
+        "loss and return"
+      ],
+      "method": "Dies and is expected to return after Ragnarök",
+      "result": "Renewal motif",
+      "proof": "New order follows catastrophe",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 73,
+      "era": "Medieval",
+      "region": "Britain / Arthurian",
+      "name": "King Arthur",
+      "kind": "Legendary",
+      "labels": [
+        "Once-and-future king",
+        "chosen ruler"
+      ],
+      "method": "Unites knights; confronts threats",
+      "result": "Legendary / cyclical",
+      "proof": "Camelot fails in many retellings",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 74,
+      "era": "Medieval",
+      "region": "Britain / Arthurian",
+      "name": "Merlin",
+      "kind": "Legendary",
+      "labels": [
+        "Mentor",
+        "wizard",
+        "prophet"
+      ],
+      "method": "Guides kingship and fate",
+      "result": "Advisory",
+      "proof": "Knowledge does not guarantee ethical outcomes",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 75,
+      "era": "Medieval",
+      "region": "France",
+      "name": "Joan of Arc",
+      "kind": "Historical",
+      "labels": [
+        "Military leader",
+        "visionary",
+        "saint"
+      ],
+      "method": "Contributes to French campaigns; executed",
+      "result": "Partial military impact",
+      "proof": "Later veneration does not equal completion of all conflict",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 76,
+      "era": "Medieval",
+      "region": "England",
+      "name": "William Wilberforce",
+      "kind": "Historical",
+      "labels": [
+        "Abolitionist",
+        "reformer"
+      ],
+      "method": "Campaigns against British slave trade and slavery",
+      "result": "Institutional reform",
+      "proof": "Key legislation passed; exploitation continues",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 77,
+      "era": "Early modern",
+      "region": "Americas",
+      "name": "Toussaint Louverture",
+      "kind": "Historical",
+      "labels": [
+        "Revolutionary",
+        "liberation leader"
+      ],
+      "method": "Leads Haitian emancipation struggle",
+      "result": "Partial foundational",
+      "proof": "Helped end slavery in changing revolutionary context; died before independence",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 78,
+      "era": "Early modern",
+      "region": "Americas",
+      "name": "Jean-Jacques Dessalines",
+      "kind": "Historical",
+      "labels": [
+        "Revolutionary ruler",
+        "liberator"
+      ],
+      "method": "Declares Haitian independence in 1804",
+      "result": "Systemic national change",
+      "proof": "Abolition and independence achieved; new harms and authoritarian power arise",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 79,
+      "era": "Modern",
+      "region": "United States",
+      "name": "Harriet Tubman",
+      "kind": "Historical",
+      "labels": [
+        "Liberator",
+        "rescuer",
+        "conductor"
+      ],
+      "method": "Personally guides enslaved people to safety; wartime intelligence",
+      "result": "Documented rescues",
+      "proof": "About 13 rescue journeys; broader institution required abolition",
+      "source": "https://www.nps.gov/people/harriet-tubman.htm",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 80,
+      "era": "Modern",
+      "region": "United States",
+      "name": "Frederick Douglass",
+      "kind": "Historical",
+      "labels": [
+        "Abolitionist",
+        "reformer",
+        "advocate"
+      ],
+      "method": "Campaigns for emancipation and full citizenship",
+      "result": "Institutional progress",
+      "proof": "Contributed to abolition movement and rights debate; inequality remained",
+      "source": "https://www.nps.gov/people/frederick-douglass.htm",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 81,
+      "era": "Modern",
+      "region": "United States",
+      "name": "Abraham Lincoln",
+      "kind": "Historical",
+      "labels": [
+        "President",
+        "emancipator in public memory"
+      ],
+      "method": "Leads Union in Civil War; supports 13th Amendment",
+      "result": "Major institutional change",
+      "proof": "Legal slavery abolished nationally with exception; racism not abolished",
+      "source": "https://www.nps.gov/people/frederick-douglass.htm",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 82,
+      "era": "Modern",
+      "region": "India",
+      "name": "Mahatma Gandhi",
+      "kind": "Historical",
+      "labels": [
+        "Independence leader",
+        "nonviolence advocate"
+      ],
+      "method": "Mobilizes resistance to colonial rule",
+      "result": "Major political change",
+      "proof": "Independence achieved; partition violence and inequities persisted",
+      "source": "https://www.un.org/en/observances/non-violence-day",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 83,
+      "era": "Modern",
+      "region": "India",
+      "name": "B. R. Ambedkar",
+      "kind": "Historical",
+      "labels": [
+        "Constitution-maker",
+        "anti-caste reformer"
+      ],
+      "method": "Drafts constitutional protections and challenges caste oppression",
+      "result": "Institutional reform",
+      "proof": "Legal safeguards built; caste discrimination persisted",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 84,
+      "era": "Modern",
+      "region": "United States",
+      "name": "Martin Luther King Jr.",
+      "kind": "Historical",
+      "labels": [
+        "Civil-rights leader",
+        "minister"
+      ],
+      "method": "Leads nonviolent campaigns for civil rights",
+      "result": "Institutional change",
+      "proof": "Legislation changes; discrimination persists",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 85,
+      "era": "Modern",
+      "region": "South Africa",
+      "name": "Nelson Mandela",
+      "kind": "Historical",
+      "labels": [
+        "Anti-apartheid leader",
+        "president"
+      ],
+      "method": "Helps negotiate end of apartheid and democratic transition",
+      "result": "Major structural change",
+      "proof": "Legal apartheid ended; inequality continued",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 86,
+      "era": "Modern",
+      "region": "International",
+      "name": "Allied liberators of Nazi camps",
+      "kind": "Historical collective",
+      "labels": [
+        "Liberators",
+        "military rescuers"
+      ],
+      "method": "Defeat Nazi Germany and liberate camp survivors",
+      "result": "Regime defeated",
+      "proof": "Nazi state ended, antisemitism and trauma continued",
+      "source": "https://encyclopedia.ushmm.org/content/en/animated-map/the-aftermath-of-the-holocaust",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 87,
+      "era": "Modern",
+      "region": "International",
+      "name": "Adolf Hitler and Nazi leadership",
+      "kind": "Historical",
+      "labels": [
+        "Perpetrator",
+        "dictatorship"
+      ],
+      "method": "Organize state persecution and genocide",
+      "result": "Regime defeated",
+      "proof": "Nazi Germany defeated 1945; hatred not globally eradicated",
+      "source": "https://encyclopedia.ushmm.org/content/en/article/antisemitism",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 88,
+      "era": "Modern",
+      "region": "Global public health",
+      "name": "Smallpox eradication teams",
+      "kind": "Historical collective",
+      "labels": [
+        "Preventers",
+        "healers",
+        "eradication campaign"
+      ],
+      "method": "Coordinate vaccination and case tracking worldwide",
+      "result": "Verified eradication",
+      "proof": "Naturally circulating smallpox eradicated; confirmed by WHO in 1980",
+      "source": "https://www.who.int/health-topics/smallpox",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 89,
+      "era": "Modern",
+      "region": "Global public health",
+      "name": "Edward Jenner",
+      "kind": "Historical",
+      "labels": [
+        "Scientist",
+        "vaccine pioneer"
+      ],
+      "method": "Develops successful smallpox vaccination",
+      "result": "Foundational discovery",
+      "proof": "Enabled later prevention; did not personally eradicate disease",
+      "source": "https://www.who.int/emergencies/situations/smallpox/",
+      "verification": "Source attached; review interpretation"
+    },
+    {
+      "id": 90,
+      "era": "Modern",
+      "region": "Global public health",
+      "name": "Polio vaccination teams",
+      "kind": "Historical collective",
+      "labels": [
+        "Preventers",
+        "healers"
+      ],
+      "method": "Vaccinate and surveil polio",
+      "result": "Ongoing effort",
+      "proof": "Dramatic reductions, not yet global eradication",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 91,
+      "era": "Modern",
+      "region": "Global public health",
+      "name": "Rinderpest eradication coalition",
+      "kind": "Historical collective",
+      "labels": [
+        "Animal health teams",
+        "eradication"
+      ],
+      "method": "Coordinated vaccines and surveillance",
+      "result": "Verified eradication",
+      "proof": "Cattle plague eradicated globally in 2011",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 92,
+      "era": "Modern",
+      "region": "Global agriculture",
+      "name": "Norman Borlaug",
+      "kind": "Historical",
+      "labels": [
+        "Agronomist",
+        "famine reduction advocate"
+      ],
+      "method": "Helps develop high-yield wheat and farming methods",
+      "result": "Major improvement",
+      "proof": "Harvest gains; global hunger not ended",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 93,
+      "era": "Modern",
+      "region": "Environmental movement",
+      "name": "Rachel Carson",
+      "kind": "Historical",
+      "labels": [
+        "Scientist",
+        "advocate"
+      ],
+      "method": "Documents pesticide harms and influences regulation",
+      "result": "Institutional reform",
+      "proof": "Major regulatory impact; all pollution not abolished",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 94,
+      "era": "Fiction",
+      "region": "Middle-earth",
+      "name": "Frodo Baggins and Samwise Gamgee",
+      "kind": "Literary fictional",
+      "labels": [
+        "Ring-bearer",
+        "companion",
+        "resistors"
+      ],
+      "method": "Destroy One Ring at Mount Doom",
+      "result": "Source of threat destroyed",
+      "proof": "Sauron's Ring power ends; history continues",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 95,
+      "era": "Fiction",
+      "region": "Middle-earth",
+      "name": "Sauron",
+      "kind": "Literary fictional",
+      "labels": [
+        "Dark lord",
+        "adversary"
+      ],
+      "method": "Seeks domination by One Ring",
+      "result": "Defeated",
+      "proof": "Ring destroyed; source of domination removed",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 96,
+      "era": "Fiction",
+      "region": "Harry Potter",
+      "name": "Harry Potter",
+      "kind": "Literary fictional",
+      "labels": [
+        "Chosen one",
+        "protector"
+      ],
+      "method": "Confronts Voldemort and Horcruxes",
+      "result": "Specific victory",
+      "proof": "Voldemort destroyed in main narrative; suffering not universally abolished",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 97,
+      "era": "Fiction",
+      "region": "Harry Potter",
+      "name": "Lord Voldemort",
+      "kind": "Literary fictional",
+      "labels": [
+        "Dark wizard",
+        "antagonist"
+      ],
+      "method": "Uses Horcruxes to evade death",
+      "result": "Defeated",
+      "proof": "Horcruxes destroyed and Voldemort dies in original series",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 98,
+      "era": "Fiction",
+      "region": "Star Wars",
+      "name": "Luke Skywalker",
+      "kind": "Film fictional",
+      "labels": [
+        "Hero",
+        "Jedi",
+        "redeemer"
+      ],
+      "method": "Confronts Emperor and redeems Vader",
+      "result": "Specific victory",
+      "proof": "Empire's ruler defeated; later regimes and threats arise",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 99,
+      "era": "Fiction",
+      "region": "Star Wars",
+      "name": "Darth Vader / Anakin",
+      "kind": "Film fictional",
+      "labels": [
+        "Chosen one",
+        "villain",
+        "redeemed rescuer"
+      ],
+      "method": "Turns against Palpatine to save Luke",
+      "result": "Personal redemption",
+      "proof": "Saves Luke and dies; later continuity revives Palpatine",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 100,
+      "era": "Fiction",
+      "region": "The Matrix",
+      "name": "Neo",
+      "kind": "Film fictional",
+      "labels": [
+        "The One",
+        "chosen hero"
+      ],
+      "method": "Confronts machines and makes a truce",
+      "result": "Limited systemic truce",
+      "proof": "Truce negotiated; not all human-machine conflict erased",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 101,
+      "era": "Fiction",
+      "region": "Batman / Gotham",
+      "name": "Batman",
+      "kind": "Comic fictional",
+      "labels": [
+        "Vigilante",
+        "protector"
+      ],
+      "method": "Stops immediate crimes and adversaries",
+      "result": "Recurring loop",
+      "proof": "Gotham's systemic corruption frequently survives",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 102,
+      "era": "Fiction",
+      "region": "Superman",
+      "name": "Superman",
+      "kind": "Comic fictional",
+      "labels": [
+        "Protector",
+        "rescuer",
+        "hero"
+      ],
+      "method": "Prevents particular disasters",
+      "result": "Recurring rescue",
+      "proof": "Public safety improved situationally; conflict continues",
+      "source": null,
+      "verification": "Source verification needed"
+    },
+    {
+      "id": 103,
+      "era": "Fiction",
+      "region": "Original Story Blueprint",
+      "name": "Root-Cause Liberator",
+      "kind": "Design archetype",
+      "labels": [
+        "Protector",
+        "reformer",
+        "builder"
+      ],
+      "method": "Disables mechanism of harm; protects survivors; builds durable safeguard",
+      "result": "Designed final victory",
+      "proof": "Future meaningful stories continue without resurrecting same harm",
+      "source": null,
+      "verification": "Source verification needed"
+    }
+  ]
+}
