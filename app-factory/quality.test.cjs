@@ -41,7 +41,9 @@ test('no local app page contains a broken relative href or src',()=>{
 test('ecosystem directory is unique, scoped and truthful',()=>{
  const data=JSON.parse(read(path.join(factory,'products.json')));
  assert.equal(data.schema,'tabor123.ecosystem-catalog.v1');
- assert.ok(data.products.length>=20);
+ /* Curated public catalog deliberately excludes unreleased private concepts. */
+ assert.ok(data.products.length>=7);
+ assert.equal(data.scope,'curated_public_registry_not_complete_private_portfolio');
  const ids=new Set();
  for(const p of data.products){
   assert.ok(!ids.has(p.id),'duplicate product: '+p.id);ids.add(p.id);
