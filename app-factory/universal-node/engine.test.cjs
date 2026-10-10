@@ -1,0 +1,16 @@
+'use strict';const test=require('node:test');const assert=require('node:assert/strict');const e=require('./engine.js');
+test('core identity preserved',()=>{let s=e.make(12);for(let i=0;i<100;i++)s=e.step(s);assert.equal(s.theOne.id,'ONE:observer');assert.deepEqual(s.anchor,[0,0,0])});
+test('angles wrap through full rotation',()=>{let s=e.make();s.angles=[359,358,357];s=e.step(s,1);assert.deepEqual(s.angles,[14,23,32])});
+test('rotation origin invariant',()=>{const m=e.rotationMatrix(70,115,210);assert.ok(e.multiply(m,[0,0,0]).every(x=>Object.is(x,0)||x===0))});
+test('rotation preserves vector distance',()=>{const m=e.rotationMatrix(41,117,253),v=[2,3,-5],q=e.multiply(m,v);assert.ok(Math.abs(v.reduce((a,x)=>a+x*x,0)-q.reduce((a,x)=>a+x*x,0))<1e-9)});
+test('same seed and actions reproducible',()=>{let x=e.make(123),y=e.make(123);for(let i=0;i<20;i++){x=e.step(x,0.1);y=e.step(y,0.1)}assert.deepEqual(x,y)});
+test('simulation conserves finite safe values over long run',()=>{let s=e.make(3);for(let i=0;i<3000;i++)s=e.step(s,0.25);assert.ok(s.body.illustrativeResource>=0&&s.body.illustrativeResource<=1);assert.ok(s.body.illustrativeWaste>=0&&s.body.illustrativeWaste<=1);assert.equal(s.log.length,40)});
+test('no instant eradication of physiological waste',()=>{const s=e.step(e.make(),0.1);assert.ok(s.body.illustrativeWaste>0)});
+test('tampering with protected observer rejected',()=>{const s=e.make();s.theOne.present=false;assert.throws(()=>e.step(s),/integrity/)});
+test('tampering with anchor rejected',()=>{const s=e.make();s.anchor=[1,0,0];assert.throws(()=>e.step(s),/Anchor/)});
+test('bad numbers or invalid time rejected',()=>{assert.throws(()=>e.step(e.make(),NaN),/Invalid/);assert.throws(()=>e.step(e.make(),0),/Step/);assert.throws(()=>e.rotationMatrix(Infinity,0,0),/Invalid/)});
+test('all four scales are present',()=>{assert.deepEqual(e.GROUPS,['body','earth','cosmos','unknown']);assert.ok(e.componentsFor('body').length>=12);assert.ok(e.componentsFor('unknown').length>=3)});
+test('unseen stays unverified without evidence',()=>{const x=e.auditClaim('An unseen force controls reality',[]);assert.equal(x.status,'unverified');assert.equal(x.scientificTruthVerified,false)});
+test('a source reference alone does not mean independently verified',()=>{const x=e.auditClaim('Dark matter exists',['paper id']);assert.equal(x.status,'requires-independent-verification');assert.equal(x.scientificTruthVerified,false)});
+test('client flags cannot authorize outside actions',()=>{assert.equal(e.permission('delete.remote',true).allowed,false);assert.equal(e.permission('simulate',false).allowed,true)});
+test('original state is not mutated by cycle',()=>{const s=e.make();e.step(s);assert.equal(s.cycles,0)});
