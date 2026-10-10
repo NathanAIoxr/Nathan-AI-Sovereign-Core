@@ -42,6 +42,8 @@ jobs:
         run: python3 -m unittest discover -s app-factory/radix-ladder -p 'test_*.py'
       - name: Verify shared TABOR ROOT contracts and authorization gates
         run: node --test app-factory/core/root-contracts.test.cjs
+      - name: Verify DUMMIE canon and rotating M semantics
+        run: node --test app-factory/creative/dummie/canon.test.cjs
       - name: Verify Sovereign Boxes, 101 original games, private slots and holiday project
         run: node --test app-factory/sovereign-boxes/engine.test.cjs
       - name: Verify private owner catalog import and original ID protection
