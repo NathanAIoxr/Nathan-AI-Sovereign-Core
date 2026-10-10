@@ -52,3 +52,13 @@ This sits under `TABOR ROOT`, not as a standalone rival application. Its existin
 Run tests: `node --test app-factory/universal-node/engine.test.cjs`.
 
 **Ethical foundation across every layer:** Empathy (understand and listen), Sympathy (respect dignity and permission), Compassion (take effective, verified action). Scientific and historical factual status still requires independent evidence.
+
+## New playable game — Tower of Babel × Dante's Inferno (October 10, 2026)
+
+- [Play 18-stage original mobile browser game](./babel-inferno.html): **nine tower levels above** and **nine mirrored infernal levels below**. The **ninth infernal level is frozen**, inspired by Dante's literary depiction of Cocytus. The nine-stage Babel tower is original game invention, not a claim about Genesis specifying nine floors.
+- [Deterministic state machine](./babel-game.js): nine stone tiles per floor, exactly three restoration symbols, hazards, shields, discovery score, level progression, per-floor restart, and locally serialized save. Winning requires all 18 stages. No violent combat or claims of medical treatment.
+- [Game tests](./babel-game.test.cjs): 13 assertions covering all 18 levels, mirrored pairing, frozen ninth circle, board determinism, progression, state preservation and creative 444→HHH / 555→SSS / 000→OOO cipher.
+- The game reuses [the 25-node human body/Earth/cosmos/unknown engine](./engine.js) rather than creating a second separate model, and borrows independent character-box visualization from [Sovereign Boxes](../sovereign-boxes/engine.js).
+- The text supplied by the creator distinguishes architectural metaphor and narrative from evidence. **'Tower-of-Babel syndrome' is not used as a patient diagnosis**, and the game does not equate symbolic pride, narcissism, mental illness, or disagreement. No historical identity between Babel, Dante's poem and modern institutions is asserted.
+
+**Artwork:** The animated rotating-X scene and tile graphics are procedural canvas/CSS designs; no third-party character art. **Status:** functional browser prototype, not native App Store/Google Play submission, not real-time astronomical/medical telemetry, not 3D production game. Needs device testing and future modular gameplay expansion.
