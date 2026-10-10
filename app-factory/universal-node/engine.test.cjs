@@ -14,3 +14,7 @@ test('unseen stays unverified without evidence',()=>{const x=e.auditClaim('An un
 test('a source reference alone does not mean independently verified',()=>{const x=e.auditClaim('Dark matter exists',['paper id']);assert.equal(x.status,'requires-independent-verification');assert.equal(x.scientificTruthVerified,false)});
 test('client flags cannot authorize outside actions',()=>{assert.equal(e.permission('delete.remote',true).allowed,false);assert.equal(e.permission('simulate',false).allowed,true)});
 test('original state is not mutated by cycle',()=>{const s=e.make();e.step(s);assert.equal(s.cycles,0)});
+
+test('two propellers rotate equally in opposite directions simultaneously',()=>{const start=e.make();const after=e.step(start,1);assert.equal(after.rotors.inner.angle,40);assert.equal(after.rotors.outer.angle,320);assert.equal((after.rotors.inner.angle+after.rotors.outer.angle)%360,0);assert.deepEqual(after.anchor,[0,0,0]);});
+test('inner and outer rotors wrap correctly over 360 degrees',()=>{let s=e.make();for(let i=0;i<45;i++)s=e.step(s,1);assert.equal(s.rotors.inner.angle,0);assert.equal(s.rotors.outer.angle,0)});
+test('propeller direction inversion blocked by core validator',()=>{const s=e.make();s.rotors.outer.direction=1;assert.throws(()=>e.step(s),/counter-rotate/)});
