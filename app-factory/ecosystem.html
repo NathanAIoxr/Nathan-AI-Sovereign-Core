@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0e1824">
+<title>TABOR ROOT — The Complete Ecosystem</title><link rel="icon" href="./icon.svg"><link rel="manifest" href="./manifest.webmanifest">
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,sans-serif;--bg:#0b1422;--panel:#182537;--line:#476078;--ink:#f8f5ed;--muted:#c1ccda;--gold:#e9cb91;--cyan:#80d6dc}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 65% -10%,#253a56 0,transparent 45%),var(--bg);color:var(--ink)}main{max-width:1130px;margin:0 auto;padding:16px 14px 90px}
+h1{font-size:clamp(2.2rem,7vw,4.3rem);line-height:1.06;letter-spacing:-.055em;margin:7px 0 12px}h2{font-size:1.15rem;margin:0 0 9px}p{color:var(--muted);line-height:1.55}
+header,.between,.row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.row{justify-content:flex-start}
+a{color:#f6dcaa}button,select,input,.btn{font:inherit;border:1px solid #73849a;border-radius:10px;background:#233a51;color:white;padding:12px;max-width:100%}button{cursor:pointer}.btn{display:inline-block;text-decoration:none}.mainbtn{background:var(--gold);color:#122234;font-weight:760;border-color:var(--gold)}
+button:focus-visible,input:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #f9d893;outline-offset:3px}
+.hero{border:1px solid #807356;border-radius:21px;padding:clamp(18px,5vw,32px);background:linear-gradient(125deg,#233e56,#1a2637 60%,#262337);margin:18px 0}
+.kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.17em;color:#f9d9a2;font-weight:800}
+.panel{background:#152438;border:1px solid #455d75;border-radius:15px;padding:15px;margin:14px 0}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.stat{padding:13px;background:#132c40;border-radius:13px;border:1px solid #476277}.stat strong{display:block;font-size:clamp(1.6rem,5vw,2.3rem);color:var(--gold)}.stat small{color:var(--muted)}
+.filters{display:grid;grid-template-columns:minmax(200px,2fr) repeat(2,minmax(160px,1fr));gap:12px}.filters label{font-size:.82rem;color:var(--muted);display:block}.filters input,.filters select{width:100%;margin-top:5px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(262px,1fr));gap:12px}.card{border-radius:15px;border:1px solid #45647b;background:linear-gradient(175deg,#1c344a,#172639);padding:17px;min-width:0;display:flex;flex-direction:column;gap:10px}.card h2{font-size:1.15rem;margin:0;overflow-wrap:anywhere}.card p{margin:0 0 6px;flex:1;font-size:.91rem}.tag{display:inline-block;padding:5px 9px;border-radius:40px;border:1px solid #566f86;font-size:.77rem;color:#e8f2f9}.browser{border-color:#74aeba;color:#aeedf2}.private{border-color:#b29c77;color:#f9dfa9}.idea{border-color:#7f88a1;color:#c7cbd9}.actions{display:flex;gap:8px;flex-wrap:wrap}.actions a{font-size:.86rem;text-decoration:none;border-radius:9px;border:1px solid #8ca5ae;padding:9px 11px}.actions a.primary{background:var(--gold);color:#0f2232;font-weight:780;border-color:var(--gold)}
+.note{border-left:3px solid var(--gold);padding:9px 12px;background:#282b34;border-radius:6px;font-size:.9rem}footer{color:var(--muted);font-size:.8rem;padding:20px 0}
+@media(max-width:700px){.filters{grid-template-columns:1fr}.hero{margin:12px 0}.stats{gap:5px}.stat{padding:9px}}
+</style></head><body><main><header><a class="btn" href="./index.html">← Factory Home</a><span class="kicker">TABOR 1-2-3 FACTORY · 1 → 2 → 3</span></header>
+<section class="hero"><div class="kicker">ONE ROOT · EVERY PRODUCT KEEPS ITS OWN IDENTITY</div><h1>THE TABOR ECOSYSTEM</h1><p>Find every application, game, creative property, research engine, invention and community initiative. Open what works today, inspect what is still a private development build, and see what has not yet been implemented. No imaginary publishing buttons, no public leaks of private original works.</p><div class="row"><a class="btn mainbtn" href="./one/index.html">Open ONE</a><a class="btn" href="./vault.html">Open Creator Vault</a><a class="btn" href="./tabor-gps/index.html">Open TABOR GPS</a></div></section>
+<section class="stats" aria-label="Development status"><div class="stat"><strong id="working">—</strong><small>Public browser demos</small></div><div class="stat"><strong id="privateCount">—</strong><small>Private code packages</small></div><div class="stat"><strong id="ideas">—</strong><small>Concepts in planning</small></div></section>
+<section class="panel"><h2>Find and inspect a project</h2><div class="filters"><div><label for="search">Search title, description or purpose</label><input id="search" type="search" placeholder="Game, humanitarian, AI, 101, navigation …"></div><div><label for="category">Product domain</label><select id="category"><option value="">All categories</option></select></div><div><label for="status">Development evidence</label><select id="status"><option value="">Any status</option><option value="browser-demo">Runnable public browser demo</option><option value="private-prototype">Private development build</option><option value="concept">Concept / design only</option></select></div></div><p class="note"><strong>Important:</strong> Browser demo means a public local-first prototype exists—not a production multi-user service. Private development build means a ZIP was supplied in this ChatGPT project, not that it is hosted at this address. Concept means design/research exists, not finished code.</p><p id="counter" role="status" aria-live="polite">Loading verified product catalog…</p></section>
+<section id="cards" class="cards" aria-label="Factory product directory"></section>
+<footer>Created by Nathan Tabor · Empathy × Sympathy × Compassion are ethical design engines; user consent and verification remain necessary. This public directory does not include private customer records, chat archives, credentials or unreleased source assets.</footer>
+</main><script>
+'use strict';
+const $=id=>document.getElementById(id);
+let products=[];
+function tag(text,cl){const node=document.createElement('span');node.className='tag '+cl;node.textContent=text;return node}
+function safeLocalLink(url,label,primary){if(typeof url!=='string'||!url.startsWith('./')||url.includes('..')||url.includes('\\'))return null;const a=document.createElement('a');a.href=url;a.textContent=label;a.className=primary?'primary':'';return a}
+const statuses={'browser-demo':['Browser demo','browser'],'private-prototype':['Private prototype','private'],'concept':['Concept','idea']};
+function render(){
+  const q=$('search').value.trim().toLowerCase(),cat=$('category').value,status=$('status').value;
+  const shown=products.filter(p=>(!q||(p.name+' '+p.summary+' '+p.category).toLowerCase().includes(q))&&(!cat||p.category===cat)&&(!status||p.status===status));
+  $('counter').textContent=shown.length+' of '+products.length+' projects match.';
+  const root=$('cards');root.replaceChildren();
+  for(const p of shown){const card=document.createElement('article');card.className='card';
+    const head=document.createElement('div');head.className='row';
+    head.append(tag(p.category,''));const data=statuses[p.status];head.append(tag(data[0],data[1]));
+    const h=document.createElement('h2');h.textContent=p.name;const desc=document.createElement('p');desc.textContent=p.summary;
+    const actions=document.createElement('div');actions.className='actions';
+    const live=safeLocalLink(p.url,'Open working demo →',true);
+    const doc=safeLocalLink(p.docs,'Read build details',false);
+    if(live)actions.append(live);if(doc)actions.append(doc);
+    card.append(head,h,desc,actions);root.append(card);
+  }
+}
+async function start(){
+  try{const res=await fetch('./products.json',{cache:'no-store'});if(!res.ok)throw Error('Catalog unavailable');
+    const data=await res.json();if(data.schema!=='tabor123.ecosystem-catalog.v1'||!Array.isArray(data.products))throw Error('Catalog schema mismatch');
+    products=data.products.filter(p=>p&&typeof p.name==='string'&&statuses[p.status]&&typeof p.category==='string');
+    const counts=x=>products.filter(p=>p.status===x).length;
+    $('working').textContent=counts('browser-demo');$('privateCount').textContent=counts('private-prototype');$('ideas').textContent=counts('concept');
+    for(const c of [...new Set(products.map(x=>x.category))].sort()){const opt=document.createElement('option');opt.value=c;opt.textContent=c;$('category').append(opt)}
+    render();
+  }catch(e){$('counter').textContent='Could not load the public project directory: '+e.message+'. You can still use Factory Home.'}
+}
+for(const id of ['search','category','status'])$(id).addEventListener(id==='search'?'input':'change',render);
+start();
+</script></body></html>
