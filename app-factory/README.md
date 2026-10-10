@@ -35,11 +35,16 @@ After deploying the dashboard to a website, open it in Safari > Share > Add to H
 - Import original media, documents, code and other files using the iPhone file chooser.
 - Supports Factory starter ZIP packs and ChatGPT `conversations.json` / export ZIP where supported by the browser. Large/compressed archives may need extraction in iPhone Files.
 - Original bytes live in **browser IndexedDB** with search, type/project filters, thumbnails, preview, tags, duplicate detection, downloads, and links to Factory Projects.
-- Keep an original ZIP backup; **Export Vault Index** saves metadata only, not the actual image/video bytes.
+- **New:** **Export FULL originals + metadata ZIP** creates a local archive of original media bytes with verified SHA-256 digests; **Restore a verified full Vault backup** recovers saved files without overwriting existing records. The separate **Export Index** button remains metadata-only. For a collection over 120 MB, export smaller groups; retain independent source copies and confirm restoration. iPhone Safari field testing remains pending.
 - Reimport files or updated ChatGPT exports for ongoing work. Identical imports are skipped; changed ChatGPT conversations can be retained as new revisions.
 - **Other users:** each person can use the prototype in their own browser profile; accounts, multi-user isolation, cloud backup, provider OAuth, recurring background sync and shared team workspaces are **not yet connected**. On a shared browser profile, local data is not private from other people using that profile.
 - No private personal media are copied to this **public GitHub repository** by the local importer.
 - Full security, service adapters, scopes, cloud architecture and acceptance tests: [UNIVERSAL-CREATOR-VAULT.md](./UNIVERSAL-CREATOR-VAULT.md).
+
+## Master Build Order Controller
+- [Interactive build and reuse controller](./build-order/index.html) documents 38 shared capabilities and product families, their dependency graph, current source evidence and whether to reuse, import, implement once or request permission.
+- [Full build sequencing and reuse matrix](./build-order/README.md) prevents duplicate game engines, media pipelines, provider adapters, APIs and storage code.
+- [Vault full-backup script](./vault-backup.js) and tests protect original binary assets locally; **this is not encrypted private cloud storage**.
 
 ## Public ecosystem directory and shared contracts
 - [Public product directory](./ecosystem.html): the searchable index is deliberately curated to exclude unreleased/private concepts. It is not the full owner's 101–901 private portfolio.
