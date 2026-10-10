@@ -15,7 +15,7 @@ function newId(){return (typeof crypto!=='undefined'&&typeof crypto.randomUUID==
 function reqResult(request){return new Promise((resolve,reject)=>{request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error||Error('Database error'))})}
 function txnDone(tx){return new Promise((resolve,reject)=>{tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error||Error('Storage write failed'));tx.onabort=()=>reject(tx.error||Error('Storage write aborted'))})}
 function openVault(){return new Promise((resolve,reject)=>{if(!('indexedDB'in window)){reject(Error('This browser does not support private file storage'));return}const request=indexedDB.open(DB_NAME,DB_VERSION);request.onupgradeneeded=()=>{const db=request.result;if(!db.objectStoreNames.contains('records')){const s=db.createObjectStore('records',{keyPath:'id'});s.createIndex('fingerprint','fingerprint',{unique:true});s.createIndex('kind','kind')}if(!db.objectStoreNames.contains('blobs'))db.createObjectStore('blobs',{keyPath:'id'});};request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error||Error('Could not open private storage'));request.onblocked=()=>reject(Error('Close other Factory tabs and retry.'))})}
-async function loadRecords(){state.records=await reqResult(state.db.transaction('records','readonly').objectStore('records').getAll());state.records.sort((a,b)=>String(b.importedAt).localeCompare(String(a.importedAt)));const filter=$('projectFilter');if(filter){const prior=filter.value;filter.replaceChildren();const any=textNode('option','Every collection');any.value='';filter.append(any);[...new Set(state.records.map(x=>x.project||'Unsorted'))].sort().forEach(name=>{const opt=textNode('option',name);opt.value=name;filter.append(opt)});filter.value=[...filter.options].some(x=>x.value===prior)?prior:'';}let projects=[];try{projects=JSON.parse(localStorage.getItem(PROJECTS_KEY)||'[]')}catch(e){}if(!Array.isArray(projects))projects=[];state.projectCount=projects.length;$('statAssets').textContent=state.records.filter(x=>x.kind==='asset').length;$('statChats').textContent=state.records.filter(x=>x.kind==='conversation').length;$('statProjects').textContent=state.projectCount;render()}
+async function loadRecords(){state.records=await reqResult(state.db.transaction('records','readonly').objectStore('records').getAll());state.records.sort((a,b)=>String(b.importedAt).localeCompare(String(a.importedAt)));const filter=$('projectFilter');if(filter){const prior=filter.value;filter.replaceChildren();const any=textNode('option','Every collection');any.value='';filter.append(any);[...new Set(state.records.map(x=>x.project||'Unsorted'))].sort().forEach(name=>{const opt=textNode('option',name);opt.value=name;filter.append(opt)});filter.value=[...filter.options].some(x=>x.value===prior)?prior:'';refreshBackupBatches();}let projects=[];try{projects=JSON.parse(localStorage.getItem(PROJECTS_KEY)||'[]')}catch(e){}if(!Array.isArray(projects))projects=[];state.projectCount=projects.length;$('statAssets').textContent=state.records.filter(x=>x.kind==='asset').length;$('statChats').textContent=state.records.filter(x=>x.kind==='conversation').length;$('statProjects').textContent=state.projectCount;render()}
 async function hasFingerprint(fp){return reqResult(state.db.transaction('records','readonly').objectStore('records').index('fingerprint').getKey(fp))}
 async function digest(buffer){if(buffer.byteLength<=55000000&&typeof crypto!=='undefined'&&crypto.subtle){const hash=await crypto.subtle.digest('SHA-256',buffer);return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,'0')).join('')}return null}
 /* Never deduplicate by name/size. Different originals can have identical names and lengths. If the browser cannot SHA-256 hash a large file, keep both copies and mark integrity unverified. */
@@ -52,34 +52,56 @@ function render(){clearObjectUrls();const q=$('search').value.toLowerCase().trim
 function mode(name){state.mode=name;state.limit=30;render()}
 async function exportIndex(){const manifest={schema:'tabor123.vault-index.v1',created:new Date().toISOString(),warning:'Index only. Does not contain image/video/source file bytes.',records:state.records.map(({text,...rest})=>({...rest,conversationExcerpt:rest.kind==='conversation'?text?.slice(0,500):undefined}))};const b=new Blob([JSON.stringify(manifest,null,2)],{type:'application/json'});const url=URL.createObjectURL(b);const a=document.createElement('a');a.href=url;a.download='tabor-vault-index.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)}
 /* Full original-byte backup/recovery: no network. Requires vault-backup.js */
+/* A full collection may require multiple owner-downloaded ZIPs.
+ * The numbered batches include every eligible record once, never silently skip any.
+ */
+function selectedBackupRecords(){
+ const chosen=$('projectFilter')?.value||'';
+ return chosen?state.records.filter(r=>(r.project||'Unsorted')===chosen):[...state.records];
+}
+function refreshBackupBatches(){
+ const sel=$('backupBatch');if(!sel||!window.TaborVaultBackup)return;
+ const previous=sel.value;
+ sel.replaceChildren();
+ try{
+  const batches=window.TaborVaultBackup.planBatches(selectedBackupRecords());
+  batches.forEach((group,i)=>{
+   const option=document.createElement('option');option.value=String(i);
+   option.textContent='Part '+(i+1)+' of '+batches.length+' — '+group.length+' originals ('+fmt(group.reduce((n,x)=>n+x.size,0))+')';
+   sel.append(option);
+  });
+  sel.value=[...sel.options].some(x=>x.value===previous)?previous:'0';
+  if(!batches.length){const option=document.createElement('option');option.value='';option.textContent='No originals available';sel.append(option)}
+  $('backupBatchInfo').textContent=batches.length+' downloadable ZIP part(s) cover all '+selectedBackupRecords().length+' selected records. Save each numbered part before deleting any browser data.';
+  $('exportFullBackup').disabled=!batches.length;
+ }catch(e){$('backupBatchInfo').textContent='Backup plan blocked: '+e.message;$('exportFullBackup').disabled=true}
+}
 async function exportFullBackup(){
  if(state.busy)return;
  if(!window.TaborVaultBackup){inform('Backup engine unavailable; keep your original source files.');return}
  state.busy=true;const btn=$('exportFullBackup');btn.disabled=true;
  try{
-  const chosen=$('projectFilter')?.value||'';
-  const records=chosen?state.records.filter(r=>(r.project||'Unsorted')===chosen):[...state.records];
-  if(!records.length)throw Error('No originals in the selected collection');
-  const estimated=records.reduce((n,r)=>n+(r.size||0),0);
-  if(estimated>120*1024*1024)throw Error('Selected originals total '+fmt(estimated)+'. Choose a smaller collection in the filter; nothing has been silently omitted.');
-  const items=[];let bytesTotal=0;
+  const groups=window.TaborVaultBackup.planBatches(selectedBackupRecords());
+  if(!groups.length)throw Error('No originals selected');
+  const part=Number($('backupBatch').value);
+  if(!Number.isInteger(part)||part<0||part>=groups.length)throw Error('Choose a numbered backup part');
+  const records=groups[part],items=[];let bytesTotal=0;
   for(const [i,r] of records.entries()){
-   inform('Verifying original '+(i+1)+'/'+records.length+': '+r.name);
+   inform('Verifying original '+(i+1)+'/'+records.length+' in part '+(part+1)+'/'+groups.length+': '+r.name);
    const blob=r.kind==='conversation'?new Blob([r.text||''],{type:'text/plain'}):await getBlob(r.id);
    if(!blob)throw Error('Missing original bytes for '+r.name+'. Backup cancelled; index alone is insufficient.');
-   bytesTotal+=blob.size;
-   if(bytesTotal>120*1024*1024)throw Error('Too much data for one mobile backup. Filter by collection and retry.');
+   bytesTotal+=blob.size;if(bytesTotal>120*1024*1024)throw Error('Selected part too large; nothing was silently omitted.');
    items.push({record:r,bytes:new Uint8Array(await blob.arrayBuffer())});
   }
   const built=await window.TaborVaultBackup.create(items);
   const output=new Blob([built.bytes],{type:'application/zip'});
   const url=URL.createObjectURL(output);
   const link=document.createElement('a');link.href=url;
-  link.download='tabor-vault-full-'+new Date().toISOString().slice(0,10)+(chosen?'-collection':'')+'.zip';
+  link.download='tabor-vault-originals-'+new Date().toISOString().slice(0,10)+'-part-'+String(part+1).padStart(3,'0')+'-of-'+String(groups.length).padStart(3,'0')+'.zip';
   document.body.append(link);link.click();link.remove();
   setTimeout(()=>URL.revokeObjectURL(url),60000);
-  inform('Full-byte backup prepared for '+built.manifest.count+' originals ('+fmt(output.size)+'). SAVE THE ZIP in iPhone Files or a secure owner-controlled location; verify restoration before deleting any local originals.');
- }catch(e){inform('Backup NOT completed: '+e.message)}finally{state.busy=false;btn.disabled=false}
+  inform('Part '+(part+1)+' of '+groups.length+' prepared with '+built.manifest.count+' originals ('+fmt(output.size)+'). Save this ZIP in iPhone Files, then export every remaining part. Verify restoration before deleting originals.');
+ }catch(e){inform('Backup NOT completed: '+e.message)}finally{state.busy=false;refreshBackupBatches()}
 }
 async function restoreFullBackup(){
  if(state.busy)return;
@@ -114,5 +136,5 @@ async function restoreFullBackup(){
  }catch(e){inform('Restore not completed: '+e.message+'. Existing originals were not deleted; already restored items (if any) remain saved.')}finally{state.busy=false;btn.disabled=false}
 }
 async function init(){try{state.db=await openVault();await loadRecords();inform('Ready. Your archive remains stored on this device unless you export it.');}catch(err){inform('Private Vault is unavailable: '+err.message);$('startImport').disabled=true;return}
-$('startImport').onclick=doImport;$('showHow').onclick=()=>{$('how').hidden=!$('how').hidden};$('showAssets').onclick=()=>mode('assets');$('showChats').onclick=()=>mode('chats');$('showCollections').onclick=()=>mode('collections');$('refreshVault').onclick=loadRecords;$('search').oninput=()=>{state.limit=30;render()};$('mediaType').onchange=()=>{state.limit=30;render()};$('projectFilter').onchange=()=>{state.limit=30;render()};$('showMore').onclick=()=>{state.limit+=30;render()};$('exportIndex').onclick=exportIndex;$('exportFullBackup').onclick=exportFullBackup;$('restoreFullBackup').onclick=restoreFullBackup}
+$('startImport').onclick=doImport;$('showHow').onclick=()=>{$('how').hidden=!$('how').hidden};$('showAssets').onclick=()=>mode('assets');$('showChats').onclick=()=>mode('chats');$('showCollections').onclick=()=>mode('collections');$('refreshVault').onclick=loadRecords;$('search').oninput=()=>{state.limit=30;render()};$('mediaType').onchange=()=>{state.limit=30;render()};$('projectFilter').onchange=()=>{state.limit=30;render();refreshBackupBatches()};$('showMore').onclick=()=>{state.limit+=30;render()};$('exportIndex').onclick=exportIndex;$('exportFullBackup').onclick=exportFullBackup;$('restoreFullBackup').onclick=restoreFullBackup}
 document.addEventListener('DOMContentLoaded',init);
