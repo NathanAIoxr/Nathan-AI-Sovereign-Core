@@ -1,0 +1,242 @@
+{
+  "schema": "tabor123.ecosystem-catalog.v1",
+  "as_of": "2026-10-10",
+  "owner": "Nathan Tabor",
+  "notice": "Product status reflects verified public repository artifacts and earlier local-prototype packages, not deployed paid services. A documentation page is not the complete app.",
+  "products": [
+    {
+      "id": "factory",
+      "name": "TABOR 1-2-3 FACTORY",
+      "category": "Platform",
+      "status": "browser-demo",
+      "summary": "1. CREATE → 2. CONNECT → 3. LAUNCH. Browser-local projects, stories, atlas, release checklists.",
+      "url": "./index.html",
+      "docs": "./README.md"
+    },
+    {
+      "id": "one",
+      "name": "ONE — The Last App",
+      "category": "Platform",
+      "status": "browser-demo",
+      "summary": "Local-first personal operating shell: 26 life domains, tasks, notes and routines; no unrestricted installed-app access.",
+      "url": "./one/index.html",
+      "docs": "./one/ONE-TECHNICAL-BUILD.md"
+    },
+    {
+      "id": "vault",
+      "name": "Universal Creator Vault",
+      "category": "Platform",
+      "status": "browser-demo",
+      "summary": "Import original assets and conversation exports into local IndexedDB. Separate binary backup is essential.",
+      "url": "./vault.html",
+      "docs": "./UNIVERSAL-CREATOR-VAULT.md"
+    },
+    {
+      "id": "constellation",
+      "name": "101–901 Root Constellation",
+      "category": "Research",
+      "status": "browser-demo",
+      "summary": "Browse locally imported private catalog records while retaining original IDs and independent namespaces.",
+      "url": "./root-constellation.html",
+      "docs": "./README.md"
+    },
+    {
+      "id": "role-atlas",
+      "name": "Historical Forensic Role Atlas",
+      "category": "Research",
+      "status": "browser-demo",
+      "summary": "135 preliminary, partly unverified records inside the Factory Atlas tab.",
+      "url": "./index.html#atlas",
+      "docs": "./ROLE-ATLAS-METHODOLOGY.md"
+    },
+    {
+      "id": "crowning-jewel",
+      "name": "1420 — The Crowning Jewel",
+      "category": "Game",
+      "status": "browser-demo",
+      "summary": "Two playable strategy chapters and a fictional cross-century archive puzzle.",
+      "url": "./games/crowning-jewel.html",
+      "docs": "./games/CROWNING-JEWEL-BLUEPRINT.md"
+    },
+    {
+      "id": "gps",
+      "name": "TABOR GPS — The Genius GPS",
+      "category": "Navigation",
+      "status": "browser-demo",
+      "summary": "WGS84 location, Earth-centered coordinates, personal orientation, time and environmental-layer explanations. Not turn-by-turn navigation.",
+      "url": "./tabor-gps/index.html",
+      "docs": "./tabor-gps/README.md"
+    },
+    {
+      "id": "nathan-ai",
+      "name": "Nathan AI · THE THINKER · LET/TET/PPL",
+      "category": "AI",
+      "status": "private-prototype",
+      "summary": "Executable Python LET/TET/PPL prototype in private conversation ZIP; no live model/provider backend.",
+      "url": "",
+      "docs": "./nathan-ai/README.md"
+    },
+    {
+      "id": "state-engine",
+      "name": "Universal 101 State Engine",
+      "category": "Platform",
+      "status": "private-prototype",
+      "summary": "Local state machine, domain rules, browser/UI and Unity client reference in a private Work ZIP; no production auth.",
+      "url": "",
+      "docs": "./universal-state-engine/README.md"
+    },
+    {
+      "id": "commerce",
+      "name": "Universal Commerce & Launch Plug",
+      "category": "Commerce",
+      "status": "private-prototype",
+      "summary": "Local Shopify/Kickstarter packaging and signature checks; no live checkout or automatic posting.",
+      "url": "",
+      "docs": "./universal-commerce/README.md"
+    },
+    {
+      "id": "infinitum",
+      "name": "TABOR INFINITUM V∞",
+      "category": "Research",
+      "status": "private-prototype",
+      "summary": "Six interactive game teaching prototypes, entity comparison and reasoning tests in a private Work ZIP.",
+      "url": "",
+      "docs": "./infinitum/README.md"
+    },
+    {
+      "id": "remove-jc",
+      "name": "REMOVE JC — The War of Two Worlds",
+      "category": "Game",
+      "status": "private-prototype",
+      "summary": "Six-act fantasy game alpha; fictional enemies. Original source archive remains private and claims are labeled.",
+      "url": "",
+      "docs": "./remove-jc/README.md"
+    },
+    {
+      "id": "christmas",
+      "name": "ChristmasToyDrive.com · Good Samaritan",
+      "category": "Humanitarian",
+      "status": "private-prototype",
+      "summary": "Three Engines and 3+1 humanitarian workflow; local research/website starter. No live payments or private help intake.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "tabor-world",
+      "name": "TABOR WORLD",
+      "category": "Game",
+      "status": "private-prototype",
+      "summary": "Unified history/fantasy/game universe, original art and independent modules; some playable code in private ZIPs.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "healers",
+      "name": "Healers & Protectors",
+      "category": "Game",
+      "status": "concept",
+      "summary": "Protection, rescue, healing and restoration as the core module, independent of archived Maters & Taters.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "angels",
+      "name": "Angels vs Demons 404",
+      "category": "Game",
+      "status": "private-prototype",
+      "summary": "404-roster universe with a privately packaged playable prototype; not public production backend.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "tabor-tales",
+      "name": "TaborTales — Where Bible and Nature Meet Up",
+      "category": "Education",
+      "status": "concept",
+      "summary": "Children's Bible+nature/STEM characters, interactive stories and environmental science educational plans.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "act-nodes",
+      "name": "Project Innocence · ACT Node System",
+      "category": "Research",
+      "status": "private-prototype",
+      "summary": "Symbolic nodes, astronomical names and map/graph prototypes; non-scientific interpretations remain labeled.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "lost-truths",
+      "name": "101 Lost Truths of Humanity",
+      "category": "Research",
+      "status": "private-prototype",
+      "summary": "Humanity/biology/history research with empathy, sympathy and compassion; evidence review incomplete.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "name-in-stars",
+      "name": "Name in the Stars",
+      "category": "Creative",
+      "status": "concept",
+      "summary": "Optional astronomy-inspired personalization with public star catalogs and creative overlays; not an astronomical claim.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "ork",
+      "name": "ORK — The Lost Wisdom of the World",
+      "category": "Game",
+      "status": "concept",
+      "summary": "Original exploration, preservation and manuscript-deciphering game direction; not yet published playable code.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "king",
+      "name": "KILL THE KING — FREE THE WORLD",
+      "category": "Game",
+      "status": "concept",
+      "summary": "Fictional alternate-history strategy concept, not a real-world historical claim or published game.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "tree-village",
+      "name": "Bright Tree Village",
+      "category": "Humanitarian",
+      "status": "concept",
+      "summary": "Community, accessible living and imaginative treehouse villages; planning only.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "reaper",
+      "name": "Reaper Apparel",
+      "category": "Commerce",
+      "status": "concept",
+      "summary": "Original identity, clothing concepts and licensing plans; not a live Shopify store.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "tabor-tub",
+      "name": "Tabor Tub Temperature System",
+      "category": "Invention",
+      "status": "concept",
+      "summary": "Waterproof temperature-system product concept. Safety engineering, electrical testing and certification required.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "frankenstein",
+      "name": "Frankenstein Energy System",
+      "category": "Invention",
+      "status": "concept",
+      "summary": "Solar/energy concept with mirrors; requires real optical, electrical and fire-safety engineering.",
+      "url": "",
+      "docs": "./README.md"
+    }
+  ]
+}
