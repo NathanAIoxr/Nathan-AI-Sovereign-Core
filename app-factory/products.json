@@ -210,6 +210,15 @@
       "summary": "18 original puzzle stages: nine upward Babel floors, nine mirrored below, frozen ninth Inferno finale, deterministic save and 360-degree X visualization.",
       "url": "./universal-node/babel-inferno.html",
       "docs": "./universal-node/README.md"
+    },
+    {
+      "id": "radix-ladder",
+      "name": "TABOR Golden Radix Ladder",
+      "category": "Platform",
+      "status": "browser-demo",
+      "summary": "Exact reversible base 1–69 BigInt conversion, duodecimal ↊ ↋, digit Sovereign Boxes, and simulated Base 0 disconnected adapter status. No server firewall or supernatural detector.",
+      "url": "./radix-ladder/index.html",
+      "docs": "./radix-ladder/README.md"
     }
   ],
   "scope": "curated_public_registry_not_complete_private_portfolio"
