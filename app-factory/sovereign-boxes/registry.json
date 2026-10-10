@@ -17,8 +17,8 @@
   "counts": {
     "originalGameFamilies": 101,
     "privateIdeaSlots": 496,
-    "publicProductModules": 21,
-    "totalIndexedBoxes": 618
+    "publicProductModules": 22,
+    "totalIndexedBoxes": 619
   },
   "disclosure": "Source ZIPs, private source contents, unreviewed media, identities, personal data and confidential app descriptions are not published. Public names come from the owner's original game index and existing public app registry. Proposed idea slots expose IDs only.",
   "records": [
@@ -5583,6 +5583,15 @@
       "status": "browser-demo",
       "visibility": "public-index-only",
       "related": "./creative/music/better-together/README.md"
+    },
+    {
+      "id": "APP:universal-node",
+      "title": "TABOR Universal Node — Body, Earth, Cosmos & Unknown",
+      "kind": "product-app-or-module",
+      "source": "public-factory-registry",
+      "status": "browser-demo",
+      "visibility": "public-index-only",
+      "related": "./universal-node/README.md"
     }
   ]
 }
