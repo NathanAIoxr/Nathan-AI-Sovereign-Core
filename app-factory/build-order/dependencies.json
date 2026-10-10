@@ -62,14 +62,14 @@
       "id": "backup-local",
       "title": "Full original-byte local Vault export and recovery",
       "group": "safety",
-      "status": "not-built",
+      "status": "public-prototype",
       "phase": 1,
       "dependsOn": [
         "inventory",
         "contracts"
       ],
-      "evidence": "app-factory/vault.js",
-      "next": "P0: browser Vault metadata export is not backup of actual binary media",
+      "evidence": "app-factory/vault-backup.js",
+      "next": "New browser full-original ZIP export/restore with CRC32/SHA-256 validation is implemented and unit tested; Safari real-device and large-library recovery still need confirmation. 120 MB per selection; export collections separately.",
       "owner": "TABOR ROOT / independent bounded context",
       "review": "Required before changing status"
     },
