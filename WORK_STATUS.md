@@ -1,11 +1,16 @@
 # TABOR 1-2-3 FACTORY™ — LIVE BUILD STATUS
 
-**Updated:** 2026-10-09  
+**Updated:** 2026-10-10  
 **Public GitHub repository:** NathanAIoxr/Nathan-AI-Sovereign-Core  
 **Status rule:** A page, specification or button does not establish a working provider integration. Move a feature to `working` only with an end-to-end test/result.
 
 | Feature | State | Evidence / next step |
 |---|---|---|
+| **2026-10-10 system audit** | **verified local and public check baseline** | [Full repair audit](app-factory/SYSTEM_AUDIT_2026-10-10.md); 8 private ZIP baseline suites retested, 103 tests passed; publicly committed quality workflow verifies selected Factory browser modules |
+| Public ecosystem directory | browser prototype | `app-factory/ecosystem.html`, curated `products.json`; does **not** disclose the unreleased private idea/asset catalog |
+| Core permissions / data reference contract | library only | `app-factory/core/root-contracts.js`, independently unit tested; **not** real authorization or login |
+| App-specific PWA manifests | implemented, device QA pending | ONE, TABOR GPS and 1420 have separate app start URLs; test installing on iPhone |
+| Data-integrity/offline repairs | fixes committed | Vault large-file unverified IDs, blank GPS input check, allowlisted service worker, deep links; no full binary media backup yet |
 | GitHub repo and version control | working | Repo writable through connected ChatGPT GitHub tool |
 | Public static Factory PWA | prototype | `app-factory/index.html`; verify GitHub Pages current deployment |
 | Universal Creator Vault | prototype | `app-factory/vault.html` and `vault.js`; per-browser IndexedDB and manual import |
