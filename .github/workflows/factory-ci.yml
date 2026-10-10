@@ -24,6 +24,8 @@ jobs:
           node-version: '22'
       - name: Verify public assets and architecture boundaries
         run: node --test app-factory/quality.test.cjs
+      - name: Verify shared TABOR ROOT contracts and authorization gates
+        run: node --test app-factory/core/root-contracts.test.cjs
       - name: Verify ONE local engine
         run: node --test app-factory/one/one.test.cjs
       - name: Verify 1420 Crowning Jewel gameplay
