@@ -589,6 +589,21 @@
       "next": "Requires Apple/Google developer accounts and signed builds",
       "owner": "TABOR ROOT / independent bounded context",
       "review": "Required before changing status"
+    },
+    {
+      "id": "universal-node",
+      "title": "Universal Body → Earth → Cosmos → Unknown anchor engine",
+      "group": "creation",
+      "status": "public-prototype",
+      "phase": 3,
+      "dependsOn": [
+        "contracts",
+        "registry"
+      ],
+      "evidence": "app-factory/universal-node/engine.js",
+      "next": "Reuse synthetic rotating-X 25-node engine. Integrate existing GPS Earth coordinate math, scientific catalogs and consent-based data only after source and authorization tests.",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
     }
   ]
 }
