@@ -61,6 +61,7 @@ function authorize(context){
 /* Generates REVIEW METADATA, never a publish/charge command. */
 function releaseReview(project,assets,destination,approval){
  const problems=checkProject(project);
+ if(project?.visibility!=='public')problems.push('Private project must not enter public release review');
  if(!isString(destination))problems.push('Destination required');
  if(!Array.isArray(assets)||assets.length===0)problems.push('At least one asset reference required');
  else for(const [i,a] of assets.entries()){
