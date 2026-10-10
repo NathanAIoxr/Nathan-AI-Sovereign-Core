@@ -4,6 +4,11 @@
 
 This is the **PUBLIC**, browser-first coordination repository. It does **not** contain the owner's private full original-media library, private ZIP-only backend packages, unpublished research records, customer data, or credentials. It is not a deployed private multi-tenant SaaS backend.
 
+## Sovereign Boxes and music archive
+
+- [Sovereign Box Universe — 618 indexed units](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/sovereign-boxes/) — preserves 101 original `TW-001`–`TW-101` game names, 496 private concept IDs, and 21 Factory modules. These are catalog entries, **not** 618 built games.
+- [Better Together — A Song of Humble Pride](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/creative/music/better-together/) — original holiday song draft, lyrics, and an editable Christmas/Halloween/Thanksgiving SVG design. The separately generated full-resolution PNG remains in the private conversation handoff until binary upload is verified.
+
 ## Open the currently published browser prototypes
 
 - **Factory Home:** [Open the Factory](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/)
