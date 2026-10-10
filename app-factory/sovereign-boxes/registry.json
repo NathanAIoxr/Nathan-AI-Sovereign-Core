@@ -17,8 +17,8 @@
   "counts": {
     "originalGameFamilies": 101,
     "privateIdeaSlots": 496,
-    "publicProductModules": 19,
-    "totalIndexedBoxes": 616
+    "publicProductModules": 21,
+    "totalIndexedBoxes": 618
   },
   "disclosure": "Source ZIPs, private source contents, unreviewed media, identities, personal data and confidential app descriptions are not published. Public names come from the owner's original game index and existing public app registry. Proposed idea slots expose IDs only.",
   "records": [
@@ -5565,6 +5565,24 @@
       "status": "private-prototype",
       "visibility": "public-index-only",
       "related": "./knowledge-engine/README.md"
+    },
+    {
+      "id": "APP:sovereign-boxes",
+      "title": "Sovereign Boxes — Universal Matrix",
+      "kind": "product-app-or-module",
+      "source": "public-factory-registry",
+      "status": "browser-demo",
+      "visibility": "public-index-only",
+      "related": "./sovereign-boxes/README.md"
+    },
+    {
+      "id": "APP:better-together",
+      "title": "Better Together — A Song of Humble Pride",
+      "kind": "product-app-or-module",
+      "source": "public-factory-registry",
+      "status": "browser-demo",
+      "visibility": "public-index-only",
+      "related": "./creative/music/better-together/README.md"
     }
   ]
 }
