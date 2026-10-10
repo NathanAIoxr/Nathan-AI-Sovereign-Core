@@ -371,7 +371,8 @@
       "dependsOn": [
         "graphics",
         "commerce-adapter",
-        "private-source"
+        "private-source",
+        "dummie-publisher"
       ],
       "evidence": "app-factory/RELEASE_GATES.md",
       "next": "No auto-publishing or payment without explicit approval",
@@ -648,6 +649,22 @@
       "evidence": "app-factory/radix-ladder/engine.js",
       "next": "Reuse exact base-12 and bases 1–69 conversion in games, universal adapters, and symbolic system displays; do not confuse base-zero disconnected state with server authorization.",
       "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "dummie-publisher",
+      "title": "DUMMIE Big Red Button Publisher — local ZIP + provider handoffs",
+      "group": "integrations",
+      "status": "public-prototype",
+      "phase": 2,
+      "dependsOn": [
+        "creative-ui",
+        "contracts",
+        "vault-browser"
+      ],
+      "evidence": "app-factory/dummie-publisher/README.md",
+      "next": "Reuse proven ZIP packaging and provider registry; extend with authenticated OAuth backend and explicit approvals. Do not treat official links as API posting.",
+      "owner": "TABOR ROOT / publishing shared bounded context",
       "review": "Required before changing status"
     }
   ]
