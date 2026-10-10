@@ -619,6 +619,21 @@
       "next": "Reuse deterministic 9+9 puzzle with frozen ninth Inferno circle, local saves, original procedural visuals; defer native multiplayer, graphics and release until shared game runtime.",
       "owner": "TABOR ROOT / independent bounded context",
       "review": "Required before changing status"
+    },
+    {
+      "id": "open-web-adapters",
+      "title": "Universal public website / blog / feed source adapters",
+      "group": "creation",
+      "status": "public-prototype",
+      "phase": 3,
+      "dependsOn": [
+        "contracts",
+        "inventory"
+      ],
+      "evidence": "app-factory/universal-node/source-adapters.js",
+      "next": "Reuse RSS, Atom, JSON Feed, sitemap, HTML metadata and JSON import. Production server connectors need SSRF controls, API/OAuth and source rights review.",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
     }
   ]
 }
