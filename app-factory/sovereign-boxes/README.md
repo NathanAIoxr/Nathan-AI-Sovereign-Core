@@ -37,9 +37,9 @@ This private ZIP can be supplied in ChatGPT Work to import unchanged source meta
 - `registry.json`: public redacted 618-entry manifest.
 - `engine.js`: deterministic per-character boxes, natural number digit parsing, arithmetic, standalone local entity links and reversible permission revocation.
 - `index.html`: interactive mobile-friendly search, filters and character boxes.
-- `engine.test.cjs`: eleven reproducible Node tests.
+- `engine.test.cjs`: eleven reproducible Node tests.\n- `importer.js` + `importer.test.cjs`: owner-local CSV/JSON importer and 5 tests; never uploads private sources.
 
-Run: `node --test app-factory/sovereign-boxes/engine.test.cjs`.
+Run: `node --test app-factory/sovereign-boxes/*.test.cjs`.\n\n**Complete owner-private view:** unzip `TABOR_SOVEREIGN_BOXES_BETTER_TOGETHER_GITHUB_HANDOFF.zip`, select `NEW_101_TO_901_IDEAS_PRIVATE.csv` in the private import field to reveal the 496 titles in this browser session, and then select `PRIOR_150_CATALOG_PRESERVED_PRIVATE.json` to add the 150 original source catalog records. No network transfer occurs. Import does not overwrite the original `TW-001` titles. After both files, the local view should contain 768 indexed boxes (618 public + 150 private source entries), with 496 private titles resolved. These are source entries, not 768 finished software applications.
 
 ## Creative connection
 
