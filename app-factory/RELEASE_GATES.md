@@ -15,7 +15,7 @@ The current public host is a **static GitHub Pages site**, not a private multi-u
 
 ## Gate 1 — Data safety and recovery
 - Browser-local `localStorage` and `IndexedDB` are demos, **not guaranteed backups** or secure per-user accounts.
-- **High-priority missing capability:** Vault export is a metadata index, **not the binary contents** of images and videos. Implement a tested full-original-byte export/restore process with size and checksum validation before promoting the Vault to primary storage.
+- **Implemented local prototype:** The Vault now has a separate original-byte ZIP export/restore with CRC32 and SHA-256 integrity checks (`vault-backup.js`). The original **Export Index** is still metadata-only. Single-selection export is capped at 120 MB and needs independent iPhone Safari restore testing. This does **not** replace private encrypted cloud backups, disaster recovery, or the owner retaining original source copies.
 - Preserve different originals even if their filenames and sizes match. If SHA-256 could not be calculated, keep both with `sha256:null` instead of pretending to have verified identity.
 - Prevent accidental data loss by automated backup/restore tests, retention review, and rollback capability.
 
