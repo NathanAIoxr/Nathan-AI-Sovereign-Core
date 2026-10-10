@@ -1,0 +1,15 @@
+/* Owner-private local-file importer. No network, storage or publication.
+ * Adds previously supplied catalog metadata only for the current browser session.
+ */
+(function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.SovereignPrivateImport=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){'use strict';
+function csvRows(text){if(typeof text!=='string')throw Error('CSV text required');const rows=[],row=[];let cell='',quoted=false;for(let i=0;i<text.length;i++){const ch=text[i];if(quoted){if(ch==='"'&&text[i+1]==='"'){cell+='"';i++}else if(ch==='"')quoted=false;else cell+=ch}else if(ch==='"'){if(cell.length)throw Error('Invalid quoted CSV');quoted=true}else if(ch===','){row.push(cell);cell=''}else if(ch==='\n'){row.push(cell.replace(/\r$/,''));rows.push(row.splice(0));cell=''}else cell+=ch;}if(quoted)throw Error('Unclosed CSV quote');if(cell.length||row.length){row.push(cell);rows.push(row)}if(!rows.length)return [];const keys=rows.shift().map(s=>s.trim().replace(/^\uFEFF/,''));return rows.filter(r=>r.some(v=>v.trim()!=='')).map((r,i)=>{if(r.length!==keys.length)throw Error('Column mismatch row '+(i+2));const o={};keys.forEach((key,j)=>o[key]=r[j]);return o})}
+function importOwnerCatalog(existing,content,filename){if(!Array.isArray(existing))throw Error('Base catalog required');if(typeof content!=='string'||content.length>5e6)throw Error('5MB text limit');let rows;if(filename.toLowerCase().endsWith('.json'))rows=JSON.parse(content);else if(filename.toLowerCase().endsWith('.csv'))rows=csvRows(content);else throw Error('Choose JSON or CSV');if(!Array.isArray(rows)||rows.length>1500)throw Error('Expected 1–1500 catalog records');const map=new Map(existing.map(r=>[r.id,{...r}]));let upgraded=0,added=0,ignored=0;for(const item of rows){if(!item||typeof item!=='object'){ignored++;continue}const privateIdea=typeof item.idea_id==='string'&&/^R\d{3}$/.test(item.idea_id);const game=typeof item.stable_id==='string'&&/^TW-\d{3}$/.test(item.stable_id);
+const original=String(item.catalog_id||'').trim();const id=privateIdea?item.idea_id:game?item.stable_id:original?'SRC:'+original:null;
+if(!id||!item.title||typeof item.title!=='string'||item.title.length>240){ignored++;continue}
+const prior=map.get(id);
+if(prior){if(privateIdea&&prior.kind==='proposed-idea-slot'&&prior.title===null){map.set(id,{...prior,title:item.title,privateLocal:true,visibility:'private-local-only',description:String(item.core_hook||'').slice(0,360)});upgraded++}else ignored++;
+}else if(original&&!privateIdea&&!game&&/^[A-Za-z0-9._-]{1,90}$/.test(original)){map.set(id,{id,originalId:original,title:item.title,kind:'owner-catalog-entry',status:String(item.status||'source-record'),visibility:'private-local-only',privateLocal:true,description:String(item.description||'').slice(0,360),source:'owner-local-catalog'});added++}
+else ignored++}
+return {records:[...map.values()],summary:{upgraded,added,ignored,originalRows:rows.length},note:'Only this browser session was changed; nothing uploaded or published.'}}
+return Object.freeze({csvRows,importOwnerCatalog});
+});
