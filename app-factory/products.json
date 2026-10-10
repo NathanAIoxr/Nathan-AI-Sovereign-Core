@@ -2,7 +2,7 @@
   "schema": "tabor123.ecosystem-catalog.v1",
   "as_of": "2026-10-10",
   "owner": "Nathan Tabor",
-  "notice": "Product status reflects verified public repository artifacts and earlier local-prototype packages, not deployed paid services. A documentation page is not the complete app.",
+  "notice": "Public registry of already documented products only. Private unreleased concepts, source assets, chat-derived portfolios and historical research catalogs remain in owner-controlled local/Work archives until explicitly approved for publication. A listed demo is not a production service.",
   "products": [
     {
       "id": "factory",
@@ -113,15 +113,6 @@
       "docs": "./remove-jc/README.md"
     },
     {
-      "id": "christmas",
-      "name": "ChristmasToyDrive.com · Good Samaritan",
-      "category": "Humanitarian",
-      "status": "private-prototype",
-      "summary": "Three Engines and 3+1 humanitarian workflow; local research/website starter. No live payments or private help intake.",
-      "url": "",
-      "docs": "./README.md"
-    },
-    {
       "id": "tabor-world",
       "name": "TABOR WORLD",
       "category": "Game",
@@ -167,15 +158,6 @@
       "docs": "./README.md"
     },
     {
-      "id": "lost-truths",
-      "name": "101 Lost Truths of Humanity",
-      "category": "Research",
-      "status": "private-prototype",
-      "summary": "Humanity/biology/history research with empathy, sympathy and compassion; evidence review incomplete.",
-      "url": "",
-      "docs": "./README.md"
-    },
-    {
       "id": "name-in-stars",
       "name": "Name in the Stars",
       "category": "Creative",
@@ -183,60 +165,7 @@
       "summary": "Optional astronomy-inspired personalization with public star catalogs and creative overlays; not an astronomical claim.",
       "url": "",
       "docs": "./README.md"
-    },
-    {
-      "id": "ork",
-      "name": "ORK — The Lost Wisdom of the World",
-      "category": "Game",
-      "status": "concept",
-      "summary": "Original exploration, preservation and manuscript-deciphering game direction; not yet published playable code.",
-      "url": "",
-      "docs": "./README.md"
-    },
-    {
-      "id": "king",
-      "name": "KILL THE KING — FREE THE WORLD",
-      "category": "Game",
-      "status": "concept",
-      "summary": "Fictional alternate-history strategy concept, not a real-world historical claim or published game.",
-      "url": "",
-      "docs": "./README.md"
-    },
-    {
-      "id": "tree-village",
-      "name": "Bright Tree Village",
-      "category": "Humanitarian",
-      "status": "concept",
-      "summary": "Community, accessible living and imaginative treehouse villages; planning only.",
-      "url": "",
-      "docs": "./README.md"
-    },
-    {
-      "id": "reaper",
-      "name": "Reaper Apparel",
-      "category": "Commerce",
-      "status": "concept",
-      "summary": "Original identity, clothing concepts and licensing plans; not a live Shopify store.",
-      "url": "",
-      "docs": "./README.md"
-    },
-    {
-      "id": "tabor-tub",
-      "name": "Tabor Tub Temperature System",
-      "category": "Invention",
-      "status": "concept",
-      "summary": "Waterproof temperature-system product concept. Safety engineering, electrical testing and certification required.",
-      "url": "",
-      "docs": "./README.md"
-    },
-    {
-      "id": "frankenstein",
-      "name": "Frankenstein Energy System",
-      "category": "Invention",
-      "status": "concept",
-      "summary": "Solar/energy concept with mirrors; requires real optical, electrical and fire-safety engineering.",
-      "url": "",
-      "docs": "./README.md"
     }
-  ]
+  ],
+  "scope": "curated_public_registry_not_complete_private_portfolio"
 }
