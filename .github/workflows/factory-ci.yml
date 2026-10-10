@@ -42,6 +42,10 @@ jobs:
         run: node --test app-factory/sovereign-boxes/engine.test.cjs
       - name: Verify private owner catalog import and original ID protection
         run: node --test app-factory/sovereign-boxes/importer.test.cjs
+      - name: Verify shared dependency build controller
+        run: node --test app-factory/build-order/planner.test.cjs
+      - name: Verify original-byte Vault backup and recovery
+        run: node --test app-factory/vault-backup.test.cjs
       - name: Verify ONE local engine
         run: node --test app-factory/one/one.test.cjs
       - name: Verify 1420 Crowning Jewel gameplay
