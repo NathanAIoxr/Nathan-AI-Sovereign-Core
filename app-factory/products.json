@@ -165,6 +165,15 @@
       "summary": "Optional astronomy-inspired personalization with public star catalogs and creative overlays; not an astronomical claim.",
       "url": "",
       "docs": "./README.md"
+    },
+    {
+      "id": "knowledge-engine",
+      "name": "TABOR ROOT — Knowledge & Creation Engine",
+      "category": "Platform",
+      "status": "private-prototype",
+      "summary": "Tested localhost-only Python application: Office file interchange, FTS5 universal library, provenance graph, revisions, original-byte backup, and honest AI execution capability planning. No live provider connections.",
+      "url": "",
+      "docs": "./knowledge-engine/README.md"
     }
   ],
   "scope": "curated_public_registry_not_complete_private_portfolio"
