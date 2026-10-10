@@ -45,7 +45,7 @@ test('release blocks private assets and incomplete rights approval',()=>{
  assert.equal(c.releaseReview(p,[{...a,visibility:'public'}],'Shopify',null).status,'blocked');
 });
 test('successful public review remains a draft and never executes a release',()=>{
- const r=c.releaseReview(p,[{...a,visibility:'public'}],'Shopify',{reviewId:'r1',ownerReviewed:true,rightsReviewed:true});
+ const r=c.releaseReview({...p,visibility:'public'},[{...a,visibility:'public'}],'Shopify',{reviewId:'r1',ownerReviewed:true,rightsReviewed:true});
  assert.equal(r.status,'ready-for-provider-review');
  assert.match(r.warning,/No publication/);
  assert.equal('execute' in r,false);
