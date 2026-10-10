@@ -1,0 +1,19 @@
+{
+  "id": "./crowning-jewel.html",
+  "name": "1420 — The Crowning Jewel",
+  "short_name": "1420",
+  "description": "A locally playable fictional strategy history game by Nathan Tabor.",
+  "start_url": "./crowning-jewel.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#13181c",
+  "theme_color": "#13181c",
+  "icons": [
+    {
+      "src": "../icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
