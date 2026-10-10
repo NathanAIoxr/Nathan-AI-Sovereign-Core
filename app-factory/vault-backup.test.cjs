@@ -1,0 +1,15 @@
+'use strict';const test=require('node:test');const assert=require('node:assert/strict');
+const {webcrypto}=require('node:crypto');if(!globalThis.crypto?.subtle)globalThis.crypto=webcrypto;
+const backup=require('./vault-backup.js');
+function item(name,data,kind='asset'){const bytes=new TextEncoder().encode(data);return {record:{id:'v:'+name,name,kind,mime:'text/plain',group:kind,project:'Owner collection',origin:'owner',fingerprint:'unverified:'+name,sha256:null,tags:['original'],importedAt:'2026-10-10T00:00:00Z'},bytes}}
+test('actual original bytes survive ZIP write/restore with meta',async()=>{const originals=[item('first.txt','Hello world\n'),item('second.txt','[1][0]\u0000🛡')];const packed=await backup.create(originals);const parsed=await backup.parse(packed.bytes);assert.deepEqual(parsed.items.map(x=>new TextDecoder().decode(x.bytes)),originals.map(x=>new TextDecoder().decode(x.bytes)));assert.deepEqual(parsed.items.map(x=>x.record.project),['Owner collection','Owner collection']);assert.equal(parsed.manifest.count,2)});
+test('backup has ZIP signatures and verified SHA256 digests',async()=>{const result=await backup.create([item('one.txt','immutable original')]);assert.deepEqual([...result.bytes.slice(0,4)],[80,75,3,4]);assert.equal(result.manifest.records[0].sha256.length,64)});
+test('distinct originals of same size and name remain distinct by ID',async()=>{const one=item('same.txt','AAAA'),two=item('same.txt','BBBB');two.record.id='v:other';const b=await backup.parse((await backup.create([one,two])).bytes);assert.notEqual(b.items[0].record.sha256,b.items[1].record.sha256);assert.equal(b.items.length,2)});
+test('corrupt source hash is rejected before export',async()=>{const x=item('bad.txt','original');x.record.sha256='a'.repeat(64);await assert.rejects(backup.create([x]),/digest mismatch/)});
+test('tampering with ZIP data is rejected during restore',async()=>{const x=await backup.create([item('test.txt','ABC original bytes')]);const altered=x.bytes.slice();const at=altered.findIndex((value,i)=>i>38&&value===65);assert.ok(at>38);altered[at]^=1;await assert.rejects(backup.parse(altered),/Corrupt ZIP CRC|SHA-256 mismatch/)});
+test('unsafe archive names rejected',()=>assert.throws(()=>backup.zipStored([{name:'../private.txt',bytes:new Uint8Array([1])}]),/Unsafe/));
+test('malformed or ZIP bomb member blocked',()=>assert.throws(()=>backup.unzipStored(new Uint8Array([1,2,3])),/ZIP end marker/));
+test('oversized originals explicitly fail rather than silently omit data',async()=>{const x=item('oversized.txt','1');x.bytes=new Uint8Array(121*1024*1024);await assert.rejects(backup.create([x]),/oversized/)});
+test('empty backup selection is refused rather than a false success',async()=>await assert.rejects(backup.create([]),/Select 1/));
+test('source record metadata is not mutated during digest population',async()=>{const x=item('sample.txt','test');await backup.create([x]);assert.equal(x.record.sha256,null)});
+test('truncated central directory rejected',async()=>{const b=(await backup.create([item('f.txt','hi')])).bytes;await assert.rejects(backup.parse(b.slice(0,b.length-8)),/ZIP end marker|Corrupt/)});
