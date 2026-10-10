@@ -38,4 +38,6 @@
 
 | TABOR GPS | prototype | `app-factory/tabor-gps/index.html` and `gps.js`; 11 calculation checks passed, no turn-by-turn routing or real magnetic model |
 
+| REMOVE JC | playable local alpha | Private browser + optional Node/SQLite zip; 90 Atlas topics, 6 acts, 18 missions, original artwork and 12-second teaser, 27 passing tests; not deployed as full 3D game or online service |
+
 **Work's task:** Update this document after each milestone with exact tests, URLs/PRs, blockers, and account approvals. Do not claim an outside action completed based on plan text alone.
