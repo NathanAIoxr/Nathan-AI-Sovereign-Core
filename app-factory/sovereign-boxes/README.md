@@ -15,8 +15,8 @@
 | --- | ---: | --- |
 | `TW-001` through `TW-101` | **101** | Original titled game-family entries; game mechanics are not represented as completed |
 | `R101` through separate ranges within `R956` | **496** | Original private proposal-slot identifiers ONLY, no unpublished titles/source content |
-| `APP:*` from public `products.json` | **21** | Existing public app/module registry and status |
-| **Total public registry boxes** | **618** | All with explicit identity, source, status, visibility |
+| `APP:*` from public `products.json` | **23** | Existing public app/module registry and status |
+| **Total public registry boxes** | **620** | All with explicit identity, source, status, visibility |
 
 The original **TW-001 / TW001** namespaces are not interchangeable. Similarly the Factory's creative/historical 101–901 categories are separate from ONE's technical layers 101–901. No renumbering is allowed without a reviewed migration.
 
