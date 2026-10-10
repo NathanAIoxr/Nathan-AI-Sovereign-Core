@@ -3,15 +3,15 @@
  * query URLs or tenant-specific material. Any future backend needs its own domain.
  */
 'use strict';
-const CACHE='tabor-factory-static-v2';
+const CACHE='tabor-factory-static-v3';
 const ROOT=new URL(self.registration.scope);
 const ASSETS=[
   './','./index.html','./manifest.webmanifest','./icon.svg',
   './vault.html','./vault.js',
-  './one/index.html','./one/one.js',
-  './games/crowning-jewel.html','./games/crowning-jewel.js',
+  './one/index.html','./one/one.js','./one/manifest.webmanifest',
+  './games/crowning-jewel.html','./games/crowning-jewel.js','./games/manifest.webmanifest',
   './root-constellation.html',
-  './tabor-gps/index.html','./tabor-gps/gps.js',
+  './tabor-gps/index.html','./tabor-gps/gps.js','./tabor-gps/manifest.webmanifest',
   './ecosystem.html','./products.json'
 ];
 const URLS=new Set(ASSETS.map(path=>new URL(path,ROOT).pathname));
