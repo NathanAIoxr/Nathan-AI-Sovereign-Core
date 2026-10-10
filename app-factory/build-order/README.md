@@ -21,7 +21,7 @@ The controller validates a directed acyclic dependency graph, assigns a true dep
 | Phase | Shared systems | Reuse or build |
 |---|---|---|
 | 0 — Inventory | Existing apps, original game IDs, public ROOT contracts, browser Vault/Factory/ONE/GPS/1420, holiday design | **Reuse; do not rebuild** |
-| 1 — Protection | Complete binary media backup/restore, private versioned source destination, authenticated tenant identity | **Build/approve before migration** |
+| 1 — Protection | Tested local byte backup (built); private versioned source destination and authenticated tenant identity still needed | **Reuse local backup; approve/build cloud protection** |
 | 2 — Shared runtime | Private asset store, provenance history, scoped project API, idempotent jobs/events, Knowledge Engine import | **One ROOT implementation** |
 | 3 — Intelligence and state | Source-aware search/graph, Universal State Engine, LET/TET, AI model adapters | **Import existing packages, then connect** |
 | 4 — Reusable creation | Game runtime, media graphics pipeline, PPL, Thinker, commerce adapter | **Build once, extend per product** |
@@ -35,7 +35,7 @@ Numbers **1 + 1 = 2** and **1 − 1 = 0** remain ordinary arithmetic. The Sovere
 
 | Already exists | Reuse in | What is still missing |
 |---|---|---|
-| `app-factory/vault.js` browser-local original asset handling | all graphic, video, sound, project, document and game work | full binary ZIP backup, private cloud storage, identity and permissions |
+| `app-factory/vault.js` and `vault-backup.js` original assets + binary ZIP recovery | all graphic, video, sound, project, document and game work | reuse tested ZIP import/export in numbered ~95 MB parts; private cloud storage, identity and real iPhone restore QA remain |
 | `app-factory/core/root-contracts.js` source/permission data shapes | ONE, Nathan AI, games, commerce and charity | authenticated server verification and tenant database isolation |
 | `app-factory/sovereign-boxes/engine.js` character and entity IDs | root catalog, puzzle mechanics, word cipher | durable authoritative graph links and private catalog import |
 | `app-factory/knowledge-engine/README.md` private Knowledge Engine source handoff | Docs/Sheets/Slides, historical archive, source citations, search | private source import, verified backend authentication and provider sync |
@@ -46,7 +46,7 @@ Numbers **1 + 1 = 2** and **1 − 1 = 0** remain ordinary arithmetic. The Sovere
 | `app-factory/games/crowning-jewel.js` tested local strategy chapter | history game teaching engine | unify game-data schema without erasing independent mechanics |
 | `app-factory/creative/music/better-together/` song SVG and lyrics | music and holiday game/media creation | full original PNG binary upload, actual composed melody and scored notes |
 
-**Next engineering milestone, P0:** implement complete original-byte **Vault export/restore** with tests and permissions, then private source versioning and authenticated server isolation. Only afterward should new modules use a common cloud store.
+**Completed first P0 code slice:** full original-byte ZIP export/restore, per-part mobile batching, CRC32/SHA-256 checks and automated tests. **Next:** device-level restoration QA, private versioned source destination and authenticated server identity/tenant isolation. Only afterward should new modules use a common cloud store.
 
 ## Security and project identity rules
 
