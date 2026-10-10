@@ -1,11 +1,23 @@
 name: Factory quality checks
 
+# Only run tests for changes they actually exercise. Manual runs remain available.
 on:
   push:
     branches: [main]
+    paths:
+      - 'app-factory/**'
+      - '.github/workflows/factory-ci.yml'
   pull_request:
     branches: [main]
+    paths:
+      - 'app-factory/**'
+      - '.github/workflows/factory-ci.yml'
   workflow_dispatch:
+
+# Avoid flooding inboxes with obsolete results during batches of commits.
+concurrency:
+  group: factory-quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -17,9 +29,9 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Check out public code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Install Node.js 22 LTS
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '22'
       - name: Verify public assets and architecture boundaries
