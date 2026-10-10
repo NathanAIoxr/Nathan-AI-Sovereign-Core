@@ -3,11 +3,12 @@
  * query URLs or tenant-specific material. Any future backend needs its own domain.
  */
 'use strict';
-const CACHE='tabor-factory-static-v5';
+const CACHE='tabor-factory-static-v6';
 const ROOT=new URL(self.registration.scope);
 const ASSETS=[
   './','./index.html','./manifest.webmanifest','./icon.svg',
   './vault.html','./vault.js','./vault-backup.js',
+  './dummie-publisher/index.html','./dummie-publisher/publisher.js',
   './one/index.html','./one/one.js','./one/manifest.webmanifest',
   './games/crowning-jewel.html','./games/crowning-jewel.js','./games/manifest.webmanifest',
   './root-constellation.html',
