@@ -26,7 +26,7 @@ const $=id=>document.getElementById(id);
 let last=null,deviceHeading=null;
 function val(id,n){$(id).textContent=n}
 function output(message,error=false){val("status",message);$("status").dataset.error=String(error)}
-function number(id){return Number($(id).value)}
+function number(id){const raw=String($(id).value).trim();return raw===""?NaN:Number(raw)}
 function update(){const f={lat:number("lat"),lon:number("lon")},t={lat:number("destlat"),lon:number("destlon")},h=number("heading"),alt=number("alt");
  if(!valid(f.lat,f.lon,alt)||!valid(t.lat,t.lon)||!Number.isFinite(h)){output("Please enter valid coordinates (latitude −90 to 90; longitude −180 to 180).",true);return}
  try{last=compute(f,t,h,alt);const r=last;
