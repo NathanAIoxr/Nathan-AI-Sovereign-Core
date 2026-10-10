@@ -6,7 +6,7 @@
 
 ## What was actually examined
 
-The currently connected **public** repository has a working browser Factory dashboard, Creator Vault, ONE, TABOR GPS, 1420, Sovereign Box Registry, Better Together holiday project, shared ROOT contracts and quality tests. It contains **21** curated public product records and **618 Sovereign Box registry identities**: 101 original game family titles, 496 private idea ID slots (not publicly disclosed titles), 21 product/module IDs. The repo is **public** and its full tree was checked before creating this plan.
+The currently connected **public** repository has a working browser Factory dashboard, Creator Vault, ONE, TABOR GPS, 1420, Sovereign Box Registry, Better Together holiday project, shared ROOT contracts and quality tests. It contains **22** curated public product records and **619 Sovereign Box registry identities**: 101 original game family titles, 496 private idea ID slots (not publicly disclosed titles), 22 product/module IDs. The repo is **public** and its full tree was checked before creating this plan.
 
 `WORK_STATUS.md` and `WORK_BUILD_HANDOFF.md` describe additional independent owner-controlled ZIPs: tested local prototypes of Nathan AI LET/TET/PPL, State Engine, Universal Commerce, Knowledge Engine, TABOR INFINITUM, REMOVE JC, ChristmasToyDrive and the Factory starter. **Their actual source must be imported into the chosen private workspace and retested**. These public descriptions are not proof of deployed or currently installed server integrations. An earlier audit reported 103 tests across eight ZIPs, but this planner does not re-run those private ZIPs.
 
