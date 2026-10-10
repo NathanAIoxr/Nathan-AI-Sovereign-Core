@@ -39,3 +39,7 @@ node --test app-factory/universal-node/source-adapters.test.cjs
 Keep source originals in authorized owner-controlled Vault storage. Original owner JSON, art and unpublished personal records should NOT be published in a public GitHub repo. For every external claim, separate source text from modeled attributes and independent verification.
 
 **Source concept:** `universal_node.py` provided by Nathan Tabor. This is a structurally improved browser implementation, not a claimed clinically functional or cosmic observation machine.
+
+## Twin counter-rotating propellers
+
+The **inner golden X propeller** rotates clockwise (positive angles in the Canvas coordinate display), while the **outer cyan X propeller** rotates counterclockwise with its own speed. Both move simultaneously around the same fixed local ECEF origin (0,0,0). Each has an independent 0–180°/s slider; equal rates produce equal/opposite signed angular changes, not a physically induced magnetic reversal or novel field. Core validation enforces opposite directions, and new regression checks verify simultaneous rotation, wraparound, and center invariance. This is a controllable *illustrative coordinate construction* rather than a physical rotor or map of unseen reality.
