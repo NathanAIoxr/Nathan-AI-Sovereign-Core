@@ -17,8 +17,8 @@
   "counts": {
     "originalGameFamilies": 101,
     "privateIdeaSlots": 496,
-    "publicProductModules": 22,
-    "totalIndexedBoxes": 619
+    "publicProductModules": 23,
+    "totalIndexedBoxes": 620
   },
   "disclosure": "Source ZIPs, private source contents, unreviewed media, identities, personal data and confidential app descriptions are not published. Public names come from the owner's original game index and existing public app registry. Proposed idea slots expose IDs only.",
   "records": [
@@ -5587,6 +5587,15 @@
     {
       "id": "APP:universal-node",
       "title": "TABOR Universal Node — Body, Earth, Cosmos & Unknown",
+      "kind": "product-app-or-module",
+      "source": "public-factory-registry",
+      "status": "browser-demo",
+      "visibility": "public-index-only",
+      "related": "./universal-node/README.md"
+    },
+    {
+      "id": "APP:babel-inferno",
+      "title": "The Tower of Babel × Dante’s Inferno",
       "kind": "product-app-or-module",
       "source": "public-factory-registry",
       "status": "browser-demo",
