@@ -21,7 +21,13 @@ This is the **PUBLIC**, browser-first coordination repository. It does **not** c
 
 The site can be **installed from a supported browser**; the Factory, ONE, TABOR GPS and 1420 each have an independent manifest/launch target. Installation does not supply missing real-provider credentials, route data or user accounts.
 
-**Browser demos are not commercial releases.** The Vault saves originals into browser IndexedDB; the Vault's JSON index export does **not** include binary media. Keep separate original-file backups. Browsers may clear local data.
+**Browser demos are not commercial releases.** The Vault saves originals in browser IndexedDB. Its JSON index export remains metadata-only, but a separate **full-original-byte ZIP export/restore** now exists with integrity checks and size limits. Keep independent source backups; browser data can still be cleared. Cloud and mobile-device recovery are not yet production-ready.
+
+## Build without recreating existing work
+
+- [Master Build Order Controller](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/build-order/) — inspect 38 shared systems/product families, dependencies, source paths and approval gates.
+- [Dependency-first build sequence](app-factory/build-order/README.md) — actual existing versus private source and build-once priorities.
+- [Original-byte Vault Backup](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/vault.html) — preserve exact original media bytes in a verified local ZIP with mobile-safe size limits.
 
 ## Development and safe build workflow
 
