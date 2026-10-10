@@ -13,7 +13,7 @@
 | Data-integrity/offline repairs | public browser prototypes | Vault large-file unverified IDs, blank GPS input check, restricted offline cache and direct links; **full original-byte ZIP backup/restore now implemented with CRC/SHA-256 unit tests**; mobile Safari QA and cloud backups still pending |
 | GitHub repo and version control | working | Repo writable through connected ChatGPT GitHub tool |
 | Master Build Order Controller | public prototype | `app-factory/build-order/` dependency graph: 38 shared capabilities/product families, deterministic ordering, reuse flags and approval gates; repeatable Node tests |
-| Creator Vault full-byte backup | public prototype | `app-factory/vault-backup.js`; local ZIP export+restore includes original media bytes and SHA-256 integrity, with 120 MB selection limit; physical iPhone QA still required |
+| Creator Vault full-byte backup | public prototype | `app-factory/vault-backup.js`; local ZIP export+restore includes original media bytes and SHA-256 integrity, with numbered ~95 MB download batches; individual over-limit originals require separate download; physical iPhone QA still required |
 | Public static Factory PWA | prototype | `app-factory/index.html`; verify GitHub Pages current deployment |
 | Universal Creator Vault | prototype | `app-factory/vault.html` and `vault.js`; per-browser IndexedDB and manual import |
 | Story Blueprint | prototype | Browser form generates a story outline, not full AI manuscript |
