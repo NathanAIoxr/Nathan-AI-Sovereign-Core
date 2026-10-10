@@ -45,4 +45,6 @@
 
 | REMOVE JC | playable local alpha | Private browser + optional Node/SQLite zip; 90 Atlas topics, 6 acts, 18 missions, original artwork and 12-second teaser, 27 passing tests; not deployed as full 3D game or online service |
 
+| Knowledge & Creation Engine | local private prototype | 44 tests passed; DOCX/XLSX/PPTX import/export; SQLite FTS5 + graph + versioning + SHA-256 original-byte backup; no live Graph OAuth or model inference. Public handoff `app-factory/knowledge-engine/README.md` |
+
 **Work's task:** Update this document after each milestone with exact tests, URLs/PRs, blockers, and account approvals. Do not claim an outside action completed based on plan text alone.
