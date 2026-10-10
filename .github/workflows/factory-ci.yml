@@ -1,0 +1,30 @@
+name: Factory quality checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-foundation:
+    name: Public Factory syntax, integrity and game tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out public code
+        uses: actions/checkout@v4
+      - name: Install Node.js 22 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify public assets and architecture boundaries
+        run: node --test app-factory/quality.test.cjs
+      - name: Verify ONE local engine
+        run: node --test app-factory/one/one.test.cjs
+      - name: Verify 1420 Crowning Jewel gameplay
+        run: node --test app-factory/games/crowning-jewel.test.cjs
