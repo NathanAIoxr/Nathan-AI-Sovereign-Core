@@ -3,16 +3,18 @@
  * query URLs or tenant-specific material. Any future backend needs its own domain.
  */
 'use strict';
-const CACHE='tabor-factory-static-v3';
+const CACHE='tabor-factory-static-v4';
 const ROOT=new URL(self.registration.scope);
 const ASSETS=[
   './','./index.html','./manifest.webmanifest','./icon.svg',
-  './vault.html','./vault.js',
+  './vault.html','./vault.js','./vault-backup.js',
   './one/index.html','./one/one.js','./one/manifest.webmanifest',
   './games/crowning-jewel.html','./games/crowning-jewel.js','./games/manifest.webmanifest',
   './root-constellation.html',
   './tabor-gps/index.html','./tabor-gps/gps.js','./tabor-gps/manifest.webmanifest',
-  './ecosystem.html','./products.json'
+  './ecosystem.html','./products.json',
+  './build-order/index.html','./build-order/planner.js','./build-order/dependencies.json',
+  './sovereign-boxes/index.html','./sovereign-boxes/engine.js','./sovereign-boxes/registry.json'
 ];
 const URLS=new Set(ASSETS.map(path=>new URL(path,ROOT).pathname));
 self.addEventListener('install',event=>{
