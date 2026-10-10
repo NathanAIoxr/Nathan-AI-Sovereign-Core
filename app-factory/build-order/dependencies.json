@@ -604,6 +604,21 @@
       "next": "Reuse synthetic rotating-X 25-node engine. Integrate existing GPS Earth coordinate math, scientific catalogs and consent-based data only after source and authorization tests.",
       "owner": "TABOR ROOT / independent bounded context",
       "review": "Required before changing status"
+    },
+    {
+      "id": "babel-inferno",
+      "title": "Tower of Babel × Dante's Inferno — 18-stage mirrored original game",
+      "group": "products",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "universal-node",
+        "registry"
+      ],
+      "evidence": "app-factory/universal-node/babel-game.js",
+      "next": "Reuse deterministic 9+9 puzzle with frozen ninth Inferno circle, local saves, original procedural visuals; defer native multiplayer, graphics and release until shared game runtime.",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
     }
   ]
 }
