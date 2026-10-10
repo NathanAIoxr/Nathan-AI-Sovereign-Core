@@ -1,64 +1,41 @@
-# 𓋹 TABOR Universal Node — The Body → Mother Earth → Cosmos → Unknown
+# TABOR Universal Node — Body × Mother Earth × Cosmos × Unknown
 
-**Creator / concept:** Nathan Tabor · **Platform:** TABOR 1-2-3 FACTORY · **Related:** Nathan AI, TABOR GPS, TABOR INFINITUM V∞, Sovereign Boxes, ONE.
+**Creator:** Nathan Tabor · **Parent:** TABOR 1-2-3 FACTORY · **Module:** T123-UNIVERSAL-NODE-001
 
-## Build status — V1
+## Status: functional browser prototype, NOT universal physical observation
 
-A **functional zero-dependency browser simulation** exists at [index.html](./index.html) with a rotating X, interactive scale selection, synthetic state advance/pause/reset/export, 25 structured nodes, and claim classification. [engine.js](./engine.js) is a reusable Node/browser JavaScript domain engine, backed by [15 automated tests](./engine.test.cjs). This is a new UI and simulation engine; it **does not** ingest every anatomical measurement, map all stars, sense unknown realms or instantiate a conscious AI. There is no live scientific telemetry and no backend integration yet.
+Original rotating-X visual model is anchored at Earth-centered ECEF (0,0,0), preserving the conceptual "One" observer and ordinary arithmetic `1 + 1 = 2`, `1 - 1 = 0`. The rotating 360-degree axes are a mathematical visualization and **not an absolute stationary point of the cosmos**. Simulation uses synthetic numbers for body and cosmos, not sensor data or measurements; it does not diagnose, cleanse, detect hidden forces, or establish consciousness.
 
-## Founder's four canonical principles
+Body, Earth, Cosmos and Unknown are independent root scopes with 25 illustrative typed component nodes, provenance labels, caveats, and deterministic step/test support. [Open interactive Universe Explorer](./index.html).
 
-- **ONE = protected observer**: Represent the human/consenting creator with a persistent logical ID `ONE:observer`. Validation prevents changing the ID *inside the synthetic state model*; this does not secure a backend against real attacks.
-- **1 + 1 = 2**: Ordinary integer arithmetic, also a symbolic rule for connecting independent units without erasing their identities. Two inputs cannot establish the truth of a scientific proposition by themselves.
-- **1 − 1 = 0**: Ordinary arithmetic, also the user's metaphor for reconciliation and reset. Real physiological clearance is partial, gradual, variable and condition-dependent. No simulated reset can alter actual biology or physics.
-- **Spinning X at the core of Mother Earth**: User-defined 360-degree interactive visualization with an origin at the **Earth-Centered Earth-Fixed (ECEF) frame's (0,0,0)**. Rotation about a fixed origin leaves the coordinate value of that origin unchanged within that frame. It **does not establish an absolutely motionless center of the universe**; Earth orbits the Sun and is not a universal inertial reference point.
+## Universal Source Connector — websites and blogs
 
-## Domain architecture
+**Working now (pure JS, no provider credentials):**
+- Parse **RSS**, **Atom**, **JSON Feed v1**, **XML sitemaps**, HTML title/meta description, owner-supplied JSON records.
+- Preserve original URL, format, item title, article/source link, summary, publication time if supplied, type, metadata provenance, review requirements and source license status. No automatic truth claims.
+- Import pasted or owner-exported source without a server; optionally attempt public URL fetch **only if site CORS permits**. Export a structured JSON research archive.
+- 10 Node tests for feed types, metadata hygiene, URL guardrails, evidence status and unsafe/oversized input.
+- Supported-source family list includes sites, personal blogs, news, public archives, docs, scientific databases, social networks, video publishers, research APIs and marketplaces. **Support does not mean live direct access to every platform.**
 
-| Scale | Included nodes | What is intentionally not claimed |
+**Planned next:** consented server-side connector gateway with SSRF prevention, DNS/IP validation, OAuth, robots/terms compliance, per-site quotas, caching, rate limits, webhook verification, idempotent sync and deletion/revocation controls. Use public RSS/API and link to copyright originals rather than copying protected articles. For social networks and hosted platforms, use approved API/OAuth access.
+
+## Separate roles
+
+| Scale | Capability | Boundary |
 |---|---|---|
-| Body / microcosm | Nervous, cardiovascular, respiratory, digestive, immune, lymphatic, glymphatic, endocrine, musculoskeletal, renal, integumentary, reproductive, cellular | Real cell census, medical diagnosis, perfect homeostasis, or toxin removal |
-| Earth / anchor | ECEF core, surface directions, geomagnetic environment, ionosphere, radiation and magnetosphere | Five independent magnetic fields, Earth center as cosmological absolute, precise GPS fixes |
-| Cosmos / macrocosm | Solar System, stars/galaxies, cosmic web, spacetime | Complete physical universe mapping, black hole energy accounting, cosmic brain equivalence |
-| Unknown / unseen | Quantum theory, dark matter research and unresolved proposals | Proof that something supernatural, hidden, dangerous or conscious is present |
+| Bio/body | Catalog major human physiological systems, illustrative calculations | No live body monitoring or medical care |
+| Earth | ECEF coordinates, rotating relative axes | Global absolute stillness is not physically established |
+| Cosmos | Astronomical/cosmological architecture for observational data import | No live telescope catalogs, ephemeris or universe-wide sensor |
+| Unknown | Question/hypothesis/source tracker and uncertainty | Unseen things are not automatically verified |
+| Web knowledge | Parse supported feed/document metadata and provenance | No unauthorized scraping or private data access |
 
-**Core observable calculation:** angle wrapping and rotation by an explicit three-axis matrix. Its geometric center remains at the *coordinate origin*. Unit tests verify norm preservation and reproducible seeded state steps. The illustrative resource and waste quantities are *synthetic sliders*, not predictive physiology.
+## Tests
 
-## Why the user's pasted `universal_node.py` was not executed verbatim
+```sh
+node --test app-factory/universal-node/engine.test.cjs
+node --test app-factory/universal-node/source-adapters.test.cjs
+```
 
-It contains an unterminated string literal in the initial print statement, plus analogical assumptions stated as measurable fact (such as instantaneous total glymphatic toxin clearance, perfect global energy accounting, quantum observation and neutralization of unknown hazards). The reproducible engine retains the intended math, four scales, spinning X, named observer and inspection interface, while making the missing scientific evidence and safety limits explicit. The input concept remains preserved in the conversation; this code is its safe *implementation interpretation*, not a byte-identical import.
+Keep source originals in authorized owner-controlled Vault storage. Original owner JSON, art and unpublished personal records should NOT be published in a public GitHub repo. For every external claim, separate source text from modeled attributes and independent verification.
 
-## Build this once — dependencies
-
-This sits under `TABOR ROOT`, not as a standalone rival application. Its existing systems are re-used rather than duplicated:
-
-- `../tabor-gps/gps.js`: WGS84/ECEF mathematics; use this if/when adding measured geographic position (not yet wired here).
-- `../sovereign-boxes/engine.js`: distinct original identities and arithmetic language.
-- `../core/root-contracts.js`: project/asset schema contracts and release gates; do not mistake client flags for authentication.
-- `../build-order/`: validated dependency DAG; adapt it before extending into a cloud service.
-- `../vault.html`: preserve source media bytes and evidence assets; the visual app exports only synthetic state now.
-- `../nathan-ai/README.md`: independent private-package LET/TET/PPL and future model adapter, not a connected intelligent brain.
-
-## Real extension gates
-
-1. Scientific-source registry: source licensing, observational measurement URLs, units, temporal validity and uncertainty for each verified data stream.
-2. Body: user-directed health data with consent, standardized identifiers and medical review; never infer diagnoses from the synthetic demonstration.
-3. Earth: integrate TABOR GPS ECEF coordinate math, UTC time and optional WMM reference; separately validate against known reference positions.
-4. Cosmos: optional NASA Horizons/archives or comparable openly licensed catalog and coordinate-time conversions, including field accuracy audits.
-5. Unknown: **research hypotheses and creative exploration** in separate collections; distinguish fictional simulations, incomplete science and proven observations.
-6. Multi-user privacy: authenticated tenant-scoped records, audit logs, owner approval, no unconsented data sharing.
-7. Full integration tests and iPhone Safari interaction/performance checks. No self-awareness, universal firewall, healing, or planetary shielding claim is allowed without corresponding evidence (and several such claimed abilities are not scientifically established).
-
-Run tests: `node --test app-factory/universal-node/engine.test.cjs`.
-
-**Ethical foundation across every layer:** Empathy (understand and listen), Sympathy (respect dignity and permission), Compassion (take effective, verified action). Scientific and historical factual status still requires independent evidence.
-
-## New playable game — Tower of Babel × Dante's Inferno (October 10, 2026)
-
-- [Play 18-stage original mobile browser game](./babel-inferno.html): **nine tower levels above** and **nine mirrored infernal levels below**. The **ninth infernal level is frozen**, inspired by Dante's literary depiction of Cocytus. The nine-stage Babel tower is original game invention, not a claim about Genesis specifying nine floors.
-- [Deterministic state machine](./babel-game.js): nine stone tiles per floor, exactly three restoration symbols, hazards, shields, discovery score, level progression, per-floor restart, and locally serialized save. Winning requires all 18 stages. No violent combat or claims of medical treatment.
-- [Game tests](./babel-game.test.cjs): 13 assertions covering all 18 levels, mirrored pairing, frozen ninth circle, board determinism, progression, state preservation and creative 444→HHH / 555→SSS / 000→OOO cipher.
-- The game reuses [the 25-node human body/Earth/cosmos/unknown engine](./engine.js) rather than creating a second separate model, and borrows independent character-box visualization from [Sovereign Boxes](../sovereign-boxes/engine.js).
-- The text supplied by the creator distinguishes architectural metaphor and narrative from evidence. **'Tower-of-Babel syndrome' is not used as a patient diagnosis**, and the game does not equate symbolic pride, narcissism, mental illness, or disagreement. No historical identity between Babel, Dante's poem and modern institutions is asserted.
-
-**Artwork:** The animated rotating-X scene and tile graphics are procedural canvas/CSS designs; no third-party character art. **Status:** functional browser prototype, not native App Store/Google Play submission, not real-time astronomical/medical telemetry, not 3D production game. Needs device testing and future modular gameplay expansion.
+**Source concept:** `universal_node.py` provided by Nathan Tabor. This is a structurally improved browser implementation, not a claimed clinically functional or cosmic observation machine.
