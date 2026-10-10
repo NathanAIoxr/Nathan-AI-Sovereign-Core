@@ -634,6 +634,21 @@
       "next": "Reuse RSS, Atom, JSON Feed, sitemap, HTML metadata and JSON import. Production server connectors need SSRF controls, API/OAuth and source rights review.",
       "owner": "TABOR ROOT / independent bounded context",
       "review": "Required before changing status"
+    },
+    {
+      "id": "radix-ladder",
+      "title": "Golden Ladder reversible multi-radix codec (1–69)",
+      "group": "creation",
+      "status": "public-prototype",
+      "phase": 2,
+      "dependsOn": [
+        "registry",
+        "contracts"
+      ],
+      "evidence": "app-factory/radix-ladder/engine.js",
+      "next": "Reuse exact base-12 and bases 1–69 conversion in games, universal adapters, and symbolic system displays; do not confuse base-zero disconnected state with server authorization.",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
     }
   ]
 }
