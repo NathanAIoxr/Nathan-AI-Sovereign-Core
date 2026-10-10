@@ -1,0 +1,16 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict');
+const fs=require('node:fs'),path=require('node:path');
+const b=require('./engine.js');
+const r=JSON.parse(fs.readFileSync(path.join(__dirname,'registry.json'),'utf8'));
+test('1+1 is 2; 1-1 is 0',()=>{assert.equal(b.sum(1,1).result,2);assert.equal(b.subtract(1,1).result,0)});
+test('ten consists of two sovereign digit boxes',()=>assert.deepEqual(b.boxNumber(10).map(x=>x.value),['1','0']));
+test('every character retains position including spaces and symbols',()=>{const items=b.boxText('A + B');assert.equal(items.length,5);assert.equal(items[1].type,'space');assert.equal(items[2].value,'+');});
+test('34-character demonstration',()=>assert.equal(b.boxText('supercalifragilisticexpialidocious').length,34));
+test('alphabet mapping 1-26',()=>{assert.equal(b.alphabetIndex('A'),1);assert.equal(b.alphabetIndex('Z'),26);assert.throws(()=>b.alphabetIndex('AB'))});
+test('two identities survive relationship plus revocation',()=>{const a=b.entity('app:first','app'),c=b.entity('app:second','app');const link=b.relation(a,c,'related',true);assert.ok(link.active&&link.authorized);const rv=b.revoke(link);assert.equal(rv.active,false);assert.equal(rv.authorized,false);assert.equal(a.id,'app:first');assert.equal(c.id,'app:second')});
+test('identical IDs cannot be merged to satisfy two boxes',()=>{const a=b.entity('app:first','app');assert.throws(()=>b.relation(a,a,'related',true))});
+test('explicit 101 original game titles and stable IDs',()=>{const games=r.records.filter(x=>x.kind==='original-game-family');assert.equal(games.length,101);assert.equal(games[0].id,'TW-001');assert.equal(games[100].id,'TW-101');assert.equal(games[0].title,'Hatfields & McCoys')});
+test('496 independent proposed slots do not imply published games',()=>{const proposed=r.records.filter(x=>x.kind==='proposed-idea-slot');assert.equal(proposed.length,496);assert.ok(proposed.every(x=>x.title===null&&x.visibility==='private-metadata-only'));assert.equal(new Set(proposed.map(x=>x.id)).size,496)});
+test('no accidental ID collisions or false sum counts',()=>{const ids=r.records.map(x=>x.id);assert.equal(new Set(ids).size,ids.length);assert.equal(r.counts.totalIndexedBoxes,r.records.length)});
+test('separate public holiday music artifacts exist',()=>{for(const file of ['../creative/music/better-together/index.html','../creative/music/better-together/LYRICS.md','../creative/music/better-together/holiday-song-sheet.svg','../creative/music/better-together/README.md'])assert.ok(fs.existsSync(path.join(__dirname,file)))});
