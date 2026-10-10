@@ -10,7 +10,7 @@ The currently connected **public** repository has a working browser Factory dash
 
 `WORK_STATUS.md` and `WORK_BUILD_HANDOFF.md` describe additional independent owner-controlled ZIPs: tested local prototypes of Nathan AI LET/TET/PPL, State Engine, Universal Commerce, Knowledge Engine, TABOR INFINITUM, REMOVE JC, ChristmasToyDrive and the Factory starter. **Their actual source must be imported into the chosen private workspace and retested**. These public descriptions are not proof of deployed or currently installed server integrations. An earlier audit reported 103 tests across eight ZIPs, but this planner does not re-run those private ZIPs.
 
-## 38 independently identified build domains — actual dependency graph
+## 40 independently identified build domains — actual dependency graph
 
 [Interactive Build Controller](./index.html) · [Machine-readable dependency register](./dependencies.json) · [Reusable scheduling engine](./planner.js) · [13 regression checks](./planner.test.cjs)
 
