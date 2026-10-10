@@ -50,5 +50,17 @@ async function parse(zip){
  const bytes=members.get(x.member);if(!bytes||bytes.length!==x.bytes||x.bytes<0)throw Error('Original byte length missing or mismatched');const digest=await shaHex(bytes);if(digest!==x.sha256||x.meta.sha256!==digest)throw Error('Original SHA-256 mismatch for '+x.meta.name);extracted.push({record:x.meta,bytes})}
  return {manifest,items:extracted};
 }
-return Object.freeze({create,parse,zipStored,unzipStored,crc32,MAX_TOTAL});
+function planBatches(records,capBytes=95*1024*1024){
+ if(!Array.isArray(records)||!Number.isSafeInteger(capBytes)||capBytes<=0||capBytes>120*1024*1024)throw Error('Invalid backup group capacity');
+ const groups=[];let current=[],size=0;
+ for(const r of records){
+  if(!r||typeof r.id!=='string'||!Number.isSafeInteger(r.size)||r.size<0)throw Error('Invalid original record size');
+  if(r.size>capBytes)throw Error('One original exceeds this mobile backup limit: '+r.name+' ('+r.size+' bytes). Download it individually and verify its own checksum.');
+  if(current.length&&(size+r.size>capBytes||current.length>=1000)){groups.push(current);current=[];size=0}
+  current.push(r);size+=r.size;
+ }
+ if(current.length)groups.push(current);
+ return groups;
+}
+return Object.freeze({create,parse,zipStored,unzipStored,crc32,MAX_TOTAL,planBatches});
 });
