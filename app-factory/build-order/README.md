@@ -76,3 +76,9 @@ The GitHub workflow will run these with ONE, 1420 and Sovereign Box tests. Recor
 - Publishing, payments, remote deletion, licensing and legal/children's release reviews.
 
 **Foundation:** EMPATHY → SYMPATHY → COMPASSION; check impact, respect consent and sovereignty, implement the smallest validated improvement, preserve every original.
+
+## Universal Source Adapters — sites, blogs and archives
+
+The **same** tested `app-factory/universal-node/source-adapters.js` source reader is reusable across every Factory domain: research, games, history, education, astronomy, Tabor GPS, Nathan AI, publishing, commerce and Good Samaritan projects. It imports RSS, Atom, JSON Feed, sitemaps, HTML metadata and structured JSON with provenance, review and unknown-license flags. The browser UI is at [Universal Node](../universal-node/index.html); ten automated parsing and access-boundary tests are in `source-adapters.test.cjs`.
+
+Do not develop a separate scraper for each product. Build one **authorized server connector gateway** when approved, with official OAuth APIs, robots/terms/licensing policy, host and resolved IP allow/deny checks, per-user quotas, rate limiting, retry, audit, content sanitization, and verified synchronization. Site-by-site login bypass or unrestricted crawling is not provided. Do not treat RSS text as verified cosmic, medical or historical evidence.
