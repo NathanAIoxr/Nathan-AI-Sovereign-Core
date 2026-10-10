@@ -36,6 +36,8 @@ jobs:
           node-version: '22'
       - name: Verify public assets and architecture boundaries
         run: node --test app-factory/quality.test.cjs
+      - name: Verify TABOR Golden Radix Ladder bases and inverse conversion
+        run: node --test app-factory/radix-ladder/engine.test.cjs
       - name: Verify shared TABOR ROOT contracts and authorization gates
         run: node --test app-factory/core/root-contracts.test.cjs
       - name: Verify Sovereign Boxes, 101 original games, private slots and holiday project
