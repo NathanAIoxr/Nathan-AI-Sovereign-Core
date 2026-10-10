@@ -1,0 +1,594 @@
+{
+  "schema": "tabor.build-order.v1",
+  "owner": "Nathan Tabor",
+  "created": "2026-10-10",
+  "rule": "Inspect before implementation. Reuse a tested engine rather than replicate. Never treat a catalog record or private-package description as deployed software.",
+  "sourceBasis": [
+    "WORK_STATUS.md",
+    "WORK_BUILD_HANDOFF.md",
+    "app-factory/products.json",
+    "app-factory/sovereign-boxes/registry.json"
+  ],
+  "statuses": {
+    "public-prototype": "Public source exists; not necessarily production",
+    "private-package": "Private handoff described; import and independently verify",
+    "not-built": "Implementation still required",
+    "blocked-approval": "Needs specific owner/provider approval",
+    "concept": "Defined idea only",
+    "catalog-only": "Identity/slot only, not code"
+  },
+  "nodes": [
+    {
+      "id": "inventory",
+      "title": "Audit original source and public repo",
+      "group": "foundation",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [],
+      "evidence": "WORK_STATUS.md",
+      "next": "Verify paths, versions and owning project; no private ZIP assumed publicly mounted",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "registry",
+      "title": "Sovereign 618-box catalog and identity ledger",
+      "group": "foundation",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "inventory"
+      ],
+      "evidence": "app-factory/sovereign-boxes/registry.json",
+      "next": "Reuse TW-001..TW-101, the 496 private slots and distinct public modules; no fake 618 finished apps",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "contracts",
+      "title": "Shared namespace, asset and release contracts",
+      "group": "foundation",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "registry"
+      ],
+      "evidence": "app-factory/core/root-contracts.js",
+      "next": "Extend existing contracts, never replace original IDs",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "backup-local",
+      "title": "Full original-byte local Vault export and recovery",
+      "group": "safety",
+      "status": "not-built",
+      "phase": 1,
+      "dependsOn": [
+        "inventory",
+        "contracts"
+      ],
+      "evidence": "app-factory/vault.js",
+      "next": "P0: browser Vault metadata export is not backup of actual binary media",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "private-source",
+      "title": "Private versioned source workspace",
+      "group": "safety",
+      "status": "blocked-approval",
+      "phase": 1,
+      "dependsOn": [
+        "inventory",
+        "registry"
+      ],
+      "evidence": "WORK_BUILD_HANDOFF.md",
+      "next": "Needs approved private repository destination; never publish private ZIPs to this public repo",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "authentication",
+      "title": "Trusted user sign-in and tenant isolation",
+      "group": "safety",
+      "status": "not-built",
+      "phase": 1,
+      "dependsOn": [
+        "contracts"
+      ],
+      "evidence": "app-factory/RELEASE_GATES.md",
+      "next": "Use real authenticated server identity; test cross-account rejection",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "audit-provenance",
+      "title": "Owner-scoped asset provenance and revision history",
+      "group": "safety",
+      "status": "private-package",
+      "phase": 1,
+      "dependsOn": [
+        "contracts",
+        "backup-local",
+        "private-source"
+      ],
+      "evidence": "app-factory/knowledge-engine/README.md",
+      "next": "Reuse local Knowledge Engine revision and SHA-256 backup designs, verify private source before integration",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "private-storage",
+      "title": "Encrypted original-byte private asset storage",
+      "group": "safety",
+      "status": "not-built",
+      "phase": 2,
+      "dependsOn": [
+        "authentication",
+        "backup-local",
+        "audit-provenance"
+      ],
+      "evidence": "app-factory/UNIVERSAL-CREATOR-VAULT.md",
+      "next": "Backup, restore, retention, encryption and tenant file checks required",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "event-bus",
+      "title": "Idempotent scoped event and background-job contracts",
+      "group": "foundation",
+      "status": "not-built",
+      "phase": 2,
+      "dependsOn": [
+        "authentication",
+        "contracts"
+      ],
+      "evidence": "app-factory/PLATFORM-ARCHITECTURE.md",
+      "next": "One shared jobs/events component instead of per-app queues",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "catalog-api",
+      "title": "Private project, game and relationship API",
+      "group": "foundation",
+      "status": "not-built",
+      "phase": 2,
+      "dependsOn": [
+        "authentication",
+        "registry",
+        "audit-provenance"
+      ],
+      "evidence": "app-factory/core/knowledge-record.schema.json",
+      "next": "One owner-scoped API with domain-specific extensions",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "vault-browser",
+      "title": "Universal Creator Vault local file handling",
+      "group": "creation",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "inventory"
+      ],
+      "evidence": "app-factory/vault.js",
+      "next": "Reuse original browser import and preview; don't rebuild the asset picker",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "knowledge-engine",
+      "title": "DOCX/XLSX/PPTX universal Knowledge Engine",
+      "group": "creation",
+      "status": "private-package",
+      "phase": 2,
+      "dependsOn": [
+        "private-source",
+        "backup-local",
+        "contracts"
+      ],
+      "evidence": "app-factory/knowledge-engine/README.md",
+      "next": "Private FastAPI/SQLite package reportedly tested; import unchanged and inspect",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "creative-ui",
+      "title": "Factory project, story, media planning dashboard",
+      "group": "creation",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "inventory"
+      ],
+      "evidence": "app-factory/index.html",
+      "next": "Reuse live UI and project layout; avoid second dashboard",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "search-graph",
+      "title": "Provenance-aware search and graph relationships",
+      "group": "creation",
+      "status": "private-package",
+      "phase": 3,
+      "dependsOn": [
+        "knowledge-engine",
+        "catalog-api"
+      ],
+      "evidence": "app-factory/knowledge-engine/README.md",
+      "next": "Reuse Knowledge Engine search/graph before building independent search again",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "state-engine",
+      "title": "Authoritative state model, validation and serialization",
+      "group": "games",
+      "status": "private-package",
+      "phase": 3,
+      "dependsOn": [
+        "contracts",
+        "authentication",
+        "private-source"
+      ],
+      "evidence": "app-factory/universal-state-engine/README.md",
+      "next": "Reuse same safe game state transitions across 101 families",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "game-runtime",
+      "title": "Reusable legal moves, save/load, tutorial and transforms",
+      "group": "games",
+      "status": "not-built",
+      "phase": 4,
+      "dependsOn": [
+        "state-engine",
+        "private-storage"
+      ],
+      "evidence": "app-factory/games/CROWNING-JEWEL-BLUEPRINT.md",
+      "next": "Extract reusable mechanics rather than cloning complete games",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "graphics",
+      "title": "Original graphics, scenes and asset processing",
+      "group": "creation",
+      "status": "not-built",
+      "phase": 4,
+      "dependsOn": [
+        "private-storage",
+        "event-bus"
+      ],
+      "evidence": "app-factory/MEDIA-ENGINE.md",
+      "next": "Shared multi-format graphics/video/audio jobs, versioned originals and rights",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "model-adapters",
+      "title": "LLM/provider-neutral model adapters",
+      "group": "ai",
+      "status": "not-built",
+      "phase": 3,
+      "dependsOn": [
+        "authentication",
+        "event-bus"
+      ],
+      "evidence": "app-factory/nathan-ai/README.md",
+      "next": "Real credentials stay server-side, explicit budgets and tool permissions",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "let-tet",
+      "title": "LET/TET and Pinocchio evidence checks",
+      "group": "ai",
+      "status": "private-package",
+      "phase": 3,
+      "dependsOn": [
+        "private-source",
+        "contracts"
+      ],
+      "evidence": "app-factory/nathan-ai/README.md",
+      "next": "Reuse existing tested Python prototype; checks are not guaranteed truth",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "ppl",
+      "title": "PPL optional 12-symbol parser",
+      "group": "ai",
+      "status": "private-package",
+      "phase": 4,
+      "dependsOn": [
+        "let-tet"
+      ],
+      "evidence": "app-factory/nathan-ai/README.md",
+      "next": "Preserve original notation; parser must be tested",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "thinker",
+      "title": "Nathan AI conversational orchestration",
+      "group": "ai",
+      "status": "not-built",
+      "phase": 4,
+      "dependsOn": [
+        "let-tet",
+        "model-adapters",
+        "search-graph"
+      ],
+      "evidence": "app-factory/nathan-ai/README.md",
+      "next": "Evidence and permissions before autonomous external actions",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "office-provider",
+      "title": "Authorized Microsoft Graph/Office sync",
+      "group": "integrations",
+      "status": "not-built",
+      "phase": 5,
+      "dependsOn": [
+        "knowledge-engine",
+        "authentication",
+        "event-bus"
+      ],
+      "evidence": "app-factory/knowledge-engine/README.md",
+      "next": "No EWS dependency; user grant + delta and conflict tests",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "commerce-adapter",
+      "title": "Universal Shopify/Kickstarter commerce interfaces",
+      "group": "integrations",
+      "status": "private-package",
+      "phase": 4,
+      "dependsOn": [
+        "authentication",
+        "event-bus",
+        "private-storage"
+      ],
+      "evidence": "app-factory/universal-commerce/README.md",
+      "next": "Reuse sandbox package; production payment and publishing disabled",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "publishing",
+      "title": "Human-reviewed app/site/game/book release pipeline",
+      "group": "integrations",
+      "status": "not-built",
+      "phase": 6,
+      "dependsOn": [
+        "graphics",
+        "commerce-adapter",
+        "private-source"
+      ],
+      "evidence": "app-factory/RELEASE_GATES.md",
+      "next": "No auto-publishing or payment without explicit approval",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "one",
+      "title": "ONE — The Last App browser shell",
+      "group": "products",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "creative-ui"
+      ],
+      "evidence": "app-factory/one/index.html",
+      "next": "Reuse 26 life domains and local flows; do not assert OS-wide iPhone control",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "gps",
+      "title": "TABOR GPS mathematical browser prototype",
+      "group": "products",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "creative-ui"
+      ],
+      "evidence": "app-factory/tabor-gps/index.html",
+      "next": "Reuse WGS84 engine; real routing and sensors still missing",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "crowning",
+      "title": "1420 Crowning Jewel game prototype",
+      "group": "products",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "creative-ui"
+      ],
+      "evidence": "app-factory/games/crowning-jewel.js",
+      "next": "Preserve two eras and independent original game identity",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "remove-jc",
+      "title": "REMOVE JC six-act fantasy alpha",
+      "group": "products",
+      "status": "private-package",
+      "phase": 5,
+      "dependsOn": [
+        "game-runtime",
+        "graphics",
+        "private-source"
+      ],
+      "evidence": "app-factory/remove-jc/README.md",
+      "next": "Reuse original character and scenario source; distinguish facts and fiction",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "healers",
+      "title": "Healers & Protectors flagship game",
+      "group": "products",
+      "status": "concept",
+      "phase": 5,
+      "dependsOn": [
+        "game-runtime",
+        "graphics",
+        "thinker"
+      ],
+      "evidence": "WORK_BUILD_HANDOFF.md",
+      "next": "Main TABOR WORLD core; don't merge archived Maters & Taters",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "angels",
+      "title": "Angels vs Demons 404 roster game",
+      "group": "products",
+      "status": "private-package",
+      "phase": 5,
+      "dependsOn": [
+        "game-runtime",
+        "graphics"
+      ],
+      "evidence": "WORK_STATUS.md",
+      "next": "Preserve 404 canon and import actual verified private source",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "tabortales",
+      "title": "TaborTales STEM and KJV game/stories",
+      "group": "products",
+      "status": "concept",
+      "phase": 5,
+      "dependsOn": [
+        "game-runtime",
+        "graphics",
+        "search-graph"
+      ],
+      "evidence": "WORK_BUILD_HANDOFF.md",
+      "next": "Children's safety and original character rights",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "infinitum",
+      "title": "TABOR INFINITUM universal matrix",
+      "group": "products",
+      "status": "private-package",
+      "phase": 5,
+      "dependsOn": [
+        "search-graph",
+        "state-engine",
+        "thinker"
+      ],
+      "evidence": "app-factory/infinitum/README.md",
+      "next": "Reuse comparison/reasoning prototypes, separate fact from analogy",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "christmas",
+      "title": "ChristmasToyDrive / Handling Life portal",
+      "group": "products",
+      "status": "private-package",
+      "phase": 6,
+      "dependsOn": [
+        "authentication",
+        "private-storage",
+        "event-bus"
+      ],
+      "evidence": "WORK_BUILD_HANDOFF.md",
+      "next": "Sensitive help requests and donations remain disabled until safeguarding",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "act",
+      "title": "Project Innocence / ACT Node System",
+      "group": "products",
+      "status": "private-package",
+      "phase": 5,
+      "dependsOn": [
+        "search-graph",
+        "graphics"
+      ],
+      "evidence": "WORK_BUILD_HANDOFF.md",
+      "next": "102,400 symbolic points, not astronomical measurements",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "holiday",
+      "title": "Better Together three-holiday song sheet",
+      "group": "products",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "creative-ui"
+      ],
+      "evidence": "app-factory/creative/music/better-together/index.html",
+      "next": "Existing SVG/lyrics; original generated PNG remains private",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "game101",
+      "title": "Original TW-001…TW-101 game family templates",
+      "group": "products",
+      "status": "catalog-only",
+      "phase": 6,
+      "dependsOn": [
+        "game-runtime",
+        "graphics",
+        "registry"
+      ],
+      "evidence": "app-factory/sovereign-boxes/registry.json",
+      "next": "Build one engine family at a time; 101 records are not 101 playable releases",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "ideas496",
+      "title": "R101…R956 proposed private ideas",
+      "group": "products",
+      "status": "catalog-only",
+      "phase": 7,
+      "dependsOn": [
+        "registry",
+        "private-source"
+      ],
+      "evidence": "app-factory/sovereign-boxes/registry.json",
+      "next": "Import private source records only with authorization; no idea name fabricated",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    },
+    {
+      "id": "mobile",
+      "title": "Native iOS/Android shells and signing",
+      "group": "integrations",
+      "status": "blocked-approval",
+      "phase": 7,
+      "dependsOn": [
+        "publishing",
+        "authentication"
+      ],
+      "evidence": "app-factory/README.md",
+      "next": "Requires Apple/Google developer accounts and signed builds",
+      "owner": "TABOR ROOT / independent bounded context",
+      "review": "Required before changing status"
+    }
+  ]
+}
