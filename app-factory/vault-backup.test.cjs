@@ -13,3 +13,7 @@ test('oversized originals explicitly fail rather than silently omit data',async(
 test('empty backup selection is refused rather than a false success',async()=>await assert.rejects(backup.create([]),/Select 1/));
 test('source record metadata is not mutated during digest population',async()=>{const x=item('sample.txt','test');await backup.create([x]);assert.equal(x.record.sha256,null)});
 test('truncated central directory rejected',async()=>{const b=(await backup.create([item('f.txt','hi')])).bytes;await assert.rejects(backup.parse(b.slice(0,b.length-8)),/ZIP end marker|Corrupt/)});
+
+test('large local Vault is divided into complete nonoverlapping backup batches',()=>{const records=[{id:'a',name:'a',size:50},{id:'b',name:'b',size:40},{id:'c',name:'c',size:30},{id:'d',name:'d',size:0}];const batches=backup.planBatches(records,70);assert.deepEqual(batches.map(b=>b.map(x=>x.id)),[['a'],['b','c','d']]);assert.equal(new Set(batches.flat().map(x=>x.id)).size,records.length)});
+test('oversized single original triggers a visible error instead of omission',()=>{assert.throws(()=>backup.planBatches([{id:'a',name:'large.mov',size:200}],100),/exceeds this mobile backup limit/)});
+test('empty backup archive has zero selected batches',()=>assert.deepEqual(backup.planBatches([]),[]));
