@@ -49,3 +49,13 @@ test('unified Explorer fetches both archival registries',()=>{
  assert.match(html,/brief/);
  assert.match(html,/376/);
 });
+test('all source-derived card and board mechanical classifications are complete',()=>{
+ const meta=JSON.parse(fs.readFileSync(path.join(dir,'morning-mechanics-taxonomy.json'),'utf8'));
+ assert.equal(meta.card.mechanic_families.length,12);
+ assert.equal(meta.card.engine_modules.length,22);
+ assert.equal(meta.card.record_classifications.length,69);
+ assert.equal(Object.keys(meta.board.mechanic_families).length,9);
+ assert.equal(meta.board.record_classifications.length,69);
+ assert.equal(new Set(meta.card.record_classifications.map(x=>x.id)).size,69);
+ assert.equal(new Set(meta.board.record_classifications.map(x=>x.id)).size,69);
+});
