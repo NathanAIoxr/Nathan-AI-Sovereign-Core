@@ -56,3 +56,9 @@ TABOR WORLD, ONE, Nathan AI, TaborTales, TABOR INFINITUM, ChristmasToyDrive.com,
 The root `LICENSE` file is **Apache License 2.0**. Confirm that it matches the owner's intended licensing for *publicly committed code*. Do not assume it grants rights to separately held, unpublished images, game assets, brands, manuscripts or private source packages. Commercial licensing and third-party IP need review before release.
 
 **No live payments, donation collection, financial transfer, private assistance intake or store publication is enabled by these public prototypes.** Human approval, secure server identity and provider verification are mandatory for high-impact actions.
+
+## NATHAN AI — 138 Mechanic Reference Positions
+
+- [Browse the 138-entry mechanics matrix](app-factory/game-reference-lab/index.html) — 35 nurturing sandboxes, 34 conceptual master strokes, 34 autonomous simulation references and 35 void references; four intentionally repeated concepts = 134 distinct normalized titles.
+- [Experiment in the local Zero & Void Lab](app-factory/game-reference-lab/zero-void-lab.html) — five independent cellular-automaton worlds with scan/seed/snapshot controls.
+- [Engineering documentation](app-factory/game-reference-lab/README.md) and [public sanitized registry](app-factory/game-reference-lab/registry.json) — originals remain owner-controlled outside the public repository; 101 original TABOR WORLD IDs stay separate. No 138 production engines or automated app release are implied.
