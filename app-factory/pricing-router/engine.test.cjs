@@ -48,3 +48,13 @@ test("all plans are inert checkout previews",()=>{
  a.ok(x.offers.every(o=>o.platformProductId===null&&o.directPurchaseEnabled===false));
  }
 });
+test("mixed-audience content gets children-first safeguards",()=>{
+ const x=e.compile(app({category:"casual",supportsAds:true,includesChildren:true,ongoingContent:true}),policy,catalog);
+ a.equal(x.configuration,"socialFlow");a.ok(x.offers.every(o=>o.requiresAdultCheckout));a.ok(x.offers.every(o=>o.id!=="ad_removal"));
+});
+test("family audience defaults child-safe and community purpose wins",()=>{
+ const family=e.compile(app({audience:"families",category:"competitive",ongoingContent:true}),policy,catalog);
+ a.equal(family.configuration,"socialFlow");a.ok(family.offers.every(o=>o.requiresAdultCheckout));
+ const community=e.compile(app({category:"creator",complexity:5,purpose:"community"}),policy,catalog);
+ a.equal(community.configuration,"socialFlow");
+});
