@@ -149,3 +149,34 @@ def dog_portrait(name, red=False):
 
 dog_portrait("ChampPortrait")
 dog_portrait("AcePortrait",True)
+
+
+# Six handcrafted panorama banners for the Adventure Campaign worlds.
+for world_id,world_name in enumerate(["Puzzlewood","Biscuit Hollow","Finn's Mirror Maze","Champ's Snack Trail","Ace's Moonlit Meadow","The Mammal Bond"]):
+    width,height=1100,360
+    colors=[(36,121,108),(179,112,58),(77,95,164),(154,120,80),(65,70,138),(171,78,112)]
+    base=colors[world_id]
+    panel=Image.new("RGB",(width,height))
+    art=ImageDraw.Draw(panel,"RGBA")
+    for yy in range(height):
+        f=yy/height
+        art.line((0,yy,width,yy),fill=(min(255,int(base[0]+94*(1-f))),min(255,int(base[1]+92*(1-f))),min(255,int(base[2]+75*(1-f)))))
+    for i in range(14):
+        px=random.randint(5,1090);py=random.randint(60,300)
+        r=random.randint(12,40)
+        art.ellipse((px-r,py-r,px+r,py+r),fill=(255,226,155,55))
+    art.ellipse((820,26,1010,216),fill=(250,231,168,220))
+    art.polygon([(0,300),(190,185),(420,300),(720,130),(1100,305),(1100,360),(0,360)],fill=(27,88,81,205))
+    for j in range(9):
+        tx=j*140-30
+        art.rectangle((tx+35,205,tx+54,345),fill=(91,69,53,255))
+        art.ellipse((tx-15,125,tx+100,245),fill=(37,107,81,255))
+    if world_id in (0,1,2):
+        kitten(art,190,195,77,stewart=True)
+        kitten(art,345,195,77,stewart=False)
+    else:
+        art.ellipse((180,130,440,310),fill=(202,151,99,255))
+        art.ellipse((315,135,565,310),fill=(133,74,49,255))
+        for ox in (270,470):
+            art.ellipse((ox-12,208,ox+12,235),fill=(37,29,31,255))
+    save_asset("World"+str(world_id),panel)
