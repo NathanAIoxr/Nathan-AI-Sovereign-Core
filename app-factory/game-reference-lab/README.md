@@ -71,3 +71,11 @@ node --test app-factory/quality.test.cjs
 ```
 
 This reference integration does **not** implement 138 games, 138 game engines, online AI agents, cloud synchronization, user accounts, or live store distribution.
+
+## October 13 Morning Intake — 376 positions
+
+[Unified 376 browser explorer](./all-morning.html) · [Additional 238 source positions](./morning-additions-238.json) · [Earlier 138 positions](./registry.json) · [Integrity tests](./morning-376.test.cjs).
+
+Actual source reconciliation: original shooter archive **34**, foundational creative archive **33 nurturing + 33 unconventional = 66**, expansion **35 + 34 = 69**, card archive **33 historical + 36 modern = 69**, board archive **33 historical + 36 modern = 69**, and autonomous/void archive **34 + 35 = 69**. This totals **376**, not seven independent 69-entry sets. The earlier NATHAN AI Master 138 files and board+zero 138 architecture file are *derived combinations* and should never be added again as new source positions. The shooter source has two entries both named *Doom* with different descriptions; both are preserved without inventing a variant subtitle.
+
+The separate morning Apple/Google monetization research and mixed creative satire source is inventoried for **owner-only preservation and factual review**; no store prices, fee rates or purchase prompts are activated in the Factory by importing the research. Original source text, spreadsheets and source ZIPs are **private owner material**, not in the public GitHub repository. New public JSON descriptions omit linked search-footnote lists and are not independent fact checking. Existing `TW-001`–`TW-101` remains untouched.
