@@ -48,6 +48,7 @@ struct GameHomeView: View {
                             .tracking(2)
                             .padding(.top, 4)
 
+                        adventureLink("🗺️", "THE GRAND ADVENTURE MAP", "48 boards · six magical worlds", to: CampaignMapView())
                         adventureLink("🌲", "Explore Puzzlewood", "Find seven hidden treasures", to: ExploreView())
                         adventureLink("🧩", "Puzzle Pals", "Match the mammal pairs", to: PuzzleView())
                         adventureLink("🐾", "The Biscuit Factory", "Tap out twelve happy biscuits", to: BiscuitView())
