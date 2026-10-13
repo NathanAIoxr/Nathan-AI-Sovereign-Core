@@ -24,3 +24,10 @@ Platform references:
 Mixed-age and family apps default to the child-directed safeguards. A general-audience app with a known child audience must declare includesChildren=true; the planner does not itself establish age or consent.
 
 Native iOS: FactoryPricingRouter.swift decodes the same policy and catalog structures; it is a **pricing-plan evaluator**, not a replacement for verified StoreKit payments or a security boundary.
+
+## Automatic per-game manifests
+Each game can carry a simple JSON metadata profile. Run: node app-factory/pricing-router/build-manifests.cjs app-factory/pricing-router/manifests.example.json
+The batch generator returns separate deterministic pricing proposals for every app ID; an app can use the same engine at build time. The sample has five PUBLIC generic demos (not unpublished owner titles). Replace it with each app's real metadata inside its own repository. Real payment SKUs, owner review and native price lookups remain separate.
+- manifests.example.json: five illustrative WHO+WHAT app profiles.
+- build-manifests.cjs: CLI/library batch planner with duplicate-ID safety.
+- build-manifests.test.cjs: batch acceptance tests.
