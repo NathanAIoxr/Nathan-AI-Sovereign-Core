@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TABOR Dynamic Pricing Router</title><style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,sans-serif}*{box-sizing:border-box}
+body{background:#101019;color:#f3f5ff;margin:0}main{max-width:930px;margin:auto;padding:20px 15px 80px}
+h1{font-size:clamp(24px,6vw,38px);margin:8px 0}h2{font-size:19px;margin:3px 0 10px}
+p{line-height:1.48;color:#d0d4e4}a{color:#a5cbff}small,.note{color:#afbad1}
+.panel{background:#1c2232;border:1px solid #414c66;border-radius:16px;padding:18px;margin:14px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(216px,1fr));gap:14px}
+label{display:block;font-size:13px;margin-bottom:5px}select,input{width:100%;font:inherit;padding:10px;color:#fff;background:#262b40;border:1px solid #59627a;border-radius:9px}
+input[type=checkbox]{width:auto;margin:0 6px 0 0}.check{display:inline-flex;gap:5px;align-items:center;margin:10px 16px 4px 0}
+.card{background:#273447;border-radius:10px;padding:12px;border:1px solid #475c75}.card h3{font-size:16px;margin:0}
+.price{font-size:23px;font-weight:700}.result{border-left:4px solid #80c9b9}
+button{font:inherit;background:#b7d5fe;border:0;border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer}
+pre{white-space:pre-wrap}footer{font-size:12px;color:#abb8cc}
+</style></head><body><main>
+<a href="../index.html">← Factory Home</a><p><small>T123-PRICING-ROUTER-001 · NATHAN AI</small></p>
+<h1>Dynamic Pricing & Audience Router</h1>
+<p><strong>WHO + WHAT → FACTORY POLICY → PROPOSED PRODUCT MIX.</strong> The game determines the model. All prices are illustrative USD design proposals, not live Apple/Google quotes.</p>
+<div class="panel"><h2>1 · App purpose and audience</h2><div class="grid">
+<div><label for="title">App title</label><input id="title" value="My Factory Game"></div>
+<div><label for="audience">WHO: Intended audience</label><select id="audience"><option value="children">Children / adult purchase gate</option><option value="families">Families</option><option value="general" selected>General</option><option value="educators">Educators</option><option value="professionals">Professionals</option></select></div>
+<div><label for="category">WHAT: App category</label><select id="category"><option value="story">Story / book</option><option value="casual" selected>Casual game</option><option value="competitive">Competitive game</option><option value="sandbox">Advanced sandbox</option><option value="creator">Creator tools</option><option value="utility">Utility</option><option value="education">Education</option><option value="community">Community</option></select></div>
+<div><label for="purpose">Primary purpose</label><select id="purpose"><option value="entertainment">Entertainment</option><option value="learning">Learning</option><option value="creativity">Creativity</option><option value="community">Community</option><option value="professional">Professional</option></select></div>
+<div><label for="complexity">Complexity</label><select id="complexity"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option></select></div>
+<div><label for="deliveryCost">Delivery/service cost</label><select id="deliveryCost"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></div>
+<div><label for="ownerPriceBand">Owner approved band (preview)</label><select id="ownerPriceBand"><option value="auto">Factory automatic</option><option value="basic">Basic</option><option value="standard">Standard</option><option value="advanced">Advanced</option></select></div>
+</div>
+<label class="check"><input type="checkbox" id="ongoingContent">Regular new content</label>
+<label class="check"><input type="checkbox" id="multiplayer">Multiplayer</label>
+<label class="check"><input type="checkbox" id="supportsAds">Ads planned</label>
+<label class="check"><input type="checkbox" id="freeCore" checked>Free core</label></div>
+<div class="panel result" aria-live="polite"><h2>2 · Factory configuration</h2><div id="output">Loading…</div></div>
+<div class="panel"><h2>3 · Export proposed plan</h2><p class="note">No real purchase, store registration, account or API is connected. Actual sales require owner release approval, permitted platform SKU configuration and secure verified billing.</p><button id="export" disabled>Export plan JSON</button><pre id="error" role="alert"></pre></div>
+<footer>Static-browser prototype. Pricing is based on APP SCOPE and INTENDED AUDIENCE, never individual wealth or behavioral profiles.</footer>
+<script src="./engine.js"></script><script>
+(async()=>{
+ const $=id=>document.getElementById(id);
+ const esc=t=>String(t).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+ const money=x=>new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(x/100);
+ let policy,catalog,current;
+ try{
+  const r=await Promise.all(["policy.json","catalog.json"].map(x=>fetch("./"+x).then(y=>{if(!y.ok)throw Error(x);return y.json()})));
+  [policy,catalog]=r;TaborPricingRouter.validate(policy,catalog);
+ }catch(e){$("output").textContent="Open this page on a web server (e.g., GitHub Pages).";$("error").textContent=e.message;return}
+ function render(){
+ try{
+  const app={id:"preview",title:$("title").value||"Unnamed",audience:$("audience").value,category:$("category").value,purpose:$("purpose").value,
+  complexity:Number($("complexity").value),deliveryCost:$("deliveryCost").value,ownerPriceBand:$("ownerPriceBand").value,
+  ongoingContent:$("ongoingContent").checked,multiplayer:$("multiplayer").checked,
+  supportsAds:$("supportsAds").checked,freeCore:$("freeCore").checked};
+  current=TaborPricingRouter.compile(app,policy,catalog);
+  $("error").textContent="";$("export").disabled=false;
+  $("output").innerHTML="<p><strong>"+esc(current.configurationName)+"</strong> · "+esc(current.priceBand)+" pricing band</p>"+
+  "<p>"+esc(current.reason)+"</p><p>Core: "+(current.freeCore?"free":"paid core proposed, requires approval")+"</p>"+
+  (current.offers.length?"<div class='grid'>"+current.offers.map(o=>"<div class='card'><h3>"+esc(o.title)+"</h3><small>"+esc(o.type)+"</small><p>"+esc(o.description)+"</p><div class='price'>"+money(o.recommendedUsdCents)+"</div><small>USD preview; no checkout "+(o.requiresAdultCheckout?"· guardian gate needed":"")+"</small></div>").join("")+"</div>":"<p>No matching paid products—free-only is supported.</p>")+
+  "<p class='note'>"+esc(current.childGuard)+" Every real price comes from a separately registered platform SKU.</p>";
+ }catch(e){current=null;$("export").disabled=true;$("error").textContent=e.message}
+ }
+ document.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",render));
+ $("export").addEventListener("click",()=>{
+  if(!current)return;
+  const url=URL.createObjectURL(new Blob([JSON.stringify(current,null,2)],{type:"application/json"}));
+  const a=document.createElement("a");a.href=url;a.download="tabor-pricing-plan.json";document.body.append(a);a.click();a.remove();URL.revokeObjectURL(url);
+ });
+ render();
+})();
+</script></main></body></html>

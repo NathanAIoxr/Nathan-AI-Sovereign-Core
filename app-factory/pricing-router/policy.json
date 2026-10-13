@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-10-13.1",
+  "configurations": {
+    "socialFlow": {
+      "title": "1 — Social Flow",
+      "offerIds": [
+        "story_expansion",
+        "starter_bundle",
+        "ad_removal",
+        "supporter_content"
+      ]
+    },
+    "corePipeline": {
+      "title": "2 — Core Pipeline",
+      "offerIds": [
+        "story_expansion",
+        "season_pass",
+        "creator_membership",
+        "cosmetics"
+      ]
+    },
+    "maxApex": {
+      "title": "3 — Max Apex",
+      "offerIds": [
+        "advanced_expansion",
+        "pro_kit",
+        "professional_membership",
+        "team_license",
+        "cosmetics"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "CHILD_FIRST",
+      "when": {
+        "audienceAny": [
+          "children"
+        ]
+      },
+      "configuration": "socialFlow",
+      "reason": "Children-first free core; guardian-approved optional durable content only."
+    },
+    {
+      "id": "COMMUNITY_FIRST",
+      "when": {
+        "categoryAny": [
+          "community"
+        ]
+      },
+      "configuration": "socialFlow",
+      "reason": "Public-interest participation before monetization."
+    },
+    {
+      "id": "ADVANCED_PRODUCT",
+      "when": {
+        "categoryAny": [
+          "sandbox",
+          "creator",
+          "utility"
+        ],
+        "complexityAtLeast": 4
+      },
+      "configuration": "maxApex",
+      "reason": "Advanced product scope and delivery cost—not presumed personal wealth—permit optional premium features."
+    },
+    {
+      "id": "ONGOING_CONTENT",
+      "when": {
+        "ongoingContent": true
+      },
+      "configuration": "corePipeline",
+      "reason": "Continuously delivered new content can justify optional passes or subscriptions."
+    },
+    {
+      "id": "MULTIPLAYER",
+      "when": {
+        "multiplayer": true
+      },
+      "configuration": "corePipeline",
+      "reason": "Ongoing multiplayer infrastructure can justify optional service features."
+    },
+    {
+      "id": "COMPETITIVE",
+      "when": {
+        "categoryAny": [
+          "competitive"
+        ]
+      },
+      "configuration": "corePipeline",
+      "reason": "Optional fixed rewards and season content; no pay-to-win requirement."
+    },
+    {
+      "id": "DEFAULT",
+      "when": {},
+      "configuration": "socialFlow",
+      "reason": "Free-first, low-friction starting configuration."
+    }
+  ]
+}
