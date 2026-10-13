@@ -29,6 +29,33 @@ public struct FactoryAppProfile: Codable {
     public let freeCore: Bool
     public let ownerPriceBand: String
     public let allowedOfferIds: [String]?
+
+    // For apps that construct profiles directly instead of decoding a JSON manifest.
+    public init(
+        id: String, title: String, audience: FactoryAudience,
+        category: FactoryAppCategory,
+        purpose: FactoryPurpose = .entertainment,
+        complexity: Int = 2, deliveryCost: FactoryDeliveryCost = .low,
+        ongoingContent: Bool = false, multiplayer: Bool = false,
+        supportsAds: Bool = false, includesChildren: Bool = false,
+        freeCore: Bool = true, ownerPriceBand: String = "auto",
+        allowedOfferIds: [String]? = nil
+    ) {
+        self.id = id
+        self.title = title
+        self.audience = audience
+        self.category = category
+        self.purpose = purpose
+        self.complexity = complexity
+        self.deliveryCost = deliveryCost
+        self.ongoingContent = ongoingContent
+        self.multiplayer = multiplayer
+        self.supportsAds = supportsAds
+        self.includesChildren = includesChildren || audience == .children || audience == .families
+        self.freeCore = freeCore
+        self.ownerPriceBand = ownerPriceBand
+        self.allowedOfferIds = allowedOfferIds
+    }
 }
 public struct FactoryCondition: Codable {
     public let audienceAny: [FactoryAudience]?
