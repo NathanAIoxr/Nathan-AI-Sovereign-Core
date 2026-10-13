@@ -68,3 +68,7 @@ An independent universal personal OS project that can replace supported life mod
 [Searchable Mechanics Library](./game-reference-lab/index.html) · [Five-World Zero & Void Lab](./game-reference-lab/zero-void-lab.html) · [Architecture & source-preservation policy](./game-reference-lab/README.md) · [138 Public Reference Records](./game-reference-lab/registry.json)
 
 Two source-preserving 69-slot expansions are integrated as **reference data and a local demonstration**, not 138 shipped engines. Full owner-source originals belong in the private Creator Vault / secured source archive, not this public repository. Reuse ACT/STORY/ART contracts with review and explicit permission; preserve TW-001–TW-101 independently. Run `node --test app-factory/game-reference-lab/registry.test.cjs`.
+
+### October 13 morning: 376 game references
+
+[Explore all 376 reference positions](./game-reference-lab/all-morning.html) · [original 138-reference subset](./game-reference-lab/index.html) · [source interpretation and original preservation](./game-reference-lab/README.md). Six underlying game archives, nine source-mechanic families. A complete reference is not a built game. This adds searchable source positions only; original-byte files and monetization research remain owner-controlled.
