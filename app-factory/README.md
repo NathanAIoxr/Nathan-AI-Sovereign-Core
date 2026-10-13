@@ -72,3 +72,9 @@ Two source-preserving 69-slot expansions are integrated as **reference data and 
 ### October 13 morning: 376 game references
 
 [Explore all 376 reference positions](./game-reference-lab/all-morning.html) · [original 138-reference subset](./game-reference-lab/index.html) · [source interpretation and original preservation](./game-reference-lab/README.md). Six underlying game archives, nine source-mechanic families. A complete reference is not a built game. This adds searchable source positions only; original-byte files and monetization research remain owner-controlled.
+
+
+## Dynamic Pricing & Audience Router
+- [Interactive WHO + WHAT pricing preview](./pricing-router/index.html): deterministic policy engine for Social Flow, Core Pipeline, Max Apex, based on app audience/purpose, not customer wealth or spend history.
+- [Policy, catalog, tests and deployment boundaries](./pricing-router/README.md). Preview prices are illustrative; no live platform billing or individualized checkout exists.
+- Test with: node --test app-factory/pricing-router/engine.test.cjs
