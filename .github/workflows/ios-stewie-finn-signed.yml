@@ -1,0 +1,51 @@
+name: iPhone Game - Signed IPA (Apple Credentials Required)
+
+on:
+  workflow_dispatch:
+    inputs:
+      distribution:
+        description: 'Choose ad-hoc for registered iPhones; app-store-connect for App Store/TestFlight upload'
+        required: true
+        type: choice
+        default: 'ad-hoc'
+        options:
+          - 'ad-hoc'
+          - 'app-store-connect'
+
+permissions:
+  contents: read
+
+jobs:
+  signed-ipa:
+    runs-on: macos-15
+    timeout-minutes: 40
+    defaults:
+      run:
+        working-directory: app-factory/stewie-mr-finn
+    env:
+      APPLE_CERTIFICATE_P12_BASE64: ${{ secrets.APPLE_CERTIFICATE_P12_BASE64 }}
+      APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+      APPLE_PROVISIONING_PROFILE_BASE64: ${{ secrets.APPLE_PROVISIONING_PROFILE_BASE64 }}
+      APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+      DISTRIBUTION_METHOD: ${{ inputs.distribution }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Select Xcode
+        run: xcodebuild -version
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate offline art and app icon
+        run: |
+          python3 -m venv .venv
+          .venv/bin/python -m pip install --disable-pip-version-check pillow
+          .venv/bin/python scripts/generate_art.py
+      - name: Verify signing configuration and export signed IPA
+        run: bash scripts/build_signed.sh
+      - name: Upload signed IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: StewieAndMrFinn-SIGNED-IPA
+          path: app-factory/stewie-mr-finn/dist/StewieAndMrFinn-SIGNED.ipa
+          if-no-files-found: error
+          retention-days: 30

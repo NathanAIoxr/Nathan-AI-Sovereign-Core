@@ -62,3 +62,14 @@ The game has original artwork generated **offline from Python + Pillow** by `scr
 This is a **playable version 1 prototype**, not a complete expansive 3D game or a production App Store release. Test it on an actual iPhone before distribution.
 
 © 2026 Nathan Tabor. All rights reserved. This project-specific attribution does not change the license of other parts of the hosting repository.
+
+### Ready-made signed IPA workflow
+
+The repository also contains `.github/workflows/ios-stewie-finn-signed.yml` and `scripts/build_signed.sh`. Once you have issued a matching **Apple Distribution** certificate and provisioning profile in your own Apple Developer account, save the following as **GitHub Actions repository secrets** (never paste their contents into an issue, commit, or public chat):
+
+- `APPLE_CERTIFICATE_P12_BASE64` — base64 encoding of the exported Apple Distribution `.p12` certificate and its private key.
+- `APPLE_CERTIFICATE_PASSWORD` — password protecting that `.p12`.
+- `APPLE_PROVISIONING_PROFILE_BASE64` — base64 encoding of the `.mobileprovision` matching the bundle ID and selected distribution method.
+- `APPLE_TEAM_ID` — the Apple Developer team identifier.
+
+From the GitHub Actions page choose **iPhone Game - Signed IPA**, select **ad-hoc** (for registered iPhones) or **app-store-connect** (for TestFlight/App Store upload), and select **Run workflow**. The workflow builds, signs, exports and publishes `StewieAndMrFinn-SIGNED.ipa` if signing is configured correctly. These secrets and profiles are **not** present in the project; this workflow has therefore not been run or verified. An ad-hoc `.ipa` installs only on devices included in the provisioning profile. App Store Connect IPA files must be uploaded through Apple to reach TestFlight or the App Store.
