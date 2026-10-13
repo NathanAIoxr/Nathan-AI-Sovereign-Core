@@ -36,6 +36,8 @@ jobs:
           node-version: '22'
       - name: Verify public assets and architecture boundaries
         run: node --test app-factory/quality.test.cjs
+      - name: Verify NATHAN AI 138-reference Registry and boundaries
+        run: node --test app-factory/game-reference-lab/registry.test.cjs
       - name: Verify TABOR Golden Radix Ladder bases and inverse conversion
         run: node --test app-factory/radix-ladder/engine.test.cjs
       - name: Verify Python radix parity
