@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111520"><title>NATHAN AI · 138 Reference Mechanics | TABOR 1-2-3 FACTORY</title>
+<style>
+:root{color-scheme:dark;font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,sans-serif;background:#0e111b;color:#f6f7fb}
+*{box-sizing:border-box}body{margin:0}main{max-width:1160px;margin:auto;padding:24px 16px 65px}
+a{color:#bcdaff}header{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+h1{font-size:clamp(29px,5vw,46px);line-height:1.15;letter-spacing:-.035em;margin:17px 0 12px}
+h2{font-size:19px}p{color:#c7cede}small,.muted{color:#a8b3c6}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:800;color:#9bd2f1}
+.btn,button,input,select{font:inherit}button,.btn{border:1px solid #647086;background:#1a2335;color:#f5f9ff;border-radius:12px;padding:11px 14px;cursor:pointer;text-decoration:none;display:inline-block}button:hover,.btn:hover{border-color:#9bd2f1}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #9bd2f1;outline-offset:2px}
+button:disabled{opacity:.45;cursor:not-allowed}.accent{background:#bce5ff;border-color:#bce5ff;color:#0d1a29;font-weight:800}
+.hero{border:1px solid #374860;background:linear-gradient(140deg,#162840,#111725 70%);padding:24px;border-radius:22px;margin:22px 0}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:20px 0}
+.stat,.panel,.entry{border:1px solid #344154;background:#161c29;border-radius:16px;padding:16px}.stat strong{font-size:28px;display:block}.stat span{color:#bfcada;font-size:12px}
+.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:end}.controls label{flex:1;min-width:220px;font-size:13px}.controls input,.controls select{display:block;width:100%;border:1px solid #637087;background:#101625;color:#fff;border-radius:10px;padding:12px;margin-top:5px}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}.chip[aria-pressed=true]{background:#bce5ff;color:#0b1c29;font-weight:800}
+.toolbar{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin:18px 0}
+.entries{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:12px}.entry{display:flex;flex-direction:column;gap:10px}.entry h3{font-size:17px;line-height:1.25;margin:0}.entry p{margin:0;font-size:14px;color:#c2cfdd}.id{font-size:11px;color:#a9cfe7;font-family:ui-monospace,monospace;overflow-wrap:anywhere}.tag{color:#b8c8e0;font-size:11px;text-transform:uppercase;letter-spacing:.065em}
+.entry details{margin-top:auto}.entry summary{cursor:pointer;color:#bce5ff;font-weight:700}.entry details p{margin-top:10px}
+.entry label{display:flex;gap:8px;align-items:center;font-size:13px;color:#d6e9f6;padding-top:8px}.entry input{accent-color:#bce5ff;width:18px;height:18px}
+footer{padding-top:28px;color:#a8b3c6;font-size:13px}hr{border:0;border-top:1px solid #344154;margin:23px 0}
+@media(max-width:600px){main{padding:14px 12px 45px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding:18px}}
+</style></head>
+<body><main>
+<header><a href="../index.html" class="btn" aria-label="Back to TABOR Factory">← TABOR 1-2-3 FACTORY</a><span class="eyebrow">NATHAN AI · TABOR-ROOT · Reference library</span></header>
+<section class="hero"><span class="eyebrow">CREATE ONCE · TRANSFORM INTO EVERYTHING · PRESERVE THE ORIGINAL</span>
+<h1>138 references.<br>One mechanics library.</h1>
+<p>Two preserved 69-reference expansions. Explore sandbox construction, rule-breaking concepts, automation, and the Void. Select mechanics to generate a project brief—not someone else's game or a completed engine.</p>
+<div class="actions"><a href="./zero-void-lab.html" class="btn accent">Open Zero &amp; Void Lab</a><a href="./README.md" class="btn">Architecture &amp; boundaries</a></div>
+</section>
+<div class="stats" aria-label="Reference counts"><div class="stat"><strong>35</strong><span>Nurturing sandboxes</span></div><div class="stat"><strong>34</strong><span>Conceptual master strokes</span></div><div class="stat"><strong>34</strong><span>Autonomous references</span></div><div class="stat"><strong>35</strong><span>Void systems</span></div></div>
+<section class="panel"><h2>Explore your reference matrix</h2>
+<div class="controls"><label>Search titles, descriptions and mechanics<input id="search" type="search" placeholder="e.g. ecology, time, gravity, empathy, physics" autocomplete="off"></label>
+<label>Ordering<select id="sort"><option value="source">Original source order</option><option value="name">Title A–Z</option></select></label></div>
+<div id="chips" class="chips" aria-label="Filter families"></div>
+<div class="toolbar"><small id="counts">Loading registry…</small><div class="actions"><button id="clear">Clear selection</button><button id="brief" class="accent" disabled>Export design brief (0)</button></div></div>
+<div id="entries" class="entries" aria-live="polite"></div></section>
+<footer>138 reference positions · 134 normalized distinct titles · four duplicate-title cross-references · source authorship retained · third-party games are inspirations only. The 101 original TABOR WORLD catalog IDs remain independent. Public source descriptions exclude private reference URLs. The five-world Lab is a local demonstration, not five interconnected AI agents or a production backend.</footer>
+</main>
+<script>
+'use strict';
+const families=[
+['all','All 138'],
+['nurturing interactive sandboxes','Nurturing · 35'],
+['conceptual master strokes','Conceptual · 34'],
+['autonomous simulation','Autonomous · 34'],
+['void and nothingness','Void · 35']];
+const state={items:[],family:'all',text:'',sort:'source',chosen:new Set()};
+const $=id=>document.getElementById(id);
+function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=String(text);return e;}
+function renderChips(){
+ const host=$('chips');host.replaceChildren();
+ families.forEach(([id,title])=>{
+  const b=el('button','chip',title);b.type='button';b.setAttribute('aria-pressed',String(state.family===id));
+  b.onclick=()=>{state.family=id;renderChips();renderEntries();};host.appendChild(b);
+ });
+}
+function matches(x){
+ if(state.family!=='all'&&x.family!==state.family)return false;
+ if(!state.text)return true;
+ const hay=[x.id,x.title,x.source_description,x.design_abstraction,x.design_domain,x.family].join(' ').toLowerCase();
+ return state.text.split(/\s+/).every(v=>hay.includes(v));
+}
+function chosenUpdate(){ $('brief').disabled=state.chosen.size===0;$('brief').textContent='Export design brief ('+state.chosen.size+')'; }
+function renderEntries(){
+ let entries=state.items.filter(matches);
+ if(state.sort==='name')entries=entries.slice().sort((a,b)=>a.title.localeCompare(b.title));
+ $('counts').textContent=entries.length+' visible · '+state.chosen.size+' selected · original source order is preserved';
+ const host=$('entries');host.replaceChildren();
+ if(!entries.length){host.appendChild(el('p','muted','No references match your filters.'));return;}
+ const frag=document.createDocumentFragment();
+ entries.forEach(x=>{
+  const card=el('article','entry');card.appendChild(el('span','id',x.id));card.appendChild(el('h3','',x.title));
+  card.appendChild(el('span','tag',x.family));card.appendChild(el('p','',x.source_description));
+  const d=el('details'),sum=el('summary','','Design abstraction'),p=el('p','',x.design_abstraction||'No derived mechanic assigned');
+  d.appendChild(sum);d.appendChild(p);card.appendChild(d);
+  const label=el('label'),checkbox=el('input');checkbox.type='checkbox';checkbox.checked=state.chosen.has(x.id);
+  checkbox.setAttribute('aria-label','Select '+x.title+' for project brief');
+  checkbox.onchange=()=>{if(checkbox.checked)state.chosen.add(x.id);else state.chosen.delete(x.id);chosenUpdate();$('counts').textContent=entries.length+' visible · '+state.chosen.size+' selected';};
+  label.appendChild(checkbox);label.appendChild(document.createTextNode('Select for Factory design brief'));card.appendChild(label);frag.appendChild(card);
+ });
+ host.appendChild(frag);
+}
+function briefDownload(){
+ const selected=state.items.filter(x=>state.chosen.has(x.id));if(!selected.length)return;
+ const brief={
+ schema:'tabor123.project-brief.v1',factory:'TABOR 1-2-3 FACTORY',
+ workflow:['CREATE','CONNECT','LAUNCH REVIEW'],
+ status:'design brief only: not executable or published',
+ source_registry:'T123-MASTER-138',
+ original_preservation:'References do not grant rights to copy third-party code, assets, names or game designs.',
+ mechanic_references:selected.map(x=>({id:x.id,title:x.title,family:x.family,mechanic:x.design_abstraction,domain:x.design_domain})),
+ next_steps:['Define an original game or app concept','Validate technical feasibility and intellectual-property boundaries','Review ACT permissions and STORY canon','Use ART to implement new original components','Test locally and require human approval before release']
+ };
+ const b=new Blob([JSON.stringify(brief,null,2)+'\n'],{type:'application/json'});
+ const url=URL.createObjectURL(b);const link=document.createElement('a');link.href=url;link.download='TABOR_FACTORY_GAME_DESIGN_BRIEF.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+$('search').addEventListener('input',e=>{state.text=e.target.value.trim().toLowerCase();renderEntries();});
+$('sort').addEventListener('change',e=>{state.sort=e.target.value;renderEntries();});
+$('clear').onclick=()=>{state.chosen.clear();chosenUpdate();renderEntries();};
+$('brief').onclick=briefDownload;
+renderChips();
+fetch('./registry.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();}).then(data=>{
+ if(data.total_reference_positions!==138||!Array.isArray(data.items)||data.items.length!==138)throw Error('Registry integrity check failed');
+ state.items=data.items;renderEntries();
+}).catch(e=>{$('counts').textContent='Unable to load the local registry';$('entries').textContent='Open this page from the Factory website rather than as a standalone file. '+e.message;});
+</script></body></html>
