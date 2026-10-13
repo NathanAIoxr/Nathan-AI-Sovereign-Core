@@ -31,7 +31,7 @@ struct GameHomeView: View {
 
                         GameCard {
                             HStack { Text("Your mammal journey").font(.headline); Spacer(); Text("\(progress.accomplishments.count) badges").font(.caption.bold()) }
-                            ProgressView(value: Double(progress.accomplishments.count), total: 6).tint(.orange)
+                            ProgressView(value: Double(min(progress.accomplishments.count, 9)), total: 9).tint(.orange)
                             Text("Every kind choice matters.").font(.footnote)
                         }
                         GameCard {
@@ -49,6 +49,9 @@ struct GameHomeView: View {
                             .padding(.top, 4)
 
                         adventureLink("🗺️", "THE GRAND ADVENTURE MAP", "48 boards · six magical worlds", to: CampaignMapView())
+                        adventureLink("🎨", "THE MAMMAL PLAYROOM", "Create your own world with stickers and stories", to: MammalPlayroomView())
+                        adventureLink("📚", "STORYTIME TOGETHER", "Five real family moments and kind choices", to: MammalStoryMomentsView())
+                        adventureLink("👨‍👧", "GROWN-UP CORNER", "Family play tips, privacy, and comfort settings", to: MammalFamilyGuideView())
                         adventureLink("🌲", "Explore Puzzlewood", "Find seven hidden treasures", to: ExploreView())
                         adventureLink("🧩", "Puzzle Pals", "Match the mammal pairs", to: PuzzleView())
                         adventureLink("🐾", "The Biscuit Factory", "Tap out twelve happy biscuits", to: BiscuitView())

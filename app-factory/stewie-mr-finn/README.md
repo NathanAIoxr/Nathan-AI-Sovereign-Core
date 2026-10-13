@@ -1,5 +1,13 @@
 # The Adventures of Stewart & Mr. Finn 🐾
 
+## Version 4 — consumer-first Factory upgrade
+
+Factory provenance: `app-factory/RELEASE_GATES.md`, `app-factory/build-order/README.md`, and `app-factory/game-reference-lab/README.md`. Product goals: joyful short sessions, offline play, no ads/purchases/tracking, original and age-appropriate material, consent-based animal interactions, a way to pause, no social pressure, and clear caregiver information. Market guidance: Apple Kids category guidelines; offline/creative games are reference patterns, not copied assets.
+
+Version 4 adds a **Mammal Playroom** with six themed boards, sticker-placement creativity and locally saved work; **Storytime** with five family episodes and choice-based kindness lessons; **Grown-Up Corner** with family prompts and preference toggles; plus one-time campaign star awards and improved child-friendly wrong-answer feedback. No Shawna character appears. These are original SwiftUI experiences, not claimed live service integrations. Existing 48 boards and save keys remain. Sideloadly-oriented unsigned GitHub IPA flow continues. This is a **device-test release candidate**, not an independently validated App Store-quality product.
+
+
+
 A playable, iPhone-only, offline-first children's SwiftUI adventure inspired by **My Life with Mammals**, by Nathan Tabor, a Human Mammal.
 
 ## Inside the game
