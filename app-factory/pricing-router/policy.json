@@ -35,12 +35,10 @@
     {
       "id": "CHILD_FIRST",
       "when": {
-        "audienceAny": [
-          "children"
-        ]
+        "includesChildren": true
       },
       "configuration": "socialFlow",
-      "reason": "Children-first free core; guardian-approved optional durable content only."
+      "reason": "Child-directed or family-inclusive design: free core, no ads or recurring purchases, only guardian-gated durable content."
     },
     {
       "id": "COMMUNITY_FIRST",
@@ -51,6 +49,16 @@
       },
       "configuration": "socialFlow",
       "reason": "Public-interest participation before monetization."
+    },
+    {
+      "id": "COMMUNITY_PURPOSE",
+      "when": {
+        "purposeAny": [
+          "community"
+        ]
+      },
+      "configuration": "socialFlow",
+      "reason": "A public-interest purpose routes to the accessible community model before complex monetization."
     },
     {
       "id": "ADVANCED_PRODUCT",
