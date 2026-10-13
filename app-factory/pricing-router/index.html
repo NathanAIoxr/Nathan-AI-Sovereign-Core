@@ -28,7 +28,8 @@ pre{white-space:pre-wrap}footer{font-size:12px;color:#abb8cc}
 <label class="check"><input type="checkbox" id="ongoingContent">Regular new content</label>
 <label class="check"><input type="checkbox" id="multiplayer">Multiplayer</label>
 <label class="check"><input type="checkbox" id="supportsAds">Ads planned</label>
-<label class="check"><input type="checkbox" id="freeCore" checked>Free core</label></div>
+<label class="check"><input type="checkbox" id="freeCore" checked>Free core</label>
+<label class="check"><input type="checkbox" id="includesChildren">Includes children / mixed-age audience</label></div>
 <div class="panel result" aria-live="polite"><h2>2 · Factory configuration</h2><div id="output">Loading…</div></div>
 <div class="panel"><h2>3 · Export proposed plan</h2><p class="note">No real purchase, store registration, account or API is connected. Actual sales require owner release approval, permitted platform SKU configuration and secure verified billing.</p><button id="export" disabled>Export plan JSON</button><pre id="error" role="alert"></pre></div>
 <footer>Static-browser prototype. Pricing is based on APP SCOPE and INTENDED AUDIENCE, never individual wealth or behavioral profiles.</footer>
@@ -47,7 +48,8 @@ pre{white-space:pre-wrap}footer{font-size:12px;color:#abb8cc}
   const app={id:"preview",title:$("title").value||"Unnamed",audience:$("audience").value,category:$("category").value,purpose:$("purpose").value,
   complexity:Number($("complexity").value),deliveryCost:$("deliveryCost").value,ownerPriceBand:$("ownerPriceBand").value,
   ongoingContent:$("ongoingContent").checked,multiplayer:$("multiplayer").checked,
-  supportsAds:$("supportsAds").checked,freeCore:$("freeCore").checked};
+  supportsAds:$("supportsAds").checked,freeCore:$("freeCore").checked,
+  includesChildren:$("includesChildren").checked};
   current=TaborPricingRouter.compile(app,policy,catalog);
   $("error").textContent="";$("export").disabled=false;
   $("output").innerHTML="<p><strong>"+esc(current.configurationName)+"</strong> · "+esc(current.priceBand)+" pricing band</p>"+
