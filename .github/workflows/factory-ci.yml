@@ -38,6 +38,8 @@ jobs:
         run: node --test app-factory/quality.test.cjs
       - name: Verify NATHAN AI 138-reference Registry and boundaries
         run: node --test app-factory/game-reference-lab/registry.test.cjs
+      - name: Verify October 13 morning 376-reference integration
+        run: node --test app-factory/game-reference-lab/morning-376.test.cjs
       - name: Verify TABOR Golden Radix Ladder bases and inverse conversion
         run: node --test app-factory/radix-ladder/engine.test.cjs
       - name: Verify Python radix parity
