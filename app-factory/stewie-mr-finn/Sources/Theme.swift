@@ -15,6 +15,7 @@ struct GameBackground<Content: View>: View {
         ZStack {
             LinearGradient(colors: [.init(red: 0.77, green: 0.94, blue: 0.84), Palette.cream], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
+            Circle().fill(Color.yellow.opacity(0.15)).frame(width: 280,height:280).blur(radius: 65).offset(x: 155,y: -250).allowsHitTesting(false)
             content
         }
         .foregroundStyle(Palette.ink)
@@ -30,7 +31,7 @@ struct GameCard<Content: View>: View {
             .frame(maxWidth: .infinity)
             .background(.white.opacity(0.92), in: RoundedRectangle(cornerRadius: 24))
             .overlay(RoundedRectangle(cornerRadius: 24).stroke(.brown.opacity(0.10), lineWidth: 1.5))
-            .shadow(color: .black.opacity(0.07), radius: 12, y: 6)
+            .shadow(color: Palette.deep.opacity(0.12), radius: 16, y: 8)
     }
 }
 
@@ -40,7 +41,7 @@ struct PawButton: View {
     let action: () -> Void
 
     var body: some View {
-        Button(action: action) {
+        Button { MammalHaptics.tap(); action() } label: {
             Label(title, systemImage: symbol)
                 .font(.system(size: 17, weight: .heavy, design: .rounded))
                 .frame(maxWidth: .infinity)
