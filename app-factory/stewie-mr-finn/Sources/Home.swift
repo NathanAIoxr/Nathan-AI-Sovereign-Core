@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct GameHomeView: View {
+    @State private var heroFloat = false
     @EnvironmentObject private var progress: MammalProgress
 
     var body: some View {
@@ -17,14 +18,22 @@ struct GameHomeView: View {
                         .padding(.top, 8)
 
                         StoryHeading(title: "Stewart & Mr. Finn", subtitle: "TWO CATS. ONE PUZZLE. ENDLESS ADVENTURES!")
+                        Label("PUZZLEWOOD ADVENTURES", systemImage: "sparkles").font(.caption.bold()).tracking(2)
                         Image("CatHeroes")
                             .resizable()
                             .scaledToFill()
-                            .frame(height: 235)
+                            .frame(height: 250)
+                            .scaleEffect(heroFloat ? 1.03 : 0.98)
+                            .animation(.easeInOut(duration: 3).repeatForever(autoreverses: true), value: heroFloat)
                             .clipped()
                             .clipShape(RoundedRectangle(cornerRadius: 25))
                             .accessibilityLabel("Two black and white patchwork cats, Stewart and Mr. Finn")
 
+                        GameCard {
+                            HStack { Text("Your mammal journey").font(.headline); Spacer(); Text("\(progress.accomplishments.count) badges").font(.caption.bold()) }
+                            ProgressView(value: Double(progress.accomplishments.count), total: 6).tint(.orange)
+                            Text("Every kind choice matters.").font(.footnote)
+                        }
                         GameCard {
                             Text("Meet your adventure partner")
                                 .font(.system(.headline, design: .rounded, weight: .bold))
@@ -43,7 +52,9 @@ struct GameHomeView: View {
                         adventureLink("🧩", "Puzzle Pals", "Match the mammal pairs", to: PuzzleView())
                         adventureLink("🐾", "The Biscuit Factory", "Tap out twelve happy biscuits", to: BiscuitView())
                         adventureLink("❤️", "Speak Their Language", "Learn kindness and trust", to: TrustQuizView())
-                        adventureLink("📖", "The Mammal Family", "Meet the seven real-life mammals", to: FamilyView())
+                        adventureLink("🐕", "Champ’s Snack Trail", "Sniff out five surprise snacks!", to: ChampSnackView())
+                        adventureLink("🐶", "Ace’s Freeze Dance", "Move, freeze, and listen", to: AceDanceView())
+                        adventureLink("📖", "The Mammal Family", "Meet our six family members", to: FamilyView())
                         Text("By Nathan Tabor, a Human Mammal")
                             .font(.system(.footnote, design: .rounded))
                             .foregroundStyle(.secondary)
@@ -53,13 +64,14 @@ struct GameHomeView: View {
                 }
             }
             .toolbar(.hidden, for: .navigationBar)
+            .onAppear { heroFloat = true }
         }
         .tint(.teal)
     }
 
     private func catChoice(_ name: String, label: String, detail: String, icon: String) -> some View {
         let selected = progress.chosenCat == name
-        return Button { progress.choose(name) } label: {
+        return Button { MammalHaptics.tap(); progress.choose(name) } label: {
             VStack(spacing: 4) {
                 Text(icon).font(.largeTitle)
                 Text(label).font(.system(.caption, design: .rounded, weight: .heavy))
