@@ -1,0 +1,80 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101520"><title>NATHAN AI — 376 Morning Game References</title><style>
+:root{font:15px/1.45 system-ui,-apple-system,sans-serif;background:#0d1320;color:#f7faff;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0}main{max-width:1200px;padding:16px 16px 70px;margin:auto}
+a{color:#bfe8ff}header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+h1{font-size:clamp(28px,5.5vw,52px);line-height:1.1;letter-spacing:-.04em;margin:10px 0}h2{font-size:20px;margin:0 0 8px}p{color:#becbda}
+.top,.box,.record{border:1px solid #37475b;border-radius:16px;background:#182132;padding:16px}
+.top{background:linear-gradient(125deg,#143d3b,#182132 68%);margin:18px 0 14px;padding:24px}
+.actions,.filters,.control{display:flex;gap:8px;flex-wrap:wrap}
+button,input,select,.button{font:inherit;border:1px solid #5c7086;background:#111d2e;color:#f3f9ff;border-radius:10px;padding:10px 12px;min-height:42px}
+button,.button{cursor:pointer;text-decoration:none;display:inline-block}
+button.primary,.button.primary{background:#bbf4df;border-color:#bbf4df;color:#08271c;font-weight:750}
+button[aria-pressed=true]{background:#bbf4df;color:#08271c;font-weight:750}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #c7fcea;outline-offset:2px}
+input{flex:1;min-width:180px}select{min-width:165px}button:disabled{opacity:.45}
+.counter{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:10px 0 15px}
+.kpi{background:#131c2a;border:1px solid #34465e;border-radius:12px;padding:12px}
+.kpi b{display:block;font-size:clamp(24px,4vw,36px)}.kpi small{color:#b4c6d7}
+.filters{margin:15px 0}.filters button{font-size:12px;padding:8px 10px;min-height:36px}
+.toolbar{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.record{display:flex;flex-direction:column;gap:9px}
+.record h3{margin:0;font-size:17px}.record p{font-size:14px;line-height:1.48;margin:0}
+.meta{font-size:11px;color:#94cfc1;text-transform:uppercase;letter-spacing:.07em}
+.refid{font:11px/1.3 ui-monospace,SFMono-Regular,monospace;color:#9fc7e7;overflow-wrap:anywhere}
+.record label{display:flex;gap:8px;align-items:center;font-size:13px;color:#c6f5e5;margin-top:auto}
+.record input{min-width:0;width:18px;height:18px;accent-color:#8ce8b4}
+details summary{cursor:pointer;color:#b3ebfa}details p{margin-top:7px!important}
+footer{margin:20px 0;color:#9cb1c5;font-size:12px}a.button:hover,button:hover{filter:brightness(1.1)}
+@media(max-width:600px){.top{padding:17px}.counter{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style></head><body><main>
+<header><a class="button" href="../index.html">← Factory Home</a><span class="meta">NATHAN AI · TABOR 1–2–3 FACTORY</span></header>
+<section class="top"><span class="meta">Morning intake · October 13, 2026</span><h1>376 game-design<br>reference positions.</h1><p>Six source archives across nine mechanic families, preserved independently. Explore the shooter DNA, nurturing and experimental worlds, card and board engines, autonomous simulations, and void systems.</p>
+<div class="actions"><a class="button primary" href="./zero-void-lab.html">Run Zero &amp; Void Lab</a><a class="button" href="./index.html">Original 138-Reference Explorer</a><a class="button" href="./README.md">Preservation Rules</a></div></section>
+<div class="counter"><div class="kpi"><b>376</b><small>Reference positions</small></div><div class="kpi"><b>6</b><small>Source game archives</small></div><div class="kpi"><b>9</b><small>Functional reference families</small></div></div>
+<section class="box"><h2>Reference Library</h2><p>All source positions stay in their upload order by default. Multiple appearances of the same game are retained as different source perspectives.</p>
+<div class="control"><input id="q" type="search" placeholder="Search titles, source descriptions, mechanics" aria-label="Search all 376 references"><select id="sort" aria-label="Order references"><option value="source">Source order</option><option value="alpha">Title A–Z</option></select></div>
+<div class="filters" id="filters" aria-label="Filter by source family"></div>
+<div class="toolbar"><span id="count" class="meta" aria-live="polite">Loading catalog…</span><div class="actions"><button id="reset">Clear selections</button><button id="export" class="primary" disabled>Export design brief (0)</button></div></div>
+<div id="entries" class="grid"></div></section>
+<footer>Reference archives are design sources, not commercial licenses, independently verified historical claims, production game engines, or published applications. The 101 original TABOR WORLD IDs remain separate. No private owner-origin files are automatically published. All new releases require human approval.</footer>
+</main><script>
+'use strict';
+const familyNames={
+'execution and combat':'Execution & Combat · 34',
+'nurturing mind-craft':'Mind-Craft · 33',
+'off-the-wall master strokes':'Off-the-Wall · 33',
+'historical and modern card games':'Card Games · 69',
+'historical and modern board games':'Board Games · 69',
+'nurturing interactive sandboxes':'More Sandboxes · 35',
+'conceptual master strokes':'More Conceptual · 34',
+'autonomous simulation':'Autonomous · 34',
+'void and nothingness':'Void Systems · 35'};
+const state={items:[],family:'all',query:'',sort:'source',selected:new Set()};
+const E=id=>document.getElementById(id);
+function element(tag,cls,text){const x=document.createElement(tag);if(cls)x.className=cls;if(text!==undefined)x.textContent=text;return x;}
+function controls(){const parent=E('filters');parent.replaceChildren();for(const [key,label] of [['all','All 376'],...Object.entries(familyNames)]){const b=element('button','',label);b.type='button';b.setAttribute('aria-pressed',String(state.family===key));b.onclick=()=>{state.family=key;controls();draw();};parent.appendChild(b);}}
+function choose(){E('export').disabled=state.selected.size===0;E('export').textContent='Export design brief ('+state.selected.size+')';}
+function draw(){let xs=state.items.filter(x=> (state.family==='all'||x.family===state.family)&&(!state.query||[x.title,x.source_description,x.family,x.id,x.design_abstraction||'',x.design_domain||''].join(' ').toLowerCase().includes(state.query)));
+if(state.sort==='alpha')xs=xs.slice().sort((a,b)=>a.title.localeCompare(b.title));
+E('count').textContent=xs.length+' visible / 376 total · '+state.selected.size+' selected';
+const out=E('entries');out.replaceChildren();if(!xs.length){out.appendChild(element('p','','No matching reference positions'));return;}
+const frag=document.createDocumentFragment();
+for(const x of xs){const article=element('article','record');article.append(element('span','refid',x.id),element('h3','',x.title),element('span','meta',familyNames[x.family]||x.family),element('p','',x.source_description));
+if(x.design_abstraction){const d=element('details');d.append(element('summary','','Design abstraction'),element('p','',x.design_abstraction));article.appendChild(d);}
+const l=element('label'),cb=element('input');cb.type='checkbox';cb.checked=state.selected.has(x.id);cb.setAttribute('aria-label','Select '+x.title+' for your design brief');
+cb.onchange=()=>{cb.checked?state.selected.add(x.id):state.selected.delete(x.id);choose();E('count').textContent=xs.length+' visible / 376 total · '+state.selected.size+' selected';};
+l.append(cb,document.createTextNode('Use mechanic in Factory brief'));article.appendChild(l);frag.appendChild(article);}out.appendChild(frag);}
+function exportBrief(){const wanted=state.items.filter(x=>state.selected.has(x.id));if(!wanted.length)return;const documentData={
+schema:'tabor123.design-brief.v2',date:'2026-10-13',scope:'reference mechanics only',source_registry:'T123-MORNING-376',
+workflow:['CREATE','CONNECT','LAUNCH REVIEW'],preservation:'Keep original source files, author permissions and TW-001–TW-101 IDs independent.',
+references:wanted.map(x=>({id:x.id,title:x.title,family:x.family,source_file:x.source_file||null,mechanic:x.design_abstraction||null})),
+review_steps:['Specify original work and creative goals','Verify source history/rights separately','ACT permission review','STORY canon and audience review','ART original implementation','Test and require human signoff for release']};
+const url=URL.createObjectURL(new Blob([JSON.stringify(documentData,null,2)+'\n'],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='TABOR_123_FACTORY_DESIGN_BRIEF.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+E('q').oninput=e=>{state.query=e.target.value.trim().toLowerCase();draw();};E('sort').onchange=e=>{state.sort=e.target.value;draw();};E('reset').onclick=()=>{state.selected.clear();choose();draw();};E('export').onclick=exportBrief;
+controls();
+Promise.all(['./morning-additions-238.json','./registry.json'].map(url=>fetch(url,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status+' '+url);return r.json();})))
+.then(([a,b])=>{if(a.count!==238||a.items.length!==238||b.total_reference_positions!==138||b.items.length!==138)throw Error('Integrity check: 238+138 required');
+state.items=[...a.items,...b.items];if(new Set(state.items.map(x=>x.id)).size!==376)throw Error('Duplicate reference IDs');
+draw();}).catch(e=>{E('count').textContent='Catalog failed to load';E('entries').textContent='Use the Factory website to load the complete catalog: '+e.message;});
+</script></body></html>
