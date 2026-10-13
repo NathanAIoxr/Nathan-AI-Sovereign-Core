@@ -129,6 +129,7 @@ private let kindQuestions: [MammalQuestion] = [
 struct QuestBoardView: View {
     let levelID: Int
     @StateObject private var campaign = QuestProgress.shared
+    @EnvironmentObject private var overallProgress: MammalProgress
     @State private var round = UUID()
     @State private var mistakes = 0
     @State private var cards: [Int] = []
@@ -233,8 +234,12 @@ struct QuestBoardView: View {
             ForEach(q.choices.indices, id: \.self) { index in
                 Button {
                     guard feedback == nil else { return }
-                    if index != q.answer { mistakes += 1 }
-                    feedback = q.explanation
+                    if index != q.answer {
+                        mistakes += 1
+                        feedback = "Try again with kindness. " + q.explanation
+                    } else {
+                        feedback = q.explanation
+                    }
                 } label: {
                     Text(q.choices[index]).frame(maxWidth: .infinity).padding(14)
                         .background(Color.teal.opacity(0.14), in: RoundedRectangle(cornerRadius: 13))
@@ -263,6 +268,7 @@ struct QuestBoardView: View {
     private func finish() {
         completed = true
         campaign.finish(levelID, stars: rating)
+        overallProgress.win("campaign.\(levelID)", reward: rating * 10)
         MammalHaptics.success()
     }
     private func flip(_ index: Int) {
