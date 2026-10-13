@@ -20,3 +20,7 @@ Platform references:
 - https://developer.apple.com/app-store/review/guidelines/
 - https://developer.android.com/google/play/billing
 - See ../RELEASE_GATES.md for Factory release requirements.
+
+Mixed-age and family apps default to the child-directed safeguards. A general-audience app with a known child audience must declare includesChildren=true; the planner does not itself establish age or consent.
+
+Native iOS: FactoryPricingRouter.swift decodes the same policy and catalog structures; it is a **pricing-plan evaluator**, not a replacement for verified StoreKit payments or a security boundary.
