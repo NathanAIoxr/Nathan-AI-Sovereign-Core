@@ -113,3 +113,39 @@ d.ellipse((458,805,566,911),fill=(255,223,152,255))
 for x,y in [(482,783),(512,765),(543,780)]:d.ellipse((x-17,y-21,x+17,y+13),fill=(255,223,152,255))
 save_asset('AppIcon',icon,icon=True)
 print('Generated offline artwork:', ROOT)
+
+# New original offline dog portraits; no external image licensing or network calls.
+def dog_portrait(name, red=False):
+    w,h=1050,630
+    image=landscape(w,h)
+    d=ImageDraw.Draw(image,"RGBA")
+    coat=(155,77,47,255) if red else (201,143,87,255)
+    dark=(110,55,39,255) if red else (143,88,52,255)
+    white=(251,243,215,255)
+    for x,y,z in [(55,325,.65),(990,305,.67)]: tree(d,x,y,z)
+    d.ellipse((255,290,820,685),fill=coat)
+    if red:
+        for x in range(300,820,45):
+            d.polygon([(x,500),(x+20,600),(x+54,492)],fill=coat)
+        d.ellipse((492,385,635,660),fill=white)
+    d.ellipse((348,108,748,498),fill=coat)
+    if red:
+        d.polygon([(387,241),(330,51),(500,145)],fill=dark)
+        d.polygon([(680,241),(755,52),(618,146)],fill=dark)
+        d.polygon([(515,120),(573,120),(595,374),(490,374)],fill=white)
+    else:
+        d.ellipse((310,170,430,475),fill=dark)
+        d.ellipse((660,175,787,471),fill=dark)
+    for x in (457,633):
+        d.ellipse((x-33,261,x+33,314),fill=white)
+        d.ellipse((x-15,267,x+15,309),fill=(35,35,35,255))
+        d.ellipse((x-9,270,x-1,279),fill=white)
+    d.ellipse((435,331,663,483),fill=(243,216,181,255))
+    d.ellipse((511,355,589,411),fill=(54,39,37,255))
+    d.arc((490,394,605,483),4,176,fill=(100,57,42,255),width=8)
+    for x in (430,649):
+        d.ellipse((x-73,495,x+73,629),fill=white if red else (236,185,116,255))
+    save_asset(name,image)
+
+dog_portrait("ChampPortrait")
+dog_portrait("AcePortrait",True)

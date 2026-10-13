@@ -8,12 +8,14 @@ A playable, iPhone-only, offline-first children's SwiftUI adventure inspired by 
 - **Puzzle Pals:** a playable 12-card matching game, with shuffling and turns.
 - **Biscuit Factory:** make a dozen biscuits with Stewie.
 - **Speak Their Language:** a five-question educational challenge about animals' communication, safety, and trust.
-- **Mammal Family:** character introductions and real family stories.
+- **Champ’s Snack Trail:** playable food-detective game featuring the long-legged tan hound.
+- **Ace’s Freeze Dance:** interactive move, pause, and animal-language game featuring the long-haired Australian Shepherd.
+- **Mammal Family:** six active cast members and real family stories.
 - Cat selection, permanent progress using `UserDefaults`, accessibility labels, original self-contained illustrated art and icon, and **no logins, ads, analytics, in-app purchases, or network use**.
 
 ## Canon and safety
 
-Stewart (Stewie) and Mr. Finn have near-complementary black-and-white Paint-horse-style coats. **Stewart's white splits his black**: this distinctive marking helps tell them apart. Both are intact males. Champ is a tan, neutered, long-legged hound of roughly 40–50 lb with a round body and snack-sleuth personality. Ace is a long-haired, red-brown Australian Shepherd with a white chest, white feet, and long feathering at the paws. Collyn and Nathan live with the four animals, while **Shawna visits**. Shawna, Collyn, and Nathan are the three human mammals in the extended-family storytelling concept.
+Stewart (Stewie) and Mr. Finn have near-complementary black-and-white Paint-horse-style coats. **Stewart's white splits his black**: this distinctive marking helps tell them apart. Both are intact males. Champ is a tan, neutered, long-legged hound of roughly 40–50 lb with a round body and snack-sleuth personality. Ace is a long-haired, red-brown Australian Shepherd with a white chest, white feet, and long feathering at the paws. Collyn and Nathan live with the four animals, and the featured human mammals are **Nathan and Collyn**. Shawna does not appear in this release.
 
 Animal communication in the game is age-appropriate and does **not** equate compliance with trust: frightened or excited pets may ignore familiar cues. Children are instructed to involve a trusted adult with unfamiliar animals.
 
@@ -59,7 +61,7 @@ Once an Apple Developer team, distribution certificate, and matching provisionin
 
 The game has original artwork generated **offline from Python + Pillow** by `scripts/generate_art.py`. Run the script whenever asset images are missing; GitHub CI regenerates them before XcodeGen. The promotional concept illustrations are visual references only, not evidence of existing game screens or an app already built.
 
-This is a **playable version 1 prototype**, not a complete expansive 3D game or a production App Store release. Test it on an actual iPhone before distribution.
+This is a **playable version 2 prototype**, not a complete expansive 3D game or a production App Store release. Test it on an actual iPhone before distribution.
 
 © 2026 Nathan Tabor. All rights reserved. This project-specific attribution does not change the license of other parts of the hosting repository.
 
