@@ -14,7 +14,6 @@ struct FamilyView: View {
         .init(id: "Champ (Fattie Bo Daddy)", emoji: "🐕", story: "A beautiful tan, long-legged hound with a round sausage-roll body. He loves food—and sometimes wants to inspect your sleeves!"),
         .init(id: "Ace", emoji: "🐶", story: "A sweet, energetic, long-haired, reddish Australian Shepherd with a white chest, fancy-feathered paws, and a very funny head tilt."),
         .init(id: "Collyn", emoji: "👨", story: "Nathan's human first cousin. He bottle-fed the two cat mammals and cares for the family."),
-        .init(id: "Shawna", emoji: "❤️", story: "Collyn's girlfriend, a visiting human mammal who doesn't live here. Both cats jump in her lap and purr—much to Nathan's dramatic pretend jealousy!"),
         .init(id: "Nathan", emoji: "🧢", story: "A human mammal, the storyteller, and a devoted friend to all the mammals. He believes trust grows when your actions match your words.")
     ]
 
@@ -22,7 +21,7 @@ struct FamilyView: View {
         GameBackground {
             ScrollView {
                 VStack(spacing: 14) {
-                    StoryHeading(title: "Meet the Mammals", subtitle: "Four furry mammals, three human mammals, one family of stories.")
+                    StoryHeading(title: "Meet the Mammals", subtitle: "Four furry mammals, two human mammals, one family of stories.")
                     Image("CatHeroes")
                         .resizable().scaledToFill().frame(height: 180).clipped()
                         .clipShape(RoundedRectangle(cornerRadius: 24))
