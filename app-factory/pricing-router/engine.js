@@ -18,6 +18,7 @@
       deliveryCost:input.deliveryCost||"low",
       ongoingContent:input.ongoingContent===true,multiplayer:input.multiplayer===true,
       supportsAds:input.supportsAds===true,freeCore:input.freeCore!==false,
+      includesChildren:input.includesChildren===true||input.audience==="children"||input.audience==="families",
       ownerPriceBand:input.ownerPriceBand||"auto",
       allowedOfferIds:input.allowedOfferIds===undefined?null:input.allowedOfferIds
     };
@@ -35,7 +36,8 @@
       (!w.purposeAny||w.purposeAny.includes(app.purpose))&&
       (w.complexityAtLeast===undefined||app.complexity>=w.complexityAtLeast)&&
       (w.ongoingContent===undefined||app.ongoingContent===w.ongoingContent)&&
-      (w.multiplayer===undefined||app.multiplayer===w.multiplayer);
+      (w.multiplayer===undefined||app.multiplayer===w.multiplayer)&&
+      (w.includesChildren===undefined||app.includesChildren===w.includesChildren);
   }
   function band(app){
     if(app.ownerPriceBand!=="auto")return app.ownerPriceBand;
@@ -62,7 +64,7 @@
     validate(policy,catalog);
     const app=normalize(input),rule=policy.rules.find(r=>matches(r,app));
     if(!rule)throw Error("Missing default rule");
-    const config=policy.configurations[rule.configuration],priceBand=band(app),child=app.audience==="children";
+    const config=policy.configurations[rule.configuration],priceBand=band(app),child=app.includesChildren;
     const offers=catalog.offers.filter(o=>
       config.offerIds.includes(o.id)&&
       (!app.allowedOfferIds||app.allowedOfferIds.includes(o.id))&&
