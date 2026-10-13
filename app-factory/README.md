@@ -62,3 +62,9 @@ Play: [1420: The Crowning Jewel](./games/crowning-jewel.html). Source: [game eng
 
 ## ONE — The Last App
 An independent universal personal OS project that can replace supported life modules or connect to other services with user grants. [Open ONE](./one/index.html) · [Architecture & constraints](./one/ONE-TECHNICAL-BUILD.md) · `node app-factory/one/one.test.cjs`. This is a local browser prototype, not an app with unrestricted access to all installed iPhone/Android apps.
+
+## NATHAN AI — 138 Design Reference Integration
+
+[Searchable Mechanics Library](./game-reference-lab/index.html) · [Five-World Zero & Void Lab](./game-reference-lab/zero-void-lab.html) · [Architecture & source-preservation policy](./game-reference-lab/README.md) · [138 Public Reference Records](./game-reference-lab/registry.json)
+
+Two source-preserving 69-slot expansions are integrated as **reference data and a local demonstration**, not 138 shipped engines. Full owner-source originals belong in the private Creator Vault / secured source archive, not this public repository. Reuse ACT/STORY/ART contracts with review and explicit permission; preserve TW-001–TW-101 independently. Run `node --test app-factory/game-reference-lab/registry.test.cjs`.
