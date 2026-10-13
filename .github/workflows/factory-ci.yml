@@ -72,3 +72,6 @@ jobs:
         run: node --test app-factory/one/one.test.cjs
       - name: Verify 1420 Crowning Jewel gameplay
         run: node --test app-factory/games/crowning-jewel.test.cjs
+
+      - name: Verify dynamic audience- and app-aware pricing decisions
+        run: node --test app-factory/pricing-router/engine.test.cjs
