@@ -25,6 +25,7 @@ public struct FactoryAppProfile: Codable {
     public let ongoingContent: Bool
     public let multiplayer: Bool
     public let supportsAds: Bool
+    public let includesChildren: Bool
     public let freeCore: Bool
     public let ownerPriceBand: String
     public let allowedOfferIds: [String]?
@@ -36,6 +37,7 @@ public struct FactoryCondition: Codable {
     public let complexityAtLeast: Int?
     public let ongoingContent: Bool?
     public let multiplayer: Bool?
+    public let includesChildren: Bool?
 }
 public struct FactoryRule: Codable {
     public let id: String
@@ -101,6 +103,8 @@ public enum Tabor123FactoryPricingRouter {
         if let minimum = condition.complexityAtLeast, app.complexity < minimum { return false }
         if let value = condition.ongoingContent, app.ongoingContent != value { return false }
         if let value = condition.multiplayer, app.multiplayer != value { return false }
+        let childDirected = app.includesChildren || app.audience == .children || app.audience == .families
+        if let value = condition.includesChildren, childDirected != value { return false }
         return true
     }
 
@@ -128,7 +132,7 @@ public enum Tabor123FactoryPricingRouter {
               let config = policy.configurations[rule.configuration] else {
             throw FactoryPricingError.invalidPolicy
         }
-        let isChild = app.audience == .children
+        let isChild = app.includesChildren || app.audience == .children || app.audience == .families
         let selectedBand = priceBand(for: app)
         var proposed: [FactoryProposedOffer] = []
         for product in catalog.offers {
