@@ -78,3 +78,5 @@ Two source-preserving 69-slot expansions are integrated as **reference data and 
 - [Interactive WHO + WHAT pricing preview](./pricing-router/index.html): deterministic policy engine for Social Flow, Core Pipeline, Max Apex, based on app audience/purpose, not customer wealth or spend history.
 - [Policy, catalog, tests and deployment boundaries](./pricing-router/README.md). Preview prices are illustrative; no live platform billing or individualized checkout exists.
 - Test with: node --test app-factory/pricing-router/engine.test.cjs
+
+- [Automatic per-game manifest pricing](./pricing-router/README.md): one WHO/WHAT declaration per app, batch-generated preview plans (five generic demos), product-wide pricing bands, and protected child-inclusive policies; no real billing enabled.
