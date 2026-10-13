@@ -62,3 +62,7 @@ The root `LICENSE` file is **Apache License 2.0**. Confirm that it matches the o
 - [Browse the 138-entry mechanics matrix](app-factory/game-reference-lab/index.html) — 35 nurturing sandboxes, 34 conceptual master strokes, 34 autonomous simulation references and 35 void references; four intentionally repeated concepts = 134 distinct normalized titles.
 - [Experiment in the local Zero & Void Lab](app-factory/game-reference-lab/zero-void-lab.html) — five independent cellular-automaton worlds with scan/seed/snapshot controls.
 - [Engineering documentation](app-factory/game-reference-lab/README.md) and [public sanitized registry](app-factory/game-reference-lab/registry.json) — originals remain owner-controlled outside the public repository; 101 original TABOR WORLD IDs stay separate. No 138 production engines or automated app release are implied.
+
+## October 13 NATHAN AI full morning reference intake
+
+[Unified 376-position mechanics explorer](app-factory/game-reference-lab/all-morning.html) indexes six source archives (34 shooter; 66 foundational creation/conceptual; 69 additional; 69 card; 69 board; 69 autonomous/void). The existing 138-position reference library remains available. The two derived 138-file masters are not additional source archives. [Preservation and privacy boundaries](app-factory/game-reference-lab/README.md) keep owner originals and app-store/monetization research out of public source. `TW-001`–`TW-101` are still independent original-game identities; no engine production or store launch is claimed.
