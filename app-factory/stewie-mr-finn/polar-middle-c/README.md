@@ -8,14 +8,14 @@ Open the browser game at ./index.html. It runs without accounts, purchases, anal
 ### Three-plane loop
 1. **Above C · sound:** Distinguish what was said from what was meant, including homophones, homographs and context. Santa Dog leads.
 2. **Below C · spelling:** Stewart and Mr. Finn mirror the *exact written string*, reusing the Factory Middle C engine at ../../middle-c/game.js.
-3. **Middle C · evidence:** Ozzie opens one of twelve sourced culture, language and number gates. Keep documented history distinct from imaginative analogies.
+3. **Middle C · evidence:** Ozzie opens one of sixteen sourced culture, language and number gates. Keep documented history distinct from imaginative analogies.
 
-Clearing a three-part bridge earns a Friendship Star. Twelve curated prompts per strand cycle deterministically through indexed levels 1 to 1,000,000,000. This is extended procedural play, not infinitely many unique historical facts.
+Clearing a three-part bridge earns a Friendship Star. Twelve listening prompts, sixteen archive topics, and sixteen mirror words cycle deterministically through indexed levels 1 to 1,000,000,000. This is extended procedural play, not infinitely many unique historical facts.
 
 C = consciousnesses is Nathan Tabor's **fictional symbolic mechanic**, not a universally proven etymology, translation or physical force. HO ↔ OH is literal letter reversal. Different traditions are not assumed to share one belief system.
 
 ### Historical reference families
-Egyptian hieroglyphs and numerals, Babylonian base 60, Maya base 20 and zero, Phoenician-to-Greek writing, Hebrew, Aramaic/Syriac, Chinese counting rods, Brahmagupta and Indian mathematics, and Inka khipu. Each archive prompt links to a historical reference.
+Egyptian hieroglyphs and numerals, Babylonian base 60, Maya base 20 and zero, Phoenician-to-Greek writing, Hebrew, Aramaic/Syriac, Chinese counting rods, Brahmagupta and Indian mathematics, Inka khipu, plus contextual belief-number gateways for the Egyptian Ennead (nine), Maya Tzolk'in calendar (260), Greek Olympians (twelve) and Chinese five phases. Each archive prompt links to a historical reference.
 
 ### Files
 - engine.js: deterministic engine importing the existing Factory Middle C engine.
