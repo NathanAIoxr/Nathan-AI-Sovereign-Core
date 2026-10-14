@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#081729"><title>THE MIDDLE C • HO ↔ OH | Stewart & Mr. Finn</title>
+<style>
+:root{font-family:ui-rounded,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color-scheme:dark;--ink:#e9f8ff;--muted:#b4c9d9;--edge:#ffffff27;--gold:#ffcc6b;--blue:#77e2ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:#051526;min-height:100svh}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse 50% 35% at 26% 0%,#18764998,transparent),radial-gradient(ellipse 55% 40% at 88% 4%,#7c33a198,transparent),linear-gradient(125deg,#041623 0%,#113b4b 42%,#03203d 80%,#080d26);z-index:-2}
+body:after{content:"✦　　　✧　　　　✦　　　　　✧　　　✦　　　✧　　　✦";position:fixed;inset:1rem 0 auto;text-align:center;letter-spacing:15px;opacity:.45;z-index:-1;pointer-events:none}
+main{max-width:920px;margin:0 auto;padding:16px 16px 70px}a{color:#bff0ff}button,input{font:inherit}button{cursor:pointer;touch-action:manipulation}button:focus-visible,input:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.back{display:inline-flex;margin-bottom:15px;font-size:.89rem;text-decoration:none;gap:5px;color:#deefff}h1{font-size:clamp(2rem,7vw,4rem);line-height:1.03;letter-spacing:-.06em;margin:8px 0}h1 strong{color:var(--gold)}
+.sub{line-height:1.55;max-width:730px;color:#d0e8f4;margin:12px 0 22px}.eyebrow{font-size:.72rem;letter-spacing:.19em;text-transform:uppercase;color:#b5e5f3;font-weight:850}
+.cast{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}.home{padding:15px 13px;border:1px solid var(--edge);border-radius:22px;min-height:145px;position:relative;overflow:hidden}
+.home.north{background:linear-gradient(155deg,#895124 0%,#382718bb 65%,#231f31bb)}.home.south{background:linear-gradient(145deg,#164da0aa,#10265cbb 60%,#3b2253aa)}
+.home strong{font-size:1.1rem}.home p{color:#e0edfa;font-size:.83rem;margin:.55rem 0;line-height:1.4}.emoji{font-size:2.5rem;display:block;margin-bottom:8px}.stat{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px}.pill{background:#ffffff15;border:1px solid var(--edge);border-radius:999px;padding:8px 11px;font-size:.83rem}
+.panel{border:1px solid #d9f7ff42;background:#08182be8;border-radius:23px;padding:clamp(16px,3vw,26px);box-shadow:0 15px 40px #0005;margin-bottom:17px}
+.track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:0 0 21px}.track div{background:#ffffff0d;border:1px solid #ffffff1c;border-radius:12px;padding:12px 7px;font-size:.78rem;text-align:center;color:#a2b1c4}.track .on{background:#f0d99425;border-color:#ffda81;color:#fff}.track .done{background:#176f5c42;color:#eafff6;border-color:#63dcaa}
+.track b{display:block;font-size:1.1rem;margin-bottom:3px}
+.world{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#d2e7f5;font-size:.81rem}.hero{color:var(--gold);font-weight:750}
+.prompt-art{display:grid;place-items:center;background:linear-gradient(130deg,#143551 15%,#422a5e 55%,#164a56);border-radius:18px;min-height:108px;margin:14px 0 21px;font-size:clamp(1.5rem,6vw,3rem);font-weight:1000;letter-spacing:.04em;text-align:center;overflow-wrap:anywhere;padding:15px;text-shadow:0 2px 20px #0008}
+h2{font-size:clamp(1.1rem,3vw,1.5rem);margin:9px 0 15px;line-height:1.35}
+.choices{display:grid;gap:10px}.choice{text-align:left;width:100%;border:1px solid #7ca9c34f;padding:15px;border-radius:14px;background:#173148;color:white;font-weight:650;line-height:1.4}
+.choice:hover:not(:disabled){background:#254963}.choice.correct{background:#17624c;border-color:#8af2bb}.choice.wrong{background:#793944;border-color:#ffc4c4}.choice:disabled{cursor:default;opacity:.86}.feedback{margin:15px 0 0;padding:16px;background:#ffffff13;border-left:4px solid #ffc86a;border-radius:10px;line-height:1.55}
+.feedback[hidden],#decoderResult[hidden],#next[hidden]{display:none}.feedback strong{display:block;margin-bottom:5px}
+.actions{display:flex;gap:9px;justify-content:space-between;flex-wrap:wrap;margin-top:17px}.btn{border:1px solid #b7dfff66;background:#153850;color:white;border-radius:12px;padding:12px 17px;font-weight:800}.btn.primary{border-color:#fae0a8;background:#ffda83;color:#192031}.btn:disabled{opacity:.4;cursor:not-allowed}
+.note{color:#b7d0df;line-height:1.5;font-size:.85rem}.source{margin-top:8px;font-size:.77rem;color:#b9d8ed}
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:15px}label{display:block;color:#d4eeff;font-weight:750;font-size:.9rem;margin:14px 0 7px}
+input{width:100%;border:1px solid #88bbcf77;background:#102b41;color:#fff;border-radius:11px;padding:14px}
+#decoderResult{margin-top:14px;line-height:1.55;overflow-wrap:anywhere}.tiny{color:#aabfce;font-size:.75rem}
+.archive{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:9px;margin-top:15px}
+.archive article{border:1px solid #ffffff26;border-radius:12px;padding:10px;background:#ffffff10}.archive small{color:#bde6ff}
+footer{padding:5px 5px 30px;line-height:1.5;color:#a8c3d1;font-size:.79rem}
+@media(max-width:560px){.columns{grid-template-columns:1fr}.home{min-height:135px}.track div{font-size:.68rem;padding:10px 4px}.cast{gap:8px}.home{padding:12px 10px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style></head><body><main>
+<a class="back" href="../README.md">← Stewart & Mr. Finn game family</a>
+<div class="eyebrow">World 7 ↔ World 8 · Branch game · By Nathan Tabor</div>
+<h1>THE <strong>MIDDLE C</strong><br>HO ↔ OH</h1>
+<p class="sub">What was <b>said</b>? What did the <b>word actually mean</b>? What do ancient scripts and numbers really tell us? Join Stewart, Mr. Finn, HO HO HO Santa Dog, and OH OH OH Ozzie at the bridge where <b>Above C</b> and <b>Below C</b> meet <b>Middle C</b>.</p>
+<div class="cast" aria-label="Polar worlds">
+  <div class="home north"><span class="emoji">🎅🐕</span><strong>HO HO HO • NORTH PAW</strong><p>Above C — listen before you decide. Santa Dog: “SUP?” (head nod UP)</p></div>
+  <div class="home south"><span class="emoji">🐧❄️</span><strong>OH OH OH • SOUTH PAW</strong><p>Below C — look again, reverse the letters, follow the clues.</p></div>
+</div>
+<div class="stat"><span class="pill" id="level">Bridge 1</span><span class="pill" id="score">0 points</span><span class="pill" id="stars">0 friendship stars</span><span class="pill">♾ Procedural indexed adventures</span></div>
+<section class="panel" aria-label="Playable puzzle">
+  <div class="track" id="track"><div class="on"><b>↑</b>ABOVE C</div><div><b>⇄</b>BELOW C</div><div><b>●</b>MIDDLE C</div></div>
+  <div class="world"><span id="world"></span><span class="hero" id="hero"></span></div>
+  <div class="prompt-art" id="symbol" aria-live="polite">HO ↔ OH</div>
+  <div class="eyebrow" id="title">ABOVE C</div>
+  <h2 id="question">What is being said?</h2>
+  <div class="choices" id="choices" role="group" aria-label="Choose your interpretation"></div>
+  <div class="feedback" id="feedback" role="status" aria-live="polite" hidden></div>
+  <div class="actions"><button class="btn" id="speak" type="button">🔊 Hear the clue</button><button class="btn primary" id="next" type="button" hidden>Continue →</button></div>
+  <p class="source" id="source"></p>
+</section>
+<section class="columns">
+  <div class="panel">
+    <div class="eyebrow">Your own word detective</div><h2>Say it. Flip it. Check it.</h2>
+    <label for="typedWord">Choose any word or phrase</label>
+    <input id="typedWord" maxlength="120" placeholder="Try HO HO HO, SEE, KINETICS…" value="HO HO HO">
+    <button class="btn" id="decode" type="button">Decode this word ⇄</button>
+    <div id="decoderResult" aria-live="polite" hidden></div>
+    <p class="tiny">Exact reversal is mathematical string manipulation; artistic interpretations are not dictionary facts.</p>
+  </div>
+  <div class="panel">
+    <div class="eyebrow">Middle C • Consciousnesses</div><h2>Three questions, one bridge</h2>
+    <p class="note"><b>Above C:</b> What did the speaker mean? Sound alone can mislead.</p>
+    <p class="note"><b>Below C:</b> What exactly do the letters and numbers show?</p>
+    <p class="note"><b>Middle C:</b> Does a claim come from an evidenced historical source, or from the game’s imagination?</p>
+    <p class="note"><b>Infinite levels</b> means a repeatable, procedural sequence of indexed puzzles — not proof that infinitely many historical facts exist.</p>
+    <button class="btn" id="restart" type="button">↺ Start over</button>
+  </div>
+</section>
+<section class="panel"><div class="eyebrow">The Ancient Archive • 12 source-backed gates</div><h2>Different civilizations, different systems</h2>
+<p class="note">History, linguistics, mythology, and sacred texts are each studied in context. Shared numbers or similar sounds don't establish that unrelated traditions secretly say the same thing.</p>
+<div id="archive" class="archive"></div></section>
+<footer>Original family game concept: Nathan Tabor. Reuses the Factory’s existing Middle C word engine. Offline browser game; no account, tracking, purchases, or advertisements. Progress is saved only in this browser on this device. <a href="./middle-c-game.js">Shared Middle C engine</a>.</footer>
+</main>
+<script src="./middle-c-game.js"></script>
+<script src="./engine.js"></script>
+<script>
+(function(){
+'use strict';
+const g=window.PolarMiddleC,$=id=>document.getElementById(id),key='tabor.polar.middle-c.v1';
+let state;
+try{state=g.validate(JSON.parse(localStorage.getItem(key)))}catch(_){state=g.newGame()}
+function save(){try{localStorage.setItem(key,JSON.stringify(state))}catch(_){}}
+function text(id,s){$(id).textContent=s}
+function render(){
+ const p=g.puzzle(state.level,state.stage);
+ text('level','Bridge '+state.level);text('score',state.score+' points');text('stars',state.stars+' friendship stars');
+ text('world',p.world);text('hero',p.hero);text('symbol',p.symbol);text('title',p.title);text('question',p.question);
+ [...$('track').children].forEach((el,i)=>{el.className=i<state.stage?'done':i===state.stage?'on':''});
+ $('choices').replaceChildren();
+ for(const c of p.choices){
+   const b=document.createElement('button');b.type='button';b.className='choice';b.textContent=c.label;
+   if(state.locked){b.disabled=true;if(c.id===p.correctId)b.classList.add('correct');else if(c.id===state.selected)b.classList.add('wrong')}
+   else b.addEventListener('click',()=>{const result=g.answer(state,c.id);state=result.state;save();render()});
+   $('choices').append(b);
+ }
+ $('feedback').hidden=!state.locked;
+ if(state.locked){const selected=p.choices.find(x=>x.id===state.selected),ok=selected&&selected.id===p.correctId;
+   $('feedback').replaceChildren();const heading=document.createElement('strong');heading.textContent=ok?'✅ Correct! The bridge glows.':'🔎 Good detective work means checking the answer.';$('feedback').append(heading);
+   const body=document.createElement('div');body.textContent=p.explanation;$('feedback').append(body);
+   if(!ok){const fact=document.createElement('div');fact.textContent='Correct reading: '+p.answer;$('feedback').append(fact)}
+ }
+ $('next').hidden=!state.locked;
+ $('next').textContent=state.stage===2?'Next bridge →':'Next side of C →';
+ $('source').replaceChildren();
+ if(p.source){const a=document.createElement('a');a.href=p.source;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Historical reference: '+p.evidence+' ↗';$('source').append(a)}
+ else text('source',p.evidence+' • Game dialogue is fictional');
+ $('speak').disabled=!(window.speechSynthesis&&window.SpeechSynthesisUtterance);
+}
+$('next').addEventListener('click',()=>{state=g.advance(state);save();render();window.scrollTo({top:0,behavior:'smooth'})});
+$('restart').addEventListener('click',()=>{state=g.newGame();save();render()});
+$('decode').addEventListener('click',()=>{
+ const out=$('decoderResult');out.hidden=false;out.replaceChildren();
+ try{const d=g.decode($('typedWord').value);
+   for(const [label,val] of [['Heard / written',d.input],['Literal reverse',d.literal],['Conventional context',d.hearing],['Game symbolism',d.symbolism]]){
+     const p=document.createElement('p');const b=document.createElement('b');b.textContent=label+': ';p.append(b,document.createTextNode(val));out.append(p)}
+ }catch(e){out.textContent=e.message}
+});
+$('speak').addEventListener('click',()=>{if(!window.speechSynthesis||!window.SpeechSynthesisUtterance)return;const p=g.puzzle(state.level,state.stage),u=new SpeechSynthesisUtterance(p.symbol);u.rate=.8;window.speechSynthesis.cancel();window.speechSynthesis.speak(u)});
+g.ARCHIVE.forEach(a=>{const box=document.createElement('article');const top=document.createElement('b');top.textContent=a.code+' · '+a.culture;box.append(top);
+ const note=document.createElement('p');note.className='tiny';note.textContent=a.detail;box.append(note);
+ const link=document.createElement('a');link.textContent='Source ↗';link.href=a.source;link.target='_blank';link.rel='noopener noreferrer';box.append(link);$('archive').append(box)});
+render();
+})();
+</script></body></html>
