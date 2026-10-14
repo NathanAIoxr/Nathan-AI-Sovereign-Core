@@ -19,6 +19,8 @@ targets:
     sources:
       - path: Sources
       - path: Resources/Assets.xcassets
+      - path: Resources/PolarMiddleC
+        type: folder
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.nathantabor.stewieandfinn
