@@ -49,6 +49,7 @@ struct GameHomeView: View {
                             .padding(.top, 4)
 
                         adventureLink("🗺️", "THE GRAND ADVENTURE MAP", "48 boards · six magical worlds", to: CampaignMapView())
+                        adventureLink("🎅", "HO ↔ OH · THE MIDDLE C", "North Paw + South Paw · words, sound, and ancient numbers", to: PolarMiddleCView())
                         adventureLink("🎨", "THE MAMMAL PLAYROOM", "Create your own world with stickers and stories", to: MammalPlayroomView())
                         adventureLink("📚", "STORYTIME TOGETHER", "Five real family moments and kind choices", to: MammalStoryMomentsView())
                         adventureLink("👨‍👧", "GROWN-UP CORNER", "Family play tips, privacy, and comfort settings", to: MammalFamilyGuideView())
