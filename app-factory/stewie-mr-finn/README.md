@@ -10,6 +10,10 @@ Version 4 adds a **Mammal Playroom** with six themed boards, sticker-placement c
 
 A playable, iPhone-only, offline-first children's SwiftUI adventure inspired by **My Life with Mammals**, by Nathan Tabor, a Human Mammal.
 
+## NEW: HO ↔ OH · The Polar Middle C (North Paw + South Paw)
+
+Playable **offline** branch in the native iPhone menu and as a [browser game](./polar-middle-c/index.html). Santa Dog and Ozzie guide three puzzle stages — Above C (what was heard), Below C (literal mirror), Middle C (source-backed ancient writing and number systems). Stewart and Mr. Finn unite the two halves. Source and tests: [Polar Middle C](./polar-middle-c/README.md). This is an add-on game branch, not an expansion of the original 48 campaign boards. The source-bundled WebKit game requires an Xcode native build to test on iPhone; it is not an App Store release.
+
 ## Inside the game
 
 - **Puzzlewood:** find seven hidden treasures and earn stars.
