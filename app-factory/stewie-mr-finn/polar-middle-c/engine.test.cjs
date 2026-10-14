@@ -71,3 +71,12 @@ test('determinism and invalid level safety',()=>{
   assert.throws(()=>game.advance(game.newGame()),/Finish/);
   assert.throws(()=>game.answer(game.newGame(),'fake'),/Unknown/);
 });
+
+test('native offline web snapshot matches tested browser sources',()=>{
+  const source=fs.readFileSync(path.join(__dirname,'engine.js'),'utf8');
+  const native=path.join(__dirname,'../Resources/PolarMiddleC');
+  assert.equal(fs.readFileSync(path.join(native,'engine.js'),'utf8'),source);
+  const browser=fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
+  assert.equal(fs.readFileSync(path.join(native,'index.html'),'utf8'),browser.replaceAll('../../middle-c/game.js','./middle-c-game.js'));
+  assert.equal(fs.readFileSync(path.join(native,'middle-c-game.js'),'utf8'),fs.readFileSync(path.join(__dirname,'../../middle-c/game.js'),'utf8'));
+});
