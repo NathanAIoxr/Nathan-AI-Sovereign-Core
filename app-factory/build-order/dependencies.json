@@ -666,6 +666,20 @@
       "next": "Reuse proven ZIP packaging and provider registry; extend with authenticated OAuth backend and explicit approvals. Do not treat official links as API posting.",
       "owner": "TABOR ROOT / publishing shared bounded context",
       "review": "Required before changing status"
+    },
+    {
+      "id": "greek-mythology",
+      "title": "Greek Mythology — Sovereign Reference Atlas",
+      "group": "products",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "registry"
+      ],
+      "evidence": "app-factory/mythology/greek/README.md",
+      "next": "Reuse the searchable 316-record public source-derived archive. Add primary-source citations and relationship modeling before importing into real game or AI knowledge graph.",
+      "owner": "TABOR WORLD / TABOR INFINITUM",
+      "review": "Source-level historical claims must be independently reviewed"
     }
   ]
 }
