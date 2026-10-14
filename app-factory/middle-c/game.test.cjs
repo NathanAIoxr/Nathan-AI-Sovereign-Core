@@ -1,6 +1,6 @@
 'use strict';const test=require('node:test');const a=require('node:assert/strict');const g=require('./game.js');
 test('literal mirror is reversible',()=>{for(const w of g.WORDS)a.equal(g.reverse(g.reverse(w.word)),w.word)});
-test('no letters silently added to mirrored word',()=>{const v=g.mirror('KINETICS');a.equal(v.above.length,8);a.equal(v.pairs.length,8);a.equal(v.below,'SCITENIK')});
+test('no letters silently added to mirrored word',()=>{const v=g.mirror('KINETICS');a.equal(v.original.length,8);a.equal(v.pairs.length,8);a.equal(v.below,'SCITENIK')});
 test('first level playable',()=>{const p=g.puzzle(1);a.equal(p.kind,'mirror');a.equal(p.answer,'SCITENIK');a.equal(p.options.filter(x=>x.correct).length,1)});
 test('three kinds across first three levels',()=>a.deepEqual([1,2,3].map(i=>g.puzzle(i).kind),['mirror','meaning','numbers']));
 test('consciousness plural conventional meaning',()=>{const w=g.WORDS.find(x=>x.word==='CONSCIOUSNESSES');a.ok(w.definition.includes('Plural'))});
