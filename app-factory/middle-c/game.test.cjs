@@ -1,0 +1,18 @@
+'use strict';const test=require('node:test');const a=require('node:assert/strict');const g=require('./game.js');
+test('literal mirror is reversible',()=>{for(const w of g.WORDS)a.equal(g.reverse(g.reverse(w.word)),w.word)});
+test('no letters silently added to mirrored word',()=>{const v=g.mirror('KINETICS');a.equal(v.above.length,8);a.equal(v.pairs.length,8);a.equal(v.below,'SCITENIK')});
+test('first level playable',()=>{const p=g.puzzle(1);a.equal(p.kind,'mirror');a.equal(p.answer,'SCITENIK');a.equal(p.options.filter(x=>x.correct).length,1)});
+test('three kinds across first three levels',()=>a.deepEqual([1,2,3].map(i=>g.puzzle(i).kind),['mirror','meaning','numbers']));
+test('consciousness plural conventional meaning',()=>{const w=g.WORDS.find(x=>x.word==='CONSCIOUSNESSES');a.ok(w.definition.includes('Plural'))});
+test('only one valid answer in first 300 levels',()=>{for(let i=1;i<=300;i++){const p=g.puzzle(i);a.ok(p.options.length>=3);a.equal(p.options.filter(x=>x.correct).length,1)}});
+test('deterministic procedural levels',()=>a.deepEqual(g.puzzle(587),g.puzzle(587)));
+test('score, answer, next',()=>{let s=g.newGame(),p=g.puzzle(s.level);s=g.choose(s,p.options.find(x=>x.correct).id).state;a.equal(s.score,110);s=g.next(s);a.equal(s.level,2)});
+test('wrong answer does not advance automatically',()=>{let s=g.newGame(),p=g.puzzle(1);s=g.choose(s,p.options.find(x=>!x.correct).id).state;a.equal(s.level,1);a.equal(s.score,0);s=g.next(s);a.equal(s.level,2)});
+test('double answering blocked',()=>{let s=g.newGame();s=g.choose(s,g.puzzle(1).options[0].id).state;a.throws(()=>g.choose(s,'option-0'),/Already/)});
+test('cannot skip unplayed level',()=>a.throws(()=>g.next(g.newGame()),/current puzzle/));
+test('unknown option rejected',()=>a.throws(()=>g.choose(g.newGame(),'cheat'),/Unknown/));
+test('state serialization and rehydration',()=>{let s=g.choose(g.newGame(),g.puzzle(1).options[0].id).state;a.deepEqual(g.validate(JSON.parse(JSON.stringify(s))),s)});
+test('input analyzer accurately reverses and distinguishes interpretation',()=>{const x=g.analyze('KINETICS ELECTRONS');a.equal(x.reverse,'SNORTCELE SCITENIK');a.ok(x.interpretation.includes('not etymology'))});
+test('ancient number references use context labels',()=>{a.ok(g.NUMBERS.some(n=>n.n===9&&n.term.includes('Ennead')));a.ok(g.NUMBERS.every(n=>n.status))});
+test('limits invalid and nonfinite levels',()=>{a.throws(()=>g.puzzle(Infinity));a.throws(()=>g.newGame(0));a.throws(()=>g.puzzle(1000000001))});
+test('game original source records not scientific proof',()=>{for(let i=1;i<20;i++)a.equal(g.puzzle(i).sourceKind,'game-content')});
