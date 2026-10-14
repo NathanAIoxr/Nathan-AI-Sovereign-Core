@@ -85,3 +85,7 @@ jobs:
 
       - name: Verify manifest-driven multi-game pricing configuration
         run: node --test app-factory/pricing-router/build-manifests.test.cjs
+
+
+      - name: Verify Ancient Divine Roots source preservation and indexing
+        run: node --test app-factory/mythology/ancient-roots/atlas.test.cjs

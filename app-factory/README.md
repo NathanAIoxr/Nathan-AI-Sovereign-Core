@@ -80,3 +80,8 @@ Two source-preserving 69-slot expansions are integrated as **reference data and 
 - Test with: node --test app-factory/pricing-router/engine.test.cjs
 
 - [Automatic per-game manifest pricing](./pricing-router/README.md): one WHO/WHAT declaration per app, batch-generated preview plans (five generic demos), product-wide pricing bands, and protected child-inclusive policies; no real billing enabled.
+
+
+## Ancient Divine Roots — October 14 integration
+
+[Searchable archive](./mythology/ancient-roots/index.html) · [Full source and data contract](./mythology/ancient-roots/README.md). All supplied material preserved with 293 indexed table rows and 35 complete sections across Norse, eight Indigenous tradition groups, Zoroastrian and adversarial/modern Satanist contexts. Historical verification remains pending. Run `node --test app-factory/mythology/ancient-roots/atlas.test.cjs`.
