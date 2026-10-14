@@ -17,8 +17,8 @@
   "counts": {
     "originalGameFamilies": 101,
     "privateIdeaSlots": 496,
-    "publicProductModules": 26,
-    "totalIndexedBoxes": 623
+    "publicProductModules": 27,
+    "totalIndexedBoxes": 624
   },
   "disclosure": "Source ZIPs, private source contents, unreviewed media, identities, personal data and confidential app descriptions are not published. Public names come from the owner's original game index and existing public app registry. Proposed idea slots expose IDs only.",
   "records": [
@@ -5628,6 +5628,15 @@
       "status": "browser-demo",
       "visibility": "public-index-only",
       "related": "./creative/dummie/canon.json"
+    },
+    {
+      "id": "APP:middle-c",
+      "title": "THE MIDDLE C — Axis of Infinity",
+      "kind": "product-app-or-module",
+      "source": "public-factory-registry",
+      "status": "browser-demo",
+      "visibility": "public-index-only",
+      "related": "./middle-c/README.md"
     }
   ]
 }
