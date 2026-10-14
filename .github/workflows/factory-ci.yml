@@ -70,6 +70,8 @@ jobs:
         run: node --test app-factory/universal-node/source-adapters.test.cjs
       - name: Verify DUMMIE packaging and provider handoff integrity
         run: node --test app-factory/dummie-publisher/publisher.test.cjs
+      - name: Verify Greek mythology archive taxonomy and provenance
+        run: node --test app-factory/mythology/greek/atlas.test.cjs
       - name: Verify ONE local engine
         run: node --test app-factory/one/one.test.cjs
       - name: Verify 1420 Crowning Jewel gameplay
