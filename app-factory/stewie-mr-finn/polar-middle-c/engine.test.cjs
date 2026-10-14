@@ -6,7 +6,7 @@ const path=require('node:path');
 const game=require('./engine.js');
 
 test('parent engine is reused and all ancient entries are present',()=>{
-  assert.equal(game.ARCHIVE.length,12);
+  assert.equal(game.ARCHIVE.length,16);
   assert.equal(game.HEARD.length,12);
   assert.equal(game.STAGES.length,3);
   for(const e of game.ARCHIVE){assert.match(e.source,/^https:\/\//);assert.ok(e.detail.length>25);assert.ok(e.culture.length>2)}
@@ -46,10 +46,10 @@ test('mirror side preserves exact codepoint spelling',()=>{
   const word=game.puzzle(1,1).symbol;
   assert.equal(game.puzzle(1,1).answer,[...word].reverse().join(''));
 });
-test('all 12 ancient references and all 12 heard prompts appear during 12 bridges',()=>{
+test('all 16 ancient gates and all 12 heard prompts appear during 16 bridges',()=>{
   const cultures=new Set(),sounds=new Set();
-  for(let i=1;i<=12;i++){cultures.add(game.puzzle(i,2).evidence);sounds.add(game.puzzle(i,0).symbol)}
-  assert.equal(cultures.size,12);assert.equal(sounds.size,12);
+  for(let i=1;i<=16;i++){cultures.add(game.puzzle(i,2).evidence);sounds.add(game.puzzle(i,0).symbol)}
+  assert.equal(cultures.size,16);assert.equal(sounds.size,12);
 });
 test('save state is JSON round-trippable without network or accounts',()=>{
   const s=game.answer(game.newGame(),game.puzzle(1,0).correctId).state;
