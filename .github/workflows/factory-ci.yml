@@ -56,6 +56,8 @@ jobs:
         run: node --test app-factory/build-order/planner.test.cjs
       - name: Verify original-byte Vault backup and recovery
         run: node --test app-factory/vault-backup.test.cjs
+      - name: Verify Middle C reversible word and ancient number puzzle game
+        run: node --test app-factory/middle-c/game.test.cjs
       - name: Verify rotating X reference and four-scale Universal Node engine
         run: node --test app-factory/universal-node/engine.test.cjs
       - name: Verify rotating Earth X and Babel mirrored game
