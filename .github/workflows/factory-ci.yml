@@ -89,3 +89,6 @@ jobs:
 
       - name: Verify Ancient Divine Roots source preservation and indexing
         run: node --test app-factory/mythology/ancient-roots/atlas.test.cjs
+
+      - name: Verify KNAVE archive source, cultural qualifiers and fictional counterparts
+        run: node --test app-factory/mythology/knave/atlas.test.cjs
