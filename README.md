@@ -66,3 +66,7 @@ The root `LICENSE` file is **Apache License 2.0**. Confirm that it matches the o
 ## October 13 NATHAN AI full morning reference intake
 
 [Unified 376-position mechanics explorer](app-factory/game-reference-lab/all-morning.html) indexes six source archives (34 shooter; 66 foundational creation/conceptual; 69 additional; 69 card; 69 board; 69 autonomous/void). The existing 138-position reference library remains available. The two derived 138-file masters are not additional source archives. [Preservation and privacy boundaries](app-factory/game-reference-lab/README.md) keep owner originals and app-store/monetization research out of public source. `TW-001`–`TW-101` are still independent original-game identities; no engine production or store launch is claimed.
+
+## October 14 creative continuity and project status
+
+[Read the latest continuity update](app-factory/creative/continuity/2026-10-14.md) · [Structured creative notes](app-factory/creative/continuity/2026-10-14.json) · [Current status](WORK_STATUS.md). Includes Round 1, KINETICS/TIME, Middle C's head/gut/soles concept, Great Samaritan ethics, the latest Merlin novel canon, and writing/visual continuity. Existing 376-reference, pricing, Middle C, Ancient Roots and KNAVE modules are indexed with their actual scope. This is a summary intake, not a full manuscript or image archive.

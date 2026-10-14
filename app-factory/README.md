@@ -89,3 +89,7 @@ Two source-preserving 69-slot expansions are integrated as **reference data and 
 ## KNAVE — Female divinities and original counterparts
 
 [Explore KNAVE](./mythology/knave/index.html) · [Source and integration contract](./mythology/knave/README.md). Supplied sections VIII–XI preserved in full: 51 cultural-reference rows, 39 linguistic terms and 27 original fictional characters. Fiction and unverified historical compilation remain separately labeled. Test: `node --test app-factory/mythology/knave/atlas.test.cjs`.
+
+## October 14 creative continuity
+
+[Latest project/canon notes](./creative/continuity/2026-10-14.md) · [Structured records](./creative/continuity/2026-10-14.json). Preserve the current Round 1 mission, Middle C body-map specification, Great Samaritan ethics and latest Merlin novel title. The sevenfold enumeration remains incomplete in the available source. These are documentation inputs for future reviewed adaptations; existing game engines and archives remain separate.

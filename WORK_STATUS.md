@@ -1,6 +1,6 @@
 # TABOR 1-2-3 FACTORY™ — LIVE BUILD STATUS
 
-**Updated:** 2026-10-10  
+**Updated:** 2026-10-14 (documentation reconciliation; prior test results retain their original dates)  
 **Public GitHub repository:** NathanAIoxr/Nathan-AI-Sovereign-Core  
 **Status rule:** A page, specification or button does not establish a working provider integration. Move a feature to `working` only with an end-to-end test/result.
 
@@ -26,7 +26,7 @@
 | Actual cloud iOS/Android build | blocked | Expo app and account/signing configuration |
 | App Store submission | blocked | Old Apple Developer membership issue + signing/review |
 | Google Play submission | blocked | Google Play developer access and native build |
-| Payment gateway | not-started | Only offline Python pricing prototype exists |
+| Payment gateway | not-started | Static WHO + WHAT router and batch manifest planner now exist; real payment gateway remains unimplemented |
 | Angels vs. Demons 404 | prototype | Private source ZIP/roster supplied in Work package; tests run locally |
 | ONE MATRIX/GAME OF LIFE | prototype | Private Python/HTML prototype; numerical canon reconciliation needed |
 | Healers & Protectors | concept | Replaces Maters & Taters as core game; original art in private package |
@@ -50,3 +50,19 @@
 | Knowledge & Creation Engine | local private prototype | 44 tests passed; DOCX/XLSX/PPTX import/export; SQLite FTS5 + graph + versioning + SHA-256 original-byte backup; no live Graph OAuth or model inference. Public handoff `app-factory/knowledge-engine/README.md` |
 
 **Work's task:** Update this document after each milestone with exact tests, URLs/PRs, blockers, and account approvals. Do not claim an outside action completed based on plan text alone.
+
+## October 14, 2026 — continuity and current source index
+
+[Latest creative continuity notes](app-factory/creative/continuity/2026-10-14.md) preserve Round 1, KINETICS/TIME, the Middle C body map, Great Samaritan ethics, the latest Merlin novel canon and writing/visual concepts. [Structured notes](app-factory/creative/continuity/2026-10-14.json) retain explicit statuses. This is a summarized intake, not a complete original-source archive.
+
+| Feature | State | Source evidence / remaining work |
+|---|---|---|
+| 376-position game reference explorer | existing reference browser | Six source archives; 138-position subset retained. [Reference Lab](app-factory/game-reference-lab/README.md); not 376 implemented games |
+| Dynamic Pricing & Audience Router | existing static preview and manifest planner | [Pricing Router](app-factory/pricing-router/README.md); no live billing |
+| Middle C — Axis of Infinity | existing browser game prototype | [Middle C](app-factory/middle-c/README.md); finite curated material with deterministic indexed levels |
+| Middle C — HO ↔ OH | existing browser game with bundled iPhone resources | [Polar branch](app-factory/stewie-mr-finn/polar-middle-c/README.md); store release and physical-device QA not established here |
+| Ancient Divine Roots | existing source archive | [293 rows / 35 sections](app-factory/mythology/ancient-roots/README.md); historical verification pending |
+| KNAVE | existing source archive and original fictional characters | [117 indexed rows](app-factory/mythology/knave/README.md); cultural/linguistic claims remain verification-pending |
+| October 14 creative continuity | documentation and structured notes | Round 1 and latest novel/body-map corrections recorded; no new gameplay or generated image import in this update |
+
+Verification for this documentation update: checked existing repository source at commit `65dc19fc3a9c5ed144e4858c585cc199f436fc47`, validated new JSON and relative documentation links. No application code changed; earlier test counts above are historical results, not reruns in this update.
