@@ -125,3 +125,7 @@ Additional original-label companion sources: [Six Python deep-root models](./oct
 ## Sovereign Nexus: connect every published Root while keeping independent state
 
 [Open the Sovereign Nexus](./octopus-root/sovereign-nexus/index.html) · [Sovereignty/no-loss design and tests](./octopus-root/sovereign-nexus/README.md). The opt-in, locally previewed bridge can attach six independent Root packs without collapsing namespaces or importing other apps’ private data. It exposes verified static navigation to the wider Factory. Saves, owner grants, external accounts and publishing remain distinct. Local pre-graft backup, no-change undo guard, check-only hashes and explicit approval are implemented; this is not multi-user authentication.
+
+## 🚂oOo🚂 THE 118 LINE — collectible paradox game
+
+[Play the 118 Line browser game](./games/paradox-118/index.html) · [Rules and canonical 118 roster](./games/paradox-118/README.md) · [Family-first WHO/WHAT manifest](./games/paradox-118/product-manifest.json). Three playable gates per character, 13 collection campaigns, deterministic puzzles, local progress and import/export. No real billing or native release. Test with: `node --test app-factory/games/paradox-118/engine.test.cjs`.

@@ -77,6 +77,9 @@ jobs:
       - name: Verify 1420 Crowning Jewel gameplay
         run: node --test app-factory/games/crowning-jewel.test.cjs
 
+      - name: Verify 118 Line toy game roster and three-gate gameplay
+        run: node --test app-factory/games/paradox-118/engine.test.cjs
+
       - name: Verify original Stewie Finn PAWS SWAP Mirror Bridge and physics
         run: node --test app-factory/stewie-mr-finn/polar-middle-c/mirror-bridge/engine.test.cjs
 

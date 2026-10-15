@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111b35"><title>🚂oOo🚂 THE 118 LINE | Great Parade of Paradoxes</title><link rel="icon" href="../../icon.svg">
+<style>
+:root{font:16px/1.5 system-ui,-apple-system,sans-serif;color-scheme:dark;--gold:#f4cb72;--bg:#0e1427;--soft:#bdcbe4}*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#42446d,#161d36 40%,var(--bg) 83%);color:#fff2d5;min-height:100vh}main{max-width:1150px;margin:auto;padding:15px 13px 80px}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}a{color:var(--gold)}
+header a{border:1px solid #85849c;padding:9px 13px;border-radius:10px;text-decoration:none}
+h1{font-size:clamp(2rem,6vw,4rem);line-height:1.04;margin:14px 0}h2{margin:0 0 12px;font-size:1.5rem}p{color:var(--soft)}
+.hero{border:1px solid #bd9147;border-radius:22px;background:linear-gradient(125deg,#413252,#233554);padding:clamp(20px,4vw,35px);margin:12px 0 20px}
+.eyebrow{font-weight:850;letter-spacing:.13em;color:var(--gold);font-size:.78rem}.labels{display:flex;gap:7px;flex-wrap:wrap}.labels span{border:1px solid #bfa26d;padding:4px 9px;border-radius:50px;font-size:.76rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:15px 0}.stat{border:1px solid #546588;background:#202d4b;padding:12px;border-radius:14px}.stat b{display:block;color:var(--gold);font-size:1.65rem}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:14px}.panel{background:#182441;border:1px solid #596580;border-radius:18px;padding:17px}
+input,select,button{font:inherit;border:1px solid #687b9a;border-radius:10px;background:#273958;color:#fff5df;padding:10px;max-width:100%}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #ffdc87;outline-offset:3px}
+.find{display:flex;flex-wrap:wrap;gap:7px}.find input{flex:2;min-width:130px}.find select{flex:1;min-width:150px}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-height:560px;overflow-y:auto;margin-top:12px}
+.figure{display:flex;gap:8px;align-items:center;text-align:left;min-height:70px;width:100%;background:#253555;font-size:.79rem}
+.figure[aria-pressed=true]{background:#604c2f;border-color:#ffc56d}.figure .emoji{font-size:1.8rem;padding:5px;background:#384766;border-radius:10px}.figure strong{display:block;line-height:1.3}.figure small{color:#bdd0e9}.figure small.done{color:#abedc9}
+.toy{border:1px solid #897b9e;border-radius:18px;min-height:190px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;margin:14px 0;background:radial-gradient(circle at 45% 5%,#726c97,#333b60,#1b2b49)}
+.toy .emoji{font-size:4.5rem;line-height:1.2}.toy strong{font-size:1.25rem;max-width:26ch}.toy small{color:#d2d5e9}.steps{display:flex;gap:6px;flex-wrap:wrap}.steps span{border:1px solid #64718e;border-radius:8px;padding:6px 8px;font-size:.77rem}.steps .active{background:var(--gold);color:#251a2c;font-weight:800}.steps .past{color:#b4f4c8}
+.question{border-left:3px solid var(--gold);background:#303650;border-radius:7px;padding:13px;margin:12px 0}.options{display:grid;gap:8px}.options button{text-align:left;min-height:48px;background:#293b5a;font-weight:650}
+.notice{border:1px solid #6a8b88;background:#293b46;color:#e7fff4;padding:12px;border-radius:12px;margin:12px 0;min-height:50px}
+.badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:8px}.badge{border:1px solid #4b5976;border-radius:10px;padding:12px;font-size:.81rem;background:#202c47}.badge.done{border-color:#f3c26b;background:#453846;color:#ffe5ab}
+.actions{display:flex;flex-wrap:wrap;gap:8px}.primary{background:var(--gold);color:#2c2637;font-weight:850}
+.panel.lower{margin-top:14px}footer{color:var(--soft);font-size:.8rem;margin:22px 0}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.gallery{grid-template-columns:1fr}.panel{padding:12px}}
+</style></head><body><main><header><a href="../../index.html">← TABOR 1–2–3 FACTORY</a><span class="eyebrow">IMAGINE → ASSEMBLE → MAKE</span></header>
+<section class="hero"><span class="eyebrow">THE 🚂oOo🚂 COMPANY PRESENTS</span><h1>🚂oOo🚂 THE 118 LINE<br>THE GREAT PARADE OF PARADOXES</h1>
+<p>Every figure has a personality. Every personality has a paradox. Play three gates per character, unlock all 13 collection badges, and make the Great Parade come alive.</p><div class="labels"><span>118 collectible figures</span><span>13 collections</span><span>ABOVE C · BELOW C · THE MIDDLE C</span><span>Full game free</span></div></section>
+<div class="stats" aria-label="Game scoreboard"><div class="stat">Figures<b id="figures"></b></div><div class="stat">Collections<b id="collections"></b></div><div class="stat">Score<b id="score"></b></div><div class="stat">Attempts<b id="tries"></b></div></div>
+<div class="layout">
+<section class="panel"><h2>🎠 Select a character</h2><p>Every one of the 118 figures is playable. Alternative editions remain separate.</p><div class="find"><input id="search" type="search" aria-label="Search characters" placeholder="Eve, Solomon, Buddha…"><select id="filter" aria-label="Filter collection"></select></div>
+<p id="shown" aria-live="polite"></p><div class="gallery" id="gallery"></div></section>
+<section class="panel"><h2>🎲 Character Spotlight</h2><div id="steps" class="steps"></div>
+<div class="toy"><span id="toy-emoji" class="emoji" aria-hidden="true"></span><strong id="toy-name"></strong><small id="toy-id"></small><small id="toy-group"></small></div>
+<div id="quiz"><div id="question" class="question"></div><div id="options" class="options"></div></div><div id="feedback" class="notice" role="status" aria-live="polite"></div>
+<div class="actions"><button id="next" class="primary">Next figure →</button><button id="replay">↻ Replay figure</button></div>
+</section></div>
+<section class="panel lower"><h2>🏅 The 13 Collection Badges</h2><p>Clear one figure from each collection to win the grand parade. Clear all 118 for Master Collector.</p><div id="badges" class="badges"></div><div class="notice" id="finale" aria-live="polite"></div></section>
+<section class="panel lower"><h2>💾 Local Save · No Accounts</h2><p>Progress is stored only in this browser. Export JSON to protect it before resetting or switching devices. There are no advertisements or purchases.</p><div class="actions"><button id="export">Export save</button><button id="import">Import save</button><input type="file" id="file" accept=".json,application/json" hidden><button id="reset">Reset progress</button></div><p><a href="README.md">Game rules</a> · <a href="../../pricing-router/index.html">Factory pricing policy</a></p></section>
+<footer>This is an original fictional parody and character adventure. Historical and living religious traditions are not evidence of fictional game powers. Gameplay rewards listening, respect, evidence, safety and accountability. No data is uploaded.</footer></main>
+<script src="roster.js"></script><script src="engine.js"></script><script>
+(function(){
+'use strict';
+const E=window.Paradox118Engine,R=E.R,key='T123_PARADOX118_V1',at=id=>document.getElementById(id);
+const numerals=['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII'];
+let state;try{state=E.load(localStorage.getItem(key)||'')}catch{state=E.fresh()}
+function store(){try{localStorage.setItem(key,E.save(state))}catch{}}
+const filter=at('filter');filter.add(new Option('All 13 collections','all'));
+for(const g of R.groups)filter.add(new Option(numerals[g.index]+' · '+g.title,g.id));
+function gallery(){
+ const term=at('search').value.trim().toLocaleLowerCase(),col=filter.value,box=at('gallery');box.replaceChildren();
+ const found=R.characters.filter(c=>(col==='all'||c.group===col)&&c.name.toLocaleLowerCase().includes(term));
+ at('shown').textContent=found.length+' figures shown';
+ for(const c of found){const b=document.createElement('button');b.className='figure';b.type='button';
+ b.setAttribute('aria-pressed',String(c.id===state.id));
+ const emblem=document.createElement('span');emblem.className='emoji';emblem.textContent=c.emoji;
+ const desc=document.createElement('span'),name=document.createElement('strong'),meta=document.createElement('small');
+ name.textContent=c.name;meta.textContent=c.id+' · '+(state.done[c.id]?'★ Badge earned':'3 playable gates');if(state.done[c.id])meta.className='done';
+ desc.append(name,meta);b.append(emblem,desc);
+ b.onclick=()=>{state=E.select(state,c.id).state;store();render()};box.append(b)}
+}
+function render(){
+ const c=E.get(state.id),p=E.progress(state);
+ at('figures').textContent=p.figures+'/118';at('collections').textContent=p.collections+'/13';at('score').textContent=state.score;at('tries').textContent=state.tries;
+ at('toy-emoji').textContent=c.emoji;at('toy-name').textContent=c.name;at('toy-id').textContent=c.id;at('toy-group').textContent=R.groups[c.groupIndex].title;
+ const steps=at('steps');steps.replaceChildren();
+ E.phases.forEach((phase,i)=>{const s=document.createElement('span');s.textContent=(i<state.stage?'✓ ':'')+phase;s.className=i<state.stage?'past':i===state.stage?'active':'';steps.append(s)});
+ at('quiz').hidden=state.stage===3;at('next').hidden=state.stage!==3;at('feedback').textContent=state.message;
+ if(state.stage<3){const q=E.challenge(state.id,state.stage);at('question').textContent=q.prompt;const options=at('options');options.replaceChildren();
+ q.options.forEach((text,i)=>{const b=document.createElement('button');b.type='button';b.textContent=(i+1)+'. '+text;b.onclick=()=>{state=E.answer(state,i).state;store();render()};options.append(b)})}
+ const bd=at('badges');bd.replaceChildren();
+ for(const g of R.groups){const div=document.createElement('div');div.className='badge'+(p.badges.includes(g.id)?' done':'');
+ div.textContent=g.emoji+' '+numerals[g.index]+'. '+g.title+' — '+(p.badges.includes(g.id)?'★ EARNED':'TO UNLOCK');bd.append(div)}
+ at('finale').textContent=p.master?'👑 MASTER COLLECTOR — all 118 figures complete!':p.parade?'🚂 GRAND PARADE COMPLETE! All 13 collection badges earned.':'Collect '+(13-p.collections)+' more collection badges to complete the parade.';
+ gallery();
+}
+at('search').addEventListener('input',gallery);filter.addEventListener('change',gallery);
+at('next').onclick=()=>{const i=R.characters.findIndex(c=>c.id===state.id);state=E.select(state,R.characters[(i+1)%118].id).state;store();render()};
+at('replay').onclick=()=>{state=E.replay(state);store();render()};
+at('export').onclick=()=>{const b=new Blob([E.save(state)],{type:'application/json'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='118-line-save.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)};
+at('import').onclick=()=>at('file').click();
+at('file').onchange=async function(){if(!this.files[0])return;try{state=E.load(await this.files[0].text());store();render()}catch(e){at('feedback').textContent='Import failed: '+e.message}this.value=''};
+at('reset').onclick=()=>{if(confirm('Reset local game progress? Export a save first if you want to keep it.')){state=E.fresh();store();render()}};
+render();
+})();
+</script></body></html>
