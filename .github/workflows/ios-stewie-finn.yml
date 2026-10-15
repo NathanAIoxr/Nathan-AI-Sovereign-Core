@@ -26,6 +26,15 @@ jobs:
         uses: actions/checkout@v4
       - name: Select installed Xcode
         run: xcodebuild -version
+      - name: Test offline Polar Family story and progression (native Swift)
+        run: |
+          swiftc -swift-version 5 -o /tmp/polar-quest-check Sources/PolarFamilyQuestCore.swift Tests/main.swift
+          /tmp/polar-quest-check
+      - name: Verify mirrored web-game integrity (Node)
+        run: |
+          node --test polar-middle-c/engine.test.cjs
+          node --test polar-middle-c/mirror-bridge/engine.test.cjs
+          node --test polar-middle-c/math-roots/engine.test.cjs
       - name: Install XcodeGen
         run: brew install xcodegen
       - name: Make original offline art
