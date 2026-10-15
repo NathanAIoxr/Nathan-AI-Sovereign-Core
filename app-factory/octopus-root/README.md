@@ -38,9 +38,22 @@ Dashboard: ./index.html
 
 This is a public repository prototype, not a deployed cross-platform autonomous AI backend.
 ## UCT expansion — October 15, 2026
-[Open seven branches and attach to this Root](./uct/index.html) · [Complete equations, status tags and source-preservation contract](./uct/README.md). This root-pack preserves pre-existing namespaced nodes, on-demand receptor checks, failure recovery in Cookie Monster, and the 2026-10-15 original source separately. Node/edge links are marked symbolic associations; software tests are not a proof of sci-fi technologies. Run `node --test app-factory/octopus-root/uct/engine.test.cjs`.
+[Open seven branches and attach to this Root](./uct/index.html) · [Complete equations, status tags and source-preservation contract](./uct/README.md). This root-pack preserves pre-existing namespaced nodes, on-demand receptor checks, failure recovery in Crumbkeeper, and the 2026-10-15 original source separately. Node/edge links are marked symbolic associations; software tests are not a proof of sci-fi technologies. Run `node --test app-factory/octopus-root/uct/engine.test.cjs`.
 
 
 ## Sovereign Continuum — October 15 expansion
 
 [Open the original-language 25-gate Continuum laboratory](./sovereign-continuum/index.html) · [Its engine and rights guide](./sovereign-continuum/README.md). Five families bridge Above C numerical prediction, Below C numerical inversion and Middle C checks. The owner can explicitly graft the new nodes without replacing older ROOT branches. Legacy review-tray machine IDs stay stable; the user-visible name is now CRUMB REAPER. Tests: node --test app-factory/octopus-root/sovereign-continuum/engine.test.cjs.
+
+## October 15 — The Sovereign Root Codex
+
+[Search all 216 indexed positions](./index.html#codex-panel) · [Registry engine](./codex.js) · [Node tests](./codex.test.cjs).
+
+- **100 mathematical positions** from the owner's numbered math archive, **69 arithmancy positions** from the owner's later numbered archive, and **8 separately indexed Archimedean overlap positions**. Their numbers and short titles remain distinguishable, and no third-party screenshots, franchises or uploads are replicated verbatim.
+- **39 original operating nodes** connect Above C, Below C, Heart/Middle C, AAND/AARON, GAR, harmonic above/below, DIRTY/CLEAN reversal, squared/round, counter-spirals, seashell, DNA/RNA, microwave background, wheel/lattice/path, ancient letter values, ten number gates, seven axes and word fencing. The screen can search and choose these in the existing receptor linker.
+- All formula strings are **modern teaching reconstructions** because many modern-form fields were missing in the supplied exports. They are NOT certified transcriptions of the original tablets. Source titles identify the user's supplied registers; original uploads stay in the owner-controlled private archive.
+- **Rights-safe public naming:** the review mascot is now the original **Crumbkeeper Octopus** (legacy saved-data key `filter:cookie` is retained for compatibility); the four-letter counter-directional demonstrator is the **Sovereign Mirror** rather than a screen character or branded AI. Existing node IDs, private originals and prior content are not destroyed.
+- **Mirror invariants:** exact character reversal twice gives the original; English letter-value sum survives rearrangement. The game distinguishes these verified operations from creative name, sound, shape and script readings.
+- The graphic's 65-node view is a finite window; the search panel reaches all 216 new positions. Browser-local data persists when available and remains exportable as JSON. The public site does not perform scientific validation, rights certification, cloud AI operation or releases.
+
+Run: `node --test app-factory/octopus-root/engine.test.cjs app-factory/octopus-root/codex.test.cjs`

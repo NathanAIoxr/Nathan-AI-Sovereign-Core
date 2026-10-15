@@ -6,11 +6,23 @@
 <div class="grid"><section class="panel"><h2>🌱 Grow new roots</h2><label for="start">Start node</label><select id="start"></select><label for="amount">New tentacles per click</label><select id="amount"><option>1</option><option selected>3</option><option>4</option></select><button id="grow">Sprout tentacles</button><p class="muted">Available operations: reverse letters, rotate left, rotate right, reverse word order. No records are destroyed.</p></section>
 <section class="panel"><h2>🫧 Attach a sucker cup</h2><label for="from">From</label><select id="from"></select><label for="to">To</label><select id="to"></select><label for="type">Check type</label><select id="type"><option>exact</option><option>reversal</option><option>word-order</option><option>cipher</option><option selected>symbolic</option><option>documented</option></select><label for="note">Transformation / explanation</label><textarea id="note" placeholder="Explain why these nodes connect"></textarea><label for="source">Document URL, when applicable</label><input id="source" placeholder="https://"><button id="test">Test & attach</button></section></div>
 <div class="grid"><section class="panel"><h2>🍪 CRUMB REAPER Octopus</h2><p>Rejected connections are captured here, not deleted.</p><ol id="cookieList"></ol><button id="retry">Retry newest with form details</button></section><section class="panel"><h2>📦 Make it stick</h2><p>Changes are saved in this browser. Export JSON to preserve a separate copy.</p><button id="export">Export roots</button><label for="import">Import root JSON</label><input id="import" type="file" accept=".json,application/json"><button id="reset">Reset demo (confirm)</button><p id="message" aria-live="polite"></p></section></div>
+<section class="panel" id="codex-panel" aria-label="Sovereign Root Codex"><h2>🌀 Sovereign Root Codex • 216 Root Positions</h2>
+<p>100 mathematics gates · 69 arithmancy gates · 8 mechanics overlaps · 39 original concept branches. Indexed into the shared Root without rewriting existing records.</p>
+<div class="grid"><div><label for="catalogFamily">Choose root family</label><select id="catalogFamily"><option value="">All 216</option><option value="math">100 Mathematics</option><option value="arith">69 Arithmancy</option><option value="arch">8 Archimedean overlaps</option><option value="concept">39 Creative engine nodes</option></select></div><div><label for="catalogSearch">Find a word, pattern, or equation</label><input id="catalogSearch" placeholder="Try spiral, AARON, quadratic, phi…" maxlength="100"></div></div>
+<div id="catalogSummary" class="muted" aria-live="polite"></div>
+<ol id="catalogResults" style="max-height:400px;overflow:auto;padding-left:26px"></ol>
+<button id="catalogMore" type="button">Show more roots</button>
+<h3 style="margin-top:22px">↔ Double Mirror — Words and Numbers</h3>
+<p>Enter text to see exact letter reversal, return-to-origin, and the letter-value sum. Keep literal calculations separate from word and image associations.</p>
+<div class="row"><input id="mirrorInput" value="AAND" maxlength="90" aria-label="Word to mirror" style="flex:1;min-width:180px"><button id="mirrorRun" type="button">Decode</button></div>
+<pre id="mirrorOutput" style="white-space:pre-wrap;background:#08152b;border-radius:12px;padding:14px;color:#c9f8dd;font-size:13px;overflow:auto" aria-live="polite"></pre>
+<p class="muted">Every catalog equation is labeled a modern teaching reconstruction; historical transcriptions require separate source review. Imported originals stay untouched.</p></section>
 <footer>Local-first concept engine · No automatic network access, fact certification, cross-project sharing or public release · <a href="./README.md">Rules and scope</a> · <a href="./sovereign-continuum/index.html">Sovereign Continuum</a></footer></main>
-<script src="./engine.js"></script><script>
+<script src="./codex.js"></script><script src="./engine.js"></script><script>
 (()=>{'use strict';
 const A=window.OctopusRoot,K='tabor-octopus-root-v1',$=s=>document.getElementById(s);
 let s;try{s=A.load(localStorage.getItem(K)||A.save(A.create()))}catch(e){s=A.create()}
+try{s=window.TaborRootCodex.enrich(A,s).state}catch(e){console.warn('Root codex needs attention:',e)}
 const ns='http://www.w3.org/2000/svg';
 function el(t,attrs){const x=document.createElementNS(ns,t);for(const k in attrs)x.setAttribute(k,attrs[k]);return x}
 function label(m){$('message').textContent=m}
@@ -41,4 +53,35 @@ $('export').onclick=()=>{const blob=new Blob([A.save(s)],{type:'application/json
 $('import').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{s=A.load(await f.text());refresh();label('Imported: historical claims remain unverified')}catch(err){label('Import blocked: '+err.message)}e.target.value=''};
 $('reset').onclick=()=>{if(!confirm('Reset local data? Export a backup first.'))return;s=A.create();refresh();label('Fresh root started')};
 refresh();$('from').value='formula:arithmetic';$('to').value='word:aaron';$('type').value='cipher';$('note').value='The AAND → AARON substitution must be explicitly described';})();
+</script><script>
+(()=>{'use strict';
+const C=window.TaborRootCodex,$=id=>document.getElementById(id);
+let visible=30;
+function hits(){const q=$('catalogSearch').value.trim().toLowerCase(),fam=$('catalogFamily').value;return [...C.RECORDS,...C.CONCEPTS].filter(r=>(!fam||r.family===fam)&&(!q||[r.id,r.title,r.group,r.equation||''].join(' ').toLowerCase().includes(q)))}
+function render(){
+ const found=hits(),box=$('catalogResults');box.replaceChildren();
+ for(const r of found.slice(0,visible)){
+  const li=document.createElement('li');const b=document.createElement('button');b.type='button';
+  b.style.cssText='text-align:left;border:0;background:transparent;color:#a8f7e0;padding:1px 0;text-decoration:underline';
+  b.textContent=r.title+' ['+r.id+']';b.title='Select this root as the source of a connection';
+  b.addEventListener('click',()=>{const sel=$('from');if([...sel.options].some(o=>o.value===r.id)){sel.value=r.id;sel.scrollIntoView({behavior:'smooth',block:'center'});sel.focus()}});
+  li.append(b);
+  const detail=document.createElement('small');detail.style.cssText='display:block;color:#a4bdd2;padding:0 0 9px';
+  detail.textContent=r.group+(r.equation?' · '+r.equation:'')+(r.equationStatus?' · '+r.equationStatus:'');
+  li.append(detail);box.append(li);
+ }
+ $('catalogSummary').textContent=found.length+' matching roots; showing '+Math.min(visible,found.length)+'. Click a root to use it in the receptor linker.';
+ $('catalogMore').disabled=visible>=found.length;
+}
+$('catalogSearch').addEventListener('input',()=>{visible=30;render()});
+$('catalogFamily').addEventListener('change',()=>{visible=30;render()});
+$('catalogMore').addEventListener('click',()=>{visible+=30;render()});
+function mirror(){
+ const v=C.explainMirror($('mirrorInput').value);
+ $('mirrorOutput').textContent='FORWARD:  '+v.original+'\nREVERSE:  '+v.reversed+'\nRETURN:   '+v.restored+'\n\nR² = ID: '+(v.invariant?'YES':'NO')+'\nLETTER SUM: '+v.letterSum+'\nREVERSE SUM: '+v.reverseLetterSum+'\nDIGITAL ROOT: '+v.digitalRoot;
+}
+$('mirrorRun').addEventListener('click',mirror);
+$('mirrorInput').addEventListener('input',mirror);
+render();mirror();
+})();
 </script></body></html>
