@@ -50,7 +50,7 @@ let malicious = """
 """
 let clean = PolarFamilySave.restored(malicious)
 check(clean.ratings[1] == 3 && clean.ratings.count == 1, "Invalid ratings, skipped boards, or forged final progress are rejected")
-check(clean.completedQuestions == 0, "Invalid negative progress is rejected")
+check(clean.completedQuestions == 3, "Unique progress is recomputed from the one valid restored chapter")
 
 let northGreeting = PolarFamilyCatalog.chapter(1)!
 check(northGreeting.puzzles[1].options[northGreeting.puzzles[1].correct] == "OH", "North gate flips HO to OH")
