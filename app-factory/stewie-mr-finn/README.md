@@ -16,6 +16,10 @@ Version 4 adds a **Mammal Playroom** with six themed boards, sticker-placement c
 
 A playable, iPhone-only, offline-first children's SwiftUI adventure inspired by **My Life with Mammals**, by Nathan Tabor, a Human Mammal.
 
+## NEW: Stewart & Mr. Finn — The Mirror Bridge: PAWS ⇄ SWAP
+
+[Play Mirror Bridge](./polar-middle-c/mirror-bridge/index.html) · [Original mechanics and rights notes](./polar-middle-c/mirror-bridge/README.md). The new game opens directly from the iPhone home menu through `PawMirrorBridgeView.swift` or as an offline browser branch of the HO ↔ OH Polar Middle C. It uses **original cat/polar characters and PAWS ⇄ SWAP letter reflection**, with a working torque-balance model and saved local progress. No third-party fiction characters, logos, media or branded AI source material are used. The original 48-board adventure remains unchanged. Commercial name clearance and native signed-build validation are still separate release checks.
+
 ## NEW: HO ↔ OH · The Polar Middle C (North Paw + South Paw)
 
 Playable **offline** branch in the native iPhone menu and as a [browser game](./polar-middle-c/index.html). Santa Dog and Ozzie guide three puzzle stages — Above C (what was heard), Below C (literal mirror), Middle C (source-backed ancient writing and number systems). Stewart and Mr. Finn unite the two halves. Source and tests: [Polar Middle C](./polar-middle-c/README.md). This is an add-on game branch, not an expansion of the original 48 campaign boards. The source-bundled WebKit game requires an Xcode native build to test on iPhone; it is not an App Store release.
