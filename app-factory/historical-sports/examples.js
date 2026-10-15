@@ -1,0 +1,60 @@
+window.HistoricalSportsExamples = [
+  {
+    "id": "historical:boston-1871",
+    "name": "Boston Red Stockings",
+    "region": "North America",
+    "league": "National Association",
+    "record_kind": "historical",
+    "provenance": "VERIFIED HISTORICAL",
+    "founding_year": 1871,
+    "rights_status": "needs-review",
+    "sources": [
+      "https://www.mlb.com/braves/history/story-of-the-braves"
+    ],
+    "rights_documents": [],
+    "notes": "Documented predecessor of active Atlanta Braves franchise. Historical date is NOT public-domain proof."
+  },
+  {
+    "id": "historical:brooklyn-1914",
+    "name": "Brooklyn Tip-Tops",
+    "region": "North America",
+    "league": "Federal League",
+    "record_kind": "historical",
+    "provenance": "VERIFIED HISTORICAL",
+    "founding_year": 1914,
+    "rights_status": "needs-review",
+    "sources": [
+      "https://www.baseball-reference.com/bullpen/Brooklyn_Tip-Tops"
+    ],
+    "rights_documents": [],
+    "notes": "Historical franchise. Tip-Top originated as a commercial bakery brand; requires rights review before commercial branding."
+  },
+  {
+    "id": "claim:panama-culebra",
+    "name": "Culebra Canal Builders",
+    "region": "Central America",
+    "league": "Claimed Isthmian circuit",
+    "record_kind": "historical",
+    "provenance": "HISTORICAL — GAPS",
+    "founding_year": null,
+    "rights_status": "needs-review",
+    "sources": [],
+    "rights_documents": [],
+    "notes": "Example from the supplied matrix. Founding year, precise name, franchise continuity, and sources not yet verified."
+  },
+  {
+    "id": "simulation:riverglass-1940",
+    "name": "Riverglass Fireflies",
+    "region": "Imagined universe",
+    "league": "Simulated Expansion",
+    "record_kind": "simulation",
+    "provenance": "GENERATED FILL-IN",
+    "founding_year": null,
+    "simulation_year": 1940,
+    "legacy_anchor_id": "historical:brooklyn-1914",
+    "rights_status": "needs-review",
+    "sources": [],
+    "rights_documents": [],
+    "notes": "Invented example only. Not an historical team. Branding needs independent clearance."
+  }
+];
