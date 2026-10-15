@@ -15,7 +15,7 @@ check(PolarFamilyCatalog.isValid, "Every chapter has 3 sound/number/mirror/care/
 check(PolarFamilyCatalog.chapters.count == 16, "Sixteen original chapters")
 check(PolarFamilyCatalog.chapters.flatMap(\.puzzles).count == 48, "Forty-eight unique native puzzles")
 check(PolarFamilyCatalog.chapters.filter { $0.region == .north }.count == 8, "Eight North Paw chapters")
-check(PolarFamilyCatalog.chapters.filter { $0.region == .south }.count == 8, "Eight South Paw chapters")
+check(PolarFamilyCatalog.chapters.filter { $0.region == .south }.count == 8, "Eight Mrs Clause Cat’s Workshop chapters")
 check(Set(PolarFamilyCatalog.chapters.flatMap(\.puzzles).map(\.question)).count == 48, "No repeated puzzle text")
 check(Set(PolarFamilyCatalog.chapters.flatMap(\.puzzles).map(\.kind)).count == 5, "Five kinds of learning challenge")
 
