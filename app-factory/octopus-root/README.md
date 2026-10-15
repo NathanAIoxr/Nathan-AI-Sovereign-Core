@@ -59,3 +59,6 @@ This is a public repository prototype, not a deployed cross-platform autonomous 
 Run: `node --test app-factory/octopus-root/engine.test.cjs app-factory/octopus-root/codex.test.cjs`
 
 The Continuum now also includes six standard-library Python deep-root models and low-voltage test-only example firmware. Grafting adds 31 gate nodes: 25 interactive, six deeper numerical experiments. All preserve model validity statements.
+
+
+The main Root page includes an explicit **GRAFT ALL THREE FIELD PACKS** action. It joins all related calculation archives with typed symbolic crosslinks, reports source conflicts and preserves recoverable original nodes. The separate explorers also remain accessible.
