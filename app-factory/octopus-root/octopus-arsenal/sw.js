@@ -1,4 +1,4 @@
-/* Scoped offline shell. No analytics, network crawler, or cross-app caching. */
+/* Scoped offline shell. No tracking, network crawler, or cross-app caching. */
 const CACHE='tabor-octopus-arsenal-v1';
 const ASSETS=['./','./index.html','./app.css','./app.js','./game.js','./icon.svg','./manifest.webmanifest','../engine.js','../sovereign-continuum/engine.js'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(async cache=>{for(const path of ASSETS){try{await cache.add(path)}catch(_){/* Offline installation still works after a successful page visit */}}}).then(()=>self.skipWaiting()))});
