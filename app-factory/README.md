@@ -97,3 +97,6 @@ Two source-preserving 69-slot expansions are integrated as **reference data and 
 ### Middle C — 100 Mathematical Roots
 
 Playable 100-gate historical-math teaching branch: [math-roots/index.html](./stewie-mr-finn/polar-middle-c/math-roots/index.html). Includes six genuinely evaluated numerical root solvers, 2D Newton demonstration, source-faithful grouped range labeling, optional offline iPhone WKWebView snapshot and CI tests. Modern mathematical expressions are teaching adaptations, not verified ancient transcriptions.
+
+## Universal Continuum Tensor — Octopus Root
+[Interactive 7-branch UCT explorer](./octopus-root/uct/index.html) · [Full UCT architecture and formula evidence ledger](./octopus-root/uct/README.md) · [Parent Octopus Root](./octopus-root/index.html). Bidirectional ABOVE C / BELOW C simulation and THE MIDDLE C receptor checks across hyperdrive, plasma, shield, repulsorlift, Unknown Regions, phasing and Deep Machine Core. Explicit local merge of independent namespaced nodes, provenance and formula limitations without overwriting other projects. The earlier UCT Markdown/ZIP originals should remain in the private Creator Vault; GitHub stores this public derived module only. Tests: `node --test app-factory/octopus-root/uct/engine.test.cjs`.
