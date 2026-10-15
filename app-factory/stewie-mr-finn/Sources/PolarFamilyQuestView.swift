@@ -250,7 +250,7 @@ private struct PolarCast: Identifiable {
     static let members: [PolarCast] = [
         .init(id:"Stewart (Stewie)",icon:"🐈",story:"The cat whose white fur divides his black patches, a puzzle-maker with gentle paws."),
         .init(id:"Mr. Finn",icon:"🐈‍⬛",story:"Stewie's puzzle-piece counterpart; together the cats bridge two complementary patterns."),
-        .init(id:"HO HO HO Santa Dog",icon:"🎅🐕",story:"The friendly North Paw leader whose trademark-free story greeting is SUP? with his head nod up."),
+        .init(id:"HO HO HO Santa Dog",icon:"🎅🐕",story:"The friendly North Paw leader whose story greeting is SUP? with his head nod up."),
         .init(id:"Holly Howl",icon:"🐕",story:"North Paw's watchful German Shepherd and expert in respect and boundaries."),
         .init(id:"Peppermint Dot",icon:"🎁",story:"A Dalmatian inventor who makes the workshop's imaginative toys."),
         .init(id:"Blizzard Belle",icon:"🌌",story:"A husky guide who knows the northern lights."),
