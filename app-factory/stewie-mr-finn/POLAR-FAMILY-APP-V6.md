@@ -55,3 +55,14 @@ xcodebuild -project StewieAndMrFinn.xcodeproj -scheme StewieAndMrFinn -configura
 ```
 
 **Release honesty:** Compiled source or an unsigned IPA does not install by itself on an ordinary iPhone. Build validation, an Apple Developer account, signing/provisioning, App Store policies, accessible-device testing and editorial/trademark review remain required before distributing a finished app.
+
+
+## Version 6.0.1 finishing pass
+- Removed the duplicated South Paw chapter list from the map.
+- Each chapter now remembers its selected answer and current clue immediately, including after leaving the chapter or restarting the app. Reopen a completed chapter to see the result or choose **Play this chapter again**.
+- Chapter checkpoints use separate `mammal.polar.attempt.v1.<chapter>` keys. Original campaign saves and existing polar ratings are preserved. Invalid checkpoint data resets only that attempt.
+- Resuming a completed checkpoint repairs an interrupted completion callback; existing best-rating and one-time reunion reward rules prevent duplicate awards.
+- Native regression checks cover interrupted answers, next-clue restoration, duplicate submissions, invalid checkpoint data and final completion.
+
+### Device acceptance pass (still requires a physical iPhone)
+Install the unsigned artifact using the established signing/sideloading route. Test chapter 1, answer a clue, close and reopen the app, and confirm the same answer/explanation remains. Continue the chapter and confirm chapter 2 unlocks. Replay with a lower score and confirm stars do not decrease. Complete chapter 16, reopen it twice, and confirm the reunion reward is awarded only once. Open both bundled web games in airplane mode. Check the map and answer buttons with VoiceOver and large text, then launch an original campaign board to confirm its save is intact.

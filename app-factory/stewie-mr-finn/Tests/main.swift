@@ -59,3 +59,25 @@ check(firstSwap.puzzles[1].options[firstSwap.puzzles[1].correct] == "SWAP", "PAW
 let final = PolarFamilyCatalog.chapter(16)!
 check(final.puzzles[2].explanation.contains("angular acceleration"), "Final balance explains physics, not magical cancellation")
 print("PASS: 16 native polar chapters, 48 unique questions, 5 challenge types, progression, safety, save/restore, replay, balance.")
+
+var attempt = PolarChapterAttempt()
+attempt.next()
+check(attempt.advanced == 0, "Cannot advance without answering")
+for (index, puzzle) in northGreeting.puzzles.enumerated() {
+    attempt.choose(puzzle.correct)
+    attempt.choose((puzzle.correct + 1) % 4)
+    check(attempt.answers.count == index + 1, "Only the first answer counts")
+    attempt = PolarChapterAttempt.restored(attempt.serialized())
+    check(attempt.selected == puzzle.correct, "Selected answer survives interruption")
+    attempt.next()
+    attempt = PolarChapterAttempt.restored(attempt.serialized())
+    check(attempt.advanced == index + 1, "Next clue survives interruption")
+}
+check(attempt.isComplete && attempt.correct(in: northGreeting) == 3, "Restored completion derives score")
+attempt.next()
+attempt.choose(0)
+check(attempt.answers.count == 3 && attempt.advanced == 3, "Completed attempt cannot accumulate answers")
+for raw in ["bad", "{\"answers\":[4],\"advanced\":0}", "{\"answers\":[],\"advanced\":3}", "{\"answers\":[0,1,2],\"advanced\":0}"] {
+    check(PolarChapterAttempt.restored(raw) == PolarChapterAttempt(), "Malformed checkpoints reset safely")
+}
+print("PASS: chapter interruption, first-answer scoring, restoration and completed checkpoint guards.")

@@ -154,3 +154,37 @@ struct PolarFamilySave: Codable, Equatable {
         return String(data:data,encoding:.utf8) ?? ""
     }
 }
+
+
+// Separate chapter checkpoint: scores are derived from validated answers, never trusted.
+struct PolarChapterAttempt: Codable, Equatable {
+    var answers: [Int] = []
+    var advanced: Int = 0
+    var isComplete: Bool { advanced == 3 }
+    var questionIndex: Int { min(advanced, 2) }
+    var selected: Int? { answers.indices.contains(questionIndex) ? answers[questionIndex] : nil }
+    func correct(in chapter: PolarChapter) -> Int {
+        zip(answers, chapter.puzzles).filter { $0.0 == $0.1.correct }.count
+    }
+    mutating func choose(_ option: Int) {
+        guard !isComplete, answers.count == advanced, (0..<4).contains(option) else { return }
+        answers.append(option)
+    }
+    mutating func next() {
+        guard !isComplete, answers.count == advanced + 1 else { return }
+        advanced += 1
+    }
+    func serialized() -> String {
+        guard let data = try? JSONEncoder().encode(self) else { return "" }
+        return String(data: data, encoding: .utf8) ?? ""
+    }
+    static func restored(_ raw: String) -> Self {
+        guard let data = raw.data(using: .utf8),
+              let saved = try? JSONDecoder().decode(Self.self, from: data),
+              (0...3).contains(saved.advanced), saved.answers.count <= 3,
+              saved.answers.allSatisfy({ (0..<4).contains($0) }),
+              saved.answers.count >= saved.advanced,
+              saved.answers.count <= saved.advanced + 1 else { return .init() }
+        return saved
+    }
+}

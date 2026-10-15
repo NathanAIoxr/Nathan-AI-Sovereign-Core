@@ -73,8 +73,6 @@ struct PolarFamilyQuestView: View {
                         }
                     }
 
-                    group(for: .south)
-
                     GameCard {
                         Button {
                             withAnimation(.easeInOut(duration: 0.2)) { showFamily.toggle() }
@@ -282,10 +280,19 @@ struct PolarChapterPlayView: View {
     let chapter: PolarChapter
     let onComplete: (Int, Int) -> Void
     @Environment(\.dismiss) private var dismiss
-    @State private var questionIndex = 0
-    @State private var selected: Int? = nil
-    @State private var numberCorrect = 0
-    @State private var isComplete = false
+    @AppStorage private var savedAttempt: String
+    @State private var attempt = PolarChapterAttempt()
+    @State private var didRestore = false
+
+    init(chapter: PolarChapter, onComplete: @escaping (Int, Int) -> Void) {
+        self.chapter = chapter
+        self.onComplete = onComplete
+        _savedAttempt = AppStorage(wrappedValue: "", "mammal.polar.attempt.v1.\(chapter.id)")
+    }
+    private var questionIndex: Int { attempt.questionIndex }
+    private var selected: Int? { attempt.selected }
+    private var numberCorrect: Int { attempt.correct(in: chapter) }
+    private var isComplete: Bool { attempt.isComplete }
 
     private var question: PolarQuiz { chapter.puzzles[min(questionIndex, chapter.puzzles.count-1)] }
 
@@ -334,8 +341,8 @@ struct PolarChapterPlayView: View {
                             ForEach(question.options.indices,id:\.self) { option in
                                 Button {
                                     guard selected == nil else { return }
-                                    selected = option
-                                    if option == question.correct { numberCorrect += 1 }
+                                    attempt.choose(option)
+                                    savedAttempt = attempt.serialized()
                                     MammalHaptics.tap()
                                 } label: {
                                     HStack(spacing:12) {
@@ -390,6 +397,13 @@ struct PolarChapterPlayView: View {
         }
         .navigationTitle(chapter.title)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            guard !didRestore else { return }
+            didRestore = true
+            attempt = PolarChapterAttempt.restored(savedAttempt)
+            // Recover an interrupted completion; the family award is idempotent.
+            if isComplete { onComplete(chapter.id, numberCorrect) }
+        }
     }
 
     private func icon(for option: Int) -> String {
@@ -404,18 +418,12 @@ struct PolarChapterPlayView: View {
     }
     private func continuePlaying() {
         guard selected != nil, !isComplete else { return }
-        if questionIndex < 2 {
-            questionIndex += 1
-            selected = nil
-        } else {
-            isComplete = true
-            onComplete(chapter.id,numberCorrect)
-        }
+        attempt.next()
+        savedAttempt = attempt.serialized()
+        if isComplete { onComplete(chapter.id, numberCorrect) }
     }
     private func restart() {
-        questionIndex = 0
-        selected = nil
-        numberCorrect = 0
-        isComplete = false
+        attempt = PolarChapterAttempt()
+        savedAttempt = attempt.serialized()
     }
 }
