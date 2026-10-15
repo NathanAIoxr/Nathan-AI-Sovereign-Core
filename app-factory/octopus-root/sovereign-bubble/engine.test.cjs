@@ -80,3 +80,12 @@ test('Root conflicting reserved ID is never overwritten',()=>{
  const r=B.install(Root,a.state);assert.ok(r.conflicts.includes('bubble:root'));
  assert.equal(r.state.nodes.find(n=>n.id==='bubble:root').label,'Owner preserved');
 });
+
+test('every existing Root receptor is projected into its own closed box',()=>{
+ const root=Root.create(),overlay=B.isolateRoot(root);
+ assert.equal(overlay.boxes.length,root.nodes.length);
+ assert.equal(overlay.strings.length,root.edges.length);
+ assert.ok(overlay.boxes.every(box=>box.protected&&box.grants===0));
+ assert.ok(overlay.strings.every(link=>link.access===false&&link.classification==='knowledge-only'));
+ assert.notEqual(overlay.boxes[0].id,overlay.boxes[1].id);
+});
