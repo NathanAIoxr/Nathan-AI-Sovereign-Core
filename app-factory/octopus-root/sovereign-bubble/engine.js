@@ -86,6 +86,13 @@ function helpGuide({sceneSafe=true,immediateDanger=false,injured=false,inDistres
  steps.push('Stay with them when safe and hand over to appropriate help.');
  return {status:'help-with-care',emergencyCall:emergency,physicalContact:!responsive||hasConsent,steps};
 }
+function isolateRoot(root){
+ if(!root||!Array.isArray(root.nodes)||!Array.isArray(root.edges))throw Error('Root graph required');
+ const boxes=root.nodes.map(n=>({id:n.id,label:n.label,protected:true,grants:0}));
+ const strings=root.edges.map(e=>({from:e.from,to:e.to,type:e.type,access:false,classification:'knowledge-only'}));
+ return {schema:'tabor.sovereign-isolation.v1',boxes,strings,
+   warning:'Every Root node remains a separate conceptual bubble. Knowledge strings DO NOT grant physical or digital access.'};
+}
 function reverseEngineer(root){
  if(!root||!Array.isArray(root.nodes)||!Array.isArray(root.edges))throw Error('Root graph required');
  const families=['core:middle','field:sovereign','uct:continuum','continuum:root','bubble:root'];
@@ -118,5 +125,5 @@ function install(rootEngine,state){
  }
  return {state:next,added,linked,conflicts};
 }
-return Object.freeze({SCHEMA,SCOPES,ROOT_NODES,create,register,invite,decide,revoke,mayEnter,arithmetic,threads,helpGuide,reverseEngineer,install});
+return Object.freeze({SCHEMA,SCOPES,ROOT_NODES,create,register,invite,decide,revoke,mayEnter,arithmetic,threads,helpGuide,isolateRoot,reverseEngineer,install});
 });
