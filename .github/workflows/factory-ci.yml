@@ -83,11 +83,14 @@ jobs:
       - name: Verify sports cutoff, generated filler provenance and rights-review gating
         run: node --test app-factory/historical-sports/engine.test.cjs
 
-      - name: Verify Octopus Root receptors, growth and Cookie Monster review
+      - name: Verify Octopus Root receptors, growth and Crumbkeeper review
         run: node --test app-factory/octopus-root/engine.test.cjs
 
       - name: Verify Universal Continuum Tensor integration, formulas and simulated anomaly inversion
         run: node --test app-factory/octopus-root/uct/engine.test.cjs
+
+      - name: Verify Sovereign Root Codex indexes, mirror operations and non-destructive migration
+        run: node --test app-factory/octopus-root/codex.test.cjs
 
       - name: Verify 100 Math Roots gates and numerical solvers
         run: node --test app-factory/stewie-mr-finn/polar-middle-c/math-roots/engine.test.cjs
