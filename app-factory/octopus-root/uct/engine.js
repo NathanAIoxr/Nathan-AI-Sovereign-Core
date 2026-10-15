@@ -133,7 +133,7 @@ function sweep(count=80){
 }
 function hardwareAudit(){
  const hbar=1.0545718e-34,maxADC=1023,maxFoam=maxADC*.00488*1.42/hbar;
- return {controller2560:true,sensors:["generic inertial channel: acceleration / angular rate","generic magnetic channel: local magnetic field","LDR: ambient light","ACS712: electrical current"],trigger:5e35,maxOriginalToyFoam:maxFoam,triggerReachable:maxFoam>5e35,interpretation:"Sensors cannot detect dark energy, spacetime tensors, phasing, a Far-Jump Engine, or a plasma shield. Use a current-limited LED, not an unprotected laser module."};
+ return {controller2560:true,sensors:["generic inertial channel: acceleration / angular rate","generic magnetic channel: local magnetic field","LDR: ambient light","generic Hall-current monitor: electrical current"],trigger:5e35,maxOriginalToyFoam:maxFoam,triggerReachable:maxFoam>5e35,interpretation:"Sensors cannot detect dark energy, spacetime tensors, phasing, a Far-Jump Engine, or a plasma shield. Use a current-limited LED, not an unprotected laser module."};
 }
 function reviewClaim(c){
  if(!c||!STATUSES.includes(c.status))return {accepted:false,route:"cookie-monster-review",reason:"Claim requires a domain/status label."};
