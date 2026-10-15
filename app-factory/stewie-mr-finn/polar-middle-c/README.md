@@ -29,6 +29,10 @@ Run: node --test app-factory/stewie-mr-finn/polar-middle-c/engine.test.cjs
 
 **Rights and safety:** Child-inclusive, no social profiling, tracking, ads, commerce, or forced interaction. Historical statements require independent evidence.
 
+## Original Mirror Bridge — PAWS ⇄ SWAP
+
+[Play the Mirror Bridge](./mirror-bridge/index.html) · [Technical details / IP notes](./mirror-bridge/README.md). Stewie and Mr. Finn have a native-bundled, family-friendly original three-stage gate for meaning, exact reversal, and physically calculated opposing torques, with no references to third-party film/game characters. One key distinction: zero net torque implies zero angular acceleration, not necessarily zero angular velocity. This is a separate optional branch preserving the 48-board campaign and original Polar Middle C content.
+
 ## 100 Mathematical Roots extension
 
 Play [100 Mathematical Roots](./math-roots/index.html): 11 eras, all 100 numbered learning gates, verified numerical evaluation methods, and a 2D Newton step. Original source expressions omitted in the paste are marked as modern reconstructions; aggregated source groups use explicitly adapted practice exercises. The same scripts and offline page are bundled in the iPhone PolarMiddleC folder. Run math-roots/engine.test.cjs for coverage.
