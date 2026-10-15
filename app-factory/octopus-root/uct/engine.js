@@ -136,9 +136,9 @@ function hardwareAudit(){
  return {controller2560:true,sensors:["generic inertial channel: acceleration / angular rate","generic magnetic channel: local magnetic field","LDR: ambient light","generic Hall-current monitor: electrical current"],trigger:5e35,maxOriginalToyFoam:maxFoam,triggerReachable:maxFoam>5e35,interpretation:"Sensors cannot detect dark energy, spacetime tensors, phasing, a Far-Jump Engine, or a plasma shield. Use a current-limited LED, not an unprotected laser module."};
 }
 function reviewClaim(c){
- if(!c||!STATUSES.includes(c.status))return {accepted:false,route:"cookie-monster-review",reason:"Claim requires a domain/status label."};
- if(c.status==="established-math" && !c.assumptions)return {accepted:false,route:"cookie-monster-review",reason:"Equation assumptions are required."};
- if(!c.source)return {accepted:false,route:"cookie-monster-review",reason:"Provenance is required."};
+ if(!c||!STATUSES.includes(c.status))return {accepted:false,route:"crumb-reaper-review",reason:"Claim requires a domain/status label."};
+ if(c.status==="established-math" && !c.assumptions)return {accepted:false,route:"crumb-reaper-review",reason:"Equation assumptions are required."};
+ if(!c.source)return {accepted:false,route:"crumb-reaper-review",reason:"Provenance is required."};
  return {accepted:true,route:"receptor-eligible",reason:"Structurally complete; this does not independently verify the claim."};
 }
 return Object.freeze({SCHEMA,SOURCE,STATUSES,build,catalogue,ledger,install,anomaly,forward,backward,risk,sweep,hardwareAudit,reviewClaim});
