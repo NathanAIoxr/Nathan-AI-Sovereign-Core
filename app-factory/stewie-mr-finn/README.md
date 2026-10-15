@@ -1,5 +1,11 @@
 # The Adventures of Stewart & Mr. Finn 🐾
 
+## Version 5 — Challenge Lab
+
+Added native SwiftUI **Mammal Challenge Lab** with three separately replayable five-round games: Stewie's contrasting patch puzzle, Champ's visual snack tracking, and Ace's safe body-language choices. Fresh patterns on replay, encouraging feedback, local one-time star rewards, no network or monetization changes. Keeps the existing 48 board campaign and all other game activities intact. Development build requires iPhone testing before release claims. No Shawna in this version.
+
+
+
 ## Version 4 — consumer-first Factory upgrade
 
 Factory provenance: `app-factory/RELEASE_GATES.md`, `app-factory/build-order/README.md`, and `app-factory/game-reference-lab/README.md`. Product goals: joyful short sessions, offline play, no ads/purchases/tracking, original and age-appropriate material, consent-based animal interactions, a way to pause, no social pressure, and clear caregiver information. Market guidance: Apple Kids category guidelines; offline/creative games are reference patterns, not copied assets.
