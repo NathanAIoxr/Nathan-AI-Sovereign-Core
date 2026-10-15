@@ -70,7 +70,7 @@
      title=PHASES[1];symbol=w.word+' ⇄ ?';
      question='Which answer exactly reverses every letter of '+w.word+'?';
      answer=reversed;
-     wrong=[w.word,w.word.slice(1)+w.word[0],reverse(w.word.slice(1))+'X'];
+     wrong=[w.word,w.word.slice(1)+w.word[0],reverse(w.word.slice(1))+'X',reversed+'X','X'+reversed];
      explanation='Exact reversal: '+w.word+' ↔ '+reversed+'. Its letters and counts remain invariant; their order changes. Reversing twice returns the original.';
      evidence='Deterministic character reversal';
    }else{
