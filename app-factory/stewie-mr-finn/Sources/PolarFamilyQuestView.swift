@@ -57,6 +57,25 @@ struct PolarFamilyQuestView: View {
                     group(for: .south)
 
                     GameCard {
+                        Text("KEEP EXPLORING THE MIDDLE C").font(.headline)
+                        Text("Take the lessons from the story into original word, sound, mirror, and balanced-motor games.")
+                            .font(.footnote).foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                        NavigationLink(destination: PolarMiddleCView()) {
+                            Label("Play the Polar Word Detective", systemImage:"textformat.abc")
+                                .frame(maxWidth:.infinity).padding(14)
+                                .background(Color.mint.opacity(0.18), in:RoundedRectangle(cornerRadius:15))
+                        }
+                        NavigationLink(destination: PawMirrorBridgeView()) {
+                            Label("Play the PAWS ⇄ SWAP Mirror Bridge", systemImage:"arrow.left.arrow.right")
+                                .frame(maxWidth:.infinity).padding(14)
+                                .background(Color.indigo.opacity(0.11), in:RoundedRectangle(cornerRadius:15))
+                        }
+                    }
+
+                    group(for: .south)
+
+                    GameCard {
                         Button {
                             withAnimation(.easeInOut(duration: 0.2)) { showFamily.toggle() }
                         } label: {
