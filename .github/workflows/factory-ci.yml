@@ -98,6 +98,9 @@ jobs:
       - name: Verify six additional Python deep-root numerical experiments
         run: python3 -m unittest discover -s app-factory/octopus-root/sovereign-continuum -p test_advanced.py -v
 
+      - name: Verify all three Root field packs graft idempotently
+        run: node --test app-factory/octopus-root/sovereign-fields/merge-packs.test.cjs
+
       - name: Verify 100 Math Roots gates and numerical solvers
         run: node --test app-factory/stewie-mr-finn/polar-middle-c/math-roots/engine.test.cjs
 
