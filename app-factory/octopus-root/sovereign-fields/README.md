@@ -126,3 +126,7 @@ Sketch: [ROOT_FIELD_KNOB.ino](./hardware/ROOT_FIELD_KNOB.ino). Purely mathematic
 This branch deliberately **does not use third-party entertainment names, characters or products**, nor copy executable proprietary code. It does not remove rights from the original source material, undo earlier git history, or grant ownership of reused dependencies. It is a clean new public-facing vocabulary and new source implementation. Before commercial use, perform trademark searches for chosen names, independent rights review, hardware/electrical testing, human-factors review, and software security review. Never mistake brand renaming for a guarantee of non-infringement.
 
 **Implementation status:** functioning mathematical browser/Node prototype plus firmware source, not physical field manipulation or production-deployed universal AI.
+
+## Whole-root merge control
+
+The Octopus Root dashboard offers **GRAFT ALL THREE FIELD PACKS**, an explicit action that combines this 27-node field root, the separately preserved Universal Continuum archive, and the Sovereign Continuum mathematics. It creates ten typed symbolic cross-comparison edges with claims stated as comparison, not proof. The merge is local, idempotent, preserves previous IDs, and reports label conflicts without overwriting source records. Code: [merge-packs.js](./merge-packs.js). Tests: `node --test app-factory/octopus-root/sovereign-fields/merge-packs.test.cjs`. Use the Root JSON export afterward to preserve the joined snapshot.
