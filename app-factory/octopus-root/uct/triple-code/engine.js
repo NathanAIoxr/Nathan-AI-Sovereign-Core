@@ -23,7 +23,7 @@ const SIGNS=Object.freeze([
  {value:1000,glyph:"𓆼",gardiner:"M12",name:"Water lily / thousand"},
  {value:100,glyph:"𓍢",gardiner:"V1",name:"Coiled rope / hundred"},
  {value:10,glyph:"𓎆",gardiner:"V20",name:"Cattle hobble / ten"},
- {value:1,glyph:"𓏺",gardiner:"Z1",name:"Stroke / one"}
+ {value:1,glyph:"𓏺",gardiner:"Z015",name:"Stroke / one"}
 ]);
 const SIGN_INDEX=new Map(SIGNS.map((x,i)=>[x.glyph,i]));
 const SHORT={numerology:"number",geometry:"shape",hieroglyphics:"glyph"};
