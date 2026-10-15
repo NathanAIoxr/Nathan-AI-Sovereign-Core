@@ -1,5 +1,14 @@
 # The Adventures of Stewart & Mr. Finn 🐾
 
+## Version 6 — Full Polar Family native adventure
+
+The iPhone app now includes a **native, offline, sixteen-chapter Polar Family campaign** with **48 individually written challenges** (three per chapter), two original regions (North Paw and South Paw), the HO/OH cast, chapter locks/unlocks, star ratings and progress persistence, story screens, an animal-family encyclopedia, and direct links to the two previously implemented word/mirror games. Start from **THE POLAR FAMILY · 16 CHAPTERS** on the app home screen. The native SwiftUI implementation is in `Sources/PolarFamilyQuestView.swift` and its independently testable Foundation-only rules, story catalogue and save codec are in `Sources/PolarFamilyQuestCore.swift`. The original 48-board campaign, saved stars and all prior activities remain separate and unchanged; the reunion grants a one-time 30-star main-game achievement. This version contains 16 **new** playable polar chapters, not 16 additional boards in the original campaign.
+
+**Testing:** `swiftc -swift-version 5 -o /tmp/polar-quest-check Sources/PolarFamilyQuestCore.swift Tests/main.swift && /tmp/polar-quest-check` validates the entire native catalogue, unlocking, achievements and saved data. The unsigned iPhone GitHub Actions workflow runs these native tests and the three existing offline web-game suites *before* it builds the Xcode project, generates original art and packages the unsigned IPA. An unsigned IPA still needs proper Apple signing for installation on an ordinary device. See [Version 6 product scope and game guide](./POLAR-FAMILY-APP-V6.md).
+
+**Rights:** The new chapter text, SwiftUI art and puzzles are original to this project, using no licensed film/game characters, external images, or third-party film AI identities. A separate commercial name/mark clearance and Apple signing review are still required; building the source does not establish legal clearance.
+
+
 ## Version 5 — Challenge Lab
 
 Added native SwiftUI **Mammal Challenge Lab** with three separately replayable five-round games: Stewie's contrasting patch puzzle, Champ's visual snack tracking, and Ace's safe body-language choices. Fresh patterns on replay, encouraging feedback, local one-time star rewards, no network or monetization changes. Keeps the existing 48 board campaign and all other game activities intact. Development build requires iPhone testing before release claims. No Shawna in this version.
