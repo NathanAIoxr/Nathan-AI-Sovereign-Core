@@ -37,3 +37,5 @@ Run: node --test app-factory/octopus-root/engine.test.cjs
 Dashboard: ./index.html
 
 This is a public repository prototype, not a deployed cross-platform autonomous AI backend.
+## UCT expansion — October 15, 2026
+[Open seven branches and attach to this Root](./uct/index.html) · [Complete equations, status tags and source-preservation contract](./uct/README.md). This root-pack preserves pre-existing namespaced nodes, on-demand receptor checks, failure recovery in Cookie Monster, and the 2026-10-15 original source separately. Node/edge links are marked symbolic associations; software tests are not a proof of sci-fi technologies. Run `node --test app-factory/octopus-root/uct/engine.test.cjs`.
