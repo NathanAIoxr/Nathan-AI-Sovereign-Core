@@ -42,7 +42,7 @@ test('uncertainty and fiction boundaries remain labeled',()=>{
  assert.ok(p.ledger.every(x=>x.source&&x.limitation));
  const a=U.reviewClaim({status:'fictional',source:'Owner supplied'});
  assert.equal(a.accepted,true);assert.match(a.reason,/does not independently verify/i);
- assert.equal(U.reviewClaim({status:'established-math',source:'x'}).route,'cookie-monster-review');
+ assert.equal(U.reviewClaim({status:'established-math',source:'x'}).route,'crumb-reaper-review');
 });
 test('2560-class controller original foam threshold is mathematically unreachable',()=>{
  const a=U.hardwareAudit();
