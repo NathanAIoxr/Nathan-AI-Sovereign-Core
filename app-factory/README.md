@@ -100,3 +100,8 @@ Playable 100-gate historical-math teaching branch: [math-roots/index.html](./ste
 
 ## Universal Continuum Tensor — Octopus Root
 [Interactive 7-branch UCT explorer](./octopus-root/uct/index.html) · [Full UCT architecture and formula evidence ledger](./octopus-root/uct/README.md) · [Parent Octopus Root](./octopus-root/index.html). Bidirectional ABOVE C / BELOW C simulation and THE MIDDLE C receptor checks across hyperdrive, plasma, shield, repulsorlift, Unknown Regions, phasing and Deep Machine Core. Explicit local merge of independent namespaced nodes, provenance and formula limitations without overwriting other projects. The earlier UCT Markdown/ZIP originals should remain in the private Creator Vault; GitHub stores this public derived module only. Tests: `node --test app-factory/octopus-root/uct/engine.test.cjs`.
+
+
+## Sovereign Field Lab — original Root extension
+
+[Interactive simulator](./octopus-root/sovereign-fields/index.html) · [Equations, aliases and safety](./octopus-root/sovereign-fields/README.md). 27 original namespaced field nodes, 16 runnable mathematical gates, low-voltage knob-only firmware and regression checks. Connected to the existing Root without replacing the separate Universal Continuum branch. Neither high-energy hardware nor neural stimulation is implemented.

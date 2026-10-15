@@ -86,8 +86,8 @@ jobs:
       - name: Verify Octopus Root receptors, growth and Cookie Monster review
         run: node --test app-factory/octopus-root/engine.test.cjs
 
-      - name: Verify Universal Continuum Tensor integration, formulas and simulated anomaly inversion
-        run: node --test app-factory/octopus-root/uct/engine.test.cjs
+      - name: Verify original Sovereign Field Lab math, graph graft, and safety boundaries
+        run: node --test app-factory/octopus-root/sovereign-fields/engine.test.cjs
 
       - name: Verify 100 Math Roots gates and numerical solvers
         run: node --test app-factory/stewie-mr-finn/polar-middle-c/math-roots/engine.test.cjs

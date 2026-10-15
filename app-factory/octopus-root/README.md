@@ -2,7 +2,7 @@
 
 **NATHAN AI × THE MIDDLE C × TABOR 1-2-3 FACTORY**
 
-The shared root of the game is a local-first graph. Tentacles are directed links between independent nodes; sucker cups are type-specific checks; the Cookie Monster Octopus is a recoverable review bin for duplicate, incorrect and unsupported links.
+The shared root of the game is a local-first graph. Tentacles are directed links between independent nodes; sucker cups are type-specific checks; the No-Loss Gut is a recoverable review bin for duplicate, incorrect and unsupported links.
 
 ## Five jobs
 
@@ -38,4 +38,9 @@ Dashboard: ./index.html
 
 This is a public repository prototype, not a deployed cross-platform autonomous AI backend.
 ## UCT expansion — October 15, 2026
-[Open seven branches and attach to this Root](./uct/index.html) · [Complete equations, status tags and source-preservation contract](./uct/README.md). This root-pack preserves pre-existing namespaced nodes, on-demand receptor checks, failure recovery in Cookie Monster, and the 2026-10-15 original source separately. Node/edge links are marked symbolic associations; software tests are not a proof of sci-fi technologies. Run `node --test app-factory/octopus-root/uct/engine.test.cjs`.
+[Open seven branches and attach to this Root](./uct/index.html) · [Complete equations, status tags and source-preservation contract](./uct/README.md). This root-pack preserves pre-existing namespaced nodes, on-demand receptor checks, failure recovery in No-Loss Gut, and the 2026-10-15 original source separately. Node/edge links are marked symbolic associations; software tests are not a proof of sci-fi technologies. Run `node --test app-factory/octopus-root/uct/engine.test.cjs`.
+
+
+## Sovereign Field Lab
+
+[Open the original 27-node field branch](./sovereign-fields/index.html) · [Technical and naming ledger](./sovereign-fields/README.md). Main Root grafts this material idempotently; preserves concurrent Universal Continuum source and never overwrites label conflicts.
