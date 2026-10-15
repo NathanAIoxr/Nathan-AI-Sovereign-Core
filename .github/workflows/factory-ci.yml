@@ -111,7 +111,7 @@ jobs:
         run: node --test app-factory/octopus-root/sovereign-fields/merge-packs.test.cjs
 
       - name: Verify full UCT number, geometry and Egyptian numeral atlas
-        run: node --test app-factory/octopus-root/uct/triple-code/engine.test.cjs
+        run: node --test app-factory/octopus-root/uct/triple-code/*.test.cjs
 
       - name: Verify sovereign bubble isolation, consensual strings and Good Samaritan responses
         run: node --test app-factory/octopus-root/sovereign-bubble/engine.test.cjs
