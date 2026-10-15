@@ -20,7 +20,8 @@
 <script src="./codex.js"></script><script src="./engine.js"></script><script>
 (()=>{'use strict';
 const A=window.OctopusRoot,K='tabor-octopus-root-v1',$=s=>document.getElementById(s);
-let s;try{s=A.load(localStorage.getItem(K)||A.save(A.create()))}catch(e){s=A.create()}\ntry{s=window.TaborRootCodex.enrich(A,s).state}catch(e){console.warn('Root codex needs attention:',e)}
+let s;try{s=A.load(localStorage.getItem(K)||A.save(A.create()))}catch(e){s=A.create()}
+try{s=window.TaborRootCodex.enrich(A,s).state}catch(e){console.warn('Root codex needs attention:',e)}
 const ns='http://www.w3.org/2000/svg';
 function el(t,attrs){const x=document.createElementNS(ns,t);for(const k in attrs)x.setAttribute(k,attrs[k]);return x}
 function label(m){$('message').textContent=m}
