@@ -2,7 +2,7 @@
 
 **NATHAN AI × THE MIDDLE C × TABOR 1-2-3 FACTORY**
 
-The shared root of the game is a local-first graph. Tentacles are directed links between independent nodes; sucker cups are type-specific checks; the Crumbkeeper Octopus is a recoverable review bin for duplicate, incorrect and unsupported links.
+The shared root of the game is a local-first graph. Tentacles are directed links between independent nodes; sucker cups are type-specific checks; the CRUMB REAPER Octopus is a recoverable review bin for duplicate, incorrect and unsupported links.
 
 ## Five jobs
 
@@ -10,7 +10,7 @@ The shared root of the game is a local-first graph. Tentacles are directed links
 2. BRANCH: grow transformations lazily, in finite batches. The idea can continue to expand indefinitely across sessions, but no browser performs literally infinite calculations.
 3. SUCKER: test an exact glyph match, true character reversal, true word-order swap, declared cipher, symbolic association or sourced/documented claim.
 4. STICK: attach only if the selected rule is satisfied. A supplied URL is not independently verified proof.
-5. CRUMBKEEPER: preserve failed proposals and reasons for repair; do not automatically delete source material, censor game text or label people as garbage.
+5. CRUMB REAPER: preserve failed proposals and reasons for repair; do not automatically delete source material, censor game text or label people as garbage.
 
 ## Starter gates and claim boundaries
 
@@ -39,6 +39,11 @@ Dashboard: ./index.html
 This is a public repository prototype, not a deployed cross-platform autonomous AI backend.
 ## UCT expansion — October 15, 2026
 [Open seven branches and attach to this Root](./uct/index.html) · [Complete equations, status tags and source-preservation contract](./uct/README.md). This root-pack preserves pre-existing namespaced nodes, on-demand receptor checks, failure recovery in Crumbkeeper, and the 2026-10-15 original source separately. Node/edge links are marked symbolic associations; software tests are not a proof of sci-fi technologies. Run `node --test app-factory/octopus-root/uct/engine.test.cjs`.
+
+
+## Sovereign Continuum — October 15 expansion
+
+[Open the original-language 25-gate Continuum laboratory](./sovereign-continuum/index.html) · [Its engine and rights guide](./sovereign-continuum/README.md). Five families bridge Above C numerical prediction, Below C numerical inversion and Middle C checks. The owner can explicitly graft the new nodes without replacing older ROOT branches. Legacy review-tray machine IDs stay stable; the user-visible name is now CRUMB REAPER. Tests: node --test app-factory/octopus-root/sovereign-continuum/engine.test.cjs.
 
 ## October 15 — The Sovereign Root Codex
 

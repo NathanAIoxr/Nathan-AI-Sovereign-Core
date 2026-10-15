@@ -100,3 +100,8 @@ Playable 100-gate historical-math teaching branch: [math-roots/index.html](./ste
 
 ## Universal Continuum Tensor — Octopus Root
 [Interactive 7-branch UCT explorer](./octopus-root/uct/index.html) · [Full UCT architecture and formula evidence ledger](./octopus-root/uct/README.md) · [Parent Octopus Root](./octopus-root/index.html). Bidirectional ABOVE C / BELOW C simulation and THE MIDDLE C receptor checks across hyperdrive, plasma, shield, repulsorlift, Unknown Regions, phasing and Deep Machine Core. Explicit local merge of independent namespaced nodes, provenance and formula limitations without overwriting other projects. The earlier UCT Markdown/ZIP originals should remain in the private Creator Vault; GitHub stores this public derived module only. Tests: `node --test app-factory/octopus-root/uct/engine.test.cjs`.
+
+
+## The Sovereign Continuum — October 15 ROOT integration
+
+[Open the 25-gate original-name lab](./octopus-root/sovereign-continuum/index.html) · [Design, rights and scientific validity](./octopus-root/sovereign-continuum/README.md). Five original families model forward calculation and bounded inverse reconstruction under Middle C, with an opt-in graft into the existing local Octopus ROOT. CRUMB REAPER replaces the former third-party review-tray display name while preserving the underlying historical ID. No trademarked entertainment assets, high-powered devices or outside runtime libraries are included. Run node --test app-factory/octopus-root/sovereign-continuum/engine.test.cjs.

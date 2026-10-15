@@ -11,7 +11,7 @@ const SEEDS=[
  ['word:dirty','DIRTY CLEAN','word',''],['word:clean','CLEAN DIRTY','word',''],
  ['symbol:square','FUCK + YOU = 🖕🖕 — SQUARED AND ROUND','symbol',''],
  ['formula:abba','a + b = b + a','formula','ABBA'],['word:abba','ABBA','word',''],
- ['filter:cookie','CRUMBKEEPER OCTOPUS','filter','']
+ ['filter:cookie','CRUMB REAPER OCTOPUS','filter','']
 ].map(([id,label,kind,glyphs])=>({id,label,kind,glyphs,origin:'Middle C starter archive'}));
 const LINK=[
  ['core:middle','formula:arithmetic','symbolic','Index root'],
