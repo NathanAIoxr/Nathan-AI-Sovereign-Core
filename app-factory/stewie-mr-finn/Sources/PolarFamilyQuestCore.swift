@@ -132,9 +132,10 @@ struct PolarFamilySave: Codable, Equatable {
     var reunionComplete: Bool { ratings[16] != nil }
     mutating func complete(chapter id: Int, correct: Int) {
         guard (1...16).contains(id), isUnlocked(id), (0...3).contains(correct) else { return }
+        let firstCompletion = ratings[id] == nil
         let award = max(1,correct)
         ratings[id] = max(ratings[id] ?? 0,award)
-        completedQuestions += 3
+        if firstCompletion { completedQuestions += 3 }
     }
     static func restored(_ raw: String) -> PolarFamilySave {
         guard let data = raw.data(using:.utf8),
@@ -145,7 +146,7 @@ struct PolarFamilySave: Codable, Equatable {
             if let rating = saved.ratings[id], (1...3).contains(rating),
                 clean.isUnlocked(id) { clean.ratings[id] = rating }
         }
-        clean.completedQuestions = min(100000, max(0,saved.completedQuestions))
+        clean.completedQuestions = clean.ratings.count * 3
         return clean
     }
     func serialized() -> String {
