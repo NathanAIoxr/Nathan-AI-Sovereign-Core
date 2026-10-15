@@ -120,3 +120,8 @@ Additional original-label companion sources: [Six Python deep-root models](./oct
 ## NATHAN TABOR OCTOPUS — Game and companion application
 
 [Play the original arena game / PWA](./octopus-root/octopus-arsenal/index.html) · [Game architecture, controls and release constraints](./octopus-root/octopus-arsenal/README.md). Five zones, 15 waves, 8 upgradeable original powers, local save/export, a 25-gate forward/backward formula lab, six additional mathematical archive records, and opt-in integration with the Octopus ROOT without overwriting its existing branches. The app is web-installable where the browser supports PWAs; a signed native mobile app and physical-device testing are separate release steps.
+
+
+## Sovereign Nexus: connect every published Root while keeping independent state
+
+[Open the Sovereign Nexus](./octopus-root/sovereign-nexus/index.html) · [Sovereignty/no-loss design and tests](./octopus-root/sovereign-nexus/README.md). The opt-in, locally previewed bridge can attach six independent Root packs without collapsing namespaces or importing other apps’ private data. It exposes verified static navigation to the wider Factory. Saves, owner grants, external accounts and publishing remain distinct. Local pre-graft backup, no-change undo guard, check-only hashes and explicit approval are implemented; this is not multi-user authentication.

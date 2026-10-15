@@ -56,3 +56,8 @@ The Factory CI executes both checks plus the existing global link and syntax sca
 All visible game names, gameplay progression, characters and procedural visuals are independently authored. Real physics mathematics is referenced and discussed accurately; it does not imply functioning fictional hardware. Reused open-source dependencies (if any are introduced in the future) must retain their original copyright and license notices. Renaming an outside product is not a substitute for respecting its rights.
 
 **FORM MORPHS. ARCHITECTURE REMAINS. · 1 + 1 = 2 · 1 − 1 = 0**
+
+
+## Sovereign Nexus attachment surface
+
+The Root Link screen now launches the [Sovereign Nexus](../sovereign-nexus/index.html) for consent-gated field, UCT, continuum, bubble, codex and gameplay attachments, audited preview, local backup and safe undo. Separate game saves remain independent of the Root graph. Link navigation is not an implied import or permission grant.

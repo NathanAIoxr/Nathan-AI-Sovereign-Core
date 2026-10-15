@@ -75,3 +75,8 @@ The main Root page includes an explicit **GRAFT ALL THREE FIELD PACKS** action. 
 ## NATHAN TABOR OCTOPUS — Playable video game and companion app
 
 [Launch the 5-world, 15-wave arena game plus six-screen mathematical companion](./octopus-arsenal/index.html) · [Source and release boundaries](./octopus-arsenal/README.md). Eight original tentacle powers, independent deterministic arena simulation, Root energy and cooldowns, earned upgrades, touch/keyboard/optional auto-defense, numerical calibration challenges, searchable 31-node mathematical codex, local progress export/import, and an explicit graft into the existing graph. No third-party entertainment imagery, ads, payment, human targets, cloud publishing or external hardware control. Run the new game and app tests in Factory CI.
+
+
+## Sovereign Nexus — owner-controlled multi-pack adapter
+
+[Launch the consent-first Nexus](./sovereign-nexus/index.html). Six optional packs (field, UCT, continuum, bubble, codex and Octopus Arsenal) can be previewed in independent namespaces, explicitly attached, restored from the local pre-graft backup only if no new source edits occurred, or left untouched. Also includes public navigation for independently persisted Factory modules. The source and its guarantees are documented in [Nexus README](./sovereign-nexus/README.md).

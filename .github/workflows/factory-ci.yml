@@ -92,6 +92,9 @@ jobs:
       - name: Verify Universal Continuum Tensor integration, formulas and simulated anomaly inversion
         run: node --test app-factory/octopus-root/uct/engine.test.cjs
 
+      - name: Verify Sovereign Nexus no-loss, permission boundaries and multi-pack integration
+        run: node --test app-factory/octopus-root/sovereign-nexus/engine.test.cjs
+
       - name: Verify Octopus Arsenal gameplay and combat rules
         run: node --test app-factory/octopus-root/octopus-arsenal/game.test.cjs
 
