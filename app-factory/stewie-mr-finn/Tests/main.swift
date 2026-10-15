@@ -40,6 +40,7 @@ check(progress.stars > 16 && progress.stars <= 48, "Stars are bounded")
 let originalStars = progress.stars
 progress.complete(chapter: 3, correct: 0)
 check(progress.stars == originalStars, "Replays never reduce earned stars")
+check(progress.completedQuestions == 48, "Replaying does not inflate unique completed-question count")
 let serialized = progress.serialized()
 check(PolarFamilySave.restored(serialized) == progress, "JSON saves round-trip")
 check(PolarFamilySave.restored("{not json").completed == 0, "Corrupted save resets safely")
