@@ -77,6 +77,9 @@ jobs:
       - name: Verify 1420 Crowning Jewel gameplay
         run: node --test app-factory/games/crowning-jewel.test.cjs
 
+      - name: Verify original Stewie Finn PAWS SWAP Mirror Bridge and physics
+        run: node --test app-factory/stewie-mr-finn/polar-middle-c/mirror-bridge/engine.test.cjs
+
       - name: Verify Stewart Finn Polar Middle C game branch
         run: node --test app-factory/stewie-mr-finn/polar-middle-c/engine.test.cjs
 
