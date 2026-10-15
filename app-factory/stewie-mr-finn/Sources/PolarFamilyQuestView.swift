@@ -250,19 +250,30 @@ private struct PolarCast: Identifiable {
     static let members: [PolarCast] = [
         .init(id:"Stewart (Stewie)",icon:"🐈",story:"The cat whose white fur divides his black patches, a puzzle-maker with gentle paws."),
         .init(id:"Mr. Finn",icon:"🐈‍⬛",story:"Stewie's puzzle-piece counterpart; together the cats bridge two complementary patterns."),
+        .init(id:"Champ",icon:"🐕",story:"The tan, long-legged hound whose snack detective skills help the visitors."),
+        .init(id:"Ace",icon:"🐶",story:"The long-haired reddish Australian Shepherd who teaches playful listening.")
         .init(id:"HO HO HO Santa Dog",icon:"🎅🐕",story:"The friendly North Paw leader whose story greeting is SUP? with his head nod up."),
         .init(id:"Holly Howl",icon:"🐕",story:"North Paw's watchful German Shepherd and expert in respect and boundaries."),
+        .init(id:"Mistletoe Mae",icon:"💝",story:"A kind golden retriever who welcomes shy newcomers at their own pace."),
+        .init(id:"Cocoa Cuddles",icon:"🧸",story:"A Newfoundland and the warm-lodge caretaker.")
         .init(id:"Peppermint Dot",icon:"🎁",story:"A Dalmatian inventor who makes the workshop's imaginative toys."),
+        .init(id:"Tinsel Toots",icon:"🐕",story:"A cheerful corgi and North Paw snow-tunnel comedian.")
         .init(id:"Blizzard Belle",icon:"🌌",story:"A husky guide who knows the northern lights."),
         .init(id:"Jingle Jack",icon:"🍪",story:"The curious beagle and biscuit detective."),
         .init(id:"Juniper Jingles",icon:"🚂",story:"The Border Collie who keeps the Friendship Express welcoming."),
+        .init(id:"Auntie Nutmeg",icon:"📜",story:"A thoughtful older basset hound who remembers everybody's story."),
+        .init(id:"Coal Comet",icon:"🛷",story:"A gentle black German Shepherd who supports North Paw's winter rescue team.")
         .init(id:"Pip & Poppy",icon:"🐾",story:"The playful pups who love mirrored paths and sharing."),
         .init(id:"OH OH OH Ozzie",icon:"🐧",story:"The South Paw emperor penguin who greets discoveries with OH!"),
         .init(id:"Oona Aurora",icon:"✨",story:"The penguin guide to South Paw's beautiful southern lights."),
+        .init(id:"Grandma Orla",icon:"📖",story:"The elder penguin who protects South Paw's family history and ice maps.")
         .init(id:"Opal Flip",icon:"🪞",story:"The Adélie penguin who builds reflection puzzles."),
         .init(id:"Otto Orbit",icon:"⭐",story:"The star-watching penguin with a telescope and patient questions."),
         .init(id:"Olive Current",icon:"🐋",story:"The story's wise orca ocean guide."),
         .init(id:"Ollie Echo",icon:"🎵",story:"A Weddell Seal fascinated by reflected sounds."),
+        .init(id:"Oceana Blue",icon:"🌊",story:"A leopard seal guardian learning that friendships start with respecting space."),
+        .init(id:"Oracle Aurora",icon:"🪽",story:"The snow petrel messenger who observes changes in polar weather."),
+        .init(id:"Oscar Skua",icon:"🪶",story:"A curious Antarctic skua and collector of shiny puzzle clues.")
         .init(id:"Odie & Oda",icon:"🧣",story:"Twin penguin chicks who show how opposite patterns can fit together.")
     ]
 }
