@@ -62,3 +62,6 @@ The Continuum now also includes six standard-library Python deep-root models and
 
 
 The main Root page includes an explicit **GRAFT ALL THREE FIELD PACKS** action. It joins all related calculation archives with typed symbolic crosslinks, reports source conflicts and preserves recoverable original nodes. The separate explorers also remain accessible.
+
+### Numerology × geometry × hieroglyphic atlas
+[Triple-Code UCT interactive Root explorer](./uct/triple-code/index.html) · [Evidence and mathematical definitions](./uct/triple-code/README.md). All 140 UCT source nodes have three non-destructive derived views. Egyptian additive numerals are historically defined; assigning their signs to fictional branch concepts is a modern design.
