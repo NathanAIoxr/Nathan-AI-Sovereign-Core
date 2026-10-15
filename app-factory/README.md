@@ -115,3 +115,8 @@ Additional original-label companion sources: [Six Python deep-root models](./oct
 ## Sovereign Bubble — every Root node remains its own
 
 [Play with bubble boundaries and the Good Samaritan gate](./octopus-root/sovereign-bubble/index.html) · [full contract and implementation limitations](./octopus-root/sovereign-bubble/README.md). Extends the original Octopus Root with 17 ethical/math receptors and one protective conceptual bubble per node, without breaking the existing math, cosmic, narrative and field archives. 1+1=2 preserves separate identities; 1−1=0 revokes the active permission string. This is a local conceptual prototype, not an identity service or established physical string theory.
+
+
+## NATHAN TABOR OCTOPUS — Game and companion application
+
+[Play the original arena game / PWA](./octopus-root/octopus-arsenal/index.html) · [Game architecture, controls and release constraints](./octopus-root/octopus-arsenal/README.md). Five zones, 15 waves, 8 upgradeable original powers, local save/export, a 25-gate forward/backward formula lab, six additional mathematical archive records, and opt-in integration with the Octopus ROOT without overwriting its existing branches. The app is web-installable where the browser supports PWAs; a signed native mobile app and physical-device testing are separate release steps.

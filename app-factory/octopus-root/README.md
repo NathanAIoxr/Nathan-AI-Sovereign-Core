@@ -70,3 +70,8 @@ The main Root page includes an explicit **GRAFT ALL THREE FIELD PACKS** action. 
 ## Sovereign Bubble — October 15 permission and Samaritan invariant
 
 [Interactive invitation / acceptance / revocation / emergency response lab](./sovereign-bubble/index.html) · [ethical/engineering contract](./sovereign-bubble/README.md). Adds 17 independent moral/mathematical policy nodes through a non-destructive, idempotent Root graft. Projects every Root receptor to its own conceptual sovereign box, with no inherited access through scientific or symbolic edges. Only specific, active owner-invited and guest-accepted permission strings authorize local demo interactions. The Good Samaritan gate checks scene safety, consent, urgent help and referral to qualified care. No real identity verification or medical dispatch is performed.
+
+
+## NATHAN TABOR OCTOPUS — Playable video game and companion app
+
+[Launch the 5-world, 15-wave arena game plus six-screen mathematical companion](./octopus-arsenal/index.html) · [Source and release boundaries](./octopus-arsenal/README.md). Eight original tentacle powers, independent deterministic arena simulation, Root energy and cooldowns, earned upgrades, touch/keyboard/optional auto-defense, numerical calibration challenges, searchable 31-node mathematical codex, local progress export/import, and an explicit graft into the existing graph. No third-party entertainment imagery, ads, payment, human targets, cloud publishing or external hardware control. Run the new game and app tests in Factory CI.

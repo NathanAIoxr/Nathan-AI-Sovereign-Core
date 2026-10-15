@@ -1,0 +1,18 @@
+{
+  "name": "NATHAN TABOR OCTOPUS — Sovereign Continuum Game & App",
+  "short_name": "Octopus Arsenal",
+  "description": "An original offline-friendly cosmic arena game with an educational formula lab and local Octopus Root integration.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07101f",
+  "theme_color": "#07101f",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
