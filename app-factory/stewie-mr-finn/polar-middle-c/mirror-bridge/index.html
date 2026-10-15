@@ -1,0 +1,143 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b2031"><title>Stewart & Mr. Finn • Mirror Bridge</title>
+<style>
+:root{font-family:ui-rounded,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color-scheme:dark;--text:#f5fbff;--sub:#c4d7e6;--line:#ffffff35;--aqua:#95f0e2;--gold:#fbd28c}
+*{box-sizing:border-box}body{margin:0;color:var(--text);background:#07192c;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse 58% 50% at 0% 8%,#2a5e65aa,transparent 80%),radial-gradient(ellipse 57% 44% at 90% 4%,#63559988,transparent 75%),linear-gradient(120deg,#081b2c,#0b2d3b 60%,#101d39)}
+main{max-width:910px;margin:0 auto;padding:20px 15px 80px}h1{font-size:clamp(2.2rem,7vw,4rem);line-height:1.04;letter-spacing:-.055em;margin:8px 0}h2{font-size:1.35rem;line-height:1.3}p{line-height:1.55;color:var(--sub)}a{color:#cdf9ff}button,input{font:inherit}button{cursor:pointer;touch-action:manipulation}button:focus-visible,input:focus-visible{outline:3px solid #fff;outline-offset:3px}.back{display:inline-block;margin:5px 0 18px;color:#d1efff;text-decoration:none}
+.kicker{color:#a3e6f4;letter-spacing:.17em;font-size:.75rem;font-weight:900;text-transform:uppercase}
+.hero{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.hero-art{font-size:clamp(2.5rem,8vw,5rem);text-align:center;white-space:nowrap}
+.headline{color:var(--gold)}.lede{max-width:720px;margin:12px 0 19px}
+.panel{border:1px solid var(--line);border-radius:22px;padding:clamp(16px,3vw,25px);background:#081e32e8;margin:17px 0;box-shadow:0 10px 40px #0005}
+.ribbon{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}.pill{border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:#ffffff13;color:#e2f2f9;font-size:.8rem}
+.track{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}
+.track span{border:1px solid #fff2;padding:10px 4px;border-radius:11px;text-align:center;color:#a6bfd0;font-size:.81rem}
+.track span.current{background:#facd702e;color:#ffe7b7;border-color:#fbd28c}
+.track span.done{background:#2f876451;border-color:#82dfbf;color:#e2fff4}
+.hero-symbol{padding:24px 15px;background:linear-gradient(100deg,#174754,#2f426d,#27566d);text-align:center;font-weight:1000;font-size:clamp(1.8rem,8vw,3.3rem);border-radius:16px;letter-spacing:.04em;overflow-wrap:anywhere}
+.question{color:#fff;font-weight:750}.choices{display:grid;gap:9px;margin:16px 0}.choice{padding:14px;text-align:left;border:1px solid #ffffff50;border-radius:13px;background:#153e50;color:white;font-weight:650;line-height:1.45}
+.choice.correct{background:#206449;border-color:#97edba}.choice.incorrect{background:#703844;border-color:#f0b0ae}.choice:disabled{opacity:.94;cursor:default}
+.feedback{border-radius:12px;background:#ffffff17;border-left:4px solid #fbd28c;padding:13px;margin:10px 0 15px;line-height:1.5;color:#e7f5fd}
+.feedback[hidden],#next[hidden],#result[hidden]{display:none}
+.action{padding:11px 16px;border:1px solid #a8f3e7;background:#8fe0c9;color:#073036;border-radius:12px;font-weight:850}
+.action.ghost{background:#133b4d;color:#ddf5fb;border-color:#a0bfc866}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{font-size:.89rem;color:#eaf8ff;font-weight:750;display:block;margin:10px 0}input[type=text]{width:100%;padding:13px;border-radius:11px;background:#102d42;border:1px solid #ffffff70;color:#fff;margin:5px 0 13px}
+input[type=range]{width:100%;accent-color:#9af0db}.meter{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:16px 0}.meter div{background:#ffffff12;border-radius:11px;padding:12px}.meter strong{display:block;font-size:1.24rem;color:#e9f8fb}.tiny{font-size:.77rem;color:#b0cbd9}.safe{color:#9bf2cb}.warn{color:#ffe0a4}
+#rotor{width:100%;max-width:380px;margin:0 auto;display:block}.muted{color:var(--sub)}.wordResult{overflow-wrap:anywhere;line-height:1.6;font-size:.9rem}
+footer{color:#a5bbcb;font-size:.75rem;margin:32px 0}
+@media(max-width:610px){.grid{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.hero-art{text-align:left;font-size:2.8rem}.track span{font-size:.67rem}.panel{margin:13px 0}.meter strong{font-size:1.05rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body><main>
+<a href="../index.html" class="back">← Back to the HO ↔ OH Polar Family</a>
+<header class="hero"><div><div class="kicker">Stewart & Mr. Finn · An Original Middle C Adventure</div><h1>THE <span class="headline">MIRROR</span> BRIDGE<br><span class="headline">PAWS ⇄ SWAP</span></h1></div><div class="hero-art" aria-label="Two cats">🐈‍⬛ 🐈</div></header>
+<p class="lede">Stewie's white markings split his black coat. Mr. Finn's patterns complement his. Together they investigate what words actually say, what a perfect mirror preserves, and when two turning forces truly balance. <b>Above C</b> and <b>Below C</b> meet at <b>Middle C</b> — consciousnesses in the story's symbolic world.</p>
+<section class="panel" aria-label="Puzzle game">
+  <div class="row"><span class="kicker">The Cats' Puzzle Expedition</span><div class="ribbon"><span class="pill" id="bridge">Bridge 1</span><span class="pill" id="stars">0 stars</span><span class="pill" id="score">0 correct</span></div></div>
+  <div class="track"><span id="phase0" class="current">↑ ABOVE C<br>Meaning</span><span id="phase1">⇄ BELOW C<br>Mirror</span><span id="phase2">● MIDDLE C<br>Balance</span></div>
+  <div class="hero-symbol" id="symbol" aria-live="polite">PAWS ⇄ SWAP</div>
+  <p class="kicker" id="phaseTitle">ABOVE C</p><h2 id="question">What does PAWS mean?</h2>
+  <div class="choices" id="choices" role="group" aria-label="Choose an answer"></div>
+  <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+  <div class="row"><span class="tiny" id="evidence">Exact spelling and original character stories</span><button class="action" type="button" id="next" hidden>Next →</button></div>
+  <p class="tiny">No penalties or time pressure. Your progress stays only in this browser.</p>
+</section>
+<section class="panel">
+  <div class="kicker">Mechanics sandbox — test the claim, don't just name it</div>
+  <h2>Stewie & Finn's Paired Paw Drives</h2>
+  <p>Imagine two small teaching motors on one rigid axle. Torque points one way or the other. If their torque sum is zero, <b>angular acceleration</b> is zero. That doesn't automatically stop a wheel already spinning.</p>
+  <div class="grid">
+    <div>
+      <label for="left">Stewie's drive: <output id="leftValue">+4</output> N·m</label><input id="left" type="range" min="-6" max="6" step="1" value="4">
+      <label for="right">Finn's drive: <output id="rightValue">−4</output> N·m</label><input id="right" type="range" min="-6" max="6" step="1" value="-4">
+      <label for="spin">Starting angular velocity</label>
+      <select id="spin" style="width:100%;padding:12px;background:#163a51;color:white;border:1px solid #a9d9e066;border-radius:10px"><option value="0">Standing still — 0 rad/s</option><option value="1">Already spinning — +1 rad/s</option></select>
+      <div class="row" style="margin-top:16px"><button class="action" type="button" id="balance">Make the torques balance</button><button class="action ghost" type="button" id="unbalance">Try an imbalance</button></div>
+    </div>
+    <div>
+      <svg id="rotor" viewBox="0 0 320 258" role="img" aria-label="Teaching axle and paired torques">
+        <text x="160" y="20" fill="#cde8f8" font-size="13" text-anchor="middle">Same rigid axle · 2 kg·m² · after 2 seconds</text>
+        <circle cx="160" cy="140" r="95" fill="#1a4558" stroke="#8fd9e7" stroke-width="2"/>
+        <circle cx="160" cy="140" r="70" fill="#0b2d41" stroke="#b9dce4" stroke-dasharray="3 7"/>
+        <g id="dial" transform="rotate(0 160 140)">
+          <path d="M160 65L173 129L246 140L173 151L160 214L147 151L74 140L147 129Z" fill="#f4ce79" stroke="#fff7dc" stroke-width="2"/>
+          <circle cx="160" cy="140" r="20" fill="#163747" stroke="#ffe3a2" stroke-width="3"/>
+          <circle cx="160" cy="140" r="6" fill="#fff"/>
+        </g>
+        <text x="37" y="246" fill="#bff4e5" font-size="15">🐈‍⬛ Stewie</text><text x="226" y="246" fill="#ffe4ab" font-size="15">Finn 🐈</text>
+      </svg>
+    </div>
+  </div>
+  <div class="meter">
+    <div><span class="tiny">Net torque</span><strong id="net">0 N·m</strong></div>
+    <div><span class="tiny">Angular acceleration</span><strong id="alpha">0 rad/s²</strong></div>
+    <div><span class="tiny">Angular velocity after 2 s</span><strong id="omega">0 rad/s</strong></div>
+    <div><span class="tiny">Angular position after 2 s</span><strong id="angle">0 rad</strong></div>
+  </div>
+  <p id="physicsResult" role="status" aria-live="polite"></p>
+  <p class="tiny">Simplified fixed-axis teaching model: Στ = Iα; constant torque and inertia; no friction, external torque, or automatic braking. Signs refer to the same axis.</p>
+</section>
+<section class="panel">
+ <div class="kicker">Original word explorer</div><h2>Write it. Reverse it. Check what stayed.</h2>
+ <label for="word">Your word or phrase</label><input id="word" type="text" maxlength="80" value="PAWS">
+ <button class="action" type="button" id="inspect">Open the Mirror</button>
+ <div class="feedback wordResult" id="result" aria-live="polite" hidden></div>
+ <p class="tiny">A literal string reversal is not a verified etymology, historical translation, fictional power, or physical machine.</p>
+</section>
+<section class="panel">
+ <div class="kicker">The original game story</div><h2>Two Cats. Two Poles. One Bridge.</h2>
+ <p>Santa Dog calls <b>“HO HO HO!”</b> from North Paw. Ozzie answers <b>“OH OH OH!”</b> from South Paw. In the middle, Stewart and Mr. Finn take turns spinning their mirrored paw gears, testing whether each pairing is genuinely in balance. Every solved bridge earns a Friendship Star.</p>
+ <p><b>Mathematical rule:</b> reverse(reversed word) = original word. <b>Mechanical rule:</b> two torques cancel only when equal in magnitude and opposite in direction on the same axis. <b>Story rule:</b> differences can complement each other without erasing either animal's identity.</p>
+ <button class="action ghost" type="button" id="reset">Reset the puzzle adventure</button>
+</section>
+<footer>Original characters, wording, diagrams, gameplay and code for The Adventures of Stewart & Mr. Finn. No third-party film plots, names, designs, footage, logos, voice performances or external media. Independent educational game prototype; commercial trademark clearance remains a separate release task.</footer>
+</main>
+<script src="../../../middle-c/game.js"></script><script src="./engine.js"></script>
+<script>
+(function(){
+ 'use strict'; const g=window.PawMirrorBridge,find=id=>document.getElementById(id),key='tabor.stewie.mirror-bridge.v1';
+ let game;
+ try{game=g.validate(JSON.parse(localStorage.getItem(key)))}catch(_){game=g.newGame()}
+ function save(){try{localStorage.setItem(key,JSON.stringify(game))}catch(_){}}
+ function put(id,value){find(id).textContent=String(value)}
+ function render(){
+   const q=g.puzzle(game.level,game.phase);
+   put('bridge','Bridge '+game.level);put('stars',game.stars+' stars');put('score',game.correctCount+' correct');
+   for(let i=0;i<3;i++)find('phase'+i).className=i<game.phase?'done':i===game.phase?'current':'';
+   put('symbol',q.symbol);put('phaseTitle',q.title);put('question',q.question);put('evidence',q.evidence);
+   const choices=find('choices');choices.replaceChildren();
+   for(const opt of q.choices){const b=document.createElement('button');b.type='button';b.className='choice';b.textContent=opt.label;
+     if(game.answered){b.disabled=true;if(opt.id===q.correctId)b.classList.add('correct');else if(opt.id===game.choiceId)b.classList.add('incorrect')}
+     else b.addEventListener('click',()=>{game=g.choose(game,opt.id).state;save();render()});
+     choices.appendChild(b);
+   }
+   find('feedback').hidden=!game.answered;find('next').hidden=!game.answered;
+   if(game.answered){find('feedback').replaceChildren();const result=document.createElement('b');result.textContent=game.choiceId===q.correctId?'⭐ Correct! ':'🔎 Another clue: ';find('feedback').append(result,document.createTextNode(q.explanation+' Answer: '+q.answer))}
+   find('next').textContent=game.phase===2?'Next Bridge →':'Next Side of C →';
+ }
+ find('next').addEventListener('click',()=>{game=g.next(game);save();render()});
+ find('reset').addEventListener('click',()=>{game=g.newGame();save();render()});
+ function signed(n){return n>0?'+'+n:n<0?'−'+Math.abs(n):'0'}
+ function physics(){
+   const left=Number(find('left').value),right=Number(find('right').value),initial=Number(find('spin').value);
+   const p=g.mechanics(left,right,2,2,initial);
+   put('leftValue',signed(left));put('rightValue',signed(right));
+   put('net',signed(p.netTorque)+' N·m');put('alpha',signed(p.angularAcceleration)+' rad/s²');
+   put('omega',signed(p.angularVelocity)+' rad/s');put('angle',signed(p.angle)+' rad');
+   const deg=(p.angle*180/Math.PI)%360;find('dial').setAttribute('transform','rotate('+deg+' 160 140)');
+   const m=find('physicsResult');m.className=p.balanced?'safe':'warn';
+   m.textContent=p.balanced?(p.atRest?'Balanced: no angular acceleration, axle remains at rest.':'Balanced torque but still spinning: zero acceleration does not mean zero velocity.'):'Not balanced: a net torque accelerates the axle. Adjust the drives and compare.';
+ }
+ ['left','right','spin'].forEach(id=>find(id).addEventListener('input',physics));
+ find('balance').addEventListener('click',()=>{find('right').value=-Number(find('left').value);physics()});
+ find('unbalance').addEventListener('click',()=>{const l=Number(find('left').value);find('right').value=l===0?3:0;physics()});
+ find('inspect').addEventListener('click',()=>{const el=find('result');el.hidden=false;
+   try{const d=g.inspect(find('word').value);el.replaceChildren();const b=document.createElement('strong');b.textContent=d.word+' ⇄ '+d.reversed;
+   const p=document.createElement('p');p.textContent='Same character count: '+(d.sameLength?'YES':'NO')+' · Same letters: '+(d.sameCharacters?'YES':'NO')+' · Perfect reversal: '+(d.exactMirror?'YES':'NO')+'. '+d.note;el.append(b,p)}
+   catch(e){el.textContent=e.message}
+ });
+ physics();render();
+})();
+</script></body></html>
