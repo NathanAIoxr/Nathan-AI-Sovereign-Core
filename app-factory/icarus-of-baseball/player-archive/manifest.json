@@ -1,0 +1,43 @@
+{
+  "title": "THE ICARUS'S OF BASEBALL",
+  "created": "2026-10-15",
+  "base_source": "SABR Lahman Database 2025",
+  "base_source_url": "https://sabr.org/lahman-database/",
+  "mirror_url": "https://github.com/cbwinslow/lahman-database-csv",
+  "source_license": "CC BY-SA 3.0 with additional third-party licensed Negro League data; verify uses",
+  "status": "HISTORICAL_RESEARCH_ONLY",
+  "selected_source_lgIDs": [
+    "NA",
+    "AA",
+    "UA",
+    "PL",
+    "FL",
+    "ECL",
+    "ANL",
+    "EWL",
+    "NNL",
+    "NN2",
+    "NAL",
+    "NSL"
+  ],
+  "seasons_range": {
+    "start": 1871,
+    "end": 1948
+  },
+  "player_count": 3997,
+  "source_stats": {
+    "batting_stints": 12204,
+    "pitching_stints": 4443,
+    "fielding_position_stints": 20787,
+    "appearance_rows": 12194,
+    "team_seasons": 515
+  },
+  "women_baseball_profiles": 13,
+  "women_softball_profiles": 2,
+  "metadata": {
+    "franchise_year_rule": "1915 or earlier needs verification and rights review; doesn't apply to source statistics collection",
+    "missing": "NULL / UNKNOWN — RESEARCH REQUIRED",
+    "game_generated": "GENERATED FILL-IN — NOT VERIFIED HISTORY",
+    "publishing": "No historical player/team commercially cleared by this package"
+  }
+}
