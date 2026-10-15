@@ -28,3 +28,7 @@ Run: node --test app-factory/stewie-mr-finn/polar-middle-c/engine.test.cjs
 **Scope:** This is real browser source and an optional native iPhone branch, not an App Store release. It does not replace the existing 48-board iPhone campaign. Proposed Worlds 7 and 8 are narrative expansions, not a claim that sixteen more native campaign boards have shipped.
 
 **Rights and safety:** Child-inclusive, no social profiling, tracking, ads, commerce, or forced interaction. Historical statements require independent evidence.
+
+## 100 Mathematical Roots extension
+
+Play [100 Mathematical Roots](./math-roots/index.html): 11 eras, all 100 numbered learning gates, verified numerical evaluation methods, and a 2D Newton step. Original source expressions omitted in the paste are marked as modern reconstructions; aggregated source groups use explicitly adapted practice exercises. The same scripts and offline page are bundled in the iPhone PolarMiddleC folder. Run math-roots/engine.test.cjs for coverage.

@@ -80,6 +80,9 @@ jobs:
       - name: Verify Stewart Finn Polar Middle C game branch
         run: node --test app-factory/stewie-mr-finn/polar-middle-c/engine.test.cjs
 
+      - name: Verify 100 Math Roots gates and numerical solvers
+        run: node --test app-factory/stewie-mr-finn/polar-middle-c/math-roots/engine.test.cjs
+
       - name: Verify dynamic audience- and app-aware pricing decisions
         run: node --test app-factory/pricing-router/engine.test.cjs
 

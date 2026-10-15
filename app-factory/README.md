@@ -93,3 +93,7 @@ Two source-preserving 69-slot expansions are integrated as **reference data and 
 ## October 14 creative continuity
 
 [Latest project/canon notes](./creative/continuity/2026-10-14.md) · [Structured records](./creative/continuity/2026-10-14.json). Preserve the current Round 1 mission, Middle C body-map specification, Great Samaritan ethics and latest Merlin novel title. The sevenfold enumeration remains incomplete in the available source. These are documentation inputs for future reviewed adaptations; existing game engines and archives remain separate.
+
+### Middle C — 100 Mathematical Roots
+
+Playable 100-gate historical-math teaching branch: [math-roots/index.html](./stewie-mr-finn/polar-middle-c/math-roots/index.html). Includes six genuinely evaluated numerical root solvers, 2D Newton demonstration, source-faithful grouped range labeling, optional offline iPhone WKWebView snapshot and CI tests. Modern mathematical expressions are teaching adaptations, not verified ancient transcriptions.
