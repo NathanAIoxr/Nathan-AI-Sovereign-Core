@@ -15,7 +15,7 @@ test('sucker cups reject false literal matches and duplicates',()=>{
  assert.equal(E.check(b,{from:'formula:geometric',to:'word:gar2',type:'exact'}).ok,true);
  assert.equal(E.check(b,{from:'word:dirty',to:'word:clean',type:'word-order'}).ok,false);
 });
-test('cookie bin catches failures without deleting source and allows correction',()=>{
+test('crumb bin catches failures without deleting source and allows correction',()=>{
  const a=E.create();const b=E.attach(a,{from:'formula:arithmetic',to:'word:aaron',type:'exact'});
  assert.equal(b.ok,false);assert.equal(b.state.cookie.length,1);
  assert.equal(a.cookie.length,0);assert.equal(b.state.nodes.length,a.nodes.length);
