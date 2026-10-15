@@ -63,3 +63,6 @@ Test with: node --test app-factory/octopus-root/uct/engine.test.cjs.
 This public prototype does not automatically run in the user's iPhone outside their browser, fetch external accounts, validate science fiction as real physics, conduct cryptographic intrusion, generate real warp travel or publish an app. Outer Reach and Matrix are third-party fictional universes; references do not imply ownership or endorsement.
 
 **FORM MORPHS. ARCHITECTURE REMAINS.**
+
+## Three-code translation atlas
+[Open the interactive number × heptagonal geometry × Egyptian numeral explorer](./triple-code/index.html) · [Methods, source preservation and Gardiner/Unicode references](./triple-code/README.md). Converts all 140 original UCT graph nodes and 148 edges into modern A1Z26 and Radix patterns, computed radial geometry, and historically grounded Egyptian integer numerals. The seven UCT domains remain independent, original formulas are unchanged, and no claimed English-to-Egyptian language translation is made.
