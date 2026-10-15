@@ -57,8 +57,8 @@ hr{border:0;border-top:1px solid #45545b;margin:15px 0}
   <p class="tiny">English Latin A–Z characters only; non-Latin mathematics and hieroglyphs stay in the original label. A score is a rule-based calculation, not historical etymology.</p>
   <h3>② GEOMETRY · Exact generated coordinates</h3><p id="coordinates" class="code"></p><p id="shape"></p>
   <h3>③ HIEROGLYPHICS · Decimal additive numerals</h3>
-  <small>Source index rendered with Egyptian signs</small><div id="glyphNumber" class="hieroglyph" dir="ltr"></div>
-  <small>A1–Z26 score rendered with Egyptian numeral signs</small><div id="glyphScore" class="hieroglyph" dir="ltr"></div>
+  <small>Source index rendered with Egyptian signs</small><div id="glyphNumber" class="hieroglyph" dir="ltr" aria-label="Egyptian numeral characters for source index"></div><p class="tiny" id="glyphNumberDetails"></p>
+  <small>A1–Z26 score rendered with Egyptian numeral signs</small><div id="glyphScore" class="hieroglyph" dir="ltr" aria-label="Egyptian numeral characters for modern letter sum"></div><p class="tiny" id="glyphScoreDetails"></p>
   <small>Branch emblem: artistic seven-powers mapping</small><div id="branchSymbol" class="hieroglyph"></div><p class="tiny" id="gardiner"></p>
   <h3>Existing TABOR Golden Radix Ladder</h3><div id="radixes" class="grid"></div><p><a href="../../../radix-ladder/index.html">Open independent Golden Radix Ladder</a></p></section>
   <section class="panel"><h2>Live word → number → shape → glyph</h2><label for="custom">Enter a name, sentence, title or formula</label><input id="custom" maxlength="300" value="THE MIDDLE C"><div id="customResult"></div>
@@ -91,7 +91,7 @@ function setSelected(id){
  put("score",n.a1z26);put("nine",n.cycleNine);put("root",n.digitalRoot);
  put("coordinates","X="+g.x+" | Y="+g.y+" | θ="+g.thetaDeg+"° | r="+g.radius);
  put("shape",g.shape+" · ring "+g.ring+" · sevenfold sector "+(g.branch<0?"CENTER":g.branch+1));
- glyph("glyphNumber",h.ordinal);glyph("glyphScore",h.scoreGlyphs);
+ glyph("glyphNumber",h.ordinal);glyph("glyphScore",h.scoreGlyphs);put("glyphNumberDetails","Unicode sign IDs: "+(h.ordinalGardiner.join(" + ")||"zero has no classical sign"));put("glyphScoreDetails","Unicode sign IDs: "+(h.scoreGardiner.join(" + ")||"zero has no classical sign"));
  put("branchSymbol",h.branchGlyph||"◉");put("gardiner",(h.branchGardiner||"center")+" · "+h.branchNote);
  $("radixes").replaceChildren();for(const v of n.radix){const item=document.createElement("div");item.className="item";item.append(Object.assign(document.createElement("small"),{textContent:"Base "+v.base}),Object.assign(document.createElement("div"),{className:"code",textContent:v.encoded}));$("radixes").append(item)}
  for(const [key,node] of drawn)node.setAttribute("stroke-width",key===id?4:1);
@@ -123,7 +123,7 @@ function renderCustom(){
  const svgElem=document.createElementNS(ns,"svg");svgElem.setAttribute("viewBox","0 0 120 115");svgElem.setAttribute("style","max-width:185px;height:125px");const v=T.polygonVertices(sides,46);
  svgElem.append(el("polygon",{points:v.map(p=>(60+p.x)+","+(57+p.y)).join(" "),fill:"none",stroke:"#ecd490","stroke-width":2.5}));
  svgElem.append(el("circle",{cx:60,cy:57,r:7,fill:"#85d9c2"}));
- result.append(line,svgElem,htag);
+ const codeTag=document.createElement("p");codeTag.className="tiny";codeTag.textContent="Glyph values: "+(h.groups.map(g=>g.quantity+" × "+g.gardiner).join(" · ")||"no historical zero sign");result.append(line,svgElem,htag,codeTag);
 }
 $("custom").oninput=renderCustom;renderCustom();
 $("export").onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(B,null,2)],{type:"application/json"}));const a=document.createElement("a");a.href=url;a.download="UCT-triple-code-140-nodes-148-links.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);put("message","Atlas JSON prepared from all original UCT source nodes; no original was modified.")};
