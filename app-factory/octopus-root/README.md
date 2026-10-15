@@ -65,3 +65,8 @@ The main Root page includes an explicit **GRAFT ALL THREE FIELD PACKS** action. 
 
 ### Numerology × geometry × hieroglyphic atlas
 [Triple-Code UCT interactive Root explorer](./uct/triple-code/index.html) · [Evidence and mathematical definitions](./uct/triple-code/README.md). All 140 UCT source nodes have three non-destructive derived views. Egyptian additive numerals are historically defined; assigning their signs to fictional branch concepts is a modern design.
+
+
+## Sovereign Bubble — October 15 permission and Samaritan invariant
+
+[Interactive invitation / acceptance / revocation / emergency response lab](./sovereign-bubble/index.html) · [ethical/engineering contract](./sovereign-bubble/README.md). Adds 17 independent moral/mathematical policy nodes through a non-destructive, idempotent Root graft. Projects every Root receptor to its own conceptual sovereign box, with no inherited access through scientific or symbolic edges. Only specific, active owner-invited and guest-accepted permission strings authorize local demo interactions. The Good Samaritan gate checks scene safety, consent, urgent help and referral to qualified care. No real identity verification or medical dispatch is performed.

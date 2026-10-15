@@ -110,3 +110,8 @@ Additional original-label companion sources: [Six Python deep-root models](./oct
 
 ## Number, Geometry and Hieroglyphic UCT Atlas
 [Open UCT triple-code translation engine](./octopus-root/uct/triple-code/index.html) · [Technical README](./octopus-root/uct/triple-code/README.md). Generates 420 virtual numeric / geometric / Egyptian numeral views of 140 original UCT nodes, retains 148 source edges and 17 formula ledger entries, reuses the sovereign Golden Radix Ladder, and installs only 25 persistent lens anchor nodes into the finite Octopus Root. Fictional and hypothetical domains do not become verified physics or historic Egyptian language translations.
+
+
+## Sovereign Bubble — every Root node remains its own
+
+[Play with bubble boundaries and the Good Samaritan gate](./octopus-root/sovereign-bubble/index.html) · [full contract and implementation limitations](./octopus-root/sovereign-bubble/README.md). Extends the original Octopus Root with 17 ethical/math receptors and one protective conceptual bubble per node, without breaking the existing math, cosmic, narrative and field archives. 1+1=2 preserves separate identities; 1−1=0 revokes the active permission string. This is a local conceptual prototype, not an identity service or established physical string theory.

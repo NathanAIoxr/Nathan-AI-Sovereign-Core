@@ -19,9 +19,9 @@
 <pre id="mirrorOutput" style="white-space:pre-wrap;background:#08152b;border-radius:12px;padding:14px;color:#c9f8dd;font-size:13px;overflow:auto" aria-live="polite"></pre>
 <p class="muted">Every catalog equation is labeled a modern teaching reconstruction; historical transcriptions require separate source review. Imported originals stay untouched.</p></section>
 <footer>Local-first concept engine · No automatic network access, fact certification, cross-project sharing or public release · <a href="./README.md">Rules and scope</a> · <a href="./sovereign-continuum/index.html">Sovereign Continuum</a></footer></main>
-<script src="./codex.js"></script><script src="./engine.js"></script><script src="./sovereign-fields/engine.js"></script><script src="./uct/engine.js"></script><script src="./sovereign-continuum/engine.js"></script><script src="./sovereign-fields/merge-packs.js"></script><script>
+<script src="./sovereign-bubble/engine.js"></script><script src="./codex.js"></script><script src="./engine.js"></script><script src="./sovereign-fields/engine.js"></script><script src="./uct/engine.js"></script><script src="./sovereign-continuum/engine.js"></script><script src="./sovereign-fields/merge-packs.js"></script><script>
 (()=>{'use strict';
-const A=window.OctopusRoot,R=window.SovereignFieldRoot,K='tabor-octopus-root-v1',$=s=>document.getElementById(s);
+const A=window.OctopusRoot,R=window.SovereignFieldRoot,B=window.SovereignBubble,K='tabor-octopus-root-v1',$=s=>document.getElementById(s);
 let s;try{s=A.load(localStorage.getItem(K)||A.save(A.create()))}catch(e){s=A.create()}
 try{s=window.TaborRootCodex.enrich(A,s).state}catch(e){console.warn('Root codex needs attention:',e)}
 const ns='http://www.w3.org/2000/svg';
@@ -40,6 +40,7 @@ function draw(){
  }
 }
 function refresh(){
+ const bubbleGraft=B.install(A,s);s=bubbleGraft.state;if(bubbleGraft.conflicts.length)label("Bubble ID conflicts preserved: "+bubbleGraft.conflicts.join(", "));
  const graft=R.install(A,s);s=graft.state;if(graft.conflicts.length)label('Preserved conflicts: '+graft.conflicts.join(', '));
  $('countNodes').textContent=s.nodes.length;$('countLinks').textContent=s.edges.length;$('countCookies').textContent=s.cookie.length;
  optionize('start',s.nodes.filter(n=>['word','pattern'].includes(n.kind)));
