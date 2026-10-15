@@ -58,7 +58,4 @@ This is a public repository prototype, not a deployed cross-platform autonomous 
 
 Run: `node --test app-factory/octopus-root/engine.test.cjs app-factory/octopus-root/codex.test.cjs`
 
-
-## Sovereign Field Lab
-
-[Open 27 new Root nodes](./sovereign-fields/index.html) · [equations, safety and original naming](./sovereign-fields/README.md). Existing Root dashboard automatically grafts missing nodes and checked symbolic links; preserves concurrent Continuum branches.
+The Continuum now also includes six standard-library Python deep-root models and low-voltage test-only example firmware. Grafting adds 31 gate nodes: 25 interactive, six deeper numerical experiments. All preserve model validity statements.

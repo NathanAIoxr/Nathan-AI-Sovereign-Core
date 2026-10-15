@@ -40,6 +40,14 @@ const GATES=[
  {id:'signal-rail',family:'paradox',name:'THE SIGNAL RAIL',equation:'samples = sampling_rate × duration',forward:p('duration','Observation duration',2,'s'),backward:p('samples','Number of samples',1024),context:[p('rate','Sample rate',512,'Hz')],boundary:'Sample budget for synthetic signals; does not collect biological recordings.'},
  {id:'middle-c',family:'paradox',name:'THE MIDDLE C COLLISION',equation:'forward = model(inputs); backward = inverse(output); delta = |x - reconstructed_x|',forward:p('input','Original input',5),backward:p('output','Transformed output',23),context:[p('scale','Scale',4),p('offset','Offset',3)],boundary:'Transparent reversible affine software model, not proof of a cosmic mechanism.'}
 ].map(g=>Object.freeze({...g,context:Object.freeze(g.context)}));
+const DEEP_GATES=Object.freeze([
+ {id:'mirror-state',family:'mind',name:'THE MIRROR TRANSFER',equation:'Three-state-bus quantum-state circuit; four measurement branches and ideal correction',boundary:'Simulates textbook quantum state transfer; never matter or person transport.'},
+ {id:'wave-packet',family:'void',name:'THE WAVE WALKER',equation:'Discrete Fourier transform with free evolution exp(-i k² dt/2)',boundary:'One-dimensional normalized periodic software packet; dimensionless parameters.'},
+ {id:'ionic-step',family:'mind',name:'SPARK TO SIGNAL',equation:'Membrane capacitor with sodium, potassium, leak and gating-update terms',boundary:'Mathematical ionic-membrane model; no live electrodes or clinical use.'},
+ {id:'spectral-rail',family:'paradox',name:'THE HIDDEN FREQUENCY',equation:'Discrete Fourier power maximum on a generated sine wave',boundary:'Synthetic sinusoid, never measured EEG or brain activity.'},
+ {id:'matrix-distance',family:'paradox',name:'THE FROBENIUS REAPER',equation:'||A-B||F = sqrt(sum_ij (Aij-Bij)²)',boundary:'Pure matrix distance; not a mind, intention or deception test.'},
+ {id:'session-receipt',family:'paradox',name:'THE SOVEREIGN RECEIPT',equation:'SHA-256 digest over canonical local JSON bytes',boundary:'Integrity fingerprint only, not authentication, identity or secure account handoff.'}
+]);
 const finite=(v,label)=>{if(typeof v!=='number'||!Number.isFinite(v))throw Error(label+' must be finite');return v};
 const positive=(v,label)=>{finite(v,label);if(v<=0)throw Error(label+' must be > 0');return v};
 const nonneg=(v,label)=>{finite(v,label);if(v<0)throw Error(label+' must be >= 0');return v};
@@ -94,7 +102,7 @@ function calculate(id,values={},direction='forward'){
 }
 function audit(){
  const labels=[...FAMILIES.map(x=>x.label),...GATES.map(x=>x.name)];
- return {familyCount:FAMILIES.length,gateCount:GATES.length,uniqueIds:new Set(GATES.map(g=>g.id)).size===GATES.length,names:labels,allHaveBoundaries:GATES.every(g=>!!g.boundary&&!!g.equation)};
+ return {familyCount:FAMILIES.length,gateCount:GATES.length,deepCount:DEEP_GATES.length,uniqueIds:new Set(GATES.map(g=>g.id)).size===GATES.length,names:labels,allHaveBoundaries:GATES.every(g=>!!g.boundary&&!!g.equation)};
 }
 function graft(state,Root){
  if(!Root||typeof Root.addNode!=='function'||typeof Root.attach!=='function')throw Error('Octopus Root engine required');
@@ -105,7 +113,8 @@ function graft(state,Root){
  link('core:middle','continuum:root','Middle C collision: forward prediction and backward reconciliation');
  for(const f of FAMILIES){const id='continuum:family-'+f.id;node(id,f.label,'project','Sovereign Continuum original family');link('continuum:root',id,'Root family: '+f.motto);}
  for(const g of GATES){const id='continuum:gate-'+g.id;node(id,g.name,'formula','Original renamed numerical teaching gate: '+g.equation);link('continuum:family-'+g.family,id,'Sucker-cup model: '+g.equation+'; boundary: '+g.boundary);}
- return {state:s,added,attached,gateCount:GATES.length};
+ for(const g of DEEP_GATES){const id='continuum:deep-'+g.id;node(id,g.name,'formula','Pure-Python companion deep-reference model: '+g.equation);link('continuum:family-'+g.family,id,'Math model: '+g.equation+'; boundary: '+g.boundary);}
+ return {state:s,added,attached,gateCount:GATES.length,deepCount:DEEP_GATES.length};
 }
-return Object.freeze({VERSION:'1.0.0',C,FAMILIES,GATES,calculate,audit,graft});
+return Object.freeze({VERSION:'1.0.0',C,FAMILIES,GATES,DEEP_GATES,calculate,audit,graft});
 });

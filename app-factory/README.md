@@ -106,7 +106,4 @@ Playable 100-gate historical-math teaching branch: [math-roots/index.html](./ste
 
 [Open the 25-gate original-name lab](./octopus-root/sovereign-continuum/index.html) · [Design, rights and scientific validity](./octopus-root/sovereign-continuum/README.md). Five original families model forward calculation and bounded inverse reconstruction under Middle C, with an opt-in graft into the existing local Octopus ROOT. CRUMB REAPER replaces the former third-party review-tray display name while preserving the underlying historical ID. No trademarked entertainment assets, high-powered devices or outside runtime libraries are included. Run node --test app-factory/octopus-root/sovereign-continuum/engine.test.cjs.
 
-
-## Sovereign Field Lab — original Root extension
-
-[Interactive field mathematics](./octopus-root/sovereign-fields/index.html) · [technical naming and safety ledger](./octopus-root/sovereign-fields/README.md). 27 namespaced original nodes, 16 runnable calculation stations and low-voltage knob-only firmware, integrated with the existing Continuum packs without overwriting data.
+Additional original-label companion sources: [Six Python deep-root models](./octopus-root/sovereign-continuum/advanced.py) and [low-voltage receptor demonstration](./octopus-root/sovereign-continuum/firmware/README.md), explicitly not live hardware tests. The opt-in ROOT graft totals 31 gates.

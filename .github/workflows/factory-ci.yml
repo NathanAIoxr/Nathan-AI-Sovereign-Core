@@ -95,8 +95,8 @@ jobs:
       - name: Verify Sovereign Root Codex indexes, mirror operations and non-destructive migration
         run: node --test app-factory/octopus-root/codex.test.cjs
 
-      - name: Verify Sovereign Field Lab models and idempotent Root graft
-        run: node --test app-factory/octopus-root/sovereign-fields/engine.test.cjs
+      - name: Verify six additional Python deep-root numerical experiments
+        run: python3 -m unittest discover -s app-factory/octopus-root/sovereign-continuum -p test_advanced.py -v
 
       - name: Verify 100 Math Roots gates and numerical solvers
         run: node --test app-factory/stewie-mr-finn/polar-middle-c/math-roots/engine.test.cjs

@@ -54,3 +54,14 @@ The earlier standalone low-voltage board demonstration is not represented as phy
 New Root gates should carry a stable ID, original name, formula, assumptions, forward test, meaningful reverse test or an explicit noninvertibility explanation, and a reviewable receptor attachment. All growth is bounded on each operation.
 
 **1 + 1 = 2 · 1 − 1 = 0 · FORM MORPHS. ARCHITECTURE REMAINS.**
+
+
+## Six deeper numerical experiments
+
+The standard-library Python file [advanced.py](./advanced.py) implements six companion references: THE MIRROR TRANSFER (three-qubit circuit and branch probabilities), THE WAVE WALKER (unitary discrete Fourier free-packet step), SPARK TO SIGNAL (ionic membrane-step model), THE HIDDEN FREQUENCY (synthetic spectral peak), THE FROBENIUS REAPER (matrix difference norm), and THE SOVEREIGN RECEIPT (stable SHA-256 digest for nonsecret local data). These are also attached as six additional Root model nodes, for **31 new gates total** (25 interactive JavaScript, 6 Python). All are software-only. Test with:
+
+    python3 -m unittest discover -s app-factory/octopus-root/sovereign-continuum -p test_advanced.py -v
+
+## Hardware compatibility sample
+
+[Low-voltage firmware reference](./firmware/README.md) supplies two original-title source sketches for an input receptor and Middle C computation node. They require board-appropriate I2C libraries, a 5V-to-3.3V level shifter, a resistor-limited LED and a potentiometer. **Uncompiled and unverified on real hardware; no external loads or body connections.** Any manufacturer-specific board pin compatibility must be confirmed without fictional renaming of actual electrical specifications.
