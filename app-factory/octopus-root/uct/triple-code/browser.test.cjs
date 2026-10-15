@@ -17,7 +17,7 @@ test('every UCT triple-code and parent page inline script parses',()=>{
  for(const p of pages){
   const html=read(p);
   const inline=[...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)]
-   .filter(([,attrs])=>!/\\bsrc\\s*=/.test(attrs)).map(m=>m[2]).filter(s=>s.trim());
+   .filter(([,attrs])=>!/\bsrc\s*=/.test(attrs)).map(m=>m[2]).filter(s=>s.trim());
   assert.ok(inline.length>0,p+': no executable inline JavaScript');
   for(const [i,js] of inline.entries())assert.doesNotThrow(()=>new vm.Script(js,{filename:p+':inline-'+i}));
  }
