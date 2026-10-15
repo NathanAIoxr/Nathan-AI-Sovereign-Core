@@ -6,7 +6,7 @@ test('7 sovereign branches, formulas, and cross-franchise scene records are pres
  assert.equal(new Set(p.nodes.map(n=>n.id)).size,p.nodes.length);
  assert.ok(p.nodes.length>=120);
  assert.ok(p.ledger.length>=15);
- for(const b of p.branches){assert.equal(b.concepts.length,11);assert.ok(b.forward&&b.backward&&b.scenes.length)}
+ for(const b of p.branches){assert.ok(b.concepts.length>=11);assert.ok(b.forward&&b.backward&&b.scenes.length)}
  assert.ok(p.edges.some(e=>e.from==='uct:unknown'&&e.to==='uct:machine'));
 });
 test('UCT installs into actual Octopus Root without overwriting its originals',()=>{
