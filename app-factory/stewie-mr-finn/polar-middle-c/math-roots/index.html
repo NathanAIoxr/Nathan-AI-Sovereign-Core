@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07172b"><title>THE MIDDLE C · 100 Mathematical Roots</title>
+<style>
+:root{font-family:ui-rounded,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color-scheme:dark;--bg:#061526;--ink:#f3f8ff;--soft:#bed4e8;--gold:#ffcd7c;--blue:#69dcff;--edge:#ffffff27}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#17455c 0%,transparent 38%),radial-gradient(ellipse at 90% 20%,#443154 0%,transparent 36%),var(--bg);color:var(--ink);line-height:1.5}
+main{max-width:1070px;margin:auto;padding:18px 15px 90px}h1{font-size:clamp(2.3rem,8vw,4.6rem);letter-spacing:-.055em;line-height:1.04;margin:12px 0}h2{font-size:1.45rem;margin:0 0 8px}h3{margin:8px 0}.eyebrow{color:var(--gold);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:850}
+p{color:var(--soft);margin:9px 0}a{color:#b5edff}nav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}nav a{font-size:.88rem}
+.panel{border:1px solid var(--edge);background:#0c2136df;border-radius:19px;padding:clamp(15px,3vw,23px);margin:17px 0;box-shadow:0 14px 35px #0002}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.planes{display:grid;grid-template-columns:230px 1fr;align-items:center;gap:18px}.pill{display:inline-block;border:1px solid #f1d18c91;border-radius:999px;padding:5px 10px;font-size:.8rem;color:#ffdd9d}
+.muted,.note{font-size:.86rem;color:#bfd2e1}.line{border-top:1px solid #ffffff26;margin:14px 0}
+select,button{font:inherit}select{width:100%;padding:12px;background:#0c3046;border:1px solid #87b4ca80;color:white;border-radius:12px;margin:6px 0 13px}
+label{display:block;font-size:.86rem;font-weight:750;color:#dceff7}
+button{border:1px solid #9bbfd078;padding:11px 14px;border-radius:11px;background:#194059;color:#fff;font-weight:750;cursor:pointer;touch-action:manipulation}
+button:disabled{opacity:.4;cursor:not-allowed}button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #ffdb91;outline-offset:3px}
+button.primary{background:var(--gold);color:#102338;border-color:#f8e1b0}.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:15px 0}
+.options button{min-height:72px;text-align:left;overflow-wrap:anywhere}.options button.correct{background:#1d7258;border-color:#81efd0}.options button.wrong{background:#873a4c;border-color:#ffe1e1}
+.formula{border:1px solid #a2dfed52;background:#0a2b42;border-radius:14px;padding:13px;overflow-wrap:anywhere;color:#fff0cd;font-size:1.2rem}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}.report{border-left:3px solid #ffcb7b;background:#ffffff10;border-radius:6px;padding:12px;margin:12px 0}
+#graph{width:100%;height:auto;display:block;background:#061c30;border-radius:11px;border:1px solid #ffffff27}
+details summary{cursor:pointer;font-weight:750;padding:8px 0}details p{font-size:.88rem}
+table{border-collapse:collapse;width:100%;font-size:.84rem}th,td{border-bottom:1px solid #ffffff24;padding:6px;text-align:left}
+.solver{font-size:1.05rem;color:#ffe0a4;overflow-wrap:anywhere}.kpis{display:flex;flex-wrap:wrap;gap:7px}.kpis span{padding:7px 10px;border:1px solid #ffffff33;border-radius:999px;font-size:.84rem}
+.caption{font-size:.75rem;color:#adc3d4}.plane-tag{fill:#f8e8bd;font-size:11px;font-weight:750}.leg-tag{fill:#aee5ff;font-size:10px}
+@media(max-width:700px){.grid,.planes{grid-template-columns:1fr}.planes svg{margin:auto}.options{grid-template-columns:1fr}}
+</style></head><body><main>
+<nav><a href="../index.html">← Polar Middle C</a><a href="../../../index.html">Factory home</a><a href="#archive">100 gates</a><a href="#solver">Root laboratory</a></nav>
+<div class="eyebrow">NATHAN AI • 11 ERAS • 100 GATES • THE MIDDLE C</div>
+<h1>100 <span style="color:var(--gold)">MATHEMATICAL</span> ROOTS</h1>
+<p>Find out what the numbers actually say. Explore ancient mathematical ideas using modern exercises, then test genuine root-finding algorithms at the Middle C.</p>
+<section class="panel planes" aria-label="Head, gut, soles and numerical connections">
+<svg width="230" height="250" viewBox="0 0 230 250" role="img" aria-label="Stick figure: head Above C, gut Middle C, soles Below C; hands and feet have coordinate labels">
+<g fill="none" stroke="#7fe4fd" stroke-width="5" stroke-linecap="round"><circle cx="110" cy="35" r="22"/><path d="M110 58V147M110 77L52 112M110 77L169 110M110 147L57 213M110 147L165 213"/></g>
+<circle cx="110" cy="35" r="8" fill="#fbc677"/><circle cx="110" cy="115" r="12" fill="#fbc677"/><circle cx="57" cy="213" r="9" fill="#80ead8"/><circle cx="165" cy="213" r="9" fill="#80ead8"/>
+<text x="140" y="37" class="plane-tag">ABOVE C</text><text x="126" y="121" class="plane-tag">MIDDLE C</text><text x="74" y="240" class="plane-tag">BELOW C</text><text x="14" y="103" class="leg-tag">−X</text><text x="174" y="104" class="leg-tag">+X</text><text x="18" y="217" class="leg-tag">Y₁</text><text x="181" y="217" class="leg-tag">Y₂</text>
+</svg>
+<div><h2>A body of mathematical questions</h2><p><b>HEAD / ABOVE C</b> — predict and form a guess.</p><p><b>GUT / MIDDLE C</b> — compare values and test whether f(x)=0.</p><p><b>SOLES / BELOW C</b> — check inputs, history, notation and evidence.</p><p><b>HANDS + FEET</b> — calculate operations and coordinates.</p><p class="note">The figure expresses your creative C = consciousnesses symbolism. Mathematical zeros do not establish a scientific theory of consciousness.</p></div></section>
+<div class="grid">
+<section id="archive" class="panel"><div class="eyebrow">Timeline challenge</div><h2>The 100 Gates</h2>
+<div class="kpis"><span id="score">0 / 100 cleared</span><span id="gateNo">Gate 1 / 100</span></div>
+<label for="era">Historical era</label><select id="era"></select><label for="gate">Choose one of the 100 numbered gates</label><select id="gate"></select>
+<h3 id="gateTitle"></h3><p class="note" id="gateEra"></p>
+<p>Which <b>modern learning expression</b> belongs with this archived mathematical topic?</p><div id="choices" class="options" role="group" aria-label="Choose mathematical relation"></div>
+<div id="quizResponse" class="report" role="status" aria-live="polite">Choose a formula to test your interpretation.</div>
+<div class="toolbar"><button id="nextGate" class="primary">Next gate →</button><button id="resetProgress">Clear local progress</button></div>
+<details><summary>What counts as history, and what is an adaptation?</summary>
+<p>Your supplied timeline gives 100 numbered positions in 11 eras. Original entries 1–5, 13–20 and 56–65 describe grouped themes, not separately recorded formulas. Their challenges are clearly marked adaptations.</p>
+<p>Many original math expressions were missing from the pasted export. Every displayed expression here is a <b>modern educational reconstruction</b>, not a quotation from an artifact. Dates and first-invention claims require individual verification.</p>
+<p>Two useful independently sourced examples: <a href="https://isaw.nyu.edu/exhibitions/before-pythagoras/items/ybc-7289/" target="_blank" rel="noopener noreferrer">YBC 7289</a> and <a href="https://math.libretexts.org/Bookshelves/Geometry/Elementary_College_Geometry_%28Africk%29/07%3A_Regular_Polygons_and_Circles/7.06%3A_Area_of_a_Circle" target="_blank" rel="noopener noreferrer">Egyptian circle approximation</a>.</p></details>
+</section>
+<section id="solver" class="panel"><div class="eyebrow">Interactive numerical analysis</div><h2>Root Laboratory</h2>
+<label for="problem">Select equation f(x)=0</label><select id="problem"></select>
+<label for="method">Select algorithm</label><select id="method"></select>
+<div class="formula" id="expression"></div>
+<svg id="graph" viewBox="0 0 470 245" role="img" aria-label="Graph of the selected function with a horizontal zero line, root markers and current estimate"></svg>
+<p class="note" id="problemNote"></p>
+<div class="toolbar"><button id="oneStep" class="primary">One iteration</button><button id="runAll">Solve to tolerance</button><button id="resetLab">Reset</button></div>
+<div id="result" class="report" aria-live="polite"></div>
+<div class="line"></div><p class="note">Numerical methods can fail, diverge, or miss roots. Scanning a curve does not prove all roots are found.</p>
+<button id="scan">Scan shown interval</button><div id="scanResult" class="caption" aria-live="polite"></div>
+<details><summary>Show iteration evidence</summary><div style="overflow-x:auto"><table><thead><tr><th>Step</th><th>Guess x</th><th>|f(x)|</th></tr></thead><tbody id="trace"></tbody></table></div></details>
+</section></div>
+<section class="panel"><div class="eyebrow">Two-dimensional mathematics</div><h2>The crossing of two equations</h2>
+<div class="grid"><div><div class="formula">x² + y² − 5 = 0</div><div class="formula" style="margin-top:10px">x − y − 1 = 0</div><p>Newton's method in two dimensions updates (x,y) through a 2 × 2 Jacobian. A valid result satisfies <b>both</b> equations.</p></div><div><p id="vectorReport" class="report" aria-live="polite"></p><div class="toolbar"><button id="vectorStep" class="primary">2D Newton step</button><button id="vectorReset">Reset 2D</button></div><p class="note">This model can generalize to additional dimensions, but each dimension requires equations and defensible solution methods.</p></div></div>
+</section><section class="panel"><h2>Three different meanings of “root”</h2><p><b>Mathematical</b> — a zero satisfying f(x)=0; <b>Linguistic</b> — a historically documented word origin; <b>Symbolic</b> — a proposed creative connection. One does not prove the others.</p><p class="caption">Learning prototype • no advertisements, analytics, registrations or paid unlocks • saved gates only in this browser where permitted.</p></section>
+</main><script src="./catalog.js"></script><script src="./engine.js"></script>
+<script>
+(function(){'use strict';
+const C=window.MiddleCMathCatalog,E=window.MiddleCRootEngine,$=id=>document.getElementById(id);
+let gate=1,answered=false,solver=E.init(),vector={x:1.5,y:.5,iterations:[]},cleared=[];
+try{const parsed=JSON.parse(localStorage.getItem('middle-c-100-cleared')||'[]');if(Array.isArray(parsed))cleared=parsed.filter(n=>Number.isInteger(n)&&n>=1&&n<=100);}catch(e){}
+function save(){try{localStorage.setItem('middle-c-100-cleared',JSON.stringify(cleared));}catch(e){}}
+const eras=[...new Set(C.GATES.map(g=>g.era))];eras.forEach((v,i)=>{const e=document.createElement('option');e.value=String(i);e.textContent=(i+1)+'. '+v;$('era').append(e);});
+C.GATES.forEach(g=>{const e=document.createElement('option');e.value=String(g.id);e.textContent=String(g.id).padStart(3,'0')+' · '+g.title;$('gate').append(e);});
+function showGate(){
+ answered=false;const g=C.GATES[gate-1];$('era').value=String(eras.indexOf(g.era));$('gate').value=String(gate);
+ $('gateNo').textContent='Gate '+gate+' / 100';$('score').textContent=cleared.length+' / 100 cleared';
+ $('gateTitle').textContent=g.title;$('gateEra').textContent=g.era+(g.adapted?' · ADAPTED from grouped source entry':' · Modern exercise notation');
+ $('quizResponse').textContent='Choose the expression you think matches the subject.';$('choices').replaceChildren();
+ C.optionsFor(gate).forEach(expression=>{const btn=document.createElement('button');btn.type='button';btn.textContent=expression;btn.addEventListener('click',()=>{
+  if(answered)return;answered=true;const result=C.check(gate,expression);
+  btn.classList.add(result.correct?'correct':'wrong');
+  for(const candidate of $('choices').children){candidate.disabled=true;if(candidate.textContent===g.formula)candidate.classList.add('correct');}
+  $('quizResponse').textContent=(result.correct?'Correct. ':'Not this time. ')+'Matching expression: '+g.formula+'. Modern classroom notation; not an artifact transcription.'+(g.adapted?' This gate is a present-day practice variant.':'');
+  if(result.correct&&!cleared.includes(gate)){cleared.push(gate);cleared.sort((a,b)=>a-b);save();$('score').textContent=cleared.length+' / 100 cleared';}
+ });$('choices').append(btn);});
+}
+$('era').addEventListener('change',()=>{gate=C.GATES.find(g=>g.era===eras[Number($('era').value)]).id;showGate();});
+$('gate').addEventListener('change',()=>{gate=Number($('gate').value);showGate();});
+$('nextGate').addEventListener('click',()=>{gate=gate===100?1:gate+1;showGate();});
+$('resetProgress').addEventListener('click',()=>{cleared=[];save();showGate();});
+for(const [key,p] of Object.entries(E.PROBLEMS)){const option=document.createElement('option');option.value=key;option.textContent=p.title;$('problem').append(option);}
+for(const method of E.METHODS){const option=document.createElement('option');option.value=method;option.textContent=method;$('method').append(option);}
+function renderGraph(){
+ const p=E.PROBLEMS[solver.key],svg=$('graph'),NS='http://www.w3.org/2000/svg';svg.replaceChildren();
+ const [lo,hi]=p.domain,samples=Array.from({length:201},(_,i)=>({x:lo+(hi-lo)*i/200}));samples.forEach(v=>v.y=p.f(v.x));
+ const absMax=Math.max(1, ...samples.map(v=>Math.abs(v.y)));const yMax=absMax*1.15;
+ const gx=x=>26+418*(x-lo)/(hi-lo),gy=y=>121-95*y/yMax;
+ const draw=(tag,props)=>{const el=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(props))el.setAttribute(k,String(v));svg.append(el);return el;};
+ draw('line',{x1:26,y1:121,x2:445,y2:121,stroke:'#e5cf8a','stroke-width':2});
+ draw('path',{d:samples.map((v,i)=>(i?'L':'M')+gx(v.x).toFixed(2)+' '+gy(v.y).toFixed(2)).join(' '),stroke:'#68dfff','stroke-width':3,fill:'none'});
+ draw('line',{x1:gx(solver.x),y1:17,x2:gx(solver.x),y2:225,stroke:'#fbbd67','stroke-dasharray':'5 5'});
+ draw('circle',{cx:gx(solver.x),cy:gy(p.f(solver.x)),r:5,fill:'#ffcc75'});
+ const label=draw('text',{x:30,y:17,fill:'#d4e8f0','font-size':12});label.textContent='Blue: f(x) • gold: current x • horizontal: zero';
+}
+function showSolver(){
+ const p=E.PROBLEMS[solver.key];$('problem').value=solver.key;$('method').value=solver.method;$('expression').textContent=p.expr;$('problemNote').textContent=p.note;
+ const r=Math.abs(p.f(solver.x));
+ $('result').textContent='Status: '+solver.status+' • x ≈ '+solver.x.toPrecision(10)+' • |f(x)| = '+r.toExponential(3)+' • steps: '+solver.iterations.length+(solver.error?' • '+solver.error:'');
+ $('trace').replaceChildren();for(const item of solver.iterations){const tr=document.createElement('tr');[item.n,item.x.toPrecision(11),item.residual.toExponential(3)].forEach(v=>{const cell=document.createElement('td');cell.textContent=String(v);tr.append(cell);});$('trace').append(tr);}
+ $('oneStep').disabled=solver.status==='converged'||solver.status==='failed';$('runAll').disabled=$('oneStep').disabled;
+ renderGraph();
+}
+function resetSolver(){solver=E.init($('problem').value,$('method').value);$('scanResult').textContent='';showSolver();}
+$('problem').addEventListener('change',resetSolver);$('method').addEventListener('change',resetSolver);
+$('oneStep').addEventListener('click',()=>{solver=E.step(solver);showSolver();});
+$('runAll').addEventListener('click',()=>{while(solver.status!=='converged'&&solver.status!=='failed')solver=E.step(solver);showSolver();});
+$('resetLab').addEventListener('click',resetSolver);
+$('scan').addEventListener('click',()=>{const found=E.isolate(solver.key);$('scanResult').textContent=found.length?found.map(x=>'Possible bracket ['+x.map(v=>v.toFixed(4)).join(', ')+']').join('; '):'No sign change in this sampled interval. This does NOT prove no root exists.';});
+function showVector(){const r=Math.hypot(vector.x**2+vector.y**2-5,vector.x-vector.y-1);$('vectorReport').textContent='x='+vector.x.toPrecision(10)+' • y='+vector.y.toPrecision(10)+' • joint residual='+r.toExponential(3)+' • steps='+vector.iterations.length+' • '+(vector.status||'ready')+(vector.error?' • '+vector.error:'');$('vectorStep').disabled=vector.status==='converged'||vector.status==='failed';}
+$('vectorStep').addEventListener('click',()=>{vector=E.vectorStep(vector);showVector();});$('vectorReset').addEventListener('click',()=>{vector={x:1.5,y:.5,iterations:[]};showVector();});
+showGate();$('problem').value='cubic';$('method').value='hybrid';resetSolver();showVector();
+})();
+</script></body></html>
