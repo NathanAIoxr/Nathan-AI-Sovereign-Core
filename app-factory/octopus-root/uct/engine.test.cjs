@@ -44,13 +44,13 @@ test('uncertainty and fiction boundaries remain labeled',()=>{
  assert.equal(a.accepted,true);assert.match(a.reason,/does not independently verify/i);
  assert.equal(U.reviewClaim({status:'established-math',source:'x'}).route,'cookie-monster-review');
 });
-test('Arduino original foam threshold is mathematically unreachable',()=>{
+test('2560-class controller original foam threshold is mathematically unreachable',()=>{
  const a=U.hardwareAudit();
  assert.equal(a.triggerReachable,false);
  assert.ok(a.maxOriginalToyFoam<a.trigger);
  assert.match(a.interpretation,/cannot detect dark energy/i);
 });
-test('legacy root snapshots load after mounting and retain Cookie Monster behavior',()=>{
+test('legacy root snapshots load after mounting and retain Crumb Reaper behavior',()=>{
  const mounted=U.install(R,R.create()).state,loaded=R.load(R.save(mounted));
  assert.equal(loaded.nodes.length,mounted.nodes.length);
  const invalid=R.attach(loaded,{from:'uct:warp',to:'uct:shield',type:'exact'});

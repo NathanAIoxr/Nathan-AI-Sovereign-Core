@@ -57,3 +57,8 @@ This is a public repository prototype, not a deployed cross-platform autonomous 
 - The graphic's 65-node view is a finite window; the search panel reaches all 216 new positions. Browser-local data persists when available and remains exportable as JSON. The public site does not perform scientific validation, rights certification, cloud AI operation or releases.
 
 Run: `node --test app-factory/octopus-root/engine.test.cjs app-factory/octopus-root/codex.test.cjs`
+
+
+## Sovereign Field Lab
+
+[Open 27 new Root nodes](./sovereign-fields/index.html) · [equations, safety and original naming](./sovereign-fields/README.md). Existing Root dashboard automatically grafts missing nodes and checked symbolic links; preserves concurrent Continuum branches.
