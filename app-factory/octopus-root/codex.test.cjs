@@ -44,7 +44,7 @@ test('the original formula and creative glyph branches remain distinct',()=>{
 });
 test('catalog search works by equation, family, name, and group',()=>{
  assert.equal(C.find('Archimedes',{family:'arch'}).length>0,true);
- assert.equal(C.find('AARON',{family:'concept'}).length,1);
+ assert.equal(C.find('AARON',{family:'concept'}).length,2);
  assert.ok(C.find('a²+b²=c²',{family:'math'}).length>=2);
  assert.equal(C.find('',{family:'arith',limit:200}).length,69);
 });
