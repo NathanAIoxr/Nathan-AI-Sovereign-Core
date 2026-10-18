@@ -33,12 +33,21 @@ for label,device in [('compact',compact),('large',large)]:
     call('xcrun','simctl','bootstatus',uid,'-b')
     call('xcrun','simctl','status_bar',uid,'override','--time','9:41','--dataNetwork','wifi','--wifiMode','active','--wifiBars','3','--batteryState','charged','--batteryLevel','100')
     call('xcrun','simctl','install',uid,app)
+    data=Path(run('xcrun','simctl','get_app_container',uid,'com.nathantabor.stewieandfinn','data'))
+    ready=data/'tmp'/'qa-web-ready.txt'
     folder=Path('dist/visual-qa')/label
     folder.mkdir(parents=True,exist_ok=True)
     (folder/'device.txt').write_text(device['name'])
     for screen in screens:
+        if screen in ['middlec','mirror']: ready.unlink(missing_ok=True)
         call('xcrun','simctl','launch','--terminate-running-process',uid,'com.nathantabor.stewieandfinn','--qa-screen',screen)
-        time.sleep(2)
+        if screen in ['middlec','mirror']:
+            deadline=time.monotonic()+60
+            while not ready.exists() and time.monotonic()<deadline: time.sleep(.25)
+            assert ready.exists(), 'Web puzzle did not finish loading: '+screen
+            assert ready.read_text()=='ready', ready.read_text()
+            time.sleep(1)
+        else: time.sleep(2)
         call('xcrun','simctl','io',uid,'screenshot',str(folder/(screen+'.png')))
     for screen in ['home','polar','playroom','settings']:
         call('xcrun','simctl','launch','--terminate-running-process',uid,'com.nathantabor.stewieandfinn','--qa-screen',screen,'--qa-large-text')

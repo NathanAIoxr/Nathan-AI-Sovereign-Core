@@ -4,6 +4,7 @@ import SwiftUI
 // Original SwiftUI geometry and emoji; no downloaded characters or media.
 
 struct PolarFamilyQuestView: View {
+    @Environment(\.dynamicTypeSize) private var typeSize
     @EnvironmentObject private var progress: MammalProgress
     @AppStorage("mammal.polar.quest.v1") private var savedProgress = ""
     @State private var family = PolarFamilySave()
@@ -17,15 +18,24 @@ struct PolarFamilyQuestView: View {
                                  subtitle: "HO HO HO meets OH OH OH · Two worlds, one magical friendship bridge")
 
                     GameCard {
+                        if typeSize.isAccessibilitySize {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Label("Polar Adventure Progress", systemImage: "star.circle.fill")
+                                    .font(.headline).fixedSize(horizontal: false, vertical: true)
+                                Text("\(family.completed) of 16 chapters").font(.subheadline.monospacedDigit())
+                            }.frame(maxWidth: .infinity, alignment: .leading)
+                        } else {
                         HStack {
                             Label("Polar Adventure Progress", systemImage: "star.circle.fill")
                                 .font(.system(.headline, design: .rounded, weight: .bold))
                             Spacer(minLength: 8)
                             Text("\(family.completed) / 16").font(.headline.monospacedDigit())
                         }
+                        }
                         ProgressView(value: Double(family.completed), total: 16)
                             .tint(.teal)
                             .accessibilityLabel("\(family.completed) of 16 polar chapters completed")
+                        ViewThatFits(in: .horizontal) {
                         HStack {
                             Label("\(family.stars) stars", systemImage: "star.fill")
                                 .foregroundStyle(.orange)
@@ -39,6 +49,11 @@ struct PolarFamilyQuestView: View {
                             }
                         }
                         .font(.caption.bold())
+                        VStack(alignment: .leading, spacing: 8) {
+                            Label("\(family.stars) stars", systemImage: "star.fill").foregroundStyle(.orange)
+                            Text(family.reunionComplete ? "Reunion unlocked!" : "Finish chapters to unlock the reunion")
+                        }.font(.caption.bold()).frame(maxWidth: .infinity, alignment: .leading)
+                        }
                     }
                     GameCard {
                         Text("YOUR THREE CONSCIOUSNESSES")
