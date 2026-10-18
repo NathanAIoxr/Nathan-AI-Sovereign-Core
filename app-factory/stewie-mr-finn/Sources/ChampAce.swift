@@ -17,8 +17,7 @@ struct ChampSnackView: View {
             ScrollView {
                 VStack(spacing: 18) {
                     StoryHeading(title: "Champ's Snack Trail", subtitle: "FATTIE BO DADDY IS ON THE CASE!")
-                    Image("ChampPortrait").resizable().scaledToFill()
-                        .frame(height: 206).clipped().clipShape(RoundedRectangle(cornerRadius: 24))
+                    GameArtwork("ChampPortrait")
                     GameCard {
                         Text("LONG LEGS • SAUSAGE ROLL • SUPER SNIFFER")
                             .font(.caption.bold()).multilineTextAlignment(.center)
@@ -76,6 +75,8 @@ struct AceDanceView: View {
     @EnvironmentObject private var progress: MammalProgress
     @State private var step = 0
     @State private var wiggle = false
+    @AppStorage("mammal.motion.v4") private var motionEnabled = true
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     private let cues = [
         "CALL ACE!", "HEAD TILT", "RIGHT SHOULDER", "RIGHT FOOT",
         "LISTEN TO ACE", "GOOD NIGHT, ACE!"
@@ -93,8 +94,7 @@ struct AceDanceView: View {
             ScrollView {
                 VStack(spacing: 18) {
                     StoryHeading(title: "Ace's Freeze Dance", subtitle: "The sweetest little wildebeest!")
-                    Image("AcePortrait").resizable().scaledToFill()
-                        .frame(height: 210).clipped().clipShape(RoundedRectangle(cornerRadius: 24))
+                    GameArtwork("AcePortrait")
                     GameCard {
                         Text("MOVE • FREEZE • LISTEN").font(.caption.bold()).tracking(2)
                         ProgressView(value: Double(step), total: 6.0).tint(.teal)
@@ -102,9 +102,9 @@ struct AceDanceView: View {
                             .multilineTextAlignment(.center)
                         Image(systemName: step == 4 ? "heart.fill" : "pawprint.fill")
                             .font(.system(size: 86)).foregroundStyle(step == 4 ? Color.pink : Color.orange)
-                            .rotationEffect(.degrees(wiggle ? 8 : -8))
-                            .scaleEffect(wiggle ? 1.13 : 0.91)
-                            .animation(.spring(response: 0.3, dampingFraction: 0.45), value: wiggle)
+                            .rotationEffect(.degrees(motionEnabled && !reduceMotion ? (wiggle ? 8 : -8) : 0))
+                            .scaleEffect(motionEnabled && !reduceMotion && wiggle ? 1.13 : 1.0)
+                            .animation(motionEnabled && !reduceMotion ? .spring(response: 0.3, dampingFraction: 0.45) : nil, value: wiggle)
                             .padding(10)
                         Text(lessons[min(step, 5)]).multilineTextAlignment(.center)
                         if step < 6 {

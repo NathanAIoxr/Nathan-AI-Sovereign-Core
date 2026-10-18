@@ -45,7 +45,7 @@ jobs:
           test "${SDK_VERSION%%.*}" -ge 26 || { echo "Select Xcode with iOS SDK 26 or later"; exit 1; }
       - name: Install XcodeGen
         run: brew install xcodegen
-      - name: Make original offline art
+      - name: Package recovered original artwork
         run: |
           python3 -m venv .venv
           .venv/bin/python -m pip install --disable-pip-version-check pillow
@@ -63,19 +63,20 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             build
-      - name: Build and launch in iPhone Simulator
+      - name: Build and inspect iPhone screens
         run: |
           xcodebuild -project StewieAndMrFinn.xcodeproj \
-            -scheme StewieAndMrFinn -configuration Release \
+            -scheme StewieAndMrFinn -configuration Debug \
             -destination 'generic/platform=iOS Simulator' \
             -derivedDataPath simulator-build CODE_SIGNING_ALLOWED=NO build
-          DEVICE_ID="$(xcrun simctl list devices available -j | python3 -c 'import json,sys; d=json.load(sys.stdin); print(next(v["udid"] for group in d["devices"].values() for v in group if v["name"].startswith("iPhone")))')"
-          xcrun simctl boot "$DEVICE_ID" || true
-          xcrun simctl bootstatus "$DEVICE_ID" -b
-          xcrun simctl install "$DEVICE_ID" simulator-build/Build/Products/Release-iphonesimulator/StewieAndMrFinn.app
-          xcrun simctl launch "$DEVICE_ID" com.nathantabor.stewieandfinn
-          mkdir -p dist
-          xcrun simctl io "$DEVICE_ID" screenshot dist/simulator-launch.png
+          python3 scripts/capture_screens.py
+      - name: Upload visual QA screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: Stewart-Finn-Visual-QA
+          path: app-factory/stewie-mr-finn/dist/visual-qa
+          if-no-files-found: error
+          retention-days: 14
       - name: Package unsigned IPA
         run: |
           mkdir -p Payload dist

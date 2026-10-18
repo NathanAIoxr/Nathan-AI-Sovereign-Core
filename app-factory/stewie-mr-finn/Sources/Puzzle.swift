@@ -15,6 +15,7 @@ struct PuzzleView: View {
             ScrollView {
                 VStack(spacing: 18) {
                     StoryHeading(title: "Puzzle Pals", subtitle: "Find the matching pairs—just like Stewie and Mr. Finn!")
+                    GameArtwork("MirrorArt", ratio: 1.65, label: "Stewart and Mr. Finn solving their coat-pattern puzzle")
                     HStack { StarCount(); Spacer(); Text("\(matches.count / 2) / 6 pairs · \(moves) turns").font(.subheadline.bold()) }
                     GameCard {
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 9), count: 3), spacing: 9) {

@@ -9,7 +9,7 @@ private struct FamilyMember: Identifiable {
 struct FamilyView: View {
     @EnvironmentObject private var progress: MammalProgress
     private let mammals: [FamilyMember] = [
-        .init(id: "Stewart (Stewie)", emoji: "🐈", story: "A black-and-white Paint-horse-patterned cat. His WHITE patches split his BLACK coat. One memorable day he climbed on Nathan's chest and made biscuits!"),
+        .init(id: "Stewart (Stewie)", emoji: "🐈", story: "A black-and-white milk-cow-patterned cat. His WHITE patches split his BLACK coat. One memorable day he climbed on Nathan's chest and made biscuits!"),
         .init(id: "Mr. Finn", emoji: "🐈‍⬛", story: "Stewie's black-and-white cat companion. His markings complement Stewie's, like two halves of a puzzle."),
         .init(id: "Champ (Fattie Bo Daddy)", emoji: "🐕", story: "A beautiful tan, long-legged hound with a round sausage-roll body. He loves food—and sometimes wants to inspect your sleeves!"),
         .init(id: "Ace", emoji: "🐶", story: "A sweet, energetic, long-haired, reddish Australian Shepherd with a white chest, fancy-feathered paws, and a very funny head tilt."),
@@ -22,9 +22,7 @@ struct FamilyView: View {
             ScrollView {
                 VStack(spacing: 14) {
                     StoryHeading(title: "Meet the Mammals", subtitle: "Four furry mammals, two human mammals, one family of stories.")
-                    Image("CatHeroes")
-                        .resizable().scaledToFill().frame(height: 180).clipped()
-                        .clipShape(RoundedRectangle(cornerRadius: 24))
+                    GameArtwork("CatHeroes", label: "Stewart and Mr. Finn")
                     ForEach(mammals) { member in
                         GameCard {
                             HStack(alignment: .top, spacing: 14) {

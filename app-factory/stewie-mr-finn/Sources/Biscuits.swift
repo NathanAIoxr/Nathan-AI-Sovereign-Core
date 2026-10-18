@@ -5,18 +5,15 @@ struct BiscuitView: View {
     @State private var biscuits = 0
     @State private var pulse = false
     private let goal = 12
+    @AppStorage("mammal.motion.v4") private var motionEnabled = true
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         GameBackground {
             ScrollView {
                 VStack(spacing: 20) {
                     StoryHeading(title: "The Biscuit Factory", subtitle: "Stewie's little motor goes PURRRRRR!")
-                    Image("CatHeroes")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 170)
-                        .clipped()
-                        .clipShape(RoundedRectangle(cornerRadius: 22))
+                    GameArtwork("BiscuitArt", label: "Stewart and Mr. Finn making biscuits")
                     GameCard {
                         Text("PURRRRRR...")
                             .font(.system(size: 23, weight: .black, design: .rounded))
@@ -37,8 +34,8 @@ struct BiscuitView: View {
                                 Image(systemName: "pawprint.fill")
                                     .font(.system(size: 96))
                                     .foregroundStyle(.brown)
-                                    .scaleEffect(pulse ? 1.04 : 0.93)
-                                    .animation(.spring(response: 0.2), value: pulse)
+                                    .scaleEffect(motionEnabled && !reduceMotion && pulse ? 1.04 : 1.0)
+                                    .animation(motionEnabled && !reduceMotion ? .spring(response: 0.2) : nil, value: pulse)
                             }
                         }
                         .buttonStyle(.plain)

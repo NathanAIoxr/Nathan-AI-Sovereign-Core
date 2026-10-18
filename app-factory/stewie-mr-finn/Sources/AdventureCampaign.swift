@@ -70,9 +70,7 @@ struct CampaignMapView: View {
                     }
                     ForEach(questWorlds) { world in
                         GameCard {
-                            Image("World\(world.id)")
-                                .resizable().scaledToFill().frame(height: 116).clipped()
-                                .clipShape(RoundedRectangle(cornerRadius: 17))
+                            GameArtwork("World\(world.id)", ratio: 1.65, label: world.name)
                             HStack(spacing: 12) {
                                 Text(world.emoji).font(.system(size: 39))
                                 VStack(alignment: .leading, spacing: 2) {

@@ -15,7 +15,6 @@ struct PolarFamilyQuestView: View {
                 VStack(spacing: 16) {
                     StoryHeading(title: "THE POLAR FAMILY",
                                  subtitle: "HO HO HO meets OH OH OH · Two worlds, one magical friendship bridge")
-                    PolarAuroraCard(region: .north, isWide: true)
 
                     GameCard {
                         HStack {
@@ -137,14 +136,16 @@ struct PolarFamilyQuestView: View {
 
     private func group(for region: PolarRegion) -> some View {
         VStack(spacing: 11) {
-            HStack {
+            PolarAuroraCard(region: region)
+            HStack(alignment: .top) {
                 Text(region.symbol).font(.system(size: 29))
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(region.title).font(.system(.title2, design: .rounded, weight: .black))
+                    Text(region.title).font(.system(.title3, design: .rounded, weight: .black))
+                        .fixedSize(horizontal: false, vertical: true)
                     Text(region.greeting).font(.caption.bold())
                 }
-                Spacer()
-                Text(region == .north ? "CHAPTERS 1–8" : "CHAPTERS 9–16")
+                Spacer(minLength: 0)
+                Text(region == .north ? "1–8" : "9–16")
                     .font(.system(size: 10, weight: .bold))
                     .foregroundStyle(.secondary)
             }
@@ -200,43 +201,8 @@ private struct PolarAuroraCard: View {
     let region: PolarRegion
     var isWide = false
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 27)
-                .fill(LinearGradient(
-                    colors: [.init(red: 0.07, green: 0.29, blue: 0.40),
-                             .init(red: 0.18, green: 0.47, blue: 0.41),
-                             .init(red: 0.23, green: 0.20, blue: 0.53)],
-                    startPoint: .topLeading, endPoint: .bottomTrailing))
-            Circle().fill(Color.mint.opacity(0.45))
-                .frame(width: 150,height: 150)
-                .blur(radius: 47).offset(x: -75, y: -50)
-            Circle().fill(Color.pink.opacity(0.25))
-                .frame(width: 180,height: 150)
-                .blur(radius: 49).offset(x: 110, y: -40)
-            VStack(spacing: 11) {
-                HStack(spacing: 13) {
-                    Text("🎅🐕").font(.system(size: 43))
-                    Image(systemName: "arrow.left.arrow.right")
-                        .font(.title3.bold())
-                        .foregroundStyle(.yellow)
-                    Text("🐈‍⬛ 🐈").font(.system(size: 41))
-                    Image(systemName: "arrow.left.arrow.right")
-                        .font(.title3.bold())
-                        .foregroundStyle(.yellow)
-                    Text("🐈🎁").font(.system(size: 42))
-                }.minimumScaleFactor(0.75)
-                Text("NORTH PAW  ↔  SOUTH PAW")
-                    .font(.system(.headline, design: .rounded, weight: .black))
-                    .foregroundStyle(.white)
-                    .minimumScaleFactor(0.7).lineLimit(1)
-                Text("Mrs Clause Cat’s Workshop • Gifts, puzzles & kindness")
-                    .font(.caption).foregroundStyle(.white.opacity(0.9))
-                    .multilineTextAlignment(.center)
-            }
-            .padding(18)
-        }
-        .frame(height: isWide ? 170 : 145)
-        .accessibilityElement(children: .combine)
+        GameArtwork(region == .north ? "NorthPaw" : "Workshop", ratio: 1.5,
+                    label: region == .north ? "North Paw's snowy village" : "Mrs Clause Cat's Workshop")
     }
 }
 

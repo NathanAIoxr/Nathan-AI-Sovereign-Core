@@ -6,11 +6,52 @@ struct StewieAndMrFinnApp: App {
 
     var body: some Scene {
         WindowGroup {
-            GameHomeView()
+            launchView
                 .environmentObject(progress)
                 .preferredColorScheme(.light)
         }
     }
+    @ViewBuilder private var launchView: some View {
+        #if DEBUG
+        if let index = ProcessInfo.processInfo.arguments.firstIndex(of: "--qa-screen"),
+           ProcessInfo.processInfo.arguments.count > index + 1 {
+            Group {
+                if ProcessInfo.processInfo.arguments[index + 1] == "home" { GameHomeView() }
+                else { NavigationStack { qaScreen(ProcessInfo.processInfo.arguments[index + 1]) } }
+            }
+            .dynamicTypeSize(ProcessInfo.processInfo.arguments.contains("--qa-large-text") ? .accessibility3 : .large)
+        } else { GameHomeView() }
+        #else
+        GameHomeView()
+        #endif
+    }
+    #if DEBUG
+    @ViewBuilder private func qaScreen(_ name: String) -> some View {
+        switch name {
+        case "map": CampaignMapView()
+        case "board": QuestBoardView(levelID: 1)
+        case "polar": PolarFamilyQuestView()
+        case "chapter1": PolarChapterPlayView(chapter: PolarFamilyCatalog.chapter(1)!) { _, _ in }
+        case "workshop": PolarChapterPlayView(chapter: PolarFamilyCatalog.chapter(9)!) { _, _ in }
+        case "reunion": PolarChapterPlayView(chapter: PolarFamilyCatalog.chapter(16)!) { _, _ in }
+        case "lab": MammalChallengeLabView()
+        case "playroom": MammalPlayroomView()
+        case "stories": MammalStoryMomentsView()
+        case "explore": ExploreView()
+        case "puzzle": PuzzleView()
+        case "biscuits": BiscuitView()
+        case "trust": TrustQuizView()
+        case "champ": ChampSnackView()
+        case "ace": AceDanceView()
+        case "middlec": PolarMiddleCView()
+        case "mirror": PawMirrorBridgeView()
+        case "family": FamilyView()
+        case "settings": MammalFamilyGuideView()
+        default: GameHomeView()
+        }
+    }
+    #endif
+
 }
 
 final class MammalProgress: ObservableObject {

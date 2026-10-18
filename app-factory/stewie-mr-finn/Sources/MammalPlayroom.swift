@@ -44,11 +44,9 @@ struct MammalPlayroomView: View {
                         }
                     }
                     GameCard {
-                        Image(worlds[worldIndex].art)
-                            .resizable().scaledToFill().frame(height: 165)
-                            .clipped().clipShape(RoundedRectangle(cornerRadius: 16))
+                        GameArtwork(worlds[worldIndex].art, ratio: 1.5)
                             .accessibilityHidden(true)
-                        Text("Tap a square to place your decoration").font(.headline)
+                        Text("Tap a square to place your decoration").font(.headline).multilineTextAlignment(.center)
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 3), spacing: 8) {
                             ForEach(0..<9, id: \.self) { cell in
                                 Button {
@@ -81,7 +79,7 @@ struct MammalPlayroomView: View {
                     }
                     GameCard {
                         Text("Your sticker box").font(.headline)
-                        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 6), spacing: 8) {
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 48), spacing: 8)], spacing: 8) {
                             ForEach(palette, id: \.self) { sticker in
                                 Button { selectedSticker = sticker } label: {
                                     Text(sticker).font(.system(size: 30))

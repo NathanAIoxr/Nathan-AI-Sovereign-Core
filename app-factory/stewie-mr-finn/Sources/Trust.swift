@@ -27,7 +27,8 @@ struct TrustQuizView: View {
                 VStack(spacing: 19) {
                     StoryHeading(title: "Speak Their Language", subtitle: "Words are only half of a mammal conversation.")
                     if questionIndex < questions.count {
-                        HStack { StarCount(); Spacer(); Text("Question \(questionIndex + 1) / \(questions.count)").font(.subheadline.bold()) }
+                        GameArtwork("BondArt", ratio: 1.65, label: "The mammal family together")
+                    HStack { StarCount(); Spacer(); Text("Question \(questionIndex + 1) / \(questions.count)").font(.subheadline.bold()) }
                         GameCard {
                             Text("🐾  THE MAMMAL BOND")
                                 .font(.system(.caption, design: .rounded, weight: .black))

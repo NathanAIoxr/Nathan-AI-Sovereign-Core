@@ -21,6 +21,7 @@ struct MammalChallengeLabView: View {
             ScrollView {
                 VStack(spacing: 16) {
                     StoryHeading(title: "THE MAMMAL CHALLENGE LAB", subtitle: "Three brand-new ways to play, learn, and discover.")
+                    GameArtwork("MirrorArt", ratio: 1.65)
                     GameCard {
                         Text("Choose a mini-adventure").font(.headline)
                         ForEach(0..<modes.count, id: \.self) { i in
@@ -105,8 +106,7 @@ struct MammalChallengeLabView: View {
         VStack(spacing: 12) {
             Text("Champ is a long-legged tan hound who loves snacks. Which trail holds his DOG-SAFE pretend biscuit?")
                 .multilineTextAlignment(.center)
-            Image("ChampPortrait").resizable().scaledToFill()
-                .frame(height: 132).clipped().clipShape(RoundedRectangle(cornerRadius: 13))
+            GameArtwork("ChampPortrait", ratio: 1.65)
                 .accessibilityHidden(true)
             HStack(spacing: 8) {
                 ForEach(0..<3, id: \.self) { i in
@@ -127,8 +127,7 @@ struct MammalChallengeLabView: View {
 
     private var aceChoices: some View {
         VStack(spacing: 12) {
-            Image("AcePortrait").resizable().scaledToFill()
-                .frame(height: 135).clipped().clipShape(RoundedRectangle(cornerRadius: 13))
+            GameArtwork("AcePortrait", ratio: 1.65)
                 .accessibilityHidden(true)
             Text([
                 "Ace freezes and tilts his head. What's a good first response?",
