@@ -10,21 +10,22 @@ def call(*args):
     subprocess.run(args, check=True, timeout=300 if 'bootstatus' in args else 120)
 
 catalog=json.loads(run('xcrun','simctl','list','devices','available','-j'))
-devices=[v for group in catalog['devices'].values() for v in group if v['name'].startswith('iPhone')]
+groups=[(key,group) for key,group in catalog['devices'].items()
+        if key.startswith('com.apple.CoreSimulator.SimRuntime.iOS-') and any(d['name'].startswith('iPhone') for d in group)]
+groups.sort(key=lambda pair: tuple(int(v) for v in pair[0].split('.iOS-')[1].split('-')))
+assert groups, 'No available iOS simulator runtime'
+runtime_id,group=groups[-1]
+devices=[v for v in group if v['name'].startswith('iPhone')]
 assert devices, 'No available iPhone simulators'
 compact=next((d for d in devices if 'SE' in d['name']), None) or next((d for d in devices if 'Pro' not in d['name'] and 'Plus' not in d['name'] and 'Air' not in d['name']), devices[0])
 large=next((d for d in devices if 'Pro Max' in d['name']), devices[-1])
 # Create a genuine 375-point compact device when the runner only precreates new models.
 if 'SE' not in compact['name']:
-    runtimes=json.loads(run('xcrun','simctl','list','runtimes','-j'))['runtimes']
-    ios=[r for r in runtimes if r.get('isAvailable') and r['identifier'].startswith('com.apple.CoreSimulator.SimRuntime.iOS-')]
-    ios.sort(key=lambda r: tuple(int(v) for v in r['version'].split('.')), reverse=True)
-    if ios:
-        try:
-            uid=run('xcrun','simctl','create','Stewart Finn Compact QA','com.apple.CoreSimulator.SimDeviceType.iPhone-SE-3rd-generation',ios[0]['identifier'])
-            compact={'name':'iPhone SE (3rd generation)','udid':uid}
-        except subprocess.CalledProcessError:
-            print('SE simulator unavailable; using smallest precreated iPhone:', compact['name'])
+    try:
+        uid=run('xcrun','simctl','create','Stewart Finn Compact QA','com.apple.CoreSimulator.SimDeviceType.iPhone-SE-3rd-generation',runtime_id)
+        compact={'name':'iPhone SE (3rd generation)','udid':uid}
+    except subprocess.CalledProcessError:
+        print('SE simulator unavailable; using smallest precreated iPhone:', compact['name'])
 app='simulator-build/Build/Products/Debug-iphonesimulator/StewieAndMrFinn.app'
 screens=['home','map','board','polar','chapter1','workshop','reunion','lab','playroom','stories','explore','puzzle','biscuits','trust','champ','ace','middlec','mirror','family','settings']
 for label,device in [('compact',compact),('large',large)]:
@@ -37,7 +38,7 @@ for label,device in [('compact',compact),('large',large)]:
     ready=data/'tmp'/'qa-web-ready.txt'
     folder=Path('dist/visual-qa')/label
     folder.mkdir(parents=True,exist_ok=True)
-    (folder/'device.txt').write_text(device['name'])
+    (folder/'device.txt').write_text(device['name']+'\n'+runtime_id)
     for screen in screens:
         if screen in ['middlec','mirror']: ready.unlink(missing_ok=True)
         call('xcrun','simctl','launch','--terminate-running-process',uid,'com.nathantabor.stewieandfinn','--qa-screen',screen)
