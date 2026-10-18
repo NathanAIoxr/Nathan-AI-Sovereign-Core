@@ -199,10 +199,14 @@ struct MammalFamilyGuideView: View {
                         Text("Play together. Talk about how Champ, Ace, Stewie and Mr. Finn communicate without human words. Let children pause whenever they like.")
                         Toggle("Allow gentle visual motion", isOn: $motionEnabled)
                         Toggle("Sound when available", isOn: $soundEnabled)
-                        Text("This prototype is playable offline. It has no ads, accounts, chat, purchases, or third-party trackers. Game progress stays locally on the device; deleting the app may erase it.")
+                        Text("This game is playable offline. It has no ads, accounts, chat, purchases, or third-party trackers. Game progress stays locally on the device; deleting the app may erase it.")
                             .font(.footnote)
                         Text("All pets are different. Never encourage children to approach unfamiliar animals without a trusted adult.")
                             .font(.footnote)
+                    }
+                    GameCard {
+                        Text("Privacy").font(.headline)
+                        Text("Stewart & Mr. Finn stores game progress, choices, stickers, and comfort settings on this device. The app does not transmit this information to Nathan Tabor or third parties. It includes no advertising, analytics, account creation, chat, or purchases. It does not request access to contacts, location, camera, or microphone. Removing the app may erase local progress; device backups are managed by your Apple settings.")
                     }
                     GameCard {
                         Text("Conversation starters").font(.headline)

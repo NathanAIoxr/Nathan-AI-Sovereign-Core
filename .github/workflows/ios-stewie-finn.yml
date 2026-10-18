@@ -35,6 +35,10 @@ jobs:
           node --test polar-middle-c/engine.test.cjs
           node --test polar-middle-c/mirror-bridge/engine.test.cjs
           node --test polar-middle-c/math-roots/engine.test.cjs
+      - name: Require submission-compatible SDK
+        run: |
+          SDK_VERSION="$(xcrun --sdk iphoneos --show-sdk-version)"
+          test "${SDK_VERSION%%.*}" -ge 26 || { echo "Select Xcode with iOS SDK 26 or later"; exit 1; }
       - name: Install XcodeGen
         run: brew install xcodegen
       - name: Make original offline art

@@ -2,6 +2,8 @@ import SwiftUI
 
 struct GameHomeView: View {
     @State private var heroFloat = false
+    @AppStorage("mammal.motion.v4") private var motionEnabled = true
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @EnvironmentObject private var progress: MammalProgress
 
     var body: some View {
@@ -23,8 +25,8 @@ struct GameHomeView: View {
                             .resizable()
                             .scaledToFill()
                             .frame(height: 250)
-                            .scaleEffect(heroFloat ? 1.03 : 0.98)
-                            .animation(.easeInOut(duration: 3).repeatForever(autoreverses: true), value: heroFloat)
+                            .scaleEffect(motionEnabled && !reduceMotion && heroFloat ? 1.03 : 1.0)
+                            .animation(motionEnabled && !reduceMotion ? .easeInOut(duration: 3).repeatForever(autoreverses: true) : nil, value: heroFloat)
                             .clipped()
                             .clipShape(RoundedRectangle(cornerRadius: 25))
                             .accessibilityLabel("Two black and white patchwork cats, Stewart and Mr. Finn")
