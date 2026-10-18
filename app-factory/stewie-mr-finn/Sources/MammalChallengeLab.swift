@@ -19,7 +19,8 @@ struct MammalChallengeLabView: View {
 
     var body: some View {
         GameBackground {
-            ScrollView {
+            ScrollViewReader { proxy in
+                ScrollView {
                 VStack(spacing: 16) {
                     StoryHeading(title: "THE MAMMAL CHALLENGE LAB", subtitle: "Three brand-new ways to play, learn, and discover.")
                     GameArtwork("MirrorArt", ratio: 1.65)
@@ -72,7 +73,7 @@ struct MammalChallengeLabView: View {
                                 }
                             }
                         }
-                        Text(message).font(.subheadline).multilineTextAlignment(.center)
+                        Text(message).font(.subheadline).multilineTextAlignment(.center).id("answer-feedback")
                             .accessibilityAddTraits(.updatesFrequently)
                     }
                     GameCard {
@@ -82,6 +83,10 @@ struct MammalChallengeLabView: View {
                     }
                 }.padding(18)
             }
+                .onChange(of: message) { _, _ in
+                    withAnimation { proxy.scrollTo("answer-feedback", anchor: .center) }
+                }
+                }
         }
         .onAppear {
             #if DEBUG

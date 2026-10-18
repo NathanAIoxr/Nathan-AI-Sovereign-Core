@@ -151,10 +151,10 @@ struct QuestBoardView: View {
     private var count: Int { level.difficulty }
     private var rating: Int { mistakes == 0 ? 3 : mistakes < 3 ? 2 : 1 }
 
-    private var nextLevel: Int { (1...48).first { campaign.ratings[$0] == nil } ?? 48 }
     var body: some View {
         GameBackground {
-            ScrollView {
+            ScrollViewReader { proxy in
+                ScrollView {
                 VStack(spacing: 17) {
                     HStack { StarCount(); Spacer(); Text("WORLD \(level.world.id+1) · BOARD \(level.board)").font(.caption.bold()) }
                     StoryHeading(title: level.type.label, subtitle: level.world.name)
@@ -189,7 +189,7 @@ struct QuestBoardView: View {
                         } else {
                             challenge
                             if level.type != .kindness, let feedback {
-                                Text(feedback).font(.headline).multilineTextAlignment(.center)
+                                Text(feedback).font(.headline).multilineTextAlignment(.center).id("answer-feedback")
                                     .accessibilityAddTraits(.updatesFrequently)
                             }
                         }
@@ -201,6 +201,10 @@ struct QuestBoardView: View {
                     }
                 }.padding(18)
             }
+                .onChange(of: feedback) { _, _ in
+                    withAnimation { proxy.scrollTo("answer-feedback", anchor: .center) }
+                }
+                }
         }
         .navigationTitle("Board \(levelID)").navigationBarTitleDisplayMode(.inline)
         .onAppear { if cards.isEmpty { reset() } }
@@ -273,7 +277,7 @@ struct QuestBoardView: View {
                 }.disabled(feedback != nil)
             }
             if let feedback {
-                Text(feedback).font(.footnote).multilineTextAlignment(.center)
+                Text(feedback).font(.footnote).multilineTextAlignment(.center).id("answer-feedback")
                 PawButton(title: answerCorrect ? "Next challenge" : "Try again", symbol: answerCorrect ? "arrow.right" : "arrow.clockwise") {
                     self.feedback = nil
                     if answerCorrect { advance() }

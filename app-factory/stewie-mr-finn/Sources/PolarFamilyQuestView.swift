@@ -280,7 +280,8 @@ struct PolarChapterPlayView: View {
 
     var body: some View {
         GameBackground {
-            ScrollView {
+            ScrollViewReader { proxy in
+                ScrollView {
                 VStack(spacing: 17) {
                     StoryHeading(title: chapter.title,
                                  subtitle: chapter.region.title + " · with " + chapter.guide)
@@ -365,6 +366,7 @@ struct PolarChapterPlayView: View {
                                 .background(Color.mint.opacity(0.17),
                                             in:RoundedRectangle(cornerRadius:17))
                                 .accessibilityElement(children:.contain)
+                                .id("answer-feedback")
                             }
                         }
                     }
@@ -374,6 +376,10 @@ struct PolarChapterPlayView: View {
                 }
                 .padding(18)
             }
+                .onChange(of: selected) { _, _ in
+                    withAnimation { proxy.scrollTo("answer-feedback", anchor: .center) }
+                }
+                }
         }
         .navigationTitle(chapter.title)
         .navigationBarTitleDisplayMode(.inline)

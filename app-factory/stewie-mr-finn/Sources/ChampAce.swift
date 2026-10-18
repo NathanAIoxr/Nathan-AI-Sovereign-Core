@@ -14,7 +14,8 @@ struct ChampSnackView: View {
     private let foods = ["🥕", "🦴", "🍎", "🫐", "🥣"]
     var body: some View {
         GameBackground {
-            ScrollView {
+            ScrollViewReader { proxy in
+                ScrollView {
                 VStack(spacing: 18) {
                     StoryHeading(title: "Champ's Snack Trail", subtitle: "FATTIE BO DADDY IS ON THE CASE!")
                     GameArtwork("ChampPortrait")
@@ -46,7 +47,7 @@ struct ChampSnackView: View {
                             }
                             if chosen != nil {
                                 Text(chosen == (round + 1) % 3 ? "You found the pretend snack! 🐾" : "That is a sock or toy. Look for the food picture. Ask a grown-up about real dog treats.")
-                                    .font(.headline)
+                                    .font(.headline).multilineTextAlignment(.center).id("answer-feedback")
                                 PawButton(title: chosen == (round + 1) % 3 ? "Next sniff!" : "Try again", symbol: "arrow.right") {
                                     guard chosen == (round + 1) % 3 else { chosen = nil; return }
                                     chosen = nil; round += 1
@@ -68,6 +69,10 @@ struct ChampSnackView: View {
                     }
                 }.padding(18)
             }
+                .onChange(of: chosen) { _, _ in
+                    withAnimation { proxy.scrollTo("answer-feedback", anchor: .center) }
+                }
+                }
         }.navigationTitle("Champ's Snack Trail").navigationBarTitleDisplayMode(.inline)
     }
 }
