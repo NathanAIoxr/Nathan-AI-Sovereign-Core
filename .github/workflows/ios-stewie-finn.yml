@@ -68,7 +68,8 @@ jobs:
           xcodebuild -project StewieAndMrFinn.xcodeproj \
             -scheme StewieAndMrFinn -configuration Debug \
             -destination 'generic/platform=iOS Simulator' \
-            -derivedDataPath simulator-build CODE_SIGNING_ALLOWED=NO build
+            -derivedDataPath simulator-build CODE_SIGNING_ALLOWED=NO \
+            ARCHS="$(uname -m)" ONLY_ACTIVE_ARCH=YES build
           python3 scripts/capture_screens.py
       - name: Upload visual QA screenshots
         uses: actions/upload-artifact@v4

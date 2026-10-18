@@ -4,16 +4,27 @@ import json, subprocess, time
 from pathlib import Path
 
 def run(*args):
-    return subprocess.check_output(args, text=True).strip()
+    return subprocess.check_output(args, text=True, timeout=120).strip()
 
 def call(*args):
-    subprocess.run(args, check=True)
+    subprocess.run(args, check=True, timeout=300 if 'bootstatus' in args else 120)
 
 catalog=json.loads(run('xcrun','simctl','list','devices','available','-j'))
 devices=[v for group in catalog['devices'].values() for v in group if v['name'].startswith('iPhone')]
 assert devices, 'No available iPhone simulators'
 compact=next((d for d in devices if 'SE' in d['name']), None) or next((d for d in devices if 'Pro' not in d['name'] and 'Plus' not in d['name'] and 'Air' not in d['name']), devices[0])
 large=next((d for d in devices if 'Pro Max' in d['name']), devices[-1])
+# Create a genuine 375-point compact device when the runner only precreates new models.
+if 'SE' not in compact['name']:
+    runtimes=json.loads(run('xcrun','simctl','list','runtimes','-j'))['runtimes']
+    ios=[r for r in runtimes if r.get('isAvailable') and r['identifier'].startswith('com.apple.CoreSimulator.SimRuntime.iOS-')]
+    ios.sort(key=lambda r: tuple(int(v) for v in r['version'].split('.')), reverse=True)
+    if ios:
+        try:
+            uid=run('xcrun','simctl','create','Stewart Finn Compact QA','com.apple.CoreSimulator.SimDeviceType.iPhone-SE-3rd-generation',ios[0]['identifier'])
+            compact={'name':'iPhone SE (3rd generation)','udid':uid}
+        except subprocess.CalledProcessError:
+            print('SE simulator unavailable; using smallest precreated iPhone:', compact['name'])
 app='simulator-build/Build/Products/Debug-iphonesimulator/StewieAndMrFinn.app'
 screens=['home','map','board','polar','chapter1','workshop','reunion','lab','playroom','stories','explore','puzzle','biscuits','trust','champ','ace','middlec','mirror','family','settings']
 for label,device in [('compact',compact),('large',large)]:
@@ -33,5 +44,12 @@ for label,device in [('compact',compact),('large',large)]:
         call('xcrun','simctl','launch','--terminate-running-process',uid,'com.nathantabor.stewieandfinn','--qa-screen',screen,'--qa-large-text')
         time.sleep(2)
         call('xcrun','simctl','io',uid,'screenshot',str(folder/(screen+'-large-text.png')))
+    for target,large_text in [('partners',False),('polar',False),('activities',False),('partners',True),('activities',True)]:
+        args=['xcrun','simctl','launch','--terminate-running-process',uid,'com.nathantabor.stewieandfinn','--qa-screen','home','--qa-scroll',target]
+        if large_text: args.append('--qa-large-text')
+        call(*args)
+        time.sleep(2)
+        suffix='-large-text' if large_text else ''
+        call('xcrun','simctl','io',uid,'screenshot',str(folder/('home-'+target+suffix+'.png')))
     call('xcrun','simctl','shutdown',uid)
-print('Captured 48 actual simulator screens; review pixels before delivering.')
+print('Captured 58 actual simulator screens, including scrolled home sections; review pixels before delivering.')

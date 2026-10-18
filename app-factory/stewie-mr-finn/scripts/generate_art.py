@@ -15,7 +15,8 @@ def asset(name, image, icon=False):
     filename = name + ('.png' if icon else '.jpg')
     image = image.convert('RGB')
     if icon:
-        ImageOps.fit(image, (1024, 1024)).save(folder / filename, optimize=True)
+        # Preserve both complete faces in the square icon instead of clipping eyes.
+        ImageOps.pad(image, (1024, 1024), color='#edca83').save(folder / filename, optimize=True)
     else:
         image.save(folder / filename, quality=95, optimize=True)
     entry = {'filename': filename, 'idiom': 'universal'}

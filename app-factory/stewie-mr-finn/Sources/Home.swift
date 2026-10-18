@@ -7,6 +7,7 @@ struct GameHomeView: View {
     var body: some View {
         NavigationStack {
             GameBackground {
+                ScrollViewReader { scroll in
                 ScrollView {
                     VStack(alignment: .leading, spacing: 22) {
                         HStack(alignment: .center) {
@@ -47,7 +48,7 @@ struct GameHomeView: View {
                             } else {
                                 HStack(alignment: .top, spacing: 10) { catChoices }
                             }
-                        }
+                        }.id("partners")
 
                         VStack(alignment: .leading, spacing: 12) {
                             sectionTitle("A little Christmas magic", detail: "16 chapters · 48 new challenges")
@@ -67,7 +68,7 @@ struct GameHomeView: View {
                                     }
                                 }.padding(14).background(.white, in: RoundedRectangle(cornerRadius: 24))
                             }.buttonStyle(.plain).accessibilityIdentifier("home.polar")
-                        }
+                        }.id("polar")
 
                         VStack(alignment: .leading, spacing: 10) {
                             sectionTitle("Pick your next adventure", detail: "Play at your own pace")
@@ -84,7 +85,7 @@ struct GameHomeView: View {
                             adventureLink("waveform", "HO ↔ OH · Middle C", "Listen, reflect & discover", to: PolarMiddleCView())
                             adventureLink("arrow.left.arrow.right", "PAWS ⇄ SWAP", "Cross the Mirror Bridge", to: PawMirrorBridgeView())
                             adventureLink("person.3.fill", "Meet the Mammal Family", "Six mammals. One family.", to: FamilyView())
-                        }
+                        }.id("activities")
                         adventureLink("slider.horizontal.3", "Grown-Up Corner", "Comfort settings, privacy & family tips", to: MammalFamilyGuideView())
                         Text("By Nathan Tabor, a Human Mammal")
                             .font(.footnote).foregroundStyle(.secondary)
@@ -93,6 +94,16 @@ struct GameHomeView: View {
                     .padding(.horizontal, 18).padding(.top, 12).padding(.bottom, 24)
                 }
                 .scrollIndicators(.hidden)
+                .task {
+                    #if DEBUG
+                    let arguments = ProcessInfo.processInfo.arguments
+                    if let index = arguments.firstIndex(of: "--qa-scroll"), arguments.count > index + 1 {
+                        try? await Task.sleep(for: .milliseconds(300))
+                        scroll.scrollTo(arguments[index + 1], anchor: .top)
+                    }
+                    #endif
+                }
+                }
             }
             .toolbar(.hidden, for: .navigationBar)
         }.tint(.teal)

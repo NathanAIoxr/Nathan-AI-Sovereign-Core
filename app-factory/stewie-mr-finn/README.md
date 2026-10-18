@@ -14,7 +14,7 @@ available width. Biscuit and Ace animations honor the motion preference and syst
 Reduce Motion. The original 48-board campaign and sixteen polar chapters remain.
 
 The cloud Mac workflow builds the Release iPhone binary and a Debug simulator binary,
-then captures 20 screen routes and four large-text routes on two iPhone sizes. These
+then captures 20 screen routes, four large-text routes, and five scrolled home views on two iPhone sizes (58 screenshots). These
 are internal layout checks; physical-device testing, signing and App Store submission
 remain separate steps in [the release checklist](app-store/RELEASE-CHECKLIST.md).
 
