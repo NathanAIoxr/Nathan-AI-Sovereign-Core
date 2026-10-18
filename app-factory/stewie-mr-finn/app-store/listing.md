@@ -2,7 +2,7 @@
 
 Name: Stewart & Mr. Finn
 Subtitle: Two cats. One puzzle.
-Version: 6.1.0 (8)
+Version: 6.2.0 (9)
 Bundle ID: com.nathantabor.stewieandfinn
 Primary category suggestion: Games / Family; secondary: Education
 Keywords: cats,puzzles,kindness,animals,family,adventure,memory,stories,music
@@ -20,10 +20,10 @@ Play offline. No ads, in-app purchases, accounts, or tracking. Progress is saved
 By Nathan Tabor, a Human Mammal.
 
 ## What's new
-North Paw and Mrs Clause Cat’s Workshop adventures, chapter save/resume improvements, clearer privacy information, and improved motion preferences.
+Restored original Stewart and Mr. Finn artwork, refreshed home navigation, improved spacing and larger-text layouts, and motion controls that also apply to the Biscuit Factory and Ace’s Freeze Dance. Includes the North Paw and Mrs Clause Cat’s Workshop adventures.
 
 ## App Review notes
-No login or special setup is required. From Home select Grand Adventure Map for the original campaign, Polar Family for the 16-chapter expansion, and Grown-Up Corner for privacy and comfort settings. Middle C and Mirror Bridge use locally bundled web content. No remote service is required. No purchases, ads, accounts, user content sharing, or tracking are included.
+No login or special setup is required. From Home select Let’s go exploring or The Grand Adventure for the original campaign, The Polar Family for the 16-chapter expansion, and Grown-Up Corner for privacy and comfort settings. Middle C and Mirror Bridge use locally bundled web content. No remote service is required. No purchases, ads, accounts, user content sharing, or tracking are included.
 
 ## Fields requiring owner information
 Support URL: publish a working support page with an actual contact method.

@@ -1,10 +1,28 @@
 # The Adventures of Stewart & Mr. Finn 🐾
 
+## Version 6.2 — recovered artwork and iPhone layout
+
+Restores the existing labeled game-showcase cats, original Mrs Clause Cat’s Workshop,
+North Paw, Champ and Ace family artwork. The committed source masters and recovered
+inventory are recorded in [Artwork/README.md](Artwork/README.md). The build packages
+those existing images; it no longer draws placeholder cats or generates new markings.
+
+Home has a clearer primary adventure button, consistent portrait selection, and grouped
+activities. Bounded image viewports prevent oversized bitmaps from widening scroll
+views. Headings wrap, large-text cat choices stack, and the sticker palette adapts to
+available width. Biscuit and Ace animations honor the motion preference and system
+Reduce Motion. The original 48-board campaign and sixteen polar chapters remain.
+
+The cloud Mac workflow builds the Release iPhone binary and a Debug simulator binary,
+then captures 20 screen routes and four large-text routes on two iPhone sizes. These
+are internal layout checks; physical-device testing, signing and App Store submission
+remain separate steps in [the release checklist](app-store/RELEASE-CHECKLIST.md).
+
 ## Version 6 — Full Polar Family native adventure
 
-The iPhone app now includes a **native, offline, sixteen-chapter Polar Family campaign** with **48 individually written challenges** (three per chapter), two original regions (North Paw and Mrs Clause Cat’s Workshop), the HO/OH cast, chapter locks/unlocks, star ratings and progress persistence, story screens, an animal-family encyclopedia, and direct links to the two previously implemented word/mirror games. Start from **THE POLAR FAMILY · 16 CHAPTERS** on the app home screen. The native SwiftUI implementation is in `Sources/PolarFamilyQuestView.swift` and its independently testable Foundation-only rules, story catalogue and save codec are in `Sources/PolarFamilyQuestCore.swift`. The original 48-board campaign, saved stars and all prior activities remain separate and unchanged; the reunion grants a one-time 30-star main-game achievement. This version contains 16 **new** playable polar chapters, not 16 additional boards in the original campaign.
+The iPhone app now includes a **native, offline, sixteen-chapter Polar Family campaign** with **48 individually written challenges** (three per chapter), two original regions (North Paw and Mrs Clause Cat’s Workshop), the HO/OH cast, chapter locks/unlocks, star ratings and progress persistence, story screens, an animal-family encyclopedia, and direct links to the two previously implemented word/mirror games. Start from **The Polar Family** on the app home screen. The native SwiftUI implementation is in `Sources/PolarFamilyQuestView.swift` and its independently testable Foundation-only rules, story catalogue and save codec are in `Sources/PolarFamilyQuestCore.swift`. The original 48-board campaign, saved stars and all prior activities remain separate and unchanged; the reunion grants a one-time 30-star main-game achievement. This version contains 16 **new** playable polar chapters, not 16 additional boards in the original campaign.
 
-**Testing:** `swiftc -swift-version 5 -o /tmp/polar-quest-check Sources/PolarFamilyQuestCore.swift Tests/main.swift && /tmp/polar-quest-check` validates the entire native catalogue, unlocking, achievements and saved data. The unsigned iPhone GitHub Actions workflow runs these native tests and the three existing offline web-game suites *before* it builds the Xcode project, generates original art and packages the unsigned IPA. An unsigned IPA still needs proper Apple signing for installation on an ordinary device. See [Version 6 product scope and game guide](./POLAR-FAMILY-APP-V6.md).
+**Testing:** `swiftc -swift-version 5 -o /tmp/polar-quest-check Sources/PolarFamilyQuestCore.swift Tests/main.swift && /tmp/polar-quest-check` validates the entire native catalogue, unlocking, achievements and saved data. The unsigned iPhone GitHub Actions workflow runs these native tests and the three existing offline web-game suites *before* it builds the Xcode project, packages the recovered artwork and unsigned IPA. An unsigned IPA still needs proper Apple signing for installation on an ordinary device. See [Version 6 product scope and game guide](./POLAR-FAMILY-APP-V6.md).
 
 **Rights:** The new chapter text, SwiftUI art and puzzles are original to this project, using no licensed film/game characters, external images, or third-party film AI identities. A separate commercial name/mark clearance and Apple signing review are still required; building the source does not establish legal clearance.
 
@@ -46,7 +64,7 @@ Playable **offline** branch in the native iPhone menu and as a [browser game](./
 
 ## Canon and safety
 
-Stewart (Stewie) and Mr. Finn have near-complementary black-and-white Paint-horse-style coats. **Stewart's white splits his black**: this distinctive marking helps tell them apart. Both are intact males. Champ is a tan, neutered, long-legged hound of roughly 40–50 lb with a round body and snack-sleuth personality. Ace is a long-haired, red-brown Australian Shepherd with a white chest, white feet, and long feathering at the paws. Collyn and Nathan live with the four animals, and the featured human mammals are **Nathan and Collyn**. Shawna does not appear in this release.
+Stewart (Stewie) and Mr. Finn have near-complementary black-and-white milk-cow-patterned coats. **Stewart's white splits his black**: this distinctive marking helps tell them apart. Both are intact males. Champ is a tan, neutered, long-legged hound of roughly 40–50 lb with a round body and snack-sleuth personality. Ace is a long-haired, red-brown Australian Shepherd with a white chest, white feet, and long feathering at the paws. Collyn and Nathan live with the four animals, and the featured human mammals are **Nathan and Collyn**. Shawna does not appear in this release.
 
 Animal communication in the game is age-appropriate and does **not** equate compliance with trust: frightened or excited pets may ignore familiar cues. Children are instructed to involve a trusted adult with unfamiliar animals.
 
@@ -90,9 +108,9 @@ Once an Apple Developer team, distribution certificate, and matching provisionin
 
 ## Editorial / assets
 
-The game has original artwork generated **offline from Python + Pillow** by `scripts/generate_art.py`. Run the script whenever asset images are missing; GitHub CI regenerates them before XcodeGen. The promotional concept illustrations are visual references only, not evidence of existing game screens or an app already built.
+The game packages recovered project artwork from committed PNG masters using `scripts/generate_art.py`. Run the script whenever the derived asset catalog is missing; GitHub CI does this before XcodeGen. The extracted portraits preserve the markings in the labeled originals. Promotional posters remain concept artwork; the visual-QA artifact contains actual simulator screen captures.
 
-This is a **playable version 2 prototype**, not a complete expansive 3D game or a production App Store release. Test it on an actual iPhone before distribution.
+This is a native SwiftUI release candidate. Test the packaged build on an actual iPhone before distribution.
 
 © 2026 Nathan Tabor. All rights reserved. This project-specific attribution does not change the license of other parts of the hosting repository.
 

@@ -1,4 +1,4 @@
-# Release 6.1.0 (8) — submission gates
+# Release 6.2.0 (9) — submission gates
 
 This source preparation is not a signed or device-tested App Store release.
 
@@ -8,7 +8,9 @@ This source preparation is not a signed or device-tested App Store release.
 - [ ] Run signed workflow on this branch with distribution app-store-connect. It exports an IPA; it does not upload or submit automatically.
 - [ ] Validate signed archive in Xcode/Transporter and upload to App Store Connect; wait for processing.
 - [ ] Test on a physical iPhone through TestFlight: launch in airplane mode, every menu route, original boards, all polar chapters, quit/relaunch mid-chapter, replay reward rules, sticker restoration, sound and motion controls, system Reduce Motion, VoiceOver and large text. Check small-screen layouts.
-- [ ] Verify actual cat markings against approved reference images. Existing generated artwork is not approved by this checklist.
+- [x] Restore the recovered labeled game portraits and original workshop/family scenes; document their sources in Artwork/README.md.
+- [ ] Owner visual sign-off of recovered cat markings on the physical-device build. Restoration is not photographic verification.
+- [ ] Review compact/large simulator screens and large-text routes from the Stewart-Finn-Visual-QA artifact.
 - [ ] Capture genuine release screenshots for device sizes required by App Store Connect.
 - [ ] Publish working public privacy and support pages, adding a real contact method.
 - [ ] Complete listing, review contact, pricing, territories, content rights, export compliance, age-rating and privacy questionnaires. Data Not Collected is appropriate only if the final binary retains the audited offline behavior.
