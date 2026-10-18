@@ -284,11 +284,8 @@ struct PolarChapterPlayView: View {
                 VStack(spacing: 17) {
                     StoryHeading(title: chapter.title,
                                  subtitle: chapter.region.title + " · with " + chapter.guide)
-                    Text(chapter.icon).font(.system(size: 72))
-                        .frame(maxWidth:.infinity).padding(22)
-                        .background(chapter.region == .north ? Color.orange.opacity(0.17) : Color.cyan.opacity(0.18),
-                                    in: RoundedRectangle(cornerRadius: 23))
-                        .accessibilityHidden(true)
+                    GameArtwork(chapter.id == 16 ? "BondArt" : (chapter.region == .north ? "NorthPaw" : "Workshop"),
+                                ratio: 1.65, label: chapter.region.title)
                     GameCard {
                         Text(chapter.story)
                             .font(.subheadline)
