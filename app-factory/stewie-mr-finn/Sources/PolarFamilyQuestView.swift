@@ -293,7 +293,7 @@ struct PolarChapterPlayView: View {
                         if isComplete {
                             Label("BRIDGE COMPLETE!", systemImage:"checkmark.seal.fill")
                                 .font(.title2.bold()).foregroundStyle(.teal)
-                            Text("You answered \(numberCorrect) of 3 clues on your first try.")
+                            Text("You explored all three clues. Look at what you learned!")
                                 .multilineTextAlignment(.center)
                             Text(String(repeating:"★",count:max(1,numberCorrect)))
                                 .font(.system(size:50)).foregroundStyle(.orange)
@@ -354,9 +354,10 @@ struct PolarChapterPlayView: View {
                                         .fixedSize(horizontal:false,vertical:true)
                                     Text("Answer: "+question.options[question.correct])
                                         .font(.footnote.bold())
-                                    PawButton(title:questionIndex == 2 ? "Finish This Chapter" : "Next Clue",
+                                    PawButton(title: choice == question.correct ? (questionIndex == 2 ? "Finish This Chapter" : "Next Clue") : "Try this clue again",
                                               symbol:"arrow.right.circle.fill") {
-                                        continuePlaying()
+                                        if choice == question.correct { continuePlaying() }
+                                        else { attempt.retry(in: chapter); savedAttempt = attempt.serialized() }
                                     }
                                 }
                                 .padding(14)
@@ -380,6 +381,12 @@ struct PolarChapterPlayView: View {
             guard !didRestore else { return }
             didRestore = true
             attempt = PolarChapterAttempt.restored(savedAttempt)
+            #if DEBUG
+            if ProcessInfo.processInfo.arguments.contains("--qa-wrong") {
+                attempt = PolarChapterAttempt()
+                attempt.choose((question.correct + 1) % 4)
+            }
+            #endif
             // Recover an interrupted completion; the family award is idempotent.
             if isComplete { onComplete(chapter.id, numberCorrect) }
         }
@@ -396,7 +403,7 @@ struct PolarChapterPlayView: View {
         return option == selected ? .orange.opacity(0.25) : .gray.opacity(0.09)
     }
     private func continuePlaying() {
-        guard selected != nil, !isComplete else { return }
+        guard selected == question.correct, !isComplete else { return }
         attempt.next()
         savedAttempt = attempt.serialized()
         if isComplete { onComplete(chapter.id, numberCorrect) }

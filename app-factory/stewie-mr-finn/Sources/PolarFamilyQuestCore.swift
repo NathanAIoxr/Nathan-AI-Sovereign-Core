@@ -170,6 +170,11 @@ struct PolarChapterAttempt: Codable, Equatable {
         guard !isComplete, answers.count == advanced, (0..<4).contains(option) else { return }
         answers.append(option)
     }
+    mutating func retry(in chapter: PolarChapter) {
+        guard !isComplete, let selected,
+              selected != chapter.puzzles[questionIndex].correct else { return }
+        answers.removeLast()
+    }
     mutating func next() {
         guard !isComplete, answers.count == advanced + 1 else { return }
         advanced += 1

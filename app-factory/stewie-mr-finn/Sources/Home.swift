@@ -23,14 +23,14 @@ struct GameHomeView: View {
                         }
                         VStack(alignment: .leading, spacing: 14) {
                             GameArtwork("CatHeroes", ratio: 1.5, label: "Stewart on the left and Mr. Finn on the right, from the original game artwork")
-                            Text("Two cats. One puzzle.")
+                            Text("Ready for an adventure?")
                                 .font(.system(.title2, design: .rounded, weight: .heavy))
-                            Text("Explore together. Follow your curiosity. Let kindness lead the way.")
+                            Text("1. Pick your cat.  2. Play a little.  3. Learn together.\nThere is no timer. You can always try again.")
                                 .font(.subheadline).foregroundStyle(.secondary)
                             NavigationLink(destination: CampaignMapView()) {
                                 HStack {
                                     Image(systemName: "play.fill")
-                                    Text("Let's go exploring")
+                                    Text("Start or continue my adventure")
                                     Spacer()
                                     Image(systemName: "arrow.right")
                                 }
@@ -71,20 +71,11 @@ struct GameHomeView: View {
                         }.id("polar")
 
                         VStack(alignment: .leading, spacing: 10) {
-                            sectionTitle("Pick your next adventure", detail: "Play at your own pace")
-                            adventureLink("map.fill", "The Grand Adventure", "Six worlds · 48 boards", to: CampaignMapView())
-                            adventureLink("puzzlepiece.extension.fill", "Mammal Challenge Lab", "Patterns, trails & kind choices", to: MammalChallengeLabView())
-                            adventureLink("paintpalette.fill", "The Mammal Playroom", "Make a world of your own", to: MammalPlayroomView())
-                            adventureLink("book.closed.fill", "Storytime Together", "Five family stories to share", to: MammalStoryMomentsView())
-                            adventureLink("leaf.fill", "Explore Puzzlewood", "Find seven hidden treasures", to: ExploreView())
-                            adventureLink("square.grid.2x2.fill", "Puzzle Pals", "Match the mammal pairs", to: PuzzleView())
-                            adventureLink("pawprint.fill", "The Biscuit Factory", "Stewie's happy little bakery", to: BiscuitView())
-                            adventureLink("heart.fill", "Speak Their Language", "Learn kindness & trust", to: TrustQuizView())
-                            adventureLink("magnifyingglass", "Champ’s Snack Trail", "Follow that super sniffer", to: ChampSnackView())
-                            adventureLink("moon.stars.fill", "Ace’s Freeze Dance", "Move, freeze & listen", to: AceDanceView())
-                            adventureLink("waveform", "HO ↔ OH · Middle C", "Listen, reflect & discover", to: PolarMiddleCView())
-                            adventureLink("arrow.left.arrow.right", "PAWS ⇄ SWAP", "Cross the Mirror Bridge", to: PawMirrorBridgeView())
-                            adventureLink("person.3.fill", "Meet the Mammal Family", "Six mammals. One family.", to: FamilyView())
+                            sectionTitle("Something else to play", detail: "Play at your own pace")
+                            adventureLink("puzzlepiece.extension.fill", "Quick games", "Match, count, find and explore", to: ActivityShelfView(shelf: .games))
+                            adventureLink("heart.fill", "Stories & kindness", "Learn how our animal friends feel", to: ActivityShelfView(shelf: .stories))
+                            adventureLink("paintpalette.fill", "Make & move", "Create, bake and dance at your pace", to: ActivityShelfView(shelf: .create))
+                            adventureLink("textformat.abc", "Word adventures", "Longer reading puzzles to share with a grown-up", to: ActivityShelfView(shelf: .words))
                         }.id("activities")
                         adventureLink("slider.horizontal.3", "Grown-Up Corner", "Comfort settings, privacy & family tips", to: MammalFamilyGuideView())
                         Text("By Nathan Tabor, a Human Mammal")
@@ -116,8 +107,8 @@ struct GameHomeView: View {
         }
     }
     @ViewBuilder private var catChoices: some View {
-        catChoice("Stewart", detail: "White splits his black coat", image: "StewartPortrait")
-        catChoice("Mr. Finn", detail: "His other half of the puzzle", image: "FinnPortrait")
+        catChoice("Stewart", detail: "Curious and gentle", image: "StewartPortrait")
+        catChoice("Mr. Finn", detail: "A friend who loves puzzles", image: "FinnPortrait")
     }
     private func catChoice(_ name: String, detail: String, image: String) -> some View {
         let selected = progress.chosenCat == name

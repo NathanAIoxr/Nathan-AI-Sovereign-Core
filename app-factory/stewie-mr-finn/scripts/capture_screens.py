@@ -7,7 +7,7 @@ def run(*args):
     return subprocess.check_output(args, text=True, timeout=120).strip()
 
 def call(*args):
-    subprocess.run(args, check=True, timeout=300 if 'bootstatus' in args else 120)
+    subprocess.run(args, check=True, timeout=300 if ('bootstatus' in args or 'launch' in args) else 120)
 
 catalog=json.loads(run('xcrun','simctl','list','devices','available','-j'))
 groups=[(key,group) for key,group in catalog['devices'].items()
@@ -27,7 +27,7 @@ if 'SE' not in compact['name']:
     except subprocess.CalledProcessError:
         print('SE simulator unavailable; using smallest precreated iPhone:', compact['name'])
 app='simulator-build/Build/Products/Debug-iphonesimulator/StewieAndMrFinn.app'
-screens=['home','map','board','polar','chapter1','workshop','reunion','lab','playroom','stories','explore','puzzle','biscuits','trust','champ','ace','middlec','mirror','family','settings']
+screens=['quick-games','story-shelf','create-shelf','word-shelf','home','map','board','polar','chapter1','workshop','reunion','lab','playroom','stories','explore','puzzle','biscuits','trust','champ','ace','middlec','mirror','family','settings']
 for label,device in [('compact',compact),('large',large)]:
     uid=device['udid']
     subprocess.run(['xcrun','simctl','boot',uid], check=False)
@@ -50,6 +50,10 @@ for label,device in [('compact',compact),('large',large)]:
             time.sleep(1)
         else: time.sleep(2)
         call('xcrun','simctl','io',uid,'screenshot',str(folder/(screen+'.png')))
+    for screen in ['trust','chapter1','lab']:
+        call('xcrun','simctl','launch','--terminate-running-process',uid,'com.nathantabor.stewieandfinn','--qa-screen',screen,'--qa-wrong')
+        time.sleep(2)
+        call('xcrun','simctl','io',uid,'screenshot',str(folder/(screen+'-feedback.png')))
     for screen in ['home','polar','playroom','settings']:
         call('xcrun','simctl','launch','--terminate-running-process',uid,'com.nathantabor.stewieandfinn','--qa-screen',screen,'--qa-large-text')
         time.sleep(2)
@@ -62,4 +66,4 @@ for label,device in [('compact',compact),('large',large)]:
         suffix='-large-text' if large_text else ''
         call('xcrun','simctl','io',uid,'screenshot',str(folder/('home-'+target+suffix+'.png')))
     call('xcrun','simctl','shutdown',uid)
-print('Captured 58 actual simulator screens, including scrolled home sections; review pixels before delivering.')
+print('Captured 72 actual simulator screens, including scrolled home sections; review pixels before delivering.')

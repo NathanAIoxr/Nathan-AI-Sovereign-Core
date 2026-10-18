@@ -81,3 +81,25 @@ for raw in ["bad", "{\"answers\":[4],\"advanced\":0}", "{\"answers\":[],\"advanc
     check(PolarChapterAttempt.restored(raw) == PolarChapterAttempt(), "Malformed checkpoints reset safely")
 }
 print("PASS: chapter interruption, first-answer scoring, restoration and completed checkpoint guards.")
+
+var learning = PolarChapterAttempt()
+let firstClue = northGreeting.puzzles[0]
+learning.choose((firstClue.correct + 1) % 4)
+learning.retry(in: northGreeting)
+check(learning.selected == nil && learning.advanced == 0, "Retry keeps the child on the same clue")
+learning.next()
+check(learning.advanced == 0, "Retry cannot skip an unanswered clue")
+learning = PolarChapterAttempt.restored(learning.serialized())
+learning.choose(firstClue.correct)
+learning.retry(in: northGreeting)
+check(learning.selected == firstClue.correct, "A correct answer cannot be erased by retry")
+learning.next()
+let secondClue = northGreeting.puzzles[1]
+learning.choose((secondClue.correct + 1) % 4)
+learning.retry(in: northGreeting)
+check(learning.answers == [firstClue.correct] && learning.advanced == 1, "Retry preserves earlier learning")
+check(PolarChapterAttempt.restored(learning.serialized()) == learning, "Retry checkpoint survives relaunch")
+var completedLearning = attempt
+completedLearning.retry(in: northGreeting)
+check(completedLearning == attempt, "Completed chapters cannot be reopened by retry")
+print("PASS: gentle retry, no skipped clue, earlier answers and checkpoint compatibility.")

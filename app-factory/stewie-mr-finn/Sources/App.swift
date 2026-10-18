@@ -28,6 +28,10 @@ struct StewieAndMrFinnApp: App {
     #if DEBUG
     @ViewBuilder private func qaScreen(_ name: String) -> some View {
         switch name {
+        case "quick-games": ActivityShelfView(shelf: .games)
+        case "story-shelf": ActivityShelfView(shelf: .stories)
+        case "create-shelf": ActivityShelfView(shelf: .create)
+        case "word-shelf": ActivityShelfView(shelf: .words)
         case "map": CampaignMapView()
         case "board": QuestBoardView(levelID: 1)
         case "polar": PolarFamilyQuestView()

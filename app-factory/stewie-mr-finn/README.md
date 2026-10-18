@@ -1,3 +1,11 @@
+## 6.3.0 — guided play and learning feedback
+
+Home now groups activities into Quick games, Stories & kindness, Make & move, and Word adventures. The adventure map offers the next unfinished puzzle; each board introduces its rules before play. Longer reading activities are labeled for shared play with a grown-up.
+
+Kindness, snack, and Polar questions explain an incorrect answer and invite a retry on the same question. Challenge Lab pauses on success until Next is tapped. Matching, counting, and treasure activities give specific clues instead of silent misses. Polar retry checkpoints preserve previous answers and remain compatible with existing saves. Artwork is unchanged from 6.2.
+
+Validation includes native retry/save regression tests, 26 web checks, Release compilation, and 72 compact/large simulator screenshots including wrong-answer feedback. Physical-device validation and Apple distribution submission remain separate release gates.
+
 # The Adventures of Stewart & Mr. Finn 🐾
 
 ## Version 6.2 — recovered artwork and iPhone layout
