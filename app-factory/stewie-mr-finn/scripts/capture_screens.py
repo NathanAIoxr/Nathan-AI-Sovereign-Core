@@ -7,7 +7,21 @@ def run(*args):
     return subprocess.check_output(args, text=True, timeout=120).strip()
 
 def call(*args):
-    subprocess.run(args, check=True, timeout=300 if ('bootstatus' in args or 'launch' in args) else 120)
+    subprocess.run(args, check=True, timeout=300 if any(part in args for part in ('bootstatus', 'launch', 'install')) else 120)
+
+def install_with_retry(uid, app):
+    # Fresh iOS runtimes may still be finishing migration after bootstatus.
+    for attempt in range(2):
+        try:
+            call('xcrun', 'simctl', 'install', uid, app)
+            return
+        except (subprocess.TimeoutExpired, subprocess.CalledProcessError):
+            if attempt == 1:
+                raise
+            print('Simulator install stalled; rebooting device for one retry', flush=True)
+            subprocess.run(['xcrun', 'simctl', 'shutdown', uid], check=False, timeout=60)
+            subprocess.run(['xcrun', 'simctl', 'boot', uid], check=False, timeout=60)
+            call('xcrun', 'simctl', 'bootstatus', uid, '-b')
 
 catalog=json.loads(run('xcrun','simctl','list','devices','available','-j'))
 groups=[(key,group) for key,group in catalog['devices'].items()
@@ -33,7 +47,7 @@ for label,device in [('compact',compact),('large',large)]:
     subprocess.run(['xcrun','simctl','boot',uid], check=False)
     call('xcrun','simctl','bootstatus',uid,'-b')
     call('xcrun','simctl','status_bar',uid,'override','--time','9:41','--dataNetwork','wifi','--wifiMode','active','--wifiBars','3','--batteryState','charged','--batteryLevel','100')
-    call('xcrun','simctl','install',uid,app)
+    install_with_retry(uid,app)
     data=Path(run('xcrun','simctl','get_app_container',uid,'com.nathantabor.stewieandfinn','data'))
     ready=data/'tmp'/'qa-web-ready.txt'
     folder=Path('dist/visual-qa')/label
