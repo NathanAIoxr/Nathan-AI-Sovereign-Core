@@ -135,6 +135,7 @@ struct QuestBoardView: View {
     let levelID: Int
     @StateObject private var campaign = QuestProgress.shared
     @EnvironmentObject private var overallProgress: MammalProgress
+    @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @State private var round = UUID()
     @State private var mistakes = 0
     @State private var cards: [Int] = []
@@ -316,7 +317,7 @@ struct QuestBoardView: View {
                 feedback = "These pictures are different. Remember their places and try another pair."
                 mistakes += 1; busy = true
                 let token = round
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.85) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + GamePace.restored(paceValue).mismatchRevealSeconds) {
                     guard token == round else { return }
                     shown = []; busy = false
                 }
