@@ -5,6 +5,8 @@ import SwiftUI
 
 struct PolarFamilyQuestView: View {
     @Environment(\.dynamicTypeSize) private var typeSize
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @EnvironmentObject private var progress: MammalProgress
     @AppStorage("mammal.polar.quest.v1") private var savedProgress = ""
     @State private var family = PolarFamilySave()
@@ -89,7 +91,7 @@ struct PolarFamilyQuestView: View {
 
                     GameCard {
                         Button {
-                            withAnimation(.easeInOut(duration: 0.2)) { showFamily.toggle() }
+                            withAnimation(reduceMotion ? nil : .easeInOut(duration: GamePace.restored(paceValue).animationSeconds)) { showFamily.toggle() }
                         } label: {
                             HStack {
                                 Image(systemName: "person.3.sequence.fill")
@@ -262,6 +264,8 @@ struct PolarChapterPlayView: View {
     let chapter: PolarChapter
     let onComplete: (Int, Int) -> Void
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @AppStorage private var savedAttempt: String
     @State private var attempt = PolarChapterAttempt()
     @State private var didRestore = false
@@ -377,7 +381,13 @@ struct PolarChapterPlayView: View {
                 .padding(18)
             }
                 .onChange(of: selected) { _, _ in
-                    withAnimation { proxy.scrollTo("answer-feedback", anchor: .center) }
+                    guard selected != nil else { return }
+                    if reduceMotion { proxy.scrollTo("answer-feedback", anchor: .center) }
+                    else {
+                        withAnimation(.easeInOut(duration: GamePace.restored(paceValue).animationSeconds)) {
+                            proxy.scrollTo("answer-feedback", anchor: .center)
+                        }
+                    }
                 }
                 }
         }
