@@ -6,6 +6,7 @@ struct BiscuitView: View {
     @State private var pulse = false
     private let goal = 12
     @AppStorage("mammal.motion.v4") private var motionEnabled = true
+    @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
@@ -35,7 +36,7 @@ struct BiscuitView: View {
                                     .font(.system(size: 96))
                                     .foregroundStyle(.brown)
                                     .scaleEffect(motionEnabled && !reduceMotion && pulse ? 1.04 : 1.0)
-                                    .animation(motionEnabled && !reduceMotion ? .spring(response: 0.2) : nil, value: pulse)
+                                    .animation(motionEnabled && !reduceMotion ? .spring(response: GamePace.restored(paceValue).animationSeconds) : nil, value: pulse)
                             }
                         }
                         .buttonStyle(.plain)
