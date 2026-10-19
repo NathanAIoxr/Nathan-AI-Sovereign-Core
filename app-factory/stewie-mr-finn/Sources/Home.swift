@@ -27,10 +27,10 @@ struct GameHomeView: View {
                                 .font(.system(.title2, design: .rounded, weight: .heavy))
                             Text("1. Pick your cat.  2. Play a little.  3. Learn together.\nThere is no timer. You can always try again.")
                                 .font(.subheadline).foregroundStyle(.secondary)
-                            NavigationLink(destination: CampaignMapView()) {
+                            NavigationLink(destination: UnifiedAdventureView()) {
                                 HStack {
                                     Image(systemName: "play.fill")
-                                    Text("Start or continue my adventure")
+                                    Text("Enter my one big adventure")
                                     Spacer()
                                     Image(systemName: "arrow.right")
                                 }
