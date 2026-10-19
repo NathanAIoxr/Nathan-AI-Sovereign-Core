@@ -186,6 +186,7 @@ struct MammalStoryMomentsView: View {
 }
 
 struct MammalFamilyGuideView: View {
+    @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @AppStorage("mammal.sound.v4") private var soundEnabled = true
     @AppStorage("mammal.motion.v4") private var motionEnabled = true
     var body: some View {
@@ -196,6 +197,14 @@ struct MammalFamilyGuideView: View {
                     GameCard {
                         Text("Made for joyful, unhurried play").font(.title3.bold())
                         Text("Play together. Talk about how Champ, Ace, Stewie and Mr. Finn communicate without human words. Let children pause whenever they like.")
+                        Picker("Game pace", selection: $paceValue) {
+                            ForEach(GamePace.allCases) { option in
+                                Text(option.title).tag(option.rawValue)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                        Text(GamePace.restored(paceValue).description + ". Questions wait for your tap.")
+                            .font(.footnote).foregroundStyle(.secondary)
                         Toggle("Allow gentle visual motion", isOn: $motionEnabled)
                         Toggle("Sound when available", isOn: $soundEnabled)
                         Text("This game is playable offline. It has no ads, accounts, chat, purchases, or third-party trackers. Game progress stays locally on the device; deleting the app may erase it.")
