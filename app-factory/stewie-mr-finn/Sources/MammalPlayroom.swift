@@ -4,6 +4,7 @@ import SwiftUI
 struct MammalPlayroomView: View {
     @AppStorage("mammal.playroom.world.v4") private var worldIndex = 0
     @AppStorage("mammal.playroom.stickers.v4") private var stickerData = ""
+    @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @State private var selectedSticker = "🐾"
     @State private var stickers: [Int: String] = [:]
     @State private var feedback = "Choose a sticker, then tap anywhere on the board."
@@ -65,7 +66,7 @@ struct MammalPlayroomView: View {
                                 .accessibilityLabel("Garden space \(cell+1), \(stickers[cell] ?? "empty"). Place \(selectedSticker)")
                             }
                         }
-                        .animation(reduceMotion ? nil : .easeInOut(duration: 0.18), value: stickers)
+                        .animation(reduceMotion ? nil : .easeInOut(duration: GamePace.restored(paceValue).animationSeconds), value: stickers)
                         Text(feedback).font(.footnote).multilineTextAlignment(.center)
                         HStack {
                             Button("Start fresh") { stickers = [:]; persist(); feedback = "A fresh canvas!" }
