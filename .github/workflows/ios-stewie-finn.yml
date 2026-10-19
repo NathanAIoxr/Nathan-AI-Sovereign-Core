@@ -42,6 +42,8 @@ jobs:
         run: |
           swiftc -swift-version 5 -o /tmp/game-pace-check Sources/GamePace.swift Tests/GamePaceTests.swift
           /tmp/game-pace-check
+      - name: Verify unified adventure routes and pacing integration
+        run: python3 scripts/check_unified_routes.py
       - name: Verify mirrored web-game integrity (Node)
         run: |
           node --test polar-middle-c/engine.test.cjs
