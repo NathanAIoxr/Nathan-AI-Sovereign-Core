@@ -9,6 +9,8 @@ private struct MammalQuestion {
 
 struct TrustQuizView: View {
     @EnvironmentObject private var progress: MammalProgress
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @State private var questionIndex = 0
     @State private var selected: Int? = nil
     @State private var correctCount = 0
@@ -89,7 +91,13 @@ struct TrustQuizView: View {
                 .padding(18)
             }
                 .onChange(of: selected) { _, _ in
-                    withAnimation { proxy.scrollTo("answer-feedback", anchor: .bottom) }
+                    guard selected != nil else { return }
+                    if reduceMotion { proxy.scrollTo("answer-feedback", anchor: .bottom) }
+                    else {
+                        withAnimation(.easeInOut(duration: GamePace.restored(paceValue).animationSeconds)) {
+                            proxy.scrollTo("answer-feedback", anchor: .bottom)
+                        }
+                    }
                 }
                 }
         }
