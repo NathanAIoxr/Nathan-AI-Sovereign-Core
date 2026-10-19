@@ -22,21 +22,13 @@ struct GameHomeView: View {
                             StarCount()
                         }
                         VStack(alignment: .leading, spacing: 14) {
+                            if typeSize.isAccessibilitySize { adventureStart }
                             GameArtwork("CatHeroes", ratio: 1.5, label: "Stewart on the left and Mr. Finn on the right, from the original game artwork")
                             Text("Ready for an adventure?")
                                 .font(.system(.title2, design: .rounded, weight: .heavy))
                             Text("1. Pick your cat.  2. Play a little.  3. Learn together.\nThere is no timer. You can always try again.")
                                 .font(.subheadline).foregroundStyle(.secondary)
-                            NavigationLink(destination: UnifiedAdventureView()) {
-                                HStack {
-                                    Image(systemName: "play.fill")
-                                    Text("Enter my one big adventure")
-                                    Spacer()
-                                    Image(systemName: "arrow.right")
-                                }
-                                .font(.headline).padding(17).foregroundStyle(.white)
-                                .background(Color.teal, in: RoundedRectangle(cornerRadius: 18))
-                            }.buttonStyle(.plain).accessibilityIdentifier("home.play")
+                            if !typeSize.isAccessibilitySize { adventureStart }
                         }
                         .padding(14)
                         .background(.white, in: RoundedRectangle(cornerRadius: 28))
@@ -98,6 +90,19 @@ struct GameHomeView: View {
             }
             .toolbar(.hidden, for: .navigationBar)
         }.tint(.teal)
+    }
+
+    private var adventureStart: some View {
+        NavigationLink(destination: UnifiedAdventureView()) {
+                    HStack {
+                        Image(systemName: "play.fill")
+                        Text("Enter my one big adventure")
+                        Spacer()
+                        Image(systemName: "arrow.right")
+                    }
+                    .font(.headline).padding(17).foregroundStyle(.white)
+                    .background(Color.teal, in: RoundedRectangle(cornerRadius: 18))
+                }.buttonStyle(.plain).accessibilityIdentifier("home.play")
     }
 
     private func sectionTitle(_ title: String, detail: String) -> some View {
