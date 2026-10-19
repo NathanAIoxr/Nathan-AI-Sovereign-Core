@@ -6,6 +6,7 @@ struct UnifiedAdventureView: View {
     @EnvironmentObject private var progress: MammalProgress
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
+    @AppStorage("mammal.motion.v4") private var motionEnabled = true
     @AppStorage("mammal.polar.quest.v1") private var polarSave = ""
     @State private var campaignCount = 0
     @State private var expandedZone = 0
@@ -78,7 +79,7 @@ struct UnifiedAdventureView: View {
                     ForEach(0..<names.count, id: \.self) { zone in
                         GameCard {
                             Button {
-                                withAnimation(reduceMotion ? nil : .easeInOut(duration: pace.animationSeconds)) {
+                                withAnimation((reduceMotion || !motionEnabled) ? nil : .easeInOut(duration: pace.animationSeconds)) {
                                     expandedZone = expandedZone == zone ? -1 : zone
                                 }
                             } label: {
