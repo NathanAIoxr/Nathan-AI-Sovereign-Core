@@ -82,6 +82,7 @@ struct AceDanceView: View {
     @State private var step = 0
     @State private var wiggle = false
     @AppStorage("mammal.motion.v4") private var motionEnabled = true
+    @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     private let cues = [
         "CALL ACE!", "HEAD TILT", "RIGHT SHOULDER", "RIGHT FOOT",
@@ -110,7 +111,7 @@ struct AceDanceView: View {
                             .font(.system(size: 86)).foregroundStyle(step == 4 ? Color.pink : Color.orange)
                             .rotationEffect(.degrees(motionEnabled && !reduceMotion ? (wiggle ? 8 : -8) : 0))
                             .scaleEffect(motionEnabled && !reduceMotion && wiggle ? 1.13 : 1.0)
-                            .animation(motionEnabled && !reduceMotion ? .spring(response: 0.3, dampingFraction: 0.45) : nil, value: wiggle)
+                            .animation(motionEnabled && !reduceMotion ? .spring(response: GamePace.restored(paceValue).animationSeconds, dampingFraction: 0.55) : nil, value: wiggle)
                             .padding(10)
                         Text(lessons[min(step, 5)]).multilineTextAlignment(.center)
                         if step < 6 {
