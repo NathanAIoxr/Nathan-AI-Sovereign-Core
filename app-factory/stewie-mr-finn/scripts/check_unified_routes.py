@@ -25,7 +25,10 @@ catalog = {
 }
 missing = [name for name, view in catalog.items() if view not in unified]
 assert not missing, "Unlinked game routes: " + ", ".join(missing)
-assert "NavigationLink(destination: UnifiedAdventureView())" in home
+assert home.count("NavigationLink(destination: UnifiedAdventureView())") == 1
+assert "NavigationLink(destination: PolarFamilyQuestView())" not in home
+assert "adventureLink(" not in home
+assert "expandedZone = -1" in unified
 assert "mammal.campaign.v3" in unified
 assert "mammal.polar.quest.v1" in unified
 assert 'GamePace.restored(paceValue)' in unified and 'mammal.pace.v1' in settings
