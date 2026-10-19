@@ -9,7 +9,7 @@ struct UnifiedAdventureView: View {
     @AppStorage("mammal.motion.v4") private var motionEnabled = true
     @AppStorage("mammal.polar.quest.v1") private var polarSave = ""
     @State private var campaignCount = 0
-    @State private var expandedZone = 0
+    @State private var expandedZone = -1
 
     private let names = [
         "Puzzlewood", "Biscuit Hollow", "Finn's Mirror Maze",
@@ -34,27 +34,16 @@ struct UnifiedAdventureView: View {
         GameBackground {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 17) {
-                    StoryHeading(
-                        title: "ONE BIG ADVENTURE",
-                        subtitle: "Every Stewart & Mr. Finn game lives on the same map. Take your time or move quickly."
-                    )
-                    GameArtwork("CatHeroes", ratio: 1.65, label: "The original Stewart and Mr. Finn portrait")
-                    HStack {
-                        Text("Exploring with \(progress.chosenCat)").font(.headline)
+                    HStack(spacing: 10) {
+                        Text("With \(progress.chosenCat)").font(.headline)
                         Spacer(minLength: 8)
                         StarCount()
                     }
-                    .padding(.horizontal, 4)
 
                     GameCard {
-                        Text("Continue your journey").font(.title3.bold())
-                        Text("Your chapters, puzzle boards and stars are preserved between visits.")
-                            .font(.subheadline).multilineTextAlignment(.center)
-                        link("map.fill", "Original adventure — \(campaignCount)/48 boards", CampaignMapView())
-                        link("snowflake", "Polar Family — \(polarCount)/16 chapters", PolarFamilyQuestView())
-                        Text("48 original boards + 48 Polar challenges; the other activities are available below.")
-                            .font(.footnote).foregroundStyle(.secondary)
-                            .multilineTextAlignment(.center)
+                        Text("Continue").font(.title3.bold())
+                        link("map.fill", "Six Worlds · \(campaignCount)/48 boards", CampaignMapView())
+                        link("snowflake", "Polar Family · \(polarCount)/16 chapters", PolarFamilyQuestView())
                     }
 
                     GameCard {
@@ -69,12 +58,12 @@ struct UnifiedAdventureView: View {
                             }
                             .pickerStyle(.menu)
                         }
-                        Text(pace.description + ". Questions never advance without your tap.")
+                        Text("No timers. Every answer waits for you.")
                             .font(.footnote).foregroundStyle(.secondary)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
 
-                    Text("Explore the six worlds")
+                    Text("Explore")
                         .font(.title2.bold()).padding(.horizontal, 5)
                     ForEach(0..<names.count, id: \.self) { zone in
                         GameCard {
@@ -89,8 +78,6 @@ struct UnifiedAdventureView: View {
                                     VStack(alignment: .leading, spacing: 4) {
                                         Text("WORLD \(zone + 1) — " + names[zone])
                                             .font(.headline).foregroundStyle(.primary)
-                                        Text(summaries[zone])
-                                            .font(.footnote).foregroundStyle(.secondary)
                                     }
                                     Spacer(minLength: 0)
                                     Image(systemName: expandedZone == zone ? "chevron.up" : "chevron.down")
@@ -102,13 +89,15 @@ struct UnifiedAdventureView: View {
                             .buttonStyle(.plain)
                             .accessibilityLabel(names[zone] + (expandedZone == zone ? ", collapse" : ", expand"))
                             if expandedZone == zone {
+                                Text(summaries[zone])
+                                    .font(.subheadline).foregroundStyle(.secondary)
                                 GameArtwork("World\(zone)", ratio: 1.8, label: names[zone] + " original artwork")
                                 activities(for: zone)
                             }
                         }
                     }
                     link("slider.horizontal.3", "Grown-Up Corner — comfort & privacy", MammalFamilyGuideView())
-                    Text("One game, locally saved. No ads, accounts, automatic question timers or network required.")
+                    Text("96 campaign challenges. One offline adventure. Saved on your device.")
                         .font(.footnote).foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity).multilineTextAlignment(.center)
                 }
