@@ -8,6 +8,8 @@ enum MammalHaptics {
 
 struct ChampSnackView: View {
     @EnvironmentObject private var progress: MammalProgress
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @State private var round = 0
     @State private var chosen: Int? = nil
     @State private var hits = 0
@@ -70,7 +72,13 @@ struct ChampSnackView: View {
                 }.padding(18)
             }
                 .onChange(of: chosen) { _, _ in
-                    withAnimation { proxy.scrollTo("answer-feedback", anchor: .center) }
+                    guard chosen != nil else { return }
+                    if reduceMotion { proxy.scrollTo("answer-feedback", anchor: .center) }
+                    else {
+                        withAnimation(.easeInOut(duration: GamePace.restored(paceValue).animationSeconds)) {
+                            proxy.scrollTo("answer-feedback", anchor: .center)
+                        }
+                    }
                 }
                 }
         }.navigationTitle("Champ's Snack Trail").navigationBarTitleDisplayMode(.inline)
