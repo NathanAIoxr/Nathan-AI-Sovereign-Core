@@ -135,6 +135,7 @@ struct QuestBoardView: View {
     let levelID: Int
     @StateObject private var campaign = QuestProgress.shared
     @EnvironmentObject private var overallProgress: MammalProgress
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @State private var round = UUID()
     @State private var mistakes = 0
@@ -203,7 +204,13 @@ struct QuestBoardView: View {
                 }.padding(18)
             }
                 .onChange(of: feedback) { _, _ in
-                    withAnimation { proxy.scrollTo("answer-feedback", anchor: .center) }
+                    guard feedback != nil else { return }
+                    if reduceMotion { proxy.scrollTo("answer-feedback", anchor: .center) }
+                    else {
+                        withAnimation(.easeInOut(duration: GamePace.restored(paceValue).animationSeconds)) {
+                            proxy.scrollTo("answer-feedback", anchor: .center)
+                        }
+                    }
                 }
                 }
         }
