@@ -38,6 +38,10 @@ jobs:
         run: |
           swiftc -swift-version 5 -o /tmp/polar-quest-check Sources/PolarFamilyQuestCore.swift Tests/main.swift
           /tmp/polar-quest-check
+      - name: Verify calm, steady and quick game pacing (native Swift)
+        run: |
+          swiftc -swift-version 5 -o /tmp/game-pace-check Sources/GamePace.swift Tests/GamePaceTests.swift
+          /tmp/game-pace-check
       - name: Verify mirrored web-game integrity (Node)
         run: |
           node --test polar-middle-c/engine.test.cjs
