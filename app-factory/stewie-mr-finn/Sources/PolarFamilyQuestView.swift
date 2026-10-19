@@ -11,6 +11,7 @@ struct PolarFamilyQuestView: View {
     @AppStorage("mammal.polar.quest.v1") private var savedProgress = ""
     @State private var family = PolarFamilySave()
     @State private var showFamily = false
+    private var nextChapterID: Int { (1...16).first { family.ratings[$0] == nil } ?? 16 }
 
     var body: some View {
         GameBackground {
@@ -37,6 +38,21 @@ struct PolarFamilyQuestView: View {
                         ProgressView(value: Double(family.completed), total: 16)
                             .tint(.teal)
                             .accessibilityLabel("\(family.completed) of 16 polar chapters completed")
+                        if let chapter = PolarFamilyCatalog.chapter(nextChapterID) {
+                            NavigationLink {
+                                PolarChapterPlayView(chapter: chapter) { id, correct in
+                                    record(chapter: id, correct: correct)
+                                }
+                            } label: {
+                                Label(family.completed == 16 ? "Replay final chapter" : "Play chapter \(nextChapterID)",
+                                      systemImage: "play.fill")
+                                    .font(.headline)
+                                    .frame(maxWidth: .infinity, minHeight: 48)
+                                    .foregroundStyle(.white)
+                                    .background(.teal, in: RoundedRectangle(cornerRadius: 14))
+                            }
+                            .buttonStyle(.plain)
+                        }
                         ViewThatFits(in: .horizontal) {
                         HStack {
                             Label("\(family.stars) stars", systemImage: "star.fill")
