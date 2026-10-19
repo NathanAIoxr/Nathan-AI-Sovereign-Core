@@ -72,7 +72,7 @@ for label,device in [('compact',compact),('large',large)]:
         call('xcrun','simctl','launch','--terminate-running-process',uid,'com.nathantabor.stewieandfinn','--qa-screen',screen,'--qa-large-text')
         time.sleep(2)
         call('xcrun','simctl','io',uid,'screenshot',str(folder/(screen+'-large-text.png')))
-    for target,large_text in [('partners',False),('polar',False),('activities',False),('partners',True),('activities',True)]:
+    for target,large_text in [('partners',False),('settings',False),('partners',True),('settings',True)]:
         args=['xcrun','simctl','launch','--terminate-running-process',uid,'com.nathantabor.stewieandfinn','--qa-screen','home','--qa-scroll',target]
         if large_text: args.append('--qa-large-text')
         call(*args)
@@ -80,4 +80,4 @@ for label,device in [('compact',compact),('large',large)]:
         suffix='-large-text' if large_text else ''
         call('xcrun','simctl','io',uid,'screenshot',str(folder/('home-'+target+suffix+'.png')))
     call('xcrun','simctl','shutdown',uid)
-print('Captured 76 actual simulator screens, including scrolled home sections; review pixels before delivering.')
+print('Captured 74 actual simulator screens, including compact home sections; review pixels before delivering.')
