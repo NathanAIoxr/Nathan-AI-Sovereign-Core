@@ -151,11 +151,6 @@ struct MatchThreeLevelView: View {
                         Text(stage.stageLabel).font(.caption.bold()).foregroundStyle(.secondary)
                     }
                     Text(stage.name).font(.headline).multilineTextAlignment(.center)
-                    Text(stage.story).font(.footnote).foregroundStyle(.secondary).multilineTextAlignment(.center)
-                    Text("MATCH 3 OR MORE • TAP TWO NEIGHBORS OR SWIPE")
-                        .font(.caption.bold())
-                        .multilineTextAlignment(.center)
-                        .accessibilityIdentifier("match3.instructions")
                     if let game {
                         GameCard {
                             HStack(spacing: 8) {
@@ -196,6 +191,18 @@ struct MatchThreeLevelView: View {
                             Text("Score \(game.score) · Swap adjacent pieces · Match 4 for a paw / 5 for a rainbow")
                                 .font(.caption2).foregroundStyle(.secondary).multilineTextAlignment(.center)
                         }
+                        // Put gameplay first on small screens and with large text:
+                        // Story and instructions remain readable below the board.
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("MATCH 3 OR MORE • TAP TWO NEIGHBORS OR SWIPE")
+                                .font(.subheadline.bold())
+                                .accessibilityIdentifier("match3.instructions")
+                            Text(stage.story)
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 8)
                         if game.won {
                             AwardBanner(title: "Level \(level) clear! \(String(repeating: "★", count: game.stars))")
                             if let discovery = stage.discovery {
@@ -325,13 +332,17 @@ struct MatchThreeLevelView: View {
     }
 
     private func load() {
-        let state = MatchThreeSave.restore(saved)
+        var state = MatchThreeSave.restore(saved)
         guard state.unlocked(level) else { return }
-        if let previous = state.round, previous.level == level {
+        if let previous = state.savedRound(for: level) {
             game = previous
             message = "Welcome back. Your exact board and moves have been restored."
         } else if game == nil {
-            game = MatchThreeGame(level: level, extraMoves: MatchThreeComfort.restored(comfortValue).extraMoves)
+            let fresh = MatchThreeGame(level: level, extraMoves: MatchThreeComfort.restored(comfortValue).extraMoves)
+            game = fresh
+            // Save before the first move; leaving immediately must preserve the board.
+            state.saveRound(fresh)
+            saved = state.serialized()
         }
     }
 
@@ -340,7 +351,7 @@ struct MatchThreeLevelView: View {
         game = fresh; selected = nil; hintPartner = nil; armed = nil
         message = "New round. Swap adjacent pieces to collect \(MatchThreeStage.names[fresh.target].lowercased())."
         var state = MatchThreeSave.restore(saved)
-        state.round = fresh
+        state.saveRound(fresh)
         saved = state.serialized()
     }
 
@@ -351,9 +362,9 @@ struct MatchThreeLevelView: View {
             state.finish(next)
             overallProgress.win("match3.level.\(next.level)", reward: next.stars * 5)
         } else if next.lost {
-            state.round = nil
+            state.removeRound(for: next.level)
         } else {
-            state.round = next
+            state.saveRound(next)
         }
         saved = state.serialized()
     }
