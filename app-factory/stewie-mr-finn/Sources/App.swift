@@ -34,6 +34,8 @@ struct StewieAndMrFinnApp: App {
         case "word-shelf": ActivityShelfView(shelf: .words)
         case "map": CampaignMapView()
         case "unified": UnifiedAdventureView()
+        case "match3": MatchThreeAdventureView()
+        case "match3-board": MatchThreeLevelView(level: 1)
         case "board": QuestBoardView(levelID: 1)
         case "polar": PolarFamilyQuestView()
         case "chapter1": PolarChapterPlayView(chapter: PolarFamilyCatalog.chapter(1)!) { _, _ in }
