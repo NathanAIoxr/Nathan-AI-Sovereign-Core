@@ -1,0 +1,72 @@
+name: Stewart and Mr. Finn - Human-Like iPhone Touch Playtest
+
+on:
+  pull_request:
+    paths:
+      - 'app-factory/stewie-mr-finn/**'
+      - '.github/workflows/ios-stewie-finn-human-playtest.yml'
+  push:
+    paths:
+      - 'app-factory/stewie-mr-finn/**'
+      - '.github/workflows/ios-stewie-finn-human-playtest.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: stewart-finn-touch-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  touch-playtest:
+    runs-on: macos-15
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: app-factory/stewie-mr-finn
+    steps:
+      - uses: actions/checkout@v4
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+      - name: Run native engine and 96-stage progression tests
+        run: |
+          swiftc -swift-version 5 -o /tmp/stewart-match-three Sources/PolarFamilyQuestCore.swift Sources/MatchThreeEngine.swift Tests/MatchThreeTests.swift
+          /tmp/stewart-match-three
+      - name: Install XcodeGen and recovered original art dependencies
+        run: |
+          brew install xcodegen
+          python3 -m venv .venv
+          .venv/bin/python -m pip install --disable-pip-version-check pillow
+          .venv/bin/python scripts/generate_art.py
+          xcodegen generate
+      - name: Play on an actual iPhone simulator using XCTest taps, swipes and resume
+        run: |
+          SIM_ID="$(python3 - <<'PY'
+          import json, subprocess
+          data=json.loads(subprocess.check_output(['xcrun','simctl','list','devices','available','-j'], text=True))
+          runtimes=[(k,v) for k,v in data['devices'].items() if k.startswith('com.apple.CoreSimulator.SimRuntime.iOS-')]
+          assert runtimes, 'No iOS simulators'
+          runtimes.sort(key=lambda pair:tuple(int(x) for x in pair[0].split('.iOS-')[1].split('-')))
+          phones=[x for x in runtimes[-1][1] if x['name'].startswith('iPhone')]
+          assert phones, 'No iPhone simulator'
+          print(phones[0]['udid'])
+          PY
+          )"
+          echo "Playing on simulator $SIM_ID"
+          xcodebuild -project StewieAndMrFinn.xcodeproj \
+            -scheme StewieAndMrFinn -configuration Debug \
+            -destination "platform=iOS Simulator,id=$SIM_ID" \
+            -parallel-testing-enabled NO \
+            -derivedDataPath ui-build \
+            -resultBundlePath dist/MatchThreeHumanPlaytest.xcresult \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO test
+      - name: Preserve real simulator UI test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Stewart-Finn-XCTest-Human-Touch
+          path: app-factory/stewie-mr-finn/dist/MatchThreeHumanPlaytest.xcresult
+          if-no-files-found: warn
+          retention-days: 14
