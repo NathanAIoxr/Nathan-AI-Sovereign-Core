@@ -15,6 +15,15 @@
 - Deliberate denials for unsupported payments, bookings, messaging, OAuth and system-wide control.
 - No third-party services have been authenticated; no access to other apps' private data.
 
+## ONE Master Library 101–901 — implemented browser module (2026-10-20)
+
+- The ONE home panel and **MASTER LIBRARY** tab now load [the library module](./library/index.html). This is part of ONE, not an unrelated static archive.
+- Its nine **library shelves** 101–901 are **content navigation only**, independent of the nine ONE engineering divisions listed below.
+- Owner-picked JSON, Markdown or text files are imported to the current browser's IndexedDB; full original bytes remain independently downloadable. Supported owner-only packs include the 6,056-source Totality registry, 333 tracked projects, 133 KJV/faith entries and two documentary works (Amazonian Women and Barnabas).
+- The **private owner archive is NOT stored in public GitHub**. The import pack lives under the owner's ChatGPT Library: `/Main Database/MASTER_LIBRARY_101-901/PRIVATE_ONE_IMPORT_v1/`. Import requires explicit user choice; no automatic ChatGPT Library read or background sync is available in this public site.
+- Metadata search, author-source links, document reading and export are locally implemented. Encryption, cloud identity, cross-device synchronization, full original-byte backup of all source packs, native phone validation and store publication are separate future steps.
+- See [Master Library README](./library/README.md) and `node --test app-factory/one/library/library.test.cjs`.
+
 ## What ONE fundamentally is
 1. **Orchestrator:** Access external services using officially supported APIs, verified user-scoped tokens, App Intents/Shortcuts, explicit user interaction or app/site deep links.
 2. **Replacement:** Offer built-in private modules for tasks, notes, planning, calendar (local first), document/media viewing, projects, routines, search and basic tools.
