@@ -89,6 +89,35 @@ import Foundation
         let persisted = MatchThreeSave.restore(allFirst.serialized())
         precondition(persisted.ratings[1] == allFirst.ratings[1])
         precondition(!MatchThreeSave.restore("bad JSON").unlocked(2))
+        // Regression: an unfinished level must survive visiting another board.
+        // The old 6.4 single-round JSON must continue to open without migration.
+        let first = MatchThreeGame(level: 1, seed: 8123)
+        let second = MatchThreeGame(level: 2, seed: 8124)
+        var switching = MatchThreeSave(ratings: [1: 3], round: nil)
+        switching.saveRound(first)
+        precondition(MatchThreeSave.restore(switching.serialized()).savedRound(for: 1) == first)
+        switching.saveRound(second)
+        let both = MatchThreeSave.restore(switching.serialized())
+        precondition(both.savedRound(for: 1) == first, "Switching levels erased first unfinished game")
+        precondition(both.savedRound(for: 2) == second)
+        var improved = first
+        precondition(improved.swap(improved.hint()!.0, improved.hint()!.1))
+        switching.saveRound(improved)
+        let returned = MatchThreeSave.restore(switching.serialized())
+        precondition(returned.savedRound(for: 1) == improved)
+        precondition(returned.savedRound(for: 2) == second)
+        var backward = MatchThreeSave(ratings: [1: 3], round: second)
+        let legacy = backward.serialized()
+        precondition(MatchThreeSave.restore(legacy).savedRound(for: 2) == second)
+        backward.removeRound(for: 2)
+        precondition(backward.savedRound(for: 2) == nil)
+        // A goal-aware hint must always identify a valid legal swap.
+        for level in [1, 24, 48, 49, 72, 96] {
+            let game = MatchThreeGame(level: level, seed: UInt64(level * 77))
+            let move = game.hint()!
+            var sample = game
+            precondition(sample.swap(move.0, move.1))
+        }
         print("MatchThree tests passed: 96 stages × 6 seeds; \(turnsChecked) legal turns; \(clears) clears; \(boosters) boosters; 96-level novice campaign in \(tries) rounds")
     }
 
