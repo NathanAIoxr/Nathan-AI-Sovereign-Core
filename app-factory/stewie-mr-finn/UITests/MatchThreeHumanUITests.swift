@@ -104,6 +104,34 @@ final class MatchThreeHumanUITests: XCTestCase {
         app.terminate()
     }
 
+    func testLargeTextControlsCanPlayWithoutPreciseFingerSwipes() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--qa-screen", "match3-board",
+                               "--qa-large-text", "--qa-match3-reset",
+                               "--qa-match3-style", "gentle"]
+        app.launch()
+        let tile = app.buttons["match3.tile.0"]
+        XCTAssertTrue(tile.waitForExistence(timeout: 15))
+        XCTAssertTrue(tile.isHittable, "The board must start visible at accessibility text sizes")
+        for direction in ["left", "up", "down", "right"] {
+            let button = app.buttons["match3.move.\(direction)"]
+            XCTAssertTrue(button.exists, "Missing accessible \(direction) control")
+        }
+        let before = moves(app)
+        app.buttons["match3.hint"].tap()
+        let hint = app.staticTexts.matching(
+            NSPredicate(format: "label BEGINSWITH %@", "Swap row ")
+        ).firstMatch
+        XCTAssertTrue(hint.waitForExistence(timeout: 5))
+        if let (a, b) = parseHint(hint.label) {
+            let direction = b == a+1 ? "right" : b == a-1 ? "left" : b == a+7 ? "down" : "up"
+            app.buttons["match3.move.\(direction)"].tap()
+            XCTAssertEqual(moves(app), before-1,
+                           "Large-text arrow control should perform an actual match")
+        }
+        app.terminate()
+    }
+
     func testPlayFullOpeningLevelWithHintsLikeAPlayer() {
         let app = openBoard("gentle")
         var wins = false
