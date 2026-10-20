@@ -1,0 +1,5 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const base=__dirname;
+test('ONE links to existing game and publishing modules',()=>{const home=fs.readFileSync(path.join(base,'index.html'),'utf8');const reg=JSON.parse(fs.readFileSync(path.join(base,'module-registry.json'),'utf8'));for(const m of reg.modules){assert.ok(fs.existsSync(path.join(base,m.path)),m.path);assert.ok(home.includes(m.path.replace('./','./')),m.title)}});
+test('A vs I v6 gameplay remains source-integrated',()=>{const src=fs.readFileSync(path.join(base,'modules/a-vs-i/index.html'),'utf8');assert.match(src,/GAME_DATA/);assert.match(src,/ANIMATION|Animation/);assert.match(src,/Everything|NOTHING/);assert.match(src,/101/);assert.match(src,/<\/html>/i)});
+test('Book preserves author wording and local drafting',()=>{const src=fs.readFileSync(path.join(base,'modules/barnabas/index.html'),'utf8');assert.ok(src.includes('without barnabus there is NO paul'));assert.ok(src.includes('localStorage'));assert.ok(!src.includes('fetch('))});
