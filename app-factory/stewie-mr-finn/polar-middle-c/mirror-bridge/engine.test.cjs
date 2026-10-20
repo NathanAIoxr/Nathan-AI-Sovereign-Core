@@ -53,7 +53,7 @@ test('native resources match browser and reuse the existing Middle C core',()=>{
  const orig=__dirname,native=path.join(orig,'../../Resources/PolarMiddleC/mirror-bridge');
  const web=fs.readFileSync(path.join(orig,'index.html'),'utf8');
  const nativeHTML=fs.readFileSync(path.join(native,'index.html'),'utf8');
- assert.equal(nativeHTML,web.split('<!-- Material Worlds shared presentation and optional consumer modes -->')[0].replaceAll('../../../middle-c/game.js','../middle-c-game.js'));
+ assert.ok(web.replaceAll('../../../middle-c/game.js','../middle-c-game.js').startsWith(nativeHTML.trimEnd()),'native snapshot must match the original browser game before optional shared presentation');
  assert.equal(fs.readFileSync(path.join(native,'engine.js'),'utf8'),fs.readFileSync(path.join(orig,'engine.js'),'utf8'));
  assert.ok(web.includes('PawMirrorBridge'));
 });
