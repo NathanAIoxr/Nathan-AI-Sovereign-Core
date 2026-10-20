@@ -8,8 +8,12 @@ struct StewieAndMrFinnApp: App {
         #if DEBUG
         // Only the simulator test harness may start with a fresh match-3 save.
         // No player save is reset or migrated by production builds.
-        if ProcessInfo.processInfo.arguments.contains("--qa-match3-reset") {
+        let args = ProcessInfo.processInfo.arguments
+        if args.contains("--qa-match3-reset") {
             UserDefaults.standard.removeObject(forKey: "mammal.match3.v1")
+        }
+        if let index = args.firstIndex(of: "--qa-match3-style"), args.count > index + 1 {
+            UserDefaults.standard.set(args[index + 1], forKey: "mammal.match3.comfort.v1")
         }
         #endif
     }
