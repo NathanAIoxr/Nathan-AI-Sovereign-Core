@@ -284,11 +284,19 @@ struct MatchThreeSave: Codable {
         ratings[game.level] = max(ratings[game.level] ?? 0, game.stars)
         removeRound(for: game.level)
     }
+    private struct RatingsOnly: Decodable { let ratings: [Int: Int] }
+
     static func restore(_ string: String) -> MatchThreeSave {
-        guard let data = string.data(using: .utf8),
-              let decoded = try? JSONDecoder().decode(MatchThreeSave.self, from: data) else { return .init() }
-        let validRatings = decoded.ratings.filter { (1...MatchThreeStage.total).contains($0.key) && (1...3).contains($0.value) }
+        guard let data = string.data(using: .utf8) else { return .init() }
+        let decoded = try? JSONDecoder().decode(MatchThreeSave.self, from: data)
+        // Even a damaged board must not erase all of a family's unlocked levels.
+        let recoveredRatings = decoded?.ratings ??
+            (try? JSONDecoder().decode(RatingsOnly.self, from: data).ratings) ?? [:]
+        let validRatings = recoveredRatings.filter {
+            (1...MatchThreeStage.total).contains($0.key) && (1...3).contains($0.value)
+        }
         var fixed = MatchThreeSave(ratings: validRatings, round: nil)
+        guard let decoded = decoded else { return fixed }
         func validRound(_ board: MatchThreeGame) -> Bool {
             (1...MatchThreeStage.total).contains(board.level) &&
             fixed.unlocked(board.level) && board.cells.count == MatchThreeGame.count &&
