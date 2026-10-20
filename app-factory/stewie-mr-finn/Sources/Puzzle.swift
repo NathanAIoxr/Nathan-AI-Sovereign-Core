@@ -2,6 +2,7 @@ import SwiftUI
 
 struct PuzzleView: View {
     @EnvironmentObject private var progress: MammalProgress
+    @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @State private var symbols: [String] = []
     @State private var open: Set<Int> = []
     @State private var matches: Set<Int> = []
@@ -80,7 +81,7 @@ struct PuzzleView: View {
             hint = "These pictures are different. Remember where they are and try another pair."
             locked = true
             let roundID = gameId
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + GamePace.restored(paceValue).mismatchRevealSeconds) {
                 guard roundID == gameId else { return }
                 open = []
                 locked = false

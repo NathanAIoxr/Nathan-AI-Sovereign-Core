@@ -7,7 +7,21 @@ def run(*args):
     return subprocess.check_output(args, text=True, timeout=120).strip()
 
 def call(*args):
-    subprocess.run(args, check=True, timeout=300 if ('bootstatus' in args or 'launch' in args) else 120)
+    subprocess.run(args, check=True, timeout=300 if any(part in args for part in ('bootstatus', 'launch', 'install')) else 120)
+
+def install_with_retry(uid, app):
+    # Fresh iOS runtimes may still be finishing migration after bootstatus.
+    for attempt in range(2):
+        try:
+            call('xcrun', 'simctl', 'install', uid, app)
+            return
+        except (subprocess.TimeoutExpired, subprocess.CalledProcessError):
+            if attempt == 1:
+                raise
+            print('Simulator install stalled; rebooting device for one retry', flush=True)
+            subprocess.run(['xcrun', 'simctl', 'shutdown', uid], check=False, timeout=60)
+            subprocess.run(['xcrun', 'simctl', 'boot', uid], check=False, timeout=60)
+            call('xcrun', 'simctl', 'bootstatus', uid, '-b')
 
 catalog=json.loads(run('xcrun','simctl','list','devices','available','-j'))
 groups=[(key,group) for key,group in catalog['devices'].items()
@@ -27,13 +41,13 @@ if 'SE' not in compact['name']:
     except subprocess.CalledProcessError:
         print('SE simulator unavailable; using smallest precreated iPhone:', compact['name'])
 app='simulator-build/Build/Products/Debug-iphonesimulator/StewieAndMrFinn.app'
-screens=['quick-games','story-shelf','create-shelf','word-shelf','home','map','board','polar','chapter1','workshop','reunion','lab','playroom','stories','explore','puzzle','biscuits','trust','champ','ace','middlec','mirror','family','settings']
+screens=['quick-games','story-shelf','create-shelf','word-shelf','home','unified','match3','match3-board','map','board','polar','chapter1','workshop','reunion','lab','playroom','stories','explore','puzzle','biscuits','trust','champ','ace','middlec','mirror','family','settings']
 for label,device in [('compact',compact),('large',large)]:
     uid=device['udid']
     subprocess.run(['xcrun','simctl','boot',uid], check=False)
     call('xcrun','simctl','bootstatus',uid,'-b')
     call('xcrun','simctl','status_bar',uid,'override','--time','9:41','--dataNetwork','wifi','--wifiMode','active','--wifiBars','3','--batteryState','charged','--batteryLevel','100')
-    call('xcrun','simctl','install',uid,app)
+    install_with_retry(uid,app)
     data=Path(run('xcrun','simctl','get_app_container',uid,'com.nathantabor.stewieandfinn','data'))
     ready=data/'tmp'/'qa-web-ready.txt'
     folder=Path('dist/visual-qa')/label
@@ -54,11 +68,11 @@ for label,device in [('compact',compact),('large',large)]:
         call('xcrun','simctl','launch','--terminate-running-process',uid,'com.nathantabor.stewieandfinn','--qa-screen',screen,'--qa-wrong')
         time.sleep(2)
         call('xcrun','simctl','io',uid,'screenshot',str(folder/(screen+'-feedback.png')))
-    for screen in ['home','polar','playroom','settings']:
+    for screen in ['home','unified','match3','match3-board','polar','playroom','settings']:
         call('xcrun','simctl','launch','--terminate-running-process',uid,'com.nathantabor.stewieandfinn','--qa-screen',screen,'--qa-large-text')
         time.sleep(2)
         call('xcrun','simctl','io',uid,'screenshot',str(folder/(screen+'-large-text.png')))
-    for target,large_text in [('partners',False),('polar',False),('activities',False),('partners',True),('activities',True)]:
+    for target,large_text in [('partners',False),('settings',False),('partners',True),('settings',True)]:
         args=['xcrun','simctl','launch','--terminate-running-process',uid,'com.nathantabor.stewieandfinn','--qa-screen','home','--qa-scroll',target]
         if large_text: args.append('--qa-large-text')
         call(*args)
@@ -66,4 +80,4 @@ for label,device in [('compact',compact),('large',large)]:
         suffix='-large-text' if large_text else ''
         call('xcrun','simctl','io',uid,'screenshot',str(folder/('home-'+target+suffix+'.png')))
     call('xcrun','simctl','shutdown',uid)
-print('Captured 72 actual simulator screens, including scrolled home sections; review pixels before delivering.')
+print('Captured 82 actual simulator screens, including match-three home and board; review pixels before delivering.')

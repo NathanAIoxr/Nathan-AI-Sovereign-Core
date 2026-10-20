@@ -4,6 +4,20 @@ import SwiftUI
 struct StewieAndMrFinnApp: App {
     @StateObject private var progress = MammalProgress()
 
+    init() {
+        #if DEBUG
+        // Only the simulator test harness may start with a fresh match-3 save.
+        // No player save is reset or migrated by production builds.
+        let args = ProcessInfo.processInfo.arguments
+        if args.contains("--qa-match3-reset") {
+            UserDefaults.standard.removeObject(forKey: "mammal.match3.v1")
+        }
+        if let index = args.firstIndex(of: "--qa-match3-style"), args.count > index + 1 {
+            UserDefaults.standard.set(args[index + 1], forKey: "mammal.match3.comfort.v1")
+        }
+        #endif
+    }
+
     var body: some Scene {
         WindowGroup {
             launchView
@@ -33,6 +47,9 @@ struct StewieAndMrFinnApp: App {
         case "create-shelf": ActivityShelfView(shelf: .create)
         case "word-shelf": ActivityShelfView(shelf: .words)
         case "map": CampaignMapView()
+        case "unified": UnifiedAdventureView()
+        case "match3": MatchThreeAdventureView()
+        case "match3-board": MatchThreeLevelView(level: 1)
         case "board": QuestBoardView(levelID: 1)
         case "polar": PolarFamilyQuestView()
         case "chapter1": PolarChapterPlayView(chapter: PolarFamilyCatalog.chapter(1)!) { _, _ in }

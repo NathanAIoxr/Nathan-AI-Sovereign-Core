@@ -3,6 +3,8 @@ import SwiftUI
 /// Three distinct, repeatable activities, with all content and progress stored on device.
 struct MammalChallengeLabView: View {
     @EnvironmentObject private var progress: MammalProgress
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @State private var challenge = 0
     @State private var round = 0
     @State private var successes = 0
@@ -84,7 +86,12 @@ struct MammalChallengeLabView: View {
                 }.padding(18)
             }
                 .onChange(of: message) { _, _ in
-                    withAnimation { proxy.scrollTo("answer-feedback", anchor: .center) }
+                    if reduceMotion { proxy.scrollTo("answer-feedback", anchor: .center) }
+                    else {
+                        withAnimation(.easeInOut(duration: GamePace.restored(paceValue).animationSeconds)) {
+                            proxy.scrollTo("answer-feedback", anchor: .center)
+                        }
+                    }
                 }
                 }
         }

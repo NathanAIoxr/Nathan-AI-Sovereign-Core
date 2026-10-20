@@ -5,10 +5,13 @@ import SwiftUI
 
 struct PolarFamilyQuestView: View {
     @Environment(\.dynamicTypeSize) private var typeSize
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @EnvironmentObject private var progress: MammalProgress
     @AppStorage("mammal.polar.quest.v1") private var savedProgress = ""
     @State private var family = PolarFamilySave()
     @State private var showFamily = false
+    private var nextChapterID: Int { (1...16).first { family.ratings[$0] == nil } ?? 16 }
 
     var body: some View {
         GameBackground {
@@ -35,6 +38,21 @@ struct PolarFamilyQuestView: View {
                         ProgressView(value: Double(family.completed), total: 16)
                             .tint(.teal)
                             .accessibilityLabel("\(family.completed) of 16 polar chapters completed")
+                        if let chapter = PolarFamilyCatalog.chapter(nextChapterID) {
+                            NavigationLink {
+                                PolarChapterPlayView(chapter: chapter) { id, correct in
+                                    record(chapter: id, correct: correct)
+                                }
+                            } label: {
+                                Label(family.completed == 16 ? "Replay final chapter" : "Play chapter \(nextChapterID)",
+                                      systemImage: "play.fill")
+                                    .font(.headline)
+                                    .frame(maxWidth: .infinity, minHeight: 48)
+                                    .foregroundStyle(.white)
+                                    .background(.teal, in: RoundedRectangle(cornerRadius: 14))
+                            }
+                            .buttonStyle(.plain)
+                        }
                         ViewThatFits(in: .horizontal) {
                         HStack {
                             Label("\(family.stars) stars", systemImage: "star.fill")
@@ -89,7 +107,7 @@ struct PolarFamilyQuestView: View {
 
                     GameCard {
                         Button {
-                            withAnimation(.easeInOut(duration: 0.2)) { showFamily.toggle() }
+                            withAnimation(reduceMotion ? nil : .easeInOut(duration: GamePace.restored(paceValue).animationSeconds)) { showFamily.toggle() }
                         } label: {
                             HStack {
                                 Image(systemName: "person.3.sequence.fill")
@@ -262,6 +280,8 @@ struct PolarChapterPlayView: View {
     let chapter: PolarChapter
     let onComplete: (Int, Int) -> Void
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @AppStorage private var savedAttempt: String
     @State private var attempt = PolarChapterAttempt()
     @State private var didRestore = false
@@ -377,7 +397,13 @@ struct PolarChapterPlayView: View {
                 .padding(18)
             }
                 .onChange(of: selected) { _, _ in
-                    withAnimation { proxy.scrollTo("answer-feedback", anchor: .center) }
+                    guard selected != nil else { return }
+                    if reduceMotion { proxy.scrollTo("answer-feedback", anchor: .center) }
+                    else {
+                        withAnimation(.easeInOut(duration: GamePace.restored(paceValue).animationSeconds)) {
+                            proxy.scrollTo("answer-feedback", anchor: .center)
+                        }
+                    }
                 }
                 }
         }

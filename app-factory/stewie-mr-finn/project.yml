@@ -9,8 +9,8 @@ settings:
     SWIFT_VERSION: '5.9'
     TARGETED_DEVICE_FAMILY: '1'
     IPHONEOS_DEPLOYMENT_TARGET: '17.0'
-    MARKETING_VERSION: '6.3.0'
-    CURRENT_PROJECT_VERSION: '10'
+    MARKETING_VERSION: '6.4.0'
+    CURRENT_PROJECT_VERSION: '11'
     CODE_SIGN_STYLE: Automatic
 targets:
   StewieAndMrFinn:
@@ -34,3 +34,23 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         SUPPORTS_MACCATALYST: NO
         SWIFT_EMIT_LOC_STRINGS: YES
+  StewieAndMrFinnUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: UITests
+    dependencies:
+      - target: StewieAndMrFinn
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.nathantabor.stewieandfinn.uitests
+
+schemes:
+  StewieAndMrFinn:
+    build:
+      targets:
+        StewieAndMrFinn: all
+    test:
+      targets:
+        - StewieAndMrFinnUITests
