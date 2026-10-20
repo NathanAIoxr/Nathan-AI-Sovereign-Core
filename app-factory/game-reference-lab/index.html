@@ -105,4 +105,12 @@ fetch('./registry.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP 
  if(data.total_reference_positions!==138||!Array.isArray(data.items)||data.items.length!==138)throw Error('Registry integrity check failed');
  state.items=data.items;renderEntries();
 }).catch(e=>{$('counts').textContent='Unable to load the local registry';$('entries').textContent='Open this page from the Factory website rather than as a standalone file. '+e.message;});
-</script></body></html>
+</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../shared/material-worlds/presentation.css">
+<script src="../shared/material-worlds/presentation.js" defer></script>
+<script src="../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../shared/material-worlds/playground.js" defer></script>
+<script src="../shared/material-worlds/team-engine.js" defer></script>
+<script src="../shared/material-worlds/team-ui.js" defer></script>
+</body></html>

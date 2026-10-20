@@ -13,4 +13,12 @@ function page(){const box=$('cards');box.replaceChildren();for(const r of shown.
 $('box-input').addEventListener('input',drawChars);$('search').addEventListener('input',render);$('type').addEventListener('change',render);$('more').addEventListener('click',()=>{limit+=40;page()});drawChars();
 $('private-catalog').addEventListener('change',async()=>{const file=$('private-catalog').files?.[0];if(!file)return;try{if(file.size>5e6)throw Error('File exceeds 5MB');const result=SovereignPrivateImport.importOwnerCatalog(records,await file.text(),file.name);records=result.records;const z=result.summary;$('total').textContent=records.length;$('private-status').textContent='Imported '+z.originalRows+' rows locally: '+z.upgraded+' private slots revealed, '+z.added+' additional owner records, '+z.ignored+' skipped/duplicates. No upload or persistent storage.';render()}catch(e){$('private-status').textContent='Import failed: '+e.message}});
 fetch('./registry.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Registry unavailable');return r.json()}).then(x=>{if(x.schema!=='tabor.sovereign.public-index.v1')throw Error('Invalid registry');records=x.records;$('total').textContent=x.counts.totalIndexedBoxes;$('games').textContent=x.counts.originalGameFamilies;$('ideas').textContent=x.counts.privateIdeaSlots;$('apps').textContent=x.counts.publicProductModules;render()}).catch(e=>{$('counter').textContent='Could not open registry: '+e.message});
-</script></body></html>
+</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../shared/material-worlds/presentation.css">
+<script src="../shared/material-worlds/presentation.js" defer></script>
+<script src="../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../shared/material-worlds/playground.js" defer></script>
+<script src="../shared/material-worlds/team-engine.js" defer></script>
+<script src="../shared/material-worlds/team-ui.js" defer></script>
+</body></html>

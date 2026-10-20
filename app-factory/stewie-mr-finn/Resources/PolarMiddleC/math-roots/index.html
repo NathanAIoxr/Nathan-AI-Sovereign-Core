@@ -121,4 +121,12 @@ function showVector(){const r=Math.hypot(vector.x**2+vector.y**2-5,vector.x-vect
 $('vectorStep').addEventListener('click',()=>{vector=E.vectorStep(vector);showVector();});$('vectorReset').addEventListener('click',()=>{vector={x:1.5,y:.5,iterations:[]};showVector();});
 showGate();$('problem').value='cubic';$('method').value='hybrid';resetSolver();showVector();
 })();
-</script></body></html>
+</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../../../../shared/material-worlds/presentation.css">
+<script src="../../../../shared/material-worlds/presentation.js" defer></script>
+<script src="../../../../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../../../../shared/material-worlds/playground.js" defer></script>
+<script src="../../../../shared/material-worlds/team-engine.js" defer></script>
+<script src="../../../../shared/material-worlds/team-ui.js" defer></script>
+</body></html>

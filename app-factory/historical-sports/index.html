@@ -5,4 +5,12 @@ $('records').replaceChildren();for(const r of rows){const c=document.createEleme
 const historical=rows.filter(r=>E.assess(r).historical_reference_eligible);for(const r of historical){const o=document.createElement('option');o.value=r.id;o.textContent=r.name;$('anchor').append(o)}
 $('make').onclick=()=>{try{const name=$('club').value.trim();if(!name)throw Error('Enter a name');const r=E.makeExpansion({id:'simulation:'+Date.now(),name,simulation_year:Number($('year').value),legacy_anchor_id:$('anchor').value,note:'Generated for game exploration; not historical and not IP cleared'});rows.push(r);output();$('notice').textContent='Added as GENERATED FILL-IN. No historical or trademark clearance asserted.'}catch(e){$('notice').textContent=e.message}};
 output()})();
-</script></body></html>
+</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../shared/material-worlds/presentation.css">
+<script src="../shared/material-worlds/presentation.js" defer></script>
+<script src="../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../shared/material-worlds/playground.js" defer></script>
+<script src="../shared/material-worlds/team-engine.js" defer></script>
+<script src="../shared/material-worlds/team-ui.js" defer></script>
+</body></html>

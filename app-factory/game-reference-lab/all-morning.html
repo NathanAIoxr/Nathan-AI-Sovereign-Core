@@ -77,4 +77,12 @@ Promise.all(['./morning-additions-238.json','./registry.json'].map(url=>fetch(ur
 .then(([a,b])=>{if(a.count!==238||a.items.length!==238||b.total_reference_positions!==138||b.items.length!==138)throw Error('Integrity check: 238+138 required');
 state.items=[...a.items,...b.items];if(new Set(state.items.map(x=>x.id)).size!==376)throw Error('Duplicate reference IDs');
 draw();}).catch(e=>{E('count').textContent='Catalog failed to load';E('entries').textContent='Use the Factory website to load the complete catalog: '+e.message;});
-</script></body></html>
+</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../shared/material-worlds/presentation.css">
+<script src="../shared/material-worlds/presentation.js" defer></script>
+<script src="../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../shared/material-worlds/playground.js" defer></script>
+<script src="../shared/material-worlds/team-engine.js" defer></script>
+<script src="../shared/material-worlds/team-ui.js" defer></script>
+</body></html>

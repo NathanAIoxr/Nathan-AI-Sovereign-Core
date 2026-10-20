@@ -149,4 +149,12 @@ $('source-export').onclick=()=>{if(!ui.selected){message('Open a record to selec
 $('clear').onclick=async()=>{if(!confirm('Delete ALL locally imported ONE Master Library data in this browser? This cannot be undone. Confirm you have backed up originals.'))return;await clearStores();ui.selected=null;$('details').hidden=true;await refresh();message('Local library cleared. Original files outside this browser were not affected.')};
 openDB().then(async db=>{ui.db=db;await refresh();message(ui.records.length?'Restored '+ui.records.length.toLocaleString()+' local library records.':'Ready. Import your private ONE Library Pack to populate the nine shelves.')}).catch(e=>message('Browser storage unavailable: '+e.message+'. Try a modern browser with IndexedDB enabled.'));
 })();
-</script></body></html>
+</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../../shared/material-worlds/presentation.css">
+<script src="../../shared/material-worlds/presentation.js" defer></script>
+<script src="../../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../../shared/material-worlds/playground.js" defer></script>
+<script src="../../shared/material-worlds/team-engine.js" defer></script>
+<script src="../../shared/material-worlds/team-ui.js" defer></script>
+</body></html>

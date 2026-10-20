@@ -2,3 +2,12 @@
 'use strict';const $=id=>document.getElementById(id);function el(tag,text){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;return e}let archive;function render(){const q=$('query').value.toLocaleLowerCase(),family=$('family').value,section=$('tradition').value,isSections=$('view').value==='sections';const rows=(isSections?archive.sections:archive.records).filter(r=>(!family||r.family===family)&&(!section||(isSections?r.id:r.sectionId)===section)&&JSON.stringify(r).toLocaleLowerCase().includes(q));$('results').replaceChildren();$('status').textContent=rows.length+' matching '+(isSections?'sections':'reference rows')+' · '+archive.records.length+' indexed rows · historical compilation and original fiction';for(const r of rows){const card=el(isSections?'details':'article');if(isSections){card.append(el('summary',r.title),el('pre',r.body))}else{card.append(el('h2',r.originalName));const meta=el('p',r.id+' · '+r.recordType+' · '+r.family+' · '+r.tradition);meta.className='tag';card.append(meta);const list=el('dl');for(const [label,value]of Object.entries(r.fields)){if(label==='\\#')continue;list.append(el('dt',label),el('dd',value))}card.append(list,el('small',r.verificationStatus));const b=el('button','Read complete source section');b.onclick=()=>{$('view').value='sections';$('tradition').value=r.sectionId;$('query').value='';render()};card.append(el('br'),b)}$('results').append(card)}}fetch('./atlas.json').then(r=>{if(!r.ok)throw Error('Archive unavailable');return r.json()}).then(a=>{archive=a;for(const family of [...new Set(a.sections.map(s=>s.family))]){const o=el('option',family);o.value=family;$('family').append(o)}for(const s of a.sections){const o=el('option',s.title);o.value=s.id;$('tradition').append(o)}for(const id of ['query','family','tradition','view'])$(id).addEventListener(id==='query'?'input':'change',render);render()}).catch(e=>{$('status').textContent=e.message+' — open this archive through a web server.'});
 </script></html>
 
+
+
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../../shared/material-worlds/presentation.css">
+<script src="../../shared/material-worlds/presentation.js" defer></script>
+<script src="../../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../../shared/material-worlds/playground.js" defer></script>
+<script src="../../shared/material-worlds/team-engine.js" defer></script>
+<script src="../../shared/material-worlds/team-ui.js" defer></script>

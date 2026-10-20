@@ -13,4 +13,12 @@ function showSteps(){const info=DummiePublisher.guidance(selected,packed);$('ste
 $('publish').addEventListener('click',()=>{if(!packed)return;const p=DummiePublisher.provider(selected);showSteps();const a=document.createElement('a');a.href=p.url;a.target='_blank';a.rel='noopener noreferrer';document.body.append(a);a.click();a.remove();status('destination',p.name+' official page requested. You must sign in, upload your ZIP contents/build, and confirm publication. No remote publish has been claimed.')});
 $('copy').addEventListener('click',()=>{const g=DummiePublisher.guidance(selected,packed);const t=g.steps.join('\n');if(navigator.clipboard?.writeText)navigator.clipboard.writeText(t).then(()=>status('destination','Steps copied to clipboard.')).catch(()=>status('destination',t));else status('destination',t)});
 $('reset').addEventListener('click',()=>{draft=null;packed=null;uploads=[];$('files').value='';$('pack').disabled=true;$('publish').disabled=true;$('copy').disabled=true;$('fileNames').replaceChildren();status('creation','Ready for a new creation.');status('packageStatus','Press RED BUTTON 1 to begin.');showSteps()});showSteps();
-</script></body></html>
+</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../shared/material-worlds/presentation.css">
+<script src="../shared/material-worlds/presentation.js" defer></script>
+<script src="../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../shared/material-worlds/playground.js" defer></script>
+<script src="../shared/material-worlds/team-engine.js" defer></script>
+<script src="../shared/material-worlds/team-ui.js" defer></script>
+</body></html>
