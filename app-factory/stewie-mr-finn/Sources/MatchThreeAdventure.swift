@@ -129,6 +129,7 @@ struct MatchThreeLevelView: View {
     let level: Int
     @EnvironmentObject private var overallProgress: MammalProgress
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.dynamicTypeSize) private var textSize
     @AppStorage("mammal.match3.v1") private var saved = ""
     @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
     @AppStorage("mammal.match3.comfort.v1") private var comfortValue = MatchThreeComfort.classic.rawValue
@@ -158,6 +159,7 @@ struct MatchThreeLevelView: View {
                                     Text("COLLECT").font(.caption2.bold()).foregroundStyle(.secondary)
                                     Text("\(MatchThreeStage.symbols[game.target]) \(min(game.gathered, game.goal)) / \(game.goal)")
                                         .font(.title3.bold()).monospacedDigit()
+                                        .lineLimit(1).minimumScaleFactor(0.65)
                                         .accessibilityIdentifier("match3.goal")
                                 }
                                 Spacer(minLength: 3)
@@ -174,6 +176,18 @@ struct MatchThreeLevelView: View {
                                 }
                             }
                             .accessibilityIdentifier("match3.board")
+                            if textSize.isAccessibilitySize {
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text("Select a tile, then choose a direction")
+                                        .font(.footnote.bold())
+                                    HStack(spacing: 7) {
+                                        directionButton("left", icon: "arrow.left", offset: -1)
+                                        directionButton("up", icon: "arrow.up", offset: -7)
+                                        directionButton("down", icon: "arrow.down", offset: 7)
+                                        directionButton("right", icon: "arrow.right", offset: 1)
+                                    }
+                                }
+                            }
                             Text(message)
                                 .font(.footnote.weight(.medium))
                                 .multilineTextAlignment(.center)
@@ -270,6 +284,24 @@ struct MatchThreeLevelView: View {
             else { destination = index + (dy > 0 ? 7 : -7) }
             makeMove(index, destination)
         })
+    }
+
+    private func directionButton(_ name: String, icon: String, offset: Int) -> some View {
+        Button {
+            guard let from = selected else {
+                message = "Choose a puzzle tile first, then use a direction."
+                return
+            }
+            makeMove(from, from + offset)
+        } label: {
+            Image(systemName: icon)
+                .font(.headline)
+                .frame(maxWidth: .infinity, minHeight: 50)
+        }
+        .buttonStyle(.bordered)
+        .disabled(game?.won != false || game?.lost != false)
+        .accessibilityLabel("Swap selected tile \(name)")
+        .accessibilityIdentifier("match3.move.\(name)")
     }
 
     private func boostButton(symbol: String, title: String, key: String, available: Bool) -> some View {
