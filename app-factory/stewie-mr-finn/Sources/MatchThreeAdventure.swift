@@ -5,6 +5,7 @@ import SwiftUI
 struct MatchThreeAdventureView: View {
     @AppStorage("mammal.match3.v1") private var saved = ""
     @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
+    @AppStorage("mammal.match3.comfort.v1") private var comfortValue = MatchThreeComfort.classic.rawValue
     private var progress: MatchThreeSave { .restore(saved) }
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 7), count: 4)
 
@@ -28,6 +29,21 @@ struct MatchThreeAdventureView: View {
                         .buttonStyle(.plain)
                         Text("Swap neighboring pieces. Match 3 or more. Collect the goal before moves run out. Four-match and five-match combos earn boosters. No clock and no purchases.")
                             .font(.footnote).foregroundStyle(.secondary)
+                    }
+                    GameCard {
+                        Text("Play your way — every age, every skill level")
+                            .font(.headline)
+                        Picker("Challenge level", selection: $comfortValue) {
+                            ForEach(MatchThreeComfort.allCases) { mode in
+                                Text(mode.title).tag(mode.rawValue)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        .accessibilityIdentifier("match3.comfort")
+                        Text(MatchThreeComfort.restored(comfortValue).description +
+                             ". Your choice applies to new rounds, never changing an unfinished board.")
+                            .font(.footnote).foregroundStyle(.secondary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     GameCard {
                         HStack {
@@ -115,8 +131,10 @@ struct MatchThreeLevelView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @AppStorage("mammal.match3.v1") private var saved = ""
     @AppStorage("mammal.pace.v1") private var paceValue = GamePace.steady.rawValue
+    @AppStorage("mammal.match3.comfort.v1") private var comfortValue = MatchThreeComfort.classic.rawValue
     @State private var game: MatchThreeGame?
     @State private var selected: Int?
+    @State private var hintPartner: Int?
     @State private var armed: String?
     @State private var message = "Tap two neighbors or swipe a piece to make a match."
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 3), count: 7)
@@ -134,6 +152,10 @@ struct MatchThreeLevelView: View {
                     }
                     Text(stage.name).font(.headline).multilineTextAlignment(.center)
                     Text(stage.story).font(.footnote).foregroundStyle(.secondary).multilineTextAlignment(.center)
+                    Text("MATCH 3 OR MORE • TAP TWO NEIGHBORS OR SWIPE")
+                        .font(.caption.bold())
+                        .multilineTextAlignment(.center)
+                        .accessibilityIdentifier("match3.instructions")
                     if let game {
                         GameCard {
                             HStack(spacing: 8) {
@@ -141,11 +163,13 @@ struct MatchThreeLevelView: View {
                                     Text("COLLECT").font(.caption2.bold()).foregroundStyle(.secondary)
                                     Text("\(MatchThreeStage.symbols[game.target]) \(min(game.gathered, game.goal)) / \(game.goal)")
                                         .font(.title3.bold()).monospacedDigit()
+                                        .accessibilityIdentifier("match3.goal")
                                 }
                                 Spacer(minLength: 3)
                                 VStack(alignment: .trailing, spacing: 2) {
                                     Text("MOVES LEFT").font(.caption2.bold()).foregroundStyle(.secondary)
                                     Text("\(game.movesLeft)").font(.title3.bold()).monospacedDigit()
+                                        .accessibilityIdentifier("match3.moves")
                                 }
                             }
                             ProgressView(value: Double(min(game.gathered,game.goal)), total: Double(game.goal)).tint(.teal)
@@ -167,6 +191,7 @@ struct MatchThreeLevelView: View {
                                         .font(.caption.bold()).frame(maxWidth: .infinity, minHeight: 45)
                                 }
                                 .buttonStyle(.bordered).disabled(game.won || game.lost)
+                                .accessibilityIdentifier("match3.hint")
                             }
                             Text("Score \(game.score) · Swap adjacent pieces · Match 4 for a paw / 5 for a rainbow")
                                 .font(.caption2).foregroundStyle(.secondary).multilineTextAlignment(.center)
@@ -188,13 +213,17 @@ struct MatchThreeLevelView: View {
                                 Text("Stewart and Mr. Finn finished their 96-level adventure together!")
                                     .font(.headline).multilineTextAlignment(.center)
                             }
-                            Button("Replay this level") { restart() }.buttonStyle(.bordered)
+                            Button("Replay this level") { restart() }
+                                .buttonStyle(.bordered)
+                                .accessibilityIdentifier("match3.replay")
                         } else if game.lost {
                             Text("Out of moves. Keep your progress and try this level again!")
                                 .font(.headline).multilineTextAlignment(.center)
                             PawButton(title: "Try again", symbol: "arrow.clockwise", action: restart)
                         } else {
-                            Button("Restart this round") { restart() }.font(.footnote).buttonStyle(.bordered)
+                            Button("Restart this round") { restart() }
+                                .font(.footnote).buttonStyle(.bordered)
+                                .accessibilityIdentifier("match3.restart")
                         }
                     }
                     Text("With \(overallProgress.chosenCat) · Take all the thinking time you need.")
@@ -215,7 +244,7 @@ struct MatchThreeLevelView: View {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(backgrounds[safe].opacity(selected == index ? 0.65 : 0.17))
                 RoundedRectangle(cornerRadius: 8)
-                    .stroke(selected == index ? Color.teal : .white.opacity(0.9), lineWidth: selected == index ? 3 : 1)
+                    .stroke(selected == index ? Color.teal : (hintPartner == index ? Color.orange : .white.opacity(0.9)), lineWidth: (selected == index || hintPartner == index) ? 3 : 1)
                 Text(MatchThreeStage.symbols[safe])
                     .font(.system(size: 24)).minimumScaleFactor(0.55).lineLimit(1)
             }
@@ -225,6 +254,8 @@ struct MatchThreeLevelView: View {
         .buttonStyle(.plain)
         .disabled(game?.won != false || game?.lost != false)
         .accessibilityLabel("Row \(index / 7 + 1), column \(index % 7 + 1), \(MatchThreeStage.names[safe])" + (selected == index ? ", selected" : ""))
+        .accessibilityHint("Select a neighboring tile to swap. You may also swipe this tile.")
+        .accessibilityIdentifier("match3.tile.\(index)")
         .simultaneousGesture(DragGesture(minimumDistance: 15).onEnded { event in
             let dx = event.translation.width, dy = event.translation.height
             let destination: Int
@@ -238,6 +269,7 @@ struct MatchThreeLevelView: View {
         Button {
             armed = armed == key ? nil : key
             selected = nil
+            hintPartner = nil
             message = armed == nil ? "Select two adjacent tiles." : "Choose a tile to use your \(key) booster."
         } label: {
             Text(symbol + " " + title)
@@ -258,20 +290,25 @@ struct MatchThreeLevelView: View {
             self.armed = nil; selected = nil
             return
         }
-        guard let from = selected else { selected = index; return }
+        guard let from = selected else { selected = index; hintPartner = nil; return }
         selected = nil
+        hintPartner = nil
         if from != index { makeMove(from, index) }
     }
 
     private func makeMove(_ a: Int, _ b: Int) {
         guard var next = game, !next.won && !next.lost, armed == nil else { return }
         selected = nil
+        hintPartner = nil
         if next.swap(a,b) {
-            commit(next)
-            message = next.won ? "All pieces collected!" : "Great match! Every piece counts."
-            if !reduceMotion {
-                withAnimation(.easeInOut(duration: GamePace.restored(paceValue).animationSeconds)) { game = next }
+            if reduceMotion {
+                commit(next)
+            } else {
+                withAnimation(.easeInOut(duration: GamePace.restored(paceValue).animationSeconds)) {
+                    commit(next)
+                }
             }
+            message = next.won ? "All pieces collected!" : "Great match! Every piece counts."
         } else {
             message = "Only neighboring pieces that make 3 or more will swap."
         }
@@ -280,7 +317,8 @@ struct MatchThreeLevelView: View {
     private func showHint() {
         if let positions = game?.hint() {
             selected = positions.0
-            message = "Try matching from row \(positions.0 / 7 + 1), column \(positions.0 % 7 + 1)."
+            hintPartner = positions.1
+            message = "Swap row \(positions.0 / 7 + 1), column \(positions.0 % 7 + 1) with row \(positions.1 / 7 + 1), column \(positions.1 % 7 + 1). Both tiles are outlined."
         } else {
             message = "A new playable board will be prepared after your next move."
         }
@@ -292,12 +330,14 @@ struct MatchThreeLevelView: View {
         if let previous = state.round, previous.level == level {
             game = previous
             message = "Welcome back. Your exact board and moves have been restored."
-        } else if game == nil { game = MatchThreeGame(level: level) }
+        } else if game == nil {
+            game = MatchThreeGame(level: level, extraMoves: MatchThreeComfort.restored(comfortValue).extraMoves)
+        }
     }
 
     private func restart() {
-        let fresh = MatchThreeGame(level: level)
-        game = fresh; selected = nil; armed = nil
+        let fresh = MatchThreeGame(level: level, extraMoves: MatchThreeComfort.restored(comfortValue).extraMoves)
+        game = fresh; selected = nil; hintPartner = nil; armed = nil
         message = "New round. Swap adjacent pieces to collect \(MatchThreeStage.names[fresh.target].lowercased())."
         var state = MatchThreeSave.restore(saved)
         state.round = fresh
