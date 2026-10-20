@@ -108,7 +108,7 @@ function executeIntent(intent){
  if(intent.kind==='view')return {ok:true,view:'tasks',message:'Showing tasks.'};
  if(intent.kind==='flow')return runFlow(intent.value);
  if(intent.kind==='domain'){const code=findDomain(intent.value);if(!code)return {ok:false,message:'Unknown domain. Try its letter A–Z.'};data.activeDomain=code;persist();return {ok:true,view:'home',message:'Opened '+code+' domain.'}}
- if(intent.kind==='open'){const text=intent.value.toLowerCase();const p=PROVIDERS.find(p=>p.key===text||p.title.toLowerCase()===text);if(!p||p.support!=='open-link')return {ok:false,message:'No authorized openable destination for '+intent.value+'. Connect it first where supported.'};return {ok:true,open:p.url,message:'Opening '+p.title+' by user action. ONE is not controlling that app.'}}
+ if(intent.kind==='open'){const text=intent.value.toLowerCase();const oneModules={'a vs i':'../one/modules/a-vs-i/index.html','a-vs-i':'../one/modules/a-vs-i/index.html','animation forge':'../one/modules/a-vs-i/index.html','barnabas':'../one/modules/barnabas/index.html','helplessness and barnabas':'../one/modules/barnabas/index.html'};if(Object.prototype.hasOwnProperty.call(oneModules,text))return {ok:true,open:oneModules[text],message:'Opening ONE original module by user action.'};const p=PROVIDERS.find(p=>p.key===text||p.title.toLowerCase()===text);if(!p||p.support!=='open-link')return {ok:false,message:'No authorized openable destination for '+intent.value+'. Connect it first where supported.'};return {ok:true,open:p.url,message:'Opening '+p.title+' by user action. ONE is not controlling that app.'}}
  return {ok:false,message:intent.message||'No action performed.'};
 }
 function runFlow(name){
