@@ -19,7 +19,7 @@ struct GameHomeView: View {
                                 StarCount()
                             }
                             VStack(spacing: 12) {
-                                NavigationLink(destination: UnifiedAdventureView()) {
+                                NavigationLink(destination: MatchThreeAdventureView()) {
                                     HStack {
                                         Image(systemName: "play.fill")
                                         Text("Play")
@@ -35,7 +35,7 @@ struct GameHomeView: View {
                                 .buttonStyle(.plain)
                                 .accessibilityIdentifier("home.play")
 
-                                Text("One adventure. Your pace.")
+                                Text("One match-3 adventure · 96 connected levels. Your pace.")
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                                     .frame(maxWidth: .infinity, alignment: .leading)
