@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ONE · Trials Engine</title>
+<style>
+:root{font-family:system-ui,-apple-system,sans-serif;color-scheme:dark;--bg:#111920;--panel:#1d303a;--line:#47606c;--gold:#dec798}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f4f7f9}
+main{max-width:1060px;padding:18px 12px 80px;margin:auto}a{color:var(--gold)}h1{font-size:clamp(1.8rem,4vw,3.2rem);letter-spacing:-.04em;margin:14px 0 6px}h2{font-size:1.12rem;margin:0 0 9px}p{color:#c5d0d8;line-height:1.5}
+.panel{background:var(--panel);border:1px solid var(--line);padding:15px;border-radius:14px;margin:13px 0}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row>*{min-width:0}button,input{font:inherit;color:#f6f8fb;background:#273e49;border:1px solid #637784;padding:10px;border-radius:9px}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}button:disabled{opacity:.4;cursor:not-allowed}.primary{background:var(--gold);color:#1d2931;font-weight:800}small,.muted{font-size:.83rem;color:#b9c6cf}
+.epoch{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:8px;margin:12px 0}
+.stage{min-height:82px;text-align:left;display:flex;flex-direction:column;gap:5px}.stage b{font-size:1.15rem}.stage span{font-size:.8rem;line-height:1.35}
+.stage.playable{border-color:#dfc798}.stat{min-width:110px;border:1px solid #536d78;border-radius:11px;padding:8px 12px}.stat b{display:block;font-size:1.3rem}
+.notice{border-left:3px solid var(--gold);padding:10px;background:#323330;font-size:.83rem;color:#d2d7d9}
+.strip{overflow-x:auto;padding:10px 0}.strip-row{display:flex;gap:4px;min-width:max-content;padding:5px 2px}.tile{width:37px;height:45px;padding:3px;font-size:1.13rem;background:#2b4654;border-radius:6px;font-weight:700}.tile.empty{border-color:#2b3439;background:#1c2830;color:#71818a}.tile.locked{opacity:.43}.tile.allowed{border-color:#ddc38b}
+.rings{position:relative;margin:12px auto;width:min(94vw,430px);aspect-ratio:1;max-width:430px;background:radial-gradient(circle,#253d48,#16242d 73%);border:2px solid #485d67;border-radius:50%}
+.rings:before,.rings:after{content:"";position:absolute;border:1px solid #59707a;border-radius:50%;inset:14%;pointer-events:none}.rings:after{inset:32%}
+.ring-tile{position:absolute;transform:translate(-50%,-50%);height:32px;width:32px;padding:3px;font-size:.95rem;z-index:2}
+.diamond{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;max-width:440px;margin:10px auto}
+.diamond .tile{width:100%;height:49px}.void{visibility:hidden}
+#message{min-height:1.5em;font-weight:700;color:var(--gold)}
+#stage-description{white-space:pre-wrap}
+@media(max-width:480px){.ring-tile{height:25px;width:25px;padding:0;font-size:.8rem}.diamond{gap:3px}.diamond .tile{height:40px}}
+</style></head><body><main>
+<div class="row"><a href="../index.html">← ONE — The Last App</a><a href="../library/index.html">Master Library 501</a></div>
+<h1 id="app-title">ONE · TRIALS</h1>
+<p>33 original design slots · Three epochs · Local-first. Stages 1–3 are playable prototypes; stages 4–33 remain design records. No advertising or microtransactions.</p>
+<div class="notice">No private stage names or author manuscript are shipped with this public engine. Choose <strong>Use my ONE Library stages</strong> after importing your private archive, or load your separate owner-only stage JSON. Game records and scores stay in this browser. Puzzle metrics are not IQ measurements or medical/psychological assessments. No subliminal flicker or covert behavioral manipulation.</div>
+<section class="panel"><h2>Source-controlled stage registry</h2>
+<div class="row"><button class="primary" id="library-load">Use my ONE Library stages</button><input type="file" id="stagefile" accept=".json,application/json" aria-label="Load private stage registry"><button id="file-load">Load selected stage file</button></div>
+<p id="source-status" class="muted">Generic demonstration loaded. Private authored titles are not visible until you import your source pack.</p>
+</section>
+<section class="panel"><h2>Epoch / level selection</h2><div id="stages"></div></section>
+<section class="panel" id="game" hidden><h2 id="game-title"></h2><p id="stage-description"></p>
+<div class="row"><div class="stat"><b id="move-count">0</b><small>Moves</small></div><div class="stat"><b id="clear-count">0</b><small>Matched tiles</small></div><div class="stat"><b id="miss-count">0</b><small>Invalid choices</small></div></div>
+<p id="message" role="status" aria-live="polite"></p><div id="board"></div>
+<div class="row"><button id="restart">Restart level</button><button id="report">Export gameplay profile</button></div>
+<p class="muted">The gameplay profile records only local move counts, matching accuracy and completion; it does not make scientific intelligence claims.</p></section>
+</main>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const symbols=['◆','●','▲','■','✦','⬟'],states=[];
+const placeholder=Array.from({length:33},(_,i)=>({id:'TRIAL33-L'+String(i+1).padStart(2,'0'),ordinal:i+1,title:'Trial '+String(i+1).padStart(2,'0'),source_description:'Owner-authored stage details available only in the private ONE Library.',epoch:Math.floor(i/11)+1,status:i<3?'playable_prototype':'design_only',mechanic_key:['monolith','rings','rhombus'][i]||null}));
+let levels=placeholder.map(x=>({...x})),game=null,metrics={};
+const headings=['Epoch I · Ancient','Epoch II · Industrial / Modern','Epoch III · Horizon'];
+function el(tag,text,cls){const x=document.createElement(tag);if(text!==undefined)x.textContent=String(text);if(cls)x.className=cls;return x}
+function msg(s){$('message').textContent=s}
+function saveMetrics(){try{localStorage.setItem('one-trials-progress-v1',JSON.stringify(metrics))}catch(e){}}
+function loadMetrics(){try{metrics=JSON.parse(localStorage.getItem('one-trials-progress-v1')||'{}')}catch(e){metrics={}}}
+function verifiedStages(items){if(!Array.isArray(items)||items.length!==33)return null;
+ const by=[...items].sort((a,b)=>a.ordinal-b.ordinal);
+ for(let i=0;i<33;i++){const t=by[i];if(!t||Number(t.ordinal)!==i+1||t.id!=='TRIAL33-L'+String(i+1).padStart(2,'0')||typeof t.title!=='string')return null}
+ return by.map(s=>({...s,status:s.ordinal<=3?'playable_prototype':'design_only'}))}
+function applyStages(items,origin){const clean=verifiedStages(items);if(!clean)throw Error('Expected 33 unique numbered stages with source IDs TRIAL33-L01 through L33.');
+ levels=clean;$('app-title').textContent='THE 33 TRIAL MATRIX';$('source-status').textContent='Private stage descriptions loaded locally from '+origin+'. No upload performed.';paintStages();if(game)openStage(game.level)}
+async function fromLibrary(){return new Promise((resolve,reject)=>{const req=indexedDB.open('tabor-one-private-master-library-v1');
+ req.onsuccess=()=>{const db=req.result;if(!db.objectStoreNames.contains('records')){db.close();reject(Error('No ONE Library records found: import the private pack in Master Library first.'));return}
+ const tx=db.transaction('records','readonly');const get=tx.objectStore('records').getAll();get.onsuccess=()=>{const arr=get.result.filter(x=>x.original?.record_type==='trial_stage').map(x=>x.original);db.close();resolve(arr)};get.onerror=()=>{db.close();reject(get.error)}};req.onerror=()=>reject(req.error)})}
+function paintStages(){const host=$('stages');host.replaceChildren();
+ for(let epoch=1;epoch<=3;epoch++){host.append(el('h2',headings[epoch-1]));let wrap=el('div',undefined,'epoch');
+  for(const stage of levels.filter(x=>x.epoch===epoch)){const ready=stage.ordinal<=3;const b=el('button',undefined,'stage'+(ready?' playable':''));b.append(el('b',String(stage.ordinal).padStart(2,'0')),el('span',stage.title),el('small',ready?'Playable Level 1–3 prototype':'Design stage — not implemented'));
+  b.onclick=()=>ready?openStage(stage.ordinal):$('source-status').textContent='Level '+stage.ordinal+' is a documented design, not a playable stage yet.';
+  if(!ready)b.disabled=true;wrap.append(b)}
+ host.append(wrap)}}
+function start(n){const level=n;
+ const common={level,moves:0,cleared:0,miss:0,won:false,seq:0};
+ if(n===1)return {...common,groups:Array.from({length:11},(_,i)=>({symbol:symbols[(i*3+1)%symbols.length],cleared:false}))};
+ if(n===2)return {...common,rings:Array.from({length:3},(_,r)=>Array.from({length:12},(_,i)=>symbols[(Math.floor(i/3)+r)%symbols.length])),matches:0};
+ const tiles={};for(let r=0;r<7;r++)for(let c=0;c<7;c++)if(Math.abs(r-3)+Math.abs(c-3)<=3)tiles[r+','+c]=symbols[(Math.floor(c/3)+r)%symbols.length];
+ return {...common,tiles,matches:0};
+}
+function openStage(n){game=start(n);$('game').hidden=false;const stage=levels[n-1];$('game-title').textContent='Level '+n+' · '+stage.title;
+ $('stage-description').textContent=stage.source_description||'';draw();$('game').scrollIntoView({block:'start',behavior:'smooth'})}
+function recordMove(success,count){game.moves++;if(success)game.cleared+=count;else game.miss++;drawStats()}
+function drawStats(){$('move-count').textContent=game.moves;$('clear-count').textContent=game.cleared;$('miss-count').textContent=game.miss}
+function win(){if(game.won)return;game.won=true;const id='TRIAL33-L'+String(game.level).padStart(2,'0');metrics[id]={completed:true,moves:game.moves,matched:game.cleared,invalid_choices:game.miss,finished_at:new Date().toISOString()};saveMetrics();msg('Trial cleared. Local gameplay summary saved. No IQ score was calculated.')}
+function drawMonolith(){const board=$('board');const strip=el('div',undefined,'strip');const row=el('div',undefined,'strip-row');
+ const active=Math.min(...game.groups.map((g,i)=>g.cleared?Infinity:Math.abs(i-5)));
+ for(let p=0;p<33;p++){const index=Math.floor(p/3),g=game.groups[index],allowed=active===Math.abs(index-5)&&!g.cleared;
+ const b=el('button',g.cleared?'·':g.symbol,'tile'+(g.cleared?' empty':'')+(allowed?' allowed':' locked'));b.disabled=g.cleared||game.won;
+ b.title='Triplet '+(index+1);b.onclick=()=>{if(!allowed){recordMove(false,0);msg('Clear the current outward ripple before this triplet.');draw();return}
+ g.cleared=true;recordMove(true,3);if(game.groups.every(x=>x.cleared)){win()}else{msg('Three matched. Continue outward from the center.')}draw()};row.append(b)}
+ strip.append(row);board.append(strip)}
+function ringsPossible(r,i){const ring=game.rings[r],target=ring[i];for(let d=0;d<3;d++){const p=(i+12-d)%12;if(ring[p]===target&&ring[(p+1)%12]===target&&ring[(p+2)%12]===target)return [p,(p+1)%12,(p+2)%12]}return null}
+function rotate(a,k){const n=a.length;return a.map((_,i)=>a[(i-k+n)%n])}
+function ensureRingMatches(){for(let r=0;r<3;r++){for(let i=0;i<12;i++)if(ringsPossible(r,i))return}game.rings[1][0]=game.rings[1][1]=game.rings[1][2]=symbols[(game.seq+3)%symbols.length]}
+function drawRings(){const board=$('board');const wrap=el('div',undefined,'rings');wrap.setAttribute('aria-label','Three concentric rings with 12 accessible positions each');
+ const radii=[40,30,19];for(let r=0;r<3;r++)for(let i=0;i<12;i++){const angle=(i/12*2*Math.PI)-Math.PI/2;
+ const b=el('button',game.rings[r][i],'ring-tile');b.style.left=(50+Math.cos(angle)*radii[r])+'%';b.style.top=(50+Math.sin(angle)*radii[r])+'%';
+ b.title='Ring '+(r+1)+' position '+(i+1);b.disabled=game.won;b.onclick=()=>{const triplet=ringsPossible(r,i);if(!triplet){recordMove(false,0);msg('This position is not part of an adjacent matching triple.');draw();return}
+ game.seq++;for(const k of triplet)game.rings[r][k]=symbols[(game.seq+2*k+r)%symbols.length];
+ game.rings[0]=rotate(game.rings[0],1);game.rings[2]=rotate(game.rings[2],-1);game.matches++;
+ recordMove(true,3);ensureRingMatches();if(game.matches>=7)win();else msg('Matched trio. Outer and inner rings rotated in opposing directions.');draw()};wrap.append(b)}
+ board.append(wrap)}
+const diamondKeys=[];for(let r=0;r<7;r++)for(let c=0;c<7;c++)if(Math.abs(r-3)+Math.abs(c-3)<=3)diamondKeys.push([r,c]);
+function triplet(r,c){const sym=game.tiles[r+','+c];if(!sym)return null;for(const [dr,dc] of [[0,1],[1,0]])for(let offset=-2;offset<=0;offset++){const cells=Array.from({length:3},(_,j)=>[r+(j+offset)*dr,c+(j+offset)*dc]);if(cells.every(([a,b])=>game.tiles[a+','+b]===sym))return cells}return null}
+function diagonalGravity(){const diagonal=new Map();for(const [r,c] of diamondKeys){const d=r-c;if(!diagonal.has(d))diagonal.set(d,[]);diagonal.get(d).push([r,c])}
+ for(const cells of diagonal.values()){cells.sort((a,b)=>a[0]-b[0]);const kept=cells.map(([r,c])=>game.tiles[r+','+c]).filter(Boolean);
+ const missing=cells.length-kept.length;const replacement=Array.from({length:missing},(_,i)=>symbols[(game.seq+i+cells.length)%symbols.length]);
+ const final=[...replacement,...kept];cells.forEach(([r,c],i)=>game.tiles[r+','+c]=final[i])}}
+function ensureDiamondMatch(){if(diamondKeys.some(([r,c])=>triplet(r,c)))return;for(const coords of [[[3,1],[3,2],[3,3]],[[3,3],[3,4],[3,5]]]){for(const [r,c] of coords)game.tiles[r+','+c]=symbols[game.seq%symbols.length]}}
+function drawDiamond(){const board=$('board'),wrap=el('div',undefined,'diamond');wrap.setAttribute('aria-label','Diamond-shaped 7 by 7 lattice with masked corner cells');
+ for(let r=0;r<7;r++)for(let c=0;c<7;c++){const key=r+','+c;if(!(key in game.tiles)){wrap.append(el('span','', 'void'));continue}
+ const b=el('button',game.tiles[key],'tile');b.title='Row '+(r+1)+' Column '+(c+1);b.disabled=game.won;
+ b.onclick=()=>{const cells=triplet(r,c);if(!cells){recordMove(false,0);msg('Select a tile in a contiguous matching trio.');draw();return}
+ for(const [a,b] of cells)game.tiles[a+','+b]=null;
+ game.seq++;diagonalGravity();game.matches++;recordMove(true,3);ensureDiamondMatch();if(game.matches>=7)win();else msg('Matched. Tiles fed diagonally toward the southeast, not vertically.');draw()};wrap.append(b)}
+ board.append(wrap)}
+function draw(){if(!game)return;drawStats();const board=$('board');board.replaceChildren();if(game.level===1)drawMonolith();if(game.level===2)drawRings();if(game.level===3)drawDiamond()}
+function download(name,obj){const url=URL.createObjectURL(new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)}
+$('library-load').onclick=async()=>{try{const a=await fromLibrary();applyStages(a,'ONE Master Library')}catch(e){$('source-status').textContent='Could not load: '+e.message}};
+$('file-load').onclick=async()=>{try{const f=$('stagefile').files?.[0];if(!f)throw Error('Choose your private stage JSON first.');if(f.size>2*1024*1024)throw Error('Stage registry exceeds 2MB limit.');const raw=JSON.parse(await f.text());applyStages(raw.stages||raw,'selected owner file')}catch(e){$('source-status').textContent='Could not load: '+e.message}};
+$('restart').onclick=()=>{if(game)openStage(game.level)};
+$('report').onclick=()=>download('one-trial-matrix-local-gameplay-profile.json',{type:'gameplay_only_not_clinical_IQ',created_at:new Date().toISOString(),current:game?{level:game.level,moves:game.moves,matched:game.cleared,invalid_choices:game.miss,finished:game.won}:null,completed:metrics});
+loadMetrics();paintStages();
+})();
+</script></body></html>
