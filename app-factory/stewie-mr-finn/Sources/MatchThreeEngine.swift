@@ -2,6 +2,36 @@ import Foundation
 
 // Stewart & Mr. Finn — a single 96-stage, offline match-3 adventure.
 // New save domain: existing Quest, Polar, stickers, and rewards remain untouched.
+/// Play styles suit different comfort levels, never an age gate.
+/// The chosen move count is embedded in each saved board, so an interrupted
+/// round does not change when a preference is adjusted.
+enum MatchThreeComfort: String, CaseIterable, Identifiable {
+    case gentle, classic, challenge
+    var id: String { rawValue }
+    var title: String {
+        switch self {
+        case .gentle: return "Gentle"
+        case .classic: return "Classic"
+        case .challenge: return "Challenge"
+        }
+    }
+    var extraMoves: Int {
+        switch self {
+        case .gentle: return 14
+        case .classic: return 0
+        case .challenge: return -7
+        }
+    }
+    var description: String {
+        switch self {
+        case .gentle: return "More moves to explore and learn"
+        case .classic: return "The original puzzle balance"
+        case .challenge: return "Fewer moves for puzzle experts"
+        }
+    }
+    static func restored(_ raw: String) -> Self { Self(rawValue: raw) ?? .classic }
+}
+
 struct MatchThreeStage {
     static let total = 96
     static let width = 7
@@ -62,11 +92,11 @@ struct MatchThreeGame: Codable, Equatable {
     var goal: Int { MatchThreeStage(level).required }
     var stars: Int { won ? (movesLeft >= 12 ? 3 : movesLeft >= 5 ? 2 : 1) : 0 }
 
-    init(level: Int, seed: UInt64 = UInt64.random(in: 1...UInt64.max)) {
+    init(level: Int, seed: UInt64 = UInt64.random(in: 1...UInt64.max), extraMoves: Int = 0) {
         let stage = MatchThreeStage(level)
         self.level = stage.id
         self.cells = []
-        self.movesLeft = stage.moves
+        self.movesLeft = max(10, stage.moves + min(14, max(-7, extraMoves)))
         self.rng = seed == 0 ? 0x9e3779b97f4a7c15 : seed
         freshBoard()
     }
