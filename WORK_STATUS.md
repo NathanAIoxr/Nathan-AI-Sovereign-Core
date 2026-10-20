@@ -1,6 +1,4 @@
-# TABOR 1-2-3 FACTORY™ — LIVE BUILD STATUS
-
-**Updated:** 2026-10-14 (documentation reconciliation; prior test results retain their original dates)  
+| ONE — The Last App | browser prototype with E Health module (QA pending) | ONE A–Z shell and DO commands plus `app-factory/one/health/`: user-selected ZIP imports, AES-GCM local encryption, authored bath notes, recovery timeline, original-byte portable backup. **No personal health sources in public GitHub, no private user import yet, no native Health provider.** |ntation reconciliation; prior test results retain their original dates)  
 **Public GitHub repository:** NathanAIoxr/Nathan-AI-Sovereign-Core  
 **Status rule:** A page, specification or button does not establish a working provider integration. Move a feature to `working` only with an end-to-end test/result.
 
@@ -66,3 +64,10 @@
 | October 14 creative continuity | documentation and structured notes | Round 1 and latest novel/body-map corrections recorded; no new gameplay or generated image import in this update |
 
 Verification for this documentation update: checked existing repository source at commit `65dc19fc3a9c5ed144e4858c585cc199f436fc47`, validated new JSON and relative documentation links. No application code changed; earlier test counts above are historical results, not reruns in this update.
+
+## October 20, 2026 — ONE E / 301 Health & Recovery
+- Integrated Health & Recovery as an E domain of the existing ONE app, preserving concurrent ONE Master Library changes.
+- Local encrypted original-source import from selected ZIP/files; SHA-256 dedupe and ZIP integrity checks, Bath Lab notes, Recovery Timeline, private source browsing and user-triggered portable export.
+- Confidential health source bytes stay outside this public repository; owner must manually select and import the previously recovered archive into the app.
+- No Apple HealthKit / Android Health Connect / EMR login or claims of medical validation. Browser QA and security review pending.
+- Source and build: [ONE Health README](app-factory/one/health/README.md).

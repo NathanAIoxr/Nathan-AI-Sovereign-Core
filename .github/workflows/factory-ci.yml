@@ -74,6 +74,8 @@ jobs:
         run: node --test app-factory/mythology/greek/atlas.test.cjs
       - name: Verify ONE local engine
         run: node --test app-factory/one/one.test.cjs
+      - name: Verify ONE Health private vault source boundaries
+        run: node --test app-factory/one/health/health.test.cjs
       - name: Verify ONE 101–901 Master Library privacy and import boundaries
         run: node --test app-factory/one/library/library.test.cjs
       - name: Verify 1420 Crowning Jewel gameplay
