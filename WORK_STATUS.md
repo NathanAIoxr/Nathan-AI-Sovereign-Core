@@ -37,7 +37,7 @@
 
 | 101–901 Root Constellation | prototype | Public local JSON importer, private ZIP of 496 new concepts / 101 original games / 150 prior records; secure hosted registry not connected |
 
-| ONE — The Last App | prototype + E Health module proposed | `app-factory/one/` retains A–Z shell and DO commands; `app-factory/one/health/` adds encrypted local import, recovered ZIP/source preservation, bath notebook, recovery timeline, portable export and importer tests. **No private health files in public GitHub; user has not yet imported sources in their browser; no HealthKit/provider access.** |
+| ONE — The Last App | browser prototype with E Health module (QA pending) | `app-factory/one/` retains A–Z shell and DO commands; `app-factory/one/health/` adds encrypted local import, recovered ZIP/source preservation, bath notebook, recovery timeline, portable export and importer tests. **No private health files in public GitHub; user has not yet imported sources in their browser; no HealthKit/provider access.** |
 
 | Nathan AI LET/TET/PPL | prototype | Independent v2 Python package in private conversation ZIP; 14 passing unit tests, original PPL source recovered; no trained AI or live model API yet |
 
