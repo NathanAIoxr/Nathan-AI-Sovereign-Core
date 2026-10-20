@@ -37,7 +37,7 @@
 
 | 101–901 Root Constellation | prototype | Public local JSON importer, private ZIP of 496 new concepts / 101 original games / 150 prior records; secure hosted registry not connected |
 
-| ONE — The Last App | prototype | `app-factory/one/index.html` and `one.js`; A–Z domains, local flows, DO commands; **no external app/financial/health access** |
+| ONE — The Last App | prototype + E Health module proposed | `app-factory/one/` retains A–Z shell and DO commands; `app-factory/one/health/` adds encrypted local import, recovered ZIP/source preservation, bath notebook, recovery timeline, portable export and importer tests. **No private health files in public GitHub; user has not yet imported sources in their browser; no HealthKit/provider access.** |
 
 | Nathan AI LET/TET/PPL | prototype | Independent v2 Python package in private conversation ZIP; 14 passing unit tests, original PPL source recovered; no trained AI or live model API yet |
 
@@ -66,3 +66,11 @@
 | October 14 creative continuity | documentation and structured notes | Round 1 and latest novel/body-map corrections recorded; no new gameplay or generated image import in this update |
 
 Verification for this documentation update: checked existing repository source at commit `65dc19fc3a9c5ed144e4858c585cc199f436fc47`, validated new JSON and relative documentation links. No application code changed; earlier test counts above are historical results, not reruns in this update.
+
+## October 20, 2026 — ONE E / 301 Health & Recovery branch
+- New Health & Recovery module under ONE, NOT a standalone app; main ONE page has a link to the E domain module.
+- Secure-on-device design: explicit ZIP / document picker and AES-256-GCM encrypted IndexedDB originals. Source bytes and original filenames are never put into public commits.
+- Recovered personal health ZIP files still require the owner to import them from their trusted device. Source counts in recovered archives are not a declaration of imported data.
+- New private authored bath and recovery notes, SHA-256 duplicate checks, portable user-triggered export and reimport. Clinical, creative and engineering claims remain separate.
+- Tests added to CI. Status remains **browser prototype / QA pending**, not an EHR, native provider integration, or production medical device.
+- Documentation: [ONE Health README](app-factory/one/health/README.md).
