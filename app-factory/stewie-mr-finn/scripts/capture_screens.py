@@ -41,7 +41,7 @@ if 'SE' not in compact['name']:
     except subprocess.CalledProcessError:
         print('SE simulator unavailable; using smallest precreated iPhone:', compact['name'])
 app='simulator-build/Build/Products/Debug-iphonesimulator/StewieAndMrFinn.app'
-screens=['quick-games','story-shelf','create-shelf','word-shelf','home','unified','map','board','polar','chapter1','workshop','reunion','lab','playroom','stories','explore','puzzle','biscuits','trust','champ','ace','middlec','mirror','family','settings']
+screens=['quick-games','story-shelf','create-shelf','word-shelf','home','unified','match3','match3-board','map','board','polar','chapter1','workshop','reunion','lab','playroom','stories','explore','puzzle','biscuits','trust','champ','ace','middlec','mirror','family','settings']
 for label,device in [('compact',compact),('large',large)]:
     uid=device['udid']
     subprocess.run(['xcrun','simctl','boot',uid], check=False)
@@ -80,4 +80,4 @@ for label,device in [('compact',compact),('large',large)]:
         suffix='-large-text' if large_text else ''
         call('xcrun','simctl','io',uid,'screenshot',str(folder/('home-'+target+suffix+'.png')))
     call('xcrun','simctl','shutdown',uid)
-print('Captured 74 actual simulator screens, including compact home sections; review pixels before delivering.')
+print('Captured 78 actual simulator screens, including match-three home and board; review pixels before delivering.')
