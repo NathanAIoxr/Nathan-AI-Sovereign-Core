@@ -25,7 +25,12 @@ catalog = {
 }
 missing = [name for name, view in catalog.items() if view not in unified]
 assert not missing, "Unlinked game routes: " + ", ".join(missing)
-assert home.count("NavigationLink(destination: UnifiedAdventureView())") == 1
+assert home.count("NavigationLink(destination: MatchThreeAdventureView())") == 1
+match3 = (root / "Sources/MatchThreeAdventure.swift").read_text()
+engine = (root / "Sources/MatchThreeEngine.swift").read_text()
+assert "NavigationLink(destination: UnifiedAdventureView())" in match3, "Legacy adventures must remain accessible"
+assert "MatchThreeStage.total" in match3 and "static let total = 96" in engine
+assert "mammal.match3.v1" in match3, "Use isolated save domain"
 assert "NavigationLink(destination: PolarFamilyQuestView())" not in home
 assert "adventureLink(" not in home
 assert "expandedZone = -1" in unified
@@ -36,4 +41,4 @@ for name in ("Puzzle", "AdventureCampaign"):
     code = (root / "Sources" / (name + ".swift")).read_text()
     assert "mismatchRevealSeconds" in code, name + " uses a fixed wrong-pair delay"
 assert "if reduceMotion" in (root / "Sources/PolarFamilyQuestView.swift").read_text()
-print("PASS: all 15 routes connected, existing saves preserved, pace and Reduce Motion hooks present.")
+print("PASS: one match-three primary game, 15 legacy routes intact, distinct saves and pace/Reduce Motion hooks.")
