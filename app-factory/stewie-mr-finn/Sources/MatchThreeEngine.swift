@@ -151,17 +151,30 @@ struct MatchThreeGame: Codable, Equatable {
         return result
     }
 
+    /// Recommend a legal move that advances the collection goal, not the first
+    /// arbitrary swap found at the top of the board.
     func hint() -> (Int, Int)? {
+        var chosen: (Int,Int)?
+        var best = -1
         for a in 0..<Self.count {
             let row = a / Self.side, col = a % Self.side
             for b in [col < Self.side-1 ? a+1 : -1, row < Self.side-1 ? a+Self.side : -1] where b >= 0 {
                 if cells[a] == cells[b] { continue }
                 var tentative = cells
                 tentative.swapAt(a, b)
-                if !Self.runs(tentative).isEmpty { return (a,b) }
+                let matches = Self.runs(tentative)
+                if matches.isEmpty { continue }
+                let unique = Set(matches.flatMap { $0 })
+                let relevant = unique.filter { tentative[$0] == target }.count
+                let longest = matches.map(\.count).max() ?? 3
+                let value = relevant * 100 + unique.count * 3 + (longest >= 5 ? 30 : longest >= 4 ? 12 : 0)
+                if value > best {
+                    best = value
+                    chosen = (a,b)
+                }
             }
         }
-        return nil
+        return chosen
     }
 
     @discardableResult mutating func swap(_ a: Int, _ b: Int) -> Bool {
@@ -243,7 +256,24 @@ struct MatchThreeGame: Codable, Equatable {
 
 struct MatchThreeSave: Codable {
     var ratings: [Int: Int] = [:]
+    /// Legacy single-round field: retained for decoding 6.4 beta saves.
     var round: MatchThreeGame?
+    /// Per-level unfinished rounds: optional for backward-compatible decoding.
+    var rounds: [Int: MatchThreeGame]? = nil
+
+    func savedRound(for level: Int) -> MatchThreeGame? {
+        rounds?[level] ?? (round?.level == level ? round : nil)
+    }
+    mutating func saveRound(_ game: MatchThreeGame) {
+        var available = rounds ?? [:]
+        available[game.level] = game
+        rounds = available
+        round = game
+    }
+    mutating func removeRound(for level: Int) {
+        rounds?[level] = nil
+        if round?.level == level { round = nil }
+    }
     var completed: Int { (1...MatchThreeStage.total).filter { (ratings[$0] ?? 0) > 0 }.count }
     var next: Int { (1...MatchThreeStage.total).first { (ratings[$0] ?? 0) == 0 } ?? MatchThreeStage.total }
     func unlocked(_ level: Int) -> Bool {
@@ -252,20 +282,29 @@ struct MatchThreeSave: Codable {
     mutating func finish(_ game: MatchThreeGame) {
         guard game.won, unlocked(game.level) else { return }
         ratings[game.level] = max(ratings[game.level] ?? 0, game.stars)
-        round = nil
+        removeRound(for: game.level)
     }
     static func restore(_ string: String) -> MatchThreeSave {
         guard let data = string.data(using: .utf8),
               let decoded = try? JSONDecoder().decode(MatchThreeSave.self, from: data) else { return .init() }
         let validRatings = decoded.ratings.filter { (1...MatchThreeStage.total).contains($0.key) && (1...3).contains($0.value) }
         var fixed = MatchThreeSave(ratings: validRatings, round: nil)
-        if let board = decoded.round, (1...MatchThreeStage.total).contains(board.level),
-           fixed.unlocked(board.level), board.cells.count == MatchThreeGame.count,
-           board.cells.allSatisfy({ (0..<MatchThreeStage.symbols.count).contains($0) }),
-           !board.won && !board.lost, board.movesLeft > 0,
-           board.gathered >= 0, board.gathered < board.goal,
-           board.paws >= 0, board.rainbows >= 0, board.score >= 0 {
-            fixed.round = board
+        func validRound(_ board: MatchThreeGame) -> Bool {
+            (1...MatchThreeStage.total).contains(board.level) &&
+            fixed.unlocked(board.level) && board.cells.count == MatchThreeGame.count &&
+            board.cells.allSatisfy({ (0..<MatchThreeStage.symbols.count).contains($0) }) &&
+            !board.won && !board.lost && board.movesLeft > 0 &&
+            board.gathered >= 0 && board.gathered < board.goal &&
+            board.paws >= 0 && board.rainbows >= 0 && board.score >= 0
+        }
+        if let previous = decoded.rounds {
+            fixed.rounds = previous.filter { key, board in key == board.level && validRound(board) }
+        }
+        if let oldRound = decoded.round, validRound(oldRound) {
+            fixed.round = oldRound
+            if fixed.rounds?[oldRound.level] == nil {
+                fixed.saveRound(oldRound)
+            }
         }
         return fixed
     }
