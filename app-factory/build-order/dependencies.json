@@ -680,6 +680,129 @@
       "next": "Reuse the searchable 316-record public source-derived archive. Add primary-source citations and relationship modeling before importing into real game or AI knowledge graph.",
       "owner": "TABOR WORLD / TABOR INFINITUM",
       "review": "Source-level historical claims must be independently reviewed"
+    },
+    {
+      "id": "octopus-root",
+      "title": "OCTOPUS ROOT — local graph foundation",
+      "group": "root-layer",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "inventory"
+      ],
+      "evidence": "app-factory/octopus-root/README.md",
+      "next": "Reuse the finite, local graph and its explicit receptor checks; keep source records and rejected proposals recoverable.",
+      "owner": "OCTOPUS ROOT / independent local graph",
+      "review": "Run the root engine and Nexus regression suites before extending"
+    },
+    {
+      "id": "sovereign-fields",
+      "title": "Sovereign Field Lab",
+      "group": "root-module",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "inventory"
+      ],
+      "evidence": "app-factory/octopus-root/sovereign-fields/README.md",
+      "next": "Keep model claims bounded; attach through an explicit Nexus preview.",
+      "owner": "Sovereign Field Lab / independent module",
+      "review": "Run the module test suite before extending"
+    },
+    {
+      "id": "uct",
+      "title": "Universal Continuum Tensor",
+      "group": "root-module",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "inventory"
+      ],
+      "evidence": "app-factory/octopus-root/uct/README.md",
+      "next": "Preserve seven branch namespaces, evidence records and fictional/research boundaries; attach through explicit preview.",
+      "owner": "UCT / independent module",
+      "review": "Run the UCT test suite before extending"
+    },
+    {
+      "id": "sovereign-continuum",
+      "title": "Sovereign Continuum",
+      "group": "root-module",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "inventory"
+      ],
+      "evidence": "app-factory/octopus-root/sovereign-continuum/README.md",
+      "next": "Retain formula evidence and bounded inverse reconstruction; connect only by namespaced references.",
+      "owner": "Sovereign Continuum / independent module",
+      "review": "Run the continuum test suite before extending"
+    },
+    {
+      "id": "sovereign-bubble",
+      "title": "Sovereign Bubble",
+      "group": "root-module",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "inventory"
+      ],
+      "evidence": "app-factory/octopus-root/sovereign-bubble/README.md",
+      "next": "Keep invitation and revocation as a local model; never treat them as server authentication.",
+      "owner": "Sovereign Bubble / independent module",
+      "review": "Run the bubble test suite before extending"
+    },
+    {
+      "id": "root-codex",
+      "title": "Tabor Root Codex",
+      "group": "root-module",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "inventory"
+      ],
+      "evidence": "app-factory/octopus-root/uct/triple-code/README.md",
+      "next": "Preserve each source label and its evidence class; do not promote symbolism to verified history or science.",
+      "owner": "Tabor Root Codex / independent reference index",
+      "review": "Run the triple-code test suite before extending"
+    },
+    {
+      "id": "octopus-arsenal",
+      "title": "Nathan Tabor Octopus Arsenal",
+      "group": "root-module",
+      "status": "public-prototype",
+      "phase": 0,
+      "dependsOn": [
+        "inventory"
+      ],
+      "evidence": "app-factory/octopus-root/octopus-arsenal/README.md",
+      "next": "Keep game powers fictional and saved game state independent from the ROOT graph.",
+      "owner": "Octopus Arsenal / independent game",
+      "review": "Run the arsenal test suite before extending"
+    },
+    {
+      "id": "sovereign-nexus",
+      "title": "Sovereign Nexus — opt-in Root connector",
+      "group": "root-integration",
+      "status": "public-prototype",
+      "phase": 1,
+      "dependsOn": [
+        "octopus-root",
+        "sovereign-fields",
+        "uct",
+        "sovereign-continuum",
+        "sovereign-bubble",
+        "root-codex",
+        "octopus-arsenal",
+        "contracts"
+      ],
+      "evidence": "app-factory/octopus-root/sovereign-nexus/README.md",
+      "next": "Reuse the local, opt-in, reversible graft; preserve separate module data and rerun Nexus tests after any root schema change.",
+      "owner": "Sovereign Nexus / local connector",
+      "review": "Never infer remote permission, authentication, sync or publication from a successful local graft"
     }
+  ],
+  "updated": "2026-10-16",
+  "notes": [
+    "2026-10-16: Added the existing Octopus Root family and its opt-in Nexus connector as explicit dependency nodes. These remain independent local prototypes; the graph records prerequisites and status, not runtime imports or production authorization."
   ]
 }

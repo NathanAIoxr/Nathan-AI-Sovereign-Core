@@ -1,6 +1,6 @@
 # TABOR 1-2-3 FACTORY — BUILD IN THE RIGHT ORDER
 
-**Owner:** Nathan Tabor · **Updated:** 2026-10-10
+**Owner:** Nathan Tabor · **Updated:** 2026-10-16
 
 **Goal:** Never redesign an existing service simply because another product needs it. Preserve every Sovereign Box, title, and source asset. Improve shared infrastructure once; reuse it through permissioned interfaces.
 
@@ -10,7 +10,7 @@ The currently connected **public** repository has a working browser Factory dash
 
 `WORK_STATUS.md` and `WORK_BUILD_HANDOFF.md` describe additional independent owner-controlled ZIPs: tested local prototypes of Nathan AI LET/TET/PPL, State Engine, Universal Commerce, Knowledge Engine, TABOR INFINITUM, REMOVE JC, ChristmasToyDrive and the Factory starter. **Their actual source must be imported into the chosen private workspace and retested**. These public descriptions are not proof of deployed or currently installed server integrations. An earlier audit reported 103 tests across eight ZIPs, but this planner does not re-run those private ZIPs.
 
-## 40 independently identified build domains — actual dependency graph
+## 52 independently identified build domains and Root layers — actual dependency graph
 
 [Interactive Build Controller](./index.html) · [Machine-readable dependency register](./dependencies.json) · [Reusable scheduling engine](./planner.js) · [13 regression checks](./planner.test.cjs)
 
@@ -82,3 +82,19 @@ The GitHub workflow will run these with ONE, 1420 and Sovereign Box tests. Recor
 The **same** tested `app-factory/universal-node/source-adapters.js` source reader is reusable across every Factory domain: research, games, history, education, astronomy, Tabor GPS, Nathan AI, publishing, commerce and Good Samaritan projects. It imports RSS, Atom, JSON Feed, sitemaps, HTML metadata and structured JSON with provenance, review and unknown-license flags. The browser UI is at [Universal Node](../universal-node/index.html); ten automated parsing and access-boundary tests are in `source-adapters.test.cjs`.
 
 Do not develop a separate scraper for each product. Build one **authorized server connector gateway** when approved, with official OAuth APIs, robots/terms/licensing policy, host and resolved IP allow/deny checks, per-user quotas, rate limiting, retry, audit, content sanitization, and verified synchronization. Site-by-site login bypass or unrestricted crawling is not provided. Do not treat RSS text as verified cosmic, medical or historical evidence.
+
+
+## October 16 — Root architecture map
+
+The build graph now includes the existing Octopus Root family as explicit, test-checked layers:
+
+| Layer | Modules | Boundary |
+|---|---|---|
+| Foundation | OCTOPUS ROOT, shared root contracts | Local graph and data-shape contracts; no production identity service |
+| Independent root packs | Sovereign Field Lab, UCT, Sovereign Continuum, Sovereign Bubble, Tabor Root Codex, Octopus Arsenal | Each keeps its own namespace, source, evidence and state |
+| Connector | Sovereign Nexus | Opt-in local preview and graft with rollback; no remote access or synchronization |
+| Product work built on these foundations | Factory products and games | Reuse verified modules through explicit interfaces; build missing server, storage, provider and release functions after their dependencies |
+
+The arithmetic convention remains literal: **1 + 1 = 2** and **1 − 1 = 0**. As an architecture rule, a link keeps two identities separate, while revoking a grant ends that permission; it does not erase historical records or backups. The Nexus graft is a local graph operation, not a tenant authorization grant.
+
+The automated planner tests now assert that all eight Root-family modules have existing evidence paths, that the Nexus names every prerequisite, and that each retains its honest `public-prototype` status. These are structural checks; the separate module suites remain the behavior checks.
