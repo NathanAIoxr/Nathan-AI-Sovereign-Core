@@ -1,0 +1,94 @@
+'use strict';
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const g=require('./engine.js');
+test('Epoch I five authored trial names and immutable 33-slot center',()=>{
+ assert.equal(g.LEVELS.length,5);
+ assert.deepEqual(g.LEVELS.map(x=>x.name),['THE MONOLITH','BABYLON’S GATE','THE RHOMBUS OF UR','EPIDAURUS ACOUSTIC','ARCHIMEDES’ SPIRAL']);
+ const s=g.initial(1,123,false,0);
+ assert.equal(s.board.length,33);
+ assert.equal(s.board[16],-1);
+ assert.equal(s.board[0],s.board[32]);
+ g.step(s,{type:'swap',a:16,b:3},200);
+ assert.equal(s.board[16],-1);
+ const previousMoves=s.moves;
+ g.step(s,{type:'swap',a:0,b:14,planStartMs:100},300);
+ assert.equal(s.moves,previousMoves+1);
+ for(let i=0;i<16;i++)assert.equal(s.board[i],s.board[32-i]);
+ assert.equal(g.metrics(s).symmetryDeltaMs,0);
+ assert.match(g.metrics(s).interpretation,/NOT an independently measured IQ trait/);
+});
+test('Babylon has 18 outer, 12 inner, 3 core and counter-rotates on matches',()=>{
+ const s=g.initial(2,789,true,0);
+ assert.equal(s.board.outer.length,18);assert.equal(s.board.inner.length,12);assert.equal(s.board.core.length,3);
+ s.board.core=[0,1,2];s.board.inner.fill(2);s.board.outer.fill(3);s.board.inner[0]=0;s.board.outer[17]=0;
+ g.step(s,{type:'rotate',ring:'outer',direction:1},1200);
+ assert.equal(s.moves,1);assert.ok(s.progress>=1);
+ assert.equal(s.board.gears,1);
+ assert.equal(g.metrics(s).trialName,'BABYLON’S GATE');
+});
+test('Rhombus has 49 addresses but only 45 playable nodes; cardinal input blocked',()=>{
+ const s=g.initial(3,3,true,0);
+ assert.equal(s.board.length,49);assert.equal(s.board.filter(x=>x===null).length,4);
+ assert.deepEqual(g.RHOMBUS_VOID,[0,6,42,48]);
+ g.step(s,{type:'swap',a:10,b:11},1000);
+ assert.equal(s.moves,0);assert.equal(s.stats.cardinalAttemptsFirstMinute,1);
+ g.step(s,{type:'swap',a:10,b:18},1100);
+ assert.equal(s.moves,1);
+ g.RHOMBUS_VOID.forEach(i=>assert.equal(s.board[i],null));
+});
+test('Epidaurus six-row funnel and root-bed shockwave',()=>{
+ const s=g.initial(4,14,true,0);
+ assert.deepEqual(s.board.map(x=>x.length),[12,10,8,6,4,3]);
+ s.board[0]=[2,2,2,1,1,1,1,1,1,1,1,1];
+ s.board[5]=[2,2,0];s.board[1][0]=2;
+ g.step(s,{type:'swap',a:{r:1,c:0},b:{r:5,c:2}},1000);
+ assert.equal(s.stats.shockwaves,1);assert.equal(s.progress,1);
+ assert.ok(s.stats.cprCombos>=1);assert.ok(s.stats.cprTopTiles>=3);
+});
+test('Spiral contains 64 unique cells and fails at the slot-64 void',()=>{
+ const s=g.initial(5,729,true,0);
+ assert.equal(g.SPIRAL.length,64);
+ assert.equal(new Set(g.SPIRAL.map(x=>x.join(','))).size,64);
+ assert.ok([3,4].includes(g.SPIRAL.at(-1)[0]));
+ assert.ok([3,4].includes(g.SPIRAL.at(-1)[1]));
+ s.board.chain=Array.from({length:63},()=>1);
+ g.step(s,{type:'tick'},2000);
+ assert.equal(s.board.chain.length,64);
+ assert.equal(s.status,'failed');
+ assert.match(s.feedback,/slot 64/);
+});
+test('Siphon removes a matching 3 segment from the spiral',()=>{
+ const s=g.initial(5,99,true,0);
+ s.board.chain=[0,0,1,0,2];
+ g.step(s,{type:'swap',a:2,b:3},250);
+ assert.equal(s.board.chain.length,2);
+ assert.equal(s.board.chain[0],1);assert.equal(s.progress,1);
+});
+test('Telemetry opt-in and JSON save restore never claim IQ diagnosis',()=>{
+ const s=g.initial(3,123,false,0);
+ g.step(s,{type:'swap',a:10,b:11},900);
+ const saved=g.save(s);
+ assert.equal(saved.metrics,null);
+ assert.deepEqual(saved.telemetryEvents,[]);
+ const reloaded=g.restore(saved);assert.equal(reloaded.level,3);
+ assert.deepEqual(reloaded.board,s.board);
+ const opt=g.initial(3,123,true,0);
+ g.step(opt,{type:'swap',a:10,b:11},900);
+ const optSave=g.save(opt);
+ assert.equal(optSave.telemetryEvents.length,1);
+ assert.equal(optSave.metrics.notStandardizedIQTest,true);
+ assert.throws(()=>g.restore({schema:'one.33trial.save.v1',session:{schema:'one.33trial.session.v1',level:1,board:[]}}));
+});
+test('ONE home links to five-level playable board and source preserved',()=>{
+ const home=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+ const page=fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
+ const source=fs.readFileSync(path.join(__dirname,'README.md'),'utf8');
+ const ui=fs.readFileSync(path.join(__dirname,'game-ui.js'),'utf8');
+ assert.match(home,/trial-matrix\/index\.html/);
+ assert.match(page,/engine\.js/);
+ assert.match(source,/Archimedes’ Spiral/);
+ assert.doesNotMatch(ui,/fetch\s*\(|XMLHttpRequest|sendBeacon|google-analytics/);
+});

@@ -1,0 +1,279 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/one/trial-matrix/trial-save.schema.json",
+  "title": "ONE — The 33 Trial Matrix / Local Save v1",
+  "description": "Explicit user export of Epoch I gameplay and optional cognitive-style gameplay telemetry. Not an IQ assessment, medical diagnosis or validated psychometric instrument.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "exportedAt",
+    "game",
+    "author",
+    "session",
+    "metrics",
+    "telemetryEvents",
+    "privacy"
+  ],
+  "properties": {
+    "schema": {
+      "const": "one.33trial.save.v1"
+    },
+    "exportedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "game": {
+      "const": "The 33 Trial Matrix"
+    },
+    "author": {
+      "const": "Nathan Tabor"
+    },
+    "session": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "level",
+        "status",
+        "seed",
+        "randomState",
+        "startedAt",
+        "lastAt",
+        "moves",
+        "progress",
+        "score",
+        "penalties",
+        "feedback",
+        "telemetryEnabled",
+        "events",
+        "stats",
+        "board"
+      ],
+      "properties": {
+        "schema": {
+          "const": "one.33trial.session.v1"
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "status": {
+          "enum": [
+            "playing",
+            "won",
+            "failed"
+          ]
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "randomState": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "startedAt": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "lastAt": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "moves": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "progress": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "score": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "penalties": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "feedback": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "telemetryEnabled": {
+          "type": "boolean"
+        },
+        "events": {
+          "type": "array",
+          "maxItems": 3000,
+          "items": {
+            "type": "object",
+            "required": [
+              "type",
+              "at"
+            ],
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "at": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "stats": {
+          "type": "object",
+          "required": [
+            "valid",
+            "invalid",
+            "progressMoves",
+            "blockageMoves",
+            "neutralMoves",
+            "planningMs",
+            "symmetryDeltasMs",
+            "cardinalAttemptsFirstMinute",
+            "cardinalAttemptsLater",
+            "cprCombos",
+            "cprTopTiles",
+            "shockwaves",
+            "calm",
+            "near"
+          ],
+          "additionalProperties": true
+        },
+        "board": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 33,
+              "maxItems": 33,
+              "items": {
+                "type": "integer",
+                "minimum": -1,
+                "maximum": 3
+              }
+            },
+            {
+              "type": "object",
+              "required": [
+                "outer",
+                "inner",
+                "core",
+                "locked",
+                "gears"
+              ],
+              "properties": {
+                "outer": {
+                  "type": "array",
+                  "minItems": 18,
+                  "maxItems": 18
+                },
+                "inner": {
+                  "type": "array",
+                  "minItems": 12,
+                  "maxItems": 12
+                },
+                "core": {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 3
+                }
+              },
+              "additionalProperties": true
+            },
+            {
+              "type": "array",
+              "minItems": 49,
+              "maxItems": 49,
+              "items": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 6,
+              "maxItems": 6,
+              "items": {
+                "type": "array"
+              }
+            },
+            {
+              "type": "object",
+              "required": [
+                "chain",
+                "ticks"
+              ],
+              "properties": {
+                "chain": {
+                  "type": "array",
+                  "maxItems": 64,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 3
+                  }
+                },
+                "ticks": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        }
+      }
+    },
+    "metrics": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "telemetryEvents": {
+      "type": "array",
+      "maxItems": 3000,
+      "items": {
+        "type": "object"
+      }
+    },
+    "privacy": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "session": {
+            "properties": {
+              "telemetryEnabled": {
+                "const": false
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "metrics": {
+            "type": "null"
+          },
+          "telemetryEvents": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}
