@@ -133,6 +133,7 @@ struct MatchThreeLevelView: View {
                         Text(stage.stageLabel).font(.caption.bold()).foregroundStyle(.secondary)
                     }
                     Text(stage.name).font(.headline).multilineTextAlignment(.center)
+                    Text(stage.story).font(.footnote).foregroundStyle(.secondary).multilineTextAlignment(.center)
                     if let game {
                         GameCard {
                             HStack(spacing: 8) {
@@ -172,6 +173,12 @@ struct MatchThreeLevelView: View {
                         }
                         if game.won {
                             AwardBanner(title: "Level \(level) clear! \(String(repeating: "★", count: game.stars))")
+                            if let discovery = stage.discovery {
+                                GameCard {
+                                    Text("POLAR DISCOVERY").font(.caption.bold())
+                                    Text(discovery).font(.subheadline).multilineTextAlignment(.center)
+                                }
+                            }
                             if level < MatchThreeStage.total {
                                 NavigationLink(destination: MatchThreeLevelView(level: level+1)) {
                                     Label("Next match-3 level", systemImage: "arrow.right.circle.fill")
