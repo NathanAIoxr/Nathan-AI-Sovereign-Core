@@ -67,7 +67,7 @@ function openDB(){return new Promise((resolve,reject)=>{const req=indexedDB.open
 function getAll(store){return new Promise((resolve,reject)=>{const tx=ui.db.transaction(store,'readonly');const req=tx.objectStore(store).getAll();req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
 function putBatch(store,items){return new Promise((resolve,reject)=>{if(!items.length){resolve();return}const tx=ui.db.transaction(store,'readwrite');const os=tx.objectStore(store);items.forEach(item=>os.put(item));tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)})}
 function clearStores(){return new Promise((resolve,reject)=>{const tx=ui.db.transaction(['records','sources'],'readwrite');tx.objectStore('records').clear();tx.objectStore('sources').clear();tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
-async function digest(buffer){if(!crypto?.subtle)return 'sha256-unavailable';let hash=await crypto.subtle.digest('SHA-256',buffer);return Array.from(new Uint8Array(hash)).map(x=>x.toString(16).padStart(2,'0')).join('')}
+async function digest(buffer){if(typeof crypto==='undefined'||!crypto.subtle)return 'sha256-unavailable';let hash=await crypto.subtle.digest('SHA-256',buffer);return Array.from(new Uint8Array(hash)).map(x=>x.toString(16).padStart(2,'0')).join('')}
 const value=(x,max=160)=>String(x??'').slice(0,max);
 function categorize(s){const t=value(s,10000).toLowerCase();
  if(/james 1:27|barnabas|good samaritan|jesus|bible|kjv|christian|religio|spiritual|theolog|eden|heaven|hell|trinity|satan|valhalla|saint|vatican|yahweh/.test(t))return '301';
@@ -105,7 +105,7 @@ function unpack(parsed,source){
  return out;
 }
 async function importOne(file){if(file.size>60*1024*1024)throw Error('File exceeds the 60 MB per-file safety limit.');
- const bytes=await file.arrayBuffer(),hash=await digest(bytes),source={id:hash==='sha256-unavailable'?file.name+':'+file.size:hash,name:file.name,size:file.size,sha256:hash,importedAt:new Date().toISOString(),blob:new Blob([bytes],{type:file.type||'application/octet-stream'})};
+ const bytes=await file.arrayBuffer(),hash=await digest(bytes),source={id:hash==='sha256-unavailable'?file.name+':unverified:'+Date.now()+':'+Math.random().toString(36).slice(2):hash,name:file.name,size:file.size,sha256:hash,importedAt:new Date().toISOString(),blob:new Blob([bytes],{type:file.type||'application/octet-stream'})};
  const text=new TextDecoder().decode(bytes);let records;
  if(file.name.toLowerCase().endsWith('.json'))records=unpack(JSON.parse(text),source);
  else records=[toRecord({title:file.name.replace(/\.(md|txt)$/i,''),description:'Imported original text; attribution and authorship require source verification',shelf:'201',content:text,privacy:'private imported source'},source,0,'document')];
@@ -118,7 +118,7 @@ function renderShelves(){const p=$('shelves');p.replaceChildren();
  for(const [id,label,desc] of [['ALL','Everything','All library materials'],...SHELVES]){const b=node('button',undefined,'shelf'+(ui.shelf===id?' active':''));b.append(node('strong',id==='ALL'?'ALL':id),node('span',label),node('small',desc+' · '+counts[id]));b.onclick=()=>{ui.shelf=id;ui.limit=60;render()};p.append(b)}
  $('total').textContent=ui.records.length.toLocaleString()+' locally indexed records'}
 function matches(r,q,kind){if(ui.shelf!=='ALL'&&r.shelf!==ui.shelf)return false;if(kind&&r.kind!==kind)return false;
- return !q||(r.title+' '+r.description+' '+r.section+' '+r.provenance+' '+r.originalId+' '+r.stage).toLowerCase().includes(q)}
+ return !q||(r.title+' '+r.description+' '+r.section+' '+r.provenance+' '+r.originalId+' '+r.stage+' '+(r.fullText||'')).toLowerCase().includes(q)}
 function renderResults(){const q=$('search').value.trim().toLowerCase(),kind=$('status-filter').value;
  const filtered=ui.records.filter(r=>matches(r,q,kind));$('count').textContent=filtered.length.toLocaleString()+' matches · '+Math.min(ui.limit,filtered.length).toLocaleString()+' displayed. Titles and counts are index records, not proof of finished books or releases.';
  const list=$('record-list');list.replaceChildren();
