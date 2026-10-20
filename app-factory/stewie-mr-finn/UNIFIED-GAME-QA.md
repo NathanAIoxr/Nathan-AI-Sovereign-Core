@@ -41,3 +41,14 @@ Change pace on the adventure map or under **Grown-Up Corner**. Verify both the o
 CI native Swift progression tests and web engine unit tests exercise game logic; simulator launches/screenshots do **not** substitute for a human completing every interaction. Physical-device testing, TestFlight, signing, support/privacy publication and App Store submission remain separate release gates.
 
 Code changes belong on `feature/stewart-finn-unified-adventure`, not directly on the 6.2 App Store release branch.
+
+## Match-3 consolidation (6.4 beta, 96 connected stages)
+
+- One primary Play button opens one match-3 map. Existing games remain accessible under Original adventure library and keep their saved data.
+- Six original worlds x eight boards = 48 match-3 levels; 16 Polar Family chapters x three challenges = 48 more. The same 7x7 board engine, goals, cascades, shuffling, scoring and unlocking apply everywhere.
+- Every Polar Family chapter title, story and the exact 48 original question-answer-explanation discoveries are incorporated at their corresponding match-3 stages; bundled original artwork is reused.
+- Move by swapping neighboring tiles via tap-tap or swipe. Invalid moves cost nothing. Four-matches earn a row-clearing paw; five-matches earn a color-clearing rainbow. Boosters activate only when the player chooses. Hints are free.
+- New local save key mammal.match3.v1 contains best stars and a mid-round board including its RNG state. Legacy campaign, Polar, sticker, stars and other progress are not overwritten.
+- Swift/Linux local tests passed 96 stages x six seeds, 13,688 legal moves and 585 boosters. GitHub CI adds the same native Foundation suite, iPhone build and screenshot routes match3 / match3-board.
+- No timers, ads, purchases or accounts. Calm, Steady and Quick govern cosmetic transitions only.
+- Beta release gates: macOS iPhone compilation, human visual and full touch/swipe playthrough, upgrades from actual device saves, physical-device/TestFlight validation, signing and publication remain to be verified.
