@@ -23,7 +23,7 @@ struct MatchThreeStage {
         if let ch = polarChapter { return PolarFamilyCatalog.chapter(ch)?.story ?? "" }
         return [
             "A world of hidden pathways and puzzle cats",
-            "Stewie\u0027s soft paws and patient friendships",
+            "Stewie's soft paws and patient friendships",
             "Two cats, complementary puzzle-piece coats",
             "Find clues with our long-legged food detective",
             "Playful listening and calm choices",
