@@ -19,6 +19,22 @@ struct MatchThreeStage {
         if let ch = polarChapter { return PolarFamilyCatalog.chapter(ch)?.title ?? "Polar Family" }
         return Self.worlds[(id - 1) / 8]
     }
+    var story: String {
+        if let ch = polarChapter { return PolarFamilyCatalog.chapter(ch)?.story ?? "" }
+        return [
+            "A world of hidden pathways and puzzle cats",
+            "Stewie\u0027s soft paws and patient friendships",
+            "Two cats, complementary puzzle-piece coats",
+            "Find clues with our long-legged food detective",
+            "Playful listening and calm choices",
+            "Keep your word, respect boundaries, grow together"
+        ][(id - 1) / 8]
+    }
+    var discovery: String? {
+        guard let ch = polarChapter, let chapter = PolarFamilyCatalog.chapter(ch) else { return nil }
+        let puzzle = chapter.puzzles[(id - 49) % 3]
+        return puzzle.question + "\n" + puzzle.options[puzzle.correct] + ". " + puzzle.explanation
+    }
     var stageLabel: String {
         if id <= 48 { return "Board \((id - 1) % 8 + 1) of 8" }
         return "Challenge \((id - 49) % 3 + 1) of 3"
