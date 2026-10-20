@@ -89,6 +89,11 @@ import Foundation
         let persisted = MatchThreeSave.restore(allFirst.serialized())
         precondition(persisted.ratings[1] == allFirst.ratings[1])
         precondition(!MatchThreeSave.restore("bad JSON").unlocked(2))
+        // Recover completed levels when an active-board payload is malformed.
+        let damagedRound = "{\"ratings\":{\"1\":3},\"round\":{\"level\":\"broken\"}}"
+        let rescued = MatchThreeSave.restore(damagedRound)
+        precondition(rescued.ratings[1] == 3 && rescued.unlocked(2))
+        precondition(rescued.savedRound(for: 1) == nil)
         // Regression: an unfinished level must survive visiting another board.
         // The old 6.4 single-round JSON must continue to open without migration.
         let first = MatchThreeGame(level: 1, seed: 8123)
