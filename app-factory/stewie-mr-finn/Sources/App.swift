@@ -4,6 +4,16 @@ import SwiftUI
 struct StewieAndMrFinnApp: App {
     @StateObject private var progress = MammalProgress()
 
+    init() {
+        #if DEBUG
+        // Only the simulator test harness may start with a fresh match-3 save.
+        // No player save is reset or migrated by production builds.
+        if ProcessInfo.processInfo.arguments.contains("--qa-match3-reset") {
+            UserDefaults.standard.removeObject(forKey: "mammal.match3.v1")
+        }
+        #endif
+    }
+
     var body: some Scene {
         WindowGroup {
             launchView
