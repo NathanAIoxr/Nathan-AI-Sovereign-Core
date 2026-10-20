@@ -41,6 +41,44 @@ import Foundation
                 if restored.round != nil { precondition(restored.round == board) }
             }
         }
+        // Play every level sequentially like a novice using hints and earned boosters.
+        // Failed rounds are restarted, but completed ratings remain intact.
+        var entireStory = MatchThreeSave()
+        var tries = 0
+        for level in 1...96 {
+            precondition(entireStory.unlocked(level), "Level \(level) never unlocked")
+            var finished = false
+            for attempt in 1...20 {
+                tries += 1
+                var game = MatchThreeGame(level: level, seed: UInt64(level * 12503 + attempt), extraMoves: 14)
+                for _ in 0..<60 {
+                    if game.won || game.lost { break }
+                    guard let move = game.hint() else { fatalError("Novice found no legal swap") }
+                    precondition(game.swap(move.0,move.1))
+                    if !game.won && !game.lost && game.paws > 0 { precondition(game.paw(at: move.0)) }
+                    if !game.won && !game.lost && game.rainbows > 0 { precondition(game.rainbow(at: move.1)) }
+                    if !game.won && !game.lost {
+                        let paused = MatchThreeSave(ratings: entireStory.ratings, round: game)
+                        precondition(MatchThreeSave.restore(paused.serialized()).round == game,
+                                     "Every paused round must resume exactly")
+                    }
+                }
+                if game.won {
+                    entireStory.finish(game)
+                    precondition(entireStory.unlocked(min(level + 1, 96)))
+                    finished = true
+                    break
+                }
+            }
+            precondition(finished, "Novice could not finish stage \(level) after twenty tries")
+        }
+        precondition(entireStory.completed == 96 && entireStory.next == 96)
+        precondition(MatchThreeSave.restore(entireStory.serialized()).completed == 96)
+        for style in MatchThreeComfort.allCases {
+            let board = MatchThreeGame(level: 1, seed: 42, extraMoves: style.extraMoves)
+            precondition(board.movesLeft == MatchThreeStage(1).moves + style.extraMoves)
+            precondition(board.hint() != nil && !hasMatches(board.cells))
+        }
         precondition(turnsChecked > 100)
         precondition(clears > 0)
         precondition(boosters > 0)
@@ -51,7 +89,7 @@ import Foundation
         let persisted = MatchThreeSave.restore(allFirst.serialized())
         precondition(persisted.ratings[1] == allFirst.ratings[1])
         precondition(!MatchThreeSave.restore("bad JSON").unlocked(2))
-        print("MatchThree tests passed: 96 stages × 6 seeds; \(turnsChecked) legal turns; \(clears) level clears; \(boosters) boosters")
+        print("MatchThree tests passed: 96 stages × 6 seeds; \(turnsChecked) legal turns; \(clears) clears; \(boosters) boosters; 96-level novice campaign in \(tries) rounds")
     }
 
     private static func hasMatches(_ cells: [Int]) -> Bool {
