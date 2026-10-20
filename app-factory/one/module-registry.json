@@ -1,0 +1,51 @@
+{
+  "schema": "tabor.one.modules.v1",
+  "parent": "ONE — The Last App",
+  "author": "Nathan Tabor",
+  "root": "TABOR 1-2-3 FACTORY / TABOR ROOT",
+  "rule": "CREATE ONCE. TRANSFORM INTO EVERYTHING. PRESERVE THE ORIGINAL.",
+  "modules": [
+    {
+      "id": "a-vs-i",
+      "title": "A vs I — The Original War",
+      "kind": "game",
+      "status": "browser-playable-v6",
+      "path": "./modules/a-vs-i/index.html",
+      "source": "preserved Animation Forge v6",
+      "includes": [
+        "match-3 13 realms",
+        "101 angel roster entries",
+        "Everything & Nothing mathematical core",
+        "Animation Forge v6 keyframe timeline",
+        "battle FX, rigs, camera, particle and audio authoring"
+      ],
+      "storage": "game-local-browser",
+      "visibility": "public creative prototype"
+    },
+    {
+      "id": "barnabas",
+      "title": "Helplessness & Barnabas",
+      "kind": "publishing-workspace",
+      "status": "authored thesis and private working notes",
+      "path": "./modules/barnabas/index.html",
+      "source": "Nathan Tabor authored thesis",
+      "includes": [
+        "without barnabus there is NO paul",
+        "Acts 9:26–27 advocacy",
+        "Acts 11:25–26 partnership",
+        "one and two human-design analogy"
+      ],
+      "storage": "separate-local-browser",
+      "visibility": "public project shell; private drafts saved only locally"
+    }
+  ],
+  "planned": [
+    "NATHAN AI",
+    "TABOR WORLD",
+    "Healers & Protectors",
+    "TaborTales",
+    "Creator Vault",
+    "Publishing Hub"
+  ],
+  "note": "Planned modules are pointers only, not claims of full integration, authentication, or deployed services."
+}
