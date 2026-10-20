@@ -63,6 +63,22 @@ class PrivateHealthVault {
  async list(){this._require();const records=await this._all(),out=[];for(const x of records){try{out.push(JSON.parse(dec.decode(await unseal(this.key,x.meta))));}catch{throw Error('An encrypted record could not be authenticated');}}return out.sort((a,b)=>(b.addedAt||'').localeCompare(a.addedAt||''));}
  async addFile(name,raw,path){this._require();const n=fileName(name),p=safePath(path||name);if(!n||!p||!permitted(n))throw Error('Unsupported file or unsafe path');const content=bytes(raw);if(content.length>FILE_LIMIT)throw Error('File too large');const digest=await shaHex(content);if(await this._get('records',digest))return {duplicate:true,id:digest};const meta={id:digest,kind:'original',name:n,path:p,category:category(p),size:content.length,sha256:digest,addedAt:new Date().toISOString(),sourceType:'user_imported_original',claimStatus:'source_not_independently_verified'};const item={id:digest,meta:await seal(this.key,enc.encode(JSON.stringify(meta))),data:await seal(this.key,content)};await this._put('records',item);return {duplicate:false,id:digest};}
  async addEntry(kind,title,description,date){this._require();if(!['recovery_note','bath_formula','timeline'].includes(kind))throw Error('Invalid note type');if(!String(title).trim()||String(title).length>180||String(description).length>5000)throw Error('Title or note exceeds limits');const id='entry-'+crypto.randomUUID();const meta={id,kind,name:String(title).trim(),description:String(description),date:String(date||''),category:kind==='bath_formula'?'Bath Systems':'Health & Recovery',addedAt:new Date().toISOString(),sourceType:'user_created',claimStatus:'personal_account_not_clinically_verified'};await this._put('records',{id,meta:await seal(this.key,enc.encode(JSON.stringify(meta))),data:await seal(this.key,new Uint8Array(0))});return {id};}
+ async importBackupEntry(given,raw){
+ this._require();if(!given||typeof given!=='object')throw Error('Invalid backup entry');
+ const content=bytes(raw),kind=given.kind;
+ let meta,id;
+ if(kind==='original'){
+   const n=fileName(given.name),p=safePath(given.path||given.name);if(!n||!p||!permitted(n)||content.length>FILE_LIMIT)throw Error('Invalid original in backup');
+   id=await shaHex(content);if(given.sha256!==id||given.size!==content.length)throw Error('Backup source digest mismatch');
+   meta={id,kind:'original',name:n,path:p,category:category(p),size:content.length,sha256:id,addedAt:String(given.addedAt||new Date().toISOString()).slice(0,40),sourceType:'user_imported_original',claimStatus:'source_not_independently_verified'};
+ }else if(['recovery_note','bath_formula','timeline'].includes(kind)){
+   if(content.length!==0||typeof given.name!=='string'||given.name.length>180||typeof given.description!=='string'||given.description.length>5000)throw Error('Invalid authored note in backup');
+   id=typeof given.id==='string'&&/^entry-[0-9a-f-]{36}$/.test(given.id)?given.id:'entry-'+crypto.randomUUID();
+   meta={id,kind,name:given.name,description:given.description,date:String(given.date||'').slice(0,10),category:kind==='bath_formula'?'Bath Systems':'Health & Recovery',addedAt:String(given.addedAt||new Date().toISOString()).slice(0,40),sourceType:'user_created',claimStatus:'personal_account_not_clinically_verified'};
+ }else throw Error('Unrecognized health backup entry');
+ if(await this._get('records',id))return {duplicate:true,id};
+ await this._put('records',{id,meta:await seal(this.key,enc.encode(JSON.stringify(meta))),data:await seal(this.key,content)});return {duplicate:false,id};
+ }
  async read(id){this._require();const item=await this._get('records',id);if(!item)throw Error('Record missing');return {meta:JSON.parse(dec.decode(await unseal(this.key,item.meta))),content:await unseal(this.key,item.data)};}
  async updateCategory(id,value){this._require();const allowed=['Bath Systems','Health & Recovery','Healing & Reflections','Technical & Source Indexes','Unsorted'];if(!allowed.includes(value))throw Error('Unknown category');const item=await this._get('records',id);if(!item)throw Error('Record missing');const meta=JSON.parse(dec.decode(await unseal(this.key,item.meta)));meta.category=value;item.meta=await seal(this.key,enc.encode(JSON.stringify(meta)));await this._put('records',item);}
  async clear(){this._require();await reqResult(this._store('records','readwrite').clear());}
