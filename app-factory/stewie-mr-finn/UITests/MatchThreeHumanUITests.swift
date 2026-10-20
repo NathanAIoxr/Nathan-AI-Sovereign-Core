@@ -7,7 +7,7 @@ final class MatchThreeHumanUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments = [
             "--qa-screen", "match3-board",
-            "-mammal.match3.comfort.v1", style
+            "--qa-match3-style", style
         ] + (reset ? ["--qa-match3-reset"] : [])
         app.launch()
         XCTAssertTrue(app.buttons["match3.tile.0"].waitForExistence(timeout: 15), "First tile must load")
@@ -71,7 +71,7 @@ final class MatchThreeHumanUITests: XCTestCase {
     }
 
     func testGentleClassicChallengeMovesAndAccessibleTiles() {
-        for (style, expected) in [("gentle", 45), ("classic", 31), ("challenge", 24)] {
+        for style in ["gentle", "classic", "challenge"] {
             let app = openBoard(style)
             // Level one starts with 29 + (1 % 5) = 30. Keep this check derived
             // from that rule, plus each comfort-style adjustment.
