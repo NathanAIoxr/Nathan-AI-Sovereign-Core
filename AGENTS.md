@@ -9,3 +9,5 @@ Use truthful feature availability. Do not label a local rehearsal as a live remo
 Respect reduced motion, device limits, accessible element labels, and optional ambient behavior. No location, biometric, camera, microphone, or external weather collection by default. Use only existing authorized data access.
 
 For public repositories, never copy private library builds, research/source archives, user files, or personal media into public Git. General reusable code and authorized specifications may be synchronized. Run engine and community tests before integration; separate visual QA from logic tests.
+
+The named Tabor Decimal System framework and design direction are attributed to Nathan Tabor. Do not conflate that project name with Colorado tax law. Treat biological/prehistoric connections as metaphors or research claims until verified; ordinary arithmetic and established algorithms retain their standard meanings. See app-factory/shared/material-worlds/TABOR_DECIMAL_SYSTEM.md.
