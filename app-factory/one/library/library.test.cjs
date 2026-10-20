@@ -44,5 +44,5 @@ test('Original source bytes available independent of normalized index',()=>{
  assert.match(script,/createObjectStore\('records'/);
  assert.match(script,/original:raw/);
  assert.match(script,/download\(s.name,s.blob\)/);
- assert.match(script,/Export searchable index/);
+ assert.match(page,/Export searchable index/);
 });
