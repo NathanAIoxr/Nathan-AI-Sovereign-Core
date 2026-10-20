@@ -16,7 +16,7 @@ test('Library embeds nine 101–901 shelves separate from engineering divisions'
  assert.ok(script);
  assert.doesNotThrow(()=>new vm.Script(script));
  for(let i=1;i<=9;i++)assert.match(script,new RegExp("\\['"+i+"01'"));
- assert.match(page,/library shelves are independent/i);
+ assert.match(page,/Library shelf numbers do not replace ONE's separate 101–901 engineering divisions/i);
  assert.match(page,/101–901 engineering divisions/i);
 });
 test('Local source preservation and private import are explicit',()=>{
@@ -26,7 +26,7 @@ test('Local source preservation and private import are explicit',()=>{
  assert.match(script,/indexedDB\.open/);
  assert.match(script,/SHA-256/);
  assert.match(script,/original:raw/);
- assert.match(script,/source\.blob/);
+ assert.match(script,/blob:new Blob/);
  assert.match(script,/getAll\('records'\)/);
  assert.match(page,/not encrypted cloud storage/i);
  assert.match(page,/no private manuscripts/i);
