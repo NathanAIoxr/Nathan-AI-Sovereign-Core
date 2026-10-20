@@ -68,7 +68,7 @@ for label,device in [('compact',compact),('large',large)]:
         call('xcrun','simctl','launch','--terminate-running-process',uid,'com.nathantabor.stewieandfinn','--qa-screen',screen,'--qa-wrong')
         time.sleep(2)
         call('xcrun','simctl','io',uid,'screenshot',str(folder/(screen+'-feedback.png')))
-    for screen in ['home','unified','polar','playroom','settings']:
+    for screen in ['home','unified','match3','match3-board','polar','playroom','settings']:
         call('xcrun','simctl','launch','--terminate-running-process',uid,'com.nathantabor.stewieandfinn','--qa-screen',screen,'--qa-large-text')
         time.sleep(2)
         call('xcrun','simctl','io',uid,'screenshot',str(folder/(screen+'-large-text.png')))
@@ -80,4 +80,4 @@ for label,device in [('compact',compact),('large',large)]:
         suffix='-large-text' if large_text else ''
         call('xcrun','simctl','io',uid,'screenshot',str(folder/('home-'+target+suffix+'.png')))
     call('xcrun','simctl','shutdown',uid)
-print('Captured 78 actual simulator screens, including match-three home and board; review pixels before delivering.')
+print('Captured 82 actual simulator screens, including match-three home and board; review pixels before delivering.')
