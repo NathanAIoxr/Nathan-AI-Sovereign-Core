@@ -7,7 +7,7 @@ The existing iPhone game has a six-world, 48-board core campaign plus mini-games
 | World | Chapters | Family guides |
 | --- | --- | --- |
 | North Paw, House HO HO HO | 1–8 | Santa Dog; Holly Howl; Peppermint Dot; Pip & Poppy; Jingle Jack; Blizzard Belle; Juniper Jingles |
-| South Paw, House OH OH OH | 9–16 | Ozzie; Oona Aurora; Opal Flip; Otto Orbit; Olive Current; Ollie Echo; Odie & Oda |
+| Mrs Clause Cat’s Workshop, House OH OH OH | 9–16 | Mrs Clause Cat; Ozzie; Oona Aurora; Opal Flip; Otto Orbit; Olive Current; Ollie Echo; Odie & Oda |
 
 ### Game loop
 1. Open **THE POLAR FAMILY · 16 CHAPTERS** from the existing app home. See a world map with all chapter names, progress and the complete original polar family roster.
@@ -55,3 +55,17 @@ xcodebuild -project StewieAndMrFinn.xcodeproj -scheme StewieAndMrFinn -configura
 ```
 
 **Release honesty:** Compiled source or an unsigned IPA does not install by itself on an ordinary iPhone. Build validation, an Apple Developer account, signing/provisioning, App Store policies, accessible-device testing and editorial/trademark review remain required before distributing a finished app.
+
+
+## Version 6.0.1 finishing pass
+- Removed the duplicated Mrs Clause Cat’s Workshop chapter list from the map.
+- Each chapter now remembers its selected answer and current clue immediately, including after leaving the chapter or restarting the app. Reopen a completed chapter to see the result or choose **Play this chapter again**.
+- Chapter checkpoints use separate `mammal.polar.attempt.v1.<chapter>` keys. Original campaign saves and existing polar ratings are preserved. Invalid checkpoint data resets only that attempt.
+- Resuming a completed checkpoint repairs an interrupted completion callback; existing best-rating and one-time reunion reward rules prevent duplicate awards.
+- Native regression checks cover interrupted answers, next-clue restoration, duplicate submissions, invalid checkpoint data and final completion.
+
+### Device acceptance pass (still requires a physical iPhone)
+Install the unsigned artifact using the established signing/sideloading route. Test chapter 1, answer a clue, close and reopen the app, and confirm the same answer/explanation remains. Continue the chapter and confirm chapter 2 unlocks. Replay with a lower score and confirm stars do not decrease. Complete chapter 16, reopen it twice, and confirm the reunion reward is awarded only once. Open both bundled web games in airplane mode. Check the map and answer buttons with VoiceOver and large text, then launch an original campaign board to confirm its save is intact.
+
+### South Paw workshop identity
+South Paw is now **Mrs Clause Cat’s Workshop**, led by Mrs Clause Cat. Ozzie and the existing polar family remain her companions and guides. Chapter 9 welcomes players into the workshop, and chapter 16 brings both families there for the reunion. The family guide now has 28 profiles. Region IDs, chapter IDs and save keys are unchanged.

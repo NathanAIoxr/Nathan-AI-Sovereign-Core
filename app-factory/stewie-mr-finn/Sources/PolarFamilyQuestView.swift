@@ -1,6 +1,6 @@
 import SwiftUI
 
-// Native North Paw ↔ South Paw campaign, separate from the original 48 boards.
+// Native North Paw ↔ Mrs Clause Cat’s Workshop campaign, separate from the original 48 boards.
 // Original SwiftUI geometry and emoji; no downloaded characters or media.
 
 struct PolarFamilyQuestView: View {
@@ -72,8 +72,6 @@ struct PolarFamilyQuestView: View {
                                 .background(Color.indigo.opacity(0.11), in:RoundedRectangle(cornerRadius:15))
                         }
                     }
-
-                    group(for: .south)
 
                     GameCard {
                         Button {
@@ -225,13 +223,13 @@ private struct PolarAuroraCard: View {
                     Image(systemName: "arrow.left.arrow.right")
                         .font(.title3.bold())
                         .foregroundStyle(.yellow)
-                    Text("🐧❄️").font(.system(size: 42))
+                    Text("🐈🎁").font(.system(size: 42))
                 }.minimumScaleFactor(0.75)
                 Text("NORTH PAW  ↔  SOUTH PAW")
                     .font(.system(.headline, design: .rounded, weight: .black))
                     .foregroundStyle(.white)
                     .minimumScaleFactor(0.7).lineLimit(1)
-                Text("Two poles • One family • A bridge built from kindness")
+                Text("Mrs Clause Cat’s Workshop • Gifts, puzzles & kindness")
                     .font(.caption).foregroundStyle(.white.opacity(0.9))
                     .multilineTextAlignment(.center)
             }
@@ -264,9 +262,10 @@ private struct PolarCast: Identifiable {
         .init(id:"Auntie Nutmeg",icon:"📜",story:"A thoughtful older basset hound who remembers everybody's story."),
         .init(id:"Coal Comet",icon:"🛷",story:"A gentle black German Shepherd who supports North Paw's winter rescue team."),
         .init(id:"Pip & Poppy",icon:"🐾",story:"The playful pups who love mirrored paths and sharing."),
-        .init(id:"OH OH OH Ozzie",icon:"🐧",story:"The South Paw emperor penguin who greets discoveries with OH!"),
-        .init(id:"Oona Aurora",icon:"✨",story:"The penguin guide to South Paw's beautiful southern lights."),
-        .init(id:"Grandma Orla",icon:"📖",story:"The elder penguin who protects South Paw's family history and ice maps."),
+        .init(id:"Mrs Clause Cat",icon:"🐈🎁",story:"The cat who leads South Paw’s workshop, making gifts and welcoming every helper with patience, choice and kindness."),
+        .init(id:"OH OH OH Ozzie",icon:"🐧",story:"The emperor penguin who helps Mrs Clause Cat welcome visitors and greets discoveries with OH!"),
+        .init(id:"Oona Aurora",icon:"✨",story:"The penguin guide to Mrs Clause Cat’s Workshop’s beautiful southern lights."),
+        .init(id:"Grandma Orla",icon:"📖",story:"The elder penguin who protects Mrs Clause Cat’s Workshop’s family history and ice maps."),
         .init(id:"Opal Flip",icon:"🪞",story:"The Adélie penguin who builds reflection puzzles."),
         .init(id:"Otto Orbit",icon:"⭐",story:"The star-watching penguin with a telescope and patient questions."),
         .init(id:"Olive Current",icon:"🐋",story:"The story's wise orca ocean guide."),
@@ -282,10 +281,19 @@ struct PolarChapterPlayView: View {
     let chapter: PolarChapter
     let onComplete: (Int, Int) -> Void
     @Environment(\.dismiss) private var dismiss
-    @State private var questionIndex = 0
-    @State private var selected: Int? = nil
-    @State private var numberCorrect = 0
-    @State private var isComplete = false
+    @AppStorage private var savedAttempt: String
+    @State private var attempt = PolarChapterAttempt()
+    @State private var didRestore = false
+
+    init(chapter: PolarChapter, onComplete: @escaping (Int, Int) -> Void) {
+        self.chapter = chapter
+        self.onComplete = onComplete
+        _savedAttempt = AppStorage(wrappedValue: "", "mammal.polar.attempt.v1.\(chapter.id)")
+    }
+    private var questionIndex: Int { attempt.questionIndex }
+    private var selected: Int? { attempt.selected }
+    private var numberCorrect: Int { attempt.correct(in: chapter) }
+    private var isComplete: Bool { attempt.isComplete }
 
     private var question: PolarQuiz { chapter.puzzles[min(questionIndex, chapter.puzzles.count-1)] }
 
@@ -334,8 +342,8 @@ struct PolarChapterPlayView: View {
                             ForEach(question.options.indices,id:\.self) { option in
                                 Button {
                                     guard selected == nil else { return }
-                                    selected = option
-                                    if option == question.correct { numberCorrect += 1 }
+                                    attempt.choose(option)
+                                    savedAttempt = attempt.serialized()
                                     MammalHaptics.tap()
                                 } label: {
                                     HStack(spacing:12) {
@@ -390,6 +398,13 @@ struct PolarChapterPlayView: View {
         }
         .navigationTitle(chapter.title)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            guard !didRestore else { return }
+            didRestore = true
+            attempt = PolarChapterAttempt.restored(savedAttempt)
+            // Recover an interrupted completion; the family award is idempotent.
+            if isComplete { onComplete(chapter.id, numberCorrect) }
+        }
     }
 
     private func icon(for option: Int) -> String {
@@ -404,18 +419,12 @@ struct PolarChapterPlayView: View {
     }
     private func continuePlaying() {
         guard selected != nil, !isComplete else { return }
-        if questionIndex < 2 {
-            questionIndex += 1
-            selected = nil
-        } else {
-            isComplete = true
-            onComplete(chapter.id,numberCorrect)
-        }
+        attempt.next()
+        savedAttempt = attempt.serialized()
+        if isComplete { onComplete(chapter.id, numberCorrect) }
     }
     private func restart() {
-        questionIndex = 0
-        selected = nil
-        numberCorrect = 0
-        isComplete = false
+        attempt = PolarChapterAttempt()
+        savedAttempt = attempt.serialized()
     }
 }

@@ -76,7 +76,7 @@
       q={world:'Polar Mirror Bridge',hero:'🐈‍⬛ Stewie + 🐈 Mr. Finn',kind:'mirror',title:'BELOW C • See it backwards',symbol:word,question:'Read '+word+' one character at a time from RIGHT to LEFT. Which exact string appears?',answer:reversed,wrong:options.slice(0,3),explanation:'The literal reversal is '+reversed+'. The bridge changes written order, not actual word history or spoken pronunciation.',evidence:'Verified string operation',source:null};
     } else {
       const entry=ARCHIVE[(k*5)%ARCHIVE.length];
-      q={world:'South Paw',hero:'🐧 OH OH OH Ozzie',kind:'archive',title:'MIDDLE C • Compare the evidence',symbol:entry.code,question:entry.question,answer:entry.answer,wrong:entry.wrong,explanation:entry.detail,evidence:entry.culture,source:entry.source};
+      q={world:'Mrs Clause Cat’s Workshop',hero:'🐧 OH OH OH Ozzie',kind:'archive',title:'MIDDLE C • Compare the evidence',symbol:entry.code,question:entry.question,answer:entry.answer,wrong:entry.wrong,explanation:entry.detail,evidence:entry.culture,source:entry.source};
     }
     const choices=shuffle([q.answer,...q.wrong].slice(0,4),level+':'+stage);
     if(choices.length!==4||choices.filter(c=>c.label===q.answer).length!==1)throw Error('Bad options');
