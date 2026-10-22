@@ -1,0 +1,11 @@
+SSS-CS iOS source build checks (2026-10-22)
+PASS: OpenStep .pbxproj parsed by plutil -lint.
+PASS: Info.plist parsed by plutil -lint and Python plistlib.
+PASS: Swift source syntactically parsed with swiftc -frontend -parse on Linux.
+PASS: app.js syntactically parsed with node --check.
+PASS: build_unsigned_ipa.sh passed bash -n.
+PASS: Asset catalog JSON parsed; 1024x1024 PNG app icon included.
+NOT RUN: Xcode compile/link for iPhoneOS (macOS Xcode unavailable).
+NOT RUN: iPhone install, microphone, storage, actual encrypted export through WKWebView.
+NOT RUN: macOS CI GitHub Actions; workflow provided for user-initiated build.
+NO IPA BUILT: A valid IPA needs a compiled iOS app binary in Payload/SSSCS.app.

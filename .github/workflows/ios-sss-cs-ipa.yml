@@ -1,0 +1,60 @@
+name: SSS-CS unsigned iPhone IPA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/sss-cs/**'
+      - '.github/workflows/ios-sss-cs-ipa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: app-factory/sss-cs/ios
+    steps:
+      - name: Checkout SSS-CS source
+        uses: actions/checkout@v4
+      - name: Xcode environment
+        run: xcodebuild -version
+      - name: Validate SSS-CS bundle before building
+        run: |
+          /usr/bin/plutil -lint SSSCS/Info.plist
+          node --check SSSCS/Web/app.js
+          bash -n build_unsigned_ipa.sh
+          test -s SSSCS/Web/assets/ssscs-art.webp
+          test -s SSSCS/Web/index.html
+      - name: Compile iPhone binary and package unsigned IPA
+        run: bash build_unsigned_ipa.sh
+      - name: Verify IPA payload
+        run: |
+          test -s dist/SSS-CS-UNSIGNED.ipa
+          unzip -l dist/SSS-CS-UNSIGNED.ipa | grep -q 'Payload/SSSCS.app/SSSCS'
+          unzip -t dist/SSS-CS-UNSIGNED.ipa | tail -1
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SSS-CS-UNSIGNED-IPA
+          path: app-factory/sss-cs/ios/dist/SSS-CS-UNSIGNED.ipa
+          if-no-files-found: error
+          retention-days: 30
+      - name: Publish unsigned IPA release asset
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="sss-cs-ios-unsigned-v1"
+          IPA="dist/SSS-CS-UNSIGNED.ipa"
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$IPA" --clobber --repo "$GITHUB_REPOSITORY"
+          else
+            gh release create "$TAG" "$IPA" --repo "$GITHUB_REPOSITORY" \
+              --title "SSS-CS — Unsigned iPhone IPA (Test Build)" \
+              --notes "Unsigned iPhone device build of the local-first SSS-CS app. Sign with your Apple development credentials or compatible sideloading tool before installation. This build is for testing; real network firewalls, cloud sync and 5-million-proxy hosting are not implemented."
+          fi
