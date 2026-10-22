@@ -680,6 +680,37 @@
       "next": "Reuse the searchable 316-record public source-derived archive. Add primary-source citations and relationship modeling before importing into real game or AI knowledge graph.",
       "owner": "TABOR WORLD / TABOR INFINITUM",
       "review": "Source-level historical claims must be independently reviewed"
+    },
+    {
+      "id": "mission-control",
+      "title": "Universal Mission Control — seven-domain evidence, permission and repair planning",
+      "group": "foundation",
+      "status": "public-prototype",
+      "phase": 2,
+      "dependsOn": [
+        "contracts",
+        "registry"
+      ],
+      "evidence": "app-factory/universal-node/mission-control.js",
+      "next": "Reuse shared issue intake, triad and source validation across products. Next implement authorized server-backed case review; don't claim automatic repairs.",
+      "owner": "TABOR ROOT / Nathan AI",
+      "review": "Read-only simulation; no physical actuation"
+    },
+    {
+      "id": "sensor-gateway",
+      "title": "Universal device and sensor gateway — low-voltage opt-in interfaces",
+      "group": "integrations",
+      "status": "not-built",
+      "phase": 3,
+      "dependsOn": [
+        "mission-control",
+        "authentication",
+        "event-bus"
+      ],
+      "evidence": "app-factory/universal-node/HARDWARE-ROADMAP.md",
+      "next": "Build authenticated device ingestion, sample signatures and calibration/replay checks before live connections.",
+      "owner": "TABOR ROOT / physical hardware",
+      "review": "Hazard analysis and authorized measurements required"
     }
   ]
 }
