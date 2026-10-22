@@ -1,0 +1,16 @@
+'use strict';const test=require('node:test'),assert=require('node:assert/strict'),m=require('./mission-control.js');
+const examples=m.exampleCases();
+test('all seven domains have classifications',()=>assert.deepEqual(m.DOMAINS,['body','community','earth','cosmos','unknown','software','hardware']));
+test('all synthetic examples yield a review plan',()=>{for(const ex of examples){const a=m.assess(ex);assert.equal(a.steps.length,6);assert.equal(a.readyForAutonomousAction,false)}});
+test('unverified cosmic signal cannot be described as proved',()=>{const a=m.assess(examples[3]);assert.equal(a.verifiedFact,false);assert.equal(a.mode,'investigate')});
+test('safety critical medical situation escalates and denies automatic action',()=>{const a=m.assess(examples[0]);assert.equal(a.mode,'escalate-safely');assert.equal(a.needsExpertReview,true);assert.equal(a.gateChecks.sympathy.passed,false)});
+test('owner consent flag never enables browser physical operation',()=>{const a=m.assess({...examples[1],ownerApproval:true,consent:true,evidenceStatus:'verified',sources:['example.test']});assert.equal(a.readyForAutonomousAction,false)});
+test('bad severity rejected',()=>assert.throws(()=>m.assess({...examples[1],severity:99}),/Severity/));
+test('unknown domain rejected',()=>assert.throws(()=>m.assess({...examples[1],domain:'magic'}),/Invalid domain/));
+test('long title and missing description fail validation',()=>{assert.throws(()=>m.assess({...examples[1],title:'X'.repeat(151)}));assert.throws(()=>m.assess({...examples[1],description:''}))});
+test('body, environment and motion packet demo contracts validate',()=>{for(const k of ['environment-sensor','body-sensor','motion-sensor']){const spec=m.deviceSpec(k);const a=m.validatePacket(spec.sample);assert.equal(a.valid,true);assert.equal(a.trustedForSafetyCriticalControl,false)}});
+test('packet rejects fabricated quality labels',()=>{let p=m.deviceSpec('environment-sensor').sample;p.observations[0].quality='verified-by-magic';assert.throws(()=>m.validatePacket(p),/Invalid sensor observation/)});
+test('packet rejects wrong units and invalid numbers',()=>{const p=m.deviceSpec('body-sensor').sample;p.observations[0].unit='kelvin';assert.throws(()=>m.validatePacket(p));p.observations[0].unit='beats/min';p.observations[0].value=Infinity;assert.throws(()=>m.validatePacket(p))});
+test('empty and malformed sensor packets rejected',()=>{assert.throws(()=>m.validatePacket(null));assert.throws(()=>m.validatePacket({version:1,deviceId:'a',timestamp:'nonsense',observations:[]}))});
+test('evidence is not automatically a verified fact when sources absent',()=>{const a=m.assess({...examples[1],evidenceStatus:'verified',sources:[]});assert.equal(a.verifiedFact,false);assert.equal(a.mode,'investigate')});
+test('critical issues never silently auto-approve physical work',()=>{for(const domain of m.DOMAINS){const a=m.assess({...examples[1],domain,severity:5,risk:'safety-critical',consent:true,ownerApproval:true,evidenceStatus:'verified',sources:['example.test']});assert.equal(a.readyForAutonomousAction,false);assert.equal(a.mode,'escalate-safely')}});
