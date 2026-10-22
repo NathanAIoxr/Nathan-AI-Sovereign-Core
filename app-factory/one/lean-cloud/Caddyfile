@@ -1,0 +1,7 @@
+{$ONE_DOMAIN} {
+  @one_api path /v1/* /healthz
+  handle @one_api {
+    reverse_proxy gateway:8787
+  }
+  respond 404
+}
