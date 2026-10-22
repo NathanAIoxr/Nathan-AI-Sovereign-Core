@@ -37,4 +37,13 @@ $('sampleSource').onclick=()=>{$('sourceAddress').value='https://example.org/fee
 $('parseSource').onclick=()=>{try{const result=TaborSourceAdapters.parseFeed($('sourceBody').value,{url:$('sourceAddress').value});importedArchive=result;$('exportSource').disabled=false;$('sourceStatus').textContent='Parsed '+result.count+' records as '+result.format+'. Truth and copyright status not independently verified.';const target=$('sourceItems');target.replaceChildren();for(const x of result.records.slice(0,100)){const card=document.createElement('article');card.className='item';const title=document.createElement('strong');title.textContent=x.title;const meta=document.createElement('span');meta.textContent=x.sourceType+' • '+x.reviewStatus+' • '+(x.url||'no public URL');card.append(title,meta);target.append(card)}}catch(e){importedArchive=null;$('exportSource').disabled=true;$('sourceStatus').textContent='Cannot import: '+e.message}};
 $('fetchSource').onclick=async()=>{const u=TaborSourceAdapters.httpUrl($('sourceAddress').value);if(!u){$('sourceStatus').textContent='Enter a public https URL, not a local or unsafe address.';return}try{$('sourceStatus').textContent='Requesting public source (CORS permitting)…';const res=await fetch(u,{credentials:'omit',redirect:'error',signal:AbortSignal.timeout(12000)});if(!res.ok)throw Error('HTTP '+res.status);const length=Number(res.headers.get('content-length')||0);if(length>TaborSourceAdapters.MAX_TEXT)throw Error('Source too large');const body=await res.text();if(body.length>TaborSourceAdapters.MAX_TEXT)throw Error('Source too large');$('sourceBody').value=body;$('sourceStatus').textContent='Source received. Select Inspect source.'}catch(e){$('sourceStatus').textContent='Direct fetch unavailable: '+e.message+'. Paste an authorized export or plan a provider API connection.'}};
 $('exportSource').onclick=()=>{if(!importedArchive)return;const blob=new Blob([JSON.stringify(importedArchive,null,2)],{type:'application/json'});const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='tabor-universal-source-records.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),20000)};
-</script></body></html>
+</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../shared/material-worlds/presentation.css">
+<script src="../shared/material-worlds/presentation.js" defer></script>
+<script src="../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../shared/material-worlds/playground.js" defer></script>
+<script src="../shared/material-worlds/team-engine.js" defer></script>
+<script src="../shared/material-worlds/team-ui.js" defer></script>
+<script src="../shared/material-worlds/graphics-kit/graphics-core.js" defer></script><script src="../shared/material-worlds/creative-tools.js" defer></script></body></html>
+

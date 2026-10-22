@@ -6,6 +6,7 @@ on:
       - 'app-factory/stewie-mr-finn/**'
       - '.github/workflows/ios-stewie-finn.yml'
   push:
+    branches: [main]
     paths:
       - 'app-factory/stewie-mr-finn/**'
       - '.github/workflows/ios-stewie-finn.yml'

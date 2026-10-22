@@ -5,4 +5,13 @@ function display(){const p=G.puzzle(state.level);$('lvl').textContent=state.leve
 $('next').onclick=()=>{state=G.next(state);localStorage.setItem('tabor-middle-c-v1',JSON.stringify(state));display()};$('restart').onclick=()=>{if(confirm('Start over at level 1? Your current progress will be replaced.')){state=G.newGame();localStorage.setItem('tabor-middle-c-v1',JSON.stringify(state));display()}};$('save').onclick=()=>{localStorage.setItem('tabor-middle-c-v1',JSON.stringify(state));$('result').classList.remove('hide');$('result').textContent='Progress saved to this browser. Use a private backup for long-term preservation.'};
 function analyze(){try{const a=G.analyze($('custom').value);$('analysis').textContent='ABOVE: '+a.literal+'\nBELOW: '+a.reverse+'\nLETTERS: '+a.letters+'\nFOUND FRAGMENTS: '+(a.artisticMatches.join(' • ')||'none')+'\n\n'+a.interpretation}catch(e){$('analysis').textContent=e.message}}$('analyze').onclick=analyze;analyze();
 for(const n of G.NUMBERS){const btn=document.createElement('button');btn.textContent=String(n.n);btn.addEventListener('click',()=>{for(const b of $('nums').children)b.classList.remove('numactive');btn.classList.add('numactive');$('numinfo').textContent=n.n+' — '+n.term+' | '+n.culture+' | '+n.status+'\n'+n.description});$('nums').append(btn)}$('nums').children[0].click();display();
-</script></body></html>
+</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../shared/material-worlds/presentation.css">
+<script src="../shared/material-worlds/presentation.js" defer></script>
+<script src="../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../shared/material-worlds/playground.js" defer></script>
+<script src="../shared/material-worlds/team-engine.js" defer></script>
+<script src="../shared/material-worlds/team-ui.js" defer></script>
+<script src="../shared/material-worlds/graphics-kit/graphics-core.js" defer></script><script src="../shared/material-worlds/creative-tools.js" defer></script></body></html>
+

@@ -24,4 +24,13 @@ svg.append(el("path",{d:pts.map((v,i)=>(i?"L":"M")+(10+500*v.x).toFixed(1)+" "+(
 const marker=el("line",{x1:0,x2:0,y1:0,y2:170,stroke:"#ffc578","stroke-width":2});svg.append(marker);
 function update(){const x=+$("pos").value/1000,a=U.anomaly(x),f=U.forward(a);put("location",x.toFixed(3));put("latent",a.toFixed(4));put("clock",f.clockRatio.toFixed(4));put("light",(100*f.transmission).toFixed(2)+"%");put("inverse",U.backward(f.clockRatio,f.logTransmission).toFixed(4));put("risk",(100*U.risk(a)).toFixed(1)+"%");marker.setAttribute("x1",10+x*500);marker.setAttribute("x2",10+x*500)}$("pos").oninput=update;update();
 })();
-</script></main></body></html>
+</script></main>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../../shared/material-worlds/presentation.css">
+<script src="../../shared/material-worlds/presentation.js" defer></script>
+<script src="../../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../../shared/material-worlds/playground.js" defer></script>
+<script src="../../shared/material-worlds/team-engine.js" defer></script>
+<script src="../../shared/material-worlds/team-ui.js" defer></script>
+<script src="../../shared/material-worlds/graphics-kit/graphics-core.js" defer></script><script src="../../shared/material-worlds/creative-tools.js" defer></script></body></html>
+

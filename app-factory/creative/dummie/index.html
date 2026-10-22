@@ -2,4 +2,13 @@
 const desc={0:'M — Mental: own your choices and eccentricity.',180:'W — Weird: the upside-down M reveals another way of seeing.',90:'Sideways M: the greater-than visual metaphor.',270:'Sideways M: the less-than visual metaphor.'};
 for(const b of document.querySelectorAll('button[data-a]'))b.addEventListener('click',()=>{const a=Number(b.dataset.a);document.getElementById('glyph').style.setProperty('--angle',a+'deg');document.getElementById('meaning').textContent=desc[a]});
 fetch('./canon.json').then(r=>r.json()).then(d=>{for(const x of d.values){const card=document.createElement('div');card.className='card';const h=document.createElement('h3');h.textContent=x.letter+' — '+x.word;const p=document.createElement('p');p.textContent=x.canon;card.append(h,p);document.getElementById('cards').append(card)}}).catch(()=>document.getElementById('cards').textContent='Unable to load original definitions.');
-</script></body></html>
+</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../../shared/material-worlds/presentation.css">
+<script src="../../shared/material-worlds/presentation.js" defer></script>
+<script src="../../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../../shared/material-worlds/playground.js" defer></script>
+<script src="../../shared/material-worlds/team-engine.js" defer></script>
+<script src="../../shared/material-worlds/team-ui.js" defer></script>
+<script src="../../shared/material-worlds/graphics-kit/graphics-core.js" defer></script><script src="../../shared/material-worlds/creative-tools.js" defer></script></body></html>
+

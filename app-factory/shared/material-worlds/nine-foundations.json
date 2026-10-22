@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "id": "tabor-nine-foundations",
+  "author": "Nathan Tabor",
+  "framework": "Tabor Decimal System",
+  "source": "Author supplied the nine names in this chat; operational meanings are assistant-developed interpretations.",
+  "foundations": [
+    {
+      "id": "tabor.foundation.01",
+      "sequence": 1,
+      "name": "The Egg",
+      "purpose": "Origin and a protected starting state",
+      "application_role": "initial_state"
+    },
+    {
+      "id": "tabor.foundation.02",
+      "sequence": 2,
+      "name": "The Gene",
+      "purpose": "Instructions, inheritance, and variation",
+      "application_role": "template"
+    },
+    {
+      "id": "tabor.foundation.03",
+      "sequence": 3,
+      "name": "The Hox",
+      "purpose": "Position, sequence, and organization",
+      "application_role": "placement"
+    },
+    {
+      "id": "tabor.foundation.04",
+      "sequence": 4,
+      "name": "The Rule",
+      "purpose": "Constraints, permissions, and consequences",
+      "application_role": "constraints"
+    },
+    {
+      "id": "tabor.foundation.05",
+      "sequence": 5,
+      "name": "The Duality",
+      "purpose": "Partnership and complementary roles",
+      "application_role": "relationship"
+    },
+    {
+      "id": "tabor.foundation.06",
+      "sequence": 6,
+      "name": "The Polarity",
+      "purpose": "Direction and orientation",
+      "application_role": "orientation"
+    },
+    {
+      "id": "tabor.foundation.07",
+      "sequence": 7,
+      "name": "The Tale",
+      "purpose": "An individual account of experience",
+      "application_role": "individual_account"
+    },
+    {
+      "id": "tabor.foundation.08",
+      "sequence": 8,
+      "name": "The Story",
+      "purpose": "Connected accounts and shared context",
+      "application_role": "connected_narrative"
+    },
+    {
+      "id": "tabor.foundation.09",
+      "sequence": 9,
+      "name": "The Truth",
+      "purpose": "Evidence, uncertainty, and correction",
+      "application_role": "evidence_record"
+    }
+  ],
+  "scope": {
+    "intended": "Main database and all apps and games",
+    "applied": "Shared draft source and proposed import only",
+    "scope_of_all_work": "Work in this Star of Bethlehem/shared-app conversation; does not assert collection of every other chat"
+  },
+  "consumer_controls": {
+    "optional": true,
+    "default_enabled": false,
+    "preserve_classic_mode": true,
+    "preserve_existing_saves": true,
+    "theme_per_app": true,
+    "paid_tokens": false,
+    "purchase_gates": false,
+    "personalization_required": false
+  },
+  "evidence_policy": {
+    "authorial_concept": "Preserve names and attribution",
+    "interpretation": "Label assistant-developed mappings",
+    "research": "Keep historical, astronomical, and biological claims separately sourced",
+    "uncertain": "Do not convert a hypothesis into an established fact"
+  },
+  "workstreams": [
+    {
+      "id": "bethlehem",
+      "status": "Earlier private playable site; latest foundations mapping proposed",
+      "requirements": [
+        "Christmas spirit throughout",
+        "Historical text and astronomy distinguished",
+        "No single confirmed modern star identity"
+      ]
+    },
+    {
+      "id": "presentation",
+      "status": "Earlier package available; latest foundations not propagated",
+      "requirements": [
+        "Distinct visual identity per app",
+        "Material frames and faceted gems where relevant",
+        "Reduced motion and consumer settings"
+      ]
+    },
+    {
+      "id": "advanced-puzzle",
+      "status": "Earlier local optional workshop prototype",
+      "requirements": [
+        "Bounded gravity, changing tiles, cracking and terrain",
+        "Fictional modular forge",
+        "Replay and explainable hints"
+      ]
+    },
+    {
+      "id": "community",
+      "status": "Local rehearsal; remote service not connected",
+      "requirements": [
+        "Scheduled match windows",
+        "Human attack and defense",
+        "Club roles, quorum and contributions",
+        "Fair ties and duplicate-safe scoring"
+      ]
+    },
+    {
+      "id": "catalogue",
+      "status": "Earlier separate catalogue and base-format displays",
+      "requirements": [
+        "Preserve original 101–901 shelf records",
+        "Separate base-12/base-60 display from storage",
+        "Ancient analogies require evidence"
+      ]
+    },
+    {
+      "id": "study-helpers",
+      "status": "Earlier decimal helpers checked; latest Hox tests not run",
+      "requirements": [
+        "Distance falloff",
+        "Finite modular combinations",
+        "Configurable game spacing",
+        "Scientific analogies labeled"
+      ]
+    },
+    {
+      "id": "nine-foundations",
+      "status": "New shared declarative record; runtime integration pending",
+      "requirements": [
+        "Preserve nine names and order",
+        "Opt-in app-specific mappings",
+        "Evidence-aware Truth records"
+      ]
+    }
+  ],
+  "rollout": {
+    "database_sql": "nine-foundations.import.sql",
+    "database_import_executed": false,
+    "library_archive_rebuilt": false,
+    "browser_apps_updated_this_change": false,
+    "native_apps_updated_this_change": false,
+    "remote_multiplayer_enabled": false,
+    "reason": "Execution environment unavailable"
+  },
+  "bethlehem_mapping": [
+    "Begin a journey",
+    "Select an observation kit",
+    "Arrange sky observations",
+    "Apply puzzle rules",
+    "Coordinate two observers",
+    "Choose a direction",
+    "Record each traveler account",
+    "Compare connected accounts",
+    "Separate verified evidence from candidate explanations"
+  ]
+}

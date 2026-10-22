@@ -9,4 +9,13 @@ $('pick').addEventListener('change',()=>{try{drawBoxes(BigInt($('decimal').value
 $('offline').addEventListener('click',()=>{$('status').value='disconnected';$('msg').textContent='DISCONNECTED — outbound connector actions blocked in this demo.'});
 $('status').addEventListener('change',()=>{const result=e.connector($('status').value,false);$('msg').textContent=result.reason;});
 draw(33n);
-</script></body></html>
+</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../shared/material-worlds/presentation.css">
+<script src="../shared/material-worlds/presentation.js" defer></script>
+<script src="../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../shared/material-worlds/playground.js" defer></script>
+<script src="../shared/material-worlds/team-engine.js" defer></script>
+<script src="../shared/material-worlds/team-ui.js" defer></script>
+<script src="../shared/material-worlds/graphics-kit/graphics-core.js" defer></script><script src="../shared/material-worlds/creative-tools.js" defer></script></body></html>
+

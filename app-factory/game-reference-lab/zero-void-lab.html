@@ -65,4 +65,13 @@ $('#reveal').onclick=()=>{worlds[active].visible.fill(true);record(`World ${acti
 canvas.addEventListener('pointerdown',event=>{const r=canvas.getBoundingClientRect();const x=Math.min(WIDTH-1,Math.max(0,Math.floor((event.clientX-r.left)/r.width*WIDTH)));const y=Math.min(HEIGHT-1,Math.max(0,Math.floor((event.clientY-r.top)/r.height*HEIGHT)));if(mode==='void'){scanAt(x,y);return;}if(run){record('Pause to edit live cells');return;}const w=worlds[active];const i=y*WIDTH+x;w.cells[i]=1-w.cells[i];record(`World ${active+1}: manually ${w.cells[i]?'activated':'cleared'} cell ${x},${y}`);update();});
 $('#export').onclick=()=>{const payload={type:'NATHAN_AI_ZERO_VOID_LOCAL_DEMONSTRATION',schema_version:1,exported_at:new Date().toISOString(),global_seed:globalSeed,viewing_mode:mode,worlds:worlds.map(w=>({index:w.index,generation:w.generation,resource:Number(w.resource.toFixed(3)),cells:w.cells,visible:w.visible})),disclaimer:'Local browser-only prototype; no AI agents or external services.'};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='NATHAN_AI_ZERO_VOID_SNAPSHOT.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);record('Exported a local JSON world-state snapshot');};
 displayWorlds();update();record('Five locally seeded isolated worlds initialized');
-</script></body></html>
+</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../shared/material-worlds/presentation.css">
+<script src="../shared/material-worlds/presentation.js" defer></script>
+<script src="../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../shared/material-worlds/playground.js" defer></script>
+<script src="../shared/material-worlds/team-engine.js" defer></script>
+<script src="../shared/material-worlds/team-ui.js" defer></script>
+<script src="../shared/material-worlds/graphics-kit/graphics-core.js" defer></script><script src="../shared/material-worlds/creative-tools.js" defer></script></body></html>
+
