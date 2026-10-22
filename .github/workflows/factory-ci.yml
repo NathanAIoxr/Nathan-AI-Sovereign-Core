@@ -80,6 +80,8 @@ jobs:
         run: node --test app-factory/one/one.test.cjs
       - name: Verify ONE sealed offloader encryption, exact bytes and recovery
         run: node --test app-factory/one/offloader/engine.test.cjs
+      - name: Verify lean ONE private encrypted cloud backup, access and restore
+        run: node --test app-factory/one/lean-cloud/server.test.cjs
       - name: Verify ONE 33 Trial Matrix five Epoch I levels
         run: node --test app-factory/one/trial-matrix/epoch1.test.cjs
       - name: Verify ONE Health private vault source boundaries
