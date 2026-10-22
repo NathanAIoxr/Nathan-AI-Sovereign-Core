@@ -19,9 +19,9 @@ function inspect(input){
  const interactive=['game','simulation'].includes(input.type);
  if(max>=2)add('MATURE_CONTENT','review','Strong/moderate content requires documented human classification and territory-aware ratings.');
  if(content.gore==='strong'||content.sexuality==='strong')add('EXTREME_CONTENT','block','High-intensity material requires specialist review before any family-oriented release.');
- if(interactive&&(content.violence!=='none'||content.gore!=='none'))add('INTERACTIVE_VIOLENCE','review','Player-controlled violence and reward framing require gameplay and most-extreme-scene disclosure.');
+ if(interactive&&((content.violence??'none')!=='none'||(content.gore??'none')!=='none'))add('INTERACTIVE_VIOLENCE','review','Player-controlled violence and reward framing require gameplay and most-extreme-scene disclosure.');
  if(input.target==='children'&&(max>=2||features.chat||features.userGenerated||features.randomRewards||features.ads||features.inAppPurchases))add('CHILD_AUDIENCE','block','Child-directed release has unresolved content, monetization or communication safeguards.');
- if(input.target==='children'&&input.type==='game'&&content.fear!=='none')add('CHILD_FEAR','review','Review frightening visuals, sounds and interaction intensity for the intended developmental audience.');
+ if(input.target==='children'&&input.type==='game'&&(content.fear??'none')!=='none')add('CHILD_FEAR','review','Review frightening visuals, sounds and interaction intensity for the intended developmental audience.');
  if(features.randomRewards&&features.inAppPurchases)add('PAID_RANDOM_REWARDS','block','Review gambling/loot mechanics, odds and regional purchase protections before release.');
  if(features.chat||features.userGenerated||features.userUpload)add('USER_CONTENT','review','Moderation, reporting, account safety and user-data protections required.');
  if(features.location||features.camera||features.microphone||features.healthData)add('SENSITIVE_ACCESS','review','Require purpose limitation, opt-in permissions and data minimization.');
@@ -30,7 +30,7 @@ function inspect(input){
  if(features.ads)add('ADVERTISING','review','Check age suitability, targeting and advertising controls.');
  if(['book','music','film'].includes(input.type)&&!interactive)add('MEDIA_CONTEXT','info','Narrative depiction is assessed in its medium; interactivity rules should not automatically be applied.');
  if(['game','simulation'].includes(input.type))add('MECHANICS_DISCLOSURE','review','Document legal moves, outcome/reward loops, social features, paywalls, unlockable content and updates.');
- if(content.sensitiveHistory!=='none')add('HISTORICAL_CONTEXT','review','Separate documented events, theology, allegation, satire and fiction. Review cultural treatment and attribution.');
+ if((content.sensitiveHistory??'none')!=='none')add('HISTORICAL_CONTEXT','review','Separate documented events, theology, allegation, satire and fiction. Review cultural treatment and attribution.');
  if(input.publishesNewFeatures)add('APP_REVIEW_VISIBILITY','review','Describe new functionality accurately and expose it to review. No concealed/dormant features.');
  const gates=['source-rights','content-editorial','storefront-questionnaire','privacy-safety','on-device-testing','owner-signoff'];
  const blockers=findings.filter(x=>x.level==='block');
