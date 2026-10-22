@@ -44,3 +44,12 @@ test('CORS permission only for intended client; no data leaked in cross-origin r
  const denied=await fetch(url+'/v1/backups',{method:'OPTIONS',headers:{Origin:'https://evil.invalid'}});assert.equal(denied.status,403);assert.equal(denied.headers.get('access-control-allow-origin'),null);
 }));
 test('reject weak deploy secret',()=>assert.throws(()=>makeHandler({token:'replace-this-token',dir:'/data'})));
+
+test('ONE iPhone UI contains wired cloud actions and valid inline JavaScript',async()=>{
+ const vm=require('node:vm');
+ const page=await fs.readFile(path.join(__dirname,'../offloader/index.html'),'utf8');
+ for(const id of ['cloudURL','cloudKey','cloudPush','cloudList','cloudItems'])assert.match(page,new RegExp('id="'+id+'"'));
+ const scripts=[...page.matchAll(/<script(?:\\s[^>]*)?>([\\s\\S]*?)<\\/script>/g)].map(x=>x[1]).filter(Boolean);
+ assert.ok(scripts.length);for(const script of scripts)assert.doesNotThrow(()=>new vm.Script(script));
+ assert.match(page,/voiceSaving=true/);assert.match(page,/if\(recorder\?\.state==='recording'\|\|voiceSaving\)/);
+});
