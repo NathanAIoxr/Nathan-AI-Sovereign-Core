@@ -1,0 +1,119 @@
+name: ONE — Native iPhone IPA (Unsigned Test Build)
+
+on:
+  pull_request:
+    paths:
+      - 'app-factory/one/ios/**'
+      - '.github/workflows/ios-one-ipa.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/one/ios/**'
+      - '.github/workflows/ios-one-ipa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  iphone-ipa:
+    runs-on: macos-15
+    timeout-minutes: 40
+    defaults:
+      run:
+        working-directory: app-factory/one/ios
+    steps:
+      - name: Checkout ONE original source
+        uses: actions/checkout@v4
+
+      - name: Print Xcode version
+        run: xcodebuild -version
+
+      - name: Verify iPhone native shell source
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          s = Path('Sources/ONETheLastApp.swift').read_text()
+          assert 'https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/one/' in s
+          assert 'offloader/index.html' in s
+          assert 'library/index.html' in s
+          assert 'WKWebView' in s
+          assert 'WKDownloadDelegate' in s
+          assert 'requestMediaCapturePermissionFor' in s
+          assert not any(k in s for k in ('OPENAI_API_KEY','ANTHROPIC_API_KEY','APPLE_CERTIFICATE_PASSWORD'))
+          print('ONE native shell source verified')
+          PY
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate original ONE iPhone icon
+        run: python3 scripts/make_icon.py
+
+      - name: Generate native Xcode project
+        run: xcodegen generate
+
+      - name: Compile device IPA application without signing
+        run: |
+          xcodebuild -project ONETheLastApp.xcodeproj \
+            -scheme ONETheLastApp \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -sdk iphoneos \
+            -derivedDataPath .build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            build
+
+      - name: Package unsigned iPhone IPA and verify payload
+        run: |
+          mkdir -p Payload dist
+          cp -R .build/Build/Products/Release-iphoneos/ONETheLastApp.app Payload/
+          test -f Payload/ONETheLastApp.app/Info.plist
+          test -f Payload/ONETheLastApp.app/ONETheLastApp
+          zip -qry dist/ONE-The-Last-App-UNSIGNED.ipa Payload
+          unzip -t dist/ONE-The-Last-App-UNSIGNED.ipa | tail -3
+          ls -lh dist/ONE-The-Last-App-UNSIGNED.ipa
+
+      - name: Upload IPA for iPhone sideload signing
+        uses: actions/upload-artifact@v4
+        with:
+          name: ONE-The-Last-App-UNSIGNED-IPA
+          path: app-factory/one/ios/dist/ONE-The-Last-App-UNSIGNED.ipa
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publish unsigned ONE IPA as release asset
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="one-ios-unsigned-v0.1.0"
+          ASSET="dist/ONE-The-Last-App-UNSIGNED.ipa"
+          cat > /tmp/one-unsigned-notes.md <<'EOF'
+          ONE — The Last App · Sealed Voice Box
+          Native iPhone testing wrapper for the existing ONE GitHub Pages app.
+
+          **UNSIGNED IPA.** An iPhone cannot install this file until it is
+          signed for that device or distributed using an authorized Apple
+          provisioning method (for example, via Sideloadly on a computer).
+          The file is not a TestFlight or App Store build.
+
+          Requires internet access to load the existing ONE interface.
+          WKWebView storage is a separate app-specific vault from Safari.
+          Export an encrypted .onevault backup in Safari and import it into
+          ONE after installation to migrate existing originals; retain an
+          independent backup first.
+
+          Private cloud synchronization, native Share Extension and
+          automatic third-party AI history import are not part of this IPA.
+          Nothing private or credential-related is embedded in the binary.
+          EOF
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$ASSET" --clobber --repo "$GITHUB_REPOSITORY"
+          else
+            gh release create "$TAG" "$ASSET" \
+              --repo "$GITHUB_REPOSITORY" \
+              --title "ONE — The Last App · iPhone IPA (Unsigned Test Build)" \
+              --notes-file /tmp/one-unsigned-notes.md
+          fi
