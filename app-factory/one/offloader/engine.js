@@ -18,7 +18,7 @@ async function keyFromPassphrase(pass,salt){if(typeof pass!=='string'||pass.leng
 async function seal(key,bytes,aad){const iv=randomBytes(12);const data=await webcrypto().subtle.encrypt({name:'AES-GCM',iv,additionalData:aad},key,bytes);return {iv:Array.from(iv),data}}
 async function unseal(key,pack,aad){return new Uint8Array(await webcrypto().subtle.decrypt({name:'AES-GCM',iv:new Uint8Array(pack.iv),additionalData:aad},key,pack.data))}
 function openDB(){return new Promise((res,rej)=>{const req=indexedDB.open(DB_NAME,DB_VERSION);req.onupgradeneeded=()=>{const d=req.result;if(!d.objectStoreNames.contains('settings'))d.createObjectStore('settings',{keyPath:'name'});if(!d.objectStoreNames.contains('items'))d.createObjectStore('items',{keyPath:'id'})};req.onsuccess=()=>res(req.result);req.onerror=()=>rej(req.error);req.onblocked=()=>rej(Error('Close other ONE tabs and retry'))})}
-function request(db,store,mode,verb,arg){return new Promise((res,rej)=>{const tx=db.transaction(store,mode),r=tx.objectStore(store)[verb](arg);r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);tx.onabort=()=>rej(tx.error||Error('Storage transaction aborted'))})}
+function request(db,store,mode,verb,arg){return new Promise((res,rej)=>{const tx=db.transaction(store,mode),r=tx.objectStore(store)[verb](arg);let result; r.onsuccess=()=>{result=r.result};r.onerror=()=>rej(r.error);tx.oncomplete=()=>res(result);tx.onerror=()=>rej(tx.error||Error('Storage transaction failed'));tx.onabort=()=>rej(tx.error||Error('Storage transaction aborted'))})}
 function put(db,store,item){return request(db,store,'readwrite','put',item)}
 function get(db,store,k){return request(db,store,'readonly','get',k)}
 function all(db,store){return request(db,store,'readonly','getAll')}
