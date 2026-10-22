@@ -30,12 +30,12 @@ test('unauthorized reads and writes rejected; origin boundary enforced',async()=
  let r=await fetch(url+'/v1/backups',{method:'POST',headers:{'Content-Type':'application/octet-stream','X-ONE-SHA256':sha},body:bytes});assert.equal(r.status,401);
  r=await fetch(url+'/healthz');assert.equal((await r.json()).backup_verified,false);
 }));
-test('wrong hash, unsealed file, wrong content type and oversized header fail closed',async()=>serverRun(async({url,dir})=>{
+test('wrong hash, unsealed file and wrong content type fail closed',async()=>serverRun(async({url,dir})=>{
  const bytes=Buffer.concat([MAGIC,Buffer.from('protected')]);const sha=digest(bytes);
  let r=await fetch(url+'/v1/backups',{method:'POST',headers:{...auth,'Content-Type':'application/octet-stream','X-ONE-SHA256':'0'.repeat(64)},body:bytes});assert.equal(r.status,422);
  r=await fetch(url+'/v1/backups',{method:'POST',headers:{...auth,'Content-Type':'application/octet-stream','X-ONE-SHA256':digest(Buffer.from('wrong'))},body:Buffer.from('wrong')});assert.equal(r.status,422);
  r=await fetch(url+'/v1/backups',{method:'POST',headers:{...auth,'Content-Type':'text/plain','X-ONE-SHA256':sha},body:bytes});assert.equal(r.status,415);
- r=await fetch(url+'/v1/backups',{method:'POST',headers:{...auth,'Content-Type':'application/octet-stream','X-ONE-SHA256':sha,'Content-Length':String(LIMIT+1)},body:Buffer.alloc(0)}).catch(()=>null); if(r)assert.ok([413,400].includes(r.status));
+ assert.equal(LIMIT,140*1024*1024);
  r=await fetch(url+'/v1/backups',{headers:auth});assert.equal((await r.json()).items.length,0);
  const leftovers=await fs.readdir(path.join(dir,'backups'));assert.equal(leftovers.length,0);
 }));
@@ -52,4 +52,16 @@ test('ONE iPhone UI contains wired cloud actions and valid inline JavaScript',as
  const start=page.lastIndexOf('<script>'),end=page.lastIndexOf('</script>');assert.ok(end>start);const scripts=[page.slice(start+8,end)];
  assert.ok(scripts.length);for(const script of scripts)assert.doesNotThrow(()=>new vm.Script(script));
  assert.match(page,/voiceSaving=true/);assert.match(page,/if\(recorder\?\.state==='recording'\|\|voiceSaving\)/);
+});
+
+test('declared oversized upload is rejected before any data is written',async()=>{
+ const dir=await fs.mkdtemp(path.join(os.tmpdir(),'one-oversize-'));
+ try{
+  const handler=makeHandler({token:TOKEN,dir});
+  let status;
+  const req={method:'POST',url:'/v1/backups',headers:{authorization:'Bearer '+TOKEN,'content-type':'application/octet-stream','x-one-sha256':'0'.repeat(64),'content-length':String(LIMIT+1)}};
+  const res={setHeader(){},writeHead(n){status=n},end(){}};
+  await handler(req,res);assert.equal(status,413);
+  await assert.rejects(()=>fs.stat(path.join(dir,'backups')),e=>e.code==='ENOENT');
+ }finally{await fs.rm(dir,{recursive:true,force:true})}
 });
