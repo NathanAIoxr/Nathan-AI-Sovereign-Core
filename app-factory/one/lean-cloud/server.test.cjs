@@ -49,7 +49,7 @@ test('ONE iPhone UI contains wired cloud actions and valid inline JavaScript',as
  const vm=require('node:vm');
  const page=await fs.readFile(path.join(__dirname,'../offloader/index.html'),'utf8');
  for(const id of ['cloudURL','cloudKey','cloudPush','cloudList','cloudItems'])assert.match(page,new RegExp('id="'+id+'"'));
- const scripts=[...page.matchAll(/<script(?:\\s[^>]*)?>([\\s\\S]*?)<\\/script>/g)].map(x=>x[1]).filter(Boolean);
+ const start=page.lastIndexOf('<script>'),end=page.lastIndexOf('</script>');assert.ok(end>start);const scripts=[page.slice(start+8,end)];
  assert.ok(scripts.length);for(const script of scripts)assert.doesNotThrow(()=>new vm.Script(script));
  assert.match(page,/voiceSaving=true/);assert.match(page,/if\(recorder\?\.state==='recording'\|\|voiceSaving\)/);
 });
