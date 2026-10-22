@@ -1,0 +1,24 @@
+{
+  "name": "SSS-CS · Clause Santa · Super Supper Symbiotic Computer System",
+  "short_name": "SSS-CS",
+  "description": "Simply Sensational Software · Clause Santa · The YULL & YALL LAW",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#08131f",
+  "theme_color": "#08131f",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
