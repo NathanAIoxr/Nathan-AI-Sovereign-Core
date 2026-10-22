@@ -152,6 +152,42 @@ struct ONEWebView: UIViewRepresentable {
             browser.errorMessage = "File download failed. Your original is still in the vault; retry downloading the encrypted backup."
         }
 
+        func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String,
+                     defaultText: String?, initiatedByFrame frame: WKFrameInfo,
+                     completionHandler: @escaping (String?) -> Void) {
+            guard let scene = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).first,
+                  let window = scene.windows.first(where: { $0.isKeyWindow }),
+                  var presenter = window.rootViewController else {
+                completionHandler(nil)
+                return
+            }
+            while let next = presenter.presentedViewController { presenter = next }
+            let alert = UIAlertController(title: "ONE — Confirm", message: prompt, preferredStyle: .alert)
+            alert.addTextField { field in
+                field.text = defaultText
+                field.autocorrectionType = .no
+            }
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in completionHandler(nil) })
+            alert.addAction(UIAlertAction(title: "Confirm", style: .default) { _ in
+                completionHandler(alert.textFields?.first?.text)
+            })
+            presenter.present(alert, animated: true)
+        }
+
+        func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String,
+                     initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+            guard let scene = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).first,
+                  let window = scene.windows.first(where: { $0.isKeyWindow }),
+                  var presenter = window.rootViewController else {
+                completionHandler()
+                return
+            }
+            while let next = presenter.presentedViewController { presenter = next }
+            let alert = UIAlertController(title: "ONE", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in completionHandler() })
+            presenter.present(alert, animated: true)
+        }
+
         @available(iOS 15.0, *)
         func webView(_ webView: WKWebView, requestMediaCapturePermissionFor origin: WKSecurityOrigin,
                      initiatedByFrame frame: WKFrameInfo, type: WKMediaCaptureType,
@@ -186,19 +222,22 @@ struct ONETheLastApp: App {
                 .padding(.vertical, 11)
                 .background(Color(red: 0.07, green: 0.15, blue: 0.17))
 
-                if let message = browser.errorMessage {
-                    VStack(spacing: 14) {
-                        Image(systemName: "wifi.exclamationmark")
-                            .font(.system(size: 34))
-                            .foregroundStyle(.orange)
-                        Text(message).multilineTextAlignment(.center).padding(.horizontal)
-                        Button("Retry") { browser.refresh() }
-                            .buttonStyle(.borderedProminent)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color(red: 0.04, green: 0.10, blue: 0.11))
-                } else {
+                ZStack {
+                    // Keep the original WKWebView mounted: a failed request must not
+                    // destroy its local IndexedDB vault or disable the Retry button.
                     ONEWebView(browser: browser)
+                    if let message = browser.errorMessage {
+                        VStack(spacing: 14) {
+                            Image(systemName: "wifi.exclamationmark")
+                                .font(.system(size: 34))
+                                .foregroundStyle(.orange)
+                            Text(message).multilineTextAlignment(.center).padding(.horizontal)
+                            Button("Retry") { browser.refresh() }
+                                .buttonStyle(.borderedProminent)
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color(red: 0.04, green: 0.10, blue: 0.11))
+                    }
                 }
 
                 HStack(spacing: 7) {
