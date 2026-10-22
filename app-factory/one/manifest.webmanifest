@@ -15,5 +15,20 @@
       "type": "image/svg+xml",
       "purpose": "any"
     }
+  ],
+  "shortcuts": [
+    {
+      "name": "Sealed Voice Box",
+      "short_name": "Offload",
+      "description": "Open the ONE encrypted AI offloader",
+      "url": "./offloader/index.html",
+      "icons": [
+        {
+          "src": "../icon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
   ]
 }
