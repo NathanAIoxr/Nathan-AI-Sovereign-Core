@@ -44,6 +44,8 @@ jobs:
         run: node --test app-factory/radix-ladder/engine.test.cjs
       - name: Verify Python radix parity
         run: python3 -m unittest discover -s app-factory/radix-ladder -p 'test_*.py'
+      - name: Verify universal audience and release rules
+        run: node --test app-factory/core/audience-release.test.cjs
       - name: Verify shared TABOR ROOT contracts and authorization gates
         run: node --test app-factory/core/root-contracts.test.cjs
       - name: Verify DUMMIE canon and rotating M semantics
