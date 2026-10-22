@@ -1,0 +1,44 @@
+name: one-private-cloud
+services:
+  gateway:
+    build: .
+    restart: unless-stopped
+    read_only: true
+    user: node
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    environment:
+      ONE_SYNC_TOKEN: ${ONE_SYNC_TOKEN:?Set a long random ONE_SYNC_TOKEN in a private .env}
+      ONE_ALLOWED_ORIGINS: ${ONE_ALLOWED_ORIGINS:-https://nathanaioxr.github.io}
+      ONE_DATA_DIR: /data
+      PORT: 8787
+    volumes:
+      - one_ciphertext:/data
+    expose:
+      - "8787"
+    healthcheck:
+      test: ["CMD","node","-e","require('node:http').get('http://127.0.0.1:8787/healthz',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+  proxy:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    depends_on:
+      gateway:
+        condition: service_healthy
+    environment:
+      ONE_DOMAIN: ${ONE_DOMAIN:?Point a DNS domain at the private server}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+volumes:
+  one_ciphertext:
+  caddy_data:
+  caddy_config:
