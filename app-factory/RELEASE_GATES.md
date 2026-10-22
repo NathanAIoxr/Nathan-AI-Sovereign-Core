@@ -13,6 +13,24 @@ The current public host is a **static GitHub Pages site**, not a private multi-u
 - Review the existing public repo **Apache License 2.0** and determine precisely which *public code* is intended to be open source. Do not presume that unpublished games, designs, characters, trademarks, music, images or private ZIP archives are licensed by this file. A license decision must be made by the rights owner with qualified advice as appropriate; do not silently rewrite history or licensing.
 - Every generated/historical artifact must retain evidence tags: fact, sourced interpretation, analogy, allegation, folklore, creative fiction.
 
+
+## Gate 0A — Audience, medium and ratings (universal)
+
+**Reusable code:** `app-factory/core/audience-release.js` and `audience-release.test.cjs`. Call `TaborAudienceRelease.inspect({id,type,target,content,features})` for each distinct **book, game, simulation, music experience, educational title, film, social app, commerce app or humanitarian service** before release. Every game must additionally disclose the player's degree of control, worst-case visual/audio content, reward systems, social interaction, downloadable updates and paid features.
+
+The results are **internal risk preflight only**. They are *not* official ratings or App Review decisions. Do not silently copy a book's suitability assessment to its game adaptation: player agency and sensory intensity change the exposure. Preserve each original project and content variant as separate Sovereign Boxes with explicit target audience and a versioned content manifest. Educational and satirical contexts may affect human review but don't automatically exempt a game from content rules.
+
+**Apple App Store (as of October 2026):** Apple's official rating is determined through the App Store Connect questionnaire, not our internal tags. Its 2.3.6 requires truthful ratings disclosures, 2.5.2 constrains downloaded executable changes rather than forbidding every Python-backed server, 2.5.19 prohibits hidden functionality, and 2.3.14 covers creative assets. Swift, Unity, Godot and static bundled JSON do **not** guarantee approval. The reviewable app, assets, metadata and capabilities must agree. Platform policies vary, and IARC/ESRB may govern participating digital game markets.
+
+**No automatic approval for:** user-generated chat, child-directed monetization or random rewards, interactive violence, intense horror, real-money activity, medical information, unreviewed executable code, live location/sensors or private recipient data. Require real human editorial, platform, accessibility, child safeguarding and local law checks before shipping. Marketing imagery has its own age-appropriateness review.
+
+**Preserve fiction vs fact:** Fictional supernatural creatures, spiritual allegory, satirical theology and historical investigation can coexist in a world without pretending fictional stories are verified accusations or scientific evidence. Adult-oriented content can retain its creative intensity where law and platform policy allow; don't automatically sanitize every work to a children's rating.
+
+Official sources:
+- https://developer.apple.com/app-store/review/guidelines/
+- https://developer.apple.com/help/app-store-connect/manage-app-information/set-an-app-age-rating/
+- https://www.esrb.org/ratings/ratings-process/
+
 ## Gate 1 — Data safety and recovery
 - Browser-local `localStorage` and `IndexedDB` are demos, **not guaranteed backups** or secure per-user accounts.
 - **Implemented local prototype:** The Vault now has a separate original-byte ZIP export/restore with CRC32 and SHA-256 integrity checks (`vault-backup.js`). The original **Export Index** is still metadata-only. Numbered local ZIP parts target roughly 95 MB each; a single oversized original needs separate handling. Export every part. Independent iPhone Safari restoration testing is still required. This does **not** replace private encrypted cloud backups, disaster recovery, or the owner retaining original source copies.
