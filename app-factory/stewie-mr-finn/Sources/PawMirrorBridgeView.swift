@@ -8,15 +8,19 @@ struct PawMirrorBridgeView: View {
         PawMirrorBridgeWebView()
             .navigationTitle("Stewart & Finn · Mirror Bridge")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Color.white, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
             .background(Color(red: 0.03, green: 0.10, blue: 0.17))
     }
 }
 
 private struct PawMirrorBridgeWebView: UIViewRepresentable {
+    func makeCoordinator() -> OfflineGameQAObserver { OfflineGameQAObserver() }
     func makeUIView(context: Context) -> WKWebView {
         let settings = WKWebViewConfiguration()
         settings.defaultWebpagePreferences.allowsContentJavaScript = true
         let view = WKWebView(frame: .zero, configuration: settings)
+        view.navigationDelegate = context.coordinator
         view.isOpaque = false
         view.backgroundColor = UIColor(red: 0.03, green: 0.10, blue: 0.17, alpha: 1)
         view.scrollView.contentInsetAdjustmentBehavior = .never

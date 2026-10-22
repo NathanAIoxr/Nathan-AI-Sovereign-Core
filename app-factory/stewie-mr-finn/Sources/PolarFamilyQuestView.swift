@@ -1,9 +1,10 @@
 import SwiftUI
 
-// Native North Paw ↔ South Paw campaign, separate from the original 48 boards.
+// Native North Paw ↔ Mrs Clause Cat’s Workshop campaign, separate from the original 48 boards.
 // Original SwiftUI geometry and emoji; no downloaded characters or media.
 
 struct PolarFamilyQuestView: View {
+    @Environment(\.dynamicTypeSize) private var typeSize
     @EnvironmentObject private var progress: MammalProgress
     @AppStorage("mammal.polar.quest.v1") private var savedProgress = ""
     @State private var family = PolarFamilySave()
@@ -15,18 +16,26 @@ struct PolarFamilyQuestView: View {
                 VStack(spacing: 16) {
                     StoryHeading(title: "THE POLAR FAMILY",
                                  subtitle: "HO HO HO meets OH OH OH · Two worlds, one magical friendship bridge")
-                    PolarAuroraCard(region: .north, isWide: true)
 
                     GameCard {
+                        if typeSize.isAccessibilitySize {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Label("Polar Adventure Progress", systemImage: "star.circle.fill")
+                                    .font(.headline).fixedSize(horizontal: false, vertical: true)
+                                Text("\(family.completed) of 16 chapters").font(.subheadline.monospacedDigit())
+                            }.frame(maxWidth: .infinity, alignment: .leading)
+                        } else {
                         HStack {
                             Label("Polar Adventure Progress", systemImage: "star.circle.fill")
                                 .font(.system(.headline, design: .rounded, weight: .bold))
                             Spacer(minLength: 8)
                             Text("\(family.completed) / 16").font(.headline.monospacedDigit())
                         }
+                        }
                         ProgressView(value: Double(family.completed), total: 16)
                             .tint(.teal)
                             .accessibilityLabel("\(family.completed) of 16 polar chapters completed")
+                        ViewThatFits(in: .horizontal) {
                         HStack {
                             Label("\(family.stars) stars", systemImage: "star.fill")
                                 .foregroundStyle(.orange)
@@ -40,6 +49,11 @@ struct PolarFamilyQuestView: View {
                             }
                         }
                         .font(.caption.bold())
+                        VStack(alignment: .leading, spacing: 8) {
+                            Label("\(family.stars) stars", systemImage: "star.fill").foregroundStyle(.orange)
+                            Text(family.reunionComplete ? "Reunion unlocked!" : "Finish chapters to unlock the reunion")
+                        }.font(.caption.bold()).frame(maxWidth: .infinity, alignment: .leading)
+                        }
                     }
                     GameCard {
                         Text("YOUR THREE CONSCIOUSNESSES")
@@ -72,8 +86,6 @@ struct PolarFamilyQuestView: View {
                                 .background(Color.indigo.opacity(0.11), in:RoundedRectangle(cornerRadius:15))
                         }
                     }
-
-                    group(for: .south)
 
                     GameCard {
                         Button {
@@ -139,14 +151,16 @@ struct PolarFamilyQuestView: View {
 
     private func group(for region: PolarRegion) -> some View {
         VStack(spacing: 11) {
-            HStack {
+            PolarAuroraCard(region: region)
+            HStack(alignment: .top) {
                 Text(region.symbol).font(.system(size: 29))
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(region.title).font(.system(.title2, design: .rounded, weight: .black))
+                    Text(region.title).font(.system(.title3, design: .rounded, weight: .black))
+                        .fixedSize(horizontal: false, vertical: true)
                     Text(region.greeting).font(.caption.bold())
                 }
-                Spacer()
-                Text(region == .north ? "CHAPTERS 1–8" : "CHAPTERS 9–16")
+                Spacer(minLength: 0)
+                Text(region == .north ? "1–8" : "9–16")
                     .font(.system(size: 10, weight: .bold))
                     .foregroundStyle(.secondary)
             }
@@ -202,43 +216,8 @@ private struct PolarAuroraCard: View {
     let region: PolarRegion
     var isWide = false
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 27)
-                .fill(LinearGradient(
-                    colors: [.init(red: 0.07, green: 0.29, blue: 0.40),
-                             .init(red: 0.18, green: 0.47, blue: 0.41),
-                             .init(red: 0.23, green: 0.20, blue: 0.53)],
-                    startPoint: .topLeading, endPoint: .bottomTrailing))
-            Circle().fill(Color.mint.opacity(0.45))
-                .frame(width: 150,height: 150)
-                .blur(radius: 47).offset(x: -75, y: -50)
-            Circle().fill(Color.pink.opacity(0.25))
-                .frame(width: 180,height: 150)
-                .blur(radius: 49).offset(x: 110, y: -40)
-            VStack(spacing: 11) {
-                HStack(spacing: 13) {
-                    Text("🎅🐕").font(.system(size: 43))
-                    Image(systemName: "arrow.left.arrow.right")
-                        .font(.title3.bold())
-                        .foregroundStyle(.yellow)
-                    Text("🐈‍⬛ 🐈").font(.system(size: 41))
-                    Image(systemName: "arrow.left.arrow.right")
-                        .font(.title3.bold())
-                        .foregroundStyle(.yellow)
-                    Text("🐧❄️").font(.system(size: 42))
-                }.minimumScaleFactor(0.75)
-                Text("NORTH PAW  ↔  SOUTH PAW")
-                    .font(.system(.headline, design: .rounded, weight: .black))
-                    .foregroundStyle(.white)
-                    .minimumScaleFactor(0.7).lineLimit(1)
-                Text("Two poles • One family • A bridge built from kindness")
-                    .font(.caption).foregroundStyle(.white.opacity(0.9))
-                    .multilineTextAlignment(.center)
-            }
-            .padding(18)
-        }
-        .frame(height: isWide ? 170 : 145)
-        .accessibilityElement(children: .combine)
+        GameArtwork(region == .north ? "NorthPaw" : "Workshop", ratio: 1.5,
+                    label: region == .north ? "North Paw's snowy village" : "Mrs Clause Cat's Workshop")
     }
 }
 
@@ -264,9 +243,10 @@ private struct PolarCast: Identifiable {
         .init(id:"Auntie Nutmeg",icon:"📜",story:"A thoughtful older basset hound who remembers everybody's story."),
         .init(id:"Coal Comet",icon:"🛷",story:"A gentle black German Shepherd who supports North Paw's winter rescue team."),
         .init(id:"Pip & Poppy",icon:"🐾",story:"The playful pups who love mirrored paths and sharing."),
-        .init(id:"OH OH OH Ozzie",icon:"🐧",story:"The South Paw emperor penguin who greets discoveries with OH!"),
-        .init(id:"Oona Aurora",icon:"✨",story:"The penguin guide to South Paw's beautiful southern lights."),
-        .init(id:"Grandma Orla",icon:"📖",story:"The elder penguin who protects South Paw's family history and ice maps."),
+        .init(id:"Mrs Clause Cat",icon:"🐈🎁",story:"The cat who leads South Paw’s workshop, making gifts and welcoming every helper with patience, choice and kindness."),
+        .init(id:"OH OH OH Ozzie",icon:"🐧",story:"The emperor penguin who helps Mrs Clause Cat welcome visitors and greets discoveries with OH!"),
+        .init(id:"Oona Aurora",icon:"✨",story:"The penguin guide to Mrs Clause Cat’s Workshop’s beautiful southern lights."),
+        .init(id:"Grandma Orla",icon:"📖",story:"The elder penguin who protects Mrs Clause Cat’s Workshop’s family history and ice maps."),
         .init(id:"Opal Flip",icon:"🪞",story:"The Adélie penguin who builds reflection puzzles."),
         .init(id:"Otto Orbit",icon:"⭐",story:"The star-watching penguin with a telescope and patient questions."),
         .init(id:"Olive Current",icon:"🐋",story:"The story's wise orca ocean guide."),
@@ -282,24 +262,31 @@ struct PolarChapterPlayView: View {
     let chapter: PolarChapter
     let onComplete: (Int, Int) -> Void
     @Environment(\.dismiss) private var dismiss
-    @State private var questionIndex = 0
-    @State private var selected: Int? = nil
-    @State private var numberCorrect = 0
-    @State private var isComplete = false
+    @AppStorage private var savedAttempt: String
+    @State private var attempt = PolarChapterAttempt()
+    @State private var didRestore = false
+
+    init(chapter: PolarChapter, onComplete: @escaping (Int, Int) -> Void) {
+        self.chapter = chapter
+        self.onComplete = onComplete
+        _savedAttempt = AppStorage(wrappedValue: "", "mammal.polar.attempt.v1.\(chapter.id)")
+    }
+    private var questionIndex: Int { attempt.questionIndex }
+    private var selected: Int? { attempt.selected }
+    private var numberCorrect: Int { attempt.correct(in: chapter) }
+    private var isComplete: Bool { attempt.isComplete }
 
     private var question: PolarQuiz { chapter.puzzles[min(questionIndex, chapter.puzzles.count-1)] }
 
     var body: some View {
         GameBackground {
-            ScrollView {
+            ScrollViewReader { proxy in
+                ScrollView {
                 VStack(spacing: 17) {
                     StoryHeading(title: chapter.title,
                                  subtitle: chapter.region.title + " · with " + chapter.guide)
-                    Text(chapter.icon).font(.system(size: 72))
-                        .frame(maxWidth:.infinity).padding(22)
-                        .background(chapter.region == .north ? Color.orange.opacity(0.17) : Color.cyan.opacity(0.18),
-                                    in: RoundedRectangle(cornerRadius: 23))
-                        .accessibilityHidden(true)
+                    GameArtwork(chapter.id == 16 ? "BondArt" : (chapter.region == .north ? "NorthPaw" : "Workshop"),
+                                ratio: 1.65, label: chapter.region.title)
                     GameCard {
                         Text(chapter.story)
                             .font(.subheadline)
@@ -307,7 +294,7 @@ struct PolarChapterPlayView: View {
                         if isComplete {
                             Label("BRIDGE COMPLETE!", systemImage:"checkmark.seal.fill")
                                 .font(.title2.bold()).foregroundStyle(.teal)
-                            Text("You answered \(numberCorrect) of 3 clues on your first try.")
+                            Text("You explored all three clues. Look at what you learned!")
                                 .multilineTextAlignment(.center)
                             Text(String(repeating:"★",count:max(1,numberCorrect)))
                                 .font(.system(size:50)).foregroundStyle(.orange)
@@ -334,8 +321,8 @@ struct PolarChapterPlayView: View {
                             ForEach(question.options.indices,id:\.self) { option in
                                 Button {
                                     guard selected == nil else { return }
-                                    selected = option
-                                    if option == question.correct { numberCorrect += 1 }
+                                    attempt.choose(option)
+                                    savedAttempt = attempt.serialized()
                                     MammalHaptics.tap()
                                 } label: {
                                     HStack(spacing:12) {
@@ -368,9 +355,10 @@ struct PolarChapterPlayView: View {
                                         .fixedSize(horizontal:false,vertical:true)
                                     Text("Answer: "+question.options[question.correct])
                                         .font(.footnote.bold())
-                                    PawButton(title:questionIndex == 2 ? "Finish This Chapter" : "Next Clue",
+                                    PawButton(title: choice == question.correct ? (questionIndex == 2 ? "Finish This Chapter" : "Next Clue") : "Try this clue again",
                                               symbol:"arrow.right.circle.fill") {
-                                        continuePlaying()
+                                        if choice == question.correct { continuePlaying() }
+                                        else { attempt.retry(in: chapter); savedAttempt = attempt.serialized() }
                                     }
                                 }
                                 .padding(14)
@@ -378,6 +366,7 @@ struct PolarChapterPlayView: View {
                                 .background(Color.mint.opacity(0.17),
                                             in:RoundedRectangle(cornerRadius:17))
                                 .accessibilityElement(children:.contain)
+                                .id("answer-feedback")
                             }
                         }
                     }
@@ -387,9 +376,26 @@ struct PolarChapterPlayView: View {
                 }
                 .padding(18)
             }
+                .onChange(of: selected) { _, _ in
+                    withAnimation { proxy.scrollTo("answer-feedback", anchor: .center) }
+                }
+                }
         }
         .navigationTitle(chapter.title)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            guard !didRestore else { return }
+            didRestore = true
+            attempt = PolarChapterAttempt.restored(savedAttempt)
+            #if DEBUG
+            if ProcessInfo.processInfo.arguments.contains("--qa-wrong") {
+                attempt = PolarChapterAttempt()
+                attempt.choose((question.correct + 1) % 4)
+            }
+            #endif
+            // Recover an interrupted completion; the family award is idempotent.
+            if isComplete { onComplete(chapter.id, numberCorrect) }
+        }
     }
 
     private func icon(for option: Int) -> String {
@@ -403,19 +409,13 @@ struct PolarChapterPlayView: View {
         return option == selected ? .orange.opacity(0.25) : .gray.opacity(0.09)
     }
     private func continuePlaying() {
-        guard selected != nil, !isComplete else { return }
-        if questionIndex < 2 {
-            questionIndex += 1
-            selected = nil
-        } else {
-            isComplete = true
-            onComplete(chapter.id,numberCorrect)
-        }
+        guard selected == question.correct, !isComplete else { return }
+        attempt.next()
+        savedAttempt = attempt.serialized()
+        if isComplete { onComplete(chapter.id, numberCorrect) }
     }
     private func restart() {
-        questionIndex = 0
-        selected = nil
-        numberCorrect = 0
-        isComplete = false
+        attempt = PolarChapterAttempt()
+        savedAttempt = attempt.serialized()
     }
 }

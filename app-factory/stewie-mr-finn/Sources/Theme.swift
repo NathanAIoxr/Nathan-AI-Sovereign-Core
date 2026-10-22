@@ -17,6 +17,8 @@ struct GameBackground<Content: View>: View {
                 .ignoresSafeArea()
             Circle().fill(Color.yellow.opacity(0.15)).frame(width: 280,height:280).blur(radius: 65).offset(x: 155,y: -250).allowsHitTesting(false)
             content
+                .frame(maxWidth: 600)
+                .frame(maxWidth: .infinity)
         }
         .foregroundStyle(Palette.ink)
     }
@@ -27,7 +29,7 @@ struct GameCard<Content: View>: View {
     init(@ViewBuilder content: () -> Content) { self.content = content() }
     var body: some View {
         VStack(spacing: 12) { content }
-            .padding(18)
+            .padding(16)
             .frame(maxWidth: .infinity)
             .background(.white.opacity(0.92), in: RoundedRectangle(cornerRadius: 24))
             .overlay(RoundedRectangle(cornerRadius: 24).stroke(.brown.opacity(0.10), lineWidth: 1.5))
@@ -59,7 +61,8 @@ struct StoryHeading: View {
     var body: some View {
         VStack(spacing: 6) {
             Text(title)
-                .font(.system(size: 31, weight: .black, design: .rounded))
+                .font(.system(.title, design: .rounded, weight: .black))
+                .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.center)
             Text(subtitle)
                 .font(.system(.subheadline, design: .rounded, weight: .medium))
@@ -96,5 +99,25 @@ struct AwardBanner: View {
             .padding(14)
             .frame(maxWidth: .infinity)
             .background(.yellow.opacity(0.25), in: RoundedRectangle(cornerRadius: 18))
+    }
+}
+/// A bounded image viewport. The bitmap can never widen a scroll view.
+struct GameArtwork: View {
+    let name: String
+    var ratio: CGFloat
+    var label: String
+    init(_ name: String, ratio: CGFloat = 1.5, label: String = "") {
+        self.name = name; self.ratio = ratio; self.label = label
+    }
+    var body: some View {
+        GeometryReader { geometry in
+            Image(name).resizable().scaledToFill()
+                .frame(width: geometry.size.width, height: geometry.size.height)
+                .clipped()
+        }
+        .aspectRatio(ratio, contentMode: .fit)
+        .clipShape(RoundedRectangle(cornerRadius: 18))
+        .accessibilityLabel(label)
+        .accessibilityHidden(label.isEmpty)
     }
 }
