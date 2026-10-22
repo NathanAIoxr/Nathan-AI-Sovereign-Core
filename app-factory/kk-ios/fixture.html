@@ -1,0 +1,9 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KK Native Build Fixture</title><body style="background:#081525;color:#ffe0a1;font:24px system-ui;padding:24px"><h1>KK</h1><p>Native runtime build fixture. Private game sources are added after compilation.</p><script>
+const count = Number(localStorage.getItem('KK_NATIVE_TEST') || 0) + 1;
+localStorage.setItem('KK_NATIVE_TEST', String(count));
+localStorage.setItem('KK_REMOVE_TEST','one'); localStorage.removeItem('KK_REMOVE_TEST');
+localStorage.KK_PROPERTY_TEST='two'; delete localStorage.KK_PROPERTY_TEST;
+const pass = localStorage.getItem('KK_NATIVE_TEST')===String(count) && localStorage.getItem('KK_REMOVE_TEST')===null && localStorage.KK_PROPERTY_TEST===undefined && Object.keys(localStorage).includes('KK_NATIVE_TEST');
+document.body.insertAdjacentHTML('beforeend',`<p>Persistence launch ${count}: ${pass?'PASS':'FAIL'}</p>`);
+window.webkit.messageHandlers.kkNative.postMessage({action:'selftest',pass,count,version:KKNative.version});
+</script></body></html>
