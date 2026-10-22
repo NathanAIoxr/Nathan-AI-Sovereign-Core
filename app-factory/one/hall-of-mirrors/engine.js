@@ -11,12 +11,14 @@ const NAMES=[
 'Nadolig','Nollaig','Yn Chreest','Nadeleg','Jól','Rozhdestvo','Rizdvo','Kaleda','Milad','Eid al-Milad',
 'Krisen','Kurisumasu','Seongtanjeol','Shengdanjie','Pasku','Pasko','Noel','Krismas','Bada Din','Noel',
 'Krismasi','Sikukuu ya Krismasi','Kisimusi','Kerisimasi','Kiritimati','Kirihimete','Quadian','Genna','Ganna','Kristosa',
-'Cristesmaesse','Cristes-masse','Chrystenmas','Christmass','Yule','Cristesmesse','Noelz'];
+'Cristesmaesse','Cristes-masse','Chrystenmas','Christmass','Yule','Cristesmesse','Noelz',
+'Yuil','Yowle','Crystmas','Dies Natalis','Natalis Domini','Nativitas','Halag-Niht','Wininter-Fild','Mid-Wyntyr','Midwinter','Kernes','Natawry','Cristes-Messe','Wyenachten','Kristes-Messe','Noëls','Christesmesse','Natividade',
+'Xmas','Chrizzy','Crimbo','Chryssie','Chrissy','Crimble','Krismas','X-Mas','C-Mas','Krissmas','Christmastide','Yuletide','Noelani','Maligayang Pasko','Feliz Navidad','Frohe Weihnachten','Joyeux Noël','Vrolijk Kerstfeest','Buon Natale','Kala Christougenna','Merii Kurisumasu','Gledelig Jul','God Jul','Wesolych Swiat','Shchaslyvoho Rizdva','Auld Lang Syne Crossover'];
 function toDuo(n){if(!Number.isSafeInteger(n)||n<0)throw Error('Expected nonnegative integer');if(n===0)return '0';let s='';while(n){s=DIGITS[n%12]+s;n=Math.floor(n/12)}return s}
 function fromDuo(s){if(typeof s!=='string'||!s||!/^[0-9↊↋]+$/u.test(s))throw Error('Invalid base-12 address');let n=0;for(const c of s){n=n*12+DIGITS.indexOf(c);if(!Number.isSafeInteger(n))throw Error('Base-12 address overflow')}return n}
 function phase(id){return id<=25?1:id<=50?2:id<=75?3:4}
 function address(id){if(!Number.isInteger(id)||id<1||id>101)throw Error('Registry ID is 1 through 101');return {decimal:String(id).padStart(3,'0'),dewey:CATEGORIES[phase(id)]+'.'+String(id).padStart(3,'0'),duodecimal:toDuo(id),phase:phase(id)}}
-const registry=Object.freeze(Array.from({length:101},(_,i)=>{const id=i+1;return Object.freeze({id,...address(id),token:NAMES[i]||null,status:i<57?'author-supplied':'reserved — source not supplied',rawSourceId:'christmas-matrix-'+String(id).padStart(3,'0')})}));
+const registry=Object.freeze(Array.from({length:101},(_,i)=>{const id=i+1;return Object.freeze({id,...address(id),token:NAMES[i]||null,status:'author-supplied',rawSourceId:'christmas-matrix-'+String(id).padStart(3,'0')})}));
 const flip=Object.freeze({'a':'ɐ','b':'q','c':'ɔ','d':'p','e':'ǝ','f':'ɟ','g':'ƃ','h':'ɥ','i':'ᴉ','j':'ɾ','k':'ʞ','l':'l','m':'ɯ','n':'u','o':'o','p':'d','q':'b','r':'ɹ','s':'s','t':'ʇ','u':'n','v':'ʌ','w':'ʍ','x':'x','y':'ʎ','z':'z','A':'∀','C':'Ɔ','E':'Ǝ','F':'Ⅎ','H':'H','I':'I','L':'˥','M':'W','O':'O','P':'Ԁ','R':'ᴚ','T':'┴','U':'∩','V':'Λ','W':'M','X':'X','Y':'⅄','1':'Ɩ','2':'ᄅ','3':'Ɛ','4':'ㄣ','5':'ϛ','6':'9','7':'ㄥ','8':'8','9':'6','0':'0'});
 function reverseCharacters(s){return Array.from(String(s)).reverse().join('')}
 function upsideDown(s){return Array.from(String(s)).reverse().map(c=>flip[c]||c).join('')}
