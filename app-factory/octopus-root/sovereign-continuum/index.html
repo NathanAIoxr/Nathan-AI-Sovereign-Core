@@ -25,4 +25,13 @@ $('family').onchange=fillGates;$('gate').onchange=form;$('direction').onchange=f
 $('graft').onclick=()=>{try{const raw=localStorage.getItem(key),s=raw?R.load(raw):R.create(),out=M.graft(s,R);localStorage.setItem(key,R.save(out.state));txt('graftMessage','Added '+out.added+' nodes and '+out.attached+' checked links; '+out.state.cookie.length+' reviews preserved.');$('graftMessage').className='good'}catch(e){txt('graftMessage',e.message);$('graftMessage').className='bad'}};
 $('export').onclick=()=>{const blob=new Blob([JSON.stringify({schema:'tabor.continuum.1',families:M.FAMILIES,gates:M.GATES},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='sovereign-continuum-ledger.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)};
 fillGates();map();run();
-})();</script></body></html>
+})();</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../../shared/material-worlds/presentation.css">
+<script src="../../shared/material-worlds/presentation.js" defer></script>
+<script src="../../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../../shared/material-worlds/playground.js" defer></script>
+<script src="../../shared/material-worlds/team-engine.js" defer></script>
+<script src="../../shared/material-worlds/team-ui.js" defer></script>
+<script src="../../shared/material-worlds/graphics-kit/graphics-core.js" defer></script><script src="../../shared/material-worlds/creative-tools.js" defer></script></body></html>
+

@@ -12,4 +12,13 @@ const cases={okay:{},injured:{injured:true},distress:{inDistress:true},unrespons
 $('help').onclick=()=>{const g=B.helpGuide(cases[$('situation').value]);$('guide').textContent=g.status+'\n'+g.steps.map((x,i)=>(i+1)+'. '+x).join('\n')};$('help').click();
 try{const saved=localStorage.getItem('tabor-octopus-root-v1'),r=saved?R.load(saved):R.create(),a=B.isolateRoot(r);$('rootSummary').textContent=a.boxes.length+' independent conceptual bubbles; '+a.strings.length+' knowledge-only strings; zero assumed access grants.'}catch(e){$('rootSummary').textContent='Open the Octopus Root to initialize local records.'}
 })();
-</script></body></html>
+</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../../shared/material-worlds/presentation.css">
+<script src="../../shared/material-worlds/presentation.js" defer></script>
+<script src="../../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../../shared/material-worlds/playground.js" defer></script>
+<script src="../../shared/material-worlds/team-engine.js" defer></script>
+<script src="../../shared/material-worlds/team-ui.js" defer></script>
+<script src="../../shared/material-worlds/graphics-kit/graphics-core.js" defer></script><script src="../../shared/material-worlds/creative-tools.js" defer></script></body></html>
+

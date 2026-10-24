@@ -6,4 +6,13 @@ function select(p){let stats=[['Games',p.G_batting],['At-bats',p.AB],['Hits',p.H
 function render(){let q=document.getElementById('search').value.toLowerCase().trim();filtered=P.filter(p=>p.name.toLowerCase().includes(q)||p.id.includes(q));let sort=document.getElementById('sort').value;filtered.sort(sort==='name'?(a,b)=>a.name.localeCompare(b.name):((a,b)=>b[sort.toUpperCase()=== 'HR'?'HR':sort==='h'?'H':sort==='w'?'W':'H']-a[sort==='hr'?'HR':sort==='h'?'H':'W']));count.textContent=filtered.length.toLocaleString()+' matches';list.innerHTML=filtered.slice(0,120).map(p=>'<button class="entry" data-id="'+safe(p.id)+'"><b>'+safe(p.name)+'</b><div class="muted">'+p.firstYear+'–'+p.lastYear+' · '+p.H+' hits · '+p.HR+' HR</div></button>').join('')+'<p class="muted">Showing first 120 matches. Refine the search to see more.</p>';list.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>select(P.find(x=>x.id===b.dataset.id))))}
 document.getElementById('search').addEventListener('input',render);document.getElementById('sort').addEventListener('change',render);
 fetch('data/players_index.json').then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(j=>{P=j.profiles;render();if(P.length)select(P[0]);}).catch(e=>{list.textContent='Could not load local player index. Open via a web server (file:// blocks fetch on some browsers): '+e.message;});
-</script></body></html>
+</script>
+<!-- Material Worlds shared presentation and optional consumer modes -->
+<link rel="stylesheet" href="../shared/material-worlds/presentation.css">
+<script src="../shared/material-worlds/presentation.js" defer></script>
+<script src="../shared/material-worlds/elemental-engine.js" defer></script>
+<script src="../shared/material-worlds/playground.js" defer></script>
+<script src="../shared/material-worlds/team-engine.js" defer></script>
+<script src="../shared/material-worlds/team-ui.js" defer></script>
+<script src="../shared/material-worlds/graphics-kit/graphics-core.js" defer></script><script src="../shared/material-worlds/creative-tools.js" defer></script></body></html>
+
