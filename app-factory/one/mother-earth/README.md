@@ -29,3 +29,16 @@ This public module contains no private manuscripts, personal source files or ext
 Serve this repository as static files (or open `index.html` in a modern browser). Use the ONE home or Master Library module link. To print the written chapters use **Book → Print / Save as PDF**. To demonstrate the Earth fold-out select the **FOLD-OUT APP** tab and advance the four stages.
 
 The generated promotional illustration from the original conversation is separate from this repository. The shipped fold-out is implemented using self-contained original SVG/CSS artwork to preserve an offline-capable static module.
+
+## 2026-10-24 — THE GREAT ACCORDION OF CREATION (source-first integration)
+
+[Open the full-work section](./index.html#accordion-work)
+
+- Added the new **GREAT ACCORDION · WHOLE WORK** tab without replacing the pre-existing eight chapters, 33-trial game, or the original 33-formula codebook.
+- Preserves selected author-authored passages verbatim under **THE AUTHOR'S ORIGINAL WORDS**, by topic: Alabama ↔ Utah; replicated creation and Zig/Zag; global macro scan; Ass Ears/Rabbit Ears.
+- Includes an in-app focused accordion / string-wave / zigzag SVG scene; earlier unrelated imagery is not mixed into that scene.
+- Preserves in full the separately supplied **33 foundational RCC equations** and **52-formula mathematical appendix**, clearly labeled as sourced vs. assistant-constructed. These are separate from the pre-existing ONE 33-formula codebook.
+- Adds link from ONE home to the accordion-work tab and supports the `#accordion-work` deep link.
+- The three original generated PNG artworks, research scripts, and source bytes are preserved in the separately downloadable author-controlled offline book package rather than copied into GitHub automatically. Its author-owned exact texts can also be imported into ONE Master Library.
+
+This public browser module is an authored creative/teaching presentation. Exact topographic replication and string-theory explanations are source claims, not independently validated results. Protect owner-only manuscripts and chat archives; no private archive upload is implied.
