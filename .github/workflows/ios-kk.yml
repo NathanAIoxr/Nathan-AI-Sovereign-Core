@@ -1,0 +1,29 @@
+name: KK iOS native runtime
+on:
+  pull_request:
+    paths:
+      - 'app-factory/kk-ios/**'
+      - '.github/workflows/ios-kk.yml'
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile arm64 iPhone IPA template
+        run: bash app-factory/kk-ios/build.sh iphoneos
+      - name: Compile simulator app
+        run: bash app-factory/kk-ios/build.sh iphonesimulator
+      - name: Check native bridge and relaunch persistence
+        run: bash app-factory/kk-ios/simulator-test.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: KK-native-runtime
+          path: |
+            app-factory/kk-ios/build/KK-Native-Template-unsigned.ipa
+            app-factory/kk-ios/build/selftest-*.json
+            app-factory/kk-ios/build/native-launch-*.png
+          retention-days: 7
