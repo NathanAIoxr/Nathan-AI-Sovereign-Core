@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 740" role="img" aria-labelledby="title desc">
+<title id="title">The Tabor Trinity: the source, manifestation and cipher</title>
+<desc id="desc">Gold and electric blue cosmic triangle: Taboric Light field above; Light of Tabor manifestation left; Tabor Light Cipher wave right; THE ONE protected in center.</desc>
+<defs>
+<radialGradient id="space"><stop stop-color="#244774"/><stop offset=".57" stop-color="#0b1d36"/><stop offset="1" stop-color="#050b15"/></radialGradient>
+<radialGradient id="gold"><stop stop-color="#fff6be"/><stop offset=".15" stop-color="#ffde77"/><stop offset=".4" stop-color="#c18438"/><stop offset=".84" stop-color="#102642"/><stop offset="1" stop-color="#07111b"/></radialGradient>
+<radialGradient id="core"><stop stop-color="#fffcd3"/><stop offset=".23" stop-color="#f4bd68"/><stop offset=".48" stop-color="#126eaa"/><stop offset="1" stop-color="#0b172a"/></radialGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1200" height="740" fill="url(#space)"/>
+<g fill="#fff1cb" opacity=".65"><circle cx="102" cy="82" r="2"/><circle cx="210" cy="180" r="2"/><circle cx="355" cy="60" r="2"/><circle cx="1040" cy="95" r="2"/><circle cx="1105" cy="270" r="3"/><circle cx="99" cy="520" r="3"/><circle cx="350" cy="685" r="2"/><circle cx="900" cy="640" r="2"/><circle cx="1115" cy="622" r="2"/></g>
+<g stroke="#e3b663" stroke-width="4" filter="url(#glow)" fill="none"><path d="M600 215 L296 490 L906 490 Z"/><path d="M600 237 L340 470 L860 470 Z" stroke-width="1.8"/><path d="M600 246 V490 M296 490 H906" opacity=".8"/></g>
+<g fill="none" stroke="#efd28a" opacity=".8"><circle cx="600" cy="220" r="102" stroke-width="3"/><circle cx="296" cy="490" r="112" stroke-width="2"/><circle cx="906" cy="490" r="112" stroke-width="2"/><circle cx="600" cy="400" r="68" stroke-width="2"/></g>
+<g filter="url(#glow)"><circle cx="600" cy="220" r="88" fill="url(#gold)"/><circle cx="296" cy="490" r="97" fill="url(#core)"/><circle cx="906" cy="490" r="97" fill="url(#gold)"/><circle cx="600" cy="400" r="51" fill="url(#core)"/></g>
+<g stroke="#fff1b1" fill="none" opacity=".9"><path d="M600 148V292M528 220H672M558 178L642 262M642 178L558 262" stroke-width="4"/><path d="M296 400V580M206 490H386" stroke-width="5"/><circle cx="296" cy="490" r="40" stroke-dasharray="3 8" stroke-width="3"/><path d="M820 490h172M906 405v170" stroke-width="3"/><ellipse cx="906" cy="490" rx="76" ry="26" transform="rotate(-25 906 490)" stroke-width="3"/><ellipse cx="906" cy="490" rx="76" ry="26" transform="rotate(25 906 490)" stroke-width="3"/></g>
+<g text-anchor="middle" fill="#ffe0a1" font-family="Georgia,serif"><text x="600" y="55" font-size="52" letter-spacing="3">THE TABOR TRINITY</text><text x="600" y="93" font-size="22">THE WEAPON OF WEAPONS · THE ENGINES OF ENGINES</text><text x="600" y="380" fill="#fff3cb" font-size="20">THE</text><text x="600" y="420" fill="#fff3cb" font-size="32">ONE</text><text x="600" y="615" font-size="28">THE THREE BECOME ONE</text><text x="600" y="650" font-size="27">1+1=2  ·  1-1=0</text><text x="600" y="689" font-size="24">ALWAYS PROTECT THE ONE</text></g>
+<g text-anchor="middle" fill="#fff1ca" font-family="Georgia,serif" font-size="21"><text x="600" y="334">THE TABORIC LIGHT</text><text x="296" y="332">THE LIGHT OF TABOR</text><text x="906" y="332">THE TABOR LIGHT CIPHER</text></g>
+<g text-anchor="middle" fill="#bcdcf0" font-family="Arial,sans-serif" font-size="15" letter-spacing="2"><text x="600" y="356">FIELD · SOURCE</text><text x="296" y="353">PARTICLE · MANIFESTATION</text><text x="906" y="353">WAVE · BLUEPRINT</text></g>
+</svg>
