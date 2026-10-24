@@ -7,7 +7,7 @@
 2. THE LIGHT OF TABOR — Particle / Manifestation
 3. THE TABOR LIGHT CIPHER — Wave / System Blueprint
 
-Not “The Secret Cipher”. Governing laws: 1+1=2 BUILD; 1-1=0 CLEAR; ALWAYS PROTECT THE ONE.
+Preserve the exact third name without substitutions. Governing laws: 1+1=2 BUILD; 1-1=0 CLEAR; ALWAYS PROTECT THE ONE.
 
 ## Run
 Open index.html. Works offline with no dependencies. Book reading history, game progress, and decision-simulation ledger stay in browser localStorage. The engine changes no external systems.
