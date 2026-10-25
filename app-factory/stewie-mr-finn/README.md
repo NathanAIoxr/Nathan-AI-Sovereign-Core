@@ -1,10 +1,36 @@
+## 6.3.0 — guided play and learning feedback
+
+Home now groups activities into Quick games, Stories & kindness, Make & move, and Word adventures. The adventure map offers the next unfinished puzzle; each board introduces its rules before play. Longer reading activities are labeled for shared play with a grown-up.
+
+Kindness, snack, and Polar questions explain an incorrect answer and invite a retry on the same question. Challenge Lab pauses on success until Next is tapped. Matching, counting, and treasure activities give specific clues instead of silent misses. Polar retry checkpoints preserve previous answers and remain compatible with existing saves. Artwork is unchanged from 6.2.
+
+Validation includes native retry/save regression tests, 26 web checks, Release compilation, and 72 compact/large simulator screenshots including wrong-answer feedback. Physical-device validation and Apple distribution submission remain separate release gates.
+
 # The Adventures of Stewart & Mr. Finn 🐾
+
+## Version 6.2 — recovered artwork and iPhone layout
+
+Restores the existing labeled game-showcase cats, original Mrs Clause Cat’s Workshop,
+North Paw, Champ and Ace family artwork. The committed source masters and recovered
+inventory are recorded in [Artwork/README.md](Artwork/README.md). The build packages
+those existing images; it no longer draws placeholder cats or generates new markings.
+
+Home has a clearer primary adventure button, consistent portrait selection, and grouped
+activities. Bounded image viewports prevent oversized bitmaps from widening scroll
+views. Headings wrap, large-text cat choices stack, and the sticker palette adapts to
+available width. Biscuit and Ace animations honor the motion preference and system
+Reduce Motion. The original 48-board campaign and sixteen polar chapters remain.
+
+The cloud Mac workflow builds the Release iPhone binary and a Debug simulator binary,
+then captures 20 screen routes, four large-text routes, and five scrolled home views on two iPhone sizes (58 screenshots). These
+are internal layout checks; physical-device testing, signing and App Store submission
+remain separate steps in [the release checklist](app-store/RELEASE-CHECKLIST.md).
 
 ## Version 6 — Full Polar Family native adventure
 
-The iPhone app now includes a **native, offline, sixteen-chapter Polar Family campaign** with **48 individually written challenges** (three per chapter), two original regions (North Paw and South Paw), the HO/OH cast, chapter locks/unlocks, star ratings and progress persistence, story screens, an animal-family encyclopedia, and direct links to the two previously implemented word/mirror games. Start from **THE POLAR FAMILY · 16 CHAPTERS** on the app home screen. The native SwiftUI implementation is in `Sources/PolarFamilyQuestView.swift` and its independently testable Foundation-only rules, story catalogue and save codec are in `Sources/PolarFamilyQuestCore.swift`. The original 48-board campaign, saved stars and all prior activities remain separate and unchanged; the reunion grants a one-time 30-star main-game achievement. This version contains 16 **new** playable polar chapters, not 16 additional boards in the original campaign.
+The iPhone app now includes a **native, offline, sixteen-chapter Polar Family campaign** with **48 individually written challenges** (three per chapter), two original regions (North Paw and Mrs Clause Cat’s Workshop), the HO/OH cast, chapter locks/unlocks, star ratings and progress persistence, story screens, an animal-family encyclopedia, and direct links to the two previously implemented word/mirror games. Start from **The Polar Family** on the app home screen. The native SwiftUI implementation is in `Sources/PolarFamilyQuestView.swift` and its independently testable Foundation-only rules, story catalogue and save codec are in `Sources/PolarFamilyQuestCore.swift`. The original 48-board campaign, saved stars and all prior activities remain separate and unchanged; the reunion grants a one-time 30-star main-game achievement. This version contains 16 **new** playable polar chapters, not 16 additional boards in the original campaign.
 
-**Testing:** `swiftc -swift-version 5 -o /tmp/polar-quest-check Sources/PolarFamilyQuestCore.swift Tests/main.swift && /tmp/polar-quest-check` validates the entire native catalogue, unlocking, achievements and saved data. The unsigned iPhone GitHub Actions workflow runs these native tests and the three existing offline web-game suites *before* it builds the Xcode project, generates original art and packages the unsigned IPA. An unsigned IPA still needs proper Apple signing for installation on an ordinary device. See [Version 6 product scope and game guide](./POLAR-FAMILY-APP-V6.md).
+**Testing:** `swiftc -swift-version 5 -o /tmp/polar-quest-check Sources/PolarFamilyQuestCore.swift Tests/main.swift && /tmp/polar-quest-check` validates the entire native catalogue, unlocking, achievements and saved data. The unsigned iPhone GitHub Actions workflow runs these native tests and the three existing offline web-game suites *before* it builds the Xcode project, packages the recovered artwork and unsigned IPA. An unsigned IPA still needs proper Apple signing for installation on an ordinary device. See [Version 6 product scope and game guide](./POLAR-FAMILY-APP-V6.md).
 
 **Rights:** The new chapter text, SwiftUI art and puzzles are original to this project, using no licensed film/game characters, external images, or third-party film AI identities. A separate commercial name/mark clearance and Apple signing review are still required; building the source does not establish legal clearance.
 
@@ -29,7 +55,7 @@ A playable, iPhone-only, offline-first children's SwiftUI adventure inspired by 
 
 [Play Mirror Bridge](./polar-middle-c/mirror-bridge/index.html) · [Original mechanics and rights notes](./polar-middle-c/mirror-bridge/README.md). The new game opens directly from the iPhone home menu through `PawMirrorBridgeView.swift` or as an offline browser branch of the HO ↔ OH Polar Middle C. It uses **original cat/polar characters and PAWS ⇄ SWAP letter reflection**, with a working torque-balance model and saved local progress. No third-party fiction characters, logos, media or branded AI source material are used. The original 48-board adventure remains unchanged. Commercial name clearance and native signed-build validation are still separate release checks.
 
-## NEW: HO ↔ OH · The Polar Middle C (North Paw + South Paw)
+## NEW: HO ↔ OH · The Polar Middle C (North Paw + Mrs Clause Cat’s Workshop)
 
 Playable **offline** branch in the native iPhone menu and as a [browser game](./polar-middle-c/index.html). Santa Dog and Ozzie guide three puzzle stages — Above C (what was heard), Below C (literal mirror), Middle C (source-backed ancient writing and number systems). Stewart and Mr. Finn unite the two halves. Source and tests: [Polar Middle C](./polar-middle-c/README.md). This is an add-on game branch, not an expansion of the original 48 campaign boards. The source-bundled WebKit game requires an Xcode native build to test on iPhone; it is not an App Store release.
 
@@ -46,7 +72,7 @@ Playable **offline** branch in the native iPhone menu and as a [browser game](./
 
 ## Canon and safety
 
-Stewart (Stewie) and Mr. Finn have near-complementary black-and-white Paint-horse-style coats. **Stewart's white splits his black**: this distinctive marking helps tell them apart. Both are intact males. Champ is a tan, neutered, long-legged hound of roughly 40–50 lb with a round body and snack-sleuth personality. Ace is a long-haired, red-brown Australian Shepherd with a white chest, white feet, and long feathering at the paws. Collyn and Nathan live with the four animals, and the featured human mammals are **Nathan and Collyn**. Shawna does not appear in this release.
+Stewart (Stewie) and Mr. Finn have near-complementary black-and-white milk-cow-patterned coats. **Stewart's white splits his black**: this distinctive marking helps tell them apart. Both are intact males. Champ is a tan, neutered, long-legged hound of roughly 40–50 lb with a round body and snack-sleuth personality. Ace is a long-haired, red-brown Australian Shepherd with a white chest, white feet, and long feathering at the paws. Collyn and Nathan live with the four animals, and the featured human mammals are **Nathan and Collyn**. Shawna does not appear in this release.
 
 Animal communication in the game is age-appropriate and does **not** equate compliance with trust: frightened or excited pets may ignore familiar cues. Children are instructed to involve a trusted adult with unfamiliar animals.
 
@@ -90,9 +116,9 @@ Once an Apple Developer team, distribution certificate, and matching provisionin
 
 ## Editorial / assets
 
-The game has original artwork generated **offline from Python + Pillow** by `scripts/generate_art.py`. Run the script whenever asset images are missing; GitHub CI regenerates them before XcodeGen. The promotional concept illustrations are visual references only, not evidence of existing game screens or an app already built.
+The game packages recovered project artwork from committed PNG masters using `scripts/generate_art.py`. Run the script whenever the derived asset catalog is missing; GitHub CI does this before XcodeGen. The extracted portraits preserve the markings in the labeled originals. Promotional posters remain concept artwork; the visual-QA artifact contains actual simulator screen captures.
 
-This is a **playable version 2 prototype**, not a complete expansive 3D game or a production App Store release. Test it on an actual iPhone before distribution.
+This is a native SwiftUI release candidate. Test the packaged build on an actual iPhone before distribution.
 
 © 2026 Nathan Tabor. All rights reserved. This project-specific attribution does not change the license of other parts of the hosting repository.
 

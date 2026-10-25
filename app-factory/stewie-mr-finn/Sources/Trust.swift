@@ -23,11 +23,13 @@ struct TrustQuizView: View {
 
     var body: some View {
         GameBackground {
-            ScrollView {
+            ScrollViewReader { proxy in
+                ScrollView {
                 VStack(spacing: 19) {
                     StoryHeading(title: "Speak Their Language", subtitle: "Words are only half of a mammal conversation.")
                     if questionIndex < questions.count {
-                        HStack { StarCount(); Spacer(); Text("Question \(questionIndex + 1) / \(questions.count)").font(.subheadline.bold()) }
+                        GameArtwork("BondArt", ratio: 1.65, label: "The mammal family together")
+                    HStack { StarCount(); Spacer(); Text("Question \(questionIndex + 1) / \(questions.count)").font(.subheadline.bold()) }
                         GameCard {
                             Text("🐾  THE MAMMAL BOND")
                                 .font(.system(.caption, design: .rounded, weight: .black))
@@ -42,7 +44,7 @@ struct TrustQuizView: View {
                                         Text(questions[questionIndex].answers[index])
                                             .multilineTextAlignment(.leading)
                                         Spacer()
-                                        if selected == index { Image(systemName: "checkmark.circle.fill") }
+                                        if selected == index { Image(systemName: index == questions[questionIndex].correct ? "checkmark.circle.fill" : "lightbulb.fill") }
                                     }
                                     .font(.system(.body, design: .rounded, weight: .semibold))
                                     .padding(14)
@@ -55,11 +57,12 @@ struct TrustQuizView: View {
                         }
                         if selected != nil {
                             GameCard {
-                                Text(selected == questions[questionIndex].correct ? "Lovely listening! ❤️" : "Every mammal is still learning! 💛")
+                                Text(selected == questions[questionIndex].correct ? "Lovely listening! ❤️" : "Let’s learn together 💛")
                                     .font(.headline)
                                 Text(questions[questionIndex].why)
                                     .multilineTextAlignment(.center)
-                                PawButton(title: "Next", symbol: "arrow.right") {
+                                PawButton(title: selected == questions[questionIndex].correct ? "Next question" : "Try this question again", symbol: selected == questions[questionIndex].correct ? "arrow.right" : "arrow.clockwise") {
+                                    guard selected == questions[questionIndex].correct else { selected = nil; return }
                                     questionIndex += 1
                                     selected = nil
                                     if questionIndex == questions.count { progress.win("kindness", reward: 30) }
@@ -70,7 +73,7 @@ struct TrustQuizView: View {
                         GameCard {
                             Text("🏆").font(.system(size: 80))
                             Text("MAMMAL FRIEND!").font(.system(.title2, design: .rounded, weight: .black))
-                            Text("You listened carefully: \(correctCount) of \(questions.count) answers correct.")
+                            Text("You practiced all five ways to be a kind animal friend!")
                                 .multilineTextAlignment(.center)
                             AwardBanner(title: "The Mammal Bond! +30 stars")
                             PawButton(title: "Learn again", symbol: "arrow.clockwise") { reset() }
@@ -81,9 +84,19 @@ struct TrustQuizView: View {
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                         .padding(12)
+                        Color.clear.frame(height: 1).id("answer-feedback")
                 }
                 .padding(18)
             }
+                .onChange(of: selected) { _, _ in
+                    withAnimation { proxy.scrollTo("answer-feedback", anchor: .bottom) }
+                }
+                }
+        }
+        .onAppear {
+            #if DEBUG
+            if ProcessInfo.processInfo.arguments.contains("--qa-wrong") { answer(0) }
+            #endif
         }
         .navigationTitle("Mammal Language")
         .navigationBarTitleDisplayMode(.inline)

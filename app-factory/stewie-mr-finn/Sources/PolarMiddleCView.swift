@@ -8,15 +8,19 @@ struct PolarMiddleCView: View {
         PolarMiddleCWebView()
             .navigationTitle("HO ↔ OH · Middle C")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Color.white, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
             .background(Color(red: 0.02, green: 0.08, blue: 0.16))
     }
 }
 
 private struct PolarMiddleCWebView: UIViewRepresentable {
+    func makeCoordinator() -> OfflineGameQAObserver { OfflineGameQAObserver() }
     func makeUIView(context: Context) -> WKWebView {
         let config = WKWebViewConfiguration()
         config.defaultWebpagePreferences.allowsContentJavaScript = true
         let view = WKWebView(frame: .zero, configuration: config)
+        view.navigationDelegate = context.coordinator
         view.isOpaque = false
         view.backgroundColor = UIColor(red: 0.02, green: 0.08, blue: 0.16, alpha: 1)
         view.scrollView.contentInsetAdjustmentBehavior = .never
