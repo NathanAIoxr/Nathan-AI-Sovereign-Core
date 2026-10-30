@@ -40,7 +40,7 @@ input[type=search]{flex:1;min-width:200px}input[type=file]{max-width:100%;width:
 <div class="row"><button id="export">Export searchable index</button><button id="source-export">Download selected original</button><button id="clear">Delete this browser's library</button></div></section>
 <section class="panel"><div class="row"><h2 class="grow">Nine Library Shelves</h2><small id="total" class="muted">0 locally indexed records</small></div>
 <div class="shelves" id="shelves"></div></section>
-<section class="panel"><h2>Search all imported works</h2>
+<section class="panel"><h2>Search all imported works</h2><p>ONE meets every reader where they are. Choose your reading approach; the original record and provenance are never rewritten.</p><label for="one-reading-depth">Your reading approach</label><select id="one-reading-depth" aria-label="Choose reading approach"><option value="simple">Start simple · Short overview</option><option value="deep">Go deep · More source detail</option><option value="original">Original words · Source first</option><option value="creative">Create · Keep interpretation separate</option></select>
 <div class="row"><input type="search" id="search" aria-label="Search imported titles descriptions and source data" placeholder="Search title, scripture, source ID, category, provenance…" autocomplete="off">
 <select id="status-filter" aria-label="Filter by record status"><option value="">All stages</option><option value="source">Sources</option><option value="project">Projects</option><option value="faith">KJV / Spiritual</option><option value="document">Full documents</option></select><button id="reset">Show all shelves</button></div>
 <p id="count" class="muted"></p><div id="record-list"></div><button id="more" hidden>Show 60 more results</button></section>
@@ -64,7 +64,7 @@ const SHELVES=[
 const DB_NAME='tabor-one-private-master-library-v1';
 const VERSION=1;
 const $=id=>document.getElementById(id);
-const ui={records:[],sources:[],shelf:'ALL',limit:60,selected:null,db:null};
+const ui={records:[],sources:[],shelf:'ALL',limit:60,selected:null,db:null,readerMode:'simple'};
 function node(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=String(text);if(cls)e.className=cls;return e}
 function message(s){$('status').textContent=s}
 function openDB(){return new Promise((resolve,reject)=>{const req=indexedDB.open(DB_NAME,VERSION);
@@ -128,12 +128,12 @@ function matches(r,q,kind){if(ui.shelf!=='ALL'&&r.shelf!==ui.shelf)return false;
 function renderResults(){const q=$('search').value.trim().toLowerCase(),kind=$('status-filter').value;
  const filtered=ui.records.filter(r=>matches(r,q,kind));$('count').textContent=filtered.length.toLocaleString()+' matches · '+Math.min(ui.limit,filtered.length).toLocaleString()+' displayed. Titles and counts are index records, not proof of finished books or releases.';
  const list=$('record-list');list.replaceChildren();
- for(const r of filtered.slice(0,ui.limit)){const card=node('article',undefined,'record'),b=node('button');b.append(node('strong',r.title),node('small',r.shelf+' · '+r.kind+' · '+r.stage+' · '+r.originalId));b.onclick=()=>showRecord(r.id);card.append(b);if(r.description)card.append(node('p',r.description.slice(0,320)));list.append(card)}
+ for(const r of filtered.slice(0,ui.limit)){const card=node('article',undefined,'record'),b=node('button');b.append(node('strong',r.title),node('small',r.shelf+' · '+r.kind+' · '+r.stage+' · '+r.originalId));b.onclick=()=>showRecord(r.id);card.append(b);if(r.description)card.append(node('p',r.description.slice(0,ui.readerMode==='simple'?160:ui.readerMode==='deep'?3000:400)));if(ui.readerMode==='original')card.append(node('small','Source: '+r.provenance+' · Original ID: '+r.originalId));if(ui.readerMode==='creative')card.append(node('small','Creative adaptation is a separate record; no original has been altered.'));list.append(card)}
  if(!filtered.length)list.append(node('p',ui.records.length?'No matching records. Try a broader search.':'Your private archive has not been imported. Choose your ONE Library Pack above.'));
  $('more').hidden=filtered.length<=ui.limit}
 async function showRecord(id){const r=ui.records.find(x=>x.id===id);if(!r)return;ui.selected=r;
  const box=$('details');box.replaceChildren();box.hidden=false;
- box.append(node('h2',r.title),node('p',r.shelf+' · '+r.kind+' · '+r.stage));
+ box.append(node('h2',r.title),node('p',r.shelf+' · '+r.kind+' · '+r.stage));if(ui.readerMode==='original')box.append(node('p','Original-word mode: supplied content and the unmodified imported record are available below.'));if(ui.readerMode==='creative')box.append(node('p','Creative mode: use this source as reference. No new creative passages are inserted into the original.'));if(ui.readerMode==='deep')box.append(node('p','Deep mode: full indexed description, provenance and raw record are available below.'));
  for(const [k,v] of [['Original ID',r.originalId],['Source',r.provenance],['Privacy',r.privacy],['Shelf assignment',r.shelfAssignment],['Source file',ui.sources.find(x=>x.id===r.sourceId)?.name??'Imported record']]){box.append(node('p',k+': '+v,'muted'))}
  if(r.fullText){box.append(node('h2','Original or supplied document text'),node('div',r.fullText,'document'))}
  if(r.description){box.append(node('h2','Catalog description'),node('p',r.description))}
@@ -145,6 +145,7 @@ $('import').onclick=async()=>{const files=Array.from($('files').files||[]);if(!f
  await refresh();message('Imported '+done+' original source files; '+rows.toLocaleString()+' indexed entries. Saved only in this browser profile.');$('files').value=''}
  catch(e){await refresh();message('Import halted: '+e.message+'. Files completed before the error remain available.')}
  finally{$('import').disabled=false}};
+$('one-reading-depth').onchange=()=>{ui.readerMode=$('one-reading-depth').value;renderResults();if(ui.selected)showRecord(ui.selected.id)};
 $('search').oninput=()=>{ui.limit=60;renderResults()};
 $('status-filter').onchange=()=>{ui.limit=60;renderResults()};
 $('reset').onclick=()=>{ui.shelf='ALL';$('status-filter').value='';$('search').value='';ui.limit=60;render()};
