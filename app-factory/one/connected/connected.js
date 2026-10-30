@@ -43,7 +43,7 @@
       if(obj.schema!=='tabor123.ecosystem-catalog.v1'||!Array.isArray(obj.products))throw Error('Unexpected public registry');
       for(const p of obj.products){
         if(!p||typeof p.id!=='string'||typeof p.name!=='string')continue;
-        const kind=/Game|Games/i.test(p.category)?'app':'app';
+        const kind='app';
         const url=p.url&&p.url.startsWith('./')?'../../'+p.url.slice(2):'';
         const docs=p.docs&&p.docs.startsWith('./')?'../../'+p.docs.slice(2):'';
         add({key:'product:'+p.id,title:p.name,kind,stage:p.status||'unverified',url,docs,origin:'Factory public products.json',state:BINARY.BUILD,summary:p.summary||''});
@@ -85,12 +85,13 @@
     const sources=[
       {name:'ONE Master Library',db:'tabor-one-private-master-library-v1',store:'records',read:r=>{
         const shelf=String(r.shelf||'');
-        add({key:'library:'+r.id,title:escapeText(r.title||r.originalId||'Untitled'),kind:shelf==='201'||r.kind==='document'?'book':shelf==='901'?'image':shelf==='401'?'app':'record',
+        add({key:'library:'+r.id,title:escapeText(r.title||r.originalId||'Untitled'),kind:shelf==='201'?'book':(/\.(png|jpe?g|webp|gif|avif|heic|svg)$/i.test(String(r.title||''))||String(r.original?.mime||'').startsWith('image/'))?'image':shelf==='401'?'app':'record',
           stage:r.stage||'unverified source record',origin:'ONE Master Library · '+(r.provenance||'owner import'),sourceId:r.originalId||r.id,
           parent:'module:master-library',url:'../library/index.html',state:BINARY.BUILD,summary:r.description||''});
       }},
       {name:'Universal Creator Vault',db:'tabor123_vault_v1',store:'records',read:r=>{
-        const type=r.group==='image'?'image':r.kind==='conversation'?'record':r.group==='document'?'book':'record';
+        const bookHint=/(\bbook\b|novel|manuscript|volume|chapter|series|story|\.epub$)/i.test(String(r.name||'')+' '+String(r.project||''));
+        const type=r.group==='image'?'image':r.group==='document'&&bookHint?'book':'record';
         add({key:'vault:'+r.id,title:escapeText(r.name||'Untitled asset'),kind:type,stage:r.kind||'owner imported file',
           origin:'Creator Vault · '+(r.project||'Unsorted'),sourceId:r.id,parent:'module:creator-vault',url:'../../vault.html',
           state:BINARY.BUILD,summary:r.summary||'',mime:r.mime||''});
