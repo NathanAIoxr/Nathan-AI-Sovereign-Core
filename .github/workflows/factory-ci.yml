@@ -88,6 +88,8 @@ jobs:
         run: node --test app-factory/one/health/health.test.cjs
       - name: Verify ONE 101–901 Master Library privacy and import boundaries
         run: node --test app-factory/one/library/library.test.cjs
+      - name: Verify ONE connected apps, books, images and owner-approved graph
+        run: node --test app-factory/one/connected/connected.test.cjs
       - name: Verify ONE Trials playable geometry and private source boundary
         run: node --test app-factory/one/trials/trials.test.cjs
       - name: Verify 1420 Crowning Jewel gameplay
