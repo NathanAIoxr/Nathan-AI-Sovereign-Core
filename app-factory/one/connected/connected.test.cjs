@@ -37,7 +37,7 @@ test('public navigator has the expected local access and explicit disclosure',()
     assert.match(html,new RegExp('id="'+id+'"'));
   }
   assert.match(html,/same browser profile and website origin/);
-  assert.match(html,/no automatic cloud sync/i);
+  assert.match(html,/not an automatic cloud sync|no automatic cloud sync/i);
   assert.match(html,/FREE means FREE/);
   assert.match(html,/connected\.js/);
   assert.match(one,/\.\/connected\/index\.html/);
