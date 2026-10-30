@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101720">
+<title>ONE — Meet You Where You Are | Nathan Tabor</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,Arial,sans-serif;color-scheme:dark;--bg:#101720;--panel:#1a2934;--line:#4c6574;--ink:#f0f6fa;--soft:#c6d5df;--accent:#e6d2ab}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--ink);margin:0}body.contrast{--bg:#000;--panel:#080808;--line:#fff;--ink:#fff;--soft:#fff;--accent:#fff}main{max-width:940px;margin:auto;padding:18px 16px 90px}
+h1{font-size:clamp(2rem,7vw,4.3rem);letter-spacing:-.04em;line-height:1.08;margin:12px 0}h2{margin:0 0 10px;font-size:1.27rem}h3{margin:0 0 7px}
+p{line-height:1.65;color:var(--soft)}small{color:var(--soft)}a{color:var(--accent)}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #ffdb74;outline-offset:3px}
+.panel{padding:20px;border:1px solid var(--line);border-radius:18px;background:var(--panel);margin:16px 0}.eyebrow{text-transform:uppercase;font-size:.75rem;letter-spacing:.1em;color:var(--accent);font-weight:800}
+label{display:block;margin:12px 0 6px;font-weight:600}input,select,button{font:inherit;border-radius:12px;border:1px solid #6e8b9d;padding:12px;background:#203645;color:#fff}input,select{width:100%}button{cursor:pointer}.primary,.linkbtn{background:var(--accent);color:#111a21;font-weight:800;border-color:var(--accent)}button,.linkbtn{min-height:44px}.linkbtn{display:inline-block;text-decoration:none;padding:12px 16px;border-radius:12px}.secondary{background:transparent;color:var(--ink)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}.chips{display:flex;gap:9px;flex-wrap:wrap}.chips button[aria-pressed=true]{background:var(--accent);color:#151c24}.grid button{text-align:left;min-height:72px}.result{border-left:4px solid var(--accent);background:#263b48;padding:14px;border-radius:7px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>*{max-width:100%}.space{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.quiet{font-size:.86rem}ul{line-height:1.7}footer{border-top:1px solid var(--line);padding-top:16px;margin-top:26px;color:var(--soft);font-size:.85rem}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media(max-width:600px){main{padding:13px 11px 65px}.panel{padding:16px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body><main>
+<header class="space"><a href="../index.html">← ONE · THE LAST APP</a><a href="../library/index.html">MASTER LIBRARY</a></header>
+<section class="panel" aria-label="One person-first principle">
+<div class="eyebrow">ONE APP · BY NATHAN TABOR</div>
+<h1>ONE meets you<br>where you are.</h1>
+<p><strong>Nathan Tabor meets people where they are — and so does his app.</strong></p>
+<p>Start with your question, your story, your creation, or a single word. You choose the doorway, the depth and the next step. ONE connects its available tools without changing who you are.</p>
+<div class="row"><span>1 + 1 = 2 · BUILD</span><span>1 − 1 = 0 · CLEAR</span><span>YES IS YES — NO IS NO</span></div>
+</section>
+<section class="panel" aria-labelledby="begin-title">
+<div class="space"><h2 id="begin-title">What brings you here?</h2><button type="button" id="contrast" class="secondary" aria-pressed="false">High contrast: OFF</button></div>
+<p>Choose a purpose or describe it in your own words. All steps are optional until you decide to open a destination.</p>
+<div class="grid" id="intents" aria-label="Choose your starting purpose"></div>
+<label for="goal">Your own words (optional)</label><input type="text" id="goal" maxlength="280" autocomplete="off" placeholder="I want to learn, read, investigate, create, or simply begin…">
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+<div><label for="mode">How should ONE begin?</label><select id="mode"><option value="simple">Start simple · One step</option><option value="deep">Go deep · Sources and connections</option><option value="original">Original words · Verbatim first</option><option value="creative">Create · Expand from the source</option></select></div>
+<div><label for="language">Preferred language or script (optional)</label><input id="language" maxlength="80" placeholder="Any language, script, or dialect"></div>
+</div>
+<div class="row" style="margin-top:15px"><button type="button" id="start" class="primary">Find my doorway</button><button type="button" class="secondary" id="clear">Clear my choices</button></div>
+<small>ONE does not infer your age, identity, health, faith or finances. This page does not transmit or save your entry. Language-specific translation depends on available, reviewed records.</small>
+</section>
+<section id="result" class="panel" aria-live="polite" hidden><div class="eyebrow">Your chosen doorway</div><h2 id="resultTitle"></h2><p id="resultText"></p><p id="resultMode"></p><p id="resultLanguage"></p><div class="row"><a class="linkbtn" id="route" href="../index.html">Open destination</a><a href="../library/index.html">Browse the book library</a></div><p class="quiet" id="statusNote"></p></section>
+<section class="panel"><h2>The full system stays connected</h2><div class="grid">
+<div><strong>101 · Originals</strong><p class="quiet">Your words and the source stay intact.</p></div>
+<div><strong>201 · Books</strong><p class="quiet">Read, trace editions and create separately.</p></div>
+<div><strong>301 · Spiritual works</strong><p class="quiet">Read scripture and distinguish interpretations.</p></div>
+<div><strong>401 · Apps & AI</strong><p class="quiet">Choose available tools and permissions.</p></div>
+<div><strong>501 · Games</strong><p class="quiet">Explore interactive learning.</p></div>
+<div><strong>601 · Knowledge</strong><p class="quiet">Languages, historical evidence and research.</p></div>
+<div><strong>701 · Inventions</strong><p class="quiet">Build and test responsibly.</p></div>
+<div><strong>801 · Community</strong><p class="quiet">Understand needs without profiling people.</p></div>
+<div><strong>901 · Art</strong><p class="quiet">Create new work and preserve provenance.</p></div>
+</div>
+<p class="quiet">The Library Mind's 33 planned book departments inherit the same principle through the private master-database policy. This browser page links to published prototype routes only; private books and offline databases require owner import.</p></section>
+<section class="panel"><h2>ONE doesn't take away your freedom to choose.</h2>
+<p>Your source wording is never silently rewritten. A reading guide is separate from its source; a translation is a distinct edition; a creative work is not mistaken for documented history. Nothing is published or connected to outside accounts without authorization.</p>
+<div class="row"><a href="../connected/index.html">Connected System</a><a href="../library/index.html">Master Library</a><a href="../../index.html">TABOR 1-2-3 FACTORY</a></div>
+</section>
+<footer>ONE APP — BY NATHAN TABOR · Person-first routing prototype. Built-in pages and links work where available; live cross-app AI personalization, account connections and private-cloud synchronization are not yet enabled.</footer>
+</main>
+<script>
+"use strict";
+const entries=[
+{id:"read",title:"Read a book",description:"Open books and stories in the Master Library, with the original kept intact.",url:"../library/index.html",label:"Open books"},
+{id:"learn",title:"Learn something",description:"Begin with a clear explanation, then follow the sources and related materials.",url:"../library/index.html",label:"Open learning library"},
+{id:"research",title:"Investigate history",description:"Trace evidence, chronology, testimony, language and competing interpretations.",url:"../library/index.html",label:"Open research library"},
+{id:"words",title:"Explore language",description:"Find language-related material and links among words, manuscripts and editions.",url:"../connected/index.html",label:"Open connected knowledge"},
+{id:"create",title:"Create a world",description:"Develop books, illustrations and creative projects without changing the original source.",url:"../../index.html",label:"Open creation factory"},
+{id:"build",title:"Build an app",description:"Start with a concrete project, trace its dependencies and build step by step.",url:"../../index.html",label:"Open app factory"},
+{id:"play",title:"Play & discover",description:"Explore existing educational games and interactive worlds.",url:"../../games/paradox-118/index.html",label:"Open a playable game"},
+{id:"organize",title:"Organize my work",description:"Connect existing apps, books, images and archives under owner-controlled links.",url:"../connected/index.html",label:"Open connected system"},
+{id:"connect",title:"Connect the dots",description:"Move across the connected work index without merging or revealing private originals.",url:"../connected/index.html",label:"Open connected system"},
+{id:"help",title:"Help me begin",description:"Start with ONE's main screen and a single manageable next action.",url:"../index.html",label:"Open ONE"}
+];
+const words={read:/read|book|novel|story|chapter|manuscript/i,learn:/learn|teach|understand|study|school|explain/i,research:/history|research|source|verify|fact|archive|genealog|ancestor/i,words:/language|translation|word|hebrew|greek|script|dialect|latin|arabic/i,create:/create|draw|write|art|character|cover|poem|film/i,build:/build|app|code|program|website|engine|software/i,play:/game|play|puzzle|trial|quest/i,organize:/organize|save|sort|files|backup|catalog/i,connect:/connect|link|matrix|everything|dots/i};
+let chosen="";
+const el=id=>document.getElementById(id);
+for(const item of entries){const b=document.createElement("button");b.type="button";b.textContent=item.title;b.setAttribute("aria-pressed","false");b.dataset.intent=item.id;b.onclick=()=>{chosen=item.id;document.querySelectorAll("#intents button").forEach(btn=>btn.setAttribute("aria-pressed",String(btn.dataset.intent===chosen)))};el("intents").appendChild(b)}
+el("start").addEventListener("click",()=>{
+ const goal=el("goal").value.trim();
+ let id=chosen;
+ if(!id&&goal){for(const e of entries){if(words[e.id]&&words[e.id].test(goal)){id=e.id;break}}}
+ const item=entries.find(e=>e.id===id)||entries.find(e=>e.id==="help");
+ const mode=el("mode").value;
+ const modes={simple:"One clear starting action. You decide what comes next.",deep:"Start with the material and follow source references where they exist.",original:"The original source remains unchanged. Commentary is separate.",creative:"New creative work is marked separately from documentary source material."};
+ el("resultTitle").textContent=item.title;
+ el("resultText").textContent=item.description;
+ el("resultMode").textContent=modes[mode];
+ el("resultLanguage").textContent=el("language").value.trim()?"Your requested language/script: "+el("language").value.trim()+". Translation is available only for records actually reviewed and imported.":"Language is your choice; the current public interface is English.";
+ const link=el("route");link.textContent=item.label;link.href=item.url;
+ el("statusNote").textContent="This is a deliberate route to an existing module, not an AI diagnosis, a verified recommendation about you, or an automatic data connection.";
+ el("result").hidden=false;el("result").scrollIntoView({behavior:"auto",block:"start"});
+});
+el("clear").addEventListener("click",()=>{chosen="";el("goal").value="";el("mode").value="simple";el("language").value="";el("result").hidden=true;document.querySelectorAll("#intents button").forEach(b=>b.setAttribute("aria-pressed","false"))});
+el("contrast").addEventListener("click",()=>{let on=document.body.classList.toggle("contrast");el("contrast").setAttribute("aria-pressed",String(on));el("contrast").textContent="High contrast: "+(on?"ON":"OFF")});
+</script></body></html>
