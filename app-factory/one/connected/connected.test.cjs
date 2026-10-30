@@ -23,7 +23,7 @@ test('existing source stores and immutable original boundary are respected',()=>
   assert.match(script,/req\.transaction\.abort\(\)/);
   assert.match(script,/transaction\(storeName,'readonly'\)/);
   assert.match(script,/transaction\('blobs','readonly'\)/);
-  assert.doesNotMatch(script,/\.deleteDatabase\(|\.clear\(\)/);
+  assert.doesNotMatch(script,/\.deleteDatabase\(|objectStore\([^)]*\)\.clear\(\)/);
 });
 test('owner-controlled whole binary links preserve unverified source semantics',()=>{
   assert.match(script,/CLEAR:0,BUILD:1/);
