@@ -950,7 +950,7 @@
       "id": "PUBLIC-046",
       "name": "sss cs · ios · SSSCS · Web",
       "path": "app-factory/sss-cs/ios/SSSCS/Web/index.html",
-      "status": "native-package-needs-resource-copy",
+      "status": "native-loader-bundled-in-source-binary-untested",
       "surface": "public repo HTML",
       "source_verified": true,
       "era_support": [
@@ -965,7 +965,7 @@
       "id": "PUBLIC-047",
       "name": "stewie mr finn · Resources · PolarMiddleC",
       "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/index.html",
-      "status": "native-package-needs-resource-copy",
+      "status": "native-loader-bundled-in-source-binary-untested",
       "surface": "public repo HTML",
       "source_verified": true,
       "era_support": [
@@ -980,7 +980,7 @@
       "id": "PUBLIC-048",
       "name": "stewie mr finn · Resources · PolarMiddleC · math roots",
       "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/math-roots/index.html",
-      "status": "native-package-needs-resource-copy",
+      "status": "native-loader-bundled-in-source-binary-untested",
       "surface": "public repo HTML",
       "source_verified": true,
       "era_support": [
@@ -995,7 +995,7 @@
       "id": "PUBLIC-049",
       "name": "stewie mr finn · Resources · PolarMiddleC · mirror bridge",
       "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/mirror-bridge/index.html",
-      "status": "native-package-needs-resource-copy",
+      "status": "native-loader-bundled-in-source-binary-untested",
       "surface": "public repo HTML",
       "source_verified": true,
       "era_support": [
@@ -1151,7 +1151,11 @@
     "degree_positions": 360,
     "clock_seconds": 43200,
     "restoration_transformations": 100,
-    "library_department_capacity": 33000000
+    "library_department_capacity": 33000000,
+    "source_pages_with_loader": 58,
+    "embedded_native_pages_excluded": 0,
+    "embedded_native_pages_source_integrated": 4,
+    "native_binaries_verified": 0
   },
   "safety": {
     "source_content": "unchanged",
@@ -1162,5 +1166,5 @@
     "cloud_sync": false,
     "deploy_claim": "only if github commit and path verification succeeds"
   },
-  "published_source_commit": "b9890e908df551fc69fbbd130f657765f7d0e36e"
+  "published_source_commit": "2f00d9f06e0034dd63fb49d7a2da028cf81ab65a"
 }
