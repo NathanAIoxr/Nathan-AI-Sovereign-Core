@@ -74,3 +74,11 @@ The root `LICENSE` file is **Apache License 2.0**. Confirm that it matches the o
 ## Library Mind public release — October 30, 2026
 
 [Open the dossier and multilingual archive](app-factory/one/library-mind/index.html). Nathan explicitly authorized public release of this selected dossier, catalog and translation collection. Its preserved historical private labels predate that authorization; other private holdings remain outside the repository.
+
+## ONE Universal System v061 — shared architecture across public apps (October 31, 2026)
+
+- [Open the ONE System Atlas](app-factory/system/index.html) — five eras (BCE / BC / AC / CE / AD), subpixel-to-universe scale, architecture contracts, and 58 public HTML pages.
+- [Read the v061 integration rules](app-factory/system/README.md).
+- [Inspect the nonsensitive public app registry](app-factory/system/registry-v061.json).
+
+**54 public browser pages** load the optional local-first ONE shell. Each original page is retained with one additive deferred script reference. The four embedded native-web resource copies are intentionally not claimed to have been repackaged. The shell provides owner-controlled skin, reader modes, RTL, reduced motion, local Save/Reset and configuration export; it does **not** operate other services, publish unpublished books, collect telemetry, or imply 33 million completed books. The private Master Library database and book archives remain private.
