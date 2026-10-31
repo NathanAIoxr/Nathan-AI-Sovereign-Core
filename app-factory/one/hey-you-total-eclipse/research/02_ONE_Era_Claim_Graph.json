@@ -1,0 +1,383 @@
+{
+  "schema": "one.matrix.v1",
+  "title": "The Total Eclipse of the Architecture — ONE integration",
+  "date_prepared": "2026-10-31",
+  "source_original": "00_ORIGINAL_VERBATIM.txt",
+  "source_sha256": "02548afafd539cc40670f2815bb0f2517d23cdf6b7428b8a29fb871b93f388df",
+  "source_integrity": "Verbatim user-provided text; source claims have not been silently changed.",
+  "era_namespace_warning": "APP_BCE/BC/AC/CE/AD are software labels; historical BCE/CE are calendar labels. Do not collapse namespaces.",
+  "era_order": [
+    "BCE",
+    "BC",
+    "AC",
+    "CE",
+    "AD"
+  ],
+  "eras": [
+    {
+      "id": "BCE",
+      "name": "Before Component Engines",
+      "phase": "Legacy hardcoding / inherited foundations",
+      "source_alignment": "Ancient imperial decrees, registers, power structures and historical source records; these are analogues, not computer components.",
+      "questions": [
+        "Who sets the rules?",
+        "Where are the oldest records?",
+        "What historical mechanisms actually existed?"
+      ],
+      "modules": [
+        "Tabor Earth",
+        "33 Million Book Library",
+        "Historical Source Ledger"
+      ]
+    },
+    {
+      "id": "BC",
+      "name": "Before Code",
+      "phase": "Intent, blueprint and logic",
+      "source_alignment": "Daniel/Job/Isaiah/Revelation textual interpretation; authority model; sovereignty and consent policy; do not silently blend theological claims with historical proofs.",
+      "questions": [
+        "Whose consent?",
+        "What is the definition of freedom?",
+        "Which rules are established vs interpreted?"
+      ],
+      "modules": [
+        "WORDS",
+        "Tabor Light Cipher",
+        "Universal Language Database"
+      ]
+    },
+    {
+      "id": "AC",
+      "name": "Atomic & Cosmic",
+      "phase": "Design tokens to interoperable ecosystems",
+      "source_alignment": "Pixels, hexadecimal colors, SVG geometry, UI atoms/molecules/organisms, OS ecosystems and cloud integrations.",
+      "questions": [
+        "Which primitives are shared?",
+        "Can the user inspect all components?",
+        "Can interfaces work offline?"
+      ],
+      "modules": [
+        "ONE design system",
+        "A–Z Inspector",
+        "4T Engine Core"
+      ]
+    },
+    {
+      "id": "CE",
+      "name": "Component Era",
+      "phase": "Runtime/execution",
+      "source_alignment": "Authentication, forms, payments, decisions, audit logging, connectors and AI-assisted workflows; evaluate what a system actually does.",
+      "questions": [
+        "Can the user opt out?",
+        "Are controls reversible?",
+        "Is there a usable non-AI fallback?"
+      ],
+      "modules": [
+        "Nathan AI",
+        "ONE app",
+        "Sovereign Free-Will Guardrails"
+      ]
+    },
+    {
+      "id": "AD",
+      "name": "After Deployment",
+      "phase": "Production feedback and accountability",
+      "source_alignment": "Observed effects of real products and policy; user autonomy, transparency, risk, remedy, source corrections.",
+      "questions": [
+        "Can anyone export their data?",
+        "Are access restrictions documented?",
+        "What does an independent audit show?"
+      ],
+      "modules": [
+        "Source provenance tracker",
+        "Forensic dossier",
+        "ONE release audits"
+      ]
+    }
+  ],
+  "ai_layer": {
+    "scope": "cross_cutting",
+    "not_a_sixth_era": true,
+    "description": "AI can support archival search, research, blueprint design, runtime assistance, and post-deployment audit. Human review remains mandatory for historical conclusions."
+  },
+  "principles": [
+    {
+      "id": "INV01",
+      "rule": "1+1=2",
+      "meaning": "Build: adding documented entities creates explicit associations, not silently invented conclusions."
+    },
+    {
+      "id": "INV02",
+      "rule": "1-1=0",
+      "meaning": "Clear: removing a claim removes its active effect while retaining an attributable archival history."
+    },
+    {
+      "id": "INV03",
+      "rule": "Yes is Yes — No is No.",
+      "meaning": "Consent defaults to No until an informed Yes; no coercive dark patterns."
+    },
+    {
+      "id": "INV04",
+      "rule": "Sovereign free will",
+      "meaning": "Local-first when feasible, reversible controls, accessible alternatives, user export and refusal of lock-in."
+    },
+    {
+      "id": "INV05",
+      "rule": "RTL ↔ LTR",
+      "meaning": "Bidirectional reading, script-aware tokenization and preservation of original scripts."
+    }
+  ],
+  "claims": [
+    {
+      "id": "CL01",
+      "title": "Daniel 7 uses beast imagery for kingdoms",
+      "status": "supported_text",
+      "era": "BCE",
+      "domain": "scripture",
+      "assessment": "The passage explicitly interprets the beasts as kingdoms/kings; identification of the fourth as Seleucid vs Roman varies by interpretive tradition.",
+      "sources": [
+        "Daniel 7",
+        "S2"
+      ]
+    },
+    {
+      "id": "CL02",
+      "title": "Antiochus IV enforced conformity and suppressed Jewish worship",
+      "status": "supported_text",
+      "era": "BCE",
+      "domain": "historical",
+      "assessment": "1 Maccabees 1:41–61 describes decrees, forced sacrifices, prohibitions and punishment. It does not establish an ancient universal marketplace-token requirement or 'first ever' boycott.",
+      "sources": [
+        "S2"
+      ]
+    },
+    {
+      "id": "CL03",
+      "title": "Ancient Israel's God is identical to Satan",
+      "status": "interpretation",
+      "era": "BC",
+      "domain": "theology",
+      "assessment": "Isaiah 45:7 and Job 1–2 are pertinent primary texts; they do not, on their own, prove God and Satan are one identical being. Preserve as the source author's theological interpretation, not settled philology.",
+      "sources": [
+        "Isaiah 45:7 KJV",
+        "Job 1–2 KJV"
+      ]
+    },
+    {
+      "id": "CL04",
+      "title": "Quirinius conducted a census of Judea in 6/7 CE",
+      "status": "supported_historical",
+      "era": "BCE",
+      "domain": "historical",
+      "assessment": "Josephus reports a Roman assessment in Judea and Judas's opposition. This cannot simply be identified without qualification with Luke 2: the chronology is disputed.",
+      "sources": [
+        "S1",
+        "S7",
+        "S8"
+      ]
+    },
+    {
+      "id": "CL05",
+      "title": "Judas the Galilean opposed Roman tax assessment and claimed God alone as ruler",
+      "status": "supported_historical",
+      "era": "BCE",
+      "domain": "historical",
+      "assessment": "Directly described by Josephus. Josephus also attributes later violent unrest to the movement; avoid characterizing it as only peaceful or digital disconnection.",
+      "sources": [
+        "S1"
+      ]
+    },
+    {
+      "id": "CL06",
+      "title": "Papyrus 115 preserves the 616 reading",
+      "status": "supported_historical",
+      "era": "BCE",
+      "domain": "manuscripts",
+      "assessment": "P.Oxy. 4499 preserves 616. The widespread reading 666 is also ancient, and 616 was already known to Irenaeus before this papyrus was written. P115 is not proof that every original exemplar read 616.",
+      "sources": [
+        "S3",
+        "S9",
+        "S5"
+      ]
+    },
+    {
+      "id": "CL07",
+      "title": "666 and 616 can encode forms of Nero Caesar",
+      "status": "strong_hypothesis",
+      "era": "BC",
+      "domain": "philology",
+      "assessment": "A prominent, well-supported gematria proposal: Hebrew transliteration of Neron Caesar -> 666; omitting final nun -> 616. Not mathematically exclusive proof that every Revelation image refers only to Nero.",
+      "sources": [
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "id": "CL08",
+      "title": "Charagma means mark or stamp",
+      "status": "supported_linguistic",
+      "era": "BC",
+      "domain": "philology",
+      "assessment": "Greek lexical meaning is supported; alleged obligatory incense-and-token processing before every Roman market purchase is not demonstrated by the lexical evidence.",
+      "sources": [
+        "S6"
+      ]
+    },
+    {
+      "id": "CL09",
+      "title": "Romans universally required imperial incense/token for market purchases",
+      "status": "not_established",
+      "era": "BCE",
+      "domain": "historical",
+      "assessment": "No evidence found in the consulted primary/lexical sources for a universal rule that every Roman merchant had to sacrifice at an altar and receive a trade token. Do not assert as fact.",
+      "sources": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "CL10",
+      "title": "Atomic design systems use tokens, components, and interfaces",
+      "status": "supported_technical",
+      "era": "AC",
+      "domain": "software",
+      "assessment": "A valid technical architecture analogy. UI design tokens, pixels and diodes are distinct physical/software concepts, not literal subatomic identity markers.",
+      "sources": [
+        "User-provided architecture"
+      ]
+    },
+    {
+      "id": "CL11",
+      "title": "Digital services can mediate access to finances and identity",
+      "status": "testable",
+      "era": "CE",
+      "domain": "software",
+      "assessment": "Assess by concrete product, jurisdiction, user group and fallback methods; universal claims that cash and offline transactions cannot occur are incorrect.",
+      "sources": [
+        "Product-specific evidence required"
+      ]
+    },
+    {
+      "id": "CL12",
+      "title": "Every individual is already marked by a global AI matrix",
+      "status": "interpretation",
+      "era": "AD",
+      "domain": "theology",
+      "assessment": "The source's theological-metaphorical conclusion is not an empirically established universal fact. Do not equate ordinary phone use or digital payments with compulsory worship.",
+      "sources": [
+        "Revelation 13 KJV",
+        "User-provided interpretation"
+      ]
+    },
+    {
+      "id": "CL13",
+      "title": "In God We Trust on US money proves religious compliance system",
+      "status": "interpretation",
+      "era": "AD",
+      "domain": "theology",
+      "assessment": "Presence of the national motto on currency and the theological claim that it is the mark are separate propositions. The latter is interpretation.",
+      "sources": [
+        "User-provided interpretation"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Josephus, Antiquities of the Jews, Book XVIII, chapter 1",
+      "url": "https://www.ccel.org/ccel/josephus/works/files/ant-18.htm",
+      "relevance": "Quirinius's Judean property assessment; Judas's resistance; Fourth Philosophy and its freedom doctrine."
+    },
+    {
+      "id": "S2",
+      "title": "1 Maccabees 1:41–61",
+      "url": "https://bible.usccb.org/bible/1maccabees/1",
+      "relevance": "Ancient source for Antiochus's religious decrees and their enforcement, not an established universal purchase-token scheme."
+    },
+    {
+      "id": "S3",
+      "title": "P. J. Williams, P115 and the Number of the Beast (Tyndale Bulletin 58.1)",
+      "url": "https://www.tyndalebulletin.org/article/29233-p115-and-the-number-of-the-beast",
+      "relevance": "616 manuscript variant; Nero Caesar explanation and caveats."
+    },
+    {
+      "id": "S4",
+      "title": "Craig R. Koester, The Number of the Beast in Revelation 13 in Light of Papyri, Graffiti, and Inscriptions",
+      "url": "https://www.tandfonline.com/doi/abs/10.1080/2222582X.2016.1218996",
+      "relevance": "Scholarly case for Nero identification; acknowledges dissent."
+    },
+    {
+      "id": "S5",
+      "title": "Oxford, The Oxyrhynchus Papyri collection",
+      "url": "https://oxyrhynchus.web.ox.ac.uk/",
+      "relevance": "Oxford institutional information about the EES papyri collection."
+    },
+    {
+      "id": "S6",
+      "title": "Bill Mounce Greek Dictionary: charagma",
+      "url": "https://www.billmounce.com/greek-dictionary/charagma",
+      "relevance": "Greek meaning: mark, stamp, image, idol."
+    },
+    {
+      "id": "S7",
+      "title": "Oxford Handbook of Christmas: Bethlehem and the Census",
+      "url": "https://academic.oup.com/edited-volume/34256/chapter-abstract/290412194",
+      "relevance": "Chronological tension between Quirinius's census and Herod-era birth narratives."
+    },
+    {
+      "id": "S8",
+      "title": "Boston College: The Birth of Jesus — Conclusion",
+      "url": "https://www.bc.edu/content/bc-web/schools/stm/sites/crossroads/resources/mini-course/birth-of-jesus/birth-of-jesus-conclusion.html",
+      "relevance": "Explanation of discrepancy between Herod's death and Quirinius's governance."
+    },
+    {
+      "id": "S9",
+      "title": "Journal of Ecclesiastical History (Cambridge): Apocalyptic Number 616",
+      "url": "https://www.cambridge.org/core/journals/journal-of-ecclesiastical-history/article/abs/apocalyptic-number-616-and-the-donatist-church/0775DE1C87F329E3270E5A34AF356069",
+      "relevance": "The 616 variant predates Papyrus 115: already known to Irenaeus."
+    }
+  ],
+  "related_projects": [
+    "ONE / Nathan AI",
+    "WORDS",
+    "Universal Language Database",
+    "The Library Mind / 33 Million Book Library",
+    "Tabor Earth",
+    "Tabor Light Cipher",
+    "A–Z Inspector",
+    "Forensic Dossier",
+    "SSS-CS"
+  ],
+  "implementation_backlog": [
+    {
+      "id": "TASK01",
+      "title": "Create source and provenance ledger",
+      "priority": 1,
+      "acceptance": "Source text immutable; each verified claim carries link, date, context, dissent and explicit confidence class."
+    },
+    {
+      "id": "TASK02",
+      "title": "Create scripture concordance",
+      "priority": 2,
+      "acceptance": "KJV passages linked to original language, lexical source, contextual commentary, competing interpretations and RTL/LTR views."
+    },
+    {
+      "id": "TASK03",
+      "title": "Build eras visual navigator",
+      "priority": 3,
+      "acceptance": "Five phases accessible, all claims searchable, evidence status filter works offline."
+    },
+    {
+      "id": "TASK04",
+      "title": "Implement sovereignty guardrails",
+      "priority": 4,
+      "acceptance": "Opt-in, opt-out, local access, export, deletion review, decision logging, no silent edits."
+    },
+    {
+      "id": "TASK05",
+      "title": "Produce Josephus research expansion",
+      "priority": 5,
+      "acceptance": "Josephus Antiquities 18 paragraphs and context summarized accurately; no modern-tech analogy presented as an ancient fact."
+    }
+  ]
+}

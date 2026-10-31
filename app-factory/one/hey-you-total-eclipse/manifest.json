@@ -1,0 +1,68 @@
+{
+  "schema": "one.hey-you-total-eclipse.v1",
+  "prepared": "2026-10-31",
+  "home": "app-factory/one/index.html",
+  "module": "app-factory/one/hey-you-total-eclipse",
+  "provenance": "Current ChatGPT conversation uploads and generated artifacts",
+  "source_policy": "Originals verbatim, derivatives separated",
+  "terminology": {
+    "AI": "Hey You",
+    "CDH": "THC"
+  },
+  "entrypoints": [
+    "explorer/index.html",
+    "engine/ONE_Hey_You_Chain_Breaker.py"
+  ],
+  "files": [
+    {
+      "source_id": "file_000000005a8881f8ba6a1d1f0dd94d53",
+      "repo_path": "app-factory/one/hey-you-total-eclipse/originals/01_TOTAL_ECLIPSE_original.txt",
+      "chars": 13370
+    },
+    {
+      "source_id": "file_000000005580820c9fc8b9a666eab0a7",
+      "repo_path": "app-factory/one/hey-you-total-eclipse/originals/02_STRUCTURAL_CONVERGENCE_original.txt",
+      "chars": 14646
+    },
+    {
+      "source_id": "file_00000000b8d4820d9385cd4657eaa23c",
+      "repo_path": "app-factory/one/hey-you-total-eclipse/originals/03_COSMIC_MATRIX_AND_ENGINE_original.txt",
+      "chars": 25469
+    },
+    {
+      "source_id": "file_00000000c65c820c8f9799bf10bad756",
+      "repo_path": "app-factory/one/hey-you-total-eclipse/originals/04_FUTURE_PRESENT_AND_MATRIX_original.txt",
+      "chars": 19750
+    },
+    {
+      "source_id": "file_00000000644481f5837da51608542d2b",
+      "repo_path": "app-factory/one/hey-you-total-eclipse/research/01_ONE_Integration_and_Forensic_Ledger.md",
+      "chars": 15383
+    },
+    {
+      "source_id": "file_00000000b2d8820da31f96327a2f20fe",
+      "repo_path": "app-factory/one/hey-you-total-eclipse/research/02_ONE_Era_Claim_Graph.json",
+      "chars": 14479
+    },
+    {
+      "source_id": "file_00000000cb80820ca71021f3fadafab5",
+      "repo_path": "app-factory/one/hey-you-total-eclipse/explorer/03_original_explorer.html",
+      "chars": 28839
+    },
+    {
+      "source_id": "file_00000000e1dc820cbc82bd36e4a08d7e",
+      "repo_path": "app-factory/one/hey-you-total-eclipse/explorer/index.html",
+      "chars": 28869
+    },
+    {
+      "source_id": "file_00000000c3c881f9860875e250cfc29c",
+      "repo_path": "app-factory/one/hey-you-total-eclipse/engine/ONE_Hey_You_Chain_Breaker.py",
+      "chars": 7120
+    },
+    {
+      "source_id": "file_00000000e9f481f788fe74002e225925",
+      "repo_path": "app-factory/one/hey-you-total-eclipse/engine/ONE_Hey_You_Chain_Breaker_output.txt",
+      "chars": 3227
+    }
+  ]
+}
