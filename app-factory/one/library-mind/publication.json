@@ -4,7 +4,7 @@
   "authorization": "put them all in public code repository -",
   "scope": "Dossier, evidence snapshot, available writing/translation packages and Universal Language Database v0.2",
   "historical_labels": "Private / not granted labels inside preserved prior files record their earlier status. This explicit later instruction authorizes this public repository release; it does not certify translation review or change copyright licensing.",
-  "documents": 52,
+  "documents": 54,
   "catalog_records": 2193,
   "relationship_records": 480,
   "language_profiles": 7918,
@@ -53,6 +53,16 @@
       "file": "downloads/Universal_Language_Database_Nathan_Tabor_v0_2.zip",
       "bytes": 2227893,
       "sha256": "959aef317027c295a0b0059f4d5438123d1762d4ce80313f90ec9c0327d9931b"
+    },
+    {
+      "file": "books/the-door-that-stayed-open.md",
+      "bytes": 9442,
+      "sha256": "0863231004edc7ae27d04add8e706f369e811c67ce1bdfe9e2df5493c150e6d6"
+    },
+    {
+      "file": "books/the-room-of-many-voices.md",
+      "bytes": 9469,
+      "sha256": "c81120ac8f4e82f701517cebbbc94ff7065e6150a14f4972f9d138e11756da66"
     }
   ],
   "repository": "NathanAIoxr/Nathan-AI-Sovereign-Core",
@@ -61,5 +71,10 @@
   "additional_sources": [
     "sources/language-history-source.txt",
     "sources/universal-mammal-source.txt"
-  ]
+  ],
+  "latest_writing_batch": {
+    "date": "2026-10-31",
+    "complete_short_book_drafts": 2,
+    "authorship": "New AI-assisted prose; not verbatim original manuscripts"
+  }
 }
