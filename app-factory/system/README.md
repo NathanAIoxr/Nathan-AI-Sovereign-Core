@@ -29,3 +29,6 @@ No automatic telemetry, cloud sync, bank transfers, recording, account access, n
 ## Installation and known limits
 
 A `<script defer src="...one-universal-v061.js"></script>` loader must use the correct path relative to each browser HTML page. The stylesheet uses a scoped `#one-v061-root` namespace. Native-packaged resource HTML requires copying the shared JS/CSS into the bundle before claiming mobile integration. Test the private Book App separately because it uses a different origin/storage model.
+## Native source assets
+
+The SSS-CS Web resource folder and Stewie/Finn PolarMiddleC resource folder each carry local ONE v061 JavaScript and stylesheet copies. Four embedded HTML pages load those copies by relative path. Source-level coverage is 58/58 pages; separately signed iOS builds and device behavior have not been certified.
