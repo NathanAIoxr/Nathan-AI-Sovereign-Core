@@ -1,0 +1,35 @@
+/* Scoped ONE v061 shell. No global layout or design overrides without opting in. */
+#one-v061-root{--one-bg:#142733;--one-ink:#fff;--one-line:#6e8797;--one-accent:#efce91;--one-scale:1;position:fixed;bottom:max(12px,env(safe-area-inset-bottom));right:max(12px,env(safe-area-inset-right));z-index:2147483000;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:calc(14px*var(--one-scale));color:var(--one-ink);line-height:1.4;letter-spacing:normal;text-align:left;direction:ltr}
+#one-v061-root[data-skin=warm]{--one-bg:#493222;--one-line:#a98f70;--one-accent:#ffdb91}
+#one-v061-root[data-skin=night]{--one-bg:#101118;--one-line:#69758a;--one-accent:#d5defa}
+#one-v061-root[data-skin=contrast]{--one-bg:#000;--one-ink:#fff;--one-line:#fff;--one-accent:#ffec00}
+#one-v061-root *{box-sizing:border-box;max-width:100%}
+#one-v061-root button,#one-v061-root select{font:inherit;border:1px solid var(--one-line);border-radius:9px;color:var(--one-ink);background:var(--one-bg);padding:8px 10px;cursor:pointer;min-height:36px;line-height:1.3;text-transform:none;width:auto}
+#one-v061-root button:focus-visible,#one-v061-root a:focus-visible,#one-v061-root select:focus-visible,#one-v061-root summary:focus-visible{outline:3px solid var(--one-accent);outline-offset:2px}
+#one-v061-root .one-v061-open{background:#142c32;color:#fff;border:2px solid #e9ce94;font-weight:800;border-radius:24px;padding:11px 15px;box-shadow:0 5px 20px #0009}
+#one-v061-root #one-v061-panel{position:fixed;right:12px;bottom:68px;max-height:min(78vh,710px);overflow:auto;width:min(420px,calc(100vw - 24px));background:var(--one-bg);border:2px solid var(--one-line);border-radius:16px;padding:15px;box-shadow:0 16px 50px #000c;color:var(--one-ink)}
+#one-v061-root [hidden]{display:none!important}
+#one-v061-root p,#one-v061-root small{color:var(--one-ink);margin:9px 0;opacity:.96;line-height:1.48}
+#one-v061-root small{display:block;font-size:.79em;opacity:.86}
+#one-v061-root strong{color:var(--one-accent)}
+#one-v061-root .one-v061-heading{display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
+#one-v061-root .one-v061-heading strong{display:block;font-size:1.14em}
+#one-v061-root .one-v061-links{display:flex;flex-wrap:wrap;gap:6px;margin:11px 0}
+#one-v061-root .one-v061-links a{padding:7px 9px;border:1px solid var(--one-line);border-radius:8px;color:var(--one-accent);text-decoration:none;font-size:.9em}
+#one-v061-root details{margin:10px 0;border-top:1px solid var(--one-line);padding-top:8px}
+#one-v061-root summary{color:var(--one-accent);font-weight:700;cursor:pointer}
+#one-v061-root ol{margin:7px 0;padding-left:22px}
+#one-v061-root li{margin:8px 0}
+#one-v061-root li b{display:block}
+#one-v061-root li span{display:block;font-size:.88em;opacity:.93}
+#one-v061-root fieldset{border:1px solid var(--one-line);border-radius:9px;padding:11px;display:grid;gap:9px}
+#one-v061-root legend{font-weight:800;padding:0 5px}
+#one-v061-root label{display:grid;gap:4px;margin:0;color:var(--one-ink)}
+#one-v061-root label.one-v061-check{display:flex;gap:9px;align-items:center}
+#one-v061-root input[type=checkbox]{width:18px;height:18px;min-width:18px;margin:0}
+#one-v061-root select{width:100%}
+#one-v061-root .one-v061-actions{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
+#one-v061-root .one-v061-actions button:first-child{color:var(--one-accent);border-color:var(--one-accent)}
+#one-v061-root .one-v061-boundary{border-top:1px solid var(--one-line);padding-top:9px;font-size:.74em}
+html.one-v061-reduced-motion *,html.one-v061-reduced-motion *::before,html.one-v061-reduced-motion *::after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+@media(prefers-reduced-motion:reduce){#one-v061-root *{animation:none!important;transition:none!important}}
