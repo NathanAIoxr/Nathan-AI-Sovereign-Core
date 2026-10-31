@@ -1,7 +1,9 @@
 # THE TOTAL ECLIPSE OF THE ARCHITECTURE
 ## ONE / Nathan AI — companion integration and historical evidence ledger
 
-**Prepared:** October 31, 2026  \n**Source fidelity:** the attached `00_ORIGINAL_VERBATIM.txt` is byte-for-byte copied, not rewritten.  \n**SHA-256:** `02548afafd539cc40670f2815bb0f2517d23cdf6b7428b8a29fb871b93f388df`
+**Prepared:** October 31, 2026  
+**Source fidelity:** the attached `00_ORIGINAL_VERBATIM.txt` is byte-for-byte copied, not rewritten.  
+**SHA-256:** `02548afafd539cc40670f2815bb0f2517d23cdf6b7428b8a29fb871b93f388df`
 
 > Document layers stay separate: **A. original author wording** (preserved in original attachment), **B. verified source claims**, **C. theological/philosophical interpretations**, and **D. actionable software architecture**. No claim changes category just because it is repeated across eras.
 
@@ -65,27 +67,32 @@ Status semantics: `supported_text` = passage states it; `supported_historical` =
 ### APP_BCE — Before Component Engines
 Ancient imperial decrees, registers, power structures and historical source records; these are analogues, not computer components.
 
-**Connections:** Tabor Earth, 33 Million Book Library, Historical Source Ledger.  \n**Questions:** Who sets the rules?; Where are the oldest records?; What historical mechanisms actually existed?.
+**Connections:** Tabor Earth, 33 Million Book Library, Historical Source Ledger.  
+**Questions:** Who sets the rules?; Where are the oldest records?; What historical mechanisms actually existed?.
 
 ### APP_BC — Before Code
 Daniel/Job/Isaiah/Revelation textual interpretation; authority model; sovereignty and consent policy; do not silently blend theological claims with historical proofs.
 
-**Connections:** WORDS, Tabor Light Cipher, Universal Language Database.  \n**Questions:** Whose consent?; What is the definition of freedom?; Which rules are established vs interpreted?.
+**Connections:** WORDS, Tabor Light Cipher, Universal Language Database.  
+**Questions:** Whose consent?; What is the definition of freedom?; Which rules are established vs interpreted?.
 
 ### APP_AC — Atomic & Cosmic
 Pixels, hexadecimal colors, SVG geometry, UI atoms/molecules/organisms, OS ecosystems and cloud integrations.
 
-**Connections:** ONE design system, A–Z Inspector, 4T Engine Core.  \n**Questions:** Which primitives are shared?; Can the user inspect all components?; Can interfaces work offline?.
+**Connections:** ONE design system, A–Z Inspector, 4T Engine Core.  
+**Questions:** Which primitives are shared?; Can the user inspect all components?; Can interfaces work offline?.
 
 ### APP_CE — Component Era
 Authentication, forms, payments, decisions, audit logging, connectors and AI-assisted workflows; evaluate what a system actually does.
 
-**Connections:** Nathan AI, ONE app, Sovereign Free-Will Guardrails.  \n**Questions:** Can the user opt out?; Are controls reversible?; Is there a usable non-AI fallback?.
+**Connections:** Nathan AI, ONE app, Sovereign Free-Will Guardrails.  
+**Questions:** Can the user opt out?; Are controls reversible?; Is there a usable non-AI fallback?.
 
 ### APP_AD — After Deployment
 Observed effects of real products and policy; user autonomy, transparency, risk, remedy, source corrections.
 
-**Connections:** Source provenance tracker, Forensic dossier, ONE release audits.  \n**Questions:** Can anyone export their data?; Are access restrictions documented?; What does an independent audit show?.
+**Connections:** Source provenance tracker, Forensic dossier, ONE release audits.  
+**Questions:** Can anyone export their data?; Are access restrictions documented?; What does an independent audit show?.
 
 ### Cross-cutting AI layer
 Use AI to: organize source excerpts; detect contradictions; propose research queries; explain public code; provide optional assistance. **Never** silently convert inference into primary-source evidence. Human sign-off is required for publishing disputed history.
@@ -117,15 +124,24 @@ Use AI to: organize source excerpts; detect contradictions; propose research que
 
 ## 6. Bibliography and citation key
 
-- **[S1] Josephus, Antiquities of the Jews, Book XVIII, chapter 1** — https://www.ccel.org/ccel/josephus/works/files/ant-18.htm  \n  Quirinius's Judean property assessment; Judas's resistance; Fourth Philosophy and its freedom doctrine.
-- **[S2] 1 Maccabees 1:41–61** — https://bible.usccb.org/bible/1maccabees/1  \n  Ancient source for Antiochus's religious decrees and their enforcement, not an established universal purchase-token scheme.
-- **[S3] P. J. Williams, P115 and the Number of the Beast (Tyndale Bulletin 58.1)** — https://www.tyndalebulletin.org/article/29233-p115-and-the-number-of-the-beast  \n  616 manuscript variant; Nero Caesar explanation and caveats.
-- **[S4] Craig R. Koester, The Number of the Beast in Revelation 13 in Light of Papyri, Graffiti, and Inscriptions** — https://www.tandfonline.com/doi/abs/10.1080/2222582X.2016.1218996  \n  Scholarly case for Nero identification; acknowledges dissent.
-- **[S5] Oxford, The Oxyrhynchus Papyri collection** — https://oxyrhynchus.web.ox.ac.uk/  \n  Oxford institutional information about the EES papyri collection.
-- **[S6] Bill Mounce Greek Dictionary: charagma** — https://www.billmounce.com/greek-dictionary/charagma  \n  Greek meaning: mark, stamp, image, idol.
-- **[S7] Oxford Handbook of Christmas: Bethlehem and the Census** — https://academic.oup.com/edited-volume/34256/chapter-abstract/290412194  \n  Chronological tension between Quirinius's census and Herod-era birth narratives.
-- **[S8] Boston College: The Birth of Jesus — Conclusion** — https://www.bc.edu/content/bc-web/schools/stm/sites/crossroads/resources/mini-course/birth-of-jesus/birth-of-jesus-conclusion.html  \n  Explanation of discrepancy between Herod's death and Quirinius's governance.
-- **[S9] Journal of Ecclesiastical History (Cambridge): Apocalyptic Number 616** — https://www.cambridge.org/core/journals/journal-of-ecclesiastical-history/article/abs/apocalyptic-number-616-and-the-donatist-church/0775DE1C87F329E3270E5A34AF356069  \n  The 616 variant predates Papyrus 115: already known to Irenaeus.
+- **[S1] Josephus, Antiquities of the Jews, Book XVIII, chapter 1** — https://www.ccel.org/ccel/josephus/works/files/ant-18.htm  
+  Quirinius's Judean property assessment; Judas's resistance; Fourth Philosophy and its freedom doctrine.
+- **[S2] 1 Maccabees 1:41–61** — https://bible.usccb.org/bible/1maccabees/1  
+  Ancient source for Antiochus's religious decrees and their enforcement, not an established universal purchase-token scheme.
+- **[S3] P. J. Williams, P115 and the Number of the Beast (Tyndale Bulletin 58.1)** — https://www.tyndalebulletin.org/article/29233-p115-and-the-number-of-the-beast  
+  616 manuscript variant; Nero Caesar explanation and caveats.
+- **[S4] Craig R. Koester, The Number of the Beast in Revelation 13 in Light of Papyri, Graffiti, and Inscriptions** — https://www.tandfonline.com/doi/abs/10.1080/2222582X.2016.1218996  
+  Scholarly case for Nero identification; acknowledges dissent.
+- **[S5] Oxford, The Oxyrhynchus Papyri collection** — https://oxyrhynchus.web.ox.ac.uk/  
+  Oxford institutional information about the EES papyri collection.
+- **[S6] Bill Mounce Greek Dictionary: charagma** — https://www.billmounce.com/greek-dictionary/charagma  
+  Greek meaning: mark, stamp, image, idol.
+- **[S7] Oxford Handbook of Christmas: Bethlehem and the Census** — https://academic.oup.com/edited-volume/34256/chapter-abstract/290412194  
+  Chronological tension between Quirinius's census and Herod-era birth narratives.
+- **[S8] Boston College: The Birth of Jesus — Conclusion** — https://www.bc.edu/content/bc-web/schools/stm/sites/crossroads/resources/mini-course/birth-of-jesus/birth-of-jesus-conclusion.html  
+  Explanation of discrepancy between Herod's death and Quirinius's governance.
+- **[S9] Journal of Ecclesiastical History (Cambridge): Apocalyptic Number 616** — https://www.cambridge.org/core/journals/journal-of-ecclesiastical-history/article/abs/apocalyptic-number-616-and-the-donatist-church/0775DE1C87F329E3270E5A34AF356069  
+  The 616 variant predates Papyrus 115: already known to Irenaeus.
 
 ---
 **INTEGRITY NOTE:** This file is a **companion**, not a rewrite. Original wording, including its emphatic conclusions and interpretations, is retained untouched in `00_ORIGINAL_VERBATIM.txt`. The historical labels in this companion are explicit to enable public review without erasing the author’s voice.

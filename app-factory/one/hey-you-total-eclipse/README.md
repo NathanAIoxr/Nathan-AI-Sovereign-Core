@@ -23,6 +23,10 @@ The four files in `originals/` are preserved **verbatim** from uploads, includin
 | [03](./originals/03_COSMIC_MATRIX_AND_ENGINE_original.txt) | Pasted text (2)(8).txt |
 | [04](./originals/04_FUTURE_PRESENT_AND_MATRIX_original.txt) | Pasted text(20261031-162723).txt |
 
+## HEY YOU renamed presentation copies
+
+These four derivative texts are available separately and do not overwrite any original: [01](./renamed/01_TOTAL_ECLIPSE_HEY_YOU.txt), [02](./renamed/02_STRUCTURAL_CONVERGENCE_HEY_YOU.txt), [03](./renamed/03_COSMIC_MATRIX_AND_ENGINE_HEY_YOU.txt), [04](./renamed/04_FUTURE_PRESENT_AND_MATRIX_HEY_YOU.txt). See the [rename manifest](./renamed/RENAME_MANIFEST.json). The replacements are literal presentation aliases, not verified translations.
+
 ## Names and invariants
 
 - Presentation name: **HEY YOU** instead of AI, including `Hey_You_ERA`.
@@ -38,4 +42,4 @@ The original 4x4 BC/AD/AC/Hey You grid remains in the uploaded archives. The pri
 
 ## Repository integration
 
-This standalone module is linked from the existing `app-factory/one/index.html` homepage. The new files were added in a single append-only Git commit; pre-existing ONE modules and historical project sources were preserved. The link does not mean the entire ONE product is production deployed.
+This standalone module is linked from the existing `app-factory/one/index.html` homepage. The new files were added in append-only Git commits; pre-existing ONE modules and historical project sources were preserved. The link does not mean the entire ONE product is production deployed.
