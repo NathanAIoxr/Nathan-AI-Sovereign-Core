@@ -3,6 +3,8 @@
 
 Series by Nathan Tabor
 
+Narrator: John Nathan Tabor, a man from Alabama. First-person fictional portrayal; he/him.
+
 **OUR WORD IS OUR BOND**
 
 *Manuscript development draft · Chapters 1–6 · New AI-assisted prose in the requested sweet, sharp Southern register. Based on the saved series bible; this draft does not replace the author's original words. The modern investigation and the ancient narrative it uncovers are fictional.*
@@ -101,7 +103,7 @@ Pike put both hands on the table.
 
 “Some truths aren't available through ordinary channels.”
 
-“Well, honey,” I said, “your invoice sure is.”
+“Well, sir,” I said, “your invoice sure is.”
 
 Ada closed her notebook.
 
@@ -141,7 +143,7 @@ In the second: **Claimed ancient family manuscript.**
 
 The third column took the rest of the page.
 
-“You ever feel like a woman building a fence around a tornado?” I asked.
+“You ever feel like you're building a fence around a tornado?” I asked.
 
 “Regularly. You're drinking out of its mug.”
 
@@ -355,7 +357,7 @@ He replied within a minute.
 
 I read the sentence aloud.
 
-“Well, bless the subscription model.”
+“Well, damn. He's put the ancestors behind a paywall.”
 
 Ada took a photograph of the message with its time visible.
 
