@@ -124,7 +124,7 @@ They kept a private note of the failed attempt so nobody would mistake it for a 
 
 The volunteer looked unhappy.
 
-“I was trying to help.”
+“I was trying to help. I put an unchecked translation on your mother’s words, and it reversed what she was saying. I’ll remove it and record the error.”
 
 “You still can,” June said. “Help me find somebody who speaks it.”
 
@@ -302,7 +302,7 @@ Mara read them.
 
 He made a fair copy and placed it beside the blank recording forms.
 
-Before leaving, Mrs. Vale stopped at the table. She read the questions, took a form, and wrote down the name of another person who might remember the expression Anisa had not recognized.
+Before leaving, Mrs. Vale stopped at the table. She read the questions, took a form, and wrote down another person to contact about the expression Anisa had not recognized. June added the name to the research list. The expression stayed marked as untranslated.
 
 Then she drew a little spoon in the margin.
 

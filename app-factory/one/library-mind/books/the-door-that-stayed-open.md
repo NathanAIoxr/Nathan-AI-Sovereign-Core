@@ -68,7 +68,7 @@ It showed three tall windows, a crooked flagpole, and a door much larger than th
 
 “Does she know you’re here?”
 
-“She said if we got separated, come here. She works at the market.”
+“She told me to come here when we got separated. She works at the market.”
 
 Mara asked whether there was somebody he wanted her to call. Eli gave her his sister’s number from memory. The phone went to a recorded message. Mara left her name, the library’s number, and the fact that Eli was with her.
 
@@ -189,6 +189,8 @@ The rule covered fire, theft, illness, missing property, and damage to plumbing.
 “We followed the lost-child contact procedure,” he said. “But the closing procedure contradicts it after six ten.”
 
 The manager read the two pages.
+
+“I approved both procedures,” he said. “They contradict each other. That leaves staff carrying a decision this office failed to settle. I'll put my name on the correction and bring the funding request to the town.”
 
 Outside his window, a worker swept leaves out of a storm drain. Each time the worker moved his broom, water found the opening and ran through.
 

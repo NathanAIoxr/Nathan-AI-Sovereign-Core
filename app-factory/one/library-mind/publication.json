@@ -56,18 +56,18 @@
     },
     {
       "file": "books/the-door-that-stayed-open.md",
-      "bytes": 9442,
-      "sha256": "0863231004edc7ae27d04add8e706f369e811c67ce1bdfe9e2df5493c150e6d6"
+      "bytes": 9673,
+      "sha256": "7b50f84690aaf59770a23d79c68c581c32ece97e20991cb0b6a984ac7ac462d2"
     },
     {
       "file": "books/the-room-of-many-voices.md",
-      "bytes": 9469,
-      "sha256": "c81120ac8f4e82f701517cebbbc94ff7065e6150a14f4972f9d138e11756da66"
+      "bytes": 9676,
+      "sha256": "c3694e8921cec075a117dd1c186a233b83b6932f1554aa299cf9c70e13245b1d"
     },
     {
       "file": "books/tss-01-before-the-first-road-draft.md",
-      "bytes": 23722,
-      "sha256": "cae5039af990215a8cf34cd79202e3026c90c699f2141dde1c02ac1614d7549a"
+      "bytes": 24454,
+      "sha256": "ede2fafaa5b03c0a6cd5327cac4b1aeebc7ce402026ee1bf2122e9ff54d62992"
     },
     {
       "file": "books/tss-series-bible-source.md",
@@ -91,5 +91,12 @@
     "status": "novel_in_progress",
     "source_library_file_id": "libfile_97a0cd432fac819180d0a5d647aca226",
     "voice_revision": "Explicit male Nathan Tabor narrator; corrected dialogue and synchronized reader text."
+  },
+  "editorial_standard": "../../../EDITORIAL_STANDARD.md",
+  "accountability_revision": {
+    "date": "2026-10-31",
+    "generated_drafts_revised": 3,
+    "source_archives": "unchanged",
+    "whole_archive_rewritten": false
   }
 }

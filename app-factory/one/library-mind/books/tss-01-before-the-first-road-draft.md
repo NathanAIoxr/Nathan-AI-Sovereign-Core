@@ -185,7 +185,7 @@ I turned the screen toward Ada.
 
 She placed a clean sheet beneath the copy. We could examine the story without accepting the sales pitch. We could keep every page without buying the box. Those were ordinary choices. Pike had worked hard to make them feel unavailable.
 
-“If it's false,” I said, “somebody still wrote it.”
+“Somebody wrote this,” I said. “Somebody put my name on it. Pike is asking me to pay for a family connection he hasn't established. He owes us an answer.”
 
 “Yes.”
 
@@ -389,7 +389,7 @@ He reached for a pad.
 
 I tapped the cover.
 
-For a second he looked like he might laugh. Then his eyes went to the camera above the register.
+A smile started at the corner of his mouth. Then his eyes went to the camera above the register, and the smile stopped.
 
 “Right.”
 
@@ -399,9 +399,9 @@ On our way out, I noticed a wastebasket full of strips of trimmed paper. One str
 
 I pointed it out to Ada once we were outside.
 
-“He could be printing sales material from a photograph,” she said.
+“Those trimmings establish that printed copies are being made here,” she said. “They don't establish who made the original leaf. Pike still owes us its source.”
 
-“Could be.”
+“Then we ask for the source. He doesn't get to sell the gap as proof.”
 
 “We saw paper trimmings. That's what we saw.”
 
@@ -657,9 +657,9 @@ He looked at the broken records.
 
 “I removed the entry.”
 
-She let the answer stand. The young man had helped make the lie, and then he had helped expose it. Both acts belonged to him.
+She let the answer stand. The young man had removed a payment and helped put a child beside the scales. Speaking now did not erase that act. His next duty was to restore the entry, identify the instruction he had followed, and give the witnesses an accurate account.
 
-“Bring what you've found,” she said. “We will record that.”
+“Bring what you've found,” she said. “We will record what you removed, who ordered it, and what you have restored. Your correction belongs in the record beside your part in the harm.”
 
 “And my name?”
 
@@ -739,9 +739,9 @@ There was another detail: a short cross-stroke near the center, easy to miss unt
 
 Pike had offered me a straight road back beyond recorded names. Now the first signpost was pointing a different way.
 
-“So somebody copied the printer,” I said.
+“Same bent point. Same cross-stroke,” I said. “Now we trace who copied what.”
 
-“Or the printer copied another source. Or the rendering added it. We can test those possibilities.”
+“First we inspect the printed example and the leaf,” Ada said. “Then we compare them with Pike's rendering. The images match; the direction of copying isn't established. That's the question he must answer before he gets to sell a lineage.”
 
 I looked at the English words beneath the seal. OUR WORD IS OUR BOND. Somebody had known exactly where to put them.
 
