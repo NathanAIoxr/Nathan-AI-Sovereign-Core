@@ -109,3 +109,31 @@ Not implemented: real backend, login, cloud sync, API calls, publishing engine, 
 **Milestone E — native release and operations**: Desktop/mobile wrappers if required, monitoring, performance budgets, backups, staged CI/CD, governance reviews.
 
 **Security note:** A design studio is not a secure application perimeter. Authentication, authorization and sensitive processing must be implemented and tested server-side before production use.
+
+---
+
+## The Five Matrices — ERA ↔ ERROR (October 31, 2026)
+
+**Owner's statement (verbatim, as provided):**
+
+> These are the five matrix’s of the Bible end of the world - these are also the errors of the world aka eras - because when you say those two words, they sound exactly the same, which is the tower of Babel. Great deception. Satan slip of the Intentional tongue to DECIEVE -
+
+**Attribution:** Nathan Tabor. The owner's theological association is preserved as an interpretation, not treated as an independently established historical, etymological, or biblical finding. The Tower of Babel narrative occurs at Genesis 11:1–9; it does not list these five software stages. The words *era* and *error* have different linguistic derivations and are not universally exact homophones.
+
+**Matrix sequence:** `BCE → BC → AC → CE → AD → BCE`
+
+| Matrix | Project-specific expansion | Operational purpose | Error detection and correction |
+| --- | --- | --- | --- |
+| BCE | Before Component Engines | Legacy inventory and provenance | Audit inconsistencies, dependencies, and unknown sources |
+| BC | Before Code | Discover intent, plan UX, confirm approval | Resolve unclear requirements before implementation |
+| AC | Atomic & Cosmic | Design tokens, fills, wallpapers, skins and responsive structure | Check semantics, contrast, focus, LTR/RTL, and motion |
+| CE | Component Era | Runtime components, data, states and integrations | Test state contracts, permissions, failures, and acknowledgments |
+| AD | After Deployment | Observe, maintain, revise and roll back | Review privacy, regressions, telemetry and recoverability |
+
+These expansions are the author's app-specific terms, not the conventional historical meanings of the BCE/BC/CE/AD dating labels.
+
+**Three separate readings:** (1) the original author's theological declaration, (2) documentary linguistic and biblical history, and (3) engineering controls that can be tested. Do not collapse one into another.
+
+**Implementation:** `app-factory/one/design-studio/five-matrices.html` is an offline client-side interactive module linked from the existing Design Studio. It provides five selectable matrices, ERA/ERROR lenses, visual reversed reading, wraparound Previous/Next navigation, reset, accessible descriptions and JSON specification export. No network sync, account authentication, tracking, or backend functions are implemented.
+
+**Acceptance checks:** exactly five unique matrix IDs; cyclic order; reverse order control; no mobile horizontal overflow; export filename and schema; accessible focus states; reduced-motion handling; no unsupported success claims.
