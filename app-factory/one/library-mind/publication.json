@@ -4,7 +4,7 @@
   "authorization": "put them all in public code repository -",
   "scope": "Dossier, evidence snapshot, available writing/translation packages and Universal Language Database v0.2",
   "historical_labels": "Private / not granted labels inside preserved prior files record their earlier status. This explicit later instruction authorizes this public repository release; it does not certify translation review or change copyright licensing.",
-  "documents": 54,
+  "documents": 55,
   "catalog_records": 2193,
   "relationship_records": 480,
   "language_profiles": 7918,
@@ -63,6 +63,16 @@
       "file": "books/the-room-of-many-voices.md",
       "bytes": 9469,
       "sha256": "c81120ac8f4e82f701517cebbbc94ff7065e6150a14f4972f9d138e11756da66"
+    },
+    {
+      "file": "books/tss-01-before-the-first-road-draft.md",
+      "bytes": 23616,
+      "sha256": "f966110080b275d47719a487f84f517f9996a5191d7e1c536ed46802c0ede489"
+    },
+    {
+      "file": "books/tss-series-bible-source.md",
+      "bytes": 15372,
+      "sha256": "6a5fd9de6a8e9670cc84710749648366052d54fc7e8ca26834215f0a7fd7bc5a"
     }
   ],
   "repository": "NathanAIoxr/Nathan-AI-Sovereign-Core",
@@ -74,7 +84,11 @@
   ],
   "latest_writing_batch": {
     "date": "2026-10-31",
-    "complete_short_book_drafts": 2,
-    "authorship": "New AI-assisted prose; not verbatim original manuscripts"
+    "series": "THE TABOR SECRET SOCIETY",
+    "book": 1,
+    "title": "BEFORE THE FIRST ROAD",
+    "chapters": 6,
+    "status": "novel_in_progress",
+    "source_library_file_id": "libfile_97a0cd432fac819180d0a5d647aca226"
   }
 }
