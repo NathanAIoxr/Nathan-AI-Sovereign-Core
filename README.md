@@ -70,3 +70,7 @@ The root `LICENSE` file is **Apache License 2.0**. Confirm that it matches the o
 ## October 14 creative continuity and project status
 
 [Read the latest continuity update](app-factory/creative/continuity/2026-10-14.md) · [Structured creative notes](app-factory/creative/continuity/2026-10-14.json) · [Current status](WORK_STATUS.md). Includes Round 1, KINETICS/TIME, Middle C's head/gut/soles concept, Great Samaritan ethics, the latest Merlin novel canon, and writing/visual continuity. Existing 376-reference, pricing, Middle C, Ancient Roots and KNAVE modules are indexed with their actual scope. This is a summary intake, not a full manuscript or image archive.
+
+## Library Mind public release — October 30, 2026
+
+[Open the dossier and multilingual archive](app-factory/one/library-mind/index.html). Nathan explicitly authorized public release of this selected dossier, catalog and translation collection. Its preserved historical private labels predate that authorization; other private holdings remain outside the repository.
