@@ -78,3 +78,5 @@ function start(){
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
+/* ONE v066 — opt-in Genesis extension; no existing app state is modified. */
+(function(){'use strict';var here=document.currentScript;if(!here||!here.src)return;var s=document.createElement('script');s.src=new URL('one-genesis-v066.js',here.src).href;s.defer=true;document.head.appendChild(s);})();
