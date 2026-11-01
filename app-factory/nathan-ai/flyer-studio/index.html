@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a1722">
+<title>NATHAN AI 🚀 — Flyer Studio</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,Segoe UI,sans-serif;--bg:#09151f;--panel:#142635;--line:#3c5968;--muted:#c0d1da;--ink:#f8f8f4;--gold:#f0ce96;--cyan:#83d9e5}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% 0%,#193c4f,transparent 42%),var(--bg);color:var(--ink)}a{color:var(--gold)}main{max-width:1440px;margin:auto;padding:18px 18px 72px}header{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:8px 0 24px}header a{font-size:.9rem}p{color:var(--muted);line-height:1.55}.eyebrow{text-transform:uppercase;letter-spacing:.17em;font-weight:800;color:var(--cyan);font-size:.74rem}h1{font-size:clamp(2.1rem,5.6vw,4.6rem);letter-spacing:-.06em;line-height:1.02;margin:12px 0}h2{font-size:1.15rem;margin:0 0 15px}h3{font-size:1rem;margin:15px 0 7px}.intro{max-width:950px;margin-bottom:25px}.layout{display:grid;grid-template-columns:minmax(320px,470px) minmax(400px,1fr);gap:22px;align-items:start}.panel{border:1px solid var(--line);background:var(--panel);border-radius:17px;padding:19px;margin-bottom:13px}.field{margin:11px 0}.field label{font-size:.85rem;font-weight:700;color:#dce8ed;display:block;margin-bottom:6px}.field small{font-size:.76rem;color:#abc2ce}input,select,textarea,button{font:inherit;color:var(--ink)}input,select,textarea{display:block;width:100%;border:1px solid #64808c;background:#0b1c2a;border-radius:9px;padding:11px}textarea{resize:vertical;min-height:90px;line-height:1.4}input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{display:flex;flex-wrap:wrap;gap:9px}.actions button,.actions a{padding:11px 13px;border-radius:10px;border:1px solid #64808c;background:#263f50;cursor:pointer;font-weight:700;text-decoration:none;text-align:center;font-size:.9rem}.actions .primary{color:#10212d;background:var(--gold);border-color:var(--gold)}.actions button:disabled{opacity:.5;cursor:not-allowed}.preview-panel{position:sticky;top:10px}.preview-box{border:1px solid #465d6a;border-radius:13px;background:#09111b;display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:300px;padding:14px}.preview-box img{display:block;max-width:100%;max-height:70vh;height:auto;width:auto;box-shadow:0 12px 30px #0007;object-fit:contain}.toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:10px;justify-content:space-between}.toolbar small{color:var(--muted)}.note{border-left:3px solid var(--gold);padding:10px 13px;background:#2c2b2a;border-radius:4px;font-size:.84rem;color:#e3e1dc}.status{min-height:1.7rem;font-size:.85rem;color:var(--cyan)}.instructions{font-size:.85rem}.hidden-file{position:absolute;opacity:0;width:1px;height:1px;overflow:hidden}footer{border-top:1px solid var(--line);margin-top:24px;padding-top:18px;color:var(--muted);font-size:.82rem}
+@media(max-width:950px){.layout{grid-template-columns:1fr}.preview-panel{position:static}.preview-box img{max-height:75vh}}@media(max-width:570px){main{padding:12px 10px 70px}.panel{padding:13px}.two{grid-template-columns:1fr}.actions button{flex:1}.preview-box{padding:5px}}
+@page{margin:0;size:auto}@media print{html,body,main{margin:0!important;padding:0!important;background:white!important}header,.intro,#editor,.toolbar,.actions,.status,.note,footer,h1,.eyebrow{display:none!important}.layout{display:block!important}.preview-panel,.preview-panel .panel{padding:0!important;margin:0!important;border:0!important;background:white!important}.preview-box{padding:0!important;margin:0!important;border:0!important;min-height:0!important;border-radius:0!important;display:block!important;background:white!important}.preview-box img{max-width:100vw!important;max-height:100vh!important;width:100%!important;height:auto!important;box-shadow:none!important}#preview-description{display:none!important}}
+</style>
+<script src="./engine.js" defer></script><script src="./app.js" defer></script>
+</head>
+<body>
+<main>
+<header><a href="../index.html"><strong>NATHAN AI 🚀</strong> / MAIN HUB</a><nav aria-label="Navigation"><a href="../index.html">Main Hub</a> · <a href="../../one/index.html">ONE</a> · <a href="../../one/library/index.html">Master Library</a> · <a href="../../index.html">Factory</a></nav></header>
+<div class="eyebrow">NATHAN AI · TABOR ROOT · ONE APP · CREATE & PRESERVE</div>
+<h1>FLYER <span style="color:var(--gold)">STUDIO</span></h1>
+<p class="intro">Create a professional marketing flyer in your own voice. Choose an original Nathan AI template, rewrite every line, switch colors and print formats, preview instantly, then export PNG, SVG or a reusable design file. No sign-in, subscriptions, third-party assets or backend uploads required.</p>
+<div class="layout">
+<div id="editor">
+<section class="panel"><h2>01 · Choose your design</h2>
+<div class="field"><label for="preset">Starting template</label><select id="preset"></select></div>
+<div class="two"><div class="field"><label for="format">Flyer size</label><select id="format"></select></div><div class="field"><label for="palette">Color theme</label><select id="palette"></select></div></div>
+<div class="field"><label for="style">Abstract artwork</label><select id="style"><option value="orbit">Orbit / Field</option><option value="library">Library Architecture</option><option value="grid">Matrix Grid</option><option value="mirror">Mirror & Cipher</option><option value="stars">Constellation</option></select></div>
+</section>
+<section class="panel"><h2>02 · Edit the words</h2>
+<div class="field"><label for="eyebrow">Top caption</label><input id="eyebrow" maxlength="120" autocomplete="off"></div>
+<div class="field"><label for="headline">Headline</label><textarea id="headline" maxlength="120" rows="2"></textarea></div>
+<div class="field"><label for="body">Description</label><textarea id="body" maxlength="500" rows="4"></textarea></div>
+<div class="field"><label for="cta">Call-to-action label</label><input id="cta" maxlength="80"></div>
+<div class="field"><label for="url">Actual website or link printed on the flyer</label><input id="url" maxlength="245" inputmode="url"></div>
+<div class="field"><label for="footerline">Bottom signature / disclaimer</label><input id="footerline" maxlength="160"></div>
+<div class="actions"><button type="button" id="reset">Reset to selected template</button><button type="button" id="save">Save on this device</button></div>
+<p class="note">Your words stay yours. Editing a flyer does not alter original books or source records, and the preset statistics are described as plans—not completed publications.</p>
+</section>
+<section class="panel"><h2>03 · Export your flyer</h2><div class="actions">
+<button class="primary" type="button" id="png">Download PNG</button><button type="button" id="svg">Download SVG</button><button type="button" id="print">Print / PDF</button><button type="button" id="json">Export Design JSON</button>
+</div>
+<div class="field"><label for="import">Import saved design</label><input id="import" type="file" accept="application/json,.json"></div>
+<p class="instructions">SVG is editable vector artwork; PNG is a ready-to-share raster image at the selected pixel size. Use your browser’s Print / Save as PDF function for PDF output. JSON allows later editing without overwriting originals.</p>
+<p class="status" role="status" aria-live="polite" id="status">Ready to create.</p></section>
+</div>
+<div class="preview-panel"><section class="panel"><div class="toolbar"><h2>Live flyer preview</h2><small id="resolution">1080 × 1350 px</small></div><div class="preview-box"><img id="preview" alt="Editable Nathan AI marketing flyer artwork, featuring text and abstract geometry only; no people." width="540" height="675"></div><p id="preview-description" class="instructions">All artwork in this default composition is original vector geometry. There are no invented photographs, QR codes, or App Store badges.</p></section>
+<section class="panel"><h2>Connected to your existing Nathan AI</h2><p class="instructions">Flyer Studio is a standalone creative tool within the Main Hub, not a separate replacement product. It does not automatically open private manuscript files or claim that unlaunched products are available in app stores.</p><div class="actions"><a href="../index.html">Back to Nathan AI</a><a href="../../one/library-mind/index.html">Open Library Mind</a></div></section></div>
+</div>
+<footer>Creator: Nathan Tabor · NATHAN AI 🚀 · Preserve → Index → Relate → Derive, Never Replace. · Local-first creative artwork, no external asset loading.</footer>
+</main>
+</body></html>
