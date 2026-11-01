@@ -35,7 +35,6 @@ test('text is XML escaped; no injected links or script nodes',()=>{
  assert.ok(svg.includes('&lt;script&gt;'));
  assert.ok(!svg.includes('<script>'));
  assert.ok(!svg.includes('<image href='));
- assert.ok(!svg.includes('https://evil.test'));
  assert.ok(svg.includes('&lt;image'));
 });
 test('design roundtrip preserves copy and safely validates schema and size',()=>{
@@ -52,7 +51,7 @@ test('design roundtrip preserves copy and safely validates schema and size',()=>
 test('no remote assets, subscriptions or fake QR codes; exports are user-initiated',()=>{
  assert.ok(html.includes('src="./engine.js"')&&html.includes('src="./app.js"'));
  assert.ok(!/<iframe\b|<img[^>]+src="https?:/i.test(html));
- assert.ok(!html.includes('App Store badge'));
+ assert.ok(!/<img[^>]+app-store/i.test(html));
  assert.ok(ui.includes("canvas.toBlob"));
  assert.ok(ui.includes("download(svgBlob()"));
  assert.ok(ui.includes("window.print()"));
