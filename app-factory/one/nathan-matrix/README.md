@@ -3,7 +3,7 @@
 Additive ONE browser reference module. Owner original source, private code, and prior modules are preserved and NOT recopied into the public repository.
 
 ## Existing products, not replacements
-- **Handling Life** and **Christmas Toy Drive / ChristmasToyDrive.com** already exist in the owner’s ecosystem. The Factory's dependency registry categorizes \`christmas\` as a \`private-package\`. \`WORK_BUILD_HANDOFF.md\` documents prior private ChristmasToyDrive tests and explicitly prohibits rebuilding its private original software from a readme.
+- **Handling Life** and **Christmas Toy Drive / ChristmasToyDrive.com** already exist in the owner’s ecosystem. The Factory's dependency registry categorizes `christmas` as a `private-package`. `WORK_BUILD_HANDOFF.md` documents 9 passing private ChristmasToyDrive baseline tests and explicitly prohibits rebuilding its original software from a readme. The private `Christmas_Toy_Drive_Build_Report.md` further describes a development Next.js website, backend, Expo mobile client, sandbox payment paths and demonstration, **not** a verified live payment deployment.
 - The ONE shell is already an app. This module adds a discoverable local reference/research interface to that shell; it **does not** launch independent replacements.
 - The existing owner Vault has the file import path. This module contains only derived public notes, never private manuscript copies, customer records, service credentials, charity recipient records, or copyrighted assets.
 
@@ -20,5 +20,5 @@ Additive ONE browser reference module. Owner original source, private code, and 
 - No original owner manuscripts or full indexed 33-million-library data are committed.
 - No donation processing, recipient application intake, child records, outreach messages, tax receipts, OAuth, AI inference, or payments.
 - Source → Index → Relate → Derive. Validate legal status, source repository, permission grants, and original tests before integrating real services.
-- Node 22 test: \`node --test app-factory/one/nathan-matrix/engine.test.cjs\`.
-- Direct URL: \`app-factory/one/nathan-matrix/index.html\`.
+- Node 22 test: `node --test app-factory/one/nathan-matrix/engine.test.cjs`.
+- Direct URL: `app-factory/one/nathan-matrix/index.html`.
