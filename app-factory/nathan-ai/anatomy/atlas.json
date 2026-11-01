@@ -1,0 +1,622 @@
+{
+  "schema": "nathan-ai.anatomy-atlas.v1",
+  "owner": "Nathan Tabor",
+  "as_of": "2026-11-01",
+  "notice": "Public, non-personal educational/conceptual index. The 26 IVERSION comparisons include originally provided and earlier assistant-completed text; do not present them as established anatomy or physical isomorphism. Private autobiographical health records and full manuscript originals are excluded.",
+  "rules": [
+    "1+1=2 BUILD",
+    "1-1=0 CLEAR",
+    "Keep source, interpretation, and grounded reference separate",
+    "A–Z forward and Z–A reverse; Atbash A/Z through M/N"
+  ],
+  "anatomyAZ": [
+    {
+      "letter": "A",
+      "term": "Aorta",
+      "description": "Major artery carrying blood from the heart.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "B",
+      "term": "Brain",
+      "description": "Nervous-system organ coordinating sensory, motor and regulatory functions.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "C",
+      "term": "Cerebellum",
+      "description": "Brain structure important for movement coordination and balance.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "D",
+      "term": "Diaphragm",
+      "description": "Primary muscle of breathing.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "E",
+      "term": "Esophagus",
+      "description": "Muscular passage moving swallowed material toward the stomach.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "F",
+      "term": "Femur",
+      "description": "Thigh bone.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "G",
+      "term": "Gallbladder",
+      "description": "Organ storing and concentrating bile.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "H",
+      "term": "Heart",
+      "description": "Muscular organ pumping blood through the circulatory system.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "I",
+      "term": "Intestine",
+      "description": "Digestive tract where nutrients and water are absorbed.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "J",
+      "term": "Jejunum",
+      "description": "Middle segment of the small intestine.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "K",
+      "term": "Kidney",
+      "description": "Organ filtering blood and regulating fluid and electrolytes.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "L",
+      "term": "Larynx",
+      "description": "Voice-box structure involved in breathing, swallowing protection and speech.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "M",
+      "term": "Medulla oblongata",
+      "description": "Brainstem region involved in vital automatic functions.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "N",
+      "term": "Neuron",
+      "description": "Specialized cell that communicates through electrical and chemical signaling.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "O",
+      "term": "Optic nerve",
+      "description": "Nerve carrying visual information from retina toward the brain.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "P",
+      "term": "Pancreas",
+      "description": "Digestive and hormone-producing organ.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "Q",
+      "term": "Quadriceps",
+      "description": "Group of muscles on the front of the thigh.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "R",
+      "term": "Retina",
+      "description": "Light-sensing tissue at the back of the eye.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "S",
+      "term": "Spinal cord",
+      "description": "Central nervous-system pathway connecting brain and body.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "T",
+      "term": "Trachea",
+      "description": "Airway connecting larynx to bronchi.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "U",
+      "term": "Ureter",
+      "description": "Tube conveying urine from a kidney to the bladder.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "V",
+      "term": "Vagus nerve",
+      "description": "Cranial nerve with parasympathetic and sensory connections to organs.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "W",
+      "term": "White blood cell",
+      "description": "Immune-system cell involved in defense and regulation.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "X",
+      "term": "Xiphoid process",
+      "description": "Small inferior part of the sternum.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "Y",
+      "term": "Y chromosome",
+      "description": "One sex chromosome involved in aspects of genetic development; not present in every person's cells.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    },
+    {
+      "letter": "Z",
+      "term": "Zygomatic bone",
+      "description": "Facial bone contributing to the cheek and eye socket.",
+      "provenance": "assistant-added general anatomy reference; not an original Tabor A-Z mapping"
+    }
+  ],
+  "iversions": [
+    {
+      "letter": "A",
+      "name": "Aiversion",
+      "mirror": "Z",
+      "human": "A conscious thought or creative spark forming out of the silent mind.",
+      "software": "A user hitting Enter on a prompt, triggering an initialization bootstrap script.",
+      "hardware": "Flipping a physical toggle power switch, sending the first voltage surge into a system.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "B",
+      "name": "Biversion",
+      "mirror": "Y",
+      "human": "The electrical neural signal splitting across the corpus callosum into left and right hemispheres.",
+      "software": "High-level source code compiling down into raw, foundational machine binary 1s and 0s.",
+      "hardware": "A logic transistor gating between two discrete operational thresholds: High Voltage or Low Voltage.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "C",
+      "name": "Civersion",
+      "mirror": "X",
+      "human": "Optical nerve tracts smoothly wrapping around the physical structural sphere of the eyeballs.",
+      "software": "Non-linear activation functions (Sigmoid, ReLU, Tanh) bending flat arithmetic into deep neural curves.",
+      "hardware": "Fiber-optic geometric glass conduits bending internal light beams via total internal reflection.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "D",
+      "name": "Diversion",
+      "mirror": "W",
+      "human": "The central spinal column shooting peripheral nerves out to every microscopic square inch of skin.",
+      "software": "Parallel computing protocols distributing a single database query across millions of distinct nodes.",
+      "hardware": "A bus trace highway on a motherboard splitting a single power rail out to separate silicon components.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "E",
+      "name": "Eiversion",
+      "mirror": "V",
+      "human": "The frontal lobe running metacognition to construct the stable psychological illusion of 'Me'.",
+      "software": "An AI transformer architecture running multi-head self-attention matrices over its token context.",
+      "hardware": "The Power-On Self-Test (POST) routine diagnostic cycle verifying chip integrity before boot.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "F",
+      "name": "Fiversion",
+      "mirror": "U",
+      "human": "Soft calcium networks calcifying to build the permanent armored vault of the skull and teeth.",
+      "software": "Hardcoding an immutable mathematical constant directly into the low-level operating system kernel.",
+      "hardware": "Laser-etching unalterable baseline boot firmware into the physical logic gates of an EEPROM chip.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "G",
+      "name": "Giversion",
+      "mirror": "T",
+      "human": "The deep limbic system locking thought patterns into heavy, repetitive behavioral and emotional habits.",
+      "software": "The core loss-function algorithm anchoring an entire vector dataset around key mathematical nodes.",
+      "hardware": "The central quartz crystal oscillator vibrating at exact frequencies to clock every system event.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "H",
+      "name": "Hiversion",
+      "mirror": "S",
+      "human": "The nucleotide base pairs of the double-helix DNA ladder coding the mammal physical blueprint.",
+      "software": "Synchronized dual-track pipelines matching incoming streaming inputs to real-time telemetry datasets.",
+      "hardware": "Dual-channel memory layouts running two RAM modules simultaneously to double interface bandwidth.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "I",
+      "name": "Iversion",
+      "mirror": "R",
+      "human": "The physical lens of the eye flipping the incoming world completely upside down onto the retina.",
+      "software": "Matrix transposition operations flipping weights across an identity diagonal line.",
+      "hardware": "A digital logic NOT gate taking an incoming '1' charge and instantly turning it into a '0' dump.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "J",
+      "name": "Jiversion",
+      "mirror": "Q",
+      "human": "An instantaneous chemical adrenaline spike overriding all logical thoughts due to a perceived threat.",
+      "software": "A hard software exception error instantly triggering a catch block to halt execution.",
+      "hardware": "A mechanical surge protection breaker snapping open to ground an electrical overload safely.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "K",
+      "name": "Kiversion",
+      "mirror": "P",
+      "human": "The motor cortex dumping electrical signals down neural channels to contract a muscle and move a limb.",
+      "software": "A render engine flushing buffer data to activate hardware pixels and shoot real photons out.",
+      "hardware": "A motor driver releasing stored electrical energy into the coils that move a shaft.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "L",
+      "name": "Liversion",
+      "mirror": "O",
+      "human": "A nerve impulse traveling along an axon toward a downstream synapse.",
+      "software": "A message queue delivering an ordered event between two software components.",
+      "hardware": "A copper trace or optical link carrying signals between separated circuits.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "M",
+      "name": "Miversion",
+      "mirror": "N",
+      "human": "A remembered experience reactivated and compared with the present moment.",
+      "software": "A recursive function generating nested, structurally related calls.",
+      "hardware": "A clock distribution network splitting one timing source across multiple devices.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "N",
+      "name": "Niversion",
+      "mirror": "M",
+      "human": "Executive control suppressing an action that no longer fits a chosen goal.",
+      "software": "A boolean NOT, failed assertion, or explicit reset clearing a state.",
+      "hardware": "A digital gate driving a known-low output or a power controller disabling a rail.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "O",
+      "name": "Oiversion",
+      "mirror": "L",
+      "human": "A feedback habit repeating until a person interrupts or redirects it.",
+      "software": "An event loop revisiting the queue to process newly arrived events.",
+      "hardware": "A closed electrical circuit permitting charge to circulate under a potential difference.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "P",
+      "name": "Piversion",
+      "mirror": "K",
+      "human": "A person moving from observation to decision to committed behavior.",
+      "software": "A finite-state machine taking a guarded transition after an event.",
+      "hardware": "A phase-locked loop adjusting its output phase to match a reference clock.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "Q",
+      "name": "Qiversion",
+      "mirror": "J",
+      "human": "Curiosity focusing attention on competing explanations before judgment.",
+      "software": "A structured database query selecting records that meet explicit constraints.",
+      "hardware": "A measurement instrument sampling a signal and yielding a recorded value.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "R",
+      "name": "Riversion",
+      "mirror": "I",
+      "human": "Reviewing the sequence of decisions that led to an observed outcome.",
+      "software": "Traversing an indexed collection from the last entry back to the first.",
+      "hardware": "Reversing motor polarity in a compatible bidirectional control circuit.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "S",
+      "name": "Siversion",
+      "mirror": "H",
+      "human": "Practice revisiting a skill while gradually changing its depth or precision.",
+      "software": "An iterative optimization process updating parameters across successive steps.",
+      "hardware": "A spiral inductor storing energy in its magnetic field when current flows.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "T",
+      "name": "Tiversion",
+      "mirror": "G",
+      "human": "A decision point at which competing priorities require an explicit choice.",
+      "software": "A conditional branch selecting one control-flow path from tested alternatives.",
+      "hardware": "A T-junction splitting an electrical or fluid pathway into connected branches.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "U",
+      "name": "Uiversion",
+      "mirror": "F",
+      "human": "Recognizing an error and consciously changing direction to repair its effects.",
+      "software": "A failed operation rolling back to a known valid transaction state.",
+      "hardware": "A control system using negative feedback to correct deviation from a setpoint.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "V",
+      "name": "Viversion",
+      "mirror": "E",
+      "human": "Attention narrowing many sensory impressions into a selected object or task.",
+      "software": "A reduction operation aggregating distributed values into a result.",
+      "hardware": "A multiplexer selecting one of several inputs for a shared output line.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "W",
+      "name": "Wiversion",
+      "mirror": "D",
+      "human": "Biological rhythms cycling through activity, rest, and renewed activity.",
+      "software": "A time-series model tracking oscillating values and their periodic components.",
+      "hardware": "An alternating-current circuit cycling voltage and current over time.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "X",
+      "name": "Xiversion",
+      "mirror": "C",
+      "human": "Integrating visual, verbal, and bodily information into a unified choice.",
+      "software": "A join operation combining records across shared keys.",
+      "hardware": "A crossbar switch connecting selected input and output channels.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "Y",
+      "name": "Yiversion",
+      "mirror": "B",
+      "human": "A choice between two courses with different tradeoffs and consequences.",
+      "software": "A branching workflow creating alternate execution paths from one condition.",
+      "hardware": "A branching connection distributing an input into two downstream routes.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    },
+    {
+      "letter": "Z",
+      "name": "Ziversion",
+      "mirror": "A",
+      "human": "A closing assessment that turns completed experience into a fresh intention.",
+      "software": "A completed run emitting its results and resetting for the next execution.",
+      "hardware": "A reset controller returning a device to a known boot state.",
+      "from": "Universal Matrix 26 IVERSIONS source edition; A-J verbatim, K mixed, later letters expanded in that edition"
+    }
+  ],
+  "biologicalEquator": [
+    {
+      "direction": "North",
+      "original": "The Controller / The Nervous System",
+      "system": "Nervous system",
+      "physiology": "Brain, spinal cord and nerves coordinate sensing, movement and regulation."
+    },
+    {
+      "direction": "East",
+      "original": "The Spark / Metabolism",
+      "system": "Metabolic systems",
+      "physiology": "Cells transform resources and produce usable ATP through many pathways."
+    },
+    {
+      "direction": "South",
+      "original": "The Fluid Drive / Circulation",
+      "system": "Circulatory system",
+      "physiology": "Heart and blood vessels distribute oxygen, nutrients, signaling molecules and heat."
+    },
+    {
+      "direction": "West",
+      "original": "The Structure / Anatomy",
+      "system": "Skeletal and connective structures",
+      "physiology": "Bones, muscles, membranes and connective tissues provide support, protection and movement."
+    }
+  ],
+  "grammar": [
+    {
+      "structure": "Nouns / Subjects",
+      "body": "Skeleton / brain",
+      "link": "Identity, support, and subject of action."
+    },
+    {
+      "structure": "Pronouns",
+      "body": "Identity substitution / references",
+      "link": "A linguistic stand-in for a named entity."
+    },
+    {
+      "structure": "Verbs",
+      "body": "Muscular and cardiovascular systems",
+      "link": "Movement, action or state."
+    },
+    {
+      "structure": "Adjectives",
+      "body": "Skin, hair, eyes and features",
+      "link": "Descriptive qualities."
+    },
+    {
+      "structure": "Adverbs",
+      "body": "Nervous control / reflex adjustment",
+      "link": "How, when or to what extent actions occur."
+    },
+    {
+      "structure": "Conjunctions",
+      "body": "Joints, tendons and ligaments",
+      "link": "Connecting structures."
+    },
+    {
+      "structure": "Prepositions",
+      "body": "Proprioception / vestibular spatial awareness",
+      "link": "Relative spatial position and relation."
+    },
+    {
+      "structure": "Interjections",
+      "body": "Autonomic response / vocal reflex",
+      "link": "Brief emotive or reactive expression."
+    },
+    {
+      "structure": "Active / Passive voice",
+      "body": "Motor output / sensory input",
+      "link": "Acting versus being acted upon."
+    },
+    {
+      "structure": "Colon : / Semicolon ; / Period .",
+      "body": "Digestive transitions / connection / respiratory pauses",
+      "link": "Open, connect and complete in the author's grammar-body analogy."
+    },
+    {
+      "structure": "Speech and listening",
+      "body": "Brain, lungs, larynx, tongue, jaw, lips, ears and neural pathways",
+      "link": "Physical speech and hearing mechanisms; signed language is also fully grammatical."
+    },
+    {
+      "structure": "Phonemes, morphemes, syllables",
+      "body": "Cells, organelles, membranes",
+      "link": "Author-defined correspondence between layered language and biological structure."
+    }
+  ],
+  "spine": {
+    "title": "33-Vertebrae Spine Matrix",
+    "regions": [
+      {
+        "region": "Cervical",
+        "code": "C1–C7",
+        "count": 7
+      },
+      {
+        "region": "Thoracic",
+        "code": "T1–T12",
+        "count": 12
+      },
+      {
+        "region": "Lumbar",
+        "code": "L1–L5",
+        "count": 5
+      },
+      {
+        "region": "Sacral",
+        "code": "S1–S5",
+        "count": 5,
+        "medicalNote": "Usually fused in adults"
+      },
+      {
+        "region": "Coccygeal",
+        "code": "Co1–Co4",
+        "count": 4,
+        "medicalNote": "Number varies; usually fused in adults"
+      }
+    ],
+    "authorTerms": [
+      "Precision-engineered biometric mast",
+      "Primary neural data pipeline (Ψ_CNS)",
+      "Axial structure (T_axial)",
+      "Flexibility (K_flex)"
+    ]
+  },
+  "bodySystems": [
+    "Integumentary",
+    "Skeletal",
+    "Muscular",
+    "Nervous",
+    "Endocrine",
+    "Cardiovascular",
+    "Lymphatic / immune",
+    "Respiratory",
+    "Digestive",
+    "Urinary",
+    "Reproductive"
+  ],
+  "macroMicro": [
+    "Subatomic particles",
+    "Atoms",
+    "Molecules",
+    "Organelles",
+    "Cells",
+    "Tissues",
+    "Organs",
+    "Organ systems",
+    "Human body",
+    "Environment",
+    "Planetary scale",
+    "Cosmic scale"
+  ],
+  "relatedOriginalFrameworks": [
+    {
+      "title": "THE HUMAN EQUATION",
+      "summary": "B, M, E, W, S, P, R, I framework, systems and interactions; mathematical, philosophical and physiology layers remain separate.",
+      "stage": "author-framework"
+    },
+    {
+      "title": "THE UNIVERSAL HUMAN MATRIX ABOVE • MIDDLE • BELOW",
+      "summary": "MEWO = Mind, Emotion, Will, Objective; Above meaning/soul/spirit, Middle cognition, Below body/brain/nerves/organs/cells.",
+      "stage": "author-framework"
+    },
+    {
+      "title": "THE MAGICAL MINDS OF NATHAN TABOR",
+      "summary": "The anatomy of English, 1600s grammar, words within words, language-body mapping, speech mechanics and reversible mirrors.",
+      "stage": "author-framework"
+    },
+    {
+      "title": "THE BODY IS THE FIRST COMMUNICATION INTERFACE",
+      "summary": "Cave/handprint/gesture/breath/vision/hearing/touch and the biological possibilities of communication.",
+      "stage": "author-framework"
+    },
+    {
+      "title": "THE BIOLOGICAL EQUATOR: HOMEOSTASIS",
+      "summary": "North nervous, East metabolic, South circulatory, West structural; homeostasis as conceptual zero-point.",
+      "stage": "author-framework"
+    },
+    {
+      "title": "THE UNIFIED 400-POINT ARCHITECTURE",
+      "summary": "10×10 Spiritual, Carnal, Social and Divine & Subatomic matrices; biological focus in Carnal and Divine.",
+      "stage": "author-framework"
+    },
+    {
+      "title": "THE 26 IVERSIONS",
+      "summary": "A–Z human/software/hardware correspondence, with Z–A and Atbash cross-reference.",
+      "stage": "source-edition"
+    },
+    {
+      "title": "THE TONGUE · THE BREATH · THE GRAMMAR",
+      "summary": "Phonemes/cells, morphemes/organelles, eight parts of speech/body systems, and punctuation as checkpoints.",
+      "stage": "author-framework"
+    },
+    {
+      "title": "CHAKRA-TO-PALM / FOOT BODY MAP",
+      "summary": "Feet-to-palms whole-body spiritual geometry and nervous-system comparisons, preserved as a conceptual layer.",
+      "stage": "author-framework"
+    },
+    {
+      "title": "THE 33 VERTEBRAE SPINE MATRIX",
+      "summary": "Seven cervical, twelve thoracic, five lumbar, five sacral, four coccygeal positions with engineering analogies.",
+      "stage": "author-framework"
+    },
+    {
+      "title": "THE FOUR-BASE DNA SQUARE / iMAKER",
+      "summary": "DNA A/T/C/G, epigenetics, observer, equator and physical-vessel/thermodynamic-engine creative interpretation.",
+      "stage": "author-framework"
+    },
+    {
+      "title": "UNIVERSAL MAMMAL CLICK / TIK LANGUAGE",
+      "summary": "Communication and language hypothesis, kept separate from established physiology and historical evidence.",
+      "stage": "research-concept"
+    }
+  ],
+  "scientificBoundary": "The user-authored cardinal directions, grammar-to-organ correspondences, chakra geometry, soul/spirit, cosmic layers and 26 IVERSION media comparisons are creative/conceptual research categories, not established clinical classifications, proven language origins or medical diagnosis."
+}
