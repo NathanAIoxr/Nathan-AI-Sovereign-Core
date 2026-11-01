@@ -71,3 +71,10 @@ Verification for this documentation update: checked existing repository source a
 - Confidential health source bytes stay outside this public repository; owner must manually select and import the previously recovered archive into the app.
 - No Apple HealthKit / Android Health Connect / EMR login or claims of medical validation. Browser QA and security review pending.
 - Source and build: [ONE Health README](app-factory/one/health/README.md).
+
+## November 1, 2026 — Nathan AI Connected Matrix (additive ONE integration)
+- **Merged source:** PR #30, squash commit `573f81430f5ab46cc45ac99e5fff9760ea539007`.
+- **ONE home navigation:** `app-factory/one/index.html` links to `app-factory/one/nathan-matrix/index.html`.
+- **Implemented public local-reference prototype:** 8/10 BigInt timeline/LCM calculator (0–15 added-zero levels), 13/17/211/221 distinctions, millisecond/breath illustrative model, 22 author-defined IVERSION labels with preserved I, 0–9 neurological source index, evidence/provenance boundaries, derived JSON export, and the corrected literal equations 1+1=2 / 1−1=0.
+- **Existing projects preserved:** Handling Life / ChristmasToyDrive are linked as owner-private project handoffs. `app-factory/build-order/dependencies.json` already tracks the original `christmas` project as `private-package`; existing private ChristmasToyDrive software and reported baseline tests are NOT replaced. Owner-private build report documents a development website/backend/Expo client and simulated checkout; no claim of a deployed live donation backend.
+- **Validation:** GitHub Actions PR #30 Factory quality checks passed before merge; new test `node --test app-factory/one/nathan-matrix/engine.test.cjs` added to CI. GitHub Pages/browser publication, original private-source deployment, real donations, recipient intake, and cross-service authorization remain unverified / disabled.
