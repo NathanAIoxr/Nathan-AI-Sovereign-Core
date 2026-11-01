@@ -55,3 +55,9 @@ user input -> consent/profile -> LET analysis -> AI draft adapter
 Open [Nathan AI Main Hub](./index.html). The repository root now opens this hub. It connects the existing Library Mind, original 13-book plan, published reading records, catalog, language registry, dossier packages, source documents, private Master Library, ONE and Factory apps. The searchable app directory includes all 51 existing HTML entry points from the repository at integration time. The directory is a versioned snapshot; new apps require a directory update.
 
 The hub uses the existing archive JSON directly and preserves source text. It adds navigation, not model execution, account synchronization or manuscript completion. Existing core contracts remain separate. The Library Mind accepts section URLs: `#documents`, `#plan`, `#catalog`, `#languages`, `#downloads`, `#archive`.
+
+## Additive 133,333,333 Master Blueprint & Libraries — November 1, 2026
+
+Open the [133,333,333 Master Blueprint registry](./blueprint/index.html) from the Nathan AI Main Hub. This public, searchable registry adds the owner's new headline scale target **without rewriting** the original 33,000,000-work address blueprint. It indexes all 33 NT departments, nine 101–901 library shelves, 13 editorial passes (0–12), and named existing apps, books, languages, games, ciphers, inventions and research strands. The original private D17 bridge and 33M source documents remain separately held, for deliberate local ONE Master Library import. No private manuscripts, 133-million completed objects or automated synchronization were added to public GitHub.
+
+[Scope, preservation and tests](./blueprint/README.md) · [Machine-readable metadata](./blueprint/registry.json)
