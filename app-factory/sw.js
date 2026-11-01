@@ -3,13 +3,20 @@
  * query URLs or tenant-specific material. Any future backend needs its own domain.
  */
 'use strict';
-const CACHE='tabor-factory-static-v7';
+const CACHE='tabor-factory-static-v8';
 const ROOT=new URL(self.registration.scope);
 const ASSETS=[
   './','./index.html','./manifest.webmanifest','./icon.svg',
   './vault.html','./vault.js','./vault-backup.js',
   './dummie-publisher/index.html','./dummie-publisher/publisher.js',
-  './one/index.html','./one/one.js','./one/manifest.webmanifest',
+  './one/index.html','./one/one.js','./one/manifest.webmanifest','./shared/one-universal-v061.js',
+  './one/master-matrix/index.html','./one/master-matrix/registry.json',
+  './one/master-matrix/infrastructures-original.txt','./one/master-matrix/reversals-original.txt',
+  './one/humanity-archive/index.html','./one/humanity-archive/archive.js',
+  './one/inventions-101/index.html','./one/inventions-101/registry.js',
+  './one/inventions-101/book-12-assistant-draft.md',
+  './nathan-ai/index.html','./nathan-ai/hub.css','./nathan-ai/hub.js',
+  './nathan-ai/library-experience.css','./nathan-ai/library-experience.js',
   './one/offloader/index.html','./one/offloader/engine.js',
   './games/crowning-jewel.html','./games/crowning-jewel.js','./games/manifest.webmanifest',
   './root-constellation.html',
