@@ -98,7 +98,7 @@ function start(){
       card.append(tag,name,stageTxt);
       if(item.description)card.append(el('p','',item.description.slice(0,300)));
       if(item.href){
-        const a=el('a','','Open existing module →');a.href=item.href;card.append(el('p','')).append(a);
+        const a=el('a','','Open existing module →');a.href=item.href;const p=el('p','');p.append(a);card.append(p);
       }else if(item.sourceId!==undefined){
         const p=el('p','muted',item.sourceName+' · source line '+item.line);
         const b=el('button','','View original source');b.type='button';b.addEventListener('click',()=>openSource(item.sourceId));card.append(p,b);
