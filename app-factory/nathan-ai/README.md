@@ -49,3 +49,9 @@ user input -> consent/profile -> LET analysis -> AI draft adapter
 9. Report actual status in `WORK_STATUS.md`, not hypothetical implementation.
 
 **Root placement:** `TABOR ROOT / AI SERVICES / NATHAN AI / LET + TET + PPL`. ONE — The Last App can call it through explicit grants; Tabor World, TaborTales and the Factory can each use it while retaining separate project IDs and data policies.
+
+## Main hub — November 1, 2026
+
+Open [Nathan AI Main Hub](./index.html). The repository root now opens this hub. It connects the existing Library Mind, original 13-book plan, published reading records, catalog, language registry, dossier packages, source documents, private Master Library, ONE and Factory apps. The searchable app directory includes all 51 existing HTML entry points from the repository at integration time. The directory is a versioned snapshot; new apps require a directory update.
+
+The hub uses the existing archive JSON directly and preserves source text. It adds navigation, not model execution, account synchronization or manuscript completion. Existing core contracts remain separate. The Library Mind accepts section URLs: `#documents`, `#plan`, `#catalog`, `#languages`, `#downloads`, `#archive`.
