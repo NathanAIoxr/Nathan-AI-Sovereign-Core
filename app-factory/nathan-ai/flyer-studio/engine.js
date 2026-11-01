@@ -105,7 +105,7 @@ function buildSVG(input){
  out+='<text x="'+pad+'" y="'+urlY+'" fill="'+c.muted+'" font-family="Arial,Helvetica,sans-serif" font-size="'+(land?19:22)+'">'+tspans(urlLines,pad,urlY,28)+'</text>';
  const footY=h-Math.round(h*.058);
  out+='<path d="M '+pad+' '+(footY-39)+' H '+(w-pad)+'" stroke="'+c.rim+'" opacity=".58"/>';
- out+='<text x="'+pad+'" y="'+footY+'" font-family="Arial,Helvetica,sans-serif" font-size="'+(land?18:21)+'" letter-spacing=".65" fill="'+c.accent+'">'+xml(d.footer)+'</text>';
+ out+='<text x="'+pad+'" y="'+footY+'" font-family="Arial,Helvetica,sans-serif" font-size="'+(land?18:21)+'" letter-spacing=".65" fill="'+c.accent+'">'+xml(lines(d.footer,land?98:65,1).join(' '))+'</text>';
  out+='</svg>';
  return out;
 }
