@@ -29,6 +29,19 @@
           "type": "image/svg+xml"
         }
       ]
+    },
+    {
+      "name": "Humanity & Spiritual Archive",
+      "short_name": "Humanity",
+      "description": "Search history, scriptures, artifacts and the authored binary registry",
+      "url": "./humanity-archive/index.html",
+      "icons": [
+        {
+          "src": "../icon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
     }
   ]
 }
