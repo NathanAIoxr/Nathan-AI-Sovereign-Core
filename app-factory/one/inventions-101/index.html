@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101720"><title>NATHAN AI 🚀 — 101 Invention Register</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;background:#101720;color:#f6f8fa}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% -15%,#274653 0,transparent 42%),#101720}
+main{max-width:1200px;margin:auto;padding:18px 16px 75px}a{color:#f3d9a1}
+header{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hero{border:1px solid #617983;background:linear-gradient(140deg,#263d49,#13212b);padding:25px;border-radius:20px;margin:16px 0}
+small,p{color:#c4d1d7;line-height:1.55}h1{font-size:clamp(2.2rem,6vw,4.5rem);line-height:1;margin:8px 0}h2{font-size:1.4rem}
+.eyebrow{letter-spacing:.1em;color:#eed6a5;font-size:.76rem;font-weight:750;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.panel{border-radius:15px;border:1px solid #485f6e;background:#1b2b35;padding:16px;margin:13px 0}
+.stat{font-size:2rem;color:#f2d9a9;font-weight:850}
+.row{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+button,input,select{font:inherit;border-radius:10px;border:1px solid #617a89;padding:12px;color:#fff;background:#28414f}
+button{cursor:pointer}button:hover{background:#3b5360}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #f3cc8f;outline-offset:2px}
+input[type=search]{flex:2;min-width:180px}select{flex:1;min-width:140px}
+.record{border-bottom:1px solid #425562;padding:13px 3px}.record:last-child{border:0}.record h3{margin:0 0 5px;font-size:1.08rem}.record p{margin:6px 0}.muted{font-size:.83rem;color:#a6bbc7}
+.tag{display:inline-block;font-size:.73rem;border:1px solid #587382;border-radius:100px;padding:4px 9px;margin:3px 4px 4px 0}
+.emphasize{color:#f1dba8}#results{max-height:900px;overflow-y:auto}
+footer{color:#b8c8d1;font-size:.8rem;margin-top:28px}[hidden]{display:none!important}
+</style></head><body><main>
+<header><a href="../index.html">← ONE · The Last App</a><span class="eyebrow">NATHAN AI → TABOR ROOT → TABOR 1-2-3 FACTORY → ONE APP</span></header>
+<section class="hero"><div class="eyebrow">Original source record · Author-structured registry · Additive module</div>
+<h1>101 INVENTIONS, APPARATUSES & MANUSCRIPTS</h1>
+<p>Search the 52 specifically supplied titles and descriptions without rewriting them. Positions 53–101 remain available for their authentic source records. All descriptions are inventor-authored claims, not independent verification of manufacture, safety, patents or publication.</p>
+<div class="row"><span class="tag">1 + 1 = 2 · BUILD</span><span class="tag">1 − 1 = 0 · CLEAR</span><span class="tag">Original descriptions unchanged</span></div></section>
+<section class="grid" aria-label="Inventory counts"><div class="panel"><div class="stat" id="provided">52</div><small>Provided descriptions</small></div><div class="panel"><div class="stat" id="unfilled">49</div><small>Unfilled source positions</small></div><div class="panel"><div class="stat" id="manuscripts">13</div><small>Named book proposals</small></div><div class="panel"><div class="stat" id="categories">8</div><small>Source categories</small></div></section>
+<section class="panel"><h2>Find source records</h2><div class="row">
+<input id="search" type="search" placeholder="Search heater, Prowler, Book 12, cipher…" aria-label="Search entries">
+<select id="category" aria-label="Filter category"><option value="all">All categories</option></select>
+<label><input type="checkbox" id="missing"> Show positions 53–101</label>
+<button id="reset">Clear filters</button><button id="download">Export catalog JSON</button></div>
+<p class="muted" id="status" role="status"></p><div id="results"></div></section>
+<section class="grid"><div class="panel"><h2>Book 12 · Empires Built by Vampires</h2><p>The original supplied description remains unchanged. A separate newly authored chapter draft has been started, never passed off as an existing original manuscript.</p><a href="./book-12-assistant-draft.md">Read Book 12 working draft</a></div>
+<div class="panel"><h2>Source protection & safe engineering</h2><p>Keep high-heat appliances, high-voltage lighting, structural vehicle modifications, projectile games, and biological/wellness formulations at <strong>professional review required</strong> until testing and applicable approval. Descriptions are indexed, not instructions to build or ingest.</p><a href="./README.md">Provenance and module documentation</a></div></section>
+<section class="panel"><h2>Connect to the existing ONE system</h2><div class="row"><a href="../library/index.html">ONE Master Library</a><a href="../connected/index.html">ONE Connected System</a><a href="../humanity-archive/index.html">Humanity Archive</a><a href="../../nathan-ai/index.html">Nathan AI Main Hub</a></div></section>
+<footer>CREATE ONCE. TRANSFORM INTO EVERYTHING. PRESERVE THE ORIGINAL. · YES IS YES — NO IS NO.</footer>
+</main><script src="./registry.js"></script><script>
+(function(){
+'use strict';
+const registry=window.TaborInventions101,$=id=>document.getElementById(id);
+function add(tag,content,parent,cls){const e=document.createElement(tag);e.textContent=String(content);if(cls)e.className=cls;parent.append(e);return e}
+for(const category of registry.CATEGORIES){const option=document.createElement('option');option.value=category;option.textContent=category;$('category').append(option)}
+$('provided').textContent=registry.SUBMITTED_COUNT;
+$('unfilled').textContent=registry.OPEN_SLOTS;
+$('manuscripts').textContent=registry.BOOKS.length;
+$('categories').textContent=registry.CATEGORIES.length;
+function paint(){
+ const list=registry.search($('search').value,$('category').value,$('missing').checked),box=$('results');box.replaceChildren();
+ $('status').textContent=list.length+' matched positions · '+registry.SUBMITTED_COUNT+' supplied records · '+registry.OPEN_SLOTS+' unfilled source positions';
+ for(const item of list){const article=document.createElement('article');article.className='record';
+ add('h3',String(item.number).padStart(3,'0')+' · '+(item.title||'SOURCE POSITION NOT PROVIDED'),article);
+ add('small',item.id+' · '+item.category+' · '+item.status,article,'muted');
+ if(item.description)add('p',item.description,article);else add('p','Source not supplied. No invented name or blueprint.',article);
+ if(item.review==='professional-safety-review-required')add('small','Professional safety review required before implementation.',article,'emphasize');
+ box.append(article)}
+ if(!list.length)add('p','No matching source record. Nothing has been deleted or fabricated.',box);
+}
+$('search').addEventListener('input',paint);$('category').addEventListener('change',paint);$('missing').addEventListener('change',paint);
+$('reset').onclick=()=>{$('search').value='';$('category').value='all';$('missing').checked=false;paint()};
+$('download').onclick=()=>{const content=JSON.stringify({schema:registry.SCHEMA,source:'user-supplied descriptions',submittedCount:registry.SUBMITTED_COUNT,openPositions:registry.OPEN_SLOTS,records:registry.RECORDS},null,2);const u=URL.createObjectURL(new Blob([content],{type:'application/json'}));const a=document.createElement('a');a.href=u;a.download='NATHAN_AI_101_Inventory_Source_Registry.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1200)};
+paint();
+})();
+</script></body></html>
