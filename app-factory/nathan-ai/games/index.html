@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0d1823">
+<title>Nathan AI 🚀 · Games, Puzzles & Original Source Atlas</title>
+<link rel="icon" href="../../icon.svg">
+<style>
+:root{font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color-scheme:dark;background:#0c1420;color:#eff7fb}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top right,#07364e,transparent 58%),#0c1420}
+main{max-width:1180px;margin:auto;padding:18px 16px 70px}a{color:#a8edff}h1{font-size:clamp(2.2rem,6vw,4.6rem);line-height:1.06;margin:15px 0}h2{font-size:1.48rem;margin:0 0 9px}h3{font-size:1.08rem;margin:0 0 6px}p{color:#bfd0da}small{color:#bed1db}header,.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}header{justify-content:space-between}header a{text-decoration:none}.eyebrow{font-size:.76rem;font-weight:800;color:#85e8ff;letter-spacing:.14em;text-transform:uppercase}
+.hero,.panel{padding:clamp(18px,3vw,28px);border:1px solid #3e5d70;border-radius:18px;background:#172736;margin:17px 0}.hero{background:linear-gradient(130deg,#133c53,#1b2740 55%,#192532)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}.stat{padding:13px;background:#152d3e;border:1px solid #446278;border-radius:12px}.stat strong{display:block;font-size:1.8rem;color:#ffdb8f}
+input,select,button{font:inherit;background:#233748;color:#f0faff;border:1px solid #628094;border-radius:10px;padding:11px;max-width:100%}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #ffde8b;outline-offset:3px}
+input[type=search]{flex:2;min-width:175px}select{flex:1;min-width:170px}input[type=file]{width:100%;font-size:.9rem}
+button.primary,a.primary{display:inline-block;background:#ffe1a0;color:#10242e;font-weight:800;text-decoration:none}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:11px}.card{border:1px solid #416073;border-radius:13px;background:#1c3041;padding:16px;overflow-wrap:anywhere}.card p{font-size:.88rem;margin:4px 0 12px}.tag{font-size:.73rem;text-transform:uppercase;letter-spacing:.07em;color:#a9eaff;display:block;margin-bottom:9px}.stage{font-size:.8rem;color:#ffe1ac}.card a{font-size:.86rem;font-weight:700}.muted{font-size:.85rem}
+.notice{border-left:3px solid #ffdb8f;padding:10px 15px;background:#2f2b27;border-radius:6px}.source{border:1px solid #426073;padding:14px;border-radius:11px;margin:9px 0;background:#142635}.source button{padding:7px 10px;font-size:.85rem}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#0b1720;padding:17px;border:1px solid #324c5c;border-radius:9px;max-height:420px;overflow:auto;color:#eaf8ff;font-size:.83rem}
+footer{font-size:.84rem;margin:25px 0;color:#beced8}.empty{padding:20px;border:1px dashed #60798a;border-radius:10px}
+@media(max-width:610px){main{padding:12px 10px 60px}.stats{grid-template-columns:1fr 1fr 1fr}.stat strong{font-size:1.3rem}.cards{grid-template-columns:1fr}.hero,.panel{padding:17px}}
+</style>
+<script type="module" src="./atlas.mjs"></script>
+<script defer src="../../shared/one-universal-v061.js"></script>
+</head>
+<body><main>
+<header><a href="../index.html">← NATHAN AI MAIN HUB</a><nav aria-label="Related apps"><a href="../../one/index.html">ONE</a> · <a href="../../game-reference-lab/all-morning.html">376 References</a> · <a href="../../one/library/index.html">Private Library</a></nav></header>
+<section class="hero"><div class="eyebrow">NATHAN AI 🚀 · TABOR ROOT · TABOR 1–2–3 FACTORY</div><h1>Games, Puzzles & Original Source Atlas</h1><p>The Game of Games · 63-Chamber Spiral · 32 Enigmas · ONE Matrix · 101 Game Families · 909 Toy Program · Holiday Arenas · Words & Mirrors</p><p><strong>1+1=2 BUILD · 1−1=0 CLEAR.</strong> Original source text and new interpretations stay separate.</p>
+<div class="stats"><div class="stat"><strong id="public-count">—</strong><small>Public index titles</small></div><div class="stat"><strong id="owner-count">0</strong><small>Owner source documents</small></div><div class="stat"><strong id="derived-count">0</strong><small>Derived source entries</small></div></div>
+<p class="muted">An index entry may describe a concept, research reference, private prototype or browser demo. This page does not claim all are completed games.</p></section>
+<section class="panel" aria-labelledby="catalog-heading"><h2 id="catalog-heading">Explore the connected game catalog</h2><div class="row">
+<input id="search" type="search" placeholder="Search games, puzzles, ciphers, toys, or imported source…" aria-label="Search games, puzzles and original sources">
+<select id="category" aria-label="Filter by category"><option value="">All categories</option></select>
+<select id="stage" aria-label="Filter by development stage"><option value="">All stages</option></select>
+</div><p id="catalog-status" class="muted" role="status" aria-live="polite">Loading indexed titles…</p><div id="cards" class="cards"></div><div class="row" style="margin-top:15px"><button id="more" type="button" hidden>Show more</button></div></section>
+<section class="panel" aria-labelledby="owner-heading"><div class="eyebrow">Owner-controlled, browser-local · no cloud upload</div><h2 id="owner-heading">Import the original games & puzzles sources</h2>
+<p>Import the Nathan AI owner-source pack (JSON) or original TXT/MD files. The exact original source text is stored in this browser's IndexedDB and can be viewed or exported unchanged. Imported lines are separately indexed for search without changing their source.</p>
+<p class="notice">This website is public, but files you select here are NOT published to this repository or uploaded to a server. Browser-local storage is not encrypted or synced; others with access to this browser profile may read it. Keep a separate secure backup. Nothing is imported from ChatGPT automatically.</p>
+<label for="source-import">Choose owner source pack or text files</label><input id="source-import" type="file" accept=".json,.txt,.md,.csv,text/plain,application/json" multiple>
+<p id="import-status" class="muted" role="status" aria-live="polite">No owner sources imported in this browser.</p><div id="sources"></div>
+<div id="source-reader" hidden><div class="row"><h3 id="source-reader-title"></h3><button id="close-reader" type="button">Close source</button></div><pre id="source-text"></pre></div></section>
+<footer>Source-first. No automatic public disclosure of private originals; no invented completion claims. Existing games remain in their own modules under TABOR ROOT. <a href="./README.md">Implementation notes</a>.</footer>
+</main></body></html>
