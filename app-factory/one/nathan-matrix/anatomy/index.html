@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan AI 🚀 · Nervous System Wiring (W) | ONE</title>
+<meta name="description" content="An additive symbolic anatomy and signal-routing reference inside Nathan AI / ONE. No diagnoses or hardware control.">
+<style>
+:root{color-scheme:dark;--bg:#101923;--panel:#1b2a36;--line:#536573;--gold:#f1dba8;--soft:#d1dce4;font-family:system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:white}main{max-width:1040px;margin:auto;padding:18px 17px 70px}
+nav{display:flex;flex-wrap:wrap;gap:15px}a{color:var(--gold)}.eyebrow{letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:700;font-size:.75rem}
+h1{font-size:clamp(2rem,5vw,3.5rem);margin:14px 0}h2{font-size:1.35rem}p,li{color:var(--soft);line-height:1.6}
+.panel{border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:18px;margin:15px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.item{background:#263644;border:1px solid var(--line);border-radius:10px;padding:13px}small{color:var(--soft)}
+label{display:block;margin:12px 0 6px;font-weight:650}select,button{background:#29465a;color:white;border:1px solid #89aabb;border-radius:8px;font:inherit;padding:11px;width:100%}button{cursor:pointer;max-width:330px;margin-top:15px}
+button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--gold)}
+strong{color:white}.state{font-size:1.15rem;color:var(--gold);font-weight:750}
+code{color:var(--gold)}.visually-hidden{position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;overflow:hidden}
+</style></head><body><main>
+<nav><a href="../index.html">← Connected Matrix</a><a href="../../index.html">ONE home</a><a href="../../health/index.html">Health & Recovery</a><a href="../../../vault.html">Owner Vault</a></nav>
+<p class="eyebrow">Nathan AI → TABOR ROOT → TABOR 1-2-3 FACTORY → ONE APP</p>
+<h1>DEEP ARREST · W</h1>
+<p>Original creator-designated labels remain intact. The software below is an educational, symbolic routing model: it does not read nerve impulses, control organs, diagnose illness, or perform treatment. Original personal source material belongs in the private Owner Vault, not this public page.</p>
+<section class="grid" aria-label="Foundational invariants">
+<div class="item"><p class="eyebrow">BUILD</p><p class="state">1 + 1 = 2</p><small>Whole-integer arithmetic.</small></div>
+<div class="item"><p class="eyebrow">CLEAR</p><p class="state">1 − 1 = 0</p><small>Clear a derived demonstration state, never erase original evidence.</small></div>
+<div class="item"><p class="eyebrow">HEARING</p><p class="state">HKQ → ILT → JMW</p><small>Alphabetical midpoint; “I Listen To” is the author's interpretation.</small></div>
+</section>
+<section class="panel"><h2>Three anatomical phase registers</h2>
+<div class="grid"><div class="item"><strong>Phase 1 · A–G</strong><p>Critical Path Cranial Logic</p></div>
+<div class="item"><strong>Phase 2 · H–N</strong><p>Kinetic Flow Pressure Regulators</p></div>
+<div class="item"><strong>Phase 3 · O–Z</strong><p>Invariant Hardware Backbone</p></div></div>
+<div id="registers" class="grid" aria-label="Creator-defined register catalog"></div>
+<p><small>These are the ten labels supplied in the expansion plus W. Unspecified A–Z positions are intentionally not invented.</small></p></section>
+<section class="panel">
+<h2>W · Signal routing demonstration</h2>
+<p>Select an abstract category and severity. The engine describes a deliberate information-handling path and never sends a command to a body or external device.</p>
+<label for="type">Simulated signal</label><select id="type"><option value="sensory">Sensory</option><option value="pain">Pain</option><option value="speech">Speech</option><option value="motor">Motor</option><option value="cardiac">Cardiac</option><option value="proprioception">Proprioception</option></select>
+<label for="severity">Simulated severity</label><select id="severity"><option value="info">Information</option><option value="warning">Warning</option><option value="urgent">Urgent</option></select>
+<button id="route">Run W simulation</button>
+<div id="result" role="status" aria-live="polite" class="item" style="margin-top:15px"><p>Select the inputs to see the modeled route.</p></div>
+<p><small>Physical warning signals should not be overridden by code, positive thinking, or forceful popping of the neck, joints or Adam's apple. Serious new symptoms require qualified real-world assessment.</small></p>
+</section>
+<section class="panel"><h2>Original-source and implementation boundaries</h2>
+<p>Author language is preserved in the conversation/source archive. This public module intentionally excludes measurements, medical history, photos, vein patterns and names. The simulation does not upload, save, transmit or read health data. Existing private ONE Health & Recovery remains the appropriate user-controlled source store.</p>
+<p><strong>Status:</strong> implemented software demonstrator on a review branch; not a biomedical device, deployed medical service or verified physiological technique.</p>
+</section>
+</main><script src="./wiring.js"></script><script>
+(function(){"use strict";
+const w=window.NathanNervousWiring;
+const list=document.getElementById("registers");
+w.REGISTERS.forEach(r=>{
+ const article=document.createElement("article");article.className="item";
+ const title=document.createElement("h3");title.textContent=r.code+" · "+r.name;
+ const desc=document.createElement("p");desc.textContent=r.domain;
+ const tag=document.createElement("small");tag.textContent=r.kind;
+ article.append(title,desc,tag);list.append(article);
+});
+document.getElementById("route").addEventListener("click",()=>{
+ const type=document.getElementById("type").value,severity=document.getElementById("severity").value;
+ const result=document.getElementById("result");result.replaceChildren();
+ try {
+ const x=w.processSignal({type,severity});
+ const h=document.createElement("h3");h.textContent=x.route;
+ const p=document.createElement("p");p.textContent=x.guidance;
+ result.append(h,p);
+ x.phases.forEach(step=>{const node=document.createElement("p");const strong=document.createElement("strong");strong.textContent=step.name+": ";node.append(strong,document.createTextNode(step.step));result.append(node)});
+ const note=document.createElement("small");note.textContent="No physical action performed. No data stored. No diagnosis.";result.append(note);
+ }catch(error){const p=document.createElement("p");p.textContent="Invalid demo input: "+error.message;result.append(p);}
+});
+})();
+</script></body></html>
