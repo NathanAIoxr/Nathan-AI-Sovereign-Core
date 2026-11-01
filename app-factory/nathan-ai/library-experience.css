@@ -1,0 +1,47 @@
+
+/* Additive Nathan AI Main Database / Books / Book Apps skin.
+   Does not change original authorship, private storage, or previously shipped modules. */
+:root{--n-ai-cyan:#00d8ff;--n-ai-blue:#2f80ff;--n-ai-violet:#a78bfa;--n-ai-gold:#f5c84c;--n-ai-panel:#101d29;--n-ai-line:#345163}
+body{background:radial-gradient(ellipse 95% 28% at 75% -12%,#063d57 0%,transparent 78%),radial-gradient(ellipse 75% 34% at 0% 38%,#17204a 0%,transparent 75%),#0a0e16;color:#f1f7ff}
+header{border-color:#2c4659}
+.brand{color:#e9f9ff;font-size:1.16rem}.brand span{color:var(--n-ai-cyan)}
+nav a{color:#c1d6e8}nav a:hover,nav a:focus-visible{color:var(--n-ai-cyan)}
+.hero{padding:clamp(45px,8vw,96px) 20px 75px;border-bottom:1px solid #2e465b;background:radial-gradient(ellipse at 91% 66%,#003b5e70,transparent 58%);position:relative}
+.hero:after{content:"";position:absolute;right:3%;bottom:0;width:min(29vw,340px);height:min(14vw,160px);pointer-events:none;opacity:.33;border-radius:100% 100% 0 0;border:1px solid #00d8ff;background:repeating-radial-gradient(ellipse at 50% 100%,transparent 0 16px,#00d8ff3a 17px 18px);box-shadow:0 0 40px #00d8ff23}
+.hero h1{max-width:850px}
+.eyebrow,.card span{color:var(--n-ai-cyan)}
+.primary{background:linear-gradient(135deg,#fce080,#e5aa30);border-color:#ffdb70}
+.primary:hover{filter:brightness(1.08)}
+.button{border-color:#38bdf8;color:#d8f9ff}
+.card{background:linear-gradient(160deg,#132b3a,#111b29);border-color:#345269}.card:hover{border-color:var(--n-ai-cyan)}
+.source-links{background:#101f2b;border-left-color:var(--n-ai-gold)}
+.library-experience{scroll-margin-top:12px;padding:48px 0 38px;border-top:1px solid #2c4152}
+.library-experience .section-heading{max-width:900px}.library-experience h2{font-size:clamp(2rem,5vw,3.2rem);margin:8px 0 10px;color:#f1faff}.library-experience p{line-height:1.58}
+.library-experience-grid,.book-app-grid,.books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:15px;margin:25px 0}
+.library-experience-card,.book-app-card,.books-entry{display:block;border-radius:17px;border:1px solid #3b586b;background:linear-gradient(155deg,#142b3b,#101724 84%);padding:21px;min-width:0;overflow-wrap:anywhere;transition:border-color .15s,transform .15s}
+.library-experience-card:hover,.book-app-card:hover,.books-entry:hover{border-color:var(--n-ai-cyan);transform:translateY(-2px)}
+.library-experience-card h3,.book-app-card h3,.books-entry h3{font-size:1.12rem;line-height:1.3;color:#f1f8ff;margin:10px 0}
+.library-experience-card p,.book-app-card p,.books-entry p{font-size:.91rem}
+.library-experience-card strong,.book-app-card strong{color:var(--n-ai-gold);font-size:.86rem}
+.card-kicker,.book-app-card>span,.books-entry>span{display:block;color:var(--n-ai-cyan);font-size:.72rem;letter-spacing:.12em;font-weight:760}
+.book-app-card.violet{border-top:3px solid #8b5cf6}.book-app-card.cyan{border-top:3px solid #00d8ff}.book-app-card.gold{border-top:3px solid #f5c84c}.book-app-card.blue{border-top:3px solid #2f80ff}
+.experience-boundary,.books-note{border-left:3px solid var(--n-ai-gold);background:#1b2533;padding:15px 19px;border-radius:6px;color:#cad8e2;font-size:.9rem}
+.experience-boundary strong{color:#f7dc99}.books-note a{color:#f4da89;text-decoration:underline}
+.books-toolbar{display:grid;gap:14px;margin:22px 0}
+.books-toolbar label{margin:0;color:#e3eef7}
+.books-filter{display:flex;flex-wrap:wrap;gap:8px}
+.books-filter button,.books-more,#books-close,.books-entry button{cursor:pointer;font:inherit;border-radius:10px;border:1px solid #3b6078;background:#192b3b;color:#e9f3fa;padding:10px 14px}
+.books-filter button[aria-pressed=true]{color:#061824;background:var(--n-ai-cyan);border-color:var(--n-ai-cyan);font-weight:750}
+#books-query{margin:0;background:#111f2a;border-color:#4b7289}
+.books-status{min-height:1.5rem;font-size:.9rem;color:#accddf}
+.books-entry{display:flex;flex-direction:column;gap:8px;justify-content:space-between}
+.books-entry p{margin:0}.books-entry small{display:block;color:#a6bed0}
+.books-entry button{width:100%;text-align:left;margin-top:9px;border-color:#4b95b3}
+.books-more{margin-top:4px;color:#101d23;background:var(--n-ai-gold);font-weight:760}
+.books-reader{border:1px solid var(--n-ai-cyan);background:#101e2d;box-shadow:0 5px 35px #00d8ff1b;border-radius:16px;padding:clamp(13px,3vw,25px);margin:20px 0}
+.reader-title{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}.reader-title h3{font-size:1.45rem;margin:6px 0}
+.books-reader pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7;max-height:62vh;overflow:auto;padding:14px;background:#080f19;border-radius:10px;font-family:inherit;font-size:.96rem}
+.books-reader a{color:var(--n-ai-gold);text-decoration:underline}
+.library-experience button:focus-visible,.library-experience a:focus-visible,#books-query:focus-visible{outline:3px solid var(--n-ai-gold);outline-offset:3px}
+@media(max-width:610px){.hero:after{opacity:.15}.library-experience{padding:30px 0}.library-experience-grid,.book-app-grid,.books-grid{grid-template-columns:1fr}.books-filter button{flex:1;font-size:.82rem}.library-experience-card,.book-app-card,.books-entry{padding:18px}}
+@media(prefers-reduced-motion:reduce){.library-experience-card,.book-app-card,.books-entry{transition:none}.library-experience-card:hover,.book-app-card:hover,.books-entry:hover{transform:none}}
