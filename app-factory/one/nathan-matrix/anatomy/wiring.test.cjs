@@ -15,10 +15,11 @@ test("Above/below alphabet midpoint stays exact",()=>{
   assert.deepEqual(w.middleHearing(),{above:"HKQ",middle:"ILT",below:"JMW",interpretation:"I LISTEN TO (author-defined)"});
 });
 test("Nonclinical, nonactuating three-stage routing",()=>{
-  const r=w.processSignal({type:"speech",severity:"info",note:"demonstration"});
+  const privateNote="OWNER_PRIVATE_TEST_TOKEN";
+  const r=w.processSignal({type:"speech",severity:"info",note:privateNote});
   assert.equal(r.route,"OBSERVE"); assert.equal(r.phases.length,3);
   assert.equal(r.actionExecuted,false); assert.equal(r.diagnosticConclusion,null);
-  assert.equal(r.contextStored,false); assert.ok(!JSON.stringify(r).includes("demonstration\"}"));
+  assert.equal(r.contextStored,false); assert.ok(!JSON.stringify(r).includes(privateNote));
 });
 test("Urgent state is never silently purged or bypassed",()=>{
   for(const type of w.SIGNALS) assert.equal(w.processSignal({type,severity:"urgent"}).route,"PAUSE");
