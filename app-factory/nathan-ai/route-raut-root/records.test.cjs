@@ -16,7 +16,7 @@ test('additive registry is complete, unique and source-attributed',()=>{
  assert.equal(r.searchRecords('PĒS','original').length,2);
  assert.ok(r.searchRecords('babel','connections').length>0);
 });
-test('author's literal strings and orthography remain intact',()=>{
+test("author's literal strings and orthography remain intact",()=>{
  const by=Object.fromEntries(r.ORIGINAL_EXCERPTS.map(x=>[x.id,x.original]));
  assert.equal(by.Q02,'route it and root it and Raut it in binary code');
  assert.equal(by.Q03,'piece and peace - both come from the root word /pēs/');
