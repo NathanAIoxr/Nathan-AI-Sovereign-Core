@@ -93,3 +93,12 @@ Verification for this documentation update: checked existing repository source a
 - Connected the new doorway from the Nathan AI Main Hub, searchable hub directory, ONE landing page and Connected Matrix without replacing their prior modules.
 - Owner can manually load the earlier private recovery JSON in a local browser session: 598 matching filename records and 556 distinct filenames reported by the external private index. The public site does **not** include those source records, file IDs, original manuscript bytes, private links, personal documents or images.
 - Tests: `node --test app-factory/nathan-ai/children-innocence/engine.test.cjs`; CI workflow updated to run these tests. CI result and GitHub Pages deployment must be checked separately. No autonomous child safety, fundraising or manuscript completion is claimed.
+
+## November 2, 2026 — Original Architecture 63 (additive, brand-neutral)
+
+- **Merged:** PR #55, squash commit `b59ea882adf4619814a3e0b6f14bfd5273d7ba9e`.
+- **Source-safe scope:** Three independently preserved groups of 21 newly authored functional design references: **Play & Create (21), Build & Connect (21), Think & Solve (21)**. These new records use original, generic titles and descriptions; no external brand identifiers, copyrighted source text, trademark images, third-party code, or owner-private uploaded source files are included in the new public module.
+- **Files:** `app-factory/nathan-ai/architecture-63/{registry.json,index.html,architecture.mjs,architecture.test.mjs,README.md}`. Browser portal supports search, category/layer filters, curated links to existing Nathan AI modules and export of derived original design briefs.
+- **Connected:** Nathan AI Main Hub, searchable hub directory, ONE landing page, Games & Puzzles Atlas, existing reference library and Connected Matrix. Existing original games, third-party reference archives, manuscripts, private vaults, language systems and other app modules remain unchanged.
+- **Validation:** All 18 distinct cross-module page routes confirmed in repo; 63 unique records, 21 per group. Factory quality checks run `41472039665` **passed**, including `node --test app-factory/nathan-ai/architecture-63/architecture.test.mjs`.
+- **State:** Public browser *design registry and navigation* merged into main. No assertion of 63 functional game engines, 21 installed server/device subsystems, physical silicon, iOS App Store publication, paid services or independent device QA. GitHub Pages deployment not separately verified.
