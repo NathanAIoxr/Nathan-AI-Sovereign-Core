@@ -33,3 +33,9 @@ Additive ONE browser reference module. Owner original source, private code, and 
 - The recovered ROOT, RAUT, ROUTE, PĒS, R-vowel/CK mirrors and binary-model source index has an interactive browser in [`../../nathan-ai/route-raut-root/`](../../nathan-ai/route-raut-root/README.md).
 - Exact selected quotes stay separate from linguistic research; owner originals remain in private source archives. Existing modules are unchanged.
 - Test: `node --test app-factory/nathan-ai/route-raut-root/records.test.cjs`.
+
+## November 1, 2026 — Matrix / Dimensions / Grids recovery layer
+
+- [Explore 45 tripolar indices, 135 states, 625 Five Matrices coordinates, 13 Polar Axes, six Game of Life body layers, 33 private trial positions and 30 independent recovered families](dimensions-grids/index.html).
+- The exact private Trial Matrix author source remains owner-controlled. It is not embedded in public GitHub; manually selecting the original JSON enables browser-local stage detail display.
+- Data engine, independent tests and privacy notes: [dimensions-grids/README.md](dimensions-grids/README.md). All existing modules remain separate and untouched.
