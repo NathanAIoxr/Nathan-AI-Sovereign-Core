@@ -1,0 +1,167 @@
+{
+  "schema": "nathan-ai.sovereign-life-map.v1",
+  "identity": "A person's life is a connected layer, not a replacement for the 21 original coin definitions",
+  "source_statement_exact": "these coins are connected to a persons life as well",
+  "source_provenance": "User addition in current conversation, 2026-11-02",
+  "prior_named_concepts": [
+    "SIN/SEN linked to sovereignty, autonomy, memory and ancestry",
+    "DOG Seal",
+    "Spiral Grid",
+    "Nine-Layer Gate",
+    "rights and resources",
+    "justice and restoration",
+    "personal work and creative ownership"
+  ],
+  "editorial_status": "Proposed life-category bridges inferred from original coin descriptions; not a verbatim 21-to-21 mapping authored by the user",
+  "privacy": "No names, birthdates, body data, account details, wallet addresses, login credentials, financial amounts, or private relationship records are included",
+  "consent": "No person is profiled without an authorized user-selected source and scope",
+  "linkages": [
+    {
+      "number": 1,
+      "ticker": "SIN",
+      "life_domain": "Autonomy, rights, personal rules",
+      "question": "How are consent, rights and personal governance recorded?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 2,
+      "ticker": "SEN",
+      "life_domain": "Time, effort and human energy",
+      "question": "What work, care or activity is associated with this life event?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 3,
+      "ticker": "SOV",
+      "life_domain": "Stewardship and resources",
+      "question": "What resources or exchanges matter to the person?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 4,
+      "ticker": "MNK",
+      "life_domain": "Individual identity and continuity",
+      "question": "What makes this an individual's own record rather than a generic event?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 5,
+      "ticker": "BTM",
+      "life_domain": "Accountability and truthful records",
+      "question": "What source supports the event, decision or outcome?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 6,
+      "ticker": "ASR",
+      "life_domain": "Comprehension and concise records",
+      "question": "How is information made legible without erasing the original?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 7,
+      "ticker": "OXR",
+      "life_domain": "Origins, home and roots",
+      "question": "What family, place or origin does the person choose to document?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 8,
+      "ticker": "ALP",
+      "life_domain": "Work, computing and learning",
+      "question": "Which tools or skills helped the person create or learn?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 9,
+      "ticker": "QBC",
+      "life_domain": "Community and shared decisions",
+      "question": "What was decided, and whose consent was obtained?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 10,
+      "ticker": "ZPH",
+      "life_domain": "Privacy and personal boundaries",
+      "question": "Which records should stay private or inaccessible?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 11,
+      "ticker": "KRN",
+      "life_domain": "Home, place and belonging",
+      "question": "Which places or lived environments matter to the person?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 12,
+      "ticker": "ALX",
+      "life_domain": "History, ancestry and legacy",
+      "question": "Which personal histories are preserved and sourced?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 13,
+      "ticker": "SMW",
+      "life_domain": "Reflection, perspective and balance",
+      "question": "What two perspectives need to be recorded without conflation?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 14,
+      "ticker": "CLV",
+      "life_domain": "Growth, wellbeing and resilience",
+      "question": "Which support and growth milestones are important?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 15,
+      "ticker": "D0G",
+      "life_domain": "Community, service and mutual aid",
+      "question": "Who is helped and how is consent respected?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 16,
+      "ticker": "GLY",
+      "life_domain": "Language, words and expression",
+      "question": "How does the person preserve their own words or translations?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 17,
+      "ticker": "OMN",
+      "life_domain": "Creative reinvention and new beginnings",
+      "question": "What creation or life transition is being documented?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 18,
+      "ticker": "JNT",
+      "life_domain": "Authorship, ownership and personal sovereignty",
+      "question": "Which original works, choices or intellectual property does the person claim?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 19,
+      "ticker": "LVC",
+      "life_domain": "Physical work and material activity",
+      "question": "What real-world production or craftsmanship is represented?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 20,
+      "ticker": "SMC",
+      "life_domain": "Innovation, practical making and improvement",
+      "question": "Which tested inventions or improvements are linked?",
+      "category_status": "editorial_link_not_independently_verified"
+    },
+    {
+      "number": 21,
+      "ticker": "LFB",
+      "life_domain": "Land, food, nature and resources",
+      "question": "Which agricultural, ecological or material resources matter?",
+      "category_status": "editorial_link_not_independently_verified"
+    }
+  ]
+}
