@@ -1,0 +1,4 @@
+"use strict";const {test}=require("node:test");const a=require("node:assert/strict");const i=require("./install.js");const hash="b".repeat(64);
+const pack={schema:"one.library.private-pack.v1",privacy:"OWNER ONLY",publication_permission:"NOT GRANTED",records:[{key:"EX007:EX007-0001",title:"007",shelf:"201",description:"original"},{key:"SCRIPTURE:REF001",title:"Torah",shelf:"301"}]};
+test("source-first add-only plan matches existing ONE IDs and preserves originals",()=>{const p=i.plan(pack,hash,"original.json");a.equal(p.records.length,2);a.equal(p.records[0].id,hash+":source:EX007:EX007-0001");a.equal(p.records[0].shelf,"201");a.deepEqual(p.records[0].original,pack.records[0]);a.equal(p.records[1].shelf,"301")});
+test("private publication constraints and duplicate IDs",()=>{a.throws(()=>i.plan({...pack,privacy:"PUBLIC"},hash,"x"));a.throws(()=>i.plan({...pack,records:[pack.records[0],pack.records[0]]},hash,"x"));a.throws(()=>i.plan(pack,"bad","x"))});
