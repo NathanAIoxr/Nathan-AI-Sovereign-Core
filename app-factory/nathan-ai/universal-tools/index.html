@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111d27">
+<title>Universal Tools · The 13-Unit Geography & Geometry Atlas · Nathan AI</title>
+<link rel="icon" href="../../icon.svg">
+<style>
+:root{font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color-scheme:dark;background:#0c1721;color:#f8f3e7;--line:#5c625d;--gold:#e8c481;--cyan:#b8d5dd;--panel:#192936;--muted:#b9ccd2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 72% 0%,#263f4a 0,transparent 42%),#0c1721}main{max-width:1190px;padding:18px 17px 80px;margin:auto}
+a{color:#f1d79b}p{margin:6px 0 12px;color:var(--muted)}h1{font-size:clamp(2.35rem,7vw,5.15rem);letter-spacing:-.055em;line-height:1;margin:8px 0 20px}h2{font-size:clamp(1.4rem,4vw,2rem);line-height:1.18;margin:0 0 12px}h3{margin:0 0 7px}small,.meta{color:var(--muted)}header,.between,.row{display:flex;flex-wrap:wrap;align-items:center;gap:12px}.between{justify-content:space-between}header{justify-content:space-between;font-size:.9rem}header a{text-decoration:none}
+.hero,.panel{border:1px solid #53677a;border-radius:20px;padding:clamp(16px,3vw,30px);margin:17px 0;background:var(--panel)}.hero{background:linear-gradient(135deg,#273b40,#1a2a39 58%,#2e302f)}.eyebrow{color:var(--gold);letter-spacing:.14em;font-size:.73rem;font-weight:900;text-transform:uppercase}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:17px 0}.metric{border:1px solid #6a6557;border-radius:12px;padding:12px;background:#122531}.metric strong{font-size:clamp(1.35rem,3vw,2.1rem);color:var(--gold);display:block}.metric span{font-size:.77rem;color:var(--muted)}
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:13px 0}input,select,button{font:inherit;background:#223846;color:#fff1ce;border:1px solid #72868c;padding:10px 12px;border-radius:9px;max-width:100%}
+input[type=search]{min-width:205px;flex:2}select{flex:1;min-width:175px}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.72}button:hover:not(:disabled),.artifact-card:hover,.case-slot:hover{border-color:var(--gold)}button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #ffdf92;outline-offset:2px}
+.primary{background:var(--gold);color:#18252e;font-weight:850;border-color:#ffe3a9;text-decoration:none;display:inline-block;padding:11px 15px;border-radius:10px}
+.two{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(260px,.82fr);gap:17px}.case{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(4,1fr);gap:5px;width:100%;aspect-ratio:1;background:#0c1821;border:7px solid #a6834b;border-radius:15px;padding:8px;box-shadow:inset 0 0 0 2px #f9dfa8}
+.case-slot{min-width:0;padding:4px;border:1px solid #8b7049;border-radius:6px;background:linear-gradient(135deg,#24414e,#172934);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:3px;overflow-wrap:anywhere;color:#f2e9d1}
+.case-slot[aria-pressed=true]{outline:3px solid var(--gold);background:#375060}.center-slot{background:radial-gradient(ellipse at 50% 20%,#55543f,#283e4a 70%);border:2px solid #e1bd73}
+.slot-number{font-size:.74rem;color:var(--gold);font-weight:800}.slot-name{font-size:clamp(.54rem,1.6vw,.9rem);font-weight:800;line-height:1.13}.slot-shape{font-size:clamp(.48rem,1.3vw,.71rem);color:var(--cyan)}
+.detail{padding:17px;border:1px solid #596f72;border-radius:13px;background:#10212d;min-height:200px}.detail strong{color:var(--gold)}
+.detail .evidence{display:block;color:#f8e4b8;font-size:.89rem;padding:10px 0}.detail .evidence[data-code=O]{color:#e5c6ed}.detail .evidence[data-code=P]{color:#fbc4a1}.detail .evidence[data-code=H]{color:#b4e6c7}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}.artifact-card{display:flex;flex-direction:column;gap:8px;align-items:stretch;text-align:left;padding:14px;background:#182f3c;border:1px solid #4b6570;border-radius:13px;color:#fff4dc}.artifact-card strong{font-size:1rem;line-height:1.3}.artifact-card .evidence{font-size:.75rem;color:#c9b9db}.artifact-card.selected{border-color:var(--gold)}.micro{font-size:.7rem;letter-spacing:.07em;color:var(--gold);font-weight:700}.notice{border-left:4px solid #d9b569;background:#2d302d;padding:12px;border-radius:6px;color:#f0e3ca}
+.question{font-size:1.08rem;color:#fff2d4;font-weight:700;min-height:70px}.answers{display:grid;grid-template-columns:1fr;gap:7px}.answer{text-align:left;white-space:normal}.answer.right{background:#235643;color:#fff}.answer.wrong{background:#6a3f3f;color:#fff}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:335px;aspect-ratio:1}.board-cell{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;background:#263f4b;border:1px solid #c8a36a;aspect-ratio:1}.board-cell:disabled{opacity:1}.split{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.empty{padding:20px;border:1px dashed #69808b}.note{font-size:.86rem;color:#bed0d0}footer{font-size:.81rem;color:#b8c3c5;margin-top:30px}
+@media(max-width:780px){.two,.split{grid-template-columns:1fr}.slot-name{font-size:clamp(.53rem,2vw,.82rem)}.slot-shape{font-size:clamp(.48rem,1.6vw,.67rem)}}@media(max-width:470px){main{padding:12px 10px 55px}.hero,.panel{padding:14px}.metrics{gap:5px}.case{gap:3px;padding:5px}.case-slot{padding:2px}.slot-name{font-size:clamp(.47rem,2.45vw,.73rem)}.slot-shape{font-size:.54rem}}
+</style>
+<script type="module" src="./app.mjs"></script><script defer src="../../shared/one-universal-v061.js"></script>
+</head>
+<body><main>
+<header><a href="../index.html">← NATHAN AI HUB</a><nav><a href="../games/index.html">Games Atlas</a> · <a href="../../one/index.html">ONE</a> · <a href="../../game-reference-lab/index.html">Reference Lab</a></nav></header>
+<section class="hero">
+ <div class="eyebrow">NATHAN AI 🚀 · TABOR ROOT · GAMES & APPS · ORIGINAL COLLECTION</div>
+ <h1>THE UNIVERSAL<br>13</h1>
+ <p>One world atlas of human-made tools: geography, geometry, materials, cultural meanings and historical evidence. Explore the original eight collector families and play two abstract learning games.</p>
+ <div class="metrics">
+  <div class="metric"><strong id="collection-count">8</strong><span>Collector box families</span></div>
+  <div class="metric"><strong id="artifact-count">104</strong><span>Catalog positions</span></div>
+  <div class="metric"><strong>13</strong><span>Positions in every box</span></div>
+ </div>
+ <p><strong>1+1=2 BUILD · 1−1=0 CLEAR.</strong> Twelve perimeter objects surround one central thirteenth position. Some positions are original collector concepts, not museum-confirmed weapons.</p>
+ <p><a href="#case-heading" class="primary">Explore the 13-slot cases</a> <a href="#play-heading" class="primary">Play geometry games</a></p>
+</section>
+<section class="panel" aria-labelledby="case-heading">
+ <div class="eyebrow">Case design · 12 + 1 center</div><h2 id="case-heading">Eight case sets</h2>
+ <label for="set-picker">Choose the collector box</label><div class="controls"><select id="set-picker"></select></div>
+ <div class="two">
+  <div><h3 id="set-title"></h3><p id="set-description"></p><div id="case" class="case" aria-label="Thirteen numbered collector display positions"></div><p class="note">Conceptual display layout only; drawings are not templates for functional or sharpened weapons.</p></div>
+  <div><h3>Selected item</h3><article class="detail"><h3 id="detail-title"></h3><p id="detail-meta"></p><strong>Historical evidence classification</strong><span id="detail-status" class="evidence"></span><p id="detail-role"></p><p id="detail-guide"></p></article>
+  <p class="note" id="source-note"></p><p class="note">Sets 5–7 use a shared modern comparative centerpiece, Fire-Drill Bow & Inertial Flywheel. Their earlier centerpiece titles remain visible on each item record.</p></div>
+ </div>
+</section>
+<section id="play-heading" class="panel" aria-labelledby="game-heading">
+ <div class="eyebrow">Browser-playable educational games · simulated tokens only</div><h2 id="game-heading">Geometry Games</h2>
+ <div class="split">
+  <div><h3>World Atlas Challenge</h3><p>Identify the collection, geometry, or evidence status from one catalog entry. No real objects or projectiles required.</p>
+  <label for="quiz-mode">Question type</label><select id="quiz-mode">
+   <option value="geometry">Identify the geometry family</option><option value="geography">Identify the region grouping</option><option value="evidence">Historical evidence or original design?</option>
+  </select><p class="question" id="question" aria-live="polite"></p><div class="answers" id="answers"></div>
+  <div class="controls"><button class="primary" id="next-question" type="button">Next challenge</button><strong id="quiz-score">0 / 0</strong></div><p id="game-feedback" role="status" aria-live="polite"></p></div>
+  <div><h3>Star & Diamond · Three in a Row</h3><p>Abstract strategy using two geometry tokens. Be first to complete a straight line of three. No throwing or combat actions.</p><div id="strategy-board" class="board" role="group" aria-label="Three by three strategy board"></div><p id="board-message" role="status" aria-live="polite"></p><button id="reset-board" type="button">Restart strategy board</button></div>
+ </div>
+</section>
+<section class="panel" aria-labelledby="catalog-heading">
+ <div class="eyebrow">Geographic and geometric source catalog</div><h2 id="catalog-heading">Search all 104 collection positions</h2>
+ <div class="controls"><input id="search" type="search" placeholder="Hairpin, kpinga, Japan, circle, lever..." aria-label="Search universal tools">
+ <select id="catalog-filter" aria-label="Filter by collector box"><option value="">All eight sets</option></select>
+ <select id="status-filter" aria-label="Filter by historical evidence"><option value="">All evidence statuses</option></select>
+ <button id="search-reset" type="button">Clear filters</button></div>
+ <p id="result-count" role="status" aria-live="polite"></p><div id="cards" class="cards"></div>
+</section>
+<section class="panel"><h2>Historical boundary and publication standard</h2><p>Names and collection concepts come from the author's current inventory. These objects span different eras and civilizations; parallel geometry does not prove they were independently invented in every location. Antarctica is included as a modern scientific analogy, not an ancient Indigenous civilization.</p><p class="notice">This is a digital exhibit and abstract game. No operational weapon-making plans, launch parameters, sharpening specifications, or real-world targeting instructions are supplied. Museum-style foam and card models are display-only.</p><p>Authorial names are cataloged separately from verified museum object types, and no source text from private archives has been published.</p></section>
+<footer>NATHAN AI → TABOR ROOT → TABOR 1–2–3 FACTORY → ONE. Educational prototype · 2026-11-02. <a href="./README.md">Technical and source notes</a>.</footer>
+</main></body></html>
