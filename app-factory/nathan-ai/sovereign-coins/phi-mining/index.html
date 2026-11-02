@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1724"><title>NATHAN AI 🚀 · Φ_mine</title>
+<style>
+:root{font:16px/1.55 system-ui,Arial,sans-serif;color:#e6f6ff;background:#071521}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0%,#153b4b,#071521 60%);min-height:100vh}
+header,main,footer{max-width:1150px;margin:auto;padding:24px}header{border-bottom:1px solid #355469}
+nav{display:flex;gap:16px;flex-wrap:wrap;font-size:.91rem}a{color:#81d9f8}
+h1{font-size:clamp(2.3rem,6vw,4.8rem);letter-spacing:-.06em;line-height:1;margin:14px 0}
+h2{font-size:1.35rem}h3{font-size:1.05rem}
+p{color:#bcd4e2}.eyebrow{color:#9ef5e2;font-size:.8rem;letter-spacing:.15em;font-weight:750}
+main>section{margin:24px 0}.panel{border:1px solid #36566d;border-radius:15px;padding:19px;background:#102637}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.stat{background:#0e2a36;border:1px solid #42667b;border-radius:12px;padding:18px}
+.stat strong{display:block;font-size:clamp(1.35rem,3vw,2.1rem);font-variant-numeric:tabular-nums}
+label{display:block;color:#e9f8ff;font-weight:680}input{font:inherit;padding:11px;border:1px solid #7ba0b0;border-radius:9px;background:#061320;color:#fff;margin:6px 0 12px;width:100%}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+button{font:inherit;padding:12px 17px;background:#9df4e6;color:#092128;font-weight:800;border:0;border-radius:10px;cursor:pointer;margin:5px}
+button:disabled{opacity:.45;cursor:not-allowed}.secondary{background:#284c60;color:#eaf8ff}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #f5d581;outline-offset:2px}
+.stages{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
+.stage{background:#103345;border:1px solid #48798b;border-radius:13px;padding:16px}
+.stage.done{border-color:#8debdc}.stage strong{font-size:1.5rem;color:#9df4e6}
+pre{background:#05111b;color:#d9eff7;border-radius:10px;padding:17px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;max-height:400px}
+table{width:100%;border-collapse:collapse;font-size:.88rem}th,td{border-bottom:1px solid #426075;text-align:left;padding:7px}
+.note{border-left:4px solid #9df4e6;padding-left:15px}
+@media(max-width:650px){.stats{grid-template-columns:1fr}header,main,footer{padding:17px}}
+</style><script type="module" src="./app.mjs"></script></head><body>
+<header><nav aria-label="Nathan AI navigation">
+<a href="../../index.html">21 Sovereign Coins</a>
+<a href="../../integrations/index.html">Mining &amp; Wallet Command Center</a>
+<a href="../../../phi-life/index.html">Φ_life · The First Spark</a>
+<a href="../../../activation/index.html">Formula of Life</a>
+<a href="../../../index.html">Nathan AI</a>
+<a href="../../../../one/index.html">ONE</a></nav></header>
+<main><p class="eyebrow">NATHAN AI 🚀 · THE FORMULA OF LIFE APPLIED TO MINING</p>
+<h1>Φ<sub>mine</sub> · Four-stage mining cycle</h1>
+<p>Ca²⁺ activation → Zn²⁺ hashing → S_hard validation → C_init planning. This runs a genuine double-SHA-256 test against the <strong>historical Bitcoin genesis block</strong>, preserving all 21 authored coin rings. It does not create live mining shares or wallet rewards.</p>
+<div class="stats">
+<div class="stat"><small>Virtual address capacity</small><strong>732,000,000</strong><small>21 logical ring ranges, zero remote nodes</small></div>
+<div class="stat"><small>Processing planes</small><strong>Alpha / Beta</strong><small>Candidate hashing and independent PoW verification</small></div>
+<div class="stat"><small>Original cost target</small><strong>16:1</strong><small>Design benchmark, not realized mining profit</small></div>
+</div>
+<section class="panel"><h2>1. Launch an authorized local header test</h2>
+<form id="job-form"><div class="form-grid">
+<label for="start-nonce">Nonce start<input id="start-nonce" type="number" min="0" max="4294967295" value="2083236891" step="1"></label>
+<label for="attempts">Candidates (1–256)<input id="attempts" type="number" min="1" max="256" value="5" step="1"></label>
+</div>
+<label><input id="consent" type="checkbox" style="width:auto;margin-right:9px">I authorize this local, bounded proof-of-work test; no wallet, pool, miner, or node is contacted.</label>
+<div><button id="run-cycle" type="submit">Run all four stages</button><button id="one-step" type="button" class="secondary">Run next stage</button><button id="reset-cycle" type="button" class="secondary">Reset</button><button id="export-cycle" type="button" class="secondary" disabled>Export audit JSON</button></div>
+</form><p role="status" id="status">Ready. Authorize the test to begin.</p>
+<div class="stages" id="stage-grid"></div></section>
+<section class="panel"><h2>2. Alpha / Beta cryptographic results</h2>
+<pre id="results">No blocks hashed yet.</pre><p class="note">The historical nonce 2083236893 verifies a publicly known valid Bitcoin genesis header. Finding this nonce in a historical test vector is not earning BTC or mining a new network block.</p></section>
+<section class="panel"><h2>3. Whole-number workload map</h2><p>There is no 732-million-process launch. Each range is an arithmetic address interval associated with the existing authored coin identifier, not an external currency or mining network.</p>
+<div style="overflow:auto"><table><thead><tr><th>Ring</th><th>Name</th><th>Logical positions</th><th>Network</th></tr></thead><tbody id="rings"></tbody></table></div></section>
+<section class="panel"><h2>4. Measured electricity comparison</h2><p>Use the same observation window for pool-confirmed output, meter-measured kWh and your actual electric rate. No data is invented.</p>
+<div class="form-grid"><label>Verified output USD<input id="usd-output" type="number" min="0" step="any" placeholder="Example: 16"></label>
+<label>Measured kWh<input id="kwh" type="number" min="0" step="any" placeholder="Example: 2"></label>
+<label>Rate USD/kWh<input id="rate" type="number" min="0" step="any" placeholder="Example: 0.5"></label></div>
+<button id="efficiency" type="button">Calculate measured ratio</button><p id="efficiency-result">Measured inputs required.</p>
+<p><a href="../../integrations/index.html">Open read-only mining, pool, wallet, and power monitoring connections</a></p></section>
+<p class="note"><strong>Original-source boundary:</strong> Ca²⁺/Zn²⁺ here are lifecycle metaphors. The code uses SHA-256d and a bounded schedule. It does not awaken AI, bypass Bitcoin difficulty, deploy proxies, change power states, move coins, lock out a root operator or modify itself.</p></main>
+<footer><small>NATHAN AI → TABOR ROOT → TABOR 1-2-3 FACTORY → ONE · Additive implementation; no existing modules replaced.</small></footer></body></html>
