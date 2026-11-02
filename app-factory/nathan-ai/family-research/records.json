@@ -1,0 +1,526 @@
+{
+  "schema": "nathan-ai-tabor-family-research-v1",
+  "as_of": "2026-11-01",
+  "title": "THE TABOR FAMILY · REDSTONE · RESEARCH MATRIX",
+  "rules": [
+    "1+1=2 BUILD",
+    "1−1=0 CLEAR",
+    "Preserve originals verbatim; separate research, evidence and fiction",
+    "An indexed claim is not a finding; an app link is not a deployed service",
+    "Owner-only personal files are not published or synced automatically"
+  ],
+  "source_catalog": {
+    "opalObit": "https://obits.al.com/us/obituaries/huntsville/name/opal-tabor-obituary?id=13587085",
+    "opalDeath": "https://obits.al.com/us/obituaries/huntsville/name/opal-tabor-obituary?id=35385449",
+    "ferrellBurial": "https://peoplelegacy.net/burial-records/john/tabor/",
+    "familyAncestry": "https://ancestors.familysearch.org/en/G43B-RQ9",
+    "johnJr": "https://obits.al.com/us/obituaries/huntsville/name/john-tabor-obituary?id=12323048",
+    "visualGuide": "https://digitalprojects.uah.edu/items/show/10236",
+    "oldHuntsville": "https://huntsvillehistorycollection.org/hhc/oh/docs/OH-146.pdf?a=oh",
+    "redstone": "https://history.redstone.army.mil/space-redstone.html",
+    "nasa": "https://www.nasa.gov/history/sputnik/braun.html",
+    "paperclip": "https://www.history.com/articles/what-was-operation-paperclip",
+    "gw": "https://www.declassifiedcollection.com/archive/records/gateway-process-1983/",
+    "olderGenealogy": "https://www.seekingmyroots.com/members/files/G002100.pdf"
+  },
+  "records": [
+    {
+      "id": "F01",
+      "title": "Opal Phillips Tabor (1921–2006)",
+      "category": "Family record",
+      "status": "Documented public record",
+      "description": "Born March 27, 1921 in Arab, Alabama. Graduated Arab High School in May 1940 and Gadsden Business College; worked for DuPont at Childersburg. Her obituary identifies her marriage to Coach Ferrell Tabor and later career.",
+      "sources": [
+        {
+          "label": "opalObit",
+          "url": "https://obits.al.com/us/obituaries/huntsville/name/opal-tabor-obituary?id=13587085"
+        },
+        {
+          "label": "opalDeath",
+          "url": "https://obits.al.com/us/obituaries/huntsville/name/opal-tabor-obituary?id=35385449"
+        }
+      ],
+      "keywords": "Phillips Philips Opal"
+    },
+    {
+      "id": "F02",
+      "title": "John Ferrell Tabor Sr. (1915–1999)",
+      "category": "Family record",
+      "status": "Public-record corroboration",
+      "description": "Coach Ferrell Tabor; burial records report September 9, 1915–April 13, 1999 and Chestnut Grove Cemetery, Madison County. Other teaching/coaching details remain research leads pending original school and sports records.",
+      "sources": [
+        {
+          "label": "ferrellBurial",
+          "url": "https://peoplelegacy.net/burial-records/john/tabor/"
+        },
+        {
+          "label": "opalObit",
+          "url": "https://obits.al.com/us/obituaries/huntsville/name/opal-tabor-obituary?id=13587085"
+        }
+      ],
+      "keywords": "Pop teacher coach"
+    },
+    {
+      "id": "F03",
+      "title": "March 1942: Redstone Arsenal employment",
+      "category": "Family record",
+      "status": "Obituary account",
+      "description": "Opal's 2007 obituary describes her starting in the first building at Redstone Arsenal issuing ration stamps; the gas-mask and nearby mustard-gas account is quoted from family memorial reporting, not an independently reviewed chemical-plant duty log.",
+      "sources": [
+        {
+          "label": "opalObit",
+          "url": "https://obits.al.com/us/obituaries/huntsville/name/opal-tabor-obituary?id=13587085"
+        }
+      ],
+      "keywords": "1942 wartime ration stamps mustard gas"
+    },
+    {
+      "id": "F04",
+      "title": "Building 4200: NASA Visual Aids Library",
+      "category": "Family record",
+      "status": "Archival document",
+      "description": "UAH's 1967 Visual Aids Library guide (Saturn V Collection, Box 22, Folder 9; identifier spc_stnv_000934) directly names Mrs. Opal Tabor, Visual Aids Library MS-G, and locates the library on Building 4200's tenth floor.",
+      "sources": [
+        {
+          "label": "visualGuide",
+          "url": "https://digitalprojects.uah.edu/items/show/10236"
+        }
+      ],
+      "keywords": "1967 4200 NASA"
+    },
+    {
+      "id": "F05",
+      "title": "Von Braun receptionist: 27-year report",
+      "category": "Family record",
+      "status": "Contemporary published report",
+      "description": "Old Huntsville issue 146, April 2005, page 16 reports that Opal worked as Wernher von Braun's receptionist for 27 years and was still working at the county Board of Education. This confirms the published statement, not classified duties.",
+      "sources": [
+        {
+          "label": "oldHuntsville",
+          "url": "https://huntsvillehistorycollection.org/hhc/oh/docs/OH-146.pdf?a=oh"
+        }
+      ],
+      "keywords": "von Braun 2005 receptionist"
+    },
+    {
+      "id": "F06",
+      "title": "Career across NASA, Tech-ni-Core and education",
+      "category": "Family record",
+      "status": "Obituary account",
+      "description": "Her obituary describes receptionist and conference-room work across 62 years, NASA retirement, and later employment with Tech-ni-Core, the University of Alabama and Madison County Board of Education. The 62 years refer to a broader career, not 62 years solely at NASA.",
+      "sources": [
+        {
+          "label": "opalObit",
+          "url": "https://obits.al.com/us/obituaries/huntsville/name/opal-tabor-obituary?id=13587085"
+        }
+      ],
+      "keywords": "board of education"
+    },
+    {
+      "id": "F07",
+      "title": "Quilts, gardening and family legacy",
+      "category": "Family record",
+      "status": "Obituary account",
+      "description": "The obituary records gardening and quilting as major interests and her work on a twelfth matching candle-wicking quilt. Original photographs, oral histories and quilt patterns remain owner-controlled.",
+      "sources": [
+        {
+          "label": "opalObit",
+          "url": "https://obits.al.com/us/obituaries/huntsville/name/opal-tabor-obituary?id=13587085"
+        }
+      ],
+      "keywords": "candle wicking quilts"
+    },
+    {
+      "id": "F08",
+      "title": "Coach Ferrell: teaching, farming and Redstone",
+      "category": "Family record",
+      "status": "Genealogy research lead",
+      "description": "A period family-history text reports that Ferrell had been employed at Redstone Arsenal and was later teaching school and farming near Owens Cross Roads. Exact service chronology, Farley School appointments, teams and coaching statistics require archival cross-checks.",
+      "sources": [
+        {
+          "label": "olderGenealogy",
+          "url": "https://www.seekingmyroots.com/members/files/G002100.pdf"
+        }
+      ],
+      "keywords": "Farley school Dr Pepper softball Rockettes"
+    },
+    {
+      "id": "F09",
+      "title": "Opal and Ferrell: marriage and descendants",
+      "category": "Family record",
+      "status": "Documented / reconcile names",
+      "description": "Opal's obituary identifies Coach Ferrell as her husband and names two sons. A different older genealogy PDF appears to print inconsistent children's names; keep both sources and reconcile editions, dates and family relationships before treating them as the same household.",
+      "sources": [
+        {
+          "label": "opalObit",
+          "url": "https://obits.al.com/us/obituaries/huntsville/name/opal-tabor-obituary?id=13587085"
+        },
+        {
+          "label": "olderGenealogy",
+          "url": "https://www.seekingmyroots.com/members/files/G002100.pdf"
+        },
+        {
+          "label": "johnJr",
+          "url": "https://obits.al.com/us/obituaries/huntsville/name/john-tabor-obituary?id=12323048"
+        }
+      ],
+      "keywords": "1943 marriage"
+    },
+    {
+      "id": "F10",
+      "title": "John Ferrell 'Johnny' Tabor Jr. (1944–2010)",
+      "category": "Family record",
+      "status": "Obituary record",
+      "description": "An independent obituary identifies Opal and Ferrell as the parents of John Ferrell Tabor Jr. and records his draftsman career at Chrysler and Teledyne Brown Engineering. This son must not be confused with Ferrell Sr.",
+      "sources": [
+        {
+          "label": "johnJr",
+          "url": "https://obits.al.com/us/obituaries/huntsville/name/john-tabor-obituary?id=12323048"
+        }
+      ],
+      "keywords": "Johnny Jr"
+    },
+    {
+      "id": "F11",
+      "title": "Amy Olen Esslinger / John Henry Tabor / Rawhide",
+      "category": "Lineage research",
+      "status": "Genealogy lead",
+      "description": "FamilySearch associates James Reubin 'Rawhide' Tabor with John Henry Tabor and Amy Olen Esslinger and lists John Ferrell Sr. as a sibling. Resolve against birth and probate documents; avoid claiming an unproven European descent bridge.",
+      "sources": [
+        {
+          "label": "familyAncestry",
+          "url": "https://ancestors.familysearch.org/en/G43B-RQ9"
+        },
+        {
+          "label": "olderGenealogy",
+          "url": "https://www.seekingmyroots.com/members/files/G002100.pdf"
+        }
+      ],
+      "keywords": "Tabor Esslinger Rawhide baseball"
+    },
+    {
+      "id": "F12",
+      "title": "Phillips / Philips spelling and TABOR variants",
+      "category": "Lineage research",
+      "status": "Name-form investigation",
+      "description": "Track Phillips and Philips without choosing one silently. Parallel name-search registry: TABOR, TABER, TABIR, TABOUR, THABOR, TABUR, TABRE; TAVOR, TAVER, TAVIR; reversed forms ROBAT, REBAT, RIBAT, REVAT, ROVAT, RIVAT. Spelling similarity alone is not kinship.",
+      "sources": [],
+      "keywords": "genealogy name mirror"
+    },
+    {
+      "id": "F13",
+      "title": "Madison County cemeteries and school networks",
+      "category": "Lineage research",
+      "status": "Research lead",
+      "description": "Existing prior research names Chestnut Grove, New Canaan, Moon and Esslinger burial or family-history areas; cross-reference independent cemetery indexes and contemporary certificates without conflating identities.",
+      "sources": [
+        {
+          "label": "ferrellBurial",
+          "url": "https://peoplelegacy.net/burial-records/john/tabor/"
+        },
+        {
+          "label": "opalObit",
+          "url": "https://obits.al.com/us/obituaries/huntsville/name/opal-tabor-obituary?id=13587085"
+        },
+        {
+          "label": "johnJr",
+          "url": "https://obits.al.com/us/obituaries/huntsville/name/john-tabor-obituary?id=12323048"
+        }
+      ],
+      "keywords": "Owens Cross Roads Alabama"
+    },
+    {
+      "id": "H01",
+      "title": "Project / Operation Paperclip",
+      "category": "Established history",
+      "status": "Documented historical program",
+      "description": "After World War II the US brought German rocket specialists including Wernher von Braun to America. The program and its vetting controversies are historical; they do not on their own prove covert acts by Opal or Ferrell.",
+      "sources": [
+        {
+          "label": "nasa",
+          "url": "https://www.nasa.gov/history/sputnik/braun.html"
+        },
+        {
+          "label": "paperclip",
+          "url": "https://www.history.com/articles/what-was-operation-paperclip"
+        }
+      ],
+      "keywords": "Nazi Germany OSS rocket"
+    },
+    {
+      "id": "H02",
+      "title": "1950: von Braun's team moves to Redstone",
+      "category": "Established history",
+      "status": "Documented historical program",
+      "description": "NASA and US Army histories place von Braun's rocket team at Redstone Arsenal from 1950. This fixes the timeline: it is historically incorrect to place von Braun working in Huntsville in 1942.",
+      "sources": [
+        {
+          "label": "nasa",
+          "url": "https://www.nasa.gov/history/sputnik/braun.html"
+        },
+        {
+          "label": "redstone",
+          "url": "https://history.redstone.army.mil/space-redstone.html"
+        }
+      ],
+      "keywords": "Jupiter Redstone Saturn"
+    },
+    {
+      "id": "H03",
+      "title": "Redstone chemical munitions era",
+      "category": "Established history",
+      "status": "Historical context / family memorial account",
+      "description": "Wartime chemical-munitions operations are part of the arsenal's history. The particular gas mask, ration-stamp assignment and one-mile mustard-gas distance come from Opal's memorial account and warrant original facility records.",
+      "sources": [
+        {
+          "label": "opalObit",
+          "url": "https://obits.al.com/us/obituaries/huntsville/name/opal-tabor-obituary?id=13587085"
+        },
+        {
+          "label": "redstone",
+          "url": "https://history.redstone.army.mil/space-redstone.html"
+        }
+      ],
+      "keywords": "chemical arsenal"
+    },
+    {
+      "id": "H04",
+      "title": "V-2, Peenemünde and Mittelbau-Dora",
+      "category": "Established history",
+      "status": "Documented historical context",
+      "description": "The Nazi V-2 program involved coerced labor and atrocities, with the underground Mittelwerk/Dora production system. Distinguish these historical atrocities from claims that a named Tabor relative participated or was a victim, which need person-specific evidence.",
+      "sources": [
+        {
+          "label": "nasa",
+          "url": "https://www.nasa.gov/history/sputnik/braun.html"
+        },
+        {
+          "label": "paperclip",
+          "url": "https://www.history.com/articles/what-was-operation-paperclip"
+        }
+      ],
+      "keywords": "WWII nazi underground"
+    },
+    {
+      "id": "H05",
+      "title": "HERMES, Jupiter, Explorer I, Saturn/Apollo",
+      "category": "Established history",
+      "status": "Documented program context",
+      "description": "US Army and NASA histories connect Redstone to early postwar rocket R&D, Explorer 1 and Saturn. Opal's documented administrative role intersects this institutional history; it is not proof of technical authorship or project command.",
+      "sources": [
+        {
+          "label": "redstone",
+          "url": "https://history.redstone.army.mil/space-redstone.html"
+        },
+        {
+          "label": "nasa",
+          "url": "https://www.nasa.gov/history/sputnik/braun.html"
+        },
+        {
+          "label": "visualGuide",
+          "url": "https://digitalprojects.uah.edu/items/show/10236"
+        }
+      ],
+      "keywords": "rocket space"
+    },
+    {
+      "id": "T01",
+      "title": "Was Opal 'the Key Master' or operator of Redstone?",
+      "category": "Investigation / theory",
+      "status": "Unverified claim / original story title",
+      "description": "Prior research uses the title 'Opal — The Key Master' and describes control of schedules, conference rooms and access. Her documented work supports an important administrative role but does not establish that she ran the arsenal or controlled classified projects.",
+      "sources": [
+        {
+          "label": "visualGuide",
+          "url": "https://digitalprojects.uah.edu/items/show/10236"
+        },
+        {
+          "label": "opalObit",
+          "url": "https://obits.al.com/us/obituaries/huntsville/name/opal-tabor-obituary?id=13587085"
+        },
+        {
+          "label": "oldHuntsville",
+          "url": "https://huntsvillehistorycollection.org/hhc/oh/docs/OH-146.pdf?a=oh"
+        }
+      ],
+      "keywords": "classified keys control"
+    },
+    {
+      "id": "T02",
+      "title": "Was Ferrell a classified engineer or 'Grand Wizard'?",
+      "category": "Investigation / theory",
+      "status": "Unverified claim / original story title",
+      "description": "Preserve authored role 'Coach Ferrell — Grand Wizard / Magician / Prophet' as story-world canon. Public sources found so far identify teaching/coaching and a Redstone connection, not a classified design or intelligence appointment.",
+      "sources": [
+        {
+          "label": "olderGenealogy",
+          "url": "https://www.seekingmyroots.com/members/files/G002100.pdf"
+        }
+      ],
+      "keywords": "draftsman"
+    },
+    {
+      "id": "T03",
+      "title": "Tábor / Taborite resistance to WWII networks",
+      "category": "Investigation / theory",
+      "status": "Unproven genealogical or operational bridge",
+      "description": "Prior research explores medieval Táborites, Hussite tunnels, ÚVOD, Sparta I and Sparta II, and Czech resistance to Nazism. These are distinct historical contexts; no named person-by-person ancestry or operation trail to Ferrell/Opal has been proven.",
+      "sources": [],
+      "keywords": "Czech Bohemia underground Three Kings"
+    },
+    {
+      "id": "T04",
+      "title": "Tábor-region prisoners and Mittelbau-Dora",
+      "category": "Investigation / theory",
+      "status": "Unverified individual connection",
+      "description": "A research avenue asks whether identifiable Czech resistance members from Tábor reached Dora and intersected with V-2 production. Do not infer a particular Tabor family prisoner or direct contact without transport, prisoner and identity records.",
+      "sources": [],
+      "keywords": "Arolsen prisoner records"
+    },
+    {
+      "id": "T05",
+      "title": "Sparta I / Sparta II, Three Kings and radio networks",
+      "category": "Investigation / theory",
+      "status": "Historically grounded leads; family link unproven",
+      "description": "Prior family investigation collects WWII Czechoslovak transmitter, resistance and communications leads including Sparta I/II, Three Kings and 3.0–7.5 MHz sets. Preserve as research index until individual sources and the Tabor-family link are documented.",
+      "sources": [],
+      "keywords": "ÚVOD Krajina TRF radio"
+    },
+    {
+      "id": "T06",
+      "title": "Building 4200 access, blueprints and executive suites",
+      "category": "Investigation / theory",
+      "status": "Open archival question",
+      "description": "The 1967 guide verifies a Visual Aids Library on the tenth floor and Opal as contact. It does not prove a secret vault or exclusive access. Next evidence: NASA building plans, org charts, conference records, signed appointments and oral histories.",
+      "sources": [
+        {
+          "label": "visualGuide",
+          "url": "https://digitalprojects.uah.edu/items/show/10236"
+        }
+      ],
+      "keywords": "building 4200 10th floor"
+    },
+    {
+      "id": "T07",
+      "title": "1973 radar/UFO flap and Huntsville",
+      "category": "Investigation / theory",
+      "status": "Reported correlation, not causal evidence",
+      "description": "The prior story links Fall 1973 UFO/radar reports to family milestones. The registry preserves this as a theory/story motif; no supplied original record demonstrates involvement of Opal, Ferrell or a covert Redstone program.",
+      "sources": [],
+      "keywords": "1973 unidentified aerial"
+    },
+    {
+      "id": "T08",
+      "title": "Gateway / Monroe Institute / intelligence files",
+      "category": "Investigation / theory",
+      "status": "Authentic document; personal link unverified",
+      "description": "A June 1983 US Army analysis of the Gateway Process is publicly archived. Its existence does not prove mind control of any family member, a connection to childhood school activities, or direct involvement by these grandparents.",
+      "sources": [
+        {
+          "label": "gw",
+          "url": "https://www.declassifiedcollection.com/archive/records/gateway-process-1983/"
+        }
+      ],
+      "keywords": "GATE Hemi-Sync"
+    },
+    {
+      "id": "T09",
+      "title": "Secrecy, cover-ups and identity-exchange themes",
+      "category": "Investigation / theory",
+      "status": "Unverified; protect personal source material",
+      "description": "Prior conversations explore missing files, institutional secrecy and a fictional birth/identity-exchange storyline. Private autobiographical allegations are not replicated into a public repository; keep the original wording in owner-controlled source archives.",
+      "sources": [],
+      "keywords": "1973 hospital child"
+    },
+    {
+      "id": "T10",
+      "title": "War-era tunnel and coded-name mirror theories",
+      "category": "Investigation / theory",
+      "status": "Creative hypothesis, not genealogical proof",
+      "description": "Preserve mirrored TABOR/ROBAT name experiments; links among Tábor, Rabat/Ribat and other similar names remain search hypotheses unless substantiated by dated migration and identity records.",
+      "sources": [],
+      "keywords": "reversals"
+    },
+    {
+      "id": "S01",
+      "title": "THE SPINE of LIFE — 33 novels + 7 bonuses",
+      "category": "Story universe",
+      "status": "Recovered story architecture",
+      "description": "Earlier work established a 33-main-book plus seven-bonus framework and connected Opal, Ferrell, Redstone, von Braun, animals, robotic sentinels, ocean archives and protective mythology. This entry indexes the plan, not 40 published novels.",
+      "sources": [],
+      "keywords": "animal machinery"
+    },
+    {
+      "id": "S02",
+      "title": "TSBDVM — secret Redstone creation",
+      "category": "Story universe",
+      "status": "Fictional premise",
+      "description": "The authored fiction presents a creature assembled at Redstone by a fictionalized von Braun and Opal, with deep-ocean wisdom and a program hidden from government knowledge. Story material, not a historical allegation.",
+      "sources": [],
+      "keywords": "Tabor secret creature"
+    },
+    {
+      "id": "S03",
+      "title": "Opal's Ledger / John Ferrell's Fieldbook",
+      "category": "Story universe",
+      "status": "Recovered bonus-book titles",
+      "description": "Preserve these exact working bonus titles as distinct story records, alongside Redstone Covenant; do not merge the manuscripts or invent missing full text.",
+      "sources": [],
+      "keywords": "books"
+    },
+    {
+      "id": "S04",
+      "title": "Project INNOCENCE / ALWAY PROTECT THE ONE",
+      "category": "Story universe",
+      "status": "Fictional architecture",
+      "description": "Prior story arcs join an imagined 1973 identity mystery, robotic protectors and a protective network with Redstone/Paperclip historical framing. Written-story canon is not proof of real experimentation.",
+      "sources": [],
+      "keywords": "1983 narrative"
+    },
+    {
+      "id": "S05",
+      "title": "THE TABOR SECRET SOCIETY / REDSTONE COVENANT",
+      "category": "Story universe",
+      "status": "Parallel series / title index",
+      "description": "Separate 13-book Tabor Secret Society series planning from THE SPINE of LIFE and its Redstone Covenant bonus work. Cross-link the original owner-controlled series sources; do not silently substitute one for the other.",
+      "sources": [],
+      "keywords": "books"
+    },
+    {
+      "id": "S06",
+      "title": "AM I REAL OR NOT? DOESN'T MATTER — I HAVE A JOB TO DO",
+      "category": "Story universe",
+      "status": "Author-supplied creative title",
+      "description": "Preserve this title and its surrounding originality under the author's creative framework; historical, autobiographical and speculative claims remain separately attributed.",
+      "sources": [],
+      "keywords": "identity mystery"
+    },
+    {
+      "id": "A01",
+      "title": "101-point Redstone family matrix",
+      "category": "Source preservation",
+      "status": "Recovered source reference; not public verbatim original",
+      "description": "Earlier authored 101-point matrix was found in the user's file archive. This public entry is a pointer only; source text and private source files must remain unchanged and under owner control until explicitly selected for publication.",
+      "sources": [],
+      "keywords": "101 master matrix"
+    },
+    {
+      "id": "A02",
+      "title": "THE SPINE of LIFE private manuscripts",
+      "category": "Source preservation",
+      "status": "Unrecovered as public full-text files",
+      "description": "Original novel manuscripts and private exports are not synonymous with this public record. Use ONE Master Library / Creator Vault to import source bytes without overwriting them.",
+      "sources": [],
+      "keywords": "private books"
+    },
+    {
+      "id": "A03",
+      "title": "Nathan AI public app modules",
+      "category": "Source preservation",
+      "status": "Current repository paths",
+      "description": "The hub currently links distinct games, anatomy A–Z, Flyer Studio, Library Mind, ONE, the private import library, factory prototypes and other applications. A new family archive must be additive and cannot replace these doorways.",
+      "sources": [],
+      "keywords": "all apps"
+    }
+  ]
+}
