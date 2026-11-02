@@ -45,7 +45,7 @@ test("hit busts; cannot stand after bust or double after hit",()=>{
  assert.throws(()=>g.stand(end),/not accepting/);
 });
 test("double down takes exactly one card and awards double practice points",()=>{
- const s=g.startRound(shoe(c("9"),c("10","♥"),c("8"),c("6"),c("10")));
+ const s=g.startRound(shoe(c("5"),c("10","♥"),c("6"),c("6"),c("10"),c("9")));
  const end=g.doubleDown(s);
  assert.equal(end.multiplier,2);assert.equal(end.player.length,3);
  assert.equal(end.result,"win");assert.equal(end.stats.points,2);
