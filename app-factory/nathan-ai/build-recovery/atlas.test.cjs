@@ -13,8 +13,8 @@ const one=fs.readFileSync(path.join(root,'app-factory/one/index.html'),'utf8');
 
 test('source snapshot is complete, and each original HTML file still exists',()=>{
   assert.equal(data.schema,'nathan-ai.build-recovery.v1');
-  assert.equal(data.interfaces.length,74);
-  assert.equal(new Set(data.interfaces.map(x=>x.path)).size,74);
+  assert.equal(data.interfaces.length,76);
+  assert.equal(new Set(data.interfaces.map(x=>x.path)).size,76);
   for(const entry of data.interfaces){
     assert.match(entry.path,/\.html$/);
     assert.ok(fs.existsSync(path.join(root,entry.path)),entry.path);
