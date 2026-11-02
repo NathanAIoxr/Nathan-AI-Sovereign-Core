@@ -51,3 +51,32 @@ test('integration links to atlas from Nathan AI and ONE without replacing them',
   assert.ok(fs.existsSync(path.join(root,'app-factory/nathan-ai/games/index.html')));
   assert.ok(fs.existsSync(path.join(root,'app-factory/one/library-mind/index.html')));
 });
+
+
+test('live public GitHub tree read-only indexing with origin-preserving source reader',()=>{
+  assert.match(html,/id="repo-file-count"/);
+  assert.match(html,/id="repo-status"/);
+  assert.match(html,/id="export-source-manifest"/);
+  assert.match(html,/id="owner-folder"/);
+  assert.match(html,/webkitdirectory/);
+  assert.match(html,/vault\.html/);
+  assert.match(script,/git\/trees\/main\?recursive=1/);
+  assert.match(script,/loadPublicRepositoryTree/);
+  assert.match(script,/source_url:'https:\/\/github\.com\/NathanAIoxr/);
+  assert.match(script,/pre\.textContent=code/);
+  assert.doesNotMatch(script,/\.innerHTML\s*=/);
+  assert.doesNotMatch(script,/\beval\s*\(/);
+});
+
+test('metadata-only integration, API variable inventory and patch history remain separate from secrets',()=>{
+  for (const expected of [
+    'AIRTABLE_TOKEN','ONE_CATALOG_READ_TOKEN','ONE_SYNC_TOKEN','NATHAN_GATEWAY_TOKEN',
+    'ALCHEMY_API_KEY','BITCOIN_RPC_PASSWORD','BRAIINS_TOKEN','GRAFANA_TOKEN',
+    'OPENAI_API_KEY','OPENROUTER_API_KEY','PR #'
+  ]) assert.ok(script.includes(expected),expected);
+  assert.match(script,/values NOT imported/);
+  assert.match(script,/original_bytes_included:false/);
+  assert.match(script,/selected\.length>20000/);
+  assert.match(script,/GitHub public source/);
+  assert.doesNotMatch(script,/\bsk-[A-Za-z0-9]{20,}\b/);
+});
