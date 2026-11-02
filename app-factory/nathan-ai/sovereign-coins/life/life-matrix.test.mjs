@@ -24,7 +24,7 @@ test('all original sovereign ring names remain matched 21-to-21',()=>{
 });
 test('personal notes are session-only, never uploaded or collected automatically',()=>{
   assert.match(ui,/const drafts=new Map/);
-  assert.doesNotMatch(ui,/\\blocalStorage\\.|\\bsessionStorage\\.|sendBeacon\\s*\\(|XMLHttpRequest\\s*\\(/);
+  for(const api of ['localStorage.','sessionStorage.','sendBeacon(','XMLHttpRequest('])assert.ok(!ui.includes(api),'Personal data must not be persisted or sent via '+api);
   assert.doesNotMatch(ui,/innerHTML\s*=/);
   assert.doesNotMatch(ui,/fetch\(['"]https?:/);
   assert.match(ui,/credentials_not_requested:true/);
