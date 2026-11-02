@@ -2,7 +2,7 @@
   "schema": "nathan-ai.build-recovery.v1",
   "title": "NATHAN AI 🚀 — All Interfaces & Build Recovery",
   "as_of": "2026-11-01",
-  "source_commit": "0072235e861e9446276e8cba41e518f651cb4d78",
+  "source_commit": "be4f12313f45895bc2b82cb7acaa2a4322b87a48",
   "source_note": "Source tree fingerprint, not a Git commit. Interface pages are source paths; not device/browser end-to-end checks.",
   "system_tree": "NATHAN AI → TABOR ROOT → TABOR 1-2-3 FACTORY → ONE / separate products",
   "rules": [
@@ -13,7 +13,7 @@
     "Public metadata only; private original-source uploads require owner selection and remain local to the current tab."
   ],
   "counts": {
-    "html_source_pages": 74,
+    "html_source_pages": 76,
     "game_index_entries": 73,
     "recovered_reference_names": 92,
     "owner_archive_anchors": 14,
@@ -246,6 +246,15 @@
     },
     {
       "id": "WEB-025",
+      "name": "nathan · ai · innocence · matrix",
+      "category": "Nathan AI modules",
+      "path": "app-factory/nathan-ai/innocence-matrix/index.html",
+      "status": "browser source",
+      "href": "../../nathan-ai/innocence-matrix/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/innocence-matrix/index.html"
+    },
+    {
+      "id": "WEB-026",
       "name": "nathan · ai · mind · neuropath",
       "category": "Nathan AI modules",
       "path": "app-factory/nathan-ai/mind-neuropath/index.html",
@@ -254,7 +263,16 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/mind-neuropath/index.html"
     },
     {
-      "id": "WEB-026",
+      "id": "WEB-027",
+      "name": "nathan · ai · route · raut · root",
+      "category": "Nathan AI modules",
+      "path": "app-factory/nathan-ai/route-raut-root/index.html",
+      "status": "browser source",
+      "href": "../../nathan-ai/route-raut-root/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/route-raut-root/index.html"
+    },
+    {
+      "id": "WEB-028",
       "name": "octopus · root",
       "category": "Octopus ROOT",
       "path": "app-factory/octopus-root/index.html",
@@ -263,7 +281,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/index.html"
     },
     {
-      "id": "WEB-027",
+      "id": "WEB-029",
       "name": "octopus · root · octopus · arsenal",
       "category": "Octopus ROOT",
       "path": "app-factory/octopus-root/octopus-arsenal/index.html",
@@ -272,7 +290,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/octopus-arsenal/index.html"
     },
     {
-      "id": "WEB-028",
+      "id": "WEB-030",
       "name": "octopus · root · sovereign · bubble",
       "category": "Octopus ROOT",
       "path": "app-factory/octopus-root/sovereign-bubble/index.html",
@@ -281,7 +299,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/sovereign-bubble/index.html"
     },
     {
-      "id": "WEB-029",
+      "id": "WEB-031",
       "name": "octopus · root · sovereign · continuum",
       "category": "Octopus ROOT",
       "path": "app-factory/octopus-root/sovereign-continuum/index.html",
@@ -290,7 +308,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/sovereign-continuum/index.html"
     },
     {
-      "id": "WEB-030",
+      "id": "WEB-032",
       "name": "octopus · root · sovereign · fields",
       "category": "Octopus ROOT",
       "path": "app-factory/octopus-root/sovereign-fields/index.html",
@@ -299,7 +317,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/sovereign-fields/index.html"
     },
     {
-      "id": "WEB-031",
+      "id": "WEB-033",
       "name": "octopus · root · sovereign · nexus",
       "category": "Octopus ROOT",
       "path": "app-factory/octopus-root/sovereign-nexus/index.html",
@@ -308,7 +326,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/sovereign-nexus/index.html"
     },
     {
-      "id": "WEB-032",
+      "id": "WEB-034",
       "name": "octopus · root · uct",
       "category": "Octopus ROOT",
       "path": "app-factory/octopus-root/uct/index.html",
@@ -317,7 +335,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/uct/index.html"
     },
     {
-      "id": "WEB-033",
+      "id": "WEB-035",
       "name": "octopus · root · uct · triple · code",
       "category": "Octopus ROOT",
       "path": "app-factory/octopus-root/uct/triple-code/index.html",
@@ -326,7 +344,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/uct/triple-code/index.html"
     },
     {
-      "id": "WEB-034",
+      "id": "WEB-036",
       "name": "one · accountability",
       "category": "ONE applications",
       "path": "app-factory/one/accountability/index.html",
@@ -335,7 +353,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/accountability/index.html"
     },
     {
-      "id": "WEB-035",
+      "id": "WEB-037",
       "name": "one · assocchio",
       "category": "ONE applications",
       "path": "app-factory/one/assocchio/index.html",
@@ -344,7 +362,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/assocchio/index.html"
     },
     {
-      "id": "WEB-036",
+      "id": "WEB-038",
       "name": "one · connected",
       "category": "ONE applications",
       "path": "app-factory/one/connected/index.html",
@@ -353,7 +371,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/connected/index.html"
     },
     {
-      "id": "WEB-037",
+      "id": "WEB-039",
       "name": "one · health",
       "category": "ONE applications",
       "path": "app-factory/one/health/index.html",
@@ -362,7 +380,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/health/index.html"
     },
     {
-      "id": "WEB-038",
+      "id": "WEB-040",
       "name": "one · hey · you · total · eclipse · explorer · 03 original explorer",
       "category": "ONE applications",
       "path": "app-factory/one/hey-you-total-eclipse/explorer/03_original_explorer.html",
@@ -371,7 +389,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/hey-you-total-eclipse/explorer/03_original_explorer.html"
     },
     {
-      "id": "WEB-039",
+      "id": "WEB-041",
       "name": "one · hey · you · total · eclipse · explorer",
       "category": "ONE applications",
       "path": "app-factory/one/hey-you-total-eclipse/explorer/index.html",
@@ -380,7 +398,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/hey-you-total-eclipse/explorer/index.html"
     },
     {
-      "id": "WEB-040",
+      "id": "WEB-042",
       "name": "one · humanity · archive",
       "category": "ONE applications",
       "path": "app-factory/one/humanity-archive/index.html",
@@ -389,7 +407,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/humanity-archive/index.html"
     },
     {
-      "id": "WEB-041",
+      "id": "WEB-043",
       "name": "one",
       "category": "ONE applications",
       "path": "app-factory/one/index.html",
@@ -398,7 +416,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/index.html"
     },
     {
-      "id": "WEB-042",
+      "id": "WEB-044",
       "name": "one · inventions · 101",
       "category": "ONE applications",
       "path": "app-factory/one/inventions-101/index.html",
@@ -407,7 +425,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/inventions-101/index.html"
     },
     {
-      "id": "WEB-043",
+      "id": "WEB-045",
       "name": "one · library · mind",
       "category": "ONE applications",
       "path": "app-factory/one/library-mind/index.html",
@@ -416,7 +434,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/library-mind/index.html"
     },
     {
-      "id": "WEB-044",
+      "id": "WEB-046",
       "name": "one · library",
       "category": "ONE applications",
       "path": "app-factory/one/library/index.html",
@@ -425,7 +443,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/library/index.html"
     },
     {
-      "id": "WEB-045",
+      "id": "WEB-047",
       "name": "one · meet",
       "category": "ONE applications",
       "path": "app-factory/one/meet/index.html",
@@ -434,7 +452,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/meet/index.html"
     },
     {
-      "id": "WEB-046",
+      "id": "WEB-048",
       "name": "one · mother · earth",
       "category": "ONE applications",
       "path": "app-factory/one/mother-earth/index.html",
@@ -443,7 +461,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/mother-earth/index.html"
     },
     {
-      "id": "WEB-047",
+      "id": "WEB-049",
       "name": "one · nathan · matrix · anatomy",
       "category": "ONE applications",
       "path": "app-factory/one/nathan-matrix/anatomy/index.html",
@@ -452,7 +470,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/nathan-matrix/anatomy/index.html"
     },
     {
-      "id": "WEB-048",
+      "id": "WEB-050",
       "name": "one · nathan · matrix",
       "category": "ONE applications",
       "path": "app-factory/one/nathan-matrix/index.html",
@@ -461,7 +479,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/nathan-matrix/index.html"
     },
     {
-      "id": "WEB-049",
+      "id": "WEB-051",
       "name": "one · nathan · matrix · sovereignty · origins",
       "category": "ONE applications",
       "path": "app-factory/one/nathan-matrix/sovereignty-origins/index.html",
@@ -470,7 +488,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/nathan-matrix/sovereignty-origins/index.html"
     },
     {
-      "id": "WEB-050",
+      "id": "WEB-052",
       "name": "one · offloader",
       "category": "ONE applications",
       "path": "app-factory/one/offloader/index.html",
@@ -479,7 +497,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/offloader/index.html"
     },
     {
-      "id": "WEB-051",
+      "id": "WEB-053",
       "name": "one · rcc · time",
       "category": "ONE applications",
       "path": "app-factory/one/rcc-time/index.html",
@@ -488,7 +506,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/rcc-time/index.html"
     },
     {
-      "id": "WEB-052",
+      "id": "WEB-054",
       "name": "one · scriptures · 007",
       "category": "ONE applications",
       "path": "app-factory/one/scriptures-007/index.html",
@@ -497,7 +515,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/scriptures-007/index.html"
     },
     {
-      "id": "WEB-053",
+      "id": "WEB-055",
       "name": "one · tabor · trinity",
       "category": "ONE applications",
       "path": "app-factory/one/tabor-trinity/index.html",
@@ -506,7 +524,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/tabor-trinity/index.html"
     },
     {
-      "id": "WEB-054",
+      "id": "WEB-056",
       "name": "one · trial · matrix",
       "category": "ONE applications",
       "path": "app-factory/one/trial-matrix/index.html",
@@ -515,7 +533,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/trial-matrix/index.html"
     },
     {
-      "id": "WEB-055",
+      "id": "WEB-057",
       "name": "one · trials",
       "category": "ONE applications",
       "path": "app-factory/one/trials/index.html",
@@ -524,7 +542,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/trials/index.html"
     },
     {
-      "id": "WEB-056",
+      "id": "WEB-058",
       "name": "one · x · marks · the · spot",
       "category": "ONE applications",
       "path": "app-factory/one/x-marks-the-spot/index.html",
@@ -533,7 +551,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/x-marks-the-spot/index.html"
     },
     {
-      "id": "WEB-057",
+      "id": "WEB-059",
       "name": "pricing · router",
       "category": "Factory & infrastructure",
       "path": "app-factory/pricing-router/index.html",
@@ -542,7 +560,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/pricing-router/index.html"
     },
     {
-      "id": "WEB-058",
+      "id": "WEB-060",
       "name": "radix · ladder",
       "category": "Factory & infrastructure",
       "path": "app-factory/radix-ladder/index.html",
@@ -551,7 +569,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/radix-ladder/index.html"
     },
     {
-      "id": "WEB-059",
+      "id": "WEB-061",
       "name": "root · constellation",
       "category": "Factory & infrastructure",
       "path": "app-factory/root-constellation.html",
@@ -560,7 +578,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/root-constellation.html"
     },
     {
-      "id": "WEB-060",
+      "id": "WEB-062",
       "name": "sovereign · boxes",
       "category": "Factory & infrastructure",
       "path": "app-factory/sovereign-boxes/index.html",
@@ -569,7 +587,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/sovereign-boxes/index.html"
     },
     {
-      "id": "WEB-061",
+      "id": "WEB-063",
       "name": "sss · cs · ios · SSSCS · Web",
       "category": "SSS-CS",
       "path": "app-factory/sss-cs/ios/SSSCS/Web/index.html",
@@ -578,34 +596,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/sss-cs/ios/SSSCS/Web/index.html"
     },
     {
-      "id": "WEB-062",
-      "name": "stewie · mr · finn · Resources · PolarMiddleC",
-      "category": "Stewie & Finn",
-      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/index.html",
-      "status": "native resource source",
-      "href": null,
-      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/Resources/PolarMiddleC/index.html"
-    },
-    {
-      "id": "WEB-063",
-      "name": "stewie · mr · finn · Resources · PolarMiddleC · math · roots",
-      "category": "Stewie & Finn",
-      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/math-roots/index.html",
-      "status": "native resource source",
-      "href": null,
-      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/Resources/PolarMiddleC/math-roots/index.html"
-    },
-    {
       "id": "WEB-064",
-      "name": "stewie · mr · finn · Resources · PolarMiddleC · mirror · bridge",
-      "category": "Stewie & Finn",
-      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/mirror-bridge/index.html",
-      "status": "native resource source",
-      "href": null,
-      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/Resources/PolarMiddleC/mirror-bridge/index.html"
-    },
-    {
-      "id": "WEB-065",
       "name": "stewie · mr · finn · polar · middle · c",
       "category": "Stewie & Finn",
       "path": "app-factory/stewie-mr-finn/polar-middle-c/index.html",
@@ -614,7 +605,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/polar-middle-c/index.html"
     },
     {
-      "id": "WEB-066",
+      "id": "WEB-065",
       "name": "stewie · mr · finn · polar · middle · c · math · roots",
       "category": "Stewie & Finn",
       "path": "app-factory/stewie-mr-finn/polar-middle-c/math-roots/index.html",
@@ -623,7 +614,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/polar-middle-c/math-roots/index.html"
     },
     {
-      "id": "WEB-067",
+      "id": "WEB-066",
       "name": "stewie · mr · finn · polar · middle · c · mirror · bridge",
       "category": "Stewie & Finn",
       "path": "app-factory/stewie-mr-finn/polar-middle-c/mirror-bridge/index.html",
@@ -632,7 +623,34 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/polar-middle-c/mirror-bridge/index.html"
     },
     {
+      "id": "WEB-067",
+      "name": "stewie · mr · finn · Resources · PolarMiddleC",
+      "category": "Stewie & Finn",
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/index.html",
+      "status": "native resource source",
+      "href": null,
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/Resources/PolarMiddleC/index.html"
+    },
+    {
       "id": "WEB-068",
+      "name": "stewie · mr · finn · Resources · PolarMiddleC · math · roots",
+      "category": "Stewie & Finn",
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/math-roots/index.html",
+      "status": "native resource source",
+      "href": null,
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/Resources/PolarMiddleC/math-roots/index.html"
+    },
+    {
+      "id": "WEB-069",
+      "name": "stewie · mr · finn · Resources · PolarMiddleC · mirror · bridge",
+      "category": "Stewie & Finn",
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/mirror-bridge/index.html",
+      "status": "native resource source",
+      "href": null,
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/Resources/PolarMiddleC/mirror-bridge/index.html"
+    },
+    {
+      "id": "WEB-070",
       "name": "system",
       "category": "Factory & infrastructure",
       "path": "app-factory/system/index.html",
@@ -641,7 +659,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/system/index.html"
     },
     {
-      "id": "WEB-069",
+      "id": "WEB-071",
       "name": "tabor · gps",
       "category": "Factory & infrastructure",
       "path": "app-factory/tabor-gps/index.html",
@@ -650,7 +668,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/tabor-gps/index.html"
     },
     {
-      "id": "WEB-070",
+      "id": "WEB-072",
       "name": "universal · node · babel · inferno",
       "category": "Factory & infrastructure",
       "path": "app-factory/universal-node/babel-inferno.html",
@@ -659,7 +677,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/universal-node/babel-inferno.html"
     },
     {
-      "id": "WEB-071",
+      "id": "WEB-073",
       "name": "universal · node",
       "category": "Factory & infrastructure",
       "path": "app-factory/universal-node/index.html",
@@ -668,7 +686,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/universal-node/index.html"
     },
     {
-      "id": "WEB-072",
+      "id": "WEB-074",
       "name": "universal · node · mission · control",
       "category": "Factory & infrastructure",
       "path": "app-factory/universal-node/mission-control.html",
@@ -677,7 +695,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/universal-node/mission-control.html"
     },
     {
-      "id": "WEB-073",
+      "id": "WEB-075",
       "name": "vault",
       "category": "Factory & infrastructure",
       "path": "app-factory/vault.html",
@@ -686,7 +704,7 @@
       "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/vault.html"
     },
     {
-      "id": "WEB-074",
+      "id": "WEB-076",
       "name": "Repository home",
       "category": "Factory & infrastructure",
       "path": "index.html",
