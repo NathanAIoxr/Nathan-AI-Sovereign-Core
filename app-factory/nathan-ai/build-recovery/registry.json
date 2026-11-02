@@ -1,0 +1,1608 @@
+{
+  "schema": "nathan-ai.build-recovery.v1",
+  "title": "NATHAN AI 🚀 — All Interfaces & Build Recovery",
+  "as_of": "2026-11-01",
+  "source_commit": "be4f12313f45895bc2b82cb7acaa2a4322b87a48",
+  "source_note": "Source tree fingerprint, not a Git commit. Interface pages are source paths; not device/browser end-to-end checks.",
+  "system_tree": "NATHAN AI → TABOR ROOT → TABOR 1-2-3 FACTORY → ONE / separate products",
+  "rules": [
+    "Preserve original words, code and files unchanged.",
+    "Add index and links; never replace original products or merge unrelated ownership namespaces.",
+    "1+1=2 BUILD; 1-1=0 CLEAR.",
+    "Evidence and stages are attached per item; do not infer completed games, books, hardware or deployment.",
+    "Public metadata only; private original-source uploads require owner selection and remain local to the current tab."
+  ],
+  "counts": {
+    "html_source_pages": 76,
+    "game_index_entries": 73,
+    "recovered_reference_names": 92,
+    "owner_archive_anchors": 14,
+    "prior_master_registry_rows": 6056,
+    "prior_selected_technology_rows": 383,
+    "prior_normalized_technology_titles": 273,
+    "prior_saved_file_records_approx": 5447,
+    "prior_archive_bytes_approx": 18684935350,
+    "library_address_capacity_goal": 33000000,
+    "master_blueprint_goal": 133333333,
+    "language_destination_goal": 66666,
+    "public_language_registry_profiles_earlier": 7918
+  },
+  "interfaces": [
+    {
+      "id": "WEB-001",
+      "name": "build · order",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/build-order/index.html",
+      "status": "browser source",
+      "href": "../../build-order/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/build-order/index.html"
+    },
+    {
+      "id": "WEB-002",
+      "name": "core · audience · review",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/core/audience-review.html",
+      "status": "browser source",
+      "href": "../../core/audience-review.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/core/audience-review.html"
+    },
+    {
+      "id": "WEB-003",
+      "name": "creative · dummie",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/creative/dummie/index.html",
+      "status": "browser source",
+      "href": "../../creative/dummie/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/creative/dummie/index.html"
+    },
+    {
+      "id": "WEB-004",
+      "name": "creative · music · better · together",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/creative/music/better-together/index.html",
+      "status": "browser source",
+      "href": "../../creative/music/better-together/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/creative/music/better-together/index.html"
+    },
+    {
+      "id": "WEB-005",
+      "name": "dummie · publisher",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/dummie-publisher/index.html",
+      "status": "browser source",
+      "href": "../../dummie-publisher/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/dummie-publisher/index.html"
+    },
+    {
+      "id": "WEB-006",
+      "name": "ecosystem",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/ecosystem.html",
+      "status": "browser source",
+      "href": "../../ecosystem.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/ecosystem.html"
+    },
+    {
+      "id": "WEB-007",
+      "name": "game · reference · lab · all · morning",
+      "category": "Games & sports",
+      "path": "app-factory/game-reference-lab/all-morning.html",
+      "status": "browser source",
+      "href": "../../game-reference-lab/all-morning.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/game-reference-lab/all-morning.html"
+    },
+    {
+      "id": "WEB-008",
+      "name": "game · reference · lab",
+      "category": "Games & sports",
+      "path": "app-factory/game-reference-lab/index.html",
+      "status": "browser source",
+      "href": "../../game-reference-lab/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/game-reference-lab/index.html"
+    },
+    {
+      "id": "WEB-009",
+      "name": "game · reference · lab · zero · void · lab",
+      "category": "Games & sports",
+      "path": "app-factory/game-reference-lab/zero-void-lab.html",
+      "status": "browser source",
+      "href": "../../game-reference-lab/zero-void-lab.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/game-reference-lab/zero-void-lab.html"
+    },
+    {
+      "id": "WEB-010",
+      "name": "games · crowning · jewel",
+      "category": "Games & sports",
+      "path": "app-factory/games/crowning-jewel.html",
+      "status": "browser source",
+      "href": "../../games/crowning-jewel.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/games/crowning-jewel.html"
+    },
+    {
+      "id": "WEB-011",
+      "name": "games · paradox · 118",
+      "category": "Games & sports",
+      "path": "app-factory/games/paradox-118/index.html",
+      "status": "browser source",
+      "href": "../../games/paradox-118/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/games/paradox-118/index.html"
+    },
+    {
+      "id": "WEB-012",
+      "name": "historical · sports",
+      "category": "Games & sports",
+      "path": "app-factory/historical-sports/index.html",
+      "status": "browser source",
+      "href": "../../historical-sports/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/historical-sports/index.html"
+    },
+    {
+      "id": "WEB-013",
+      "name": "icarus · baseball",
+      "category": "Games & sports",
+      "path": "app-factory/icarus-baseball/index.html",
+      "status": "browser source",
+      "href": "../../icarus-baseball/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/icarus-baseball/index.html"
+    },
+    {
+      "id": "WEB-014",
+      "name": "Repository home",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/index.html",
+      "status": "browser source",
+      "href": "../../index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/index.html"
+    },
+    {
+      "id": "WEB-015",
+      "name": "middle · c",
+      "category": "Games & sports",
+      "path": "app-factory/middle-c/index.html",
+      "status": "browser source",
+      "href": "../../middle-c/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/middle-c/index.html"
+    },
+    {
+      "id": "WEB-016",
+      "name": "mythology · ancient · roots",
+      "category": "Mythology & histories",
+      "path": "app-factory/mythology/ancient-roots/index.html",
+      "status": "browser source",
+      "href": "../../mythology/ancient-roots/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/mythology/ancient-roots/index.html"
+    },
+    {
+      "id": "WEB-017",
+      "name": "mythology · greek",
+      "category": "Mythology & histories",
+      "path": "app-factory/mythology/greek/index.html",
+      "status": "browser source",
+      "href": "../../mythology/greek/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/mythology/greek/index.html"
+    },
+    {
+      "id": "WEB-018",
+      "name": "mythology · knave",
+      "category": "Mythology & histories",
+      "path": "app-factory/mythology/knave/index.html",
+      "status": "browser source",
+      "href": "../../mythology/knave/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/mythology/knave/index.html"
+    },
+    {
+      "id": "WEB-019",
+      "name": "nathan · ai · absolute · intelligence",
+      "category": "Nathan AI modules",
+      "path": "app-factory/nathan-ai/absolute-intelligence/index.html",
+      "status": "browser source",
+      "href": "../../nathan-ai/absolute-intelligence/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/absolute-intelligence/index.html"
+    },
+    {
+      "id": "WEB-020",
+      "name": "nathan · ai · anatomy",
+      "category": "Nathan AI modules",
+      "path": "app-factory/nathan-ai/anatomy/index.html",
+      "status": "browser source",
+      "href": "../../nathan-ai/anatomy/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/anatomy/index.html"
+    },
+    {
+      "id": "WEB-021",
+      "name": "nathan · ai · family · research",
+      "category": "Nathan AI modules",
+      "path": "app-factory/nathan-ai/family-research/index.html",
+      "status": "browser source",
+      "href": "../../nathan-ai/family-research/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/family-research/index.html"
+    },
+    {
+      "id": "WEB-022",
+      "name": "nathan · ai · flyer · studio",
+      "category": "Nathan AI modules",
+      "path": "app-factory/nathan-ai/flyer-studio/index.html",
+      "status": "browser source",
+      "href": "../../nathan-ai/flyer-studio/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/flyer-studio/index.html"
+    },
+    {
+      "id": "WEB-023",
+      "name": "nathan · ai · games",
+      "category": "Nathan AI modules",
+      "path": "app-factory/nathan-ai/games/index.html",
+      "status": "browser source",
+      "href": "../../nathan-ai/games/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/games/index.html"
+    },
+    {
+      "id": "WEB-024",
+      "name": "nathan · ai",
+      "category": "Nathan AI modules",
+      "path": "app-factory/nathan-ai/index.html",
+      "status": "browser source",
+      "href": "../../nathan-ai/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/index.html"
+    },
+    {
+      "id": "WEB-025",
+      "name": "nathan · ai · innocence · matrix",
+      "category": "Nathan AI modules",
+      "path": "app-factory/nathan-ai/innocence-matrix/index.html",
+      "status": "browser source",
+      "href": "../../nathan-ai/innocence-matrix/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/innocence-matrix/index.html"
+    },
+    {
+      "id": "WEB-026",
+      "name": "nathan · ai · mind · neuropath",
+      "category": "Nathan AI modules",
+      "path": "app-factory/nathan-ai/mind-neuropath/index.html",
+      "status": "browser source",
+      "href": "../../nathan-ai/mind-neuropath/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/mind-neuropath/index.html"
+    },
+    {
+      "id": "WEB-027",
+      "name": "nathan · ai · route · raut · root",
+      "category": "Nathan AI modules",
+      "path": "app-factory/nathan-ai/route-raut-root/index.html",
+      "status": "browser source",
+      "href": "../../nathan-ai/route-raut-root/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/route-raut-root/index.html"
+    },
+    {
+      "id": "WEB-028",
+      "name": "octopus · root",
+      "category": "Octopus ROOT",
+      "path": "app-factory/octopus-root/index.html",
+      "status": "browser source",
+      "href": "../../octopus-root/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/index.html"
+    },
+    {
+      "id": "WEB-029",
+      "name": "octopus · root · octopus · arsenal",
+      "category": "Octopus ROOT",
+      "path": "app-factory/octopus-root/octopus-arsenal/index.html",
+      "status": "browser source",
+      "href": "../../octopus-root/octopus-arsenal/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/octopus-arsenal/index.html"
+    },
+    {
+      "id": "WEB-030",
+      "name": "octopus · root · sovereign · bubble",
+      "category": "Octopus ROOT",
+      "path": "app-factory/octopus-root/sovereign-bubble/index.html",
+      "status": "browser source",
+      "href": "../../octopus-root/sovereign-bubble/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/sovereign-bubble/index.html"
+    },
+    {
+      "id": "WEB-031",
+      "name": "octopus · root · sovereign · continuum",
+      "category": "Octopus ROOT",
+      "path": "app-factory/octopus-root/sovereign-continuum/index.html",
+      "status": "browser source",
+      "href": "../../octopus-root/sovereign-continuum/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/sovereign-continuum/index.html"
+    },
+    {
+      "id": "WEB-032",
+      "name": "octopus · root · sovereign · fields",
+      "category": "Octopus ROOT",
+      "path": "app-factory/octopus-root/sovereign-fields/index.html",
+      "status": "browser source",
+      "href": "../../octopus-root/sovereign-fields/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/sovereign-fields/index.html"
+    },
+    {
+      "id": "WEB-033",
+      "name": "octopus · root · sovereign · nexus",
+      "category": "Octopus ROOT",
+      "path": "app-factory/octopus-root/sovereign-nexus/index.html",
+      "status": "browser source",
+      "href": "../../octopus-root/sovereign-nexus/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/sovereign-nexus/index.html"
+    },
+    {
+      "id": "WEB-034",
+      "name": "octopus · root · uct",
+      "category": "Octopus ROOT",
+      "path": "app-factory/octopus-root/uct/index.html",
+      "status": "browser source",
+      "href": "../../octopus-root/uct/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/uct/index.html"
+    },
+    {
+      "id": "WEB-035",
+      "name": "octopus · root · uct · triple · code",
+      "category": "Octopus ROOT",
+      "path": "app-factory/octopus-root/uct/triple-code/index.html",
+      "status": "browser source",
+      "href": "../../octopus-root/uct/triple-code/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/uct/triple-code/index.html"
+    },
+    {
+      "id": "WEB-036",
+      "name": "one · accountability",
+      "category": "ONE applications",
+      "path": "app-factory/one/accountability/index.html",
+      "status": "browser source",
+      "href": "../../one/accountability/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/accountability/index.html"
+    },
+    {
+      "id": "WEB-037",
+      "name": "one · assocchio",
+      "category": "ONE applications",
+      "path": "app-factory/one/assocchio/index.html",
+      "status": "browser source",
+      "href": "../../one/assocchio/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/assocchio/index.html"
+    },
+    {
+      "id": "WEB-038",
+      "name": "one · connected",
+      "category": "ONE applications",
+      "path": "app-factory/one/connected/index.html",
+      "status": "browser source",
+      "href": "../../one/connected/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/connected/index.html"
+    },
+    {
+      "id": "WEB-039",
+      "name": "one · health",
+      "category": "ONE applications",
+      "path": "app-factory/one/health/index.html",
+      "status": "browser source",
+      "href": "../../one/health/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/health/index.html"
+    },
+    {
+      "id": "WEB-040",
+      "name": "one · hey · you · total · eclipse · explorer · 03 original explorer",
+      "category": "ONE applications",
+      "path": "app-factory/one/hey-you-total-eclipse/explorer/03_original_explorer.html",
+      "status": "browser source",
+      "href": "../../one/hey-you-total-eclipse/explorer/03_original_explorer.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/hey-you-total-eclipse/explorer/03_original_explorer.html"
+    },
+    {
+      "id": "WEB-041",
+      "name": "one · hey · you · total · eclipse · explorer",
+      "category": "ONE applications",
+      "path": "app-factory/one/hey-you-total-eclipse/explorer/index.html",
+      "status": "browser source",
+      "href": "../../one/hey-you-total-eclipse/explorer/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/hey-you-total-eclipse/explorer/index.html"
+    },
+    {
+      "id": "WEB-042",
+      "name": "one · humanity · archive",
+      "category": "ONE applications",
+      "path": "app-factory/one/humanity-archive/index.html",
+      "status": "browser source",
+      "href": "../../one/humanity-archive/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/humanity-archive/index.html"
+    },
+    {
+      "id": "WEB-043",
+      "name": "one",
+      "category": "ONE applications",
+      "path": "app-factory/one/index.html",
+      "status": "browser source",
+      "href": "../../one/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/index.html"
+    },
+    {
+      "id": "WEB-044",
+      "name": "one · inventions · 101",
+      "category": "ONE applications",
+      "path": "app-factory/one/inventions-101/index.html",
+      "status": "browser source",
+      "href": "../../one/inventions-101/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/inventions-101/index.html"
+    },
+    {
+      "id": "WEB-045",
+      "name": "one · library · mind",
+      "category": "ONE applications",
+      "path": "app-factory/one/library-mind/index.html",
+      "status": "browser source",
+      "href": "../../one/library-mind/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/library-mind/index.html"
+    },
+    {
+      "id": "WEB-046",
+      "name": "one · library",
+      "category": "ONE applications",
+      "path": "app-factory/one/library/index.html",
+      "status": "browser source",
+      "href": "../../one/library/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/library/index.html"
+    },
+    {
+      "id": "WEB-047",
+      "name": "one · meet",
+      "category": "ONE applications",
+      "path": "app-factory/one/meet/index.html",
+      "status": "browser source",
+      "href": "../../one/meet/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/meet/index.html"
+    },
+    {
+      "id": "WEB-048",
+      "name": "one · mother · earth",
+      "category": "ONE applications",
+      "path": "app-factory/one/mother-earth/index.html",
+      "status": "browser source",
+      "href": "../../one/mother-earth/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/mother-earth/index.html"
+    },
+    {
+      "id": "WEB-049",
+      "name": "one · nathan · matrix · anatomy",
+      "category": "ONE applications",
+      "path": "app-factory/one/nathan-matrix/anatomy/index.html",
+      "status": "browser source",
+      "href": "../../one/nathan-matrix/anatomy/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/nathan-matrix/anatomy/index.html"
+    },
+    {
+      "id": "WEB-050",
+      "name": "one · nathan · matrix",
+      "category": "ONE applications",
+      "path": "app-factory/one/nathan-matrix/index.html",
+      "status": "browser source",
+      "href": "../../one/nathan-matrix/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/nathan-matrix/index.html"
+    },
+    {
+      "id": "WEB-051",
+      "name": "one · nathan · matrix · sovereignty · origins",
+      "category": "ONE applications",
+      "path": "app-factory/one/nathan-matrix/sovereignty-origins/index.html",
+      "status": "browser source",
+      "href": "../../one/nathan-matrix/sovereignty-origins/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/nathan-matrix/sovereignty-origins/index.html"
+    },
+    {
+      "id": "WEB-052",
+      "name": "one · offloader",
+      "category": "ONE applications",
+      "path": "app-factory/one/offloader/index.html",
+      "status": "browser source",
+      "href": "../../one/offloader/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/offloader/index.html"
+    },
+    {
+      "id": "WEB-053",
+      "name": "one · rcc · time",
+      "category": "ONE applications",
+      "path": "app-factory/one/rcc-time/index.html",
+      "status": "browser source",
+      "href": "../../one/rcc-time/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/rcc-time/index.html"
+    },
+    {
+      "id": "WEB-054",
+      "name": "one · scriptures · 007",
+      "category": "ONE applications",
+      "path": "app-factory/one/scriptures-007/index.html",
+      "status": "browser source",
+      "href": "../../one/scriptures-007/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/scriptures-007/index.html"
+    },
+    {
+      "id": "WEB-055",
+      "name": "one · tabor · trinity",
+      "category": "ONE applications",
+      "path": "app-factory/one/tabor-trinity/index.html",
+      "status": "browser source",
+      "href": "../../one/tabor-trinity/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/tabor-trinity/index.html"
+    },
+    {
+      "id": "WEB-056",
+      "name": "one · trial · matrix",
+      "category": "ONE applications",
+      "path": "app-factory/one/trial-matrix/index.html",
+      "status": "browser source",
+      "href": "../../one/trial-matrix/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/trial-matrix/index.html"
+    },
+    {
+      "id": "WEB-057",
+      "name": "one · trials",
+      "category": "ONE applications",
+      "path": "app-factory/one/trials/index.html",
+      "status": "browser source",
+      "href": "../../one/trials/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/trials/index.html"
+    },
+    {
+      "id": "WEB-058",
+      "name": "one · x · marks · the · spot",
+      "category": "ONE applications",
+      "path": "app-factory/one/x-marks-the-spot/index.html",
+      "status": "browser source",
+      "href": "../../one/x-marks-the-spot/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/x-marks-the-spot/index.html"
+    },
+    {
+      "id": "WEB-059",
+      "name": "pricing · router",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/pricing-router/index.html",
+      "status": "browser source",
+      "href": "../../pricing-router/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/pricing-router/index.html"
+    },
+    {
+      "id": "WEB-060",
+      "name": "radix · ladder",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/radix-ladder/index.html",
+      "status": "browser source",
+      "href": "../../radix-ladder/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/radix-ladder/index.html"
+    },
+    {
+      "id": "WEB-061",
+      "name": "root · constellation",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/root-constellation.html",
+      "status": "browser source",
+      "href": "../../root-constellation.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/root-constellation.html"
+    },
+    {
+      "id": "WEB-062",
+      "name": "sovereign · boxes",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/sovereign-boxes/index.html",
+      "status": "browser source",
+      "href": "../../sovereign-boxes/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/sovereign-boxes/index.html"
+    },
+    {
+      "id": "WEB-063",
+      "name": "sss · cs · ios · SSSCS · Web",
+      "category": "SSS-CS",
+      "path": "app-factory/sss-cs/ios/SSSCS/Web/index.html",
+      "status": "native resource source",
+      "href": null,
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/sss-cs/ios/SSSCS/Web/index.html"
+    },
+    {
+      "id": "WEB-064",
+      "name": "stewie · mr · finn · polar · middle · c",
+      "category": "Stewie & Finn",
+      "path": "app-factory/stewie-mr-finn/polar-middle-c/index.html",
+      "status": "browser source",
+      "href": "../../stewie-mr-finn/polar-middle-c/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/polar-middle-c/index.html"
+    },
+    {
+      "id": "WEB-065",
+      "name": "stewie · mr · finn · polar · middle · c · math · roots",
+      "category": "Stewie & Finn",
+      "path": "app-factory/stewie-mr-finn/polar-middle-c/math-roots/index.html",
+      "status": "browser source",
+      "href": "../../stewie-mr-finn/polar-middle-c/math-roots/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/polar-middle-c/math-roots/index.html"
+    },
+    {
+      "id": "WEB-066",
+      "name": "stewie · mr · finn · polar · middle · c · mirror · bridge",
+      "category": "Stewie & Finn",
+      "path": "app-factory/stewie-mr-finn/polar-middle-c/mirror-bridge/index.html",
+      "status": "browser source",
+      "href": "../../stewie-mr-finn/polar-middle-c/mirror-bridge/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/polar-middle-c/mirror-bridge/index.html"
+    },
+    {
+      "id": "WEB-067",
+      "name": "stewie · mr · finn · Resources · PolarMiddleC",
+      "category": "Stewie & Finn",
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/index.html",
+      "status": "native resource source",
+      "href": null,
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/Resources/PolarMiddleC/index.html"
+    },
+    {
+      "id": "WEB-068",
+      "name": "stewie · mr · finn · Resources · PolarMiddleC · math · roots",
+      "category": "Stewie & Finn",
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/math-roots/index.html",
+      "status": "native resource source",
+      "href": null,
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/Resources/PolarMiddleC/math-roots/index.html"
+    },
+    {
+      "id": "WEB-069",
+      "name": "stewie · mr · finn · Resources · PolarMiddleC · mirror · bridge",
+      "category": "Stewie & Finn",
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/mirror-bridge/index.html",
+      "status": "native resource source",
+      "href": null,
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/stewie-mr-finn/Resources/PolarMiddleC/mirror-bridge/index.html"
+    },
+    {
+      "id": "WEB-070",
+      "name": "system",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/system/index.html",
+      "status": "browser source",
+      "href": "../../system/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/system/index.html"
+    },
+    {
+      "id": "WEB-071",
+      "name": "tabor · gps",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/tabor-gps/index.html",
+      "status": "browser source",
+      "href": "../../tabor-gps/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/tabor-gps/index.html"
+    },
+    {
+      "id": "WEB-072",
+      "name": "universal · node · babel · inferno",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/universal-node/babel-inferno.html",
+      "status": "browser source",
+      "href": "../../universal-node/babel-inferno.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/universal-node/babel-inferno.html"
+    },
+    {
+      "id": "WEB-073",
+      "name": "universal · node",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/universal-node/index.html",
+      "status": "browser source",
+      "href": "../../universal-node/index.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/universal-node/index.html"
+    },
+    {
+      "id": "WEB-074",
+      "name": "universal · node · mission · control",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/universal-node/mission-control.html",
+      "status": "browser source",
+      "href": "../../universal-node/mission-control.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/universal-node/mission-control.html"
+    },
+    {
+      "id": "WEB-075",
+      "name": "vault",
+      "category": "Factory & infrastructure",
+      "path": "app-factory/vault.html",
+      "status": "browser source",
+      "href": "../../vault.html",
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/vault.html"
+    },
+    {
+      "id": "WEB-076",
+      "name": "Repository home",
+      "category": "Factory & infrastructure",
+      "path": "index.html",
+      "status": "redirect source",
+      "href": null,
+      "source_url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/index.html"
+    }
+  ],
+  "systems": [
+    {
+      "id": "REF-AI -001",
+      "name": "THE THINKER V∞ · LET/TET/PPL",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -002",
+      "name": "KAEL ELRON TABOR AI / my_thinker_ai_app",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -003",
+      "name": "NATHAN AI Hack D Hack / Glyphstream Breach Engine",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -004",
+      "name": "R.A.P.T.U.R.E.",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -005",
+      "name": "OMNI_THREAD_PROTOCOL",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -006",
+      "name": "FiveMindsAI",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -007",
+      "name": "Tabor 3.14 Mission AI",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -008",
+      "name": "Universal State Engine",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -009",
+      "name": "GUARDRAILAI",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -010",
+      "name": "Sovereign Reality Engine",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -011",
+      "name": "Sovereign Invariant Gateway",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -012",
+      "name": "Nathan AI QuantumCore (HQC)",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -013",
+      "name": "Nathan AI Sovereign Miner",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -014",
+      "name": "Nathan AI Sovereign Scroll Simulator",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -015",
+      "name": "DOG AI",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -016",
+      "name": "REAPER AI",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -017",
+      "name": "GOD AI",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -018",
+      "name": "BEE HIVE AI",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -019",
+      "name": "Project Innocence App",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -020",
+      "name": "TABOR TEXTING",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-AI -021",
+      "name": "ICU BUDDY",
+      "category": "AI and intelligence",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-LAN-001",
+      "name": "WORDS · Historical Language Forensics",
+      "category": "Language, words & mirrors",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-LAN-002",
+      "name": "MAGICAL MINDS",
+      "category": "Language, words & mirrors",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-LAN-003",
+      "name": "ZeroAbsolute Reader",
+      "category": "Language, words & mirrors",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-LAN-004",
+      "name": "Universal Language Database",
+      "category": "Language, words & mirrors",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-LAN-005",
+      "name": "Mammal Clicking & Ticking Language",
+      "category": "Language, words & mirrors",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-LAN-006",
+      "name": "A–Z Inspector (26 forward + 26 reverse)",
+      "category": "Language, words & mirrors",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-LAN-007",
+      "name": "Marco Polo Found by Nathan Tabor",
+      "category": "Language, words & mirrors",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-LAN-008",
+      "name": "Atbash · reversals · 0/1 binary",
+      "category": "Language, words & mirrors",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-LAN-009",
+      "name": "PPL canonical 12-sign parser",
+      "category": "Language, words & mirrors",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-LAN-010",
+      "name": "First-Letter Extraction Decoder",
+      "category": "Language, words & mirrors",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-LAN-011",
+      "name": "Phonetic Word-to-Phoneme Converter",
+      "category": "Language, words & mirrors",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-LAN-012",
+      "name": "Route · Raut · Root language archive",
+      "category": "Language, words & mirrors",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-LAN-013",
+      "name": "Hebrew · Greek · Arabic · Latin · Strong’s",
+      "category": "Language, words & mirrors",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-LAN-014",
+      "name": "Historical and unrecognized languages",
+      "category": "Language, words & mirrors",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-BOO-001",
+      "name": "133,333,333 Master Blueprint",
+      "category": "Books, library & publishing",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-BOO-002",
+      "name": "33,000,000 Library Blueprint (33 × 1,000,000 addresses)",
+      "category": "Books, library & publishing",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-BOO-003",
+      "name": "66,666 language destination goal",
+      "category": "Books, library & publishing",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-BOO-004",
+      "name": "ONE Master Library 101–901",
+      "category": "Books, library & publishing",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-BOO-005",
+      "name": "THE TABOR SECRET SOCIETY (13-title plan)",
+      "category": "Books, library & publishing",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-BOO-006",
+      "name": "NOVELS OF TRUTH (13 eras × 21 classes)",
+      "category": "Books, library & publishing",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-BOO-007",
+      "name": "THE COUNTER-LIBRARY",
+      "category": "Books, library & publishing",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-BOO-008",
+      "name": "The Book of Tabor",
+      "category": "Books, library & publishing",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-BOO-009",
+      "name": "The Tabor Trinity",
+      "category": "Books, library & publishing",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-BOO-010",
+      "name": "Tabor 8 + TABOR ONE",
+      "category": "Books, library & publishing",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-BOO-011",
+      "name": "Dummie Publisher",
+      "category": "Books, library & publishing",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-BOO-012",
+      "name": "The ACT of STORY and ART",
+      "category": "Books, library & publishing",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-BOO-013",
+      "name": "33-Million Book Master Index",
+      "category": "Books, library & publishing",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-BOO-014",
+      "name": "Author-original book series archives",
+      "category": "Books, library & publishing",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-ENG-001",
+      "name": "TABOR GPS · Five Magnetic Fields",
+      "category": "Engineering, hardware & security",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-ENG-002",
+      "name": "OBD App / THE HEARTBEAT",
+      "category": "Engineering, hardware & security",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-ENG-003",
+      "name": "Frankenstein Energy System",
+      "category": "Engineering, hardware & security",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-ENG-004",
+      "name": "Tabor Tub Temperature System",
+      "category": "Engineering, hardware & security",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-ENG-005",
+      "name": "Sovereign Fields",
+      "category": "Engineering, hardware & security",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-ENG-006",
+      "name": "Sovereign Continuum",
+      "category": "Engineering, hardware & security",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-ENG-007",
+      "name": "UCT Triple Code",
+      "category": "Engineering, hardware & security",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-ENG-008",
+      "name": "NATHAN AI Voice-Lock Box",
+      "category": "Engineering, hardware & security",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-ENG-009",
+      "name": "SPIRAL GRID TRANSMISSION",
+      "category": "Engineering, hardware & security",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-ENG-010",
+      "name": "Sovereign Command Encryption",
+      "category": "Engineering, hardware & security",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-ENG-011",
+      "name": "SSS-CS YULL LAW OS / 4T / YALL LAW OS",
+      "category": "Engineering, hardware & security",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-ENG-012",
+      "name": "TABOR INFINITUM V∞",
+      "category": "Engineering, hardware & security",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-ENG-013",
+      "name": "Universal Creator Vault",
+      "category": "Engineering, hardware & security",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-ENG-014",
+      "name": "Original-byte ZIP Backup & Restore",
+      "category": "Engineering, hardware & security",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-HUM-001",
+      "name": "FIND THE TABOR genealogical matrix",
+      "category": "Humanity, history & research",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-HUM-002",
+      "name": "Opal & Ferrell Tabor / Redstone archive",
+      "category": "Humanity, history & research",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-HUM-003",
+      "name": "Ancient Divine Roots",
+      "category": "Humanity, history & research",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-HUM-004",
+      "name": "Vatican & Biblical primary-source archive",
+      "category": "Humanity, history & research",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-HUM-005",
+      "name": "007 Bible · scriptures · ancient holy texts",
+      "category": "Humanity, history & research",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-HUM-006",
+      "name": "Humanity Archive",
+      "category": "Humanity, history & research",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-HUM-007",
+      "name": "Taborites / Tábor / TABOUR roots",
+      "category": "Humanity, history & research",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-HUM-008",
+      "name": "Micro / Macro / Above / Below",
+      "category": "Humanity, history & research",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-HUM-009",
+      "name": "Neuropath and mental-mind-game systems",
+      "category": "Humanity, history & research",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-HUM-010",
+      "name": "Universal 400-Point Architecture",
+      "category": "Humanity, history & research",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-HUM-011",
+      "name": "5 eras BCE / BC / AC / CE / AD",
+      "category": "Humanity, history & research",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-HUM-012",
+      "name": "Rainbow Matter Chronicles",
+      "category": "Humanity, history & research",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-HUM-013",
+      "name": "THE TWELVE — I AM",
+      "category": "Humanity, history & research",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-001",
+      "name": "TABOR WORLD — 101 Game Factory",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-002",
+      "name": "Sovereign Boxes — 618 indexed units (not completed games)",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-003",
+      "name": "1420 — THE CROWNING JEWEL",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-004",
+      "name": "Stewie & Mr. Finn",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-005",
+      "name": "Holiday Trivia Festive Olympics Tournament",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-006",
+      "name": "Mrs. Claus vs Mr. Claus Christmas Showdown",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-007",
+      "name": "Sacred Alphabet List",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-008",
+      "name": "North Pole vs South Pole A–Z rosters",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-009",
+      "name": "Christmas Communities 24/7/365",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-010",
+      "name": "ChristmasToyDrive.com / Handling Life",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-011",
+      "name": "TaborTales",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-012",
+      "name": "Healers & Protectors",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-013",
+      "name": "REMOVE JC — The War of Two Worlds",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-014",
+      "name": "Icarus of Baseball",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-015",
+      "name": "Flyer Studio",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    },
+    {
+      "id": "REF-CHI-016",
+      "name": "Rainbow Matter color collections",
+      "category": "Children, games, holidays & art",
+      "status": "recovered reference",
+      "source": "Historical recovery catalog / prior authored source summaries",
+      "href": null
+    }
+  ],
+  "archive_anchors": [
+    {
+      "id": "ARCH-001",
+      "name": "NATHAN_AI_COMPLETE_RECOVERY_INDEX.md",
+      "description": "Recovered technical register: 6,056 master records, 383 technology-related records, 273 normalized titles; values from earlier historical inventory",
+      "status": "owner-held / historical source",
+      "category": "Source archive",
+      "source": "Prior file recovery; not republished",
+      "href": null
+    },
+    {
+      "id": "ARCH-002",
+      "name": "Nathan_AI_Recovery_Index_2026-11-01.html",
+      "description": "Earlier broad saved-file recovery directory; prior snapshot described approximately 5,447 saved file records and 18.68 GB including versions/copies",
+      "status": "owner-held / historical source",
+      "category": "Source archive",
+      "source": "Prior file recovery; not republished",
+      "href": null
+    },
+    {
+      "id": "ARCH-003",
+      "name": "NATHAN_AI_NT1_Master_Architecture.md",
+      "description": "NT-1 Absolute Intelligence architecture; 52 documented modules; concept and prototype lifecycle statuses vary",
+      "status": "owner-held / historical source",
+      "category": "Source archive",
+      "source": "Prior file recovery; not republished",
+      "href": null
+    },
+    {
+      "id": "ARCH-004",
+      "name": "NATHAN_AI_ONE_UNIFIED_APP_v073.html",
+      "description": "Owner-held v073 offline integrated app; earlier v064–v071 modules embedded; not asserted published to GitHub",
+      "status": "owner-held / historical source",
+      "category": "Source archive",
+      "source": "Prior file recovery; not republished",
+      "href": null
+    },
+    {
+      "id": "ARCH-005",
+      "name": "README_START_HERE.md",
+      "description": "Owner-held v073 starting instructions and scope boundaries",
+      "status": "owner-held / historical source",
+      "category": "Source archive",
+      "source": "Prior file recovery; not republished",
+      "href": null
+    },
+    {
+      "id": "ARCH-006",
+      "name": "RELEASE_NOTES_v073.md",
+      "description": "Owner-held v073 release notes, local tests, retained source and no remote rollout",
+      "status": "owner-held / historical source",
+      "category": "Source archive",
+      "source": "Prior file recovery; not republished",
+      "href": null
+    },
+    {
+      "id": "ARCH-007",
+      "name": "TABOR_TOTALITY_MASTER_INDEX_EXPANDED_007.md",
+      "description": "Expanded 007 and totality archive; claims require individual verification",
+      "status": "owner-held / historical source",
+      "category": "Source archive",
+      "source": "Prior file recovery; not republished",
+      "href": null
+    },
+    {
+      "id": "ARCH-008",
+      "name": "TABOR_MASTER_PROJECT_CATALOG.csv",
+      "description": "Original independent project registry, not a completed app inventory",
+      "status": "owner-held / historical source",
+      "category": "Source archive",
+      "source": "Prior file recovery; not republished",
+      "href": null
+    },
+    {
+      "id": "ARCH-009",
+      "name": "Tabor_33Million_Master_Index.xlsx",
+      "description": "Original 33-million library planning index",
+      "status": "owner-held / historical source",
+      "category": "Source archive",
+      "source": "Prior file recovery; not republished",
+      "href": null
+    },
+    {
+      "id": "ARCH-010",
+      "name": "Novels_of_Truth_13_Era_21_Class_Matrix.md",
+      "description": "Original Novels of Truth matrix",
+      "status": "owner-held / historical source",
+      "category": "Source archive",
+      "source": "Prior file recovery; not republished",
+      "href": null
+    },
+    {
+      "id": "ARCH-011",
+      "name": "The_Counter_Library.md",
+      "description": "Original Counter-Library source",
+      "status": "owner-held / historical source",
+      "category": "Source archive",
+      "source": "Prior file recovery; not republished",
+      "href": null
+    },
+    {
+      "id": "ARCH-012",
+      "name": "Nathan_AI_Games_Puzzles_Owner_Source_Pack_2026-11-01.json",
+      "description": "Owner-selected games and puzzles original-source pack, not published by the public game atlas",
+      "status": "owner-held / historical source",
+      "category": "Source archive",
+      "source": "Prior file recovery; not republished",
+      "href": null
+    },
+    {
+      "id": "ARCH-013",
+      "name": "Universal_Language_Database_Nathan_Tabor_v0_2.zip",
+      "description": "Original language database download package; inspect owner source separately",
+      "status": "owner-held / historical source",
+      "category": "Source archive",
+      "source": "Prior file recovery; not republished",
+      "href": null
+    },
+    {
+      "id": "ARCH-014",
+      "name": "NATHAN_AI_LET_TET_THE_THINKER_V2.zip",
+      "description": "Private Thinker prototype; public repo has documentation only",
+      "status": "owner-held / historical source",
+      "category": "Source archive",
+      "source": "Prior file recovery; not republished",
+      "href": null
+    }
+  ],
+  "source_links": [
+    {
+      "name": "Nathan AI Main Hub",
+      "href": "../index.html"
+    },
+    {
+      "name": "ONE — The Last App",
+      "href": "../../one/index.html"
+    },
+    {
+      "name": "Games & Puzzles Atlas",
+      "href": "../games/index.html"
+    },
+    {
+      "name": "ONE Library Mind",
+      "href": "../../one/library-mind/index.html"
+    },
+    {
+      "name": "ONE Master Library",
+      "href": "../../one/library/index.html"
+    },
+    {
+      "name": "Factory Source Code",
+      "href": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core"
+    }
+  ]
+}
