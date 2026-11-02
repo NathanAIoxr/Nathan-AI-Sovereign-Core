@@ -28,3 +28,7 @@ Additive ONE browser reference module. Owner original source, private code, and 
 - The authored "original womb man" and 400,000-year self-procreation theory are preserved verbatim, separate from scientific evidence; Hitler/V-2/Paperclip history is separately sourced and the Nazi symbolism material is critically contextualized.
 - All original modules and private archives remain unchanged; no external execution, surveillance or new reproductive claims are implemented.
 - Test: `node --test app-factory/one/nathan-matrix/sovereignty-origins/records.test.cjs`.
+
+## November 1, 2026 — Humanity · Tabor · Cosmos recovery link (additive)
+- The separately versioned [60-record history/Tabor/cosmic index](../history-cosmos/README.md) connects documented humanities research, family/ancestry leads, micro/macro grids, UAP/aliens, and original fictional worlds without copying owner-private original content.
+- [Open the browser module](../history-cosmos/index.html). Existing this-page formulas, custom language, and unrelated private modules remain unchanged.
