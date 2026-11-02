@@ -90,6 +90,12 @@ jobs:
         run: node --test app-factory/nathan-ai/innocence-matrix/innocence.test.cjs
       - name: Verify NATHAN AI Flyer Studio presets, exports, and source protection
         run: node --test app-factory/nathan-ai/flyer-studio/flyer.test.cjs
+      - name: Verify Nathan AI life-linked 21-coin crosswalk protects original and private source
+        run: node --test app-factory/nathan-ai/sovereign-coins/life/life-matrix.test.mjs
+      - name: Verify Anchored Sovereign Matrix 1-0 rules and two-axis SHA-256 checks
+        run: node --test app-factory/nathan-ai/sovereign-coins/anchored/anchored-matrix.test.mjs
+      - name: Verify bounded bare-metal reference CPU benchmarking and integrity
+        run: python3 -m unittest discover -s app-factory/nathan-ai/sovereign-coins/anchored -p test_bench_matrix.py -v
       - name: Verify Nathan AI 21 Sovereign Coin Matrix validation and offline balances
         run: node --test app-factory/nathan-ai/sovereign-coins/engine.test.mjs
       - name: Verify Nathan AI 21-ring Python audit and 16x energy arithmetic
