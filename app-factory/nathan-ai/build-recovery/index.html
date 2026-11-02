@@ -51,10 +51,20 @@ li{padding:3px}pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:280px;
 <p class="notice">A listed interface is a verified repository source path, <strong>not</strong> proof of live publication, deployment or completed functionality. Reference names and catalog targets are not working products. Neither past private source bytes nor personal research records are published here.</p>
 <p class="muted">Earlier recovery index: 6,056 master-registry rows; 383 selected technology rows; about 5,447 saved-file records (including copies/versions). Goals: 133,333,333 master blueprint; 33,000,000 library addresses; 66,666 language destinations. These are historical counts/planned capacities, not completed books or released apps.</p>
 <p id="source-meta" class="muted">Loading repository snapshot…</p></section>
+
+<section class="panel" id="all-code" aria-labelledby="code-title">
+<div class="eyebrow">Public GitHub source · live read-only source inventory</div>
+<h2 id="code-title">Every accessible repository file · code, data, patches</h2>
+<p>This screen indexes the full <strong>public main-branch file tree</strong> using GitHub's public metadata API. Search by original filename, path, extension or Git blob ID. Use “Read public source in Nathan AI” to inspect eligible text files in this page; no downloaded source is executed. Files remain in their original repository paths.</p>
+<div class="stats"><div class="stat"><strong id="repo-file-count">—</strong><small>Public GitHub source files</small></div></div>
+<p id="repo-status" role="status" aria-live="polite" class="muted">Checking GitHub's public source tree…</p>
+<div class="filters"><button id="export-source-manifest" type="button">Export combined recovery metadata JSON</button><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core" target="_blank" rel="noopener noreferrer">Open canonical code repository</a></div>
+<p class="notice">A file listed here is not a production app. Configuration entries show variable <strong>names only</strong>; no tokens, passwords, API-key values, seed phrases or private originals are included in this public directory. GitHub API availability can affect live inventory.</p>
+</section>
 <section class="panel"><h2>Search the full connected index</h2>
 <div class="filters">
 <input id="q" type="search" aria-label="Search titles, paths and source references" placeholder="Find an app, engine, book, root, game, source…">
-<select id="kind" aria-label="Record type"><option value="">All record types</option><option value="interface">Interfaces</option><option value="game">Games and puzzles</option><option value="system">Recovered systems</option><option value="archive">Archive anchors</option><option value="owner">Owner-selected files</option></select>
+<select id="kind" aria-label="Record type"><option value="">All record types</option><option value="interface">Interfaces</option><option value="game">Games and puzzles</option><option value="system">Recovered systems</option><option value="archive">Archive anchors</option><option value="owner">Owner-selected files</option><option value="source">Public source code & files</option><option value="service">Connected services</option><option value="credential">Credential variable names</option><option value="patch">GitHub patches</option></select>
 <select id="category" aria-label="Category"><option value="">All categories</option></select>
 <select id="status" aria-label="Status"><option value="">All lifecycle stages</option></select>
 </div>
@@ -64,9 +74,13 @@ li{padding:3px}pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:280px;
 <section class="panel" aria-labelledby="local-heading">
 <div class="eyebrow">Owner-controlled source · this browser tab only</div>
 <h2 id="local-heading">Bring in an original archive without publishing it</h2>
-<p>Select original TXT, MD, CSV, JSON, HTML, PY, ZIP or other files to list them here for this browser tab. Text-based files up to 8 MB can be searched and previewed. Downloads use the original selected file object. <strong>No upload, no browser persistence, and no automatic repository changes.</strong> For the full 6,056-row master index, use the original owner CSV rather than reconstructing any missing rows.</p>
+<p>Select original TXT, MD, CSV, JSON, HTML, PY, ZIP or other files to list them here for this browser tab. Small non-sensitive text files can be searched and previewed. Downloads use the original selected file object. <strong>No upload, no browser persistence, and no automatic repository changes.</strong> For the full 6,056-row master index, use the original owner CSV rather than reconstructing any missing rows.</p>
 <label for="owner-import">Choose your original source files</label>
 <input id="owner-import" type="file" multiple aria-describedby="owner-boundary">
+<label for="owner-folder">Or choose a source folder (supported browsers)</label>
+<input id="owner-folder" type="file" webkitdirectory multiple aria-describedby="owner-boundary">
+<p class="muted">Folder paths are preserved as local metadata. Up to 20,000 files per selected batch are indexed without silently truncating your selection. Sensitive-looking filenames and very large files are not text-previewed.</p>
+<a href="../../vault.html">Open the Creator Vault to store originals on this device and export exact-byte backup ZIP parts</a> · <a href="../../one/connected/index.html">Open ONE Connected to link saved originals to projects</a>
 <p id="owner-boundary" class="muted">Public data is loaded from existing repository JSON; your chosen files stay within the browser page. Shared-device users should clear the selection when finished.</p>
 <div class="filters"><button id="clear-owner" type="button" disabled>Clear selected sources</button><span id="owner-status" class="muted" role="status" aria-live="polite">No owner-selected files.</span></div>
 </section>
