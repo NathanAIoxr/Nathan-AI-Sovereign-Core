@@ -90,6 +90,8 @@ jobs:
         run: node --test app-factory/one/nathan-matrix/sovereignty-origins/records.test.cjs
       - name: Verify Nathan AI Deep Arrest W symbolic signal boundaries
         run: node --test app-factory/one/nathan-matrix/anatomy/wiring.test.cjs
+      - name: Verify additive 007 installer for ONE Master Library
+        run: node --test app-factory/one/scriptures-007/install.test.cjs
       - name: Verify ONE 007 source IDs, privacy and scripture-reference boundaries
         run: node --test app-factory/one/scriptures-007/engine.test.cjs
       - name: Verify ONE 101 Invention Register & Book 12 original-source boundaries
