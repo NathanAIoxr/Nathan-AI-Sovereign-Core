@@ -86,6 +86,8 @@ jobs:
         run: node --test app-factory/nathan-ai/architecture-63/architecture.test.mjs
       - name: Verify NATHAN AI Absolute Intelligence source and 54-module preservation
         run: node --test app-factory/nathan-ai/absolute-intelligence/atlas.test.cjs
+      - name: Verify Nathan AI 53-year Council of Gods and toy source navigator
+        run: node --test app-factory/nathan-ai/fifty-three-year/engine.test.cjs
       - name: Verify Servants and Ministers of Innocence geometry and owner-local novel sources
         run: node --test app-factory/nathan-ai/innocence-matrix/innocence.test.cjs
       - name: Verify NATHAN AI Flyer Studio presets, exports, and source protection
