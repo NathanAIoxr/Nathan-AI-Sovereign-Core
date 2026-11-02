@@ -76,6 +76,8 @@ jobs:
         run: node --test app-factory/dummie-publisher/publisher.test.cjs
       - name: Verify Greek mythology archive taxonomy and provenance
         run: node --test app-factory/mythology/greek/atlas.test.cjs
+      - name: Verify recovered Children's Books and Innocence Protection public catalog, 19/13 canon and private import
+        run: node --test app-factory/nathan-ai/children-innocence/engine.test.cjs
       - name: Verify Nathan AI Main Database, Books and Book Apps skin
         run: node --test app-factory/nathan-ai/library-experience.test.cjs
       - name: Verify NATHAN AI Absolute Intelligence source and 54-module preservation
