@@ -102,3 +102,16 @@ Verification for this documentation update: checked existing repository source a
 - **Connected:** Nathan AI Main Hub, searchable hub directory, ONE landing page, Games & Puzzles Atlas, existing reference library and Connected Matrix. Existing original games, third-party reference archives, manuscripts, private vaults, language systems and other app modules remain unchanged.
 - **Validation:** All 18 distinct cross-module page routes confirmed in repo; 63 unique records, 21 per group. Factory quality checks run `41472039665` **passed**, including `node --test app-factory/nathan-ai/architecture-63/architecture.test.mjs`.
 - **State:** Public browser *design registry and navigation* merged into main. No assertion of 63 functional game engines, 21 installed server/device subsystems, physical silicon, iOS App Store publication, paid services or independent device QA. GitHub Pages deployment not separately verified.
+
+## 2026-11-02 — Nathan AI mining-wallet connections
+
+
+## V. Mining, wallet and monitoring integration command center · November 2, 2026
+
+[Open the additive integration hub](./integrations/index.html) · [Integration setup and local gateway](./integrations/README.md).
+
+The 17-provider catalog covers XMRig, Hiveon OS, Awesome Miner, NiceHash, Reown AppKit / WalletConnect, Trezor Connect, Coinbase Wallet SDK, Bitcoin Core, BTCPay, Alchemy, 2Miners, Braiins Pool, Minerstat, CoinGecko, Prometheus, Grafana and Home Assistant.
+
+Ten read-only API clients are implemented in a loopback-only Node.js gateway: XMRig, Bitcoin Core, BTCPay, Alchemy, 2Miners, Braiins, CoinGecko, Prometheus, Grafana and Home Assistant. Seven other providers are registered as setup-required or SDK authorization contracts. No provider is represented as authenticated or connected without operator configuration; public browser pages do not access local private endpoints.
+
+No changes to the existing coin order, SIN/SEN design allocations, nine-law-coin family, 16:1 authored goal, 5-million-proxy source record, anchored gate, or person's-life matrix. No wallet signing, real transfer, remote miner commands or proxy fleet deployment.
