@@ -36,6 +36,8 @@ jobs:
           node-version: '22'
       - name: Verify public assets and architecture boundaries
         run: node --test app-factory/quality.test.cjs
+      - name: Verify BLACKJACK Game of LIFE scoring, 21 moves and casino source registry
+        run: node --test app-factory/games/blackjack-life/engine.test.cjs
       - name: Verify NATHAN AI 138-reference Registry and boundaries
         run: node --test app-factory/game-reference-lab/registry.test.cjs
       - name: Verify October 13 morning 376-reference integration
@@ -140,8 +142,6 @@ jobs:
         run: node --test app-factory/one/connected/connected.test.cjs
       - name: Verify ONE Trials playable geometry and private source boundary
         run: node --test app-factory/one/trials/trials.test.cjs
-      - name: Verify BLACKJACK Game of LIFE scoring, 21 moves and casino source registry
-        run: node --test app-factory/games/blackjack-life/engine.test.cjs
       - name: Verify 1420 Crowning Jewel gameplay
         run: node --test app-factory/games/crowning-jewel.test.cjs
 
