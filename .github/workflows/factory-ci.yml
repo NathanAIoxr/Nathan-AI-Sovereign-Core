@@ -78,6 +78,8 @@ jobs:
         run: node --test app-factory/mythology/greek/atlas.test.cjs
       - name: Verify Nathan AI Main Database, Books and Book Apps skin
         run: node --test app-factory/nathan-ai/library-experience.test.cjs
+      - name: Verify NATHAN AI Absolute Intelligence source and 54-module preservation
+        run: node --test app-factory/nathan-ai/absolute-intelligence/atlas.test.cjs
       - name: Verify NATHAN AI Flyer Studio presets, exports, and source protection
         run: node --test app-factory/nathan-ai/flyer-studio/flyer.test.cjs
       - name: Verify ONE local engine
