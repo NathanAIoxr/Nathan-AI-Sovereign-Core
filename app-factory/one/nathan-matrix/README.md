@@ -29,6 +29,11 @@ Additive ONE browser reference module. Owner original source, private code, and 
 - All original modules and private archives remain unchanged; no external execution, surveillance or new reproductive claims are implemented.
 - Test: `node --test app-factory/one/nathan-matrix/sovereignty-origins/records.test.cjs`.
 
+## November 1, 2026 — ROUTE • RAUT • ROOT languages (additive)
+- The recovered ROOT, RAUT, ROUTE, PĒS, R-vowel/CK mirrors and binary-model source index has an interactive browser in [`../../nathan-ai/route-raut-root/`](../../nathan-ai/route-raut-root/README.md).
+- Exact selected quotes stay separate from linguistic research; owner originals remain in private source archives. Existing modules are unchanged.
+- Test: `node --test app-factory/nathan-ai/route-raut-root/records.test.cjs`.
+
 ## November 1, 2026 — Humanity · Tabor · Cosmos recovery link (additive)
 - The separately versioned [60-record history/Tabor/cosmic index](../history-cosmos/README.md) connects documented humanities research, family/ancestry leads, micro/macro grids, UAP/aliens, and original fictional worlds without copying owner-private original content.
 - [Open the browser module](../history-cosmos/index.html). Existing this-page formulas, custom language, and unrelated private modules remain unchanged.

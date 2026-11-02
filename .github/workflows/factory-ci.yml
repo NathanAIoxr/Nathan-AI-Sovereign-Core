@@ -76,10 +76,14 @@ jobs:
         run: node --test app-factory/dummie-publisher/publisher.test.cjs
       - name: Verify Greek mythology archive taxonomy and provenance
         run: node --test app-factory/mythology/greek/atlas.test.cjs
+      - name: Verify Nathan AI ROUTE RAUT ROOT language, mirror, original-source and binary integrity
+        run: node --test app-factory/nathan-ai/route-raut-root/records.test.cjs
       - name: Verify Nathan AI Main Database, Books and Book Apps skin
         run: node --test app-factory/nathan-ai/library-experience.test.cjs
       - name: Verify NATHAN AI Absolute Intelligence source and 54-module preservation
         run: node --test app-factory/nathan-ai/absolute-intelligence/atlas.test.cjs
+      - name: Verify Servants and Ministers of Innocence geometry and owner-local novel sources
+        run: node --test app-factory/nathan-ai/innocence-matrix/innocence.test.cjs
       - name: Verify NATHAN AI Flyer Studio presets, exports, and source protection
         run: node --test app-factory/nathan-ai/flyer-studio/flyer.test.cjs
       - name: Verify ONE local engine
@@ -90,6 +94,8 @@ jobs:
         run: node --test app-factory/one/nathan-matrix/sovereignty-origins/records.test.cjs
       - name: Verify Nathan AI Deep Arrest W symbolic signal boundaries
         run: node --test app-factory/one/nathan-matrix/anatomy/wiring.test.cjs
+      - name: Verify additive 007 installer for ONE Master Library
+        run: node --test app-factory/one/scriptures-007/install.test.cjs
       - name: Verify ONE 007 source IDs, privacy and scripture-reference boundaries
         run: node --test app-factory/one/scriptures-007/engine.test.cjs
       - name: Verify ONE 101 Invention Register & Book 12 original-source boundaries
