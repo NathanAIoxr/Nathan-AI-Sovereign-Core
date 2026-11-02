@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {COLLECTIONS,ARTIFACTS,STATUS,SCHEMA,searchArtifacts} from './registry.mjs';
+import {COLLECTIONS,ARTIFACTS,STATUS,SCHEMA,searchArtifacts,MUSEUM_REFERENCES} from './registry.mjs';
 
 test('publishes eight named sets, 13 slots each, and exactly 104 unique positions',()=>{
  assert.equal(SCHEMA,'nathan-ai-universal-tools.v1');
@@ -44,4 +44,25 @@ test('search supports exact item, geography, set and evidence filters',()=>{
  assert.ok(searchArtifacts('antarctica').length>=3);
  assert.ok(searchArtifacts('',0,'O').length>10);
  assert.equal(searchArtifacts('invented impossible string').length,0);
+});
+
+test('corrects fictional Royal Pingha without misrepresenting museum object',()=>{
+ const x=COLLECTIONS[2].items[12],eight=COLLECTIONS[2].items[7];
+ assert.equal(x.id,'BX03-13');
+ assert.match(x.name,/Royal Pingha.*fictional/);
+ assert.equal(x.status,'O');
+ assert.equal(x.objectVerified,false);
+ assert.equal(x.accession,null);
+ assert.match(x.correction,/AI-created illustration/);
+ assert.equal(eight.objectVerified,false);
+ assert.match(eight.correction,/not verified/);
+ const museum=MUSEUM_REFERENCES[0];
+ assert.equal(museum.id,'CMA-2015.156');
+ assert.equal(museum.overallCm,45.5);
+ assert.match(museum.shape,/Asymmetrical/);
+ assert.equal(museum.itemInCollectorCase,false);
+});
+test('no creative collector slot is wrongly claimed as an individually authenticated museum object',()=>{
+ assert.ok(ARTIFACTS.every(x=>x.objectVerified===false&&x.accession===null&&x.authorialCatalogLabel===true));
+ assert.equal(MUSEUM_REFERENCES.length,1);
 });
