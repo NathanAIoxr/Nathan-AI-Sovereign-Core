@@ -77,6 +77,10 @@
       if (goto) article.append(goto);
       const source = sourceLink(row, 'View source code', row.source_url);
       if (source) article.append(source);
+      if(row.kind==='source' && isSafeReadableSource(row.path,row.size)) {
+        const btn=elt('button','Read public source in Nathan AI');btn.type='button';
+        btn.addEventListener('click',()=>openPublicSource(row,article));article.append(btn);
+      }
       if (row.file) {
         const button = elt('button', 'Download selected original');
         button.type = 'button';
@@ -102,6 +106,127 @@
     $('more').hidden = matches.length <= state.limit;
     if (!matches.length) list.append(elt('p', 'No matching source record. Try another search, or select an original file using the owner-source control.'));
   }
+
+  // Public-source integration ledger: only filenames, source links and credential NAMES.
+  // Connected accounts and private originals are NOT fetched from the browser.
+  function auditedRows() {
+    const serviceRows = [
+      ['GitHub','repository readable; no production backend implied','https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core'],
+      ['Airtable · ONE Master Index','10 tables; 44 recorded app modules; 13 connected-service records','https://airtable.com/app00zqqUnAe8uo4k'],
+      ['Airtable · Crypto Assets','7 tables; wallet and exchange records not yet verified populated','https://airtable.com/app7ywDhJdAowJx2b'],
+      ['Google Drive · Source & Project Library','folder identified; private bytes NOT copied into public site','https://drive.google.com/drive/folders/1i1lzNd3EvzIYSyWPT6nABU_VwrxG1Tfp'],
+      ['Vercel','sign-in observed; zero accessible projects in November 2 inspection','https://vercel.com/'],
+      ['Supabase','account activity observed; SQL schema remains unapplied','https://supabase.com/'],
+      ['Datadog','11 template/integration dashboards; zero service entities observed','https://app.datadoghq.com/'],
+      ['Notion','connected navigation; no continuous mirror established','https://www.notion.so/'],
+      ['Canva','design tooling; no automated publication pipeline established','https://www.canva.com/'],
+      ['Gmail','mail access; no automatic Nathan AI messaging enabled','https://mail.google.com/'],
+      ['Google Calendar','calendar tooling; no Nathan AI schedule sync confirmed','https://calendar.google.com/'],
+      ['Google Contacts','contact tooling; no CRM sync confirmed','https://contacts.google.com/'],
+      ['Firecrawl','research tooling; no automatic ingestion verified','https://www.firecrawl.dev/'],
+      ['Finances','separate private account analysis; NO public project data import','']
+    ].map(([name,detail,source_url])=>({
+      kind:'service',name,category:'Connected systems · audit metadata',
+      status:'audited November 2, 2026; recheck live status',detail,
+      source_url,href:null
+    }));
+    const credentialGroups = [
+      ['ONE catalog API (open PR #63)','ONE_CATALOG_READ_TOKEN AIRTABLE_TOKEN ONE_AIRTABLE_BASE_ID ONE_AIRTABLE_TABLE_ID ONE_CATALOG_BIND ONE_CATALOG_PORT','https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/63'],
+      ['ONE encrypted archive','ONE_SYNC_TOKEN ONE_DOMAIN ONE_ALLOWED_ORIGINS ONE_DATA_DIR PORT','https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/lean-cloud/README.md'],
+      ['Sovereign mining & wallet gateway','NATHAN_GATEWAY_TOKEN NATHAN_GATEWAY_PORT COINGECKO_DEMO_KEY COINGECKO_ENABLED XMRIG_ACCESS_TOKEN XMRIG_ENABLED XMRIG_PORT TWOMINERS_ADDRESS TWOMINERS_COIN BRAIINS_TOKEN BITCOIN_RPC_USER BITCOIN_RPC_PASSWORD BITCOIN_RPC_PORT BTCPAY_API_KEY BTCPAY_STORE_ID BTCPAY_BASE_URL ALCHEMY_API_KEY HA_TOKEN HA_ENTITY_ID HA_PORT PROMETHEUS_ENABLED PROMETHEUS_PORT GRAFANA_ENABLED GRAFANA_PORT GRAFANA_TOKEN','https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/sovereign-coins/integrations/README.md'],
+      ['Earlier Mac bridge','OPENAI_API_KEY OPENROUTER_API_KEY','']
+    ].map(([name,detail,source_url])=>({
+      kind:'credential',name,category:'Configuration variable NAMES ONLY',
+      status:'values NOT imported; connection unverified',
+      detail:'Expected variable names: '+detail+'. The historically exposed earlier OpenAI key requires revocation verification.',
+      source_url,href:null
+    }));
+    const patchNames = {
+      54:'21-system infrastructure index',55:'Original Architecture 63',
+      56:'21-part distributed ledger',57:'Cryptocurrency conspectus',
+      58:'17-provider mining gateway · 10 read-only adapters',
+      59:'53-Year Matrix',60:'BLACKJACK 21-move game',
+      61:'Reversible Life Formula protocol',
+      62:'Phi-life / Phi-mine reference',63:'Read-only Airtable API + draft Supabase RLS'
+    };
+    const patchRows = Object.entries(patchNames).map(([number,name])=>({
+      kind:'patch',name:'PR #'+number+' · '+name,category:'GitHub patch history',
+      status:'historical snapshot; check pull request for actual merge/CI',
+      detail:'Owner source patch. Closed does not necessarily mean merged. Inspect GitHub for up-to-date state.',
+      source_url:'https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/'+number,href:null
+    }));
+    return [...serviceRows,...credentialGroups,...patchRows];
+  }
+  function isSafeReadableSource(path,size) {
+    return size <= 160000 &&
+      /\.(?:txt|md|markdown|csv|tsv|json|html|css|js|mjs|cjs|ts|tsx|jsx|py|sh|sql|xml|yaml|yml|toml|svg|c|h|rs|java|kt|swift)$/i.test(path) &&
+      !/(?:^|\/)(?:\.env(?:\.|$)|secrets?\/|credentials?\/|private[_-]?key|seed[_-]?phrase)/i.test(path) &&
+      !/\.(?:pem|p12|pfx|key)$/i.test(path);
+  }
+  async function loadPublicRepositoryTree() {
+    const status=$('repo-status');
+    try {
+      const res=await fetch('https://api.github.com/repos/NathanAIoxr/Nathan-AI-Sovereign-Core/git/trees/main?recursive=1',
+        {headers:{Accept:'application/vnd.github+json'}});
+      if (!res.ok) throw Error('GitHub returned HTTP '+res.status);
+      const data=await res.json();
+      if (!Array.isArray(data.tree)) throw Error('Repository tree response not available');
+      const blobs=data.tree.filter(x=>x.type==='blob'&&typeof x.path==='string');
+      const fileRows=blobs.map(x=>{
+        const path=x.path, suffix=(path.split('.').pop()||'file').toLowerCase();
+        return {
+          kind:'source',name:path.split('/').pop(),category:'GitHub public source · '+suffix,
+          status:'file on public main; runtime not implied',
+          detail:path+' · '+Number(x.size||0).toLocaleString()+' bytes · Git blob '+String(x.sha||'').slice(0,12),
+          path,size:Number(x.size||0),blob_sha:String(x.sha||''),
+          searchText:path,source_url:'https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/'+
+            path.split('/').map(encodeURIComponent).join('/'),href:null
+        };
+      });
+      state.base.push(...fileRows);
+      $('repo-file-count').textContent=fileRows.length.toLocaleString();
+      status.textContent='GitHub main tree read · '+fileRows.length.toLocaleString()+
+        ' public source files indexed; source bytes remain in GitHub.'+
+        (data.truncated?' GitHub marked this listing TRUNCATED; it is not exhaustive.':'');
+      redrawFilters();render();
+    } catch (error) {
+      $('repo-file-count').textContent='—';
+      status.textContent='Live GitHub tree unavailable ('+error.message+
+        '). Existing published interface registry and source links remain accessible. No files were deleted.';
+    }
+  }
+  async function openPublicSource(row,article) {
+    const old=article.querySelector('pre.source-viewer');
+    if (old) {old.remove();return;}
+    const pre=elt('pre','Reading selected public source…');pre.className='source-viewer';
+    article.append(pre);
+    try {
+      const raw='https://raw.githubusercontent.com/NathanAIoxr/Nathan-AI-Sovereign-Core/main/'+
+        row.path.split('/').map(encodeURIComponent).join('/');
+      const resp=await fetch(raw);
+      if (!resp.ok) throw Error('HTTP '+resp.status);
+      const code=await resp.text();
+      if(code.length>180000)throw Error('Source exceeds safe inline preview size');
+      pre.textContent=code; // NEVER inject source as HTML, evaluate or run scripts.
+    }catch(e){pre.textContent='Inline preview unavailable: '+e.message+'. Use the GitHub source link.';}
+  }
+  function exportRecoveryManifest() {
+    const data={
+      schema:'nathan-ai.owner-recovery-manifest.v1',exported_at:new Date().toISOString(),
+      warning:'Metadata and source references only: NOT an original-byte backup or evidence of live integrations.',
+      records:[...state.base,...state.local].map(x=>({
+        kind:x.kind,name:x.name,category:x.category,status:x.status,detail:x.detail,
+        source_url:x.source_url||null,path:x.path||x.file?.webkitRelativePath||null,
+        size_bytes:x.file?.size??x.size??null,git_blob_sha:x.blob_sha||null,
+        original_bytes_included:false
+      }))
+    };
+    const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));
+    const a=elt('a');a.href=url;a.download='NATHAN_AI_RECOVERY_METADATA_'+new Date().toISOString().slice(0,10)+'.json';
+    document.body.append(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),30000);
+  }
+
   function watchFilters() {
     for (const id of ['kind', 'category', 'status']) {
       $(id).addEventListener('change', () => { state[id] = $(id).value; state.limit = 48; render(); });
@@ -122,7 +247,7 @@
           !Array.isArray(registry.interfaces) || !Array.isArray(registry.systems) ||
           !Array.isArray(registry.archive_anchors) || !Array.isArray(catalog.entries))
         throw Error('Invalid archive index format');
-      state.base = rowsFrom(registry, catalog.entries);
+      state.base = rowsFrom(registry, catalog.entries).concat(auditedRows());
       $('page-count').textContent = registry.interfaces.length.toLocaleString();
       $('game-count').textContent = catalog.entries.length.toLocaleString();
       $('system-count').textContent = registry.systems.length.toLocaleString();
@@ -136,17 +261,18 @@
     }
   }
   async function ownerImport(files) {
-    const selected = Array.from(files || []).slice(0, 40);
+    const selected = Array.from(files || []);
+    if(selected.length>20000){$('owner-status').textContent='More than 20,000 selected files: import in batches or use the Creator Vault ZIP importer. Nothing silently skipped.';return;}
     let added = 0;
     for (const file of selected) {
       if (state.local.some(x => x.file === file)) continue;
-      const readable = /\.(txt|md|markdown|csv|tsv|json|html|py|js|cjs|mjs|xml|yaml|yml)$/i.test(file.name);
+      const readable = /\.(txt|md|markdown|csv|tsv|json|html|py|js|cjs|mjs|xml|yaml|yml)$/i.test(file.name) && !/(?:\.env|private.?key|secret|seed.?phrase|password|credential)/i.test(file.name);
       let searchText = '';
-      if (readable && file.size <= 8 * 1024 * 1024) {
+      if (readable && file.size <= 1024 * 1024 && added < 40) {
         try { searchText = await file.text(); } catch (_) { searchText = ''; }
       }
       state.local.push({
-        kind: 'owner', name: file.name, category: 'Owner-selected sources',
+        kind: 'owner', name: file.webkitRelativePath || file.name, category: 'Owner-selected sources',
         status: 'tab-only, original unchanged',
         detail: file.size.toLocaleString() + ' bytes · original file · ' +
           (searchText ? 'local text search available' : 'binary / over-limit / unreadable preview'),
@@ -168,6 +294,10 @@
     $('clear-owner').disabled = true;
     redrawFilters(); render();
   });
+  $('export-source-manifest').addEventListener('click',exportRecoveryManifest);
+  $('owner-folder').addEventListener('change',e=>{
+    ownerImport(e.target.files).catch(()=>{$('owner-status').textContent='Selected folder could not be indexed.';});
+  });
   watchFilters();
-  load();
+  load().then(loadPublicRepositoryTree);
 })();
