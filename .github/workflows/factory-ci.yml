@@ -82,6 +82,8 @@ jobs:
         run: |
           node --check app-factory/nathan-ai/universal-tools/app.mjs
           node --test app-factory/nathan-ai/universal-tools/registry.test.mjs
+          node --check app-factory/nathan-ai/universal-tools/arrowhead-tree-app.mjs
+          node --test app-factory/nathan-ai/universal-tools/arrowhead-tree.test.mjs
       - name: Verify Nathan AI ROUTE RAUT ROOT language, mirror, original-source and binary integrity
         run: node --test app-factory/nathan-ai/route-raut-root/records.test.cjs
       - name: Verify recovered Children's Books and Innocence Protection public catalog, 19/13 canon and private import
