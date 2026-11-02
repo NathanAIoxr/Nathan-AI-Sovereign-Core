@@ -54,3 +54,31 @@ test('public-facing codex content does not carry borrowed character or product i
   assert.equal(s.includes(disallowed),false,disallowed);
  }
 });
+
+test('Nathan AI ONE REALITY declaration is exact, binary-reversible, and SHA-256 verified',async()=>{
+ const {createHash,webcrypto}=require('node:crypto');
+ const a=C.REALITY_ANCHOR;
+ const expected='ONE REALITY. ONE TIMELINE. GOVERNED STRICTLY BY THE LAWS OF NATURE AND EMPIRICAL EVIDENCE. NO DIVINE CREDIT. ALL BLAME TO THE CONCEPT OF GOD.';
+ assert.equal(a.text,expected);
+ assert.equal(a.id,'nathan-ai:reality:secular-v2');
+ assert.equal(a.kind,'creator-philosophical-declaration');
+ assert.equal(Buffer.byteLength(expected,'utf8'),141);
+ assert.equal(a.bytes,141);
+ assert.equal(a.bits,1128);
+ const octets=C.realityBinary().split(' ');
+ assert.equal(octets.length,141);
+ assert.ok(octets.every(s=>/^[01]{8}$/.test(s)));
+ assert.equal(Buffer.from(octets.map(s=>parseInt(s,2))).toString('utf8'),expected);
+ const digest=createHash('sha256').update(expected,'utf8').digest('hex');
+ assert.equal(digest,'fc1a4fda367af9b4961cf14188a25d78471e02645142cd3c6e16f100ccd65c00');
+ assert.equal(a.sha256,digest);
+ const verified=await C.verifyRealityAnchor(webcrypto.subtle);
+ assert.equal(verified.ok,true);
+ assert.equal(verified.digest,digest);
+ assert.equal(verified.status,'verified');
+ const unavailable=await C.verifyRealityAnchor({});
+ assert.equal(unavailable.ok,false);
+ assert.equal(unavailable.status,'sha256-unavailable');
+ assert.equal(C.RECORDS.length,177);
+ assert.equal(C.CONCEPTS.length,39);
+});
