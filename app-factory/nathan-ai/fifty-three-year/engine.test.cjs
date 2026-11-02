@@ -32,7 +32,7 @@ test('toy source concepts and proposed mechanics keep product stages',()=>{
  for(const name of ['THE TABOR DOG COMPANY TOYS','THE TABOR TAPE™','The Countertop Fluid Layer Heater','13-Fold Star / Iris Learning Mechanism'])assert.ok(model.products.some(x=>x.name===name));
  assert.ok(model.products.every(x=>x.stage&&x.source&&x.detail&&x.priority));
  assert.ok(model.products.some(x=>x.detail.includes('not a certified')));
- assert.match(model.boundaries.join(' '),/not marked safe, indestructible/);
+ assert.match(model.boundaries.join(' '),/No toy or appliance is marked safe, indestructible/);
 });
 test('app is local, source-first, and directly linked from Nathan AI',()=>{
  assert.match(html,/src="\.\/engine\.js"/);
