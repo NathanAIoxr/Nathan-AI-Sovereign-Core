@@ -23,8 +23,10 @@ test('source snapshot is complete, and each original HTML file still exists',()=
   }
 });
 test('historical references, owner-held originals and game stages stay distinct',()=>{
-  assert.equal(game.entries.length,73);
-  assert.equal(data.counts.game_index_entries,game.entries.length);
+  // 73 was the historical recovery snapshot; the live Games Atlas grows additively.
+  assert.equal(data.counts.game_index_entries,73);
+  assert.ok(game.entries.length>=data.counts.game_index_entries);
+  assert.ok(game.entries.some(x=>x.title.includes('THE UNIVERSAL 13')));
   assert.equal(data.systems.length,92);
   assert.equal(data.archive_anchors.length,14);
   assert.equal(data.counts.prior_master_registry_rows,6056);
