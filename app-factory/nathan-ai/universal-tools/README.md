@@ -12,6 +12,14 @@ The museum record lives in `MUSEUM_REFERENCES`, **outside** the eight-box creati
 
 **Previously generated flyers, collector PDFs, fabricated silhouettes and claims of historical authenticity should be treated as superseded, not cited as historical proof.** The entire collection requires an accession-by-accession review before any historical-accuracy or commercial heritage claims.
 
+## Thirteen Arrowheads ↔ Thirteen Christmas Trees (2026-11-02)
+
+- `arrowhead-tree-matrix.mjs`: preserves all 13 supplied pair titles and shape descriptions alongside corrected botanical taxonomy and archaeological terminology.
+- `arrowhead-tree.html` + `arrowhead-tree-app.mjs`: point-to-tree, tree-to-point, searchable reverse list, schematic (non-replica) silhouettes and browser-playable matching quiz.
+- `arrowhead-tree.test.mjs`: reverse map integrity, classification and correction tests.
+- **The tree↔point matching is authored analogy, not archaeological proof of historical influence.** The 104 entries in the prior eight boxes are unchanged. This matrix adds 13 reciprocal pair records, not 26 new historical artifacts.
+- Fresno is typically unnotched, Black Hills spruce is more precisely `Picea glauca var. densata`, and Arizona cypress is also known by the accepted `Hesperocyparis arizonica`.
+
 ## What is implemented
 
 - **Eight** public collector families and **104 catalog positions** (13 per box).
