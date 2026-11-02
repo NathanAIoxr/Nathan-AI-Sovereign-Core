@@ -96,6 +96,8 @@ jobs:
         run: node --test app-factory/one/nathan-matrix/dimensions-grids/engine.test.cjs
       - name: Verify Nathan AI sovereignty, Hitler-history and womb recovery source integrity
         run: node --test app-factory/one/nathan-matrix/sovereignty-origins/records.test.cjs
+      - name: Verify Nathan AI 21-part Distributed Ledger source and 7-7-7 records
+        run: node --test app-factory/one/nathan-matrix/distributed-ledger/records.test.cjs
       - name: Verify Nathan AI Deep Arrest W symbolic signal boundaries
         run: node --test app-factory/one/nathan-matrix/anatomy/wiring.test.cjs
       - name: Verify additive 007 installer for ONE Master Library
