@@ -1,0 +1,4 @@
+"use strict";const {test}=require("node:test");const a=require("node:assert/strict");const x=require("./engine.js");
+const sample={schema:"one.library.private-pack.v1",title:"Original",privacy:"OWNER ONLY",publication_permission:"NOT GRANTED",records:[{key:"EX007:EX007-0112",title:"Hebrew KJV"},{key:"SCRIPTURE:REF011",title:"Qur’an"},{key:"BRIDGE-001",title:"Revelation and Daniel"},{key:"SOURCE:HASH",title:"Bytes"}]};
+test("exact original IDs, no publishing",()=>{let s=x.read(JSON.stringify(sample));a.equal(s.rows.length,4);a.equal(s.rows[0].id,"EX007:EX007-0112");a.equal(s.published,false);a.equal(x.search(s.rows,"qur","scripture").length,1)});
+test("reject public, duplicate, invalid inputs",()=>{a.throws(()=>x.read("{}"));a.throws(()=>x.read(JSON.stringify({...sample,privacy:"PUBLIC"})));a.throws(()=>x.read(JSON.stringify({...sample,records:[...sample.records,sample.records[0]]})))});
