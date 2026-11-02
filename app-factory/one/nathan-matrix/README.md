@@ -28,3 +28,8 @@ Additive ONE browser reference module. Owner original source, private code, and 
 - The authored "original womb man" and 400,000-year self-procreation theory are preserved verbatim, separate from scientific evidence; Hitler/V-2/Paperclip history is separately sourced and the Nazi symbolism material is critically contextualized.
 - All original modules and private archives remain unchanged; no external execution, surveillance or new reproductive claims are implemented.
 - Test: `node --test app-factory/one/nathan-matrix/sovereignty-origins/records.test.cjs`.
+
+## November 1, 2026 — ROUTE • RAUT • ROOT languages (additive)
+- The recovered ROOT, RAUT, ROUTE, PĒS, R-vowel/CK mirrors and binary-model source index has an interactive browser in [`../../nathan-ai/route-raut-root/`](../../nathan-ai/route-raut-root/README.md).
+- Exact selected quotes stay separate from linguistic research; owner originals remain in private source archives. Existing modules are unchanged.
+- Test: `node --test app-factory/nathan-ai/route-raut-root/records.test.cjs`.
