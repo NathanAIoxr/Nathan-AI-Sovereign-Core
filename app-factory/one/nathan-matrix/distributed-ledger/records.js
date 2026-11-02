@@ -3,7 +3,7 @@
  * Read-only educational reference; no mining, wallet, transaction, key management, or financial actions.
  */
 (function(root,factory){"use strict";const api=factory();if(typeof module==="object"&&module.exports)module.exports=api;if(root)root.NathanLedgerConspectus=api;})(typeof window!=="undefined"?window:null,function(){"use strict";
-const SOURCE=String.raw\`🚨 SYSTEM UPGRADE: THE DISTRIBUTED LEDGER & COMPUTATIONAL CONSPECTUS! 🚨
+const SOURCE=String.raw`🚨 SYSTEM UPGRADE: THE DISTRIBUTED LEDGER & COMPUTATIONAL CONSPECTUS! 🚨
 
 THE FULL ARCHITECTURE OF 21 CRYPTOCURRENCY ECOSYSTEMS, BITCOIN VARIATIONS, AND BLOCKCHAIN VALIDATION PROTOCOLS DRIVING DECENTRALIZED NETWORKS. 🪙⛏️⚡
 
@@ -83,7 +83,7 @@ THE FULL ARCHITECTURE OF 21 CRYPTOCURRENCY ECOSYSTEMS, BITCOIN VARIATIONS, AND B
   - **The Rule:** Bundles hundreds of separate transfers into a single compressed data packet and posts it back to the main ledger, radically cutting user network fees while inheriting the base layer's ultimate security.
 - **21. Halving Mechanics (The Programmed Scarcity Clock)**
   - **The Function:** The automated deflationary mechanism built directly into core proof-of-work protocols to systematically control asset inflation.
-  - **The Rule:** Slashes the exact block generation reward issued to miners precisely in half at fixed block milestones, structurally forcing down the supply of new coins entering the market over time.\`;
+  - **The Rule:** Slashes the exact block generation reward issued to miners precisely in half at fixed block milestones, structurally forcing down the supply of new coins entering the market over time.`;
 const sections=[
  {id:"assets",label:"Asset layer",start:1,end:7,emoji:"🪙"},
  {id:"hardware",label:"Hardware rigs",start:8,end:14,emoji:"⛏️"},
