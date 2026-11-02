@@ -86,3 +86,10 @@ Verification for this documentation update: checked existing repository source a
 - **Privacy:** The public module excludes the author's physical measurements, personal health details, original private text, biometrics and identifiers. Those originals remain owner-controlled and are not auto-imported.
 - **Validation:** GitHub Actions Factory quality checks run `41352086464` passed, including new `anatomy/wiring.test.cjs` cases. No independent clinical validation, physical device/browser QA, biometric link, neural control, provider connection or therapeutic claims.
 - **State:** public static browser prototype merged; GitHub Pages publication and mobile device behavior require separate verification.
+
+## November 1, 2026 — Children’s & Innocence Recovery Wing (public prototype)
+
+- Added `app-factory/nathan-ai/children-innocence/` as an additive public index with 46 recovered project families. Maintains separate original-title labels, four classifications, seven selected author statements, 19 Pumpkin Fruit Family group names and 13 distinct power names.
+- Connected the new doorway from the Nathan AI Main Hub, searchable hub directory, ONE landing page and Connected Matrix without replacing their prior modules.
+- Owner can manually load the earlier private recovery JSON in a local browser session: 598 matching filename records and 556 distinct filenames reported by the external private index. The public site does **not** include those source records, file IDs, original manuscript bytes, private links, personal documents or images.
+- Tests: `node --test app-factory/nathan-ai/children-innocence/engine.test.cjs`; CI workflow updated to run these tests. CI result and GitHub Pages deployment must be checked separately. No autonomous child safety, fundraising or manuscript completion is claimed.
