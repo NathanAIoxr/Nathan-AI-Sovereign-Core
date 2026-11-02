@@ -49,7 +49,7 @@ function exportSelected(){
     source_of_note:'user-entered (private; session-only)',
     owner_original_words:drafts.get(selected)||'',
     financial_claims_verified:false,
-    service_credentials_included:false
+    credentials_not_requested:true
   };
   const blob=new Blob([JSON.stringify(output,null,2)+'\n'],{type:'application/json'});
   const url=URL.createObjectURL(blob);
