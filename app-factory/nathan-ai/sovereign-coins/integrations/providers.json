@@ -1,0 +1,145 @@
+{
+  "schema": "nathan-ai.mining-wallet-integrations.v1",
+  "created": "2026-11-02",
+  "placement": "Nathan AI > 21 Sovereign Coins > Integrations",
+  "source_policy": "Original authored coin definitions untouched; connected protocols have separate identities.",
+  "defaults": "Wallets and paid providers require owner authorization; catalog inclusion is not a live connection.",
+  "providers": [
+    {
+      "id": "xmrig",
+      "name": "XMRig",
+      "group": "Mining",
+      "mode": "read",
+      "description": "Local hashrate, uptime and share totals",
+      "docs": "https://xmrig.com/docs/miner/api"
+    },
+    {
+      "id": "hiveon",
+      "name": "Hiveon OS",
+      "group": "Mining",
+      "mode": "setup",
+      "description": "Farm and worker API integration contract; account setup required",
+      "docs": "https://hiveon.com/"
+    },
+    {
+      "id": "awesome-miner",
+      "name": "Awesome Miner",
+      "group": "Mining",
+      "mode": "setup",
+      "description": "Local miner-management API integration contract; API endpoint must be enabled",
+      "docs": "https://www.awesomeminer.com/"
+    },
+    {
+      "id": "nicehash",
+      "name": "NiceHash",
+      "group": "Mining",
+      "mode": "setup",
+      "description": "Marketplace and private-account integration contract; signed API credentials required",
+      "docs": "https://www.nicehash.com/"
+    },
+    {
+      "id": "reown",
+      "name": "Reown AppKit / WalletConnect",
+      "group": "Wallet",
+      "mode": "sdk",
+      "description": "User-approved wallet connection via official browser SDK",
+      "docs": "https://docs.reown.com/appkit/overview"
+    },
+    {
+      "id": "trezor",
+      "name": "Trezor Connect",
+      "group": "Wallet",
+      "mode": "sdk",
+      "description": "Hardware signing approval on the physical device; never custody keys",
+      "docs": "https://connect.trezor.io/"
+    },
+    {
+      "id": "coinbase-wallet",
+      "name": "Coinbase Wallet SDK",
+      "group": "Wallet",
+      "mode": "sdk",
+      "description": "User-approved external wallet sessions via official SDK",
+      "docs": "https://docs.cdp.coinbase.com/"
+    },
+    {
+      "id": "bitcoin-core",
+      "name": "Bitcoin Core",
+      "group": "Blockchain",
+      "mode": "read",
+      "description": "Read-only local getblockchaininfo JSON-RPC",
+      "docs": "https://bitcoincore.org/en/doc/"
+    },
+    {
+      "id": "btcpay",
+      "name": "BTCPay Server",
+      "group": "Payments",
+      "mode": "read",
+      "description": "Read-only Greenfield store metadata with scoped API key",
+      "docs": "https://docs.btcpayserver.org/Developers/api/"
+    },
+    {
+      "id": "alchemy",
+      "name": "Alchemy",
+      "group": "Blockchain",
+      "mode": "read",
+      "description": "Ethereum read-only latest block via JSON-RPC",
+      "docs": "https://www.alchemy.com/docs"
+    },
+    {
+      "id": "2miners",
+      "name": "2Miners",
+      "group": "Mining pools",
+      "mode": "read",
+      "description": "Account hashrate, workers, and payout counters for configured address",
+      "docs": "https://github.com/2miners/apidoc"
+    },
+    {
+      "id": "braiins",
+      "name": "Braiins Pool",
+      "group": "Mining pools",
+      "mode": "read",
+      "description": "Bitcoin mining pool network statistics",
+      "docs": "https://academy.braiins.com/braiins-pool/monitoring"
+    },
+    {
+      "id": "minerstat",
+      "name": "Minerstat",
+      "group": "Mining analytics",
+      "mode": "setup",
+      "description": "Mineable-coin and hardware profitability API integration contract; key/plan required",
+      "docs": "https://minerstat.com/api-docs"
+    },
+    {
+      "id": "coingecko",
+      "name": "CoinGecko",
+      "group": "Market data",
+      "mode": "read",
+      "description": "Public USD price reference for Bitcoin, Ethereum, and Monero",
+      "docs": "https://docs.coingecko.com/"
+    },
+    {
+      "id": "prometheus",
+      "name": "Prometheus",
+      "group": "Monitoring",
+      "mode": "read",
+      "description": "Local up-target health query",
+      "docs": "https://prometheus.io/docs/prometheus/latest/querying/api/"
+    },
+    {
+      "id": "grafana",
+      "name": "Grafana",
+      "group": "Monitoring",
+      "mode": "read",
+      "description": "Local Grafana instance health status",
+      "docs": "https://grafana.com/docs/grafana/latest/developers/http_api/"
+    },
+    {
+      "id": "home-assistant",
+      "name": "Home Assistant",
+      "group": "Energy",
+      "mode": "read",
+      "description": "Configured power/energy sensor state, not estimated mining electricity",
+      "docs": "https://www.home-assistant.io/integrations/rest/"
+    }
+  ]
+}
