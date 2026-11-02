@@ -1,0 +1,19 @@
+(function(){"use strict";
+const catalog=window.NathanChildrenCatalog,engine=window.NathanChildrenEngine;
+const byId=id=>document.getElementById(id);
+if(!catalog||!engine){byId("import-status").textContent="The catalog scripts are unavailable.";return;}
+const state={imported:null,assetLimit:100};
+function node(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=String(text);if(cls)e.className=cls;return e}
+const section=byId("section");catalog.sections.forEach(s=>{const option=node("option",s);option.value=s;section.append(option)});
+function current(){return state.imported||{projects:catalog.projects,authorLines:catalog.authorLines,assets:[]}}
+function drawProjects(){const data=current(),q=byId("query").value,s=section.value,filtered=engine.searchProjects(data.projects,q,s),parent=byId("projects");parent.replaceChildren();filtered.forEach(p=>{const card=node("article",undefined,"card");const group=node("div",p.section,"eyebrow");const h=node("h3",p.title);const stage=node("div",p.stage,"tag");const summary=node("p",p.scope);const source=node("small",p.sourceStatus||"Recovery catalog entry");card.append(group,h,stage,summary,source);parent.append(card)});byId("project-count").textContent=filtered.length+" of "+data.projects.length+" project families shown"+(state.imported?" · owner-local recovery":" · public reference");byId("project-total").textContent=String(data.projects.length);if(!filtered.length)parent.append(node("p","No matching project families."))}
+function drawWords(){const parent=byId("original-lines");parent.replaceChildren();current().authorLines.forEach(line=>parent.append(node("blockquote",line)))}
+function drawPumpkins(){for(const [id,items] of [["pumpkin-groups",catalog.pumpkin.groups],["pumpkin-powers",catalog.pumpkin.powers]]){const target=byId(id);target.replaceChildren();items.forEach(name=>target.append(node("li",name)))}byId("pumpkin-rule").textContent=catalog.pumpkin.unlockRule}
+function drawAssets(){const assets=state.imported?.assets||[],filtered=engine.searchAssets(assets,byId("asset-query").value),view=filtered.slice(0,state.assetLimit),parent=byId("assets-list");parent.replaceChildren();view.forEach(a=>{const row=node("div");row.append(node("strong",a.name),node("span"," · "+a.tags.join(", ")+" · "+a.status,"muted"));parent.append(row)});byId("asset-count").textContent=view.length+" of "+filtered.length+" matching private filename records shown";byId("assets-more").hidden=filtered.length<=state.assetLimit}
+byId("query").addEventListener("input",drawProjects);section.addEventListener("change",drawProjects);
+byId("asset-query").addEventListener("input",()=>{state.assetLimit=100;drawAssets()});
+byId("assets-more").addEventListener("click",()=>{state.assetLimit+=100;drawAssets()});
+byId("file").addEventListener("change",async function(){const file=this.files&&this.files[0];if(!file)return;const status=byId("import-status");try{if(file.size>engine.MAX_BYTES)throw new Error("The selected JSON exceeds the 10 MB local import limit.");const parsed=engine.parseRecovery(await file.text());state.imported=parsed;state.assetLimit=100;byId("private-panel").hidden=false;status.textContent="Loaded in this browser session: "+parsed.projects.length+" project families and "+parsed.assets.length+" private filename records. Nothing was uploaded.";drawProjects();drawWords();drawAssets()}catch(error){status.textContent="Import not loaded: "+error.message;this.value=""}});
+byId("forget").addEventListener("click",()=>{state.imported=null;state.assetLimit=100;byId("file").value="";byId("asset-query").value="";byId("private-panel").hidden=true;byId("import-status").textContent="Private recovery data forgotten from this page. Public catalog only.";drawProjects();drawWords()});
+drawProjects();drawWords();drawPumpkins();
+})();
