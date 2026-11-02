@@ -80,3 +80,17 @@ const result = await C.verifyRealityAnchor(); // Web Crypto, secure browser cont
 Node verification: `node --test app-factory/octopus-root/codex.test.cjs`. This test suite checks exact byte length, bit length, binary/text round-trip, independent SHA-256 calculation, browser-crypto compatibility, and preservation of all 216 existing Root Codex positions.
 
 **Non-destructive integration:** The declaration is a separate record, not a modification of earlier mathematical/historical or theological sources. Use the TABOR ROOT permission scopes when linking to ONE, Factory, or other products.
+
+## EYEPRINTS × HANDPRINTS — the dorsal-hand life ledger (module v3.0, 2026-11-02)
+
+**Additive source module:** [EYEPRINTS × HANDPRINTS](./eyeprints-handprints/index.html) · [technical README](./eyeprints-handprints/README.md) · [architecture](./eyeprints-handprints/ARCHITECTURE.md).
+
+Preserve the creator's wording: **“The backs of your hands are the ledgers of your life.”** The project studies visible hand anatomy, documented life history, generational observations, opt-in iris geometry research, and separately attributed KJV/historical sources. Do not replace that source statement with an invented manuscript or imply that an RGB photograph knows someone's private biography, genetic sequence, moral conduct, medical diagnosis, or soul's condition.
+
+**Source layers (never merge silently):** (1) verbatim creator statements; (2) cited KJV text, including Job 37:7, Psalm 24:4 and James 2:18; (3) verifiable scientific anatomy and image measurements; (4) dated personal/family records provided with consent; (5) theological or historical interpretations clearly labeled as such. Keep the secular ONE REALITY canonical declaration above byte-for-byte unchanged; this KJV research library is a separately named source layer, not a replacement for the active anchor.
+
+**Implementation:** `app-factory/nathan-ai/eyeprints-handprints/` is an offline-first browser/PWA prototype with RGB camera or file intake, dorsal-hand annotations, iris radial-geometry study, family profiles, life-ledger entries, encrypted local vault, backups and research atlas. Its optional sample-loader refers to private files which must not be committed to the public repository. The public hosted build contains **no owner's hand images, health records, iris images, private keys, credentials, or live identity templates**. Images must be explicitly selected on the user's own device.
+
+**Validation/consent:** No validated NIR vein mapping, clinical diagnosis, secure-enclave matching, anti-spoofing, identity issuance, or native app-store deployment is claimed. A separate real-hardware program must calibrate NIR and depth sensors and independently validate privacy, biometrics, clinical claims and security before advancing those statuses. Tokens derived from fuzzy physiological patterns are **not** deterministic secret cryptographic keys; protect records with independently generated encryption keys. No hidden biometric collection or uploads.
+
+**Verification:** `node app-factory/nathan-ai/eyeprints-handprints/tests/crypto.mjs`, `node app-factory/nathan-ai/eyeprints-handprints/tests/analysis.mjs`, and `python app-factory/nathan-ai/eyeprints-handprints/tests/static_check.py` (from the module directory for relative paths). Keep original project boundaries, the existing creator Codex, and the public/private release gate intact.

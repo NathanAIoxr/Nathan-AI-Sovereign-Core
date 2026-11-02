@@ -105,3 +105,12 @@ The hub uses the existing archive JSON directly and preserves source text. It ad
 ## Children’s Books & Innocence Protection · Nov 1, 2026
 
 [Open the new additive recovery wing](./children-innocence/index.html): 46 original children’s book, protection, language/game, and family/community project-family references, with a locally selected private 598-record index, 19 Pumpkin Fruit Family groups, 13 separate powers, and author-supplied exact lines. Public descriptions are editorial index material; original manuscripts, illustrations and personal source media stay with the owner. Unit tests cover public counts, original labels, safe local parsing and private URL removal.
+
+
+## EYEPRINTS × HANDPRINTS — anatomy, iris geometry and the life ledger
+
+[Open the hand-and-eye scanner](./eyeprints-handprints/index.html) · [technical documentation](./eyeprints-handprints/README.md) · [architecture](./eyeprints-handprints/ARCHITECTURE.md).
+
+This additive Nathan AI module supplies a local-first hand-photo explorer, iris-geometry viewer, anatomical annotations, family profiles and documented life-ledger research. Local records are encrypted in the user's browser; the public GitHub source **excludes the owner's original hand photographs and private reports**. Select images manually on your own device and keep independent encrypted backups.
+
+RGB photos can describe visible appearance and calibrated image geometry but do **not** supply NIR vascular imaging, internal nerve mapping, biometric identity certification, diagnoses or a person's moral/spiritual state. Job 37:7, Psalm 24:4 and James 2:18 are catalogued as theological text sources, not physical measurements. The canonical secular CODEX declaration remains untouched. Run the module's Node/Python tests; hardware and browser device tests are pending.
