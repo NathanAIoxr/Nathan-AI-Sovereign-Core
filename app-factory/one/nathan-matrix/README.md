@@ -22,3 +22,9 @@ Additive ONE browser reference module. Owner original source, private code, and 
 - Source → Index → Relate → Derive. Validate legal status, source repository, permission grants, and original tests before integrating real services.
 - Node 22 test: `node --test app-factory/one/nathan-matrix/engine.test.cjs`.
 - Direct URL: `app-factory/one/nathan-matrix/index.html`.
+
+## November 1, 2026 — Sovereignty / Hitler history / Human Womb (additive)
+- New 44-record sourced recovery browser: [Sovereignty, Historical Accountability and Human Origins](sovereignty-origins/README.md) and [browser](sovereignty-origins/index.html).
+- The authored "original womb man" and 400,000-year self-procreation theory are preserved verbatim, separate from scientific evidence; Hitler/V-2/Paperclip history is separately sourced and the Nazi symbolism material is critically contextualized.
+- All original modules and private archives remain unchanged; no external execution, surveillance or new reproductive claims are implemented.
+- Test: `node --test app-factory/one/nathan-matrix/sovereignty-origins/records.test.cjs`.
