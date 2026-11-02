@@ -16,7 +16,10 @@ test('unknown themes, injected CSS and malformed preference files fail validatio
 test('every Nathan AI entry page loads the same scoped appearance engine',()=>{
   const base=path.resolve(__dirname,'..'),pages=[];
   function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())walk(p);else if(e.name.endsWith('.html'))pages.push(p)}}walk(base);assert.ok(pages.length>=28);
-  for(const p of pages){const html=fs.readFileSync(p,'utf8');assert.equal((html.match(/data-nathan-shared-appearance/g)||[]).length,1,p);const style=[...html.matchAll(/href="([^"]*shared\.css)"/g)][0];assert.ok(style,p);assert.equal(path.resolve(path.dirname(p),style[1]),path.join(__dirname,'shared.css'))}
+  const independentPwa=path.join(base,'eyeprints-handprints')+path.sep;
+  // The scanner is independently deployable; its untouched EYEPRINTS archival HTML is also standalone.
+  // Neither should acquire Nathan AI's shared appearance dependency just to satisfy this hub test.
+  for(const p of pages){if(p.startsWith(independentPwa))continue;const html=fs.readFileSync(p,'utf8');assert.equal((html.match(/data-nathan-shared-appearance/g)||[]).length,1,p);const style=[...html.matchAll(/href="([^"]*shared\.css)"/g)][0];assert.ok(style,p);assert.equal(path.resolve(path.dirname(p),style[1]),path.join(__dirname,'shared.css'))}
 });
 test('preference storage and reset never use content, wallet or legacy shell keys',()=>{
   const script=fs.readFileSync(path.join(__dirname,'app.js'),'utf8');assert.doesNotMatch(script,/localStorage\.clear\(|tabor123_projects|one\.v061\.shell\.preferences|innerHTML\s*=/);assert.match(script,/localStorage\.setItem\(api\.KEY/);assert.match(script,/dialog\.showModal/);
