@@ -114,6 +114,7 @@
       ['GitHub','repository readable; no production backend implied','https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core'],
       ['Airtable · ONE Master Index','10 tables; 44 recorded app modules; 13 connected-service records','https://airtable.com/app00zqqUnAe8uo4k'],
       ['Airtable · Crypto Assets','7 tables; wallet and exchange records not yet verified populated','https://airtable.com/app7ywDhJdAowJx2b'],
+      ['Airtable · Crypto Mining Operations','12 tables: hardware, software, pools, performance, energy, profitability, maintenance, wallets, payouts, monitoring, dashboard and plan; telemetry not verified',''],
       ['Google Drive · Source & Project Library','folder identified; private bytes NOT copied into public site','https://drive.google.com/drive/folders/1i1lzNd3EvzIYSyWPT6nABU_VwrxG1Tfp'],
       ['Vercel','sign-in observed; zero accessible projects in November 2 inspection','https://vercel.com/'],
       ['Supabase','account activity observed; SQL schema remains unapplied','https://supabase.com/'],
