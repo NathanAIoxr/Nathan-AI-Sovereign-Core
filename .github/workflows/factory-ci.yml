@@ -36,6 +36,10 @@ jobs:
           node-version: '22'
       - name: Verify public assets and architecture boundaries
         run: node --test app-factory/quality.test.cjs
+      - name: Verify Formula of Life 732-million-node local activation, exact source identities and consent
+        run: node --test app-factory/nathan-ai/activation/engine.test.mjs
+      - name: Exercise one real local Formula of Life controller through four phases and stop
+        run: node app-factory/nathan-ai/activation/runtime-cli.mjs --activate --ticks=8
       - name: Verify BLACKJACK Game of LIFE scoring, 21 moves and casino source registry
         run: node --test app-factory/games/blackjack-life/engine.test.cjs
       - name: Verify NATHAN AI 138-reference Registry and boundaries
@@ -100,10 +104,6 @@ jobs:
         run: node --test app-factory/nathan-ai/innocence-matrix/innocence.test.cjs
       - name: Verify NATHAN AI Flyer Studio presets, exports, and source protection
         run: node --test app-factory/nathan-ai/flyer-studio/flyer.test.cjs
-      - name: Verify Formula of Life 732-million-node local activation, exact source identities and consent
-        run: node --test app-factory/nathan-ai/activation/engine.test.mjs
-      - name: Exercise one real local Formula of Life controller through four phases and stop
-        run: node app-factory/nathan-ai/activation/runtime-cli.mjs --activate --ticks=8
       - name: Verify Nathan AI life-linked 21-coin crosswalk protects original and private source
         run: node --test app-factory/nathan-ai/sovereign-coins/life/life-matrix.test.mjs
       - name: Verify Anchored Sovereign Matrix 1-0 rules and two-axis SHA-256 checks
