@@ -190,7 +190,7 @@ const RECORDS=[
     "title": "Name reversals and T-B-R roots",
     "period": "Language matrix",
     "kind": "authored-framework",
-    "summary": "ROBAt, REBAT, RIBAT, REVAT, ROVAT and RIVAT; T-B-R / T-V-R / R-B-T routes are comparison keys, not genealogical evidence.",
+    "summary": "ROBAT, REBAT, RIBAT, REVAT, ROVAT and RIVAT; T-B-R / T-V-R / R-B-T routes are comparison keys, not genealogical evidence.",
     "source": "FIND THE TABOR register"
   },
   {
