@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101720">
+<title>Nathan AI — Private Source Recovery & A–Z Intake</title>
+<style>
+:root{color-scheme:dark;background:#101720;color:#f2eee5;font:16px/1.55 system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0}main{max-width:1160px;margin:auto;padding:22px}
+a{color:#f2d599}header,nav,.actions,.filters{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+header{justify-content:space-between;border-bottom:1px solid #4c606d;padding-bottom:18px}
+h1{font-size:clamp(2rem,5vw,3.7rem);line-height:1.1}h2{font-size:1.35rem}
+p,.muted{color:#c0ced7}.eyebrow{color:#f2d599;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase}
+.panel{margin:20px 0;padding:20px;border:1px solid #4e6372;border-radius:15px;background:#192b38}
+.notice{border-left:4px solid #f1cb89;padding:12px;background:#30302e}
+label{display:block;margin:12px 0 4px;font-weight:600}
+input,select,button{font:inherit;background:#223747;color:#fff;border:1px solid #819aab;border-radius:8px;padding:9px}
+input[type="file"]{display:block;width:100%}input[type="password"],input[type="search"]{width:100%}
+button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #f2d599;outline-offset:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.card{border:1px solid #506b7c;border-radius:12px;padding:14px;background:#1d3343;overflow-wrap:anywhere}
+.card h3{margin:0 0 5px;font-size:1rem}small{color:#b3c8d3}code{overflow-wrap:anywhere}
+#records{margin-top:15px}.record-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+#preview{white-space:pre-wrap;overflow-wrap:anywhere;max-height:400px;overflow:auto}
+footer{margin-top:32px;border-top:1px solid #526878;padding-top:20px;color:#b3c8d3}
+@media(max-width:550px){main{padding:13px}.panel{padding:14px}}
+</style>
+<script src="source-intake.js" defer></script>
+</head>
+<body><main>
+<header><strong>NATHAN AI → TABOR ROOT → FACTORY → ONE</strong>
+<nav aria-label="Navigation"><a href="../index.html">Nathan AI</a><a href="../build-recovery/index.html">Build Recovery</a><a href="../../vault.html">Creator Vault</a><a href="../../one/index.html">ONE</a></nav></header>
+<p class="eyebrow">Original-byte preservation · local owner-controlled import</p>
+<h1>Bring every source home.<br>Keep every original intact.</h1>
+<p>Collect originals from your own authorized exports, source ZIPs, documents, code, manuscripts and data. This is a <strong>private browser-local importer</strong>; it never silently reads connected accounts and it never uploads originals to public GitHub.</p>
+<section class="panel"><h2>Current master source locations</h2>
+<div class="grid">
+<div class="card"><h3>GitHub — Code</h3><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core">Sovereign Core source repository</a><p>Use a repository ZIP for owner-selected archival intake.</p></div>
+<div class="card"><h3>Airtable — Master Index</h3><a href="https://airtable.com/">Project registry and modules</a><p>Export the original tables as CSV, then select the files here.</p></div>
+<div class="card"><h3>Airtable — Crypto</h3><a href="https://airtable.com/">Wallet and asset record system</a><p>Empty registers do not establish owned wallets or live miners.</p></div>
+<div class="card"><h3>Notion — Project Knowledge</h3><a href="https://www.notion.so/">ONE Master Hub</a><p>Export selected workspace originals with your own permissions.</p></div>
+<div class="card"><h3>Google Drive — Original Documents</h3><a href="https://drive.google.com/drive/my-drive">Source &amp; Project Library</a><p>Select downloaded originals or archive files, without moving them.</p></div>
+<div class="card"><h3>Previously Indexed Interfaces</h3><a href="../build-recovery/index.html">All Interfaces &amp; Builds</a><p>Existing code references remain separate from private originals.</p></div>
+</div></section>
+<section class="panel" aria-labelledby="intake-heading">
+<h2 id="intake-heading">1 — Import your original bytes</h2>
+<p class="notice"><strong>Encrypted in this browser:</strong> file bytes are encrypted with AES-GCM before IndexedDB storage using a key derived from your passphrase. Filenames and source labels remain readable locally. No remote backup or account synchronization is provided. Losing your passphrase means losing access to encrypted contents.</p>
+<label for="source">Source of these files</label>
+<select id="source"><option value="GitHub">GitHub / code export</option><option value="Google Drive">Google Drive / downloaded originals</option><option value="Airtable">Airtable / table exports</option><option value="Notion">Notion / page exports</option><option value="Local Archive">Private ZIP / local archive</option><option value="Other">Other original source</option></select>
+<label for="pass">Private archive passphrase (12 or more characters)</label>
+<input id="pass" type="password" autocomplete="off" minlength="12" placeholder="Required to import, preview or restore">
+<label for="file-import">Choose files (code, JSON, CSV, TXT, MD, ZIP, media or original binary)</label>
+<input id="file-import" type="file" multiple>
+<label for="folder-import">Or choose a whole folder (supported browsers)</label>
+<input id="folder-import" type="file" multiple webkitdirectory>
+<div class="actions"><button id="import" type="button">Encrypt and add selected originals</button><button id="clear" type="button">Clear selections</button></div>
+<p class="muted">Files are imported one by one, with a 128 MiB limit per file. Credential and key filenames are refused. Repeated identical source/path/content entries are skipped; changed bytes remain separate versions. Browser quotas vary.</p>
+<p id="status" role="status" aria-live="polite">Opening local vault…</p>
+</section>
+<section class="panel">
+<h2>2 — Inspect, find and recover</h2>
+<p id="counts" class="muted">No local inventory loaded.</p>
+<label for="search">Search local titles, paths, source labels or hashes</label>
+<input id="search" type="search" placeholder="Search imported originals A–Z">
+<div class="actions"><button id="export-manifest" type="button">Download local inventory manifest (metadata only)</button><button id="refresh" type="button">Refresh inventory</button></div>
+<div id="records" class="grid" aria-live="polite"></div>
+<p id="result-summary" class="muted"></p>
+</section>
+<section class="panel"><h2>3 — View original text (locally only)</h2>
+<p>For text/code files up to 2 MiB, select Preview and re-enter your passphrase. File bytes are never sent to a remote text or model provider by this page.</p>
+<pre id="preview">Select Preview on a file above.</pre>
+</section>
+<footer>Originals remain in their existing sources. This page provides an additional encrypted browser copy, not a validated cloud backup. For whole-archive ZIP export and restore, use the separate <a href="../../vault.html">Universal Creator Vault</a> and independent backups. Do not import recovery phrases, credentials, private keys, or password stores.</footer>
+</main></body></html>
