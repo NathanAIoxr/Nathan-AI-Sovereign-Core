@@ -13,7 +13,7 @@ function renderDetail(){
  $('detail-status').textContent=STATUS[a.status];
  $('detail-status').dataset.code=a.status;
  $('detail-role').textContent=a.role+(a.previousCenterpiece?' · Earlier centerpiece: '+a.previousCenterpiece:'');
- $('detail-guide').textContent=a.status==='O'?'Original display concept: not an attested historical artifact.':a.status==='P'?'Historical attribution remains unverified.':a.status==='R'?'A related object type, retained to compare shared geometry.':'Use the artifact family for geometry comparison; the individual name and claimed origin require source verification.';
+ $('detail-guide').textContent=(a.correction?a.correction+' ':'')+'Museum object verification: NOT COMPLETED for this collector entry; no matching accession is recorded. '+(a.status==='O'?'This is a newly invented collector design.':a.status==='P'?'Claimed historical name and form remain unverified.':a.status==='R'?'This is a related object type, not authenticated as the same cultural tool.':'Only broader family or geometry has a potential historical parallel. The specific label and silhouette are NOT verified.');
 }
 const slots=[[1,1],[1,2],[1,3],[1,4],[2,4],[3,4],[4,4],[4,3],[4,2],[4,1],[3,1],[2,1]];
 function renderCase(){
