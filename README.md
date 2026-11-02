@@ -82,3 +82,7 @@ The root `LICENSE` file is **Apache License 2.0**. Confirm that it matches the o
 - [Inspect the nonsensitive public app registry](app-factory/system/registry-v061.json).
 
 **54 public browser pages** load the optional local-first ONE shell. Each original page is retained with one additive deferred script reference. The four embedded native-web resource copies are intentionally not claimed to have been repackaged. The shell provides owner-controlled skin, reader modes, RTL, reduced motion, local Save/Reset and configuration export; it does **not** operate other services, publish unpublished books, collect telemetry, or imply 33 million completed books. The private Master Library database and book archives remain private.
+
+## Nathan AI Children’s Books & Innocence Protection — November 1, 2026
+
+[Open the additive Children’s Library & Innocence Protection browser](app-factory/nathan-ai/children-innocence/index.html). This public source-first module connects 46 recovered project families, 19 Pumpkin Fruit Family groups, 13 individual power meters and selected author-provided statements. The reported 598 private file records stay in the owner-only recovery JSON, which can be imported locally from the previously generated private recovery pack; private source bytes, Library URLs and personal details are not public. A catalog entry does not mean a finished book, a working donation service or real-world autonomous child protection. [Read module documentation](app-factory/nathan-ai/children-innocence/README.md).

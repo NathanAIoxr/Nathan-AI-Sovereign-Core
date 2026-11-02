@@ -34,6 +34,11 @@ Additive ONE browser reference module. Owner original source, private code, and 
 - Exact selected quotes stay separate from linguistic research; owner originals remain in private source archives. Existing modules are unchanged.
 - Test: `node --test app-factory/nathan-ai/route-raut-root/records.test.cjs`.
 
+## November 1, 2026 — Matrix • Dimensions • Grids recovery layer
+- [Open the additive matrix/dimensions/grids explorer](dimensions-grids/index.html): 45 tripolar indices, 135 signed authored registry states, 625 Five Matrices addresses, 13 polarity controls, six historical Game of Life bodies, three private 33 Trial Matrix epochs, and 30 independent recovery families.
+- The original 33 Trial Matrix package is **private** and explicitly withheld public publication permission. Exact original stage specifications are imported only by owner-selected local browser files.
+- [Module documentation](dimensions-grids/README.md); regression: `node --test app-factory/one/nathan-matrix/dimensions-grids/engine.test.cjs`. Existing modules and author source records remain separate.
+
 ## November 1, 2026 — Humanity · Tabor · Cosmos recovery link (additive)
 - The separately versioned [60-record history/Tabor/cosmic index](../history-cosmos/README.md) connects documented humanities research, family/ancestry leads, micro/macro grids, UAP/aliens, and original fictional worlds without copying owner-private original content.
 - [Open the browser module](../history-cosmos/index.html). Existing this-page formulas, custom language, and unrelated private modules remain unchanged.
