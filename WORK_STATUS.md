@@ -86,3 +86,10 @@ Verification for this documentation update: checked existing repository source a
 - **Privacy:** The public module excludes the author's physical measurements, personal health details, original private text, biometrics and identifiers. Those originals remain owner-controlled and are not auto-imported.
 - **Validation:** GitHub Actions Factory quality checks run `41352086464` passed, including new `anatomy/wiring.test.cjs` cases. No independent clinical validation, physical device/browser QA, biometric link, neural control, provider connection or therapeutic claims.
 - **State:** public static browser prototype merged; GitHub Pages publication and mobile device behavior require separate verification.
+
+## November 1, 2026 — Additive Matrix • Dimensions • Grids recovery
+- **Public browser module committed to main:** `app-factory/one/nathan-matrix/dimensions-grids/`, linked from Nathan AI Main Hub, ONE Home and Connected Matrix. Concurrent main-branch work was retained.
+- Recovered data structures: 45×3=135 symbolic signed state identifiers; 625 Five Matrices navigational coordinates; 13 signed axes; historical six-layer Game of Life board records; three 33 Trial epochs; 30 architecture families; separated author/tradition/science status.
+- Private author-source ZIP and 33 Trial Matrix JSON were **not committed**. Owner chooses files in a browser-local IndexedDB original-file vault, with text search, previews, exact-byte export, and private source-derived stage details.
+- **QA:** CI workflow now includes `node --test app-factory/one/nathan-matrix/dimensions-grids/engine.test.cjs`; core invariants and new inline browser script syntax previously validated. GitHub workflow outcome and mobile-device publication are separate checks.
+- Not a claim that all source files are recovered, all 33 stages run, every historical board-number count reconciles, or 135 physical dimensions exist.
