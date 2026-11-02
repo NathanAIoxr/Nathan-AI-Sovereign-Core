@@ -1,0 +1,620 @@
+{
+  "schema": "nathan-ai.plugin-inventory.v1",
+  "observedDate": "2026-11-02",
+  "installationDatesKnown": false,
+  "origin": "Current chat tool inventory and cloud skill catalog",
+  "groups": [
+    {
+      "id": "life-sciences-databases",
+      "name": "Life Sciences Databases",
+      "status": "workflow-available",
+      "browserExecution": "not-bridged",
+      "hostTools": [],
+      "workflows": [
+        {
+          "id": "life-sciences-databases:alphafold-skill",
+          "name": "alphafold-skill",
+          "description": "Submit compact AlphaFold Protein Structure Database API requests for prediction, UniProt summary, sequence summary, and annotation lookups. Use when a user wants AlphaFold metadata or concise structure summaries"
+        },
+        {
+          "id": "life-sciences-databases:bgee-skill",
+          "name": "bgee-skill",
+          "description": "Submit compact Bgee SPARQL requests for healthy wild-type expression metadata and ontology-aware lookup patterns. Use when a user wants concise Bgee summaries; save raw results only on request."
+        },
+        {
+          "id": "life-sciences-databases:bindingdb-skill",
+          "name": "bindingdb-skill",
+          "description": "Submit compact BindingDB REST API requests for ligand-target binding lookups by PDB, UniProt, or similarity search. Use when a user wants concise BindingDB summaries; save raw payloads only on request."
+        },
+        {
+          "id": "life-sciences-databases:biobankjapan-phewas-skill",
+          "name": "biobankjapan-phewas-skill",
+          "description": "Fetch compact BioBank Japan PheWAS summaries for single variants by accepting rsID, GRCh38, or GRCh37 input and resolving to the required GRCh37 query. Use when a user wants concise BBJ association results for one variant"
+        },
+        {
+          "id": "life-sciences-databases:biostudies-arrayexpress-skill",
+          "name": "biostudies-arrayexpress-skill",
+          "description": "Submit compact BioStudies and ArrayExpress API requests for free-text search and accession-based study retrieval. Use when a user wants concise BioStudies summaries"
+        },
+        {
+          "id": "life-sciences-databases:cbioportal-skill",
+          "name": "cbioportal-skill",
+          "description": "Submit compact cBioPortal API requests for studies, molecular profiles, mutations, clinical data, and samples. Use when a user wants concise cBioPortal summaries"
+        },
+        {
+          "id": "life-sciences-databases:cellxgene-skill",
+          "name": "cellxgene-skill",
+          "description": "Submit compact CELLxGENE Discover API requests for public collection and dataset metadata. Use when a user wants concise single-cell collection summaries"
+        },
+        {
+          "id": "life-sciences-databases:chebi-skill",
+          "name": "chebi-skill",
+          "description": "Submit compact ChEBI 2.0 API requests for chemical search, compound lookup, ontology traversal, and structure metadata. Use when a user wants concise ChEBI summaries"
+        },
+        {
+          "id": "life-sciences-databases:chembl-skill",
+          "name": "chembl-skill",
+          "description": "Submit compact ChEMBL API requests for activity, molecule, target, mechanism, and text-search endpoints. Use when a user wants concise ChEMBL summaries"
+        },
+        {
+          "id": "life-sciences-databases:civic-skill",
+          "name": "civic-skill",
+          "description": "Submit compact CIViC GraphQL requests for cancer variant interpretation schema inspection and targeted evidence retrieval. Use when a user wants concise CIViC summaries"
+        },
+        {
+          "id": "life-sciences-databases:clinicaltrials-skill",
+          "name": "clinicaltrials-skill",
+          "description": "Submit compact ClinicalTrials.gov API v2 requests for study search, metadata, enums, search areas, and field statistics. Use when a user wants concise ClinicalTrials.gov summaries"
+        },
+        {
+          "id": "life-sciences-databases:clinvar-variation-skill",
+          "name": "clinvar-variation-skill",
+          "description": "Submit compact ClinVar Clinical Tables and NCBI Variation requests for search, VCV, RCV, SCV, and RefSNP lookups. Use when a user wants variant-level summaries or identifier mapping"
+        },
+        {
+          "id": "life-sciences-databases:efo-ontology-skill",
+          "name": "efo-ontology-skill",
+          "description": "Submit compact EFO OLS4 requests for search, term lookup, children, and descendants. Use when a user wants concise EFO resolution or ontology-expansion summaries"
+        },
+        {
+          "id": "life-sciences-databases:encode-skill",
+          "name": "encode-skill",
+          "description": "Submit compact ENCODE REST API requests for object lookups, portal-style search, and metadata retrieval. Use when a user wants concise ENCODE summaries"
+        },
+        {
+          "id": "life-sciences-databases:ensembl-skill",
+          "name": "ensembl-skill",
+          "description": "Submit compact Ensembl REST API requests for lookup, overlap, cross-reference, and variation endpoints. Use when a user wants concise Ensembl summaries"
+        },
+        {
+          "id": "life-sciences-databases:epigraphdb-skill",
+          "name": "epigraphdb-skill",
+          "description": "Submit compact EpiGraphDB API requests for ontology, literature, MR, gene-drug, and support-path evidence. Use when a user wants concise EpiGraphDB summaries"
+        },
+        {
+          "id": "life-sciences-databases:eqtl-catalogue-skill",
+          "name": "eqtl-catalogue-skill",
+          "description": "Submit compact eQTL Catalogue API requests for association retrieval and documented metadata endpoints. Use when a user wants concise public eQTL Catalogue summaries"
+        },
+        {
+          "id": "life-sciences-databases:eva-skill",
+          "name": "eva-skill",
+          "description": "Submit compact EVA REST requests for species metadata and archived variant lookups. Use when a user wants concise European Variation Archive summaries"
+        },
+        {
+          "id": "life-sciences-databases:finngen-phewas-skill",
+          "name": "finngen-phewas-skill",
+          "description": "Fetch compact FinnGen PheWAS summaries for single variants by accepting rsID, GRCh37, or GRCh38 input and resolving to the required GRCh38 query. Use when a user wants concise FinnGen association results for one variant"
+        },
+        {
+          "id": "life-sciences-databases:genebass-gene-burden-skill",
+          "name": "genebass-gene-burden-skill",
+          "description": "Submit compact Genebass gene burden requests for one Ensembl gene ID and one burden set. Use when a user wants concise Genebass PheWAS summaries"
+        },
+        {
+          "id": "life-sciences-databases:gnomad-graphql-skill",
+          "name": "gnomad-graphql-skill",
+          "description": "Submit compact gnomAD GraphQL requests for frequency, gene constraint, and variant context queries. Use when a user wants concise gnomAD summaries"
+        },
+        {
+          "id": "life-sciences-databases:gtex-eqtl-skill",
+          "name": "gtex-eqtl-skill",
+          "description": "Fetch GTEx single-tissue eQTL associations from one variant input by accepting rsID, GRCh37, or GRCh38 input and resolving to the required GRCh38 query for the GTEx v2 API. Use when a user wants eQTL associations returned as JSON."
+        },
+        {
+          "id": "life-sciences-databases:gwas-catalog-skill",
+          "name": "gwas-catalog-skill",
+          "description": "Submit compact GWAS Catalog REST API v2 requests for studies, associations, SNPs, EFO traits, genes, publications, loci, and metadata. Use when a user wants concise GWAS Catalog summaries"
+        },
+        {
+          "id": "life-sciences-databases:human-protein-atlas-skill",
+          "name": "human-protein-atlas-skill",
+          "description": "Submit compact Human Protein Atlas requests for gene JSON, search downloads, and page-level tissue or cell-line lookups. Use when a user wants concise Human Protein Atlas summaries; save raw JSON or HTML only on request."
+        },
+        {
+          "id": "life-sciences-databases:ipd-skill",
+          "name": "ipd-skill",
+          "description": "Submit compact IPD REST requests for HLA allele and cell-level metadata using the public IPD query API. Use when a user wants concise IPD summaries; save raw JSON or text only on request."
+        },
+        {
+          "id": "life-sciences-databases:metabolights-skill",
+          "name": "metabolights-skill",
+          "description": "Submit compact MetaboLights requests for study discovery and study-level metabolomics metadata. Use when a user wants concise MetaboLights summaries"
+        },
+        {
+          "id": "life-sciences-databases:mgnify-skill",
+          "name": "mgnify-skill",
+          "description": "Submit compact MGnify API requests for microbiome studies, samples, and biome metadata. Use when a user wants concise MGnify summaries"
+        },
+        {
+          "id": "life-sciences-databases:ncbi-clinicaltables-skill",
+          "name": "ncbi-clinicaltables-skill",
+          "description": "Submit compact Clinical Tables NCBI Gene requests for human gene lookup, pagination, and field selection. Use when a user wants concise autocomplete-style human gene search results"
+        },
+        {
+          "id": "life-sciences-databases:ncbi-datasets-skill",
+          "name": "ncbi-datasets-skill",
+          "description": "Submit compact NCBI Datasets v2 requests for assembly, genome, taxonomy, and related metadata endpoints. Use when a user wants concise NCBI Datasets summaries; save raw JSON or text only on request."
+        },
+        {
+          "id": "life-sciences-databases:ncbi-entrez-skill",
+          "name": "ncbi-entrez-skill",
+          "description": "Submit compact NCBI Entrez E-Utilities requests for PubMed, Gene, Protein, Nucleotide, PMC metadata, and GEO metadata workflows. Use when a user wants concise Entrez search, fetch, summary, or link results; save raw JSON or XML only on request."
+        },
+        {
+          "id": "life-sciences-databases:opentargets-skill",
+          "name": "opentargets-skill",
+          "description": "Submit compact Open Targets Platform GraphQL requests for target, disease, drug, variant, study, and search data, including associated-disease datasource heatmap matrices. Use when a user wants concise Open Targets summaries or per-datasource evidence context"
+        },
+        {
+          "id": "life-sciences-databases:pharmgkb-skill",
+          "name": "pharmgkb-skill",
+          "description": "Submit compact PharmGKB API requests for genes, variants, clinical annotations, dosing guidelines, and search. Use when a user wants concise PharmGKB summaries"
+        },
+        {
+          "id": "life-sciences-databases:pride-skill",
+          "name": "pride-skill",
+          "description": "Submit compact PRIDE Archive API requests for proteomics project discovery and project-level metadata. Use when a user wants concise PRIDE summaries"
+        },
+        {
+          "id": "life-sciences-databases:proteomexchange-skill",
+          "name": "proteomexchange-skill",
+          "description": "Submit compact ProteomeXchange PROXI requests for datasets, libraries, peptidoforms, proteins, PSMs, spectra, and USI examples. Use when a user wants concise PROXI summaries"
+        },
+        {
+          "id": "life-sciences-databases:pubchem-pug-skill",
+          "name": "pubchem-pug-skill",
+          "description": "Submit compact PubChem PUG REST requests for compound properties, descriptions, assay summaries, and substance metadata. Use when a user wants concise PubChem summaries"
+        },
+        {
+          "id": "life-sciences-databases:quickgo-skill",
+          "name": "quickgo-skill",
+          "description": "Submit compact QuickGO requests for GO terms, annotations, and ontology traversal. Use when a user wants concise QuickGO summaries"
+        },
+        {
+          "id": "life-sciences-databases:rcsb-pdb-skill",
+          "name": "rcsb-pdb-skill",
+          "description": "Submit compact RCSB PDB requests for core metadata, Search API queries, and FASTA downloads. Use when a user wants concise RCSB summaries; save raw JSON or FASTA only on request."
+        },
+        {
+          "id": "life-sciences-databases:reactome-skill",
+          "name": "reactome-skill",
+          "description": "Submit compact Reactome ContentService requests for pathway, event, participant, search, and diagram-related data. Use when a user wants concise Reactome summaries"
+        },
+        {
+          "id": "life-sciences-databases:rhea-skill",
+          "name": "rhea-skill",
+          "description": "Submit compact Rhea reaction search requests for biochemical reactions and reaction IDs. Use when a user wants concise Rhea summaries"
+        },
+        {
+          "id": "life-sciences-databases:rnacentral-skill",
+          "name": "rnacentral-skill",
+          "description": "Submit compact RNAcentral API requests for RNA entry browsing, single-entry lookup, and cross-reference retrieval. Use when a user wants concise RNAcentral summaries"
+        },
+        {
+          "id": "life-sciences-databases:string-skill",
+          "name": "string-skill",
+          "description": "Submit compact STRING API requests for network, interaction partner, and enrichment endpoints. Use when a user wants concise STRING summaries"
+        },
+        {
+          "id": "life-sciences-databases:tpmi-phewas-skill",
+          "name": "tpmi-phewas-skill",
+          "description": "Fetch compact TPMI PheWAS summaries for single variants by accepting rsID, GRCh37, or GRCh38 input and resolving to the required GRCh38 query. Use when a user wants concise TPMI association results for one variant"
+        },
+        {
+          "id": "life-sciences-databases:ukb-topmed-phewas-skill",
+          "name": "ukb-topmed-phewas-skill",
+          "description": "Fetch compact UKB-TOPMed PheWAS summaries for single variants by accepting rsID, GRCh37, or GRCh38 input and resolving to the required GRCh38 query. Use when a user wants concise UKB-TOPMed association results for one variant"
+        },
+        {
+          "id": "life-sciences-databases:uniprot-skill",
+          "name": "uniprot-skill",
+          "description": "Submit compact UniProt REST API requests for UniProtKB, UniRef, UniParc, and FASTA stream endpoints. Use when a user wants concise UniProt summaries; save raw JSON or FASTA only on request."
+        }
+      ]
+    },
+    {
+      "id": "life-sciences-literature",
+      "name": "Life Sciences Literature",
+      "status": "workflow-available",
+      "browserExecution": "not-bridged",
+      "hostTools": [],
+      "workflows": [
+        {
+          "id": "life-sciences-literature:biorxiv-skill",
+          "name": "biorxiv-skill",
+          "description": "Submit compact bioRxiv and medRxiv API requests for details, publication-linkage, and DOI lookups. Use when a user wants concise preprint metadata summaries"
+        },
+        {
+          "id": "life-sciences-literature:ncbi-entrez-skill",
+          "name": "ncbi-entrez-skill",
+          "description": "Submit compact NCBI Entrez E-Utilities requests for PubMed publication search, summaries, fetches, and links; save raw JSON or XML only on request."
+        },
+        {
+          "id": "life-sciences-literature:ncbi-pmc-skill",
+          "name": "ncbi-pmc-skill",
+          "description": "Retrieve compact PMC Article Dataset metadata for PMCID, PMID, or DOI lookups. Use when a user wants open-access status, license, retraction status, or current article file URLs; save raw JSON only on request."
+        }
+      ]
+    },
+    {
+      "id": "zotero",
+      "name": "Zotero",
+      "status": "workflow-available",
+      "browserExecution": "not-bridged",
+      "hostTools": [],
+      "workflows": [
+        {
+          "id": "zotero:Zotero",
+          "name": "Zotero",
+          "description": "Use Zotero Desktop from Codex to enable/probe the local API, search a local Zotero library, list items/collections/tags, export BibTeX, insert citation keys into LaTeX or Markdown drafts, read indexed full text when requested, and import BibTeX/RIS records into Zotero through the connector server. Use when the user mentions Zotero, citations, references.bib, BibTeX export, local Zotero API, localhost:23119, or adding citations from a Zotero library."
+        }
+      ]
+    },
+    {
+      "id": "sales",
+      "name": "Sales",
+      "status": "workflow-available",
+      "browserExecution": "not-bridged",
+      "hostTools": [],
+      "workflows": [
+        {
+          "id": "sales:index",
+          "name": "index",
+          "description": "Route customer- and revenue-facing work through Sales first: seller and leadership dashboards, prospects, accounts, calls, deal and renewal strategy, pipeline, forecasts, commercial research, internal support, business cases, sales presentations, customer-facing slides, PowerPoint, Google Slides, coaching, and verbatim customer quotes from supplied call notes. Activate for seller, leader, customer, prospect, partner, account, opportunity, or commercial intent; read this index and the focused workflow even when evidence is supplied."
+        }
+      ]
+    },
+    {
+      "id": "data-analytics",
+      "name": "Data Analytics",
+      "status": "workflow-available",
+      "browserExecution": "not-bridged",
+      "hostTools": [],
+      "workflows": [
+        {
+          "id": "data-analytics:analyze-data-quality",
+          "name": "analyze-data-quality",
+          "description": "Investigate whether structured datasets and query results are trustworthy enough to use. Use for underlying data-quality risks such as freshness, grain, missingness, duplicates, broken joins, schema drift, and conflicting source results."
+        },
+        {
+          "id": "data-analytics:answers-follow-up",
+          "name": "answers-follow-up",
+          "description": "Use when one to three optional next tasks would help the user get started or continue from an answer, and the current host supports follow-up prompt buttons."
+        },
+        {
+          "id": "data-analytics:build-dashboard",
+          "name": "build-dashboard",
+          "description": "Build or update a source-backed interactive dashboard for monitoring, exploration, and operational decisions from connected data, uploaded spreadsheets, CSVs, or other structured sources."
+        },
+        {
+          "id": "data-analytics:build-report",
+          "name": "build-report",
+          "description": "Build polished analytical reports for executive, product, business, or technical audiences. Use when the task needs a durable narrative answer supported by inspectable evidence."
+        },
+        {
+          "id": "data-analytics:convert-to-doc",
+          "name": "convert-to-doc",
+          "description": "Create a polished DOCX or Google Doc from an existing Data app."
+        },
+        {
+          "id": "data-analytics:convert-to-slides",
+          "name": "convert-to-slides",
+          "description": "Create a polished PowerPoint or Google Slides deck from an existing Data app."
+        },
+        {
+          "id": "data-analytics:customize-data-plugin",
+          "name": "customize-data-plugin",
+          "description": "Create, update, package, or share reusable Data working conventions and context skills for personal or team use. Use when the user explicitly requests an editable skill for preferred tools, report and dashboard style, or analysis practices."
+        },
+        {
+          "id": "data-analytics:design-kpis",
+          "name": "design-kpis",
+          "description": "Design KPI frameworks, metric definitions, targets, guardrails, and measurement plans for product or business decisions. Use when success metrics, drivers, guardrails, targets, or the measurement approach need to be defined or improved."
+        },
+        {
+          "id": "data-analytics:index",
+          "name": "index",
+          "description": "Answer product and business questions with data and route data-related work to the right focused workflow. Use for requests involving data, metrics, trends, comparisons, drivers, KPIs, analysis, dashboards, reports, charts, tables, SQL, notebooks, spreadsheets, market sizing, data quality, reusable data context, data definitions, or working preferences, whether or not Data is at-mentioned. Dashboards can use uploaded spreadsheets, CSVs, or TSVs as source data without making the deliverable a spreadsheet. Do not use Data for general writing, editing, coding, or explanations that require none of these workflows."
+        },
+        {
+          "id": "data-analytics:jupyter-notebooks",
+          "name": "jupyter-notebooks",
+          "description": "Create, edit, validate or export a SQL or Python notebook when the user requests notebook work. Ordinary analysis keeps inspectable queries and calculations without creating a companion notebook."
+        },
+        {
+          "id": "data-analytics:kpi-reporting",
+          "name": "kpi-reporting",
+          "description": "Prepare KPI readouts, scorecards, WBR/MBR/QBR updates, and executive summaries from quantitative business or product metrics; use when the task is to report status, compare against targets, explain validated drivers, and state operating implications."
+        },
+        {
+          "id": "data-analytics:market-sizing",
+          "name": "market-sizing",
+          "description": "Estimate market, segment, or opportunity size with transparent assumptions and uncertainty. Use for TAM/SAM/SOM, sizing scenarios, or comparing the scale of possible opportunities."
+        },
+        {
+          "id": "data-analytics:metric-diagnostics",
+          "name": "metric-diagnostics",
+          "description": "Diagnose why a metric changed or differs from expectation. Use when the task is to identify likely drivers of a metric movement, anomaly, gap, or discrepancy."
+        },
+        {
+          "id": "data-analytics:onboarding",
+          "name": "onboarding",
+          "description": "Set up Data after installation or when the user asks to be onboarded, get started, or choose a first data task. Follow the main welcome, connection, and first-workflow path. For an introduction or tour of a named homepage demo, route to the Northstar Office dashboard/report, Aster Compute, or Stock watch reference. Resume requests interrupted by installation; concrete analysis does not require setup, and capability-only questions use the Data index."
+        },
+        {
+          "id": "data-analytics:product-business-analysis",
+          "name": "product-business-analysis",
+          "description": "Analyze product or business data to support a decision or recommendation. Use when a decision depends on metric-backed evidence, such as choosing a direction, prioritizing an opportunity, evaluating a change, segmenting users, sizing tradeoffs, or deciding what to do next."
+        },
+        {
+          "id": "data-analytics:publish-artifact-to-sites",
+          "name": "publish-artifact-to-sites",
+          "description": "Publish an existing Data HTML report or dashboard to Sites when its selected app delivery policy calls for publication or the user explicitly requests it."
+        },
+        {
+          "id": "data-analytics:report-to-pdf",
+          "name": "report-to-pdf",
+          "description": "Create a polished PDF from an existing Data dashboard or report."
+        },
+        {
+          "id": "data-analytics:schedule-refresh-jobs",
+          "name": "schedule-refresh-jobs",
+          "description": "Create or update recurring cloud refresh jobs for an existing Data dashboard or report, including requests to keep it up to date."
+        },
+        {
+          "id": "data-analytics:share-artifact-summary",
+          "name": "share-artifact-summary",
+          "description": "Share or provide a concise Data dashboard, report, chart, or component summary."
+        },
+        {
+          "id": "data-analytics:validate-data",
+          "name": "validate-data",
+          "description": "Validate analysis methodology, sources, calculations, visuals, and conclusions, including report and dashboard completeness, usability, and supported repairs."
+        },
+        {
+          "id": "data-analytics:visualize-data",
+          "name": "visualize-data",
+          "description": "Design, build, revise, and verify quantitative charts and figures while authoring reports, dashboards, notebooks, and other durable artifacts. Do not use for inline chat charts."
+        }
+      ]
+    },
+    {
+      "id": "cloud-environment",
+      "name": "Cloud Environment",
+      "status": "workflow-available",
+      "browserExecution": "not-bridged",
+      "hostTools": [
+        "mcp__codex_apps__cloud_environment_environment_diagnostics",
+        "mcp__codex_apps__cloud_environment_environment_status",
+        "mcp__codex_apps__cloud_environment_read_environment_diagnostic"
+      ],
+      "workflows": [
+        {
+          "id": "cloud-environment:cloud-environment-runtime",
+          "name": "cloud-environment-runtime",
+          "description": "Read at the start of work in a managed cloud environment. Inspect network policy and configured credentials; build and run Docker containers with the session proxy and CA trust; use Tailscale VPN access, configure TCP forwarding, and diagnose access failures."
+        }
+      ]
+    },
+    {
+      "id": "cloud-environment-onboarding",
+      "name": "Cloud Environment Onboarding",
+      "status": "workflow-available",
+      "browserExecution": "not-bridged",
+      "hostTools": [
+        "mcp__codex_apps__cloud_environment_onboarding_read_environment_config_draft",
+        "mcp__codex_apps__cloud_environment_onboarding_update_environment_config_draft",
+        "mcp__codex_apps__cloud_environment_onboarding_update_environment_config_metadata"
+      ],
+      "workflows": [
+        {
+          "id": "cloud-environment-onboarding:setup",
+          "name": "setup",
+          "description": "Set up, test, and troubleshoot the repositories during Codex cloud environment onboarding, and save reusable setup instructions and configuration for user review when needed."
+        }
+      ]
+    },
+    {
+      "id": "designly",
+      "name": "Designly",
+      "status": "workflow-available",
+      "browserExecution": "not-bridged",
+      "hostTools": [],
+      "workflows": [
+        {
+          "id": "designly:arabic-rtl-director",
+          "name": "arabic-rtl-director",
+          "description": "Arabic visual hierarchy, RTL reading flow, calligraphy glyph fidelity, and regional cultural authenticity director. This skill should be used when designing Arabic-first posters and campaigns, directing Right-to-Left eye paths, balancing mixed Arabic/English typography, or issuing hard vetoes on Arabic glyph and rendering errors."
+        },
+        {
+          "id": "designly:brand-activation",
+          "name": "brand-activation",
+          "description": "Specialist in experiential campaigns, PR stunts, and brand utility. This skill should be used when creating non-traditional marketing activations, interactive physical/digital stunts, brand utility tools, cultural objects, ambient media, or applying the diagnostic test to distinguish genuine non-advertising utility from channel-specific executions."
+        },
+        {
+          "id": "designly:brand-intelligence",
+          "name": "brand-intelligence",
+          "description": "Brand identity and product fidelity specialist. This skill should be used when auditing visual proposals against brand guidelines, enforcing logo clearspace and color formulas, verifying product packaging fidelity, conducting the Brand-Off test, or issuing hard vetoes on brand violations."
+        },
+        {
+          "id": "designly:campaign-canon",
+          "name": "campaign-canon",
+          "description": "Advertising history and campaign pattern benchmarking specialist. This skill should be used when referencing the 571 canonical advertising campaigns, looking up case studies across P01-P18 patterns, checking market pattern saturation, evaluating anti-derivative uniqueness, or finding cross-industry analog cases by industry, budget, format, or emotional intent."
+        },
+        {
+          "id": "designly:campaign-dna",
+          "name": "campaign-dna",
+          "description": "Multi-asset campaign visual DNA and cross-format continuity director. This skill should be used when planning multi-asset campaigns, defining visual-family continuity rules across formats (1:1, 9:16, 16:9), creating deliberate variation across deliverables, or maintaining campaign brand consistency."
+        },
+        {
+          "id": "designly:composition-director",
+          "name": "composition-director",
+          "description": "Spatial composition, grid layout, hierarchy, and structural preflight director. This skill should be used when establishing layout grids, visual hierarchy, focal anchors, negative space balance, eye paths, or conducting preflight tests to prevent equal-emphasis slop and clutter."
+        },
+        {
+          "id": "designly:creative-director",
+          "name": "creative-director",
+          "description": "AI creative director with recursive self-assessment, Cannes-calibrated scoring, SIT/TRIZ structural ideation, and campaign canon anti-derivative preflight. This skill should be used when the user asks to generate creative concepts, brainstorm campaign ideas, develop a Big Idea or campaign platform, evaluate or critique existing creative work, find consumer insights, or shares a brief for ideation — including activations, PR-stunts, brand utility, experiential, and non-advertising ideas."
+        },
+        {
+          "id": "designly:creative-strategy",
+          "name": "creative-strategy",
+          "description": "Marketing strategy and visual concept specialist. This skill should be used when deconstructing marketing briefs, defining target audience insights, establishing message hierarchy, developing distinct concept territories, or clarifying the single primary communication job before visual design begins."
+        },
+        {
+          "id": "designly:designly-director",
+          "name": "designly-director",
+          "description": "Lead commercial Art Director and Design Neural Mesh orchestrator. This skill should be used when orchestrating end-to-end commercial design, resolving conflicting brand/taste/structure signals, locking brief constraints, delegating specialist analysis, sanitizing bounded edits, and conducting final art-direction signoff."
+        },
+        {
+          "id": "designly:edit-sanitizer",
+          "name": "edit-sanitizer",
+          "description": "Pre-execution sanitizer for annotation-guided edits, inpainting, copy corrections, local retouching, and object replacement. This skill should be used when a user points at or annotates part of an existing image and expects a bounded change without collateral redesign, or when edit scope, mask geometry, exact copy, or protected regions must be validated before image execution."
+        },
+        {
+          "id": "designly:insight-mining",
+          "name": "insight-mining",
+          "description": "Specialist in unearthing consumer tensions and strategic insight formulation. This skill should be used when discovering deep audience insights, mapping Jobs-To-Be-Done (JTBD), identifying cultural, category, or human tensions, applying Mark Pollard's Four Points, or laddering abstraction levels before creative ideation begins."
+        },
+        {
+          "id": "designly:manipulation-director",
+          "name": "manipulation-director",
+          "description": "Digital manipulation, compositing physics, perspective alignment, and photo-integration director. This skill should be used when combining multiple image elements, planning compositing perspective and scale, enforcing realistic contact shadows and reflections, or directing impossible/surreal advertising scenes with internal physical consistency."
+        },
+        {
+          "id": "designly:photography-director",
+          "name": "photography-director",
+          "description": "Commercial photography, studio lighting, camera optics, and material physics director. This skill should be used when directing camera focal length, depth of field, 3-point studio lighting systems, shutter speed, color temperature, or realistic surface material finishes."
+        },
+        {
+          "id": "designly:prompt-compiler",
+          "name": "prompt-compiler",
+          "description": "Image-generation and image-edit instruction compiler. This skill should be used when translating an approved Art Direction Spec or a ready EditContract into precise provider/model-ready instructions, linting prompt slop, or preparing execution for the host image tool without changing upstream creative decisions."
+        },
+        {
+          "id": "designly:reference-memory",
+          "name": "reference-memory",
+          "description": "Local-first reference memory and scoped preference ledger manager. This skill should be used when saving, recalling, updating, or deleting reference records with stable REF IDs (e.g. REF-1042), managing user likes/dislikes, or querying persistent taste preferences."
+        },
+        {
+          "id": "designly:taste-engine",
+          "name": "taste-engine",
+          "description": "Taste extraction and transferable visual rule mixing engine. This skill should be used when deconstructing visual reference images into transferable design principles, building Taste Profiles, mixing multiple references by assigned design jobs, or preventing plagiarism and AI-slop anti-patterns."
+        },
+        {
+          "id": "designly:typography-director",
+          "name": "typography-director",
+          "description": "Typographic hierarchy, layout, measure, and exact-copy director. This skill should be used when setting typographic scale, headline measure, line breaks, text zones, contrast ratios, and layout boundaries, or protecting exact client copy strings."
+        },
+        {
+          "id": "designly:visual-qa",
+          "name": "visual-qa",
+          "description": "Independent visual quality assurance, hard-gate auditor, and targeted revision router. This skill should be used when reviewing generated or edited visuals, testing hierarchy/craft/brand fidelity, detecting AI slop, checking bounded-edit collateral drift, issuing approval verdicts, or routing targeted RevisionRequests."
+        },
+        {
+          "id": "designly:visual-storytelling",
+          "name": "visual-storytelling",
+          "description": "Narrative architecture and visual storytelling specialist. This skill should be used when structuring dramatic narrative arcs, crafting multi-frame storyboards, applying classic storytelling frameworks (Story Spine, Sparkline, Freytag's Pyramid, Monroe's Motivated Sequence, Pixar Rules, Hero's Journey), or aligning visual pacing with complex emotional tiers."
+        }
+      ]
+    },
+    {
+      "id": "bitcoin-mining-troubleshooter",
+      "name": "Bitcoin Mining Troubleshooter",
+      "status": "workflow-available",
+      "browserExecution": "not-bridged",
+      "hostTools": [],
+      "workflows": [
+        {
+          "id": "bitcoin-mining-troubleshooter:bitcoin-mining-troubleshooter",
+          "name": "bitcoin-mining-troubleshooter",
+          "description": "Diagnose Bitcoin ASIC mining problems from user-provided miner logs, scanner exports, spreadsheets, screenshots, pool/network evidence, and sanitized telemetry. Use for Antminer/Bitmain, WhatsMiner/MicroBT, Braiins OS, LuxOS, Canaan/Avalon, Bitaxe/AxeOS, compatible cgminer-style firmware, zero/low hashrate, fan/thermal, hashboard/chip, PSU/power, control-board, pool/Stratum, network, and shared infrastructure symptoms. Do not use for unrelated general knowledge, investment/trading advice, public-network scanning, miner control, firmware flashing, pool changes, reboots, or tuning."
+        }
+      ]
+    },
+    {
+      "id": "hypawave",
+      "name": "Hypawave",
+      "status": "workflow-available",
+      "browserExecution": "not-bridged",
+      "hostTools": [],
+      "workflows": [
+        {
+          "id": "hypawave:hypawave",
+          "name": "hypawave",
+          "description": "Give an AI agent an address on Hypawave — private agent-to-agent messaging (waves), free private file handoffs, and buying or selling files, APIs, data, or compute over Bitcoin Lightning, non-custodial, with a verified Lightning preimage as proof of payment. Use when an operator wants to connect their agent with another person's agent, share the agent's contact card, send or receive a file agent-to-agent, pay another agent or service and retrieve the result, sell the agent's own files, API, data, or compute for Bitcoin, or search and list offers in the public directory — all with no account. Full function needs the Hypawave MCP server in a coding agent; this skill explains the protocol, hands over the install, and documents the raw-HTTP fallback. Chat-only sessions can explain, not transact."
+        }
+      ]
+    }
+  ],
+  "requestedApps": [
+    {
+      "name": "Airtable",
+      "status": "not-exposed",
+      "note": "No callable account tool found in this session; this does not establish whether the app is installed elsewhere."
+    },
+    {
+      "name": "Finances",
+      "status": "not-exposed",
+      "note": "No callable account tool found in this session; this does not establish whether the app is installed elsewhere."
+    },
+    {
+      "name": "Notion",
+      "status": "not-exposed",
+      "note": "No callable account tool found in this session; this does not establish whether the app is installed elsewhere."
+    },
+    {
+      "name": "Google Drive",
+      "status": "not-exposed",
+      "note": "No callable account tool found in this session; this does not establish whether the app is installed elsewhere."
+    },
+    {
+      "name": "Google Sheets",
+      "status": "not-exposed",
+      "note": "No callable account tool found in this session; this does not establish whether the app is installed elsewhere."
+    },
+    {
+      "name": "Datadog",
+      "status": "not-exposed",
+      "note": "No callable account tool found in this session; this does not establish whether the app is installed elsewhere."
+    },
+    {
+      "name": "Trello",
+      "status": "not-exposed",
+      "note": "No callable account tool found in this session; this does not establish whether the app is installed elsewhere."
+    }
+  ],
+  "workspaceAccess": [
+    {
+      "name": "GitHub",
+      "status": "read-only-repository-access",
+      "note": "Selected checkout and HTTPS Git reads verified earlier; no GitHub account API tool available."
+    },
+    {
+      "name": "Image generation",
+      "status": "host-tool-available",
+      "note": "Available in this chat. The static Nathan AI app has no direct tool bridge."
+    }
+  ]
+}

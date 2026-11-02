@@ -82,6 +82,24 @@ jobs:
         run: node --test app-factory/nathan-ai/children-innocence/engine.test.cjs
       - name: Verify Nathan AI Main Database, Books and Book Apps skin
         run: node --test app-factory/nathan-ai/library-experience.test.cjs
+      - name: Verify Nathan AI source workspace, coverage and portable research notes
+        run: node --test app-factory/nathan-ai/workspace.test.cjs
+      - name: Verify Nathan AI sovereign source graph and exact observation ledger
+        run: node --test app-factory/nathan-ai/sovereign/engine.test.cjs
+      - name: Verify Nathan AI lifecycle formula and bounded worker execution
+        run: node --test app-factory/nathan-ai/node-runtime/runtime.test.cjs
+      - name: Verify Nathan AI deep archive source preservation and derived views
+        run: node --test app-factory/nathan-ai/deep-archive/engine.test.cjs
+      - name: Verify Nathan AI assistant retrieval and conversation preservation
+        run: node --test app-factory/nathan-ai/assistant/engine.test.cjs
+      - name: Verify Nathan AI plugin inventory and explicit workflow handoffs
+        run: node --test app-factory/nathan-ai/plugins/engine.test.cjs
+      - name: Verify Nathan AI appearance palettes, persistence schema and page coverage
+        run: node --test app-factory/nathan-ai/appearance/engine.test.cjs
+      - name: Verify Nathan AI unified navigation and bounded source handoffs
+        run: node --test app-factory/nathan-ai/launcher/engine.test.cjs
+      - name: Verify Nathan AI local model adapter and request boundaries
+        run: python3 -B -m unittest discover -s app-factory/nathan-ai/assistant -p 'test_*.py'
       - name: Verify NATHAN AI Absolute Intelligence source and 54-module preservation
         run: node --test app-factory/nathan-ai/absolute-intelligence/atlas.test.cjs
       - name: Verify Servants and Ministers of Innocence geometry and owner-local novel sources

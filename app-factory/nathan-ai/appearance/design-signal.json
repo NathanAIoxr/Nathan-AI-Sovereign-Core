@@ -1,0 +1,14 @@
+{
+  "type": "DesignSignalPacket",
+  "agent": "composition-director",
+  "scope": "Nathan AI shared appearance system",
+  "composition_state": {
+    "grid": {"system": "responsive modular", "main_width_percent": 88, "outer_margin_percent_each_side": 6, "skin_columns_desktop": 3, "skin_columns_mobile": 2},
+    "primary_anchor": {"element": "Page hero or appearance-dialog title", "relative_position": "upper-left reading anchor"},
+    "secondary_anchor": {"element": "Primary action or selected palette", "treatment": "accent fill or focus outline"},
+    "tertiary_elements": ["source labels", "secondary links", "preference fields"],
+    "negative_space": {"target_fraction": 0.22, "measurement": "design target; varies with viewport and content"},
+    "preserved_regions": ["source text", "original images", "canvas rendering", "game state", "private records", "existing ONE shell preferences"],
+    "verification": ["12 palette token contrast tests", "17 entry pages", "390px reflow at 120% text", "keyboard dialog focus", "visual review of mobile palette selector"]
+  }
+}
