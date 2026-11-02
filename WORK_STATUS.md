@@ -157,3 +157,40 @@ Verification for this documentation update: checked existing repository source a
 - Public archive search (nine JSON catalogs, 10,630 records) and local source-graph/research search are explicit opt-ins that reset on each opening/closing. A selected source becomes a one-source, reviewed Assistant handoff via consumed sessionStorage; task/source text is not placed in a URL and no model request is automatic. The Assistant deduplicates source IDs. Workflow results open the exact Plugin Hub record without running it.
 - Fixed browser-discovered deferred-script initialization, direct assistant alias matching and rapid dialog-reopen races. Navigation reset is scoped to its own key and preserves the owner source graph. Existing skins retain keyboard/modal behavior and 390px reflow with 120% text across all 17 pages.
 - Validation: all 69 Node CI files passed (499 tests), plus 3 Python API tests. Chromium verified home task entry, Ctrl-K, pins, source opt-in and contextual coin answers, public record coverage, exact plugin deep links, no automatic model requests, optional recents without private text, arrow-key/modal isolation, scoped reset and mobile layout. The full twelve-skin/seventeen-page appearance browser checks also passed. Changes remain local/unpublished; no market-superiority or live-provider claim is made.
+## November 2, 2026 — Original Architecture 63 (additive, brand-neutral)
+
+- **Merged:** PR #55, squash commit `b59ea882adf4619814a3e0b6f14bfd5273d7ba9e`.
+- **Source-safe scope:** Three independently preserved groups of 21 newly authored functional design references: **Play & Create (21), Build & Connect (21), Think & Solve (21)**. These new records use original, generic titles and descriptions; no external brand identifiers, copyrighted source text, trademark images, third-party code, or owner-private uploaded source files are included in the new public module.
+- **Files:** `app-factory/nathan-ai/architecture-63/{registry.json,index.html,architecture.mjs,architecture.test.mjs,README.md}`. Browser portal supports search, category/layer filters, curated links to existing Nathan AI modules and export of derived original design briefs.
+- **Connected:** Nathan AI Main Hub, searchable hub directory, ONE landing page, Games & Puzzles Atlas, existing reference library and Connected Matrix. Existing original games, third-party reference archives, manuscripts, private vaults, language systems and other app modules remain unchanged.
+- **Validation:** All 18 distinct cross-module page routes confirmed in repo; 63 unique records, 21 per group. Factory quality checks run `41472039665` **passed**, including `node --test app-factory/nathan-ai/architecture-63/architecture.test.mjs`.
+- **State:** Public browser *design registry and navigation* merged into main. No assertion of 63 functional game engines, 21 installed server/device subsystems, physical silicon, iOS App Store publication, paid services or independent device QA. GitHub Pages deployment not separately verified.
+
+## 2026-11-02 — Nathan AI mining-wallet connections
+
+
+## V. Mining, wallet and monitoring integration command center · November 2, 2026
+
+[Open the additive integration hub](./integrations/index.html) · [Integration setup and local gateway](./integrations/README.md).
+
+The 17-provider catalog covers XMRig, Hiveon OS, Awesome Miner, NiceHash, Reown AppKit / WalletConnect, Trezor Connect, Coinbase Wallet SDK, Bitcoin Core, BTCPay, Alchemy, 2Miners, Braiins Pool, Minerstat, CoinGecko, Prometheus, Grafana and Home Assistant.
+
+Ten read-only API clients are implemented in a loopback-only Node.js gateway: XMRig, Bitcoin Core, BTCPay, Alchemy, 2Miners, Braiins, CoinGecko, Prometheus, Grafana and Home Assistant. Seven other providers are registered as setup-required or SDK authorization contracts. No provider is represented as authenticated or connected without operator configuration; public browser pages do not access local private endpoints.
+
+No changes to the existing coin order, SIN/SEN design allocations, nine-law-coin family, 16:1 authored goal, 5-million-proxy source record, anchored gate, or person's-life matrix. No wallet signing, real transfer, remote miner commands or proxy fleet deployment.
+
+## 2026-11-02 — Φ_life and Φ_mine applied to the 21 Sovereign Coin Matrix
+
+- Added `app-factory/nathan-ai/phi-life/`: first-spark four-stage narrative simulation, audited 732,000,000 **virtual** addresses across the 21 original structural rings; zero remote agents, external work or autonomous state change.
+- Added `app-factory/nathan-ai/sovereign-coins/phi-mining/`: owner-triggered four-stage mining lifecycle, genuine bounded Bitcoin historical **genesis** double-SHA-256, independent Alpha/Beta checks, 21-ring planning output and measured-input 16:1 cost comparison.
+- Added optional one-shot CLI with `--observe` that calls only the read-only providers already operator-configured in the mining-wallet telemetry module. No wallet keys, spending, mining shares or process spawning.
+- Cross-linked Nathan AI, Formula of Life, Phi-life, Sovereign Coins and ONE without overwriting old projects.
+- Factory CI runs both new module suites. No production miner or wallet connections established by these commits.
+
+## November 2, 2026 — GitHub synchronization and upstream integration
+
+- Committed this session’s public Nathan AI modules, then merged current GitHub main (`5936b434ef4609904cdeaa6e8af18e03cf130fd2`) without resetting or discarding either history. Preserved upstream activation, Phi Life, sovereign coins/life/anchored/integration/mining-validation, architecture, universal tools and timeline modules alongside the new Assistant, workspaces, plugin hub, appearance and navigation.
+- Resolved shared workflow, hub and status conflicts additively. Shared appearance and launcher controls now cover 28 Nathan AI HTML screens (27 index entry pages plus the arrowhead explorer), and the launcher includes the new upstream routes. The nine-catalog source baseline is now 10,641 records; updated the coverage assertions for the additional upstream records.
+- Corrected an upstream unescaped apostrophe that prevented the arrowhead-tree module from loading, preserving its displayed wording. Corrected merged coin-ledger mobile grid sizing.
+- Validation before push: 85 distinct Node test files passed (579 tests), five Python suites passed (25 tests), and the documented bounded activation/offline historical SHA-256d CLI checks completed. No wallet/pool operation or reward was produced by the offline validation. Browser checks verify shared appearance and mobile reflow across the merged index pages.
+- Private recovery packs, supplied credentials, account data, local proposal workbooks and uploaded source files remain outside this public repository update. GitHub Actions/deployment status is separate from these local checks.

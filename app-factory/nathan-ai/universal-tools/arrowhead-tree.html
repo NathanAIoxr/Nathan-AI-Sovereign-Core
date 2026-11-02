@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101e2a">
+<title>13 Arrowheads × 13 Trees · Universal Geometry Matrix | Nathan AI</title><link rel="icon" href="../../icon.svg">
+<style>
+:root{font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color-scheme:dark;background:#0b1925;color:#f8f5e9;--gold:#eacb92;--line:#4c6975;--panel:#172b38;--muted:#bfd0d8}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 77% 0,#204b4b,transparent 42%),#0b1925;color:#f8f5e9}main{max-width:1200px;margin:auto;padding:18px 16px 70px}header,.row,.between{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.between,header{justify-content:space-between}a{color:var(--gold)}
+h1{font-size:clamp(2.2rem,6vw,4.75rem);letter-spacing:-.055em;line-height:1.05;margin:11px 0 18px}h2{font-size:1.6rem;margin:0 0 9px}h3{font-size:1.11rem;margin:0 0 6px}.hero,.panel{padding:clamp(16px,3vw,26px);background:var(--panel);border:1px solid var(--line);border-radius:18px;margin:16px 0}.hero{background:linear-gradient(125deg,#244a46,#1c2e43 67%,#302d36)}.eyebrow{font-size:.72rem;letter-spacing:.15em;color:var(--gold);font-weight:800;text-transform:uppercase}p{color:var(--muted);line-height:1.6}
+button,input{font:inherit;background:#213a48;border:1px solid #76919a;border-radius:10px;color:#fef3df;padding:11px 13px}button{cursor:pointer}button:hover{border-color:#f1d2a0}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #ffe2a1;outline-offset:2px}button[aria-pressed=true],.primary{background:var(--gold);border-color:#f8e4b6;color:#192a31;font-weight:850}
+.columns{display:grid;grid-template-columns:minmax(230px,.7fr) minmax(0,1.3fr);gap:16px}.pairs{display:grid;gap:5px;max-height:730px;overflow:auto}.pair-row{display:flex;gap:12px;align-items:center;text-align:left;background:#1b3441}.pair-name{font-size:.89rem}.number{font-weight:850;color:#e5c48b;min-width:27px}.pair-row[aria-pressed=true] .number{color:#22313a}
+.card{border:1px solid #526a76;padding:15px;border-radius:13px;background:#102330}.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}.graphic{height:178px;background:radial-gradient(circle,#1f3e46,#12232f);border-radius:11px;display:flex;align-items:center;justify-content:center}.graphic svg{height:95%;width:auto;max-width:100%}.visual-name{text-align:center;font-weight:850;margin-top:7px}.muted,small{color:var(--muted)}.label{font-size:.77rem;letter-spacing:.08em;color:var(--gold);font-weight:800;text-transform:uppercase}.notice{padding:12px 14px;border-left:4px solid var(--gold);background:#302e2b;border-radius:7px}.evidence{border:1px solid #6d5a49;border-radius:10px;padding:10px;background:#242e35}.answer{display:block;width:100%;text-align:left;margin:6px 0}.answer.correct{background:#255641;color:#fff}.answer.incorrect{background:#663c43;color:#fff}.answer:disabled{opacity:1}.split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#query{width:100%;margin-bottom:9px}footer{font-size:.85rem;margin:25px 0;color:var(--muted)}
+@media(max-width:770px){.columns,.split{grid-template-columns:1fr}.pairs{max-height:330px}}@media(max-width:430px){main{padding:11px 10px 50px}.cards{gap:5px}.graphic{height:136px}.hero,.panel{padding:15px}.pair-name{font-size:.85rem}}
+</style>
+<script type="module" src="./arrowhead-tree-app.mjs"></script><script defer src="../../shared/one-universal-v061.js"></script>
+<link rel="stylesheet" href="../appearance/shared.css" data-nathan-shared-appearance><script src="../appearance/engine.js"></script><script src="../appearance/app.js"></script><link rel="stylesheet" href="../launcher/shared.css" data-nathan-command-center><script src="../workspace.js" defer></script><script src="../assistant/engine.js" defer></script><script src="../launcher/engine.js" defer></script><script src="../launcher/app.js" defer></script></head><body><main>
+<header><a href="./index.html">← UNIVERSAL 13</a><nav><a href="../games/index.html">Games</a> · <a href="../index.html">NATHAN AI</a> · <a href="../../one/index.html">ONE</a></nav></header>
+<section class="hero">
+<div class="eyebrow">Nathan AI · 13 × 2 · Geography & Geometry · Reciprocal Learning</div>
+<h1>THE 13-POINT<br>ARROWHEAD ↔ TREE MATRIX</h1>
+<p>Thirteen projectile-point labels, thirteen tree species, and thirteen imaginative silhouette analogies. Learn the two directions without treating the similarities as archaeological proof.</p>
+<div class="row"><button id="point-first" type="button" aria-pressed="true">🔺 Arrowhead → Tree</button><button id="tree-first" type="button" aria-pressed="false">🌲 Tree → Arrowhead</button></div>
+<p class="muted" id="matrix-note"></p>
+</section>
+<section class="panel"><h2>Explore the original 13 pairs</h2>
+<div class="columns">
+<div><label for="query" class="label">Search points, trees, regions or Latin names</label><input id="query" type="search" placeholder="Fresno, Fraser Fir, Archaic..."><button id="clear-search" type="button">Clear</button><p id="count" aria-live="polite"></p><div id="pairs" class="pairs"></div></div>
+<div><div class="card"><h2 id="pair-title"></h2><p id="pair-subtitle"></p><div class="cards"><div><div id="primary-graphic" class="graphic"></div><div id="primary-name" class="visual-name"></div></div><div><div id="secondary-graphic" class="graphic"></div><div id="secondary-name" class="visual-name"></div></div></div>
+<p class="muted">These are <strong>simplified symbolic silhouettes</strong>, not measured stone tools, accurate tree specimens, or manufacturing diagrams.</p>
+<div class="label">Author-supplied two-way geometric analogy</div><p id="original-description"></p>
+<div class="label">Accepted botanical taxonomy</div><p id="tree-scientific"></p>
+<div class="evidence"><div class="label">Archaeological name review: <span id="evidence-status"></span></div><p id="accuracy-note"></p><p id="source-standard"></p></div></div></div>
+</div>
+</section>
+<section class="panel" aria-label="Two-way matching game"><div class="eyebrow">Playable · educational memory match</div><h2>Match Both Ways</h2>
+<p id="quiz-question" style="font-weight:750;color:#fff0cb"></p><div id="quiz-options"></div><div class="row"><button id="next-quiz" type="button" class="primary">Next challenge</button><strong id="score">0 / 0</strong></div><p id="quiz-message" aria-live="polite"></p></section>
+<section class="panel"><h2>Historical boundaries</h2><p class="notice">The archaeological types are real in varying degrees; the 13 chosen pairings are creative analogies. A shape comparison does not prove Native American people designed points to imitate these trees, or that the plants occupied the same place and time as the stone tools. Many ancient larger points were spear or dart tips, not arrowheads.</p>
+<p>The original owner labels are retained in the app. Corrected nomenclature is shown beside them, including Fresno (unnotched), Black Hills spruce <em>Picea glauca var. densata</em>, and Arizona cypress <em>Hesperocyparis arizonica</em>. All archaeological and botanical claims should be verified specimen by specimen before commercial or educational claims of historical authenticity.</p>
+<h3>Research starting points</h3><ul id="sources"></ul><p class="muted">No live weapon-making instructions, projectile dimensions, or sharpened replicas are supplied.</p></section>
+<footer><span id="schema"></span> · NATHAN AI → TABOR ROOT → TABOR 1–2–3 FACTORY → ONE · Added 2026-11-02</footer>
+</main></body></html>

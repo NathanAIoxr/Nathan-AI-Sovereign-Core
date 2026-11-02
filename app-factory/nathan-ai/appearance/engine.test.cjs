@@ -15,7 +15,7 @@ test('unknown themes, injected CSS and malformed preference files fail validatio
 });
 test('every Nathan AI entry page loads the same scoped appearance engine',()=>{
   const base=path.resolve(__dirname,'..'),pages=[];
-  function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())walk(p);else if(e.name==='index.html')pages.push(p)}}walk(base);assert.equal(pages.length,17);
+  function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())walk(p);else if(e.name.endsWith('.html'))pages.push(p)}}walk(base);assert.ok(pages.length>=28);
   for(const p of pages){const html=fs.readFileSync(p,'utf8');assert.equal((html.match(/data-nathan-shared-appearance/g)||[]).length,1,p);const style=[...html.matchAll(/href="([^"]*shared\.css)"/g)][0];assert.ok(style,p);assert.equal(path.resolve(path.dirname(p),style[1]),path.join(__dirname,'shared.css'))}
 });
 test('preference storage and reset never use content, wallet or legacy shell keys',()=>{

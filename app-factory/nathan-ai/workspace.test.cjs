@@ -7,7 +7,7 @@ test('every configured catalog loads without omitting source collections or coll
   const result=await api.load(async url=>({ok:true,json:async()=>JSON.parse(fs.readFileSync(path.resolve(__dirname,url),'utf8'))}));
   assert.equal(result.coverage.length,9);
   assert.ok(result.coverage.every(x=>!x.error));
-  assert.equal(result.rows.length,10630);
+  assert.equal(result.rows.length,10641);
   assert.equal(new Set(result.rows.map(r=>r.id)).size,result.rows.length);
   const children=api.records({id:'children',name:'Children'},require('./children-innocence/registry.js').projects);
   const roots=api.records({id:'roots',name:'Language roots'},require('./route-raut-root/records.js').searchRecords('','all'));
@@ -20,7 +20,7 @@ test('partial catalog failure keeps other records and identifies missing coverag
     if(url.includes('documents'))throw Error('network unavailable');
     return {ok:true,json:async()=>JSON.parse(fs.readFileSync(path.resolve(__dirname,url),'utf8'))};
   });
-  assert.equal(result.rows.length,10630-55);
+  assert.equal(result.rows.length,10641-55);
   assert.equal(result.coverage.filter(x=>x.error).length,1);
   assert.match(result.coverage[0].error,/network unavailable/);
 });

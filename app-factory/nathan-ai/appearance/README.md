@@ -1,6 +1,6 @@
 # Nathan AI · Appearance Studio
 
-A shared appearance system now covers all 17 Nathan AI HTML entry pages, including the existing book/research/game modules and the newer Assistant, Plugin Hub, Sovereign Connections, Node Runtime and Deep Archive.
+A shared appearance system now covers all 28 Nathan AI HTML entry pages, including the existing book/research/game modules and the newer Assistant, Plugin Hub, Sovereign Connections, Node Runtime and Deep Archive.
 
 ## Skins and reading controls
 
@@ -22,4 +22,4 @@ The static local assistant server now serves `.mjs` files so the pre-existing ga
 
 ## Validation
 
-Run `node --test app-factory/nathan-ai/appearance/engine.test.cjs`. Tests cover all palettes, settings round trips, malformed/style-injection values, shared-engine coverage on every page and preference-key isolation. Chromium checks cover all twelve palette choices, all seventeen pages at 390px with 120% text, font/density/width settings, reduced-motion preference, cross-page/cross-tab restore, settings import/export, invalid import retention and Escape/focus restoration. Visual review includes the mobile parchment picker. Existing project and ONE-shell preference values are compared before/after appearance changes and reset.
+Run `node --test app-factory/nathan-ai/appearance/engine.test.cjs`. Tests cover all palettes, settings round trips, malformed/style-injection values, shared-engine coverage on every page and preference-key isolation. Chromium checks cover all twelve palette choices, all current pages at 390px with 120% text, font/density/width settings, reduced-motion preference, cross-page/cross-tab restore, settings import/export, invalid import retention and Escape/focus restoration. Visual review includes the mobile parchment picker. Existing project and ONE-shell preference values are compared before/after appearance changes and reset.

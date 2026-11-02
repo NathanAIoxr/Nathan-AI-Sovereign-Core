@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090f19"><title>Nathan AI · The 21 Coin Life Matrix</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+.life-header{margin:36px 0}.life-header h1{max-width:950px}
+.life-intro{max-width:920px;color:#c0d9e5}
+.life-tools{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin:22px 0}
+.life-tools input{flex:1;min-width:240px}
+.life-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:14px}
+.life-card{border:1px solid #37546d;background:linear-gradient(145deg,#122d3b,#101b2b);border-radius:16px;padding:18px;min-height:188px}
+.life-card strong{display:block;font-size:1.1rem;line-height:1.4;margin:12px 0;color:#f6f9ff}
+.life-card small{font-size:.78rem;line-height:1.5;color:#a6c2d2;display:block}
+.life-card .tag{color:#00d8ff;font-size:.74rem;letter-spacing:.13em;font-weight:850}
+.life-card button{margin-top:14px;background:#132d42;border:1px solid #367c9d;color:#eaf9ff;padding:9px 12px;border-radius:10px;font-weight:690}
+.source-separation{border:1px solid #68563b;border-radius:15px;padding:20px;background:#231f1b;color:#e7dbca;margin:24px 0}
+.record-box{border:1px solid #3e7183;border-radius:16px;padding:20px;margin:20px 0;background:#0f2433}
+.record-box textarea{width:100%;min-height:145px;resize:vertical;background:#081a2a;color:#edf9ff;border-radius:10px;border:1px solid #47687c;padding:12px;font:inherit;margin:12px 0}
+.record-box p,.record-box label{color:#b1cbda}.field-output{padding:12px 0;border-bottom:1px solid #294456}
+#life-selected{color:#f0d888}.private-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.private-flow div{border:1px solid #2d5067;border-radius:10px;padding:14px;background:#112738}
+.private-flow strong{display:block;color:#9beeff;margin-bottom:8px}
+@media(max-width:760px){.private-flow{grid-template-columns:1fr}}
+</style>
+<script type="module" src="./life-ui.mjs"></script><link rel="stylesheet" href="../../appearance/shared.css" data-nathan-shared-appearance><script src="../../appearance/engine.js"></script><script src="../../appearance/app.js"></script><link rel="stylesheet" href="../../launcher/shared.css" data-nathan-command-center><script src="../../workspace.js" defer></script><script src="../../assistant/engine.js" defer></script><script src="../../launcher/engine.js" defer></script><script src="../../launcher/app.js" defer></script></head>
+<body><div class="shell"><header class="topbar"><a href="../index.html" class="brand"><span class="mark">N</span><span>NATHAN <em>AI</em><small>PERSON · LIFE · 21 SOVEREIGN RINGS</small></span></a>
+<nav aria-label="Connected modules"><a href="../index.html">21 Coin Matrix</a><a href="../anchored/index.html">Anchored Matrix</a><a href="../../index.html">Main Hub</a></nav></header>
+<main>
+<section class="life-header"><p class="eyebrow">NATHAN AI · THE PERSON BEHIND THE LEDGER</p>
+<h1>21 coins.<br><span>A person's life.</span></h1>
+<p class="life-intro">Your addition connects these coin rings to real life: identity, memory, ancestry, rights, work, language, health and care, land, resources, and creative ownership. The life mapping below is an editable working crosswalk; the original coin descriptions remain unchanged in their separate source registry.</p>
+<div class="hero-actions"><a href="#life-matrix" class="primary">Explore life connections</a><a href="#personal-entry" class="secondary">Make a private note</a><a href="#voicebox" class="secondary">Voicebox verification</a></div>
+</section>
+<section class="stats" aria-label="Project structure"><div class="stat"><span>ORIGINAL COINS</span><strong>21</strong><small>Source-defined</small></div>
+<div class="stat"><span>LIFE LINKS</span><strong>21</strong><small>Editable editorial categories</small></div>
+<div class="stat"><span>PRIVATE IDENTITY</span><strong>OWNER</strong><small>Not published by this page</small></div>
+<div class="stat"><span>VERIFIED MONEY</span><strong>—</strong><small>No external account connected</small></div></section>
+<section id="life-matrix" class="module"><p class="eyebrow">01 · ORIGINAL TICKER TO LIFE DOMAIN</p><h2>Every ring has a human dimension</h2>
+<p class="flow-note">These short life-domain labels organize your new connection, not replace your 21 original descriptions. They are not proof of a medical, financial or legal link.</p>
+<div class="life-tools"><label for="life-search">Search a life domain</label><input id="life-search" type="search" placeholder="Rights, memory, language, land, care, identity…"></div>
+<div id="life-grid" class="life-grid"></div>
+<p id="life-status" role="status" aria-live="polite">Loading 21 life connections…</p></section>
+<section id="personal-entry" class="module"><p class="eyebrow">02 · OWNER-SELECTED LIFE RECORD</p><h2>Preserve the person's original words</h2>
+<p class="flow-note">Write only what you choose. This form holds text in this page session, does not autosave to a server or local storage, and never requests passwords or private keys. You can export a local JSON copy yourself.</p>
+<div class="record-box"><p>Selected coin ring: <strong id="life-selected">SIN</strong></p><p id="life-question">Choose a life domain above.</p>
+<label for="life-notes">Your own life record (session only)</label>
+<textarea id="life-notes" placeholder="Your original words — or keep this blank. Never paste passwords, recovery keys or financial account credentials."></textarea>
+<div class="actions"><button id="life-export" class="primary" type="button">Export this record as JSON</button><button id="life-clear" class="quiet" type="button">Clear this session note</button></div><p id="life-note-status" role="status">Nothing has been saved.</p></div>
+</section>
+<section id="voicebox" class="module"><p class="eyebrow">03 · SOVEREIGN VOICEBOX · OWNER EVIDENCE FLOW</p>
+<h2>Locked Voicebox / resource records</h2>
+<p class="flow-note">The earlier Nathan AI Voice-Lock Box is an archived software concept. This site does not have an authenticated Voicebox endpoint or a verified financial-account feed. An owner-reported balance remains a reported claim until independent records confirm asset type, custody, access and amount.</p>
+<div class="private-flow"><div><strong>1 · LOCATE</strong>Identify the actual local file, device, archive or service address under your control. No password is entered here.</div><div><strong>2 · AUTHENTICATE</strong>Use the original service's supported sign-in or decryption workflow privately, and confirm it shows owner-controlled assets rather than symbolic program values.</div><div><strong>3 · RECONCILE</strong>Match dated bank statements, wallet addresses, contract/chain IDs or custody documents with the claimed balance and withdrawal rights.</div></div>
+<div class="source-separation"><strong>Credentials remain outside Nathan AI public code.</strong> A password exposed in conversation should be replaced on the real service if active. Do not put keys, phrases, voice biometrics, account balances or identities in public GitHub issues, JSON catalogs or app forms. The life connection does not convert a symbolic ledger into spendable currency.</div>
+<a href="./VOICEBOX_VERIFICATION.md" class="secondary">Read private Voicebox verification checklist</a>
+</section>
+</main><footer>NATHAN AI · 21 SOVEREIGN RINGS · LIFE CONNECTIONS · ORIGINAL SOURCE FIRST <a href="../index.html">Back to coin matrix</a></footer>
+</div></body></html>

@@ -4,9 +4,9 @@ Every Nathan AI entry page shares a command palette through the header **Search 
 
 ## Navigation and context
 
-The fast default view searches 21 known destinations and the existing 93-workflow plugin inventory. Selecting a workflow opens that exact workflow in the Plugin Hub for review; it does not execute the workflow. Unknown/remote URLs are not accepted as navigation preferences.
+The fast default view searches 32 known destinations and the existing 93-workflow plugin inventory. Selecting a workflow opens that exact workflow in the Plugin Hub for review; it does not execute the workflow. Unknown/remote URLs are not accepted as navigation preferences.
 
-Public-archive search is optional and loads the existing nine JSON catalogs (10,630 records at this version). Local coin/life/source graph and saved research are searched only after **My local sources** is selected. Both scopes reset when the palette closes or reopens. Source results open one explicitly selected source in the Assistant, with source ID, excerpt, stage and private/local label preserved. The payload travels through same-origin sessionStorage, not URL query text, and is consumed once. No answer, model request or plugin action happens automatically. The Assistant deduplicates repeated source IDs before preparing model context.
+Public-archive search is optional and loads the existing nine JSON catalogs (10,641 records at this version). Local coin/life/source graph and saved research are searched only after **My local sources** is selected. Both scopes reset when the palette closes or reopens. Source results open one explicitly selected source in the Assistant, with source ID, excerpt, stage and private/local label preserved. The payload travels through same-origin sessionStorage, not URL query text, and is consumed once. No answer, model request or plugin action happens automatically. The Assistant deduplicates repeated source IDs before preparing model context.
 
 The separate **Ask Nathan AI about this** action opens an unsubmitted question. Recognizable credential payloads are rejected before preparing handoffs. Source search is keyword retrieval, not generative inference.
 
@@ -18,4 +18,4 @@ The palette supports ArrowDown from the input, ArrowUp/ArrowDown through results
 
 ## Verification
 
-Run `node --test app-factory/nathan-ai/launcher/engine.test.cjs`. Tests cover known paths, aliases, bounded pins/recents, source packet validation, preference/content separation and shared integration across all seventeen entry pages. Browser checks additionally exercise home task entry, private opt-in, contextual coin answers, public archive coverage, plugin deep linking, optional recent pages, keyboard navigation, modal isolation and scoped reset.
+Run `node --test app-factory/nathan-ai/launcher/engine.test.cjs`. Tests cover known paths, aliases, bounded pins/recents, source packet validation, preference/content separation and shared integration across all current entry pages. Browser checks additionally exercise home task entry, private opt-in, contextual coin answers, public archive coverage, plugin deep linking, optional recent pages, keyboard navigation, modal isolation and scoped reset.

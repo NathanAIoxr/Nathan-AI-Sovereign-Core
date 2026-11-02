@@ -1,0 +1,44 @@
+{
+  "schema": "nathan-ai.anchored.hardware-profile.v1",
+  "name": "Anchored Sovereign Matrix — bare-metal evaluation reference",
+  "mode": "portable_offline_benchmark_not_hardware_tuning",
+  "author_defined_design_targets": {
+    "cost_efficiency_output_per_electricity_dollar": 16,
+    "proxy_mask_nodes": 5000000,
+    "cpu_C_state_pinning": "Original source asserts low-level register/C-state pinning; not a measured or implemented feature",
+    "natural_harmonic_frequency": "1/Tabor (period or units not supplied)"
+  },
+  "safe_implementation": {
+    "processing": "bounded Python hashlib SHA-256 throughput benchmark; sequential candidate nonces; repeat digest checks and mirrored field traversal",
+    "workers": "single-process reference; no network or remote workers, no hidden process launch",
+    "cpu_affinity": "read/report only when OS allows; never change affinity by default",
+    "cpu_governor": "do not change OS power policy, C-states, MSR registers, firmware or BIOS",
+    "power_watts": null,
+    "input_kwh": null,
+    "electricity_price_usd_per_kwh": null,
+    "real_mining_revenue_usd": null,
+    "network_hashrate": null,
+    "pool_connection": null,
+    "wallet_connection": null,
+    "verified_proxy_endpoints": 0,
+    "benchmark_note": "Hashes per second is a local synthetic benchmark; not coin issuance, network acceptance, cryptographic advantage or monetary yield."
+  },
+  "measurement_inputs": [
+    "Measured energy in kWh from a power meter or OS telemetry with documented accuracy",
+    "Electricity rate in USD per kWh",
+    "Realized, independently verified mining output in USD for the same time window",
+    "Full operating costs including cooling/hardware/rent/fees",
+    "Hardware model, frequency settings, CPU utilization and elapsed time"
+  ],
+  "build_clear_tests": [
+    "1+1=2",
+    "1+1=10 binary",
+    "1-1=0"
+  ],
+  "test_limits": {
+    "maximum_nonce_candidates": 250000,
+    "default_nonce_candidates": 5000,
+    "minimum_nonce_candidates": 1
+  },
+  "source_privacy": "No Gmail link details, passwords, hardware device identifiers, addresses, or private server access stored"
+}

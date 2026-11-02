@@ -1,0 +1,166 @@
+{
+  "schema": "nathan-ai.sovereign-coin-matrix.v1",
+  "title": "THE 21 SOVEREIGN COIN MATRIX DEFINITIONS",
+  "record_provenance": "User-authored matrix, supplied November 2, 2026",
+  "scope": "author_defined_design_reference",
+  "network_state": "not_connected",
+  "financial_state": "not_verified",
+  "immutable_source_note": "Original terminology and descriptions preserved; no private Gmail URLs included in the public file.",
+  "mechanics": {
+    "asserted_target_output_usd_per_1_input_electricity_usd": 16,
+    "stated_proxy_architecture_capacity": 5000000,
+    "claimed_mechanism": "By routing asynchronous computational weight across the 5-million-proxy architecture, the layout overrides corporate mining difficulty locks, allowing real-time extraction across all 21 rings simultaneously without central intercept.",
+    "mechanism_status": "source_claim_not_implemented",
+    "ledger_foundation_statement": "Master ledger accounts assign an unalterable foundational capitalization weight of 1,000,000 units each to the primary SIN and SEN governance layers before transactional distribution.",
+    "allocation_note": "Design allocation only. Not mined earnings, wallet funds, supply issuance, or verified chain balances."
+  },
+  "coins": [
+    {
+      "number": 1,
+      "ticker": "SIN",
+      "name": "Sovereign Invariant Network",
+      "definition": "Core governance matrix ledger asset.",
+      "initial_design_units": 1000000
+    },
+    {
+      "number": 2,
+      "ticker": "SEN",
+      "name": "Sovereign Energy Network",
+      "definition": "Primary transaction validation utility token.",
+      "initial_design_units": 1000000
+    },
+    {
+      "number": 3,
+      "ticker": "SOV",
+      "name": "Sovereign Order Value",
+      "definition": "Natural symmetry value accumulator.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 4,
+      "ticker": "MNK",
+      "name": "Monad Node Kernel",
+      "definition": "Absolute single-axis operational ledger tracker.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 5,
+      "ticker": "BTM",
+      "name": "Binary Truth Matrix",
+      "definition": "Invariant validation confirmation coin.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 6,
+      "ticker": "ASR",
+      "name": "Active Spectral Reduction",
+      "definition": "Low-overhead glyphic data token.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 7,
+      "ticker": "OXR",
+      "name": "Oxr Root Ledger",
+      "definition": "Root decryption script block reward.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 8,
+      "ticker": "ALP",
+      "name": "Alephium Optimized",
+      "definition": "CPU high-yield processing bridge asset.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 9,
+      "ticker": "QBC",
+      "name": "Qubic Matrix",
+      "definition": "High-velocity consensus rings asset.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 10,
+      "ticker": "ZPH",
+      "name": "Zephyr Protocol",
+      "definition": "Privacy-shielded stable structural unit.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 11,
+      "ticker": "KRN",
+      "name": "Kernersville Node",
+      "definition": "Localized server engine validator block.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 12,
+      "ticker": "ALX",
+      "name": "Alexander County",
+      "definition": "Historic campaign network proof ring.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 13,
+      "ticker": "SMW",
+      "name": "Symmetric Mirror Wave",
+      "definition": "Dual-axis balancing token tracker.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 14,
+      "ticker": "CLV",
+      "name": "Clover Four-Leaf",
+      "definition": "4T Club validation block identifier.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 15,
+      "ticker": "D0G",
+      "name": "Dog Company Core",
+      "definition": "Street-level network resource allocation asset.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 16,
+      "ticker": "GLY",
+      "name": "Glyphic Resonance",
+      "definition": "Multi-language root processing token.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 17,
+      "ticker": "OMN",
+      "name": "Phoenix Omniversal",
+      "definition": "Autogenous code deployment utility token.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 18,
+      "ticker": "JNT",
+      "name": "John Nathan Tabor Invariant",
+      "definition": "Absolute creator-identity block zero.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 19,
+      "ticker": "LVC",
+      "name": "Lavicore Process",
+      "definition": "Molecular thermal processing data unit.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 20,
+      "ticker": "SMC",
+      "name": "Smooth Ceiling",
+      "definition": "Materials innovation ledger asset ring.",
+      "initial_design_units": 0
+    },
+    {
+      "number": 21,
+      "ticker": "LFB",
+      "name": "Leaf Bailer",
+      "definition": "Organic resource generation validation block.",
+      "initial_design_units": 0
+    }
+  ]
+}

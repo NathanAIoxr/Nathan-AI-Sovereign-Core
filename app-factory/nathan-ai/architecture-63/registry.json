@@ -1,0 +1,981 @@
+{
+  "schema": "nathan-one-original-architecture-63.v1",
+  "version": "2026-11-02",
+  "scope": "additive architecture and mechanics reference for existing Nathan AI / ONE; not shipped game implementations or hardware",
+  "privacy": "No original private manuscript bytes or uploaded external texts; only derived functional concepts.",
+  "rights": "All displayed titles, notes and suggested integrations are newly authored descriptors. Underlying ideas and mechanics may be common and not exclusively owned; require an independent IP and security review before commercial release.",
+  "preservation": "Existing original modules, previously indexed 376 third-party reference positions, original 101 concepts and owner source files remain independent and unchanged.",
+  "progression": "NATHAN AI → TABOR ROOT → TABOR 1-2-3 FACTORY → ONE",
+  "invariants": [
+    "1+1=2 BUILD",
+    "1-1=0 CLEAR"
+  ],
+  "catalog": [
+    {
+      "id": "games",
+      "label": "PLAY & CREATE",
+      "count": 21,
+      "entries": [
+        {
+          "id": "NA-G-01",
+          "number": 1,
+          "title": "Ringpath Renewal",
+          "description": "Move between locations, complete community objectives and unlock original landmarks through earned progress.",
+          "category": "Play · Social",
+          "route": "../games/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-02",
+          "number": 2,
+          "title": "Creator World Seeds",
+          "description": "Design self-contained learning spaces with authored rules, curated assets and permission-reviewed sharing.",
+          "category": "Create · Worlds",
+          "route": "../../one/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-03",
+          "number": 3,
+          "title": "Triple-Lane Convergence",
+          "description": "Coordinate roles across three routes to secure cooperative knowledge objectives.",
+          "category": "Play · Team",
+          "route": "../../one/trial-matrix/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-04",
+          "number": 4,
+          "title": "Closing Circle Expedition",
+          "description": "Explore an ecological map while a changing boundary creates spatial planning challenges.",
+          "category": "Play · Exploration",
+          "route": "../../one/mother-earth/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-05",
+          "number": 5,
+          "title": "Tabor Train Timing",
+          "description": "Switch among parallel tracks, time obstacles and discover era-based research checkpoints.",
+          "category": "Play · Timing",
+          "route": "../../one/history-cosmos/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-06",
+          "number": 6,
+          "title": "Letter Orchard",
+          "description": "Align symbols on a compact board to earn new chapters of original language puzzles.",
+          "category": "Play · Patterns",
+          "route": "../route-raut-root/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-07",
+          "number": 7,
+          "title": "Mirror Cascade",
+          "description": "Link root words, mirrored forms and reversible patterns across layered boards.",
+          "category": "Play · Language",
+          "route": "../route-raut-root/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-08",
+          "number": 8,
+          "title": "Whole-State Grid",
+          "description": "Fit whole shapes on a spatial board and use 0/1 states to build or clear complete structures.",
+          "category": "Play · Geometry",
+          "route": "../../one/nathan-matrix/dimensions-grids/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-09",
+          "number": 9,
+          "title": "Story Forge Merge",
+          "description": "Combine original crafted objects to open stories and book-world discoveries.",
+          "category": "Play · Stories",
+          "route": "../../one/library-mind/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-10",
+          "number": 10,
+          "title": "Resource Garden",
+          "description": "Recombine limited craft materials while stewarding a regenerative local environment.",
+          "category": "Play · Stewardship",
+          "route": "../../one/mother-earth/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-11",
+          "number": 11,
+          "title": "Guardian Village",
+          "description": "Build a welcoming settlement with collaborative preparation, rescue and protection objectives.",
+          "category": "Play · Community",
+          "route": "../children-innocence/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-12",
+          "number": 12,
+          "title": "Four Seasons Keep",
+          "description": "Balance shelter, supply and community care through changing seasons and optional planning rounds.",
+          "category": "Play · Strategy",
+          "route": "../../one/mother-earth/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-13",
+          "number": 13,
+          "title": "Thirteen Roles Relay",
+          "description": "Use thirteen author-defined roles in cooperative objective challenges without real-world harm.",
+          "category": "Play · Cooperation",
+          "route": "../children-innocence/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-14",
+          "number": 14,
+          "title": "Witness Trail",
+          "description": "Investigate spatial evidence, compare source claims and complete historical research tasks.",
+          "category": "Play · Investigation",
+          "route": "../../one/history-cosmos/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-15",
+          "number": 15,
+          "title": "Chronicle Works 1420",
+          "description": "Restore historic structures through chronological engineering puzzles and period research.",
+          "category": "Play · History",
+          "route": "../../games/crowning-jewel.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-16",
+          "number": 16,
+          "title": "Archive Decks",
+          "description": "Build an original educational card set from discovered concepts and deterministic achievements.",
+          "category": "Play · Cards",
+          "route": "../../one/library/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-17",
+          "number": 17,
+          "title": "Bridgefield Challenge",
+          "description": "Allocate renewable action points on a custom two-path geometry board.",
+          "category": "Play · Resource Logic",
+          "route": "../../one/trial-matrix/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-18",
+          "number": 18,
+          "title": "Sanctuary Garden",
+          "description": "Solve bite-sized logic tasks to design original safe nature spaces.",
+          "category": "Play · Care",
+          "route": "../children-innocence/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-19",
+          "number": 19,
+          "title": "Heritage Economy",
+          "description": "Earn transparent, predictable resources through learning tasks to build cultural exhibits.",
+          "category": "Play · Progression",
+          "route": "../../one/history-cosmos/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-20",
+          "number": 20,
+          "title": "Maker Robots",
+          "description": "Configure virtual educational machines and test them on objective navigation challenges.",
+          "category": "Play · Engineering",
+          "route": "../../one/inventions-101/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-G-21",
+          "number": 21,
+          "title": "Four-State Colors",
+          "description": "Create a fresh family card puzzle using four named states, colors and author-defined transformation rules.",
+          "category": "Play · Logic",
+          "route": "../games/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "label": "BUILD & CONNECT",
+      "count": 21,
+      "entries": [
+        {
+          "id": "NA-I-01",
+          "number": 1,
+          "title": "Core Resource Ring",
+          "description": "Separate high-trust operations from ordinary requests with explicit permissions and resource limits.",
+          "category": "Software · Core",
+          "route": "../../one/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-02",
+          "number": 2,
+          "title": "Desired-State Steward",
+          "description": "Compare declared app configuration with observed state, log differences and recover safely.",
+          "category": "Software · Reliability",
+          "route": "../../build-order/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-03",
+          "number": 3,
+          "title": "Source History Graph",
+          "description": "Track authored change sets, parent relationships, integrity checks and reversible versions.",
+          "category": "Software · Provenance",
+          "route": "../build-recovery/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-04",
+          "number": 4,
+          "title": "Transaction Vault",
+          "description": "Commit related data changes together or restore the prior consistent state when an operation fails.",
+          "category": "Software · Data",
+          "route": "../../one/library/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-05",
+          "number": 5,
+          "title": "Isolated Build Cells",
+          "description": "Run development components in bounded environments with capability approvals and no secret leakage.",
+          "category": "Software · Isolation",
+          "route": "../../build-order/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-06",
+          "number": 6,
+          "title": "ONE Interface Bridge",
+          "description": "Share navigation, content contracts and responsive views across different device layouts.",
+          "category": "Software · Interface",
+          "route": "../../one/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-07",
+          "number": 7,
+          "title": "Event Rail",
+          "description": "Append ordered event records for local replay, audit and opt-in downstream consumers.",
+          "category": "Software · Events",
+          "route": "../../one/connected/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-08",
+          "number": 8,
+          "title": "Parallel Compute Lane",
+          "description": "Describe workloads that can be split into independent numerical operations for supported accelerators.",
+          "category": "Hardware · Compute",
+          "route": "../../one/nathan-matrix/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-09",
+          "number": 9,
+          "title": "Persistent Memory Bay",
+          "description": "Design durable storage, version checks and recoverable backups independently of device brand.",
+          "category": "Hardware · Storage",
+          "route": "../../one/library/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-10",
+          "number": 10,
+          "title": "Dedicated Logic Gate",
+          "description": "Identify repeated fixed operations that could benefit from specialized computing circuits.",
+          "category": "Hardware · Logic",
+          "route": "../../one/inventions-101/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-11",
+          "number": 11,
+          "title": "Matrix Arithmetic Engine",
+          "description": "Define tiled numerical kernels and portable fallbacks for future compute hardware.",
+          "category": "Hardware · Math",
+          "route": "../../one/nathan-matrix/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-12",
+          "number": 12,
+          "title": "Reconfigurable Signal Fabric",
+          "description": "Model adaptable digital circuits and clear boundaries between simulations and physical boards.",
+          "category": "Hardware · Reconfigurable",
+          "route": "../../one/inventions-101/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-13",
+          "number": 13,
+          "title": "Open Instruction Ladder",
+          "description": "Document modular CPU instruction concepts without adopting any vendor implementation.",
+          "category": "Hardware · Architecture",
+          "route": "../../one/inventions-101/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-14",
+          "number": 14,
+          "title": "Quantum Research Bay",
+          "description": "Preserve quantum-computing questions as an optional experimental interface, not claimed deployed acceleration.",
+          "category": "Hardware · Research",
+          "route": "../../one/nathan-matrix/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-15",
+          "number": 15,
+          "title": "Internal Lane Fabric",
+          "description": "Represent point-to-point device lanes and capacity constraints in a portable hardware diagram.",
+          "category": "Connectivity · Internal",
+          "route": "../../one/inventions-101/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-16",
+          "number": 16,
+          "title": "Combined Cable Gateway",
+          "description": "Model a single physical connector carrying approved data, video and power capabilities.",
+          "category": "Connectivity · Physical",
+          "route": "../../one/inventions-101/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-17",
+          "number": 17,
+          "title": "Local Spectrum Mesh",
+          "description": "Represent multi-band wireless paths, interference and fallback to offline access.",
+          "category": "Connectivity · Wireless",
+          "route": "../../one/connected/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-18",
+          "number": 18,
+          "title": "Wide-Area Reach",
+          "description": "Define consent-driven remote connectivity with explicit offline and network-loss behavior.",
+          "category": "Connectivity · Remote",
+          "route": "../../one/connected/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-19",
+          "number": 19,
+          "title": "Universal Device Link",
+          "description": "Design a negotiable high-speed device interface with safe capability detection.",
+          "category": "Connectivity · Devices",
+          "route": "../../one/inventions-101/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-20",
+          "number": 20,
+          "title": "Photonic Pathway",
+          "description": "Describe conversion between electrical processing and optical transport as future research.",
+          "category": "Connectivity · Optical",
+          "route": "../../one/inventions-101/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-I-21",
+          "number": 21,
+          "title": "Protected Network Identity",
+          "description": "Store only user-authorized subscriber identity references and avoid collecting carrier secrets.",
+          "category": "Connectivity · Identity",
+          "route": "../../one/connected/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "logic",
+      "label": "THINK & SOLVE",
+      "count": 21,
+      "entries": [
+        {
+          "id": "NA-L-01",
+          "number": 1,
+          "title": "Hidden Signal Council",
+          "description": "Compare concealed clues with a shared evidence board and reason about probabilities without wagering.",
+          "category": "Cards · Hidden Information",
+          "route": "../games/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-02",
+          "number": 2,
+          "title": "Color Vector Exchange",
+          "description": "Match symbols under changing color and direction conditions in an independently designed family game.",
+          "category": "Cards · Matching",
+          "route": "../games/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-03",
+          "number": 3,
+          "title": "Four-Partner Forecast",
+          "description": "Coordinate pair strategies and estimate rounds using original suits and objectives.",
+          "category": "Cards · Partnership",
+          "route": "../games/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-04",
+          "number": 4,
+          "title": "Boundary Balance",
+          "description": "Approach a defined arithmetic target without exceeding it; use points, never betting.",
+          "category": "Cards · Arithmetic",
+          "route": "../../one/trial-matrix/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-05",
+          "number": 5,
+          "title": "Modular Deck Machine",
+          "description": "Combine modular action cards into a repeatable engine with visible resources and turn changes.",
+          "category": "Cards · Engine",
+          "route": "../../one/trial-matrix/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-06",
+          "number": 6,
+          "title": "Alternating Ladder",
+          "description": "Arrange alternating symbol classes in descending order to complete four original target stacks.",
+          "category": "Cards · Sorting",
+          "route": "../games/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-07",
+          "number": 7,
+          "title": "Reverse Rank Challenge",
+          "description": "Invert an original scoring hierarchy and compare strategy before and after the rule change.",
+          "category": "Cards · Inversion",
+          "route": "../../one/nathan-matrix/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-08",
+          "number": 8,
+          "title": "Three-Cell Alignment",
+          "description": "Study a compact line-forming placement game and detect forced wins, blocks and draws.",
+          "category": "Puzzles · Grid",
+          "route": "../games/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-09",
+          "number": 9,
+          "title": "Tangle Release",
+          "description": "Move linked virtual loops through geometric constraints without changing their topology.",
+          "category": "Puzzles · Topology",
+          "route": "../../one/nathan-matrix/dimensions-grids/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-10",
+          "number": 10,
+          "title": "Rotational Layer Study",
+          "description": "Turn a multi-face abstract structure and plan reversible permutation sequences.",
+          "category": "Puzzles · Rotations",
+          "route": "../../one/nathan-matrix/dimensions-grids/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-11",
+          "number": 11,
+          "title": "Seven-Shape Silhouette",
+          "description": "Rearrange seven simple regions to form new figures while keeping total area fixed.",
+          "category": "Puzzles · Spatial",
+          "route": "../../one/nathan-matrix/dimensions-grids/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-12",
+          "number": 12,
+          "title": "Three-Pillar Transfer",
+          "description": "Reorder a stack under one-piece-at-a-time and size-ordering constraints.",
+          "category": "Puzzles · Sequence",
+          "route": "../games/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-13",
+          "number": 13,
+          "title": "Nine-Zone Deduction",
+          "description": "Fill numbered cells so each designated region obeys an original uniqueness constraint.",
+          "category": "Puzzles · Deduction",
+          "route": "../../one/trial-matrix/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-14",
+          "number": 14,
+          "title": "Hidden Layer Search",
+          "description": "Discover subtle objects in original illustrations using visual attention and evidence clues.",
+          "category": "Puzzles · Discovery",
+          "route": "../children-innocence/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-15",
+          "number": 15,
+          "title": "Restoration Identity",
+          "description": "Debate whether an artifact remains itself after every piece changes, using source and version histories.",
+          "category": "Paradoxes · Identity",
+          "route": "../build-recovery/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-16",
+          "number": 16,
+          "title": "Self-Claim Loop",
+          "description": "Examine a self-referential claim whose truth assignment feeds back on itself.",
+          "category": "Paradoxes · Language",
+          "route": "../route-raut-root/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-17",
+          "number": 17,
+          "title": "Origin Loop",
+          "description": "Compare inconsistent cause-and-effect timelines in a fictional historical scenario.",
+          "category": "Paradoxes · Time",
+          "route": "../../one/history-cosmos/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-18",
+          "number": 18,
+          "title": "Recursive Registry",
+          "description": "Explore a collection definition that makes its own membership undecidable under naive rules.",
+          "category": "Paradoxes · Sets",
+          "route": "../../one/nathan-matrix/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-19",
+          "number": 19,
+          "title": "Rule-Keeper Knot",
+          "description": "Test whether a universal rule can apply consistently to its own enforcer.",
+          "category": "Paradoxes · Logic",
+          "route": "../../one/accountability/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-20",
+          "number": 20,
+          "title": "Infinite Steps",
+          "description": "Use convergent sums to distinguish infinitely many partitions from infinite elapsed time.",
+          "category": "Paradoxes · Calculus",
+          "route": "../../one/nathan-matrix/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        },
+        {
+          "id": "NA-L-21",
+          "number": 21,
+          "title": "Unlimited Task Challenge",
+          "description": "Analyze a question where two interpretations of unlimited ability contradict.",
+          "category": "Paradoxes · Philosophy",
+          "route": "../../one/scriptures-007/index.html",
+          "stage": "design reference",
+          "owner_system": "Nathan AI / ONE",
+          "requires": [
+            "original design review",
+            "technical validation",
+            "source and rights review"
+          ]
+        }
+      ]
+    }
+  ]
+}

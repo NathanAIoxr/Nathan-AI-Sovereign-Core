@@ -4,7 +4,7 @@ Open **Assistant** from Nathan AI's main navigation or **Ask Nathan AI** from th
 
 ## What works without a model
 
-Load the existing public catalogs, ask a specific question, and inspect ranked original passages with source IDs and stages. The current nine JSON catalogs yield 10,630 records. Source mode quotes retrieved passages; it does not synthesize an answer with an LLM. A second response mode adds a clearly separated next-step checklist. If nothing matches, the assistant reports that rather than inventing an answer.
+Load the existing public catalogs, ask a specific question, and inspect ranked original passages with source IDs and stages. The current nine JSON catalogs yield 10,641 records. Source mode quotes retrieved passages; it does not synthesize an answer with an LLM. A second response mode adds a clearly separated next-step checklist. If nothing matches, the assistant reports that rather than inventing an answer.
 
 The coin/life graph and saved research are searched only after **Include my local…** is selected. Namespaced records retain their source stages and local/private flag. Coin symbols are searchable. The local checkbox resets on page load, while deliberately saved conversation excerpts remain visible in that saved conversation.
 

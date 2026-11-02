@@ -1,0 +1,38 @@
+name: Phi-life and Phi-mine integrity
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/phi-life/**'
+      - 'app-factory/nathan-ai/sovereign-coins/phi-mining/**'
+      - 'app-factory/nathan-ai/sovereign-coins/registry.json'
+      - 'app-factory/nathan-ai/activation/**'
+      - '.github/workflows/phi-mine-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/phi-life/**'
+      - 'app-factory/nathan-ai/sovereign-coins/phi-mining/**'
+      - 'app-factory/nathan-ai/sovereign-coins/registry.json'
+      - '.github/workflows/phi-mine-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  phi-simulation-and-historical-pow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Verify 732 million virtual addresses, 21 ring boundaries and four stages
+        run: node --test app-factory/nathan-ai/phi-life/engine.test.mjs
+      - name: Verify SHA256d genesis, independent validation, consent and mining isolation
+        run: node --test app-factory/nathan-ai/sovereign-coins/phi-mining/engine.test.mjs
+      - name: Execute real offline double-SHA256 and report valid historical vector
+        run: node app-factory/nathan-ai/sovereign-coins/phi-mining/cli.mjs --run --start=2083236891 --attempts=5 > /tmp/phi-mine-audit.json
+      - name: Assert output contains no live mining, no funds and expected Bitcoin genesis
+        run: |
+          node -e "const f=require('fs'); const j=JSON.parse(f.readFileSync('/tmp/phi-mine-audit.json')); const x=j.local_historical_pow_test; if(!x.bitcoin_header_test.beta.historical_genesis_match || x.wallet_or_pool_activity !== false || x.paid_rewards_confirmed !== 0 || x.mapped_rings.length !== 21 || x.virtual_address_count !== 732000000) process.exit(1); console.log('Offline historical genesis SHA-256d and safety boundaries verified')"
