@@ -2,6 +2,8 @@
 
 These are **research starting points**, not blanket certification of every item in a 13-piece collector set. Each physical artifact requires museum accession, dating, local cultural terminology and independent claim-by-claim evaluation.
 
+| Documented Zande pingha (NOT the invented No. 13) | [Cleveland Museum of Art — Throwing Knife / Prestige Scepter (pingha), accession 2015.156; 45.5 cm, 1800–mid-1900s](https://www.clevelandart.org/art/2015.156) |
+| Zande throwing knife (additional comparative source) | [Seattle Art Museum — Throwing knife, accession 81.17.1677; 45.3 × 48.8 cm](https://art.seattleartmuseum.org/objects/7315/throwing-knife) |
 | Family | Public institutional reference |
 |---|---|
 | Australian boomerangs | [National Museum of Australia — Boomerang](https://www.nma.gov.au/exhibitions/defining-symbols-australia/boomerang) |
@@ -16,6 +18,9 @@ These are **research starting points**, not blanket certification of every item 
 | Roman net-and-weapon comparisons | [University of Michigan Kelsey Museum — Retiarius equipment](https://lsa.umich.edu/kelsey/exhibitions/special-exhibitions/kelsey-in-focus/kelsey-in-focus--installment--10/becoming-a-gladiator/reproductions.html) |
 | Antarctic comparative geography | [British Antarctic Survey — Antarctic factsheet](https://www.bas.ac.uk/about/education-and-schools/antarctic-factsheet/) |
 | Traditional Japanese hair ornaments | [National Park Service — Kanzashi](https://www.nps.gov/long/blogs/kanzashi-japanese-hair-pins.htm) |
+
+## Documented correction
+The supposed bat-wing-shaped "Royal Pingha" numbered 13 in an earlier AI-generated collection flyer was **not** taken from either of these museums. It was fabricated artwork and must never be confused with the historical objects. A photograph of the authentic Cleveland object shows an asymmetrical profile, not a symmetrical Batman-style silhouette. This source register does not authenticate the other 103 named positions.
 
 ## Claim review
 
