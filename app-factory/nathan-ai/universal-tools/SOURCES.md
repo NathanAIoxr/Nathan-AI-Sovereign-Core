@@ -15,7 +15,7 @@ These are **research starting points**, not blanket certification of every item 
 | Aboriginal Australian woomera | [Penn Museum — Woomera object](https://collections.penn.museum/collections/object/253965) |
 | Roman net-and-weapon comparisons | [University of Michigan Kelsey Museum — Retiarius equipment](https://lsa.umich.edu/kelsey/exhibitions/special-exhibitions/kelsey-in-focus/kelsey-in-focus--installment--10/becoming-a-gladiator/reproductions.html) |
 | Antarctic comparative geography | [British Antarctic Survey — Antarctic factsheet](https://www.bas.ac.uk/about/education-and-schools/antarctic-factsheet/) |
-| Traditional Japanese hair ornaments | [National Park Service — Kanzashi](https://www.nps.gov/articles/kanzashi-japanese-hair-pins.htm) |
+| Traditional Japanese hair ornaments | [National Park Service — Kanzashi](https://www.nps.gov/long/blogs/kanzashi-japanese-hair-pins.htm) |
 
 ## Claim review
 
