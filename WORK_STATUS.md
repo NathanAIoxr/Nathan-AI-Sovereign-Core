@@ -86,3 +86,11 @@ Verification for this documentation update: checked existing repository source a
 - **Privacy:** The public module excludes the author's physical measurements, personal health details, original private text, biometrics and identifiers. Those originals remain owner-controlled and are not auto-imported.
 - **Validation:** GitHub Actions Factory quality checks run `41352086464` passed, including new `anatomy/wiring.test.cjs` cases. No independent clinical validation, physical device/browser QA, biometric link, neural control, provider connection or therapeutic claims.
 - **State:** public static browser prototype merged; GitHub Pages publication and mobile device behavior require separate verification.
+
+## November 1, 2026 — Matrix • Dimensions • Grids (additive Nathan AI integration)
+
+- Connected `app-factory/one/nathan-matrix/dimensions-grids/index.html` from Nathan AI Main Hub, ONE Home and Connected Matrix, preserving current `main` changes.
+- Interactive local reference implementation: 45 × 3 tripolar identifiers, 625 Five Matrices addresses, 13 signed Polar Axes, six historical Game of Life layers, three private trial epochs and a 30-family source index.
+- Private 33-stage original and recovery ZIP are **not uploaded to public GitHub**; exact author stage titles/descriptions appear only after owner-selected local import into the browser. Other original files remain owner-controlled.
+- Validation: `node --test app-factory/one/nathan-matrix/dimensions-grids/engine.test.cjs` added; source-aware JS checks performed. CI/browser publication/device QA should be verified separately.
+- Unresolved: full archive coverage, conflicting source body/level numerics, unpublished source access on each owner's device, and published-Pages behavior.
