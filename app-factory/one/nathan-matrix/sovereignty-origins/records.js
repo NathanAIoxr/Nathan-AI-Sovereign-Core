@@ -221,7 +221,8 @@ const RECORDS=Object.freeze([
     "kind": "documented-history",
     "original": "A captured German V-2 rocket launched from White Sands took an early image of Earth from space.",
     "detail": "Connect the factual space-history thread to the author's Scrollfire investigations, without treating the Moon or Death Star analogy as literal evidence.",
-    "source": "User Scrollfire thread, 2025-10-10; NASA history"
+    "source": "User Scrollfire thread, 2025-10-10; NASA history",
+    "link": "https://www.nasa.gov/history/90-years-of-our-changing-views-of-earth/"
   },
   {
     "id": "H10",
