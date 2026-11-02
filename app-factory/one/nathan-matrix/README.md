@@ -42,3 +42,8 @@ Additive ONE browser reference module. Owner original source, private code, and 
 ## November 1, 2026 — Humanity · Tabor · Cosmos recovery link (additive)
 - The separately versioned [60-record history/Tabor/cosmic index](../history-cosmos/README.md) connects documented humanities research, family/ancestry leads, micro/macro grids, UAP/aliens, and original fictional worlds without copying owner-private original content.
 - [Open the browser module](../history-cosmos/index.html). Existing this-page formulas, custom language, and unrelated private modules remain unchanged.
+
+## November 2, 2026 — Distributed Ledger & Computational Conspectus (additive)
+- Original 21-item 7 / 7 / 7 source across [assets, hardware and consensus](distributed-ledger/index.html), with source stored in [records.js](distributed-ledger/records.js).
+- [Technical documentation](distributed-ledger/README.md) is separate from original authored claims and cites independent protocol sources.
+- Read-only offline browser module, no wallet, real mining, funds or key actions. Run `node --test app-factory/one/nathan-matrix/distributed-ledger/records.test.cjs`.
