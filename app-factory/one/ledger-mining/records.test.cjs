@@ -24,7 +24,7 @@ test("proof-of-work expected-value scenario accounts for power and fees",()=>{
  const base={hashrateTH:100,difficultyT:100000,watts:3200,electricityUSD:0.1,btcPriceUSD:60000,poolFeePct:2,feesPerBlockBTC:0,subsidyBTC:3.125};
  const r=miningScenario(base);
  assert.ok(Math.abs(r.blocksPerDay-(100*86400/(100000*2**32)))<1e-15);
- assert.equal(r.powerKWh,76.8);
+ assert.ok(Math.abs(r.powerKWh-76.8)<1e-12);
  assert.ok(Math.abs(r.electricUSD-7.68)<1e-12);
  assert.ok(Math.abs(r.btcPerDay-r.blocksPerDay*3.125*.98)<1e-15);
  assert.ok(Math.abs(r.netAfterElectricUSD-(r.revenueUSD-r.electricUSD))<1e-12);
