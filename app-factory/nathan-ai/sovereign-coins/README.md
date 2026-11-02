@@ -102,3 +102,13 @@ The user later specified: **“these coins are connected to a persons life as we
 The Life Matrix contains *no personal profile*, names, dates of birth, private account data, password, wallet keys, or reported dollar value. User-entered text resides in current-page memory only and is exported as a file only by explicit button action. The app does not verify identity, custody, mining or account balances.
 
 The previously archived **NATHAN AI VOICE-LOCK BOX** concept remains a separate software source. No authenticated deployed Voicebox service or independently verified financial balance has been established by this implementation. **Never publish private credentials or unverified amounts to GitHub.** Independent custodial or wallet records are needed to establish any actual financial entitlement.
+
+## V. Mining, wallet and monitoring integration command center · November 2, 2026
+
+[Open the additive integration hub](./integrations/index.html) · [Integration setup and local gateway](./integrations/README.md).
+
+The 17-provider catalog covers XMRig, Hiveon OS, Awesome Miner, NiceHash, Reown AppKit / WalletConnect, Trezor Connect, Coinbase Wallet SDK, Bitcoin Core, BTCPay, Alchemy, 2Miners, Braiins Pool, Minerstat, CoinGecko, Prometheus, Grafana and Home Assistant.
+
+Ten read-only API clients are implemented in a loopback-only Node.js gateway: XMRig, Bitcoin Core, BTCPay, Alchemy, 2Miners, Braiins, CoinGecko, Prometheus, Grafana and Home Assistant. Seven other providers are registered as setup-required or SDK authorization contracts. No provider is represented as authenticated or connected without operator configuration; public browser pages do not access local private endpoints.
+
+No changes to the existing coin order, SIN/SEN design allocations, nine-law-coin family, 16:1 authored goal, 5-million-proxy source record, anchored gate, or person's-life matrix. No wallet signing, real transfer, remote miner commands or proxy fleet deployment.
