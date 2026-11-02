@@ -1,0 +1,12 @@
+# Owner-only photos and personal biometric material must never be committed.
+private-samples/
+**/scans/
+**/private-records/
+*.jpg
+*.jpeg
+*.heic
+*.webp
+*backup*.json
+*.vault.json
+.env
+.env.*
