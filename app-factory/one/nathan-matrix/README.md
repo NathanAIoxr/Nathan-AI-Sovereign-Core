@@ -42,3 +42,10 @@ Additive ONE browser reference module. Owner original source, private code, and 
 ## November 1, 2026 — Humanity · Tabor · Cosmos recovery link (additive)
 - The separately versioned [60-record history/Tabor/cosmic index](../history-cosmos/README.md) connects documented humanities research, family/ancestry leads, micro/macro grids, UAP/aliens, and original fictional worlds without copying owner-private original content.
 - [Open the browser module](../history-cosmos/index.html). Existing this-page formulas, custom language, and unrelated private modules remain unchanged.
+
+## November 2, 2026 — 21-system Architecture Infrastructure Index (additive)
+
+- [Open the 21-system 7/7/7 browser](infrastructure-index/index.html): seven software architectures/platforms, seven hardware component arrays and seven connectivity/protocol interfaces.
+- Original author-supplied **Function** and **Rule** text is preserved in [SOURCE.md](infrastructure-index/SOURCE.md) and searchable in [records.js](infrastructure-index/records.js). Independent verified technical notes are segregated in [module README](infrastructure-index/README.md).
+- The Tabor Accords remain a separate governance module (`NT-ACC-001` / `BASE:NT-ADDED-087`); the 21 systems are an infrastructure reference, **not** live installations or third-party access grants.
+- Validation: `node --test app-factory/one/nathan-matrix/infrastructure-index/records.test.cjs`. Existing code and owner originals remain unchanged.
