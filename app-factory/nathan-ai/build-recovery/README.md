@@ -5,7 +5,7 @@ Parent: **NATHAN AI → TABOR ROOT → TABOR 1-2-3 FACTORY → ONE / independent
 ## What this update actually adds
 
 - A **separate**, searchable recovery and navigation interface at app-factory/nathan-ai/build-recovery/index.html.
-- A source-indexed registry.json with **74 existing repository HTML paths** as of the integration branch's starting main snapshot. The recovery interface itself is **new** and therefore not counted among those original 74. All 74 paths are source-file locations, not verified live web deployments.
+- A source-indexed registry.json with **76 existing repository HTML paths** as of the integration branch's starting main snapshot. The recovery interface itself is **new** and therefore not counted among those original 76. All 74 paths are source-file locations, not verified live web deployments.
 - An additive list of **92 named system/reference records**, clearly marked recovered references. These do not mean 92 new engines were coded, trained, manufactured or deployed.
 - **14 owner-held/historical archive anchors**, identified by filename and description without publishing the owners' private source contents.
 - A live read of the existing **73-title Games & Puzzles Atlas** in ../games/catalog.json, preserving its original development stages and without copying or changing that original game catalog.
