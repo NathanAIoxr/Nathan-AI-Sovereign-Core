@@ -96,6 +96,8 @@ jobs:
         run: node --test app-factory/one/inventions-101/registry.test.cjs
       - name: Verify ONE Humanity & Spiritual Archive binary, source and Level -3 boundaries
         run: node --test app-factory/one/humanity-archive/archive.test.cjs
+      - name: Verify humanity Tabor micro/macro Above/Below and UAP source boundaries
+        run: node --test app-factory/one/history-cosmos/catalog.test.cjs
       - name: Verify ONE sealed offloader encryption, exact bytes and recovery
         run: node --test app-factory/one/offloader/engine.test.cjs
       - name: Verify lean ONE private encrypted cloud backup, access and restore
