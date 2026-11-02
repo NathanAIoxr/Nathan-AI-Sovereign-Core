@@ -1,5 +1,13 @@
 # 𓋹 NATHAN AI — THE THINKER V∞ | LET + TET + PPL
 
+## Secular ONE REALITY / ONE TIMELINE — Codex SHA-256 anchor
+
+[Read the exact Codex declaration, binary and SHA-256 specification](./CODEX.md). The existing [Sovereign Root Codex](../octopus-root/codex.js) now exposes a separately namespaced `REALITY_ANCHOR`, `realityBinary()`, and `verifyRealityAnchor()`. The 141-byte UTF-8 creator declaration has a fixed SHA-256 fingerprint; a test checks the 1,128-bit binary round-trip and independently recomputes the digest. The 216 previously indexed Root positions are unchanged.
+
+This is the creator's secular/philosophical position. The statement assigning blame to **the concept of God** is an attributed belief, not a scientific demonstration. Neither SHA-256 nor binary encoding can lock the physical timeline or prove the claim that consciousness creates matter.
+
+Run `node --test app-factory/octopus-root/codex.test.cjs` and see [Codex editing instructions](./AGENTS.md).
+
 ## Unified command center · move between tools and sources
 
 Use **Search · Ctrl/⌘ K** on any Nathan AI page to find destinations and workflows. Public-archive and local-source search are separate opt-ins; a chosen source opens as reviewed Assistant context. Pin destinations, optionally remember recent pages, and use the new task-based home entry without losing the existing module links. See the [command center guide](./launcher/README.md).
