@@ -7,6 +7,21 @@
 **Audit reference:** November 2, 2026; re-inspect for freshness before making status or count claims.  
 **Operational status:** Instructions and provenance map, **not** a claim that all data or source bytes have been imported, deployed, or joined.
 
+## PRIMARY SOURCE CORRECTION — actual owner files discovered November 2, 2026
+
+**Do not treat the 81 Airtable project records or the 12-file recovery starter pack as the extent of Nathan AI.** The existing owner-private searchable file recovery index from November 1 contains **5,879 actual file-reference records**: **5,447 saved-file entries** from the ChatGPT Library and **432 GitHub source-file references**; its source inventory reports **18,684,935,350 saved-file bytes** including versions and copies, with 28 inventory pages traversed and 137 folder entries separately. This is historical coverage and does not include all November 2 additions or the mounted Google Drive contents. The records are pointers, not the full original bytes.
+
+**Existing original app builds are discoverable owner-held files, not mere plans:**
+- `ONE_v073_NATHAN_AI_UNIFIED_COMPLETE.zip`: inspected directly; **39 members**, including HTML browser app, 10 Python files, JSON manifests, prior v064-v071 interactive modules and tests. The package describes an offline unified app; do not infer mobile/cloud deployment.
+- `TABOR_MAIN_DATABASE_v073_NATHAN_AI_ONE_UNIFIED.sqlite3`: inspected read-only, SQLite integrity check **ok**, **156 SQLite tables** (including one internal SQLite statistics table), **6,056 rows in `item`** and **6,391 rows in `master_catalog`**. The standalone database SHA-256 matched the database inside the ZIP: `70208997f54e19748ce166ae648bc2b7ef2723d1d7ed5064007d0785fee3faee`.
+- Owner-held earlier versions include `ONE_v071_THE_SANTA_REVOLUTION_COMPLETE_STORY_AND_GAME.zip`, `ONE_v070_CHRISTMAS_SHOWDOWN_GAME_AND_DATABASE.zip`, `ONE_v069_LIVING_WORD_EDUCATIONAL_GAME_COMPLETE.zip`, `ONE_v068_TRUTH_AI_NODE_DATABASE_BOOK_APP.zip`, `ONE_v067_TRUTH_RESTORATION_COMPLETE.zip`, `ONE_v066_ALL_CONNECTED_APPS_COMPLETE.zip`, `ONE_v061_ALL_58_APPS_COMPLETE_FINAL.zip`, original standalone HTML editions and similarly named versioned SQLite databases.
+- **Existing original Codex documents** found in private Library: `NATHAN_AI_SOVEREIGN_MASTER_CODEX.md`, `NATHAN_AI_SOVEREIGN_MASTER_CODEX_UPDATED_2026-11-02.md`, and `NATHAN_AI_SOVEREIGN_MASTER_CODEX_2026-11-02_ACRONYMS.md`. Do not override or silently replace them with the newly authored public coordination `CODEX.md`. Reconcile by source and version.
+- Additional owner-held sources include THE VOICE complete offline book app, 33 Trial Matrix v025 original, source Acronym Navigator, creative design-shop HTML archive, 100 Protocol Registry, historical theology and language archives, hand-scanning prototypes and original visual assets.
+
+**Owner-private recovery artifacts produced in chat:** `NATHAN_AI_ALL_FILES_SEARCHABLE_RECOVERY_2026-11-02.html` (historical 5,879 records + current finding summary) and `NATHAN_AI_ALL_FILES_FOUND_INDEX_2026-11-02.zip` (metadata and Codex originals), with the original `ONE_v073_NATHAN_AI_UNIFIED_COMPLETE.zip` separately preserved. These are **not available in this public GitHub repository** and must not be committed as user data.
+
+**Required next engineering behavior:** audit the real v073 bundle and SQLite schema **before** designing, claiming completion, or merging an alternative ONE app. Preserve each version and exact bytes. Catalog actual Library file paths and per-version hashes; identify gaps before building duplicate systems. Never confuse the public 81-name coordination subset with the thousands of original file entries.
+
 ## 1 — Mission and non-negotiable boundaries
 
 Build an **additive, inspectable, reversible source recovery and integration system** across all accessible original works: app code, source archives, files, private/local ZIPs, HTML/JS/Python, graphics, books, manuscript variants, formulas, acronym dictionaries, language registers, games, technical blueprints, family/history research, cryptocurrency and mining plans, and connected-app metadata. The public Nathan AI app is a navigation and implementation shell, **never a replacement for a private original archive**.
