@@ -3,6 +3,7 @@ const modules=[{"title":"children’s books / innocence protection","href":"./ch
 modules.push({title:'THE UNIVERSAL 13 · 104 Tools, History & Geometry Games',href:'./universal-tools/index.html',group:'Nathan AI games & learning'});
 modules.push({title:'Original Architecture 63 · Play / Build / Think',href:'./architecture-63/index.html',group:'Nathan AI original design systems'});
 modules.push({title:'All Interfaces & Build Recovery',href:'./build-recovery/index.html',group:'Nathan AI source recovery'});
+modules.push({title:'ALL CODE · API KEY NAMES · PATCHES · INTEGRATION LEDGER',href:'./build-recovery/index.html#all-code',group:'Nathan AI source recovery'});
 const directory=document.getElementById('directory');
 function render(){const q=document.getElementById('search').value.trim().toLowerCase();const rows=modules.filter(x=>(x.title+' '+x.group).toLowerCase().includes(q));directory.replaceChildren();for(const row of rows){const a=document.createElement('a');a.className='card';a.href=row.href;const tag=document.createElement('span');tag.textContent=row.group;const title=document.createElement('h3');title.textContent=row.title;const p=document.createElement('p');p.textContent='Open app →';a.append(tag,title,p);directory.append(a);}document.getElementById('results-count').textContent=rows.length+' app doorways';}
 document.getElementById('search').addEventListener('input',render);render();
