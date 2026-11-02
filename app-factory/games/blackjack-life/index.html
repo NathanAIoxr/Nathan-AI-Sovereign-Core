@@ -1,0 +1,98 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0c241d"><meta name="description" content="BLACKJACK!!! — The Way to WIN the Game of LIFE, a 21-move card and decision game by Nathan Tabor, inside Nathan AI ONE.">
+<title>BLACKJACK!!! — The Way to WIN the Game of LIFE · Nathan Tabor</title>
+<style>
+:root{color-scheme:dark;font:16px/1.5 system-ui,-apple-system,sans-serif;--bg:#091b19;--felt:#134e3a;--gold:#efd186;--line:#6e8d78;--panel:#16372f;--ink:#f6f5e9;--muted:#d3e0d6}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 52% -10%,#225d48,transparent 55%),var(--bg);color:var(--ink)}
+main{max-width:1200px;margin:0 auto;padding:15px 16px 75px}nav{display:flex;flex-wrap:wrap;gap:13px;margin-bottom:16px}a{color:var(--gold)}.eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.15em;color:var(--gold)}
+h1{font-family:Georgia,serif;font-size:clamp(2.5rem,7vw,5.6rem);line-height:.96;letter-spacing:-.035em;margin:10px 0}h2{font-size:1.3rem}h3{font-size:1.06rem}.subtitle{font-size:clamp(1.1rem,3vw,1.6rem);font-family:Georgia,serif;color:var(--gold);margin:10px 0 4px}
+p{color:var(--muted)}.muted,small{color:var(--muted)}.hero{padding:20px 0 10px}.bar{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:13px 0}.stat{background:#163b31;border:1px solid var(--line);border-radius:13px;padding:12px}.stat strong{display:block;font-size:clamp(1.3rem,3vw,1.9rem);color:var(--gold);font-variant-numeric:tabular-nums}
+.table{border:7px solid #9d7a38;border-radius:120px 120px 36px 36px / 65px 65px 36px 36px;background:radial-gradient(ellipse at top,#1f694d,var(--felt) 69%,#0b3129);padding:clamp(18px,4vw,38px);box-shadow:0 14px 50px #0008,inset 0 0 0 2px #e6d09b75;min-height:420px}
+.table h2{font-family:Georgia,serif;color:var(--gold);margin:2px 0 8px}.cards{display:flex;flex-wrap:wrap;gap:9px;min-height:122px;align-items:center}.playing-card{display:flex;flex-direction:column;align-items:center;justify-content:center;width:75px;height:111px;border:2px solid #faf7e6;border-radius:10px;background:#fdf8ed;color:#142d25;box-shadow:0 4px 12px #0007;font-size:1.7rem;font-family:Georgia,serif;font-weight:800;line-height:1.05}.playing-card.red{color:#b42129}.playing-card.back{background:repeating-linear-gradient(45deg,#142f5c 0px,#142f5c 6px,#f7d778 7px,#f7d778 9px);color:white;border:5px double #f1e4c6}.playing-card small{font-size:1.6rem;color:inherit}.dealer{border-bottom:2px dashed #b4c8b173;padding-bottom:18px;margin-bottom:18px}.outcome{font-size:1.15rem;font-weight:800;color:#fff1a9;min-height:2em}.label{letter-spacing:.09em;font-size:.79rem;text-transform:uppercase;color:#e5e8d9}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin:17px 0}.actions button{flex:1 1 130px}
+button{font:inherit;font-weight:800;padding:12px 16px;min-height:48px;border-radius:10px;background:#d2b56a;color:#102e26;border:1px solid #e8d5a1;cursor:pointer}button.alt{color:#f3f3e6;background:#285947;border-color:#a4c1af}button:disabled{cursor:not-allowed;opacity:.42}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #fff1af;outline-offset:3px}
+section.panel{border:1px solid #547764;border-radius:16px;background:var(--panel);margin:15px 0;padding:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.pill{display:inline-block;border:1px solid var(--gold);border-radius:99px;padding:4px 10px;color:var(--gold);font-weight:700;font-size:.8rem}.journey strong{font-family:Georgia,serif;font-size:1.4rem;color:var(--gold)}.progress{width:100%;height:11px;border-radius:20px;background:#2d5a4a;overflow:hidden;border:1px solid #7ca08d}.progress>div{height:100%;background:linear-gradient(90deg,#cab26e,#fff1ae);transition:width .22s}.law{font-family:Georgia,serif;text-align:center;color:#f6da8e;font-weight:bold;letter-spacing:.06em}
+.chapters{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;padding:0;list-style:none}.chapters li{background:#194334;border:1px solid #4c7f64;border-radius:9px;padding:8px;font-size:.86rem;color:#d5e6d6}.chapters li.done{border-color:#d6c181;background:#235c40}.chapters li.active{background:#7c6835;color:#fff}
+details{margin:11px 0;border:1px solid #5d7a6c;border-radius:9px;overflow:hidden}summary{cursor:pointer;padding:12px;font-weight:750;color:#f1dcaa}.details-body{padding:0 13px 13px}footer{color:var(--muted);margin-top:35px;font-size:.85rem}
+@media(max-width:700px){.summary{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.table{border-width:4px;border-radius:60px 60px 20px 20px / 35px 35px 20px 20px}.playing-card{width:61px;height:91px;font-size:1.35rem}.playing-card small{font-size:1.3rem}}
+@media(prefers-reduced-motion:reduce){.progress>div{transition:none}}
+</style></head><body><main>
+<nav aria-label="App navigation"><a href="../../one/index.html">← ONE</a><a href="../../nathan-ai/games/index.html">Games &amp; Puzzles</a><a href="../../one/nathan-matrix/index.html">Nathan Connected Matrix</a></nav>
+<header class="hero"><div class="eyebrow">NATHAN AI 🚀 · TABOR ROOT · 21 DECISIONS</div><h1>BLACKJACK!!!</h1><p class="subtitle">The Way to WIN the Game of LIFE</p><p><strong>by Nathan Tabor</strong> · A playable 21-move strategy, chance and consequence game. No money, no accounts, and no promise of beating chance.</p><p class="law">1 + 1 = 2 · BUILD &nbsp;&nbsp;|&nbsp;&nbsp; 1 − 1 = 0 · CLEAR &nbsp;&nbsp;|&nbsp;&nbsp; YES IS YES — NO IS NO</p></header>
+<div class="summary" aria-label="Scoreboard">
+<div class="stat"><span class="label">Life moves</span><strong id="moves">0 / 21</strong></div>
+<div class="stat"><span class="label">Hands won</span><strong id="wins">0</strong></div>
+<div class="stat"><span class="label">Hands lost</span><strong id="losses">0</strong></div>
+<div class="stat"><span class="label">Practice points</span><strong id="points">0</strong></div>
+</div>
+<section class="grid" aria-label="Game">
+<div>
+<div class="table" role="region" aria-label="Blackjack table">
+<div class="dealer"><h2>DEALER <span id="dealer-total" class="pill">?</span></h2><div id="dealer-cards" class="cards" aria-label="Dealer cards"></div></div>
+<div class="player"><h2>YOU <span id="player-total" class="pill">0</span></h2><div id="player-cards" class="cards" aria-label="Your cards"></div></div>
+<p id="status" class="outcome" role="status" aria-live="polite">The first move begins when you deal.</p>
+<div class="actions"><button id="deal">DEAL / NEXT MOVE</button><button id="hit" class="alt">HIT (+1 CARD)</button><button id="stand" class="alt">STAND</button><button id="double" class="alt">DOUBLE (2× POINTS)</button></div>
+<div class="bar"><small id="risk">Hit risk appears during a hand.</small><span class="pill" id="pushes">0 pushes</span></div>
+</div>
+</div>
+<aside class="panel journey"><span class="eyebrow">21-MOVE LIFE CHALLENGE</span><h2 id="life-label">MOVE 1 · BEGIN</h2><p id="life-lesson">Start with 0 and 1. One decision starts a path.</p>
+<div class="progress" role="progressbar" aria-label="21 life moves completed" aria-valuemin="0" aria-valuemax="21" aria-valuenow="0" id="progress"><div id="progress-fill" style="width:0%"></div></div>
+<p id="life-result">Complete 21 hands to complete the 21-move journey. Every outcome counts as learning. A win at cards is never guaranteed.</p>
+<div class="actions"><button class="alt" id="restart">RESET PRACTICE</button><button class="alt" id="export">EXPORT JOURNEY JSON</button></div>
+<h3>How the cards work</h3><p>52-card shuffled deck. Face cards = 10. Aces = 1 or 11. Beat the dealer without going over 21. Dealer stands on all 17s. Natural blackjack wins against non-blackjack; equal totals push. Double takes one last card and doubles <em>practice points only</em>. Splitting, insurance and cash stakes are not in this educational edition.</p><p>Displayed hit risk assumes a fresh single deck with your cards and the dealer's upcard removed; it is not a prediction of the next card.</p>
+</aside>
+</section>
+<section class="panel"><h2>The 21 Moves of LIFE</h2><p>These are <strong>new gameplay lessons adapted</strong> from your documented Nathan AI themes, not a recovered verbatim 21-chapter manuscript.</p><ol id="chapters" class="chapters"></ol></section>
+<section class="panel"><h2>The Casino Floor Directory · 21 slots</h2><p>Your original supplied mechanics are recorded for Games 1–13. Game 14 (Hazard) is incomplete at “The Rule.” Positions 15–21 remain unfilled rather than being invented. This directory is reference material, not active real-money wagering.</p><div id="directory"></div></section>
+<section class="panel"><h2>The other BLACKJACK stays intact</h2><p>Your previously established <strong>BLACKJACK / BlackJackSync / OmniCore</strong> is a distinct, non-card device synchronization and security design using duodecimal and Dewey Decimal naming, audio zones and device coordination. This card game does not overwrite it or claim to connect 500 real speakers.</p><p>The user-authored Casino Floor Directory and Vingt-et-Un / 21 hand-evaluator idea are connected by reference. Existing ONE Matrix / Game of LIFE, 33 Trial Matrix, puzzle archives and original publications remain separate and unmodified.</p></section>
+<footer>OFFLINE PRACTICE · NATHAN AI 🚀 / ONE · BY NATHAN TABOR · No network calls, real money, prizes, third-party accounts or paid betting. Browser-local save for this game only.</footer>
+</main>
+<script src="./engine.js"></script><script src="./casino-directory.js"></script><script>
+(function(){"use strict";
+const engine=window.NathanBlackjackLife, casino=window.NathanCasinoDirectory;
+const $=id=>document.getElementById(id),KEY="nathan_blackjack_life_v1";
+let session=null,history=[];
+try{const saved=JSON.parse(localStorage.getItem(KEY)||"null");if(saved&&saved.version===1&&saved.session&&Array.isArray(saved.session.deck)&&saved.session.stats&&Array.isArray(saved.history)){session=saved.session;history=saved.history.slice(-250)}}catch(_){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({version:1,session,history}))}catch(_){}}
+function cardEl(c,back=false){
+ const n=document.createElement("div");n.className="playing-card"+(["♥","♦"].includes(c?.suit)?" red":"")+(back?" back":"");
+ n.setAttribute("aria-label",back?"Hidden dealer card":(c.rank+" of "+({"♠":"spades","♥":"hearts","♦":"diamonds","♣":"clubs"}[c.suit]||"cards")));
+ if(back)n.textContent="★";else{const r=document.createElement("span");r.textContent=c.rank;const s=document.createElement("small");s.textContent=c.suit;n.append(r,s)}return n
+}
+function display(){
+ const stats=session?.stats||engine.DEFAULT_STATS,p=session?.player||[],d=session?.dealer||[],playing=session?.phase==="player";
+ $("moves").textContent=Math.min(stats.rounds,21)+" / 21";$("wins").textContent=stats.wins;$("losses").textContent=stats.losses;$("points").textContent=stats.points;$("pushes").textContent=stats.pushes+" pushes";
+ $("dealer-cards").replaceChildren(...d.map((c,i)=>cardEl(c,playing&&i===1)));
+ $("player-cards").replaceChildren(...p.map(c=>cardEl(c)));
+ $("dealer-total").textContent=d.length?(playing?engine.score([d[0]]).total+" + ?":engine.score(d).total):"?";
+ $("player-total").textContent=p.length?engine.score(p).total:0;
+ $("deal").disabled=playing;$("hit").disabled=!playing;$("stand").disabled=!playing;$("double").disabled=!playing||p.length!==2;
+ const msg=session?(session.reason||"Choose your move"):"The first move begins when you deal.";
+ $("status").textContent=session?.phase==="finished"?(session.result.toUpperCase()+" · "+msg):msg;
+ $("risk").textContent=playing?("Chance of bust on HIT (visible-card model): "+engine.visibleBustOdds(p,d[0]).percent+"%."):"Hit risk appears during an active hand.";
+ const life=engine.lifeMove(stats);$("life-label").textContent="MOVE "+life.move+" · "+life.title;$("life-lesson").textContent=life.lesson;
+ const n=Math.min(stats.rounds,21);$("progress-fill").style.width=(n/21*100)+"%";$("progress").setAttribute("aria-valuenow",String(n));
+ $("life-result").textContent=engine.challengeComplete(stats)?"21 LIFE MOVES COMPLETED. WIN the journey by remembering what you learned; no card outcome is a guaranteed win.":"Complete 21 hands to complete the 21-move journey. Every outcome counts as learning.";
+ $("chapters").replaceChildren(...engine.MISSIONS.map(m=>{const li=document.createElement("li");li.textContent=m.move+". "+m.title;li.className=m.move<=stats.rounds?"done":m.move===stats.rounds+1?"active":"";li.title=m.lesson;return li}));
+}
+function commit(next){session=next;if(next.phase==="finished"&&history.length<250&&history.filter(h=>h.round===next.stats.rounds).length===0){history.push({round:next.stats.rounds,result:next.result,reason:next.reason,player:next.player.map(c=>c.rank+c.suit),dealer:next.dealer.map(c=>c.rank+c.suit),points:next.stats.points})}save();display()}
+function act(f){try{commit(f(session))}catch(e){$("status").textContent=e.message}}
+$("deal").addEventListener("click",()=>act(()=>session?engine.nextRound(session):engine.startRound()));
+$("hit").addEventListener("click",()=>act(engine.hit));$("stand").addEventListener("click",()=>act(engine.stand));$("double").addEventListener("click",()=>act(engine.doubleDown));
+$("restart").addEventListener("click",()=>{session=null;history=[];save();display()});
+$("export").addEventListener("click",()=>{
+ const data={title:engine.title,author:engine.author,sourceNote:"21 life lessons are new adaptations, not original verbatim text.",stats:session?.stats||engine.DEFAULT_STATS,history,missions:engine.MISSIONS};
+ const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=url;a.download="Nathan_Tabor_BLACKJACK_Game_of_LIFE.json";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)
+});
+const dir=$("directory");
+for(const entry of casino.ENTRIES){
+ const details=document.createElement("details"),sum=document.createElement("summary"),body=document.createElement("div");body.className="details-body";
+ sum.textContent=entry.number+". "+(entry.title||"OPEN SLOT — original game not supplied")+" · "+entry.status;details.append(sum);
+ if(entry.mechanics){const a=document.createElement("p");a.textContent="THE MECHANICS: "+entry.mechanics;body.append(a)}
+ if(entry.rule){const b=document.createElement("p");b.textContent="THE RULE: "+entry.rule;body.append(b)}
+ if(!entry.rule){const b=document.createElement("p");b.textContent=entry.number===14?"THE RULE: source stopped at this heading; no rule supplied.":"Original source for this game has not been provided.";body.append(b)}
+ details.append(body);dir.append(details)
+}
+display()
+})();
+</script></body></html>
