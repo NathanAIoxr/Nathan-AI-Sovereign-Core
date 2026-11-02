@@ -55,3 +55,7 @@ user input -> consent/profile -> LET analysis -> AI draft adapter
 Open [Nathan AI Main Hub](./index.html). The repository root now opens this hub. It connects the existing Library Mind, original 13-book plan, published reading records, catalog, language registry, dossier packages, source documents, private Master Library, ONE and Factory apps. The searchable app directory includes all 51 existing HTML entry points from the repository at integration time. The directory is a versioned snapshot; new apps require a directory update.
 
 The hub uses the existing archive JSON directly and preserves source text. It adds navigation, not model execution, account synchronization or manuscript completion. Existing core contracts remain separate. The Library Mind accepts section URLs: `#documents`, `#plan`, `#catalog`, `#languages`, `#downloads`, `#archive`.
+
+## Children’s Books & Innocence Protection · Nov 1, 2026
+
+[Open the new additive recovery wing](./children-innocence/index.html): 46 original children’s book, protection, language/game, and family/community project-family references, with a locally selected private 598-record index, 19 Pumpkin Fruit Family groups, 13 separate powers, and author-supplied exact lines. Public descriptions are editorial index material; original manuscripts, illustrations and personal source media stay with the owner. Unit tests cover public counts, original labels, safe local parsing and private URL removal.
