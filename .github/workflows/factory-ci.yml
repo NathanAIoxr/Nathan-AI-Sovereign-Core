@@ -222,3 +222,5 @@ jobs:
 
       - name: Verify Nathan AI all-interfaces additive recovery atlas
         run: node --test app-factory/nathan-ai/build-recovery/atlas.test.cjs
+      - name: Verify private-owner A–Z acronym codex importer, source provenance and variants
+        run: node --test app-factory/one/connected/acronyms/acronym-core.test.cjs
