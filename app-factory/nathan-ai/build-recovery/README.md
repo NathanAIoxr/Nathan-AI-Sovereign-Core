@@ -36,3 +36,20 @@ Run: node --test app-factory/nathan-ai/build-recovery/atlas.test.cjs
 All public records are rendered via DOM textContent rather than interpreted as arbitrary HTML. Original locally selected files remain browser-private and are never uploaded. Browser/mobile testing and GitHub Pages rollout are separate from successful repository/CI checks.
 
 **Motto:** Preserve → Index → Relate → Derive; Never Replace. 1+1=2 BUILD. 1-1=0 CLEAR.
+
+## November 2, 2026 — complete public code inventory and safe owner intake
+
+This additive change extends the existing All Interfaces & Build Recovery screen; no original code or JSON registry is replaced.
+
+- **Live public GitHub tree:** the browser requests GitHub's public `main` tree recursively and adds all returned blob paths (including source code, tests, workflow YAML, public JSON, SQL and documents) to the same searchable index. Every file preserves its original GitHub path and reported Git blob ID. GitHub's `truncated` flag is honored. No count is called complete on an API failure.
+- **Read public code:** an explicit click opens supported small text/code files within Nathan AI as inert `textContent`; no imported JS, HTML, shell, or Python is ever run. Every file retains its original GitHub source link, including those too large to preview.
+- **Integration and patch inventory:** 14 tool/service descriptors, a verified API environment-variable **name-only** registry (no secret values), and ten pull-request references #54–#63. Observed states are dated, not live secrets or automatic sync.
+- **Local owner folder selection:** in supporting browsers a user can index an entire selected folder, preserving `webkitRelativePath`, or select files individually. Up to 20,000 selected files per batch are accepted without silent truncation. Sensitive-looking filenames, binaries and large files are never automatically text-previewed. Selected original `File` objects stay in the browser tab.
+- **Export manifest:** downloads a metadata-only JSON record of the public registry plus selected local names/paths/sizes. This is **NOT** an original-byte backup or cloud sync. Open the existing Universal Creator Vault and import original ZIP/file archives for persistent *device-local* byte preservation, then export and verify all Vault backup ZIP parts. ONE Connected can link those imported originals to their projects.
+- **Security:** No service account tokens, private credentials, wallet seeds, unpublished manuscripts, personal finance records or private source bytes are embedded in public code or transmitted to GitHub by this page. A previously exposed OpenAI API key from earlier archive history still requires independent owner revocation verification.
+- **Scope:** public repo files are dynamically indexed, not replicated as a private backend. Private owner-held ZIPs and Drive files cannot be silently scanned or auto-copied by a public GitHub Pages browser. Airtable and other connected ChatGPT services require authorized backend integrations to synchronize actual records. Draft Supabase RLS SQL in open PR #63 remains unapplied.
+
+### Tests and verification
+
+Run `node --test app-factory/nathan-ai/build-recovery/atlas.test.cjs` and `node --check app-factory/nathan-ai/build-recovery/atlas.js`. The preexisting Universal 13 apostrophe syntax issue at `arrowhead-tree-matrix.mjs:15` has an additive parser correction; its tests and the whole Factory CI must pass before a release is called verified. Public GitHub Pages publication and real-device tests remain separately verifiable.
+
