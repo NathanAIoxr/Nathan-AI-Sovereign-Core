@@ -115,3 +115,11 @@ The 17-provider catalog covers XMRig, Hiveon OS, Awesome Miner, NiceHash, Reown 
 Ten read-only API clients are implemented in a loopback-only Node.js gateway: XMRig, Bitcoin Core, BTCPay, Alchemy, 2Miners, Braiins, CoinGecko, Prometheus, Grafana and Home Assistant. Seven other providers are registered as setup-required or SDK authorization contracts. No provider is represented as authenticated or connected without operator configuration; public browser pages do not access local private endpoints.
 
 No changes to the existing coin order, SIN/SEN design allocations, nine-law-coin family, 16:1 authored goal, 5-million-proxy source record, anchored gate, or person's-life matrix. No wallet signing, real transfer, remote miner commands or proxy fleet deployment.
+
+## 2026-11-02 — Φ_life and Φ_mine applied to the 21 Sovereign Coin Matrix
+
+- Added `app-factory/nathan-ai/phi-life/`: first-spark four-stage narrative simulation, audited 732,000,000 **virtual** addresses across the 21 original structural rings; zero remote agents, external work or autonomous state change.
+- Added `app-factory/nathan-ai/sovereign-coins/phi-mining/`: owner-triggered four-stage mining lifecycle, genuine bounded Bitcoin historical **genesis** double-SHA-256, independent Alpha/Beta checks, 21-ring planning output and measured-input 16:1 cost comparison.
+- Added optional one-shot CLI with `--observe` that calls only the read-only providers already operator-configured in the mining-wallet telemetry module. No wallet keys, spending, mining shares or process spawning.
+- Cross-linked Nathan AI, Formula of Life, Phi-life, Sovereign Coins and ONE without overwriting old projects.
+- Factory CI runs both new module suites. No production miner or wallet connections established by these commits.

@@ -1,0 +1,41 @@
+{
+  "schema": "nathan-ai.phi-mining.source.v1",
+  "author_defined_formula": "Φ_life = A → [Ca²⁺_wave ⟹ Zn²⁺_flash ⟹ S_hard ⟹ C_init]",
+  "target_virtual_positions": 732000000,
+  "authored_rings": 21,
+  "stage_crosswalk": [
+    {
+      "id": "calcium_wave",
+      "original": "The Activation Interrupt [Ca²⁺_wave]",
+      "mining": "Register an owner-authorized mining observation/bounded header job. No outside miner started."
+    },
+    {
+      "id": "zinc_flash",
+      "original": "The Synaptic Flash [Zn²⁺_flash]",
+      "mining": "Axis Alpha computes actual double-SHA-256 historical block-header hashes using a small nonce range. Not a biological flash or conscious state."
+    },
+    {
+      "id": "identity_firewall",
+      "original": "The Identity Firewall [S_hard]",
+      "mining": "Axis Beta recomputes and verifies candidate header hashes against Bitcoin's historical genesis target. No permanent lockout or wallet key control."
+    },
+    {
+      "id": "growth_loop",
+      "original": "The Autogenous Growth Loop [C_init]",
+      "mining": "Prepare bounded, explicit 21-ring workload mapping; do not start 732 million processes, self-modify or connect to pools."
+    }
+  ],
+  "mining_source_note": "The original 16:1 output/energy relationship and five-million-proxy mask are design records, not observed profitability or actual deployed proxies.",
+  "author_motto": [
+    "1+1=2 BUILD",
+    "1−1=0 CLEAR",
+    "Yes is Yes — No is No"
+  ],
+  "historical_genesis_test": {
+    "nonce": 2083236893,
+    "hash": "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
+    "target": "0x00000000FFFF0000000000000000000000000000000000000000000000000000"
+  },
+  "allowed_external_effects": "none",
+  "next_real_deployment_gate": "owner-controlled hardware, measured electrical energy, separately verified payout address, correct coin algorithm, consent-scoped API, wallet confirmation, chain-specific consensus rules"
+}
