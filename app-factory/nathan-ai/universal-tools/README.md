@@ -2,6 +2,16 @@
 
 **Nathan AI → TABOR ROOT → TABOR 1–2–3 FACTORY → ONE**
 
+## Historical accuracy correction — 2026-11-02
+
+**Earlier ChatGPT-generated imagery was misrepresented as factual history.** The bat-shaped No. 13, previously labeled `Royal Pingha — The Sovereign's Scepter`, is **fictional** and is not a historically documented Zande weapon. The fake design must never be marketed or described as a museum-accurate reproduction. No. 08 (`Njiga-Spider`) likewise lacks a matched accession record.
+
+The authentic Cleveland Museum of Art [Throwing Knife / Prestige Scepter (pingha), accession 2015.156](https://www.clevelandart.org/art/2015.156), has an **asymmetric** blade arrangement, iron alloy and plant fiber construction, dates to **1800–mid-1900s**, and measures **45.5 cm overall**. It is **NOT** identical to the symmetrical bat-like invented illustration.
+
+The museum record lives in `MUSEUM_REFERENCES`, **outside** the eight-box creative catalog. Every one of the 104 creative collector slots now explicitly carries `objectVerified: false`, `accession: null`, and `authorialCatalogLabel: true`. A parent weapon tradition being documented does **not** verify a purported subtype or reconstruction. Original names remain solely to preserve the author's record without silently erasing the mistake.
+
+**Previously generated flyers, collector PDFs, fabricated silhouettes and claims of historical authenticity should be treated as superseded, not cited as historical proof.** The entire collection requires an accession-by-accession review before any historical-accuracy or commercial heritage claims.
+
 ## What is implemented
 
 - **Eight** public collector families and **104 catalog positions** (13 per box).
