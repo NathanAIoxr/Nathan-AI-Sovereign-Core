@@ -1,6 +1,6 @@
 (function(root,factory){"use strict";const catalog=factory();if(typeof module==="object"&&module.exports)module.exports=catalog;root.NathanChildrenCatalog=catalog;})(typeof window!=="undefined"?window:globalThis,function(){"use strict";
 const SECTIONS=["Children’s Books & Fiction","Guardians & Protection","Games, Learning & Holidays","Community & Child Wellbeing"];
-const raw=String.raw\`
+const raw=String.raw`
 Perfect Pumpkin Kids™|0|working app/prototype|World studio; 37 factions and 233 characters reported; “ALL KIDS ARE PERFECT.”
 THE PUMPKIN FRUIT FAMILY — Can You Escape and Defeat THE FRUIT ABORTIONIST?|0|publisher story/game bible|Nineteen family groups, bees and pollination; transformative friendship; thirteen powers must each reach 100%.
 THE LITTLE TOPLESS PUMPKIN|0|ongoing story universe|Children’s story world with Halloween, illustrations and game development.
@@ -46,7 +46,7 @@ WORDS / ZEROABSOLUTE READER|2|educational app family|Hebrew/Greek/Latin/Arabic, 
 BRIGHT TREE VILLAGE — EWOK LIVING|3|community / fiction concept|Family treehouse community and story-hut designs; third-party influences need rights review.
 CHRISTMAS COMMUNITIES 24/7/365|3|community concept|Year-round family and community experience.
 HEALERS & PROTECTORS — RESCUE & RESTORE|3|linked protection theme|Compassion, collaboration and restoration; no claim of automatic real-world intervention.
-NEXUS — FAMILY TREE OF LIGHT|3|early story concept|Child-oriented ancestor, empathy and kindness storytelling, with Personal Spark, Echo, Travel, Skill, Dream and Recipe ideas.\`;
+NEXUS — FAMILY TREE OF LIGHT|3|early story concept|Child-oriented ancestor, empathy and kindness storytelling, with Personal Spark, Echo, Travel, Skill, Dream and Recipe ideas.`;
 const projects=raw.trim().split("\n").map((line,i)=>{const [title,s,stage,scope]=line.split("|");return Object.freeze({id:"NT-CIP-"+String(i+1).padStart(3,"0"),title,section:SECTIONS[Number(s)],stage,scope,sourceStatus:"Recovered working catalog; full original source not embedded"})});
 const familyGroups=["Pumpkin Carving Kids","Pumpkin Spice Kids","Pumpkin Guts Kids","Pumpkin Pie Kids","Pumpkin Seed Kids","Pumpkin Vine Kids","Pumpkin Flower Kids","Pumpkin Dirt Kids","Pumpkin Leaves Kids","Pumpkin Root Kids","Pumpkin Tendrils Kids","Pumpkin Node Kids","Pumpkin Skin Kids","Pumpkin STEM Kids","Pumpkin RIBS Kids","Pumpkin Flesh Kids","Pumpkin Pollen Donors Daddies","Pumpkin Fruit Makers Mommies","Pumpkin Pulp Cousins"];
 const powers=["Garden Balance","Friendship & Trust","Ancient Knowledge","Pollination Power","Seed & New Life","Root & Soil Health","Vine & Family Unity","Energy & Growth","Protection & Safety","Wisdom & Understanding","Empathy & Compassion","Freedom & Forgiveness","Identity & Sovereignty"];
