@@ -90,6 +90,10 @@ jobs:
         run: node --test app-factory/nathan-ai/innocence-matrix/innocence.test.cjs
       - name: Verify NATHAN AI Flyer Studio presets, exports, and source protection
         run: node --test app-factory/nathan-ai/flyer-studio/flyer.test.cjs
+      - name: Verify Nathan AI 21 Sovereign Coin Matrix validation and offline balances
+        run: node --test app-factory/nathan-ai/sovereign-coins/engine.test.mjs
+      - name: Verify Nathan AI 21-ring Python audit and 16x energy arithmetic
+        run: python3 -m unittest discover -s app-factory/nathan-ai/sovereign-coins -p test_coin_audit.py -v
       - name: Verify ONE local engine
         run: node --test app-factory/one/one.test.cjs
       - name: Verify Nathan AI connected 8/10 timeline, 22 IVERSIONS, breath and existing projects
