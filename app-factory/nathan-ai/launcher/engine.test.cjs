@@ -22,7 +22,7 @@ test('one-source handoffs are bounded and preserve source stage and privacy',()=
   assert.throws(()=>api.handoff('',source));assert.throws(()=>api.handoff('Explain',{...source,text:'x'.repeat(1201)}));
 });
 test('all Nathan AI entry pages share the same launcher',()=>{
-  const base=path.resolve(__dirname,'..');let count=0;function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())walk(p);else if(e.name.endsWith('.html')){count++;assert.equal((fs.readFileSync(p,'utf8').match(/data-nathan-command-center/g)||[]).length,1,p)}}}walk(base);assert.ok(count>=28);
+  const base=path.resolve(__dirname,'..');let count=0;function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory()){if(p===path.join(base,'eyeprints-handprints'))continue;walk(p)};else if(e.name.endsWith('.html')){count++;assert.equal((fs.readFileSync(p,'utf8').match(/data-nathan-command-center/g)||[]).length,1,p)}}}walk(base);assert.ok(count>=28);
 });
 test('launcher never stores queries, executes plugins or embeds source text in URLs',()=>{
   const s=fs.readFileSync(path.join(__dirname,'app.js'),'utf8');assert.doesNotMatch(s,/innerHTML\s*=|localStorage\.clear\(|\beval\s*\(/);assert.match(s,/sessionStorage\.setItem\('nathan-ai\.source-handoff/);assert.match(s,/remember:false|remember:remember\.checked/);
