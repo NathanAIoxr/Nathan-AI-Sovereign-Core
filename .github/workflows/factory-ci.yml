@@ -82,6 +82,8 @@ jobs:
         run: node --test app-factory/nathan-ai/children-innocence/engine.test.cjs
       - name: Verify Nathan AI Main Database, Books and Book Apps skin
         run: node --test app-factory/nathan-ai/library-experience.test.cjs
+      - name: Verify 63 original brand-neutral architecture concepts, routes and exports
+        run: node --test app-factory/nathan-ai/architecture-63/architecture.test.mjs
       - name: Verify NATHAN AI Absolute Intelligence source and 54-module preservation
         run: node --test app-factory/nathan-ai/absolute-intelligence/atlas.test.cjs
       - name: Verify Servants and Ministers of Innocence geometry and owner-local novel sources
