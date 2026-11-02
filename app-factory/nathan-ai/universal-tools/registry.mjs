@@ -2,11 +2,11 @@
    the "status" field is an editorial confidence classification, not proof. */
 export const SCHEMA = 'nathan-ai-universal-tools.v1';
 export const STATUS = Object.freeze({
-  H:'Documented parent artifact or tradition; inspect individual attribution',
-  C:'Comparative variant of a documented family',
-  P:'Provisional name or historical claim — verification required',
-  R:'Related historical analogy, not the same object type',
-  O:'Original Nathan Tabor collector concept; not an ancient documented type'
+  H:'Only the parent tradition is documented; THIS ITEM has no individual artifact verification',
+  C:'Authorial comparative variant; this exact name and shape are NOT historically authenticated',
+  P:'Unverified historical claim or name — do not present as fact',
+  R:'Related object category, not proof of a historical hairpin or weapon subtype',
+  O:'Modern original/invented collector design — NOT a historical artifact'
 });
 const seed = [
  {id:1,title:'Japanese Shaken Master Collection',subtitle:'Wheels of Strategy',origin:'Japan',mechanic:'Radial symmetry and rotation',geometry:'radial',
@@ -15,9 +15,9 @@ const seed = [
  {id:2,title:'Indian Chakram Wheel Set',subtitle:'Airfoils of the Vanguard',origin:'South Asia',mechanic:'Ring geometry and rotational stability',geometry:'ring',
   names:'Mula Chakram|Vakra-Dhar|Nabho-Chakra|Kshura-Ring|Ardha-Chandra|Jala-Chakra|Agni-Chakra|Mantra-Gane|Karala-Blade|Sukshma-Chakra|Kundala-Vrita|Dharma-Chakra|UNIVERSAL HARMONY RING',
   status:'C O O O R O O O O O O R O',shapes:'thick annulus|wave circle|braced circle|serrated circle|crescent|lightweight ring|grooved circle|engraved disk|hooked ring|small disk|coiled ring|spoked wheel|plain circle'},
- {id:3,title:'Central African Kpinga Collection',subtitle:'Winged Blades of the Great Forest',origin:'Central Africa',mechanic:'Asymmetry and rotational inertia',geometry:'branch',
-  names:'Kpinga Baseline|Mambele-Leaf|Pingah-Phallus|Hungamunga-Hook|Za-Wing|Kulbeda-Spike|Trombash-Crescent|Njiga-Spider|Gaa-Ma|Musele-Oar|Kondondo|Kilonda-Master|COURT OF ACCORD',
-  status:'H C C P O O P O O R O O O',shapes:'three-wing silhouette|leaf-shaped branches|figural projection|L-curve|flat wing|narrow branches|crescent|four hooks|blunt geometry|paddle silhouette|notched branch|tiered shape|peace emblem'},
+ {id:3,title:'Central African Kpinga Collection',subtitle:'Winged Blades of the Great Forest',origin:'Central Africa',mechanic:'Asymmetry and rotational inertia',geometry:'branch',legacy13:'Court of Accord — earlier proposed centerpiece',
+  names:'Kpinga Baseline|Mambele-Leaf|Pingah-Phallus|Hungamunga-Hook|Za-Wing|Kulbeda-Spike|Trombash-Crescent|Njiga-Spider|Gaa-Ma|Musele-Oar|Kondondo|Kilonda-Master|Royal Pingha — fictional flyer centerpiece',
+  status:'H C C P O O P O O R O O O',shapes:'three-wing silhouette|leaf-shaped branches|figural projection|L-curve|flat wing|narrow branches|crescent|four hooks|blunt geometry|paddle silhouette|notched branch|tiered shape|fictional bat-wing silhouette; not museum-verified'},
  {id:4,title:'Global Star-Arrowhead Matrix',subtitle:'Lithic and Forged Projectile Points',origin:'Multiple continents',mechanic:'Point symmetry, sectional geometry and material',geometry:'point',
   names:'Clovis Fluted|Cahokia Side-Notched|Snowflake Serrated|Trilobate Bronze|Quadrolate Iron|Bell-Beaker Barbed|Agate-Eccentric|Medieval Bodkin|Crescent Broadhead|Maya Stemmed Obsidian|Harpoon-Tang|Pax-Standard|PLOWSHARE POINT',
   status:'H P O H P C C H C C H O O',shapes:'lanceolate|side notches|branching frost motif|three-sided cross-section|four-sided cross-section|barbed form|eccentric stone|narrow square|crescent|stemmed glass|barbs and tang|uniform point|plow motif'},
@@ -51,15 +51,29 @@ export const COLLECTIONS = Object.freeze(seed.map(s=>Object.freeze({
     id:'BX'+String(s.id).padStart(2,'0')+'-'+String(i+1).padStart(2,'0'),
     set:s.id,number:i+1,name,region:(regions[s.id]||[])[i]||s.origin,
     shape:s.shapes.split('|')[i],status:s.status.split(' ')[i],
+    objectVerified:false, accession:null,
+    authorialCatalogLabel:true,
+    correction:s.id===3&&i===12?'Correction: The bat-wing No. 13 named Royal Pingha is an AI-created illustration, NOT a documented Zande or Central African blade. Do not use it as an authentic museum replica. Cleveland Museum of Art 2015.156 is a different, asymmetric historical pingha.':s.id===3&&i===7?'The No. 08 Njiga-Spider label and radial symbol silhouette are not verified as a specific museum-documented weapon; do not describe it as a historical radiation-symbol-shaped knife.':null,
     role:i===12?'thirteenth centerpiece':'collection unit',
     previousCenterpiece:i===12?s.legacy13||null:null
   })))
 })));
 export const ARTIFACTS = Object.freeze(COLLECTIONS.flatMap(c=>c.items));
+/* Museum-confirmed reference is deliberately separate from the owner's 104 concept slots.
+   A real pingha cannot authenticate an invented "Royal Pingha" silhouette. */
+export const MUSEUM_REFERENCES = Object.freeze([Object.freeze({
+ id:'CMA-2015.156',name:'Throwing Knife / Prestige Scepter (pingha)',
+ maker:'Zande-style maker',region:'Central or Eastern Africa',
+ date:'1800–mid-1900s',material:'Iron alloy and plant fiber',
+ overallCm:45.5,shape:'Asymmetrical projecting blades from an elongated shaft',
+ museum:'Cleveland Museum of Art',
+ url:'https://www.clevelandart.org/art/2015.156',
+ itemInCollectorCase:false
+})]);
 export const STATUS_KEY = Object.keys(STATUS);
 export function searchArtifacts(query='',collection=0,status='') {
   const q=String(query).normalize('NFKD').toLocaleLowerCase().trim();
   return ARTIFACTS.filter(a=>(!collection||a.set===Number(collection))&&(!status||a.status===status)&&(!q||[a.id,a.name,a.region,a.shape,COLLECTIONS[a.set-1].title,STATUS[a.status]].join(' ').normalize('NFKD').toLocaleLowerCase().includes(q)));
 }
-export const ORIGINAL_NOTE = 'Original collection titles are retained. Some item labels are creative designs or historical claims awaiting verification. Shared geometry does not prove shared origin, usage or accuracy.';
+export const ORIGINAL_NOTE = 'HISTORICAL CORRECTION: These 104 positions are authorial catalog concepts, NOT 104 museum-verified weapons. No individual collector slot has an authenticated accession record. No. 13 Royal Pingha is a fabricated bat-winged illustration, not a documented African weapon. Original labels are retained as proposals, not as historical facts.';
 export const GAME_MODES = Object.freeze(['Geometry families','Geography clues','Evidence or concept']);
