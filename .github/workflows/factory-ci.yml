@@ -79,7 +79,9 @@ jobs:
       - name: Verify Greek mythology archive taxonomy and provenance
         run: node --test app-factory/mythology/greek/atlas.test.cjs
       - name: Verify Universal 13 tools inventory and geometry-game data integrity
-        run: node --test app-factory/nathan-ai/universal-tools/registry.test.mjs
+        run: |
+          node --check app-factory/nathan-ai/universal-tools/app.mjs
+          node --test app-factory/nathan-ai/universal-tools/registry.test.mjs
       - name: Verify Nathan AI ROUTE RAUT ROOT language, mirror, original-source and binary integrity
         run: node --test app-factory/nathan-ai/route-raut-root/records.test.cjs
       - name: Verify recovered Children's Books and Innocence Protection public catalog, 19/13 canon and private import
