@@ -173,3 +173,6 @@ jobs:
 
       - name: Verify KNAVE archive source, cultural qualifiers and fictional counterparts
         run: node --test app-factory/mythology/knave/atlas.test.cjs
+
+      - name: Verify Nathan AI all-interfaces additive recovery atlas
+        run: node --test app-factory/nathan-ai/build-recovery/atlas.test.cjs
