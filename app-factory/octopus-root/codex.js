@@ -29,6 +29,34 @@ function enrich(E,state) {
  }
  return {state:s,added,linked};
 }
-return Object.freeze({VERSION:DATA.version,RECORDS,CONCEPTS,letters,reverse,value,digitalRoot,explainMirror,find,enrich});
+// Nathan AI secular ONE REALITY / ONE TIMELINE record (creator viewpoint).
+// Preserve the 216 existing Codex positions; this is a separate, versioned anchor.
+// A SHA-256 digest verifies the exact UTF-8 bytes, not a metaphysical proposition.
+const REALITY_ANCHOR=Object.freeze({
+ id:"nathan-ai:reality:secular-v2",
+ version:"2.0.0",
+ title:"ONE REALITY · ONE TIMELINE · 0/1",
+ text:"ONE REALITY. ONE TIMELINE. GOVERNED STRICTLY BY THE LAWS OF NATURE AND EMPIRICAL EVIDENCE. NO DIVINE CREDIT. ALL BLAME TO THE CONCEPT OF GOD.",
+ encoding:"UTF-8",
+ bytes:141,
+ bits:1128,
+ sha256:"fc1a4fda367af9b4961cf14188a25d78471e02645142cd3c6e16f100ccd65c00",
+ kind:"creator-philosophical-declaration",
+ interpretation:"Consciousness is where reality is experienced. Assigning blame to the concept of God is the creator's philosophical criticism, not an empirically verified cause.",
+ truthBoundary:"A hash is a content-integrity checksum; it does not prove metaphysics, lock physical time, authenticate an author, or make a record uneditable.",
+ mathematics:Object.freeze(["0 and 1 are distinct","1 + 1 = 2 — BUILD","1 - 1 = 0 — CLEAR","YES IS YES — NO IS NO"])
+});
+function realityBinary(){
+ return Array.from(new TextEncoder().encode(REALITY_ANCHOR.text),byte=>byte.toString(2).padStart(8,"0")).join(" ");
+}
+async function verifyRealityAnchor(subtle){
+ const bytes=new TextEncoder().encode(REALITY_ANCHOR.text);
+ const provider=subtle||(typeof globalThis!=="undefined"&&globalThis.crypto&&globalThis.crypto.subtle);
+ if(!provider||typeof provider.digest!=="function")return Object.freeze({ok:false,status:"sha256-unavailable",bytes:bytes.length,bits:bytes.length*8});
+ const digest=Array.from(new Uint8Array(await provider.digest("SHA-256",bytes)),n=>n.toString(16).padStart(2,"0")).join("");
+ const ok=digest===REALITY_ANCHOR.sha256&&bytes.length===REALITY_ANCHOR.bytes&&bytes.length*8===REALITY_ANCHOR.bits;
+ return Object.freeze({ok,status:ok?"verified":"mismatch",digest,expected:REALITY_ANCHOR.sha256,bytes:bytes.length,bits:bytes.length*8});
+}
+return Object.freeze({VERSION:DATA.version,RECORDS,CONCEPTS,letters,reverse,value,digitalRoot,explainMirror,find,enrich,REALITY_ANCHOR,realityBinary,verifyRealityAnchor});
 
 });
