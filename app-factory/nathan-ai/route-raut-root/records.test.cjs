@@ -13,7 +13,7 @@ test('additive registry is complete, unique and source-attributed',()=>{
  assert.equal(r.searchRecords('').length,37);
  assert.equal(new Set(r.ORIGINAL_EXCERPTS.map(x=>x.id)).size,10);
  assert.ok(r.ORIGINAL_EXCERPTS.every(x=>x.original&&x.source&&x.kind));
- assert.equal(r.searchRecords('PĒS','original').length,2);
+ assert.deepEqual(r.searchRecords('PĒS','original').map(x=>x.id),['Q03']);
  assert.ok(r.searchRecords('babel','connections').length>0);
 });
 test("author's literal strings and orthography remain intact",()=>{
