@@ -740,6 +740,24 @@
       "name": "TABOR 1-2-3 FACTORY",
       "href": "../../index.html",
       "stage": "public factory prototype"
+    },
+    {
+      "id": "mind-neuropath",
+      "name": "NATHAN AI Mind & Neuropath Atlas",
+      "href": "../mind-neuropath/index.html",
+      "stage": "separate current browser module"
+    },
+    {
+      "id": "anatomy",
+      "name": "NATHAN AI Anatomy A–Z",
+      "href": "../anatomy/index.html",
+      "stage": "separate educational browser module"
+    },
+    {
+      "id": "games",
+      "name": "NATHAN AI Games & Puzzles Atlas",
+      "href": "../games/index.html",
+      "stage": "separate public browser module"
     }
   ],
   "owner_import": {
