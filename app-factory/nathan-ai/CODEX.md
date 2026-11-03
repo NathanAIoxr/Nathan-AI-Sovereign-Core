@@ -118,3 +118,16 @@ The 2025 user-authored blueprint associates REAPER AI with **Severance, Resurrec
 > I’m sitting on top of everything that’s ever sat here - while at the same time I’m being sat on everything that will ever sit here. - Nathan Tabor
 
 The creator specified a **Matrix-style view in Kernersville, North Carolina**, with **every past timeline directly beneath the seated observer and every future timeline directly above**, so that the observer simultaneously sits upon the past and carries the future overhead. Design: luminous green cascading code, transparent vertical history/future slices, shared central axis, legible labels, no random faces. Keep the verbatim creator source and any artistic interpretation separate. Existing ecclesiastical/KJV research and the 141-byte canonical reality declaration remain intact. **Integration state:** Codex/archive updated; binary artwork and interactive app scene not yet imported or deployed.
+
+
+## TABOR FAMILY & ONE BLOOD — private 36-story source intake (2026-11-02)
+
+**Full family testimony is retained in the owner's private Library, not this public repository.** The versioned private master is `NATHAN_AI_SOVEREIGN_MASTER_CODEX_WITH_FAMILY_ONE_BLOOD_2026-11-02.md`, in the `NATHAN_AI_SOURCE_MODULES` private Library folder. Its additive Chapter 10 embeds the complete `TABOR_FAMILY_ONE_BLOOD_PRIVATE_STORY_ARCHIVE_2026-11-02.md` source. The prior Codex bytes were preserved verbatim above the chapter boundary. **No automatic Library-to-GitHub or Library-to-browser synchronization exists.**
+
+**Open:** [Private family & ONE BLOOD source reader](./family-research/private-reader.html) · [existing public Tabor Family / Redstone research wing](./family-research/index.html).
+
+**Private source structure:** A family people/relationships index; 36 numbered statements and story/research entries; original quotations preserved without silent editing; grandparents, parents, brothers, cousin relationships, childhood farm and church experiences, Redstone/Opal badge research, Pop and Rawhide baseball oral history, family belongings, daughter/fatherhood accounts, ONE BLOOD ethics, and related fictional adaptations; source descriptions and verification queue. Classifications distinguish `FIRSTPERSON`, `FAMILY_ORAL`, `ARCHIVE`, `PUBLIC_LEAD`, `CORRESPONDENCE`, `UNRESOLVED` and `FICTION`. Those entries are **not** blanket claims of independently corroborated facts.
+
+**Read operation:** The new static reader accepts an explicitly user-selected local Markdown source in a browser and searches the S01–S36 entries using DOM `textContent` only. It keeps the file in temporary page memory and neither uploads nor silently stores it. This is the allowed public/private interface for Nathan AI, ONE and TABOR ROOT. It does not directly ingest personal data from ChatGPT accounts.
+
+**Preservation rule:** Keep the 141-byte secular reality anchor and its SHA-256 digest unchanged; keep the existing public `family-research/records.json` unchanged; leave living relatives' identifiers, private correspondence, childhood testimony, sensitive allegations, exact private family records and the full private source **out of public Git commits**. No claim that a user has loaded their own file into a device until they do so. 
