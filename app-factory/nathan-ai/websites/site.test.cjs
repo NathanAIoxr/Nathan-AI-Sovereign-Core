@@ -7,6 +7,7 @@ const { test } = require('node:test');
 
 const portal = path.join(__dirname, 'index.html');
 const toy = path.resolve(__dirname, '../../christmas-toy-drive/index.html');
+const desktop = path.join(__dirname, 'launchpad.html');
 const hub = path.resolve(__dirname, '../index.html');
 const factory = path.resolve(__dirname, '../../index.html');
 
@@ -20,7 +21,7 @@ function localLinks(file) {
     !value.startsWith('#') && !/^[a-z][a-z0-9+.-]*:/i.test(value));
 }
 test('portal and Christmas Toy Drive are standalone HTML pages', () => {
-  for (const file of [portal, toy]) {
+  for (const file of [portal, toy, desktop]) {
     assert.ok(fs.existsSync(file), file);
     const source = html(file);
     assert.match(source, /<!doctype html>/i);
@@ -64,4 +65,29 @@ test('no public donation processing or child intake is introduced', () => {
   assert.match(html(toy), /gift-list-v1/);
   assert.match(html(toy), /localStorage/);
   assert.match(html(portal), /ROOT and TREE of STUPIDITY/);
+});
+
+test('full public launcher has valid JavaScript, documented routes and source-only links', () => {
+  const vm = require('node:vm');
+  const launcher = html(path.join(__dirname,'launchpad.js'));
+  const registry = html(path.join(__dirname,'registry.js'));
+  assert.doesNotThrow(()=>new vm.Script(launcher));
+  assert.doesNotThrow(()=>new vm.Script(registry));
+  const context = { window: {} };
+  vm.runInNewContext(registry, context);
+  const modules = context.window.NathanAIWebsiteModules;
+  assert.ok(Array.isArray(modules) && modules.length >= 95, 'Full public directory expected');
+  const ids = new Set();
+  for (const module of modules) {
+    assert.ok(typeof module.title === 'string' && module.title.length, 'title required');
+    assert.ok(typeof module.id === 'string' && !ids.has(module.id), 'unique id: '+module.id);
+    ids.add(module.id);
+    assert.ok(['apps','games','creative','research','community'].includes(module.group), 'known group');
+    assert.ok(module.url.startsWith('../../'), 'local relative URL');
+    const target = path.resolve(__dirname, module.url);
+    assert.ok(fs.existsSync(target), 'public module path exists: '+module.url);
+    if (fs.statSync(target).isDirectory()) assert.ok(fs.existsSync(path.join(target,'index.html')), 'folder has index: '+module.url);
+  }
+  assert.match(html(portal), /href="\.\/launchpad\.html"/);
+  assert.match(html(desktop), /id="module-cards"/);
 });

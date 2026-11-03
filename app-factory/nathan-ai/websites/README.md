@@ -42,3 +42,10 @@ The test checks both new HTML files, main-hub and Factory entry links, inline Ja
 Domain verification and owner-approved DNS → formal charity claims and disclosure review → backend identity/roles and consent → certified donation provider integration → accessibility and mobile QA → monitored production launch.
 
 All those steps require independent verification. This site intentionally does not assert they are complete.
+
+## Website App Launchpad & desktop game upgrade
+
+- `launchpad.html`: a complete public module launcher with local favorites, recently opened pages, keyboard search (`/` or `Ctrl+K`), and JSON export/restore of links. `registry.js` catalogs 101 actual public browser routes, not 101 fully finished products. No private archives are imported.
+- `../../shared/desktop-game-support.js` and `.css` add focus, fullscreen, keyboard guidance, responsive canvas treatment, and home navigation to 22 existing game and puzzle entry pages; original engines remain in place.
+- Octopus Arsenal's global Space/numeric shortcut handler no longer hijacks input from a focused button, link, summary, or editable element.
+- Desktop support has static link and syntax tests plus existing game engine tests in Actions. This does not establish completed cross-browser visual testing, device compatibility for unpublished games, or a guarantee of zero defects.
