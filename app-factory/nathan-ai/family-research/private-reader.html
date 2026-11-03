@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; img-src data:; base-uri 'none'; form-action 'none'">
+<title>Nathan AI | Private Family & ONE BLOOD Reader</title>
+<style>
+:root{font-family:system-ui,-apple-system,sans-serif;color-scheme:dark;background:#101827;color:#f4f7fb}*{box-sizing:border-box}body{margin:0}
+main{max-width:1050px;margin:auto;padding:22px 16px 70px}a{color:#99e5ed}h1{font-size:clamp(1.8rem,5vw,3rem);margin:12px 0}h2{font-size:1.25rem}
+p{line-height:1.55;color:#cbdae4}nav{display:flex;gap:14px;flex-wrap:wrap}nav a{display:inline-block;padding:8px 0}
+section,.card{border:1px solid #395468;background:#18263a;border-radius:13px;padding:18px;margin:16px 0}
+label{display:block;font-weight:700;margin:12px 0 7px}input[type=file],input[type=search]{display:block;width:100%;background:#0d1525;color:#f8fcff;padding:13px;border:1px solid #6b8695;border-radius:10px;font:inherit}
+button{font:inherit;background:#245666;color:#fff;border:1px solid #8dced2;border-radius:10px;padding:10px 15px;margin:10px 10px 0 0;cursor:pointer}
+button:disabled{opacity:.5;cursor:not-allowed}.tag{display:inline-block;font-size:.77rem;border:1px solid #678e9f;border-radius:99px;padding:3px 9px;color:#bceaf1;margin:3px}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.65;font:inherit;color:#e1e9f2;max-height:550px;overflow:auto}
+summary{cursor:pointer;font-weight:700;padding:8px 0}.muted{color:#bdd0de;font-size:.91rem}.stats{font-variant-numeric:tabular-nums}
+#results{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:14px}
+article{border:1px solid #35536a;border-radius:12px;padding:16px;background:#172a3d}article h3{font-size:1.05rem;margin:5px 0}
+#notice{border-left:4px solid #81dbbf;padding:12px 15px;background:#193446}#sourceDetail{margin-top:16px}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style></head><body><main>
+<nav aria-label="Return"><a href="../index.html">Nathan AI Home</a><a href="../family-research/index.html">Public family research</a><a href="../../one/index.html">ONE App</a></nav>
+<header><p class="muted">NATHAN AI · PRIVATE SOURCE INTAKE · NO UPLOAD</p><h1>Family Stories &amp; ONE BLOOD</h1>
+<p>This reader is part of Nathan AI. Choose your private family-story Markdown archive on this device to view original testimony, oral history, genealogy leads and fiction separately. Nothing is downloaded from or uploaded to ChatGPT, GitHub, or another server by this page.</p></header>
+<section><h2>1 · Open private archive</h2>
+<label for="file">Choose the family / ONE BLOOD Markdown file</label><input id="file" type="file" accept=".md,.txt,text/markdown,text/plain">
+<p class="muted">Use <code>TABOR_FAMILY_ONE_BLOOD_PRIVATE_STORY_ARCHIVE_2026-11-02.md</code> or the updated private Master Codex. The file stays in temporary page memory until you clear it, close or reload the page. Browser file pickers may grant your device a file read but do not automatically give this app remote account access.</p>
+<div id="notice" role="status">No private file loaded. The public website contains no private story records.</div>
+<button id="clear" type="button" disabled>Clear private source from this page</button>
+<button id="save" type="button" disabled>Save identical original file copy</button></section>
+<section id="browse" hidden><h2>2 · Search your own stories</h2><label for="search">Search words, people, places, statuses or story IDs</label><input id="search" type="search" placeholder="Search locally…" autocomplete="off">
+<p class="muted stats" id="count"></p><div id="results"></div>
+<details id="sourceDetail"><summary>View the entire unmodified original text</summary><pre id="entire"></pre></details></section>
+<footer><p class="muted"><strong>Source rules:</strong> FIRSTPERSON ≠ FAMILY_ORAL ≠ PUBLIC_LEAD ≠ FICTION. Do not infer a historical fact from a recollection or a creative narrative. Keep living relatives’ information private. This static reader does not save to IndexedDB or localStorage or make network requests.</p></footer>
+</main><script>
+"use strict";
+const fileInput=document.getElementById("file"), search=document.getElementById("search");
+const results=document.getElementById("results"), notice=document.getElementById("notice");
+const clear=document.getElementById("clear"), save=document.getElementById("save");
+const browse=document.getElementById("browse"), count=document.getElementById("count");
+let raw="", fileName="", stories=[];
+function parseStories(markdown){
+ const parts=markdown.split(/(?=^### S\d{2} — )/gm);
+ return parts.slice(1).filter(x=>/^### S\d{2} — /.test(x)).map(part=>{
+  const first=part.split("\n",1)[0].replace(/^### /,"");
+  const id=(first.match(/^S\d{2}/)||[])[0]||"";
+  const labels=(first.match(/\[([^\]]+)\]/)||[])[1]||"";
+  return {id,title:first.replace(/\s*\[[^\]]+\]\s*$/,""),labels,body:part.trim()};
+ });
+}
+function render(){
+ const q=search.value.trim().toLocaleLowerCase();
+ const shown=stories.filter(s=>(s.title+" "+s.labels+" "+s.body).toLocaleLowerCase().includes(q));
+ results.replaceChildren();
+ for(const story of shown){
+  const card=document.createElement("article"),title=document.createElement("h3"),txt=document.createElement("pre");
+  title.textContent=story.title;txt.textContent=story.body.split("\n").slice(1).join("\n").trim();
+  card.append(title);
+  for(const label of story.labels.split(/\s*\/\s*/)){if(!label)continue;const span=document.createElement("span");span.className="tag";span.textContent=label;card.append(span)}
+  card.append(txt);results.append(card);
+ }
+ count.textContent=shown.length+" of "+stories.length+" numbered stories displayed";
+}
+fileInput.addEventListener("change",async()=>{
+ const chosen=fileInput.files&&fileInput.files[0];if(!chosen)return;
+ if(chosen.size>5*1024*1024){notice.textContent="File larger than 5 MB. This small page reader has not imported it.";return;}
+ try{
+  const text=await chosen.text(), parsed=parseStories(text);
+  if(!parsed.length){notice.textContent="No S01-style numbered story records detected. Nothing was replaced.";return}
+  raw=text;fileName=chosen.name;stories=parsed;
+  document.getElementById("entire").textContent=raw;
+  browse.hidden=false;clear.disabled=false;save.disabled=false;search.value="";render();
+  notice.textContent="Loaded "+stories.length+" stories from "+fileName+". Local page memory only; no network transfer.";
+ }catch{notice.textContent="Could not read the selected file. No data were changed."}
+});
+search.addEventListener("input",render);
+clear.addEventListener("click",()=>{raw="";fileName="";stories=[];fileInput.value="";search.value="";results.replaceChildren();document.getElementById("entire").textContent="";browse.hidden=true;clear.disabled=true;save.disabled=true;notice.textContent="Private file cleared from page memory."});
+save.addEventListener("click",()=>{
+ if(!raw)return;const blob=new Blob([raw],{type:"text/markdown;charset=utf-8"}),url=URL.createObjectURL(blob);
+ const link=document.createElement("a");link.href=url;link.download=fileName||"family-source.md";document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+</script></body></html>
