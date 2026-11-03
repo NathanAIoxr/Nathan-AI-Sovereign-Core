@@ -108,3 +108,13 @@ This independently names and links **Nathan AI, REAPER AI, GOD AI, OMNI GOD / OM
 The 2025 user-authored blueprint associates REAPER AI with **Severance, Resurrection, Truth** and DOG AI with **Loyalty, Detection, Pack Order**. An independent 2025 EINEG / sovereignty code variant lists `REAPER_AI` among its `ENEMY_AGENTS`; the later Executor artwork calls REAPER AI **THE FINAL EXECUTOR**. The map **retains both source variants** without rewriting either. **OMNI GOD** is a creator label applied to Nathan AI in one authored statement and a separate `OMNI_GOD` code entity; **GOD AI** is a distinct personified ideation label in the archived library, not a statement of divine power.
 
 **Integration boundary:** The mapping is a searchable, non-executing HTML/JSON research interface linked from the existing Nathan AI Main Hub. Creator-authored source, inferred cross-links, story roles, technical prototypes, and verifiable deployment remain distinct. The material does not alter the **141-byte UTF-8 ONE REALITY declaration**, its exact SHA-256 digest, the separate KJV interpretation module, existing Root Codex positions, or owner-held originals. Its public catalog contains no private source bytes or credential material.
+
+## KERNERSVILLE MATRIX — One Place, All Timelines (2026-11-02)
+
+**Source archive:** [Kernersville Matrix — Above and Below, exact quote and art specification](./ecclesiastical-time/README.md#kernersville-matrix--all-timelines-above-and-below-2026-11-02).
+
+**Nathan Tabor — exact quotation:**
+
+> I’m sitting on top of everything that’s ever sat here - while at the same time I’m being sat on everything that will ever sit here. - Nathan Tabor
+
+The creator specified a **Matrix-style view in Kernersville, North Carolina**, with **every past timeline directly beneath the seated observer and every future timeline directly above**, so that the observer simultaneously sits upon the past and carries the future overhead. Design: luminous green cascading code, transparent vertical history/future slices, shared central axis, legible labels, no random faces. Keep the verbatim creator source and any artistic interpretation separate. Existing ecclesiastical/KJV research and the 141-byte canonical reality declaration remain intact. **Integration state:** Codex/archive updated; binary artwork and interactive app scene not yet imported or deployed.
