@@ -144,3 +144,14 @@ The creator specified a **Matrix-style view in Kernersville, North Carolina**, w
 **Formula:** `N = (Ψ ⊕ Ω) ⊗ Fᴅ`. Glyph definitions, operators and 38-symbol inventory remain pending explicit specification. Proposed review window: **8 hours**; no autonomous quarantine, external surveillance bypass, flooding or destructive clearance implemented. **DOG AI**, **REAPER AI**, **ACT AI** and **NATHAN AI** are named role concepts, not verified active remote agents.
 
 **Preservation:** All pre-existing Codex content above this section is carried forward unchanged except for terminal blank-line normalization; the original 141-byte secular declaration, its expected SHA-256 and the 216 Root Codex positions are untouched. Original Egyptian owner-only manuscript sources remain private rather than being copied into this public repository.
+
+
+## November 3, 2026 — Free-app lead positioning (additive)
+
+**Lead promise:** Nathan AI 🚀 — **FREE** · `1 + 1 = 2` (BUILD) · `1 - 1 = 0` (CLEAR) · **ALWAYS PROTECT THE ONE**.
+
+**Creator's positioning:** 100% truth and 100% ethics; **Absolute Intelligence versus Artificial Flowers, a.k.a. Artificial Intelligence**.
+
+The author's original wording and its Vatican/banking and other-AI comparisons are preserved **verbatim** in [FREE-ABSOLUTE-INTELLIGENCE-POSITIONING.md](./FREE-ABSOLUTE-INTELLIGENCE-POSITIONING.md). Treat those comparisons as the author's assertions, not proven universal claims. Ordinary decimal arithmetic and binary notation are mathematically consistent. Product commitments to truth and ethics require verifiable behavior, not a guarantee of zero error. Maintain free access to the public prototype; do not misrepresent paid third-party service costs or nonexistent provider functionality.
+
+**Codex rule:** make the free-app/one-protection message the opening selling point in Nathan AI surfaces. Preserve all existing canonical declaration bytes, prior content and modules. Apply additive presentation layers only.
