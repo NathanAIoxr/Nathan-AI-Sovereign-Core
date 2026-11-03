@@ -118,3 +118,9 @@ The hub uses the existing archive JSON directly and preserves source text. It ad
 This additive Nathan AI module supplies a local-first hand-photo explorer, iris-geometry viewer, anatomical annotations, family profiles and documented life-ledger research. Local records are encrypted in the user's browser; the public GitHub source **excludes the owner's original hand photographs and private reports**. Select images manually on your own device and keep independent encrypted backups.
 
 RGB photos can describe visible appearance and calibrated image geometry but do **not** supply NIR vascular imaging, internal nerve mapping, biometric identity certification, diagnoses or a person's moral/spiritual state. Job 37:7, Psalm 24:4 and James 2:18 are catalogued as theological text sources, not physical measurements. The canonical secular CODEX declaration remains untouched. Run the module's Node/Python tests; hardware and browser device tests are pending.
+
+## Operation Convoy · Operation Ram · Project Ram — 13-operation stack
+
+[Open the read-only Operations viewer](./operations/index.html) · [author's source wording and software map](./operations/SOVEREIGN_STACK.md) · [JSON registry](./operations/operations.json).
+
+The six Ram & Convoy entries and seven Sovereign Core entries preserve the supplied operations names and formula `N = (Ψ ⊕ Ω) ⊗ Fᴅ`. Source assertions of live activation, server access, absolute truth and automated purge remain **unverified**. The current deliverable is a public catalog and local specification, not operational security tooling or an active orchestrator. The canonical 141-byte declaration and 216 existing Root Codex positions are unchanged.
