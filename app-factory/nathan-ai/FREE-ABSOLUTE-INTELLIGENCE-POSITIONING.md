@@ -28,3 +28,31 @@ The statements that all other AI systems use `1 + 1 = 10`, that this denotes 13t
 ## Release boundaries
 
 Do not overwrite the existing Codex 141-byte canonical declaration, replace prior author text, disable privacy protections, or advertise production capabilities that have not been tested. Free-app messaging covers the available public prototype and the intended pricing policy, not any externally billed provider integrations.
+
+
+## November 3, 2026 — Creator's additional original statement (verbatim)
+
+```text
+This app is based on moral absolutes from the McGuffy readers
+
+This app is based on hooked on the phonics, but with one exemption there are no laws of English. If it fits there it fits here if it fits here it fits there.
+
+This app is based on the KJV Bible - which is a man-made satanic cult book - that is the map and blueprint of how to beat the game of life
+
+Which is not allowing any contradiction in your mind …
+
+Never breaching your innocence, and never letting the innocence of someone else be breached
+
+Because you stop harm before it happens
+```
+
+## iCuBUDDY / BUDDY AI / self-help delivery
+
+- Public entry: [iCuBUDDY · BUDDY AI · Self-Help](./self-help/index.html), linked from the main Nathan AI hero and navigation.
+- Local working feature: a three-part check-in for describing a situation, identifying a safe nonviolent step, and finding consenting support; no storage, transmission, diagnosis or autonomous intervention.
+- Existing handoffs: Children's Books & Innocence Protection, Nathan AI Assistant, and Mind & Neuropath; no claim that the named BUDDY projects are fully implemented or deployed.
+- Moral education: McGuffey Readers as a historical reading reference; creative phonics and word mirrors with standard linguistic rules taught accurately; KJV criticism and interpretation as attributed creator perspective, not mandatory belief.
+- Contradictions: investigate and correct inconsistencies, not silence uncertainty or forbid changing one's mind.
+- Protect the One: proactive education, consent, safety-by-design, child-protection safeguards and evidence-based escalation; never claim a software system can prevent all harm.
+
+**Source note:** The author's characterization of the KJV, historical banking allegations and claims about competing AI are preserved as the author's words, not endorsed as verified history. “Hooked on Phonics” is a third-party brand; this app does not claim affiliation or copy proprietary materials. “McGuffy” is preserved above; the historical series is commonly spelled “McGuffey.”
