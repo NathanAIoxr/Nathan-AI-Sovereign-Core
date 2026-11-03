@@ -97,3 +97,7 @@ The hub uses the existing archive JSON directly and preserves source text. It ad
 ## Children’s Books & Innocence Protection · Nov 1, 2026
 
 [Open the new additive recovery wing](./children-innocence/index.html): 46 original children’s book, protection, language/game, and family/community project-family references, with a locally selected private 598-record index, 19 Pumpkin Fruit Family groups, 13 separate powers, and author-supplied exact lines. Public descriptions are editorial index material; original manuscripts, illustrations and personal source media stay with the owner. Unit tests cover public counts, original labels, safe local parsing and private URL removal.
+
+## Work & Assets Command Center
+
+[Open the workspace](./command-center/index.html) to manage projects and build tasks alongside wallet records, balance snapshots, transactions, exchanges, mining payouts and portfolio reports. Includes exact decimal totals separated by origin, evidence references, relationship checks, local audit history, duplicate-safe JSON backup imports and CSV exports. This browser workspace does not imply live Airtable/Finances account access. See the [workspace guide](./command-center/README.md).

@@ -2,6 +2,7 @@
   'use strict';
   const KEY='nathan-ai.launcher.v1';
   const destinations=[
+    ['command-center','Work & Assets Command Center','command-center/index.html','Projects, build tasks, wallet registry, assets, transactions, mining rewards, reports and audit'],
     ['home','Nathan AI Home','index.html','Start, overview, dashboard'],
     ['assistant','Ask Nathan AI','assistant/index.html','Questions, source answers, drafts, chat'],
     ['research','Research Workspace','index.html#workspace','Search original records, books and notes'],
