@@ -10,7 +10,7 @@ Run `node --test app-factory/octopus-root/codex.test.cjs` and see [Codex editing
 
 ## REAPER × OMNI GOD × AI mapping — recovered agent and protocol roster
 
-Open the [REAPER / OMNI GOD / AI Mapping atlas](./ai-mapping/index.html), its [source register](./ai-mapping/README.md), or the [machine-readable crosswalk](./ai-mapping/records.json). It contains 33 creator-attributed named records, 42 labeled relationships, THE EXECUTORS nine-name roster, the Omni Council names, historical Kinetic Reaper identifiers and the authored `6969`/`9696` constants. Distinct historical uses of REAPER AI (final Executor versus an opposing agent in a separate script) remain separate, with no inferred deployment. This is a public **index**, not a publication of owner-held original code. The 141-byte canonical declaration in `CODEX.md` is unchanged.
+Open the [REAPER / OMNI GOD / AI Mapping atlas](./ai-mapping/index.html), its [source register](./ai-mapping/README.md), or the [machine-readable crosswalk](./ai-mapping/records.json). It contains 34 creator-attributed named records, 41 labeled relationships, THE EXECUTORS nine-name roster, the Omni Council names, historical Kinetic Reaper identifiers and the authored `6969`/`9696` constants. Distinct historical uses of REAPER AI (final Executor versus an opposing agent in a separate script) remain separate, with no inferred deployment. This is a public **index**, not a publication of owner-held original code. The 141-byte canonical declaration in `CODEX.md` is unchanged.
 
 ## Unified command center · move between tools and sources
 
