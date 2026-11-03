@@ -130,4 +130,17 @@ The creator specified a **Matrix-style view in Kernersville, North Carolina**, w
 
 **Read operation:** The new static reader accepts an explicitly user-selected local Markdown source in a browser and searches the S01–S36 entries using DOM `textContent` only. It keeps the file in temporary page memory and neither uploads nor silently stores it. This is the allowed public/private interface for Nathan AI, ONE and TABOR ROOT. It does not directly ingest personal data from ChatGPT accounts.
 
-**Preservation rule:** Keep the 141-byte secular reality anchor and its SHA-256 digest unchanged; keep the existing public `family-research/records.json` unchanged; leave living relatives' identifiers, private correspondence, childhood testimony, sensitive allegations, exact private family records and the full private source **out of public Git commits**. No claim that a user has loaded their own file into a device until they do so. 
+**Preservation rule:** Keep the 141-byte secular reality anchor and its SHA-256 digest unchanged; keep the existing public `family-research/records.json` unchanged; leave living relatives' identifiers, private correspondence, childhood testimony, sensitive allegations, exact private family records and the full private source **out of public Git commits**. No claim that a user has loaded their own file into a device until they do so.
+
+## OPERATION CONVOY · RAM · PROJECT RAM — 13-operation registry (2026-11-02)
+
+**Source:** Owner-supplied 13-operation multi-axis action register. **Status:** source-preserving specification and read-only Nathan AI catalog; statements claiming live activation or full system-log retrieval are not independently verified.
+
+- [Original designation text, seven Sovereign Core protocols, six Ram & Convoy operations, and implementation boundaries](./operations/SOVEREIGN_STACK.md)
+- [Structured 13-operation JSON](./operations/operations.json)
+- [Open the Nathan AI Operations viewer](./operations/index.html)
+- [Registry integrity tests](./operations/operations.test.cjs)
+
+**Formula:** `N = (Ψ ⊕ Ω) ⊗ Fᴅ`. Glyph definitions, operators and 38-symbol inventory remain pending explicit specification. Proposed review window: **8 hours**; no autonomous quarantine, external surveillance bypass, flooding or destructive clearance implemented. **DOG AI**, **REAPER AI**, **ACT AI** and **NATHAN AI** are named role concepts, not verified active remote agents.
+
+**Preservation:** All pre-existing Codex content above this section is carried forward unchanged except for terminal blank-line normalization; the original 141-byte secular declaration, its expected SHA-256 and the 216 Root Codex positions are untouched. Original Egyptian owner-only manuscript sources remain private rather than being copied into this public repository.
