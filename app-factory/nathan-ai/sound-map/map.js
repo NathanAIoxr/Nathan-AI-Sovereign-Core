@@ -1,0 +1,21 @@
+(()=>{'use strict';const KEY='nathan-ai.sound-map.v1',SCHEMA='nathan-ai.sound-map.v1',MAX=10000;
+const $=id=>document.getElementById(id),fields=['language','original','phonetic','ipa','direction','resonance','rhythm','syllables','notes','variants'];
+const uid=()=>crypto.randomUUID();
+function valid(x){if(!x||typeof x!=='object'||Array.isArray(x)||typeof x.id!=='string'||!x.id||typeof x.created!=='string')throw Error('Invalid mapping');
+const out={id:x.id,created:x.created};for(const k of fields){if(typeof x[k]!=='string'||x[k].length>6000)throw Error('Invalid field: '+k);out[k]=x[k];}
+if(!['ltr','rtl'].includes(out.direction)||!Number.isInteger(+out.resonance)||+out.resonance<0||+out.resonance>10)throw Error('Invalid mapping controls');
+if(!out.original.trim()||!out.phonetic.trim()||!out.language.trim())throw Error('Language and spellings are required');return out;}
+function parse(raw){const x=JSON.parse(raw);if(!x||x.schema!==SCHEMA||!Array.isArray(x.records)||x.records.length>MAX)throw Error('Unsupported backup');const ids=new Set();return x.records.map(r=>{const item=valid(r);if(ids.has(item.id))throw Error('Duplicate record ID');ids.add(item.id);return item;});}
+function load(){try{const raw=localStorage.getItem(KEY);return raw?parse(raw):[];}catch(e){$('status').textContent='Could not load saved mappings: '+e.message;return [];}}
+function save(records){if(records.length>MAX)throw Error('Mapping limit reached');localStorage.setItem(KEY,JSON.stringify({schema:SCHEMA,records}));}
+function view(){const rows=load(),q=$('search').value.toLocaleLowerCase().trim(),found=rows.filter(r=>fields.some(k=>r[k].toLocaleLowerCase().includes(q)));$('count').textContent=found.length+' of '+rows.length+' mappings';$('results').replaceChildren();
+for(const r of found.slice().reverse()){const article=document.createElement('article');const h=document.createElement('h3');h.textContent=r.original+' → '+r.phonetic;article.append(h);
+const p=document.createElement('p');p.textContent=r.language+' · '+r.direction.toUpperCase()+' · Harmony '+r.resonance+'/10';article.append(p);
+const d=document.createElement('p');d.dir=r.direction;d.textContent='Original: '+r.original+' | Sound: '+r.phonetic+(r.ipa?' | IPA: '+r.ipa:'');article.append(d);
+for(const k of ['rhythm','syllables','notes','variants'])if(r[k]){const label=document.createElement('strong');label.textContent=k+': ';const pre=document.createElement('pre');pre.dir=r.direction;pre.textContent=r[k];article.append(label,pre);}
+const del=document.createElement('button');del.textContent='Delete';del.onclick=()=>{if(!confirm('Delete this local mapping?'))return;try{save(load().filter(x=>x.id!==r.id));view();}catch(e){$('status').textContent=e.message;}};article.append(del);$('results').append(article);}}
+$('resonance').addEventListener('input',()=>{$('resonance-value').textContent=$('resonance').value;});
+$('entry').addEventListener('submit',e=>{e.preventDefault();try{const item={id:uid(),created:new Date().toISOString()};for(const k of fields)item[k]=$(k).value;valid(item);const rows=load();rows.push(item);save(rows);$('status').textContent='Mapping saved locally.';$('entry').reset();$('resonance-value').textContent='5';view();}catch(err){$('status').textContent='Could not save: '+err.message;}});
+$('search').addEventListener('input',view);
+$('export').addEventListener('click',()=>{try{const blob=new Blob([JSON.stringify({schema:SCHEMA,records:load()},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='nathan-ai-sound-mappings.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}catch(e){$('status').textContent=e.message;}});
+$('import').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>10*1024*1024)throw Error('File too large');const incoming=parse(await file.text()),rows=load(),ids=new Set(rows.map(x=>x.id));let added=0;for(const r of incoming)if(!ids.has(r.id)){rows.push(r);ids.add(r.id);added++;}save(rows);$('status').textContent=added+' mappings imported; existing entries preserved.';view();}catch(err){$('status').textContent='Import failed: '+err.message;}e.target.value='';});view();})();
