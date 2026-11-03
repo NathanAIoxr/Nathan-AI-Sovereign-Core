@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nathan AI 🚀 · Omni God Core</title>
+<style>:root{font-family:system-ui,sans-serif;color-scheme:dark;background:#101720;color:#f4f6f9}body{margin:0}main{max-width:1000px;margin:auto;padding:24px}a{color:#b5e1ff}.card{background:#1c2a36;border:1px solid #496170;border-radius:14px;padding:16px;margin:14px 0}label{display:block;margin-bottom:9px}textarea,input,button{font:inherit;color:inherit;background:#253b4b;border:1px solid #708699;border-radius:8px;padding:10px}textarea{width:100%;box-sizing:border-box;min-height:90px}button{cursor:pointer}button:focus-visible,textarea:focus-visible{outline:3px solid #ffe3a8}pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:420px;overflow:auto}ul{columns:2}li{padding:4px}small{color:#bfccd5}</style>
+<script src="./engine.js"></script></head><body><main><p><a href="../index.html">← Nathan AI main hub</a> · <a href="../../one/index.html">ONE app</a></p><h1>🚀 OMNI GOD AI — Binary Core</h1><p><strong>1 + 1 = 2 · 1 − 1 = 0 · Protect the original.</strong></p><p>This local browser module encodes and transforms words and source records. Its 126-billion agent namespace is a conceptual address space, not deployed processes. Historical, metaphysical and deployment claims are user-authored research statements, not verified results.</p>
+<section class="card"><h2>Source-preserving word engine</h2><label for="word">Original source text</label><textarea id="word">TABOR</textarea><p><button id="run" type="button">Encode · Reverse · Invert · Classify</button> <button id="save" type="button">Download result JSON</button></p><pre id="result" aria-live="polite"></pre></section>
+<section class="card"><h2>Ten-state decimal classification</h2><label for="state">Select one of the ten states (0–9)</label><input type="range" id="state" min="0" max="9" value="9"><p id="state-result"></p><small>Four bits encode 0–9. This is a selected software classification, not proof of ten physical dimensions.</small></section>
+<section class="card"><h2>Pantheon registry · 20 user-defined names</h2><ul id="pantheon"></ul><p><small>Agent identities are disabled, local registry descriptions until explicitly implemented and permissioned.</small></p></section>
+<section class="card"><h2>Open source &amp; evidence</h2><p>Module logic is in <a href="./engine.js">engine.js</a>. Original text is never overwritten. This page makes no network requests and imports no private data.</p><p><a href="./README.md">Source and Codex build notes</a></p></section></main>
+<script>
+(function(){
+ const core=window.NathanOmniCore, word=document.getElementById("word"),out=document.getElementById("result");
+ let current;
+ function run(){current=core.encode(word.value);out.textContent=JSON.stringify(current,null,2)}
+ document.getElementById("run").addEventListener("click",run);
+ document.getElementById("save").addEventListener("click",function(){
+  run();const blob=new Blob([JSON.stringify(current,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="nathan-omni-source.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ });
+ function updateState(){const s=Number(document.getElementById("state").value);document.getElementById("state-result").textContent="Decimal "+s+" = binary "+s.toString(2).padStart(4,"0")}
+ document.getElementById("state").addEventListener("input",updateState);
+ document.getElementById("pantheon").replaceChildren(...core.PANTHEON.map(name=>{const li=document.createElement("li");li.textContent=name;return li}));
+ run();updateState();
+})();
+</script></body></html>
