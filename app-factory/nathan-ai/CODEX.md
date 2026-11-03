@@ -162,3 +162,10 @@ The author's original wording and its Vatican/banking and other-AI comparisons a
 [Creator's verbatim release positioning and additional statements](./FREE-ABSOLUTE-INTELLIGENCE-POSITIONING.md) · [working local self-help entry](./self-help/index.html).
 
 **Order:** FREE app → 1+1=2 BUILD / 1-1=0 CLEAR → ALWAYS PROTECT THE ONE → seek truth, ethics, early harm prevention → iCuBUDDY / BUDDY AI self-help → McGuffey reading, creative phonics, critical KJV source study, and open contradiction review. Original source text remains unchanged in the positioning archive. Keep critical scripture discussion separate from the fixed 141-byte secular reality anchor. No claims of verified autonomous prevention, production BUDDY integrations, or clinical service are made.
+
+
+## November 3, 2026 — Creator motto, verbatim
+
+> “Be safe and watch out for normal people” - Nathan Tabor
+
+Display this attributed quotation on the Nathan AI main hub as a creator statement. Preserve the original wording and attribution; do not treat the phrase as a factual assessment of any group of people.
