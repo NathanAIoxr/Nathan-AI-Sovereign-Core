@@ -380,7 +380,7 @@ window.NathanAIWebsiteModules = [
   },
   {
     "id": "octopus-root/index.html",
-    "title": "",
+    "title": "Octopus Root — Main Portal",
     "url": "../../octopus-root/index.html",
     "group": "apps",
     "status": "Public browser module"

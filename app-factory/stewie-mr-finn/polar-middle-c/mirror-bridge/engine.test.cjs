@@ -51,7 +51,7 @@ test('user-entered text is bounded and not treated as an etymology',()=>{
 });
 test('native resources match browser and reuse the existing Middle C core',()=>{
  const orig=__dirname,native=path.join(orig,'../../Resources/PolarMiddleC/mirror-bridge');
- const web=fs.readFileSync(path.join(orig,'index.html'),'utf8');
+ const web=fs.readFileSync(path.join(orig,'index.html'),'utf8').replace("<link rel=\"stylesheet\" href=\"../../../shared/desktop-game-support.css\" data-nathan-desktop-game><script defer src=\"../../../shared/desktop-game-support.js\"></script>",'');
  const nativeHTML=fs.readFileSync(path.join(native,'index.html'),'utf8');
  assert.equal(nativeHTML,web.replaceAll('../../../middle-c/game.js','../middle-c-game.js').replaceAll('../../../shared/one-universal-v061.js','../one-universal-v061.js'));
  assert.equal(fs.readFileSync(path.join(native,'engine.js'),'utf8'),fs.readFileSync(path.join(orig,'engine.js'),'utf8'));
