@@ -21,7 +21,7 @@
   }
   // Exact base-10 arithmetic; no floating-point balances or implicit prices.
   function decimal(value){const s=String(value).trim();if(!/^\d{1,32}(?:\.\d{1,18})?$/.test(s))throw Error('Use a nonnegative decimal with up to 18 decimal places.');const [a,b='']=s.split('.');return BigInt(a).toString()+(b.replace(/0+$/,'')?'.'+b.replace(/0+$/,''):'');}
-  function units(s){const [a,b='']=decimal(s).split('.');return BigInt(a)*10n**18n+BigInt(b.padEnd(18,'0'));}
+  function units(s){s=String(s);if(s.length>64||!/^\d+(?:\.\d{1,18})?$/.test(s))throw Error('Invalid decimal total.');const [a,b='']=s.split('.');return BigInt(a)*10n**18n+BigInt(b.padEnd(18,'0'));}
   function amount(n){const a=n/10n**18n,b=(n%10n**18n).toString().padStart(18,'0').replace(/0+$/,'');return a.toString()+(b?'.'+b:'');}
   const sum=(a,b)=>amount(units(a)+units(b));
   function date(s){if(!/^\d{4}-\d{2}-\d{2}$/.test(s)||!Number.isFinite(Date.parse(s))||new Date(s).toISOString().slice(0,10)!==s)throw Error('Use a valid calendar date.');return s;}

@@ -31,3 +31,10 @@ This module **adds** a searchable public reference archive under NATHAN AI 🚀.
 - paperclip: https://www.history.com/articles/what-was-operation-paperclip
 - gw: https://www.declassifiedcollection.com/archive/records/gateway-process-1983/
 - olderGenealogy: https://www.seekingmyroots.com/members/files/G002100.pdf
+
+
+## Family & ONE BLOOD private source reader — November 2, 2026
+
+[Open the private local file reader](./private-reader.html). This source-free public HTML page can load the user's **own local** Markdown private archive (the 36-story Tabor Family & ONE BLOOD recovered register or the combined private Sovereign Master Codex) using a browser file picker. It displays the numbered stories, labels them by evidence type, supports local search, shows the exact source text and can export an identical local copy. It does **not** upload, automatically sync, save unencrypted files to a server, or commit private family text. Closing or clearing the page discards the browser session copy.
+
+**Private source-of-record, outside public GitHub:** `NATHAN_AI_SOVEREIGN_MASTER_CODEX_WITH_FAMILY_ONE_BLOOD_2026-11-02.md` in the owner's private `NATHAN_AI_SOURCE_MODULES` Library folder. Chapter 10 includes the complete additive source `TABOR_FAMILY_ONE_BLOOD_PRIVATE_STORY_ARCHIVE_2026-11-02.md`; 36 numbered entries plus family index, source ledger and gaps. The owner can download the file and explicitly choose it in the reader. The reader's code and source data must remain separate.

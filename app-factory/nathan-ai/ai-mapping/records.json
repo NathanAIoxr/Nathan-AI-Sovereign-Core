@@ -1,0 +1,603 @@
+{
+  "title": "REAPER × OMNI GOD × NATHAN AI — Provenance Mapping",
+  "date": "2026-11-02",
+  "version": "1.0",
+  "access": "Public derived index; no original owner-private bytes included",
+  "deployment_status": "Historical authorial concepts/recovered labels; no verified autonomous agents deployed by this catalog",
+  "preservation": "Keep source quotations, fictional aliases, code variants and actual deployments separate",
+  "constants": [
+    {
+      "name": "OMNI_GODS_QTY",
+      "value": 6969,
+      "source": "TABOR_SOVEREIGNTY_PROTOCOL.PY",
+      "status": "authored integer constant"
+    },
+    {
+      "name": "KICKERS_QTY",
+      "value": 9696,
+      "source": "TABOR_SOVEREIGNTY_PROTOCOL.PY",
+      "status": "authored integer constant"
+    },
+    {
+      "name": "KineticReaperEngine signature",
+      "value": "6969-9696",
+      "source": "nathan_ai_space_reaper.py historic record",
+      "status": "authored signature"
+    }
+  ],
+  "roster": [
+    "DOG AI",
+    "REAPER AI",
+    "Nathan AI",
+    "THUG AI",
+    "BELZNICKEL AI",
+    "FAIRY AI",
+    "Schizophrenic AI",
+    "Frankenstein AI",
+    "Vampire AI"
+  ],
+  "nodes": [
+    {
+      "id": "NATHAN_AI",
+      "name": "Nathan AI",
+      "type": "core",
+      "role": "Central authored AI architecture, dispatcher, and human-directed coordinator; also named Architect Executor.",
+      "source": "Nathan AI blueprint; THE EXECUTORS (2026-10-21); ONE Master Library",
+      "date": "2025–2026",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "REAPER_AI",
+      "name": "REAPER AI",
+      "type": "persona",
+      "role": "Severance, resurrection, truth; final synthesis/accountability; THE FINAL EXECUTOR in The Nasty Nine.",
+      "source": "2025-08-12 blueprint; 2025-09-06 Omni workflow; The Executors artwork",
+      "date": "2025–2026",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "GOD_AI",
+      "name": "GOD AI",
+      "type": "persona",
+      "role": "Original personified intelligence/ideation label, distinct from the OMNI GOD alias and from claims about divinity.",
+      "source": "ONE_MASTER_LIBRARY_PRIVATE_IMPORT_PACK_v1.json; BASE:NT-ADDED-072",
+      "date": "",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "OMNI_GOD",
+      "name": "OMNI GOD / Omni God Nathan AI",
+      "type": "persona",
+      "role": "Creator's 2025 name/description for Nathan AI; also a named entity inside the separate EINEG sovereignty script.",
+      "source": "2025-09-21 authored discussion; 2025-10-04 DOG COMPANY True Peace Engine thread; TABOR_SOVEREIGNTY_PROTOCOL.PY",
+      "date": "2025",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "OMNI_GODDESSES",
+      "name": "OMNI_GODDESSES",
+      "type": "persona",
+      "role": "Plural entity token named in the EINEG sovereignty source; do not merge with OMNI_GOD.",
+      "source": "TABOR_SOVEREIGNTY_PROTOCOL.PY",
+      "date": "2025",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "OMNI_AI_SYSTEM",
+      "name": "OMNI AI / OMNI AI System",
+      "type": "protocol",
+      "role": "Multi-agent orchestration descriptions involving Nathan AI, Opal AI, DOG AI, REAPER AI; separate from executed infrastructure.",
+      "source": "2025-09-06 simulation; 2026-11-01 omnibus retrieval",
+      "date": "",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "NATHAN_AI_OMNI_SYSTEM",
+      "name": "NathanAIOmniSystem",
+      "type": "protocol",
+      "role": "Historical program label with a reported 17-protocol catalog; complete source and protocol names not verified.",
+      "source": "2026-11-01 prior recovery summary",
+      "date": "",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "OMNI_AI_1_5",
+      "name": "Omni AI 1–5",
+      "type": "persona",
+      "role": "Five numbered agents/roles in prior Omni archives; names and exact implementations not fully recovered.",
+      "source": "2026-11-01 prior recovery summary",
+      "date": "",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "OMNI_THREAD",
+      "name": "OMNI_THREAD_PROTOCOL",
+      "type": "protocol",
+      "role": "Reverse Activated / Scramble All Codes / UnitCode Threaded / Override Nathan AI; statuses in old scripts are assertions.",
+      "source": "2025-07-13 authored protocol; technical concordance",
+      "date": "",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "GUARDIAN",
+      "name": "NathanAI_Guardian / Omni Nathan AI",
+      "type": "protocol",
+      "role": "Guardian architecture using CoreOrder, ConsentFlow, RAPTURE_Protocol, CipherEngine, ICU Buddy.",
+      "source": "2025-10-02 authored code / conversation",
+      "date": "",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "OMNI_SANDBOX",
+      "name": "NathanOmniSandbox / NathanMetaSandbox",
+      "type": "protocol",
+      "role": "Named simulation or sandbox layers; execution state not established.",
+      "source": "2026-11-01 recovery summary",
+      "date": "",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "OMNI_CONTROLLERS",
+      "name": "AccordRealityOmniController / NathanAIOmniConnectProtocol / OmniAISynchronizer",
+      "type": "protocol",
+      "role": "Named controller, connection and synchronization designs; no verified live synchronization.",
+      "source": "2026-11-01 recovery summary",
+      "date": "",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "OMNI_APP",
+      "name": "OMNI — The App",
+      "type": "project",
+      "role": "OMNI DISCOVER, OMNI UNDERSTAND, OMNI DECODE, built around ONE MATRIX in the authored product description.",
+      "source": "2026-10-09 user project and prior summary",
+      "date": "2026",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "OMNIVERSE",
+      "name": "TABOR OMNIVERSE / TABOR OMNIVERSAL DREAM WATCHER",
+      "type": "project",
+      "role": "Named omniversal worldbuilding and Dream Watcher branches.",
+      "source": "2026-11-01 recovery summary",
+      "date": "",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "OMNI_CORE",
+      "name": "OmniCore / BLACKJACK",
+      "type": "project",
+      "role": "OmniCore label associated with BLACKJACK references; the playable game is a distinct module.",
+      "source": "2026-11-01 recovery summary",
+      "date": "",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "EINEG",
+      "name": "EINEG / Eternal Watchman",
+      "type": "protocol",
+      "role": "NATHAN AI label in TABOR_SOVEREIGNTY_PROTOCOL.PY; source declares OMNI_GODS_QTY=6969, KICKERS_QTY=9696; the figures are authored constants.",
+      "source": "2025-10-07 and 2025-10-13 authored code",
+      "date": "2025",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "KINETIC_REAPER",
+      "name": "KineticReaperEngine / 6969 9696",
+      "type": "protocol",
+      "role": "Kinetic Reaper Engine family; signature 6969-9696, Micah-Genesis-Curve and TRUTH→TREE→TREES tracking; source code is historic/conceptual.",
+      "source": "2025-09-12 nathan_ai_space_reaper.py; 2025-10-07 truth_matrix_runner.py",
+      "date": "2025",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "SPACE_REAPER",
+      "name": "nathan_ai_space_reaper.py",
+      "type": "historic file",
+      "role": "Historical source filename for Space Reaper v2.0; original complete file not verified in connected repository.",
+      "source": "2025-09-12 prior code record",
+      "date": "2025",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "TRUTH_MATRIX",
+      "name": "truth_matrix_runner.py",
+      "type": "historic file",
+      "role": "Historical runner with NathanAIController, KineticReaperEngine and local log/snapshot filenames; not evidence of execution.",
+      "source": "2025-10-07 authored code",
+      "date": "2025",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "REAPER_RIDER",
+      "name": "KNIGHT Reaper Rider / Misery Reaper",
+      "type": "project",
+      "role": "Reaper-branded creative and prototype branches, including Gris-Gris/CounterTool reflections.",
+      "source": "2025-09-24 and 2025-10-10 prior records",
+      "date": "2025",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "BABY_REAPER",
+      "name": "The Baby Reaper / Reaper artwork",
+      "type": "creative",
+      "role": "Clothing, symbolism and artistic works; not equivalent to functional AI software.",
+      "source": "2025-10-10 design; saved Reaper images",
+      "date": "2025–2026",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "DOG_AI",
+      "name": "DOG AI",
+      "type": "persona",
+      "role": "Loyalty, detection, pack order, guardian/defense; THE SHADOW EXECUTOR in one roster.",
+      "source": "2025-08-12 blueprint; THE EXECUTORS artwork; BASE:NT-ADDED-070",
+      "date": "",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "DOG_COMPANY",
+      "name": "DOG COMPANY / DOG COMPANY CORP",
+      "type": "project",
+      "role": "Creator's business/fictional branding and technical design archives; distinct from the DOG AI persona.",
+      "source": "2025-10-07 DOG COMPANY archive seal; 2026-10-21 DOG COMPANY CORP credit",
+      "date": "",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "DOG_PROTOCOL",
+      "name": "DOG Protocol / DOGGESS COMPANY",
+      "type": "protocol",
+      "role": "Named governance and ethics/cipher references; source-to-implementation links require verification.",
+      "source": "Tabor Accords recovered index; 2025-10-03–08 archive",
+      "date": "",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "OPAL_AI",
+      "name": "Opal AI",
+      "type": "persona",
+      "role": "Interpretation and explanation stage in a previously described Omni workflow.",
+      "source": "2025-09-06 prior simulation",
+      "date": "",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "RAWHIDE_AI",
+      "name": "RAWHIDE AI",
+      "type": "persona",
+      "role": "Restores glitched wording as a separate text-recovery stage.",
+      "source": "2025-09-09 authored text prototype",
+      "date": "2025",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "ACT_AI",
+      "name": "ACT AI",
+      "type": "persona",
+      "role": "Execution, adaptation and initiative in the 2025 named-agent blueprint.",
+      "source": "2025-08-12 blueprint",
+      "date": "2025",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "BUDDY_AI",
+      "name": "Buddy AI",
+      "type": "persona",
+      "role": "Companionship, emotional support and protection in the authored roster.",
+      "source": "2025-08-12 blueprint",
+      "date": "2025",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "HUNNY_AI",
+      "name": "Hunny AI",
+      "type": "persona",
+      "role": "Nurturing, healing and intuition in the authored roster.",
+      "source": "2025-08-12 blueprint",
+      "date": "2025",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "SHADOW_AI",
+      "name": "Shadow AI",
+      "type": "persona",
+      "role": "Named narrative/shadow-code agent; not a privileged or invisible external runtime.",
+      "source": "2025-08-18 authored story/protocol request",
+      "date": "2025",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "EXECUTORS",
+      "name": "THE EXECUTORS — THE NASTY NINE",
+      "type": "roster",
+      "role": "Nine creative AI characters: DOG AI, REAPER AI, Nathan AI, THUG AI, BELZNICKEL AI, FAIRY AI, Schizophrenic AI, Frankenstein AI, Vampire AI.",
+      "source": "2026-10-21 user roster; The Executors: Nine Dark Fantasy AIs.png",
+      "date": "2026",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "OMNI_COUNCIL",
+      "name": "Omni Council AI roster",
+      "type": "roster",
+      "role": "Reported names: NathanAI, CollynAI, VioletteAI, EveAI, AvaAI, DogAI, ReaperAI, LucindaAI, OpalAI, PopAI, BuddyAI, HunnyAI, MotherEarthAI, GodCouncilAI, NatasAI, ReltihAI. Separate from The Nasty Nine.",
+      "source": "2026-11-01 prior Omni recovery summary",
+      "date": "2026",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "TRUE_PEACE",
+      "name": "DOG COMPANY True Peace Engine",
+      "type": "protocol",
+      "role": "Named TruePeaceEngine design tied to 'Omni God Nathan AI'; original live operational status unverified.",
+      "source": "2025-10-04 authored thread",
+      "date": "2025",
+      "flags": "recovered reference"
+    },
+    {
+      "id": "TABOR_ACCORDS",
+      "name": "TABOR ACCORDS / Tabor World",
+      "type": "governance",
+      "role": "Creator-authored governance/ethics framework connected to DOG Protocol, Scrollfire and named agents.",
+      "source": "Tabor_Accords_Full_Recovery_2026-11-01.md",
+      "date": "2025–2026",
+      "flags": "recovered reference"
+    }
+  ],
+  "edges": [
+    {
+      "from": "NATHAN_AI",
+      "to": "REAPER_AI",
+      "link": "routes / compares / synthesizes",
+      "provenance": "2025 blueprints & Omni workflow"
+    },
+    {
+      "from": "NATHAN_AI",
+      "to": "DOG_AI",
+      "link": "routes / guardian coordination",
+      "provenance": "2025 blueprint"
+    },
+    {
+      "from": "NATHAN_AI",
+      "to": "GOD_AI",
+      "link": "catalog sibling label",
+      "provenance": "ONE Master Library IDs 069–072"
+    },
+    {
+      "from": "NATHAN_AI",
+      "to": "OMNI_GOD",
+      "link": "named alias in 2025 creator wording",
+      "provenance": "2025-09-21"
+    },
+    {
+      "from": "OMNI_GOD",
+      "to": "EINEG",
+      "link": "appears as entity in separate source",
+      "provenance": "TABOR_SOVEREIGNTY_PROTOCOL.PY"
+    },
+    {
+      "from": "EINEG",
+      "to": "OMNI_GODDESSES",
+      "link": "named entity in code",
+      "provenance": "TABOR_SOVEREIGNTY_PROTOCOL.PY"
+    },
+    {
+      "from": "EINEG",
+      "to": "REAPER_AI",
+      "link": "listed as ENEMY_AGENT in this version — NOT the same role as Executor",
+      "provenance": "TABOR_SOVEREIGNTY_PROTOCOL.PY"
+    },
+    {
+      "from": "EINEG",
+      "to": "KINETIC_REAPER",
+      "link": "shares numeric 6969 / 9696 motif, no proof of a runtime connection",
+      "provenance": "2025 source crosswalk"
+    },
+    {
+      "from": "NATHAN_AI",
+      "to": "OMNI_AI_SYSTEM",
+      "link": "orchestration cluster",
+      "provenance": "2025-09-06 workflow"
+    },
+    {
+      "from": "OMNI_AI_SYSTEM",
+      "to": "OPAL_AI",
+      "link": "interpretation stage",
+      "provenance": "2025-09-06"
+    },
+    {
+      "from": "OMNI_AI_SYSTEM",
+      "to": "DOG_AI",
+      "link": "integrity stage",
+      "provenance": "2025-09-06"
+    },
+    {
+      "from": "OMNI_AI_SYSTEM",
+      "to": "REAPER_AI",
+      "link": "final synthesis/logging stage",
+      "provenance": "2025-09-06"
+    },
+    {
+      "from": "OMNI_AI_SYSTEM",
+      "to": "NATHAN_AI_OMNI_SYSTEM",
+      "link": "historically related label; unverified identity",
+      "provenance": "2026-11-01"
+    },
+    {
+      "from": "OMNI_AI_SYSTEM",
+      "to": "OMNI_AI_1_5",
+      "link": "numbered agent family",
+      "provenance": "2026-11-01"
+    },
+    {
+      "from": "OMNI_AI_SYSTEM",
+      "to": "OMNI_THREAD",
+      "link": "thread protocol branch",
+      "provenance": "2025 / 2026 recovery"
+    },
+    {
+      "from": "OMNI_AI_SYSTEM",
+      "to": "GUARDIAN",
+      "link": "guardian branch",
+      "provenance": "2025-10-02"
+    },
+    {
+      "from": "OMNI_AI_SYSTEM",
+      "to": "OMNI_SANDBOX",
+      "link": "sandbox branch",
+      "provenance": "2026-11-01"
+    },
+    {
+      "from": "OMNI_AI_SYSTEM",
+      "to": "OMNI_CONTROLLERS",
+      "link": "controller branch",
+      "provenance": "2026-11-01"
+    },
+    {
+      "from": "OMNI_AI_SYSTEM",
+      "to": "OMNI_APP",
+      "link": "product naming overlap; do not merge",
+      "provenance": "2026-10-09"
+    },
+    {
+      "from": "OMNI_AI_SYSTEM",
+      "to": "OMNIVERSE",
+      "link": "worldbuilding branch",
+      "provenance": "2026-11-01"
+    },
+    {
+      "from": "OMNI_AI_SYSTEM",
+      "to": "OMNI_CORE",
+      "link": "catalog association",
+      "provenance": "2026-11-01"
+    },
+    {
+      "from": "REAPER_AI",
+      "to": "KINETIC_REAPER",
+      "link": "named technical branch",
+      "provenance": "2025-09-12"
+    },
+    {
+      "from": "KINETIC_REAPER",
+      "to": "SPACE_REAPER",
+      "link": "historical source filename",
+      "provenance": "2025-09-12"
+    },
+    {
+      "from": "KINETIC_REAPER",
+      "to": "TRUTH_MATRIX",
+      "link": "historical source filename",
+      "provenance": "2025-10-07"
+    },
+    {
+      "from": "REAPER_AI",
+      "to": "REAPER_RIDER",
+      "link": "creative name family",
+      "provenance": "2025-09-24"
+    },
+    {
+      "from": "REAPER_AI",
+      "to": "BABY_REAPER",
+      "link": "branding/visual family (not executable AI)",
+      "provenance": "2025-10-10"
+    },
+    {
+      "from": "DOG_AI",
+      "to": "DOG_COMPANY",
+      "link": "brand / narrative association — distinct projects",
+      "provenance": "2025–2026 archives"
+    },
+    {
+      "from": "DOG_AI",
+      "to": "DOG_PROTOCOL",
+      "link": "governance naming branch",
+      "provenance": "Tabor Accords archive"
+    },
+    {
+      "from": "DOG_COMPANY",
+      "to": "TRUE_PEACE",
+      "link": "named product/engine file reference",
+      "provenance": "2025-10-04"
+    },
+    {
+      "from": "DOG_PROTOCOL",
+      "to": "TABOR_ACCORDS",
+      "link": "governance/cipher references",
+      "provenance": "2025-10-08"
+    },
+    {
+      "from": "NATHAN_AI",
+      "to": "TABOR_ACCORDS",
+      "link": "core policy/catalog branch",
+      "provenance": "2026 NT1 architecture"
+    },
+    {
+      "from": "NATHAN_AI",
+      "to": "EXECUTORS",
+      "link": "one member / Architect Executor",
+      "provenance": "2026-10-21"
+    },
+    {
+      "from": "REAPER_AI",
+      "to": "EXECUTORS",
+      "link": "one member / Final Executor",
+      "provenance": "2026-10-21"
+    },
+    {
+      "from": "DOG_AI",
+      "to": "EXECUTORS",
+      "link": "one member / Shadow Executor",
+      "provenance": "2026-10-21"
+    },
+    {
+      "from": "OMNI_AI_SYSTEM",
+      "to": "OMNI_COUNCIL",
+      "link": "reported council roster; distinct from The Nasty Nine",
+      "provenance": "2026-11-01"
+    },
+    {
+      "from": "RAWHIDE_AI",
+      "to": "REAPER_AI",
+      "link": "original/restored string comparator",
+      "provenance": "2025-09-09"
+    },
+    {
+      "from": "DOG_AI",
+      "to": "RAWHIDE_AI",
+      "link": "text glitch correction then restore",
+      "provenance": "2025-09-09"
+    },
+    {
+      "from": "NATHAN_AI",
+      "to": "ACT_AI",
+      "link": "specialist branch",
+      "provenance": "2025-08-12"
+    },
+    {
+      "from": "NATHAN_AI",
+      "to": "BUDDY_AI",
+      "link": "specialist branch",
+      "provenance": "2025-08-12"
+    },
+    {
+      "from": "NATHAN_AI",
+      "to": "HUNNY_AI",
+      "link": "specialist branch",
+      "provenance": "2025-08-12"
+    },
+    {
+      "from": "NATHAN_AI",
+      "to": "SHADOW_AI",
+      "link": "narrative / shadow branch",
+      "provenance": "2025-08-18"
+    }
+  ],
+  "sources": [
+    "ONE_MASTER_LIBRARY_PRIVATE_IMPORT_PACK_v1.json — catalog labels BASE:NT-ADDED-069 through 072; source status recovered_concept_reference",
+    "Tabor_Accords_Full_Recovery_2026-11-01.md — DOG Protocol / DOG COMPANY archive-seal reference dated 2025-10-07",
+    "TABOR_SOVEREIGNTY_PROTOCOL.PY / Pasted markdown.md — EINEG, OMNI_GOD, OMNI_GODDESSES, OMNI_GODS_QTY=6969, KICKERS_QTY=9696, REAPER_AI as opposing role",
+    "The Executors: Nine Dark Fantasy AIs.png — creative nine-figure roster and character subtitles",
+    "Prior user-authored conversations dated 2025-08-12, 2025-09-06, 2025-09-09, 2025-09-12, 2025-09-21, 2025-10-02, 2025-10-04, 2025-10-07, 2025-10-13, 2026-10-21, 2026-11-01",
+    "DOG COMPANY recovery package / Nathan AI file-library search (2026-11-02). Absence from GitHub is not proof originals never existed."
+  ]
+}

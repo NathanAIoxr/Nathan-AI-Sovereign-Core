@@ -7,6 +7,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
 const vm=require('node:vm');
+const {execFileSync}=require('node:child_process');
 const root=path.resolve(__dirname,'..');
 const factory=__dirname;
 function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(ent=>ent.isDirectory()?walk(path.join(dir,ent.name)):[path.join(dir,ent.name)])}
@@ -15,7 +16,13 @@ const read=file=>fs.readFileSync(file,'utf8');
 
 test('all public JavaScript files and HTML inline scripts have valid syntax',()=>{
  for(const file of sourceFiles){
-  if(file.endsWith('.js'))assert.doesNotThrow(()=>new vm.Script(read(file),{filename:file}),file);
+  if(file.endsWith('.js')){
+   const source=read(file);
+   if(/^\s*(?:import|export)\b/m.test(source)){
+    // Node checks ESM; vm.Script parses classic scripts only.
+    assert.doesNotThrow(()=>execFileSync(process.execPath,['--check',file],{stdio:'pipe',timeout:20000}),file);
+   }else assert.doesNotThrow(()=>new vm.Script(source,{filename:file}),file);
+  }
   if(!file.endsWith('.html'))continue;
   const page=read(file);
   for(const script of page.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)){

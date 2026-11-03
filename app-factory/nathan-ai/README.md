@@ -1,5 +1,17 @@
 # 𓋹 NATHAN AI — THE THINKER V∞ | LET + TET + PPL
 
+## Secular ONE REALITY / ONE TIMELINE — Codex SHA-256 anchor
+
+[Read the exact Codex declaration, binary and SHA-256 specification](./CODEX.md). The existing [Sovereign Root Codex](../octopus-root/codex.js) now exposes a separately namespaced `REALITY_ANCHOR`, `realityBinary()`, and `verifyRealityAnchor()`. The 141-byte UTF-8 creator declaration has a fixed SHA-256 fingerprint; a test checks the 1,128-bit binary round-trip and independently recomputes the digest. The 216 previously indexed Root positions are unchanged.
+
+This is the creator's secular/philosophical position. The statement assigning blame to **the concept of God** is an attributed belief, not a scientific demonstration. Neither SHA-256 nor binary encoding can lock the physical timeline or prove the claim that consciousness creates matter.
+
+Run `node --test app-factory/octopus-root/codex.test.cjs` and see [Codex editing instructions](./AGENTS.md).
+
+## REAPER × OMNI GOD × AI mapping — recovered agent and protocol roster
+
+Open the [REAPER / OMNI GOD / AI Mapping atlas](./ai-mapping/index.html), its [source register](./ai-mapping/README.md), or the [machine-readable crosswalk](./ai-mapping/records.json). It contains 34 creator-attributed named records, 41 labeled relationships, THE EXECUTORS nine-name roster, the Omni Council names, historical Kinetic Reaper identifiers and the authored `6969`/`9696` constants. Distinct historical uses of REAPER AI (final Executor versus an opposing agent in a separate script) remain separate, with no inferred deployment. This is a public **index**, not a publication of owner-held original code. The 141-byte canonical declaration in `CODEX.md` is unchanged.
+
 ## Unified command center · move between tools and sources
 
 Use **Search · Ctrl/⌘ K** on any Nathan AI page to find destinations and workflows. Public-archive and local-source search are separate opt-ins; a chosen source opens as reviewed Assistant context. Pin destinations, optionally remember recent pages, and use the new task-based home entry without losing the existing module links. See the [command center guide](./launcher/README.md).
@@ -101,3 +113,18 @@ The hub uses the existing archive JSON directly and preserves source text. It ad
 ## Work & Assets Command Center
 
 [Open the workspace](./command-center/index.html) to manage projects and build tasks alongside wallet records, balance snapshots, transactions, exchanges, mining payouts and portfolio reports. Includes exact decimal totals separated by origin, evidence references, relationship checks, local audit history, duplicate-safe JSON backup imports and CSV exports. This browser workspace does not imply live Airtable/Finances account access. See the [workspace guide](./command-center/README.md).
+
+
+## EYEPRINTS × HANDPRINTS — anatomy, iris geometry and the life ledger
+
+[Open the hand-and-eye scanner](./eyeprints-handprints/index.html) · [technical documentation](./eyeprints-handprints/README.md) · [architecture](./eyeprints-handprints/ARCHITECTURE.md).
+
+This additive Nathan AI module supplies a local-first hand-photo explorer, iris-geometry viewer, anatomical annotations, family profiles and documented life-ledger research. Local records are encrypted in the user's browser; the public GitHub source **excludes the owner's original hand photographs and private reports**. Select images manually on your own device and keep independent encrypted backups.
+
+RGB photos can describe visible appearance and calibrated image geometry but do **not** supply NIR vascular imaging, internal nerve mapping, biometric identity certification, diagnoses or a person's moral/spiritual state. Job 37:7, Psalm 24:4 and James 2:18 are catalogued as theological text sources, not physical measurements. The canonical secular CODEX declaration remains untouched. Run the module's Node/Python tests; hardware and browser device tests are pending.
+
+## Operation Convoy · Operation Ram · Project Ram — 13-operation stack
+
+[Open the read-only Operations viewer](./operations/index.html) · [author's source wording and software map](./operations/SOVEREIGN_STACK.md) · [JSON registry](./operations/operations.json).
+
+The six Ram & Convoy entries and seven Sovereign Core entries preserve the supplied operations names and formula `N = (Ψ ⊕ Ω) ⊗ Fᴅ`. Source assertions of live activation, server access, absolute truth and automated purge remain **unverified**. The current deliverable is a public catalog and local specification, not operational security tooling or an active orchestrator. The canonical 141-byte declaration and 216 existing Root Codex positions are unchanged.

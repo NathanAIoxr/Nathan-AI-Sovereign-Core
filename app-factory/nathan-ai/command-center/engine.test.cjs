@@ -12,7 +12,7 @@ test('clean workspace has eight empty tables and no invented holdings or balance
  const s=api.empty();assert.equal(Object.keys(s.records).length,8);assert.equal(Object.values(s.records).flat().length,0);assert.deepEqual(api.portfolio(s),[]);assert.deepEqual(api.parse(JSON.stringify(s)),s);
 });
 test('exact decimal arithmetic preserves atomic units and large balances',()=>{
- assert.equal(api.sum('0.1','0.2'),'0.3');assert.equal(api.sum('99999999999999999999999999999999','0.000000000000000001'),'99999999999999999999999999999999.000000000000000001');assert.equal(api.decimal('000.01000'),'0.01');for(const x of ['-1','NaN','1e10','0.0000000000000000001','1,000'])assert.throws(()=>api.decimal(x));
+ assert.equal(api.sum('0.1','0.2'),'0.3');assert.equal(api.sum('99999999999999999999999999999999','99999999999999999999999999999999'),'199999999999999999999999999999998');assert.equal(api.sum('99999999999999999999999999999999','0.000000000000000001'),'99999999999999999999999999999999.000000000000000001');assert.equal(api.decimal('000.01000'),'0.01');for(const x of ['-1','NaN','1e10','0.0000000000000000001','1,000'])assert.throws(()=>api.decimal(x));
 });
 test('updates are transactional, audited, and preserve original input',()=>{
  const s=put(api.empty(),'projects',project({id:'p1'}));assert.equal(s.revision,1);assert.equal(s.audit[0].action,'create');const next=put(s,'projects',{...s.records.projects[0],status:'complete'});assert.equal(s.records.projects[0].status,'active');assert.equal(next.audit[1].action,'update');assert.equal(next.revision,2);

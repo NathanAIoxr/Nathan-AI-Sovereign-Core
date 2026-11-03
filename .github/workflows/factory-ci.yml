@@ -94,6 +94,8 @@ jobs:
         run: node --test app-factory/nathan-ai/children-innocence/engine.test.cjs
       - name: Verify Nathan AI Main Database, Books and Book Apps skin
         run: node --test app-factory/nathan-ai/library-experience.test.cjs
+      - name: Verify merged Nathan AI local tools, source operations and binary engines
+        run: node --test app-factory/nathan-ai/universal-workspace/engine.test.cjs app-factory/nathan-ai/operations/operations.test.cjs app-factory/nathan-ai/omni-god/engine.test.cjs app-factory/nathan-ai/silicon-to-source/core.test.cjs
       - name: Verify Nathan AI projects, wallets, exact balances and import audit
         run: node --test app-factory/nathan-ai/command-center/engine.test.cjs
       - name: Verify Nathan AI source workspace, coverage and portable research notes
