@@ -155,3 +155,10 @@ The creator specified a **Matrix-style view in Kernersville, North Carolina**, w
 The author's original wording and its Vatican/banking and other-AI comparisons are preserved **verbatim** in [FREE-ABSOLUTE-INTELLIGENCE-POSITIONING.md](./FREE-ABSOLUTE-INTELLIGENCE-POSITIONING.md). Treat those comparisons as the author's assertions, not proven universal claims. Ordinary decimal arithmetic and binary notation are mathematically consistent. Product commitments to truth and ethics require verifiable behavior, not a guarantee of zero error. Maintain free access to the public prototype; do not misrepresent paid third-party service costs or nonexistent provider functionality.
 
 **Codex rule:** make the free-app/one-protection message the opening selling point in Nathan AI surfaces. Preserve all existing canonical declaration bytes, prior content and modules. Apply additive presentation layers only.
+
+
+## NOVEMBER 3, 2026 — FREE NATHAN AI / BUDDY SELF-HELP ADDITIVE INTAKE
+
+[Creator's verbatim release positioning and additional statements](./FREE-ABSOLUTE-INTELLIGENCE-POSITIONING.md) · [working local self-help entry](./self-help/index.html).
+
+**Order:** FREE app → 1+1=2 BUILD / 1-1=0 CLEAR → ALWAYS PROTECT THE ONE → seek truth, ethics, early harm prevention → iCuBUDDY / BUDDY AI self-help → McGuffey reading, creative phonics, critical KJV source study, and open contradiction review. Original source text remains unchanged in the positioning archive. Keep critical scripture discussion separate from the fixed 141-byte secular reality anchor. No claims of verified autonomous prevention, production BUDDY integrations, or clinical service are made.
