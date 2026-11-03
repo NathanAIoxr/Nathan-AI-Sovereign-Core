@@ -36,7 +36,7 @@ const fileInput=document.getElementById("file"), search=document.getElementById(
 const results=document.getElementById("results"), notice=document.getElementById("notice");
 const clear=document.getElementById("clear"), save=document.getElementById("save");
 const browse=document.getElementById("browse"), count=document.getElementById("count");
-let raw="", fileName="", stories=[];
+let raw="", fileName="", stories=[], originalBytes=null;
 function parseStories(markdown){
  const parts=markdown.split(/(?=^### S\d{2} — )/gm);
  return parts.slice(1).filter(x=>/^### S\d{2} — /.test(x)).map(part=>{
@@ -63,18 +63,19 @@ fileInput.addEventListener("change",async()=>{
  const chosen=fileInput.files&&fileInput.files[0];if(!chosen)return;
  if(chosen.size>5*1024*1024){notice.textContent="File larger than 5 MB. This small page reader has not imported it.";return;}
  try{
-  const text=await chosen.text(), parsed=parseStories(text);
+  const bytes=await chosen.arrayBuffer();
+  const text=new TextDecoder("utf-8",{fatal:true}).decode(bytes), parsed=parseStories(text);
   if(!parsed.length){notice.textContent="No S01-style numbered story records detected. Nothing was replaced.";return}
-  raw=text;fileName=chosen.name;stories=parsed;
+  raw=text;originalBytes=new Uint8Array(bytes);fileName=chosen.name;stories=parsed;
   document.getElementById("entire").textContent=raw;
   browse.hidden=false;clear.disabled=false;save.disabled=false;search.value="";render();
   notice.textContent="Loaded "+stories.length+" stories from "+fileName+". Local page memory only; no network transfer.";
  }catch{notice.textContent="Could not read the selected file. No data were changed."}
 });
 search.addEventListener("input",render);
-clear.addEventListener("click",()=>{raw="";fileName="";stories=[];fileInput.value="";search.value="";results.replaceChildren();document.getElementById("entire").textContent="";browse.hidden=true;clear.disabled=true;save.disabled=true;notice.textContent="Private file cleared from page memory."});
+clear.addEventListener("click",()=>{raw="";originalBytes=null;fileName="";stories=[];fileInput.value="";search.value="";results.replaceChildren();document.getElementById("entire").textContent="";browse.hidden=true;clear.disabled=true;save.disabled=true;notice.textContent="Private file cleared from page memory."});
 save.addEventListener("click",()=>{
- if(!raw)return;const blob=new Blob([raw],{type:"text/markdown;charset=utf-8"}),url=URL.createObjectURL(blob);
+ if(!raw)return;const blob=new Blob([originalBytes],{type:"text/markdown;charset=utf-8"}),url=URL.createObjectURL(blob);
  const link=document.createElement("a");link.href=url;link.download=fileName||"family-source.md";document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
 });
 </script></body></html>
