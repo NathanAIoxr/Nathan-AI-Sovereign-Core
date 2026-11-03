@@ -1,0 +1,32 @@
+name: Nathan AI Websites Quality
+on:
+  push:
+    branches:
+      - build/nathan-ai-websites-2026-11-03
+    paths:
+      - 'app-factory/nathan-ai/websites/**'
+      - 'app-factory/christmas-toy-drive/**'
+      - 'app-factory/nathan-ai/index.html'
+      - 'app-factory/index.html'
+      - '.github/workflows/nathan-ai-websites.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/websites/**'
+      - 'app-factory/christmas-toy-drive/**'
+      - 'app-factory/nathan-ai/index.html'
+      - 'app-factory/index.html'
+      - '.github/workflows/nathan-ai-websites.yml'
+permissions:
+  contents: read
+jobs:
+  static-sites:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Test portal and Toy Drive
+        run: node --test app-factory/nathan-ai/websites/site.test.cjs
