@@ -66,7 +66,7 @@ function point(event){const rect=canvas.getBoundingClientRect();return {x:(event
 function nearestEnemy(){return game.enemies.slice().sort((a,b)=>Math.hypot(a.x-.5,a.y-.53)-Math.hypot(b.x-.5,b.y-.53))[0]||{x:.5,y:.2}}
 function attack(at){const r=G.fire(game,game.selected,at);if(r.ok){sound(190+game.selected*52);persist()}else if(r.reason&&r.reason!=='Tentacle recharging.'){set('notice',r.reason)}refreshHud();}
 canvas.addEventListener('pointerdown',event=>{if(game.mode==='playing'&&!paused){const p=point(event);attack(p);canvas.focus({preventScroll:true})}});
-document.addEventListener('keydown',event=>{const tag=document.activeElement?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag))return;
+document.addEventListener('keydown',event=>{const focused=document.activeElement;const tag=focused?.tagName;if(event.defaultPrevented||event.ctrlKey||event.metaKey||event.altKey||focused?.isContentEditable||['INPUT','TEXTAREA','SELECT','BUTTON','A','SUMMARY'].includes(tag))return;
  if(/^[1-8]$/.test(event.key)){game.selected=Number(event.key)-1;quickWeapons();refreshHud();}
  else if(event.code==='Space'&&game.mode==='playing'&&!paused){event.preventDefault();const e=nearestEnemy();attack({x:e.x,y:e.y})}
  else if(event.key.toLowerCase()==='p')togglePause();

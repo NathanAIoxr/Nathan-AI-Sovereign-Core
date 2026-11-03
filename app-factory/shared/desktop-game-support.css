@@ -1,0 +1,17 @@
+/* Responsive, keyboard-friendly additive desktop layer. Existing game layouts remain in charge. */
+html.nathan-desktop-game {scroll-padding-top:1.5rem}
+html.nathan-desktop-game,html.nathan-desktop-game body{max-width:100%;overflow-x:clip}
+html.nathan-desktop-game canvas,html.nathan-desktop-game img,html.nathan-desktop-game video{max-width:100%;height:auto}
+html.nathan-desktop-game button,html.nathan-desktop-game a,html.nathan-desktop-game [role="button"]{touch-action:manipulation}
+html.nathan-desktop-game :focus-visible{outline:3px solid #fbe091!important;outline-offset:3px}
+.nathan-desktop-toolbar{position:relative;box-sizing:border-box;width:100%;margin:0 0 18px;padding:13px 16px;border:1px solid #668b9c;border-radius:14px;background:#152938;color:#edf8fa;box-shadow:0 9px 24px #0002;font:14px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.nathan-desktop-top,.nathan-desktop-actions,.nathan-desktop-links{display:flex;align-items:center;flex-wrap:wrap;gap:9px 15px}
+.nathan-desktop-top{justify-content:space-between}.nathan-desktop-top strong{font-size:11px;letter-spacing:.16em;color:#b6f1d7}
+.nathan-desktop-links a{color:#c5e9ff;text-decoration:underline;text-underline-offset:3px;font-size:12px}.nathan-desktop-links a:hover{color:#fff}
+.nathan-desktop-actions{margin-top:11px}.nathan-desktop-actions>button{border:1px solid #7793a1;border-radius:9px;background:#253f51;color:#f7fdff;padding:9px 13px;min-height:40px;cursor:pointer;font:inherit;font-weight:700}.nathan-desktop-actions>button:hover{background:#345469}
+.nathan-desktop-help{max-width:100%;border:1px solid #658391;border-radius:9px;padding:9px 13px;background:#1c3545;flex:1 1 220px}.nathan-desktop-help summary{cursor:pointer;font-weight:750;color:#e5f5fa}.nathan-desktop-help p{margin:10px 0 0;color:#d1e2e9;font-size:13px;line-height:1.55}
+.nathan-desktop-status{color:#f8dea4;font-size:12px;line-height:1.4;margin:6px 0 0;min-height:0}.nathan-desktop-status:empty{display:none}
+html.nathan-desktop-game main:fullscreen{box-sizing:border-box;width:100%;max-width:none;min-height:100%;height:100%;margin:0;padding:clamp(12px,2vw,25px);overflow:auto;background:#081625;color:#f0f7fa}
+@media(min-width:1000px){.nathan-desktop-toolbar{padding:16px 20px}}
+@media(max-width:620px){.nathan-desktop-toolbar{padding:11px}.nathan-desktop-actions>button{flex:1 1 auto}.nathan-desktop-help{flex-basis:100%}}
+@media(prefers-reduced-motion:reduce){.nathan-desktop-toolbar,.nathan-desktop-toolbar *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
