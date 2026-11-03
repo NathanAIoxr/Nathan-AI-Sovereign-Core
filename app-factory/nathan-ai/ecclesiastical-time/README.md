@@ -70,3 +70,35 @@ The earlier pasted conversation explores old oak trees, the possibility that an 
 - **Controls:** Past / Present / Future, Natural / Spiritual, Literal / Figurative / Mythological, Hourglass / Vertical Stack; assistive labels and reduced-motion.
 - **Preservation:** exact quotes immutable in source archive; generated explanatory copy separate; no alteration to existing 141-byte reality anchor.
 - **Release:** this Markdown is a documentation/source intake, not a claim of a deployed interactive module or of imported private artwork.
+
+## Kernersville Matrix — all timelines above and below (2026-11-02)
+
+### Original quotation — exact standalone source
+
+> I’m sitting on top of everything that’s ever sat here - while at the same time I’m being sat on everything that will ever sit here. - Nathan Tabor
+
+**Creator's subsequent image direction (verbatim):**
+
+> Do what it looks like visually - do it like a matrix type image where I’m sitting in Kernersville North Carolina all the timelines are directly underneath me all the timelines are directly above me. I’m sitting on them and they’re sitting on me.
+
+### Canonical composition
+
+- **Geographic anchor:** Kernersville, North Carolina, as identified by the creator. A recognizable town, land and ground plane form the **present** slice; this is a creative reconstruction, not a surveyed geolocation or historical map.
+- **Center:** a single seated observer at the precise place, facing away, with no visible face or invented portrait identity. The observer is seated **on top of all the past layers**, while **all the future layers are directly overhead**, expressed as a visual load above the observer. The reciprocal seated-on / being-sat-on relationship must read clearly, not just as two unrelated columns of pictures.
+- **Below:** directly aligned, vertically stacked translucent timelines: current land descending through older Kernersville streets and settlements, earlier cultures and landscapes, prehistoric life, geology and deep time. Distinguish illustrative periods from verified local archaeology.
+- **Above:** directly aligned, vertically stacked translucent possible-future timelines, extending from near-future built places to distant possibilities and cosmic imagery; future scenes are **speculative**, not predictions.
+- **Aesthetic:** green cascading digital code, layered glowing holographic rings/discs, deep black background, a vertical illuminated line passing through every timeline, precise depth and cinematic scale, strong center focal point; legible on a phone.
+- **Spatial rule:** FUTURE / ABOVE / PRESSING DOWN → PRESENT / KERNERSVILLE / SEATED OBSERVER → PAST / BELOW / SUPPORTING THE OBSERVER. Both stacks occupy the same horizontal coordinate. An hourglass is not required.
+- **Quotation:** render **only the exact creator wording** of the original quote with the attribution “- Nathan Tabor”; do not silently substitute an interpretation, edit punctuation, or add invented words into the quoted line. Supplementary diagram labels must be visually separate.
+- **Face rule:** no random human faces, no facial features, no invented likeness; do not present an anonymous figure as a verified portrait of Nathan Tabor.
+
+### Visual-state/provenance record
+
+An image was generated in this conversation of a neon-green, Matrix-style, vertically stacked time-tower over Kernersville, with a rear-facing seated figure centered between future layers above and past layers below. The user asked to incorporate **all that** into Nathan AI. The original generated PNG is conversation artwork; the repository's Markdown source documents its composition **without claiming the PNG has been committed to GitHub or published in the app**. The creator's exact quotation, original image directive, artistic specification and explanatory interpretation remain distinct source records.
+
+### Nathan AI integration record
+
+- **Route:** Nathan AI → Codex → Ecclesiastical Time → **Kernersville Matrix / Above and Below**.
+- **Modes:** original exact quote; Matrix vertical stack; earlier Hourglass; Past / Present / Future; optional KJV study layers. This new visual does **not** overwrite the earlier Ecclesiastical Time material.
+- **Data model fields:** `creator_quote_exact`, `creator_visual_direction_exact`, `location_label`, `past_layers`, `present_anchor`, `future_layers`, `design_constraints`, `art_asset_status`.
+- **Status:** documentary specification and source preservation completed; interactive view and binary image import are **not** represented as deployed.
