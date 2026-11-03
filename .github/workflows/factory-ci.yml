@@ -170,6 +170,9 @@ jobs:
         run: node --test app-factory/one/health/health.test.cjs
       - name: Verify ONE 101–901 Master Library privacy and import boundaries
         run: node --test app-factory/one/library/library.test.cjs
+      - name: Verify DATA ATAD original-preserving binary and phonics core
+        run: node --test app-factory/one/data-atad/test.mjs
+
       - name: Verify ONE connected apps, books, images and owner-approved graph
         run: node --test app-factory/one/connected/connected.test.cjs
       - name: Verify ONE Trials playable geometry and private source boundary
