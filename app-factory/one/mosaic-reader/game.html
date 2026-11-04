@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Mosaic Reader — Cipher Quest | Nathan Tabor</title>
+<style>
+:root{--bg:#111923;--card:#1c2a36;--panel:#263541;--line:#496071;--ink:#faf4e8;--muted:#b4c1c9;--gold:#f2c87d;--teal:#8de4d4;--red:#ffaaa5}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#2e3b4d,#111923 65%);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+a{color:var(--teal)}header,main,footer{width:min(1080px,94%);margin:auto}header{padding:28px 0 14px}.eyebrow{color:var(--gold);letter-spacing:.15em;text-transform:uppercase;font-size:.8rem}h1{margin:.15rem 0;font-size:clamp(1.9rem,5vw,3.5rem)}h2{color:var(--gold)}p{max-width:85ch}.muted{color:var(--muted)}.ribbon{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:12px 0 20px}.ribbon>*{border:1px solid var(--line);border-radius:40px;padding:6px 12px;background:#172733}.panel{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:20px;box-shadow:0 20px 50px #0004;margin:16px 0}.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(208px,1fr));gap:12px}.mode{border:1px solid var(--line);border-radius:12px;padding:15px;background:var(--panel);text-align:left;color:var(--ink);cursor:pointer;min-height:130px}.mode strong{display:block;color:var(--gold);font-size:1.05rem}.mode small{display:block;color:var(--muted);margin-top:4px}.mode[aria-pressed="true"]{outline:2px solid var(--teal)}button{font:inherit}button:focus-visible,a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}.btn{border:1px solid var(--gold);background:#f1c879;color:#1d2530;border-radius:9px;padding:10px 17px;font-weight:750;cursor:pointer}.secondary{background:#293d48;color:var(--ink);border-color:var(--line)}.btn:disabled{opacity:.55;cursor:default}.challenge{min-height:225px;display:flex;flex-direction:column;justify-content:center;gap:7px}.glyph{font-family:"Segoe UI Symbol","Noto Sans Ogham",serif;font-size:clamp(4rem,11vw,7rem);color:var(--gold);line-height:1.2;white-space:pre-wrap}.question{font-size:clamp(1.25rem,2.6vw,1.9rem);font-weight:650;margin:10px 0}.answergrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.answer{border:1px solid var(--line);background:#2b3c48;color:var(--ink);min-height:65px;cursor:pointer;text-align:left;padding:13px;border-radius:12px}.answer:disabled{cursor:default}.answer.correct{border-color:var(--teal);background:#19514d}.answer.wrong{border-color:var(--red);background:#573734}.feedback{padding:13px;border-left:4px solid var(--gold);background:#233542;border-radius:7px;margin:14px 0;min-height:50px}.tools{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}progress{width:100%;height:17px;accent-color:var(--teal)}.stats{display:flex;flex-wrap:wrap;gap:10px}.stat{background:#20303e;padding:8px 11px;border-radius:7px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:650px}th,td{padding:8px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--gold)}.symbol{font-size:24px}.hide{display:none!important}footer{border-top:1px solid var(--line);padding:22px 0 40px;margin-top:26px;color:var(--muted)}@media(max-width:570px){.answergrid{grid-template-columns:1fr}.panel{padding:14px}}
+</style></head><body>
+<header><div class="eyebrow">The Taborite Model · by Nathan Tabor</div><h1>CIPHER QUEST</h1><p>THE MOSAIC READER GAME · Learn the Ogham grid, follow architectural placement, and distinguish original evidence from interpretation. No account, server, or external libraries required.</p>
+<div class="ribbon"><a href="./index.html">Project home</a><a href="./reader.html">Open research reader</a><a href="./books/README.md">Book series</a><span>1 + 1 = 2 BUILD · 1 − 1 = 0 CLEAR</span></div></header>
+<main>
+<section class="panel"><h2>Choose a Quest</h2><div class="steps" id="modes"></div><div class="tools"><button id="start" class="btn">Start quest</button><button id="reset" class="btn secondary">Reset saved progress</button><button id="export" class="btn secondary">Export progress JSON</button></div><p class="muted">Use 1–4 for answers and Enter to continue. Progress is saved only in this browser; exporting makes a portable record.</p></section>
+<section class="panel" aria-labelledby="gameTitle"><h2 id="gameTitle">Quest board</h2>
+<div class="stats"><span class="stat">Quest <b id="stageName">Select one</b></span><span class="stat">Question <b id="step">0 / 0</b></span><span class="stat">XP <b id="xp">0</b></span><span class="stat">Correct <b id="correct">0</b></span><span class="stat">Best <b id="best">0</b></span></div>
+<progress id="bar" value="0" max="10"></progress>
+<div class="challenge" id="challenge"><p class="muted">Select a quest and press Start. This game's answers are limited to documented letter positions and explicit conceptual categories—not unsourced historical decipherments.</p></div>
+<div id="answers" class="answergrid" role="group" aria-label="Answer choices"></div>
+<div id="feedback" class="feedback" role="status" aria-live="polite">Ready for your first move.</div>
+<div class="tools"><button id="hint" class="btn secondary" disabled>Reveal a hint</button><button id="next" class="btn" disabled>Continue</button></div></section>
+<section class="panel"><h2>Master coordinates · The 4 × 5 chart</h2>
+<p>Read a sign by <strong>family, then count</strong>. The diagonal family is historically ordered H, D, T, C, Q; the later forfeda are recorded separately. Sound and root associations require manuscript and linguistic context.</p><div class="tablewrap"><table><thead><tr><th>Family / coordinate</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead><tbody id="chart"></tbody></table></div>
+<p class="muted">BELOW = floor/subconscious; MIDDLE = walls/columns/consciousness; ABOVE = dome/heavens/supra-consciousness. These are Nathan Tabor's interpretive labels, not universal archaeological classifications.</p></section>
+</main><footer>The Mosaic Reader — Cipher Quest · Nathan Tabor · Offline educational game. Original text stays separate from speculative readings. No people or portrait imagery.</footer>
+<script>
+"use strict";
+const FAMILIES=[
+ {name:"F1 · RIGHT",gesture:"Right-side strokes",letters:[["ᚁ","B","Beith"],["ᚂ","L","Luis"],["ᚃ","F","Fearn"],["ᚄ","S","Saille"],["ᚅ","N","Nion"]]},
+ {name:"F2 · ACROSS",gesture:"Diagonal / across",letters:[["ᚆ","H","Uath"],["ᚇ","D","Dair"],["ᚈ","T","Tinne"],["ᚉ","C","Coll"],["ᚊ","Q","Ceirt"]]},
+ {name:"F3 · LEFT",gesture:"Left-side strokes",letters:[["ᚋ","M","Muin"],["ᚌ","G","Gort"],["ᚍ","NG","Ngeadal"],["ᚎ","ST","Straif"],["ᚏ","R","Ruis"]]},
+ {name:"F4 · CENTER",gesture:"Center / vowels",letters:[["ᚐ","A","Ailm"],["ᚑ","O","Onn"],["ᚒ","U","Ur"],["ᚓ","E","Eadhadh"],["ᚔ","I","Iodhadh"]]}
+];
+const SIGNS=FAMILIES.flatMap((f,fi)=>f.letters.map((a,i)=>({glyph:a[0],sound:a[1],name:a[2],family:f.name,count:i+1,gesture:f.gesture,fi:fi})));
+const LATER=[["ᚕ","EA","Eabhadh"],["ᚖ","OI","Óir"],["ᚗ","UI","Uilleann"],["ᚘ","IA / IO","Ifín"],["ᚙ","AE","Eamhancholl"]];
+const $=id=>document.getElementById(id);
+const MODES=[
+ {id:"signs",title:"1 · Ogham Alphabet",desc:"Identify original glyphs, coordinates, and counts. 10 challenges."},
+ {id:"spine",title:"2 · The Stroke Grid",desc:"Read families and number patterns without guessing translations. 10 challenges."},
+ {id:"planes",title:"3 · Below / Middle / Above",desc:"Classify architectural placement in the Taborite Model. 10 challenges."},
+ {id:"archive",title:"4 · The Evidence Vault",desc:"Tell observations, sourced claims, and symbolic proposals apart. 10 challenges."},
+ {id:"all",title:"5 · Master Decoder",desc:"Mixed challenges from every layer. 15 challenges."}
+];
+const PLANE=[
+ ["Floor in the original installation","BELOW","MIDDLE","ABOVE","UNPLACED","Underworld/subconscious belongs to the model's BELOW layer."],
+ ["Eye-level wall panel","MIDDLE","BELOW","ABOVE","UNPLACED","Walls and columns correspond to MIDDLE/consciousness."],
+ ["Ceiling mosaic overhead","ABOVE","BELOW","MIDDLE","UNPLACED","Vaults and domes correspond to ABOVE/supra-consciousness."],
+ ["Column capital at eye height","MIDDLE","ABOVE","BELOW","UNPLACED","An eye-level column belongs to the MIDDLE plane."],
+ ["Mosaic provenance not recorded","UNPLACED","BELOW","MIDDLE","ABOVE","Unknown placement stays unplaced rather than guessed."],
+ ["Pavement mosaic beneath a visitor","BELOW","ABOVE","MIDDLE","UNPLACED","A floor is BELOW."],
+ ["High overhead apse vault","ABOVE","BELOW","MIDDLE","UNPLACED","A vault overhead is ABOVE."],
+ ["Original location lost after removal","UNPLACED","ABOVE","BELOW","MIDDLE","Record the uncertainty; don't invent the source position."],
+ ["An inscribed wall at face height","MIDDLE","ABOVE","BELOW","UNPLACED","Eye-level walls are MIDDLE."],
+ ["A preserved in-situ floor","BELOW","MIDDLE","ABOVE","UNPLACED","Proven installation on the floor is BELOW."]
+];
+const EVIDENCE=[
+ ["You can count five visible grooves on a photographed stone.","Observed mark count","Proven religious code","Automatic word translation","A decoded supernatural message","Counted grooves are directly observable; interpretations require another evidence layer."],
+ ["A scholar proposes a meaning for a symbol, with no ancient inscription naming it.","Interpretive hypothesis","Confirmed inscription","Original photograph","Phonetic fact","Separate the proposed reading from direct evidence."],
+ ["An artifact label gives excavation site and catalog number.","Provenance record","Verified universal cipher","Ogham word translation","A precise sound recording","A source label documents provenance, not a hidden message."],
+ ["Unicode counts six code points in a string.","Text encoding measurement","Six chisel strokes","Six spoken syllables","Six acoustic bursts","Code points cannot determine marks or speech."],
+ ["An Ogham sign ᚇ is entered.","D: family 2, count 2","D: family 3, count 1","T: family 2, count 2","O: vowel family 2","The historical H-D-T-C-Q series puts D second in family 2."],
+ ["You substitute modern TABOR into Ogham characters.","Modern letter substitution","Verified Primitive Irish translation","Ancient Taborite inscription","Proof of genealogy","Letter mapping is not an attested ancient translation."],
+ ["A historical manuscript uses a forfid in a nonstandard way.","Record variant and source","Force one fixed meaning","Delete the reading","Claim universal validity","Forfeda values vary across textual traditions."],
+ ["A visitor says a floor scene represents the subconscious.","Taborite conceptual reading","Excavation record","Original inscription","Verifiable translation","Preserve the symbolic reading as a distinct interpretive layer."],
+ ["A speaker provides an IPA transcription.","Phonetic annotation","Guaranteed etymology","Visual glyph geometry","Automatic acoustic frequency reading","IPA describes pronunciation, not automatic semantics."],
+ ["A rune or Ogham character is not recognized.","Keep original symbol and flag unknown","Guess its meaning","Replace it with an English letter","Discard the source","Unknown symbols should be preserved, never silently changed."]
+];
+const SAVEKEY="tmr-cipher-quest-v1";let progress={xp:0,best:{},rounds:0,correct:0},mode="signs",round=null;
+try{const x=JSON.parse(localStorage.getItem(SAVEKEY));if(x&&typeof x==="object")progress=Object.assign(progress,x)}catch(_){}
+function save(){try{localStorage.setItem(SAVEKEY,JSON.stringify(progress))}catch(_){}}
+function shuffle(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function optionSet(correct,pool){return shuffle([correct,...shuffle([...new Set(pool.filter(x=>x!==correct))]).slice(0,3)])}
+function signQuestions(){return SIGNS.map(s=>({tag:"Read the sign",display:s.glyph,prompt:"Which Latin-letter value belongs to this Ogham sign?",correct:s.sound,options:optionSet(s.sound,SIGNS.map(x=>x.sound)),why:s.glyph+" = "+s.sound+" · "+s.name+" · "+s.family+" · "+s.count+" marks.",hint:"Locate "+s.family+" and count "+s.count+" strokes."}))}
+function countQuestions(){return SIGNS.map(s=>({tag:"Count the gestures",display:s.glyph,prompt:"What is the count within its five-letter family?",correct:String(s.count),options:shuffle(["1","2","3","4","5"]).slice(0,4).includes(String(s.count))?optionSet(String(s.count),["1","2","3","4","5"]):optionSet(String(s.count),["1","2","3","4","5"]),why:s.glyph+" = "+s.family+", mark "+s.count+" of 5.",hint:"The family is "+s.family+"."}))}
+function familyQuestions(){return SIGNS.map(s=>({tag:"Find the branch",display:s.glyph,prompt:"Which family contains this sign?",correct:s.family,options:shuffle(FAMILIES.map(f=>f.name)),why:s.glyph+" lies in "+s.family+". "+s.gesture+".",hint:"Its sound is "+s.sound+"."}))}
+function planeQuestions(){return PLANE.map(x=>({tag:"Architectural planes",display:"▱  ◇  △",prompt:x[0]+": which placement label?",correct:x[1],options:shuffle(x.slice(1,5)),why:x[5],hint:"BELOW=floor · MIDDLE=eye level · ABOVE=overhead · UNPLACED=unknown."}))}
+function evidenceQuestions(){return EVIDENCE.map(x=>({tag:"The evidence vault",display:"□  ↔  ◇",prompt:x[0],correct:x[1],options:shuffle(x.slice(1,5)),why:x[5],hint:"Distinguish a direct observation, a sourced record, and an interpretive statement."}))}
+function createDeck(m){const s=signQuestions(),c=countQuestions(),f=familyQuestions(),p=planeQuestions(),e=evidenceQuestions();let bank=m==="signs"?s:m==="spine"?c.concat(f):m==="planes"?p:m==="archive"?e:s.concat(c,f,p,e);let count=m==="all"?15:10;let q=[];while(q.length<count){q.push(...shuffle(bank).slice(0,count-q.length))}return q.slice(0,count)}
+function modesUI(){const el=$("modes");el.replaceChildren();MODES.forEach(m=>{let b=document.createElement("button");b.className="mode";b.type="button";b.setAttribute("aria-pressed",String(mode===m.id));const title=document.createElement("strong");title.textContent=m.title;const small=document.createElement("small");small.textContent=m.desc;b.append(title,small);b.onclick=()=>{mode=m.id;modesUI();$("stageName").textContent=m.title};el.append(b)})}
+function chart(){FAMILIES.forEach(f=>{const tr=document.createElement("tr");const th=document.createElement("th");th.textContent=f.name;tr.append(th);f.letters.forEach(v=>{const td=document.createElement("td");const span=document.createElement("span");span.className="symbol";span.textContent=v[0];td.append(span,document.createTextNode("  "+v[1]+" · "+v[2]));tr.append(td)});$("chart").append(tr)});const tr=document.createElement("tr");const th=document.createElement("th");th.textContent="Later forfeda";tr.append(th);LATER.forEach(v=>{const td=document.createElement("td");const sp=document.createElement("span");sp.className="symbol";sp.textContent=v[0];td.append(sp,document.createTextNode("  "+v[1]));tr.append(td)});$("chart").append(tr)}
+function metrics(){const ix=round?round.index:0,len=round?round.deck.length:10;$("step").textContent=ix+" / "+len;$("bar").value=ix;$("bar").max=len;$("xp").textContent=progress.xp;$("correct").textContent=progress.correct;$("best").textContent=progress.best[mode]||0}
+function start(){round={deck:createDeck(mode),index:0,points:0,answered:false,hint:false};$("stageName").textContent=MODES.find(x=>x.id===mode).title;show()}
+function show(){metrics();if(!round)return;const q=round.deck[round.index];$("challenge").replaceChildren();$("answers").replaceChildren();if(!q){const heading=document.createElement("h2");heading.textContent="Quest complete!";const msg=document.createElement("p");msg.textContent="Score: "+round.points+"/"+round.deck.length+". This reading preserves evidence and clearly labels interpretation."; $("challenge").append(heading,msg);$("feedback").textContent="Your progress is saved locally. Choose any quest to play again.";progress.best[mode]=Math.max(round.points,progress.best[mode]||0);progress.rounds++;save();$("next").disabled=true;$("hint").disabled=true;metrics();return;}
+let tag=document.createElement("div");tag.className="eyebrow";tag.textContent=q.tag;
+let glyph=document.createElement("div");glyph.className="glyph";glyph.textContent=q.display;
+let prompt=document.createElement("div");prompt.className="question";prompt.textContent=q.prompt;
+$("challenge").append(tag,glyph,prompt);
+q.options.forEach((opt,i)=>{let btn=document.createElement("button");btn.className="answer";btn.type="button";btn.textContent=(i+1)+". "+opt;btn.onclick=()=>answer(i);$("answers").append(btn)});
+$("feedback").textContent="Choose an answer or reveal a hint.";round.answered=false;round.hint=false;$("next").disabled=true;$("hint").disabled=false;
+}
+function answer(i){if(!round||round.answered||round.index>=round.deck.length)return;const q=round.deck[round.index],ch=q.options[i],good=ch===q.correct;round.answered=true;round.index++;if(good){round.points++;progress.correct++;progress.xp+=round.hint?5:10}else{progress.xp+=1}Array.from($("answers").children).forEach((b,j)=>{b.disabled=true;if(q.options[j]===q.correct)b.classList.add("correct");else if(i===j)b.classList.add("wrong")});
+$("feedback").textContent=(good?"✓ Correct. ":"Not quite. Correct answer: "+q.correct+". ")+q.why;$("next").disabled=false;$("hint").disabled=true;save();metrics();$("next").focus();}
+$("start").onclick=start;$("next").onclick=show;$("hint").onclick=()=>{if(round&&!round.answered){$("feedback").textContent="Hint: "+round.deck[round.index].hint;round.hint=true;$("hint").disabled=true}};
+$("reset").onclick=()=>{if(!window.confirm("Clear saved XP, best scores, and rounds on this device?"))return;progress={xp:0,best:{},rounds:0,correct:0};save();round=null;$("challenge").textContent="Progress reset. Choose a quest and press Start.";$("answers").replaceChildren();$("feedback").textContent="No quiz in progress.";$("next").disabled=true;$("hint").disabled=true;metrics()};
+$("export").onclick=()=>{const data={game:"The Mosaic Reader — Cipher Quest",author:"Nathan Tabor",version:1,exported:new Date().toISOString(),progress:progress};const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const u=URL.createObjectURL(blob);const a=document.createElement("a");a.href=u;a.download="mosaic-reader-quest-progress.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};
+window.addEventListener("keydown",e=>{if(e.altKey||e.metaKey||e.ctrlKey)return;if(e.key==="Enter"&&!$("next").disabled){e.preventDefault();show()}else if(/^[1-4]$/.test(e.key)&&round&&!round.answered){const b=$("answers").children[Number(e.key)-1];if(b)b.click()}});
+if(SIGNS.length!==20||LATER.length!==5||SIGNS.find(x=>x.glyph==="ᚇ").count!==2)throw Error("Invalid master letter grid");
+modesUI();chart();metrics();
+</script></body></html>
