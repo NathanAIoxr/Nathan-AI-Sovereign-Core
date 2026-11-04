@@ -58,6 +58,16 @@ Reported revenue **$162,027,025**, expense **$178,902,483**, net loss/difference
 - Executive director/CEO Surita Sandosham; board oversight and audit checks documented through BBB review. Compensation numbers must be matched to their **source reporting year**.
 - Risk categories: project effectiveness, restricted funds, program sustainability, animal welfare, climate, currency, political instability, disaster, donor privacy, fundraising costs, mission-to-marketing gap.
 
+## 6A. Independent experimental evidence: Nebraska? No — Nepal (2014–2018)
+
+A published USAID Feed the Future/UC Davis–linked evaluation used a randomized controlled trial of Heifer's Smallholders in Livestock Value Chain program in **rural Nepal**, covering **2,369 participating households** across program comparisons. It compared (1) goats plus values and technical training, (2) values and technical training without a goat transfer, (3) goats and technical training without values training, and (4) a control group.
+
+The evaluators found **larger goat herds, improved husbandry, greater goat sales/profit, women's participation in goat-enterprise decisions and financial inclusion**. Goat-production revenue and income were reported to rise roughly **70–100%**, but goats represented only about **2% of typical household income** in the study. **A statistically detectable improvement in total household income was not established**. This is a critical limitation on saying the intervention lifted all participants out of poverty.
+
+Including direct and pay-it-forward beneficiaries, modeled benefit–cost ratios were **2.5** for the full treatment and **3.7** for values/technical training without direct goats, compared with **1.4** for goats and technical training without the pay-it-forward component. These are study- and model-specific, including assumed future benefits; do not generalize them across all Heifer countries or describe them as guaranteed returns. Training and local market systems may be as important as purchasing physical assets.
+
+Independent evaluation: https://basis.ucdavis.edu/publication/evaluation-welfare-impacts-livestock-transfer-program-nepal
+
 ## 7. Heifer to Christmas Toy Drive: direct architecture
 ### Independent identities
 Christmas Toy Drive is not Heifer International. Its source site is part of the independently managed Nathan AI and TABOR 1-2-3 FACTORY websites. Keep charity accounting separate from personal income and ordinary site sales.
