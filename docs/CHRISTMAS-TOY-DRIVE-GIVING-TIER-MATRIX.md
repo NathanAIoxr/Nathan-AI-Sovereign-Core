@@ -78,6 +78,19 @@ Codes: \`H\` = Heifer's catalog has a comparable dollar tier (concept only, no H
 
 **Passing on the Gift adapted:** Reusable toy donations when checked for recall, age safety, cleanliness and integrity; reusable clothing only when appropriate; food under separate food safety controls. Optional volunteering, community drives and skill-sharing can multiply program capacity. Receiving families are not required to repay or 'pass on' donated goods.
 
+### 4A. The 365 Giving Circle (monthly *manual intentions* until merchant approval)
+
+| Proposed monthly intention | Core giving focus |
+|---|---|
+| Little Spark — $5 | Toys & Learning |
+| Warm Hands — $10 | Clothing & Warmth |
+| Pantry Promise — $20 | Food & Meals |
+| Family Circle — $30 | Family Essentials |
+| Every Month Matters — $50 | Toys & Learning |
+| Community Builder — $100 | Where Needed Most |
+
+No checkout subscription, recurring billing, payment reminder, tax receipt or subscriber email is created in the present static prototype. Any recurring pledge is optional and must be clearly distinguished from settled contributions.
+
 ### 5. Micro: donation-to-delivery state ledger
 - \`planned\`: donor intent only.
 - \`payment_started\`: link or merchant checkout opened.
