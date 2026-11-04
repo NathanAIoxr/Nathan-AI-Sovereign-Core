@@ -7,10 +7,10 @@ const vm=require('node:vm');
 const c=require('./catalog-data.js');
 const html=fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
 const app=fs.readFileSync(path.join(__dirname,'catalog-app.js'),'utf8');
-test('catalog has 30 ascending unique amounts, three fully mapped core categories',()=>{
+test('catalog has 31 ascending unique amounts, three fully mapped core categories',()=>{
  assert.equal(c.schema,'christmas-toy-drive.giving-catalog.v1');
  assert.equal(c.tiers.length,31);
- assert.equal(new Set(c.tiers.map(t=>t.amount)).size,30);
+ assert.equal(new Set(c.tiers.map(t=>t.amount)).size,31);
  for(let i=0;i<c.tiers.length;i++){
    const t=c.tiers[i];assert.ok(Number.isInteger(t.amount)&&t.amount>0);
    if(i)assert.ok(t.amount>c.tiers[i-1].amount);
