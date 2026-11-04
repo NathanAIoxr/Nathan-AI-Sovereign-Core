@@ -31,5 +31,6 @@ document.getElementById('copy-plan').addEventListener('click',()=>{
  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(note).then(()=>status.textContent='Giving plan copied. No money transferred.').catch(()=>status.textContent='Copy access is unavailable in this browser.');
  else status.textContent='Copy access is unavailable in this browser.';
 });
+document.querySelectorAll('[data-monthly]').forEach(b=>b.addEventListener('click',()=>{p.value=b.dataset.category;a.value=b.dataset.monthly;f.value='monthly';render();document.getElementById('builder').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}));
 render();
 })();
