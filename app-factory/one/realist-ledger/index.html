@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1323"><meta name="description" content="NATHAN AI — 101-Action Chronicle: local-first ledger reader, 101-gate game, and four-volume book series.">
+<title>NATHAN AI 🚀 · The 101-Action Chronicle</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell"><header class="site-header">
+  <div class="brand"><span class="brand-mark" aria-hidden="true">N<span class="orbit">✦</span></span><div><strong>NATHAN AI 🚀</strong><small>ONE · ORIGINAL WORKS · 101-ACTION CHRONICLE</small></div></div>
+  <div class="status" id="sourceStatus" role="status">Public shell · no private source loaded</div>
+</header>
+<section class="hero" aria-labelledby="appTitle"><div class="eyebrow">THE REALIST FRAMEWORK / ORIGINAL WORKS</div><h1 id="appTitle">101 actions.<br><em>Four volumes.</em> One archive.</h1><p>Explore the numbered ledger, play the 101 Gates challenge, and export a four-book manuscript series. The author’s source language remains unchanged; annotations live in a separate local layer.</p>
+  <div class="hero-stats"><div><b>101</b><span>Ledger positions</span></div><div><b>4</b><span>Source volumes</span></div><div><b>101</b><span>Playable gates</span></div><div><b>0 / 1</b><span>Clear / Build</span></div></div>
+</section>
+<nav class="tabs" aria-label="Chronicle sections"><button data-tab="ledger" class="selected" aria-current="page">01 · LEDGER</button><button data-tab="game">02 · 101 GATES</button><button data-tab="books">03 · BOOK SERIES</button><button data-tab="source">04 · SOURCE & METHODS</button></nav>
+<main id="main">
+<section class="view" id="view-ledger"><div class="section-head"><div><div class="eyebrow">SEARCHABLE FILING CABINET</div><h2>The action ledger</h2></div><span id="ledgerCount" class="muted"></span></div>
+  <div class="toolbar"><label class="sr-only" for="search">Search actions</label><input id="search" type="search" placeholder="Search all actions, numbers, and phrases…"><label class="sr-only" for="sectionFilter">Filter by volume</label><select id="sectionFilter"><option value="all">All four volumes</option><option value="I">Volume I</option><option value="II">Volume II</option><option value="III">Volume III</option><option value="IV">Volume IV</option></select><label class="check"><input type="checkbox" id="onlyReviewed"> Reviewed only</label></div><div class="cards" id="cards"></div>
+</section>
+<section class="view" id="view-game" hidden><div class="section-head"><div><div class="eyebrow">INTERACTIVE MEMORY CHALLENGE</div><h2>The 101 Gates</h2></div><span class="muted">Learn the four original domains</span></div>
+  <div class="game-panel"><div class="game-top"><span class="chip" id="gateNumber">GATE 001 / 101</span><div class="game-metrics"><span>Score <b id="gameScore">0</b></span><span>Streak <b id="gameStreak">0</b></span><span>Answered <b id="gameAnswered">0</b></span></div></div><div class="meter"><div id="gameProgress"></div></div><p class="eyebrow">MATCH THE ENTRY TO ITS ORIGINAL VOLUME</p><p id="gameClue" class="game-clue"></p><div class="answers" id="answers"></div><div class="feedback" id="gameFeedback" aria-live="polite"></div><div class="game-actions"><button id="nextGate" class="primary" disabled>Next gate →</button><button id="resetGame" class="secondary">Restart 101 gates</button></div></div>
+</section>
+<section class="view" id="view-books" hidden><div class="section-head"><div><div class="eyebrow">THE FOUR-BOOK SOURCE SERIES</div><h2>Four volumes. One voice.</h2></div></div><p class="muted">Each volume contains its original numbered actions verbatim after you import the source text. The four public book outlines are available without private material.</p><div class="book-grid" id="bookGrid"></div></section>
+<section class="view" id="view-source" hidden><div class="section-head"><div><div class="eyebrow">LOCAL-FIRST IMPORT & EXPORT</div><h2>The source stays yours</h2></div></div><div class="source-grid"><div class="panel"><h3>Import the original 101-action text</h3><p>Choose the original .txt ledger. Processing runs entirely in this browser; no upload, backend, account, or API key required.</p><label class="file-picker" for="sourceFile">Choose original ledger (.txt)<input id="sourceFile" type="file" accept=".txt,text/plain"></label><p class="hint" id="importStatus" role="status">No source imported on this device.</p><div class="button-row"><button id="exportJSON" class="secondary">Export local ledger JSON</button><button id="exportNotes" class="secondary">Export research notes JSON</button><button id="clearLocal" class="danger">Clear local copy</button></div></div>
+  <div class="panel"><h3>Evidence separated from source</h3><p>The archived statements are the author’s own account. They are not automatically treated as independently corroborated historical or legal facts.</p><p>Each action can carry private notes and a review flag without changing the original language. Any independent verification belongs in documentation linked to an entry.</p><p><strong>Retention:</strong> source text and notes remain in this browser’s local storage until cleared. Avoid shared devices for private records.</p><p><strong>Invariant:</strong> 1+1=2 BUILD · 1−1=0 CLEAR · YES IS YES · NO IS NO.</p></div></div></section>
+</main>
+<footer><div>NATHAN AI 🚀 · 101-ACTION CHRONICLE · ADDITIVE MODULE FOR ONE</div><div>Text-only • No portraits • No remote tracking • Original source preserved</div></footer>
+</div>
+<script src="core.js"></script><script src="app.js"></script>
+</body></html>
