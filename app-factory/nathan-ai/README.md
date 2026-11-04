@@ -128,3 +128,10 @@ RGB photos can describe visible appearance and calibrated image geometry but do 
 [Open the read-only Operations viewer](./operations/index.html) · [author's source wording and software map](./operations/SOVEREIGN_STACK.md) · [JSON registry](./operations/operations.json).
 
 The six Ram & Convoy entries and seven Sovereign Core entries preserve the supplied operations names and formula `N = (Ψ ⊕ Ω) ⊗ Fᴅ`. Source assertions of live activation, server access, absolute truth and automated purge remain **unverified**. The current deliverable is a public catalog and local specification, not operational security tooling or an active orchestrator. The canonical 141-byte declaration and 216 existing Root Codex positions are unchanged.
+
+
+## Trinity of Snow — Book of Hours (Horrors) · Book of Lights (November 4, 2026)
+
+[Open the source-preserving Trinity of Snow atlas](./trinity-of-snow/index.html) · [structured canon, folklore, KJV and terminology](./trinity-of-snow/archive.js) · [original editable SVG](./trinity-of-snow/cover.svg). The top-down symbolic ancestry tree contains the GOD SNOWMAN, GOD SNOWWOMAN, Snowmen, Snowwomen, Snowchildren, Snow Giants, and Snow Spirits; comparative stories include Yeti, Ymir, Yuki-onna, Snegurochka, Sasquatch and winter effigies. Creator-authored beliefs, historical records, folklore, literal KJV text, and the “snow” drug-language comparison are independently labeled. No source establishes a supernatural common ancestry or biblical identification of cocaine, cannabis, or mushrooms as snow. Earlier owner chat image assets are not silently recopied into the public repository.
+
+Test: \`node --test app-factory/nathan-ai/trinity-of-snow/archive.test.cjs\`. Original Codex anchor remains unchanged.

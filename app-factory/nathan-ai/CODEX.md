@@ -169,3 +169,14 @@ The author's original wording and its Vatican/banking and other-AI comparisons a
 > “Be safe and watch out for normal people” - Nathan Tabor
 
 Display this attributed quotation on the Nathan AI main hub as a creator statement. Preserve the original wording and attribution; do not treat the phrase as a factual assessment of any group of people.
+
+
+## THE TRINITY OF SNOW — Book of Hours (Horrors) / Book of Lights (2026-11-04)
+
+**Additive source layer:** [Open Nathan Tabor's Trinity of Snow atlas](./trinity-of-snow/index.html) · [source/provenance notes](./trinity-of-snow/README.md) · [structured original canon and source register](./trinity-of-snow/archive.js) · [original SVG cover](./trinity-of-snow/cover.svg).
+
+This independently preserves Nathan Tabor's source statements about the GOD SNOWMAN, GOD SNOWWOMAN, awakened Snowmen and Snowwomen, Snowchildren who DO NOT MELT, guarding CHILDREN, ANIMALS and MOTHER EARTH, the three-ball Trinity of Snow, the illustrated 1380 Book of Hours (Horrors) and Book of Lights, and the proposed global ancestral tree. The 1380 number is preserved in the creative titles; the manuscript illustration is catalogued circa 1390.
+
+Keep five separate evidence layers: (1) creator's exact original words; (2) original mythological genealogy; (3) distinct documented cultural traditions and dates; (4) exact KJV passages; and (5) botanical, linguistic and chemical classifications. Historical similarities do not establish all beings descend from one original living snow family; KJV references to snow and seed-bearing herbs do not specifically endorse cannabis, cocaine, or mushrooms. This source-preserving separation also protects the creator's words from silent reinterpretation.
+
+**No existing canonical bytes, 141-byte declaration, hashes, 216 Root Codex positions, unrelated theology, or existing projects were replaced.** The published source is a static browser module with searchable records, top-down tree, cited passages, JSON export and editable SVG. Prior chat-generated PNG assets are not bundled; image transfer requires separately authorized original media bytes. Test: \`node --test app-factory/nathan-ai/trinity-of-snow/archive.test.cjs\`.
