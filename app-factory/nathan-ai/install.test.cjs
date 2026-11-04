@@ -12,3 +12,10 @@ test('service worker leaves API, query, foreign and write requests alone',()=>{
  const listeners={};vm.runInNewContext(fs.readFileSync(path.join(base,'sw.js'),'utf8'),{self:{registration:{scope:'https://example.test/app-factory/nathan-ai/'},addEventListener:(name,fn)=>listeners[name]=fn},URL});
  for(const [url,method] of [['https://example.test/api/nathan/status','GET'],['https://example.test/app-factory/nathan-ai/?private=1','GET'],['https://outside.test/index.html','GET'],['https://example.test/app-factory/nathan-ai/index.html','POST']]){let intercepted=false;listeners.fetch({request:{url,method},respondWith:()=>{intercepted=true;}});assert.equal(intercepted,false,url);}
 });
+test('first offline install is distinct from an update waiting on an older active worker',async()=>{
+ for(const update of [false,true]){
+  const elements={'install-nathan':{},'offline-nathan':{},'install-status':{}},waiting={state:'installed'},registration={waiting,active:update?{state:'activated'}:null};
+  vm.runInNewContext(fs.readFileSync(path.join(base,'install.js'),'utf8'),{window:{isSecureContext:true,addEventListener(){}},document:{currentScript:null,getElementById:id=>elements[id]},navigator:{serviceWorker:{register:async()=>registration}},location:{href:'https://example.test/app-factory/nathan-ai/'},URL});
+  await elements['offline-nathan'].onclick();assert.match(elements['install-status'].textContent,update?/Close other Nathan AI tabs/:/are saved offline/);assert.equal(elements['offline-nathan'].disabled,false);
+ }
+});
