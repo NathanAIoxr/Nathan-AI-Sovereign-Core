@@ -1,0 +1,20 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Taborite Matrix — Codec Tests</title>
+<style>body{background:#101b20;color:#f8f1e2;font:16px/1.5 system-ui,sans-serif;max-width:840px;margin:50px auto;padding:20px}h1{color:#edce92}li{margin:9px;padding:10px;border:1px solid #46616b;border-radius:8px}li.ok{color:#aee8c9}li.fail{color:#ffada8}code{color:#f3d98e}</style></head>
+<body><h1>Coder–decoder self-tests</h1><p>Checks run in your browser against the original integrated Version 2 application, not a duplicate implementation.</p>
+<ul id="results"><li>Loading tests…</li></ul><iframe id="matrix" src="matrix.html" title="Hidden matrix test target" hidden></iframe>
+<script>
+"use strict";
+document.getElementById("matrix").addEventListener("load",function(){
+const f=this.contentWindow,results=document.getElementById("results");results.replaceChildren();let pass=0,total=0;
+function check(name,fn){total++;const li=document.createElement("li");try{if(!fn())throw Error("unexpected result");li.className="ok";li.textContent="PASS · "+name;pass++}catch(e){li.className="fail";li.textContent="FAIL · "+name+" · "+e.message}results.append(li)}
+check("Twenty original signs in a 4 × 5 matrix",()=>f.ROWS.length===4&&f.ROWS.every(x=>x.length===5)&&new Set(f.ROWS.flat().map(x=>x.g)).size===20);
+check("TABOR transliterates to historical-equivalent signs",()=>f.historicalEncode("TABOR").output==="ᚈᚐᚁᚑᚏ");
+check("Ogham TABOR transliteration decodes",()=>f.historicalDecode("ᚈᚐᚁᚑᚏ").output==="TABOR");
+check("NG digraph uses the standard sign",()=>f.historicalEncode("NG").output==="ᚍ");
+["Hello world","שלום","العربية","नमस्ते","中文-日本語","ᚁᚂᚉ · ᚠᚢᚦ","😀 🌳 👩🏽‍💻","e\u0301\nZ"].forEach(s=>check("Unicode exact round-trip: "+s.slice(0,25),()=>f.universalDecode(f.universalEncode(s).output).output===s));
+check("Reject malformed 5-sign groups",()=>f.universalDecode("᚛ᚁ᚜").error===true);
+check("Reject non-Ogham code digits",()=>f.universalDecode("᚛AAAAA᚜").error===true);
+check("Reject invalid Unicode scalars",()=>f.universalDecode("᚛ᚔᚔᚔᚔᚔ᚜").error===true);
+const li=document.createElement("li");li.textContent=pass+" of "+total+" checks passed.";li.className=pass===total?"ok":"fail";results.prepend(li);
+});
+</script></body></html>

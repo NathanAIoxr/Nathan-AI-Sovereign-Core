@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Stretching Sticks — Ogham Learning Game</title>
+<style>
+:root{color-scheme:dark;--bg:#0c171d;--panel:#182b33;--border:#49606a;--gold:#f0d393;--ink:#fbf8ec;--muted:#b9cbd0;--success:#aee5c5;--bad:#f6bdb6}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#224451,#0c171d 58%);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1050px;margin:auto;padding:27px 18px 65px}h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;margin:10px 0}h2{font-size:1.27rem;color:var(--gold);margin:5px 0 15px}p{color:var(--muted)}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;color:var(--gold);font-weight:800}.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:20px 0}
+button{cursor:pointer;background:#274650;color:var(--ink);border:1px solid #66808c;border-radius:10px;padding:12px;font:inherit}button:hover{background:#385b63}button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button[aria-pressed=true]{border:2px solid var(--gold);background:#454536;color:#fff5d2;font-weight:750}button:disabled{opacity:.56;cursor:not-allowed}
+.layout{display:grid;grid-template-columns:1.2fr .8fr;gap:17px}.card{border:1px solid var(--border);background:rgba(24,43,51,.96);border-radius:18px;padding:22px}.score{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:13px 0 20px}.stat{padding:10px;background:#10232b;border-radius:10px;text-align:center}.stat strong{display:block;font-size:1.45rem;color:var(--gold)}.stat small{color:var(--muted)}
+#prompt{font-size:1.25rem;color:var(--ink);font-weight:700;min-height:62px}#symbol{font:clamp(4rem,12vw,7rem)/1.2 'Segoe UI Symbol','Noto Sans Ogham',serif;color:var(--gold);text-align:center;min-height:105px;overflow-wrap:anywhere}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.options button{font-weight:700;font-size:1.15rem;min-height:65px}.options .glyphOpt{font-family:'Segoe UI Symbol','Noto Sans Ogham',serif;font-size:2.6rem}
+.feedback{margin:16px 0 4px;min-height:46px;padding:12px 15px;border:1px solid var(--border);border-radius:9px;background:#0e222b}.feedback.ok{color:var(--success);border-color:var(--success)}.feedback.no{color:var(--bad);border-color:var(--bad)}
+.next{margin-top:10px;background:var(--gold);color:#17272b;font-weight:800;width:100%}.next[hidden]{display:none}
+input{display:block;width:100%;border:1px solid #69828d;color:var(--ink);padding:13px;background:#0a1920;border-radius:10px;font:inherit}
+.gesture{text-align:center;background:#0e2029;border-radius:14px;margin:12px 0;padding:12px}.gesture svg{max-width:250px;width:100%;height:auto}.spine{stroke:#f0d393;stroke-width:5;stroke-linecap:round}.arm{stroke:#8cded5;stroke-width:6;stroke-linecap:round;animation:wave 2.2s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}@keyframes wave{from{opacity:.76}to{opacity:1}}
+.muted{font-size:.9rem;color:var(--muted)}.guide{border-top:1px solid var(--border);margin-top:20px;padding-top:13px}.guide span{display:block;margin:8px 0}.guide b{color:var(--gold)}
+.reset{font-size:.85rem;padding:7px 11px;margin-top:14px}.bigMark{font-size:2rem;color:var(--gold)}.wordInput[hidden]{display:none}
+@media(max-width:750px){.modes{grid-template-columns:1fr 1fr}.layout{grid-template-columns:1fr}.card{padding:15px}}
+@media(prefers-reduced-motion:reduce){.arm{animation:none}}
+</style></head><body><main>
+<div class="eyebrow">Taborite language game · Nathan Tabor · educational demo</div><h1>The Stretching Sticks</h1>
+<p>Learn the authentic 4 × 5 Ogham sign positions through a visual “stretching arms” mnemonic. These animated shapes are modern teaching aids, not ancient body-language claims.</p>
+<div class="modes" role="group" aria-label="Game mode"><button data-mode="sign" aria-pressed="true">Sign → Sound</button><button data-mode="shape" aria-pressed="false">Build the Sign</button><button data-mode="coord" aria-pressed="false">Coordinate Match</button><button data-mode="word" aria-pressed="false">Read a Word</button></div>
+<div class="layout">
+<section class="card"><h2 id="modeTitle">Sign → Sound</h2><div class="score"><div class="stat"><strong id="score">0</strong><small>Points</small></div><div class="stat"><strong id="streak">0</strong><small>Streak</small></div><div class="stat"><strong id="best">0</strong><small>Best</small></div></div>
+<div id="prompt" aria-live="polite"></div><div id="symbol" aria-label="Ogham challenge"></div>
+<div id="answerOptions" class="options"></div>
+<div id="wordEntry" class="wordInput" hidden><label for="wordAnswer">Latin-letter answer</label><input id="wordAnswer" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Type the word"><button id="checkWord" style="width:100%;margin-top:12px">Check answer</button></div>
+<div id="feedback" class="feedback" role="status" aria-live="polite">Choose the answer.</div><button id="next" class="next" hidden>Next challenge</button></section>
+<aside class="card"><h2>Gesture laboratory</h2><p class="muted">The center line is the stem. Direction and stroke count produce the letter coordinate.</p>
+<div class="gesture"><svg id="gestureSvg" viewBox="0 0 180 230" role="img" aria-label="Geometric reconstruction of Ogham strokes"><line class="spine" x1="90" y1="12" x2="90" y2="217"></line><g id="gestureArms"></g></svg></div>
+<div id="gestureNote" class="muted" aria-live="polite">Aicme Beithe · one score</div>
+<div class="guide"><span><b>1 · Beithe:</b> right scores — B L F S N</span><span><b>2 · hÚatha:</b> left scores — H D T C Q</span><span><b>3 · Muine:</b> diagonal scores — M G NG Z R</span><span><b>4 · Ailme:</b> perpendicular scores — A O U E I</span></div>
+<button id="reset" class="reset">Reset this mode's score</button></aside></div>
+<p class="muted">Scores are saved only in your browser. The historical sign labels teach transliteration, not translation into Primitive Irish. The five later forfeda are explained in the <a style="color:#aee5c5" href="matrix.html">main application</a>.</p>
+</main>
+<script>
+"use strict";
+const rows=[
+[["B","ᚁ","Beithe"],["L","ᚂ","Luis"],["F","ᚃ","Fern"],["S","ᚄ","Sail"],["N","ᚅ","Nin"]],
+[["H","ᚆ","Úath"],["D","ᚇ","Dair"],["T","ᚈ","Tinne"],["C","ᚉ","Coll"],["Q","ᚊ","Ceirt"]],
+[["M","ᚋ","Muin"],["G","ᚌ","Gort"],["NG","ᚍ","nGéadal"],["Z","ᚎ","Straif"],["R","ᚏ","Ruis"]],
+[["A","ᚐ","Ailm"],["O","ᚑ","Onn"],["U","ᚒ","Úr"],["E","ᚓ","Edad"],["I","ᚔ","Idad"]]
+];
+const fam=["Beithe","hÚatha","Muine","Ailme"],where=["right of stem","left of stem","diagonal crossing","perpendicular crossing"];
+const entries=rows.flatMap((row,fi)=>row.map((v,j)=>({letter:v[0],glyph:v[1],name:v[2],family:fi,count:j+1})));
+const letterMap=Object.fromEntries(entries.map(e=>[e.letter,e.glyph]));
+const words=["TABOR","NATHAN","OGHAM","STONE","ROOT","BRANCH","BIRCH","OAK","MOTHER","NORTH","HEARTH","CANDLE","CIRCLE","COLL","DUIR","ONE"];
+const el=id=>document.getElementById(id);
+let mode="sign",score=0,streak=0,best=0,question=null,answered=false,last="",solved=0;
+function shuffle(a){let b=a.slice();for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function pick(a,avoid){const opts=a.filter(x=>(x.glyph||x)!==avoid);return opts[Math.floor(Math.random()*opts.length)]}
+function storageGet(){try{return Number(localStorage.getItem("taborite-game-best-"+mode))||0}catch{return 0}}
+function storageSet(v){try{localStorage.setItem("taborite-game-best-"+mode,String(v))}catch{}}
+function stats(){el("score").textContent=score;el("streak").textContent=streak;el("best").textContent=best}
+function enc(s){let out="";for(let i=0;i<s.length;){if(s.slice(i,i+2)==="NG"){out+=letterMap.NG;i+=2;continue}const g=letterMap[s[i]];if(!g)throw Error("Unsupported sample: "+s[i]);out+=g;i++}return out}
+function gesture(e){const g=el("gestureArms");g.replaceChildren();for(let j=0;j<e.count;j++){const y=110+(j-(e.count-1)/2)*26;const ln=document.createElementNS("http://www.w3.org/2000/svg","line");
+let pts;if(e.family===0)pts=[90,y,153,y];else if(e.family===1)pts=[27,y,90,y];else if(e.family===2)pts=[48,y-13,132,y+13];else pts=[47,y,133,y];
+["x1","y1","x2","y2"].forEach((a,i)=>ln.setAttribute(a,String(pts[i])));ln.setAttribute("class","arm");g.append(ln)}
+el("gestureNote").textContent="Aicme "+fam[e.family]+" · "+e.count+" score"+(e.count===1?"":"s")+" · "+where[e.family]+" · "+e.letter+" ("+e.name+")"}
+function choices(correct,values,render){const out=el("answerOptions");out.replaceChildren();for(const item of shuffle([correct,...shuffle(values.filter(v=>v!==correct)).slice(0,3)])){
+const btn=document.createElement("button");btn.type="button";btn.textContent=item;btn.setAttribute("aria-label",render==="glyph"?"Ogham sign "+item:item);if(render==="glyph")btn.className="glyphOpt";btn.addEventListener("click",()=>answer(item));out.append(btn)}}
+function answer(value){if(answered)return;const correct=question.answer;const ok=String(value).trim().toUpperCase()===String(correct).toUpperCase();answered=true;solved++;
+if(ok){streak++;score+=10+Math.min(streak-1,5)*2;if(score>best){best=score;storageSet(best)}el("feedback").textContent="Correct · "+question.note;el("feedback").className="feedback ok"}
+else{streak=0;el("feedback").textContent="Not quite. Answer: "+correct+". "+question.note;el("feedback").className="feedback no"}
+el("answerOptions").querySelectorAll("button").forEach(b=>b.disabled=true);el("checkWord").disabled=true;el("next").hidden=false;stats()}
+function newQuestion(){
+answered=false;el("feedback").className="feedback";el("feedback").textContent="Choose the answer.";el("next").hidden=true;el("checkWord").disabled=false;el("wordAnswer").value="";el("answerOptions").replaceChildren();
+el("wordEntry").hidden=mode!=="word";el("symbol").textContent="";
+if(mode==="word"){let word=pick(words,last);last=word;const glyphs=enc(word);question={answer:word,note:"This exercise reads a modern Latin-letter transliteration, not a Primitive Irish translation."};el("prompt").textContent="Read this Ogham sequence as its modern Latin-letter equivalents.";el("symbol").textContent="᚛"+glyphs+"᚜";const e=entries.find(z=>z.glyph===Array.from(glyphs)[0]);gesture(e);el("wordAnswer").focus();return}
+let e=pick(entries,last);last=e.glyph;const note=e.name+" · family "+(e.family+1)+" ("+fam[e.family]+") · score count "+e.count+".";
+gesture(e);
+if(mode==="sign"){el("prompt").textContent="Which Latin-letter sound value belongs to this Ogham sign?";el("symbol").textContent=e.glyph;question={answer:e.letter,note};choices(e.letter,entries.map(x=>x.letter),"letter")}
+else if(mode==="shape"){el("prompt").textContent="Choose the sign at family "+(e.family+1)+" ("+fam[e.family]+"), "+e.count+" stroke"+(e.count===1?"":"s")+".";question={answer:e.glyph,note};choices(e.glyph,entries.map(x=>x.glyph),"glyph")}
+else{el("prompt").textContent="Which family/score coordinate identifies this sign?";el("symbol").textContent=e.glyph;const value=(e.family+1)+":"+e.count;question={answer:value,note};choices(value,entries.map(x=>(x.family+1)+":"+x.count),"coord")}}
+function choose(m){mode=m;score=0;streak=0;solved=0;last="";best=storageGet();
+document.querySelectorAll("[data-mode]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.mode===m)));
+el("modeTitle").textContent=({sign:"Sign → Sound",shape:"Build the Sign",coord:"Coordinate Match",word:"Read a Word"})[m];stats();newQuestion()}
+document.querySelectorAll("[data-mode]").forEach(b=>b.addEventListener("click",()=>choose(b.dataset.mode)));
+el("checkWord").addEventListener("click",()=>answer(el("wordAnswer").value.trim().toUpperCase()));
+el("wordAnswer").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();answer(el("wordAnswer").value.trim().toUpperCase())}});
+el("next").addEventListener("click",newQuestion);
+el("reset").addEventListener("click",()=>{try{localStorage.removeItem("taborite-game-best-"+mode)}catch{};choose(mode)});
+choose("sign");
+</script></body></html>
