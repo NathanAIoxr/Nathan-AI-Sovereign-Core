@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+"""Build deterministic public Nathan AI site/source release archives from tracked files."""
+import argparse, hashlib, json, pathlib, subprocess, zipfile, datetime
+
+ROOT=pathlib.Path(__file__).resolve().parents[2]
+STATIC={'.html','.htm','.js','.mjs','.cjs','.css','.json','.webmanifest','.svg','.png','.jpg','.jpeg','.webp','.gif','.ico','.avif','.wasm','.pdf','.md','.txt','.csv','.tsv','.xml','.woff','.woff2','.ttf','.mp3','.mp4','.ogg','.wav'}
+def git(*args):return subprocess.check_output(['git','-C',str(ROOT),*args],text=True).strip()
+def tracked():return subprocess.check_output(['git','-C',str(ROOT),'ls-files','-z']).decode().split('\0')[:-1]
+def safe(path):
+    parts=pathlib.PurePosixPath(path).parts
+    return not any(p.lower() in {'.git','.env','.aws','.ssh','private-samples','node_modules','__pycache__'} or p.lower().startswith('.env.') for p in parts) and pathlib.PurePosixPath(path).suffix.lower() not in {'.pem','.pfx','.p12','.key'}
+def site_file(path):
+    p=pathlib.PurePosixPath(path)
+    return safe(path) and (path=='LICENSE' or ((path in {'index.html','README.md'} or path.startswith(('app-factory/','docs/'))) and p.suffix.lower() in STATIC and '/tests/' not in path and '.test.' not in p.name and not p.name.startswith('test_')))
+def digest(data):return hashlib.sha256(data).hexdigest()
+def zip_bytes(files,epoch):
+    stream=__import__('io').BytesIO();stamp=datetime.datetime.fromtimestamp(max(epoch,315532800),datetime.timezone.utc).timetuple()[:6]
+    with zipfile.ZipFile(stream,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+        for name,data in sorted(files.items()):
+            info=zipfile.ZipInfo(name,stamp);info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o100644<<16;z.writestr(info,data)
+    return stream.getvalue()
+def build(out,allow_dirty=False):
+    out=out.resolve()
+    if out==ROOT or out.is_relative_to(ROOT):raise ValueError('Release output must be outside the source checkout.')
+    dirty=bool(git('status','--porcelain'))
+    if dirty and not allow_dirty:raise ValueError('Commit or preserve pending changes before creating a final release. Use --allow-dirty only for a development preview.')
+    commit=git('rev-parse','HEAD');epoch=int(git('show','-s','--format=%ct','HEAD'));all_files={}
+    for name in tracked():
+        path=ROOT/name
+        if not safe(name):raise ValueError('Disallowed private/configuration path is tracked: '+name)
+        if path.is_symlink() or not path.is_file():raise ValueError('Unsupported tracked path: '+name)
+        all_files[name]=path.read_bytes()
+    site={name:data for name,data in all_files.items() if site_file(name)}
+    for required in ['index.html','app-factory/nathan-ai/index.html','app-factory/nathan-ai/manifest.webmanifest','app-factory/one/library/file-index.js']:
+        if required not in site:raise ValueError('Missing release entry: '+required)
+    site['.nojekyll']=b''
+    manifest={'schema':'nathan-ai.release.v1','version':'2026.11.04-rc1','commit':commit,'dirty_preview':dirty,'delivery':'Public browser app; optional local services require separate configuration.','files':[{'path':p,'bytes':len(data),'sha256':digest(data)} for p,data in sorted(site.items())]}
+    site['release-manifest.json']=(json.dumps(manifest,indent=2)+'\n').encode()
+    out.mkdir(parents=True,exist_ok=True)
+    names={'nathan-ai-site.zip':zip_bytes(site,epoch),'nathan-ai-source.zip':zip_bytes(all_files,epoch)}
+    for name,data in names.items():(out/name).write_bytes(data)
+    (out/'release-manifest.json').write_bytes(site['release-manifest.json'])
+    checksums=''.join(digest(data)+'  '+name+'\n' for name,data in sorted(names.items()))
+    (out/'SHA256SUMS').write_text(checksums)
+    print(json.dumps({'commit':commit,'dirty_preview':dirty,'site_files':len(site),'source_files':len(all_files),'output':str(out),'archives':{name:len(data) for name,data in names.items()}},indent=2))
+    return manifest
+def verify(archive):
+    with zipfile.ZipFile(archive) as z:
+        names=z.namelist()
+        if len(names)!=len(set(names)) or any(n.startswith('/') or '..' in pathlib.PurePosixPath(n).parts for n in names):raise ValueError('Unsafe or duplicate archive path.')
+        manifest=json.loads(z.read('release-manifest.json'))
+        expected={row['path'] for row in manifest['files']}|{'release-manifest.json'}
+        if set(names)!=expected:raise ValueError('Archive contents do not match the manifest.')
+        for row in manifest['files']:
+            data=z.read(row['path'])
+            if len(data)!=row['bytes'] or digest(data)!=row['sha256']:raise ValueError('Integrity mismatch: '+row['path'])
+    print('Verified '+str(len(manifest['files']))+' site files at '+manifest['commit'])
+if __name__=='__main__':
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=pathlib.Path);p.add_argument('--verify',type=pathlib.Path);p.add_argument('--allow-dirty',action='store_true');a=p.parse_args()
+    if a.verify:verify(a.verify)
+    elif a.out:build(a.out,a.allow_dirty)
+    else:p.error('Use --out DIRECTORY or --verify SITE_ZIP')

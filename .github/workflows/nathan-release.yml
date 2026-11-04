@@ -1,0 +1,33 @@
+name: Nathan AI release package
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: nathan-release-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run release checks
+        run: python3 tools/release/check.py --out /tmp/nathan-checks
+      - name: Package tracked public app and source
+        run: python3 tools/release/build.py --out /tmp/nathan-release
+      - name: Verify release bytes
+        run: python3 tools/release/build.py --verify /tmp/nathan-release/nathan-ai-site.zip
+      - name: Save release archives and checks
+        uses: actions/upload-artifact@v4
+        with:
+          name: nathan-ai-launch-candidate
+          path: |
+            /tmp/nathan-release/
+            /tmp/nathan-checks/

@@ -36,7 +36,7 @@ input[type=search]{flex:1;min-width:200px}input[type=file]{max-width:100%;width:
 <section class="panel" aria-label="007 and worldwide scripture collection"><h2>007 · Bible · Ancient to Modern Sacred Texts</h2><p>Bring the original 007 expansion and source-referenced religious writings into this same Master Library. Open the 007 viewer, select your private recovered JSON and explicitly install its records locally. Originals in the recovered ZIP remain unchanged.</p><a class="primary" href="../scriptures-007/index.html" style="display:inline-block;text-decoration:none;padding:12px;border-radius:10px">Open 007 owner-private installer →</a></section><section class="panel" aria-label="Import your archives"><h2>Bring your original archive into ONE</h2>
 <p>Import the private ONE Library Pack, KJV Spiritual Index v2, Totality Master Catalog v017, or standalone JSON/Markdown/text documents. Original file bytes are retained locally for independent download. No import runs automatically.</p>
 <div class="row"><input type="file" id="files" accept=".json,.md,.txt,application/json,text/plain,text/markdown" multiple aria-label="Choose original archive files">
-<button id="import" class="primary">Import selected files</button></div>
+<button id="import" class="primary">Import selected files</button></div><label for="folder">Or select an expanded library / code folder</label><input id="folder" type="file" webkitdirectory multiple><p id="file-metrics" role="status"></p><p>Images, PDF/Office files and ZIPs receive a file index with original-byte download. Text and code are searchable; ZIP contents, scanned documents, and image text are not extracted. Counts cover selected files only. ChatGPT Library is not connected: download or select its files on your device first. Credential/configuration paths are excluded.</p>
 <p id="status" role="status" aria-live="polite">Waiting for an archive. Start by importing your private ONE Library Pack from Main Database.</p>
 <div class="row"><button id="export">Export searchable index</button><button id="source-export">Download selected original</button><button id="clear">Delete this browser's library</button></div></section>
 <section class="panel"><div class="row"><h2 class="grow">Nine Library Shelves</h2><small id="total" class="muted">0 locally indexed records</small></div>
@@ -48,7 +48,7 @@ input[type=search]{flex:1;min-width:200px}input[type=file]{max-width:100%;width:
 <section id="details" class="panel" hidden aria-label="Selected record"></section>
 <footer class="muted">ONE Master Library · by Nathan Tabor · Provenance first · No publishing without author release approval · Browser storage is not a permanent backup.</footer>
 </main>
-<script>
+<script src="file-index.js"></script><script>
 (()=>{
 'use strict';
 const SHELVES=[
@@ -112,14 +112,21 @@ function unpack(parsed,source){
  return out;
 }
 async function importOne(file){if(file.size>60*1024*1024)throw Error('File exceeds the 60 MB per-file safety limit.');
- const bytes=await file.arrayBuffer(),hash=await digest(bytes),source={id:hash==='sha256-unavailable'?file.name+':unverified:'+Date.now()+':'+Math.random().toString(36).slice(2):hash,name:file.name,size:file.size,sha256:hash,importedAt:new Date().toISOString(),blob:new Blob([bytes],{type:file.type||'application/octet-stream'})};
- const text=new TextDecoder().decode(bytes);let records;
- if(file.name.toLowerCase().endsWith('.json'))records=unpack(JSON.parse(text),source);
- else records=[toRecord({title:file.name.replace(/\.(md|txt)$/i,''),description:'Imported original text; attribution and authorship require source verification',shelf:'201',content:text,privacy:'private imported source'},source,0,'document')];
- await putBatch('sources',[source]);await putBatch('records',records);
+ const path=file.webkitRelativePath||file.name;
+ OneFileIndex.describe(path,new Uint8Array());
+ const bytes=await file.arrayBuffer(),meta=OneFileIndex.describe(path,bytes),hash=await digest(bytes),existing=ui.sources.find(s=>s.id===hash);
+ if(existing){const locations=[...new Set([...(existing.locations||[existing.name]),path])];await putBatch('sources',[{...existing,locations}]);await refresh();return {source:existing,rows:0,duplicate:true};}
+ const source={id:hash==='sha256-unavailable'?file.name+':unverified:'+Date.now()+':'+Math.random().toString(36).slice(2):hash,name:file.name,size:file.size,sha256:hash,locations:[path],fileIndex:{...meta,text:undefined},importedAt:new Date().toISOString(),blob:new Blob([bytes],{type:file.type||'application/octet-stream'})};
+ const text=meta.text;let records;
+ if(meta.extension==='json'){
+  const parsed=JSON.parse(text);
+  try{records=unpack(parsed,source);}catch(e){if(!String(e.message).startsWith('Unsupported JSON structure')&&!String(e.message).includes('JSON array or object'))throw e;records=null;}
+ }
+ if(!records)records=[toRecord({title:file.name,description:meta.kind+' · '+meta.bytes+' bytes · '+path+(meta.codeLines!==null?' · '+meta.codeLines+' physical code lines':'')+(meta.text===null?' · metadata only; no extracted text':''),shelf:meta.kind==='image'?'901':meta.kind==='code'?'401':'201',content:text,privacy:'private imported source',fileIndex:source.fileIndex},source,0,meta.kind)];
+ await new Promise((resolve,reject)=>{const tx=ui.db.transaction(['sources','records'],'readwrite');tx.objectStore('sources').put(source);for(const record of records)tx.objectStore('records').put(record);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)});
  return {source,rows:records.length};
 }
-async function refresh(){ui.records=await getAll('records');ui.sources=await getAll('sources');render()}
+async function refresh(){ui.records=await getAll('records');ui.sources=await getAll('sources');const metrics=OneFileIndex.summary(ui.sources);$('file-metrics').textContent=metrics.files+' unique source files · '+metrics.images+' images · '+metrics.documents+' documents/archives · '+metrics.physicalCodeLines.toLocaleString()+' physical code lines in '+metrics.measuredCodeFiles+' measured code files · '+metrics.legacySourcesWithoutMetrics+' older sources without line metrics. Counts include comments and blank lines.';render()}
 function renderShelves(){const p=$('shelves');p.replaceChildren();
  const counts={ALL:ui.records.length};for(const s of SHELVES)counts[s[0]]=ui.records.filter(r=>r.shelf===s[0]).length;
  for(const [id,label,desc] of [['ALL','Everything','All library materials'],...SHELVES]){const b=node('button',undefined,'shelf'+(ui.shelf===id?' active':''));b.append(node('strong',id==='ALL'?'ALL':id),node('span',label),node('small',desc+' · '+counts[id]));b.onclick=()=>{ui.shelf=id;ui.limit=60;render()};p.append(b)}
@@ -141,9 +148,9 @@ async function showRecord(id){const r=ui.records.find(x=>x.id===id);if(!r)return
  const toggle=node('button','Inspect unmodified imported record');const pre=node('pre',JSON.stringify(r.original,null,2));pre.hidden=true;toggle.onclick=()=>{pre.hidden=!pre.hidden};box.append(toggle,pre);box.scrollIntoView({block:'start',behavior:'smooth'})}
 function render(){renderShelves();renderResults()}
 function download(name,blob){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),3000)}
-$('import').onclick=async()=>{const files=Array.from($('files').files||[]);if(!files.length){message('Choose your private archive first.');return}
- $('import').disabled=true;let done=0,rows=0;try{for(const file of files){message('Importing '+file.name+' …');const r=await importOne(file);done++;rows+=r.rows}
- await refresh();message('Imported '+done+' original source files; '+rows.toLocaleString()+' indexed entries. Saved only in this browser profile.');$('files').value=''}
+$('import').onclick=async()=>{const files=[...Array.from($('files').files||[]),...Array.from($('folder').files||[])];if(!files.length){message('Choose your private archive first.');return}
+ $('import').disabled=true;let done=0,rows=0,skipped=0;try{for(const file of files){message('Importing '+file.name+' …');try{const r=await importOne(file);done++;rows+=r.rows;await refresh()}catch(e){skipped++;message('Skipped '+file.name+': '+e.message)}}
+ await refresh();message('Imported '+done+' original source files; '+rows.toLocaleString()+' indexed entries; '+skipped+' skipped files. Saved only in this browser profile.');$('files').value='';$('folder').value=''}
  catch(e){await refresh();message('Import halted: '+e.message+'. Files completed before the error remain available.')}
  finally{$('import').disabled=false}};
 $('one-reading-depth').onchange=()=>{ui.readerMode=$('one-reading-depth').value;renderResults();if(ui.selected)showRecord(ui.selected.id)};
@@ -151,7 +158,7 @@ $('search').oninput=()=>{ui.limit=60;renderResults()};
 $('status-filter').onchange=()=>{ui.limit=60;renderResults()};
 $('reset').onclick=()=>{ui.shelf='ALL';$('status-filter').value='';$('search').value='';ui.limit=60;render()};
 $('more').onclick=()=>{ui.limit+=60;renderResults()};
-$('export').onclick=()=>{const obj={schema:'one.library.index.v1',exportedAt:new Date().toISOString(),note:'Metadata plus supplied text; archive originals separately in Creator Vault',records:ui.records.map(({sourceId,originalId,title,description,section,shelf,kind,stage,privacy,provenance,fullText,original})=>({sourceId,originalId,title,description,section,shelf,kind,stage,privacy,provenance,fullText,original}))};
+$('export').onclick=()=>{const obj={schema:'one.library.index.v1',exportedAt:new Date().toISOString(),note:'Metadata plus supplied text; archive originals separately in Creator Vault',sourceFiles:ui.sources.map(({blob,...metadata})=>metadata),measuredTotals:OneFileIndex.summary(ui.sources),records:ui.records.map(({sourceId,originalId,title,description,section,shelf,kind,stage,privacy,provenance,fullText,original})=>({sourceId,originalId,title,description,section,shelf,kind,stage,privacy,provenance,fullText,original}))};
  download('ONE_MASTER_LIBRARY_INDEX.json',new Blob([JSON.stringify(obj)],{type:'application/json'}));message('Exported local index; separately back up the original source files.')};
 $('source-export').onclick=()=>{if(!ui.selected){message('Open a record to select the original source file.');return}const s=ui.sources.find(s=>s.id===ui.selected.sourceId);if(s?.blob){download(s.name,s.blob);message('Downloaded original source file '+s.name)}else message('Source bytes unavailable; use original archive backup.')};
 $('clear').onclick=async()=>{if(!confirm('Delete ALL locally imported ONE Master Library data in this browser? This cannot be undone. Confirm you have backed up originals.'))return;await clearStores();ui.selected=null;$('details').hidden=true;await refresh();message('Local library cleared. Original files outside this browser were not affected.')};
