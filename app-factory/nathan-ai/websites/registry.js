@@ -1,4 +1,4 @@
-/* Public-module list based on existing repository pages; not a record of fully finished products. */
+/* Verified published-page routes and new public-safe site studios. Titles are NOT claims of finished production backends. */
 window.NathanAIWebsiteModules = [
   {
     "id": "build-order/index.html",
@@ -706,5 +706,75 @@ window.NathanAIWebsiteModules = [
     "url": "../../christmas-toy-drive/",
     "group": "community",
     "status": "New website"
+  },
+  {
+    "id": "sites/index.html",
+    "title": "All Connected Tabor Websites",
+    "url": "../../sites/index.html",
+    "group": "apps",
+    "status": "Full network directory"
+  },
+  {
+    "id": "sites/handling-life/index.html",
+    "title": "HANDLING LIFE",
+    "url": "../../sites/handling-life/index.html",
+    "group": "community",
+    "status": "New browser-local studio"
+  },
+  {
+    "id": "sites/christmas-toy-factory/index.html",
+    "title": "CHRISTMAS TOY FACTORY",
+    "url": "../../sites/christmas-toy-factory/index.html",
+    "group": "creative",
+    "status": "New browser-local studio"
+  },
+  {
+    "id": "sites/santa-claus-factory/index.html",
+    "title": "SANTA CLAUS FACTORY",
+    "url": "../../sites/santa-claus-factory/index.html",
+    "group": "creative",
+    "status": "New browser-local studio"
+  },
+  {
+    "id": "sites/tabortales/index.html",
+    "title": "TaborTales",
+    "url": "../../sites/tabortales/index.html",
+    "group": "creative",
+    "status": "New browser-local studio"
+  },
+  {
+    "id": "sites/tabor-world/index.html",
+    "title": "TABOR WORLD",
+    "url": "../../sites/tabor-world/index.html",
+    "group": "games",
+    "status": "New browser-local studio"
+  },
+  {
+    "id": "sites/you-sandbox/index.html",
+    "title": "YOU SANDBOX™",
+    "url": "../../sites/you-sandbox/index.html",
+    "group": "apps",
+    "status": "New browser-local studio"
+  },
+  {
+    "id": "sites/tabor-texting/index.html",
+    "title": "TABOR TEXTING",
+    "url": "../../sites/tabor-texting/index.html",
+    "group": "apps",
+    "status": "New browser-local studio"
+  },
+  {
+    "id": "sites/find-the-tabor/index.html",
+    "title": "FIND THE TABOR",
+    "url": "../../sites/find-the-tabor/index.html",
+    "group": "research",
+    "status": "New browser-local studio"
+  },
+  {
+    "id": "sites/words-library/index.html",
+    "title": "WORDS & LIBRARY",
+    "url": "../../sites/words-library/index.html",
+    "group": "creative",
+    "status": "New browser-local studio"
   }
 ];
