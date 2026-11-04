@@ -1,0 +1,21 @@
+name: Mosaic Reader Suite
+on:
+  pull_request:
+    paths:
+      - 'app-factory/one/mosaic-reader/**'
+      - '.github/workflows/mosaic-reader.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/one/mosaic-reader/**'
+      - '.github/workflows/mosaic-reader.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate Mosaic Reader files, game, and short manuscripts
+        run: node app-factory/one/mosaic-reader/tests/check.mjs
