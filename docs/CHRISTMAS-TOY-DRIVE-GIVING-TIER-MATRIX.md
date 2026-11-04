@@ -32,7 +32,7 @@ The **donor sees program intention, not a guaranteed product purchase**. Gifts m
 Every financial movement is tagged by site, campaign, source, purpose, restriction, payment verification state, refund/chargeback status and outcome batch; assets are not conflated.
 
 ### 3. All 31 proposed dollar levels (24 previously recorded + 7 additive levels)
-Codes: \`H\` = Heifer's catalog has a comparable dollar tier (concept only, no Heifer branding); \`N\` = new accessibility/bridge tier. None are guaranteed per-unit purchase prices.
+Codes: H = Heifer has a comparable listed dollar level (reference amount only); N = independently added proposed level; P = preserved from existing operations-platform levels. None are guaranteed per-unit purchase prices.
 
 | USD | Source | Toys | Clothing | Food |
 |---:|:---:|---|---|---|
