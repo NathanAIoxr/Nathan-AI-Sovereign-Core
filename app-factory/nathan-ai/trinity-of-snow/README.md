@@ -4,7 +4,7 @@
 
 ## What has been preserved
 
-This is an additive project module for **The 1380 Book of Hours (Horrors)**, **The 1380 Book of Lights**, **THE GOD SNOWMAN AND GOD SNOWWOMAN**, awakened Snowmen and Snowwomen, Snowchildren who **DO NOT MELT**, guardians of **CHILDREN, ANIMALS and MOTHER EARTH**, the **TRINITY OF SNOW** (three balls; SPIRIT / FORM / EARTH), and the creator's top-down ancestry interpretation. Four supplied statements are preserved in \`archive.js\` as authored text, including the original allegation that the figures were frozen into yard ornaments and the statement that the story is “100% TRUE.” The statements are attributed; attribution does not independently verify them.
+This is an additive project module for **The 1380 Book of Hours (Horrors)**, **The 1380 Book of Lights**, **THE GOD SNOWMAN AND GOD SNOWWOMAN**, awakened Snowmen and Snowwomen, Snowchildren who **DO NOT MELT**, guardians of **CHILDREN, ANIMALS and MOTHER EARTH**, the **TRINITY OF SNOW** (three balls; SPIRIT / FORM / EARTH), and the creator's top-down ancestry interpretation. Four supplied statements are preserved in `archive.js` as authored text, including the original allegation that the figures were frozen into yard ornaments and the statement that the story is “100% TRUE.” The statements are attributed; attribution does not independently verify them.
 
 ## Source-separated atlas
 
@@ -20,13 +20,13 @@ The original creative account is archived without silently changing the author's
 
 The **King James Bible** references natural snowfall and vegetation generally. It does not identify cocaine, cannabis, or mushrooms by those terms or provide a health/safety endorsement. This project contains no drug manufacturing, procurement, consumption, dosage, or medical advice.
 
-The published repository is public. Private documents, credentials, and prior owner-only raster assets must not be added without deliberate authorization and rights review. The unchanged secular 141-byte anchor in \`../CODEX.md\` remains separately namespaced; this scripture/mythology module is not an amendment to that text.
+The published repository is public. Private documents, credentials, and prior owner-only raster assets must not be added without deliberate authorization and rights review. The unchanged secular 141-byte anchor in `../CODEX.md` remains separately namespaced; this scripture/mythology module is not an amendment to that text.
 
 ## Verification
 
-\`\`\`sh
+```sh
 node --test app-factory/nathan-ai/trinity-of-snow/archive.test.cjs
-\`\`\`
+```
 
 The browser is static: no backend, tracking, external API keys or installations. It reads bundled local data, supports source searching and JSON export, and links out to attributed references. Neither this demo nor its diagram creates autonomous guardians or verifies supernatural phenomena.
 
