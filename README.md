@@ -94,3 +94,7 @@ The root `LICENSE` file is **Apache License 2.0**. Confirm that it matches the o
 - [Christmas Toy Drive](app-factory/christmas-toy-drive/index.html) and [Christmas Toy Factory](app-factory/sites/christmas-toy-factory/index.html) remain distinct: the factory designs toys; the drive coordinates giving and donation plans.
 
 These are working **static browser front ends**, not the private recovered full Next.js donor platform, production toy factory, live volunteer/beneficiary intake, online checkout, or remote provider integration. Unpublished works and account information remain outside the public repository.
+
+## Nathan AI launch candidate
+
+The [launch guide](docs/LAUNCH.md) covers the installable public browser app, explicit offline core support, ONE file/folder indexing, optional local services, tested release packaging and deployment. Build public site/source archives with `python3 tools/release/build.py --out /path/outside-checkout/release`; verify them using `--verify`. Run all release checks with `python3 tools/release/check.py --out /path/outside-checkout/checks`. The manual **Nathan AI release package** workflow produces the same archives and verification logs. Private Library files and account/model credentials are not bundled.

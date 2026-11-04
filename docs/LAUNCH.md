@@ -31,7 +31,7 @@ Final packaging requires a clean Git checkout. Development previews can use `--a
 - `release-manifest.json`: commit identity, file sizes and per-file SHA-256 values.
 - `SHA256SUMS`: checksums of both archives.
 
-The builder reads tracked files only, rejects private-sample/configuration paths and excludes the external scratch/attachments folders. The static ZIP does not contain executable Python servers, native project binaries, tests or Git metadata. `--verify` rejects changed, missing or additional files. Checksums establish byte integrity, not feature completeness or asset valuation.
+The builder reads tracked files only, rejects private-sample/configuration paths and excludes the external scratch/attachments folders. The static ZIP does not contain executable Python servers, native project binaries, the development test suites or Git metadata. Three already-public Python examples linked by existing pages are included as source downloads, including the linked continuum test example; static hosting does not execute them. `--verify` rejects changed, missing or additional files. Checksums establish byte integrity, not feature completeness or asset valuation.
 
 ## Publish the browser release
 
@@ -72,3 +72,7 @@ Work & Assets contains manual wallet records, balance snapshots, transactions, e
 | Native App Store delivery | Existing Xcode/signing workflows; requires Apple provisioning and device validation |
 
 This document describes the current release package. It does not establish completion of private source packages, remote node deployments, consciousness, reserve valuations or market superiority.
+
+## Reproduce the browser checks
+
+`tools/release/browser.cjs` exercises a separately served release ZIP under a project subpath. It creates a temporary browser profile and test records, then closes the profile. Playwright and Chromium are development-only prerequisites. With those installed, set `NATHAN_RELEASE_BASE_URL` to the served document root (ending in `/`) and optionally `NATHAN_CHROMIUM` to the Chromium executable, then run `node tools/release/browser.cjs`. `NATHAN_RELEASE_SCREENSHOT` optionally selects a screenshot output path; the default is the operating-system temporary directory. The test imports only its own synthetic fixtures and checks byte-exact original downloads.

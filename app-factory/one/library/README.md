@@ -48,3 +48,9 @@ node --test app-factory/quality.test.cjs
 ```
 
 This is a working local-first browser module. Multi-user identity and encryption, server-side search, native device testing, continuous sync, and store releases are not implemented.
+
+## Release importer extensions
+
+Selected files and expanded folders can now include images, PDF/Office binaries and code files. Images and binary documents are indexed as metadata with original bytes retained; they are not decoded as UTF-8 or represented as extracted manuscripts. UTF-8 text/code is searchable, and measured physical code lines include comments and blank lines. The index export includes source-file metadata and measured totals, without the original byte blobs. Exact-content duplicate imports preserve additional selected paths and do not inflate code totals. The two IndexedDB stores are written in one transaction per new source, so failed saves do not leave a source-only partial import. Credential/configuration and dependency paths are excluded before file reading; recognizable key payloads are rejected. A batch continues past skipped files and reports its skipped count.
+
+ZIPs receive metadata only in the browser. Use `tools/library-bridge/` for supported ChatGPT ZIP exports and document text extraction. Neither importer automatically lists the ChatGPT Library account. Run `node --test app-factory/one/library/file-index.test.cjs` along with the existing library suite.

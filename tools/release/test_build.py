@@ -9,6 +9,10 @@ class ReleaseTests(unittest.TestCase):
         a=build.zip_bytes({'b.txt':b'b','a.txt':b'a'},1700000000)
         self.assertEqual(a,build.zip_bytes({'a.txt':b'a','b.txt':b'b'},1700000000))
         with zipfile.ZipFile(io.BytesIO(a)) as z:self.assertEqual(z.namelist(),['a.txt','b.txt'])
+    def test_packaged_links_require_actual_files(self):
+        files={'index.html':b'<a href="docs/guide.html">Guide</a>','docs/guide.html':b'<a href="../index.html">Home</a>'}
+        build.check_links(files);del files['docs/guide.html']
+        with self.assertRaisesRegex(ValueError,'Missing packaged'):build.check_links(files)
     def test_manifest_rejects_corrupt_and_extra_files(self):
         with tempfile.TemporaryDirectory() as tmp:
             path=pathlib.Path(tmp)/'site.zip';row={'path':'index.html','bytes':2,'sha256':build.digest(b'OK')};manifest={'commit':'fixture','files':[row]}

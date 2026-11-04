@@ -1,17 +1,34 @@
 #!/usr/bin/env python3
 """Build deterministic public Nathan AI site/source release archives from tracked files."""
 import argparse, hashlib, json, pathlib, subprocess, zipfile, datetime
+import posixpath, urllib.parse
+from html.parser import HTMLParser
 
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 STATIC={'.html','.htm','.js','.mjs','.cjs','.css','.json','.webmanifest','.svg','.png','.jpg','.jpeg','.webp','.gif','.ico','.avif','.wasm','.pdf','.md','.txt','.csv','.tsv','.xml','.woff','.woff2','.ttf','.mp3','.mp4','.ogg','.wav'}
+SOURCE_DOWNLOADS={'app-factory/nathan-ai/sovereign-coins/anchored/bench_matrix.py','app-factory/octopus-root/sovereign-continuum/advanced.py','app-factory/octopus-root/sovereign-continuum/test_advanced.py'}
 def git(*args):return subprocess.check_output(['git','-C',str(ROOT),*args],text=True).strip()
 def tracked():return subprocess.check_output(['git','-C',str(ROOT),'ls-files','-z']).decode().split('\0')[:-1]
 def safe(path):
     parts=pathlib.PurePosixPath(path).parts
-    return not any(p.lower() in {'.git','.env','.aws','.ssh','private-samples','node_modules','__pycache__'} or p.lower().startswith('.env.') for p in parts) and pathlib.PurePosixPath(path).suffix.lower() not in {'.pem','.pfx','.p12','.key'}
+    return not any(p.lower() in {'.git','.env','.aws','.ssh','private-samples','node_modules','__pycache__'} or (p.lower().startswith('.env.') and p.lower()!='.env.example') for p in parts) and pathlib.PurePosixPath(path).suffix.lower() not in {'.pem','.pfx','.p12','.key'}
 def site_file(path):
     p=pathlib.PurePosixPath(path)
-    return safe(path) and (path=='LICENSE' or ((path in {'index.html','README.md'} or path.startswith(('app-factory/','docs/'))) and p.suffix.lower() in STATIC and '/tests/' not in path and '.test.' not in p.name and not p.name.startswith('test_')))
+    return safe(path) and (path=='LICENSE' or path in SOURCE_DOWNLOADS or (len(p.parts)==1 and p.suffix=='.md') or ((path=='index.html' or path.startswith(('app-factory/','docs/'))) and p.suffix.lower() in STATIC and '/tests/' not in path and '.test.' not in p.name and not p.name.startswith('test_')))
+def check_links(files):
+    missing=[]
+    class Links(HTMLParser):
+        def handle_starttag(self,tag,attrs):
+            for key,value in attrs:
+                if key not in {'href','src'} or not value:continue
+                url=urllib.parse.urlsplit(value)
+                if url.scheme or url.netloc or not url.path:continue
+                target=posixpath.normpath(posixpath.join(posixpath.dirname(self.name),urllib.parse.unquote(url.path))) if not url.path.startswith('/') else url.path.lstrip('/')
+                if target not in files and target.rstrip('/')+'/index.html' not in files:missing.append(self.name+' -> '+value)
+    for name,data in files.items():
+        if name.endswith('.html'):
+            parser=Links();parser.name=name;parser.feed(data.decode('utf8'))
+    if missing:raise ValueError('Missing packaged relative links: '+'; '.join(missing[:20]))
 def digest(data):return hashlib.sha256(data).hexdigest()
 def zip_bytes(files,epoch):
     stream=__import__('io').BytesIO();stamp=datetime.datetime.fromtimestamp(max(epoch,315532800),datetime.timezone.utc).timetuple()[:6]
@@ -34,6 +51,7 @@ def build(out,allow_dirty=False):
     for required in ['index.html','app-factory/nathan-ai/index.html','app-factory/nathan-ai/manifest.webmanifest','app-factory/one/library/file-index.js']:
         if required not in site:raise ValueError('Missing release entry: '+required)
     site['.nojekyll']=b''
+    check_links(site)
     manifest={'schema':'nathan-ai.release.v1','version':'2026.11.04-rc1','commit':commit,'dirty_preview':dirty,'delivery':'Public browser app; optional local services require separate configuration.','files':[{'path':p,'bytes':len(data),'sha256':digest(data)} for p,data in sorted(site.items())]}
     site['release-manifest.json']=(json.dumps(manifest,indent=2)+'\n').encode()
     out.mkdir(parents=True,exist_ok=True)
