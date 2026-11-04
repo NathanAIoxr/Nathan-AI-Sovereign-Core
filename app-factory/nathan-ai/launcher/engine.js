@@ -2,6 +2,7 @@
   'use strict';
   const KEY='nathan-ai.launcher.v1';
   const destinations=[
+    ['original-works','My Original Works','original-works/index.html','Original manuscripts, saved words, earlier versions, canonical book titles and unchanged downloads'],
     ['universal-workspace','Universal Workspace','universal-workspace/index.html','Local tools and source workspace'],
     ['self-help','iCuBUDDY Self Help','self-help/index.html','Self help, Buddy AI and planning'],
     ['ai-mapping','AI Source Map','ai-mapping/index.html','Reaper, Omni God and source mapping'],

@@ -52,7 +52,7 @@ def build(out,allow_dirty=False):
         if required not in site:raise ValueError('Missing release entry: '+required)
     site['.nojekyll']=b''
     check_links(site)
-    manifest={'schema':'nathan-ai.release.v1','version':'2026.11.04-rc1','commit':commit,'dirty_preview':dirty,'delivery':'Public browser app; optional local services require separate configuration.','files':[{'path':p,'bytes':len(data),'sha256':digest(data)} for p,data in sorted(site.items())]}
+    manifest={'schema':'nathan-ai.release.v1','version':'2026.11.04-rc2','commit':commit,'dirty_preview':dirty,'delivery':'Public browser app; optional local services require separate configuration.','files':[{'path':p,'bytes':len(data),'sha256':digest(data)} for p,data in sorted(site.items())]}
     site['release-manifest.json']=(json.dumps(manifest,indent=2)+'\n').encode()
     out.mkdir(parents=True,exist_ok=True)
     names={'nathan-ai-site.zip':zip_bytes(site,epoch),'nathan-ai-source.zip':zip_bytes(all_files,epoch)}

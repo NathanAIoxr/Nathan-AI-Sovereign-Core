@@ -1,4 +1,4 @@
-# Nathan AI — launch candidate 2026.11.04-rc1
+# Nathan AI — launch candidate 2026.11.04-rc2
 
 Nathan AI's public browser application can be hosted as static files. The release contains the existing app universe, ONE, the private file importer, the Work & Assets workspace, source retrieval, twelve skins and shared navigation. Private owner data is not included. This candidate does not turn every source registry into a completed service or game.
 
@@ -76,3 +76,7 @@ This document describes the current release package. It does not establish compl
 ## Reproduce the browser checks
 
 `tools/release/browser.cjs` exercises a separately served release ZIP under a project subpath. It creates a temporary browser profile and test records, then closes the profile. Playwright and Chromium are development-only prerequisites. With those installed, set `NATHAN_RELEASE_BASE_URL` to the served document root (ending in `/`) and optionally `NATHAN_CHROMIUM` to the Chromium executable, then run `node tools/release/browser.cjs`. `NATHAN_RELEASE_SCREENSHOT` optionally selects a screenshot output path; the default is the operating-system temporary directory. The test imports only its own synthetic fixtures and checks byte-exact original downloads.
+
+## Original works and Nathan AI identity
+
+The Nathan AI home and GitHub README now lead with the creator identity and direct access to My Original Works. The original-work reader preserves 55 saved public records, the canonical 13-book plan and 13 download packages. Fifty-two texts match their first saved content; the three previously revised assistant-assisted drafts have both first-saved and current versions available. Restoration does not overwrite current manuscripts or infer access to the private ChatGPT Library. The offline core includes the public original-work reader and its source files. Existing skin preferences, original files and browser storage remain independent of the identity CSS.

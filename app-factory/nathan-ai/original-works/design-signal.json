@@ -1,0 +1,14 @@
+{
+  "type": "DesignSignalPacket",
+  "agent": "composition-director",
+  "scope": "Nathan AI home identity and original-work reader",
+  "composition_state": {
+    "grid": {"system": "responsive modular", "outer_margin_percent_each_side": 6, "original_work_columns_desktop": 3, "original_work_columns_mobile": 1},
+    "primary_anchor": {"element": "Nathan AI wordmark", "position": "upper left", "count": 1},
+    "secondary_anchor": {"element": "Read my original works", "treatment": "primary filled action"},
+    "tertiary_elements": ["original 13-book plan", "byte-preserved downloads", "existing module directory"],
+    "negative_space": {"target_fraction": 0.25, "measurement": "design target; viewport dependent"},
+    "preserved_regions": ["all existing source quotations", "current manuscripts", "canonical plan titles and order", "original download bytes", "browser data and skin preferences"],
+    "verification": ["saved-text SHA-256 comparisons", "original-package hash checks", "mobile reflow", "reader version controls", "DOM source-text equality"]
+  }
+}

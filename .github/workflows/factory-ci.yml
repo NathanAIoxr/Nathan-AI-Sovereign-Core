@@ -30,10 +30,14 @@ jobs:
     steps:
       - name: Check out public code
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - name: Install Node.js 22 LTS
         uses: actions/setup-node@v5
         with:
           node-version: '22'
+      - name: Verify original works, saved versions and published package integrity
+        run: node --test app-factory/nathan-ai/original-works/works.test.cjs
       - name: Verify public assets and architecture boundaries
         run: node --test app-factory/quality.test.cjs
       - name: Verify Formula of Life 732-million-node local activation, exact source identities and consent
