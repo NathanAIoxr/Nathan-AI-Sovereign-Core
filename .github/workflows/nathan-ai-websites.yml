@@ -36,6 +36,6 @@ jobs:
           node-version: 22
       - name: Test portal and Toy Drive
         run: |
-          node --test app-factory/nathan-ai/websites/site.test.cjs app-factory/shared/desktop-game-support.test.cjs app-factory/sites/sites.test.cjs
+          node --test app-factory/nathan-ai/websites/site.test.cjs app-factory/shared/desktop-game-support.test.cjs app-factory/sites/sites.test.cjs app-factory/christmas-toy-drive/give/giving.test.cjs
           node --test app-factory/games/blackjack-life/engine.test.cjs app-factory/games/crowning-jewel.test.cjs app-factory/games/paradox-118/engine.test.cjs app-factory/middle-c/game.test.cjs
           node --test app-factory/octopus-root/octopus-arsenal/app.test.cjs app-factory/octopus-root/octopus-arsenal/game.test.cjs app-factory/universal-node/babel-game.test.cjs app-factory/stewie-mr-finn/polar-middle-c/engine.test.cjs
