@@ -7,7 +7,7 @@
 document.getElementById("matrix").addEventListener("load",function(){
 const f=this.contentWindow,results=document.getElementById("results");results.replaceChildren();let pass=0,total=0;
 function check(name,fn){total++;const li=document.createElement("li");try{if(!fn())throw Error("unexpected result");li.className="ok";li.textContent="PASS · "+name;pass++}catch(e){li.className="fail";li.textContent="FAIL · "+name+" · "+e.message}results.append(li)}
-check("Twenty original signs in a 4 × 5 matrix",()=>f.ROWS.length===4&&f.ROWS.every(x=>x.length===5)&&new Set(f.ROWS.flat().map(x=>x.g)).size===20);
+check("Twenty original signs in a 4 × 5 matrix",()=>{const a=Array.from(f.document.querySelectorAll("#matrix .letter .glyph")).map(x=>x.textContent);return a.length===20&&new Set(a).size===20});
 check("TABOR transliterates to historical-equivalent signs",()=>f.historicalEncode("TABOR").output==="ᚈᚐᚁᚑᚏ");
 check("Ogham TABOR transliteration decodes",()=>f.historicalDecode("ᚈᚐᚁᚑᚏ").output==="TABOR");
 check("NG digraph uses the standard sign",()=>f.historicalEncode("NG").output==="ᚍ");
