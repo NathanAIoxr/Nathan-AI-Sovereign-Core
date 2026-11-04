@@ -10,7 +10,7 @@
 | Heifer experience | Christmas Toy Drive design | Verification required |
 | --- | --- | --- |
 | Animal gifts with story-led names | Toys, clothing and food by giving intent | Unit costs, project delivery |
-| Price-point ladder | 30 levels, from $5 to $100,000 | Approved allocations and budget |
+| Price-point ladder | 31 levels, from $5 to $100,000 | Approved allocations and budget |
 | Give where needed most | Flexible program support | Transparent policies/recording |
 | One-time donations | One-time giving plan | Actual verified payment |
 | Monthly / annual donations | Monthly / annual giving intentions, not auto-charges | Merchant recurring checkout |
@@ -31,7 +31,7 @@ The **donor sees program intention, not a guaranteed product purchase**. Gifts m
 - **WHERE NEEDED MOST:** flexible donations subject to an adopted approved allocation policy.
 Every financial movement is tagged by site, campaign, source, purpose, restriction, payment verification state, refund/chargeback status and outcome batch; assets are not conflated.
 
-### 3. All 30 original recommended dollar levels
+### 3. All 31 proposed dollar levels (24 previously recorded + 7 additive levels)
 Codes: \`H\` = Heifer's catalog has a comparable dollar tier (concept only, no Heifer branding); \`N\` = new accessibility/bridge tier. None are guaranteed per-unit purchase prices.
 
 | USD | Source | Toys | Clothing | Food |
@@ -65,7 +65,10 @@ Codes: \`H\` = Heifer's catalog has a comparable dollar tier (concept only, no H
 | 5000 | H | Toy Outreach Campaign | Clothing Outreach Campaign | Pantry Outreach Campaign |
 | 10000 | H | Community Toy Campaign | Community Clothing Campaign | Community Food Campaign |
 | 25000 | H | Regional Toy Drive Fund | Regional Clothing Fund | Regional Food Fund |
+| 50000 | P | Regional Childhood Joy Sponsor | Regional Wardrobe & Warmth Sponsor | Regional Family Food Sponsor |
 | 100000 | H | Multi-Community Joy Fund | Multi-Community Essentials Fund | Multi-Community Food Security Fund |
+
+The operations platform currently has **24** previously recorded tiers, while this browser giving catalog now contains **31**. Every original platform amount remains available here, including its $50,000 level. The seven added amounts are $15, $25, $40, $60, $72, $170 and $1,500. Original platform tier names and backend data remain unchanged and must be reconciled at the production integration boundary rather than silently overwritten.
 
 ### 4. Suggested packaging beyond Heifer's ordinary catalog
 **Giving type:** cash contribution, merchant-purchased goods, physical goods drop-off, volunteer time, matching commitment, in-kind corporate donation. Track as distinct transactions; never convert a pledge into confirmed cash.
