@@ -583,6 +583,24 @@
       }
     },
     {
+      "amount": 50000,
+      "basis": "platform",
+      "items": {
+        "toys": {
+          "title": "Regional Childhood Joy Sponsor",
+          "summary": "Toy drives, wishlists, purchase coordination and community distribution"
+        },
+        "clothing": {
+          "title": "Regional Wardrobe & Warmth Sponsor",
+          "summary": "New clothing and community-distributed wardrobe assistance"
+        },
+        "food": {
+          "title": "Regional Family Food Sponsor",
+          "summary": "Food-pantry partners, verified food-handling and distribution support"
+        }
+      }
+    },
+    {
       "amount": 100000,
       "basis": "heifer",
       "items": {
