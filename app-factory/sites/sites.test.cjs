@@ -106,3 +106,16 @@ test('Toy Drive and Toy Factory remain independently named and no live giving ch
  assert.match(factoryPage,/Toy Drive delivers donated gifts/);
  for(const html of [toy,factoryPage])assert.doesNotMatch(html,/stripe\.com|<iframe\b|paypal\.com/i);
 });
+
+test('the additional current games catalog is source-separated from playable public pages',()=>{
+ const catalog=JSON.parse(read(path.join(factory,'nathan-ai/games/catalog.json')));
+ assert.ok(catalog.entries.length>=84,'the current public catalog includes 84 title-stage records');
+ assert.ok(catalog.entries.some(x=>x.stage==='private-prototype'));
+ assert.ok(catalog.entries.some(x=>x.stage==='browser-demo'));
+ const page=read(path.join(dir,'index.html'));
+ assert.match(page,/id="load-games"/);
+ assert.match(page,/data-type="game-catalog"/);
+ const script=read(path.join(dir,'portal.js'));
+ assert.match(script,/fetch\('\.\.\/nathan-ai\/games\/catalog\.json'/);
+ assert.match(script,/entry\.stage!=='browser-demo'/);
+});

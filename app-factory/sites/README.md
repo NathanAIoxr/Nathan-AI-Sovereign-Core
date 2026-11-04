@@ -36,3 +36,7 @@ node --test app-factory/nathan-ai/websites/site.test.cjs
 \`\`\`
 
 Tests cover all local links, static page structure, author-controlled browser tools, proper independent identities, exact public launcher routes, source boundaries and basic script syntax. These checks do not certify browser visual accessibility, private engines, custom domains, nonprofit operations or all unpublished games. Main GitHub Pages publishing occurs only after verified CI and merge.
+
+## Public games catalog
+
+The directory also offers an explicit **Load game title records** action from the public `app-factory/nathan-ai/games/catalog.json`, which currently contains **84 title-stage records** (including reference positions and design/private records). These are **not** counted as 84 finished games. Only source-tagged browser demos with a supported public local HTML route receive an Open link. All original titles/stages remain in their existing catalog, which is not rewritten by this website.
