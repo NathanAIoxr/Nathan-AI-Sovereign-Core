@@ -1,0 +1,41 @@
+name: Nathan AI Websites Quality
+on:
+  push:
+    branches:
+      - build/nathan-ai-websites-2026-11-03
+    paths:
+      - 'app-factory/nathan-ai/websites/**'
+      - 'app-factory/sites/**'
+      - 'app-factory/christmas-toy-drive/**'
+      - 'app-factory/nathan-ai/index.html'
+      - 'app-factory/shared/desktop-game-support*'
+      - 'app-factory/games/**'
+      - 'app-factory/octopus-root/octopus-arsenal/**'
+      - 'app-factory/stewie-mr-finn/**'
+      - 'app-factory/index.html'
+      - '.github/workflows/nathan-ai-websites.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/websites/**'
+      - 'app-factory/sites/**'
+      - 'app-factory/christmas-toy-drive/**'
+      - 'app-factory/nathan-ai/index.html'
+      - 'app-factory/index.html'
+      - '.github/workflows/nathan-ai-websites.yml'
+permissions:
+  contents: read
+jobs:
+  static-sites:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Test portal and Toy Drive
+        run: |
+          node --test app-factory/nathan-ai/websites/site.test.cjs app-factory/shared/desktop-game-support.test.cjs app-factory/sites/sites.test.cjs
+          node --test app-factory/games/blackjack-life/engine.test.cjs app-factory/games/crowning-jewel.test.cjs app-factory/games/paradox-118/engine.test.cjs app-factory/middle-c/game.test.cjs
+          node --test app-factory/octopus-root/octopus-arsenal/app.test.cjs app-factory/octopus-root/octopus-arsenal/game.test.cjs app-factory/universal-node/babel-game.test.cjs app-factory/stewie-mr-finn/polar-middle-c/engine.test.cjs

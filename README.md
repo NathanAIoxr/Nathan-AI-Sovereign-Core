@@ -86,3 +86,11 @@ The root `LICENSE` file is **Apache License 2.0**. Confirm that it matches the o
 ## Nathan AI Children’s Books & Innocence Protection — November 1, 2026
 
 [Open the additive Children’s Library & Innocence Protection browser](app-factory/nathan-ai/children-innocence/index.html). This public source-first module connects 46 recovered project families, 19 Pumpkin Fruit Family groups, 13 individual power meters and selected author-provided statements. The reported 598 private file records stay in the owner-only recovery JSON, which can be imported locally from the previously generated private recovery pack; private source bytes, Library URLs and personal details are not public. A catalog entry does not mean a finished book, a working donation service or real-world autonomous child protection. [Read module documentation](app-factory/nathan-ai/children-innocence/README.md).
+
+## November 3, 2026 — Nathan AI independent website network
+
+- [Open the complete website universe](app-factory/sites/index.html): nine independently named sites, each with live browser-local plan generation, exact source text fields, JSON copy/export/restore, print and separate identities.
+- [My Desktop / Public App Launchpad](app-factory/nathan-ai/websites/launchpad.html): existing public modules plus the new site pages, with local favorites and recovery.
+- [Christmas Toy Drive](app-factory/christmas-toy-drive/index.html) and [Christmas Toy Factory](app-factory/sites/christmas-toy-factory/index.html) remain distinct: the factory designs toys; the drive coordinates giving and donation plans.
+
+These are working **static browser front ends**, not the private recovered full Next.js donor platform, production toy factory, live volunteer/beneficiary intake, online checkout, or remote provider integration. Unpublished works and account information remain outside the public repository.

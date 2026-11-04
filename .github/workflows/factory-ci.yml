@@ -90,6 +90,8 @@ jobs:
           node --test app-factory/nathan-ai/universal-tools/arrowhead-tree.test.mjs
       - name: Verify Nathan AI ROUTE RAUT ROOT language, mirror, original-source and binary integrity
         run: node --test app-factory/nathan-ai/route-raut-root/records.test.cjs
+      - name: Verify Trinity of Snow original canon, folklore provenance, KJV and botanical separation
+        run: node --test app-factory/nathan-ai/trinity-of-snow/archive.test.cjs
       - name: Verify recovered Children's Books and Innocence Protection public catalog, 19/13 canon and private import
         run: node --test app-factory/nathan-ai/children-innocence/engine.test.cjs
       - name: Verify Nathan AI Main Database, Books and Book Apps skin
