@@ -1,0 +1,578 @@
+{
+  "catalog": "ChristmasToyDrive.com year-round giving",
+  "version": "concept-v1",
+  "as_of": "2026-11-03",
+  "note": "This is an original draft based on donation-tier concepts, not an approved procurement or impact estimate. Heifer trademarked names are comparative references only; use original ChristmasToyDrive.com catalog names.",
+  "tiers": [
+    {
+      "amount_usd": 5,
+      "tier_name": "First Spark",
+      "display_group": "Micro",
+      "heifer_catalog_analogy": "",
+      "toys_illustrative_use": "Contribute toward an age-appropriate toy or book",
+      "clothing_illustrative_use": "Contribute toward socks or underwear",
+      "food_illustrative_use": "Contribute toward pantry staples",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 10,
+      "tier_name": "Giving Seed",
+      "display_group": "Micro",
+      "heifer_catalog_analogy": "",
+      "toys_illustrative_use": "Help purchase a picture book or activity gift",
+      "clothing_illustrative_use": "Help purchase hats, gloves, or basic essentials",
+      "food_illustrative_use": "Help purchase shelf-stable or fresh groceries",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 20,
+      "tier_name": "First Gift",
+      "display_group": "Individual",
+      "heifer_catalog_analogy": "Flock of Chicks ($20)",
+      "toys_illustrative_use": "Support a child\u2019s toy or book gift",
+      "clothing_illustrative_use": "Support socks and underwear essentials",
+      "food_illustrative_use": "Support staple foods for a household",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 30,
+      "tier_name": "Kindness Builder",
+      "display_group": "Individual",
+      "heifer_catalog_analogy": "Honeybees ($30)",
+      "toys_illustrative_use": "Support a creative play or learning gift",
+      "clothing_illustrative_use": "Support a winter accessory bundle",
+      "food_illustrative_use": "Support produce and pantry staples",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 50,
+      "tier_name": "Holiday Helper",
+      "display_group": "Individual",
+      "heifer_catalog_analogy": "",
+      "toys_illustrative_use": "Support a play-and-reading bundle",
+      "clothing_illustrative_use": "Support everyday clothing basics",
+      "food_illustrative_use": "Support a practical grocery basket",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 75,
+      "tier_name": "Seasonal Helper",
+      "display_group": "Individual",
+      "heifer_catalog_analogy": "",
+      "toys_illustrative_use": "Contribute to sibling toy packs",
+      "clothing_illustrative_use": "Support cold-weather layers",
+      "food_illustrative_use": "Contribute to a family meal basket",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 85,
+      "tier_name": "Kindness Basket",
+      "display_group": "Basket",
+      "heifer_catalog_analogy": "Promise Gift Basket ($85)",
+      "toys_illustrative_use": "Support a themed assortment of toys and books",
+      "clothing_illustrative_use": "Support a mix of apparel essentials",
+      "food_illustrative_use": "Support a mixed pantry basket",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 100,
+      "tier_name": "Family Builder",
+      "display_group": "Basket",
+      "heifer_catalog_analogy": "",
+      "toys_illustrative_use": "Support a coordinated gift assortment",
+      "clothing_illustrative_use": "Support school and everyday clothing",
+      "food_illustrative_use": "Support a household grocery refill",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 120,
+      "tier_name": "Family Celebration Box",
+      "display_group": "Basket",
+      "heifer_catalog_analogy": "Goat / Sheep / Dream Basket ($120)",
+      "toys_illustrative_use": "Support multiple age-matched gift choices",
+      "clothing_illustrative_use": "Support a family warmth basket",
+      "food_illustrative_use": "Support a family food basket",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 150,
+      "tier_name": "Threefold Care",
+      "display_group": "Bundle",
+      "heifer_catalog_analogy": "",
+      "toys_illustrative_use": "Help fund the toy portion of a three-department bundle",
+      "clothing_illustrative_use": "Help fund the clothing portion of a three-department bundle",
+      "food_illustrative_use": "Help fund the food portion of a three-department bundle",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 200,
+      "tier_name": "Household Builder",
+      "display_group": "Bundle",
+      "heifer_catalog_analogy": "",
+      "toys_illustrative_use": "Support toys for multiple children",
+      "clothing_illustrative_use": "Support basic clothing for a household",
+      "food_illustrative_use": "Support an extended pantry replenishment",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 250,
+      "tier_name": "Winter Ready",
+      "display_group": "Seasonal",
+      "heifer_catalog_analogy": "Family Solar Kit ($250)",
+      "toys_illustrative_use": "Support special-interest and educational gifts",
+      "clothing_illustrative_use": "Support winter coats and warmth essentials",
+      "food_illustrative_use": "Support nutritious groceries during winter",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 275,
+      "tier_name": "School Forward",
+      "display_group": "Seasonal",
+      "heifer_catalog_analogy": "Send a Girl to School ($275)",
+      "toys_illustrative_use": "Support educational toys, books, and school readiness",
+      "clothing_illustrative_use": "Support school outfits, coats, and footwear",
+      "food_illustrative_use": "Support groceries that ease school-week food pressure",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 300,
+      "tier_name": "Family Reset",
+      "display_group": "Seasonal",
+      "heifer_catalog_analogy": "Gift of Clean Water ($300)",
+      "toys_illustrative_use": "Support an age-diverse toy collection",
+      "clothing_illustrative_use": "Support a family coat-and-clothing collection",
+      "food_illustrative_use": "Support a fuller family pantry replenishment",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 350,
+      "tier_name": "Bright Futures",
+      "display_group": "Seasonal",
+      "heifer_catalog_analogy": "Chicks + Solar Hatchery ($350)",
+      "toys_illustrative_use": "Support learning, play and special-needs adaptations",
+      "clothing_illustrative_use": "Support a coordinated multi-child wardrobe",
+      "food_illustrative_use": "Support family groceries and healthy snacks",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 500,
+      "tier_name": "Family Anchor",
+      "display_group": "Signature",
+      "heifer_catalog_analogy": "Heifer ($500)",
+      "toys_illustrative_use": "Support substantial toy and book needs across a family",
+      "clothing_illustrative_use": "Support clothing, coats, and footwear for a family",
+      "food_illustrative_use": "Support substantial food assistance for a family",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 750,
+      "tier_name": "Neighborhood Care",
+      "display_group": "Signature",
+      "heifer_catalog_analogy": "Gift of Water for Life ($750)",
+      "toys_illustrative_use": "Help supply a small community toy drive",
+      "clothing_illustrative_use": "Help supply a neighborhood clothing closet",
+      "food_illustrative_use": "Help supply a partner pantry shelf",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 1000,
+      "tier_name": "Community Shelf",
+      "display_group": "Community",
+      "heifer_catalog_analogy": "",
+      "toys_illustrative_use": "Underwrite a local toy shelf or distribution event",
+      "clothing_illustrative_use": "Underwrite a local clothing rack or supply day",
+      "food_illustrative_use": "Underwrite pantry purchases at a community partner",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "monthly",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 2500,
+      "tier_name": "Community Partner",
+      "display_group": "Community",
+      "heifer_catalog_analogy": "",
+      "toys_illustrative_use": "Support multiple toy distribution points",
+      "clothing_illustrative_use": "Support multiple seasonal clothing efforts",
+      "food_illustrative_use": "Support multiple food distribution efforts",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 5000,
+      "tier_name": "Community Caravan",
+      "display_group": "Community",
+      "heifer_catalog_analogy": "Gift Ark ($5,000)",
+      "toys_illustrative_use": "Support a major toy-drive buying and delivery cycle",
+      "clothing_illustrative_use": "Support a major coat and essentials buying cycle",
+      "food_illustrative_use": "Support a major pantry procurement and delivery cycle",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 10000,
+      "tier_name": "Community Circle",
+      "display_group": "Leadership",
+      "heifer_catalog_analogy": "Feed a Village ($10,000)",
+      "toys_illustrative_use": "Support community-wide toys and books coverage",
+      "clothing_illustrative_use": "Support community-wide clothing assistance",
+      "food_illustrative_use": "Support community-wide food assistance",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 25000,
+      "tier_name": "Regional Builder",
+      "display_group": "Leadership",
+      "heifer_catalog_analogy": "",
+      "toys_illustrative_use": "Support a regional toy-drive initiative",
+      "clothing_illustrative_use": "Support a regional clothing and winter-gear initiative",
+      "food_illustrative_use": "Support a regional food-access initiative",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 50000,
+      "tier_name": "Sustaining Partner",
+      "display_group": "Leadership",
+      "heifer_catalog_analogy": "",
+      "toys_illustrative_use": "Support multi-site toy collections and distributions",
+      "clothing_illustrative_use": "Support multi-site clothing assistance",
+      "food_illustrative_use": "Support multi-site food assistance",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    },
+    {
+      "amount_usd": 100000,
+      "tier_name": "Founding Partner",
+      "display_group": "Leadership",
+      "heifer_catalog_analogy": "",
+      "toys_illustrative_use": "Support annual program capacity for toys",
+      "clothing_illustrative_use": "Support annual program capacity for clothing",
+      "food_illustrative_use": "Support annual program capacity for food",
+      "category_choices": [
+        "toys",
+        "clothing",
+        "food",
+        "combined",
+        "where_needed_most"
+      ],
+      "frequency_choices": [
+        "one_time",
+        "annually"
+      ],
+      "status": "proposed",
+      "impact_status": "illustrative; validate with supplier quotes and partner fulfillment costs",
+      "benefit_guarantee": false
+    }
+  ]
+}
