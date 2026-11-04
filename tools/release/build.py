@@ -5,7 +5,7 @@ import posixpath, urllib.parse
 from html.parser import HTMLParser
 
 ROOT=pathlib.Path(__file__).resolve().parents[2]
-STATIC={'.html','.htm','.js','.mjs','.cjs','.css','.json','.webmanifest','.svg','.png','.jpg','.jpeg','.webp','.gif','.ico','.avif','.wasm','.pdf','.md','.txt','.csv','.tsv','.xml','.woff','.woff2','.ttf','.mp3','.mp4','.ogg','.wav'}
+STATIC={'.html','.htm','.js','.mjs','.cjs','.css','.json','.webmanifest','.svg','.png','.jpg','.jpeg','.webp','.gif','.ico','.avif','.wasm','.pdf','.md','.txt','.csv','.tsv','.xml','.woff','.woff2','.ttf','.mp3','.mp4','.ogg','.wav','.zip','.docx','.xlsx','.pptx','.epub','.odt','.rtf'}
 SOURCE_DOWNLOADS={'app-factory/nathan-ai/sovereign-coins/anchored/bench_matrix.py','app-factory/octopus-root/sovereign-continuum/advanced.py','app-factory/octopus-root/sovereign-continuum/test_advanced.py'}
 def git(*args):return subprocess.check_output(['git','-C',str(ROOT),*args],text=True).strip()
 def tracked():return subprocess.check_output(['git','-C',str(ROOT),'ls-files','-z']).decode().split('\0')[:-1]
@@ -30,6 +30,14 @@ def check_links(files):
             parser=Links();parser.name=name;parser.feed(data.decode('utf8'))
     if missing:raise ValueError('Missing packaged relative links: '+'; '.join(missing[:20]))
 def digest(data):return hashlib.sha256(data).hexdigest()
+def check_published_downloads(files):
+    base='app-factory/one/library-mind/'
+    publication=json.loads(files[base+'publication.json'])
+    for record in publication['downloads']:
+        name=base+record['file']
+        if name not in files:raise ValueError('Original download missing from site: '+name)
+        data=files[name]
+        if len(data)!=record['bytes'] or digest(data)!=record['sha256']:raise ValueError('Original download integrity mismatch: '+name)
 def zip_bytes(files,epoch):
     stream=__import__('io').BytesIO();stamp=datetime.datetime.fromtimestamp(max(epoch,315532800),datetime.timezone.utc).timetuple()[:6]
     with zipfile.ZipFile(stream,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
@@ -52,6 +60,7 @@ def build(out,allow_dirty=False):
         if required not in site:raise ValueError('Missing release entry: '+required)
     site['.nojekyll']=b''
     check_links(site)
+    check_published_downloads(site)
     manifest={'schema':'nathan-ai.release.v1','version':'2026.11.04-rc2','commit':commit,'dirty_preview':dirty,'delivery':'Public browser app; optional local services require separate configuration.','files':[{'path':p,'bytes':len(data),'sha256':digest(data)} for p,data in sorted(site.items())]}
     site['release-manifest.json']=(json.dumps(manifest,indent=2)+'\n').encode()
     out.mkdir(parents=True,exist_ok=True)

@@ -3,7 +3,7 @@ import build
 
 class ReleaseTests(unittest.TestCase):
     def test_static_boundary(self):
-        for name in ['index.html','LICENSE','app-factory/nathan-ai/index.html','app-factory/one/library/file-index.js','docs/LAUNCH.md']:self.assertTrue(build.site_file(name),name)
+        for name in ['index.html','LICENSE','app-factory/nathan-ai/index.html','app-factory/one/library/file-index.js','docs/LAUNCH.md','app-factory/one/library-mind/downloads/source.zip','app-factory/one/library-mind/downloads/source.docx']:self.assertTrue(build.site_file(name),name)
         for name in ['.env','app-factory/.env.local','app-factory/private-samples/photo.jpg','app-factory/a.test.cjs','app-factory/tests/a.js','app-factory/nathan-ai/assistant/server.py','.github/workflows/ci.yml']:self.assertFalse(build.site_file(name),name)
     def test_deterministic_archive(self):
         a=build.zip_bytes({'b.txt':b'b','a.txt':b'a'},1700000000)
@@ -13,6 +13,12 @@ class ReleaseTests(unittest.TestCase):
         files={'index.html':b'<a href="docs/guide.html">Guide</a>','docs/guide.html':b'<a href="../index.html">Home</a>'}
         build.check_links(files);del files['docs/guide.html']
         with self.assertRaisesRegex(ValueError,'Missing packaged'):build.check_links(files)
+    def test_original_downloads_are_present_and_unchanged(self):
+        base='app-factory/one/library-mind/';record={'file':'downloads/original.zip','bytes':3,'sha256':build.digest(b'ZIP')};files={base+'publication.json':json.dumps({'downloads':[record]}).encode()}
+        with self.assertRaisesRegex(ValueError,'missing'):build.check_published_downloads(files)
+        files[base+record['file']]=b'ZIP';build.check_published_downloads(files)
+        files[base+record['file']]=b'BAD'
+        with self.assertRaisesRegex(ValueError,'integrity'):build.check_published_downloads(files)
     def test_manifest_rejects_corrupt_and_extra_files(self):
         with tempfile.TemporaryDirectory() as tmp:
             path=pathlib.Path(tmp)/'site.zip';row={'path':'index.html','bytes':2,'sha256':build.digest(b'OK')};manifest={'commit':'fixture','files':[row]}
