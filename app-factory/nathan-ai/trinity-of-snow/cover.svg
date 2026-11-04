@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1050" role="img" aria-labelledby="title desc">
+<title id="title">The Trinity of Snow — Nathan Tabor</title>
+<desc id="desc">Original illuminated winter manuscript-style symbolic artwork: three luminous snow spheres represent Spirit, Form, and Earth. Beneath them, plant, crystal, and fungal forms are presented as an authored comparison, not biblical identifications.</desc>
+<defs>
+ <radialGradient id="sky"><stop stop-color="#2b648f"/><stop offset=".6" stop-color="#102c51"/><stop offset="1" stop-color="#061326"/></radialGradient>
+ <radialGradient id="snow" cx=".35" cy=".2"><stop stop-color="#fff"/><stop offset=".6" stop-color="#d8f1ff"/><stop offset="1" stop-color="#75a8cc"/></radialGradient>
+ <linearGradient id="gold"><stop stop-color="#ad7e31"/><stop offset=".35" stop-color="#ffe6a5"/><stop offset=".7" stop-color="#e7be6c"/><stop offset="1" stop-color="#9c6b2b"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="14"/></filter>
+ <pattern id="stars" width="115" height="115" patternUnits="userSpaceOnUse"><circle cx="12" cy="17" r="2" fill="#e9f8ff" opacity=".75"/><circle cx="91" cy="81" r="1" fill="#fce0a0" opacity=".8"/></pattern>
+</defs>
+<rect width="1600" height="1050" fill="url(#sky)"/><rect width="1600" height="1050" fill="url(#stars)"/>
+<rect x="22" y="22" width="1556" height="1006" rx="24" stroke="url(#gold)" stroke-width="9" fill="none"/><rect x="44" y="44" width="1512" height="962" rx="10" stroke="#8ebcdd" stroke-width="2" fill="none"/>
+<path d="M150 370Q390 140 800 260Q1210 120 1450 370" fill="none" stroke="#bceaff" stroke-width="10" opacity=".12" filter="url(#glow)"/>
+<text x="800" y="142" text-anchor="middle" fill="#f7da98" font-family="Georgia,serif" font-size="86" font-weight="bold" letter-spacing="6">THE TRINITY OF SNOW</text>
+<text x="800" y="196" text-anchor="middle" fill="#e9f8ff" font-family="Georgia,serif" font-size="28" letter-spacing="5">THE 1380 BOOK OF LIGHTS · NATHAN TABOR</text>
+<g stroke="#e2f3ff" stroke-width="2" opacity=".55">
+ <path d="M110 290v120m-60-60h120m-102-42l84 84m0-84l-84 84"/><path d="M1490 290v120m-60-60h120m-102-42l84 84m0-84l-84 84"/>
+</g>
+<g transform="translate(800 510)">
+ <circle cx="0" cy="-126" r="76" fill="url(#snow)" stroke="#ffe2a1" stroke-width="7"/>
+ <circle cx="0" cy="42" r="116" fill="url(#snow)" stroke="#ffe2a1" stroke-width="7"/>
+ <circle cx="0" cy="275" r="153" fill="url(#snow)" stroke="#ffe2a1" stroke-width="7"/>
+ <text x="0" y="-116" fill="#163a5c" text-anchor="middle" font-family="Georgia,serif" font-size="24" font-weight="bold">1</text>
+ <text x="0" y="-88" fill="#163a5c" text-anchor="middle" font-family="Georgia,serif" font-size="20">SPIRIT</text>
+ <text x="0" y="42" fill="#163a5c" text-anchor="middle" font-family="Georgia,serif" font-size="36" font-weight="bold">2 · FORM</text>
+ <text x="0" y="271" fill="#163a5c" text-anchor="middle" font-family="Georgia,serif" font-size="37" font-weight="bold">3 · EARTH</text>
+ <text x="0" y="303" fill="#163a5c" text-anchor="middle" font-family="Georgia,serif" font-size="21">CREATION</text>
+</g>
+<g transform="translate(350 500)">
+ <circle r="160" fill="#174967" opacity=".85" stroke="url(#gold)" stroke-width="6"/>
+ <path d="M0 109L0-72M0-65Q-43-142-55-122Q-69-86-39-54Q-115-111-119-66Q-123-29-57-16Q-143-29-136 12Q-120 54-40 19Q-75 75-43 81Q-7 74 0 38Q9 92 45 79Q74 55 39 18Q124 62 137 12Q143-29 59-17Q127-51 119-66Q113-106 39-53Q67-111 54-121Q36-139 0-65Z" fill="#6dba83" stroke="#c3f2c8" stroke-width="4" opacity=".9"/>
+ <text x="0" y="205" fill="#f6d793" font-family="Georgia,serif" text-anchor="middle" font-size="28">CANNABIS</text>
+</g>
+<g transform="translate(1250 500)">
+ <circle r="160" fill="#174967" opacity=".85" stroke="url(#gold)" stroke-width="6"/>
+ <path d="M-98 37Q-92-52-34-49Q-1-48 3 37Z" fill="#fff3d0" stroke="#ffe39f" stroke-width="5"/>
+ <path d="M-123-51Q-119-130-45-132Q14-130 27-51Q-53-24-123-51" fill="#b75149" stroke="#ffce9d" stroke-width="5"/>
+ <path d="M32 82Q36 5 85 4Q125 5 122 82Z" fill="#e6edeb" stroke="#ffe39f" stroke-width="5"/>
+ <path d="M13 6Q21-54 86-62Q151-51 155 5Q88 35 13 6" fill="#c56f4e" stroke="#ffce9d" stroke-width="5"/>
+ <g fill="#fff7cd"><circle cx="-83" cy="-91" r="8"/><circle cx="-47" cy="-108" r="12"/><circle cx="-5" cy="-78" r="8"/><circle cx="80" cy="-34" r="7"/><circle cx="116" cy="-19" r="8"/></g>
+ <text x="0" y="205" fill="#f6d793" font-family="Georgia,serif" text-anchor="middle" font-size="28">FUNGI</text>
+</g>
+<path d="M575 620L630 620M970 620L1027 620" stroke="#f8d789" stroke-width="4" stroke-dasharray="12 10"/>
+<g transform="translate(800 910)"><rect x="-650" y="-35" width="1300" height="74" rx="12" fill="#092641" stroke="#dfba6b" stroke-width="3"/><text x="0" y="-5" text-anchor="middle" fill="#f7dea5" font-family="Georgia,serif" font-size="23" font-weight="bold">SNOW · SEED-BEARING PLANTS · COCA-DERIVED COCAINE · MUSHROOMS</text><text x="0" y="22" text-anchor="middle" fill="#e5f3ff" font-family="Georgia,serif" font-size="17">KJV: JOB 37:6 · JOB 38:22 · PSALM 147:16 · GENESIS 1:29</text></g>
+<text x="800" y="993" fill="#dbeeff" text-anchor="middle" font-family="sans-serif" font-size="16">SYMBOLIC COMPARISON ONLY · SCRIPTURE DOES NOT EQUATE THESE SUBSTANCES WITH SNOW</text>
+</svg>
