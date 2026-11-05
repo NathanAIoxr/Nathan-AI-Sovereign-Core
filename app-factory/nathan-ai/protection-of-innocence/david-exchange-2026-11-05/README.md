@@ -1,6 +1,6 @@
 # NATHAN AI — Protection of Innocence: author-word preservation
 
-**Status:** Source-preservation branch; publication/review gate pending.  
+**Status:** Source-preservation branch in a PUBLIC GitHub repository; merge and deployment review pending. The branch files are already publicly viewable.  
 **Scope:** Four consecutive **user-authored** turns visible in a November 2026 conversation. This is **not** a complete ChatGPT account export and does not recover private source archives.
 
 ## Canonical originals and derived indexes
