@@ -118,7 +118,10 @@ test('D original source archive integrates hub, website and desktop without repl
   assert.equal(Object.keys(chatEngine.MODE_LABELS).length, 7);
   const runtime = {window: {}};
   vm.runInNewContext(html(path.join(__dirname, 'registry.js')), runtime);
-  const dApp = runtime.window.NathanAIWebsiteModules.find(x => x.id === 'archive-index/alphabet/d/index.html');
+  const dApp = runtime.window.NathanAIWebsiteModules.find(x => x.id === 'nathan-ai/d-archive/index.html');
   assert.ok(dApp);
-  assert.equal(path.resolve(__dirname, dApp.url), dHtml);
+  const gateway = path.resolve(__dirname, '../d-archive/index.html');
+  assert.equal(path.resolve(__dirname, dApp.url), gateway);
+  assert.match(html(gateway), /src="\.\.\/\.\.\/\.\.\/archive-index\/alphabet\/d\/index\.html"/);
+  assert.ok(fs.existsSync(gateway));
 });
