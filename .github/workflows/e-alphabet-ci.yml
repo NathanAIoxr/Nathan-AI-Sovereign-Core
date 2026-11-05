@@ -1,0 +1,33 @@
+name: E alphabet geometry and source integrity
+on:
+  pull_request:
+    paths:
+      - 'archive-index/alphabet/e/**'
+      - 'app-factory/nathan-ai/e-archive/**'
+      - '.github/workflows/e-alphabet-ci.yml'
+  push:
+    paths:
+      - 'archive-index/alphabet/e/**'
+      - 'app-factory/nathan-ai/e-archive/**'
+      - '.github/workflows/e-alphabet-ci.yml'
+jobs:
+  geometry-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test E source-preserving glyph engine
+        run: node --test archive-index/alphabet/e/e-family.test.mjs
+      - name: Check original catalog and A–Z titles
+        run: |
+          node --input-type=module -e "
+          import fs from 'node:fs';
+          const p='archive-index/alphabet/e/';
+          const c=JSON.parse(fs.readFileSync(p+'source-catalog-e.json','utf8'));
+          const s=JSON.parse(fs.readFileSync(p+'canonical-e-sequences.json','utf8'));
+          const g=JSON.parse(fs.readFileSync(p+'geometry.json','utf8'));
+          if(c.entries.length!==128 || c.matching_e_rows!==132 || s.entries.length!==5 || g.glyphs.length!==4)process.exit(1);
+          if(c.entries.some(x=>!x.title.startsWith('E')&&!x.title.startsWith('e')))process.exit(1);
+          "

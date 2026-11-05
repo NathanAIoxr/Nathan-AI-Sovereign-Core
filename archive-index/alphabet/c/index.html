@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Nathan AI — Letter C Work Index</title>
+<style>
+:root{font-family:system-ui,Arial,sans-serif;background:#121a27;color:#f3f4f6}
+*{box-sizing:border-box}body{margin:0;max-width:1160px;padding:24px 16px 64px;margin-inline:auto}
+a{color:#b9d8ff}h1{margin:.2rem 0;font-size:clamp(1.6rem,5vw,2.4rem)}h2{font-size:1.12rem}
+p{line-height:1.55}.muted{color:#b8c3d3}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+section,.tile{background:#1b2638;border:1px solid #344157;border-radius:12px;padding:18px;margin-top:18px}
+label{display:block;margin-bottom:6px;font-weight:650}
+input,select,button{font:inherit;border-radius:8px;border:1px solid #6a7b95;padding:10px 12px}
+input,select{background:#101928;color:#fff;width:100%}
+button{background:#e0e8f4;color:#112036;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}button:hover:not(:disabled){background:#fff}
+.controls{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+@media(max-width:650px){.controls{grid-template-columns:1fr}}
+table{border-collapse:collapse;width:100%}td,th{text-align:left;padding:9px;border-bottom:1px solid #344157;word-break:break-word}th{color:#b8c3d3;font-weight:650}
+tr:hover{background:#223149}small{color:#c7d0df}.pill{display:inline-block;padding:4px 8px;border:1px solid #6a7b95;border-radius:30px;margin:3px;font-size:.82rem}
+.mono{font-family:ui-monospace,SFMono-Regular,monospace;word-break:break-word;white-space:pre-wrap}
+#status{min-height:26px}.paging{display:flex;gap:12px;align-items:center;justify-content:flex-end;margin-top:14px}
+</style>
+</head>
+<body>
+<header>
+<p class="muted">NATHAN AI · TABOR ROOT · ONE · A–Z</p>
+<h1>Letter C — Work Index & Variations</h1>
+<p class="muted">367 recovered C-prefixed filename occurrences and a reviewable word-variation engine. No source files or personal Library paths are published in this tool.</p>
+<p><a href="./README.md">Source and limitations</a> · <a href="../..//loc-b8/b-family/README.md">Letter B archive</a> · <a href="../../../app-factory/middle-c/index.html">The Middle C game</a></p>
+</header>
+<section aria-labelledby="search-head">
+<h2 id="search-head">Search source titles</h2>
+<div class="controls">
+<div><label for="search">Filename / title</label><input id="search" placeholder="Christmas, Cosmic, Cipher, Crown…" autocomplete="off"></div>
+<div><label for="group">Source family</label><select id="group"><option value="">All C entries</option><option value="C_INITIAL">Begins C</option><option value="NUMBERED_C">Numbered C</option><option value="THE_C">Begins The C</option></select></div>
+</div>
+<p id="status" role="status">Loading indexes…</p>
+<div style="overflow-x:auto"><table><thead><tr><th>Original title / filename</th><th>Kind</th><th>Index family</th></tr></thead><tbody id="rows"></tbody></table></div>
+<div class="paging"><button id="previous" type="button">Previous</button><span id="page" aria-live="polite">0 / 0</span><button id="next" type="button">Next</button></div>
+</section>
+<section aria-labelledby="variant-head">
+<h2 id="variant-head">C spelling, sound, reversal & mirror inspection</h2>
+<p class="muted">Original spelling remains unchanged. Routes are possibilities for review, not evidence that unrelated words share a root.</p>
+<label for="term">Inspect your own term</label>
+<input id="term" placeholder="CONSCIOUSNESSES or Christmas Cipher Matrix" value="CONSCIOUSNESSES" maxlength="500">
+<div class="grid">
+<div class="tile"><strong>Original</strong><p id="original" class="mono"></p></div>
+<div class="tile"><strong>Exact code-point reversal</strong><p id="reverse" class="mono"></p></div>
+</div>
+<p><strong>Classification routes</strong></p>
+<div id="routes" aria-live="polite"></div>
+<p id="review" class="muted"></p>
+</section>
+<section>
+<h2>The Middle C — creator's three planes</h2>
+<p class="mono">ABOVE C — WHAT YOU HEAR<br>
+BELOW C — WHAT YOU SEE<br>
+THE MIDDLE C — THE COLLISION<br>
+C = CONSCIOUSNESSES</p>
+<p>See <a href="../../../app-factory/stewie-mr-finn/polar-middle-c/index.html">Polar Middle C</a> for a separate playable game. Distinguish C from sea/SCA, musical Middle C and physics or Roman-numeral meanings.</p>
+</section>
+<script type="module">
+import {classifyC,reverseCodePoints,findCTitles} from './c-family.mjs';
+const $=id=>document.getElementById(id);
+let all=[],page=0;const pageSize=35;
+function render(){
+ const hit=findCTitles(all,$('search').value,$('group').value);
+ const pageCount=Math.max(1,Math.ceil(hit.length/pageSize));page=Math.max(0,Math.min(page,pageCount-1));
+ $('status').textContent=hit.length.toLocaleString()+' matching filename entries. Source files remain in the owner Library.';
+ const body=$('rows');body.replaceChildren();
+ for(const x of hit.slice(page*pageSize,(page+1)*pageSize)){
+  const tr=document.createElement('tr');
+  for(const v of [x.title,x.kind,x.group]){
+   const cell=document.createElement('td');cell.textContent=v;tr.append(cell);
+  }body.append(tr);
+ }
+ $('page').textContent=(page+1)+' / '+pageCount;
+ $('previous').disabled=page===0;$('next').disabled=page+1>=pageCount;
+}
+function inspect(){
+ const value=$('term').value,found=classifyC(value);
+ $('original').textContent=found.original||'(empty)';
+ $('reverse').textContent=reverseCodePoints(value)||'(empty)';
+ $('routes').replaceChildren();
+ for(const name of found.routes){const tag=document.createElement('span');tag.className='pill';tag.textContent=name;$('routes').append(tag);}
+ if(!found.routes.length)$('routes').textContent='No specific C route matched. No words were changed.';
+ $('review').textContent=found.reviewRequired?'Context or human review required for one or more candidate associations.':'Classification is a text pattern, not proof of origin, identity or historical relationship.';
+}
+$('search').addEventListener('input',()=>{page=0;render();});
+$('group').addEventListener('change',()=>{page=0;render();});
+$('previous').onclick=()=>{page--;render();};
+$('next').onclick=()=>{page++;render();};
+$('term').addEventListener('input',inspect);inspect();
+try{
+ const paths=['./owner-library-c-filename-index.json','./owner-library-the-c-filename-index.json'];
+ const sources=await Promise.all(paths.map(async path=>{
+  const response=await fetch(path);
+  if(!response.ok)throw new Error('Unable to retrieve '+path+' ('+response.status+')');
+  const data=await response.json();
+  if(!Array.isArray(data.records))throw new Error('Invalid index '+path);
+  return data.records;
+ }));
+ all=sources.flat();render();
+}catch(e){$('status').textContent=e.message+' — view the JSON indexes directly in GitHub.';}
+</script>
+</body></html>

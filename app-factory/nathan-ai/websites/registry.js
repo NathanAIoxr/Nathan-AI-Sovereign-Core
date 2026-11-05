@@ -902,5 +902,12 @@ window.NathanAIWebsiteModules = [
     "url": "../../one/taborite-language-matrix/game.html",
     "group": "games",
     "status": "Interactive browser page"
+  },
+  {
+    "id": "nathan-ai/d-archive/index.html",
+    "title": "D · Original Words, Variants & Inversions",
+    "url": "../../nathan-ai/d-archive/index.html",
+    "group": "research",
+    "status": "Interactive source-preserving D archive · 152 filename records, 19 routes"
   }
 ];

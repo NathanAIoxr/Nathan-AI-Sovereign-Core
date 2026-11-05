@@ -27,6 +27,13 @@ The **existing Nathan AI Main Hub**, **TABOR 1-2-3 FACTORY**, **ONE**, **Vault**
 
 \`Handling Life\`, \`TaborTales\`, \`TABOR WORLD\`, and \`Santa Claus Factory\` remain independently identifiable. They have no invented live websites or backend connections here. Previously archived owner materials stay private.
 
+## Source-preserving D word archive (November 5, 2026)
+
+- The [D original titles and variations browser](../../../archive-index/alphabet/d/index.html) is listed in the Websites & Worlds finder and the **My Desktop** launchpad registry.
+- The [five exact author D sequence titles](../../../archive-index/alphabet/d/canonical-d-sequences.json) remain separately sourced from derived rotations, reversals and phonetic candidates.
+- The Nathan AI main hub and HOP IN chatbox expose direct links; users may enter `/d` or `/d variants` for a local route without requiring a model provider.
+- This is a public source index; private Library original contents and credentials are not imported.
+
 ## Local validation
 
 From the repository root:

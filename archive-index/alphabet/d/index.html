@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light"><title>Nathan AI — D Work Archive & Variations</title>
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#111827;color:#f9fafb}
+*{box-sizing:border-box}body{margin:auto;max-width:1120px;padding:24px 18px 60px}
+header,section{margin-bottom:20px}h1{margin:.15em 0 .4em;font-size:clamp(1.6rem,4vw,2.4rem)}
+h2{font-size:1.24rem}a{color:#accfff}p{line-height:1.6}
+.sub{color:#c4c9d5}.chip{display:inline-block;border:1px solid #526178;border-radius:20px;padding:5px 10px;margin:3px;max-width:100%;overflow-wrap:anywhere}
+.panel{border:1px solid #3c4963;background:#1c293c;border-radius:14px;padding:20px}
+.controls{display:grid;grid-template-columns:2fr 1fr;gap:14px}
+@media(max-width:600px){.controls{grid-template-columns:1fr}}
+label{display:block;font-weight:700;margin:10px 0 6px}
+input,select,button{font:inherit;border:1px solid #71809d;border-radius:9px;padding:11px}
+input,select{color:white;background:#101a2a;width:100%}
+button{color:#0f172a;background:#e1eafa;cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}
+table{width:100%;border-collapse:collapse;margin-top:16px}td,th{padding:11px;border-bottom:1px solid #3c4963;text-align:left;overflow-wrap:anywhere}
+th{color:#d0d7e7}tr:hover td{background:#273852}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px}.metric{border:1px solid #3c4963;border-radius:10px;padding:14px}
+.metric strong{font-size:1.5rem;display:block}.metric span{color:#c4c9d5;font-size:.9rem}
+.outputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:16px 0}
+.outputs>div{background:#101a2a;border-radius:9px;padding:12px;min-width:0}
+.outputs code{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.98rem}
+.paging{display:flex;justify-content:flex-end;align-items:center;gap:14px;margin-top:16px}
+blockquote{margin:10px 0;padding:12px 16px;border-left:3px solid #8daaf0;color:#e1e8ff;background:#101a2a}
+</style></head><body>
+<header>
+<p class="sub">NATHAN AI / ONE / A–Z LETTER ARCHIVES</p>
+<h1>D — The Complete Work Finding Aid</h1>
+<p class="sub">Source-preserving recovery of D titles, D / DD / DDD, inversions, and the author's KJV Game of Life concepts.</p>
+<div class="metrics">
+<div class="metric"><strong>138</strong><span>Starting with D</span></div>
+<div class="metric"><strong>14</strong><span>Starting with The D</span></div>
+<div class="metric"><strong>2,148</strong><span>Broader archived D-related record matches</span></div>
+<div class="metric"><strong>1,890</strong><span>Distinct word tokens in prior deep scan</span></div>
+</div>
+<p><a href="./README.md">Recovery notes</a> · <a href="./DUNGEONS_AND_DRAGONS_GAME_OF_LIFE_KJV.md">KJV Game of Life</a> · <a href="./routes.json">All variation routes</a> · <a href="../c/README.md">C archive</a></p>
+</header>
+<section class="panel" aria-labelledby="d-original-sequences">
+<h2 id="d-original-sequences">Five exact original D entries — independent A–Z sequences</h2>
+<p class="sub">Original source strings remain unchanged. Each title belongs to a different previously authored A–Z sequence, not to a generated inversion.</p>
+<div style="overflow-x:auto"><table><thead><tr><th>Sequence</th><th>Exact recorded D title</th></tr></thead><tbody>
+<tr><td>Perfect Sequential A–Z</td><td>the Demonology Dilution of Atoms</td></tr>
+<tr><td>Physics / Atomic / Quantum A–Z</td><td>The Double Dilution of Amplitudes</td></tr>
+<tr><td>Nativity / KJV A–Z</td><td>The David Dilution of Ancestry-kin</td></tr>
+<tr><td>Holiday A–Z</td><td>Dancing Demons</td></tr>
+<tr><td>Sacred Alphabet A–Z</td><td>Davidic Dancers</td></tr>
+</tbody></table></div>
+<p><a href="./canonical-d-sequences.json">Exact-title JSON and source provenance</a>. Original sequence source files stay in the owner Library; this is a public navigation crosswalk.</p>
+</section>
+<section class="panel"><h2>Search original D filenames</h2>
+<div class="controls">
+<div><label for="query">Original filename or phrase</label><input id="query" type="search" placeholder="David, Dante, D0G, Divine, Dynasty..." autocomplete="off"></div>
+<div><label for="family">Original title family</label><select id="family"><option value="">All 152 filename occurrences</option><option value="D_INITIAL">D/d initial</option><option value="THE_D">The D / The_D</option></select></div>
+</div>
+<p id="count" role="status" class="sub">Loading public title files…</p>
+<div style="overflow-x:auto"><table><thead><tr><th>Filename (preserved)</th><th>Source family</th><th>Repeated name</th></tr></thead><tbody id="rows"></tbody></table></div>
+<div class="paging"><button type="button" id="prev">Previous</button><span id="page" aria-live="polite">0 / 0</span><button type="button" id="next">Next</button></div>
+</section>
+<section class="panel"><h2>Inspect D sound, inversion & substitution</h2>
+<p class="sub">The inspector never changes your original input. Written reversal, mirror/rotation *candidates*, Atbash, and ROT13 are different transformations.</p>
+<label for="term">Original term</label><input id="term" value="DUNGEONS AND DRAGONS" maxlength="600">
+<div class="outputs">
+<div><strong>Original</strong><p><code id="original"></code></p></div>
+<div><strong>Exact reversed order</strong><p><code id="reversed"></code></p></div>
+<div><strong>Atbash (Latin A–Z)</strong><p><code id="atbash"></code></p></div>
+<div><strong>ROT13 (Latin A–Z)</strong><p><code id="rot13"></code></p></div>
+</div>
+<p><strong>Interpretation routes</strong></p><div id="routes" aria-live="polite"></div><p id="review" class="sub"></p>
+</section>
+<section class="panel"><h2>Exact author seed</h2>
+<blockquote>an O that ran into the back of a stopped rock ... a tomb when you rock it over to the flat side</blockquote>
+<blockquote>keep digging - find all the D's - the dicks, the ddd's the dd's and all inversions</blockquote>
+<blockquote>add them to the growing file - dungeons and dragons - not the game version the game of life - KJV style</blockquote>
+<p class="sub">Dungeons and Dragons is used as the creator's distinct Bible education concept here, not a recreation of a commercial game. Historical and scientific claims require independent verification. A filename does not prove a finished app or book.</p>
+</section>
+<script type="module">
+import {reverseCodePoints,asciiAtbash,asciiRot13,classifyD,filterDTitles} from './d-family.mjs';
+const $=id=>document.getElementById(id);
+let entries=[],page=0;const pageSize=30;
+function show(){
+ const result=filterDTitles(entries,{query:$('query').value,family:$('family').value});
+ const totalPages=Math.max(1,Math.ceil(result.length/pageSize));
+ page=Math.min(totalPages-1,Math.max(0,page));$('rows').replaceChildren();
+ for(const r of result.slice(page*pageSize,(page+1)*pageSize)){
+   const tr=document.createElement('tr');
+   for(const val of [r.title,r.group,r.same_name_occurrence>1?'Occurrence '+r.same_name_occurrence:'—']){
+     const td=document.createElement('td');td.textContent=val;tr.append(td);
+   }$('rows').append(tr);
+ }
+ $('count').textContent=result.length.toLocaleString()+' matching filename occurrences. Owner source contents stay private.';
+ $('page').textContent=(page+1)+' / '+totalPages;$('prev').disabled=page===0;$('next').disabled=page+1>=totalPages;
+}
+function inspect(){
+ const s=$('term').value,found=classifyD(s);
+ $('original').textContent=s||'(empty)';$('reversed').textContent=reverseCodePoints(s)||'(empty)';
+ $('atbash').textContent=asciiAtbash(s)||'(empty)';$('rot13').textContent=asciiRot13(s)||'(empty)';
+ $('routes').replaceChildren();
+ if(!found.routes.length)$('routes').textContent='No predefined D family matched; original is preserved.';
+ for(const id of found.routes){const tag=document.createElement('span');tag.className='chip';tag.textContent=id;$('routes').append(tag);}
+ $('review').textContent=found.reviewRequired?'At least one route needs contextual or human verification; no word origins were proven.':'Pattern search only; no historical/linguistic identity inferred.';
+}
+$('query').addEventListener('input',()=>{page=0;show()});$('family').addEventListener('change',()=>{page=0;show()});
+$('prev').onclick=()=>{page--;show()};$('next').onclick=()=>{page++;show()};$('term').addEventListener('input',inspect);inspect();
+try{
+ const files=['./owner-library-d-filename-index.json','./owner-library-the-d-filename-index.json'];
+ const inputs=await Promise.all(files.map(async path=>{
+  const response=await fetch(path);if(!response.ok)throw new Error('Failed to load '+path);
+  const data=await response.json();if(!Array.isArray(data.records))throw new Error('Invalid title index '+path);
+  return data.records;
+ }));
+ entries=inputs.flat();show();
+}catch(e){$('count').textContent=e.message+'. Review the two JSON index files directly on GitHub.';}
+</script></body></html>

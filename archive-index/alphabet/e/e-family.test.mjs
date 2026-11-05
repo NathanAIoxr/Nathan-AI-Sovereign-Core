@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {ORIGINAL_WORDS,GLYPHS,glyphInfo,inspect,reverseCodepoints,atbash,rot13,searchTitles} from './e-family.mjs';
+test('verbatim user words unchanged',()=>assert.equal(ORIGINAL_WORDS,"do E's, which could also be 3, M, W - E is made of 2 sticks with one stick broke into 3 parts - 3 is 2 sticks fused together and bent - M and W are each 4 sticks -"));
+test('creator stick counts',()=>assert.deepEqual(['E','3','M','W'].map(s=>glyphInfo(s).originalSticks),[2,2,4,4]));
+test('E visibly has four straight segments',()=>assert.equal(GLYPHS.E.visibleStraightSegments,4));
+test('3 not falsely assigned straight segment count',()=>assert.equal(GLYPHS['3'].visibleStraightSegments,null));
+test('unknown glyph not assigned new identity',()=>assert.equal(glyphInfo('ϵ'),null));
+test('Greek/Cyrillic lookalikes are not Latin E',()=>{assert.equal(inspect('Е').glyph,null);assert.ok(inspect('Ε').routes.includes('cross-script-homoglyph'));});
+test('number 3 not E identity',()=>{assert.equal(inspect('3').glyph.glyph,'3');assert.ok(!inspect('3').routes.includes('letter-e'));});
+test('input preserved and reversal is derivative',()=>{assert.equal(inspect('E3MW').original,'E3MW');assert.equal(reverseCodepoints('E3MW'),'WM3E');});
+test('Atbash and rot13 are limited Latin encodings',()=>{assert.equal(atbash('E3MW'),'V3ND');assert.equal(rot13('E3MW'),'R3ZJ');});
+test('search retains duplicates',()=>{const rows=[{title:'Eros'},{title:'Eros'},{title:'Eve'}];assert.equal(searchTitles(rows,'Eros').length,2);});

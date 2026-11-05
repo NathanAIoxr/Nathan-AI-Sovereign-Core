@@ -1,0 +1,25 @@
+name: D Alphabet Integrity
+on:
+  pull_request:
+    paths:
+      - 'archive-index/alphabet/d/**'
+      - '.github/workflows/d-alphabet-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'archive-index/alphabet/d/**'
+      - '.github/workflows/d-alphabet-ci.yml'
+permissions:
+  contents: read
+jobs:
+  verify-d:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify D archive functions and exact source titles
+        run: |
+          node --test archive-index/alphabet/d/d-family.test.mjs
+          node --test archive-index/alphabet/d/canonical-d-sequences.test.mjs

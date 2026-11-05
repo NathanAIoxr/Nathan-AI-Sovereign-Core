@@ -1,0 +1,86 @@
+name: Nathan AI · Publish GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/**'
+      - 'archive-index/**'
+      - 'index.html'
+      - '.nojekyll'
+      - 'scripts/verify_d_pages.py'
+      - '.github/workflows/nathan-ai-pages.yml'
+  pull_request:
+    paths:
+      - 'app-factory/**'
+      - 'archive-index/**'
+      - 'index.html'
+      - 'scripts/verify_d_pages.py'
+      - '.github/workflows/nathan-ai-pages.yml'
+  workflow_dispatch:
+
+# GitHub Pages also runs its native branch publisher on main.
+# Keep this additional deploy job manual to prevent competing deployments.
+
+concurrency:
+  group: github-pages-publication
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate original D source and Nathan AI links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify D originals and transformations
+        run: |
+          node --test archive-index/alphabet/d/d-family.test.mjs
+          node --test archive-index/alphabet/d/canonical-d-sequences.test.mjs
+      - name: Verify chat and website integration
+        run: |
+          node --test app-factory/nathan-ai/hop-in/chatbox/engine.test.cjs
+          node --test app-factory/nathan-ai/websites/site.test.cjs
+      - name: Validate every required static entry page
+        run: python3 scripts/verify_d_pages.py --root .
+
+  publish:
+    name: Publish Nathan AI to GitHub Pages
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure existing GitHub Pages site
+        uses: actions/configure-pages@v5
+      - name: Package published public repository files
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '.'
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  verify-live:
+    name: Verify published Nathan AI D app and navigation
+    if: ${{ github.event_name != 'pull_request' }}
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test actual public URL, original title JSON and linked pages
+        run: python3 scripts/verify_d_pages.py --url "${{ needs.publish.outputs.url }}"

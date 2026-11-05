@@ -1,0 +1,24 @@
+name: Nathan AI Paradox Atlas
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/hop-in/paradox-atlas/**'
+      - 'app-factory/nathan-ai/hop-in/chatbox/**'
+      - '.github/workflows/paradox-atlas.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/hop-in/paradox-atlas/**'
+      - 'app-factory/nathan-ai/hop-in/chatbox/**'
+      - '.github/workflows/paradox-atlas.yml'
+jobs:
+  node-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check app-factory/nathan-ai/hop-in/paradox-atlas/atlas.js
+      - run: node --test app-factory/nathan-ai/hop-in/paradox-atlas/atlas.test.cjs app-factory/nathan-ai/hop-in/chatbox/engine.test.cjs

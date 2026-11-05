@@ -1,0 +1,90 @@
+{
+  "schema": "nathan-ai.e-3-m-w.creator-stick-geometry.v1",
+  "author": "John Nathan Tabor",
+  "date": "2026-11-05",
+  "original_user_words": "do E's, which could also be 3, M, W - E is made of 2 sticks with one stick broke into 3 parts - 3 is 2 sticks fused together and bent - M and W are each 4 sticks -",
+  "scope": "Creator-defined structural construction; illustrative normalized coordinates, not assertions about historic origin of letterforms.",
+  "glyphs": [
+    {
+      "glyph": "E",
+      "original_sticks": 2,
+      "visible_segments": 4,
+      "action": "One original stick remains whole; another original stick breaks into three horizontal pieces.",
+      "svg": "M1 1 V9 M1 1 H8 M1 5 H7 M1 9 H8",
+      "operations": [
+        "keep one stick whole",
+        "break other stick into three",
+        "attach as top, middle and bottom bars"
+      ]
+    },
+    {
+      "glyph": "3",
+      "original_sticks": 2,
+      "visible_segments": null,
+      "action": "Two sticks fused together and bent into the 3 form.",
+      "svg": "M2 1 C10 -1 11 4 5 5 M5 5 C11 6 10 11 2 9",
+      "operations": [
+        "bend first stick",
+        "bend second stick",
+        "fuse at the middle joint"
+      ]
+    },
+    {
+      "glyph": "M",
+      "original_sticks": 4,
+      "visible_segments": 4,
+      "action": "Four straight sticks form a joined angular M.",
+      "svg": "M1 9 L1 1 L5 6 L9 1 L9 9",
+      "operations": [
+        "join four sticks in M sequence"
+      ]
+    },
+    {
+      "glyph": "W",
+      "original_sticks": 4,
+      "visible_segments": 4,
+      "action": "Four straight sticks form a joined angular W.",
+      "svg": "M1 1 L1 9 L5 4 L9 9 L9 1",
+      "operations": [
+        "join four sticks in W sequence"
+      ]
+    }
+  ],
+  "transform_links": [
+    {
+      "from": "M",
+      "to": "W",
+      "operation": "vertical reflection / illustrative 180-degree turn",
+      "kind": "visual glyph construction",
+      "not": "not textual spelling substitution"
+    },
+    {
+      "from": "E",
+      "to": "3",
+      "operation": "bend and fuse, changing arrangement",
+      "kind": "creator's geometric reconstruction",
+      "not": "not mere rotation and not numeral equivalence"
+    },
+    {
+      "from": "E",
+      "to": "Ε",
+      "operation": "visual comparison",
+      "kind": "cross-script resemblance",
+      "not": "Greek epsilon and Latin E stay separate"
+    },
+    {
+      "from": "E",
+      "to": "Е",
+      "operation": "visual comparison",
+      "kind": "cross-script resemblance",
+      "not": "Cyrillic Ie and Latin E stay separate"
+    },
+    {
+      "from": "3",
+      "to": "З",
+      "operation": "visual comparison",
+      "kind": "cross-script resemblance",
+      "not": "digit three and Cyrillic Ze remain distinct"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#09121d">
+<meta name="description" content="Nathan AI ROOT → CLEAR → BUILD: interactive app, game, academy, and educational book series.">
+<link rel="stylesheet" href="../../appearance/shared.css" data-nathan-shared-appearance>
+<script src="../../appearance/engine.js"></script><script src="../../appearance/app.js"></script>
+<link rel="stylesheet" href="../../launcher/shared.css" data-nathan-command-center>
+<script src="../../workspace.js" defer></script><script src="../../assistant/engine.js" defer></script>
+<script src="../../launcher/engine.js" defer></script><script src="../../launcher/app.js" defer></script>
+<title>NATHAN AI · ROOT → CLEAR → BUILD</title>
+<link rel="stylesheet" href="style.css">
+<script src="core.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#original">Skip to original statement</a>
+<div class="layout">
+<header>
+  <div><a class="back" href="../chatbox/index.html">← Nathan AI HOP IN chatbox</a><p class="eyebrow">NATHAN AI · INTERACTIVE WORKSHOP</p><h1>ROOT <span>→</span> CLEAR <span>→</span> BUILD</h1>
+  <p class="lead">REMOVE THE COMPLICATION → EXPOSE THE ROOT ISSUE → FIX THE ROOT ISSUE.</p></div>
+  <div class="stamp">1+1=2 <strong>BUILD</strong><br>1−1=0 <strong>CLEAR</strong></div>
+</header>
+<main>
+<nav class="tabs" aria-label="Root Clear Build tools">
+  <button data-tab="workshop" aria-selected="true">Chat workshop</button>
+  <button data-tab="game" aria-selected="false">12-round game</button>
+  <button data-tab="academy" aria-selected="false">Academy</button>
+  <button data-tab="books" aria-selected="false">Book series</button>
+  <button data-tab="source" aria-selected="false">Original record</button>
+</nav>
+<section id="workshop" class="panel">
+<h2>Keep the original. Clear the layers.</h2>
+<p>This tool does not rewrite your statement or claim to discover a root cause for you. You identify the root, and the app organizes the three steps.</p>
+<div class="fields">
+<label>Original words — verbatim<textarea id="original" maxlength="6000" rows="4" spellcheck="false"></textarea></label>
+<label>Complication that was added<textarea id="complication" maxlength="3000" rows="3" placeholder="What got added that obscured the original?"></textarea></label>
+<label>The actual root issue<textarea id="root" maxlength="3000" rows="3" placeholder="What specifically causes the problem?"></textarea></label>
+<label>The direct fix<textarea id="fix" maxlength="3000" rows="3" placeholder="What action addresses that cause?"></textarea></label>
+</div>
+<div class="controls">
+<button id="analyze" class="primary">Build the three-step record</button>
+<button id="load-case">Load the conversation example</button>
+<button id="reset-fields">Clear current inputs</button>
+</div>
+<div id="analysis" class="output" aria-live="polite"><p>Enter a statement, or load the conversation example. Your original words remain unchanged.</p></div>
+</section>
+<section id="game" class="panel" hidden>
+  <h2>THE ROOT RUN · 12-Round Challenge</h2>
+  <p>Choose the response that removes complication, finds the cause, or fixes the root. Every answer has an explanation.</p>
+  <div class="stats"><span id="game-progress">Round 1 of 12</span><span id="game-score">0 points</span></div>
+  <div class="meter"><div id="game-meter"></div></div>
+  <h3 id="game-question"></h3>
+  <div id="game-options" class="options"></div>
+  <p id="game-feedback" class="feedback" role="status"></p>
+  <div class="controls"><button id="game-hint">Hint</button><button id="game-next" class="primary" disabled>Next round</button><button id="game-restart">Restart</button></div>
+</section>
+<section id="academy" class="panel" hidden>
+  <h2>THE ROOT ACADEMY</h2>
+  <p>Three lessons. The same three steps. No invented fourth rule.</p>
+  <div class="lesson-pills" id="lesson-pills"></div>
+  <article class="lesson" id="lesson-content"></article>
+  <div class="controls"><button id="lesson-complete" class="primary">Mark lesson complete</button></div>
+  <p id="academy-progress" class="feedback" role="status"></p>
+</section>
+<section id="books" class="panel" hidden>
+  <h2>THE ROOT ISSUE · THREE-VOLUME SERIES</h2>
+  <p>Generate short, editable book drafts from the original record and your entered root/fix. This does not invent new facts or silently rewrite source wording.</p>
+  <div id="book-buttons" class="controls"></div>
+  <pre id="book-preview" class="manuscript" aria-label="Generated manuscript">Select a volume to build a book draft.</pre>
+  <div class="controls"><button id="book-download" class="primary" disabled>Export selected volume (.md)</button><button id="book-copy" disabled>Copy manuscript</button></div>
+</section>
+<section id="source" class="panel" hidden>
+  <h2>ORIGINAL WORDS · UNALTERED</h2>
+  <blockquote id="canon"></blockquote>
+  <p class="eyebrow">SOURCE ≠ EDITORIAL INTERPRETATION</p>
+  <p><b>Source:</b> Exact user-authored sentence from the conversation. It is not silently edited by this app.</p>
+  <h3>Conversation audit example</h3>
+  <dl>
+    <dt>Original statement</dt><dd id="case-original"></dd>
+    <dt>Added complication — derived observation</dt><dd id="case-complication"></dd>
+    <dt>Root issue — derived observation</dt><dd id="case-root"></dd>
+    <dt>Direct fix — derived proposal</dt><dd id="case-fix"></dd>
+  </dl>
+  <button id="copy-source">Copy original sentence</button>
+</section>
+<section class="save-panel">
+<h2>Your record</h2>
+<p>Nothing is saved automatically. Use Save on this device only if you choose. Local browser storage is not encrypted; avoid private or sensitive information.</p>
+<div class="controls">
+  <button id="save">Save on this device</button>
+  <button id="export-json">Export record (.json)</button>
+  <label class="upload">Import saved record <input id="import-json" type="file" accept=".json,application/json"></label>
+  <button id="clear-save" class="danger">Clear saved record</button>
+</div>
+<p id="status" role="status" aria-live="polite"></p>
+</section>
+</main>
+<footer>INNOCENCE IS THE PRECIOUS GIFT. · User-authored material is distinguished from examples and generated drafts. · <a href="../chatbox/index.html">Return to interactive chatbox</a></footer>
+</div>
+</body>
+</html>

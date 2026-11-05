@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101720">
+<title>Nathan AI — Attributes · Characteristics · Functionalities</title>
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#101720;color:#f3f6f7;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0}main{max-width:1330px;margin:auto;padding:16px 15px 65px}
+a{color:#e9d3a6}a:hover{text-decoration:underline}.back{display:inline-block;margin:10px 0 20px}
+h1{font-size:clamp(1.9rem,4.5vw,3.4rem);line-height:1.08;margin:8px 0}
+p{line-height:1.6;color:#c5d0d6;max-width:100ch}
+.shell{background:#1a2730;border:1px solid #40525c;border-radius:17px;padding:16px;margin:15px 0}
+.formula{font-size:clamp(1.1rem,2vw,1.5rem);font-weight:800;letter-spacing:.01em;margin:4px 0}
+.controls{display:grid;grid-template-columns:2fr repeat(3,minmax(130px,1fr));gap:9px}
+label{display:block;color:#c6d5da;font-size:.82rem;margin-bottom:5px}
+input,select,button{font:inherit;color:#f5f6f7;background:#263842;border:1px solid #596c75;border-radius:10px;padding:10px;max-width:100%}
+input,select{width:100%}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #dfc68e;outline-offset:2px}
+button:disabled{cursor:default;opacity:.48}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.stats{display:flex;flex-wrap:wrap;gap:11px}.stat{background:#233540;border:1px solid #49606a;border-radius:12px;padding:10px 16px;min-width:120px}
+.stat strong{font-size:1.5rem;display:block}.stat small{color:#b9c8d1}
+#results{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:10px;align-items:stretch}
+.item{padding:13px;border:1px solid #465a63;border-radius:12px;background:#20313b;min-width:0}
+.path{font-size:.88rem;overflow-wrap:anywhere;margin:5px 0;font-weight:650}
+.item small,.meta{color:#b9c9d1}.tag{display:inline-block;background:#31464f;border:1px solid #506670;border-radius:20px;font-size:.75rem;padding:3px 8px;margin:3px 4px 3px 0}
+.observed{background:#2e4b41;border-color:#538c70}
+.warning{border-left:3px solid #c5a873;padding:8px 12px;background:#352f25}
+.actions{margin-top:10px}.actions button{font-size:.8rem;padding:7px 9px;margin:3px 4px 0 0}
+pre{overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere;font-size:.8rem}
+@media(max-width:820px){.controls{grid-template-columns:1fr 1fr}}@media(max-width:540px){.controls{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="../appearance/shared.css" data-nathan-shared-appearance>
+<script defer src="../appearance/engine.js"></script>
+<script defer src="../appearance/app.js"></script>
+<link rel="stylesheet" href="../launcher/shared.css" data-nathan-command-center>
+<script defer src="../assistant/engine.js"></script>
+<script defer src="../launcher/engine.js"></script>
+<script defer src="../launcher/app.js"></script>
+<script src="engine.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body><main>
+<a href="../index.html" class="back">Nathan AI Main Hub</a> · <a href="./store.html">Apple App Store / Google Play discovery by function</a>
+<h1>Attributes · Characteristics · Functionalities</h1>
+<p>Explore every tracked file and directory from the linked Nathan AI Sovereign Core GitHub repository. Sort by observable technical characteristics and possible capabilities, not by names or claimed intelligence.</p>
+<div class="shell">
+<div class="formula">node = mind = node</div>
+<div class="formula">mind = node = mind</div>
+<p>John Nathan Tabor's source-authored identity definition: same identity, different spellings. The definition is preserved without adding mirror, opposition, inversion, or consciousness claims about software nodes.</p>
+</div>
+<section class="shell" aria-label="Audit scope">
+<div id="stats" class="stats" aria-live="polite">Loading tracked repository inventory…</div>
+<p class="warning"><strong>Evidence distinction:</strong> A filename suggests possible functions; it does not prove behavior. "Source signal" means static code contains a matching pattern, not that the code was executed or passed a test. No original source files are changed by this explorer.</p>
+</section>
+<section class="shell" aria-label="Audit filters">
+<div class="controls">
+<div><label for="query">Find any path, attribute, or capability</label><input id="query" type="search" placeholder="Search paths, features, words…"></div>
+<div><label for="scope">Area</label><select id="scope"><option>All</option></select></div>
+<div><label for="capability">Functionality</label><select id="capability"><option value="All">All</option></select></div>
+<div><label for="type">Characteristic</label><select id="type"><option>All</option></select></div>
+</div>
+<p id="status" role="status"></p>
+<div class="row">
+<button id="refresh-live" type="button">Refresh all paths from live GitHub</button>
+<button id="export-json" type="button">Export filtered JSON</button>
+<button id="export-csv" type="button">Export filtered CSV</button>
+<button id="reset" type="button">Clear filters</button>
+<a href="README.md">Audit method and limitations</a>
+</div>
+</section>
+<section aria-label="Indexed repository entries">
+<div class="row"><h2>Repository entries</h2><span id="count" class="meta"></span></div>
+<div id="results"></div>
+<div class="row" style="justify-content:center;margin:16px"><button id="more" type="button">Show next 75 entries</button></div>
+</section>
+<footer><p>Source: GitHub tree snapshot; individual code inspection is read-only and initiated by you. This inventory is not an assertion that any unexecuted capability is working. Every original remains in its existing path.</p></footer>
+</main></body></html>

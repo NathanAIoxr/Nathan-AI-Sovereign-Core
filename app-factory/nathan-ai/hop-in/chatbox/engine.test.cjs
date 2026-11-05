@@ -14,4 +14,16 @@ test('credential detection rejects literal secret assignments',()=>{assert.throw
 test('source instructions are never executed from catalog',()=>{assert.equal(engine.reply('/sources').kind,'sources');assert.ok(engine.reply('/sources').answer.includes('configured local adapter'));});
 test('a hidden /reset command cannot clear state',()=>{assert.equal(engine.reply('/reset').kind,'reset-request');assert.match(engine.reply('/reset').answer,/visible CLEAR/)});
 test('links are bundled known destinations',()=>{for(const l of Object.values(engine.LINKS))assert.ok(l.url.startsWith('../')||l.url.startsWith('https://'));});
+test('D archive routes preserve exact source vs derived forms and existing modes',()=>{
+  const direct=engine.reply('/d variants');
+  assert.equal(direct.kind,'route');
+  assert.ok(direct.links.some(x=>x.url==='../../../../archive-index/alphabet/d/index.html'));
+  assert.ok(direct.links.some(x=>x.url.endsWith('canonical-d-sequences.json')));
+  assert.match(direct.answer,/138 D\/d-starting/);
+  assert.match(direct.answer,/14 The D titles/);
+  assert.equal(engine.reply('show me D variants').links[0].url,'../../../../archive-index/alphabet/d/index.html');
+  assert.match(engine.reply('/help').answer,/\/d /);
+  assert.equal(Object.keys(engine.MODE_LABELS).length,7);
+});
 test('title caps length',()=>assert.ok(engine.messageTitle('X'.repeat(900)).length<=60));
+test('root clear build module is reachable without changing existing modes',()=>{const result=engine.reply('/root');assert.equal(result.kind,'route');assert.ok(result.links.some(x=>x.url==='../root-clear/index.html'));assert.equal(engine.reply('/clear').kind,'route');assert.equal(engine.reply('/build').kind,'route');assert.equal(Object.keys(engine.MODE_LABELS).length,7);});
