@@ -83,6 +83,7 @@
  document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>selectTab(b.dataset.tab)));
  $('#search').addEventListener('input',renderLedger);$('#sectionFilter').addEventListener('change',renderLedger);$('#onlyReviewed').addEventListener('change',renderLedger);
  $('#sourceFile').addEventListener('change',async event=>{const file=event.target.files?.[0];if(!file)return;try{importText(await file.text());}catch(err){toast('Import not completed: '+err.message);}event.target.value='';});
+ $('#exportOriginal').addEventListener('click',()=>{if(typeof originalSource!=='string')return;download('nathan-101-original-verbatim.txt',originalSource,'text/plain');});
  $('#exportJSON').addEventListener('click',()=>download('nathan-101-ledger-local.json',JSON.stringify({notice:'Author-supplied source, not independently verified.',entries},null,2),'application/json'));
  $('#exportNotes').addEventListener('click',()=>download('nathan-101-research-notes-local.json',JSON.stringify({notice:'Separate notes; original source text unchanged.',notes},null,2),'application/json'));
  $('#clearLocal').addEventListener('click',()=>{if(!window.confirm('Remove imported source text and private research notes from this browser?'))return;localStorage.removeItem(KEY);localStorage.removeItem(NOTES);entries=C.placeholderLedger();notes={};updateStatus();renderLedger();renderBooks();resetGame();toast('Local source and notes cleared from this browser.');});
