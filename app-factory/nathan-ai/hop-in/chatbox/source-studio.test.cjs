@@ -105,3 +105,10 @@ test('studio removes source collapsing and silent prompt truncation',()=>{
  assert.match(archiveHtml,/id="show-all"/);
  assert.doesNotMatch(archiveHtml,/max-height:240px/);
 });
+
+test('standalone author source page retains Nathan AI appearance and shared launcher',()=>{
+ const page=fs.readFileSync(path.join(archiveDir,'index.html'),'utf8');
+ assert.equal((page.match(/data-nathan-shared-appearance/g)||[]).length,1);
+ assert.equal((page.match(/data-nathan-command-center/g)||[]).length,1);
+ assert.match(page,/Show every complete original record/);
+});
