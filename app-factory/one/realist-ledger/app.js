@@ -75,7 +75,8 @@
  }
  function download(filename,text,type){const blob=new Blob([text],{type:type+';charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);}
  function importText(text){
-   const parsed=C.parseLedger(text);entries=parsed;
+   const parsed=C.parseLedger(text);entries=parsed;originalSource=text;
+   $('#exportOriginal').disabled=false;
    const saved=persist();updateStatus();renderLedger();renderBooks();resetGame();
    toast(saved?'Imported all 101 entries locally. No server received the source.':'Imported in memory, but local storage was unavailable. Export a copy before closing the page.');
  }
