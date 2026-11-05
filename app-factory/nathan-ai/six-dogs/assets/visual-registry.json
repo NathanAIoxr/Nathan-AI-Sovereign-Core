@@ -1,0 +1,120 @@
+{
+  "schema": "nathan-ai.sovereign-prism-visuals.v1",
+  "project": "Nathan AI / ONE / Six Dogs",
+  "palette": {
+    "background": "#081320",
+    "panel": "#132b40",
+    "foreground": "#f3f8fd",
+    "mint": "#a5eee7",
+    "gold": "#e9d69d",
+    "muted": "#bfd4e2"
+  },
+  "stageOrder": [
+    "KNICK",
+    "KNACK",
+    "PADDY",
+    "WHACK",
+    "DOG",
+    "BONE"
+  ],
+  "assets": [
+    {
+      "file": "assets/nathan-mark.svg",
+      "role": "brand",
+      "title": "Sovereign Prism brand mark",
+      "alt": "Nathan AI N crest"
+    },
+    {
+      "file": "assets/hero-prism.svg",
+      "role": "hero",
+      "title": "Six-stage network panorama",
+      "alt": "Luminous N crest with six numbered nodes in an original abstract technical landscape"
+    },
+    {
+      "file": "assets/sovereign-shield.svg",
+      "role": "privacy",
+      "title": "User sovereignty shield",
+      "alt": "Shield emblem representing user ownership and consent"
+    },
+    {
+      "file": "assets/pipeline-map.svg",
+      "role": "diagram",
+      "title": "Six Dogs execution map",
+      "alt": "Six ordered technical stages, Micro one through three and Macro four through six"
+    },
+    {
+      "file": "assets/topology-map.svg",
+      "role": "diagram",
+      "title": "Sovereign macro topology",
+      "alt": "Eight-node local topology with user, registry, storage, event bus, runtime, inspector, workflow and optional USB device"
+    },
+    {
+      "file": "assets/hardware-console.svg",
+      "role": "diagram",
+      "title": "Six LED hardware concept",
+      "alt": "Low-voltage six indicator board concept, not a wiring schematic"
+    },
+    {
+      "file": "assets/stage-01-knick.svg",
+      "role": "character",
+      "stage": 1,
+      "identity": "KNICK",
+      "accent": "#77E5F9",
+      "title": "KNICK canine emblem",
+      "alt": "Abstract canine emblem for KNICK, stage 1"
+    },
+    {
+      "file": "assets/stage-02-knack.svg",
+      "role": "character",
+      "stage": 2,
+      "identity": "KNACK",
+      "accent": "#C1A8FF",
+      "title": "KNACK canine emblem",
+      "alt": "Abstract canine emblem for KNACK, stage 2"
+    },
+    {
+      "file": "assets/stage-03-paddy.svg",
+      "role": "character",
+      "stage": 3,
+      "identity": "PADDY",
+      "accent": "#80F0C0",
+      "title": "PADDY canine emblem",
+      "alt": "Abstract canine emblem for PADDY, stage 3"
+    },
+    {
+      "file": "assets/stage-04-whack.svg",
+      "role": "character",
+      "stage": 4,
+      "identity": "WHACK",
+      "accent": "#F8C47C",
+      "title": "WHACK canine emblem",
+      "alt": "Abstract canine emblem for WHACK, stage 4"
+    },
+    {
+      "file": "assets/stage-05-dog.svg",
+      "role": "character",
+      "stage": 5,
+      "identity": "DOG",
+      "accent": "#98B4FF",
+      "title": "DOG canine emblem",
+      "alt": "Abstract canine emblem for DOG, stage 5"
+    },
+    {
+      "file": "assets/stage-06-bone.svg",
+      "role": "character",
+      "stage": 6,
+      "identity": "BONE",
+      "accent": "#F1E0AA",
+      "title": "BONE canine emblem",
+      "alt": "Abstract canine emblem for BONE, stage 6"
+    }
+  ],
+  "boundaries": [
+    "All assets are locally stored SVG originals with no remote image URLs or bundled fonts.",
+    "No human bodies, faces or portraits are used.",
+    "No visual implies real P2P transport, hardware measurement, clinical treatment or zero-knowledge proof.",
+    "All six identities stay in exact source order.",
+    "Technical diagrams are illustrative; separate verified documentation governs real hardware."
+  ],
+  "status": "Implemented vector assets wired into the responsive Six Dogs browser UI and Nathan AI appearance gallery"
+}

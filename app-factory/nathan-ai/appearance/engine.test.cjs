@@ -1,8 +1,8 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const api=require('./engine.js');
-test('twelve distinct skins preserve readable text, muted labels and primary actions',()=>{
-  assert.equal(api.skins.length,12);assert.equal(new Set(api.skins.map(s=>s.id)).size,12);
+test('thirteen distinct skins preserve readable text, muted labels and primary actions',()=>{
+  assert.equal(api.skins.length,13);assert.equal(new Set(api.skins.map(s=>s.id)).size,13);assert.equal(api.skins.at(-1).id,'contrast-light');assert.equal(api.skins.filter(s=>s.id==='sovereign-prism').length,1);
   for(const skin of api.skins){for(const [a,b]of [[skin.text,skin.panel],[skin.muted,skin.panel],[skin.accent,skin.panel],[skin.onAccent,skin.accent]])assert.ok(api.contrast(a,b)>=4.5,skin.id+' contrast '+a+'/'+b)}
 });
 test('appearance settings round trip independently of app content',()=>{

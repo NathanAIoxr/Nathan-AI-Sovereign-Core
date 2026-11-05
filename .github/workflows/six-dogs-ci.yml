@@ -34,8 +34,9 @@ jobs:
           node --check app-factory/nathan-ai/six-dogs/topology.js
           node --check app-factory/nathan-ai/six-dogs/topology-ui.js
           node --check app-factory/nathan-ai/six-dogs/topology.test.cjs
+          node --check app-factory/nathan-ai/six-dogs/visual-assets.test.cjs
       - name: Run Six Dogs engine tests
-        run: node --test app-factory/nathan-ai/six-dogs/engine.test.cjs app-factory/nathan-ai/six-dogs/topology.test.cjs
+        run: node --test app-factory/nathan-ai/six-dogs/engine.test.cjs app-factory/nathan-ai/six-dogs/topology.test.cjs app-factory/nathan-ai/six-dogs/visual-assets.test.cjs app-factory/nathan-ai/appearance/engine.test.cjs
       - name: Test Python SovereignUnit
         run: python3 -m unittest discover -s app-factory/nathan-ai/six-dogs -p 'test_*.py' -v
       - uses: actions/setup-python@v5
