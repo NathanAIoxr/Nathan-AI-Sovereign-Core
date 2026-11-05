@@ -20,7 +20,7 @@ The [Nathan AI AI-accountability archive](app-factory/nathan-ai/ai-accountabilit
 
 The [Nathan AI Program Jobs Atlas](app-factory/nathan-ai/program-jobs/README.md) organizes **357 source/evidence records** into twelve jobs, with individual task plans, five evidence gates, a local review dashboard, and an Ubuntu source-recovery matcher. These overlapping records are **not** 357 verified finished apps; original private archives remain separate.
 
-## Consumer Editions — one door for twelve source-backed programs
+## Consumer Editions — one door for fourteen source-backed programs
 
 The [Consumer Editions portal](app-factory/nathan-ai/consumer/README.md) organizes existing ONE and Nathan AI applications by consumer job, includes a searchable and accessible front end, regional U.S./international informational notices and explicit product limitations. **This is not an independent legal or cybersecurity certification or a claim that every original program is complete.**
 
