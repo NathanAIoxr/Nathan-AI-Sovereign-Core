@@ -37,3 +37,31 @@ test('E source-family routes preserve original meaning distinctions',()=>{
  assert.match(engine.reply('/evangelist').answer,/not good/);
  assert.ok(engine.reply("find the Eloher's").links[0].url.includes('#e-word-families'));
 });
+
+test('sup and casual hello work offline, without a model provider',()=>{
+ for(const q of ['sup','SUP!','Sup?','sup...','yo','wassup','hey']){
+  const out=engine.reply(q);
+  assert.equal(out.kind,'greeting',q);
+  assert.match(out.answer,/Sup bro!/);
+  assert.match(out.answer,/Sup dude!/);
+  assert.deepEqual(out.links,[]);
+ }
+ assert.notEqual(engine.reply('supernova').kind,'greeting');
+ assert.notEqual(engine.reply('Tell me about the supremum paradox').kind,'greeting');
+});
+test('homepage is chat-first while tool panels remain accessible on demand',()=>{
+ const fs=require('node:fs'),path=require('node:path');
+ const html=fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
+ const css=fs.readFileSync(path.join(__dirname,'style.css'),'utf8');
+ const app=fs.readFileSync(path.join(__dirname,'app.js'),'utf8');
+ const simple=fs.readFileSync(path.join(__dirname,'simple-home.js'),'utf8');
+ assert.match(html,/id="toggle-tools" aria-expanded="false"/);
+ assert.match(html,/id="message"/);
+ assert.match(html,/data-prompt="sup"/);
+ assert.match(html,/src="simple-home.js"/);
+ assert.ok(css.includes('.conversation .composer{order:-4'));
+ assert.ok(css.includes('.shell:not(.advanced) .rail'));
+ assert.ok(css.includes('.shell:not(.advanced) .tools'));
+ assert.ok(simple.includes("shell.classList.toggle('advanced'"));
+ assert.ok(app.includes("response.kind!=='greeting'"));
+});
