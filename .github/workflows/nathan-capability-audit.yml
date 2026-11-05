@@ -2,17 +2,8 @@ name: Nathan AI Capability Audit
 
 on:
   push:
-    paths:
-      - 'app-factory/nathan-ai/capability-atlas/**'
-      - 'tools/capability-atlas/**'
-      - '.github/workflows/nathan-capability-audit.yml'
+    branches: [main]
   pull_request:
-    paths:
-      - 'app-factory/nathan-ai/capability-atlas/**'
-      - 'tools/capability-atlas/**'
-      - 'app-factory/nathan-ai/index.html'
-      - 'app-factory/one/index.html'
-      - '.github/workflows/nathan-capability-audit.yml'
   workflow_dispatch:
 
 permissions:
