@@ -26,7 +26,7 @@ test('historical Hack D Hack and branch-only Hall of Mirrors stay separate and n
  assert.equal(a.kind,'historical-title');
  assert.equal(a.status,'locate-original');
  assert.equal(a.job,'defense');
- assert.equal(b.kind,'branch-only-source');
+ assert.equal(b.kind,'recovered-historical-source');
  assert.equal(b.job,'defense');
  assert.match(b.sourceUrl,/feat\/hall-mirrors/);
  assert.ok(!catalog.records.some(r=>r.status==='complete'||r.status==='verified-live'));
