@@ -68,7 +68,7 @@ test('shadow views retain exact original and Unicode graphemes', () => {
   const source = 'node = mind = node\nINNOCENCE IS MY GOD 👨‍👩‍👧‍👦';
   const view = E.shadowViews(source);
   assert.equal(view.original,source);
-  assert.equal(view.reversedCharacters.slice(0,11),'👨‍👩‍👧‍👦 DOG YM SI');
+  assert.ok(view.reversedCharacters.startsWith('👨‍👩‍👧‍👦 DOG YM SI'));
   assert.match(view.reversedWords,/INNOCENCE/);
   assert.equal(E.actPreview(source).mode,'LOCAL_STAGING_ONLY');
 });
