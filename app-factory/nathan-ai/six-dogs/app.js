@@ -10,7 +10,29 @@ function deviceStatus(message){el("deviceStatus").textContent=message;}
 function appendText(parent,tag,value,className){const n=document.createElement(tag);n.textContent=String(value);if(className)n.className=className;parent.appendChild(n);return n;}
 function writeLocal(){if(!persist)return;try{localStorage.setItem(STORAGE_KEY,JSON.stringify(engine.exportPackage(state)));}catch(e){feedback("Local save failed. Your session remains in page memory.");}}
 function loadLocal(){try{const raw=localStorage.getItem(STORAGE_KEY);if(raw){state=engine.importPackage(JSON.parse(raw));persist=true;el("saveLocal").checked=true;feedback("Recovered an opt-in browser-local session.");}}catch(e){feedback("Saved local data could not be loaded; starting in memory.");}}
-function renderCards(){const box=el("stepCards");box.replaceChildren();engine.STEPS.forEach(s=>{const b=document.createElement("button");b.type="button";b.className="step-card";b.setAttribute("aria-current",s.index===selected?"step":"false");appendText(b,"span",String(s.index+1)+". "+s.name);appendText(b,"small",s.operation);b.addEventListener("click",()=>{selected=s.index;render();});box.appendChild(b);});}
+const CARD_ART=Object.freeze(["assets/stage-01-knick.svg","assets/stage-02-knack.svg","assets/stage-03-paddy.svg","assets/stage-04-whack.svg","assets/stage-05-dog.svg","assets/stage-06-bone.svg"]);
+function renderCards(){
+ const box=el("stepCards");
+ box.replaceChildren();
+ engine.STEPS.forEach(s=>{
+  const button=document.createElement("button");
+  button.type="button";
+  button.className="step-card";
+  button.setAttribute("aria-current",s.index===selected?"step":"false");
+  button.setAttribute("aria-label","Select stage "+s.dog+", "+s.name+": "+s.operation);
+  const artwork=document.createElement("img");
+  artwork.src=CARD_ART[s.index];
+  artwork.alt="";
+  artwork.loading="lazy";
+  artwork.width=320;artwork.height=320;
+  artwork.setAttribute("aria-hidden","true");
+  button.appendChild(artwork);
+  appendText(button,"span",String(s.index+1).padStart(2,"0")+" · "+s.name,"step-card-name");
+  appendText(button,"small",s.operation,"step-card-op");
+  button.addEventListener("click",()=>{selected=s.index;render();});
+  box.appendChild(button);
+ });
+}
 function renderPlanes(){const tbody=el("planesBody");tbody.replaceChildren();for(const plane of ["mind","body","shadow","soul","spirit"]){const tr=document.createElement("tr");appendText(tr,"th",plane.toUpperCase());for(let i=0;i<6;i++){const item=engine.parallelAt(state,i);const td=appendText(tr,"td",item[plane]||"—");if(i===selected)td.className="selected";}tbody.appendChild(tr);}el("soul").value=state.customPlanes.soul[selected]||"";el("spirit").value=state.customPlanes.spirit[selected]||"";}
 function renderHistory(){const box=el("history");box.replaceChildren();if(!state.history.length){appendText(box,"p","No steps recorded yet. This is a private reflection, not a diagnosis.");return;}state.history.slice().reverse().forEach((h)=>{const row=document.createElement("article");appendText(row,"strong",h.name+" · "+new Date(h.recordedAt).toLocaleString());if(h.note)appendText(row,"p",h.note);if(h.outcome)appendText(row,"small","Outcome: "+h.outcome);box.appendChild(row);});}
 function renderLights(){const box=el("leds");box.replaceChildren();engine.STEPS.forEach(s=>{const span=document.createElement("div");span.className="led";const bulb=document.createElement("span");bulb.className="bulb"+(selected===s.index?" active":"");bulb.setAttribute("aria-hidden","true");span.appendChild(bulb);appendText(span,"span",s.name);box.appendChild(span);});el("command").textContent=engine.serialCommand(selected).trimEnd();}
