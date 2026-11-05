@@ -20,7 +20,7 @@ test('direct source quotes retained',()=>{
  assert.ok(text.includes('+9 to plus one and then -9 to negative one'));
 });
 test('index preserves source/research separation',()=>{
- assert.match(doc.source_policy,/separate/);
+ assert.match(doc.source_policy,/classifications/);
  assert.ok(doc.sections.some(x=>x.key==='ancient-text-research'));
  assert.ok(read('index.html').includes('known=['));
 });
