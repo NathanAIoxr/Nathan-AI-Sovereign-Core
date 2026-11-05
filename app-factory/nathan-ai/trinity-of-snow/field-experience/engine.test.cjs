@@ -37,6 +37,9 @@ test('source-aware offline chat never presents itself as live inference',()=>{
 test('6 educational quests and 39 distinct chapter positions',()=>{
   assert.equal(data.quests.length,6);
   assert.deepEqual(data.volumes.map(v=>v.chapters.length),[13,13,13]);
+  assert.deepEqual(Object.values(data.sceneNotes).map(x=>x.length),[13,13,13]);
+  assert.equal(new Set(Object.values(data.sceneNotes).flat()).size,39);
+  assert.notEqual(api.chapter('V1',0).excerpt,api.chapter('V1',1).excerpt);
   for(const q of data.quests){assert.ok(data.sources.find(s=>s.id===q.source));assert.equal(api.quest(q.id,q.correct).correct,true)}
   assert.match(api.chapter('V2',12).excerpt,/source|story|symbolic/i);
   assert.match(api.exportBooks(),/39-chapter/);
