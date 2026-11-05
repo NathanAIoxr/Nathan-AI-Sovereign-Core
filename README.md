@@ -116,6 +116,11 @@ The root `LICENSE` file is **Apache License 2.0**. Confirm that it matches the o
 
 [Open the additive Children’s Library & Innocence Protection browser](app-factory/nathan-ai/children-innocence/index.html). This public source-first module connects 46 recovered project families, 19 Pumpkin Fruit Family groups, 13 individual power meters and selected author-provided statements. The reported 598 private file records stay in the owner-only recovery JSON, which can be imported locally from the previously generated private recovery pack; private source bytes, Library URLs and personal details are not public. A catalog entry does not mean a finished book, a working donation service or real-world autonomous child protection. [Read module documentation](app-factory/nathan-ai/children-innocence/README.md).
 
+## Protection of Innocence — Virginia Foxx Epstein-files voting record (November 5, 2026)
+
+- [Protection of Innocence — child-first charter](app-factory/nathan-ai/children-innocence/PROTECTION_OF_INNOCENCE.md): author’s exact words, survivor-centered duties, and fact-versus-allegation evidence rules.
+- [Virginia Foxx legislative voting record](app-factory/nathan-ai/children-innocence/records/VIRGINIA_FOXX_EPSTEIN_DISCLOSURE_VOTE_RECORD_2025_2026.md): official House Rules Committee NAY votes, later House AYE vote, primary-source links, and a November 5, 2026 **uncertified** election snapshot. This is an accountability archive, not an accusation of proven criminal complicity.
+
 ## November 3, 2026 — Nathan AI independent website network
 
 - [Open the complete website universe](app-factory/sites/index.html): nine independently named sites, each with live browser-local plan generation, exact source text fields, JSON copy/export/restore, print and separate identities.
