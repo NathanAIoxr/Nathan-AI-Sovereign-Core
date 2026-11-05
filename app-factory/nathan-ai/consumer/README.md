@@ -9,7 +9,7 @@
 
 ## What is built
 
-- Twelve verified local source routes, categorized by **consumer job** rather than engineering filename.
+- Thirteen verified local source routes, categorized by **consumer job** rather than engineering filename.
 - Search, task-category and source-stage filters, plus a product-details screen that states the actual purpose and limitations for each application.
 - Additional review step before launching **sensitive local-data** or **developer/security preview** apps. It is an acknowledgement, **not** legal consent, parental authorization, age verification or identity verification.
 - A **manually chosen** region guide for U.S. federal law, California, EU/EEA, UK, Canada, Brazil, Australia, New Zealand, South Africa, Singapore, India and other regions. Every entry links to official sources, with a distinct requirements checklist.
