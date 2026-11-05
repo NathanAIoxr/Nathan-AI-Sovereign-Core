@@ -19,7 +19,8 @@ test('D archive routes preserve exact source vs derived forms and existing modes
   assert.equal(direct.kind,'route');
   assert.ok(direct.links.some(x=>x.url==='../../../../archive-index/alphabet/d/index.html'));
   assert.ok(direct.links.some(x=>x.url.endsWith('canonical-d-sequences.json')));
-  assert.match(direct.answer,/152 original D/);
+  assert.match(direct.answer,/138 D\/d-starting/);
+  assert.match(direct.answer,/14 The D titles/);
   assert.equal(engine.reply('show me D variants').links[0].url,'../../../../archive-index/alphabet/d/index.html');
   assert.match(engine.reply('/help').answer,/\/d /);
   assert.equal(Object.keys(engine.MODE_LABELS).length,7);
