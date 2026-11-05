@@ -288,5 +288,32 @@
     "No deletion of existing nodes or records",
     "No unconsented collection, targeting or classification of people",
     "Keep archival original source separate from derived simulation"
+  ],
+  "related_archives": [
+    {
+      "id": "tabor-matrix-101-private",
+      "title": "Tabor Matrix 101-point annotated archive",
+      "owner_only": true,
+      "public_content_imported": false,
+      "source_reference": "Tabor_Matrix_101_Annotated_Archive.json (owner-held)",
+      "sections": [
+        "1–20 Foundational Baseline Elements",
+        "21–40 Radar Wave and Disruption Parallels",
+        "41–70 Absolute Codes and Symmetries",
+        "71–101 Systemic Reversals and Prophecies"
+      ],
+      "relationship": "Separate owner-held 101-point matrix; not automatically equal to the 101 Personal Intelligence items."
+    },
+    {
+      "id": "tactical-protocols-102-201",
+      "title": "Nathan AI tactical operations source registry",
+      "owner_only": true,
+      "public_content_imported": false,
+      "source_reference": "protocols.json (owner-held)",
+      "source_claimed_count": 101,
+      "extracted_count": 100,
+      "id_range": "102–201",
+      "relationship": "Separate five-division protocol inventory; documented 101-vs-100 discrepancy remains explicit."
+    }
   ]
 }
