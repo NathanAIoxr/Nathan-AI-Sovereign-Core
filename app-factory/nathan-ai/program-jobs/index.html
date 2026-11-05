@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#13253b"><title>NATHAN AI — Program Jobs & Completion Atlas</title>
+<style>
+:root{color-scheme:dark;--bg:#0d1624;--panel:#16283b;--panel2:#1d3448;--border:#365066;--text:#edf6f8;--muted:#b6cbd5;--accent:#99e0db;--gold:#e9cb88;--focus:#a3ebff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text)}
+*{box-sizing:border-box}body{margin:0}a{color:var(--accent);text-underline-offset:3px}button,input,select,textarea{font:inherit}button,select,input,textarea{background:#152739;border:1px solid #58748a;border-radius:9px;color:var(--text);padding:10px}button{cursor:pointer}button:hover{background:#284558}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}input,select{width:100%}textarea{width:100%;min-height:68px;resize:vertical}header{padding:26px max(16px,calc((100vw - 1280px)/2));background:linear-gradient(125deg,#162d42,#10202e);border-bottom:1px solid var(--border)}main{max-width:1280px;margin:auto;padding:20px 16px 70px}h1{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.16;margin:6px 0 12px}h2{font-size:1.15rem;margin:0 0 10px}h3{font-size:1rem;margin:0 0 8px}p{line-height:1.55}small,.muted{color:var(--muted)}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:700}.intro{max-width:920px;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:18px 0}.metric,.panel{border:1px solid var(--border);border-radius:14px;background:var(--panel);padding:16px}.metric strong{font-size:1.7rem;display:block}.metric span{font-size:.86rem;color:var(--muted)}.notice{border-left:4px solid var(--gold);background:#332d27;padding:12px 16px;border-radius:4px;margin:16px 0;color:#f5dfb6}.layout{display:grid;grid-template-columns:minmax(310px,0.95fr) minmax(320px,1.25fr);gap:16px;align-items:start}.filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}.filters label{font-size:.83rem;color:var(--muted)}.filters label:first-child{grid-column:1/-1}.toolbar{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.toolbar button{font-size:.86rem}.results{display:flex;flex-direction:column;gap:8px;max-height:700px;overflow:auto;padding-right:3px}.result{display:block;text-align:left;width:100%;padding:12px;background:#102232;border:1px solid #36576c;border-radius:11px}.result[aria-pressed="true"]{border:2px solid var(--gold);background:#2c3c47}.result .name{font-weight:700;display:block;line-height:1.35}.result small{display:block;margin-top:4px}.chip{display:inline-block;background:#2b4254;border-radius:6px;padding:2px 7px;font-size:.73rem;color:#ddebf0;margin:5px 5px 0 0}.summary-line{margin:12px 0;color:var(--muted);font-size:.9rem}.field{margin:10px 0}.field label{display:block;margin-bottom:5px;color:var(--muted);font-size:.83rem}.tagrow{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.tag{background:#294455;border-radius:999px;padding:4px 9px;font-size:.76rem}.gate{border:1px solid #405d6f;padding:11px;margin:8px 0;border-radius:10px;background:#112435}.gate strong{display:block;margin-bottom:5px}.gate .info{font-size:.83rem;color:var(--muted);margin:5px 0}.gate .controls{display:grid;grid-template-columns:150px 1fr;gap:9px}.task-list{padding-left:22px}.task-list li{margin:7px 0;line-height:1.4}.buttons{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.buttons button{background:#294659}.msg{min-height:1.5em;color:var(--gold)}footer{color:var(--muted);font-size:.85rem;margin-top:24px}.hidden{display:none!important}@media(max-width:850px){.layout{grid-template-columns:1fr}.results{max-height:420px}.gate .controls{grid-template-columns:1fr}}@media(max-width:430px){.filters{grid-template-columns:1fr}.filters label:first-child{grid-column:1}}
+</style>
+</head><body>
+<header><div class="eyebrow">NATHAN AI · TABOR ROOT · ORIGINAL PROGRAM RECOVERY</div><h1>Every Program by Job & Task</h1><p class="intro">Inventory source code, interfaces, original program identities, security tools, operations and private-archive leads. Follow evidence-based build gates rather than claiming a program is finished because its name appears in a catalog.</p><a href="../build-recovery/">Original Build Recovery Atlas</a> · <a href="../five-guardians/">Five Guardians</a> · <a href="../../one/offloader/">Encrypted Offloader</a></header>
+<main>
+<div class="notice"><strong>Truth boundary:</strong> The catalog includes overlapping record types, not a count of unique completed applications. A code file is not a proven working build. Owner-entered gate results are self-reported, not independently certified. This public page does not scan malware or access your computer.</div>
+<section id="stats" class="stats" aria-label="Inventory summary"><div class="metric"><strong>—</strong><span>Loading source inventory</span></div></section>
+<div class="layout">
+<section class="panel" aria-label="Program explorer">
+ <h2>Search and group programs</h2>
+ <div class="filters">
+  <label>Program, function, task or source path<input id="search" type="search" placeholder="e.g. antivirus, decrypt, backup, Hall of Mirrors"></label>
+  <label>Job or responsibility<select id="job"><option value="all">All jobs</option></select></label>
+  <label>Evidence type<select id="kind"><option value="all">All record types</option></select></label>
+  <label>Current work status<select id="status"><option value="all">All statuses</option></select></label>
+ </div>
+ <p class="summary-line" id="resultCount" role="status"></p>
+ <div id="results" class="results" aria-label="Search results"></div>
+ <div class="buttons"><button id="more" type="button">Show more records</button><button id="exportCsv" type="button">Export filtered CSV</button></div>
+</section>
+<section class="panel" aria-label="Selected program work plan">
+ <div id="details"><h2>Choose a program</h2><p class="muted">Select a record to inspect its job, source, current stage, build tasks and evidence gates.</p></div>
+</section>
+</div>
+<section class="panel" style="margin-top:16px">
+ <h2>Owner-local review & handoff</h2>
+ <p class="muted">Review notes remain in <strong>this browser's local storage</strong>. Do not put passwords or private source code in them. Export a JSON backup before changing devices. Import is reviewed and matches only IDs already present in this public catalog.</p>
+ <div class="buttons"><button id="exportReview" type="button">Download review JSON</button><button id="importButton" type="button">Import review JSON</button><input id="reviewFile" class="hidden" type="file" accept=".json,application/json"></div><p class="msg" id="globalMsg" role="status"></p>
+</section>
+<footer>Original sources are never overwritten or executed. No network scans, credential access, automatic publishing or autonomous counterattack. Program "100%" means all five documented gates have actual review evidence; a local mark is owner-reported only, and independent verification remains a separate task.</footer>
+</main>
+<script src="./engine.js"></script>
+<script>
+(function(){'use strict';
+const $=id=>document.getElementById(id),E=window.NathanProgramJobs,STORE='nathan-ai.program-jobs.review.v1';
+let catalog=null,reviews={},selected=null,shown=40,filters={q:'',job:'all',kind:'all',status:'all'};
+const add=(parent,tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=String(text);if(cls)e.className=cls;parent.appendChild(e);return e};
+const getJob=id=>catalog.jobs.find(j=>j.id===id);
+function download(filename,content,mime){const blob=new Blob([content],{type:mime});const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}
+function msg(text){$('globalMsg').textContent=text;}
+function loadLocal(){try{const s=localStorage.getItem(STORE);if(s){reviews=E.reviewImport(catalog,JSON.parse(s));}}catch(e){reviews={};msg('Saved review could not be loaded: '+e.message);}}
+function saveLocal(){try{localStorage.setItem(STORE,JSON.stringify(E.reviewExport(catalog,reviews)));}catch(e){msg('Local save unavailable. Export your review JSON.');}}
+function fillSelect(select,values){values.forEach(v=>{const o=document.createElement('option');o.value=v.value;o.textContent=v.label;select.appendChild(o)});}
+function setupFilters(){
+ fillSelect($('job'),catalog.jobs.map(j=>({value:j.id,label:j.title})));
+ fillSelect($('kind'),Object.keys(E.summarize(catalog).kind).sort().map(v=>({value:v,label:v.replace(/-/g,' ')})));
+ fillSelect($('status'),Object.keys(E.summarize(catalog).status).sort().map(v=>({value:v,label:v.replace(/-/g,' ')})));
+ for(const id of ['search','job','kind','status']){$(id).addEventListener(id==='search'?'input':'change',()=>{filters={q:$('search').value,job:$('job').value,kind:$('kind').value,status:$('status').value};shown=40;renderList()});}
+ $('more').addEventListener('click',()=>{shown+=40;renderList();});
+ $('exportCsv').addEventListener('click',()=>download('nathan-ai-programs-filtered.csv',E.exportCsv(E.filterRecords(catalog.records,filters)),'text/csv;charset=utf-8'));
+ $('exportReview').addEventListener('click',()=>download('nathan-ai-program-reviews.json',JSON.stringify(E.reviewExport(catalog,reviews),null,2)+'\n','application/json'));
+ $('importButton').addEventListener('click',()=>$('reviewFile').click());
+ $('reviewFile').addEventListener('change',async()=>{const f=$('reviewFile').files[0];if(!f)return;try{if(f.size>3e6)throw Error('Review file exceeds 3 MB');const incoming=E.reviewImport(catalog,JSON.parse(await f.text()));reviews=Object.assign({},reviews,incoming);saveLocal();msg('Imported '+Object.keys(incoming).length+' owner review records.');renderDetails();renderStats();}catch(e){msg('Import rejected: '+e.message);}finally{$('reviewFile').value='';}});
+}
+function renderStats(){const s=E.summarize(catalog),stats=$('stats');stats.replaceChildren();const row=[[''+s.total,'Indexed records (overlapping types)'],[''+(s.kind['source-component']||0),'Code-bearing directories'],[''+(s.kind['historical-title']||0),'Historical system names'],[''+(s.kind['browser-entrypoint']||0),'Historical browser entrypoints'],[''+catalog.jobs.length,'Job categories'],[''+Object.values(reviews).filter(x=>{try{return E.gateProgress(x).ownerReportedComplete;}catch(e){return false;}}).length,'Owner-reported five-gate reviews']];for(const [value,label] of row){const box=add(stats,'div',undefined,'metric');add(box,'strong',value);add(box,'span',label);}}
+function renderList(){const items=E.filterRecords(catalog.records,filters),out=$('results');out.replaceChildren();$('resultCount').textContent=items.length+' matching records · showing '+Math.min(items.length,shown);$('more').hidden=shown>=items.length;
+ for(const r of items.slice(0,shown)){const b=add(out,'button',undefined,'result');b.type='button';b.setAttribute('aria-pressed',String(selected===r.id));add(b,'span',r.name,'name');add(b,'small',getJob(r.job).title);add(b,'span',r.kind.replace(/-/g,' '),'chip');add(b,'span',r.status.replace(/-/g,' '),'chip');b.addEventListener('click',()=>{selected=r.id;renderList();renderDetails()});}
+ if(!items.length)add(out,'p','No matching entries. Try another job or remove a filter.','muted');
+}
+function renderDetails(){const host=$('details');host.replaceChildren();const r=catalog.records.find(x=>x.id===selected);if(!r){add(host,'h2','Choose a program');add(host,'p','Open a record to inspect work tasks and owner-evidence gates.','muted');return;}
+ const job=getJob(r.job);add(host,'div','JOB · '+job.title,'eyebrow');add(host,'h2',r.name);add(host,'p',job.job);
+ const tags=add(host,'div',undefined,'tagrow');for(const s of [r.kind,r.status,r.evidence])add(tags,'span',s.replace(/-/g,' '),'tag');
+ const source=add(host,'p');if(r.sourceUrl){const a=add(source,'a','Open registered source / reference');a.href=r.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';}else add(source,'span','Original source not linked to the public repository.','muted');
+ if(r.sourcePath)add(host,'p','Location: '+r.sourcePath,'muted');
+ if(r.sourceCount!==undefined)add(host,'p','Files in directory: '+r.sourceCount+' source · '+(r.testCount||0)+' tests · '+(r.docCount||0)+' docs. Counts are file signals, not pass results.','muted');
+ add(host,'h3','Tasks to move this job toward completion');
+ const list=add(host,'ol');for(const task of E.tasksFor(r,job))add(list,'li',task);
+ add(host,'h3','Five evidence gates — recorded locally');
+ let record=reviews[r.id]?E.validateReview(reviews[r.id]):E.blankReview(r.id);
+ const progress=add(host,'p',undefined,'muted');
+ const refresh=()=>{const p=E.gateProgress(record);progress.textContent=p.passed+'/'+p.total+' gates owner-marked passed, '+p.blocked+' blocked. '+(p.ownerReportedComplete?'Owner-reported 100% of gates; independent verification still required.':'Not fully evidenced.');};
+ refresh();
+ const error=add(host,'p','','msg');error.setAttribute('role','status');
+ for(const g of E.GATES){const card=add(host,'div',undefined,'gate');add(card,'strong',g.label);add(card,'p',g.help,'info');
+ const controls=add(card,'div',undefined,'controls');const select=add(controls,'select');select.setAttribute('aria-label',g.label+' status');fillSelect(select,[{value:'pending',label:'Not reviewed'},{value:'blocked',label:'Blocked'},{value:'passed',label:'Owner reports PASS'}]);select.value=record.gates[g.id].status;
+ const note=add(controls,'textarea');note.setAttribute('aria-label',g.label+' evidence note');note.placeholder='Evidence: source/command/result/reviewer (no secrets)';note.value=record.gates[g.id].evidence;
+ const save=()=>{const next=structuredClone(record);next.gates[g.id]={status:select.value,evidence:note.value};try{next=E.validateReview(next);record=next;reviews[r.id]=record;saveLocal();error.textContent='Saved owner-reported evidence locally.';refresh();renderStats();}catch(e){error.textContent=e.message;}};
+ select.addEventListener('change',save);note.addEventListener('change',save);
+ }
+ const field=add(host,'div',undefined,'field');const label=add(field,'label','General review notes');label.htmlFor='reviewNotes';const notes=add(field,'textarea');notes.id='reviewNotes';notes.value=record.notes;notes.placeholder='What source needs to be recovered or what build test is next?';notes.addEventListener('change',()=>{record.notes=notes.value;try{record=E.validateReview(record);reviews[r.id]=record;saveLocal();error.textContent='Notes saved locally.';}catch(e){error.textContent=e.message;}});
+}
+fetch('./catalog.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Catalog request failed: '+r.status);return r.json()}).then(c=>{E.validateCatalog(c);catalog=c;loadLocal();setupFilters();renderStats();renderList();msg('Catalog loaded. Original source is unchanged.');}).catch(e=>{$('stats').textContent='Unable to load catalog: '+e.message;msg('Serve this directory with a local web server or open the published GitHub Pages site.');});
+})();
+</script>
+</body></html>
