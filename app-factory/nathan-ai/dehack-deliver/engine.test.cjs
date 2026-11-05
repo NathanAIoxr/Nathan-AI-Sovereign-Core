@@ -29,8 +29,8 @@ test('complete original-file import preserves every user-provided description by
  const original=fixture.join('\n');
  const parsed=C.parseOriginal(original);
  assert.equal(parsed.length,104);
- assert.equal(parsed[2].description,'Original description for Binary Morality Filter — Noël / 日本語');
- assert.equal(parsed[2].verbatimLine,'• Binary Morality Filter: Original description for Binary Morality Filter — Noël / 日本語');
+ assert.equal(parsed[6].description,'Original description for Binary Morality Filter — Noël / 日本語');
+ assert.equal(parsed[6].verbatimLine,'• Binary Morality Filter: Original description for Binary Morality Filter — Noël / 日本語');
  assert.equal(C.records[2].description,'Source description available through verbatim original-file import');
  assert.equal(parsed[103].ordinal,104);
  const changed=original.replace('• Binary Morality Filter:', '• Binary Morality Filtre:');
