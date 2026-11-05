@@ -86,7 +86,7 @@
  $('#exportOriginal').addEventListener('click',()=>{if(typeof originalSource!=='string')return;download('nathan-101-original-verbatim.txt',originalSource,'text/plain');});
  $('#exportJSON').addEventListener('click',()=>download('nathan-101-ledger-local.json',JSON.stringify({notice:'Author-supplied source, not independently verified.',entries},null,2),'application/json'));
  $('#exportNotes').addEventListener('click',()=>download('nathan-101-research-notes-local.json',JSON.stringify({notice:'Separate notes; original source text unchanged.',notes},null,2),'application/json'));
- $('#clearLocal').addEventListener('click',()=>{if(!window.confirm('Remove imported source text and private research notes from this browser?'))return;localStorage.removeItem(KEY);localStorage.removeItem(NOTES);entries=C.placeholderLedger();notes={};updateStatus();renderLedger();renderBooks();resetGame();toast('Local source and notes cleared from this browser.');});
+ $('#clearLocal').addEventListener('click',()=>{if(!window.confirm('Remove imported source text and private research notes from this browser?'))return;localStorage.removeItem(KEY);localStorage.removeItem(NOTES);entries=C.placeholderLedger();notes={};originalSource=null;$('#exportOriginal').disabled=true;updateStatus();renderLedger();renderBooks();resetGame();toast('Local source and notes cleared from this browser.');});
  $('#nextGate').addEventListener('click',nextQuestion);$('#resetGame').addEventListener('click',resetGame);
  updateStatus();renderLedger();renderBooks();resetGame();
 })();
