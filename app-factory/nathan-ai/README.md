@@ -139,3 +139,12 @@ The six Ram & Convoy entries and seven Sovereign Core entries preserve the suppl
 [Open the source-preserving Trinity of Snow atlas](./trinity-of-snow/index.html) · [structured canon, folklore, KJV and terminology](./trinity-of-snow/archive.js) · [original editable SVG](./trinity-of-snow/cover.svg). The top-down symbolic ancestry tree contains the GOD SNOWMAN, GOD SNOWWOMAN, Snowmen, Snowwomen, Snowchildren, Snow Giants, and Snow Spirits; comparative stories include Yeti, Ymir, Yuki-onna, Snegurochka, Sasquatch and winter effigies. Creator-authored beliefs, historical records, folklore, literal KJV text, and the “snow” drug-language comparison are independently labeled. No source establishes a supernatural common ancestry or biblical identification of cocaine, cannabis, or mushrooms as snow. Earlier owner chat image assets are not silently recopied into the public repository.
 
 Test: \`node --test app-factory/nathan-ai/trinity-of-snow/archive.test.cjs\`. Original Codex anchor remains unchanged.
+
+
+## Six Dogs — sovereign resolution software + physical controller (November 5, 2026)
+
+[Open the six-stage workbench](./six-dogs/index.html) · [software/hardware specification](./six-dogs/README.md) · [Arduino Uno wiring](./six-dogs/hardware/README.md) · [machine-readable architecture](./six-dogs/architecture.json).
+
+Preserves six identities in exact order **KNICK → KNACK → PADDY → WHACK → DOG → BONE**, corrected five-plane mapping (**Mind: Dalet, Pe, Kaph, Waw, Nun, Bet; Body: six dogs; Shadow: Bet, Nun, Waw, Kaph, Pe, Dalet**), and leaves Soul/Spirit positions user-defined. Includes local-first state machine, accessible browser console, JSON export/import/wipe, opt-in storage, LED state simulation, user-initiated Web Serial and Arduino source for six LEDs and a button. The model is a creative support/decision aid, not a psychological assessment, literal mythological proof, verified device, or stress treatment. No private material was copied.
+
+Run: node --test app-factory/nathan-ai/six-dogs/engine.test.cjs.
