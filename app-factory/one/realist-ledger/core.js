@@ -64,7 +64,9 @@
   }
   function placeholderLedger(){return Array.from({length:101},(_,i)=>({number:i+1,text:'',section:sectionOf(i+1).id}));}
   function bookText(section,entries){
-    const selected=entries.filter(e=>e.number>=section.from&&e.number<=section.to);
+    const canonical=SECTIONS.find(s=>s.id===section?.id);
+    if(!canonical||canonical.from!==section.from||canonical.to!==section.to||canonical.title!==section.title)throw new Error('Use one of the four original Chronicle volumes.');
+    const selected=validateEntries(entries).filter(e=>e.number>=section.from&&e.number<=section.to);
     if(selected.length!==section.to-section.from+1||selected.some(e=>!e.text))throw new Error('Import the complete original source before exporting populated volumes.');
     const title='NATHAN AI — THE 101-ACTION CHRONICLE';
     return ['# '+title,'','## Volume '+section.id+': '+section.title,'',
