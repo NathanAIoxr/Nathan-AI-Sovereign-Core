@@ -65,7 +65,7 @@ test('owner reviews export and re-import with schema and ID safety',()=>{
 test('CSV guards against spreadsheet formula injection',()=>{
  const data=E.exportCsv([{id:'x',kind:'historical-title',name:'=HYPERLINK("evil","bad")',job:'defense',status:'locate-original',nextTask:'A'}]);
  assert.match(data,/'=HYPERLINK/);
- assert.match(data,/'""evil""/);
+ assert.match(data,/""evil""/);
  assert.ok(data.includes("'=HYPERLINK"));
 });
 test('the current job plans exist for every record without declaring completion',()=>{
