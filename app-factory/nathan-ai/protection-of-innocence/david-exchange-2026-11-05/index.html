@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="../../appearance/shared.css" data-nathan-shared-appearance>
+<script src="../../appearance/engine.js"></script>
+<script src="../../appearance/app.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nathan AI — Original Words Archive</title>
@@ -19,7 +22,7 @@ button[aria-pressed=true] { background:#9ecfea; color:#111e29 }
 .panel { border:1px solid #3f5265; border-radius:12px; padding:18px; margin:16px 0; background:#172330 }
 .source { white-space:pre-wrap; overflow-wrap:anywhere; margin:12px 0 0; font: 15px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace }
 .meta { font-size:14px; color:#b9c7d5 }
-.words { display:flex; flex-wrap:wrap; gap:7px; max-height:240px; overflow:auto }
+.words { display:flex; flex-wrap:wrap; gap:7px; max-height:none; overflow:visible }
 .words button { font-size:13px } .count { opacity:.7 }
 #message-status { min-height:26px }
 </style>
@@ -27,7 +30,7 @@ button[aria-pressed=true] { background:#9ecfea; color:#111e29 }
 <body>
 <header>
 <p><a href="../../index.html">Nathan AI</a> / Protection of Innocence / Author originals</p>
-<h1>Original Words — Source-First Archive</h1>
+<h1>Original Words — Source-First Archive · Unboxed</h1>
 <p><a href="../../hop-in/chatbox/index.html#studio-panel">Open Words → Worlds · App · Game · Books · Lessons inside HOP IN</a></p>
 <p class="muted">Original messages are displayed directly from preserved source records. Search filters and A–Z word keys are derived views only.</p>
 <p><a href="./messages.json" download>Source JSON</a> · <a href="./index.json" download>Editorial index JSON</a> · <a href="./README.md">Preservation rules</a></p>
@@ -36,6 +39,7 @@ button[aria-pressed=true] { background:#9ecfea; color:#111e29 }
 <section aria-label="Archive search">
 <div class="controls"><input id="search" type="search" placeholder="Search exact source words" aria-label="Search source messages"><select id="category" aria-label="Filter by category"><option value="">All categories</option></select></div>
 <div id="message-status" class="muted" aria-live="polite"></div>
+<button id="show-all" type="button">Show every complete original record</button>
 </section>
 <section aria-label="Alphabetical words">
 <h2>A–Z word index</h2>
@@ -100,7 +104,7 @@ function renderMessages() {
     const pre=document.createElement("pre");pre.className="source";pre.textContent=m.original_text;
     article.append(heading,meta,pre);root.appendChild(article);
   }
-  $("message-status").textContent=found+" of "+messages.length+" original source records shown";
+  $("message-status").textContent=found+" of "+messages.length+" complete records visible. No repeated messages were merged, truncated, or hidden in collapsed sections.";
 }
 Promise.all([
   fetch("./messages.json").then(r=>{if(!r.ok)throw Error("source unavailable");return r.json()}),
@@ -113,6 +117,7 @@ Promise.all([
     $("category").appendChild(option);
   }
   $("search").addEventListener("input",renderMessages);
+  $("show-all").addEventListener("click",()=>{$("search").value="";$("category").value="";renderMessages();});
   $("category").addEventListener("change",renderMessages);
   buildAlphabet();renderWords();renderMessages();
 }).catch(err=>{$("message-status").textContent="Could not load archive: "+err.message;});
