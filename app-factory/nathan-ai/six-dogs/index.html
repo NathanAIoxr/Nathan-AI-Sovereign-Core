@@ -9,16 +9,38 @@
 <link rel="stylesheet" href="../appearance/shared.css" data-nathan-shared-appearance>
 <script defer src="../appearance/engine.js"></script><script defer src="../appearance/app.js"></script>
 <link rel="stylesheet" href="../launcher/shared.css" data-nathan-command-center>
+<link rel="stylesheet" href="skin.css">
 <script defer src="../workspace.js"></script><script defer src="../assistant/engine.js"></script><script defer src="../launcher/engine.js"></script><script defer src="../launcher/app.js"></script>
 <script defer src="engine.js"></script><script defer src="topology.js"></script><script defer src="topology-ui.js"></script><script defer src="app.js"></script>
-</head><body>
+</head><body class="sovereign-prism">
 <a class="skip" href="#content">Skip to the console</a>
-<header class="hero">
-<p class="eyebrow">NATHAN AI · ONE · SOVEREIGN SIX-DOG ENGINE</p>
-<h1>THE SIX DOGS</h1>
-<p class="lead">Six distinct identities. Six decisions. One user-controlled process for navigating a difficult situation.</p>
-<p class="mantra">KNICK <span>›</span> KNACK <span>›</span> PADDY <span>›</span> WHACK <span>›</span> DOG <span>›</span> BONE</p>
-<nav aria-label="Navigation">
+<header class="hero" id="top">
+<div class="hero-container">
+ <div class="brand-bar">
+  <a class="brand-lockup" href="../index.html" aria-label="Nathan AI main hub">
+   <img src="assets/nathan-mark.svg" alt="" width="64" height="64">
+   <span class="brand-type"><strong>NATHAN AI</strong><small>SOVEREIGN PRISM · ONE</small></span>
+  </a>
+  <div class="hero-status"><span class="status-dot" aria-hidden="true"></span> LOCAL-FIRST / USER-CONTROLLED</div>
+ </div>
+ <div class="hero-inner">
+   <div class="hero-copy">
+    <p class="eyebrow">SIX DISTINCT DOGS · ONE UNBROKEN SEQUENCE</p>
+    <h1>THE SIX<br><em>DOGS</em></h1>
+    <p class="lead">Six identities. Six constructive decisions. One sovereign, user-controlled path through awareness, action, and reflection.</p>
+    <p class="mantra"><span>KNICK</span><b>·</b><span>KNACK</span><b>·</b><span>PADDY</span><b>·</b><span>WHACK</span><b>·</b><span>DOG</span><b>·</b><span>BONE</span></p>
+    <div class="hero-actions">
+      <a class="hero-cta" href="#process">Open resolution workbench <span aria-hidden="true">↗</span></a>
+      <a class="hero-quiet" href="#gallery">Explore the six emblems</a>
+    </div>
+    <div class="hero-highlights"><span><strong>06</strong> Fixed identities</span><span><strong>05</strong> Symbolic planes</span><span><strong>00</strong> Default network calls</span></div>
+   </div>
+   <figure class="hero-visual">
+     <img src="assets/hero-prism.svg" alt="Original abstract digital network with a luminous Nathan AI crest and six stage nodes; no human figures." width="1600" height="680" fetchpriority="high">
+     <figcaption>Original vector artwork · A metaphorical network, not a live distributed deployment</figcaption>
+   </figure>
+ </div>
+ <nav aria-label="Navigation">
 <a href="../index.html">Nathan AI hub</a>
 <a href="../../one/index.html">ONE</a>
 <a href="../../one/sovereign-acro-matrix/index.html">Sovereign Acro-Matrix</a>
@@ -26,8 +48,23 @@
 <a href="#hardware">Hardware</a>
 <a href="README.md">Specifications</a>
 </nav>
+</div>
 </header>
 <main id="content">
+<section id="gallery" class="gallery-section">
+ <div class="gallery-intro">
+   <div><p class="eyebrow">THE CHARACTER SYSTEM / SIX ORIGINAL EMBLEMS</p><h2>Meet the six dogs.</h2><p>Each dog is a distinct identity with its own visual signature. The order and names remain fixed in every view.</p></div>
+   <span class="gallery-index">01 / 06</span>
+ </div>
+ <div class="dog-gallery" aria-label="Six Dogs visual identity collection">
+   <article class="dog-gallery-card"><img src="assets/stage-01-knick.svg" alt="KNICK, the first dog, shown as a cyan mechanical canine emblem." loading="lazy" width="320" height="320"><span>01 / AWARENESS</span><h3>KNICK</h3><p>Recognize the situation.</p></article>
+   <article class="dog-gallery-card"><img src="assets/stage-02-knack.svg" alt="KNACK, the second dog, shown as a violet mechanical canine emblem." loading="lazy" width="320" height="320"><span>02 / INGENUITY</span><h3>KNACK</h3><p>Find the workable angle.</p></article>
+   <article class="dog-gallery-card"><img src="assets/stage-03-paddy.svg" alt="PADDY, the third dog, shown as a mint mechanical canine emblem." loading="lazy" width="320" height="320"><span>03 / RHYTHM</span><h3>PADDY</h3><p>Regulate the pace.</p></article>
+   <article class="dog-gallery-card"><img src="assets/stage-04-whack.svg" alt="WHACK, the fourth dog, shown as an amber mechanical canine emblem." loading="lazy" width="320" height="320"><span>04 / DECISION</span><h3>WHACK</h3><p>Choose nonviolent action.</p></article>
+   <article class="dog-gallery-card"><img src="assets/stage-05-dog.svg" alt="DOG, the fifth dog, shown as an indigo mechanical canine emblem." loading="lazy" width="320" height="320"><span>05 / FOLLOW-THROUGH</span><h3>DOG</h3><p>Stay connected and move.</p></article>
+   <article class="dog-gallery-card"><img src="assets/stage-06-bone.svg" alt="BONE, the sixth dog, shown as a gold mechanical canine emblem." loading="lazy" width="320" height="320"><span>06 / RESTORATION</span><h3>BONE</h3><p>Reflect and restore ease.</p></article>
+ </div>
+</section>
 <section class="intro">
 <div><p class="eyebrow">CORE PRINCIPLES</p><h2>The consumer is the sovereign user.</h2>
 <p>This program does not decide what you feel, diagnose anyone, or guarantee an absence of stress. Its six-step rhyme mapping is a <strong>creative decision aid</strong>, not a validated clinical sequence.</p></div>
@@ -68,6 +105,7 @@
 <section id="hardware" class="panel">
 <p class="eyebrow">03 · SOFTWARE ⇄ PHYSICAL HARDWARE</p><h2>Six-stage physical console</h2>
 <p class="fine">New companion: <a href="edge-mesh/README.md">Micro Edge + Macro Fabric local Python runtime, Docker instructions and optional encrypted vector files</a>. This package is separate from the browser and requires a user-run local process.</p>
+<figure class="wide-diagram"><img src="assets/hardware-console.svg" alt="Illustrative six-stage low-voltage controller with LEDs from D3 to D8 and a D2 button. Consult the detailed wiring guide before building." loading="lazy" width="1440" height="740"><figcaption>Physical controller concept illustration — actual wiring is specified separately in the hardware guide.</figcaption></figure>
 <div class="hardware-grid">
  <div><h3>Microcontroller prototype</h3><p>Arduino Uno compatible board, one momentary button and six low-voltage LEDs. Each indicator corresponds to a dog/stage. The included sketch cycles steps and communicates over a serial port.</p><div id="leds" class="leds" aria-label="Simulated LED states"></div><p class="fine">Simulation reflects the current browser stage, not a detected physical device.</p></div>
  <div><h3>Hardware command</h3><p>Copy the versioned serial command, or explicitly connect a supported device through your browser and send the current step.</p>
@@ -79,6 +117,7 @@
 <section id="micro-macro" class="panel">
 <p class="eyebrow">04 · MACRO-TOPOLOGY ⇄ MICRO-ENGINE</p><h2>Independent offline sovereign computing</h2>
 <p>The registry, local storage, event bus and deterministic packet inspector operate without a cloud AI account. The Six Dogs stage selection updates this local topology view; no external commands execute automatically.</p>
+<figure class="wide-diagram"><img src="assets/topology-map.svg" alt="Eight-node local architecture linking the sovereign user, registry, events, storage, edge runtime, DATA–ATAD review, Six Dogs workflow and optional USB controller." loading="lazy" width="1440" height="820"><figcaption>Logical topology, not a real peer-to-peer cluster.</figcaption></figure>
 <div class="hardware-grid">
 <div><h3>Macro · Infrastructure and registry</h3>
 <p id="macroStatus" role="status">Initializing local graph.</p>
@@ -96,10 +135,10 @@
 <p class="fine" id="microNotice">Gate 1 means a defined check passed. Gate 0 means hold for review, never automatic deletion or proof of deception.</p></div>
 </div></section>
 <section id="technology" class="panel">
-<p class="eyebrow">04 · FULL TECHNOLOGY MAPPING</p><h2>Eight engineering layers</h2><div id="techGrid" class="tech-grid"></div>
+<p class="eyebrow">05 · FULL TECHNOLOGY MAPPING</p><h2>Eight engineering layers</h2><figure class="wide-diagram"><img src="assets/pipeline-map.svg" alt="Six ordered stages: KNICK capture, KNACK quantize, PADDY pace, WHACK plan, DOG track, BONE verify. Micro roles one through three, macro roles four through six." loading="lazy" width="1500" height="435"><figcaption>The technical analogy is separate from the Six Dogs emotional-support sequence.</figcaption></figure><div id="techGrid" class="tech-grid"></div>
 </section>
 <section id="sovereignty" class="panel">
-<p class="eyebrow">05 · OWNERSHIP / PRIVACY</p><h2>User-controlled records</h2><p>Notes remain in page memory by default and disappear upon reload. Opting in stores them in your browser's localStorage, which is <strong>not encrypted</strong>. Do not enter passwords, health records, children's private information or credentials.</p>
+<div class="sovereignty-heading"><div><p class="eyebrow">06 · OWNERSHIP / PRIVACY</p><h2>User-controlled records</h2></div><img src="assets/sovereign-shield.svg" alt="Shield emblem representing explicit consent and user control." loading="lazy" width="440" height="440"></div><p>Notes remain in page memory by default and disappear upon reload. Opting in stores them in your browser's localStorage, which is <strong>not encrypted</strong>. Do not enter passwords, health records, children's private information or credentials.</p>
 <label class="choice"><input id="saveLocal" type="checkbox"> Save my session in this browser (opt-in)</label>
 <div class="actions">
 <button id="export" class="secondary">Export my JSON</button>
@@ -110,5 +149,5 @@
 </section>
 <section class="limits"><h2>Research and safety boundaries</h2><p>The five- and seven-stage grief lists are descriptive teaching frameworks, not an obligatory order or a scientific promise that people can bypass depression. This app allows revisiting a step whenever useful. “WHACK” refers only to a clear, <strong>nonviolent</strong> decision. “BONE” represents connection, care and resolution—not a guaranteed stress-free biological state. Consensual adult intimacy may be relaxing for some people but is not required by or measured in this system.</p></section>
 </main>
-<footer>Original Six Dogs names and the corrected Mind/Body/Shadow order are preserved. This is a self-guided Nathan AI software/hardware prototype, not clinical treatment or verified hardware certification.</footer>
+<footer><img class="footer-mark" src="assets/nathan-mark.svg" alt="" width="38" height="38"> Original Six Dogs names and the corrected Mind/Body/Shadow order are preserved. This is a self-guided Nathan AI software/hardware prototype, not clinical treatment or verified hardware certification.</footer>
 </body></html>
