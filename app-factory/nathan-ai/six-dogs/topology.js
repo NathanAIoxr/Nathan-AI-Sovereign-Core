@@ -38,8 +38,8 @@ function inspect(packet,review){const forward=requireText(packet,"packet"),backw
  });
 }
 function whole(value,name){if(!Number.isSafeInteger(value))throw new TypeError(name+" must be a safe integer");return value;}
-function build(a,b){return whole(a,"a")+whole(b,"b");}
-function clear(a,b){return whole(a,"a")-whole(b,"b");}
+function build(a,b){const result=whole(a,"a")+whole(b,"b");if(!Number.isSafeInteger(result))throw new RangeError("Result exceeds exact integer range");return result;}
+function clear(a,b){const result=whole(a,"a")-whole(b,"b");if(!Number.isSafeInteger(result))throw new RangeError("Result exceeds exact integer range");return result;}
 function emptyGraph(){return {schema:"nathan-six-dogs.topology",version:1,sequence:0,activeStep:0,events:[],assets:[]};}
 function cloneGraph(graph){if(!graph||graph.schema!=="nathan-six-dogs.topology"||graph.version!==1)throw new TypeError("Topology schema mismatch");if(!Array.isArray(graph.events)||!Array.isArray(graph.assets)||!Number.isSafeInteger(graph.sequence))throw new TypeError("Malformed topology");
  return {schema:graph.schema,version:1,sequence:graph.sequence,activeStep:graph.activeStep,events:graph.events.map(x=>({...x})),assets:graph.assets.map(x=>({...x}))};
