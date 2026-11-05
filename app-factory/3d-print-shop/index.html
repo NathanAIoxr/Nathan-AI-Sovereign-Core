@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f1824"><title>Nathan Tabor 3-D Print Shop — Five Into ONE</title>
+<style>
+:root{font-family:system-ui,-apple-system,sans-serif;background:#101823;color:#edf3f7;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 0,#173344,transparent 57%),#101823}
+a{color:#9adfe9}button{border:1px solid #6c8798;background:#263e50;color:white;font:inherit;padding:10px 13px;border-radius:10px;cursor:pointer}
+button:hover{background:#36566a}button:focus-visible,a:focus-visible{outline:3px solid #d7c693;outline-offset:3px}
+main{max-width:1100px;margin:auto;padding:22px 14px 70px}
+.eyebrow{color:#cfc5a5;font-size:.79rem;letter-spacing:.13em;font-weight:700}
+h1{font-size:clamp(2.1rem,6vw,4.6rem);letter-spacing:-.055em;line-height:1.07;margin:12px 0}
+h2{font-size:1.25rem;margin:0 0 8px}
+p{color:#bdccd5;line-height:1.55}
+.hero{border:1px solid #5c7b83;border-radius:23px;padding:clamp(18px,4vw,32px);background:linear-gradient(125deg,#22414b,#1c293a)}
+.panel{border:1px solid #3c5568;border-radius:16px;background:#1b2b39;padding:16px;margin-top:15px}
+.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.station{background:#23394b;border:1px solid #4a6679;border-radius:14px;padding:14px 10px;min-height:163px;min-width:0}
+.station strong{display:block;font-size:1.03rem}
+.station .number{font-size:1.9rem;font-weight:800;color:#e9d7b1}
+.sub{font-size:.79rem;color:#bdccd5;overflow-wrap:anywhere}
+.progress{height:9px;background:#10212e;border-radius:9px;margin:11px 0;overflow:hidden}
+.fill{height:100%;width:0;background:#80bec4;transition:width .15s}
+.status{font-size:.77rem;color:#a9ded6;margin:7px 0}
+.controls{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.primary{background:#ddc998;color:#18232b;border-color:#ddc998;font-weight:700}
+.warn{font-size:.86rem;color:#e7cda5}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.summary>div{background:#23394b;border-radius:10px;padding:10px}
+.summary strong{display:block;font-size:1.55rem}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;color:#c4dbe3;font-size:.82rem;max-height:300px;overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:.88rem}td,th{text-align:left;border-bottom:1px solid #445465;padding:10px}
+footer{font-size:.83rem;color:#adbfc9;margin-top:24px}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid .station:last-child{grid-column:1/-1}.summary{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){main{padding:12px 10px 55px}.controls button{flex:1}.summary{grid-template-columns:1fr}}
+</style></head><body><main>
+<p><a href="../index.html">TABOR 1-2-3 FACTORY</a> / <a href="../one/">ONE</a> / Five Matrices</p>
+<header class="hero">
+<div class="eyebrow">NATHAN TABOR · SOURCE-FIRST · FIVE INTO ONE</div>
+<h1>3-D PRINT SHOP</h1>
+<p>Five independent virtual fabrication stations coordinated by ONE. Original Bible object identities stay separate. Gopher Ants catalogs public software sources. Simulation is not physical manufacturing.</p>
+<p><strong>1+1=2 BUILD</strong> &nbsp; · &nbsp; <strong>1-1=0 CLEAR</strong></p>
+<div class="controls"><button class="primary" id="queue">Queue five demo tiles</button><button id="run">Run simulation</button><button id="pause">Pause</button><button id="resume">Resume</button><button id="reset">Clear</button><button id="export">Export JSON</button></div>
+<p class="warn">No motors, heaters, print heads, robotic vehicles or hardware controllers are connected.</p>
+</header>
+<section class="panel"><h2>Five matrices — five printer queues</h2><div class="grid" id="stations" aria-live="polite"></div></section>
+<section class="panel">
+<h2>ONE — virtual assembly</h2><div class="summary">
+<div><strong id="jobs">0 / 5</strong><small>Demo tiles queued</small></div>
+<div><strong id="completed">0 / 5</strong><small>Simulated completions</small></div>
+<div><strong id="linked">NO</strong><small>Virtual assembly linked</small></div>
+</div><p id="status" role="status">Ready. No physical hardware connected.</p>
+</section>
+<section class="panel"><h2>Gopher Ants — read-only open-source research</h2>
+<p>Public repository references only. No third-party source is automatically downloaded, installed, compiled or executed.</p>
+<div id="source-list">Loading locally curated source catalog…</div>
+</section>
+<section class="panel"><h2>Original words and Bible item separation</h2>
+<p>Literal gates, figurative gates, visionary gates, later mythology, jewelry, furniture, hardware and materials preserve independent identities. Every derivative model records source verse, explicit measurement and uncertainty.</p>
+<p><a href="docs/SOURCE_RECOVERY.md">Original-source recovery ledger</a> · <a href="docs/KJV_OBJECT_CLASSES.md">Classification contract</a> · <a href="docs/ENGINEERING.md">Engineering roadmap</a> · <a href="models/five_into_one.scad">Editable five-piece geometry</a></p>
+</section>
+<section class="panel"><h2>Simulation event log</h2><pre id="events" aria-live="polite"></pre></section>
+<footer>Author: Nathan Tabor. New additive implementation in the public repository; owner originals are preserved separately and have not been overwritten. Prototype results are not evidence of a real 3-D print.</footer>
+</main><script src="shop-core.js"></script><script src="shop-ui.js"></script></body></html>
