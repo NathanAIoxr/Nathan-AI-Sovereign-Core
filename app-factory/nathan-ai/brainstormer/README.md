@@ -16,16 +16,16 @@ Open `index.html` to see all independently addressable editions. The larger v0.0
 
 ## Original sources preserved, not overwritten
 
-The original offline v001 and Python v002 and both source guides are under `originals/`. The **unedited v0.0.3 Creative Arcade** is also copied into `originals/NathanAI_Brainstormer_Creative_Arcade_v003.html`. The working `app/index.html` is a separate derivative with a tiny opt-in chatbox button.
+The original offline v001 HTML and **unedited v0.0.3 Creative Arcade HTML** live in `archive-index/brainstormer/originals/` outside the App Factory. This keeps the originals untouched by the shared appearance and runtime syntax rules. Python v002, both guides and the v003 extension JS remain in `app-factory/nathan-ai/brainstormer/originals/`. The working `app/index.html` is a separate derivative with a tiny opt-in chatbox button.
 
 Originals include:
-- `originals/NathanAI_Brainstormer_Offline_v001.html`
+- `archive-index/brainstormer/originals/NathanAI_Brainstormer_Offline_v001.html`
 - `originals/NathanAI_Brainstormer_Python_v002.py`
 - `originals/NathanAI_Brainstormer_Python_README.md`
-- `originals/NathanAI_Brainstormer_Creative_Arcade_v003.html`
+- `archive-index/brainstormer/originals/NathanAI_Brainstormer_Creative_Arcade_v003.html`
 - `originals/NathanAI_Brainstormer_v003_README.md`
 
-The local source ZIP also contains the v003 extension JavaScript, reproducible Python builder and manifest; these **are not yet mirrored as separate GitHub files**. The HTML v003 contains the delivered, runnable browser code, but its build helper is an additional source artifact. The full local ZIP is retained for owner audit and future import. Existing unrelated GitHub app, game, book, calendar, ONE, and HOP IN code is not removed or collapsed.
+The v003 extension JavaScript is mirrored at `originals/brainstormer_v003_extensions.js`. The complete local source ZIP additionally contains the original reproducible Python builder and manifest; **those two artifacts are not yet mirrored as separate GitHub files**. The HTML v003 contains the delivered, runnable browser code, but its build helper is an additional source artifact. The full local ZIP is retained for owner audit and future import. Existing unrelated GitHub app, game, book, calendar, ONE, and HOP IN code is not removed or collapsed.
 
 ## The shared HOP IN Chatbox interface
 
