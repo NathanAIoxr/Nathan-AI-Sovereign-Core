@@ -64,6 +64,24 @@ Separate these operations:
 
 No standalone exact DD or reversed Dick/dicks *source hit* was established in the previous recovery. Generated reversals here are labeled derivatives rather than falsely reported as recovered originals.
 
+## Exact original D entries in five A–Z sequences
+
+The owner Library and original November 1 source text establish **five distinct D slots** in previously authored sequences. These exact strings are *not* generated variants of one another. Preserve original capitalisation, punctuation, labels and sequence context.
+
+| Source sequence | Exact D title |
+| --- | --- |
+| Perfect Sequential A–Z | the Demonology Dilution of Atoms |
+| Physics / Atomic / Quantum A–Z | The Double Dilution of Amplitudes |
+| Nativity / KJV A–Z | The David Dilution of Ancestry-kin |
+| Holiday A–Z | Dancing Demons |
+| Sacred Alphabet A–Z | Davidic Dancers |
+
+- [Machine-readable exact source crosswalk](./canonical-d-sequences.json), with separate provenance notes.
+- [Integrity regression checks](./canonical-d-sequences.test.mjs): `node --test archive-index/alphabet/d/canonical-d-sequences.test.mjs`.
+- The Holiday and Sacred Alphabet records appear in `Magical_Minds_Cave_to_Code_Matrix.json`; the first three are also corroborated by earlier authored A–Z source records. Source originals remain in the owner's Library, not copied here.
+
+**Source vs. derivative:** Keep these five records apart from D glyph inversions, D0G/DOG, d/d mirrored forms, D/DDD repetitions, Dungeons and Dragons KJV Game of Life, and the remaining 19 discovery routes. An original title never gets rewritten by the cross-reference.
+
 ## Existing engines to link, not replace
 
 - [THE MIDDLE C](../../../app-factory/middle-c/README.md)
