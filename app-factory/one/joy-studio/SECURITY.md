@@ -27,3 +27,14 @@
 - Rate limits, HTTPS, secret-management, independent threat-model review and robust test coverage before accepting network uploads or automated claims.
 
 **Do not implement exploit-driven takedown, forced remote deletion, CDN corruption, dark-web intrusion or denial of service.** Such actions are neither technically assured nor authorized merely because an asset is yours.
+
+## v0.2 game/privacy additions
+
+- The Memory Match, Bingo, 25 Doors and creative prompt games are 100% local logic. Stars are cosmetic progress and do not authorize software or network changes.
+- The consent notebook saves local user-declared records with basic validation and a delete button. The "Permission withdrawn" label has no power to recall files or remove third-party copies.
+- Page layouts and theme changes preserve the author's original words and image layers unless the author explicitly edits or deletes them.
+- Saved scores and achievements are not tamper-proof and are not suitable for financial or compliance decisions.
+- Browser-native speech read-aloud is optional; depending on the browser and device, speech services may use an operating-system or browser provider. Do not assume speech is always processed offline.
+
+- Device sharing uses the browser's user-invoked share picker only; the user makes the final recipient/app selection. On unsupported browsers it simply downloads a local PNG.
+- The optional service worker caches same-origin **static app files**; it does not crawl media or sync, upload, or automatically delete local content. It is disabled for the standalone file context.
