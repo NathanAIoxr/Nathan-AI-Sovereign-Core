@@ -1,0 +1,18 @@
+{
+  "id": "./",
+  "name": "Nathan AI \u2014 Project Completion",
+  "short_name": "Project Completion",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101725",
+  "theme_color": "#233957",
+  "icons": [
+    {
+      "src": "../icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

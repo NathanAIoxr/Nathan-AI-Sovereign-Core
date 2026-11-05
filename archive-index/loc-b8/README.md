@@ -46,3 +46,15 @@ Tests cover subject/title separation, original completion preservation, import v
 ## Coverage
 
 The supplied sources contain 18,247 searched records and a 7,910-entry language-name/code reference. These are references, proposals, work records and overlapping snapshots, not counts of finished books. Image pixels and stacked O shapes are not comprehensively inspected. External pointers do not prove original-byte recovery. All outstanding evidence, language and visual review remains visible in the owner worklist.
+
+## Shared-core standalone tools
+
+Open Library Catalog at `apps/catalog/`, Project Completion at `apps/completion/`, or Backup & Restore at `apps/backup/`. Each has its own launch URL and scoped browser-app manifest. All three load the same canonical workspace markup, `catalog.mjs`, `completion.mjs`, and stylesheet. No original engine is copied or replaced. Browser app descriptors do not establish signed native or store releases.
+
+Project evidence records retain the original task wording and acceptance requirement. Five nonblank evidence fields produce `COMPLETION_RECORDED`; the tool does not independently substantiate the evidence or rewrite source completion status.
+
+Review backups use a SHA-256 fingerprint of original source IDs, wording, hashes and task requirements. Restore rejects mismatched catalogs and malformed/unknown entries before merging. Review text and project evidence remain separate from original records. Older v1 review files lack a source fingerprint and remain available for manual source review; they are not silently assigned to a catalog.
+
+The universal workspace at `app-factory/nathan-ai/universal-workspace/` opens each tool and retains independent launches. Private catalogs stay in each browser session; source-matched review/evidence records can persist locally and export as JSON. Load the same owner catalog in another app to continue its saved review.
+
+Verification for this extension: 17 new/catalog checks plus 9 existing workspace/Codex regression checks passed. A full 19,317-entry owner catalog (5,851 crosslinks, 35 tasks) passed import and exact-word backup round-trip without source changes. Browser acceptance is recorded separately in `BROWSER_VERIFICATION.md`.

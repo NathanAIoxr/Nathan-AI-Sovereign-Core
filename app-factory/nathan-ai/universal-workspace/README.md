@@ -23,3 +23,18 @@ This is an additive extension, not a live provider-backed multi-model service, P
 ## Test
 
 Run `node --test app-factory/nathan-ai/universal-workspace/engine.test.cjs`. Manual browser checks are required for file input, accessibility and downloads.
+
+
+## One workspace, separate apps — shared-core integration
+
+The additive app directory preserves the existing source inspection, search, passages, comparison and exports. It registers 139 existing HTML source entry points plus three shared-core standalone tools; this is not a count of 142 finished products. Existing v061 source IDs remain unchanged. Four embedded native resource pages are identified as native source, not installed native binaries.
+
+- Library Catalog: `archive-index/loc-b8/apps/catalog/`
+- Project Completion: `archive-index/loc-b8/apps/completion/`
+- Backup & Restore: `archive-index/loc-b8/apps/backup/`
+
+All three tools reuse the same source catalog/identity, review persistence, completion evidence and backup engines. Open them inside the workspace or through their independent launch URLs. Each launch has a distinct browser-app manifest; signed native/store packaging remains a separate project.
+
+`app-registry.json` retains each original route and its status. Existing source routes are not automatically marked complete. The registry points to the existing ONE v061 interface as a shared foundation for its 58 original registered consumers. The new catalog core is shared by three tools. Private providers, cloud sync, game rules and unpublished source holdings are not silently merged or released.
+
+Tests: `node --test app-factory/nathan-ai/universal-workspace/apps.test.mjs archive-index/loc-b8/*.test.mjs` plus the original workspace and Codex regression suites.

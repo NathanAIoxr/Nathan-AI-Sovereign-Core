@@ -1,0 +1,1581 @@
+{
+  "schema": "nathan.universal.workspace.apps.v1",
+  "source_basis": "Current repository tree plus original v061 registry; paths are entry points, not counts of unique finished apps",
+  "original_registered_pages": 58,
+  "current_repository_html_entry_points": 139,
+  "focus_apps": [
+    "NATHAN-LIBRARY-CATALOG",
+    "NATHAN-PROJECT-COMPLETION",
+    "NATHAN-BACKUP-RESTORE"
+  ],
+  "shared_foundations": [
+    {
+      "id": "one-interface",
+      "source": "app-factory/shared/one-universal-v061.js",
+      "registered_consumers": 58
+    },
+    {
+      "id": "source-catalog",
+      "source": "archive-index/loc-b8/catalog.mjs",
+      "standalone_consumers": 3
+    },
+    {
+      "id": "completion-and-backup",
+      "source": "archive-index/loc-b8/completion.mjs",
+      "standalone_consumers": 3
+    }
+  ],
+  "entries": [
+    {
+      "id": "PUBLIC-001",
+      "name": "build order",
+      "path": "app-factory/build-order/index.html",
+      "family": "build-order",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/christmas-toy-drive/index.html",
+      "name": "app-factory/christmas-toy-drive/index.html",
+      "path": "app-factory/christmas-toy-drive/index.html",
+      "family": "christmas-toy-drive",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-002",
+      "name": "core · audience review",
+      "path": "app-factory/core/audience-review.html",
+      "family": "core",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-003",
+      "name": "creative · dummie",
+      "path": "app-factory/creative/dummie/index.html",
+      "family": "creative",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-004",
+      "name": "creative · music · better together",
+      "path": "app-factory/creative/music/better-together/index.html",
+      "family": "creative",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-005",
+      "name": "dummie publisher",
+      "path": "app-factory/dummie-publisher/index.html",
+      "family": "dummie-publisher",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-006",
+      "name": "ecosystem",
+      "path": "app-factory/ecosystem.html",
+      "family": "ecosystem.html",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-007",
+      "name": "game reference lab · all morning",
+      "path": "app-factory/game-reference-lab/all-morning.html",
+      "family": "game-reference-lab",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-008",
+      "name": "game reference lab",
+      "path": "app-factory/game-reference-lab/index.html",
+      "family": "game-reference-lab",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-009",
+      "name": "game reference lab · zero void lab",
+      "path": "app-factory/game-reference-lab/zero-void-lab.html",
+      "family": "game-reference-lab",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/games/blackjack-life/index.html",
+      "name": "app-factory/games/blackjack-life/index.html",
+      "path": "app-factory/games/blackjack-life/index.html",
+      "family": "games",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-010",
+      "name": "games · crowning jewel",
+      "path": "app-factory/games/crowning-jewel.html",
+      "family": "games",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-011",
+      "name": "games · paradox 118",
+      "path": "app-factory/games/paradox-118/index.html",
+      "family": "games",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-012",
+      "name": "historical sports",
+      "path": "app-factory/historical-sports/index.html",
+      "family": "historical-sports",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-013",
+      "name": "icarus baseball",
+      "path": "app-factory/icarus-baseball/index.html",
+      "family": "icarus-baseball",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-014",
+      "name": "Root public launch",
+      "path": "app-factory/index.html",
+      "family": "index.html",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-015",
+      "name": "middle c",
+      "path": "app-factory/middle-c/index.html",
+      "family": "middle-c",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-016",
+      "name": "mythology · ancient roots",
+      "path": "app-factory/mythology/ancient-roots/index.html",
+      "family": "mythology",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-017",
+      "name": "mythology · greek",
+      "path": "app-factory/mythology/greek/index.html",
+      "family": "mythology",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-018",
+      "name": "mythology · knave",
+      "path": "app-factory/mythology/knave/index.html",
+      "family": "mythology",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/absolute-intelligence/index.html",
+      "name": "app-factory/nathan-ai/absolute-intelligence/index.html",
+      "path": "app-factory/nathan-ai/absolute-intelligence/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/activation/index.html",
+      "name": "app-factory/nathan-ai/activation/index.html",
+      "path": "app-factory/nathan-ai/activation/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/ai-mapping/index.html",
+      "name": "app-factory/nathan-ai/ai-mapping/index.html",
+      "path": "app-factory/nathan-ai/ai-mapping/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/anatomy/index.html",
+      "name": "app-factory/nathan-ai/anatomy/index.html",
+      "path": "app-factory/nathan-ai/anatomy/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/appearance/index.html",
+      "name": "app-factory/nathan-ai/appearance/index.html",
+      "path": "app-factory/nathan-ai/appearance/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/architecture-63/index.html",
+      "name": "app-factory/nathan-ai/architecture-63/index.html",
+      "path": "app-factory/nathan-ai/architecture-63/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/assistant/index.html",
+      "name": "app-factory/nathan-ai/assistant/index.html",
+      "path": "app-factory/nathan-ai/assistant/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/build-recovery/index.html",
+      "name": "app-factory/nathan-ai/build-recovery/index.html",
+      "path": "app-factory/nathan-ai/build-recovery/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/children-innocence/index.html",
+      "name": "app-factory/nathan-ai/children-innocence/index.html",
+      "path": "app-factory/nathan-ai/children-innocence/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/command-center/index.html",
+      "name": "app-factory/nathan-ai/command-center/index.html",
+      "path": "app-factory/nathan-ai/command-center/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/deep-archive/index.html",
+      "name": "app-factory/nathan-ai/deep-archive/index.html",
+      "path": "app-factory/nathan-ai/deep-archive/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/eyeprints-handprints/archive/EYEPRINTS_original_research.html",
+      "name": "app-factory/nathan-ai/eyeprints-handprints/archive/EYEPRINTS_original_research.html",
+      "path": "app-factory/nathan-ai/eyeprints-handprints/archive/EYEPRINTS_original_research.html",
+      "family": "nathan-ai",
+      "surface": "reference",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/eyeprints-handprints/index.html",
+      "name": "app-factory/nathan-ai/eyeprints-handprints/index.html",
+      "path": "app-factory/nathan-ai/eyeprints-handprints/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/family-research/index.html",
+      "name": "app-factory/nathan-ai/family-research/index.html",
+      "path": "app-factory/nathan-ai/family-research/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/family-research/private-reader.html",
+      "name": "app-factory/nathan-ai/family-research/private-reader.html",
+      "path": "app-factory/nathan-ai/family-research/private-reader.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/fifty-three-year/index.html",
+      "name": "app-factory/nathan-ai/fifty-three-year/index.html",
+      "path": "app-factory/nathan-ai/fifty-three-year/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/five-guardians/index.html",
+      "name": "app-factory/nathan-ai/five-guardians/index.html",
+      "path": "app-factory/nathan-ai/five-guardians/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/flyer-studio/index.html",
+      "name": "app-factory/nathan-ai/flyer-studio/index.html",
+      "path": "app-factory/nathan-ai/flyer-studio/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/games/index.html",
+      "name": "app-factory/nathan-ai/games/index.html",
+      "path": "app-factory/nathan-ai/games/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/index.html",
+      "name": "app-factory/nathan-ai/index.html",
+      "path": "app-factory/nathan-ai/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/innocence-matrix/index.html",
+      "name": "app-factory/nathan-ai/innocence-matrix/index.html",
+      "path": "app-factory/nathan-ai/innocence-matrix/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/mind-neuropath/index.html",
+      "name": "app-factory/nathan-ai/mind-neuropath/index.html",
+      "path": "app-factory/nathan-ai/mind-neuropath/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/node-runtime/index.html",
+      "name": "app-factory/nathan-ai/node-runtime/index.html",
+      "path": "app-factory/nathan-ai/node-runtime/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/omni-god/index.html",
+      "name": "app-factory/nathan-ai/omni-god/index.html",
+      "path": "app-factory/nathan-ai/omni-god/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/operations/index.html",
+      "name": "app-factory/nathan-ai/operations/index.html",
+      "path": "app-factory/nathan-ai/operations/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/original-works/index.html",
+      "name": "app-factory/nathan-ai/original-works/index.html",
+      "path": "app-factory/nathan-ai/original-works/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/phi-life/index.html",
+      "name": "app-factory/nathan-ai/phi-life/index.html",
+      "path": "app-factory/nathan-ai/phi-life/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/plugins/index.html",
+      "name": "app-factory/nathan-ai/plugins/index.html",
+      "path": "app-factory/nathan-ai/plugins/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/program-jobs/index.html",
+      "name": "app-factory/nathan-ai/program-jobs/index.html",
+      "path": "app-factory/nathan-ai/program-jobs/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/route-raut-root/index.html",
+      "name": "app-factory/nathan-ai/route-raut-root/index.html",
+      "path": "app-factory/nathan-ai/route-raut-root/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/self-help/index.html",
+      "name": "app-factory/nathan-ai/self-help/index.html",
+      "path": "app-factory/nathan-ai/self-help/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/six-dogs/index.html",
+      "name": "app-factory/nathan-ai/six-dogs/index.html",
+      "path": "app-factory/nathan-ai/six-dogs/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/sovereign-coins/anchored/index.html",
+      "name": "app-factory/nathan-ai/sovereign-coins/anchored/index.html",
+      "path": "app-factory/nathan-ai/sovereign-coins/anchored/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/sovereign-coins/index.html",
+      "name": "app-factory/nathan-ai/sovereign-coins/index.html",
+      "path": "app-factory/nathan-ai/sovereign-coins/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/sovereign-coins/integrations/index.html",
+      "name": "app-factory/nathan-ai/sovereign-coins/integrations/index.html",
+      "path": "app-factory/nathan-ai/sovereign-coins/integrations/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/sovereign-coins/life/index.html",
+      "name": "app-factory/nathan-ai/sovereign-coins/life/index.html",
+      "path": "app-factory/nathan-ai/sovereign-coins/life/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/sovereign-coins/phi-mining/index.html",
+      "name": "app-factory/nathan-ai/sovereign-coins/phi-mining/index.html",
+      "path": "app-factory/nathan-ai/sovereign-coins/phi-mining/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/sovereign/index.html",
+      "name": "app-factory/nathan-ai/sovereign/index.html",
+      "path": "app-factory/nathan-ai/sovereign/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/trinity-of-snow/index.html",
+      "name": "app-factory/nathan-ai/trinity-of-snow/index.html",
+      "path": "app-factory/nathan-ai/trinity-of-snow/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/universal-tools/arrowhead-tree.html",
+      "name": "app-factory/nathan-ai/universal-tools/arrowhead-tree.html",
+      "path": "app-factory/nathan-ai/universal-tools/arrowhead-tree.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/universal-tools/index.html",
+      "name": "app-factory/nathan-ai/universal-tools/index.html",
+      "path": "app-factory/nathan-ai/universal-tools/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/universal-workspace/index.html",
+      "name": "app-factory/nathan-ai/universal-workspace/index.html",
+      "path": "app-factory/nathan-ai/universal-workspace/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/websites/index.html",
+      "name": "app-factory/nathan-ai/websites/index.html",
+      "path": "app-factory/nathan-ai/websites/index.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/nathan-ai/websites/launchpad.html",
+      "name": "app-factory/nathan-ai/websites/launchpad.html",
+      "path": "app-factory/nathan-ai/websites/launchpad.html",
+      "family": "nathan-ai",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-019",
+      "name": "octopus root",
+      "path": "app-factory/octopus-root/index.html",
+      "family": "octopus-root",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-020",
+      "name": "octopus root · octopus arsenal",
+      "path": "app-factory/octopus-root/octopus-arsenal/index.html",
+      "family": "octopus-root",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-021",
+      "name": "octopus root · sovereign bubble",
+      "path": "app-factory/octopus-root/sovereign-bubble/index.html",
+      "family": "octopus-root",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-022",
+      "name": "octopus root · sovereign continuum",
+      "path": "app-factory/octopus-root/sovereign-continuum/index.html",
+      "family": "octopus-root",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-023",
+      "name": "octopus root · sovereign fields",
+      "path": "app-factory/octopus-root/sovereign-fields/index.html",
+      "family": "octopus-root",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-024",
+      "name": "octopus root · sovereign nexus",
+      "path": "app-factory/octopus-root/sovereign-nexus/index.html",
+      "family": "octopus-root",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-025",
+      "name": "octopus root · uct",
+      "path": "app-factory/octopus-root/uct/index.html",
+      "family": "octopus-root",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-026",
+      "name": "octopus root · uct · triple code",
+      "path": "app-factory/octopus-root/uct/triple-code/index.html",
+      "family": "octopus-root",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-027",
+      "name": "one · accountability",
+      "path": "app-factory/one/accountability/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-028",
+      "name": "one · assocchio",
+      "path": "app-factory/one/assocchio/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-029",
+      "name": "one · connected",
+      "path": "app-factory/one/connected/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/hall-of-mirrors/index.html",
+      "name": "app-factory/one/hall-of-mirrors/index.html",
+      "path": "app-factory/one/hall-of-mirrors/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-030",
+      "name": "one · health",
+      "path": "app-factory/one/health/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/hey-you-total-eclipse/explorer/03_original_explorer.html",
+      "name": "app-factory/one/hey-you-total-eclipse/explorer/03_original_explorer.html",
+      "path": "app-factory/one/hey-you-total-eclipse/explorer/03_original_explorer.html",
+      "family": "one",
+      "surface": "reference",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/hey-you-total-eclipse/explorer/index.html",
+      "name": "app-factory/one/hey-you-total-eclipse/explorer/index.html",
+      "path": "app-factory/one/hey-you-total-eclipse/explorer/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/history-cosmos/index.html",
+      "name": "app-factory/one/history-cosmos/index.html",
+      "path": "app-factory/one/history-cosmos/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/humanity-archive/index.html",
+      "name": "app-factory/one/humanity-archive/index.html",
+      "path": "app-factory/one/humanity-archive/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-031",
+      "name": "one",
+      "path": "app-factory/one/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/inventions-101/index.html",
+      "name": "app-factory/one/inventions-101/index.html",
+      "path": "app-factory/one/inventions-101/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-032",
+      "name": "one · library mind",
+      "path": "app-factory/one/library-mind/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-033",
+      "name": "one · library",
+      "path": "app-factory/one/library/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-034",
+      "name": "one · meet",
+      "path": "app-factory/one/meet/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/mosaic-reader/game.html",
+      "name": "app-factory/one/mosaic-reader/game.html",
+      "path": "app-factory/one/mosaic-reader/game.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/mosaic-reader/index.html",
+      "name": "app-factory/one/mosaic-reader/index.html",
+      "path": "app-factory/one/mosaic-reader/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/mosaic-reader/reader.html",
+      "name": "app-factory/one/mosaic-reader/reader.html",
+      "path": "app-factory/one/mosaic-reader/reader.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-035",
+      "name": "one · mother earth",
+      "path": "app-factory/one/mother-earth/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/nathan-matrix/anatomy/index.html",
+      "name": "app-factory/one/nathan-matrix/anatomy/index.html",
+      "path": "app-factory/one/nathan-matrix/anatomy/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/nathan-matrix/dimensions-grids/index.html",
+      "name": "app-factory/one/nathan-matrix/dimensions-grids/index.html",
+      "path": "app-factory/one/nathan-matrix/dimensions-grids/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/nathan-matrix/distributed-ledger/index.html",
+      "name": "app-factory/one/nathan-matrix/distributed-ledger/index.html",
+      "path": "app-factory/one/nathan-matrix/distributed-ledger/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/nathan-matrix/index.html",
+      "name": "app-factory/one/nathan-matrix/index.html",
+      "path": "app-factory/one/nathan-matrix/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/nathan-matrix/sovereignty-origins/index.html",
+      "name": "app-factory/one/nathan-matrix/sovereignty-origins/index.html",
+      "path": "app-factory/one/nathan-matrix/sovereignty-origins/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-036",
+      "name": "one · offloader",
+      "path": "app-factory/one/offloader/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-037",
+      "name": "one · rcc time",
+      "path": "app-factory/one/rcc-time/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/realist-ledger/index.html",
+      "name": "app-factory/one/realist-ledger/index.html",
+      "path": "app-factory/one/realist-ledger/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/scriptures-007/index.html",
+      "name": "app-factory/one/scriptures-007/index.html",
+      "path": "app-factory/one/scriptures-007/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/sovereign-acro-matrix/index.html",
+      "name": "app-factory/one/sovereign-acro-matrix/index.html",
+      "path": "app-factory/one/sovereign-acro-matrix/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-038",
+      "name": "one · tabor trinity",
+      "path": "app-factory/one/tabor-trinity/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/taborite-language-matrix/books.html",
+      "name": "app-factory/one/taborite-language-matrix/books.html",
+      "path": "app-factory/one/taborite-language-matrix/books.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/taborite-language-matrix/game.html",
+      "name": "app-factory/one/taborite-language-matrix/game.html",
+      "path": "app-factory/one/taborite-language-matrix/game.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/taborite-language-matrix/index.html",
+      "name": "app-factory/one/taborite-language-matrix/index.html",
+      "path": "app-factory/one/taborite-language-matrix/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/taborite-language-matrix/matrix.html",
+      "name": "app-factory/one/taborite-language-matrix/matrix.html",
+      "path": "app-factory/one/taborite-language-matrix/matrix.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/one/taborite-language-matrix/tests.html",
+      "name": "app-factory/one/taborite-language-matrix/tests.html",
+      "path": "app-factory/one/taborite-language-matrix/tests.html",
+      "family": "one",
+      "surface": "reference",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-039",
+      "name": "one · trial matrix",
+      "path": "app-factory/one/trial-matrix/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-040",
+      "name": "one · trials",
+      "path": "app-factory/one/trials/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-041",
+      "name": "one · x marks the spot",
+      "path": "app-factory/one/x-marks-the-spot/index.html",
+      "family": "one",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-042",
+      "name": "pricing router",
+      "path": "app-factory/pricing-router/index.html",
+      "family": "pricing-router",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-043",
+      "name": "radix ladder",
+      "path": "app-factory/radix-ladder/index.html",
+      "family": "radix-ladder",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-044",
+      "name": "root constellation",
+      "path": "app-factory/root-constellation.html",
+      "family": "root-constellation.html",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/sites/christmas-toy-factory/index.html",
+      "name": "app-factory/sites/christmas-toy-factory/index.html",
+      "path": "app-factory/sites/christmas-toy-factory/index.html",
+      "family": "sites",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/sites/find-the-tabor/index.html",
+      "name": "app-factory/sites/find-the-tabor/index.html",
+      "path": "app-factory/sites/find-the-tabor/index.html",
+      "family": "sites",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/sites/handling-life/index.html",
+      "name": "app-factory/sites/handling-life/index.html",
+      "path": "app-factory/sites/handling-life/index.html",
+      "family": "sites",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/sites/index.html",
+      "name": "app-factory/sites/index.html",
+      "path": "app-factory/sites/index.html",
+      "family": "sites",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/sites/santa-claus-factory/index.html",
+      "name": "app-factory/sites/santa-claus-factory/index.html",
+      "path": "app-factory/sites/santa-claus-factory/index.html",
+      "family": "sites",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/sites/tabor-texting/index.html",
+      "name": "app-factory/sites/tabor-texting/index.html",
+      "path": "app-factory/sites/tabor-texting/index.html",
+      "family": "sites",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/sites/tabor-world/index.html",
+      "name": "app-factory/sites/tabor-world/index.html",
+      "path": "app-factory/sites/tabor-world/index.html",
+      "family": "sites",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/sites/tabortales/index.html",
+      "name": "app-factory/sites/tabortales/index.html",
+      "path": "app-factory/sites/tabortales/index.html",
+      "family": "sites",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/sites/words-library/index.html",
+      "name": "app-factory/sites/words-library/index.html",
+      "path": "app-factory/sites/words-library/index.html",
+      "family": "sites",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/sites/you-sandbox/index.html",
+      "name": "app-factory/sites/you-sandbox/index.html",
+      "path": "app-factory/sites/you-sandbox/index.html",
+      "family": "sites",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-045",
+      "name": "sovereign boxes",
+      "path": "app-factory/sovereign-boxes/index.html",
+      "family": "sovereign-boxes",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-046",
+      "name": "sss cs · ios · SSSCS · Web",
+      "path": "app-factory/sss-cs/ios/SSSCS/Web/index.html",
+      "family": "sss-cs",
+      "surface": "native-source",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-047",
+      "name": "stewie mr finn · Resources · PolarMiddleC",
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/index.html",
+      "family": "stewie-mr-finn",
+      "surface": "native-source",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-048",
+      "name": "stewie mr finn · Resources · PolarMiddleC · math roots",
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/math-roots/index.html",
+      "family": "stewie-mr-finn",
+      "surface": "native-source",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-049",
+      "name": "stewie mr finn · Resources · PolarMiddleC · mirror bridge",
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/mirror-bridge/index.html",
+      "family": "stewie-mr-finn",
+      "surface": "native-source",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-050",
+      "name": "stewie mr finn · polar middle c",
+      "path": "app-factory/stewie-mr-finn/polar-middle-c/index.html",
+      "family": "stewie-mr-finn",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-051",
+      "name": "stewie mr finn · polar middle c · math roots",
+      "path": "app-factory/stewie-mr-finn/polar-middle-c/math-roots/index.html",
+      "family": "stewie-mr-finn",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-052",
+      "name": "stewie mr finn · polar middle c · mirror bridge",
+      "path": "app-factory/stewie-mr-finn/polar-middle-c/mirror-bridge/index.html",
+      "family": "stewie-mr-finn",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:app-factory/system/index.html",
+      "name": "app-factory/system/index.html",
+      "path": "app-factory/system/index.html",
+      "family": "system",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-053",
+      "name": "tabor gps",
+      "path": "app-factory/tabor-gps/index.html",
+      "family": "tabor-gps",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-054",
+      "name": "universal node · babel inferno",
+      "path": "app-factory/universal-node/babel-inferno.html",
+      "family": "universal-node",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-055",
+      "name": "universal node",
+      "path": "app-factory/universal-node/index.html",
+      "family": "universal-node",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-056",
+      "name": "universal node · mission control",
+      "path": "app-factory/universal-node/mission-control.html",
+      "family": "universal-node",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-057",
+      "name": "vault",
+      "path": "app-factory/vault.html",
+      "family": "vault.html",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:archive-index/2026-11-05/index.html",
+      "name": "archive-index/2026-11-05/index.html",
+      "path": "archive-index/2026-11-05/index.html",
+      "family": "archive-index",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "ROUTE:archive-index/loc-b8/index.html",
+      "name": "archive-index/loc-b8/index.html",
+      "path": "archive-index/loc-b8/index.html",
+      "family": "archive-index",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "PUBLIC-058",
+      "name": "Root public launch",
+      "path": "index.html",
+      "family": "root",
+      "surface": "browser",
+      "status": "Registered source entry; app acceptance not assessed",
+      "shared_core": [
+        "ONE v061 interface"
+      ],
+      "source_commit": "1568a58051432c8813ca22cd4326d01750cf572b"
+    },
+    {
+      "id": "NATHAN-LIBRARY-CATALOG",
+      "name": "Library Catalog",
+      "path": "archive-index/loc-b8/apps/catalog/index.html",
+      "family": "source and completion tools",
+      "surface": "browser",
+      "status": "Shared-core standalone browser app; verification recorded separately",
+      "shared_core": [
+        "Source catalog and identity",
+        "Review persistence",
+        "Source-matched backup",
+        "Completion evidence"
+      ],
+      "source_commit": "current build"
+    },
+    {
+      "id": "NATHAN-PROJECT-COMPLETION",
+      "name": "Project Completion",
+      "path": "archive-index/loc-b8/apps/completion/index.html",
+      "family": "source and completion tools",
+      "surface": "browser",
+      "status": "Shared-core standalone browser app; verification recorded separately",
+      "shared_core": [
+        "Source catalog and identity",
+        "Review persistence",
+        "Source-matched backup",
+        "Completion evidence"
+      ],
+      "source_commit": "current build"
+    },
+    {
+      "id": "NATHAN-BACKUP-RESTORE",
+      "name": "Backup & Restore",
+      "path": "archive-index/loc-b8/apps/backup/index.html",
+      "family": "source and completion tools",
+      "surface": "browser",
+      "status": "Shared-core standalone browser app; verification recorded separately",
+      "shared_core": [
+        "Source catalog and identity",
+        "Review persistence",
+        "Source-matched backup",
+        "Completion evidence"
+      ],
+      "source_commit": "current build"
+    }
+  ]
+}
