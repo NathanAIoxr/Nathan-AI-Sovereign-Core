@@ -40,7 +40,7 @@ test('search and category/stage filters accurately reflect consumer jobs without
  assert.ok(backups.some(x=>x.id==='offloader'));
  assert.ok(!backups.some(x=>x.id==='six-dogs'));
  const security=C.filterProducts(products,{category:'Safety & research'});
- assert.deepEqual(security.map(p=>p.id).sort(),['guardians','hall']);
+ assert.deepEqual(security.map(p=>p.id).sort(),['defender','guardians','hall']);
  assert.ok(security.every(p=>p.stage==='developer-preview'));
  const sensitive=C.filterProducts(products,{stage:'owner-local-browser'});
  assert.ok(sensitive.some(p=>p.id==='health'));
