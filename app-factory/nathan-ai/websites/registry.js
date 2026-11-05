@@ -904,9 +904,9 @@ window.NathanAIWebsiteModules = [
     "status": "Interactive browser page"
   },
   {
-    "id": "archive-index/alphabet/d/index.html",
+    "id": "nathan-ai/d-archive/index.html",
     "title": "D · Original Words, Variants & Inversions",
-    "url": "../../../archive-index/alphabet/d/index.html",
+    "url": "../../nathan-ai/d-archive/index.html",
     "group": "research",
     "status": "Interactive source-preserving D archive · 152 filename records, 19 routes"
   }
