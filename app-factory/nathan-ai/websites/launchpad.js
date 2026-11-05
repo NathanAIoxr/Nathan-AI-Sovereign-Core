@@ -3,6 +3,8 @@
 'use strict';
 function init() {
   var index=Array.isArray(window.NathanAIWebsiteModules)?window.NathanAIWebsiteModules:[];
+  var knownIds=new Set(index.map(x=>x.id));
+  var uniqueIds=window.NathanDirectoryConsolidator.uniqueIds;
   var search=document.getElementById('search-all'),cards=document.getElementById('module-cards'),status=document.getElementById('result-count'),tabs=document.getElementById('categories'),more=document.getElementById('show-more'),savedNumber=document.getElementById('saved-number');
   var group='all',limit=21;
   function load(key){try{var x=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(x)?x.filter(v=>typeof v==='string'):[];}catch(e){return [];}}
