@@ -19,6 +19,9 @@ on:
       - '.github/workflows/nathan-ai-pages.yml'
   workflow_dispatch:
 
+# GitHub Pages also runs its native branch publisher on main.
+# Keep this additional deploy job manual to prevent competing deployments.
+
 concurrency:
   group: github-pages-publication
   cancel-in-progress: false
@@ -48,7 +51,7 @@ jobs:
 
   publish:
     name: Publish Nathan AI to GitHub Pages
-    if: ${{ github.event_name != 'pull_request' }}
+    if: ${{ github.event_name == 'workflow_dispatch' }}
     needs: validate
     runs-on: ubuntu-latest
     permissions:
