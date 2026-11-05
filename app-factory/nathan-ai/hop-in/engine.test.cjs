@@ -1,0 +1,9 @@
+const test=require('node:test');const assert=require('node:assert/strict');const x=require('./engine.js');
+test('A through Z has exactly 26 distinct positions',()=>{assert.equal(x.AZ.length,26);assert.deepEqual(x.AZ.map(a=>a[0]),Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ'));});
+test('Unicode grapheme reversal does not split combining emoji',()=>{const v=x.nameVariants('A👨‍👩‍👧‍👦B');assert.equal(v[1].text,'B👨‍👩‍👧‍👦A');});
+test('date validation rejects rollovers and invalid strings',()=>{assert.equal(x.parseDate('2026-02-29'),null);assert.ok(x.parseDate('2024-02-29'));assert.equal(x.parseDate('2026-13-10'),null);assert.equal(x.parseDate('hello'),null);});
+test('calendar conversion only reports support if browser resolves requested calendar',()=>{const rows=x.calendarViews('2026-11-05');assert.equal(rows.length,x.CALENDARS.length);assert.ok(rows.find(v=>v.system==='gregory'&&v.available));assert.equal(x.calendarViews('nope').length,0);});
+test('custom Tabor cycle lenses are marked as illustrative',()=>{const rows=x.experimentalCycles('2026-11-05');assert.deepEqual(rows.map(x=>x.months),[12,13,17,21]);assert.ok(rows.every(x=>x.description.includes('Illustrative')));});
+test('safe link whitelist rejects untrusted schemes',()=>{assert.equal(x.safeExternal('javascript:alert(1)'),null);assert.equal(x.safeExternal('http://example.com'),null);assert.equal(x.safeExternal('https://www.wikidata.org/wiki/Q1'),'https://www.wikidata.org/wiki/Q1');});
+test('chronology & perspective labels',()=>{assert.equal(x.chronology(0),'1 BCE');assert.equal(x.chronology(1611),'1611 CE');assert.match(x.perspectiveLabel(100),/micro/);});
+test('symbolic layers distinct from actual genealogy',()=>{assert.deepEqual(x.familyLabels().map(x=>x.label),['ABOVE','MIDDLE','BELOW','BEYOND']);});
