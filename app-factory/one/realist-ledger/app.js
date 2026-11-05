@@ -6,8 +6,10 @@
  const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
  const safeLoad=(key,fallback)=>{try{const v=localStorage.getItem(key);return v?JSON.parse(v):fallback;}catch{return fallback;}};
  let stored=safeLoad(KEY,null);
- let entries=Array.isArray(stored)&&stored.length===101&&stored.every(x=>Number.isInteger(x.number)&&typeof x.text==='string')?stored:C.placeholderLedger();
+ let entries;
+ try{entries=C.validateEntries(stored);}catch{entries=C.placeholderLedger();}
  let notes=safeLoad(NOTES,{});if(!notes||typeof notes!=='object'||Array.isArray(notes))notes={};
+ let originalSource=null; // Session-only original File bytes; not uploaded or duplicated in storage.
  let question=null, game={index:0,score:0,streak:0,answered:0,locked:false,seen:new Set()};
  function hasSource(){return entries.length===101&&entries.every(e=>e.text&&e.text.trim());}
  function persist(){try{localStorage.setItem(KEY,JSON.stringify(entries));return true;}catch{return false;}}
@@ -72,17 +74,19 @@
    });
  }
  function download(filename,text,type){const blob=new Blob([text],{type:type+';charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);}
- function importText(text){
-   const parsed=C.parseLedger(text);entries=parsed;
+ function importText(text,originalFile){
+   const parsed=C.parseLedger(text);entries=parsed;originalSource=originalFile;
+   $('#exportOriginal').disabled=false;
    const saved=persist();updateStatus();renderLedger();renderBooks();resetGame();
    toast(saved?'Imported all 101 entries locally. No server received the source.':'Imported in memory, but local storage was unavailable. Export a copy before closing the page.');
  }
  document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>selectTab(b.dataset.tab)));
  $('#search').addEventListener('input',renderLedger);$('#sectionFilter').addEventListener('change',renderLedger);$('#onlyReviewed').addEventListener('change',renderLedger);
- $('#sourceFile').addEventListener('change',async event=>{const file=event.target.files?.[0];if(!file)return;try{importText(await file.text());}catch(err){toast('Import not completed: '+err.message);}event.target.value='';});
+ $('#sourceFile').addEventListener('change',async event=>{const file=event.target.files?.[0];if(!file)return;try{if(file.size>8*1024*1024)throw Error('Source file exceeds the import limit.');const bytes=await file.arrayBuffer();const text=new TextDecoder('utf-8',{fatal:true}).decode(bytes);importText(text,file);}catch(err){toast('Import not completed: '+err.message);}event.target.value='';});
+ $('#exportOriginal').addEventListener('click',()=>{if(!originalSource)return;const url=URL.createObjectURL(originalSource),a=document.createElement('a');a.href=url;a.download='nathan-101-original-verbatim.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);});
  $('#exportJSON').addEventListener('click',()=>download('nathan-101-ledger-local.json',JSON.stringify({notice:'Author-supplied source, not independently verified.',entries},null,2),'application/json'));
  $('#exportNotes').addEventListener('click',()=>download('nathan-101-research-notes-local.json',JSON.stringify({notice:'Separate notes; original source text unchanged.',notes},null,2),'application/json'));
- $('#clearLocal').addEventListener('click',()=>{if(!window.confirm('Remove imported source text and private research notes from this browser?'))return;localStorage.removeItem(KEY);localStorage.removeItem(NOTES);entries=C.placeholderLedger();notes={};updateStatus();renderLedger();renderBooks();resetGame();toast('Local source and notes cleared from this browser.');});
+ $('#clearLocal').addEventListener('click',()=>{if(!window.confirm('Remove imported source text and private research notes from this browser?'))return;localStorage.removeItem(KEY);localStorage.removeItem(NOTES);entries=C.placeholderLedger();notes={};originalSource=null;$('#exportOriginal').disabled=true;updateStatus();renderLedger();renderBooks();resetGame();toast('Local source and notes cleared from this browser.');});
  $('#nextGate').addEventListener('click',nextQuestion);$('#resetGame').addEventListener('click',resetGame);
  updateStatus();renderLedger();renderBooks();resetGame();
 })();
