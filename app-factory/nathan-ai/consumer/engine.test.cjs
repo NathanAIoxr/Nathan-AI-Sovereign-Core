@@ -9,7 +9,7 @@ const regions=JSON.parse(fs.readFileSync(path.join(__dirname,'jurisdictions.json
 
 test('all consumer product records are distinct and point to real checked-in HTML source',()=>{
  const summary=C.verifyProducts(products);
- assert.equal(summary.products,13);
+ assert.equal(summary.products,14);
  assert.equal(new Set(products.products.map(p=>p.id)).size,products.products.length);
  assert.deepEqual(C.categories(products).sort(),[
   'Books & knowledge','Creative learning','Creator workbench','Home & discovery','Private storage','Safety & research','Sensitive personal tools'
