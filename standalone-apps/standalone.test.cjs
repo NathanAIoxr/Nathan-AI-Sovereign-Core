@@ -13,7 +13,7 @@ test('website + apps sources stay in their original locations and are deduplicat
  assert.equal(catalog.schema,'nathan-ai.standalone-apps.v1');
  assert.equal(websites.length,catalog.sourceCounts.websites);
  assert.equal(originalApps.length,catalog.sourceCounts.workspaceApps);
- const websitePaths=websites.map(originalPath),known=new Set(websitePaths);
+ const websitePaths=Array.from(websites,originalPath),known=new Set(websitePaths);
  assert.equal(websitePaths.length,new Set(websitePaths).size);
  assert.equal(catalog.sourceCounts.shared,originalApps.filter(a=>known.has(a.path)).length);
  assert.deepEqual(catalog.entries.slice(0,websites.length).map(x=>x.sourcePath),websitePaths);
