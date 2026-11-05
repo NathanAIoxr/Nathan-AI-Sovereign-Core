@@ -1,0 +1,304 @@
+{
+  "schema": "nathan-ai.e-word-families-source-crosswalk.v1",
+  "date": "2026-11-05",
+  "creator_original_words": "find the Eloher's, Ella's, Evangelist (not good), Eve (female and eve of house and time before night)",
+  "method": "Additive source-first crosswalk; all original source texts remain unchanged in the owner's Library and prior GitHub A–E modules.",
+  "archive_recovery": {
+    "title": "ELOHIM / ELOHER / ELLA / EL / LA — Source Recovery",
+    "assembled": "2026-11-02",
+    "original_file_count": 21,
+    "notes": [
+      "21 recovered files are in a private Library manifest. Files not uploaded to public GitHub; source excerpts are not reconstructed or falsely claimed as executed.",
+      "Original Oct 21 engine example spells the phase token ELHER; branch predicate spells ELOHER. Preserve both."
+    ]
+  },
+  "groups": [
+    {
+      "id": "eloher",
+      "title": "Eloher’s / Elohim / EL"
+    },
+    {
+      "id": "ella",
+      "title": "Ella’s / Ella / EL + LA"
+    },
+    {
+      "id": "evangelist",
+      "title": "Evangelist — creator assessment vs Greek usage"
+    },
+    {
+      "id": "eve",
+      "title": "Eve — woman, house, evening and event"
+    }
+  ],
+  "records": [
+    {
+      "id": "eloher-core",
+      "title": "ELOHER",
+      "variant": "ELOHER’S / ELOHER'S",
+      "group": "eloher",
+      "classification": "creator-term",
+      "meaning": "In the owner's Tabor engine, ELOHER is a creator-defined counterpart in an Elohim/Eloher phase-cancellation simulation.",
+      "note": "Owner-held Oct 21, 2026 source code describes an ELOHER_PHASE_CANCELLATION branch; the simulation's narrative assertions are not empirical physical measurements.",
+      "tags": [
+        "ELOHER_PHASE_CANCELLATION",
+        "Elohim vs. Eloher"
+      ]
+    },
+    {
+      "id": "eloher-poss",
+      "title": "ELOHER'S",
+      "variant": "ELOHERS / ELOHER’S",
+      "group": "eloher",
+      "classification": "creator-variant",
+      "meaning": "Requested possessive/plural surface form. Do not infer a historical plural society or unrelated identity from apostrophe spelling.",
+      "note": "Exact wording supplied November 5, 2026; lexical form indexed without overwriting ELOHER.",
+      "tags": [
+        "Eloher's"
+      ]
+    },
+    {
+      "id": "elher-source",
+      "title": "ELHER_PHASE_CANCELLATION",
+      "variant": "ELHER",
+      "group": "eloher",
+      "classification": "literal-source-variant",
+      "meaning": "A source example invokes ELHER_PHASE_CANCELLATION while its branch condition uses ELOHER_PHASE_CANCELLATION.",
+      "note": "Preserve the original mismatch as a source-integrity issue; no automatic patch or claim of a successful simulation.",
+      "tags": [
+        "ELHER",
+        "ELOHER_PHASE_CANCELLATION"
+      ]
+    },
+    {
+      "id": "elohim",
+      "title": "ELOHIM",
+      "variant": "אֱלֹהִים",
+      "group": "eloher",
+      "classification": "historical-linguistic",
+      "meaning": "Biblical Hebrew divine title. Cross-reference in the creator's polarity matrix without equating it with ELOHER.",
+      "note": "Original 21-file November 2 recovery dossier includes Semitic-name research and the Elohim/Eloher comparison.",
+      "tags": [
+        "EL",
+        "ELOAH",
+        "ELOHEI"
+      ]
+    },
+    {
+      "id": "eloah-el",
+      "title": "EL / ELOAH / ELAH / ILAH / ALLAH",
+      "variant": "Elohei, Eloah, El, Elah, Ilah, Allah",
+      "group": "eloher",
+      "classification": "comparative-language",
+      "meaning": "Related or compared Semitic divine-name spellings from the owner's archived research. Individual lexical histories and languages must be examined separately.",
+      "note": "Not proof that every spelling has the same grammatical meaning or that creator term ELOHER is historical.",
+      "tags": [
+        "EL",
+        "ELOAH",
+        "ELAH",
+        "ILAH",
+        "ALLAH",
+        "ELOHEI"
+      ]
+    },
+    {
+      "id": "ella-name",
+      "title": "ELLA",
+      "variant": "Ella / Ella’s / ELLA'S",
+      "group": "ella",
+      "classification": "personal-name",
+      "meaning": "Ella as a feminine given name; a name entry is not a religious term by default.",
+      "note": "Requested exactly as Ella's; keep proper-name hits distinct from Spanish grammar and EL + LA wordplay.",
+      "tags": [
+        "ELLAS",
+        "Ella's"
+      ]
+    },
+    {
+      "id": "ella-spanish",
+      "title": "ella",
+      "variant": "Spanish ella = she / her",
+      "group": "ella",
+      "classification": "documented-language",
+      "meaning": "Spanish ella is a third-person feminine singular pronoun: she or her.",
+      "note": "The owner archive's Spanish-language The Twinkling manuscript contains ELLA as ordinary grammar; it is not automatically proof of an Elohim connection.",
+      "tags": [
+        "ella",
+        "she",
+        "her"
+      ]
+    },
+    {
+      "id": "ella-constructed",
+      "title": "EL + LA / ELLA",
+      "variant": "ELLA / LA",
+      "group": "ella",
+      "classification": "author-defined-cross-reference",
+      "meaning": "Creator-driven segmentation and sound comparison of EL, LA and ELLA.",
+      "note": "Keep as interpretive search link, not a verified shared etymology with Elohim.",
+      "tags": [
+        "EL",
+        "LA",
+        "ELLA"
+      ]
+    },
+    {
+      "id": "evangelist-biblical",
+      "title": "EVANGELIST",
+      "variant": "euangelistēs / εὐαγγελιστής",
+      "group": "evangelist",
+      "classification": "documented-language",
+      "meaning": "Greek New Testament title for a bearer or proclaimer of good news; lexical origin does not guarantee that an individual's actions are good.",
+      "note": "Strong's G2099: Acts 21:8, Ephesians 4:11 and 2 Timothy 4:5.",
+      "tags": [
+        "euangelion",
+        "euangelizō",
+        "Acts 21:8"
+      ]
+    },
+    {
+      "id": "evangelist-assessment",
+      "title": "EVANGELIST (not good)",
+      "variant": "Evangelist — not good",
+      "group": "evangelist",
+      "classification": "creator-assessment",
+      "meaning": "The owner explicitly marks Evangelist as 'not good'. Preserve this assessment exactly and separately from lexical etymology.",
+      "note": "This classification is an authored evaluative position, not an objective property of every evangelist.",
+      "tags": [
+        "not good"
+      ]
+    },
+    {
+      "id": "philip-evangelist",
+      "title": "Philip the evangelist",
+      "variant": "Philip evangelist",
+      "group": "evangelist",
+      "classification": "biblical-reference",
+      "meaning": "An independently cataloged New Testament figure titled the evangelist.",
+      "note": "Owner Bible A–Z reference index contains Philip evangelist; do not confuse with Philip the apostle or assert personal wrongdoing.",
+      "tags": [
+        "Philip",
+        "Acts 21:8"
+      ]
+    },
+    {
+      "id": "eve-female",
+      "title": "EVE — FEMALE",
+      "variant": "חַוָּה / Chavvah / Ḥawwāh",
+      "group": "eve",
+      "classification": "biblical-person",
+      "meaning": "Eve, the Genesis female figure; Genesis 3:20 describes her as mother of all living.",
+      "note": "Biblical narrative is separate from authored mythology, modern persons and time/architecture words.",
+      "tags": [
+        "Genesis 3:20",
+        "mother of all living"
+      ]
+    },
+    {
+      "id": "eve-bat",
+      "title": "EVE — BAT / BANOT / EM → ME",
+      "variant": "EVE - God’s first BAT - aka daughter",
+      "group": "eve",
+      "classification": "creator-framework",
+      "meaning": "Owner-authored Eve model: BAT = daughter, BANOT = daughters; EVE is EM, left-to-right reversal ME; mother of all BATS in the user's symbolic narrative.",
+      "note": "Hebrew bat/batot language and the user's authored family formula must remain distinct from scriptural verbatim claims; neither replaces Eve's own recorded name.",
+      "tags": [
+        "BAT",
+        "BANOT",
+        "EM",
+        "ME"
+      ]
+    },
+    {
+      "id": "eve-tabor-story",
+      "title": "Adam and Eve Tabor",
+      "variant": "Adam Ape and Eve Ape Tabor",
+      "group": "eve",
+      "classification": "author-fiction",
+      "meaning": "The Tabor Secret Society / two-origins family-saga fiction includes Adam and Eve Tabor and Adam Ape and Eve Ape Tabor.",
+      "note": "Original fiction is not a documented family genealogy or the Genesis historical record.",
+      "tags": [
+        "Tabor Secret Society",
+        "Two First Pages"
+      ]
+    },
+    {
+      "id": "eve-engine",
+      "title": "eve_vector_gradient",
+      "variant": "[A] ATOM & [E] EVE",
+      "group": "eve",
+      "classification": "source-code-symbol",
+      "meaning": "Software attribute for an initialization quantity in a Tabor simulation, explicitly named EVE.",
+      "note": "Recovered Oct 21 2026 engine text; code-like source contains inconsistent labels and is not certified production-safe.",
+      "tags": [
+        "TaborUniversalMasterEngine"
+      ]
+    },
+    {
+      "id": "eave-house",
+      "title": "EAVE / EAVES — HOUSE",
+      "variant": "efes / edge of roof",
+      "group": "eve",
+      "classification": "documented-language",
+      "meaning": "Projecting lower edge of a roof. Historical Old English efes described the eaves of a house.",
+      "note": "Eave/eaves and Eve are distinct words with different linguistic origins; preserve as a sound/visual comparison.",
+      "tags": [
+        "eaves",
+        "efes",
+        "roof"
+      ]
+    },
+    {
+      "id": "eve-evening",
+      "title": "EVE — BEFORE NIGHT",
+      "variant": "eve / evening",
+      "group": "eve",
+      "classification": "documented-language",
+      "meaning": "Old English æfen lineage; evening or the time before darkness.",
+      "note": "The user's 'time before night' meaning is grounded in historical use; unrelated to Biblical Chavvah's etymology.",
+      "tags": [
+        "evening",
+        "æfen"
+      ]
+    },
+    {
+      "id": "eve-event",
+      "title": "EVE — BEFORE AN EVENT",
+      "variant": "Christmas Eve / eve of an event",
+      "group": "eve",
+      "classification": "documented-language",
+      "meaning": "The evening or day immediately before a festival, holiday, or important event; also figuratively the moment before something begins.",
+      "note": "An extended English sense of time-eve, not a reference to the woman or a house's roof.",
+      "tags": [
+        "Christmas Eve",
+        "eve of"
+      ]
+    }
+  ],
+  "lexical_sources": [
+    {
+      "term": "evangelist",
+      "url": "https://www.openbible.com/strongs/greek/2099.htm",
+      "purpose": "Greek New Testament usage, Strong's G2099"
+    },
+    {
+      "term": "eve-biblical",
+      "url": "https://adfonteslibrary.org/genesis-3",
+      "purpose": "Genesis 3:20 Hebrew and other textual witnesses"
+    },
+    {
+      "term": "eve-time",
+      "url": "https://www.etymonline.com/word/eve",
+      "purpose": "English eve/evening and Eve-person etymology"
+    },
+    {
+      "term": "eave",
+      "url": "https://bosworthtoller.com/9024",
+      "purpose": "Old English efes eaves of house"
+    },
+    {
+      "term": "ella",
+      "url": "https://dictionary.cambridge.org/dictionary/spanish-english/ella",
+      "purpose": "Spanish ella pronoun"
+    }
+  ]
+}
