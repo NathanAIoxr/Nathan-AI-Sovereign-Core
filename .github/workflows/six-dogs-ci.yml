@@ -31,8 +31,13 @@ jobs:
           node --check app-factory/nathan-ai/six-dogs/engine.js
           node --check app-factory/nathan-ai/six-dogs/app.js
           node --check app-factory/nathan-ai/six-dogs/engine.test.cjs
+          node --check app-factory/nathan-ai/six-dogs/topology.js
+          node --check app-factory/nathan-ai/six-dogs/topology-ui.js
+          node --check app-factory/nathan-ai/six-dogs/topology.test.cjs
       - name: Run Six Dogs engine tests
-        run: node --test app-factory/nathan-ai/six-dogs/engine.test.cjs
+        run: node --test app-factory/nathan-ai/six-dogs/engine.test.cjs app-factory/nathan-ai/six-dogs/topology.test.cjs
+      - name: Test Python SovereignUnit
+        run: python3 -m unittest discover -s app-factory/nathan-ai/six-dogs -p 'test_*.py' -v
       - name: Validate architecture and offline manifest
         run: |
-          node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('app-factory/nathan-ai/six-dogs/architecture.json','utf8'));if(a.stages.length!==6||a.sequence.join(',')!=='KNICK,KNACK,PADDY,WHACK,DOG,BONE')process.exit(1);const o=JSON.parse(fs.readFileSync('app-factory/nathan-ai/offline-assets.json','utf8'));for(const f of ['six-dogs/index.html','six-dogs/engine.js','six-dogs/app.js','six-dogs/style.css'])if(!o.includes(f))process.exit(1)"
+          node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('app-factory/nathan-ai/six-dogs/architecture.json','utf8'));if(a.stages.length!==6||a.sequence.join(',')!=='KNICK,KNACK,PADDY,WHACK,DOG,BONE')process.exit(1);const o=JSON.parse(fs.readFileSync('app-factory/nathan-ai/offline-assets.json','utf8'));for(const f of ['six-dogs/index.html','six-dogs/engine.js','six-dogs/app.js','six-dogs/style.css','six-dogs/topology.js','six-dogs/topology-ui.js'])if(!o.includes(f))process.exit(1)"
