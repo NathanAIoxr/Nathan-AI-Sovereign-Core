@@ -9,6 +9,23 @@ const {createHash,timingSafeEqual,randomUUID}=require('node:crypto');
 const LIMIT=140*1024*1024;
 const MAGIC=Buffer.from([79,78,69,86,76,84,49,0]);
 function reply(res,code,value){res.writeHead(code,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(JSON.stringify(value))}
+async function verifyStoredFile(file,expectedHash){
+ let handle;
+ try{
+  // Confirm the stored bytes still match their claimed content-addressed name.
+  // O_NOFOLLOW prevents retrieving an attacker-planted symlink on supported hosts.
+  handle=await fsp.open(file,fs.constants.O_RDONLY|(fs.constants.O_NOFOLLOW||0));
+  const st=await handle.stat();
+  if(!st.isFile()||st.size<MAGIC.length||st.size>LIMIT)return false;
+  let size=0,head=Buffer.alloc(0);const hash=createHash('sha256');
+  for await(const chunk of handle.createReadStream({autoClose:false})){
+   size+=chunk.length;if(size>LIMIT)return false;
+   hash.update(chunk);
+   if(head.length<MAGIC.length)head=Buffer.concat([head,chunk.subarray(0,MAGIC.length-head.length)]);
+  }
+  return size===st.size&&head.equals(MAGIC)&&hash.digest('hex')===expectedHash;
+ }finally{if(handle)await handle.close();}
+}
 function makeHandler({token,dir,origins=[]}){
  if(typeof token!=='string'||token.length<32||/^(change|replace|example|test)/i.test(token))throw Error('Set a unique 32+-character ONE_SYNC_TOKEN secret');
  if(!path.isAbsolute(dir))throw Error('ONE_DATA_DIR must be absolute');
@@ -48,24 +65,31 @@ function makeHandler({token,dir,origins=[]}){
     const digest=hash.digest('hex');if(digest!==claimed)throw Object.assign(Error('checksum_mismatch'),{status:422});
     await handle.sync();await handle.close();handle=null;
     const final=path.join(store,digest+'.onevault');let exists=false;
-    try{await fsp.stat(final);exists=true}catch(e){if(e.code!=='ENOENT')throw e}
-    if(!exists)await fsp.rename(tmp,final);
-    else await fsp.unlink(tmp);
-    tmp=null;
+    try{
+     // Hard-link without overwriting an existing digest path, even with concurrent uploads.
+     await fsp.link(tmp,final);
+    }catch(e){
+     if(e.code!=='EEXIST')throw e;
+     exists=true;
+     if(!await verifyStoredFile(final,digest))throw Object.assign(Error('existing_backup_integrity_failure'),{status:409});
+    }
+    await fsp.unlink(tmp);tmp=null;
     return reply(res,201,{status:'cloud_verified',sha256:digest,bytes:size,already_existed:exists,backup_verified:false});
    }catch(e){if(handle)await handle.close().catch(()=>{});if(tmp)await fsp.unlink(tmp).catch(()=>{});if(!res.headersSent)return reply(res,e.status||500,{error:e.status?e.message:'storage_failure'});}
    return;
   }
   if(req.method==='GET'&&loc==='/v1/backups'){
    try{const store=path.join(dir,'backups');const names=await fsp.readdir(store).catch(e=>e.code==='ENOENT'?[]:Promise.reject(e));const items=[];
-    for(const name of names){if(!/^[a-f0-9]{64}\.onevault$/.test(name))continue;const st=await fsp.stat(path.join(store,name));if(st.isFile())items.push({sha256:name.slice(0,64),bytes:st.size,stored_at:st.mtime.toISOString()})}
+    for(const name of names){if(!/^[a-f0-9]{64}\.onevault$/.test(name))continue;const st=await fsp.lstat(path.join(store,name));if(st.isFile()&&!st.isSymbolicLink())items.push({sha256:name.slice(0,64),bytes:st.size,stored_at:st.mtime.toISOString()})}
     return reply(res,200,{items:items.sort((a,b)=>b.stored_at.localeCompare(a.stored_at)),backup_verified:false})
    }catch(e){return reply(res,500,{error:'storage_failure'})}
   }
   const match=loc.match(/^\/v1\/backups\/([a-f0-9]{64})$/);
   if(req.method==='GET'&&match){
    const file=path.join(dir,'backups',match[1]+'.onevault');
-   try{const st=await fsp.stat(file);if(!st.isFile())return reply(res,404,{error:'not_found'});
+   try{
+    if(!await verifyStoredFile(file,match[1]))return reply(res,409,{error:'backup_integrity_failure'});
+    const st=await fsp.stat(file);if(!st.isFile())return reply(res,404,{error:'not_found'});
     res.writeHead(200,{'Content-Type':'application/octet-stream','Content-Length':st.size,'Content-Disposition':'attachment; filename="ONE-'+match[1]+'.onevault"','Cache-Control':'no-store','X-ONE-SHA256':match[1]});
     return fs.createReadStream(file).pipe(res)
    }catch(e){return reply(res,e.code==='ENOENT'?404:500,{error:e.code==='ENOENT'?'not_found':'storage_failure'})}
