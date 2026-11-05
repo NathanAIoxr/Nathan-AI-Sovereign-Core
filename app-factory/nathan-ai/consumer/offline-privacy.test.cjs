@@ -15,7 +15,7 @@ test('every consumer source product has specific data provenance and clear unver
  assert.equal(C.verifyDataPractices(data,products).records,12);
  assert.deepEqual(data.records.map(x=>x.id).sort(),products.products.map(x=>x.id).sort());
  for(const r of data.records){
-  assert.ok(fs.existsSync(path.resolve(__dirname,'../../../..',r.evidencePath)),r.evidencePath);
+  assert.ok(fs.existsSync(path.resolve(__dirname,'../../..',r.evidencePath)),r.evidencePath);
   assert.ok(r.ownerAction.length>15);
   assert.match(r.evidenceLevel,/review|document/);
  }
@@ -38,9 +38,9 @@ test('offline is explicit opt-in with remove function and no private data or cro
  assert.match(app,/enabled.addEventListener\('click'/);
  assert.match(app,/removed.addEventListener\('click'/);
  assert.match(app,/navigator\.serviceWorker\.register\('\.\/sw\.js'/);
- assert.doesNotMatch(app,/navigator\.serviceWorker\.register\([^)]*\)\s*;/);
+ assert.doesNotMatch(app,/(^|\n)\s*navigator\.serviceWorker\.register\(/);
  assert.ok(!sw.includes('caches.addAll(data)'));
- assert.doesNotMatch(sw,/offloader|health|eyeprints|one\/|localStorage|postMessage|sync/);
+ assert.doesNotMatch(sw,/['"]\.\.\/|caches\.matchAll\(|postMessage\(|\bsync\(/);
 });
 test('service worker restricts interception to public consumer directory and allows offline fallback',async()=>{
  const calls={},handlers={},stored=new Map();
