@@ -148,3 +148,13 @@ Test: \`node --test app-factory/nathan-ai/trinity-of-snow/archive.test.cjs\`. Or
 Preserves six identities in exact order **KNICK → KNACK → PADDY → WHACK → DOG → BONE**, corrected five-plane mapping (**Mind: Dalet, Pe, Kaph, Waw, Nun, Bet; Body: six dogs; Shadow: Bet, Nun, Waw, Kaph, Pe, Dalet**), and leaves Soul/Spirit positions user-defined. Includes local-first state machine, accessible browser console, JSON export/import/wipe, opt-in storage, LED state simulation, user-initiated Web Serial and Arduino source for six LEDs and a button. The model is a creative support/decision aid, not a psychological assessment, literal mythological proof, verified device, or stress treatment. No private material was copied.
 
 Run: node --test app-factory/nathan-ai/six-dogs/engine.test.cjs.
+
+## Sovereign Prism — Nathan AI visual release (November 5, 2026)
+
+![Original Sovereign Prism hero artwork](./six-dogs/assets/hero-prism.svg)
+
+[Open the illustrated Six Dogs console](./six-dogs/index.html) · [View the six dog emblems and all twelve vector assets](./six-dogs/assets/visual-registry.json) · [Read the visual design specification](./six-dogs/assets/README.md).
+
+The release adds a high-contrast, responsive Sovereign Prism skin with six canine emblems, a feature hero, technical pipeline, local topology and low-voltage hardware concept illustrations. Artwork is stored as independent local SVG files, made available offline in the selected PWA asset manifest, and includes descriptive text alternatives. There are no invented human figures, faces, remote stock photo services or font downloads.
+
+Nathan AI's shared Look & feel menu adds **Sovereign Prism** as its thirteenth preset while preserving the original twelve choices. Existing ONE / Nathan AI logic, previous source archives, user records and data contracts remain unchanged. All graphics describing hardware or network topology are explicit illustrations rather than claims of verified physical deployment.
