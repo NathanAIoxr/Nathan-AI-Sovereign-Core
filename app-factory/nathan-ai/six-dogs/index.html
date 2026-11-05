@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101b2d">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Six Dogs — Nathan AI Resolution Console</title>
+<meta name="description" content="A source-preserving, local-first six-stage reflection and hardware-controller prototype inside Nathan AI.">
+<link rel="stylesheet" href="style.css">
+<script defer src="engine.js"></script><script defer src="app.js"></script>
+</head><body>
+<a class="skip" href="#content">Skip to the console</a>
+<header class="hero">
+<p class="eyebrow">NATHAN AI · ONE · SOVEREIGN SIX-DOG ENGINE</p>
+<h1>THE SIX DOGS</h1>
+<p class="lead">Six distinct identities. Six decisions. One user-controlled process for navigating a difficult situation.</p>
+<p class="mantra">KNICK <span>›</span> KNACK <span>›</span> PADDY <span>›</span> WHACK <span>›</span> DOG <span>›</span> BONE</p>
+<nav aria-label="Navigation">
+<a href="../index.html">Nathan AI hub</a>
+<a href="../../one/index.html">ONE</a>
+<a href="../../one/sovereign-acro-matrix/index.html">Sovereign Acro-Matrix</a>
+<a href="#process">Resolution console</a>
+<a href="#hardware">Hardware</a>
+<a href="README.md">Specifications</a>
+</nav>
+</header>
+<main id="content">
+<section class="intro">
+<div><p class="eyebrow">CORE PRINCIPLES</p><h2>The consumer is the sovereign user.</h2>
+<p>This program does not decide what you feel, diagnose anyone, or guarantee an absence of stress. Its six-step rhyme mapping is a <strong>creative decision aid</strong>, not a validated clinical sequence.</p></div>
+<div class="math"><b>1 + 1 = 2</b><span>BUILD</span><b>1 − 1 = 0</b><span>CLEAR</span></div>
+</section>
+<section id="process" class="panel">
+<div class="heading"><div><p class="eyebrow">01 · STATE MACHINE</p><h2>Resolution workbench</h2></div><span id="stageStatus" class="status-tag" aria-live="polite">Starting</span></div>
+<label for="sessionTitle">Name this reflection (optional)<input id="sessionTitle" maxlength="160" placeholder="Example: solving a difficult decision"></label>
+<div id="stepCards" class="step-cards" aria-label="Six stages"></div>
+<div class="active-grid">
+  <div class="current">
+    <p class="eyebrow">CURRENT STEP</p><h3 id="stepName">KNICK</h3><p id="emotion"></p>
+    <p id="operation" class="operation"></p><p id="prompt"></p><p id="suggested"></p>
+  </div>
+  <div class="notes">
+    <label for="note">What do you observe or want to do?<textarea id="note" rows="5" maxlength="3000" placeholder="Your own words; nothing leaves this page unless you choose to export it."></textarea></label>
+    <label for="outcome">Result or next adjustment (optional)<textarea id="outcome" rows="2" maxlength="1000"></textarea></label>
+    <div class="actions">
+      <button id="advance">Record and advance</button>
+      <button id="revisit" class="secondary">Revisit selected step</button>
+      <button id="newSession" class="secondary">New reflection</button>
+    </div>
+  </div>
+</div>
+<h3 class="subheading">Session record</h3><div id="history" class="history" aria-live="polite"></div>
+</section>
+<section id="planes" class="panel">
+<p class="eyebrow">02 · FIVE PLANES / PARALLEL FORWARD MOTION</p><h2>Mind · Body · Shadow · Soul · Spirit</h2>
+<p>The source fixes Mind, Body, and Shadow. Soul and Spirit were named but not assigned six individual positions in the final correction, so their slots remain editable and explicitly user-authored.</p>
+<div class="table-wrap"><table><thead><tr><th>Plane</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead><tbody id="planesBody"></tbody></table></div>
+<div class="custom-planes">
+<label>Soul label for selected step <input id="soul" maxlength="100" placeholder="User-authored — not source-established"></label>
+<label>Spirit label for selected step <input id="spirit" maxlength="100" placeholder="User-authored — not source-established"></label>
+<button id="savePlanes" class="secondary">Save my optional labels</button>
+</div>
+<p class="fine">The letter/name associations are symbolic interpretations. They do not prove Hebrew etymologies, altered consciousness, or physical dimensional mechanisms.</p>
+</section>
+<section id="hardware" class="panel">
+<p class="eyebrow">03 · SOFTWARE ⇄ PHYSICAL HARDWARE</p><h2>Six-stage physical console</h2>
+<div class="hardware-grid">
+ <div><h3>Microcontroller prototype</h3><p>Arduino Uno compatible board, one momentary button and six low-voltage LEDs. Each indicator corresponds to a dog/stage. The included sketch cycles steps and communicates over a serial port.</p><div id="leds" class="leds" aria-label="Simulated LED states"></div><p class="fine">Simulation reflects the current browser stage, not a detected physical device.</p></div>
+ <div><h3>Hardware command</h3><p>Copy the versioned serial command, or explicitly connect a supported device through your browser and send the current step.</p>
+ <pre id="command" class="command">SD1 STEP 1</pre>
+ <div class="actions"><button id="copyCommand" class="secondary">Copy command</button><button id="connectDevice" class="secondary">Connect device</button><button id="sendDevice">Send current step</button><button id="disconnectDevice" class="secondary">Disconnect</button></div>
+ <p id="deviceStatus" class="fine" role="status">Not connected. A USB device is never accessed automatically.</p></div>
+</div>
+</section>
+<section id="technology" class="panel">
+<p class="eyebrow">04 · FULL TECHNOLOGY MAPPING</p><h2>Eight engineering layers</h2><div id="techGrid" class="tech-grid"></div>
+</section>
+<section id="sovereignty" class="panel">
+<p class="eyebrow">05 · OWNERSHIP / PRIVACY</p><h2>User-controlled records</h2><p>Notes remain in page memory by default and disappear upon reload. Opting in stores them in your browser's localStorage, which is <strong>not encrypted</strong>. Do not enter passwords, health records, children's private information or credentials.</p>
+<label class="choice"><input id="saveLocal" type="checkbox"> Save my session in this browser (opt-in)</label>
+<div class="actions">
+<button id="export" class="secondary">Export my JSON</button>
+<label class="importButton">Import my JSON<input id="import" type="file" accept=".json,application/json"></label>
+<button id="delete" class="danger">Delete my local records</button>
+</div>
+<p id="feedback" role="status" class="feedback">Offline-first. No remote data connection.</p>
+</section>
+<section class="limits"><h2>Research and safety boundaries</h2><p>The five- and seven-stage grief lists are descriptive teaching frameworks, not an obligatory order or a scientific promise that people can bypass depression. This app allows revisiting a step whenever useful. “WHACK” refers only to a clear, <strong>nonviolent</strong> decision. “BONE” represents connection, care and resolution—not a guaranteed stress-free biological state. Consensual adult intimacy may be relaxing for some people but is not required by or measured in this system.</p></section>
+</main>
+<footer>Original Six Dogs names and the corrected Mind/Body/Shadow order are preserved. This is a self-guided Nathan AI software/hardware prototype, not clinical treatment or verified hardware certification.</footer>
+</body></html>
