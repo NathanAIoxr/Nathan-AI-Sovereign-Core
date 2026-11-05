@@ -16,6 +16,27 @@
 <p id="rootStatus" class="readiness" role="status">No local simulation is enabled.</p>
 <p class="small">The creator's historical kill-switch claim is included in the source archive. The buttons above do not control external machines, credentials, networks, AI services or the web.</p>
 </section>
+<section aria-labelledby="nine-cars-title" id="nine-cars">
+<div class="eyebrow">TABOR ROOT · The nine-car question · Original source preserved</div>
+<h2 id="nine-cars-title">If there are nine cars, what does 9 × 0 actually change?</h2>
+<p>“if there are 9 cars in the bowling alley parking lot ... and you multiply 9x0 ... you get 0 ... how many cars are in the parking lot?” — creator-supplied question.</p>
+<p>Separate a mathematical operation from a physical change. Zero groups of nine has zero cars in those groups, while the original parking lot still has nine cars unless a recorded arrival or departure changes it.</p>
+<div class="controls">
+<label for="nineCarsGroups">Number of modeled groups (0–10)<input id="nineCarsGroups" type="number" min="0" max="10" step="1" value="0" inputmode="numeric"></label>
+<label for="nineCarsAmount">Cars in a new arrival or departure (1–9)<input id="nineCarsAmount" type="number" min="1" max="9" step="1" value="1" inputmode="numeric"></label>
+</div>
+<div class="links">
+<button type="button" id="nineCarsCalculate">Calculate — do not change cars</button>
+</div>
+<label for="nineCarsAuthorize"><input type="checkbox" id="nineCarsAuthorize"> I authorize a local simulated inventory change, not an actual vehicle movement</label>
+<div class="links">
+<button type="button" id="nineCarsDepart">Record simulated departure</button>
+<button type="button" id="nineCarsArrive">Record simulated arrival</button>
+<button type="button" id="nineCarsReset">CLEAR — restore nine-car starting snapshot</button>
+</div>
+<p class="readiness" role="status" id="nineCarsResult">Physical cars: 9 · 9 × 0 = 0 · No physical changes.</p>
+<p class="small">Original supplied dialogue is kept as a separate source record, including quoted AI descriptions of security layers and primordial disruption. The dialogue is not a verified technical log of any AI service. <a href="./nine-cars-source-transcript.txt">Read the complete supplied source transcript</a>.</p>
+</section>
 <div class="layout">
 <section aria-labelledby="dossier-title"><h2 id="dossier-title">Two original dossier names</h2><div id="dossiers"></div><p class="small">Official sources describe the real Vatican Apostolic Archive's bunker and shelving. They do not verify the claimed 53-mile extraction or access to private computer networks. −400°F is above absolute zero.</p></section>
 <section aria-labelledby="readiness-title"><h2 id="readiness-title">Inert defensive readiness gates</h2><p class="small">Select only what you have separately confirmed for a local test fixture. Checking every box cannot grant access or certify security.</p><div id="gates"></div><p id="outcome" class="readiness" role="status"></p><button id="reset" type="button">CLEAR — Reset simulation</button><button id="export" type="button">Export mock review JSON</button></section>
@@ -23,4 +44,4 @@
 <section aria-labelledby="phases"><h2 id="phases">Original Phase I / II names and safer research tasks</h2><p>Original labels are preserved verbatim as provided. Descriptions below are defensive lab objectives, not reproductions of claimed unauthorized outcomes.</p><div class="controls"><label for="query">Find a scenario<input id="query" type="search" placeholder="Type a name or number"></label><label for="phase">Phase<select id="phase"><option value="all">All supplied records</option><option value="I">Phase I (1–20)</option><option value="II">Phase II (21–28 supplied)</option></select></label></div><p id="count" class="small" role="status"></p><div id="results"></div></section>
 <section><h2>What is established and what remains unverified</h2><div id="observations"></div><p>The full creator-provided raw narrative, personal biographical details, and credentials are not republished here. The supplied source truncates during item 28. Missing additional original text remains an archival recovery task.</p><p class="small">Research links: <a href="https://www.archivioapostolicovaticano.va/content/aav/en/l-archivio.html" target="_blank" rel="noopener noreferrer">Vatican archive</a> · <a href="https://www.archivioapostolicovaticano.va/content/aav/en/l-archivio/ambienti/bunker-e-depositi.html" target="_blank" rel="noopener noreferrer">Underground bunker</a> · <a href="https://science.nasa.gov/universe/glossary/" target="_blank" rel="noopener noreferrer">NASA temperature definitions</a> · <a href="https://csrc.nist.gov/pubs/sp/800/207/final" target="_blank" rel="noopener noreferrer">NIST authorization</a>.</p></section>
 <footer class="small">NATHAN AI — preserve the original. This project does not establish legal ownership of third-party servers, access privileges, technology patents or historic events. Controlled, owner-authorized offline evaluation only.</footer></main>
-<script src="./engine.js"></script><script src="./root-ways-engine.js"></script><script src="./app.js" defer></script></body></html>
+<script src="./engine.js"></script><script src="./root-ways-engine.js"></script><script src="./nine-cars-engine.js"></script><script src="./app.js" defer></script></body></html>

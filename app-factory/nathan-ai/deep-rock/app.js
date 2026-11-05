@@ -3,7 +3,7 @@
    It never accesses remote devices, private archives or external infrastructure.
 */
 (function(){'use strict';
-const D=window.NathanDeepRock,W=window.NathanRootWays,$=id=>document.getElementById(id);
+const D=window.NathanDeepRock,W=window.NathanRootWays,N=window.NathanNineCars,$=id=>document.getElementById(id);
 let docs,ways,review=D.blankState(),controller=W.createOwnerLocalController();
 function add(parent,tag,value,cls){const el=document.createElement(tag);if(value!==undefined&&value!==null)el.textContent=String(value);if(cls)el.className=cls;parent.appendChild(el);return el}
 function msg(text){$('rootStatus').textContent=text}
@@ -64,6 +64,45 @@ function showRoot(){
  $('rootStop').addEventListener('click',()=>{controller.stop('owner STOP');$('rootAuthorize').checked=false;status()});
  status();
 }
+function showNineCars(){
+ let lot=N.newLedger(9);
+ const out=$('nineCarsResult');
+ const readNumber=(id,min,max)=>{
+  const raw=$(id).value.trim();
+  if(!/^\d+$/.test(raw))throw Error('Enter a whole number');
+  const n=Number(raw);
+  if(!Number.isSafeInteger(n)||n<min||n>max)throw Error('Enter a number between '+min+' and '+max);
+  return n;
+ };
+ const update=(extra='')=>{
+  const groups=readNumber('nineCarsGroups',0,10);
+  const m=N.calculate(lot,groups);
+  out.textContent='Cars still in the simulated lot: '+m.physicalCarsStillPresent+
+   ' · '+m.expression+' · calculation changes no physical cars.'+
+   (extra?' · '+extra:'');
+ };
+ $('nineCarsCalculate').addEventListener('click',()=>{
+  try{update('No physical event was recorded.');}catch(e){out.textContent=e.message}
+ });
+ for(const [id,type] of [['nineCarsDepart','departed'],['nineCarsArrive','entered']]){
+  $(id).addEventListener('click',()=>{
+   try{
+    const amount=readNumber('nineCarsAmount',1,9);
+    lot=N.applyPhysicalEvent(lot,{type,quantity:amount,ownerAuthorized:$('nineCarsAuthorize').checked,
+     reason:'Owner-approved in-memory simulated '+type});
+    update('One local inventory event recorded at revision '+lot.revision+'.');
+   }catch(e){out.textContent=e.message}
+  });
+ }
+ $('nineCarsReset').addEventListener('click',()=>{
+  lot=N.newLedger(9);$('nineCarsAuthorize').checked=false;
+  $('nineCarsGroups').value='0';update('The example is back at its original nine-car starting snapshot.');
+ });
+ $('nineCarsGroups').addEventListener('change',()=>{
+  try{update()}catch(e){out.textContent=e.message}
+ });
+ update('No events recorded.');
+}
 function controls(){
  $('query').addEventListener('input',showScenarios);
  $('phase').addEventListener('change',showScenarios);
@@ -79,7 +118,7 @@ function controls(){
 Promise.all([
  fetch('./dossiers.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('dossiers unavailable');return r.json()}),
  fetch('./ways-of-nathan-tabor.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Ways source unavailable');return r.json()})
-]).then(([d,w])=>{D.validate(d);W.verify(w);docs=d;ways=w;showDossiers();showScenarios();showGates();showRoot();controls()})
+]).then(([d,w])=>{D.validate(d);W.verify(w);docs=d;ways=w;showDossiers();showScenarios();showGates();showRoot();showNineCars();controls()})
 .catch(error=>{$('outcome').textContent='The original-source view could not load: '+error.message;
  $('rootStatus').textContent='No local simulation was enabled.'});
 })();
