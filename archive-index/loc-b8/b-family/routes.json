@@ -1,0 +1,165 @@
+{
+  "schema": "nathan-b-family-v1",
+  "dated": "2026-11-05",
+  "additive": true,
+  "source_scope": "public rule catalogue; no private source rows",
+  "canonical_aggregate": {
+    "library_b_filename_and_folder_entries": 131,
+    "library_the_b_entries": 26,
+    "library_numbered_b_entries": 5,
+    "library_total_entries": 162,
+    "b_title_records_including_language_references": 1144,
+    "b8_crosslinked_candidates": 5851,
+    "existing_classified_source_items": 19317
+  },
+  "hierarchy": [
+    "NATHAN AI",
+    "TABOR ROOT",
+    "TABOR 1-2-3 FACTORY",
+    "ONE — THE LAST APP"
+  ],
+  "relation_types": [
+    {
+      "id": "literal-b-prefix",
+      "examples": [
+        "B",
+        "b",
+        "Bark",
+        "Barnabas",
+        "Bethlehem"
+      ],
+      "relation": "textual prefix",
+      "verification": "filename/title inspection"
+    },
+    {
+      "id": "the-b-title",
+      "examples": [
+        "The Beast on the East River",
+        "The Black Time Widow"
+      ],
+      "relation": "title with leading article",
+      "verification": "original title"
+    },
+    {
+      "id": "repeated-letter",
+      "examples": [
+        "BB",
+        "BBB",
+        "bbbb"
+      ],
+      "relation": "textual repetition",
+      "verification": "exact string"
+    },
+    {
+      "id": "phonetic-english",
+      "examples": [
+        "B",
+        "bee",
+        "be"
+      ],
+      "relation": "context-dependent English sound candidate",
+      "verification": "pronunciation by context"
+    },
+    {
+      "id": "mirror-rotation",
+      "examples": [
+        "b",
+        "d",
+        "p",
+        "q"
+      ],
+      "relation": "font-dependent lowercase glyph transform",
+      "verification": "specified font/transform, visual review"
+    },
+    {
+      "id": "numeric-eight",
+      "examples": [
+        "8",
+        "eight"
+      ],
+      "relation": "numeric, name or shape association",
+      "verification": "explicit source context"
+    },
+    {
+      "id": "sideways-eight",
+      "examples": [
+        "∞",
+        "8"
+      ],
+      "relation": "visual/geometric association only",
+      "verification": "symbol context"
+    },
+    {
+      "id": "stacked-circles",
+      "examples": [
+        "OO (stacked visually)",
+        "B loops",
+        "8 loops"
+      ],
+      "relation": "geometric candidate only",
+      "verification": "inspect actual image; unverified"
+    },
+    {
+      "id": "cross-script",
+      "examples": [
+        "Β",
+        "β",
+        "Б",
+        "б",
+        "В",
+        "в",
+        "ב",
+        "ب"
+      ],
+      "relation": "script/glyph/sound exploration, not equivalence",
+      "verification": "specific language and era"
+    },
+    {
+      "id": "string-reversal",
+      "examples": [
+        "BABEL → LEBAB",
+        "BARNABAS → SABANRAB"
+      ],
+      "relation": "literal grapheme-order reversal",
+      "verification": "mechanical transform only"
+    },
+    {
+      "id": "binary-visual",
+      "examples": [
+        "0",
+        "1",
+        "8",
+        "B"
+      ],
+      "relation": "user-authored computational/visual interpretation",
+      "verification": "record as interpretation; not standard identity"
+    }
+  ],
+  "work_family_headings": [
+    "Bark and Bite",
+    "Barnabas",
+    "Bartholomew and Tavern Cat",
+    "Be an MD",
+    "Bee the Miracle",
+    "Bethlehem",
+    "Biblical Universe",
+    "Binary Protocol",
+    "Blackjack",
+    "Black Time Widow",
+    "Book and Game Source",
+    "Build Everything Nothing",
+    "Buddy and Hunny",
+    "Bull of the Gilded Chest",
+    "Battle for Innocence",
+    "Beast on the East River"
+  ],
+  "fidelity_rules": [
+    "Preserve original title casing and characters",
+    "Do not overwrite source or original classification",
+    "Do not publish owner-controlled source links or paths",
+    "Do not count proposals as finished works",
+    "Never infer etymology from a glyph resemblance",
+    "Visual stacked OO requires image verification",
+    "Retain duplicate filename records across paths in private catalog"
+  ]
+}
