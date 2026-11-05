@@ -41,7 +41,7 @@ The 101 items are the author's autobiographical statements, interpretations and 
 
 ## Tests
 
-Run `node ../tests/test-core.js` from this directory in the full working package, or run the test from the repository folder when it is included. Node.js is used for tests only, not app execution.
+From the repository root run `node --test app-factory/one/realist-ledger/core.test.cjs`. This tests all 101 positions, exact source line preservation, CRLF and indentation, four-volume book exports, malformed imports, and corrupted stored source. Node.js is used for tests only, not app execution.
 
 ## Original arithmetic
 
