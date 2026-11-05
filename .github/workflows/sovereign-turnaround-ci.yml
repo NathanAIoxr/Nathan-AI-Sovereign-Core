@@ -1,0 +1,28 @@
+name: Sovereign Turnaround · CONVOY RAM ACT AI
+on:
+  push:
+    paths:
+      - "app-factory/nathan-ai/operations/**"
+      - ".github/workflows/sovereign-turnaround-ci.yml"
+  pull_request:
+    paths:
+      - "app-factory/nathan-ai/operations/**"
+      - ".github/workflows/sovereign-turnaround-ci.yml"
+permissions:
+  contents: read
+jobs:
+  local-turnaround:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Syntax check
+        run: |
+          node --check app-factory/nathan-ai/operations/turnaround/engine.js
+          node --check app-factory/nathan-ai/operations/turnaround/app.js
+      - name: Run original and additive operation tests
+        run: |
+          node --test app-factory/nathan-ai/operations/operations.test.cjs
+          node --test app-factory/nathan-ai/operations/turnaround/engine.test.cjs
