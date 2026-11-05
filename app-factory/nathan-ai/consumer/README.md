@@ -58,7 +58,9 @@ That is a source-derived public path. Confirm deployment before advertising the 
 
 ## Verify source and tests
 
-    node --test app-factory/nathan-ai/consumer/engine.test.cjs
+    node --test app-factory/nathan-ai/consumer/engine.test.cjs app-factory/nathan-ai/consumer/offline-privacy.test.cjs
+    node --test app-factory/one/library-mind/search-core.test.cjs
+    node --test app-factory/nathan-ai/anatomy/source-core.test.cjs
     node --test app-factory/quality.test.cjs
 
 The first test checks record schemas, local route existence, unsafe URLs, completeness of release gates, routing filters, and attribution/scientific clarifications. The repository's existing visual and navigation checks run in Factory CI. Browser/assistive-technology testing and local legal review remain needed; no WCAG conformance claim is made.
