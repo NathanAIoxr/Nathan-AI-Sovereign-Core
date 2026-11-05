@@ -20,6 +20,10 @@ Open the [AI Accountability Archive](./ai-accountability/README.md), including t
 
 [Open the searchable Program Jobs workbench](./program-jobs/index.html) or read the [357-record source/evidence catalog and priority build plan](./program-jobs/README.md). The atlas classifies current software, historical 92-name recovery entries, original NT-1 modules, operation specifications and private archive leads by task, without inventing completed apps.
 
+## SOVEREIGN DEFENDER — viruses, ransomware, antivirus, hack and dehack
+
+[Open SOVEREIGN DEFENDER](./sovereign-defender/index.html) and its [seven-family development catalog](./sovereign-defender/family.json). This is an owner-authorized, source-preserving, passive review workbench (not deployed endpoint protection), with SHA-256 baseline verification and an inert ransomware exercise. It reuses the original Hall of Mirrors classifier without altering the creator's source.
+
 ## TABOR ROOT — Deep Rock and the Ways of Nathan Tabor
 
 [Open the source-preserving Deep Rock / Ways lab](./deep-rock/index.html), with the original **1+1=2 BUILD; 1-1=0 CLEAR**, the nine creator-supplied Primordial/Primortal/Bimordial variants (including the duplicated final Bimordial), and the private 101-entry source-audit receipt. The lab performs only owner-local in-memory arithmetic and review; it does not claim remote access or historical deployment.
