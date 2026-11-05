@@ -1,0 +1,27 @@
+name: Nathan AI full alphabet and store classification
+on:
+  pull_request:
+    paths:
+      - 'archive-index/alphabet/**'
+      - 'app-factory/nathan-ai/hop-in/chatbox/engine.js'
+      - 'app-factory/nathan-ai/hop-in/chatbox/engine.test.cjs'
+      - '.github/workflows/complete-alphabet-ci.yml'
+  push:
+    paths:
+      - 'archive-index/alphabet/**'
+      - '.github/workflows/complete-alphabet-ci.yml'
+jobs:
+  directory-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify all 26 letter departments, categories and source routes
+        run: node --test archive-index/alphabet/directory.test.mjs
+      - name: Preserve earlier C, D and E source engines
+        run: |
+          node --test archive-index/alphabet/c/c-family.test.mjs archive-index/alphabet/d/d-family.test.mjs archive-index/alphabet/e/e-family.test.mjs archive-index/alphabet/e/e-word-families.test.mjs
+      - name: Check HOP IN command routing
+        run: node --test app-factory/nathan-ai/hop-in/chatbox/engine.test.cjs

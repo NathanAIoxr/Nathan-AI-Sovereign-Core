@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><title>Nathan AI · 26-Letter App, Game, Book & Source Store</title>
+<meta name="description" content="Search Nathan AI's complete A–Z source archive by letter, app/game type, original title and Apple or Google Play category.">
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#0d1726;color:#f1f5fb;--panel:#18263b;--edge:#405572;--soft:#c2d0e3;--accent:#b7eedf}
+*{box-sizing:border-box}body{max-width:1250px;margin:auto;padding:24px 18px 70px}a{color:#b7ddfa}a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #f4d991;outline-offset:3px}
+nav{display:flex;flex-wrap:wrap;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--edge)}h1{font-size:clamp(2.2rem,5.5vw,4rem);line-height:1.07;letter-spacing:-.035em;margin:16px 0}h2{font-size:1.28rem}h3{font-size:1.08rem;margin:0 0 8px}p{line-height:1.55}.eyebrow{color:var(--accent);font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800}.muted{color:var(--soft)}small{color:var(--soft)}
+.box{background:var(--panel);border:1px solid var(--edge);border-radius:15px;padding:18px;margin:18px 0}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}.stat{padding:15px;border:1px solid var(--edge);border-radius:12px;background:#111f31}.stat strong{font-size:1.8rem;display:block}.stat span{font-size:.87rem;color:var(--soft)}
+.letters{display:grid;grid-template-columns:repeat(13,minmax(0,1fr));gap:6px}button,select,input{font:inherit;border:1px solid #7388a7;border-radius:8px}button{cursor:pointer;background:#dbe9fc;color:#0d182a;padding:10px 12px}button[aria-pressed=true]{background:#b7eedf;font-weight:850}button[disabled]{opacity:.45;cursor:default}
+.letters button{padding:9px 3px;min-width:0;font-weight:900}.letters button small{display:block;color:inherit;font-weight:400;font-size:.65rem}
+.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:13px}.filters label{font-size:.87rem;font-weight:700;display:flex;flex-direction:column;gap:6px}
+input,select{background:#091525;color:#fff;padding:11px;min-width:0;width:100%}.actions{display:flex;flex-wrap:wrap;gap:9px;align-items:center}.cardgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.result{border:1px solid var(--edge);border-radius:12px;padding:16px;background:#111e31;min-width:0;display:flex;flex-direction:column;gap:8px}
+.result a{overflow-wrap:anywhere}.meta{font-size:.8rem;color:#cfdfeb;overflow-wrap:anywhere}.stage{font-family:ui-monospace,monospace;font-size:.76rem;color:#c0d1e7}
+.result p{margin:0;font-size:.91rem;overflow-wrap:anywhere}.result .foot{margin-top:auto;padding-top:9px;border-top:1px solid #3a4f68;display:flex;gap:9px;flex-wrap:wrap}
+.linkrow{display:flex;flex-wrap:wrap;gap:12px}.linkrow a{display:inline-block;border:1px solid #6a839d;padding:8px;border-radius:8px}
+#more{margin-top:18px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:800px){.letters{grid-template-columns:repeat(9,minmax(0,1fr))}}
+@media(max-width:520px){body{padding:14px 10px}.letters{grid-template-columns:repeat(7,minmax(0,1fr))}.stat strong{font-size:1.5rem}}
+</style></head><body>
+<nav aria-label="Nathan AI directories"><a href="../../app-factory/nathan-ai/">Nathan AI Hub</a><a href="../../app-factory/nathan-ai/hop-in/chatbox/">HOP IN · Interactive</a><a href="../../standalone-apps/">Standalone GitHub Apps</a><a href="../../app-factory/nathan-ai/games/">Games & Puzzles</a><a href="../../app-factory/one/library-mind/">Library Mind</a></nav>
+<header><p class="eyebrow">JOHN NATHAN TABOR · NATHAN AI · ONE · ALL 26 LETTERS</p><h1>The A–Z App, Game, Book & Source Directory</h1>
+<p>One alphabet, independent original programs. Browse by the author's letter assignments, a title's literal first letter, Apple-style categories, Google Play categories or game genres. This is an indexing and discovery layer: no original program, book, source word or category is replaced.</p>
+<div class="stats" id="stats"><div class="stat"><strong>26</strong><span>Alphabet departments</span></div><div class="stat"><strong>—</strong><span>Indexed source records</span></div></div></header>
+<section class="box" aria-labelledby="alpha"><h2 id="alpha">1. Choose a letter</h2><p class="muted">The original assigned letter is authoritative for A–Z consumer features and authored sequences. Choose “literal title initial” below to compare spelling without rewriting the assignment.</p>
+<div class="actions" style="margin-bottom:12px"><button type="button" id="all-letters" aria-pressed="true">All A–Z</button><button type="button" id="reverse-letters">Reverse Z–A</button><label for="letter-mode">Letter interpretation</label><select id="letter-mode" style="width:auto"><option value="assigned">Original/assigned letter</option><option value="literal">Literal title initial</option></select></div>
+<div id="letters" class="letters" role="group" aria-label="Choose alphabet letter"></div>
+<p class="linkrow" id="letter-origins"></p></section>
+<section class="box" aria-labelledby="search-title"><h2 id="search-title">2. Filter by app store, game genre or source</h2>
+<div class="filters">
+<label>Search all source titles and descriptions<input id="query" type="search" placeholder="Eloher, innocence, word game, crypto, Bible…"></label>
+<label>Source kind<select id="kind"><option value="">All source kinds</option></select></label>
+<label>Apple primary or secondary<select id="apple"><option value="">All Apple categories</option></select></label>
+<label>Google Play category<select id="google"><option value="">All Google Play categories</option></select></label>
+<label>Game genre<select id="genre"><option value="">All game genres</option></select></label>
+<label>Development/source status<select id="stage"><option value="">All statuses</option></select></label>
+<label>Sort order<select id="sort"><option value="source">Original source order</option><option value="title">Title A–Z</option><option value="reverse-title">Title Z–A</option></select></label>
+</div>
+<div class="actions" style="margin-top:14px"><button id="reset" type="button">Clear filters</button><a href="./store-taxonomy.json">Store category definitions</a><a href="./letter-manifests.json">26 source manifests</a><a href="./README.md">Originals and privacy policy</a></div></section>
+<section class="box" aria-labelledby="results-title"><h2 id="results-title">3. Source-first results</h2>
+<p class="muted" id="coverage" role="status" aria-live="polite">Loading independent public catalog records…</p>
+<div class="cardgrid" id="results"></div><button id="more" type="button" hidden>Show more results</button>
+</section>
+<section class="box"><h2>Store classification is a proposal, not a publication</h2>
+<p>Apple allows a primary and optional secondary app category, and game subcategories. Google Play uses one app or game category and a maximum of five chosen tags. The local directory records suggested categories only when the name or source provides an identifiable subject. It never claims an app has passed Apple review, appeared on Google Play or been compiled for a phone.</p>
+<p>Earlier A, B, C, D, and E word-family modules stay independent. Book titles, word meanings, historical references, source-code components and privately held originals are not automatically treated as finished apps. Unpublished originals and restricted source bytes are not copied into this public directory.</p>
+<p><a href="https://developer.apple.com/app-store/categories/" target="_blank" rel="noopener noreferrer">Apple category guidance</a> · <a href="https://support.google.com/googleplay/android-developer/answer/9859673?hl=en" target="_blank" rel="noopener noreferrer">Google Play category guidance</a></p></section>
+<script type="module">
+import {ALPHABET,validateDirectory,filterDirectory,letterCounts,kinds,sourceLink} from './directory.mjs';
+const $=id=>document.getElementById(id);
+const state={letter:'',letterMode:'assigned',query:'',kind:'',apple:'',google:'',gameGenre:'',stage:'',sort:'source',shown:40,reverse:false};
+const params=new URLSearchParams(location.search);const preset=(params.get('letter')||'').toUpperCase();if(preset.length===1&&ALPHABET.includes(preset))state.letter=preset;
+let doc=null,tax=null,matched=[];
+function el(tag,text,cls){const x=document.createElement(tag);if(text!==undefined)x.textContent=String(text);if(cls)x.className=cls;return x}
+function opt(select,value,label){const o=document.createElement('option');o.value=value;o.textContent=label;select.append(o)}
+function optionList(id,values){for(const v of values)opt($(id),v,v)}
+function link(label,url){const a=el('a',label);a.href=url;return a}
+function updateUrl(){const p=new URLSearchParams(location.search);if(state.letter)p.set('letter',state.letter);else p.delete('letter');history.replaceState(null,'',location.pathname+(p.toString()?'?'+p.toString():''));}
+function chooseLetter(value){state.letter=value;state.shown=40;updateUrl();draw()}
+function chooseOrder(){state.reverse=!state.reverse;$('reverse-letters').textContent=state.reverse?'Forward A–Z':'Reverse Z–A';drawLetters()}
+function drawLetters(){const counts=letterCounts(doc.entries,{letterMode:state.letterMode});const f=document.createDocumentFragment();const order=state.reverse?[...ALPHABET].reverse():[...ALPHABET];for(const ch of order){const b=el('button',ch);b.type='button';b.setAttribute('aria-pressed',String(state.letter===ch));b.title=ch+' — '+counts[ch]+' source occurrences';const count=el('small',String(counts[ch]));b.append(count);b.addEventListener('click',()=>chooseLetter(ch));f.append(b)}$('letters').replaceChildren(f);$('all-letters').setAttribute('aria-pressed',String(!state.letter));}
+function origins(){const f=document.createDocumentFragment();if(state.letter){f.append(link('Open '+state.letter+' independent department','./'+state.letter.toLowerCase()+'/index.html'),link('Source manifest','./'+state.letter.toLowerCase()+'/letter-manifest.json'));if('CDE'.includes(state.letter))f.append(link('Existing original '+state.letter+' archive','./'+state.letter.toLowerCase()+'/index.html'));}else f.append(link('Browse all letter manifests','./letter-manifests.json'));$('letter-origins').replaceChildren(f);}
+function card(item){const n=el('article',undefined,'result');const top=el('div',item.kind.replaceAll('-',' ')+' · '+(item.sourceAssignedLetter?'Author letter '+item.sourceAssignedLetter:'Title index '+(item.assignedLetter||'#')),'eyebrow');const h=el('h3',item.title);const sub=el('p',item.summary||'Original named source record. Original body and completed-product status not established.');const st=el('div','Source status: '+item.stage,'stage');n.append(top,h,sub,st);
+ const apple=item.store.apple.primary,google=item.store.google.category,genre=item.store.apple.gameSubcategories.join(', ');
+ const meta=el('div',(apple?'Apple suggestion: '+apple:'Apple: unassigned')+' · '+(google?'Google suggestion: '+google:'Google: unassigned')+(genre?' · Game '+genre:'')+' · '+item.store.review,'meta');n.append(meta);
+ if(item.titleInitial&&item.titleInitial!==item.assignedLetter)n.append(el('div','Original source letter '+(item.sourceAssignedLetter||item.assignedLetter)+' / literal title initial '+item.titleInitial,'meta'));
+ n.append(el('div','Original catalog: '+item.sourceRegistry,'meta'));
+ const foot=el('div',undefined,'foot');const u=sourceLink(item);
+ if(u)foot.append(link('Open browser program',u));
+ const source=item.sourceRegistry;
+ if(/^(app-factory|archive-index|standalone-apps)\/[a-z0-9/._-]+$/i.test(source)&&source.endsWith('.json'))foot.append(link('Source catalog','../../'+source));
+ if(!u&&item.sourcePath&&/^[a-z0-9/._-]+$/i.test(item.sourcePath))foot.append(link('Original GitHub source','https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/'+item.sourcePath));
+ if(foot.childElementCount)n.append(foot);
+ return n;}
+function drawCards(){const frag=document.createDocumentFragment();for(const item of matched.slice(0,state.shown))frag.append(card(item));$('results').replaceChildren(frag);$('coverage').textContent=matched.length+' matching source occurrences · '+Math.min(state.shown,matched.length)+' shown · classifications provisional; duplicate source identities kept.';$('more').hidden=state.shown>=matched.length;}
+function draw(){if(!doc)return;drawLetters();origins();matched=filterDirectory(doc.entries,state);drawCards();}
+function reset(){state.letter='';state.letterMode='assigned';state.query='';state.kind='';state.apple='';state.google='';state.gameGenre='';state.stage='';state.sort='source';state.shown=40;for(const id of ['query','kind','apple','google','genre','stage','sort'])$(id).value='';$('letter-mode').value='assigned';$('sort').value='source';updateUrl();draw();}
+for(const [id,key] of [['letter-mode','letterMode'],['query','query'],['kind','kind'],['apple','apple'],['google','google'],['genre','gameGenre'],['stage','stage'],['sort','sort']])$(id).addEventListener(id==='query'?'input':'change',()=>{state[key]=$(id).value;state.shown=40;draw();});
+$('all-letters').addEventListener('click',()=>chooseLetter(''));$('reverse-letters').addEventListener('click',chooseOrder);$('reset').addEventListener('click',reset);$('more').addEventListener('click',()=>{state.shown+=40;drawCards()});
+try{const [d,t]=await Promise.all([fetch('./directory.json').then(r=>{if(!r.ok)throw Error('directory not found');return r.json()}),fetch('./store-taxonomy.json').then(r=>{if(!r.ok)throw Error('taxonomy not found');return r.json()})]);validateDirectory(d,t);doc=d;tax=t;
+ optionList('kind',kinds(doc.entries));optionList('apple',tax.apple.appCategories);optionList('google',[...tax.google.appCategories,...tax.google.gameCategories]);optionList('genre',tax.apple.gameSubcategories);
+ optionList('stage',[...new Set(doc.entries.map(x=>x.stage))].sort());
+ $('stats').replaceChildren(...[['26','Alphabet departments'],[doc.entryCount.toLocaleString(),'Source occurrences'],[String(doc.entries.filter(x=>x.kind==='standalone-app').length),'Standalone browser links'],[String(doc.entries.filter(x=>x.kind==='game-catalog').length),'Game catalog entries'],[String(doc.entries.filter(x=>x.kind==='authored-sequence').length),'Exact A–Z authored titles']].map(([n,label])=>{const box=el('div',undefined,'stat');box.append(el('strong',n),el('span',label));return box;}));draw();
+}catch(e){$('coverage').textContent='Could not open the public JSON index. Run from GitHub Pages or a local HTTP server. Originals have not changed.';}
+</script></body></html>
