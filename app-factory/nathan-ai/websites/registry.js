@@ -204,6 +204,13 @@ window.NathanAIWebsiteModules = [
     "status": "Owner-local original-source simulation preview"
   },
   {
+    "id": "nathan-ai/dehack-deliver/index.html",
+    "title": "DEHACK THE WORLD · DELIVER THE WORLD",
+    "url": "../../nathan-ai/dehack-deliver/index.html",
+    "group": "apps",
+    "status": "Public consumer A–Z source and review workbench"
+  },
+  {
     "id": "nathan-ai/sovereign-defender/index.html",
     "title": "SOVEREIGN DEFENDER — Virus & Ransomware Research",
     "url": "../../nathan-ai/sovereign-defender/index.html",

@@ -139,6 +139,16 @@
       "evidenceLevel": "source-reviewed-read-only-local-prototype",
       "evidencePath": "app-factory/nathan-ai/sovereign-defender/app.js",
       "ownerAction": "Keep private scans and hashes on a trusted device, use qualified incident response for real attacks and retain separate offline backups"
+    },
+    {
+      "id": "dehack-world",
+      "scope": "Local source-reading, claim-evidence review, translation differences, 104 A–Z original tool titles, non-destructive plain-language preview and arithmetic representation",
+      "inputs": "Optional owner-selected original source text file, typed passage, citations, and arithmetic input",
+      "deviceStorage": "Temporary page memory until refresh; only user-initiated JSON or original-file downloads; no persistent collection added by this module",
+      "remoteActivity": "Public HTML and JavaScript are fetched from site host; review inputs are not uploaded by the module; website host may keep ordinary request logs",
+      "evidenceLevel": "source-reviewed-browser-only-prototype",
+      "evidencePath": "app-factory/nathan-ai/dehack-deliver/app.js",
+      "ownerAction": "Use a trusted browser, keep the original source file, independently check citations, and do not mistake local worksheets for fully operational specialized software"
     }
   ]
 }

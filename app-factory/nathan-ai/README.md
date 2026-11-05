@@ -20,6 +20,10 @@ Open the [AI Accountability Archive](./ai-accountability/README.md), including t
 
 [Open the searchable Program Jobs workbench](./program-jobs/index.html) or read the [357-record source/evidence catalog and priority build plan](./program-jobs/README.md). The atlas classifies current software, historical 92-name recovery entries, original NT-1 modules, operation specifications and private archive leads by task, without inventing completed apps.
 
+## DEHACK THE WORLD · DELIVER THE WORLD — Consumer A–Z Truth and Source Tools
+
+[Open the additive Dehack/Deliver source-preserving consumer workbench](./dehack-deliver/index.html), including all 104 exact named A–Z entries from the author's 101-titled source, evidence review, transparent text comparison, plain-language preview, and the 1+1=2 / 1+1=10₂ representation bridge. This does not silently overwrite the 101 heading or claim complete specialized implementations.
+
 ## SOVEREIGN DEFENDER — viruses, ransomware, antivirus, hack and dehack
 
 [Open SOVEREIGN DEFENDER](./sovereign-defender/index.html) and its [seven-family development catalog](./sovereign-defender/family.json). This is an owner-authorized, source-preserving, passive review workbench (not deployed endpoint protection), with SHA-256 baseline verification and an inert ransomware exercise. It reuses the original Hall of Mirrors classifier without altering the creator's source.

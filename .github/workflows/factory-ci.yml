@@ -188,6 +188,8 @@ jobs:
         run: node --test app-factory/one/offloader/engine.test.cjs
       - name: Verify lean ONE private encrypted cloud backup, access and restore
         run: node --test app-factory/one/lean-cloud/server.test.cjs
+      - name: Verify Dehack/Deliver World exact 104-source titles, original import, real consumer utilities and mathematical representations
+        run: node --test app-factory/nathan-ai/dehack-deliver/engine.test.cjs
       - name: Verify Sovereign Defender antivirus-style triage, original integrity and inert ransomware simulations
         run: node --test app-factory/nathan-ai/sovereign-defender/engine.test.cjs app-factory/nathan-ai/sovereign-defender/audit.test.cjs app-factory/nathan-ai/sovereign-defender/browser.test.cjs
       - name: Verify recovered Hall of Mirrors and owner-selected passive inspector
