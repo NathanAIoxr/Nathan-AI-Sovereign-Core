@@ -40,12 +40,12 @@
   function clipped(text,limit) { return String(text == null ? "" : text).trim().slice(0,limit); }
   function buildRecord(input) {
     const record={
-      original:clipped(input.original,6000),
+      original:String(input.original == null ? "" : input.original).slice(0,6000),
       complication:clipped(input.complication,3000),
       root:clipped(input.root,3000),
       fix:clipped(input.fix,3000)
     };
-    if (!record.original) throw Error("Enter the original statement first.");
+    if (!record.original.trim()) throw Error("Enter the original statement first.");
     return record;
   }
   function getStages(record) {
