@@ -69,7 +69,7 @@
          "Direct fix entered by the reader:\n\n"+(r.fix||"[Enter the action that removes the root cause]"),
          "Keep the original. Remove the complication. Expose the root. Fix it.\n\nOriginal words:\n\n> "+r.original]
     };
-    return "# THE KINGS OF CLARITY · ROOT → CLEAR → BUILD\n\n## Volume "+v.number+": "+v.title+
+    return "# THE ROOT ISSUE SERIES · ROOT → CLEAR → BUILD\n\n## Volume "+v.number+": "+v.title+
       "\n\n**Nathan AI educational book-series draft**\n\n**Creator's original principle (verbatim):**\n\n> "+CANON+
       "\n\n"+v.chapters.map((c,i)=>"### Chapter "+(i+1)+": "+c+"\n\n"+texts[v.number][i]).join("\n\n")+
       "\n\n---\n\n*Source text and reader-generated interpretation remain separate. This is an editable short draft, not a completed published book.*\n";
