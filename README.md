@@ -16,6 +16,10 @@ This is the **PUBLIC**, browser-first coordination repository. It does **not** c
 
 The [Nathan AI AI-accountability archive](app-factory/nathan-ai/ai-accountability/README.md) preserves the original supplied Google AI / Trump press-conference exchange, repeated roleplay denials and reversals, the JD Vance comparison, and ChatGPT's own omitted-word correction log. The archive separates exact creator allegations from independently substantiated facts and analysis.
 
+## Program Jobs — source-backed full recovery workbench
+
+The [Nathan AI Program Jobs Atlas](app-factory/nathan-ai/program-jobs/README.md) organizes **357 source/evidence records** into twelve jobs, with individual task plans, five evidence gates, a local review dashboard, and an Ubuntu source-recovery matcher. These overlapping records are **not** 357 verified finished apps; original private archives remain separate.
+
 ## Public app and site duplicate consolidation
 
 The [Nathan AI consolidation register](app-factory/nathan-ai/websites/CONSOLIDATION_AUDIT.md) tracks canonical public page routes, duplicate website cards, the main hub's repeated shortcuts and required native app distribution copies. Public pages are indexed without erasing distinct books, character names, games or original source files.
