@@ -1,6 +1,6 @@
 (function(){
 'use strict';
-const E=window.NathanFiveMatrix,$=id=>document.getElementById(id),state={data:null,question:0,score:0,answered:false,ringIds:new Set(),matrix:'BODY',sourceLines:null,sourceShow:25,sourceQuery:''};
+const E=window.NathanFiveMatrix,$=id=>document.getElementById(id),state={data:null,question:0,score:0,answered:false,ringIds:new Set(),matrix:'BODY',sourceLines:null,sourceShow:25,sourceQuery:'',formulas:null};
 function make(tag,text,className){const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(className)el.className=className;return el;}
 function link(path,text){const el=make('a',text);el.href=path;el.target='_blank';el.rel='noopener noreferrer';return el;}
 function clear(el){el.replaceChildren();}
@@ -102,6 +102,33 @@ function drawRings(){
  const info=E.ringState(state.data.rings,state.ringIds);$('ring-status').textContent=info.selected+' / '+info.total+' placements · '+info.hand+' hands/fingers/thumbs · '+info.bracelets+' bracelets'+(info.complete?' · Composition complete. Symbolic only.':'');
 }
 const srcPaths={"SRC-001":"2026-11-04-middle-earth-narnia-five-matrix-conversation-original.txt","SRC-002":"2026-11-04-rings-gates-conversation-original.txt"};
+
+function showFormulas(){
+ const out=$('formula-results');clear(out);
+ if(!state.formulas)return;
+ const q=E.normalized($('formula-query').value),layer=$('formula-layer').value;
+ const rows=state.formulas.filter(f=>(!layer||f.layer===layer)&&(!q||E.normalized([f.name,f.source,f.status,f.limits,f.implementation].join(' ')).includes(q)));
+ for(const f of rows){
+ const c=make('article',undefined,'card');
+ c.append(make('div','FORMULA '+String(f.index).padStart(2,'0')+' · '+f.layer,'meta'),make('h3',f.name),make('div',f.status,'class'));
+ const expression=make('pre',f.source,'formula-expression');c.append(expression);
+ c.append(make('p','Interpretation / limits: '+f.limits,'muted'),make('p','Implementation: '+f.implementation,'muted'));
+ out.append(c);
+ }
+ $('formula-status').textContent=rows.length+' formula records shown out of '+state.formulas.length+'. Expressions are source-retained; status and limitations are derived technical notes.';
+}
+async function loadFormulas(){
+ if(state.formulas){showFormulas();return;}
+ $('formula-status').textContent='Loading original-expression records…';
+ try{
+ const r=await fetch('../../../../one/five-matrix-atlas/data/formulas_15_derived.json',{cache:'no-store'});
+ if(!r.ok)throw Error('Formula registry was not deployed.');
+ const data=await r.json();
+ if(!Array.isArray(data.formulas)||data.formulas.length!==15||data.formulas.some(f=>typeof f.source!=='string'||typeof f.name!=='string'))throw Error('Invalid formula registry');
+ state.formulas=data.formulas;showFormulas();
+ }catch(e){$('formula-status').textContent='Could not load formula records: '+e.message;}
+}
+
 function showSources(){
  const q=E.normalized($('source-query').value),src=$('source-filter').value,out=$('source-results');clear(out);
  if(!state.sourceLines)return;
@@ -152,6 +179,9 @@ async function init(){
  $('ring-all').addEventListener('click',()=>{state.ringIds=new Set(state.data.rings.map(x=>x.id));drawRings();});
  $('ring-clear').addEventListener('click',()=>{state.ringIds.clear();drawRings();});
  $('ring-export').addEventListener('click',()=>download('five-matrix-twelve-rings.json',JSON.stringify({schema:'nathan.five-matrix.wearable-symbols.v1',placements:state.data.rings.filter(x=>state.ringIds.has(x.id)),disclaimer:'Symbolic placement only'},null,2),'application/json'));
+ $('formula-load').addEventListener('click',loadFormulas);
+ $('formula-layer').addEventListener('change',showFormulas);
+ $('formula-query').addEventListener('input',showFormulas);
  $('source-load').addEventListener('click',loadSources);$('source-query').addEventListener('input',()=>{state.sourceShow=25;showSources();});
  $('source-filter').addEventListener('change',()=>{state.sourceShow=25;showSources();});
  $('source-more').addEventListener('click',()=>{state.sourceShow+=25;showSources();});
