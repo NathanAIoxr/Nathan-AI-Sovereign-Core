@@ -1,0 +1,25 @@
+name: Nathan Tabor Five-Matrix Print Shop
+on:
+  push:
+    branches:
+      - main
+      - build/nathan-tabor-five-matrix-print-shop-2026-11-05
+    paths:
+      - 'app-factory/nathan-ai/3d-print-shop/**'
+      - '.github/workflows/nathan-five-matrix.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/3d-print-shop/**'
+      - '.github/workflows/nathan-five-matrix.yml'
+permissions:
+  contents: read
+jobs:
+  five-matrix-simulation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify five independent nodes, safe no-I/O simulation and convergence
+        run: node --test app-factory/nathan-ai/3d-print-shop/engine.test.cjs
