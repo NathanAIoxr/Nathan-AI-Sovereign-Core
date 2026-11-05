@@ -1,0 +1,228 @@
+{
+  "schema_version": "1.0.0",
+  "letter": "A",
+  "status": "source-linked registry plus explicitly marked analytical transformations",
+  "last_compiled": "2026-11-05",
+  "canonical_user_authored_A_titles": [
+    {
+      "source": "Perfect sequential A–Z",
+      "exact_original_title": "the Abigail Accords of Xcellence"
+    },
+    {
+      "source": "Atomic and quantum A–Z",
+      "exact_original_title": "The Atom Accords of X-rays"
+    },
+    {
+      "source": "Nativity / KJV A–Z",
+      "exact_original_title": "The Augustus Accords of Xcellence-decreed"
+    },
+    {
+      "source": "Christmas holiday sequence",
+      "exact_original_title": "Amazing Angels"
+    },
+    {
+      "source": "Sacred Alphabet",
+      "exact_original_title": "Anointed Arkbearers"
+    }
+  ],
+  "rules": [
+    {
+      "id": "A-case",
+      "kind": "mechanical",
+      "operation": "case variants",
+      "examples": [
+        "A",
+        "a"
+      ],
+      "note": "Case is recorded separately; never overwrite exact original."
+    },
+    {
+      "id": "A-diacritic",
+      "kind": "orthographic",
+      "operation": "Latin A variants",
+      "examples": [
+        "A",
+        "a",
+        "À",
+        "Á",
+        "Â",
+        "Ã",
+        "Ä",
+        "Å",
+        "Ā",
+        "Ă",
+        "Ą",
+        "Ǎ",
+        "Ȁ",
+        "Ȃ",
+        "Ạ",
+        "Ả",
+        "Ấ",
+        "Ầ",
+        "Ẩ",
+        "Ẫ",
+        "Ậ",
+        "Ắ",
+        "Ằ",
+        "Ẳ",
+        "Ẵ",
+        "Ặ"
+      ],
+      "note": "Some are distinct letters in their languages; not interchangeable as meaning."
+    },
+    {
+      "id": "A-ligature",
+      "kind": "orthographic",
+      "operation": "Latin ligatures and letter sequences",
+      "examples": [
+        "Æ",
+        "æ",
+        "Ǣ",
+        "ǣ",
+        "Ǽ",
+        "ǽ",
+        "AE",
+        "ae"
+      ],
+      "note": "Ligatures have language-specific status; AE is not automatically equivalent."
+    },
+    {
+      "id": "A-other-scripts",
+      "kind": "comparative",
+      "operation": "distinct writing systems",
+      "examples": [
+        "Α (Greek capital alpha)",
+        "α (Greek small alpha)",
+        "А (Cyrillic capital A)",
+        "а (Cyrillic small a)",
+        "א (Hebrew aleph)",
+        "ا (Arabic alif)",
+        "𐤀 (Phoenician aleph)"
+      ],
+      "note": "Comparative sound, glyph, or alphabet-history leads, not literal identity or proven historical derivations."
+    },
+    {
+      "id": "A-visual",
+      "kind": "visual research",
+      "operation": "mirrors / rotation / shape families",
+      "examples": [
+        "A",
+        "∀",
+        "ɐ",
+        "ɑ",
+        "ɒ",
+        "Λ",
+        "Δ",
+        "4"
+      ],
+      "note": "Shapes are not automatically the same Unicode character, phoneme, historical sign, or numeric value."
+    },
+    {
+      "id": "A-vocal",
+      "kind": "phonetic research",
+      "operation": "spoken and user sound-spelling rails",
+      "examples": [
+        "A",
+        "AY",
+        "AH",
+        "AE",
+        "AI",
+        "AA",
+        "AAA",
+        "AARGH",
+        "/æ/",
+        "/eɪ/",
+        "/ɑ/",
+        "/ə/"
+      ],
+      "note": "Context-dependent phonetics. Prior source uses a→æ and ai→eɪ; others are comparative seeds, not fixed rules."
+    },
+    {
+      "id": "A-index",
+      "kind": "cipher reference",
+      "operation": "A1Z26 / Atbash / ASCII",
+      "examples": [
+        "A=1 (A1Z26)",
+        "A→Z (Atbash)",
+        "A=01000001 (ASCII 8-bit)",
+        "a=01100001 (ASCII 8-bit)"
+      ],
+      "source_ids": [
+        "CIPHER:EX007-0034",
+        "CIPHER:EX007-0041",
+        "CIPHER:EX008-0034"
+      ],
+      "note": "These are named encoding schemes; not assertions about natural language meaning."
+    },
+    {
+      "id": "A-reverse",
+      "kind": "string transform",
+      "operation": "Unicode code point reversal (derived)",
+      "examples": [
+        "A↔A",
+        "AR↔RA",
+        "ABLE↔ELBA",
+        "ACT↔TCA",
+        "AARGH↔HGRAA"
+      ],
+      "source_ids": [
+        "CIPHER:EX007-0007"
+      ],
+      "note": "Pure textual reversal; no historical derivation implied."
+    },
+    {
+      "id": "A-author-reversals",
+      "kind": "user-authored source reference",
+      "operation": "preserved phrase chains",
+      "examples": [
+        "RA ↔ AR",
+        "AARGH",
+        "AAR-001 → ALL AUTHORITY REVERSAL PROTOCOL",
+        "Ankh-Æ",
+        "AnkhBabelDissolver",
+        "huked on faonics"
+      ],
+      "source_ids": [
+        "CIPHER:EX007-0028",
+        "CIPHER:EX007-0030"
+      ],
+      "note": "Do not merge independent project records; chains are recorded as authored concepts."
+    },
+    {
+      "id": "A-system-stems",
+      "kind": "repository cross-reference",
+      "operation": "A-starting projects and operational terms",
+      "examples": [
+        "Absolute Intelligence",
+        "ACT",
+        "Acronym Navigator",
+        "ACRO Human Language Engine",
+        "Alphabet Soup Registry",
+        "Anatomy",
+        "Appearance",
+        "Activation",
+        "Architecture 63",
+        "Assistant",
+        "Ancient Roots",
+        "Atbash",
+        "Aether Cipher",
+        "AutoGenesis",
+        "Arrowhead Tree",
+        "AURA",
+        "AXIOM GAZE",
+        "ATNAS Christmas Universe",
+        "AM I LYING"
+      ],
+      "note": "Exact project stages vary; inspect records and actual files before calling any project completed."
+    }
+  ],
+  "transform_policy": {
+    "preserve_exact_original": true,
+    "keep_transforms_in_separate_derived_fields": true,
+    "do_not_infer_etymology_from_reversal": true,
+    "do_not_overwrite_original_language": true,
+    "distinguish_characters_from_apps": true,
+    "do_not_equate_a_glyph_with_a_sound": true,
+    "only_private_safe_metadata_public": true
+  }
+}
