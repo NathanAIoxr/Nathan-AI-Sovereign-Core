@@ -1,0 +1,37 @@
+name: Nathan AI Primordial Word Family CI
+on:
+  pull_request:
+    paths:
+      - "app-factory/nathan-ai/primordial-lexicon/**"
+      - "app-factory/nathan-ai/index.html"
+      - "app-factory/nathan-ai/completion-engine/**"
+      - "app-factory/mythology/ancient-roots/index.html"
+      - "app-factory/nathan-ai/offline-assets.json"
+      - "app-factory/nathan-ai/sw.js"
+      - ".github/workflows/primordial-lexicon-ci.yml"
+  push:
+    branches:
+      - "feat/primordial-primortal-word-family-*"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-lock-and-graph:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate lexical engine and interface syntax
+        run: |
+          node --check app-factory/nathan-ai/primordial-lexicon/engine.js
+          node --check app-factory/nathan-ai/primordial-lexicon/app.js
+          node --check app-factory/nathan-ai/primordial-lexicon/engine.test.cjs
+      - name: Verify exact author sequence, graph provenance and resilience audit
+        run: node --test app-factory/nathan-ai/primordial-lexicon/engine.test.cjs
+      - name: Verify source-locked project completion behavior
+        run: node --test app-factory/nathan-ai/completion-engine/engine.test.cjs
+      - name: Validate offline assets
+        run: |
+          node -e "const fs=require('fs'),path=require('path');const files=JSON.parse(fs.readFileSync('app-factory/nathan-ai/offline-assets.json','utf8'));for(const x of ['primordial-lexicon/index.html','primordial-lexicon/engine.js','primordial-lexicon/app.js','primordial-lexicon/style.css','primordial-lexicon/source-sequence.json','primordial-lexicon/resilience-source-audit.json']){if(!files.includes(x)||!fs.existsSync(path.join('app-factory/nathan-ai',x)))process.exit(1)}"
