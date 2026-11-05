@@ -197,6 +197,13 @@ window.NathanAIWebsiteModules = [
     "status": "Public browser module"
   },
   {
+    "id": "nathan-ai/deep-rock/index.html",
+    "title": "TABOR ROOT · Deep Rock & The Ways",
+    "url": "../../nathan-ai/deep-rock/index.html",
+    "group": "apps",
+    "status": "Owner-local original-source simulation preview"
+  },
+  {
     "id": "nathan-ai/consumer/index.html",
     "title": "Nathan AI Consumer Editions",
     "url": "../../nathan-ai/consumer/index.html",
