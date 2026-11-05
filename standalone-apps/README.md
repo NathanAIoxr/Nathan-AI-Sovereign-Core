@@ -39,3 +39,9 @@ Expected public Pages address after successful deployment:
 \`https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/standalone-apps/\`.
 
 **Creator policy: BUILD · CLEAR · PRESERVE THE ORIGINAL · YES IS YES — NO IS NO.**
+
+## Apple & Google Play category browser (November 5, 2026)
+
+The standalone root index is now an interactive, source-preserving category directory with Apple and Google views, game genres, keyword search, proposed secondary categories and independent-edition links. Its editorial data is separate in `store-taxonomy.json` and its evidence/reconciliation notes are in `STORE_CATEGORIES.md`. The 139 original standalone launch addresses, `catalog.json`, and original program engines remain unchanged. The 11 four-format edition variants and 5 additional existing Capability Atlas-reviewed public pages are distinguished from the 139 rather than counted as newly completed products. The original `app-factory/nathan-ai/capability-atlas/store.html` and its earlier 67-category review data remain intact. No real Apple/Google submission has occurred.
+
+Run `node --test standalone-apps/store-taxonomy.test.cjs` to verify coverage and source integrity.

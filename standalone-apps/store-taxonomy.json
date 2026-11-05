@@ -1,0 +1,5155 @@
+{
+  "schema": "nathan-ai.app-store-taxonomy.v1",
+  "updatedOn": "2026-11-05",
+  "authority": {
+    "apple": "https://developer.apple.com/app-store/categories/",
+    "google": "https://support.google.com/googleplay/android-developer/answer/9859673?hl=en"
+  },
+  "note": "Editorial discovery proposals for published standalone routes and edition variants, reconciled with prior Capability Atlas proposals. Prior conflicts are retained as evidence requiring product review. Not store submissions. Suggested keywords are not verified Play Console selectable tags.",
+  "sourceCatalog": "standalone-apps/catalog.json",
+  "sourceSnapshotCommit": "12fbab7282f6b28f67f58d19d164042367ac5d80",
+  "originalSourcesRemainUnmodified": true,
+  "categories": {
+    "appleApps": [
+      "Books",
+      "Business",
+      "Developer Tools",
+      "Education",
+      "Entertainment",
+      "Finance",
+      "Food & Drink",
+      "Games",
+      "Graphics & Design",
+      "Health & Fitness",
+      "Lifestyle",
+      "Magazines & Newspapers",
+      "Medical",
+      "Music",
+      "Navigation",
+      "News",
+      "Photo & Video",
+      "Productivity",
+      "Reference",
+      "Shopping",
+      "Social Networking",
+      "Sports",
+      "Travel",
+      "Utilities",
+      "Weather"
+    ],
+    "appleGameGenres": [
+      "Action",
+      "Adventure",
+      "Board",
+      "Card",
+      "Casino",
+      "Casual",
+      "Family",
+      "Music",
+      "Puzzle",
+      "Racing",
+      "Role Playing",
+      "Simulation",
+      "Sports",
+      "Strategy",
+      "Trivia",
+      "Word"
+    ],
+    "googleApps": [
+      "Art and Design",
+      "Auto and Vehicles",
+      "Beauty",
+      "Books and Reference",
+      "Business",
+      "Comics",
+      "Communications",
+      "Dating",
+      "Education",
+      "Entertainment",
+      "Events",
+      "Finance",
+      "Food and Drink",
+      "Health and Fitness",
+      "House and Home",
+      "Libraries and Demo",
+      "Lifestyle",
+      "Maps and Navigation",
+      "Medical",
+      "Music and Audio",
+      "News and Magazines",
+      "Parenting",
+      "Personalization",
+      "Photography",
+      "Productivity",
+      "Shopping",
+      "Social",
+      "Sports",
+      "Tools",
+      "Travel and Local",
+      "Video Players and Editors",
+      "Weather"
+    ],
+    "googleGameGenres": [
+      "Action",
+      "Adventure",
+      "Arcade",
+      "Board",
+      "Card",
+      "Casino",
+      "Casual",
+      "Educational",
+      "Music",
+      "Puzzle",
+      "Racing",
+      "Role Playing",
+      "Simulation",
+      "Sports",
+      "Strategy",
+      "Trivia",
+      "Word"
+    ]
+  },
+  "counts": {
+    "distinctStandaloneRoutes": 139,
+    "independentEditionVariants": 11,
+    "independentSiteStudiosAlreadyInSourceRoutes": 9,
+    "unrecoveredProgramJobsAreNotCounted": true,
+    "additionalCapabilityAtlasReviewedSources": 5,
+    "priorCapabilityAtlasMatchedRoutes": 62,
+    "priorProposalConflictsToReview": 29
+  },
+  "records": [
+    {
+      "catalogId": "web:build-order/index.html",
+      "sourcePath": "app-factory/build-order/index.html",
+      "title": "Build Order",
+      "route": "standalone-apps/app-factory/build-order/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:core/audience-review.html",
+      "sourcePath": "app-factory/core/audience-review.html",
+      "title": "Core · Audience Review",
+      "route": "standalone-apps/app-factory/core/audience-review/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Business",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Business",
+        "suggestedTags": [
+          "business",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:creative/dummie/index.html",
+      "sourcePath": "app-factory/creative/dummie/index.html",
+      "title": "D.U.M.M.I.E.™",
+      "route": "standalone-apps/app-factory/creative/dummie/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": "Education",
+        "gameGenres": [
+          "Puzzle",
+          "Trivia"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Educational",
+        "suggestedTags": [
+          "educational",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:creative/music/better-together/index.html",
+      "sourcePath": "app-factory/creative/music/better-together/index.html",
+      "title": "Creative · Music · Better Together",
+      "route": "standalone-apps/app-factory/creative/music/better-together/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "creative",
+      "apple": {
+        "primary": "Music",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Music and Audio",
+        "suggestedTags": [
+          "music and audio",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:dummie-publisher/index.html",
+      "sourcePath": "app-factory/dummie-publisher/index.html",
+      "title": "DUMMIE Publisher",
+      "route": "standalone-apps/app-factory/dummie-publisher/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "creative",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "books",
+          "reading",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Productivity",
+        "appleSecondary": "Books",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Productivity",
+        "capabilities": [
+          "create",
+          "transform",
+          "present"
+        ],
+        "rationale": "Writing and publishing workflow"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:ecosystem.html",
+      "sourcePath": "app-factory/ecosystem.html",
+      "title": "The Tabor Ecosystem",
+      "route": "standalone-apps/app-factory/ecosystem/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:game-reference-lab/all-morning.html",
+      "sourcePath": "app-factory/game-reference-lab/all-morning.html",
+      "title": "Game Reference Lab · All Morning",
+      "route": "standalone-apps/app-factory/game-reference-lab/all-morning/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Education",
+        "suggestedTags": [
+          "education",
+          "games",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:game-reference-lab/index.html",
+      "sourcePath": "app-factory/game-reference-lab/index.html",
+      "title": "Game Reference Lab",
+      "route": "standalone-apps/app-factory/game-reference-lab/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Education",
+        "suggestedTags": [
+          "education",
+          "games",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Games",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "retrieve",
+          "recognize",
+          "evaluate"
+        ],
+        "rationale": "Game research/reference lab; not a standalone game"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:game-reference-lab/zero-void-lab.html",
+      "sourcePath": "app-factory/game-reference-lab/zero-void-lab.html",
+      "title": "ZERO & VOID LAB",
+      "route": "standalone-apps/app-factory/game-reference-lab/zero-void-lab/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Puzzle"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Puzzle",
+        "suggestedTags": [
+          "puzzle",
+          "games",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:games/blackjack-life/index.html",
+      "sourcePath": "app-factory/games/blackjack-life/index.html",
+      "title": "BLACKJACK!!! — The Game of LIFE",
+      "route": "standalone-apps/app-factory/games/blackjack-life/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Card"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Card",
+        "suggestedTags": [
+          "card",
+          "games",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Games",
+        "appleSecondary": "Entertainment",
+        "appleGenre": "Card",
+        "googleType": "game",
+        "googleCategory": "Card",
+        "capabilities": [
+          "decide",
+          "present",
+          "evaluate"
+        ],
+        "rationale": "Card game; casino and age-rating rules need separate assessment"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:games/crowning-jewel.html",
+      "sourcePath": "app-factory/games/crowning-jewel.html",
+      "title": "1420 — The Crowning Jewel",
+      "route": "standalone-apps/app-factory/games/crowning-jewel/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Strategy"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Strategy",
+        "suggestedTags": [
+          "strategy",
+          "games",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:games/paradox-118/index.html",
+      "sourcePath": "app-factory/games/paradox-118/index.html",
+      "title": "THE 118 LINE — Great Parade of Paradoxes",
+      "route": "standalone-apps/app-factory/games/paradox-118/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": "Education",
+        "gameGenres": [
+          "Trivia"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Trivia",
+        "suggestedTags": [
+          "trivia",
+          "games",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Games",
+        "appleSecondary": "Education",
+        "appleGenre": "Puzzle",
+        "googleType": "game",
+        "googleCategory": "Puzzle",
+        "capabilities": [
+          "decide",
+          "evaluate",
+          "present"
+        ],
+        "rationale": "Game/puzzle collection; classification proposed"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:historical-sports/index.html",
+      "sourcePath": "app-factory/historical-sports/index.html",
+      "title": "Historical Sports",
+      "route": "standalone-apps/app-factory/historical-sports/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Sports"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Sports",
+        "suggestedTags": [
+          "sports",
+          "historical records",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Sports",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Sports",
+        "capabilities": [
+          "retrieve",
+          "remember",
+          "evaluate"
+        ],
+        "rationale": "Historical sports records and research"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:icarus-baseball/index.html",
+      "sourcePath": "app-factory/icarus-baseball/index.html",
+      "title": "Icarus Baseball",
+      "route": "standalone-apps/app-factory/icarus-baseball/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Sports",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Sports",
+        "suggestedTags": [
+          "sports",
+          "historical records",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Sports",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Sports",
+        "capabilities": [
+          "retrieve",
+          "evaluate",
+          "remember"
+        ],
+        "rationale": "Historical baseball player database; sourced coverage limits"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:index.html",
+      "sourcePath": "app-factory/index.html",
+      "title": "TABOR 1-2-3 FACTORY",
+      "route": "standalone-apps/app-factory/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Libraries and Demo",
+        "suggestedTags": [
+          "libraries and demo",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:middle-c/index.html",
+      "sourcePath": "app-factory/middle-c/index.html",
+      "title": "THE MIDDLE C — Axis of Infinity",
+      "route": "standalone-apps/app-factory/middle-c/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Music"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Music",
+        "suggestedTags": [
+          "music",
+          "games",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Music",
+        "appleSecondary": "Education",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Music and Audio",
+        "capabilities": [
+          "present",
+          "interpret",
+          "create"
+        ],
+        "rationale": "Music-themed learning and original concept"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:mythology/ancient-roots/index.html",
+      "sourcePath": "app-factory/mythology/ancient-roots/index.html",
+      "title": "Mythology · Ancient Roots",
+      "route": "standalone-apps/app-factory/mythology/ancient-roots/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:mythology/greek/index.html",
+      "sourcePath": "app-factory/mythology/greek/index.html",
+      "title": "Mythology · Greek",
+      "route": "standalone-apps/app-factory/mythology/greek/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:mythology/knave/index.html",
+      "sourcePath": "app-factory/mythology/knave/index.html",
+      "title": "Mythology · Knave",
+      "route": "standalone-apps/app-factory/mythology/knave/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:nathan-ai/absolute-intelligence/index.html",
+      "sourcePath": "app-factory/nathan-ai/absolute-intelligence/index.html",
+      "title": "Absolute Intelligence",
+      "route": "standalone-apps/app-factory/nathan-ai/absolute-intelligence/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Education",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "retrieve",
+          "interpret",
+          "connect"
+        ],
+        "rationale": "Foundational authored topic reference index"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/activation/index.html",
+      "sourcePath": "app-factory/nathan-ai/activation/index.html",
+      "title": "Activation",
+      "route": "standalone-apps/app-factory/nathan-ai/activation/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Lifestyle",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Lifestyle",
+        "suggestedTags": [
+          "lifestyle",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Education",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Education",
+        "capabilities": [
+          "interpret",
+          "present",
+          "sequence"
+        ],
+        "rationale": "Formula of Life illustrative narrative/model"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:nathan-ai/ai-mapping/index.html",
+      "sourcePath": "app-factory/nathan-ai/ai-mapping/index.html",
+      "title": "Ai Mapping",
+      "route": "standalone-apps/app-factory/nathan-ai/ai-mapping/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "navigation",
+          "mapping",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:nathan-ai/anatomy/index.html",
+      "sourcePath": "app-factory/nathan-ai/anatomy/index.html",
+      "title": "Anatomy",
+      "route": "standalone-apps/app-factory/nathan-ai/anatomy/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Education",
+        "suggestedTags": [
+          "education",
+          "personal records",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Education",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Education",
+        "capabilities": [
+          "retrieve",
+          "interpret",
+          "present"
+        ],
+        "rationale": "Anatomical reference and alphabet education"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/appearance/index.html",
+      "sourcePath": "app-factory/nathan-ai/appearance/index.html",
+      "title": "Appearance Studio",
+      "route": "standalone-apps/app-factory/nathan-ai/appearance/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Graphics & Design",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Art and Design",
+        "suggestedTags": [
+          "art and design",
+          "creative design",
+          "editing",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Utilities",
+        "appleSecondary": "Graphics & Design",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Personalization",
+        "capabilities": [
+          "present",
+          "adapt",
+          "protect"
+        ],
+        "rationale": "Shared skins, typography and reading preferences"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:nathan-ai/architecture-63/index.html",
+      "sourcePath": "app-factory/nathan-ai/architecture-63/index.html",
+      "title": "Architecture 63",
+      "route": "standalone-apps/app-factory/nathan-ai/architecture-63/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Libraries and Demo",
+        "suggestedTags": [
+          "libraries and demo",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Developer Tools",
+        "appleSecondary": "Education",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Libraries and Demo",
+        "capabilities": [
+          "retrieve",
+          "evaluate",
+          "present"
+        ],
+        "rationale": "Architectural design and educational reference"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/assistant/index.html",
+      "sourcePath": "app-factory/nathan-ai/assistant/index.html",
+      "title": "Nathan AI Assistant",
+      "route": "standalone-apps/app-factory/nathan-ai/assistant/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "developer tools",
+          "simulation",
+          "interactive tools",
+          "assistant"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Productivity",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "receive",
+          "retrieve",
+          "evaluate",
+          "communicate"
+        ],
+        "rationale": "Source-grounded research and optional drafts"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:nathan-ai/build-recovery/index.html",
+      "sourcePath": "app-factory/nathan-ai/build-recovery/index.html",
+      "title": "Build Recovery",
+      "route": "standalone-apps/app-factory/nathan-ai/build-recovery/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Developer Tools",
+        "appleSecondary": "Utilities",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Tools",
+        "capabilities": [
+          "restore",
+          "evaluate",
+          "retrieve"
+        ],
+        "rationale": "Build/source recovery references"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/program-jobs/index.html",
+      "sourcePath": "app-factory/nathan-ai/program-jobs/index.html",
+      "title": "Program Jobs & Completion Atlas",
+      "route": "standalone-apps/app-factory/nathan-ai/program-jobs/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Productivity",
+        "appleSecondary": "Business",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Productivity",
+        "capabilities": [
+          "remember",
+          "sequence",
+          "evaluate"
+        ],
+        "rationale": "Work status and completion tracking"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:nathan-ai/deep-rock/index.html",
+      "sourcePath": "app-factory/nathan-ai/deep-rock/index.html",
+      "title": "TABOR ROOT · Deep Rock & The Ways",
+      "route": "standalone-apps/app-factory/nathan-ai/deep-rock/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Owner-local original-source simulation preview"
+    },
+    {
+      "catalogId": "web:nathan-ai/dehack-deliver/index.html",
+      "sourcePath": "app-factory/nathan-ai/dehack-deliver/index.html",
+      "title": "DEHACK THE WORLD · DELIVER THE WORLD",
+      "route": "standalone-apps/app-factory/nathan-ai/dehack-deliver/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Education",
+        "suggestedTags": [
+          "education",
+          "security research",
+          "source review",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public consumer A–Z source and review workbench"
+    },
+    {
+      "catalogId": "web:nathan-ai/sovereign-defender/index.html",
+      "sourcePath": "app-factory/nathan-ai/sovereign-defender/index.html",
+      "title": "SOVEREIGN DEFENDER — Virus & Ransomware Research",
+      "route": "standalone-apps/app-factory/nathan-ai/sovereign-defender/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Utilities",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "security research",
+          "source review",
+          "research",
+          "source catalog"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Owner-local read-only security research preview",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Utilities",
+        "appleSecondary": "Developer Tools",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Tools",
+        "capabilities": [
+          "protect",
+          "evaluate",
+          "restore"
+        ],
+        "rationale": "Read-only file integrity and inert security exercises; not antivirus protection"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/consumer/index.html",
+      "sourcePath": "app-factory/nathan-ai/consumer/index.html",
+      "title": "Nathan AI Consumer Editions",
+      "route": "standalone-apps/app-factory/nathan-ai/consumer/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser source-preview directory",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Productivity",
+        "appleSecondary": "Lifestyle",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Productivity",
+        "capabilities": [
+          "retrieve",
+          "present",
+          "connect"
+        ],
+        "rationale": "Consumer editions overview, not a store package"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:nathan-ai/children-innocence/index.html",
+      "sourcePath": "app-factory/nathan-ai/children-innocence/index.html",
+      "title": "Children’s Library & Innocence",
+      "route": "standalone-apps/app-factory/nathan-ai/children-innocence/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "books",
+          "reading",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Books",
+        "appleSecondary": "Education",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "retrieve",
+          "present",
+          "interpret"
+        ],
+        "rationale": "Children's book and original-content archive; kids compliance not assumed"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/command-center/index.html",
+      "sourcePath": "app-factory/nathan-ai/command-center/index.html",
+      "title": "Work & Assets Command Center",
+      "route": "standalone-apps/app-factory/nathan-ai/command-center/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Business",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Business",
+        "suggestedTags": [
+          "business",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Business",
+        "appleSecondary": "Productivity",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Productivity",
+        "capabilities": [
+          "remember",
+          "sequence",
+          "evaluate",
+          "connect"
+        ],
+        "rationale": "Projects/tasks plus local public wallet records; not actual banking"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:nathan-ai/deep-archive/index.html",
+      "sourcePath": "app-factory/nathan-ai/deep-archive/index.html",
+      "title": "Deep Archive",
+      "route": "standalone-apps/app-factory/nathan-ai/deep-archive/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "backup",
+          "originals",
+          "archive",
+          "developer tools"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Books",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "remember",
+          "retrieve"
+        ],
+        "rationale": "Research and archival access"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/eyeprints-handprints/index.html",
+      "sourcePath": "app-factory/nathan-ai/eyeprints-handprints/index.html",
+      "title": "Eyeprints Handprints",
+      "route": "standalone-apps/app-factory/nathan-ai/eyeprints-handprints/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "personal records",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Photo & Video",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "receive",
+          "remember",
+          "retrieve",
+          "present"
+        ],
+        "rationale": "Local personal image documentation; not medical or biometric device"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/family-research/index.html",
+      "sourcePath": "app-factory/nathan-ai/family-research/index.html",
+      "title": "Tabor Family & Redstone",
+      "route": "standalone-apps/app-factory/nathan-ai/family-research/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Education",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "receive",
+          "retrieve",
+          "remember",
+          "evaluate"
+        ],
+        "rationale": "Sourced family and historical research navigator"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/fifty-three-year/index.html",
+      "sourcePath": "app-factory/nathan-ai/fifty-three-year/index.html",
+      "title": "Fifty Three Year",
+      "route": "standalone-apps/app-factory/nathan-ai/fifty-three-year/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:nathan-ai/flyer-studio/index.html",
+      "sourcePath": "app-factory/nathan-ai/flyer-studio/index.html",
+      "title": "Flyer Studio",
+      "route": "standalone-apps/app-factory/nathan-ai/flyer-studio/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Graphics & Design",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Art and Design",
+        "suggestedTags": [
+          "art and design",
+          "creative design",
+          "editing",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Graphics & Design",
+        "appleSecondary": "Productivity",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Art and Design",
+        "capabilities": [
+          "create",
+          "present",
+          "transform"
+        ],
+        "rationale": "Local vector flyer editing and export"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/games/index.html",
+      "sourcePath": "app-factory/nathan-ai/games/index.html",
+      "title": "Games & Puzzles Atlas",
+      "route": "standalone-apps/app-factory/nathan-ai/games/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "games",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Entertainment",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "retrieve",
+          "connect",
+          "present"
+        ],
+        "rationale": "Directory of games and prototypes, not itself a completed game"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/index.html",
+      "sourcePath": "app-factory/nathan-ai/index.html",
+      "title": "Nathan AI Main Hub",
+      "route": "standalone-apps/app-factory/nathan-ai/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Productivity",
+        "appleSecondary": "Utilities",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Productivity",
+        "capabilities": [
+          "connect",
+          "retrieve",
+          "present"
+        ],
+        "rationale": "Unified launcher and workspace; multiple distinct apps remain separately classified"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/innocence-matrix/index.html",
+      "sourcePath": "app-factory/nathan-ai/innocence-matrix/index.html",
+      "title": "Innocence Matrix",
+      "route": "standalone-apps/app-factory/nathan-ai/innocence-matrix/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Lifestyle",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Lifestyle",
+        "suggestedTags": [
+          "lifestyle",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:nathan-ai/mind-neuropath/index.html",
+      "sourcePath": "app-factory/nathan-ai/mind-neuropath/index.html",
+      "title": "Battle of the Wits — Mind & Neuropath",
+      "route": "standalone-apps/app-factory/nathan-ai/mind-neuropath/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Strategy"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Strategy",
+        "suggestedTags": [
+          "strategy",
+          "personal records",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Education",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Education",
+        "capabilities": [
+          "recognize",
+          "retrieve",
+          "interpret"
+        ],
+        "rationale": "Cross-reference and small deterministic learning prompts"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:nathan-ai/node-runtime/index.html",
+      "sourcePath": "app-factory/nathan-ai/node-runtime/index.html",
+      "title": "Node Runtime",
+      "route": "standalone-apps/app-factory/nathan-ai/node-runtime/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Libraries and Demo",
+        "suggestedTags": [
+          "libraries and demo",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Developer Tools",
+        "appleSecondary": "Utilities",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Libraries and Demo",
+        "capabilities": [
+          "execute",
+          "protect",
+          "measure"
+        ],
+        "rationale": "Bounded local worker checksum tasks; not autonomous agents"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/omni-god/index.html",
+      "sourcePath": "app-factory/nathan-ai/omni-god/index.html",
+      "title": "OMNI GOD — Binary Core",
+      "route": "standalone-apps/app-factory/nathan-ai/omni-god/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:nathan-ai/operations/index.html",
+      "sourcePath": "app-factory/nathan-ai/operations/index.html",
+      "title": "Operations",
+      "route": "standalone-apps/app-factory/nathan-ai/operations/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Business",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Business",
+        "suggestedTags": [
+          "business",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:nathan-ai/phi-life/index.html",
+      "sourcePath": "app-factory/nathan-ai/phi-life/index.html",
+      "title": "Phi Life",
+      "route": "standalone-apps/app-factory/nathan-ai/phi-life/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Lifestyle",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Lifestyle",
+        "suggestedTags": [
+          "lifestyle",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Education",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Education",
+        "capabilities": [
+          "interpret",
+          "present",
+          "evaluate"
+        ],
+        "rationale": "Illustrative mathematical/biological narrative"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:nathan-ai/plugins/index.html",
+      "sourcePath": "app-factory/nathan-ai/plugins/index.html",
+      "title": "Plugins",
+      "route": "standalone-apps/app-factory/nathan-ai/plugins/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Utilities",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Developer Tools",
+        "appleSecondary": "Productivity",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Tools",
+        "capabilities": [
+          "connect",
+          "retrieve",
+          "present"
+        ],
+        "rationale": "Plugin and app navigation"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:nathan-ai/route-raut-root/index.html",
+      "sourcePath": "app-factory/nathan-ai/route-raut-root/index.html",
+      "title": "Route Raut Root",
+      "route": "standalone-apps/app-factory/nathan-ai/route-raut-root/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Education",
+        "suggestedTags": [
+          "education",
+          "research",
+          "source catalog",
+          "navigation",
+          "mapping"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Education",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "interpret",
+          "recognize",
+          "connect"
+        ],
+        "rationale": "Word form and root research index"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:nathan-ai/self-help/index.html",
+      "sourcePath": "app-factory/nathan-ai/self-help/index.html",
+      "title": "iCuBUDDY · BUDDY AI",
+      "route": "standalone-apps/app-factory/nathan-ai/self-help/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Health & Fitness",
+        "secondary": "Lifestyle",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Health and Fitness",
+        "suggestedTags": [
+          "health and fitness",
+          "developer tools",
+          "simulation",
+          "interactive tools",
+          "assistant"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:nathan-ai/sovereign-coins/anchored/index.html",
+      "sourcePath": "app-factory/nathan-ai/sovereign-coins/anchored/index.html",
+      "title": "Sovereign Coins · Anchored",
+      "route": "standalone-apps/app-factory/nathan-ai/sovereign-coins/anchored/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Finance",
+        "secondary": "Business",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Finance",
+        "suggestedTags": [
+          "finance",
+          "sovereign coins",
+          "finance research",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:nathan-ai/sovereign-coins/index.html",
+      "sourcePath": "app-factory/nathan-ai/sovereign-coins/index.html",
+      "title": "21 Sovereign Coins",
+      "route": "standalone-apps/app-factory/nathan-ai/sovereign-coins/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Finance",
+        "secondary": "Business",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Finance",
+        "suggestedTags": [
+          "finance",
+          "sovereign coins",
+          "finance research",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Finance",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Finance",
+        "capabilities": [
+          "remember",
+          "evaluate",
+          "measure"
+        ],
+        "rationale": "Coin designs and demonstration ledgers; no real investment execution"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/sovereign-coins/integrations/index.html",
+      "sourcePath": "app-factory/nathan-ai/sovereign-coins/integrations/index.html",
+      "title": "Sovereign Coins · Integrations",
+      "route": "standalone-apps/app-factory/nathan-ai/sovereign-coins/integrations/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Finance",
+        "secondary": "Business",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Finance",
+        "suggestedTags": [
+          "finance",
+          "sovereign coins",
+          "finance research",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:nathan-ai/sovereign-coins/life/index.html",
+      "sourcePath": "app-factory/nathan-ai/sovereign-coins/life/index.html",
+      "title": "Sovereign Coins · Life",
+      "route": "standalone-apps/app-factory/nathan-ai/sovereign-coins/life/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Finance",
+        "secondary": "Business",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Finance",
+        "suggestedTags": [
+          "finance",
+          "sovereign coins",
+          "finance research",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:nathan-ai/sovereign-coins/phi-mining/index.html",
+      "sourcePath": "app-factory/nathan-ai/sovereign-coins/phi-mining/index.html",
+      "title": "Sovereign Coins · Phi Mining",
+      "route": "standalone-apps/app-factory/nathan-ai/sovereign-coins/phi-mining/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Finance",
+        "secondary": "Business",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Finance",
+        "suggestedTags": [
+          "finance",
+          "sovereign coins",
+          "finance research",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:nathan-ai/sovereign/index.html",
+      "sourcePath": "app-factory/nathan-ai/sovereign/index.html",
+      "title": "Sovereign",
+      "route": "standalone-apps/app-factory/nathan-ai/sovereign/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Productivity",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "connect",
+          "retrieve",
+          "remember"
+        ],
+        "rationale": "Connected research index, not a social platform"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/universal-tools/arrowhead-tree.html",
+      "sourcePath": "app-factory/nathan-ai/universal-tools/arrowhead-tree.html",
+      "title": "Arrowheads × Christmas Trees",
+      "route": "standalone-apps/app-factory/nathan-ai/universal-tools/arrowhead-tree/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Puzzle"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Puzzle",
+        "suggestedTags": [
+          "puzzle",
+          "holiday",
+          "creative",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:nathan-ai/universal-tools/index.html",
+      "sourcePath": "app-factory/nathan-ai/universal-tools/index.html",
+      "title": "Universal Tools",
+      "route": "standalone-apps/app-factory/nathan-ai/universal-tools/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": "Education",
+        "gameGenres": [
+          "Puzzle",
+          "Family"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Educational",
+        "suggestedTags": [
+          "educational",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:nathan-ai/universal-workspace/index.html",
+      "sourcePath": "app-factory/nathan-ai/universal-workspace/index.html",
+      "title": "Universal Workspace",
+      "route": "standalone-apps/app-factory/nathan-ai/universal-workspace/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Productivity",
+        "appleSecondary": "Utilities",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Productivity",
+        "capabilities": [
+          "receive",
+          "transform",
+          "evaluate",
+          "create"
+        ],
+        "rationale": "Local text and response comparison with TXT export"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:octopus-root/index.html",
+      "sourcePath": "app-factory/octopus-root/index.html",
+      "title": "Octopus Root — Main Portal",
+      "route": "standalone-apps/app-factory/octopus-root/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Libraries and Demo",
+        "suggestedTags": [
+          "libraries and demo",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:octopus-root/octopus-arsenal/index.html",
+      "sourcePath": "app-factory/octopus-root/octopus-arsenal/index.html",
+      "title": "NATHAN TABOR OCTOPUS — Arsenal",
+      "route": "standalone-apps/app-factory/octopus-root/octopus-arsenal/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Strategy"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Strategy",
+        "suggestedTags": [
+          "strategy",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:octopus-root/sovereign-bubble/index.html",
+      "sourcePath": "app-factory/octopus-root/sovereign-bubble/index.html",
+      "title": "Sovereign Bubble",
+      "route": "standalone-apps/app-factory/octopus-root/sovereign-bubble/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Lifestyle",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Lifestyle",
+        "suggestedTags": [
+          "lifestyle",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:octopus-root/sovereign-continuum/index.html",
+      "sourcePath": "app-factory/octopus-root/sovereign-continuum/index.html",
+      "title": "Sovereign Continuum",
+      "route": "standalone-apps/app-factory/octopus-root/sovereign-continuum/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Libraries and Demo",
+        "suggestedTags": [
+          "libraries and demo",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:octopus-root/sovereign-fields/index.html",
+      "sourcePath": "app-factory/octopus-root/sovereign-fields/index.html",
+      "title": "Sovereign Fields",
+      "route": "standalone-apps/app-factory/octopus-root/sovereign-fields/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Libraries and Demo",
+        "suggestedTags": [
+          "libraries and demo",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:octopus-root/sovereign-nexus/index.html",
+      "sourcePath": "app-factory/octopus-root/sovereign-nexus/index.html",
+      "title": "Sovereign Nexus",
+      "route": "standalone-apps/app-factory/octopus-root/sovereign-nexus/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Libraries and Demo",
+        "suggestedTags": [
+          "libraries and demo",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:octopus-root/uct/index.html",
+      "sourcePath": "app-factory/octopus-root/uct/index.html",
+      "title": "Uct",
+      "route": "standalone-apps/app-factory/octopus-root/uct/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Libraries and Demo",
+        "suggestedTags": [
+          "libraries and demo",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:octopus-root/uct/triple-code/index.html",
+      "sourcePath": "app-factory/octopus-root/uct/triple-code/index.html",
+      "title": "Uct · Triple Code",
+      "route": "standalone-apps/app-factory/octopus-root/uct/triple-code/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Puzzle"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Puzzle",
+        "suggestedTags": [
+          "puzzle",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:one/accountability/index.html",
+      "sourcePath": "app-factory/one/accountability/index.html",
+      "title": "Accountability",
+      "route": "standalone-apps/app-factory/one/accountability/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:one/assocchio/index.html",
+      "sourcePath": "app-factory/one/assocchio/index.html",
+      "title": "Assocchio",
+      "route": "standalone-apps/app-factory/one/assocchio/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:one/connected/index.html",
+      "sourcePath": "app-factory/one/connected/index.html",
+      "title": "Connected",
+      "route": "standalone-apps/app-factory/one/connected/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:one/health/index.html",
+      "sourcePath": "app-factory/one/health/index.html",
+      "title": "Health",
+      "route": "standalone-apps/app-factory/one/health/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Medical",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Medical",
+        "suggestedTags": [
+          "medical",
+          "personal records",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Health & Fitness",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Health and Fitness",
+        "capabilities": [
+          "retrieve",
+          "present",
+          "interpret"
+        ],
+        "rationale": "Health-related content or demos; requires healthcare-claim review"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:one/hey-you-total-eclipse/explorer/index.html",
+      "sourcePath": "app-factory/one/hey-you-total-eclipse/explorer/index.html",
+      "title": "Hey You Total Eclipse · Explorer",
+      "route": "standalone-apps/app-factory/one/hey-you-total-eclipse/explorer/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Adventure"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Adventure",
+        "suggestedTags": [
+          "adventure",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:one/history-cosmos/index.html",
+      "sourcePath": "app-factory/one/history-cosmos/index.html",
+      "title": "History Cosmos",
+      "route": "standalone-apps/app-factory/one/history-cosmos/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "books",
+          "reading",
+          "research",
+          "source catalog"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Education",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "retrieve",
+          "interpret",
+          "present"
+        ],
+        "rationale": "Historical and cosmos research explorer"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:one/humanity-archive/index.html",
+      "sourcePath": "app-factory/one/humanity-archive/index.html",
+      "title": "Humanity Archive",
+      "route": "standalone-apps/app-factory/one/humanity-archive/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "backup",
+          "originals",
+          "archive",
+          "developer tools"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Education",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "retrieve",
+          "remember",
+          "evaluate"
+        ],
+        "rationale": "Historical and conceptual reference archive"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:one/index.html",
+      "sourcePath": "app-factory/one/index.html",
+      "title": "ONE — The Last App",
+      "route": "standalone-apps/app-factory/one/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Productivity",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Productivity",
+        "capabilities": [
+          "connect",
+          "retrieve",
+          "present"
+        ],
+        "rationale": "Multi-purpose launcher and source library"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:one/inventions-101/index.html",
+      "sourcePath": "app-factory/one/inventions-101/index.html",
+      "title": "Inventions 101",
+      "route": "standalone-apps/app-factory/one/inventions-101/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "creative",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Education",
+        "suggestedTags": [
+          "education",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:one/library-mind/index.html",
+      "sourcePath": "app-factory/one/library-mind/index.html",
+      "title": "Library Mind",
+      "route": "standalone-apps/app-factory/one/library-mind/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "creative",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "books",
+          "reading",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Books",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "remember",
+          "retrieve",
+          "interpret"
+        ],
+        "rationale": "Original source books, language catalog, relationship index"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:one/library/index.html",
+      "sourcePath": "app-factory/one/library/index.html",
+      "title": "Library",
+      "route": "standalone-apps/app-factory/one/library/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "creative",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "books",
+          "reading",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Books",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "receive",
+          "remember",
+          "retrieve"
+        ],
+        "rationale": "Owner-selected private library import, search and export"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:one/meet/index.html",
+      "sourcePath": "app-factory/one/meet/index.html",
+      "title": "Meet",
+      "route": "standalone-apps/app-factory/one/meet/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "developer tools",
+          "simulation",
+          "interactive tools",
+          "assistant"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Productivity",
+        "appleSecondary": "Social Networking",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Productivity",
+        "capabilities": [
+          "connect",
+          "present",
+          "communicate"
+        ],
+        "rationale": "Verify live meeting and communication capabilities separately"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:one/mother-earth/index.html",
+      "sourcePath": "app-factory/one/mother-earth/index.html",
+      "title": "Mother Earth",
+      "route": "standalone-apps/app-factory/one/mother-earth/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Education",
+        "suggestedTags": [
+          "education",
+          "creative design",
+          "editing",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:one/nathan-matrix/anatomy/index.html",
+      "sourcePath": "app-factory/one/nathan-matrix/anatomy/index.html",
+      "title": "Nathan Matrix · Anatomy",
+      "route": "standalone-apps/app-factory/one/nathan-matrix/anatomy/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Education",
+        "suggestedTags": [
+          "education",
+          "personal records",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:one/nathan-matrix/dimensions-grids/index.html",
+      "sourcePath": "app-factory/one/nathan-matrix/dimensions-grids/index.html",
+      "title": "Nathan Matrix · Dimensions Grids",
+      "route": "standalone-apps/app-factory/one/nathan-matrix/dimensions-grids/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Education",
+        "suggestedTags": [
+          "education",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:one/nathan-matrix/distributed-ledger/index.html",
+      "sourcePath": "app-factory/one/nathan-matrix/distributed-ledger/index.html",
+      "title": "Nathan Matrix · Distributed Ledger",
+      "route": "standalone-apps/app-factory/one/nathan-matrix/distributed-ledger/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Libraries and Demo",
+        "suggestedTags": [
+          "libraries and demo",
+          "sovereign coins",
+          "finance research",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:one/nathan-matrix/index.html",
+      "sourcePath": "app-factory/one/nathan-matrix/index.html",
+      "title": "Nathan Matrix",
+      "route": "standalone-apps/app-factory/one/nathan-matrix/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Libraries and Demo",
+        "suggestedTags": [
+          "libraries and demo",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:one/nathan-matrix/sovereignty-origins/index.html",
+      "sourcePath": "app-factory/one/nathan-matrix/sovereignty-origins/index.html",
+      "title": "Nathan Matrix · Sovereignty Origins",
+      "route": "standalone-apps/app-factory/one/nathan-matrix/sovereignty-origins/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Education",
+        "suggestedTags": [
+          "education",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:one/offloader/index.html",
+      "sourcePath": "app-factory/one/offloader/index.html",
+      "title": "Offloader",
+      "route": "standalone-apps/app-factory/one/offloader/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "backup",
+          "originals",
+          "archive",
+          "developer tools"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Utilities",
+        "appleSecondary": "Productivity",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Tools",
+        "capabilities": [
+          "restore",
+          "remember",
+          "protect"
+        ],
+        "rationale": "Backup/offloading-oriented functionality"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:one/rcc-time/index.html",
+      "sourcePath": "app-factory/one/rcc-time/index.html",
+      "title": "Rcc Time",
+      "route": "standalone-apps/app-factory/one/rcc-time/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:one/scriptures-007/index.html",
+      "sourcePath": "app-factory/one/scriptures-007/index.html",
+      "title": "007 · Scriptures",
+      "route": "standalone-apps/app-factory/one/scriptures-007/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "creative",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "language",
+          "word study",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Books",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "receive",
+          "retrieve",
+          "evaluate"
+        ],
+        "rationale": "Owner-selected scripture source index; not a published sacred-text corpus"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:one/tabor-trinity/index.html",
+      "sourcePath": "app-factory/one/tabor-trinity/index.html",
+      "title": "Tabor Trinity",
+      "route": "standalone-apps/app-factory/one/tabor-trinity/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Books",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "retrieve",
+          "interpret",
+          "present"
+        ],
+        "rationale": "Conceptual and authored reference matrix"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:one/trial-matrix/index.html",
+      "sourcePath": "app-factory/one/trial-matrix/index.html",
+      "title": "Trial Matrix",
+      "route": "standalone-apps/app-factory/one/trial-matrix/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Strategy"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Strategy",
+        "suggestedTags": [
+          "strategy",
+          "games",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Education",
+        "appleSecondary": "Games",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Education",
+        "capabilities": [
+          "recognize",
+          "evaluate",
+          "present"
+        ],
+        "rationale": "Matrix learning/prototype stages; private original stages remain separate"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:one/trials/index.html",
+      "sourcePath": "app-factory/one/trials/index.html",
+      "title": "Trials",
+      "route": "standalone-apps/app-factory/one/trials/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Strategy"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Strategy",
+        "suggestedTags": [
+          "strategy",
+          "games",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:one/x-marks-the-spot/index.html",
+      "sourcePath": "app-factory/one/x-marks-the-spot/index.html",
+      "title": "X Marks The Spot",
+      "route": "standalone-apps/app-factory/one/x-marks-the-spot/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:pricing-router/index.html",
+      "sourcePath": "app-factory/pricing-router/index.html",
+      "title": "Pricing Router",
+      "route": "standalone-apps/app-factory/pricing-router/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Business",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Business",
+        "suggestedTags": [
+          "business",
+          "navigation",
+          "mapping",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:radix-ladder/index.html",
+      "sourcePath": "app-factory/radix-ladder/index.html",
+      "title": "Radix Ladder",
+      "route": "standalone-apps/app-factory/radix-ladder/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:root-constellation.html",
+      "sourcePath": "app-factory/root-constellation.html",
+      "title": "Root Constellation",
+      "route": "standalone-apps/app-factory/root-constellation/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:sovereign-boxes/index.html",
+      "sourcePath": "app-factory/sovereign-boxes/index.html",
+      "title": "Sovereign Boxes",
+      "route": "standalone-apps/app-factory/sovereign-boxes/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Utilities",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:stewie-mr-finn/polar-middle-c/index.html",
+      "sourcePath": "app-factory/stewie-mr-finn/polar-middle-c/index.html",
+      "title": "Stewie Mr Finn · Polar Middle C",
+      "route": "standalone-apps/app-factory/stewie-mr-finn/polar-middle-c/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Puzzle"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Puzzle",
+        "suggestedTags": [
+          "puzzle",
+          "games",
+          "learning",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:stewie-mr-finn/polar-middle-c/math-roots/index.html",
+      "sourcePath": "app-factory/stewie-mr-finn/polar-middle-c/math-roots/index.html",
+      "title": "Stewie Mr Finn · Polar Middle C · Math Roots",
+      "route": "standalone-apps/app-factory/stewie-mr-finn/polar-middle-c/math-roots/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": "Education",
+        "gameGenres": [
+          "Puzzle"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Educational",
+        "suggestedTags": [
+          "educational",
+          "games",
+          "learning",
+          "research",
+          "source catalog"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:stewie-mr-finn/polar-middle-c/mirror-bridge/index.html",
+      "sourcePath": "app-factory/stewie-mr-finn/polar-middle-c/mirror-bridge/index.html",
+      "title": "Stewie Mr Finn · Polar Middle C · Mirror Bridge",
+      "route": "standalone-apps/app-factory/stewie-mr-finn/polar-middle-c/mirror-bridge/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Puzzle"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Puzzle",
+        "suggestedTags": [
+          "puzzle",
+          "games",
+          "learning",
+          "security research",
+          "source review"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:system/index.html",
+      "sourcePath": "app-factory/system/index.html",
+      "title": "System",
+      "route": "standalone-apps/app-factory/system/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Libraries and Demo",
+        "suggestedTags": [
+          "libraries and demo",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:tabor-gps/index.html",
+      "sourcePath": "app-factory/tabor-gps/index.html",
+      "title": "TABOR GPS",
+      "route": "standalone-apps/app-factory/tabor-gps/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Navigation",
+        "secondary": "Travel",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Maps and Navigation",
+        "suggestedTags": [
+          "maps and navigation",
+          "research",
+          "source catalog",
+          "navigation",
+          "mapping"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Navigation",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Maps and Navigation",
+        "capabilities": [
+          "retrieve",
+          "present",
+          "connect"
+        ],
+        "rationale": "Navigation-oriented concept; verify actual map/GPS functions"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:universal-node/babel-inferno.html",
+      "sourcePath": "app-factory/universal-node/babel-inferno.html",
+      "title": "The Tower of Babel × Dante’s Inferno",
+      "route": "standalone-apps/app-factory/universal-node/babel-inferno/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Adventure"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Adventure",
+        "suggestedTags": [
+          "adventure",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:universal-node/index.html",
+      "sourcePath": "app-factory/universal-node/index.html",
+      "title": "Universal Node",
+      "route": "standalone-apps/app-factory/universal-node/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Libraries and Demo",
+        "suggestedTags": [
+          "libraries and demo",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Education",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Education",
+        "capabilities": [
+          "connect",
+          "present",
+          "measure"
+        ],
+        "rationale": "Illustrative Earth/body/cosmos coordinate explorer; no real-world sensor assurance"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:universal-node/mission-control.html",
+      "sourcePath": "app-factory/universal-node/mission-control.html",
+      "title": "Universal Node · Mission Control",
+      "route": "standalone-apps/app-factory/universal-node/mission-control/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Libraries and Demo",
+        "suggestedTags": [
+          "libraries and demo",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:vault.html",
+      "sourcePath": "app-factory/vault.html",
+      "title": "Universal Creator Vault",
+      "route": "standalone-apps/app-factory/vault/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "backup",
+          "originals",
+          "archive",
+          "developer tools"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:christmas-toy-drive",
+      "sourcePath": "app-factory/christmas-toy-drive/index.html",
+      "title": "CHRISTMAS TOY DRIVE · 24/7/365",
+      "route": "standalone-apps/app-factory/christmas-toy-drive/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "community",
+      "apple": {
+        "primary": "Lifestyle",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Lifestyle",
+        "suggestedTags": [
+          "lifestyle",
+          "holiday",
+          "creative",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "New website"
+    },
+    {
+      "catalogId": "web:sites/index.html",
+      "sourcePath": "app-factory/sites/index.html",
+      "title": "All Connected Tabor Websites",
+      "route": "standalone-apps/app-factory/sites/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Full network directory"
+    },
+    {
+      "catalogId": "web:sites/handling-life/index.html",
+      "sourcePath": "app-factory/sites/handling-life/index.html",
+      "title": "HANDLING LIFE",
+      "route": "standalone-apps/app-factory/sites/handling-life/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "community",
+      "apple": {
+        "primary": "Lifestyle",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Lifestyle",
+        "suggestedTags": [
+          "lifestyle",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "New browser-local studio",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Lifestyle",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Lifestyle",
+        "capabilities": [
+          "retrieve",
+          "present",
+          "interpret"
+        ],
+        "rationale": "Lifestyle and self-help concept website"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:sites/christmas-toy-factory/index.html",
+      "sourcePath": "app-factory/sites/christmas-toy-factory/index.html",
+      "title": "CHRISTMAS TOY FACTORY",
+      "route": "standalone-apps/app-factory/sites/christmas-toy-factory/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "creative",
+      "apple": {
+        "primary": "Graphics & Design",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Art and Design",
+        "suggestedTags": [
+          "art and design",
+          "holiday",
+          "creative",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "New browser-local studio",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Lifestyle",
+        "appleSecondary": "Entertainment",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Lifestyle",
+        "capabilities": [
+          "create",
+          "present",
+          "connect"
+        ],
+        "rationale": "Holiday concept and website; not necessarily a commerce deployment"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:sites/santa-claus-factory/index.html",
+      "sourcePath": "app-factory/sites/santa-claus-factory/index.html",
+      "title": "SANTA CLAUS FACTORY",
+      "route": "standalone-apps/app-factory/sites/santa-claus-factory/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "creative",
+      "apple": {
+        "primary": "Graphics & Design",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Art and Design",
+        "suggestedTags": [
+          "art and design",
+          "holiday",
+          "creative",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "New browser-local studio",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Entertainment",
+        "appleSecondary": "Lifestyle",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Entertainment",
+        "capabilities": [
+          "create",
+          "present"
+        ],
+        "rationale": "Holiday creative project website"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:sites/tabortales/index.html",
+      "sourcePath": "app-factory/sites/tabortales/index.html",
+      "title": "TaborTales",
+      "route": "standalone-apps/app-factory/sites/tabortales/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "creative",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "books",
+          "reading",
+          "research",
+          "source catalog"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "New browser-local studio",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Books",
+        "appleSecondary": "Entertainment",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "retrieve",
+          "present",
+          "create"
+        ],
+        "rationale": "Story project website"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:sites/tabor-world/index.html",
+      "sourcePath": "app-factory/sites/tabor-world/index.html",
+      "title": "TABOR WORLD",
+      "route": "standalone-apps/app-factory/sites/tabor-world/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": null,
+        "gameGenres": [
+          "Adventure"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Adventure",
+        "suggestedTags": [
+          "adventure",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "New browser-local studio",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Entertainment",
+        "appleSecondary": "Games",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Entertainment",
+        "capabilities": [
+          "create",
+          "present",
+          "connect"
+        ],
+        "rationale": "Creative world/story project, not proven playable game"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:sites/you-sandbox/index.html",
+      "sourcePath": "app-factory/sites/you-sandbox/index.html",
+      "title": "YOU SANDBOX™",
+      "route": "standalone-apps/app-factory/sites/you-sandbox/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "New browser-local studio",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Graphics & Design",
+        "appleSecondary": "Education",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Art and Design",
+        "capabilities": [
+          "create",
+          "present",
+          "transform"
+        ],
+        "rationale": "Creative tooling and project studio"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:sites/tabor-texting/index.html",
+      "sourcePath": "app-factory/sites/tabor-texting/index.html",
+      "title": "TABOR TEXTING",
+      "route": "standalone-apps/app-factory/sites/tabor-texting/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "language",
+          "word study",
+          "research",
+          "source catalog"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "New browser-local studio",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Social Networking",
+        "appleSecondary": "Productivity",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Communications",
+        "capabilities": [
+          "communicate",
+          "present",
+          "connect"
+        ],
+        "rationale": "Texting-branded project; verify messaging functionality before listing"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:sites/find-the-tabor/index.html",
+      "sourcePath": "app-factory/sites/find-the-tabor/index.html",
+      "title": "FIND THE TABOR",
+      "route": "standalone-apps/app-factory/sites/find-the-tabor/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "New browser-local studio",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Books",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "retrieve",
+          "remember",
+          "evaluate"
+        ],
+        "rationale": "Research and family history website"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:sites/words-library/index.html",
+      "sourcePath": "app-factory/sites/words-library/index.html",
+      "title": "WORDS & LIBRARY",
+      "route": "standalone-apps/app-factory/sites/words-library/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "creative",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "language",
+          "word study",
+          "books",
+          "reading"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "New browser-local studio",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Books",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "interpret",
+          "retrieve",
+          "remember"
+        ],
+        "rationale": "Language/reading website"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:nathan-ai/five-guardians/index.html",
+      "sourcePath": "app-factory/nathan-ai/five-guardians/index.html",
+      "title": "Five Equal Guardians of Nathan AI",
+      "route": "standalone-apps/app-factory/nathan-ai/five-guardians/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Utilities",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "security research",
+          "source review",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Creator-designated equal software guardians · policy-preview browser page",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Utilities",
+        "appleSecondary": "Education",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Tools",
+        "capabilities": [
+          "protect",
+          "evaluate"
+        ],
+        "rationale": "Security-oriented learning and system defense concepts"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/original-works/index.html",
+      "sourcePath": "app-factory/nathan-ai/original-works/index.html",
+      "title": "Nathan AI · My Original Works",
+      "route": "standalone-apps/app-factory/nathan-ai/original-works/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "creative",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "backup",
+          "originals",
+          "archive",
+          "developer tools"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Original source and published archive",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Books",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "retrieve",
+          "remember",
+          "present"
+        ],
+        "rationale": "Original manuscript and publication index"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/trinity-of-snow/index.html",
+      "sourcePath": "app-factory/nathan-ai/trinity-of-snow/index.html",
+      "title": "Nathan AI · Trinity of Snow",
+      "route": "standalone-apps/app-factory/nathan-ai/trinity-of-snow/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "creative",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "holiday",
+          "creative",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public creative and source-aware story archive",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Books",
+        "appleSecondary": "Entertainment",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "create",
+          "retrieve",
+          "present"
+        ],
+        "rationale": "Original narrative and book universe"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:nathan-ai/websites/index.html",
+      "sourcePath": "app-factory/nathan-ai/websites/index.html",
+      "title": "Nathan AI · Websites Home",
+      "route": "standalone-apps/app-factory/nathan-ai/websites/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public website and project doorway"
+    },
+    {
+      "catalogId": "web:nathan-ai/websites/launchpad.html",
+      "sourcePath": "app-factory/nathan-ai/websites/launchpad.html",
+      "title": "Nathan AI · My Desktop",
+      "route": "standalone-apps/app-factory/nathan-ai/websites/launchpad/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public app directory and local desktop shortcuts"
+    },
+    {
+      "catalogId": "web:one/mosaic-reader/index.html",
+      "sourcePath": "app-factory/one/mosaic-reader/index.html",
+      "title": "Mosaic Reader",
+      "route": "standalone-apps/app-factory/one/mosaic-reader/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "books",
+          "reading",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Books",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "retrieve",
+          "present",
+          "interpret"
+        ],
+        "rationale": "Reading and text presentation"
+      },
+      "classificationRequiresReconciliation": false
+    },
+    {
+      "catalogId": "web:one/mosaic-reader/reader.html",
+      "sourcePath": "app-factory/one/mosaic-reader/reader.html",
+      "title": "Mosaic Reader · Reader",
+      "route": "standalone-apps/app-factory/one/mosaic-reader/reader/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "creative",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "books",
+          "reading",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public reader"
+    },
+    {
+      "catalogId": "web:one/mosaic-reader/game.html",
+      "sourcePath": "app-factory/one/mosaic-reader/game.html",
+      "title": "Mosaic Reader · Game",
+      "route": "standalone-apps/app-factory/one/mosaic-reader/game/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": "Education",
+        "gameGenres": [
+          "Word"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Word",
+        "suggestedTags": [
+          "word",
+          "books",
+          "reading",
+          "games",
+          "learning"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:one/realist-ledger/index.html",
+      "sourcePath": "app-factory/one/realist-ledger/index.html",
+      "title": "ONE · Realist Ledger",
+      "route": "standalone-apps/app-factory/one/realist-ledger/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "sovereign coins",
+          "finance research",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public research module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Productivity",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Productivity",
+        "capabilities": [
+          "remember",
+          "evaluate",
+          "retrieve"
+        ],
+        "rationale": "Ledger-style documentation and comparison"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:one/taborite-language-matrix/index.html",
+      "sourcePath": "app-factory/one/taborite-language-matrix/index.html",
+      "title": "Taborite Language Matrix",
+      "route": "standalone-apps/app-factory/one/taborite-language-matrix/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "language",
+          "word study",
+          "research",
+          "source catalog"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Education",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Education",
+        "capabilities": [
+          "interpret",
+          "transform",
+          "create"
+        ],
+        "rationale": "Language encoder with separate game and book modules"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "web:one/taborite-language-matrix/books.html",
+      "sourcePath": "app-factory/one/taborite-language-matrix/books.html",
+      "title": "Taborite Language Matrix · Books",
+      "route": "standalone-apps/app-factory/one/taborite-language-matrix/books/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "creative",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "language",
+          "word study",
+          "books",
+          "reading"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:one/taborite-language-matrix/matrix.html",
+      "sourcePath": "app-factory/one/taborite-language-matrix/matrix.html",
+      "title": "Taborite Language Matrix · Matrix",
+      "route": "standalone-apps/app-factory/one/taborite-language-matrix/matrix/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "language",
+          "word study",
+          "research",
+          "source catalog"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Public browser module"
+    },
+    {
+      "catalogId": "web:one/taborite-language-matrix/game.html",
+      "sourcePath": "app-factory/one/taborite-language-matrix/game.html",
+      "title": "Taborite Language Matrix · Game",
+      "route": "standalone-apps/app-factory/one/taborite-language-matrix/game/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "games",
+      "apple": {
+        "primary": "Games",
+        "secondary": "Education",
+        "gameGenres": [
+          "Word"
+        ]
+      },
+      "google": {
+        "type": "Game",
+        "category": "Word",
+        "suggestedTags": [
+          "word",
+          "language",
+          "word study",
+          "games",
+          "learning"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive browser page"
+    },
+    {
+      "catalogId": "web:nathan-ai/d-archive/index.html",
+      "sourcePath": "app-factory/nathan-ai/d-archive/index.html",
+      "title": "D · Original Words, Variants & Inversions",
+      "route": "standalone-apps/app-factory/nathan-ai/d-archive/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "research",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "backup",
+          "originals",
+          "archive",
+          "language"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Interactive source-preserving D archive · 152 filename records, 19 routes"
+    },
+    {
+      "catalogId": "app:ROUTE:app-factory/nathan-ai/six-dogs/index.html",
+      "sourcePath": "app-factory/nathan-ai/six-dogs/index.html",
+      "title": "app-factory/nathan-ai/six-dogs/index.html",
+      "route": "standalone-apps/app-factory/nathan-ai/six-dogs/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Registered source entry; app acceptance not assessed",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Games",
+        "appleSecondary": "Entertainment",
+        "appleGenre": "Casual",
+        "googleType": "game",
+        "googleCategory": "Casual",
+        "capabilities": [
+          "present",
+          "decide",
+          "sequence"
+        ],
+        "rationale": "Interactive themed experience; genre needs launch review"
+      },
+      "classificationRequiresReconciliation": true
+    },
+    {
+      "catalogId": "app:ROUTE:app-factory/one/hall-of-mirrors/index.html",
+      "sourcePath": "app-factory/one/hall-of-mirrors/index.html",
+      "title": "app-factory/one/hall-of-mirrors/index.html",
+      "route": "standalone-apps/app-factory/one/hall-of-mirrors/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Utilities",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "security research",
+          "source review",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Registered source entry; app acceptance not assessed"
+    },
+    {
+      "catalogId": "app:ROUTE:app-factory/one/sovereign-acro-matrix/index.html",
+      "sourcePath": "app-factory/one/sovereign-acro-matrix/index.html",
+      "title": "app-factory/one/sovereign-acro-matrix/index.html",
+      "route": "standalone-apps/app-factory/one/sovereign-acro-matrix/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "language",
+          "word study",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Registered source entry; app acceptance not assessed"
+    },
+    {
+      "catalogId": "app:ROUTE:archive-index/2026-11-05/index.html",
+      "sourcePath": "archive-index/2026-11-05/index.html",
+      "title": "archive-index/2026-11-05/index.html",
+      "route": "standalone-apps/archive-index/2026-11-05/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "backup",
+          "originals",
+          "archive"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Registered source entry; app acceptance not assessed"
+    },
+    {
+      "catalogId": "app:ROUTE:archive-index/loc-b8/index.html",
+      "sourcePath": "archive-index/loc-b8/index.html",
+      "title": "archive-index/loc-b8/index.html",
+      "route": "standalone-apps/archive-index/loc-b8/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "backup",
+          "originals",
+          "archive"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Registered source entry; app acceptance not assessed"
+    },
+    {
+      "catalogId": "app:PUBLIC-058",
+      "sourcePath": "index.html",
+      "title": "Root public launch",
+      "route": "standalone-apps/root/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "research",
+          "source catalog"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Registered source entry; app acceptance not assessed"
+    },
+    {
+      "catalogId": "app:NATHAN-LIBRARY-CATALOG",
+      "sourcePath": "archive-index/loc-b8/apps/catalog/index.html",
+      "title": "Library Catalog",
+      "route": "standalone-apps/archive-index/loc-b8/apps/catalog/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "backup",
+          "originals",
+          "archive",
+          "books"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Shared-core standalone browser app; verification recorded separately"
+    },
+    {
+      "catalogId": "app:NATHAN-PROJECT-COMPLETION",
+      "sourcePath": "archive-index/loc-b8/apps/completion/index.html",
+      "title": "Project Completion",
+      "route": "standalone-apps/archive-index/loc-b8/apps/completion/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "backup",
+          "originals",
+          "archive"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Shared-core standalone browser app; verification recorded separately"
+    },
+    {
+      "catalogId": "app:NATHAN-BACKUP-RESTORE",
+      "sourcePath": "archive-index/loc-b8/apps/backup/index.html",
+      "title": "Backup & Restore",
+      "route": "standalone-apps/archive-index/loc-b8/apps/backup/index.html",
+      "collection": "standalone-public-route",
+      "existingFamily": "apps",
+      "apple": {
+        "primary": "Utilities",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "backup",
+          "originals",
+          "archive"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "Shared-core standalone browser app; verification recorded separately"
+    }
+  ],
+  "editions": [
+    {
+      "editionId": "sovereign-defender",
+      "title": "SOVEREIGN DEFENDER",
+      "collection": "independent-edition-variant",
+      "route": "app-factory/nathan-ai/independent-editions/sovereign-defender/index.html",
+      "formRoutes": {
+        "app": "?form=app",
+        "game": "?form=game",
+        "book": "?form=book",
+        "academy": "?form=academy"
+      },
+      "apple": {
+        "primary": "Utilities",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "security research",
+          "source review"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "standalone-educational-edition-preview",
+      "notUniqueProduct": true
+    },
+    {
+      "editionId": "dehack-deliver",
+      "title": "DEHACK THE WORLD · DELIVER THE WORLD",
+      "collection": "independent-edition-variant",
+      "route": "app-factory/nathan-ai/independent-editions/dehack-deliver/index.html",
+      "formRoutes": {
+        "app": "?form=app",
+        "game": "?form=game",
+        "book": "?form=book",
+        "academy": "?form=academy"
+      },
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Education",
+        "suggestedTags": [
+          "education",
+          "security research",
+          "source review"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "standalone-educational-edition-preview",
+      "notUniqueProduct": true
+    },
+    {
+      "editionId": "hack-d-hack",
+      "title": "NATHAN AI Hack D Hack / Glyphstream Breach Engine",
+      "collection": "independent-edition-variant",
+      "route": "app-factory/nathan-ai/independent-editions/hack-d-hack/index.html",
+      "formRoutes": {
+        "app": "?form=app",
+        "game": "?form=game",
+        "book": "?form=book",
+        "academy": "?form=academy"
+      },
+      "apple": {
+        "primary": "Reference",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "security research",
+          "source review",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "historical-design-source-not-verified",
+      "notUniqueProduct": true
+    },
+    {
+      "editionId": "hall-of-mirrors",
+      "title": "THE NATHAN TABOR HALL OF MIRRORS",
+      "collection": "independent-edition-variant",
+      "route": "app-factory/nathan-ai/independent-editions/hall-of-mirrors/index.html",
+      "formRoutes": {
+        "app": "?form=app",
+        "game": "?form=game",
+        "book": "?form=book",
+        "academy": "?form=academy"
+      },
+      "apple": {
+        "primary": "Utilities",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "security research",
+          "source review",
+          "research",
+          "source catalog"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "standalone-educational-edition-preview",
+      "notUniqueProduct": true
+    },
+    {
+      "editionId": "five-equal-guardians",
+      "title": "Five Equal Guardians",
+      "collection": "independent-edition-variant",
+      "route": "app-factory/nathan-ai/independent-editions/five-equal-guardians/index.html",
+      "formRoutes": {
+        "app": "?form=app",
+        "game": "?form=game",
+        "book": "?form=book",
+        "academy": "?form=academy"
+      },
+      "apple": {
+        "primary": "Utilities",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "security research",
+          "source review"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "standalone-educational-edition-preview",
+      "notUniqueProduct": true
+    },
+    {
+      "editionId": "one-offloader",
+      "title": "ONE Offloader · Sealed Voice Box",
+      "collection": "independent-edition-variant",
+      "route": "app-factory/nathan-ai/independent-editions/one-offloader/index.html",
+      "formRoutes": {
+        "app": "?form=app",
+        "game": "?form=game",
+        "book": "?form=book",
+        "academy": "?form=academy"
+      },
+      "apple": {
+        "primary": "Utilities",
+        "secondary": null,
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": [
+          "tools",
+          "backup",
+          "originals",
+          "archive"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "standalone-educational-edition-preview",
+      "notUniqueProduct": true
+    },
+    {
+      "editionId": "sovereign-acro-matrix",
+      "title": "SOVEREIGN ACRO-MATRIX · REALITIST / MIDA / DATA⇄ATAD",
+      "collection": "independent-edition-variant",
+      "route": "app-factory/nathan-ai/independent-editions/sovereign-acro-matrix/index.html",
+      "formRoutes": {
+        "app": "?form=app",
+        "game": "?form=game",
+        "book": "?form=book",
+        "academy": "?form=academy"
+      },
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Education",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "language",
+          "word study",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "standalone-educational-edition-preview",
+      "notUniqueProduct": true
+    },
+    {
+      "editionId": "root-clear-build",
+      "title": "ROOT → CLEAR → BUILD",
+      "collection": "independent-edition-variant",
+      "route": "app-factory/nathan-ai/independent-editions/root-clear-build/index.html",
+      "formRoutes": {
+        "app": "?form=app",
+        "game": "?form=game",
+        "book": "?form=book",
+        "academy": "?form=academy"
+      },
+      "apple": {
+        "primary": "Education",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Education",
+        "suggestedTags": [
+          "education",
+          "research",
+          "source catalog",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "standalone-educational-edition-preview",
+      "notUniqueProduct": true
+    },
+    {
+      "editionId": "hop-in-chatbox",
+      "title": "NATHAN AI — HOP IN. Interactive Chatbox",
+      "collection": "independent-edition-variant",
+      "route": "app-factory/nathan-ai/independent-editions/hop-in-chatbox/index.html",
+      "formRoutes": {
+        "app": "?form=app",
+        "game": "?form=game",
+        "book": "?form=book",
+        "academy": "?form=academy"
+      },
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": [
+          "productivity",
+          "interactive tools",
+          "assistant"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "standalone-educational-edition-preview",
+      "notUniqueProduct": true
+    },
+    {
+      "editionId": "original-works",
+      "title": "NATHAN AI · My Original Works",
+      "collection": "independent-edition-variant",
+      "route": "app-factory/nathan-ai/independent-editions/original-works/index.html",
+      "formRoutes": {
+        "app": "?form=app",
+        "game": "?form=game",
+        "book": "?form=book",
+        "academy": "?form=academy"
+      },
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": [
+          "books and reference",
+          "backup",
+          "originals",
+          "archive"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "standalone-educational-edition-preview",
+      "notUniqueProduct": true
+    },
+    {
+      "editionId": "five-matrix-print-shop",
+      "title": "Five Matrix Print Shop",
+      "collection": "independent-edition-variant",
+      "route": "app-factory/nathan-ai/independent-editions/five-matrix-print-shop/index.html",
+      "formRoutes": {
+        "app": "?form=app",
+        "game": "?form=game",
+        "book": "?form=book",
+        "academy": "?form=academy"
+      },
+      "apple": {
+        "primary": "Graphics & Design",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Art and Design",
+        "suggestedTags": [
+          "art and design",
+          "developer tools",
+          "simulation"
+        ]
+      },
+      "review": "editorial-category-proposal-not-store-submission",
+      "developmentStage": "standalone-educational-edition-preview",
+      "notUniqueProduct": true
+    }
+  ],
+  "otherInventories": [
+    {
+      "title": "Program Jobs & Completion Atlas",
+      "path": "app-factory/nathan-ai/program-jobs/index.html",
+      "note": "Unrecovered and overlapping historical program records; not counted as shipped apps"
+    },
+    {
+      "title": "Nine independent website studios",
+      "path": "app-factory/sites/index.html",
+      "note": "Original websites remain in place and their public routes already appear in the standalone catalog"
+    },
+    {
+      "title": "Apps / Games / Books / Academy editions",
+      "path": "app-factory/nathan-ai/independent-editions/index.html",
+      "note": "Eleven shared-source independent edition variants, each with four forms"
+    },
+    {
+      "title": "Existing Capability Atlas App Store Discovery",
+      "path": "app-factory/nathan-ai/capability-atlas/store.html",
+      "note": "Functional evidence first; source-reviewed platform category proposals remain independent and may disagree with this new directory"
+    }
+  ],
+  "additionalReviewed": [
+    {
+      "catalogId": "capability:app-factory/nathan-ai/capability-atlas/index.html",
+      "title": "Capability Atlas",
+      "sourcePath": "app-factory/nathan-ai/capability-atlas/index.html",
+      "route": "app-factory/nathan-ai/capability-atlas/index.html",
+      "collection": "capability-atlas-reviewed-source",
+      "existingFamily": "functional-review",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Tools",
+        "suggestedTags": []
+      },
+      "developmentStage": "source-reviewed-no-standalone-wrapper",
+      "review": "editorial-category-proposal-not-store-submission",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Developer Tools",
+        "appleSecondary": "Productivity",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Tools",
+        "capabilities": [
+          "recognize",
+          "retrieve",
+          "evaluate"
+        ],
+        "rationale": "Inspect and classify repository files; no runtime proof by name"
+      },
+      "notUniqueProduct": true
+    },
+    {
+      "catalogId": "capability:app-factory/nathan-ai/hop-in/index.html",
+      "title": "HOP IN Interactive",
+      "sourcePath": "app-factory/nathan-ai/hop-in/index.html",
+      "route": "app-factory/nathan-ai/hop-in/index.html",
+      "collection": "capability-atlas-reviewed-source",
+      "existingFamily": "functional-review",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Productivity",
+        "suggestedTags": []
+      },
+      "developmentStage": "source-reviewed-no-standalone-wrapper",
+      "review": "editorial-category-proposal-not-store-submission",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Productivity",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Productivity",
+        "capabilities": [
+          "communicate",
+          "interpret",
+          "connect"
+        ],
+        "rationale": "Multi-mode chat and user-initiated source navigation"
+      },
+      "notUniqueProduct": true
+    },
+    {
+      "catalogId": "capability:app-factory/nathan-ai/primordial-lexicon/index.html",
+      "title": "Primordial Lexicon",
+      "sourcePath": "app-factory/nathan-ai/primordial-lexicon/index.html",
+      "route": "app-factory/nathan-ai/primordial-lexicon/index.html",
+      "collection": "capability-atlas-reviewed-source",
+      "existingFamily": "functional-review",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Education",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": []
+      },
+      "developmentStage": "source-reviewed-no-standalone-wrapper",
+      "review": "editorial-category-proposal-not-store-submission",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Reference",
+        "appleSecondary": "Education",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "interpret",
+          "recognize",
+          "retrieve"
+        ],
+        "rationale": "Authored word forms and distinct language research"
+      },
+      "notUniqueProduct": true
+    },
+    {
+      "catalogId": "capability:app-factory/nathan-ai/3d-print-shop/index.html",
+      "title": "Five-Matrix 3-D Print Shop",
+      "sourcePath": "app-factory/nathan-ai/3d-print-shop/index.html",
+      "route": "app-factory/nathan-ai/3d-print-shop/index.html",
+      "collection": "capability-atlas-reviewed-source",
+      "existingFamily": "functional-review",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Graphics & Design",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Education",
+        "suggestedTags": []
+      },
+      "developmentStage": "source-reviewed-no-standalone-wrapper",
+      "review": "editorial-category-proposal-not-store-submission",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Education",
+        "appleSecondary": "Graphics & Design",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Education",
+        "capabilities": [
+          "create",
+          "present",
+          "sequence"
+        ],
+        "rationale": "Virtual printing simulation; no physical printers attached"
+      },
+      "notUniqueProduct": true
+    },
+    {
+      "catalogId": "capability:app-factory/nathan-ai/independent-editions/index.html",
+      "title": "Independent Editions",
+      "sourcePath": "app-factory/nathan-ai/independent-editions/index.html",
+      "route": "app-factory/nathan-ai/independent-editions/index.html",
+      "collection": "capability-atlas-reviewed-source",
+      "existingFamily": "functional-review",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "gameGenres": []
+      },
+      "google": {
+        "type": "App",
+        "category": "Books and Reference",
+        "suggestedTags": []
+      },
+      "developmentStage": "source-reviewed-no-standalone-wrapper",
+      "review": "editorial-category-proposal-not-store-submission",
+      "priorCapabilityAtlasReview": {
+        "source": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+        "applePrimary": "Books",
+        "appleSecondary": "Reference",
+        "appleGenre": null,
+        "googleType": "app",
+        "googleCategory": "Books and Reference",
+        "capabilities": [
+          "retrieve",
+          "present",
+          "connect"
+        ],
+        "rationale": "Independent book or app editions directory"
+      },
+      "notUniqueProduct": true
+    }
+  ],
+  "existingDiscovery": {
+    "reviewPath": "app-factory/nathan-ai/capability-atlas/store.html",
+    "reviewData": "app-factory/nathan-ai/capability-atlas/store-discovery.json",
+    "reviewedRecords": 67,
+    "preservation": "Original functional audit and its categorization data remain unchanged; disagreements are shown, not silently overwritten."
+  }
+}

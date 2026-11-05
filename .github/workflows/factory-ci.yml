@@ -198,6 +198,8 @@ jobs:
         run: node --test app-factory/nathan-ai/independent-editions/engine.test.cjs
       - name: Standalone GitHub Websites & Apps preservation tests
         run: node --test standalone-apps/standalone.test.cjs
+      - name: Apple and Google Play category directory source reconciliation tests
+        run: node --test standalone-apps/store-taxonomy.test.cjs
       - name: Verify recovered Hall of Mirrors and owner-selected passive inspector
         run: node --test app-factory/one/hall-of-mirrors/engine.test.cjs app-factory/one/hall-of-mirrors/inspector.test.cjs
       - name: Verify 101-Action Chronicle original source fidelity and four-book export
