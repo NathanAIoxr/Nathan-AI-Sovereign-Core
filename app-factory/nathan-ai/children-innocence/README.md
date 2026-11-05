@@ -26,4 +26,6 @@ Private recovery register dated Nov 1, 2026 (not committed), `PUBLISHER_BOOK_AND
 - **[Protection of Innocence — child-first charter](PROTECTION_OF_INNOCENCE.md):** unedited creator quotations, survivor privacy, concrete accountability obligations, and source-verification rules.
 - **[Virginia Foxx / Epstein Files legislative-vote record](records/VIRGINIA_FOXX_EPSTEIN_DISCLOSURE_VOTE_RECORD_2025_2026.md):** seven identified Rules Committee NAY votes, the later House AYE vote, linked official records, and a dated **unofficial** 2026 NC-05 election snapshot. This is a documentary record, not a claim of criminal guilt or a certified election result.
 
+- **[Adult-only original-word archive and Unboxed source studio](../hop-in/chatbox/UNBOXED_PLAN.md):** preserves the creator's visible source wording in a separate attributed archive, and builds nonviolent educational games and lessons without automatically displaying the adult quotes. The original texts include a disability-related slur and threatening language and are not child-facing content.
+
 These entries are additive; they do not alter original children's books or imply any real-world autonomous safeguarding service.

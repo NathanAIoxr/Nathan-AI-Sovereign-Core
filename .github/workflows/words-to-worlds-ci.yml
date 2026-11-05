@@ -1,0 +1,36 @@
+name: Nathan AI Words to Worlds tests
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/hop-in/chatbox/**'
+      - 'app-factory/nathan-ai/protection-of-innocence/**'
+      - '.github/workflows/words-to-worlds-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-studio:
+    name: Verify original words, chatbox studio, games, and book builder
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+      - name: Use Node.js 22
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Check browser JavaScript syntax
+        run: |
+          node --check app-factory/nathan-ai/hop-in/chatbox/engine.js
+          node --check app-factory/nathan-ai/hop-in/chatbox/source-studio-core.js
+          node --check app-factory/nathan-ai/hop-in/chatbox/source-studio.js
+      - name: Test verbatim sources and interactive modes
+        run: |
+          node --test app-factory/nathan-ai/protection-of-innocence/david-exchange-2026-11-05/archive.test.cjs
+          node --test app-factory/nathan-ai/hop-in/chatbox/engine.test.cjs
+          node --test app-factory/nathan-ai/hop-in/chatbox/source-studio.test.cjs

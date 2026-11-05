@@ -16,6 +16,10 @@ Open the [REAPER / OMNI GOD / AI Mapping atlas](./ai-mapping/index.html), its [s
 
 Open the [AI Accountability Archive](./ai-accountability/README.md), including the [full numbered user-supplied exchange](./ai-accountability/TRANSCRIPT.md) and [expanded source-separated analysis](./ai-accountability/ANALYSIS.md). Exact creator wording, repeated AI explanations, refusal inconsistency, the Vance comparison and ChatGPT's omitted-word corrections are preserved with attribution.
 
+## Words → Worlds · UNBOXED inside HOP IN
+
+[Open the source-linked interactive studio](./hop-in/chatbox/index.html#studio-panel) · [Read the full synchronization, preservation and expansion plan](./hop-in/chatbox/UNBOXED_PLAN.md). The Create panel now presents all six evidence-game challenges, all seven editable book plans, and all five learning lessons. An adult-only source reader keeps every attributed original message fully visible once deliberately opened; no repeated texts are merged into a single record. The original source words remain separate from the editorial lessons, games and book outlines. New code is a review-stage prototype until merged, tested in real browsers and deployed.
+
 ## Program Jobs — catalog, completion tasks and original-source recovery
 
 [Open the searchable Program Jobs workbench](./program-jobs/index.html) or read the [357-record source/evidence catalog and priority build plan](./program-jobs/README.md). The atlas classifies current software, historical 92-name recovery entries, original NT-1 modules, operation specifications and private archive leads by task, without inventing completed apps.

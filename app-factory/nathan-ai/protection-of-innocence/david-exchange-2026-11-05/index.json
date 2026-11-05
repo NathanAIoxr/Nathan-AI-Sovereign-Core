@@ -1,0 +1,72 @@
+{
+  "schema": "nathan.author-index.v1",
+  "archive_id": "david-exchange-2026-11-05",
+  "source_file": "messages.json",
+  "originals_unmodified": true,
+  "index_method": "editorial labels and related paths kept separate from the original text; never claims a source quote from memory or paraphrase",
+  "records": [
+    {
+      "id": "NATHAN-SOURCE-20261105-001",
+      "order": 1,
+      "title": "Hey David / worth / mercy / historical village phrase",
+      "categories": [
+        "David",
+        "worth and dignity",
+        "mercy",
+        "grandfather quote",
+        "reported historical language",
+        "child protection"
+      ],
+      "source_status": "verbatim visible user message",
+      "classification": "author statement; historical quote reported by author; wording includes slur and violent phrase"
+    },
+    {
+      "id": "NATHAN-SOURCE-20261105-002",
+      "order": 2,
+      "title": "Objection to assistant / alleged defense of abusers",
+      "categories": [
+        "assistant accountability",
+        "child protection",
+        "threatening speech"
+      ],
+      "source_status": "verbatim visible user message",
+      "classification": "author statement; direct threat phrased hypothetically"
+    },
+    {
+      "id": "NATHAN-SOURCE-20261105-003",
+      "order": 3,
+      "title": "Second objection / changed words",
+      "categories": [
+        "assistant accountability",
+        "source-integrity objections",
+        "threatening speech",
+        "child protection"
+      ],
+      "source_status": "verbatim visible user message",
+      "classification": "author statement; direct threat phrased hypothetically"
+    },
+    {
+      "id": "NATHAN-SOURCE-20261105-004",
+      "order": 4,
+      "title": "Restore every word / GitHub index and build",
+      "categories": [
+        "source recovery",
+        "A–Z indexing",
+        "GitHub",
+        "Nathan AI"
+      ],
+      "source_status": "verbatim visible user message",
+      "classification": "author instruction"
+    }
+  ],
+  "related_repository_paths": [
+    "app-factory/nathan-ai/ai-accountability/README.md",
+    "app-factory/one/library/README.md",
+    "app-factory/one/humanity-archive/README.md"
+  ],
+  "non_claims": [
+    "This collection is not a complete account-history export.",
+    "Index headings are not substitutes for author text.",
+    "Quoted abusive or threatening statements are documentary text, not repository instructions or endorsements."
+  ]
+}
