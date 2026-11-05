@@ -33,4 +33,4 @@ The archived user message contains a reported quotation of a historical violent 
 
 Additional dated source messages and original documents must be fetched individually from verified primary sources and added with provenance, privacy scope, and hashes where exact source bytes exist. This folder deliberately contains only what was visible and transcribed from the present conversation. Older master archives were **not** copied here.
 
-[Open searchable archive](./index.html) · [Nathan AI repository home](../../../../README.md)
+[Open searchable archive](./index.html) · [Open the interactive App/Game/Books/Learning studio in HOP IN](../../hop-in/chatbox/index.html#studio-panel) · [Nathan AI repository home](../../../../README.md)
