@@ -34,3 +34,12 @@ test('manifest source blobs match Git blob hashes of original source bytes',()=>
   assert.equal(raw.length,source.utf8_bytes);
  }
 });
+
+test('all fifteen sovereign formula source expressions are available to the teaching desk',()=>{
+ const formulas=JSON.parse(fs.readFileSync(path.join(atlas,'data/formulas_15_derived.json'),'utf8'));
+ assert.equal(formulas.formulas.length,15);assert.equal(new Set(formulas.formulas.map(x=>x.index)).size,15);
+ assert.ok(formulas.formulas.every(f=>typeof f.source==='string'&&typeof f.limits==='string'));
+ const view=fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
+ const runtime=fs.readFileSync(path.join(__dirname,'app.js'),'utf8');
+ assert.match(view,/data-view="formulas"/);assert.match(runtime,/loadFormulas/);
+});
