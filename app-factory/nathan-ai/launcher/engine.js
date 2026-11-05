@@ -43,6 +43,7 @@
     ['vault','Creator Vault','../vault.html','Original file storage and backups'],
     ['voicebox','Sealed Voice Box','../one/offloader/index.html','Encrypted original-file storage and voice notes'],
     ['five-guardians','Five Equal Guardians','five-guardians/index.html','Five creator-designated equal guardians and protective policy preview'],
+    ['independent-editions','Originals · Independent Editions','independent-editions/index.html','Stand-alone program editions: apps, games, reading books, academies, HOP IN Chatbox handoff'],
     ['mosaic-reader','Mosaic Reader','../one/mosaic-reader/index.html','Original Mosaic Reader app, reading and game'],
     ['taborite-language-matrix','Taborite Language Matrix','../one/taborite-language-matrix/index.html','Distinct research, books, matrix and game']
   ].map(([id,title,path,description])=>({id,title,path,description}));
