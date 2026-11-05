@@ -12,6 +12,12 @@ Home of **TABOR 1-2-3 FACTORY™ / Nathan AI Sovereign Core**.
 
 This is the **PUBLIC**, browser-first coordination repository. It does **not** contain the owner's private full original-media library, private ZIP-only backend packages, unpublished research records, customer data, or credentials. It is not a deployed private multi-tenant SaaS backend.
 
+## D original words and variants — Nathan AI + website
+
+The [interactive D source browser](archive-index/alphabet/d/index.html) preserves **138 D/d-starting filename occurrences** and **14 “The D” entries**, alongside **19 discovery routes** (DD, DDD, D0G/DOG, phonetic, mirrors, rotations, reversals, KJV Game of Life). [Five exact A–Z authored D titles](archive-index/alphabet/d/canonical-d-sequences.json) are kept distinct from derivations and preserved in their original sequence contexts.
+
+Find the same D archive from the [Nathan AI Main Hub](app-factory/nathan-ai/index.html#letter-d), [Websites & Worlds](app-factory/nathan-ai/websites/index.html), [My Desktop launcher](app-factory/nathan-ai/websites/launchpad.html), and [HOP IN Interactive Chatbox](app-factory/nathan-ai/hop-in/chatbox/index.html) using `/d`, `/d variants`, or natural-language D archive requests. The public index does not import private original Library source bytes or represent every title as finished software.
+
 ## AI accountability — restored source transcript
 
 The [Nathan AI AI-accountability archive](app-factory/nathan-ai/ai-accountability/README.md) preserves the original supplied Google AI / Trump press-conference exchange, repeated roleplay denials and reversals, the JD Vance comparison, and ChatGPT's own omitted-word correction log. The archive separates exact creator allegations from independently substantiated facts and analysis.
