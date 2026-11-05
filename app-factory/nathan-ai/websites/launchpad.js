@@ -7,7 +7,7 @@ function init() {
   var uniqueIds=window.NathanDirectoryConsolidator.uniqueIds;
   var search=document.getElementById('search-all'),cards=document.getElementById('module-cards'),status=document.getElementById('result-count'),tabs=document.getElementById('categories'),more=document.getElementById('show-more'),savedNumber=document.getElementById('saved-number');
   var group='all',limit=21;
-  function load(key){try{var x=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(x)?x.filter(v=>typeof v==='string'):[];}catch(e){return [];}}
+  function load(key){try{var x=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(x)?uniqueIds(x,knownIds,200):[];}catch(e){return [];}}
   var saved=load('nathan-websites-saved-v1'),recent=load('nathan-websites-recent-v1');
   function store(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch(e){status.textContent='This browser is not saving locally. Export your list to keep a copy.';}}
   function create(tag,cls,text){var el=document.createElement(tag);if(cls)el.className=cls;if(text)el.textContent=text;return el;}
