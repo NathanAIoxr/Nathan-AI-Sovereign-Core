@@ -3,11 +3,13 @@ on:
   push:
     paths:
       - 'app-factory/nathan-ai/brainstormer/**'
+      - 'archive-index/brainstormer/**'
       - 'app-factory/nathan-ai/hop-in/chatbox/**'
       - '.github/workflows/brainstormer-ci.yml'
   pull_request:
     paths:
       - 'app-factory/nathan-ai/brainstormer/**'
+      - 'archive-index/brainstormer/**'
       - 'app-factory/nathan-ai/hop-in/chatbox/**'
       - '.github/workflows/brainstormer-ci.yml'
 jobs:
