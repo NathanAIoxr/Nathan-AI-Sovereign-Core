@@ -21,6 +21,7 @@ function addUser(question){addTurn({role:'user',text:question,kind:'user',links:
 function publicMatches(question){if(!st.publicRows.length)return[];return A.retrieve(question,st.publicRows,5)}
 function sourceText(items){return items.map((v,i)=>(i+1)+'. '+v.title+' ['+v.id+'] · '+v.stage+'\n'+v.excerpt).join('\n\n')}
 function sendLocal(question){const q=String(question||'').trim();if(!q)return;try{
+ if(/^\/studio\b/i.test(q))useTool('studio');
  E.noCredentials(q);const response=E.reply(q,{mode:st.mode,mind:st.mind,figureIds:st.figureIds});addUser(q);
  const matches=publicMatches(q);if(matches.length&&response.kind!=='reset-request'){
    appendAssistant({kind:'source-retrieval',answer:response.answer+'\n\nMATCHING PUBLIC SOURCE PASSAGES (source retrieval, not a synthesized factual conclusion):\n\n'+sourceText(matches),links:[...(response.links||[]),E.LINKS.assistant]});
