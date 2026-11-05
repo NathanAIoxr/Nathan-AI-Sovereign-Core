@@ -110,7 +110,7 @@ test('D original source archive integrates hub, website and desktop without repl
     'Davidic Dancers'
   ]);
   assert.match(html(hub), /href="\.\.\/\.\.\/archive-index\/alphabet\/d\/index\.html"/);
-  assert.match(html(portal), /href="\.\.\/\.\.\/\.\.\/archive-index\/alphabet\/d\/index\.html"/);
+  assert.match(html(portal), /href="\.\.\/d-archive\/index\.html"/);
   assert.match(html(chatbox), /Explore D \/ DD \/ DDD \/ inversions/);
   const command = chatEngine.reply('/d variants');
   assert.equal(command.kind, 'route');
