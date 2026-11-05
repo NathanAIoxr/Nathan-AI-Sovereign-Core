@@ -6,11 +6,13 @@ on:
     branches: [main]
     paths:
       - 'app-factory/**'
+      - 'standalone-apps/**'
       - '.github/workflows/factory-ci.yml'
   pull_request:
     branches: [main]
     paths:
       - 'app-factory/**'
+      - 'standalone-apps/**'
       - '.github/workflows/factory-ci.yml'
   workflow_dispatch:
 
@@ -194,6 +196,8 @@ jobs:
         run: node --test app-factory/nathan-ai/sovereign-defender/engine.test.cjs app-factory/nathan-ai/sovereign-defender/audit.test.cjs app-factory/nathan-ai/sovereign-defender/browser.test.cjs app-factory/nathan-ai/sovereign-defender/toolbox/engine.test.cjs
       - name: Independently sourced apps, games, books and academy tests
         run: node --test app-factory/nathan-ai/independent-editions/engine.test.cjs
+      - name: Standalone GitHub Websites & Apps preservation tests
+        run: node --test standalone-apps/standalone.test.cjs
       - name: Verify recovered Hall of Mirrors and owner-selected passive inspector
         run: node --test app-factory/one/hall-of-mirrors/engine.test.cjs app-factory/one/hall-of-mirrors/inspector.test.cjs
       - name: Verify 101-Action Chronicle original source fidelity and four-book export
