@@ -1,24 +1,49 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Nathan AI source-preserving standalone launch pages for published websites, apps, games, books, learning tools and research.">
-<meta name="theme-color" content="#102536"><title>NATHAN AI — STANDALONE GITHUB PROGRAMS</title>
-<link rel="stylesheet" href="./shared.css"><script src="./engine.js" defer></script>
-</head><body data-page="catalog"><div class="wrap">
-<header class="hero"><p class="eyebrow">NATHAN AI · ORIGINALS FIRST · EACH PROGRAM ITS OWN GITHUB ADDRESS</p><h1>STANDALONE PROGRAMS</h1>
-<p>Every public Websites and Apps program remains in its original place. Each independently named public route also receives its own separate GitHub launch page, so it can open directly without navigating through the Websites or Apps directories.</p>
-<div class="nav"><a href="../app-factory/nathan-ai/websites/">Original Websites</a><a href="../app-factory/nathan-ai/websites/launchpad.html">My Desktop</a><a href="../app-factory/nathan-ai/universal-workspace/">Original Apps</a><a href="../app-factory/nathan-ai/independent-editions/">Apps · Games · Books · Academy</a><a href="../app-factory/nathan-ai/hop-in/chatbox/">Nathan AI Interactive Chatbox</a></div>
-<p class="eyebrow">1 + 1 = 2 · BUILD &nbsp; 1 − 1 = 0 · CLEAR &nbsp; PRESERVE THE ORIGINAL</p></header>
-<section class="panel"><h2>Find a standalone program</h2>
-<p class="muted">A standalone GitHub launch address runs the existing original browser program in a dedicated page. Assets and runtime still come from their unchanged original source folders; it is not a separately installable offline binary.</p>
-<div class="search"><label for="search">Search title, original path or function<input id="search" type="search" placeholder="Search Nathan AI, games, library, security, websites…"></label>
-<label for="group">Program family<select id="group"><option value="all">All types</option><option value="apps">Apps</option><option value="games">Games</option><option value="creative">Books &amp; Creative</option><option value="research">Research &amp; Education</option><option value="community">Community</option></select></label></div>
-<p id="count" role="status">Loading public standalone entries…</p><div id="programs" class="grid"></div><p><button type="button" id="more" hidden>Show more standalone programs</button></p></section>
-<section class="panel"><h2>Preservation and distribution</h2><div class="info">
-<div><strong id="total">—</strong><p class="muted">Standalone public entry addresses, with duplicate Website/App registrations reconciled by original source path.</p></div>
-<div><strong>0 original source files moved</strong><p class="muted">Original assets, executable code, names and program histories stay where they were.</p></div>
-<div><strong>1 shared local launcher</strong><p class="muted">Shared navigation technology keeps standalone launch pages consistent without copying or rewriting application code.</p></div></div>
-<p class="small" id="registry-counts"></p>
-<p class="small">Restricted/private source readers, bundled native-app resources and test-only HTML are excluded from this new public directory. Browser launches may require supported permissions or work best using “Open original.”</p>
-<a href="./catalog.json">Inspectable standalone source manifest (JSON)</a> · <a href="./README.md">Source and build instructions</a></section>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Browse Nathan AI GitHub programs by Apple App Store categories, Google Play categories, game genres and descriptive search keywords while preserving every original program.">
+<meta name="theme-color" content="#102536"><title>Nathan AI · Apps & Games Category Directory</title>
+<link rel="stylesheet" href="./shared.css"><link rel="stylesheet" href="./store-browser.css">
+<script src="./store-browser.js" defer></script></head>
+<body data-page="app-store-directory"><div class="wrap">
+<header class="hero">
+<p class="hero-label">NATHAN AI · APPS · GAMES · BOOKS · EDUCATION · ORIGINALS KEPT INTACT</p>
+<h1>NATHAN AI<br>APP &amp; GAME STORE DIRECTORY</h1>
+<p>Find all the existing public Nathan AI program launch pages using the same discovery structure as Apple App Store and Google Play. Each program keeps its original name, source, independent GitHub URL and source status.</p>
+<div class="nav">
+<a href="../app-factory/nathan-ai/websites/">Original Websites</a>
+<a href="../app-factory/nathan-ai/websites/launchpad.html">My Desktop</a>
+<a href="../app-factory/nathan-ai/universal-workspace/">Original Apps</a>
+<a href="../app-factory/nathan-ai/independent-editions/">Apps · Games · Books · Academy</a>
+<a href="../app-factory/nathan-ai/hop-in/chatbox/">Nathan AI Interactive Chatbox</a>
+<a href="./catalog.json">Original standalone registry</a></div>
+<p class="eyebrow">1 + 1 = 2 · BUILD &nbsp; 1 − 1 = 0 · CLEAR &nbsp; PRESERVE THE ORIGINAL</p>
+</header>
+<section class="panel" aria-labelledby="find-heading"><div class="catalog-header"><div><p class="smallcaps">Every original keeps its own door</p><h2 id="find-heading">Browse the category shelves</h2></div>
+<div class="appstore-actions"><a href="?store=apple">Apple category view</a><a href="?store=google">Google Play category view</a></div></div>
+<p class="note">These are <strong>proposed directory classifications</strong> that organize existing browser previews, apps, games, books, research, studios and educational editions. They do not mean the products have been submitted to, approved by, or published in Apple App Store or Google Play.</p>
+<div class="search"><label for="search">Search programs and subjects<input id="search" type="search" placeholder="Search apps, source paths, books, games, finance, language, security…" autocomplete="off"></label>
+<label for="store">Browse as<select id="store"><option value="apple">Apple App Store</option><option value="google">Google Play</option></select></label></div>
+<div class="card-filters">
+<label for="group">Apps or Games<select id="group"><option value="all">All programs</option><option value="apps">Apps, books, tools and editions</option><option value="games">Games only</option></select></label>
+<label for="category">Primary store category<select id="category"><option value="all">All categories</option></select></label>
+<label for="genre" id="genre-wrap">Game genre<select id="genre"><option value="all">All game genres</option></select></label>
+<label for="collection">Source collection<select id="collection"><option value="all">Both original routes and editions</option><option value="standalone-public-route">Original standalone routes</option><option value="independent-edition-variant">Independent edition variants</option><option value="capability-atlas-reviewed-source">Other Capability Atlas-reviewed pages</option></select></label>
+</div>
+<div class="card-filters"><label for="sort">Sort<select id="sort"><option value="title">Program title A–Z</option><option value="category">Store category A–Z</option><option value="source">Original source path</option></select></label></div>
+<h2 id="categories-label">Apple App Store categories</h2>
+<div id="category-cards" class="category-grid" aria-label="Choose a category"></div>
+<p class="note" id="store-explanation"></p>
+<p class="note" id="count" role="status">Loading categorized programs…</p>
+<div id="programs" class="grid"></div><p><button type="button" id="more" hidden>Show more programs</button></p>
+</section>
+<section class="panel" aria-labelledby="source-heading"><h2 id="source-heading">Source preservation and store readiness</h2>
+<div class="info"><div><span class="store-stat" id="total">—</span><p class="muted">Browseable source entries and independent edition variants. Edition variants are not all unique products.</p></div>
+<div><span class="store-stat">0</span><p class="muted">Original applications, games, websites or book files moved to create category shelves.</p></div>
+<div><span class="store-stat">5 max</span><p class="muted">Suggested Google discovery keywords per entry; confirm the selectable tag vocabulary in Play Console.</p></div></div>
+<p id="registry-counts" class="small"></p><p id="family-counts" class="small"></p><p class="note">Earlier functional category proposals remain separately preserved in the <a href="../app-factory/nathan-ai/capability-atlas/store.html">Capability Atlas discovery review</a>. Where its assignments differ from this directory, both proposals are displayed for further review.</p>
+<p class="note catalog-note">Each public standalone address continues to load the original browser program. It is <strong>not a separately installable offline binary</strong>. App Store and Play Store publication would require separate native packaging, device testing, legal/privacy review, content ratings and account-side submissions.</p>
+<p class="note">Restricted/private source readers and test-only or native-bundled resources are not newly published. <a href="../app-factory/nathan-ai/program-jobs/">Program Jobs &amp; Completion Atlas</a> tracks unrecovered historical program work without counting it as completed apps.</p>
+<p><a href="./store-taxonomy.json">Inspect all Apple and Google category assignments (JSON)</a> · <a href="./README.md">Standalone implementation notes</a></p></section>
 <p id="status" class="state" role="status"></p>
-<footer>Original programs are never deleted or changed by this directory. Private author files, account credentials and personal documents are not included or transferred to the Chatbox.</footer>
+<footer>ORIGINALS FIRST · Nathan AI · Categories are editorial proposals for future app-store optimization, not proof of availability on the two stores. No private author content or credentials are included in public category records.</footer>
 </div></body></html>
