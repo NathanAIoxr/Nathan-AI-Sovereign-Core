@@ -105,3 +105,7 @@ Use `/e`, `/e geometry`, `/e titles` or `/e variants` to open the [E archive and
 ## E word-family source recovery
 
 Use `/eloher`, `/ella`, `/evangelist`, `/eve`, `/eave` or natural-language questions to reach the [18-entry independent E family crosswalk](../../../../archive-index/alphabet/e/index.html#e-word-families). The user's exact “Evangelist (not good)” classification stays separately attributed from its Greek linguistic meaning; similarly EVE female, EAVE of a house, Eve before night/event, fiction and simulation tokens are distinct. The October 21 ELOHER/ELHER token discrepancy is preserved and flagged. No original owner Library file bytes are published or rewritten.
+
+## Complete A–Z catalog routes
+
+The local chatbox supports `/az`, `/alphabet`, `/categories`, `/apps`, `/games` and `/letter A` through `/letter Z` as source-preserving navigation into [the full 26-letter directory](../../../../archive-index/alphabet/index.html). Directory records retain authored letter assignments even when titles begin with other characters. Apple and Google Play category values are low-confidence suggestions for review, not store submissions. App/game/feature/book/source occurrence counts overlap. No original source files, chat sessions or linked ONE apps are changed by browsing.

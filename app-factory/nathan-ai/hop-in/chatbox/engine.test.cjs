@@ -65,3 +65,10 @@ test('homepage is chat-first while tool panels remain accessible on demand',()=>
  assert.ok(simple.includes("shell.classList.toggle('advanced'"));
  assert.ok(app.includes("response.kind!=='greeting'"));
 });
+
+test('26-letter directory commands and source-preserving category routes',()=>{
+ for(const q of ['/az','/alphabet','/categories','/apps','/games','/letter A','/letter Z']){const r=engine.reply(q);assert.equal(r.kind,'route');assert.ok(r.links.some(l=>l.url.includes('archive-index/alphabet/index.html')));}
+ assert.equal(engine.reply('/letter B').links[0].url,'../../../../archive-index/alphabet/index.html?letter=B');
+ assert.ok(engine.reply('browse all 26 letters').links.some(l=>l.url.endsWith('/alphabet/index.html')));
+ assert.equal(engine.reply('/e').kind,'route');assert.equal(engine.reply('/d').kind,'route');
+});

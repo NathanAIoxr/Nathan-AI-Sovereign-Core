@@ -1,0 +1,41 @@
+{
+  "letter": "I",
+  "entryCount": 23,
+  "kindCounts": {
+    "standalone-app": 4,
+    "feature-concept": 4,
+    "program-record": 10,
+    "authored-sequence": 5
+  },
+  "sourceIds": [
+    "standalone:web:icarus-baseball/index.html",
+    "standalone:web:nathan-ai/innocence-matrix/index.html",
+    "standalone:web:nathan-ai/self-help/index.html",
+    "standalone:web:one/inventions-101/index.html",
+    "feature:I1",
+    "feature:I2",
+    "feature:I3",
+    "feature:I4",
+    "program:code:app-factory/nathan-ai/innocence-matrix",
+    "program:code:app-factory/nathan-ai/sovereign-coins/integrations",
+    "program:code:app-factory/icarus-baseball",
+    "program:code:app-factory/one/inventions-101",
+    "program:architecture:NT-STC4-003",
+    "program:code:app-factory/octopus-root/sovereign-continuum/firmware/input-receptor",
+    "program:code:app-factory/sss-cs/ios",
+    "program:interface:WEB-013",
+    "program:legacy:REF-CHI-014",
+    "program:legacy:REF-AI -021",
+    "authored:Physics A–Z:I",
+    "authored:Nativity A–Z:I",
+    "authored:Sacred Alphabet A–Z:I",
+    "authored:Holiday A–Z:I",
+    "authored:North/South Pole A–Z:I"
+  ],
+  "existingIndependentSources": [],
+  "originalIndexStatus": "new-source-index-over-existing-catalogs",
+  "sourceNotes": null,
+  "schema": "nathan-ai.letter-manifest.v1",
+  "catalogPath": "../directory.json",
+  "navigation": "../index.html?letter=I"
+}

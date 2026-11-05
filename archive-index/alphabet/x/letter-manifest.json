@@ -1,0 +1,27 @@
+{
+  "letter": "X",
+  "entryCount": 10,
+  "kindCounts": {
+    "standalone-app": 1,
+    "feature-concept": 4,
+    "authored-sequence": 5
+  },
+  "sourceIds": [
+    "standalone:web:one/x-marks-the-spot/index.html",
+    "feature:X1",
+    "feature:X2",
+    "feature:X3",
+    "feature:X4",
+    "authored:Physics A–Z:X",
+    "authored:Nativity A–Z:X",
+    "authored:Sacred Alphabet A–Z:X",
+    "authored:Holiday A–Z:X",
+    "authored:North/South Pole A–Z:X"
+  ],
+  "existingIndependentSources": [],
+  "originalIndexStatus": "new-source-index-over-existing-catalogs",
+  "sourceNotes": null,
+  "schema": "nathan-ai.letter-manifest.v1",
+  "catalogPath": "../directory.json",
+  "navigation": "../index.html?letter=X"
+}

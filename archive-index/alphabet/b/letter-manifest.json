@@ -1,0 +1,51 @@
+{
+  "letter": "B",
+  "entryCount": 23,
+  "kindCounts": {
+    "standalone-app": 5,
+    "game-catalog": 2,
+    "feature-concept": 4,
+    "program-record": 7,
+    "authored-sequence": 5
+  },
+  "sourceIds": [
+    "standalone:web:build-order/index.html",
+    "standalone:web:games/blackjack-life/index.html",
+    "standalone:web:nathan-ai/build-recovery/index.html",
+    "standalone:web:nathan-ai/mind-neuropath/index.html",
+    "standalone:app:NATHAN-BACKUP-RESTORE",
+    "game:50",
+    "game:82",
+    "feature:B1",
+    "feature:B2",
+    "feature:B3",
+    "feature:B4",
+    "program:code:app-factory/games/blackjack-life",
+    "program:code:app-factory/one/taborite-language-matrix/books",
+    "program:code:app-factory/build-order",
+    "program:legacy:REF-HUM-005",
+    "program:interface:WEB-001",
+    "program:code:app-factory/nathan-ai/build-recovery",
+    "program:legacy:REF-AI -018",
+    "authored:Physics A–Z:B",
+    "authored:Nativity A–Z:B",
+    "authored:Sacred Alphabet A–Z:B",
+    "authored:Holiday A–Z:B",
+    "authored:North/South Pole A–Z:B"
+  ],
+  "existingIndependentSources": [
+    {
+      "label": "Earlier B family and 8 index",
+      "path": "../../loc-b8/b-family/README.md"
+    },
+    {
+      "label": "Existing B/8 work",
+      "path": "../../loc-b8/index.html"
+    }
+  ],
+  "originalIndexStatus": "existing-source-archive-linked",
+  "sourceNotes": null,
+  "schema": "nathan-ai.letter-manifest.v1",
+  "catalogPath": "../directory.json",
+  "navigation": "../index.html?letter=B"
+}

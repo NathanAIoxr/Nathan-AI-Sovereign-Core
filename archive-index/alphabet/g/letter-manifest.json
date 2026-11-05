@@ -1,0 +1,43 @@
+{
+  "letter": "G",
+  "entryCount": 24,
+  "kindCounts": {
+    "standalone-app": 3,
+    "game-catalog": 2,
+    "feature-concept": 4,
+    "program-record": 10,
+    "authored-sequence": 5
+  },
+  "sourceIds": [
+    "standalone:web:game-reference-lab/all-morning.html",
+    "standalone:web:game-reference-lab/index.html",
+    "standalone:web:nathan-ai/games/index.html",
+    "game:15",
+    "game:34",
+    "feature:G1",
+    "feature:G2",
+    "feature:G3",
+    "feature:G4",
+    "program:interface:WEB-008",
+    "program:interface:WEB-007",
+    "program:interface:WEB-009",
+    "program:code:app-factory/games",
+    "program:code:app-factory/nathan-ai/games",
+    "program:interface:WEB-010",
+    "program:interface:WEB-011",
+    "program:legacy:REF-AI -009",
+    "program:legacy:REF-AI -017",
+    "program:architecture:NT-GOOD-001",
+    "authored:Physics A–Z:G",
+    "authored:Nativity A–Z:G",
+    "authored:Sacred Alphabet A–Z:G",
+    "authored:Holiday A–Z:G",
+    "authored:North/South Pole A–Z:G"
+  ],
+  "existingIndependentSources": [],
+  "originalIndexStatus": "new-source-index-over-existing-catalogs",
+  "sourceNotes": null,
+  "schema": "nathan-ai.letter-manifest.v1",
+  "catalogPath": "../directory.json",
+  "navigation": "../index.html?letter=G"
+}
