@@ -4,6 +4,29 @@
 
 **Purpose:** One consumer doorway to existing Nathan AI sources, personal creative explorations, research, and A–Z feature concepts. This is a functioning browser **prototype**, not a live universal AI service or finished implementation of every source feature.
 
+## Words → Worlds · source-to-creation studio (additive extension)
+
+A new **Create** tool tab inside this existing HOP IN chatbox connects the previously preserved, adult-language David exchange to a set of interactive, text-only editorial tools:
+
+- **App:** a source-first `Source → Index → Relate → Derive` checklist with direct archive/index links.
+- **Game:** six playable `Evidence Quest` choices, instant explanations, an in-tab score, and replay. No combat or retaliation mechanics.
+- **Books:** seven source-ID-linked editorial volume outlines, a writable draft-notes field for each volume, Markdown download, and a button to route an outline discussion to the existing local chatbox. The book drafts are not complete manuscripts or authentic historical biographies.
+- **Learn:** five short lessons with practice questions and answer reveals, linked to the original source IDs without exposing the explicit adult-language quotations.
+- **Originals:** deliberate, consent-gated retrieval from the four archived `original_text` records, exact rendered-text display, search, and browser clipboard copy (when permitted). This adult source reader is deliberately separate from the game and lessons.
+
+In the regular chat, send `/studio` or use the **Words → Worlds** starter prompt to navigate to the Create tab. No model credentials, third-party API, or external database is required for these local functions. Book notes and game scores remain in-tab, not automatically synchronized. Existing chat save/export covers chat turns only, **not** the studio's draft notes—use the Markdown export.
+
+The canonical originals are **only the four author messages visible in the current conversation**, stored at [the linked author archive](../../protection-of-innocence/david-exchange-2026-11-05/README.md). The source text includes threatening speech and a slur in attributed quotations; those primary-source records are for adult contextual research, not children's materials or instructions. Editors' book/lesson/game text remains derived adaptation, never a substitute for original words. Historical assertions about a grandfather's reported saying, David or other named people are not independently verified by this module. The module does **not** claim to reconstruct everything a named person did.
+
+Added tests:
+
+```sh
+node --test app-factory/nathan-ai/hop-in/chatbox/engine.test.cjs app-factory/nathan-ai/hop-in/chatbox/source-studio.test.cjs
+node --test app-factory/nathan-ai/protection-of-innocence/david-exchange-2026-11-05/archive.test.cjs
+```
+
+Browser accessibility, cross-device storage/export and deployment remain separate verification requirements.
+
 ## Working functions
 
 - Real text conversation window with local route responses, context-specific links, scrolling that respects users reading older turns, contextual suggestions, seven mode buttons and separately labeled local/source/model responses.
