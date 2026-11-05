@@ -6,12 +6,14 @@
     {
       "id": "us",
       "name": "United States — federal baseline",
-      "law": "FTC Act: truthful marketing and appropriate data/security claims; COPPA may apply to child-directed services or actual knowledge of data from children under 13.",
+      "law": "FTC Act: truthful marketing and appropriate data/security claims; COPPA may apply to child-directed services or actual knowledge of data from children under 13. The amended FTC COPPA Rule is generally subject to its April 22, 2026 compliance date (limited rule exceptions have other timing). Where covered, health apps may also have FTC Health Breach Notification Rule duties.",
       "checks": [
         "Substantiate every measurable feature, antivirus, health, AI, and security claim before advertising.",
         "Document data collection and disclosure practices and keep a prominent current privacy notice.",
         "Evaluate COPPA applicability separately, including verifiable parental consent where required.",
-        "Evaluate sector laws, consumer protection, accessibility, state requirements, and breach notifications."
+        "Evaluate sector laws, consumer protection, accessibility, state requirements, and breach notifications.",
+        "Assess the April 22, 2026 amended COPPA compliance obligations for child-directed or known-under-13 collection, including biometric identifiers and security/retention rules.",
+        "If the app is a vendor of personal health records or related covered entity, assess the 2024 FTC Health Breach Notification Rule and actual breach reporting obligations."
       ],
       "sources": [
         {
@@ -21,6 +23,14 @@
         {
           "title": "FTC — Complying with COPPA",
           "url": "https://www.ftc.gov/business-guidance/resources/complying-coppa-frequently-asked-questions"
+        },
+        {
+          "title": "FTC — 2025 amended COPPA rule (2026 compliance date)",
+          "url": "https://www.ftc.gov/business-guidance/resources/complying-coppa-frequently-asked-questions"
+        },
+        {
+          "title": "FTC — Health Breach Notification Rule applicability to health apps",
+          "url": "https://www.ftc.gov/business-guidance/resources/complying-ftcs-health-breach-notification-rule-0"
         }
       ]
     },
@@ -48,12 +58,13 @@
     {
       "id": "eu-eea",
       "name": "European Union / European Economic Area",
-      "law": "GDPR privacy/transparency duties where applicable, EU AI Act obligations based on AI system/provider/deployer risk and role, and DSA where the service qualifies as a regulated intermediary.",
+      "law": "GDPR privacy/transparency duties where applicable, EU AI Act obligations based on AI system/provider/deployer risk and role, and DSA where the service qualifies as a regulated intermediary. Certain EU AI Act transparency duties began applying August 2, 2026; high-risk provisions have different dates and roles. The regulated product must be classified on its real function.",
       "checks": [
         "Identify controller/processor, legal basis, processing purposes, recipients, storage periods, and international transfers.",
         "Provide accurate applicable data subject rights and contact route; implement requests and breach processes.",
         "Classify actual AI function and role; assess transparency duties and high-risk status before launch.",
-        "Review child-directed services, consent/cookies, accessibility, DSA and applicable Member State rules."
+        "Review child-directed services, consent/cookies, accessibility, DSA and applicable Member State rules.",
+        "Check applicable AI Act Article 50 human/AI interaction transparency from August 2, 2026; note phased exceptions and later high-risk dates rather than claiming all provisions start together."
       ],
       "sources": [
         {
@@ -67,6 +78,10 @@
         {
           "title": "EU — Digital Services Act",
           "url": "https://digital-strategy.ec.europa.eu/en/policies/digital-services-act"
+        },
+        {
+          "title": "EU AI Act Service Desk — current enforcement timing",
+          "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/faq/when-does-enforcement-start"
         }
       ]
     },
@@ -269,5 +284,6 @@
     "creatorExactWords": "globally is the world = round and internationally is the earth = flat .. per the bible and all ancient texts",
     "category": "Creator-attributed artistic / religious interpretation; not a geographic, scientific or legal definition",
     "clarification": "In law and ordinary geography, global and international do not indicate alternative Earth shapes. Earth is approximately an oblate spheroid, and ancient texts do not speak with one uniform scientific voice. Jurisdiction depends on applicable law and activity, not the cosmology used in creative writing."
-  }
+  },
+  "researchContext": "FTC mobile-app marketing; April 2025 COPPA final rule (generally April 2026 compliance); FTC 2024 Health Breach Notification Rule; EU AI Act official phased timetable; W3C WCAG 2.2; MDN service worker public-only caching. Informational, not legal counsel."
 }

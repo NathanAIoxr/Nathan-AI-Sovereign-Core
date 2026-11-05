@@ -1,5 +1,5 @@
 (function(){"use strict";
-const $=id=>document.getElementById(id),el=(name,text,cls)=>{const n=document.createElement(name);if(text!==undefined)n.textContent=String(text);if(cls)n.className=cls;return n};
+const Source=window.NathanAnatomySource,$=id=>document.getElementById(id),el=(name,text,cls)=>{const n=document.createElement(name);if(text!==undefined)n.textContent=String(text);if(cls)n.className=cls;return n};
 let atlas=null,selection="A",reverse=false;
 function card(title,description,kicker){const c=el("article",undefined,"card");if(kicker)c.append(el("div",kicker,"label"));c.append(el("h3",title),el("p",description));return c}
 function drawLetter(){const a=atlas.anatomyAZ.find(x=>x.letter===selection),v=atlas.iversions.find(x=>x.letter===selection),mode=$("layer").value,root=$("detail");root.replaceChildren();root.append(el("div",selection+" · "+v.name+" · Mirror "+v.mirror,"label"),el("h3",a.term));
@@ -10,7 +10,7 @@ function drawLetters(){const q=$("query").value.trim().toLowerCase();const match
 if(matches.length&&!matches.some(x=>x.letter===selection))selection=matches[0].letter;
 const root=$("letters");root.replaceChildren();for(const x of matches){const b=el("button",x.letter);b.type="button";b.setAttribute("aria-pressed",String(selection===x.letter));b.addEventListener("click",()=>{selection=x.letter;drawLetters()});root.append(b)}
 $("result-count").textContent=matches.length+" of 26 records";if(matches.length)drawLetter();else $("detail").textContent="No matching anatomy record."}
-function init(){if(atlas.anatomyAZ.length!==26||atlas.iversions.length!==26)throw Error("The full A–Z atlas was not available");drawLetters();
+function init(){Source.validate(atlas);drawLetters();
 for(const q of atlas.biologicalEquator)$("equator").append(card(q.original,q.physiology,q.direction+" · "+q.system));
 for(const r of atlas.spine.regions)$("spine").append(card(r.region,r.code+" · "+r.count+" positions"+(r.medicalNote?"; "+r.medicalNote:"")));
 for(const g of atlas.grammar)$("grammar").append(card(g.structure,g.link,g.body));

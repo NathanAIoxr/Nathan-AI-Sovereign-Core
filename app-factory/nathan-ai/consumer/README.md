@@ -15,7 +15,8 @@
 - A **manually chosen** region guide for U.S. federal law, California, EU/EEA, UK, Canada, Brazil, Australia, New Zealand, South Africa, Singapore, India and other regions. Every entry links to official sources, with a distinct requirements checklist.
 - Eight launch evidence gates for actual commercial release: publisher identity, verified privacy behavior, children, commerce, truth in claims, AI, accessibility, and security/recovery.
 - Full exact attributed creator wording on the global/international metaphor in a separate creator note, with a factual clarification. Science and jurisdictional rules are not changed by creative terminology.
-- Standalone web-app manifest and responsive, keyboard-operable directory interface. A manifest is not proof of a native app or working offline storage.
+- Standalone web-app manifest and responsive, keyboard-operable directory interface. **Explicitly opt-in offline cache** for only eight public directory resources (the page, scripts and dated metadata); users can remove that cache. It does not cache linked apps, private source, health records, security samples or vault contents. Browser support and offline availability must still be independently tested; not a native app guarantee.
+- Twelve individually sourced privacy/data-practice records distinguish known local storage and input features from unknown runtime/server behaviors. These do **not** replace a completed formal privacy policy or vendor/host audit.
 - No analytics, geolocation, tracking query or account form **added by this directory**. Linked modules may differ; hosting requests and normal browser activity can still be processed.
 
 ## Existing products in this release directory
@@ -57,7 +58,9 @@ That is a source-derived public path. Confirm deployment before advertising the 
 
 ## Verify source and tests
 
-    node --test app-factory/nathan-ai/consumer/engine.test.cjs
+    node --test app-factory/nathan-ai/consumer/engine.test.cjs app-factory/nathan-ai/consumer/offline-privacy.test.cjs
+    node --test app-factory/one/library-mind/search-core.test.cjs
+    node --test app-factory/nathan-ai/anatomy/source-core.test.cjs
     node --test app-factory/quality.test.cjs
 
 The first test checks record schemas, local route existence, unsafe URLs, completeness of release gates, routing filters, and attribution/scientific clarifications. The repository's existing visual and navigation checks run in Factory CI. Browser/assistive-technology testing and local legal review remain needed; no WCAG conformance claim is made.

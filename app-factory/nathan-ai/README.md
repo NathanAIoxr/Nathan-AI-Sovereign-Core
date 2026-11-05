@@ -20,6 +20,10 @@ Open the [AI Accountability Archive](./ai-accountability/README.md), including t
 
 [Open the searchable Program Jobs workbench](./program-jobs/index.html) or read the [357-record source/evidence catalog and priority build plan](./program-jobs/README.md). The atlas classifies current software, historical 92-name recovery entries, original NT-1 modules, operation specifications and private archive leads by task, without inventing completed apps.
 
+## TABOR ROOT — Deep Rock and the Ways of Nathan Tabor
+
+[Open the source-preserving Deep Rock / Ways lab](./deep-rock/index.html), with the original **1+1=2 BUILD; 1-1=0 CLEAR**, the nine creator-supplied Primordial/Primortal/Bimordial variants (including the duplicated final Bimordial), and the private 101-entry source-audit receipt. The lab performs only owner-local in-memory arithmetic and review; it does not claim remote access or historical deployment.
+
 ## Consumer Editions — original works, real consumer notices
 
 [Open the consumer-facing application directory](./consumer/index.html) or read its [source scope, regional notices and release-blocking requirements](./consumer/README.md). Twelve existing products are organized by actual job, limitations and verified source paths; creative-worldview wording remains attributed and separate from scientific geography or international law.

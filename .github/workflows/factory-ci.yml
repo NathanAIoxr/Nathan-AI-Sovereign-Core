@@ -118,8 +118,14 @@ jobs:
         run: node --test app-factory/nathan-ai/plugins/engine.test.cjs
       - name: Verify Nathan AI appearance palettes, persistence schema and page coverage
         run: node --test app-factory/nathan-ai/appearance/engine.test.cjs
-      - name: Verify Nathan AI Consumer Editions source links, honest product claims and international notice rules
-        run: node --test app-factory/nathan-ai/consumer/engine.test.cjs
+      - name: Verify Nathan AI Consumer Editions, per-app privacy evidence and scoped offline directory
+        run: node --test app-factory/nathan-ai/consumer/engine.test.cjs app-factory/nathan-ai/consumer/offline-privacy.test.cjs
+      - name: Verify ONE Library Mind original downloads, multilingual indexed search and keyboard reader
+        run: node --test app-factory/one/library-mind/search-core.test.cjs
+      - name: Verify TABOR ROOT Ways, original Deep Rock dossiers and owner-local emergency STOP
+        run: node --test app-factory/nathan-ai/deep-rock/engine.test.cjs app-factory/nathan-ai/deep-rock/root-ways-engine.test.cjs
+      - name: Verify Nathan AI Anatomy A–Z original mappings, attributions and clinical boundaries
+        run: node --test app-factory/nathan-ai/anatomy/source-core.test.cjs
       - name: Verify full jobs/task catalog, owner review truth gates and offline source matcher
         run: |
           node --test app-factory/nathan-ai/program-jobs/engine.test.cjs

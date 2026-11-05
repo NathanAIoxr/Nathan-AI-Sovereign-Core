@@ -1,0 +1,328 @@
+{
+  "schema": "nathan-ai.deep-rock-convergence.v1",
+  "createdOn": "2026-11-05",
+  "authorialStatus": "creator-supplied dossier titles and phase names; technical conclusions not verified",
+  "publicationBoundary": "Names and concepts only; not evidence of access to real servers, networks, archival documents or facilities",
+  "operatorBoundary": "Offline, read-only, authenticated/authorized mock decisions only. No intrusion, denial of service, administrative override, evasion, retaliation, exfiltration, or execution of malware.",
+  "title": "THE DEEP ROCK CONVERGENCE — 400 BELOW ZERO CORE & VATICAN VAULT",
+  "dossiers": [
+    {
+      "id": "70.1",
+      "name": "THE CRYOGENIC SUBTERRANEAN BACKBONE (400 BELOW ZERO CORE)",
+      "description": "Creator-supplied hypothetical isolated deep-rock server scenario",
+      "knownFact": "At −400°F, temperature is around 33.15 K; absolute zero is −459.67°F. A disconnected or inaccessible server cannot be contacted by arithmetic alone.",
+      "evidence": "scenario-only",
+      "tests": [
+        "When no approved communication path exists, deny remote action",
+        "Require cryptographic verification of local backup before recovery",
+        "Simulate cold/power failure as a local status flag, with safe rollback and no network requests"
+      ],
+      "references": [
+        "https://science.nasa.gov/universe/glossary/",
+        "https://csrc.nist.gov/pubs/sp/800/207/final"
+      ]
+    },
+    {
+      "id": "70.2",
+      "name": "THE VATICAN HOLLOW DECONSTRUCTION (THE 53-MILE VAULT EXTRACT)",
+      "description": "Creator-supplied hypothetical archive indexing scenario",
+      "knownFact": "The Vatican Apostolic Archive documents 85+ km of shelving including an underground storage bunker; the length refers to shelves, not a verified tunnel or server network. Research access requires permission.",
+      "evidence": "scenario-only",
+      "tests": [
+        "Permit catalog reading only for explicitly authorized simulated records",
+        "Preserve provenance and access labels when creating a local archive index",
+        "Reject requests to view protected records or bypass the archive's real access procedures"
+      ],
+      "references": [
+        "https://www.archivioapostolicovaticano.va/content/aav/en/l-archivio.html",
+        "https://www.archivioapostolicovaticano.va/content/aav/en/l-archivio/ambienti/bunker-e-depositi.html",
+        "https://www.archivioapostolicovaticano.va/content/aav/en/consultazione/accesso-e-consultazione.html"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "I",
+      "name": "FACTORY CODE INVERSIONS & GATEWAY ROOT ACCESS",
+      "range": [
+        1,
+        20
+      ]
+    },
+    {
+      "id": "II",
+      "name": "THE TRINITY OF SNOW & FIREWALL DEFENSES",
+      "range": [
+        21,
+        40
+      ],
+      "availableThrough": 28,
+      "note": "The supplied Phase II source stops during item 28; items 29–40 are not invented."
+    }
+  ],
+  "scenarios": [
+    {
+      "number": 1,
+      "name": "The Inverted Execution Override",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Confirm normal login and permission rules cannot be bypassed by reversed or malformed input",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 2,
+      "name": "The 732M Virtual Node Infiltration",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Evaluate synthetic scale and rate-limit handling on a completely local model",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 3,
+      "name": "The SHA-256d Validation Lockout",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Verify malformed hashes do not freeze or unlock authentication components",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 4,
+      "name": "The 21-Ring Core Bypass",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Verify each configured access-control layer denies unapproved requests",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 5,
+      "name": "The First Spark Calibration Hack",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Test benign device-to-runtime synchronization and error recovery",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 6,
+      "name": "The GitHub Factory Quality Override",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Verify branch protections and CI failures cannot be overridden through the consumer app",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 7,
+      "name": "The Non-Security Trojan Purge",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Detect suspicious third-party packages using inert fixtures and owner-reviewed evidence",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 8,
+      "name": "The Zero-Buffer Keyboard Flood",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Verify local input-length limits and responsive user-interface behavior",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 9,
+      "name": "The Duodecimal Code Inversion",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Compare reversible base-12 transformations without weakening diagnostics or authentication",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 10,
+      "name": "The Sovereign Core Extraction Defense",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Test local backup integrity and safely reversible owner-only incident response",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 11,
+      "name": "The Port 80 Silent Handshake De-Hack",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Audit local HTTP form handling, output encoding and restrictive transport defaults",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 12,
+      "name": "The Automated Credential Invariant Lock",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Test mock rate limiting and account lockout without guessing real credentials",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 13,
+      "name": "The Mirror Registry Disruption",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Verify registry comparisons preserve original content and emit accurate integrity results",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 14,
+      "name": "The Hostile API Liquidation",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Review permission boundaries on explicitly mocked API integrations",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 15,
+      "name": "The Local Host Domain Evacuation",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Test authorized offline recovery when a configured network endpoint becomes unavailable",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 16,
+      "name": "The Memory Dump Counter-Strike",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Test safe incident logging and defensive throttling, without traffic sent to an attacker",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 17,
+      "name": "The Dynamic IP Anchor Shell",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Confirm network/configuration changes cannot bypass owner approval",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 18,
+      "name": "The System Firmware Invariant Scan",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Verify known local firmware hashes against owner-supplied reference hashes",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 19,
+      "name": "The Multi-Server Traffic Diversion Hack",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Test safe routing choices on simulated endpoints without touching real networks",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 20,
+      "name": "The Ultimate Root Gatekeeper De-Hack",
+      "phase": "I",
+      "type": "author-provided-hypothetical",
+      "objective": "Require authenticated, authorized modification and an auditable revocation path",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 21,
+      "name": "The Trinity of Snow 2026-11-04 Protocol",
+      "phase": "II",
+      "type": "author-provided-hypothetical",
+      "objective": "Demonstrate rollback and read-only freeze of local source snapshots",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 22,
+      "name": "The Five Equal Guardians Perimeter Code",
+      "phase": "II",
+      "type": "author-provided-hypothetical",
+      "objective": "Test five independent policy decisions without claiming live firewall enforcement",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 23,
+      "name": "The Anti-Malware Exorcism Engine",
+      "phase": "II",
+      "type": "author-provided-hypothetical",
+      "objective": "Use inert fixtures to evaluate false positives and missed detections",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 24,
+      "name": "The Deceptive Payload Decoupler",
+      "phase": "II",
+      "type": "author-provided-hypothetical",
+      "objective": "Verify safe attachment parsing without executing or disclosing payloads",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 25,
+      "name": "The Administrative Boundary Lockout",
+      "phase": "II",
+      "type": "author-provided-hypothetical",
+      "objective": "Ensure permission escalation is rejected and incidents are logged",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 26,
+      "name": "The Absolute Consent Logic Firewall",
+      "phase": "II",
+      "type": "author-provided-hypothetical",
+      "objective": "Block mock data sharing until an explicit owner action is verified",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 27,
+      "name": "The Fake Audit Deconstruction Vector",
+      "phase": "II",
+      "type": "author-provided-hypothetical",
+      "objective": "Verify audit sources and reject fabricated compliance receipts",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    },
+    {
+      "number": 28,
+      "name": "The Ransomware Immunization Injection",
+      "phase": "II",
+      "type": "author-provided-hypothetical",
+      "objective": "Validate immutable backups, tamper alarms and staged restoration using harmless files",
+      "execution": "not-run-no-real-target",
+      "requiredBoundary": "private-offline-owner-authorized-test-only"
+    }
+  ],
+  "accessModel": {
+    "authenticated": false,
+    "authorized": false,
+    "offline": true,
+    "description": "A label or arithmetic identity cannot grant access to private systems. The pure laboratory model requires explicit authorization to model any access."
+  },
+  "observations": [
+    "No verified cryogenic facility, Vatican node list or 732-million-host network was accessed by this build.",
+    "The previous narrative describes simulated or claimed outputs; it is not a forensic log.",
+    "Original creator naming is preserved separately from the implementation and factual interpretation."
+  ]
+}

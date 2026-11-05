@@ -3,7 +3,7 @@
 (function(){'use strict';
 const api=window.NathanConsumer;
 const $=id=>document.getElementById(id);
-let products=null,law=null,selection={query:'',category:'all',stage:'all'},active=null;
+let products=null,law=null,practices=null,selection={query:'',category:'all',stage:'all'},active=null;
 function el(parent,tag,text,cls){
  const node=document.createElement(tag);
  if(text!==undefined&&text!==null)node.textContent=String(text);
@@ -55,6 +55,20 @@ function renderProduct(){
  el(host,'h3','Read these limits before opening');
  const list=el(host,'ul',null,'warning-list');
  for(const text of api.productDisclaimers(p))el(list,'li',text);
+ const disclosure=api.dataPracticesFor(practices,p.id);
+ if(disclosure){
+  const box=el(host,'section',null,'privacy-evidence');
+  el(box,'h3','Data and privacy — source review');
+  const dataList=el(box,'ul',null,'warning-list');
+  for(const [label,value]of [['Purpose',disclosure.scope],['Inputs',disclosure.inputs],
+    ['On-device storage',disclosure.deviceStorage],['Network and other parties',disclosure.remoteActivity],
+    ['What you can do',disclosure.ownerAction]]){
+   const li=el(dataList,'li');const strong=el(li,'strong',label+': ');li.append(document.createTextNode(value));
+  }
+  el(box,'p','Evidence level: '+disclosure.evidenceLevel.replace(/-/g,' ')+'. This is not a verified runtime data-flow audit.','small');
+  const a=link(box,'Inspect the cited original source','https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/'+disclosure.evidencePath);
+  a.target='_blank';a.rel='noopener noreferrer';
+ }
  const special=p.stage==='owner-local-browser'||p.stage==='developer-preview';
  if(special)el(host,'p',p.stage==='developer-preview'?
   'This is a developer or research demonstration and cannot replace installed professional protection.':
@@ -115,15 +129,64 @@ function setup(){
  $('category').addEventListener('change',()=>{selection.category=$('category').value;renderCards()});
  $('stage').addEventListener('change',()=>{selection.stage=$('stage').value;renderCards()});
  region.addEventListener('change',renderRegion);
+ $('privacy-status').textContent=practices.records.length+' program-specific source summaries loaded. '+practices.warning;
+ setupOffline();
  const quote=$('creator-quote');quote.textContent='“'+law.conceptualVocabulary.creatorExactWords+'” — Nathan Tabor';
  $('creator-clarification').textContent=law.conceptualVocabulary.category+'. '+law.conceptualVocabulary.clarification;
  renderStats();renderCards();renderRegion();renderGates();
  active=products.products[0].id;renderProduct();
  status('Public source index loaded. No account, location lookup or new personal-data collection initiated by this page.');
 }
+
+function setupOffline(){
+ const output=$('offlineStatus');
+ const enabled=$('enableOffline'),removed=$('removeOffline');
+ if(!('serviceWorker' in navigator)||!('caches' in window)){
+  output.textContent='Offline public-directory storage is not supported in this browser.';
+  enabled.disabled=true;removed.disabled=true;return;
+ }
+ const scope=new URL('./',location.href).pathname;
+ const display=(message)=>{output.textContent=message};
+ const isSecure=location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1';
+ if(!isSecure){
+  enabled.disabled=true;
+  display('An HTTPS or localhost connection is required for an optional offline copy.');
+  return;
+ }
+ enabled.addEventListener('click',async()=>{
+  enabled.disabled=true;
+  try{
+   const reg=await navigator.serviceWorker.register('./sw.js',{scope:'./'});
+   await navigator.serviceWorker.ready;
+   display('Public-only offline directory installed in this browser. Legal notices are dated; reconnect for updated information. Other apps are not available offline through this option.');
+   removed.disabled=false;
+  }catch(e){
+   display('Offline saving was not completed: '+e.message+'. Continue using the online directory.');
+  }finally{enabled.disabled=false}
+ });
+ removed.addEventListener('click',async()=>{
+  removed.disabled=true;
+  try{
+   const reg=await navigator.serviceWorker.getRegistration('./');
+   if(reg)await reg.unregister();
+   const names=await caches.keys();
+   await Promise.all(names.filter(name=>name.startsWith('nathan-consumer-public-')).map(name=>caches.delete(name)));
+   display('This directory’s optional offline copies were removed. Other apps and your original files were not changed. Refresh to confirm the change.');
+  }catch(e){display('Offline removal could not be confirmed: '+e.message)}
+  finally{removed.disabled=false}
+ });
+ navigator.serviceWorker.getRegistration('./').then(reg=>{
+  if(reg)display('A public-only offline copy was previously enabled in this browser. Reconnect for up-to-date notices; you can remove the copy here.');
+ }).catch(()=>{});
+ if(navigator.onLine===false)display('This device reports it is offline. Any previously saved legal references may be outdated.');
+ window.addEventListener('offline',()=>display('This device reports it is offline. Previously saved public legal references may be outdated.'));
+ window.addEventListener('online',()=>display('Connectivity may have returned. Refresh this directory to check the latest public notices.'));
+}
+
 Promise.all([
  fetch('./products.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Product list unavailable');return r.json()}),
- fetch('./jurisdictions.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Jurisdiction notices unavailable');return r.json()})
-]).then(([p,j])=>{api.verifyProducts(p);api.verifyJurisdictions(j);products=p;law=j;setup()})
+ fetch('./jurisdictions.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Jurisdiction notices unavailable');return r.json()}),
+ fetch('./data-practices.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Data-practice records unavailable');return r.json()})
+]).then(([p,j,d])=>{api.verifyProducts(p);api.verifyJurisdictions(j);api.verifyDataPractices(d,p);products=p;law=j;practices=d;setup()})
 .catch(e=>{status('Consumer directory could not open: '+e.message+'. Serve via HTTPS or a local web server.');el($('programs'),'p','Source list could not be verified. No app links were opened.','risk')});
 })();
