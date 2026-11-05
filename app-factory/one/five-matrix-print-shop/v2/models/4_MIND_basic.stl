@@ -1,0 +1,310 @@
+solid nathan_five_matrix_MIND
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 0 19.65 5
+      vertex 0 0 5
+      vertex 50 0 5
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 -1.00000000
+    outer loop
+      vertex 50 0 0
+      vertex 0 0 0
+      vertex 0 19.65 0
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 50 20 5
+      vertex 58 18 5
+      vertex 58 42 5
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 -1.00000000
+    outer loop
+      vertex 58 42 0
+      vertex 58 18 0
+      vertex 50 20 0
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 50 20 5
+      vertex 58 42 5
+      vertex 50 40 5
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 -1.00000000
+    outer loop
+      vertex 50 40 0
+      vertex 58 42 0
+      vertex 50 20 0
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 50 40 5
+      vertex 50 60 5
+      vertex 0 60 5
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 -1.00000000
+    outer loop
+      vertex 0 60 0
+      vertex 50 60 0
+      vertex 50 40 0
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 50 20 5
+      vertex 50 40 5
+      vertex 0 60 5
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 -1.00000000
+    outer loop
+      vertex 0 60 0
+      vertex 50 40 0
+      vertex 50 20 0
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 50 0 5
+      vertex 50 20 5
+      vertex 0 60 5
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 -1.00000000
+    outer loop
+      vertex 0 60 0
+      vertex 50 20 0
+      vertex 50 0 0
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 0 60 5
+      vertex 0 40.35 5
+      vertex 8.35 42.35 5
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 -1.00000000
+    outer loop
+      vertex 8.35 42.35 0
+      vertex 0 40.35 0
+      vertex 0 60 0
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 50 0 5
+      vertex 0 60 5
+      vertex 8.35 42.35 5
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 -1.00000000
+    outer loop
+      vertex 8.35 42.35 0
+      vertex 0 60 0
+      vertex 50 0 0
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 50 0 5
+      vertex 8.35 42.35 5
+      vertex 8.35 17.65 5
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 -1.00000000
+    outer loop
+      vertex 8.35 17.65 0
+      vertex 8.35 42.35 0
+      vertex 50 0 0
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 50 0 5
+      vertex 8.35 17.65 5
+      vertex 0 19.65 5
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 -1.00000000
+    outer loop
+      vertex 0 19.65 0
+      vertex 8.35 17.65 0
+      vertex 50 0 0
+    endloop
+  endfacet
+  facet normal 0.00000000 -1.00000000 0.00000000
+    outer loop
+      vertex 0 0 0
+      vertex 50 0 0
+      vertex 50 0 5
+    endloop
+  endfacet
+  facet normal 0.00000000 -1.00000000 0.00000000
+    outer loop
+      vertex 0 0 0
+      vertex 50 0 5
+      vertex 0 0 5
+    endloop
+  endfacet
+  facet normal 1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 50 0 0
+      vertex 50 20 0
+      vertex 50 20 5
+    endloop
+  endfacet
+  facet normal 1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 50 0 0
+      vertex 50 20 5
+      vertex 50 0 5
+    endloop
+  endfacet
+  facet normal -0.24253563 -0.97014250 0.00000000
+    outer loop
+      vertex 50 20 0
+      vertex 58 18 0
+      vertex 58 18 5
+    endloop
+  endfacet
+  facet normal -0.24253563 -0.97014250 0.00000000
+    outer loop
+      vertex 50 20 0
+      vertex 58 18 5
+      vertex 50 20 5
+    endloop
+  endfacet
+  facet normal 1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 58 18 0
+      vertex 58 42 0
+      vertex 58 42 5
+    endloop
+  endfacet
+  facet normal 1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 58 18 0
+      vertex 58 42 5
+      vertex 58 18 5
+    endloop
+  endfacet
+  facet normal -0.24253563 0.97014250 0.00000000
+    outer loop
+      vertex 58 42 0
+      vertex 50 40 0
+      vertex 50 40 5
+    endloop
+  endfacet
+  facet normal -0.24253563 0.97014250 0.00000000
+    outer loop
+      vertex 58 42 0
+      vertex 50 40 5
+      vertex 58 42 5
+    endloop
+  endfacet
+  facet normal 1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 50 40 0
+      vertex 50 60 0
+      vertex 50 60 5
+    endloop
+  endfacet
+  facet normal 1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 50 40 0
+      vertex 50 60 5
+      vertex 50 40 5
+    endloop
+  endfacet
+  facet normal 0.00000000 1.00000000 0.00000000
+    outer loop
+      vertex 50 60 0
+      vertex 0 60 0
+      vertex 0 60 5
+    endloop
+  endfacet
+  facet normal 0.00000000 1.00000000 0.00000000
+    outer loop
+      vertex 50 60 0
+      vertex 0 60 5
+      vertex 50 60 5
+    endloop
+  endfacet
+  facet normal -1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 0 60 0
+      vertex 0 40.35 0
+      vertex 0 40.35 5
+    endloop
+  endfacet
+  facet normal -1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 0 60 0
+      vertex 0 40.35 5
+      vertex 0 60 5
+    endloop
+  endfacet
+  facet normal 0.23293244 -0.97249292 0.00000000
+    outer loop
+      vertex 0 40.35 0
+      vertex 8.35 42.35 0
+      vertex 8.35 42.35 5
+    endloop
+  endfacet
+  facet normal 0.23293244 -0.97249292 0.00000000
+    outer loop
+      vertex 0 40.35 0
+      vertex 8.35 42.35 5
+      vertex 0 40.35 5
+    endloop
+  endfacet
+  facet normal -1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 8.35 42.35 0
+      vertex 8.35 17.65 0
+      vertex 8.35 17.65 5
+    endloop
+  endfacet
+  facet normal -1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 8.35 42.35 0
+      vertex 8.35 17.65 5
+      vertex 8.35 42.35 5
+    endloop
+  endfacet
+  facet normal 0.23293244 0.97249292 0.00000000
+    outer loop
+      vertex 8.35 17.65 0
+      vertex 0 19.65 0
+      vertex 0 19.65 5
+    endloop
+  endfacet
+  facet normal 0.23293244 0.97249292 0.00000000
+    outer loop
+      vertex 8.35 17.65 0
+      vertex 0 19.65 5
+      vertex 8.35 17.65 5
+    endloop
+  endfacet
+  facet normal -1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 0 19.65 0
+      vertex 0 0 0
+      vertex 0 0 5
+    endloop
+  endfacet
+  facet normal -1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 0 19.65 0
+      vertex 0 0 5
+      vertex 0 19.65 5
+    endloop
+  endfacet
+endsolid nathan_five_matrix_MIND
