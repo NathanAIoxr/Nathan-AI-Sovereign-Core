@@ -16,6 +16,14 @@ The existing code provides:
 
 **Status:** Source recovered and unit tested in CI, but **not** a completed antivirus, security enforcement service or production threat detector. The demonstrations are not a substitute for a real malware scanner or defensive incident-response team.
 
+## Owner-selected passive source inspection (new adapter)
+
+The additional `inspector.cjs` is a separate **read-only, offline** adapter. It uses the unchanged original Hall of Mirrors `classify` rules against owner-selected local text files, hashes each eligible file with SHA-256, and emits a metadata-only JSON report with pattern flags. It never runs content, scans a network, follows symbolic links, modifies originals, quarantines files, or retaliates. No-match does **not** mean malware-free; a reported match is a heuristic for human review, not proof of an infection.
+
+    node app-factory/one/hall-of-mirrors/inspector.cjs --dir /absolute/owner/selected/folder > /private/inspection-report.json
+
+Use only a directory you own and administer. Review the report privately: filenames and digests may disclose sensitive information. Defaults are bounded to 512 entries, 5 directory levels, 256 KiB per file and 8 MiB total read. The original code and its 101 names remain untouched.
+
 ## Test
 
     node --test app-factory/one/hall-of-mirrors/engine.test.cjs
