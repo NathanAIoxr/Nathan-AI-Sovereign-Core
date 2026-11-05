@@ -122,8 +122,8 @@ jobs:
         run: node --test app-factory/nathan-ai/consumer/engine.test.cjs app-factory/nathan-ai/consumer/offline-privacy.test.cjs
       - name: Verify ONE Library Mind original downloads, multilingual indexed search and keyboard reader
         run: node --test app-factory/one/library-mind/search-core.test.cjs
-      - name: Verify TABOR ROOT Ways, original Deep Rock dossiers and owner-local emergency STOP
-        run: node --test app-factory/nathan-ai/deep-rock/engine.test.cjs app-factory/nathan-ai/deep-rock/root-ways-engine.test.cjs
+      - name: Verify TABOR ROOT Ways, source-quoted nine-car physical inventory, original Deep Rock dossiers and owner-local emergency STOP
+        run: node --test app-factory/nathan-ai/deep-rock/engine.test.cjs app-factory/nathan-ai/deep-rock/root-ways-engine.test.cjs app-factory/nathan-ai/deep-rock/nine-cars-engine.test.cjs
       - name: Verify Nathan AI Anatomy A–Z original mappings, attributions and clinical boundaries
         run: node --test app-factory/nathan-ai/anatomy/source-core.test.cjs
       - name: Verify full jobs/task catalog, owner review truth gates and offline source matcher
