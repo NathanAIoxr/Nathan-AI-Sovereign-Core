@@ -46,3 +46,4 @@ test("rejects malformed and oversized saved records",()=>{
   assert.equal(valid.round,1);
   assert.throws(()=>E.validateSaved({schema:"nathan-ai.root-clear.v1",record:E.CASE_STUDY,score:-1,round:1}));
 });
+test("source whitespace is preserved exactly",()=>{const line="  leading / trailing  \n";assert.equal(E.buildRecord({original:line}).original,line);});
