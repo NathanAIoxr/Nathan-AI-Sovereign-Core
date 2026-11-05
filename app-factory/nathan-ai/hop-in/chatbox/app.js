@@ -3,7 +3,7 @@
 const E=window.NathanChatbox,P=window.NathanHopIn,A=window.NathanAssistant,W=window.NathanWorkspace;
 const $=id=>document.getElementById(id);
 const SESSION_KEY=E.SCHEMA,DRAFT_KEY=SESSION_KEY+'.draft',DRAFT_OPT=SESSION_KEY+'.rememberDraft';
-const st={mode:'core',figureIds:E.FIGURES.map(x=>x.id),mind:'',turns:[],featureRows:[],rootRows:[],activeLetter:'',featureQuery:'',shown:12,publicRows:[],sourcesLoading:false,selected:[],previewQuestion:null,previewFingerprint:'',reviewed:false,adapter:false,controller:null,baseline:null,storageHealthy:true,rememberDraft:false};
+const st={mode:'core',figureIds:E.FIGURES.map(x=>x.id),mind:'',turns:[],featureRows:[],rootRows:[],activeLetter:'',featureQuery:'',shown:12,publicRows:[],sourcesLoading:false,selected:[],previewQuestion:null,previewFingerprint:'',reviewed:false,adapter:false,controller:null,baseline:null,storageHealthy:true,rememberDraft:false,snowRows:[],snowLoaded:false,snowLoading:false};
 function n(tag,txt,cls){const el=document.createElement(tag);if(txt!==undefined)el.textContent=String(txt);if(cls)el.className=cls;return el}
 function status(text){$('chat-status').textContent=text}
 function remove(el){el.replaceChildren()}
@@ -12,7 +12,18 @@ function keepBottom(el){return el.scrollHeight-el.scrollTop-el.clientHeight<140}
 function renderTurn(turn){const holder=n('article',undefined,'turn '+turn.role);const avatar=n('div',turn.role==='assistant'?'N':'YOU','avatar');avatar.setAttribute('aria-hidden','true');const bubble=n('div',undefined,'bubble');const t=n('p',turn.role==='assistant'?'NATHAN AI · '+(turn.kind==='model'?'LOCAL MODEL DRAFT':turn.kind==='source-retrieval'?'SOURCE RETRIEVAL':'LOCAL GUIDE'):'YOU','turn-label');const answer=n('p',turn.text,'answer');bubble.append(t,answer);if(turn.links?.length){const related=n('div',undefined,'related');for(const l of turn.links){if(!l||!l.url||!l.label)continue;const a=n('a',l.label);a.href=l.url;if(l.url.startsWith('https://')){a.target='_blank';a.rel='noopener noreferrer'}related.append(a)}bubble.append(related)}holder.append(avatar,bubble);return holder}
 function addTurn(turn){E.noCredentials(turn.text);if(st.turns.length>=E.MAX_TURNS)throw Error('Conversation limit reached. Export or clear the conversation before continuing.');st.turns.push(turn);const log=$('chat-history'),stick=keepBottom(log);$('welcome').hidden=true;log.append(renderTurn(turn));if(stick)log.scrollTop=log.scrollHeight;$('session-indicator').textContent='In memory · not saved automatically'}
 function renderLog(){remove($('chat-history'));$('welcome')?.remove();if(!st.turns.length){const h=n('div',undefined,'welcome');h.id='welcome';h.append(n('p','START WITH A QUESTION','eyebrow'),n('h2','HOP IN.'),n('p','Ask Nathan AI a question or choose a tool to explore history, names, sources and worlds.'));$('chat-history').append(h);return}for(const turn of st.turns)$('chat-history').append(renderTurn(turn));$('chat-history').scrollTop=$('chat-history').scrollHeight;}
-function useMode(mode){if(!E.MODE_LABELS[mode])return;st.mode=mode;for(const b of document.querySelectorAll('[data-mode]'))b.setAttribute('aria-pressed',String(b.dataset.mode===mode));$('mode-indicator').textContent=E.MODE_LABELS[mode];$('mode-description').textContent=E.TIPS[mode];status('Mode selected. Source text is not rewritten or erased.');}
+async function loadSnow(){if(st.snowLoaded||st.snowLoading)return;st.snowLoading=true;try{
+ const u=new URL('../../original-words/snow-family/excerpts.json',location.href);
+ const resp=await fetch(u,{cache:'no-store'});if(!resp.ok)throw Error('Source archive unavailable');
+ const data=await resp.json();
+ if(data.schema!=='nathan-ai.original-words.excerpts.v1'||!Array.isArray(data.records)||data.records.length>300||data.records.some(x=>typeof x.original_exact!=='string'||x.original_exact.length>10000))throw Error('Invalid source format');
+ st.snowRows=data.records.map(x=>({id:String(x.id),original_exact:x.original_exact}));st.snowLoaded=true;
+ status(st.snowRows.length+' original Snow Family excerpts loaded. No source words changed.');
+ }catch(e){status('Snow Family source archive unavailable: '+e.message)}finally{st.snowLoading=false}}
+function snowMatches(query){const terms=E.words(query).filter(x=>x.length>2&&!['show','give','tell','about','original','words','snow','family','source','exact','matrix','level','levels'].includes(x));
+ const ranked=st.snowRows.map(x=>({...x,score:terms.reduce((n,t)=>n+(E.words(x.original_exact).includes(t)?1:0),0)})).filter(x=>!terms.length||x.score>0).sort((a,b)=>b.score-a.score);
+ return ranked.slice(0,5)}
+function useMode(mode){if(!E.MODE_LABELS[mode])return;st.mode=mode;if(mode==='snow')loadSnow();for(const b of document.querySelectorAll('[data-mode]'))b.setAttribute('aria-pressed',String(b.dataset.mode===mode));$('mode-indicator').textContent=E.MODE_LABELS[mode];$('mode-description').textContent=E.TIPS[mode];status('Mode selected. Source text is not rewritten or erased.');}
 function useTool(tool){for(const b of document.querySelectorAll('[data-tool]')){const yes=b.dataset.tool===tool;b.setAttribute('aria-pressed',String(yes));document.querySelector('[data-panel="'+b.dataset.tool+'"]').hidden=!yes}}
 function setMessage(text){$('message').value=text;rememberDraft();$('message').focus()}
 function rememberDraft(){if(!st.rememberDraft)return;try{localStorage.setItem(DRAFT_KEY,$('message').value.slice(0,4000))}catch(_){status('Could not save draft; browser storage unavailable.')}}
@@ -22,7 +33,12 @@ function publicMatches(question){if(!st.publicRows.length)return[];return A.retr
 function sourceText(items){return items.map((v,i)=>(i+1)+'. '+v.title+' ['+v.id+'] · '+v.stage+'\n'+v.excerpt).join('\n\n')}
 function sendLocal(question){const q=String(question||'').trim();if(!q)return;try{
  E.noCredentials(q);const response=E.reply(q,{mode:st.mode,mind:st.mind,figureIds:st.figureIds});addUser(q);
- const matches=publicMatches(q);if(matches.length&&response.kind!=='reset-request'){
+ const matches=publicMatches(q);
+ if(st.mode==='snow'&&response.kind!=='reset-request'){
+   const selected=snowMatches(q);
+   const originals=st.snowLoaded?(selected.length?'\n\nVERBATIM AUTHOR SOURCE EXCERPTS (no rewriting):\n\n'+selected.map(x=>x.id+' · '+x.original_exact).join('\n\n'):'\n\nNo matching original excerpt. Open the complete archive.'): '\n\nOriginal excerpt archive is not loaded yet. Use the linked source registry.';
+   appendAssistant({...response,answer:response.answer+originals});
+ }else if(matches.length&&response.kind!=='reset-request'){
    appendAssistant({kind:'source-retrieval',answer:response.answer+'\n\nMATCHING PUBLIC SOURCE PASSAGES (source retrieval, not a synthesized factual conclusion):\n\n'+sourceText(matches),links:[...(response.links||[]),E.LINKS.assistant]});
  }else appendAssistant(response);
  $('message').value='';rememberDraft();resetPreview();status(st.publicRows.length?'Source-aware local response shown. No model request made.':'Local navigation response shown. No model request made.');
@@ -62,5 +78,7 @@ function initEvents(){document.querySelectorAll('[data-mode]').forEach(b=>b.addE
  $('read-aloud').addEventListener('click',()=>{const last=st.turns.filter(x=>x.role==='assistant').at(-1);if(!last){status('No response to read aloud.');return}if(!('speechSynthesis' in window)){status('Speech output is not available in this browser.');return}speechSynthesis.cancel();const utter=new SpeechSynthesisUtterance(last.text.slice(0,4000));utter.rate=1;utter.lang=document.documentElement.lang||'en';speechSynthesis.speak(utter);status('Reading with a browser-generated voice; not a recording or clone of Nathan Tabor.');});$('stop-speaking').addEventListener('click',()=>window.speechSynthesis?.cancel());
  $('mic').addEventListener('click',()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){status('Speech recognition is not supported by this browser. Text entry still works.');return}if(!confirm('The browser may send microphone audio to its speech-recognition provider. Continue?'))return;const sr=new SR();sr.lang=navigator.language||'en-US';sr.continuous=false;sr.interimResults=false;sr.onresult=e=>{const text=e.results[0][0].transcript;$('message').value=($('message').value+' '+text).trim().slice(0,4000);rememberDraft();status('Speech added to draft; press Send to submit it. Nothing submitted automatically.')};sr.onerror=()=>status('Speech input failed or was denied. Text input is still available.');try{sr.start();status('Listening with browser speech recognition after your permission.')}catch(e){status('Unable to begin speech recognition: '+e.message)}});
 }
-initLetters();initHistory();initAssembly();initStorage();initEvents();initCatalogs();adapterStatus();$('message').focus();
+initLetters();initHistory();initAssembly();initStorage();initEvents();initCatalogs();adapterStatus();
+try{const preferred=new URLSearchParams(location.search).get('mode');if(preferred&&E.MODE_LABELS[preferred])useMode(preferred)}catch(_){/* query parameters unavailable */}
+$('message').focus();
 })();

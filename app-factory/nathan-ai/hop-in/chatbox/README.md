@@ -6,8 +6,8 @@
 
 ## Working functions
 
-- Real text conversation window with local route responses, context-specific links, scrolling that respects users reading older turns, contextual suggestions, seven mode buttons and separately labeled local/source/model responses.
-- Seven lenses: Nathan AI Core, Modern Version, Man-Made Lies Stripped (institutional source audit), God Lies Removed (theological critique), Saint Jerome (Vulgate and translation audit), Custom Mind, and Group Assembly. Lens selection never edits historical source evidence.
+- Real text conversation window with local route responses, context-specific links, scrolling that respects users reading older turns, contextual suggestions, eight mode buttons and separately labeled local/source/model responses.
+- Eight lenses: Nathan AI Core, Modern Version, Man-Made Lies Stripped (institutional source audit), God Lies Removed (theological critique), Saint Jerome (Vulgate and translation audit), Custom Mind, Group Assembly, and Original Words · Snow Family 19-Level. Lens selection never edits historical source evidence.
 - Five historical research perspectives (Buddha, Jesus, MLK Sr., MLK Jr., King James), with source investigation prompts; no actual cloned voice, authentic first-person quote or simulated history passed off as fact.
 - `features.json` preserves all **104** original A–Z titles (four under each letter) and original user-supplied descriptions. The original heading says 101, but it contains 104. All catalog entries have `stage=concept`, and searchable UI never calls those products complete.
 - `settings.json` contains the **43 named root settings** actually enumerated in the pasted 101 Base Root Settings excerpt. No 58 missing entries were invented. Hardware control and unhackability claims remain unverified specifications.
@@ -58,3 +58,5 @@ The current test suite covers source-count fidelity, route modes, group framing,
 ## Preservation
 
 Original HOP IN, Assistant, ONE, Almanac concepts, Family Research and all previously committed applications remain separate. This new chatbox is a **namespaced addition** with optional source links, not an overwrite.
+## Original Words · Snow Family 19-Level mode
+The eighth chat mode reads `../../original-words/snow-family/excerpts.json` on selection and searches the 20 recovered author-word excerpts without rewriting them. Results show direct quotations and keep their original spelling. Opening `index.html?mode=snow` selects this lens from Nathan AI or the source-grounded Assistant. The original order is **+9 to +1 / 0 / −9 to −1** (North / Equator / South), with the full enumerated 19 positions preserved in the source registry. This is a user-authored conceptual cosmology, not a geoscience assertion. The full original-word archive is not complete; further sources must be recovered with provenance and consent. Existing seven modes and stored chat formats remain unchanged.
