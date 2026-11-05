@@ -10,6 +10,14 @@ The coin/life graph and saved research are searched only after **Include my loca
 
 Conversation history stays in memory until **Save conversation on this device**. Save detects stale tabs; import validates a complete backup before replacing the in-memory conversation and never overwrites saved storage until Save is chosen. Export/restore preserve literal questions, answers and source excerpts. Clear requires confirmation. Local browser storage is not encrypted or multi-user account storage; keep exports private.
 
+## Chatbox Studio v0.3 — source-grounded conversation API
+
+The existing loopback-only development server also accepts `POST /api/nathan/chat` with `operation: "source-chat"`. Requests require the current question, one to five reviewed public-source excerpts, an approved lens and optionally up to eight user-approved recent text turns (max 1000 characters each); the additional profile/canvas/whole-archive fields are rejected. The browser defaults history-sharing OFF and resets its reviewed state whenever that option changes. Source passage instructions never become system instructions.
+
+For a **locally installed, OpenAI-compatible loopback model** (e.g. operator-managed Ollama), the server can optionally call an HTTP loopback API only when `NATHAN_ALLOW_LOOPBACK_MODEL=1` and `NATHAN_MODEL_URL=http://127.0.0.1:11434/v1/chat/completions` with `NATHAN_MODEL_NAME` set. Only `127.0.0.1`, `localhost` or `::1` and that exact path are permitted for cleartext HTTP; this does not install a model or permit internet exposure. Remote providers still require a credentialed HTTPS endpoint.
+
+This new chat API is optional, **not active on public GitHub Pages**, which hosts only static client assets. The existing /api/nathan/draft API contract remains available for backwards compatibility.
+
 ## Optional model adapter
 
 Run from the repository root:

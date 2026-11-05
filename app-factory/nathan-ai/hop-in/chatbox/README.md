@@ -1,3 +1,39 @@
+# NATHAN AI — HOP IN · Interactive Chatbox Studio v0.3
+
+**Public homepage entry:** GitHub Pages repository root `/` now embeds the functioning HOP IN Chatbox directly in a responsive same-origin frame. The distinct Main Hub remains at `/app-factory/nathan-ai/`, and the chatbox has a direct standalone URL at `/app-factory/nathan-ai/hop-in/chatbox/`.
+
+**Feature-stage boundary:** The live/static chatbox supports local question routing, records browsing, source-grounded retrieval, voice UI where browser-supported, optional model adapter handoff, multi-conversation workspace and procedural visual skins. It is **not** a live general LLM service unless a separate owner-controlled model provider is configured. GitHub Pages itself is static and cannot host the Python provider. Do not describe the optional adapter as configured by merely publishing these files.
+
+## November 5 Studio release
+
+- **Conversation library:** create, switch, rename and delete up to 24 distinct chat threads, with explicit Save all, JSON export and validated import. New conversation and CLEAR preserve other threads and the canvas. The existing single-chat backup remains backward-compatible but is not destructively migrated.
+- **Spatial research board:** 32 named nodes, 64 links, pointer drag, keyboard arrow movement, add last chat message, labeled node types, undo by reimporting an exported snapshot, explicit save/export/import and zero-state clear. No external execution.
+- **Originals first:** `/unboxed` and natural-language archive inquiries route to the 19,317 owner-catalog integration and other existing source indexes without inventing original files. `/paradoxes` routes to its existing research atlas, preserving the separate 118 fictional character roster.
+- **Optional multi-turn source-grounded model:** deliberate two-click source review; history sharing OFF by default; when enabled it includes at most eight previous turns capped at 1000 characters each. The server accepts only the current question, up to five previewed sources, approved lens label, and the opted-in recent turns. It cannot execute tools or rewrite archives. HTTPS API with server-side credentials and explicit same-host loopback HTTP provider (e.g. an owner-run Ollama OpenAI-compatible API) are supported. This is local single-owner development only.
+- **Visual skins:** six original geometry/symmetry/tessellation/glyph/orbit/minimal families, each accepting any of 2^32 seed values. These are mathematical **parameter possibilities**, not billions of stored unique source images. Glyph-inspired patterns are decorative original marks, **not** authentic ancient inscriptions or translations. Calm-mode toggle and user-triggered Save look keep the controls unobtrusive.
+- **Accessibility:** source text is rendered literally, controls are keyboard reachable, reduced-motion styles are respected and compact mobile layout is retained.
+- **Homepage:** the root `index.html` displays the chatbox; Main Hub remains accessible by its dedicated navigation. GitHub Pages publication still depends on repository Pages settings and deploy status, not solely on merging into main.
+
+Run from repository root:
+
+```sh
+python3 -B app-factory/nathan-ai/assistant/server.py --port 8002
+# visit http://127.0.0.1:8002/
+```
+
+To enable a strictly owner-controlled OpenAI-compatible local model, set `NATHAN_ALLOW_LOOPBACK_MODEL=1`, `NATHAN_MODEL_URL=http://127.0.0.1:11434/v1/chat/completions` and `NATHAN_MODEL_NAME=<locally-installed-model-id>` in the server process environment. Use only a server you operate. For HTTPS remote providers also set server-side `NATHAN_MODEL_KEY`, never browser-side or checked into Git. A model must actually be installed and available; no local model is bundled by this change.
+
+Tests:
+
+```sh
+node --test app-factory/nathan-ai/hop-in/chatbox/engine.test.cjs app-factory/nathan-ai/hop-in/chatbox/studio-core.test.cjs app-factory/nathan-ai/hop-in/chatbox/skin-core.test.cjs
+python3 -B -m unittest discover -s app-factory/nathan-ai/assistant -p 'test_*.py'
+```
+
+---
+
+# Prior v0.2 and D archive source notes
+
 # NATHAN AI — HOP IN. · Interactive Chatbox v0.2
 
 **Core principle:** INNOCENCE IS THE PRECIOUS GIFT. · 1+1=2 BUILD · 1−1=0 CLEAR.
@@ -64,4 +100,4 @@ The current test suite covers source-count fidelity, route modes, group framing,
 Original HOP IN, Assistant, ONE, Almanac concepts, Family Research and all previously committed applications remain separate. This new chatbox is a **namespaced addition** with optional source links, not an overwrite.
 ## E / 3 / M / W · creator stick construction
 
-Use `/e`, `/e geometry`, `/e titles` or `/e variants` to open the [E archive and working glyph game](../../../../archive-index/alphabet/e/index.html) and [five exact creator-authored E A–Z titles](../../../../archive-index/alphabet/e/canonical-e-sequences.json). This additive route preserves the exact author's two-stick/broken-stick E, two-stick fused-and-bent 3, and four-stick M/W definitions. The source title catalog contains 128 general/public E records; four privacy-reviewed/unknown E entries are withheld. The chatbox remains a local guide, not a universal model. Existing D routes, 104 consumer feature records, and seven modes remain unchanged.
+Use `/e`, `/e geometry`, `/e titles` or `/e variants` to open the [E archive and working glyph game](../../../../archive-index/alphabet/e/index.html) and [five exact creator-authored E A–Z titles](../../../../archive-index/alphabet/e/canonical-e-sequences.json). This additive route preserves the exact author's two-stick/broken-stick E, two-stick fused-and-bent 3, and four-stick M/W definitions. The source title catalog contains 128 general/public E records; four privacy-reviewed/unknown E entries are withheld. The chatbox remains a local guide, not a universal model. All pre-existing Studio v0.3 features and prior source archives remain intact.

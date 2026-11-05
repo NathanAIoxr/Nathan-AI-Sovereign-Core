@@ -25,8 +25,8 @@
     const summary = engine.summary(records);
     els.stats.replaceChildren();
     const stats = [
-      [inventory.fileCount, 'Snapshot files'],
-      [inventory.directoryCount, 'Snapshot directories'],
+      [inventory.fileCount, 'Indexed files'],
+      [inventory.directoryCount, 'Indexed directories'],
       [summary.sourceScanned, 'Files source-inspected here'],
       [summary.runtimeVerified, 'Runtime-verified by this tool']
     ];
@@ -127,6 +127,45 @@
       }, null, 2), 'application/json');
     }
   }
+  async function refreshLiveTree() {
+    const button = byId('refresh-live');
+    button.disabled = true;
+    els.status.textContent = 'Checking the latest public GitHub main tree…';
+    try {
+      const response = await fetch('https://api.github.com/repos/' + repo + '/git/trees/main?recursive=1', {
+        headers: {'Accept': 'application/vnd.github+json'}, cache: 'no-store'
+      });
+      if (!response.ok) throw new Error('GitHub tree request failed (HTTP ' + response.status + ')');
+      const remote = await response.json();
+      if (remote.truncated || !Array.isArray(remote.tree) || !remote.sha)
+        throw new Error('GitHub returned an incomplete tree; original snapshot retained');
+      const entries = remote.tree.map(item => ({
+        p: item.path, t: item.type === 'blob' ? 'f' : 'd',
+        s: item.sha, b: item.size || 0
+      }));
+      inventory = {
+        ...inventory, entries, baseCommit: remote.sha,
+        entryCount: entries.length,
+        fileCount: entries.filter(row => row.t === 'f').length,
+        directoryCount: entries.filter(row => row.t === 'd').length,
+        method: 'User-requested live public GitHub main tree; filename hints remain unverified'
+      };
+      records = entries.map(engine.fromPath);
+      for (const [select, values] of [[els.scope, Object.keys(engine.summary(records).byScope)],
+          [els.type, Object.keys(engine.summary(records).byType)]]) {
+        const previous = select.value;
+        select.replaceChildren(e('option', 'All'));
+        addSelect(select, values);
+        if ([...select.options].some(option => option.value === previous)) select.value = previous;
+      }
+      showStats(); refresh(true);
+      els.status.textContent = 'Live GitHub main tree ' + remote.sha.slice(0, 12) +
+        ' loaded: ' + entries.length.toLocaleString() + ' paths. This refresh does not execute source or validate runtime behavior.';
+    } catch (error) {
+      els.status.textContent = 'Live refresh unavailable: ' + error.message +
+        '. The previously loaded index remains available.';
+    } finally { button.disabled = false; }
+  }
   async function start() {
     try {
       if (!engine) throw new Error('Analysis engine did not load');
@@ -147,6 +186,7 @@
       els.status.textContent = 'Inventory loaded from GitHub tree ' + inventory.baseCommit.slice(0, 12) + '. All snapshot paths indexed. Inspection is read-only.';
       [els.query, els.scope, els.capability, els.type].forEach(el => el.addEventListener(el === els.query ? 'input' : 'change', () => refresh(true)));
       els.more.addEventListener('click', addNextPage);
+      byId('refresh-live').addEventListener('click', refreshLiveTree);
       byId('export-json').addEventListener('click', () => exportRows(false));
       byId('export-csv').addEventListener('click', () => exportRows(true));
       byId('reset').addEventListener('click', () => {
