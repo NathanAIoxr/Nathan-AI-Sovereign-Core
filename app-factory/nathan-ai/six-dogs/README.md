@@ -1,5 +1,20 @@
 # SIX DOGS — Nathan AI / ONE Resolution Engine
 
+![Nathan AI Sovereign Prism six-stage network illustration](assets/hero-prism.svg)
+
+## Sovereign Prism visual identity
+
+Six original vector character emblems, one for each preserved dog identity. All are included locally in the application and in the [complete twelve-image visual registry](assets/visual-registry.json).
+
+| 1. KNICK | 2. KNACK | 3. PADDY | 4. WHACK | 5. DOG | 6. BONE |
+|---|---|---|---|---|---|
+| ![KNICK dog](assets/stage-01-knick.svg) | ![KNACK dog](assets/stage-02-knack.svg) | ![PADDY dog](assets/stage-03-paddy.svg) | ![WHACK dog](assets/stage-04-whack.svg) | ![DOG dog](assets/stage-05-dog.svg) | ![BONE dog](assets/stage-06-bone.svg) |
+
+![Six Dogs technical pipeline diagram](assets/pipeline-map.svg)
+
+The new `skin.css` powers a responsive app experience with a featured network hero, character gallery, illustrations inside stage buttons, topology and hardware images, and local-first privacy messaging. A matching **Sovereign Prism** palette is selectable across Nathan AI using the existing Look & feel control; the original 12 palettes remain available. The creative diagrams do not establish deployment of a real distributed network, verified hardware, or medical treatment. No human figures or faces are used.
+
+
 **Original names, preserved:** KNICK → KNACK → PADDY → WHACK → DOG → BONE.
 
 Source: owner-supplied nursery-rhyme framework and the November 5 revised front-facing five-plane mapping. This module is additive. Existing original code and legacy author-owned archives are not replaced.
