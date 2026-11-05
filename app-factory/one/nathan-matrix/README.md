@@ -1,5 +1,8 @@
 # Nathan AI 🚀 · Connected Matrix (inside ONE)
 
+**Unified 0–9 / 4×6 reference:** [Open the independent source register, original Python simulator, original CSV and original JSON](./unified-field/README.md). This is an additive reference; all older ONE matrix functions remain separate.
+
+
 Additive ONE browser reference module. Owner original source, private code, and prior modules are preserved and NOT recopied into the public repository.
 
 ## Existing products, not replacements

@@ -1,5 +1,8 @@
 # THE TRINITY OF SNOW — Nathan AI / The 1380 Book of Lights
 
+**New additive interactive doorway:** [Snow Family Book of Lights — chat, educational game, KJV study, 19-level world, 4×6 matrix and 39-chapter series outline](./field-experience/index.html). The original archive below is unchanged; see the [separate development guide](./field-experience/README.md).
+
+
 **Creator:** Nathan Tabor. **Entry:** [Open the source-preserving browser atlas](./index.html). **Structured source:** [archive.js](./archive.js). **Editable vector image:** [cover.svg](./cover.svg).
 
 ## What has been preserved
