@@ -204,6 +204,13 @@ window.NathanAIWebsiteModules = [
     "status": "Owner-local original-source simulation preview"
   },
   {
+    "id": "nathan-ai/sovereign-defender/index.html",
+    "title": "SOVEREIGN DEFENDER — Virus & Ransomware Research",
+    "url": "../../nathan-ai/sovereign-defender/index.html",
+    "group": "apps",
+    "status": "Owner-local read-only security research preview"
+  },
+  {
     "id": "nathan-ai/consumer/index.html",
     "title": "Nathan AI Consumer Editions",
     "url": "../../nathan-ai/consumer/index.html",
