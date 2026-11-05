@@ -118,6 +118,8 @@ jobs:
         run: node --test app-factory/nathan-ai/plugins/engine.test.cjs
       - name: Verify Nathan AI appearance palettes, persistence schema and page coverage
         run: node --test app-factory/nathan-ai/appearance/engine.test.cjs
+      - name: Verify Five Equal Guardians exact names, standing and owner-scoped defense preview
+        run: node --test app-factory/nathan-ai/five-guardians/engine.test.cjs
       - name: Verify Nathan AI unified navigation and bounded source handoffs
         run: node --test app-factory/nathan-ai/launcher/engine.test.cjs
       - name: Verify Nathan AI local model adapter and request boundaries
