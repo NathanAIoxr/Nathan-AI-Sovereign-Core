@@ -98,3 +98,6 @@ The current test suite covers source-count fidelity, route modes, group framing,
 ## Preservation
 
 Original HOP IN, Assistant, ONE, Almanac concepts, Family Research and all previously committed applications remain separate. This new chatbox is a **namespaced addition** with optional source links, not an overwrite.
+## E / 3 / M / W · creator stick construction
+
+Use `/e`, `/e geometry`, `/e titles` or `/e variants` to open the [E archive and working glyph game](../../../../archive-index/alphabet/e/index.html) and [five exact creator-authored E A–Z titles](../../../../archive-index/alphabet/e/canonical-e-sequences.json). This additive route preserves the exact author's two-stick/broken-stick E, two-stick fused-and-bent 3, and four-stick M/W definitions. The source title catalog contains 128 general/public E records; four privacy-reviewed/unknown E entries are withheld. The chatbox remains a local guide, not a universal model. All pre-existing Studio v0.3 features and prior source archives remain intact.

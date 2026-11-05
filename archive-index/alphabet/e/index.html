@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Nathan AI · E / 3 / M / W Archive & Stick Game</title>
+<meta name="color-scheme" content="dark light">
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#101827;color:#f5f8ff}*{box-sizing:border-box}
+body{margin:auto;padding:24px 18px 70px;max-width:1080px}h1{font-size:clamp(1.7rem,4vw,2.55rem);line-height:1.15}h2{font-size:1.32rem}a{color:#b3d7ff}p,blockquote{line-height:1.55}
+.panel{border:1px solid #44536e;background:#1a293c;border-radius:14px;padding:18px;margin:18px 0}
+.muted{color:#c4d0e0}nav{display:flex;gap:15px;flex-wrap:wrap}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+button,input{font:inherit;border-radius:9px;border:1px solid #7189a4;padding:10px 12px}
+button{cursor:pointer;background:#d8e9ff;color:#101827}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #ffd789;outline-offset:3px}
+button[aria-pressed=true]{background:#b8eddf;font-weight:800}input{background:#101827;color:#fff;min-width:0;max-width:100%}
+.sticks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.glyph{padding:8px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.glyph svg{width:min(100%,130px);height:126px}
+.glyph b{font-size:1.1rem}.glyph span{font-size:.86rem}
+svg path{stroke:currentColor;stroke-width:.9;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.big{max-width:220px;width:100%;display:block;margin:15px auto}
+.details{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.details>div{border:1px solid #4c5c72;border-radius:10px;padding:12px}
+.details strong{display:block;font-size:1.3rem}
+pre{white-space:pre-wrap;overflow-wrap:anywhere}
+table{border-collapse:collapse;width:100%}th,td{padding:10px;border-bottom:1px solid #485871;text-align:left}tr:hover{background:#263954}
+#records{max-height:540px;overflow:auto}
+#seq td:first-child{width:39%}
+input[type=search]{width:100%}
+.code{font-family:ui-monospace,Consolas,monospace}
+@media(max-width:640px){.sticks{grid-template-columns:repeat(2,minmax(0,1fr))}body{padding:14px 12px 50px}}
+</style></head><body>
+<header><p class="muted">NATHAN AI · ONE · A–Z SOURCE-PRESERVING LETTER ARCHIVES</p><h1>E · 3 · M · W</h1>
+<p>Four glyphs, different original stick constructions. Explore the source titles, visual transformations, and a working construction-recognition game. Nothing edits original author text.</p>
+<nav><a href="./README.md">Source and limits</a><a href="./geometry.json">Creator geometry</a><a href="../d/index.html">D collection</a><a href="../../../app-factory/nathan-ai/index.html">Nathan AI home</a><a href="../../../app-factory/nathan-ai/hop-in/chatbox/index.html">HOP IN chatbox</a></nav></header>
+<section class="panel"><h2>Original words</h2><blockquote>do E's, which could also be 3, M, W - E is made of 2 sticks with one stick broke into 3 parts - 3 is 2 sticks fused together and bent - M and W are each 4 sticks -</blockquote></section>
+<section class="panel" aria-labelledby="drawing"><h2 id="drawing">Glyph construction laboratory</h2><p class="muted">Select a glyph. The lines are a normalized illustration of your stick description—not a historical origin claim or substitution of Unicode characters.</p>
+<div class="sticks" role="group" aria-label="Choose glyph">
+<button class="glyph" type="button" data-glyph="E" aria-pressed="true"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1 V9 M1 1 H8 M1 5 H7 M1 9 H8"/></svg><b>E</b><span>2 original sticks</span></button>
+<button class="glyph" type="button" data-glyph="3" aria-pressed="false"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 C10 -1 11 4 5 5 M5 5 C11 6 10 11 2 9"/></svg><b>3</b><span>2 fused, bent sticks</span></button>
+<button class="glyph" type="button" data-glyph="M" aria-pressed="false"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 9 L1 1 L5 6 L9 1 L9 9"/></svg><b>M</b><span>4 sticks</span></button>
+<button class="glyph" type="button" data-glyph="W" aria-pressed="false"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1 L1 9 L5 4 L9 9 L9 1"/></svg><b>W</b><span>4 sticks</span></button></div>
+<svg viewBox="0 0 10 10" class="big" role="img" aria-label="Selected glyph stick construction"><path id="big-path" d="M1 1 V9 M1 1 H8 M1 5 H7 M1 9 H8"/></svg>
+<div class="details"><div>Original sticks<strong id="original-sticks">2</strong></div><div>Straight visible segments<strong id="visible-sticks">4</strong></div><div>Selected character<strong id="selected-glyph">E</strong></div></div><p id="description" aria-live="polite">One whole stick, plus a second stick broken into three horizontal parts.</p>
+<p class="muted">E → 3: structural bending/fusion; M ↔ W: stylized vertical reflection or half-turn. Neither changes the original source character or its language/numeric identity.</p></section>
+<section class="panel"><h2>Stick recognition game</h2><p id="challenge" aria-live="polite">Which glyph uses one whole stick and a second stick broken into three parts?</p>
+<div class="controls" id="game-choices"><button type="button" data-answer="E">E</button><button type="button" data-answer="3">3</button><button type="button" data-answer="M">M</button><button type="button" data-answer="W">W</button></div>
+<p id="game-feedback" role="status">Choose one answer to begin. Four construction questions cycle.</p>
+<p class="muted">Correct answers: <strong id="score">0</strong> / Attempts: <strong id="attempts">0</strong></p><button type="button" id="next">Next question</button><button type="button" id="reset">Reset score</button>
+</section>
+<section class="panel"><h2>Read-only E / 3 / M / W text inspector</h2><label for="term">Enter a symbol or phrase</label><input id="term" value="E3MW" maxlength="300"><pre class="code" id="inspection" aria-live="polite"></pre>
+<p class="muted">Latin Atbash and ROT13, literal reversal, script-specific glyph resemblance and creator-defined stick construction are kept as separate routes. Greek Ε, Cyrillic Е and numeral 3 never silently become Latin E.</p></section>
+<section class="panel"><h2>Five exact original E titles · independent A–Z sequences</h2><div style="overflow-x:auto"><table><thead><tr><th>Sequence</th><th>Verbatim title</th></tr></thead><tbody id="seq"></tbody></table></div><p><a href="./canonical-e-sequences.json">Original sequence crosswalk and provenance</a></p></section>
+<section class="panel"><h2>Search E-starting source titles</h2><p class="muted">From the 6,056-entry owner-controlled catalog: 132 E-starting occurrences total; 128 general/public entries below, four editorial-review/unknown entries withheld. Repeated names stay repeated. These are indexed records, not 128 completed products.</p>
+<label for="query">Search original E titles</label><input type="search" id="query" placeholder="Elijah, Eros, E.T., Energy…">
+<p id="record-count" role="status">Loading 128 publicly classified title occurrences…</p><div id="records" tabindex="0"><table><thead><tr><th>#</th><th>Original source title</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+<script type="module">
+import {GLYPHS,inspect,searchTitles} from './e-family.mjs';
+const el=id=>document.getElementById(id);
+let entries=[],answers=0,attempts=0,round=0,answered=false;
+const questions=[
+{q:'Which glyph uses one whole stick and a second stick broken into three parts?',a:'E'},
+{q:'Which glyph is built from two fused and bent sticks?',a:'3'},
+{q:'Which four-stick form opens downward from the top?',a:'M'},
+{q:'Which four-stick form forms two downward valleys?',a:'W'}
+];
+function selectGlyph(g){
+ const v=GLYPHS[g];if(!v)return;
+ for(const b of document.querySelectorAll('[data-glyph]'))b.setAttribute('aria-pressed',String(b.dataset.glyph===g));
+ el('big-path').setAttribute('d',v.svg);el('original-sticks').textContent=String(v.originalSticks);
+ el('visible-sticks').textContent=v.visibleStraightSegments===null?'Bent / fused':String(v.visibleStraightSegments);
+ el('selected-glyph').textContent=g;el('description').textContent=v.description;
+}
+for(const b of document.querySelectorAll('[data-glyph]'))b.addEventListener('click',()=>selectGlyph(b.dataset.glyph));
+function showQuestion(){el('challenge').textContent=questions[round].q;el('game-feedback').textContent='Choose one answer.';answered=false;}
+for(const b of document.querySelectorAll('[data-answer]'))b.addEventListener('click',()=>{
+ if(answered)return;answered=true;attempts++;
+ const good=b.dataset.answer===questions[round].a;if(good)answers++;
+ el('attempts').textContent=String(attempts);el('score').textContent=String(answers);
+ el('game-feedback').textContent=good?'Correct. '+GLYPHS[b.dataset.answer].description:'Different construction: '+questions[round].a+'. '+GLYPHS[questions[round].a].description;
+ selectGlyph(questions[round].a);
+});
+el('next').addEventListener('click',()=>{round=(round+1)%questions.length;showQuestion();});
+el('reset').addEventListener('click',()=>{round=0;answers=0;attempts=0;el('attempts').textContent='0';el('score').textContent='0';showQuestion();});
+function inspectTerm(){const x=inspect(el('term').value);el('inspection').textContent=[
+'Original: '+x.original,'Reversed characters: '+x.reversed,
+'Atbash (Latin): '+x.atbash,'ROT13 (Latin): '+x.rot13,
+'Exact glyph construction: '+(x.glyph?x.glyph.glyph+' ('+x.glyph.originalSticks+' original sticks)':'not a selected E / 3 / M / W glyph'),
+'Discovery routes: '+(x.routes.join(', ')||'no exact route')
+].join('\n');}
+el('term').addEventListener('input',inspectTerm);inspectTerm();
+function render(){const q=el('query').value;const matched=searchTitles(entries,q,500);el('record-count').textContent=matched.length+' / '+entries.length+' general-public title occurrences matched (duplicates retained).';const frag=document.createDocumentFragment();for(const item of matched){const tr=document.createElement('tr'),n=document.createElement('td'),t=document.createElement('td');n.textContent=String(item.entry);t.textContent=item.title;tr.append(n,t);frag.append(tr);}el('rows').replaceChildren(frag);}
+el('query').addEventListener('input',render);
+async function load(){try{const [c,s]=await Promise.all([fetch('./source-catalog-e.json').then(r=>{if(!r.ok)throw Error('catalog unavailable');return r.json()}),fetch('./canonical-e-sequences.json').then(r=>{if(!r.ok)throw Error('sequences unavailable');return r.json()})]);if(!Array.isArray(c.entries)||c.entries.length!==128||!Array.isArray(s.entries)||s.entries.length!==5)throw Error('unexpected catalog counts');entries=c.entries;render();const frag=document.createDocumentFragment();for(const item of s.entries){const tr=document.createElement('tr'),a=document.createElement('td'),b=document.createElement('td');a.textContent=item.source;b.textContent=item.title;tr.append(a,b);frag.append(tr);}el('seq').replaceChildren(frag);}catch(e){el('record-count').textContent='Source JSON could not be loaded. Serve this page over HTTPS or a local HTTP server. Original files have not been changed.';}}
+load();
+</script></body></html>
