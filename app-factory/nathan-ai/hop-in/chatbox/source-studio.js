@@ -5,7 +5,7 @@ const panel=document.getElementById('studio-panel');
 if(!C||!panel)return;
 const output=document.getElementById('studio-output');
 const status=document.getElementById('studio-status');
-const state={view:'app',messages:null,archiveGranted:false,gameIndex:0,gameScore:0,gameResponse:null,volume:C.VOLUMES[0].id,lesson:C.LESSONS[0].id,notes:Object.create(null),lessonRevealed:false,stepDone:new Set()};
+const state={view:'app',messages:null,baseMessages:null,archiveGranted:false,gameSelections:new Map(),notes:Object.create(null),stepDone:new Set()};
 function el(tag,text,className){
  const node=document.createElement(tag);
  if(text!==undefined)node.textContent=String(text);
@@ -30,7 +30,8 @@ function sendToChat(question){
  const textarea=document.getElementById('message');
  const form=document.getElementById('chat-form');
  if(!textarea||!form)return message('The main chatbox is not ready.');
- textarea.value=String(question).slice(0,4000);
+ if(String(question).length>4000)return message('The full prompt exceeds the chat input limit. It was NOT shortened or submitted; export the full draft instead.');
+ textarea.value=String(question);
  textarea.dispatchEvent(new Event('input',{bubbles:true}));
  form.requestSubmit();
  message('Prompt routed to the local Nathan AI chatbox. This is not a remote research request.');
@@ -65,133 +66,167 @@ function renderApp(){
  message('App design checklist is local to this tab. Source text remains unchanged.');
 }
 function renderGame(){
- const total=C.GAME_ROUNDS.length,r=C.GAME_ROUNDS[state.gameIndex];
- heading('GAME · Evidence Quest');
- p('Choose your answer. Gain one point for each correct source-integrity decision. This game has no combat, retaliation mechanics or real-world targets.','studio-note');
- if(!r){
-  p('Completed: '+state.gameScore+' / '+total+' evidence choices.','studio-result');
-  output.append(button('Restart game',()=>{state.gameIndex=0;state.gameScore=0;state.gameResponse=null;render();}));
-  message('Finished the evidence quest.');
-  return;
- }
- p('Round '+(state.gameIndex+1)+' of '+total+' · Score '+state.gameScore,'studio-score');
- p(r.question,'studio-question');
- const choices=el('div',undefined,'studio-choices');
- r.options.forEach((option,index)=>{
-  const b=button(option,()=>{
-   if(state.gameResponse!==null)return;
-   state.gameResponse=C.scoreAnswer(r.id,index);
-   if(state.gameResponse.correct)state.gameScore++;
-   render();
+ heading('GAME · Full Evidence Quest');
+ p('All six evidence challenges are visible together. Each decision earns one point when correct. There are no combat or retaliation mechanics.','studio-note');
+ const answered=state.gameSelections.size;
+ const score=[...state.gameSelections.values()].filter(x=>x.correct).length;
+ p('Answered '+answered+' of '+C.GAME_ROUNDS.length+' · Score '+score,'studio-score');
+ const board=el('div',undefined,'studio-steps');
+ for(const [i,round] of C.GAME_ROUNDS.entries()){
+  const box=el('section',undefined,'studio-step');
+  box.append(el('h4','Round '+(i+1)+' · '+round.question));
+  const response=state.gameSelections.get(round.id);
+  const options=el('div',undefined,'studio-choices');
+  round.options.forEach((option,index)=>{
+   const b=button(option,()=>{
+    if(state.gameSelections.has(round.id))return;
+    state.gameSelections.set(round.id,C.scoreAnswer(round.id,index));
+    render();
+   });
+   b.disabled=Boolean(response);options.append(b);
   });
-  b.disabled=state.gameResponse!==null;
-  choices.append(b);
- });
- output.append(choices);
- if(state.gameResponse!==null){
-  p(state.gameResponse.correct?'Correct.':'The supported answer is: '+state.gameResponse.correctOption+'.','studio-result');
-  p(state.gameResponse.explanation,'studio-note');
-  output.append(button(state.gameIndex===total-1?'Finish quest':'Next evidence gate',()=>{
-   state.gameIndex++;state.gameResponse=null;render();
-  }));
+  box.append(options);
+  if(response)box.append(el('p',(response.correct?'Correct. ':'Not quite. Correct choice: '+response.correctOption+'. ')+response.explanation,'studio-result'));
+  board.append(box);
  }
- message('Evidence Quest works locally and does not submit scores to a server.');
+ output.append(board);
+ output.append(button('Reset all six game responses',()=>{
+  state.gameSelections.clear();render();
+ }));
+ message('All six questions are displayed; '+answered+' decisions recorded in this tab.');
+}
+function saveDownload(text,filename,type){
+ const href=URL.createObjectURL(new Blob([text],{type:type||'text/plain;charset=utf-8'}));
+ const a=el('a');a.href=href;a.download=filename;document.body.append(a);a.click();a.remove();
+ setTimeout(()=>URL.revokeObjectURL(href),1500);
 }
 function renderBook(){
- heading('BOOK SERIES · Seven-volume editor');
- p('Editorial book plans based on preserved themes. They are not original quotations, completed manuscripts, biographies of David, or verified reports of historical events.','studio-note');
- const picker=el('select');picker.setAttribute('aria-label','Choose book volume');
- for(const v of C.VOLUMES){const o=el('option',v.title);o.value=v.id;o.selected=v.id===state.volume;picker.append(o);}
- picker.addEventListener('change',()=>{state.volume=picker.value;render();});
- output.append(picker);
- const v=C.bookById(state.volume);
- p('Theme: '+v.theme);
- const list=el('ol');
- v.chapters.forEach(ch=>list.append(el('li',ch)));
- output.append(list);
- p('Linked primary-source record IDs: '+v.sourceIds.join(' · '),'studio-note');
- const label=el('label','Write new material for this book (stored in this tab only):');
- label.setAttribute('for','studio-draft');output.append(label);
- const ta=el('textarea');ta.id='studio-draft';ta.rows=6;ta.maxLength=10000;ta.value=state.notes[v.id]||'';ta.placeholder='Your own chapter notes or ideas. Original source records are separate.';
- ta.addEventListener('input',()=>{state.notes[v.id]=ta.value;});
- output.append(ta);
+ heading('BOOK SERIES · All Seven Volumes');
+ p('All seven source-linked editorial volume plans are shown in full. None of these chapters is asserted to be a completed manuscript, verbatim source, or verified historical biography.','studio-note');
  const actions=el('div',undefined,'studio-actions');
- actions.append(button('Export this book plan (.md)',()=>{
-  try{
-   const text=C.bookMarkdown(v.id,ta.value);
-   const href=URL.createObjectURL(new Blob([text],{type:'text/markdown;charset=utf-8'}));
-   const a=el('a');a.href=href;a.download='nathan-ai-'+v.id+'-book-plan.md';document.body.append(a);a.click();a.remove();
-   setTimeout(()=>URL.revokeObjectURL(href),1500);
-   message('This editorial volume plan was exported to your device. No source messages were modified.');
-  }catch(err){message(err.message);}
+ actions.append(button('Export all seven volumes (.md)',()=>{
+  try{saveDownload(C.seriesMarkdown(state.notes),'nathan-ai-all-seven-book-plans.md','text/markdown;charset=utf-8');message('All seven complete plans exported, including every saved note.');}
+  catch(err){message(err.message);}
  }));
- actions.append(button('Discuss this chapter in chat',()=>sendToChat('Words → Worlds BOOK SERIES: Help develop an original educational chapter plan for '+v.title+'. Theme: '+v.theme+'. Chapter ideas: '+v.chapters.join(' / ')+'. These are creative adaptations, not verbatim source or verified biography.')));
+ actions.append(button('Export all draft notes (.json)',()=>{
+  saveDownload(JSON.stringify({schema:'nathan.words-worlds.book-notes.v1',volume_notes:C.VOLUMES.map(v=>({id:v.id,notes:state.notes[v.id]||''}))},null,2)+'\n','nathan-ai-book-notes.json','application/json');
+  message('All current in-tab draft notes exported. No notes were abbreviated.');
+ }));
  output.append(actions);
- message('Seven volumes available. Notes remain in this tab unless you export.');
+ for(const [i,v] of C.VOLUMES.entries()){
+  const box=el('section',undefined,'studio-volume');
+  box.append(el('h4',(i+1)+'. '+v.title));
+  box.append(el('p','Theme: '+v.theme,'studio-note'));
+  const list=el('ol');v.chapters.forEach(ch=>list.append(el('li',ch)));box.append(list);
+  box.append(el('p','Source IDs: '+v.sourceIds.join(' · '),'studio-note'));
+  const id='studio-draft-'+v.id;
+  const label=el('label','Author draft notes for '+v.title+':');label.setAttribute('for',id);box.append(label);
+  const ta=el('textarea');ta.id=id;ta.rows=5;ta.value=state.notes[v.id]||'';
+  ta.placeholder='Write your own draft here; no original quote is edited.';
+  ta.addEventListener('input',()=>{state.notes[v.id]=ta.value;});
+  box.append(ta);
+  box.append(button('Export this complete volume (.md)',()=>{
+   try{saveDownload(C.bookMarkdown(v.id,ta.value),'nathan-ai-'+v.id+'-book-plan.md','text/markdown;charset=utf-8');message('Exported '+v.title+' without abbreviating draft notes.');}
+   catch(err){message(err.message);}
+  }));
+  box.append(button('Discuss this volume in chat',()=>sendToChat('Words → Worlds: Develop the original educational chapter plan for '+v.title+'. Theme: '+v.theme+'. Proposed chapters: '+v.chapters.join(' / ')+'. Attribute sources; do not fabricate historical statements.')));
+  output.append(box);
+ }
+ message('All seven volume outlines and all seven note editors are visible. Draft notes stay in-tab until exported.');
 }
 function renderLearn(){
- heading('EDUCATIONAL TOOL · Source Academy');
- const picker=el('select');picker.setAttribute('aria-label','Choose lesson');
- C.LESSONS.forEach(x=>{const option=el('option',x.title);option.value=x.id;option.selected=x.id===state.lesson;picker.append(option);});
- picker.addEventListener('change',()=>{state.lesson=picker.value;state.lessonRevealed=false;render();});
- output.append(picker);
- const lesson=C.LESSONS.find(x=>x.id===state.lesson);
- p(lesson.prompt,'studio-question');p(lesson.body);
- p('Practice: '+lesson.exercise);
- if(state.lessonRevealed)p('Suggested answer: '+lesson.answer,'studio-result');
- else output.append(button('Reveal learning answer',()=>{state.lessonRevealed=true;render();}));
- p('Links to source IDs: '+lesson.sourceIds.join(', '),'studio-note');
- output.append(button('Ask the local chatbox about this lesson',()=>sendToChat('Source Academy: Explain '+lesson.title+' with a short activity. Keep original records distinct from interpretations; do not fabricate quotes or historical evidence.')));
- message('Lesson content is an editorial educational adaptation. Adult original excerpts are hidden here.');
+ heading('EDUCATIONAL TOOL · All Five Lessons');
+ p('Every lesson, prompt, explanation, answer and source link is visible together. This is editorial education, separate from adult original quotes.','studio-note');
+ C.LESSONS.forEach((lesson,i)=>{
+  const box=el('section',undefined,'studio-volume');
+  box.append(el('h4',(i+1)+'. '+lesson.title));
+  box.append(el('p',lesson.prompt,'studio-question'));
+  box.append(el('p',lesson.body));
+  box.append(el('p','Practice: '+lesson.exercise));
+  box.append(el('p','Suggested answer: '+lesson.answer,'studio-result'));
+  box.append(el('p','Source IDs: '+lesson.sourceIds.join(' · '),'studio-note'));
+  box.append(button('Explore this lesson in chat',()=>sendToChat('Source Academy: Explain '+lesson.title+' using a short exercise. Distinguish original records from editor conclusions and never invent facts.')));
+  output.append(box);
+ });
+ message('All five lessons are visible without hidden answers or collapsed panels.');
 }
 async function loadArchive(){
  if(!state.archiveGranted){
-  if(!confirm('This archive contains adult language, a slur and violent threats quoted as source evidence. Show the original wording in this tab?'))return message('Adult source access cancelled.');
+  if(!confirm('This source archive contains adult language, a slur and violent threats as attributed evidence. Display ALL original text in this tab?'))return message('Adult-source access cancelled.');
   state.archiveGranted=true;
  }
  try{
-  message('Loading original source records from this repository...');
+  message('Reading full original sources...');
   const response=await fetch(C.ARCHIVE_PATH+'messages.json',{cache:'no-store'});
   if(!response.ok)throw Error('HTTP '+response.status);
   const payload=await response.json();
   C.assertArchive(payload.messages);
-  state.messages=payload.messages;
+  state.baseMessages=C.appendSourcesWithoutCollapse([],payload.messages);
+  state.messages=C.appendSourcesWithoutCollapse([],state.baseMessages);
   render();
  }catch(err){state.messages=null;message('Source unavailable: '+err.message);}
 }
+async function importMoreSources(event){
+ const file=event.target.files&&event.target.files[0];event.target.value='';
+ if(!file)return;
+ try{
+  if(file.size>8000000)throw Error('File is over 8MB. It was not partially imported; split and retry.');
+  const data=JSON.parse(await file.text());
+  const rows=Array.isArray(data)?data:data.messages;
+  if(!Array.isArray(rows))throw Error('Import requires a JSON array or a JSON object with messages array.');
+  if(!state.messages)throw Error('First load the original archive.');
+  const next=C.appendSourcesWithoutCollapse(state.messages,rows);
+  state.messages=next;
+  render();
+  message('Imported ALL '+rows.length+' additional source records locally. No repeated text collapsed or records overwritten.');
+ }catch(err){message('Import rejected without changing records: '+err.message);}
+}
 function renderArchive(){
- heading('SOURCE READER · Adult originals');
- p('Only deliberate source review displays the full original text. This viewer reads the existing unchanged author records; all game/book/lesson prose is separately authored.','studio-note');
- const row=el('p');
- row.append(link('Original archive in new page',C.ARCHIVE_PATH+'index.html'),' · ',link('Preservation README',C.ARCHIVE_PATH+'README.md'));
+ heading('FULL ORIGINALS · Unboxed Source Ledger');
+ p('Every source record is displayed in source order with full wording and separate IDs. Identical messages stay separate. Adult content requires an explicit review step.','studio-note');
+ const row=el('p');row.append(link('Open full archive',C.ARCHIVE_PATH+'index.html'),' · ',link('Preservation rules',C.ARCHIVE_PATH+'README.md'));
  output.append(row);
  if(!state.messages){
-  output.append(button('Review full original source (adult)',loadArchive));
-  message('Adult originals not loaded in this chatbox.');
+  output.append(button('Show every original record (adult source)',loadArchive));
+  message('Full originals are not loaded in the chatbox.');
   return;
  }
- const input=el('input');input.type='search';input.placeholder='Search original wording';input.setAttribute('aria-label','Search original words');
- const results=el('div');
- function draw(){
-  results.replaceChildren();const query=input.value.normalize('NFKC').toLowerCase().trim();
-  const subset=state.messages.filter(x=>x.original_text.normalize('NFKC').toLowerCase().includes(query));
-  for(const m of subset){
-   const details=el('details');
-   const summary=el('summary','Source '+m.sequence+' · '+m.id);
-   const raw=el('pre',m.original_text,'studio-original');
-   details.append(summary,raw);
-   details.append(button('Copy this exact rendered source text',()=>{
-    if(!navigator.clipboard?.writeText)return message('Browser clipboard API not available.');
-    navigator.clipboard.writeText(m.original_text).then(()=>message('Copied original displayed words.')).catch(()=>message('Clipboard access denied.'));
+ const census=C.sourceCensus(state.messages);
+ p(census.records+' records · '+census.characters+' source characters · '+census.uniqueIds+' unique IDs · '+census.repeatedWordings+' repeated wordings. None merged.','studio-score');
+ const actions=el('div',undefined,'studio-actions');
+ const label=el('label','Add more source records from a local JSON file (no upload to a server):');
+ const file=el('input');file.type='file';file.accept='.json,application/json';
+ file.setAttribute('aria-label','Import additional verbatim source records');
+ file.addEventListener('change',importMoreSources);
+ actions.append(button('Export ALL original source records (.json)',()=>{
+  try{saveDownload(C.originalsExport(state.messages),'nathan-ai-full-local-source-ledger.json','application/json');message('Exported all '+state.messages.length+' records. No source text dropped.');}
+  catch(err){message(err.message);}
+ }));
+ actions.append(button('Show ALL records',()=>{const search=document.getElementById('studio-source-search');if(search){search.value='';search.dispatchEvent(new Event('input'));}}));
+ output.append(actions,label,file);
+ const input=el('input');input.id='studio-source-search';input.type='search';input.placeholder='Optional filter; all records shown initially';input.setAttribute('aria-label','Filter full original records');
+ const summary=el('p',undefined,'studio-note'),results=el('div',undefined,'studio-full-sources');
+ const draw=()=>{
+  results.replaceChildren();
+  const query=input.value.normalize('NFKC').toLowerCase().trim();
+  const rows=state.messages.filter(m=>(m.original_text+' '+m.id).normalize('NFKC').toLowerCase().includes(query));
+  summary.textContent=(query?'Filtered view: ':'All records: ')+rows.length+' of '+state.messages.length+' visible. Filtering does not delete or rewrite originals.';
+  rows.forEach((m,i)=>{
+   const article=el('article',undefined,'studio-source-record');
+   article.append(el('h4','Source '+m.sequence+' · '+m.id));
+   article.append(el('p',String(m.source||'Locally imported owner record')+' · Display order '+(state.messages.indexOf(m)+1),'studio-note'));
+   article.append(el('pre',m.original_text,'studio-original'));
+   article.append(button('Copy complete rendered record',()=>{
+    if(!navigator.clipboard?.writeText)return message('Browser clipboard unavailable.');
+    navigator.clipboard.writeText(m.original_text).then(()=>message('Copied complete source text.')).catch(()=>message('Clipboard denied.'));
    }));
-   results.append(details);
-  }
-  if(!subset.length)results.append(el('p','No matching original records.'));
- }
- input.addEventListener('input',draw);
- output.append(input,results);draw();
- output.append(button('Hide adult source text',()=>{state.archiveGranted=false;state.messages=null;render();}));
- message('Four original author records loaded from the source file; no editorial rewrite performed.');
+   results.append(article);
+  });
+  if(!rows.length)results.append(el('p','No matching records; use Show ALL records to clear the filter.'));
+ };
+ input.addEventListener('input',draw);output.append(input,summary,results);draw();
+ output.append(button('Hide adult records from this tab',()=>{state.archiveGranted=false;state.messages=null;state.baseMessages=null;render();}));
+ message('Original records displayed in full. Import/export do not change stored primary sources.');
 }
 function render(){
  clear();
