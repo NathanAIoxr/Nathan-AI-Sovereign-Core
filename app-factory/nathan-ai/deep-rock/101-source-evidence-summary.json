@@ -1,0 +1,38 @@
+{
+  "schema": "nathan-ai.101.audit-summary.v1",
+  "asOf": "2026-11-05",
+  "originalSource": "Owner-provided original 101-program text, retained byte-for-byte in private local recovery package",
+  "originalByteLength": 17976,
+  "originalSha256": "8dd05a3a3f1a2eb2ab10a7140ca832d291986b3a239ae5d854dde8061fbf7899",
+  "numberedEntries": 101,
+  "phaseCounts": {
+    "I": 20,
+    "II": 20,
+    "III": 20,
+    "IV": 20,
+    "V": 21
+  },
+  "relatedSourceRecords": 73,
+  "notMatchedInReviewedSource": 28,
+  "distinctRelatedSourcePaths": 37,
+  "existingGitHubPathsChecked": 37,
+  "missingGitHubPaths": 0,
+  "githubTreeSha": "348a8efca428d2e819966ea6314f42f2f824d3e4",
+  "assertionBoundary": "An original description plus related source is not an authenticated runtime log, deployment receipt, access right, or proof of billions of remote operations.",
+  "activeOriginals": [
+    "app-factory/nathan-ai/absolute-intelligence/registry.json",
+    "app-factory/one/nathan-matrix/sovereignty-origins/records.js",
+    "app-factory/one/hall-of-mirrors/engine.js",
+    "app-factory/nathan-ai/five-guardians/engine.js",
+    "app-factory/one/offloader/engine.js",
+    "app-factory/nathan-ai/six-dogs/edge-mesh/macro_fabric.py",
+    "app-factory/nathan-ai/trinity-of-snow/archive.js",
+    "app-factory/icarus-of-baseball/player-archive/build_sqlite.py",
+    "app-factory/one/library-mind/app.js"
+  ],
+  "rootWaysFile": "ways-of-nathan-tabor.json",
+  "rootWaysCount": 9,
+  "rootWaysUniqueSpellings": 8,
+  "rootWaysOriginalSha256": "587b248d7c68d6dbc12027de803f2fe6a392fca921b6af172d442bc70487182d",
+  "scope": "Metadata only in public repository; owner-provided full text and per-entry crosswalk kept in separate original-preserving ZIP."
+}
