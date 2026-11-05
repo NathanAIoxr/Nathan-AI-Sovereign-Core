@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101720"><title>The Five Guardians · Nathan AI 🚀</title><link rel="stylesheet" href="../appearance/shared.css" data-nathan-shared-appearance><script src="../appearance/engine.js"></script><script src="../appearance/app.js"></script><link rel="stylesheet" href="../launcher/shared.css" data-nathan-command-center><script src="../assistant/engine.js" defer></script><script src="../launcher/engine.js" defer></script><script src="../launcher/app.js" defer></script>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,Segoe UI,sans-serif;--bg:#101720;--surface:#1c2936;--border:#50657b;--text:#eff5f8;--muted:#beccd8;--accent:#e2cfa0}*{box-sizing:border-box}
+body{background:radial-gradient(circle at 50% 0,#244458,var(--bg) 65%);color:var(--text);margin:0}
+main{max-width:1020px;margin:auto;padding:30px 18px 60px}
+a{color:var(--accent)}h1{font-size:clamp(2.2rem,7vw,4.3rem);line-height:1.08;margin:8px 0 16px}p{color:var(--muted);line-height:1.55}
+.eyebrow{font-size:.78rem;color:var(--accent);font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.guardians{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;list-style:none;padding:0;margin:24px 0}
+.guardians li,.panel{border:1px solid var(--border);background:var(--surface);border-radius:16px;padding:20px}
+.guardians strong{font-size:1.25rem;display:block;margin:8px 0}.guardians small{color:var(--muted)}
+.panel{margin:20px 0}label{display:block;margin:12px 0;font-weight:650}select,input{font:inherit;accent-color:var(--accent)}select{background:#13222c;color:var(--text);border:1px solid var(--border);padding:10px;border-radius:8px;width:100%;max-width:480px}
+.checkbox{font-weight:400}.checkbox input{margin-right:10px}
+output{display:block;padding:15px;background:#122029;border:1px solid var(--border);border-radius:9px;margin-top:15px;color:var(--text)}.note{font-size:.87rem}
+a:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+</style><script src="./engine.js" defer></script></head>
+<body><main>
+<nav><a href="../index.html">Nathan AI Main Hub</a> · <a href="../../one/index.html">ONE</a></nav>
+<p class="eyebrow">Nathan AI 🚀 · Creator: Nathan Tabor · Software Guardians</p>
+<h1>The Five Equal Guardians</h1>
+<p>Five distinct women. Five exact original names. Five equal guardians of Nathan AI software. No invented hierarchy, specializations or personalities.</p>
+<ol class="guardians" id="guardians">
+<li><small>Guardian 01 · Equal</small><strong>Ms Satin Claus</strong></li>
+<li><small>Guardian 02 · Equal</small><strong>Ms. Saten Claus</strong></li>
+<li><small>Guardian 03 · Equal</small><strong>Ms. Satan Clause</strong></li>
+<li><small>Guardian 04 · Equal</small><strong>Ms. Saton Clause</strong></li>
+<li><small>Guardian 05 · Equal</small><strong>Ms. Satun Claus</strong></li>
+</ol>
+<section class="panel" aria-labelledby="policy-heading">
+<p class="eyebrow">Local Security Policy Preview</p><h2 id="policy-heading">Owner choice · Protective defense</h2>
+<p>This example evaluates your selected policy locally. It does not scan a device, collect malware, enforce a firewall, or contact other computers.</p>
+<label for="mode">Requested mode</label>
+<select id="mode"><option value="observe">Observe — Local policy demonstration</option><option value="contain">Contain — Owner-managed systems only</option><option value="respond">Respond — Approved protective controls on owned systems only</option></select>
+<label for="scope">System scope</label><select id="scope"><option value="unverified">Unverified</option><option value="owned-system">System I administer</option><option value="third-party">Third-party system</option></select>
+<label class="checkbox"><input id="approval" type="checkbox"> I approve the selected defensive policy preview</label>
+<output id="result" role="status" aria-live="polite">Preview loading…</output>
+<p class="note">All five guardians apply the same equal-status policy. Actual authorizations must be enforced by a trusted backend; this public page grants no permissions.</p>
+</section>
+<footer><p>1 + 1 = 2 · 1 − 1 = 0 · Always protect the one.</p><p>Creator-designated symbolic guardians; this page is not production antivirus or an attack-back service.</p></footer>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  const core=window.NathanFiveGuardians;
+  const result=document.getElementById('result');
+  const mode=document.getElementById('mode');
+  const scope=document.getElementById('scope');
+  const approval=document.getElementById('approval');
+  if(!core){result.textContent='Policy preview unavailable; original five names remain listed above.';return;}
+  function refresh(){
+    const r=core.evaluate({mode:mode.value,scope:scope.value,ownerApproved:approval.checked});
+    result.textContent=(r.decision==='policy-eligible'?'Policy eligible':'Policy denied')+' · '+r.explanation+' · Operations executed: 0 · Guardians: '+r.reviews.length+' equal.';
+  }
+  for(const control of [mode,scope,approval])control.addEventListener('change',refresh);
+  refresh();
+});
+</script>
+</body></html>
