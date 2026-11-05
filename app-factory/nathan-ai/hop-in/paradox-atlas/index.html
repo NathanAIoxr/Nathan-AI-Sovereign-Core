@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NATHAN AI · Paradox / Enigma / Anomaly Atlas</title><meta name="theme-color" content="#0b1625">
+<link rel="stylesheet" href="style.css"><script src="../../../games/paradox-118/roster.js" defer></script><script src="atlas.js" defer></script>
+</head><body>
+<a class="skip" href="#search">Skip to searchable atlas</a>
+<header class="mast"><a href="../chatbox/">← Nathan AI Chatbox</a><span class="brand">NATHAN AI 🚀 · THE CONTRADICTION LAB</span><a href="../../index.html">Main hub</a></header>
+<main>
+<section class="hero"><p class="eyebrow">INNOCENCE IS THE PRECIOUS GIFT · 1+1=2 BUILD · 1−1=0 CLEAR</p><h1>Paradoxes, Enigmas,<br>Anomalies & Contradictions.</h1><p>One entrance to hundreds of research leads, original characters and contradiction-checking tools. Explore ideas without mistaking a puzzle, an unverified claim or a fictional character for established truth.</p><p id="count" role="status" aria-live="polite">Loading catalog…</p></section>
+<div class="zones">
+<section class="zone" aria-labelledby="zone-input"><div class="zone-top"><span>01 · PHONE / VOICE</span><h2 id="zone-input">Ask. Search. Clear.</h2></div>
+<label for="search">Find any paradox, contradiction, enigma, anomaly or creator character</label><input id="search" type="search" autocomplete="off" autofocus placeholder="Try 'liar', 'time', 'Russell', 'paradox', 'King'">
+<div class="actions"><button id="clear" type="button">1−1=0 · Clear search</button><button id="voice" type="button">🎙 Speak a search</button><button id="export" type="button">Export selection</button></div>
+<p class="small" id="voice-note">Voice search is optional. Browser speech recognition may use an external service; nothing is recorded by this app.</p>
+<label for="group">Knowledge family</label><select id="group"><option value="">All families</option></select>
+<label for="origin">Source type</label><select id="origin"><option value="">All source types</option><option value="Reference lead">Named reference leads</option><option value="Creator original">118 LINE original characters</option></select>
+<div class="actions"><button id="ask" type="button">Build research question</button><button id="chat" type="button">Open Nathan AI chatbox</button></div>
+<p class="small">The catalog is local and search-only; it does not diagnose harm, access accounts, or scan the world.</p></section>
+<section class="zone" aria-labelledby="zone-canvas"><div class="zone-top"><span>02 · DESKTOP CANVAS</span><h2 id="zone-canvas">Micro ↔ Macro.</h2></div>
+<div class="pair"><div class="pane"><h3>Macro · the family</h3><p id="macro">Choose an item to see its field and source stage.</p></div><div class="pane"><h3>Micro · the claim</h3><p id="micro">Inspect its precise question and evidence requirements.</p></div></div>
+<label for="lens">Perspective lens (does not edit evidence)</label><select id="lens"><option value="modern">Modern · fact and context</option><option value="institution">Man-Made Lies Stripped · institutional claim audit</option><option value="theology">God Lies Removed · theology/interpretation audit</option><option value="jerome">Jerome · manuscript and translation audit</option><option value="assembly">Group Assembly · compare documented perspectives</option></select>
+<div id="lens-output" class="output" role="status"></div>
+<div class="actions"><button type="button" id="copy">Copy research prompt</button><button type="button" id="sources">Find sources</button></div>
+<p class="small">Historical and religious lenses are research frameworks, not evidence that a historical person said the generated words.</p></section>
+<section class="zone" aria-labelledby="zone-root"><div class="zone-top"><span>03 · PERSISTENT LENS</span><h2 id="zone-root">Truth. Sources. Agency.</h2></div>
+<p>The interface keeps facts, disputed interpretations and creator fiction distinct. A paradox is not automatically an error; an anomaly is not automatically evidence of wrongdoing.</p>
+<details open><summary>Evidence and classification</summary><ol><li>State the exact claim, premises and scope.</li><li>Find the earliest reliable source.</li><li>Classify formal contradiction, apparent paradox, empirical anomaly, cognitive illusion, historical question or creative material.</li><li>Compare alternatives and record uncertainty.</li><li>Preserve conflicting evidence, without silently deleting it.</li></ol></details>
+<details><summary>Safety and privacy</summary><p>Clear only removes this screen's selection and search. It does not destroy servers or any other user data. No raw microphone stream is sent by this app itself. Browser dictation may use an external recognition provider. The project’s protection principle is not a claim of proven hardware-level security.</p></details>
+<p class="small">Creator canon remains separate from historical or scientific records.</p></section>
+</div>
+<section class="library"><div class="library-head"><div><p class="eyebrow">THE LIVING ATLAS</p><h2>Choose what to examine.</h2></div><p id="shown" aria-live="polite"></p></div><div id="results" class="results"></div><button id="more" type="button">Show 30 more</button></section>
+<section class="selection"><h2>Selected question</h2><p id="selected">Select a card. Then compare its macro context, micro claim and sources.</p><p class="small">Search links are leads, not citations confirming a claim.</p></section>
+</main><footer><strong>NATHAN AI 🚀</strong> · Preserve originals · Mark uncertainty · Give people their own way to think</footer></body></html>
