@@ -10,6 +10,7 @@ This module lives in `app-factory/one/five-matrix-atlas/`, alongside—not in pl
 - A full line ledger, 499 original-source line records, with stable line IDs and thematic labels in `data/line-index.json`.
 - A Unicode word concordance in `data/concordance.json` containing **1,471 distinct indexed terms** and **8,286 occurrences**, retaining source, line, and character offset.
 - A source manifest linking the original attachments and Git object hashes.
+- The original **103-object Atlas baseline** exported unchanged to `data/atlas-baseline-103.json`, including 22 transformations, 20 scripture entries, and 8 chronology events, for additive reuse by Hop In.
 - A **derived** fifteen-formula JSON registry and an interactive offline HTML Sovereign Lab.
 - This searchable browser. The line index reproduces original source text, but its tags, grouping, and any interpretive comparisons are new metadata.
 
