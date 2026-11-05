@@ -22,6 +22,7 @@ This is the **PUBLIC**, browser-first coordination repository. It does **not** c
 - **Factory Home:** [Open the Factory](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/)
 - **Public Ecosystem Directory:** [Browse documented products](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/ecosystem.html)
 - **ONE — The Last App:** [Open ONE](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/one/)
+- **Five Equal Guardians of Nathan AI:** [Open the Five Guardians](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/five-guardians/) — five creator-designated female guardian identities, exact names preserved, with an owner-consent defensive-policy preview; not a deployed antivirus or counter-attack service.
 - **Universal Creator Vault:** [Open the local Vault](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/vault.html)
 - **TABOR GPS:** [Open geographic and personal-direction demo](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/tabor-gps/)
 - **1420 — The Crowning Jewel:** [Play strategy prototype](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/games/crowning-jewel.html)
