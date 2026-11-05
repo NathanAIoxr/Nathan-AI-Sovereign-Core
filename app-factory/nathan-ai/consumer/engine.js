@@ -6,6 +6,9 @@
  const PRODUCTS_SCHEMA='nathan-ai.consumer.products.v1';
  const LAW_SCHEMA='nathan-ai.consumer.jurisdictions.v1';
  const STAGES=['public-browser-preview','owner-local-browser','developer-preview'];
+ // Official-regulator/source domains audited for this dated research checklist.
+ const OFFICIAL_HOSTS=new Set(['www.ftc.gov','cppa.ca.gov','commission.europa.eu','ai-act-service-desk.ec.europa.eu','digital-strategy.ec.europa.eu',
+ 'ico.org.uk','www.priv.gc.ca','www.gov.br','www.oaic.gov.au','www.privacy.org.nz','www.gov.za','www.pdpc.gov.sg','www.meity.gov.in','www.w3.org']);
  const must=(condition,message)=>{if(!condition)throw Error(message);};
  const has=(s,q)=>String(s??'').toLocaleLowerCase().includes(String(q??'').trim().toLocaleLowerCase());
  function safeLocalHref(href){
@@ -39,7 +42,7 @@
    must(Array.isArray(r.sources)&&r.sources.length>0,'Official source missing');
    for(const s of r.sources){
     let u;try{u=new URL(s.url)}catch{throw Error('Invalid legal source URL')}
-    must(u.protocol==='https:'&&u.username===''&&u.password===''&&typeof s.title==='string'&&s.title.length>4,'Unsafe legal source');
+    must(u.protocol==='https:'&&OFFICIAL_HOSTS.has(u.hostname)&&u.username===''&&u.password===''&&typeof s.title==='string'&&s.title.length>4,'Unsafe or unofficial legal source');
    }
   }
   const gates=new Set();
