@@ -19,6 +19,8 @@ jobs:
           node-version: '22'
       - name: Verify identity and inventory coverage
         run: node --test app-factory/nathan-ai/capability-atlas/engine.test.cjs
+      - name: Validate Apple and Google store discovery proposals
+        run: node --test app-factory/nathan-ai/capability-atlas/store-engine.test.cjs
       - name: Sift and sort tracked GitHub source without executing it
         run: node tools/capability-atlas/scan.cjs --output nathan-capability-audit.json
       - name: Upload complete static-source audit

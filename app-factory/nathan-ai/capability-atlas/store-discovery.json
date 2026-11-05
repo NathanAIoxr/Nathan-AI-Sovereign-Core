@@ -1,0 +1,1828 @@
+{
+  "schema": "nathan-ai.store-discovery.v1",
+  "asOf": "2026-11-05",
+  "method": "Human-reviewed discovery proposals grounded in repository routes and selected README text; not official store approval or proven native app functionality.",
+  "sourceUrls": {
+    "apple": "https://developer.apple.com/app-store/categories/",
+    "google": "https://support.google.com/googleplay/android-developer/answer/9859673?hl=en"
+  },
+  "limit": {
+    "appleCategoryCount": 2,
+    "appleGameGenres": 2,
+    "googleCategoryCount": 1,
+    "googleTags": 5
+  },
+  "records": [
+    {
+      "id": "app-factory:nathan-ai",
+      "title": "Nathan AI Main Hub",
+      "path": "app-factory/nathan-ai/index.html",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Productivity",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "connect",
+        "retrieve",
+        "present"
+      ],
+      "rationale": "Unified launcher and workspace; multiple distinct apps remain separately classified",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:one",
+      "title": "ONE — The Last App",
+      "path": "app-factory/one/index.html",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Productivity",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "connect",
+        "retrieve",
+        "present"
+      ],
+      "rationale": "Multi-purpose launcher and source library",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/one/index.html"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:capability-atlas",
+      "title": "Capability Atlas",
+      "path": "app-factory/nathan-ai/capability-atlas/index.html",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Tools",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "recognize",
+        "retrieve",
+        "evaluate"
+      ],
+      "rationale": "Inspect and classify repository files; no runtime proof by name",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/capability-atlas/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:assistant",
+      "title": "Nathan AI Assistant",
+      "path": "app-factory/nathan-ai/assistant/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Productivity",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "receive",
+        "retrieve",
+        "evaluate",
+        "communicate"
+      ],
+      "rationale": "Source-grounded research and optional drafts",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/assistant/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:hop-in",
+      "title": "HOP IN Interactive",
+      "path": "app-factory/nathan-ai/hop-in/index.html",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Productivity",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "communicate",
+        "interpret",
+        "connect"
+      ],
+      "rationale": "Multi-mode chat and user-initiated source navigation",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/hop-in/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:universal-workspace",
+      "title": "Universal Workspace",
+      "path": "app-factory/nathan-ai/universal-workspace/index.html",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Utilities",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Productivity",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "receive",
+        "transform",
+        "evaluate",
+        "create"
+      ],
+      "rationale": "Local text and response comparison with TXT export",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/universal-workspace/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:appearance",
+      "title": "Appearance Studio",
+      "path": "app-factory/nathan-ai/appearance/index.html",
+      "apple": {
+        "primary": "Utilities",
+        "secondary": "Graphics & Design",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Personalization",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "present",
+        "adapt",
+        "protect"
+      ],
+      "rationale": "Shared skins, typography and reading preferences",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/appearance/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:command-center",
+      "title": "Work & Assets",
+      "path": "app-factory/nathan-ai/command-center/index.html",
+      "apple": {
+        "primary": "Business",
+        "secondary": "Productivity",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Productivity",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "remember",
+        "sequence",
+        "evaluate",
+        "connect"
+      ],
+      "rationale": "Projects/tasks plus local public wallet records; not actual banking",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/command-center/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:flyer-studio",
+      "title": "Flyer Studio",
+      "path": "app-factory/nathan-ai/flyer-studio/index.html",
+      "apple": {
+        "primary": "Graphics & Design",
+        "secondary": "Productivity",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Art and Design",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "create",
+        "present",
+        "transform"
+      ],
+      "rationale": "Local vector flyer editing and export",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/flyer-studio/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:sovereign-defender",
+      "title": "Sovereign Defender",
+      "path": "app-factory/nathan-ai/sovereign-defender/index.html",
+      "apple": {
+        "primary": "Utilities",
+        "secondary": "Developer Tools",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Tools",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "protect",
+        "evaluate",
+        "restore"
+      ],
+      "rationale": "Read-only file integrity and inert security exercises; not antivirus protection",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/sovereign-defender/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:five-guardians",
+      "title": "Five Equal Guardians",
+      "path": "app-factory/nathan-ai/five-guardians/index.html",
+      "apple": {
+        "primary": "Utilities",
+        "secondary": "Education",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Tools",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "protect",
+        "evaluate"
+      ],
+      "rationale": "Security-oriented learning and system defense concepts",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/five-guardians/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:sovereign-coins",
+      "title": "21 Sovereign Coins",
+      "path": "app-factory/nathan-ai/sovereign-coins/index.html",
+      "apple": {
+        "primary": "Finance",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Finance",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "remember",
+        "evaluate",
+        "measure"
+      ],
+      "rationale": "Coin designs and demonstration ledgers; no real investment execution",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/sovereign-coins/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:eyeprints-handprints",
+      "title": "Eyeprints × Handprints",
+      "path": "app-factory/nathan-ai/eyeprints-handprints/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Photo & Video",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "receive",
+        "remember",
+        "retrieve",
+        "present"
+      ],
+      "rationale": "Local personal image documentation; not medical or biometric device",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/eyeprints-handprints/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:family-research",
+      "title": "Tabor Family Research",
+      "path": "app-factory/nathan-ai/family-research/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Education",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "receive",
+        "retrieve",
+        "remember",
+        "evaluate"
+      ],
+      "rationale": "Sourced family and historical research navigator",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/family-research/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:deep-archive",
+      "title": "Deep Archive",
+      "path": "app-factory/nathan-ai/deep-archive/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Books",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "remember",
+        "retrieve"
+      ],
+      "rationale": "Research and archival access",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/deep-archive/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:primordial-lexicon",
+      "title": "Primordial Lexicon",
+      "path": "app-factory/nathan-ai/primordial-lexicon/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Education",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "interpret",
+        "recognize",
+        "retrieve"
+      ],
+      "rationale": "Authored word forms and distinct language research",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/primordial-lexicon/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:route-raut-root",
+      "title": "Route · Raut · Root",
+      "path": "app-factory/nathan-ai/route-raut-root/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Education",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "interpret",
+        "recognize",
+        "connect"
+      ],
+      "rationale": "Word form and root research index",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/route-raut-root/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:mind-neuropath",
+      "title": "Mind · Neuropath",
+      "path": "app-factory/nathan-ai/mind-neuropath/index.html",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Education",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "recognize",
+        "retrieve",
+        "interpret"
+      ],
+      "rationale": "Cross-reference and small deterministic learning prompts",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/mind-neuropath/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:anatomy",
+      "title": "Anatomy A–Z",
+      "path": "app-factory/nathan-ai/anatomy/index.html",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Education",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "interpret",
+        "present"
+      ],
+      "rationale": "Anatomical reference and alphabet education",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/anatomy/index.html"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:node-runtime",
+      "title": "Node Runtime",
+      "path": "app-factory/nathan-ai/node-runtime/index.html",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Utilities",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Libraries and Demo",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "execute",
+        "protect",
+        "measure"
+      ],
+      "rationale": "Bounded local worker checksum tasks; not autonomous agents",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/node-runtime/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:3d-print-shop",
+      "title": "Five-Matrix 3-D Print Shop",
+      "path": "app-factory/nathan-ai/3d-print-shop/index.html",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Graphics & Design",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Education",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "create",
+        "present",
+        "sequence"
+      ],
+      "rationale": "Virtual printing simulation; no physical printers attached",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/3d-print-shop/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:children-innocence",
+      "title": "Children & Innocence",
+      "path": "app-factory/nathan-ai/children-innocence/index.html",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Education",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "present",
+        "interpret"
+      ],
+      "rationale": "Children's book and original-content archive; kids compliance not assumed",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/children-innocence/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:games",
+      "title": "Games & Puzzles Atlas",
+      "path": "app-factory/nathan-ai/games/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Entertainment",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "connect",
+        "present"
+      ],
+      "rationale": "Directory of games and prototypes, not itself a completed game",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/games/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:trinity-of-snow",
+      "title": "Trinity of Snow",
+      "path": "app-factory/nathan-ai/trinity-of-snow/index.html",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Entertainment",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "create",
+        "retrieve",
+        "present"
+      ],
+      "rationale": "Original narrative and book universe",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/trinity-of-snow/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:original-works",
+      "title": "Original Works",
+      "path": "app-factory/nathan-ai/original-works/index.html",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "remember",
+        "present"
+      ],
+      "rationale": "Original manuscript and publication index",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/original-works/index.html"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:plugins",
+      "title": "Apps & Plugins",
+      "path": "app-factory/nathan-ai/plugins/index.html",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Productivity",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Tools",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "connect",
+        "retrieve",
+        "present"
+      ],
+      "rationale": "Plugin and app navigation",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/plugins/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:build-recovery",
+      "title": "Build Recovery",
+      "path": "app-factory/nathan-ai/build-recovery/index.html",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Utilities",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Tools",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "restore",
+        "evaluate",
+        "retrieve"
+      ],
+      "rationale": "Build/source recovery references",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/build-recovery/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:independent-editions",
+      "title": "Independent Editions",
+      "path": "app-factory/nathan-ai/independent-editions/index.html",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "present",
+        "connect"
+      ],
+      "rationale": "Independent book or app editions directory",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/independent-editions/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:program-jobs",
+      "title": "Program Jobs & Completion",
+      "path": "app-factory/nathan-ai/program-jobs/index.html",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Business",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Productivity",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "remember",
+        "sequence",
+        "evaluate"
+      ],
+      "rationale": "Work status and completion tracking",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/program-jobs/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:six-dogs",
+      "title": "Six Dogs",
+      "path": "app-factory/nathan-ai/six-dogs/index.html",
+      "apple": {
+        "primary": "Games",
+        "secondary": "Entertainment",
+        "genre": "Casual"
+      },
+      "google": {
+        "type": "game",
+        "category": "Casual",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "present",
+        "decide",
+        "sequence"
+      ],
+      "rationale": "Interactive themed experience; genre needs launch review",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/six-dogs/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:one:library-mind",
+      "title": "ONE Library Mind",
+      "path": "app-factory/one/library-mind/index.html",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "remember",
+        "retrieve",
+        "interpret"
+      ],
+      "rationale": "Original source books, language catalog, relationship index",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/one/library-mind/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:one:library",
+      "title": "ONE Master Library",
+      "path": "app-factory/one/library/index.html",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "receive",
+        "remember",
+        "retrieve"
+      ],
+      "rationale": "Owner-selected private library import, search and export",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/one/library/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:one:taborite-language-matrix",
+      "title": "Taborite Universal Language Matrix",
+      "path": "app-factory/one/taborite-language-matrix/index.html",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Education",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "interpret",
+        "transform",
+        "create"
+      ],
+      "rationale": "Language encoder with separate game and book modules",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/one/taborite-language-matrix/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:one:scriptures-007",
+      "title": "Universal Scriptures 007",
+      "path": "app-factory/one/scriptures-007/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Books",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "receive",
+        "retrieve",
+        "evaluate"
+      ],
+      "rationale": "Owner-selected scripture source index; not a published sacred-text corpus",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/one/scriptures-007/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:one:health",
+      "title": "ONE Health",
+      "path": "app-factory/one/health/index.html",
+      "apple": {
+        "primary": "Health & Fitness",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Health and Fitness",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "present",
+        "interpret"
+      ],
+      "rationale": "Health-related content or demos; requires healthcare-claim review",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/one/health/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:one:humanity-archive",
+      "title": "Humanity Archive",
+      "path": "app-factory/one/humanity-archive/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Education",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "remember",
+        "evaluate"
+      ],
+      "rationale": "Historical and conceptual reference archive",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/one/humanity-archive/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:one:history-cosmos",
+      "title": "History & Cosmos",
+      "path": "app-factory/one/history-cosmos/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Education",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "interpret",
+        "present"
+      ],
+      "rationale": "Historical and cosmos research explorer",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/one/history-cosmos/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:one:mosaic-reader",
+      "title": "Mosaic Reader",
+      "path": "app-factory/one/mosaic-reader/index.html",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "present",
+        "interpret"
+      ],
+      "rationale": "Reading and text presentation",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/one/mosaic-reader/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:one:offloader",
+      "title": "ONE Offloader",
+      "path": "app-factory/one/offloader/index.html",
+      "apple": {
+        "primary": "Utilities",
+        "secondary": "Productivity",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Tools",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "restore",
+        "remember",
+        "protect"
+      ],
+      "rationale": "Backup/offloading-oriented functionality",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/one/offloader/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:one:realist-ledger",
+      "title": "Realist Ledger",
+      "path": "app-factory/one/realist-ledger/index.html",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Productivity",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "remember",
+        "evaluate",
+        "retrieve"
+      ],
+      "rationale": "Ledger-style documentation and comparison",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/one/realist-ledger/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:one:trial-matrix",
+      "title": "Trial Matrix",
+      "path": "app-factory/one/trial-matrix/index.html",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Games",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Education",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "recognize",
+        "evaluate",
+        "present"
+      ],
+      "rationale": "Matrix learning/prototype stages; private original stages remain separate",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/one/trial-matrix/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:one:tabor-trinity",
+      "title": "Tabor Trinity",
+      "path": "app-factory/one/tabor-trinity/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Books",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "interpret",
+        "present"
+      ],
+      "rationale": "Conceptual and authored reference matrix",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/one/tabor-trinity/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:universal-node",
+      "title": "Universal Node",
+      "path": "app-factory/universal-node/index.html",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Education",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "connect",
+        "present",
+        "measure"
+      ],
+      "rationale": "Illustrative Earth/body/cosmos coordinate explorer; no real-world sensor assurance",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/universal-node/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:icarus-baseball",
+      "title": "Icarus of Baseball",
+      "path": "app-factory/icarus-baseball/index.html",
+      "apple": {
+        "primary": "Sports",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Sports",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "evaluate",
+        "remember"
+      ],
+      "rationale": "Historical baseball player database; sourced coverage limits",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/icarus-baseball/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:historical-sports",
+      "title": "Historical Sports",
+      "path": "app-factory/historical-sports/index.html",
+      "apple": {
+        "primary": "Sports",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Sports",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "remember",
+        "evaluate"
+      ],
+      "rationale": "Historical sports records and research",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/historical-sports/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:dummie-publisher",
+      "title": "Dummie Publisher",
+      "path": "app-factory/dummie-publisher/index.html",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Books",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Productivity",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "create",
+        "transform",
+        "present"
+      ],
+      "rationale": "Writing and publishing workflow",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/dummie-publisher/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:games:paradox-118",
+      "title": "Paradox 118",
+      "path": "app-factory/games/paradox-118/index.html",
+      "apple": {
+        "primary": "Games",
+        "secondary": "Education",
+        "genre": "Puzzle"
+      },
+      "google": {
+        "type": "game",
+        "category": "Puzzle",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "decide",
+        "evaluate",
+        "present"
+      ],
+      "rationale": "Game/puzzle collection; classification proposed",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/games/paradox-118/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:games:blackjack-life",
+      "title": "Blackjack Life",
+      "path": "app-factory/games/blackjack-life/index.html",
+      "apple": {
+        "primary": "Games",
+        "secondary": "Entertainment",
+        "genre": "Card"
+      },
+      "google": {
+        "type": "game",
+        "category": "Card",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "decide",
+        "present",
+        "evaluate"
+      ],
+      "rationale": "Card game; casino and age-rating rules need separate assessment",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/games/blackjack-life/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:game-reference-lab",
+      "title": "Game Reference Lab",
+      "path": "app-factory/game-reference-lab/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Games",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "recognize",
+        "evaluate"
+      ],
+      "rationale": "Game research/reference lab; not a standalone game",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/game-reference-lab/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:middle-c",
+      "title": "Middle C",
+      "path": "app-factory/middle-c/index.html",
+      "apple": {
+        "primary": "Music",
+        "secondary": "Education",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Music and Audio",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "present",
+        "interpret",
+        "create"
+      ],
+      "rationale": "Music-themed learning and original concept",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/middle-c/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:tabor-gps",
+      "title": "Tabor GPS",
+      "path": "app-factory/tabor-gps/index.html",
+      "apple": {
+        "primary": "Navigation",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Maps and Navigation",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "present",
+        "connect"
+      ],
+      "rationale": "Navigation-oriented concept; verify actual map/GPS functions",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/tabor-gps/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:sites:find-the-tabor",
+      "title": "Find the Tabor",
+      "path": "app-factory/sites/find-the-tabor/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Books",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "remember",
+        "evaluate"
+      ],
+      "rationale": "Research and family history website",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/sites/find-the-tabor/index.html"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:sites:words-library",
+      "title": "WORDS & Library",
+      "path": "app-factory/sites/words-library/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Books",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "interpret",
+        "retrieve",
+        "remember"
+      ],
+      "rationale": "Language/reading website",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/sites/words-library/index.html"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:sites:tabor-texting",
+      "title": "Tabor Texting",
+      "path": "app-factory/sites/tabor-texting/index.html",
+      "apple": {
+        "primary": "Social Networking",
+        "secondary": "Productivity",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Communication",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "communicate",
+        "present",
+        "connect"
+      ],
+      "rationale": "Texting-branded project; verify messaging functionality before listing",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/sites/tabor-texting/index.html"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:sites:you-sandbox",
+      "title": "YOU Sandbox",
+      "path": "app-factory/sites/you-sandbox/index.html",
+      "apple": {
+        "primary": "Graphics & Design",
+        "secondary": "Education",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Art and Design",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "create",
+        "present",
+        "transform"
+      ],
+      "rationale": "Creative tooling and project studio",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/sites/you-sandbox/index.html"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:sites:christmas-toy-factory",
+      "title": "Christmas Toy Factory",
+      "path": "app-factory/sites/christmas-toy-factory/index.html",
+      "apple": {
+        "primary": "Lifestyle",
+        "secondary": "Entertainment",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Lifestyle",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "create",
+        "present",
+        "connect"
+      ],
+      "rationale": "Holiday concept and website; not necessarily a commerce deployment",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/sites/christmas-toy-factory/index.html"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:sites:handling-life",
+      "title": "Handling Life",
+      "path": "app-factory/sites/handling-life/index.html",
+      "apple": {
+        "primary": "Lifestyle",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Lifestyle",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "present",
+        "interpret"
+      ],
+      "rationale": "Lifestyle and self-help concept website",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/sites/handling-life/index.html"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:sites:tabor-world",
+      "title": "TABOR WORLD",
+      "path": "app-factory/sites/tabor-world/index.html",
+      "apple": {
+        "primary": "Entertainment",
+        "secondary": "Games",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Entertainment",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "create",
+        "present",
+        "connect"
+      ],
+      "rationale": "Creative world/story project, not proven playable game",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/sites/tabor-world/index.html"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:sites:tabortales",
+      "title": "TaborTales",
+      "path": "app-factory/sites/tabortales/index.html",
+      "apple": {
+        "primary": "Books",
+        "secondary": "Entertainment",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "present",
+        "create"
+      ],
+      "rationale": "Story project website",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/sites/tabortales/index.html"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:sites:santa-claus-factory",
+      "title": "Santa Claus Factory",
+      "path": "app-factory/sites/santa-claus-factory/index.html",
+      "apple": {
+        "primary": "Entertainment",
+        "secondary": "Lifestyle",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Entertainment",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "create",
+        "present"
+      ],
+      "rationale": "Holiday creative project website",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/sites/santa-claus-factory/index.html"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:consumer",
+      "title": "Nathan AI Consumer Editions",
+      "path": "app-factory/nathan-ai/consumer/index.html",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Lifestyle",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Productivity",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "present",
+        "connect"
+      ],
+      "rationale": "Consumer editions overview, not a store package",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/consumer/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:absolute-intelligence",
+      "title": "Absolute Intelligence Atlas",
+      "path": "app-factory/nathan-ai/absolute-intelligence/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Education",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "interpret",
+        "connect"
+      ],
+      "rationale": "Foundational authored topic reference index",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/absolute-intelligence/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:architecture-63",
+      "title": "Architecture 63",
+      "path": "app-factory/nathan-ai/architecture-63/index.html",
+      "apple": {
+        "primary": "Developer Tools",
+        "secondary": "Education",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Libraries and Demo",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "retrieve",
+        "evaluate",
+        "present"
+      ],
+      "rationale": "Architectural design and educational reference",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/architecture-63/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:sovereign",
+      "title": "Sovereign Connections",
+      "path": "app-factory/nathan-ai/sovereign/index.html",
+      "apple": {
+        "primary": "Reference",
+        "secondary": "Productivity",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Books and Reference",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "connect",
+        "retrieve",
+        "remember"
+      ],
+      "rationale": "Connected research index, not a social platform",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/sovereign/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:activation",
+      "title": "Activation",
+      "path": "app-factory/nathan-ai/activation/index.html",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Education",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "interpret",
+        "present",
+        "sequence"
+      ],
+      "rationale": "Formula of Life illustrative narrative/model",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/activation/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:nathan-ai:phi-life",
+      "title": "Phi Life",
+      "path": "app-factory/nathan-ai/phi-life/index.html",
+      "apple": {
+        "primary": "Education",
+        "secondary": "Reference",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Education",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "interpret",
+        "present",
+        "evaluate"
+      ],
+      "rationale": "Illustrative mathematical/biological narrative",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/nathan-ai/phi-life/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    },
+    {
+      "id": "app-factory:one:meet",
+      "title": "ONE Meet",
+      "path": "app-factory/one/meet/index.html",
+      "apple": {
+        "primary": "Productivity",
+        "secondary": "Social Networking",
+        "genre": null
+      },
+      "google": {
+        "type": "app",
+        "category": "Productivity",
+        "tagCandidates": []
+      },
+      "capabilities": [
+        "connect",
+        "present",
+        "communicate"
+      ],
+      "rationale": "Verify live meeting and communication capabilities separately",
+      "evidence": {
+        "kind": "directory-and-selective-readme-review",
+        "source": "app-factory/one/meet/README.md"
+      },
+      "reviewStatus": "proposed-requires-product-review",
+      "storeStatus": "not-submitted"
+    }
+  ]
+}
