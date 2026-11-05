@@ -1,0 +1,59 @@
+# NATHAN TABOR 3-D PRINT SHOP — FIVE MATRIX → ONE (V2)
+
+**Additive expansion.** This V2 package does not replace the original 22,691-byte V1 simulator at `app-factory/one/five-matrix-print-shop/index.html` in the Nathan AI Sovereign Core repository. It adds a new, self-contained browser simulator, physical demonstrator STLs, parametric CAD source, reproducible validation, and the read-only Gopher Ant open-source catalog.
+
+## Matrices, in the user's required exact order
+
+1. **BODY** — solid geometry, physical dimensions, materials
+2. **SOUL** — connection and assembly relationships
+3. **SHADOW** — concealed structure, defects and risk checks
+4. **MIND** — measurements, documentation, code and instructions
+5. **SPIRIT** — purpose, creative design and restoration
+6. **ONE** — central controller that synchronizes the five distinct stations
+
+The five matrices are a conceptual organizational system, **not five discovered literal world machines**.
+
+## Ready to use
+
+Open `index.html` in a browser. Browser simulation, inspector, JSON state export, five independent queues, and the cached open-source reference registry run without a server or connection to any machine. To browse/download the included STLs, retain the folder structure or unzip the archive first. Selecting **DISPATCH GOPHER ANTS** makes read-only requests to a fixed allowlist of public GitHub repository metadata URLs. An internet connection and a compatible browser are necessary for those optional live checks. The Gophers never clone, install, or execute downloaded software.
+
+### The 5 actual print files
+
+- `models/1_BODY.stl`
+- `models/2_SOUL.stl`
+- `models/3_SHADOW.stl`
+- `models/4_MIND.stl`
+- `models/5_SPIRIT.stl`
+
+They are **five closed, watertight printable mesh files**, generated using OpenSCAD and inspected with Trimesh. Each panel measures approximately 50 × 60 × 5 mm (not counting an approximately 8 mm interlocking connector and 0.7 mm raised labels). The full assembly is approximately 251.4 × 60 mm wide when positioned with a nominal 0.35 mm gap between nominal panel origins. Each part has a starting/end slot or tab designed to interlock with its adjacent part from the Z direction. **Fit, printer behavior, material suitability and mechanical durability have not been verified by physical printing.** Test the connector fit using inexpensive sample prints first.
+
+### Regenerate the 5 components
+
+Install [OpenSCAD](https://openscad.org/) and run from this package root:
+
+```sh
+for n in 0 1 2 3 4; do
+  openscad -o "models/panel-$((n+1)).stl" -D "panel_index=$n" models/one-matrix-panels.scad
+done
+```
+
+Do not send this simulator's illustrative voxel path directly to a 3-D printer. Import the `.stl` into a compatible slicer such as [PrusaSlicer](https://www.prusa3d.com/p/prusaslicer/), choose a verified profile for **your** specific machine and material, review preview, cooling, bed adhesion and dimensions, then use your printer's supported workflow. This package does not transmit G-code or control motors, heaters, power, printers or rovers.
+
+## Every pixel, behind and above
+
+A 24 × 24 × 5 integer voxel occupancy grid is defined for every simulated panel. The inspector reports each chosen integer X/Y/Z coordinate as `0` empty or `1` occupied, and distinguishes its planned `surface`, `behind`, or `above` classification. The rendering includes a single-Z-slice option. Rendered voxels are a simplified demonstration of the models; the parametric `.scad` and `.stl` are the fabrication geometry source of truth. Their exact curves and raised lettering have higher detail than the voxel model.
+
+## Gopher Ant research colony
+
+The allowlist includes publicly available source projects OpenSCAD, FreeCAD, PrusaSlicer, OctoPrint, Klipper, Moonraker, Marlin, FDM Monster, Trimesh, Open3D and Print Farm Manager. A source being visible on GitHub does not prove that it is safe for your machine or that it can be reused without license obligations. The live metadata check reads declared license, last push timestamp and repo status and reports timeouts or other failures; no source code is run automatically. The NASA Swarmies/Swamp Works and ICON Olympus concepts are research context, **not a claim of access to restricted NASA hardware or files**.
+
+## Test results, boundaries & next physical steps
+
+- Five `.stl` components exported successfully from the original OpenSCAD source.
+- Five meshes passed watertight/single-body checks using Trimesh.
+- Browser interactive test performed with Chromium's `page.set_content` because navigation to local `file://` and localhost URLs was restricted in the test container. Verified five nodes, 11 source cards, five download entries, selector and inspection modes, simulated completion to 5/5, zero page JavaScript errors and zero horizontal overflow at 1366px and 390px viewports. This is not a full production-browser or physical-machine test.
+- Before live fabrication: select actual certified equipment, inspect fire/thermal and material risks, print a tiny joint-fit test, measure tolerances, obtain a human operator's authorization, validate first-layer adhesion, then print the five original files independently and assemble by hand.
+
+`SHA256SUMS.txt` records hashes of source and STL files. No secrets are needed or included.
+
+**Truth boundary:** This deliverable is a simulation plus exportable print geometry, not five physical printers, a deployed lunar ISRU unit or an automatically authorized real-world manufacturing system.
