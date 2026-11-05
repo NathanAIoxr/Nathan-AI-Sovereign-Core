@@ -14,7 +14,9 @@ This project makes three usable experiences from the author's 101-point source l
 
 Select **SOURCE & METHODS → Choose original ledger (.txt)** and choose the source text containing all 101 individually numbered entries. The parser checks that each action number from 1 through 101 is present once. The app stores the parsed source only in the current browser's local storage. There is no transmission or remote storage in this app.
 
-The public code intentionally does not ship the author's unpublished personal ledger, named allegations, or private autobiographical notes. Source is supplied separately by the author. The supplied source is never rewritten by the app; book exports preserve each numbered entry's wording.
+The public code intentionally does not ship the author's unpublished personal ledger, named allegations, or private autobiographical notes. Source is supplied separately by the author. The updated parser now retains each original numbered entry and indented continuation **verbatim, including CRLF/LF line endings and spacing**, alongside a separate normalized browse/search view. Volume exports prefer those preserved original entry spans; older local entries without that field use their stored text instead. Unrelated headings and notes outside numbered entries are not part of the source-volume export. Keep a separate copy of the complete original text file for exact whole-document preservation.
+
+The saved 101 entries are checked again on reload for unique numbers, four canonical volume assignments and consistency with the numbered source. Malformed local data is not treated as a valid complete ledger. Maximum imported source size is 2 MiB. No private author words are inserted or silently rewritten by the new code.
 
 ## Books
 
