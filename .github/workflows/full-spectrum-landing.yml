@@ -1,0 +1,38 @@
+name: Nathan AI Full Spectrum Landing
+
+on:
+  push:
+    paths:
+      - 'index.html'
+      - 'landing/**'
+      - '.github/workflows/full-spectrum-landing.yml'
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'landing/**'
+      - '.github/workflows/full-spectrum-landing.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-indexing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate static site scripts
+        run: |
+          node --check landing/taxonomy.js
+          node --check landing/landing.js
+      - name: Verify original sources, route coverage, coordinate pyramid and sorting
+        run: node --test landing/taxonomy.test.cjs
+      - name: Confirm root references actual modules without external rehosting
+        run: |
+          test -f app-factory/nathan-ai/hop-in/chatbox/index.html
+          test -f app-factory/nathan-ai/capability-atlas/inventory.json
+          test -f app-factory/nathan-ai/capability-atlas/store-discovery.json
+          test -f landing/original-chat-landing.html
