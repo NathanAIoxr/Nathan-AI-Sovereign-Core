@@ -12,3 +12,25 @@ test('atlas search respects universe, matrix, name and source classification',()
 test('source-ledger originals exist and preserve two distinct, traceable source IDs',()=>{const a=JSON.parse(fs.readFileSync(path.join(atlas,'data/source-manifest.json'),'utf8'));const b=JSON.parse(fs.readFileSync(path.join(atlas,'data/line-index.json'),'utf8'));const c=JSON.parse(fs.readFileSync(path.join(atlas,'data/concordance.json'),'utf8'));assert.equal(a.source_count,2);assert.equal(b.records.length,499);assert.equal(c.distinct_terms,1471);assert.equal(c.total_occurrences,8286);for(const x of a.source_records)assert.ok(fs.existsSync(path.join(atlas,x.path)));});
 test('integration leaves all seven existing Hop In lenses and original 104 feature concepts intact',()=>{const E0=require('../engine.js'),features=require('../features.json'),rootHtml=fs.readFileSync(path.resolve(__dirname,'../index.html'),'utf8');assert.equal(Object.keys(E0.MODE_LABELS).length,7);assert.equal(features.items.length,104);assert.match(rootHtml,/data-panel="five-matrix"/);assert.match(rootHtml,/five-matrix-frame/);assert.equal(E0.reply('/five').kind,'five-matrix');assert.ok(E0.reply('Show me the Arkenstone').links.some(l=>l.url.includes('five-matrix/')));});
 test('source browser uses literal text nodes; it never evaluates imported transcript markup',()=>{const ui=fs.readFileSync(path.resolve(__dirname,'app.js'),'utf8');assert.match(ui,/textContent=text/);assert.doesNotMatch(ui,/\.innerHTML\s*=/);});
+
+test('full original atlas baseline is exported unchanged for chatbox reuse',()=>{
+ const original=fs.readFileSync(path.join(atlas,'NATHAN_AI_FIVE_MATRIX_SOVEREIGN_LAB.html'),'utf8');
+ const key='window.ATLAS_DATA = ',at=original.indexOf(key)+key.length,end=original.indexOf(';\n',at);
+ const embedded=JSON.parse(original.slice(at,end));
+ const exported=JSON.parse(fs.readFileSync(path.join(atlas,'data/atlas-baseline-103.json'),'utf8'));
+ assert.deepEqual(exported,embedded);
+ assert.equal(exported.objects.length,103);assert.equal(exported.transformations.length,22);
+ assert.equal(exported.scripture.length,20);assert.equal(exported.events.length,8);
+ const categories=Object.fromEntries(exported.objects.map(x=>[x.id,x.category]));
+ assert.equal(categories['narnia.wardrobe'],'furniture');
+});
+test('manifest source blobs match Git blob hashes of original source bytes',()=>{
+ const crypto=require('node:crypto');
+ const manifest=JSON.parse(fs.readFileSync(path.join(atlas,'data/source-manifest.json'),'utf8'));
+ for(const source of manifest.source_records){
+  const raw=fs.readFileSync(path.join(atlas,source.path));
+  const gitObject=Buffer.concat([Buffer.from('blob '+raw.length+'\0'),raw]);
+  assert.equal(crypto.createHash('sha1').update(gitObject).digest('hex'),source.blob_sha);
+  assert.equal(raw.length,source.utf8_bytes);
+ }
+});
