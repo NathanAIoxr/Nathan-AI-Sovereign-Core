@@ -79,7 +79,7 @@ function validate(){
   if(!/^[a-z][a-z0-9-]{2,48}$/.test(p.id)||seen.has(p.id))throw Error('Invalid duplicate original program identifier');
   seen.add(p.id);
   if(!p.title||!p.sourceTitle||!p.kind||!p.stage||!p.scope||!p.activity||!p.overclaim||!Array.isArray(p.work)||p.work.length!==3)throw Error('Incomplete original program '+p.id);
-  if(!/^(?:\.\.\/one\/|[a-z][\w-]*\/)/.test(p.source)||p.source.includes('..\\'))throw Error('Unsafe source route '+p.id);
+  if(!/^(?:\.\.\/one\/|[a-z0-9][\w-]*\/)/.test(p.source)||p.source.includes('..\\'))throw Error('Unsafe source route '+p.id);
   if(!Array.isArray(p.challenge)||p.challenge.length!==5||p.challenge[1]===p.challenge[2]||p.challenge[1]===p.challenge[3])throw Error('Incomplete quiz '+p.id);
   if(p.authorQuote!==null&&typeof p.authorQuote!=='string')throw Error('Invalid author quote');
  }
