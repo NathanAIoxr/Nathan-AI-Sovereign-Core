@@ -2,13 +2,13 @@
 
 **Open:** [Interactive Snow Family experience](./index.html) · [Original Trinity of Snow archive](../index.html) · [HOP IN. Interactive Chatbox](../../hop-in/chatbox/index.html)
 
-An additive, text-only, offline-capable static browser module connecting **chat**, **six evidence quests**, **three 13-chapter book outlines** (39 chapter previews), **KJV/folklore/artifact study**, the **19-level Snow Family world**, and the **4×6 operator field**.
+An additive, text-only, offline-capable static browser module connecting **chat**, **six evidence quests**, **three 13-chapter book outlines** (39 distinct chapter scenes), **KJV/folklore/artifact study**, the **19-level Snow Family world**, and the **4×6 operator field**.
 
 ## Working functions
 
 1. **Chat:** Real text input, deterministic ranked search over bundled records, named source receipts, visible provenance. It does **not** call a live language model.
 2. **Game:** Six scored, repeatable choices about medieval imagery, antisemitism, KJV interpretation, manuscript dating, symbolic level orders and model-defined escape semantics.
-3. **Books:** Three creator-inspired volumes with 13 chapter titles and original interactive chapter previews each. Download a 39-chapter Markdown outline. These are not full completed novels.
+3. **Books:** Three creator-inspired volumes with 13 chapter titles and original interactive chapter previews each. Download all 39 original scene previews in a Markdown manuscript scaffold. These are not full completed novels.
 4. **Education:** Search the source registry, follow reference links and download a JSON ledger. Each record is separately categorized.
 5. **World:** Above/North **+9 +8 +7 +6 +5 +4 +3 +2 +1** → Middle/Equator/Void **0** → Below/South **-9 -8 -7 -6 -5 -4 -3 -2 -1**. Keep the lists in this order. Creator symbolic cosmology, not surveyed geology.
 6. **Matrix:** Operational model **0 → 1–8 → 9**, with four row masks and six named channels. Binary XOR transforms illustrate a cycle and an explicitly designed Matrix 9 release of the unchanged input.
