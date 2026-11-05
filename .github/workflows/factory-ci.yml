@@ -114,6 +114,11 @@ jobs:
         run: node --test app-factory/nathan-ai/deep-archive/engine.test.cjs
       - name: Verify Nathan AI assistant retrieval and conversation preservation
         run: node --test app-factory/nathan-ai/assistant/engine.test.cjs
+      - name: Verify HOP IN chatbox Words to Worlds and verbatim author-source integrity
+        run: |
+          node --test app-factory/nathan-ai/hop-in/chatbox/engine.test.cjs
+          node --test app-factory/nathan-ai/hop-in/chatbox/source-studio.test.cjs
+          node --test app-factory/nathan-ai/protection-of-innocence/david-exchange-2026-11-05/archive.test.cjs
       - name: Verify Nathan AI plugin inventory and explicit workflow handoffs
         run: node --test app-factory/nathan-ai/plugins/engine.test.cjs
       - name: Verify Nathan AI appearance palettes, persistence schema and page coverage
