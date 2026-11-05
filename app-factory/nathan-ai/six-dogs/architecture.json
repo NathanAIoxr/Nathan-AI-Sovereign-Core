@@ -1,0 +1,238 @@
+{
+  "schema": "nathan-six-dogs.architecture.v1",
+  "version": 1,
+  "platform": "Nathan AI / ONE",
+  "sourceStatus": "user-authored creative protocol; no clinical validation",
+  "sequence": [
+    "KNICK",
+    "KNACK",
+    "PADDY",
+    "WHACK",
+    "DOG",
+    "BONE"
+  ],
+  "correspondences": {
+    "mind": [
+      "Dalet",
+      "Pe",
+      "Kaph",
+      "Waw",
+      "Nun",
+      "Bet"
+    ],
+    "body": [
+      "Knick",
+      "Knack",
+      "Paddy",
+      "Whack",
+      "Dog",
+      "Bone"
+    ],
+    "shadow": [
+      "Bet",
+      "Nun",
+      "Waw",
+      "Kaph",
+      "Pe",
+      "Dalet"
+    ],
+    "soul": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "spirit": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "stages": [
+    {
+      "id": 1,
+      "name": "KNICK",
+      "microservice": "input-recognition",
+      "software": "Explicit capture of a concrete issue",
+      "computerScience": "Event acquisition and provenance",
+      "interface": "What happened?",
+      "hardware": {
+        "ledPin": "D3",
+        "button": "next"
+      },
+      "emotionalAnalogy": "Denial or shock → awareness"
+    },
+    {
+      "id": 2,
+      "name": "KNACK",
+      "microservice": "option-planning",
+      "software": "Generate choices and review assumptions",
+      "computerScience": "Decision support, branching, constraint review",
+      "interface": "What are the available choices?",
+      "hardware": {
+        "ledPin": "D4",
+        "button": "next"
+      },
+      "emotionalAnalogy": "Pain or guilt → adaptation"
+    },
+    {
+      "id": 3,
+      "name": "PADDY",
+      "microservice": "paced-workflow",
+      "software": "Choose deliberate pace without forced emotional claims",
+      "computerScience": "Scheduler / feedback loop",
+      "interface": "What pace feels manageable?",
+      "hardware": {
+        "ledPin": "D5",
+        "button": "next"
+      },
+      "emotionalAnalogy": "Anger or frustration → regulation"
+    },
+    {
+      "id": 4,
+      "name": "WHACK",
+      "microservice": "decision-confirmation",
+      "software": "Select a nonviolent action after user confirmation",
+      "computerScience": "Intent review and user-approved commit",
+      "interface": "What safe decision will you make?",
+      "hardware": {
+        "ledPin": "D6",
+        "button": "next"
+      },
+      "emotionalAnalogy": "Bargaining or rumination → decision"
+    },
+    {
+      "id": 5,
+      "name": "DOG",
+      "microservice": "follow-through",
+      "software": "Track next manageable action and available support",
+      "computerScience": "Progress tracking and explicit opt-in reminders",
+      "interface": "What happens next?",
+      "hardware": {
+        "ledPin": "D7",
+        "button": "next"
+      },
+      "emotionalAnalogy": "Sadness or isolation → supported action"
+    },
+    {
+      "id": 6,
+      "name": "BONE",
+      "microservice": "reflection-and-checkpoint",
+      "software": "Assess outcome and retain portable user-owned record",
+      "computerScience": "Checkpoint and reversible review",
+      "interface": "What improved? What remains?",
+      "hardware": {
+        "ledPin": "D8",
+        "button": "wrap-to-knick"
+      },
+      "emotionalAnalogy": "Possible relief, acceptance or connection; not stress elimination"
+    }
+  ],
+  "dataFlow": [
+    "user input",
+    "consent/local storage choice",
+    "deterministic Six Dogs state machine",
+    "local reflection records",
+    "optional explicit USB serial command",
+    "device LED indicator"
+  ],
+  "deterministicInvariants": [
+    "six unique named stages",
+    "same user-specified order in every output",
+    "mind begins at Dalet (Door/Mind Gate)",
+    "body follows KNICK→KNACK→PADDY→WHACK→DOG→BONE",
+    "shadow follows Bet→Nun→Waw→Kaph→Pe→Dalet",
+    "soul/spirit require user-authored optional labels",
+    "no automatic clinical or emotional inference",
+    "no automatic external physical action"
+  ],
+  "hardware": {
+    "board": "Arduino Uno-compatible",
+    "button": "D2 INPUT_PULLUP to GND",
+    "ledPins": [
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "D8"
+    ],
+    "resistors": "one 220–330 ohm resistor per LED",
+    "power": "USB low voltage only",
+    "serial": {
+      "baud": 115200,
+      "commands": [
+        "SD1 STEP 1..6",
+        "SD1 RESET",
+        "SD1 QUERY"
+      ],
+      "lineTermination": "LF"
+    },
+    "physicalValidation": "not performed"
+  },
+  "privacy": {
+    "defaultStorage": "in-memory",
+    "optionalStorage": "browser localStorage opt-in; not encrypted",
+    "export": "user-owned JSON",
+    "import": "schema-validation",
+    "delete": "explicit local purge",
+    "remoteRequests": false,
+    "permission": "user-initiated serial device selection only"
+  },
+  "crosslinks": {
+    "ONE": "../../one/index.html",
+    "acromatrix": "../../one/sovereign-acro-matrix/index.html",
+    "nathanAI": "../index.html"
+  },
+  "clinicalBoundary": "Not a grief scale, psychotherapy, medical intervention, detection of stress, or guarantee of a stress-free state.",
+  "macroTopology": {
+    "status": "implemented as offline JS pure graph and local browser viewer",
+    "layers": [
+      "Sovereign user governance",
+      "Typed asset registry",
+      "Local repository adapter",
+      "Publish-subscribe event bus",
+      "Offline edge runtime"
+    ],
+    "graphNodes": [
+      "user",
+      "registry",
+      "store",
+      "events",
+      "runtime",
+      "gate",
+      "workflow",
+      "device"
+    ],
+    "graphSemantics": "Stage selection creates bounded local event log and updates current graph view; no network or cloud services",
+    "persistence": "Topology viewer in-memory only; manual JSON export"
+  },
+  "microEngine": {
+    "status": "implemented in JS and Python, no external inference",
+    "python": "sovereign_unit.py",
+    "javascript": "topology.js",
+    "checks": [
+      "Grapheme-aware JS structural reversal/round-trip",
+      "human-labeled source-review separation",
+      "strict whole-integer arithmetic",
+      "explicit confirmation before clearing local drafts"
+    ],
+    "gates": {
+      "0": "Hold or withhold, not proof of deception and not deletion",
+      "1": "Specified structural/review check satisfied, not universal factual proof"
+    },
+    "ports": [
+      "in-memory key/value adapter",
+      "in-process publish-subscribe",
+      "explicit stage selection event",
+      "optional user-authorized serial output"
+    ],
+    "cloudInfrastructure": "not implemented or required",
+    "policy": "No embedded lie detection, medical diagnosis, autonomous purge, or claim of remote revocation immunity"
+  }
+}
