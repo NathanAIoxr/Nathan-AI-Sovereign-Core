@@ -6,7 +6,7 @@
 <title>Six Dogs — Nathan AI Resolution Console</title>
 <meta name="description" content="A source-preserving, local-first six-stage reflection and hardware-controller prototype inside Nathan AI.">
 <link rel="stylesheet" href="style.css">
-<script defer src="engine.js"></script><script defer src="app.js"></script>
+<script defer src="engine.js"></script><script defer src="topology.js"></script><script defer src="topology-ui.js"></script><script defer src="app.js"></script>
 </head><body>
 <a class="skip" href="#content">Skip to the console</a>
 <header class="hero">
@@ -71,6 +71,25 @@
  <p id="deviceStatus" class="fine" role="status">Not connected. A USB device is never accessed automatically.</p></div>
 </div>
 </section>
+<section id="micro-macro" class="panel">
+<p class="eyebrow">04 · MACRO-TOPOLOGY ⇄ MICRO-ENGINE</p><h2>Independent offline sovereign computing</h2>
+<p>The registry, local storage, event bus and deterministic packet inspector operate without a cloud AI account. The Six Dogs stage selection updates this local topology view; no external commands execute automatically.</p>
+<div class="hardware-grid">
+<div><h3>Macro · Infrastructure and registry</h3>
+<p id="macroStatus" role="status">Initializing local graph.</p>
+<div id="topologyNodes"></div>
+<label>Register a local asset ID <input id="assetId" maxlength="64" placeholder="my-document-1"></label>
+<label>Asset kind <select id="assetKind"><option value="text">Text</option><option value="document">Document</option><option value="device">Device</option><option value="story">Story</option><option value="interface">Interface</option></select></label>
+<div class="actions"><button id="assetAdd">Register asset in this view</button><button id="topologyExport" class="secondary">Export topology JSON</button><button id="macroReset" class="secondary">Reset topology view</button></div>
+<h3>Local event ledger</h3><div id="topologyLog" class="history" aria-live="polite"></div></div>
+<div><h3>Micro · DATA–ATAD structural gateway</h3>
+<label>Input packet <textarea id="microPacket" rows="4" maxlength="10000" placeholder="Text to reverse, restore and inspect; this cannot detect deception."></textarea></label>
+<label>Source/reference <input id="microReference" placeholder="Source ID or citation (optional)"></label>
+<label>Human review status <select id="microReview"><option value="unreviewed">Unreviewed</option><option value="supported">Supported after review</option><option value="mixed">Mixed</option><option value="contradicted">Contradicted</option></select></label>
+<button id="microRun">Inspect structure and review status</button>
+<pre id="microResult" class="command" aria-live="polite">No packet processed.</pre>
+<p class="fine" id="microNotice">Gate 1 means a defined check passed. Gate 0 means hold for review, never automatic deletion or proof of deception.</p></div>
+</div></section>
 <section id="technology" class="panel">
 <p class="eyebrow">04 · FULL TECHNOLOGY MAPPING</p><h2>Eight engineering layers</h2><div id="techGrid" class="tech-grid"></div>
 </section>
