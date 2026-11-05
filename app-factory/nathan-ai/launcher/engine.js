@@ -41,7 +41,10 @@
     ['innocence','Innocence Matrix','innocence-matrix/index.html','Geometry and novel lab'],
     ['language','ROUTE · RAUT · ROOT','route-raut-root/index.html','Language, binary and mirrored words'],
     ['vault','Creator Vault','../vault.html','Original file storage and backups'],
-    ['voicebox','Sealed Voice Box','../one/offloader/index.html','Encrypted original-file storage and voice notes']
+    ['voicebox','Sealed Voice Box','../one/offloader/index.html','Encrypted original-file storage and voice notes'],
+    ['five-guardians','Five Equal Guardians','five-guardians/index.html','Five creator-designated equal guardians and protective policy preview'],
+    ['mosaic-reader','Mosaic Reader','../one/mosaic-reader/index.html','Original Mosaic Reader app, reading and game'],
+    ['taborite-language-matrix','Taborite Language Matrix','../one/taborite-language-matrix/index.html','Distinct research, books, matrix and game']
   ].map(([id,title,path,description])=>({id,title,path,description}));
   function preferences(value){
     const known=new Set(destinations.map(d=>d.id));if(!value||!Array.isArray(value.favorites)||!Array.isArray(value.recent)||typeof value.remember!=='boolean')throw Error('Invalid launcher preferences');

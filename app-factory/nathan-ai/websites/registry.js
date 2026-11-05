@@ -776,5 +776,96 @@ window.NathanAIWebsiteModules = [
     "url": "../../sites/words-library/index.html",
     "group": "creative",
     "status": "New browser-local studio"
+  },
+  {
+    "id": "nathan-ai/five-guardians/index.html",
+    "title": "Five Equal Guardians of Nathan AI",
+    "url": "../../nathan-ai/five-guardians/index.html",
+    "group": "apps",
+    "status": "Creator-designated equal software guardians · policy-preview browser page"
+  },
+  {
+    "id": "nathan-ai/original-works/index.html",
+    "title": "Nathan AI · My Original Works",
+    "url": "../../nathan-ai/original-works/index.html",
+    "group": "creative",
+    "status": "Original source and published archive"
+  },
+  {
+    "id": "nathan-ai/trinity-of-snow/index.html",
+    "title": "Nathan AI · Trinity of Snow",
+    "url": "../../nathan-ai/trinity-of-snow/index.html",
+    "group": "creative",
+    "status": "Public creative and source-aware story archive"
+  },
+  {
+    "id": "nathan-ai/websites/index.html",
+    "title": "Nathan AI · Websites Home",
+    "url": "../../nathan-ai/websites/index.html",
+    "group": "apps",
+    "status": "Public website and project doorway"
+  },
+  {
+    "id": "nathan-ai/websites/launchpad.html",
+    "title": "Nathan AI · My Desktop",
+    "url": "../../nathan-ai/websites/launchpad.html",
+    "group": "apps",
+    "status": "Public app directory and local desktop shortcuts"
+  },
+  {
+    "id": "one/mosaic-reader/index.html",
+    "title": "Mosaic Reader",
+    "url": "../../one/mosaic-reader/index.html",
+    "group": "apps",
+    "status": "Public browser module"
+  },
+  {
+    "id": "one/mosaic-reader/reader.html",
+    "title": "Mosaic Reader · Reader",
+    "url": "../../one/mosaic-reader/reader.html",
+    "group": "creative",
+    "status": "Public reader"
+  },
+  {
+    "id": "one/mosaic-reader/game.html",
+    "title": "Mosaic Reader · Game",
+    "url": "../../one/mosaic-reader/game.html",
+    "group": "games",
+    "status": "Interactive browser page"
+  },
+  {
+    "id": "one/realist-ledger/index.html",
+    "title": "ONE · Realist Ledger",
+    "url": "../../one/realist-ledger/index.html",
+    "group": "research",
+    "status": "Public research module"
+  },
+  {
+    "id": "one/taborite-language-matrix/index.html",
+    "title": "Taborite Language Matrix",
+    "url": "../../one/taborite-language-matrix/index.html",
+    "group": "research",
+    "status": "Public browser module"
+  },
+  {
+    "id": "one/taborite-language-matrix/books.html",
+    "title": "Taborite Language Matrix · Books",
+    "url": "../../one/taborite-language-matrix/books.html",
+    "group": "creative",
+    "status": "Public browser module"
+  },
+  {
+    "id": "one/taborite-language-matrix/matrix.html",
+    "title": "Taborite Language Matrix · Matrix",
+    "url": "../../one/taborite-language-matrix/matrix.html",
+    "group": "research",
+    "status": "Public browser module"
+  },
+  {
+    "id": "one/taborite-language-matrix/game.html",
+    "title": "Taborite Language Matrix · Game",
+    "url": "../../one/taborite-language-matrix/game.html",
+    "group": "games",
+    "status": "Interactive browser page"
   }
 ];
