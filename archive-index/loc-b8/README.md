@@ -41,7 +41,7 @@ node --test archive-index/loc-b8/catalog.test.mjs
 python3 -m py_compile archive-index/loc-b8/organize_recovery.py
 ```
 
-Tests cover subject/title separation, original completion preservation, import validation, note identity validation, pagination and aggregate reconciliation. The archive build verified 19,317 source hashes, 5,851 exact joins and zero unmatched record identities. Browser rendering and keyboard interaction still require a browser acceptance pass.
+Tests cover subject/title separation, original completion preservation, import validation, note identity validation, pagination and aggregate reconciliation. The archive build verified 19,317 source hashes, 5,851 exact joins and zero unmatched record identities. Browser acceptance results and remaining checks are recorded in BROWSER_VERIFICATION.md.
 
 ## Coverage
 
@@ -57,4 +57,4 @@ Review backups use a SHA-256 fingerprint of original source IDs, wording, hashes
 
 The universal workspace at `app-factory/nathan-ai/universal-workspace/` opens each tool and retains independent launches. Private catalogs stay in each browser session; source-matched review/evidence records can persist locally and export as JSON. Load the same owner catalog in another app to continue its saved review.
 
-Verification for this extension: 17 new/catalog checks plus 9 existing workspace/Codex regression checks passed. A full 19,317-entry owner catalog (5,851 crosslinks, 35 tasks) passed import and exact-word backup round-trip without source changes. Browser acceptance is recorded separately in `BROWSER_VERIFICATION.md`.
+Verification for this extension: 18 new/catalog checks plus 9 existing workspace/Codex regression checks passed. A full 19,317-entry owner catalog (5,851 crosslinks, 35 tasks) passed import and exact-word backup round-trip without source changes. Browser acceptance is recorded separately in `BROWSER_VERIFICATION.md`.

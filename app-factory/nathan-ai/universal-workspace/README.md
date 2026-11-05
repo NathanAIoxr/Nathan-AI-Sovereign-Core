@@ -38,3 +38,5 @@ All three tools reuse the same source catalog/identity, review persistence, comp
 `app-registry.json` retains each original route and its status. Existing source routes are not automatically marked complete. The registry points to the existing ONE v061 interface as a shared foundation for its 58 original registered consumers. The new catalog core is shared by three tools. Private providers, cloud sync, game rules and unpublished source holdings are not silently merged or released.
 
 Tests: `node --test app-factory/nathan-ai/universal-workspace/apps.test.mjs archive-index/loc-b8/*.test.mjs` plus the original workspace and Codex regression suites.
+
+The app-directory extension loads first-party public route metadata and selected app pages. Earlier no-network capability statements describe the unchanged source inspection engine. Source text from that engine is not forwarded to an embedded app. See `archive-index/loc-b8/BROWSER_VERIFICATION.md` for the shared-tool acceptance results and remaining release checks.
