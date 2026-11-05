@@ -1,0 +1,206 @@
+{
+  "model_status": "symbolic hypothesis / educational simulation; no historical causation inferred",
+  "formula": "M_ij = phi_j(T_i(x))",
+  "dimensions": {
+    "matrix_rows": 4,
+    "matrix_columns": 6,
+    "inside_operators": 8,
+    "external_boundaries": [
+      0,
+      9
+    ]
+  },
+  "boundary_0": {
+    "name": "Absolute Void / Pure Potential",
+    "raw_seed": "101100",
+    "implementation": "input preserved without transformation"
+  },
+  "functional_channels": [
+    "authority",
+    "law",
+    "lineage",
+    "word",
+    "stone",
+    "memory"
+  ],
+  "operators": [
+    {
+      "id": 1,
+      "label": "White Pope / Declared Face",
+      "group": "Disclosed Trinity",
+      "role": "public declaration"
+    },
+    {
+      "id": 2,
+      "label": "Black Pope / Disciplinary Face",
+      "group": "Disclosed Trinity",
+      "role": "discipline and rules"
+    },
+    {
+      "id": 3,
+      "label": "Grey Pope / Transitional Face",
+      "group": "Disclosed Trinity",
+      "role": "institutional continuity"
+    },
+    {
+      "id": 4,
+      "label": "Operator of Law",
+      "group": "Hidden Pentad",
+      "role": "codes and contracts"
+    },
+    {
+      "id": 5,
+      "label": "Operator of Blood",
+      "group": "Hidden Pentad",
+      "role": "ancestry and covenants"
+    },
+    {
+      "id": 6,
+      "label": "Operator of Word",
+      "group": "Hidden Pentad",
+      "role": "script and language"
+    },
+    {
+      "id": 7,
+      "label": "Operator of Stone",
+      "group": "Hidden Pentad",
+      "role": "sites and physical monuments"
+    },
+    {
+      "id": 8,
+      "label": "Operator of Shadow",
+      "group": "Hidden Pentad",
+      "role": "memory and recurrence"
+    }
+  ],
+  "field_4x6": [
+    [
+      1,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  ],
+  "rows": [
+    {
+      "tier": 1,
+      "name": "Presentation",
+      "operators": [
+        1,
+        2
+      ],
+      "transform": "identity",
+      "values": {
+        "authority": 1,
+        "law": 0,
+        "lineage": 1,
+        "word": 1,
+        "stone": 0,
+        "memory": 0
+      },
+      "binary": "101100"
+    },
+    {
+      "tier": 2,
+      "name": "Governance",
+      "operators": [
+        3,
+        4
+      ],
+      "transform": "rotate-right-1",
+      "values": {
+        "authority": 0,
+        "law": 1,
+        "lineage": 0,
+        "word": 1,
+        "stone": 1,
+        "memory": 0
+      },
+      "binary": "010110"
+    },
+    {
+      "tier": 3,
+      "name": "Transmission",
+      "operators": [
+        5,
+        6
+      ],
+      "transform": "reverse",
+      "values": {
+        "authority": 0,
+        "law": 0,
+        "lineage": 1,
+        "word": 1,
+        "stone": 0,
+        "memory": 1
+      },
+      "binary": "001101"
+    },
+    {
+      "tier": 4,
+      "name": "Recurrence",
+      "operators": [
+        7,
+        8
+      ],
+      "transform": "xor-010101",
+      "values": {
+        "authority": 1,
+        "law": 1,
+        "lineage": 1,
+        "word": 0,
+        "stone": 0,
+        "memory": 1
+      },
+      "binary": "111001"
+    }
+  ],
+  "loop": {
+    "states": [
+      "101100",
+      "001111",
+      "101100"
+    ],
+    "detected_cycle": {
+      "start_step": 0,
+      "repeat_step": 2,
+      "period": 2
+    }
+  },
+  "boundary_9": {
+    "name": "Sovereign Singularity / ONE",
+    "result": "101100",
+    "implementation": "explicit release to the original input, not a mathematically proven escape"
+  },
+  "notes": [
+    "Operator labels are mapped in paired rows for 4x6 accounting; the original 3+5 grouping is retained in metadata.",
+    "The 6 channels are analyst-chosen projections, not six historically documented control channels.",
+    "1+1=2 (build) and 1-1=0 (clear) are interpretive interface rules, not proofs about historical events."
+  ]
+}

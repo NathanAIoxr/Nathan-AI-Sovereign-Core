@@ -4,13 +4,54 @@
 
 **ONE MIND. ONE MASTER LIBRARY. ONE CONNECTED SYSTEM.**
 
-[Open Nathan AI — homepage chatbox](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/) · [HOP IN Chatbox](app-factory/nathan-ai/hop-in/chatbox/index.html) · [My Original Works](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/original-works/) · [Original 13-book plan](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/original-works/#original-plan) · [Original download packages](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/original-works/#downloads)
+[Open Nathan AI — FOUR-DIRECTION LANDING](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/) · [HOP IN Chatbox](app-factory/nathan-ai/hop-in/chatbox/index.html) · [My Original Works](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/original-works/) · [Original 13-book plan](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/original-works/#original-plan) · [Original download packages](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/original-works/#downloads)
 
 Home of **TABOR 1-2-3 FACTORY™ / Nathan AI Sovereign Core**.
 
 **Creator:** Nathan Tabor · **Workflow:** **1. CREATE → 2. CONNECT → 3. LAUNCH**.
 
 This is the **PUBLIC**, browser-first coordination repository. It does **not** contain the owner's private full original-media library, private ZIP-only backend packages, unpublished research records, customer data, or credentials. It is not a deployed private multi-tenant SaaS backend.
+
+## ONE CENTER · FOUR PYRAMIDS · FULL SPECTRUM BOTH WAYS
+
+[**OPEN THE INTERACTIVE LANDING**](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/) · [All Nathan AI Apps](app-factory/nathan-ai/index.html) · [ONE](app-factory/one/index.html) · [Games](app-factory/nathan-ai/games/index.html) · [Books & Library](app-factory/one/library-mind/index.html) · [Original HOP IN Chatbox](app-factory/nathan-ai/hop-in/chatbox/index.html)
+
+~~~text
+                      UP ↑
+             SUBJECTS · DEWEY 000–900
+                       /\
+                      /  \
+   LEFT ←  ANCIENT  ◀  0 / ONE  ▶  MODERN  → RIGHT
+                  PROVENANCE     APP CATEGORIES
+                      \  /
+                       \/
+                     DOWN ↓
+         ATTRIBUTES · CHARACTERISTICS · FUNCTIONS
+
+       +9 +8 +7 +6 +5 +4 +3 +2 +1
+                       0
+       −9 −8 −7 −6 −5 −4 −3 −2 −1
+           FORWARD  ⇄  REVERSE
+~~~
+
+The **center stays ONE**. Navigation expands independently across four directions and can be reversed through a full-spectrum, whole-number coordinate selector. Every branch keeps original application identities and source paths. The source-authored identity rules remain exactly **node = mind = node** and **mind = node = mind**.
+
+| Direction / layer | Organizing method | Open |
+| --- | --- | --- |
+| **CENTER · 0** | ONE, Nathan AI and the complete source-backed project index | [Center / Home](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/#pyramids) |
+| **UP** | Dewey broad subject classes, 000 to 900, with provisional cross-references | [Dewey Pyramid](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/#dewey) |
+| **DOWN** | Inputs, memory, source evidence, capabilities, implementation and original work | [Functional Pyramid](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/#catalog) |
+| **LEFT** | Clay/tablet colophons, classical inventories, bibliographies, faceted and library systems | [Ancient to Modern](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/#historical) |
+| **RIGHT** | Apple App Store, Google Play, game genres and cross-platform discovery | [Modern Discovery](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/#stores) |
+| **BOTH WAYS** | Signed spectrum, whole-number traversal, reverse order without reversing original data | [Full Spectrum](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/#spectrum) |
+
+**Dewey ten broad classes:** 000 Computer science / information / general works; 100 Philosophy / psychology; 200 Religion; 300 Social sciences; 400 Language; 500 Science; 600 Technology; 700 Arts / recreation; 800 Literature; 900 History / geography. These are subject navigation *crosswalks*, **not verified Dewey call numbers assigned to software**.
+
+**App discovery:** Apple categories include Books, Business, Developer Tools, Education, Entertainment, Finance, Food & Drink, Games, Graphics & Design, Health & Fitness, Lifestyle, Magazines & Newspapers, Medical, Music, Navigation, News, Photo & Video, Productivity, Reference, Shopping, Social Networking, Sports, Travel, Utilities, and Weather. Google Play has its own category and game-genre scheme. The actual published product, not its name, determines any official store category. Browse all Apple, Google and game options in the [interactive category explorer](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/#stores) or [source-grounded store atlas](app-factory/nathan-ai/capability-atlas/store.html).
+
+**DEO decimal:** retained as a separate, creator-named indexing layer with unassigned whole-number positions 0–9. Its detailed meaning has not been supplied and **is not silently converted to Dewey Decimal or duodecimal**.
+
+Source preservation: [Original iframe-only homepage retained](landing/original-chat-landing.html) · [Taxonomy and historical sources](landing/INDEXING.md) · [Store proposal manifest](app-factory/nathan-ai/capability-atlas/store-discovery.json) · [Complete GitHub file audit](app-factory/nathan-ai/capability-atlas/index.html). This is a navigation overlay; original apps and books remain independently accessible.
 
 ## D original words and variants — Nathan AI + website
 
