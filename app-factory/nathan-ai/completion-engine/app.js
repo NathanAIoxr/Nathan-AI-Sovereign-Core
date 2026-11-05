@@ -8,6 +8,7 @@ const KEY="nathan-completion-owned-v1";
 const seed=[
 {id:"ANCIENT-AV-2026",title:"ANCIENT A/V Spiderweb — Recovery and Language Index",track:"Ancient / A–V",sourceRef:"Owner-held recovery package: Nathan_AI_ANCIENT_AV_Full_Research_Package_2026-11-05.zip",privacy:"owner-only"},
 {id:"ANCIENT-ROOTS",title:"The Ancient Divine Roots — Tabor 1-2-3 Factory",track:"Research / Ancient",sourceRef:"app-factory/mythology/ancient-roots/source.md",privacy:"public"},
+{id:"PRIMORDIAL-WORD-FAMILY",title:"Primordial / Primortal — Source-Locked Original Word Family",track:"Ancient / Language / Word Creation",sourceRef:"app-factory/nathan-ai/primordial-lexicon/source-sequence.json",privacy:"public"},
 {id:"SIX-DOGS",title:"The Six Dogs — KNICK KNACK PADDY WHACK DOG BONE",track:"Software and hardware",sourceRef:"app-factory/nathan-ai/six-dogs/README.md",privacy:"public"},
 {id:"ACRO-MATRIX",title:"Nathan AI Sovereign Acro-Matrix",track:"Sovereign Architecture",sourceRef:"app-factory/one/sovereign-acro-matrix/README.md",privacy:"public"},
 {id:"A-INDEX",title:"Nathan AI — Master A-Index Source Recovery",track:"A–Z source recovery",sourceRef:"Owner-held A-index master catalog, 381 source records",privacy:"owner-only"}
