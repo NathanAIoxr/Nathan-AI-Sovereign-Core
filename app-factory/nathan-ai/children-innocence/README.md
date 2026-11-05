@@ -20,3 +20,10 @@ Run `node --test app-factory/nathan-ai/children-innocence/engine.test.cjs` (Node
 
 ## Source references
 Private recovery register dated Nov 1, 2026 (not committed), `PUBLISHER_BOOK_AND_GAME_BIBLE.md`, `MASTER_PROJECT_READINESS_v017.csv`, author-supplied Black Widows passage, and earlier source inventories. Original texts take precedence; generated summaries remain separately marked. Exact manuscripts are not reconstructed from metadata.
+
+## Protection of Innocence — public accountability records (November 5, 2026)
+
+- **[Protection of Innocence — child-first charter](PROTECTION_OF_INNOCENCE.md):** unedited creator quotations, survivor privacy, concrete accountability obligations, and source-verification rules.
+- **[Virginia Foxx / Epstein Files legislative-vote record](records/VIRGINIA_FOXX_EPSTEIN_DISCLOSURE_VOTE_RECORD_2025_2026.md):** seven identified Rules Committee NAY votes, the later House AYE vote, linked official records, and a dated **unofficial** 2026 NC-05 election snapshot. This is a documentary record, not a claim of criminal guilt or a certified election result.
+
+These entries are additive; they do not alter original children's books or imply any real-world autonomous safeguarding service.
