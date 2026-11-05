@@ -2,3 +2,5 @@
 @media(max-width:840px){.filters{grid-template-columns:1fr 1fr}.filters label:first-child{grid-column:1/-1}.book-layout{grid-template-columns:1fr}}@media(max-width:620px){.counts{grid-template-columns:1fr 1fr}.cards,.choices{grid-template-columns:1fr}.ring-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.filters{grid-template-columns:1fr}.filters label:first-child{grid-column:auto}main{padding:18px 12px}.header-inner{align-items:start}}
 
 .baseline-structure{display:grid;gap:10px;margin:18px 0}.baseline-structure details{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:12px 14px}.baseline-structure summary{font-weight:800;cursor:pointer;color:var(--aqua)}.baseline-structure p{margin:8px 0;padding-bottom:7px;border-bottom:1px solid #32505d;font-size:.85rem;color:var(--muted);overflow-wrap:anywhere}
+
+.formula-expression{font:600 .93rem/1.6 ui-monospace,Consolas,monospace;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;background:#0a1d26;border:1px solid #345564;border-radius:9px;color:#c9f3ea;margin:14px 0}
