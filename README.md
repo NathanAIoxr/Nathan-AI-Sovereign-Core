@@ -4,7 +4,7 @@
 
 **ONE MIND. ONE MASTER LIBRARY. ONE CONNECTED SYSTEM.**
 
-[Open Nathan AI](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/) · [HOP IN Chatbox](app-factory/nathan-ai/hop-in/chatbox/index.html) · [My Original Works](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/original-works/) · [Original 13-book plan](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/original-works/#original-plan) · [Original download packages](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/original-works/#downloads)
+[Open Nathan AI — homepage chatbox](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/) · [HOP IN Chatbox](app-factory/nathan-ai/hop-in/chatbox/index.html) · [My Original Works](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/original-works/) · [Original 13-book plan](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/original-works/#original-plan) · [Original download packages](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/original-works/#downloads)
 
 Home of **TABOR 1-2-3 FACTORY™ / Nathan AI Sovereign Core**.
 
