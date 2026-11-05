@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan AI — Original Words Archive</title>
+<style>
+:root { color-scheme: dark; font: 16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif; background:#101722; color:#e7eff7 }
+* { box-sizing:border-box }
+body { max-width:1100px; padding:24px; margin:auto }
+header { border-bottom:1px solid #3b4b5d; padding-bottom:16px }
+h1 { line-height:1.15 } a { color:#a0d9ff } .muted { color:#b9c7d5 }
+.notice { border-left:3px solid #a0d9ff; padding:8px 16px; margin:18px 0; background:#1a2533 }
+.controls { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0 }
+input,select { font:inherit; padding:11px; color:inherit; background:#182635; border:1px solid #5d7086; border-radius:7px; min-width:200px; flex:1 }
+button { color:inherit; background:#23384c; border:1px solid #5a758c; border-radius:5px; padding:6px 10px; font:inherit; cursor:pointer }
+button[aria-pressed=true] { background:#9ecfea; color:#111e29 }
+.alphabet { display:flex; flex-wrap:wrap; gap:4px; margin:12px 0 }
+.panel { border:1px solid #3f5265; border-radius:12px; padding:18px; margin:16px 0; background:#172330 }
+.source { white-space:pre-wrap; overflow-wrap:anywhere; margin:12px 0 0; font: 15px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace }
+.meta { font-size:14px; color:#b9c7d5 }
+.words { display:flex; flex-wrap:wrap; gap:7px; max-height:240px; overflow:auto }
+.words button { font-size:13px } .count { opacity:.7 }
+#message-status { min-height:26px }
+</style>
+</head>
+<body>
+<header>
+<p><a href="../../../../index.html">Nathan AI</a> / Protection of Innocence / Author originals</p>
+<h1>Original Words — Source-First Archive</h1>
+<p class="muted">Original messages are displayed directly from preserved source records. Search filters and A–Z word keys are derived views only.</p>
+<p><a href="./messages.json" download>Source JSON</a> · <a href="./index.json" download>Editorial index JSON</a> · <a href="./README.md">Preservation rules</a></p>
+</header>
+<div class="notice">This documentary archive contains offensive language and violent threats quoted from user-authored messages. It is not an endorsement of violence or an independently verified history of third parties. Four visible turns are archived; this is not a complete account export.</div>
+<section aria-label="Archive search">
+<div class="controls"><input id="search" type="search" placeholder="Search exact source words" aria-label="Search source messages"><select id="category" aria-label="Filter by category"><option value="">All categories</option></select></div>
+<div id="message-status" class="muted" aria-live="polite"></div>
+</section>
+<section aria-label="Alphabetical words">
+<h2>A–Z word index</h2>
+<p class="muted">A separate normalized lookup; original spelling and casing remain unchanged in the records below.</p>
+<div id="alphabet" class="alphabet"></div>
+<div id="words" class="words"></div>
+</section>
+<section id="records" aria-label="Verbatim messages"></section>
+<script>
+(function () {
+"use strict";
+const $ = id => document.getElementById(id);
+let messages = [], entries = [], activeLetter = "";
+const normalize = value => value.normalize("NFKC").toLocaleLowerCase("en-US");
+const wordRegex = /[\p{L}\p{N}]+(?:['’_-][\p{L}\p{N}]+)*/gu;
+function frequencies() {
+  const counts = new Map();
+  for (const m of messages) {
+    for (const w of m.original_text.match(wordRegex) || []) {
+      const key = normalize(w);
+      counts.set(key, (counts.get(key) || 0) + 1);
+    }
+  }
+  return Array.from(counts, ([word, count]) => ({word, count})).sort((a,b) => a.word.localeCompare(b.word));
+}
+function buildAlphabet() {
+  const root = $("alphabet");
+  root.replaceChildren();
+  for (const letter of ["ALL",..."ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")]) {
+    const b=document.createElement("button");
+    b.type="button"; b.textContent=letter;
+    b.setAttribute("aria-pressed",letter===activeLetter || (letter==="ALL" && !activeLetter)?"true":"false");
+    b.addEventListener("click",()=>{activeLetter=letter==="ALL"?"":letter;buildAlphabet();renderWords();});
+    root.appendChild(b);
+  }
+}
+function renderWords() {
+  const root=$("words");root.replaceChildren();
+  const terms=frequencies().filter(x=>!activeLetter || x.word.toUpperCase().startsWith(activeLetter));
+  for(const item of terms){
+    const b=document.createElement("button");b.type="button";
+    b.textContent=item.word+" ("+item.count+")";
+    b.title="Filter original messages for this derived word key";
+    b.addEventListener("click",()=>{$("search").value=item.word;renderMessages();});
+    root.appendChild(b);
+  }
+}
+function renderMessages() {
+  const root=$("records");root.replaceChildren();
+  const query=normalize($("search").value.trim());
+  const category=$("category").value;
+  let found=0;
+  for(const m of messages){
+    const entry=entries.find(x=>x.id===m.id);
+    if(query && !normalize(m.original_text).includes(query)) continue;
+    if(category && !(entry && entry.categories.includes(category))) continue;
+    found++;
+    const article=document.createElement("article");article.className="panel";
+    const heading=document.createElement("h3");heading.textContent="Source "+m.sequence+" — "+m.id;
+    const meta=document.createElement("div");meta.className="meta";
+    meta.textContent=(entry ? entry.categories.join(" · ") : "")+" | "+m.source;
+    const pre=document.createElement("pre");pre.className="source";pre.textContent=m.original_text;
+    article.append(heading,meta,pre);root.appendChild(article);
+  }
+  $("message-status").textContent=found+" of "+messages.length+" original source records shown";
+}
+Promise.all([
+  fetch("./messages.json").then(r=>{if(!r.ok)throw Error("source unavailable");return r.json()}),
+  fetch("./index.json").then(r=>{if(!r.ok)throw Error("index unavailable");return r.json()})
+]).then(([sources,idx])=>{
+  messages=sources.messages;entries=idx.records;
+  const options=new Set(entries.flatMap(x=>x.categories));
+  for(const category of [...options].sort()){
+    const option=document.createElement("option");option.value=category;option.textContent=category;
+    $("category").appendChild(option);
+  }
+  $("search").addEventListener("input",renderMessages);
+  $("category").addEventListener("change",renderMessages);
+  buildAlphabet();renderWords();renderMessages();
+}).catch(err=>{$("message-status").textContent="Could not load archive: "+err.message;});
+})();
+</script>
+</body>
+</html>
