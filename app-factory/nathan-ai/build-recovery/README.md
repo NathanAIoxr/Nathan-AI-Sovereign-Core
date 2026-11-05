@@ -2,6 +2,10 @@
 
 Parent: **NATHAN AI → TABOR ROOT → TABOR 1-2-3 FACTORY → ONE / independent products**.
 
+## Continue into the Program Jobs workbench
+
+The separate [Program Jobs and Completion Atlas](../program-jobs/) combines the older 92-name historical recovery catalog with current code-bearing directories, HTML entrypoints, architecture modules and archive anchors. It provides jobs, tasks and five evidence gates, plus an offline local inventory matcher. Its 357 overlapping evidence records are **not** 357 independent completed products.
+
 ## What this update actually adds
 
 - A **separate**, searchable recovery and navigation interface at app-factory/nathan-ai/build-recovery/index.html.
