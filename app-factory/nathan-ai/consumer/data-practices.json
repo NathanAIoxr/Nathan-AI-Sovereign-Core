@@ -129,6 +129,16 @@
       "evidenceLevel": "source-reviewed-local-review",
       "evidencePath": "app-factory/nathan-ai/program-jobs/README.md",
       "ownerAction": "Do not enter passwords, private source, personal records, or secret file paths in public/source-linked notes"
+    },
+    {
+      "id": "defender",
+      "scope": "Owner-authorized file triage and fictional ransomware event exercises, with no background protection claims",
+      "inputs": "Only explicitly selected local files and an optional user-chosen baseline JSON",
+      "deviceStorage": "Browser inspection uses temporary in-memory bytes and explicit user-generated JSON downloads; does not automatically store private originals",
+      "remoteActivity": "Browser loads public HTML, JavaScript and original Hall rules from the publishing host; no user-file upload implemented by this tool; website host may log visits",
+      "evidenceLevel": "source-reviewed-read-only-local-prototype",
+      "evidencePath": "app-factory/nathan-ai/sovereign-defender/app.js",
+      "ownerAction": "Keep private scans and hashes on a trusted device, use qualified incident response for real attacks and retain separate offline backups"
     }
   ]
 }
