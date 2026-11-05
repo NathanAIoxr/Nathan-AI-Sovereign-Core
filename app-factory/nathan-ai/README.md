@@ -180,3 +180,11 @@ An additive 8-gate release tracker for original sources, 100% original wording, 
 The private 6,056-source inventory and prioritized 1,249-record A/V/ANCIENT completion queue are maintained in a **separate owner-only package, not committed here**. Current public build files contain sample project references only. No source manuscript is reconstructed, silently normalized, deleted or automatically published. "ALL TRACKED GATES REVIEWED" is a workflow status, **not a guarantee of perfect software or legal certification**.
 
 Regression: node --test app-factory/nathan-ai/completion-engine/engine.test.cjs
+
+## Primordial / Primortal exact source-family spiderweb (November 5, 2026)
+
+[Explore the original lexical graph](./primordial-lexicon/index.html) · [Preserved nine-position owner wording](./primordial-lexicon/source-sequence.json) · [Resilience-source audit](./primordial-lexicon/resilience-source-audit.json) · [Source and technical scope](./primordial-lexicon/README.md).
+
+The user-authored sequence is preserved verbatim: **Primordial, Primortal, Priimortal, Primortial, Priimortial, Bimordial, Bimortal, Biimortal, Bimordial**. Nine positions, eight unique spellings; the repeated Bimordial has not been erased. The module computes source-separated spelling relationships, reversible strings and user-owned JSON export, while flagging all machine-derived forms as distinct from author wording. The attached two files describing purported 101 program shutdown scenarios are confirmed identical and actually contain **100 scenario entries**, with item **76 missing**; the source gap is documented rather than silently filled. A primordial all-powerful kill switch is not a verified physical or software mechanism, and safe operating-system controls are respected.
+
+The original spelling records are linked from Ancient Divine Roots and registered as a separate, unreviewed project in Nathan AI's source-locked Completion Engine. All original content and prior entries are retained.
