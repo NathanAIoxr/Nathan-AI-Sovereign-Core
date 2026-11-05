@@ -15,7 +15,7 @@ test('all 12 locally hosted vector assets are present and accessible',()=>{
    assert.match(svg,/<title\b/,asset.file);
    assert.match(svg,/\bviewBox="/,asset.file);
    assert.doesNotMatch(svg,/<script|<foreignObject|<iframe|onload\s*=|onclick\s*=/i,asset.file);
-   assert.doesNotMatch(svg,/(?:https?:)?\/\/|<image\b|@import|url\((?:['"]?)(?:https?:)?\/\//i,asset.file);
+   assert.doesNotMatch(svg.replace(/xmlns="http:\/\/www\.w3\.org\/2000\/svg"/,''),/(?:https?:)?\/\/|<image\b|@import|url\((?:['"]?)(?:https?:)?\/\//i,asset.file);
    assert.ok(Buffer.byteLength(svg,'utf8')<25000,asset.file);
  }
 });
