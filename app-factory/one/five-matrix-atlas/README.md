@@ -50,3 +50,7 @@ The two original attachments do **not** contain all prior chat messages, private
 
 ## Regeneration
 A future reproducible exporter should load full source bytes and regenerate the line ledger and concordance while preserving stable IDs and Unicode offsets. The current JSON records are verified against these two source attachments. See `docs/BUILD_PLAN.md` for expansion checkpoints.
+
+## Integrated Hop In companion
+
+The Nathan AI **Hop In** chatbox now has an additive [Five-Matrix Worlds interactive teaching app](../../../nathan-ai/hop-in/chatbox/five-matrix/index.html), including a game, original companion-book outline workshop, twelve-ring composition, lessons and an on-demand viewer for the exact source lines in this atlas. The original attachments are maintained here as the single authoritative copies, rather than rewritten in the chatbox module.
