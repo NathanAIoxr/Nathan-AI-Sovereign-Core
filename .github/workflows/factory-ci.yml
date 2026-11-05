@@ -96,6 +96,8 @@ jobs:
         run: node --test app-factory/nathan-ai/route-raut-root/records.test.cjs
       - name: Verify Trinity of Snow original canon, folklore provenance, KJV and botanical separation
         run: node --test app-factory/nathan-ai/trinity-of-snow/archive.test.cjs
+      - name: Verify Snow Family interactive chat, game, books and 19-level field
+        run: node --test app-factory/nathan-ai/trinity-of-snow/field-experience/engine.test.cjs
       - name: Verify recovered Children's Books and Innocence Protection public catalog, 19/13 canon and private import
         run: node --test app-factory/nathan-ai/children-innocence/engine.test.cjs
       - name: Verify Nathan AI Main Database, Books and Book Apps skin
