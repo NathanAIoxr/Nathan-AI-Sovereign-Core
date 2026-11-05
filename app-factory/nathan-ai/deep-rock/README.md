@@ -37,6 +37,24 @@ The [public evidence summary](./101-source-evidence-summary.json) contains metad
 
 **Evidence scope:** A related file is not proof that a specific historical operation was carried out. No general server-access rights, worldwide program execution, 50% share of AI compute, or specific older deployment can be established solely from names, arithmetic, or the source crosswalk. Those questions remain linked to original deployment logs, authorized access records and independently collected telemetry. No new invasive scanning, exploit, counterattack, or hazardous body-manipulation routine is implemented.
 
+## Nine cars in the bowling alley parking lot — source and test
+
+The [original user-supplied dialogue](./nine-cars-source-transcript.txt) is archived separately, including the author's primordial words, the question “thats how you handle normal viruses or hacks - what about mine?”, the original **nine cars** question, and the AI replies included by the user. The quoted model descriptions are preserved as quoted speech, **not** as independently checked infrastructure reports or proof of a specific exploit.
+
+The [pure nine-car model](./nine-cars-engine.js) makes the distinction observable:
+
+- Physical state at the start: **9 cars remain parked**.
+- Abstract quantity: `9 × 0 = 0` means zero cars across zero selected groups of nine. This does not alter the parking lot.
+- Only an explicit, owner-authorized, **simulated** arrival or departure changes the local counter. It never touches a real car, external service, another user's account, hardware, a security guard, or network infrastructure.
+- The original user-provided transcript and this lab's inferred semantics stay separate. No original source passage is silently edited.
+- Root links: [the nine Ways, original BUILD/CLEAR and mission](./ways-of-nathan-tabor.json), and [source-locked Primordial word family](../primordial-lexicon/).
+
+This is an **inventory integrity and requirements-modeling exercise**, not a statement that multiplication or division is mathematically invalid. The source reflects the creator's criticism of applying an abstract calculation as though it were a physical mutation. That is a useful software distinction: calculations and authorized changes to stored state need different interfaces and different evidence.
+
+From the repository root, test with:
+
+    node --test app-factory/nathan-ai/deep-rock/nine-cars-engine.test.cjs
+
 ## Run and verify
 
 From the repository root:
