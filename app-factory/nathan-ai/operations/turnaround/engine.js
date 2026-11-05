@@ -53,7 +53,7 @@
           event.type, 'Visualization setting only');
       }
       case 'QUEUE_ITEM': {
-        const title = String(event.title || '').trim().slice(0, 120);
+        const title = String(event.title || '').trim();
         if (!title) throw new TypeError('Item title required');
         if (state.queuedItems.length >= 100) throw new RangeError('Local queue at maximum');
         const item = { id: 'q-' + (state.revision + 1), title, reviewed: false };
@@ -77,7 +77,7 @@
     }
   }
   function shadowViews(input) {
-    const original = String(input ?? '').slice(0, 4000);
+    const original = String(input ?? '');
     const pieces = graphemes(original);
     const words = original.trim() ? original.trim().split(/\s+/u) : [];
     return {
@@ -99,6 +99,18 @@
     const source = shadowViews(text);
     return { mode: 'LOCAL_STAGING_ONLY', source, proposedActions: ['COMPARE_ORIGINAL', 'REVIEW_VARIANTS', 'EXPORT_ON_REQUEST'] };
   }
+  // Millions of symbolic positions can be inspected lazily, not allocated or run.
+  function virtualPage(tier, first = 1, pageSize = 20) {
+    if (!tier || typeof tier.id !== 'string' || !Number.isSafeInteger(tier.count) || tier.count < 0) {
+      throw new TypeError('Valid source-defined virtual tier required');
+    }
+    const size = Math.max(1, Math.min(100, Math.trunc(Number(pageSize)) || 20));
+    const start = Math.max(1, Math.min(tier.count + 1, Math.trunc(Number(first)) || 1));
+    const end = Math.min(tier.count, start + size - 1);
+    const indexes = [];
+    for (let i = start; i <= end; i++) indexes.push({ id: tier.id + ':' + i, ordinal: i, status: 'VIRTUAL_INDEX_NOT_ACTIVE_PROCESS' });
+    return { tier: tier.id, sourceCount: tier.count, first: start, next: end < tier.count ? end + 1 : null, indexes };
+  }
   function spectrum(state) {
     const k = state.visualIntensity / 100;
     const phase = state.heading * Math.PI / 180;
@@ -108,7 +120,7 @@
   }
   const API = {
     OPERATIONS, CHANNELS, initialState, transition, heading, reverse180,
-    shadowViews, convoyPreview, ramPreview, actPreview, spectrum
+    shadowViews, convoyPreview, ramPreview, actPreview, spectrum, virtualPage
   };
   if (typeof module === 'object' && module.exports) module.exports = API;
   else root.NathanTurnaround = API;
