@@ -38,6 +38,15 @@ jobs:
         run: node --test app-factory/nathan-ai/six-dogs/engine.test.cjs app-factory/nathan-ai/six-dogs/topology.test.cjs
       - name: Test Python SovereignUnit
         run: python3 -m unittest discover -s app-factory/nathan-ai/six-dogs -p 'test_*.py' -v
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Python edge-mesh crypto dependency
+        run: python -m pip install -r app-factory/nathan-ai/six-dogs/edge-mesh/requirements.txt
+      - name: Run Python Six Dogs Micro Edge / Macro Fabric tests
+        run: python -m unittest discover -s app-factory/nathan-ai/six-dogs/edge-mesh -p 'test_*.py' -v
+      - name: Run the offline six-stage pipeline
+        run: python app-factory/nathan-ai/six-dogs/edge-mesh/runner.py --demo --no-wait
       - name: Validate architecture and offline manifest
         run: |
           node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('app-factory/nathan-ai/six-dogs/architecture.json','utf8'));if(a.stages.length!==6||a.sequence.join(',')!=='KNICK,KNACK,PADDY,WHACK,DOG,BONE')process.exit(1);const o=JSON.parse(fs.readFileSync('app-factory/nathan-ai/offline-assets.json','utf8'));for(const f of ['six-dogs/index.html','six-dogs/engine.js','six-dogs/app.js','six-dogs/style.css','six-dogs/topology.js','six-dogs/topology-ui.js'])if(!o.includes(f))process.exit(1)"
