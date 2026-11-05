@@ -1,0 +1,32 @@
+{
+  "schema": "nathan.five-matrix.source-index.v1",
+  "generated_at": "2026-11-05",
+  "source_count": 2,
+  "source_records": [
+    {
+      "id": "SRC-001",
+      "path": "sources/2026-11-04-middle-earth-narnia-five-matrix-conversation-original.txt",
+      "blob_sha": "6695526c06f6e86ae5faaf2655265af3d78b1572",
+      "characters": 41152,
+      "utf8_bytes": 41610,
+      "lines": 397,
+      "source_type": "verbatim-conversation-attachment",
+      "original_modified": false,
+      "authorship": "mixed conversation; do not ascribe every line to user"
+    },
+    {
+      "id": "SRC-002",
+      "path": "sources/2026-11-04-rings-gates-conversation-original.txt",
+      "blob_sha": "d80a97605b161cf26bbc9e7f1a4b3175fe7bfe1f",
+      "characters": 12362,
+      "utf8_bytes": 12501,
+      "lines": 102,
+      "source_type": "verbatim-conversation-attachment",
+      "original_modified": false,
+      "authorship": "mixed conversation; do not ascribe every line to user"
+    }
+  ],
+  "terms": 1471,
+  "lines": 499,
+  "full_sources_are_authoritative": true
+}

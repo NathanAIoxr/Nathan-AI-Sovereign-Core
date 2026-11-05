@@ -58,3 +58,14 @@ The current test suite covers source-count fidelity, route modes, group framing,
 ## Preservation
 
 Original HOP IN, Assistant, ONE, Almanac concepts, Family Research and all previously committed applications remain separate. This new chatbox is a **namespaced addition** with optional source links, not an overwrite.
+
+## Five-Matrix Worlds, Game, Books and Lessons (additive · 2026-11-05)
+
+- A new **Five Matrices** tool panel opens an embedded full-screen educational app: [Five-Matrix Worlds](./five-matrix/index.html).
+- The source-first catalog combines 103 canonical Atlas objects and 50 companion teaching records (153 rows), 22 transformations, 20 scripture references, 8 timeline events, 15 retained Sovereign Core formula records, 15 educational quiz questions, 12 ring positions and 15 original companion-book **outlines**. It offers search, a game, lessons, source audit and Markdown book-starter export.
+- Chat commands `/five`, `/matrix`, `/rings`, `/game`, `/books`, `/learn` provide a navigation link, and source-aware questions such as “show me the Arkenstone” route to the new app.
+- The iframe can hand a chapter-development prompt to the existing chat composer but never automatically sends it to a model or external service.
+- The exact two original conversation transcripts and Unicode line/word index are stored *once* in `../../../one/five-matrix-atlas/`. The new UI reads those on demand and preserves the original object category even when a symbolic transformation is linked.
+- This addition does not alter the original seven chatbox modes, 104 A–Z concept entries, 43 root settings, existing conversation history controls or model consent flow.
+
+Run the additional tests: `node --test app-factory/nathan-ai/hop-in/chatbox/five-matrix/engine.test.cjs`. This is a browser prototype and educational publishing workflow, not a completed novel collection or live cloud service.
