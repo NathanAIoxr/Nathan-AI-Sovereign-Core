@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan AI — Source-Locked Project Completion</title>
+<meta name="description" content="Preserve original words, track evidence, review work, and complete projects without concealing open requirements.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'self' data:; object-src 'none'; base-uri 'none'">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../appearance/shared.css" data-nathan-shared-appearance>
+<script defer src="../appearance/engine.js"></script><script defer src="../appearance/app.js"></script>
+<link rel="stylesheet" href="../launcher/shared.css" data-nathan-command-center>
+<script defer src="../workspace.js"></script><script defer src="../assistant/engine.js"></script><script defer src="../launcher/engine.js"></script><script defer src="../launcher/app.js"></script>
+<script defer src="engine.js"></script><script defer src="app.js"></script>
+</head><body>
+<a class="skip" href="#workspace">Skip to completion workspace</a>
+<header class="hero">
+<div class="wrap">
+<nav aria-label="Related work"><a href="../index.html">Nathan AI</a><a href="../../one/index.html">ONE</a><a href="../six-dogs/index.html">Six Dogs</a><a href="../../mythology/ancient-roots/index.html">Ancient Divine Roots</a></nav>
+<p class="eyebrow">ONE · NATHAN AI · SOURCE-LOCKED RELEASE ENGINE</p>
+<h1>COMPLETE THE WORK.<br><em>KEEP EVERY WORD.</em></h1>
+<p class="lead">Every original remains original. Every change carries evidence. No project is called 100% complete while requirements, owner approval, accessibility, security or compliance review remain open.</p>
+<div class="principles"><span>WORDS PRESERVED</span><span>NO SILENT REWRITE</span><span>USER-SOVEREIGN DATA</span><span>EVIDENCE BEFORE CLAIMS</span></div>
+</div>
+</header>
+<main class="wrap" id="workspace">
+<section class="panel">
+<div class="section-head"><div><p class="eyebrow">01 · WORK QUEUE</p><h2>Completion ledger</h2></div><strong id="counts" aria-live="polite">0 projects</strong></div>
+<p class="muted">The included entries are public project pointers, not private manuscript copies. Import your own catalog locally if you want to work through the complete recovered collection.</p>
+<div class="tools">
+<label>Search project <input id="search" type="search" placeholder="ANCIENT, AURA, ONE, ACT…" autocomplete="off"></label>
+<label>Project <select id="projectSelect" aria-label="Select project"></select></label>
+<label>Workflow stage <select id="stage" aria-label="Workflow stage"></select></label>
+</div>
+<div class="stats"><div><strong id="score">0%</strong><span>Documented gate checks</span></div><div><strong id="gatesCount">0 / 8</strong><span>Passing review gates</span></div><div><strong id="currentStatus">NOT 100% VERIFIED</strong><span>Current release status</span></div></div>
+</section>
+<section class="panel">
+<p class="eyebrow">02 · PROVENANCE AND ORIGINAL VOICE</p><h2>Owner's source, not an AI rewrite</h2>
+<div class="tools"><label>Exact project title<input id="title" maxlength="250" readonly></label><label>Source reference / archive ID<input id="sourceRef" maxlength="600" placeholder="Original file, archive path or source ID"></label><label>Privacy classification<select id="privacy" disabled><option value="review-required">Review before publishing</option><option value="owner-only">Owner only</option><option value="public">Public</option></select></label></div>
+<p class="muted">Source references may be updated. Doing so automatically reopens original-source, wording and final acceptance gates. No content is silently corrected.</p>
+<button id="saveSource" class="secondary">Update source reference + reopen dependent gates</button>
+</section>
+<section class="panel">
+<p class="eyebrow">03 · RELEASE GATES</p><h2>What is still unfinished?</h2>
+<div id="gates" class="gate-grid" aria-live="polite"></div>
+</section>
+<section class="panel">
+<p class="eyebrow">04 · EVIDENCE REVIEW</p><h2>Review one gate</h2>
+<div class="tools"><label>Gate<select id="gateSelect"></select></label><label>Assessment<select id="assessment"><option value="unreviewed">Unreviewed</option><option value="blocked">Blocked / needs work</option><option value="reviewed-pass">Reviewed — evidence attached</option></select></label><label>Named reviewer<input id="reviewer" maxlength="160" placeholder="Person who examined the evidence"></label></div>
+<label>Exact evidence reference (test run, source, version, sign-off or audit ID)<textarea id="evidence" rows="3" maxlength="1600" placeholder="Actual evidence only; do not fabricate or self-certify lawfulness."></textarea></label>
+<button id="applyReview">Record this review locally</button>
+<p class="muted">A pass is a recorded human assessment, not a claim that an algorithm independently verified legal compliance or a project's absolute perfection.</p>
+</section>
+<section class="panel">
+<p class="eyebrow">05 · NEW WORK AND USER-OWNED RECORDS</p><h2>Build the queue, preserve your files</h2>
+<div class="tools"><label>New project title<input id="newTitle" maxlength="250" placeholder="Original title, unchanged"></label><label>Source ID<input id="newId" maxlength="120" placeholder="MY-PROJECT-001"></label><label>Track<input id="newTrack" maxlength="80" placeholder="Book, Software, Ancient, A/V…"></label></div>
+<button id="addProject">Add to private working queue</button>
+<div class="actions">
+ <label class="opt"><input id="persist" type="checkbox"> Opt in to browser-local storage</label>
+ <button id="export" class="secondary">Export complete owned ledger</button>
+ <label class="filebutton">Import my JSON<input id="import" type="file" accept=".json,application/json"></label>
+ <button id="exportPublic" class="secondary">Export public-only summary</button>
+ <button id="clear" class="danger">Clear local records</button>
+</div>
+<p id="message" role="status" class="message">Offline only. No cloud sync, no automatic public release, and no hidden edits.</p>
+</section>
+<section class="panel">
+<p class="eyebrow">06 · CHANGE HISTORY</p><h2>Auditable project activity</h2>
+<div id="audit" class="audit" aria-live="polite"></div>
+</section>
+<section class="panel">
+<p class="eyebrow">07 · RESEARCH AND BUILD CONNECTIONS</p><h2>Ancient / A–V / ONE / Six Dogs</h2>
+<p>The ANCIENT spiderweb includes 307 direct metadata hits, 925 broader source candidates, 433 A/V leading original catalog records and 72 provisional lexical entries. Its 66,600 generated query pairs are research candidates, not verified titles. The source inventory remains private unless its owner explicitly approves publication.</p>
+<div class="related"><a href="../../mythology/ancient-roots/index.html">Ancient Roots reference atlas</a><a href="../six-dogs/index.html">Six Dogs engineering and reflection</a><a href="../../one/sovereign-acro-matrix/index.html">Sovereign Acro-Matrix</a><a href="README.md">Completion engine method and limits</a></div>
+</section>
+</main>
+<footer class="wrap">100% original wording means fidelity to verified owner source material. A gate called “reviewed” is not a substitute for a legal, accessibility, security or engineering audit.</footer>
+</body></html>
