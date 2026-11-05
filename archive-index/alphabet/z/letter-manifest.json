@@ -1,0 +1,32 @@
+{
+  "letter": "Z",
+  "entryCount": 13,
+  "kindCounts": {
+    "standalone-app": 1,
+    "game-catalog": 1,
+    "feature-concept": 4,
+    "program-record": 2,
+    "authored-sequence": 5
+  },
+  "sourceIds": [
+    "standalone:web:game-reference-lab/zero-void-lab.html",
+    "game:33",
+    "feature:Z1",
+    "feature:Z2",
+    "feature:Z3",
+    "feature:Z4",
+    "program:legacy:REF-LAN-003",
+    "program:architecture:NT-ZT-001",
+    "authored:Physics A–Z:Z",
+    "authored:Nativity A–Z:Z",
+    "authored:Sacred Alphabet A–Z:Z",
+    "authored:Holiday A–Z:Z",
+    "authored:North/South Pole A–Z:Z"
+  ],
+  "existingIndependentSources": [],
+  "originalIndexStatus": "new-source-index-over-existing-catalogs",
+  "sourceNotes": null,
+  "schema": "nathan-ai.letter-manifest.v1",
+  "catalogPath": "../directory.json",
+  "navigation": "../index.html?letter=Z"
+}

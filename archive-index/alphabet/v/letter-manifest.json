@@ -1,0 +1,28 @@
+{
+  "letter": "V",
+  "entryCount": 11,
+  "kindCounts": {
+    "feature-concept": 4,
+    "program-record": 2,
+    "authored-sequence": 5
+  },
+  "sourceIds": [
+    "feature:V1",
+    "feature:V2",
+    "feature:V3",
+    "feature:V4",
+    "program:legacy:REF-HUM-004",
+    "program:interface:WEB-075",
+    "authored:Physics A–Z:V",
+    "authored:Nativity A–Z:V",
+    "authored:Sacred Alphabet A–Z:V",
+    "authored:Holiday A–Z:V",
+    "authored:North/South Pole A–Z:V"
+  ],
+  "existingIndependentSources": [],
+  "originalIndexStatus": "new-source-index-over-existing-catalogs",
+  "sourceNotes": null,
+  "schema": "nathan-ai.letter-manifest.v1",
+  "catalogPath": "../directory.json",
+  "navigation": "../index.html?letter=V"
+}

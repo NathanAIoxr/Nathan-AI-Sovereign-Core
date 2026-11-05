@@ -1,0 +1,39 @@
+{
+  "letter": "L",
+  "entryCount": 21,
+  "kindCounts": {
+    "standalone-app": 3,
+    "feature-concept": 4,
+    "program-record": 9,
+    "authored-sequence": 5
+  },
+  "sourceIds": [
+    "standalone:web:one/library-mind/index.html",
+    "standalone:web:one/library/index.html",
+    "standalone:app:NATHAN-LIBRARY-CATALOG",
+    "feature:L1",
+    "feature:L2",
+    "feature:L3",
+    "feature:L4",
+    "program:code:app-factory/nathan-ai/launcher",
+    "program:code:app-factory/nathan-ai/sovereign-coins/life",
+    "program:code:app-factory/one/lean-cloud",
+    "program:code:app-factory/sss-cs/local-server",
+    "program:legacy:REF-BOO-002",
+    "program:legacy:REF-BOO-003",
+    "program:code:app-factory/one/library",
+    "program:code:tools/library-bridge",
+    "program:code:app-factory/one/library-mind",
+    "authored:Physics A–Z:L",
+    "authored:Nativity A–Z:L",
+    "authored:Sacred Alphabet A–Z:L",
+    "authored:Holiday A–Z:L",
+    "authored:North/South Pole A–Z:L"
+  ],
+  "existingIndependentSources": [],
+  "originalIndexStatus": "new-source-index-over-existing-catalogs",
+  "sourceNotes": null,
+  "schema": "nathan-ai.letter-manifest.v1",
+  "catalogPath": "../directory.json",
+  "navigation": "../index.html?letter=L"
+}

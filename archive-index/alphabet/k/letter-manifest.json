@@ -1,0 +1,32 @@
+{
+  "letter": "K",
+  "entryCount": 14,
+  "kindCounts": {
+    "game-catalog": 3,
+    "feature-concept": 4,
+    "program-record": 2,
+    "authored-sequence": 5
+  },
+  "sourceIds": [
+    "game:6",
+    "game:29",
+    "game:37",
+    "feature:K1",
+    "feature:K2",
+    "feature:K3",
+    "feature:K4",
+    "program:legacy:REF-AI -002",
+    "program:architecture:NT-KIND-001",
+    "authored:Physics A–Z:K",
+    "authored:Nativity A–Z:K",
+    "authored:Sacred Alphabet A–Z:K",
+    "authored:Holiday A–Z:K",
+    "authored:North/South Pole A–Z:K"
+  ],
+  "existingIndependentSources": [],
+  "originalIndexStatus": "new-source-index-over-existing-catalogs",
+  "sourceNotes": null,
+  "schema": "nathan-ai.letter-manifest.v1",
+  "catalogPath": "../directory.json",
+  "navigation": "../index.html?letter=K"
+}

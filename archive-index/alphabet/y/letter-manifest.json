@@ -1,0 +1,27 @@
+{
+  "letter": "Y",
+  "entryCount": 10,
+  "kindCounts": {
+    "standalone-app": 1,
+    "feature-concept": 4,
+    "authored-sequence": 5
+  },
+  "sourceIds": [
+    "standalone:web:sites/you-sandbox/index.html",
+    "feature:Y1",
+    "feature:Y2",
+    "feature:Y3",
+    "feature:Y4",
+    "authored:Physics A–Z:Y",
+    "authored:Nativity A–Z:Y",
+    "authored:Sacred Alphabet A–Z:Y",
+    "authored:Holiday A–Z:Y",
+    "authored:North/South Pole A–Z:Y"
+  ],
+  "existingIndependentSources": [],
+  "originalIndexStatus": "new-source-index-over-existing-catalogs",
+  "sourceNotes": null,
+  "schema": "nathan-ai.letter-manifest.v1",
+  "catalogPath": "../directory.json",
+  "navigation": "../index.html?letter=Y"
+}

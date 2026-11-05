@@ -1,0 +1,43 @@
+{
+  "letter": "F",
+  "entryCount": 24,
+  "kindCounts": {
+    "standalone-app": 4,
+    "game-catalog": 1,
+    "feature-concept": 4,
+    "program-record": 10,
+    "authored-sequence": 5
+  },
+  "sourceIds": [
+    "standalone:web:nathan-ai/fifty-three-year/index.html",
+    "standalone:web:nathan-ai/flyer-studio/index.html",
+    "standalone:web:sites/find-the-tabor/index.html",
+    "standalone:web:nathan-ai/five-guardians/index.html",
+    "game:51",
+    "feature:F1",
+    "feature:F2",
+    "feature:F3",
+    "feature:F4",
+    "program:code:app-factory/nathan-ai/fifty-three-year",
+    "program:legacy:REF-AI -006",
+    "program:code:app-factory/nathan-ai/flyer-studio",
+    "program:legacy:REF-CHI-015",
+    "program:code:app-factory/nathan-ai/five-guardians",
+    "program:legacy:REF-ENG-003",
+    "program:legacy:REF-HUM-001",
+    "program:legacy:REF-LAN-010",
+    "program:architecture:NT-BODY-001",
+    "program:architecture:NT-FOX-001",
+    "authored:Physics A–Z:F",
+    "authored:Nativity A–Z:F",
+    "authored:Sacred Alphabet A–Z:F",
+    "authored:Holiday A–Z:F",
+    "authored:North/South Pole A–Z:F"
+  ],
+  "existingIndependentSources": [],
+  "originalIndexStatus": "new-source-index-over-existing-catalogs",
+  "sourceNotes": null,
+  "schema": "nathan-ai.letter-manifest.v1",
+  "catalogPath": "../directory.json",
+  "navigation": "../index.html?letter=F"
+}
