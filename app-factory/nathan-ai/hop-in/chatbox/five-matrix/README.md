@@ -3,7 +3,7 @@
 This **additive** module joins the pre-existing Hop In chatbox and its seven intact lenses, 104 A–Z feature ideas, and 43 originally enumerated settings. It opens from the new **Five Matrices** tool panel as a full-screen accessible dialog, or in a separate app view.
 
 ## Working modes
-- **Atlas:** 50 independently classified literary, KJV, and symbolic records, including characters, rings, weapons, furniture, gates, artifacts and associated matrix roles. Search by name, source universe and five-matrix axis.
+- **Atlas:** the exact existing **103-object baseline** imported without alteration as JSON, joined additively with **50 companion teaching records** (153 indexed rows, including overlapping subjects). Search by name, source universe and five-matrix axis; source objects retain their original classifications.
 - **Educational quest:** 15 source-identified, auto-graded questions with scorekeeping and answer explanations.
 - **Book Series Workshop:** 15 original companion-volume **outlines** across three series; save a working book starter in Markdown and optionally send a chapter-development prompt back to the Hop In composer. No completed novels are claimed.
 - **Learning Laboratory:** Five lens lessons, cross-linked source examples, and an interactive twelve-ring **symbolic** body-position selector with a JSON export.
