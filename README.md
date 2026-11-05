@@ -12,6 +12,10 @@ Home of **TABOR 1-2-3 FACTORY™ / Nathan AI Sovereign Core**.
 
 This is the **PUBLIC**, browser-first coordination repository. It does **not** contain the owner's private full original-media library, private ZIP-only backend packages, unpublished research records, customer data, or credentials. It is not a deployed private multi-tenant SaaS backend.
 
+## Public app and site duplicate consolidation
+
+The [Nathan AI consolidation register](app-factory/nathan-ai/websites/CONSOLIDATION_AUDIT.md) tracks canonical public page routes, duplicate website cards, the main hub's repeated shortcuts and required native app distribution copies. Public pages are indexed without erasing distinct books, character names, games or original source files.
+
 ## Sovereign Boxes and music archive
 
 - [Sovereign Box Universe — 618 indexed units](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/sovereign-boxes/) — preserves 101 original `TW-001`–`TW-101` game names, 496 private concept IDs, and 21 Factory modules. These are catalog entries, **not** 618 built games.
