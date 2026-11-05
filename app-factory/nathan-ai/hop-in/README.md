@@ -2,6 +2,10 @@
 
 **Creator's core:** “INNOCENCE IS THE PRECIOUS GIFT.” / `1+1=2 — BUILD` / `1−1=0 — CLEAR`.
 
+## HOP IN interactive chatbot expansion (additive)
+
+Open [Interactive Chatbox](chatbox/index.html). It adds an actual multi-mode conversation surface, source-routing and optional explicitly reviewed model drafts when the existing development adapter is configured, browser voice input/output (where available), time/micro-macro controls, optional personal naming and calendar tools, Group Assembly research lenses, and an indexed inventory of all 104 A–Z concepts plus the 43 base settings actually named in the supplied excerpt. See [chatbox/README.md](chatbox/README.md) for stage-by-stage claims and test instructions.
+
 ## Working scope
 
 A responsive, offline-capable-by-local-server (not a PWA/offline cache) browser entrance with no packages, no external requests and no unsolicited people/faces:
