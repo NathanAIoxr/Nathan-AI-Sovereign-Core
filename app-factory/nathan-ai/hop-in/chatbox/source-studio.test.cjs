@@ -45,7 +45,7 @@ test('seven source-linked book volumes export editorial markdown without modifyi
  }
  assert.equal(JSON.stringify(original.messages),originals);
  assert.throws(()=>core.bookMarkdown('nope',''));
- assert.throws(()=>core.bookMarkdown('worth','a'.repeat(10001)));
+ assert.throws(()=>core.bookMarkdown('worth','a'.repeat(250001)));
 });
 test('all five lessons are adaptations without automatic adult source text',()=>{
  assert.equal(core.LESSONS.length,5);
@@ -65,4 +65,43 @@ test('chatbox has a direct studio route and injected five-mode panel',()=>{
  assert.ok(html.includes('source-studio-core.js'));
  assert.ok(html.includes('source-studio.js'));
  assert.ok(html.includes('source-studio.css'));
+});
+
+test('unboxed local-source importer preserves every repeated source wording, in order',()=>{
+ const before=JSON.stringify(original.messages);
+ const duplicateText=original.messages[0].original_text;
+ const extra=[{id:'IMPORT-001',sequence:1,original_text:duplicateText,role:'user'},
+             {id:'IMPORT-002',sequence:2,original_text:duplicateText,role:'user'}];
+ const combined=core.appendSourcesWithoutCollapse(original.messages,extra);
+ assert.equal(combined.length,6);
+ assert.equal(combined[4].original_text,duplicateText);
+ assert.equal(combined[5].original_text,duplicateText);
+ assert.equal(core.sourceCensus(combined).records,6);
+ assert.ok(core.sourceCensus(combined).repeatedWordings>=2);
+ assert.equal(JSON.stringify(original.messages),before);
+ const exported=JSON.parse(core.originalsExport(combined));
+ assert.deepEqual(exported.messages,combined);
+ assert.throws(()=>core.appendSourcesWithoutCollapse(combined,extra),/Duplicate source ID/);
+ assert.throws(()=>core.appendSourcesWithoutCollapse(original.messages,[{id:'IMPORT-X',original_text:''}]),/Invalid/);
+});
+test('all seven books export together, including full user-written notes',()=>{
+ const notes={};
+ for(const v of core.VOLUMES)notes[v.id]='Notebook '+v.id+'\nRepeat this wording exactly. Repeat this wording exactly.';
+ const text=core.seriesMarkdown(notes);
+ assert.equal((text.match(/Editorial \/ creative development draft/g)||[]).length,7);
+ for(const v of core.VOLUMES)assert.ok(text.includes(notes[v.id]));
+});
+test('studio removes source collapsing and silent prompt truncation',()=>{
+ const js=fs.readFileSync(path.join(__dirname,'source-studio.js'),'utf8');
+ const css=fs.readFileSync(path.join(__dirname,'source-studio.css'),'utf8');
+ assert.doesNotMatch(js,/el\('details'\)/);
+ assert.doesNotMatch(js,/String\(question\)\.slice\(0,4000\)/);
+ assert.match(js,/All Seven Volumes/);
+ assert.match(js,/All Five Lessons/);
+ assert.match(js,/sourceCensus/);
+ assert.match(js,/Export ALL original source records/);
+ assert.match(css,/studio-full-sources\s*\{max-height:none;overflow:visible/);
+ const archiveHtml=fs.readFileSync(path.join(archiveDir,'index.html'),'utf8');
+ assert.match(archiveHtml,/id="show-all"/);
+ assert.doesNotMatch(archiveHtml,/max-height:240px/);
 });
