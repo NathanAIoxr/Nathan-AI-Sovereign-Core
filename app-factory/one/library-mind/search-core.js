@@ -26,7 +26,7 @@
  function safeDownload(item){
   if(!item||typeof item!=='object'||typeof item.file!=='string')return false;
   const name=item.file;
-  if(name.includes('..')||!/^downloads\/[a-z0-9][a-z0-9._-]{0,199}\.(zip|json|md|docx)$/i.test(name))return false;
+  if(name.includes('..')||! /^(?:downloads\/[a-z0-9][a-z0-9._-]{0,199}\.(?:zip|json|md|docx)|books\/[a-z0-9][a-z0-9._-]{0,199}\.md)$/i.test(name))return false;
   return Number.isSafeInteger(item.bytes)&&item.bytes>=0&&/^[a-f0-9]{64}$/i.test(item.sha256);
  }
  return Object.freeze({fold,search,safeDownload});
