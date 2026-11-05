@@ -27,3 +27,13 @@ test('D archive routes preserve exact source vs derived forms and existing modes
 });
 test('title caps length',()=>assert.ok(engine.messageTitle('X'.repeat(900)).length<=60));
 test('root clear build module is reachable without changing existing modes',()=>{const result=engine.reply('/root');assert.equal(result.kind,'route');assert.ok(result.links.some(x=>x.url==='../root-clear/index.html'));assert.equal(engine.reply('/clear').kind,'route');assert.equal(engine.reply('/build').kind,'route');assert.equal(Object.keys(engine.MODE_LABELS).length,7);});
+
+test('E source-family routes preserve original meaning distinctions',()=>{
+ for(const q of ['/eloher','/ella','/evangelist','/eve','/eave']){
+  const r=engine.reply(q);
+  assert.equal(r.kind,'route');assert.ok(r.links.some(x=>x.url.includes('#e-word-families')));
+ }
+ assert.equal(engine.reply('/e geometry').kind,'route');
+ assert.match(engine.reply('/evangelist').answer,/not good/);
+ assert.ok(engine.reply("find the Eloher's").links[0].url.includes('#e-word-families'));
+});
