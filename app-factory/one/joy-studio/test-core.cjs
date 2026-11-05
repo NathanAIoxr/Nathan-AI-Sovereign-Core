@@ -1,0 +1,10 @@
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const core=require('./app.js');
+test('all twelve celebration themes exist',()=>assert.equal(Object.keys(core.THEMES).length,12));
+test('2026 US Thanksgiving falls on November 26',()=>assert.equal(core.builtInDates(2026,10).find(x=>x.title.startsWith('Thanksgiving')).date,'2026-11-26'));
+test('ICS escapes commas, semicolons and newlines',()=>{const t=core.createIcs([{id:'a',date:'2026-12-25',title:'Family, friends',notes:'Love; all\nHugs'}]);assert.match(t,/DTSTART;VALUE=DATE:20261225/);assert.match(t,/SUMMARY:Family\\, friends/);assert.match(t,/DESCRIPTION:Love\\; all\\nHugs/)});
+test('original word draft survives optional explorations',()=>{const s='We write; night';assert.equal(core.wordPlay(s,'reverse'),'night write; We');assert.equal(s,'We write; night');assert.match(core.wordPlay(s,'sounds'),/write/)});
+test('safe project import clamps positions and rejects script images',()=>{const p=core.cleanProject({title:'Test',theme:'birthday',layers:[{kind:'photo',x:400,y:-5,w:160,h:4,img:'data:image/svg+xml;base64,PHN2Zz4='}]});assert.equal(p.layers[0].x,99);assert.equal(p.layers[0].y,0);assert.equal(p.layers[0].img,'')});
+test('HTML escape protects markup in exports',()=>assert.equal(core.escapeHtml('<hello & "world">'),'&lt;hello &amp; &quot;world&quot;&gt;'));
+test('external module urls are allowlisted to http(s)',()=>{assert.equal(core.safeExternalUrl('javascript:alert(1)'),null);assert.match(core.safeExternalUrl('https://example.com'),/^https:/)});
