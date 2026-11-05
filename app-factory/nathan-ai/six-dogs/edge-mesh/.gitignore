@@ -1,0 +1,7 @@
+# Always keep local secrets and user vector data out of Git
+secrets/
+local-vectors/
+*.key
+__pycache__/
+*.pyc
+.pytest_cache/
