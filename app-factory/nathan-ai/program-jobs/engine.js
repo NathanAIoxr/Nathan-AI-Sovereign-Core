@@ -37,7 +37,7 @@ function summarize(c,items){
  return {total:records.length,kind,job,status};
 }
 function tasksFor(record,job){
- const out=[clean(record.nextTask)].concat((job&&Array.isArray(job.tasks))?job.tasks:[]);
+ const out=[clean(record.nextTask),'Confirm exact original source and version'].concat((job&&Array.isArray(job.tasks))?job.tasks:[]);
  return [...new Set(out.filter(Boolean))];
 }
 function blankReview(id){return {id,notes:'',gates:Object.fromEntries(GATES.map(g=>[g.id,{status:'pending',evidence:''}]))};}
