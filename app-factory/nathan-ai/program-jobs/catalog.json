@@ -20,7 +20,7 @@
     "language_destination_goal": 66666,
     "public_language_registry_profiles_earlier": 7918
   },
-  "explanation": "Records are code-containing directories, HTML interfaces, legacy names, architecture entries, operation specifications, and archive anchors. They overlap and MUST NOT be summed as unique completed products. Code found does not mean all tests passed, or app deployed.",
+  "explanation": "Records are code-containing directories, HTML interfaces, legacy names, architecture entries, operation specifications, and archive anchors. They overlap and MUST NOT be summed as unique completed products. Code found does not mean all tests passed, or app deployed. Hall of Mirrors source was later recovered unchanged from its historical branch into main, with provenance retained.",
   "jobs": [
     {
       "id": "defense",
@@ -174,7 +174,7 @@
     "architecture-module": 54,
     "operation-spec": 13,
     "private-archive-anchor": 14,
-    "branch-only-source": 1
+    "recovered-historical-source": 1
   },
   "recordJobs": {
     "engineering": 42,
@@ -1899,18 +1899,19 @@
     },
     {
       "id": "branch:hall-of-mirrors",
-      "kind": "branch-only-source",
+      "kind": "recovered-historical-source",
       "name": "THE NATHAN TABOR HALL OF MIRRORS",
       "job": "defense",
-      "evidence": "source-and-test-files-on-separate-branch",
-      "status": "review-build",
+      "evidence": "original-branch-source-and-tests-preserved-unmodified-on-main",
+      "status": "source-recovered-verification-pending",
       "sourcePath": "app-factory/one/hall-of-mirrors/",
-      "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/feat/hall-mirrors-duodecimal-20261022/app-factory/one/hall-of-mirrors",
+      "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/one/hall-of-mirrors",
       "sourceCount": 1,
       "testCount": 1,
       "docCount": 0,
       "interfaceCount": 1,
-      "nextTask": "Run archived tests and security review on historical branch; do not merge unrelated branch content"
+      "nextTask": "Run recovered Node tests, review passive security classifier, and verify browser release; not deployed antivirus",
+      "historicalSourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/feat/hall-mirrors-duodecimal-20261022/app-factory/one/hall-of-mirrors"
     },
     {
       "id": "operation:revelation-19-11",
