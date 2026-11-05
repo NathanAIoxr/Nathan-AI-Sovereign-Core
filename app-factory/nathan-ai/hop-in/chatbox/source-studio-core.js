@@ -44,7 +44,7 @@ function scoreAnswer(id,choice){
 }
 function bookMarkdown(id,notes){
  const v=bookById(id);if(!v)throw Error('Unknown book volume.');
- if(typeof notes!=='string'||notes.length>10000)throw Error('Draft must be under 10,000 characters.');
+ if(typeof notes!=='string'||notes.length>250000)throw Error('Draft exceeds the 250,000-character per-volume limit; export in smaller source-safe parts, no truncation.');
  return '# '+v.title+'\n\n'+
  '**Type:** Editorial / creative development draft (not an original source transcript)\n\n'+
  '**Theme:** '+v.theme+'\n\n'+
@@ -53,6 +53,40 @@ function bookMarkdown(id,notes){
  '## Creator draft notes\n\n'+(notes.trim()||'[No author draft notes entered]')+'\n\n'+
  '## Source integrity\n\nOriginal author messages remain in the separate messages.json archive. These chapter headings and prompts are creative editorial material and do not imply verified facts about David, relatives, historical laws or individuals.\n';
 }
-const API={ARCHIVE_PATH,SOURCE_IDS,VOLUMES,GAME_ROUNDS,LESSONS,assertArchive,bookById,scoreAnswer,bookMarkdown};
+
+/* Lossless, order-preserving import of additional owner-provided source records.
+ * Identical original_text with different source IDs remains two separate records.
+ * A duplicate ID is rejected, never silently overwritten or merged. */
+function appendSourcesWithoutCollapse(existing, incoming){
+ if(!Array.isArray(existing)||!Array.isArray(incoming))throw Error('Sources must be ordered arrays.');
+ if(existing.length+incoming.length>1500)throw Error('Source record limit is 1500. Export and split collections; no records were dropped.');
+ const seen=new Set();
+ const all=[];
+ for(const item of [...existing,...incoming]){
+  if(!item||typeof item!=='object'||Array.isArray(item)||typeof item.id!=='string'||!item.id.trim()||
+     typeof item.original_text!=='string'||!item.original_text.trim()||
+     item.original_text.length>350000)throw Error('Invalid or oversized source record; no truncation performed.');
+  if(seen.has(item.id))throw Error('Duplicate source ID: '+item.id+'. No records were merged or overwritten.');
+  seen.add(item.id);
+  all.push({...item}); // Retain the source wording, ID and all author-supplied metadata.
+ }
+ return all;
+}
+function sourceCensus(records){
+ if(!Array.isArray(records))throw Error('Expected source array.');
+ return {records:records.length,characters:records.reduce((n,x)=>n+x.original_text.length,0),uniqueIds:new Set(records.map(x=>x.id)).size,distinctTexts:new Set(records.map(x=>x.original_text)).size,repeatedWordings:records.length-new Set(records.map(x=>x.original_text)).size};
+}
+function seriesMarkdown(notes={}){
+ const parts=['# NATHAN AI — Seven-Volume Words → Worlds Series',
+ '**Type:** New editorial writing outlines, separate from primary source',
+ '**Coverage:** All seven plans are included in source order; no volume is hidden or dropped.'];
+ for(const v of VOLUMES)parts.push(bookMarkdown(v.id,typeof notes[v.id]==='string'?notes[v.id]:''));
+ return parts.join('\n\n---\n\n')+'\n';
+}
+function originalsExport(records){
+ const reviewed=appendSourcesWithoutCollapse([],records);
+ return JSON.stringify({schema:'nathan.source-verbatim.v1',export_type:'local-source-ledger',source_count:reviewed.length,note:'Verbatim original_text retained and ordered. This is a local export, not proof of original chat-platform byte equality.',messages:reviewed},null,2)+'\n';
+}
+const API={ARCHIVE_PATH,SOURCE_IDS,VOLUMES,GAME_ROUNDS,LESSONS,assertArchive,bookById,scoreAnswer,bookMarkdown,appendSourcesWithoutCollapse,sourceCensus,seriesMarkdown,originalsExport};
 if(typeof module==='object'&&module.exports)module.exports=API;else root.NathanSourceStudioCore=API;
 })(typeof window==='object'?window:globalThis);
