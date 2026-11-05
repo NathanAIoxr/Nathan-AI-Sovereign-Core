@@ -15,7 +15,7 @@ export function classifyC(value){
  const add=(key)=>{if(!routes.includes(key)) routes.push(key);};
  if(/^c/i.test(term))add('literal-c-initial');
  if(/^the[ _-]+c/i.test(term))add('the-c-prefix');
- if(/^\\d+[ _-]+c/i.test(term))add('numbered-c-prefix');
+ if(/^\d+[ _-]+c/i.test(term))add('numbered-c-prefix');
  if(/^c{2,}$/i.test(term))add('letter-repetition');
  if(/^(?:c|cee|see|sea|si)$/i.test(term))add('phonetic-resemblance');
  if(/^(?:cat|carbon|code|copper)$/i.test(term))add('hard-c');
@@ -26,7 +26,7 @@ export function classifyC(value){
  if(/[©Ⓒⓒ]/u.test(original))add('circled-c');
  if(/^(?:C|CC|CCC|CD|CM)$/.test(term))add('roman-numeral-c');
  if(/^(?:C|Carbon|Cu|Copper)$/i.test(term))add('chemical-symbol-c');
- if(/^(?:C|C\\+\\+|C#|C♯)$/i.test(term))add('computing-c');
+ if(/^(?:C|C\+\+|C#|C♯)$/i.test(term))add('computing-c');
  if(/^(?:Middle C|C4)$/i.test(term))add('musical-c');
  if(/^(?:Above C|Below C|The Middle C|Consciousnesses)$/i.test(term))add('author-middle-c');
  return {original,searchForm,routes,reviewRequired:routes.some(x=>[
