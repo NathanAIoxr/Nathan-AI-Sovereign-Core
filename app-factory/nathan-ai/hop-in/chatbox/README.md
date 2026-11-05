@@ -42,6 +42,10 @@ The focused workflow is `.github/workflows/words-to-worlds-ci.yml`. Site deploym
 - Optional **configured local** model draft, sharing only the typed question and explicitly reviewed public excerpts (not the full chat/profile). User must preview and click again before sending, following the existing `/api/nathan/draft` server contract. The draft requires an authenticated server-side provider configured by the operator; public GitHub Pages alone cannot provide this. Errors are surfaced; there are no false claims about provider status.
 - Explicit Save, JSON Export, validated Import, CLEAR, optional draft retention, and credential-pattern rejection. Session is memory-only by default. Browser storage is not encrypted; do not use it as a secret vault.
 
+## D original words and variants · app/website link
+
+Use `/d` or `/d variants` to open the [source-first D browser](../../../../archive-index/alphabet/d/index.html), including 138 D/d-starting filename occurrences and 14 “The D” occurrences; 19 distinct transformation and research routes; and the [five exact author A–Z D slots](../../../../archive-index/alphabet/d/canonical-d-sequences.json). The main Nathan AI website and My Desktop launchpad also include this entry. Source strings are not silently normalized or substituted, and no unverified finished books or programs are claimed. The seven existing conversation lenses and all 104 A–Z consumer concepts remain intact.
+
 ## Source original names and stages
 
 The A–Z and root-setting records were transcribed from the attached November 5, 2026 user text, with names and descriptions preserved. These include research ideas and proposals, not tested software capabilities. In particular, global live tracking, literal time travel, atomic observation, zero-latency analog voice transfer, invulnerable black boxes, self-destructing hardware and pre-thought safety detection are not implemented or scientifically established by this prototype. Defensive examples do not install trojans or execute code on other systems. A root moral principle is not, by itself, a technical security guarantee.

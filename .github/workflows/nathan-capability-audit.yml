@@ -1,0 +1,38 @@
+name: Nathan AI Capability Audit
+
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/capability-atlas/**'
+      - 'tools/capability-atlas/**'
+      - '.github/workflows/nathan-capability-audit.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/capability-atlas/**'
+      - 'tools/capability-atlas/**'
+      - 'app-factory/nathan-ai/index.html'
+      - 'app-factory/one/index.html'
+      - '.github/workflows/nathan-capability-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify identity and inventory coverage
+        run: node --test app-factory/nathan-ai/capability-atlas/engine.test.cjs
+      - name: Sift and sort tracked GitHub source without executing it
+        run: node tools/capability-atlas/scan.cjs --output nathan-capability-audit.json
+      - name: Upload complete static-source audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: nathan-capability-audit
+          path: nathan-capability-audit.json
+          retention-days: 30

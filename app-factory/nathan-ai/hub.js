@@ -9,6 +9,7 @@ modules.push({title:'Sovereign Connections · coins, life timeline, methods and 
 modules.push({title:'THE UNIVERSAL 13 · 104 Tools, History & Geometry Games',href:'./universal-tools/index.html',group:'Nathan AI games & learning'});
 modules.push({title:'Original Architecture 63 · Play / Build / Think',href:'./architecture-63/index.html',group:'Nathan AI original design systems'});
 modules.push({title:'All Interfaces & Build Recovery',href:'./build-recovery/index.html',group:'Nathan AI source recovery'});
+modules.push({title:'Attributes · Characteristics · Functionalities — all GitHub paths',href:'./capability-atlas/index.html',group:'Nathan AI capability audit'});
 modules.push({title:'Work & Assets Command Center · projects, tasks, wallets and portfolio reports',href:'./command-center/index.html',group:'Nathan AI operations'});
 
 modules.push({title:'EYEPRINTS × HANDPRINTS · Anatomy, Iris Geometry & Life Ledger',href:'./eyeprints-handprints/index.html',group:'Nathan AI medical/anatomy research'});

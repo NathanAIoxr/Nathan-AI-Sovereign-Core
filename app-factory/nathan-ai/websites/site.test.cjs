@@ -91,3 +91,37 @@ test('full public launcher has valid JavaScript, documented routes and source-on
   assert.match(html(portal), /href="\.\/launchpad\.html"/);
   assert.match(html(desktop), /id="module-cards"/);
 });
+
+// Source-first D archive integration: preserve original data while linking all public doors.
+test('D original source archive integrates hub, website and desktop without replacing A–Z', () => {
+  const dRoot = path.resolve(__dirname, '../../../archive-index/alphabet/d');
+  const dHtml = path.join(dRoot, 'index.html');
+  const dCanon = path.join(dRoot, 'canonical-d-sequences.json');
+  const chatbox = path.resolve(__dirname, '../hop-in/chatbox/index.html');
+  const chatEngine = require('../hop-in/chatbox/engine.js');
+  const original = JSON.parse(html(dCanon));
+  assert.ok(fs.existsSync(dHtml));
+  assert.equal(original.categories.length, 5);
+  assert.deepEqual(original.categories.map(x => x.title), [
+    'the Demonology Dilution of Atoms',
+    'The Double Dilution of Amplitudes',
+    'The David Dilution of Ancestry-kin',
+    'Dancing Demons',
+    'Davidic Dancers'
+  ]);
+  assert.match(html(hub), /href="\.\.\/\.\.\/archive-index\/alphabet\/d\/index\.html"/);
+  assert.match(html(portal), /href="\.\.\/d-archive\/index\.html"/);
+  assert.match(html(chatbox), /Explore D \/ DD \/ DDD \/ inversions/);
+  const command = chatEngine.reply('/d variants');
+  assert.equal(command.kind, 'route');
+  assert.ok(command.links.some(x => x.url === '../../../../archive-index/alphabet/d/index.html'));
+  assert.equal(Object.keys(chatEngine.MODE_LABELS).length, 7);
+  const runtime = {window: {}};
+  vm.runInNewContext(html(path.join(__dirname, 'registry.js')), runtime);
+  const dApp = runtime.window.NathanAIWebsiteModules.find(x => x.id === 'nathan-ai/d-archive/index.html');
+  assert.ok(dApp);
+  const gateway = path.resolve(__dirname, '../d-archive/index.html');
+  assert.equal(path.resolve(__dirname, dApp.url), gateway);
+  assert.match(html(gateway), /src="\.\.\/\.\.\/\.\.\/archive-index\/alphabet\/d\/index\.html"/);
+  assert.ok(fs.existsSync(gateway));
+});
