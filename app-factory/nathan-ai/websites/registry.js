@@ -197,6 +197,13 @@ window.NathanAIWebsiteModules = [
     "status": "Public browser module"
   },
   {
+    "id": "nathan-ai/consumer/index.html",
+    "title": "Nathan AI Consumer Editions",
+    "url": "../../nathan-ai/consumer/index.html",
+    "group": "apps",
+    "status": "Public browser source-preview directory"
+  },
+  {
     "id": "nathan-ai/children-innocence/index.html",
     "title": "Children’s Library & Innocence",
     "url": "../../nathan-ai/children-innocence/index.html",

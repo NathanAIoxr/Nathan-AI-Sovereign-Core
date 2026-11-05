@@ -20,6 +20,10 @@ Open the [AI Accountability Archive](./ai-accountability/README.md), including t
 
 [Open the searchable Program Jobs workbench](./program-jobs/index.html) or read the [357-record source/evidence catalog and priority build plan](./program-jobs/README.md). The atlas classifies current software, historical 92-name recovery entries, original NT-1 modules, operation specifications and private archive leads by task, without inventing completed apps.
 
+## Consumer Editions — original works, real consumer notices
+
+[Open the consumer-facing application directory](./consumer/index.html) or read its [source scope, regional notices and release-blocking requirements](./consumer/README.md). Twelve existing products are organized by actual job, limitations and verified source paths; creative-worldview wording remains attributed and separate from scientific geography or international law.
+
 ## GitHub and public website duplicate consolidation
 
 [Read the non-destructive consolidation register](./websites/CONSOLIDATION_AUDIT.md). Public browser pages have one canonical module index, nine independently named website studios are displayed once in the site directory, repeated home shortcuts are reduced, and native/offline package copies remain intact. Five Guardians, Mosaic Reader and the other independent missing public pages now have distinct directory entries.
