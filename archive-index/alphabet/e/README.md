@@ -39,6 +39,24 @@ Source: owner's `ALL_6056_SOURCE_ROWS_UNCHANGED_TITLES_v020.csv`.
 
 These are five **independent original titles**. See [authored sequence crosswalk](./canonical-e-sequences.json). Their original private source files are not copied into public GitHub.
 
+## ELOHER'S, ELLA'S, EVANGELIST (not good), and EVE/EAVE — source recovery
+
+> find the Eloher's, Ella's, Evangelist (not good), Eve (female and eve of house and time before night)
+
+Recovered owner Library package `ELOHIM_ELOHER_ELLA_EL_LA_MANIFEST.json` (assembled November 2, 2026): 21 original files, kept owner-held. October 21 source descriptions use both `ELOHER_PHASE_CANCELLATION` (branch) and `ELHER_PHASE_CANCELLATION` (example): record the discrepancy, never silently rewrite. Software descriptions are simulations, not validated hardware.
+
+- **ELOHER / ELOHER'S:** User-authored Elohim/Eloher polarity, distinct from historical Hebrew `El`, `Elohim`, `Eloah` and other Semitic divine names. ELHER is a literal source spelling.
+- **ELLA / ELLA'S:** Feminine name; ordinary Spanish third-person pronoun `ella` = she/her; EL + LA is a creator-defined wordplay link, not a demonstrated etymological identity.
+- **EVANGELIST (not good):** Exact original author assessment stored separately from Greek `εὐαγγελιστής`, a bearer of good news (Strong's G2099; Acts 21:8; Ephesians 4:11; 2 Timothy 4:5). The author assessment is not a general factual finding about every evangelist.
+- **EVE — FEMALE:** Genesis 3:20 `חַוָּה` (Chavvah); owner's symbolic EVE/BAT/BANOT/EM→ME framework recorded separately from literal Scripture.
+- **EAVE / EAVES — HOUSE:** Roof projection, Old English `efes`; similar sounding to Eve but from a separate historical root.
+- **EVE — TIME:** Eve before night, derived from Old English `æfen`; Eve before festival or event, as in Christmas Eve.
+- **EVE — SOFTWARE / FICTION:** `eve_vector_gradient` in a recovered October 21 prototype and separately the creator's Adam and Eve Tabor narrative.
+
+[18-record exact-source and lexical crosswalk](./e-word-families.json) · [Read-only lookup module](./e-word-families.mjs) · [tests](./e-word-families.test.mjs).
+
+Lexical reference links: [Greek G2099](https://www.openbible.com/strongs/greek/2099.htm) · [Genesis 3](https://adfonteslibrary.org/genesis-3) · [Old English efes](https://bosworthtoller.com/9024) · [English eve](https://www.etymonline.com/word/eve) · [Spanish ella](https://dictionary.cambridge.org/dictionary/spanish-english/ella). All existing stick/letter geometries and source files preserved.
+
 ## Read-only local experiences
 
 - E visual construction game, search, duplicate-preserving indexed titles and transform inspector: `index.html`
