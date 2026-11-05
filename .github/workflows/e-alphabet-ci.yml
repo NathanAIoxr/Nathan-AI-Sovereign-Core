@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: '22'
       - name: Test E source-preserving glyph engine
-        run: node --test archive-index/alphabet/e/e-family.test.mjs
+        run: node --test archive-index/alphabet/e/e-family.test.mjs archive-index/alphabet/e/e-word-families.test.mjs
       - name: Check original catalog and A–Z titles
         run: |
           node --input-type=module -e "

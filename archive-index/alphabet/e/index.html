@@ -48,6 +48,16 @@ input[type=search]{width:100%}
 <section class="panel"><h2>Read-only E / 3 / M / W text inspector</h2><label for="term">Enter a symbol or phrase</label><input id="term" value="E3MW" maxlength="300"><pre class="code" id="inspection" aria-live="polite"></pre>
 <p class="muted">Latin Atbash and ROT13, literal reversal, script-specific glyph resemblance and creator-defined stick construction are kept as separate routes. Greek Ε, Cyrillic Е and numeral 3 never silently become Latin E.</p></section>
 <section class="panel"><h2>Five exact original E titles · independent A–Z sequences</h2><div style="overflow-x:auto"><table><thead><tr><th>Sequence</th><th>Verbatim title</th></tr></thead><tbody id="seq"></tbody></table></div><p><a href="./canonical-e-sequences.json">Original sequence crosswalk and provenance</a></p></section>
+<section class="panel" id="e-word-families" aria-labelledby="e-word-heading">
+<h2 id="e-word-heading">Eloher’s · Ella’s · Evangelist · Eve/Eave</h2>
+<blockquote>find the Eloher's, Ella's, Evangelist (not good), Eve (female and eve of house and time before night)</blockquote>
+<p class="muted">Search 18 independently classified source records; the 21 original recovery files stay in your Library. Creator-defined wordplay, religious lexical meanings, Spanish pronouns, roof eaves, time and software simulations are not collapsed together.</p>
+<div class="controls"><label>Family <select id="e-w-group" style="padding:10px;background:#101827;color:#fff;border-radius:9px"><option value="">All families</option><option value="eloher">Eloher’s, Elohim, EL</option><option value="ella">Ella’s</option><option value="evangelist">Evangelist (not good)</option><option value="eve">Eve: woman, house, time, software</option></select></label>
+<label>Phrase <input type="search" id="e-w-query" placeholder="Eloher, Ella, evangelist, eave, evening…"></label></div>
+<p class="muted" id="e-w-status" role="status">Loading E word families…</p>
+<div style="max-height:510px;overflow:auto" tabindex="0"><table><thead><tr><th>Original label</th><th>Class</th><th>Meaning / source distinction</th></tr></thead><tbody id="e-w-results"></tbody></table></div>
+<p><a href="./e-word-families.json">Open exact source-family crosswalk</a></p>
+</section>
 <section class="panel"><h2>Search E-starting source titles</h2><p class="muted">From the 6,056-entry owner-controlled catalog: 132 E-starting occurrences total; 128 general/public entries below, four editorial-review/unknown entries withheld. Repeated names stay repeated. These are indexed records, not 128 completed products.</p>
 <label for="query">Search original E titles</label><input type="search" id="query" placeholder="Elijah, Eros, E.T., Energy…">
 <p id="record-count" role="status">Loading 128 publicly classified title occurrences…</p><div id="records" tabindex="0"><table><thead><tr><th>#</th><th>Original source title</th></tr></thead><tbody id="rows"></tbody></table></div></section>
@@ -90,4 +100,11 @@ function render(){const q=el('query').value;const matched=searchTitles(entries,q
 el('query').addEventListener('input',render);
 async function load(){try{const [c,s]=await Promise.all([fetch('./source-catalog-e.json').then(r=>{if(!r.ok)throw Error('catalog unavailable');return r.json()}),fetch('./canonical-e-sequences.json').then(r=>{if(!r.ok)throw Error('sequences unavailable');return r.json()})]);if(!Array.isArray(c.entries)||c.entries.length!==128||!Array.isArray(s.entries)||s.entries.length!==5)throw Error('unexpected catalog counts');entries=c.entries;render();const frag=document.createDocumentFragment();for(const item of s.entries){const tr=document.createElement('tr'),a=document.createElement('td'),b=document.createElement('td');a.textContent=item.source;b.textContent=item.title;tr.append(a,b);frag.append(tr);}el('seq').replaceChildren(frag);}catch(e){el('record-count').textContent='Source JSON could not be loaded. Serve this page over HTTPS or a local HTTP server. Original files have not been changed.';}}
 load();
-</script></body></html>
+</script><script type="module">
+import {selectEFamily,checkEData} from './e-word-families.mjs';
+const byId=s=>document.getElementById(s),body=byId('e-w-results'),status=byId('e-w-status'),group=byId('e-w-group'),query=byId('e-w-query');let rows=[];
+function show(){const matches=selectEFamily(rows,{group:group.value,query:query.value});status.textContent=matches.length+' of '+rows.length+' distinct cross-references found; original material unchanged.';const frag=document.createDocumentFragment();for(const item of matches){const tr=document.createElement('tr');for(const s of [item.title,item.classification,item.meaning+' — '+item.note]){const td=document.createElement('td');td.textContent=s;tr.append(td)}frag.append(tr)}body.replaceChildren(frag)}
+group.addEventListener('change',show);query.addEventListener('input',show);
+try{const response=await fetch('./e-word-families.json');if(!response.ok)throw Error('unavailable');const doc=await response.json();checkEData(doc);rows=doc.records;show()}catch(e){status.textContent='Could not load E family source JSON. Open the site over HTTP or HTTPS; no originals were changed.'}
+</script>
+</body></html>

@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {AUTHOR_WORDS,KNOWN_GROUPS,selectEFamily,inspectLiteral,checkEData} from './e-word-families.mjs';
+const data=JSON.parse(readFileSync(new URL('./e-word-families.json',import.meta.url),'utf8'));
+test('exact author request preserved',()=>assert.equal(AUTHOR_WORDS,"find the Eloher's, Ella's, Evangelist (not good), Eve (female and eve of house and time before night)"));
+test('schema and original records validate',()=>assert.equal(checkEData(data),true));
+test('four independent family groups',()=>assert.deepEqual(data.groups.map(x=>x.id),KNOWN_GROUPS));
+test('archive manifest count not misrepresented as file contents',()=>assert.equal(data.archive_recovery.original_file_count,21));
+test('Eloher and ELHER spellings remain distinct',()=>{assert.ok(data.records.some(x=>x.id==='eloher-core'&&x.tags.includes('ELOHER_PHASE_CANCELLATION')));assert.ok(data.records.some(x=>x.id==='elher-source'&&x.title==='ELHER_PHASE_CANCELLATION'));});
+test('Evangelist opinion not substituted for etymology',()=>{assert.match(data.records.find(x=>x.id==='evangelist-assessment').meaning,/not good/);assert.match(data.records.find(x=>x.id==='evangelist-biblical').meaning,/good news/);});
+test('Eve three senses and original code separated',()=>{for(const id of ['eve-female','eave-house','eve-evening','eve-engine'])assert.ok(data.records.some(x=>x.id===id));});
+test('Ella Spanish pronoun not an Elohim etymology claim',()=>{assert.match(data.records.find(x=>x.id==='ella-spanish').meaning,/Spanish ella/);assert.match(data.records.find(x=>x.id==='ella-constructed').note,/not a verified shared etymology/);});
+test('search and filters preserve raw spelling and separate source identities',()=>{const x=selectEFamily(data.records,{group:'eve',query:'eve'});assert.ok(x.length>=3);assert.ok(x.some(y=>y.id==='eve-female'));assert.deepEqual(selectEFamily(data.records,{query:'ELHER_PHASE_CANCELLATION'}).map(x=>x.id),['elher-source']);});
+test('reversal is derivative not replacement',()=>{assert.deepEqual(inspectLiteral('EVE'),{original:'EVE',reversed:'EVE',isLetterPalindrome:true});assert.equal(inspectLiteral('EAVE').reversed,'EVAE');});
+test('invalid scope cannot silently merge families',()=>assert.throws(()=>selectEFamily(data.records,{group:'elohim'})));
