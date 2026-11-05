@@ -1,0 +1,82 @@
+{
+  "schema": "nathan-ai.resilience.source-audit.v1",
+  "sourceDescription": "Two user-provided Pasted text files (byte-identical)",
+  "sourceFiles": [
+    "Pasted text.txt",
+    "Pasted text (2).txt"
+  ],
+  "sha256": "dc8f01eea2c8451160c236572ea94196e2bf876a101cb4a510f14db1e42264fd",
+  "numberedScenarioStatus": {
+    "claimedTitle": "101 ways a program can be stopped/blocked/killed",
+    "sourcePresentIds": "1–75, 77–101",
+    "actualUniqueIds": 100,
+    "missingIds": [
+      76
+    ],
+    "note": "The document skips item 76. Its other numbered section headings are not counted as failure scenarios. No missing scenario was invented."
+  },
+  "categories": [
+    {
+      "id": "security",
+      "label": "Security and endpoint protections",
+      "first": 1,
+      "last": 15,
+      "actualEntries": 15,
+      "defensiveFocus": "Code signing, trusted distribution, compatibility diagnostics and security review."
+    },
+    {
+      "id": "os",
+      "label": "Operating system and kernel constraints",
+      "first": 16,
+      "last": 30,
+      "actualEntries": 15,
+      "defensiveFocus": "Graceful shutdown, permission-aware design, resource budgets and checkpoint recovery."
+    },
+    {
+      "id": "interference",
+      "label": "Malicious interference and abuse",
+      "first": 31,
+      "last": 45,
+      "actualEntries": 15,
+      "defensiveFocus": "Incident response, anti-abuse controls, backups and least-privilege isolation; no evasion advice."
+    },
+    {
+      "id": "bugs",
+      "label": "Software bugs and logic defects",
+      "first": 46,
+      "last": 60,
+      "actualEntries": 15,
+      "defensiveFocus": "Input validation, safe error handling, tests, bounded loops and dependency controls."
+    },
+    {
+      "id": "network",
+      "label": "Network and infrastructure failures",
+      "first": 61,
+      "last": 75,
+      "actualEntries": 15,
+      "defensiveFocus": "Offline-first behavior, timeouts, reconnect strategies and graceful degradation."
+    },
+    {
+      "id": "hardware",
+      "label": "Hardware and physical limitations",
+      "first": 77,
+      "last": 90,
+      "actualEntries": 14,
+      "defensiveFocus": "Safe shutdown, power protection, storage checks, verified backups and device diagnostics."
+    },
+    {
+      "id": "human",
+      "label": "Human, business and licensing factors",
+      "first": 91,
+      "last": 101,
+      "actualEntries": 11,
+      "defensiveFocus": "User-controlled stop, reversible migrations, documented licenses and authorized administration."
+    }
+  ],
+  "interpretation": {
+    "authorProposal": "A primordial root kill switch described as preceding the WWW and AI is a philosophical or proposed system abstraction in the supplied text.",
+    "verifiedEngineeringClaim": "A program can still be stopped by physical power loss, kernel/OS authority, valid user action and security controls. Basic arithmetic identities do not remove these constraints.",
+    "scope": "Build defensive resilience and auditability only; do not bypass authorized security controls, defeat administrator termination or assert invulnerability."
+  },
+  "publication": "Only audit metadata and engineering boundaries were included; the two full pasted text files are not automatically published."
+}
