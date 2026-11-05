@@ -19,7 +19,7 @@ function render(){renderCards();const s=engine.stage(selected);el("stageStatus")
  el("stepName").textContent=String(s.index+1)+". "+s.name;el("emotion").textContent="May help with: "+s.emotion;el("operation").textContent=s.operation+" · Mind: "+s.mind+" / Shadow: "+s.shadow;
  el("prompt").textContent=s.prompt;el("suggested").textContent="Constructive action: "+s.action;
  el("advance").disabled=state.status==="completed";el("advance").textContent=state.step===5?"Record BONE and complete":"Record "+engine.stage(state.step).name+" and advance";
- renderPlanes();renderHistory();renderLights();}
+ renderPlanes();renderHistory();renderLights();window.dispatchEvent(new CustomEvent("nathan:six-dogs-stage",{detail:{index:selected,name:s.name}}));}
 function advance(){try{if(selected!==state.step){feedback("The selected card is a preview. Select 'Revisit selected step' before recording it.");return;}
  state=engine.advance(state,{note:el("note").value,outcome:el("outcome").value});selected=state.step;el("note").value="";el("outcome").value="";writeLocal();render();feedback(state.status==="completed"?"Six stages recorded. Completion does not guarantee stress elimination.":"Stage recorded in "+(persist?"opt-in browser storage":"page memory")+".");}catch(e){feedback(e.message);}}
 function revisit(){try{state=engine.revisit(state,selected);el("note").value="";el("outcome").value="";writeLocal();render();feedback("Selected "+engine.stage(selected).name+" for further reflection. Previous records are retained.");}catch(e){feedback(e.message);}}
