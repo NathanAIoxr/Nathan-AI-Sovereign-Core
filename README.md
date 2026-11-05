@@ -12,6 +12,10 @@ Home of **TABOR 1-2-3 FACTORY™ / Nathan AI Sovereign Core**.
 
 This is the **PUBLIC**, browser-first coordination repository. It does **not** contain the owner's private full original-media library, private ZIP-only backend packages, unpublished research records, customer data, or credentials. It is not a deployed private multi-tenant SaaS backend.
 
+## AI accountability — restored source transcript
+
+The [Nathan AI AI-accountability archive](app-factory/nathan-ai/ai-accountability/README.md) preserves the original supplied Google AI / Trump press-conference exchange, repeated roleplay denials and reversals, the JD Vance comparison, and ChatGPT's own omitted-word correction log. The archive separates exact creator allegations from independently substantiated facts and analysis.
+
 ## Public app and site duplicate consolidation
 
 The [Nathan AI consolidation register](app-factory/nathan-ai/websites/CONSOLIDATION_AUDIT.md) tracks canonical public page routes, duplicate website cards, the main hub's repeated shortcuts and required native app distribution copies. Public pages are indexed without erasing distinct books, character names, games or original source files.
