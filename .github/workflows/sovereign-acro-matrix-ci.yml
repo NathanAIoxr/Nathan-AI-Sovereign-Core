@@ -1,0 +1,30 @@
+name: Sovereign Acro-Matrix CI
+on:
+  pull_request:
+    paths:
+      - "app-factory/one/sovereign-acro-matrix/**"
+      - ".github/workflows/sovereign-acro-matrix-ci.yml"
+  push:
+    branches:
+      - "feat/sovereign-acro-matrix-*"
+    paths:
+      - "app-factory/one/sovereign-acro-matrix/**"
+      - ".github/workflows/sovereign-acro-matrix-ci.yml"
+  workflow_dispatch:
+jobs:
+  acro-regression:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: JavaScript syntax checks
+        run: |
+          node --check app-factory/one/sovereign-acro-matrix/registry.js
+          node --check app-factory/one/sovereign-acro-matrix/core.js
+          node --check app-factory/one/sovereign-acro-matrix/app.js
+      - name: Node regression tests
+        run: node --test app-factory/one/sovereign-acro-matrix/core.test.cjs
