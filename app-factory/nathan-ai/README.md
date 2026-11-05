@@ -16,6 +16,10 @@ Open the [REAPER / OMNI GOD / AI Mapping atlas](./ai-mapping/index.html), its [s
 
 Open the [AI Accountability Archive](./ai-accountability/README.md), including the [full numbered user-supplied exchange](./ai-accountability/TRANSCRIPT.md) and [expanded source-separated analysis](./ai-accountability/ANALYSIS.md). Exact creator wording, repeated AI explanations, refusal inconsistency, the Vance comparison and ChatGPT's omitted-word corrections are preserved with attribution.
 
+## Author Words — original David exchange and correction record
+
+[Open the verbatim source archive and A–Z viewer](./protection-of-innocence/david-exchange-2026-11-05/index.html) · [Source integrity rules](./protection-of-innocence/david-exchange-2026-11-05/README.md). Four visible author messages are retained without editorial rewrites; separate index fields provide provenance. **Content notice:** the source contains quoted slurs and violent threats; not for the children’s library. This is a public-repository branch proposal, not a complete private-history recovery.
+
 ## Program Jobs — catalog, completion tasks and original-source recovery
 
 [Open the searchable Program Jobs workbench](./program-jobs/index.html) or read the [357-record source/evidence catalog and priority build plan](./program-jobs/README.md). The atlas classifies current software, historical 92-name recovery entries, original NT-1 modules, operation specifications and private archive leads by task, without inventing completed apps.
