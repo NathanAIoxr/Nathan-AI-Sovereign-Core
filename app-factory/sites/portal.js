@@ -2,7 +2,13 @@
 (function(){
 'use strict';
 var sites=Array.isArray(window.NathanIndependentSites)?window.NathanIndependentSites:[];
-var apps=Array.isArray(window.NathanAIWebsiteModules)?window.NathanAIWebsiteModules:[];
+var sourceApps=Array.isArray(window.NathanAIWebsiteModules)?window.NathanAIWebsiteModules:[];
+// The nine independent studios already have their own cards: preserve original
+// registry entries, but do not render each again as a second app card.
+var consolidated=window.NathanDirectoryConsolidator.consolidate(sites,sourceApps);
+var apps=consolidated.apps;
+var publicPageCount=document.getElementById('public-page-count');
+if(publicPageCount)publicPageCount.textContent=String(apps.length);
 var siteCards=document.getElementById('site-cards'),directory=document.getElementById('directory-cards');
 var search=document.getElementById('search'),summary=document.getElementById('result-summary'),more=document.getElementById('more'),filter='all',limit=21,concepts=[],gameRecords=[];
 function make(tag,cls,label){var e=document.createElement(tag);if(cls)e.className=cls;if(label!==undefined)e.textContent=label;return e;}
