@@ -16,7 +16,7 @@
 - Eight launch evidence gates for actual commercial release: publisher identity, verified privacy behavior, children, commerce, truth in claims, AI, accessibility, and security/recovery.
 - Full exact attributed creator wording on the global/international metaphor in a separate creator note, with a factual clarification. Science and jurisdictional rules are not changed by creative terminology.
 - Standalone web-app manifest and responsive, keyboard-operable directory interface. **Explicitly opt-in offline cache** for only eight public directory resources (the page, scripts and dated metadata); users can remove that cache. It does not cache linked apps, private source, health records, security samples or vault contents. Browser support and offline availability must still be independently tested; not a native app guarantee.
-- Twelve individually sourced privacy/data-practice records distinguish known local storage and input features from unknown runtime/server behaviors. These do **not** replace a completed formal privacy policy or vendor/host audit.
+- Thirteen individually sourced privacy/data-practice records distinguish known local storage and input features from unknown runtime/server behaviors. These do **not** replace a completed formal privacy policy or vendor/host audit.
 - No analytics, geolocation, tracking query or account form **added by this directory**. Linked modules may differ; hosting requests and normal browser activity can still be processed.
 
 ## Existing products in this release directory
