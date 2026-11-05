@@ -1,0 +1,23 @@
+(function(root){
+'use strict';
+const LIMIT=15000;
+const COLLECTIONS=[
+{id:'repo',label:'Public GitHub · exact files',url:'repository-tree.json',path:'records',count:1023},
+{id:'ownerfiles',label:'Owner archive · 6,103 metadata entries',url:'../2026-11-05/inventory.json',path:null,count:6103},
+{id:'languages',label:'ONE · 7,918 language profiles',url:'../../app-factory/one/library-mind/languages.json',path:null,count:7918},
+{id:'documents',label:'ONE · original document records',url:'../../app-factory/one/library-mind/documents.json',path:null,count:55},
+{id:'programs',label:'Nathan AI · 357 work records',url:'../../app-factory/nathan-ai/program-jobs/catalog.json',path:'records',count:357},
+{id:'paradoxes',label:'Paradox Atlas · 298 research leads',url:'../../app-factory/nathan-ai/hop-in/paradox-atlas/atlas.json',path:'records',count:298},
+{id:'lettera',label:'Original A · 376 public rows',url:'../letter-a/source-catalog.public.json',path:'records',count:376},
+{id:'games',label:'Nathan AI games index',url:'../../app-factory/nathan-ai/games/catalog.json',path:'entries',count:null},
+{id:'work',label:'Original works stage manifest',url:'../../app-factory/nathan-ai/original-works/manifest.json',path:'records',count:null}
+];
+function rowsFrom(data,field){if(Array.isArray(data))return data;if(field&&Array.isArray(data?.[field]))return data[field];if(data&&typeof data==='object'){for(const key of ['records','items','entries','rows','files','sources','results','links','jobs'])if(Array.isArray(data[key]))return data[key]}throw Error('No row array located; original preserved but cannot be viewed as a table');}
+function value(x,...names){for(const k of names)if(x?.[k]!==undefined&&x[k]!==null&&typeof x[k]!=='object')return String(x[k]);return ''}
+function normalize(item,index,source){const raw=(typeof item==='object'&&item!==null)?item:{text:String(item)};const title=value(raw,'title_unchanged','title','name','preferred_name','original_title','filename','file_name','path','sourcePath','text','id')||'Untitled source item '+(index+1);const id=value(raw,'source_id_unchanged','source_id','sourceId','library_file_id','variety_id','original_id_unchanged','id','gitBlobSha')||String(index+1);const path=value(raw,'path','sourcePath','source_file_unchanged','file','filename','relative_path','relativePath');const status=value(raw,'source_status_unchanged','stage','status','review_status','kind','type')||'Not reviewed';const category=value(raw,'collection_unchanged','group','job','category','kind','mime_type','type');const url=value(raw,'url','display_url','sourceUrl');const detail=value(raw,'description','sourceDescription','question','note','summary','excerpt');const content=value(raw,'content','body','text','full_text');const find=[title,id,path,category,status,detail,source].join(' ').normalize('NFKC').toLocaleLowerCase();return {key:source+':'+index,id,title,path,status,category,url,source,index,raw,content,find};}
+function matches(records,q,collection,tag){const terms=String(q||'').normalize('NFKC').toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);const tags=String(tag||'').normalize('NFKC').toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);return records.filter(x=>(!collection||x.source===collection)&&terms.every(t=>x.find.includes(t))&&tags.every(t=>x.find.includes(t)));}
+function csv(text,separator=','){const out=[];let row=[],field='',quoted=false;for(let i=0;i<text.length;i++){const c=text[i];if(quoted){if(c==='"'&&text[i+1]==='"'){field+='"';i++;}else if(c==='"')quoted=false;else field+=c;}else if(c==='"'&&field.length===0){quoted=true}else if(c===separator){row.push(field);field='';}else if(c==='\n'){row.push(field.replace(/\r$/,''));out.push(row);row=[];field='';}else field+=c;}if(quoted)throw Error('CSV has unmatched double quote');if(field.length||row.length){row.push(field.replace(/\r$/,''));out.push(row)}if(!out.length)return [];const headers=out.shift();return out.filter(r=>r.some(x=>x.length)).map(r=>Object.fromEntries(headers.map((key,j)=>[key||'column_'+j,r[j]||''])));}
+function summary(records){const o={total:records.length,collections:{},statuses:{}};for(const x of records){o.collections[x.source]=(o.collections[x.source]||0)+1;o.statuses[x.status]=(o.statuses[x.status]||0)+1}return o;}
+function link(url){try{const u=new URL(url,typeof location==='object'?location.href:'https://example.org/');return u.protocol==='https:'||u.origin===(typeof location==='object'?location.origin:'https://example.org')?u.href:null;}catch(_){return null}}
+const api={LIMIT,COLLECTIONS,rowsFrom,value,normalize,matches,csv,summary,link};if(typeof module==='object'&&module.exports)module.exports=api;else root.NathanUnboxed=api;
+})(typeof window==='object'?window:globalThis);
