@@ -1,0 +1,167 @@
+{
+  "date": "2026-11-05",
+  "catalog_basis": "Existing owner LCC-style catalog, unchanged provisional subject assignments",
+  "official_lcc_call_numbers_assigned": 0,
+  "physical_source_items": 19317,
+  "original_source_bytes_preserved": true,
+  "b8_records_crosslinked": 5851,
+  "b8_source_hashes_verified": 5851,
+  "new_duplicate_source_copies_created": 0,
+  "b_title_records_including_language_references": 1144,
+  "language_reference_entries_searched": 7910,
+  "b_language_name_reference_entries": 614,
+  "discovery_file_and_folder_candidates": 1687,
+  "pointer_reconciliation_counts": {
+    "FOLDER_NAVIGATION_ONLY": 28,
+    "EXISTING_POINTER_MATCH": 1657,
+    "NEW_POINTER_PENDING_SUBJECT_REVIEW": 2
+  },
+  "shelves": [
+    {
+      "class": "A",
+      "class_name": "General works, reference collections, encyclopedias",
+      "physical_items": 70,
+      "b8_crosslinked_records": 11
+    },
+    {
+      "class": "B",
+      "class_name": "Philosophy, psychology, religion and theology",
+      "physical_items": 220,
+      "b8_crosslinked_records": 124
+    },
+    {
+      "class": "C",
+      "class_name": "Genealogy, family records, archives and research methods",
+      "physical_items": 102,
+      "b8_crosslinked_records": 26
+    },
+    {
+      "class": "D",
+      "class_name": "World and non-American history",
+      "physical_items": 75,
+      "b8_crosslinked_records": 5
+    },
+    {
+      "class": "E",
+      "class_name": "History of the Americas",
+      "physical_items": 70,
+      "b8_crosslinked_records": 0
+    },
+    {
+      "class": "F",
+      "class_name": "United States local and regional history",
+      "physical_items": 87,
+      "b8_crosslinked_records": 14
+    },
+    {
+      "class": "G",
+      "class_name": "Geography, maps, folklore and recreation",
+      "physical_items": 166,
+      "b8_crosslinked_records": 50
+    },
+    {
+      "class": "H",
+      "class_name": "Sociology, business and social sciences",
+      "physical_items": 140,
+      "b8_crosslinked_records": 23
+    },
+    {
+      "class": "J",
+      "class_name": "Government and political science",
+      "physical_items": 74,
+      "b8_crosslinked_records": 15
+    },
+    {
+      "class": "K",
+      "class_name": "Law and legal research",
+      "physical_items": 84,
+      "b8_crosslinked_records": 11
+    },
+    {
+      "class": "L",
+      "class_name": "Learning and pedagogy",
+      "physical_items": 80,
+      "b8_crosslinked_records": 7
+    },
+    {
+      "class": "M",
+      "class_name": "Music and sound composition",
+      "physical_items": 72,
+      "b8_crosslinked_records": 4
+    },
+    {
+      "class": "N",
+      "class_name": "Visual arts, illustration and design",
+      "physical_items": 125,
+      "b8_crosslinked_records": 56
+    },
+    {
+      "class": "P",
+      "class_name": "Language, literature, fiction and writing",
+      "physical_items": 13910,
+      "b8_crosslinked_records": 3687
+    },
+    {
+      "class": "Q",
+      "class_name": "Mathematics, computer science and natural sciences",
+      "physical_items": 732,
+      "b8_crosslinked_records": 159
+    },
+    {
+      "class": "R",
+      "class_name": "Medicine and clinical sciences",
+      "physical_items": 71,
+      "b8_crosslinked_records": 7
+    },
+    {
+      "class": "S",
+      "class_name": "Agriculture and agricultural science",
+      "physical_items": 70,
+      "b8_crosslinked_records": 8
+    },
+    {
+      "class": "T",
+      "class_name": "Engineering and technology",
+      "physical_items": 75,
+      "b8_crosslinked_records": 62
+    },
+    {
+      "class": "U",
+      "class_name": "Military history, strategy and systems",
+      "physical_items": 73,
+      "b8_crosslinked_records": 2
+    },
+    {
+      "class": "V",
+      "class_name": "Naval history and naval technology",
+      "physical_items": 71,
+      "b8_crosslinked_records": 0
+    },
+    {
+      "class": "Z",
+      "class_name": "Libraries, bibliography, cataloging and archival information",
+      "physical_items": 2950,
+      "b8_crosslinked_records": 1580
+    }
+  ],
+  "b8_completion_states": {
+    "CIPHER_REFERENCE": 188,
+    "SOURCE_RECORD_REVIEW": 549,
+    "BOOK_OR_SERIES_DRAFT_RECORD": 37,
+    "CHARACTER_REFERENCE": 1880,
+    "LANGUAGE_REFERENCE_ONLY": 1418,
+    "PROPOSAL_NOT_MANUSCRIPT": 280,
+    "FILE_POINTER_ONLY": 929,
+    "LINKED_REFERENCE_ONLY": 570
+  },
+  "b8_open_tasks_added": 4,
+  "unmatched_record_identities": 0,
+  "public_release_scope": "Aggregate shelf/work-status summaries and local catalog tooling; private source bytes are owner-controlled",
+  "coverage_limits": [
+    "Provisional local subject shelves; no professional call-number assignment",
+    "Not every Library pointer has verified original bytes",
+    "No comprehensive image-pixel or stacked-circle inspection",
+    "Visual, spelling and numeric candidates do not establish common etymology",
+    "Counts include references, proposals and duplicate snapshots; they are not finished-book counts"
+  ]
+}

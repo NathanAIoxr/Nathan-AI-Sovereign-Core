@@ -119,3 +119,8 @@ These are working **static browser front ends**, not the private recovered full 
 ## Nathan AI launch candidate
 
 The [launch guide](docs/LAUNCH.md) covers the installable public browser app, explicit offline core support, ONE file/folder indexing, optional local services, tested release packaging and deployment. Build public site/source archives with `python3 tools/release/build.py --out /path/outside-checkout/release`; verify them using `--verify`. Run all release checks with `python3 tools/release/check.py --out /path/outside-checkout/checks`. The manual **Nathan AI release package** workflow produces the same archives and verification logs. Private Library files and account/model credentials are not bundled.
+
+
+## Library of Congress-style catalog — B / 8 / inversions
+
+[Open the subject catalog](archive-index/loc-b8/index.html) · [Method and work remaining](archive-index/loc-b8/README.md). The existing 19,317-item owner archive retains its 21 subject shelves. This additive finding aid crosslinks 5,851 B / 8 / inversion candidates to exact existing source identities and original work status. The public module contains aggregate counts and browser-local import/review tools; the full organized archive and updated worklist remain owner-controlled. All 19,317 source hashes and 5,851 recovery joins were verified.
