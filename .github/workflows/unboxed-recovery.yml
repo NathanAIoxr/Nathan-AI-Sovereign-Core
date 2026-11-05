@@ -1,0 +1,23 @@
+name: Nathan AI Unboxed Recovery
+on:
+  push:
+    paths:
+      - 'archive-index/unboxed/**'
+      - '.github/workflows/unboxed-recovery.yml'
+  pull_request:
+    paths:
+      - 'archive-index/unboxed/**'
+      - '.github/workflows/unboxed-recovery.yml'
+jobs:
+  source-fidelity:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check archive-index/unboxed/core.js
+      - run: node --check archive-index/unboxed/app.js
+      - run: node --test archive-index/unboxed/core.test.cjs
