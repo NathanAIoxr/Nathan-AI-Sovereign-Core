@@ -61,3 +61,71 @@
 @media(max-width:1150px){.visual-banner{height:96px}}
 @media(max-width:740px){.visual-banner{margin:4px 13px 7px;height:78px;border-radius:12px}.visual-banner-words{left:15px;top:16px;font-size:1.65rem}.visual-banner-words small{font-size:.51rem;letter-spacing:.07em;margin-top:6px}.skin-picker-inner{right:-8px}.visual-banner[data-quiet=true]{height:48px}}
 @media(prefers-reduced-motion:reduce){.visual-banner svg{filter:none}}
+
+
+/* 2026-11-05: Keep the chat first. Advanced tools are still one click away. */
+.shell:not(.advanced){height:100vh;height:100dvh;min-height:420px}
+.shell:not(.advanced) .workbench{display:grid;grid-template-columns:minmax(0,1fr);flex:1;min-height:0}
+.shell:not(.advanced) .rail,
+.shell:not(.advanced) .tools{display:none}
+.shell:not(.advanced) .header-links>a:not([href="../../index.html"]){display:none}
+.shell:not(.advanced) footer{display:none}
+.shell:not(.advanced) .conversation{max-height:none;height:100%;min-height:0}
+.conversation .chat-heading{order:-5}
+.conversation .composer{order:-4;flex-shrink:0}
+.conversation .visual-banner{order:-3}
+.conversation .environment-bar{order:-2}
+.conversation .chat-history{order:0}
+.conversation .review-panel{order:1}
+.chat-heading-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+#toggle-tools[aria-expanded=true]{border-color:#a9dbef;background:#22546a;color:#fff}
+.simple-hint{margin:4px 0 0;color:#a6ddcd;font-weight:650;font-size:.96rem}
+.shell.advanced .simple-hint{display:none}
+.shell:not(.advanced) .chat-heading{padding:13px 22px 8px}
+.shell:not(.advanced) .chat-heading h1{font-size:clamp(1.55rem,3vw,2.15rem);margin:0}
+.shell:not(.advanced) .chat-heading #mode-description,
+.shell:not(.advanced) .environment-bar,
+.shell:not(.advanced) #read-aloud,
+.shell:not(.advanced) #stop-speaking,
+.shell:not(.advanced) #model-draft,
+.shell:not(.advanced) .composer-foot>span:last-child{display:none}
+.shell:not(.advanced) .composer{padding:12px 22px;background:#0d2534;border-bottom:1px solid #355d72;border-top:0}
+.shell:not(.advanced) .composer textarea{min-height:68px;max-height:130px;font-size:1.05rem;background:#0a1d2c;border-color:#7290a4}
+.shell:not(.advanced) .composer textarea:focus-visible{outline:3px solid #e1c58b;outline-offset:2px}
+.shell:not(.advanced) .composer-controls{margin-top:6px}
+.shell:not(.advanced) #send{font-size:1.05rem;min-width:104px;min-height:46px}
+.shell:not(.advanced) .composer-foot{margin-top:5px}
+.shell:not(.advanced) .visual-banner{height:54px;margin:6px 22px;border-radius:10px;opacity:.83}
+.shell:not(.advanced) .visual-banner-words{top:10px;left:17px;font-size:1.28rem}
+.shell:not(.advanced) .visual-banner-words small{font-size:.56rem;letter-spacing:.08em;margin-top:3px}
+.shell:not(.advanced) .chat-history{min-height:120px;max-height:none;padding:10px 22px 18px;overscroll-behavior:contain}
+.shell:not(.advanced) .welcome{margin:6px auto;padding:15px 18px}
+.shell:not(.advanced) .welcome h2{font-size:1.45rem;margin-bottom:4px}
+.shell:not(.advanced) .welcome p{margin-bottom:8px}
+.shell:not(.advanced) .suggestions{margin-top:11px}
+.shell:not(.advanced) .suggestions button{min-height:38px}
+.shell:not(.advanced) .suggestions button:nth-child(n+6){display:none}
+.shell:not(.advanced) .turn{margin:10px 0 16px}
+.shell:not(.advanced) .bubble{padding:12px 15px}
+@media(max-width:740px){
+ .shell:not(.advanced) .masthead{padding:8px 12px;gap:9px}
+ .shell:not(.advanced) .mark small{font-size:.62rem;letter-spacing:.06em}
+ .shell:not(.advanced) .chat-heading{padding:11px 12px 7px;align-items:center}
+ .shell:not(.advanced) .chat-heading h1{font-size:1.5rem}
+ .shell:not(.advanced) .simple-hint{font-size:.82rem}
+ .shell:not(.advanced) .chat-heading-actions button{font-size:.77rem;padding:7px 8px;min-height:38px}
+ .shell:not(.advanced) .composer{padding:10px 12px}
+ .shell:not(.advanced) .visual-banner{margin:5px 12px;height:45px}
+ .shell:not(.advanced) .visual-banner-words{font-size:1.12rem;top:8px}
+ .shell:not(.advanced) .chat-history{min-height:100px;max-height:none;padding:10px 12px}
+ .shell:not(.advanced) .suggestions button:nth-child(n+5){display:none}
+ .shell:not(.advanced) #mic{font-size:.78rem}
+}
+@media(max-width:420px){
+ .shell:not(.advanced) .header-links>a{display:none}
+ .shell:not(.advanced) .chat-heading{gap:6px}
+ .shell:not(.advanced) .chat-heading-actions{gap:5px}
+ .shell:not(.advanced) .chat-heading-actions button{font-size:.72rem;padding:6px 7px}
+ .shell:not(.advanced) .visual-banner{height:39px}
+ .shell:not(.advanced) .visual-banner-words small{display:none}
+}
