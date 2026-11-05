@@ -66,5 +66,6 @@ test('public portal uses consolidation and has no hardcoded historical total',()
   const heroPaths=[...hero.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(x=>x[1]);
   assert.ok(heroPaths.length<=6,'single-purpose hero shortcuts only');
   assert.equal(heroPaths.filter(x=>navPaths.has(x)).length,0,'no repeated navigation targets in hero');
-  assert.ok(heroPaths.includes('./websites/launchpad.html'));
+  assert.ok(heroPaths.includes('../one/mosaic-reader/index.html'));
+  assert.ok(navPaths.has('./websites/launchpad.html'),'My Desktop remains available in the original navigation');
 });
