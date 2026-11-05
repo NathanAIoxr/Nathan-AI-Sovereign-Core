@@ -1,0 +1,33 @@
+name: Nathan AI Source-Locked Completion CI
+on:
+  pull_request:
+    paths:
+      - "app-factory/nathan-ai/completion-engine/**"
+      - "app-factory/nathan-ai/index.html"
+      - "app-factory/nathan-ai/offline-assets.json"
+      - "app-factory/nathan-ai/sw.js"
+      - ".github/workflows/completion-engine-ci.yml"
+  push:
+    branches:
+      - "feat/source-locked-completion-*"
+    paths:
+      - "app-factory/nathan-ai/completion-engine/**"
+      - ".github/workflows/completion-engine-ci.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  completion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify source-locked engine syntax
+        run: |
+          node --check app-factory/nathan-ai/completion-engine/engine.js
+          node --check app-factory/nathan-ai/completion-engine/app.js
+          node --check app-factory/nathan-ai/completion-engine/engine.test.cjs
+      - name: Evidence gating, original words and privacy regression
+        run: node --test app-factory/nathan-ai/completion-engine/engine.test.cjs
