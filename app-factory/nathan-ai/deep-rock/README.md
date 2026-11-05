@@ -10,7 +10,7 @@ The creator's exact source phrase, including repeated spellings, is retained in 
 
 **Primordial · Primortal · Priimortal · Primortial · Priimortial · Bimordial · Bimortal · Biimortal · Bimordial**
 
-The second **Bimordial** is deliberately preserved. These are examples, not a purported exhaustive vocabulary or automatically generated variations. Earlier arithmetic and sovereignty references are present in [Absolute Intelligence](../absolute-intelligence/registry.json), [Sovereignty Origins](../../one/nathan-matrix/sovereignty-origins/records.js), and [Silicon-to-Source](../silicon-to-source/README.md).
+The second **Bimordial** is deliberately preserved. These are examples, not a purported exhaustive vocabulary or automatically generated variations. The separate [Primordial / Primortal source-locked word family](../primordial-lexicon/) contains a full lexical spiderweb for these same exact spellings. It also indexes a **different** shutdown-resilience source document whose numbering skips item 76; do not merge that 100-item shutdown source with this 101-entry simulation ledger. Earlier arithmetic and sovereignty references are present in [Absolute Intelligence](../absolute-intelligence/registry.json), [Sovereignty Origins](../../one/nathan-matrix/sovereignty-origins/records.js), and [Silicon-to-Source](../silicon-to-source/README.md).
 
 The original creator statement includes a claim of a kill switch predating the web and AI. That claim is preserved as an attributed historical report. The source inspected here does not establish a worldwide operational kill switch, remote root access, or universal software ownership.
 
