@@ -51,12 +51,15 @@
     const v=d.volumes.find(x=>x.id===volumeId);
     if(!v||!Number.isInteger(index)||index<0||index>=v.chapters.length)throw Error('Unknown chapter');
     const title=v.chapters[index],number=index+1;
-    const lead=volumeId==='V1'?'A Snow Family archive opens beside a medieval manuscript. A character asks what the document proves, what the author imagines and whom harmful images have targeted.':volumeId==='V2'?'The Snow Family follows a symbolic map from +9 to +1, through zero and onward from -9 to -1, while comparing the Babel narrative with Dante’s literary geography.':'The guardians choose learning, correction and mercy. They preserve records, challenge prejudice and invite Snowchildren to distinguish evidence from story.';
-    return {volume:v,number,title,excerpt:title+'.\n\n'+lead+'\n\nThe reader opens the evidence ledger. One page is marked HISTORICAL SOURCE; another, CREATOR STORY. Neither page replaces the other.\n\nThe chapter closes with a question: What can be demonstrated, and what deserves to be told as a story?',status:'original interactive chapter preview · not a full completed novel'};
+    const scene=d.sceneNotes[volumeId][index];
+    return {volume:v,number,title,excerpt:title+'.\n\n'+scene+'\n\nEvidence practice: Mark what the source directly records, what is interpretation, and what belongs to the creator’s story. Keep every original intact.',status:'unique original scene preview · not a full completed novel'};
   }
   function exportBooks(){
-    const lines=['# NATHAN AI · SNOW FAMILY · THE BOOK OF LIGHTS','# 3-volume / 39-chapter series outline','', 'Original story previews and book-development scaffold. Existing creator manuscripts remain unchanged.',''];
-    for(const v of d.volumes){lines.push('## '+v.title,'*'+v.subtitle+'*','');v.chapters.forEach((c,i)=>lines.push((i+1)+'. '+c));lines.push('')}
+    const lines=['# NATHAN AI · SNOW FAMILY · THE BOOK OF LIGHTS','# 3-volume / 39-chapter story preview series','', 'Original chapter scenes and book-development scaffold. Existing creator manuscripts remain unchanged.',''];
+    for(const v of d.volumes){
+      lines.push('## '+v.title,'*'+v.subtitle+'*','');
+      v.chapters.forEach((c,i)=>{const ch=chapter(v.id,i);lines.push('### Chapter '+ch.number+' · '+c,'',ch.excerpt,'')});
+    }
     lines.push('## Source boundaries','The 1380 title is creator-authored. The identified manuscript is catalogued circa 1390. Dante is literature; the 19-level architecture is a creator symbolic model.','', '1+1=2 BUILD · 1-1=0 CLEAR');
     return lines.join('\n');
   }
