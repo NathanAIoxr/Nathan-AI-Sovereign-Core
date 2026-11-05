@@ -6,7 +6,8 @@
  const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
  const safeLoad=(key,fallback)=>{try{const v=localStorage.getItem(key);return v?JSON.parse(v):fallback;}catch{return fallback;}};
  let stored=safeLoad(KEY,null);
- let entries=Array.isArray(stored)&&stored.length===101&&stored.every(x=>Number.isInteger(x.number)&&typeof x.text==='string')?stored:C.placeholderLedger();
+ let entries;
+ try{entries=C.validateEntries(stored);}catch{entries=C.placeholderLedger();}
  let notes=safeLoad(NOTES,{});if(!notes||typeof notes!=='object'||Array.isArray(notes))notes={};
  let question=null, game={index:0,score:0,streak:0,answered:0,locked:false,seen:new Set()};
  function hasSource(){return entries.length===101&&entries.every(e=>e.text&&e.text.trim());}
