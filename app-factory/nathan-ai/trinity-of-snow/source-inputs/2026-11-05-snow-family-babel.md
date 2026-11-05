@@ -22,7 +22,7 @@ These lines are preserved as the creator's own words within his narrative and cr
 - Literary geometry: Dante's *Inferno*, nine concentric descending circles, ancient and medieval map traditions and theological geography
 - Snow Family interpretation: the circa-1390 manuscript illustration, religious caricature and antisemitism, winter folklore, and fictional guardians of children, animals and Mother Earth
 - Creator's exact world order: **ABOVE / NORTH: +9 +8 +7 +6 +5 +4 +3 +2 +1**; **MIDDLE / EQUATOR / VOID: 0**; **BELOW / SOUTH: -9 -8 -7 -6 -5 -4 -3 -2 -1**
-- Author's 0–9 operational framework and 4×6 formula: cataloged separately at [../../../../one/nathan-matrix/unified-field/CREATOR_INPUT_2026-11-05.md](../../../../one/nathan-matrix/unified-field/CREATOR_INPUT_2026-11-05.md)
+- Author's 0–9 operational framework and 4×6 formula: cataloged separately at [../../../one/nathan-matrix/unified-field/CREATOR_INPUT_2026-11-05.md](../../../one/nathan-matrix/unified-field/CREATOR_INPUT_2026-11-05.md)
 - Educational treatment: keep historical artifacts, the author's story, KJV text, poetry, wordplay and physical geography as individually labeled materials
 
 ## Sift-and-sort rule
@@ -33,4 +33,4 @@ Preserve the quoted creator lines without corrections or substitutions. Add hist
 
 - [Original Trinity of Snow archive](../index.html)
 - [Snow Family interactive chat, game, books, education and 19-level world](../field-experience/index.html)
-- [Independent ONE unified 4×6 matrix reference](../../../../one/nathan-matrix/unified-field/README.md)
+- [Independent ONE unified 4×6 matrix reference](../../../one/nathan-matrix/unified-field/README.md)
