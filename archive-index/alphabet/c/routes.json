@@ -1,0 +1,237 @@
+{
+  "schema": "nathan-ai-letter-c-variant-routes-v1",
+  "date": "2026-11-05",
+  "maintainer": "Nathan AI / Nathan Tabor",
+  "mode": "additive and non-destructive",
+  "source_scope": "public labels and rules; owner-managed originals not included",
+  "counts": {
+    "c_initial_files_and_folders": 313,
+    "numbered_c_files_and_folders": 8,
+    "the_c_files_and_folders": 46,
+    "total_listing_occurrences": 367,
+    "distinct_filenames": 355
+  },
+  "exact_author_phrases": [
+    "ABOVE C — WHAT YOU HEAR",
+    "BELOW C — WHAT YOU SEE",
+    "THE MIDDLE C — THE COLLISION",
+    "C = CONSCIOUSNESSES",
+    "Spell It The Way It Sounds",
+    "ORIGINAL SOUND → ORIGINAL SPELLING → BINARY REPRESENTATION → ALGORITHMIC ANALYSIS"
+  ],
+  "variations": [
+    {
+      "route": "literal-c-initial",
+      "examples": [
+        "C",
+        "c",
+        "Cipher",
+        "Christmas",
+        "Consciousness",
+        "Cosmic"
+      ],
+      "relation": "literal leading letter",
+      "evidence": "filename or exact token"
+    },
+    {
+      "route": "the-c-prefix",
+      "examples": [
+        "The Christmas Thief",
+        "The Counter Library",
+        "THE_COMPREHENSION_MATRIX"
+      ],
+      "relation": "article + C title",
+      "evidence": "exact filename"
+    },
+    {
+      "route": "numbered-c-prefix",
+      "examples": [
+        "52_Consciousness_series.md",
+        "06_Cosmic_Couples_and_Spatial_Models"
+      ],
+      "relation": "leading number + C title",
+      "evidence": "exact filename"
+    },
+    {
+      "route": "letter-repetition",
+      "examples": [
+        "C",
+        "CC",
+        "CCC",
+        "cccc"
+      ],
+      "relation": "written repetitions",
+      "evidence": "exact written string"
+    },
+    {
+      "route": "phonetic-resemblance",
+      "examples": [
+        "C",
+        "see",
+        "sea",
+        "cee",
+        "si"
+      ],
+      "relation": "spoken resemblance candidate only; preserve sea/SCA distinction",
+      "evidence": "language, accent and context required"
+    },
+    {
+      "route": "hard-c",
+      "examples": [
+        "cat",
+        "carbon",
+        "code",
+        "copper"
+      ],
+      "relation": "English hard-C illustrative examples",
+      "evidence": "pronunciation in specific word"
+    },
+    {
+      "route": "soft-c",
+      "examples": [
+        "city",
+        "cipher",
+        "cereal"
+      ],
+      "relation": "English soft-C illustrative examples",
+      "evidence": "pronunciation in specific word"
+    },
+    {
+      "route": "digraph-c",
+      "examples": [
+        "ch",
+        "ck",
+        "sc"
+      ],
+      "relation": "written digraph or letter cluster",
+      "evidence": "word-specific pronunciation"
+    },
+    {
+      "route": "c-shaped-mirror",
+      "examples": [
+        "C",
+        "Ↄ",
+        "Ɔ",
+        "ɔ"
+      ],
+      "relation": "font-sensitive graphic reflection candidate",
+      "evidence": "font/rendered glyph required; no linguistic equivalence"
+    },
+    {
+      "route": "cross-script-lookalikes",
+      "examples": [
+        "С",
+        "с",
+        "Ϲ",
+        "ϲ"
+      ],
+      "relation": "non-Latin script glyphs resembling Latin C",
+      "evidence": "original script and context; not transliterations"
+    },
+    {
+      "route": "circled-c",
+      "examples": [
+        "©",
+        "Ⓒ",
+        "ⓒ"
+      ],
+      "relation": "graphic enclosure/symbol",
+      "evidence": "specific usage; copyright vs decorative C not conflated"
+    },
+    {
+      "route": "roman-numeral-c",
+      "examples": [
+        "C",
+        "CC",
+        "CCC",
+        "CD",
+        "CM"
+      ],
+      "relation": "Roman numeral C=100 in applicable notation",
+      "evidence": "context and valid numeral"
+    },
+    {
+      "route": "chemical-symbol-c",
+      "examples": [
+        "C",
+        "carbon",
+        "Cu",
+        "copper"
+      ],
+      "relation": "carbon C (atomic number 6) vs copper Cu (atomic number 29)",
+      "evidence": "case-sensitive chemistry context"
+    },
+    {
+      "route": "computing-c",
+      "examples": [
+        "C",
+        "C++",
+        "C#"
+      ],
+      "relation": "programming language names",
+      "evidence": "software context only"
+    },
+    {
+      "route": "musical-c",
+      "examples": [
+        "Middle C",
+        "C4"
+      ],
+      "relation": "pitch/piano notation, octave labels vary by system",
+      "evidence": "music notation context"
+    },
+    {
+      "route": "author-middle-c",
+      "examples": [
+        "Above C",
+        "Below C",
+        "The Middle C",
+        "CONSCIOUSNESSES"
+      ],
+      "relation": "creator's three-plane symbolic interpretation",
+      "evidence": "author-authored concept; not scientific identity"
+    },
+    {
+      "route": "reverse-order",
+      "examples": [
+        "CIPHER → REHPIC",
+        "CHRISTMAS → SAMTSIRHC",
+        "C → C"
+      ],
+      "relation": "mechanical exact character-order reversal",
+      "evidence": "string transform only; no automatic vocabulary match"
+    },
+    {
+      "route": "historical-lexical",
+      "examples": [
+        "cipher",
+        "code",
+        "cross",
+        "covenant",
+        "creation"
+      ],
+      "relation": "research topics and candidate crosslinks",
+      "evidence": "cite each etymology and primary source independently"
+    },
+    {
+      "route": "numeric-identity",
+      "examples": [
+        "C=3 (Latin alphabet position)",
+        "C=100 (Roman numeral)",
+        "C=67 (ASCII uppercase)",
+        "c=99 (ASCII lowercase)"
+      ],
+      "relation": "different conventions; not one interchangeable number",
+      "evidence": "explicit notation system"
+    }
+  ],
+  "literal_not_equivalent": [
+    "C and sea/SCA",
+    "C and Cyrillic С",
+    "Latin C and mirrored Ↄ",
+    "Carbon C and Copper Cu",
+    "C as pitch, Roman numeral, programming language, letter, and creator symbol",
+    "Original filenames and generated variation labels"
+  ],
+  "original_status_policy": "Do not promote filename, proposal, image, story bible, translation, reference or code file to finished work without verifying the original."
+}
