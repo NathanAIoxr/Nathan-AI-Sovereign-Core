@@ -1,0 +1,32 @@
+name: ONE private catalog gateway checks
+on:
+  pull_request:
+    paths:
+      - 'app-factory/one/catalog-api/**'
+      - '.github/workflows/one-catalog-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/one/catalog-api/**'
+      - '.github/workflows/one-catalog-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  catalog-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Check private catalog server syntax
+        run: node --check app-factory/one/catalog-api/server.cjs
+      - name: Check authenticated read-only adapter with fake upstream
+        run: node --test app-factory/one/catalog-api/server.test.cjs
+      - name: Check no secrets were committed
+        shell: bash
+        run: |
+          test ! -f app-factory/one/catalog-api/.env
+          test -f app-factory/one/catalog-api/.env.example
