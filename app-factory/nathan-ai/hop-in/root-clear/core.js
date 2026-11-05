@@ -8,6 +8,7 @@
   ]);
   const CASE_STUDY = Object.freeze({
     source: CANON,
+    original: CANON,
     complication: "The response added philosophy, exceptions, qualifications, and unnecessary questions.",
     root: "The response changed the task from preserving a direct principle to debating it.",
     fix: "Keep the original words unchanged. Remove the extra layers. Apply the three-step process."
