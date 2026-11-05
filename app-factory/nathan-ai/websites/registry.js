@@ -190,6 +190,13 @@ window.NathanAIWebsiteModules = [
     "status": "Public browser module"
   },
   {
+    "id": "nathan-ai/program-jobs/index.html",
+    "title": "Program Jobs & Completion Atlas",
+    "url": "../../nathan-ai/program-jobs/index.html",
+    "group": "apps",
+    "status": "Public browser module"
+  },
+  {
     "id": "nathan-ai/children-innocence/index.html",
     "title": "Children’s Library & Innocence",
     "url": "../../nathan-ai/children-innocence/index.html",
