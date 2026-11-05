@@ -14,7 +14,7 @@
  function safeLocalHref(href){
   // Relative to the nathan-ai/consumer directory. No protocols, queries, fragments or
   // embedded slash tricks; allows only static local HTML destinations.
-  return typeof href==='string'&&/^(\.\.\/){1,2}[a-z0-9_-]+(?:\/[a-z0-9_.-]+)*\/index\.html$/i.test(href)&&!/%|\\|\/\/|\s/.test(href);
+  return typeof href==='string'&&/^(\.\.\/){1,2}[a-z0-9_-]+(?:\/[a-z0-9_-]+)*\/index\.html$/i.test(href)&&!/%|\\|\/\/|\s/.test(href);
  }
  function verifyProducts(data){
   must(data&&data.schema===PRODUCTS_SCHEMA&&Array.isArray(data.products)&&data.products.length>0,'Invalid consumer product catalog');
