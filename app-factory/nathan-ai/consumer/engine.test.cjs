@@ -9,7 +9,7 @@ const regions=JSON.parse(fs.readFileSync(path.join(__dirname,'jurisdictions.json
 
 test('all consumer product records are distinct and point to real checked-in HTML source',()=>{
  const summary=C.verifyProducts(products);
- assert.equal(summary.products,12);
+ assert.equal(summary.products,13);
  assert.equal(new Set(products.products.map(p=>p.id)).size,products.products.length);
  assert.deepEqual(C.categories(products).sort(),[
   'Books & knowledge','Creative learning','Creator workbench','Home & discovery','Private storage','Safety & research','Sensitive personal tools'
@@ -40,7 +40,7 @@ test('search and category/stage filters accurately reflect consumer jobs without
  assert.ok(backups.some(x=>x.id==='offloader'));
  assert.ok(!backups.some(x=>x.id==='six-dogs'));
  const security=C.filterProducts(products,{category:'Safety & research'});
- assert.deepEqual(security.map(p=>p.id).sort(),['guardians','hall']);
+ assert.deepEqual(security.map(p=>p.id).sort(),['defender','guardians','hall']);
  assert.ok(security.every(p=>p.stage==='developer-preview'));
  const sensitive=C.filterProducts(products,{stage:'owner-local-browser'});
  assert.ok(sensitive.some(p=>p.id==='health'));

@@ -12,7 +12,7 @@ const app=fs.readFileSync(path.join(__dirname,'app.js'),'utf8');
 const html=fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
 
 test('every consumer source product has specific data provenance and clear unverified gaps',()=>{
- assert.equal(C.verifyDataPractices(data,products).records,12);
+ assert.equal(C.verifyDataPractices(data,products).records,13);
  assert.deepEqual(data.records.map(x=>x.id).sort(),products.products.map(x=>x.id).sort());
  for(const r of data.records){
   assert.ok(fs.existsSync(path.resolve(__dirname,'../../..',r.evidencePath)),r.evidencePath);

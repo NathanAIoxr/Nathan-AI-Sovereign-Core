@@ -1,0 +1,192 @@
+{
+  "schema": "nathan-ai.sovereign-defender.family.v1",
+  "asOf": "2026-11-05",
+  "intent": "Preserve original system identities and build owner-authorized defensive functions without converting historical titles into falsely completed malware/security products.",
+  "author": "Nathan Tabor",
+  "completionRule": "Historical names are not proof of recoverable code; executable source and test results are tracked separately. Synthetic activity is not active security enforcement.",
+  "families": [
+    {
+      "id": "passive-antivirus",
+      "label": "Antivirus and malware screening",
+      "product": "SOVEREIGN DEFENDER",
+      "stage": "working-limited-prototype",
+      "originals": [
+        "THE NATHAN TABOR HALL OF MIRRORS",
+        "Anti-Malware Exorcism Engine",
+        "Non-Security Trojan Purge"
+      ],
+      "implemented": [
+        "read-only owner-selected scans",
+        "EICAR harmless test fingerprint indicator",
+        "source-text/filename review patterns",
+        "browser file hash/limits"
+      ],
+      "stillNeeded": [
+        "independent detection evaluation",
+        "maintained detection feed or trusted engine integration",
+        "binary/archive safety testing",
+        "signed distribution",
+        "OS-level permission and antivirus-engine audit"
+      ]
+    },
+    {
+      "id": "ransomware",
+      "label": "Ransomware resilience",
+      "product": "SOVEREIGN DEFENDER mock exercise + ONE backups",
+      "stage": "working-safe-exercise",
+      "originals": [
+        "Ransomware Immunization Injection",
+        "Trinity of Snow 2026-11-04 Protocol",
+        "Sovereign Core Extraction Defense"
+      ],
+      "implemented": [
+        "fictional event-only detection",
+        "hash-based baseline review",
+        "manual incident steps"
+      ],
+      "stillNeeded": [
+        "actual isolated restore exercise on owner backup",
+        "recovery point testing",
+        "baseline preservation off device",
+        "verified recoverability without ransom",
+        "independent security review"
+      ]
+    },
+    {
+      "id": "dehack",
+      "label": "Dehacking and incident containment",
+      "product": "Five Equal Guardians + Sovereign Defender",
+      "stage": "policy-and-review-only",
+      "originals": [
+        "NATHAN AI Hack D Hack / Glyphstream Breach Engine",
+        "GUARDRAILAI",
+        "Absolute Consent Logic Firewall",
+        "Administrative Boundary Lockout"
+      ],
+      "implemented": [
+        "owner-local risk indicators",
+        "reviewable access-policy preview",
+        "scoped and no-write inspection"
+      ],
+      "stillNeeded": [
+        "recovery of original named programs",
+        "authenticated owner scope",
+        "signed event receipts",
+        "reversible local remediation workflow",
+        "real operator testing"
+      ]
+    },
+    {
+      "id": "integrity",
+      "label": "Original-file preservation, audit and recovery",
+      "product": "ONE / Offloader / Lean Cloud + Sovereign Defender",
+      "stage": "source-plus-tests",
+      "originals": [
+        "Broken Anchor Recovery Script",
+        "Sovereign Command Encryption",
+        "Memory Dump Counter-Strike"
+      ],
+      "implemented": [
+        "SHA-256 source digests",
+        "before/after manifests",
+        "ONE ciphertext backup integrity verification"
+      ],
+      "stillNeeded": [
+        "owner-controlled restore validation",
+        "key recovery plan",
+        "cryptographic threat review",
+        "independent offline storage"
+      ]
+    },
+    {
+      "id": "network",
+      "label": "Network, browser and credential security",
+      "product": "Five Equal Guardians",
+      "stage": "owner-policy-preview",
+      "originals": [
+        "Port 80 Silent Handshake De-Hack",
+        "Automated Credential Invariant Lock",
+        "System Registry Invariant Key Lock",
+        "Tracking Cookie Annihilation Directive"
+      ],
+      "implemented": [
+        "educational authorization gates",
+        "inert policy evaluation"
+      ],
+      "stillNeeded": [
+        "verified endpoint rules and authentication integration",
+        "audited response handling",
+        "platform-specific consent and permissions",
+        "incident rollback"
+      ]
+    },
+    {
+      "id": "hardware",
+      "label": "Firmware, hardware and embedded protection",
+      "product": "Sovereign Continuum source/firmware",
+      "stage": "architecture-and-source",
+      "originals": [
+        "System Firmware Invariant Scan",
+        "Hardware Spoofing Integrity Matrix",
+        "Shadow Shield Phase Mirror"
+      ],
+      "implemented": [
+        "archived source references and firmware specimens"
+      ],
+      "stillNeeded": [
+        "authorized hardware test bench",
+        "documented firmware flashing/rollback",
+        "signed reference hashes",
+        "physical verification"
+      ]
+    },
+    {
+      "id": "private-simulation",
+      "label": "Simulations and attack-pattern research",
+      "product": "Deep Rock / Hall of Mirrors",
+      "stage": "nonexecuting-laboratory",
+      "originals": [
+        "Inverted Execution Override",
+        "21-Ring Core Bypass",
+        "Remote Shell Disruption Hack",
+        "Fake Audit Deconstruction Vector",
+        "Guardian V2.0 Counter-Strike"
+      ],
+      "implemented": [
+        "nonexecuting event review",
+        "owner-local arithmetic and STOP",
+        "documented source/risk boundaries"
+      ],
+      "stillNeeded": [
+        "recover original run logs and source for historical claims",
+        "separate operator-verified evidence from creator description",
+        "do not run intrusive payloads or external targets"
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "label": "CISA StopRansomware guide (2025)",
+      "url": "https://www.cisa.gov/sites/default/files/2025-03/StopRansomware-Guide%20508.pdf"
+    },
+    {
+      "label": "FBI cyber resilience and offline backups",
+      "url": "https://www.fbi.gov/investigate/cyber/ten-actions-to-improve-cyber-resiliency"
+    },
+    {
+      "label": "EICAR harmless antivirus test file",
+      "url": "https://www.eicar.org/download-anti-malware-testfile/"
+    },
+    {
+      "label": "NIST Ransomware Risk Management Community Profile",
+      "url": "https://www.nist.gov/itl/smallbusinesscyber/guidance-topic/ransomware"
+    }
+  ],
+  "links": {
+    "hall": "../../one/hall-of-mirrors/",
+    "guardians": "../five-guardians/",
+    "one": "../../one/offloader/",
+    "recovery": "../program-jobs/",
+    "originalNames": "../build-recovery/"
+  }
+}

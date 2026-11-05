@@ -248,6 +248,31 @@
         "recover",
         "programs"
       ]
+    },
+    {
+      "id": "defender",
+      "name": "NATHAN AI — SOVEREIGN DEFENDER",
+      "task": "Review selected files, compare original hashes and rehearse safe ransomware response",
+      "category": "Safety & research",
+      "stage": "developer-preview",
+      "href": "../sovereign-defender/index.html",
+      "details": "Local-only antivirus-style file triage, SHA-256 original-fingerprint comparison and fictional ransomware-event review. Uses the preserved Hall of Mirrors classifier.",
+      "limits": [
+        "Not installed antivirus, real malware removal, ransomware decryption, live protection or a security certification.",
+        "Select only files you own or are authorized to inspect; reports contain filenames and hashes that may be sensitive.",
+        "No indicator observed is not a safety clearance; keep separate offline backups and use a maintained security product for actual incidents."
+      ],
+      "tags": [
+        "virus",
+        "antivirus",
+        "ransomware",
+        "hack",
+        "dehack",
+        "defender",
+        "backup",
+        "security",
+        "originals"
+      ]
     }
   ]
 }
