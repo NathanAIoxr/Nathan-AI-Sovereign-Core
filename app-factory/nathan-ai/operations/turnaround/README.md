@@ -40,7 +40,7 @@ The supplied excerpt provides **nine app categories, six strategic game subcateg
 
 **The stated “101 elements of Personal Intelligence” is a source claim.** The current excerpt does not identify all 101 distinct item IDs or their original files; do not fabricate an exhaustive item registry or mark the 101 as verified complete. Any future import should add provenance, source URI, original wording, privacy status, version, hash and explicit per-category mapping.
 
-The 69,696,969, 696 and 969 values represent the author's named tiers, not proof of deployed process counts. They are **not automatically summed into a fourth user-provided total**, because the user did not specify that mathematical aggregation.
+Related archives remain **separately sovereign**: the owner-held `Tabor_Matrix_101_Annotated_Archive.json` includes four described sections (1–20, 21–40, 41–70, 71–101), while a different owner-held `protocols.json` contains 100 extracted tactical protocol entries numbered 102–201, despite a source headline that says 101. Neither set is silently substituted for the 101 Personal Intelligence elements in this excerpt; neither private source is published here. The registry retains metadata-only cross-references.\n\nThe 69,696,969, 696 and 969 values represent the author's named tiers, not proof of deployed process counts. They are **not automatically summed into a fourth user-provided total**, because the user did not specify that mathematical aggregation.
 
 ## Operations and safety contracts
 
