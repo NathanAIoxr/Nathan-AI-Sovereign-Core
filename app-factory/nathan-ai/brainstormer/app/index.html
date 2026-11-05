@@ -355,5 +355,6 @@ $('canvas-blocks').addEventListener('input',e=>{if(e.target.dataset.blockText)qu
 render();const starting=state.activeTab;selectTab(['brainstorm','arcade','academy','garage','workspace','calendar','package'].includes(starting)?starting:'brainstorm');
 })();
 </script>
+<div style="position:fixed;right:12px;bottom:12px;z-index:200;background:#183c48;border:1px solid #a5e7d0;padding:8px;border-radius:12px"><button type="button" id="brainstormer-hop-in" style="padding:8px;border-radius:8px;cursor:pointer">Continue in Nathan AI Chatbox</button></div><script>document.getElementById('brainstormer-hop-in').addEventListener('click',function(){try{sessionStorage.setItem('nathan.brainstormer.handoff.v1',JSON.stringify({schema:'nathan.brainstormer.handoff.v1',title:'The Brainstormer',form:'app',version:1}));}catch(e){}location.href='../../hop-in/chatbox/index.html'});</script>
 </body>
 </html>
