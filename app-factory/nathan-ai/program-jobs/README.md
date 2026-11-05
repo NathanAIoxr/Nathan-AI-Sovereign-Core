@@ -16,7 +16,7 @@
 | Original architecture modules | 54 | Named modules; actual implementation may be elsewhere |
 | Operations specifications | 13 | Read-only designs, not deployed operations |
 | Owner-held private archive anchors | 14 | Source filenames preserved; private contents absent |
-| Historical Hall of Mirrors branch | 1 | Source and tests on separate branch |
+| Historical Hall of Mirrors recovered from a branch | 1 | Original historical code and tests preserved unchanged in main; still not antivirus |
 | **Evidence records** | **357** | **Overlapping kinds; NOT 357 distinct completed products** |
 
 Counts come from the November 5, 2026 repository snapshot and the existing source recovery register. The earlier recovery totals of 6,056 master records, 383 technology records, 273 normalized technology titles, and approximately 5,447 saved-file records are historical archive descriptions, **not verified completed-app counts**.
