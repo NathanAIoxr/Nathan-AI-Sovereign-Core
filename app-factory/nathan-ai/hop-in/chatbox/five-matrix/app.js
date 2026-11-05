@@ -11,10 +11,39 @@ function askChat(text){
  else{const a=make('a');a.href='../index.html';a.click();}
 }
 function setTab(tab){for(const b of document.querySelectorAll('[data-tab]'))b.setAttribute('aria-pressed',String(b.dataset.tab===tab));for(const panel of document.querySelectorAll('[data-view]'))panel.hidden=panel.dataset.view!==tab;}
+
+function importBaseline(baseline){
+ const map={lotr:'Middle-earth',hobbit:'The Hobbit',narnia:'Narnia',kjv:'KJV',design:'Interpretive model'};
+ const cats=new Map(baseline.categories.map(x=>[x.id,x.name]));
+ const added=baseline.objects.map(o=>({
+  id:'BASE:'+o.id,name:o.title,universe:map[o.universe]||o.universe,
+  class:cats.get(o.category)||o.category,
+  matrices:o.matrices.map(x=>x.toUpperCase()),summary:o.summary,source:o.source+' · Existing Atlas baseline',
+  links:(o.links||[]).map(x=>'BASE:'+x),material:o.material,dimensions:o.dimensions,
+  function:o.function,bearer:o.bearer,attributes:o.attributes,recordType:'original-atlas-baseline'
+ }));
+ state.data.records.push(...added);state.baseline=baseline;
+}
+function renderBaselineTables(){
+ const b=state.baseline;if(!b)return;
+ const destination=$('baseline-structure');if(!destination)return;clear(destination);
+ const panels=[
+  {name:'Symbolic transformations',arr:b.transformations,describe:x=>(x.from+' ↔ '+x.to+' · '+x.explanation)},
+  {name:'KJV passage reference index',arr:b.scripture,describe:x=>(x.ref+' · '+x.topic+' · '+x.type)},
+  {name:'World timelines',arr:b.events,describe:x=>(x.date+' · '+x.name+' · '+x.description)}
+ ];
+ for(const item of panels){
+  const details=make('details'),summary=make('summary',item.name+' ('+item.arr.length+')');details.append(summary);
+  for(const entry of item.arr){const p=make('p',item.describe(entry));details.append(p);}
+  destination.append(details);
+ }
+}
+
 function drawRecord(rec){
  const c=make('article',undefined,'card'),head=make('div',rec.id+' · '+rec.universe,'meta'),name=make('h3',rec.name),kind=make('span','Primary class: '+rec.class,'class'),description=make('p',rec.summary),origin=make('p','Source: '+rec.source,'muted'),tags=make('div',undefined,'tags');
  for(const m of rec.matrices)tags.append(make('span',m));
  c.append(head,name,kind,description,tags,origin);
+ if(rec.recordType==='original-atlas-baseline')c.append(make('p','Material: '+(rec.material||'not specified')+' · Dimensions: '+(rec.dimensions||'not specified')+' · Function: '+(rec.function||'not specified')+' · Bearer: '+(rec.bearer||'not specified'),'muted'));
  if(rec.links.length){const related=state.data.records.filter(x=>rec.links.includes(x.id)).map(x=>x.name);if(related.length)c.append(make('p','Linked — not merged: '+related.join('; '),'muted'));}
  const button=make('button','Ask Nathan AI about '+rec.name);button.type='button';button.addEventListener('click',()=>askChat('Explore '+rec.name+' in '+rec.universe+' across the Five Matrices, keeping source objects separate from symbolic comparisons.'));c.append(button);
  return c;
@@ -100,6 +129,11 @@ async function init(){
  try{
  const response=await fetch('catalog.json',{cache:'no-store'});if(!response.ok)throw Error('Catalog not found.');
  state.data=E.validate(await response.json());
+ try{
+ const fetched=await fetch('../../../../one/five-matrix-atlas/data/atlas-baseline-103.json',{cache:'no-store'});
+ if(fetched.ok){const base=await fetched.json();if(base.objects?.length===103&&base.transformations?.length===22&&base.scripture?.length===20)importBaseline(base);}
+ }catch(_){/* The curated learning app still functions without the baseline file. */}
+ renderBaselineTables();
  $('record-count').textContent=state.data.records.length;$('book-count').textContent=state.data.books.length;$('game-count').textContent=state.data.questions.length;
  for(const b of document.querySelectorAll('[data-tab]'))b.addEventListener('click',()=>setTab(b.dataset.tab));
  for(const id of ['atlas-query','atlas-universe','atlas-matrix'])$(id).addEventListener(id==='atlas-query'?'input':'change',showAtlas);
