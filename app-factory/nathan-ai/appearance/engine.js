@@ -6,6 +6,7 @@
     ['midnight','Sovereign Midnight','Ink blue, warm gold, quiet precision.','dark','#0b1422','#12243a','#eef5ff','#b6c8df','#eac784','#15232e','#46617e','#6ee1d3'],
     ['aurora','Aurora','Indigo surfaces and luminous mint.','dark','#10142a','#1d2444','#f3f1ff','#c7c4e0','#a9f3df','#09251f','#665a94','#c3b1ff'],
     ['oceanic','Oceanic','Deep-water blue and sea-glass accents.','dark','#071b27','#0f3042','#edfaff','#b9d8e4','#7be0dd','#09292b','#436f83','#b0e5ff'],
+    ['sovereign-prism','Sovereign Prism','Midnight graphite, luminous sea-glass, and ceremonial gold.','dark','#081320','#132b40','#f3f8fd','#bfd4e2','#a5eee7','#0a2832','#5d8191','#e9d69d'],
     ['parchment','Library Parchment','Warm paper and editorial brown.','light','#f5efdf','#fffcf3','#302b22','#675b45','#6b3c17','#fff8e9','#a99a7b','#345e55'],
     ['studio','Studio Light','Clear white surfaces with cobalt focus.','light','#f5f7fb','#ffffff','#172d42','#4c6175','#1353b4','#ffffff','#9aaabd','#426559'],
     ['terminal','Terminal','Green phosphor on near-black.','dark','#050e0b','#0d1d15','#c8ffd1','#9ac7a4','#8bf3a6','#082011','#397951','#cce68a'],
