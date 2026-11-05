@@ -189,5 +189,50 @@
     "acromatrix": "../../one/sovereign-acro-matrix/index.html",
     "nathanAI": "../index.html"
   },
-  "clinicalBoundary": "Not a grief scale, psychotherapy, medical intervention, detection of stress, or guarantee of a stress-free state."
+  "clinicalBoundary": "Not a grief scale, psychotherapy, medical intervention, detection of stress, or guarantee of a stress-free state.",
+  "macroTopology": {
+    "status": "implemented as offline JS pure graph and local browser viewer",
+    "layers": [
+      "Sovereign user governance",
+      "Typed asset registry",
+      "Local repository adapter",
+      "Publish-subscribe event bus",
+      "Offline edge runtime"
+    ],
+    "graphNodes": [
+      "user",
+      "registry",
+      "store",
+      "events",
+      "runtime",
+      "gate",
+      "workflow",
+      "device"
+    ],
+    "graphSemantics": "Stage selection creates bounded local event log and updates current graph view; no network or cloud services",
+    "persistence": "Topology viewer in-memory only; manual JSON export"
+  },
+  "microEngine": {
+    "status": "implemented in JS and Python, no external inference",
+    "python": "sovereign_unit.py",
+    "javascript": "topology.js",
+    "checks": [
+      "Grapheme-aware JS structural reversal/round-trip",
+      "human-labeled source-review separation",
+      "strict whole-integer arithmetic",
+      "explicit confirmation before clearing local drafts"
+    ],
+    "gates": {
+      "0": "Hold or withhold, not proof of deception and not deletion",
+      "1": "Specified structural/review check satisfied, not universal factual proof"
+    },
+    "ports": [
+      "in-memory key/value adapter",
+      "in-process publish-subscribe",
+      "explicit stage selection event",
+      "optional user-authorized serial output"
+    ],
+    "cloudInfrastructure": "not implemented or required",
+    "policy": "No embedded lie detection, medical diagnosis, autonomous purge, or claim of remote revocation immunity"
+  }
 }
