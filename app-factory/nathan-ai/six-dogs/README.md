@@ -101,3 +101,11 @@ Validation:
     python3 -m unittest discover -s app-factory/nathan-ai/six-dogs -p 'test_*.py' -v
 
 An unreviewed claim never automatically triggers a purge. Deletion of the Six Dogs session remains an explicit user action.
+
+## Micro Edge + Macro Fabric (new runnable Python extension)
+
+[Open the edge-mesh source and installation guide](edge-mesh/README.md) · [MicroEdgeEngine](edge-mesh/micro_edge.py) · [MacroNetworkFabric](edge-mesh/macro_fabric.py) · [encrypted local vector store](edge-mesh/encrypted_store.py) · [offline Docker Compose](edge-mesh/compose.yaml).
+
+The author-supplied KNICK/KNACK/PADDY/WHACK/DOG/BONE processing layout is implemented as an **optional standalone Python demonstration**. It provides bounded local token staging, actual packed signed INT4/INT8 numeric arrays, software pacing, deterministic planning across explicitly registered simulated peers, local SHA-256 context digests and honest output integrity checking. It includes an **opt-in AES-256-GCM local filesystem vector adapter** with an externally provided key, plus a no-network runtime Docker Compose example. A full LLM quantizer, distributed execution framework, actual peer network, hardware encryption and zero-knowledge proof are **not implemented**. The established Six Dogs source sequences and all original UI modules remain unchanged.
+
+Run regression: python3 -m unittest discover -s app-factory/nathan-ai/six-dogs/edge-mesh -p 'test_*.py' -v (with the separately declared cryptography dependency installed for encryption tests).
