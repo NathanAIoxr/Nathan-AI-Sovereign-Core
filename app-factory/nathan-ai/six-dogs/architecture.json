@@ -234,5 +234,35 @@
     ],
     "cloudInfrastructure": "not implemented or required",
     "policy": "No embedded lie detection, medical diagnosis, autonomous purge, or claim of remote revocation immunity"
+  },
+  "pythonEdgeMesh": {
+    "status": "runnable local demonstration with automated regression suite",
+    "path": "edge-mesh/",
+    "micro": {
+      "knick": "bounded local text input buffer",
+      "knack": "per-tensor INT4/INT8 quantization, INT4 two signed values per byte",
+      "paddy": "software batch pacing, no hardware thermal feedback"
+    },
+    "macro": {
+      "whack": "deterministic local partition plan using explicitly registered peers; no real P2P",
+      "dog": "canonical numeric vector SHA-256, local hash map; not distributed DHT",
+      "bone": "local string assembly and SHA-256 payload integrity, not ZK or consensus"
+    },
+    "storage": {
+      "default": "in memory, no persisted vector",
+      "optIn": "AES-256-GCM local file per context with user-provided 32-byte secret",
+      "hardwareKeyStorage": false,
+      "keyInGit": false,
+      "delete": "explicit confirmation; not guaranteed secure physical erase"
+    },
+    "container": {
+      "dockerfile": "edge-mesh/Dockerfile",
+      "compose": "edge-mesh/compose.yaml",
+      "runtimeNetwork": "none",
+      "modelWeightsBundled": false,
+      "cloudApisRequired": false,
+      "buildNetworkForImageAndPip": "normally required unless dependencies prefetched"
+    },
+    "tests": "edge-mesh/test_edge_mesh.py"
   }
 }
