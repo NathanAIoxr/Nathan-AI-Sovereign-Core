@@ -4,6 +4,30 @@
 
 **Purpose:** One consumer doorway to existing Nathan AI sources, personal creative explorations, research, and A–Z feature concepts. This is a functioning browser **prototype**, not a live universal AI service or finished implementation of every source feature.
 
+## Words → Worlds — Unboxed source-first studio (2026-11-05)
+
+[Open the full restoration and completion plan](./UNBOXED_PLAN.md) · [Source archive](../../protection-of-innocence/david-exchange-2026-11-05/README.md)
+
+The chatbox now includes **Create**, also reached with `/studio` or the new starter prompt. The original HOP IN modes, Paradox Atlas and ROOT → CLEAR → BUILD routes remain intact. All new features are local-first browser prototypes:
+
+- App workflow: source → index → relate → derive, with a checklist and original-source links.
+- Game: all six source-evidence choices simultaneously visible, scoring and resets.
+- Books: all seven book outlines and note editors simultaneously visible, individual or complete-series Markdown export and notes JSON export.
+- Learn: all five educational lessons, practice activities and answers simultaneously visible.
+- Originals: adult-confirmation gate, then **all complete records opened as plain text**, search, complete JSON export, and user-chosen local-only JSON import of additional original records. Repeat wording is not deduplicated, and IDs cannot collide silently.
+
+The four creator-authored messages were transcribed from the visible current conversation and are not a byte-confirmed full account export. This work does not claim that David's full biography or all other owner manuscripts have been recovered. The adult originals retain their exact displayed text; game/book/lesson copy is new editorial development text. Original words containing threatening language or a slur are not injected into the educational game.
+
+Local import has explicit 8MB-per-file and 1,500-record upper limits; oversize input is **rejected whole**, never partially loaded or truncated. Book drafts over 250,000 characters per volume are likewise rejected for export with an explicit message rather than shortened. Do not store credentials or confidential survivor details.
+
+```sh
+node --test app-factory/nathan-ai/hop-in/chatbox/engine.test.cjs
+node --test app-factory/nathan-ai/hop-in/chatbox/source-studio.test.cjs
+node --test app-factory/nathan-ai/protection-of-innocence/david-exchange-2026-11-05/archive.test.cjs
+```
+
+The focused workflow is `.github/workflows/words-to-worlds-ci.yml`. Site deployment, real-device accessibility and repository-wide CI remain separate release gates.
+
 ## Working functions
 
 - Real text conversation window with local route responses, context-specific links, scrolling that respects users reading older turns, contextual suggestions, seven mode buttons and separately labeled local/source/model responses.
