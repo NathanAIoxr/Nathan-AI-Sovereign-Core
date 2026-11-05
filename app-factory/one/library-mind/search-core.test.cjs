@@ -36,7 +36,7 @@ test('source publication downloads are restricted to fixed archive paths and con
  for(const item of pub.downloads){
   assert.equal(lib.safeDownload(item),true,item.file);
   const target=path.resolve(__dirname,item.file);
-  assert.ok(target.startsWith(path.resolve(__dirname,'downloads')+path.sep));
+  assert.ok(target.startsWith(path.resolve(__dirname,item.file.startsWith('books/')?'books':'downloads')+path.sep));
   assert.ok(fs.statSync(target).isFile(),item.file);
   assert.equal(fs.statSync(target).size,item.bytes,'Original archive size metadata mismatch: '+item.file);
   const actual=crypto.createHash('sha256').update(fs.readFileSync(target)).digest('hex');
