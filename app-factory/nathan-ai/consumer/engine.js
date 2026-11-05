@@ -5,6 +5,7 @@
 (function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.NathanConsumer=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){'use strict';
  const PRODUCTS_SCHEMA='nathan-ai.consumer.products.v1';
  const LAW_SCHEMA='nathan-ai.consumer.jurisdictions.v1';
+ const PRACTICES_SCHEMA='nathan-ai.consumer.data-practices.v1';
  const STAGES=['public-browser-preview','owner-local-browser','developer-preview'];
  // Official-regulator/source domains audited for this dated research checklist.
  const OFFICIAL_HOSTS=new Set(['www.ftc.gov','cppa.ca.gov','commission.europa.eu','ai-act-service-desk.ec.europa.eu','digital-strategy.ec.europa.eu',
@@ -54,6 +55,28 @@
       typeof data.conceptualVocabulary?.clarification==='string','Creator attribution / geography clarification missing');
   return {jurisdictions:ids.size,gates:gates.size};
  }
+
+ function verifyDataPractices(doc,products){
+  verifyProducts(products);
+  must(doc&&doc.schema===PRACTICES_SCHEMA&&Array.isArray(doc.records),'Invalid data practices schema');
+  must(typeof doc.warning==='string'&&doc.warning.length>30,'Missing privacy research limitation');
+  const ids=new Set(products.products.map(x=>x.id)),seen=new Set();
+  for(const r of doc.records){
+   must(r&&ids.has(r.id)&&!seen.has(r.id),'Unknown or duplicate privacy record');
+   seen.add(r.id);
+   for(const key of ['scope','inputs','deviceStorage','remoteActivity','evidenceLevel','ownerAction']){
+    must(typeof r[key]==='string'&&r[key].trim().length>12,'Missing source privacy field '+key);
+   }
+   must(typeof r.evidencePath==='string'&&/^app-factory\/[a-z0-9/_\-.]+\.(?:js|md|html)$/i.test(r.evidencePath)
+     &&!r.evidencePath.includes('..')&&!r.evidencePath.includes('//'),'Unsafe original-source evidence path');
+  }
+  must(ids.size===seen.size,'Some consumer products have no individual data-practice entry');
+  return {records:seen.size,mode:'source-derived-not-runtime-certification'};
+ }
+ function dataPracticesFor(doc,id){
+  must(doc&&Array.isArray(doc.records),'Invalid data practices');
+  return doc.records.find(x=>x.id===id)||null;
+ }
  function filterProducts(data,selection={}){
   verifyProducts(data);
   const q=String(selection.query||'').trim(),category=String(selection.category||'all'),stage=String(selection.stage||'all');
@@ -78,6 +101,6 @@
   // Research checklist, not a machine-generated legal permission.
   return data.releaseGates.map(g=>({id:g.id,title:g.title,requirement:g.requirement,status:'needs-owner-and-qualified-review'}));
  }
- return Object.freeze({PRODUCTS_SCHEMA,LAW_SCHEMA,STAGES,verifyProducts,verifyJurisdictions,safeLocalHref,
+ return Object.freeze({PRODUCTS_SCHEMA,LAW_SCHEMA,PRACTICES_SCHEMA,STAGES,verifyProducts,verifyJurisdictions,verifyDataPractices,dataPracticesFor,safeLocalHref,
    filterProducts,categories,regionById,productDisclaimers,releaseChecklist});
 });
