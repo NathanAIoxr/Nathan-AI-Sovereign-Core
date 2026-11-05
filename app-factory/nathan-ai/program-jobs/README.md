@@ -66,6 +66,12 @@ The previous read-only scanner produces all_files.csv for **owner-selected local
 
 It writes candidate_matches.csv, still_unmatched.csv, and summary.json. Matches are **hints only**, not proof that a historical program is complete. Paths and hashes can identify private work; keep the results out of public GitHub.
 
+## Per-program source coverage verification
+
+Run `python3 app-factory/nathan-ai/program-jobs/verify_source_coverage.py --check --out /tmp/nathan-program-audit.json` to examine **each of the 357 indexed records** without executing any project. This produces source presence, test-file presence and missing original-file status per record and per job. **No program is independently marked complete** from filename checks alone. CI separately exercises covered source tests and reports actual pass/fail. This is additive to the owner's five evidence gates.
+
+The Hall of Mirrors original source and tests have now been recovered unchanged into `app-factory/one/hall-of-mirrors/` from the historical branch. The provenance entry remains in this catalog as `recovered-historical-source`, not a claimed deployed antivirus.
+
 ## Tests
 
     node --test app-factory/nathan-ai/program-jobs/engine.test.cjs
