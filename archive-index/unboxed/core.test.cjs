@@ -1,0 +1,12 @@
+'use strict';
+const test=require('node:test'),a=require('node:assert/strict');
+const C=require('./core.js');
+const tree=require('./repository-tree.json');
+test('full public repository tree is recorded with path and actual git blob sha',()=>{a.equal(tree.schema,'nathan-ai.unboxed.repository-tree.v1');a.equal(tree.complete,true);a.ok(tree.records.length>=1000);a.equal(tree.recordCount,tree.records.length);a.ok(tree.records.every(x=>x.path&&x.gitBlobSha&&x.url.includes(x.path.split('/')[0])));});
+test('distinct snapshots remain separately represented even when titles repeat',()=>{const a1=C.normalize({title:'Same Name',id:'source-a',stage:'draft'},0,'one');const a2=C.normalize({title:'Same Name',id:'source-b',stage:'source'},0,'two');a.notEqual(a1.key,a2.key);a.equal(C.matches([a1,a2],'same').length,2);a.equal(a1.status,'draft');a.equal(a2.status,'source')});
+test('creator titles and primary source names are not normalized away',()=>{const x=C.normalize({source_id_unchanged:'M:001',title_unchanged:'THE Original — Æ/O ↔ Roots',source_status_unchanged:'indexed',source_file_unchanged:'AUTHOR.MD'},0,'owner');a.equal(x.title,'THE Original — Æ/O ↔ Roots');a.equal(x.id,'M:001');a.equal(x.path,'AUTHOR.MD');a.equal(x.status,'indexed')});
+test('freeform themes do not force record into exclusive box',()=>{const x=C.normalize({title:'Paradox & translation',group:'Manuscripts',description:'Quantum and law'},0,'src');a.equal(C.matches([x],'paradox','src','quantum law').length,1);a.equal(C.matches([x],'paradox','different','').length,0)});
+test('owner row adapter preserves complex original payload',()=>{const source={records:[{id:'a',body:'untouched',links:[1,2,3]}]};const rows=C.rowsFrom(source,'records');a.deepEqual(rows[0],source.records[0]);a.equal(C.normalize(rows[0],0,'owner').raw,rows[0]);});
+test('CSV parser preserves quoted commas, embedded newlines, and source content',()=>{const csv='title,id,text\n"one, two",A,"a\nb"\nrepeat,B,c';const out=C.csv(csv);a.equal(out.length,2);a.equal(out[0].title,'one, two');a.equal(out[0].text,'a\nb');a.throws(()=>C.csv('t\n"unclosed'),/unmatched/);});
+test('collection schema includes owner metadata, language and document sources',()=>{const ids=C.COLLECTIONS.map(x=>x.id);for(const id of ['repo','ownerfiles','languages','documents','programs','paradoxes','lettera'])a.ok(ids.includes(id));});
+test('original file download URL is whitelist-validated',()=>{a.equal(C.link('javascript:alert(1)'),null);a.equal(C.link('https://github.com/'), 'https://github.com/');});
