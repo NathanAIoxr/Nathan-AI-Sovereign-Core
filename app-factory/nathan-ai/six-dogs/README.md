@@ -71,3 +71,33 @@ Regression: node --test app-factory/nathan-ai/six-dogs/engine.test.cjs
 Browser smoke: launch the console, inspect all six cards, record/revisit stages, add an optional Soul or Spirit label, test JSON export/import, storage opt-in, wipe, copy a serial command and exercise Web Serial only with a compatible selected device.
 
 **Status:** Functional self-guided browser prototype, data contract, and hardware firmware source. A complete native device product or clinically validated psychological method is not claimed.
+
+## Macro-Topology and Micro-Engine layer (additive)
+
+The requested two-layer design is divided into a working offline core and future infrastructure options.
+
+| Requested architecture | Present implementation | Remaining scope |
+|---|---|---|
+| High Command / Sovereign Governance | Explicit user-operated controls and local graph node | No identity provider or jurisdiction exemption |
+| Distributed Storage Lakes | In-memory key/value port, typed asset registry, manual JSON export | No distributed vector repository or encrypted vault |
+| Event-Driven Pub/Sub | Local in-process event bus and bounded event ledger | No Kafka cluster, durable broker or external writes |
+| Lean Monolithic Runtime | Pure dependency-free JavaScript core and Python unit | No installed LLM, vLLM, DeepSpeed, GPU serving or model weights |
+| Ontological Registry | Typed assets, graph nodes and deterministic revisions | No automatic synchronization with other applications |
+| DATA–ATAD Gateway | Unicode-aware browser reversal/roundtrip; codepoint Python reversal | No deception detection or factual-truth oracle |
+| Binary Sentinel Rules | 1 means specified check passed; 0 means withhold for review | Neither outcome proves innocence, and neither deletes data |
+| Ports & Adapters | Isolated memory store, pub/sub and explicit optional serial adapter | Future authenticated and encrypted adapters |
+
+The browser includes topology.js and topology-ui.js embedded in the Six Dogs console. Selecting a stage updates an in-memory macro graph and event ledger. Registering an asset and inspecting a packet are separate user actions. The graph can be manually exported.
+
+The standalone Python implementation is sovereign_unit.py. It accepts attributes and text, provides structural reversal and reviewer-state outputs, and requires exact CLEAR_LOCAL_ATTRIBUTES confirmation to create an empty copy; the source data is not mutated.
+
+Exact arithmetic anchors: 1+1=2 BUILD and 1-1=0 CLEAR. Browser arithmetic is limited to JavaScript safe integers; Python supports arbitrary-size integers. A source citation, a reversible string and a user-entered supported-review label are not independent proof that a factual claim is correct.
+
+vLLM, DeepSpeed, Apache Kafka, vector databases and on-premise model serving are possible future adapter targets, not packages that have been installed or configured in this release. Offline execution does not make a system immune to device failure, local data loss, compromise or applicable law.
+
+Validation:
+
+    node --test app-factory/nathan-ai/six-dogs/engine.test.cjs app-factory/nathan-ai/six-dogs/topology.test.cjs
+    python3 -m unittest discover -s app-factory/nathan-ai/six-dogs -p 'test_*.py' -v
+
+An unreviewed claim never automatically triggers a purge. Deletion of the Six Dogs session remains an explicit user action.
