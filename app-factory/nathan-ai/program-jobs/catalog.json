@@ -177,18 +177,18 @@
     "recovered-historical-source": 1
   },
   "recordJobs": {
-    "engineering": 42,
-    "creative": 41,
-    "recovery": 23,
     "ai": 52,
+    "commerce": 5,
+    "knowledge": 81,
     "community": 8,
+    "creative": 41,
     "defense": 6,
+    "engineering": 42,
+    "governance": 16,
     "hardware": 20,
-    "knowledge": 80,
     "privacy": 9,
-    "commerce": 6,
-    "triage": 54,
-    "governance": 16
+    "recovery": 23,
+    "triage": 54
   },
   "records": [
     {
@@ -1145,22 +1145,23 @@
     {
       "id": "code:app-factory/one/realist-ledger",
       "kind": "source-component",
-      "name": "Realist Ledger",
-      "job": "commerce",
-      "evidence": "code-present-untested-in-this-inventory",
+      "name": "The 101-Action Chronicle (Realist Ledger)",
+      "job": "knowledge",
+      "evidence": "source-and-test-files-present; verbatim entries preserved on import",
       "status": "review-build",
       "sourcePath": "app-factory/one/realist-ledger",
       "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/one/realist-ledger",
       "sourceCount": 2,
-      "testCount": 0,
+      "testCount": 1,
       "docCount": 1,
       "interfaceCount": 1,
       "files": [
         "app-factory/one/realist-ledger/app.js",
         "app-factory/one/realist-ledger/core.js",
-        "app-factory/one/realist-ledger/index.html"
+        "app-factory/one/realist-ledger/index.html",
+        "app-factory/one/realist-ledger/core.test.cjs"
       ],
-      "nextTask": "Recover tests/build instructions; prove functionality"
+      "nextTask": "Run Chronicle source-fidelity tests and independently review export of the author's original private .txt file in a browser"
     },
     {
       "id": "architecture:NT-DB-001",
@@ -1902,16 +1903,22 @@
       "kind": "recovered-historical-source",
       "name": "THE NATHAN TABOR HALL OF MIRRORS",
       "job": "defense",
-      "evidence": "original-branch-source-and-tests-preserved-unmodified-on-main",
+      "evidence": "historical original preserved; additional read-only file inspector and tests present",
       "status": "source-recovered-verification-pending",
       "sourcePath": "app-factory/one/hall-of-mirrors/",
       "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/one/hall-of-mirrors",
-      "sourceCount": 1,
-      "testCount": 1,
-      "docCount": 0,
+      "sourceCount": 2,
+      "testCount": 2,
+      "docCount": 1,
       "interfaceCount": 1,
-      "nextTask": "Run recovered Node tests, review passive security classifier, and verify browser release; not deployed antivirus",
-      "historicalSourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/feat/hall-mirrors-duodecimal-20261022/app-factory/one/hall-of-mirrors"
+      "nextTask": "Run historical engine and new read-only inspector tests; inspect bounded metadata-only results on owner-supplied fixture; verify release",
+      "historicalSourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/feat/hall-mirrors-duodecimal-20261022/app-factory/one/hall-of-mirrors",
+      "files": [
+        "app-factory/one/hall-of-mirrors/engine.js",
+        "app-factory/one/hall-of-mirrors/engine.test.cjs",
+        "app-factory/one/hall-of-mirrors/inspector.cjs",
+        "app-factory/one/hall-of-mirrors/inspector.test.cjs"
+      ]
     },
     {
       "id": "operation:revelation-19-11",
@@ -5345,5 +5352,6 @@
       "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/absolute-intelligence/registry.json",
       "nextTask": "Recover module's exact specification and implementation; confirm source, dependencies, tests and deployment"
     }
-  ]
+  ],
+  "manualEvidenceUpdate": "2026-11-05: Original source-fidelity and passive inspection tests added on feature branch; generated sourceTree remains the original base snapshot. Pending CI and independent release review."
 }
