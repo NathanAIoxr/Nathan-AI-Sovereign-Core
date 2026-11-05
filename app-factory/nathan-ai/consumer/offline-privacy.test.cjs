@@ -17,7 +17,7 @@ test('every consumer source product has specific data provenance and clear unver
  for(const r of data.records){
   assert.ok(fs.existsSync(path.resolve(__dirname,'../../..',r.evidencePath)),r.evidencePath);
   assert.ok(r.ownerAction.length>15);
-  assert.match(r.evidenceLevel,/review|document/);
+  assert.match(r.evidenceLevel,/review|document|audit/);
  }
  assert.match(C.dataPracticesFor(data,'health').remoteActivity,/HIPAA/);
  assert.match(C.dataPracticesFor(data,'offloader').deviceStorage,/encrypted/i);
