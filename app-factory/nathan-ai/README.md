@@ -166,3 +166,13 @@ Run: node --test app-factory/nathan-ai/six-dogs/engine.test.cjs.
 The release adds a high-contrast, responsive Sovereign Prism skin with six canine emblems, a feature hero, technical pipeline, local topology and low-voltage hardware concept illustrations. Artwork is stored as independent local SVG files, made available offline in the selected PWA asset manifest, and includes descriptive text alternatives. There are no invented human figures, faces, remote stock photo services or font downloads.
 
 Nathan AI's shared Look & feel menu adds **Sovereign Prism** as its thirteenth preset while preserving the original twelve choices. Existing ONE / Nathan AI logic, previous source archives, user records and data contracts remain unchanged. All graphics describing hardware or network topology are explicit illustrations rather than claims of verified physical deployment.
+
+## Source-Locked Completion Engine — A/V/ANCIENT start (November 5, 2026)
+
+[Open the browser completion workbench](./completion-engine/index.html) · [Evidence-gate design and preservation rules](./completion-engine/README.md).
+
+An additive 8-gate release tracker for original sources, 100% original wording, author-reviewed tone, functional tests, accessibility, privacy/security, scoped legal-policy review and final owner acceptance. All evidence gates are initially unreviewed, with actual reviewer and evidence IDs required to pass. The engine includes deterministic source-change invalidation, an audit ledger, opt-in localStorage, private owned JSON import/export and public-only redacted summaries.
+
+The private 6,056-source inventory and prioritized 1,249-record A/V/ANCIENT completion queue are maintained in a **separate owner-only package, not committed here**. Current public build files contain sample project references only. No source manuscript is reconstructed, silently normalized, deleted or automatically published. "ALL TRACKED GATES REVIEWED" is a workflow status, **not a guarantee of perfect software or legal certification**.
+
+Regression: node --test app-factory/nathan-ai/completion-engine/engine.test.cjs
