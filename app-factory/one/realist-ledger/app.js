@@ -9,6 +9,7 @@
  let entries;
  try{entries=C.validateEntries(stored);}catch{entries=C.placeholderLedger();}
  let notes=safeLoad(NOTES,{});if(!notes||typeof notes!=='object'||Array.isArray(notes))notes={};
+ let originalSource=null; // Session-only original text, not silently uploaded or copied into a second storage key.
  let question=null, game={index:0,score:0,streak:0,answered:0,locked:false,seen:new Set()};
  function hasSource(){return entries.length===101&&entries.every(e=>e.text&&e.text.trim());}
  function persist(){try{localStorage.setItem(KEY,JSON.stringify(entries));return true;}catch{return false;}}
