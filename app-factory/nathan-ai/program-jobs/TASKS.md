@@ -37,7 +37,7 @@
 |---|---|---|
 | NATHAN AI Hack D Hack / Glyphstream | Historical name only | Recover exact original, document environment, test bounded behavior on authorized systems |
 | GUARDRAILAI | Historical name only | Locate original code, define protection boundary, run tests |
-| Hall of Mirrors | Historical branch with JS engine and tests | Run old tests, review suspicious-command classifier, preserve separately |
+| Hall of Mirrors | Historical branch preserved; original JS engine/tests recovered into main | Run recovered tests, review passive classifier, verify public read-only demonstration |
 | Five Equal Guardians | Current policy-preview engine | Verify policy tests; real defense needs separate authenticated owner-scope enforcement |
 | Black Box Malware Ingestion | Historical design reference | Locate source, isolate test artifacts, validate passive analysis, never run unknown samples on a normal host |
 | Guardian V2.0 Counter-Strike | Historical design reference | Recover source; restrict actions to authorized defensive containment and restoration |

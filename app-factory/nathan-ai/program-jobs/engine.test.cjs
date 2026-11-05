@@ -15,7 +15,7 @@ test('entire current source atlas has valid jobs and distinct identity records',
  assert.equal(catalog.recordKinds['browser-entrypoint'],76);
  assert.equal(catalog.recordKinds['operation-spec'],13);
  assert.equal(catalog.recordKinds['private-archive-anchor'],14);
- assert.equal(catalog.recordKinds['branch-only-source'],1);
+ assert.equal(catalog.recordKinds['recovered-historical-source'],1);
  assert.equal(Object.values(E.summarize(catalog).kind).reduce((a,b)=>a+b,0),357);
  assert.equal(catalog.records.filter(x=>x.kind==='browser-entrypoint'&&!x.sourceUrl).length,0);
  assert.ok(catalog.records.every(x=>x.nextTask));
@@ -26,9 +26,9 @@ test('historical Hack D Hack and branch-only Hall of Mirrors stay separate and n
  assert.equal(a.kind,'historical-title');
  assert.equal(a.status,'locate-original');
  assert.equal(a.job,'defense');
- assert.equal(b.kind,'branch-only-source');
+ assert.equal(b.kind,'recovered-historical-source');
  assert.equal(b.job,'defense');
- assert.match(b.sourceUrl,/feat\/hall-mirrors/);
+ assert.match(b.sourceUrl,/tree\/main\/app-factory\/one\/hall-of-mirrors/);assert.match(b.historicalSourceUrl,/feat\/hall-mirrors/);
  assert.ok(!catalog.records.some(r=>r.status==='complete'||r.status==='verified-live'));
 });
 test('case insensitive functional search and kind/job/status filters',()=>{

@@ -8,6 +8,7 @@ One existing ONE app, one small API, one HTTPS gateway, one private storage volu
 - Owner presses **Encrypt, Upload & Verify** on their phone. The browser produces the same end-to-end AES-GCM encrypted `.onevault` archive as its existing offline backup.
 - Browser computes a SHA-256 checksum, sends ciphertext over owner-configured HTTPS to a private ONE API, and supplies a transient owner credential. No passphrase or plaintext travels to the API.
 - Server authenticates the owner, restricts browser origins, rejects non-vault uploads and incorrect hashes, limits body size, stores ciphertext under a SHA-256 content-addressed filename with secure file permissions, and responds with an exact receipt.
+- Server **re-verifies exact stored bytes against SHA-256 and the ONE backup header before downloads and duplicate-upload acknowledgements**. Invalid/corrupted stored archives fail closed rather than being returned. Concurrent uploads use non-overwriting immutable content-addressed installation, and symlink targets are not served.
 - Browser **downloads the same archived bytes again** and compares its checksum before showing **CLOUD VERIFIED**.
 - The owner can list encrypted cloud backups and download a hash-verified .onevault to Files, then restore it with their private passphrase in the existing ONE UI. Redundant uploads return a stable ID without adding another original.
 - A separate hardening fix prevents locking the vault while a voice note is still recording or finishing its save.

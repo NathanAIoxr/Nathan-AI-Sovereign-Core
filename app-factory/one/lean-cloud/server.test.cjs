@@ -65,3 +65,43 @@ test('declared oversized upload is rejected before any data is written',async()=
   await assert.rejects(()=>fs.stat(path.join(dir,'backups')),e=>e.code==='ENOENT');
  }finally{await fs.rm(dir,{recursive:true,force:true})}
 });
+
+test('corrupted stored backup is never returned or acknowledged as an intact duplicate',async()=>serverRun(async({url,dir})=>{
+ const bytes=Buffer.concat([MAGIC,Buffer.from('authorized original ciphertext fixture')]);
+ const sha=digest(bytes);
+ const push=()=>fetch(url+'/v1/backups',{method:'POST',headers:{...auth,'Content-Type':'application/octet-stream','X-ONE-SHA256':sha},body:bytes});
+ let response=await push();assert.equal(response.status,201);
+ const file=path.join(dir,'backups',sha+'.onevault');
+ const changed=Buffer.from(bytes);changed[changed.length-1]^=0x04;
+ await fs.writeFile(file,changed);
+ response=await fetch(url+'/v1/backups/'+sha,{headers:auth});
+ assert.equal(response.status,409);assert.equal((await response.json()).error,'backup_integrity_failure');
+ response=await push();assert.equal(response.status,409);
+ assert.equal((await response.json()).error,'existing_backup_integrity_failure');
+ assert.deepEqual(await fs.readFile(file),changed,'Never silently overwrite corrupted existing owner data');
+ const names=await fs.readdir(path.join(dir,'backups'));
+ assert.deepEqual(names,[sha+'.onevault'],'No rejected temporary uploads remain');
+}));
+test('symlink substitution is not served as a valid ciphertext backup',async()=>serverRun(async({url,dir})=>{
+ const bytes=Buffer.concat([MAGIC,Buffer.from('symlink safety fixture')]);
+ const sha=digest(bytes),store=path.join(dir,'backups');
+ await fs.mkdir(store,{recursive:true});
+ await fs.writeFile(path.join(dir,'outside.bin'),bytes);
+ await fs.symlink(path.join(dir,'outside.bin'),path.join(store,sha+'.onevault'));
+ const result=await fetch(url+'/v1/backups/'+sha,{headers:auth});
+ assert.notEqual(result.status,200);
+ const listing=await fetch(url+'/v1/backups',{headers:auth});
+ assert.deepEqual((await listing.json()).items,[]);
+}));
+test('concurrent identical uploads never change original content',async()=>serverRun(async({url,dir})=>{
+ const bytes=Buffer.concat([MAGIC,Buffer.from('same immutable bytes from both upload paths')]);
+ const sha=digest(bytes);
+ const upload=()=>fetch(url+'/v1/backups',{method:'POST',headers:{...auth,'Content-Type':'application/octet-stream','X-ONE-SHA256':sha},body:bytes});
+ const responses=await Promise.all([upload(),upload(),upload()]);
+ assert.ok(responses.every(x=>x.status===201));
+ const flags=await Promise.all(responses.map(async x=>(await x.json()).already_existed));
+ assert.equal(flags.filter(x=>x===false).length,1);
+ assert.deepEqual(await fs.readFile(path.join(dir,'backups',sha+'.onevault')),bytes);
+ const restored=await fetch(url+'/v1/backups/'+sha,{headers:auth});
+ assert.equal(restored.status,200);assert.deepEqual(Buffer.from(await restored.arrayBuffer()),bytes);
+}));

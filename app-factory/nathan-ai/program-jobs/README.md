@@ -16,7 +16,7 @@
 | Original architecture modules | 54 | Named modules; actual implementation may be elsewhere |
 | Operations specifications | 13 | Read-only designs, not deployed operations |
 | Owner-held private archive anchors | 14 | Source filenames preserved; private contents absent |
-| Historical Hall of Mirrors branch | 1 | Source and tests on separate branch |
+| Historical Hall of Mirrors recovered from a branch | 1 | Original historical code and tests preserved unchanged in main; still not antivirus |
 | **Evidence records** | **357** | **Overlapping kinds; NOT 357 distinct completed products** |
 
 Counts come from the November 5, 2026 repository snapshot and the existing source recovery register. The earlier recovery totals of 6,056 master records, 383 technology records, 273 normalized technology titles, and approximately 5,447 saved-file records are historical archive descriptions, **not verified completed-app counts**.
@@ -65,6 +65,12 @@ The previous read-only scanner produces all_files.csv for **owner-selected local
     python3 app-factory/nathan-ai/program-jobs/reconcile_local.py --catalog app-factory/nathan-ai/program-jobs/catalog.json --inventory /path/to/private/all_files.csv --out /path/to/private/job_matches
 
 It writes candidate_matches.csv, still_unmatched.csv, and summary.json. Matches are **hints only**, not proof that a historical program is complete. Paths and hashes can identify private work; keep the results out of public GitHub.
+
+## Per-program source coverage verification
+
+Run `python3 app-factory/nathan-ai/program-jobs/verify_source_coverage.py --check --out /tmp/nathan-program-audit.json` to examine **each of the 357 indexed records** without executing any project. This produces source presence, test-file presence and missing original-file status per record and per job. **No program is independently marked complete** from filename checks alone. CI separately exercises covered source tests and reports actual pass/fail. This is additive to the owner's five evidence gates.
+
+The Hall of Mirrors original source and tests have now been recovered unchanged into `app-factory/one/hall-of-mirrors/` from the historical branch. The provenance entry remains in this catalog as `recovered-historical-source`, not a claimed deployed antivirus.
 
 ## Tests
 

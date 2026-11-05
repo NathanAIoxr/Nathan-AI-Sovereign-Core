@@ -180,6 +180,12 @@ jobs:
         run: node --test app-factory/one/offloader/engine.test.cjs
       - name: Verify lean ONE private encrypted cloud backup, access and restore
         run: node --test app-factory/one/lean-cloud/server.test.cjs
+      - name: Verify recovered Hall of Mirrors original defensive prototype
+        run: node --test app-factory/one/hall-of-mirrors/engine.test.cjs
+      - name: Audit source and test-file presence for all 357 indexed programs
+        run: |
+          python3 app-factory/nathan-ai/program-jobs/verify_source_coverage.py --check --out /tmp/nathan-program-source-audit.json
+          python3 -m unittest discover -s app-factory/nathan-ai/program-jobs -p 'test_*.py'
       - name: Verify ONE 33 Trial Matrix five Epoch I levels
         run: node --test app-factory/one/trial-matrix/epoch1.test.cjs
       - name: Verify ONE Health private vault source boundaries
