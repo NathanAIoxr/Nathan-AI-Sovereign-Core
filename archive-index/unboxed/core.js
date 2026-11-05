@@ -5,6 +5,7 @@ const COLLECTIONS=[
 {id:'repo',label:'Public GitHub · exact files',url:'repository-tree.json',path:'records',count:1023},
 {id:'ownerfiles',label:'Owner archive · 6,103 metadata entries',url:'../2026-11-05/inventory.json',path:null,count:6103},
 {id:'languages',label:'ONE · 7,918 language profiles',url:'../../app-factory/one/library-mind/languages.json',path:null,count:7918},
+{id:'library',label:'ONE · 2,193 library catalog records',url:'../../app-factory/one/library-mind/catalog.json',path:null,count:2193},
 {id:'documents',label:'ONE · original document records',url:'../../app-factory/one/library-mind/documents.json',path:null,count:55},
 {id:'programs',label:'Nathan AI · 357 work records',url:'../../app-factory/nathan-ai/program-jobs/catalog.json',path:'records',count:357},
 {id:'paradoxes',label:'Paradox Atlas · 298 research leads',url:'../../app-factory/nathan-ai/hop-in/paradox-atlas/atlas.json',path:'records',count:298},
