@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nathan AI — Five Matrix Source Atlas</title>
+<style>
+:root{color-scheme:dark;--bg:#09151a;--panel:#11242b;--ink:#f1ead7;--muted:#a4bbb8;--line:#33515a;--copper:#e1a36b;--aqua:#80d6ca}*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 80% -5%,#1b4041,transparent 42%),var(--bg);color:var(--ink);font:16px/1.55 system-ui,Arial,sans-serif}main{max-width:1180px;margin:auto;padding:22px}
+a{color:var(--aqua)}h1,h2{line-height:1.18}h1{margin:.25em 0;font-size:clamp(1.9rem,4vw,3.5rem)}h2{font-size:1.3rem}small,.muted{color:var(--muted)}
+header{padding:20px 0 26px;border-bottom:1px solid var(--line)}.eyebrow{letter-spacing:.17em;font-size:.75rem;color:var(--copper);font-weight:800}
+nav{display:flex;gap:10px;flex-wrap:wrap;margin:17px 0}.pill{border:1px solid var(--line);border-radius:30px;padding:7px 12px;text-decoration:none}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:20px 0}.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:15px}
+.stat strong{display:block;font-size:clamp(1.2rem,3vw,2rem);color:var(--aqua)}
+.controls{display:grid;grid-template-columns:2.3fr 1fr 1fr;gap:10px;margin:14px 0 18px}
+input,select,button{border:1px solid var(--line);background:#0a1a20;color:var(--ink);padding:13px;border-radius:10px;font:inherit;width:100%}
+button{cursor:pointer;font-weight:700}button:hover,.pill:hover{border-color:var(--aqua)}input:focus,select:focus,button:focus{outline:2px solid var(--copper);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card .id{font:700 .73rem ui-monospace,monospace;color:var(--aqua)}.card p{white-space:pre-wrap;overflow-wrap:anywhere;margin:10px 0}
+.tag{display:inline-block;border:1px solid #4c7778;color:#b0e1da;border-radius:50px;padding:2px 8px;font-size:.7rem;margin:2px 4px 2px 0}
+.note{border-left:3px solid var(--copper);padding:10px 14px;background:#1b292c}.footer{margin-top:40px;padding:22px 0;border-top:1px solid var(--line)}
+@media(max-width:680px){.controls{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}main{padding:14px}}
+</style></head>
+<body><main><header>
+<div class="eyebrow">NATHAN AI · SOURCE-FIRST ARCHIVE · FIVE MATRICES</div>
+<h1>Every word. Every source. Every link.</h1>
+<p class="muted">Read-only search over exact conversation attachments. Source text is preserved separately from interpretation, commentary, and executable simulation.</p>
+<nav aria-label="Atlas navigation">
+<a class="pill" href="./NATHAN_AI_FIVE_MATRIX_SOVEREIGN_LAB.html">Open the Sovereign Lab</a>
+<a class="pill" href="./data/source-manifest.json">Source manifest</a>
+<a class="pill" href="./data/concordance.json">Word concordance</a>
+<a class="pill" href="./data/formulas_15_derived.json">15 formula records</a>
+<a class="pill" href="./README.md">Project guide</a>
+</nav></header>
+<section class="stats" aria-label="Indexed source totals">
+<div class="stat"><strong id="n-sources">—</strong><small>original attachments</small></div>
+<div class="stat"><strong id="n-lines">—</strong><small>source lines</small></div>
+<div class="stat"><strong id="n-terms">—</strong><small>distinct word forms</small></div>
+<div class="stat"><strong id="n-hits">—</strong><small>word occurrences</small></div>
+</section>
+<div class="note"><strong>Source integrity:</strong> Literary fiction, KJV references, symbolic comparisons, and engineering prototypes are different record types. Matching an object to a symbol does not replace its original identity. Allegorical interpretations are not automatically historical or scientific facts.</div>
+<h2>Source explorer</h2>
+<div class="controls"><input id="search" type="search" placeholder="Search every line: rings, gates, Narnia, sword, innocence…" aria-label="Search source lines">
+<select id="source" aria-label="Select original source"><option value="">All original attachments</option><option value="SRC-001">Middle-earth / Narnia conversation</option><option value="SRC-002">Rings / gates conversation</option></select>
+<select id="topic" aria-label="Select topic"><option value="">All topic tags</option></select></div>
+<p id="status" class="muted" role="status">Loading source index…</p>
+<div class="grid" id="results" aria-live="polite"></div>
+<p><button id="more" type="button" hidden>Show 30 more source lines</button></p>
+<div class="footer"><strong>Original first; interpretations next.</strong> No imported transcript is silently rewritten. The complete author archive requires owner-supplied original files and a publication review before public import.</div>
+</main><script>
+"use strict";
+const $=id=>document.getElementById(id);
+const sourceName={"SRC-001":"Middle-earth / Narnia","SRC-002":"Rings / Gates"};
+let rows=[],visible=30,termCount=0,occurrences=0;
+function filtered(){
+ const q=$("search").value.trim().toLocaleLowerCase(),src=$("source").value,tag=$("topic").value;
+ return rows.filter(r=>(!src||r.source_id===src)&&(!tag||r.tags.includes(tag))&&(!q||r.text.toLocaleLowerCase().includes(q)||r.id.toLocaleLowerCase().includes(q)))
+}
+function make(type,text,cl){const x=document.createElement(type);if(text!==undefined)x.textContent=text;if(cl)x.className=cl;return x}
+function render(){
+ const matched=filtered(),part=matched.slice(0,visible),out=$("results");out.replaceChildren();
+ for(const r of part){
+ const box=make("article",null,"card");
+ const heading=make("div",r.id+" · "+sourceName[r.source_id],"id");
+ const paragraph=make("p",r.text||"(blank line)");
+ const tags=make("div");
+ for(const t of r.tags)tags.append(make("span",t,"tag"));
+ const anchor=make("a","Source line "+r.line);anchor.href="./sources/"+(r.source_id==="SRC-001"?"2026-11-04-middle-earth-narnia-five-matrix-conversation-original.txt":"2026-11-04-rings-gates-conversation-original.txt");anchor.target="_blank";anchor.rel="noopener noreferrer";
+ box.append(heading,paragraph,tags,anchor);out.append(box);
+ }
+ $("status").textContent=matched.length+" matching lines. Showing "+part.length+".";
+ $("more").hidden=part.length>=matched.length;
+}
+function changed(){visible=30;render()}
+for(const n of ["search","source","topic"])$(n).addEventListener(n==="search"?"input":"change",changed);
+$("more").addEventListener("click",()=>{visible+=30;render()});
+Promise.all([fetch("./data/line-index.json").then(x=>{if(!x.ok)throw Error("Line index missing");return x.json()}),fetch("./data/concordance.json").then(x=>{if(!x.ok)throw Error("Concordance missing");return x.json()})]).then(([a,b])=>{
+ rows=a.records;termCount=b.distinct_terms;occurrences=b.total_occurrences;
+ $("n-sources").textContent=a.sources.length;$("n-lines").textContent=rows.length;
+ $("n-terms").textContent=termCount.toLocaleString();$("n-hits").textContent=occurrences.toLocaleString();
+ const topics=[...new Set(rows.flatMap(r=>r.tags))].sort();for(const t of topics){const o=make("option",t);o.value=t;$("topic").append(o)}
+ render();
+}).catch(e=>{$("status").textContent="Source index could not load: "+e.message+". Open this page from a static web server or GitHub Pages; the single-file Sovereign Lab remains independently usable."});
+</script></body></html>
