@@ -1,0 +1,256 @@
+{
+  "schema": "nathan-ai-letter-D-variants-v1",
+  "published_on": "2026-11-05",
+  "mode": "additive, source-preserving",
+  "source_basis": {
+    "owner_filename_recovery": "Nathan_Tabor_D_File_Index_2026-11-05.md",
+    "deep_recovery": "READ_D_RECOVERY.md",
+    "catalog_snapshot_date": "2026-11-05",
+    "catalog_items_examined": 19317,
+    "text_files_scanned": 19304,
+    "matched_catalog_entries": 2148,
+    "distinct_d_word_tokens": 1890,
+    "archive_titles_starting_d": 728,
+    "excerpt_rows": 546,
+    "library_d_file_records": 138,
+    "library_distinct_d_names": 121,
+    "library_the_d_names": 14
+  },
+  "author_words_verbatim": [
+    "pull up all things that start with D .. an O that ran into the back of a stopped rock ... a tomb when you rock it over to the flat side",
+    "keep digging - find all the D's - the dicks, the ddd's the dd's and all inversions",
+    "add them to the growing file - dungeons and dragons - not the game version the game of life - KJV style",
+    "DARK MUST BREAK TO BUILD. ⭕️",
+    "REPAIR MICRO. INVERT MACRO.",
+    "MIRROR REFLECT. LIGHT ILLUMINATE."
+  ],
+  "routes": [
+    {
+      "id": "d-prefix",
+      "kind": "exact-text",
+      "examples": [
+        "D",
+        "d",
+        "David",
+        "Dante",
+        "Dungeons"
+      ],
+      "rule": "Title or token starts with literal Latin D/d."
+    },
+    {
+      "id": "the-d-title",
+      "kind": "exact-text",
+      "examples": [
+        "The Dog Went Up to Heaven",
+        "The Divine Mind"
+      ],
+      "rule": "Title begins The D, The_D or The-D."
+    },
+    {
+      "id": "numbered-d-title",
+      "kind": "exact-text",
+      "examples": [
+        "04_D_Title"
+      ],
+      "rule": "Numeric-prefix D title candidate; no count claimed without a source."
+    },
+    {
+      "id": "dd-ddd",
+      "kind": "exact-text",
+      "examples": [
+        "DD",
+        "DDD",
+        "D.D.D.",
+        "dd",
+        "ddd"
+      ],
+      "rule": "Separate case, spacing, repetition and abbreviation; DDD also occurs as ISO language code."
+    },
+    {
+      "id": "dick-family",
+      "kind": "creative-canon",
+      "examples": [
+        "dick",
+        "dicks",
+        "Dickhead",
+        "RICHARD DICKHEAD",
+        "The Adventures of Prick and Dick",
+        "Prick and Dixie",
+        "Tabor the Dick Tater"
+      ],
+      "rule": "Literal word family and previously named creator titles. Do not infer identical word origin, work existence or completed manuscripts."
+    },
+    {
+      "id": "d0g-dog",
+      "kind": "exact-or-phonetic",
+      "examples": [
+        "D0G",
+        "DOG",
+        "dog",
+        "D0G: Crowned Guardian of Redstone"
+      ],
+      "rule": "Digit zero and alphabetic O remain distinct."
+    },
+    {
+      "id": "phonetic-dee",
+      "kind": "phonetic-candidate",
+      "examples": [
+        "D",
+        "dee",
+        "di",
+        "d"
+      ],
+      "rule": "Sound associations require language, accent and word context; no automatic spelling replacement."
+    },
+    {
+      "id": "mirror-capital-D",
+      "kind": "visual-candidate",
+      "examples": [
+        "D",
+        "ᗡ"
+      ],
+      "rule": "Backwards D is a rendered glyph/mirror candidate, not a standard letter-to-letter mapping."
+    },
+    {
+      "id": "lowercase-d-inversions",
+      "kind": "visual-candidate",
+      "examples": [
+        "d",
+        "b",
+        "p",
+        "q"
+      ],
+      "rule": "Approximate mirror/rotation transforms depend on typeface and rotation axis."
+    },
+    {
+      "id": "side-rotation-bowl",
+      "kind": "visual-candidate",
+      "examples": [
+        "D rotated 90°",
+        "O with a flat side",
+        "tomb tipped to flat side"
+      ],
+      "rule": "Creator's geometric imagery; illustration and measurement required to substantiate specific shapes."
+    },
+    {
+      "id": "latin-d-diacritic",
+      "kind": "orthography",
+      "examples": [
+        "D",
+        "d",
+        "Ð",
+        "ð",
+        "Đ",
+        "đ",
+        "Ḍ",
+        "ḍ",
+        "Ḏ",
+        "ḏ",
+        "Ɖ",
+        "ɖ"
+      ],
+      "rule": "Different written letters and orthographies; no one-to-one historical equivalence."
+    },
+    {
+      "id": "cross-script-d",
+      "kind": "script-research",
+      "examples": [
+        "Δ",
+        "δ",
+        "Д",
+        "д",
+        "ד",
+        "د",
+        "द"
+      ],
+      "rule": "Greek Delta, Cyrillic De, Hebrew Dalet, Arabic Dal, Devanagari Da: context-specific and not identical scripts."
+    },
+    {
+      "id": "word-reversal",
+      "kind": "mechanical",
+      "examples": [
+        "D→D",
+        "DD→DD",
+        "DDD→DDD",
+        "dick→kcid",
+        "dicks→skcid",
+        "DRAGON→NOGARD"
+      ],
+      "rule": "Exact Unicode code-point order reversal, not mirror/rotation or proof of a meaningful word."
+    },
+    {
+      "id": "atbash",
+      "kind": "mechanical",
+      "examples": [
+        "D→W",
+        "d→w"
+      ],
+      "rule": "A↔Z ASCII Latin alphabet substitution; not historical etymology."
+    },
+    {
+      "id": "rot13",
+      "kind": "mechanical",
+      "examples": [
+        "D→Q",
+        "d→q"
+      ],
+      "rule": "ROT13 ASCII alphabet operation; not a glyph mirror."
+    },
+    {
+      "id": "numeric-encodings",
+      "kind": "convention",
+      "examples": [
+        "D is 4th letter",
+        "Roman D=500",
+        "ASCII D=68",
+        "ASCII d=100",
+        "binary 01000100 is uppercase D in ASCII"
+      ],
+      "rule": "Different conventions; D is not the numeral 4 or 500 outside specific notation."
+    },
+    {
+      "id": "creator-acronym-inversions",
+      "kind": "creator-interpretation",
+      "examples": [
+        "D.U.M.M.I.E.→EIMMUD",
+        "D.U.M.B.→BMUD",
+        "S.M.A.R.T.→TRAMS",
+        "Devil the DDD"
+      ],
+      "rule": "Preserve abbreviation punctuation in originals; reversed punctuation-stripped variants are derived."
+    },
+    {
+      "id": "kjv-game-of-life",
+      "kind": "author-concept",
+      "examples": [
+        "Dungeons and Dragons — Game of Life — KJV style",
+        "David and Goliath",
+        "Daniel",
+        "deliverance",
+        "dragon"
+      ],
+      "rule": "Creator's Bible-connected learning/game story, not the commercial role-playing game; references require individual KJV verse verification."
+    },
+    {
+      "id": "d-imagery-and-dimensions",
+      "kind": "concept-crosslink",
+      "examples": [
+        "Dante’s Inferno",
+        "Demiurge",
+        "Dimension 69",
+        "Divine",
+        "D0G",
+        "Darkness"
+      ],
+      "rule": "Project/research associations; keep symbolism, fiction, and geography separately labeled."
+    }
+  ],
+  "provenance_rules": [
+    "Exact author wording is preserved in independent quotations.",
+    "Never replace originals with generated reversals or normalized spellings.",
+    "Mirror, rotation, and spelling reversal are separate operations.",
+    "Owner Library source IDs, paths, unpublished source text, secret information and raw catalog rows stay private.",
+    "Counts reflect repeated or derived records and do not establish distinct finished books, apps or verified claims.",
+    "All primary KJV passages and independent historical etymologies require separate source inspection."
+  ]
+}
