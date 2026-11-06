@@ -15,7 +15,7 @@ test('whole alphabet is 26 separate populated departments',()=>{
 test('taxonomy and directory types validate',()=>assert.equal(validateDirectory(doc,tax),true));
 test('underlying source counts retained without claiming unique complete apps',()=>{
  const count=k=>doc.entries.filter(x=>x.kind===k).length;
- assert.equal(count('standalone-app'),139);assert.equal(count('game-catalog'),84);assert.equal(count('feature-concept'),104);assert.equal(count('authored-sequence'),130);assert.equal(count('word-family'),18);assert.equal(doc.entryCount,doc.entries.length);
+ assert.equal(count('standalone-app'),139);assert.equal(count('game-catalog'),84);assert.equal(count('feature-concept'),104);assert.equal(count('authored-sequence'),130);assert.equal(count('word-family'),33);assert.equal(doc.entryCount,doc.entries.length);
  assert.ok(doc.countingRule.includes('same app'));
 });
 test('five original independent authored sequences at every letter',()=>{
@@ -34,7 +34,7 @@ test('privacy or restricted source anchors not republished',()=>{
  assert.equal(doc.coverage.excludedAEditorialReview,4);
 });
 test('E geometry and source families still independent',()=>{
- assert.equal(doc.entries.filter(x=>x.kind==='word-family').length,18);
+ assert.equal(doc.entries.filter(x=>x.id.startsWith('e-word:')).length,18);
  assert.ok(fs.existsSync(path.join(root,'archive-index/alphabet/e/geometry.json')));
  assert.ok(fs.existsSync(path.join(root,'archive-index/alphabet/e/e-family.mjs')));
  assert.ok(fs.existsSync(path.join(root,'archive-index/alphabet/e/e-word-families.json')));
@@ -61,4 +61,15 @@ test('search is non-destructive, supports first/last title, stage and categories
  assert.ok(kinds(doc.entries).includes('program-record'));
  assert.equal(doc.entries[0].title,original);
  assert.throws(()=>filterDirectory(doc.entries,{letter:'1'}));
+});
+
+test('new F sources preserve 64 general-only titles, 15 separate cross-script entries and old 24 sources',()=>{
+ const f=filterDirectory(doc.entries,{letter:'F'});
+ assert.equal(f.length,103);
+ assert.equal(f.filter(x=>x.id.startsWith('source-f:')).length,64);
+ assert.equal(f.filter(x=>x.id.startsWith('f-route:')).length,15);
+ assert.ok(f.some(x=>x.title==='F is also a P cut open'));
+ assert.ok(f.some(x=>x.title==='The Fabric of the World'));
+ assert.ok(f.some(x=>x.title==='ᚠ Fehu / Fé'));
+ assert.equal(doc.coverage.excludedFPrivacyOrReview,5);
 });
