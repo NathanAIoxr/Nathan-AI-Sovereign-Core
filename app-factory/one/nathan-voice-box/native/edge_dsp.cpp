@@ -14,7 +14,9 @@ class EdgeDSP {
  public:
   EdgeDSP(int sample_rate, Effect effect)
       : sample_rate_(sample_rate), effect_(effect),
-        ring_(static_cast<size_t>(sample_rate / ((effect == Effect::Cave) ? 6 : 9) + 1), 0.0f) {}
+        ring_(static_cast<size_t>(sample_rate / ((effect == Effect::Cave) ? 6 : 9) + 1), 0.0f),
+        hp_alpha_((1.0f / (6.2831853f * 75.0f)) /
+                  ((1.0f / (6.2831853f * 75.0f)) + (1.0f / sample_rate))) {}
 
   // Samples are planar or interleaved mono. Must be called only on the audio thread.
   void process(float* samples, size_t count) noexcept {
@@ -30,9 +32,7 @@ class EdgeDSP {
       } else if (effect_ == Effect::Echo) {
         y = 0.82f * x + 0.28f * delayed;
       } else if (effect_ == Effect::SpeechClean) {
-        const float hp_alpha = (1.0f / (6.2831853f * 75.0f)) /
-                               ((1.0f / (6.2831853f * 75.0f)) + (1.0f / sample_rate_));
-        const float high_pass = hp_alpha * (high_pass_ + x - prev_input_);
+        const float high_pass = hp_alpha_ * (high_pass_ + x - prev_input_);
         prev_input_ = x;
         high_pass_ = high_pass;
         envelope_ = 0.995f * envelope_ + 0.005f * (high_pass < 0 ? -high_pass : high_pass);
@@ -59,6 +59,7 @@ class EdgeDSP {
   float high_pass_ = 0.0f;
   float envelope_ = 0.0f;
   float gate_gain_ = 1.0f;
+  float hp_alpha_ = 0.0f;
 };
 }  // namespace nathan
 
