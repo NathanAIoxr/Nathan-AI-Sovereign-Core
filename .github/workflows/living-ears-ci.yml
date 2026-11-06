@@ -1,0 +1,40 @@
+name: Nathan AI Living Ears and Voice Matrix
+on:
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/living-ears/**'
+      - '.github/workflows/living-ears-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/living-ears/**'
+      - '.github/workflows/living-ears-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify signal analysis, claim audit and eye bridge
+        run: |
+          node --check app-factory/nathan-ai/living-ears/engine.js
+          node --check app-factory/nathan-ai/living-ears/catalog.js
+          node --check app-factory/nathan-ai/living-ears/app.js
+          node --test app-factory/nathan-ai/living-ears/engine.test.cjs
+      - name: Verify source-preserving standalone page
+        run: |
+          node - <<'NODE'
+          const fs=require('node:fs'),assert=require('node:assert/strict'),path=require('node:path');
+          const base='app-factory/nathan-ai/living-ears/';
+          const s=fs.readFileSync(base+'index.html','utf8');
+          assert.match(s,/data-nathan-shared-appearance/);
+          assert.match(s,/data-nathan-command-center/);
+          for(const rel of ['../living-eyes/engine.js','engine.js','catalog.js','app.js','style.css'])
+            assert.ok(fs.existsSync(path.resolve(base,rel)),rel);
+          NODE
