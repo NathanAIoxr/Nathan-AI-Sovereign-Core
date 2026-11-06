@@ -23,6 +23,7 @@ The product consists solely of the files **inside this folder**. You can copy th
 - **133 named destination workflows across 22 sectors.** See [SCOPE.md](./SCOPE.md) for full scope. All include mapped generic field names for local export and manual use, not authenticated provider integrations.
 - **Original-source vault:** paste an untouched manuscript or locally load UTF-8 TXT/MD. The application preserves the imported binary file bytes as a separate ZIP entry when unchanged, plus a readable UTF-8 text copy. Editing the text breaks the original-byte association instead of silently substituting content.
 - **Author your field values:** select any target, edit its own field map, switch targets without replacing another target's fields, and keep each derivative independent from the original.
+- **Matrix Studio:** interactively run 13 creator-defined geometry, logic, phonetic and deployment transformations, including A–Z forward/reverse coordinates, acrostics, telestichs, word grids, reverse characters/words/lines, the 0/1 BUILD/CLEAR states and a separate original/derived export. Includes **38 user-defined reading/transcription lens slots**, explicitly not a clinical standard.
 - **Creative prompt:** generate a destination-specific ChatGPT prompt with strict original-source boundaries, empty unknown fields and no invented provider certification.
 - **Multi-target batch:** choose 1–133 targets, attach up to 30 local assets (32 MiB total), export ZIP (original, all field drafts, per-target Markdown previews, CSV references, SHA-256 receipt, handoff guide) with one finger tap.
 - **Individual output:** copy one logical field; export current target JSON; export all field mappings as a generic CSV; save and restore an editable source-bearing workspace JSON.
@@ -50,7 +51,7 @@ A genuine authenticated adapter per provider would require API documentation, sc
 - index.html, styles.css and app.js — complete user interface and interaction.
 - catalog.js — 133 mapped destinations in 22 sectors, field definitions, workflow classifications.
 - engine.js — canonical source/derived separation; safe CSV; hash; prompt; ZIP writer; batch artifact.
-- engine.test.cjs — exhaustive catalog, government, identity, provenance, safety and packaging tests.
+- engine.test.cjs, matrix.test.cjs and ui.test.cjs — all 133 target schemas, government, exact-source integrity, UI import and ZIP tests.
 - extension/manifest.json, extension/popup.html, extension/popup.js — optional Chrome/Chromium field-click companion.
 - sw.js, manifest.webmanifest, icon.svg — standalone installable offline shell.
 - SCOPE.md, GUIDE.md, LICENSE — inventory, operation and redistribution.
@@ -59,7 +60,7 @@ A genuine authenticated adapter per provider would require API documentation, sc
 
 From repository root:
 
-    node --test standalone-apps/ttfes-btp/engine.test.cjs
+    node --test standalone-apps/ttfes-btp/engine.test.cjs standalone-apps/ttfes-btp/matrix.test.cjs standalone-apps/ttfes-btp/ui.test.cjs
     node --check standalone-apps/ttfes-btp/engine.js
     node --check standalone-apps/ttfes-btp/catalog.js
     node --check standalone-apps/ttfes-btp/app.js
