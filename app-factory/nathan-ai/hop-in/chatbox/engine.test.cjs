@@ -100,3 +100,19 @@ test('G geometry / 5 / 6 / Tabor Spiral all source routes remain separate from E
  for(const query of ['/f','/e','/d','/az'])assert.equal(engine.reply(query).kind,'route',query);
  assert.match(engine.reply('/g').answer,/713 public G title occurrences/);
 });
+
+test('God Goddess Dog Doggess Sseggod original G cross-index, reversals and existing apps',()=>{
+ for(const q of ['/god','/goddess','/dog','/doggess','/sseggod','/g-words','/god-dog']){
+  const result=engine.reply(q);assert.equal(result.kind,'route',q);
+  assert.ok(result.links.some(x=>x.url.endsWith('/g/laboratory/index.html#g-words')),q);
+  assert.ok(result.links.some(x=>x.url.includes('six-dogs/index.html')),q);
+  assert.ok(result.links.some(x=>x.url.includes('omni-god/index.html')),q);
+ }
+ const r=engine.reply('/g-words');
+ assert.match(r.answer,/DOGGESS ↔ SSEGGOD/);
+ assert.match(r.answer,/GODDESS reverses instead to SSEDDOG/);
+ assert.equal(engine.reply('sseggod').kind,'route');
+ assert.equal(engine.reply('doggess').kind,'route');
+ assert.equal(engine.reply('/g').kind,'route');
+ for(const q of ['/f','/e','/d','/az'])assert.equal(engine.reply(q).kind,'route',q);
+});
