@@ -124,3 +124,9 @@ New local chat routes: /g, /letter-g, /g-5, /g-6, /g-geometry, /g-spiral, /g-sou
 The original creator text is kept exactly: "time for G ... find all G's - 5 rotated around and or a 6 reshaped the natilus aka tabor spiral". Two distinct construction branches are retained. Existing earlier g→6 and the full F/P / E/3/M/W modules are not overwritten.
 
 The main A–Z source index now has 1,937 primary source occurrences (45 G), and a linked standalone compressed source preserves all 713 general/public G-starting title occurrences, including 604 MATERS vs TATERS Family Grove entries. Six editorial/unknown G title records are withheld. Source-catalog entries are not individually completed applications. Historic Roman G developed from C, and measured Nautilus shells should not automatically be equated with the golden-ratio spiral; author symbolic sources and verified history/mathematics retain separate provenance.
+
+## GOD · GODDESS · DOG · DOGGESS · SSEGGOD
+
+Local commands /god, /goddess, /dog, /doggess, /sseggod, /g-words and /og-family navigate the five-name G cross-index and existing Six Dogs / Omni God apps. Original spellings are maintained. Dog and Doggess remain D-initial words, Sseggod remains S-initial, despite additional G cross-indexing by explicit creator instruction.
+
+Literal uppercase reversals are GOD ↔ DOG and DOGGESS ↔ SSEGGOD. GODDESS reverses to SSEDDOG instead: never conflate it with Sseggod or assert these symbolic transformations are linguistic history. The 713 public G titles and Tabor Spiral remain separate source archives. The G research index has 26 source records; A–Z has 1,942 source occurrences. Original private manuscripts remain in the owner's Library.
