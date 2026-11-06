@@ -63,7 +63,7 @@
       timeline:str(raw.timeline||raw.project_timeline,10000),
       keywords:keywords,
       rewards:rewards(raw.rewards||raw.reward_tiers||[]),
-      originalSource:str(raw.originalSource||raw.project_source,120000),
+      originalSource:String(raw.originalSource!==undefined?raw.originalSource:(raw.project_source||'')).slice(0,120000),
       readiness:{
         rightsReviewed:raw.rightsReviewed===true,
         fulfillmentReviewed:raw.fulfillmentReviewed===true,
