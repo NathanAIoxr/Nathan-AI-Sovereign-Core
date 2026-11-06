@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101720">
+<title>ONE · The 33 Trial Matrix | Nathan Tabor</title>
+<style>
+:root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color-scheme:dark;--bg:#0d141c;--surface:#1b2934;--border:#536774;--gold:#efdba9;--ink:#f2f6f7;--soft:#bacbd2;--pick:#83d3e5}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -5%,#344853,transparent 48%),var(--bg);color:var(--ink)}main{max-width:1200px;margin:auto;padding:17px 15px 85px}a{color:var(--gold)}button,input,select{font:inherit;color:var(--ink);background:#283d48;border:1px solid #73838a;border-radius:10px;padding:9px 12px}button{cursor:pointer}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--pick);outline-offset:2px}button[disabled]{cursor:not-allowed;opacity:.6}.primary{background:var(--gold);border-color:var(--gold);color:#14232d;font-weight:800}.hero{border:1px solid #7a8175;border-radius:22px;padding:25px;background:linear-gradient(130deg,#2d4651,#15212b)}h1{font-size:clamp(2.4rem,6vw,4.8rem);letter-spacing:-.065em;line-height:1;margin:10px 0}h2{font-size:1.3rem;margin:0 0 7px}h3{font-size:1rem;margin:10px 0}p{line-height:1.5;color:var(--soft)}small,.small{color:var(--soft);font-size:.85rem}.eyebrow{letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:800;font-size:.73rem}.panel{border:1px solid var(--border);background:var(--surface);padding:16px;border-radius:18px;margin-top:15px}.row{display:flex;align-items:center;flex-wrap:wrap;gap:10px}.between{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}.levels{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:15px 0}.levels button{text-align:left;min-height:85px;font-size:.85rem;background:#293b45}.levels button strong{display:block;font-size:1rem;margin-bottom:3px}.levels button[aria-current="step"]{background:var(--gold);color:#17252b}.levels button[aria-current="step"] span{color:#33434b}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{padding:12px;border:1px solid #536b76;border-radius:12px;background:#253743}.stat strong{font-size:1.75rem;display:block}.status{border-left:4px solid var(--gold);padding:10px 14px;background:#36342c;border-radius:7px;color:#ffecbd}.board-scroll{overflow-x:auto;padding:10px 0 18px}.tiles{display:flex;gap:4px;align-items:center;justify-content:center;min-width:max-content}.tile{border:1px solid #7f8f99;border-radius:8px;min-width:40px;width:44px;height:49px;font-size:1.46rem;padding:3px;text-align:center;line-height:1;display:inline-grid;place-items:center;background:linear-gradient(150deg,#435666,#25313b);box-shadow:inset 0 -4px #0004;user-select:none}.tile.selected{outline:3px solid var(--pick);border-color:var(--pick);background:#466779}.tile.anchor{background:#5c4c2e;color:#ffe9a0;cursor:default}.tile.void{visibility:hidden}.tile.emptied{background:#111a24;border:1px dashed #41515d;color:#697985}.tile.matched{border-color:var(--gold)}.rings{width:min(100%,610px);height:min(94vw,610px);position:relative;margin:10px auto 20px}.ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:3px solid #8c754c;border-radius:50%;background:#6c604117}.ring.outer{width:100%;height:100%;border-color:#8c754c}.ring.inner{width:67%;height:67%;border-color:#b09c6c}.ring.core{width:29%;height:29%;border-color:#e5cd8f}.ring .tile{position:absolute;width:clamp(27px,5.3vw,43px);height:clamp(27px,5.3vw,43px);min-width:0;font-size:1.1rem;border-radius:50%;padding:2px}.ring-name{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:.69rem;color:#dfc99d;font-weight:800;text-align:center;pointer-events:none}.ring.core .ring-name{display:none}.diamond{display:grid;grid-template-columns:repeat(7,49px);gap:5px;justify-content:center;margin:63px auto;transform:rotate(45deg) scale(.82);width:max-content}.diamond .tile{width:49px;height:49px;background:linear-gradient(135deg,#314869,#16263c);border-color:#8795b2;transform:rotate(-45deg)}.funnel{display:grid;gap:6px;justify-content:center}.funnel .tiles{min-width:0}.funnel .tile{min-width:34px;width:clamp(32px,4.7vw,56px)}.funnel .bed{border:2px solid var(--gold);padding:9px;border-radius:13px;background:#5a492925}.spiral{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px;max-width:550px;margin:auto}.spiral .tile{width:100%;min-width:0;height:clamp(37px,5vw,58px);font-size:1.22rem}.spiral .tile small{font-size:.56rem;position:absolute;top:1px;left:4px;color:#b1bac5}.spiral .tile{position:relative}.spiral .tile.void{visibility:visible}.spiral .maw{background:#442332;border-color:#e78ba2;color:#ffbdcc}.help{padding:10px 13px;border-radius:9px;background:#263943;border-left:3px solid #93abc1}.metric{font-size:.83rem;color:#c0d2db;overflow-wrap:anywhere}.metric strong{color:var(--gold)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}.technical{font-size:.84rem;color:#bdcad1}label{font-size:.91rem}.note{border-left:3px solid var(--gold);padding:11px;background:#35332b;border-radius:6px}.hidden,[hidden]{display:none!important}footer{font-size:.8rem;color:#aebcc7;margin-top:25px}@media(max-width:760px){.levels{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.diamond{grid-template-columns:repeat(7,39px);gap:2px}.diamond .tile{width:39px;height:43px}.tile{width:35px;min-width:32px;height:41px;font-size:1.06rem}.funnel .tile{width:27px;min-width:24px;height:34px}.spiral .tile{height:42px}}
+.expanded-board{display:grid;grid-template-columns:repeat(var(--columns),minmax(0,1fr));gap:5px;max-width:620px;margin:auto}.expanded-board .tile{width:100%;min-width:0;height:clamp(38px,7vw,62px);font-size:clamp(.7rem,2.7vw,1.35rem);overflow-wrap:anywhere}.expanded-board .tile:disabled:not(.void){opacity:.75;background:#3d3847}.tile.hinted{outline:3px solid #a6efaa;background:#285242}.levels{grid-template-columns:repeat(auto-fit,minmax(130px,1fr));max-height:340px;overflow:auto}.levels small{display:block;color:inherit;margin-top:5px}#storage-status:empty{display:none}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}</style></head><body><main>
+<header class="between"><span>THE 33 · Standalone edition</span><span class="eyebrow">ONE → GAMES → 33 TRIAL MATRIX</span></header>
+<section class="hero"><div class="eyebrow">By Nathan Tabor · The 33 Trial Matrix</div><h1>THE 33</h1><h2>33 Games. 33 Levels. ONE APP.</h2><p>Ancient Foundations · Industrial &amp; Modern Mind · Future &amp; Cognitive Challenges. Match, plan, remember, cooperate, and reach Zenith Zero.</p><p>$0 to download. $0 to play. Earn rewards without spending money.</p><p id="wallet" class="help"></p><p id="storage-status" role="status"></p><button id="continue" class="primary">Continue</button><div class="row"><span>◈ Deterministic rules</span><span>◈ Local gameplay</span><span>◈ Private optional telemetry</span><span>◈ Save-file export</span></div></section>
+<nav class="levels" id="level-nav" aria-label="Choose trial level"></nav>
+<section class="panel"><div class="between"><div><span id="level-tag" class="eyebrow"></span><h2 id="stage-title"></h2><p id="stage-tagline"></p></div><div class="row"><button id="hint">Free hint</button><button id="apply-hint" disabled>Play hinted move</button><button id="new-session" class="primary">Restart trial</button><button id="export">Export JSON save</button><label style="cursor:pointer">Import JSON <input id="import" type="file" accept=".json,application/json" style="display:block;width:170px;font-size:.8rem"></label></div></div>
+<div class="row" style="margin:10px 0"><label><input type="checkbox" id="telemetry"> Record detailed gameplay telemetry (optional)</label></div>
+<p class="small">Your move sequence and timing are recorded only if you enable telemetry <em>before starting a new trial</em>. Scores are gameplay statistics, not standardized IQ scores or clinical findings. Nothing is transmitted.</p>
+<div class="stats" id="scoreboard"></div><p role="status" aria-live="polite" id="feedback" class="status"></p></section>
+<section class="panel"><div class="between"><h2>Trial board</h2><span id="selection-hint" class="small">Select two tiles</span></div><div id="ring-actions" class="row" hidden></div><div class="board-scroll" id="board"></div><p id="mechanics" class="help"></p></section>
+<section class="grid"><section class="panel"><h2>Strategy &amp; gameplay statistics</h2><div id="metrics"></div><p class="technical">These metrics are custom game mechanics and cannot independently determine fluid intelligence, executive function, working memory, processing speed, or a person's IQ.</p></section><section class="panel"><h2>Rules &amp; reference</h2><div id="spec-details"></div><p><a href="./THE_33_README.md">Source provenance, build rules, and unresolved decisions</a></p></section></section>
+<footer>ONE — The Last App · 33 Trial Matrix · By Nathan Tabor · 33 playable stages · Free play and earned rewards · No external services connected.</footer></main>
+<script>
+/* THE 33 — Epochs I–III. Local deterministic match-3 rules; no network services. */
+(function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.TrialExpansion=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){'use strict';
+// Names 6–32 are implementation titles based on the supplied epoch themes,
+// not recovered titles from the unavailable private v023 package.
+const rows=[
+ [6,'NILE WATERWAYS','canals','6 × 7 waterways','Matches flow east along each canal; vertical matches open the sluices.'],
+ [7,'MAYAN CALENDARS','calendar','6 × 8 / two calendars','Swap within each four-column calendar. Every match advances the left calendar and reverses the right.'],
+ [8,'MNEMOSYNE’S MEMORY','memory','6 × 6 memory board','Study the symbols, then hide them voluntarily. Selected tiles and free Study remain available; match by symbol.'],
+ [9,'CAESAR’S CIPHER','cipher','6 × 6 cipher','Symbols are encoded by a visible rotating key. After each successful move the key advances and each row shifts its symbol values by its row number.'],
+ [10,'KNOSSOS LABYRINTH','rooms','9 × 9 / nine rooms','Each 3 × 3 room is isolated: swaps, matches and gravity stay inside it. Clear matches in all nine rooms.'],
+ [11,'ROSETTA TRILINGUAL','rosetta','6 × 6 / three scripts','Rows use three different scripts for the same four values. Match by value across scripts using the legend.'],
+ [12,'NEWTON’S INVERSION','up','7 × 7 inverted gravity','After a match tiles rise and refill from below.'],
+ [13,'ARKWRIGHT’S ASSEMBLY','conveyor','6 × 8 assembly line','After cascades, the selected row advances one slot on the conveyor.'],
+ [14,'BABBAGE’S ENGINE','program','7 × 7 programmed gravity','Gravity follows the published cycle: down, left, up, right, then repeats each move.'],
+ [15,'ENIGMA ROTORS','enigma','7 × 7 rotating cipher','After each successful move, the next rotor column advances its values by one. Rotor position is shown.'],
+ [16,'MENDELEEV’S TABLE','values','6 × 7 weighted values','Clear matching symbols. Values change each turn: the target is earned value, with every cleared symbol worth 1–4 points.'],
+ [17,'TESLA’S ALTERNATOR','alternator','7 × 7 alternating gravity','Odd moves pull downward, even moves pull upward. The displayed current predicts the next fall.'],
+ [18,'TURING’S FEEDBACK','feedback','7 × 7 feedback loop','The last cleared symbol becomes the target for your next move. The first move accepts any symbol; other clears score but do not advance the target.'],
+ [19,'VON NEUMANN’S RIVAL','rival','7 × 7 local strategy','Reach 36 cleared tiles before the visible deterministic rival reaches 60. The rival gains 1–4 points after your move.'],
+ [20,'SHANNON’S CHANNEL','channel','6 × 7 channel','Only rows of at least three transmit progress. Vertical clears still score and refill but carry no progress.'],
+ [21,'APOLLO GUIDANCE','guidance','7 × 7 guided gravity','Gravity follows the next visible guidance arrow. Every third move skips one direction in the cycle.'],
+ [22,'NASH EQUILIBRIUM','balance','6 × 8 / balanced sectors','Clear at least 15 tiles from each half. Progress counts each half up to 15 so one sector cannot substitute for the other.'],
+ [23,'SCHRÖDINGER’S TILES','dual','7 × 7 dual-state tiles','Every tile has a light and dark value. Choose the active state before swapping; matches use that state. Both states travel together.'],
+ [24,'TESSERACT PROJECTION','tesseract','4 × 4 × 2 × 2 / four planes','Four visible 4 × 4 planes represent x,y,z,w. Swap one step on any axis, including cross-plane counterparts; triples run along x or y within a plane.'],
+ [25,'STROOP INTERFERENCE','stroop','6 × 7 word / ink board','Match the printed word, ignoring its deliberately different ink color. There is no flashing or hidden timing test.'],
+ [26,'ARCHIMEDES’ HIDDEN WEIGHTS','weights','7 × 7 weighted board','Each tile carries a fixed weight of 1–4. Weights travel with tiles; Inspect reveals them freely. Progress counts cleared weight, not tile count.'],
+ [27,'PILLARS OF CONSTANTINOPLE','pillars','7 × 7 / immutable columns','Columns 3 and 5 cannot be swapped or cleared. Make matches in the remaining vertical channels.'],
+ [28,'HUYGENS’ RESONANCE','resonance','6 × 8 paired chambers','Swap in the left chamber and the counterpart swap occurs in the right. Only matches with matching positions in both chambers clear.'],
+ [29,'MAXWELL’S GATE','gate','7 × 7 sorting gate','Only the visible gate symbol advances progress. The gate changes after a qualifying move; other symbols still clear and score.'],
+ [30,'CHRONOS RESERVE','reserve','7 × 7 / reserve row','The bottom row is reserved and cannot be swapped or cleared until you have made two successful moves. Then it opens permanently.'],
+ [31,'ARIADNE’S BRIDGES','bridges','7 × 7 / crossing bridges','Structural voids divide the board. Swap adjacent tiles or use the four published bridge links to cross the gaps.'],
+ [32,'CONCORDIA COOPERATION','cooperation','6 × 8 / local two-player','Two local players share the board and alternate successful moves. Each must clear 15 tiles; the turn and both contributions remain visible.'],
+ [33,'ZENITH ZERO','zenith','7 × 7 / 33 seals','Clear all 33 marked seals through matches. Cleared seals stay gone while tiles refill. Reduce the seal count to zero.']
+];
+const LEVELS=rows.map(([id,name,mode,geometry,detail])=>Object.freeze({id,name,mode,geometry,detail,epoch:id<=11?'I':id<=22?'II':'III',tagline:detail,goal:mode==='rooms'?9:mode==='zenith'?33:mode==='balance'||mode==='cooperation'?30:mode==='weights'?100:mode==='values'?90:mode==='rival'?36:36,moveLimit:mode==='zenith'?70:mode==='rooms'?50:45,metric:'Match efficiency and objective progress',implementationTitle:id!==33}));
+const byId=new Map(LEVELS.map(d=>[d.id,d]));
+const GLYPHS=['△','○','□','◇'];
+function random(s,n){s.randomState=(Math.imul(1664525,s.randomState>>>0)+1013904223)>>>0;return Math.floor((s.randomState/4294967296)*n);}
+const def=s=>byId.get(s.level);
+function dims(d){if(d.mode==='rooms')return [9,9];if(d.mode==='tesseract')return [8,8];if(['calendar','conveyor','balance','resonance','cooperation'].includes(d.mode))return [6,8];if(['memory','cipher','rosetta'].includes(d.mode))return [6,6];if(['canals','values','channel','stroop'].includes(d.mode))return [6,7];return [7,7];}
+function coord(b,i){return [Math.floor(i/b.cols),i%b.cols];}
+function room(b,i){const [r,c]=coord(b,i);return Math.floor(r/3)*3+Math.floor(c/3);}
+function plane(b,i){const [r,c]=coord(b,i);return Math.floor(r/4)*2+Math.floor(c/4);}
+function segment(s,i){const b=s.board,m=def(s).mode;if(m==='rooms')return room(b,i);if(m==='calendar'||m==='resonance')return Math.floor((i%b.cols)/4);if(m==='tesseract')return plane(b,i);return 0;}
+function locked(s,i){const b=s.board,m=def(s).mode;return b.cells[i]===null||(m==='pillars'&&[2,4].includes(i%b.cols))||(m==='reserve'&&b.turn<2&&Math.floor(i/b.cols)===b.rows-1);}
+function value(s,i){const b=s.board;return b.phase?b.alternate[i]:b.cells[i];}
+function adjacent(s,a,b){const board=s.board,[ar,ac]=coord(board,a),[br,bc]=coord(board,b),m=def(s).mode;
+ if(m==='tesseract'){
+  const x=[ar%4,ac%4,Math.floor(ar/4),Math.floor(ac/4)],y=[br%4,bc%4,Math.floor(br/4),Math.floor(bc/4)];
+  return x.reduce((n,v,i)=>n+Math.abs(v-y[i]),0)===1;
+ }
+ if(m==='bridges'&&board.bridges.some(([x,y])=>(a===x&&b===y)||(a===y&&b===x)))return true;
+ return Math.abs(ar-br)+Math.abs(ac-bc)===1&&segment(s,a)===segment(s,b);
+}
+function groups(s){const b=s.board,out=[];
+ for(let i=0;i<b.cells.length;i++)if(!locked(s,i))for(const stride of [1,b.cols]){
+  const p=i-stride;
+  const connected=(a,c)=>a>=0&&c<b.cells.length&&!locked(s,a)&&!locked(s,c)&&segment(s,a)===segment(s,c)&&(stride!==1||Math.floor(a/b.cols)===Math.floor(c/b.cols));
+  if(connected(p,i)&&value(s,p)===value(s,i))continue;
+  const line=[i];let next=i+stride;
+  while(connected(next-stride,next)&&value(s,next)===value(s,i)){line.push(next);next+=stride;}
+  if(line.length>=3)out.push({cells:line,value:value(s,i),horizontal:stride===1});
+ }
+ if(def(s).mode==='resonance'){
+  const hits=new Set(out.flatMap(g=>g.cells));return out.map(g=>({...g,cells:g.cells.filter(i=>hits.has(i+(i%b.cols<4?4:-4)))})).filter(g=>g.cells.length>=3);
+ }
+ return out;
+}
+function swap(s,a,b){const x=s.board;for(const key of ['cells','alternate','weights'])if(x[key])[x[key][a],x[key][b]]=[x[key][b],x[key][a]];}
+function actionSwap(s,a,b){swap(s,a,b);if(def(s).mode==='resonance')swap(s,a+4,b+4);}
+function candidates(s){const b=s.board,out=[];for(let a=0;a<b.cells.length;a++)if(!locked(s,a))for(let c=a+1;c<b.cells.length;c++)if(!locked(s,c)&&adjacent(s,a,c)&&(def(s).mode!=='resonance'||(a%b.cols<4&&c%b.cols<4)))out.push([a,c]);return out;}
+function objective(s,gs){const m=def(s).mode,b=s.board,hit=[...new Set(gs.flatMap(g=>g.cells))];
+ if(m==='rooms')return new Set(hit.map(i=>room(b,i)).filter(i=>!b.visited.includes(i))).size;
+ if(m==='zenith')return hit.filter(i=>b.seals[i]).length;
+ if(m==='channel')return new Set(gs.filter(g=>g.horizontal).flatMap(g=>g.cells)).size;
+ if(m==='gate'||m==='feedback')return hit.filter(i=>b.target===null||value(s,i)===b.target).length;
+ if(m==='weights')return hit.reduce((n,i)=>n+b.weights[i],0);
+ if(m==='values')return hit.reduce((n,i)=>n+1+(value(s,i)+b.turn)%4,0);
+ if(m==='balance')return [0,1].reduce((n,half)=>n+Math.min(Math.max(0,15-b.contributions[half]),hit.filter(i=>Math.floor((i%b.cols)/(b.cols/2))===half).length),0);
+ if(m==='cooperation')return Math.min(Math.max(0,15-b.contributions[b.turn%2]),hit.length);
+ return hit.length;
+}
+function hint(s){if(s.status!=='playing')return null;let best=null;
+ for(const phase of def(s).mode==='dual'?[0,1]:[s.board.phase]){
+  const old=s.board.phase;s.board.phase=phase;
+  for(const [a,b] of candidates(s)){actionSwap(s,a,b);const gs=groups(s);if(gs.length){const rank=objective(s,gs)*100+new Set(gs.flatMap(g=>g.cells)).size;if(!best||rank>best.rank)best={type:'swap',a,b,phase,rank};}actionSwap(s,a,b);}
+  s.board.phase=old;
+ }
+ return best;
+}
+function fill(s,i){const b=s.board;b.cells[i]=random(s,4);if(b.alternate)b.alternate[i]=random(s,4);b.weights[i]=1+random(s,4);}
+function noInitialMatches(s){
+ const b=s.board;
+ // Construction, rather than a retry loop, avoids pre-existing triples.
+ for(let i=0;i<b.cells.length;i++)if(!locked(s,i)){
+  for(const key of b.alternate?['cells','alternate']:['cells']){
+   const forbidden=new Set();
+   if(i%b.cols>=2&&segment(s,i)===segment(s,i-2)&&b[key][i-1]===b[key][i-2])forbidden.add(b[key][i-1]);
+   if(i>=2*b.cols&&segment(s,i)===segment(s,i-2*b.cols)&&b[key][i-b.cols]===b[key][i-2*b.cols])forbidden.add(b[key][i-b.cols]);
+   if(forbidden.has(b[key][i]))b[key][i]=[0,1,2,3].find(v=>!forbidden.has(v));
+  }
+ }
+ if(def(s).mode==='resonance')for(let i=0;i<b.cells.length;i++)if(i%b.cols<4)b.cells[i+4]=b.cells[i];
+}
+function ensureMove(s){
+ const usable=()=>{const h=hint(s);return h&&(!['rooms','zenith','balance'].includes(def(s).mode)||h.rank>=100);};
+ if(usable())return false;
+ const b=s.board;
+ for(let attempt=0;attempt<100;attempt++){
+  for(let i=0;i<b.cells.length;i++)if(!locked(s,i))fill(s,i);
+  noInitialMatches(s);if(usable()){b.reshuffles++;return true;}
+ }
+ throw Error('Unable to prepare a playable board');
+}
+function initial(s){const d=def(s),[rows,cols]=dims(d);s.board={rows,cols,cells:Array(rows*cols).fill(0),alternate:null,weights:Array(rows*cols).fill(1),phase:0,turn:0,target:d.mode==='gate'?0:null,visited:[],contributions:[0,0],rival:0,key:0,revealed:true,inspect:false,seals:Array(rows*cols).fill(false),reshuffles:0,lastCleared:[],gravity:'down',bridges:[]};
+ const b=s.board;if(d.mode==='dual')b.alternate=Array(rows*cols).fill(0);
+ if(d.mode==='bridges'){for(const i of [3,10,17,21,22,23,25,26,27,31,38,45])b.cells[i]=null;b.bridges=[[2,4],[16,18],[30,32],[44,46]];}
+ for(let i=0;i<b.cells.length;i++)if(b.cells[i]!==null)fill(s,i);
+ if(d.mode==='zenith'){const indices=Array.from({length:rows*cols},(_,i)=>i);for(let k=0;k<33;k++){const j=k+random(s,indices.length-k);[indices[k],indices[j]]=[indices[j],indices[k]];b.seals[indices[k]]=true;}}
+ noInitialMatches(s);ensureMove(s);return s;
+}
+function gravity(s){const b=s.board,m=def(s).mode;if(m==='canals')return 'right';if(m==='up')return 'up';if(m==='alternator')return b.turn%2?'up':'down';if(m==='program')return ['down','left','up','right'][b.turn%4];if(m==='guidance')return ['down','left','up','right'][(b.turn+Math.floor(b.turn/3))%4];return 'down';}
+function refill(s,hits){const b=s.board,direction=gravity(s),vertical=['up','down'].includes(direction);b.gravity=direction;
+ for(const i of hits)b.cells[i]=undefined;
+ const starts=vertical?b.cols:b.rows,size=vertical?b.rows:b.cols;
+ for(let line=0;line<starts;line++){
+  let run=[];const flush=()=>{
+   if(!run.length)return;
+   const kept=run.filter(i=>b.cells[i]!==undefined).map(i=>({v:b.cells[i],alt:b.alternate?.[i],w:b.weights[i]}));
+   const count=run.length-kept.length,empties=Array.from({length:count},()=>null),ordered=['down','right'].includes(direction)?empties.concat(kept):kept.concat(empties);
+   run.forEach((i,j)=>{const tile=ordered[j];if(tile){b.cells[i]=tile.v;if(b.alternate)b.alternate[i]=tile.alt;b.weights[i]=tile.w;}else fill(s,i);});run=[];
+  };
+  for(let n=0;n<size;n++){const i=vertical?n*b.cols+line:line*b.cols+n;if(locked(s,i)){flush();continue;}if(run.length&&segment(s,i)!==segment(s,run[0]))flush();run.push(i);}flush();
+ }
+}
+function resolve(s,at){const b=s.board,m=def(s).mode;let depth=0,total=0;const all=new Set();
+ while(depth<32){const gs=groups(s);if(!gs.length)break;const hit=[...new Set(gs.flatMap(g=>g.cells))],amount=objective(s,gs);s.progress+=amount;s.score+=hit.length*10*(depth+1);total+=hit.length;
+  hit.forEach(i=>all.add(i));
+  if(m==='rooms')b.visited=[...new Set(b.visited.concat(hit.map(i=>room(b,i))))];
+  if(m==='zenith')hit.forEach(i=>{b.seals[i]=false;});
+  if(m==='balance')hit.forEach(i=>{const h=Math.floor((i%b.cols)/(b.cols/2));b.contributions[h]=Math.min(15,b.contributions[h]+1);});
+  if(m==='cooperation')b.contributions[b.turn%2]=Math.min(15,b.contributions[b.turn%2]+hit.length);
+  if(m==='feedback')b.nextTarget=gs[0].value;
+  refill(s,hit);depth++;
+ }
+ // Cap pathological cascades with a stable board without awarding unperformed clears.
+ if(groups(s).length){noInitialMatches(s);s.feedback='Cascade limit reached; board stabilized.';}
+ b.lastCleared=[...all];return {total,cascades:depth};
+}
+function shiftRow(s,row,dir,left=0,right=s.board.cols){const b=s.board,indices=Array.from({length:right-left},(_,i)=>row*b.cols+left+i);for(const key of ['cells','alternate','weights'])if(b[key]){const v=indices.map(i=>b[key][i]);if(dir>0)v.unshift(v.pop());else v.push(v.shift());indices.forEach((i,j)=>{b[key][i]=v[j];});}}
+function invalid(s,message){s.stats.invalid++;s.feedback=message;return s;}
+function step(s,a,at){const b=s.board,d=def(s),m=d.mode;if(s.status!=='playing')return s;
+ if(a.type==='study'&&m==='memory'){b.revealed=!b.revealed;s.feedback=b.revealed?'Study the board. Hide when ready.':'Symbols hidden; selections reveal their values.';return s;}
+ if(a.type==='inspect'&&m==='weights'){b.inspect=!b.inspect;return s;}
+ if(a.type==='phase'&&m==='dual'){if(a.phase!==0&&a.phase!==1)return invalid(s,'Choose light or dark state.');b.phase=a.phase;s.feedback='Active state: '+(b.phase?'dark':'light');return s;}
+ if(a.type!=='swap')return invalid(s,'Choose two adjacent active tiles.');
+ const {a:x,b:y}=a;
+ if(!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||x>=b.cells.length||y>=b.cells.length||x===y||locked(s,x)||locked(s,y)||!adjacent(s,x,y)||(m==='resonance'&&(x%b.cols>=4||y%b.cols>=4)))return invalid(s,'Swap neighboring active tiles using this stage’s connections.');
+ actionSwap(s,x,y);
+ if(!groups(s).length){actionSwap(s,x,y);return invalid(s,'No match — swap returned. No move spent.');}
+ s.moves++;s.stats.valid++;const before=s.progress,{total,cascades}=resolve(s,at);
+ if(m==='feedback')b.target=b.nextTarget??b.target;
+ if(m==='gate'&&s.progress>before)b.target=(b.target+1)%4;
+ if(m==='rival')b.rival+=1+(b.turn%4);
+ if(m==='conveyor')shiftRow(s,Math.floor(x/b.cols),1);
+ if(m==='calendar')for(let r=0;r<b.rows;r++){shiftRow(s,r,1,0,4);shiftRow(s,r,-1,4,8);}
+ if(m==='cipher'){b.key=(b.key+1)%4;b.cells=b.cells.map((v,i)=>v===null?null:(v+Math.floor(i/b.cols))%4);}
+ if(m==='enigma'){const column=b.turn%b.cols;b.cells=b.cells.map((v,i)=>i%b.cols===column?(v+1)%4:v);}
+ b.turn++;
+ // Resolve movement-triggered cascades under the same player's turn/objective.
+ // Cooperation has no post-move modifier and therefore never credits the next player.
+ if(['conveyor','calendar','cipher','enigma','reserve'].includes(m))resolve(s,at);
+ if(s.progress>before)s.stats.progressMoves++;else s.stats.neutralMoves++;
+ s.feedback=total+' tiles cleared · '+cascades+' cascade'+(cascades===1?'':'s')+'.';
+ if(s.progress>=d.goal){s.progress=d.goal;s.status='won';s.feedback='Trial complete. Objective reached.';}
+ else if((m==='rival'&&b.rival>=60)||s.moves>=d.moveLimit){s.status='failed';s.feedback=m==='rival'&&b.rival>=60?'The rival reached 60. Retry freely.':'Move budget reached. Retry freely.';}
+ else if(ensureMove(s))s.feedback+=' No moves remained; free reshuffle applied.';
+ if(s.telemetryEnabled&&s.events.length<3000)s.events.push({type:'match_swap',at:Math.max(0,at-s.startedAt),a:x,b:y,tiles:total,cascades,progress:s.progress});
+ return s;
+}
+function status(s){const b=s.board,m=def(s).mode;let extra='Next gravity: '+gravity(s)+'.';
+ if(m==='calendar')extra='Left calendar ↻ · right calendar ↺';
+ if(m==='cipher')extra='Cipher key: '+b.key;
+ if(m==='enigma')extra='Next rotor column: '+(b.turn%b.cols+1);
+ if(m==='gate'||m==='feedback')extra='Target: '+(b.target===null?'any symbol':GLYPHS[b.target]);
+ if(m==='rival')extra='You: '+s.progress+'/36 · Rival: '+b.rival+'/60';
+ if(m==='rooms')extra='Rooms cleared: '+b.visited.map(i=>i+1).join(', ');
+ if(m==='balance')extra='Left: '+b.contributions[0]+'/15 · Right: '+b.contributions[1]+'/15';
+ if(m==='cooperation')extra='Player '+(b.turn%2+1)+' to move · Player 1: '+b.contributions[0]+'/15 · Player 2: '+b.contributions[1]+'/15';
+ if(m==='zenith')extra='Seals remaining: '+b.seals.filter(Boolean).length;
+ if(m==='reserve')extra=b.turn<2?'Reserve opens after '+(2-b.turn)+' more successful moves.':'Reserve row is open.';
+ if(m==='tesseract')extra='Top-left: z0/w0 · top-right: z0/w1 · bottom-left: z1/w0 · bottom-right: z1/w1';
+ if(m==='bridges')extra='Bridges (slots): '+b.bridges.map(([a,c])=>(a+1)+'↔'+(c+1)).join(' · ');
+ if(m==='rosetta')extra='Same values: △ / A / Ⅰ · ○ / B / Ⅱ · □ / C / Ⅲ · ◇ / D / Ⅳ';
+ return extra;
+}
+function presentation(s,i,selected=false){const b=s.board,m=def(s).mode,v=value(s,i);let text=GLYPHS[v],ink=null;
+ if(m==='memory'&&!b.revealed&&!selected)text='?';
+ if(m==='cipher')text=['A','B','C','D'][(v+b.key)%4];
+ if(m==='rosetta')text=[GLYPHS,['A','B','C','D'],['Ⅰ','Ⅱ','Ⅲ','Ⅳ']][Math.floor(i/b.cols)%3][v];
+ if(m==='stroop'){text=['RED','BLUE','GOLD','GREEN'][v];ink=['#ff9a9a','#99caff','#ffe39c','#9ce4b8'][(v+1+i%3)%4];}
+ if(m==='weights')text+=(b.inspect?' '+b.weights[i]:' ?');
+ if(m==='values')text+=' '+(1+(v+b.turn)%4);
+ if(m==='dual')text=GLYPHS[v]+' / '+GLYPHS[b.phase?b.cells[i]:b.alternate[i]];
+ if(m==='zenith'&&b.seals[i])text='◈ '+text;
+ return {text,ink,disabled:locked(s,i)||(m==='resonance'&&i%b.cols>=4),void:b.cells[i]===null};
+}
+function validate(s){const d=def(s);if(!d)throw Error('Unknown expanded stage');const b=s.board,[rows,cols]=dims(d),tile=v=>Number.isInteger(v)&&v>=0&&v<4;
+ if(!b||b.rows!==rows||b.cols!==cols||!Array.isArray(b.cells)||b.cells.length!==rows*cols||!b.cells.every((v,i)=>d.mode==='bridges'&&[3,10,17,21,22,23,25,26,27,31,38,45].includes(i)?v===null:tile(v)))throw Error('Invalid stage board');
+ if(!Array.isArray(b.weights)||b.weights.length!==b.cells.length||!b.weights.every(v=>Number.isInteger(v)&&v>=1&&v<=4)||![0,1].includes(b.phase)||!Number.isInteger(b.turn)||b.turn!==s.moves||!Number.isInteger(b.key)||b.key<0||b.key>3)throw Error('Invalid stage modifiers');
+ if(d.mode==='dual'&&(!Array.isArray(b.alternate)||b.alternate.length!==b.cells.length||!b.alternate.every(tile)))throw Error('Invalid dual state');
+ if(d.mode!=='dual'&&b.alternate!==null)throw Error('Unexpected alternate board');
+ if(!Array.isArray(b.seals)||b.seals.length!==b.cells.length||!b.seals.every(v=>typeof v==='boolean')||!Array.isArray(b.visited)||!b.visited.every(v=>Number.isInteger(v)&&v>=0&&v<9)||!Array.isArray(b.contributions)||b.contributions.length!==2||!b.contributions.every(v=>Number.isInteger(v)&&v>=0&&v<=15)||!Number.isInteger(b.rival)||b.rival<0||(b.target!==null&&!tile(b.target))||typeof b.revealed!=='boolean'||typeof b.inspect!=='boolean')throw Error('Invalid objective state');
+ if(!Array.isArray(b.bridges)||JSON.stringify(b.bridges)!==JSON.stringify(d.mode==='bridges'?[[2,4],[16,18],[30,32],[44,46]]:[]))throw Error('Invalid bridge links');
+ return true;
+}
+return Object.freeze({LEVELS,initial,step,hint,groups,status,presentation,validate,gravity,adjacent,locked});
+});
+
+</script><script>
+/* ONE — The 33 Trial Matrix: deterministic local gameplay engine.
+ * By Nathan Tabor. No analytics, tracking pixels, medical or IQ inferences.
+ * User-authored mechanics are retained; unresolved structural counts and build choices are documented.
+ */
+(function(root,factory){'use strict';const a=factory();if(typeof module==='object'&&module.exports)module.exports=a;else root.OneTrialMatrix=a;})(typeof globalThis!=='undefined'?globalThis:this,function(){'use strict';
+const expansion=typeof module==='object'&&module.exports?require('./expansion.js'):globalThis.TrialExpansion;
+if(!expansion)throw Error('Trial expansion missing');
+const GLYPHS=[
+ ['△','○','□','◇'],
+ ['Ⅰ','Ⅱ','Ⅲ','Ⅳ'],
+ ['◆','♦','⬟','✦'],
+ ['∿','♪','♮','♬'],
+ ['⚒','◉','⌁','▱']
+];
+const LEVELS=Object.freeze([
+ {id:1,name:'THE MONOLITH',tagline:'The illusion of simplicity. One dimension, infinite consequences.',epoch:'I',geometry:'1 × 33',goal:7,moveLimit:25,metric:'Symmetry Delta',detail:'Left swap auto-mirrors right; compass at slot 17 never moves.'},
+ {id:2,name:'BABYLON’S GATE',tagline:'The turning wheels of deterministic fate.',epoch:'I',geometry:'18 outer + 12 inner + 3 core',goal:6,moveLimit:35,metric:'Rotational Accuracy Index',detail:'Align core-to-outer axes. Each match counter-rotates the geared rings.'},
+ {id:3,name:'THE RHOMBUS OF UR',tagline:'Slicing reality along the diagonal.',epoch:'I',geometry:'7 × 7 / 49 addresses / 4 corner-tip voids',goal:8,moveLimit:35,metric:'Misclick Vector',detail:'Only 45° diagonal neighboring swaps; pieces flow along sloped diagonals.'},
+ {id:4,name:'EPIDAURUS ACOUSTIC',tagline:'The kinetic echo of structural collapse.',epoch:'I',geometry:'6-row funnel / 12 to 3',goal:3,moveLimit:35,metric:'Chain Potential Realization',detail:'Match the 3-cell input bed; the upward shockwave amplifies across wider rows.'},
+ {id:5,name:'ARCHIMEDES’ SPIRAL',tagline:'Racing the drain of chronological entropy.',epoch:'I',geometry:'1 × 64 path in 8 × 8',goal:12,moveLimit:null,metric:'Panic Shift Delta',detail:'1 new tile at the outer lip every 2 seconds; entering slot 64 fails.'}
+].concat(expansion.LEVELS));
+const FUNNEL=[12,10,8,6,4,3];
+const RHOMBUS_VOID=[0,6,42,48]; // four outer tips of rotated 7x7 matrix: all four corners
+function rng(s){s.randomState=(Math.imul(1664525,s.randomState>>>0)+1013904223)>>>0;return s.randomState>>>24;}
+function token(s){return rng(s)%4;}
+function ms(v,defaultValue=0){return Number.isFinite(v)&&v>=0?Math.round(v):defaultValue;}
+function record(s,type,data,at){if(!s.telemetryEnabled)return; if(s.events.length<3000)s.events.push({type,at:ms(at)-s.startedAt,...data});}
+function initial(level=1,seed=8291973,telemetryEnabled=false,at=0){
+ const def=LEVELS[level-1];if(!def||!Number.isInteger(level))throw Error('Choose a level from 1–33');
+ const s={schema:'one.33trial.session.v1',level,status:'playing',seed:seed>>>0,randomState:seed>>>0,startedAt:ms(at),lastAt:ms(at),moves:0,progress:0,score:0,penalties:0,feedback:'',telemetryEnabled:!!telemetryEnabled,events:[],stats:{valid:0,invalid:0,progressMoves:0,blockageMoves:0,neutralMoves:0,planningMs:[],symmetryDeltasMs:[],cardinalAttemptsFirstMinute:0,cardinalAttemptsLater:0,cprCombos:0,cprTopTiles:0,shockwaves:0,calm:{actions:0,success:0},near:{actions:0,success:0}},board:null};
+ if(level===1){const left=Array.from({length:16},()=>token(s));s.board=[...left,-1,...left.slice().reverse()];}
+ if(level===2)s.board={outer:Array.from({length:18},()=>token(s)),inner:Array.from({length:12},()=>token(s)),core:Array.from({length:3},()=>token(s)),locked:0,gears:0};
+ if(level===3)s.board=Array.from({length:49},(_,i)=>RHOMBUS_VOID.includes(i)?null:token(s));
+ if(level===4)s.board=FUNNEL.map(n=>Array.from({length:n},()=>token(s)));
+ if(level===5)s.board={chain:Array.from({length:18},()=>token(s)),ticks:0};
+ if(level>=6)expansion.initial(s);
+ return s;
+}
+function assertPlaying(s){if(!s||s.schema!=='one.33trial.session.v1')throw Error('Unsupported save state');if(s.status!=='playing')return false;return true;}
+function complete(s,at){if(s.progress>=LEVELS[s.level-1].goal){s.status='won';s.feedback='Trial completed.';record(s,'win',{progress:s.progress},at);}else if(LEVELS[s.level-1].moveLimit!==null&&s.moves>=LEVELS[s.level-1].moveLimit){s.status='failed';s.feedback='The move budget is exhausted.';record(s,'failed',{reason:'move_budget'},at);}}
+function invalid(s,why,at,cardinal=false){s.stats.invalid++;if(cardinal){if(ms(at)-s.startedAt<=60000)s.stats.cardinalAttemptsFirstMinute++;else s.stats.cardinalAttemptsLater++;}s.feedback=why;record(s,'invalid',{reason:why,cardinal},at);return s;}
+function success(s,amount,at){s.progress+=amount;s.stats.progressMoves++;s.score+=100*amount;s.feedback=amount+' structural match'+(amount===1?'':'es')+' completed.';record(s,'progress',{amount},at);}
+function handle1(s,a,b,at,planStartMs){
+ if(!Number.isInteger(a)||!Number.isInteger(b)||a===b||a<0||b<0||a>15||b>15)return invalid(s,'Select two distinct LEFT-wing tiles; slot 17 is immutable.',at);
+ [s.board[a],s.board[b]]=[s.board[b],s.board[a]];
+ [s.board[32-a],s.board[32-b]]=[s.board[32-b],s.board[32-a]];
+ s.moves++;s.stats.valid++;if(Number.isFinite(planStartMs))s.stats.planningMs.push(Math.max(0,ms(at)-ms(planStartMs)));
+ // Right symmetry happens atomically by the Ripple Law. It is not an independent cognitive latency measure.
+ s.stats.symmetryDeltasMs.push(0);
+ const cleared=new Set();let groups=0;
+ for(let i=0;i<16;){let j=i+1;while(j<16&&s.board[j]===s.board[i])j++;if(j-i>=3){groups++;for(let k=i;k<j;k++)cleared.add(k);}i=j;}
+ if(groups){
+  const kept=[];for(let i=0;i<16;i++)if(!cleared.has(i))kept.push(s.board[i]);
+  const newLeft=Array.from({length:16-kept.length},()=>token(s)).concat(kept);
+  s.board=[...newLeft,-1,...newLeft.slice().reverse()];
+  success(s,groups,at);
+ }else{s.stats.neutralMoves++;s.feedback='Mirrored swap completed. No simultaneous symmetrical triple.';}
+ complete(s,at);record(s,'ripple_swap',{a,b,clearedGroups:groups},at);return s;
+}
+function rotate(array,dir){if(dir===1)array.unshift(array.pop());else array.push(array.shift());}
+function axes(s){const b=s.board;return [0,1,2].filter(i=>b.core[i]===b.inner[i*4]&&b.inner[i*4]===b.outer[i*6]);}
+function handle2(s,ring,direction,at){
+ const b=s.board;
+ if(b.locked>0){b.locked--;s.moves++;s.penalties++;s.stats.blockageMoves++;s.feedback='Cascade trap: gear locked this turn.';record(s,'lock_penalty',{ring},at);complete(s,at);return s;}
+ if(!['outer','inner'].includes(ring)||![-1,1].includes(direction))return invalid(s,'Rotate the outer or inner ring one slot.',at);
+ rotate(b[ring],direction);s.moves++;s.stats.valid++;
+ const aligned=axes(s),total=aligned.length;
+ if(total){for(const axis of aligned){b.core[axis]=token(s);b.inner[axis*4]=token(s);b.outer[axis*6]=token(s);}
+  // Deterministic Counter-Rotation Gear following a qualifying radial match.
+  const readyBefore=axes(s);rotate(b.outer,1);rotate(b.inner,-1);b.gears++;
+  const now=axes(s);if(readyBefore.some(i=>!now.includes(i))){b.locked=1;s.penalties++;s.stats.blockageMoves++;record(s,'cascade_trap',{axes:readyBefore},at);}
+  success(s,total,at);s.feedback='Radial path aligned; outer ↻ / inner ↺.';
+ }else{s.stats.neutralMoves++;s.feedback='Gear moved. Align matching core → inner → outer symbols.';}
+ complete(s,at);record(s,'ring_action',{ring,direction,aligned:total},at);return s;
+}
+function diagonalGroups(board){const hit=new Set();let count=0;
+ for(let r=0;r<7;r++)for(let c=0;c<7;c++)for(const dc of [-1,1]){
+  const value=board[r*7+c];if(value===null)continue;
+  if(r>0&&c-dc>=0&&c-dc<7&&board[(r-1)*7+c-dc]===value)continue;
+  let rr=r,cc=c,seq=[];while(rr<7&&cc>=0&&cc<7&&board[rr*7+cc]===value){seq.push(rr*7+cc);rr++;cc+=dc;}
+  if(seq.length>=3){count++;seq.forEach(i=>hit.add(i));}
+ }
+ return {hit,count};
+}
+function slopeRefill(s,hits){for(const i of hits)s.board[i]=undefined;
+ for(let pass=0;pass<9;pass++){let changed=false;
+  for(let r=6;r>=0;r--)for(let c=0;c<7;c++){const i=r*7+c;if(s.board[i]!==undefined)continue;
+   const choices=[c-1,c+1].filter(k=>k>=0&&k<7&&s.board[(r-1)*7+k]!==undefined&&s.board[(r-1)*7+k]!==null&&r>0);
+   if(choices.length){const src=(r-1)*7+choices[rng(s)%choices.length];s.board[i]=s.board[src];s.board[src]=undefined;changed=true;}
+   else if(r===0){s.board[i]=token(s);changed=true;}
+  }
+  if(!changed)break;
+ }
+ for(let i=0;i<49;i++)if(s.board[i]===undefined)s.board[i]=token(s);
+ for(const i of RHOMBUS_VOID)s.board[i]=null;
+}
+function handle3(s,a,b,at){
+ if(!Number.isInteger(a)||!Number.isInteger(b)||a<0||b<0||a>=49||b>=49||s.board[a]===null||s.board[b]===null)return invalid(s,'Choose two active diamond tiles.',at);
+ const dr=Math.abs(Math.floor(a/7)-Math.floor(b/7)),dc=Math.abs(a%7-b%7);
+ if(dr!==1||dc!==1)return invalid(s,dr+dc===1?'Cardinal swipe blocked: diagonal movement only.':'Only adjacent 45-degree diagonal swaps are valid.',at,dr+dc===1);
+ [s.board[a],s.board[b]]=[s.board[b],s.board[a]];s.moves++;s.stats.valid++;
+ const {hit,count}=diagonalGroups(s.board);
+ if(hit.size){slopeRefill(s,hit);success(s,count,at);}
+ else{s.stats.neutralMoves++;s.feedback='Diagonal shift completed; seek a three-gem diagonal.';}
+ complete(s,at);record(s,'diagonal_swap',{a,b,matches:count},at);return s;
+}
+function rowCombos(row,v){let n=0;for(let i=0;i<row.length;){let j=i+1;while(j<row.length&&row[j]===row[i])j++;if(row[i]===v&&j-i>=3)n++;i=j;}return n;}
+function handle4(s,a,b,at){const valid=p=>p&&Number.isInteger(p.r)&&Number.isInteger(p.c)&&p.r>=0&&p.r<6&&p.c>=0&&p.c<s.board[p.r].length;
+ if(!valid(a)||!valid(b)||(a.r===b.r&&a.c===b.c))return invalid(s,'Choose two different tiles in the funnel.',at);
+ [s.board[a.r][a.c],s.board[b.r][b.c]]=[s.board[b.r][b.c],s.board[a.r][a.c]];s.moves++;s.stats.valid++;
+ const bottom=s.board[5],isTrigger=bottom[0]===bottom[1]&&bottom[1]===bottom[2];let amount=0;
+ if(isTrigger){const v=bottom[0],combos=s.board.slice(0,5).reduce((n,row)=>n+rowCombos(row,v),0);let topTiles=0;
+  for(let r=0;r<5;r++)for(let c=0;c<s.board[r].length;c++)if(s.board[r][c]===v){topTiles++;s.board[r][c]=token(s);}
+  for(let i=0;i<3;i++)bottom[i]=token(s);
+  s.stats.cprCombos+=combos;s.stats.cprTopTiles+=topTiles;s.stats.shockwaves++;amount=1;success(s,amount,at);
+  s.feedback='Bottom trigger fired! Upward shockwave hit '+topTiles+' upper tiles.';
+ }else{
+  let topMatch=false;for(const row of s.board.slice(0,1))for(let i=0;i+2<row.length;i++)if(row[i]===row[i+1]&&row[i]===row[i+2])topMatch=true;
+  if(topMatch){s.penalties++;s.stats.blockageMoves++;for(let r=1;r<6;r++){const row=s.board[r];row.splice(Math.floor(row.length/2),0,row.shift());}s.feedback='Top compression cost: lower rows shifted inward.';record(s,'compression_cost',{},at);}
+  else{s.stats.neutralMoves++;s.feedback='Swap made. Set up a triple in the narrow bottom bed.';}
+ }
+ complete(s,at);record(s,'funnel_swap',{a,b,shockwave:isTrigger},at);return s;
+}
+function spiral(){const coords=[];let top=0,bottom=7,left=0,right=7;while(top<=bottom&&left<=right){for(let x=left;x<=right;x++)coords.push([top,x]);top++;for(let y=top;y<=bottom;y++)coords.push([y,right]);right--;if(top<=bottom){for(let x=right;x>=left;x--)coords.push([bottom,x]);bottom--;}if(left<=right){for(let y=bottom;y>=top;y--)coords.push([y,left]);left++;}}return coords;}
+const SPIRAL=spiral();
+function groups5(chain){const pairs=[];for(let i=0;i<chain.length;){let j=i+1;while(j<chain.length&&chain[j]===chain[i])j++;if(j-i>=3)pairs.push([i,j]);i=j;}return pairs;}
+function move5(s,a,b,at){const chain=s.board.chain;
+ if(!Number.isInteger(a)||!Number.isInteger(b)||Math.abs(a-b)!==1||a<0||b<0||a>=chain.length||b>=chain.length)return invalid(s,'Swap adjacent occupied positions on the spiral path.',at);
+ const near=chain.length>=59,group=near?s.stats.near:s.stats.calm;group.actions++;[chain[a],chain[b]]=[chain[b],chain[a]];s.moves++;s.stats.valid++;
+ const matches=groups5(chain);if(matches.length){for(let i=matches.length-1;i>=0;i--){const [start,end]=matches[i];chain.splice(start,end-start);}group.success++;success(s,matches.length,at);s.feedback='Matched segments siphoned out; chain contracted away from the void.';}
+ else{s.stats.neutralMoves++;s.feedback='Swap committed. The entropy feed continues.';}
+ complete(s,at);record(s,'spiral_swap',{a,b,nearVoid:near,groups:matches.length,chainLength:chain.length},at);return s;
+}
+function tick5(s,at){s.board.chain.unshift(token(s));s.board.ticks++;if(s.board.chain.length>=64){s.status='failed';s.feedback='Structural lock: a tile entered slot 64 / the entropy void.';record(s,'failed',{reason:'entropy_void',length:s.board.chain.length},at);}
+ else{s.feedback='Feed injected at slot 1 ('+s.board.chain.length+'/64 occupied).';record(s,'injection',{length:s.board.chain.length},at);}return s;}
+function step(s,act,at=0){if(!assertPlaying(s))return s;at=ms(at,s.lastAt);s.lastAt=at;
+ if(s.level>=6)return expansion.step(s,act||{},at);
+ if(!act||typeof act.type!=='string')return invalid(s,'Unrecognized action.',at);
+ if(s.level===1&&act.type==='swap')return handle1(s,act.a,act.b,at,act.planStartMs);
+ if(s.level===2&&act.type==='rotate')return handle2(s,act.ring,act.direction,at);
+ if(s.level===3&&act.type==='swap')return handle3(s,act.a,act.b,at);
+ if(s.level===4&&act.type==='swap')return handle4(s,act.a,act.b,at);
+ if(s.level===5&&act.type==='swap')return move5(s,act.a,act.b,at);
+ if(s.level===5&&act.type==='tick')return tick5(s,at);
+ return invalid(s,'Action not available on this stage.',at);
+}
+function metrics(s){const v=s.stats,div=(a,b)=>b?a/b:null;
+ const base={schema:'one.33trial.telemetry.v1',trialId:s.level,trialName:LEVELS[s.level-1].name,gameplayOnly:true,notStandardizedIQTest:true,consentOptIn:s.telemetryEnabled,moves:s.moves,progress:s.progress,penalties:s.penalties,invalidActions:v.invalid,elapsedMs:Math.max(0,s.lastAt-s.startedAt),outcome:s.status};
+ if(s.level>=6)return {...base,matchEfficiency:div(v.progressMoves,s.moves),score:s.score,objectiveProgress:s.progress,objectiveTarget:LEVELS[s.level-1].goal,freeReshuffles:s.board.reshuffles};
+ if(s.level===1)return {...base,symmetryDeltaMs:0,interpretation:'Mechanically fixed at zero by automatic mirror; NOT an independently measured IQ trait.',avgPlanningMs:div(v.planningMs.reduce((a,b)=>a+b,0),v.planningMs.length)};
+ if(s.level===2)return {...base,rotationalAccuracyIndex:div(v.progressMoves,v.progressMoves+v.blockageMoves),progressMoves:v.progressMoves,blockageMoves:v.blockageMoves};
+ if(s.level===3)return {...base,misclickVector:{cardinalAttemptsFirst60s:v.cardinalAttemptsFirstMinute,cardinalAttemptsAfter60s:v.cardinalAttemptsLater}};
+ if(s.level===4)return {...base,chainPotentialRealization:{topCombosRealized:v.cprCombos,upperTilesDetonated:v.cprTopTiles,shockwaves:v.shockwaves,combosPerShockwave:div(v.cprCombos,v.shockwaves)}};
+ const calm=div(v.calm.success,v.calm.actions),near=div(v.near.success,v.near.actions);
+ return {...base,panicShiftDelta:calm===null||near===null?null:near-calm,calmAccuracy:calm,nearVoidAccuracy:near,nearVoidThresholdSlots:5,interpretation:'Observed success-rate difference by proximity. Not a clinical composure score.'};
+}
+function save(s){if(!s||s.schema!=='one.33trial.session.v1')throw Error('Invalid trial');const data={schema:'one.33trial.save.v1',exportedAt:new Date().toISOString(),game:'The 33 Trial Matrix',author:'Nathan Tabor',session:JSON.parse(JSON.stringify(s)),metrics:s.telemetryEnabled?metrics(s):null,telemetryEvents:s.telemetryEnabled?s.events:[],privacy:'Private local session, exported only by explicit user action; no personal IQ assessment.'};return data;}
+function restore(data){if(!data||data.schema!=='one.33trial.save.v1'||!data.session||data.session.schema!=='one.33trial.session.v1')throw Error('Unknown save-file schema');const s=data.session;
+ if(!LEVELS[s.level-1]||!Number.isInteger(s.randomState)||!Array.isArray(s.events)||s.events.length>3000||!s.stats||!Number.isInteger(s.moves)||s.moves<0)throw Error('Malformed trial save');
+ validateSession(s);
+ if(s.level>=6)expansion.validate(s);
+ if(s.level===1&&(!Array.isArray(s.board)||s.board.length!==33||s.board[16]!==-1))throw Error('Invalid monolith geometry');
+ if(s.level===2&&(!s.board||s.board.outer?.length!==18||s.board.inner?.length!==12||s.board.core?.length!==3))throw Error('Invalid Babylon rings');
+ if(s.level===3&&(!Array.isArray(s.board)||s.board.length!==49||!RHOMBUS_VOID.every(i=>s.board[i]===null)))throw Error('Invalid diamond topology');
+ if(s.level===4&&(!Array.isArray(s.board)||!FUNNEL.every((n,i)=>s.board[i]?.length===n)))throw Error('Invalid funnel geometry');
+ if(s.level===5&&(!Array.isArray(s.board?.chain)||s.board.chain.length>64||s.board.chain.length<0))throw Error('Invalid entropy chain');
+ return JSON.parse(JSON.stringify(s));
+}
+function validateSession(s){
+ if(!Number.isInteger(s.level)||s.level<1||s.level>33||!['playing','won','failed'].includes(s.status)||typeof s.telemetryEnabled!=='boolean')throw Error('Invalid session state');
+ for(const k of ['seed','randomState'])if(!Number.isInteger(s[k])||s[k]<0||s[k]>4294967295)throw Error('Invalid seed');
+ for(const k of ['startedAt','lastAt','moves','progress','score','penalties'])if(!Number.isSafeInteger(s[k])||s[k]<0)throw Error('Invalid session counters');
+ for(const k of ['valid','invalid','progressMoves','blockageMoves','neutralMoves','cardinalAttemptsFirstMinute','cardinalAttemptsLater','cprCombos','cprTopTiles','shockwaves'])if(!Number.isSafeInteger(s.stats[k])||s.stats[k]<0)throw Error('Invalid gameplay stats');
+ for(const k of ['planningMs','symmetryDeltasMs'])if(!Array.isArray(s.stats[k])||s.stats[k].length>10000||!s.stats[k].every(v=>Number.isFinite(v)&&v>=0))throw Error('Invalid timings');
+ for(const k of ['calm','near'])if(!s.stats[k]||!Number.isSafeInteger(s.stats[k].actions)||s.stats[k].actions<0||!Number.isSafeInteger(s.stats[k].success)||s.stats[k].success<0||s.stats[k].success>s.stats[k].actions)throw Error('Invalid rate stats');
+ if(!s.events.every(e=>e&&typeof e.type==='string'&&Number.isFinite(e.at)&&e.at>=0))throw Error('Invalid events');
+ if(!s.telemetryEnabled&&s.events.length)throw Error('Detailed events require opt-in');
+}
+function hint(s){
+ if(s.status!=='playing')return null;
+ if(s.level>=6)return expansion.hint(s);
+ let actions=[];
+ if(s.level===1)for(let a=0;a<16;a++)for(let b=a+1;b<16;b++)actions.push({type:'swap',a,b});
+ if(s.level===2)for(const ring of ['outer','inner'])for(const direction of [-1,1])actions.push({type:'rotate',ring,direction});
+ if(s.level===3)for(let a=0;a<49;a++)for(const delta of [6,8]){const b=a+delta;if(b<49&&Math.abs(a%7-b%7)===1&&s.board[a]!==null&&s.board[b]!==null)actions.push({type:'swap',a,b});}
+ if(s.level===4){const ps=s.board.flatMap((row,r)=>row.map((_,c)=>({r,c})));for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++)actions.push({type:'swap',a:ps[i],b:ps[j]});}
+ if(s.level===5)for(let a=0;a+1<s.board.chain.length;a++)actions.push({type:'swap',a,b:a+1});
+ let best=null,bestRank=-Infinity;
+ for(const action of actions){const copy=JSON.parse(JSON.stringify(s));copy.telemetryEnabled=false;copy.events=[];step(copy,action,s.lastAt);const rank=(copy.progress-s.progress)*1000-(copy.penalties-s.penalties)*10+(copy.moves-s.moves);if(rank>bestRank){bestRank=rank;best=action;}}
+ if(s.level===2&&bestRank<1000&&!s.board.locked){
+  let route=null;
+  const delta=(from,to,n)=>{const d=(to-from+n)%n;return d>n/2?d-n:d;};
+  for(let axis=0;axis<3;axis++)for(let outer=0;outer<18;outer++)for(let inner=0;inner<12;inner++)if(s.board.outer[outer]===s.board.core[axis]&&s.board.inner[inner]===s.board.core[axis]){
+   const od=delta(outer,axis*6,18),id=delta(inner,axis*4,12),cost=Math.abs(od)+Math.abs(id);
+   if(cost&&(!route||cost<route.cost))route={cost,action:{type:'rotate',ring:od?'outer':'inner',direction:Math.sign(od||id)}};
+  }
+  if(route)return route.action;
+ }
+ if(s.level===1&&bestRank<1000){
+  for(let start=0;start<=13;start++)for(let v=0;v<4;v++){
+   const missing=[start,start+1,start+2].filter(i=>s.board[i]!==v),donors=Array.from({length:16},(_,i)=>i).filter(i=>(i<start||i>start+2)&&s.board[i]===v);
+   if(missing.length&&donors.length>=missing.length)return {type:'swap',a:missing[0],b:donors[0]};
+  }
+ }
+ if(s.level===4&&bestRank<1000){
+  const bottom=s.board[5],values=[0,1,2,3].sort((a,b)=>bottom.filter(v=>v===b).length-bottom.filter(v=>v===a).length);
+  for(const v of values){const missing=bottom.findIndex(x=>x!==v);if(missing<0)continue;for(let r=0;r<5;r++)for(let c=0;c<s.board[r].length;c++)if(s.board[r][c]===v)return {type:'swap',a:{r,c},b:{r:5,c:missing}};}
+ }
+ if(s.level===5&&bestRank<1000)return null;
+ return best;
+}
+return Object.freeze({expansion,hint,LEVELS,GLYPHS,FUNNEL,RHOMBUS_VOID,SPIRAL,initial,step,metrics,save,restore,diagonalGroups,axes,groups5});
+});
+</script><script>
+/* Free local progression. Coins/gems are earned game counters, never purchased. */
+(function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.TrialProfile=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){'use strict';
+function initial(){return {schema:'one.33trial.profile.v1',starterGift:true,coins:100,gems:3,stars:{},completed:[],bestScores:{},completedMoves:{}};}
+function validate(p){
+ if(!p||p.schema!=='one.33trial.profile.v1'||p.starterGift!==true)throw Error('Unknown progress file');
+ for(const key of ['coins','gems'])if(!Number.isSafeInteger(p[key])||p[key]<0)throw Error('Invalid earned balance');
+ if(!Array.isArray(p.completed)||p.completed.length>33||new Set(p.completed).size!==p.completed.length||!p.completed.every(v=>Number.isInteger(v)&&v>=1&&v<=33))throw Error('Invalid completion list');
+ for(const key of ['stars','bestScores','completedMoves']){
+  if(!p[key]||typeof p[key]!=='object'||Array.isArray(p[key])||Object.keys(p[key]).length>33)throw Error('Invalid progress records');
+  for(const [level,value] of Object.entries(p[key]))if(!/^(?:[1-9]|[12][0-9]|3[0-3])$/.test(level)||!p.completed.includes(Number(level))||!Number.isSafeInteger(value)||value<0||(key==='stars'&&(value<1||value>3)))throw Error('Invalid level record');
+  if(!p.completed.every(level=>Object.hasOwn(p[key],level)))throw Error('Missing completion record');
+ }
+ return JSON.parse(JSON.stringify(p));
+}
+function award(p,s,d){
+ if(s.status!=='won')return {earned:false,coins:0,gems:0};
+ const first=!p.completed.includes(s.level),stars=d.moveLimit===null?3:s.moves<=Math.ceil(d.moveLimit/3)?3:s.moves<=Math.ceil(d.moveLimit*2/3)?2:1;
+ p.stars[s.level]=Math.max(p.stars[s.level]||0,stars);p.bestScores[s.level]=Math.max(p.bestScores[s.level]||0,s.score);p.completedMoves[s.level]=Math.min(p.completedMoves[s.level]??Infinity,s.moves);
+ if(!first)return {earned:false,coins:0,gems:0};
+ p.completed.push(s.level);p.completed.sort((a,b)=>a-b);p.coins+=100;
+ const start=Math.floor((s.level-1)/11)*11+1,epochDone=Array.from({length:11},(_,i)=>start+i).every(level=>p.completed.includes(level));
+ const gems=epochDone?5:1;p.gems+=gems;return {earned:true,coins:100,gems};
+}
+function next(p){return Array.from({length:33},(_,i)=>i+1).find(i=>!p.completed.includes(i))||33;}
+return Object.freeze({initial,validate,award,next});
+});
+
+</script><script>
+/* ONE 33 Trial Matrix: browser presentation. No analytics endpoints or auto-upload. */
+(function(){'use strict';
+const game=window.OneTrialMatrix;if(!game)throw Error('Trial Matrix engine missing.');
+const $=id=>document.getElementById(id);
+const profiles=window.TrialProfile,storageKey='one.33trial.progress.v1';
+let profile=profiles.initial(),storageWarning='',savedSession=null;
+try{const raw=localStorage.getItem(storageKey);if(raw){const data=JSON.parse(raw);profile=profiles.validate(data.profile);savedSession=game.restore(data.save);}}catch(err){storageWarning='Local save could not be loaded. It has not been overwritten. Export a backup before continuing.';}
+let session=savedSession||game.initial(profiles.next(profile),8291973,false,Date.now()),selected=null,planStart=null,feedAt=sessionLevelFeed(savedSession),hintMove=null,saveBlocked=!!storageWarning;
+function sessionLevelFeed(s){return s?.level===5?Date.now()+2000:null;}
+$('telemetry').checked=session.telemetryEnabled;
+function persist(){if(saveBlocked)return;try{localStorage.setItem(storageKey,JSON.stringify({schema:'one.33trial.progress.v1',profile,save:game.save(session)}));}catch(err){storageWarning='Browser storage unavailable. Use Export JSON to keep your progress.';}}
+function settle(){const reward=profiles.award(profile,session,game.LEVELS[session.level-1]);if(reward.earned)session.feedback+=' Earned '+reward.coins+' coins and '+reward.gems+' gems.';persist();}
+
+function button(text,fn,cls,aria){const b=document.createElement('button');b.type='button';b.textContent=text;if(cls)b.className=cls;if(aria)b.setAttribute('aria-label',aria);if(fn)b.addEventListener('click',fn);return b;}
+function node(tag,text,cls){const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el;}
+function resetSelection(){selected=null;planStart=null;hintMove=null;}
+function newTrial(level=session.level){resetSelection();session=game.initial(level,(Date.now()^Math.imul(level,8291973))>>>0,!!$('telemetry').checked,Date.now());feedAt=level===5?Date.now()+2000:null;persist();render();}
+function chooseLevel(level){newTrial(level);}
+function update(a){game.step(session,a,Date.now());resetSelection();settle();render();}
+function tap(i,coord){if(session.status!=='playing')return;
+ if(selected===null){selected={i,coord};planStart=Date.now();$('selection-hint').textContent='Now select the tile to swap with';renderBoard();return;}
+ const start=selected;if(session.level===4)update({type:'swap',a:start.coord,b:coord,planStartMs:planStart});else update({type:'swap',a:start.i,b:i,planStartMs:planStart});
+}
+function tile(value,onClick,extra='',number){let glyph=value===-1?'🧭':value===null?'':game.GLYPHS[Math.min(session.level-1,4)][value];const b=button(glyph,onClick,'tile '+extra+(selected!==null&&number===selected.i?' selected':''),number==null?undefined:'Slot '+(number+1)+(value===null?' structural void':' '+glyph));if(value===-1)b.classList.add('anchor');if(value===null){b.classList.add('void');b.disabled=true;}if(onClick===null)b.disabled=true;return b;}
+function monolith(){const wrap=node('div',undefined,'tiles');session.board.forEach((v,i)=>{const playable=i<16&&v!==-1;let b=tile(v,playable?()=>tap(i):null,'',i);b.title=i===16?'The immutable compass anchor':i<16?'Choose LEFT wing: right wing auto-mirrors':'Right symmetry wing: automatic';wrap.append(b);});$('board').append(wrap);}
+function makeRing(name,values,ring){const section=node('div',undefined,'ring '+name),title=node('div',name.toUpperCase()+' · '+values.length+' nodes','ring-name');section.append(title);values.forEach((v,i)=>{const b=tile(v,null,'',i);b.title=name+' node '+(i+1);const angle=-Math.PI/2+2*Math.PI*i/values.length;b.style.left=(50+43*Math.cos(angle))+'%';b.style.top=(50+43*Math.sin(angle))+'%';b.style.transform='translate(-50%,-50%)';section.append(b);});return section;}
+function babylon(){const rings=node('div',undefined,'rings');rings.append(makeRing('outer',session.board.outer),makeRing('inner',session.board.inner),makeRing('core',session.board.core));$('board').append(rings);
+ const p=$('ring-actions');p.hidden=false;p.replaceChildren();for(const ring of ['outer','inner'])for(const dir of [-1,1])p.append(button(ring.toUpperCase()+(dir===1?' ↻ clockwise':' ↺ counterclockwise'),()=>update({type:'rotate',ring,direction:dir})));
+ p.append(node('span','Aligned radial paths: '+game.axes(session).length+'/3','small'));}
+function rhombus(){const wrap=node('div',undefined,'diamond');session.board.forEach((v,i)=>wrap.append(tile(v,v===null?null:()=>tap(i),'',i)));$('board').append(wrap);}
+function epidaurus(){const all=node('div',undefined,'funnel');session.board.forEach((row,r)=>{const line=node('div',undefined,'tiles'+(r===5?' bed':''));row.forEach((v,c)=>line.append(tile(v,()=>tap(r*100+c,{r,c}),'',r*100+c)));all.append(line);});$('board').append(all);}
+function archimedes(){const grid=node('div',undefined,'spiral'),coordinates=new Map(game.SPIRAL.map(([r,c],i)=>[r*8+c,i]));
+ for(let r=0;r<8;r++)for(let c=0;c<8;c++){const idx=coordinates.get(r*8+c),v=session.board.chain[idx],occupied=idx<session.board.chain.length,voidSlot=idx===63;
+ const onClick=occupied&&session.status==='playing'?()=>tap(idx):null;
+ const b=tile(occupied?v:null,onClick,voidSlot?'maw':occupied?'':'emptied',idx);
+ b.classList.remove('void');b.disabled=!occupied;b.textContent=voidSlot?'💀':occupied?game.GLYPHS[4][v]:'·';
+ const x=node('small',String(idx+1));b.prepend(x);b.setAttribute('aria-label','Spiral slot '+(idx+1)+(voidSlot?' Entropy Void':'')+(occupied?' occupied':' empty'));grid.append(b);
+ }$('board').append(grid);}
+function expanded(){
+ const b=session.board,grid=node('div',undefined,'expanded-board');grid.style.setProperty('--columns',b.cols);
+ for(let i=0;i<b.cells.length;i++){
+  const p=game.expansion.presentation(session,i,selected?.i===i||hintMove?.a===i||hintMove?.b===i),tileButton=button(p.text,()=>tap(i),'tile'+(p.void?' void':'')+(selected?.i===i?' selected':'')+(hintMove?.a===i||hintMove?.b===i?' hinted':''));
+  tileButton.disabled=p.disabled||session.status!=='playing';tileButton.setAttribute('aria-label','Row '+(Math.floor(i/b.cols)+1)+', column '+(i%b.cols+1)+': '+p.text+(p.disabled?' (fixed)':''));tileButton.dataset.slot=i;
+  if(p.ink)tileButton.style.color=p.ink;
+  if(session.level===10){tileButton.style.borderColor=['#efdba9','#83d3e5','#ccafff'][(Math.floor(i/b.cols/3)+Math.floor(i%b.cols/3))%3];}
+  if(session.level===24){if(i%b.cols===4)tileButton.style.marginLeft='6px';if(Math.floor(i/b.cols)===4)tileButton.style.marginTop='6px';}
+  grid.append(tileButton);
+ }
+ $('board').append(grid);$('board').append(node('p',game.expansion.status(session),'help'));
+ const actions=$('ring-actions');actions.hidden=false;
+ if(session.level===8)actions.append(button(b.revealed?'Hide symbols':'Study symbols (free)',()=>update({type:'study'})));
+ if(session.level===23)for(const phase of [0,1]){const control=button((phase?'Dark':'Light')+' state',()=>update({type:'phase',phase}));control.setAttribute('aria-pressed',String(b.phase===phase));actions.append(control);}
+ if(session.level===26)actions.append(button(b.inspect?'Hide weights':'Inspect weights (free)',()=>update({type:'inspect'})));
+}
+function renderBoard(){const b=$('board');b.replaceChildren();$('ring-actions').hidden=true;$('ring-actions').replaceChildren();
+ if(session.level===1)monolith();else if(session.level===2)babylon();else if(session.level===3)rhombus();else if(session.level===4)epidaurus();else if(session.level===5)archimedes();else expanded();
+ $('selection-hint').textContent=selected===null?'Select '+(session.level===2?'a ring rotation':'a tile to begin'):'Choose the second tile';
+}
+function formatMetric(v){if(v==null)return 'Insufficient moves';if(typeof v==='number')return Number.isInteger(v)?String(v):v.toFixed(3);return String(v);}
+function renderMetrics(){const el=$('metrics');el.replaceChildren();const m=game.metrics(session);
+ const entries=Object.entries(m).filter(([k])=>!['schema','trialId','trialName','gameplayOnly','notStandardizedIQTest','consentOptIn','elapsedMs','moves','progress','penalties','outcome','interpretation'].includes(k));
+ if(!session.telemetryEnabled){el.append(node('p','Detailed event telemetry OFF. Basic game counters remain available during play; no detailed events are stored.'));return;}
+ for(const [key,value] of entries){const line=node('p',undefined,'metric');const strong=node('strong',key.replace(/([A-Z])/g,' $1').replace(/^./,c=>c.toUpperCase())+': ');line.append(strong,node('span',value&&typeof value==='object'?JSON.stringify(value):formatMetric(value)));el.append(line);}
+ if(m.interpretation)el.append(node('p',m.interpretation,'small'));
+}
+function render(){const def=game.LEVELS[session.level-1];$('stage-title').textContent=def.name;$('stage-tagline').textContent='“'+def.tagline+'”';$('level-tag').textContent='EPOCH '+def.epoch+' · TRIAL '+String(session.level).padStart(2,'0')+' / 33 · '+def.geometry;
+ $('hint').disabled=session.status!=='playing';
+ $('apply-hint').disabled=!hintMove;
+ const nav=$('level-nav');nav.replaceChildren();game.LEVELS.forEach(def=>{const b=button('',()=>chooseLevel(def.id));b.append(node('strong',String(def.id).padStart(2,'0')),node('span',def.name));if(def.id===session.level)b.setAttribute('aria-current','step');if(profile.completed.includes(def.id))b.append(node('small','★'.repeat(profile.stars[def.id])+' Complete'));nav.append(b);});
+ $('wallet').textContent='Free starter gift included · '+profile.coins+' coins · '+profile.gems+' gems · '+Object.values(profile.stars).reduce((a,b)=>a+b,0)+' stars · '+profile.completed.length+'/33 completed. All stages, hints and retries are free.';
+ $('storage-status').textContent=storageWarning;
+ $('continue').textContent='Continue → Trial '+profiles.next(profile);
+ const stats=[['Level',String(session.level)+'/33'],['Progress',session.progress+'/'+def.goal],['Moves',session.moves+(def.moveLimit===null?'':'/'+def.moveLimit)],['Structural penalties',session.penalties]];
+ $('scoreboard').replaceChildren();for(const [label,val] of stats){const x=node('div',undefined,'stat');x.append(node('strong',val),node('span',label));$('scoreboard').append(x);}
+ const m=game.metrics(session);
+ $('feedback').textContent=(session.status==='playing'?session.feedback||'Choose tiles or use the ring controls to begin.':session.status==='won'?'TRIAL COMPLETE — '+session.feedback:'TRIAL FAILED — '+session.feedback)
+ +(session.level===5?' · Spiral occupancy '+session.board.chain.length+'/64':'');
+ $('mechanics').textContent=def.detail;
+ $('spec-details').replaceChildren();
+ for(const [label,text] of [['Geometry',def.geometry],['Rules',def.detail],['Gameplay metric',def.metric],['Trial objective',String(def.goal)+(session.level===10?' rooms':session.level===33?' seals':session.level>=6?' objective points':' structural matches')]]){
+  const x=node('p');x.append(node('strong',label+': '),node('span',text));$('spec-details').append(x);
+ }
+ if(session.level===2)$('spec-details').append(node('p','The displayed I/II/III/IV symbols follow the submitted visual labels; they are Roman-style numerals, not verified cuneiform.','technical'));
+ if(session.level===5)$('spec-details').append(node('p','The entropy clock injects one tile every 2,000 ms while this level is active. Browsers may throttle timers in background tabs.','technical'));
+ renderBoard();renderMetrics();
+}
+function downloadJSON(value,filename){const blob=new Blob([JSON.stringify(value,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);}
+function synchronizeSpiral(){if(session.level!==5||session.status!=='playing'||feedAt==null)return;
+ const now=Date.now();let n=0;while(now>=feedAt&&session.status==='playing'&&n<128){game.step(session,{type:'tick'},feedAt);feedAt+=2000;n++;}if(n){settle();render();}
+}
+$('telemetry').addEventListener('change',()=>{if(session.moves||session.progress||session.level===5&&session.board.ticks){$('feedback').textContent='Detailed telemetry preference changed. Press Restart trial to apply the new setting.';return;}newTrial();});
+$('new-session').addEventListener('click',()=>newTrial());
+$('continue').addEventListener('click',()=>newTrial(profiles.next(profile)));
+$('hint').addEventListener('click',()=>{
+ hintMove=game.hint(session);
+ if(!hintMove){$('feedback').textContent='No match available yet. On the spiral, wait for the next tile feed.';return;}
+ if(session.level===23)game.step(session,{type:'phase',phase:hintMove.phase},Date.now());
+ selected=null;planStart=null;renderBoard();
+ const position=v=>typeof v==='object'?'row '+(v.r+1)+', column '+(v.c+1):'slot '+(v+1);
+ $('feedback').textContent=hintMove.type==='rotate'?'Free hint: rotate '+hintMove.ring+' '+(hintMove.direction===1?'clockwise':'counterclockwise')+'.':'Free hint: swap '+position(hintMove.a)+' with '+position(hintMove.b)+'.';
+ $('apply-hint').disabled=false;
+});
+$('apply-hint').addEventListener('click',()=>{if(!hintMove)return;const action=hintMove;hintMove=null;update(action);$('apply-hint').disabled=true;});
+$('export').addEventListener('click',()=>{downloadJSON({schema:'one.33trial.progress.v1',profile,save:game.save(session)},'THE_33_Level_'+session.level+'_progress.json');});
+$('import').addEventListener('change',async e=>{try{const f=e.target.files[0];if(!f)return;if(f.size>1024*1024)throw Error('Save file too large (1 MB limit)');const data=JSON.parse(await f.text());const restored=game.restore(data.schema==='one.33trial.progress.v1'?data.save:data),restoredProfile=data.schema==='one.33trial.progress.v1'?profiles.validate(data.profile):profile;session=restored;profile=restoredProfile;saveBlocked=false;storageWarning='';$('telemetry').checked=session.telemetryEnabled;resetSelection();feedAt=session.level===5?Date.now()+2000:null;settle();render();}
+ catch(err){$('feedback').textContent='Save import failed: '+(err.message||String(err));}finally{e.target.value='';}});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)synchronizeSpiral();});
+setInterval(()=>synchronizeSpiral(),250);
+render();
+if(!storageWarning){settle();render();}
+})();
+</script>
+</body></html>

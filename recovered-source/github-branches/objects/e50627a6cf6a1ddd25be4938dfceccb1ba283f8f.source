@@ -1,0 +1,97 @@
+name: iPhone Game - Stewart & Mr. Finn (Unsigned IPA)
+
+on:
+  pull_request:
+    paths:
+      - 'app-factory/stewie-mr-finn/**'
+      - '.github/workflows/ios-stewie-finn.yml'
+  push:
+    paths:
+      - 'app-factory/stewie-mr-finn/**'
+      - '.github/workflows/ios-stewie-finn.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: stewart-finn-${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  unsigned-iphone-ipa:
+    runs-on: macos-15
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: app-factory/stewie-mr-finn
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Select latest stable Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+      - name: Show selected Xcode
+        run: xcodebuild -version
+      - name: Test offline Polar Family story and progression (native Swift)
+        run: |
+          swiftc -swift-version 5 -o /tmp/polar-quest-check Sources/PolarFamilyQuestCore.swift Tests/main.swift
+          /tmp/polar-quest-check
+      - name: Verify mirrored web-game integrity (Node)
+        run: |
+          node --test polar-middle-c/engine.test.cjs
+          node --test polar-middle-c/mirror-bridge/engine.test.cjs
+          node --test polar-middle-c/math-roots/engine.test.cjs
+      - name: Require submission-compatible SDK
+        run: |
+          SDK_VERSION="$(xcrun --sdk iphoneos --show-sdk-version)"
+          test "${SDK_VERSION%%.*}" -ge 26 || { echo "Select Xcode with iOS SDK 26 or later"; exit 1; }
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Package recovered original artwork
+        run: |
+          python3 -m venv .venv
+          .venv/bin/python -m pip install --disable-pip-version-check pillow
+          .venv/bin/python scripts/generate_art.py
+      - name: Generate Xcode project
+        run: xcodegen generate
+      - name: Build for iPhone without code signing
+        run: |
+          xcodebuild -project StewieAndMrFinn.xcodeproj \
+            -scheme StewieAndMrFinn \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -sdk iphoneos \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            build
+      - name: Build and inspect iPhone screens
+        run: |
+          xcodebuild -project StewieAndMrFinn.xcodeproj \
+            -scheme StewieAndMrFinn -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath simulator-build CODE_SIGNING_ALLOWED=NO \
+            ARCHS="$(uname -m)" ONLY_ACTIVE_ARCH=YES build
+          python3 scripts/capture_screens.py
+      - name: Upload visual QA screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: Stewart-Finn-Visual-QA
+          path: app-factory/stewie-mr-finn/dist/visual-qa
+          if-no-files-found: error
+          retention-days: 14
+      - name: Package unsigned IPA
+        run: |
+          mkdir -p Payload dist
+          cp -R build/Build/Products/Release-iphoneos/StewieAndMrFinn.app Payload/
+          zip -qry dist/StewieAndMrFinn-UNSIGNED.ipa Payload
+          unzip -l dist/StewieAndMrFinn-UNSIGNED.ipa | grep 'Payload/StewieAndMrFinn.app/'
+      - name: Publish unsigned IPA build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: StewieAndMrFinn-UNSIGNED-iPhone-IPA
+          path: app-factory/stewie-mr-finn/dist/StewieAndMrFinn-UNSIGNED.ipa
+          if-no-files-found: error
+          retention-days: 30

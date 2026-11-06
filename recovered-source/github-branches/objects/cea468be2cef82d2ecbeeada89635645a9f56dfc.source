@@ -1,0 +1,1253 @@
+{
+  "schema": "nathan.hop-in.five-matrix-learning.v1",
+  "version": "2026-11-05",
+  "stage": "working local educational prototype",
+  "source_boundary": "All literary content is paraphrased reference commentary; it is not a substitute for copyrighted novels.",
+  "matrix": [
+    {
+      "id": "BODY",
+      "description": "Material objects, placement, anatomy, movement and environments"
+    },
+    {
+      "id": "SOUL",
+      "description": "Identity, loyalty, feelings, relationships and belonging"
+    },
+    {
+      "id": "SHADOW",
+      "description": "Corruption, concealment, abuse of power and contested claims"
+    },
+    {
+      "id": "MIND",
+      "description": "Language, mechanisms, evidence, strategy and interpretation"
+    },
+    {
+      "id": "SPIRIT",
+      "description": "Conscience, hope, sacrifice, renewal and freedom"
+    }
+  ],
+  "records": [
+    {
+      "id": "ME-01",
+      "name": "The One Ring",
+      "universe": "Middle-earth",
+      "class": "ring",
+      "matrices": [
+        "BODY",
+        "SHADOW",
+        "MIND"
+      ],
+      "summary": "Sauron's master ring; forged in Mount Doom; its ability to dominate the other Rings is central to the story.",
+      "source": "Tolkien literary canon",
+      "links": [
+        "ME-02",
+        "KJV-01",
+        "SY-01"
+      ]
+    },
+    {
+      "id": "ME-02",
+      "name": "Narya, Nenya, Vilya",
+      "universe": "Middle-earth",
+      "class": "rings",
+      "matrices": [
+        "BODY",
+        "SOUL",
+        "SPIRIT"
+      ],
+      "summary": "Three Elven Rings held by Gandalf, Galadriel and Elrond; linked to protection, hope and preservation.",
+      "source": "Tolkien literary canon",
+      "links": [
+        "ME-01"
+      ]
+    },
+    {
+      "id": "ME-03",
+      "name": "The Seven Dwarf-rings",
+      "universe": "Middle-earth",
+      "class": "rings",
+      "matrices": [
+        "BODY",
+        "SHADOW"
+      ],
+      "summary": "Seven Rings associated with the Dwarf-lords and the accumulation of treasure.",
+      "source": "Tolkien literary canon",
+      "links": [
+        "ME-01"
+      ]
+    },
+    {
+      "id": "ME-04",
+      "name": "The Nine Rings of Men",
+      "universe": "Middle-earth",
+      "class": "rings",
+      "matrices": [
+        "SHADOW",
+        "SPIRIT"
+      ],
+      "summary": "The nine mortal bearers become the Nazgûl, bound to Sauron's power.",
+      "source": "Tolkien literary canon",
+      "links": [
+        "ME-01"
+      ]
+    },
+    {
+      "id": "ME-05",
+      "name": "Andúril / Narsil",
+      "universe": "Middle-earth",
+      "class": "weapon",
+      "matrices": [
+        "BODY",
+        "SOUL",
+        "SPIRIT"
+      ],
+      "summary": "Reforged ancestral sword of Aragorn; symbol of restored lineage.",
+      "source": "Tolkien literary canon",
+      "links": [
+        "ME-06",
+        "KJV-03"
+      ]
+    },
+    {
+      "id": "ME-06",
+      "name": "Glamdring",
+      "universe": "Middle-earth",
+      "class": "weapon",
+      "matrices": [
+        "BODY",
+        "MIND"
+      ],
+      "summary": "Ancient Elven sword carried by Gandalf; known as Foe-hammer.",
+      "source": "Tolkien literary canon",
+      "links": [
+        "ME-07",
+        "KJV-03"
+      ]
+    },
+    {
+      "id": "ME-07",
+      "name": "Sting",
+      "universe": "Middle-earth",
+      "class": "weapon",
+      "matrices": [
+        "BODY",
+        "MIND"
+      ],
+      "summary": "Elven blade carried by Bilbo and Frodo; glows when Orcs are near.",
+      "source": "Tolkien literary canon",
+      "links": [
+        "ME-08",
+        "KJV-03"
+      ]
+    },
+    {
+      "id": "ME-08",
+      "name": "Orcrist",
+      "universe": "Middle-earth",
+      "class": "weapon",
+      "matrices": [
+        "BODY",
+        "SOUL"
+      ],
+      "summary": "Gondolin blade carried by Thorin, also called Goblin-cleaver.",
+      "source": "Tolkien literary canon",
+      "links": [
+        "ME-07"
+      ]
+    },
+    {
+      "id": "ME-09",
+      "name": "Mithril shirt",
+      "universe": "Middle-earth",
+      "class": "armor",
+      "matrices": [
+        "BODY",
+        "SOUL"
+      ],
+      "summary": "Protective coat of mithril worn by Bilbo and later Frodo.",
+      "source": "Tolkien literary canon",
+      "links": [
+        "KJV-04"
+      ]
+    },
+    {
+      "id": "ME-10",
+      "name": "Morgul-blade",
+      "universe": "Middle-earth",
+      "class": "weapon",
+      "matrices": [
+        "BODY",
+        "SHADOW"
+      ],
+      "summary": "Witch-king's supernatural blade that wounds Frodo at Weathertop.",
+      "source": "Tolkien literary canon",
+      "links": []
+    },
+    {
+      "id": "HOB-01",
+      "name": "Arkenstone",
+      "universe": "The Hobbit",
+      "class": "treasure",
+      "matrices": [
+        "BODY",
+        "SOUL",
+        "SHADOW"
+      ],
+      "summary": "The Heart of the Mountain; a unique jewel and contested symbol of Erebor's kingship.",
+      "source": "Tolkien: The Hobbit",
+      "links": [
+        "HOB-02",
+        "SY-02"
+      ]
+    },
+    {
+      "id": "HOB-02",
+      "name": "Erebor / Lonely Mountain",
+      "universe": "The Hobbit",
+      "class": "place",
+      "matrices": [
+        "BODY",
+        "SOUL"
+      ],
+      "summary": "Dwarven kingdom and treasure halls reclaimed after Smaug is killed.",
+      "source": "Tolkien: The Hobbit",
+      "links": [
+        "HOB-01"
+      ]
+    },
+    {
+      "id": "HOB-03",
+      "name": "Black Arrow",
+      "universe": "The Hobbit",
+      "class": "weapon",
+      "matrices": [
+        "BODY",
+        "MIND"
+      ],
+      "summary": "Bard's inherited arrow; strikes Smaug at his vulnerable spot in the novel.",
+      "source": "Tolkien: The Hobbit",
+      "links": []
+    },
+    {
+      "id": "HOB-04",
+      "name": "The Troll Hoard",
+      "universe": "The Hobbit",
+      "class": "place",
+      "matrices": [
+        "BODY",
+        "MIND"
+      ],
+      "summary": "Location where the travelers recover Orcrist, Glamdring and Sting.",
+      "source": "Tolkien: The Hobbit",
+      "links": [
+        "ME-06",
+        "ME-07",
+        "ME-08"
+      ]
+    },
+    {
+      "id": "NAR-01",
+      "name": "Yellow and Green Magic Rings",
+      "universe": "Narnia",
+      "class": "rings",
+      "matrices": [
+        "BODY",
+        "MIND"
+      ],
+      "summary": "Travel devices used with the Wood between the Worlds in The Magician's Nephew.",
+      "source": "C. S. Lewis: The Magician's Nephew",
+      "links": [
+        "NAR-02"
+      ]
+    },
+    {
+      "id": "NAR-02",
+      "name": "Wood between the Worlds",
+      "universe": "Narnia",
+      "class": "place",
+      "matrices": [
+        "BODY",
+        "MIND"
+      ],
+      "summary": "Inter-world region with pools leading to different worlds.",
+      "source": "C. S. Lewis: The Magician's Nephew",
+      "links": [
+        "NAR-01",
+        "NAR-03"
+      ]
+    },
+    {
+      "id": "NAR-03",
+      "name": "The Wardrobe",
+      "universe": "Narnia",
+      "class": "furniture",
+      "matrices": [
+        "BODY",
+        "MIND"
+      ],
+      "summary": "Wooden wardrobe that sometimes serves as a passage from England to Narnia. Original category remains furniture.",
+      "source": "C. S. Lewis: The Lion, the Witch and the Wardrobe",
+      "links": [
+        "NAR-02",
+        "SY-03"
+      ]
+    },
+    {
+      "id": "NAR-04",
+      "name": "The Stone Table",
+      "universe": "Narnia",
+      "class": "monument",
+      "matrices": [
+        "BODY",
+        "SPIRIT"
+      ],
+      "summary": "Stone monument tied to the Deep Magic and Aslan's sacrifice.",
+      "source": "C. S. Lewis: The Lion, the Witch and the Wardrobe",
+      "links": [
+        "NAR-05"
+      ]
+    },
+    {
+      "id": "NAR-05",
+      "name": "Peter's sword",
+      "universe": "Narnia",
+      "class": "weapon",
+      "matrices": [
+        "BODY",
+        "SOUL"
+      ],
+      "summary": "Gift from Father Christmas used by Peter Pevensie. 'Rhindon' is used as its name in some adaptations/reference materials.",
+      "source": "C. S. Lewis: The Lion, the Witch and the Wardrobe",
+      "links": [
+        "KJV-03"
+      ]
+    },
+    {
+      "id": "NAR-06",
+      "name": "Susan's horn",
+      "universe": "Narnia",
+      "class": "artifact",
+      "matrices": [
+        "BODY",
+        "SOUL"
+      ],
+      "summary": "A magical horn to call aid, later used by Caspian.",
+      "source": "C. S. Lewis: The Lion, the Witch and the Wardrobe / Prince Caspian",
+      "links": []
+    },
+    {
+      "id": "NAR-07",
+      "name": "Susan's bow and arrows",
+      "universe": "Narnia",
+      "class": "weapon",
+      "matrices": [
+        "BODY",
+        "MIND"
+      ],
+      "summary": "Father Christmas's gift for archery.",
+      "source": "C. S. Lewis: The Lion, the Witch and the Wardrobe",
+      "links": []
+    },
+    {
+      "id": "NAR-08",
+      "name": "Lucy's healing cordial",
+      "universe": "Narnia",
+      "class": "medicine",
+      "matrices": [
+        "BODY",
+        "SOUL"
+      ],
+      "summary": "Restorative cordial carried in a small flask.",
+      "source": "C. S. Lewis: The Lion, the Witch and the Wardrobe",
+      "links": []
+    },
+    {
+      "id": "NAR-09",
+      "name": "Lucy's dagger",
+      "universe": "Narnia",
+      "class": "weapon",
+      "matrices": [
+        "BODY"
+      ],
+      "summary": "Protective dagger, to be used in emergencies.",
+      "source": "C. S. Lewis: The Lion, the Witch and the Wardrobe",
+      "links": []
+    },
+    {
+      "id": "NAR-10",
+      "name": "White Witch's wand",
+      "universe": "Narnia",
+      "class": "artifact",
+      "matrices": [
+        "BODY",
+        "SHADOW"
+      ],
+      "summary": "Jadis's wand can turn others into stone.",
+      "source": "C. S. Lewis: The Lion, the Witch and the Wardrobe",
+      "links": []
+    },
+    {
+      "id": "KJV-01",
+      "name": "Twelve gates of New Jerusalem",
+      "universe": "KJV",
+      "class": "gate",
+      "matrices": [
+        "BODY",
+        "MIND",
+        "SPIRIT"
+      ],
+      "summary": "Revelation 21:12–13 names twelve gates, three on each of four sides. Verse 25 says the gates are not shut by day.",
+      "source": "KJV: Revelation 21:12–13,25",
+      "links": [
+        "SY-01",
+        "KJV-02"
+      ]
+    },
+    {
+      "id": "KJV-02",
+      "name": "Ring on the returning son's hand",
+      "universe": "KJV",
+      "class": "ring",
+      "matrices": [
+        "BODY",
+        "SOUL",
+        "SPIRIT"
+      ],
+      "summary": "A ring is given to the returning son as part of his welcome home in the parable.",
+      "source": "KJV: Luke 15:22",
+      "links": [
+        "KJV-01"
+      ]
+    },
+    {
+      "id": "KJV-03",
+      "name": "Sword of the Spirit",
+      "universe": "KJV",
+      "class": "figurative weapon",
+      "matrices": [
+        "MIND",
+        "SPIRIT"
+      ],
+      "summary": "The sword of the Spirit is associated with the word of God.",
+      "source": "KJV: Ephesians 6:17; Hebrews 4:12",
+      "links": [
+        "ME-07"
+      ]
+    },
+    {
+      "id": "KJV-04",
+      "name": "Armor of God",
+      "universe": "KJV",
+      "class": "figurative armor",
+      "matrices": [
+        "SOUL",
+        "SPIRIT"
+      ],
+      "summary": "Spiritual armor imagery in Paul's epistle; it is not a claim of invulnerable physical equipment.",
+      "source": "KJV: Ephesians 6:11–17",
+      "links": [
+        "ME-09"
+      ]
+    },
+    {
+      "id": "KJV-05",
+      "name": "King of glory and gates",
+      "universe": "KJV",
+      "class": "gate",
+      "matrices": [
+        "MIND",
+        "SPIRIT"
+      ],
+      "summary": "Psalm's poetic summons for gates and doors to open.",
+      "source": "KJV: Psalm 24:7",
+      "links": []
+    },
+    {
+      "id": "KJV-06",
+      "name": "Craftiness overturned",
+      "universe": "KJV",
+      "class": "passage",
+      "matrices": [
+        "SHADOW",
+        "MIND"
+      ],
+      "summary": "The quotation about the wise in their craftiness appears in Job 5:13, in Eliphaz's speech.",
+      "source": "KJV: Job 5:13",
+      "links": []
+    },
+    {
+      "id": "KJV-07",
+      "name": "The world is mine",
+      "universe": "KJV",
+      "class": "passage",
+      "matrices": [
+        "MIND",
+        "SPIRIT"
+      ],
+      "summary": "Psalm 50:12 affirms divine sovereignty; it does not document theft of the world.",
+      "source": "KJV: Psalm 50:12",
+      "links": []
+    },
+    {
+      "id": "SY-01",
+      "name": "Rings → gates → rings",
+      "universe": "Interpretive model",
+      "class": "symbolic transformation",
+      "matrices": [
+        "BODY",
+        "SHADOW",
+        "MIND",
+        "SPIRIT"
+      ],
+      "summary": "Author-supplied allegory comparing circular continuity, access control and restored agency. Not a physical or scripturally established conversion.",
+      "source": "User-supplied Five-Matrix narrative, SRC-001/SRC-002",
+      "links": [
+        "ME-01",
+        "KJV-01",
+        "SY-04"
+      ]
+    },
+    {
+      "id": "SY-02",
+      "name": "Arkenstone ↔ Heart of Innocence",
+      "universe": "Interpretive model",
+      "class": "symbolic comparison",
+      "matrices": [
+        "SOUL",
+        "SPIRIT"
+      ],
+      "summary": "Author-supplied symbolic parallel; not a claim that Tolkien's Arkenstone is literally a biblical artifact.",
+      "source": "User-supplied rings and gates conversation, SRC-002",
+      "links": [
+        "HOB-01"
+      ]
+    },
+    {
+      "id": "SY-03",
+      "name": "Wardrobe ↔ gateway",
+      "universe": "Interpretive model",
+      "class": "symbolic transformation",
+      "matrices": [
+        "BODY",
+        "MIND"
+      ],
+      "summary": "The furniture remains furniture; passage is a linked function, not a reclassification.",
+      "source": "Five-Matrix artifact classification specification",
+      "links": [
+        "NAR-03"
+      ]
+    },
+    {
+      "id": "SY-04",
+      "name": "12 wearable ring positions",
+      "universe": "Interpretive model",
+      "class": "jewelry composition",
+      "matrices": [
+        "BODY",
+        "SOUL"
+      ],
+      "summary": "Eight fingers, two thumbs, two arm bracelets. This is a symbolic wearable layout; no supernatural efficacy is established.",
+      "source": "User-supplied rings and gates conversation, SRC-002",
+      "links": [
+        "SY-01",
+        "KJV-01"
+      ]
+    },
+    {
+      "id": "CHAR-01",
+      "name": "Frodo",
+      "universe": "Middle-earth",
+      "class": "character",
+      "matrices": [
+        "SOUL"
+      ],
+      "summary": "Ring-bearer: resilience, temptation, mercy, and endurance",
+      "source": "J. R. R. Tolkien fictional canon",
+      "links": []
+    },
+    {
+      "id": "CHAR-02",
+      "name": "Samwise",
+      "universe": "Middle-earth",
+      "class": "character",
+      "matrices": [
+        "SOUL"
+      ],
+      "summary": "Loyal companion and practical support for Frodo",
+      "source": "J. R. R. Tolkien fictional canon",
+      "links": []
+    },
+    {
+      "id": "CHAR-03",
+      "name": "Aragorn",
+      "universe": "Middle-earth",
+      "class": "character",
+      "matrices": [
+        "SPIRIT"
+      ],
+      "summary": "Strider and descendant of Isildur; embraces kingship",
+      "source": "J. R. R. Tolkien fictional canon",
+      "links": []
+    },
+    {
+      "id": "CHAR-04",
+      "name": "Gandalf",
+      "universe": "Middle-earth",
+      "class": "character",
+      "matrices": [
+        "MIND"
+      ],
+      "summary": "Guide and bearer of Glamdring and Narya",
+      "source": "J. R. R. Tolkien fictional canon",
+      "links": []
+    },
+    {
+      "id": "CHAR-05",
+      "name": "Sauron",
+      "universe": "Middle-earth",
+      "class": "character",
+      "matrices": [
+        "SHADOW"
+      ],
+      "summary": "Dominating power behind the One Ring",
+      "source": "J. R. R. Tolkien fictional canon",
+      "links": []
+    },
+    {
+      "id": "CHAR-06",
+      "name": "Bilbo",
+      "universe": "The Hobbit",
+      "class": "character",
+      "matrices": [
+        "MIND"
+      ],
+      "summary": "Discovers the Ring and uses wit and mercy",
+      "source": "J. R. R. Tolkien fictional canon",
+      "links": []
+    },
+    {
+      "id": "CHAR-07",
+      "name": "Thorin",
+      "universe": "The Hobbit",
+      "class": "character",
+      "matrices": [
+        "SOUL"
+      ],
+      "summary": "Exiled Dwarf leader, struggles over inherited treasure",
+      "source": "J. R. R. Tolkien fictional canon",
+      "links": []
+    },
+    {
+      "id": "CHAR-08",
+      "name": "Smaug",
+      "universe": "The Hobbit",
+      "class": "character",
+      "matrices": [
+        "SHADOW"
+      ],
+      "summary": "Dragon who occupies Erebor and hoards its riches",
+      "source": "J. R. R. Tolkien fictional canon",
+      "links": []
+    },
+    {
+      "id": "CHAR-09",
+      "name": "Aslan",
+      "universe": "Narnia",
+      "class": "character",
+      "matrices": [
+        "SPIRIT"
+      ],
+      "summary": "Great Lion and creator of Narnia in the fictional narrative",
+      "source": "C. S. Lewis fictional canon",
+      "links": []
+    },
+    {
+      "id": "CHAR-10",
+      "name": "Peter",
+      "universe": "Narnia",
+      "class": "character",
+      "matrices": [
+        "BODY"
+      ],
+      "summary": "Pevensie ruler with sword and shield",
+      "source": "C. S. Lewis fictional canon",
+      "links": []
+    },
+    {
+      "id": "CHAR-11",
+      "name": "Susan",
+      "universe": "Narnia",
+      "class": "character",
+      "matrices": [
+        "MIND"
+      ],
+      "summary": "Pevensie ruler with horn and bow",
+      "source": "C. S. Lewis fictional canon",
+      "links": []
+    },
+    {
+      "id": "CHAR-12",
+      "name": "Edmund",
+      "universe": "Narnia",
+      "class": "character",
+      "matrices": [
+        "SOUL"
+      ],
+      "summary": "Betrayal, repentance and reconciliation",
+      "source": "C. S. Lewis fictional canon",
+      "links": []
+    },
+    {
+      "id": "CHAR-13",
+      "name": "Lucy",
+      "universe": "Narnia",
+      "class": "character",
+      "matrices": [
+        "SPIRIT"
+      ],
+      "summary": "Faith, compassion and healing",
+      "source": "C. S. Lewis fictional canon",
+      "links": []
+    },
+    {
+      "id": "CHAR-14",
+      "name": "Jadis",
+      "universe": "Narnia",
+      "class": "character",
+      "matrices": [
+        "SHADOW"
+      ],
+      "summary": "White Witch and oppressive winter ruler",
+      "source": "C. S. Lewis fictional canon",
+      "links": []
+    },
+    {
+      "id": "CHAR-15",
+      "name": "Caspian",
+      "universe": "Narnia",
+      "class": "character",
+      "matrices": [
+        "SOUL"
+      ],
+      "summary": "Royal heir fighting to restore Old Narnia",
+      "source": "C. S. Lewis fictional canon",
+      "links": []
+    }
+  ],
+  "rings": [
+    {
+      "id": 1,
+      "position": "Left thumb",
+      "theme": "Choice",
+      "design_id": "L-thumb",
+      "source": "Interpretive theme assignment; physical 8+2+2 pattern in SRC-002"
+    },
+    {
+      "id": 2,
+      "position": "Left index finger",
+      "theme": "Direction",
+      "design_id": "L-index",
+      "source": "Interpretive theme assignment; physical 8+2+2 pattern in SRC-002"
+    },
+    {
+      "id": 3,
+      "position": "Left middle finger",
+      "theme": "Balance",
+      "design_id": "L-middle",
+      "source": "Interpretive theme assignment; physical 8+2+2 pattern in SRC-002"
+    },
+    {
+      "id": 4,
+      "position": "Left ring finger",
+      "theme": "Loyalty",
+      "design_id": "L-ring",
+      "source": "Interpretive theme assignment; physical 8+2+2 pattern in SRC-002"
+    },
+    {
+      "id": 5,
+      "position": "Left little finger",
+      "theme": "Care",
+      "design_id": "L-little",
+      "source": "Interpretive theme assignment; physical 8+2+2 pattern in SRC-002"
+    },
+    {
+      "id": 6,
+      "position": "Right thumb",
+      "theme": "Action",
+      "design_id": "R-thumb",
+      "source": "Interpretive theme assignment; physical 8+2+2 pattern in SRC-002"
+    },
+    {
+      "id": 7,
+      "position": "Right index finger",
+      "theme": "Knowledge",
+      "design_id": "R-index",
+      "source": "Interpretive theme assignment; physical 8+2+2 pattern in SRC-002"
+    },
+    {
+      "id": 8,
+      "position": "Right middle finger",
+      "theme": "Judgment",
+      "design_id": "R-middle",
+      "source": "Interpretive theme assignment; physical 8+2+2 pattern in SRC-002"
+    },
+    {
+      "id": 9,
+      "position": "Right ring finger",
+      "theme": "Responsibility",
+      "design_id": "R-ring",
+      "source": "Interpretive theme assignment; physical 8+2+2 pattern in SRC-002"
+    },
+    {
+      "id": 10,
+      "position": "Right little finger",
+      "theme": "Service",
+      "design_id": "R-little",
+      "source": "Interpretive theme assignment; physical 8+2+2 pattern in SRC-002"
+    },
+    {
+      "id": 11,
+      "position": "Left arm bracelet",
+      "theme": "Protection",
+      "design_id": "L-arm",
+      "source": "Interpretive theme assignment; physical 8+2+2 pattern in SRC-002"
+    },
+    {
+      "id": 12,
+      "position": "Right arm bracelet",
+      "theme": "Freedom",
+      "design_id": "R-arm",
+      "source": "Interpretive theme assignment; physical 8+2+2 pattern in SRC-002"
+    }
+  ],
+  "books": [
+    {
+      "id": "BOOK-1-01",
+      "series": "Five-Matrix Field Guides",
+      "universe": "Cross-universe",
+      "volume": 1,
+      "title": "The Body of the Story",
+      "description": "Physical objects remain classified by their real material form; begin with rings, blades, doors and maps.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    },
+    {
+      "id": "BOOK-1-02",
+      "series": "Five-Matrix Field Guides",
+      "universe": "Cross-universe",
+      "volume": 2,
+      "title": "The Soul of the Story",
+      "description": "Compare loyalty, belonging, exile and mercy through documented fictional scenes.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    },
+    {
+      "id": "BOOK-1-03",
+      "series": "Five-Matrix Field Guides",
+      "universe": "Cross-universe",
+      "volume": 3,
+      "title": "The Shadow of the Story",
+      "description": "Audit power, temptation and manipulation without conflating separate literary worlds.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    },
+    {
+      "id": "BOOK-1-04",
+      "series": "Five-Matrix Field Guides",
+      "universe": "Cross-universe",
+      "volume": 4,
+      "title": "The Mind of the Story",
+      "description": "Map language, riddles, strategies and rule systems across literature and KJV references.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    },
+    {
+      "id": "BOOK-1-05",
+      "series": "Five-Matrix Field Guides",
+      "universe": "Cross-universe",
+      "volume": 5,
+      "title": "The Spirit of the Story",
+      "description": "Explore conscience, hope, transformation and symbolism while preserving original sources.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    },
+    {
+      "id": "BOOK-2-01",
+      "series": "The Twelve Rings and the Gates",
+      "universe": "Symbolic / KJV reader",
+      "volume": 1,
+      "title": "Circles and Thresholds",
+      "description": "Establish physical definitions of a ring, bracelet, doorway and gate.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    },
+    {
+      "id": "BOOK-2-02",
+      "series": "The Twelve Rings and the Gates",
+      "universe": "Symbolic / KJV reader",
+      "volume": 2,
+      "title": "The Gate Ledger",
+      "description": "Read the KJV gate references in context and catalogue exact chapter and verse.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    },
+    {
+      "id": "BOOK-2-03",
+      "series": "The Twelve Rings and the Gates",
+      "universe": "Symbolic / KJV reader",
+      "volume": 3,
+      "title": "The Hands of the Maker",
+      "description": "Map eight finger positions and two thumbs without proposing medical or supernatural effects.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    },
+    {
+      "id": "BOOK-2-04",
+      "series": "The Twelve Rings and the Gates",
+      "universe": "Symbolic / KJV reader",
+      "volume": 4,
+      "title": "The Two Arm Rings",
+      "description": "Develop the wearable design and its two symbolic assignments.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    },
+    {
+      "id": "BOOK-2-05",
+      "series": "The Twelve Rings and the Gates",
+      "universe": "Symbolic / KJV reader",
+      "volume": 5,
+      "title": "The Return Path",
+      "description": "Make a story of restored agency, separating metaphor from documentary history.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    },
+    {
+      "id": "BOOK-3-01",
+      "series": "Worlds, Weapons and Wardrobes",
+      "universe": "Educational companions",
+      "volume": 1,
+      "title": "The Hobbit Artifact Guide",
+      "description": "Track Bilbo, Thorin, Smaug, Erebor, the Arkenstone, and the Elven blades.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    },
+    {
+      "id": "BOOK-3-02",
+      "series": "Worlds, Weapons and Wardrobes",
+      "universe": "Educational companions",
+      "volume": 2,
+      "title": "The Lord of the Rings Artifact Guide",
+      "description": "Catalogue the One, Three, Seven and Nine Rings; distinguish Narsil, Andúril, Sting and Glamdring.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    },
+    {
+      "id": "BOOK-3-03",
+      "series": "Worlds, Weapons and Wardrobes",
+      "universe": "Educational companions",
+      "volume": 3,
+      "title": "The Narnia Doorway Guide",
+      "description": "Study the Wardrobe, the Wood between the Worlds, and green/yellow magic rings.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    },
+    {
+      "id": "BOOK-3-04",
+      "series": "Worlds, Weapons and Wardrobes",
+      "universe": "Educational companions",
+      "volume": 4,
+      "title": "The Narnian Gifts and Rulers",
+      "description": "Trace the Pevensies, the gifts, the Stone Table, Jadis and Caspian.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    },
+    {
+      "id": "BOOK-3-05",
+      "series": "Worlds, Weapons and Wardrobes",
+      "universe": "Educational companions",
+      "volume": 5,
+      "title": "Cross-World Comparisons",
+      "description": "Use sourced comparison tables to connect themes without merging canon.",
+      "outline": [
+        "Classify original objects and named characters without substitution.",
+        "Trace the exact source references and distinguish author-provided interpretation.",
+        "Compare five matrix roles with source labels and open questions.",
+        "Make one original educational exercise and glossary.",
+        "Finish with a source and attribution ledger."
+      ],
+      "status": "original educational companion outline; prose manuscript not completed"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q01",
+      "question": "Which primary category does the Narnian Wardrobe retain?",
+      "options": [
+        "Gate",
+        "Ring",
+        "Weapon",
+        "Furniture"
+      ],
+      "answer": "Furniture",
+      "record": "NAR-03"
+    },
+    {
+      "id": "Q02",
+      "question": "How many rings are in Tolkien's One + Three + Seven + Nine system?",
+      "options": [
+        "9",
+        "12",
+        "20",
+        "33"
+      ],
+      "answer": "20",
+      "record": "ME-01"
+    },
+    {
+      "id": "Q03",
+      "question": "What object does Bilbo discover beneath the Misty Mountains?",
+      "options": [
+        "The Arkenstone",
+        "The One Ring",
+        "Susan's horn",
+        "Narya"
+      ],
+      "answer": "The One Ring",
+      "record": "ME-01"
+    },
+    {
+      "id": "Q04",
+      "question": "Which gem is identified as the Heart of the Mountain?",
+      "options": [
+        "Nenya",
+        "Arkenstone",
+        "Vilya",
+        "Mithril"
+      ],
+      "answer": "Arkenstone",
+      "record": "HOB-01"
+    },
+    {
+      "id": "Q05",
+      "question": "What primary object type is Sting?",
+      "options": [
+        "Weapon",
+        "Gate",
+        "Ring",
+        "Furniture"
+      ],
+      "answer": "Weapon",
+      "record": "ME-07"
+    },
+    {
+      "id": "Q06",
+      "question": "Which object is linked to the Wood between the Worlds?",
+      "options": [
+        "Andúril",
+        "Yellow and Green Magic Rings",
+        "The Black Arrow",
+        "Morgul-blade"
+      ],
+      "answer": "Yellow and Green Magic Rings",
+      "record": "NAR-01"
+    },
+    {
+      "id": "Q07",
+      "question": "In Revelation 21, how many city gates are described?",
+      "options": [
+        "3",
+        "7",
+        "12",
+        "20"
+      ],
+      "answer": "12",
+      "record": "KJV-01"
+    },
+    {
+      "id": "Q08",
+      "question": "The Twelve Ring composition adds 10 hand rings and what?",
+      "options": [
+        "2 arm bracelets",
+        "2 swords",
+        "2 gates",
+        "2 books"
+      ],
+      "answer": "2 arm bracelets",
+      "record": "SY-04"
+    },
+    {
+      "id": "Q09",
+      "question": "What does the allegorical rings-to-gates relation represent in this atlas?",
+      "options": [
+        "A proven physical conversion",
+        "A confirmed historical event",
+        "A symbolic comparison",
+        "A new Tolkien chapter"
+      ],
+      "answer": "A symbolic comparison",
+      "record": "SY-01"
+    },
+    {
+      "id": "Q10",
+      "question": "Which passage mentions the ring placed on the returning son?",
+      "options": [
+        "Luke 15:22",
+        "Revelation 21:25",
+        "Job 5:13",
+        "Psalm 50:12"
+      ],
+      "answer": "Luke 15:22",
+      "record": "KJV-02"
+    },
+    {
+      "id": "Q11",
+      "question": "Who wields Orcrist?",
+      "options": [
+        "Frodo",
+        "Thorin",
+        "Peter",
+        "Caspian"
+      ],
+      "answer": "Thorin",
+      "record": "ME-08"
+    },
+    {
+      "id": "Q12",
+      "question": "What is the primary classification of the Stone Table?",
+      "options": [
+        "Ring",
+        "Monument",
+        "Dagger",
+        "Book"
+      ],
+      "answer": "Monument",
+      "record": "NAR-04"
+    },
+    {
+      "id": "Q13",
+      "question": "Which character bears Andúril?",
+      "options": [
+        "Gandalf",
+        "Bilbo",
+        "Aragorn",
+        "Aslan"
+      ],
+      "answer": "Aragorn",
+      "record": "ME-05"
+    },
+    {
+      "id": "Q14",
+      "question": "What principle preserves an object's original identity in symbolic links?",
+      "options": [
+        "Rename the source object",
+        "Delete the original class",
+        "Add a separate transformation link",
+        "Declare all books literally connected"
+      ],
+      "answer": "Add a separate transformation link",
+      "record": "SY-03"
+    },
+    {
+      "id": "Q15",
+      "question": "What does 1 + 1 equal in binary notation?",
+      "options": [
+        "0",
+        "1",
+        "10₂",
+        "11₂"
+      ],
+      "answer": "10₂",
+      "record": "SY-04"
+    }
+  ],
+  "sourceBase": "../../../../one/five-matrix-atlas/",
+  "notes": {
+    "KJV": "Interpretive comparisons must be labeled, and KJV passage wording must be checked against text.",
+    "fiction": "Keep Tolkien and Lewis worlds separate; preserve fictional status.",
+    "safety": "Ring placement is a symbolic design, not a tool for literal supernatural control.",
+    "books": "The 15 companion volumes are new outlines, not completed manuscripts."
+  }
+}

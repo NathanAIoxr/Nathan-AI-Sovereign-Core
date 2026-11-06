@@ -1,0 +1,73 @@
+{
+  "id": "./",
+  "name": "ONE — The Last App",
+  "short_name": "ONE",
+  "description": "ONE: a local-first personal operating-system prototype by Nathan Tabor.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f141a",
+  "theme_color": "#101720",
+  "icons": [
+    {
+      "src": "../icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Sealed Voice Box",
+      "short_name": "Offload",
+      "description": "Open the ONE encrypted AI offloader",
+      "url": "./offloader/index.html",
+      "icons": [
+        {
+          "src": "../icon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Humanity & Spiritual Archive",
+      "short_name": "Humanity",
+      "description": "Search history, scriptures, artifacts and the authored binary registry",
+      "url": "./humanity-archive/index.html",
+      "icons": [
+        {
+          "src": "../icon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "101 Inventions & Book 12",
+      "short_name": "101 Register",
+      "description": "Search authored invention and manuscript reference entries",
+      "url": "./inventions-101/index.html",
+      "icons": [
+        {
+          "src": "../icon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "202 Master Matrix",
+      "short_name": "Matrix 202",
+      "description": "Search 101 infrastructures and 101 reversals; prepare offline reference pages",
+      "url": "./master-matrix/index.html",
+      "icons": [
+        {
+          "src": "../icon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}

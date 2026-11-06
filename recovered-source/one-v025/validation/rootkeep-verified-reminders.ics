@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Nathan Tabor//Private ONE v025//EN
+BEGIN:VEVENT
+UID:inbox-1-1792701046937@one-v025.local
+DTSTAMP:20261020T204047Z
+DTSTART:20261022T203046Z
+DTEND:20261022T203146Z
+SUMMARY:Rootkeep reminder
+DESCRIPTION:An overflow bag expires in 10 minutes. Make storage room and claim it.
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:An overflow bag expires in 10 minutes. Make storage room and claim it.
+END:VALARM
+END:VEVENT
+END:VCALENDAR

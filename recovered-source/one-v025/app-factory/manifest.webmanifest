@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "Tabor 1-2-3 Factory",
+  "short_name": "Tabor Factory",
+  "description": "Build, connect and launch projects",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101015",
+  "theme_color": "#101015",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

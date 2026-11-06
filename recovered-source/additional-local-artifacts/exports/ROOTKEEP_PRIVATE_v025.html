@@ -1,0 +1,1185 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101c21"><title>THE 33 · Rootkeep | Private ONE v025</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#f3f0e4;background:#101c21;--gold:#e9c891;--muted:#b7c4be;--line:#4a5c5a;--panel:#1a2b30}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 90% 0,#344c48,transparent 50%),#101c21}button,input{font:inherit;color:inherit;background:#29403f;border:1px solid #69817a;border-radius:10px;padding:10px 14px}button{cursor:pointer}button:disabled{opacity:.45;cursor:default}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #9cf3e5;outline-offset:3px}a{color:var(--gold)}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:Georgia,serif;font-weight:500}h1{font-size:clamp(2.7rem,7vw,5.8rem);line-height:.94;letter-spacing:-.055em;margin:18px 0}h2{font-size:1.9rem;margin-bottom:12px}h3{font-size:1.35rem;margin-bottom:8px}p{line-height:1.65;color:var(--muted)}main{max-width:1240px;margin:auto;padding:24px 24px 110px}.topbar,.between,.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.between,.topbar{justify-content:space-between}.topbar{margin-bottom:22px}.brand{letter-spacing:.16em;font-size:.8rem}.eyebrow{font-size:.7rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:750}.small,small{font-size:.8rem;color:var(--muted)}.primary{background:var(--gold);color:#172b2b;border-color:var(--gold);font-weight:750}.secondary{background:transparent}.resource-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0}.resource{padding:13px 18px;border:1px solid var(--line);background:#1a2e30;border-radius:12px}.resource strong{font-size:1.35rem;display:block;font-variant-numeric:tabular-nums}.resource span{font-size:.72rem;color:var(--muted)}.nav{display:flex;gap:6px;padding:7px;background:#0c171c;border:1px solid var(--line);border-radius:14px;margin-bottom:24px}.nav button{flex:1;border-color:transparent;background:transparent;padding:13px}.nav [aria-selected=true]{background:#334b46;color:#fbe6bb;border-color:#779084}.panel{background:linear-gradient(140deg,#22373a,#192a30);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:20px}.hero{position:relative;display:grid;grid-template-columns:1.15fr 1fr;gap:30px;align-items:center;padding:35px 38px;overflow:hidden;background:linear-gradient(120deg,#314b46,#152b34);border:1px solid #8a947d;border-radius:22px;margin-bottom:25px}.hero p{max-width:500px}.crest-scene{width:100%;max-height:280px;filter:drop-shadow(0 12px 16px #07161c99)}.pills{display:flex;gap:7px;flex-wrap:wrap;margin:17px 0}.pill{font-size:.74rem;padding:7px 11px;border:1px solid #778b7a;border-radius:30px;background:#233b37}.building-grid{touch-action:pan-y;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.building{position:relative;padding:22px;background:linear-gradient(135deg,#2b4140,#192c32);border:1px solid #536c62;border-radius:15px;min-height:235px}.building.keep{grid-column:span 2;background:radial-gradient(ellipse at top right,#5a6050,transparent 70%),#273b3b}.building .sigil{font-size:2.5rem;color:#d6c194;float:right}.building h3{margin:8px 0}.building p{font-size:.85rem;max-width:370px}.building button{font-size:.8rem}.building .cost{display:block;margin:10px 0;font-size:.75rem;color:#d6c194}.split{display:grid;grid-template-columns:1fr 1fr;gap:20px}.recipe,.troop{padding:13px 0;border-top:1px solid #405953;display:flex;justify-content:space-between;align-items:center;gap:14px}.recipe p{font-size:.8rem;margin:4px 0}.recipe button{white-space:nowrap;font-size:.8rem}.roster-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.hero-card{padding:23px;border:1px solid #536b68;border-radius:17px;background:linear-gradient(140deg,color-mix(in srgb,var(--element) 10%,#1c3136),#16262d)}.hero-card.locked{opacity:.7;background:#17272d}.portrait{display:grid;place-items:center;width:72px;height:83px;background:linear-gradient(145deg,color-mix(in srgb,var(--element) 35%,#22353f),#16242b);border:1px solid var(--element);border-radius:35px 35px 12px 12px;color:var(--element);font-family:Georgia,serif;font-size:2.4rem;margin-bottom:15px}.hero-card p{font-size:.82rem}.hero-card .row{gap:7px}.hero-card button{font-size:.78rem}.hero-card [aria-pressed=true]{border-color:var(--gold);color:var(--gold)}.epoch{margin:28px 0}.stage-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.stage{min-height:110px;text-align:left;background:#233a3c;border-color:#50685e;position:relative;padding:16px}.stage .number{font-family:Georgia,serif;font-size:1.7rem;color:var(--gold);display:block}.stage .name{font-size:.7rem;letter-spacing:.03em;display:block;margin:5px 0}.stage .completion{position:absolute;right:13px;top:13px;color:#9dd9b6}.stage[aria-pressed=true]{outline:2px solid var(--gold);background:#3b4c40}.stage.boss{border-color:#b39471;background:linear-gradient(140deg,#3e3d3b,#28323e)}.stage-brief{position:relative;border-left:4px solid var(--gold)}.stage-brief p{margin:10px 0}.seed-control{max-width:160px}.battle-layout{display:grid;grid-template-columns:minmax(0,600px) minmax(260px,1fr);gap:22px;align-items:start}.arena{padding:20px 18px;background:linear-gradient(#293b3e,#16272e);border:1px solid #73827a;border-radius:20px}.arena-top{margin-bottom:17px}.arena-top h2{font-size:1.45rem;margin:6px 0}.enemies,.party{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;max-width:510px;margin:auto}.enemy{min-width:0;padding:10px 5px;border-radius:12px;background:#302f38;border:1px solid #69717d;text-align:center;line-height:1.2}.enemy[aria-pressed=true]{outline:2px solid var(--gold)}.enemy.dead{opacity:.4}.enemy strong{font-size:1.7rem;color:var(--element);display:block}.enemy small{font-size:.58rem;display:block;overflow-wrap:anywhere;margin-top:5px}.open-lane{display:grid;place-items:center;border:1px dashed #65836f;border-radius:9px;color:#a3c3ad;font-size:.65rem;text-align:center}.board{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;max-width:510px;margin:14px auto;touch-action:none}.gem{aspect-ratio:1.15;min-width:0;border:1px solid color-mix(in srgb,var(--element) 65%,#233e3f);background:radial-gradient(ellipse at 25% 10%,color-mix(in srgb,var(--element) 22%,#3b4b4a),#142831 85%);font-size:clamp(1.4rem,4vw,2.4rem);color:var(--element);padding:0;border-radius:10px;box-shadow:inset 0 -4px #05161b66;user-select:none}.gem:disabled{opacity:1}.gem[aria-pressed=true]{outline:3px solid #fff;outline-offset:0;background:#476361}.gem.hinted{outline:3px solid #b3e6a7;outline-offset:0}.gem.resolved{animation:resolve .17s ease}.party-hero{padding:9px 4px;border:1px solid #586d68;border-radius:12px;min-width:0;background:#1d3438;text-align:center}.party-hero.ready{border-color:var(--gold);box-shadow:0 0 12px #e9c89144}.party-hero strong{color:var(--element);font-family:Georgia,serif;font-size:1.6rem;display:block}.party-hero span{display:block;font-size:.63rem;margin:3px 0}.party-hero small{font-size:.56rem;display:block}.party-hero:disabled{opacity:.8}.party-hero.down{opacity:.35}.meter{height:5px;background:#0b191e;border-radius:5px;margin:5px 0;overflow:hidden}.meter i{display:block;height:100%;width:var(--fill);background:#a1d1ad}.meter.mana i{background:#91c8e3}.battle-aside{position:sticky;top:20px}.intent{padding:13px 0;border-top:1px solid #47605c;font-size:.84rem;line-height:1.6;color:#d4ded3}.status{border-left:3px solid var(--gold);padding:12px 15px;background:#303d37;border-radius:7px;font-size:.85rem;line-height:1.6;margin:14px 0}.combat-log{max-height:260px;overflow:auto;padding-left:22px;font-size:.77rem;color:#c3d4c9;line-height:1.8}.item-bar{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}.item-bar button{font-size:.72rem;padding:10px}.receipt{max-width:820px;margin:35px auto;text-align:center;padding:40px}.receipt .seal{font-size:4rem;color:var(--gold);margin-bottom:15px}.receipt .resource-bar{text-align:left}.warning{font-size:.8rem;line-height:1.7;color:#f0cb92}.storage-tools{display:flex;gap:8px;flex-wrap:wrap;margin:25px 0 5px}.storage-tools button,.storage-tools label{font-size:.75rem}details{border-top:1px solid #48615a;padding-top:10px;margin-top:20px}summary{cursor:pointer;color:var(--gold);padding:8px 0;font-size:.85rem}footer{font-size:.72rem;color:#9eb1a8;margin-top:28px}.resume-banner{padding:14px 20px;border:1px solid #ab976e;background:#3b4334;border-radius:12px;margin-bottom:20px}.resume-banner p{margin:0;font-size:.8rem}.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.8rem;margin-top:16px}.legend span{color:var(--element)}body.in-tutorial #resources,body.in-tutorial .nav,body.in-tutorial #feedback,body.in-tutorial main>details,body.in-tutorial footer{display:none}#tutorial-board{max-width:360px}body.contrast .gem{color:#fff;background:#071219;border:2px solid #fff;box-shadow:none}body.contrast .gem small{color:#fff}.gem{position:relative}.gem small{position:absolute;bottom:3px;left:6px;font-size:.58rem;color:var(--element)}.thumb-dock{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);z-index:10;background:#0d1d23f5;border:1px solid #849385;padding:7px;border-radius:15px;width:min(520px,calc(100% - 20px));padding-bottom:max(7px,env(safe-area-inset-bottom));box-shadow:0 5px 25px #0009}.thumb-skills{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin-bottom:6px}.thumb-skills button{min-height:44px;min-width:0;padding:5px;font-size:.7rem;border-color:var(--element);color:var(--element)}.thumb-skills button span{font-size:.55rem;display:block}.thumb-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.thumb-actions button{min-height:42px;font-size:.72rem;padding:7px}.auto-options{display:grid;gap:10px;margin:14px 0;font-size:.8rem}.inbox-row{padding:10px 0;border-top:1px solid #496256;font-size:.8rem}.tutorial-highlight{outline:3px solid var(--gold)}body.in-battle main{padding-bottom:190px}[hidden]{display:none!important}@keyframes resolve{50%{transform:scale(.88);filter:brightness(1.8)}}@media(max-width:900px){.roster-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.battle-layout{grid-template-columns:1fr}.battle-aside{position:static}.stage-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:600px){main{padding:16px 12px 100px}.hero{grid-template-columns:1fr;padding:25px;gap:12px}.crest-scene{max-height:190px}.resource-bar{gap:5px}.resource{padding:10px 8px}.resource strong{font-size:1.1rem}.resource span{font-size:.62rem}.nav{gap:1px;padding:4px;position:sticky;top:5px;z-index:5;background:#101f23f5}.nav button{font-size:.74rem;padding:12px 6px}.building-grid{grid-template-columns:1fr 1fr;gap:8px}.building.keep{grid-column:span 2}.building{padding:15px;min-height:245px}.building .sigil{font-size:1.8rem}.building h3{font-size:1.15rem}.split{grid-template-columns:1fr;gap:0}.panel{padding:18px}.roster-grid{gap:8px}.hero-card{padding:15px}.hero-card h3{font-size:1.2rem}.stage-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.arena{padding:16px 10px}.board{gap:4px}.enemy{padding:8px 3px}.enemy small{font-size:.52rem}.party{gap:4px}.party-hero{padding:7px 2px}.receipt{padding:25px 18px}.topbar a{font-size:.75rem}.topbar .brand{font-size:.7rem}}@media(max-width:600px){body.in-battle .topbar,body.in-battle main>.between,body.in-battle #resources,body.in-battle .arena>.party,body.in-battle .arena>p{display:none}body.in-battle main{padding-top:10px}body.in-battle .nav{margin-bottom:10px}body.in-battle #feedback{margin:8px 0;padding:8px 10px;font-size:.72rem}body.in-battle .arena{padding:12px 10px}body.in-battle .arena-top{margin-bottom:10px}body.in-battle .board{margin:10px auto}body.in-battle .gem{aspect-ratio:1.4;max-height:max(30px,calc((100svh - 520px)/7))}}@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style></head><body><main>
+<header class="topbar"><div class="brand">THE 33 <span class="eyebrow"> / ROOTKEEP</span></div><div class="row"><a href="./index.html">v025 home</a><a href="./THE_33_PRIVATE_v025.html">Cognitive trials</a><a href="./AZ_STUDIO_PRIVATE_v025.html">A–Z Studio</a><a href="./app-factory/one/index.html">ONE</a></div></header>
+<div class="between"><span class="eyebrow">Private ONE v025 · Nathan Tabor</span><span class="small">Free expeditions. Earn every upgrade.</span></div>
+<div id="resources" class="resource-bar" aria-label="Settlement resources"></div>
+<section id="welcome-ledger" class="panel" hidden><span class="eyebrow">WELCOME BACK · ONE LEDGER</span><h2>Here is where things stand.</h2><p id="welcome-summary"></p><button id="welcome-collect" class="primary">Collect available resources &amp; continue</button><button id="welcome-dismiss" class="secondary">Continue without collecting</button></section>
+<div class="between" style="margin-bottom:18px"><label class="small"><input id="contrast" type="checkbox"> High-contrast shapes</label><span class="small">Guest play · No account needed</span></div>
+<nav class="nav" role="tablist" aria-label="Rootkeep screens"><button id="hub-tab" role="tab" aria-selected="true" aria-controls="hub-view">Settlement</button><button id="roster-tab" role="tab" aria-selected="false" aria-controls="roster-view">Heroes</button><button id="atlas-tab" role="tab" aria-selected="false" aria-controls="atlas-view">World map</button><button id="battle-tab" role="tab" aria-selected="false" aria-controls="battle-view">Expedition</button></nav>
+<div id="resume-banner" class="resume-banner between" hidden><p>An expedition is in progress. Your board and party are saved.</p><button id="resume-battle">Resume expedition →</button></div>
+<p id="feedback" class="status" role="status" aria-live="polite">Build your settlement. Choose your party. Read the lanes.</p>
+<section id="tutorial-view" class="panel" hidden><span class="eyebrow">GUEST PLAY · THREE MOVES TO BEGIN</span><h2 id="tutorial-title"></h2><p id="tutorial-copy"></p><div id="tutorial-board" class="board" aria-label="Guided seven-row five-lane puzzle"></div><div class="between"><p id="tutorial-status" class="small"></p><button id="skip-tutorial">Skip to settlement →</button></div></section>
+<section id="hub-view" role="tabpanel" aria-labelledby="hub-tab">
+<div class="hero"><div><span class="eyebrow">YOUR SETTLEMENT · YOUR NEXT MOVE</span><h1>Every journey<br>has a root.</h1><p>Raise a home for the minds that venture into THE 33. Bring back knowledge, train your heroes, and turn the next expedition into a better plan.</p><div class="pills"><span id="keep-level" class="pill"></span><span id="world-progress" class="pill"></span><span class="pill">No energy gates</span></div><button id="explore" class="primary">Choose an expedition →</button></div><svg class="crest-scene" viewBox="0 0 480 290" role="img" aria-label="Original illustration of Rootkeep above terraced gardens"><defs><linearGradient id="stone" x2="0" y2="1"><stop stop-color="#b6b79b"/><stop offset="1" stop-color="#536d63"/></linearGradient><linearGradient id="earth" x2="0" y2="1"><stop stop-color="#637e6e"/><stop offset="1" stop-color="#263f42"/></linearGradient></defs><circle cx="246" cy="108" r="91" fill="none" stroke="#bdb58c" opacity=".45"/><circle cx="246" cy="108" r="107" fill="none" stroke="#bdb58c" opacity=".15"/><path d="M30 233 235 144 450 232 245 285Z" fill="url(#earth)"/><path d="m70 215 170-70 163 70-163 70Z" fill="#78917b" opacity=".5"/><path d="M167 109h150v108l-75 31-75-31Z" fill="url(#stone)"/><path d="m167 109 75 29 75-29-75-28Z" fill="#c6c7a6"/><path d="M150 80h42v114l-21 8-21-8Zm146 0h42v114l-21 8-21-8Z" fill="url(#stone)"/><path d="m145 80 26-38 26 38Zm146 0 26-38 26 38Z" fill="#c2a77b"/><path d="M212 82h60v144l-30 13-30-13Z" fill="url(#stone)"/><path d="m206 82 36-55 36 55Z" fill="#d6bc88"/><path d="M233 27V8l29 10-29 10" fill="#e5cb91"/><path d="M229 237v-40a13 13 0 0 1 26 0v40" fill="#243d40"/><path d="M87 226 136 205m-16 42 47-20m146 22 51-22m-19-4 47-20" stroke="#c1c8a0" stroke-width="7"/><path d="M110 194v-30m-10 12 10-14 11 14m267 27v-35m-11 15 11-17 12 17" stroke="#a6b68c" stroke-width="6" fill="none"/></svg></div>
+<div class="between"><div><span class="eyebrow">SEVEN BUILDINGS · ONE HOME</span><h2>Grow with purpose.</h2></div><button id="collect" class="primary">Collect production</button></div><p id="production-note" class="small"></p><div id="buildings" class="building-grid"></div>
+<section class="panel"><div class="between"><div><span class="eyebrow">OVERPRESSURE INBOX</span><h2>Keep what you earned.</h2></div><button id="claim-inbox">Claim into storage</button></div><p class="small">Resources above storage capacity wait here for 48 hours. Spend or upgrade, then claim them before their expiry.</p><div id="inbox"></div></section>
+<details><summary>Workshop · crafting and support troops</summary><div class="split"><section class="panel"><span class="eyebrow">RESONANCE FORGE</span><h2>Prepare your next turn.</h2><p class="small">Take up to two of each crafted item. Unused supplies return after the expedition. Every battle is playable without items.</p><div id="crafting"></div><details><summary>Quick-craft blueprint</summary><p id="pack-summary" class="small"></p><button id="craft-pack" class="primary">Craft saved pack</button><div class="row" style="margin-top:14px"><label class="small">Name <input id="pack-name" maxlength="40" style="width:150px"></label><label class="small">Draughts <input id="pack-heal" type="number" min="0" max="20" style="width:65px"></label><label class="small">Flasks <input id="pack-mana" type="number" min="0" max="20" style="width:65px"></label><label class="small">Volleys <input id="pack-volley" type="number" min="0" max="20" style="width:65px"></label><button id="save-pack">Save blueprint</button></div></details></section><section class="panel"><span class="eyebrow">WAYFARER BARRACKS</span><h2>Strengthen the lanes.</h2><p class="small">Elemental troops add +2 attack per rank to their hero. Training is immediate and costs earned iron and insight.</p><div id="troops"></div></section></div></details>
+</section>
+<section id="roster-view" role="tabpanel" aria-labelledby="roster-tab" hidden><span class="eyebrow">FIVE LANES · FIVE CHOICES</span><h2>A party with a purpose.</h2><p>One hero guards each elemental lane. Train with food and earned insight. Ascend at levels 4 and 7, then choose a free, changeable talent at level 5. New heroes join through specific expedition victories.</p><button id="train-party" style="margin-bottom:18px">Train each eligible equipped hero once</button><p class="small">Uses food and insight for the entire eligible group in one transaction; review the cost below before training.</p><p id="party-training-cost" class="small"></p><div id="roster" class="roster-grid"></div></section>
+<section id="atlas-view" role="tabpanel" aria-labelledby="atlas-tab" hidden><span class="eyebrow">THREE EPOCHS · 33 EXPEDITIONS</span><h2>The world opens before you.</h2><p>Choose any expedition. Each has two enemy waves; the three epoch finales have three. These RPG expeditions sit alongside the original 33 cognitive trials.</p><section id="stage-brief" class="panel stage-brief" aria-labelledby="brief-title"><div class="between"><div><span id="brief-tag" class="eyebrow"></span><h3 id="brief-title"></h3></div><button id="launch" class="primary">Begin expedition →</button></div><p id="brief-description"></p><div class="row"><label class="small">Battle seed <input id="battle-seed" class="seed-control" type="number" min="0" max="4294967295" step="1"></label><button id="random-seed">New seed</button></div><p id="brief-rewards" class="small"></p></section><div id="atlas"></div></section>
+<section id="battle-view" role="tabpanel" aria-labelledby="battle-tab" hidden><div id="battle-content"></div></section>
+<details id="tabor-system"><summary>The Tabor Decimal System — by Nathan Tabor</summary><section class="panel"><span class="eyebrow">NATHAN TABOR’S FRAMEWORK · LIVE LOCAL STATE</span><h2>The structure beneath the game.</h2><p id="tabor-state" class="small"></p><div id="tabor-report"></div><form id="tabor-search" class="row"><label class="small">Find by purpose <input id="tabor-probe" maxlength="120" placeholder="Food, iron, attack, healing…" style="max-width:100%"></label><button id="tabor-find" type="submit">Find</button><button id="tabor-open-match" type="button" disabled>Open match</button></form><p id="tabor-result" class="small" role="status"></p><button id="tabor-export">Export system map</button></section></details>
+<details><summary>Optional utility reminders</summary><section class="panel"><div class="between"><div><span class="eyebrow">USEFUL REMINDERS</span><p class="small">Storage filling and overflow expiry only. Browser alerts work while this app is open; calendar reminders can be imported into your device calendar.</p></div><div class="row"><button id="notify-permission">Enable reminders while open</button><button id="export-reminders">Export calendar reminders</button></div></div><p id="reminder-note" class="small"></p></section></details>
+<details><summary>Field guide · lane combat, elements, mana and progression</summary><div class="split"><div><h3>Read the five lanes.</h3><p class="small">The board has seven rows and five columns. Swap orthogonal neighbors to match three or more. Invalid swaps spend nothing. Tiles use the attack of the living hero in their column, then apply their own elemental counter. A fallen hero’s lane deals no tile damage.</p><p class="small">Ember → Grove → Tide → Ember. Strong counters deal 2× damage; reverse counters deal ½×. Aether and Umbra deal 2× to each other. Other pairings deal normal damage.</p><p class="small">A lane without a direct living enemy ghosts: its shot reroutes to the nearest living enemy, with ties going left. A tile matching its lane hero’s element gives one mana charge; a ghost gives two. Other colors still attack but give no mana. Charges are stored in half-units so 6.5/13.5 thresholds remain exact.</p></div><div><h3>Turn power into a plan.</h3><p class="small">Mana speed thresholds are Very Fast 6.5, Fast 8, Average 10, Slow 12, Very Slow 13.5 charges. A full hero can use a skill once per board move. Select an enemy to target a skill; tile attacks follow their lanes. One item is allowed between accepted moves.</p><p class="small">Enemies announce their next action. Guards reduce damage by 40%; a guard break increases it by 35% for three moves. Cascades increase tile damage by 20% per wave, capped at 2×; no more than 24 cascade waves resolve. Dead boards recover freely. Clearing a wave prevents its defeated enemies from attacking and does not give fresh enemies a free strike.</p><p class="small">Buildings upgrade immediately. Rootkeep caps building levels; the Storehouse caps food and iron. Production accumulates up to 12 hours, with fractional units carried forward. Collect before upgrading. First clears earn larger rewards and relics; replays still earn food, iron and insight. Storage overflow goes into the 48-hour inbox and is shown in the victory receipt. Production overflow is retained there too.</p></div></div></details>
+<details><summary>Saves and replay verification</summary><div class="storage-tools"><button id="export-save">Export realm save</button><label>Import realm save <input id="import-save" type="file" accept=".json,application/json" style="max-width:190px;display:block"></label><button id="recover-save" disabled>Recover previous autosave</button><button id="damaged-save" hidden>Download preserved save</button><button id="export-replay" disabled>Export battle replay</button></div></details><p id="storage-note" class="warning" role="status"></p>
+<footer>THE 33 · ROOTKEEP · By Nathan Tabor · Private ONE v025. The Tabor Decimal System — by Nathan Tabor. Local settlement and battles; online raids and alliances are future systems. No purchases, paid summons or wait-to-play timers.</footer>
+</main><aside id="thumb-dock" class="thumb-dock" aria-label="One-hand combat controls" hidden><div id="thumb-skills" class="thumb-skills"></div><div class="thumb-actions"><button id="dock-hint">Hint</button><button id="dock-play" disabled>Play hint</button><button id="dock-auto" aria-pressed="false">Auto</button><button id="dock-flee">End run</button></div></aside><script>
+/* THE 33 — Epochs I–III. Local deterministic match-3 rules; no network services. */
+(function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.TrialExpansion=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){'use strict';
+// Names 6–32 are implementation titles based on the supplied epoch themes,
+// not recovered titles from the unavailable private v023 package.
+const rows=[
+ [6,'NILE WATERWAYS','canals','6 × 7 waterways','Clear horizontal or vertical triples; refill flows east along each canal.'],
+ [7,'MAYAN CALENDARS','calendar','6 × 8 / two calendars','Swap within each four-column calendar. After each successful move the left calendar advances and the right reverses.'],
+ [8,'MNEMOSYNE’S MEMORY','memory','6 × 6 memory board','Study the symbols, then hide them voluntarily. Selected tiles and free Study remain available; match by symbol.'],
+ [9,'CAESAR’S CIPHER','cipher','6 × 6 cipher','Symbols are encoded by a visible rotating key. After each successful move the key advances and each row shifts its symbol values by its row number.'],
+ [10,'KNOSSOS LABYRINTH','rooms','9 × 9 / nine rooms','Each 3 × 3 room is isolated: swaps, matches and gravity stay inside it. Clear matches in all nine rooms.'],
+ [11,'ROSETTA TRILINGUAL','rosetta','6 × 6 / three scripts','Rows use three different scripts for the same four values. Match by value across scripts using the legend.'],
+ [12,'NEWTON’S INVERSION','up','7 × 7 inverted gravity','After a match tiles rise and refill from below.'],
+ [13,'ARKWRIGHT’S ASSEMBLY','conveyor','6 × 8 assembly line','After cascades, the selected row advances one slot on the conveyor.'],
+ [14,'BABBAGE’S ENGINE','program','7 × 7 programmed gravity','Gravity follows the published cycle: down, left, up, right, then repeats each move.'],
+ [15,'ENIGMA ROTORS','enigma','7 × 7 rotating cipher','After each successful move, the next rotor column advances its values by one. Rotor position is shown.'],
+ [16,'MENDELEEV’S TABLE','values','6 × 7 weighted values','Clear matching symbols. Values change each turn: the target is earned value, with every cleared symbol worth 1–4 points.'],
+ [17,'TESLA’S ALTERNATOR','alternator','7 × 7 alternating gravity','Odd moves pull downward, even moves pull upward. The displayed current predicts the next fall.'],
+ [18,'TURING’S FEEDBACK','feedback','7 × 7 feedback loop','A symbol from the final cascade becomes the target for your next move. The first move accepts any symbol; other clears score but do not advance the target.'],
+ [19,'VON NEUMANN’S RIVAL','rival','7 × 7 local strategy','Reach 36 cleared tiles before the visible deterministic rival reaches 60. The rival gains 1–4 points after your move.'],
+ [20,'SHANNON’S CHANNEL','channel','6 × 7 channel','Only rows of at least three transmit progress. Vertical clears still score and refill but carry no progress.'],
+ [21,'APOLLO GUIDANCE','guidance','7 × 7 guided gravity','Gravity follows the next visible guidance direction. Every third move skips one direction in the cycle.'],
+ [22,'NASH EQUILIBRIUM','balance','6 × 8 / balanced sectors','Clear at least 15 tiles from each half. Progress counts each half up to 15 so one sector cannot substitute for the other.'],
+ [23,'SCHRÖDINGER’S TILES','dual','7 × 7 dual-state tiles','Every tile has a light and dark value. Choose the active state before swapping; matches use that state. Both states travel together.'],
+ [24,'TESSERACT PROJECTION','tesseract','4 × 4 × 2 × 2 / four planes','Four visible 4 × 4 planes represent x,y,z,w. Swap one step on any axis, including cross-plane counterparts; triples run along x or y within a plane.'],
+ [25,'STROOP INTERFERENCE','stroop','6 × 7 word / ink board','Match the printed word, ignoring its deliberately different ink color. There is no flashing or hidden timing test.'],
+ [26,'ARCHIMEDES’ HIDDEN WEIGHTS','weights','7 × 7 weighted board','Each tile carries a fixed weight of 1–4. Weights travel with tiles; Inspect reveals them freely. Progress counts cleared weight, not tile count.'],
+ [27,'PILLARS OF CONSTANTINOPLE','pillars','7 × 7 / immutable columns','Columns 3 and 5 cannot be swapped or cleared. Make matches in the remaining vertical channels.'],
+ [28,'HUYGENS’ RESONANCE','resonance','6 × 8 paired chambers','Swap in the left chamber and the counterpart swap occurs in the right. Only matches with matching positions in both chambers clear.'],
+ [29,'MAXWELL’S GATE','gate','7 × 7 sorting gate','Only the visible gate symbol advances progress. The gate changes after a qualifying move; other symbols still clear and score.'],
+ [30,'CHRONOS RESERVE','reserve','7 × 7 / reserve row','The bottom row is reserved and cannot be swapped or cleared until you have made two successful moves. Then it opens permanently.'],
+ [31,'ARIADNE’S BRIDGES','bridges','7 × 7 / crossing bridges','Structural voids divide the board. Swap adjacent tiles or use the four published bridge links to cross the gaps.'],
+ [32,'CONCORDIA COOPERATION','cooperation','6 × 8 / local two-player','Two local players share the board and alternate successful moves. Each must clear 15 tiles; the turn and both contributions remain visible.'],
+ [33,'ZENITH ZERO','zenith','7 × 7 / 33 seals','Clear all 33 marked seals through matches. Cleared seals stay gone while tiles refill. Reduce the seal count to zero.']
+];
+const LEVELS=rows.map(([id,name,mode,geometry,detail])=>Object.freeze({id,name,mode,geometry,detail,epoch:id<=11?'I':id<=22?'II':'III',tagline:detail,goal:mode==='rooms'?9:mode==='zenith'?33:mode==='balance'||mode==='cooperation'?30:mode==='weights'?100:mode==='values'?90:mode==='rival'?36:36,moveLimit:mode==='zenith'?70:mode==='rooms'?50:45,metric:'Match efficiency and objective progress',implementationTitle:id!==33}));
+const byId=new Map(LEVELS.map(d=>[d.id,d]));
+const GLYPHS=['△','○','□','◇'];
+function random(s,n){s.randomState=(Math.imul(1664525,s.randomState>>>0)+1013904223)>>>0;return Math.floor((s.randomState/4294967296)*n);}
+const def=s=>byId.get(s.level);
+function dims(d){if(d.mode==='rooms')return [9,9];if(d.mode==='tesseract')return [8,8];if(['calendar','conveyor','balance','resonance','cooperation'].includes(d.mode))return [6,8];if(['memory','cipher','rosetta'].includes(d.mode))return [6,6];if(['canals','values','channel','stroop'].includes(d.mode))return [6,7];return [7,7];}
+function coord(b,i){return [Math.floor(i/b.cols),i%b.cols];}
+function room(b,i){const [r,c]=coord(b,i);return Math.floor(r/3)*3+Math.floor(c/3);}
+function plane(b,i){const [r,c]=coord(b,i);return Math.floor(r/4)*2+Math.floor(c/4);}
+function segment(s,i){const b=s.board,m=def(s).mode;if(m==='rooms')return room(b,i);if(m==='calendar'||m==='resonance')return Math.floor((i%b.cols)/4);if(m==='tesseract')return plane(b,i);return 0;}
+function locked(s,i){const b=s.board,m=def(s).mode;return b.cells[i]===null||(m==='pillars'&&[2,4].includes(i%b.cols))||(m==='reserve'&&b.turn<2&&Math.floor(i/b.cols)===b.rows-1);}
+function value(s,i){const b=s.board;return b.phase?b.alternate[i]:b.cells[i];}
+function adjacent(s,a,b){const board=s.board,[ar,ac]=coord(board,a),[br,bc]=coord(board,b),m=def(s).mode;
+ if(m==='tesseract'){
+  const x=[ar%4,ac%4,Math.floor(ar/4),Math.floor(ac/4)],y=[br%4,bc%4,Math.floor(br/4),Math.floor(bc/4)];
+  return x.reduce((n,v,i)=>n+Math.abs(v-y[i]),0)===1;
+ }
+ if(m==='bridges'&&board.bridges.some(([x,y])=>(a===x&&b===y)||(a===y&&b===x)))return true;
+ return Math.abs(ar-br)+Math.abs(ac-bc)===1&&segment(s,a)===segment(s,b);
+}
+function groups(s){const b=s.board,out=[];
+ for(let i=0;i<b.cells.length;i++)if(!locked(s,i))for(const stride of [1,b.cols]){
+  const p=i-stride;
+  const connected=(a,c)=>a>=0&&c<b.cells.length&&!locked(s,a)&&!locked(s,c)&&segment(s,a)===segment(s,c)&&(stride!==1||Math.floor(a/b.cols)===Math.floor(c/b.cols));
+  if(connected(p,i)&&value(s,p)===value(s,i))continue;
+  const line=[i];let next=i+stride;
+  while(connected(next-stride,next)&&value(s,next)===value(s,i)){line.push(next);next+=stride;}
+  if(line.length>=3)out.push({cells:line,value:value(s,i),horizontal:stride===1});
+ }
+ if(def(s).mode==='resonance'){
+  const hits=new Set(out.flatMap(g=>g.cells));return out.map(g=>({...g,cells:g.cells.filter(i=>hits.has(i+(i%b.cols<4?4:-4)))})).filter(g=>g.cells.length>=3);
+ }
+ return out;
+}
+function swap(s,a,b){const x=s.board;for(const key of ['cells','alternate','weights'])if(x[key])[x[key][a],x[key][b]]=[x[key][b],x[key][a]];}
+function actionSwap(s,a,b){swap(s,a,b);if(def(s).mode==='resonance')swap(s,a+4,b+4);}
+function candidates(s){const b=s.board,out=[];for(let a=0;a<b.cells.length;a++)if(!locked(s,a))for(let c=a+1;c<b.cells.length;c++)if(!locked(s,c)&&adjacent(s,a,c)&&(def(s).mode!=='resonance'||(a%b.cols<4&&c%b.cols<4)))out.push([a,c]);return out;}
+function objective(s,gs){const m=def(s).mode,b=s.board,hit=[...new Set(gs.flatMap(g=>g.cells))];
+ if(m==='rooms')return new Set(hit.map(i=>room(b,i)).filter(i=>!b.visited.includes(i))).size;
+ if(m==='zenith')return hit.filter(i=>b.seals[i]).length;
+ if(m==='channel')return new Set(gs.filter(g=>g.horizontal).flatMap(g=>g.cells)).size;
+ if(m==='gate'||m==='feedback')return hit.filter(i=>b.target===null||value(s,i)===b.target).length;
+ if(m==='weights')return hit.reduce((n,i)=>n+b.weights[i],0);
+ if(m==='values')return hit.reduce((n,i)=>n+1+(value(s,i)+b.turn)%4,0);
+ if(m==='balance')return [0,1].reduce((n,half)=>n+Math.min(Math.max(0,15-b.contributions[half]),hit.filter(i=>Math.floor((i%b.cols)/(b.cols/2))===half).length),0);
+ if(m==='cooperation')return Math.min(Math.max(0,15-b.contributions[b.turn%2]),hit.length);
+ return hit.length;
+}
+function hint(s){if(s.status!=='playing')return null;let best=null;
+ for(const phase of def(s).mode==='dual'?[0,1]:[s.board.phase]){
+  const old=s.board.phase;s.board.phase=phase;
+  for(const [a,b] of candidates(s)){actionSwap(s,a,b);const gs=groups(s);if(gs.length){const rank=objective(s,gs)*100+new Set(gs.flatMap(g=>g.cells)).size;if(!best||rank>best.rank)best={type:'swap',a,b,phase,rank};}actionSwap(s,a,b);}
+  s.board.phase=old;
+ }
+ return best;
+}
+// Public-board analysis: no refill simulation and no access to future random values.
+function analyze(s){
+ if(s.status!=='playing'||def(s).mode==='memory'&&!s.board.revealed)return [];
+ const result=[],b=s.board,old=b.phase;
+ for(const phase of def(s).mode==='dual'?[0,1]:[old]){
+  b.phase=phase;
+  for(const [a,c] of candidates(s)){
+   actionSwap(s,a,c);const gs=groups(s),hits=[...new Set(gs.flatMap(g=>g.cells))];
+   if(gs.length){const symbols=[0,0,0,0];hits.forEach(i=>symbols[value(s,i)]++);
+    result.push({action:{type:'swap',a,b:c,phase},hits,symbols,tiles:hits.length,groups:gs.length,maxRun:Math.max(...gs.map(g=>g.cells.length)),horizontal:gs.filter(g=>g.horizontal).reduce((n,g)=>n+g.cells.length,0),vertical:gs.filter(g=>!g.horizontal).reduce((n,g)=>n+g.cells.length,0),objective:def(s).mode==='weights'&&!b.inspect?null:objective(s,gs)});
+   }
+   actionSwap(s,a,c);
+  }
+ }
+ b.phase=old;return result;
+}
+function prepare(s){if(s.status==='playing')return ensureMove(s);return false;}
+function transmute(s,i){
+ if(!Number.isInteger(i)||i<0||i>=s.board.cells.length||locked(s,i)||def(s).mode==='resonance'&&i%s.board.cols>=4)return false;
+ const key=s.board.phase?'alternate':'cells';s.board[key][i]=(s.board[key][i]+1)%4;
+ if(def(s).mode==='resonance')s.board[key][i+4]=(s.board[key][i+4]+1)%4;
+ prepare(s);return true;
+}
+function fill(s,i){const b=s.board;b.cells[i]=random(s,4);if(b.alternate)b.alternate[i]=random(s,4);b.weights[i]=1+random(s,4);}
+function noInitialMatches(s){
+ const b=s.board;
+ // Construction, rather than a retry loop, avoids pre-existing triples.
+ for(let i=0;i<b.cells.length;i++)if(!locked(s,i)){
+  for(const key of b.alternate?['cells','alternate']:['cells']){
+   const forbidden=new Set();
+   if(i%b.cols>=2&&segment(s,i)===segment(s,i-2)&&b[key][i-1]===b[key][i-2])forbidden.add(b[key][i-1]);
+   if(i>=2*b.cols&&segment(s,i)===segment(s,i-2*b.cols)&&b[key][i-b.cols]===b[key][i-2*b.cols])forbidden.add(b[key][i-b.cols]);
+   if(forbidden.has(b[key][i]))b[key][i]=[0,1,2,3].find(v=>!forbidden.has(v));
+  }
+ }
+ if(def(s).mode==='resonance')for(let i=0;i<b.cells.length;i++)if(i%b.cols<4)b.cells[i+4]=b.cells[i];
+}
+function ensureMove(s){
+ const usable=()=>{const h=hint(s);return h&&(!(def(s).mode==='rooms'&&s.board.visited.length<9||def(s).mode==='zenith'&&s.board.seals.some(Boolean)||def(s).mode==='balance'&&s.board.contributions.some(n=>n<15))||h.rank>=100);};
+ if(usable())return false;
+ const b=s.board;
+ for(let attempt=0;attempt<100;attempt++){
+  for(let i=0;i<b.cells.length;i++)if(!locked(s,i))fill(s,i);
+  noInitialMatches(s);if(usable()){b.reshuffles++;return true;}
+ }
+ throw Error('Unable to prepare a playable board');
+}
+function initial(s){const d=def(s),[rows,cols]=dims(d);s.board={rows,cols,cells:Array(rows*cols).fill(0),alternate:null,weights:Array(rows*cols).fill(1),phase:0,turn:0,target:d.mode==='gate'?0:null,visited:[],contributions:[0,0],rival:0,key:0,revealed:true,inspect:false,seals:Array(rows*cols).fill(false),reshuffles:0,lastCleared:[],gravity:'down',bridges:[]};
+ const b=s.board;if(d.mode==='dual')b.alternate=Array(rows*cols).fill(0);
+ if(d.mode==='bridges'){for(const i of [3,10,17,21,22,23,25,26,27,31,38,45])b.cells[i]=null;b.bridges=[[2,4],[16,18],[30,32],[44,46]];}
+ for(let i=0;i<b.cells.length;i++)if(b.cells[i]!==null)fill(s,i);
+ if(d.mode==='zenith'){const indices=Array.from({length:rows*cols},(_,i)=>i);for(let k=0;k<33;k++){const j=k+random(s,indices.length-k);[indices[k],indices[j]]=[indices[j],indices[k]];b.seals[indices[k]]=true;}}
+ noInitialMatches(s);ensureMove(s);return s;
+}
+function gravity(s){const b=s.board,m=def(s).mode;if(m==='canals')return 'right';if(m==='up')return 'up';if(m==='alternator')return b.turn%2?'up':'down';if(m==='program')return ['down','left','up','right'][b.turn%4];if(m==='guidance')return ['down','left','up','right'][(b.turn+Math.floor(b.turn/3))%4];return 'down';}
+function refill(s,hits){const b=s.board,direction=gravity(s),vertical=['up','down'].includes(direction);b.gravity=direction;
+ for(const i of hits)b.cells[i]=undefined;
+ const starts=vertical?b.cols:b.rows,size=vertical?b.rows:b.cols;
+ for(let line=0;line<starts;line++){
+  let run=[];const flush=()=>{
+   if(!run.length)return;
+   const kept=run.filter(i=>b.cells[i]!==undefined).map(i=>({v:b.cells[i],alt:b.alternate?.[i],w:b.weights[i]}));
+   const count=run.length-kept.length,empties=Array.from({length:count},()=>null),ordered=['down','right'].includes(direction)?empties.concat(kept):kept.concat(empties);
+   run.forEach((i,j)=>{const tile=ordered[j];if(tile){b.cells[i]=tile.v;if(b.alternate)b.alternate[i]=tile.alt;b.weights[i]=tile.w;}else fill(s,i);});run=[];
+  };
+  for(let n=0;n<size;n++){const i=vertical?n*b.cols+line:line*b.cols+n;if(locked(s,i)){flush();continue;}if(run.length&&segment(s,i)!==segment(s,run[0]))flush();run.push(i);}flush();
+ }
+}
+function resolve(s,at){const b=s.board,m=def(s).mode;let depth=0,total=0;const all=new Set();
+ while(depth<32){const gs=groups(s);if(!gs.length)break;const hit=[...new Set(gs.flatMap(g=>g.cells))],amount=objective(s,gs);s.progress+=amount;s.score+=hit.length*10*(depth+1);total+=hit.length;
+  hit.forEach(i=>all.add(i));
+  if(m==='rooms')b.visited=[...new Set(b.visited.concat(hit.map(i=>room(b,i))))];
+  if(m==='zenith')hit.forEach(i=>{b.seals[i]=false;});
+  if(m==='balance')hit.forEach(i=>{const h=Math.floor((i%b.cols)/(b.cols/2));b.contributions[h]=Math.min(15,b.contributions[h]+1);});
+  if(m==='cooperation')b.contributions[b.turn%2]=Math.min(15,b.contributions[b.turn%2]+hit.length);
+  if(m==='feedback')b.nextTarget=gs[0].value;
+  refill(s,hit);depth++;
+ }
+ // Cap pathological cascades with a stable board without awarding unperformed clears.
+ if(groups(s).length){noInitialMatches(s);s.feedback='Cascade limit reached; board stabilized.';}
+ b.lastCleared=[...all];return {total,cascades:depth};
+}
+function shiftRow(s,row,dir,left=0,right=s.board.cols){const b=s.board,indices=Array.from({length:right-left},(_,i)=>row*b.cols+left+i);for(const key of ['cells','alternate','weights'])if(b[key]){const v=indices.map(i=>b[key][i]);if(dir>0)v.unshift(v.pop());else v.push(v.shift());indices.forEach((i,j)=>{b[key][i]=v[j];});}}
+function invalid(s,message){s.stats.invalid++;s.feedback=message;return s;}
+function step(s,a,at){const b=s.board,d=def(s),m=d.mode;if(s.status!=='playing')return s;
+ if(a.type==='study'&&m==='memory'){b.revealed=!b.revealed;s.feedback=b.revealed?'Study the board. Hide when ready.':'Symbols hidden; selections reveal their values.';return s;}
+ if(a.type==='inspect'&&m==='weights'){b.inspect=!b.inspect;return s;}
+ if(a.type==='phase'&&m==='dual'){if(a.phase!==0&&a.phase!==1)return invalid(s,'Choose light or dark state.');b.phase=a.phase;s.feedback='Active state: '+(b.phase?'dark':'light');return s;}
+ if(a.type!=='swap')return invalid(s,'Choose two adjacent active tiles.');
+ const {a:x,b:y}=a;
+ if(!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||x>=b.cells.length||y>=b.cells.length||x===y||locked(s,x)||locked(s,y)||!adjacent(s,x,y)||(m==='resonance'&&(x%b.cols>=4||y%b.cols>=4)))return invalid(s,'Swap neighboring active tiles using this stage’s connections.');
+ actionSwap(s,x,y);
+ if(!groups(s).length){actionSwap(s,x,y);return invalid(s,'No match — swap returned. No move spent.');}
+ s.moves++;s.stats.valid++;const before=s.progress;let {total,cascades}=resolve(s,at);
+ if(m==='feedback')b.target=b.nextTarget??b.target;
+ if(m==='gate'&&s.progress>before)b.target=(b.target+1)%4;
+ if(m==='rival')b.rival+=1+(b.turn%4);
+ if(m==='conveyor')shiftRow(s,Math.floor(x/b.cols),1);
+ if(m==='calendar')for(let r=0;r<b.rows;r++){shiftRow(s,r,1,0,4);shiftRow(s,r,-1,4,8);}
+ if(m==='cipher'){b.key=(b.key+1)%4;b.cells=b.cells.map((v,i)=>v===null?null:(v+Math.floor(i/b.cols))%4);}
+ if(m==='enigma'){const column=b.turn%b.cols;b.cells=b.cells.map((v,i)=>i%b.cols===column?(v+1)%4:v);}
+ b.turn++;
+ // Resolve movement-triggered cascades under the same player's turn/objective.
+ // Cooperation has no post-move modifier and therefore never credits the next player.
+ if(['conveyor','calendar','cipher','enigma','reserve'].includes(m)){const previous=b.lastCleared.slice(),extra=resolve(s,at);total+=extra.total;cascades+=extra.cascades;b.lastCleared=[...new Set(previous.concat(b.lastCleared))];}
+ if(s.progress>before)s.stats.progressMoves++;else s.stats.neutralMoves++;
+ s.feedback=total+' tiles cleared · '+cascades+' cascade'+(cascades===1?'':'s')+'.';
+ if(s.progress>=d.goal){s.progress=d.goal;s.status='won';s.feedback='Trial complete. Objective reached.';}
+ else if((m==='rival'&&b.rival>=60)||s.moves>=d.moveLimit){s.status='failed';s.feedback=m==='rival'&&b.rival>=60?'The rival reached 60. Retry freely.':'Move budget reached. Retry freely.';}
+ else if(ensureMove(s))s.feedback+=' No moves remained; free reshuffle applied.';
+ if(s.telemetryEnabled&&s.events.length<3000)s.events.push({type:'match_swap',at:Math.max(0,at-s.startedAt),a:x,b:y,tiles:total,cascades,progress:s.progress});
+ return s;
+}
+function status(s){const b=s.board,m=def(s).mode;let extra='Next gravity: '+gravity(s)+'.';
+ if(m==='calendar')extra='Left calendar ↻ · right calendar ↺';
+ if(m==='cipher')extra='Cipher key: '+b.key;
+ if(m==='enigma')extra='Next rotor column: '+(b.turn%b.cols+1);
+ if(m==='gate'||m==='feedback')extra='Target: '+(b.target===null?'any symbol':GLYPHS[b.target]);
+ if(m==='rival')extra='You: '+s.progress+'/36 · Rival: '+b.rival+'/60';
+ if(m==='rooms')extra='Rooms cleared: '+b.visited.map(i=>i+1).join(', ');
+ if(m==='balance')extra='Left: '+b.contributions[0]+'/15 · Right: '+b.contributions[1]+'/15';
+ if(m==='cooperation')extra='Player '+(b.turn%2+1)+' to move · Player 1: '+b.contributions[0]+'/15 · Player 2: '+b.contributions[1]+'/15';
+ if(m==='zenith')extra='Seals remaining: '+b.seals.filter(Boolean).length;
+ if(m==='reserve')extra=b.turn<2?'Reserve opens after '+(2-b.turn)+' more successful moves.':'Reserve row is open.';
+ if(m==='tesseract')extra='Top-left: z0/w0 · top-right: z0/w1 · bottom-left: z1/w0 · bottom-right: z1/w1';
+ if(m==='bridges')extra='Bridges (slots): '+b.bridges.map(([a,c])=>(a+1)+'↔'+(c+1)).join(' · ');
+ if(m==='rosetta')extra='Same values: △ / A / Ⅰ · ○ / B / Ⅱ · □ / C / Ⅲ · ◇ / D / Ⅳ';
+ return extra;
+}
+function presentation(s,i,selected=false){const b=s.board,m=def(s).mode,v=value(s,i);let text=GLYPHS[v],ink=null;
+ if(m==='memory'&&!b.revealed&&!selected)text='?';
+ if(m==='cipher')text=['A','B','C','D'][(v+b.key)%4];
+ if(m==='rosetta')text=[GLYPHS,['A','B','C','D'],['Ⅰ','Ⅱ','Ⅲ','Ⅳ']][Math.floor(i/b.cols)%3][v];
+ if(m==='stroop'){text=['RED','BLUE','GOLD','GREEN'][v];ink=['#ff9a9a','#99caff','#ffe39c','#9ce4b8'][(v+1+i%3)%4];}
+ if(m==='weights')text+=(b.inspect?' '+b.weights[i]:' ?');
+ if(m==='values')text+=' '+(1+(v+b.turn)%4);
+ if(m==='dual')text=GLYPHS[v]+' / '+GLYPHS[b.phase?b.cells[i]:b.alternate[i]];
+ if(m==='zenith'&&b.seals[i])text='◈ '+text;
+ return {text,ink,disabled:locked(s,i)||(m==='resonance'&&i%b.cols>=4),void:b.cells[i]===null};
+}
+function validate(s){const d=def(s);if(!d)throw Error('Unknown expanded stage');const b=s.board,[rows,cols]=dims(d),tile=v=>Number.isInteger(v)&&v>=0&&v<4;
+ if(!b||b.rows!==rows||b.cols!==cols||!Array.isArray(b.cells)||b.cells.length!==rows*cols||!b.cells.every((v,i)=>d.mode==='bridges'&&[3,10,17,21,22,23,25,26,27,31,38,45].includes(i)?v===null:tile(v)))throw Error('Invalid stage board');
+ if(!Array.isArray(b.weights)||b.weights.length!==b.cells.length||!b.weights.every(v=>Number.isInteger(v)&&v>=1&&v<=4)||![0,1].includes(b.phase)||!Number.isInteger(b.turn)||b.turn!==s.moves||!Number.isInteger(b.key)||b.key<0||b.key>3)throw Error('Invalid stage modifiers');
+ if(d.mode==='dual'&&(!Array.isArray(b.alternate)||b.alternate.length!==b.cells.length||!b.alternate.every(tile)))throw Error('Invalid dual state');
+ if(d.mode!=='dual'&&(b.alternate!==null||b.phase!==0))throw Error('Unexpected alternate board');
+ if(!Array.isArray(b.seals)||b.seals.length!==b.cells.length||!b.seals.every(v=>typeof v==='boolean')||!Array.isArray(b.visited)||!b.visited.every(v=>Number.isInteger(v)&&v>=0&&v<9)||!Array.isArray(b.contributions)||b.contributions.length!==2||!b.contributions.every(v=>Number.isInteger(v)&&v>=0&&v<=15)||!Number.isInteger(b.rival)||b.rival<0||(b.target!==null&&!tile(b.target))||typeof b.revealed!=='boolean'||typeof b.inspect!=='boolean')throw Error('Invalid objective state');
+ if(!Array.isArray(b.bridges)||JSON.stringify(b.bridges)!==JSON.stringify(d.mode==='bridges'?[[2,4],[16,18],[30,32],[44,46]]:[]))throw Error('Invalid bridge links');
+ return true;
+}
+return Object.freeze({LEVELS,initial,step,hint,analyze,prepare,transmute,groups,status,presentation,validate,gravity,adjacent,locked});
+});
+
+</script><script>
+/* Private ONE v025 — visible-information strategy campaign. No service calls. */
+(function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.TrialStrategy=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){'use strict';
+const SYMBOLS=['△','○','□','◇'];
+const DIFFICULTIES=Object.freeze({
+ story:{name:'Explorer',rank:1,health:220,guardian:60,attack:.65,cadence:2,turns:90},
+ tactician:{name:'Tactician',rank:2,health:150,guardian:100,attack:1,cadence:1,turns:75},
+ grandmaster:{name:'Grandmaster',rank:3,health:110,guardian:150,attack:1.25,cadence:1,turns:60}
+});
+// Each contract is optional: winning always requires the board objective AND the guardian.
+const CONTENT=[
+ ['The Counterweight','productive',4,'Make four productive mirrored swaps.','Build repeated values near the anchor before committing a mirrored clear.','A wide clear is valuable, but keeping a second triple ready maintains pressure.'],
+ ['The Gatekeeper','rings',2,'Score using both outer and inner ring controls.','Choose one core symbol and count how far both rings must travel.','The biggest immediate radial clear can expose a stronger guardian alignment.'],
+ ['The Surveyor','productive',4,'Make four productive diagonal swaps.','Read the diagonal lanes, not the visual horizontal rows.','A lower clear changes two sloping supply lanes; inspect both before choosing.'],
+ ['The Echo','shockwaves',3,'Fire three root-bed shockwaves.','Choose the bottom-bed symbol by the number of matching tiles above it.','Bank upper combinations before firing; an early small shockwave can waste setup.'],
+ ['The Maw','siphons',5,'Clear five matching spiral segments.','Keep matching opportunities near the outer feed.','A large clear buys time. Three separated copies can be compressed with setup swaps; fewer than three copies need another feed.'],
+ ['The Sluicekeeper','orientations',2,'Clear both a horizontal and a vertical match.','Eastern gravity can create follow-up rows without vertical falling.','Compare the guardian’s marked cells with the lane you are about to drain.'],
+ ['The Clocksmith','sectors',2,'Clear matches in both calendars.','Plan where the counter-rotation will place your remaining pairs.','A short clear on the quiet calendar can deny the guardian a large one.'],
+ ['The Archivist','hidden',2,'Make two productive moves while symbols are hidden.','Study a move, hide the board, then execute your plan from memory.','Study is always free. Rebuild your mental map after a cascade changes the board.'],
+ ['The Scribe','keys',3,'Score under three different cipher keys.','Use the visible key to read the current board, then anticipate row shifts.','An apparent letter pair can stop being a pair after the next row-dependent change.'],
+ ['The Minotaur','rooms',9,'Complete all nine rooms.','Leave completed rooms and search for an unvisited room first.','A room already solved can still supply combat damage while you prepare another room.'],
+ ['The Three Tongues','scripts',3,'Clear tiles from all three scripts.','Use the legend to translate values before comparing neighboring rows.','This guardian is an epoch boss: its visible shield symbol changes as its health falls.'],
+ ['The Counterfall','top',3,'Clear three tiles from the top row.','Refill comes from below: top-row opportunities are the destination, not the source.','The guardian shares the board; denying its best upper match can be stronger than raw damage.'],
+ ['The Overseer','long',2,'Make two opening matches of four or more.','Look beyond the conveyor’s current row: movement creates the next opening.','Long lines charge focus faster, but the shifted row may hand a line to your opponent.'],
+ ['The Automaton','gravities',4,'Score under all four programmed gravity directions.','Read the next gravity before choosing the source of a cascade.','Guardian moves also advance the shared mechanism. Its turn can change your next direction.'],
+ ['The Cipherwright','rotors',3,'Score while three different rotor columns are next.','Watch the announced rotor column, then compare possible lines after its shift.','Do not value a pair solely by its current value when the rotor will change it.'],
+ ['The Alchemist','valuable',6,'Clear six opening tiles currently worth at least three.','Compare value per clear, not only the number of cleared tiles.','Focus and damage come from a productive turn; high-value objectives still decide the board win.'],
+ ['The Alternator','gravities',2,'Score with both gravity polarities.','Think in two-turn supply lines: gravity reverses after every shared-board move.','Denying a guardian turn can preserve a polarity that would otherwise reverse.'],
+ ['The Predictor','targets',3,'Make three productive target-symbol moves.','Leave a supply of the next target rather than emptying one symbol indiscriminately.','Large off-target clears can win a combat exchange while delaying the board objective.'],
+ ['The Gamekeeper','disrupts',3,'Disrupt three announced guardian moves.','Use the intent marker to decide which match to take away.','Industrial guardians can adapt to a disrupted plan, but their replacement attack is weaker.'],
+ ['The Noise','horizontal',15,'Clear fifteen opening tiles in horizontal lines.','Vertical clears can rebuild the board, but only horizontal groups transmit progress.','A vertical denial move may be correct even when it yields no objective points.'],
+ ['The Navigator','gravities',3,'Score under three guidance directions.','The guidance cycle skips a direction every third shared turn.','Use the current announcement, not a memorized four-step cycle.'],
+ ['The Negotiator','sectors',2,'Score from both sectors.','Protect the less-developed sector; the completed half cannot finish the board for you.','This boss contests high-value matches. Defensive stance preserves time to restore balance.'],
+ ['The Observer','phases',2,'Score in both light and dark states.','Read both values before moving a tile; both travel together.','Changing phase reveals different openings for free; the guardian can still return to its committed phase.'],
+ ['The Fold','planes',4,'Clear tiles from all four projected planes.','Cross-plane swaps move one coordinate while preserving the other three.','A remote counterpart can complete a line that ordinary grid adjacency cannot reach.'],
+ ['The Contradiction','symbols',4,'Clear all four printed words.','Say the printed word internally before choosing; ink is a deliberate distraction.','The analysis describes values, never assumes that the ink color is the matching value.'],
+ ['The Silent Mass','heavy',4,'Clear four opening tiles with weight four.','Inspect freely, then choose whether a heavy group or a denial move is more valuable.','Unknown weights are not exposed by the public-information analysis.'],
+ ['The Sentinel','columns',3,'Clear tiles from three movable columns.','Fixed pillars split falling lanes and cannot be removed by an ability.','An isolated column needs vertical preparation rather than a horizontal rescue.'],
+ ['The Twin','productive',4,'Make four productive synchronized moves.','Read both chambers before swapping; only corresponding matched positions clear.','Transmutation changes both counterparts together, preserving the stage’s symmetry.'],
+ ['The Demon','targets',3,'Make three productive gate-symbol moves.','Prepare the next gate symbol before consuming the current one.','Off-target damage is allowed, but it cannot substitute for the gate’s objective.'],
+ ['The Timekeeper','reserve',3,'Clear three tiles from the released reserve row.','Use the first two moves to prepare the row above the reserve.','The reserve remains protected until its rule opens it; abilities cannot bypass it.'],
+ ['The Threadcutter','bridges',1,'Make a productive swap across a published bridge.','Read the bridge endpoints as neighbors even though they look separated.','Bridges permit swaps, not gravity; supply still stops at structural voids.'],
+ ['The Chorus','contributors',2,'Have both local players make a productive move.','Discuss the shared target, then let the other player execute their own turn.','The guardian makes echo strikes here without taking a board turn, so human roles keep alternating.'],
+ ['The Null King','forecasts',3,'Make three correct symbol forecasts.','Reduce the seals while managing focus and reading the boss’s changing shield.','A win requires all seals gone and the guardian defeated. Finish one objective while maintaining the other.']
+];
+const GUIDES=CONTENT.map((row,i)=>Object.freeze({level:i+1,guardian:row[0],kind:row[1],target:row[2],contract:row[3],opening:row[4],advanced:row[5],boss:[11,22,33].includes(i+1),temperament:['Collector','Saboteur','Architect','Echo'][i%4]}));
+const clone=x=>JSON.parse(JSON.stringify(x));
+const guide=s=>GUIDES[s.level-1];
+function key(a){if(!a)return '';return a.type==='rotate'?a.ring+':'+a.direction:JSON.stringify([a.a,a.b,a.phase??0]);}
+function actionText(a){
+ if(!a)return 'No matching move announced.';
+ if(a.type==='rotate')return a.ring+' ring '+(a.direction===1?'clockwise':'counterclockwise');
+ const p=v=>typeof v==='object'?'row '+(v.r+1)+', column '+(v.c+1):'slot '+(v+1);
+ return p(a.a)+' ↔ '+p(a.b)+(a.phase===1?' (dark state)':'');
+}
+function legacyOptions(s,api){
+ const out=[],actions=[],board=s.board;
+ if(s.level===1)for(let a=0;a<16;a++)for(let b=a+1;b<16;b++)actions.push({type:'swap',a,b});
+ if(s.level===2&&!board.locked)for(const ring of ['outer','inner'])for(const direction of [-1,1])actions.push({type:'rotate',ring,direction});
+ if(s.level===3)for(let a=0;a<49;a++)for(const n of [6,8])if(a+n<49&&Math.abs(a%7-(a+n)%7)===1&&board[a]!==null&&board[a+n]!==null)actions.push({type:'swap',a,b:a+n});
+ if(s.level===4){const positions=board.flatMap((row,r)=>row.map((_,c)=>({r,c})));for(let a=0;a<positions.length;a++)for(let b=a+1;b<positions.length;b++)actions.push({type:'swap',a:positions[a],b:positions[b]});}
+ if(s.level===5)for(let a=0;a+1<board.chain.length;a++)actions.push({type:'swap',a,b:a+1});
+ for(const action of actions){const b=clone(board),symbols=[0,0,0,0];let hits=[],groups=0,maxRun=3;
+  if(s.level===1){[b[action.a],b[action.b]]=[b[action.b],b[action.a]];for(let i=0;i<16;){let j=i+1;while(j<16&&b[j]===b[i])j++;if(j-i>=3){groups++;maxRun=Math.max(maxRun,j-i);for(let k=i;k<j;k++){hits.push(k);symbols[b[k]]+=2;}}i=j;}}
+  if(s.level===2){if(action.direction===1)b[action.ring].unshift(b[action.ring].pop());else b[action.ring].push(b[action.ring].shift());const axes=api.axes({board:b});groups=axes.length;for(const axis of axes){hits.push(axis);symbols[b.core[axis]]+=3;}}
+  if(s.level===3){[b[action.a],b[action.b]]=[b[action.b],b[action.a]];const match=api.diagonalGroups(b);groups=match.count;hits=[...match.hit];hits.forEach(i=>symbols[b[i]]++);}
+  if(s.level===4){const {a,c}= {a:action.a,c:action.b};[b[a.r][a.c],b[c.r][c.c]]=[b[c.r][c.c],b[a.r][a.c]];const v=b[5][0];if(b[5].every(x=>x===v)){groups=1;for(let r=0;r<6;r++)for(let c=0;c<b[r].length;c++)if(b[r][c]===v){hits.push(r*100+c);symbols[v]++;}}}
+  if(s.level===5){const chain=b.chain;[chain[action.a],chain[action.b]]=[chain[action.b],chain[action.a]];const matches=api.groups5(chain);groups=matches.length;for(const [start,end] of matches){maxRun=Math.max(maxRun,end-start);for(let i=start;i<end;i++){hits.push(i);symbols[chain[i]]++;}}}
+  if(groups)out.push({action,hits,symbols,tiles:symbols.reduce((a,b)=>a+b,0),groups,maxRun,horizontal:0,vertical:0,objective:groups});
+ }
+ return out;
+}
+function options(s,api,reveal=false){if(s.level===8&&reveal&&!s.board.revealed){const copy=clone(s);copy.board.revealed=true;return api.expansion.analyze(copy);}return s.level>=6?api.expansion.analyze(s):legacyOptions(s,api);}
+function dominant(move){return move?move.symbols.indexOf(Math.max(...move.symbols)):-1;}
+function addUnique(t,name,values){for(const value of values)if(!t.collections[name].includes(value))t.collections[name].push(value);}
+function contractValue(s){const t=s.strategy,g=guide(s);if(Object.hasOwn(t.counts,g.kind))return t.counts[g.kind];return t.collections[g.kind]?.length||0;}
+function contractGain(s,move){
+ if(!move)return 0;const t=s.strategy,g=guide(s),b=s.board,missing=(name,values)=>values.filter(v=>!t.collections[name].includes(v)).length;
+ switch(g.kind){
+ case 'symbols':return missing('symbols',move.symbols.map((n,i)=>n?i:-1).filter(i=>i>=0));
+ case 'phases':return missing('phases',[move.action.phase??b.phase]);
+ case 'planes':return missing('planes',[...new Set(move.hits.map(i=>Math.floor(Math.floor(i/b.cols)/4)*2+Math.floor((i%b.cols)/4)))]);
+ case 'columns':return missing('columns',[...new Set(move.hits.map(i=>i%b.cols))]);
+ case 'orientations':return missing('orientations',[move.horizontal?'horizontal':null,move.vertical?'vertical':null].filter(Boolean));
+ case 'sectors':return missing('sectors',[...new Set(move.hits.map(i=>Math.floor((i%b.cols)/(b.cols/2))))]);
+ case 'long':return move.maxRun>=4?1:0;
+ case 'bridges':return b.bridges.some(([a,c])=>a===move.action.a&&c===move.action.b||c===move.action.a&&a===move.action.b)?1:0;
+ case 'targets':return move.objective>0?1:0;
+ default:return 0;
+ }
+}
+function guardianScore(s,move){
+ const kind=guide(s).temperament;
+ if(kind==='Collector')return move.tiles*3+(move.objective||0);
+ if(kind==='Saboteur')return (move.objective||0)*4+move.tiles+contractGain(s,move)*12;
+ if(kind==='Architect')return move.maxRun*10+move.groups*8+move.tiles;
+ const symbol=s.strategy.lastSymbol??((s.level-1)%4);return move.symbols[symbol]*5+move.tiles*2;
+}
+function chooseGuardian(s,api){
+ if(s.strategy.guardianHealth<=0)return null;const candidates=options(s,api,true);if(!candidates.length)return null;
+ candidates.sort((a,b)=>guardianScore(s,b)-guardianScore(s,a)||key(a.action).localeCompare(key(b.action)));
+ return clone(candidates[0]);
+}
+
+function analyze(s,api){
+ const moves=options(s,api),t=s.strategy;
+ for(const move of moves){
+  move.contractGain=t?contractGain(s,move):0;
+  move.denies=!!(t?.intent&&(key(move.action)===key(t.intent.action)||move.hits.some(i=>t.intent.hits.includes(i))));
+  move.rank=(move.objective||0)*8+move.tiles*2+move.contractGain*16+(move.denies?20:0);
+ }
+ return moves.sort((a,b)=>b.rank-a.rank||key(a.action).localeCompare(key(b.action)));
+}
+function hint(s,api){if(s.status!=='playing')return null;return analyze(s,api)[0]?.action||(s.level===8&&!s.board.revealed?null:api.hint(s));}
+function attach(s,options,api){
+ const difficulty=options.difficulty||'tactician',d=DIFFICULTIES[difficulty];if(!d)throw Error('Unknown campaign difficulty');
+ const g=guide(s),boss=g.boss;
+ s.strategy={schema:'one.33trial.strategy.v1',difficulty,daily:options.daily||null,heroTurns:0,guardianTurns:0,health:d.health,maxHealth:d.health,guardianHealth:d.guardian+(boss?30:0),guardianMax:d.guardian+(boss?30:0),shield:0,focus:3,stance:'balanced',forecast:null,gambit:false,abilityUsed:false,lastSymbol:null,intent:null,limit:d.turns,counts:{productive:0,shockwaves:0,siphons:0,hidden:0,top:0,long:0,valuable:0,targets:0,disrupts:0,horizontal:0,heavy:0,reserve:0,bridges:0,forecasts:0},collections:{rings:[],orientations:[],sectors:[],keys:[],rooms:[],scripts:[],gravities:[],rotors:[],phases:[],planes:[],symbols:[],columns:[],contributors:[]},log:[],lastDamage:0,lastIncoming:0};
+ s.strategy.intent=chooseGuardian(s,api);note(s,'Face '+g.guardian+'. Complete the board and defeat the guardian.');return s;
+}
+function note(s,text){s.strategy.log.push(text);s.strategy.log=s.strategy.log.slice(-8);}
+function absorb(s,damage){const t=s.strategy,blocked=Math.min(t.shield,damage);t.shield-=blocked;t.health=Math.max(0,t.health-damage+blocked);t.lastIncoming=damage-blocked;return damage-blocked;}
+function collect(s,before,move,productive,api){
+ const t=s.strategy,b=before.board;if(!productive)return;
+ t.counts.productive++;
+ if(s.level===2)addUnique(t,'rings',[move?.action.ring].filter(Boolean));
+ if(s.level===4)t.counts.shockwaves+=Math.max(0,s.stats.shockwaves-before.stats.shockwaves);
+ if(s.level===5)t.counts.siphons+=Math.max(0,s.progress-before.progress);
+ if(s.level<6)return;
+ addUnique(t,'gravities',[api.expansion.gravity(before)]);addUnique(t,'phases',[move?.action.phase??b.phase]);addUnique(t,'keys',[b.key]);addUnique(t,'rotors',[b.turn%b.cols]);
+ if(!b.revealed)t.counts.hidden++;
+ if(move){
+  const hits=move.hits;addUnique(t,'orientations',[move.horizontal?'horizontal':null,move.vertical?'vertical':null].filter(Boolean));
+  addUnique(t,'symbols',move.symbols.map((n,i)=>n?i:-1).filter(i=>i>=0));addUnique(t,'columns',hits.map(i=>i%b.cols));
+  addUnique(t,'sectors',hits.map(i=>Math.floor((i%b.cols)/(b.cols/2))));addUnique(t,'scripts',hits.map(i=>Math.floor(i/b.cols)%3));addUnique(t,'planes',hits.map(i=>Math.floor(Math.floor(i/b.cols)/4)*2+Math.floor((i%b.cols)/4)));
+  if(s.level===10)addUnique(t,'rooms',s.board.visited);
+  if(s.level===32)addUnique(t,'contributors',[b.turn%2]);
+  t.counts.top+=hits.filter(i=>i<b.cols).length;t.counts.reserve+=b.turn>=2?hits.filter(i=>i>=b.cols*(b.rows-1)).length:0;
+  t.counts.long+=move.maxRun>=4?1:0;t.counts.horizontal+=move.horizontal;
+  t.counts.valuable+=hits.filter(i=>1+((b.phase?b.alternate[i]:b.cells[i])+b.turn)%4>=3).length;t.counts.heavy+=hits.filter(i=>b.weights[i]===4).length;
+  if(move.objective>0)t.counts.targets++;
+  if(s.level===31&&b.bridges.some(([a,c])=>a===move.action.a&&c===move.action.b||c===move.action.a&&a===move.action.b))t.counts.bridges++;
+ }
+}
+function phase(s){const t=s.strategy;return Math.min(3,1+Math.floor((t.guardianMax-t.guardianHealth)*3/t.guardianMax));}
+function guardianTurn(s,api,at){
+ const t=s.strategy,d=DIFFICULTIES[t.difficulty];if(t.guardianHealth<=0||t.heroTurns%d.cadence!==0)return;
+ let candidates=options(s,api,true),move=candidates.find(m=>key(m.action)===key(t.intent?.action)),adapted=false;
+ const epoch=Math.floor((s.level-1)/11);
+ if(!move&&t.intent){t.counts.disrupts++;note(s,'Intent disrupted: the announced match is gone.');}
+ if((t.difficulty==='grandmaster'||epoch===2&&phase(s)===3)){move=chooseGuardian(s,api);adapted=false;}else if(epoch>=1&&!move){move=chooseGuardian(s,api);adapted=true;}
+ if(!move){note(s,'Guardian regroups. No matching strike.');return;}
+ const copy=clone(s);delete copy.strategy;copy.status='playing';copy.telemetryEnabled=false;copy.events=[];
+ if(move.action.phase!==undefined&&s.level===23)copy.board.phase=move.action.phase;
+ const oldMoves=copy.moves;api.step(copy,move.action,at);
+ if(copy.moves===oldMoves||copy.score<=s.score){note(s,'Guardian’s opening closed.');return;}
+ // Concordia preserves alternating human turns. Its guardian makes an echo
+ // strike calculated from a legal move, without consuming a shared-board move.
+ if(s.level!==32){s.board=copy.board;s.randomState=copy.randomState;s.moves=copy.moves;t.guardianTurns++;}
+if(s.level===10)s.progress=s.board.visited.length;
+ if(s.level===22)s.progress=s.board.contributions.reduce((a,b)=>a+b,0);
+ if(s.level===33)s.progress=33-s.board.seals.filter(Boolean).length;
+ const incoming=Math.max(1,Math.round((4+Math.min(12,move.tiles/2))*d.attack*(adapted?.7:1)*(t.gambit?1.35:1)));
+ const taken=absorb(s,incoming);note(s,(adapted?'Guardian adapts: ':'Guardian strikes: ')+actionText(move.action)+' · '+taken+' damage after shield.');
+}
+function ability(s,a,api){const t=s.strategy;
+ if(t.abilityUsed){s.feedback='One focus ability per player turn. Make a board move first.';return s;}
+ const costs={ward:3,gambit:2,transmute:3},cost=costs[a.name];
+ if(!cost||t.focus<cost){s.feedback='Not enough focus for this ability.';return s;}
+ if(a.name==='transmute'){
+  if(s.level<6||!api.expansion.transmute(s,a.slot)){s.feedback='Choose a movable tile in an expanded stage to transmute.';return s;}
+  note(s,'Transmutation: slot '+(a.slot+1)+' advances one symbol.');
+ }
+ if(a.name==='ward'){t.shield=Math.min(36,t.shield+16);note(s,'Ward raised: +16 shield, up to 36.');}
+ if(a.name==='gambit'){t.gambit=true;note(s,'Gambit committed: +50% outgoing damage and +35% incoming damage for the next turn.');}
+ t.focus-=cost;t.abilityUsed=true;s.feedback=t.log.at(-1);return s;
+}
+function perform(s,a,at,api){
+ const t=s.strategy;if(s.status!=='playing')return s;
+ if(a?.type==='ability')return ability(s,a,api);
+ if(a?.type==='stance'){
+  if(!['balanced','precision','cascade','fortify'].includes(a.stance)){s.feedback='Unknown stance.';return s;}
+  t.stance=a.stance;s.feedback='Stance: '+a.stance+'.';return s;
+ }
+ if(a?.type==='forecast'){
+  if(!Number.isInteger(a.symbol)||a.symbol<0||a.symbol>3){s.feedback='Choose a valid forecast symbol.';return s;}
+  if(t.forecast!==null){s.feedback='Forecast already committed until your next board move.';return s;}
+  t.forecast=a.symbol;s.feedback='Forecast committed: '+SYMBOLS[a.symbol]+'. Most frequent opening-clear symbol wins; ties follow the legend.';return s;
+ }
+ if(a?.type==='tick')return api.step(s,a,at);
+ const isMove=['swap','rotate'].includes(a?.type);if(!isMove)return api.step(s,a,at);
+ const before=clone(s),move=options(s,api,true).find(m=>key(m.action)===key(s.level===23?{...a,phase:s.board.phase}:a));
+ api.step(s,a,at);if(s.moves===before.moves)return s;
+ const feedback=s.feedback,entropy=s.level===5&&s.board.chain.length>=64;
+ t.heroTurns++;t.lastDamage=0;t.lastIncoming=0;const productive=s.score>before.score;
+ collect(s,before,move,productive,api);
+ if(move&&productive)t.lastSymbol=dominant(move);
+ let damage=productive?Math.min(24,6+Math.floor(Math.sqrt(s.score-before.score))):0;
+ if(t.stance==='precision')damage=move?.maxRun>=4?Math.round(damage*1.3):Math.round(damage*.9);
+ if(t.stance==='cascade')damage=s.score-before.score>(s.level>=6?(move?.tiles||0)*10:(move?.groups||0)*100)?Math.round(damage*1.25):Math.round(damage*.8);
+ if(t.stance==='fortify'){damage=Math.round(damage*.75);t.shield=Math.min(36,t.shield+5);}
+ if(productive)t.focus=Math.min(6,t.focus+1+(move?.maxRun>=4?1:0));
+ if(t.forecast!==null){
+  if(move&&dominant(move)===t.forecast){t.counts.forecasts++;damage+=5;t.focus=Math.min(6,t.focus+1);note(s,'Forecast correct: +5 damage and +1 focus.');}
+  else{t.focus=Math.max(0,t.focus-1);note(s,'Forecast missed: −1 focus.');}
+ }
+ if(t.gambit)damage=Math.round(damage*1.5);
+ if(guide(s).boss&&move){const shield=(s.level+phase(s)-1)%4;if(dominant(move)===shield){damage=Math.ceil(damage*.5);note(s,'Boss shield absorbed half the '+SYMBOLS[shield]+' attack.');}}
+ t.lastDamage=damage;t.guardianHealth=Math.max(0,t.guardianHealth-damage);
+ note(s,'Turn '+t.heroTurns+': '+(productive?'productive match':'setup move')+' · '+damage+' guardian damage.');
+ s.status='playing';
+ if(!entropy)guardianTurn(s,api,at);
+ t.forecast=null;t.gambit=false;t.abilityUsed=false;
+ if(entropy){s.status='failed';s.feedback='The entropy void was reached. Retry freely.';}
+ else if(t.health<=0){s.status='failed';s.feedback='Guardian prevailed. Retry, change stance, or use Explorer difficulty.';}
+ else if(s.progress>=api.levels[s.level-1].goal&&t.guardianHealth===0){s.status='won';s.feedback='Campaign victory — board complete and '+guide(s).guardian+' defeated.';}
+ else if(t.heroTurns>=t.limit){s.status='failed';s.feedback='Campaign turn limit reached. Retry freely.';}
+ else{
+  if(s.level>=6)api.expansion.prepare(s);
+  s.feedback=feedback+' · Guardian −'+damage+' · You −'+t.lastIncoming;
+ }
+ if(s.status==='playing')t.intent=chooseGuardian(s,api);else t.intent=null;
+ return s;
+}
+function validate(s){const t=s.strategy;if(!t)return;
+ const d=DIFFICULTIES[t.difficulty];if(t.schema!=='one.33trial.strategy.v1'||!d)throw Error('Unknown campaign save');
+ for(const name of ['heroTurns','guardianTurns','health','maxHealth','guardianHealth','guardianMax','shield','focus','limit','lastDamage','lastIncoming'])if(!Number.isSafeInteger(t[name])||t[name]<0)throw Error('Invalid campaign counter');
+ if(t.health>t.maxHealth||t.maxHealth!==d.health||t.guardianMax!==d.guardian+(guide(s).boss?30:0)||t.guardianHealth>t.guardianMax||t.focus>6||t.shield>36||t.limit!==d.turns||t.heroTurns+t.guardianTurns!==s.moves||t.heroTurns>t.limit||t.guardianTurns>t.heroTurns)throw Error('Invalid campaign limits');
+ if(!['balanced','precision','cascade','fortify'].includes(t.stance)||(t.forecast!==null&&(!Number.isInteger(t.forecast)||t.forecast<0||t.forecast>3))||typeof t.gambit!=='boolean'||typeof t.abilityUsed!=='boolean')throw Error('Invalid campaign choice');
+ if(t.lastSymbol!==null&&(!Number.isInteger(t.lastSymbol)||t.lastSymbol<0||t.lastSymbol>3))throw Error('Invalid last symbol');
+ if(t.daily!==null&&(typeof t.daily!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(t.daily)))throw Error('Invalid daily seed date');
+ const template={counts:['productive','shockwaves','siphons','hidden','top','long','valuable','targets','disrupts','horizontal','heavy','reserve','bridges','forecasts'],collections:['rings','orientations','sectors','keys','rooms','scripts','gravities','rotors','phases','planes','symbols','columns','contributors']};
+ if(!t.counts||!t.collections)throw Error('Missing campaign contract');
+ for(const name of template.counts)if(!Number.isSafeInteger(t.counts[name])||t.counts[name]<0||t.counts[name]>100000)throw Error('Invalid contract count');
+ for(const name of template.collections)if(!Array.isArray(t.collections[name])||t.collections[name].length>81||new Set(t.collections[name]).size!==t.collections[name].length||!t.collections[name].every(v=>typeof v==='string'&&v.length<=20||Number.isInteger(v)&&v>=0&&v<=80))throw Error('Invalid contract collection');
+ if(!Array.isArray(t.log)||t.log.length>8||!t.log.every(v=>typeof v==='string'&&v.length<500))throw Error('Invalid campaign log');
+ if(t.intent!==null){
+  const m=t.intent;
+  if(!m||!Array.isArray(m.hits)||m.hits.length>81||new Set(m.hits).size!==m.hits.length||!m.hits.every(v=>Number.isInteger(v)&&v>=0&&v<=511)||!Array.isArray(m.symbols)||m.symbols.length!==4||!m.symbols.every(v=>Number.isInteger(v)&&v>=0&&v<=162)||!Number.isSafeInteger(m.tiles)||m.tiles<0||m.tiles>162||m.symbols.reduce((a,b)=>a+b,0)!==m.tiles||!m.action||!['swap','rotate'].includes(m.action.type))throw Error('Invalid guardian intent');
+  const a=m.action;
+  if(a.type==='rotate'){if(s.level!==2||!['outer','inner'].includes(a.ring)||![-1,1].includes(a.direction))throw Error('Invalid guardian ring action');}
+  else if(s.level===4){const valid=p=>p&&Number.isInteger(p.r)&&p.r>=0&&p.r<6&&Number.isInteger(p.c)&&p.c>=0&&p.c<[12,10,8,6,4,3][p.r];if(!valid(a.a)||!valid(a.b))throw Error('Invalid guardian funnel action');}
+  else{const n=s.level>=6?s.board?.cells?.length:s.level===1?16:s.level===3?49:s.board?.chain?.length;if(!Number.isInteger(a.a)||!Number.isInteger(a.b)||a.a<0||a.b<0||a.a>=n||a.b>=n||a.a===a.b||(a.phase!==undefined&&![0,1].includes(a.phase)))throw Error('Invalid guardian swap action');}
+ }
+
+}
+function dailySeed(date,level,difficulty){let hash=2166136261;for(const c of 'ONE025|'+date+'|'+level+'|'+difficulty){hash^=c.charCodeAt(0);hash=Math.imul(hash,16777619);}return hash>>>0;}
+return Object.freeze({GUIDES,DIFFICULTIES,SYMBOLS,attach,perform,analyze,hint,validate,contractValue,actionText,dailySeed,guardianScore,phase});
+});
+
+</script><script>
+/* ONE — The 33 Trial Matrix: deterministic local gameplay engine.
+ * By Nathan Tabor. No analytics, tracking pixels, medical or IQ inferences.
+ * User-authored mechanics are retained; unresolved structural counts and build choices are documented.
+ */
+(function(root,factory){'use strict';const a=factory();if(typeof module==='object'&&module.exports)module.exports=a;else root.OneTrialMatrix=a;})(typeof globalThis!=='undefined'?globalThis:this,function(){'use strict';
+const expansion=typeof module==='object'&&module.exports?require('./expansion.js'):globalThis.TrialExpansion;
+if(!expansion)throw Error('Trial expansion missing');
+const strategy=typeof module==='object'&&module.exports?require('./strategy.js'):globalThis.TrialStrategy;
+if(!strategy)throw Error('Strategy engine missing');
+const GLYPHS=[
+ ['△','○','□','◇'],
+ ['Ⅰ','Ⅱ','Ⅲ','Ⅳ'],
+ ['◆','♦','⬟','✦'],
+ ['∿','♪','♮','♬'],
+ ['⚒','◉','⌁','▱']
+];
+const LEVELS=Object.freeze([
+ {id:1,name:'THE MONOLITH',tagline:'The illusion of simplicity. One dimension, infinite consequences.',epoch:'I',geometry:'1 × 33',goal:7,moveLimit:25,metric:'Symmetry Delta',detail:'Left swap auto-mirrors right; compass at slot 17 never moves.'},
+ {id:2,name:'BABYLON’S GATE',tagline:'The turning wheels of deterministic fate.',epoch:'I',geometry:'18 outer + 12 inner + 3 core',goal:6,moveLimit:35,metric:'Rotational Accuracy Index',detail:'Align core-to-outer axes. Each match counter-rotates the geared rings.'},
+ {id:3,name:'THE RHOMBUS OF UR',tagline:'Slicing reality along the diagonal.',epoch:'I',geometry:'7 × 7 / 49 addresses / 4 corner-tip voids',goal:8,moveLimit:35,metric:'Misclick Vector',detail:'Only 45° diagonal neighboring swaps; pieces flow along sloped diagonals.'},
+ {id:4,name:'EPIDAURUS ACOUSTIC',tagline:'The kinetic echo of structural collapse.',epoch:'I',geometry:'6-row funnel / 12 to 3',goal:3,moveLimit:35,metric:'Chain Potential Realization',detail:'Match the 3-cell input bed; the upward shockwave amplifies across wider rows.'},
+ {id:5,name:'ARCHIMEDES’ SPIRAL',tagline:'Racing the drain of chronological entropy.',epoch:'I',geometry:'1 × 64 path in 8 × 8',goal:12,moveLimit:null,metric:'Panic Shift Delta',detail:'1 new tile at the outer lip every 2 seconds; entering slot 64 fails.'}
+].concat(expansion.LEVELS));
+const FUNNEL=[12,10,8,6,4,3];
+const RHOMBUS_VOID=[0,6,42,48]; // four outer tips of rotated 7x7 matrix: all four corners
+function rng(s){s.randomState=(Math.imul(1664525,s.randomState>>>0)+1013904223)>>>0;return s.randomState>>>24;}
+function token(s){return rng(s)%4;}
+function ms(v,defaultValue=0){return Number.isFinite(v)&&v>=0?Math.round(v):defaultValue;}
+function record(s,type,data,at){if(!s.telemetryEnabled)return; if(s.events.length<3000)s.events.push({type,at:ms(at)-s.startedAt,...data});}
+function initial(level=1,seed=8291973,telemetryEnabled=false,at=0,options={}){
+ const def=LEVELS[level-1];if(!def||!Number.isInteger(level))throw Error('Choose a level from 1–33');
+ const s={schema:'one.33trial.session.v1',level,status:'playing',seed:seed>>>0,randomState:seed>>>0,startedAt:ms(at),lastAt:ms(at),moves:0,progress:0,score:0,penalties:0,feedback:'',telemetryEnabled:!!telemetryEnabled,events:[],stats:{valid:0,invalid:0,progressMoves:0,blockageMoves:0,neutralMoves:0,planningMs:[],symmetryDeltasMs:[],cardinalAttemptsFirstMinute:0,cardinalAttemptsLater:0,cprCombos:0,cprTopTiles:0,shockwaves:0,calm:{actions:0,success:0},near:{actions:0,success:0}},board:null};
+ if(level===1){const left=Array.from({length:16},()=>token(s));s.board=[...left,-1,...left.slice().reverse()];}
+ if(level===2)s.board={outer:Array.from({length:18},()=>token(s)),inner:Array.from({length:12},()=>token(s)),core:Array.from({length:3},()=>token(s)),locked:0,gears:0};
+ if(level===3)s.board=Array.from({length:49},(_,i)=>RHOMBUS_VOID.includes(i)?null:token(s));
+ if(level===4)s.board=FUNNEL.map(n=>Array.from({length:n},()=>token(s)));
+ if(level===5)s.board={chain:Array.from({length:18},()=>token(s)),ticks:0};
+ if(level>=6)expansion.initial(s);
+ if(options.mode==='campaign')strategy.attach(s,options,strategyAPI());
+ return s;
+}
+function assertPlaying(s){if(!s||s.schema!=='one.33trial.session.v1')throw Error('Unsupported save state');if(s.status!=='playing')return false;return true;}
+function complete(s,at){if(s.progress>=LEVELS[s.level-1].goal){s.status='won';s.feedback='Trial completed.';record(s,'win',{progress:s.progress},at);}else if(LEVELS[s.level-1].moveLimit!==null&&s.moves>=LEVELS[s.level-1].moveLimit){s.status='failed';s.feedback='The move budget is exhausted.';record(s,'failed',{reason:'move_budget'},at);}}
+function invalid(s,why,at,cardinal=false){s.stats.invalid++;if(cardinal){if(ms(at)-s.startedAt<=60000)s.stats.cardinalAttemptsFirstMinute++;else s.stats.cardinalAttemptsLater++;}s.feedback=why;record(s,'invalid',{reason:why,cardinal},at);return s;}
+function success(s,amount,at){s.progress+=amount;s.stats.progressMoves++;s.score+=100*amount;s.feedback=amount+' structural match'+(amount===1?'':'es')+' completed.';record(s,'progress',{amount},at);}
+function handle1(s,a,b,at,planStartMs){
+ if(!Number.isInteger(a)||!Number.isInteger(b)||a===b||a<0||b<0||a>15||b>15)return invalid(s,'Select two distinct LEFT-wing tiles; slot 17 is immutable.',at);
+ [s.board[a],s.board[b]]=[s.board[b],s.board[a]];
+ [s.board[32-a],s.board[32-b]]=[s.board[32-b],s.board[32-a]];
+ s.moves++;s.stats.valid++;if(Number.isFinite(planStartMs))s.stats.planningMs.push(Math.max(0,ms(at)-ms(planStartMs)));
+ // Right symmetry happens atomically by the Ripple Law. It is not an independent cognitive latency measure.
+ s.stats.symmetryDeltasMs.push(0);
+ const cleared=new Set();let groups=0;
+ for(let i=0;i<16;){let j=i+1;while(j<16&&s.board[j]===s.board[i])j++;if(j-i>=3){groups++;for(let k=i;k<j;k++)cleared.add(k);}i=j;}
+ if(groups){
+  const kept=[];for(let i=0;i<16;i++)if(!cleared.has(i))kept.push(s.board[i]);
+  const newLeft=Array.from({length:16-kept.length},()=>token(s)).concat(kept);
+  s.board=[...newLeft,-1,...newLeft.slice().reverse()];
+  success(s,groups,at);
+ }else{s.stats.neutralMoves++;s.feedback='Mirrored swap completed. No simultaneous symmetrical triple.';}
+ complete(s,at);record(s,'ripple_swap',{a,b,clearedGroups:groups},at);return s;
+}
+function rotate(array,dir){if(dir===1)array.unshift(array.pop());else array.push(array.shift());}
+function axes(s){const b=s.board;return [0,1,2].filter(i=>b.core[i]===b.inner[i*4]&&b.inner[i*4]===b.outer[i*6]);}
+function handle2(s,ring,direction,at){
+ const b=s.board;
+ if(b.locked>0){b.locked--;s.moves++;s.penalties++;s.stats.blockageMoves++;s.feedback='Cascade trap: gear locked this turn.';record(s,'lock_penalty',{ring},at);complete(s,at);return s;}
+ if(!['outer','inner'].includes(ring)||![-1,1].includes(direction))return invalid(s,'Rotate the outer or inner ring one slot.',at);
+ rotate(b[ring],direction);s.moves++;s.stats.valid++;
+ const aligned=axes(s),total=aligned.length;
+ if(total){for(const axis of aligned){b.core[axis]=token(s);b.inner[axis*4]=token(s);b.outer[axis*6]=token(s);}
+  // Deterministic Counter-Rotation Gear following a qualifying radial match.
+  const readyBefore=axes(s);rotate(b.outer,1);rotate(b.inner,-1);b.gears++;
+  const now=axes(s);if(readyBefore.some(i=>!now.includes(i))){b.locked=1;s.penalties++;s.stats.blockageMoves++;record(s,'cascade_trap',{axes:readyBefore},at);}
+  success(s,total,at);s.feedback='Radial path aligned; outer ↻ / inner ↺.';
+ }else{s.stats.neutralMoves++;s.feedback='Gear moved. Align matching core → inner → outer symbols.';}
+ complete(s,at);record(s,'ring_action',{ring,direction,aligned:total},at);return s;
+}
+function diagonalGroups(board){const hit=new Set();let count=0;
+ for(let r=0;r<7;r++)for(let c=0;c<7;c++)for(const dc of [-1,1]){
+  const value=board[r*7+c];if(value===null)continue;
+  if(r>0&&c-dc>=0&&c-dc<7&&board[(r-1)*7+c-dc]===value)continue;
+  let rr=r,cc=c,seq=[];while(rr<7&&cc>=0&&cc<7&&board[rr*7+cc]===value){seq.push(rr*7+cc);rr++;cc+=dc;}
+  if(seq.length>=3){count++;seq.forEach(i=>hit.add(i));}
+ }
+ return {hit,count};
+}
+function slopeRefill(s,hits){for(const i of hits)s.board[i]=undefined;
+ for(let pass=0;pass<9;pass++){let changed=false;
+  for(let r=6;r>=0;r--)for(let c=0;c<7;c++){const i=r*7+c;if(s.board[i]!==undefined)continue;
+   const choices=[c-1,c+1].filter(k=>k>=0&&k<7&&s.board[(r-1)*7+k]!==undefined&&s.board[(r-1)*7+k]!==null&&r>0);
+   if(choices.length){const src=(r-1)*7+choices[rng(s)%choices.length];s.board[i]=s.board[src];s.board[src]=undefined;changed=true;}
+   else if(r===0){s.board[i]=token(s);changed=true;}
+  }
+  if(!changed)break;
+ }
+ for(let i=0;i<49;i++)if(s.board[i]===undefined)s.board[i]=token(s);
+ for(const i of RHOMBUS_VOID)s.board[i]=null;
+}
+function handle3(s,a,b,at){
+ if(!Number.isInteger(a)||!Number.isInteger(b)||a<0||b<0||a>=49||b>=49||s.board[a]===null||s.board[b]===null)return invalid(s,'Choose two active diamond tiles.',at);
+ const dr=Math.abs(Math.floor(a/7)-Math.floor(b/7)),dc=Math.abs(a%7-b%7);
+ if(dr!==1||dc!==1)return invalid(s,dr+dc===1?'Cardinal swipe blocked: diagonal movement only.':'Only adjacent 45-degree diagonal swaps are valid.',at,dr+dc===1);
+ [s.board[a],s.board[b]]=[s.board[b],s.board[a]];s.moves++;s.stats.valid++;
+ const {hit,count}=diagonalGroups(s.board);
+ if(hit.size){slopeRefill(s,hit);success(s,count,at);}
+ else{s.stats.neutralMoves++;s.feedback='Diagonal shift completed; seek a three-gem diagonal.';}
+ complete(s,at);record(s,'diagonal_swap',{a,b,matches:count},at);return s;
+}
+function rowCombos(row,v){let n=0;for(let i=0;i<row.length;){let j=i+1;while(j<row.length&&row[j]===row[i])j++;if(row[i]===v&&j-i>=3)n++;i=j;}return n;}
+function handle4(s,a,b,at){const valid=p=>p&&Number.isInteger(p.r)&&Number.isInteger(p.c)&&p.r>=0&&p.r<6&&p.c>=0&&p.c<s.board[p.r].length;
+ if(!valid(a)||!valid(b)||(a.r===b.r&&a.c===b.c))return invalid(s,'Choose two different tiles in the funnel.',at);
+ [s.board[a.r][a.c],s.board[b.r][b.c]]=[s.board[b.r][b.c],s.board[a.r][a.c]];s.moves++;s.stats.valid++;
+ const bottom=s.board[5],isTrigger=bottom[0]===bottom[1]&&bottom[1]===bottom[2];let amount=0;
+ if(isTrigger){const v=bottom[0],combos=s.board.slice(0,5).reduce((n,row)=>n+rowCombos(row,v),0);let topTiles=0;
+  for(let r=0;r<5;r++)for(let c=0;c<s.board[r].length;c++)if(s.board[r][c]===v){topTiles++;s.board[r][c]=token(s);}
+  for(let i=0;i<3;i++)bottom[i]=token(s);
+  s.stats.cprCombos+=combos;s.stats.cprTopTiles+=topTiles;s.stats.shockwaves++;amount=1;success(s,amount,at);
+  s.feedback='Bottom trigger fired! Upward shockwave hit '+topTiles+' upper tiles.';
+ }else{
+  let topMatch=false;for(const row of s.board.slice(0,1))for(let i=0;i+2<row.length;i++)if(row[i]===row[i+1]&&row[i]===row[i+2])topMatch=true;
+  if(topMatch){s.penalties++;s.stats.blockageMoves++;for(let r=1;r<6;r++){const row=s.board[r];row.splice(Math.floor(row.length/2),0,row.shift());}s.feedback='Top compression cost: lower rows shifted inward.';record(s,'compression_cost',{},at);}
+  else{s.stats.neutralMoves++;s.feedback='Swap made. Set up a triple in the narrow bottom bed.';}
+ }
+ complete(s,at);record(s,'funnel_swap',{a,b,shockwave:isTrigger},at);return s;
+}
+function spiral(){const coords=[];let top=0,bottom=7,left=0,right=7;while(top<=bottom&&left<=right){for(let x=left;x<=right;x++)coords.push([top,x]);top++;for(let y=top;y<=bottom;y++)coords.push([y,right]);right--;if(top<=bottom){for(let x=right;x>=left;x--)coords.push([bottom,x]);bottom--;}if(left<=right){for(let y=bottom;y>=top;y--)coords.push([y,left]);left++;}}return coords;}
+const SPIRAL=spiral();
+function groups5(chain){const pairs=[];for(let i=0;i<chain.length;){let j=i+1;while(j<chain.length&&chain[j]===chain[i])j++;if(j-i>=3)pairs.push([i,j]);i=j;}return pairs;}
+function move5(s,a,b,at){const chain=s.board.chain;
+ if(!Number.isInteger(a)||!Number.isInteger(b)||Math.abs(a-b)!==1||a<0||b<0||a>=chain.length||b>=chain.length)return invalid(s,'Swap adjacent occupied positions on the spiral path.',at);
+ const near=chain.length>=59,group=near?s.stats.near:s.stats.calm;group.actions++;[chain[a],chain[b]]=[chain[b],chain[a]];s.moves++;s.stats.valid++;
+ const matches=groups5(chain);if(matches.length){for(let i=matches.length-1;i>=0;i--){const [start,end]=matches[i];chain.splice(start,end-start);}group.success++;success(s,matches.length,at);s.feedback='Matched segments siphoned out; chain contracted away from the void.';}
+ else{s.stats.neutralMoves++;s.feedback='Swap committed. The entropy feed continues.';}
+ complete(s,at);record(s,'spiral_swap',{a,b,nearVoid:near,groups:matches.length,chainLength:chain.length},at);return s;
+}
+function tick5(s,at){s.board.chain.unshift(token(s));s.board.ticks++;if(s.board.chain.length>=64){s.status='failed';s.feedback='Structural lock: a tile entered slot 64 / the entropy void.';record(s,'failed',{reason:'entropy_void',length:s.board.chain.length},at);}
+ else{s.feedback='Feed injected at slot 1 ('+s.board.chain.length+'/64 occupied).';record(s,'injection',{length:s.board.chain.length},at);}return s;}
+function rawStep(s,act,at=0){if(!assertPlaying(s))return s;at=ms(at,s.lastAt);s.lastAt=at;
+ if(s.level>=6)return expansion.step(s,act||{},at);
+ if(!act||typeof act.type!=='string')return invalid(s,'Unrecognized action.',at);
+ if(s.level===1&&act.type==='swap')return handle1(s,act.a,act.b,at,act.planStartMs);
+ if(s.level===2&&act.type==='rotate')return handle2(s,act.ring,act.direction,at);
+ if(s.level===3&&act.type==='swap')return handle3(s,act.a,act.b,at);
+ if(s.level===4&&act.type==='swap')return handle4(s,act.a,act.b,at);
+ if(s.level===5&&act.type==='swap')return move5(s,act.a,act.b,at);
+ if(s.level===5&&act.type==='tick')return tick5(s,at);
+ return invalid(s,'Action not available on this stage.',at);
+}
+function metrics(s){const v=s.stats,div=(a,b)=>b?a/b:null;
+ const base={schema:'one.33trial.telemetry.v1',trialId:s.level,trialName:LEVELS[s.level-1].name,gameplayOnly:true,notStandardizedIQTest:true,consentOptIn:s.telemetryEnabled,moves:s.moves,progress:s.progress,penalties:s.penalties,invalidActions:v.invalid,elapsedMs:Math.max(0,s.lastAt-s.startedAt),outcome:s.status};
+ if(s.level>=6)return {...base,matchEfficiency:div(v.progressMoves,s.moves),score:s.score,objectiveProgress:s.progress,objectiveTarget:LEVELS[s.level-1].goal,freeReshuffles:s.board.reshuffles};
+ if(s.level===1)return {...base,symmetryDeltaMs:0,interpretation:'Mechanically fixed at zero by automatic mirror; NOT an independently measured IQ trait.',avgPlanningMs:div(v.planningMs.reduce((a,b)=>a+b,0),v.planningMs.length)};
+ if(s.level===2)return {...base,rotationalAccuracyIndex:div(v.progressMoves,v.progressMoves+v.blockageMoves),progressMoves:v.progressMoves,blockageMoves:v.blockageMoves};
+ if(s.level===3)return {...base,misclickVector:{cardinalAttemptsFirst60s:v.cardinalAttemptsFirstMinute,cardinalAttemptsAfter60s:v.cardinalAttemptsLater}};
+ if(s.level===4)return {...base,chainPotentialRealization:{topCombosRealized:v.cprCombos,upperTilesDetonated:v.cprTopTiles,shockwaves:v.shockwaves,combosPerShockwave:div(v.cprCombos,v.shockwaves)}};
+ const calm=div(v.calm.success,v.calm.actions),near=div(v.near.success,v.near.actions);
+ return {...base,panicShiftDelta:calm===null||near===null?null:near-calm,calmAccuracy:calm,nearVoidAccuracy:near,nearVoidThresholdSlots:5,interpretation:'Observed success-rate difference by proximity. Not a clinical composure score.'};
+}
+function save(s){if(!s||s.schema!=='one.33trial.session.v1')throw Error('Invalid trial');const data={schema:'one.33trial.save.v1',exportedAt:new Date().toISOString(),game:'The 33 Trial Matrix',author:'Nathan Tabor',session:JSON.parse(JSON.stringify(s)),metrics:s.telemetryEnabled?metrics(s):null,telemetryEvents:s.telemetryEnabled?s.events:[],privacy:'Private local session, exported only by explicit user action; no personal IQ assessment.'};return data;}
+function restore(data){if(!data||data.schema!=='one.33trial.save.v1'||!data.session||data.session.schema!=='one.33trial.session.v1')throw Error('Unknown save-file schema');const s=data.session;
+ if(!LEVELS[s.level-1]||!Number.isInteger(s.randomState)||!Array.isArray(s.events)||s.events.length>3000||!s.stats||!Number.isInteger(s.moves)||s.moves<0)throw Error('Malformed trial save');
+ validateSession(s);
+ validateLegacyBoard(s);
+ strategy.validate(s);
+ if(s.level>=6)expansion.validate(s);
+ if(s.level===1&&(!Array.isArray(s.board)||s.board.length!==33||s.board[16]!==-1))throw Error('Invalid monolith geometry');
+ if(s.level===2&&(!s.board||s.board.outer?.length!==18||s.board.inner?.length!==12||s.board.core?.length!==3))throw Error('Invalid Babylon rings');
+ if(s.level===3&&(!Array.isArray(s.board)||s.board.length!==49||!RHOMBUS_VOID.every(i=>s.board[i]===null)))throw Error('Invalid diamond topology');
+ if(s.level===4&&(!Array.isArray(s.board)||!FUNNEL.every((n,i)=>s.board[i]?.length===n)))throw Error('Invalid funnel geometry');
+ if(s.level===5&&(!Array.isArray(s.board?.chain)||s.board.chain.length>64||s.board.chain.length<0))throw Error('Invalid entropy chain');
+ return JSON.parse(JSON.stringify(s));
+}
+function validateLegacyBoard(s){
+ if(s.level>=6)return;const b=s.board,tile=v=>Number.isInteger(v)&&v>=0&&v<4,array=(v,n)=>Array.isArray(v)&&v.length===n&&v.every(tile);
+ if(s.level===1&&(!Array.isArray(b)||b.length!==33||b[16]!==-1||!b.every((v,i)=>i===16?v===-1:tile(v)&&v===b[32-i])))throw Error('Invalid mirrored Monolith tiles');
+ if(s.level===2&&(!b||!array(b.outer,18)||!array(b.inner,12)||!array(b.core,3)||!Number.isInteger(b.locked)||b.locked<0||b.locked>1||!Number.isSafeInteger(b.gears)||b.gears<0||b.gears>s.moves))throw Error('Invalid ring state');
+ if(s.level===3&&(!Array.isArray(b)||b.length!==49||!b.every((v,i)=>RHOMBUS_VOID.includes(i)?v===null:tile(v))))throw Error('Invalid Rhombus tiles');
+ if(s.level===4&&(!Array.isArray(b)||b.length!==6||!FUNNEL.every((n,i)=>array(b[i],n))))throw Error('Invalid funnel tiles');
+ if(s.level===5&&(!b||!Array.isArray(b.chain)||b.chain.length>64||!b.chain.every(tile)||!Number.isSafeInteger(b.ticks)||b.ticks<0))throw Error('Invalid spiral tiles');
+}
+function validateSession(s){
+ if(!Number.isInteger(s.level)||s.level<1||s.level>33||!['playing','won','failed'].includes(s.status)||typeof s.telemetryEnabled!=='boolean')throw Error('Invalid session state');
+ for(const k of ['seed','randomState'])if(!Number.isInteger(s[k])||s[k]<0||s[k]>4294967295)throw Error('Invalid seed');
+ for(const k of ['startedAt','lastAt','moves','progress','score','penalties'])if(!Number.isSafeInteger(s[k])||s[k]<0)throw Error('Invalid session counters');
+ for(const k of ['valid','invalid','progressMoves','blockageMoves','neutralMoves','cardinalAttemptsFirstMinute','cardinalAttemptsLater','cprCombos','cprTopTiles','shockwaves'])if(!Number.isSafeInteger(s.stats[k])||s.stats[k]<0)throw Error('Invalid gameplay stats');
+ for(const k of ['planningMs','symmetryDeltasMs'])if(!Array.isArray(s.stats[k])||s.stats[k].length>10000||!s.stats[k].every(v=>Number.isFinite(v)&&v>=0))throw Error('Invalid timings');
+ for(const k of ['calm','near'])if(!s.stats[k]||!Number.isSafeInteger(s.stats[k].actions)||s.stats[k].actions<0||!Number.isSafeInteger(s.stats[k].success)||s.stats[k].success<0||s.stats[k].success>s.stats[k].actions)throw Error('Invalid rate stats');
+ if(typeof s.feedback!=='string'||s.feedback.length>2000)throw Error('Invalid feedback');
+ if(!s.events.every(e=>e&&typeof e.type==='string'&&Number.isFinite(e.at)&&e.at>=0))throw Error('Invalid events');
+ if(!s.telemetryEnabled&&s.events.length)throw Error('Detailed events require opt-in');
+}
+function rawHint(s){
+ if(s.status!=='playing')return null;
+ if(s.level>=6)return expansion.hint(s);
+ let actions=[];
+ if(s.level===1)for(let a=0;a<16;a++)for(let b=a+1;b<16;b++)actions.push({type:'swap',a,b});
+ if(s.level===2)for(const ring of ['outer','inner'])for(const direction of [-1,1])actions.push({type:'rotate',ring,direction});
+ if(s.level===3)for(let a=0;a<49;a++)for(const delta of [6,8]){const b=a+delta;if(b<49&&Math.abs(a%7-b%7)===1&&s.board[a]!==null&&s.board[b]!==null)actions.push({type:'swap',a,b});}
+ if(s.level===4){const ps=s.board.flatMap((row,r)=>row.map((_,c)=>({r,c})));for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++)actions.push({type:'swap',a:ps[i],b:ps[j]});}
+ if(s.level===5)for(let a=0;a+1<s.board.chain.length;a++)actions.push({type:'swap',a,b:a+1});
+ let best=null,bestRank=-Infinity;
+ for(const action of actions){const copy=JSON.parse(JSON.stringify(s));copy.telemetryEnabled=false;copy.events=[];rawStep(copy,action,s.lastAt);const rank=(copy.progress-s.progress)*1000-(copy.penalties-s.penalties)*10+(copy.moves-s.moves);if(rank>bestRank){bestRank=rank;best=action;}}
+ if(s.level===2&&bestRank<1000&&!s.board.locked){
+  let route=null;
+  const delta=(from,to,n)=>{const d=(to-from+n)%n;return d>n/2?d-n:d;};
+  for(let axis=0;axis<3;axis++)for(let outer=0;outer<18;outer++)for(let inner=0;inner<12;inner++)if(s.board.outer[outer]===s.board.core[axis]&&s.board.inner[inner]===s.board.core[axis]){
+   const od=delta(outer,axis*6,18),id=delta(inner,axis*4,12),cost=Math.abs(od)+Math.abs(id);
+   if(cost&&(!route||cost<route.cost))route={cost,action:{type:'rotate',ring:od?'outer':'inner',direction:Math.sign(od||id)}};
+  }
+  if(route)return route.action;
+ }
+ if(s.level===1&&bestRank<1000){
+  for(let start=0;start<=13;start++)for(let v=0;v<4;v++){
+   const missing=[start,start+1,start+2].filter(i=>s.board[i]!==v),donors=Array.from({length:16},(_,i)=>i).filter(i=>(i<start||i>start+2)&&s.board[i]===v);
+   if(missing.length&&donors.length>=missing.length)return {type:'swap',a:missing[0],b:donors[0]};
+  }
+ }
+ if(s.level===4&&bestRank<1000){
+  const bottom=s.board[5],values=[0,1,2,3].sort((a,b)=>bottom.filter(v=>v===b).length-bottom.filter(v=>v===a).length);
+  for(const v of values){const missing=bottom.findIndex(x=>x!==v);if(missing<0)continue;for(let r=0;r<5;r++)for(let c=0;c<s.board[r].length;c++)if(s.board[r][c]===v)return {type:'swap',a:{r,c},b:{r:5,c:missing}};}
+ }
+ if(s.level===5&&bestRank<1000){
+  // When no single swap clears, compress the nearest three equal symbols.
+  // Each suggested adjacent setup reduces their span; no future feed is read.
+  let plan=null;
+  for(let value=0;value<4;value++){
+   const positions=s.board.chain.map((v,i)=>v===value?i:-1).filter(i=>i>=0);
+   for(let i=0;i+2<positions.length;i++){
+    const [left,middle,right]=positions.slice(i,i+3),cost=right-left-2;
+    if(cost>0&&(!plan||cost<plan.cost))plan={cost,action:left+1<middle?{type:'swap',a:left,b:left+1}:{type:'swap',a:right-1,b:right}};
+   }
+  }
+  return plan?.action||null;
+ }
+ return best;
+}
+function strategyAPI(){return {step:rawStep,hint:rawHint,expansion,levels:LEVELS,axes,groups5,diagonalGroups};}
+function step(s,action,at=0){if(s.strategy){if(!assertPlaying(s))return s;s.lastAt=ms(at,s.lastAt);return strategy.perform(s,action,s.lastAt,strategyAPI());}return rawStep(s,action,at);}
+function hint(s){return s.strategy?strategy.hint(s,strategyAPI()):rawHint(s);}
+function analyze(s){return strategy.analyze(s,strategyAPI());}
+return Object.freeze({strategy,analyze,expansion,hint,LEVELS,GLYPHS,FUNNEL,RHOMBUS_VOID,SPIRAL,initial,step,metrics,save,restore,diagonalGroups,axes,groups5});
+});
+</script><script>
+/* Local, validated two-generation saves. No network or automatic data deletion. */
+(function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.OneSaveStore=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){'use strict';
+function create(storage,key,validate,{equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b)}={}){
+ const backup=key+'.backup',damaged=key+'.damaged';
+ const decode=raw=>{if(raw===null)return null;return validate(JSON.parse(raw));};
+ function readBackup(){try{const raw=storage.getItem(backup);return raw===null?null:decode(raw);}catch{return null;}}
+ function load(){try{const raw=storage.getItem(key);try{return {data:decode(raw),status:raw===null?'empty':'loaded',backupAvailable:readBackup()!==null};}catch{return {data:null,status:'damaged',backupAvailable:readBackup()!==null};}}catch{return {data:null,status:'unavailable',backupAvailable:false};}}
+ function write(data,{replaceDamaged=false}={}){
+  try{
+   validate(data);const next=JSON.stringify(data),raw=storage.getItem(key);
+   if(raw===next)return {status:'saved',backupAvailable:readBackup()!==null};
+   if(raw!==null){
+    let valid=true,previous;try{previous=decode(raw);}catch{valid=false;}
+    if(valid&&equal(previous,data))return {status:'saved',backupAvailable:readBackup()!==null};
+    if(!valid&&!replaceDamaged)return {status:'damaged',backupAvailable:readBackup()!==null};
+    // Preserve the old bytes before replacing anything. A quota/write failure
+    // leaves the current primary intact and reports that saving failed.
+    storage.setItem(valid?backup:damaged,raw);
+   }
+   storage.setItem(key,next);return {status:'saved',backupAvailable:readBackup()!==null};
+  }catch{return {status:'unavailable',backupAvailable:readBackup()!==null};}
+ }
+ function recover(){
+  const data=readBackup();if(data===null)return {status:'missing',data:null,backupAvailable:false};
+  const result=write(data,{replaceDamaged:true});return {...result,data:result.status==='saved'?data:null};
+ }
+ function damagedText(){try{const raw=storage.getItem(key);if(raw!==null){try{decode(raw);}catch{return raw;}}return storage.getItem(damaged);}catch{return null;}}
+ return Object.freeze({load,write,recover,damagedText});
+}
+return Object.freeze({create});
+});
+
+</script><script>
+/* The Tabor Decimal System — framework by Nathan Tabor.
+   Four explicit software tiers; quantities retain ordinary integer arithmetic. */
+(function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.TaborDecimal=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){'use strict';
+const NAME='The Tabor Decimal System',AUTHOR='Nathan Tabor',MODES=['REINFORCE_OR','COLLISION_XOR','REQUIRE_AND'];
+function integer(n,min=0,max=Number.MAX_SAFE_INTEGER){if(!Number.isSafeInteger(n)||n<min||n>max)throw Error('Expected a bounded whole number');return n;}
+function safe(n){if(n<0n||n>BigInt(Number.MAX_SAFE_INTEGER))throw Error('Whole-number capacity exceeded');return Number(n);}
+function bit(n){if(n!==0&&n!==1)throw Error('Binary gates accept only 0 or 1');return n;}
+function gate(a,b,mode){bit(a);bit(b);if(mode==='REINFORCE_OR')return a|b;if(mode==='COLLISION_XOR')return a^b;if(mode==='REQUIRE_AND')return a&b;throw Error('Unknown binary gate');}
+function fold(states,mode='REINFORCE_OR'){if(!Array.isArray(states)||states.length>256||!MODES.includes(mode))throw Error('Invalid binary field');return states.reduce((value,state)=>gate(value,state,mode),mode==='REQUIRE_AND'?1:0);}
+function potency(base,position,segmentBps=1200){integer(base);integer(position,1,128);integer(segmentBps,0,10000);return safe((BigInt(base)*(10000n+BigInt(position)*BigInt(segmentBps))+9999n)/10000n);}
+function segments(items,segmentBps=1200){if(!Array.isArray(items)||items.length>128)throw Error('Segment array exceeds its bound');return items.map((item,i)=>{if(!item||typeof item.label!=='string'||!item.label.length||item.label.length>100)throw Error('Invalid segment label');return {address:String(i+1).padStart(3,'0'),position:i+1,label:item.label,basePotency:integer(item.basePotency),potency:potency(item.basePotency,i+1,segmentBps)};});}
+function vector(values,dimension){if(!Array.isArray(values)||values.length<1||values.length>64||dimension!==undefined&&values.length!==dimension||!values.every(n=>Number.isFinite(n)&&Math.abs(n)<=1e6))throw Error('Signal vectors must have matching finite dimensions');return values;}
+function lookup(nodes,probe){
+ vector(probe);if(!Array.isArray(nodes)||nodes.length>256)throw Error('Signal field exceeds its bound');
+ const rows=nodes.map((node,i)=>{if(!node||typeof node.label!=='string'||!node.label.length||node.label.length>100)throw Error('Invalid signal node');vector(node.vector,probe.length);return {position:i+1,label:node.label,resonance:probe.reduce((sum,n,j)=>sum+n*node.vector[j],0)};});
+ if(!probe.some(Boolean))return null;
+ rows.sort((a,b)=>b.resonance-a.resonance||a.position-b.position);return rows[0]||null;
+}
+function policy(){return {schema:'one.v025.tabor.policy.v1',segmentBps:1200,inflationBps:0,growthBps:0,reserveBps:0};}
+function validatePolicy(p){if(!p||p.schema!=='one.v025.tabor.policy.v1'||p.segmentBps!==1200||Object.keys(p).length!==5)throw Error('Invalid Tabor policy');for(const key of ['inflationBps','growthBps','reserveBps'])integer(p[key],0,10000);return {...p};}
+function ceiling(base,p=policy()){integer(base);validatePolicy(p);const cap=safe(BigInt(base)*(10000n+BigInt(p.inflationBps)+BigInt(p.growthBps))/10000n),reserve=safe((BigInt(cap)*BigInt(p.reserveBps)+9999n)/10000n);return {base,cap,reserve,spendable:cap-reserve};}
+function absorb(retained,incoming,base,p=policy()){integer(retained);integer(incoming);safe(BigInt(retained)+BigInt(incoming));const limit=ceiling(base,p);if(retained>limit.spendable)throw Error('Retained amount exceeds the policy limit');const accepted=Math.min(incoming,limit.spendable-retained),diverted=incoming-accepted;return {...limit,accepted,retained:retained+accepted,diverted};}
+function distribute(pool,positions){integer(pool);if(!Array.isArray(positions)||positions.length>256||new Set(positions).size!==positions.length)throw Error('Invalid distribution positions');positions.forEach(n=>integer(n,1,1e9));if(!positions.length)return {allocations:[],unassigned:pool};const sorted=positions.slice().sort((a,b)=>a-b),share=Math.floor(pool/sorted.length),remainder=pool%sorted.length;return {allocations:sorted.map((position,i)=>({position,amount:share+(i<remainder?1:0)})),unassigned:0};}
+function localStep(field,rows,cols){integer(rows,1,32);integer(cols,1,32);if(!Array.isArray(field)||field.length!==rows*cols)throw Error('Invalid signal field dimensions');field.forEach(bit);const next=Array(field.length).fill(0);for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){let neighbors=0;for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){if(!dr&&!dc)continue;const rr=r+dr,cc=c+dc;if(rr>=0&&rr<rows&&cc>=0&&cc<cols)neighbors+=field[rr*cols+cc];}next[r*cols+c]=field[r*cols+c]?(neighbors===2||neighbors===3?1:0):(neighbors===3?1:0);}return next;}
+return Object.freeze({NAME,AUTHOR,gate,fold,potency,segments,lookup,policy,validatePolicy,ceiling,absorb,distribute,localStep});
+});
+
+</script><script>
+/* Original companion RPG content. Shared definitions; no commercial assets. */
+(function(root,factory){'use strict';const api=factory(typeof module==='object'&&module.exports?require('../engine.js'):root.OneTrialMatrix,typeof module==='object'&&module.exports?require('./tabor.js'):root.TaborDecimal);if(typeof module==='object'&&module.exports)module.exports=api;else root.RealmCatalog=api;})(typeof globalThis!=='undefined'?globalThis:this,function(trials,T){'use strict';
+const ELEMENTS=[
+ {id:'ember',name:'Ember',mark:'▲',color:'#ff987d',beats:1,weak:2},
+ {id:'grove',name:'Grove',mark:'♧',color:'#8de1ac',beats:2,weak:0},
+ {id:'tide',name:'Tide',mark:'◆',color:'#83d8ef',beats:0,weak:1},
+ {id:'aether',name:'Aether',mark:'✦',color:'#f4d78b',beats:4,weak:null},
+ {id:'umbra',name:'Umbra',mark:'☾',color:'#d3b1ff',beats:3,weak:null}
+];
+const HEROES=[
+ ['lyra','Lyra of the Kiln',0,'L','striker','Solar Lance','Strike the chosen enemy for 4× attack.',18,150,0],
+ ['sylva','Sylva Reedkeeper',1,'S','healer','Living Spring','Restore 35% maximum health to each living ally.',16,165,0],
+ ['neris','Neris the Tidewright',2,'N','warden','Tidal Aegis','Give each living ally 30 shield (maximum 60).',17,175,0],
+ ['oriel','Oriel Dawnreader',3,'O','breaker','Revelation','Strike for 2.5× attack and break the target’s guard for three moves.',18,150,0],
+ ['vesper','Vesper Nightglass',4,'V','chain','Nightfall','Strike every living enemy for 1.8× attack.',17,155,0],
+ ['ignis','Ignis Ashbound',0,'I','chain','Cinderstorm','Strike every living enemy for 1.8× attack.',24,160,3],
+ ['rowan','Rowan Mossguard',1,'R','warden','Rootwall','Give each living ally 30 shield (maximum 60).',20,195,9],
+ ['thal','Thal of the Deep',2,'T','breaker','Undertow','Strike for 2.5× attack and break the target’s guard for three moves.',24,175,15],
+ ['solenne','Solenne Waykeeper',3,'W','healer','Daybreak','Restore 35% maximum health to each living ally.',20,190,21],
+ ['nyx','Nyx Starless',4,'X','striker','Eclipse','Strike the chosen enemy for 4× attack.',28,160,27]
+].map((h,i)=>{const speed=['AVERAGE','FAST','AVERAGE','FAST','SLOW'][h[2]];return Object.freeze({id:h[0],name:h[1],element:h[2],mark:h[3],role:h[4],skill:h[5],description:h[6],attack:h[7],health:h[8],unlock:h[9],rarity:i<5?3:4,manaSpeed:speed,mana:{VERY_FAST:13,FAST:16,AVERAGE:20,SLOW:24,VERY_SLOW:27}[speed]});});
+const MANA_SPEED_CHARGES=Object.freeze({VERY_FAST:6.5,FAST:8,AVERAGE:10,SLOW:12,VERY_SLOW:13.5});
+const BUILDINGS=[
+ {id:'keep',name:'Rootkeep',mark:'♜',purpose:'Raises the maximum level of every building.'},
+ {id:'farm',name:'Sun Gardens',mark:'♧',purpose:'Produce food. Each level yields 60 food per hour.'},
+ {id:'mine',name:'Deep Foundry',mark:'⚒',purpose:'Produce iron. Each level yields 45 iron per hour.'},
+ {id:'store',name:'Storehouse',mark:'▣',purpose:'Holds 1,000 food and iron per level.'},
+ {id:'academy',name:'Memory Academy',mark:'◈',purpose:'Train heroes; level 2/3 supports ascension at hero level 4/7.'},
+ {id:'barracks',name:'Wayfarer Barracks',mark:'⚑',purpose:'Train elemental support troops for stronger tile attacks.'},
+ {id:'forge',name:'Resonance Forge',mark:'⚙',purpose:'Craft healing, mana and volley items. Higher levels lower costs.'}
+];
+const ITEMS={heal:{name:'Spring draught',description:'Heal the weakest living hero by 70 health.',food:40,iron:0},mana:{name:'Focus flask',description:'Give each living hero 5 mana.',food:0,iron:35},volley:{name:'Signal volley',description:'Deal 25 true damage to each enemy.',food:0,iron:60}};
+const STAGES=trials.LEVELS.map((level,i)=>Object.freeze({id:level.id,name:level.name,epoch:level.epoch,boss:[11,22,33].includes(level.id),waves:[11,22,33].includes(level.id)?3:2,element:i%5,terrain:['Open roads','Guarded crossing','Gathering storm'][i%3],seed:(Math.imul(level.id,2654435761)+25033)>>>0}));
+function multiplier(attack,defense){return ELEMENTS[attack].beats===defense?2:ELEMENTS[attack].weak===defense?.5:1;}
+function stats(hero,progress,troop=1,segmentBps=null){const baseAttack=hero.attack+(progress.level-1)*3+(progress.talent==='force'?6:0)+2*(troop-1);return {baseAttack,attack:segmentBps===null?baseAttack:T.potency(baseAttack,hero.element+1,segmentBps),health:hero.health+(progress.level-1)*14+(progress.talent==='guard'?40:0)};}
+return Object.freeze({ELEMENTS,HEROES,BUILDINGS,ITEMS,STAGES,MANA_SPEED_CHARGES,multiplier,stats});
+});
+
+</script><script>
+/* Seeded 7-row × 5-lane combat; isolated from settlement/economy state. */
+(function(root,factory){'use strict';const api=factory(typeof module==='object'&&module.exports?require('./catalog.js'):root.RealmCatalog,typeof module==='object'&&module.exports?require('./tabor.js'):root.TaborDecimal);if(typeof module==='object'&&module.exports)module.exports=api;else root.RealmCombat=api;})(typeof globalThis!=='undefined'?globalThis:this,function(C,T){'use strict';
+const COLS=5,ROWS=7,SIZE=35,clone=x=>JSON.parse(JSON.stringify(x));
+function random(s,n){s.randomState=(Math.imul(s.randomState,1664525)+1013904223)>>>0;return Math.floor(s.randomState/4294967296*n);}
+function adjacent(a,b){return Number.isInteger(a)&&Number.isInteger(b)&&a>=0&&b>=0&&a<SIZE&&b<SIZE&&Math.abs(Math.floor(a/COLS)-Math.floor(b/COLS))+Math.abs(a%COLS-b%COLS)===1;}
+function matches(board){const groups=[];for(let i=0;i<SIZE;i++)for(const stride of [1,COLS]){const connected=(a,b)=>a>=0&&b<SIZE&&(stride!==1||Math.floor(a/COLS)===Math.floor(b/COLS));if(connected(i-stride,i)&&board[i-stride]===board[i])continue;const line=[i];let j=i+stride;while(connected(j-stride,j)&&board[j]===board[i]){line.push(j);j+=stride;}if(line.length>=3)groups.push(line);}return [...new Set(groups.flat())].sort((a,b)=>a-b);}
+function moves(s){
+ if(s.status!=='playing')return [];const result=[];
+ for(let a=0;a<SIZE;a++)for(const b of [a+1,a+COLS])if(adjacent(a,b)){
+  const board=s.board.slice();[board[a],board[b]]=[board[b],board[a]];const hits=matches(board);if(!hits.length)continue;
+  let damage=0,ghost=0,mana=0;for(const i of hits){const hero=s.heroes[i%COLS],target=laneTarget(s,i%COLS);if(hero.health>0&&target.enemy)damage+=Math.max(1,Math.round(Math.ceil(hero.attack*C.multiplier(board[i],target.enemy.element)/5)*(target.enemy.broken?1.35:target.enemy.guard?.6:1)));if(target.ghost)ghost++;if(hero.health>0&&hero.element===board[i])mana+=target.ghost?2:1;}
+  result.push({a,b,hits,tiles:hits.length,damage,ghost,mana,rank:damage+hits.length*2+mana*5});
+ }
+ return result.sort((a,b)=>b.rank-a.rank||a.a-b.a||a.b-b.b);
+}
+function fillStable(s){s.board=[];for(let i=0;i<SIZE;i++){const blocked=new Set();if(i%COLS>=2&&s.board[i-1]===s.board[i-2])blocked.add(s.board[i-1]);if(i>=COLS*2&&s.board[i-COLS]===s.board[i-COLS*2])blocked.add(s.board[i-COLS]);const allowed=[0,1,2,3,4].filter(x=>!blocked.has(x));s.board.push(allowed[random(s,allowed.length)]);}}
+function recover(s){if(!matches(s.board).length&&moves(s).length)return false;for(let n=0;n<80;n++){fillStable(s);if(moves(s).length){s.reshuffles++;return true;}}throw Error('Unable to recover board');}
+function laneEnemy(s,column){return s.enemies.find(e=>e.health>0&&column===e.from)||null;}
+function laneTarget(s,column){const direct=laneEnemy(s,column);if(direct)return {enemy:direct,ghost:false};const living=s.enemies.filter(e=>e.health>0).sort((a,b)=>Math.abs(a.from-column)-Math.abs(b.from-column)||a.from-b.from);return {enemy:living[0]||null,ghost:true};}
+function note(s,message){s.log.push(message);s.log=s.log.slice(-14);}
+function spawn(s){const stage=C.STAGES[s.stage-1];s.enemies=Array.from({length:3},(_,i)=>{const health=65+s.stage*2+s.wave*12+(stage.boss&&s.wave===stage.waves?30:0);return {id:s.wave+'-'+i,name:['Road Sentinel','Cipher Warden','Echo Seer'][(s.stage+i)%3],kind:(s.stage+i)%3,element:(stage.element+i+s.wave-1)%5,health,maxHealth:health,attack:5+Math.floor(s.stage/7)+s.wave,from:[0,2,4][i],to:[0,2,4][i],broken:0,guard:false};});s.target=s.enemies[0].id;note(s,'Wave '+s.wave+'/'+stage.waves+' · '+stage.terrain+'.');}
+function initial(stage,heroes,seed,id=1,items={heal:0,mana:0,volley:0}){if(!Number.isInteger(stage)||stage<1||stage>33||!Number.isInteger(seed)||seed<0||seed>4294967295||heroes.length!==5)throw Error('Invalid expedition settings');const s={schema:'one.v025.realm.battle.v1',config:{stage,heroes:clone(heroes),seed,id,items:{...items}},id,stage,seed,randomState:seed,status:'playing',wave:1,turn:0,budget:60,board:[],heroes:clone(heroes).map(h=>({...h,health:h.maxHealth,mana:0,shield:0,used:false})),enemies:[],target:null,items:{...items},itemUsed:false,reshuffles:0,score:0,log:[],last:{cleared:[],damage:0,ghost:0,cascades:0},actions:[]};spawn(s);fillStable(s);recover(s);return s;}
+function hit(s,enemy,amount){const damage=Math.max(1,Math.round(amount*(enemy.broken>0?1.35:enemy.guard?.6:1))),taken=Math.min(enemy.health,damage);enemy.health-=taken;s.last.damage+=taken;if(!enemy.health)note(s,enemy.name+' defeated; lanes '+(enemy.from+1)+'–'+(enemy.to+1)+' now yield double mana.');return taken;}
+function damageHero(s,hero,amount){const shield=Math.min(hero.shield,amount);hero.shield-=shield;hero.health=Math.max(0,hero.health-amount+shield);if(!hero.health){hero.mana=0;note(s,C.HEROES.find(h=>h.id===hero.id).name+' is down.');}}
+function intent(s,e){const cycle=(s.turn+1+e.kind)%3;return cycle===0&&e.kind===1?{kind:'guard',text:'Guard · reduce incoming damage'}:cycle===0&&e.kind===2?{kind:'heal',text:'Mend · restore 12 health to allies'}:{kind:'attack',text:'Strike · '+e.attack+' damage'};}
+function enemyTurn(s){for(const e of s.enemies.filter(e=>e.health>0)){const plan=intent({...s,turn:s.turn-1},e);e.guard=false;if(e.broken>0)e.broken--;if(plan.kind==='guard'){e.guard=true;note(s,e.name+' raises guard.');}else if(plan.kind==='heal'){s.enemies.filter(x=>x.health>0).forEach(x=>{x.health=Math.min(x.maxHealth,x.health+12);});note(s,e.name+' mends its allies.');}else{const living=s.heroes.filter(h=>h.health>0);if(!living.length)break;const hero=living[(s.turn+e.from)%living.length];damageHero(s,hero,e.attack);}}}
+function outcome(s){if(T.fold(s.heroes.map(h=>h.health>0?1:0))===0){s.status='failed';note(s,'The party fell. Retry freely.');return;}if(T.fold(s.enemies.map(e=>e.health>0?1:0))===0){if(s.wave>=C.STAGES[s.stage-1].waves){s.status='won';note(s,'Expedition complete. Return to the settlement for earned rewards.');return;}s.wave++;spawn(s);}if(s.turn>=s.budget){s.status='failed';note(s,'The 60-move expedition budget ended. Retry with a new plan.');}}
+function refill(s,hits){hits.forEach(i=>{s.board[i]=null;});for(let c=0;c<COLS;c++){const kept=[];for(let r=0;r<ROWS;r++)if(s.board[r*COLS+c]!==null)kept.push(s.board[r*COLS+c]);const column=Array.from({length:ROWS-kept.length},()=>random(s,5)).concat(kept);for(let r=0;r<ROWS;r++)s.board[r*COLS+c]=column[r];}}
+function record(s,action){if(s.actions.length<1000)s.actions.push(clone(action));}
+function swap(s,a,b){if(s.status!=='playing')return false;if(!adjacent(a,b))return false;[s.board[a],s.board[b]]=[s.board[b],s.board[a]];let hits=matches(s.board);if(!hits.length){[s.board[a],s.board[b]]=[s.board[b],s.board[a]];return false;}record(s,{type:'swap',a,b});s.last={cleared:[],damage:0,ghost:0,cascades:0};
+ for(let depth=1;hits.length&&depth<=24;depth++){
+  s.last.cascades++;s.last.cleared.push(...hits);s.score+=hits.length*10*depth;
+  for(const i of hits){const element=s.board[i],hero=s.heroes[i%COLS],{enemy,ghost}=laneTarget(s,i%COLS);if(hero.health>0&&hero.element===element)hero.mana=Math.min(hero.maxMana,hero.mana+(ghost?4:2));if(ghost)s.last.ghost++;if(enemy&&hero.health>0)hit(s,enemy,Math.ceil(hero.attack*C.multiplier(element,enemy.element)*Math.min(2,1+(depth-1)*.2)/5));}
+  refill(s,hits);hits=matches(s.board);
+ }
+ s.turn++;s.itemUsed=false;s.heroes.forEach(h=>{h.used=false;});const damage=s.last.damage,ghost=s.last.ghost;note(s,'Move '+s.turn+' · '+damage+' damage · '+s.last.cascades+' cascades'+(ghost?' · '+ghost+' ghost tiles':''));
+ // A cleared wave advances without granting its fresh enemies a free attack.
+ const cleared=T.fold(s.enemies.map(e=>e.health>0?1:0))===0;if(!cleared)enemyTurn(s);outcome(s);if(s.status==='playing')recover(s);return true;
+}
+function skill(s,id){if(s.status!=='playing')return false;const hero=s.heroes.find(h=>h.id===id);if(!hero||hero.health===0||hero.mana<hero.maxMana||hero.used)return false;const template=C.HEROES.find(h=>h.id===id),target=s.enemies.find(e=>e.id===s.target&&e.health>0)||s.enemies.find(e=>e.health>0);if(!target)return false;record(s,{type:'skill',hero:id});hero.mana=0;hero.used=true;s.last={cleared:[],damage:0,ghost:0,cascades:0};
+ if(template.role==='healer')s.heroes.filter(h=>h.health>0).forEach(h=>{h.health=Math.min(h.maxHealth,h.health+Math.ceil(h.maxHealth*.35));});
+ else if(template.role==='warden')s.heroes.filter(h=>h.health>0).forEach(h=>{h.shield=Math.min(60,h.shield+30);});
+ else if(template.role==='chain')s.enemies.filter(e=>e.health>0).forEach(e=>hit(s,e,hero.attack*1.8*C.multiplier(hero.element,e.element)));
+ else{hit(s,target,hero.attack*(template.role==='breaker'?2.5:4)*C.multiplier(hero.element,target.element));if(template.role==='breaker'&&target.health>0){target.broken=3;target.guard=false;}}
+ note(s,template.name+' uses '+template.skill+'.');outcome(s);if(s.status==='playing')recover(s);return true;
+}
+function item(s,id){if(s.status!=='playing'||s.itemUsed||!s.items[id])return false;record(s,{type:'item',item:id});s.items[id]--;s.itemUsed=true;s.last={cleared:[],damage:0,ghost:0,cascades:0};if(id==='heal'){const hero=s.heroes.filter(h=>h.health>0).sort((a,b)=>a.health/a.maxHealth-b.health/b.maxHealth)[0];hero.health=Math.min(hero.maxHealth,hero.health+70);}else if(id==='mana')s.heroes.filter(h=>h.health>0).forEach(h=>{h.mana=Math.min(h.maxMana,h.mana+5);});else s.enemies.filter(e=>e.health>0).forEach(e=>{const taken=Math.min(e.health,25);e.health-=taken;s.last.damage+=taken;});note(s,C.ITEMS[id].name+' used.');outcome(s);if(s.status==='playing')recover(s);return true;}
+function action(s,a){if(s.status!=='playing'||!a||s.actions.length>=1000)return false;if(a.type==='flee'){record(s,a);s.status='failed';note(s,'Expedition ended. Unused supplies return; no rewards are granted.');return true;}if(a.type==='swap')return swap(s,a.a,a.b);if(a.type==='skill')return skill(s,a.hero);if(a.type==='item')return item(s,a.item);if(a.type==='target'){if(!s.enemies.some(e=>e.id===a.enemy&&e.health>0))return false;if(s.target===a.enemy)return true;s.target=a.enemy;record(s,a);return true;}return false;}
+function validate(s){
+ const integer=(v,min,max)=>Number.isSafeInteger(v)&&v>=min&&v<=max;
+ if(!s||s.schema!=='one.v025.realm.battle.v1'||!integer(s.id,1,1e9)||!integer(s.stage,1,33)||!integer(s.seed,0,4294967295)||!integer(s.randomState,0,4294967295)||!['playing','won','failed'].includes(s.status)||!integer(s.turn,0,60)||s.budget!==60||!integer(s.wave,1,C.STAGES[s.stage-1].waves)||!integer(s.score,0,1e9)||!integer(s.reshuffles,0,10000))throw Error('Invalid expedition state');
+ if(!Array.isArray(s.board)||s.board.length!==SIZE||!s.board.every(x=>integer(x,0,4)))throw Error('Invalid battle board');
+ if(!Array.isArray(s.heroes)||s.heroes.length!==5||new Set(s.heroes.map(h=>h.id)).size!==5||new Set(s.heroes.map(h=>h.element)).size!==5)throw Error('Invalid party');
+ for(const h of s.heroes){const template=C.HEROES.find(x=>x.id===h.id);if(!template||h.element!==template.element||!integer(h.attack,1,200)||!integer(h.maxHealth,1,500)||!integer(h.health,0,h.maxHealth)||h.maxMana!==template.mana||!integer(h.mana,0,h.maxMana)||!integer(h.shield,0,60)||typeof h.used!=='boolean')throw Error('Invalid hero battle stats');}
+ if(!Array.isArray(s.enemies)||s.enemies.length!==3)throw Error('Invalid enemy formation');
+ for(const [i,e] of s.enemies.entries())if(e.id!==s.wave+'-'+i||typeof e.name!=='string'||e.name.length>60||!integer(e.kind,0,2)||!integer(e.element,0,4)||!integer(e.maxHealth,1,500)||!integer(e.health,0,e.maxHealth)||!integer(e.attack,1,50)||e.from!==[0,2,4][i]||e.to!==[0,2,4][i]||!integer(e.broken,0,3)||typeof e.guard!=='boolean')throw Error('Invalid enemy');
+ if(!s.enemies.some(e=>e.id===s.target)||typeof s.itemUsed!=='boolean'||!s.items||Object.keys(s.items).length!==3||!Object.keys(C.ITEMS).every(k=>integer(s.items[k],0,20)))throw Error('Invalid battle inventory or target');
+ if(!Array.isArray(s.log)||s.log.length>14||!s.log.every(x=>typeof x==='string'&&x.length<300)||!Array.isArray(s.actions)||s.actions.length>1000)throw Error('Invalid battle record');
+ for(const a of s.actions){if(!a||!['swap','skill','item','target','flee'].includes(a.type)||a.type==='swap'&&!adjacent(a.a,a.b)||a.type==='skill'&&!s.heroes.some(h=>h.id===a.hero)||a.type==='item'&&!Object.hasOwn(C.ITEMS,a.item)||a.type==='target'&&typeof a.enemy!=='string')throw Error('Invalid replay action');}
+ if(!s.config||s.config.stage!==s.stage||s.config.seed!==s.seed||s.config.id!==s.id||!Array.isArray(s.config.heroes)||s.config.heroes.length!==5||!s.config.heroes.every((h,i)=>['id','element','attack','maxHealth','maxMana'].every(key=>h[key]===s.heroes[i][key]))||!s.config.items||!Object.keys(C.ITEMS).every(k=>integer(s.config.items[k],0,20)&&s.items[k]<=s.config.items[k])||s.actions.filter(a=>a.type==='swap').length!==s.turn)throw Error('Invalid replay configuration');
+ if(!s.last||!Array.isArray(s.last.cleared)||s.last.cleared.length>840||!s.last.cleared.every(i=>integer(i,0,34))||!integer(s.last.damage,0,10000)||!integer(s.last.ghost,0,840)||!integer(s.last.cascades,0,24))throw Error('Invalid turn result');
+ if(s.status==='won'&&(s.wave!==C.STAGES[s.stage-1].waves||s.enemies.some(e=>e.health>0))||s.status==='playing'&&(s.turn>=s.budget||T.fold(s.heroes.map(h=>h.health>0?1:0))===0||T.fold(s.enemies.map(e=>e.health>0?1:0))===0||matches(s.board).length||!moves(s).length))throw Error('Inconsistent battle outcome');
+ return clone(s);
+}
+function replay(config,actions){if(!config||!Array.isArray(actions)||actions.length>1000)throw Error('Invalid replay');const s=initial(config.stage,config.heroes,config.seed,config.id,config.items);validate(s);for(const a of actions)if(!action(s,a))throw Error('Replay contains an unavailable action');return validate(s);}
+function plan(s,preferences={}){
+ if(s.status!=='playing')return null;const living=s.enemies.filter(e=>e.health>0),target=preferences.lowest?living.slice().sort((a,b)=>a.health-b.health||a.from-b.from)[0]:living.find(e=>e.id===s.target)||living[0];
+ if(target&&target.id!==s.target)return {type:'target',enemy:target.id};
+ if(!preferences.boss||s.wave===C.STAGES[s.stage-1].waves){
+  for(const h of s.heroes){if(h.health===0||h.used||h.mana<h.maxMana)continue;const hero=C.HEROES.find(x=>x.id===h.id),allies=s.heroes.filter(x=>x.health>0);
+   if(hero.role==='healer'&&!allies.some(x=>x.health/x.maxHealth<.65))continue;
+   if(hero.role==='warden'&&(!allies.some(x=>x.shield<15)||!living.some(e=>intent(s,e).kind==='attack')))continue;
+   return {type:'skill',hero:h.id};
+  }
+ }
+ const move=moves(s).find(m=>!preferences.central||m.hits.every(i=>i%COLS>=1&&i%COLS<=3));
+ return move?{type:'swap',a:move.a,b:move.b}:{type:'blocked',reason:'No opening clear is confined to lanes 2–4. Change the filter or play manually.'};
+}
+return Object.freeze({COLS,ROWS,initial,adjacent,matches,moves,laneEnemy,laneTarget,intent,action,validate,replay,plan});
+});
+
+</script><script>
+/* Settlement and economy orchestrator. Local-only, transactional dispatch. */
+(function(root,factory){'use strict';const node=typeof module==='object'&&module.exports,api=factory(node?require('./catalog.js'):root.RealmCatalog,node?require('./combat.js'):root.RealmCombat,node?require('./tabor.js'):root.TaborDecimal);if(node)module.exports=api;else root.RealmWorld=api;})(typeof globalThis!=='undefined'?globalThis:this,function(C,B,T){'use strict';
+const clone=x=>JSON.parse(JSON.stringify(x)),KEY='one.private.v025.realm.v1';
+function initial(at=Date.now()){
+ if(!Number.isSafeInteger(at)||at<0)throw Error('Invalid settlement time');
+ return {schema:'one.v025.realm.world.v1',tabor:T.policy(),resources:{food:500,iron:400,insight:10,relics:2},buildings:Object.fromEntries(C.BUILDINGS.map(b=>[b.id,1])),production:{farm:{at,carry:0},mine:{at,carry:0}},heroes:Object.fromEntries(C.HEROES.filter(h=>!h.unlock).map(h=>[h.id,{level:1,talent:null}])),team:C.HEROES.slice(0,5).map(h=>h.id),troops:[1,1,1,1,1],items:{heal:3,mana:2,volley:2},completed:[],records:{},nextRun:1,battle:null,lastOutcome:null,inbox:[],nextInbox:1,lastVisitAt:at,onboarding:{step:0,done:false},blueprint:{name:'Raiding pack',counts:{heal:10,mana:5,volley:0}},preferences:{contrast:false,notifications:false,auto:{boss:true,lowest:true,central:false}}};
+}
+function capacity(w){return T.ceiling(w.buildings.store*1000,w.tabor).spendable;}
+function retention(w,key,incoming){return T.absorb(w.resources[key],incoming,w.buildings.store*1000,w.tabor);}
+function production(w,id,at){if(!['farm','mine'].includes(id)||!Number.isSafeInteger(at)||at<0)throw Error('Invalid production request');const p=w.production[id],elapsed=Math.max(0,Math.min(12*3600000,at-p.at)),rate=w.buildings[id]*(id==='farm'?60:45),units=p.carry+elapsed*rate/3600000;return {earned:Math.floor(units),carry:units-Math.floor(units),at:Math.max(p.at,at),rate};}
+function overflow(w,food,iron,at,reason){if(!food&&!iron)return;const box={id:w.nextInbox++,food,iron,expiresAt:at+48*3600000,reason};if(w.inbox.length>=200){const old=w.inbox.shift();box.food+=old.food;box.iron+=old.iron;box.expiresAt=Math.max(box.expiresAt,old.expiresAt);}w.inbox.push(box);}
+function collect(w,at){let total=0,extra={food:0,iron:0};for(const id of ['farm','mine']){const p=production(w,id,at),resource=id==='farm'?'food':'iron';const receipt=retention(w,resource,p.earned);w.resources[resource]=receipt.retained;extra[resource]=receipt.diverted;w.production[id]={at:p.at,carry:p.carry};total+=p.earned;}overflow(w,extra.food,extra.iron,at,'Production');return total;}
+function claimInbox(w){for(const box of w.inbox)for(const key of ['food','iron']){const receipt=retention(w,key,box[key]);w.resources[key]=receipt.retained;box[key]=receipt.diverted;}w.inbox=w.inbox.filter(b=>b.food||b.iron);}
+function blueprintCost(w,counts){const discount=1-(w.buildings.forge-1)*.1;return {food:Object.entries(counts).reduce((n,[id,count])=>n+Math.ceil(C.ITEMS[id].food*discount)*count,0),iron:Object.entries(counts).reduce((n,[id,count])=>n+Math.ceil(C.ITEMS[id].iron*discount)*count,0)};}
+function buildingCost(w,id){const level=w.buildings[id];if(!level)throw Error('Unknown building');return {food:60*level*level,iron:45*level*level};}
+function heroCost(w,id){const h=w.heroes[id];if(!h)throw Error('Hero is not recruited');const next=h.level+1;return {food:25*next,iron:0,insight:1,relics:next===4?1:next===7?2:0};}
+function canAfford(w,cost){return T.fold(Object.entries(cost).map(([key,n])=>w.resources[key]>=n?1:0),'REQUIRE_AND')===1;}
+function spend(w,cost){if(!canAfford(w,cost))throw Error('Earn more resources on expeditions or collect production.');for(const [key,n] of Object.entries(cost))w.resources[key]-=n;}
+function party(w){return w.team.map(id=>{const template=C.HEROES.find(h=>h.id===id),stats=C.stats(template,w.heroes[id],w.troops[template.element],w.tabor?.segmentBps??null);return {id,element:template.element,attack:stats.attack,maxHealth:stats.health,maxMana:template.mana};});}
+function reward(stage,first){return {food:first?90+stage*5:35+stage*2,iron:first?65+stage*3:25+stage,insight:first?3:1,relics:first?([11,22,33].includes(stage)?3:1):0};}
+function finish(w,at){const battle=w.battle;if(!battle||battle.status==='playing')return;const won=battle.status==='won',first=won&&!w.completed.includes(battle.stage),earned=won?reward(battle.stage,first):{food:0,iron:0,insight:0,relics:0},credited={...earned},excess={food:0,iron:0},unlocked=[];
+ for(const [id,n] of Object.entries(battle.items))w.items[id]=Math.min(20,w.items[id]+n);
+ if(won){for(const [key,n] of Object.entries(earned)){const accepted=['food','iron'].includes(key)?retention(w,key,n).accepted:n;w.resources[key]+=accepted;credited[key]=accepted;if(key in excess)excess[key]=n-accepted;}
+  if(first){w.completed.push(battle.stage);w.completed.sort((a,b)=>a-b);}const old=w.records[battle.stage];w.records[battle.stage]={wins:(old?.wins||0)+1,bestTurns:Math.min(old?.bestTurns??Infinity,battle.turn),bestScore:Math.max(old?.bestScore||0,battle.score)};
+  for(const h of C.HEROES)if(h.unlock&&w.completed.includes(h.unlock)&&!w.heroes[h.id]){w.heroes[h.id]={level:1,talent:null};unlocked.push(h.id);}
+ }
+ overflow(w,excess.food,excess.iron,at,'Expedition '+battle.stage);w.lastOutcome={run:battle.id,stage:battle.stage,won,first,turns:battle.turn,score:battle.score,earned:credited,overflow:excess,unlocked,replay:{config:battle.config,actions:battle.actions,claimedState:clone(battle)}};w.battle=null;
+}
+function apply(w,a,at){
+ if(!a||typeof a.type!=='string')throw Error('Unknown settlement action');
+ if(a.type==='battle-action'){if(!w.battle)throw Error('No active expedition');if(!B.action(w.battle,a.action))throw Error('That action is not available. Normal swaps must make a match.');finish(w,at);return;}
+ if(a.type==='abandon'){if(!w.battle)throw Error('No active expedition');B.action(w.battle,{type:'flee'});finish(w,at);return;}
+ if(a.type==='preferences'){if(a.contrast!==undefined)w.preferences.contrast=a.contrast;if(a.notifications!==undefined)w.preferences.notifications=a.notifications;if(a.auto)w.preferences.auto={...w.preferences.auto,...a.auto};return;}
+ if(w.battle)throw Error('Finish or abandon the current expedition before changing the settlement.');
+ if(a.type==='tabor-policy'){w.tabor=T.validatePolicy(a.policy);const cap=capacity(w),food=Math.max(0,w.resources.food-cap),iron=Math.max(0,w.resources.iron-cap);w.resources.food-=food;w.resources.iron-=iron;overflow(w,food,iron,at,'Tabor capacity adjustment');return;}
+ if(a.type==='collect'){collect(w,at);return;}
+ if(a.type==='claim-inbox'){claimInbox(w);return;}
+ if(a.type==='welcome'){collect(w,at);claimInbox(w);return;}
+ if(a.type==='tutorial-step'){w.onboarding.step=Math.min(3,w.onboarding.step+1);w.onboarding.done=w.onboarding.step===3;return;}
+ if(a.type==='skip-tutorial'){w.onboarding={step:3,done:true};return;}
+ if(a.type==='blueprint'){if(!a.name||typeof a.name!=='string'||a.name.length>40||!a.counts||Object.keys(a.counts).length!==3||!Object.keys(C.ITEMS).every(k=>Number.isInteger(a.counts[k])&&a.counts[k]>=0&&a.counts[k]<=20)||!Object.values(a.counts).some(Boolean))throw Error('Choose a name and between 1 and 20 of at least one item');w.blueprint={name:a.name,counts:{...a.counts}};return;}
+ if(a.type==='craft-pack'){const counts=w.blueprint.counts;if(!Object.entries(counts).every(([id,n])=>w.items[id]+n<=20))throw Error('The full pack must fit; each item can hold at most 20');spend(w,blueprintCost(w,counts));for(const [id,n] of Object.entries(counts))w.items[id]+=n;return;}
+ if(a.type==='upgrade-building'){
+  if(!C.BUILDINGS.some(b=>b.id===a.id))throw Error('Unknown building');const level=w.buildings[a.id];if(level>=5)throw Error('Building is fully upgraded');if(a.id!=='keep'&&level>=w.buildings.keep)throw Error('Upgrade Rootkeep first');
+  const cost=buildingCost(w,a.id);if(!canAfford(w,cost))throw Error('Earn more resources before upgrading');collect(w,at);spend(w,cost);w.buildings[a.id]++;return;
+ }
+ if(a.type==='train-hero'){
+  const h=w.heroes[a.id];if(!h||h.level>=10)throw Error('Hero cannot train further');const next=h.level+1;if(next===4&&w.buildings.academy<2||next===7&&w.buildings.academy<3)throw Error('Upgrade the Memory Academy before ascension');spend(w,heroCost(w,a.id));h.level++;return;
+ }
+ if(a.type==='train-party'){const eligible=w.team.filter(id=>w.heroes[id].level<10&&(w.heroes[id].level!==3||w.buildings.academy>=2)&&(w.heroes[id].level!==6||w.buildings.academy>=3));if(!eligible.length)throw Error('No equipped hero can train');const cost=eligible.reduce((total,id)=>{for(const [key,n] of Object.entries(heroCost(w,id)))total[key]=(total[key]||0)+n;return total;},{});spend(w,cost);eligible.forEach(id=>{w.heroes[id].level++;});return;}
+ if(a.type==='talent'){const h=w.heroes[a.id];if(!h||h.level<5||!['force','guard'].includes(a.talent))throw Error('Talents open at hero level 5');h.talent=a.talent;return;}
+ if(a.type==='equip'){const h=C.HEROES.find(h=>h.id===a.id);if(!h||!w.heroes[h.id])throw Error('Hero is not recruited');w.team[h.element]=h.id;return;}
+ if(a.type==='train-troop'){if(!Number.isInteger(a.element)||a.element<0||a.element>4)throw Error('Unknown troop element');const level=w.troops[a.element];if(level>=5||level>=w.buildings.barracks+1)throw Error('Upgrade the barracks to train this troop');spend(w,{iron:50*level,insight:1});w.troops[a.element]++;return;}
+ if(a.type==='craft'){const recipe=C.ITEMS[a.item];if(!recipe||w.items[a.item]>=20)throw Error('Item cannot be crafted');const discount=1-(w.buildings.forge-1)*.1;spend(w,{food:Math.ceil(recipe.food*discount),iron:Math.ceil(recipe.iron*discount)});w.items[a.item]++;return;}
+ if(a.type==='start'){
+  if(!Number.isInteger(a.stage)||a.stage<1||a.stage>33)throw Error('Choose a stage from 1 to 33');const packed={};for(const key of Object.keys(C.ITEMS)){packed[key]=Math.min(2,w.items[key]);w.items[key]-=packed[key];}const seed=a.seed??C.STAGES[a.stage-1].seed;w.battle=B.initial(a.stage,party(w),seed,w.nextRun++,packed);w.lastOutcome=null;return;
+ }
+ throw Error('Unknown settlement action');
+}
+function validate(w){
+ if(w?.tabor!==undefined)T.validatePolicy(w.tabor);
+ const integer=(v,min,max)=>Number.isSafeInteger(v)&&v>=min&&v<=max;
+ if(!w||w.schema!=='one.v025.realm.world.v1'||!w.resources||!['food','iron','insight','relics'].every(k=>integer(w.resources[k],0,1e9))||Object.keys(w.resources).length!==4)throw Error('Invalid settlement resources');
+ if(!w.buildings||Object.keys(w.buildings).length!==7||!C.BUILDINGS.every(b=>integer(w.buildings[b.id],1,5)&&w.buildings[b.id]<=w.buildings.keep)||w.resources.food>capacity(w)||w.resources.iron>capacity(w))throw Error('Invalid settlement buildings/storage');
+ for(const id of ['farm','mine']){const p=w.production?.[id];if(!p||!integer(p.at,0,Number.MAX_SAFE_INTEGER)||!Number.isFinite(p.carry)||p.carry<0||p.carry>=1)throw Error('Invalid production clock');}
+ if(!w.heroes||typeof w.heroes!=='object'||Array.isArray(w.heroes)||Object.keys(w.heroes).length>10)throw Error('Invalid roster');
+ for(const [id,h] of Object.entries(w.heroes))if(!C.HEROES.some(x=>x.id===id)||!h||!integer(h.level,1,10)||![null,'force','guard'].includes(h.talent)||h.talent&&h.level<5||h.level>=4&&w.buildings.academy<2||h.level>=7&&w.buildings.academy<3)throw Error('Invalid hero progression');
+ if(!C.HEROES.slice(0,5).every(h=>w.heroes[h.id])||!Array.isArray(w.team)||w.team.length!==5||!w.team.every((id,i)=>w.heroes[id]&&C.HEROES.find(h=>h.id===id)?.element===i))throw Error('Invalid equipped party');
+ if(!Array.isArray(w.troops)||w.troops.length!==5||!w.troops.every(x=>integer(x,1,5)&&x<=w.buildings.barracks+1)||!w.items||Object.keys(w.items).length!==3||!Object.keys(C.ITEMS).every(k=>integer(w.items[k],0,20)))throw Error('Invalid support inventory');
+ if(!Array.isArray(w.completed)||w.completed.length>33||new Set(w.completed).size!==w.completed.length||!w.completed.every(x=>integer(x,1,33))||!w.records||Array.isArray(w.records)||Object.keys(w.records).length!==w.completed.length)throw Error('Invalid expedition progress');
+ for(const stage of Object.keys(w.records)){const record=w.records[stage];if(!/^(?:[1-9]|[12][0-9]|3[0-3])$/.test(stage)||!w.completed.includes(Number(stage))||!record||!integer(record.wins,1,1e9)||!integer(record.bestTurns,0,60)||!integer(record.bestScore,0,1e9))throw Error('Invalid expedition record');}
+ for(const hero of C.HEROES.filter(h=>h.unlock))if(!!w.heroes[hero.id]!==w.completed.includes(hero.unlock))throw Error('Invalid earned recruitment');
+ if(!integer(w.nextRun,1,1e9))throw Error('Invalid expedition counter');
+ if(!integer(w.nextInbox,1,1e9)||!integer(w.lastVisitAt,0,Number.MAX_SAFE_INTEGER)||!Array.isArray(w.inbox)||w.inbox.length>200||new Set(w.inbox.map(b=>b.id)).size!==w.inbox.length||!w.inbox.every(b=>integer(b.id,1,w.nextInbox-1)&&integer(b.food,0,1e9)&&integer(b.iron,0,1e9)&&(b.food||b.iron)&&integer(b.expiresAt,0,Number.MAX_SAFE_INTEGER)&&typeof b.reason==='string'&&b.reason.length<100))throw Error('Invalid overflow inbox');
+ if(!w.onboarding||!integer(w.onboarding.step,0,3)||w.onboarding.done!==(w.onboarding.step===3)||!w.preferences||typeof w.preferences.contrast!=='boolean'||typeof w.preferences.notifications!=='boolean'||!w.preferences.auto||!['boss','lowest','central'].every(k=>typeof w.preferences.auto[k]==='boolean'))throw Error('Invalid onboarding or preferences');
+ if(!w.blueprint||typeof w.blueprint.name!=='string'||w.blueprint.name.length<1||w.blueprint.name.length>40||!w.blueprint.counts||Object.keys(w.blueprint.counts).length!==3||!Object.keys(C.ITEMS).every(k=>integer(w.blueprint.counts[k],0,20))||!Object.values(w.blueprint.counts).some(Boolean))throw Error('Invalid crafting blueprint');
+ if(w.battle!==null){const b=B.validate(w.battle);if(b.status!=='playing'||b.id!==w.nextRun-1||!Object.values(b.config.items).every(n=>n<=2))throw Error('Unsettled expedition');const expected=party(w);if(!b.heroes.every((h,i)=>['id','element','attack','maxHealth','maxMana'].every(key=>h[key]===expected[i][key])))throw Error('Battle loadout differs from roster');}
+ if(w.lastOutcome!==null){const x=w.lastOutcome;if(!x||!integer(x.run,1,w.nextRun-1)||!integer(x.stage,1,33)||typeof x.won!=='boolean'||typeof x.first!=='boolean'||x.first&&!x.won||!integer(x.turns,0,60)||!integer(x.score,0,1e9)||!x.earned||!['food','iron','insight','relics'].every(k=>integer(x.earned[k],0,1000))||!x.overflow||!['food','iron'].every(k=>integer(x.overflow[k],0,1000))||!Array.isArray(x.unlocked)||x.unlocked.length>5||!x.unlocked.every(id=>w.heroes[id]&&C.HEROES.some(h=>h.id===id&&h.unlock===x.stage))||x.won&&!w.completed.includes(x.stage)||!x.replay||!x.replay.config||!Array.isArray(x.replay.actions))throw Error('Invalid expedition receipt');const final=B.validate(x.replay.claimedState);if(final.id!==x.run||final.stage!==x.stage||final.turn!==x.turns||final.score!==x.score||final.status!==(x.won?'won':'failed')||JSON.stringify(final.config)!==JSON.stringify(x.replay.config)||JSON.stringify(final.actions)!==JSON.stringify(x.replay.actions))throw Error('Invalid receipt replay');}
+ return clone(w);
+}
+function dispatch(w,a,at=Date.now()){if(!Number.isSafeInteger(at)||at<0)throw Error('Invalid action time');const next=validate(w);if(!next.tabor&&!next.battle)next.tabor=T.policy();next.inbox=next.inbox.filter(b=>b.expiresAt>at);apply(next,a,at);if(!next.tabor&&!next.battle)next.tabor=T.policy();next.lastVisitAt=Math.max(next.lastVisitAt,at);return validate(next);}
+function save(w){return {schema:'one.v025.realm.save.v1',world:validate(w)};}
+function restore(data){if(data?.schema!=='one.v025.realm.save.v1')throw Error('Unknown realm save');return validate(data.world);}
+function summary(w,at){return {food:production(w,'farm',at).earned,iron:production(w,'mine',at).earned,inboxFood:w.inbox.filter(b=>b.expiresAt>at).reduce((n,b)=>n+b.food,0),inboxIron:w.inbox.filter(b=>b.expiresAt>at).reduce((n,b)=>n+b.iron,0),activeBattle:w.battle?.stage||null};}
+function reminders(w,at){
+ const result=[];
+ for(const id of ['farm','mine']){const key=id==='farm'?'food':'iron',p=w.production[id],rate=w.buildings[id]*(id==='farm'?60:45),needed=Math.max(0,capacity(w)-w.resources[key]-p.carry),fillAt=p.at+needed/rate*3600000,capAt=p.at+12*3600000,capped=fillAt>capAt;
+  result.push({id:'storage-'+key+'-'+p.at,kind:capped?'production-cap':'storage-full',dueAt:Math.min(fillAt,capAt),message:capped?(id==='farm'?'Your gardens have reached the 12-hour holding limit. Collect production.':'Your foundry has reached the 12-hour holding limit. Collect production.'):(id==='farm'?'Your food storage is ready to fill. Collect production or spend food.':'Your iron storage is ready to fill. Collect production or spend iron.')});
+ }
+ for(const box of w.inbox)if(box.expiresAt>at)result.push({id:'inbox-'+box.id,kind:'inbox-expiry',dueAt:box.expiresAt-10*60000,message:'An overflow bag expires in 10 minutes. Make storage room and claim it.'});return result;
+}
+function signalNodes(w){
+ const buildings={keep:[0,0,0,0,.4,0,0],farm:[1,0,0,0,0,0,0],mine:[0,1,0,0,0,0,0],store:[.4,.4,0,0,0,0,0],academy:[0,0,.3,.2,0,.4,0],barracks:[0,0,.6,0,.2,0,0],forge:[0,0,.2,.4,0,.2,0]};
+ const nodes=C.BUILDINGS.map(b=>({label:b.name,vector:buildings[b.id],view:'hub',selector:'[data-building="'+b.id+'"]'}));
+ for(const h of C.HEROES.filter(h=>w.heroes[h.id])){const role=h.role;nodes.push({label:h.name,vector:[0,0,role==='striker'?1:role==='chain'?.9:.25,role==='healer'?1:0,role==='warden'?1:0,h.manaSpeed==='FAST'?.4:.2,0],view:'roster',selector:'[data-hero="'+h.id+'"]'});}
+ nodes.push({label:C.ITEMS.heal.name,vector:[0,0,0,.85,0,0,0],view:'hub',selector:'[data-recipe="heal"]'},{label:C.ITEMS.mana.name,vector:[0,0,0,0,0,1,0],view:'hub',selector:'[data-recipe="mana"]'},{label:C.ITEMS.volley.name,vector:[0,0,.8,0,0,0,0],view:'hub',selector:'[data-recipe="volley"]'});
+ if(w.battle)for(const enemy of w.battle.enemies.filter(e=>e.health>0))nodes.push({label:enemy.name,vector:[0,0,0,0,0,0,1],view:'battle',selector:'[data-enemy="'+enemy.id+'"]'});
+ return nodes;
+}
+function lookupPurpose(w,query){
+ if(typeof query!=='string'||query.length>120)throw Error('Use a short purpose to search');
+ const words=query.toLowerCase().split(/[^a-z]+/),aliases=[['food','farm','gardens'],['iron','mine','foundry'],['attack','damage','strike'],['heal','healing','healer','health'],['shield','defense','guard'],['mana','focus','charge'],['threat','danger','enemy']];
+ const probe=aliases.map(group=>group.some(word=>words.includes(word))?1:0),nodes=signalNodes(w),match=T.lookup(nodes,probe);
+ return match&&match.resonance>0?{...match,...nodes[match.position-1],probe}:null;
+}
+function taborReport(w,at=w.lastVisitAt){
+ const p=w.tabor||T.policy(),loadout=party(w),segments=T.segments(w.team.map(id=>{const hero=C.HEROES.find(h=>h.id===id),raw=C.stats(hero,w.heroes[id],w.troops[hero.element]);return {label:hero.name,basePotency:raw.baseAttack};}),p.segmentBps),living=w.battle?w.battle.heroes.map(h=>h.health>0?1:0):[1,1,1,1,1],field=w.battle?.board.map(value=>value===0?1:0)||Array(35).fill(0),next=T.localStep(field,7,5),pending=w.inbox.filter(box=>box.expiresAt>at);
+ return {schema:'one.v025.tabor.report.v1',name:T.NAME,author:T.AUTHOR,active:!!w.tabor,binary:{states:living,reinforced:T.fold(living),sameStateCollision:T.gate(1,1,'COLLISION_XOR')},segments:segments.map((s,i)=>({...s,appliedAttack:loadout[i].attack})),signals:{dimensions:['food','iron','attack','healing','shield','mana','threat'],nodes:signalNodes(w),activeCells:field.reduce((a,b)=>a+b,0),nextActiveCells:next.reduce((a,b)=>a+b,0),previewOnly:true},capacity:T.ceiling(w.buildings.store*1000,p),policy:{...p},retained:{food:w.resources.food,iron:w.resources.iron},refundBuffer:{food:pending.reduce((n,b)=>n+b.food,0),iron:pending.reduce((n,b)=>n+b.iron,0)},distribution:'Local 48-hour inbox; no network recipients connected'};
+}
+return Object.freeze({KEY,initial,capacity,production,buildingCost,heroCost,blueprintCost,canAfford,party,reward,dispatch,validate,save,restore,summary,reminders,signalNodes,lookupPurpose,taborReport});
+});
+
+</script><script>
+/* Rootkeep presentation. Engines own all rules and economy mutations. */
+(function(){'use strict';
+const T=window.TaborDecimal,C=window.RealmCatalog,B=window.RealmCombat,W=window.RealmWorld,$=id=>document.getElementById(id),motion=matchMedia('(prefers-reduced-motion: reduce)');
+const saves=window.OneSaveStore.create({getItem:k=>localStorage.getItem(k),setItem:(k,v)=>localStorage.setItem(k,v)},W.KEY,data=>{W.restore(data);return data;});
+const loaded=saves.load();let world=loaded.data?W.restore(loaded.data):W.initial(),view=world.battle?'battle':world.onboarding.done?'hub':'tutorial',stage=world.battle?.stage||Array.from({length:33},(_,i)=>i+1).find(id=>!world.completed.includes(id))||33;
+let purposeQuery='',selected=null,hint=null,locked=false,auto=false,autoTimer=null,pointer=null,suppressClick=false,tutorialSelected=null,tutorialBattle=null,lastStore=loaded,animateCells=[];
+stage=Math.min(33,Math.max(1,stage));
+function el(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}
+function button(text,fn,cls){const b=el('button',text,cls);b.type='button';if(fn)b.addEventListener('click',fn);return b;}
+function say(text){$('feedback').textContent=text;}
+function amount(n){return new Intl.NumberFormat('en-US').format(n);}
+function costText(cost){return Object.entries(cost).filter(([,n])=>n).map(([key,n])=>amount(n)+' '+key).join(' · ')||'Free';}
+function storageStatus(result){lastStore=result;$('storage-note').textContent=result.status==='damaged'?'Existing realm save could not be loaded. Its original bytes remain untouched. Recover the previous autosave or import a valid backup.':result.status==='unavailable'?'Browser storage is unavailable. Play is available; export your realm save to keep it.':'';$('recover-save').disabled=locked||!result.backupAvailable;$('damaged-save').hidden=saves.damagedText()===null;}
+function persist(options){storageStatus(saves.write(W.save(world),options));}
+function download(data,name,type='application/json'){const blob=new Blob([typeof data==='string'?data:JSON.stringify(data,null,2)],{type}),url=URL.createObjectURL(blob),a=el('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function stopAuto(){auto=false;clearTimeout(autoTimer);autoTimer=null;$('dock-auto').setAttribute('aria-pressed','false');$('dock-auto').textContent='Auto';}
+function show(next){if(next!=='battle')stopAuto();view=next;selected=null;hint=null;tutorialSelected=null;render();window.scrollTo({top:0,behavior:'instant'});}
+async function perform(action,{animate=false,quiet=false}={}){
+ if(locked)return false;const focus=document.activeElement?.dataset.cell;
+ try{
+  const next=W.dispatch(world,action);world=next;selected=null;hint=null;persist();
+  if(action.type==='start'||action.type==='abandon'||action.type==='battle-action'&&!world.battle)view='battle';
+  if(animate&&!motion.matches&&world.battle){locked=true;animateCells=[...new Set(world.battle.last.cleared)];render();await new Promise(resolve=>setTimeout(resolve,170));locked=false;animateCells=[];}
+  render();if(action.type==='start'||action.type==='abandon'||action.type==='battle-action'&&!world.battle)window.scrollTo({top:0,behavior:'instant'});if(focus!==undefined&&view==='battle')$('battle-board')?.querySelector('[data-cell="'+focus+'"]:not(:disabled)')?.focus({preventScroll:true});
+  if(!quiet){const messages={collect:'All production collected. Surplus is held in the 48-hour inbox.','claim-inbox':'Available storage filled from the overflow inbox. Remaining resources retain their expiry.','upgrade-building':'Building upgraded immediately.','train-hero':'Hero trained.','train-party':'Equipped heroes trained in one transaction.','train-troop':'Support troop trained.',craft:'Item crafted.','craft-pack':'The complete saved pack was crafted.','blueprint':'Blueprint saved.','talent':'Talent changed.','equip':'Hero assigned to its elemental lane.',start:'Expedition started. Select adjacent tiles or use a free hint.',welcome:'Available production and overflow collected.'};
+   if(action.type==='battle-action')say(world.battle?world.battle.log.at(-1):world.lastOutcome.won?'Expedition complete. Your reward receipt is ready.':'Expedition ended. Unused supplies returned.');else if(messages[action.type])say(messages[action.type]);
+  }
+  if(!world.battle)stopAuto();return true;
+ }catch(error){locked=false;animateCells=[];say(error.message+' Your previous state is preserved.');render();return false;}
+}
+function renderResources(){const area=$('resources');area.replaceChildren();for(const key of ['food','iron','insight','relics']){const n=el('div',undefined,'resource');n.append(el('strong',amount(world.resources[key])),el('span',key[0].toUpperCase()+key.slice(1)+(key==='food'||key==='iron'?' / '+amount(W.capacity(world)):'')));area.append(n);}}
+function renderHub(){
+ $('keep-level').textContent='Rootkeep · level '+world.buildings.keep;$('world-progress').textContent=world.completed.length+' / 33 expeditions';
+ const pending=W.summary(world,Date.now());$('production-note').textContent='Waiting: '+amount(pending.food)+' food · '+amount(pending.iron)+' iron. Gardens: '+world.buildings.farm*60+'/hour · Foundry: '+world.buildings.mine*45+'/hour. Production holds up to 12 hours. Swipe across the village or collect once.';
+ $('collect').disabled=locked||!!world.battle;const grid=$('buildings');grid.replaceChildren();
+ for(const building of C.BUILDINGS){const level=world.buildings[building.id],cost=W.buildingCost(world,building.id),card=el('article',undefined,'building'+(building.id==='keep'?' keep':''));card.dataset.building=building.id;card.append(el('span',building.mark,'sigil'),el('span','LEVEL '+level+' / 5','eyebrow'),el('h3',building.name),el('p',building.purpose));const available=level<5&&(building.id==='keep'||level<world.buildings.keep),note=level===5?'Fully upgraded':!available?'Raise Rootkeep first':costText(cost);card.append(el('span',note,'cost'));const b=button('Upgrade',()=>perform({type:'upgrade-building',id:building.id}));b.disabled=locked||!!world.battle||!available||!W.canAfford(world,cost);b.setAttribute('aria-label','Upgrade '+building.name);card.append(b);grid.append(card);}
+ const craft=$('crafting');craft.replaceChildren();for(const [id,item] of Object.entries(C.ITEMS)){const row=el('div',undefined,'recipe'),copy=el('div'),cost=W.blueprintCost(world,{heal:0,mana:0,volley:0,[id]:1});row.dataset.recipe=id;copy.append(el('strong',item.name+' · '+world.items[id]+'/20'),el('p',item.description),el('small',costText(cost)));const b=button('Craft',()=>perform({type:'craft',item:id}));b.setAttribute('aria-label','Craft '+item.name);b.disabled=locked||!!world.battle||world.items[id]>=20||!W.canAfford(world,cost);row.append(copy,b);craft.append(row);}
+ const troops=$('troops');troops.replaceChildren();C.ELEMENTS.forEach((e,i)=>{const row=el('div',undefined,'troop'),copy=el('div'),level=world.troops[i],cost={iron:50*level,insight:1};copy.append(el('strong',e.mark+' '+e.name+' · rank '+level),el('p',costText(cost),'small'));const b=button('Train',()=>perform({type:'train-troop',element:i}));b.setAttribute('aria-label','Train '+e.name+' troop');b.disabled=locked||!!world.battle||level>=5||level>=world.buildings.barracks+1||!W.canAfford(world,cost);row.append(copy,b);troops.append(row);});
+ const cost=W.blueprintCost(world,world.blueprint.counts);$('pack-summary').textContent=world.blueprint.name+' · '+Object.entries(world.blueprint.counts).filter(([,n])=>n).map(([id,n])=>n+' '+C.ITEMS[id].name).join(' + ')+' · '+costText(cost);$('craft-pack').disabled=locked||!!world.battle||!W.canAfford(world,cost)||!Object.entries(world.blueprint.counts).every(([id,n])=>world.items[id]+n<=20);$('pack-name').value=world.blueprint.name;for(const id of Object.keys(C.ITEMS))$('pack-'+id).value=world.blueprint.counts[id];$('save-pack').disabled=locked||!!world.battle;
+ const inbox=$('inbox');inbox.replaceChildren();const live=world.inbox.filter(b=>b.expiresAt>Date.now());if(!live.length)inbox.append(el('p','No resources waiting.','small'));for(const box of live){const row=el('div',box.reason+' · '+amount(box.food)+' food · '+amount(box.iron)+' iron · Expires '+new Date(box.expiresAt).toLocaleString(),'inbox-row');row.dataset.inbox=box.id;inbox.append(row);}$('claim-inbox').disabled=locked||!!world.battle||!live.length;
+}
+function trainingCost(){const eligible=world.team.filter(id=>{const level=world.heroes[id].level;return level<10&&(level!==3||world.buildings.academy>=2)&&(level!==6||world.buildings.academy>=3);});return {eligible,cost:eligible.reduce((cost,id)=>{for(const [key,n] of Object.entries(W.heroCost(world,id)))cost[key]=(cost[key]||0)+n;return cost;},{})};}
+function renderRoster(){
+ const area=$('roster');area.replaceChildren();for(const hero of C.HEROES){const progress=world.heroes[hero.id],element=C.ELEMENTS[hero.element],card=el('article',undefined,'hero-card'+(!progress?' locked':''));card.style.setProperty('--element',element.color);card.dataset.hero=hero.id;card.append(el('div',hero.mark,'portrait'),el('span',element.mark+' '+element.name+' · '+hero.role,'eyebrow'),el('h3',hero.name),el('p','★'.repeat(hero.rarity)+' · '+(progress?'Level '+progress.level+'/10':'Joins after expedition '+String(hero.unlock).padStart(2,'0')),'small'),el('strong',hero.skill),el('p',hero.description),el('p',hero.manaSpeed.replaceAll('_',' ')+' · '+hero.mana/2+' mana charges','small'));
+  if(progress){const stats=C.stats(hero,progress,world.troops[hero.element],world.tabor?.segmentBps??null);card.append(el('p',stats.attack+' attack · '+stats.health+' health'+(world.tabor?' · lane '+(hero.element+1)+' scaling':''),'small'));const cost=W.heroCost(world,hero.id),requires=progress.level===3&&world.buildings.academy<2||progress.level===6&&world.buildings.academy<3,actions=el('div',undefined,'row'),train=button('Train',()=>perform({type:'train-hero',id:hero.id})),equip=button(world.team.includes(hero.id)?'Equipped':'Assign to lane '+(hero.element+1),()=>perform({type:'equip',id:hero.id}));train.setAttribute('aria-label','Train '+hero.name);train.disabled=locked||!!world.battle||progress.level>=10||requires||!W.canAfford(world,cost);equip.disabled=locked||!!world.battle||world.team.includes(hero.id);actions.append(train,equip);card.append(el('p',progress.level===10?'Maximum level':requires?'Upgrade Memory Academy for the next ascension':costText(cost),'small'),actions);
+   if(progress.level>=5){const row=el('div',undefined,'row');for(const [talent,title] of [['force','Force · +6 attack'],['guard','Guard · +40 health']]){const b=button(title,()=>perform({type:'talent',id:hero.id,talent}));b.setAttribute('aria-pressed',String(progress.talent===talent));b.disabled=locked||!!world.battle;row.append(b);}card.append(row);}
+  }area.append(card);
+ }
+ const batch=trainingCost();$('party-training-cost').textContent=batch.eligible.length+' eligible heroes · '+costText(batch.cost);$('train-party').disabled=locked||!!world.battle||!batch.eligible.length||!W.canAfford(world,batch.cost);
+}
+function renderAtlas(){
+ const chosen=C.STAGES[stage-1];$('brief-tag').textContent='EPOCH '+chosen.epoch+' · EXPEDITION '+String(stage).padStart(2,'0');$('brief-title').textContent=chosen.name;$('brief-description').textContent=chosen.waves+' waves · '+chosen.terrain+' · Opening enemy element: '+C.ELEMENTS[chosen.element].name+'. '+(chosen.boss?'Epoch finale: three waves and a reinforced final formation.':'Five lanes, visible enemy intent, sixty accepted moves.');const reward=W.reward(stage,!world.completed.includes(stage));$('brief-rewards').textContent=(world.completed.includes(stage)?'Replay loot':'First-clear loot')+' · '+costText(reward)+' · All stages are free.';$('battle-seed').value=chosen.seed;$('launch').disabled=locked||!!world.battle;
+ const atlas=$('atlas');atlas.replaceChildren();for(let epoch=1;epoch<=3;epoch++){const section=el('section',undefined,'epoch');section.append(el('span','EPOCH '+['I','II','III'][epoch-1],'eyebrow'),el('h3',['Ancient Foundations','Industrial & Modern Mind','Future & Cognitive Challenges'][epoch-1]));const grid=el('div',undefined,'stage-grid');for(const s of C.STAGES.filter(s=>s.epoch===['I','II','III'][epoch-1])){const b=button('',()=>{stage=s.id;renderAtlas();$('stage-brief').scrollIntoView({behavior:motion.matches?'instant':'smooth'});},'stage'+(s.boss?' boss':''));b.dataset.stage=s.id;b.setAttribute('aria-pressed',String(stage===s.id));b.append(el('span',String(s.id).padStart(2,'0'),'number'),el('span',s.name,'name'),el('small',s.waves+' waves'+(s.boss?' · EPOCH FINALE':'')));if(world.completed.includes(s.id))b.append(el('span','✓','completion'));grid.append(b);}section.append(grid);atlas.append(section);}
+}
+function meter(value,max,kind){const bar=el('div',undefined,'meter'+(kind?' '+kind:'')),fill=el('i');fill.style.setProperty('--fill',(value/max*100)+'%');bar.setAttribute('role','meter');bar.setAttribute('aria-valuenow',value);bar.setAttribute('aria-valuemin',0);bar.setAttribute('aria-valuemax',max);bar.setAttribute('aria-label',kind==='mana'?'Mana':'Health');bar.append(fill);return bar;}
+function heroButton(h,compact=false){const template=C.HEROES.find(x=>x.id===h.id),element=C.ELEMENTS[h.element],b=button('',()=>perform({type:'battle-action',action:{type:'skill',hero:h.id}}),'party-hero'+(h.health===0?' down':h.mana>=h.maxMana&&!h.used?' ready':''));b.style.setProperty('--element',element.color);b.dataset.skill=h.id;b.disabled=locked||h.health===0||h.mana<h.maxMana||h.used;b.setAttribute('aria-label',template.name+', '+template.skill+', '+h.mana/2+'/'+h.maxMana/2+' mana charges'+(h.used?', already used this move':''));b.append(el('strong',template.mark),el('span',template.name.split(' ')[0]));if(!compact)b.append(meter(h.health,h.maxHealth),meter(h.mana,h.maxMana,'mana'),el('small',h.health+' HP'+(h.shield?' +'+h.shield+' shield':'')));else b.append(meter(h.health,h.maxHealth));b.append(el('small',h.mana/2+'/'+h.maxMana/2+' mana'));return b;}
+function renderBattle(){
+ const area=$('battle-content'),expanded=Object.fromEntries([...area.querySelectorAll('details[id]')].map(d=>[d.id,d.open]));area.replaceChildren();const s=world.battle;
+ if(!s){renderReceipt(area);return;}
+ const layout=el('div',undefined,'battle-layout'),arena=el('section',undefined,'arena'),top=el('div',undefined,'arena-top between'),title=el('div');title.append(el('span','EXPEDITION '+s.stage+' · WAVE '+s.wave+'/'+C.STAGES[s.stage-1].waves,'eyebrow'),el('h2',C.STAGES[s.stage-1].name));top.append(title,el('span',s.turn+'/60 moves','pill'));arena.append(top);
+ const enemies=el('div',undefined,'enemies');for(let lane=0;lane<5;lane++){const e=s.enemies.find(e=>e.from===lane);if(!e){enemies.append(el('div','GHOST LANE\n2× MANA','open-lane'));continue;}const b=button('',()=>perform({type:'battle-action',action:{type:'target',enemy:e.id}},{quiet:true}),'enemy'+(!e.health?' dead':''));b.style.setProperty('--element',C.ELEMENTS[e.element].color);b.dataset.enemy=e.id;b.setAttribute('aria-pressed',String(s.target===e.id));b.disabled=locked||e.health===0;b.setAttribute('aria-label',e.name+', lane '+(lane+1)+', '+e.health+'/'+e.maxHealth+' health, '+(e.health?B.intent(s,e).text:'defeated'));b.append(el('strong',e.health?C.ELEMENTS[e.element].mark:'×'),el('small',e.name),el('small',e.health?B.intent(s,e).kind.toUpperCase():'OPEN LANE'),meter(e.health,e.maxHealth),el('small',e.health+'/'+e.maxHealth+(e.guard?' · GUARD':e.broken?' · BROKEN':'')));enemies.append(b);}arena.append(enemies);
+ const board=el('div',undefined,'board');board.id='battle-board';board.setAttribute('role','group');board.setAttribute('aria-label','Seven rows by five lanes');board.setAttribute('aria-busy',String(locked));s.board.forEach((value,i)=>{const tile=gem(value,i,()=>tap(i));if(hint&&(i===hint.a||i===hint.b))tile.classList.add('hinted');if(animateCells.includes(i))tile.classList.add('resolved');board.append(tile);});arena.append(board);
+ const party=el('div',undefined,'party');party.id='party';s.heroes.forEach(h=>party.append(heroButton(h)));arena.append(party,el('p','Tiles follow lanes. Tap an enemy to target a hero skill.','small'));
+ const aside=el('aside',undefined,'panel battle-aside');aside.append(el('span','READ THE NEXT TURN','eyebrow'),el('h2','Intent & opportunity'));for(const e of s.enemies.filter(e=>e.health>0))aside.append(el('div',e.name+' · '+B.intent(s,e).text+(e.broken?' · guard broken':''),'intent'));const legend=el('div',undefined,'legend');C.ELEMENTS.forEach(e=>{const n=el('span',e.mark+' '+e.name);n.style.setProperty('--element',e.color);legend.append(n);});aside.append(legend);
+ const itemBar=el('div',undefined,'item-bar');for(const [id,item] of Object.entries(C.ITEMS)){const b=button(item.name+' ×'+s.items[id],()=>perform({type:'battle-action',action:{type:'item',item:id}}));b.dataset.item=id;b.disabled=locked||s.itemUsed||s.items[id]===0;itemBar.append(b);}const supplies=el('details');supplies.id='battle-supplies';supplies.open=!!expanded['battle-supplies'];supplies.append(el('summary','Battle supplies'),itemBar,el('p','One item between accepted moves. Unused supplies return.','small'));aside.append(supplies);
+ const options=el('div',undefined,'auto-options');for(const [key,title] of [['boss','Conserve hero skills for the final wave'],['lowest','Target the lowest-health enemy first'],['central','Opening clears only in lanes 2, 3 and 4']]){const label=el('label'),input=el('input');input.type='checkbox';input.checked=world.preferences.auto[key];input.dataset.auto=key;input.addEventListener('change',()=>perform({type:'preferences',auto:{[key]:input.checked}},{quiet:true}));label.append(input,document.createTextNode(' '+title));options.append(label);}const autoOptions=el('details');autoOptions.id='auto-options';autoOptions.open=!!expanded['auto-options'];autoOptions.append(el('summary','Auto-play rules'),options,el('p','Auto-play pauses on hidden tabs. A lane filter can stop play when no matching opening exists; cascades may spread outside it. Healing is saved until an ally falls below 65% health.','small'));aside.append(autoOptions);
+ const log=el('ol',undefined,'combat-log');s.log.slice().reverse().forEach(line=>log.append(el('li',line)));aside.append(log);layout.append(arena,aside);area.append(layout);
+ const skills=$('thumb-skills');skills.replaceChildren();s.heroes.forEach(h=>skills.append(heroButton(h,true)));$('dock-hint').disabled=locked;$('dock-play').disabled=locked||!hint;$('dock-flee').disabled=locked;$('dock-auto').disabled=locked;$('dock-auto').textContent=auto?'Stop auto':'Auto';$('dock-auto').setAttribute('aria-pressed',String(auto));
+ bindBattlePointer(board);
+}
+function gem(value,i,onClick){const e=C.ELEMENTS[value],b=button(e.mark,onClick,'gem');b.style.setProperty('--element',e.color);b.dataset.cell=i;b.disabled=locked;b.setAttribute('aria-label','Row '+(Math.floor(i/5)+1)+', lane '+(i%5+1)+': '+e.name);b.setAttribute('aria-pressed',String(selected===i));b.append(el('small',e.name[0]));b.addEventListener('keydown',event=>{const offset={ArrowLeft:-1,ArrowRight:1,ArrowUp:-5,ArrowDown:5}[event.key];if(offset!==undefined){event.preventDefault();if(B.adjacent(i,i+offset))b.parentElement.querySelector('[data-cell="'+(i+offset)+'"]')?.focus({preventScroll:true});}if(event.key==='Home'||event.key==='End'){event.preventDefault();b.parentElement.querySelector('[data-cell="'+(event.key==='Home'?0:34)+'"]')?.focus({preventScroll:true});}if(event.key==='Escape'){event.preventDefault();selected=null;hint=null;const parent=b.parentElement;parent.querySelectorAll('button').forEach(x=>{x.setAttribute('aria-pressed','false');x.classList.remove('hinted');});}});return b;}
+function tap(i){if(locked||!world.battle)return;stopAuto();if(selected===i){selected=null;renderBattle();return;}if(selected===null){selected=i;hint=null;renderBattle();$('battle-board').querySelector('[data-cell="'+i+'"]').focus({preventScroll:true});return;}const a=selected;selected=null;perform({type:'battle-action',action:{type:'swap',a,b:i}},{animate:true});}
+function bindBattlePointer(board){board.addEventListener('pointerdown',event=>{const tile=event.target.closest('button[data-cell]');if(!tile||locked||event.button!==0)return;suppressClick=false;pointer={id:event.pointerId,a:Number(tile.dataset.cell),x:event.clientX,y:event.clientY};tile.setPointerCapture?.(event.pointerId);});board.addEventListener('pointerup',event=>{if(!pointer||pointer.id!==event.pointerId)return;const p=pointer;pointer=null;const dx=event.clientX-p.x,dy=event.clientY-p.y;if(Math.hypot(dx,dy)<12)return;suppressClick=true;stopAuto();const target=document.elementFromPoint(event.clientX,event.clientY)?.closest('#battle-board button[data-cell]');let b=target?Number(target.dataset.cell):-1;if(!B.adjacent(p.a,b))b=p.a+(Math.abs(dx)>Math.abs(dy)?Math.sign(dx):Math.sign(dy)*5);perform({type:'battle-action',action:{type:'swap',a:p.a,b}},{animate:true});});board.addEventListener('pointercancel',()=>{pointer=null;});board.addEventListener('click',event=>{if(suppressClick&&event.detail!==0){event.preventDefault();event.stopImmediatePropagation();suppressClick=false;}},true);}
+function renderReceipt(area){
+ const x=world.lastOutcome,card=el('section',undefined,'panel receipt');if(!x){card.append(el('div','⌁','seal'),el('span','YOUR NEXT EXPEDITION','eyebrow'),el('h2','The road is waiting.'),el('p','Choose a stage on the world map. Every stage and retry is free.'),button('Open world map →',()=>show('atlas'),'primary'));area.append(card);return;}
+ card.append(el('div',x.won?'✦':'⌁','seal'),el('span','EXPEDITION '+x.stage+' · '+(x.first?'FIRST CLEAR':x.won?'REPLAY':'ATTEMPT REVIEW'),'eyebrow'),el('h2',x.won?'A victory to build on.':'A new plan starts here.'),el('p',C.STAGES[x.stage-1].name+' · '+x.turns+' moves · '+x.score+' score.'));
+ if(x.won){const rewards=el('div',undefined,'resource-bar');for(const [key,n] of Object.entries(x.earned)){const r=el('div',undefined,'resource');r.append(el('strong','+'+n),el('span',key));rewards.append(r);}card.append(rewards);if(x.overflow.food||x.overflow.iron)card.append(el('p',x.overflow.food+' food and '+x.overflow.iron+' iron were placed in the 48-hour overflow inbox.','warning'));for(const id of x.unlocked)card.append(el('p','NEW HERO · '+C.HEROES.find(h=>h.id===id).name+' has joined your roster.'));
+ }else card.append(el('p','Try a stronger lane troop, train your party, match strong counters, and save healing for injured allies. Unused items returned; no energy or entry fee was spent.'));
+ const row=el('div',undefined,'row');row.style.justifyContent='center';row.append(button('Return to settlement',()=>show('hub'),'primary'),button('Retry this stage',()=>{stage=x.stage;show('atlas');}));if(x.won&&x.stage<33)row.append(button('Next expedition →',()=>{stage=x.stage+1;show('atlas');}));card.append(row);area.append(card);
+}
+function tutorialState(){const s=B.initial(1,W.party(world),704+world.onboarding.step);return {s,move:B.moves(s).find(m=>world.onboarding.step!==2||m.mana>0&&m.ghost>0)||B.moves(s)[0]};}
+function renderTutorial(){const {s,move}=tutorialState();tutorialBattle=s;const step=world.onboarding.step;$('tutorial-title').textContent=['01 · Make your first match.','02 · Let the lanes do the work.','03 · Find power in the gaps.'][step]||'Ready for the journey.';$('tutorial-copy').textContent=['Select the two outlined neighbors. Match three or more; gravity refills the spaces.','A tile attacks through its column. Strong elemental counters deal double damage. Select the outlined pair to strike.','Lanes without a direct enemy reroute to the nearest living target. Matching a lane hero’s element there gives double mana. Make one more move.'][step]||'';$('tutorial-status').textContent=(step+1)+' of 3 · No sign-up, purchases or asset downloads. You can skip at any time.';const board=$('tutorial-board');board.replaceChildren();s.board.forEach((value,i)=>{const tile=gem(value,i,()=>{if(tutorialSelected===i){tutorialSelected=null;renderTutorial();return;}if(tutorialSelected===null){tutorialSelected=i;tile.setAttribute('aria-pressed','true');tile.focus({preventScroll:true});return;}const a=tutorialSelected;tutorialSelected=null;if((a===move.a&&i===move.b||a===move.b&&i===move.a)&&B.action(tutorialBattle,{type:'swap',a,b:i})){perform({type:'tutorial-step'},{quiet:true}).then(ok=>{if(ok&&world.onboarding.done){view='hub';render();say('Three moves complete. Your five starter heroes and settlement are ready.');}});}else{$('tutorial-status').textContent='Use the two outlined neighbors for this guided move. Nothing was spent.';renderTutorial();}});if(i===move.a||i===move.b)tile.classList.add('tutorial-highlight');tile.setAttribute('aria-pressed',String(tutorialSelected===i));board.append(tile);});}
+function render(){
+ document.body.classList.toggle('in-tutorial',view==='tutorial');document.body.classList.toggle('contrast',world.preferences.contrast);document.body.classList.toggle('in-battle',view==='battle'&&!!world.battle);$('contrast').checked=world.preferences.contrast;
+ for(const name of ['hub','roster','atlas','battle']){$(name+'-tab').setAttribute('aria-selected',String(view===name));$(name+'-view').hidden=view!==name;}$('tutorial-view').hidden=view!=='tutorial';$('resume-banner').hidden=!world.battle||view==='battle';$('thumb-dock').hidden=view!=='battle'||!world.battle;
+ renderResources();if($('tabor-system').open)renderTabor();if(view==='hub')renderHub();if(view==='roster')renderRoster();if(view==='atlas')renderAtlas();if(view==='battle')renderBattle();if(view==='tutorial'&&!world.onboarding.done)renderTutorial();
+ $('notify-permission').textContent=world.preferences.notifications?'Disable reminders':'Enable reminders while open';$('recover-save').disabled=locked||!lastStore.backupAvailable;$('import-save').disabled=locked;$('export-replay').disabled=!world.battle&&!world.lastOutcome;$('reminder-note').textContent=world.preferences.notifications?'Utility alerts enabled while this page is open. Background delivery depends on your browser; calendar reminders are independent of this page.':'Alerts are off. No notification permission is requested until you choose to enable it.';
+}
+function renderTabor(){
+ const report=W.taborReport(world,Date.now()),area=$('tabor-report');area.replaceChildren();
+ $('tabor-state').textContent=report.active?'Binary state gates, positional scaling, purpose lookup and bounded resource handling are active.':world.battle?'This saved expedition keeps its original loadout. Positional scaling starts when it finishes.':'This legacy settlement adopts the framework on its next action.';
+ area.append(el('p','Oldowan binary core · '+report.binary.states.filter(Boolean).length+' living party members · OR presence '+report.binary.reinforced+' · XOR(1, 1) = '+report.binary.sameStateCollision+'.','small'));
+ const line=el('div',undefined,'pills');report.segments.forEach(segment=>line.append(el('span',segment.address+' · '+segment.label.split(' ')[0]+' · '+segment.basePotency+' → '+segment.appliedAttack+' attack','pill')));area.append(el('h3','Hox positional array'),line,el('p','New loadouts gain 12% of base attack per lane position, rounded upward exactly. Legacy battles retain their saved attack.','small'));
+ area.append(el('h3','Chemical-spatial lookup'),el('p',report.signals.nodes.length+' local signal nodes across seven purpose dimensions. Local-cell preview: '+report.signals.activeCells+' active cells → '+report.signals.nextActiveCells+' after one model step; the preview does not change the puzzle.','small'));
+ area.append(el('h3','Tabor capacity limiter'),el('p','Base '+report.capacity.base+' · ceiling '+report.capacity.cap+' · reserved capacity '+report.capacity.reserve+' · usable '+report.capacity.spendable+'. Overflow inbox: '+report.refundBuffer.food+' food / '+report.refundBuffer.iron+' iron.','small'),el('p',report.policy.inflationBps||report.policy.growthBps||report.policy.reserveBps?'A custom growth/reserve policy is active. Surplus stays in your 48-hour inbox.':'The current policy keeps existing Storehouse limits. Surplus stays in your 48-hour inbox.','small'));
+ const match=purposeQuery?W.lookupPurpose(world,purposeQuery):null;$('tabor-open-match').disabled=!match;$('tabor-result').textContent=match?match.label+' · '+(match.view==='hub'?'Settlement':match.view==='roster'?'Heroes':'Expedition')+' · signal match '+match.resonance.toFixed(2):purposeQuery?'No matching signal. Try food, iron, attack, healing, shield, mana or threat.':'Search a purpose to find the matching local asset.';
+}
+$('tabor-system').addEventListener('toggle',()=>{if($('tabor-system').open)renderTabor();});
+$('tabor-search').addEventListener('submit',event=>{event.preventDefault();purposeQuery=$('tabor-probe').value.trim();renderTabor();});
+$('tabor-open-match').addEventListener('click',()=>{const match=W.lookupPurpose(world,purposeQuery);if(!match)return;show(match.view);const target=document.querySelector(match.selector);if(target){for(let parent=target.parentElement;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;target.tabIndex=-1;target.focus({preventScroll:true});target.scrollIntoView({block:'center',behavior:motion.matches?'instant':'smooth'});}});
+$('tabor-export').addEventListener('click',()=>download(W.taborReport(world,Date.now()),'PRIVATE_ONE_v025_Tabor_Decimal_System.json'));
+async function autoStep(){if(!auto||document.hidden||!world.battle||view!=='battle'){stopAuto();return;}if(locked){autoTimer=setTimeout(autoStep,250);return;}const action=B.plan(world.battle,world.preferences.auto);if(!action||action.type==='blocked'){stopAuto();say(action?.reason||'Auto-play ended.');return;}const ok=await perform({type:'battle-action',action},{animate:action.type==='swap',quiet:true});if(!ok||!world.battle){stopAuto();render();return;}autoTimer=setTimeout(autoStep,400);}
+for(const name of ['hub','roster','atlas','battle'])$(name+'-tab').addEventListener('click',()=>show(name));
+$('explore').addEventListener('click',()=>show('atlas'));$('resume-battle').addEventListener('click',()=>show('battle'));$('collect').addEventListener('click',()=>perform({type:'collect'}));$('claim-inbox').addEventListener('click',()=>perform({type:'claim-inbox'}));$('train-party').addEventListener('click',()=>perform({type:'train-party'}));$('craft-pack').addEventListener('click',()=>perform({type:'craft-pack'}));$('save-pack').addEventListener('click',()=>perform({type:'blueprint',name:$('pack-name').value.trim(),counts:Object.fromEntries(Object.keys(C.ITEMS).map(id=>[id,Number($('pack-'+id).value)]))}));
+$('contrast').addEventListener('change',()=>perform({type:'preferences',contrast:$('contrast').checked},{quiet:true}));$('skip-tutorial').addEventListener('click',async()=>{if(await perform({type:'skip-tutorial'},{quiet:true}))show('hub');});
+$('launch').addEventListener('click',()=>{stopAuto();perform({type:'start',stage,seed:Number($('battle-seed').value)});});$('random-seed').addEventListener('click',()=>{$('battle-seed').value=crypto.getRandomValues(new Uint32Array(1))[0];});
+$('dock-hint').addEventListener('click',()=>{if(!world.battle||locked)return;stopAuto();hint=B.moves(world.battle)[0];selected=null;renderBattle();say(hint?'Opening: row '+(Math.floor(hint.a/5)+1)+', lane '+(hint.a%5+1)+' ↔ row '+(Math.floor(hint.b/5)+1)+', lane '+(hint.b%5+1)+' · '+hint.tiles+' tiles · about '+hint.damage+' opening damage · '+hint.mana+' mana charges. Refills are not predicted.':'No move available.');});$('dock-play').addEventListener('click',()=>{if(hint){const {a,b}=hint;perform({type:'battle-action',action:{type:'swap',a,b}},{animate:true});}});
+$('dock-auto').addEventListener('click',()=>{if(auto){stopAuto();renderBattle();return;}auto=true;autoStep();});$('dock-flee').addEventListener('click',()=>{stopAuto();perform({type:'abandon'});});
+let sweep=null;$('buildings').addEventListener('pointerdown',e=>{if(e.target.closest('button')||e.button!==0)return;sweep={id:e.pointerId,x:e.clientX,y:e.clientY};$('buildings').setPointerCapture?.(e.pointerId);});$('buildings').addEventListener('pointerup',e=>{if(!sweep||sweep.id!==e.pointerId)return;const p=sweep;sweep=null;if(Math.hypot(e.clientX-p.x,e.clientY-p.y)>35&&!world.battle)perform({type:'collect'});});$('buildings').addEventListener('pointercancel',()=>{sweep=null;});
+$('export-save').addEventListener('click',()=>download(W.save(world),'PRIVATE_ONE_v025_Rootkeep_save.json'));
+$('import-save').addEventListener('change',async event=>{stopAuto();try{const file=event.target.files[0];if(!file||locked)return;if(file.size>1024*1024)throw Error('Save exceeds 1 MB');const next=W.restore(JSON.parse(await file.text()));if(locked)throw Error('Wait for the current turn');world=next;view=world.battle?'battle':world.onboarding.done?'hub':'tutorial';selected=null;hint=null;persist({replaceDamaged:true});render();window.scrollTo({top:0,behavior:'instant'});say('Realm save restored.');}catch(error){say('Import failed: '+error.message+'. Current realm preserved.');}finally{event.target.value='';}});
+$('recover-save').addEventListener('click',()=>{if(locked)return;stopAuto();const result=saves.recover();storageStatus(result);if(result.data){world=W.restore(result.data);selected=null;hint=null;view=world.battle?'battle':world.onboarding.done?'hub':'tutorial';render();window.scrollTo({top:0,behavior:'instant'});say('Previous autosave recovered. The newer valid save remains in the alternate recovery copy.');}});
+$('damaged-save').addEventListener('click',()=>{const raw=saves.damagedText();if(raw!==null)download(raw,'PRIVATE_ONE_v025_Rootkeep_preserved_save.txt','text/plain');});$('export-replay').addEventListener('click',()=>{const battle=world.battle,data=battle?{config:battle.config,actions:battle.actions,claimedState:battle}:world.lastOutcome?.replay;if(data)download(data,'PRIVATE_ONE_v025_Rootkeep_replay.json');});
+const showWelcome=!!loaded.data&&Date.now()-world.lastVisitAt>60000;$('welcome-ledger').hidden=!showWelcome;if(showWelcome){const s=W.summary(world,Date.now());$('welcome-summary').textContent='While you were away: '+s.food+' food and '+s.iron+' iron became available. Your overflow inbox holds '+s.inboxFood+' food and '+s.inboxIron+' iron.'+(s.activeBattle?' Expedition '+s.activeBattle+' is saved and ready to resume. Collect when the party returns.':'');if(s.activeBattle)$('welcome-collect').textContent='Resume saved expedition';}
+$('welcome-dismiss').addEventListener('click',()=>{$('welcome-ledger').hidden=true;});$('welcome-collect').addEventListener('click',async()=>{if(world.battle)show('battle');else await perform({type:'welcome'});$('welcome-ledger').hidden=true;});
+const sent=new Set();$('notify-permission').addEventListener('click',async()=>{if(world.preferences.notifications){await perform({type:'preferences',notifications:false},{quiet:true});return;}if(!('Notification'in window)){say('This browser does not support notifications. Use calendar reminders.');return;}try{const permission=await Notification.requestPermission();if(permission==='granted')await perform({type:'preferences',notifications:true},{quiet:true});else say('Notification permission was not granted. Calendar reminders remain available.');}catch{say('Notifications are unavailable here. Use calendar reminders.');}});
+function calendarTime(at){return new Date(at).toISOString().replaceAll('-','').replaceAll(':','').replace(/\.\d{3}/,'');}
+$('export-reminders').addEventListener('click',()=>{const now=Date.now(),reminders=W.reminders(world,now).filter(r=>r.dueAt>now),lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Nathan Tabor//Private ONE v025//EN'];for(const r of reminders)lines.push('BEGIN:VEVENT','UID:'+r.id+'-'+Math.floor(r.dueAt)+'@one-v025.local','DTSTAMP:'+calendarTime(now),'DTSTART:'+calendarTime(r.dueAt),'DTEND:'+calendarTime(r.dueAt+60000),'SUMMARY:Rootkeep reminder','DESCRIPTION:'+r.message,'BEGIN:VALARM','TRIGGER:PT0M','ACTION:DISPLAY','DESCRIPTION:'+r.message,'END:VALARM','END:VEVENT');lines.push('END:VCALENDAR');download(lines.join('\r\n')+'\r\n','PRIVATE_ONE_v025_Rootkeep_reminders.ics','text/calendar');say(reminders.length+' real production/inbox deadlines exported for your calendar.');});
+setInterval(()=>{if(document.hidden||!world.preferences.notifications||!('Notification'in window)||Notification.permission!=='granted')return;for(const r of W.reminders(world,Date.now())){const key=r.id+'-'+Math.floor(r.dueAt);if(r.dueAt<=Date.now()&&!sent.has(key)){sent.add(key);new Notification('Rootkeep · '+(r.kind==='inbox-expiry'?'Overflow reminder':'Production ready'),{body:r.message,tag:key});}}},30000);
+document.addEventListener('visibilitychange',()=>{if(document.hidden){stopAuto();persist();}});window.addEventListener('pagehide',()=>{stopAuto();persist();});
+storageStatus(loaded);render();if(loaded.status!=='damaged'&&loaded.status!=='unavailable')persist();
+})();
+
+</script></body></html>

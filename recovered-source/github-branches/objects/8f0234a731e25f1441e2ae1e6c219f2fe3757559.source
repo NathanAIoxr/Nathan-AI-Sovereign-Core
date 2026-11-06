@@ -1,0 +1,35 @@
+/* Additive source-first creation studio. No human imagery, no changes to existing mode styles. */
+#studio-panel { overflow-wrap:anywhere; }
+#studio-panel .studio-tabs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin-bottom:14px; }
+#studio-panel .studio-tabs button { min-height:40px; font-size:.76rem; padding:7px 4px; }
+#studio-panel .studio-tabs button[aria-pressed=true] { background:#b8e2ff;color:#092139;font-weight:800; }
+#studio-panel .studio-note { color:#b9cddd;font-size:.85rem;line-height:1.5; }
+#studio-panel .studio-step { border:1px solid #3e596b;border-radius:9px;padding:10px;margin:7px 0;background:#152c3b; }
+#studio-panel .studio-step label { display:flex;align-items:center;gap:9px;color:#e7f6ff;font-weight:650; }
+#studio-panel .studio-step input[type=checkbox] { width:auto;margin:0;min-height:auto; }
+#studio-panel .studio-step p { color:#b3cbdd;margin:4px 0 0 26px;font-size:.85rem; }
+#studio-panel .studio-actions { display:flex;flex-wrap:wrap;gap:7px;margin:12px 0; }
+#studio-panel .studio-actions button { flex:1 1 120px; }
+#studio-panel .studio-score { font-size:.78rem;color:#a2d2ff;letter-spacing:.03em; }
+#studio-panel .studio-question { color:#f1faff;font-weight:700;margin:10px 0;line-height:1.6; }
+#studio-panel .studio-choices { display:grid;gap:7px;grid-template-columns:repeat(2,1fr);margin:12px 0; }
+#studio-panel .studio-result { background:#1b3949;border-left:3px solid #9ad8ff;padding:9px 11px;border-radius:5px; }
+#studio-panel ol { padding-left:25px; }
+#studio-panel ol li { padding:3px 0; }
+#studio-panel select,#studio-panel textarea,#studio-panel input[type=search] { width:100%;min-width:0; }
+#studio-panel textarea { display:block;resize:vertical; }
+#studio-panel details { border:1px solid #486279;border-radius:8px;margin:8px 0;padding:9px; }
+#studio-panel details summary { cursor:pointer;font-weight:700;color:#c7eaff; }
+#studio-panel .studio-original { white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;background:#091724;color:#ebf3fc;font:12px/1.65 ui-monospace,Consolas,monospace;max-height:none;overflow:visible; }
+#studio-panel .studio-notice { color:#bed4e2; font-size:.82rem; border-left:3px solid #78a6c4;padding-left:10px; }
+#studio-panel a { overflow-wrap:anywhere; }
+@media(max-width:400px) { #studio-panel .studio-tabs {grid-template-columns:repeat(2,minmax(0,1fr));} #studio-panel .studio-choices{grid-template-columns:1fr;} }
+
+/* Nothing in source, books or lessons is packed into a collapsed/scroll-clipped card. */
+#studio-panel .studio-volume,#studio-panel .studio-source-record{border:1px solid #49667a;border-radius:10px;background:#13293a;padding:13px;margin:14px 0;}
+#studio-panel .studio-volume h4,#studio-panel .studio-source-record h4{margin:0 0 9px;line-height:1.35;color:#eaf6ff;}
+#studio-panel .studio-full-sources {max-height:none;overflow:visible;}
+#studio-panel .studio-source-record pre {max-height:none;overflow:visible;white-space:pre-wrap;}
+#studio-panel .studio-volume textarea {min-height:110px;max-height:none;}
+#studio-panel .studio-step h4 {font-size:.95rem;line-height:1.35;margin:0 0 6px;}
+#studio-panel .studio-source-record button {margin-top:8px;}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102133"><meta name="description" content="Nathan AI consumer previews, originals, creative learning, local-first storage and plain-language safety notices.">
+<title>NATHAN AI 🚀 — Consumer Editions | ONE</title>
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="../icon-192.png">
+<link rel="stylesheet" href="../appearance/shared.css" data-nathan-shared-appearance>
+<script src="../appearance/engine.js"></script><script src="../appearance/app.js"></script>
+<link rel="stylesheet" href="../launcher/shared.css" data-nathan-command-center>
+<script src="../workspace.js" defer></script><script src="../assistant/engine.js" defer></script>
+<script src="../launcher/engine.js" defer></script><script src="../launcher/app.js" defer></script>
+<style>
+:root{color-scheme:dark;--ink:#f3f8fc;--muted:#bed0d9;--bg:#0b1624;--panel:#162a3d;--panel2:#203c4f;--line:#4f6d7d;--gold:#f2d49a;--mint:#a8ebe3;--warn:#f6dcac;font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 12% 0%,#28485c 0%,transparent 35%),var(--bg);color:var(--ink)}a{color:var(--mint);text-underline-offset:3px}a:hover{text-decoration-thickness:2px}button,select,input{font:inherit;color:var(--ink);background:#0e2436;border:1px solid #668497;border-radius:10px;padding:11px;max-width:100%}button{cursor:pointer}button:hover{background:#29485a}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}input,select{width:100%}p{line-height:1.57}h1,h2,h3{line-height:1.2}h1{font-size:clamp(2.25rem,5vw,4.35rem);margin:12px 0;letter-spacing:-.055em}h2{font-size:clamp(1.25rem,2vw,1.55rem);margin:0 0 10px}h3{font-size:1.06rem;margin:8px 0}.eyebrow{font-size:.75rem;text-transform:uppercase;letter-spacing:.13em;font-weight:800;color:var(--gold)}.muted{color:var(--muted)}.wrap{max-width:1300px;margin:0 auto;padding:22px 18px 60px}.hero{padding:clamp(22px,4vw,48px);border:1px solid #7796a0;border-radius:22px;background:linear-gradient(120deg,#1c4052,#0f2233 65%,#1a303a)}.hero p{max-width:850px}.brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.logo{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:14px;background:#eed5a5;color:#132636;font-size:1.7rem;font-weight:900}.hero-mark{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.hero-mark span,.chip{background:#294454;border:1px solid #557785;border-radius:999px;padding:5px 10px;font-size:.78rem;display:inline-flex;align-items:center}.hero-mark span{color:#fce6bb;font-weight:700}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 0}.button-link{display:inline-block;text-decoration:none;border-radius:10px;background:var(--gold);color:#142a38;padding:11px 17px;font-weight:800}.secondary-link{border:1px solid #7fa4b0;background:#243e51;color:var(--ink)}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:19px;margin-top:18px}.notice{border-left:4px solid var(--gold);background:#2d302e;padding:13px 18px;border-radius:6px;margin:16px 0;color:#f4e5c5}.metric-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:18px 0}.metric{background:#1b3445;padding:16px;border:1px solid #617c8a;border-radius:13px}.metric strong{display:block;font-size:1.7rem}.metric span{font-size:.85rem;color:var(--muted)}.controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}.controls label,.region-controls label{display:block;font-weight:650;font-size:.88rem;color:var(--muted)}.controls label>input,.controls label>select,.region-controls label>select{display:block;margin-top:5px}.results{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,285px),1fr));gap:12px;margin-top:14px}.product{background:#10263a;border:1px solid #537287;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;min-height:230px}.product[data-selected=true]{border:2px solid var(--gold);background:#284050}.product h3{margin:0}.product p{margin:0;color:var(--muted);font-size:.93rem}.product .pill{font-size:.72rem;letter-spacing:.02em;color:#f4dba5}.product button{margin-top:auto;font-weight:700;text-align:left}.layout{display:grid;grid-template-columns:minmax(280px,1.05fr) minmax(280px,.95fr);gap:16px;align-items:start}.steps{padding-left:20px}.steps li{margin:9px 0}.warning-list{padding-left:19px}.warning-list li{margin:8px 0}.entry-info{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.risk{padding:10px 13px;background:#2c332b;border:1px solid #8e8a5e;border-radius:11px;color:var(--warn);margin:12px 0}.check{display:flex;gap:9px;align-items:flex-start;padding:12px 0}.check input{margin:4px 0 0;width:18px;height:18px;flex-shrink:0}.open-link{display:inline-block;background:var(--gold);color:#102534;font-weight:800;border-radius:10px;text-decoration:none;padding:11px 16px}.open-link[aria-disabled=true]{opacity:.5;pointer-events:none}.region-controls{max-width:680px}.source-links{display:flex;flex-direction:column;gap:7px;margin:10px 0}.plain-list li{margin:8px 0}.gate{border-bottom:1px solid #466176;padding:10px 0}.gate:last-child{border:0}.gate p{margin:3px 0}.state{color:var(--gold);font-size:.8rem;font-weight:700}.footer-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}.status{color:var(--mint);min-height:24px}.small{font-size:.85rem;color:var(--muted)}blockquote{border-left:3px solid var(--gold);margin:13px 0;padding:5px 16px;color:#f8e3b4}details{margin:12px 0}summary{cursor:pointer;font-weight:700;padding:10px}hr{border:0;border-top:1px solid var(--line);margin:20px 0}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.controls{grid-template-columns:1fr 1fr}.controls label:first-child{grid-column:1/-1}}@media(max-width:460px){.controls{grid-template-columns:1fr}.controls label:first-child{grid-column:auto}.wrap{padding:10px 10px 45px}.hero{border-radius:16px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style></head><body><div class="wrap">
+<header class="hero">
+ <div class="brand"><span class="logo" aria-hidden="true">N</span><span class="eyebrow">NATHAN AI 🚀 · JOHN NATHAN TABOR · CONSUMER EDITIONS</span></div>
+ <h1>BUILD. CLEAR. PRESERVE THE ORIGINAL.</h1>
+ <p>One doorway to the consumer-accessible parts of Nathan AI and ONE: original books, private archives, creative games, knowledge work, and safely bounded software previews. Every program gets its own purpose, limits, and source-based status.</p>
+ <div class="hero-mark"><span>1 + 1 = 2 — BUILD</span><span>1 − 1 = 0 — CLEAR</span><span>YES IS YES · NO IS NO</span><span>PROTECT INNOCENCE</span></div>
+ <div class="hero-actions"><a class="button-link" href="#browse">Browse programs</a><a class="button-link secondary-link" href="#regional">U.S. and international notices</a><a class="button-link secondary-link" href="../program-jobs/">Developer build inventory</a></div>
+</header>
+<div class="notice" role="note"><strong>Clear source and release status.</strong> These pages route to existing browser apps and previews. They are not blanket promises of antivirus efficacy, medical validity, instant cloud sync, universal legal compliance, or completed development. No region or legal right is determined from your IP address by this directory.</div>
+<section class="metric-row" id="stats" aria-label="Consumer catalog summary"><div class="metric"><strong>…</strong><span>Loading original-source directory</span></div></section>
+<section class="panel" id="offline" aria-labelledby="offline-title">
+ <div class="eyebrow">Optional · Public information only</div><h2 id="offline-title">Keep this directory available offline</h2>
+ <p class="muted">With your explicit choice, this browser can store only the public consumer directory files and dated notices for offline reading. It does not save private vaults, health information, other programs or third-party content. Offline legal guidance may be outdated: reconnect to obtain current requirements. This does not install antivirus, native software, or the other apps.</p>
+ <div class="hero-actions"><button type="button" id="enableOffline">Enable public-only offline copy</button><button type="button" id="removeOffline">Remove offline copy from this browser</button></div>
+ <p id="offlineStatus" role="status" class="small">Offline saving is optional and not automatically enabled by this directory.</p>
+</section>
+<section class="panel" id="browse" aria-labelledby="browse-title">
+ <div class="eyebrow">01 · Choose the job</div><h2 id="browse-title">Consumer programs</h2>
+ <p class="muted">Search by the job you need, not just the program name. Open a program's details to see its limitations before leaving this directory.</p>
+ <div class="controls">
+  <label for="query">Search programs and tasks<input id="query" type="search" placeholder="Find books, archive, protection, language, games…"></label>
+  <label for="category">Job category<select id="category"><option value="all">All jobs</option></select></label>
+  <label for="stage">Source readiness<select id="stage"><option value="all">All stages</option></select></label>
+ </div>
+ <p class="small" id="count" role="status"></p>
+ <div id="programs" class="results"></div>
+</section>
+<div class="layout">
+<section class="panel" aria-labelledby="details-title">
+ <div class="eyebrow">02 · Check before opening</div><h2 id="details-title">Program details and cautions</h2>
+ <div id="program-details" aria-live="polite"><p class="muted">Choose any program above to inspect its exact purpose, readiness and important limitations.</p></div>
+</section>
+<section class="panel" id="regional" aria-labelledby="region-title">
+ <div class="eyebrow">03 · United States and international release notices</div><h2 id="region-title">Choose your area for guidance</h2>
+ <p class="muted">Your selection is manual and stays in this page's memory. It is neither a location lookup nor a legal determination. Rules apply according to the actual operator, users, services and data practices.</p>
+ <div class="region-controls"><label for="region">Market or jurisdiction to review<select id="region"></select></label></div>
+ <div id="region-details" aria-live="polite"></div>
+ <p class="small">This directory does not ask for your name, payment details, health data or location and does not add analytics scripts. A hosting provider, linked module or browser may process ordinary connection or device information; review their notices separately.</p>
+</section>
+</div>
+<section class="panel" id="privacy" aria-labelledby="privacy-title">
+ <div class="eyebrow">Privacy by design · Source claims checked separately</div><h2 id="privacy-title">What each program may do with your data</h2>
+ <p>The individual program detail view now shows the input, device-storage and network/data-sharing boundaries supported by its original documentation or source. Unverified runtime behavior is clearly marked. A product listing is not a final GDPR, U.S. state privacy or other legally required notice.</p>
+ <div id="privacy-status" class="small" role="status"></div>
+ <p class="small"><a href="./data-practices.json">Read all twelve source-reviewed data summaries</a> · <a href="./CONSUMER_NOTICE.md">Read the dated consumer notice</a>. The legal publisher contact, retention practices, vendors and rights-request channel still need verification before a full commercial release.</p>
+</section>
+<section class="panel" id="readiness" aria-labelledby="gate-title">
+ <div class="eyebrow">04 · No invented 100%</div><h2 id="gate-title">Requirements before full commercial consumer release</h2>
+ <p>Each program must meet its own technical, data-protection and product-specific requirements. The gates below are **not cleared** simply because a public browser link exists or a disclaimer is displayed.</p>
+ <div id="gates"></div>
+</section>
+<section class="panel" id="creator-note">
+ <div class="eyebrow">05 · Preserve the creator's original voice</div><h2>Creator wording and interpretation</h2>
+ <p>Original creator statements and creative cosmology belong in an attributed works layer, separate from factual product descriptions, jurisdiction rules and scientific claims.</p>
+ <details><summary>Read the creator's exact global/international wording and factual clarification</summary>
+  <blockquote id="creator-quote"></blockquote><p id="creator-clarification" class="small"></p>
+ </details>
+ <p class="small">For consumer navigation and applicable law, “global” and “international” refer to geography and cross-border activity. These words do not classify Earth's shape; Earth is approximately an oblate spheroid. Biblical and ancient texts vary in genre and cosmological interpretation.</p>
+</section>
+<footer class="panel">
+ <div class="eyebrow">NATHAN AI · ONE · PROTECT THE ORIGINAL</div>
+ <p>Information and educational previews only unless a specific app accurately states otherwise. No legal, tax, medical, cybersecurity, or other regulated professional advice is supplied by this directory. Where consumer law grants non-waivable rights, this page does not waive them.</p>
+ <div class="footer-links"><a href="../">Nathan AI home</a><a href="../../one/">ONE home</a><a href="../program-jobs/">Builder catalog</a><a href="./README.md">Release documentation</a><a href="./CONSUMER_NOTICE.md">Consumer notice</a></div>
+ <p id="load-status" class="status" role="status"></p>
+</footer>
+</div>
+<script src="./engine.js"></script>
+<script src="./app.js" defer></script>
+</body></html>

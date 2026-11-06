@@ -1,0 +1,458 @@
+{
+  "config": {
+    "stage": 1,
+    "heroes": [
+      {
+        "id": "lyra",
+        "element": 0,
+        "attack": 24,
+        "maxHealth": 164,
+        "maxMana": 20
+      },
+      {
+        "id": "sylva",
+        "element": 1,
+        "attack": 24,
+        "maxHealth": 179,
+        "maxMana": 16
+      },
+      {
+        "id": "neris",
+        "element": 2,
+        "attack": 28,
+        "maxHealth": 189,
+        "maxMana": 20
+      },
+      {
+        "id": "oriel",
+        "element": 3,
+        "attack": 32,
+        "maxHealth": 164,
+        "maxMana": 16
+      },
+      {
+        "id": "vesper",
+        "element": 4,
+        "attack": 32,
+        "maxHealth": 169,
+        "maxMana": 24
+      }
+    ],
+    "seed": 2654460794,
+    "id": 1,
+    "items": {
+      "heal": 2,
+      "mana": 2,
+      "volley": 2
+    }
+  },
+  "actions": [
+    {
+      "type": "swap",
+      "a": 23,
+      "b": 24
+    },
+    {
+      "type": "swap",
+      "a": 25,
+      "b": 26
+    },
+    {
+      "type": "swap",
+      "a": 21,
+      "b": 26
+    },
+    {
+      "type": "swap",
+      "a": 10,
+      "b": 11
+    },
+    {
+      "type": "target",
+      "enemy": "1-2"
+    },
+    {
+      "type": "swap",
+      "a": 18,
+      "b": 23
+    },
+    {
+      "type": "swap",
+      "a": 6,
+      "b": 7
+    },
+    {
+      "type": "target",
+      "enemy": "1-1"
+    },
+    {
+      "type": "swap",
+      "a": 23,
+      "b": 24
+    },
+    {
+      "type": "swap",
+      "a": 12,
+      "b": 17
+    },
+    {
+      "type": "swap",
+      "a": 10,
+      "b": 15
+    },
+    {
+      "type": "target",
+      "enemy": "1-2"
+    },
+    {
+      "type": "swap",
+      "a": 28,
+      "b": 29
+    },
+    {
+      "type": "swap",
+      "a": 22,
+      "b": 23
+    },
+    {
+      "type": "target",
+      "enemy": "2-1"
+    },
+    {
+      "type": "swap",
+      "a": 11,
+      "b": 12
+    }
+  ],
+  "claimedState": {
+    "schema": "one.v025.realm.battle.v1",
+    "config": {
+      "stage": 1,
+      "heroes": [
+        {
+          "id": "lyra",
+          "element": 0,
+          "attack": 24,
+          "maxHealth": 164,
+          "maxMana": 20
+        },
+        {
+          "id": "sylva",
+          "element": 1,
+          "attack": 24,
+          "maxHealth": 179,
+          "maxMana": 16
+        },
+        {
+          "id": "neris",
+          "element": 2,
+          "attack": 28,
+          "maxHealth": 189,
+          "maxMana": 20
+        },
+        {
+          "id": "oriel",
+          "element": 3,
+          "attack": 32,
+          "maxHealth": 164,
+          "maxMana": 16
+        },
+        {
+          "id": "vesper",
+          "element": 4,
+          "attack": 32,
+          "maxHealth": 169,
+          "maxMana": 24
+        }
+      ],
+      "seed": 2654460794,
+      "id": 1,
+      "items": {
+        "heal": 2,
+        "mana": 2,
+        "volley": 2
+      }
+    },
+    "id": 1,
+    "stage": 1,
+    "seed": 2654460794,
+    "randomState": 2771340501,
+    "status": "won",
+    "wave": 2,
+    "turn": 12,
+    "budget": 60,
+    "board": [
+      3,
+      4,
+      0,
+      0,
+      3,
+      0,
+      3,
+      0,
+      2,
+      3,
+      2,
+      1,
+      2,
+      1,
+      0,
+      0,
+      4,
+      3,
+      2,
+      0,
+      0,
+      1,
+      3,
+      1,
+      4,
+      3,
+      1,
+      1,
+      0,
+      0,
+      2,
+      3,
+      0,
+      4,
+      3
+    ],
+    "heroes": [
+      {
+        "id": "lyra",
+        "element": 0,
+        "attack": 24,
+        "maxHealth": 164,
+        "maxMana": 20,
+        "health": 133,
+        "mana": 8,
+        "shield": 0,
+        "used": false
+      },
+      {
+        "id": "sylva",
+        "element": 1,
+        "attack": 24,
+        "maxHealth": 179,
+        "maxMana": 16,
+        "health": 161,
+        "mana": 8,
+        "shield": 0,
+        "used": false
+      },
+      {
+        "id": "neris",
+        "element": 2,
+        "attack": 28,
+        "maxHealth": 189,
+        "maxMana": 20,
+        "health": 171,
+        "mana": 20,
+        "shield": 0,
+        "used": false
+      },
+      {
+        "id": "oriel",
+        "element": 3,
+        "attack": 32,
+        "maxHealth": 164,
+        "maxMana": 16,
+        "health": 133,
+        "mana": 8,
+        "shield": 0,
+        "used": false
+      },
+      {
+        "id": "vesper",
+        "element": 4,
+        "attack": 32,
+        "maxHealth": 169,
+        "maxMana": 24,
+        "health": 157,
+        "mana": 10,
+        "shield": 0,
+        "used": false
+      }
+    ],
+    "enemies": [
+      {
+        "id": "2-0",
+        "name": "Cipher Warden",
+        "kind": 1,
+        "element": 1,
+        "health": 0,
+        "maxHealth": 91,
+        "attack": 7,
+        "from": 0,
+        "to": 0,
+        "broken": 0,
+        "guard": true
+      },
+      {
+        "id": "2-1",
+        "name": "Echo Seer",
+        "kind": 2,
+        "element": 2,
+        "health": 0,
+        "maxHealth": 91,
+        "attack": 7,
+        "from": 2,
+        "to": 2,
+        "broken": 0,
+        "guard": false
+      },
+      {
+        "id": "2-2",
+        "name": "Road Sentinel",
+        "kind": 0,
+        "element": 3,
+        "health": 0,
+        "maxHealth": 91,
+        "attack": 7,
+        "from": 4,
+        "to": 4,
+        "broken": 0,
+        "guard": false
+      }
+    ],
+    "target": "2-1",
+    "items": {
+      "heal": 2,
+      "mana": 2,
+      "volley": 2
+    },
+    "itemUsed": false,
+    "reshuffles": 0,
+    "score": 1840,
+    "log": [
+      "Echo Seer mends its allies.",
+      "Move 8 · 25 damage · 1 cascades · 2 ghost tiles",
+      "Echo Seer defeated; lanes 3–3 now yield double mana.",
+      "Move 9 · 30 damage · 1 cascades · 6 ghost tiles",
+      "Road Sentinel defeated; lanes 5–5 now yield double mana.",
+      "Move 10 · 29 damage · 2 cascades · 6 ghost tiles",
+      "Wave 2/2 · Open roads.",
+      "Move 11 · 196 damage · 4 cascades · 10 ghost tiles",
+      "Cipher Warden raises guard.",
+      "Cipher Warden defeated; lanes 1–1 now yield double mana.",
+      "Echo Seer defeated; lanes 3–3 now yield double mana.",
+      "Road Sentinel defeated; lanes 5–5 now yield double mana.",
+      "Move 12 · 77 damage · 4 cascades · 26 ghost tiles",
+      "Expedition complete. Return to the settlement for earned rewards."
+    ],
+    "last": {
+      "cleared": [
+        11,
+        12,
+        16,
+        17,
+        21,
+        22,
+        7,
+        8,
+        9,
+        22,
+        27,
+        32,
+        10,
+        11,
+        12,
+        13,
+        17,
+        22,
+        27,
+        30,
+        31,
+        32,
+        0,
+        1,
+        2,
+        7,
+        8,
+        9
+      ],
+      "damage": 77,
+      "ghost": 26,
+      "cascades": 4
+    },
+    "actions": [
+      {
+        "type": "swap",
+        "a": 23,
+        "b": 24
+      },
+      {
+        "type": "swap",
+        "a": 25,
+        "b": 26
+      },
+      {
+        "type": "swap",
+        "a": 21,
+        "b": 26
+      },
+      {
+        "type": "swap",
+        "a": 10,
+        "b": 11
+      },
+      {
+        "type": "target",
+        "enemy": "1-2"
+      },
+      {
+        "type": "swap",
+        "a": 18,
+        "b": 23
+      },
+      {
+        "type": "swap",
+        "a": 6,
+        "b": 7
+      },
+      {
+        "type": "target",
+        "enemy": "1-1"
+      },
+      {
+        "type": "swap",
+        "a": 23,
+        "b": 24
+      },
+      {
+        "type": "swap",
+        "a": 12,
+        "b": 17
+      },
+      {
+        "type": "swap",
+        "a": 10,
+        "b": 15
+      },
+      {
+        "type": "target",
+        "enemy": "1-2"
+      },
+      {
+        "type": "swap",
+        "a": 28,
+        "b": 29
+      },
+      {
+        "type": "swap",
+        "a": 22,
+        "b": 23
+      },
+      {
+        "type": "target",
+        "enemy": "2-1"
+      },
+      {
+        "type": "swap",
+        "a": 11,
+        "b": 12
+      }
+    ]
+  }
+}

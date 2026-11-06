@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan AI 🚀 — Wiring Logic Matrix (W) | ONE</title>
+<meta name="description" content="Local-first conceptual software demo of W exact BUILD / CLEAR arithmetic.">
+<style>
+:root{color-scheme:dark;font:16px system-ui;--bg:#0d151d;--panel:#1b2a34;--line:#42586a;--muted:#c0d0d8;--gold:#e9d6a8}
+*{box-sizing:border-box}body{background:var(--bg);color:#fff;margin:0}main{max-width:880px;margin:auto;padding:24px 16px 70px}
+a{color:var(--gold)}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.07em;font-weight:700;font-size:.8rem}
+h1{font-size:clamp(2rem,5vw,3rem)}p{color:var(--muted);line-height:1.6}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin:18px 0}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px}
+label{display:block;margin:12px 0 5px}input,select,button{font:inherit;border-radius:8px;border:1px solid #7f98a5;background:#243b4b;color:#fff;padding:11px}
+button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold)}
+pre{overflow-x:auto;white-space:pre-wrap;word-break:break-word;background:#0c1b25;border-radius:8px;padding:14px;line-height:1.6}
+.small{font-size:.84rem}
+</style>
+</head>
+<body><main>
+<nav><a href="../index.html">← Nathan AI Connected Matrix</a> · <a href="../../index.html">ONE home</a></nav>
+<div class="eyebrow">NATHAN AI 🚀 / ONE · DEEP ARREST ARCHITECTURE</div>
+<h1>W — Wiring Logic Matrix</h1>
+<p><strong>Absolute Nervous System</strong> is the author's source name. This interactive software demonstration maps four conceptual channels to the exact integer operations <strong>1 + 1 = 2</strong> and <strong>1 − 1 = 0</strong>. It does not change any physical nervous system.</p>
+<section class="pair" aria-label="Invariants">
+  <div class="panel"><div class="eyebrow">BUILD</div><h2>1 + 1 = 2</h2><p>Derive a retained combined software state.</p></div>
+  <div class="panel"><div class="eyebrow">CLEAR</div><h2>1 − 1 = 0</h2><p>Clear only the derived software state; retain original source.</p></div>
+</section>
+<section class="panel">
+<h2>W simulation</h2>
+<p>Choose an author-defined channel, a whole-bit signal, an explicit authorization bit, and an action. Nothing is stored or sent anywhere.</p>
+<div class="pair">
+  <div><label for="channel">Conceptual channel</label><select id="channel"><option>SENSORY</option><option>MOTOR</option><option>ALERT</option><option>PAIN</option></select></div>
+  <div><label for="signal">Signal bit</label><select id="signal"><option value="1">1 — present</option><option value="0">0 — absent</option></select></div>
+  <div><label for="consent">Operator consent bit</label><select id="consent"><option value="0">0 — hold</option><option value="1">1 — authorize demonstration</option></select></div>
+  <div><label for="action">Derived operation</label><select id="action"><option>BUILD</option><option>CLEAR</option></select></div>
+</div>
+<p><button id="simulate" type="button">Run local W simulation</button></p>
+<h3>Derived output (no physical actuation)</h3><pre id="result" role="status" aria-live="polite">Select inputs and run the simulation.</pre>
+</section>
+<section class="panel"><h2>Safety & original-source boundary</h2><p>This is not a neural implant, diagnostic instrument, treatment, pain override, or biological installation. It does not collect biometric records. The creator's original A–Z anatomical descriptions and Deep Arrest wording remain in the original private source files, not here. The W code only represents selected abstract software events.</p>
+<p class="small"><a href="./README.md">W documentation</a> · Status: proposed source-level browser prototype; medical effectiveness not claimed.</p></section>
+</main>
+<script src="./engine.js"></script>
+<script>
+(function(){"use strict";
+const get=id=>document.getElementById(id);
+get("simulate").addEventListener("click",function(){
+  try{
+    const event={channel:get("channel").value,signal:Number(get("signal").value),operatorConsent:Number(get("consent").value)};
+    get("result").textContent=JSON.stringify(window.NathanWiringLogicW.simulate([event],get("action").value),null,2);
+  }catch(error){get("result").textContent="Validation error: "+error.message;}
+});
+})();
+</script>
+</body></html>

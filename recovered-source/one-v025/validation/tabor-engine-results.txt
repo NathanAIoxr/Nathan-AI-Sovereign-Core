@@ -1,0 +1,28 @@
+✔ Tabor Decimal attribution is Nathan Tabor and explicit gate truth tables preserve ordinary arithmetic (1.378103ms)
+✔ binary inputs reject coercion, unknown modes and unbounded fields (0.263902ms)
+✔ Hox addresses are positional and exact 12 percent rounding avoids float over-rounding (0.542154ms)
+✔ positional arrays and potency inputs are bounded and leave their source intact (0.230942ms)
+✔ signal lookup uses the supplied dot product with deterministic positional ties (0.273005ms)
+✔ signal lookup rejects truncated dimensions and nonfinite or oversized vectors (0.149432ms)
+✔ the supplied 500000-unit capacity example conserves all 600000 incoming units (0.182321ms)
+✔ optional three-percent reserve matches the supplied two-transaction example (0.070475ms)
+✔ whole-unit reserves round up, fractional capacity rounds down and unsafe arithmetic rejects (0.209852ms)
+✔ repeated full-vault receipts divert precisely without negative balances or duplicate retention (0.1759ms)
+✔ distribution plans conserve remainders and do not invent recipients (0.199005ms)
+✔ local-cell preview runs synchronous bounded updates and does not mutate the input (0.233796ms)
+✔ new party loadouts use Hox potency and report the same attacks shown in combat (3.590523ms)
+✔ purpose lookup routes real assets and report/search have no game-state side effects (0.629754ms)
+✔ actual prior-build active save restores unchanged and its old replay remains exact (2.912608ms)
+✔ legacy receipt and closed settlement adopt the new framework without changing balances or replay (7.21778ms)
+✔ legacy battle activates positional rules only after it ends, retaining the old combat receipt (15.177841ms)
+✔ a changed custom capacity policy still diverts overflow into the existing inbox (0.341547ms)
+✔ malformed Tabor policy rejects atomically while legacy fields stay optional (0.533401ms)
+✔ capacity-policy adjustments preserve existing units and cannot change an active expedition (0.503527ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 82.943486

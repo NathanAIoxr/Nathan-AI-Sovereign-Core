@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d1822">
+<meta name="description" content="Nathan AI / ONE additive mind games, neuropath reference, and original system cross-index.">
+<title>Nathan AI 🚀 — THE MIND • NEUROPATH • GAME MATRIX</title>
+<style>
+:root{font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color-scheme:dark;--bg:#0d1822;--panel:#182c39;--card:#223947;--line:#4c6875;--light:#f4fafb;--muted:#c6d8df;--gold:#f1d29a;--cyan:#9ce6ef}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#1d5262 0%,transparent 42%),var(--bg);color:var(--light)}
+main{max-width:1200px;margin:auto;padding:20px 16px 75px}
+a{color:var(--gold)}nav{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:18px}
+h1{font-size:clamp(2.35rem,7vw,5.3rem);line-height:1.04;letter-spacing:-.055em;margin:.25em 0}h2{font-size:1.5rem;margin:0 0 10px}h3{font-size:1.07rem;margin:7px 0}p,li{color:var(--muted);line-height:1.6}
+small{color:var(--muted)}.eyebrow{color:var(--gold);font-size:.77rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em}
+.hero,.panel{border:1px solid var(--line);border-radius:18px;padding:clamp(18px,3vw,30px);margin:15px 0;background:var(--panel)}
+.hero{background:linear-gradient(125deg,#214a59,#18303f 65%,#16252e)}.hero p{max-width:800px}
+.tags,.controls,.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tags span{border:1px solid #81908d;border-radius:999px;color:var(--gold);padding:5px 12px;font-size:.83rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px;overflow-wrap:anywhere}
+.card p{font-size:.92rem;margin:6px 0 10px}.card .stage{font-size:.75rem;text-transform:uppercase;color:var(--cyan);letter-spacing:.08em}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.step{padding:14px;background:#203a47;border:1px solid var(--line);border-radius:12px;font-weight:700}.step b{display:block;color:var(--gold);font-size:1.35rem}
+button,input,select{font:inherit;color:var(--light);background:#2b4756;border:1px solid #83a1af;border-radius:9px;padding:11px;max-width:100%}
+input[type=search]{flex:2;min-width:185px}select{flex:1;min-width:180px}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+button.primary,a.primary{background:var(--gold);color:#192a32;font-weight:800;border-color:var(--gold)}
+a.primary{display:inline-block;text-decoration:none;padding:12px 15px;border-radius:9px}
+label{color:var(--muted);font-weight:650}label span{display:block;margin-bottom:5px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0}.stat{border:1px solid #607b87;background:#142d39;padding:14px;border-radius:12px}.stat strong{font-size:1.65rem;color:var(--gold);display:block}.stat small{display:block}
+.result{border-left:4px solid var(--gold);padding:12px 16px;background:#162d37;border-radius:7px;min-height:55px}
+#answer{width:min(100%,400px)}.note{border-left:3px solid var(--cyan);padding:10px 15px;background:#1a3441}.links{display:flex;flex-wrap:wrap;gap:14px}
+footer{font-size:.85rem;color:var(--muted);margin:30px 0}
+[hidden]{display:none!important}
+@media(max-width:680px){.steps{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:1fr 1fr 1fr}.stat strong{font-size:1.3rem}.grid{grid-template-columns:1fr}main{padding:13px 11px 60px}}
+</style>
+<script defer src="./matrix.js"></script>
+<link rel="stylesheet" href="../appearance/shared.css" data-nathan-shared-appearance><script src="../appearance/engine.js"></script><script src="../appearance/app.js"></script><link rel="stylesheet" href="../launcher/shared.css" data-nathan-command-center><script src="../workspace.js" defer></script><script src="../assistant/engine.js" defer></script><script src="../launcher/engine.js" defer></script><script src="../launcher/app.js" defer></script></head>
+<body><main>
+<nav aria-label="ONE navigation"><a href="../index.html">← Nathan AI Main Hub</a><a href="../games/index.html">Games Atlas</a><a href="../anatomy/index.html">Anatomy A–Z</a><a href="../../one/nathan-matrix/anatomy/index.html">Nervous System W</a><a href="../../one/index.html">ONE</a></nav>
+<header class="hero">
+<div class="eyebrow">NATHAN AI 🚀 → TABOR ROOT → TABOR 1-2-3 FACTORY → ONE APP</div>
+<h1>THE MIND<br>NEUROPATH<br>GAME MATRIX</h1>
+<p>THE FRONT PORCH MIRROR · B.S.N.M. · ONE — THE SYMBIOTIC MIND · ANATOMY A–Z · DEEP ARREST · MAGICAL MINDS · THE GAME OF GAMES. A single source-first doorway to connected ideas, existing browser modules and seven small playable demonstrations.</p>
+<div class="tags"><span>1+1=2 BUILD</span><span>1−1=0 CLEAR</span><span>YES is YES — NO is NO</span><span>MICRO / MEZO / MACRO</span></div>
+<div class="stats"><div class="stat"><strong id="item-count">—</strong><small>public cross-index records</small></div><div class="stat"><strong id="task-count">—</strong><small>playable learning prompts</small></div><div class="stat"><strong>0</strong><small>originals overwritten</small></div></div>
+<p><small>The index contains recovered project concepts, educational references, and links to separately existing prototypes. Record counts are not completed-game counts and are not clinical measures.</small></p>
+</header>
+<section class="panel" aria-labelledby="flow-heading"><h2 id="flow-heading">One connected route — without crushing the originals</h2>
+<div class="steps"><div class="step"><b>01</b>INPUT<br><small>Observe / hear / read</small></div><div class="step"><b>02</b>PROCESS<br><small>Mind / memory / choice</small></div><div class="step"><b>03</b>PLAY<br><small>Games / puzzles / mirrors</small></div><div class="step"><b>04</b>EXECUTE<br><small>SEE IT / START IT / FINISH IT / DELIVER IT</small></div></div>
+<p>The neuropath reference distinguishes physical nervous-system anatomy (CNS / PNS) from your author-defined software metaphors. No device here accesses, rewires, heals or controls a human nervous system.</p>
+<div class="links"><a href="../anatomy/index.html">Anatomy A–Z atlas</a><a href="../../one/nathan-matrix/anatomy/index.html">W wiring simulation</a><a href="../games/index.html">Game source archive and local original imports</a></div>
+</section>
+<section class="panel" aria-labelledby="challenge-heading">
+<div class="eyebrow">Interactive demonstration · not IQ or diagnosis</div><h2 id="challenge-heading">THE FRONT PORCH CHALLENGE</h2>
+<p>Try a few short, transparent tasks from the cognitive, mirror, arithmetic and neuropath-reference families. Nothing here is a validated assessment. Results are session-only and never uploaded.</p>
+<div class="controls">
+<label for="archetype">Opponent lens <select id="archetype" aria-label="Opponent lens"><option>Bluffer</option><option>Conservative</option><option>Tracker</option><option>Wild Card</option></select></label>
+<label for="task">Select challenge <select id="task" aria-label="Select challenge"></select></label>
+</div><div class="card" style="margin-top:14px"><div class="eyebrow" id="task-axis"></div><h3 id="prompt-title"></h3><p id="prompt"></p>
+<div class="actions"><button type="button" id="hide-prompt">Hide prompt</button><label for="answer">Your answer <input id="answer" type="text" maxlength="100" autocomplete="off" spellcheck="false" placeholder="Enter your answer"></label><button class="primary" type="button" id="check">Check answer</button><button type="button" id="next">Next challenge</button><button type="button" id="reset">Reset demo</button></div>
+<p id="lens" class="note" aria-live="polite"></p><div class="result" id="challenge-result" role="status" aria-live="polite">Choose a prompt and answer in your own words.</div><p><small id="challenge-stats">This session: 0 checked · 0 correct. No profile or skill score is created.</small></p></div></section>
+<section class="panel" aria-labelledby="atlas-heading"><div class="eyebrow">Cross-linked index · original sources remain separate</div><h2 id="atlas-heading">Find the systems, games, puzzles and neuropaths</h2>
+<div class="controls"><input id="search" type="search" aria-label="Search the mind and neuropath index" placeholder="Search memory, cortex, mirror, game, anatomy, MD…"><select id="family" aria-label="Choose family"><option value="">All families</option></select></div>
+<p id="index-status" role="status" aria-live="polite"></p><div id="records" class="grid"></div></section>
+<section class="panel"><h2>Source preservation and limits</h2><p>Original texts, private manuscript packages and personal records are not silently transferred into this public web module. Use the existing <a href="../games/index.html">Games & Puzzles Atlas</a> for your owner-controlled source pack, <a href="../../one/library/index.html">ONE Master Library</a> for originals, and <a href="../../vault.html">Owner Vault</a> for owner-selected files.</p>
+<p>Records are labeled as recovered concepts, existing modules, references or demonstrations. The playable prompts are new implementations linked to earlier designs—not replacements for the original complete games, texts or 101-tool research corpus.</p></section>
+<footer>Author: Nathan Tabor · Nathan AI 🚀 / ONE · Source → Index → Connect → Demonstrate. No third-party service, diagnostics, automatic storage, clinical treatment, or proprietary game license.</footer>
+</main>
+<script>
+(function(){"use strict";
+const api=window.NathanMindNeuropath;
+const $=id=>document.getElementById(id);
+if(!api){$("index-status").textContent="Reference engine unavailable.";return;}
+$("item-count").textContent=String(api.ENTRIES.length);
+$("task-count").textContent=String(api.TASKS.length);
+const task=$("task"),family=$("family");
+api.TASKS.forEach(t=>{const o=document.createElement("option");o.value=t.id;o.textContent=t.title;task.append(o);});
+[...new Set(api.ENTRIES.map(e=>e.family))].forEach(name=>{const o=document.createElement("option");o.value=name;o.textContent=name;family.append(o);});
+let seen=0,correct=0,hidden=false;
+function drawPrompt(){const t=api.TASKS.find(t=>t.id===task.value);if(!t)return;$("prompt-title").textContent=t.title;$("task-axis").textContent=t.axis;$("prompt").textContent=t.prompt;$("prompt").hidden=false;$("hide-prompt").textContent="Hide prompt";hidden=false;$("answer").value="";$("challenge-result").textContent="Take your turn.";drawLens();}
+function drawLens(){const archetype=$("archetype").value;const descriptions={Bluffer:"Question what a clue might conceal.",Conservative:"Check the smallest reliable step.",Tracker:"Keep track of each symbol, number, and choice.","Wild Card":"Try an alternate strategy before you commit."};$("lens").textContent=archetype+" lens: "+descriptions[archetype];}
+function drawRecords(){const q=$("search").value,group=family.value,rows=api.findEntries(q,group),box=$("records");box.replaceChildren();$("index-status").textContent=rows.length+" of "+api.ENTRIES.length+" indexed records";for(const e of rows){const card=document.createElement("article");card.className="card";const tag=document.createElement("div");tag.className="stage";tag.textContent=e.family+" · "+e.stage;const h=document.createElement("h3");h.textContent=e.title;const p=document.createElement("p");p.textContent=e.detail;card.append(tag,h,p);if(e.url){const a=document.createElement("a");a.href=e.url;a.textContent="Open related module";card.append(a);}box.append(card);}}
+$("check").addEventListener("click",()=>{const t=api.TASKS.find(x=>x.id===task.value);try{const result=api.evaluate(t.id,$("answer").value);seen++;if(result.correct)correct++;$("challenge-result").textContent=result.correct?"Correct. "+t.axis+" example complete.":"Not this time. Demonstration answer: "+result.expected+". Hint: "+t.hint;$("challenge-stats").textContent="This session: "+seen+" checked · "+correct+" correct. No profile or clinical score is created.";}catch(e){$("challenge-result").textContent=e.message;}});
+$("next").addEventListener("click",()=>{const i=api.TASKS.findIndex(t=>t.id===task.value);task.value=api.TASKS[(i+1)%api.TASKS.length].id;drawPrompt();});
+$("reset").addEventListener("click",()=>{seen=0;correct=0;task.value=api.TASKS[0].id;$("challenge-stats").textContent="This session: 0 checked · 0 correct. No profile or skill score is created.";drawPrompt();});
+$("hide-prompt").addEventListener("click",()=>{hidden=!hidden;$("prompt").hidden=hidden;$("hide-prompt").textContent=hidden?"Show prompt":"Hide prompt";});
+task.addEventListener("change",drawPrompt);$("archetype").addEventListener("change",drawLens);$("search").addEventListener("input",drawRecords);family.addEventListener("change",drawRecords);
+$("answer").addEventListener("keydown",event=>{if(event.key==="Enter")$("check").click();});task.value=api.TASKS[0].id;drawPrompt();drawRecords();
+})();
+</script></body></html>

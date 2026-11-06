@@ -1,0 +1,3 @@
+CTD_DATABASE_PATH=./toy-drive.sqlite3
+# 16+ character random secret for development staff tools; server only.
+CTD_ADMIN_KEY=

@@ -1,0 +1,39 @@
+'use strict';
+const test=require('node:test');const assert=require('node:assert/strict');const engine=require('./engine.js');const features=require('./features.json');const roots=require('./settings.json');
+test('all seven modes retain their labels',()=>{assert.equal(Object.keys(engine.MODE_LABELS).length,7);assert.ok(engine.MODE_LABELS.theology.includes('God Lies'));});
+test('A–Z lists precisely 104 unique original titles',()=>{const rows=engine.validateCatalog(features,'consumer-feature-catalog.v1');assert.equal(rows.length,104);assert.equal(new Set(rows.map(x=>x.title)).size,104);for(const letter of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')assert.equal(rows.filter(x=>x.letter===letter).length,4)});
+test('only the 43 actually enumerated settings appear',()=>{const rows=engine.validateCatalog(roots,'root-settings-excerpt.v1');assert.equal(rows.length,43);assert.ok(rows.some(x=>x.title==='Addition Mode (1+1=2)'));});
+test('directory filtering accepts A–Z and complete search',()=>{const rows=engine.validateCatalog(features,'consumer-feature-catalog.v1');assert.equal(engine.catalogSearch(rows,'','A',100).length,4);assert.ok(engine.catalogSearch(rows,'calendar').some(x=>/calendar/i.test(x.title+' '+x.sourceDescription)));});
+test('status of inventions not silently promoted to shipped',()=>{assert.ok(features.items.every(x=>x.stage==='concept'));assert.ok(engine.reply('/features').answer.includes('104'));});
+test('group assembly is source research not alleged historical quotes',()=>{const row=engine.assembly('justice',['jesus','mlkjr']);assert.match(row.answer,/research perspectives/);assert.match(row.answer,/not actual historical speech/);assert.ok(!row.answer.includes('Jesus says:'));});
+test('unrecognized group members are not instantiated',()=>{assert.match(engine.assembly('test',['imaginary-id']).answer,/Select one or more/)});
+test('modes change framing without asserting automatic truth purge',()=>{const row=engine.reply('Can you verify a historical claim?',{mode:'institution'});assert.match(row.answer,/Do not pre-judge/);});
+test('text remains literal in local response',()=>{const q='<script>alert(1)</script>';assert.doesNotThrow(()=>engine.reply(q));});
+test('save validation rejects incorrect JSON and impossible turns',()=>{assert.throws(()=>engine.validateSession({schema:'bad',turns:[]}));assert.throws(()=>engine.validateSession({schema:engine.SCHEMA,turns:[{role:'root',text:'abc',kind:'user'}]}));});
+test('credential detection rejects literal secret assignments',()=>{assert.throws(()=>engine.reply('password: hunter2'));assert.throws(()=>engine.validateSession({schema:engine.SCHEMA,turns:[{role:'user',text:'api_key=private',kind:'user'}]}))});
+test('source instructions are never executed from catalog',()=>{assert.equal(engine.reply('/sources').kind,'sources');assert.ok(engine.reply('/sources').answer.includes('configured local adapter'));});
+test('a hidden /reset command cannot clear state',()=>{assert.equal(engine.reply('/reset').kind,'reset-request');assert.match(engine.reply('/reset').answer,/visible CLEAR/)});
+test('links are bundled known destinations',()=>{for(const l of Object.values(engine.LINKS))assert.ok(l.url.startsWith('../')||l.url.startsWith('https://'));});
+test('D archive routes preserve exact source vs derived forms and existing modes',()=>{
+  const direct=engine.reply('/d variants');
+  assert.equal(direct.kind,'route');
+  assert.ok(direct.links.some(x=>x.url==='../../../../archive-index/alphabet/d/index.html'));
+  assert.ok(direct.links.some(x=>x.url.endsWith('canonical-d-sequences.json')));
+  assert.match(direct.answer,/138 D\/d-starting/);
+  assert.match(direct.answer,/14 The D titles/);
+  assert.equal(engine.reply('show me D variants').links[0].url,'../../../../archive-index/alphabet/d/index.html');
+  assert.match(engine.reply('/help').answer,/\/d /);
+  assert.equal(Object.keys(engine.MODE_LABELS).length,7);
+});
+test('title caps length',()=>assert.ok(engine.messageTitle('X'.repeat(900)).length<=60));
+test('root clear build module is reachable without changing existing modes',()=>{const result=engine.reply('/root');assert.equal(result.kind,'route');assert.ok(result.links.some(x=>x.url==='../root-clear/index.html'));assert.equal(engine.reply('/clear').kind,'route');assert.equal(engine.reply('/build').kind,'route');assert.equal(Object.keys(engine.MODE_LABELS).length,7);});
+
+test('E source-family routes preserve original meaning distinctions',()=>{
+ for(const q of ['/eloher','/ella','/evangelist','/eve','/eave']){
+  const r=engine.reply(q);
+  assert.equal(r.kind,'route');assert.ok(r.links.some(x=>x.url.includes('#e-word-families')));
+ }
+ assert.equal(engine.reply('/e geometry').kind,'route');
+ assert.match(engine.reply('/evangelist').answer,/not good/);
+ assert.ok(engine.reply("find the Eloher's").links[0].url.includes('#e-word-families'));
+});

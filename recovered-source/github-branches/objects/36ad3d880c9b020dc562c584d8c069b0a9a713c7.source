@@ -1,0 +1,2888 @@
+{
+  "meta": {
+    "name": "THE FIVE MATRICES",
+    "subtitle": "The Twelve Rings / Twelve Gates Atlas",
+    "version": "1.0.0",
+    "copyright": "Independent interpretive study tool. No affiliation with Tolkien or C. S. Lewis estates.",
+    "policy": "Canonical works, scriptural references, and interpretive transformations are kept distinct. Source objects are never converted in place.",
+    "arithmetic": [
+      "1 + 1 = 2 — BUILD",
+      "1 − 1 = 0 — CLEAR",
+      "8 fingers + 2 thumbs + 2 arm bracelets = 12 symbolic positions"
+    ]
+  },
+  "matrices": [
+    {
+      "id": "body",
+      "name": "BODY",
+      "index": "I",
+      "subtitle": "Form • materials • space",
+      "principle": "What physically exists, where it is placed, and what it can do.",
+      "questions": [
+        "What is it made of?",
+        "How large is it?",
+        "Is it jewelry, a weapon, furniture, a gate, or something else?"
+      ],
+      "keywords": [
+        "matter",
+        "structure",
+        "material",
+        "size"
+      ]
+    },
+    {
+      "id": "soul",
+      "name": "SOUL",
+      "index": "II",
+      "subtitle": "Identity • loyalty • belonging",
+      "principle": "Who bears an object and what relationships, memories, and loyalties attach to it.",
+      "questions": [
+        "Who bears or owns it?",
+        "What identity does it symbolize?",
+        "Whose loyalty is tested?"
+      ],
+      "keywords": [
+        "identity",
+        "loyalty",
+        "memory",
+        "belonging"
+      ]
+    },
+    {
+      "id": "shadow",
+      "name": "SHADOW",
+      "index": "III",
+      "subtitle": "Concealment • power • deception",
+      "principle": "What is concealed, coerced, corrupted, or strategically kept out of view.",
+      "questions": [
+        "What does it hide?",
+        "Who gains power from its secrecy?",
+        "Is its use coercive or protective?"
+      ],
+      "keywords": [
+        "deception",
+        "hidden",
+        "risk",
+        "power"
+      ]
+    },
+    {
+      "id": "mind",
+      "name": "MIND",
+      "index": "IV",
+      "subtitle": "Language • rules • strategy",
+      "principle": "How inscriptions, signals, logic, laws, reading, and decisions shape use.",
+      "questions": [
+        "What rules govern it?",
+        "How do we know what it does?",
+        "How is the mechanism communicated?"
+      ],
+      "keywords": [
+        "language",
+        "knowledge",
+        "logic",
+        "strategy"
+      ]
+    },
+    {
+      "id": "spirit",
+      "name": "SPIRIT",
+      "index": "V",
+      "subtitle": "Sacrifice • conscience • purpose",
+      "principle": "What the narrative presents as its moral purpose, sacrifice, hope, or ultimate consequence.",
+      "questions": [
+        "What moral tension does it represent?",
+        "Does it preserve or violate freedom?",
+        "What restoration is imagined?"
+      ],
+      "keywords": [
+        "ethics",
+        "freedom",
+        "sacrifice",
+        "hope"
+      ]
+    }
+  ],
+  "universes": [
+    {
+      "id": "lotr",
+      "name": "The Lord of the Rings",
+      "short": "LOTR",
+      "type": "literary",
+      "subtitle": "Middle-earth: the War of the Ring"
+    },
+    {
+      "id": "hobbit",
+      "name": "The Hobbit",
+      "short": "HOBBIT",
+      "type": "literary",
+      "subtitle": "Bilbo, Erebor, and the finding of the Ring"
+    },
+    {
+      "id": "narnia",
+      "name": "The Chronicles of Narnia",
+      "short": "NARNIA",
+      "type": "literary",
+      "subtitle": "Worlds, gifts, and sovereign claims"
+    },
+    {
+      "id": "kjv",
+      "name": "KJV Bible",
+      "short": "KJV",
+      "type": "scripture",
+      "subtitle": "Textual artifacts and passage references"
+    },
+    {
+      "id": "design",
+      "name": "Interpretive Workshop",
+      "short": "MODEL",
+      "type": "interpretation",
+      "subtitle": "Proposed symbolic 12-ring model"
+    }
+  ],
+  "categories": [
+    {
+      "id": "ring",
+      "name": "Physical ring / jewelry"
+    },
+    {
+      "id": "bracelet",
+      "name": "Bracelet / arm ring"
+    },
+    {
+      "id": "gate_literal",
+      "name": "Literal gate"
+    },
+    {
+      "id": "gate_vision",
+      "name": "Visionary gate"
+    },
+    {
+      "id": "gate_fig",
+      "name": "Figurative gate"
+    },
+    {
+      "id": "portal",
+      "name": "Portal / passage"
+    },
+    {
+      "id": "furniture",
+      "name": "Furniture"
+    },
+    {
+      "id": "monument",
+      "name": "Monument / architecture"
+    },
+    {
+      "id": "weapon",
+      "name": "Weapon / blade"
+    },
+    {
+      "id": "armor",
+      "name": "Armor / protection"
+    },
+    {
+      "id": "tool",
+      "name": "Tool / device"
+    },
+    {
+      "id": "treasure",
+      "name": "Treasure / vessel"
+    },
+    {
+      "id": "person",
+      "name": "Character / person"
+    },
+    {
+      "id": "place",
+      "name": "Place / realm"
+    },
+    {
+      "id": "law",
+      "name": "Law / governing rule"
+    },
+    {
+      "id": "concept",
+      "name": "Interpretive concept"
+    }
+  ],
+  "objects": [
+    {
+      "id": "lotr.one",
+      "title": "The One Ring",
+      "universe": "lotr",
+      "category": "ring",
+      "summary": "The ruling Ring made by Sauron in Mount Doom; tied to dominion over the other Rings of Power.",
+      "source": "The Lord of the Rings; The Silmarillion",
+      "matrices": [
+        "body",
+        "shadow",
+        "mind",
+        "spirit"
+      ],
+      "function": "Conceals wearer from ordinary sight and draws on Sauron’s power.",
+      "material": "Gold",
+      "dimensions": "Not given as a fixed measurement",
+      "bearer": "Sauron → Isildur → Gollum → Bilbo → Frodo",
+      "status": "literary",
+      "attributes": [
+        "Black Speech inscription",
+        "Central control",
+        "Corruption"
+      ],
+      "links": [
+        "hobbit.discovery"
+      ]
+    },
+    {
+      "id": "lotr.narya",
+      "title": "Narya — Ring of Fire",
+      "universe": "lotr",
+      "category": "ring",
+      "summary": "One of the Three Elven Rings; worn by Gandalf in the later Third Age.",
+      "source": "The Lord of the Rings, Appendix B; The Silmarillion",
+      "matrices": [
+        "body",
+        "soul",
+        "spirit"
+      ],
+      "function": "Associated with courage, kindling hearts, and resistance to despair.",
+      "material": "Gold with a red stone",
+      "dimensions": "Not specified",
+      "bearer": "Gandalf",
+      "status": "literary",
+      "attributes": [],
+      "links": [
+        "lotr.one"
+      ]
+    },
+    {
+      "id": "lotr.nenya",
+      "title": "Nenya — Ring of Water",
+      "universe": "lotr",
+      "category": "ring",
+      "summary": "One of the Three, entrusted to Galadriel.",
+      "source": "The Lord of the Rings",
+      "matrices": [
+        "body",
+        "soul",
+        "shadow",
+        "spirit"
+      ],
+      "function": "Associated with preservation of Lórien.",
+      "material": "Mithril with a white stone",
+      "dimensions": "Not specified",
+      "bearer": "Galadriel",
+      "status": "literary",
+      "attributes": [],
+      "links": [
+        "lotr.one"
+      ]
+    },
+    {
+      "id": "lotr.vilya",
+      "title": "Vilya — Ring of Air",
+      "universe": "lotr",
+      "category": "ring",
+      "summary": "One of the Three, entrusted to Elrond.",
+      "source": "The Lord of the Rings",
+      "matrices": [
+        "body",
+        "soul",
+        "spirit"
+      ],
+      "function": "The mightiest of the Three; preservation and protection.",
+      "material": "Gold with a blue stone",
+      "dimensions": "Not specified",
+      "bearer": "Elrond",
+      "status": "literary",
+      "attributes": [],
+      "links": [
+        "lotr.one"
+      ]
+    },
+    {
+      "id": "lotr.seven",
+      "title": "Seven Dwarf-rings",
+      "universe": "lotr",
+      "category": "ring",
+      "summary": "Seven Rings associated with the Dwarf-lords, wealth, and intensified greed.",
+      "source": "The Lord of the Rings, “Of the Rings of Power and the Third Age”",
+      "matrices": [
+        "body",
+        "shadow",
+        "soul"
+      ],
+      "function": "Influence the accumulation of treasure; they did not turn Dwarves into wraiths.",
+      "material": "Various",
+      "dimensions": "Not specified",
+      "bearer": "Dwarf-lords",
+      "status": "literary",
+      "attributes": [],
+      "links": [
+        "lotr.one"
+      ]
+    },
+    {
+      "id": "lotr.nine",
+      "title": "Nine Rings for Mortal Men",
+      "universe": "lotr",
+      "category": "ring",
+      "summary": "Nine Rings that enslave their bearers as Ringwraiths, the Nazgûl.",
+      "source": "The Lord of the Rings",
+      "matrices": [
+        "body",
+        "shadow",
+        "soul",
+        "spirit"
+      ],
+      "function": "Prolonged corruption and domination.",
+      "material": "Various",
+      "dimensions": "Not specified",
+      "bearer": "Nazgûl",
+      "status": "literary",
+      "attributes": [],
+      "links": [
+        "lotr.one"
+      ]
+    },
+    {
+      "id": "lotr.anduril",
+      "title": "Andúril — Flame of the West",
+      "universe": "lotr",
+      "category": "weapon",
+      "summary": "Sword reforged from Narsil, symbol of Aragorn’s lineage and restored kingship.",
+      "source": "The Lord of the Rings, “The Ring Goes South”",
+      "matrices": [
+        "body",
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Sword; royal emblem and legitimacy.",
+      "material": "Reforged Elven-forged steel",
+      "dimensions": "Not specified",
+      "bearer": "Aragorn",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "lotr.narsil",
+      "title": "Narsil",
+      "universe": "lotr",
+      "category": "weapon",
+      "summary": "Broken sword of Elendil, reforged into Andúril.",
+      "source": "The Lord of the Rings",
+      "matrices": [
+        "body",
+        "soul",
+        "spirit"
+      ],
+      "function": "Heirloom embodying broken and restored kingship.",
+      "material": "Steel",
+      "dimensions": "Not specified",
+      "bearer": "Elendil → Isildur → Aragorn",
+      "status": "literary",
+      "attributes": [],
+      "links": [
+        "lotr.anduril"
+      ]
+    },
+    {
+      "id": "lotr.glamdring",
+      "title": "Glamdring — Foe-hammer",
+      "universe": "lotr",
+      "category": "weapon",
+      "summary": "Ancient sword of Gondolin carried by Gandalf; shines blue in the presence of Orcs.",
+      "source": "The Hobbit; The Lord of the Rings",
+      "matrices": [
+        "body",
+        "mind",
+        "shadow"
+      ],
+      "function": "Melee defense and warning.",
+      "material": "Elven steel",
+      "dimensions": "Not specified",
+      "bearer": "Gandalf",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "lotr.sting",
+      "title": "Sting",
+      "universe": "lotr",
+      "category": "weapon",
+      "summary": "Elven blade used by Bilbo and later Frodo; glows blue near Orcs.",
+      "source": "The Hobbit; The Lord of the Rings",
+      "matrices": [
+        "body",
+        "mind",
+        "shadow",
+        "soul"
+      ],
+      "function": "Compact blade and proximity warning.",
+      "material": "Elven steel",
+      "dimensions": "Not specified",
+      "bearer": "Bilbo → Frodo",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "lotr.orcrist",
+      "title": "Orcrist — Goblin-cleaver",
+      "universe": "lotr",
+      "category": "weapon",
+      "summary": "Gondolin sword borne by Thorin Oakenshield.",
+      "source": "The Hobbit",
+      "matrices": [
+        "body",
+        "soul",
+        "mind"
+      ],
+      "function": "Sword and ancestral martial treasure.",
+      "material": "Elven steel",
+      "dimensions": "Not specified",
+      "bearer": "Thorin Oakenshield",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "lotr.morgul",
+      "title": "Morgul-blade",
+      "universe": "lotr",
+      "category": "weapon",
+      "summary": "Witch-king’s enchanted weapon that wounds Frodo at Weathertop.",
+      "source": "The Lord of the Rings, “A Knife in the Dark”",
+      "matrices": [
+        "body",
+        "shadow",
+        "spirit"
+      ],
+      "function": "Supernatural wound threatening wraith-transformation.",
+      "material": "Enchanted metal",
+      "dimensions": "Not specified",
+      "bearer": "Witch-king",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "lotr.mithril",
+      "title": "Mithril coat",
+      "universe": "lotr",
+      "category": "armor",
+      "summary": "Lightweight mail made for an Elf-prince and later worn by Bilbo and Frodo.",
+      "source": "The Hobbit; The Lord of the Rings",
+      "matrices": [
+        "body",
+        "shadow",
+        "soul"
+      ],
+      "function": "Physical protection against a powerful blow.",
+      "material": "Mithril rings",
+      "dimensions": "Not specified",
+      "bearer": "Bilbo → Frodo",
+      "status": "literary",
+      "attributes": [],
+      "links": [
+        "kjv.armor"
+      ]
+    },
+    {
+      "id": "lotr.phial",
+      "title": "Phial of Galadriel",
+      "universe": "lotr",
+      "category": "tool",
+      "summary": "Small crystal vessel holding the light of Eärendil’s star.",
+      "source": "The Lord of the Rings, “Farewell to Lórien”",
+      "matrices": [
+        "body",
+        "shadow",
+        "spirit"
+      ],
+      "function": "Light in dark places.",
+      "material": "Crystal",
+      "dimensions": "Not specified",
+      "bearer": "Frodo → Sam",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "lotr.palantir",
+      "title": "Palantír",
+      "universe": "lotr",
+      "category": "tool",
+      "summary": "Seeing-stone enabling far sight and communication, with danger of manipulation.",
+      "source": "The Lord of the Rings",
+      "matrices": [
+        "body",
+        "mind",
+        "shadow"
+      ],
+      "function": "Long-distance viewing and communication.",
+      "material": "Stone",
+      "dimensions": "Not specified",
+      "bearer": "Various",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "lotr.durin",
+      "title": "Doors of Durin",
+      "universe": "lotr",
+      "category": "portal",
+      "summary": "Doors at the West-gate of Moria opened with a word of friendship.",
+      "source": "The Lord of the Rings, “A Journey in the Dark”",
+      "matrices": [
+        "body",
+        "mind",
+        "shadow"
+      ],
+      "function": "Controlled entrance and inscribed puzzle.",
+      "material": "Stone / ithildin inscription",
+      "dimensions": "Not specified",
+      "bearer": "Fellowship",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "lotr.mountdoom",
+      "title": "Mount Doom",
+      "universe": "lotr",
+      "category": "place",
+      "summary": "Volcanic site where the One Ring was forged and destroyed.",
+      "source": "The Lord of the Rings",
+      "matrices": [
+        "body",
+        "shadow",
+        "spirit"
+      ],
+      "function": "The Ring can be destroyed in its fires.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "lotr.frodo",
+      "title": "Frodo Baggins",
+      "universe": "lotr",
+      "category": "person",
+      "summary": "Ring-bearer undertaking the journey to Mordor.",
+      "source": "The Lord of the Rings",
+      "matrices": [
+        "soul",
+        "shadow",
+        "mind",
+        "spirit"
+      ],
+      "function": "Endurance and mercy.",
+      "material": "—",
+      "dimensions": "—",
+      "bearer": "Frodo",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "lotr.sam",
+      "title": "Samwise Gamgee",
+      "universe": "lotr",
+      "category": "person",
+      "summary": "Companion whose loyalty and physical support are essential to the quest.",
+      "source": "The Lord of the Rings",
+      "matrices": [
+        "body",
+        "soul",
+        "spirit"
+      ],
+      "function": "Loyalty and perseverance.",
+      "material": "—",
+      "dimensions": "—",
+      "bearer": "Sam",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "lotr.aragorn",
+      "title": "Aragorn",
+      "universe": "lotr",
+      "category": "person",
+      "summary": "Ranger Strider, heir of Isildur, and later king.",
+      "source": "The Lord of the Rings",
+      "matrices": [
+        "soul",
+        "mind",
+        "shadow",
+        "spirit"
+      ],
+      "function": "Hidden identity, leadership, royal legitimacy.",
+      "material": "—",
+      "dimensions": "—",
+      "bearer": "Aragorn",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "lotr.gandalf",
+      "title": "Gandalf",
+      "universe": "lotr",
+      "category": "person",
+      "summary": "Istari guide, wielder of Glamdring and keeper of Narya.",
+      "source": "The Hobbit; The Lord of the Rings",
+      "matrices": [
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Guidance, wisdom, resistance.",
+      "material": "—",
+      "dimensions": "—",
+      "bearer": "Gandalf",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "lotr.sauron",
+      "title": "Sauron",
+      "universe": "lotr",
+      "category": "person",
+      "summary": "Fallen Maia seeking dominion through the ruling Ring.",
+      "source": "The Lord of the Rings",
+      "matrices": [
+        "shadow",
+        "mind",
+        "spirit"
+      ],
+      "function": "Domination and strategic control.",
+      "material": "—",
+      "dimensions": "—",
+      "bearer": "Sauron",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "lotr.eye",
+      "title": "The Eye of Sauron",
+      "universe": "lotr",
+      "category": "concept",
+      "summary": "Emblem of Sauron’s surveillance and oppressive will; not proof of an exclusively disembodied eye.",
+      "source": "The Lord of the Rings",
+      "matrices": [
+        "shadow",
+        "mind",
+        "spirit"
+      ],
+      "function": "Watchfulness, fear, control.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "hobbit.discovery",
+      "title": "Bilbo finds the One Ring",
+      "universe": "hobbit",
+      "category": "concept",
+      "summary": "The finding of the same One Ring in Gollum’s cavern; this is an event, not a second physical ring.",
+      "source": "The Hobbit, “Riddles in the Dark”",
+      "matrices": [
+        "soul",
+        "mind",
+        "shadow"
+      ],
+      "function": "Transfers the Ring into Bilbo’s possession.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": [
+        "lotr.one"
+      ]
+    },
+    {
+      "id": "hobbit.arkenstone",
+      "title": "The Arkenstone",
+      "universe": "hobbit",
+      "category": "treasure",
+      "summary": "The Heart of the Mountain, a luminous jewel with immense dynastic significance to Erebor.",
+      "source": "The Hobbit",
+      "matrices": [
+        "body",
+        "soul",
+        "shadow"
+      ],
+      "function": "Claim of kingship and negotiating leverage.",
+      "material": "Gemstone",
+      "dimensions": "Not specified",
+      "bearer": "Thorin / Bilbo",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "hobbit.blackarrow",
+      "title": "The Black Arrow",
+      "universe": "hobbit",
+      "category": "weapon",
+      "summary": "Bard’s inherited arrow used against Smaug; shot from his bow in the novel.",
+      "source": "The Hobbit, “Fire and Water”",
+      "matrices": [
+        "body",
+        "mind",
+        "soul"
+      ],
+      "function": "Projectile striking Smaug’s unarmored patch.",
+      "material": "Black iron / metal shaft per descriptions",
+      "dimensions": "Not specified",
+      "bearer": "Bard",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "hobbit.thror-map",
+      "title": "Thrór’s Map and Moon-letters",
+      "universe": "hobbit",
+      "category": "tool",
+      "summary": "Hidden writing on the map reveals the secret door’s timing and access.",
+      "source": "The Hobbit, “A Short Rest”",
+      "matrices": [
+        "body",
+        "mind",
+        "shadow"
+      ],
+      "function": "Information encoded in moon-letters.",
+      "material": "Parchment",
+      "dimensions": "Not specified",
+      "bearer": "Thorin / Bilbo",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "hobbit.key",
+      "title": "Key to the Side-door",
+      "universe": "hobbit",
+      "category": "tool",
+      "summary": "Small key opening Erebor’s concealed entrance.",
+      "source": "The Hobbit, “On the Doorstep”",
+      "matrices": [
+        "body",
+        "mind",
+        "shadow"
+      ],
+      "function": "Grants physical access when door is revealed.",
+      "material": "Metal",
+      "dimensions": "Not specified",
+      "bearer": "Thorin",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "hobbit.side-door",
+      "title": "Erebor Side-door",
+      "universe": "hobbit",
+      "category": "portal",
+      "summary": "Secret mountain passage located through clues and moon-letters.",
+      "source": "The Hobbit",
+      "matrices": [
+        "body",
+        "mind",
+        "shadow"
+      ],
+      "function": "Concealed passage into the Lonely Mountain.",
+      "material": "Stone",
+      "dimensions": "Not specified",
+      "bearer": "Thorin’s Company",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "hobbit.erebor",
+      "title": "Erebor / Lonely Mountain",
+      "universe": "hobbit",
+      "category": "place",
+      "summary": "Mountain kingdom and Smaug’s hoard.",
+      "source": "The Hobbit",
+      "matrices": [
+        "body",
+        "soul",
+        "shadow"
+      ],
+      "function": "Ancestral home and contested treasure.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "hobbit.bilbo",
+      "title": "Bilbo Baggins",
+      "universe": "hobbit",
+      "category": "person",
+      "summary": "Unlikely burglar whose cleverness, mercy, and courage alter the expedition.",
+      "source": "The Hobbit",
+      "matrices": [
+        "soul",
+        "mind",
+        "shadow",
+        "spirit"
+      ],
+      "function": "Stealth, choice, mercy.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "hobbit.thorin",
+      "title": "Thorin Oakenshield",
+      "universe": "hobbit",
+      "category": "person",
+      "summary": "Exiled heir pursuing his ancestors’ mountain kingdom.",
+      "source": "The Hobbit",
+      "matrices": [
+        "soul",
+        "shadow",
+        "spirit"
+      ],
+      "function": "Kingship, inheritance, dragon-sickness.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "hobbit.smaug",
+      "title": "Smaug",
+      "universe": "hobbit",
+      "category": "person",
+      "summary": "Fire-drake occupying Erebor and hoarding its treasure.",
+      "source": "The Hobbit",
+      "matrices": [
+        "body",
+        "shadow",
+        "mind"
+      ],
+      "function": "Threat, greed, physical vulnerability.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "hobbit.bard",
+      "title": "Bard the Bowman",
+      "universe": "hobbit",
+      "category": "person",
+      "summary": "Defender of Lake-town who shoots the Black Arrow.",
+      "source": "The Hobbit",
+      "matrices": [
+        "body",
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Skill, responsibility, courage.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "hobbit.gollum",
+      "title": "Gollum",
+      "universe": "hobbit",
+      "category": "person",
+      "summary": "Riddle-opponent who previously possessed the One Ring.",
+      "source": "The Hobbit; The Lord of the Rings",
+      "matrices": [
+        "soul",
+        "mind",
+        "shadow"
+      ],
+      "function": "Possession, deception, and loss.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.yellow",
+      "title": "Yellow Magic Ring",
+      "universe": "narnia",
+      "category": "ring",
+      "summary": "Uncle Andrew’s yellow ring draws a traveler out of a world toward the Wood between the Worlds.",
+      "source": "The Magician’s Nephew",
+      "matrices": [
+        "body",
+        "mind",
+        "shadow"
+      ],
+      "function": "Inter-world departure.",
+      "material": "Enchanted ring",
+      "dimensions": "Not specified",
+      "bearer": "Digory / Polly",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.green",
+      "title": "Green Magic Ring",
+      "universe": "narnia",
+      "category": "ring",
+      "summary": "Uncle Andrew’s green ring moves a traveler from the Wood into a selected world.",
+      "source": "The Magician’s Nephew",
+      "matrices": [
+        "body",
+        "mind",
+        "shadow"
+      ],
+      "function": "Inter-world entry.",
+      "material": "Enchanted ring",
+      "dimensions": "Not specified",
+      "bearer": "Digory / Polly",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.wardrobe",
+      "title": "The Wardrobe",
+      "universe": "narnia",
+      "category": "furniture",
+      "summary": "Wooden wardrobe built from a tree grown from a Narnian magical apple; sometimes becomes a doorway to Narnia.",
+      "source": "The Lion, the Witch and the Wardrobe; The Magician’s Nephew",
+      "matrices": [
+        "body",
+        "mind",
+        "shadow"
+      ],
+      "function": "Furniture with a linked portal function.",
+      "material": "Wood",
+      "dimensions": "Not specified",
+      "bearer": "Pevensie children",
+      "status": "literary",
+      "attributes": [],
+      "links": [
+        "narnia.wardrobe-gate"
+      ]
+    },
+    {
+      "id": "narnia.wardrobe-gate",
+      "title": "Wardrobe gateway interpretation",
+      "universe": "narnia",
+      "category": "portal",
+      "summary": "Separate functional entry for the Wardrobe as a passage; the original furniture classification is preserved.",
+      "source": "Derived functional classification from Narnia narrative",
+      "matrices": [
+        "body",
+        "mind",
+        "shadow"
+      ],
+      "function": "Connects Earth and Narnia under magical conditions.",
+      "material": "Linked to wooden wardrobe",
+      "dimensions": "Not specified",
+      "bearer": "Pevensies",
+      "status": "interpretation",
+      "attributes": [],
+      "links": [
+        "narnia.wardrobe"
+      ]
+    },
+    {
+      "id": "narnia.stone-table",
+      "title": "Stone Table",
+      "universe": "narnia",
+      "category": "monument",
+      "summary": "Ancient stone monument associated with Deep Magic, sacrifice, and a breaking of the table.",
+      "source": "The Lion, the Witch and the Wardrobe",
+      "matrices": [
+        "body",
+        "soul",
+        "spirit"
+      ],
+      "function": "Place of Aslan’s sacrificial death.",
+      "material": "Stone",
+      "dimensions": "Not specified",
+      "bearer": "Aslan / Jadis",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.peter-sword",
+      "title": "Peter’s sword (“Rhindon” in adaptations)",
+      "universe": "narnia",
+      "category": "weapon",
+      "summary": "Sword given to Peter by Father Christmas. The name Rhindon is prominent in adaptations rather than explicit original-book naming.",
+      "source": "The Lion, the Witch and the Wardrobe; adaptations",
+      "matrices": [
+        "body",
+        "soul",
+        "spirit"
+      ],
+      "function": "Arms and symbolizes Peter’s kingship.",
+      "material": "Steel",
+      "dimensions": "Not specified",
+      "bearer": "Peter Pevensie",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.peter-shield",
+      "title": "Peter’s shield",
+      "universe": "narnia",
+      "category": "armor",
+      "summary": "Shield given with Peter’s sword.",
+      "source": "The Lion, the Witch and the Wardrobe",
+      "matrices": [
+        "body",
+        "soul"
+      ],
+      "function": "Protection and heraldry.",
+      "material": "Not specified",
+      "dimensions": "Not specified",
+      "bearer": "Peter",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.susan-horn",
+      "title": "Susan’s Magic Horn",
+      "universe": "narnia",
+      "category": "tool",
+      "summary": "Horn that summons help when sounded, though form and timing of help vary.",
+      "source": "The Lion, the Witch and the Wardrobe; Prince Caspian",
+      "matrices": [
+        "body",
+        "mind",
+        "soul"
+      ],
+      "function": "Signal requesting aid.",
+      "material": "Ivory",
+      "dimensions": "Not specified",
+      "bearer": "Susan → Caspian",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.susan-bow",
+      "title": "Susan’s Bow and Arrows",
+      "universe": "narnia",
+      "category": "weapon",
+      "summary": "Father Christmas’s archery gift to Susan; described as exceptionally reliable.",
+      "source": "The Lion, the Witch and the Wardrobe",
+      "matrices": [
+        "body",
+        "mind",
+        "soul"
+      ],
+      "function": "Archery and defense.",
+      "material": "Wood / arrows",
+      "dimensions": "Not specified",
+      "bearer": "Susan",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.lucy-cordial",
+      "title": "Lucy’s Healing Cordial",
+      "universe": "narnia",
+      "category": "treasure",
+      "summary": "Diamond bottle carrying cordial that heals wounds.",
+      "source": "The Lion, the Witch and the Wardrobe",
+      "matrices": [
+        "body",
+        "soul",
+        "spirit"
+      ],
+      "function": "Treatment and healing.",
+      "material": "Diamond bottle / liquid",
+      "dimensions": "Not specified",
+      "bearer": "Lucy",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.lucy-dagger",
+      "title": "Lucy’s dagger",
+      "universe": "narnia",
+      "category": "weapon",
+      "summary": "Small dagger given by Father Christmas for dire need.",
+      "source": "The Lion, the Witch and the Wardrobe",
+      "matrices": [
+        "body",
+        "soul"
+      ],
+      "function": "Personal defense.",
+      "material": "Metal",
+      "dimensions": "Not specified",
+      "bearer": "Lucy",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.witch-wand",
+      "title": "White Witch’s wand",
+      "universe": "narnia",
+      "category": "tool",
+      "summary": "Jadis’s wand transforms creatures into stone.",
+      "source": "The Lion, the Witch and the Wardrobe",
+      "matrices": [
+        "body",
+        "shadow",
+        "mind"
+      ],
+      "function": "Petrification and coercion.",
+      "material": "Not specified",
+      "dimensions": "Not specified",
+      "bearer": "Jadis",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.wood",
+      "title": "Wood between the Worlds",
+      "universe": "narnia",
+      "category": "place",
+      "summary": "Quiet intermediate realm with pools leading to other worlds.",
+      "source": "The Magician’s Nephew",
+      "matrices": [
+        "body",
+        "mind",
+        "shadow"
+      ],
+      "function": "Transit space between worlds.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.pool",
+      "title": "World-pool",
+      "universe": "narnia",
+      "category": "portal",
+      "summary": "A pool in the Wood acts as a passage into a particular world.",
+      "source": "The Magician’s Nephew",
+      "matrices": [
+        "body",
+        "mind",
+        "shadow"
+      ],
+      "function": "Spatial passage associated with green rings.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.deep-magic",
+      "title": "Deep Magic",
+      "universe": "narnia",
+      "category": "law",
+      "summary": "Ancient legal order invoked by Jadis; surpassed in the plot by Deeper Magic.",
+      "source": "The Lion, the Witch and the Wardrobe",
+      "matrices": [
+        "mind",
+        "shadow",
+        "spirit"
+      ],
+      "function": "Law and claim of forfeited life.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.deeper-magic",
+      "title": "Deeper Magic",
+      "universe": "narnia",
+      "category": "law",
+      "summary": "Older law under which Aslan’s willing sacrifice enables resurrection.",
+      "source": "The Lion, the Witch and the Wardrobe",
+      "matrices": [
+        "mind",
+        "soul",
+        "spirit"
+      ],
+      "function": "Restoration through innocent self-sacrifice.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.aslan",
+      "title": "Aslan",
+      "universe": "narnia",
+      "category": "person",
+      "summary": "Creator and central moral authority of Narnia.",
+      "source": "The Chronicles of Narnia",
+      "matrices": [
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Creation, sacrifice, restoration.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.pevensies",
+      "title": "Four Pevensie siblings",
+      "universe": "narnia",
+      "category": "person",
+      "summary": "Peter, Susan, Edmund, and Lucy become monarchs at Cair Paravel.",
+      "source": "The Lion, the Witch and the Wardrobe",
+      "matrices": [
+        "soul",
+        "spirit"
+      ],
+      "function": "Four thrones; distinct paths to responsibility.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.jadis",
+      "title": "Jadis / White Witch",
+      "universe": "narnia",
+      "category": "person",
+      "summary": "Ruler who imposes a long winter and turns inhabitants into stone.",
+      "source": "The Magician’s Nephew; The Lion, the Witch and the Wardrobe",
+      "matrices": [
+        "shadow",
+        "mind",
+        "spirit"
+      ],
+      "function": "Domination, deception, ancient magic.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "narnia.caspian",
+      "title": "Prince Caspian",
+      "universe": "narnia",
+      "category": "person",
+      "summary": "Telmarine heir who seeks to restore Old Narnia.",
+      "source": "Prince Caspian",
+      "matrices": [
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Legitimacy and restoration.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "literary",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.prodigal-ring",
+      "title": "Ring for the returning son",
+      "universe": "kjv",
+      "category": "ring",
+      "summary": "A ring ordered for the returning son in the parable.",
+      "source": "Luke 15:22 (KJV)",
+      "matrices": [
+        "body",
+        "soul",
+        "spirit"
+      ],
+      "function": "Symbol of being welcomed home.",
+      "material": "Unspecified",
+      "dimensions": "Not specified",
+      "bearer": "Returning son",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.joseph-ring",
+      "title": "Pharaoh’s ring given to Joseph",
+      "universe": "kjv",
+      "category": "ring",
+      "summary": "Pharaoh removes his ring and puts it on Joseph’s hand when investing him with authority.",
+      "source": "Genesis 41:42 (KJV)",
+      "matrices": [
+        "body",
+        "soul",
+        "mind"
+      ],
+      "function": "Signet of delegated authority.",
+      "material": "Unspecified",
+      "dimensions": "Not specified",
+      "bearer": "Joseph",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.ahasuerus-ring",
+      "title": "King Ahasuerus’s ring",
+      "universe": "kjv",
+      "category": "ring",
+      "summary": "Royal ring transferred as a sign of delegated authority.",
+      "source": "Esther 3:10; 8:2 (KJV)",
+      "matrices": [
+        "body",
+        "soul",
+        "shadow"
+      ],
+      "function": "Official authorization and royal seal.",
+      "material": "Unspecified",
+      "dimensions": "Not specified",
+      "bearer": "Haman → Mordecai",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.12-gates",
+      "title": "Twelve gates of New Jerusalem",
+      "universe": "kjv",
+      "category": "gate_vision",
+      "summary": "A visionary city with twelve gates, three on each cardinal side, each gate described as a pearl.",
+      "source": "Revelation 21:12–13, 21, 25 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Gates of a vision; text says they are not shut by day.",
+      "material": "Pearl imagery",
+      "dimensions": "No measurements for individual gates",
+      "bearer": "New Jerusalem",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.gate-e1",
+      "title": "East gate 1 of 3",
+      "universe": "kjv",
+      "category": "gate_vision",
+      "summary": "Analytical indexing for one of the three east-facing gates in Revelation’s twelve-gate vision; scripture does not number or individually assign tribal names to these gates.",
+      "source": "Revelation 21:12–13, 21 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Visionary city access; positional indexing is editorial.",
+      "material": "One pearl per gate (vision)",
+      "dimensions": "Not given",
+      "bearer": "New Jerusalem",
+      "status": "scripture",
+      "attributes": [],
+      "links": [
+        "kjv.12-gates"
+      ]
+    },
+    {
+      "id": "kjv.gate-e2",
+      "title": "East gate 2 of 3",
+      "universe": "kjv",
+      "category": "gate_vision",
+      "summary": "Analytical indexing for one of the three east-facing gates in Revelation’s twelve-gate vision; scripture does not number or individually assign tribal names to these gates.",
+      "source": "Revelation 21:12–13, 21 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Visionary city access; positional indexing is editorial.",
+      "material": "One pearl per gate (vision)",
+      "dimensions": "Not given",
+      "bearer": "New Jerusalem",
+      "status": "scripture",
+      "attributes": [],
+      "links": [
+        "kjv.12-gates"
+      ]
+    },
+    {
+      "id": "kjv.gate-e3",
+      "title": "East gate 3 of 3",
+      "universe": "kjv",
+      "category": "gate_vision",
+      "summary": "Analytical indexing for one of the three east-facing gates in Revelation’s twelve-gate vision; scripture does not number or individually assign tribal names to these gates.",
+      "source": "Revelation 21:12–13, 21 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Visionary city access; positional indexing is editorial.",
+      "material": "One pearl per gate (vision)",
+      "dimensions": "Not given",
+      "bearer": "New Jerusalem",
+      "status": "scripture",
+      "attributes": [],
+      "links": [
+        "kjv.12-gates"
+      ]
+    },
+    {
+      "id": "kjv.gate-n1",
+      "title": "North gate 1 of 3",
+      "universe": "kjv",
+      "category": "gate_vision",
+      "summary": "Analytical indexing for one of the three north-facing gates in Revelation’s twelve-gate vision; scripture does not number or individually assign tribal names to these gates.",
+      "source": "Revelation 21:12–13, 21 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Visionary city access; positional indexing is editorial.",
+      "material": "One pearl per gate (vision)",
+      "dimensions": "Not given",
+      "bearer": "New Jerusalem",
+      "status": "scripture",
+      "attributes": [],
+      "links": [
+        "kjv.12-gates"
+      ]
+    },
+    {
+      "id": "kjv.gate-n2",
+      "title": "North gate 2 of 3",
+      "universe": "kjv",
+      "category": "gate_vision",
+      "summary": "Analytical indexing for one of the three north-facing gates in Revelation’s twelve-gate vision; scripture does not number or individually assign tribal names to these gates.",
+      "source": "Revelation 21:12–13, 21 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Visionary city access; positional indexing is editorial.",
+      "material": "One pearl per gate (vision)",
+      "dimensions": "Not given",
+      "bearer": "New Jerusalem",
+      "status": "scripture",
+      "attributes": [],
+      "links": [
+        "kjv.12-gates"
+      ]
+    },
+    {
+      "id": "kjv.gate-n3",
+      "title": "North gate 3 of 3",
+      "universe": "kjv",
+      "category": "gate_vision",
+      "summary": "Analytical indexing for one of the three north-facing gates in Revelation’s twelve-gate vision; scripture does not number or individually assign tribal names to these gates.",
+      "source": "Revelation 21:12–13, 21 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Visionary city access; positional indexing is editorial.",
+      "material": "One pearl per gate (vision)",
+      "dimensions": "Not given",
+      "bearer": "New Jerusalem",
+      "status": "scripture",
+      "attributes": [],
+      "links": [
+        "kjv.12-gates"
+      ]
+    },
+    {
+      "id": "kjv.gate-s1",
+      "title": "South gate 1 of 3",
+      "universe": "kjv",
+      "category": "gate_vision",
+      "summary": "Analytical indexing for one of the three south-facing gates in Revelation’s twelve-gate vision; scripture does not number or individually assign tribal names to these gates.",
+      "source": "Revelation 21:12–13, 21 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Visionary city access; positional indexing is editorial.",
+      "material": "One pearl per gate (vision)",
+      "dimensions": "Not given",
+      "bearer": "New Jerusalem",
+      "status": "scripture",
+      "attributes": [],
+      "links": [
+        "kjv.12-gates"
+      ]
+    },
+    {
+      "id": "kjv.gate-s2",
+      "title": "South gate 2 of 3",
+      "universe": "kjv",
+      "category": "gate_vision",
+      "summary": "Analytical indexing for one of the three south-facing gates in Revelation’s twelve-gate vision; scripture does not number or individually assign tribal names to these gates.",
+      "source": "Revelation 21:12–13, 21 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Visionary city access; positional indexing is editorial.",
+      "material": "One pearl per gate (vision)",
+      "dimensions": "Not given",
+      "bearer": "New Jerusalem",
+      "status": "scripture",
+      "attributes": [],
+      "links": [
+        "kjv.12-gates"
+      ]
+    },
+    {
+      "id": "kjv.gate-s3",
+      "title": "South gate 3 of 3",
+      "universe": "kjv",
+      "category": "gate_vision",
+      "summary": "Analytical indexing for one of the three south-facing gates in Revelation’s twelve-gate vision; scripture does not number or individually assign tribal names to these gates.",
+      "source": "Revelation 21:12–13, 21 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Visionary city access; positional indexing is editorial.",
+      "material": "One pearl per gate (vision)",
+      "dimensions": "Not given",
+      "bearer": "New Jerusalem",
+      "status": "scripture",
+      "attributes": [],
+      "links": [
+        "kjv.12-gates"
+      ]
+    },
+    {
+      "id": "kjv.gate-w1",
+      "title": "West gate 1 of 3",
+      "universe": "kjv",
+      "category": "gate_vision",
+      "summary": "Analytical indexing for one of the three west-facing gates in Revelation’s twelve-gate vision; scripture does not number or individually assign tribal names to these gates.",
+      "source": "Revelation 21:12–13, 21 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Visionary city access; positional indexing is editorial.",
+      "material": "One pearl per gate (vision)",
+      "dimensions": "Not given",
+      "bearer": "New Jerusalem",
+      "status": "scripture",
+      "attributes": [],
+      "links": [
+        "kjv.12-gates"
+      ]
+    },
+    {
+      "id": "kjv.gate-w2",
+      "title": "West gate 2 of 3",
+      "universe": "kjv",
+      "category": "gate_vision",
+      "summary": "Analytical indexing for one of the three west-facing gates in Revelation’s twelve-gate vision; scripture does not number or individually assign tribal names to these gates.",
+      "source": "Revelation 21:12–13, 21 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Visionary city access; positional indexing is editorial.",
+      "material": "One pearl per gate (vision)",
+      "dimensions": "Not given",
+      "bearer": "New Jerusalem",
+      "status": "scripture",
+      "attributes": [],
+      "links": [
+        "kjv.12-gates"
+      ]
+    },
+    {
+      "id": "kjv.gate-w3",
+      "title": "West gate 3 of 3",
+      "universe": "kjv",
+      "category": "gate_vision",
+      "summary": "Analytical indexing for one of the three west-facing gates in Revelation’s twelve-gate vision; scripture does not number or individually assign tribal names to these gates.",
+      "source": "Revelation 21:12–13, 21 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Visionary city access; positional indexing is editorial.",
+      "material": "One pearl per gate (vision)",
+      "dimensions": "Not given",
+      "bearer": "New Jerusalem",
+      "status": "scripture",
+      "attributes": [],
+      "links": [
+        "kjv.12-gates"
+      ]
+    },
+    {
+      "id": "kjv.tabernacle-gate",
+      "title": "Gate of the court of the tabernacle",
+      "universe": "kjv",
+      "category": "gate_literal",
+      "summary": "A physical court entrance described in the tabernacle building instructions.",
+      "source": "Exodus 27:16–18 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Entrance to the court; associated with embroidered screen.",
+      "material": "Blue, purple, scarlet, fine twined linen",
+      "dimensions": "Gate hanging: 20 cubits; court hangings: 5 cubits high",
+      "bearer": "Tabernacle",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.iron-gate",
+      "title": "Iron gate in Acts",
+      "universe": "kjv",
+      "category": "gate_literal",
+      "summary": "The iron gate leading into the city opens when Peter leaves prison.",
+      "source": "Acts 12:10 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Physical city gate.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.narrow-gate",
+      "title": "Strait gate",
+      "universe": "kjv",
+      "category": "gate_fig",
+      "summary": "Figurative passage contrasting the narrow way and the broad way.",
+      "source": "Matthew 7:13–14 (KJV)",
+      "matrices": [
+        "mind",
+        "soul",
+        "spirit"
+      ],
+      "function": "Moral choice metaphor.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.everlasting-gates",
+      "title": "Everlasting gates",
+      "universe": "kjv",
+      "category": "gate_fig",
+      "summary": "Poetic summons for gates to lift before the King of glory.",
+      "source": "Psalm 24:7–10 (KJV)",
+      "matrices": [
+        "mind",
+        "spirit"
+      ],
+      "function": "Poetic image of entry and honor.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.ark",
+      "title": "Ark of the covenant",
+      "universe": "kjv",
+      "category": "furniture",
+      "summary": "Sacred chest with prescribed measurements and materials.",
+      "source": "Exodus 25:10–16 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Container for testimony.",
+      "material": "Shittim wood overlaid with gold",
+      "dimensions": "2½ × 1½ × 1½ cubits",
+      "bearer": "Tabernacle",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.mercy-seat",
+      "title": "Mercy seat",
+      "universe": "kjv",
+      "category": "furniture",
+      "summary": "Gold cover associated with the ark and two cherubim.",
+      "source": "Exodus 25:17–22 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Cover for ark; site of meeting.",
+      "material": "Pure gold",
+      "dimensions": "2½ × 1½ cubits",
+      "bearer": "Tabernacle",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.table",
+      "title": "Table of shewbread",
+      "universe": "kjv",
+      "category": "furniture",
+      "summary": "Sacred table with specified dimensions.",
+      "source": "Exodus 25:23–30 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Holds the bread of presence.",
+      "material": "Shittim wood overlaid with gold",
+      "dimensions": "2 × 1 × 1½ cubits",
+      "bearer": "Tabernacle",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.candlestick",
+      "title": "Golden candlestick",
+      "universe": "kjv",
+      "category": "furniture",
+      "summary": "Seven-lamp fixture crafted from beaten gold.",
+      "source": "Exodus 25:31–40 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Illumination.",
+      "material": "Pure gold",
+      "dimensions": "Detailed form supplied; overall dimensions not specified",
+      "bearer": "Tabernacle",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.altar",
+      "title": "Brazen altar",
+      "universe": "kjv",
+      "category": "furniture",
+      "summary": "Sacrificial altar with recorded dimensions.",
+      "source": "Exodus 27:1–8 (KJV)",
+      "matrices": [
+        "body",
+        "mind",
+        "spirit"
+      ],
+      "function": "Altar for offerings.",
+      "material": "Shittim wood / brass",
+      "dimensions": "5 × 5 × 3 cubits",
+      "bearer": "Tabernacle",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.flame-sword",
+      "title": "Flaming sword",
+      "universe": "kjv",
+      "category": "weapon",
+      "summary": "Flaming sword turning every way to keep the way of the tree of life.",
+      "source": "Genesis 3:24 (KJV)",
+      "matrices": [
+        "body",
+        "shadow",
+        "spirit"
+      ],
+      "function": "Guards access to the tree of life.",
+      "material": "Flame imagery",
+      "dimensions": "Not specified",
+      "bearer": "East of Eden",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.sword-spirit",
+      "title": "Sword of the Spirit",
+      "universe": "kjv",
+      "category": "weapon",
+      "summary": "Figurative weapon named as the word of God in the armor-of-God passage.",
+      "source": "Ephesians 6:17 (KJV)",
+      "matrices": [
+        "mind",
+        "spirit"
+      ],
+      "function": "Metaphor for God’s word.",
+      "material": "Figurative; not a physical blade",
+      "dimensions": "Not applicable",
+      "bearer": "Believer",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.twoedged",
+      "title": "Twoedged sword imagery",
+      "universe": "kjv",
+      "category": "weapon",
+      "summary": "Figurative description of the word of God as sharper than any twoedged sword.",
+      "source": "Hebrews 4:12 (KJV)",
+      "matrices": [
+        "mind",
+        "shadow",
+        "spirit"
+      ],
+      "function": "Word-image of discernment and judgment.",
+      "material": "Figurative",
+      "dimensions": "Not applicable",
+      "bearer": "—",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.armor",
+      "title": "Whole armour of God",
+      "universe": "kjv",
+      "category": "armor",
+      "summary": "Metaphorical armor listed in the epistle, not a literal mithril garment.",
+      "source": "Ephesians 6:13–17 (KJV)",
+      "matrices": [
+        "mind",
+        "soul",
+        "spirit"
+      ],
+      "function": "Moral and spiritual readiness.",
+      "material": "Figurative",
+      "dimensions": "Not applicable",
+      "bearer": "Believer",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.romans-sword",
+      "title": "Sword borne by governing authority",
+      "universe": "kjv",
+      "category": "weapon",
+      "summary": "Figurative/legal authority to carry out punishment; not an instruction for private violence.",
+      "source": "Romans 13:4 (KJV)",
+      "matrices": [
+        "mind",
+        "soul",
+        "spirit"
+      ],
+      "function": "Civil authority metaphor.",
+      "material": "Figurative or emblematic",
+      "dimensions": "Not specified",
+      "bearer": "Governing authority",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.fruit",
+      "title": "Fruit of the Spirit",
+      "universe": "kjv",
+      "category": "concept",
+      "summary": "Qualities including love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance.",
+      "source": "Galatians 5:22–23 (KJV)",
+      "matrices": [
+        "soul",
+        "spirit"
+      ],
+      "function": "Moral character qualities.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.pure-religion",
+      "title": "Pure religion",
+      "universe": "kjv",
+      "category": "concept",
+      "summary": "James describes care for fatherless and widows in affliction and remaining unspotted from the world.",
+      "source": "James 1:27 (KJV)",
+      "matrices": [
+        "soul",
+        "spirit"
+      ],
+      "function": "Care for vulnerable people.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.good-samaritan",
+      "title": "Good Samaritan",
+      "universe": "kjv",
+      "category": "concept",
+      "summary": "Parable of neighborly compassion and care.",
+      "source": "Luke 10:25–37 (KJV)",
+      "matrices": [
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Concrete mercy and assistance.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.job",
+      "title": "The wise taken in craftiness",
+      "universe": "kjv",
+      "category": "concept",
+      "summary": "Statement within Eliphaz’s speech; used as a reversal motif in the user’s interpretation.",
+      "source": "Job 5:13 (KJV)",
+      "matrices": [
+        "mind",
+        "shadow"
+      ],
+      "function": "Rhetorical reversal.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.psalm-ownership",
+      "title": "The world is mine",
+      "universe": "kjv",
+      "category": "concept",
+      "summary": "Divine ownership statement in a Psalm, used as a thematic ownership motif.",
+      "source": "Psalm 50:12 (KJV)",
+      "matrices": [
+        "mind",
+        "spirit"
+      ],
+      "function": "Claim of divine sovereignty.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "kjv.god-of-world",
+      "title": "God of this world wording",
+      "universe": "kjv",
+      "category": "concept",
+      "summary": "Phrase used in a Pauline epistle; theological interpretations vary.",
+      "source": "2 Corinthians 4:4 (KJV)",
+      "matrices": [
+        "mind",
+        "shadow"
+      ],
+      "function": "Textual phrase, without a claim of material provenance.",
+      "material": "Not specified",
+      "dimensions": "Not specified in source",
+      "bearer": "—",
+      "status": "scripture",
+      "attributes": [],
+      "links": []
+    },
+    {
+      "id": "design.ring-01",
+      "title": "Ring 01 — Choice",
+      "universe": "design",
+      "category": "ring",
+      "summary": "Proposed symbolic wearable for the left thumb; a new design record, not a biblical or Tolkien artifact.",
+      "source": "Five-Matrix rings-to-gates allegory, supplied framework",
+      "matrices": [
+        "body",
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Symbolic assignment: choice.",
+      "material": "User-selectable; proposed copper / turquoise",
+      "dimensions": "Custom fit; no canonical size",
+      "bearer": "Left Thumb",
+      "status": "proposal",
+      "attributes": [],
+      "links": [
+        "kjv.gate-e1"
+      ]
+    },
+    {
+      "id": "design.ring-02",
+      "title": "Ring 02 — Direction",
+      "universe": "design",
+      "category": "ring",
+      "summary": "Proposed symbolic wearable for the left index finger; a new design record, not a biblical or Tolkien artifact.",
+      "source": "Five-Matrix rings-to-gates allegory, supplied framework",
+      "matrices": [
+        "body",
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Symbolic assignment: direction.",
+      "material": "User-selectable; proposed copper / turquoise",
+      "dimensions": "Custom fit; no canonical size",
+      "bearer": "Left Index finger",
+      "status": "proposal",
+      "attributes": [],
+      "links": [
+        "kjv.gate-e2"
+      ]
+    },
+    {
+      "id": "design.ring-03",
+      "title": "Ring 03 — Balance",
+      "universe": "design",
+      "category": "ring",
+      "summary": "Proposed symbolic wearable for the left middle finger; a new design record, not a biblical or Tolkien artifact.",
+      "source": "Five-Matrix rings-to-gates allegory, supplied framework",
+      "matrices": [
+        "body",
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Symbolic assignment: balance.",
+      "material": "User-selectable; proposed copper / turquoise",
+      "dimensions": "Custom fit; no canonical size",
+      "bearer": "Left Middle finger",
+      "status": "proposal",
+      "attributes": [],
+      "links": [
+        "kjv.gate-e3"
+      ]
+    },
+    {
+      "id": "design.ring-04",
+      "title": "Ring 04 — Loyalty",
+      "universe": "design",
+      "category": "ring",
+      "summary": "Proposed symbolic wearable for the left ring finger; a new design record, not a biblical or Tolkien artifact.",
+      "source": "Five-Matrix rings-to-gates allegory, supplied framework",
+      "matrices": [
+        "body",
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Symbolic assignment: loyalty.",
+      "material": "User-selectable; proposed copper / turquoise",
+      "dimensions": "Custom fit; no canonical size",
+      "bearer": "Left Ring finger",
+      "status": "proposal",
+      "attributes": [],
+      "links": [
+        "kjv.gate-n1"
+      ]
+    },
+    {
+      "id": "design.ring-05",
+      "title": "Ring 05 — Care",
+      "universe": "design",
+      "category": "ring",
+      "summary": "Proposed symbolic wearable for the left little finger; a new design record, not a biblical or Tolkien artifact.",
+      "source": "Five-Matrix rings-to-gates allegory, supplied framework",
+      "matrices": [
+        "body",
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Symbolic assignment: care.",
+      "material": "User-selectable; proposed copper / turquoise",
+      "dimensions": "Custom fit; no canonical size",
+      "bearer": "Left Little finger",
+      "status": "proposal",
+      "attributes": [],
+      "links": [
+        "kjv.gate-n2"
+      ]
+    },
+    {
+      "id": "design.ring-06",
+      "title": "Ring 06 — Action",
+      "universe": "design",
+      "category": "ring",
+      "summary": "Proposed symbolic wearable for the right thumb; a new design record, not a biblical or Tolkien artifact.",
+      "source": "Five-Matrix rings-to-gates allegory, supplied framework",
+      "matrices": [
+        "body",
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Symbolic assignment: action.",
+      "material": "User-selectable; proposed copper / turquoise",
+      "dimensions": "Custom fit; no canonical size",
+      "bearer": "Right Thumb",
+      "status": "proposal",
+      "attributes": [],
+      "links": [
+        "kjv.gate-n3"
+      ]
+    },
+    {
+      "id": "design.ring-07",
+      "title": "Ring 07 — Knowledge",
+      "universe": "design",
+      "category": "ring",
+      "summary": "Proposed symbolic wearable for the right index finger; a new design record, not a biblical or Tolkien artifact.",
+      "source": "Five-Matrix rings-to-gates allegory, supplied framework",
+      "matrices": [
+        "body",
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Symbolic assignment: knowledge.",
+      "material": "User-selectable; proposed copper / turquoise",
+      "dimensions": "Custom fit; no canonical size",
+      "bearer": "Right Index finger",
+      "status": "proposal",
+      "attributes": [],
+      "links": [
+        "kjv.gate-s1"
+      ]
+    },
+    {
+      "id": "design.ring-08",
+      "title": "Ring 08 — Judgment",
+      "universe": "design",
+      "category": "ring",
+      "summary": "Proposed symbolic wearable for the right middle finger; a new design record, not a biblical or Tolkien artifact.",
+      "source": "Five-Matrix rings-to-gates allegory, supplied framework",
+      "matrices": [
+        "body",
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Symbolic assignment: judgment.",
+      "material": "User-selectable; proposed copper / turquoise",
+      "dimensions": "Custom fit; no canonical size",
+      "bearer": "Right Middle finger",
+      "status": "proposal",
+      "attributes": [],
+      "links": [
+        "kjv.gate-s2"
+      ]
+    },
+    {
+      "id": "design.ring-09",
+      "title": "Ring 09 — Responsibility",
+      "universe": "design",
+      "category": "ring",
+      "summary": "Proposed symbolic wearable for the right ring finger; a new design record, not a biblical or Tolkien artifact.",
+      "source": "Five-Matrix rings-to-gates allegory, supplied framework",
+      "matrices": [
+        "body",
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Symbolic assignment: responsibility.",
+      "material": "User-selectable; proposed copper / turquoise",
+      "dimensions": "Custom fit; no canonical size",
+      "bearer": "Right Ring finger",
+      "status": "proposal",
+      "attributes": [],
+      "links": [
+        "kjv.gate-s3"
+      ]
+    },
+    {
+      "id": "design.ring-10",
+      "title": "Ring 10 — Service",
+      "universe": "design",
+      "category": "ring",
+      "summary": "Proposed symbolic wearable for the right little finger; a new design record, not a biblical or Tolkien artifact.",
+      "source": "Five-Matrix rings-to-gates allegory, supplied framework",
+      "matrices": [
+        "body",
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Symbolic assignment: service.",
+      "material": "User-selectable; proposed copper / turquoise",
+      "dimensions": "Custom fit; no canonical size",
+      "bearer": "Right Little finger",
+      "status": "proposal",
+      "attributes": [],
+      "links": [
+        "kjv.gate-w1"
+      ]
+    },
+    {
+      "id": "design.ring-11",
+      "title": "Ring 11 — Protection",
+      "universe": "design",
+      "category": "bracelet",
+      "summary": "Proposed symbolic wearable for the left arm bracelet; a new design record, not a biblical or Tolkien artifact.",
+      "source": "Five-Matrix rings-to-gates allegory, supplied framework",
+      "matrices": [
+        "body",
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Symbolic assignment: protection.",
+      "material": "User-selectable; proposed copper / turquoise",
+      "dimensions": "Custom fit; no canonical size",
+      "bearer": "Left arm Bracelet",
+      "status": "proposal",
+      "attributes": [],
+      "links": [
+        "kjv.gate-w2"
+      ]
+    },
+    {
+      "id": "design.ring-12",
+      "title": "Ring 12 — Freedom",
+      "universe": "design",
+      "category": "bracelet",
+      "summary": "Proposed symbolic wearable for the right arm bracelet; a new design record, not a biblical or Tolkien artifact.",
+      "source": "Five-Matrix rings-to-gates allegory, supplied framework",
+      "matrices": [
+        "body",
+        "soul",
+        "mind",
+        "spirit"
+      ],
+      "function": "Symbolic assignment: freedom.",
+      "material": "User-selectable; proposed copper / turquoise",
+      "dimensions": "Custom fit; no canonical size",
+      "bearer": "Right arm Bracelet",
+      "status": "proposal",
+      "attributes": [],
+      "links": [
+        "kjv.gate-w3"
+      ]
+    }
+  ],
+  "transformations": [
+    {
+      "id": "transform.ring-gate-01",
+      "from": "design.ring-01",
+      "to": "kjv.gate-e1",
+      "kind": "ring ↔ gate symbolic correspondence",
+      "status": "interpretation",
+      "explanation": "Assign proposed ring 1 (choice) to a model index for the twelve visionary gates. This is a conceptual mapping, not a scriptural or historical conversion."
+    },
+    {
+      "id": "transform.ring-gate-02",
+      "from": "design.ring-02",
+      "to": "kjv.gate-e2",
+      "kind": "ring ↔ gate symbolic correspondence",
+      "status": "interpretation",
+      "explanation": "Assign proposed ring 2 (direction) to a model index for the twelve visionary gates. This is a conceptual mapping, not a scriptural or historical conversion."
+    },
+    {
+      "id": "transform.ring-gate-03",
+      "from": "design.ring-03",
+      "to": "kjv.gate-e3",
+      "kind": "ring ↔ gate symbolic correspondence",
+      "status": "interpretation",
+      "explanation": "Assign proposed ring 3 (balance) to a model index for the twelve visionary gates. This is a conceptual mapping, not a scriptural or historical conversion."
+    },
+    {
+      "id": "transform.ring-gate-04",
+      "from": "design.ring-04",
+      "to": "kjv.gate-n1",
+      "kind": "ring ↔ gate symbolic correspondence",
+      "status": "interpretation",
+      "explanation": "Assign proposed ring 4 (loyalty) to a model index for the twelve visionary gates. This is a conceptual mapping, not a scriptural or historical conversion."
+    },
+    {
+      "id": "transform.ring-gate-05",
+      "from": "design.ring-05",
+      "to": "kjv.gate-n2",
+      "kind": "ring ↔ gate symbolic correspondence",
+      "status": "interpretation",
+      "explanation": "Assign proposed ring 5 (care) to a model index for the twelve visionary gates. This is a conceptual mapping, not a scriptural or historical conversion."
+    },
+    {
+      "id": "transform.ring-gate-06",
+      "from": "design.ring-06",
+      "to": "kjv.gate-n3",
+      "kind": "ring ↔ gate symbolic correspondence",
+      "status": "interpretation",
+      "explanation": "Assign proposed ring 6 (action) to a model index for the twelve visionary gates. This is a conceptual mapping, not a scriptural or historical conversion."
+    },
+    {
+      "id": "transform.ring-gate-07",
+      "from": "design.ring-07",
+      "to": "kjv.gate-s1",
+      "kind": "ring ↔ gate symbolic correspondence",
+      "status": "interpretation",
+      "explanation": "Assign proposed ring 7 (knowledge) to a model index for the twelve visionary gates. This is a conceptual mapping, not a scriptural or historical conversion."
+    },
+    {
+      "id": "transform.ring-gate-08",
+      "from": "design.ring-08",
+      "to": "kjv.gate-s2",
+      "kind": "ring ↔ gate symbolic correspondence",
+      "status": "interpretation",
+      "explanation": "Assign proposed ring 8 (judgment) to a model index for the twelve visionary gates. This is a conceptual mapping, not a scriptural or historical conversion."
+    },
+    {
+      "id": "transform.ring-gate-09",
+      "from": "design.ring-09",
+      "to": "kjv.gate-s3",
+      "kind": "ring ↔ gate symbolic correspondence",
+      "status": "interpretation",
+      "explanation": "Assign proposed ring 9 (responsibility) to a model index for the twelve visionary gates. This is a conceptual mapping, not a scriptural or historical conversion."
+    },
+    {
+      "id": "transform.ring-gate-10",
+      "from": "design.ring-10",
+      "to": "kjv.gate-w1",
+      "kind": "ring ↔ gate symbolic correspondence",
+      "status": "interpretation",
+      "explanation": "Assign proposed ring 10 (service) to a model index for the twelve visionary gates. This is a conceptual mapping, not a scriptural or historical conversion."
+    },
+    {
+      "id": "transform.ring-gate-11",
+      "from": "design.ring-11",
+      "to": "kjv.gate-w2",
+      "kind": "ring ↔ gate symbolic correspondence",
+      "status": "interpretation",
+      "explanation": "Assign proposed ring 11 (protection) to a model index for the twelve visionary gates. This is a conceptual mapping, not a scriptural or historical conversion."
+    },
+    {
+      "id": "transform.ring-gate-12",
+      "from": "design.ring-12",
+      "to": "kjv.gate-w3",
+      "kind": "ring ↔ gate symbolic correspondence",
+      "status": "interpretation",
+      "explanation": "Assign proposed ring 12 (freedom) to a model index for the twelve visionary gates. This is a conceptual mapping, not a scriptural or historical conversion."
+    },
+    {
+      "id": "transform.rings-spirit",
+      "from": "lotr.narya",
+      "to": "kjv.fruit",
+      "kind": "cross-source analogy",
+      "status": "interpretation",
+      "explanation": "Interpretive comparison: ring kindling courage to qualities of moral character."
+    },
+    {
+      "id": "transform.ring-control",
+      "from": "lotr.one",
+      "to": "kjv.god-of-world",
+      "kind": "cross-source analogy",
+      "status": "interpretation",
+      "explanation": "Interpretive parallel about domination; not a textual identity or proof of divine theft."
+    },
+    {
+      "id": "transform.arkenstone-innocence",
+      "from": "hobbit.arkenstone",
+      "to": "kjv.pure-religion",
+      "kind": "cross-source analogy",
+      "status": "interpretation",
+      "explanation": "Symbolic reading of the Arkenstone as innocence; no such identity in Tolkien or scripture."
+    },
+    {
+      "id": "transform.sting-spirit",
+      "from": "lotr.sting",
+      "to": "kjv.sword-spirit",
+      "kind": "cross-source analogy",
+      "status": "interpretation",
+      "explanation": "Analogical comparison of revealing and discerning; a real story blade remains distinct from a biblical metaphor."
+    },
+    {
+      "id": "transform.glamdring-spirit",
+      "from": "lotr.glamdring",
+      "to": "kjv.twoedged",
+      "kind": "cross-source analogy",
+      "status": "interpretation",
+      "explanation": "Analogical comparison only; source text does not describe wavelength detection."
+    },
+    {
+      "id": "transform.anduril-restoration",
+      "from": "lotr.anduril",
+      "to": "kjv.sword-spirit",
+      "kind": "cross-source analogy",
+      "status": "interpretation",
+      "explanation": "Symbolic parallel for restoration and discernment."
+    },
+    {
+      "id": "transform.mithril-armor",
+      "from": "lotr.mithril",
+      "to": "kjv.armor",
+      "kind": "cross-source analogy",
+      "status": "interpretation",
+      "explanation": "Analogy between physical protection and spiritual readiness; not a nervous-system medical mechanism."
+    },
+    {
+      "id": "transform.wardrobe-gate",
+      "from": "narnia.wardrobe",
+      "to": "narnia.wardrobe-gate",
+      "kind": "functional link",
+      "status": "interpretation",
+      "explanation": "Functional reinterpretation of furniture as gateway, retaining furniture as source category."
+    },
+    {
+      "id": "transform.narnia-ring-gate",
+      "from": "narnia.green",
+      "to": "narnia.pool",
+      "kind": "functional link",
+      "status": "interpretation",
+      "explanation": "In-story linkage: a green ring and a world-pool act together during travel, but are not the same physical object."
+    },
+    {
+      "id": "transform.prodigal-restore",
+      "from": "kjv.prodigal-ring",
+      "to": "design.ring-10",
+      "kind": "cross-source analogy",
+      "status": "interpretation",
+      "explanation": "A biblical ring as a symbol of restored relationship, linked to a proposed wearable ring of service."
+    }
+  ],
+  "positions": [
+    {
+      "number": 1,
+      "ring_id": "design.ring-01",
+      "hand": "Left",
+      "part": "Thumb",
+      "role": "Choice",
+      "gate_id": "kjv.gate-e1"
+    },
+    {
+      "number": 2,
+      "ring_id": "design.ring-02",
+      "hand": "Left",
+      "part": "Index finger",
+      "role": "Direction",
+      "gate_id": "kjv.gate-e2"
+    },
+    {
+      "number": 3,
+      "ring_id": "design.ring-03",
+      "hand": "Left",
+      "part": "Middle finger",
+      "role": "Balance",
+      "gate_id": "kjv.gate-e3"
+    },
+    {
+      "number": 4,
+      "ring_id": "design.ring-04",
+      "hand": "Left",
+      "part": "Ring finger",
+      "role": "Loyalty",
+      "gate_id": "kjv.gate-n1"
+    },
+    {
+      "number": 5,
+      "ring_id": "design.ring-05",
+      "hand": "Left",
+      "part": "Little finger",
+      "role": "Care",
+      "gate_id": "kjv.gate-n2"
+    },
+    {
+      "number": 6,
+      "ring_id": "design.ring-06",
+      "hand": "Right",
+      "part": "Thumb",
+      "role": "Action",
+      "gate_id": "kjv.gate-n3"
+    },
+    {
+      "number": 7,
+      "ring_id": "design.ring-07",
+      "hand": "Right",
+      "part": "Index finger",
+      "role": "Knowledge",
+      "gate_id": "kjv.gate-s1"
+    },
+    {
+      "number": 8,
+      "ring_id": "design.ring-08",
+      "hand": "Right",
+      "part": "Middle finger",
+      "role": "Judgment",
+      "gate_id": "kjv.gate-s2"
+    },
+    {
+      "number": 9,
+      "ring_id": "design.ring-09",
+      "hand": "Right",
+      "part": "Ring finger",
+      "role": "Responsibility",
+      "gate_id": "kjv.gate-s3"
+    },
+    {
+      "number": 10,
+      "ring_id": "design.ring-10",
+      "hand": "Right",
+      "part": "Little finger",
+      "role": "Service",
+      "gate_id": "kjv.gate-w1"
+    },
+    {
+      "number": 11,
+      "ring_id": "design.ring-11",
+      "hand": "Left arm",
+      "part": "Bracelet",
+      "role": "Protection",
+      "gate_id": "kjv.gate-w2"
+    },
+    {
+      "number": 12,
+      "ring_id": "design.ring-12",
+      "hand": "Right arm",
+      "part": "Bracelet",
+      "role": "Freedom",
+      "gate_id": "kjv.gate-w3"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt.01",
+      "universe": "lotr",
+      "date": "Second Age",
+      "name": "Forging of the Rings",
+      "description": "The Rings of Power and the One Ring establish the historical background for the later quest."
+    },
+    {
+      "id": "evt.02",
+      "universe": "hobbit",
+      "date": "Third Age 2941",
+      "name": "The Quest for Erebor",
+      "description": "Bilbo acquires the One Ring; the dragon Smaug falls; Erebor is reclaimed."
+    },
+    {
+      "id": "evt.03",
+      "universe": "lotr",
+      "date": "Third Age 3018–3019",
+      "name": "War of the Ring",
+      "description": "The fellowship’s journey ends with the Ring’s destruction."
+    },
+    {
+      "id": "evt.04",
+      "universe": "narnia",
+      "date": "Narnian creation",
+      "name": "The Magician’s Nephew",
+      "description": "The Wood, Magic Rings, creation of Narnia, and Wardrobe’s origin."
+    },
+    {
+      "id": "evt.05",
+      "universe": "narnia",
+      "date": "Later Narnian era",
+      "name": "The Lion, the Witch and the Wardrobe",
+      "description": "Pevensies, gifts, Stone Table, and fall of Jadis."
+    },
+    {
+      "id": "evt.06",
+      "universe": "narnia",
+      "date": "Centuries later in Narnia",
+      "name": "Prince Caspian",
+      "description": "Caspian uses the horn and helps restore Old Narnia."
+    },
+    {
+      "id": "evt.07",
+      "universe": "kjv",
+      "date": "Textual reference",
+      "name": "Twelve gates in Revelation",
+      "description": "A city with three gates to each cardinal direction, not prescribed finger rings."
+    },
+    {
+      "id": "evt.08",
+      "universe": "design",
+      "date": "Interpretive model",
+      "name": "Twelve-ring restoration proposal",
+      "description": "Ten finger/thumb positions and two arm bracelets; explicitly symbolic."
+    }
+  ],
+  "scripture": [
+    {
+      "ref": "Genesis 41:42",
+      "topic": "Joseph receives Pharaoh’s ring",
+      "type": "explicit physical ring",
+      "objects": [
+        "kjv.joseph-ring"
+      ]
+    },
+    {
+      "ref": "Esther 3:10; 8:2",
+      "topic": "King’s ring and delegated authority",
+      "type": "explicit physical ring",
+      "objects": [
+        "kjv.ahasuerus-ring"
+      ]
+    },
+    {
+      "ref": "Luke 15:22",
+      "topic": "Ring for the returning son",
+      "type": "explicit physical ring",
+      "objects": [
+        "kjv.prodigal-ring"
+      ]
+    },
+    {
+      "ref": "Revelation 21:12–13, 21, 25",
+      "topic": "Twelve gates; three each direction; one pearl each; not shut by day",
+      "type": "visionary gates",
+      "objects": [
+        "kjv.12-gates"
+      ]
+    },
+    {
+      "ref": "Exodus 27:16–18",
+      "topic": "Court gate hanging and measurements",
+      "type": "literal gate",
+      "objects": [
+        "kjv.tabernacle-gate"
+      ]
+    },
+    {
+      "ref": "Acts 12:10",
+      "topic": "Iron city gate",
+      "type": "literal gate",
+      "objects": [
+        "kjv.iron-gate"
+      ]
+    },
+    {
+      "ref": "Matthew 7:13–14",
+      "topic": "Strait and wide gates",
+      "type": "figurative gate",
+      "objects": [
+        "kjv.narrow-gate"
+      ]
+    },
+    {
+      "ref": "Psalm 24:7–10",
+      "topic": "Everlasting gates addressed poetically",
+      "type": "figurative gate",
+      "objects": [
+        "kjv.everlasting-gates"
+      ]
+    },
+    {
+      "ref": "Exodus 25:10–40",
+      "topic": "Ark, mercy seat, table, and lampstand",
+      "type": "physical furniture",
+      "objects": [
+        "kjv.ark",
+        "kjv.mercy-seat",
+        "kjv.table",
+        "kjv.candlestick"
+      ]
+    },
+    {
+      "ref": "Exodus 27:1–8",
+      "topic": "Brazen altar",
+      "type": "physical furniture",
+      "objects": [
+        "kjv.altar"
+      ]
+    },
+    {
+      "ref": "Genesis 3:24",
+      "topic": "Flaming sword guarding the way",
+      "type": "visionary / narrative weapon",
+      "objects": [
+        "kjv.flame-sword"
+      ]
+    },
+    {
+      "ref": "Ephesians 6:13–17",
+      "topic": "Armor and sword of the Spirit",
+      "type": "spiritual metaphor",
+      "objects": [
+        "kjv.armor",
+        "kjv.sword-spirit"
+      ]
+    },
+    {
+      "ref": "Hebrews 4:12",
+      "topic": "Twoedged sword comparison",
+      "type": "spiritual metaphor",
+      "objects": [
+        "kjv.twoedged"
+      ]
+    },
+    {
+      "ref": "Romans 13:4",
+      "topic": "Sword of governing authority",
+      "type": "legal imagery",
+      "objects": [
+        "kjv.romans-sword"
+      ]
+    },
+    {
+      "ref": "Galatians 5:22–23",
+      "topic": "Fruit of the Spirit",
+      "type": "moral text",
+      "objects": [
+        "kjv.fruit"
+      ]
+    },
+    {
+      "ref": "James 1:27",
+      "topic": "Pure religion: care for vulnerable people",
+      "type": "moral text",
+      "objects": [
+        "kjv.pure-religion"
+      ]
+    },
+    {
+      "ref": "Luke 10:25–37",
+      "topic": "Good Samaritan parable",
+      "type": "moral narrative",
+      "objects": [
+        "kjv.good-samaritan"
+      ]
+    },
+    {
+      "ref": "Job 5:13",
+      "topic": "Craftiness reversed in Eliphaz’s speech",
+      "type": "speech / thematic analogy",
+      "objects": [
+        "kjv.job"
+      ]
+    },
+    {
+      "ref": "Psalm 50:12",
+      "topic": "Claim of divine ownership",
+      "type": "psalm",
+      "objects": [
+        "kjv.psalm-ownership"
+      ]
+    },
+    {
+      "ref": "2 Corinthians 4:4",
+      "topic": "God of this world wording",
+      "type": "epistle",
+      "objects": [
+        "kjv.god-of-world"
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "language": "English",
+      "ring": "ring",
+      "gate": "gate",
+      "note": "English labels for the central model."
+    },
+    {
+      "language": "Hebrew",
+      "ring": "טַבַּעַת — tabbaʿat",
+      "gate": "שַׁעַר — shaʿar",
+      "note": "Transliterations approximate; semantic range varies by context."
+    },
+    {
+      "language": "Greek",
+      "ring": "δακτύλιος — daktylios",
+      "gate": "πύλη — pylē",
+      "note": "Gate words include pylē and pylōn, depending on context."
+    },
+    {
+      "language": "Latin",
+      "ring": "anulus",
+      "gate": "porta",
+      "note": "Classical forms; other synonyms also exist."
+    },
+    {
+      "language": "Arabic",
+      "ring": "خاتم — khātam",
+      "gate": "باب — bāb",
+      "note": "Khātam can mean seal or signet ring."
+    }
+  ]
+}

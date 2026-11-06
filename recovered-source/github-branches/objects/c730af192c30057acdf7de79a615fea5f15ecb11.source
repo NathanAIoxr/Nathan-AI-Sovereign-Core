@@ -1,0 +1,261 @@
+{
+  "schema": "tabor123.ecosystem-catalog.v1",
+  "as_of": "2026-10-10",
+  "owner": "Nathan Tabor",
+  "notice": "Public registry of already documented products only. Private unreleased concepts, source assets, chat-derived portfolios and historical research catalogs remain in owner-controlled local/Work archives until explicitly approved for publication. A listed demo is not a production service.",
+  "products": [
+    {
+      "id": "factory",
+      "name": "TABOR 1-2-3 FACTORY",
+      "category": "Platform",
+      "status": "browser-demo",
+      "summary": "1. CREATE → 2. CONNECT → 3. LAUNCH. Browser-local projects, stories, atlas, release checklists.",
+      "url": "./index.html",
+      "docs": "./README.md"
+    },
+    {
+      "id": "one",
+      "name": "ONE — The Last App",
+      "category": "Platform",
+      "status": "browser-demo",
+      "summary": "Local-first personal operating shell: 26 life domains, tasks, notes and routines; no unrestricted installed-app access.",
+      "url": "./one/index.html",
+      "docs": "./one/ONE-TECHNICAL-BUILD.md"
+    },
+    {
+      "id": "vault",
+      "name": "Universal Creator Vault",
+      "category": "Platform",
+      "status": "browser-demo",
+      "summary": "Import original assets and conversation exports into local IndexedDB. Separate binary backup is essential.",
+      "url": "./vault.html",
+      "docs": "./UNIVERSAL-CREATOR-VAULT.md"
+    },
+    {
+      "id": "constellation",
+      "name": "101–901 Root Constellation",
+      "category": "Research",
+      "status": "browser-demo",
+      "summary": "Browse locally imported private catalog records while retaining original IDs and independent namespaces.",
+      "url": "./root-constellation.html",
+      "docs": "./README.md"
+    },
+    {
+      "id": "role-atlas",
+      "name": "Historical Forensic Role Atlas",
+      "category": "Research",
+      "status": "browser-demo",
+      "summary": "135 preliminary, partly unverified records inside the Factory Atlas tab.",
+      "url": "./index.html#atlas",
+      "docs": "./ROLE-ATLAS-METHODOLOGY.md"
+    },
+    {
+      "id": "crowning-jewel",
+      "name": "1420 — The Crowning Jewel",
+      "category": "Game",
+      "status": "browser-demo",
+      "summary": "Two playable strategy chapters and a fictional cross-century archive puzzle.",
+      "url": "./games/crowning-jewel.html",
+      "docs": "./games/CROWNING-JEWEL-BLUEPRINT.md"
+    },
+    {
+      "id": "gps",
+      "name": "TABOR GPS — The Genius GPS",
+      "category": "Navigation",
+      "status": "browser-demo",
+      "summary": "WGS84 location, Earth-centered coordinates, personal orientation, time and environmental-layer explanations. Not turn-by-turn navigation.",
+      "url": "./tabor-gps/index.html",
+      "docs": "./tabor-gps/README.md"
+    },
+    {
+      "id": "nathan-ai",
+      "name": "Nathan AI · THE THINKER · LET/TET/PPL",
+      "category": "AI",
+      "status": "private-prototype",
+      "summary": "Executable Python LET/TET/PPL prototype in private conversation ZIP; no live model/provider backend.",
+      "url": "",
+      "docs": "./nathan-ai/README.md"
+    },
+    {
+      "id": "state-engine",
+      "name": "Universal 101 State Engine",
+      "category": "Platform",
+      "status": "private-prototype",
+      "summary": "Local state machine, domain rules, browser/UI and Unity client reference in a private Work ZIP; no production auth.",
+      "url": "",
+      "docs": "./universal-state-engine/README.md"
+    },
+    {
+      "id": "commerce",
+      "name": "Universal Commerce & Launch Plug",
+      "category": "Commerce",
+      "status": "private-prototype",
+      "summary": "Local Shopify/Kickstarter packaging and signature checks; no live checkout or automatic posting.",
+      "url": "",
+      "docs": "./universal-commerce/README.md"
+    },
+    {
+      "id": "infinitum",
+      "name": "TABOR INFINITUM V∞",
+      "category": "Research",
+      "status": "private-prototype",
+      "summary": "Six interactive game teaching prototypes, entity comparison and reasoning tests in a private Work ZIP.",
+      "url": "",
+      "docs": "./infinitum/README.md"
+    },
+    {
+      "id": "remove-jc",
+      "name": "REMOVE JC — The War of Two Worlds",
+      "category": "Game",
+      "status": "private-prototype",
+      "summary": "Six-act fantasy game alpha; fictional enemies. Original source archive remains private and claims are labeled.",
+      "url": "",
+      "docs": "./remove-jc/README.md"
+    },
+    {
+      "id": "tabor-world",
+      "name": "TABOR WORLD",
+      "category": "Game",
+      "status": "private-prototype",
+      "summary": "Unified history/fantasy/game universe, original art and independent modules; some playable code in private ZIPs.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "healers",
+      "name": "Healers & Protectors",
+      "category": "Game",
+      "status": "concept",
+      "summary": "Protection, rescue, healing and restoration as the core module, independent of archived Maters & Taters.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "angels",
+      "name": "Angels vs Demons 404",
+      "category": "Game",
+      "status": "private-prototype",
+      "summary": "404-roster universe with a privately packaged playable prototype; not public production backend.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "tabor-tales",
+      "name": "TaborTales — Where Bible and Nature Meet Up",
+      "category": "Education",
+      "status": "concept",
+      "summary": "Children's Bible+nature/STEM characters, interactive stories and environmental science educational plans.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "act-nodes",
+      "name": "Project Innocence · ACT Node System",
+      "category": "Research",
+      "status": "private-prototype",
+      "summary": "Symbolic nodes, astronomical names and map/graph prototypes; non-scientific interpretations remain labeled.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "name-in-stars",
+      "name": "Name in the Stars",
+      "category": "Creative",
+      "status": "concept",
+      "summary": "Optional astronomy-inspired personalization with public star catalogs and creative overlays; not an astronomical claim.",
+      "url": "",
+      "docs": "./README.md"
+    },
+    {
+      "id": "knowledge-engine",
+      "name": "TABOR ROOT — Knowledge & Creation Engine",
+      "category": "Platform",
+      "status": "private-prototype",
+      "summary": "Tested localhost-only Python application: Office file interchange, FTS5 universal library, provenance graph, revisions, original-byte backup, and honest AI execution capability planning. No live provider connections.",
+      "url": "",
+      "docs": "./knowledge-engine/README.md"
+    },
+    {
+      "id": "sovereign-boxes",
+      "name": "Sovereign Boxes — Universal Matrix",
+      "category": "Platform",
+      "status": "browser-demo",
+      "summary": "Individually addressable character/digit boxes and searchable 101 original game families, 496 reserved private idea slots, and indexed Factory modules; literal 1 + 1 = 2 and 1 − 1 = 0.",
+      "url": "./sovereign-boxes/index.html",
+      "docs": "./sovereign-boxes/README.md"
+    },
+    {
+      "id": "better-together",
+      "name": "Better Together — A Song of Humble Pride",
+      "category": "Creative",
+      "status": "browser-demo",
+      "summary": "Original call-and-response song and three-holiday song-sheet artwork (Christmas, Halloween, Thanksgiving); full-resolution generated PNG remains in private handoff.",
+      "url": "./creative/music/better-together/index.html",
+      "docs": "./creative/music/better-together/README.md"
+    },
+    {
+      "id": "universal-node",
+      "name": "TABOR Universal Node — Body, Earth, Cosmos & Unknown",
+      "category": "Platform",
+      "status": "browser-demo",
+      "summary": "Rotating-X 25-node body/Earth/cosmos/unknown educational simulation, with website/blog research adapters for RSS, Atom, JSON Feed, sitemaps, HTML metadata and owner JSON; provenance and uncertainty retained. No unrestricted crawling or live clinical/cosmic readings.",
+      "url": "./universal-node/index.html",
+      "docs": "./universal-node/README.md"
+    },
+    {
+      "id": "babel-inferno",
+      "name": "The Tower of Babel × Dante’s Inferno",
+      "category": "Game",
+      "status": "browser-demo",
+      "summary": "18 original puzzle stages: nine upward Babel floors, nine mirrored below, frozen ninth Inferno finale, deterministic save and 360-degree X visualization.",
+      "url": "./universal-node/babel-inferno.html",
+      "docs": "./universal-node/README.md"
+    },
+    {
+      "id": "radix-ladder",
+      "name": "TABOR Golden Radix Ladder",
+      "category": "Platform",
+      "status": "browser-demo",
+      "summary": "Exact reversible base 1–69 BigInt conversion, duodecimal ↊ ↋, digit Sovereign Boxes, and simulated Base 0 disconnected adapter status. No server firewall or supernatural detector.",
+      "url": "./radix-ladder/index.html",
+      "docs": "./radix-ladder/README.md"
+    },
+    {
+      "id": "dummie-publisher",
+      "name": "DUMMIE™ — Big Red Button Publisher",
+      "category": "Platform",
+      "status": "browser-demo",
+      "summary": "Three-step create/package/post assistant. Real portable ZIP with original source bytes and eight official publishing destinations; provider uploads are manual until trusted OAuth backend exists.",
+      "url": "./dummie-publisher/index.html",
+      "docs": "./dummie-publisher/README.md"
+    },
+    {
+      "id": "dummie",
+      "name": "D.U.M.M.I.E.™ — The Real Genius in the Group",
+      "category": "Creative",
+      "status": "browser-demo",
+      "summary": "Nathan Tabor original acronym: Delightful, Unique, Mental, Weird (upside-down M), Intellect, Entertaining; rotating-symbol interactive teaching prototype.",
+      "url": "./creative/dummie/index.html",
+      "docs": "./creative/dummie/canon.json"
+    },
+    {
+      "id": "middle-c",
+      "name": "THE MIDDLE C — Axis of Infinity",
+      "category": "Game",
+      "status": "browser-demo",
+      "summary": "Playable Above/Middle/Below word-mirror, conventional meaning and ancient-number puzzle with procedural indexed levels, scoring and browser save; creative interpretations separate from historical facts.",
+      "url": "./middle-c/index.html",
+      "docs": "./middle-c/README.md"
+    },
+    {
+      "id": "greek-mythology",
+      "name": "Greek Mythology — Sovereign Reference Atlas",
+      "category": "Research",
+      "status": "browser-demo",
+      "summary": "Searchable twelve-category 316-record source-derived Greek mythology atlas with alternate Olympian/Titan ensembles, deities, creatures, heroes and equipment. Historical verification remains pending.",
+      "url": "./mythology/greek/index.html",
+      "docs": "./mythology/greek/README.md"
+    }
+  ],
+  "scope": "curated_public_registry_not_complete_private_portfolio"
+}

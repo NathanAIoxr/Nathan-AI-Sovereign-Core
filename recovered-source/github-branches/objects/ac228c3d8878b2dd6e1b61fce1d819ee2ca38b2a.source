@@ -1,0 +1,52 @@
+name: Nathan AI Six Dogs CI
+on:
+  pull_request:
+    paths:
+      - "app-factory/nathan-ai/six-dogs/**"
+      - "app-factory/nathan-ai/index.html"
+      - "app-factory/nathan-ai/offline-assets.json"
+      - "app-factory/nathan-ai/sw.js"
+      - "app-factory/one/index.html"
+      - "app-factory/one/sovereign-acro-matrix/index.html"
+      - ".github/workflows/six-dogs-ci.yml"
+  push:
+    branches:
+      - "feat/six-dogs-resolution-*"
+    paths:
+      - "app-factory/nathan-ai/six-dogs/**"
+      - ".github/workflows/six-dogs-ci.yml"
+  workflow_dispatch:
+jobs:
+  six-dogs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate module JavaScript
+        run: |
+          node --check app-factory/nathan-ai/six-dogs/engine.js
+          node --check app-factory/nathan-ai/six-dogs/app.js
+          node --check app-factory/nathan-ai/six-dogs/engine.test.cjs
+          node --check app-factory/nathan-ai/six-dogs/topology.js
+          node --check app-factory/nathan-ai/six-dogs/topology-ui.js
+          node --check app-factory/nathan-ai/six-dogs/topology.test.cjs
+      - name: Run Six Dogs engine tests
+        run: node --test app-factory/nathan-ai/six-dogs/engine.test.cjs app-factory/nathan-ai/six-dogs/topology.test.cjs
+      - name: Test Python SovereignUnit
+        run: python3 -m unittest discover -s app-factory/nathan-ai/six-dogs -p 'test_*.py' -v
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Python edge-mesh crypto dependency
+        run: python -m pip install -r app-factory/nathan-ai/six-dogs/edge-mesh/requirements.txt
+      - name: Run Python Six Dogs Micro Edge / Macro Fabric tests
+        run: python -m unittest discover -s app-factory/nathan-ai/six-dogs/edge-mesh -p 'test_*.py' -v
+      - name: Run the offline six-stage pipeline
+        run: python app-factory/nathan-ai/six-dogs/edge-mesh/runner.py --demo --no-wait
+      - name: Validate architecture and offline manifest
+        run: |
+          node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('app-factory/nathan-ai/six-dogs/architecture.json','utf8'));if(a.stages.length!==6||a.sequence.join(',')!=='KNICK,KNACK,PADDY,WHACK,DOG,BONE')process.exit(1);const o=JSON.parse(fs.readFileSync('app-factory/nathan-ai/offline-assets.json','utf8'));for(const f of ['six-dogs/index.html','six-dogs/engine.js','six-dogs/app.js','six-dogs/style.css','six-dogs/topology.js','six-dogs/topology-ui.js'])if(!o.includes(f))process.exit(1)"

@@ -1,0 +1,38 @@
+name: Icarus Historical Player Database
+on:
+  push:
+    branches: [icarus-players-2026-10-15, main]
+    paths:
+      - "app-factory/icarus-baseball/**"
+      - ".github/workflows/icarus-player-database.yml"
+  workflow_dispatch:
+jobs:
+  build-and-validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build full source-backed SQLite database
+        run: python3 app-factory/icarus-baseball/import_sqlite.py
+      - name: Verify player sources and SQL integrity
+        run: |
+          python3 - <<'PY'
+          import sqlite3
+          c=sqlite3.connect("app-factory/icarus-baseball/icarus_players.sqlite")
+          assert c.execute("PRAGMA integrity_check").fetchone()[0]=="ok"
+          assert c.execute("PRAGMA foreign_key_check").fetchall()==[]
+          assert c.execute("SELECT COUNT(*) FROM players").fetchone()[0]==4878
+          assert c.execute("SELECT COUNT(*) FROM batting_seasons").fetchone()[0]==17442
+          assert c.execute("SELECT COUNT(*) FROM women_research").fetchone()[0]>=8
+          assert c.execute("SELECT COUNT(*) FROM batting_seasons WHERE year>1915").fetchone()[0]==0
+          print("Historical players, seasons, women/softball staging and relationships validated.")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: icarus-sourced-player-database
+          path: app-factory/icarus-baseball/icarus_players.sqlite
+          retention-days: 30

@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Nathan AI original-preserving independent application, game, book and educational edition.">
+<meta name="theme-color" content="#102536"><title>NATHAN AI · ORIGINALS & INDEPENDENT EDITIONS — NATHAN AI INDEPENDENT EDITIONS</title>
+<link rel="stylesheet" href="../appearance/shared.css" data-nathan-shared-appearance>
+<script src="../appearance/engine.js"></script><script src="../appearance/app.js"></script>
+<link rel="stylesheet" href="../launcher/shared.css" data-nathan-command-center>
+<script src="../workspace.js" defer></script><script src="../assistant/engine.js" defer></script>
+<script src="../launcher/engine.js" defer></script><script src="../launcher/app.js" defer></script>
+<link rel="stylesheet" href="./style.css">
+</head><body data-edition-id="catalog"><div class="wrap">
+<header id="hero" class="hero"><p>NATHAN AI · ORIGINAL FIRST</p><h1>NATHAN AI · ORIGINALS & INDEPENDENT EDITIONS</h1></header>
+<p id="edition" class="eyebrow" role="status">Independent editions</p>
+<main id="stage" aria-label="Independent original program workspace"></main>
+<p id="notice" class="response" role="status" aria-live="polite"></p>
+<footer><p>Originals are separate from adaptations. Browser-local operations do not install system protection or share private source. Nathan AI Interactive Chatbox receives only an explicitly selected public program context.</p></footer></div>
+<script src="./registry.js"></script><script src="./engine.js"></script><script src="./app.js"></script>
+</body></html>

@@ -1,0 +1,14 @@
+# Local dependencies, Python caches and editor/OS files
+node_modules/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Local credentials and owner-only samples
+.env
+.env.*
+!.env.example
+private-samples/
+
+# Scratch work; release artifacts belong outside the checkout
+/work/

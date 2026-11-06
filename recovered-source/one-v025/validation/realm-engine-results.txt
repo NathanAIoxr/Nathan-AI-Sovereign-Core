@@ -1,0 +1,30 @@
+✔ realm retains all 33 historical trial names, five lanes, exact counters and speed constants (1.549317ms)
+✔ 100 initial seeds have no free matches and at least one legal move (49.790182ms)
+✔ invalid bounds and no-match swaps restore the complete deterministic state (1.091898ms)
+✔ independent battle RNG and public hints never mutate or inspect another instance (9.171583ms)
+✔ ghost shots reroute to nearest living lane and break ties to the left (0.806856ms)
+✔ lane mana belongs only to matching assigned heroes; ghost gain is doubled (0.921195ms)
+✔ specials require full mana and enforce one cast per hero per accepted move (0.947244ms)
+✔ auto-play conserves boss skills, avoids full-health heals and respects opening-lane filters (7.809864ms)
+✔ all 33 expeditions can be won with starter heroes and faithfully replayed (503.655982ms)
+✔ one full 33-stage settlement journey unlocks all 10 heroes and credits rewards once (504.502871ms)
+✔ replay verifier accepts a genuine battle and rejects a changed outcome or invalid action (138.629742ms)
+✔ production preserves fractions and rejects backward clock farming (0.548754ms)
+✔ production caps offline accumulation at 12 hours and preserves storage overflow (0.132326ms)
+✔ overflow can be partially claimed after spending and expires at its exact deadline (0.492199ms)
+✔ battle loot above storage goes to inbox instead of disappearing (7.716766ms)
+✔ settlement transactions reject overspending, blocked ascension and invalid loadouts atomically (1.001725ms)
+✔ batch crafting and party training are single exact-cost transactions (0.372182ms)
+✔ building upgrades apply production at the old rate and immediately unlock training (0.280576ms)
+✔ ending an expedition returns unspent items without rewards and replays as a flee (0.980343ms)
+✔ all imported state is validated before any live state is replaced (8.889506ms)
+✔ onboarding is three resumable moves or a single skip, with no payment or account state (0.207057ms)
+✔ reminder structures represent real production caps and inbox deadlines only (0.299784ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1311.595841

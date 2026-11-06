@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "ownerApproval": "REQUIRED",
+  "source": "Illustrative public demo manifests; not actual unreleased game manifests.",
+  "apps": [
+    {
+      "id": "woodland-story-demo",
+      "title": "Woodland Story Example",
+      "audience": "children",
+      "category": "story",
+      "purpose": "learning",
+      "complexity": 2,
+      "deliveryCost": "low",
+      "includesChildren": true,
+      "freeCore": true,
+      "ongoingContent": false,
+      "multiplayer": false,
+      "supportsAds": false
+    },
+    {
+      "id": "community-play-demo",
+      "title": "Community Play Example",
+      "audience": "families",
+      "category": "community",
+      "purpose": "community",
+      "complexity": 3,
+      "deliveryCost": "low",
+      "freeCore": true,
+      "multiplayer": true
+    },
+    {
+      "id": "competitive-demo",
+      "title": "Arena Game Example",
+      "audience": "general",
+      "category": "competitive",
+      "purpose": "entertainment",
+      "complexity": 3,
+      "deliveryCost": "medium",
+      "freeCore": true,
+      "ongoingContent": true,
+      "multiplayer": true
+    },
+    {
+      "id": "creator-suite-demo",
+      "title": "Creator Studio Example",
+      "audience": "professionals",
+      "category": "creator",
+      "purpose": "professional",
+      "complexity": 5,
+      "deliveryCost": "high",
+      "ongoingContent": true,
+      "freeCore": false
+    },
+    {
+      "id": "public-learning-demo",
+      "title": "Community Learning Example",
+      "audience": "educators",
+      "category": "education",
+      "purpose": "community",
+      "complexity": 3,
+      "deliveryCost": "medium",
+      "freeCore": true
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#102925"><meta name="apple-mobile-web-app-capable" content="yes">
+<title>ONE — Sealed Voice Box | Universal Offloader</title>
+<link rel="manifest" href="../manifest.webmanifest"><link rel="icon" href="../../icon.svg">
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,sans-serif;--bg:#081b1b;--panel:#112b2c;--edge:#35625d;--mint:#b9f4d0;--gold:#e9c78c;--text:#f0f9f5;--muted:#acc9c3}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#1d5147,transparent 60%),var(--bg);color:var(--text)}
+main{max-width:1000px;margin:auto;padding:18px 15px 85px}h1{font-size:clamp(2.3rem,8vw,4.2rem);line-height:1;margin:9px 0}h2{margin:0 0 10px;font-size:1.23rem}p,small{color:var(--muted);line-height:1.5}a{color:var(--gold)}button,input,select,textarea{font:inherit;color:var(--text);background:#0b2526;border:1px solid #55837c;border-radius:11px;padding:12px;max-width:100%}button{cursor:pointer;touch-action:manipulation}button:disabled{opacity:.45;cursor:not-allowed}input,textarea,select{width:100%}textarea{min-height:115px;resize:vertical}label{display:block;font-size:.84rem;margin:10px 0 5px;color:#cee4dc}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.primary{background:var(--mint);color:#08251c;border:0;font-weight:800}.danger{border-color:#d98888;color:#ffd5d5}.panel{border:1px solid var(--edge);background:var(--panel);border-radius:18px;padding:17px;margin:15px 0}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row>*{flex-shrink:0}.grow{flex:1}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.eyebrow{letter-spacing:.12em;color:var(--gold);font-size:.75rem;font-weight:800}.hero{padding:20px;border:1px solid #719487;border-radius:19px;background:linear-gradient(125deg,#23493f,#0b2127)}
+.clover{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:17px 0}.leaf{border:1px solid #6c9e8d;border-radius:42% 42% 17px 17px;background:linear-gradient(155deg,#256455,#1a3442);text-align:center;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:9px}.leaf b{color:#e1ffee}.leaf small{color:#b3d5c5}.notice{border-left:3px solid var(--gold);padding:11px;background:#3a352a;border-radius:4px}.success{border-left-color:var(--mint);background:#173b30}.item{border:1px solid #365f5a;border-radius:13px;padding:13px;margin:10px 0;background:#0d2425;overflow-wrap:anywhere}.item h3{font-size:1rem;margin:2px 0 5px}.item p{margin:5px 0}.meta{font-size:.78rem;color:#acc9c3}.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}.btnrow button{padding:9px;font-size:.85rem}.pill{font-size:.77rem;border:1px solid #658e84;border-radius:30px;padding:5px 9px}#status{white-space:pre-wrap}footer{margin-top:26px;font-size:.8rem;color:#acc9c3}@media(max-width:560px){.grid{grid-template-columns:1fr}.row>*{max-width:100%}.panel{padding:13px}main{padding:12px 10px 80px}}[hidden]{display:none!important}
+</style></head><body><main>
+<header class="row"><a href="../index.html">← ONE — The Last App</a><span class="pill">401 · APPS & AI</span><span class="pill">301 · PRIVATE VAULT</span></header>
+<section class="hero">
+<div class="eyebrow">THE TABOR TIME-TRAVELING TABERNACLE · 4T</div>
+<h1>SEALED<br>VOICE BOX</h1>
+<p>Universal AI Offloader — preserve the ORIGINAL. Your iPhone controls the local vault. The cloud supercomputer and authorized provider connections are separate deployment stages.</p>
+<div class="clover" aria-label="Four T operating layers"><div class="leaf"><b>TORRENT</b><small>Capture / compute</small></div><div class="leaf"><b>TERRACES</b><small>Encrypted originals</small></div><div class="leaf"><b>TUNNELS</b><small>Export / transfer</small></div><div class="leaf"><b>TERMINAL</b><small>Voice / iPhone</small></div></div>
+<small>1+1=2 · preserve additions | 1−1=0 · only deliberate deletions | YES is YES / NO is NO</small>
+</section>
+<section class="panel"><h2>Voice Lock · This Device</h2>
+<p id="lockhelp">Enter your vault passphrase. On a new device, this creates a new encrypted vault; on a returning device, it unlocks your originals.</p>
+<div class="row"><div class="grow"><label for="pass">Passphrase (at least 12 characters)</label><input id="pass" type="password" autocomplete="new-password" placeholder="Only you know this passphrase"></div><button id="unlock" class="primary">Unlock / Create</button><button id="lock" hidden>Lock</button></div>
+<p class="notice">No passphrase recovery service exists yet. Keep your passphrase and encrypted backup in safe, separate places. This is local browser encryption, <b>not</b> a connected cloud account or biometric voice authentication.</p>
+</section>
+<p id="status" class="notice" role="status" aria-live="polite">Locked. No files have been accessed.</p>
+<div id="inside" hidden>
+<section class="panel"><h2>OFFLOAD TO ONE</h2>
+<p>Save any file format as original bytes: AI transcripts, JSON, HTML, code, images, audio, video, PDF, ZIP or other files. Individual files are limited to 24 MB in this iPhone test build; bigger originals require the future chunked cloud upload service.</p>
+<div class="grid">
+<div><label for="provider">Original source</label><select id="provider"><option>ChatGPT</option><option>Claude</option><option>Gemini</option><option>Other AI</option><option>My own work</option><option>Another app</option></select></div>
+<div><label for="coverage">Capture coverage</label><select id="coverage"><option value="selected-content">Selected content / unknown completeness</option><option value="export-supplied-unverified">Provider export supplied (not completeness verified)</option><option value="original-authored">Direct original authored here</option><option value="link-only">Link or reference only</option></select></div>
+<div><label for="project">Project / workspace</label><input id="project" placeholder="e.g., THE TABOR TAPE" maxlength="160"></div>
+<div><label for="title">Artifact title (optional)</label><input id="title" placeholder="Auto uses filename" maxlength="200"></div>
+</div>
+<label for="files">Import original file(s)</label><input id="files" type="file" multiple>
+<button id="saveFiles" class="primary" style="margin-top:10px">OFFLOAD SELECTED FILES</button>
+<hr style="border:0;border-top:1px solid #355951;margin:19px 0">
+<label for="note">Paste a chat, code, transcript, link, or original note</label><textarea id="note" placeholder="Paste exact text here. It will be saved as source bytes. Your original text will not be summarized or rewritten."></textarea>
+<button id="saveText" class="primary">OFFLOAD EXACT TEXT</button>
+<hr style="border:0;border-top:1px solid #355951;margin:19px 0">
+<h2>Voice Capture</h2><p>Record a voice note with an explicit microphone permission prompt. Recording occurs only while this page is open and you control Start/Stop.</p>
+<div class="row"><button id="recStart">🎙 Start Voice Note</button><button id="recStop" disabled>■ Stop & Save</button><span id="recordState" class="meta">Not recording</span></div>
+</section>
+<section class="panel"><h2>Originals · Search & Restore</h2><p id="stats">Loading originals…</p><label for="search">Search titles, projects, providers and derived text index</label><input id="search" type="search" placeholder="Search across local saved work">
+<div class="row" style="margin-top:12px"><button id="refresh">Refresh / Verify List</button><button id="backup" class="primary">Download ENCRYPTED full backup</button></div>
+<label for="backupFile">Restore a ONE .onevault backup</label><input id="backupFile" type="file" accept=".onevault,application/octet-stream">
+<label for="backupPass">Backup passphrase (may differ from current vault)</label><input id="backupPass" type="password" autocomplete="off" placeholder="Passphrase used to encrypt backup">
+<button id="restore">VERIFY & RESTORE BACKUP</button>
+<p class="meta">An encrypted backup can be saved through iPhone Files to iCloud Drive or another user-selected cloud provider. That is a user-controlled file backup, not automatic live sync. Existing Master Library records are untouched.</p>
+<div id="items"></div></section>
+<section class="panel"><h2>Connections / Cloud Status</h2>
+<p class="notice">Device vault: <b>encrypted locally</b>. Remote private storage: <b>NOT CONNECTED</b>. Automatic ChatGPT / Claude / Gemini account-history sync: <b>NOT CONNECTED</b>. The app never claims “Synced to Phone” or “Verified in Cloud” unless a real acknowledgment exists.</p>
+<p>Use provider data exports, Files, paste, or the current ONE import format. A private cloud backend with device authorization and official provider integrations is the next implementation layer.</p>
+<a href="../library/index.html">Open existing ONE Master Library →</a>
+</section>
+</div>
+<footer>ONE — The Last App / TABOR 1-2-3 FACTORY™ · Private, additive test module · Do not forget the unlock passphrase or rely on browser storage as the only copy. No data is sent by this page to GitHub or a model provider.</footer>
+</main>
+<script src="../../vault-backup.js"></script><script src="./engine.js"></script>
+<script>
+(function(){'use strict';
+const $=id=>document.getElementById(id);
+let vault=null,recorder=null,stream=null,voiceChunks=[];
+const say=(message,ok=false)=>{$('status').textContent=message;$('status').className='notice'+(ok?' success':'')};
+const busy=(b)=>{['unlock','saveFiles','saveText','backup','restore'].forEach(id=>$(id).disabled=b)};
+const fileDownload=(bytes,name,type)=>{const blob=new Blob([bytes],{type:type||'application/octet-stream'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000)};
+const fmt=n=>n<1024?n+' bytes':(n/1024/1024).toFixed(2)+' MB';
+async function run(task){busy(true);try{await task()}catch(e){say('Action failed: '+(e?.message||String(e)))}finally{busy(false)}}
+async function refresh(){const all=await vault.list();$('stats').textContent=all.length+' exact originals in encrypted storage on this device. Not cloud-synced.';const q=$('search').value.trim().toLowerCase();const holder=$('items');holder.replaceChildren();for(const m of all){const hay=[m.title,m.name,m.project,m.provider,m.searchText,m.sha256].join(' ').toLowerCase();if(q&&!hay.includes(q))continue;const div=document.createElement('article');div.className='item';const heading=document.createElement('h3');heading.textContent=m.title;div.append(heading);const details=document.createElement('div');details.className='meta';details.textContent=m.provider+' · '+m.project+' · '+fmt(m.size)+' · '+m.coverage+' · '+m.createdAt;div.append(details);const hash=document.createElement('p');hash.className='meta';hash.textContent='Verified SHA-256 on download: '+m.sha256;div.append(hash);
+const buttons=document.createElement('div');buttons.className='btnrow';function button(text,handler,cls){const b=document.createElement('button');b.textContent=text;if(cls)b.className=cls;b.addEventListener('click',()=>run(handler));buttons.append(b)}
+button('Get exact original',async()=>{const r=await vault.original(m.id);fileDownload(r.bytes,r.meta.name,r.meta.mime);say('Original verified locally: '+m.sha256,true)});
+button('Reload into AI',async()=>{const r=await vault.original(m.id);const body=r.meta.searchText||'[Binary original. Attach the downloaded original file to the destination AI.]';const packet='# ONE Source-Linked Continuation\n\nOriginal ID: '+m.id+'\nTitle: '+m.title+'\nProject: '+m.project+'\nSource: '+m.provider+'\nCompleteness: '+m.coverage+'\nSHA-256: '+m.sha256+'\n\nThis is a derived continuation packet, not a replacement for the exact original.\n\n'+body.slice(0,12000);try{await navigator.clipboard.writeText(packet);say('Source-linked continuation packet copied. Original unchanged.',true)}catch(e){fileDownload(new TextEncoder().encode(packet),'ONE-reload-'+m.id+'.md','text/markdown');say('Continuation packet downloaded; clipboard permission unavailable.',true)}});
+button('Delete intentionally',async()=>{if(window.prompt('Type DELETE to erase this local copy. Backups elsewhere will not be deleted.')!=='DELETE'){say('Delete cancelled; original preserved.');return}await vault.erase(m.id);await refresh();say('Local copy deleted by explicit authorization. Other backups unchanged.')},'danger');
+div.append(buttons);holder.append(div)}
+}
+async function saveBytes(bytes,opts){const m=await vault.save(bytes,opts);say('SAVED LOCALLY & ENCRYPTED · '+m.title+'\nSHA-256 '+m.sha256+'\nNOT CLOUD SYNCED',true);await refresh();return m}
+$('unlock').onclick=()=>run(async()=>{const pass=$('pass').value;vault=await ONEOffloader.Vault.open(pass);$('pass').value='';$('inside').hidden=false;$('lock').hidden=false;$('unlock').hidden=true;$('lockhelp').textContent='Unlocked. The encryption key remains in memory only until the page closes or you lock it.';await refresh();say('Voice Box opened · encrypted local archive ready. Cloud is NOT connected.',true)});
+$('lock').onclick=()=>{if(recorder?.state==='recording')recorder.stop();if(stream)stream.getTracks().forEach(x=>x.stop());vault?.close();vault=null;$('inside').hidden=true;$('lock').hidden=true;$('unlock').hidden=false;$('items').replaceChildren();say('Vault locked. Nothing is synced to the cloud.')};
+$('saveFiles').onclick=()=>run(async()=>{const files=Array.from($('files').files||[]);if(!files.length)throw Error('Choose one or more files');let done=0;for(const f of files){if(f.size>ONEOffloader.MAX_FILE)throw Error(f.name+' exceeds the 24 MB limit');const bytes=new Uint8Array(await f.arrayBuffer());const title=$('title').value.trim()||f.name;await saveBytes(bytes,{title,name:f.name,mime:f.type||'application/octet-stream',project:$('project').value,provider:$('provider').value,coverage:$('coverage').value,searchText:ONEOffloader.plainText(bytes,f.name,f.type)});done++}$('files').value='';say(done+' original file(s) SAVED & ENCRYPTED LOCALLY. Not cloud synced.',true)});
+$('saveText').onclick=()=>run(async()=>{const t=$('note').value;if(!t)throw Error('Paste or type some work first');const bytes=new TextEncoder().encode(t);await saveBytes(bytes,{title:$('title').value.trim()||'Pasted original',name:'ONE-pasted-source.txt',mime:'text/plain',provider:$('provider').value,project:$('project').value,coverage:$('coverage').value,searchText:t});$('note').value=''});
+$('search').addEventListener('input',()=>{if(vault)refresh().catch(e=>say(e.message))});$('refresh').onclick=()=>run(refresh);
+$('backup').onclick=()=>run(async()=>{const b=await vault.exportBackup(TaborVaultBackup);fileDownload(b.bytes,'ONE-sealed-backup-'+new Date().toISOString().slice(0,10)+'.onevault');say('ENCRYPTED backup exported: '+b.count+' exact originals. Save it in Files/iCloud Drive and keep the passphrase.',true)});
+$('restore').onclick=()=>run(async()=>{const f=$('backupFile').files?.[0],pass=$('backupPass').value;if(!f||!pass)throw Error('Select a .onevault backup and enter its passphrase');const restored=await vault.restoreBackup(new Uint8Array(await f.arrayBuffer()),pass,TaborVaultBackup);$('backupPass').value='';$('backupFile').value='';await refresh();say('Verified restore: '+restored.added+' originals added; '+restored.skipped+' existing identical items skipped.',true)});
+$('recStart').onclick=async()=>{if(!vault){say('Unlock first');return}try{stream=await navigator.mediaDevices.getUserMedia({audio:true});let mime='';for(const type of ['audio/mp4','audio/webm;codecs=opus','audio/webm'])if(MediaRecorder.isTypeSupported(type)){mime=type;break}voiceChunks=[];recorder=mime?new MediaRecorder(stream,{mimeType:mime}):new MediaRecorder(stream);recorder.ondataavailable=e=>{if(e.data?.size)voiceChunks.push(e.data)};recorder.onstop=()=>{stream.getTracks().forEach(x=>x.stop());stream=null;$('recStop').disabled=true;$('recStart').disabled=false;$('recordState').textContent='Recording stopped';run(async()=>{const blob=new Blob(voiceChunks,{type:recorder.mimeType||'audio/mp4'});if(blob.size>ONEOffloader.MAX_FILE)throw Error('Recording exceeds 24 MB. Shorter recordings work in this iPhone test.');await saveBytes(new Uint8Array(await blob.arrayBuffer()),{title:$('title').value.trim()||'Voice note',name:'voice-note-'+Date.now()+((blob.type||'').includes('mp4')?'.m4a':'.webm'),mime:blob.type,provider:'My own work',project:$('project').value,coverage:'original-authored'})})};recorder.start();$('recStart').disabled=true;$('recStop').disabled=false;$('recordState').textContent='RECORDING — tap Stop to save';say('Voice recording active. Stop & Save when finished.')}catch(e){say('Microphone unavailable or not authorized: '+e.message);if(stream)stream.getTracks().forEach(x=>x.stop())}};
+$('recStop').onclick=()=>{if(recorder?.state==='recording')recorder.stop()};
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('../../sw.js').catch(()=>{}));
+})();
+</script></body></html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101720">
+<title>ONE Connected System | Apps · Books · Images</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;--bg:#0c141c;--card:#1b2935;--line:#4a6070;--warm:#e8d6ac;--muted:#b9c9d0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#244352,transparent 44%),var(--bg);color:#f6f8fb}
+main{max-width:1210px;margin:auto;padding:18px 15px 80px}header,.row{display:flex;align-items:center;gap:9px;flex-wrap:wrap}header{justify-content:space-between}
+a{color:var(--warm)}h1{font-size:clamp(2.1rem,6vw,4.5rem);line-height:1.05;letter-spacing:-.05em;margin:13px 0 8px}
+h2{font-size:1.22rem;margin:3px 0 12px}p{line-height:1.55;color:var(--muted)}small{color:var(--muted);display:block;line-height:1.45}
+.eyebrow{font-size:.73rem;color:#e5c990;letter-spacing:.13em;font-weight:800}
+.panel{border:1px solid var(--line);border-radius:17px;padding:17px;margin:13px 0;background:var(--card)}
+.hero{padding:clamp(18px,4vw,33px);border:1px solid #82919a;border-radius:20px;background:linear-gradient(115deg,#264352,#17252e)}
+.hero p{max-width:820px}.noblock{border-left:4px solid #e5c990;padding:12px;background:#353226;border-radius:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:9px}.tile{border:1px solid #546778;border-radius:12px;padding:14px;background:#283b48}
+.tile strong{font-size:1.9rem;display:block;color:#ead4a4}
+button,input,select{font:inherit;background:#263c49;color:white;border:1px solid #6c8290;border-radius:10px;padding:11px}
+button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--warm);outline-offset:2px}
+button.primary{background:#ead9b3;color:#15222c;font-weight:800}.grow{flex:1}
+input[type=search]{min-width:200px;flex:1}select{max-width:100%;min-width:150px}.item{border:1px solid #3f5a6b;background:#21323f;border-radius:12px;padding:13px;margin:10px 0;overflow-wrap:anywhere}
+.item strong{display:block;font-size:1.02rem;margin-bottom:6px}.item small{margin-bottom:4px}.item .row{margin-top:8px}
+.item button{padding:8px}.item a{padding:8px}#results{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:9px}#results .item{margin:0}
+#preview img{max-width:100%;max-height:450px;object-fit:contain;border-radius:10px;background:#0b1217}
+#sources p{margin:4px 0}#status{border-left:4px solid #c9b582;background:#30352e;padding:13px;border-radius:8px}
+.picker{border:1px solid #617481;border-radius:11px;background:#162632;min-height:57px;padding:12px;overflow-wrap:anywhere;flex:1;min-width:210px}
+footer{font-size:.83rem;color:var(--muted);margin-top:25px}
+[hidden]{display:none!important}@media(max-width:590px){main{padding:10px 9px 70px}.panel{padding:13px}.grid{grid-template-columns:repeat(2,1fr)}}
+</style></head>
+<body><main>
+<header><a href="../index.html">← ONE — The Last App</a><span class="eyebrow">TABOR ROOT · SOVEREIGN FREE WILL</span></header>
+<section class="hero">
+<div class="eyebrow">NATHAN AI → TABOR ROOT → TABOR 1-2-3 FACTORY → ONE</div>
+<h1>ONE <span style="color:#ebd7ad">CONNECTED SYSTEM</span></h1>
+<p>One searchable doorway for the apps, books, images, archives and projects already started. Original material stays in its existing source vault. This screen creates owner-approved relationships without copying, rewriting or publishing private work.</p>
+<p><strong>FREE means FREE.</strong> 0 remains 0. 1 remains 1. Here, 0 means a specific check is not verified; 1 means that check passed. Neither bit judges a person's freedom, a language's value, a manuscript's worth or whether research may continue.</p>
+<div class="row"><a href="../library/index.html">ONE Master Library</a><a href="../../vault.html">Universal Creator Vault</a><a href="../offloader/index.html">Encrypted AI Offloader</a><a href="../../ecosystem.html">Public App Directory</a></div>
+</section>
+<div class="grid" aria-label="Connected index counts">
+<div class="tile"><strong id="appsCount">0</strong><small>App and project entries</small></div>
+<div class="tile"><strong id="booksCount">0</strong><small>Books, editions and book records</small></div>
+<div class="tile"><strong id="imagesCount">0</strong><small>Images and art references</small></div>
+<div class="tile"><strong id="otherCount">0</strong><small>Other sources and records</small></div>
+<div class="tile"><strong id="linksCount">0</strong><small>Owner-approved relationships</small></div>
+</div>
+<section class="panel">
+<h2>1 · Discover existing sources</h2>
+<p class="noblock">This is an on-device index, not an automatic cloud sync. It reads the existing ONE Master Library and Creator Vault when those sources were previously imported in this <strong>same browser profile and website origin</strong>. The encrypted Offloader remains locked and is not silently opened. Public app listings are catalog references, not proof of live provider integration.</p>
+<div id="sources" aria-live="polite"><p>Looking for existing local indexes…</p></div>
+<div class="row"><button id="reload">Rescan existing sources</button><a href="../library/index.html">Import private ONE Library pack</a><a href="../../vault.html">Import original images / files</a></div>
+</section>
+<section class="panel">
+<h2>2 · Search apps, books, images and records</h2>
+<div class="row"><input id="search" type="search" aria-label="Search connected records" placeholder="Find a book, artwork, app, character, project, source ID…">
+<select id="type" aria-label="Record type"><option value="">Everything</option><option value="app">Apps and projects</option><option value="book">Books and documents</option><option value="image">Images and artwork</option><option value="record">Other records</option></select></div>
+<p id="match">Scanning…</p><div id="results"></div><div class="row" style="margin-top:13px"><button id="more" hidden>Show 100 more</button></div>
+<div class="panel" id="preview" hidden aria-label="Original Vault image preview"></div>
+</section>
+<section class="panel">
+<h2>3 · Connect two original records</h2>
+<p>Search a record above and choose <strong>Set FROM</strong>, then find the related record and choose <strong>Set TO</strong>. Pick the real relationship. This action saves only a connection; it does not alter either original or claim independent factual verification.</p>
+<div class="row"><div class="picker"><small>FROM</small><strong id="from">Choose FROM in a result</strong></div><div class="picker"><small>TO</small><strong id="to">Choose TO in a result</strong></div></div>
+<div class="row" style="margin-top:12px"><label for="relation">Relationship</label>
+<select id="relation"><option value="illustrates">Illustrates</option><option value="adapted-as">Adapted as</option><option value="belongs-to">Belongs to</option><option value="references">References</option><option value="connected-with">Connected with</option><option value="source-of">Source of</option></select>
+<button class="primary" id="save">Connect these records</button></div>
+<p id="status" role="status" aria-live="polite">Scanning source indexes…</p>
+</section>
+<section class="panel">
+<h2>4 · Your saved connections</h2>
+<p>Relationships are stored on this browser. Export them for backup or transfer; importing a manifest adds links without overwriting originals. A broken source link remains visible for later reconciliation instead of silently disappearing.</p>
+<div class="row"><button id="export" class="primary">Export relationship JSON</button><label for="importLinks">Import relationship JSON</label><input id="importLinks" type="file" accept=".json,application/json" aria-label="Import existing relationship manifest"></div>
+<div id="links"></div>
+</section>
+<footer>CREATE ONCE. TRANSFORM INTO EVERYTHING. PRESERVE THE ORIGINAL. · No automatic publication · No secret or manuscript upload · Owner-approved links only · Back up source Vault originals independently.</footer>
+</main><script src="./connected.js" defer></script></body></html>

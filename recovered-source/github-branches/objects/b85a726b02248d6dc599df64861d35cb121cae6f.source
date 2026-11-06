@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101720"><title>Nathan AI 🚀 — All Interfaces & Build Recovery</title>
+<link rel="icon" href="../../icon.svg">
+<style>
+:root{font:16px/1.5 system-ui,-apple-system,sans-serif;color-scheme:dark;background:#101720;color:#f4f1e8}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 100% 0,#203d51,transparent 48%),#101720}
+main{max-width:1250px;margin:auto;padding:18px 17px 70px}a{color:#f4d895}
+header,.links,.filters,.statrow{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+header{justify-content:space-between}header a{font-weight:650}.links{margin:13px 0 20px}
+.hero{margin-top:18px;padding:clamp(20px,4vw,42px);border:1px solid #536c80;border-radius:18px;background:linear-gradient(120deg,#182b3b,#203446)}
+.eyebrow{font-weight:750;letter-spacing:.13em;text-transform:uppercase;color:#ecd396;font-size:.75rem}
+h1{font-size:clamp(2.1rem,6vw,4.2rem);line-height:1.05;margin:10px 0}h2{font-size:1.4rem;margin:0 0 10px}
+p{color:#c1d0d8}strong{color:#fff0c8}.notice{padding:13px;border-left:3px solid #e6c98b;background:#34302a}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:22px}
+.stat{border:1px solid #577082;border-radius:12px;background:#1c3545;padding:13px}
+.stat strong{font-size:1.8rem;display:block}.stat small{color:#c1d0d8}
+section.panel{border:1px solid #425769;background:#1c2b38;border-radius:16px;padding:clamp(15px,2vw,22px);margin:18px 0}
+label{display:block;color:#dce7eb;font-weight:650;margin-bottom:5px}
+input,select,button{font:inherit;background:#253b4b;color:#f5f9fc;border:1px solid #738a9b;border-radius:9px;padding:10px;max-width:100%}
+input[type=search]{flex:3;min-width:200px}select{min-width:170px;flex:1}
+button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #f4d895;outline-offset:3px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-top:18px}
+.card{padding:16px;border:1px solid #53697b;border-radius:12px;background:#223644;overflow-wrap:anywhere}
+.card .eyebrow{font-size:.66rem;color:#e3d0a9}.card h3{font-size:1.07rem;margin:9px 0;overflow-wrap:anywhere}
+.card p{font-size:.88rem;margin:6px 0}.card a,.card button{display:inline-block;margin:6px 12px 0 0;font-weight:700;font-size:.85rem}
+.card small{color:#adbfcb}.muted{font-size:.84rem;color:#b9cbd4}
+.archive-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:11px}
+li{padding:3px}pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:280px;overflow:auto;background:#101d28;padding:12px}
+#more{margin-top:16px}footer{color:#adbec9;font-size:.85rem;margin-top:35px;border-top:1px solid #405361;padding-top:20px}
+[hidden]{display:none!important}
+@media(max-width:580px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.cards{grid-template-columns:1fr}header{align-items:flex-start}}
+</style>
+<script src="atlas.js" defer></script><script src="../../shared/one-universal-v061.js" defer></script>
+</head><body><main>
+<header><a href="../index.html">← NATHAN AI MAIN HUB</a><div class="links"><a href="../../one/index.html">ONE</a><a href="../games/index.html">Games</a><a href="../../one/library-mind/index.html">Library</a><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core">GitHub source</a></div></header>
+<section class="hero">
+<div class="eyebrow">NATHAN AI 🚀 → TABOR ROOT → TABOR 1-2-3 FACTORY → ONE</div>
+<h1>All Interfaces.<br>All Builds. No Lost Originals.</h1>
+<p>A searchable, additive doorway into the currently indexed browser pages, game titles, system references and owner-held archive anchors. Every pre-existing module keeps its original code and product identity.</p>
+<p><strong>1+1=2 BUILD · 1−1=0 CLEAR</strong> · Preserve → Index → Relate → Derive. Never replace.</p>
+<div class="stats">
+<div class="stat"><strong id="page-count">—</strong><small>HTML source interfaces</small></div>
+<div class="stat"><strong id="game-count">—</strong><small>Game catalog entries</small></div>
+<div class="stat"><strong id="system-count">—</strong><small>Additional system references</small></div>
+<div class="stat"><strong id="archive-count">—</strong><small>Owner-held archive anchors</small></div>
+</div>
+</section>
+<section class="panel"><h2>Verified scope & original-source boundaries</h2>
+<p class="notice">A listed interface is a verified repository source path, <strong>not</strong> proof of live publication, deployment or completed functionality. Reference names and catalog targets are not working products. Neither past private source bytes nor personal research records are published here.</p>
+<p class="muted">Earlier recovery index: 6,056 master-registry rows; 383 selected technology rows; about 5,447 saved-file records (including copies/versions). Goals: 133,333,333 master blueprint; 33,000,000 library addresses; 66,666 language destinations. These are historical counts/planned capacities, not completed books or released apps.</p>
+<p id="source-meta" class="muted">Loading repository snapshot…</p></section>
+
+<section class="panel" id="all-code" aria-labelledby="code-title">
+<div class="eyebrow">Public GitHub source · live read-only source inventory</div>
+<h2 id="code-title">Every accessible repository file · code, data, patches</h2>
+<p>This screen indexes the full <strong>public main-branch file tree</strong> using GitHub's public metadata API. Search by original filename, path, extension or Git blob ID. Use “Read public source in Nathan AI” to inspect eligible text files in this page; no downloaded source is executed. Files remain in their original repository paths.</p>
+<div class="stats"><div class="stat"><strong id="repo-file-count">—</strong><small>Public GitHub source files</small></div></div>
+<p id="repo-status" role="status" aria-live="polite" class="muted">Checking GitHub's public source tree…</p>
+<div class="filters"><button id="export-source-manifest" type="button">Export combined recovery metadata JSON</button><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core" target="_blank" rel="noopener noreferrer">Open canonical code repository</a></div>
+<p class="notice">A file listed here is not a production app. Configuration entries show variable <strong>names only</strong>; no tokens, passwords, API-key values, seed phrases or private originals are included in this public directory. GitHub API availability can affect live inventory.</p>
+</section>
+<section class="panel"><h2>Search the full connected index</h2>
+<div class="filters">
+<input id="q" type="search" aria-label="Search titles, paths and source references" placeholder="Find an app, engine, book, root, game, source…">
+<select id="kind" aria-label="Record type"><option value="">All record types</option><option value="interface">Interfaces</option><option value="game">Games and puzzles</option><option value="system">Recovered systems</option><option value="archive">Archive anchors</option><option value="owner">Owner-selected files</option><option value="source">Public source code & files</option><option value="service">Connected services</option><option value="credential">Credential variable names</option><option value="patch">GitHub patches</option></select>
+<select id="category" aria-label="Category"><option value="">All categories</option></select>
+<select id="status" aria-label="Status"><option value="">All lifecycle stages</option></select>
+</div>
+<p id="results-status" role="status" aria-live="polite" class="muted">Loading indexed entries…</p>
+<div id="records" class="cards"></div><button type="button" id="more" hidden>Show more matches</button>
+</section>
+<section class="panel" aria-labelledby="local-heading">
+<div class="eyebrow">Owner-controlled source · this browser tab only</div>
+<h2 id="local-heading">Bring in an original archive without publishing it</h2>
+<p>Select original TXT, MD, CSV, JSON, HTML, PY, ZIP or other files to list them here for this browser tab. Small non-sensitive text files can be searched and previewed. Downloads use the original selected file object. <strong>No upload, no browser persistence, and no automatic repository changes.</strong> For the full 6,056-row master index, use the original owner CSV rather than reconstructing any missing rows.</p>
+<label for="owner-import">Choose your original source files</label>
+<input id="owner-import" type="file" multiple aria-describedby="owner-boundary">
+<label for="owner-folder">Or choose a source folder (supported browsers)</label>
+<input id="owner-folder" type="file" webkitdirectory multiple aria-describedby="owner-boundary">
+<p class="muted">Folder paths are preserved as local metadata. Up to 20,000 files per selected batch are indexed without silently truncating your selection. Sensitive-looking filenames and very large files are not text-previewed.</p>
+<a href="../../vault.html">Open the Creator Vault to store originals on this device and export exact-byte backup ZIP parts</a> · <a href="../../one/connected/index.html">Open ONE Connected to link saved originals to projects</a>
+<p id="owner-boundary" class="muted">Public data is loaded from existing repository JSON; your chosen files stay within the browser page. Shared-device users should clear the selection when finished.</p>
+<div class="filters"><button id="clear-owner" type="button" disabled>Clear selected sources</button><span id="owner-status" class="muted" role="status" aria-live="polite">No owner-selected files.</span></div>
+</section>
+<section class="panel"><h2>Keep the original product names and destinations</h2>
+<div class="archive-grid">
+<div><h3>Independent applications</h3><p>ONE, the Factory, TABOR WORLD, TaborTales, SSS-CS, Stewie & Mr. Finn, the game engines and specialist research applications retain their original files, permissions and versions.</p></div>
+<div><h3>Library and evidence</h3><p>Library Mind, the private Master Library, original manuscript sources, language registry, historic source indexes, testimony and primary-source verification retain separate records.</p></div>
+<div><h3>Development stages</h3><p>Browser code, private reported prototypes, research archives, hardware concepts, reference positions and publication targets are clearly separated.</p></div>
+</div>
+</section>
+<footer>Source-first Nathan AI interface registry. It is not a rebranding, manuscript rewrite, private-archive release, payment gateway, or claim of native-app certification. <a href="README.md">Read the recovery build notes.</a></footer>
+</main></body></html>

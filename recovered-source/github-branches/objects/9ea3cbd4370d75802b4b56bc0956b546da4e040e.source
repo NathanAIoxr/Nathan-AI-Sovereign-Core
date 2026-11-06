@@ -1,0 +1,61 @@
+name: iPhone Game - Stewart & Mr. Finn (Unsigned IPA)
+
+on:
+  pull_request:
+    paths:
+      - 'app-factory/stewie-mr-finn/**'
+      - '.github/workflows/ios-stewie-finn.yml'
+  push:
+    paths:
+      - 'app-factory/stewie-mr-finn/**'
+      - '.github/workflows/ios-stewie-finn.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unsigned-iphone-ipa:
+    runs-on: macos-15
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: app-factory/stewie-mr-finn
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Select installed Xcode
+        run: xcodebuild -version
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Make original offline art
+        run: |
+          python3 -m venv .venv
+          .venv/bin/python -m pip install --disable-pip-version-check pillow
+          .venv/bin/python scripts/generate_art.py
+      - name: Generate Xcode project
+        run: xcodegen generate
+      - name: Build for iPhone without code signing
+        run: |
+          xcodebuild -project StewieAndMrFinn.xcodeproj \
+            -scheme StewieAndMrFinn \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -sdk iphoneos \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            build
+      - name: Package unsigned IPA
+        run: |
+          mkdir -p Payload dist
+          cp -R build/Build/Products/Release-iphoneos/StewieAndMrFinn.app Payload/
+          zip -qry dist/StewieAndMrFinn-UNSIGNED.ipa Payload
+          unzip -l dist/StewieAndMrFinn-UNSIGNED.ipa | grep 'Payload/StewieAndMrFinn.app/'
+      - name: Publish unsigned IPA build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: StewieAndMrFinn-UNSIGNED-iPhone-IPA
+          path: app-factory/stewie-mr-finn/dist/StewieAndMrFinn-UNSIGNED.ipa
+          if-no-files-found: error
+          retention-days: 30

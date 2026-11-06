@@ -1,0 +1,77 @@
+name: Factory quality checks
+
+# Only run tests for changes they actually exercise. Manual runs remain available.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/**'
+      - '.github/workflows/factory-ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app-factory/**'
+      - '.github/workflows/factory-ci.yml'
+  workflow_dispatch:
+
+# Avoid flooding inboxes with obsolete results during batches of commits.
+concurrency:
+  group: factory-quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  public-foundation:
+    name: Public Factory syntax, integrity and game tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out public code
+        uses: actions/checkout@v5
+      - name: Install Node.js 22 LTS
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Verify public assets and architecture boundaries
+        run: node --test app-factory/quality.test.cjs
+      - name: Verify NATHAN AI 138-reference Registry and boundaries
+        run: node --test app-factory/game-reference-lab/registry.test.cjs
+      - name: Verify October 13 morning 376-reference integration
+        run: node --test app-factory/game-reference-lab/morning-376.test.cjs
+      - name: Verify TABOR Golden Radix Ladder bases and inverse conversion
+        run: node --test app-factory/radix-ladder/engine.test.cjs
+      - name: Verify Python radix parity
+        run: python3 -m unittest discover -s app-factory/radix-ladder -p 'test_*.py'
+      - name: Verify shared TABOR ROOT contracts and authorization gates
+        run: node --test app-factory/core/root-contracts.test.cjs
+      - name: Verify DUMMIE canon and rotating M semantics
+        run: node --test app-factory/creative/dummie/canon.test.cjs
+      - name: Verify Sovereign Boxes, 101 original games, private slots and holiday project
+        run: node --test app-factory/sovereign-boxes/engine.test.cjs
+      - name: Verify private owner catalog import and original ID protection
+        run: node --test app-factory/sovereign-boxes/importer.test.cjs
+      - name: Verify shared dependency build controller
+        run: node --test app-factory/build-order/planner.test.cjs
+      - name: Verify original-byte Vault backup and recovery
+        run: node --test app-factory/vault-backup.test.cjs
+      - name: Verify rotating X reference and four-scale Universal Node engine
+        run: node --test app-factory/universal-node/engine.test.cjs
+      - name: Verify rotating Earth X and Babel mirrored game
+        run: |
+          node --test app-factory/universal-node/engine.test.cjs
+          node --test app-factory/universal-node/babel-game.test.cjs
+      - name: Verify Universal Node mathematical body/cosmos model
+        run: node --test app-factory/universal-node/engine.test.cjs
+      - name: Verify universal website/blog and archive adapters
+        run: node --test app-factory/universal-node/source-adapters.test.cjs
+      - name: Verify DUMMIE packaging and provider handoff integrity
+        run: node --test app-factory/dummie-publisher/publisher.test.cjs
+      - name: Verify ONE local engine
+        run: node --test app-factory/one/one.test.cjs
+      - name: Verify 1420 Crowning Jewel gameplay
+        run: node --test app-factory/games/crowning-jewel.test.cjs
+
+      - name: Verify dynamic audience- and app-aware pricing decisions
+        run: node --test app-factory/pricing-router/engine.test.cjs

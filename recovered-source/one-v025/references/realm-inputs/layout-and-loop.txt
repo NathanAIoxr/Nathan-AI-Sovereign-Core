@@ -1,0 +1,55 @@
+
+empires and puzzles - what the layout and flow and structure and whatever else applies
+
+Empires & Puzzles: Match-3 RPG is structured around a hybrid gameplay loop that merges three core genres: Match-3 puzzle combat, Base building (Township management), and Hero collection (Gacha RPG mechanics).
+If you are trying to understand how everything connects, here is a complete breakdown of its layout, flow, structure, and underlying economy.
+
+1. The Screen Layout & Interface
+
+When you open the game, the interface is split into two primary view screens:
+• The Base View (Main Hub): A persistent, upgradable fantasy castle and village. It acts as your primary management space where you tap buildings to collect resources, manage inventories, craft battle items, and train heroes.
+• The Combat View (Puzzle Board): A standard 7x5 grid where colored shield tiles spawn. Above the grid stands your team of five heroes; above them are the enemies you are fighting.
+
+2. The Core Structure (The Three Pillars)
+
+The gameplay architecture relies on three separate systems feeding into one another:
+
+A. Base Building & Resource Management
+
+You manage a small kingdom anchored by a Stronghold. Upgrading the Stronghold unlocks more construction slots and caps the maximum level of all other structures.
+• Production & Storage: Farms generate Food, and Mines generate Iron. You build storage facilities to hold these resources.
+• Hero & Troop Generation: Houses collect "Recruits" from the map. You feed Recruits and Food into a Training Camp to randomly generate "feeder" heroes or high-tier cards. A Barracks is used to upgrade the Troops that support your heroes.
+• Crafting: The Forge converts raw materials found on the map into battle-ready consumables (e.g., healing potions, mana potions, arrows).
+
+B. The Hero Collection & Progression (RPG Stack)
+
+You build a roster of Heroes ranging from 1-star (common) to 5-star (legendary) tiers. Progression is heavy and requires deep optimization:
+• Leveling & Ascension: To level up a hero, you must "feed" them lesser heroes of the same element to maximize XP efficiency. Once maxed, they require rare Ascension Materials to break into the next tier.
+• The Talent Grid: Once a hero is fully maxed, you use Class Emblems to follow a branching grid to permanently buff their Attack, Defense, or Health.
+• Troops: Every hero must be paired with a corresponding elemental Troop, which dictates passive stat multipliers and crucial Mana Speed bonuses.
+
+C. Match-3 Combat Mechanics
+
+Combat uses puzzle matching but behaves like a turn-based tactical RPG.
+• Tile Mechanics: Matching three or more tiles transforms them into physical troops that launch straight upward in their corresponding vertical columns to strike enemies.
+• Elemental Wheel: The game relies on a hard counter system: Fire (Red) beats Nature (Green); Nature beats Ice (Blue); Ice beats Fire. Meanwhile, Holy (Yellow) and Dark (Purple) deal double damage to each other.
+• Mana & Special Skills: Every match of a specific color fills the mana bar of the hero sharing that color. When full, you tap the hero to unleash their specialized skill (healing, target defense-down, chain attacks).
+• Ghosting: Firing tiles through a gap where an enemy has already died generates double mana for your heroes—a foundational strategy for high-level play.
+
+3. The Gameplay Loop & Energy Flow
+
+The game regulates your sessions through three separate Energy Currencies (Flags) that dictate the flow of play:
+[ Collect Resources at Base ] ──> [ Spend Energy on Combat Modes ]
+             ▲                                    │
+             │                                    ▼
+[ Level Up Heroes / Buildings ] <── [ Earn Loot, Recruits, & XP ]
+1. World Energy: Used to progress through the PVE Map Campaign (Provinces) and special time-limited Quests or Trial events to farm raw resources, crafting ingredients, and recruits.
+2. Raid Energy: Used for asynchronous PVP (Player vs. Player) matchups. You attack another player's automated defense team to steal resources and win Trophies ("Cups") to scale leaderboards.
+3. Titan Energy: Used exclusively within an Alliance (guild). Alliance members collectively attack massive, high-health bosses called Titans to secure elite upgrade materials.
+
+4. Monetary Flow & Gacha System
+
+The game utilizes a Free-to-Play model heavily gated by microtransactions and timers.
+• The Bottleneck: Building and research times scale from minutes to days or weeks as your Stronghold approaches high tiers.
+• The Premium Currency: Gems are used to bypass upgrade timers, buy crafting items, or pull directly from the Summon Gate. The Summon Gate is the primary vehicle for high-level progression, hosting rotating monthly and seasonal events featuring exclusive heroes with minor drop rates.
+Are you looking for advice on how to optimize your base layout (like what to convert into advanced buildings), or do you need a deep dive into combat team building strategies (like color-stacking or managing mana speed breakpoints)?

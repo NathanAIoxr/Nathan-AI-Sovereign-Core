@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101720"><title>NATHAN AI 🚀 — 202 Master Matrix Records</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;background:#0d141c;color:#f7f6ef;--panel:#1d2c39;--border:#526d79;--accent:#f5d99c}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0,#214352,transparent 45%),#0d141c}
+main{max-width:1150px;padding:16px 14px 70px;margin:auto}a{color:#f5d99c}p,small{color:#c5d2d9;line-height:1.56}h1{font-size:clamp(2.1rem,6vw,4.2rem);line-height:1.03;margin:9px 0}h2{font-size:1.25rem}h3{font-size:1rem;margin:8px 0}
+header{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.eyebrow{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);font-weight:750}
+.hero{border:1px solid #687f88;border-radius:20px;background:linear-gradient(135deg,#2c4854,#152530);padding:24px;margin-top:18px}
+.panel{border:1px solid var(--border);background:var(--panel);border-radius:14px;padding:15px;margin:14px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.stat{font-size:2.15rem;font-weight:800;color:var(--accent)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+button,input,select,textarea{background:#293f4b;border:1px solid #607b88;border-radius:10px;padding:11px;font:inherit;color:#f7f7f7;max-width:100%}
+button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}button:hover:not(:disabled){background:#3b5b68}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #f5d99c;outline-offset:2px}
+input[type=search]{flex:2;min-width:160px}select{flex:1;min-width:150px}
+textarea{width:100%;min-height:100px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#101d28;border-radius:9px;padding:13px;max-height:220px;overflow:auto}
+.entry{padding:13px 3px;border-bottom:1px solid #3a5260}.entry:last-child{border:0}.entry p{margin:5px 0}
+#records{max-height:780px;overflow-y:auto}
+.tag{display:inline-block;border:1px solid #506c76;padding:4px 8px;border-radius:99px;margin-right:5px;margin-bottom:6px;font-size:.75rem}
+.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#e3dcbd}
+.note{font-size:.82rem;color:#b9c8d0}
+footer{margin:28px 0;color:#aabdc9;font-size:.8rem}
+@media(max-width:620px){.hero{padding:16px}.grid{grid-template-columns:1fr}main{padding:12px 10px}}
+</style></head><body><main>
+<header><a href="../index.html">← ONE APP</a><span class="eyebrow">NATHAN AI 🚀 → TABOR ROOT → ONE</span></header>
+<section class="hero"><div class="eyebrow">Master source-first indexes · 0 / 1 whole states · Forward / Reverse</div><h1>THE 202 MASTER MATRIX RECORDS</h1>
+<p>Two independent original A–Z / multi-axis collections: 101 infrastructures and 101 reversals. Browse the author's precise names and descriptions while preserving their separate original source files.</p>
+<div><span class="tag">1 + 1 = 2 · BUILD</span><span class="tag">1 − 1 = 0 · CLEAR</span><span class="tag">No original overwritten</span><span class="tag">Offline after installation</span></div></section>
+<div class="grid"><section class="panel"><div class="stat">101</div><small>Master Blueprint Infrastructures</small></section><section class="panel"><div class="stat">101</div><small>Master Matrix Reversals</small></section><section class="panel"><div class="stat">202</div><small>Numbered author-supplied records</small></section><section class="panel"><div class="stat">0 / 1</div><small>Whole-state arithmetic invariants</small></section></div>
+<section class="panel" aria-label="Online and offline setup"><h2>🌐 Online / Offline Runtime</h2>
+<p>Online: accessible over an internet connection through the hosting URL. Offline: this page and approved reference files can load on a device <strong>after they are downloaded and cached</strong>. No unapproved device access, Wi-Fi interception, autonomous synchronization or remote hardware changes.</p>
+<div class="row"><button id="install">Prepare offline pages on this device</button><button id="check">Check local cache</button><a href="./infrastructures-original.txt">Unchanged infrastructure source</a><a href="./reversals-original.txt">Unchanged reversals source</a></div>
+<p id="offline-status" role="status" class="note">Offline preparation has not been checked on this device.</p></section>
+<section class="panel"><h2>Search the complete two-list registry</h2>
+<div class="row"><input id="q" type="search" placeholder="Find any title or description…" aria-label="Search both 101 registries"><select id="collection" aria-label="Choose collection"><option value="all">Both collections</option><option value="infrastructures">101 Infrastructures</option><option value="reversals">101 Reversals</option></select><select id="category" aria-label="Choose category"><option value="all">All categories</option></select><button id="reset">Clear filters</button><button id="export">Export JSON</button></div>
+<p id="status" role="status" class="note">Loading reference index…</p><div id="records"></div></section>
+<section class="grid">
+<div class="panel"><h2>🪞 Reversal and Acrostic Lab</h2><p>Exact character reversal, first-letter extraction, and multi-line boustrophedon output on user-entered text. These are actual string transformations; symbolic/acrostic interpretations remain distinct.</p>
+<label for="lab-input">Text to transform</label><textarea id="lab-input">YES IS YES — NO IS NO</textarea>
+<div class="row"><button id="transform">Run both mirror directions</button><button id="clear-lab">Clear lab</button></div><pre id="lab-output" aria-live="polite">No transform run.</pre></div>
+<div class="panel"><h2>🧠 W — Nervous System Wiring Logic</h2>
+<p>Local reference-only simulation showing voluntary input → review → consent gate → output. It does not collect neural signals, read medical records, change real nervous-system functions, or lock physical device ports.</p>
+<div class="row"><button id="w-allow">1 · Authorize local demonstration</button><button id="w-clear">0 · Clear simulated state</button></div>
+<pre id="w-status" aria-live="polite">[W PORT GATE] 0 · NO DEVICE ACCESS
+[DEVICE PERMISSION] 0 · NOT REQUESTED
+[GLOBAL CONTROL] 0 · NOT CLAIMED</pre><p class="note">Actual device-port control requires compatible hardware, operating-system APIs, and explicit authorization outside this browser demo.</p></div>
+</section>
+<section class="panel"><h2>Continue the existing ONE work</h2><div class="row"><a href="../inventions-101/index.html">101 Invention Register</a><a href="../humanity-archive/index.html">Humanity & Spiritual Archive</a><a href="../library/index.html">ONE Master Library</a><a href="../../nathan-ai/index.html">Nathan AI Main Hub</a></div></section>
+<footer>AUTHOR'S SOURCE PRESERVED · SOURCE → INDEX → RELATE → DERIVE · This is not proof of global deployment or artificial consciousness.</footer>
+</main><script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);let registry=null,entries=[];
+function text(tag,value,el,cls){const e=document.createElement(tag);e.textContent=String(value);if(cls)e.className=cls;el.append(e);return e}
+function download(name,content){const blob=new Blob([content],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)}
+function renderCategories(){const select=$('category'),was=select.value;select.replaceChildren();const all=document.createElement('option');all.value='all';all.textContent='All categories';select.append(all);for(const category of [...new Set(entries.filter(x=>$('collection').value==='all'||x.collection===$('collection').value).map(x=>x.category))]){const o=document.createElement('option');o.value=category;o.textContent=category;select.append(o)}select.value=[...select.options].some(x=>x.value===was)?was:'all'}
+function paint(){const q=$('q').value.toLocaleLowerCase(),kind=$('collection').value,category=$('category').value;
+const match=entries.filter(e=>(kind==='all'||e.collection===kind)&&(category==='all'||category===e.category)&&[e.number,e.title,e.description,e.category].join(' ').toLocaleLowerCase().includes(q));
+$('status').textContent=match.length+' records matched · '+entries.length+' available · source descriptions are unverified user-authored claims';
+const box=$('records');box.replaceChildren();for(const e of match){const article=document.createElement('article');article.className='entry';text('h3',e.collection.toUpperCase()+' / '+String(e.number).padStart(3,'0')+' · '+e.title,article);text('small',e.category+' · '+e.claimStatus,article,'note');text('p',e.description,article);box.append(article)}if(!match.length)text('p','No records matched this filter. Original files are unchanged.',box)}
+async function load(){try{const r=await fetch('./registry.json',{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);const d=await r.json();if(d.collections.length!==2||d.collections.some(x=>x.entries.length!==101))throw Error('Expected two original 101-item lists');registry=d;entries=d.collections.flatMap(c=>c.entries.map(e=>({...e,collection:c.id})));renderCategories();paint()}catch(err){$('status').textContent='Reference data unavailable offline on this browser: '+err.message+'. Reconnect once and prepare offline pages.'}}
+$('collection').onchange=()=>{renderCategories();paint()};$('category').onchange=paint;$('q').oninput=paint;
+$('reset').onclick=()=>{$('q').value='';$('collection').value='all';renderCategories();paint()};
+$('export').onclick=()=>{if(registry)download('NATHAN_AI_202_Master_Matrix_Registry.json',JSON.stringify(registry,null,2))};
+function mirror(value){return Array.from(value).reverse().join('')}
+function acrostic(value){return value.trim().split(/\s+/u).filter(Boolean).map(w=>Array.from(w)[0]).join('')}
+function boustrophedon(value){return value.split(/\r?\n/).map((l,i)=>i%2===1?mirror(l):l).join('\n')}
+$('transform').onclick=()=>{const s=$('lab-input').value;$('lab-output').textContent='[FORWARD]\n'+s+'\n[REVERSE]\n'+mirror(s)+'\n[DOUBLE REVERSE VALIDATION] '+String(mirror(mirror(s))===s)+'\n[FIRST LETTERS] '+acrostic(s)+'\n[BOUSTROPHEDON LINES]\n'+boustrophedon(s)};
+$('clear-lab').onclick=()=>{$('lab-input').value='';$('lab-output').textContent='1 − 1 = 0 · Only the local simulation display cleared'};
+$('w-allow').onclick=()=>{$('w-status').textContent='[W PORT GATE] 1 · LOCAL DEMONSTRATION\n[INPUT → REVIEW → OUTPUT] 1 · SIMULATED\n[DEVICE PERMISSION] 0 · NOT REQUESTED\n[GLOBAL CONTROL] 0 · NOT CLAIMED'};
+$('w-clear').onclick=()=>{$('w-status').textContent='[W PORT GATE] 0 · NO DEVICE ACCESS\n[DEVICE PERMISSION] 0 · NOT REQUESTED\n[GLOBAL CONTROL] 0 · NOT CLAIMED'};
+async function checkCache(){try{const base=new URL('./',location.href);const needed=['index.html','registry.json','infrastructures-original.txt','reversals-original.txt'];const values=await Promise.all(needed.map(async name=>({name,ok:!!(await caches.match(new URL(name,base).href))})));$('offline-status').textContent=values.map(x=>(x.ok?'✓ ':'✕ ')+x.name).join(' · ')+'. Cached on this browser only; no guarantee of offline access from other devices.'}catch(e){$('offline-status').textContent='Cannot inspect local cache: '+e.message}}
+$('check').onclick=checkCache;
+$('install').onclick=async()=>{if(!('serviceWorker' in navigator)){$('offline-status').textContent='This browser does not support service-worker offline installation.';return}try{const reg=await navigator.serviceWorker.register('../../sw.js',{scope:'../../'});await reg.update();await navigator.serviceWorker.ready;await checkCache()}catch(e){$('offline-status').textContent='Offline setup not completed: '+e.message}};
+load();
+})();
+</script></body></html>

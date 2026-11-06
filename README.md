@@ -8,6 +8,8 @@
 
 Home of **TABOR 1-2-3 FACTORY™ / Nathan AI Sovereign Core**.
 
+**Recovered original source:** [ONE v025, THE 33, seven original source documents, earlier packages and historical branch source](recovered-source/README.md). Actual source files and ZIPs are preserved with byte counts, hashes, restoration tools and an explicit remaining-gap register.
+
 **Creator:** Nathan Tabor · **Workflow:** **1. CREATE → 2. CONNECT → 3. LAUNCH**.
 
 This is the **PUBLIC**, browser-first coordination repository. It does **not** contain the owner's private full original-media library, private ZIP-only backend packages, unpublished research records, customer data, or credentials. It is not a deployed private multi-tenant SaaS backend.

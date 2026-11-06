@@ -1,0 +1,15 @@
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const core=require('./app.js');
+test('all twelve celebration themes exist',()=>assert.equal(Object.keys(core.THEMES).length,12));
+test('2026 US Thanksgiving falls on November 26',()=>assert.equal(core.builtInDates(2026,10).find(x=>x.title.startsWith('Thanksgiving')).date,'2026-11-26'));
+test('ICS escapes commas, semicolons and newlines',()=>{const t=core.createIcs([{id:'a',date:'2026-12-25',title:'Family, friends',notes:'Love; all\nHugs'}]);assert.match(t,/DTSTART;VALUE=DATE:20261225/);assert.match(t,/SUMMARY:Family\\, friends/);assert.match(t,/DESCRIPTION:Love\\; all\\nHugs/)});
+test('original word draft survives optional explorations',()=>{const s='We write; night';assert.equal(core.wordPlay(s,'reverse'),'night write; We');assert.equal(s,'We write; night');assert.match(core.wordPlay(s,'sounds'),/write/)});
+test('safe project import clamps positions and rejects script images',()=>{const p=core.cleanProject({title:'Test',theme:'birthday',layers:[{kind:'photo',x:400,y:-5,w:160,h:4,img:'data:image/svg+xml;base64,PHN2Zz4='}]});assert.equal(p.layers[0].x,99);assert.equal(p.layers[0].y,0);assert.equal(p.layers[0].img,'')});
+test('HTML escape protects markup in exports',()=>assert.equal(core.escapeHtml('<hello & "world">'),'&lt;hello &amp; &quot;world&quot;&gt;'));
+test('external module urls are allowlisted to http(s)',()=>{assert.equal(core.safeExternalUrl('javascript:alert(1)'),null);assert.match(core.safeExternalUrl('https://example.com'),/^https:/)});
+test('bingo lines include horizontal, vertical and diagonal',()=>{assert.deepEqual(core.bingoLines([0,1,2,3,4]),[0]);assert.deepEqual(core.bingoLines([0,5,10,15,20]),[5]);assert.deepEqual(core.bingoLines([0,6,12,18,24]),[10]);assert.deepEqual(core.bingoLines([4,8,12,16,20]),[11])});
+test('memory match deck has 16 cards with eight pairs',()=>{const deck=core.makeMatchDeck(()=>.5);assert.equal(deck.length,16);const counts=Object.values(deck.reduce((m,c)=>(m[c.symbol]=(m[c.symbol]||0)+1,m),{}));assert.equal(counts.length,8);assert.ok(counts.every(n=>n===2))});
+test('game-state restore validates bingo, advent and progress',()=>{const g=core.cleanGame({xp:88,bingo:{checked:[-1,12,12,5,60],lines:[0,'fake'],round:2},advent:{opened:[2,2,99],entries:{2:'Hello',27:'ignored'}}});assert.equal(g.xp,88);assert.deepEqual(g.bingo.checked,[12,5]);assert.deepEqual(g.bingo.lines,[0]);assert.deepEqual(g.advent.opened,[2]);assert.deepEqual(g.advent.entries,{2:'Hello'})});
+test('annual event export includes recurrence rule',()=>{const ics=core.createIcs([{id:'birthday',date:'2026-11-05',title:'Birthday',repeat:true}]);assert.match(ics,/RRULE:FREQ=YEARLY/)});
+test('advent has twenty-five reusable prompts and templates preserve exact original input',()=>{assert.equal(core.ADVENT_PROMPTS.length,25);const original='Family note';const newDraft=original+'\n\n'+core.WRITING_TEMPLATES.thanks;assert.ok(newDraft.startsWith(original));assert.equal(original,'Family note')});

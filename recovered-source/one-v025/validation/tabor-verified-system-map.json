@@ -1,0 +1,307 @@
+{
+  "schema": "one.v025.tabor.report.v1",
+  "name": "The Tabor Decimal System",
+  "author": "Nathan Tabor",
+  "active": true,
+  "binary": {
+    "states": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "reinforced": 1,
+    "sameStateCollision": 0
+  },
+  "segments": [
+    {
+      "address": "001",
+      "position": 1,
+      "label": "Lyra of the Kiln",
+      "basePotency": 18,
+      "potency": 21,
+      "appliedAttack": 21
+    },
+    {
+      "address": "002",
+      "position": 2,
+      "label": "Sylva Reedkeeper",
+      "basePotency": 16,
+      "potency": 20,
+      "appliedAttack": 20
+    },
+    {
+      "address": "003",
+      "position": 3,
+      "label": "Neris the Tidewright",
+      "basePotency": 17,
+      "potency": 24,
+      "appliedAttack": 24
+    },
+    {
+      "address": "004",
+      "position": 4,
+      "label": "Oriel Dawnreader",
+      "basePotency": 18,
+      "potency": 27,
+      "appliedAttack": 27
+    },
+    {
+      "address": "005",
+      "position": 5,
+      "label": "Vesper Nightglass",
+      "basePotency": 17,
+      "potency": 28,
+      "appliedAttack": 28
+    }
+  ],
+  "signals": {
+    "dimensions": [
+      "food",
+      "iron",
+      "attack",
+      "healing",
+      "shield",
+      "mana",
+      "threat"
+    ],
+    "nodes": [
+      {
+        "label": "Rootkeep",
+        "vector": [
+          0,
+          0,
+          0,
+          0,
+          0.4,
+          0,
+          0
+        ],
+        "view": "hub",
+        "selector": "[data-building=\"keep\"]"
+      },
+      {
+        "label": "Sun Gardens",
+        "vector": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "view": "hub",
+        "selector": "[data-building=\"farm\"]"
+      },
+      {
+        "label": "Deep Foundry",
+        "vector": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "view": "hub",
+        "selector": "[data-building=\"mine\"]"
+      },
+      {
+        "label": "Storehouse",
+        "vector": [
+          0.4,
+          0.4,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "view": "hub",
+        "selector": "[data-building=\"store\"]"
+      },
+      {
+        "label": "Memory Academy",
+        "vector": [
+          0,
+          0,
+          0.3,
+          0.2,
+          0,
+          0.4,
+          0
+        ],
+        "view": "hub",
+        "selector": "[data-building=\"academy\"]"
+      },
+      {
+        "label": "Wayfarer Barracks",
+        "vector": [
+          0,
+          0,
+          0.6,
+          0,
+          0.2,
+          0,
+          0
+        ],
+        "view": "hub",
+        "selector": "[data-building=\"barracks\"]"
+      },
+      {
+        "label": "Resonance Forge",
+        "vector": [
+          0,
+          0,
+          0.2,
+          0.4,
+          0,
+          0.2,
+          0
+        ],
+        "view": "hub",
+        "selector": "[data-building=\"forge\"]"
+      },
+      {
+        "label": "Lyra of the Kiln",
+        "vector": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0.2,
+          0
+        ],
+        "view": "roster",
+        "selector": "[data-hero=\"lyra\"]"
+      },
+      {
+        "label": "Sylva Reedkeeper",
+        "vector": [
+          0,
+          0,
+          0.25,
+          1,
+          0,
+          0.4,
+          0
+        ],
+        "view": "roster",
+        "selector": "[data-hero=\"sylva\"]"
+      },
+      {
+        "label": "Neris the Tidewright",
+        "vector": [
+          0,
+          0,
+          0.25,
+          0,
+          1,
+          0.2,
+          0
+        ],
+        "view": "roster",
+        "selector": "[data-hero=\"neris\"]"
+      },
+      {
+        "label": "Oriel Dawnreader",
+        "vector": [
+          0,
+          0,
+          0.25,
+          0,
+          0,
+          0.4,
+          0
+        ],
+        "view": "roster",
+        "selector": "[data-hero=\"oriel\"]"
+      },
+      {
+        "label": "Vesper Nightglass",
+        "vector": [
+          0,
+          0,
+          0.9,
+          0,
+          0,
+          0.2,
+          0
+        ],
+        "view": "roster",
+        "selector": "[data-hero=\"vesper\"]"
+      },
+      {
+        "label": "Spring draught",
+        "vector": [
+          0,
+          0,
+          0,
+          0.85,
+          0,
+          0,
+          0
+        ],
+        "view": "hub",
+        "selector": "[data-recipe=\"heal\"]"
+      },
+      {
+        "label": "Focus flask",
+        "vector": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "view": "hub",
+        "selector": "[data-recipe=\"mana\"]"
+      },
+      {
+        "label": "Signal volley",
+        "vector": [
+          0,
+          0,
+          0.8,
+          0,
+          0,
+          0,
+          0
+        ],
+        "view": "hub",
+        "selector": "[data-recipe=\"volley\"]"
+      }
+    ],
+    "activeCells": 0,
+    "nextActiveCells": 0,
+    "previewOnly": true
+  },
+  "capacity": {
+    "base": 1000,
+    "cap": 1000,
+    "reserve": 0,
+    "spendable": 1000
+  },
+  "policy": {
+    "schema": "one.v025.tabor.policy.v1",
+    "segmentBps": 1200,
+    "inflationBps": 0,
+    "growthBps": 0,
+    "reserveBps": 0
+  },
+  "retained": {
+    "food": 500,
+    "iron": 400
+  },
+  "refundBuffer": {
+    "food": 0,
+    "iron": 0
+  },
+  "distribution": "Local 48-hour inbox; no network recipients connected"
+}
