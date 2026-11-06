@@ -24,7 +24,13 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_*.py' -v
       - name: Local interface JavaScript syntax
         working-directory: app-factory/one/nathan-voice-box
-        run: node --check app.js
+        run: |
+          for file in app.js language-catalog.js voice-store.js voice-recorder.js mapper-worker.js voice-mapper-core.js; do
+            node --check "$file"
+          done
+      - name: Browser-independent acoustic mapper unit tests
+        working-directory: app-factory/one/nathan-voice-box
+        run: node --test tests/test_voice_mapper.cjs
       - name: Offline synthesis smoke test
         working-directory: app-factory/one/nathan-voice-box
         run: |
