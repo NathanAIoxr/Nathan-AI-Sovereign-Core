@@ -10,7 +10,7 @@ The top-level A–Z directory makes 26 distinct letter departments discoverable,
 
 ## Input coverage and stages
 
-The combined public index records **1,916 source occurrences**, **not** 1,837 unique finished apps. Source families include:
+The combined public index records **1,937 source occurrences**, **not** 1,837 unique finished apps. Source families include:
 
 - **139** standalone browser entry pages (same-origin wrappers, not mobile binaries).
 - **84** game catalog title/stage records, including prototypes and source-only references.
@@ -43,3 +43,10 @@ Do **not** sum source-category totals as unique applications. The same original 
 ## November 5 F original recovery — Fabric / cut-open P / Nordic stick language
 
 The F department now indexes 103 primary source occurrences, including 64 publicly classified F title rows and 15 separately labeled creator/linguistic source records. Its distinct [150-name Fabric of the Matrix cross-reference](./f/fabric-crosswalk.json) remains a linked corpus rather than reassigning 150 author titles to F. Open the [independent interactive F laboratory](./f/laboratory/index.html) for F / P cut-open geometry, Nordic ᚠ and ᛈ, Celtic Ogham ᚃ, original F voice lines, source search and the literacy game. Older E / 3 / M / W materials, the Taborite Universal Language Matrix, and all earlier books/apps remain unchanged. These catalog occurrences are not unique completed mobile applications.
+
+
+## Letter G addition · Rotated 5 / Reshaped 6 / Tabor Spiral
+
+There are now **1,937 primary source occurrences** in the central A–Z directory, including 45 assigned-G records. The G department adds a separate **713-title general/public original catalog archive** in [gzip JSON](./g/source-catalog-g.json.gz), with **six** editorial/unknown G source records withheld. The 713-item source archive remains separate from primary directory counts and is not a claim of 713 new finished apps. Of those, 604 source occurrences are in the original MATERS vs TATERS Family Grove.
+
+The [interactive G workbench](./g/laboratory/index.html) preserves **“5 rotated around and or a 6 reshaped the natilus aka tabor spiral”** as the creator’s own alternative constructions, distinct from the older g→6 operation and the historically documented Latin C→G development. The two separate author-named Tabor inward/outward spirals are mathematical visualizations, not verified physical or biological universal laws. Original E and F and the author’s existing ONE games remain independent.
