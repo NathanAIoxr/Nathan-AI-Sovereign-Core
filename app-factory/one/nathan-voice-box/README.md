@@ -99,3 +99,54 @@ c++ -std=c++17 -O2 -Wall -Wextra native/test_edge.cpp -o /tmp/nathan-edge-dsp-te
 CI additionally provisions an offline eSpeak NG executable and synthesizes / analyzes a genuine WAV. See `docs/ROOTS_AND_ROADMAP.md` for historical preservation and later mobile release gates.
 
 **Invariants:** `1 + 1 = 2 — BUILD` and `1 - 1 = 0 — CLEAR`. Preserve all original Nathan AI archives and formula source verbatim; new research, testing and adaptations remain separate additive layers.
+
+
+## Full Voice Box additions: record your own voice, map, and synthesize locally
+
+This second-stage build adds **microphone enrollment**, a **12 Ear Gates acoustic voice map**, a **browser-based encrypted reference vault**, and **local reference-audio ZipVoice synthesis**.
+
+### Recording and mapping
+
+1. Open `http://127.0.0.1:8765` from the machine running the local engine.
+2. In **World Language & Dialect Atlas**, choose a language tag. Add the dialect name yourself if it is missing. No accent is falsely guessed from pitch.
+3. In **Record & Map My Voice**, name the profile, write the **exact words** you will say, and confirm that you are the speaker.
+4. Click **Start microphone recording**. Read the script, then **Stop**. Recording automatically stops after 45 seconds. The app immediately closes microphone tracks.
+5. Browser worker calculates duration, RMS/peak/clipping, pitch median and quantiles (when voiced), an approximate rhythmic onset count, spectral brightness proxy and normalized shares across twelve measured bands. The graph is local. These are **not** body measurements, true formants, a speaker identity check, accent recognition, a lie detector or a neural speaker embedding.
+6. Choose whether to save **metrics only** or **metrics plus an AES-GCM encrypted audio reference**. The reference is at most the first 12 seconds of the recorded sample. Use a 12+-character passphrase and retain it yourself: there is no recovery service.
+7. Select any saved voice profile to inspect its local acoustic map, unlock its encrypted reference with your passphrase, or delete it from the browser storage.
+
+**Local recording privacy:** Microphone permission is requested only when recording starts; audio is not sent to a cloud endpoint. Raw audio is not persisted by default. Basic acoustic metadata, profile names and dialect labels are unencrypted in browser IndexedDB. The optional encrypted clip uses AES-256-GCM with PBKDF2 SHA-256 (250,000 iterations), a random salt and nonce. Encryption is local to the browser, and the passphrase is never sent to the Python server. When clicking the separate reference-synthesis button, a short PCM clip is explicitly sent to the **loopback endpoint on the same machine**, not to an Internet server. Local playback, user-controlled deletion and optional encryption do not replace an independent privacy/security audit.
+
+### Reference-based voice synthesis (actual new words)
+
+This is available *only* with a compatible **sherpa-onnx ZipVoice pack** installed in `private-packs/<pack-id>/` and the locally installed Python `sherpa-onnx` and `numpy` packages. A pitch map by itself does not reconstruct a person's timbre, accent or voice.
+
+- Refer to [sherpa-onnx's official ZipVoice Python example](https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/zipvoice-tts.py) and the [ZipVoice docs](https://k2-fsa.github.io/sherpa/onnx/tts/zipvoice.html). They specify the required ONNX encoder/decoder, vocoder, tokens and lexicon.
+- Copy `private-packs/ZIPVOICE_MANIFEST_EXAMPLE.json` to `private-packs/my-zipvoice-pack/manifest.json`, install all model assets beside it, list its *real* supported language tags, then verify both the model license and your rights to the voice.
+- Set `authorized:true` only after permission is verified. For the self-recorded web enrollment, select `rights_basis:self`. The manifest attestation is a basic technical control, not independently verified legal consent.
+- Enter the **exact spoken transcript of the first 12 seconds** of the recording, plus the new words in the main Speak input. In the recording panel use **Generate with my recorded voice**. This calls `/clone` on `127.0.0.1` with a bounded WAV payload and uses `sherpa_onnx.GenerationConfig(reference_audio, reference_sample_rate, reference_text)` for offline generation.
+- If the model pack does not cover the language tag, the app refuses rather than mislabeling its output. This code does not silently translate or invent pronunciations.
+- This is **inference**, not training. Voice quality is dependent on the locally installed model, matching transcript, microphone quality, speaking style and language pair; it is not guaranteed to sound exactly like the speaker.
+
+**Current base coverage:** The user-facing catalog includes common languages, regional tags, historical language labels and a self-defined dialect entry. It can import the public **ISO 639-3 tab-separated registry**, using its standard `Id ... Ref_Name ...` columns. Import adds language metadata to this browser's IndexedDB, **not** thousands of speech synthesis models. Users can search code, name or dialect and select a tag; the interface distinguishes installed synthetic voices from catalog-only entries. Some extinct languages are reconstructable to varying degrees; none can be promised a historically authentic voice without recordings and linguistic evidence.
+
+### What "all languages and dialects" requires to reach production
+
+- A worldwide language-code catalog (ISO 639-3/BCP-47 plus community dialect labels), script rendering and bidirectional writing support.
+- Independently licensed and tested local TTS/ASR phonemizers, models and pronunciation lexicons for each language; tonal and phonemic distinctions must be evaluated, not presumed.
+- Self-enrollment for a speaker's own voice; permission/estate-rights reviews for anyone else's voice. Mythical or ancient voices must be explicitly presented as fictional reconstruction.
+- Matching language-specific source/reference audio, accurate reference transcripts and distinct evaluation results for voice similarity vs. phoneme intelligibility vs. naturalness.
+- A real native Android/iOS app integrating local ONNX inference, microphone recording, audio output, model packaging, device-level encryption, accessibility, battery optimization, and signing.
+- Visible consent revocation, local deletion, encrypted export if desired, licensing checks and robust abuse protection for impersonation or fraud.
+
+No open-source package alone provides all extant languages, dialects and human voices. This architecture is deliberately extensible, and its **installed-model coverage** is always reported separately from its **catalog scope**.
+
+### Tests for new components
+
+```sh
+python3 -m unittest discover -s tests -p "test_*.py" -v
+node --test tests/test_voice_mapper.cjs
+for file in app.js language-catalog.js voice-store.js voice-recorder.js mapper-worker.js voice-mapper-core.js; do node --check "$file"; done
+```
+
+All new files are additive; no original MER4×6, J Matrix, foundational formula or source-archive text is overwritten.
