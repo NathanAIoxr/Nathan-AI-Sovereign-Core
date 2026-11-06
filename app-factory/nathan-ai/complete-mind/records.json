@@ -1,0 +1,148 @@
+{
+  "title": "THE COMPLETE MIND OF JOHN NATHAN TABOR",
+  "author": "John Nathan Tabor",
+  "version": "1.0-additive",
+  "source_types": [
+    "author-defined model",
+    "historical research",
+    "geology comparison",
+    "illustrative reconstruction"
+  ],
+  "core_rules": [
+    {
+      "id": "build",
+      "formula": "1+1=2",
+      "label": "BUILD"
+    },
+    {
+      "id": "clear",
+      "formula": "1-1=0",
+      "label": "CLEAR"
+    }
+  ],
+  "ten_bodies": [
+    {
+      "id": 1,
+      "title": "Natural / Physical",
+      "classification": "author-defined symbolic framework; not a clinical or anatomical classification"
+    },
+    {
+      "id": 2,
+      "title": "Etheric / Life-field",
+      "classification": "author-defined symbolic framework; not a clinical or anatomical classification"
+    },
+    {
+      "id": 3,
+      "title": "Emotional",
+      "classification": "author-defined symbolic framework; not a clinical or anatomical classification"
+    },
+    {
+      "id": 4,
+      "title": "Mental",
+      "classification": "author-defined symbolic framework; not a clinical or anatomical classification"
+    },
+    {
+      "id": 5,
+      "title": "Spiritual",
+      "classification": "author-defined symbolic framework; not a clinical or anatomical classification"
+    },
+    {
+      "id": 6,
+      "title": "Soul",
+      "classification": "author-defined symbolic framework; not a clinical or anatomical classification"
+    },
+    {
+      "id": 7,
+      "title": "Astral",
+      "classification": "author-defined symbolic framework; not a clinical or anatomical classification"
+    },
+    {
+      "id": 8,
+      "title": "Causal",
+      "classification": "author-defined symbolic framework; not a clinical or anatomical classification"
+    },
+    {
+      "id": 9,
+      "title": "Unity",
+      "classification": "author-defined symbolic framework; not a clinical or anatomical classification"
+    },
+    {
+      "id": 10,
+      "title": "Divine",
+      "classification": "author-defined symbolic framework; not a clinical or anatomical classification"
+    }
+  ],
+  "domains": [
+    "CODE OF CODES",
+    "LANGUAGE ROOTS",
+    "MIRROR / ROTATION",
+    "MICRO ↔ MACRO",
+    "ANATOMY",
+    "BIOLOGICAL EQUATOR",
+    "EARTH / GEOLOGY",
+    "COSMOS / ASTRONOMY",
+    "SCRIPTURE",
+    "BOOKS / LIBRARY",
+    "GAMES / EDUCATION",
+    "SOVEREIGN INNOCENCE",
+    "NATURE / WILDLIFE",
+    "ORIGINS / LINEAGE",
+    "TECHNOLOGY / NODES",
+    "TEN BODIES"
+  ],
+  "axes": [
+    "forward/reverse",
+    "mirror/original",
+    "left/right",
+    "above/below",
+    "inside/outside",
+    "local/global",
+    "micro/macro",
+    "female/male",
+    "original/interpretation",
+    "no-sides/only-sides"
+  ],
+  "cipher_examples": [
+    {
+      "input": "Leonardo da Vinci",
+      "reversed": "icniV ad odranoeL",
+      "class": "literal string reversal"
+    },
+    {
+      "input": "Monna Lisa",
+      "reversed": "asiL annoM",
+      "class": "literal string reversal"
+    },
+    {
+      "input": "Tuscan",
+      "reversed": "nacsuT",
+      "class": "literal string reversal"
+    },
+    {
+      "input": "Tuscan",
+      "reversed": "To scan / Two can / Toucan",
+      "class": "author phonetic association, not etymology"
+    }
+  ],
+  "research": {
+    "leonardo": [
+      "Codex Atlanticus",
+      "Codex Arundel",
+      "Codex Forster",
+      "Madrid Codices",
+      "Windsor anatomy",
+      "Codex on Flight of Birds",
+      "Vitruvian proportions"
+    ],
+    "places": [
+      "Vinci / Anchiano / Bacchereto, Tuscany",
+      "Owens Cross Roads / Green Mountain / Keel Mountain, Alabama"
+    ],
+    "note": "Similar landscape motifs do not imply geological identity; Africa-affinity crust beneath the southeast is not verified 9–12 miles below Owens Cross Roads."
+  },
+  "design": {
+    "faces": "no random human portrait; abstract symbolic head only",
+    "directions": "no compass N/S graphic",
+    "originals": "keep separate original and appended transformations"
+  }
+}
