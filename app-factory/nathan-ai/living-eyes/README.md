@@ -28,3 +28,9 @@ Run: \`node --test app-factory/nathan-ai/living-eyes/engine.test.cjs\`.
 **Boundaries:** No browser camera/microphone capture, OCR, background file access, network uploads, secret collection, autonomous security response, biological eye tracking, or machine consciousness. No input is saved unless the user explicitly exports a JSON file.
 
 **1+1=2 — BUILD · 1−1=0 — CLEAR · YES IS YES — NO IS NO.**
+
+## User-authored Python original and additive Python companion
+
+The exact user-supplied Python class is retained separately at [originals/nathan_24_axis_propeller_original.py](originals/nathan_24_axis_propeller_original.py). Its original comment about “180-degree reflection” stays verbatim, while the new [propeller_extended.py](propeller_extended.py) calculates a *vertical* reflection and a *half turn* as distinct operations. [test_propeller.py](test_propeller.py) checks all 48/96/192/384 view modes, the 24+24 canonical layer, and exact convergence.
+
+Run from the module directory: \`python3 -m unittest discover -s . -p 'test_propeller.py' -v\`.

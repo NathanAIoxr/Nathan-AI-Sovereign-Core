@@ -28,6 +28,8 @@ jobs:
         run: |
           node --check app-factory/nathan-ai/living-eyes/engine.js
           node --test app-factory/nathan-ai/living-eyes/engine.test.cjs
+      - name: Verify author Python source and expanded propeller invariants
+        run: python3 -m unittest discover -s app-factory/nathan-ai/living-eyes -p 'test_propeller.py' -v
       - name: Verify additive page and shared appearance/launcher links
         run: |
           node - <<'NODE'
