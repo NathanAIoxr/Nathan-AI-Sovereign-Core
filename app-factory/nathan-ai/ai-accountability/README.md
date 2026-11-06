@@ -31,3 +31,7 @@ This public archive preserves a lengthy exchange in which the creator challenged
 This addition creates a **durable documentary record**, not a new executable chatbot, political roleplay agent, simulated political figure, claims-verification backend, or psychological profiling system.
 
 [Return to Nathan AI](../README.md) · [Repository home](../../../../README.md)
+
+## Self-help page authorship complaint
+
+[Read Nathan Tabor’s supplied complaint, pasted AI statements, proposed declaration and exact Git exhibits](self-help-record/README.md). The record preserves original bytes and distinguishes supplied allegations from verified repository changes.

@@ -1,0 +1,48 @@
+{
+  "schema": "nathan.supplied-complaint-record.v1",
+  "purpose": "Preservation for independent review, including possible legal review. Not sworn testimony or an institutional admission.",
+  "files": [
+    {
+      "path": "supplied/01-initial-complaint-and-pasted-exchange.txt",
+      "bytes": 7801,
+      "sha256": "49b68d187e3f365845ffe3bceefefab20e927dc27c727057af1fa2afbbf52d7a",
+      "provenance": "User-supplied pasted text; speaker attribution and completeness not independently authenticated. Exact supplied bytes preserved."
+    },
+    {
+      "path": "supplied/02-proposed-restoration-and-pasted-exchange.txt",
+      "bytes": 8348,
+      "sha256": "98d328dac69227a893e214d54c668f40b0e52c8177e6d9b620810a3a39203747",
+      "provenance": "User-supplied pasted text; speaker attribution and completeness not independently authenticated. Exact supplied bytes preserved."
+    },
+    {
+      "path": "supplied/03-publication-request-and-proposed-declaration.txt",
+      "bytes": 20199,
+      "sha256": "5f2bf30c532e3827de48a97656aa96caa641e091dc0a84191cec77311dc4c5cb",
+      "provenance": "User-supplied pasted text; speaker attribution and completeness not independently authenticated. Exact supplied bytes preserved."
+    },
+    {
+      "path": "supplied/04-original-published-page.html.txt",
+      "bytes": 3819,
+      "sha256": "fa775e4c61d25fe4eaf1a1ce46da380a7f244ac0a86668d7b78ffe224a4131c9",
+      "gitCommit": "90f70a2ea08ec0f77d6ca557d985f2b112118909",
+      "repositoryPath": "app-factory/nathan-ai/self-help/index.html",
+      "provenance": "Exact file bytes retrieved from the identified Git commit; archived as text, not an active page."
+    },
+    {
+      "path": "supplied/05-questionnaire-withdrawal.html.txt",
+      "bytes": 2240,
+      "sha256": "5e6fe236a557d0592a1ddb90020965da1b546336b7c541a51c372ed061ce7235",
+      "gitCommit": "941ee08d1fc72b901be07532872e13c8f5dca04e",
+      "repositoryPath": "app-factory/nathan-ai/self-help/index.html",
+      "provenance": "Exact file bytes retrieved from the identified Git commit; archived as text, not an active page."
+    },
+    {
+      "path": "supplied/06-subsequent-protection-and-foundations-update.html.txt",
+      "bytes": 4493,
+      "sha256": "6d9df1f73e55f837ca119ee3844a68d8a7963b76c264ee0a0d5e4461acbcecf1",
+      "gitCommit": "7e817cff6f220b59663918ac2a5947cc8d0c14d1",
+      "repositoryPath": "app-factory/nathan-ai/self-help/index.html",
+      "provenance": "Exact file bytes retrieved from the identified Git commit; archived as text, not an active page."
+    }
+  ]
+}
