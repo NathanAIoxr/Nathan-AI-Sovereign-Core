@@ -1,0 +1,290 @@
+{
+  "schema": "nathan-ai.f.structural-source-routes.v1",
+  "compiled": "2026-11-05",
+  "user_verbatim_current": "pull all F things - fabric of the matrix - F is also a P cut open - it ties to nordic stick language - all in the system",
+  "creator_exact": "F is also a P cut open",
+  "historical_note": "The 'F ← opened P' operation is original creator-defined geometry. Fehu/Perthro are historically distinct runes; Ogham Fearn is Celtic; Latin F derives through Greek digamma, not Latin P.",
+  "geometry": {
+    "F": {
+      "svg": "M20 90 V10 M20 10 H76 M20 48 H60",
+      "straight_strokes": 3,
+      "original_sticks": null,
+      "description": "One vertical stem with upper and middle horizontals. Creator's F is also a P cut open."
+    },
+    "P": {
+      "svg": "M20 90 V10 M20 10 Q86 8 78 33 Q80 55 20 49",
+      "straight_strokes": null,
+      "original_sticks": null,
+      "description": "Vertical stem and enclosed/rounded upper bowl; the creator opens that bowl into F’s upper/middle bars."
+    },
+    "fehu": {
+      "unicode": "ᚠ",
+      "codepoint": "U+16A0",
+      "transliteration": "f",
+      "script": "Germanic runic",
+      "description": "An angular F rune with a stem and two branches."
+    },
+    "perthro": {
+      "unicode": "ᛈ",
+      "codepoint": "U+16C8",
+      "transliteration": "p",
+      "script": "Elder Futhark",
+      "description": "Distinct P rune, not an open Latin P."
+    },
+    "oghamF": {
+      "unicode": "ᚃ",
+      "codepoint": "U+1683",
+      "transliteration": "f",
+      "script": "Irish Ogham",
+      "strokes": 3,
+      "description": "Third letter of first ogham family Beithe (B L F S N)."
+    }
+  },
+  "sourceRoutes": [
+    {
+      "id": "F-CORE-1",
+      "original": "F is also a P cut open",
+      "group": "original-F-P-construction",
+      "kind": "creator-defined-glyph-construction",
+      "note": "Creator's original structural transformation; not a documented historical derivation of Latin F from Latin P. No original stick count was supplied.",
+      "script": "Latin",
+      "glyph": "F",
+      "related": [
+        "P",
+        "E / 3 / M / W"
+      ]
+    },
+    {
+      "id": "F-CORE-2",
+      "original": "lay that against ancient nordic?  runes language? it's the language that looks like a stick figure stretching",
+      "group": "nordic-stick-language",
+      "kind": "verbatim-older-author-utterance",
+      "note": "Recovered earlier source; the stick-figure comparison is a visual analogy, not a historic semantic value for every rune.",
+      "script": "Germanic runes",
+      "glyph": "ᚠ",
+      "related": [
+        "ᛉ",
+        "ᛗ"
+      ]
+    },
+    {
+      "id": "F-CORE-3",
+      "original": "F (Forward: The Firewall | RTL: The Freeze)",
+      "group": "source-code-F",
+      "kind": "verbatim-older-author-source",
+      "note": "From October 21 A-Z/RTL source; source spells RTL and rule exactly as shown. Creator-defined logic, not measured physical firewall.",
+      "script": "Latin",
+      "glyph": "F",
+      "related": [
+        "FL",
+        "FLE",
+        "FLEX"
+      ]
+    },
+    {
+      "id": "F-CORE-4",
+      "original": "FL (Fluid Flow) ➔ FLE (Flex Engine) ➔ FLEX (The Crossing Point).",
+      "group": "source-code-F",
+      "kind": "verbatim-older-author-source",
+      "note": "Exact adjacent user-archive line. Distinct from the literal word origin of FLEX.",
+      "script": "Latin",
+      "glyph": "F",
+      "related": [
+        "FL",
+        "FLE",
+        "FLEX"
+      ]
+    },
+    {
+      "id": "F-CORE-5",
+      "original": "The Fabric of the World",
+      "group": "fabric-matrix",
+      "kind": "recovered-owner-linked-title",
+      "note": "From 150-item fabric cross-reference; not verified as separately published app.",
+      "script": null,
+      "glyph": null,
+      "related": [
+        "The Fabric of Me Code",
+        "TheWeave",
+        "Harmonic Quilt"
+      ]
+    },
+    {
+      "id": "F-CORE-6",
+      "original": "The Fabric of Me Code",
+      "group": "fabric-matrix",
+      "kind": "recovered-owner-linked-title",
+      "note": "Independent named work, not silently collapsed into Fabric of the World.",
+      "script": null,
+      "glyph": null,
+      "related": [
+        "The Fabric of the World"
+      ]
+    },
+    {
+      "id": "F-CORE-7",
+      "original": "TheWeave",
+      "group": "fabric-matrix",
+      "kind": "recovered-owner-linked-title",
+      "note": "Separate name in owner's fabric cross-reference.",
+      "script": null,
+      "glyph": null,
+      "related": [
+        "Harmonic Quilt"
+      ]
+    },
+    {
+      "id": "F-CORE-8",
+      "original": "Five Matrices",
+      "group": "fabric-matrix",
+      "kind": "recovered-owner-linked-title",
+      "note": "Five Matrices model; actual implementations remain at their existing independent paths.",
+      "script": null,
+      "glyph": null,
+      "related": [
+        "Universal Matrix",
+        "THE FIVE MATRICES"
+      ]
+    },
+    {
+      "id": "F-CORE-9",
+      "original": "ᚠ Fehu / Fé",
+      "group": "nordic-stick-language",
+      "kind": "documented-runic-reference",
+      "note": "Elder and Younger Futhark F-sound rune, Nordic (Germanic) runic letter; name connected to cattle/wealth. Old Norse Fé is attested, Elder *fehu reconstructed.",
+      "script": "Elder/Younger Futhark",
+      "glyph": "ᚠ",
+      "related": [
+        "F",
+        "V"
+      ]
+    },
+    {
+      "id": "F-CORE-10",
+      "original": "ᛈ Perthro / Peorð",
+      "group": "nordic-stick-language",
+      "kind": "documented-runic-reference",
+      "note": "Rune conventionally transliterated P in Elder Futhark; Old English Peorð appears in the rune poem. Not a proven historical source for Latin P or F.",
+      "script": "Elder Futhark / Anglo-Saxon Futhorc",
+      "glyph": "ᛈ",
+      "related": [
+        "P"
+      ]
+    },
+    {
+      "id": "F-CORE-11",
+      "original": "ᚃ Fearn / Fern",
+      "group": "ogham-distinct-script",
+      "kind": "documented-script-reference",
+      "note": "Ogham Fearn/fern in first aicme: B L F S N, third letter with three scores to the right of stemline. Irish/Celtic, not Norse runic script.",
+      "script": "Ogham",
+      "glyph": "ᚃ",
+      "related": [
+        "B",
+        "L",
+        "F",
+        "S",
+        "N"
+      ]
+    },
+    {
+      "id": "F-CORE-12",
+      "original": "Ϝ Digamma",
+      "group": "letter-history",
+      "kind": "documented-script-reference",
+      "note": "Greek digamma is on the documented ancestry of Latin F via Phoenician waw. Similarity to P is author geometry, not historic derivation.",
+      "script": "Ancient Greek",
+      "glyph": "Ϝ",
+      "related": [
+        "waw",
+        "Latin F"
+      ]
+    },
+    {
+      "id": "F-CORE-13",
+      "original": "ᛉ Algiz / Elhaz",
+      "group": "nordic-stick-language",
+      "kind": "documented-runic-reference",
+      "note": "Rune often used as a stick-figure visual analogy; name and historical sound vary with reconstruction and tradition. Raised-arm symbolism belongs to creator reading, not established literal translation.",
+      "script": "Elder Futhark",
+      "glyph": "ᛉ",
+      "related": [
+        "stick-figure stretching"
+      ]
+    },
+    {
+      "id": "F-CORE-14",
+      "original": "ᛗ Mannaz",
+      "group": "nordic-stick-language",
+      "kind": "documented-runic-reference",
+      "note": "Distinct M sound rune; angular resemblance is a teaching visual, not equal identity to F or human figure.",
+      "script": "Elder Futhark",
+      "glyph": "ᛗ",
+      "related": [
+        "stick-figure"
+      ]
+    },
+    {
+      "id": "F-CORE-15",
+      "original": "Fabric Code",
+      "group": "fabric-matrix",
+      "kind": "recovered-owner-linked-title",
+      "note": "Independent candidate cross-reference from fabric recovery; not a deployed software claim.",
+      "script": null,
+      "glyph": null,
+      "related": [
+        "TheWeave",
+        "Universal Matrix"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "label": "Taborite Language Matrix · 13-book series & game",
+      "path": "app-factory/one/taborite-language-matrix/index.html",
+      "status": "repository-existing"
+    },
+    {
+      "label": "Runic/Ogham comparison in independent manuscript",
+      "path": "app-factory/one/taborite-language-matrix/books/07-ogham-runes-and-other-roads.md",
+      "status": "repository-existing"
+    },
+    {
+      "label": "Five Matrices source-aware index",
+      "path": "app-factory/one/nathan-matrix/dimensions-grids/index.html",
+      "status": "repository-existing"
+    },
+    {
+      "label": "ONE connected matrix",
+      "path": "app-factory/one/nathan-matrix/index.html",
+      "status": "repository-existing"
+    },
+    {
+      "label": "F department old directory entry",
+      "path": "archive-index/alphabet/f/index.html",
+      "status": "repository-existing"
+    }
+  ],
+  "historical_sources": [
+    {
+      "title": "Swedish History Museum · runes",
+      "url": "https://historiska.se/en/explore-history/history-hub/runes/"
+    },
+    {
+      "title": "Viking Ship Museum · runes and Viking spelling",
+      "url": "https://www.vikingeskibsmuseet.dk/en/professions/education/viking-age-people/runes"
+    },
+    {
+      "title": "Viking Ship Museum · first F fé",
+      "url": "https://www.vikingeskibsmuseet.dk/en/professions/education/viking-age-people/runes"
+    },
+    {
+      "title": "Unicode official Ogham names and codepoints",
+      "url": "https://unicode.org/Public/18.0.0/charts/nameslist/1680/"
+    },
+    {
+      "title": "Historic F alphabet digamma",
+      "url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/F"
+    }
+  ]
+}
