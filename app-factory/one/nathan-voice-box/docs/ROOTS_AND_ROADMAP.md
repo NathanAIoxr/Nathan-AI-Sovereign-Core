@@ -20,14 +20,14 @@
 | Language/dialect registry | Runtime installed-voice listing + BCP-47 tags | Per-language phonemizers & model metadata |
 | Family recording | Local-file playback, no upload | Device encrypted archive + access permissions |
 | Consent-gated voice models | Local VITS manifest + model adapter | Verified consent receipt, revocation, anti-impersonation controls |
-| Cross-lingual clone training | **Not implemented** | Authorized enrollment and quality eval; no 3-second fidelity promise |
+| Self-recorded voice mapping | **Implemented** in browser worker | Validate pitch, rhythm and twelve-band measurements across accents |\n| Reference-audio voice inference | **Implemented** through optional local ZipVoice pack | Verify model files/rights, benchmark language-specific results |\n| Cross-lingual clone training | **Not implemented** | Authorized enrollment and quality eval; no 3-second fidelity promise |
 | Historical/mythic voices | Clearly labeled fictional synthetic presets | Script, local model quality and contextual annotations |
 | Planetary audio | Safe local echo/cave/wind DSP | Verified gain/volume measurement and accessibility settings |
 | 12 Ear Gates | Actual 12-band FFT energy distribution | Calibrated reference curves, test vectors, public spec |
 | MER4×6 / 48 axes | Original design referenced without rewriting | Independent implementation with 24/48 cell audit |
 | Speech-to-text | **Not implemented** | Local sherpa-onnx or whisper.cpp, user-triggered microphone permission |
 | Translation / lost languages | **Not implemented** | Licensed offline pack + linguist verification |
-| Physical talking objects | Portable native C processing interface | Hardware-specific Oboe/AudioUnit and safe transducer routes |
+| Physical talking objects | Portable native C interface, Android JNI/Kotlin capture + ZipVoice source adapter | Hardware-specific Oboe/AudioUnit, iOS speech inference and safe transducer routes |
 
 ## Required release gates
 
