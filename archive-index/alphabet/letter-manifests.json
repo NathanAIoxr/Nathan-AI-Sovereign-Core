@@ -1454,13 +1454,14 @@
     },
     {
       "letter": "G",
-      "entryCount": 24,
+      "entryCount": 50,
       "kindCounts": {
         "standalone-app": 3,
         "game-catalog": 2,
         "feature-concept": 4,
         "program-record": 10,
-        "authored-sequence": 5
+        "authored-sequence": 5,
+        "word-family": 26
       },
       "sourceIds": [
         "standalone:web:game-reference-lab/all-morning.html",
@@ -1486,11 +1487,66 @@
         "authored:Nativity A–Z:G",
         "authored:Sacred Alphabet A–Z:G",
         "authored:Holiday A–Z:G",
-        "authored:North/South Pole A–Z:G"
+        "authored:North/South Pole A–Z:G",
+        "g-route:G001",
+        "g-route:G002",
+        "g-route:G003",
+        "g-route:G004",
+        "g-route:G005",
+        "g-route:G006",
+        "g-route:G007",
+        "g-route:G008",
+        "g-route:G009",
+        "g-route:G010",
+        "g-route:G011",
+        "g-route:G012",
+        "g-route:G013",
+        "g-route:G014",
+        "g-route:G015",
+        "g-route:G016",
+        "g-route:G017",
+        "g-route:G018",
+        "g-route:G019",
+        "g-route:G020",
+        "g-route:G021",
+        "g-route:G022",
+        "g-route:G023",
+        "g-route:G024",
+        "g-route:G025",
+        "g-route:G026"
       ],
-      "existingIndependentSources": [],
-      "originalIndexStatus": "new-source-index-over-existing-catalogs",
-      "sourceNotes": null
+      "existingIndependentSources": [
+        {
+          "label": "G / 5 / 6 · Nautilus / Tabor Spiral workbench",
+          "path": "./laboratory/index.html"
+        },
+        {
+          "label": "Complete 713-title public G compressed catalog",
+          "path": "./source-catalog-g.json.gz"
+        },
+        {
+          "label": "G word/geometry source records",
+          "path": "./research-routes.json"
+        },
+        {
+          "label": "63-chamber original game source reference",
+          "path": "./geometry-spiral.json"
+        },
+        {
+          "label": "God Goddess Dog Doggess Sseggod source-preserving word records",
+          "path": "./g-words.json"
+        },
+        {
+          "label": "Six Dogs original app",
+          "path": "../../../../app-factory/nathan-ai/six-dogs/index.html"
+        },
+        {
+          "label": "Omni God original app",
+          "path": "../../../../app-factory/nathan-ai/omni-god/index.html"
+        }
+      ],
+      "originalIndexStatus": "complete-AZ-plus-independent-G-glyph-spiral-research",
+      "sourceNotes": "50 original G department source occurrences, including 26 creator/historical G reference routes and five newly supplied God/Goddess/Dog/Doggess/Sseggod words. Original D and S literal title initials are retained as separate identities. The 713 G titles from the master source remain in their own public-only gzip archive (six withheld)."
     },
     {
       "letter": "H",

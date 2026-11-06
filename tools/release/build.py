@@ -7,7 +7,7 @@ from html.parser import HTMLParser
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 STATIC={'.html','.htm','.js','.mjs','.cjs','.css','.json','.webmanifest','.svg','.png','.jpg','.jpeg','.webp','.gif','.ico','.avif','.wasm','.pdf','.md','.txt','.csv','.tsv','.xml','.woff','.woff2','.ttf','.mp3','.mp4','.ogg','.wav','.zip','.docx','.xlsx','.pptx','.epub','.odt','.rtf'}
 PUBLIC_ROOTS=('app-factory/','docs/','archive-index/','landing/','standalone-apps/')
-SOURCE_DOWNLOADS={'app-factory/nathan-ai/brainstormer/originals/NathanAI_Brainstormer_Python_v002.py','app-factory/nathan-ai/sovereign-coins/anchored/bench_matrix.py','app-factory/octopus-root/sovereign-continuum/advanced.py','app-factory/octopus-root/sovereign-continuum/test_advanced.py'}
+SOURCE_DOWNLOADS={'archive-index/alphabet/g/source-catalog-g.json.gz','app-factory/nathan-ai/brainstormer/originals/NathanAI_Brainstormer_Python_v002.py','app-factory/nathan-ai/sovereign-coins/anchored/bench_matrix.py','app-factory/octopus-root/sovereign-continuum/advanced.py','app-factory/octopus-root/sovereign-continuum/test_advanced.py'}
 def git(*args):return subprocess.check_output(['git','-C',str(ROOT),*args],text=True).strip()
 def tracked():return subprocess.check_output(['git','-C',str(ROOT),'ls-files','-z']).decode().split('\0')[:-1]
 def safe(path):

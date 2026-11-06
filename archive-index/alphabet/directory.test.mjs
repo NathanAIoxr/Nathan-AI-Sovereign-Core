@@ -15,7 +15,7 @@ test('whole alphabet is 26 separate populated departments',()=>{
 test('taxonomy and directory types validate',()=>assert.equal(validateDirectory(doc,tax),true));
 test('underlying source counts retained without claiming unique complete apps',()=>{
  const count=k=>doc.entries.filter(x=>x.kind===k).length;
- assert.equal(count('standalone-app'),139);assert.equal(count('game-catalog'),84);assert.equal(count('feature-concept'),104);assert.equal(count('authored-sequence'),130);assert.equal(count('word-family'),33);assert.equal(doc.entryCount,doc.entries.length);
+ assert.equal(count('standalone-app'),139);assert.equal(count('game-catalog'),84);assert.equal(count('feature-concept'),104);assert.equal(count('authored-sequence'),130);assert.equal(count('word-family'),59);assert.equal(doc.entryCount,doc.entries.length);
  assert.ok(doc.countingRule.includes('same app'));
 });
 test('five original independent authored sequences at every letter',()=>{
@@ -72,4 +72,28 @@ test('new F sources preserve 64 general-only titles, 15 separate cross-script en
  assert.ok(f.some(x=>x.title==='The Fabric of the World'));
  assert.ok(f.some(x=>x.title==='ᚠ Fehu / Fé'));
  assert.equal(doc.coverage.excludedFPrivacyOrReview,5);
+});
+
+test('G source family added without replacing the G 713-title standalone owner index',()=>{
+ const g=filterDirectory(doc.entries,{letter:'G'});
+ assert.equal(g.length,50);
+ assert.equal(g.filter(x=>x.id.startsWith('g-route:')).length,26);
+ assert.ok(g.some(x=>x.title==='5 rotated around'));
+ assert.ok(g.some(x=>x.title==='a 6 reshaped'));
+ assert.ok(g.some(x=>x.title==='G (Forward: The Generator | RTL: The Ground Vault)'));
+ assert.equal(doc.coverage.inputCounts.gPublicMasterTitleSupplement,713);
+ assert.equal(doc.coverage.excludedGPrivacyOrReview,6);
+ const manifest=JSON.parse(fs.readFileSync(path.join(root,'archive-index/alphabet/g/letter-manifest.json'),'utf8'));
+ assert.equal(manifest.entryCount,50);
+ assert.ok(fs.existsSync(path.join(root,'archive-index/alphabet/g/source-catalog-g.json.gz')));
+});
+
+test('five creator-supplied God Goddess Dog Doggess Sseggod names are cross-indexed, never moved from their literal initials',()=>{
+ const originals=['God','Goddess','Dog','Doggess','Sseggod'];
+ const words=filterDirectory(doc.entries,{letter:'G'}).filter(x=>x.sourceCategory==='god-dog-word-family');
+ assert.deepEqual(words.map(x=>x.title),originals);
+ assert.ok(words.every(x=>x.crossIndexOnly&&x.kind==='word-family'));
+ assert.equal(words.find(x=>x.title==='Dog').titleInitial,'D');
+ assert.equal(words.find(x=>x.title==='Sseggod').titleInitial,'S');
+ assert.equal(doc.entryCount,1942);
 });

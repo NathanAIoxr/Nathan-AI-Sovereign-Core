@@ -417,8 +417,8 @@
     },
     {
       "path": "app-factory/nathan-ai/index.html",
-      "originalSha256": "48101c463f44bb6dda412aa229069627bf4c07673b1d43d110b9b55d72d30537",
-      "withNoticeSha256": "86a23542a05117430448816871929a584d2a913678e0459ee160f20f6eb02729",
+      "originalSha256": "846636943f868bc27570c2d56511ac6bde48d8d09d16481cd8ba2a5863859835",
+      "withNoticeSha256": "8b4545e32ea9deba8075f9b56beccfb8370d403f2c35904ffb2f9f2ef653819a",
       "recordLink": "../../docs/record/index.html"
     },
     {
@@ -824,15 +824,15 @@
       "recordLink": "../../../docs/record/index.html"
     },
     {
-      "path": "app-factory/one/tabor-almanac/TTA_ONE_APP.html",
-      "originalSha256": "19dba0eab032acf44c77f6ef04a81fb455e0eec5555455650e61205deed56e65",
-      "withNoticeSha256": "c16b909f1470a09ce9140a1e823d4303db2fda5302c51487861284513901bf03",
-      "recordLink": "../../../docs/record/index.html"
-    },
-    {
       "path": "app-factory/one/tabor-almanac/tabor_almanac_mythic_match_expanded.html",
       "originalSha256": "c080b968d07c9492b91c38d2b6c3599fb8fd3b01affd7542514dc58f55571c3e",
       "withNoticeSha256": "41d53aa34fce0b46f2217172f6f50d57779f19ce4af1f5f118b1180882590825",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/tabor-almanac/TTA_ONE_APP.html",
+      "originalSha256": "19dba0eab032acf44c77f6ef04a81fb455e0eec5555455650e61205deed56e65",
+      "withNoticeSha256": "c16b909f1470a09ce9140a1e823d4303db2fda5302c51487861284513901bf03",
       "recordLink": "../../../docs/record/index.html"
     },
     {
@@ -980,24 +980,6 @@
       "recordLink": "../../../../../docs/record/index.html"
     },
     {
-      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/index.html",
-      "originalSha256": "b9372ea418fff38ea1f0fc4a94e042e801732b85da46360ccd938cab3e59a759",
-      "withNoticeSha256": "3dd9264c4876fec2f29225f8055fa1a12b9f54bc0fc55d7554bc15d531df4dfe",
-      "recordLink": "/Nathan-AI-Sovereign-Core/docs/record/"
-    },
-    {
-      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/math-roots/index.html",
-      "originalSha256": "97da153884f1a799f53f986e4fe4fe06bc89441220c42cc614bff169a5a56f6f",
-      "withNoticeSha256": "97df28a92da92f5c2e6008d8e4dc1c7a1b985b6ac868e7a422f45e47c8124873",
-      "recordLink": "/Nathan-AI-Sovereign-Core/docs/record/"
-    },
-    {
-      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/mirror-bridge/index.html",
-      "originalSha256": "d2580ca53318d7ea0fa4f15850ce3b9ccc1c4c2680598778929510d76c8169e9",
-      "withNoticeSha256": "5f332b4a7b58fed9eb9ca5ca0bff90604c2095b921f8602c775c8dd1e70306c6",
-      "recordLink": "/Nathan-AI-Sovereign-Core/docs/record/"
-    },
-    {
       "path": "app-factory/stewie-mr-finn/polar-middle-c/index.html",
       "originalSha256": "d55b4b7a8e1f515ba58cd456c6dfae17d3b7bc5151cd903b586faf96d0b6a827",
       "withNoticeSha256": "0748c7ff4e717ec0c5a7f780ffa39c5fc92ac2889201c59195c8f063a517c22f",
@@ -1013,6 +995,24 @@
       "path": "app-factory/stewie-mr-finn/polar-middle-c/mirror-bridge/index.html",
       "originalSha256": "c05f99598865ba30cb4bb49ebb97fd557b3fc7d54b8315a6aef68f3bf461ecd9",
       "withNoticeSha256": "9bf285130109bd922c2cc9bb89ee826810d5cd5bd1b958a804788f96cb09785e",
+      "recordLink": "/Nathan-AI-Sovereign-Core/docs/record/"
+    },
+    {
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/index.html",
+      "originalSha256": "b9372ea418fff38ea1f0fc4a94e042e801732b85da46360ccd938cab3e59a759",
+      "withNoticeSha256": "3dd9264c4876fec2f29225f8055fa1a12b9f54bc0fc55d7554bc15d531df4dfe",
+      "recordLink": "/Nathan-AI-Sovereign-Core/docs/record/"
+    },
+    {
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/math-roots/index.html",
+      "originalSha256": "97da153884f1a799f53f986e4fe4fe06bc89441220c42cc614bff169a5a56f6f",
+      "withNoticeSha256": "97df28a92da92f5c2e6008d8e4dc1c7a1b985b6ac868e7a422f45e47c8124873",
+      "recordLink": "/Nathan-AI-Sovereign-Core/docs/record/"
+    },
+    {
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/mirror-bridge/index.html",
+      "originalSha256": "d2580ca53318d7ea0fa4f15850ce3b9ccc1c4c2680598778929510d76c8169e9",
+      "withNoticeSha256": "5f332b4a7b58fed9eb9ca5ca0bff90604c2095b921f8602c775c8dd1e70306c6",
       "recordLink": "/Nathan-AI-Sovereign-Core/docs/record/"
     },
     {
@@ -1101,9 +1101,15 @@
     },
     {
       "path": "archive-index/alphabet/g/index.html",
-      "originalSha256": "5ed39e5c762079403b13ef4a28b2f09806f3b53cde4aa84be96f9c3eeb36cae0",
-      "withNoticeSha256": "e573a2d706f4fcff8c4c38582a8208879b82d1c194cf14e825f0de1bf0adb453",
+      "originalSha256": "35b4d2bd4224a2571feb0a4fe63df331432ce56a7e1434b9e99764c978a53ce1",
+      "withNoticeSha256": "d392399348a74402317ee0d2fd3ddc33732dd1a80d6c40c6f89841a133bcb59d",
       "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/g/laboratory/index.html",
+      "originalSha256": "9f8ba5741de96d75da5a75e29a358e05d94bd41d59bc7be966fce50c91409bca",
+      "withNoticeSha256": "3bb9a63d5fd0c695c6a7bc10bf88e3723ff9d869029db3a02a5cbc01a1eceea4",
+      "recordLink": "../../../../docs/record/index.html"
     },
     {
       "path": "archive-index/alphabet/h/index.html",

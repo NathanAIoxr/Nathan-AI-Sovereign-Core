@@ -115,3 +115,18 @@ The local chatbox supports `/az`, `/alphabet`, `/categories`, `/apps`, `/games` 
 New source-preserving local routes: `/f`, `/letter-f`, `/fabric`, `/f-runes`, `/f-geometry` and `/f-sticks`. Natural queries including “fabric of the matrix”, “F as P cut open”, “fehu rune”, and “nordic stick language” open the [original interactive F laboratory](../../../../archive-index/alphabet/f/laboratory/index.html). It hosts 64 general-public F source title occurrences from the 6,056-row owner catalog, 15 separate F/P and rune reference records, and 150 independent Fabric-of-the-Matrix candidate links. Five F master-catalog titles with non-general privacy states remain excluded.
 
 The owner's wording `F is also a P cut open` is kept as an original structural interpretation. Elder/Younger Futhark ᚠ, elder ᛈ, and Celtic Ogham ᚃ each keep distinct script identities. The phrase “the language that looks like a stick figure stretching” is indexed as an author visual analogy and is not asserted as a historical rune translation. The original Taborite language app and books, E/3/M/W archive and other alphabetical departments are unchanged. This HOP IN response is source navigation, not a configured external generative model.
+
+
+## Letter G · 5 rotated / 6 reshaped / Nautilus aka Tabor Spiral
+
+New local chat routes: /g, /letter-g, /g-5, /g-6, /g-geometry, /g-spiral, /g-source, /nautilus, /natilus, /tabor-spiral and /spiral. Natural language terms including "tabor spiral", "5 rotated around", "6 reshaped", "the generator", "G geometry", and "letter G" point to the [interactive G source workbench](../../../../archive-index/alphabet/g/laboratory/index.html).
+
+The original creator text is kept exactly: "time for G ... find all G's - 5 rotated around and or a 6 reshaped the natilus aka tabor spiral". Two distinct construction branches are retained. Existing earlier g→6 and the full F/P / E/3/M/W modules are not overwritten.
+
+The main A–Z source index now has 1,937 primary source occurrences (45 G), and a linked standalone compressed source preserves all 713 general/public G-starting title occurrences, including 604 MATERS vs TATERS Family Grove entries. Six editorial/unknown G title records are withheld. Source-catalog entries are not individually completed applications. Historic Roman G developed from C, and measured Nautilus shells should not automatically be equated with the golden-ratio spiral; author symbolic sources and verified history/mathematics retain separate provenance.
+
+## GOD · GODDESS · DOG · DOGGESS · SSEGGOD
+
+Local commands /god, /goddess, /dog, /doggess, /sseggod, /g-words and /og-family navigate the five-name G cross-index and existing Six Dogs / Omni God apps. Original spellings are maintained. Dog and Doggess remain D-initial words, Sseggod remains S-initial, despite additional G cross-indexing by explicit creator instruction.
+
+Literal uppercase reversals are GOD ↔ DOG and DOGGESS ↔ SSEGGOD. GODDESS reverses to SSEDDOG instead: never conflate it with Sseggod or assert these symbolic transformations are linguistic history. The 713 public G titles and Tabor Spiral remain separate source archives. The G research index has 26 source records; A–Z has 1,942 source occurrences. Original private manuscripts remain in the owner's Library.
