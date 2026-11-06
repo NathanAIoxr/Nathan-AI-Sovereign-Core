@@ -7,7 +7,7 @@
 
 This is a **working, local-first publishing-package prototype**. No paid service, credential, backend, automatic KDP submission, cloud book storage, scraping, or third-party account linking is required to use the core buttons.
 
-1. **TRANSCRIBE:** Paste source text, import TXT/MD, import a ChatGPT \`conversations.json\` export or a supported ChatGPT export ZIP, choose a conversation, and extract selected human/assistant text in the original order of that conversation's active branch. The copy for publication is edited separately from the captured source. ChatGPT doesn't expose all prior chat texts automatically to a public website.
+1. **TRANSCRIBE:** Paste source text, import TXT/MD, import a ChatGPT `conversations.json` export or a supported ChatGPT export ZIP, choose a conversation, and extract selected human/assistant text in the original order of that conversation's active branch. The copy for publication is edited separately from the captured source. ChatGPT doesn't expose all prior chat texts automatically to a public website.
 2. **SHAPE:** Title, subtitle, author, language, description, optional ebook front cover, editable manuscript, chapter recognition, approximate keyword-frequency suggestions (not verified search data). Capture and export original transcript separately.
 3. **FULL SPECTRUM:** 38 **author-defined design lenses**, each with user-editable name and instructions; export JSON. Optional focus-column, large-text, and high-contrast preview does not rewrite manuscript content. The number 38 is the author's creative model, **not a clinical classification**.
 4. **TRANSPORT:** Generate an actual reflowable **EPUB**, basic **DOCX print draft** (6×9, simple text, no bleed), and a ZIP containing the files, listing metadata, handoff instructions, manuscript text, cover if supplied, plus author-defined reading lenses. The original source is included in the ZIP **only if expressly checked**. EPUB uses the existing reusable DUMMIE ZIP engine.
@@ -15,7 +15,7 @@ This is a **working, local-first publishing-package prototype**. No paid service
 
 ## Exact two-button distinction
 
-**1 MAKE MY BOOK PACKAGE:** Real local download, status \`NOT_SUBMITTED\`.  
+**1 MAKE MY BOOK PACKAGE:** Real local download, status `NOT_SUBMITTED`.  
 **2 TAKE ME TO AMAZON KDP:** Official website navigation, **not** authenticated upload or publication.
 
 Amazon KDP does not provide a general publicly documented automated book-submission API. Don't simulate a one-click publish or use credentials supplied to a public client-side page; don't automate account access without appropriate authorization and compliance with Amazon's conditions.
@@ -33,7 +33,7 @@ Amazon KDP does not provide a general publicly documented automated book-submiss
 - Author's sources remain authoritative. Publication copy, extracted transcript and 38 reading lenses are **derived or linked separately**, not substituted for the original records.
 - No source data, cover files, passwords, account details or export ZIPs are committed to this PUBLIC repository. The page processes selected files in browser memory, with no implicit persistent backup; the user should download and independently back up source files.
 - A ChatGPT export JSON may contain **other private conversations**. Select carefully. The ZIP kit excludes the original source by default. A selected conversation's extracted transcript keeps text in sequence with role markers; this is not identical to the raw ChatGPT JSON. Keep raw JSON separately as the exact archival original.
-- Project ZIP limits are inherited from DUMMIE's ~80 MiB local packager. Compressed exports are handled via browser \`DecompressionStream('deflate-raw')\` where supported; extract \`conversations.json\` manually if your browser cannot read ZIP.
+- Project ZIP limits are inherited from DUMMIE's ~80 MiB local packager. Compressed exports are handled via browser `DecompressionStream('deflate-raw')` where supported; extract `conversations.json` manually if your browser cannot read ZIP.
 - Keyword hints are token-frequency heuristics only; do not call them low-competition or high-volume search research.
 - EPUB and DOCX are simple text-first outputs. Complex tables, footnotes, right-to-left scripts, equations, embedded media, and professional print typography need additional format-aware authoring/validation.
 
@@ -41,16 +41,16 @@ Amazon KDP does not provide a general publicly documented automated book-submiss
 
 Run from repository root:
 
-\`\`\`sh
+```sh
 node --test app-factory/tabor-transcript-transporter/engine.test.cjs
 node --test app-factory/dummie-publisher/publisher.test.cjs
 node --check app-factory/tabor-transcript-transporter/engine.js
 node --check app-factory/tabor-transcript-transporter/ui.js
-\`\`\`
+```
 
-Source module: \`engine.js\`  
-Browser controls: \`index.html\`, \`ui.js\`  
-Existing reusable ZIP provider: \`../dummie-publisher/publisher.js\`
+Source module: `engine.js`  
+Browser controls: `index.html`, `ui.js`  
+Existing reusable ZIP provider: `../dummie-publisher/publisher.js`
 
 ## Future authenticated adapter
 
