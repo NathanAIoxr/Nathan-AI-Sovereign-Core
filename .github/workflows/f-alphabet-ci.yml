@@ -1,0 +1,34 @@
+name: F alphabet originals, Fabric and Nordic source integrity
+on:
+  pull_request:
+    paths:
+      - 'archive-index/alphabet/f/**'
+      - 'archive-index/alphabet/directory.json'
+      - 'archive-index/alphabet/directory.test.mjs'
+      - 'archive-index/alphabet/letter-manifests.json'
+      - 'app-factory/nathan-ai/hop-in/chatbox/engine.js'
+      - 'app-factory/nathan-ai/hop-in/chatbox/engine.test.cjs'
+      - '.github/workflows/f-alphabet-ci.yml'
+  push:
+    paths:
+      - 'archive-index/alphabet/f/**'
+      - 'archive-index/alphabet/directory.json'
+      - 'archive-index/alphabet/letter-manifests.json'
+      - '.github/workflows/f-alphabet-ci.yml'
+jobs:
+  f-source-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify public F title privacy, 150 Fabric links and independent script structures
+        run: node --test archive-index/alphabet/f/f-core.test.mjs
+      - name: Verify 26-letter master source counts and original document links
+        run: node --test archive-index/alphabet/directory.test.mjs
+      - name: Verify earlier C/D/E source engines remain independent
+        run: |
+          node --test archive-index/alphabet/c/c-family.test.mjs archive-index/alphabet/d/d-family.test.mjs archive-index/alphabet/e/e-family.test.mjs archive-index/alphabet/e/e-word-families.test.mjs
+      - name: Verify HOP IN archive routing
+        run: node --test app-factory/nathan-ai/hop-in/chatbox/engine.test.cjs
