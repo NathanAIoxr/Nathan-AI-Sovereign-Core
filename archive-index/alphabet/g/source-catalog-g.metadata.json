@@ -1,0 +1,103 @@
+{
+  "schema": "nathan-ai.g.master-title-gzip-metadata.v1",
+  "as_of": "2026-11-05",
+  "storage": "source-catalog-g.json.gz",
+  "encoding": "UTF-8 JSON encoded in gzip format; client fetches raw bytes and decompresses with DecompressionStream('gzip'); node tests use zlib.gunzipSync.",
+  "sourceFile": "ALL_6056_SOURCE_ROWS_UNCHANGED_TITLES_v020.csv",
+  "counts": {
+    "master": 6056,
+    "gTitles": 719,
+    "publicGeneral": 713,
+    "withheldNonGeneral": 6
+  },
+  "originalTitlePreservation": "Each item in compressed array stores original CSV row index, exact title_unchanged and collection integer referencing collections table. Duplicate occurrences and punctuation remain. Raw source IDs and withheld entries are absent.",
+  "privacy": "Only original rows whose privacy_unchanged === general are exported. Counts for withheld titles are aggregated.",
+  "expectedGitBlobSha": "f5e3d3e421d8078912c9c3cc03393ffc77b0bffc",
+  "collectionCounts": [
+    [
+      "Original ciphers & code engines",
+      1
+    ],
+    [
+      "Ancient language & symbolic discoveries",
+      2
+    ],
+    [
+      "Acronyms & authored expansions",
+      2
+    ],
+    [
+      "The other side of the mirror",
+      1
+    ],
+    [
+      "ANGELS vs DEMONS — 404",
+      23
+    ],
+    [
+      "KINETICS Greek Mythology",
+      14
+    ],
+    [
+      "GLOBAL KNAVE — Female Divine Atlas",
+      7
+    ],
+    [
+      "Biblical Universe A–Z",
+      15
+    ],
+    [
+      "Ancient Greek Mythology A–Z",
+      7
+    ],
+    [
+      "Humanity Misfits Atlas",
+      2
+    ],
+    [
+      "Garbage Pail Kids Collector Index",
+      7
+    ],
+    [
+      "Hero–Villain Accountability Atlas",
+      4
+    ],
+    [
+      "MATERS vs TATERS — Family Grove",
+      604
+    ],
+    [
+      "KINETICS — Norse Divine Roots",
+      3
+    ],
+    [
+      "GUFT — Sovereign Archetypes Atlas",
+      3
+    ],
+    [
+      "SIN — Saving Innocence Now (modern fiction)",
+      4
+    ],
+    [
+      "SIN — Saving Innocence Now",
+      10
+    ],
+    [
+      "software",
+      1
+    ],
+    [
+      "crypto",
+      1
+    ],
+    [
+      "hardware",
+      1
+    ],
+    [
+      "Sovereign coin design / historical proposals",
+      1
+    ]
+  ],
+  "note": "719 G titles include 713 general and 6 withheld. 604 public entries are in one Family Grove source collection and must not be reported as 604 unique finished apps."
+}

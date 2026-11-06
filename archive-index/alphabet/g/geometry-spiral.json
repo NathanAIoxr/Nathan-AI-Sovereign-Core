@@ -1,0 +1,107 @@
+{
+  "schema": "nathan-ai.g.geometry-spiral-model.v1",
+  "creatorOriginal": "5 rotated around and or a 6 reshaped the natilus aka tabor spiral",
+  "creatorDirection": "G formed through independent rotated-5 or reshaped-6 visual options; exact rotational angle and stroke-removal sequence were not specified by the owner.",
+  "preservedLegacy": "g→6",
+  "literalIdentities": [
+    "5",
+    "6",
+    "G",
+    "g"
+  ],
+  "graphicModes": [
+    {
+      "id": "5-rotation",
+      "label": "5 rotated",
+      "input": "5",
+      "output": "G",
+      "anglesDeg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "stage": "author-defined-shape-exploration"
+    },
+    {
+      "id": "6-reshaped",
+      "label": "6 reshaped",
+      "input": "6",
+      "output": "G",
+      "stage": "author-defined-shape-exploration"
+    },
+    {
+      "id": "original-capital-G",
+      "label": "Literal G",
+      "input": "G",
+      "output": "G",
+      "stage": "modern-Latin-letter"
+    },
+    {
+      "id": "lowercase-g-to-6",
+      "label": "Original reverse transformation g→6",
+      "input": "g",
+      "output": "6",
+      "stage": "earlier author-source"
+    }
+  ],
+  "spirals": [
+    {
+      "id": "tabor-inward",
+      "label": "The Tabor Spiral · Inward Compression",
+      "model": "r = a·exp(-b·θ)",
+      "direction": "inward",
+      "b": 0.18,
+      "stage": "original-symbolic-model"
+    },
+    {
+      "id": "counter-outward",
+      "label": "Counter-Spiral · Outward Expansion",
+      "model": "r = a·exp(b·θ)",
+      "direction": "outward",
+      "b": 0.18,
+      "stage": "original-symbolic-model"
+    },
+    {
+      "id": "golden-math",
+      "label": "Golden logarithmic spiral · Special case",
+      "model": "b = ln(φ)/(π/2)",
+      "b": 0.30634896253003313,
+      "stage": "documented-mathematical-special-case"
+    },
+    {
+      "id": "nautilus-comparison",
+      "label": "Nautilus-style fit · illustrative model",
+      "b": 0.18,
+      "stage": "illustration-not-empirical-fit",
+      "note": "A natural Nautilus shell is not universally an exact golden spiral; actual measurements vary."
+    }
+  ],
+  "gameReference": {
+    "name": "THE TÁBOR SPIRAL: NAUTILUS OF WAR",
+    "stage": "owner-game-manual-reference",
+    "chambers": 63,
+    "start": 1,
+    "finish": 63,
+    "historicalClaim": false,
+    "ownerLibraryFile": "The_Tabor_Spiral_Micro_to_Macro_Manual_V2.md"
+  },
+  "sources": [
+    {
+      "title": "Origin of Latin G from C",
+      "url": "https://www.gutenberg.org/cache/epub/37160/pg37160-images.html"
+    },
+    {
+      "title": "Nautilus spiral measurements",
+      "url": "https://doi.org/10.1007/s00004-018-0419-3"
+    },
+    {
+      "title": "Logarithmic spiral and golden myth explanation",
+      "url": "https://plus.maths.org/comment/11384"
+    },
+    {
+      "title": "Mathematical shell model, University of Washington",
+      "url": "https://sites.math.washington.edu/~aloveles/CuriosityLab/projects/shell-growth.html"
+    }
+  ]
+}
