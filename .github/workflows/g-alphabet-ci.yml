@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: '22'
       - name: Validate full public G titles, original 5/6 geometry and dual spirals
-        run: node --test archive-index/alphabet/g/g-core.test.mjs
+        run: node --test archive-index/alphabet/g/g-core.test.mjs archive-index/alphabet/g/g-words.test.mjs
       - name: Validate all 26 original letter departments
         run: node --test archive-index/alphabet/directory.test.mjs
       - name: Preserve earlier E and F work
