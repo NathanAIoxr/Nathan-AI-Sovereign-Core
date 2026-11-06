@@ -1,0 +1,45 @@
+name: Nathan AI Living Eyes — 48 to 384 views
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/living-eyes/**'
+      - '.github/workflows/living-eyes-ci.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/living-eyes/**'
+      - '.github/workflows/living-eyes-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate JS syntax and 48/96/192/384 coordinate invariants
+        run: |
+          node --check app-factory/nathan-ai/living-eyes/engine.js
+          node --test app-factory/nathan-ai/living-eyes/engine.test.cjs
+      - name: Verify author Python source and expanded propeller invariants
+        run: python3 -m unittest discover -s app-factory/nathan-ai/living-eyes -p 'test_propeller.py' -v
+      - name: Verify additive page and shared appearance/launcher links
+        run: |
+          node - <<'NODE'
+          const fs=require('node:fs'),assert=require('node:assert/strict');
+          const p='app-factory/nathan-ai/living-eyes/index.html';
+          const html=fs.readFileSync(p,'utf8');
+          assert.match(html,/data-nathan-shared-appearance/);
+          assert.match(html,/data-nathan-command-center/);
+          assert.match(html,/NathanLivingEyes/);
+          for(const name of ['../appearance/shared.css','../launcher/shared.css','../../../archive-index/alphabet/i/eye-scan/engine.js','../../one/hall-of-mirrors/engine.js']){
+            assert.ok(fs.existsSync(require('node:path').resolve(require('node:path').dirname(p),name)),name)
+          }
+          NODE
