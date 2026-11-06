@@ -1,3 +1,6 @@
+> **[READ THE TIMESTAMPED RECORD — Nathan Tabor / ChatGPT](docs/record/RECORD.md)**
+> Repository changes, authorship complaints, correction claims, and unfinished work. Record opened November 5, 2026, 7:42:08 p.m. EST.
+
 # NATHAN AI 🚀
 
 <img src="app-factory/nathan-ai/icon-192.png" width="72" height="72" alt="Nathan AI monogram">
