@@ -78,3 +78,22 @@ Open [The Universal Master Matrix](./matrix.html) from the Electric Slide dashbo
 Implementation: matrix.js, matrix-ui.js, matrix.html and matrix.test.cjs.
 
 Run from repository root: node --test app-factory/electric-slide/matrix.test.cjs
+
+## Universal destination templates — working local exports
+
+All **46 named destinations** now have a typed, human-editable **logical field template**. From [Universal Master Matrix](./matrix.html), choose a target, enter the original text and draft field values, and use:
+
+- **DOWNLOAD SOURCE + DESTINATION ZIP:** exact source text, destination JSON, generic reference CSV, UTC/SHA-256 receipt, and owner-review instructions.
+- **DOWNLOAD JSON:** a full, inspectable packet preserving original text with a local integrity fingerprint and unchanged unpublished status.
+- **DOWNLOAD GENERIC CSV:** reference mapping of logical field, display label, proposed value and explicitly unverified provider selector; this file is **not** promised as a valid import schema for a destination.
+- **COPY SELECTED FIELD:** owner chooses one prepared field and pastes it manually into the appropriate authorized provider field.
+
+Templates have mapped **logical fields**, not confirmed provider DOM selectors, API permissions, bulk-import dialects or authenticated remote write access. Existing Kickstarter companion remains a separately constrained, optional interaction. Each target needs its own verified API/CSV adapter, credentials and owner authorization for real remote publication. This is the truthful ready-to-use offline/manual fallback for all destinations.
+
+The adapter engine is `adapters.js`, the editor is `adapters-ui.js`, and the tests are `adapters.test.cjs`. Check with:
+
+```sh
+node --test app-factory/electric-slide/engine.test.cjs app-factory/electric-slide/matrix.test.cjs app-factory/electric-slide/adapters.test.cjs
+```
+
+The independent `Electric Slide focused quality` workflow runs this suite on GitHub and isolates it from unrelated repository-wide checks.
