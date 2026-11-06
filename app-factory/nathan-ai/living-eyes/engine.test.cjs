@@ -1,0 +1,13 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const E=require('./engine.js');
+const Eye=require('../../../archive-index/alphabet/i/eye-scan/engine.js');
+const Mirror=require('../../one/hall-of-mirrors/engine.js');
+test('preserve all six original scanners and four quartets',()=>{assert.equal(E.BASE_AXES.length,6);assert.equal(E.TRACKS.length,24);assert.equal(new Set(E.TRACKS.map(x=>x.id)).size,24)});
+test('every observation mode has exact count and unique logical identities',()=>{for(const [mode,count] of Object.entries(E.MODES)){const s=E.frame(12,{mode});assert.equal(s.viewCount,count);assert.equal(new Set(s.points.map(x=>x.id)).size,count)}});
+test('original 24 plus inverted 24 yields canonical 48',()=>{const p=E.frame(11,{mode:'canonical'}).points;assert.equal(p.filter(x=>!x.inversion).length,24);assert.equal(p.filter(x=>x.inversion).length,24);assert.equal(p.filter(x=>x.direction==='CW').length,24);assert.equal(p.filter(x=>x.direction==='CCW').length,24)});
+test('vertical inversion, horizontal mirror and half turn are separate',()=>{const p={x:2,y:7};assert.deepEqual(E.verticalFlip(p),{x:2,y:-7});assert.deepEqual(E.mirrorFlip(p),{x:-2,y:7});assert.deepEqual(E.halfTurn(p),{x:-2,y:-7})});
+test('all views lock at exact zero at tick 90 or manual lock',()=>{for(const mode of Object.keys(E.MODES)){const f=E.frame(90,{mode});assert.equal(f.converged,true);assert.ok(f.points.every(x=>x.x===0&&x.y===0));assert.equal(E.frame(5,{mode,lock:true}).converged,true);assert.equal(E.frame(0,{mode}).converged,false)}});
+test('CW and CCW operate concurrently without replacing each other',()=>{const p=E.frame(10,{mode:'counter'}).points.filter(x=>x.trackId==='Q0-V1'&&!x.inversion&&!x.mirror);assert.equal(p.length,2);assert.notEqual(p[0].angle,p[1].angle)});
+test('user-selected original is unchanged across two existing engines',()=>{const raw='EYE GHG\nHere\nThere\nEverywhere';const r=E.inspect(raw,{eyeScanner:Eye,hallOfMirrors:Mirror});assert.equal(r.original,raw);assert.equal(r.eyeScan.original,raw);assert.equal(r.hallOfMirrors.original,raw);assert.equal(r.eyeScan.creatorMapping.to,'GHG')});
+test('source bounds and conceptual gate counts',()=>{assert.throws(()=>E.inspect('a'.repeat(512001)),RangeError);assert.throws(()=>E.inspect(null),TypeError);assert.throws(()=>E.frame(0,{mode:'invalid'}),RangeError);assert.equal(E.gates('eye').length,12);assert.equal(E.gates('ear').length,12);assert.equal(E.inspect('glitch').glitchLiteral,true)});
