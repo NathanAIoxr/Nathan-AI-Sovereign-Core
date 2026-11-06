@@ -107,6 +107,8 @@ The site can be **installed from a supported browser**; the Factory, ONE, TABOR 
 
 ## Development and safe build workflow
 
+Start with the [repository map and complete check commands](docs/REPOSITORY_MAP.md). Automated [complete repository checks](.github/workflows/repository-checks.yml) cover all public source trees and validate the downloadable site package.
+
 - [Current verified build status](WORK_STATUS.md)
 - [Work-mode cross-project handoff](WORK_BUILD_HANDOFF.md)
 - [System-wide release gates and security requirements](app-factory/RELEASE_GATES.md)

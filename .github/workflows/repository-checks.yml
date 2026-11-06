@@ -1,0 +1,42 @@
+name: Complete repository checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repository-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run all repository suites and bounded smoke checks
+        run: python3 -B tools/release/check.py --out "$RUNNER_TEMP/repository-checks"
+      - name: Build and verify the complete public site package
+        run: |
+          python3 -B tools/release/build.py --out "$RUNNER_TEMP/repository-release"
+          python3 -B tools/release/build.py --verify "$RUNNER_TEMP/repository-release/nathan-ai-site.zip"
+      - name: Save check report and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: repository-checks
+          path: ${{ runner.temp }}/repository-checks
+          retention-days: 14
