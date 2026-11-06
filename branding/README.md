@@ -48,4 +48,4 @@ python3 -B tools/release/check.py --out ../repository-checks
 python3 -B tools/release/build.py --out ../repository-release
 ```
 
-The original nine independent **local planning studios** remain nine; the Church site and Nathan Tabor Home are two separate public information gateways. Neither app nor original text was overwritten or removed.
+The original nine independent **local planning studios** and all 130 original app registry records remain unchanged. The Church site and Nathan Tabor Home are two separate public information gateways indexed in the general website finder. Neither app nor original text was overwritten or removed.
