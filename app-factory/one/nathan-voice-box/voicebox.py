@@ -49,8 +49,9 @@ def list_espeak_voices() -> list[dict]:
     voices = []
     for line in cp.stdout.splitlines()[1:]:
         parts = line.split()
-        if len(parts) >= 4 and SAFE_VOICE.fullmatch(parts[3]):
-            voices.append({"language": parts[1], "name": parts[3]})
+        if len(parts) >= 4 and SAFE_VOICE.fullmatch(parts[1]):
+            # Prefer the safe locale ID: human-readable eSpeak VoiceName may have spaces/parentheses.
+            voices.append({"language": parts[1], "name": parts[1]})
     return voices
 
 
