@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import android.media.AudioFormat
 import android.media.AudioRecord
 import android.media.MediaRecorder
-import androidx.core.content.ContextCompat
 import kotlin.math.max
 
 /**
@@ -20,7 +19,7 @@ object LocalVoiceRecorder {
 
     fun record(context: Context, seconds: Int, shouldStop: () -> Boolean): FloatArray {
         require(seconds in 2..MAX_SECONDS) { "Recording duration must be 2..45 seconds" }
-        check(ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO)
+        check(context.checkSelfPermission(Manifest.permission.RECORD_AUDIO)
             == PackageManager.PERMISSION_GRANTED) { "Microphone permission not granted" }
         val minBytes = AudioRecord.getMinBufferSize(
             RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT
