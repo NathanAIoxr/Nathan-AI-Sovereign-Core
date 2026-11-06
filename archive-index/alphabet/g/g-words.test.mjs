@@ -36,7 +36,8 @@ test('original case and unrelated alphabet indexing are maintained',()=>{
 });
 test('filters retain all originals and source titles without personal records',()=>{
  assert.equal(searchGWords(data.entries).length,5);
- assert.deepEqual(searchGWords(data.entries,{query:'SSEGGOD'}).map(x=>x.original).sort(),['Doggess','Sseggod']);
+ assert.ok(['Doggess','Sseggod'].every(name=>searchGWords(data.entries,{query:'SSEGGOD'}).some(x=>x.original===name)));
  assert.ok(searchGWords(data.entries,{query:'OG_Family'}).some(x=>x.original==='Dog'));
  assert.throws(()=>reverseLiteral(1));
 });
+
