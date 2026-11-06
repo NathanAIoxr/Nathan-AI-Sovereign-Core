@@ -34,6 +34,7 @@ class EdgeDSP(sampleRate: Int, effect: Int) : Closeable {
         const val CAVE = 1
         const val ECHO = 2
         const val WIND = 3
+        const val SPEECH_CLEAN = 4
         init { System.loadLibrary("nathan_voicebox") }
     }
 }
