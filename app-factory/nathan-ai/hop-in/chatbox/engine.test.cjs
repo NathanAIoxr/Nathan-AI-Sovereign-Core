@@ -86,3 +86,17 @@ test('independent F archive, Nordic stick and Fabric routes preserve E/C/D and A
  assert.equal(engine.reply('/az').kind,'route');
  assert.match(engine.reply('/f').answer,/64 publicly classified/);
 });
+
+test('G geometry / 5 / 6 / Tabor Spiral all source routes remain separate from E and F',()=>{
+ for(const query of ['/g','/letter-g','/g-5','/g-6','/g-geometry','/g-spiral','/nautilus','/tabor-spiral']){
+  const result=engine.reply(query);assert.equal(result.kind,'route',query);
+  assert.ok(result.links.some(x=>x.url.includes('archive-index/alphabet/g/laboratory/index.html')),query);
+ }
+ for(const query of ['5 rotated around','6 reshaped','tabor spiral','nautilus','letter G','g geometry']){
+  const result=engine.reply(query);assert.equal(result.kind,'route',query);
+  assert.ok(result.links.some(x=>x.url.includes('archive-index/alphabet/g/laboratory/index.html')),query);
+ }
+ assert.equal(engine.reply('/letter G').kind,'route');
+ for(const query of ['/f','/e','/d','/az'])assert.equal(engine.reply(query).kind,'route',query);
+ assert.match(engine.reply('/g').answer,/713 public G title occurrences/);
+});
