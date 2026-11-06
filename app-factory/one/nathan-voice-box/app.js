@@ -12,6 +12,7 @@ async function init() {
     for (const voice of data.voices) {
       const opt = document.createElement("option");
       opt.value = voice.name;
+      opt.dataset.lang = voice.language;
       opt.textContent = voice.name + " · " + voice.language;
       if (voice.language.toLowerCase() === "en-us") opt.selected = true;
       select.append(opt);
@@ -67,5 +68,9 @@ $("archive").addEventListener("change", (event) => {
 window.addEventListener("beforeunload", () => {
   if (currentAudioURL) URL.revokeObjectURL(currentAudioURL);
   if (currentArchiveURL) URL.revokeObjectURL(currentArchiveURL);
+});
+$("voice").addEventListener("change", () => {
+  const choice = $("voice").selectedOptions[0];
+  if (choice && choice.dataset.lang) $("lang").value = choice.dataset.lang;
 });
 init();
