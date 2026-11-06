@@ -34,3 +34,8 @@ Run: \`node --test app-factory/nathan-ai/living-eyes/engine.test.cjs\`.
 The exact user-supplied Python class is retained separately at [originals/nathan_24_axis_propeller_original.py](originals/nathan_24_axis_propeller_original.py). Its original comment about “180-degree reflection” stays verbatim, while the new [propeller_extended.py](propeller_extended.py) calculates a *vertical* reflection and a *half turn* as distinct operations. [test_propeller.py](test_propeller.py) checks all 48/96/192/384 view modes, the 24+24 canonical layer, and exact convergence.
 
 Run from the module directory: \`python3 -m unittest discover -s . -p 'test_propeller.py' -v\`.
+
+
+## Linked sister capability · Living Ears
+
+[Living Ears · Mother Earth, animals, human speech, and historic sound devices](../living-ears/index.html) is an **independent additive module**. It calls the existing `NathanLivingEyes.frame` API for the original 48/96/192/384 perspective geometry without changing this engine or its axis numbers.
