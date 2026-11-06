@@ -120,7 +120,7 @@ def synthesize_espeak(text: str, lang: str, voice: str, persona: str) -> bytes:
         raise VoiceBoxError("Unknown fictional/synthetic persona")
     if not SAFE_VOICE.fullmatch(voice):
         raise VoiceBoxError("Unsafe voice identifier")
-    available = {v["name"] for v in list_espeak_voices()}
+    available = {value for v in list_espeak_voices() for value in (v["name"], v["language"])}
     if voice not in available:
         raise VoiceBoxError("Voice not installed. Run 'voices' for local choices")
     cfg = PERSONAS[persona]
