@@ -4,6 +4,21 @@
   if (!E) return;
   let state = E.initialState();
   let registry = null;
+  let nodeFirst = 1;
+  function renderNodePage() {
+    const select = byId('node-tier-select');
+    const output = byId('node-page');
+    if (!select || !output || !registry) return;
+    const tier = registry.node_tiers.find(t => t.id === select.value);
+    if (!tier) return;
+    const page = E.virtualPage(tier, nodeFirst, 20);
+    output.textContent = page.indexes.map(x => x.id).join(' · ') || 'No additional virtual positions.';
+    byId('node-index-state').textContent =
+      tier.numeric_source + ' symbolic indexes · showing ' + (page.indexes.length ? page.first : 0) +
+      '–' + (page.indexes.at(-1)?.ordinal || 0) + ' · zero live computing nodes launched';
+    byId('node-prev').disabled = page.first <= 1;
+    byId('node-next').disabled = page.next === null;
+  }
   const byId = id => document.getElementById(id);
   const el = (tag, text, className) => {
     const node = document.createElement(tag);
@@ -94,6 +109,7 @@
       details.appendChild(list);
       categories.appendChild(details);
     }
+    renderNodePage();
     byId('source-status').textContent =
       '101 Personal Intelligence elements: creator-defined goal; the complete 101-item source inventory has not been provided in this registry.';
   }
@@ -109,6 +125,9 @@
     byId('queue-title').value = '';
   });
   byId('shadow-input').addEventListener('input', renderShadow);
+  byId('node-tier-select').addEventListener('change', () => { nodeFirst = 1; renderNodePage(); });
+  byId('node-prev').addEventListener('click', () => { nodeFirst = Math.max(1, nodeFirst - 20); renderNodePage(); });
+  byId('node-next').addEventListener('click', () => { nodeFirst += 20; renderNodePage(); });
   byId('export').addEventListener('click', () => {
     const body = JSON.stringify({
       schema: 'nathan-ai:turnaround:local-export-v1',
