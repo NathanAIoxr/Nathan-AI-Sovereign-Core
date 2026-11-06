@@ -54,8 +54,11 @@ extern "C" {
 void* nathan_edge_create(int sample_rate, int effect) noexcept {
   if (sample_rate < 8000 || sample_rate > 192000 || effect < 0 || effect > 3)
     return nullptr;
-  return new (std::nothrow)
-      nathan::EdgeDSP(sample_rate, static_cast<nathan::Effect>(effect));
+  try {
+    return new nathan::EdgeDSP(sample_rate, static_cast<nathan::Effect>(effect));
+  } catch (...) {
+    return nullptr;
+  }
 }
 void nathan_edge_process(void* ptr, float* samples, size_t count) noexcept {
   if (ptr) static_cast<nathan::EdgeDSP*>(ptr)->process(samples, count);
