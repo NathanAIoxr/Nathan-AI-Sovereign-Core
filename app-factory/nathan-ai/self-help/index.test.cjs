@@ -16,15 +16,10 @@ test('No original victim-blaming disclosure questionnaire or hidden fields',()=>
   assert.doesNotMatch(html,/<textarea\b|<input\b|<form\b/i);
 });
 
-test('Child is told to resist unwanted touching, escape, find help, and report without abuser permission',()=>{
-  for(const phrase of [
-    'right to say NO to unwanted touching',
-    'resist an immediate assault to get free',
-    'GET AWAY. MAKE NOISE. GET HELP.',
-    'ask an abuser\'s permission to seek help',
-    'The blame belongs to the offender, not the child',
-    'Self-defense is not prohibited here'
-  ]) assert.ok(html.includes(phrase),'Missing public safety text: '+phrase);
+test('No assistant-generated protection section is republished as Nathan Tabor source',()=>{
+  assert.doesNotMatch(html, /id="protect-innocence"/i);
+  assert.doesNotMatch(html, /id="protection-title"/i);
+  assert.doesNotMatch(html, /GET AWAY\\. MAKE NOISE\\. GET HELP\\./i);
 });
 
 test('Original Nathan Tabor principles and KJV references are preserved as his, not rewritten',()=>{
