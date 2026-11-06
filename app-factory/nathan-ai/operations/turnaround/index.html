@@ -28,18 +28,24 @@
 <p class="warn"><strong>LOCAL SIMULATION ONLY:</strong> Nothing here activates real nodes, energy sources, seismic activity, medical interventions, or external systems. Original source is preserved separately.</p>
 </section>
 <section class="panel" id="network-run" aria-labelledby="network-title" style="margin-top:18px">
-<h2 id="network-title">RUN THIS ON YOUR NETWORK</h2>
-<p>Zero model API tokens for this local engine. Choose how to <strong>access the app</strong>; selecting a mode does not switch your phone's Wi-Fi/cellular service, access other devices or execute remote work.</p>
-<div class="controls" role="group" aria-label="App access mode">
-<button type="button" data-network-mode="offline" aria-pressed="true">This device · local</button>
-<button type="button" data-network-mode="wifi" aria-pressed="false">My Wi-Fi network</button>
-<button type="button" data-network-mode="cellular" aria-pressed="false">Cellular · HTTPS</button>
+<h2 id="network-title">SOVEREIGN APPLICATION GATEWAY — RUN THIS ON YOUR NETWORK</h2>
+<p>Use this application without model API tokens. <strong>Wi-Fi only is the default.</strong> Cellular use requires your explicit selection. This setting controls the app gateway, not the device's operating-system radio.</p>
+<div class="controls" role="group" aria-label="Network mode selection">
+<button type="button" data-network-mode="wifi-only" aria-pressed="true">WI-FI ONLY (default)</button>
+<button type="button" data-network-mode="cellular-wifi" aria-pressed="false">CELLULAR + WI-FI (opt in)</button>
 </div>
-<p id="network-details">On-device engine; no token billing, hosted model, or automatic network scan. Open the app while connected to a server or keep the current page open for local use.</p>
-<pre id="network-command" style="white-space:pre-wrap;overflow-wrap:anywhere;background:#0d1822;border-radius:8px;padding:12px">node app-factory/nathan-ai/operations/turnaround/network-server.cjs</pre>
-<button type="button" id="network-copy">Copy startup command</button>
-<a id="network-link" href="https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/operations/turnaround/" hidden rel="noopener">Open hosted HTTPS edition after merge</a>
-<p class="warn">LAN mode requires running the supplied server on a machine you own. A browser cannot start that host by itself. Never expose a plain HTTP LAN port to the public internet. Cellular via HTTPS serves the same app but does not multiply physical computing power or synchronize private work across devices.</p>
+<p id="network-details">Wi-Fi-only local execution is selected. Any eligible network check is same-origin and read-only.</p>
+<div class="controls">
+<button type="button" id="network-execute">RUN THIS ON YOUR NETWORK [ EXECUTE ]</button>
+<button type="button" id="network-emergency">EMERGENCY BRAKE / WHIPLASH [ RESET ]</button>
+</div>
+<p id="network-result" role="status" aria-live="polite">The gateway is idle. Run the local engine or use the Wi-Fi server setup below.</p>
+<h3>Launch the application on your own network</h3>
+<p>To serve this app to other devices, run the command on a computer you own. A browser button cannot launch a server or switch Wi-Fi/cellular service.</p>
+<pre id="network-command" style="white-space:pre-wrap;overflow-wrap:anywhere;background:#0d1822;border-radius:8px;padding:12px">node app-factory/nathan-ai/operations/turnaround/network-server.cjs --host 0.0.0.0 --lan --port 8787</pre>
+<button type="button" id="network-copy">Copy server command</button>
+<a id="network-link" href="https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/operations/turnaround/" hidden rel="noopener">Open hosted HTTPS edition</a>
+<p class="warn">The EXECUTE button verifies on-device functions and, when explicitly permitted, checks one public same-origin registry file. It does not start remote jobs, sync private records, access unapproved computers, control physical infrastructure or guarantee zero mobile-data charges. Never port-forward the plaintext LAN server.</p>
 </section>
 <div class="main-grid">
 <section class="panel" aria-labelledby="turn-title">
@@ -139,6 +145,7 @@ INNOCENCE IS MY GOD</textarea>
 </main>
 <script src="engine.js" defer></script>
 <script src="app.js" defer></script>
+<script src="network-policy.js" defer></script>
 <script src="network.js" defer></script>
 </body>
 </html>
