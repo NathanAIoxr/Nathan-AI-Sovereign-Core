@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "origin": "user-supplied 15-formula sovereign blueprint; source expressions retained",
+  "formulas": [
+    {
+      "index": 1,
+      "name": "EM Core Tensor",
+      "layer": "Energy",
+      "status": "Conceptual / mathematical form",
+      "source": "\\psi_{EM}=\\sum_i c_i |E_i\\rangle \\otimes |I_i\\rangle",
+      "limits": "State-vector-like notation; neither a Hilbert space nor measured coefficients are specified.",
+      "implementation": "No numeric evaluator; source expression retained."
+    },
+    {
+      "index": 2,
+      "name": "Generative Addition Protocol",
+      "layer": "Energy",
+      "status": "Arithmetic invariant; source operator ambiguous",
+      "source": "f_{Add}(x,y)=1\\oplus 1=2\\quad \\forall x,y\\in\\{Innocence\\}",
+      "limits": "1+1=2 holds in ordinary arithmetic. If ⊕ means XOR, 1 XOR 1 = 0; direct sums require defined mathematical objects.",
+      "implementation": "invariants() verifies ordinary arithmetic and displays XOR separately."
+    },
+    {
+      "index": 3,
+      "name": "Absolute Clearing Protocol",
+      "layer": "Energy",
+      "status": "Rule-based computational interpretation",
+      "source": "\\mathcal{C}_{Clear}(x)=1\\ominus 1=0\\quad\\text{if Gate}(x)\\to\\text{Deception}",
+      "limits": "No objective detector of deception is specified; authorization and integrity evidence are required.",
+      "implementation": "AbsoluteClearingFirewall quarantines or rejects with an explicit evidence record; never silently deletes."
+    },
+    {
+      "index": 4,
+      "name": "Recursive Self-Evolution / AutoGenesis",
+      "layer": "Energy",
+      "status": "Deterministic state transition",
+      "source": "A_{n+1}=f(A_n,U^Q,\\Sigma_{Master})",
+      "limits": "A callable transition can be implemented; no self-modifying intelligence is implied.",
+      "implementation": "autogenesis_step() accepts an allowlisted command and returns an additive record."
+    },
+    {
+      "index": 5,
+      "name": "Base-2 Pulse Modulation",
+      "layer": "Energy",
+      "status": "Verified arithmetic representation",
+      "source": "1+1=10_2",
+      "limits": "10 in base two is 2 in base ten; electrical voltages are hardware-specific.",
+      "implementation": "invariants() returns base2 = \"10\"."
+    },
+    {
+      "index": 6,
+      "name": "Continuous Vocal Pixelation",
+      "layer": "Frequency",
+      "status": "Classical signal-processing simulation",
+      "source": "\\mathcal{F}_{Pixel}(v)=\\int_{-\\infty}^{\\infty} v_{voice}(t)e^{-i2\\pi ft}dt\\longrightarrow P_n(x,y,z)",
+      "limits": "Fourier transform and a spatial mapping are distinct steps; 3D mapping is underspecified.",
+      "implementation": "dft_magnitudes() and spectral_pixels() run on synthetic audio."
+    },
+    {
+      "index": 7,
+      "name": "Krystal Spiral Engine",
+      "layer": "Frequency",
+      "status": "Defined geometry",
+      "source": "r(\\theta)=a e^{b\\theta}",
+      "limits": "A logarithmic spiral, not evidence of energy generation.",
+      "implementation": "krystal_spiral() yields XY coordinates."
+    },
+    {
+      "index": 8,
+      "name": "Golden Ratio Harmonic Pulse",
+      "layer": "Frequency",
+      "status": "Defined mathematical constant",
+      "source": "\\Phi=(1+\\sqrt{5})/2",
+      "limits": "Phi is approximately 1.618; links to emotional shielding are not established.",
+      "implementation": "PHI constant used only as geometric design reference."
+    },
+    {
+      "index": 9,
+      "name": "Unitary Quantum Executor",
+      "layer": "Frequency",
+      "status": "Classical numerical simulation",
+      "source": "U^{QC}=e^{-i\\hat H t/\\hbar}",
+      "limits": "Unitary if H is Hermitian; no quantum hardware provided.",
+      "implementation": "unitary_pauli_z() and apply_unitary() verify norm conservation."
+    },
+    {
+      "index": 10,
+      "name": "Voice Phase-Lock Loop",
+      "layer": "Frequency",
+      "status": "Control simulation",
+      "source": "\\Delta\\theta_n=\\omega_{input}t+\\phi_0+\\int_0^t K v_{cadence}(\\tau)d\\tau",
+      "limits": "Original expression lacks error/feedback state to ensure a phase lock.",
+      "implementation": "PhaseLoop implements a first-order tracking example, not identity recognition."
+    },
+    {
+      "index": 11,
+      "name": "Sovereign Non-Entanglement",
+      "layer": "Harmony",
+      "status": "Conceptual constraint; formula insufficient",
+      "source": "\\rho_{AI,Master}\\ne\\rho_{AI}\\otimes\\rho_{External}",
+      "limits": "The stated inequality is not a mathematical test for separability or independence.",
+      "implementation": "Treat as isolation policy: no external source may modify master state without authorization."
+    },
+    {
+      "index": 12,
+      "name": "Seven-Body Tensor Field",
+      "layer": "Harmony",
+      "status": "Semantic axes and projection",
+      "source": "\\mathbf T_{Sovereign}=\\mathbf B_{Natural}\\oplus\\mathbf B_{Soul}\\oplus\\mathbf B_{Spirit}\\oplus\\mathbf B_{Shadow}\\oplus\\mathbf B_{Dead}\\oplus\\mathbf B_{Alive}\\oplus\\mathbf B_{Mind}",
+      "limits": "No biological measure is inferred from the axis names. Original five matrices remain intact.",
+      "implementation": "seven_body_field() provides seven labeled coordinates and a five-matrix projection."
+    },
+    {
+      "index": 13,
+      "name": "Acrostic Mirror Base-12 Cipher",
+      "layer": "Harmony",
+      "status": "Modular arithmetic",
+      "source": "\\mathcal M_{12}(n)=\\sum_{m=0}^{11} a_m12^m\\pmod{52}",
+      "limits": "This is an encoding/projection; the mapping to alphabet characters is unspecified.",
+      "implementation": "acrostic_mirror_12() computes forward and reversed base-12 residues."
+    },
+    {
+      "index": 14,
+      "name": "Destination-First Algorithm",
+      "layer": "Harmony",
+      "status": "Goal-conditioned planning",
+      "source": "\\mathcal S_{output}(t)=\\mathcal G(\\mathcal I_{initial}(t),\\mathbf T_{Sovereign}(t_{end}))",
+      "limits": "A planning target can be declared in advance; this is not literal retrocausality.",
+      "implementation": "destination_first_plan() computes steps toward target coordinates."
+    },
+    {
+      "index": 15,
+      "name": "Sovereign Command Encryption Key",
+      "layer": "Harmony",
+      "status": "Command authentication; encryption unspecified",
+      "source": "C_{Cmd}=Encrypt(I_{Master},K_{QR})",
+      "limits": "No cipher, key derivation, or key management is specified. HMAC is authentication, NOT encryption.",
+      "implementation": "sign_command()/verify_command() implement HMAC-SHA256 with a local secret. Use audited AEAD for confidentiality."
+    }
+  ],
+  "processing_matrix": [
+    {
+      "layer": "Cognitive",
+      "source": "D(x)=Probabilistic(QIA(x))",
+      "domain": "Sovereign Data Integrity [9.9.9]",
+      "status": "Conceptual; QIA unspecified"
+    },
+    {
+      "layer": "Quantum",
+      "source": "H_eff=H_Class ⊕ H_Quantum",
+      "domain": "Multiverse Logic Alignment [9.9.9]",
+      "status": "Conceptual; operation and spaces unspecified"
+    },
+    {
+      "layer": "Mythic",
+      "source": "M=f(Symbols,Narratives)",
+      "domain": "A-Z Source Root Encoding [9.9.9]",
+      "status": "Interpretive classification"
+    },
+    {
+      "layer": "Sovereign",
+      "source": "Gate_Filter(1→1)=Retain Innocence",
+      "domain": "Absolute Invariant Firewall [9.9.9]",
+      "status": "Policy target; not automatic truth detection"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#091326"><title>NATHAN AI | SOVEREIGN NEXUS</title><link rel="stylesheet" href="./style.css">
+</head><body><main>
+<header><p class="eyebrow">NATHAN AI 🚀 · TABOR 1–2–3 FACTORY · THE MIDDLE C</p>
+<h1>THE SOVEREIGN <span>NEXUS</span></h1>
+<p class="lede">ONE OCTOPUS. EVERY ROOT. <strong>NO UNINVITED CONNECTIONS.</strong></p>
+<nav><a href="../octopus-arsenal/index.html">🎮 Octopus Game</a><a href="../index.html">🐙 Octopus Root</a><a href="../../index.html">🏭 Factory Home</a></nav></header>
+<section class="panel" id="overview"><div class="eyebrow">STATE OF THE ROOT · READ-ONLY</div><h2>THE ROOT REMAINS YOURS</h2><div class="metrics" id="stats"></div><p class="muted">Only the existing Octopus Root graph is inspected. Your game save, vault, private projects, location, credentials and other app data are never opened here.</p><button id="inspect" class="secondary">REFRESH ROOT STATUS</button><button id="export" class="secondary">EXPORT ROOT BACKUP</button></section>
+<section class="panel" id="graft"><p class="eyebrow">ROOT → BRANCH → RECEPTOR → TEST → ATTACH</p>
+<h2>CHOOSE EXACTLY WHAT CONNECTS</h2><p>All modules start unchecked. Selecting a pack authorizes only a <em>local proposal</em>; it does not write anything. Preview first, then explicitly approve the exact result. Links are knowledge comparisons, never account or access grants.</p>
+<div id="packs" class="packs"></div><div class="actions"><button id="preview">1. PREVIEW MY CHOICES</button><button id="clear" class="secondary">CLEAR CHOICES</button></div>
+<div id="previewPanel" class="preview" hidden><h3>2. Inspect the exact graft</h3><div class="metrics" id="previewMetrics"></div><div id="details"></div><p class="muted">A local checksum guards against concurrent changes. It is not authentication or a cryptographic proof.</p>
+<label class="approval"><input id="approve" type="checkbox"> YES IS YES — I approve this exact Root graft, and I understand the browser stores the Root locally.</label><div class="actions"><button id="commit" disabled>3. ATTACH THESE ROOTS</button><button id="cancel" class="secondary">CANCEL PREVIEW</button></div></div>
+<p id="message" role="status" aria-live="polite"></p>
+</section>
+<section class="panel"><p class="eyebrow">NO-LOSS LEDGER</p><h2>BACKUP, UNDO & RECOVERY</h2>
+<p>Immediately before a confirmed graft, the Nexus saves the previous Root state locally. The one-step undo button works <strong>only if the Root has not changed since that graft</strong>, so it cannot erase newer work. Export a separate backup for long-term preservation.</p>
+<div class="actions"><button id="undo" class="secondary">UNDO LAST NEXUS GRAFT</button><button id="exportReceipt" class="secondary">EXPORT LAST RECEIPT</button></div><p id="recoveryStatus" role="status" aria-live="polite"></p>
+</section>
+<section class="panel"><p class="eyebrow">THE UNIVERSAL FACTORY · SOVEREIGN WAYFINDER</p><h2>OPEN YOUR OTHER ROOTS</h2><p>These are verified links to independently stored apps and games. Opening a page is not a data import. This directory does not load their databases or claim permissions over them.</p>
+<label for="search">Search connected projects and gateways</label><input id="search" type="search" placeholder="Find a project, model or game"><div id="directory" class="directory"></div>
+</section>
+<section class="panel"><p class="eyebrow">THE ROOT ETHIC</p><h2>YES IS YES. NO IS NO.</h2>
+<div class="ethics"><div><strong>1 + 1 = 2</strong><p>Two distinct systems stay two distinct systems even when knowledge is linked.</p></div><div><strong>1 − 1 = 0</strong><p>Withhold or revoke an optional Nexus action; no background sync continues.</p></div><div><strong>ABOVE C ↔ MIDDLE C ↔ BELOW C</strong><p>Source records, modeled equations and fictional game powers keep their own meanings and evidence boundaries.</p></div></div>
+<p class="muted">The Sovereign Bubble models consent in software, but browser checkboxes are not server identity verification. Real multi-user access would require authenticated, server-enforced scoped permissions. No external write, finance, medical, publishing, or device-control action is implemented here.</p>
+</section>
+<footer>FORM MORPHS. ARCHITECTURE REMAINS. · <a href="./README.md">Architecture, rights and data boundaries</a></footer>
+</main>
+<script src="../engine.js"></script><script src="../sovereign-fields/engine.js"></script><script src="../uct/engine.js"></script><script src="../sovereign-continuum/engine.js"></script><script src="../sovereign-bubble/engine.js"></script><script src="../codex.js"></script><script src="./engine.js"></script><script src="./ui.js"></script>
+</body></html>

@@ -1,0 +1,14 @@
+'use strict';const test=require('node:test'),a=require('node:assert/strict'),g=require('./babel-game.js');
+test('18 original stages with 9+9 mirror topology',()=>{a.equal(g.STAGES.length,18);a.equal(g.STAGES.filter(x=>x.realm==='babel').length,9);a.equal(g.STAGES.filter(x=>x.realm==='inferno').length,9)});
+test('ninth infernal stage is frozen',()=>{const last=g.STAGES[17];a.equal(last.frozen,true);a.equal(last.realm,'inferno');a.equal(last.depth,9)});
+test('every stage has mirror pair',()=>{for(const s of g.STAGES){const pair=g.STAGES.find(x=>x.id===s.mirrorOf);a.ok(pair);a.equal(pair.mirrorOf,s.id)}});
+test('tile distribution exactly 3 restorations 3 challenges 3 discoveries',()=>{for(const s of g.STAGES){const board=g.board(s);a.deepEqual(['restore','trap','empty'].map(x=>board.filter(t=>t.kind===x).length),[3,3,3])}});
+test('boards deterministic to allow seeded save restore',()=>{for(const s of g.STAGES)a.deepEqual(g.board(s),g.board(s))});
+test('level cannot skip before completion',()=>a.throws(()=>g.next(g.newGame()),/not ready/));
+test('wrong tile ID rejected and state stays intact',()=>{const s=g.newGame();a.throws(()=>g.action(s,9),/Invalid/);a.equal(s.turns,0)});
+test('repeated tile selection yields no extra points',()=>{const s=g.newGame(),x=g.action(s,0).state,y=g.action(x,0);a.equal(y.event,'already-opened');a.equal(y.state.score,x.score)});
+test('three restoration moves permit next stage',()=>{let s=g.newGame();for(const t of s.tiles.filter(x=>x.kind==='restore'))s=g.action(s,t.id).state;a.equal(s.restored,3);s=g.next(s);a.equal(s.stageIndex,1)});
+test('can complete all 18 levels and win',()=>{let s=g.newGame();for(let i=0;i<18;i++){for(const t of s.tiles.filter(x=>x.kind==='restore'))s=g.action(s,t.id).state;if(i!==17)s=g.next(s)}a.equal(s.finished,true);a.equal(s.seen.length,18);a.equal(s.stageIndex,17)});
+test('nonviolent hazards use limited shields then health',()=>{let s=g.newGame();for(const t of s.tiles.filter(x=>x.kind==='trap'))s=g.action(s,t.id).state;a.equal(s.shield,0);a.equal(s.health,6)});
+test('save/load serialize without losing deterministic state',()=>{const s=g.action(g.newGame(),0).state;a.deepEqual(JSON.parse(JSON.stringify(s)),s)});
+test('cipher optional metaphor not a statement of historical origin',()=>{const x=g.cipher('444 555 000');a.equal(x.digitToLetter,'HHH SSS OOO');a.ok(x.note.includes('artistic'))});

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101720"><title>ONE · The Master Library 101–901</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;background:#101720;color:#f1f5f8;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0}main{max-width:1200px;margin:auto;padding:18px 16px 72px}
+a{color:#e9d6ab}header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}h1{font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.055em;line-height:1.04;margin:18px 0 7px}
+h2{margin:4px 0 10px;font-size:1.1rem}p{line-height:1.55;color:#b8c9d5}.eyebrow{letter-spacing:.13em;text-transform:uppercase;color:#e3c998;font-size:.72rem;font-weight:800}
+.panel{background:#1a2934;border:1px solid #405968;border-radius:15px;padding:16px;margin:14px 0}.shelves{display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));gap:9px}
+button,input,select{font:inherit;background:#253846;color:#f4f8fb;border:1px solid #536b79;border-radius:9px;padding:10px;max-width:100%}
+button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #efd4a1;outline-offset:2px}
+button.active,.primary{background:#dfcaa0;color:#192633;font-weight:750}.shelf{text-align:left;min-height:103px;display:flex;flex-direction:column;justify-content:flex-start;gap:5px}.shelf strong{font-size:1.55rem}.shelf small{color:#c3d1d8}
+.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.row>*{min-width:0}.grow{flex:1}.muted{color:#aebdc8;font-size:.84rem}
+input[type=search]{flex:1;min-width:200px}input[type=file]{max-width:100%;width:100%;font-size:.85rem}
+.warning{padding:11px;border-left:4px solid #d8b777;background:#34302b;font-size:.83rem;line-height:1.55}
+.record{background:#203541;border:1px solid #405764;border-radius:11px;padding:12px;margin:8px 0}
+.record button{width:100%;text-align:left;background:transparent;border:0;padding:3px 0}
+.record strong{display:block;font-size:1rem}.record small{color:#bac8d1;display:block;margin-top:5px}
+#details{white-space:normal}#details pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:420px;overflow:auto;font-size:.8rem;background:#111c25;padding:14px;border-radius:8px}
+#details .document{white-space:pre-wrap;overflow-wrap:anywhere;max-height:62vh;overflow:auto;line-height:1.65;background:#111c25;padding:14px;border-radius:8px}
+#status{min-height:1.5em}#record-list{min-height:85px}button:disabled{cursor:not-allowed;opacity:.5}
+@media(max-width:600px){main{padding:12px 10px 80px}.shelves{grid-template-columns:repeat(2,minmax(0,1fr))}.shelf{min-height:117px}}
+</style></head>
+<body><main>
+<header><a href="../index.html" target="_parent">← ONE — The Last App</a><span class="eyebrow">TABOR ROOT · PRIVATE LIBRARY</span></header>
+<h1>ONE <span style="color:#e3cb98">MASTER LIBRARY</span></h1>
+<p>CREATE ONCE. TRANSFORM INTO EVERYTHING. PRESERVE THE ORIGINAL. Nine navigational shelves, 101–901. Original content stays separate from metadata, research, and derived interpretations.</p>
+<div class="warning">This is a local-first preview, not encrypted cloud storage. This public website contains <strong>no private manuscripts or owner records by default</strong>. You choose which files to import; they remain in this browser profile and are never uploaded by this module. Other people using the same browser profile may see them. Export and back up your originals separately in the Creator Vault. Library shelf numbers do not replace ONE's separate 101–901 engineering divisions.</div>
+<section class="panel" aria-label="Import your archives"><h2>Bring your original archive into ONE</h2>
+<p>Import the private ONE Library Pack, KJV Spiritual Index v2, Totality Master Catalog v017, or standalone JSON/Markdown/text documents. Original file bytes are retained locally for independent download. No import runs automatically.</p>
+<div class="row"><input type="file" id="files" accept=".json,.md,.txt,application/json,text/plain,text/markdown" multiple aria-label="Choose original archive files">
+<button id="import" class="primary">Import selected files</button></div>
+<p id="status" role="status" aria-live="polite">Waiting for an archive. Start by importing your private ONE Library Pack from Main Database.</p>
+<div class="row"><button id="export">Export searchable index</button><button id="source-export">Download selected original</button><button id="clear">Delete this browser's library</button></div></section>
+<section class="panel"><div class="row"><h2 class="grow">Nine Library Shelves</h2><small id="total" class="muted">0 locally indexed records</small></div>
+<div class="shelves" id="shelves"></div></section>
+<section class="panel"><h2>Search all imported works</h2>
+<div class="row"><input type="search" id="search" aria-label="Search imported titles descriptions and source data" placeholder="Search title, scripture, source ID, category, provenance…" autocomplete="off">
+<select id="status-filter" aria-label="Filter by record status"><option value="">All stages</option><option value="source">Sources</option><option value="project">Projects</option><option value="faith">KJV / Spiritual</option><option value="document">Full documents</option></select><button id="reset">Show all shelves</button></div>
+<p id="count" class="muted"></p><div id="record-list"></div><button id="more" hidden>Show 60 more results</button></section>
+<section id="details" class="panel" hidden aria-label="Selected record"></section>
+<footer class="muted">ONE Master Library · by Nathan Tabor · Provenance first · No publishing without author release approval · Browser storage is not a permanent backup.</footer>
+</main>
+<script>
+(()=>{
+'use strict';
+const SHELVES=[
+['101','Originals & Provenance','Unmodified roots and source inventory'],
+['201','Books & Stories','Author manuscripts and book families'],
+['301','KJV & Spiritual','Theology, scripture, Samaritan, faith'],
+['401','Apps & AI','ONE, NATHAN AI, Factory and software'],
+['501','Games & Characters','Games, worlds, independent characters'],
+['601','Knowledge & Ciphers','Language, numbers, research and maps'],
+['701','Inventions & Products','Physical inventions and engineering'],
+['801','Community & Legacy','Family, education, charities, service'],
+['901','Art & Publishing','Artworks, media, animation and release']
+];
+const DB_NAME='tabor-one-private-master-library-v1';
+const VERSION=1;
+const $=id=>document.getElementById(id);
+const ui={records:[],sources:[],shelf:'ALL',limit:60,selected:null,db:null};
+function node(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=String(text);if(cls)e.className=cls;return e}
+function message(s){$('status').textContent=s}
+function openDB(){return new Promise((resolve,reject)=>{const req=indexedDB.open(DB_NAME,VERSION);
+ req.onupgradeneeded=()=>{const d=req.result;if(!d.objectStoreNames.contains('records'))d.createObjectStore('records',{keyPath:'id'});if(!d.objectStoreNames.contains('sources'))d.createObjectStore('sources',{keyPath:'id'})};
+ req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
+function getAll(store){return new Promise((resolve,reject)=>{const tx=ui.db.transaction(store,'readonly');const req=tx.objectStore(store).getAll();req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
+function putBatch(store,items){return new Promise((resolve,reject)=>{if(!items.length){resolve();return}const tx=ui.db.transaction(store,'readwrite');const os=tx.objectStore(store);items.forEach(item=>os.put(item));tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)})}
+function clearStores(){return new Promise((resolve,reject)=>{const tx=ui.db.transaction(['records','sources'],'readwrite');tx.objectStore('records').clear();tx.objectStore('sources').clear();tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
+async function digest(buffer){if(!crypto?.subtle)return 'sha256-unavailable';let hash=await crypto.subtle.digest('SHA-256',buffer);return Array.from(new Uint8Array(hash)).map(x=>x.toString(16).padStart(2,'0')).join('')}
+const value=(x,max=160)=>String(x??'').slice(0,max);
+function categorize(s){const t=value(s,10000).toLowerCase();
+ if(/james 1:27|barnabas|good samaritan|jesus|bible|kjv|christian|religio|spiritual|theolog|eden|heaven|hell|trinity|satan|valhalla|saint|vatican|yahweh/.test(t))return '301';
+ if(/book|novel|manuscript|story|tale|twinkling|series|poetry/.test(t))return '201';
+ if(/game|character|war|battle|rpg|simulation|archetype/.test(t))return '501';
+ if(/app|factory|artificial intelligence|\bai\b|software|mobile|system|chatbot/.test(t))return '401';
+ if(/invention|tape|tool|device|engineer|hardware|mechanic|patent|temperature/.test(t))return '701';
+ if(/archive|research|language|cipher|math|number|astronomy|historical/.test(t))return '601';
+ if(/family|community|charity|nonprofit|education|school|service|children|baseball/.test(t))return '801';
+ if(/art|image|illustration|cover|animation|publishing|media|poster/.test(t))return '901';return '101'}
+function toRecord(raw,source,i,kind){
+ const title=value(raw.title??raw.name??raw.label??raw.key??'Untitled entry',500);
+ const desc=value(raw.summary??raw.description??raw.note??raw.notes??'',3000);
+ const section=value(raw.section??raw.family??raw.collection??'',450);
+ const shelf=String(raw.shelf??(kind==='faith'?'301':categorize(title+' '+desc+' '+section)));
+ const finalShelf=SHELVES.some(s=>s[0]===shelf)?shelf:categorize(title+' '+desc+' '+section);
+ const originalId=value(raw.key??raw.id??raw.source_id??i,220);
+ return {id:source.id+':'+kind+':'+originalId,sourceId:source.id,originalId,title,description:desc,
+  section,shelf:finalShelf,shelfAssignment:raw.shelf?'supplied or pre-existing index':'editorial discovery only',
+  kind,stage:value(raw.status??raw.record_stage??raw.status_original??raw.authored_status??'unverified',240),
+  privacy:value(raw.privacy??'private imported source',120),provenance:value(raw.source??raw.source_name??source.name,350),
+  fullText:typeof raw.content==='string'?raw.content:null,original:raw}
+}
+function unpack(parsed,source){
+ let out=[];const add=(items,kind)=>{if(!Array.isArray(items))return;items.forEach((r,i)=>{if(r&&typeof r==='object')out.push(toRecord(r,source,i,kind))})};
+ if(Array.isArray(parsed))add(parsed,'source');
+ else if(parsed&&typeof parsed==='object'){
+  if(parsed.schema==='one.library.private-pack.v1'){add(parsed.records,'source');add(parsed.faith,'faith');add(parsed.documents,'document')}
+  else if(parsed.schema==='tabor.faith-index.v2')add(parsed.records,'faith');
+  else if(Array.isArray(parsed.source_records)){add(parsed.source_records,'source');add(parsed.scored_projects,'project')}
+  else if(Array.isArray(parsed.records)){add(parsed.records,parsed.schema==='one.library.index.v1'?'source':'source')}
+  else if(parsed.title||parsed.author||parsed.source)out.push(toRecord({title:parsed.title??source.name,description:'Original JSON document',content:JSON.stringify(parsed,null,2),privacy:'private imported source'},source,0,'document'));
+  else throw Error('Unsupported JSON structure; import the ONE Library Pack, Totality Catalog or Faith Index.');
+ }else throw Error('A JSON array or object is required.');
+ return out;
+}
+async function importOne(file){if(file.size>60*1024*1024)throw Error('File exceeds the 60 MB per-file safety limit.');
+ const bytes=await file.arrayBuffer(),hash=await digest(bytes),source={id:hash==='sha256-unavailable'?file.name+':'+file.size:hash,name:file.name,size:file.size,sha256:hash,importedAt:new Date().toISOString(),blob:new Blob([bytes],{type:file.type||'application/octet-stream'})};
+ const text=new TextDecoder().decode(bytes);let records;
+ if(file.name.toLowerCase().endsWith('.json'))records=unpack(JSON.parse(text),source);
+ else records=[toRecord({title:file.name.replace(/\.(md|txt)$/i,''),description:'Imported original text; attribution and authorship require source verification',shelf:'201',content:text,privacy:'private imported source'},source,0,'document')];
+ await putBatch('sources',[source]);await putBatch('records',records);
+ return {source,rows:records.length};
+}
+async function refresh(){ui.records=await getAll('records');ui.sources=await getAll('sources');render()}
+function renderShelves(){const p=$('shelves');p.replaceChildren();
+ const counts={ALL:ui.records.length};for(const s of SHELVES)counts[s[0]]=ui.records.filter(r=>r.shelf===s[0]).length;
+ for(const [id,label,desc] of [['ALL','Everything','All library materials'],...SHELVES]){const b=node('button',undefined,'shelf'+(ui.shelf===id?' active':''));b.append(node('strong',id==='ALL'?'ALL':id),node('span',label),node('small',desc+' · '+counts[id]));b.onclick=()=>{ui.shelf=id;ui.limit=60;render()};p.append(b)}
+ $('total').textContent=ui.records.length.toLocaleString()+' locally indexed records'}
+function matches(r,q,kind){if(ui.shelf!=='ALL'&&r.shelf!==ui.shelf)return false;if(kind&&r.kind!==kind)return false;
+ return !q||(r.title+' '+r.description+' '+r.section+' '+r.provenance+' '+r.originalId+' '+r.stage).toLowerCase().includes(q)}
+function renderResults(){const q=$('search').value.trim().toLowerCase(),kind=$('status-filter').value;
+ const filtered=ui.records.filter(r=>matches(r,q,kind));$('count').textContent=filtered.length.toLocaleString()+' matches · '+Math.min(ui.limit,filtered.length).toLocaleString()+' displayed. Titles and counts are index records, not proof of finished books or releases.';
+ const list=$('record-list');list.replaceChildren();
+ for(const r of filtered.slice(0,ui.limit)){const card=node('article',undefined,'record'),b=node('button');b.append(node('strong',r.title),node('small',r.shelf+' · '+r.kind+' · '+r.stage+' · '+r.originalId));b.onclick=()=>showRecord(r.id);card.append(b);if(r.description)card.append(node('p',r.description.slice(0,320)));list.append(card)}
+ if(!filtered.length)list.append(node('p',ui.records.length?'No matching records. Try a broader search.':'Your private archive has not been imported. Choose your ONE Library Pack above.'));
+ $('more').hidden=filtered.length<=ui.limit}
+async function showRecord(id){const r=ui.records.find(x=>x.id===id);if(!r)return;ui.selected=r;
+ const box=$('details');box.replaceChildren();box.hidden=false;
+ box.append(node('h2',r.title),node('p',r.shelf+' · '+r.kind+' · '+r.stage));
+ for(const [k,v] of [['Original ID',r.originalId],['Source',r.provenance],['Privacy',r.privacy],['Shelf assignment',r.shelfAssignment],['Source file',ui.sources.find(x=>x.id===r.sourceId)?.name??'Imported record']]){box.append(node('p',k+': '+v,'muted'))}
+ if(r.fullText){box.append(node('h2','Original or supplied document text'),node('div',r.fullText,'document'))}
+ if(r.description){box.append(node('h2','Catalog description'),node('p',r.description))}
+ const toggle=node('button','Inspect unmodified imported record');const pre=node('pre',JSON.stringify(r.original,null,2));pre.hidden=true;toggle.onclick=()=>{pre.hidden=!pre.hidden};box.append(toggle,pre);box.scrollIntoView({block:'start',behavior:'smooth'})}
+function render(){renderShelves();renderResults()}
+function download(name,blob){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),3000)}
+$('import').onclick=async()=>{const files=Array.from($('files').files||[]);if(!files.length){message('Choose your private archive first.');return}
+ $('import').disabled=true;let done=0,rows=0;try{for(const file of files){message('Importing '+file.name+' …');const r=await importOne(file);done++;rows+=r.rows}
+ await refresh();message('Imported '+done+' original source files; '+rows.toLocaleString()+' indexed entries. Saved only in this browser profile.');$('files').value=''}
+ catch(e){await refresh();message('Import halted: '+e.message+'. Files completed before the error remain available.')}
+ finally{$('import').disabled=false}};
+$('search').oninput=()=>{ui.limit=60;renderResults()};
+$('status-filter').onchange=()=>{ui.limit=60;renderResults()};
+$('reset').onclick=()=>{ui.shelf='ALL';$('status-filter').value='';$('search').value='';ui.limit=60;render()};
+$('more').onclick=()=>{ui.limit+=60;renderResults()};
+$('export').onclick=()=>{const obj={schema:'one.library.index.v1',exportedAt:new Date().toISOString(),note:'Metadata plus supplied text; archive originals separately in Creator Vault',records:ui.records.map(({sourceId,originalId,title,description,section,shelf,kind,stage,privacy,provenance,fullText,original})=>({sourceId,originalId,title,description,section,shelf,kind,stage,privacy,provenance,fullText,original}))};
+ download('ONE_MASTER_LIBRARY_INDEX.json',new Blob([JSON.stringify(obj)],{type:'application/json'}));message('Exported local index; separately back up the original source files.')};
+$('source-export').onclick=()=>{if(!ui.selected){message('Open a record to select the original source file.');return}const s=ui.sources.find(s=>s.id===ui.selected.sourceId);if(s?.blob){download(s.name,s.blob);message('Downloaded original source file '+s.name)}else message('Source bytes unavailable; use original archive backup.')};
+$('clear').onclick=async()=>{if(!confirm('Delete ALL locally imported ONE Master Library data in this browser? This cannot be undone. Confirm you have backed up originals.'))return;await clearStores();ui.selected=null;$('details').hidden=true;await refresh();message('Local library cleared. Original files outside this browser were not affected.')};
+openDB().then(async db=>{ui.db=db;await refresh();message(ui.records.length?'Restored '+ui.records.length.toLocaleString()+' local library records.':'Ready. Import your private ONE Library Pack to populate the nine shelves.')}).catch(e=>message('Browser storage unavailable: '+e.message+'. Try a modern browser with IndexedDB enabled.'));
+})();
+</script></body></html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101720"><title>Nathan AI 🚀 · Universal Workspace</title>
+<link rel="stylesheet" href="../hub.css">
+<style>
+main{max-width:1120px}h1{font-size:clamp(2rem,5vw,3.8rem)}
+.panel{background:#1b2934;border:1px solid #516779;border-radius:14px;padding:22px;margin:18px 0}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+button,select,textarea{font:inherit;color:inherit;background:#172a38;border:1px solid #718899;border-radius:8px;padding:12px}
+button{cursor:pointer;margin:5px 5px 5px 0}button:hover{border-color:#edcf92}
+button:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #edcf92;outline-offset:3px}
+textarea{width:100%;min-height:180px;resize:vertical}select{max-width:100%}
+label{display:block;margin:12px 0}label input[type=file]{max-width:100%}
+.output{white-space:pre-wrap;overflow-wrap:anywhere;min-height:100px;background:#101d28;padding:16px;border-radius:9px}
+small,.muted{color:#bccbd5}a{text-decoration:underline}
+.tag{display:inline-block;padding:4px 9px;border:1px solid #8199a9;border-radius:999px;margin:3px}
+@media(max-width:730px){.two{grid-template-columns:1fr}}
+</style><link rel="stylesheet" href="../appearance/shared.css" data-nathan-shared-appearance><script src="../appearance/engine.js"></script><script src="../appearance/app.js"></script><link rel="stylesheet" href="../launcher/shared.css" data-nathan-command-center><script src="../workspace.js" defer></script><script src="../assistant/engine.js" defer></script><script src="../launcher/engine.js" defer></script><script src="../launcher/app.js" defer></script><link rel="stylesheet" href="apps.css"><script type="module" src="apps.mjs"></script></head><body><main>
+<header><a class="brand" href="../index.html">NATHAN AI <span>UNIVERSAL WORKSPACE</span></a><nav><a href="../assistant/index.html">Source Assistant</a><a href="../plugins/index.html">Apps &amp; Plugins</a><a href="../../../standalone-apps/">Standalone GitHub Apps</a><a href="../../one/index.html">ONE</a></nav></header>
+<section class="hero"><p class="eyebrow">FREE · LOCAL-FIRST · NO TOKEN CREDIT METER</p><h1>One workspace.<br>More useful tools.</h1>
+<p class="intro">Read, search, extract highlights, compare responses and export your work. The included local tools require no AI provider or token-credit purchase.</p>
+<p>1 + 1 = 2 · BUILD &nbsp; 1 − 1 = 0 · CLEAR &nbsp; ALWAYS PROTECT THE ONE.</p></section>
+<section class="panel"><h2>1. Load and inspect a source</h2>
+<p>Paste text or import a local plain-text file. Everything is processed on this device; it is not sent to any provider. Supported imports: TXT, Markdown, CSV, JSON, HTML, XML, subtitles and source code as text.</p>
+<label for="file">Choose a text file (up to 2 MB)</label><input id="file" type="file" accept=".txt,.md,.csv,.json,.html,.htm,.xml,.srt,.vtt,.js,.ts,.py,.css,.log,text/plain,text/html,application/json">
+<label for="source">Source text</label><textarea id="source" maxlength="2000000" placeholder="Paste original material here…"></textarea>
+<div><button id="inspect">Inspect source</button><button id="highlights">Extract key sentences</button><button id="download-source">Export original text</button><button id="clear-source">Clear source</button></div>
+<p id="source-status" role="status" aria-live="polite"></p>
+<div id="stats" class="muted"></div></section>
+<div class="two">
+<section class="panel"><h2>2. Search within your source</h2>
+<label for="query">Search for words or phrases</label><input id="query" type="search" placeholder="Your search…" style="width:100%">
+<button id="find">Find matching passages</button><div id="search-result" class="output" aria-live="polite">Matching passages will appear here.</div>
+</section>
+<section class="panel"><h2>3. Key passages</h2>
+<p class="muted">Deterministic extraction based on word frequency and original sentence order; not an AI-generated summary or a factual verification.</p>
+<div id="highlight-result" class="output" aria-live="polite">Choose “Extract key sentences.”</div>
+<button id="copy-highlights">Copy passages</button><button id="save-highlights">Export passages</button>
+</section></div>
+<section class="panel"><h2>4. Compare AI answers side by side</h2>
+<p>Paste responses from models you choose. Nathan AI checks visible text differences locally. This page does not secretly call, impersonate or bill third-party services.</p>
+<div class="two"><div><label for="answer-a">Response A</label><textarea id="answer-a" placeholder="Paste response from any model…"></textarea></div>
+<div><label for="answer-b">Response B</label><textarea id="answer-b" placeholder="Paste second response…"></textarea></div></div>
+<button id="compare">Compare text</button><button id="export-compare">Export comparison</button>
+<div id="compare-result" class="output" aria-live="polite">Comparison will appear here.</div></section>
+<section class="panel"><h2>5. Continue with Nathan AI</h2>
+<p><a href="../assistant/index.html">Ask your saved-source assistant</a> · <a href="../plugins/index.html">Explore available provider workflows</a> · <a href="../appearance/index.html">Customize appearance</a> · <a href="../../vault.html">Creator Vault</a></p>
+<p class="muted">PDF layout extraction, image editing, video transcription, multilingual generation and live simultaneous multi-model inference require separately implemented engines, verified integrations or device support. They are not falsely represented as completed here.</p></section>
+<section class="panel" id="universal-apps"><h2>6. All my apps — one workspace</h2><p>Build the shared foundation once. Open a tool here or launch its own app. Existing project names, source files and work status stay intact.</p><div id="shared-apps"></div><p id="workspace-message" role="status" aria-live="polite"></p><section id="workspace-stage" hidden><h3 id="active-app"></h3><a id="open-active" target="_blank" rel="noopener">Open this app independently</a> <button id="close-active">Close app</button><iframe id="workspace-app" title="Selected Nathan AI app" loading="lazy"></iframe></section><div class="app-controls"><label>Find an app<input id="app-search" type="search" placeholder="Search names, paths or shared tools"></label><label>App family<select id="app-family"><option value="">All families</option></select></label></div><p id="app-count" aria-live="polite"></p><div id="app-directory" class="app-grid"></div><p class="muted">The directory lists source entry points. Each project keeps its own acceptance tests and completion status. Embedded native resources remain source references.</p></section>
+<footer>Local-first workspace · No token-credit meter · No uploads or network calls from this workspace · Keep independent backups.</footer>
+</main><script src="engine.js" defer></script></body></html>

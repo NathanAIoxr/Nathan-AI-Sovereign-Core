@@ -1,0 +1,236 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-10-13.1",
+  "currency": "USD",
+  "note": "Hypothetical design prices; no live SKUs.",
+  "offers": [
+    {
+      "id": "story_expansion",
+      "title": "Story / learning expansion",
+      "type": "non_consumable",
+      "description": "Fixed permanent bonus chapters or educational areas.",
+      "categories": [
+        "story",
+        "casual",
+        "education"
+      ],
+      "audiences": [
+        "children",
+        "families",
+        "general",
+        "educators"
+      ],
+      "previewPriceCents": {
+        "basic": 299,
+        "standard": 499,
+        "advanced": 999
+      }
+    },
+    {
+      "id": "starter_bundle",
+      "title": "Starter content bundle",
+      "type": "non_consumable",
+      "description": "Clear optional add-on content.",
+      "categories": [
+        "casual",
+        "story",
+        "utility",
+        "education"
+      ],
+      "audiences": [
+        "families",
+        "general",
+        "educators"
+      ],
+      "previewPriceCents": {
+        "basic": 199,
+        "standard": 399,
+        "advanced": 699
+      }
+    },
+    {
+      "id": "ad_removal",
+      "title": "Remove permitted ads",
+      "type": "non_consumable",
+      "description": "Ad-free upgrade, where ads are appropriate.",
+      "categories": [
+        "casual",
+        "utility"
+      ],
+      "audiences": [
+        "families",
+        "general"
+      ],
+      "previewPriceCents": {
+        "basic": 199,
+        "standard": 399,
+        "advanced": 499
+      },
+      "requiresAds": true
+    },
+    {
+      "id": "supporter_content",
+      "title": "Supporter digital expansion",
+      "type": "non_consumable",
+      "description": "Optional defined digital content; not a charitable donation.",
+      "categories": [
+        "community",
+        "education",
+        "casual"
+      ],
+      "audiences": [
+        "families",
+        "general",
+        "educators"
+      ],
+      "previewPriceCents": {
+        "basic": 199,
+        "standard": 399,
+        "advanced": 699
+      }
+    },
+    {
+      "id": "season_pass",
+      "title": "Fixed-term season pass",
+      "type": "non_renewing",
+      "description": "Published rewards, expiration and no automatic renewal.",
+      "categories": [
+        "competitive",
+        "sandbox",
+        "casual",
+        "story"
+      ],
+      "audiences": [
+        "families",
+        "general"
+      ],
+      "previewPriceCents": {
+        "basic": 499,
+        "standard": 999,
+        "advanced": 1499
+      },
+      "requiresOngoing": true
+    },
+    {
+      "id": "creator_membership",
+      "title": "Creator tools membership",
+      "type": "auto_renewable",
+      "description": "New tools or hosted services with a clear renewal term.",
+      "categories": [
+        "creator",
+        "utility",
+        "education"
+      ],
+      "audiences": [
+        "general",
+        "educators",
+        "professionals"
+      ],
+      "previewPriceCents": {
+        "basic": 499,
+        "standard": 999,
+        "advanced": 1499
+      },
+      "requiresOngoing": true
+    },
+    {
+      "id": "cosmetics",
+      "title": "Deterministic cosmetic pack",
+      "type": "non_consumable",
+      "description": "Exactly shown cosmetic assets; no randomized rewards.",
+      "categories": [
+        "competitive",
+        "sandbox"
+      ],
+      "audiences": [
+        "families",
+        "general"
+      ],
+      "previewPriceCents": {
+        "basic": 299,
+        "standard": 699,
+        "advanced": 1499
+      }
+    },
+    {
+      "id": "advanced_expansion",
+      "title": "Advanced game world expansion",
+      "type": "non_consumable",
+      "description": "Substantial permanent premium maps/content.",
+      "categories": [
+        "sandbox",
+        "creator"
+      ],
+      "audiences": [
+        "families",
+        "general",
+        "professionals"
+      ],
+      "previewPriceCents": {
+        "basic": 1499,
+        "standard": 2999,
+        "advanced": 4999
+      }
+    },
+    {
+      "id": "pro_kit",
+      "title": "Professional creator toolkit",
+      "type": "non_consumable",
+      "description": "Advanced fixed creative tooling.",
+      "categories": [
+        "creator",
+        "utility"
+      ],
+      "audiences": [
+        "general",
+        "educators",
+        "professionals"
+      ],
+      "previewPriceCents": {
+        "basic": 1999,
+        "standard": 4999,
+        "advanced": 9999
+      }
+    },
+    {
+      "id": "professional_membership",
+      "title": "Professional ongoing service",
+      "type": "auto_renewable",
+      "description": "Continuous platform service and support.",
+      "categories": [
+        "creator",
+        "utility",
+        "sandbox"
+      ],
+      "audiences": [
+        "general",
+        "professionals"
+      ],
+      "previewPriceCents": {
+        "basic": 999,
+        "standard": 1999,
+        "advanced": 2999
+      },
+      "requiresOngoing": true
+    },
+    {
+      "id": "team_license",
+      "title": "Organization access proposal",
+      "type": "non_consumable",
+      "description": "Illustrative organizational package; channel and terms require legal/platform review.",
+      "categories": [
+        "creator",
+        "utility"
+      ],
+      "audiences": [
+        "educators",
+        "professionals"
+      ],
+      "previewPriceCents": {
+        "basic": 2999,
+        "standard": 4999,
+        "advanced": 9999
+      }
+    }
+  ]
+}

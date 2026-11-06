@@ -1,0 +1,14 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {build,clear,binary,reverse,soundUnits,initials,analyze,respond} from './engine.mjs';
+test('BUILD invariant',()=>assert.equal(build(1,1),2));
+test('CLEAR invariant',()=>assert.equal(clear(1),0));
+test('fractions refused',()=>assert.throws(()=>build(.5,.5)));
+test('overflow refused',()=>assert.throws(()=>build(Number.MAX_SAFE_INTEGER,1)));
+test('binary UTF-8',()=>assert.equal(binary('A'),'01000001'));
+test('Unicode UTF-8',()=>assert.match(binary('א'),/^[01 ]+$/));
+test('reverse',()=>assert.equal(reverse('TABOR'),'ROBAT'));
+test('emoji graphemes',()=>assert.equal(reverse('a👩‍🚀'),'👩‍🚀a'));
+test('sound unit preservation',()=>assert.deepEqual(soundUnits('la la'),['la','la']));
+test('initials',()=>assert.equal(initials('Nathan AI'),'NA'));
+test('async lanes',async()=>{let r=await analyze('la');assert.equal(Object.keys(r.lanes).length,4);assert.equal(r.original,'la')});
+test('no invented sentience',()=>assert.match(respond('hello'),/Original preserved/));

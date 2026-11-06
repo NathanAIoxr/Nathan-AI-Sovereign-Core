@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0c1821">
+<title>Nathan AI 🚀 — Anatomy A–Z Atlas</title>
+<style>
+:root{font:16px/1.5 system-ui,-apple-system,sans-serif;color-scheme:dark;--ink:#f5fafb;--bg:#0d1922;--card:#1b303a;--border:#58737b;--muted:#c0d1d5;--gold:#ecd7a5;--mint:#a9dbca}*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 32% 0%,#274956,transparent 54%),var(--bg);color:var(--ink)}
+main{max-width:1120px;margin:auto;padding:20px 14px 80px}a{color:var(--gold)}nav{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px}nav a{text-decoration:none}
+.hero{border:1px solid #829190;border-radius:20px;background:linear-gradient(130deg,#284c58,#162730);padding:24px}
+.kicker{font-size:.75rem;text-transform:uppercase;letter-spacing:.13em;color:var(--gold);font-weight:750}
+h1{font-size:clamp(2.7rem,8vw,5.5rem);line-height:1;letter-spacing:-.06em;margin:12px 0}
+h2{font-size:1.45rem;margin:0 0 9px}h3{font-size:1.09rem;margin:9px 0}
+p{color:var(--muted);line-height:1.5}
+.tag{display:inline-block;border:1px solid #8c9894;border-radius:999px;padding:5px 10px;margin:4px 6px 4px 0;font-size:.8rem;color:var(--mint)}
+.panel{padding:19px;border-radius:15px;background:var(--card);border:1px solid var(--border);margin-top:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.card{background:#243e48;border:1px solid var(--border);border-radius:11px;padding:13px}
+.small{font-size:.84rem;color:var(--muted)}.label{font-size:.77rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mint);font-weight:750}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin:12px 0}
+.controls label{display:grid;gap:4px;font-size:.83rem;color:var(--muted)}
+button,input,select{font:inherit;color:var(--ink);background:#2b4652;border:1px solid #8da7b1;padding:10px;border-radius:8px}
+button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+input[type=search]{min-width:min(310px,80vw)}.letters{display:grid;grid-template-columns:repeat(13,minmax(0,1fr));gap:6px}
+.letters button{font-size:1.18rem;font-weight:800}.letters button[aria-pressed=true]{color:#16252c;background:var(--gold)}
+.readout{margin-top:12px;border-left:4px solid var(--gold);padding:16px;background:#112631;border-radius:7px}
+footer{margin-top:24px;color:var(--muted);font-size:.83rem}
+@media(max-width:650px){.letters{grid-template-columns:repeat(7,minmax(0,1fr))}.panel,.hero{padding:15px}}
+</style><script src="./atlas-ui.js" defer></script></head>
+<body><main><nav><a href="../index.html">← Nathan AI Main Hub</a><a href="../../one/index.html">ONE</a><a href="../../one/nathan-matrix/index.html">Connected Matrix</a><a href="../../one/nathan-matrix/anatomy/index.html">Nervous Wiring W</a><a href="../mind-neuropath/index.html">Mind & Neuropath Games</a><a href="../../one/health/index.html">Private Health</a></nav>
+<div class="hero"><div class="kicker">NATHAN AI → TABOR ROOT → ONE</div><h1>ANATOMY<br>A–Z</h1><p>The original 26-IVERSION source edition meets a separate anatomy reference layer, the Biological Equator, the 33-Vertebrae Spine Matrix, language/body research, and micro-to-macro analysis.</p><span class="tag">1 + 1 = 2 · BUILD</span><span class="tag">1 − 1 = 0 · CLEAR</span><span class="tag">A–Z / Z–A / A↔Z</span></div>
+<section class="panel"><h2>26 IVERSIONS × Anatomy A–Z</h2><p>The atlas distinguishes the supplied A–J source, partly supplied K, and edition-completed L–Z. Reference anatomy is an additional educational layer; creative cross-domain mappings are not scientific equivalents.</p><div class="controls"><label>Find a letter, body part or concept<input id="query" type="search" placeholder="Brain, nerves, Hiversion…"></label><label>Choose source layer<select id="layer"><option value="all">Original + Reference</option><option value="human">Human analogy</option><option value="software">Software analogy</option><option value="hardware">Hardware analogy</option><option value="anatomy">Anatomy reference</option></select></label><button id="reverse" type="button">A → Z</button></div><p class="small" id="result-count" role="status"></p><div id="letters" class="letters" aria-label="Anatomy alphabet selector"></div><article id="detail" class="readout" aria-live="polite">Loading anatomy atlas…</article></section>
+<section class="panel"><h2>THE BIOLOGICAL EQUATOR</h2><div class="grid" id="equator"></div><p class="small">North/South/East/West are author-assigned conceptual coordinates. They are not literal positions of these body systems.</p></section>
+<section class="panel"><div class="kicker">W · NERVOUS SYSTEM WIRING LOGIC</div><h2>DEEP ARREST ARCHITECTURE</h2><p>The existing companion screen indexes the author's ten A–G, H–N, O–Z concept names plus Wiring W; its safe software-routing model is educational, not a body-control mechanism. It preserves your labels without publishing the personal health narrative.</p><a href="../../one/nathan-matrix/anatomy/index.html">Open the interactive Wiring W engine</a></section>
+<section class="panel"><h2>THE 33 VERTEBRAE SPINE MATRIX</h2><div id="spine" class="grid"></div><p class="small">A typical educational segment count, with adult fusion and anatomical variation noted.</p></section>
+<section class="panel"><h2>THE ANATOMY OF ENGLISH</h2><p>Speech, listening, phonemes, grammar and bodily functions are presented as the author's parallel conceptual layers.</p><div id="grammar" class="grid"></div></section>
+<section class="panel"><h2>BODY SYSTEMS & MICRO–MACRO</h2><div id="systems" class="grid"></div><h3>Scales</h3><div id="scales" class="grid"></div></section>
+<section class="panel"><h2>OTHER ORIGINAL ANATOMY FRAMEWORKS</h2><div id="frameworks" class="grid"></div></section>
+<section class="panel"><h2>Source preservation</h2><p>The atlas uses the repository's existing <code>atlas.json</code>. No original files were overwritten to create this viewer. The full personal Deep Arrest message and sensitive recovery details are not posted in this public repository; the owner-controlled encrypted Health &amp; Recovery module handles original-file imports.</p><a href="../../one/health/index.html">Open the private original-file vault</a></section>
+<footer>Educational creative-research index only. Not diagnosis, treatment, a medical device, or direct access to nervous-system hardware. Never force neck, joint or throat manipulation to attempt a reset.</footer>
+</main></body></html>

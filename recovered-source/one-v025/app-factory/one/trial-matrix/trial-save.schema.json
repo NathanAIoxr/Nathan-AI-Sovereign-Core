@@ -1,0 +1,1011 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/one/trial-matrix/trial-save.schema.json",
+  "title": "ONE \u2014 The 33 Trial Matrix / Local Save v1",
+  "description": "Private ONE v025 session: classic game or strategy campaign, optional local event log, guardians and mastery contracts. Runtime validation additionally enforces stage topology and campaign accounting.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "exportedAt",
+    "game",
+    "author",
+    "session",
+    "metrics",
+    "telemetryEvents",
+    "privacy"
+  ],
+  "properties": {
+    "schema": {
+      "const": "one.33trial.save.v1"
+    },
+    "exportedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "game": {
+      "const": "The 33 Trial Matrix"
+    },
+    "author": {
+      "const": "Nathan Tabor"
+    },
+    "session": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "level",
+        "status",
+        "seed",
+        "randomState",
+        "startedAt",
+        "lastAt",
+        "moves",
+        "progress",
+        "score",
+        "penalties",
+        "feedback",
+        "telemetryEnabled",
+        "events",
+        "stats",
+        "board"
+      ],
+      "properties": {
+        "schema": {
+          "const": "one.33trial.session.v1"
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 33
+        },
+        "status": {
+          "enum": [
+            "playing",
+            "won",
+            "failed"
+          ]
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "randomState": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "startedAt": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "lastAt": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "moves": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "progress": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "score": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "penalties": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "feedback": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "telemetryEnabled": {
+          "type": "boolean"
+        },
+        "events": {
+          "type": "array",
+          "maxItems": 3000,
+          "items": {
+            "type": "object",
+            "required": [
+              "type",
+              "at"
+            ],
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "at": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "stats": {
+          "type": "object",
+          "required": [
+            "valid",
+            "invalid",
+            "progressMoves",
+            "blockageMoves",
+            "neutralMoves",
+            "planningMs",
+            "symmetryDeltasMs",
+            "cardinalAttemptsFirstMinute",
+            "cardinalAttemptsLater",
+            "cprCombos",
+            "cprTopTiles",
+            "shockwaves",
+            "calm",
+            "near"
+          ],
+          "additionalProperties": true
+        },
+        "board": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 33,
+              "maxItems": 33,
+              "items": {
+                "type": "integer",
+                "minimum": -1,
+                "maximum": 3
+              }
+            },
+            {
+              "type": "object",
+              "required": [
+                "outer",
+                "inner",
+                "core",
+                "locked",
+                "gears"
+              ],
+              "properties": {
+                "outer": {
+                  "type": "array",
+                  "minItems": 18,
+                  "maxItems": 18
+                },
+                "inner": {
+                  "type": "array",
+                  "minItems": 12,
+                  "maxItems": 12
+                },
+                "core": {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 3
+                }
+              },
+              "additionalProperties": true
+            },
+            {
+              "type": "array",
+              "minItems": 49,
+              "maxItems": 49,
+              "items": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 6,
+              "maxItems": 6,
+              "items": {
+                "type": "array"
+              }
+            },
+            {
+              "type": "object",
+              "required": [
+                "chain",
+                "ticks"
+              ],
+              "properties": {
+                "chain": {
+                  "type": "array",
+                  "maxItems": 64,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 3
+                  }
+                },
+                "ticks": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "rows",
+                "cols",
+                "cells",
+                "weights",
+                "phase",
+                "turn",
+                "target",
+                "visited",
+                "contributions",
+                "rival",
+                "key",
+                "revealed",
+                "inspect",
+                "seals",
+                "reshuffles",
+                "lastCleared",
+                "gravity",
+                "bridges",
+                "alternate"
+              ],
+              "properties": {
+                "rows": {
+                  "type": "integer",
+                  "minimum": 6,
+                  "maximum": 9
+                },
+                "cols": {
+                  "type": "integer",
+                  "minimum": 6,
+                  "maximum": 9
+                },
+                "cells": {
+                  "type": "array",
+                  "minItems": 36,
+                  "maxItems": 81,
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 3
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "alternate": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 36,
+                      "maxItems": 81,
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 3
+                      }
+                    }
+                  ]
+                },
+                "weights": {
+                  "type": "array",
+                  "minItems": 36,
+                  "maxItems": 81,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 4
+                  }
+                },
+                "phase": {
+                  "enum": [
+                    0,
+                    1
+                  ]
+                },
+                "turn": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "target": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 3
+                    }
+                  ]
+                },
+                "visited": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "maxItems": 9,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 8
+                  }
+                },
+                "contributions": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 15
+                  }
+                },
+                "rival": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "key": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 3
+                },
+                "revealed": {
+                  "type": "boolean"
+                },
+                "inspect": {
+                  "type": "boolean"
+                },
+                "seals": {
+                  "type": "array",
+                  "minItems": 36,
+                  "maxItems": 81,
+                  "items": {
+                    "type": "boolean"
+                  }
+                },
+                "reshuffles": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "lastCleared": {
+                  "type": "array",
+                  "maxItems": 81,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 80
+                  }
+                },
+                "gravity": {
+                  "enum": [
+                    "down",
+                    "up",
+                    "left",
+                    "right"
+                  ]
+                },
+                "bridges": {
+                  "type": "array",
+                  "maxItems": 4,
+                  "items": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 80
+                    }
+                  }
+                }
+              },
+              "additionalProperties": true
+            }
+          ]
+        },
+        "strategy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "schema",
+            "difficulty",
+            "daily",
+            "heroTurns",
+            "guardianTurns",
+            "health",
+            "maxHealth",
+            "guardianHealth",
+            "guardianMax",
+            "shield",
+            "focus",
+            "stance",
+            "forecast",
+            "gambit",
+            "abilityUsed",
+            "lastSymbol",
+            "intent",
+            "limit",
+            "counts",
+            "collections",
+            "log",
+            "lastDamage",
+            "lastIncoming"
+          ],
+          "properties": {
+            "heroTurns": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "guardianTurns": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "health": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maxHealth": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "guardianHealth": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "guardianMax": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "shield": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 36
+            },
+            "focus": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 6
+            },
+            "gambit": {
+              "type": "boolean"
+            },
+            "abilityUsed": {
+              "type": "boolean"
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "lastDamage": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "lastIncoming": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "schema": {
+              "const": "one.33trial.strategy.v1"
+            },
+            "difficulty": {
+              "enum": [
+                "story",
+                "tactician",
+                "grandmaster"
+              ]
+            },
+            "daily": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                }
+              ]
+            },
+            "stance": {
+              "enum": [
+                "balanced",
+                "precision",
+                "cascade",
+                "fortify"
+              ]
+            },
+            "forecast": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 3
+                }
+              ]
+            },
+            "lastSymbol": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 3
+                }
+              ]
+            },
+            "counts": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "productive",
+                "shockwaves",
+                "siphons",
+                "hidden",
+                "top",
+                "long",
+                "valuable",
+                "targets",
+                "disrupts",
+                "horizontal",
+                "heavy",
+                "reserve",
+                "bridges",
+                "forecasts"
+              ],
+              "properties": {
+                "productive": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "shockwaves": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "siphons": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "hidden": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "top": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "long": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "valuable": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "targets": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "disrupts": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "horizontal": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "heavy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "reserve": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "bridges": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100000
+                },
+                "forecasts": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100000
+                }
+              }
+            },
+            "collections": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "rings",
+                "orientations",
+                "sectors",
+                "keys",
+                "rooms",
+                "scripts",
+                "gravities",
+                "rotors",
+                "phases",
+                "planes",
+                "symbols",
+                "columns",
+                "contributors"
+              ],
+              "properties": {
+                "rings": {
+                  "type": "array",
+                  "maxItems": 81,
+                  "uniqueItems": true,
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 80
+                      },
+                      {
+                        "type": "string",
+                        "maxLength": 20
+                      }
+                    ]
+                  }
+                },
+                "orientations": {
+                  "type": "array",
+                  "maxItems": 81,
+                  "uniqueItems": true,
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 80
+                      },
+                      {
+                        "type": "string",
+                        "maxLength": 20
+                      }
+                    ]
+                  }
+                },
+                "sectors": {
+                  "type": "array",
+                  "maxItems": 81,
+                  "uniqueItems": true,
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 80
+                      },
+                      {
+                        "type": "string",
+                        "maxLength": 20
+                      }
+                    ]
+                  }
+                },
+                "keys": {
+                  "type": "array",
+                  "maxItems": 81,
+                  "uniqueItems": true,
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 80
+                      },
+                      {
+                        "type": "string",
+                        "maxLength": 20
+                      }
+                    ]
+                  }
+                },
+                "rooms": {
+                  "type": "array",
+                  "maxItems": 81,
+                  "uniqueItems": true,
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 80
+                      },
+                      {
+                        "type": "string",
+                        "maxLength": 20
+                      }
+                    ]
+                  }
+                },
+                "scripts": {
+                  "type": "array",
+                  "maxItems": 81,
+                  "uniqueItems": true,
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 80
+                      },
+                      {
+                        "type": "string",
+                        "maxLength": 20
+                      }
+                    ]
+                  }
+                },
+                "gravities": {
+                  "type": "array",
+                  "maxItems": 81,
+                  "uniqueItems": true,
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 80
+                      },
+                      {
+                        "type": "string",
+                        "maxLength": 20
+                      }
+                    ]
+                  }
+                },
+                "rotors": {
+                  "type": "array",
+                  "maxItems": 81,
+                  "uniqueItems": true,
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 80
+                      },
+                      {
+                        "type": "string",
+                        "maxLength": 20
+                      }
+                    ]
+                  }
+                },
+                "phases": {
+                  "type": "array",
+                  "maxItems": 81,
+                  "uniqueItems": true,
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 80
+                      },
+                      {
+                        "type": "string",
+                        "maxLength": 20
+                      }
+                    ]
+                  }
+                },
+                "planes": {
+                  "type": "array",
+                  "maxItems": 81,
+                  "uniqueItems": true,
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 80
+                      },
+                      {
+                        "type": "string",
+                        "maxLength": 20
+                      }
+                    ]
+                  }
+                },
+                "symbols": {
+                  "type": "array",
+                  "maxItems": 81,
+                  "uniqueItems": true,
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 80
+                      },
+                      {
+                        "type": "string",
+                        "maxLength": 20
+                      }
+                    ]
+                  }
+                },
+                "columns": {
+                  "type": "array",
+                  "maxItems": 81,
+                  "uniqueItems": true,
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 80
+                      },
+                      {
+                        "type": "string",
+                        "maxLength": 20
+                      }
+                    ]
+                  }
+                },
+                "contributors": {
+                  "type": "array",
+                  "maxItems": 81,
+                  "uniqueItems": true,
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 80
+                      },
+                      {
+                        "type": "string",
+                        "maxLength": 20
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "log": {
+              "type": "array",
+              "maxItems": 8,
+              "items": {
+                "type": "string",
+                "maxLength": 499
+              }
+            },
+            "intent": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "action",
+                    "hits",
+                    "symbols",
+                    "tiles",
+                    "groups",
+                    "maxRun",
+                    "horizontal",
+                    "vertical",
+                    "objective"
+                  ],
+                  "properties": {
+                    "action": {
+                      "type": "object",
+                      "required": [
+                        "type"
+                      ],
+                      "properties": {
+                        "type": {
+                          "enum": [
+                            "swap",
+                            "rotate"
+                          ]
+                        }
+                      }
+                    },
+                    "hits": {
+                      "type": "array",
+                      "maxItems": 81,
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 511
+                      }
+                    },
+                    "symbols": {
+                      "type": "array",
+                      "minItems": 4,
+                      "maxItems": 4,
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0
+                      }
+                    },
+                    "tiles": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 162
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "metrics": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "telemetryEvents": {
+      "type": "array",
+      "maxItems": 3000,
+      "items": {
+        "type": "object"
+      }
+    },
+    "privacy": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "session": {
+            "properties": {
+              "telemetryEnabled": {
+                "const": false
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "metrics": {
+            "type": "null"
+          },
+          "telemetryEvents": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}

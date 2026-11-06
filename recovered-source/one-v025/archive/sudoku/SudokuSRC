@@ -1,0 +1,306 @@
+import React, { useState, useMemo, useEffect, useCallback } from "react";
+
+type Cell = { r: number; c: number; value: number | null; given: boolean; notes: Set<number>; };
+type Grid = Cell[][];
+
+const EASY_GIVENS = 40;
+const MEDIUM_GIVENS = 30;
+const HARD_GIVENS = 25;
+
+const makeEmptyGrid = (): Grid => Array.from({ length: 9 }, (_, r) => Array.from({ length: 9 }, (_, c) => ({ r, c, value: null, given: false, notes: new Set<number>() })));
+const cloneGrid = (grid: Grid): Grid => grid.map(row => row.map(cell => ({ ...cell, notes: new Set(cell.notes) })));
+const boxId = (r: number, c: number) => Math.floor(r / 3) * 3 + Math.floor(c / 3);
+
+const isValidOnBoard = (board: number[][], r: number, c: number, num: number) => {
+  for (let k = 0; k < 9; k++) if (board[r][k] === num || board[k][c] === num) return false;
+  const br = Math.floor(r / 3) * 3, bc = Math.floor(c / 3) * 3;
+  for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) if (board[br + i][bc + j] === num) return false;
+  return true;
+};
+
+const generateSolvedBoard = (): number[][] => {
+  const board = Array.from({ length: 9 }, () => Array(9).fill(0));
+  const nums = [1,2,3,4,5,6,7,8,9];
+  const solve = (): boolean => {
+    for (let r = 0; r < 9; r++) {
+      for (let c = 0; c < 9; c++) {
+        if (board[r][c] === 0) {
+          const shuffled = [...nums].sort(() => Math.random() - 0.5);
+          for (const n of shuffled) {
+            if (isValidOnBoard(board, r, c, n)) {
+              board[r][c] = n;
+              if (solve()) return true;
+              board[r][c] = 0;
+            }
+          }
+          return false;
+        }
+      }
+    }
+    return true;
+  };
+  solve();
+  return board;
+};
+
+const createPuzzle = (solvedBoard: number[][], numGivens: number): Grid => {
+  const grid = makeEmptyGrid();
+  for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) grid[r][c].value = solvedBoard[r][c];
+
+  let cellsToRemove = 81 - numGivens;
+  const coords = Array.from({ length: 81 }, (_, k) => [Math.floor(k/9), k%9] as [number,number]).sort(() => Math.random() - 0.5);
+  let idx = 0;
+  while (cellsToRemove > 0 && idx < coords.length) {
+    const [r, c] = coords[idx++];
+    if (grid[r][c].value === null) continue;
+    const keep = grid[r][c].value;
+    grid[r][c].value = null;
+    const sols = solveAll(grid, 2);
+    if (sols.length !== 1) grid[r][c].value = keep; else cellsToRemove--;
+  }
+  for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) grid[r][c].given = grid[r][c].value !== null;
+  return grid;
+};
+
+function basicCandidates(grid: Grid): number[][][] {
+  const cand: number[][][] = Array.from({ length: 9 }, () => Array.from({ length: 9 }, () => [] as number[]));
+  for (let r = 0; r < 9; r++) {
+    for (let c = 0; c < 9; c++) {
+      if (grid[r][c].value) continue;
+      const rowVals = new Set(grid[r].map(x => x.value).filter(Boolean) as number[]);
+      const colVals = new Set(grid.map(row => row[c].value).filter(Boolean) as number[]);
+      const br = Math.floor(r / 3) * 3, bc = Math.floor(c / 3) * 3;
+      const boxVals = new Set(grid.slice(br, br + 3).flatMap(row => row.slice(bc, bc + 3)).map(x => x.value).filter(Boolean) as number[]);
+      for (let d = 1; d <= 9; d++) if (!rowVals.has(d) && !colVals.has(d) && !boxVals.has(d)) cand[r][c].push(d);
+    }
+  }
+  return cand;
+}
+
+function solveAll(grid: Grid, maxSolutions: number = Infinity): number[][][] {
+  const solutions: number[][][] = [];
+  const work = cloneGrid(grid);
+  const search = (): void => {
+    let er = -1, ec = -1, fewest = 10, cands: number[] = [];
+    for (let r = 0; r < 9; r++) {
+      for (let c = 0; c < 9; c++) {
+        if (work[r][c].value === null) {
+          const cs = basicCandidates(work)[r][c];
+          if (cs.length < fewest) { fewest = cs.length; er = r; ec = c; cands = cs; }
+        }
+      }
+    }
+    if (er === -1) { solutions.push(work.map(row => row.map(cell => cell.value as number))); return; }
+    for (const n of cands) {
+      work[er][ec].value = n;
+      search();
+      if (solutions.length >= maxSolutions) return;
+      work[er][ec].value = null;
+    }
+  };
+  search();
+  return solutions;
+}
+
+function detectSkyscraper(cands: number[][][], digit: number) {
+  const rowTwos: Array<{ r: number; cols: number[] }> = [];
+  for (let r = 0; r < 9; r++) {
+    const cols: number[] = [];
+    for (let c = 0; c < 9; c++) if (cands[r][c].includes(digit)) cols.push(c);
+    if (cols.length === 2) rowTwos.push({ r, cols });
+  }
+  for (let i = 0; i < rowTwos.length; i++) {
+    for (let j = i + 1; j < rowTwos.length; j++) {
+      const A = rowTwos[i], B = rowTwos[j];
+      const shared = A.cols.filter(c => B.cols.includes(c));
+      if (shared.length === 1) {
+        const baseCol = shared[0];
+        const topA = A.cols.find(c => c !== baseCol)!;
+        const topB = B.cols.find(c => c !== baseCol)!;
+        const ok = boxId(A.r, topA) !== boxId(B.r, topB);
+        if (ok) {
+          const elim: Array<{ r: number; c: number }> = [];
+          for (let r = 0; r < 9; r++) { if (r !== A.r) elim.push({ r, c: topA }); if (r !== B.r) elim.push({ r, c: topB }); }
+          const uniq = new Map<string, { r: number; c: number }>();
+          elim.forEach(e => uniq.set(`${e.r}-${e.c}`, e));
+          return { kind: "row-skyscraper", digit, base: [ { r: A.r, c: baseCol }, { r: B.r, c: baseCol } ], tops: [ { r: A.r, c: topA }, { r: B.r, c: topB } ], eliminations: Array.from(uniq.values()) } as const;
+        }
+      }
+    }
+  }
+  return null;
+}
+
+function CellView({ cell, selected, onClick, isError }: { cell: Cell; selected: boolean; onClick: () => void; isError: boolean }) {
+  const borderRight = cell.c % 3 === 2 ? 'border-r-2' : 'border-r';
+  const borderBottom = cell.r % 3 === 2 ? 'border-b-2' : 'border-b';
+  return (
+    <button
+      onClick={onClick}
+      className={`relative aspect-square flex items-center justify-center border-t border-l border-neutral-300 ${borderRight} ${borderBottom} ${cell.given ? "bg-neutral-100 font-semibold text-neutral-800" : "bg-white text-neutral-900"} ${selected ? "ring-2 ring-offset-2 ring-cyan-500 z-10" : ""} ${isError ? "bg-red-200 text-red-800" : ""}`}
+    >
+      <span className="text-lg">{cell.value ?? ""}</span>
+      {cell.value === null && (
+        <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 text-[10px] text-neutral-500 p-0.5">
+          {Array.from({ length: 9 }, (_, k) => k + 1).map(d => (
+            <div key={d} className="flex items-center justify-center">{cell.notes.has(d) ? d : ''}</div>
+          ))}
+        </div>
+      )}
+    </button>
+  );
+}
+
+const NathanAITelemetry = React.memo(({ log }: { log: string[] }) => (
+  <aside className="space-y-4">
+    <div className="p-4 rounded-2xl bg-neutral-900 text-white">
+      <h3 className="font-semibold mb-2">Nathan AI — Sim Telemetry</h3>
+      <ul className="text-xs space-y-1 opacity-90">{log.map((l, i) => <li key={i}>• {l}</li>)}</ul>
+    </div>
+  </aside>
+));
+
+export default function App() {
+  const [grid, setGrid] = useState<Grid>(makeEmptyGrid());
+  const [solvedGrid, setSolvedGrid] = useState<number[][] | null>(null);
+  const [selectedCell, setSelectedCell] = useState<{ r: number; c: number } | null>(null);
+  const [telemetryLog, setTelemetryLog] = useState<string[]>([]);
+  const [difficulty, setDifficulty] = useState<"easy" | "medium" | "hard">("easy");
+  const [showNotes, setShowNotes] = useState(false);
+  const [isGameWon, setIsGameWon] = useState(false);
+
+  const addTelemetry = useCallback((message: string) => { setTelemetryLog(L => [`SIM[${new Date().toLocaleTimeString()}] ${message}`, ...L].slice(0, 8)); }, []);
+
+  const allCandidates = useMemo(() => basicCandidates(grid), [grid]);
+  const skyscraperHint = useMemo(() => detectSkyscraper(allCandidates, 7), [allCandidates]);
+
+  useEffect(() => { handleNewGame("easy"); }, []);
+
+  const handleNewGame = useCallback((newDifficulty: "easy" | "medium" | "hard" = difficulty) => {
+    addTelemetry(`Generating a new ${newDifficulty} puzzle...`);
+    const solvedBoard = generateSolvedBoard();
+    const numGivens = newDifficulty === "easy" ? EASY_GIVENS : newDifficulty === "medium" ? MEDIUM_GIVENS : HARD_GIVENS;
+    const newGrid = createPuzzle(solvedBoard, numGivens);
+    setGrid(newGrid);
+    setSolvedGrid(solvedBoard);
+    setSelectedCell(null);
+    setIsGameWon(false);
+    addTelemetry(`Puzzle generated with ${numGivens} starting cells.`);
+  }, [addTelemetry, difficulty]);
+
+  const placeNumber = useCallback((num: number | null) => {
+    if (!selectedCell) return;
+    const { r, c } = selectedCell;
+    const cell = grid[r][c];
+    if (cell.given) { addTelemetry("Cannot change a starting number."); return; }
+    setGrid(prev => { const g = cloneGrid(prev); if (showNotes && num && num >= 1 && num <= 9) { if (g[r][c].notes.has(num)) g[r][c].notes.delete(num); else g[r][c].notes.add(num); } else { g[r][c].value = num; g[r][c].notes.clear(); } return g; });
+    if (!showNotes) addTelemetry(num ? `User placed ${num} at r${r+1}c${c+1}.` : `Erased r${r+1}c${c+1}.`);
+  }, [selectedCell, grid, addTelemetry, showNotes]);
+
+  const handleSolve = useCallback(() => {
+    if (solvedGrid) {
+      addTelemetry("Solving puzzle...");
+      const solvedFull: Grid = makeEmptyGrid();
+      for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) { solvedFull[r][c].value = solvedGrid[r][c]; solvedFull[r][c].given = grid[r][c].given; }
+      setGrid(solvedFull);
+      setIsGameWon(true);
+      addTelemetry("Puzzle solved successfully.");
+    }
+  }, [grid, solvedGrid, addTelemetry]);
+
+  const checkGameStatus = useCallback(() => {
+    let empty = 0, errors = false;
+    for (let r = 0; r < 9; r++) {
+      for (let c = 0; c < 9; c++) {
+        const v = grid[r][c].value;
+        if (v === null) empty++; else if (solvedGrid && v !== solvedGrid[r][c]) { errors = true; break; }
+      }
+      if (errors) break;
+    }
+    if (empty === 0 && !errors) { addTelemetry("Congratulations! You've solved the puzzle."); setIsGameWon(true); }
+    else if (errors) { addTelemetry("Detected incorrect numbers. Focus on your errors."); }
+    else { addTelemetry(`Puzzle is not yet complete. ${empty} cells remain.`); }
+  }, [grid, solvedGrid, addTelemetry]);
+
+  const handleHint = useCallback(() => {
+    if (!selectedCell) { addTelemetry("Please select a cell to get a hint."); return; }
+    const { r, c } = selectedCell;
+    const cell = grid[r][c];
+    if (cell.given || cell.value !== null) { addTelemetry("This cell is already solved or a given. Try another."); return; }
+    if (allCandidates[r][c].length === 1) {
+      const num = allCandidates[r][c][0];
+      setGrid(prev => { const g = cloneGrid(prev); g[r][c].value = num; g[r][c].notes.clear(); return g; });
+      addTelemetry(`Hint: Only candidate for r${r+1}c${c+1} is ${num}.`);
+      return;
+    }
+    if (skyscraperHint) { addTelemetry(`Hint: Skyscraper on digit ${skyscraperHint.digit}. Check rows ${skyscraperHint.base[0].r+1} & ${skyscraperHint.base[1].r+1}.`); return; }
+    addTelemetry("No easy hints found. Keep scanning the board.");
+  }, [selectedCell, grid, allCandidates, skyscraperHint, addTelemetry]);
+
+  return (
+    <div className="p-4 md:p-8 max-w-7xl mx-auto flex flex-col md:flex-row gap-6 bg-neutral-50 rounded-2xl shadow-xl font-sans">
+      <div className="flex-1">
+        <header className="mb-6">
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900">Nathan AI — Sudoku Master<span className="text-cyan-600 block text-lg font-normal">Simulation & Training Mode</span></h1>
+          <p className="text-sm text-neutral-600 mt-2">Generate, solve, and get hints. Learn advanced techniques like the Skyscraper with AI assistance.</p>
+        </header>
+        <div className="flex flex-wrap items-center gap-3 mb-6">
+          <label className="text-sm text-neutral-700">Difficulty:</label>
+          <select className="px-2 py-1 border rounded bg-white text-neutral-900" value={difficulty} onChange={(e) => { const d = e.target.value as "easy" | "medium" | "hard"; setDifficulty(d); (handleNewGame as any)(d); }}>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+          <button onClick={() => (handleNewGame as any)()} className="px-4 py-2 rounded-lg bg-cyan-600 text-white font-medium hover:bg-cyan-700 transition-colors shadow-md">New Game</button>
+        </div>
+        <div className="grid grid-cols-9 w-full max-w-[600px] aspect-square border-2 border-neutral-900">
+          {grid.flat().map((cell) => (
+            <CellView key={`${cell.r}-${cell.c}`} cell={cell} selected={selectedCell?.r === cell.r && selectedCell?.c === cell.c} onClick={() => setSelectedCell({ r: cell.r, c: cell.c })} isError={cell.value !== null && solvedGrid !== null && cell.value !== solvedGrid[cell.r][cell.c]} />
+          ))}
+        </div>
+        <div className="mt-6 flex flex-col sm:flex-row gap-4 max-w-[600px]">
+          <div className="flex flex-wrap gap-2 w-full sm:w-2/3">
+            {[1,2,3,4,5,6,7,8,9].map(num => (
+              <button key={num} onClick={() => placeNumber(num)} className={`w-1/4 sm:w-[calc(33.33%-0.5rem)] md:w-1/4 lg:w-[calc(11.11%-0.5rem)] aspect-square rounded-xl text-lg font-bold transition-all ${showNotes ? "bg-neutral-200 text-neutral-800 hover:bg-neutral-300" : "bg-neutral-900 text-white hover:bg-neutral-700"}`}>{num}</button>
+            ))}
+            <button onClick={() => placeNumber(null)} className="w-1/4 sm:w-[calc(33.33%-0.5rem)] md:w-1/4 lg:w-[calc(11.11%-0.5rem)] aspect-square rounded-xl text-lg font-bold bg-neutral-900 text-white hover:bg-neutral-700 transition-colors" aria-label="Erase">
+              <svg className="w-6 h-6 mx-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)"><path fillRule="evenodd" d="M3.172 7.172a4 4 0 015.656 0L10 8.343l1.172-1.171a4 4 0 115.656 5.656L12 17.656 3.172 8.828a4 4 0 010-5.656z" clipRule="evenodd"/></svg>
+            </button>
+          </div>
+          <div className="flex flex-col gap-2 w-full sm:w-1/3">
+            <button onClick={handleHint} className="w-full px-4 py-2 rounded-lg bg-yellow-500 text-neutral-900 font-medium hover:bg-yellow-600 transition-colors shadow-md">Hint</button>
+            <button onClick={checkGameStatus} className="w-full px-4 py-2 rounded-lg bg-indigo-500 text-white font-medium hover:bg-indigo-600 transition-colors shadow-md">Check</button>
+            <button onClick={handleSolve} className="w-full px-4 py-2 rounded-lg bg-red-500 text-white font-medium hover:bg-red-600 transition-colors shadow-md">Solve</button>
+            <button onClick={() => setShowNotes(v => !v)} className={`w-full px-4 py-2 rounded-lg font-medium transition-colors shadow-md ${showNotes ? "bg-cyan-500 text-white" : "bg-neutral-200 text-neutral-800 hover:bg-neutral-300"}`}>{showNotes ? "Notes ON" : "Notes OFF"}</button>
+          </div>
+        </div>
+      </div>
+      <div className="w-full md:w-96 flex flex-col gap-6">
+        <NathanAITelemetry log={telemetryLog} />
+        {isGameWon && (<div className="p-4 rounded-2xl bg-green-100 text-green-800 font-semibold text-center shadow-inner">Puzzle Solved! Congratulations!</div>)}
+        {skyscraperHint && (
+          <div className="p-4 rounded-2xl bg-gradient-to-br from-neutral-50 to-white border border-cyan-400">
+            <h3 className="font-semibold text-lg mb-2 text-cyan-700">Skyscraper Detected!</h3>
+            <div className="space-y-2 text-sm">
+              <p><strong>Found:</strong> A Skyscraper on digit {skyscraperHint.digit}. This pattern allows eliminations.</p>
+              <ul className="list-disc ml-5 text-neutral-600">
+                <li>Base candidates at: {skyscraperHint.base.map(b=>`r${b.r+1}c${b.c+1}`).join(", ")}</li>
+                <li>Tops at: {skyscraperHint.tops.map(t=>`r${t.r+1}c${t.c+1}`).join(", ")}</li>
+                <li>Eliminate {skyscraperHint.digit} in the columns of the tops (except at the tops).</li>
+              </ul>
+            </div>
+          </div>
+        )}
+        <div className="p-4 rounded-2xl border bg-white shadow-sm">
+          <h3 className="font-semibold mb-2 text-neutral-800">How to Play</h3>
+          <ul className="text-sm list-disc ml-5 space-y-1 text-neutral-600">
+            <li>Click a cell to select it.</li>
+            <li>Click a number to place it; use Erase to clear.</li>
+            <li>Toggle Notes to pencil marks; tap a number to add/remove it.</li>
+            <li>Check highlights errors against the solution.</li>
+            <li>Hint gives singles first, then advanced cues (Skyscraper).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );

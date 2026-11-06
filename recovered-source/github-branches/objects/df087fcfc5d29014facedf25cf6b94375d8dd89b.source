@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101a2a">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; connect-src 'none'; base-uri 'none'">
+<title>Nathan AI | Sovereign Acro-Matrix</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="registry.js"></script>
+<script defer src="core.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+<header>
+  <div class="eyebrow">ONE / NATHAN MATRIX / ADDITIVE MODULE</div>
+  <h1>SOVEREIGN ACRO-MATRIX</h1>
+  <p class="lead">A searchable 66-node vocabulary and a working local-first inspection console. The consumer is the sovereign user.</p>
+  <div class="anchor"><span>1 + 1 = 2 · BUILD</span><span>1 − 1 = 0 · CLEAR</span><span>DATA ⇄ ATAD</span></div>
+  <nav aria-label="Module navigation"><a href="#registry">Registry</a><a href="#dual">DATA–ATAD</a><a href="#mida">MIDA</a><a href="#humanity">Humanity</a><a href="#consent">Consent</a><a href="#sovereignty">Portability</a><a href="../nathan-matrix/index.html">Nathan Matrix</a><a href="../index.html">ONE</a></nav>
+</header>
+<main id="main">
+<section id="registry" class="panel">
+ <div class="section-head"><div><p class="eyebrow">01 / REGISTRY</p><h2>Full-spectrum labels and nodes</h2></div><div id="count" class="counter" aria-live="polite">66 records</div></div>
+ <div class="fields two"><label>Search names, meanings or descriptions <input id="query" type="search" placeholder="EI, empathy, SSS, SATON…" autocomplete="off"></label><label>Category <select id="group"><option value="all">All groups</option><option value="external">External terminology</option><option value="nathan">Nathan AI blueprints</option><option value="humanity">Humanity principles</option><option value="mythology">Mythology / creative nodes</option></select></label></div>
+ <p class="muted">Records retain overlapping acronyms and original creative labels. Status distinguishes working code from specifications and literary mappings.</p>
+ <div id="records" class="record-grid" aria-live="polite"></div>
+</section>
+<div class="columns">
+<section id="dual" class="panel">
+ <p class="eyebrow">02 / DATA–ATAD + ASR</p><h2>Forward ↔ reverse inspection</h2>
+ <label>Text to inspect<textarea id="dualText" rows="5" placeholder="Enter text. Reversal checks form, not truth."></textarea></label>
+ <button id="dualRun">Run dual-axis + ASR preview</button>
+ <pre id="dualOutput" class="output" aria-live="polite">Nothing processed yet.</pre>
+</section>
+<section id="mida" class="panel">
+ <p class="eyebrow">03 / MIDA</p><h2>Evidence review gate</h2>
+ <label>Claim <textarea id="claim" rows="3" placeholder="Write the exact claim"></textarea></label>
+ <label>Source reference <input id="source" placeholder="Citation, URL, archive ID or document title"></label>
+ <label>Interpretation (kept distinct) <textarea id="interpretation" rows="2"></textarea></label>
+ <label>Human review status<select id="review"><option value="unreviewed">Unreviewed</option><option value="supported">Supported after review</option><option value="contradicted">Contradicted after review</option><option value="mixed">Mixed / unresolved</option></select></label>
+ <button id="reviewRun">Evaluate and record locally</button>
+ <pre id="midaOutput" class="output" aria-live="polite">No claims reviewed.</pre>
+ <p class="muted">A source reference is not verification. Gate 0 withholds a claim; it does not declare it false.</p>
+</section>
+</div>
+<div class="columns">
+<section id="humanity" class="panel">
+ <p class="eyebrow">04 / EI + HUMANITY</p><h2>Empathy · Sympathy · Compassion</h2>
+ <p>Observable design checks, not a claim that software experiences emotions.</p>
+ <div class="check-list">
+ <label><input type="checkbox" id="acknowledgedNeed"> Understand the stated need (empathy)</label>
+ <label><input type="checkbox" id="respectsAutonomy"> Respect boundaries and concern (sympathy)</label>
+ <label><input type="checkbox" id="constructiveAction"> Offer constructive help (compassion)</label>
+ <label><input type="checkbox" id="disclosesUncertainty"> Disclose uncertainty and limits</label>
+ <label><input type="checkbox" id="protectsPrivacy"> Protect user privacy and choice</label>
+ </div>
+ <button id="humanityRun">Run humanity checklist</button>
+ <pre id="humanityOutput" class="output" aria-live="polite">Not evaluated.</pre>
+</section>
+<section id="consent" class="panel">
+ <p class="eyebrow">05 / SOVEREIGN PERMISSIONS</p><h2>Grant, inspect, revoke</h2>
+ <p class="muted">Demonstration grants apply only to this module. No connected services are authorized by these controls.</p>
+ <label>Capability<select id="scope"><option value="records:review">Review local records</option><option value="records:export">Export local records</option><option value="interface:customize">Customize local interface</option></select></label>
+ <label>Purpose<input id="purpose" placeholder="Why is this permission being granted?"></label>
+ <label>Expires<select id="expiry"><option value="1">In 1 day</option><option value="7">In 7 days</option><option value="30">In 30 days</option></select></label>
+ <button id="grantRun">Create local demonstration grant</button>
+ <div id="grantRecords" class="stack" aria-live="polite"></div>
+</section>
+</div>
+<section id="six-dogs-bridge" class="panel"><p class="eyebrow">RELATED SOVEREIGN MODULE</p><h2>Six Dogs · Emotional Resolution Workbench</h2><p>KNICK · KNACK · PADDY · WHACK · DOG · BONE. Five-plane source mapping, personal reflection, optional local device commands and nonviolent decision-making.</p><p><a href="../../nathan-ai/six-dogs/index.html">Open the Six Dogs Console</a> · <a href="../../nathan-ai/six-dogs/architecture.json">Read technology integration contract</a></p><p class="muted">This is a navigation link. DATA–ATAD and MIDA remain separate tools until an explicitly tested connector is added.</p></section>
+<section id="sovereignty" class="panel">
+ <p class="eyebrow">06 / THE CONSUMER IS THE SOVEREIGN USER</p><h2>Portability and local control</h2>
+ <p>By default reviews and permissions exist only in page memory. Optionally store them in this browser's localStorage. Browser storage is <strong>not encrypted</strong> and is not suitable for medical records, passwords or private keys.</p>
+ <label class="persist"><input type="checkbox" id="persist"> Explicitly enable storage in this browser</label>
+ <div class="actions"><button id="exportRun">Export JSON</button><label class="file-button">Import owned JSON<input id="importFile" type="file" accept=".json,application/json"></label><button id="wipeRun" class="danger">Wipe module records</button></div>
+ <p id="status" class="status" role="status">Offline-only module. No network connection or account integration.</p>
+ <div class="three"><div><b>ABM</b><p>Alpha/Supra • Me/Con • Beta/Sub</p></div><div><b>REALITIST</b><p>Literal • Figurative • Mythological readings</p></div><div><b>SSS</b><p>Spirit • Soul • Shadow Worlds (creative model)</p></div></div>
+</section>
+</main>
+<footer><p>ONE additive reference module. Existing source and terminology preserved. No medical diagnosis, financial actions, external automation, literal consciousness test, or scientific proof of fictional cosmologies.</p></footer>
+</body>
+</html>

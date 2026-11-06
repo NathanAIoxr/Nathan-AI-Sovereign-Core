@@ -1,0 +1,61 @@
+{
+  "schema": "nathan-gopher-ants.v1",
+  "mode": "READ_ONLY_METADATA",
+  "purpose": "Catalogue candidate public open-source projects; independent license verification required.",
+  "sources": [
+    {
+      "id": "voron-trident",
+      "project": "Voron Trident",
+      "github": "VoronDesign/Voron-Trident",
+      "role": "documented printer mechanics, BOM and CAD reference"
+    },
+    {
+      "id": "openscad",
+      "project": "OpenSCAD",
+      "github": "openscad/openscad",
+      "role": "parametric mechanical geometry and printable model generation"
+    },
+    {
+      "id": "freecad",
+      "project": "FreeCAD",
+      "github": "FreeCAD/FreeCAD",
+      "role": "editable dimensioned mechanical CAD"
+    },
+    {
+      "id": "prusa",
+      "project": "PrusaSlicer",
+      "github": "prusa3d/PrusaSlicer",
+      "role": "human-reviewed slicing software"
+    },
+    {
+      "id": "cura",
+      "project": "CuraEngine",
+      "github": "Ultimaker/CuraEngine",
+      "role": "alternative slicing engine"
+    },
+    {
+      "id": "octoprint",
+      "project": "OctoPrint",
+      "github": "OctoPrint/OctoPrint",
+      "role": "operator-supervised printer interface"
+    },
+    {
+      "id": "klipper",
+      "project": "Klipper",
+      "github": "Klipper3d/klipper",
+      "role": "3-D printer motion-control firmware"
+    },
+    {
+      "id": "moonraker",
+      "project": "Moonraker",
+      "github": "Arksine/moonraker",
+      "role": "Klipper machine status API"
+    },
+    {
+      "id": "ros2",
+      "project": "ROS 2",
+      "github": "ros2/ros2",
+      "role": "future supervised robotics research; no rover is connected"
+    }
+  ]
+}

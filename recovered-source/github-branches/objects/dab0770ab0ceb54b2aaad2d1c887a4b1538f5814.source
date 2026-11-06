@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan AI 🚀 · AI Texting & Work Vault</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui;background:#101820;color:#f1f6f8}
+body{max-width:950px;margin:auto;padding:1.2rem}a{color:#9ce9ec}h1{font-size:clamp(1.9rem,5vw,3rem)}
+.panel,article{border:1px solid #4a6571;border-radius:12px;background:#1b303b;padding:1rem;margin:1rem 0}
+label{display:block;margin:.8rem 0}input,textarea,select{display:block;width:100%;box-sizing:border-box;padding:.7rem;margin:.3rem 0;background:#0e2029;color:white;border:1px solid #78919c;border-radius:5px}
+textarea{min-height:155px}button{border:1px solid #9ce9ec;border-radius:6px;background:#163c46;color:white;padding:.7rem;margin:.3rem .2rem .3rem 0;cursor:pointer}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:160px;overflow:auto;color:#d0e4e5}
+small,p{line-height:1.5}#status{min-height:1.5rem}
+</style><script src="vault.js" defer></script></head><body>
+<nav><a href="../index.html">← Nathan AI Main Hub</a> · <a href="../assistant/index.html">Assistant</a> · <a href="../index.html#workspace">Research Workspace</a></nav>
+<h1>🚀 AI Texting & Work Vault</h1>
+<p>Keep the work you choose to bring from AI chats, drafts, research, code, images and other files. Search your locally stored items, download unchanged originals, and organize by source. <strong>Free, local-first prototype.</strong></p>
+<p>This page does not automatically read ChatGPT, Codex, your accounts, your other apps, or their chat histories. Paste text or select files yourself. Stored content remains in this browser profile until you export or delete it. Browser data can be lost, so back up originals.</p>
+<section class="panel"><h2>Save texting, prompts, answers and other work</h2>
+<form id="editor"><label>Title<input id="title" maxlength="250" required placeholder="New AI conversation or project"></label>
+<label>Type<select id="kind"><option value="conversation">AI conversation / texting</option><option value="prompt">Prompt</option><option value="response">AI answer</option><option value="code">Code / algorithm</option><option value="research">Research / source</option><option value="idea">Idea / invention</option><option value="other">Other</option></select></label>
+<label>Source / model / project<input id="source" maxlength="250" placeholder="e.g. Nathan AI, Codex, source title"></label>
+<label>Original text<textarea id="body" placeholder="Paste the original wording here"></textarea></label><button type="submit">Save local text</button></form></section>
+<section class="panel"><h2>Import original files</h2><p>Choose text, documents, images, archives or other files (up to 20 MB each). Binary files are saved as bytes and downloaded unchanged; textual file previews are searchable. Imports are not sent to a server.</p>
+<label>Select files<input id="files" type="file" multiple></label></section>
+<section class="panel"><h2>Find and preserve work</h2><label>Search local titles, sources and text<input id="search" type="search" placeholder="Search saved work"></label>
+<p id="count" aria-live="polite"></p><button id="manifest" type="button">Export index manifest (not file contents)</button>
+<p id="status" role="status" aria-live="polite"></p><div id="results"></div></section>
+<footer><small>Owner-consent first · no automatic account scraping · no public publication of private files · IndexedDB local prototype. Production sync, encrypted storage, cross-device restore, provider connectors and an operational AI model are separate future integrations.</small></footer>
+</body></html>

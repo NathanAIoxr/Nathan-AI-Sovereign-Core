@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SOVEREIGN FIELD LAB — The Root Never Stops</title>
+<style>
+:root{font-family:system-ui,-apple-system,sans-serif;color-scheme:dark;background:#07111d;color:#eaf3fb}
+*{box-sizing:border-box}body{margin:0}main{max-width:1100px;margin:auto;padding:22px 15px 85px}
+h1{font-size:clamp(29px,5vw,52px);line-height:1.1;margin:9px 0}h2{font-size:20px}
+a{color:#95f3d0}p{line-height:1.5;color:#bbcfdf}.eyebrow{letter-spacing:.16em;font-weight:700;color:#86eaca;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px}
+.panel{padding:21px;background:#112238;border:1px solid #36516c;border-radius:19px;margin:16px 0}
+button,select,input{font:inherit;color:inherit;border-radius:11px;border:1px solid #618e9f;background:#0a1726;padding:11px}
+button{background:#126c61;border:1px solid #5fceb0;cursor:pointer}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #baf5e2}
+label{display:block;color:#bad2e0;font-size:13px;margin:12px 0 5px}
+input,select{width:100%}pre{background:#07111e;color:#c0ffdf;padding:15px;white-space:pre-wrap;overflow-wrap:anywhere;border-radius:12px;min-height:95px}
+small,.muted{color:#aac5d1}.tag{font-size:10px;letter-spacing:.1em;background:#2c4257;border-radius:7px;padding:4px 7px}
+.item{padding:12px;border:1px solid #39536a;border-radius:12px;display:flex;flex-direction:column;gap:7px}
+.item strong{font-size:14px}.item p{font-size:12px;margin:0}.stats{display:flex;gap:12px;flex-wrap:wrap}
+.stats span{border-radius:13px;background:#142b43;padding:10px 13px}
+footer{font-size:12px;color:#aec1d3;margin-top:35px}
+</style></head><body><main>
+<a href="../index.html">← THE OCTOPUS ROOT</a>
+<div class="eyebrow">NATHAN AI · ABOVE C × BELOW C = THE MIDDLE C</div>
+<h1>THE SOVEREIGN FIELD LAB</h1>
+<p>Break it down. Rebuild it. Check every sucker cup. No stolen worlds. No borrowed characters. Every root grows from original rules and measurable mathematics.</p>
+<div class="stats"><span>7 root families</span><span>18 simulation gates</span><span>0 hazardous outputs</span></div>
+<div class="grid">
+<section class="panel"><h2>⏪ BELOW C — Deconstruct</h2>
+<p>Pick a gate, inspect the assumptions, and trace it to its field family.</p>
+<label for="gate">Root gate</label><select id="gate"></select>
+<div id="details" class="item" aria-live="polite"></div>
+<label for="search">Find a sucker cup</label><input id="search" placeholder="space, voltage, light, entropy">
+</section>
+<section class="panel"><h2>⏩ ABOVE C — Execute</h2>
+<p>Virtual calculations only. Change numbers and read deterministic results—nothing transmits to hardware.</p>
+<div id="inputs"></div><button id="calculate">RUN THE FIELD MATH</button>
+<pre id="output" aria-live="polite"></pre></section>
+</div>
+<section class="panel"><h2>🐙 ROOT TENTACLES</h2>
+<p>Every named gate imports into the existing Root snapshot with a separate type-checked, reversible link. An exact claim and a creative story connection are never treated as the same kind of evidence.</p>
+<div id="catalog" class="grid"></div>
+<p class="muted">The Root page automatically attaches these definitions to your locally saved graph. Original imported nodes are preserved; ID conflicts are reported rather than overwritten.</p>
+<a href="../index.html">OPEN THE ROOT GRAPH →</a>
+</section>
+<section class="panel"><h2>THE NO-LOSS GUT — RULES</h2>
+<p>Unsupported transformations go into a recoverable review bin. Nothing is erased for failing a check. Physics laws, approximations, numerical engines, and story-only effects have separate labels.</p>
+<p>No medical sensors or nerve interfaces. No electromagnetic pulse generator. No plasma emitter. No vehicle control. No real teleportation, hyperdrive, or learning injection is claimed.</p>
+<a href="./README.md">Engineering handbook and component-free build plan →</a>
+</section>
+<footer>Original local-first field models · not medical or aerospace equipment · no third-party universe, character, or device identity is required</footer>
+</main>
+<script src="./engine.js"></script><script>
+(()=>{'use strict';const E=window.SovereignFieldRoot,$=x=>document.getElementById(x);
+const gates=[
+ ['field:clock','Velocity / speed of light', [['beta',0.6]],p=>E.clock(p.beta)],
+ ['field:metric','Diagonal interval', [['temporal',10],['x',3]],p=>E.interval([[1,0,0,0],[0,-1,0,0],[0,0,-1,0],[0,0,0,-1]],[p.temporal,p.x,0,0])],
+ ['field:render','Visible cells / work units',[['cells',1000],['units',25]],p=>E.visibleWork(p.cells,p.units)],
+ ['field:packet','Width / seconds / kg',[['width',0.000001],['seconds',0.000001],['mass',1e-25]],p=>E.gaussianWidth(p.width,p.seconds,p.mass)],
+ ['field:bell','Ideal paired outcomes',[],()=>E.pairedWhisper()],
+ ['field:nerve','Voltage and sodium gate',[['v',5],['m',1],['h',1],['n',0]],p=>E.membrane({...p,gNa:2,gK:3,gL:0,eNa:1,eK:0,eL:0})],
+ ['field:spectrum','Synthetic tone Hz',[['tone',8],['sampleRate',64]],p=>E.spectrum(Array.from({length:64},(_,i)=>Math.sin(2*Math.PI*p.tone*i/p.sampleRate)),p.sampleRate).sort((a,b)=>b.amplitude-a.amplitude).slice(0,3)],
+ ['field:learning','Game weights',[['weight',10],['control',5],['threshold',5],['spread',2]],p=>E.practiceWeight(p.weight,p.control,p.threshold,p.spread)],
+ ['field:erasure','Bit erasures / kelvin',[['bits',1e10],['kelvin',310.15]],p=>E.bitToll(p.bits,p.kelvin)],
+ ['field:capacity','Binary prior probability',[['p',0.5]],p=>E.informationGate(p.p)],
+ ['field:pinch','Electron/ion kelvin and line density',[['te',10000],['ti',10000],['density',1e16]],p=>E.plasmaCircle(p.te,p.ti,p.density)],
+ ['field:cutoff','Electron density and signal Hz',[['density',1e16],['frequency',1e9]],p=>E.lightFence(p.density,p.frequency)],
+ ['field:hover','Mass and area',[['mass',1],['area',1]],p=>E.floatBalance(p.mass,p.area)],
+ ['field:induction','Turns and flux rate',[['turns',10],['fluxRate',2]],p=>E.fluxTurn(p.turns,p.fluxRate)],
+ ['field:anomaly','Two virtual measurements',[['a',10],['b',15]],p=>E.patternSentinel([[p.a]],[[p.b]])],
+ ['field:gradient','Quadratic learning',[['x',10],['rate',0.25],['target',0]],p=>E.slope(p.x,p.rate,p.target)]
+];
+const state={gate:gates[0][0]};
+for(const g of gates){const o=document.createElement('option');o.value=g[0];o.textContent=E.catalog.find(n=>n.id===g[0]).label;$('gate').append(o)}
+function makeInputs(){
+ const g=gates.find(a=>a[0]===state.gate),node=E.catalog.find(n=>n.id===state.gate);
+ $('details').replaceChildren();
+ const status=document.createElement('span');status.className='tag';status.textContent=node.status;
+ const head=document.createElement('strong');head.textContent=node.label;
+ const para=document.createElement('p');para.textContent=node.description;
+ $('details').append(status,head,para);
+ $('inputs').replaceChildren();
+ for(const [id,value] of g[2]){const lab=document.createElement('label');lab.htmlFor='i-'+id;lab.textContent=id;
+ const input=document.createElement('input');input.type='number';input.id='i-'+id;input.value=String(value);input.step='any';
+ $('inputs').append(lab,input)}
+ $('output').textContent='Ready — local mathematical simulation only.';
+}
+$('gate').onchange=()=>{state.gate=$('gate').value;makeInputs()};
+$('calculate').onclick=()=>{
+ try{const g=gates.find(a=>a[0]===state.gate),p={};
+ for(const [id] of g[2]){const value=$('i-'+id).value;if(!value.trim())throw Error('Missing '+id);p[id]=Number(value)}
+ const value=g[3](p);$('output').textContent=JSON.stringify({gate:state.gate,status:E.catalog.find(x=>x.id===state.gate).status,simulation:value},null,2)}
+ catch(err){$('output').textContent='REVIEW REQUIRED: '+err.message;}
+};
+function catalog(filter=''){const box=$('catalog');box.replaceChildren();
+ for(const n of E.catalog.filter(n=>(n.label+' '+n.description+' '+n.status).toLowerCase().includes(filter.toLowerCase()))){
+ const d=document.createElement('div');d.className='item';
+ const s=document.createElement('span');s.className='tag';s.textContent=n.status;
+ const h=document.createElement('strong');h.textContent=n.label;
+ const p=document.createElement('p');p.textContent=n.description;
+ d.append(s,h,p);box.append(d)}
+}
+$('search').oninput=()=>catalog($('search').value);catalog();makeInputs();
+})();
+</script></body></html>

@@ -1,0 +1,65 @@
+{
+  "schema": "one.v025.organization.v1",
+  "version": "025",
+  "visibility": "private",
+  "entry": "index.html",
+  "sourceRoot": "app-factory/",
+  "documentation": "docs/",
+  "originalReferences": "references/",
+  "testEvidence": "validation/",
+  "originalBackup": "preserved/ONE_BASE_BEFORE_v025.zip",
+  "moves": [
+    {
+      "from": "README.md",
+      "to": "archive/legacy-root/README.md",
+      "originalSha256": "37af1290298db679cd304828216130d65841168ec6cea3b237c36eaf0e1cafc5"
+    },
+    {
+      "from": "index.html",
+      "to": "archive/legacy-root/index.html.txt",
+      "originalSha256": "e42cdd1313e26780da64e095a21cae395e1b2cd949c489fd47672067e2a39913"
+    },
+    {
+      "from": "SudokuPackageJson",
+      "to": "archive/sudoku/SudokuPackageJson",
+      "originalSha256": "85f61b7450912b15cd035b5d9481c41907808eec9917d39bb45cd72346f6e5f1"
+    },
+    {
+      "from": "SudokuReadMe",
+      "to": "archive/sudoku/SudokuReadMe",
+      "originalSha256": "0f8d753ed08cf84b73c99e51dbc6f3a21d99f654ee30077a9dfc6328d620ddda"
+    },
+    {
+      "from": "SudokuSRC",
+      "to": "archive/sudoku/SudokuSRC",
+      "originalSha256": "c2def94706e816b163ce72f40431a5444d4124cefa43145170cc9ae2d705333d"
+    },
+    {
+      "from": "Sudokusolver",
+      "to": "archive/sudoku/Sudokusolver",
+      "originalSha256": "483e1f51defa77fa56ab72ef1b7043bcf0bdd1e71ef6e5d696a7cf4b099dbc2d"
+    },
+    {
+      "from": "README_PRIVATE_V025.md",
+      "to": "docs/campaign-rules.md",
+      "originalSha256": "5c9918ff0ccc1e2ff4b607cbcb840abf3128a9f36af1fd46255b46dbc88b2811"
+    },
+    {
+      "from": "ROOTKEEP.md",
+      "to": "docs/rootkeep.md",
+      "originalSha256": "6b37835535b448093cdc22e0bb0455da8bf0fe5d80e6684eab2a439bb6b48809"
+    },
+    {
+      "from": "TABOR_DECIMAL_SYSTEM.md",
+      "to": "docs/tabor-decimal-system.md",
+      "originalSha256": "18721c01600fb79d9d4c96428172f589c0a1dff70c9b6f7cc2680663b8a3f619"
+    },
+    {
+      "from": "REFINEMENT_V025.md",
+      "to": "docs/refinement-notes.md",
+      "originalSha256": "5a2e70c7fc41a1998c45d7066aa5116737128851596784c8f23d22fc2bb100d3"
+    }
+  ],
+  "compatibility": "Game URLs, browser save keys and legacy manual links remain available.",
+  "previousCompletePackage": "../history/v025-before-organization/PRIVATE_ONE_v025.zip"
+}

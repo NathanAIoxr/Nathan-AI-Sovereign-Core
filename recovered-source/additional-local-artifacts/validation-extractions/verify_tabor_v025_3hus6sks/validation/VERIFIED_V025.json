@@ -1,0 +1,136 @@
+{
+  "version": "025",
+  "visibility": "private working package; not published",
+  "automated": {
+    "tests": 210,
+    "passed": 210,
+    "failed": 0,
+    "skipped": 0,
+    "evidence": "validation/automated-tests.txt",
+    "resilienceTests": 15,
+    "realmTests": 22,
+    "taborTests": 20
+  },
+  "campaign": {
+    "desktopBrowserCompletedStages": 33,
+    "unitCompletionDifficulties": [
+      "Explorer",
+      "Tactician"
+    ],
+    "seedStress": {
+      "wins": 99,
+      "attempts": 99,
+      "failed": []
+    },
+    "evidence": "validation/campaign-browser-results.txt"
+  },
+  "studio": {
+    "engineTests": 20,
+    "scoredBrowserRunCompleted": true,
+    "actualDragAndKeyboard": true,
+    "powerCombinationAndAnimationLockout": true,
+    "mobileReducedMotionAndNoOverflow": true,
+    "reverseInspectorReadOnly": true,
+    "exportedLayers": 52,
+    "reverseCanonicalNamesSupplied": 2,
+    "reverseVerificationLabelsImplementationDefined": 24,
+    "evidence": "validation/studio-browser-results.txt"
+  },
+  "preservation": {
+    "files": 295,
+    "originalWorkingSourceUnchanged": true,
+    "byteVerifiedBackup": "preserved/ONE_BASE_BEFORE_v025.zip",
+    "previousV025Archive": "/workspace/private/history/v025-before-refinement/PRIVATE_ONE_v025.zip",
+    "previousV025BeforeRealm": "/workspace/private/history/v025-before-realm/PRIVATE_ONE_v025.zip",
+    "previousV025BeforeTaborDecimal": "/workspace/private/history/v025-before-tabor-decimal/PRIVATE_ONE_v025.zip"
+  },
+  "packageExtractionValidation": {
+    "passed": true,
+    "tested": [
+      "standalone campaign",
+      "standalone A\u2013Z Studio",
+      "full ONE integration",
+      "33-stage selector",
+      "52-layer inspector",
+      "matrix JSON",
+      "technical blueprint",
+      "relative cross-links",
+      "reversible recovery in bundled game",
+      "paused spiral reload in bundled game",
+      "Rootkeep three-move tutorial",
+      "Rootkeep 33-stage atlas",
+      "Rootkeep five-lane combat and recovery"
+    ],
+    "externalServicesRequired": false,
+    "evidence": "validation/package-browser-results.txt",
+    "matchingSourceAndGeneratedFiles": 304
+  },
+  "refinement": {
+    "saves": "Two-generation validated recovery, damaged bytes retained, quota failures preserve primary",
+    "clock": "Active time, fractional manual pause/resume, simulated visibility pause, saved spiral opens paused",
+    "input": "Campaign swipe; cancel, arrow focus and Home/End; next deliberate tap after swipe",
+    "transactionalTurns": "Both live/exported states remain exact after injected resolution exceptions",
+    "attemptReview": "Summary, retry advice and next-stage action verified",
+    "evidence": "validation/resilience-browser-results.txt"
+  },
+  "realm": {
+    "mainFlow": [
+      "settlement",
+      "team",
+      "stage",
+      "battle",
+      "rewards"
+    ],
+    "all33ExpeditionVictoriesAndReplays": true,
+    "full33StageRecruitmentJourney": true,
+    "browserVictories": [
+      1,
+      3,
+      11,
+      22,
+      33
+    ],
+    "desktopAndMobile": true,
+    "threeMoveGuestTutorial": true,
+    "transactionalBatchTrainingAndCrafting": true,
+    "laneRulesAndGhostRerouting": true,
+    "bottomThumbControls": true,
+    "overflowExpiryHours": 48,
+    "worldMapPreserves33Names": true,
+    "headlessReplayVerifier": true,
+    "runtime": "local browser; no server or account required",
+    "evidence": [
+      "validation/realm-engine-results.txt",
+      "validation/realm-browser-results.txt"
+    ],
+    "standaloneBytes": 168907,
+    "phoneBoardFitsAboveThumbDock": true
+  },
+  "taborDecimal": {
+    "name": "The Tabor Decimal System",
+    "author": "Nathan Tabor",
+    "tiers": [
+      "binary gates",
+      "positional segments",
+      "signal-based asset lookup",
+      "indexed capacity limiter"
+    ],
+    "newPartyAttacks": [
+      21,
+      20,
+      24,
+      27,
+      28
+    ],
+    "preservesLegacyActiveBattleAndReplay": true,
+    "deferredLegacyActivation": true,
+    "defaultCapacityUnchanged": true,
+    "overflowPreservedIn48HourInbox": true,
+    "readOnlyCellPreviewAndPurposeSearch": true,
+    "optionalInspector": true,
+    "evidence": [
+      "validation/tabor-engine-results.txt",
+      "validation/tabor-browser-results.txt"
+    ]
+  }
+}

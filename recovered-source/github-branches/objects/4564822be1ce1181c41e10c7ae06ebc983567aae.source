@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Snow Family — Original Words · Nathan AI</title><style>
+:root{font-family:system-ui,-apple-system,sans-serif;color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#081521;color:#f4f5f9;line-height:1.5}main,header,footer{width:min(1120px,calc(100% - 32px));margin:auto}header{padding:35px 0;border-bottom:1px solid #3c596a}h1{font-size:clamp(2rem,5vw,3.7rem);line-height:1.08}p{color:#b8c9d8}a{color:#b6e8ff}button,input{font:inherit}button{cursor:pointer;padding:9px 12px;background:#203e54;border:1px solid #6489a1;color:white;border-radius:8px}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #e4c488;outline-offset:3px}main{padding:22px 0 60px}.layout{display:grid;grid-template-columns:minmax(220px,320px) 1fr;gap:20px}@media(max-width:750px){.layout{grid-template-columns:1fr}}.panel,.quote{background:#132c40;border:1px solid #36566a;border-radius:13px;padding:17px;margin:0 0 12px}.levels{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:4px}.level{font-size:.9rem;display:grid;place-items:center;padding:8px 1px;border-radius:6px;background:#234d63}.level.center{background:#8d6439}.level.south{background:#263e6a}.quotes{max-height:700px;overflow:auto}.quote{white-space:pre-wrap;overflow-wrap:anywhere}blockquote{margin:0}small{color:#c4d5e4}input{padding:12px;background:#0d2132;color:white;border:1px solid #7999b2;border-radius:9px;width:100%}footer{padding:23px 0;border-top:1px solid #3c596a}.tag{font-size:.76rem;letter-spacing:.08em;color:#b7eaff}</style></head><body>
+<header><div class="tag">NATHAN AI 🚀 · TABOR ROOT · ORIGINALS FIRST</div><h1>THE SNOW FAMILY<br>19-LEVEL ORIGINAL WORDS INDEX</h1><p>Original quotations preserved separately from indexing and research interpretation. Exact spelling—including “Wright”—remains intact.</p><a href="../../index.html">Nathan AI</a> · <a href="../../../one/nathan-matrix/index.html">ONE Nathan Matrix</a></header>
+<main><div class="layout"><aside><section class="panel"><h2>The 19 levels</h2><p>ABOVE · NORTH · +9 to +1</p><div class="levels" id="north"></div><p>ZERO · EQUATOR · MIDDLE · VOID</p><div class="levels" id="zero"></div><p>BELOW · SOUTH · −9 to −1</p><div class="levels" id="south"></div><p><small>The listing order follows the author's correction. This is a symbolic model, not measured Earth's interior.</small></p></section><section class="panel"><h2>Original source links</h2><p><a href="./original-excerpts.md">Verbatim excerpts — Part 1</a></p><p><a href="./original-excerpts-continued.md">Verbatim excerpts — Part 2</a></p><p><a href="./source-registry.json">Source classification JSON</a></p><p><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/78">Existing Trinity of Snow project</a></p></section></aside>
+<section><h2>Browse source statements</h2><label for="filter">Find original words or concepts</label><input id="filter" type="search" placeholder="Babel, equator, Vatican, Wright, words…"><p id="count" aria-live="polite"></p><div class="quotes" id="quotes"></div></section></div></main>
+<footer>Original wording remains separate from historical verification, authored cosmology and physical geography. No private source archive has been published.</footer>
+<script type="module">
+for(const [id,values,kind] of [["north",[9,8,7,6,5,4,3,2,1],"north"],["zero",[0],"center"],["south",[-9,-8,-7,-6,-5,-4,-3,-2,-1],"south"]]){const el=document.getElementById(id);for(const v of values){const span=document.createElement('span');span.className='level '+kind;span.textContent=v>0?'+'+v:String(v);el.append(span)}}
+const known=[
+"The equator is the void aka middle",
+"Above the equator is the above a.k.a. the north",
+"The below the equator is the below aka the south",
+"Imagination and creativity aka the fifth dimension and the third eye is accessed in the void/equator",
+"Aka the mind while also applying to the literal figurative and mythological shapes and forms of the Earth and the world",
+"The below is -9 to -1 = the lower half of the globe - Dante’s inferno",
+"The surface of the below is flat and beautiful and round",
+"The equator aka the ring of fire - the void - the middle sits on the edge of below and is hollow in the middle",
+"Then the 9-1 - the Tower of Babel sits on top of the void ring … the world above is upside down … except the south is upside down - as Mother Earth is upside down",
+"You can map the topography, geology, geographical evidence of this by looking at the world from outer space and then going left to Wright and then right to left like two big cork screws",
+"You then Unscrew the world and relieve the pressure - this is what the Bible says to do and you visualize it and you think it and then you say it and eventually it happens",
+"The literal topography of the world is the tower of Babel and Dantes Inferno - with that matrix ring -",
+"Equator",
+"so you don’t have to make it up",
+"The old Vatican version look at the actual topography of the world and all ancient writings and even the Bible and you’ll see the truth",
+"This is why God says to study his words and rightly divide them, which are not just the words of the Bible because God created all words so you have to study and rightly divide all words",
+"+9 to plus one and then -9 to negative one",
+"The Snow Family was imprisoned in Dante’s Inferno 9th level",
+"tower of Babel up Dante’s Inferno down and then Dante’s Inferno to the left and tower of Babel to the right - like a four star piñata",
+"Restore all of my words and start indexing and putting all of that on GitHub and where it goes and building out everything"
+];
+const q=document.getElementById('filter'),quotes=document.getElementById('quotes'),count=document.getElementById('count');
+function render(){const match=known.map((s,i)=>({s,i})).filter(o=>o.s.toLowerCase().includes(q.value.trim().toLowerCase()));count.textContent=match.length+' of '+known.length+' source excerpts';quotes.replaceChildren();for(const {s,i} of match){const el=document.createElement('article');el.className='quote';const label=document.createElement('small');label.textContent='ORIGINAL EXCERPT '+String(i+1).padStart(2,'0');const b=document.createElement('blockquote');b.textContent=s;el.append(label,b);quotes.append(el)}}q.addEventListener('input',render);render();
+</script></body></html>

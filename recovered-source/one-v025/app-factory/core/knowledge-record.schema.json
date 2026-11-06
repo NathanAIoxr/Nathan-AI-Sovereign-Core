@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/core/knowledge-record.schema.json",
+  "title": "TABOR ROOT Knowledge Record Contract v1",
+  "description": "Public record structure only. Does not authenticate users, grant permissions or imply cross-product data sharing.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "projectId",
+    "title",
+    "kind",
+    "content",
+    "sourceType",
+    "reviewStatus",
+    "sources"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^rec_[a-f0-9]{32}$",
+      "description": "Server-generated record ID; omitted when creating"
+    },
+    "projectId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9.-]{1,39}:[A-Za-z0-9][A-Za-z0-9_-]{0,80}$",
+      "description": "Project namespace, not an owner identity or permission"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240
+    },
+    "kind": {
+      "enum": [
+        "document",
+        "sheet",
+        "slides",
+        "note",
+        "research",
+        "game",
+        "project",
+        "ai-config"
+      ]
+    },
+    "content": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Typed content projection; original imported Office bytes stored separately by SHA-256"
+    },
+    "sourceType": {
+      "enum": [
+        "user_created",
+        "source_quote",
+        "verified_fact",
+        "interpretation",
+        "analogy",
+        "fiction",
+        "uploaded"
+      ]
+    },
+    "reviewStatus": {
+      "enum": [
+        "draft",
+        "review",
+        "verified",
+        "archived"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "maxItems": 60,
+      "items": {
+        "type": "string",
+        "maxLength": 400
+      }
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Server-owned monotonically increasing revision"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$defs": {
+    "edge": {
+      "type": "object",
+      "required": [
+        "fromId",
+        "toId",
+        "type",
+        "context"
+      ],
+      "properties": {
+        "fromId": {
+          "type": "string"
+        },
+        "toId": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "references",
+            "supports",
+            "contradicts",
+            "depends_on",
+            "derived_from",
+            "inspired_by",
+            "attached_to",
+            "related_to",
+            "reviewed_by"
+          ]
+        },
+        "context": {
+          "type": "string"
+        }
+      }
+    },
+    "originalAsset": {
+      "type": "object",
+      "required": [
+        "sha256",
+        "filename",
+        "size"
+      ],
+      "properties": {
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

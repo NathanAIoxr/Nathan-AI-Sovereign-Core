@@ -1,0 +1,134 @@
+{
+  "schema": "nathan-ai.consumer.data-practices.v1",
+  "reviewDate": "2026-11-05",
+  "scope": "Public-source review, not a runtime network or vendor audit",
+  "warning": "Source disclosures describe only reviewed modules. Unknown third-party, hosting, browser and server practices require verification before legal publication.",
+  "notices": [
+    "All public pages generate ordinary hosting requests, even without in-page analytics.",
+    "Do not infer a product is free of cookies, third-party processing or security issues from its description alone.",
+    "The product directory does not accept payments, user accounts, files, precise location or submitted rights requests.",
+    "This is not a final GDPR/CCPA or sector-specific privacy notice: operator contact, vendors, processing basis, retention and rights processes need verified facts."
+  ],
+  "records": [
+    {
+      "id": "one",
+      "scope": "Launcher and linked modules; data behavior depends on the chosen destination",
+      "inputs": "Navigation and locally available application choices",
+      "deviceStorage": "Varies by launched module; do not infer one shared private vault",
+      "remoteActivity": "Public assets are delivered by the host; individual linked modules may make additional requests",
+      "evidenceLevel": "documentation-scope-only",
+      "evidencePath": "app-factory/one/index.html",
+      "ownerAction": "Review each module before importing personal files; do not assume the launcher synchronizes private accounts"
+    },
+    {
+      "id": "offloader",
+      "scope": "Owner-created text and manually selected original files",
+      "inputs": "Passphrase, selected text/files, optional microphone recording after permission",
+      "deviceStorage": "Encrypted device-local browser vault; explicit user-triggered backup downloads",
+      "remoteActivity": "No automatic connection to third-party AI accounts; remote/cloud operation requires separate configuration and audit",
+      "evidenceLevel": "documented-feature-needs-runtime-audit",
+      "evidencePath": "app-factory/one/offloader/README.md",
+      "ownerAction": "Use a private device, save the encrypted backup elsewhere and protect your passphrase; device storage is not a guaranteed permanent backup"
+    },
+    {
+      "id": "library",
+      "scope": "Public search terms and authored publication records",
+      "inputs": "Search query and manually chosen published records",
+      "deviceStorage": "No private submission required by the displayed reader; per-browser cache policies still depend on host/browser",
+      "remoteActivity": "Public JSON and download files are fetched from the website; host connection logs may exist",
+      "evidenceLevel": "source-reviewed-reader",
+      "evidencePath": "app-factory/one/library-mind/app.js",
+      "ownerAction": "Treat translations and editorial metadata as work in progress; linked source content may require separate rights"
+    },
+    {
+      "id": "chronicle",
+      "scope": "Owner's original numbered 101-action text and optional private notes",
+      "inputs": "Manual source-file import and note entries",
+      "deviceStorage": "Indexed ledger and annotations in browser localStorage; exact imported original downloadable during the session",
+      "remoteActivity": "Current app is designed for local-browser operation, with no upload form; hosting/network behavior still needs release review",
+      "evidenceLevel": "source-reviewed-local-storage",
+      "evidencePath": "app-factory/one/realist-ledger/app.js",
+      "ownerAction": "Keep the original .txt file separate; avoid shared devices for personal allegations or private notes"
+    },
+    {
+      "id": "taborite",
+      "scope": "Creative symbol/encoding inputs and educational exercises",
+      "inputs": "Entered text, glyph selections and game activity",
+      "deviceStorage": "Base codec is documented as offline-compatible; browser data persistence varies by view",
+      "remoteActivity": "Optional browser speech functions may depend on device or third-party speech services",
+      "evidenceLevel": "documentation-review",
+      "evidencePath": "app-factory/one/taborite-language-matrix/README.md",
+      "ownerAction": "Creative reversible encodings are not secure encryption or verified historical linguistics"
+    },
+    {
+      "id": "six-dogs",
+      "scope": "Creative stage choices and original framework content",
+      "inputs": "Stage selection and interactive educational responses",
+      "deviceStorage": "Client-side content is documented; full storage and device integration inventory is incomplete",
+      "remoteActivity": "Any hardware, distributed nodes or inference integrations require separate audit; not inferred from illustrations",
+      "evidenceLevel": "needs-module-runtime-audit",
+      "evidencePath": "app-factory/nathan-ai/six-dogs/README.md",
+      "ownerAction": "Use as an educational/creative framework, not diagnosis or actual installed security protection"
+    },
+    {
+      "id": "hall",
+      "scope": "Owner-supplied words or local file paths for passive development inspection",
+      "inputs": "Manual browser text input; separately executed CLI can read a specifically chosen local directory",
+      "deviceStorage": "Original engine transforms text without encryption; offline CLI returns file metadata and hashes",
+      "remoteActivity": "The local CLI does not send network requests or execute samples; website hosting delivers public assets",
+      "evidenceLevel": "source-reviewed-passive",
+      "evidencePath": "app-factory/one/hall-of-mirrors/README.md",
+      "ownerAction": "File names and SHA-256 digests may disclose sensitive information; do not publish inspection reports"
+    },
+    {
+      "id": "guardians",
+      "scope": "Security policy scenario entries and simulated owner consent",
+      "inputs": "Policy choices in an inert demonstration",
+      "deviceStorage": "No authenticated server protection is established by the policy-preview source",
+      "remoteActivity": "No verified live incident-response enforcement; the website host may record ordinary visits",
+      "evidenceLevel": "documented-simulation-only",
+      "evidencePath": "app-factory/nathan-ai/five-guardians/README.md",
+      "ownerAction": "Do not rely on this as endpoint security, live quarantine or proof of authorization"
+    },
+    {
+      "id": "eyeprints",
+      "scope": "Private hand and eye photographs and image observations",
+      "inputs": "Camera/photos selected with permission and owner-entered notes",
+      "deviceStorage": "Documented encrypted local records; original images may be highly sensitive",
+      "remoteActivity": "No public upload is intended in the local-first design; camera, hosting and phone/browser flows still need privacy audit",
+      "evidenceLevel": "documentation-review-sensitive",
+      "evidencePath": "app-factory/nathan-ai/eyeprints-handprints/README.md",
+      "ownerAction": "Obtain consent from each image subject, avoid shared devices and keep independent encrypted backups"
+    },
+    {
+      "id": "health",
+      "scope": "Personal health files, timelines and authored notes",
+      "inputs": "Private files, ZIPs and manually entered health notes",
+      "deviceStorage": "Documented local encrypted browser vault with explicit export and deletion",
+      "remoteActivity": "The public preview does not establish HIPAA status; device and host/third-party data flows require independent review",
+      "evidenceLevel": "documentation-review-sensitive",
+      "evidencePath": "app-factory/one/health/README.md",
+      "ownerAction": "Do not use for emergency care or clinical decisions; verify who can access private health files"
+    },
+    {
+      "id": "anatomy",
+      "scope": "Public alphabet and anatomy source data",
+      "inputs": "Letter, filter and text search choices",
+      "deviceStorage": "The source viewer loads public JSON and filters it locally; no health-record import in the reviewed UI",
+      "remoteActivity": "Public JSON downloaded from the hosting origin; browser host records are outside the source viewer",
+      "evidenceLevel": "source-reviewed-viewer",
+      "evidencePath": "app-factory/nathan-ai/anatomy/atlas-ui.js",
+      "ownerAction": "Anatomical analogies and ancient-language links are not medical diagnoses or verified identical mechanisms"
+    },
+    {
+      "id": "jobs",
+      "scope": "Source-code catalog records and owner-entered review notes",
+      "inputs": "Search/filter and manually written owner evidence notes",
+      "deviceStorage": "Owner review JSON retained locally in browser storage; explicit CSV/JSON export",
+      "remoteActivity": "Catalog is public; private source inventory reconciliation is run separately on owner-controlled systems",
+      "evidenceLevel": "source-reviewed-local-review",
+      "evidencePath": "app-factory/nathan-ai/program-jobs/README.md",
+      "ownerAction": "Do not enter passwords, private source, personal records, or secret file paths in public/source-linked notes"
+    }
+  ]
+}

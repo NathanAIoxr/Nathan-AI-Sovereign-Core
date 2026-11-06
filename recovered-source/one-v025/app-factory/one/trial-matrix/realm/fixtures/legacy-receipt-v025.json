@@ -1,0 +1,617 @@
+{
+  "schema": "one.v025.realm.save.v1",
+  "world": {
+    "schema": "one.v025.realm.world.v1",
+    "resources": {
+      "food": 245,
+      "iron": 388,
+      "insight": 8,
+      "relics": 3
+    },
+    "buildings": {
+      "keep": 2,
+      "farm": 1,
+      "mine": 1,
+      "store": 1,
+      "academy": 1,
+      "barracks": 1,
+      "forge": 1
+    },
+    "production": {
+      "farm": {
+        "at": 1792527701818,
+        "carry": 0.020683333333333335
+      },
+      "mine": {
+        "at": 1792527701818,
+        "carry": 0.0155125
+      }
+    },
+    "heroes": {
+      "lyra": {
+        "level": 2,
+        "talent": null
+      },
+      "sylva": {
+        "level": 2,
+        "talent": null
+      },
+      "neris": {
+        "level": 2,
+        "talent": null
+      },
+      "oriel": {
+        "level": 2,
+        "talent": null
+      },
+      "vesper": {
+        "level": 2,
+        "talent": null
+      }
+    },
+    "team": [
+      "lyra",
+      "sylva",
+      "neris",
+      "oriel",
+      "vesper"
+    ],
+    "troops": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "items": {
+      "heal": 4,
+      "mana": 3,
+      "volley": 2
+    },
+    "completed": [
+      1
+    ],
+    "records": {
+      "1": {
+        "wins": 1,
+        "bestTurns": 14,
+        "bestScore": 1850
+      }
+    },
+    "nextRun": 2,
+    "battle": null,
+    "lastOutcome": {
+      "run": 1,
+      "stage": 1,
+      "won": true,
+      "first": true,
+      "turns": 14,
+      "score": 1850,
+      "earned": {
+        "food": 95,
+        "iron": 68,
+        "insight": 3,
+        "relics": 1
+      },
+      "overflow": {
+        "food": 0,
+        "iron": 0
+      },
+      "unlocked": [],
+      "replay": {
+        "config": {
+          "stage": 1,
+          "heroes": [
+            {
+              "id": "lyra",
+              "element": 0,
+              "attack": 21,
+              "maxHealth": 164,
+              "maxMana": 20
+            },
+            {
+              "id": "sylva",
+              "element": 1,
+              "attack": 19,
+              "maxHealth": 179,
+              "maxMana": 16
+            },
+            {
+              "id": "neris",
+              "element": 2,
+              "attack": 20,
+              "maxHealth": 189,
+              "maxMana": 20
+            },
+            {
+              "id": "oriel",
+              "element": 3,
+              "attack": 21,
+              "maxHealth": 164,
+              "maxMana": 16
+            },
+            {
+              "id": "vesper",
+              "element": 4,
+              "attack": 20,
+              "maxHealth": 169,
+              "maxMana": 24
+            }
+          ],
+          "seed": 2654460794,
+          "id": 1,
+          "items": {
+            "heal": 2,
+            "mana": 2,
+            "volley": 2
+          }
+        },
+        "actions": [
+          {
+            "type": "swap",
+            "a": 25,
+            "b": 26
+          },
+          {
+            "type": "swap",
+            "a": 21,
+            "b": 26
+          },
+          {
+            "type": "swap",
+            "a": 7,
+            "b": 12
+          },
+          {
+            "type": "target",
+            "enemy": "1-1"
+          },
+          {
+            "type": "skill",
+            "hero": "oriel"
+          },
+          {
+            "type": "target",
+            "enemy": "1-0"
+          },
+          {
+            "type": "swap",
+            "a": 17,
+            "b": 18
+          },
+          {
+            "type": "target",
+            "enemy": "1-2"
+          },
+          {
+            "type": "swap",
+            "a": 13,
+            "b": 14
+          },
+          {
+            "type": "swap",
+            "a": 8,
+            "b": 9
+          },
+          {
+            "type": "swap",
+            "a": 6,
+            "b": 11
+          },
+          {
+            "type": "swap",
+            "a": 13,
+            "b": 14
+          },
+          {
+            "type": "target",
+            "enemy": "2-2"
+          },
+          {
+            "type": "swap",
+            "a": 12,
+            "b": 13
+          },
+          {
+            "type": "swap",
+            "a": 11,
+            "b": 16
+          },
+          {
+            "type": "target",
+            "enemy": "2-1"
+          },
+          {
+            "type": "swap",
+            "a": 16,
+            "b": 17
+          },
+          {
+            "type": "swap",
+            "a": 6,
+            "b": 7
+          },
+          {
+            "type": "skill",
+            "hero": "neris"
+          },
+          {
+            "type": "swap",
+            "a": 11,
+            "b": 16
+          },
+          {
+            "type": "target",
+            "enemy": "2-2"
+          },
+          {
+            "type": "swap",
+            "a": 27,
+            "b": 32
+          }
+        ],
+        "claimedState": {
+          "schema": "one.v025.realm.battle.v1",
+          "config": {
+            "stage": 1,
+            "heroes": [
+              {
+                "id": "lyra",
+                "element": 0,
+                "attack": 21,
+                "maxHealth": 164,
+                "maxMana": 20
+              },
+              {
+                "id": "sylva",
+                "element": 1,
+                "attack": 19,
+                "maxHealth": 179,
+                "maxMana": 16
+              },
+              {
+                "id": "neris",
+                "element": 2,
+                "attack": 20,
+                "maxHealth": 189,
+                "maxMana": 20
+              },
+              {
+                "id": "oriel",
+                "element": 3,
+                "attack": 21,
+                "maxHealth": 164,
+                "maxMana": 16
+              },
+              {
+                "id": "vesper",
+                "element": 4,
+                "attack": 20,
+                "maxHealth": 169,
+                "maxMana": 24
+              }
+            ],
+            "seed": 2654460794,
+            "id": 1,
+            "items": {
+              "heal": 2,
+              "mana": 2,
+              "volley": 2
+            }
+          },
+          "id": 1,
+          "stage": 1,
+          "seed": 2654460794,
+          "randomState": 3150979724,
+          "status": "won",
+          "wave": 2,
+          "turn": 14,
+          "budget": 60,
+          "board": [
+            1,
+            2,
+            1,
+            1,
+            3,
+            0,
+            1,
+            3,
+            0,
+            0,
+            4,
+            0,
+            1,
+            0,
+            1,
+            1,
+            3,
+            3,
+            1,
+            0,
+            0,
+            2,
+            1,
+            0,
+            3,
+            2,
+            0,
+            4,
+            4,
+            0,
+            3,
+            1,
+            1,
+            4,
+            1
+          ],
+          "heroes": [
+            {
+              "id": "lyra",
+              "element": 0,
+              "attack": 21,
+              "maxHealth": 164,
+              "maxMana": 20,
+              "health": 125,
+              "mana": 10,
+              "shield": 30,
+              "used": false
+            },
+            {
+              "id": "sylva",
+              "element": 1,
+              "attack": 19,
+              "maxHealth": 179,
+              "maxMana": 16,
+              "health": 153,
+              "mana": 16,
+              "shield": 30,
+              "used": false
+            },
+            {
+              "id": "neris",
+              "element": 2,
+              "attack": 20,
+              "maxHealth": 189,
+              "maxMana": 20,
+              "health": 169,
+              "mana": 12,
+              "shield": 23,
+              "used": false
+            },
+            {
+              "id": "oriel",
+              "element": 3,
+              "attack": 21,
+              "maxHealth": 164,
+              "maxMana": 16,
+              "health": 138,
+              "mana": 8,
+              "shield": 30,
+              "used": false
+            },
+            {
+              "id": "vesper",
+              "element": 4,
+              "attack": 20,
+              "maxHealth": 169,
+              "maxMana": 24,
+              "health": 136,
+              "mana": 16,
+              "shield": 30,
+              "used": false
+            }
+          ],
+          "enemies": [
+            {
+              "id": "2-0",
+              "name": "Cipher Warden",
+              "kind": 1,
+              "element": 1,
+              "health": 0,
+              "maxHealth": 91,
+              "attack": 7,
+              "from": 0,
+              "to": 0,
+              "broken": 0,
+              "guard": false
+            },
+            {
+              "id": "2-1",
+              "name": "Echo Seer",
+              "kind": 2,
+              "element": 2,
+              "health": 0,
+              "maxHealth": 91,
+              "attack": 7,
+              "from": 2,
+              "to": 2,
+              "broken": 0,
+              "guard": false
+            },
+            {
+              "id": "2-2",
+              "name": "Road Sentinel",
+              "kind": 0,
+              "element": 3,
+              "health": 0,
+              "maxHealth": 91,
+              "attack": 7,
+              "from": 4,
+              "to": 4,
+              "broken": 0,
+              "guard": false
+            }
+          ],
+          "target": "2-2",
+          "items": {
+            "heal": 2,
+            "mana": 2,
+            "volley": 2
+          },
+          "itemUsed": false,
+          "reshuffles": 0,
+          "score": 1850,
+          "log": [
+            "Cipher Warden raises guard.",
+            "Move 9 · 15 damage · 1 cascades · 3 ghost tiles",
+            "Move 10 · 21 damage · 1 cascades · 2 ghost tiles",
+            "Echo Seer mends its allies.",
+            "Move 11 · 69 damage · 3 cascades · 8 ghost tiles",
+            "Cipher Warden raises guard.",
+            "Move 12 · 12 damage · 1 cascades",
+            "Neris the Tidewright uses Tidal Aegis.",
+            "Echo Seer defeated; lanes 3–3 now yield double mana.",
+            "Cipher Warden defeated; lanes 1–1 now yield double mana.",
+            "Move 13 · 126 damage · 4 cascades · 14 ghost tiles",
+            "Road Sentinel defeated; lanes 5–5 now yield double mana.",
+            "Move 14 · 15 damage · 2 cascades · 8 ghost tiles",
+            "Expedition complete. Return to the settlement for earned rewards."
+          ],
+          "last": {
+            "cleared": [
+              17,
+              22,
+              27,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "damage": 15,
+            "ghost": 8,
+            "cascades": 2
+          },
+          "actions": [
+            {
+              "type": "swap",
+              "a": 25,
+              "b": 26
+            },
+            {
+              "type": "swap",
+              "a": 21,
+              "b": 26
+            },
+            {
+              "type": "swap",
+              "a": 7,
+              "b": 12
+            },
+            {
+              "type": "target",
+              "enemy": "1-1"
+            },
+            {
+              "type": "skill",
+              "hero": "oriel"
+            },
+            {
+              "type": "target",
+              "enemy": "1-0"
+            },
+            {
+              "type": "swap",
+              "a": 17,
+              "b": 18
+            },
+            {
+              "type": "target",
+              "enemy": "1-2"
+            },
+            {
+              "type": "swap",
+              "a": 13,
+              "b": 14
+            },
+            {
+              "type": "swap",
+              "a": 8,
+              "b": 9
+            },
+            {
+              "type": "swap",
+              "a": 6,
+              "b": 11
+            },
+            {
+              "type": "swap",
+              "a": 13,
+              "b": 14
+            },
+            {
+              "type": "target",
+              "enemy": "2-2"
+            },
+            {
+              "type": "swap",
+              "a": 12,
+              "b": 13
+            },
+            {
+              "type": "swap",
+              "a": 11,
+              "b": 16
+            },
+            {
+              "type": "target",
+              "enemy": "2-1"
+            },
+            {
+              "type": "swap",
+              "a": 16,
+              "b": 17
+            },
+            {
+              "type": "swap",
+              "a": 6,
+              "b": 7
+            },
+            {
+              "type": "skill",
+              "hero": "neris"
+            },
+            {
+              "type": "swap",
+              "a": 11,
+              "b": 16
+            },
+            {
+              "type": "target",
+              "enemy": "2-2"
+            },
+            {
+              "type": "swap",
+              "a": 27,
+              "b": 32
+            }
+          ]
+        }
+      }
+    },
+    "inbox": [],
+    "nextInbox": 1,
+    "lastVisitAt": 1792527704382,
+    "onboarding": {
+      "step": 3,
+      "done": true
+    },
+    "blueprint": {
+      "name": "Light pack",
+      "counts": {
+        "heal": 1,
+        "mana": 1,
+        "volley": 0
+      }
+    },
+    "preferences": {
+      "contrast": true,
+      "notifications": false,
+      "auto": {
+        "boss": false,
+        "lowest": true,
+        "central": false
+      }
+    }
+  }
+}

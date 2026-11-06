@@ -1,0 +1,320 @@
+{
+  "schema": "one.v025.realm.save.v1",
+  "world": {
+    "schema": "one.v025.realm.world.v1",
+    "resources": {
+      "food": 245,
+      "iron": 388,
+      "insight": 8,
+      "relics": 3
+    },
+    "buildings": {
+      "keep": 2,
+      "farm": 1,
+      "mine": 1,
+      "store": 1,
+      "academy": 1,
+      "barracks": 1,
+      "forge": 1
+    },
+    "production": {
+      "farm": {
+        "at": 1792527701818,
+        "carry": 0.020683333333333335
+      },
+      "mine": {
+        "at": 1792527701818,
+        "carry": 0.0155125
+      }
+    },
+    "heroes": {
+      "lyra": {
+        "level": 2,
+        "talent": null
+      },
+      "sylva": {
+        "level": 2,
+        "talent": null
+      },
+      "neris": {
+        "level": 2,
+        "talent": null
+      },
+      "oriel": {
+        "level": 2,
+        "talent": null
+      },
+      "vesper": {
+        "level": 2,
+        "talent": null
+      }
+    },
+    "team": [
+      "lyra",
+      "sylva",
+      "neris",
+      "oriel",
+      "vesper"
+    ],
+    "troops": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "items": {
+      "heal": 2,
+      "mana": 1,
+      "volley": 0
+    },
+    "completed": [
+      1
+    ],
+    "records": {
+      "1": {
+        "wins": 1,
+        "bestTurns": 14,
+        "bestScore": 1850
+      }
+    },
+    "nextRun": 3,
+    "battle": {
+      "schema": "one.v025.realm.battle.v1",
+      "config": {
+        "stage": 2,
+        "heroes": [
+          {
+            "id": "lyra",
+            "element": 0,
+            "attack": 21,
+            "maxHealth": 164,
+            "maxMana": 20
+          },
+          {
+            "id": "sylva",
+            "element": 1,
+            "attack": 19,
+            "maxHealth": 179,
+            "maxMana": 16
+          },
+          {
+            "id": "neris",
+            "element": 2,
+            "attack": 20,
+            "maxHealth": 189,
+            "maxMana": 20
+          },
+          {
+            "id": "oriel",
+            "element": 3,
+            "attack": 21,
+            "maxHealth": 164,
+            "maxMana": 16
+          },
+          {
+            "id": "vesper",
+            "element": 4,
+            "attack": 20,
+            "maxHealth": 169,
+            "maxMana": 24
+          }
+        ],
+        "seed": 1013929259,
+        "id": 2,
+        "items": {
+          "heal": 2,
+          "mana": 2,
+          "volley": 2
+        }
+      },
+      "id": 2,
+      "stage": 2,
+      "seed": 1013929259,
+      "randomState": 1203628944,
+      "status": "playing",
+      "wave": 1,
+      "turn": 0,
+      "budget": 60,
+      "board": [
+        4,
+        3,
+        0,
+        0,
+        2,
+        0,
+        0,
+        2,
+        3,
+        0,
+        1,
+        2,
+        2,
+        3,
+        4,
+        4,
+        3,
+        4,
+        4,
+        3,
+        2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        4,
+        3,
+        1,
+        1,
+        0,
+        4,
+        3,
+        1
+      ],
+      "heroes": [
+        {
+          "id": "lyra",
+          "element": 0,
+          "attack": 21,
+          "maxHealth": 164,
+          "maxMana": 20,
+          "health": 164,
+          "mana": 0,
+          "shield": 0,
+          "used": false
+        },
+        {
+          "id": "sylva",
+          "element": 1,
+          "attack": 19,
+          "maxHealth": 179,
+          "maxMana": 16,
+          "health": 179,
+          "mana": 0,
+          "shield": 0,
+          "used": false
+        },
+        {
+          "id": "neris",
+          "element": 2,
+          "attack": 20,
+          "maxHealth": 189,
+          "maxMana": 20,
+          "health": 189,
+          "mana": 0,
+          "shield": 0,
+          "used": false
+        },
+        {
+          "id": "oriel",
+          "element": 3,
+          "attack": 21,
+          "maxHealth": 164,
+          "maxMana": 16,
+          "health": 164,
+          "mana": 0,
+          "shield": 0,
+          "used": false
+        },
+        {
+          "id": "vesper",
+          "element": 4,
+          "attack": 20,
+          "maxHealth": 169,
+          "maxMana": 24,
+          "health": 169,
+          "mana": 0,
+          "shield": 0,
+          "used": false
+        }
+      ],
+      "enemies": [
+        {
+          "id": "1-0",
+          "name": "Echo Seer",
+          "kind": 2,
+          "element": 1,
+          "health": 81,
+          "maxHealth": 81,
+          "attack": 6,
+          "from": 0,
+          "to": 0,
+          "broken": 0,
+          "guard": false
+        },
+        {
+          "id": "1-1",
+          "name": "Road Sentinel",
+          "kind": 0,
+          "element": 2,
+          "health": 81,
+          "maxHealth": 81,
+          "attack": 6,
+          "from": 2,
+          "to": 2,
+          "broken": 0,
+          "guard": false
+        },
+        {
+          "id": "1-2",
+          "name": "Cipher Warden",
+          "kind": 1,
+          "element": 3,
+          "health": 81,
+          "maxHealth": 81,
+          "attack": 6,
+          "from": 4,
+          "to": 4,
+          "broken": 0,
+          "guard": false
+        }
+      ],
+      "target": "1-0",
+      "items": {
+        "heal": 2,
+        "mana": 2,
+        "volley": 2
+      },
+      "itemUsed": false,
+      "reshuffles": 0,
+      "score": 0,
+      "log": [
+        "Wave 1/2 · Guarded crossing."
+      ],
+      "last": {
+        "cleared": [],
+        "damage": 0,
+        "ghost": 0,
+        "cascades": 0
+      },
+      "actions": []
+    },
+    "lastOutcome": null,
+    "inbox": [],
+    "nextInbox": 1,
+    "lastVisitAt": 1792527704382,
+    "onboarding": {
+      "step": 3,
+      "done": true
+    },
+    "blueprint": {
+      "name": "Light pack",
+      "counts": {
+        "heal": 1,
+        "mana": 1,
+        "volley": 0
+      }
+    },
+    "preferences": {
+      "contrast": true,
+      "notifications": false,
+      "auto": {
+        "boss": false,
+        "lowest": true,
+        "central": false
+      }
+    }
+  }
+}

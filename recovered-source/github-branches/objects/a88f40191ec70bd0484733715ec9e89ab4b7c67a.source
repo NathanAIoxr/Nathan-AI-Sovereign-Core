@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Nathan AI source-preserving standalone launch pages for published websites, apps, games, books, learning tools and research.">
+<meta name="theme-color" content="#102536"><title>NATHAN AI — STANDALONE GITHUB PROGRAMS</title>
+<link rel="stylesheet" href="./shared.css"><script src="./engine.js" defer></script>
+</head><body data-page="catalog"><div class="wrap">
+<header class="hero"><p class="eyebrow">NATHAN AI · ORIGINALS FIRST · EACH PROGRAM ITS OWN GITHUB ADDRESS</p><h1>STANDALONE PROGRAMS</h1>
+<p>Every public Websites and Apps program remains in its original place. Each independently named public route also receives its own separate GitHub launch page, so it can open directly without navigating through the Websites or Apps directories.</p>
+<div class="nav"><a href="../app-factory/nathan-ai/websites/">Original Websites</a><a href="../app-factory/nathan-ai/websites/launchpad.html">My Desktop</a><a href="../app-factory/nathan-ai/universal-workspace/">Original Apps</a><a href="../app-factory/nathan-ai/independent-editions/">Apps · Games · Books · Academy</a><a href="../app-factory/nathan-ai/hop-in/chatbox/">Nathan AI Interactive Chatbox</a></div>
+<p class="eyebrow">1 + 1 = 2 · BUILD &nbsp; 1 − 1 = 0 · CLEAR &nbsp; PRESERVE THE ORIGINAL</p></header>
+<section class="panel"><h2>Find a standalone program</h2>
+<p class="muted">A standalone GitHub launch address runs the existing original browser program in a dedicated page. Assets and runtime still come from their unchanged original source folders; it is not a separately installable offline binary.</p>
+<div class="search"><label for="search">Search title, original path or function<input id="search" type="search" placeholder="Search Nathan AI, games, library, security, websites…"></label>
+<label for="group">Program family<select id="group"><option value="all">All types</option><option value="apps">Apps</option><option value="games">Games</option><option value="creative">Books &amp; Creative</option><option value="research">Research &amp; Education</option><option value="community">Community</option></select></label></div>
+<p id="count" role="status">Loading public standalone entries…</p><div id="programs" class="grid"></div><p><button type="button" id="more" hidden>Show more standalone programs</button></p></section>
+<section class="panel"><h2>Preservation and distribution</h2><div class="info">
+<div><strong id="total">—</strong><p class="muted">Standalone public entry addresses, with duplicate Website/App registrations reconciled by original source path.</p></div>
+<div><strong>0 original source files moved</strong><p class="muted">Original assets, executable code, names and program histories stay where they were.</p></div>
+<div><strong>1 shared local launcher</strong><p class="muted">Shared navigation technology keeps standalone launch pages consistent without copying or rewriting application code.</p></div></div>
+<p class="small" id="registry-counts"></p>
+<p class="small">Restricted/private source readers, bundled native-app resources and test-only HTML are excluded from this new public directory. Browser launches may require supported permissions or work best using “Open original.”</p>
+<a href="./catalog.json">Inspectable standalone source manifest (JSON)</a> · <a href="./README.md">Source and build instructions</a></section>
+<p id="status" class="state" role="status"></p>
+<footer>Original programs are never deleted or changed by this directory. Private author files, account credentials and personal documents are not included or transferred to the Chatbox.</footer>
+</div></body></html>

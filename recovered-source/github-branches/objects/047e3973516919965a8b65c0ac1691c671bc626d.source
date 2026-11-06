@@ -1,0 +1,24 @@
+name: Nathan AI Private Source Intake
+on:
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/source-intake/**'
+      - 'app-factory/nathan-ai/hub.js'
+      - 'app-factory/nathan-ai/index.html'
+      - 'app-factory/nathan-ai/build-recovery/index.html'
+      - '.github/workflows/nathan-ai-intake.yml'
+  push:
+    paths:
+      - 'app-factory/nathan-ai/source-intake/**'
+      - '.github/workflows/nathan-ai-intake.yml'
+jobs:
+  static-intake-checks:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test app-factory/nathan-ai/source-intake/source-intake.test.cjs

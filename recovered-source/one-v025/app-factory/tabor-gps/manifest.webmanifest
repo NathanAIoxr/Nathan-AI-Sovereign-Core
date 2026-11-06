@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "TABOR GPS — The Genius GPS",
+  "short_name": "TABOR GPS",
+  "description": "Mother Earth × Father Time: educational coordinates, headings and personal orientation.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b1726",
+  "theme_color": "#0b1726",
+  "icons": [
+    {
+      "src": "../icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

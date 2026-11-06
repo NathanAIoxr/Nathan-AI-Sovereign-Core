@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07101f"><meta name="description" content="NATHAN TABOR OCTOPUS: original cosmic arena defense game and Sovereign Continuum mathematical companion app.">
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml">
+<title>NATHAN TABOR OCTOPUS — Video Game + Root App</title><link rel="stylesheet" href="./app.css">
+</head><body>
+<div class="stars" aria-hidden="true"></div><main>
+<header class="mast">
+ <div class="topline"><a href="../index.html">🐙 OCTOPUS ROOT</a><span>NATHAN AI 🚀 · TABOR 1–2–3 FACTORY</span><a href="../../index.html">FACTORY HOME ↗</a></div>
+ <div class="brand"><div class="brand-symbol">🐙</div><div><p class="eyebrow">THE SOVEREIGN CONTINUUM PRESENTS</p><h1>NATHAN TABOR <em>OCTOPUS</em></h1><p class="tagline">THE ARSENAL OF THE MIDDLE C</p></div></div>
+ <div class="manifesto">ROOT <span>→</span> BRANCH <span>→</span> RECEPTOR <span>→</span> TEST <span>→</span> ATTACH</div>
+</header>
+<nav class="tabs" aria-label="Game and application modes">
+ <button class="tab active" data-tab="arena" type="button">⚔️ ARENA</button>
+ <button class="tab" data-tab="arsenal" type="button">🐙 ARSENAL</button>
+ <button class="tab" data-tab="laboratory" type="button">⚗️ FORMULA LAB</button>
+ <button class="tab" data-tab="codex" type="button">📚 ROOT CODEX</button>
+ <button class="tab" data-tab="workshop" type="button">🔧 WORKSHOP</button>
+ <button class="tab" data-tab="root" type="button">🌌 ROOT LINK</button>
+</nav>
+
+<section class="screen active" id="view-arena" aria-labelledby="title-arena">
+ <div class="sectionhead"><div><p class="eyebrow">CHAPTER CAMPAIGN · 5 WORLDS · 15 WAVES</p><h2 id="title-arena">THE INNOCENCE DEFENSE</h2><p>Defend the glowing Sanctuary. The targets are fictional rift drones, not people. All eight tentacles use original game powers inspired by the equations.</p></div><div class="chapter"><span id="regionTitle">VOID FOLD</span><strong id="waveCount">WAVE 0 / 15</strong></div></div>
+ <div class="hud" aria-label="Current game status">
+   <div><small>SANCTUARY</small><strong id="hullText">100%</strong><meter id="hullMeter" min="0" max="100" value="100">100%</meter></div>
+   <div><small>ROOT ENERGY</small><strong id="energyText">100</strong><meter id="energyMeter" min="0" max="100" value="100">100</meter></div>
+   <div><small>RIFT DRONES</small><strong id="enemyText">0</strong></div>
+   <div><small>SCORE</small><strong id="scoreText">0</strong></div>
+   <div><small>ROOT TOKENS</small><strong id="tokensText">35</strong></div>
+ </div>
+ <div class="arena-shell">
+  <canvas id="arenaCanvas" width="960" height="630" tabindex="0" aria-label="Octopus arena. Tap or click a rift drone to fire the selected tentacle. Number keys 1 to 8 select an attack; Space fires at nearest drone; P pauses." role="img"></canvas>
+  <div id="arenaOverlay" class="overlay"><div class="overlay-card"><p class="eyebrow" id="overlayEyebrow">READY TO BEGIN</p><h3 id="overlayTitle">ONE OCTOPUS. EIGHT TENTACLES.</h3><p id="overlayText">Protect the center, choose your tentacle, and clear all fifteen waves.</p><button id="waveStart" class="gold" type="button">START WAVE 1 ▶</button></div></div>
+  <div class="notification" id="notice" role="status" aria-live="polite"></div>
+ </div>
+ <div class="controlsline"><button type="button" id="pauseButton" class="ghost">⏸ PAUSE</button><button type="button" id="autoButton" class="ghost" aria-pressed="false">◎ AUTO-DEFEND: OFF</button><button type="button" id="soundButton" class="ghost" aria-pressed="false">♫ SOUND: OFF</button><button type="button" id="restartButton" class="ghost">↻ NEW RUN</button><label class="toggle"><input type="checkbox" id="motionToggle"> Reduced motion</label></div>
+ <p class="hint">PLAY: tap/click the arena to attack · 1–8 to change tentacles · SPACE to defend nearest · P to pause · adjust weapons below. Auto-defend is optional.</p>
+ <div id="quickWeapons" class="weapon-grid" aria-label="Eight selectable tentacle weapons"></div>
+</section>
+
+<section class="screen" id="view-arsenal"><div class="sectionhead"><div><p class="eyebrow">EIGHT ARMS · EIGHT ORIGINAL POWERS</p><h2>THE OCTOPUS ARSENAL</h2><p>Every attack has its own game mechanic and a linked mathematical formula. These are fictional energy effects, not physical construction instructions.</p></div></div><div id="arsenalCards" class="cards two"></div></section>
+
+<section class="screen" id="view-laboratory"><div class="sectionhead"><div><p class="eyebrow">ABOVE C ↔ MIDDLE C ↔ BELOW C</p><h2>THE CALIBRATION LAB</h2><p>Evaluate real equations, practice forward and inverse reasoning, and earn a small in-game reward the first time you calibrate each of the 25 interactive gates.</p></div></div>
+ <div class="lab-layout">
+  <div class="panel"><label for="labGate">Choose a mathematical receptor</label><select id="labGate"></select><label for="labDirection">Calculation direction</label><select id="labDirection"><option value="forward">⏩ Above C: Predict output</option><option value="backward">⏪ Below C: Reconstruct input</option></select><div id="labInputs" class="form-columns"></div><div class="button-row"><button type="button" id="labSolve">RUN THE EQUATION</button><button type="button" class="ghost" id="labHint">REVEAL INPUT HINT</button><button type="button" class="ghost" id="labChallenge">NEW CHALLENGE</button></div></div>
+  <div class="panel"><p class="eyebrow">MIDDLE C VERIFICATION</p><h3 id="labGateName">THE VOID WALL</h3><div id="labFormula" class="formula"></div><p id="labBoundary" class="footnote"></p><div class="target"><small>TARGET OUTPUT</small><strong id="labTarget">—</strong><small>YOUR CALCULATED OUTPUT</small><strong id="labOutput">—</strong></div><p id="labStatus" class="status" role="status" aria-live="polite"></p><p class="footnote">Each interactive gate can grant tokens once. This is an educational numerical puzzle, not a laboratory certification.</p></div>
+ </div>
+</section>
+
+<section class="screen" id="view-codex"><div class="sectionhead"><div><p class="eyebrow">THE COMPLETE SOVEREIGN FIELD MANUAL</p><h2>31 ROOT RECEPTORS</h2><p>25 runnable JavaScript formulas and six documented Python experiments. Every record preserves its assumptions and limitations.</p></div></div>
+ <div class="searchbar"><label for="searchGates">Find a weapon, formula, or branch</label><input id="searchGates" type="search" placeholder="Search 31 gates…"><label for="filterFamily">Family</label><select id="filterFamily"><option value="all">All five families</option></select></div><div id="codexCards" class="cards three"></div></section>
+
+<section class="screen" id="view-workshop"><div class="sectionhead"><div><p class="eyebrow">NO PAY-TO-WIN · NO MONEY · JUST GAMEPLAY</p><h2>THE TENTACLE WORKSHOP</h2><p>Use earned Root tokens to strengthen powers up to Level 5. All progress is saved in this browser; no payments or accounts.</p></div><div class="wallet">ROOT TOKENS <strong id="walletValue">35</strong></div></div><div id="upgradeCards" class="cards two"></div><div class="panel"><h3>Progress archive</h3><div id="careerInfo" class="stats"></div><div class="button-row"><button id="exportSave" class="ghost" type="button">EXPORT GAME SAVE</button><label class="filebutton">IMPORT GAME SAVE <input id="importSave" type="file" accept=".json,application/json"></label><button id="resetSave" class="danger" type="button">RESET LOCAL PROGRESS</button></div><p id="saveMessage" class="footnote" aria-live="polite"></p></div></section>
+
+<section class="screen" id="view-root"><div class="sectionhead"><div><p class="eyebrow">THE MIDDLE C · SOURCE PRESERVATION</p><h2>CONNECT THE OCTOPUS ROOT</h2><p>The game and laboratory can explicitly graft their existing Continuum formulas into your original local Octopus graph. No other projects are overwritten and no external account is accessed.</p></div></div>
+ <div class="cards two"><div class="panel"><h3>Root graph health</h3><div id="rootStats" class="stats"></div><button type="button" id="refreshRoot" class="ghost">REFRESH ROOT STATE</button><button type="button" id="graftRoot">GRAFT CONTINUUM FORMULAS</button><p id="rootMessage" class="footnote" role="status" aria-live="polite"></p></div><div class="panel"><h3>Where your roots connect</h3><p><strong>OCTOPUS ROOT</strong> retains source records and nodes; <strong>SOVEREIGN CONTINUUM</strong> owns numerical models; <strong>OCTOPUS ARSENAL</strong> uses original fictional gameplay rules. The three modules have separate responsibilities.</p><div class="button-row"><a class="linkbutton" href="../index.html">OPEN ROOT</a><a class="linkbutton" href="../sovereign-continuum/index.html">OPEN NUMERICAL LAB</a><a class="linkbutton" href="../sovereign-fields/index.html">OPEN FIELD LAB</a></div></div></div>
+ <div class="panel"><h3>App installation and rights</h3><p>On a compatible phone browser, choose the browser's Add to Home Screen command for this web app. This is a playable offline-capable web game / progressive web app, not a signed App Store or Google Play binary. Its graphics and story-world labels are original; mathematics remains an educational reference, and existing open-source license notices must be retained.</p><button class="ghost" id="installHelp">INSTALLATION DETAILS</button><p id="installMessage" class="footnote"></p></div></section>
+<footer>© NATHAN AI · NATHAN TABOR OCTOPUS · FORM MORPHS. ARCHITECTURE REMAINS. · All weapons and enemies are fictional. <a href="./README.md">Project guide</a>.</footer>
+</main>
+<script src="../engine.js"></script>
+<script src="../sovereign-continuum/engine.js"></script>
+<script src="./game.js"></script>
+<script src="./app.js"></script>
+</body></html>

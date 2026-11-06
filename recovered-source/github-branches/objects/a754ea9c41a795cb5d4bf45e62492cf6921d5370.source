@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark"><title>NATHAN AI 🚀 · Sovereign Mining & Wallet Command Center</title>
+<style>
+:root{font:16px system-ui,sans-serif;color:#ecf4ff;background:#0b1320}*{box-sizing:border-box}body{margin:0;line-height:1.5}
+header,main,footer{max-width:1160px;margin:auto;padding:24px}header{border-bottom:1px solid #2b3c50}
+a{color:#86d8fe}h1{font-size:clamp(1.7rem,4vw,2.7rem);margin:.2rem 0}.eyebrow{letter-spacing:.16em;color:#89d9d9;font-size:.75rem;font-weight:700}
+nav{display:flex;gap:15px;flex-wrap:wrap}section{margin:24px 0}.subtitle,.small{color:#b3c7db}.small{font-size:.84rem}
+.panel{border:1px solid #38516b;border-radius:14px;background:#112035;padding:20px;margin:12px 0}
+.controls{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}label{display:block;font-weight:650}
+input{background:#061322;color:white;border:1px solid #7090ae;border-radius:8px;padding:12px;min-width:235px;margin-top:5px}
+button{border:0;background:#8be1ff;color:#081322;padding:12px 17px;border-radius:9px;cursor:pointer;font-weight:750}
+button:disabled{opacity:.5;cursor:not-allowed}button.secondary{background:#263e56;color:#eef7ff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}.provider{padding:18px;border:1px solid #35506d;border-radius:14px;background:#102032}
+.provider h3{margin:0 0 6px;font-size:1.08rem}.provider p{margin:8px 0}.meta{color:#8ccbe2;font-size:.79rem}
+.status{color:#ffd29b;font-size:.84rem;font-weight:650}.status.live{color:#8becc4}
+pre{color:#e9f7ff;background:#050e18;padding:16px;border-radius:12px;white-space:pre-wrap;word-break:break-word;max-height:520px;overflow:auto}
+.notice{border-left:4px solid #8be1ff;padding-left:14px}.bad{color:#ffb5b5}
+@media(max-width:600px){header,main,footer{padding:18px}}
+</style><script type="module" src="./dashboard.mjs"></script></head>
+<body><header><nav aria-label="App navigation"><a href="../index.html">21 Sovereign Coin Matrix</a><a href="../../index.html">Nathan AI Main Hub</a><a href="../../../one/index.html">ONE</a><a href="../anchored/index.html">Alpha/Beta</a></nav></header>
+<main><p class="eyebrow">NATHAN AI 🚀 / TABOR ROOT / THE FACTORY / ONE</p>
+<h1>Sovereign Mining & Wallet Command Center</h1>
+<p class="subtitle">One source-preserving integration hub for miners, rigs, blockchain nodes, wallet software, pools, prices and power measurements. Your 21 ring definitions remain independent of third-party cryptocurrencies.</p>
+<section class="panel"><h2>Local read-only gateway</h2>
+<p class="small">Open this page through the local Node gateway to read configured providers. A public static-hosted page displays the integration catalog only. No wallet keys, seed phrases, or transfer permissions are collected here.</p>
+<div class="controls"><div><label for="session-token">Gateway session token</label><input type="password" id="session-token" autocomplete="off" placeholder="Paste token shown in local terminal"></div>
+<button id="check" type="button">Check connections</button><button id="all" type="button" class="secondary">Read configured sources</button></div>
+<p id="connection-status" role="status" aria-live="polite" class="small">Local gateway not yet contacted.</p></section>
+<section><h2>All 17 integration adapters</h2><div id="provider-grid" class="grid"><p>Loading source registry…</p></div></section>
+<section class="panel"><h2>Measurements and source evidence</h2><p class="small">Read-only observations appear here with provider IDs and observation timestamps. No earnings or wallet holdings are inferred from a local demo allocation.</p>
+<pre id="observations" aria-live="polite">No external measurements retrieved.</pre></section>
+<section class="panel"><h2>16:1 design target — measured input calculator</h2>
+<div class="controls"><label>Verified output USD<input id="revenue" type="number" min="0" step="any" placeholder="0.00"></label>
+<label>Measured electricity USD<input id="electricity" type="number" min="0" step="any" placeholder="0.00"></label>
+<button id="calculate" type="button">Compare</button></div><p id="ratio-result">No measurements entered. This is the original 16:1 target, not a verified performance claim.</p></section>
+<section class="notice"><strong>Wallet permissions:</strong> Reown AppKit, Trezor Connect, and Coinbase Wallet SDK are represented by SDK integration contracts, not pre-authorized wallet sessions. A later wallet client must request approval in the owner’s wallet. Never paste a seed phrase here. Provider-specific API credentials belong in a private server environment.</section>
+</main><footer class="small">NATHAN AI — additive integration. Source definitions remain unchanged. No mining payout, wallet connection, or proxy deployment is claimed until confirmed by its respective provider.</footer></body></html>

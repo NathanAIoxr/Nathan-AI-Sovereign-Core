@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#10283b">
+<title>DEHACK THE WORLD · DELIVER THE WORLD — NATHAN AI</title>
+<meta name="description" content="Source-preserving Nathan AI A–Z consumer tools, root formulas, evidence inspection and side-by-side text review.">
+<link rel="stylesheet" href="../appearance/shared.css" data-nathan-shared-appearance>
+<script src="../appearance/engine.js"></script><script src="../appearance/app.js"></script>
+<link rel="stylesheet" href="../launcher/shared.css" data-nathan-command-center>
+<script src="../workspace.js" defer></script><script src="../assistant/engine.js" defer></script>
+<script src="../launcher/engine.js" defer></script><script src="../launcher/app.js" defer></script>
+<style>
+:root{color-scheme:dark;--bg:#0b1827;--panel:#162f42;--panel2:#1c3b50;--edge:#5a7a8e;--ink:#f4f8fa;--muted:#c0d3dd;--gold:#ffde9a;--mint:#a7eee1;font:16px/1.56 system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--ink)}
+*{box-sizing:border-box}body{margin:0}main{max-width:1280px;margin:auto;padding:20px 16px 64px}h1{font-size:clamp(2rem,5vw,3.8rem);letter-spacing:-.05em;line-height:1.12;margin:12px 0}h2{font-size:1.35rem;margin:0 0 12px}h3{font-size:1.08rem;margin:0 0 6px}p{line-height:1.57}a{color:var(--mint);text-underline-offset:3px}.hero{background:linear-gradient(115deg,#254c5f,#102739 70%);border:1px solid #6d91a2;border-radius:21px;padding:clamp(18px,4vw,38px)}.eyebrow{font-size:.77rem;text-transform:uppercase;letter-spacing:.13em;font-weight:800;color:var(--gold)}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.chip{font-size:.8rem;background:#254659;border:1px solid #638493;padding:5px 11px;border-radius:99px}.panel{background:var(--panel);border:1px solid var(--edge);border-radius:16px;padding:18px;margin:17px 0}.warning{border-left:4px solid var(--gold);background:#343125;color:#fff0c4;padding:12px 16px;border-radius:6px}.cols{display:grid;grid-template-columns:1fr 1fr;gap:15px}.ctrls{display:flex;gap:11px;flex-wrap:wrap;align-items:end}label{display:block;font-weight:650;margin:10px 0 5px;color:var(--muted)}input,textarea,select,button{font:inherit;border:1px solid #7f9aad;border-radius:10px;color:var(--ink);background:#0e2537;padding:10px 12px;max-width:100%}textarea{min-height:115px;width:100%;resize:vertical}input[type=search],input[type=number],select{width:100%}input[type=file]{width:100%}button{cursor:pointer;background:#284d63;font-weight:700}button:hover{background:#365f77}button:focus-visible,a:focus-visible,textarea:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}button:disabled{opacity:.45;cursor:not-allowed}.primary{background:var(--gold);color:#10283b}.muted,small{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,265px),1fr));gap:10px}.tool{padding:13px;border:1px solid #54788d;background:#112a3d;border-radius:12px;display:flex;flex-direction:column;gap:9px}.tool button{margin-top:auto;text-align:left}.tool p{margin:0;font-size:.9rem;color:var(--muted)}.badge{font-size:.75rem;color:var(--gold)}.filters{display:flex;flex-wrap:wrap;gap:8px}.data{white-space:pre-wrap;overflow-wrap:anywhere;background:#0d2332;border:1px solid #4e7283;padding:13px;border-radius:11px;max-height:350px;overflow:auto}.scroll{max-height:580px;overflow:auto}.state{color:var(--mint);font-weight:650;min-height:22px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin:13px 0}.sources{display:flex;gap:12px;flex-wrap:wrap}.line{border:0;border-top:1px solid #4f7188;margin:20px 0}ul li{margin:7px 0}footer{color:var(--muted)}.check{display:inline-flex;gap:8px;align-items:center}.check input{width:17px;height:17px}@media(max-width:900px){.cols{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style></head><body><main>
+<header class="hero"><p class="eyebrow">NATHAN AI 🚀 · JOHN NATHAN TABOR · ORIGINAL WORDS PRESERVED</p><h1>DEHACK THE WORLD<br>DELIVER THE WORLD</h1>
+<p>BUILD the tools. CLEAR the local workspace. Preserve the source. Inspect what is claimed, what the original document says, and what the evidence actually supports.</p>
+<div class="chips"><span class="chip">1 + 1 = 2 · BUILD</span><span class="chip">1 − 1 = 0 · CLEAR</span><span class="chip">DATA ⇄ ATAD</span><span class="chip">YES IS YES · NO IS NO</span><span class="chip">PROTECT INNOCENCE</span></div>
+<div class="sources"><a href="../consumer/">Consumer Editions</a><a href="../../one/sovereign-acro-matrix/">Working MIDA / DATA⇄ATAD</a><a href="../sovereign-defender/">SOVEREIGN DEFENDER</a><a href="../program-jobs/">Program Jobs</a></div></header>
+<p class="warning"><strong>Source status:</strong> The uploaded directory says “101” but actually lists 104 A–Z items. All 104 original titles are retained. Six reusable processing actions are live; the remaining specialized projects are represented as source-linked worksheets until separately implemented and tested. No “lie” verdict, historical alteration, universal system access, or legal compliance is automatically certified.</p>
+<section class="panel" aria-labelledby="source-title"><p class="eyebrow">01 · Source lock</p><h2 id="source-title">Bring in the unchanged original</h2>
+<p>Choose the original <code>Pasted text.txt</code> file from the supplied preservation package. Its original descriptions will be displayed verbatim beside the tool names. The file stays inside this browser session; nothing is uploaded by this page.</p>
+<label for="originalFile">Original A–Z source file</label><input id="originalFile" type="file" accept=".txt,text/plain">
+<p id="sourceStatus" role="status" class="state">104 original titles indexed · Full verbatim descriptions available after local file import.</p>
+<div class="actions"><button type="button" id="exportSource" disabled>Download unchanged imported source</button><button type="button" id="exportCatalog">Export 104-title catalog</button></div>
+</section>
+<div class="cols">
+<section class="panel" id="root" aria-labelledby="root-title"><p class="eyebrow">02 · Formula clarity</p><h2 id="root-title">1 + 1 = 2 / 1 + 1 = 10₂</h2>
+<p>The decimal and binary displays describe the same quantity. The consumer can choose a presentation without changing underlying numerical value, private records or permissions.</p>
+<div class="ctrls"><div><label for="leftValue">First count</label><input id="leftValue" type="number" min="0" max="1000000" step="1" value="1"></div><div><label for="rightValue">Second count</label><input id="rightValue" type="number" min="0" max="1000000" step="1" value="1"></div><button id="runRadix" type="button">Show both representations</button></div>
+<pre id="radixResult" class="data" aria-live="polite">Decimal 1 + 1 = 2
+Binary 1₂ + 1₂ = 10₂
+The numeric result is the same.</pre></section>
+<section class="panel" id="filters" aria-labelledby="filter-title"><p class="eyebrow">03 · Three original review modes</p><h2 id="filter-title">Man-made · Jerome · God</h2>
+<div class="filters" id="filterControls"></div>
+<p class="muted" id="filterExplanation">Choose a filter to inspect statements while retaining the original document and interpretation as distinct records.</p>
+<p><a href="https://www.cambridge.org/core/elements/publication-and-the-papacy-in-late-antiquity-and-the-middle-ages/78C5854618434D989DDAC40BDEE079C7" target="_blank" rel="noopener noreferrer">Jerome historical background (Cambridge)</a> · <a href="https://academic.oup.com/book/12425/chapter/162891532" target="_blank" rel="noopener noreferrer">Textual criticism context (Oxford)</a></p>
+</section></div>
+<section class="panel" id="workbench" aria-labelledby="work-title"><p class="eyebrow">04 · Live consumer tools</p><h2 id="work-title">Source-controlled processing workbench</h2>
+<p class="muted" id="modeStatus">Select a source tool or review mode. Changes remain previews until you explicitly download them.</p>
+<div class="cols"><div><label for="inputA" id="labelA">Original passage or claim</label><textarea id="inputA" placeholder="Paste original text or a test example…"></textarea></div><div><label for="inputB" id="labelB">Alternative text or source citation</label><textarea id="inputB" placeholder="Paste a comparison version, citation or reasoning…"></textarea></div></div>
+<div class="actions"><button type="button" class="primary" id="runTool">Run selected local tool</button><button type="button" id="exportResult" disabled>Export review JSON</button><button type="button" id="clearTool">CLEAR local workbench</button></div>
+<p id="workStatus" class="state" role="status">No review has been run.</p><pre id="toolOutput" class="data">Your unchanged source and a separately labeled output will appear here.</pre>
+</section>
+<section class="panel" id="directory" aria-labelledby="directory-title"><p class="eyebrow">05 · A–Z · All original names</p><h2 id="directory-title">104 creator-listed tools</h2>
+<div class="ctrls"><div style="flex:2;min-width:200px"><label for="find">Search original titles and descriptions</label><input type="search" id="find" placeholder="Source, Bible, truth, land, home, wellness…"></div><div style="flex:1;min-width:130px"><label for="letter">Letter</label><select id="letter"><option value="all">All 26 letters</option></select></div></div>
+<p id="count" class="state" role="status"></p><div id="tools" class="grid scroll"></div>
+</section>
+<section class="panel"><p class="eyebrow">06 · Source provenance and boundaries</p><h2>From the promised name to a verifiable deliverable</h2>
+<ul><li>Every original title is in the live searchable register. A source worksheet opens for every title, but a specialized feature is marked unbuilt until its actual code is present.</li>
+<li>The three filters are preserved as the author's names for review operations. They do not automatically erase religious beliefs, historical documents, or allegations from the source.</li>
+<li>Claims about manuscripts, institutions or harm require inspectable original documents, translations and relevant context. Side-by-side differences alone do not establish motive or deception.</li>
+<li>No access to private accounts, remote systems, financial assets or other people's records is implied. Permissions and privacy remain separate from binary numeric notation.</li></ul>
+</section>
+<footer><p><strong>NATHAN AI 🚀</strong> · BUILD · CLEAR · ORIGINALS PRESERVED. User inputs are held in page memory unless you explicitly export. Browsers and the website host may still process routine page requests. <a href="./README.md">Source and test documentation</a></p></footer>
+</main>
+<script src="./catalog.js"></script><script src="./engine.js"></script><script src="./app.js" defer></script>
+</body></html>

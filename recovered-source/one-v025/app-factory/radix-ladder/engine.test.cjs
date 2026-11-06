@@ -1,0 +1,13 @@
+'use strict';const test=require('node:test'),assert=require('node:assert/strict'),e=require('./engine.js');
+const expected={2:'100001',3:'1020',4:'201',5:'113',6:'53',7:'45',8:'41',9:'36',10:'33',12:'29',13:'27',17:'1G',21:'1C',33:'10',69:'X'};
+test('all requested conversions of decimal 33 are mathematically exact',()=>{for(const [base,val] of Object.entries(expected))assert.equal(e.encode(33,+base),val,'base '+base)});
+test('base-12 native symbols',()=>{assert.equal(e.encode(10,12),'↊');assert.equal(e.encode(11,12),'↋');assert.equal(e.decode('↋',12),11n)});
+test('round trips all radix 2 through 69',()=>{for(let base=2;base<=69;base++)for(const v of [0n,1n,33n,69n,102400n,999999999999999999999999999999n,-9876543210987654321n])assert.equal(e.decode(e.encode(v,base),base),v)});
+test('unary bounds and zero',()=>{assert.equal(e.encode(5,1),'11111');assert.equal(e.decode('11111',1),5n);assert.equal(e.encode(0,1),'0');assert.throws(()=>e.encode(10001,1))});
+test('base zero is semantic status, not arithmetic',()=>{assert.throws(()=>e.encode(1,0),/DISCONNECTED/);assert.equal(e.connector('disconnected',true).canSend,false)});
+test('permission flags do not bypass disconnected interface',()=>assert.equal(e.connector('disconnected',true).canSend,false));
+test('no outgoing authority granted by math tokens alone',()=>{assert.equal(e.connector('connected',false).canSend,false);assert.equal(e.connector('connected',true).canSend,true)});
+test('preserves signed arbitrary-length integers',()=>{const n='-123456789012345678901234567890';assert.equal(e.decode(e.encode(n,69),69).toString(),n)});
+test('invalid symbols and hostile inputs are rejected',()=>{assert.throws(()=>e.decode('not-valid?',12));assert.throws(()=>e.encode(0.5,12));assert.throws(()=>e.decode('',12));assert.throws(()=>e.encode(2,70))});
+test('each digit is independent sovereign box',()=>{assert.deepEqual(e.boxTokens('10',33).map(x=>x.symbol),['1','0']);assert.equal(e.boxTokens('10',33).length,2)});
+test('fixed symbols have 69 distinct tokens',()=>assert.equal(new Set(e.digits(69)).size,69));

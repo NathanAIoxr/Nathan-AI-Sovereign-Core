@@ -1,0 +1,4 @@
+PASS campaign: cancel/keyboard focus, real swipe, immediate following tap, injected resolution failure rollback, reversible recovery and damaged-byte preservation.
+PASS spiral: remaining fraction, manual pause, simulated hidden-tab pause, active-time resume, paused reload and atomic malformed-clock rejection.
+PASS Studio: cancel/Home/End, reversible recovery, transaction rollback after an injected engine exception, atomic invalid metadata rejection and damaged-byte preservation.
+PASS attempt review/next trial. No browser exceptions.

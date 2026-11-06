@@ -1,0 +1,28 @@
+✔ Studio generation is seeded, stable, legal and six-color across 50 seeds (476.759796ms)
+✔ all 64 cells use Manhattan neighbors without row wrap or diagonals (0.246914ms)
+✔ an invalid swap restores IDs, colors, powers, RNG, score and moves exactly (6.682025ms)
+✔ a four-run earns an oriented line power and protects its creation tile (20.458611ms)
+✔ a five-run earns a spectrum instead of a line power (11.499148ms)
+✔ a T/L intersection earns a blast at the intersection (10.28482ms)
+✔ row and column powers clear their entire actual lane (28.478001ms)
+✔ a corner blast clips its 3×3 footprint at the board edge (7.09433ms)
+✔ spectrum + normal clears the chosen symbol, not an unrelated frequent symbol (9.327171ms)
+✔ spectrum + spectrum clears all 64 cells once; each power activates once (8.414098ms)
+✔ spectrum + row power converts the symbol and chains across the board (10.064336ms)
+✔ power + power combines both lanes and gravity preserves survivors’ order (13.626148ms)
+✔ legal-move analysis is non-destructive and never reads future random state (84.253652ms)
+✔ dead-board recovery keeps score, budget, moves, tile IDs and powers (20.600737ms)
+✔ 25 full seeded runs finish with genuine score targets and exact per-turn save/restore (3344.134576ms)
+✔ loss and last-move win follow score-first outcome ordering (20.050815ms)
+✔ malformed saves reject invalid IDs, colors, powers, outcomes and animation traces (32.451208ms)
+✔ architecture has exactly 26 forward and 26 reverse entries with supplied endpoint provenance (0.1851ms)
+✔ all 52 live inspection results are read-only and distinguish observed checks from unexercised features (14.827734ms)
+✔ blueprint preserves every named engineering system and reverse provenance (0.51534ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4184.370948

@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0d1723"><title>Private ONE v025 · Match-3 A–Z Studio</title>
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color-scheme:dark;--ink:#eef4fa;--muted:#b9cad9;--line:#476075;--gold:#efd7a3}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:radial-gradient(ellipse at top right,#284556,transparent 60%),#0d1723}main{max-width:1220px;margin:auto;padding:22px 20px 60px}a{color:var(--gold)}button,input,select{font:inherit;color:var(--ink);background:#23394b;border:1px solid #668195;border-radius:10px;padding:10px 13px}button{cursor:pointer}button:disabled{cursor:default;opacity:.5}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #a3f0e9;outline-offset:3px}h1{font-size:clamp(2.6rem,7vw,5.4rem);letter-spacing:-.07em;line-height:1.02;margin:13px 0}h2{font-size:1.3rem;margin:8px 0}h3{font-size:1rem}p{line-height:1.6;color:var(--muted)}small,.small{font-size:.83rem;color:var(--muted)}.eyebrow{font-size:.73rem;font-weight:750;text-transform:uppercase;letter-spacing:.13em;color:var(--gold)}.between,.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.between{justify-content:space-between}.hero{padding:25px 28px;border:1px solid #77869a;background:linear-gradient(130deg,#234451,#17273c 75%);border-radius:22px}.hero p{max-width:760px;margin-bottom:0}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.tabs [aria-selected=true],.primary{background:var(--gold);border-color:var(--gold);color:#172632;font-weight:750}.panel{padding:19px;background:#172738e8;border:1px solid var(--line);border-radius:18px}.play-layout{display:grid;grid-template-columns:minmax(320px,1.35fr) minmax(260px,1fr);gap:18px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}.stat{background:#263e50;border:1px solid #516d80;border-radius:12px;padding:10px}.stat strong{display:block;font-size:1.5rem}.stat span{font-size:.73rem;color:var(--muted)}.board{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px;width:100%;max-width:600px;margin:16px auto;touch-action:none;user-select:none}.gem{position:relative;aspect-ratio:1;min-height:34px;min-width:0;padding:0;display:grid;place-items:center;background:radial-gradient(ellipse at 30% 15%,color-mix(in srgb,var(--gem) 28%,#314052),#152538 90%);border:1px solid color-mix(in srgb,var(--gem) 70%,#263c4a);box-shadow:inset 0 -4px #0004;color:var(--gem);font-size:clamp(1.1rem,3.7vw,2.3rem);border-radius:13px;transition:transform .14s ease;opacity:1!important}.gem.selected{outline:3px solid #fff;outline-offset:1px}.gem.hinted{outline:3px solid #a5f4bc;outline-offset:1px}.gem .power{position:absolute;right:2px;bottom:1px;font-size:clamp(.7rem,2.6vw,1.15rem);color:#fff;background:#0d1723c9;border-radius:5px;padding:1px 3px}.gem[data-power=spectrum]{background:conic-gradient(from 45deg,#355c72,#584781,#456859,#6b5144,#355c72);border-color:#fff}.gem.clearing{animation:clearFlash .16s ease both}.gem.arriving{animation:arrival .16s ease both}.gem[data-power]:not([data-power=""]){box-shadow:inset 0 0 12px #fff2,inset 0 -4px #0004}.status{padding:12px 14px;border-left:4px solid #a8d8e5;border-radius:8px;background:#243b4c;color:#e4f6fc;line-height:1.5;min-height:3.2em}.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.controls input[type=number]{width:145px}.power-list{display:grid;gap:10px}.power-list p{margin:0;padding:11px;background:#22374a;border-radius:10px}.legend{display:flex;gap:10px;flex-wrap:wrap;font-size:.95rem;margin:13px 0}.legend span{color:var(--gem)}.inspector-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}.inspector-toolbar input{flex:1;min-width:180px}.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:10px;max-height:800px;overflow:auto}.layer{border:1px solid #4d687a;border-radius:13px;padding:15px;background:#20364a}.layer h3{margin:7px 0;color:#f4dfba}.layer p{font-size:.88rem;margin:7px 0}.layer code{font-size:.75rem;overflow-wrap:anywhere;color:#ccdfef}.badge{font-size:.72rem;border:1px solid #718596;border-radius:20px;padding:4px 9px;display:inline-block}.pass{color:#baf1ce;border-color:#6d9c80}.fail{color:#ffbfc5;border-color:#d58b92}.ready{color:#f5dc9e;border-color:#a28b5b}.resources{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}.resources a{display:block;padding:14px;border:1px solid #566e80;border-radius:12px;background:#22384b;line-height:1.6}details{border-top:1px solid #496476;margin-top:14px;padding-top:8px}summary{cursor:pointer;padding:10px 0;color:var(--gold);font-weight:700}[hidden]{display:none!important}footer{margin-top:25px;font-size:.8rem;color:var(--muted)}@keyframes clearFlash{to{opacity:0;transform:scale(.45) rotate(15deg)}}@keyframes arrival{from{opacity:.4;transform:translateY(-10px)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){.gem{animation:none!important;transition:none!important}*{scroll-behavior:auto!important}}@media(max-width:750px){main{padding:14px 12px 40px}.hero{padding:22px}.panel{padding:13px}.play-layout{grid-template-columns:1fr}.board{gap:4px}.gem{border-radius:8px}.layers{max-height:600px}.stats{gap:5px}.stat{padding:8px}.stat strong{font-size:1.2rem}.stat span{font-size:.68rem}}
+</style></head><body><main>
+<header class="between"><a href="./index.html">v025 home</a><a href="./THE_33_PRIVATE_v025.html">← THE 33 campaign</a><a href="./app-factory/one/index.html">Private ONE v025</a></header>
+<section class="hero"><span class="eyebrow">MATCH-3 · THE A–Z STRUCTURAL GATEWAY · NATHAN TABOR</span><p><a href="./ROOTKEEP_PRIVATE_v025.html">Rootkeep · settlement and expeditions →</a></p><h1>Build the pattern.<br>Understand the engine.</h1><p>An original 8×8 power-gem workbench beside your 33-stage campaign. Play, inspect all 52 forward/reverse layers, and export the working rules. Free and local.</p></section>
+<nav class="tabs" role="tablist" aria-label="Studio views"><button id="play-tab" role="tab" aria-controls="play-view" aria-selected="true">Play workbench</button><button id="inspector-tab" role="tab" aria-controls="inspector-view" aria-selected="false">A–Z inspector · 52 layers</button><button id="rules-tab" role="tab" aria-controls="rules-view" aria-selected="false">Rules &amp; resources</button></nav>
+<section id="play-view" role="tabpanel" aria-labelledby="play-tab"><div class="play-layout"><section class="panel"><div class="stats"><div class="stat"><strong id="score">0</strong><span>Score</span></div><div class="stat"><strong id="target">1200</strong><span>Target</span></div><div class="stat"><strong id="turns">0/30</strong><span>Accepted moves</span></div><div class="stat"><strong id="run-wins">0</strong><span>Local wins</span></div></div><p id="status" class="status" role="status" aria-live="polite">Select two adjacent gems.</p><div id="board" class="board" role="group" aria-label="8 by 8 Match-3 board"></div><div class="controls"><button id="hint">Free hint</button><button id="play-hint" disabled>Play highlighted move</button><button id="retry">Retry this seed</button></div><div class="controls"><label>Seed <input id="seed" type="number" value="8291973" min="0" max="4294967295" step="1"></label><button id="start" class="primary">Start seed</button><button id="random">New puzzle</button></div><p id="storage-note" class="small" role="status"></p><div class="controls"><button id="recover-save" disabled>Recover previous autosave</button><button id="damaged-save" hidden>Download preserved save</button></div></section>
+<aside class="panel"><span class="eyebrow">SIX SYMBOLS · EARNED POWERS</span><h2>Make a better move.</h2><div class="legend"><span style="--gem:#70e5ed">◇ Cyan</span><span style="--gem:#cca5ff">○ Violet</span><span style="--gem:#ffdb91">△ Gold</span><span style="--gem:#8fe2b6">□ Jade</span><span style="--gem:#ffabb7">⬡ Coral</span><span style="--gem:#d9e8fc">✦ Silver</span></div><div class="power-list"><p><strong>4 in a line → ↔ / ↕</strong><br>Earn a row or column clearer.</p><p><strong>T / L intersection → ✹</strong><br>Earn a 3×3 area blast.</p><p><strong>5+ in a line → ✺</strong><br>Earn a spectrum. Swap it with a gem to clear that symbol; with another spectrum, clear the entire board.</p></div><p>Swap a power with a neighbor to activate it. A spectrum + another power converts the target symbol into that power before the chain reaction.</p><label><input id="sound" type="checkbox"> Enable generated match sounds</label><p id="motion" class="small"></p><div class="controls"><button id="export-save">Export game JSON</button><label>Import game <input id="import-save" type="file" accept="application/json,.json" style="max-width:210px"></label></div><details><summary>Current run statistics</summary><div id="run-stats"></div></details></aside></div></section>
+<section id="inspector-view" role="tabpanel" aria-labelledby="inspector-tab" hidden><section class="panel"><span class="eyebrow">26 SYSTEMS · TWO DIRECTIONS</span><h2>Inspect without changing the game.</h2><p>Pass means the current invariant was observed. Ready means the feature exists but has not been exercised in this session. These live checks are distinct from the automated regression suite.</p><p class="small">The supplied reverse endpoints are Z: Zero Clearing and A: Absolute Arrival. The other 24 reverse names are explicitly marked implementation-defined verification labels.</p><div class="inspector-toolbar"><input id="search" type="search" placeholder="Search labels, systems, mappings…" aria-label="Search engineering layers"><select id="direction" aria-label="Inspection direction"><option value="all">Both directions · 52</option><option value="forward">Forward · A–Z</option><option value="reverse">Reverse · Z–A</option></select><button id="audit">Run live checks</button></div><p id="layer-count" class="small"></p><div id="layers" class="layers"></div><div class="controls"><button id="export-matrix">Download all 52 layers · JSON</button><button id="export-blueprint">Download technical blueprint · Markdown</button></div></section></section>
+<section id="rules-view" role="tabpanel" aria-labelledby="rules-tab" hidden><section class="panel"><h2>Standard Match-3 process</h2><p><strong>Read input → validate neighbors → swap → find runs → rollback or commit → create powers → activate chains → clear → score → gravity → refill → cascade → check outcome → recover a dead board.</strong></p><p>Only adjacent orthogonal swaps are legal. A normal swap must make a match of at least three. Invalid swaps restore the exact board and do not spend a move. Powers can be activated by swapping them with any neighbor.</p><p>Reach 1,200 points in 30 accepted moves. Each cleared tile earns 10 × cascade depth; each activated power adds 25 points. Four-runs earn line powers, intersections earn blasts, and five-runs earn spectra. One power is created per connected matching component, protected during its creation wave. Existing powers trigger when cleared and can trigger other powers.</p><p>Power+power swaps combine their effects. Spectrum+power converts every tile of the other gem’s symbol into that power. Newly earned powers are free; there are no purchases or consumable paid hints.</p><p>Cascades are bounded to 32 resolution waves. The final board is stabilized and recovered without awarding unperformed clears. Recovery preserves score, move count and tile identities; it shuffles first, and can regenerate colors if repeated shuffles cannot produce a stable playable board.</p><p>Click/tap two gems, drag or swipe toward a neighbor, or focus a gem and use Space/Enter. Arrow keys move focus; Home/End jumps to the first/last gem. Escape or selecting the same gem again clears the selection. Input is locked during animation. Reduced-motion users get the same committed result without animated delays. Sound is off until explicitly enabled.</p><p>The inspector reads current state only. Switching to reverse Z–A never undoes play or clears saved data. Detailed source and executable tests are included in the private v025 package.</p><h2>Free development resources</h2><p>No third-party source or artwork is used by this workbench. These are the references supplied with the blueprint; verify their current licenses before importing them into a distributed product.</p><div class="resources"><a href="https://godotengine.org/download/" target="_blank" rel="noopener noreferrer">Godot Engine<br><small>User-supplied reference: MIT engine</small></a><a href="https://github.com/phaserjs/phaser" target="_blank" rel="noopener noreferrer">Phaser<br><small>User-supplied reference: MIT JavaScript engine</small></a><a href="https://github.com/blikoor/godot-match-3" target="_blank" rel="noopener noreferrer">Godot Match-3 example<br><small>User-supplied reference: MIT educational source</small></a><a href="https://github.com/Cthulhu2/match3" target="_blank" rel="noopener noreferrer">Godot Match-3 with bombs<br><small>User-supplied reference: MIT C# example</small></a><a href="https://opengameart.org/content/gem-match-3-set" target="_blank" rel="noopener noreferrer">Match-3 gem artwork<br><small>User-supplied reference: CC0 PNG/vector assets</small></a><a href="https://opengameart.org/content/candy-match-3" target="_blank" rel="noopener noreferrer">Candy-style sprites<br><small>User-supplied reference: CC0 art</small></a></div></section></section>
+<footer>Private ONE v025 · Nathan Tabor · Original local rules and CSS art · Campaign, Studio and source remain together in this version.</footer>
+</main><script>
+/* Private ONE v025 — original 8×8 Match-3 workbench, no third-party code. */
+(function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.StudioMatch3=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){'use strict';
+const SIZE=8,COLORS=6,POWERS=[null,'row','column','blast','spectrum'];
+const clone=x=>JSON.parse(JSON.stringify(x));
+function random(s,n){s.randomState=(Math.imul(s.randomState>>>0,1664525)+1013904223)>>>0;return Math.floor(s.randomState/4294967296*n);}
+function tile(s,value=random(s,COLORS)){return {id:s.nextId++,value,power:null};}
+function adjacent(a,b){return Number.isInteger(a)&&Number.isInteger(b)&&a>=0&&a<64&&b>=0&&b<64&&Math.abs(Math.floor(a/8)-Math.floor(b/8))+Math.abs(a%8-b%8)===1;}
+function groups(board){
+ const result=[];
+ for(let i=0;i<64;i++)for(const stride of [1,8]){
+  const t=board[i];if(!t||t.power==='spectrum')continue;
+  const connected=(a,b)=>a>=0&&b<64&&(stride!==1||Math.floor(a/8)===Math.floor(b/8));
+  const equal=j=>board[j]&&board[j].power!=='spectrum'&&board[j].value===t.value;
+  if(connected(i-stride,i)&&equal(i-stride))continue;
+  let j=i+stride,line=[i];while(connected(j-stride,j)&&equal(j)){line.push(j);j+=stride;}
+  if(line.length>=3)result.push({cells:line,value:t.value,direction:stride===1?'row':'column'});
+ }
+ return result;
+}
+function components(matches){const sets=[];
+ for(const match of matches){let joined={cells:new Set(match.cells),groups:[match]};
+  for(let i=sets.length-1;i>=0;i--)if([...sets[i].cells].some(x=>joined.cells.has(x))){sets[i].cells.forEach(x=>joined.cells.add(x));joined.groups.push(...sets[i].groups);sets.splice(i,1);}
+  sets.push(joined);
+ }
+ return sets;
+}
+function creations(board,matches,preferred){const result=[];
+ for(const set of components(matches)){
+  const long=set.groups.find(g=>g.cells.length>=5),four=set.groups.find(g=>g.cells.length>=4),cross=[...set.cells].find(i=>set.groups.filter(g=>g.cells.includes(i)).length>1);
+  const power=long?'spectrum':cross!==undefined?'blast':four?four.direction:null;if(!power)continue;
+  const choices=[cross,...preferred,...set.cells].filter(i=>i!==undefined&&set.cells.has(i)&&!board[i].power);
+  if(choices.length)result.push({slot:choices[0],power});
+ }
+ return result;
+}
+function effects(board,initial,handled=new Set()){const hits=new Set(initial),triggered=[],queue=[...hits],seen=new Set();
+ for(let p=0;p<queue.length;p++){
+  const i=queue[p],t=board[i];if(!t?.power||seen.has(i))continue;seen.add(i);triggered.push({slot:i,power:t.power});
+  const add=j=>{if(j>=0&&j<64&&!hits.has(j)){hits.add(j);queue.push(j);}};
+  if(t.power==='row')for(let c=0;c<8;c++)add(Math.floor(i/8)*8+c);
+  if(t.power==='column')for(let r=0;r<8;r++)add(r*8+i%8);
+  if(t.power==='blast')for(let r=Math.max(0,Math.floor(i/8)-1);r<=Math.min(7,Math.floor(i/8)+1);r++)for(let c=Math.max(0,i%8-1);c<=Math.min(7,i%8+1);c++)add(r*8+c);
+  if(t.power==='spectrum'&&!handled.has(i)){
+   const counts=Array(COLORS).fill(0);board.forEach(x=>{if(x&&x.power!=='spectrum')counts[x.value]++;});const value=counts.indexOf(Math.max(...counts));board.forEach((x,j)=>{if(x?.value===value)add(j);});
+  }
+ }
+ return {hits,triggered};
+}
+function swapCells(board,a,b){[board[a],board[b]]=[board[b],board[a]];}
+function powerSwap(board,a,b){
+ const x=board[a],y=board[b];if(!x.power&&!y.power)return null;
+ if(x.power==='spectrum'&&y.power==='spectrum')return {hits:new Set(Array.from({length:64},(_,i)=>i)),skipSpectrum:new Set([a,b])};
+ if(x.power==='spectrum'||y.power==='spectrum'){
+  const rainbow=x.power==='spectrum'?x:y,other=rainbow===x?y:x,hits=new Set([a,b]);
+  board.forEach((t,i)=>{if(t.value===other.value&&t.power!=='spectrum'){hits.add(i);if(other.power)t.power=other.power;}});return {hits,skipSpectrum:new Set([rainbow===x?a:b])};
+ }
+ return {hits:new Set([a,b]),skipSpectrum:new Set()};
+}
+function settle(s,hits){const b=s.board;for(const i of hits)b[i]=null;
+ for(let c=0;c<8;c++){const kept=[];for(let r=0;r<8;r++)if(b[r*8+c])kept.push(b[r*8+c]);const fresh=Array.from({length:8-kept.length},()=>tile(s)),column=fresh.concat(kept);for(let r=0;r<8;r++)b[r*8+c]=column[r];}
+}
+function stableFill(s){
+ for(let i=0;i<64;i++){
+  const blocked=new Set();if(i%8>=2&&s.board[i-1].power!=='spectrum'&&s.board[i-2].power!=='spectrum'&&s.board[i-1].value===s.board[i-2].value)blocked.add(s.board[i-1].value);
+  if(i>=16&&s.board[i-8].power!=='spectrum'&&s.board[i-16].power!=='spectrum'&&s.board[i-8].value===s.board[i-16].value)blocked.add(s.board[i-8].value);
+  const allowed=Array.from({length:COLORS},(_,v)=>v).filter(v=>!blocked.has(v));s.board[i].value=allowed[random(s,allowed.length)];
+ }
+}
+function moves(s){if(s.status!=='playing')return [];const result=[];
+ for(let a=0;a<64;a++)for(const b of [a+1,a+8])if(adjacent(a,b)){
+  const board=clone(s.board);swapCells(board,a,b);const matches=groups(board),forced=powerSwap(board,a,b);
+  if(!matches.length&&!forced)continue;
+  const made=creations(board,matches,[b,a]),clear=effects(board,forced?.hits||matches.flatMap(g=>g.cells),forced?.skipSpectrum),protectedSlots=new Set(made.map(m=>m.slot));
+  result.push({a,b,tiles:[...clear.hits].filter(i=>!protectedSlots.has(i)).length,powers:made.map(m=>m.power),activations:clear.triggered.length,rank:clear.hits.size*10+made.length*35+clear.triggered.length*15});
+ }
+ return result.sort((a,b)=>b.rank-a.rank||a.a-b.a||a.b-b.b);
+}
+function recover(s){if(moves(s).length&&groups(s.board).length===0)return false;
+ for(let attempt=0;attempt<100;attempt++){
+  for(let i=63;i>0;i--){const j=random(s,i+1);swapCells(s.board,i,j);}
+  if(groups(s.board).length===0&&moves(s).length){s.stats.reshuffles++;return true;}
+ }
+ stableFill(s);if(!moves(s).length){
+  // Guaranteed adjacent-swap pattern in the corner; no free initial triple.
+  s.board[0].value=0;s.board[1].value=1;s.board[2].value=0;s.board[9].value=0;
+  if(groups(s.board).length)stableFill(s);
+ }
+ if(!moves(s).length)throw Error('Could not recover a playable workbench');s.stats.reshuffles++;return true;
+}
+function initial(seed=8291973,settings={}){
+ if(!Number.isInteger(seed)||seed<0||seed>4294967295)throw Error('Invalid studio seed');
+ const goal=settings.goal??1200,budget=settings.budget??30;
+ if(!Number.isSafeInteger(goal)||goal<1||goal>10000000||!Number.isInteger(budget)||budget<1||budget>500)throw Error('Invalid studio target');
+ const s={schema:'one.v025.studio.session.v1',seed,randomState:seed,nextId:1,board:[],score:0,moves:0,goal,budget,status:'playing',stats:{invalid:0,cascades:0,bestCascade:0,powersMade:0,powersActivated:0,reshuffles:0},lastTurn:null};
+ s.board=Array.from({length:64},()=>tile(s));stableFill(s);recover(s);return s;
+}
+function signature(board){return board.map(t=>t.id+':'+t.value+':'+(t.power||'-')).join('|');}
+function swap(s,a,b){
+ if(s.status!=='playing')return false;
+ const before=signature(s.board);
+ if(!adjacent(a,b)){s.stats.invalid++;s.lastTurn={accepted:false,reason:'not_adjacent',before,after:before,frames:[]};return false;}
+ const old=clone(s.board);swapCells(s.board,a,b);let matching=groups(s.board),forced=powerSwap(s.board,a,b);
+ if(!matching.length&&!forced){s.board=old;s.stats.invalid++;s.lastTurn={accepted:false,reason:'no_match',before,after:signature(s.board),frames:[]};return false;}
+ s.moves++;let depth=0,cleared=0,made=0,activated=0,frames=[];const openingScore=s.score;
+ while((matching.length||forced)&&depth<32){
+  const start=clone(s.board),create=creations(s.board,matching,depth===0?[b,a]:[]),effect=effects(s.board,forced?.hits||matching.flatMap(g=>g.cells),forced?.skipSpectrum);
+  for(const item of create)effect.hits.delete(item.slot);
+  create.forEach(item=>{s.board[item.slot].power=item.power;});
+  const hits=[...effect.hits];s.score+=hits.length*10*(depth+1)+effect.triggered.length*25;
+  cleared+=hits.length;made+=create.length;activated+=effect.triggered.length;settle(s,effect.hits);
+  if(frames.length<8)frames.push({before:start,after:clone(s.board),cleared:hits,created:create,activated:effect.triggered});
+  forced=null;matching=groups(s.board);depth++;
+ }
+ s.stats.cascades+=depth;s.stats.bestCascade=Math.max(s.stats.bestCascade,depth);s.stats.powersMade+=made;s.stats.powersActivated+=activated;
+ if(s.score>=s.goal)s.status='won';else if(s.moves>=s.budget)s.status='failed';
+ // Even terminal exports contain a stable filled board.
+ const status=s.status;s.status='playing';const shuffled=recover(s);s.status=status;
+ s.lastTurn={accepted:true,a,b,cleared,cascades:depth,powersMade:made,powersActivated:activated,scoreGained:s.score-openingScore,reshuffled:shuffled,before,after:signature(s.board),frames};return true;
+}
+function validate(s){
+ if(!s||s.schema!=='one.v025.studio.session.v1'||!['playing','won','failed'].includes(s.status))throw Error('Unknown studio session');
+ for(const k of ['seed','randomState'])if(!Number.isInteger(s[k])||s[k]<0||s[k]>4294967295)throw Error('Invalid studio seed');
+ for(const k of ['nextId','score','moves','goal','budget'])if(!Number.isSafeInteger(s[k])||s[k]<0)throw Error('Invalid studio counters');
+ if(s.goal<1||s.goal>10000000||s.budget<1||s.budget>500||s.moves>s.budget||s.nextId<65)throw Error('Invalid studio budget');
+ const validBoard=b=>Array.isArray(b)&&b.length===64&&new Set(b.map(t=>t?.id)).size===64&&b.every(t=>t&&Number.isSafeInteger(t.id)&&t.id>0&&t.id<s.nextId&&Number.isInteger(t.value)&&t.value>=0&&t.value<COLORS&&POWERS.includes(t.power));
+ if(!validBoard(s.board)||groups(s.board).length)throw Error('Invalid or unsettled studio board');
+ for(const k of ['invalid','cascades','bestCascade','powersMade','powersActivated','reshuffles'])if(!Number.isSafeInteger(s.stats?.[k])||s.stats[k]<0)throw Error('Invalid studio statistics');
+ if(s.status==='won'&&s.score<s.goal||s.status==='failed'&&(s.moves<s.budget||s.score>=s.goal)||s.status==='playing'&&(s.moves>=s.budget||s.score>=s.goal))throw Error('Studio outcome disagrees with score/budget');
+ if(s.lastTurn!==null){const t=s.lastTurn;if(!t||typeof t.accepted!=='boolean'||!Array.isArray(t.frames)||t.frames.length>8||typeof t.before!=='string'||typeof t.after!=='string'||t.before.length>10000||t.after.length>10000)throw Error('Invalid studio turn record');
+  if(t.after!==signature(s.board))throw Error('Studio turn signature disagrees with board');
+  if(!t.accepted&&(t.before!==t.after||t.frames.length||!['not_adjacent','no_match'].includes(t.reason)))throw Error('Invalid rollback trace');
+  if(t.accepted){for(const name of ['cleared','cascades','powersMade','powersActivated','scoreGained'])if(!Number.isSafeInteger(t[name])||t[name]<0)throw Error('Invalid turn result');if(t.cascades<1||t.cascades>32||!adjacent(t.a,t.b)||typeof t.reshuffled!=='boolean')throw Error('Invalid accepted turn');}
+  for(const f of t.frames){
+   if(!validBoard(f.before)||!validBoard(f.after)||!Array.isArray(f.cleared)||f.cleared.length>64||new Set(f.cleared).size!==f.cleared.length||!f.cleared.every(i=>Number.isInteger(i)&&i>=0&&i<64))throw Error('Invalid studio animation trace');
+   for(const name of ['created','activated'])if(!Array.isArray(f[name])||f[name].length>64||!f[name].every(p=>Number.isInteger(p.slot)&&p.slot>=0&&p.slot<64&&p.power!==null&&POWERS.includes(p.power)))throw Error('Invalid power animation trace');
+  }
+ }
+ if(s.status==='playing'&&!moves(s).length)throw Error('Studio save has no legal move');return true;
+}
+function save(s){validate(s);return {schema:'one.v025.studio.save.v1',session:clone(s)};}
+function restore(data){if(data?.schema!=='one.v025.studio.save.v1')throw Error('Unknown studio save');validate(data.session);return clone(data.session);}
+return Object.freeze({SIZE,COLORS,POWERS,initial,adjacent,groups,moves,recover,swap,save,restore,validate,signature});
+});
+
+</script><script>
+/* Private ONE v025 — supplied A–Z labels and non-destructive live verification. */
+(function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.StructuralGateway=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){'use strict';
+const SYSTEMS=[
+ ['Application architecture','Alpha Foundation','Separate pure rules, browser presentation, progression and inspection.','studio-engine.js / studio-ui.js; engine.js / strategy.js','Supported schema and complete engine API.'],
+ ['Board generation','Blueprint Alignment','Seeded generation creates a stable, playable opening.','studio-engine.js: initial, stableFill, recover','64 cells, no initial free triples, at least one legal move.'],
+ ['Cell and tile models','Core Compliance','Stable tile identities carry a symbol and optional earned power.','studio-engine.js: tile, validate','Unique IDs, bounded symbols, supported power types.'],
+ ['Drag-and-swap input','Deterministic Direction','Pointer gestures and keyboard/click selection enter the same swap transaction.','studio-ui.js: pointer handlers, play','Actual pointer gesture count; keyboard-native tile controls.'],
+ ['Event sequencing','Energy Engine','One committed rule transaction is presented before new input is accepted.','studio-ui.js: locked; studio-engine.js: swap','UI lock state and atomic rule-phase status.'],
+ ['Falling gems and gravity','Facilitation Force','Surviving tiles preserve order and fall into cleared cells; new tiles enter above.','studio-engine.js: settle','Every settled column contains eight valid tiles.'],
+ ['Grid coordinates','Grid Geometry','Row/column and linear-index conversions preserve position.','studio-engine.js: adjacent, groups','Index → row/column → index round-trips for all 64 cells.'],
+ ['Hint detection','Homeplace Harmony','Hints enumerate productive adjacent swaps without predicting refills.','studio-engine.js: moves','A hint is present while active and is geometrically adjacent.'],
+ ['Invalid-swap rollback','Invariant Integrity','A nonmatching swap restores the exact previous board and spends no move.','studio-engine.js: swap / lastTurn','Rejected transaction signatures agree.'],
+ ['Journey and progression','Judiciary Justice','Score targets, retries and local win records make progress visible.','studio-ui.js: recordOutcome; profile.js: award','Nonnegative score, budget and local run records.'],
+ ['Keyframe animations','Key Lockout','Swaps, clear flashes and tile arrival animate with a reduced-motion path.','studio-ui.js: animateTurn; studio/index.html: keyframes','Rendered animations exercised or reduced-motion alternative selected.'],
+ ['Legal-move solver','Literalist Logic','Every proposed move is checked against adjacency, matches and powers.','studio-engine.js: moves','All current candidates are legal adjacent pairs.'],
+ ['Match detection','Mastery Mind','Maximal horizontal/vertical runs merge into connected clear components.','studio-engine.js: groups, components','Settled board has no unresolved normal match.'],
+ ['Neighbor validation','Nomad Navigation','Edges cannot wrap into a false neighbor and diagonals are rejected.','studio-engine.js: adjacent','Row-wrap and diagonal counterexamples are rejected.'],
+ ['Objectives and outcomes','Order Observation','Target completion wins; exhausting moves below target loses.','studio-engine.js: swap, validate','Outcome is consistent with current score and move budget.'],
+ ['Power gems and boosters','Protection Protocol','Four-runs make line powers, intersections make blasts, five-runs make spectra.','studio-engine.js: creations, powerSwap, effects','Current power types are supported; creation/activation counts are real.'],
+ ['Quality assurance','Query Precision','Structural validation and executable rule/browser tests catch broken behavior.','studio-engine.js: validate; studio.test.cjs; validation/studio-browser-check.cjs','Current state round-trips; full regression results remain a separate artifact.'],
+ ['Cascade resolution','Replication Rite','Clear, activate, score, fall, refill and repeat to a stable board.','studio-engine.js: swap, effects, settle','No unresolved match; bounded cascade traces and counters.'],
+ ['Sound and accessibility','Sovereign Stream','Opt-in generated sound, labeled native buttons, live status and reduced motion.','studio-ui.js; studio/index.html','Current DOM labels, status announcements and explicit sound preference.'],
+ ['Turns and timers','Target Triumph','Only accepted swaps spend turns; animation delays never change game rules.','studio-engine.js: swap; studio-ui.js: animateTurn','Moves remain within budget, independent of rendering delays.'],
+ ['User interface and HUD','Unified Utility','The score, turns, target and outcome reflect the current engine state.','studio-ui.js: renderHUD','Displayed HUD matches current engine counters.'],
+ ['Visual effects','Vector Velocity','Original CSS gems, clear flashes and earned-power badges expose real events.','studio/index.html; studio-ui.js: renderBoard, animateTurn','All 64 rendered cells have distinct accessible identities.'],
+ ['Win/loss states','Western Warfare','Terminal states are immutable until a new attempt is explicitly started.','studio-engine.js: swap, validate','Terminal status is valid; replay remains a separate action.'],
+ ['Export/import and persistence','Xerox Exactness','Versioned JSON transfers full state; malformed imports preserve the running game.','studio-engine.js: save, restore; studio-ui.js: import/export','Save/restore preserves the exact current session.'],
+ ['Yield and game balancing','Yielding Light','Six symbols, visible targets and earned powers create measurable tradeoffs.','studio-engine.js: COLORS, initial, swap','Six-color rules and positive explicit target/budget.'],
+ ['Zero-deadlock recovery','Zenith Zero','A dead board reshuffles without spending a move or resetting score.','studio-engine.js: recover','An active settled board has at least one productive move.']
+];
+const MATRIX=[];
+for(let i=0;i<26;i++){
+ const [system,label,definition,engineMapping,check]=SYSTEMS[i],letter=String.fromCharCode(65+i);
+ MATRIX.push(Object.freeze({id:'forward-'+letter,letter,direction:'forward',system,label,labelSource:'user supplied',definition,engineMapping,check}));
+}
+for(let i=25;i>=0;i--){const source=MATRIX[i],canonical=i===25?'Zero Clearing':i===0?'Absolute Arrival':null;
+ MATRIX.push(Object.freeze({...source,id:'reverse-'+source.letter,direction:'reverse',label:canonical||source.system+' · verification',labelSource:canonical?'user supplied':'implementation-defined verification label; original reverse name not supplied',definition:'Verify '+source.system.toLowerCase()+' without changing game state. '+source.definition}));
+}
+Object.freeze(MATRIX);
+function audit(s,engine,ui={}){
+ const result={},ok=(letter,pass,evidence)=>{result[letter]={status:pass?'pass':'fail',evidence};},ready=(letter,evidence)=>{result[letter]={status:'ready',evidence};};
+ let valid=false,roundTrip=false;try{valid=engine.validate(s);roundTrip=JSON.stringify(engine.restore(engine.save(s)))===JSON.stringify(s);}catch(err){result.Q={status:'fail',evidence:err.message};}
+ const candidates=valid?engine.moves(s):[],stable=Array.isArray(s?.board)&&s.board.length===64&&engine.groups(s.board).length===0,active=s?.status==='playing';
+ ok('A',s?.schema==='one.v025.studio.session.v1'&&['initial','swap','moves','save','restore'].every(k=>typeof engine[k]==='function'),'Pure engine API and supported session schema.');
+ ok('B',stable&&(!active||candidates.length>0),'Current generated/settled board is stable and playable when active.');
+ ok('C',valid,'Tile IDs, six symbols and power types pass runtime validation.');
+ if(ui.pointerSwaps>0)ok('D',true,ui.pointerSwaps+' pointer gestures exercised this session.');else ready('D','Pointer and native-button handlers are installed; no drag gesture exercised yet.');
+ ok('E',typeof ui.locked==='boolean','Input is '+(ui.locked?'locked for presentation':'ready')+'; rule state is already committed.');
+ ok('F',valid&&s.board.every(Boolean),'All eight settled columns contain eight tiles.');
+ ok('G',Array.from({length:64},(_,i)=>Math.floor(i/8)*8+i%8).every((n,i)=>n===i),'64 coordinate round-trips checked.');
+ ok('H',!active||candidates.length>0,active?candidates.length+' productive neighboring swaps found.':'No hints are offered after the run ends.');
+ if(s?.lastTurn?.accepted===false)ok('I',s.lastTurn.before===s.lastTurn.after,'Last rejected move restored the exact tile signature.');else ready('I','Rollback is implemented; the current last turn is not a rejected swap.');
+ ok('J',Number.isSafeInteger(s?.score)&&s.score>=0&&Number.isSafeInteger(ui.wins??0)&&(ui.wins??0)>=0,'Current score and local completed-run count are nonnegative.');
+ if(ui.animatedTurns>0||ui.reducedMotion)ok('K',true,ui.reducedMotion?'Reduced-motion presentation is active.':ui.animatedTurns+' animated turns exercised.');else ready('K','Animations are installed; no animated turn exercised yet.');
+ ok('L',candidates.every(m=>engine.adjacent(m.a,m.b)),'Every enumerated hint is an adjacent pair.');
+ ok('M',stable,'No unresolved horizontal or vertical match remains.');
+ ok('N',!engine.adjacent(7,8)&&!engine.adjacent(0,9)&&engine.adjacent(0,8),'Row-wrap, diagonal and valid vertical neighbor examples checked.');
+ ok('O',valid,'Runtime score/target/move/outcome consistency validated.');
+ ok('P',valid&&engine.POWERS.length===5,'Supported powers: row, column, blast, spectrum; '+(s?.stats?.powersMade??0)+' created, '+(s?.stats?.powersActivated??0)+' activated.');
+ if(!result.Q)ok('Q',valid&&roundTrip,'Runtime structural validation and exact round-trip pass. This is not the full regression suite.');
+ ok('R',stable&&(s?.lastTurn?.frames?.length??0)<=8,'Board settled; animation trace bounded independently of complete cascade scoring.');
+ if(ui.labelledTiles===64&&ui.liveStatus)ok('S',true,'64 labeled native tile buttons, live status, sound '+(ui.sound?'opted in':'off')+'.');else ready('S','Inspect a rendered board to verify its accessibility bindings.');
+ ok('T',Number.isInteger(s?.moves)&&s.moves>=0&&s.moves<=s.budget,'Accepted turns '+s?.moves+'/'+s?.budget+'.');
+ if(ui.hudScore!==undefined)ok('U',ui.hudScore===s.score&&ui.hudMoves===s.moves,'Rendered score and move counters checked against the engine.');else ready('U','HUD observation unavailable.');
+ if(ui.labelledTiles===64)ok('V',true,'All 64 visible tile controls are rendered. Effects use the real turn trace.');else ready('V','Render a board to observe visual bindings.');
+ ok('W',valid,'Outcome validated; terminal swaps are covered separately by executable tests.');
+ ok('X',roundTrip,'Full session JSON round-trips exactly. Browser storage: '+(ui.storage||'not observed')+'.');
+ ok('Y',engine.COLORS===6&&s?.goal>0&&s?.budget>0,'Six symbols; target '+s?.goal+' in '+s?.budget+' accepted moves.');
+ ok('Z',stable&&(!active||candidates.length>0),'Verification only: no reshuffle, rewind or data deletion performed.');
+ return MATRIX.map(layer=>({...layer,result:{...result[layer.letter]}}));
+}
+function document(){let out='# Private ONE v025 — Match-3 A–Z Structural Gateway\n\n26 engineering systems, 52 forward/reverse inspection entries. Reverse inspection is read-only and never reverses gameplay. Only the supplied reverse endpoints Z: Zero Clearing and A: Absolute Arrival are treated as original names; the other reverse names are explicit implementation-defined verification labels.\n\n';
+ for(const layer of MATRIX)out+='## '+layer.direction.toUpperCase()+' '+layer.letter+' · '+layer.label+'\n\n'+layer.system+' — '+layer.definition+'\n\nEngine mapping: '+layer.engineMapping+'.\n\nCheck: '+layer.check+'\n\nLabel source: '+layer.labelSource+'.\n\n';
+ return out;
+}
+return Object.freeze({MATRIX,audit,document});
+});
+
+</script><script>
+/* Local, validated two-generation saves. No network or automatic data deletion. */
+(function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.OneSaveStore=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){'use strict';
+function create(storage,key,validate,{equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b)}={}){
+ const backup=key+'.backup',damaged=key+'.damaged';
+ const decode=raw=>{if(raw===null)return null;return validate(JSON.parse(raw));};
+ function readBackup(){try{const raw=storage.getItem(backup);return raw===null?null:decode(raw);}catch{return null;}}
+ function load(){try{const raw=storage.getItem(key);try{return {data:decode(raw),status:raw===null?'empty':'loaded',backupAvailable:readBackup()!==null};}catch{return {data:null,status:'damaged',backupAvailable:readBackup()!==null};}}catch{return {data:null,status:'unavailable',backupAvailable:false};}}
+ function write(data,{replaceDamaged=false}={}){
+  try{
+   validate(data);const next=JSON.stringify(data),raw=storage.getItem(key);
+   if(raw===next)return {status:'saved',backupAvailable:readBackup()!==null};
+   if(raw!==null){
+    let valid=true,previous;try{previous=decode(raw);}catch{valid=false;}
+    if(valid&&equal(previous,data))return {status:'saved',backupAvailable:readBackup()!==null};
+    if(!valid&&!replaceDamaged)return {status:'damaged',backupAvailable:readBackup()!==null};
+    // Preserve the old bytes before replacing anything. A quota/write failure
+    // leaves the current primary intact and reports that saving failed.
+    storage.setItem(valid?backup:damaged,raw);
+   }
+   storage.setItem(key,next);return {status:'saved',backupAvailable:readBackup()!==null};
+  }catch{return {status:'unavailable',backupAvailable:readBackup()!==null};}
+ }
+ function recover(){
+  const data=readBackup();if(data===null)return {status:'missing',data:null,backupAvailable:false};
+  const result=write(data,{replaceDamaged:true});return {...result,data:result.status==='saved'?data:null};
+ }
+ function damagedText(){try{const raw=storage.getItem(key);if(raw!==null){try{decode(raw);}catch{return raw;}}return storage.getItem(damaged);}catch{return null;}}
+ return Object.freeze({load,write,recover,damagedText});
+}
+return Object.freeze({create});
+});
+
+</script><script>
+/* Private ONE v025 A–Z Studio: native input, bounded animation, read-only inspector. */
+(function(){'use strict';
+const engine=window.StudioMatch3,architecture=window.StructuralGateway,$=id=>document.getElementById(id);
+const KEY='one.private.v025.studio.v1',GLYPHS=['◇','○','△','□','⬡','✦'],NAMES=['cyan diamond','violet circle','gold triangle','jade square','coral hexagon','silver star'],COLORS=['#70e5ed','#cca5ff','#ffdb91','#8fe2b6','#ffabb7','#d9e8fc'],POWER_MARK={row:'↔',column:'↕',blast:'✹',spectrum:'✺'};
+let state=engine.initial(),meta={wins:0,best:0},recorded=false,selected=null,hint=null,locked=false,pointer=null,suppressPointerClick=false,storage='available',storageMessage='',audio=null;
+const observed={pointerSwaps:0,animatedTurns:0},motion=matchMedia('(prefers-reduced-motion: reduce)');
+function validateEnvelope(data){if(data?.schema!=='one.v025.studio.app.v1')throw Error('Unknown Studio progress file');const next=engine.restore(data.save);if(!data.meta||!Number.isSafeInteger(data.meta.wins)||data.meta.wins<0||!Number.isSafeInteger(data.meta.best)||data.meta.best<0||typeof data.recorded!=='boolean'||data.recorded&&next.status!=='won')throw Error('Invalid local run records');return {...data,meta:{...data.meta},save:{...data.save}};}
+const saves=window.OneSaveStore.create({getItem:key=>localStorage.getItem(key),setItem:(key,value)=>localStorage.setItem(key,value)},KEY,validateEnvelope);
+const loaded=saves.load();if(loaded.data){state=engine.restore(loaded.data.save);meta=loaded.data.meta;recorded=loaded.data.recorded;}
+function storageStatus(result){storage=result.status==='saved'||result.status==='loaded'||result.status==='empty'?'available':result.status==='damaged'?'preserved malformed save':'unavailable';storageMessage=result.status==='damaged'?'Existing save could not be loaded and has not been overwritten. Recover the previous autosave or import a backup.':result.status==='unavailable'?'Browser storage unavailable. Play remains available; use Export game JSON for a backup.':'';$('recover-save').disabled=locked||!result.backupAvailable;$('damaged-save').hidden=saves.damagedText()===null;$('storage-note').textContent=storageMessage;}
+storageStatus(loaded);
+function element(tag,text,cls){const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;}
+function say(text){$('status').textContent=text;}
+function envelope(){return {schema:'one.v025.studio.app.v1',save:engine.save(state),meta,recorded};}
+function persist(options){storageStatus(saves.write(envelope(),options));}
+function recordOutcome(){meta.best=Math.max(meta.best,state.score);if(state.status==='won'&&!recorded){meta.wins++;recorded=true;}}
+function renderHUD(){
+ $('score').textContent=state.score;$('target').textContent=state.goal;$('turns').textContent=state.moves+'/'+state.budget;$('run-wins').textContent=meta.wins;$('seed').value=state.seed;
+ $('motion').textContent=motion.matches?'Reduced motion: animation is bypassed; rules are unchanged.':'Animated swaps and cascades. Your system’s reduced-motion preference is respected.';
+ for(const id of ['hint','retry','start','random','import-save'])$(id).disabled=locked||(id==='hint'&&state.status!=='playing');
+ $('play-hint').disabled=locked||!hint||state.status!=='playing';$('board').querySelectorAll('button').forEach(b=>{b.disabled=locked||state.status!=='playing';});$('board').setAttribute('aria-busy',String(locked));
+ $('recover-save').disabled=locked||!saves.load().backupAvailable;
+ const stats=$('run-stats');stats.replaceChildren();for(const [name,value] of Object.entries(state.stats))stats.append(element('p',name.replace(/([A-Z])/g,' $1')+': '+value));stats.append(element('p','Best local score: '+meta.best));
+ $('storage-note').textContent=storageMessage;
+}
+function renderBoard(board=state.board,classes={}){
+ const fragment=document.createDocumentFragment();
+ board.forEach((tile,i)=>{
+  const b=element('button',undefined,'gem'+(selected===i?' selected':'')+(hint&&(hint.a===i||hint.b===i)?' hinted':'')+(classes.clear?.includes(i)?' clearing':'')+(classes.arrive?' arriving':''));
+  b.type='button';b.dataset.cell=i;b.dataset.id=tile.id;b.dataset.power=tile.power||'';b.style.setProperty('--gem',COLORS[tile.value]);b.disabled=locked||state.status!=='playing';
+  b.setAttribute('aria-label','Row '+(Math.floor(i/8)+1)+', column '+(i%8+1)+': '+NAMES[tile.value]+(tile.power?', '+tile.power+' power':''));b.setAttribute('aria-pressed',String(selected===i));
+  b.append(element('span',tile.power==='spectrum'?'✺':GLYPHS[tile.value]));if(tile.power)b.append(element('span',POWER_MARK[tile.power],'power'));
+  b.addEventListener('click',()=>{if(locked||state.status!=='playing')return;if(selected===i){selected=null;hint=null;renderBoard();$('board').querySelector('[data-cell="'+i+'"]').focus({preventScroll:true});say('Selection cleared. Choose another gem.');}else if(selected===null){selected=i;hint=null;renderBoard();$('board').querySelector('[data-cell="'+i+'"]').focus({preventScroll:true});say('Now choose a neighboring gem.');}else{const a=selected;selected=null;play(a,i);}});
+  b.addEventListener('keydown',e=>{const offset={ArrowLeft:-1,ArrowRight:1,ArrowUp:-8,ArrowDown:8}[e.key];if(offset!==undefined){e.preventDefault();const next=i+offset;if(engine.adjacent(i,next))$('board').querySelector('[data-cell="'+next+'"]').focus();}if(e.key==='Home'||e.key==='End'){e.preventDefault();$('board').querySelector('[data-cell="'+(e.key==='Home'?0:63)+'"]').focus();}if(e.key==='Escape'){e.preventDefault();selected=null;hint=null;renderBoard();renderHUD();$('board').querySelector('[data-cell="'+i+'"]').focus({preventScroll:true});}});
+  fragment.append(b);
+ });
+ $('board').replaceChildren(fragment);
+}
+function observation(){return {locked,pointerSwaps:observed.pointerSwaps,animatedTurns:observed.animatedTurns,reducedMotion:motion.matches,labelledTiles:$('board').querySelectorAll('button[aria-label]').length,liveStatus:$('status').getAttribute('aria-live')==='polite',sound:$('sound').checked,hudScore:Number($('score').textContent),hudMoves:Number($('turns').textContent.split('/')[0]),storage,wins:meta.wins};}
+function renderInspector(){
+ const search=$('search').value.trim().toLowerCase(),direction=$('direction').value,rows=architecture.audit(state,engine,observation()).filter(row=>(direction==='all'||row.direction===direction)&&(!search||[row.letter,row.label,row.system,row.definition,row.engineMapping].join(' ').toLowerCase().includes(search)));
+ const list=$('layers');list.replaceChildren();for(const row of rows){const card=element('article',undefined,'layer');card.dataset.layer=row.id;
+  card.append(element('span',row.direction.toUpperCase()+' '+row.letter,'eyebrow'),element('h3',row.label),element('strong',row.system),element('p',row.definition),element('code',row.engineMapping),element('p',row.labelSource,'small'),element('span',row.result.status.toUpperCase(),'badge '+row.result.status),element('p',row.result.evidence));list.append(card);}
+ $('layer-count').textContent=rows.length+' / 52 entries · Reverse inspection is read-only.';
+}
+function download(value,name,type='application/json'){const blob=new Blob([typeof value==='string'?value:JSON.stringify(value,null,2)],{type}),url=URL.createObjectURL(blob),a=element('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function tone(){if(!$('sound').checked)return;try{const C=window.AudioContext||window.webkitAudioContext;if(!C){say('Sound is unavailable in this browser. Gameplay is unchanged.');return;}audio=audio||new C();audio.resume().catch(()=>{});const oscillator=audio.createOscillator(),gain=audio.createGain();oscillator.frequency.setValueAtTime(330,audio.currentTime);oscillator.frequency.exponentialRampToValueAtTime(660,audio.currentTime+.12);gain.gain.setValueAtTime(.025,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+.15);oscillator.connect(gain);gain.connect(audio.destination);oscillator.start();oscillator.stop(audio.currentTime+.16);}catch(err){$('sound').checked=false;}}
+const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+async function animateTurn(a,b){
+ if(motion.matches)return;
+ const left=$('board').querySelector('[data-cell="'+a+'"]'),right=$('board').querySelector('[data-cell="'+b+'"]');
+ if(left&&right){const x=left.getBoundingClientRect(),y=right.getBoundingClientRect();left.style.transform='translate('+(y.x-x.x)+'px,'+(y.y-x.y)+'px)';right.style.transform='translate('+(x.x-y.x)+'px,'+(x.y-y.y)+'px)';await delay(150);}
+ for(const frame of state.lastTurn.frames.slice(0,3)){renderBoard(frame.before,{clear:frame.cleared});await delay(150);renderBoard(frame.after,{arrive:true});await delay(160);}
+ observed.animatedTurns++;
+}
+async function play(a,b){
+ if(locked||state.status!=='playing')return;const focused=document.activeElement?.dataset.cell;locked=true;selected=null;hint=null;renderHUD();
+ try{
+  // Commit only a fully resolved turn. An unexpected resolution error cannot
+  // leave a partially changed live board or overwrite the last playable save.
+  const next=engine.restore(engine.save(state)),accepted=engine.swap(next,a,b);state=next;recordOutcome();persist();
+  if(!accepted){say(state.lastTurn.reason==='not_adjacent'?'Choose orthogonal neighbors. No move spent.':'No match — exact board restored. No move spent.');return;}
+  renderHUD();tone();await animateTurn(a,b);
+  const t=state.lastTurn;say(state.status==='won'?'TARGET COMPLETE · '+state.score+' points. Retry this seed or try a new puzzle.':state.status==='failed'?'Move budget reached · '+state.score+'/'+state.goal+'. Retry freely.':t.cleared+' cleared · '+t.cascades+' cascade'+(t.cascades===1?'':'s')+' · +'+t.scoreGained+' points'+(t.powersMade?' · '+t.powersMade+' power earned':'')+(t.reshuffled?' · free dead-board recovery':''));
+ }catch(err){say('Move could not be completed: '+err.message);}
+ finally{locked=false;renderHUD();renderBoard();if(focused!==undefined)$('board').querySelector('[data-cell="'+focused+'"]:not(:disabled)')?.focus({preventScroll:true});if(!$('inspector-view').hidden)renderInspector();}
+}
+$('board').addEventListener('pointerdown',e=>{const cell=e.target.closest('button[data-cell]');if(!cell||locked||state.status!=='playing'||e.button!==0)return;suppressPointerClick=false;pointer={id:e.pointerId,cell:Number(cell.dataset.cell),x:e.clientX,y:e.clientY};cell.setPointerCapture?.(e.pointerId);});
+$('board').addEventListener('pointerup',e=>{if(!pointer||pointer.id!==e.pointerId)return;const p=pointer;pointer=null;const dx=e.clientX-p.x,dy=e.clientY-p.y;if(Math.hypot(dx,dy)<12)return;suppressPointerClick=true;observed.pointerSwaps++;const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('button[data-cell]');let b=target?Number(target.dataset.cell):-1;if(!engine.adjacent(p.cell,b))b=p.cell+(Math.abs(dx)>Math.abs(dy)?Math.sign(dx):8*Math.sign(dy));play(p.cell,b);});
+$('board').addEventListener('pointercancel',()=>{pointer=null;});
+$('board').addEventListener('click',e=>{if(suppressPointerClick&&e.detail!==0){e.preventDefault();e.stopImmediatePropagation();suppressPointerClick=false;}},true);
+function newGame(seed){if(locked)return;try{state=engine.initial(seed);selected=null;hint=null;recorded=false;persist();renderHUD();renderBoard();say('New seeded board. Select, drag or use keyboard controls.');}catch(err){say(err.message);}}
+$('start').addEventListener('click',()=>newGame(Number($('seed').value)));$('retry').addEventListener('click',()=>newGame(state.seed));$('random').addEventListener('click',()=>newGame(crypto.getRandomValues(new Uint32Array(1))[0]));
+$('hint').addEventListener('click',()=>{if(locked)return;hint=engine.moves(state)[0]||null;selected=null;renderBoard();renderHUD();say(hint?'Try row '+(Math.floor(hint.a/8)+1)+', column '+(hint.a%8+1)+' ↔ row '+(Math.floor(hint.b/8)+1)+', column '+(hint.b%8+1)+' · '+hint.tiles+' opening tiles'+(hint.powers.length?' · creates '+hint.powers.join(', '):'')+'. Future refills are not predicted.':'No hint available after the run ends.');});
+$('play-hint').addEventListener('click',()=>{if(hint){const {a,b}=hint;play(a,b);}});
+$('sound').addEventListener('change',()=>{if($('sound').checked)tone();else audio?.suspend().catch(()=>{});});
+for(const view of ['play','inspector','rules'])$(view+'-tab').addEventListener('click',()=>{for(const key of ['play','inspector','rules']){$(key+'-tab').setAttribute('aria-selected',String(key===view));$(key+'-view').hidden=key!==view;}if(view==='inspector')renderInspector();});
+for(const id of ['search','direction'])$(id).addEventListener(id==='search'?'input':'change',renderInspector);$('audit').addEventListener('click',renderInspector);
+$('export-save').addEventListener('click',()=>download(envelope(),'PRIVATE_ONE_v025_Studio_save.json'));
+$('recover-save').addEventListener('click',()=>{if(locked)return;const result=saves.recover();storageStatus(result);if(result.data){state=engine.restore(result.data.save);meta=result.data.meta;recorded=result.data.recorded;selected=null;hint=null;renderHUD();renderBoard();say('Previous autosave recovered. The current valid run is retained as the alternate recovery copy.');}});
+$('damaged-save').addEventListener('click',()=>{const text=saves.damagedText();if(text!==null)download(text,'PRIVATE_ONE_v025_Studio_preserved_save.txt','text/plain');});
+$('import-save').addEventListener('change',async e=>{try{const file=e.target.files[0];if(!file||locked)return;if(file.size>1024*1024)throw Error('File exceeds 1 MB');const data=JSON.parse(await file.text()),checked=data.schema==='one.v025.studio.app.v1'?validateEnvelope(data):null,next=engine.restore(checked?checked.save:data);if(locked)throw Error('Wait for the current animation');state=next;meta=checked?checked.meta:meta;recorded=checked?checked.recorded:next.status==='won';selected=null;hint=null;persist({replaceDamaged:true});renderHUD();renderBoard();say('Studio save restored exactly.');}catch(err){say('Import failed: '+err.message+'. Current game preserved.');}finally{e.target.value='';}});
+$('export-matrix').addEventListener('click',()=>download({schema:'one.v025.az.matrix.v1',author:'Nathan Tabor',entries:52,layers:architecture.MATRIX},'PRIVATE_ONE_v025_AZ_52_layers.json'));
+$('export-blueprint').addEventListener('click',()=>download(architecture.document(),'PRIVATE_ONE_v025_AZ_blueprint.md','text/markdown'));
+motion.addEventListener?.('change',()=>renderHUD());
+persist();renderHUD();renderBoard();
+if(state.status!=='playing')say(state.status==='won'?'TARGET COMPLETE · saved run restored.':'Saved run ended. Retry freely.');
+})();
+
+</script></body></html>

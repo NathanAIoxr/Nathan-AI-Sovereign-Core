@@ -1,0 +1,253 @@
+{
+  "schema": "nathan-ai.consumer.products.v1",
+  "updatedOn": "2026-11-05",
+  "creator": "Nathan Tabor",
+  "releaseLevel": "public-directory-of-existing-previews-not-production-certification",
+  "description": "Consumer routes to existing published source or browser previews. Product links alone do not establish runtime service, regulatory approval or code efficacy.",
+  "stages": {
+    "public-browser-preview": "Public browser source or preview; feature completeness varies",
+    "owner-local-browser": "Owner-selected device or data; local storage and backup precautions apply",
+    "developer-preview": "Research/developer preview, no active security service"
+  },
+  "products": [
+    {
+      "id": "one",
+      "name": "ONE — The Last App",
+      "task": "Open the unified project launcher",
+      "category": "Home & discovery",
+      "stage": "public-browser-preview",
+      "href": "../../one/index.html",
+      "details": "Browse the creator's integrated applications, libraries, and locally available experiences.",
+      "limits": [
+        "A launcher does not mean that every listed service is independently deployed or production-ready.",
+        "Individual modules have different storage, safety, and technical requirements."
+      ],
+      "tags": [
+        "one",
+        "home",
+        "apps"
+      ]
+    },
+    {
+      "id": "offloader",
+      "name": "ONE — Sealed Voice Box",
+      "task": "Preserve and export your own original files",
+      "category": "Private storage",
+      "stage": "owner-local-browser",
+      "href": "../../one/offloader/index.html",
+      "details": "Choose files, protect them in a local encrypted archive, and explicitly export backups.",
+      "limits": [
+        "No automatic access to other AI accounts, chats, email, or cloud history.",
+        "Passphrases are not recovered by the publisher. Back up your originals independently.",
+        "Browser-local files may disappear when site storage is cleared or devices fail."
+      ],
+      "tags": [
+        "encrypt",
+        "archive",
+        "originals",
+        "backup"
+      ]
+    },
+    {
+      "id": "library",
+      "name": "ONE Library Mind",
+      "task": "Search and read published writing",
+      "category": "Books & knowledge",
+      "stage": "public-browser-preview",
+      "href": "../../one/library-mind/index.html",
+      "details": "Browse a publicly released library of original drafts, source references, and language records.",
+      "limits": [
+        "Not every planned book or translation is complete or independently reviewed.",
+        "Historical, religious, linguistic, and scientific claims require separate evidence."
+      ],
+      "tags": [
+        "books",
+        "language",
+        "library",
+        "read"
+      ]
+    },
+    {
+      "id": "chronicle",
+      "name": "101-Action Chronicle",
+      "task": "Explore and preserve your personal 101-action ledger",
+      "category": "Books & knowledge",
+      "stage": "owner-local-browser",
+      "href": "../../one/realist-ledger/index.html",
+      "details": "Use four original sections, an educational 101-gate game, and explicit source-preserving export.",
+      "limits": [
+        "The author's private ledger is not included; import it only on a trusted device.",
+        "Source statements and allegations are not independent findings.",
+        "Keep the original text file as a separate backup."
+      ],
+      "tags": [
+        "original voice",
+        "101",
+        "books",
+        "game"
+      ]
+    },
+    {
+      "id": "taborite",
+      "name": "Taborite Universal Language Matrix",
+      "task": "Explore symbols, play the game, and read thirteen books",
+      "category": "Books & knowledge",
+      "stage": "public-browser-preview",
+      "href": "../../one/taborite-language-matrix/index.html",
+      "details": "Use an original symbolic encoding interface, educational games, and thirteen short volumes.",
+      "limits": [
+        "Creative glyph mappings and symbolic inversions are not automatically accepted linguistic history.",
+        "A reversible transformation is not secure encryption."
+      ],
+      "tags": [
+        "glyph",
+        "language",
+        "books",
+        "game"
+      ]
+    },
+    {
+      "id": "six-dogs",
+      "name": "Six Dogs — KNICK to BONE",
+      "task": "Explore the six-stage original framework",
+      "category": "Creative learning",
+      "stage": "public-browser-preview",
+      "href": "../six-dogs/index.html",
+      "details": "Follow KNICK → KNACK → PADDY → WHACK → DOG → BONE through an illustrated browser workbench.",
+      "limits": [
+        "Creative and reflective framework, not clinical treatment or emotional diagnosis.",
+        "Illustrations do not prove live hardware, networking, or model inference."
+      ],
+      "tags": [
+        "six dogs",
+        "knick",
+        "knack",
+        "paddy",
+        "whack",
+        "dog",
+        "bone"
+      ]
+    },
+    {
+      "id": "hall",
+      "name": "Hall of Mirrors",
+      "task": "Study mirror representations and passive security patterns",
+      "category": "Safety & research",
+      "stage": "developer-preview",
+      "href": "../../one/hall-of-mirrors/index.html",
+      "details": "Explore the original source vocabulary, logical mirror IDs, and a non-executing pattern classifier.",
+      "limits": [
+        "Not antivirus, verified malware detection, live quarantine, or a network honeypot.",
+        "Only use offline inspection on files you own and are authorized to review.",
+        "An absence of flagged patterns does not mean a file is safe."
+      ],
+      "tags": [
+        "defensive",
+        "mirror",
+        "cyber",
+        "security",
+        "passive"
+      ]
+    },
+    {
+      "id": "guardians",
+      "name": "Five Equal Guardians",
+      "task": "Review owner-consent security policy decisions",
+      "category": "Safety & research",
+      "stage": "developer-preview",
+      "href": "../five-guardians/index.html",
+      "details": "Inspect the five preserved creator-designated guardian names and inert permission decisions.",
+      "limits": [
+        "No network scan, actual protection, autonomous action, or malware removal occurs.",
+        "An on-page checkbox does not prove ownership or authenticate a user."
+      ],
+      "tags": [
+        "guardian",
+        "consent",
+        "defense",
+        "security"
+      ]
+    },
+    {
+      "id": "eyeprints",
+      "name": "EYEPRINTS × HANDPRINTS",
+      "task": "Organize private hand and iris image observations",
+      "category": "Sensitive personal tools",
+      "stage": "owner-local-browser",
+      "href": "../eyeprints-handprints/index.html",
+      "details": "Original hand-image research workbench with locally protected records and provenance.",
+      "limits": [
+        "Not a medical device, biometric authentication product, or validated diagnosis.",
+        "Photographs can be highly sensitive. Use a trusted device, consent, and an offline backup.",
+        "Do not upload images of others without appropriate permission."
+      ],
+      "tags": [
+        "images",
+        "private",
+        "handprints",
+        "eyeprints",
+        "biometric"
+      ]
+    },
+    {
+      "id": "health",
+      "name": "ONE — Health & Recovery",
+      "task": "Organize personal health records and original notes",
+      "category": "Sensitive personal tools",
+      "stage": "owner-local-browser",
+      "href": "../../one/health/index.html",
+      "details": "Locally encrypted original-file archive and independently labeled personal recovery notes.",
+      "limits": [
+        "Not medical advice, treatment, emergency response, or a clinically validated device.",
+        "Do not delay qualified care because of this tool.",
+        "No publisher-side recovery of a forgotten vault password is promised."
+      ],
+      "tags": [
+        "health",
+        "records",
+        "privacy",
+        "sensitive"
+      ]
+    },
+    {
+      "id": "anatomy",
+      "name": "Nathan AI — Anatomy A–Z",
+      "task": "Explore the original anatomy and language atlas",
+      "category": "Creative learning",
+      "stage": "public-browser-preview",
+      "href": "../anatomy/index.html",
+      "details": "Browse the creator's original A–Z conceptual anatomy and cross-language framework.",
+      "limits": [
+        "Creative/symbolic models are not medical or anatomical diagnoses.",
+        "Ancient-language etymologies and scientific assertions need individual source verification."
+      ],
+      "tags": [
+        "anatomy",
+        "alphabet",
+        "language",
+        "education"
+      ]
+    },
+    {
+      "id": "jobs",
+      "name": "Master Program Jobs Atlas",
+      "task": "Find original software and its build tasks",
+      "category": "Creator workbench",
+      "stage": "owner-local-browser",
+      "href": "../program-jobs/index.html",
+      "details": "Browse source references, 12 job categories, and local owner-reported review gates.",
+      "limits": [
+        "357 overlapping records are not 357 completed consumer applications.",
+        "Owner-reported checklists do not certify production, lawfulness, or independent security testing.",
+        "Private archives cannot be recovered merely from their filename."
+      ],
+      "tags": [
+        "catalog",
+        "build",
+        "code",
+        "recover",
+        "programs"
+      ]
+    }
+  ]
+}

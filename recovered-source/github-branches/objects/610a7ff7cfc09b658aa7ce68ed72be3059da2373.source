@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101720">
+<meta name="description" content="Nathan AI distributed ledger and computational conspectus: 21 authored archetypes, technical evidence, and an educational mining scenario model.">
+<title>Nathan AI 🚀 · Distributed Ledger & Mining | ONE</title>
+<style>
+:root{color-scheme:dark;--bg:#0c141e;--panel:#162738;--card:#1c3043;--line:#435b70;--text:#f2f7fb;--muted:#bcd0dc;--gold:#f3d7a3;--cyan:#9de7ea;font:16px system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box}body{margin:0;color:var(--text);background:radial-gradient(ellipse at 12% 0%,#173d56,transparent 45%),var(--bg)}
+main{max-width:1170px;margin:auto;padding:21px 15px 80px}a{color:var(--gold)}p,li{color:var(--muted);line-height:1.55}h1{font-size:clamp(2.1rem,5.5vw,4.5rem);line-height:1.08;margin:14px 0}h2{margin-top:0;font-size:1.5rem}h3{margin:8px 0}nav{display:flex;gap:15px;flex-wrap:wrap;padding:12px 0 22px}
+.eyebrow{font-size:.8rem;color:var(--gold);text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;margin:17px 0}
+.stats,.cards,.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.stat,.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px}
+.stat strong{font-size:2.35rem;color:var(--gold);display:block}.stat span{color:var(--muted)}
+.card small{color:var(--cyan)}.card h3{line-height:1.4}.note{border-left:3px solid var(--gold);padding:10px;background:#263845}
+input,select,button{background:#263d51;color:var(--text);border:1px solid #718d9d;border-radius:9px;padding:11px;font:inherit;min-width:0}
+input{width:100%}button{cursor:pointer;font-weight:700}button.active{color:#12202e;background:var(--gold);border-color:var(--gold)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.controls input{flex:1;min-width:220px}.controls button{flex-shrink:0}
+label{display:block;color:var(--muted);font-size:.87rem;margin:6px 0}.formgrid label input{margin-top:6px}
+.result{font-variant-numeric:tabular-nums}.result strong{color:var(--gold);font-size:1.3rem}.small{font-size:.87rem}.hide{display:none}
+@media(max-width:550px){.panel{padding:14px}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.stat strong{font-size:1.9rem}.stat{padding:9px}}
+</style></head>
+<body><main>
+<nav aria-label="Main navigation"><a href="../index.html">← ONE Home</a><a href="../../nathan-ai/index.html">Nathan AI Main Hub</a><a href="../nathan-matrix/index.html">Connected Matrix</a><a href="./ORIGINAL_AUTHOR_SOURCE.md">Original 21-Part Author Source</a></nav>
+<div class="eyebrow">NATHAN AI → TABOR ROOT → TABOR 1-2-3 FACTORY → ONE</div>
+<h1>🚀 The Distributed Ledger &amp; Computational Conspectus</h1>
+<p>Original 21-part architecture: cryptocurrency ecosystems, hardware rigs, and blockchain consensus. Search the author-named positions, view technical verification separately, and simulate a hypothetical proof-of-work mining scenario. No financial accounts, real mining equipment, or wallet permissions are connected.</p>
+<div class="stats" aria-label="Three groups of seven">
+ <div class="stat"><strong>7</strong><span>Asset layer</span></div>
+ <div class="stat"><strong>7</strong><span>Mining rigs</span></div>
+ <div class="stat"><strong>7</strong><span>Consensus &amp; architecture</span></div>
+</div>
+<section class="panel" aria-labelledby="registryTitle">
+<h2 id="registryTitle">The 21-Position Atlas</h2>
+<p>The author's original wording is preserved in a dedicated source document. This searchable index adds short summaries and independently labeled protocol notes; it does not rewrite the original.</p>
+<div class="controls" role="group" aria-label="Select architectural layer">
+<button type="button" class="active" data-group="All" aria-pressed="true">All 21</button>
+<button type="button" data-group="Asset Layer" aria-pressed="false">Assets 1–7</button>
+<button type="button" data-group="Mining Rigs" aria-pressed="false">Mining 8–14</button>
+<button type="button" data-group="Consensus & Architecture" aria-pressed="false">Consensus 15–21</button>
+</div>
+<div class="controls" style="margin:15px 0"><label for="search">Search protocol, hardware or evidence</label><input id="search" type="search" placeholder="Bitcoin, GPU, PoS, risk, halving…"></div>
+<p id="count" class="eyebrow" aria-live="polite">21 entries</p>
+<div id="registry" class="cards"></div>
+</section>
+<section class="panel" aria-labelledby="simTitle">
+<div class="eyebrow">Educational · Manual Inputs · No Live Prices</div>
+<h2 id="simTitle">⛏️ Proof-of-Work Mining Scenario Laboratory</h2>
+<p>Use your own assumed network difficulty, hashrate, power, electricity rate, bitcoin price and pool fee to calculate an <strong>expected-value estimate</strong> for a one-day Bitcoin mining scenario. It cannot predict block discovery or income. Mining payouts, difficulty, bitcoin price, maintenance, cooling, taxes and outages can change.</p>
+<form id="miner">
+<div class="formgrid">
+<label>Miner hashrate (TH/s)<input name="hashrateTH" type="number" min="0" step="any" placeholder="Enter TH/s" required></label>
+<label>Network difficulty (trillions)<input name="difficultyT" type="number" min="0.000001" step="any" placeholder="Enter difficulty / 10¹²" required></label>
+<label>Power draw (watts)<input name="watts" type="number" min="0" step="any" placeholder="Enter actual watts" required></label>
+<label>Electricity ($/kWh)<input name="electricityUSD" type="number" min="0" step="any" placeholder="Enter rate" required></label>
+<label>Assumed BTC price (USD)<input name="btcPriceUSD" type="number" min="0" step="any" placeholder="Enter scenario price" required></label>
+<label>Pool fee (%)<input name="poolFeePct" type="number" min="0" max="100" step="any" value="0" required></label>
+<label>Avg fees per block (BTC)<input name="feesPerBlockBTC" type="number" min="0" step="any" value="0" required></label>
+<label>Block subsidy (BTC)<input name="subsidyBTC" type="number" min="0" step="any" value="3.125" required></label>
+</div>
+<div class="controls" style="margin-top:16px"><button type="submit">Calculate local scenario</button><button type="reset">Clear</button></div>
+</form>
+<div id="results" class="result" role="status" aria-live="polite" hidden></div>
+<p class="small">Math: expected blocks/day = (hashes/second × 86,400) ÷ (network difficulty × 2³²). BTC/day = expected blocks × (block subsidy + assumed transaction fees) × (1 − pool fee). Net = hypothetical USD revenue − electricity only. Not an investment recommendation, live quote or mining yield guarantee.</p>
+</section>
+<section class="panel">
+<h2>Source, safety and next engineering layers</h2>
+<p><a href="./ORIGINAL_AUTHOR_SOURCE.md">Read the original 21-entry statement</a> · <a href="./README.md">Read implementation scope and evidence links</a>.</p>
+<p>Possible additions: hardware telemetry adapters, operator-controlled mining-pool data readers, a block/halving explorer, historical profitability cases, and read-only wallet/network analysis. Each requires an explicit source, consent, test environment and separate release gate. This prototype does not request keys, purchase hashpower, move assets or run a miner.</p>
+<button id="export" type="button">Export derived reference JSON</button><span id="exportStatus" class="small" role="status"></span>
+</section>
+<footer class="small">NATHAN AI 🚀 · 1+1=2 BUILD · 1−1=0 CLEAR · Preserve the original; keep verification separate.</footer>
+</main>
+<script src="./records.js"></script>
+<script>
+(function(){
+"use strict";
+const model=window.NathanLedger21, $=id=>document.getElementById(id);
+let group="All";
+const cards=$("registry");
+function render(){
+ const rows=model.getRecords(group,$("search").value);cards.replaceChildren();$("count").textContent=rows.length+" / 21 entries";
+ rows.forEach(r=>{
+   const article=document.createElement("article");article.className="card";
+   const type=document.createElement("small");type.textContent=r.group+" · POSITION "+r.n;
+   const h=document.createElement("h3");h.textContent=r.title+" — "+r.epithet;
+   const p=document.createElement("p");p.textContent=r.summary;
+   const d=document.createElement("div");d.className="note";const strong=document.createElement("strong");strong.textContent="Technical verification / boundary";const np=document.createElement("p");np.textContent=r.note;d.append(strong,np);
+   const a=document.createElement("a");a.href=r.source;a.target="_blank";a.rel="noopener noreferrer";a.textContent="Protocol documentation";
+   article.append(type,h,p,d,a);cards.append(article);
+ });
+ if(!rows.length){const p=document.createElement("p");p.textContent="No entries match the current search.";cards.append(p)}
+}
+document.querySelectorAll("[data-group]").forEach(btn=>btn.addEventListener("click",()=>{group=btn.dataset.group;document.querySelectorAll("[data-group]").forEach(b=>{b.classList.toggle("active",b===btn);b.setAttribute("aria-pressed",String(b===btn))});render()}));
+$("search").addEventListener("input",render);render();
+const money=v=>new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",maximumFractionDigits:4}).format(v);
+const digit=v=>Number(v).toLocaleString("en-US",{maximumSignificantDigits:7});
+$("miner").addEventListener("submit",event=>{
+ event.preventDefault();
+ const values=Object.fromEntries(new FormData(event.currentTarget).entries());
+ const box=$("results");
+ try{
+  const r=model.miningScenario(values);
+  box.hidden=false;box.className="panel result";
+  box.replaceChildren();
+  const h=document.createElement("h3");h.textContent="Hypothetical expectation per 24 hours";box.append(h);
+  [["Expected BTC",digit(r.btcPerDay)],["Expected gross revenue",money(r.revenueUSD)],["Electricity usage",digit(r.powerKWh)+" kWh"],["Electricity cost",money(r.electricUSD)],["Revenue less electricity",money(r.netAfterElectricUSD)]].forEach(([label,value])=>{const p=document.createElement("p");const b=document.createElement("strong");b.textContent=value;p.textContent=label+" · ";p.append(b);box.append(p)});
+  const dis=document.createElement("p");dis.textContent="Probabilistic expected value, not a payout forecast. Other costs are excluded.";box.append(dis);
+ }catch(e){box.hidden=false;box.textContent=e.message}
+});
+$("miner").addEventListener("reset",()=>{$("results").hidden=true});
+$("export").addEventListener("click",()=>{
+ const b=new Blob([JSON.stringify({schema:"nathan-one-ledger21-derived.v1",createdFrom:"21-part user-authored conspectus",records:model.records},null,2)],{type:"application/json"});
+ const url=URL.createObjectURL(b),a=document.createElement("a");a.href=url;a.download="Nathan_AI_Ledger21_Reference.json";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);$("exportStatus").textContent="Prepared local reference export.";
+});
+})();
+</script>
+</body></html>

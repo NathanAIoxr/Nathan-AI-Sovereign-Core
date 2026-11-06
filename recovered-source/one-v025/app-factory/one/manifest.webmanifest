@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "ONE — The Last App",
+  "short_name": "ONE",
+  "description": "ONE: a local-first personal operating-system prototype by Nathan Tabor.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f141a",
+  "theme_color": "#101720",
+  "icons": [
+    {
+      "src": "../icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

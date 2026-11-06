@@ -1,0 +1,33 @@
+name: Five-Matrix Hop In Integrity
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/hop-in/chatbox/**'
+      - 'app-factory/one/five-matrix-atlas/**'
+      - '.github/workflows/five-matrix-hop-in-ci.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/hop-in/chatbox/**'
+      - 'app-factory/one/five-matrix-atlas/**'
+      - '.github/workflows/five-matrix-hop-in-ci.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: |
+          node --check app-factory/nathan-ai/hop-in/chatbox/engine.js
+          node --check app-factory/nathan-ai/hop-in/chatbox/app.js
+          node --check app-factory/nathan-ai/hop-in/chatbox/five-matrix/engine.js
+          node --check app-factory/nathan-ai/hop-in/chatbox/five-matrix/app.js
+          node --check app-factory/nathan-ai/hop-in/chatbox/five-matrix/bridge.js
+      - name: Run existing Hop In tests
+        run: node --test app-factory/nathan-ai/hop-in/chatbox/engine.test.cjs
+      - name: Run Five-Matrix learning and source fidelity tests
+        run: node --test app-factory/nathan-ai/hop-in/chatbox/five-matrix/engine.test.cjs

@@ -8,6 +8,8 @@
 
 Home of **TABOR 1-2-3 FACTORY™ / Nathan AI Sovereign Core**.
 
+**Recovered original source:** [ONE v025, THE 33, seven original source documents, earlier packages and historical branch source](recovered-source/README.md). Actual source files and ZIPs are preserved with byte counts, hashes, restoration tools and an explicit remaining-gap register.
+
 **Creator:** Nathan Tabor · **Workflow:** **1. CREATE → 2. CONNECT → 3. LAUNCH**.
 
 This is the **PUBLIC**, browser-first coordination repository. It does **not** contain the owner's private full original-media library, private ZIP-only backend packages, unpublished research records, customer data, or credentials. It is not a deployed private multi-tenant SaaS backend.
@@ -106,6 +108,8 @@ The site can be **installed from a supported browser**; the Factory, ONE, TABOR 
 - [Original-byte Vault Backup](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/vault.html) — preserve exact original media bytes in a verified local ZIP with mobile-safe size limits.
 
 ## Development and safe build workflow
+
+Start with the [repository map and complete check commands](docs/REPOSITORY_MAP.md). Automated [complete repository checks](.github/workflows/repository-checks.yml) cover all public source trees and validate the downloadable site package.
 
 - [Current verified build status](WORK_STATUS.md)
 - [Work-mode cross-project handoff](WORK_BUILD_HANDOFF.md)

@@ -1,0 +1,12 @@
+'use strict';const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const atlas=JSON.parse(fs.readFileSync(path.join(__dirname,'atlas.json'),'utf8'));
+test('schema and twelve source sections present',()=>{assert.equal(atlas.schema,'tabor.mythology.archive.v1');assert.equal(atlas.categories.length,12)});
+test('source entries have stable unique IDs',()=>{const ids=atlas.records.map(r=>r.id);assert.equal(ids.length,316);assert.equal(new Set(ids).size,ids.length)});
+test('primary twelve council varies with Hestia/Dionysus',()=>{const o=atlas.ensembleRules.find(x=>x.key==='olympians');assert.equal(o.members.length,11);assert.deepEqual(o.alternatives,['Hestia','Dionysus']);assert.ok(o.excluded.includes('Hades'))});
+test('twelve elder Titans are distinct and accurate',()=>{const t=atlas.ensembleRules.find(x=>x.key==='elder-titans');assert.equal(t.members.length,12);assert.ok(t.members.includes('Mnemosyne'));assert.ok(!t.members.includes('Eurybia'))});
+test('do not confuse Cronus and Chronos',()=>{assert.ok(atlas.records.some(x=>x.originalName==='Cronus'&&x.group==='titans'));assert.ok(atlas.records.some(x=>x.originalName==='Chronos'&&x.group==='primordials'))});
+test('historical evidence remains unverified',()=>assert.ok(atlas.records.every(x=>x.evidenceLevel==='unverified_compilation'&&x.sourceStatus.includes('verification pending'))));
+test('equipment remains distinct from characters',()=>{const a=atlas.records.find(x=>x.originalName==='Thunderbolt');const z=atlas.records.find(x=>x.originalName==='Zeus');assert.equal(a.recordType,'object');assert.notEqual(a.id,z.id)});
+test('all major source categories populated',()=>{for(const c of atlas.categories)assert.ok(atlas.records.some(x=>x.group===c.id),c.id)});
+test('same name can have independent records with different contexts',()=>{const o=atlas.records.filter(x=>x.originalName==='Dike');assert.ok(o.length>=2);assert.equal(new Set(o.map(x=>x.id)).size,o.length)});
+test('site and README exist',()=>{assert.ok(fs.existsSync(path.join(__dirname,'index.html')));assert.ok(fs.existsSync(path.join(__dirname,'README.md')))});
