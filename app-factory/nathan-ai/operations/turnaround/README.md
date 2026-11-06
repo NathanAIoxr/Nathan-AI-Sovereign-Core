@@ -61,6 +61,41 @@ Related archives remain **separately sovereign**: the owner-held `Tabor_Matrix_1
 - `index.html` — accessible, standalone interactive interface with no remote assets.
 - `engine.test.cjs` — Node built-in test suite covering invariants, preservation and safety.
 
+
+## RUN THIS ON YOUR NETWORK — token-free modes
+
+This is a **real read-only app-delivery option**, not a claim that a browser can commandeer Wi-Fi, cellular networks, or other people's computing devices. All core arithmetic, shadow-text transformations, orientation flips, queues and virtual index calculations run in the browser **without billed language-model tokens**. A local computer's CPU, memory, battery, browser storage and network speed still impose ordinary physical limits. There are no promises of supercomputer-equivalent throughput.
+
+| Mode | What works | What does not |
+| --- | --- | --- |
+| This device | Existing page's deterministic features operate locally with no cloud model; start localhost server for reliable load/reload | A browser tab does not manufacture network access, compute capacity, or offline caching for a fresh page that was never loaded |
+| Own Wi-Fi / LAN | Opt-in Node read-only HTTP server shares public static assets with devices on the same trusted Wi-Fi | No automatic network scan, peer processor takeover, external access, private record sync or unapproved jobs |
+| Cellular / Internet | Public HTTPS GitHub Pages URL serves the static application to a phone using mobile data **after this PR is merged and deployed** | Does not connect back to home devices, import private records, or distribute processing; private VPN/relay would require separate deliberate setup |
+
+From the checked-out repository root run:
+
+```sh
+# On this computer only (safe default)
+node app-factory/nathan-ai/operations/turnaround/network-server.cjs
+
+# Only if you want the public app files reachable on your trusted Wi-Fi:
+node app-factory/nathan-ai/operations/turnaround/network-server.cjs --host 0.0.0.0 --lan --port 8787
+```
+
+Open `http://127.0.0.1:8787/app-factory/nathan-ai/operations/turnaround/` on the hosting computer. On another **trusted local network** device, replace `127.0.0.1` with the hosting computer's actual private LAN IP and open the same path. Find the LAN IP in your computer's network settings; the tool cannot infer it. Local firewall and router device-isolation settings may block other devices. **Never port-forward 8787 to the public internet** and never use plaintext HTTP for exposed remote/cellular access.
+
+After merge and a verified GitHub Pages deployment, the **cellular HTTPS edition** is intended at:
+
+`https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/operations/turnaround/`
+
+This mode downloads the **public static app code** over HTTPS. Each user's inputs stay in the current browser; the app does not synchronize state or spin up external servers, mining machines or electrical/tectonic devices. Private or enterprise sharing will need explicit authentication and TLS, even where the app engine itself uses no billing tokens.
+
+**Node scaling:** `virtualPage()` uses a constant-sized page of symbolic identifiers rather than allocating 69,696,969 JavaScript objects. It is an index architecture, not millions of hardware processors. `Cortical Overrides` and other named categories remain owner-authored proposed modules, not medical procedures or deployed capabilities.
+
+**Local text:** The shadow editor and work-queue engine no longer silently cut off user input at the earlier 4,000-character / 120-character display thresholds. There is no tokenizer, API key, or metered model endpoint. A user device may still run out of memory with extremely large content; use incremental or file-based import in future builds.
+
+**Technical checks:** `node --test app-factory/nathan-ai/operations/turnaround/network.test.cjs`. This test verifies explicit LAN consent, read-only HTTP methods, private-path denial, local serving, token-free text preservation and lazy symbolic node pagination.
+
 ## Test / preview
 
 From the repository root:
