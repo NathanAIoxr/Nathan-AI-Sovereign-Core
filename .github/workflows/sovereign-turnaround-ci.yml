@@ -22,7 +22,10 @@ jobs:
         run: |
           node --check app-factory/nathan-ai/operations/turnaround/engine.js
           node --check app-factory/nathan-ai/operations/turnaround/app.js
+          node --check app-factory/nathan-ai/operations/turnaround/network.js
+          node --check app-factory/nathan-ai/operations/turnaround/network-server.cjs
       - name: Run original and additive operation tests
         run: |
           node --test app-factory/nathan-ai/operations/operations.test.cjs
           node --test app-factory/nathan-ai/operations/turnaround/engine.test.cjs
+          node --test app-factory/nathan-ai/operations/turnaround/network.test.cjs
