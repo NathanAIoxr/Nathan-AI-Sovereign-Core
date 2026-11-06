@@ -59,3 +59,22 @@ node --test app-factory/dummie-publisher/publisher.test.cjs
 \`\`\`
 
 **No secrets, creator financial information, private manuscripts or actual bank details should be committed to this PUBLIC GitHub repository.**
+
+## Universal Master Matrix (additive expansion)
+
+Open [The Universal Master Matrix](./matrix.html) from the Electric Slide dashboard.
+
+- **Four creator-defined planes**, in source order: Geometry, Logic, Phonetic and Deployment.
+- **Nine coordinate axes**: source, structure, direction, language/phonetics, format, destination, permission, status and revision.
+- **Eleven learning stacks**: original source records, learning stacks, index matrices, geometric grids, dimensions, phonetics, sacred-text research, artifacts, publishing metadata, workflow and provenance.
+- **46 destinations in 14 sectors** from the owner-provided target lists and Nathan AI. Kickstarter is **local-preparation**; Amazon KDP and DUMMIE are **separate-module**; other registry entries are **planned**. These are not claims of external account access.
+- **Exact-source packet**: paste/import locally, choose stack, plane, direction and destination; enter optional Duo Decimal indexing and a proposed Dewey classification; then build a local JSON package with original text, UTC timestamp and SHA-256 of its UTF-8 encoding. No remote transmission.
+- **SHA-256 is a fingerprint, not encryption.** Source text is inside the downloaded packet and must be handled privately. TXT/MD import decodes text; preserve independent original files for byte-exact evidence.
+- **Classification status:** Dewey Decimal is a suggested candidate, not a verified classification. Duo Decimal is a creator-defined index.
+- **No silent purge:** 1+1=2 BUILD / 1-1=0 CLEAR applies to interpretations and derived states. A failed transformation is marked or rejected while its original source remains intact.
+- **No invented performance/status claims:** zero latency, 0% noise, all targets working or deployed are not asserted without verified tests and receipts.
+- **Privacy:** no credentials, banking, approvals, publishing or provider submission. Metadata-only clipboard copy excludes original source; full JSON includes it.
+
+Implementation: matrix.js, matrix-ui.js, matrix.html and matrix.test.cjs.
+
+Run from repository root: node --test app-factory/electric-slide/matrix.test.cjs
