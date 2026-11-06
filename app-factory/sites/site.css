@@ -14,3 +14,7 @@ button,input,textarea,select{font:inherit}a{color:var(--accent)}button{cursor:po
 @media(max-width:610px){.wrap{padding:0 15px}.topbar{padding:14px 15px;align-items:flex-start;flex-direction:column}.hero{padding:57px 0 45px}.section{padding:47px 0}.features,.workflow,.linkgrid{grid-template-columns:1fr}.panel{padding:18px}.hero h1{font-size:clamp(38px,11vw,62px)}}
 @media print{nav,.actions,.top,.action,#site-form{display:none!important}body{color:black;background:white}.work-area,.panel,pre{background:white;color:black;border-color:#999}.wrap{max-width:none}.hero,.section{padding:14px 0}.hero h1{color:black}.features{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* 2026-11-06: Additive Nathan Tabor backdrop for nine existing standalone website studios. */
+body{background-image:linear-gradient(180deg,#07131fd9,#07151c 700px),url("../../branding/nathan-tabor-banner.svg");background-position:top center;background-repeat:no-repeat;background-size:100% 900px,100% auto}
+.hero{background:linear-gradient(90deg,#0a222dd6,#102d3780),url("../../branding/nathan-tabor-banner.svg") center/cover no-repeat}
