@@ -2,7 +2,7 @@ name: Transcript Transporter focused quality
 on:
   push:
     branches:
-      - feature/tabor-transcript-transporter
+      - main
     paths:
       - 'app-factory/one/tabor-transcript-transporter/**'
       - '.github/workflows/transcript-focused-ci.yml'
