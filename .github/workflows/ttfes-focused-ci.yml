@@ -1,0 +1,43 @@
+name: Electric Slide focused quality
+on:
+  push:
+    branches:
+      - feature/electric-slide-kickstarter
+    paths:
+      - 'app-factory/electric-slide/**'
+      - '.github/workflows/ttfes-focused-ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app-factory/electric-slide/**'
+      - '.github/workflows/ttfes-focused-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: electric-slide-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  targeted-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JavaScript parse checks
+        run: |
+          node --check app-factory/electric-slide/engine.js
+          node --check app-factory/electric-slide/ui.js
+          node --check app-factory/electric-slide/matrix.js
+          node --check app-factory/electric-slide/matrix-ui.js
+          node --check app-factory/electric-slide/adapters.js
+          node --check app-factory/electric-slide/adapters-ui.js
+          node --check app-factory/electric-slide/kickstarter-companion.user.js
+      - name: Test transporters and provenance
+        run: |
+          node --test app-factory/electric-slide/engine.test.cjs app-factory/electric-slide/matrix.test.cjs app-factory/electric-slide/adapters.test.cjs
+          node --test app-factory/dummie-publisher/publisher.test.cjs

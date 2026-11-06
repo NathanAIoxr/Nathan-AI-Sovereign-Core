@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TTFES&BTP · Universal Master Matrix</title><meta name="theme-color" content="#10212e">
+<style>
+:root{font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:#f5f3ed;background:#0c1720;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -15%,#21536a,transparent 43%),#0b1720}
+main{max-width:1150px;margin:auto;padding:18px 16px 80px}
+nav{display:flex;gap:14px;flex-wrap:wrap;padding-bottom:16px}a{color:#f9d592}
+h1{font-size:clamp(2.3rem,6vw,4.5rem);line-height:1.06;letter-spacing:-.05em;margin:10px 0}
+h2{font-size:1.4rem;margin:0 0 8px}h3{font-size:1.1rem;margin:8px 0}
+p{color:#c2d3d6}.eyebrow{letter-spacing:.14em;text-transform:uppercase;color:#f4d38a;font-weight:850;font-size:.8rem}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:13px}
+.box{border:1px solid #4b6977;border-radius:17px;padding:18px;background:#152a35;margin:16px 0}
+.tile{border:1px solid #526f78;background:#1b3541;padding:14px;border-radius:13px}
+.chip{border:1px solid #597581;border-radius:20px;padding:3px 9px;display:inline-block;font-size:.78rem;margin:2px}
+strong{color:#f9dfa5}
+label{display:block;font-weight:700;margin:12px 0}input,select,textarea{width:100%;font:inherit;border:1px solid #7999a3;background:#0a1c26;color:#fff;border-radius:9px;padding:10px;margin-top:4px}
+textarea{min-height:150px;font-family:ui-monospace,Consolas,monospace}
+button{font:inherit;cursor:pointer;border:1px solid #b9d0d3;border-radius:10px;padding:11px 15px;background:#2e5464;color:white;font-weight:750}
+button.primary{background:#eec676;border-color:#f5dea6;color:#111b29;font-weight:900}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #efce83;outline-offset:2px}
+.controls{display:flex;gap:10px;flex-wrap:wrap}.controls>*{flex:1;min-width:190px}
+.status{background:#0c202d;border:1px solid #5b8794;border-radius:10px;padding:12px;white-space:pre-wrap;overflow-wrap:anywhere;min-height:40px}
+#destination-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
+.dest{padding:11px;border:1px solid #577786;border-radius:12px;background:#1a3440}
+.dest h3{margin:0}.dest p{margin:5px 0}.dest button{padding:7px 10px;font-size:.88rem}
+small,.muted{color:#b1c8ce}.warning{border-left:4px solid #efc57a;padding:10px 14px;background:#2a3439;border-radius:4px}
+footer{font-size:.83rem;color:#b3cbd0;margin:24px 0}
+@media(max-width:540px){.box{padding:14px}}
+</style>
+<script defer src="../dummie-publisher/publisher.js"></script><script defer src="matrix.js"></script><script defer src="adapters.js"></script><script defer src="matrix-ui.js"></script><script defer src="adapters-ui.js"></script>
+</head><body><main>
+<nav><a href="./index.html">← Kickstarter Electric Slide</a><a href="../index.html">TABOR Factory</a><a href="../one/index.html">ONE</a></nav>
+<header><div class="eyebrow">Nathan Tabor · TTFES&BTP</div><h1>The Universal<br><span style="color:#f3cf80">Master Matrix</span></h1>
+<p>Systematic inputs → indexed stacks, grids and dimensions → audited transporter packages. Preserve the original; transform separately; never report an unverified destination as deployed.</p>
+<span class="chip">1+1=2 · BUILD</span><span class="chip">1−1=0 · CLEAR DERIVATION</span><span class="chip">THE ORIGINAL STAYS</span>
+</header>
+<section class="box"><h2>Four planes</h2><div id="planes" class="row"></div>
+<p class="muted">The planes are a creator-defined organizational model. Their labels are not clinical, archaeological or technical certifications.</p></section>
+<section class="box"><h2>Learning stacks and multidimensional registers</h2>
+<div class="row"><div><h3>Stacks</h3><div id="stacks"></div></div>
+<div><h3>Coordinate axes</h3><div id="axes"></div></div></div>
+</section>
+<section class="box"><h2>One source → one destination packet</h2>
+<p class="warning">Source content stays on this device until you choose to download a file. Generated packets include the original words; treat downloads as private when the content is private. SHA-256 is a fingerprint, not encryption.</p>
+<label>Original source record<textarea id="source" spellcheck="false" placeholder="Paste exact source text here, or use Choose Source File. All characters are retained in the exported packet."></textarea></label>
+<label>Choose source TXT or MD<input type="file" id="source-file" accept=".txt,.md,text/plain,text/markdown"></label>
+<div class="row">
+<label>Source label<input id="source-label" value="Original transcription"></label>
+<label>Record owner<input id="owner" value="Nathan Tabor"></label>
+<label>Stack<select id="stack"></select></label>
+<label>Plane<select id="plane"></select></label>
+<label>Direction<select id="direction"><option value="forward">Forward</option><option value="reverse">Reverse</option><option value="mirror">Mirrored candidate</option><option value="derived">Other derived interpretation</option></select></label>
+<label>Destination<select id="destination"></select></label>
+<label>User-defined Duo Decimal index<input id="duo-decimal" placeholder="Your custom numeric coordinate"></label>
+<label>Dewey Decimal candidate<input id="dewey" placeholder="Suggested classification only — not verified"></label>
+</div>
+<div class="controls"><button id="build" class="primary">BUILD LOCAL MATRIX PACKET</button><button id="copy" type="button">COPY METADATA WITHOUT SOURCE</button></div>
+<output id="packet-status" class="status" aria-live="polite">Not generated. No destination contacted. No data uploaded.</output>
+<p class="muted">A timestamp and SHA-256 fingerprint are generated at the moment the packet is built. Classification and content rights require human review.</p>
+</section>
+<section class="box" aria-label="Universal field mapper"><h2>Universal Field Mapper · All 46 Destinations</h2>
+<p>The selected destination receives an editable <strong>logical field template</strong>. These are planning fields for copying or packaging, not verified live selectors, approved bulk-import schemas, or automatic submissions.</p>
+<p id="provider-template-note" class="warning">Choose a destination in the source panel above.</p>
+<div id="logical-fields" class="row"></div>
+<div class="controls">
+<button id="adapter-export-zip" type="button" class="primary">DOWNLOAD SOURCE + DESTINATION ZIP</button>
+<button id="adapter-export-json" type="button">DOWNLOAD JSON</button>
+<button id="adapter-export-csv" type="button">DOWNLOAD GENERIC CSV</button>
+</div>
+<label>Field to copy<select id="copy-field"></select></label>
+<button id="adapter-copy-field" type="button">COPY SELECTED FIELD</button>
+<output id="adapter-status" class="status" aria-live="polite">No field-map exported. No provider account contacted.</output>
+<p class="muted">Every package keeps the exact source string separately, records a UTC timestamp, and includes a browser-computed UTF-8 SHA-256 fingerprint. Neither source storage nor provider import success is guaranteed by the target site.</p>
+</section>
+<section class="box"><h2>Destination registry · implemented versus planned</h2>
+<div class="controls">
+<label>Search destinations<input id="query" type="search" placeholder="Search sectors, providers or field families"></label>
+<label>Status<select id="status-filter"><option value="">All statuses</option><option value="local-preparation">Local preparation</option><option value="separate-module">Separate module</option><option value="planned">Planned</option></select></label>
+</div>
+<output id="destination-summary" class="status" aria-live="polite">Loading registry…</output>
+<div id="destination-list"></div>
+</section>
+<footer>TTFES&amp;BTP · The Tabor Finger Electric Slide and Button Tapping Process · Created by Nathan Tabor. These are user-authored technical classifications and prototype states. No external submissions, verified Dewey assignments, payments, approvals or launches take place here.</footer>
+</main></body></html>

@@ -86,6 +86,8 @@ jobs:
         run: node --test app-factory/universal-node/source-adapters.test.cjs
       - name: Verify DUMMIE packaging and provider handoff integrity
         run: node --test app-factory/dummie-publisher/publisher.test.cjs
+      - name: Verify TTFES&BTP Kickstarter package and Universal Master Matrix source preservation
+        run: node --test app-factory/electric-slide/engine.test.cjs app-factory/electric-slide/matrix.test.cjs app-factory/electric-slide/adapters.test.cjs
       - name: Verify Greek mythology archive taxonomy and provenance
         run: node --test app-factory/mythology/greek/atlas.test.cjs
       - name: Verify Universal 13 tools inventory and geometry-game data integrity
