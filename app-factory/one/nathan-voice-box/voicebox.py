@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parent
 MAX_TEXT = 4000
 LANGUAGE = re.compile(r"^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$")
 SAFE_VOICE = re.compile(r"^[A-Za-z][A-Za-z0-9+_-]{0,48}$")
-EFFECTS = ("none", "cave", "wind", "echo")
+EFFECTS = ("none", "cave", "wind", "echo", "speech-clean")
 PERSONAS = {
     "neutral": {"pitch": 50, "rate": 165, "description": "Standard synthetic narrator"},
     "jesus-story": {"pitch": 46, "rate": 142, "description": "Fictional dramatization; NOT a historical recording"},
@@ -177,6 +177,21 @@ def process_macro(payload: bytes, effect: str = "none") -> bytes:
     samples, sr = _wav_samples(payload)
     if not samples:
         return payload
+    if effect == "speech-clean":
+        # Simple local high-pass + smoothed noise gate: NOT full neural denoising.
+        rc = 1.0 / (2 * math.pi * 75.0)
+        alpha = rc / (rc + 1.0 / sr)
+        hp = prev = envelope = 0.0
+        gain = 1.0
+        cleaned = []
+        for x in samples:
+            hp = alpha * (hp + x - prev)
+            prev = x
+            envelope = 0.995 * envelope + 0.005 * abs(hp)
+            target = 0.25 if envelope < 0.004 else 1.0
+            gain += 0.003 * (target - gain)
+            cleaned.append(max(-0.96, min(0.96, hp * gain * 0.94)))
+        return _wav_from_float(cleaned, sr)
     delay = max(1, int(sr * (0.17 if effect == "cave" else 0.11)))
     # A bounded single delay avoids unstable recursive feedback and high output levels.
     out = []
