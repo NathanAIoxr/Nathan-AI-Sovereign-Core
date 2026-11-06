@@ -209,6 +209,12 @@
      sourceTextSha256:originalTextHash,
      originalFileSha256:options.originalBytes?rawHash:null,
      sourceBytesPreserved:!!options.originalBytes,
+     ownerSelfReview:{
+       rightsReviewed:options.review?.rightsReviewed===true,
+       claimsReviewed:options.review?.claimsReviewed===true,
+       governmentProcedureAcknowledged:options.review?.governmentAware===true,
+       externallyValidated:false
+     },
      destinations:ds.map(d=>({id:d.destination.id,name:d.destination.name,sector:d.destination.sector,
        logicalFields:d.fieldMeta.length,submitted:false,published:false})),
      providerWrite:false,published:false,
