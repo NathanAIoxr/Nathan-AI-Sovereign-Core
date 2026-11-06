@@ -4,7 +4,7 @@
   "sourceTree": "main as observed prior to feature branch",
   "owner": "Nathan AI · John Nathan Tabor",
   "alphabet": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  "entryCount": 1937,
+  "entryCount": 1942,
   "categoryTaxonomy": "./store-taxonomy.json",
   "preservationPolicy": "All entries retain source names and original source letter if authored; search metadata and suggested store categories are derivatives, not rewrites of original files or evidence of published mobile apps.",
   "privatePolicy": "Excluded 14 private archive anchor records and editorial-review A source entries; private original file content is not embedded.",
@@ -25,7 +25,8 @@
       "fStructuralSources": 15,
       "fabricRelatedNames": 150,
       "gPublicMasterTitleSupplement": 713,
-      "gOriginalResearchRoutes": 21
+      "gOriginalResearchRoutes": 21,
+      "gWordFamilySupplied": 5
     },
     "includedCounts": {
       "standalone-app": 139,
@@ -35,7 +36,7 @@
       "authored-sequence": 130,
       "public-source-title": 564,
       "public-library-filename": 519,
-      "word-family": 54
+      "word-family": 59
     },
     "excludedPrivateProgramAnchors": 14,
     "excludedAEditorialReview": 4,
@@ -58367,6 +58368,166 @@
         "confidence": "none"
       },
       "relatedIds": []
+    },
+    {
+      "id": "g-route:G022",
+      "title": "God",
+      "assignedLetter": "G",
+      "titleInitial": "G",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "creator-word-family-cross-reference",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G022",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Religious term; owner explicitly added it to G. Exact reversal under uppercase normalization is DOG, separately named in the request. Literal uppercase reversal: GOD → DOG. Original first-letter department G retained separately; G cross-index is additive.",
+      "sourceCategory": "god-dog-word-family",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": [],
+      "crossIndexOnly": true,
+      "nativeAlphabetInitial": "G"
+    },
+    {
+      "id": "g-route:G023",
+      "title": "Goddess",
+      "assignedLetter": "G",
+      "titleInitial": "G",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "creator-word-family-cross-reference",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G023",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Religious feminine-deity term; spelling and owner title preserved. Reverse is SSEDDOG, not SSEGGOD. Literal uppercase reversal: GODDESS → SSEDDOG. Original first-letter department G retained separately; G cross-index is additive.",
+      "sourceCategory": "god-dog-word-family",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": [],
+      "crossIndexOnly": true,
+      "nativeAlphabetInitial": "G"
+    },
+    {
+      "id": "g-route:G024",
+      "title": "Dog",
+      "assignedLetter": "G",
+      "titleInitial": "D",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "creator-word-family-cross-reference",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G024",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Ordinary animal word and separately an owner DOG / OG-family symbolic name. Existing D identity retained; G receives an additional cross-index only. Reverses to GOD. Literal uppercase reversal: DOG → GOD. Original first-letter department D retained separately; G cross-index is additive.",
+      "sourceCategory": "god-dog-word-family",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": [],
+      "crossIndexOnly": true,
+      "nativeAlphabetInitial": "D"
+    },
+    {
+      "id": "g-route:G025",
+      "title": "Doggess",
+      "assignedLetter": "G",
+      "titleInitial": "D",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "creator-word-family-cross-reference",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G025",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Creator-supplied Doggess label, also appearing in earlier DOGGESS COMPANY source titles. Reverses to SSEGGOD; not automatically substituted for Goddess. Literal uppercase reversal: DOGGESS → SSEGGOD. Original first-letter department D retained separately; G cross-index is additive.",
+      "sourceCategory": "god-dog-word-family",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": [],
+      "crossIndexOnly": true,
+      "nativeAlphabetInitial": "D"
+    },
+    {
+      "id": "g-route:G026",
+      "title": "Sseggod",
+      "assignedLetter": "G",
+      "titleInitial": "S",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "creator-word-family-cross-reference",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G026",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Creator-supplied Sseggod form, not otherwise defined in recovered original text. Matches the literal reverse of DOGGESS after capitalization normalization, NOT of GODDESS. Literal uppercase reversal: SSEGGOD → DOGGESS. Original first-letter department S retained separately; G cross-index is additive.",
+      "sourceCategory": "god-dog-word-family",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": [],
+      "crossIndexOnly": true,
+      "nativeAlphabetInitial": "S"
     }
   ],
   "linkedSourceCatalogs": [
