@@ -108,7 +108,7 @@
       '<dc:title>' + normalizeXml(s.title) + '</dc:title>' +
       '<dc:creator>' + normalizeXml(s.author) + '</dc:creator>' +
       '<dc:language>' + normalizeXml(s.language) + '</dc:language>' +
-      '<meta property="dcterms:modified">2026-11-06T00:00:00Z</meta></metadata>' +
+      '<meta property="dcterms:modified">' + new Date().toISOString().replace(/\.[0-9]{3}Z$/, 'Z') + '</meta></metadata>' +
       '<manifest>' + manifest + '</manifest><spine>' + spine + '</spine></package>') });
     return packager.zip(entries);
   }
