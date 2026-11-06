@@ -4,7 +4,7 @@
   "sourceTree": "main as observed prior to feature branch",
   "owner": "Nathan AI · John Nathan Tabor",
   "alphabet": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  "entryCount": 1837,
+  "entryCount": 1916,
   "categoryTaxonomy": "./store-taxonomy.json",
   "preservationPolicy": "All entries retain source names and original source letter if authored; search metadata and suggested store categories are derivatives, not rewrites of original files or evidence of published mobile apps.",
   "privatePolicy": "Excluded 14 private archive anchor records and editorial-review A source entries; private original file content is not embedded.",
@@ -20,7 +20,10 @@
       "publicC": 367,
       "publicD": 152,
       "publicE": 128,
-      "eWordFamilies": 18
+      "eWordFamilies": 18,
+      "publicF": 64,
+      "fStructuralSources": 15,
+      "fabricRelatedNames": 150
     },
     "includedCounts": {
       "standalone-app": 139,
@@ -28,13 +31,15 @@
       "feature-concept": 104,
       "program-record": 343,
       "authored-sequence": 130,
-      "public-source-title": 500,
+      "public-source-title": 564,
       "public-library-filename": 519,
-      "word-family": 18
+      "word-family": 33
     },
     "excludedPrivateProgramAnchors": 14,
     "excludedAEditorialReview": 4,
-    "sourceNote": "No claim of full private Library scan or platform publication."
+    "sourceNote": "No claim of full private Library scan or platform publication.",
+    "excludedFPrivacyOrReview": 5,
+    "noteF": "Fabric 150 additional cross-references live in the linked F department and are not treated as 150 new unique applications or reassigned authored A–Z titles."
   },
   "entries": [
     {
@@ -55343,6 +55348,2376 @@
       "href": null,
       "summary": "The evening or day immediately before a festival, holiday, or important event; also figuratively the moment before something begins.",
       "sourceCategory": "eve",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:311",
+      "title": "Frequency analysis",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "311",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:359",
+      "title": "Freedom's Ring",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "359",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:396",
+      "title": "Five Magnetic Fields / TABOR GPS",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "396",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:398",
+      "title": "Flower of Life / Tesseract Thrones",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "398",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:422",
+      "title": "FRUMS",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "422",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:460",
+      "title": "Four Evidence Rails",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "460",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:598",
+      "title": "Forward ↔ inverse interpretation",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "598",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:800",
+      "title": "Forneus",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "800",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:801",
+      "title": "Foras",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "801",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:804",
+      "title": "Furfur",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "804",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:811",
+      "title": "Focalor",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "811",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:820",
+      "title": "Furcas",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "820",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:868",
+      "title": "Fleurety",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "868",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:928",
+      "title": "Furies (Erinyes) — Original Form",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "928",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:931",
+      "title": "Fenrir — Original Form",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "931",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:1029",
+      "title": "Furies (Erinyes) — Dark Echo",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "1029",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:1032",
+      "title": "Fenrir — Dark Echo",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "1032",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:1556",
+      "title": "Fortuna",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "1556",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:1564",
+      "title": "Fides",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "1564",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:1570",
+      "title": "Flora",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "1570",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:1572",
+      "title": "Feronia",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "1572",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:1591",
+      "title": "Fódla",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "1591",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:1597",
+      "title": "Flidais",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "1597",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:1831",
+      "title": "False prophet",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "1831",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:1832",
+      "title": "Felix",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "1832",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:1833",
+      "title": "Festus",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "1833",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:1834",
+      "title": "Foolish virgins",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "1834",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:1835",
+      "title": "Four horsemen",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "1835",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:1836",
+      "title": "Four living creatures",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "1836",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2421",
+      "title": "Fenrir",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2421",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2431",
+      "title": "Frankenstein’s Creature",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2431",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2435",
+      "title": "Fiona",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2435",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2458",
+      "title": "Frederick Douglass",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2458",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2470",
+      "title": "Frida Kahlo",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2470",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2490",
+      "title": "Formerly incarcerated people reentering society",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2490",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2498",
+      "title": "Fryin' Brian",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2498",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2514",
+      "title": "Furry Fran",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2514",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2543",
+      "title": "Fat Matt",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2543",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2553",
+      "title": "Flat Pat",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2553",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2554",
+      "title": "Frigid Bridget",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2554",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2598",
+      "title": "Fryin' Ryan",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2598",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2631",
+      "title": "Foul Phil",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2631",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2687",
+      "title": "Frederick Douglass",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2687",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2688",
+      "title": "Frodo Baggins",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2688",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:2779",
+      "title": "Fen",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "2779",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:4251",
+      "title": "Finn",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "4251",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5463",
+      "title": "Frigg",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5463",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5464",
+      "title": "Freyja",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5464",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5465",
+      "title": "Freyr",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5465",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5476",
+      "title": "Forseti",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5476",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5490",
+      "title": "Fulla",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5490",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5506",
+      "title": "Fenrir",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5506",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5529",
+      "title": "FREYJA",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5529",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5701",
+      "title": "Fra' Alessandro",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5701",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5743",
+      "title": "Flavian Emperor Vespasian",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5743",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5744",
+      "title": "Flavian Emperor Titus",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5744",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5745",
+      "title": "Flavius Josephus",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5745",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5792",
+      "title": "Francis Bacon",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5792",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5820",
+      "title": "Franklin D. Roosevelt",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5820",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5910",
+      "title": "Frankenstein Energy System",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5910",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5987",
+      "title": "FIVE LAYERS — Physical / Cognitive / Mythic / Quantum / Sovereign",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5987",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:5993",
+      "title": "FluxCapacitorShock",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "5993",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:6001",
+      "title": "FrequencyBody / Voice Harmonic",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "6001",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "source-f:6046",
+      "title": "Four-Door Plymouth Prowler",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "public-source-title",
+      "stage": "source-title",
+      "sourceRegistry": "archive-index/alphabet/f/source-catalog-f.json",
+      "sourceRecordId": "6046",
+      "sourcePath": null,
+      "href": null,
+      "summary": "F title occurrence in the original 6056-row master; original body and finished product are not verified.",
+      "sourceCategory": "original-F-titles",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-1",
+      "title": "F is also a P cut open",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "creator-defined-glyph-construction",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-1",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Creator's original structural transformation; not a documented historical derivation of Latin F from Latin P. No original stick count was supplied.",
+      "sourceCategory": "original-F-P-construction",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-2",
+      "title": "lay that against ancient nordic?  runes language? it's the language that looks like a stick figure stretching",
+      "assignedLetter": "F",
+      "titleInitial": "L",
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "verbatim-older-author-utterance",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-2",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Recovered earlier source; the stick-figure comparison is a visual analogy, not a historic semantic value for every rune.",
+      "sourceCategory": "nordic-stick-language",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-3",
+      "title": "F (Forward: The Firewall | RTL: The Freeze)",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "verbatim-older-author-source",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-3",
+      "sourcePath": null,
+      "href": null,
+      "summary": "From October 21 A-Z/RTL source; source spells RTL and rule exactly as shown. Creator-defined logic, not measured physical firewall.",
+      "sourceCategory": "source-code-F",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-4",
+      "title": "FL (Fluid Flow) ➔ FLE (Flex Engine) ➔ FLEX (The Crossing Point).",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "verbatim-older-author-source",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-4",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Exact adjacent user-archive line. Distinct from the literal word origin of FLEX.",
+      "sourceCategory": "source-code-F",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-5",
+      "title": "The Fabric of the World",
+      "assignedLetter": "F",
+      "titleInitial": "T",
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "recovered-owner-linked-title",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-5",
+      "sourcePath": null,
+      "href": null,
+      "summary": "From 150-item fabric cross-reference; not verified as separately published app.",
+      "sourceCategory": "fabric-matrix",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-6",
+      "title": "The Fabric of Me Code",
+      "assignedLetter": "F",
+      "titleInitial": "T",
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "recovered-owner-linked-title",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-6",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Independent named work, not silently collapsed into Fabric of the World.",
+      "sourceCategory": "fabric-matrix",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-7",
+      "title": "TheWeave",
+      "assignedLetter": "F",
+      "titleInitial": "T",
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "recovered-owner-linked-title",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-7",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Separate name in owner's fabric cross-reference.",
+      "sourceCategory": "fabric-matrix",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-8",
+      "title": "Five Matrices",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "recovered-owner-linked-title",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-8",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Five Matrices model; actual implementations remain at their existing independent paths.",
+      "sourceCategory": "fabric-matrix",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-9",
+      "title": "ᚠ Fehu / Fé",
+      "assignedLetter": "F",
+      "titleInitial": null,
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "documented-runic-reference",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-9",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Elder and Younger Futhark F-sound rune, Nordic (Germanic) runic letter; name connected to cattle/wealth. Old Norse Fé is attested, Elder *fehu reconstructed.",
+      "sourceCategory": "nordic-stick-language",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-10",
+      "title": "ᛈ Perthro / Peorð",
+      "assignedLetter": "F",
+      "titleInitial": null,
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "documented-runic-reference",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-10",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Rune conventionally transliterated P in Elder Futhark; Old English Peorð appears in the rune poem. Not a proven historical source for Latin P or F.",
+      "sourceCategory": "nordic-stick-language",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-11",
+      "title": "ᚃ Fearn / Fern",
+      "assignedLetter": "F",
+      "titleInitial": null,
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "documented-script-reference",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-11",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Ogham Fearn/fern in first aicme: B L F S N, third letter with three scores to the right of stemline. Irish/Celtic, not Norse runic script.",
+      "sourceCategory": "ogham-distinct-script",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-12",
+      "title": "Ϝ Digamma",
+      "assignedLetter": "F",
+      "titleInitial": null,
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "documented-script-reference",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-12",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Greek digamma is on the documented ancestry of Latin F via Phoenician waw. Similarity to P is author geometry, not historic derivation.",
+      "sourceCategory": "letter-history",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-13",
+      "title": "ᛉ Algiz / Elhaz",
+      "assignedLetter": "F",
+      "titleInitial": null,
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "documented-runic-reference",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-13",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Rune often used as a stick-figure visual analogy; name and historical sound vary with reconstruction and tradition. Raised-arm symbolism belongs to creator reading, not established literal translation.",
+      "sourceCategory": "nordic-stick-language",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-14",
+      "title": "ᛗ Mannaz",
+      "assignedLetter": "F",
+      "titleInitial": null,
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "documented-runic-reference",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-14",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Distinct M sound rune; angular resemblance is a teaching visual, not equal identity to F or human figure.",
+      "sourceCategory": "nordic-stick-language",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "f-route:F-CORE-15",
+      "title": "Fabric Code",
+      "assignedLetter": "F",
+      "titleInitial": "F",
+      "sourceAssignedLetter": "F",
+      "kind": "word-family",
+      "stage": "recovered-owner-linked-title",
+      "sourceRegistry": "archive-index/alphabet/f/structural-routes.json",
+      "sourceRecordId": "F-CORE-15",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Independent candidate cross-reference from fabric recovery; not a deployed software claim.",
+      "sourceCategory": "fabric-matrix",
       "store": {
         "apple": {
           "primary": null,

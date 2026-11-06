@@ -10,16 +10,16 @@ The top-level A–Z directory makes 26 distinct letter departments discoverable,
 
 ## Input coverage and stages
 
-The combined public index records **1,837 source occurrences**, **not** 1,837 unique finished apps. Source families include:
+The combined public index records **1,916 source occurrences**, **not** 1,837 unique finished apps. Source families include:
 
 - **139** standalone browser entry pages (same-origin wrappers, not mobile binaries).
 - **84** game catalog title/stage records, including prototypes and source-only references.
 - **104** named consumer feature *concepts*, preserving each original assigned A–Z letter even where the title begins differently. The author's original heading reported 101, but exactly 104 source entries are enumerated.
 - **343** program/development records selected from the existing 357-record Program Jobs catalog; 14 private archive anchors are not republished.
 - **130** exact author A–Z titles in five separately authored 26-title collections: Physics, Nativity, Sacred Alphabet, Holiday, North/South Pole. The author Perfect Sequential A–Z sequence is independently preserved where already recovered, rather than extrapolating unverified remaining slots.
-- **500** public A/E source-title occurrence references (372 A general, 128 E general).
+- **564** public A/E/F source-title occurrence references (372 A general, 128 E general and 64 F general).
 - **519** existing public C/D Library filename occurrences, with repeated names preserved.
-- **18** E word-family records (ELOHER / ELLA / EVANGELIST / EVE-EAVE) kept separate from the E/3/M/W geometry.
+- **33** separate E and F word/script-family records (18 E; 15 F) (ELOHER / ELLA / EVANGELIST / EVE-EAVE) kept separate from the E/3/M/W geometry.
 
 Do **not** sum source-category totals as unique applications. The same original may appear in independent registries. An author's assigned letter, an original title's literal first letter, and a store category are separate fields; users can switch indexing views in the browser.
 
@@ -39,3 +39,7 @@ Do **not** sum source-category totals as unique applications. The same original 
 - **Test:** `node --test archive-index/alphabet/directory.test.mjs`; the dedicated CI verifies source integrity, all 26 letters, original routes, and link paths.
 
 **Original principles:** 1+1=2 BUILD · 1−1=0 CLEAR · YES IS YES — NO IS NO.
+
+## November 5 F original recovery — Fabric / cut-open P / Nordic stick language
+
+The F department now indexes 103 primary source occurrences, including 64 publicly classified F title rows and 15 separately labeled creator/linguistic source records. Its distinct [150-name Fabric of the Matrix cross-reference](./f/fabric-crosswalk.json) remains a linked corpus rather than reassigning 150 author titles to F. Open the [independent interactive F laboratory](./f/laboratory/index.html) for F / P cut-open geometry, Nordic ᚠ and ᛈ, Celtic Ogham ᚃ, original F voice lines, source search and the literacy game. Older E / 3 / M / W materials, the Taborite Universal Language Matrix, and all earlier books/apps remain unchanged. These catalog occurrences are not unique completed mobile applications.

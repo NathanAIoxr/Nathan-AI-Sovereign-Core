@@ -72,3 +72,17 @@ test('26-letter directory commands and source-preserving category routes',()=>{
  assert.ok(engine.reply('browse all 26 letters').links.some(l=>l.url.endsWith('/alphabet/index.html')));
  assert.equal(engine.reply('/e').kind,'route');assert.equal(engine.reply('/d').kind,'route');
 });
+
+test('independent F archive, Nordic stick and Fabric routes preserve E/C/D and A-Z',()=>{
+ for(const q of ['/f','/fabric','/f-runes','/f-geometry','/letter-f']){
+  const result=engine.reply(q);assert.equal(result.kind,'route');assert.ok(result.links.some(x=>x.url.includes('archive-index/alphabet/f/laboratory/index.html')));
+ }
+ for(const q of ['fabric of the matrix','fehu rune','nordic stick language','F as P cut open']){
+  const result=engine.reply(q);assert.equal(result.kind,'route');assert.ok(result.links.some(x=>x.url.includes('archive-index/alphabet/f/laboratory/index.html')));
+ }
+ assert.equal(engine.reply('/letter F').kind,'route');
+ assert.equal(engine.reply('/e').kind,'route');
+ assert.equal(engine.reply('/d').kind,'route');
+ assert.equal(engine.reply('/az').kind,'route');
+ assert.match(engine.reply('/f').answer,/64 publicly classified/);
+});
