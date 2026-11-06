@@ -121,9 +121,9 @@
           }
         };
         download(packet,slug(result.sourceLabel)+'-matrix-'+stamp.slice(0,10)+'.json');
-        show('packet-status','Local packet prepared for download. Confirm the browser saved it.\\n'+
-          'Original UTF-8 SHA-256: '+sha+'\\nCaptured UTC: '+stamp+'\\nTarget: '+result.destination.name+
-          ' ('+result.destination.status+')\\nNo upload, payment, permission grant or publication.');
+        show('packet-status','Local packet prepared for download. Confirm the browser saved it.\n'+
+          'Original UTF-8 SHA-256: '+sha+'\nCaptured UTC: '+stamp+'\nTarget: '+result.destination.name+
+          ' ('+result.destination.status+')\nNo upload, payment, permission grant or publication.');
       }catch(e){show('packet-status','NOT COMPLETED: '+e.message);}
     });
     byId('copy').addEventListener('click',async()=>{
