@@ -64,20 +64,36 @@ def load_pack(pack_id: str | None) -> dict | None:
     if not manifest.is_file():
         raise VoiceBoxError("Local voice pack not installed: " + pack_id)
     data = json.loads(manifest.read_text(encoding="utf-8"))
-    if data.get("id") != pack_id or data.get("runtime") != "sherpa-onnx-vits":
+    runtime = data.get("runtime")
+    if data.get("id") != pack_id or runtime not in ("sherpa-onnx-vits", "sherpa-onnx-zipvoice"):
         raise VoiceBoxError("Unsupported voice pack manifest")
     if data.get("authorized") is not True or data.get("rights_basis") not in PERMITTED_BASES:
         raise VoiceBoxError("Voice authorization missing; local pack disabled")
-    # No voice records, samples, keys, or consent documents belong in public source control.
+    # Reject non-local paths and symlink escapes; the whole model stays under private-packs.
     folder = manifest.parent.resolve()
-    for key in ("model", "tokens", "data_dir"):
+    assets = ("model", "tokens", "data_dir") if runtime == "sherpa-onnx-vits" else (
+        "encoder", "decoder", "vocoder", "tokens", "lexicon"
+    )
+    for key in assets:
         value = data.get(key)
         if not isinstance(value, str) or not value or Path(value).is_absolute():
-            raise VoiceBoxError("Invalid local model asset path")
+            raise VoiceBoxError("Invalid local model asset path: " + key)
         target = (folder / value).resolve()
         if not target.is_relative_to(folder) or not target.exists():
             raise VoiceBoxError("Missing or unsafe voice asset: " + key)
         data[key] = str(target)
+    if runtime == "sherpa-onnx-zipvoice":
+        allowed = data.get("languages")
+        if not isinstance(allowed, list) or not allowed or not all(
+            isinstance(tag, str) and LANGUAGE.fullmatch(tag) for tag in allowed
+        ):
+            raise VoiceBoxError("ZipVoice pack must declare supported languages")
+        if data.get("data_dir"):
+            value = data["data_dir"]
+            target = (folder / value).resolve()
+            if Path(value).is_absolute() or not target.is_relative_to(folder) or not target.is_dir():
+                raise VoiceBoxError("Unsafe local phonemizer directory")
+            data["data_dir"] = str(target)
     return data
 
 
@@ -277,6 +293,8 @@ def speak(text: str, lang="en-US", voice="en-us", persona="neutral",
     _validate_text(text, lang)
     pack = load_pack(pack_id)
     if pack:
+        if pack["runtime"] != "sherpa-onnx-vits":
+            raise VoiceBoxError("This pack needs a reference recording; use the local Clone Voice action")
         declared = pack.get("language")
         if declared and declared.lower() != lang.lower():
             raise VoiceBoxError("Pack does not claim the requested language")
