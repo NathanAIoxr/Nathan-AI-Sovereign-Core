@@ -217,7 +217,8 @@
     var s = specOf(meta);
     if (!String(original || '').trim()) throw Error('A manuscript is required.');
     var name = slug(s.title), files = [
-      { path: 'SOURCE/TRANSCRIPT-ORIGINAL.txt', bytes: bytes(original) },
+      { path: 'SOURCE/TRANSCRIPT-ORIGINAL.txt', bytes: bytes(typeof meta.sourceOriginal === 'string' ? meta.sourceOriginal : original) },
+      { path: 'SOURCE/WORKING-MANUSCRIPT.txt', bytes: bytes(original) },
       { path: 'KDP/' + name + '.epub', bytes: makeEpub(s, original) },
       { path: 'KDP/' + name + '-print-draft.docx', bytes: makeDocx(s, original) },
       { path: 'KDP/kdp-listing.json', bytes: bytes(JSON.stringify({
