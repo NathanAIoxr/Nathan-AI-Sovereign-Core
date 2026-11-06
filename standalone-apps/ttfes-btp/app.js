@@ -325,6 +325,11 @@
        'ttfes-btp-local-ledger.json','application/json');
      say('batch-status','A local action ledger was prepared for download. Not a remote audit receipt.');
    }));
+   if('serviceWorker' in navigator && location.protocol==='https:'){
+     navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(()=>{
+       log('Offline shell registration unavailable; app remains usable while page is open.');
+     });
+   }
    log('TTFES&BTP standalone application initialized without external connections');
  }
  document.addEventListener('DOMContentLoaded',boot);
