@@ -214,6 +214,56 @@
       "input": "GOG",
       "output": "GOC",
       "stage": "original-interpretation-or-index"
+    },
+    {
+      "id": "G022",
+      "title": "God",
+      "group": "god-dog-word-family",
+      "source": "User supplied November 5, 2026; cross-reference g-words.json",
+      "notes": "Religious term; owner explicitly added it to G. Exact reversal under uppercase normalization is DOG, separately named in the request. Literal uppercase reversal: GOD → DOG. Original first-letter department G retained separately; G cross-index is additive.",
+      "input": "GOD",
+      "output": "DOG",
+      "stage": "creator-word-family-cross-reference"
+    },
+    {
+      "id": "G023",
+      "title": "Goddess",
+      "group": "god-dog-word-family",
+      "source": "User supplied November 5, 2026; cross-reference g-words.json",
+      "notes": "Religious feminine-deity term; spelling and owner title preserved. Reverse is SSEDDOG, not SSEGGOD. Literal uppercase reversal: GODDESS → SSEDDOG. Original first-letter department G retained separately; G cross-index is additive.",
+      "input": "GODDESS",
+      "output": "SSEDDOG",
+      "stage": "creator-word-family-cross-reference"
+    },
+    {
+      "id": "G024",
+      "title": "Dog",
+      "group": "god-dog-word-family",
+      "source": "User supplied November 5, 2026; cross-reference g-words.json",
+      "notes": "Ordinary animal word and separately an owner DOG / OG-family symbolic name. Existing D identity retained; G receives an additional cross-index only. Reverses to GOD. Literal uppercase reversal: DOG → GOD. Original first-letter department D retained separately; G cross-index is additive.",
+      "input": "DOG",
+      "output": "GOD",
+      "stage": "creator-word-family-cross-reference"
+    },
+    {
+      "id": "G025",
+      "title": "Doggess",
+      "group": "god-dog-word-family",
+      "source": "User supplied November 5, 2026; cross-reference g-words.json",
+      "notes": "Creator-supplied Doggess label, also appearing in earlier DOGGESS COMPANY source titles. Reverses to SSEGGOD; not automatically substituted for Goddess. Literal uppercase reversal: DOGGESS → SSEGGOD. Original first-letter department D retained separately; G cross-index is additive.",
+      "input": "DOGGESS",
+      "output": "SSEGGOD",
+      "stage": "creator-word-family-cross-reference"
+    },
+    {
+      "id": "G026",
+      "title": "Sseggod",
+      "group": "god-dog-word-family",
+      "source": "User supplied November 5, 2026; cross-reference g-words.json",
+      "notes": "Creator-supplied Sseggod form, not otherwise defined in recovered original text. Matches the literal reverse of DOGGESS after capitalization normalization, NOT of GODDESS. Literal uppercase reversal: SSEGGOD → DOGGESS. Original first-letter department S retained separately; G cross-index is additive.",
+      "input": "SSEGGOD",
+      "output": "DOGGESS",
+      "stage": "creator-word-family-cross-reference"
     }
   ],
   "linkedExistingWorks": [

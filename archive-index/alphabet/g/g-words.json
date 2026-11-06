@@ -1,0 +1,146 @@
+{
+  "schema": "nathan-ai.g.god-goddess-dog-doggess-sseggod.v1",
+  "compiled": "2026-11-05",
+  "owner": "John Nathan Tabor",
+  "exactUserRequest": "put all that in the G category plus adding God, Goddess, Dog, Doggess, Sseggod",
+  "originalLabels": [
+    "God",
+    "Goddess",
+    "Dog",
+    "Doggess",
+    "Sseggod"
+  ],
+  "classification": "creator-supplied names and source-preserving G cross-index, with literal Unicode-character reversal",
+  "caution": "Uppercase literal reversal is spelling play, not historical etymology, linguistic cognacy, theology, or an assertion that GoddESS and DoggESS are the same word. Do not alter original spelling or rename private works.",
+  "counts": {
+    "supplied": 5,
+    "attestedPrivateSourceTitles": 2
+  },
+  "originalWorkReferences": [
+    {
+      "title": "The_OG_Family_Twelve_Book_Series_Nathan_Tabor.md",
+      "kind": "owner-Library-original",
+      "status": "private original manuscript; title/metadata only; no source body published"
+    },
+    {
+      "title": "DOGGESS COMPANY Installation Protocol",
+      "kind": "owner-source-reference",
+      "status": "prior project title attributed to September 24, 2025; standalone implementation not verified"
+    },
+    {
+      "title": "TABOR WORLD — DOG & DOGGESS COMPANY",
+      "kind": "owner-source-reference",
+      "status": "prior project title attributed to October 9, 2026; standalone implementation not verified"
+    }
+  ],
+  "existingPublicSoftware": [
+    {
+      "name": "Nathan AI Six Dogs",
+      "path": "app-factory/nathan-ai/six-dogs/index.html",
+      "note": "Existing independent six-stage DOG-related app; this G index does not alter it"
+    },
+    {
+      "name": "Nathan AI Omni God",
+      "path": "app-factory/nathan-ai/omni-god/index.html",
+      "note": "Existing independent user-authored Omni God system; G word records do not replace it"
+    }
+  ],
+  "relations": [
+    {
+      "left": "GOD",
+      "right": "DOG",
+      "kind": "exact-uppercase-codepoint-reversal",
+      "suppliedBoth": true
+    },
+    {
+      "left": "DOGGESS",
+      "right": "SSEGGOD",
+      "kind": "exact-uppercase-codepoint-reversal",
+      "suppliedBoth": true
+    },
+    {
+      "left": "GODDESS",
+      "right": "SSEDDOG",
+      "kind": "derived-uppercase-codepoint-reversal",
+      "suppliedBoth": false,
+      "warning": "SSEDDOG is not the creator-supplied Sseggod; do not conflate."
+    }
+  ],
+  "entries": [
+    {
+      "id": "G-WORD-001",
+      "original": "God",
+      "canonical": "GOD",
+      "originalInitial": "G",
+      "indexDepartment": "G",
+      "reverseOriginalCodepoints": "doG",
+      "reverseUppercase": "DOG",
+      "source": "User request November 5, 2026",
+      "classification": "owner-supplied-original-word-cross-reference",
+      "notes": "Religious term; owner explicitly added it to G. Exact reversal under uppercase normalization is DOG, separately named in the request.",
+      "originalAlphabetPreserved": true,
+      "associatedSourceTitles": []
+    },
+    {
+      "id": "G-WORD-002",
+      "original": "Goddess",
+      "canonical": "GODDESS",
+      "originalInitial": "G",
+      "indexDepartment": "G",
+      "reverseOriginalCodepoints": "sseddoG",
+      "reverseUppercase": "SSEDDOG",
+      "source": "User request November 5, 2026",
+      "classification": "owner-supplied-original-word-cross-reference",
+      "notes": "Religious feminine-deity term; spelling and owner title preserved. Reverse is SSEDDOG, not SSEGGOD.",
+      "originalAlphabetPreserved": true,
+      "associatedSourceTitles": []
+    },
+    {
+      "id": "G-WORD-003",
+      "original": "Dog",
+      "canonical": "DOG",
+      "originalInitial": "D",
+      "indexDepartment": "G",
+      "reverseOriginalCodepoints": "goD",
+      "reverseUppercase": "GOD",
+      "source": "User request November 5, 2026",
+      "classification": "owner-supplied-original-word-cross-reference",
+      "notes": "Ordinary animal word and separately an owner DOG / OG-family symbolic name. Existing D identity retained; G receives an additional cross-index only. Reverses to GOD.",
+      "originalAlphabetPreserved": true,
+      "associatedSourceTitles": [
+        "The_OG_Family_Twelve_Book_Series_Nathan_Tabor.md"
+      ]
+    },
+    {
+      "id": "G-WORD-004",
+      "original": "Doggess",
+      "canonical": "DOGGESS",
+      "originalInitial": "D",
+      "indexDepartment": "G",
+      "reverseOriginalCodepoints": "sseggoD",
+      "reverseUppercase": "SSEGGOD",
+      "source": "User request November 5, 2026",
+      "classification": "owner-supplied-original-word-cross-reference",
+      "notes": "Creator-supplied Doggess label, also appearing in earlier DOGGESS COMPANY source titles. Reverses to SSEGGOD; not automatically substituted for Goddess.",
+      "originalAlphabetPreserved": true,
+      "associatedSourceTitles": [
+        "DOGGESS COMPANY Installation Protocol",
+        "TABOR WORLD — DOG & DOGGESS COMPANY"
+      ]
+    },
+    {
+      "id": "G-WORD-005",
+      "original": "Sseggod",
+      "canonical": "SSEGGOD",
+      "originalInitial": "S",
+      "indexDepartment": "G",
+      "reverseOriginalCodepoints": "doggesS",
+      "reverseUppercase": "DOGGESS",
+      "source": "User request November 5, 2026",
+      "classification": "owner-supplied-original-word-cross-reference",
+      "notes": "Creator-supplied Sseggod form, not otherwise defined in recovered original text. Matches the literal reverse of DOGGESS after capitalization normalization, NOT of GODDESS.",
+      "originalAlphabetPreserved": true,
+      "associatedSourceTitles": []
+    }
+  ]
+}

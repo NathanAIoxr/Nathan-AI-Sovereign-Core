@@ -59,7 +59,7 @@ test('63 creative game chambers preserve ordered numbering and prior source',()=
  assert.throws(()=>numberedChambers(0));
 });
 test('21 G research routes include full original G code and cross-indexes',()=>{
- assert.equal(routes.entries.length,21);assert.ok(filterRoutes(routes,{query:'GLUCO'}).length>0);
+ assert.equal(routes.entries.length,26);assert.ok(filterRoutes(routes,{query:'GLUCO'}).length>0);
  assert.ok(filterRoutes(routes,{query:'Gate System (12x12 Matrix)'}).length>0);
  assert.ok(filterRoutes(routes,{query:'GORD'}).length>0);
  assert.ok(filterRoutes(routes,{query:'Tabor Spiral'}).length>=2);
@@ -77,4 +77,15 @@ test('continuous clockwise and counterclockwise creator rotation and six-to-G mo
  assert.notEqual(a.path,b.path);assert.notEqual(mid.path,a.path);
  assert.equal(a.identity,'6-inspired outline');assert.equal(b.identity,'G-inspired outline');
  assert.throws(()=>morphSixToG(1.1));
+});
+
+test('G 5 original God/Goddess/Dog/Doggess/Sseggod records are independently indexed',()=>{
+ const names=['God','Goddess','Dog','Doggess','Sseggod'];
+ const found=routes.entries.filter(x=>x.group==='god-dog-word-family');
+ assert.deepEqual(found.map(x=>x.title),names);
+ assert.equal(found.length,5);
+ assert.equal(found.find(x=>x.title==='Doggess').output,'SSEGGOD');
+ assert.equal(found.find(x=>x.title==='Goddess').output,'SSEDDOG');
+ assert.ok(filterRoutes(routes,{query:'Sseggod'}).length>=1);
+ assert.ok(filterRoutes(routes,{query:'DOGGESS'}).length>=1);
 });

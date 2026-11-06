@@ -8,7 +8,7 @@ const clamp=(v,min,max)=>Math.min(max,Math.max(min,v));
 export function verifyG(source,metadata,routes,geometry){
  if(source?.schema!==SOURCE_SCHEMA||metadata?.schema!=='nathan-ai.g.master-title-gzip-metadata.v1'||routes?.schema!==ROUTES_SCHEMA||geometry?.schema!==GEOMETRY_SCHEMA)throw TypeError('Source schema mismatch');
  if(!Array.isArray(source.records)||source.records.length!==713||source.generalRows!==713||source.gRows!==719||source.withheld!==6)throw TypeError('Master G privacy/source count mismatch');
- if(!Array.isArray(source.collections)||source.collections.length!==21||!Array.isArray(routes.entries)||routes.entries.length!==21)throw TypeError('G source families missing');
+ if(!Array.isArray(source.collections)||source.collections.length!==21||!Array.isArray(routes.entries)||routes.entries.length!==26)throw TypeError('G source families missing');
  if(!source.records.every(x=>Array.isArray(x)&&x.length===3&&Number.isInteger(x[0])&&typeof x[1]==='string'&&x[1].trimStart().toLocaleLowerCase().startsWith('g')&&Number.isInteger(x[2])&&x[2]>=0&&x[2]<source.collections.length))throw TypeError('Invalid G source occurrence');
  if(new Set(source.records.map(x=>x[0])).size!==713)throw TypeError('Lost source occurrence IDs');
  if(routes.originalUserLine!=="time for G ... find all G's - 5 rotated around and or a 6 reshaped the natilus aka tabor spiral")throw TypeError('Creator text changed');
