@@ -1,0 +1,2086 @@
+{
+  "schema": "nathan-tabor.innocence-source-index.v1",
+  "updated": "2026-11-06",
+  "creator": "Nathan Tabor",
+  "publicScope": "Titles, classifications and source-stage labels only. No original manuscript bytes, private Library links, correspondence, case data, personal records or financial records.",
+  "verification": "Creator claims, fictional portrayals, real-world operation and empirical evidence are distinct. An indexed title is not a deployed site, registered organization, or independently verified allegation.",
+  "foundations": [
+    "1 + 1 = 2 — BUILD",
+    "1 − 1 = 0 — CLEAR",
+    "YES IS YES — NO IS NO",
+    "James 1:27",
+    "Romans 13:4",
+    "Esther",
+    "Deborah",
+    "Abigail",
+    "Acts 17:24",
+    "Luke 10:37"
+  ],
+  "points": [
+    {
+      "id": "COI-001",
+      "number": 1,
+      "title": "KJV Root Text Verification",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-002",
+      "number": 2,
+      "title": "James 1",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-003",
+      "number": 3,
+      "title": "Romans 13",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-004",
+      "number": 4,
+      "title": "The Esther Protocol",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-005",
+      "number": 5,
+      "title": "The Deborah Standard",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-006",
+      "number": 6,
+      "title": "The Abigail Strategy",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-007",
+      "number": 7,
+      "title": "Isaiah 45",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-008",
+      "number": 8,
+      "title": "Revelation 19",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-009",
+      "number": 9,
+      "title": "Shadowfax Metaphor",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-010",
+      "number": 10,
+      "title": "Ephesians 6 Armor Mechanics",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-011",
+      "number": 11,
+      "title": "The Good Samaritan Model",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-012",
+      "number": 12,
+      "title": "Luke Discipleship Parameters",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-013",
+      "number": 13,
+      "title": "Strong’s Concordance Decryption",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-014",
+      "number": 14,
+      "title": "King James Daemonologie Integration",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-015",
+      "number": 15,
+      "title": "Inverted Vatican Fulfillment",
+      "category": "KJV & foundations",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-016",
+      "number": 16,
+      "title": "Innocence is Not a Commodity",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-017",
+      "number": 17,
+      "title": "The 1+1=2 Veracity Law",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-018",
+      "number": 18,
+      "title": "The 1-1=0 Clearing Protocol",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-019",
+      "number": 19,
+      "title": "Binary IF/THEN Logic Gates",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-020",
+      "number": 20,
+      "title": "The Sovereign Mind Firewall",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-021",
+      "number": 21,
+      "title": "Rejection of the Gray Area",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-022",
+      "number": 22,
+      "title": "Internal Kingdom Geography",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-023",
+      "number": 23,
+      "title": "Sovereign Monad Alignment",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-024",
+      "number": 24,
+      "title": "The 4% Lie Filter",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-025",
+      "number": 25,
+      "title": "Absolute Consent Mandate",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-026",
+      "number": 26,
+      "title": "Unconditional Love Infrastructure",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-027",
+      "number": 27,
+      "title": "Active Rejection of Corruption",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-028",
+      "number": 28,
+      "title": "Internal God Consciousness",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-029",
+      "number": 29,
+      "title": "The Anti-Tough Love Directive",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-030",
+      "number": 30,
+      "title": "Intimacy Equality Formula",
+      "category": "Ethics & consent",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-031",
+      "number": 31,
+      "title": "The Disruptive Sentinel",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-032",
+      "number": 32,
+      "title": "The Integrating Harmonizer",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-033",
+      "number": 33,
+      "title": "The Realist Protagonist",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-034",
+      "number": 34,
+      "title": "The Little Drummer Boy",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-035",
+      "number": 35,
+      "title": "The Whepherd Hunter",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-036",
+      "number": 36,
+      "title": "The MANiCON Entity",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-037",
+      "number": 37,
+      "title": "The Sovereign Light Undertaker (SLUT)",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-038",
+      "number": 38,
+      "title": "The Optimus Prime Metaphor",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-039",
+      "number": 39,
+      "title": "Da Tabornardo DaWacku Persona",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-040",
+      "number": 40,
+      "title": "Parlor Thug Alias",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-041",
+      "number": 41,
+      "title": "Jael’s Hammer and Tent Peg",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-042",
+      "number": 42,
+      "title": "Judith’s Blade",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-043",
+      "number": 43,
+      "title": "The Rose of Sharon Metaphor",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-044",
+      "number": 44,
+      "title": "The Alpha Nothing Baseline",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-045",
+      "number": 45,
+      "title": "The Underdog Moniker (D0G)",
+      "category": "Narrative & archetypes",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-046",
+      "number": 46,
+      "title": "Pinky and the Brain Architecture",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-047",
+      "number": 47,
+      "title": "Phonetic Decryption Mechanics",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-048",
+      "number": 48,
+      "title": "Linguistic Reversal Processing",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-049",
+      "number": 49,
+      "title": "Acrostic Pattern Mining",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-050",
+      "number": 50,
+      "title": "Mature Intellect Dividing All (MIDA)",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-051",
+      "number": 51,
+      "title": "Inverted Scenario Modeling",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-052",
+      "number": 52,
+      "title": "Top-Down Cortical Inhibition",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-053",
+      "number": 53,
+      "title": "SSS (Spirit, Soul, Shadow) Matrix",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-054",
+      "number": 54,
+      "title": "360-Degree Spherical Perception",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-055",
+      "number": 55,
+      "title": "Elimination of Mental Images",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-056",
+      "number": 56,
+      "title": "Intention Pre-Determination",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-057",
+      "number": 57,
+      "title": "Cortical Memory Box Isolation",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-058",
+      "number": 58,
+      "title": "Word Suffix Expansionism",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-059",
+      "number": 59,
+      "title": "The 180-Degree Mental Flip",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-060",
+      "number": 60,
+      "title": "Pure Attribute Stripping",
+      "category": "Language & cognition",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-061",
+      "number": 61,
+      "title": "Madison County Genesis",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-062",
+      "number": 62,
+      "title": "The Flint River Baseline",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-063",
+      "number": 63,
+      "title": "Redstone Arsenal Operational Model",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-064",
+      "number": 64,
+      "title": "The 15th-Century Taborite Continuation",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-065",
+      "number": 65,
+      "title": "Roman Catacomb Beehive Design",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-066",
+      "number": 66,
+      "title": "The 90-Billion Light Years Map",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-067",
+      "number": 67,
+      "title": "The Global Geographic Fractal System",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-068",
+      "number": 68,
+      "title": "The 13-17-34 Heartbeat Matrix",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-069",
+      "number": 69,
+      "title": "The 52-Week Cipher",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-070",
+      "number": 70,
+      "title": "The Hemo Home Architecture",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-071",
+      "number": 71,
+      "title": "Subterranean Stone Sanctuaries",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-072",
+      "number": 72,
+      "title": "Independent Four-Wheel Wide Frame Vehicles",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-073",
+      "number": 73,
+      "title": "The Christmas Auto-Stick AlumaGrip Array",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-074",
+      "number": 74,
+      "title": "The Three-Tire Lateral Drive Concept",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-075",
+      "number": 75,
+      "title": "Extended Dual-End Drawer Hinges",
+      "category": "History & inventions",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-076",
+      "number": 76,
+      "title": "Seed-Bearing Plant Ingestion",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-077",
+      "number": 77,
+      "title": "Commensal Ecosystem Restoration",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-078",
+      "number": 78,
+      "title": "Liquid Copper Grounding Elements",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-079",
+      "number": 79,
+      "title": "Custom Epsom & Vinegar Baths",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-080",
+      "number": 80,
+      "title": "Constant Natural Airflow Calibration",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-081",
+      "number": 81,
+      "title": "Safe-Boundary Insect Coexistence",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-082",
+      "number": 82,
+      "title": "Avian-Reptilian Survival Proprioception",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-083",
+      "number": 83,
+      "title": "Mammoth Morning Glory Botany",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-084",
+      "number": 84,
+      "title": "Raw Silver Queen Consumption",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-085",
+      "number": 85,
+      "title": "The Shell-Chestnut Invariant",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-086",
+      "number": 86,
+      "title": "The Salted-Watermelon hydration Method",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-087",
+      "number": 87,
+      "title": "Crockpot Preservation Strategy",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-088",
+      "number": 88,
+      "title": "Complete Physical Abstinence Filter",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-089",
+      "number": 89,
+      "title": "Dynamic Shoulder Realignment",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-090",
+      "number": 90,
+      "title": "The 20% Universal Sharing Law",
+      "category": "Nature & personal practices",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-091",
+      "number": 91,
+      "title": "Silent-Footstep Scanning",
+      "category": "Outreach & symbols",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-092",
+      "number": 92,
+      "title": "Guerrilla Marketing Rollouts",
+      "category": "Outreach & symbols",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-093",
+      "number": 93,
+      "title": "Rotational Storyteller RPG Mechanics",
+      "category": "Outreach & symbols",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-094",
+      "number": 94,
+      "title": "Powder-Mark Backyard Archery Gear",
+      "category": "Outreach & symbols",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-095",
+      "number": 95,
+      "title": "Tactical Used-Car Diagnostics",
+      "category": "Outreach & symbols",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-096",
+      "number": 96,
+      "title": "Opt-In Email Server Architectures",
+      "category": "Outreach & symbols",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-097",
+      "number": 97,
+      "title": "Direct Letter Paradox Exchanges",
+      "category": "Outreach & symbols",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-098",
+      "number": 98,
+      "title": "The Goldfish Real-Time Reset",
+      "category": "Outreach & symbols",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-099",
+      "number": 99,
+      "title": "The Empty Cross Iconography",
+      "category": "Outreach & symbols",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-100",
+      "number": 100,
+      "title": "The Inverted Cross Paradigm",
+      "category": "Outreach & symbols",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    },
+    {
+      "id": "COI-101",
+      "number": 101,
+      "title": "The \"IS THAT ALL YOU GOT? WEAK!!!\" War Cry",
+      "category": "Outreach & symbols",
+      "source": "Author-supplied 101-point matrix",
+      "status": "Creator concept / archival title"
+    }
+  ],
+  "faithWorks": [
+    {
+      "id": "FAITH-001",
+      "title": "THE FIVE MATRICES",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-002",
+      "title": "THE TRINITY = THE ROOT OF SATAN AND MENTAL INSANITY",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-003",
+      "title": "THE TOUGH LOVE OF CHRISTIANITY AND CATHOLICISM",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-004",
+      "title": "THE UNCONDITIONAL LOVE OF THE GOOD SAMARITAN AND JAMES 1:27",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-005",
+      "title": "Modernized for easy CONSumption",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-006",
+      "title": "THE KILLER KLAUSE",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-007",
+      "title": "THE ART OF EVERYTHING AND NOTHING",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-008",
+      "title": "THE ART OF –DUCTION/+DUCTION",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-009",
+      "title": "THE GAME OF LIFE = YOU V. GOD",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-010",
+      "title": "MOM + WOW — COMPLETE THEOLOGY IN TWO POINTS",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-011",
+      "title": "8-POINT THEOLOGY",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-012",
+      "title": "THE EIGHT BEFORE THE TWO",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-013",
+      "title": "THE FIVE MATRICES — JAILER/BINDER ARC",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-014",
+      "title": "MOM+WOW and Eight-Point Learning Studio",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-015",
+      "title": "DAMN JOY TO HELL",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-016",
+      "title": "THE WEED CLOCK",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-017",
+      "title": "KANEH BOSEM",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-018",
+      "title": "THE GAME OF THEOS",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-019",
+      "title": "THE FIVE AND THE EYE THAT BLINKED",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-020",
+      "title": "THE BOOK OF THE TWINKLING",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-021",
+      "title": "THE TWINKLING — eight adult women manuscripts",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-022",
+      "title": "THE FIVE AND THE EYE THAT BLINKED",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-023",
+      "title": "THE LOST ART OF INTIMACY AND HOW TO RESTORE IT",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-024",
+      "title": "THE NECESSARY EVIL",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-025",
+      "title": "NO SYMPATHY FOR THE DEVIL",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-026",
+      "title": "SIN = Saving Innocence Now",
+      "category": "SLGPEGSW — eight distinct original titles",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-027",
+      "title": "LUST = Leveling Untold Satanic Temples aka CHURCHES",
+      "category": "SLGPEGSW — eight distinct original titles",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-028",
+      "title": "GREED = Gutting Religious Errors Everywhere Daily",
+      "category": "SLGPEGSW — eight distinct original titles",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-029",
+      "title": "PRIDE = Punking Religious Idiots Daily Eternally",
+      "category": "SLGPEGSW — eight distinct original titles",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-030",
+      "title": "ENVY = Everythinging Nothing Vindicates You",
+      "category": "SLGPEGSW — eight distinct original titles",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-031",
+      "title": "GLUTTONY",
+      "category": "SLGPEGSW — eight distinct original titles",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-032",
+      "title": "SLOTH",
+      "category": "SLGPEGSW — eight distinct original titles",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-033",
+      "title": "WRATH = Weilding Righteousness Almightily Towards Harm",
+      "category": "SLGPEGSW — eight distinct original titles",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-034",
+      "title": "The 180° Restoration — Visible Act of Love",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-035",
+      "title": "HEAVENS DEMONS — James 1:27",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-036",
+      "title": "HELLS AVENGERS — Romans 13:4",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-037",
+      "title": "Healers & Protectors",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-038",
+      "title": "ONE MATRIX — Innocence Protection",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-039",
+      "title": "The Star of Unconditional Love",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-040",
+      "title": "THE INVERSE DISTRIBUTION — THE LEAST GET THE MOST",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-041",
+      "title": "CHRISTMAS TOY DRIVE — HANDLING LIFE",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-042",
+      "title": "365 JOY CIRCLE",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-043",
+      "title": "TABOR JOY OPERATING SYSTEM — ETERNAL CHRISTMAS EDITION",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-044",
+      "title": "THE WAR TO SECURE SOVEREIGNTY",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-045",
+      "title": "TaborTales™ — Ecosystem Genesis",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-046",
+      "title": "TaborTales: The Division of the Red Matrix",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-047",
+      "title": "TaborTales Nativity Story",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-048",
+      "title": "TaborTales™ — Tater the Drummer Boy",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-049",
+      "title": "BRIGHT TREE VILLAGE — EWOK LIVING",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-050",
+      "title": "THE FOUR WEENS",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-051",
+      "title": "HELLOween",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-052",
+      "title": "HOLLARween",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-053",
+      "title": "HEAVENween",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-054",
+      "title": "JoYoween",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-055",
+      "title": "CHRISTMAS COMMUNITIES / COVENANT",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-056",
+      "title": "TaborTales / Bright Tree Village children branch",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-057",
+      "title": "Angels vs. Demons — 404",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-058",
+      "title": "The Game of Life — 5×5 Matrices",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-059",
+      "title": "Decagon Asor Taborapolis the Third",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-060",
+      "title": "Demiurge Yaldabaot Tabor the Third",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-061",
+      "title": "H.O.R.R.O.R. 237",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-062",
+      "title": "THE TOWER OF BOWEL",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-063",
+      "title": "THE VATICAN VAULT",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-064",
+      "title": "HOLY HYDRA / Hitler Won Seven Hails",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-065",
+      "title": "ONE MATRIX — SOVEREIGN ADAPTER",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-066",
+      "title": "TABOR ACCORDS",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-067",
+      "title": "SCROLLFIRE PROTOCOL",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-068",
+      "title": "EARTHΩ — WHOLLY LAW",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-069",
+      "title": "Tabor Almanac — History, Astronomy & KJV",
+      "category": "KJV languages, biblical sources & comparative wisdom",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-070",
+      "title": "WORDS — Language & Historical Forensics",
+      "category": "KJV languages, biblical sources & comparative wisdom",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-071",
+      "title": "Vatican & Biblical Historical Primary Source Archive",
+      "category": "KJV languages, biblical sources & comparative wisdom",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-072",
+      "title": "Vatican Primary Source Python Archive",
+      "category": "KJV languages, biblical sources & comparative wisdom",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-073",
+      "title": "THE TABOR ALMANAC / TTA",
+      "category": "KJV languages, biblical sources & comparative wisdom",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-074",
+      "title": "TORMO — ORIGINAL ROOT MEANINGS ONLY",
+      "category": "KJV languages, biblical sources & comparative wisdom",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-075",
+      "title": "PROJECT INNOCENCE APP",
+      "category": "KJV languages, biblical sources & comparative wisdom",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-076",
+      "title": "THE VOICE OF GOD",
+      "category": "KJV languages, biblical sources & comparative wisdom",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-077",
+      "title": "The Theology of Sovereign Innocence",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-078",
+      "title": "Helplessness and Barnabas the newly labeled the Good Samaritan",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-079",
+      "title": "The Church and the Missing Children — A Biblical Reckoning",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-080",
+      "title": "BCV — BLOOD CULT VATICAN VERSION",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-081",
+      "title": "MOUNT TABOR — TRANSFIGURATOR",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-082",
+      "title": "God the Pervert and His Merry Band of Heavenly Holy Predators",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-083",
+      "title": "The KJV Red-Letter Manifesto / Jesus Christ Foreword",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-084",
+      "title": "The Biblical Warning — ALL LIARS / GET NO PARDON",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-085",
+      "title": "The New Creature — 2 Corinthians 5:17 / Galatians 6:15",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-086",
+      "title": "The Game of Life: Earth Is the Colosseum",
+      "category": "KJV doctrine, theology & sermons",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-087",
+      "title": "VALHALLA IS REAL, HEAVEN AND HELL ARE NOT",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-088",
+      "title": "AMAZON = THE GARDEN OF EDEN",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-089",
+      "title": "THE BOOK OF THE TWINKLING — 8-volume adult-women story sequence",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-090",
+      "title": "THE FIVE AND THE EYE THAT BLINKED — planned eight-book family adaptation",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-091",
+      "title": "The ART of PEACE",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-092",
+      "title": "THE VIRGIN MARY JANE",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-093",
+      "title": "THE KJV 4:20 COLLECTION",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-094",
+      "title": "THC = THE HEAVENLY CURE",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-095",
+      "title": "The New Creature and Spiritual Transformation — KJV teaching themes",
+      "category": "KJV & spiritual books, series and writing",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-096",
+      "title": "GET IN THE DITCH and LOVE SOMEONE",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-097",
+      "title": "without barnabus there is NO paul",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-098",
+      "title": "3/4/9er — The Code of the Good Samaritan",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-099",
+      "title": "THE GOOD AND GREAT SAMARITAN MANIFESTO",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-100",
+      "title": "THE STAR OF UNCONDITIONAL LOVE",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-101",
+      "title": "JAMES 1:27 and ROMANS 13:4 with Esther — author ethical foundation",
+      "category": "Good Samaritan, James 1:27 & ethics in action",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-102",
+      "title": "THE TWINKLING — Book 1: The Eye and the Garden",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-103",
+      "title": "THE TWINKLING — Book 2: The Door and the Wilderness",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-104",
+      "title": "THE TWINKLING — Book 3: The Crown and the Kitchen Table",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-105",
+      "title": "THE TWINKLING — Book 4: The Question and the Quiet",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-106",
+      "title": "THE TWINKLING — Book 5: The Watchman and the Window",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-107",
+      "title": "THE TWINKLING — Book 6: The Table and the Empty Tomb",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-108",
+      "title": "THE TWINKLING — Book 7: The Letter and the Open Door",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-109",
+      "title": "THE TWINKLING — Book 8: The Twinkling and the Beginning",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-110",
+      "title": "TaborTales™ — Where the Bible and Nature Meet Up",
+      "category": "Bible-inspired stories, children & community",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-111",
+      "title": "THE FIVE MATRICES — GAME OF LIFE KJV matrix expansion",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-112",
+      "title": "THE FIVE MATRICES — Demiurge Yaldabaot Tabor the Third",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-113",
+      "title": "The 180° Restoration — The Open Hand / The Living Heart / The Visible Act of Love",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-114",
+      "title": "The Game of Life — natural, soul, shadow, mind, ghost and spirit architecture",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-115",
+      "title": "The Firmament, the Watchers and the Creatures of the KJV",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-116",
+      "title": "DID HITLER WIN???!!! / THE HOLY HYDRA",
+      "category": "Spiritual cosmology, characters & interactive games",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-117",
+      "title": "KJV / SAINT JEROME — LABELS REMOVED",
+      "category": "KJV languages, biblical sources & comparative wisdom",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-118",
+      "title": "Kaneh Bosem — ancient term and translation investigation",
+      "category": "KJV languages, biblical sources & comparative wisdom",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-119",
+      "title": "The Torah, Jesus, Barnabas and Ancient Wisdom Comparison",
+      "category": "KJV languages, biblical sources & comparative wisdom",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-120",
+      "title": "Mount Tabor: From Glory to Action.png",
+      "category": "Religious/spiritual artwork and visual assets",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-121",
+      "title": "Red-Letter Manifesto: Jesus Christ Foreword.png",
+      "category": "Religious/spiritual artwork and visual assets",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-122",
+      "title": "Blood Cult Vatican: Power’s Dark Throne.png",
+      "category": "Religious/spiritual artwork and visual assets",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-123",
+      "title": "Cinematic Fiery Vatican Book Endorsement.png",
+      "category": "Religious/spiritual artwork and visual assets",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-124",
+      "title": "Ornate Virgin Mary Jane Devotional Poster.png",
+      "category": "Religious/spiritual artwork and visual assets",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-125",
+      "title": "The Good and Great Samaritan Manifesto.png",
+      "category": "Religious/spiritual artwork and visual assets",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-126",
+      "title": "3_4_9 Good Samaritan Emblem.png",
+      "category": "Religious/spiritual artwork and visual assets",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-127",
+      "title": "The Star of Unconditional Love(1).png",
+      "category": "Religious/spiritual artwork and visual assets",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-128",
+      "title": "The Trinity Deception Unmasked.png",
+      "category": "Religious/spiritual artwork and visual assets",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-129",
+      "title": "Mother Earth: Garden of Eden.png",
+      "category": "Religious/spiritual artwork and visual assets",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-130",
+      "title": "Amazon: Garden of Eden Conspiracy.png",
+      "category": "Religious/spiritual artwork and visual assets",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-131",
+      "title": "Valhalla Is Real: Twelve-Book Display.png",
+      "category": "Religious/spiritual artwork and visual assets",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-132",
+      "title": "The God of Innocence Manifesto.png",
+      "category": "Religious/spiritual artwork and visual assets",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    },
+    {
+      "id": "FAITH-133",
+      "title": "Church of Innocence: Rise and Serve.png",
+      "category": "Religious/spiritual artwork and visual assets",
+      "status": "Catalog metadata — completion unverified",
+      "source": "KJV Spiritual Works Index"
+    }
+  ],
+  "recoveredFamilies": [
+    {
+      "id": "FAMILY-001",
+      "title": "Perfect Pumpkin Kids™",
+      "category": "Recovered project family",
+      "status": "working app/prototype",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-002",
+      "title": "THE PUMPKIN FRUIT FAMILY — Can You Escape and Defeat THE FRUIT ABORTIONIST?",
+      "category": "Recovered project family",
+      "status": "publisher story/game bible",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-003",
+      "title": "THE LITTLE TOPLESS PUMPKIN",
+      "category": "Recovered project family",
+      "status": "ongoing story universe",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-004",
+      "title": "THE BLACK WIDOWS AND WHITE WIDOWS",
+      "category": "Recovered project family",
+      "status": "series / draft material",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-005",
+      "title": "The Little Ants That Flew",
+      "category": "Recovered project family",
+      "status": "story draft / library record",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-006",
+      "title": "HONEYSUCKLE LANE",
+      "category": "Recovered project family",
+      "status": "planned series / original opening",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-007",
+      "title": "MY LIFE WITH MAMMALS",
+      "category": "Recovered project family",
+      "status": "illustrated manuscript and title plan",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-008",
+      "title": "TABORTALES™ — Where the Bible and Nature Meet Up",
+      "category": "Recovered project family",
+      "status": "story world / educational app concepts",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-009",
+      "title": "THE FIVE AND THE EYE THAT BLINKED",
+      "category": "Recovered project family",
+      "status": "planned 8-book children’s series",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-010",
+      "title": "CEDAR MANOR",
+      "category": "Recovered project family",
+      "status": "8-book outline",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-011",
+      "title": "THE OG FAMILY",
+      "category": "Recovered project family",
+      "status": "12-book proposed foundation",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-012",
+      "title": "THE ACT CHRONICLES / CATS & DOGS",
+      "category": "Recovered project family",
+      "status": "manuscript opening / family fantasy concept",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-013",
+      "title": "THE DOOR THAT STAYED OPEN",
+      "category": "Recovered project family",
+      "status": "short-book draft",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-014",
+      "title": "THE ROOM OF MANY VOICES",
+      "category": "Recovered project family",
+      "status": "short-book draft",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-015",
+      "title": "BEE THE MIRACLE",
+      "category": "Recovered project family",
+      "status": "creative story family",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-016",
+      "title": "BUDDY THE RED-NOSED GERMAN SHEPHERD",
+      "category": "Recovered project family",
+      "status": "source title / development",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-017",
+      "title": "BELZNICKLE — THE NAME BEHIND THE NAME",
+      "category": "Recovered project family",
+      "status": "family fantasy / story concept",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-018",
+      "title": "HANSEL AND GRETEL — THE SERIES",
+      "category": "Recovered project family",
+      "status": "series concept",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-019",
+      "title": "THE ADVENTURES OF PRICK & DICK",
+      "category": "Recovered project family",
+      "status": "series concept",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-020",
+      "title": "THE INDOCTRINATION AND PROGRAMMING OF JOHN NATHAN TABOR",
+      "category": "Recovered project family",
+      "status": "starter collection",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-021",
+      "title": "THE OG FAMILY / The Color of Truth: The Innocence Matrix",
+      "category": "Recovered project family",
+      "status": "draft and proposed companion",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-022",
+      "title": "THE RAINBOW MATTER CHRONICLES / THE ONE",
+      "category": "Recovered project family",
+      "status": "30-book series bible / partial manuscript",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-023",
+      "title": "THE BLACK TIME WIDOW",
+      "category": "Recovered project family",
+      "status": "story bible and opening manuscript",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-024",
+      "title": "THE CHURCH OF INNOCENCE",
+      "category": "Recovered project family",
+      "status": "framework / essays / artwork",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-025",
+      "title": "PROJECT INNOCENCE / INNOCENCE NODE SYSTEM",
+      "category": "Recovered project family",
+      "status": "concept / module plans",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-026",
+      "title": "ONE MATRIX — INNOCENCE PROTECTION",
+      "category": "Recovered project family",
+      "status": "prototype",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-027",
+      "title": "HEALERS & PROTECTORS",
+      "category": "Recovered project family",
+      "status": "proposed cooperative game",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-028",
+      "title": "STORY BLUEPRINT — DEFEAT EVIL AT THE ROOT",
+      "category": "Recovered project family",
+      "status": "prototype",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-029",
+      "title": "SIN — SAVING INNOCENCE NOW",
+      "category": "Recovered project family",
+      "status": "blueprint",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-030",
+      "title": "BAM BAM’s and MAB MAB’s",
+      "category": "Recovered project family",
+      "status": "author canonical character rule",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-031",
+      "title": "THE TABOR SECRET SOCIETY",
+      "category": "Recovered project family",
+      "status": "fictional adult / general series",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-032",
+      "title": "THE NOVELS OF TRUTH — THE THIRTEEN OPERAS OF HUMAN HISTORY",
+      "category": "Recovered project family",
+      "status": "historical investigation / general",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-033",
+      "title": "TABOR TEXTING / GUARDRAIL AI",
+      "category": "Recovered project family",
+      "status": "technical concept",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-034",
+      "title": "THE HOLIDAY TRIVIA FESTIVE OLYMPICS TOURNAMENT",
+      "category": "Recovered project family",
+      "status": "tournament design",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-035",
+      "title": "THE SANTA REVOLUTION / MRS CLAUS VS MR CLAUS",
+      "category": "Recovered project family",
+      "status": "story and game assets",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-036",
+      "title": "THE SACRED ALPHABET LIST",
+      "category": "Recovered project family",
+      "status": "alphabet canon",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-037",
+      "title": "THE NATIVITY A–Z ALPHABET",
+      "category": "Recovered project family",
+      "status": "alphabet story layer",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-038",
+      "title": "THE LIVING WORD GAME",
+      "category": "Recovered project family",
+      "status": "game package",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-039",
+      "title": "DAVID VS GOLIATH",
+      "category": "Recovered project family",
+      "status": "educational story/game artifacts",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-040",
+      "title": "MAGICAL MINDS",
+      "category": "Recovered project family",
+      "status": "book/app development",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-041",
+      "title": "WORDS / ZEROABSOLUTE READER",
+      "category": "Recovered project family",
+      "status": "educational app family",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-042",
+      "title": "365 JOY CIRCLE / HANDLING LIFE / CHRISTMAS TOY DRIVE",
+      "category": "Recovered project family",
+      "status": "nonprofit plans / demonstrations",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-043",
+      "title": "BRIGHT TREE VILLAGE — EWOK LIVING",
+      "category": "Recovered project family",
+      "status": "community / fiction concept",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-044",
+      "title": "CHRISTMAS COMMUNITIES 24/7/365",
+      "category": "Recovered project family",
+      "status": "community concept",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-045",
+      "title": "HEALERS & PROTECTORS — RESCUE & RESTORE",
+      "category": "Recovered project family",
+      "status": "linked protection theme",
+      "source": "Innocence & Children Recovery Register"
+    },
+    {
+      "id": "FAMILY-046",
+      "title": "NEXUS — FAMILY TREE OF LIGHT",
+      "category": "Recovered project family",
+      "status": "early story concept",
+      "source": "Innocence & Children Recovery Register"
+    }
+  ]
+}
