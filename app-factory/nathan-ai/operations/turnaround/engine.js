@@ -55,7 +55,6 @@
       case 'QUEUE_ITEM': {
         const title = String(event.title || '').trim();
         if (!title) throw new TypeError('Item title required');
-        if (state.queuedItems.length >= 100) throw new RangeError('Local queue at maximum');
         const item = { id: 'q-' + (state.revision + 1), title, reviewed: false };
         return note({ ...state, queuedItems: [...state.queuedItems, item] }, event.type, title);
       }
