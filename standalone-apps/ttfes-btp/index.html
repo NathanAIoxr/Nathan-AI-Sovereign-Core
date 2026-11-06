@@ -4,7 +4,7 @@
 <link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml">
 <title>TTFES&BTP — The Tabor Finger Electric Slide and Button Tapping Process</title>
 <link rel="stylesheet" href="./styles.css">
-<script defer src="./catalog.js"></script><script defer src="./engine.js"></script><script defer src="./app.js"></script>
+<script defer src="./catalog.js"></script><script defer src="./engine.js"></script><script defer src="./matrix-engine.js"></script><script defer src="./app.js"></script><script defer src="./matrix-ui.js"></script>
 </head><body>
 <a class="skip" href="#main">Skip to application</a>
 <header class="topbar">
@@ -49,6 +49,29 @@
    <button id="restore-source" type="button" title="Restore last file-loaded original bytes">RESTORE IMPORTED FILE</button>
   </div>
   <output class="output" id="source-status" aria-live="polite">No source loaded. Files are not uploaded to GitHub or outside services.</output>
+ </section>
+ <section class="card" id="matrix-panel">
+  <div class="heading"><div><span class="eyebrow">LEARNING STACKS · GRIDS · DIMENSIONS</span><h2>01B / The original-to-derived Matrix Studio</h2></div><span class="pill">Source never overwritten</span></div>
+  <p>Work with the exact original as a separate immutable record. The derived layer can be reversed, indexed, arranged into a word grid or treated with the creator-defined binary BUILD/CLEAR operations. Each transformation is explicitly labeled as an interpretation.</p>
+  <div class="cols-3">
+   <label>Operating plane<select id="matrix-plane"><option value="Geometry">Geometry</option><option value="Logic">Logic</option><option value="Phonetic">Phonetic</option><option value="Deployment">Deployment</option></select></label>
+   <label>Transformation<select id="matrix-mode"></select></label>
+   <label>Stack/register<select id="matrix-stack"></select></label>
+  </div>
+  <div class="actions wrap">
+   <button type="button" id="matrix-derive">BUILD DERIVED VIEW</button>
+   <button type="button" id="matrix-export">EXPORT SOURCE + DERIVATIVE JSON</button>
+   <button type="button" id="matrix-copy">COPY DERIVED LAYER</button>
+  </div>
+  <label>Derived view (read-only)<textarea id="matrix-output" rows="9" readonly spellcheck="false" placeholder="Original content has not been transformed or overwritten."></textarea></label>
+  <output id="matrix-status" class="output" aria-live="polite">Select a plane and transformation after entering your original source. No historical or clinical status is implied.</output>
+  <details>
+   <summary>38 user-defined reading / transcription lens slots</summary>
+   <p>These are 38 <strong>editable creator-defined placeholders</strong>, not a standardized clinical classification. Label them in your own language and export the names as a separate data file.</p>
+   <div id="lens-list" class="field-grid"></div>
+   <button id="save-lenses" type="button">SAVE 38 LENS DEFINITIONS JSON</button>
+  </details>
+  <p class="muted" id="matrix-coordinates">4 planes · 9 axes · 11 stacks · 13 derived modes · 38 empty author-defined lenses.</p>
  </section>
  <section class="card" id="targets-panel">
   <div class="heading"><div><span class="eyebrow">MATRIX · EVERY TARGET</span><h2>02 / Select the destinations</h2></div><span class="pill">No hidden APIs</span></div>
