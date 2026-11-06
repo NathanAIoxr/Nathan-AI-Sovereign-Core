@@ -4,7 +4,7 @@
   "sourceTree": "main as observed prior to feature branch",
   "owner": "Nathan AI · John Nathan Tabor",
   "alphabet": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  "entryCount": 1916,
+  "entryCount": 1937,
   "categoryTaxonomy": "./store-taxonomy.json",
   "preservationPolicy": "All entries retain source names and original source letter if authored; search metadata and suggested store categories are derivatives, not rewrites of original files or evidence of published mobile apps.",
   "privatePolicy": "Excluded 14 private archive anchor records and editorial-review A source entries; private original file content is not embedded.",
@@ -23,7 +23,9 @@
       "eWordFamilies": 18,
       "publicF": 64,
       "fStructuralSources": 15,
-      "fabricRelatedNames": 150
+      "fabricRelatedNames": 150,
+      "gPublicMasterTitleSupplement": 713,
+      "gOriginalResearchRoutes": 21
     },
     "includedCounts": {
       "standalone-app": 139,
@@ -33,13 +35,15 @@
       "authored-sequence": 130,
       "public-source-title": 564,
       "public-library-filename": 519,
-      "word-family": 33
+      "word-family": 54
     },
     "excludedPrivateProgramAnchors": 14,
     "excludedAEditorialReview": 4,
     "sourceNote": "No claim of full private Library scan or platform publication.",
     "excludedFPrivacyOrReview": 5,
-    "noteF": "Fabric 150 additional cross-references live in the linked F department and are not treated as 150 new unique applications or reassigned authored A–Z titles."
+    "noteF": "Fabric 150 additional cross-references live in the linked F department and are not treated as 150 new unique applications or reassigned authored A–Z titles.",
+    "excludedGPrivacyOrReview": 6,
+    "noteG": "The complete 713-item public G starting-title archive is independently linked and searchable in the G laboratory as gzip JSON. It is not flattened into this master index's unique app counts or used to rewrite user-authored A–Z titles."
   },
   "entries": [
     {
@@ -57733,6 +57737,647 @@
         "confidence": "none"
       },
       "relatedIds": []
+    },
+    {
+      "id": "g-route:G001",
+      "title": "5 rotated around",
+      "assignedLetter": "G",
+      "titleInitial": null,
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G001",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Author-defined G construction alternative; explore rotations without assuming a single exact angle or historical descent.",
+      "sourceCategory": "creator-glyph-geometry",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G002",
+      "title": "a 6 reshaped",
+      "assignedLetter": "G",
+      "titleInitial": "A",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G002",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Second independent author-defined G construction; not necessarily identical to rotating 5.",
+      "sourceCategory": "creator-glyph-geometry",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G003",
+      "title": "the natilus aka tabor spiral",
+      "assignedLetter": "G",
+      "titleInitial": "T",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G003",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Keep original natilus spelling as supplied; historical zoological spelling Nautilus is a separate search alias.",
+      "sourceCategory": "tabor-spiral",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G004",
+      "title": "G (Forward: The Generator | RTL: The Ground Vault)",
+      "assignedLetter": "G",
+      "titleInitial": "G",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G004",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Exact earlier author framework; RTL is an original label not a proved physical mechanism.",
+      "sourceCategory": "author-alphabet-source",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G005",
+      "title": "The Gravity / Gatekeeper / Genesis Pulse.",
+      "assignedLetter": "G",
+      "titleInitial": "T",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G005",
+      "sourcePath": null,
+      "href": null,
+      "summary": "G one-letter core from original sequential archive.",
+      "sourceCategory": "author-alphabet-source",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G006",
+      "title": "GL (Glow Matrix) ➔ GLU (Glue Link) ➔ GLUCO (The Sweet Fuel).",
+      "assignedLetter": "G",
+      "titleInitial": "G",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G006",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Exact 2-letter and sequential G original; distinct from linguistic reconstruction.",
+      "sourceCategory": "author-alphabet-source",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G007",
+      "title": "G Inverted to ➔ LG ➔ EGAHPOCULG.",
+      "assignedLetter": "G",
+      "titleInitial": "G",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G007",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Earlier RTL mirror phrase; preserve original character sequence without automated correction.",
+      "sourceCategory": "author-alphabet-source",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G008",
+      "title": "Gate System (12x12 Matrix)",
+      "assignedLetter": "G",
+      "titleInitial": "G",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G008",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Original named gate system; 12 Eye Gates and 12 Ear Gates mentioned in prior source, not a proven physical scanning technology.",
+      "sourceCategory": "gates-and-matrices",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G009",
+      "title": "Genesis, God-spark, Grounding, Geometry",
+      "assignedLetter": "G",
+      "titleInitial": "G",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G009",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Creator-defined acronym mapping, not a historical word etymology.",
+      "sourceCategory": "g-symbolic-roots",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G010",
+      "title": "G — GIVE IT GREAT",
+      "assignedLetter": "G",
+      "titleInitial": "G",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G010",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Keep DOGGO original language: D—DO, G—GIVE IT GREAT, O—GO; symbolic name construction.",
+      "sourceCategory": "g-symbolic-roots",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G011",
+      "title": "LORD → GORD → GOD",
+      "assignedLetter": "G",
+      "titleInitial": "L",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G011",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Owner maps R to rWrong; GORD − R (WRONG) = GOD, author-defined wordplay only.",
+      "sourceCategory": "g-symbolic-roots",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G012",
+      "title": "G→U / E→R / R→E Rotation",
+      "assignedLetter": "G",
+      "titleInitial": "G",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G012",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Exact public source catalog title; not an instruction to rewrite all other original source entries.",
+      "sourceCategory": "author-original-title",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G013",
+      "title": "The Tabor Spiral 🌀 (The Inward Compression Engine)",
+      "assignedLetter": "G",
+      "titleInitial": "T",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G013",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Original symbolic inward logarithmic model r = a·exp(-bθ); artistic/code analogy, not established DNA force model.",
+      "sourceCategory": "tabor-spiral",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G014",
+      "title": "The Counter-Spiral (The Outward Expansion Engine)",
+      "assignedLetter": "G",
+      "titleInitial": "T",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G014",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Original symbolic outward logarithmic model r = a·exp(bθ); distinct from inward branch.",
+      "sourceCategory": "tabor-spiral",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G015",
+      "title": "THE TÁBOR SPIRAL: NAUTILUS OF WAR",
+      "assignedLetter": "G",
+      "titleInitial": "T",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G015",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Independent alternate-history strategy-game prototype: 63 numbered chambers from outer gate 1 to citadel 63; fiction not a historically attested real 63-point city plan.",
+      "sourceCategory": "game-spiral",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G016",
+      "title": "Tabor Spiral / Nautilus",
+      "assignedLetter": "G",
+      "titleInitial": "T",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G016",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Distinct title in existing 150-name Fabric cross-reference. Do not duplicate its original owner manuscript.",
+      "sourceCategory": "fabric-cross-reference",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G017",
+      "title": "C → G (Roman letter-history)",
+      "assignedLetter": "G",
+      "titleInitial": "C",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "historical-reference",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G017",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Latin G was differentiated from C in Roman writing; neither '5 turned' nor '6 reshaped' is its established historical derivation.",
+      "sourceCategory": "documented-letter-history",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G018",
+      "title": "Golden Spiral vs Nautilus Shell",
+      "assignedLetter": "G",
+      "titleInitial": "G",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "historical-reference",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G018",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Many logarithmic spirals exist. The golden-ratio special case is not an empirical universal fit to Nautilus shells.",
+      "sourceCategory": "documented-mathematics",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G019",
+      "title": "5 Matrix’s / Matrices / Mattresses",
+      "assignedLetter": "G",
+      "titleInitial": null,
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G019",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Original wording preserved as distinct from five simple numeral rotations and the Five Matrices program.",
+      "sourceCategory": "gates-and-matrices",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G020",
+      "title": "g→6",
+      "assignedLetter": "G",
+      "titleInitial": "G",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G020",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Existing creator direction g→6 retained separately from the new request to reshape 6 toward G.",
+      "sourceCategory": "creator-glyph-geometry",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    },
+    {
+      "id": "g-route:G021",
+      "title": "G / GOG / GOC · Universal Resonance Grid",
+      "assignedLetter": "G",
+      "titleInitial": "G",
+      "sourceAssignedLetter": "G",
+      "kind": "word-family",
+      "stage": "original-interpretation-or-index",
+      "sourceRegistry": "archive-index/alphabet/g/research-routes.json",
+      "sourceRecordId": "G021",
+      "sourcePath": null,
+      "href": null,
+      "summary": "Earlier named creator interpretive G grid, not physical or religious verification.",
+      "sourceCategory": "g-symbolic-roots",
+      "store": {
+        "apple": {
+          "primary": null,
+          "secondary": null,
+          "gameSubcategories": []
+        },
+        "google": {
+          "type": null,
+          "category": null,
+          "tagCandidates": []
+        },
+        "review": "not-applicable",
+        "confidence": "none"
+      },
+      "relatedIds": []
+    }
+  ],
+  "linkedSourceCatalogs": [
+    {
+      "letter": "G",
+      "title": "Owner 713 general-public G title occurrences",
+      "metaPath": "g/source-catalog-g.metadata.json",
+      "compressedPath": "g/source-catalog-g.json.gz",
+      "browsePath": "g/laboratory/index.html",
+      "recordCount": 713,
+      "overlapsOtherSources": true
     }
   ]
 }

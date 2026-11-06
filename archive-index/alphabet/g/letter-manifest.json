@@ -1,12 +1,13 @@
 {
   "letter": "G",
-  "entryCount": 24,
+  "entryCount": 45,
   "kindCounts": {
     "standalone-app": 3,
     "game-catalog": 2,
     "feature-concept": 4,
     "program-record": 10,
-    "authored-sequence": 5
+    "authored-sequence": 5,
+    "word-family": 21
   },
   "sourceIds": [
     "standalone:web:game-reference-lab/all-morning.html",
@@ -32,11 +33,49 @@
     "authored:Nativity A–Z:G",
     "authored:Sacred Alphabet A–Z:G",
     "authored:Holiday A–Z:G",
-    "authored:North/South Pole A–Z:G"
+    "authored:North/South Pole A–Z:G",
+    "g-route:G001",
+    "g-route:G002",
+    "g-route:G003",
+    "g-route:G004",
+    "g-route:G005",
+    "g-route:G006",
+    "g-route:G007",
+    "g-route:G008",
+    "g-route:G009",
+    "g-route:G010",
+    "g-route:G011",
+    "g-route:G012",
+    "g-route:G013",
+    "g-route:G014",
+    "g-route:G015",
+    "g-route:G016",
+    "g-route:G017",
+    "g-route:G018",
+    "g-route:G019",
+    "g-route:G020",
+    "g-route:G021"
   ],
-  "existingIndependentSources": [],
-  "originalIndexStatus": "new-source-index-over-existing-catalogs",
-  "sourceNotes": null,
+  "existingIndependentSources": [
+    {
+      "label": "G / 5 / 6 · Nautilus / Tabor Spiral workbench",
+      "path": "./laboratory/index.html"
+    },
+    {
+      "label": "Complete 713-title public G compressed catalog",
+      "path": "./source-catalog-g.json.gz"
+    },
+    {
+      "label": "G word/geometry source records",
+      "path": "./research-routes.json"
+    },
+    {
+      "label": "63-chamber original game source reference",
+      "path": "./geometry-spiral.json"
+    }
+  ],
+  "originalIndexStatus": "complete-AZ-plus-independent-G-glyph-spiral-research",
+  "sourceNotes": "45 main A–Z G source occurrences (24 existing + 21 research/geometry) plus 713 separately searchable general-public G title occurrences (6 withheld). 604 of those public G entries belong to the original MATERS vs TATERS family source collection. Original titles, duplicate occurrences and historical/creative interpretation boundaries preserved.",
   "schema": "nathan-ai.letter-manifest.v1",
   "catalogPath": "../directory.json",
   "navigation": "../index.html?letter=G"
