@@ -78,7 +78,7 @@
   function quantile(sorted, p) {
     if (!sorted.length) return null;
     const pos = (sorted.length - 1) * p, lo = Math.floor(pos), hi = Math.ceil(pos);
-    return sorted[lo] * (hi - pos) + sorted[hi] * (pos - lo);
+    return lo === hi ? sorted[lo] : sorted[lo] * (hi - pos) + sorted[hi] * (pos - lo);
   }
   const fix = (n, places = 3) => Number.isFinite(n) ? Number(n.toFixed(places)) : null;
 
