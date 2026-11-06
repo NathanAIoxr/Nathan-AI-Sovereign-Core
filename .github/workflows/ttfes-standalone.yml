@@ -1,0 +1,70 @@
+name: TTFES-BTP standalone quality
+on:
+  push:
+    branches: [main, feature/ttfes-btp-standalone]
+    paths:
+      - 'standalone-apps/ttfes-btp/**'
+      - '.github/workflows/ttfes-standalone.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'standalone-apps/ttfes-btp/**'
+      - '.github/workflows/ttfes-standalone.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ttfes-standalone-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  independent-release-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax checks of all standalone scripts
+        run: |
+          node --check standalone-apps/ttfes-btp/catalog.js
+          node --check standalone-apps/ttfes-btp/engine.js
+          node --check standalone-apps/ttfes-btp/app.js
+          node --check standalone-apps/ttfes-btp/extension/popup.js
+          node --check standalone-apps/ttfes-btp/sw.js
+      - name: Validate all 133 target templates and protections
+        run: node --test standalone-apps/ttfes-btp/engine.test.cjs
+      - name: Produce 133-target ZIP for independent archive reader
+        run: |
+          node - <<'NODE'
+          const C=require('./standalone-apps/ttfes-btp/catalog.js');
+          const E=require('./standalone-apps/ttfes-btp/engine.js');
+          (async()=>{
+            const packet=await E.buildPackage({
+              source:'Original raw bytes\r\n1+1=2\n',
+              originalBytes:new TextEncoder().encode('Original raw bytes\r\n1+1=2\n'),
+              projectTitle:'Full Spectrum Transport',
+              targets:C.TARGETS.map(x=>({id:x.id,fields:{}}))
+            });
+            require('node:fs').writeFileSync('/tmp/ttfes-all-targets.zip',packet.bytes);
+          })().catch(e=>{console.error(e);process.exitCode=1;});
+          NODE
+      - name: Validate ZIP headers CRC values and 133 draft JSON files
+        run: |
+          python3 - <<'PY'
+          import zipfile,json
+          path='/tmp/ttfes-all-targets.zip'
+          with zipfile.ZipFile(path) as z:
+              assert z.testzip() is None,'ZIP CRC mismatch'
+              items=z.namelist()
+              drafts=[x for x in items if x.endswith('/draft.json')]
+              assert len(drafts)==133,(len(drafts),items[:10])
+              manifest=json.loads(z.read('MANIFEST/receipt.json'))
+              assert len(manifest['destinations'])==133
+              assert manifest['providerWrite'] is False
+              assert manifest['published'] is False
+              assert z.read('SOURCE/original-text.txt')==b'Original raw bytes\r\n1+1=2\n'
+          print('ZIP with 133 local provider drafts verified')
+          PY
