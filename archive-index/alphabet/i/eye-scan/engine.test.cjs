@@ -1,0 +1,10 @@
+const assert=require("node:assert/strict");
+const {test}=require("node:test");
+const {scan,reverse,upsideDown,matchesTerm}=require("./engine.js");
+test("EYE is a palindrome",()=>assert.equal(reverse("EYE"),"EYE"));
+test("THC and CPT stay separate exact reversals",()=>{assert.equal(reverse("THC"),"CHT");assert.equal(reverse("CPT"),"TPC")});
+test("GHG is creative, not actual glyph rotation",()=>{assert.notEqual(upsideDown("EYE"),"GHG");assert.equal(scan("EYE").creatorMapping.to,"GHG")});
+test("creator phonetic alias is separately attributed",()=>{const r=scan("GHG, ghensis Chon, Confucius");assert.ok(r.nameHits.some(x=>x.variant==="ghensis Chon"&&x.person==="Genghis Khan"));assert.ok(r.nameHits.some(x=>x.variant==="Confucius"&&x.person==="Confucius"))});
+test("tokens stay exact without accidental substring hits",()=>{assert.equal(matchesTerm("everywhere","eye"),false);assert.equal(matchesTerm("EYE is here","EYE"),true)});
+test("line acrostic",()=>assert.equal(scan("Here\nThere\nEverywhere").lineAcrostic,"HTE"));
+test("source preserved and limits enforce",()=>{const s="孔子 - I’s EYE";assert.equal(scan(s).original,s);assert.throws(()=>scan("X".repeat(512001)),RangeError)});
