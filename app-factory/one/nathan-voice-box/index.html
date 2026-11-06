@@ -41,6 +41,12 @@
     <audio id="player" controls preload="none"></audio>
   </section>
   <section class="panel">
+    <div class="section-head"><h2>12 Ear Gates</h2>
+      <p>Measured frequency energy from the locally generated sound. This graph makes no emotional, medical, or identity claims.</p></div>
+    <canvas id="ear-gates" width="760" height="210" role="img" aria-label="Twelve-band local audio frequency graph"></canvas>
+    <p id="ear-gates-label" class="quiet">Generate a voice to display its measurable spectral distribution.</p>
+  </section>
+  <section class="panel">
     <div class="section-head"><h2>Family archive</h2><p>A recording is the person's actual voice. A generated voice is a simulation, not that person.</p></div>
     <label for="archive">Select a personal WAV/MP3 recording for private local playback</label>
     <input id="archive" type="file" accept="audio/*">
