@@ -37,7 +37,7 @@ jobs:
           node --check standalone-apps/ttfes-btp/extension/popup.js
           node --check standalone-apps/ttfes-btp/sw.js
       - name: Validate all 133 target templates and protections
-        run: node --test standalone-apps/ttfes-btp/engine.test.cjs standalone-apps/ttfes-btp/matrix.test.cjs
+        run: node --test standalone-apps/ttfes-btp/engine.test.cjs standalone-apps/ttfes-btp/matrix.test.cjs standalone-apps/ttfes-btp/ui.test.cjs
       - name: Produce 133-target ZIP for independent archive reader
         run: |
           node - <<'NODE'
