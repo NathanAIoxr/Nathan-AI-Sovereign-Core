@@ -12,7 +12,7 @@ int main() {
     nathan_edge_process(clean, a, 3);
     assert(a[0] == 0.25f && a[1] == -0.15f);
     nathan_edge_destroy(clean);
-    for (int effect = 1; effect <= 3; ++effect) {
+    for (int effect = 1; effect <= 4; ++effect) {
         void* dsp = nathan_edge_create(16000, effect);
         assert(dsp);
         std::vector<float> signal(32000, 0.0f);
