@@ -52,7 +52,10 @@
    return E().confirmOriginal(sourceValue());
  }
  function safeRun(status,fn){
-   return async()=>{try{await fn();}catch(error){say(status,'NOT COMPLETED: '+error.message);log('Blocked: '+error.message);}};
+   return async event=>{
+     try{await fn.call(event&&event.currentTarget?event.currentTarget:null,event);}
+     catch(error){say(status,'NOT COMPLETED: '+error.message);log('Blocked: '+error.message);}
+   };
  }
  function fillStats(){
    const report=C().validate();
@@ -232,7 +235,7 @@
    });
    el('source-file').addEventListener('change',safeRun('source-status',async function(){
      if(this.files&&this.files.length)await loadSourceFile(this.files[0]);this.value='';
-   }).bind(el('source-file')));
+   }));
    el('source-hash').addEventListener('click',safeRun('source-status',async()=>{
      const value=getRawValid();
      const hash=await E().sha256(state.originalBytes||new TextEncoder().encode(value));
@@ -268,7 +271,7 @@
    }));
    el('asset-files').addEventListener('change',safeRun('batch-status',async function(){
      await loadAssets(this.files);this.value='';
-   }).bind(el('asset-files')));
+   }));
    el('export-batch').addEventListener('click',safeRun('batch-status',async()=>{
      const meta=metadata();if(!state.selected.length)throw Error('Select at least one destination.');
      const flags=reviewFlags();
@@ -305,7 +308,7 @@
      say('batch-status','Workspace restored from local JSON. Review its source, fields and rights before export.');
      log('Workspace imported locally: '+restored.targets.length+' targets');
      this.value='';
-   }).bind(el('import-project')));
+   }));
    el('export-csv').addEventListener('click',safeRun('batch-status',async()=>{
      const meta=metadata();
      if(!state.selected.length)throw Error('Select at least one destination.');
