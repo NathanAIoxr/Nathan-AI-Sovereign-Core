@@ -46,6 +46,8 @@
     var title=required(raw.title||raw.project_title,'Project title',120);
     var currency=str(raw.currency||'USD',3).toUpperCase();
     if(!/^[A-Z]{3}$/.test(currency))throw Error('Currency must be a three-letter code.');
+    var original=String(raw.originalSource!==undefined?raw.originalSource:(raw.project_source||''));
+    if(original.length>5000000)throw Error('Source exceeds 5,000,000 characters; split it into separately preserved packages.');
     var goal=int(raw.goal===undefined?raw.funding_goal:raw.goal,'Funding goal',1,1000000000);
     var duration=int(raw.durationDays||raw.duration_days||30,'Campaign duration',1,60);
     var keywordInput=raw.keywords||raw.search_keywords||[];
@@ -63,7 +65,7 @@
       timeline:str(raw.timeline||raw.project_timeline,10000),
       keywords:keywords,
       rewards:rewards(raw.rewards||raw.reward_tiers||[]),
-      originalSource:String(raw.originalSource!==undefined?raw.originalSource:(raw.project_source||'')).slice(0,120000),
+      originalSource:original,
       readiness:{
         rightsReviewed:raw.rightsReviewed===true,
         fulfillmentReviewed:raw.fulfillmentReviewed===true,
