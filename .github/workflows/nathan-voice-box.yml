@@ -1,0 +1,35 @@
+name: Nathan Voice Box — Offline Edge Checks
+on:
+  pull_request:
+    paths:
+      - "app-factory/one/nathan-voice-box/**"
+      - ".github/workflows/nathan-voice-box.yml"
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install local synthesis executable for integration test
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y espeak-ng
+      - name: Python DSP / privacy tests
+        working-directory: app-factory/one/nathan-voice-box
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Offline synthesis smoke test
+        working-directory: app-factory/one/nathan-voice-box
+        run: |
+          python voicebox.py voices
+          python voicebox.py speak --text "Hello from Nathan AI." --lang en-US --voice en-us --out /tmp/nathan-voice-box.wav
+          python voicebox.py analyze /tmp/nathan-voice-box.wav
+      - name: Native C++ DSP contract
+        working-directory: app-factory/one/nathan-voice-box
+        run: |
+          c++ -std=c++17 -O2 -Wall -Wextra native/test_edge.cpp -o /tmp/nathan-edge-test
+          /tmp/nathan-edge-test
