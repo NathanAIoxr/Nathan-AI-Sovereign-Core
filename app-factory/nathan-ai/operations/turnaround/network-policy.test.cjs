@@ -29,7 +29,7 @@ test('private LAN and known HTTPS host are distinct', () => {
   for(const host of ['localhost','127.0.0.1','192.168.1.24','10.5.6.7','172.16.1.4','172.31.99.88']) {
     assert.equal(policy.isPrivateHost(host),true,host);
   }
-  for(const host of ['172.32.2.3','8.8.8.8','google.com','nathanaioxr.github.io','1.1.1.1']) {
+  for(const host of ['172.32.2.3','8.8.8.8','google.com','nathanaioxr.github.io','1.1.1.1','fcbad.example']) {
     assert.equal(policy.isPrivateHost(host),false,host);
   }
   assert.equal(policy.classify(CELL).published,true);
