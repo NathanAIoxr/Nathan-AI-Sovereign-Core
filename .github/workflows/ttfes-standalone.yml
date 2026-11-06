@@ -31,11 +31,13 @@ jobs:
         run: |
           node --check standalone-apps/ttfes-btp/catalog.js
           node --check standalone-apps/ttfes-btp/engine.js
+          node --check standalone-apps/ttfes-btp/matrix-engine.js
           node --check standalone-apps/ttfes-btp/app.js
+          node --check standalone-apps/ttfes-btp/matrix-ui.js
           node --check standalone-apps/ttfes-btp/extension/popup.js
           node --check standalone-apps/ttfes-btp/sw.js
       - name: Validate all 133 target templates and protections
-        run: node --test standalone-apps/ttfes-btp/engine.test.cjs
+        run: node --test standalone-apps/ttfes-btp/engine.test.cjs standalone-apps/ttfes-btp/matrix.test.cjs
       - name: Produce 133-target ZIP for independent archive reader
         run: |
           node - <<'NODE'
