@@ -1,0 +1,29 @@
+name: Nathan AI Natural Touch
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/natural-touch/**'
+      - '.github/workflows/natural-touch-ci.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/natural-touch/**'
+      - '.github/workflows/natural-touch-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Lint syntax and exercise routing
+        run: |
+          node --check app-factory/nathan-ai/natural-touch/engine.js
+          node --check app-factory/nathan-ai/natural-touch/app.js
+          node --check app-factory/nathan-ai/natural-touch/records.js
+          node --test app-factory/nathan-ai/natural-touch/engine.test.cjs
