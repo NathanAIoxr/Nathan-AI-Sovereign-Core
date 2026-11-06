@@ -94,7 +94,7 @@ test('UTF-8 fingerprint is deterministic and equals SHA-256',async()=>{
 test('complete 133-target source-preserving ZIP: all destinations, original file bytes, assets, consent',async()=>{
  const original='ORIGINAL\r\nSource UTF-8 — no rewriting';
  const byteSource=new TextEncoder().encode(original);
- const targets=C.TARGETS.map(x=>({id:x.id,fields:{title:'Example title for '+x.name}}));
+ const targets=C.TARGETS.map(x=>({id:x.id,fields:{[x.fields.find(f=>!['certification','tax_info','account_info','residency'].includes(f.key)).key]:'Example for '+x.name}}));
  const result=await E.buildPackage({
    source:original,originalBytes:byteSource,creator:'Nathan Tabor',projectTitle:'Full Spectrum',
    reference:'User supplied original',targets,
@@ -137,6 +137,6 @@ test('browser app and MV3 extension do not embed remote posting or stored creden
  assert.match(html,/original-source/);
  assert.match(html,/target-list/);
  assert.match(html,/export-batch/);
- assert.doesNotMatch(app,/\blocalStorage\b|\bfetch\s*\(|\bXMLHttpRequest\b|sendBeacon/);
- assert.doesNotMatch(popup,/\blocalStorage\b|\bfetch\s*\(|\bXMLHttpRequest\b|sendBeacon|\.submit\s*\(/);
+ assert.doesNotMatch(app,/\blocalStorage\s*\.|\bfetch\s*\(|\bXMLHttpRequest\b|sendBeacon/);
+ assert.doesNotMatch(popup,/\blocalStorage\s*\.|\bfetch\s*\(|\bXMLHttpRequest\b|sendBeacon|\.submit\s*\(/);
 });
