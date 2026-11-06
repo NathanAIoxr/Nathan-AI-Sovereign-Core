@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TTFES&BTP · The Electric Slide</title><meta name="theme-color" content="#15283b">
+<style>
+:root{font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;color:#f7f5ed;background:#0c1422;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#224e68,transparent 55%),#0c1422}
+main{max-width:1070px;margin:auto;padding:18px 16px 80px}nav{display:flex;gap:16px;flex-wrap:wrap}a{color:#f4ce81}
+h1{font-size:clamp(2.4rem,7vw,5rem);line-height:1.02;letter-spacing:-.052em;margin:9px 0}h2{font-size:1.32rem;margin:0 0 8px}
+p{color:#c4d4db}.eyebrow{text-transform:uppercase;letter-spacing:.13em;color:#f5c875;font-weight:800;font-size:.77rem}
+.hero{padding:24px 0 22px;border-bottom:1px solid #526a7a;margin-bottom:18px}.hero p{max-width:770px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:13px}
+.panel{background:#182939;border:1px solid #4c7183;border-radius:17px;padding:19px;margin:16px 0}
+label{display:block;font-weight:700;margin:10px 0}input,textarea,select{width:100%;font:inherit;border-radius:9px;padding:10px;border:1px solid #6d8c9d;background:#0a1926;color:#fff;margin-top:6px}
+textarea{min-height:125px;resize:vertical}button{background:#304f63;color:#fff;font-weight:800;border:1px solid #9bbbc8;border-radius:10px;padding:12px;cursor:pointer;font:inherit}
+button.primary{background:#efc778;border-color:#f7e5b7;color:#1b2635;font-weight:900}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #efd789;outline-offset:2px}
+button:hover{filter:brightness(1.1)}button:disabled{opacity:.5;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:9px}.actions button{flex:1;min-width:180px}
+.status{background:#0a1c2b;border:1px solid #4e7987;border-radius:10px;padding:13px;white-space:pre-wrap;overflow-wrap:anywhere;min-height:46px}
+.tag{display:inline-block;border:1px solid #7795a0;border-radius:40px;padding:5px 10px;margin:3px;font-size:.8rem}
+.checks label{display:flex;gap:10px;font-weight:500}.checks input{width:auto;margin-top:5px;align-self:flex-start}
+pre{white-space:pre-wrap;word-break:break-word;max-height:330px;overflow:auto}
+small,.muted{color:#b7d0d9}.warning{border-left:4px solid #f1c579;padding:12px;background:#2b3442;border-radius:6px}
+ol li{padding:3px 0}footer{margin:24px 0;color:#b8cad2;font-size:.82rem}
+@media(max-width:530px){.panel{padding:13px}.actions{flex-direction:column}}
+</style>
+<script defer src="../dummie-publisher/publisher.js"></script>
+<script defer src="./engine.js"></script><script defer src="./ui.js"></script>
+</head><body><main>
+<nav><a href="../index.html">← TABOR Factory</a><a href="../dummie-publisher/index.html">DUMMIE Publisher</a><a href="../one/index.html">ONE</a></nav>
+<header class="hero"><p class="eyebrow">Nathan Tabor · TTFES&BTP</p>
+<h1>The Tabor Finger<br><span style="color:#f0c676">Electric Slide</span><br>and Button Tapping Process</h1>
+<p>ChatGPT produces the campaign. The Electric Slide makes the transport package. Your finger handles the final platform decisions.</p>
+<span class="tag">1 · CREATE</span><span class="tag">2 · TRANSPORT</span><span class="tag">3 · TAP</span>
+</header>
+<section class="panel"><h2>1. Create your Kickstarter campaign</h2>
+<p class="muted">This local interface builds a complete, portable campaign draft. It does not retrieve chats or publish to Kickstarter automatically.</p>
+<div class="grid">
+<div>
+<label>Campaign title<input id="title" value="The Tabor Electric Slide" maxlength="120"></label>
+<label>Project subtitle<input id="subtitle" value="A creator-first system for transporting complete projects between platforms." maxlength="250"></label>
+<label>Creator<input id="creator" value="Nathan Tabor"></label>
+<label>Category (proposal; confirm on Kickstarter)<input id="category" value="Technology"></label>
+</div>
+<div>
+<label>Funding goal <input id="goal" type="number" min="1" step="1" placeholder="Enter your own budget-based goal"></label>
+<label>Currency code<input id="currency" value="USD" maxlength="3"></label>
+<label>Campaign duration, days<input id="duration" type="number" min="1" max="60" value="30"></label>
+<label>Discovery phrases, comma-separated<input id="keywords" placeholder="creator workflow, local-first app, project publishing"></label>
+</div>
+</div>
+<label>Creator's original source (preserved separately)<textarea id="source" placeholder="Paste your unaltered outline or transcript here."></textarea></label>
+<label>Project story<textarea id="story" placeholder="Describe what you are building, who it serves, what is already working, and what crowdfunding will fund."></textarea></label>
+<div class="grid">
+<label>Delivery timeline<textarea id="timeline" placeholder="Build, test, release, fulfillment."></textarea></label>
+<label>Risks and challenges<textarea id="risks" placeholder="Be concrete and truthful about delivery, cost, platform limitations and contingency plans."></textarea></label>
+</div>
+<h2>Three starter reward tiers</h2><div id="rewards" class="grid">
+<div><label>Reward 1 title<input id="r1-name" value="Founding Supporter"></label><label>Amount<input type="number" id="r1-price" value="15" min="1"></label><label>What backers get<textarea id="r1-description" placeholder="Specify the deliverable.">Early project updates and acknowledgment, with the creator's permission.</textarea></label></div>
+<div><label>Reward 2 title<input id="r2-name" value="Creator Toolkit"></label><label>Amount<input type="number" id="r2-price" value="45" min="1"></label><label>What backers get<textarea id="r2-description">A proposed toolkit package of sample templates and guided workflows, subject to the stated delivery plan.</textarea></label></div>
+<div><label>Reward 3 title<input id="r3-name" value="Complete Workflow Suite"></label><label>Amount<input type="number" id="r3-price" value="150" min="1"></label><label>What backers get<textarea id="r3-description">A proposed bundle of templates, documentation and project updates. Final scope and fulfillment to be verified.</textarea></label></div>
+</div>
+<div class="actions"><button id="inspect">CHECK CAMPAIGN</button><button id="show-preview">SHOW TEXT PREVIEW</button><button id="import-json">IMPORT JSON DRAFT</button></div>
+<label>Optional JSON draft<input type="file" id="json-file" accept="application/json,.json" hidden></label>
+<output class="status" id="review-status" aria-live="polite">Not yet checked. Enter a genuine budget-based goal and review all promised deliverables.</output>
+</section>
+<section class="panel"><h2>2. Transport your campaign</h2>
+<p>Generate the same approved content as JSON, campaign story, HTML preview, or a complete ZIP using the existing DUMMIE packager.</p>
+<div class="actions">
+<button id="copy-json" class="primary">COPY CAMPAIGN JSON</button>
+<button id="save-zip" class="primary">DOWNLOAD FULL PACKAGE</button>
+<button id="save-story">DOWNLOAD STORY</button>
+<button id="copy-story">COPY STORY</button>
+</div>
+<output class="status" id="transport-status" aria-live="polite">No package generated or submitted.</output>
+<details><summary>Show generated campaign preview</summary><pre id="preview"></pre></details>
+</section>
+<section class="panel"><h2>3. Slide to Kickstarter, then tap</h2>
+<p class="warning">Kickstarter is a separate service. There is no verified direct-publish connector here. Use your own authenticated browser session, inspect every field, and finish identity, financial, fulfillment, rights, and review tasks on Kickstarter.</p>
+<div class="checks">
+<label><input type="checkbox" id="rights">I have reviewed rights and source material.</label>
+<label><input type="checkbox" id="rewards-check">I have reviewed fulfillment and rewards.</label>
+<label><input type="checkbox" id="cost-check">I have reviewed budget, fees, and shipping costs.</label>
+</div>
+<div class="actions">
+<button id="open-kickstarter" class="primary">OPEN KICKSTARTER CREATOR</button>
+<a style="align-self:center" href="kickstarter-companion.user.js" download>Get optional browser companion</a>
+</div>
+<p class="muted">The companion uses a manually selected, focused input and never triggers launch, submit, payment, or account changes. It requires a compatible userscript manager and your explicit interaction.</p>
+<output class="status" id="handoff-status" aria-live="polite">Not submitted. Not approved. Not launched.</output>
+</section>
+<section class="panel"><h2>Beyond Kickstarter · Universal Transporter destinations</h2>
+<div id="destinations" class="grid"></div>
+<p class="muted">Only Kickstarter local packaging is implemented here; other destinations are staged ideas. Official APIs and documented bulk imports take priority over fragile browser scripts.</p>
+</section>
+<footer>TTFES&BTP · The Tabor Finger Electric Slide and Button Tapping Process · An additive TABOR Factory module. Original creator: Nathan Tabor. No private records are committed to public GitHub by this local interface.</footer>
+</main></body></html>
