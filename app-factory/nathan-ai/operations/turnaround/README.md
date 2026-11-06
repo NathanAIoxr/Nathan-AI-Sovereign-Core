@@ -62,15 +62,16 @@ Related archives remain **separately sovereign**: the owner-held `Tabor_Matrix_1
 - `engine.test.cjs` — Node built-in test suite covering invariants, preservation and safety.
 
 
-## RUN THIS ON YOUR NETWORK — token-free modes
+## RUN THIS ON YOUR NETWORK — two-mode application gateway
 
-This is a **real read-only app-delivery option**, not a claim that a browser can commandeer Wi-Fi, cellular networks, or other people's computing devices. All core arithmetic, shadow-text transformations, orientation flips, queues and virtual index calculations run in the browser **without billed language-model tokens**. A local computer's CPU, memory, battery, browser storage and network speed still impose ordinary physical limits. There are no promises of supercomputer-equivalent throughput.
+The user-facing gateway has **two network preferences: Wi-Fi only (default)** and **Cellular + Wi-Fi (explicit opt-in)**, as supplied in the owner's network blueprint. [Exact source commands and operational contract](./NETWORK-GATEWAY.md).
 
-| Mode | What works | What does not |
-| --- | --- | --- |
-| This device | Existing page's deterministic features operate locally with no cloud model; start localhost server for reliable load/reload | A browser tab does not manufacture network access, compute capacity, or offline caching for a fresh page that was never loaded |
-| Own Wi-Fi / LAN | Opt-in Node read-only HTTP server shares public static assets with devices on the same trusted Wi-Fi | No automatic network scan, peer processor takeover, external access, private record sync or unapproved jobs |
-| Cellular / Internet | Public HTTPS GitHub Pages URL serves the static application to a phone using mobile data **after this PR is merged and deployed** | Does not connect back to home devices, import private records, or distribute processing; private VPN/relay would require separate deliberate setup |
+The **RUN THIS ON YOUR NETWORK [ EXECUTE ]** button really executes deterministic arithmetic, 180-degree reversal, source-preserving safety checks and a constant-size virtual node page **on the current device**. It may perform one read-only same-origin registry HEAD check if the selected access policy permits it. **EMERGENCY BRAKE / WHIPLASH [ RESET ]** cancels the optional check and restores Wi-Fi-only without deleting original text or local work.
+
+- **Wi-Fi only:** On-device execution is always available. Network checking is limited to an explicitly self-hosted private LAN instance, with known cellular access blocked. Unknown link type and mobile data uncertainty are disclosed.
+- **Cellular + Wi-Fi:** On-device execution remains available. With user opt-in, a small same-origin read-only check is allowed for the verified public HTTPS app origin or a trusted local app server.
+
+The controls do **not** switch phone radios, synchronize private data across devices, recruit computers, remove device authentication, guarantee an unmetered connection, or turn symbolic node counts into physical hardware. No paid model API tokens are required by the local engine. CPU, memory, bandwidth and browser storage remain finite.
 
 From the checked-out repository root run:
 
@@ -94,7 +95,7 @@ This mode downloads the **public static app code** over HTTPS. Each user's input
 
 **Local text:** The shadow editor and work-queue engine no longer silently cut off user input at the earlier 4,000-character / 120-character display thresholds. There is no tokenizer, API key, or metered model endpoint. A user device may still run out of memory with extremely large content; use incremental or file-based import in future builds.
 
-**Technical checks:** `node --test app-factory/nathan-ai/operations/turnaround/network.test.cjs`. This test verifies explicit LAN consent, read-only HTTP methods, private-path denial, local serving, token-free text preservation and lazy symbolic node pagination.
+**Technical checks:** `node --test app-factory/nathan-ai/operations/turnaround/network.test.cjs` and `node --test app-factory/nathan-ai/operations/turnaround/network-policy.test.cjs`. This test verifies explicit LAN consent, read-only HTTP methods, private-path denial, local serving, token-free text preservation and lazy symbolic node pagination.
 
 ## Test / preview
 
