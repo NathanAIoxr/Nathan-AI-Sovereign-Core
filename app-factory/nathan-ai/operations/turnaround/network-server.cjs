@@ -75,14 +75,20 @@ function createServer() {
     catch { res.writeHead(400, baseHeaders); res.end('Bad request'); return; }
     const pathname = pathnameToFile(url.pathname);
     if (!pathname) { res.writeHead(404, baseHeaders); res.end('Not found'); return; }
-    fs.stat(pathname, (error, stat) => {
-      if (error || !stat.isFile()) { res.writeHead(404, baseHeaders); res.end('Not found'); return; }
-      const type = TYPES[path.extname(pathname).toLowerCase()];
-      res.writeHead(200, {...baseHeaders, 'Content-Type': type, 'Content-Length': stat.size });
-      if (req.method === 'HEAD') { res.end(); return; }
-      const stream = fs.createReadStream(pathname);
-      stream.on('error', () => res.destroy());
-      stream.pipe(res);
+    fs.realpath(pathname, (resolveError, real) => {
+      // Reject symlinks or a local checkout that redirects into private files.
+      if (resolveError || real !== pathname) {
+        res.writeHead(404, baseHeaders); res.end('Not found'); return;
+      }
+      fs.stat(pathname, (error, stat) => {
+        if (error || !stat.isFile()) { res.writeHead(404, baseHeaders); res.end('Not found'); return; }
+        const type = TYPES[path.extname(pathname).toLowerCase()];
+        res.writeHead(200, {...baseHeaders, 'Content-Type': type, 'Content-Length': stat.size });
+        if (req.method === 'HEAD') { res.end(); return; }
+        const stream = fs.createReadStream(pathname);
+        stream.on('error', () => res.destroy());
+        stream.pipe(res);
+      });
     });
   });
 }
