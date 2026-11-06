@@ -51,6 +51,8 @@ def serve(port=8765):
                 template = (ROOT / "index.html").read_text(encoding="utf-8")
                 html = template.replace("__SESSION_TOKEN__", session_token)
                 self._send(200, html.encode("utf-8"), "text/html; charset=utf-8")
+            elif path == "/style.css":
+                self._send(200, (ROOT / "style.css").read_bytes(), "text/css; charset=utf-8")
             elif path == "/app.js":
                 self._send(200, (ROOT / "app.js").read_bytes(), "text/javascript; charset=utf-8")
             elif path == "/voices":
