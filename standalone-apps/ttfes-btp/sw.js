@@ -1,7 +1,7 @@
 /* TTFES&BTP offline static shell. Never caches or uploads private user input. */
 'use strict';
 const CACHE='ttfes-btp-shell-v1';
-const ASSETS=['./','./index.html','./styles.css','./catalog.js','./engine.js','./app.js','./icon.svg','./manifest.webmanifest'];
+const ASSETS=['./','./index.html','./styles.css','./catalog.js','./engine.js','./matrix-engine.js','./app.js','./matrix-ui.js','./icon.svg','./manifest.webmanifest'];
 self.addEventListener('install',event=>{
  event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting()));
 });
