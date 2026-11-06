@@ -2,7 +2,7 @@ name: Electric Slide focused quality
 on:
   push:
     branches:
-      - feature/electric-slide-kickstarter
+      - main
     paths:
       - 'app-factory/electric-slide/**'
       - '.github/workflows/ttfes-focused-ci.yml'
