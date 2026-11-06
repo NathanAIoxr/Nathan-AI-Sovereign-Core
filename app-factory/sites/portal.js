@@ -16,7 +16,17 @@ sites.forEach(function(site){
  var card=make('article','site-card'),symbol=make('span','symbol',site.icon),chip=make('span','chip','Independent studio'),title=make('h3','',site.title),p=make('p','',site.summary),a=make('a','','Open website ↗');
  symbol.setAttribute('aria-hidden','true');a.href='./'+site.slug+'/';a.setAttribute('aria-label','Open '+site.title);card.append(symbol,chip,title,p,a);siteCards.append(card);
 });
+/* Public information gateways are separate from the original studio and app source registries. */
+var extraGateways=[
+ {slug:'nathan-tabor',title:'NATHAN TABOR — HOME',icon:'✦',summary:'The personal homepage for Nathan AI, books, games, research and original websites.'},
+ {slug:'church-of-innocence',title:'THE CHURCH OF INNOCENCE',icon:'✧',summary:'Rise and Serve · Founding principles, KJV references and source-indexed companion works. Information site, not an emergency service.'}
+];
+extraGateways.forEach(function(site){
+ var card=make('article','site-card'),symbol=make('span','symbol',site.icon),chip=make('span','chip','Public information site'),title=make('h3','',site.title),desc=make('p','',site.summary),link=make('a','','Open website ↗');
+ symbol.setAttribute('aria-hidden','true');link.href='./'+site.slug+'/';card.append(symbol,chip,title,desc,link);siteCards.prepend(card);
+});
 var all=[];
+extraGateways.forEach(function(s){all.push({id:'gateway:'+s.slug,title:s.title,type:'sites',status:'Public information website',href:'./'+s.slug+'/',summary:s.summary});});
 sites.forEach(function(site){all.push({id:'site:'+site.slug,title:site.title,type:'sites',status:'New browser-local studio',href:'./'+site.slug+'/',summary:site.summary});});
 apps.forEach(function(m){if(!m||!m.id||!m.title)return;all.push({id:'app:'+m.id,title:m.title,type:m.group==='games'?'games':m.group==='creative'?'creative':m.group==='research'?'research':m.group==='community'?'community':'apps',status:m.status||'Public page',href:'../'+m.id,summary:'Existing original public module · '+m.group});});
 function render(){

@@ -3,6 +3,17 @@
 
 # NATHAN AI 🚀
 
+![Nathan Tabor · Nathan AI visual banner](branding/nathan-tabor-banner.svg)
+
+### Start here — clear website navigation
+
+[**Nathan Tabor Home**](app-factory/sites/nathan-tabor/) · [**Church of Innocence — Rise and Serve**](app-factory/sites/church-of-innocence/) · [**All Websites**](app-factory/sites/) · [**Apps & Games**](app-factory/nathan-ai/) · [**Books & Original Works**](app-factory/nathan-ai/original-works/) · [**ONE**](app-factory/one/)
+
+**Plain-language labels:** Home = start here; All Websites = independent sites; Apps & Games = working browser experiences; Books & Original Works = released writings and indexed sources; Church of Innocence = its own authored movement and research site. Original author titles are not changed.
+
+The [public Church source browser](app-factory/sites/church-of-innocence/records.json) indexes 101 creator-named points, 133 spiritual-work titles and 46 recovery families. Private manuscripts, email records, full original Library exports, and child/case records are not part of this public repository.
+
+
 <img src="app-factory/nathan-ai/icon-192.png" width="72" height="72" alt="Nathan AI monogram">
 
 **ONE MIND. ONE MASTER LIBRARY. ONE CONNECTED SYSTEM.**

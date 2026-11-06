@@ -1,0 +1,44 @@
+/* Nathan Tabor branded visual/navigation layer. Source apps remain independent. */
+:root{--nt-ink:#07131e;--nt-panel:#102532;--nt-panel-hi:#173545;--nt-line:#426170;--nt-gold:#e7c98c;--nt-white:#f7f2e8;--nt-muted:#c4d0d5;--nt-accent:#9ed7d3}
+body.nt-enhanced{background-color:#07131d;background-image:linear-gradient(180deg,rgba(7,19,30,.2) 0,rgba(7,19,30,.76) 450px,#07131d 880px),url('./nathan-tabor-banner.svg');background-position:top center,top center;background-size:100% 880px,100% auto;background-repeat:no-repeat}
+.nt-top{isolation:isolate;position:relative;z-index:80;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:12px max(18px,calc((100vw - 1310px)/2));background:#06111cf5;border-bottom:1px solid #d7b9815e;color:#f7f3e8;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.nt-top *{box-sizing:border-box}.nt-top a{color:inherit;text-decoration:none}.nt-top a:hover{text-decoration:underline;text-underline-offset:4px}.nt-top a:focus-visible{outline:3px solid #f3d9a4;outline-offset:4px}
+.nt-top .nt-logo{display:flex;align-items:center;gap:11px;font-size:15px;font-weight:900;letter-spacing:.1em;flex-shrink:0}
+.nt-top .nt-symbol{border:1px solid #d0b072;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:#f1d79e;font-family:Georgia,serif;font-size:22px}
+.nt-top .nt-logo small{display:block;font-size:10px;letter-spacing:.14em;color:#dcc493}
+.nt-top .nt-nav{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:5px 12px}
+.nt-top .nt-nav a{font-size:12px;font-weight:750;padding:8px 6px;border-radius:6px}
+.nt-top .nt-nav a[aria-current="page"]{color:#f8d49b}
+.nt-top .nt-nav .nt-highlight{background:#d8b776;color:#122331;padding:9px 12px;font-weight:900}
+body.nt-page{background:#07131d;color:#f7f2e8;font:16px/1.62 system-ui,-apple-system,"Segoe UI",sans-serif;margin:0}
+body.nt-page *{box-sizing:border-box}body.nt-page a{color:#e9d3a6}
+body.nt-page a:focus-visible,body.nt-page button:focus-visible,body.nt-page input:focus-visible,body.nt-page select:focus-visible{outline:3px solid #f8d894;outline-offset:3px}
+.nt-shell{width:min(1240px,calc(100% - 36px));margin:auto}
+.nt-hero{position:relative;overflow:hidden;border:1px solid #806d4a;border-radius:24px;margin:24px auto 36px;padding:clamp(28px,5vw,68px);min-height:400px;background:linear-gradient(92deg,#091824ee 0%,#0c2237df 54%,#0b2036a3 100%),url("./nathan-tabor-banner.svg") center/cover no-repeat;box-shadow:0 22px 80px #0005}
+.nt-eyebrow{display:block;text-transform:uppercase;letter-spacing:.21em;color:#efcc90;font-size:11px;font-weight:850}
+.nt-hero h1{font-family:Georgia,"Times New Roman",serif;line-height:1.02;font-size:clamp(2.8rem,7vw,6rem);letter-spacing:-.052em;margin:18px 0;max-width:930px;text-wrap:balance}
+.nt-hero p{max-width:720px;font-size:clamp(1rem,1.5vw,1.23rem);color:#ebebe7}
+.nt-actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}
+.nt-button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 17px;border:1px solid #927d53;border-radius:10px;background:#182e3e;text-decoration:none!important;color:#f6eacd!important;font:750 14px/1.3 system-ui,sans-serif}
+.nt-button.nt-primary{background:#e4c184;color:#122433!important;border-color:#e4c184}
+.nt-section{margin:42px auto}.nt-section h2{font-family:Georgia,serif;font-size:clamp(1.7rem,3vw,2.8rem);letter-spacing:-.035em;margin:0 0 10px}
+.nt-section>p,.nt-muted{color:#c8d5d9}.nt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(270px,100%),1fr));gap:15px}
+.nt-card{border:1px solid #3f5d6a;border-radius:17px;background:linear-gradient(145deg,#183645,#0c2231);padding:24px;min-height:180px;display:flex;flex-direction:column;gap:8px}
+.nt-card h3{margin:0;font:700 1.3rem/1.24 Georgia,serif}.nt-card p{margin:0 0 10px;color:#cedbdf;font-size:14px;flex:1}
+.nt-card a{font-size:13px;font-weight:800;align-self:flex-start}
+.nt-tag{display:inline-block;align-self:flex-start;text-transform:uppercase;letter-spacing:.14em;font-size:10px;color:#eed29d;font-weight:800}
+.nt-stats{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 28px}
+.nt-stat{background:#132a37;border:1px solid #3d6070;border-radius:12px;padding:13px 19px;min-width:154px}
+.nt-stat strong{display:block;color:#f3d5a0;font-size:2rem;line-height:1.2}.nt-stat small{color:#c2d1d6}
+.nt-panel{background:#122a39;border:1px solid #496575;border-radius:16px;padding:22px;margin:20px 0}
+.nt-panel p{color:#d1dce0}.nt-panel a{color:#f0d7a8}
+.nt-filterbar{display:grid;grid-template-columns:minmax(160px,2fr) minmax(150px,1fr);gap:12px;margin:14px 0}
+.nt-filterbar label{display:block;font-size:12px;color:#e7d29d;font-weight:750}.nt-filterbar input,.nt-filterbar select{display:block;width:100%;font:inherit;padding:12px;margin-top:6px;border:1px solid #7694a0;border-radius:10px;color:#fff;background:#0b1d29}
+.nt-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(285px,100%),1fr));gap:12px;margin:18px 0}.nt-results article{border:1px solid #355363;border-radius:12px;padding:16px;background:#142e3c;overflow-wrap:anywhere}
+.nt-results article h3{margin:7px 0;font-size:1rem;font-family:inherit}.nt-results article p{color:#b9cdd4;margin:4px 0;font-size:12px}.nt-results article small{color:#f1d29b}
+.nt-mode{display:flex;flex-wrap:wrap;gap:8px}.nt-mode button{background:#173444;border:1px solid #7590a1;color:#e6f4f6;border-radius:9px;padding:9px 14px;font:inherit;cursor:pointer}.nt-mode button[aria-pressed=true]{background:#dfc38c;color:#112333;font-weight:850}
+.nt-footer{border-top:1px solid #47606a;padding:24px 0 55px;color:#bfcbd0;font-size:13px}
+.nt-footer a{margin-right:12px}.nt-callout{border-left:3px solid #efd199;background:#1e3540;border-radius:0 10px 10px 0;padding:14px 18px;color:#f7e9c5}
+.nt-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(max-width:690px){.nt-filterbar{grid-template-columns:1fr}.nt-top{padding:10px 14px}.nt-top .nt-nav{justify-content:flex-start}.nt-top .nt-nav a{font-size:11px;padding:5px}.nt-hero{min-height:340px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*:before,*:after{animation:none!important;transition:none!important}}

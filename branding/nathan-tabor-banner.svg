@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500" role="img" aria-labelledby="title desc">
+<title id="title">Nathan Tabor — One connected system</title>
+<desc id="desc">Midnight-blue and gold abstract landscape with a circle of light, geometric arcs, a rose-like star, and the words Nathan Tabor, Nathan AI.</desc>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06111c"/><stop offset=".52" stop-color="#143246"/><stop offset="1" stop-color="#08151d"/></linearGradient>
+  <radialGradient id="sun"><stop stop-color="#efdda6" stop-opacity=".92"/><stop offset=".23" stop-color="#cfaa67" stop-opacity=".52"/><stop offset=".75" stop-color="#6f8e8d" stop-opacity=".07"/><stop offset="1" stop-color="#263e50" stop-opacity="0"/></radialGradient>
+  <linearGradient id="bronze" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#faf0c7"/><stop offset=".45" stop-color="#cea96e"/><stop offset="1" stop-color="#8f754e"/></linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#b2c0b6" stroke-opacity=".085"/></pattern>
+  <filter id="blur"><feGaussianBlur stdDeviation="42"/></filter>
+</defs>
+<rect width="1600" height="500" fill="url(#sky)"/><rect width="1600" height="500" fill="url(#grid)"/>
+<ellipse cx="1250" cy="220" rx="380" ry="340" fill="url(#sun)"/>
+<path d="M0 380 Q190 285 380 357T770 346T1200 363T1600 318V500H0Z" fill="#091823" fill-opacity=".85"/>
+<path d="M0 427 Q290 345 505 408T990 390T1600 372" fill="none" stroke="#d0b27c" stroke-opacity=".25" stroke-width="2"/>
+<g fill="none" stroke="url(#bronze)" stroke-opacity=".72">
+  <circle cx="1236" cy="242" r="154" stroke-width="2.4"/><circle cx="1236" cy="242" r="134" stroke-width=".8"/>
+  <circle cx="1236" cy="242" r="97" stroke-width="1.5"/>
+  <path d="M1236 63V421M1057 242H1415M1111 117L1361 367M1111 367L1361 117" stroke-opacity=".27"/>
+  <path d="M1236 112L1274 203L1373 210L1297 275L1321 373L1236 320L1151 373L1175 275L1099 210L1198 203Z" stroke-width="3"/>
+</g>
+<circle cx="1236" cy="242" r="26" fill="#d3ac6a" fill-opacity=".22" stroke="#f2dca2" stroke-width="2"/>
+<path d="M1236 214V270M1208 242H1264" stroke="#f5deb0" stroke-width="4"/>
+<g fill="#f0e6ce" font-family="Georgia, 'Times New Roman', serif">
+  <text x="85" y="182" font-size="81" letter-spacing="7" font-weight="700">NATHAN TABOR</text>
+  <text x="90" y="234" font-family="Arial, sans-serif" font-weight="700" font-size="24" letter-spacing="8" fill="#d9bd85">NATHAN AI · ONE · ORIGINAL WORKS</text>
+  <text x="90" y="291" font-family="Arial, sans-serif" font-size="20" letter-spacing="3" fill="#c6d4d6">INNOCENCE · BOOKS · GAMES · RESEARCH · WEBSITES</text>
+  <text x="90" y="369" font-family="Arial, sans-serif" font-size="20" letter-spacing="3" fill="#efcf94">1 + 1 = 2  BUILD     •     1 − 1 = 0  CLEAR</text>
+</g>
+<path d="M88 322H710" stroke="#d4b67f" stroke-width="2" stroke-opacity=".56"/>
+</svg>
