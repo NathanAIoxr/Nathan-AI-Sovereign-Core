@@ -29,8 +29,18 @@ export function filterRoutes(routes,{query='',group=''}={}){
 }
 export function rotatePoint(x,y,degrees){const angle=Number(degrees)*Math.PI/180;if(!Number.isFinite(angle))throw TypeError('Rotation invalid');return {x:x*Math.cos(angle)-y*Math.sin(angle),y:x*Math.sin(angle)+y*Math.cos(angle)};}
 export function glyphTransform({glyph='5',degrees=0}={}){
- const allowed=['5','6','G','g'];if(!allowed.includes(glyph)||![0,90,180,270].includes(degrees))throw TypeError('Glyph state invalid');
+ const allowed=['5','6','G','g'];if(!allowed.includes(glyph)||!Number.isInteger(degrees)||degrees < -360||degrees > 360)throw TypeError('Glyph state invalid');
  return {original:glyph,degrees,stage:glyph==='5'?'creator-rotated-5':glyph==='6'?'creator-reshaped-6':'literal-modern-letter',display:glyph,note:'Geometric analogy only; rotating a numeral is not a historical derivation or a mathematically exact identity with G.'};
+}
+
+/** Illustrative vector crossfade from an open-bottom 6 path to a G-like path.
+ * These are newly drawn teaching outlines, never historical written originals. */
+export function morphSixToG(progress=0){
+ if(!Number.isFinite(progress)||progress<0||progress>1)throw TypeError('Morph progress outside 0..1');
+ const six=[[112,28],[78,24],[49,45],[34,78],[34,108],[53,132],[84,137],[109,124],[120,102],[104,86],[74,90],[48,108]];
+ const g=[[118,43],[91,28],[61,27],[38,48],[30,78],[40,110],[66,130],[100,126],[119,106],[120,88],[98,88],[81,88]];
+ const pts=six.map((p,i)=>({x:p[0]+(g[i][0]-p[0])*progress,y:p[1]+(g[i][1]-p[1])*progress}));
+ return {progress,points:pts,path:pts.map((p,i)=>(i?'L':'M')+' '+p.x.toFixed(2)+' '+p.y.toFixed(2)).join(' '),identity:progress===0?'6-inspired outline':progress===1?'G-inspired outline':'intermediate demonstration'};
 }
 export function spiralPoints({direction='inward',b=0.18,turns=2.6,steps=400,rotationDeg=0}={}){
  if(!['inward','outward'].includes(direction)||!Number.isFinite(b)||b<=0||b>0.5||!Number.isFinite(turns)||turns<0.5||turns>5||!Number.isInteger(steps)||steps<16||steps>2000)throw TypeError('Invalid spiral parameters');

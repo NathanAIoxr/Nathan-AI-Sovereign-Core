@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {gunzipSync} from 'node:zlib';
 import {createHash} from 'node:crypto';
-import {verifyG,PHI,GOLDEN_B,searchTitles,filterRoutes,spiralPoints,svgPath,glyphTransform,rotatePoint,numberedChambers,quizQuestions} from './g-core.mjs';
+import {verifyG,PHI,GOLDEN_B,searchTitles,filterRoutes,spiralPoints,svgPath,glyphTransform,rotatePoint,numberedChambers,quizQuestions,morphSixToG} from './g-core.mjs';
 const data=readFileSync(new URL('./source-catalog-g.json.gz',import.meta.url));
 const source=JSON.parse(gunzipSync(data).toString('utf8'));
 const metadata=JSON.parse(readFileSync(new URL('./source-catalog-g.metadata.json',import.meta.url),'utf8'));
@@ -66,4 +66,15 @@ test('21 G research routes include full original G code and cross-indexes',()=>{
 });
 test('five-game questions have exact answer keys',()=>{
  const q=quizQuestions();assert.equal(q.length,5);for(const item of q){assert.equal(item.choices.length,4);assert.ok(item.choices.includes(item.answer));}
+});
+
+test('continuous clockwise and counterclockwise creator rotation and six-to-G morph work',()=>{
+ for(const angle of [-360,-270,-90,0,1,45,90,180,270,359,360])assert.equal(glyphTransform({glyph:'5',degrees:angle}).degrees,angle);
+ assert.throws(()=>glyphTransform({glyph:'5',degrees:361}));
+ assert.throws(()=>glyphTransform({glyph:'5',degrees:0.25}));
+ const a=morphSixToG(0),mid=morphSixToG(.5),b=morphSixToG(1);
+ assert.equal(a.points.length,12);assert.equal(mid.points.length,12);assert.equal(b.points.length,12);
+ assert.notEqual(a.path,b.path);assert.notEqual(mid.path,a.path);
+ assert.equal(a.identity,'6-inspired outline');assert.equal(b.identity,'G-inspired outline');
+ assert.throws(()=>morphSixToG(1.1));
 });
