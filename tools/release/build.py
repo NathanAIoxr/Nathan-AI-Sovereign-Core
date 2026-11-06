@@ -25,6 +25,9 @@ def check_links(files):
                 url=urllib.parse.urlsplit(value)
                 if url.scheme or url.netloc or not url.path:continue
                 target=posixpath.normpath(posixpath.join(posixpath.dirname(self.name),urllib.parse.unquote(url.path))) if not url.path.startswith('/') else url.path.lstrip('/')
+                # Root-relative links on the project's GitHub Pages site include its repository prefix.
+                if url.path.startswith('/Nathan-AI-Sovereign-Core/'):
+                    target=target.removeprefix('Nathan-AI-Sovereign-Core/')
                 if target == '.':target = ''
                 if target not in files and (target.rstrip('/')+'/' if target else '')+'index.html' not in files:missing.append(self.name+' -> '+value)
     for name,data in files.items():

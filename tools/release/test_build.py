@@ -11,6 +11,12 @@ class ReleaseTests(unittest.TestCase):
             self.assertIn(name,files)
         build.check_links(files)
 
+    def test_project_subpath_record_link(self):
+        build.check_links({'index.html':b'<a href="/Nathan-AI-Sovereign-Core/docs/record/">Record</a>',
+                           'docs/record/index.html':b'<p>Record</p>'})
+        with self.assertRaisesRegex(ValueError,'Missing packaged'):
+            build.check_links({'index.html':b'<a href="/Nathan-AI-Sovereign-Core/docs/missing/">Missing</a>'})
+
     def test_site_root_directory_link(self):
         build.check_links({'index.html':b'<a href="./">Home</a>'})
 

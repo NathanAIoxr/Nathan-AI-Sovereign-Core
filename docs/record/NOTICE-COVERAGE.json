@@ -1,0 +1,2378 @@
+{
+  "schema": "nathan.record-notice.coverage.v1",
+  "noticePages": [
+    {
+      "path": "app-factory/build-order/index.html",
+      "originalSha256": "e712d5697dee88dc528a11f17af4aede1c8eb3cc754c2b0b3a13068c1a18455e",
+      "withNoticeSha256": "ceeffdf7660eb6d9760ed15fa57f818ea1c1cb5a60ec8c3d2f3234afbab928a1",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/christmas-toy-drive/index.html",
+      "originalSha256": "1f320c31e6a68253c53d32e394400a60c6040185731f17da748804027a8013d6",
+      "withNoticeSha256": "53a01562ea4f6a16cf61f09746946d9b15b6d78beccad25e29f906afdc2a6a93",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/core/audience-review.html",
+      "originalSha256": "34de72a0abf1dfe29578c9b3d44143115ab42011b56e724ca0f506ef2b1da946",
+      "withNoticeSha256": "cfd44d6db4ebd17a3b25d943c653c1244b121540fda37718d49ad245a47d275b",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/creative/dummie/index.html",
+      "originalSha256": "e4749763bea075dbda36c7e8c1e60fa362760fa197a228da6ba6ef590479965f",
+      "withNoticeSha256": "3ba15afb53955fb3e881f3bc0f4c597980f9dc227b621546d5b300d094f4f9c2",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/creative/music/better-together/index.html",
+      "originalSha256": "924deec25be0483cd850d90aec18ba6d1bbbcde192c2898f8f8fe831b46d993c",
+      "withNoticeSha256": "f0f068b59d45aac34b51e91a264be1e996d3184d008b5c01d7e8492d13169e0b",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/dummie-publisher/index.html",
+      "originalSha256": "5e160c458d58e28d2765bc5af07947c8b7fa1bb7da32544d2e6baa945074dbce",
+      "withNoticeSha256": "15e74197138a71eb58a033b02360f0a0dd1cda4ba1390d02a90c21aa68b30b2a",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/ecosystem.html",
+      "originalSha256": "7170afce8e96372599cc14b99d6a9d3ea5a5e5a65fd94d405f6a1c66a7cb530c",
+      "withNoticeSha256": "2cb7c16802c0bee41fec9adbc2dab2dfdd82362bfc7775a1b56fed90c18a4b99",
+      "recordLink": "../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/game-reference-lab/all-morning.html",
+      "originalSha256": "d2c4a7b1fe47567c742e6d80bbb1a02d6bb6fc3608bfbfb8ea9c7ebe8cd772e4",
+      "withNoticeSha256": "b922b01eaec4005516818eee2401843fa0067c32adea546157dcff72dab142b3",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/game-reference-lab/index.html",
+      "originalSha256": "6fe0c3bd090e10d1878b3e0f4fc6b9a10e874a52cc19480e452a6e6a888257b1",
+      "withNoticeSha256": "3518109fccf56dd4139e91351d546bde3a6e85ae12a223b4c6c7536586260fb5",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/game-reference-lab/zero-void-lab.html",
+      "originalSha256": "095308603b6bdfb3c135accac60c7b27e5875017b146d1cd1dc313205d6b3109",
+      "withNoticeSha256": "0858aeabcea6c5bc9f80e1fb5e452883fa7e1cf838a1a1ee15f851d449b1f074",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/games/blackjack-life/index.html",
+      "originalSha256": "c9d498af3c123b9ad48684847b3baf711541f9407fe7f3a6d6441bcbfa4ace67",
+      "withNoticeSha256": "c4a860abd26f173c335f220a505833664524783b1eb136f4411923df7400caf0",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/games/crowning-jewel.html",
+      "originalSha256": "76932212f67c6f18efb160b1e41a544b7f25dc66a247e68243ae223820f67541",
+      "withNoticeSha256": "ba439dc13d381c706aaaaf169f2a03b0971768ccdacf4d43036b253387477b06",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/games/paradox-118/index.html",
+      "originalSha256": "64d822e43b4e1ec7d1fc037b43f9b900ddac8fa67a33fcb44fd9dfc9684ed148",
+      "withNoticeSha256": "73ac0fb6136b15c644406d1a4f29d437f18656607cb24b64761a6366e1f24445",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/historical-sports/index.html",
+      "originalSha256": "8b5b85bc5d00e2a7f668914308d9cbe04853dfe9ed0568bb6b4dcb888768cb6a",
+      "withNoticeSha256": "64fa7a0943879bc778e7d30726240f663e801f0dc27027a52783c713c0972ce1",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/icarus-baseball/index.html",
+      "originalSha256": "430b661df24c5fb37320e239f1ed65d8e45e19abb3e5a35014751500e6479faa",
+      "withNoticeSha256": "00cc5f55f3cc5f171d61abceaf7c22f05b28ad9b062297b5183b81c8fde1f306",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/index.html",
+      "originalSha256": "b9d4da489f39765a8d9832999a9ffcb550f7e22b64fb6d00d1d48f0c08b414bc",
+      "withNoticeSha256": "72db825440409a7cb820bcc81bf6f8a61874bf623a6de8740eca371218e6859b",
+      "recordLink": "../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/middle-c/index.html",
+      "originalSha256": "ba97fad066b01e1794a553854a4bf7806fd9af32817c9c360375c3adb3d6be44",
+      "withNoticeSha256": "f539f28de972177dd5171dde097a6d7eee4701fd9e0b382f798273258f741e55",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/mythology/ancient-roots/index.html",
+      "originalSha256": "9ad6a835e03b5ae5238f2655a4e21f1d312d25a5f6be876ba7b38af2dec175c1",
+      "withNoticeSha256": "b5ca7f484c45aa863b284c40a78b18e20a6101ba4625954425d2d67873490709",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/mythology/greek/index.html",
+      "originalSha256": "1c13dead4f951da8d445a369e387bf17ab198e625c83540e8631c3ddf8447d48",
+      "withNoticeSha256": "4b5a7cdd2a6bc75e017e950f5085a877c8c2485f5e5530d548c5b48de302eb8c",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/mythology/knave/index.html",
+      "originalSha256": "9c22e63c4cc42f5434e9a0ccdeabec61be1d809c136adca08521120370a0d040",
+      "withNoticeSha256": "334afefdfb2b153b3538b2d4a0008bd1a150dcf96a892ce797378cb6e3e32de4",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/3d-print-shop/index.html",
+      "originalSha256": "b6266dd285974a3f5e376c6bfa7c77ce5614fc18eade92a9988c442acc09492d",
+      "withNoticeSha256": "13c427adb044d1283117ae073f8b7453ce603cf6593b53b322e884ace1f411eb",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/absolute-intelligence/index.html",
+      "originalSha256": "5302107faec8ef61dece4ea31a93cad7e15904e8613c216a5cd5a7d3acc5db5b",
+      "withNoticeSha256": "0d905a5bb83c25b86079db8df512fc3954d88e8789be1beafd89148dc5054109",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/activation/index.html",
+      "originalSha256": "88afce4bcb865bd5da7cd580f5dac08a21e0153953f1f73b3301580a0c34ab6f",
+      "withNoticeSha256": "ff0a1d8ecfefa82601b430b84ed382f4ff6941355b3f2bc5c79784bcedcf85c4",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/ai-mapping/index.html",
+      "originalSha256": "286ac34498a21d7b248dcd6528ed04b11d70fb17c6e525e07b765e6fbeb2d101",
+      "withNoticeSha256": "d8f1cd98186fb5047e256eadcc8a8c92615decd7e43c8bd9033529e195ec0601",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/anatomy/index.html",
+      "originalSha256": "3f69eba2aab606c62a47ef8b35747869b42541bc2da3dd91180f08effe77fda1",
+      "withNoticeSha256": "ddbfbd60ddc3b309fffee9c2c7e4f38efbcbd66f897d2f4d7a426d7439cb6a37",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/appearance/index.html",
+      "originalSha256": "2a3646488deb87f5e211deeabece4bfdedea059f4032fa5b5afbb1b1971f527b",
+      "withNoticeSha256": "be8b8cd4070061ccdcf6abebdf68178802d23d9fa928a9de7f948de0d3b1f108",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/architecture-63/index.html",
+      "originalSha256": "9dcd0a664c17dadc43fea1c986ed465e4a93cedf33911e8c2234cd44a18c8ef6",
+      "withNoticeSha256": "6e0fe1d1e2eed8d230c74746c3fef2dce6124c4b2acddca7bcc54e247ec4c470",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/assistant/index.html",
+      "originalSha256": "81afdc25bd4ee04496c708e15a47a298915b3f81dfd93e459b31a77b0487a2c9",
+      "withNoticeSha256": "f56e9f0964e08735fae290ab729881663d377540f2729cc2102be2fb08538ef9",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/brainstormer/academy/index.html",
+      "originalSha256": "706a3942de8469b66d0570589b437dd2e3859ec12e64290f5800fdaeffa06082",
+      "withNoticeSha256": "0b6391f7e326b90d548e780e00df0b6ee1d05a752a4c964439ee90a4084dfd10",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/brainstormer/app/index.html",
+      "originalSha256": "86aba578d7c04881885c1609b55f1527c50856ea1725d016c44ee691c8a7f034",
+      "withNoticeSha256": "215da81b1c8f6392d97762cfb8cf39647ac33d02ece13ee3a6d44338208e02cd",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/brainstormer/books/index.html",
+      "originalSha256": "fb1f4bad511623d84de2ac8173f70853c94e919b468b763d3b26c63b498593f8",
+      "withNoticeSha256": "f725bce2a18a9f0c036bfbd3f4b37420005a01746e88b6500db0b538437b54b8",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/brainstormer/game/index.html",
+      "originalSha256": "8c3e742d1c858f6d4fe9936e735a5f1652d81bb21b26dd06a0e034675f95c6ed",
+      "withNoticeSha256": "2b70890d6b57562726cc0fc72db34b1816d4f735472a36550ec0285b61e224b8",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/brainstormer/index.html",
+      "originalSha256": "ff63649c4aae0d3267f121b932a48928a468a8fa4ae1aca1756f7e4bff028211",
+      "withNoticeSha256": "56791ed2b884087db6fe3c59e0c487379bf6125dddd0982128ab5f0c3f1282e3",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/build-recovery/index.html",
+      "originalSha256": "4dde5d5d905ae5960f83537f480f51def753eccbd16c7988e147c7234bde4d5a",
+      "withNoticeSha256": "7fda0bd1584fd418dd8664d6fe59b7f3965f05448351e58f3df32139715eaebf",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/capability-atlas/index.html",
+      "originalSha256": "40e061e389aef518e916c7fffaa52afa15f23999c2789f984e1ce2d71ff5c5c6",
+      "withNoticeSha256": "d5a94fc6a383bfec75cb15c9e9939b68af13aea2d034d01b4aa96066ecfb781e",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/capability-atlas/store.html",
+      "originalSha256": "d9d3e57b3b892888b6f6a5687f8836b0ee13b83455ae07d384dc62201ddff6bb",
+      "withNoticeSha256": "7c39421a9908c6c2f8058eaed6b87eda73dfa85d7b85eaf2395e6e579310a6b8",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/children-innocence/index.html",
+      "originalSha256": "b919f5a1b7683b8aaef861002019cf55165c33187092b9db15036c6554953cc1",
+      "withNoticeSha256": "f3314a2e1606dc126f727917b6ebeb2140ab1a47e9f622dcd0d85ed0f0474b54",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/command-center/index.html",
+      "originalSha256": "ca83a19be6d086fa263e30dbe5f4a6dbf66f77cb1db029b4deef722d11afa62d",
+      "withNoticeSha256": "6bca92de055d792fd06d7ed80d7af5a6252523f67179c5a5c020756d103a3add",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/completion-engine/index.html",
+      "originalSha256": "765f9877cd4ff0cd535c3fe0dc67baccb6a68216602ed24c34eab7cc59f1de5f",
+      "withNoticeSha256": "70cb8cfa4f582c4ca74b960f5b358a00fd5fdf061337e1af624c67c3c8ab3643",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/consumer/index.html",
+      "originalSha256": "7d51479c4d22cadfbba469927ec3c73f60f69c9932673f7fe7e951e6b4145cbf",
+      "withNoticeSha256": "0c020944d1a89961f12b6b48e352ff2775c5427d25714e080fef56b40a7ee809",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/d-archive/index.html",
+      "originalSha256": "ff50a80de6c7b3aa860a53535030f38ac2d29b2283a7791bb413293501a03c57",
+      "withNoticeSha256": "cf886cedbb5d1bb77b2bf4db68754cbd3375c8918a0871b88a754cda16858ba2",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/deep-archive/index.html",
+      "originalSha256": "de03093f3f713b92fdd2b59c5abc825dca43cf2e0cd96453d464240eef2b4637",
+      "withNoticeSha256": "e5f9368de19498e753e9b53b46e52630d246db89627bc06afcaa2b63d6b22ecb",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/deep-rock/index.html",
+      "originalSha256": "08ee7113f0e4343540be98101b9d141dc9741325d87cbe308a86e2030afc38b1",
+      "withNoticeSha256": "4f30603d874bd845785441244e6045e421b2e2905ceb1567dfd538c52d49f2fe",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/dehack-deliver/index.html",
+      "originalSha256": "8b420f4862a741e360bd638f10251e109c27b1f19daebb5ee13e3934a8499a89",
+      "withNoticeSha256": "dd4e235f292990526565548020553e152cfa0fe2c68da04e8566e0b7ea4b998c",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/e-archive/index.html",
+      "originalSha256": "734d6325d0f20967d8e626b7f4693939a7a1cd0ec99de822bd03c6e979dc0de6",
+      "withNoticeSha256": "ffd7716f8d9c3c2925e84beab5ddd9721b10dc3400ec5d2e81b99054b07ec238",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/eyeprints-handprints/archive/EYEPRINTS_original_research.html",
+      "originalSha256": "48c4575023c73126a7bf0c315f595d556829644bea2920b4f031d145c98d2b16",
+      "withNoticeSha256": "0e01dfb98dc38c25594fc31b5bbe11db6ad11a8c0c34cd8d5f454181615c30ae",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/eyeprints-handprints/index.html",
+      "originalSha256": "3bee017a6866b076658a4ebc0b44ffd4936c877fa090b913059c9151b7d1a022",
+      "withNoticeSha256": "064881d9dca8d72d4955d11232ebd3e4205a895be94bbedd6b0fe55c74c1dc29",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/family-research/index.html",
+      "originalSha256": "1cf9bd21bb247b6acb92bce2be7324f3af722c87020fe8bc9adac40a33f71c2e",
+      "withNoticeSha256": "55446d3a4dbd6fdf997579b1e800c2e1922ff5b09cba3b0aa7b93753084a74c1",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/family-research/private-reader.html",
+      "originalSha256": "adfa0c45ae18dfe6bc22366abd4f191dab6ddfc36b6b4fa923fc2cc68f70f79f",
+      "withNoticeSha256": "519240544bbaedb12db28fc6fe72eb0b6a232aad418a5fdd0d0256331410cac0",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/fifty-three-year/index.html",
+      "originalSha256": "3401c217ecc7536374541283ddae025eb887c883efd147de161db61a94dd7623",
+      "withNoticeSha256": "101a358789e41ba9811cc9d8e23cacc1dc549f8e2515fa1a91fb02f132ac500c",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/five-guardians/index.html",
+      "originalSha256": "c390f3d8146bc1f538d677b2b0559f1d88973160466327d890ca23b0c07cf0df",
+      "withNoticeSha256": "96a9089c83d98ea870340e60b4ad2031796d58656059c17a5d7d4646db790e9e",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/flyer-studio/index.html",
+      "originalSha256": "c88c0b8eeae5a5274b548957d5522241e1d06a08ad3de006c18b30dc7d0099f2",
+      "withNoticeSha256": "43ae2d1dae5702bc74da72c3a0bcc64df7199ed8aeec097707b901b4da866355",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/games/index.html",
+      "originalSha256": "33b03475bfc6269a4326c28ed68d32b15581ddb23d7068287e000da7e2a7ee79",
+      "withNoticeSha256": "c58c01ea108bb1d12f07ae8ccf7080be0ecb71d2bc74d4af5198ba6a951f11f9",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/hop-in/chatbox/index.html",
+      "originalSha256": "603dcd229786139e51c35056586445d2ac4577a0e7a2b615914d3fe25d57384a",
+      "withNoticeSha256": "afcab3cbfeae4b9b073363b8554da344c9e488f3b5c483828294b8909362e75f",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/hop-in/index.html",
+      "originalSha256": "ddce6ab5b839f00b4a772dcb9436b67aa7f090692276efc5177c51dfd29c4f8a",
+      "withNoticeSha256": "d920f68d0cd7764085f794ce7d9ff5918fe5deb6de4797572863d1d8ba68cff3",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/hop-in/paradox-atlas/index.html",
+      "originalSha256": "633a9b5dbc140b6b797107947c782b0d86f48b2b71ff6258968d5aeb635515b4",
+      "withNoticeSha256": "00b9d576cea24ec5d4f46492b06a26236e7c4777320b5bebe847fc0f017666fb",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/hop-in/root-clear/index.html",
+      "originalSha256": "9015806aa0cf718325aa274b212732d037cbe3cd48bc0eb24d219c6055f5e75b",
+      "withNoticeSha256": "0d55df8fd9f995f7c1e0905d81de33c4b44a57d4f73ea1733174ac1f5691e313",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/independent-editions/dehack-deliver/index.html",
+      "originalSha256": "08e36998d1b071e9be94b1455730114c80a7f1f734fc5176fec2029f7c88c66f",
+      "withNoticeSha256": "f50d7da723e414c9c116c81b6b0597c701fe2b9c8e545e722e2343c9e204e3d7",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/independent-editions/five-equal-guardians/index.html",
+      "originalSha256": "2bd91a0f176315117f0e447306eea1a165b408c6263de0b32e9860cf2e62ddba",
+      "withNoticeSha256": "9014ad62ca788f5fab9c832543b632805f7ba40d6c1d30c4df59ca251ab78e5d",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/independent-editions/five-matrix-print-shop/index.html",
+      "originalSha256": "097ddda2e193d672ee31dc67e8fe3e0140b83c336d6d0a9a40a70cf4c0385693",
+      "withNoticeSha256": "345d9511975c669441dd7594010b1d1e72b2e9682fe521106e6f01139b13fe85",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/independent-editions/hack-d-hack/index.html",
+      "originalSha256": "d628dfe7dfbedd8499a7bbf524d12618b30967b8c33d9fbcbfce4d70cb810ad5",
+      "withNoticeSha256": "02da587f4aa7b9cd1a44c9cc1f260b93229748adcb801a19d042bd8908e3d0f0",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/independent-editions/hall-of-mirrors/index.html",
+      "originalSha256": "4a6c06a8c0d4eeb7f501ca896f4f5592a9d365c93b24f4a45aad93412784007f",
+      "withNoticeSha256": "aecf88e0db9b99cf314b6e2623f2432c7f473c55cc56abab05d2840af018df3b",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/independent-editions/hop-in-chatbox/index.html",
+      "originalSha256": "c5ed6874efa57f1006a3d90c65ec0c476e43ac793dba0854a47a53633e461919",
+      "withNoticeSha256": "34fd5d739215043de8bbd50eb0ebdcb084849aef3e94aee4b63743ca7ce767e8",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/independent-editions/index.html",
+      "originalSha256": "822cb55a386d230f4a0032a6ebdde75197f3f8896f81345586a79b96daf709ac",
+      "withNoticeSha256": "ade3fd50748703f3b046b525faa906751614e2b9eaa7c26e7b3e76f4e0f52b00",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/independent-editions/one-offloader/index.html",
+      "originalSha256": "0e1d9a9949827814248b7cfdcd0ec9ab0a0c45480cb47d56ab09b381d8b367a7",
+      "withNoticeSha256": "6d81e0f5c97b60a0340fd2a01532e726ebb438f1172da46b145e640eb70a32a0",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/independent-editions/original-works/index.html",
+      "originalSha256": "cfc97d08f29e31f5f69a01cb7a2badaec7486f843418428f8c25e62ca40d8919",
+      "withNoticeSha256": "15c835f753c689f52dcad39774750141f97e8c3d7ece022897e7dba350548207",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/independent-editions/root-clear-build/index.html",
+      "originalSha256": "7757d47032bf4177ee4c592bf0ca51a91575a45b144a2559f03bcf1bbfad62f7",
+      "withNoticeSha256": "d98311d3f2a4ff169e5e42089d1a10ff83f82e975681bd91dafc9a402b54d035",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/independent-editions/sovereign-acro-matrix/index.html",
+      "originalSha256": "046e901df0b53d0d1357fd97b9d3ca7b267ab8cac4d096195912beb84aa86ab9",
+      "withNoticeSha256": "86cfd82f171b54396cc04c9cbf11545be00f943998b74972eb9b8f27c1c4355a",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/independent-editions/sovereign-defender/index.html",
+      "originalSha256": "9765faaf3b32afbc57b9e96885e16fe36410b64f90690c327e931e158559e2a6",
+      "withNoticeSha256": "dcd51c3c31e30ec6bc9052cda5b3c056aa16fccb7767a778598397b71712fe6a",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/index.html",
+      "originalSha256": "48101c463f44bb6dda412aa229069627bf4c07673b1d43d110b9b55d72d30537",
+      "withNoticeSha256": "86a23542a05117430448816871929a584d2a913678e0459ee160f20f6eb02729",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/innocence-matrix/index.html",
+      "originalSha256": "b63f3db4bb67def717b69609b4a43d6c8dbb6e1ca2f41890370045ccc8910fd6",
+      "withNoticeSha256": "8ec1152d38b96b97e938b64866c98178f98f972af42b49cc40b9bfd97529b664",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/mind-neuropath/index.html",
+      "originalSha256": "c8db7a3273bc7f8c94f176d2bd806a7ac298241d4d36fb1e084f7bb500e591d4",
+      "withNoticeSha256": "2d3abbe28074c19a09bc1609be866d0b147b9267d46358a8f46de3b5d4c63b51",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/node-runtime/index.html",
+      "originalSha256": "37a7a97b375cc38c1e6139d9dfdb66acdd22f505e17770a99e8aa9ae43cceccb",
+      "withNoticeSha256": "6c217cf7ce6c94f97c9c8224b7f0fb6db0b0a716df836a9d63a80f553a66746b",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/omni-god/index.html",
+      "originalSha256": "5fe2a71590c8b177394a55480c1fbb89acb7702e6b5697be0ef143b1fe55d15c",
+      "withNoticeSha256": "bc4cb7173c93e4f70ee8096b517ae5c33f1edabec87eee01a2bac4733ca267d7",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/operations/index.html",
+      "originalSha256": "ded5d4b134d45ecdd8e08af52b229d534898a642271458a810b172e8eb3930ba",
+      "withNoticeSha256": "510b8fb40aeb4cfb21e49ea0da6b2b2d8112d820703582755eb02ec9796430e3",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/operations/turnaround/index.html",
+      "originalSha256": "503b08e75233d0bfc51cf148d4a3f5b169ddbdade738342ac457cc38b21c5770",
+      "withNoticeSha256": "f085fa35d1e20531c4f8c87c97727cf42147bc851f8111682dbfad4d86f5517e",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/original-works/index.html",
+      "originalSha256": "6a57eb1e4db100f18106fe8a489ed4059e7f355079c7dcdfcc54eacf0eb12315",
+      "withNoticeSha256": "fc993c5ebfd90696eb42e1da0c869baa487374744b922b880de3cb95f2989432",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/phi-life/index.html",
+      "originalSha256": "d63b5a91cacb1571716f8838690ef0b0694f130562ddb84b779c542d924acefb",
+      "withNoticeSha256": "7ab1a2fb7227ed6bdf22ddb4486c4f5dfd5911226b0f54fa07f5d035a8462a2c",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/plugins/index.html",
+      "originalSha256": "81a5aac777c4ef62886b0952e42e1773de8523bf34fd851545b3fd948798a6b5",
+      "withNoticeSha256": "92bede35692c3e13a48857353ff9f54ca987ebea8f5229a987be064d5c957a74",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/primordial-lexicon/index.html",
+      "originalSha256": "97bd6009b5540d4b993d760b7646c4d36d496a29a054b5521c2c73299db98db4",
+      "withNoticeSha256": "11192c4767670fc6466249ad5fe2b628ee83d28b47328352e6ca2d533638518a",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/program-jobs/index.html",
+      "originalSha256": "10419dc955de889bf3cb41fb459c1e1de856989873e26cb3be6fe77a0d35019d",
+      "withNoticeSha256": "829903d66d1928436f4f3ce7ba4c6555228bb3d0191d0665d166d7cd76f8fad3",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/route-raut-root/index.html",
+      "originalSha256": "a9245226a37044896099427c0ed7d1c1a2b4636d9a0c65da7a7d461f45e7f8d7",
+      "withNoticeSha256": "9bd97fc518dbff935b062b85190782b877ab546065a3711d5accbbb938635ee2",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/self-help/index.html",
+      "originalSha256": "6d9df1f73e55f837ca119ee3844a68d8a7963b76c264ee0a0d5e4461acbcecf1",
+      "withNoticeSha256": "29e68c93061950f9878a5ba090c046582df96346439a50835515991783a5e180",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/six-dogs/index.html",
+      "originalSha256": "9db8e3f8cf74ef4cf7c867fb567f1955658ced46e97ddefcd1cb366871d13d4d",
+      "withNoticeSha256": "bec6c3856ca8d5b077dae0fdb84729f0b1e9567a5f3cfc2326465da315792989",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/sovereign-coins/anchored/index.html",
+      "originalSha256": "e84ae4bf13f2d3cc766ad59cbda8973c35a7e2cc8ad1dec417a0bce90e337dc4",
+      "withNoticeSha256": "314190f5e239c2815dfa0b3fd07b8f42807cbb702f1283f7f6d26cd7b3523eeb",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/sovereign-coins/index.html",
+      "originalSha256": "768a051dac795b467bb252106435b10e75d39ad14ca823b9481636ae42cc5b50",
+      "withNoticeSha256": "1a9445154d8cd9ae36d1d44d592ae8a1f45f749401d07df9492354b8b6ea0616",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/sovereign-coins/integrations/index.html",
+      "originalSha256": "1876843a67a27ae004ae2c31dd3f5d42effb134c8896ef45cdad8ab310a1448d",
+      "withNoticeSha256": "42e0a79f657e5b286f05c78d7508d67a2bf0a0db32058421082fa02a0ab56002",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/sovereign-coins/life/index.html",
+      "originalSha256": "960123246fc82a00ddc6559108b88b899c63d95f94452f9dbbfaa0b8d8c8abc7",
+      "withNoticeSha256": "3da4e8de883bdc59985d35b41f340a29f98920beb072efda952fd02fca9595f3",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/sovereign-coins/phi-mining/index.html",
+      "originalSha256": "0262033fc04002d6ef5452b21fe17597a95f3cb70d3d19d791c176014e1b641f",
+      "withNoticeSha256": "076964a790d697dc90a6b03e8ea2efee89fddf5d2c2969f2ae695997fc05b15f",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/sovereign-defender/index.html",
+      "originalSha256": "0ad51f0759d80fcb54e3ccb82774f597b6db5cbda8d9c07aaa73e516c693545b",
+      "withNoticeSha256": "245a72b22fff56f51abdc722dcd1e9e10a0b11331317534e062dc93bccc1a4d5",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/sovereign-defender/toolbox/index.html",
+      "originalSha256": "111a04f0a13fcd0ba827ca2ea2e73c695ba59890b6da61646bfd4f08b27af6ec",
+      "withNoticeSha256": "d33d7ba89489ffff1a3bf686cef3101d58945434052c583cf76f9553bc67fe55",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/sovereign/index.html",
+      "originalSha256": "07d51c2a2e170e564dc7c9a6dd2853d382b2a7fee7e49aef3bd0ca9a29fb0c7a",
+      "withNoticeSha256": "f86900950581ecc6f6c38f5a6b375eb906dd4facc610d27bd5d7afc9021177f6",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/trinity-of-snow/field-experience/index.html",
+      "originalSha256": "3ac705bf50f0e69f871056256ea3242b1e27e952d671c7297130f95fccd55ffc",
+      "withNoticeSha256": "8d199b9149a29f60d617d6ef66f5e54a36a0d8380a025b2a08454d926a6bd580",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/trinity-of-snow/index.html",
+      "originalSha256": "9b1eca4729b63f52518a5b1dcc12dbe0d83e5959925fc5325ef22429c45c2999",
+      "withNoticeSha256": "44c3d689068a377cd8d51d1cfb3b02de108efd8e28163c7e66bcc137cba15347",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/universal-tools/arrowhead-tree.html",
+      "originalSha256": "c644527c8cb4dc7091f1535e7f51e84cced9ff240f5a82c35abd2e6f034ee2c3",
+      "withNoticeSha256": "043655d9bf2d8339f596260fdf8ca4fa92f1934fe5299c7c968fa687307159df",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/universal-tools/index.html",
+      "originalSha256": "6b2287aec40ac7c9ada89db354fd94e456ccc9dd6a32ec07461b556a37f5527e",
+      "withNoticeSha256": "f295533ab2cc5bc7a5e5cbea877038d76bac68bc77e3089dc0468fe8529e491f",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/universal-workspace/index.html",
+      "originalSha256": "7f33d471ce5d63fc666bc337678529fbd537aad9e4f65e2e79be7815cde14bc2",
+      "withNoticeSha256": "d47bb3bb5c5599330bbe0704090f5f0d1a81cf7f19a2648d877465d631b44d32",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/websites/index.html",
+      "originalSha256": "e37b2e6bf41a08a5e8883069dc09da048eea87b61d97800462667ec4afe8d537",
+      "withNoticeSha256": "99c7aceb394dc97379cc80f2abb75e1efe561ef7347e4069c4a12607c7ba69c9",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/nathan-ai/websites/launchpad.html",
+      "originalSha256": "ee8370ecbba0328419bc7125c8f30b870e16f8326d366adfd49ec1f72d52a28e",
+      "withNoticeSha256": "24314439f793cded2fa55053a511d2ff5a38be3e2a4847751e1b9ec16d9a84c1",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/octopus-root/index.html",
+      "originalSha256": "0bbc89991ce0ed179a7ae1ad3d6ae57f8f27f6b2c21bf01af1cb9f2689f7dc7b",
+      "withNoticeSha256": "64493426b6d6cde34c09d8b3c1da1197cae9e1bfbb85fab0fe433764bb14b57a",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/octopus-root/octopus-arsenal/index.html",
+      "originalSha256": "d042149b420b4556510534fe2dc40c3c822ae5e12cc2f1920da2548cd5dae5a0",
+      "withNoticeSha256": "f117dd4848e7a7ac2b3e1f6aaa8757197c22071b703a43292838cee930d15b4c",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/octopus-root/sovereign-bubble/index.html",
+      "originalSha256": "09cabae19ee7835a8b3a29478bfee800ac94179d1983bbfd72d353c85c81edff",
+      "withNoticeSha256": "0d34ee94d641da78e0ea9b6ec1ed598f155efa9e5e0558062ecf577685a8fafe",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/octopus-root/sovereign-continuum/index.html",
+      "originalSha256": "11ee4bbcee418ed1750911b2bb83d7e61b9b52ffb850a6d60fbb3201f6c90faa",
+      "withNoticeSha256": "c657b3556dcbf33a2de68b3c174b9babe9d2aded0e282092f4bc67bbbf4d5c38",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/octopus-root/sovereign-fields/index.html",
+      "originalSha256": "0afa61a2b6c89ac8c84327a7080e1d19ce24c3be5acbcf33e01f32b43b9a22b3",
+      "withNoticeSha256": "4690aad3ee88ec4bba9beed9f8d81c5830358d29595737f81bd27e5ceb10988d",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/octopus-root/sovereign-nexus/index.html",
+      "originalSha256": "787e41c6f8dd8edd2fb807290425c4d8f7b0d9cfc63cdc4bb89b99714324d074",
+      "withNoticeSha256": "59e34192c11aef2750465e439892f2eefd0795700679bf5df0f2fcd8c7b547e0",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/octopus-root/uct/index.html",
+      "originalSha256": "296403df68ae3032ef7e40be5970872f484b6b0dc2a0c09b3a9c79c57eba61e6",
+      "withNoticeSha256": "c95e04792618a5f0e16c16475256d1234f8114ff7bb61c6fa4d2f4803628003b",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/octopus-root/uct/triple-code/index.html",
+      "originalSha256": "e0eec3dd6606277c1bde36e746708dcfdd25c237d9e1845ed1be8c892df48dcf",
+      "withNoticeSha256": "7caab8e82c7248aeed849c7f2701d0ad7ebd9038038f0171a520bdb24731e6c5",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/accountability/index.html",
+      "originalSha256": "063aec6df115f1016927091aa09d43b80baa7f2b930d3f6e11cf47c4ada5df56",
+      "withNoticeSha256": "53c4926ad476c7888847c4a0f543083a7344f1c93ae4a028cb5fa6e61f3dde59",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/assocchio/index.html",
+      "originalSha256": "24de207eb5ab7bebb265b5eb1e9779d455bfd1212f770e2c2dd7466a7314847f",
+      "withNoticeSha256": "6e8bff0a8ffb4bf1f0382781487e1b7d27ee0a5cc81038937c03fede7e47b5b2",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/connected/index.html",
+      "originalSha256": "2fbcb502813e9e0b5cd972e08040bff2ccb5da3cc087e6fbfd80998a882c8be6",
+      "withNoticeSha256": "fad31e905af1423989acc7b235a37498436e222186e6e7ad4ba309ebdb4893be",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/hall-of-mirrors/index.html",
+      "originalSha256": "2c77005a24a9876c4eeb0512ef11f0a7a90c98bbb822d084dab47f1a32ba1d5a",
+      "withNoticeSha256": "ef49b541377c7fcc70c112433104cfefb5e872d53bed807c64aabbae1ea00cf8",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/health/index.html",
+      "originalSha256": "23234cc7abe57d8d42b61052592e4fe53c48792710325223145149bdb776d72c",
+      "withNoticeSha256": "42ae44b3b09b1abcfc4fc040362f3fadbebffd6d688aeebcafefcc04cf071c2b",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/hey-you-total-eclipse/explorer/03_original_explorer.html",
+      "originalSha256": "49c308c95634bc3f0e1433930dc892f830df8301240fc325765f6c5701bc2d6e",
+      "withNoticeSha256": "24af5debe1ed278303869818b79aca418485a0e1ee70ed7d09cdfbcc9616daf5",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/hey-you-total-eclipse/explorer/index.html",
+      "originalSha256": "6764174caf8377e2f1b4fe0f8de8bf2268a28f96a230f2830e9c50f6be193eb9",
+      "withNoticeSha256": "2560235c2ef6def7b0611f520338d1bd88f934fb8d13547a4b00915906490eb8",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/history-cosmos/index.html",
+      "originalSha256": "a300fea07bbe38400affd52d572c2c7e9e685b736bce169d996628653d54d327",
+      "withNoticeSha256": "87583028bd007ea3fa15c480002757ece36637f23472dbce4668c8cdc4c5f8b4",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/humanity-archive/index.html",
+      "originalSha256": "dc0a29b57a5438ed7290868b50756c82f862859103270fa708eb32d4f30788ce",
+      "withNoticeSha256": "1205396b39d329ac36ba610240d7cd9114c5adbf22565205d87d0e07a5ce2dab",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/index.html",
+      "originalSha256": "3ad004f8b05036def31953c80fb55cff69ca0523e08a18a229a32d618a5d8d9c",
+      "withNoticeSha256": "6ef283d93db477d6329cf351da511dadd4b6fbaacc0ac2eba09f8299f72db565",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/inventions-101/index.html",
+      "originalSha256": "36deb04a77f4c80c64e610c3a0b8080a76f2b82cfefe08b2952d1d3eab093b20",
+      "withNoticeSha256": "578e20105aeefa35a8483dcd25affe160ff8557264be7eff10d2aa9e735e782a",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/library-mind/index.html",
+      "originalSha256": "65830b23d02d2ff98b3c4c6b44c11f50ca6a95c084779043c6782650f9ad90cd",
+      "withNoticeSha256": "b33c3e8c16af3f4ebb964af4b236f0638b51f82dc848cc8955dfbbc4f6afa257",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/library/index.html",
+      "originalSha256": "40af6e9765fd1dbf2d13118aeeb78cbb08669f3c0a54b7104de40cb332e6efde",
+      "withNoticeSha256": "2803aa8e98936378be4acafe05b69f7fec74644dc62aa36c30cc699d96533bd8",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/meet/index.html",
+      "originalSha256": "de821237d269983b67180b760f81bd1709b2fba0b98f7c2f82d8ead100657028",
+      "withNoticeSha256": "79981c7fc3ead640e1541779e9d3ca57f2da9f90034ae66b3580424b0a55dd7c",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/mosaic-reader/game.html",
+      "originalSha256": "d230a1d188b270d4ff90e76aabab814a0fe1789f957224a4b30ebe9a9aaccbeb",
+      "withNoticeSha256": "6aed45db2f5aa262d5749f0bcd3a4ed915794f48d1efdbae3c654f69bc3f7d7c",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/mosaic-reader/index.html",
+      "originalSha256": "819e508a4aa8682acff770b1d278a95b2bd83b4d2b4c307e883c56d494551184",
+      "withNoticeSha256": "08c7d3f49cb938205306b0c859f6b890f49d6a963dad81bd90fe7b281f27a8b5",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/mosaic-reader/reader.html",
+      "originalSha256": "20955cb127e83797b138b033a2a579cfc4edf5b9ccf7ee771191ead802a7d114",
+      "withNoticeSha256": "07a9a712693532d23ca5d40e4c78d3894473cb0758860e26a03e40a1025eb628",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/mother-earth/index.html",
+      "originalSha256": "67fe614dc109941ef012c827e0e21865446ea2ecaf7497334ff2a923210388b7",
+      "withNoticeSha256": "fe14215a7984f76f05e7c22ecc3bd7a76c7c6adb9d97fa11adcd8e3eb3967a7a",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/nathan-matrix/anatomy/index.html",
+      "originalSha256": "d219276c3d244b276ce2526cd663b082711a7e6f7ceb9080371d48823714cb26",
+      "withNoticeSha256": "1dd3337454d5ccb4d7cfffe7362a57fbdd4b8192af21059eee94956bc51fb951",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/nathan-matrix/dimensions-grids/index.html",
+      "originalSha256": "ecdd6fcda03200d642bc620ce5c622967694e7a7a550124d3ce0bc61315ee610",
+      "withNoticeSha256": "c7dd50c7662d021f6c733f06b37311c8aeb86345beab517a87e8cb4f359bbdad",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/nathan-matrix/distributed-ledger/index.html",
+      "originalSha256": "1c404e321c5b0ed6f8ee2c7c2d447a7d7c7e8c6ded4228927ffbefeb34f8d4bb",
+      "withNoticeSha256": "025664dbd75f23c7208764306af2b27e216bd00646f96d0e7b294d52179c4295",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/nathan-matrix/index.html",
+      "originalSha256": "354d063ef3401f0f4cd072397ed98ecead88ee5efc1685215e2aa912af5b1f0f",
+      "withNoticeSha256": "c087715c0cb4b0cf6ff9df5abce291b245c1f8be2c6e09a0ad0f354f4f5c0aad",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/nathan-matrix/sovereignty-origins/index.html",
+      "originalSha256": "2636982e4612097bdf355526ea3dbad9c97a6a6a639b550d7926fabe450b907c",
+      "withNoticeSha256": "d2ae175b0fb73f24acffed62828cdfc58c2f5b6d20587ee1b7f48fc1dad17d0f",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/obd/THE_HEARTBEAT_OBD_App.html",
+      "originalSha256": "8ec65e5df9f572e57a2b3d17e04f795802a58553f822c81b9e4d29f9d967bd4b",
+      "withNoticeSha256": "db25e631b5e4544a9080d9cb661d460da4a7a558f8fdae2addd1d52bb6ead51b",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/obd/THE_OBD_APP.html",
+      "originalSha256": "a2503c2549a8c58ebdd8b13ec07fee51b7165381478648d361a31233e2c8a08e",
+      "withNoticeSha256": "090ae31f68ecd4fe847049ca94731b0502cc91be439837e84412b383bb07be0f",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/offloader/index.html",
+      "originalSha256": "c3554764297688bbdf25a382adab7e653de65b290b4349a66555fa8875057d6c",
+      "withNoticeSha256": "691ee658745a1914a7ae143e2834b1830591efaac533273aeb8e83132edbe8f4",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/rcc-time/index.html",
+      "originalSha256": "8fa7c67157b52a86cc19715def7d2c125fb4249001f1958968175d4a8607fe8e",
+      "withNoticeSha256": "c72f20fc0e0d064ac2247394729085cf277858cc5aa5f436fd4303f63309e43e",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/realist-ledger/index.html",
+      "originalSha256": "e548e3e4b232db050825b4f05b2505b984e764dba2768e961877793cdaa29cc6",
+      "withNoticeSha256": "8f1a6e3390677420b81acf40dcd91f145d9f08817e8b8b005ea967308a45dc35",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/scriptures-007/index.html",
+      "originalSha256": "c15fd1cbfd10b4659af38a5021dc2578f89aa55752475a590a70ebe24dcac0e6",
+      "withNoticeSha256": "1523d32848c206e2264325402ac3c79b6785f4c29876c315b9c77c80e70d8ebe",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/sovereign-acro-matrix/index.html",
+      "originalSha256": "1018e7e2a3e8f90a6c7f47aa268df204df7aca8ba2cc173972976d06974a9ec4",
+      "withNoticeSha256": "15ffdf4511ce4d6fe5835515b896ff7c31a176fbe50a71b427b9913257bd6473",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/tabor-almanac/TTA_ONE_APP.html",
+      "originalSha256": "19dba0eab032acf44c77f6ef04a81fb455e0eec5555455650e61205deed56e65",
+      "withNoticeSha256": "c16b909f1470a09ce9140a1e823d4303db2fda5302c51487861284513901bf03",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/tabor-almanac/tabor_almanac_mythic_match_expanded.html",
+      "originalSha256": "c080b968d07c9492b91c38d2b6c3599fb8fd3b01affd7542514dc58f55571c3e",
+      "withNoticeSha256": "41d53aa34fce0b46f2217172f6f50d57779f19ce4af1f5f118b1180882590825",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/tabor-trinity/index.html",
+      "originalSha256": "0d8638501e6a559758139ba3974a2abcfb6f3ab135abd838c3aa8d36ba8a785d",
+      "withNoticeSha256": "baf2325c2fbbc2e395c186c83f0eb6645529a9626b57c025e5d66e3d07a4a0cd",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/taborite-language-matrix/books.html",
+      "originalSha256": "8439d56d2bf216897c1535771276894509760c50ceaeaee061ac99c7df08170e",
+      "withNoticeSha256": "31485c42a213fe420b9ab43ba11659f8d5ac0c98982d10ed924c9a883776d30b",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/taborite-language-matrix/game.html",
+      "originalSha256": "994b62e21bc41d5b23c01b7e252c7046289c783d1d95b007bafb6d21455b903b",
+      "withNoticeSha256": "0de80aafc57b2fa7dd7d19ebf8bbb9a364bfe2c4078eeb20131828cf156192f1",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/taborite-language-matrix/index.html",
+      "originalSha256": "2313a7952036e5f0fa1a0633a430820acc173cfdc119f7e9a04000d849939b4e",
+      "withNoticeSha256": "c4a4b4230f7c00c73098b08355f8843307298d85197b5ccf6c63c90a5b7d4589",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/taborite-language-matrix/matrix.html",
+      "originalSha256": "9e9e9aaad650f2c4ef73b10f8f1ff249d1d70998792960b812da80a510e721bc",
+      "withNoticeSha256": "ad5abe6ea081b201ce7a4fe42b70a57111b48323c6da40c6f7580af40ed7f0d9",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/taborite-language-matrix/tests.html",
+      "originalSha256": "5d3f90e230cefb6b5cdcfbe1b51263f0056bd46aba2de746c9fe768521a64f7c",
+      "withNoticeSha256": "804d6375932d4efcd5ee0000a1fe3c964172d93756ec64d135cd995b5762cb05",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/trial-matrix/index.html",
+      "originalSha256": "0710ed2e704fd4e6a472edab947033b835fc8b15e1cb9fb679d71be6b19b1fca",
+      "withNoticeSha256": "87f1756b8f0b4f0dedb289a3d327ddabbb8c5c18d71d29f1b5272a97334560a0",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/trials/index.html",
+      "originalSha256": "33257d2b24c24329d0d42a7bcbbaa27d088eb2651525dbcdb0c57241af157188",
+      "withNoticeSha256": "5003cb5f9c678eebb50874a0de4e4b3d0b66b65a44bcbda25d63674ea1b16517",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/x-marks-the-spot/index.html",
+      "originalSha256": "08adfe4d6e254605dbcfc58b76f5f94b47010f2f2f97c933b95c277aff0f05ec",
+      "withNoticeSha256": "5f093f7c9d98c245c5ec01cce436b0796a2da5ace8bdcb6321e2b7a3fc9194ca",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/pricing-router/index.html",
+      "originalSha256": "06f0944fc418b914410717b2b56f7f8a3d31ef1b43e29afa288a59109378cf3e",
+      "withNoticeSha256": "fa194c274370b5df1aae6463006b0334b503d9e97caf4bdadcd30e5f90fe3c0e",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/radix-ladder/index.html",
+      "originalSha256": "6d0671b0ffcdcaca4dca168ed054f0b31054db7e99132e37dcf26c1887067da7",
+      "withNoticeSha256": "75a40fa7feff7008d937ac77c4d7578ce3190fe3d68ce75d5c843266826e2199",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/root-constellation.html",
+      "originalSha256": "5034e45593ae02bf9156c3cfde994e41cc984f204f12cf47a6175527a6112539",
+      "withNoticeSha256": "9199d6216bf311ea361f0a8e7fd7fb0ea8f5e698b99a4304ac0800de593fc656",
+      "recordLink": "../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/sites/christmas-toy-factory/index.html",
+      "originalSha256": "2655bd4e1110af94131b25f77793623e1a042b4b79b7d4938a8db13ea298b42a",
+      "withNoticeSha256": "461b08c64a9fea5e75fa3751395440f7de77255663959382ef8f0e07b340e6d9",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/sites/find-the-tabor/index.html",
+      "originalSha256": "ac15dec7d1bb9c982b21f9469c083ffed8351498fade6cf373c11d8f60daf2bc",
+      "withNoticeSha256": "9c646f82d05cd5bd399d75156cbaeb5ad9d804f191a3d7b7ac1fffb88f0cad5f",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/sites/handling-life/index.html",
+      "originalSha256": "9e7bbbed02b89e6cbd7b071ee8c7d22873e2dee0bc29cf72d8e29f6500212164",
+      "withNoticeSha256": "16ff8e2b237cf3d7232ccdc8e6930e495259708f9044f0c96fb060c3fda6b694",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/sites/index.html",
+      "originalSha256": "a977c99dbd9ac2240af7785fc5e140c2336054e2b9aac7a21efbd4aef07fc064",
+      "withNoticeSha256": "60507d24469a11c2d96a06a80be75fd4b192b1f7fd71b65c06788367b9dab4e4",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/sites/santa-claus-factory/index.html",
+      "originalSha256": "327e345be53143744d2afc4441244cd1d107dcfe072d5060fcc114ae2c28d46a",
+      "withNoticeSha256": "4f5906c78e15aa2c21fa12aef447911d29dab9033c7806c86e9f279a5031fe53",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/sites/tabor-texting/index.html",
+      "originalSha256": "f90a092d395097f4cdc10d0efc5e400d8243e6e760c3b15194c320fb4aaf22e0",
+      "withNoticeSha256": "37d8b14a48c71c2111c2b08213514c69e9b3f5cf1b07149dee78f97f55a47b22",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/sites/tabor-world/index.html",
+      "originalSha256": "476f4529a6fd7f53c6ac5e9fec925f79ec3a971266689b5bfb0bbde23b93b0c7",
+      "withNoticeSha256": "eac9aecc1ff9f2400698cf20d689c9d91c90c4bb6b678a4a391fb4c6a140ece4",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/sites/tabortales/index.html",
+      "originalSha256": "d58992f4b94b03942c867b31c73b58b7f491392cd79739622cd48a9eb67a3308",
+      "withNoticeSha256": "71c0d5f77661f48ddb4cf6f48d0122528c2b8fd1330b00ea1781ee430ac82b34",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/sites/words-library/index.html",
+      "originalSha256": "1ca7bfa622a7adcfcdaf8da08720934e27db776fc91f586b728c8e40c379f04e",
+      "withNoticeSha256": "763c4173969088d815bf39cc4f8eb0d0597c79a6e501cb9813250032de2aeb01",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/sites/you-sandbox/index.html",
+      "originalSha256": "ab136b7bfb96cd65db9c0de2c068e774759444381f1ccd604103b9e53a1c0ecc",
+      "withNoticeSha256": "63d9c69c8184013358e2cca49be25e43a5b48390598be6d68d88e8572f7b57e5",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/sovereign-boxes/index.html",
+      "originalSha256": "51a4f5e9bef6325a5142f663e58d9a1ba2d996d36bee5e7d65318066bb54f5d1",
+      "withNoticeSha256": "c31582f1acdf231d350fb6894b79d8e974aa8f442feaedd6183b0d355770bf28",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/sss-cs/ios/SSSCS/Web/index.html",
+      "originalSha256": "5547d323b672c3e112938761de5fbef2fbcbdc5eea4c6f725fd477c542cf8fa1",
+      "withNoticeSha256": "a1d10fb3a9d7b669f20ab4971bb0aff9e2b0710a7d154a4c04b61982abb4319c",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/index.html",
+      "originalSha256": "b9372ea418fff38ea1f0fc4a94e042e801732b85da46360ccd938cab3e59a759",
+      "withNoticeSha256": "3dd9264c4876fec2f29225f8055fa1a12b9f54bc0fc55d7554bc15d531df4dfe",
+      "recordLink": "/Nathan-AI-Sovereign-Core/docs/record/"
+    },
+    {
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/math-roots/index.html",
+      "originalSha256": "97da153884f1a799f53f986e4fe4fe06bc89441220c42cc614bff169a5a56f6f",
+      "withNoticeSha256": "97df28a92da92f5c2e6008d8e4dc1c7a1b985b6ac868e7a422f45e47c8124873",
+      "recordLink": "/Nathan-AI-Sovereign-Core/docs/record/"
+    },
+    {
+      "path": "app-factory/stewie-mr-finn/Resources/PolarMiddleC/mirror-bridge/index.html",
+      "originalSha256": "d2580ca53318d7ea0fa4f15850ce3b9ccc1c4c2680598778929510d76c8169e9",
+      "withNoticeSha256": "5f332b4a7b58fed9eb9ca5ca0bff90604c2095b921f8602c775c8dd1e70306c6",
+      "recordLink": "/Nathan-AI-Sovereign-Core/docs/record/"
+    },
+    {
+      "path": "app-factory/stewie-mr-finn/polar-middle-c/index.html",
+      "originalSha256": "d55b4b7a8e1f515ba58cd456c6dfae17d3b7bc5151cd903b586faf96d0b6a827",
+      "withNoticeSha256": "0748c7ff4e717ec0c5a7f780ffa39c5fc92ac2889201c59195c8f063a517c22f",
+      "recordLink": "/Nathan-AI-Sovereign-Core/docs/record/"
+    },
+    {
+      "path": "app-factory/stewie-mr-finn/polar-middle-c/math-roots/index.html",
+      "originalSha256": "1d93f804588a86e90eb2570b095accc097ecce77d1645e89eff469cdfa9052dc",
+      "withNoticeSha256": "5e65265c24ab29dd9b1583ee2b2cc3eada5ebc9a517e3469d964a8f4541ba3ab",
+      "recordLink": "/Nathan-AI-Sovereign-Core/docs/record/"
+    },
+    {
+      "path": "app-factory/stewie-mr-finn/polar-middle-c/mirror-bridge/index.html",
+      "originalSha256": "c05f99598865ba30cb4bb49ebb97fd557b3fc7d54b8315a6aef68f3bf461ecd9",
+      "withNoticeSha256": "9bf285130109bd922c2cc9bb89ee826810d5cd5bd1b958a804788f96cb09785e",
+      "recordLink": "/Nathan-AI-Sovereign-Core/docs/record/"
+    },
+    {
+      "path": "app-factory/system/index.html",
+      "originalSha256": "0a9ba7e6d3c4290cee821c98419eda6936676155f6db2bbb95959be555009455",
+      "withNoticeSha256": "1935563b07ddb2b60dc5d9bb3bbdba138aa4520749831a88c96b37dc33c378ef",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/tabor-gps/index.html",
+      "originalSha256": "fd800efca5bc22ca42cbbdee56ce38ec1cf787b8ee7555bb1366a17fc5a930f2",
+      "withNoticeSha256": "fed6f8d90aa281f0c9143ba8cfb8b9e4eb20441fa0f06ff10eab7acdb5a2c11d",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/universal-node/babel-inferno.html",
+      "originalSha256": "16f98d2efacbc5a7273e174a92f83bd3bb7870553aa3a76246b3911fca56856a",
+      "withNoticeSha256": "49d776b20affc5a48acd94ad315382c60162113fe9cfe8d45cb675af835c12e5",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/universal-node/index.html",
+      "originalSha256": "2d1d467774a571ec18a376b933b360bf23fc9731b2eaa507746f2274a4061b3e",
+      "withNoticeSha256": "24dba01233256cfd6b90902d9cd206f4bd566751919d53ce5afbd95432794411",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/universal-node/mission-control.html",
+      "originalSha256": "536353fb30fd5a7616519ffe5e5c5ed7d7e80c0df1291c137932b4c066cd5813",
+      "withNoticeSha256": "450c5dc8ed71a8b8ec48f280beb9b7a4f6f38230c5207faa535ac5bf7040099f",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/vault.html",
+      "originalSha256": "d425d9236b4e9f846b02723b3b5b05cd61bf26bc95a09ab00d5ab515079608fb",
+      "withNoticeSha256": "236b9caa49fa5c76830ec2b3d4a71c4e581d2e8b709d5fc52ce9e0ebeed75777",
+      "recordLink": "../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/2026-11-05/index.html",
+      "originalSha256": "688a69e8717931c3b543b3fb1d748b38ac088fdeec3335884e1f3a5a14d2e54e",
+      "withNoticeSha256": "5cfc9f76ce19fff9ed61b02d76c3499290b1febdd6ff7a170a09e72dd4ef6ad5",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/a/index.html",
+      "originalSha256": "74f431da557d7a1faabe79cc9738fdcbaedc09e76b61fbdec21fa8a4a6641590",
+      "withNoticeSha256": "c05eb3df9d81871ddbb33eaace8daebd877839ff9f2c443228b870b285071456",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/b/index.html",
+      "originalSha256": "b64bff7144f51999ec596a4a1898ecdaa8efe850c5070b6b736ff73dc7e52cb8",
+      "withNoticeSha256": "6b49bda22902f95515ea9c51492b8f6139d0b21f7b91af7ab1f0b16a9254d276",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/c/index.html",
+      "originalSha256": "1c1af4231a41abf73474ce0ed06bbbdd31a11149e58b05585df5855ec235186c",
+      "withNoticeSha256": "1369b60233aada46ce6be75b719094b37b586dbd05b4ac2421cc56d99b1b7d27",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/d/index.html",
+      "originalSha256": "ffe9bd7460ab81e68ff387298e146abd3f82e360ac0e92e78800ae5a1d8f11e7",
+      "withNoticeSha256": "7cebb855a6fd4d891f7198b0b9b798c8455f455809d189790caff64b1705586a",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/e/index.html",
+      "originalSha256": "303f563c85a8af8fb44f88b41c598f200369f99f056e2cd41220335c0dc0dac0",
+      "withNoticeSha256": "7c6581be84330f055a2281f4775992071ee2ac460addb4a30d7fb296f3ef1f8c",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/f/index.html",
+      "originalSha256": "4ae7414a92d9bc22ad2a7f2654cd42bc38aeadde0af1dc8dfc82e482290dd12f",
+      "withNoticeSha256": "7f70cf9ef6b1019a821bf56431c4dacfcc8a3e856d57d377ad92328b6fb2c045",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/f/laboratory/index.html",
+      "originalSha256": "e2755b26143a9de3500c97f3018a6cab3fce366acda4fef9f4fbda7cda03478a",
+      "withNoticeSha256": "370212f405a950e5421b2772425df5af3a8343d5571c6348548c1d56d713ea7e",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/g/index.html",
+      "originalSha256": "5ed39e5c762079403b13ef4a28b2f09806f3b53cde4aa84be96f9c3eeb36cae0",
+      "withNoticeSha256": "e573a2d706f4fcff8c4c38582a8208879b82d1c194cf14e825f0de1bf0adb453",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/h/index.html",
+      "originalSha256": "479c17edb1eee1202e449dae99fc914b6eb5dee9fe6ee290216253de7e28d977",
+      "withNoticeSha256": "9bf192110bee6157780f0a9a9c2bd28456d12e592fe8bdc95a1a9220cd065c15",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/i/index.html",
+      "originalSha256": "7da24409fca6c6fed8fd98449f091bccef1e79f2993d1f174d35bb8c187be3f0",
+      "withNoticeSha256": "734b21d257e9c11413733b04408400cdb6e81205feb1e71acc1fc1f1d579d750",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/index.html",
+      "originalSha256": "935e577429cf67e2c8f12097adf041a6db02b5d87b363e04c709293675e1bab7",
+      "withNoticeSha256": "3e673d7888e6c5917b16b73a27ca156ec0d0a2809de5dbe89de86f2df5f411ef",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/j/index.html",
+      "originalSha256": "ce3fd624fbd93fb5a55e494792b76499826b10e307c8f4dc64805b6dc503a848",
+      "withNoticeSha256": "75b4a622f6192b06e572fbafc61fa639c4d498ff3a7db8486ee88803f86e07c2",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/k/index.html",
+      "originalSha256": "c50b20638736ceded00befa3950589249f9621a51ec6c0aa2fbee1118722e825",
+      "withNoticeSha256": "33f2cab27d6f917a7b1519ae3dbe0ee9ec78448d4bc94c41a683ffbffbb7f1d1",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/l/index.html",
+      "originalSha256": "71a27d8213620f315d91081728baaed878588c937df8eeedbcda59690cadf385",
+      "withNoticeSha256": "306dbbb2c1b5f72de0b6a939e67eea45ed8bcffd8ed56b51155c01c97fb1b0b1",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/m/index.html",
+      "originalSha256": "eb946779e84b368f1c4e379e6a742eb78eaae88ea010c6f3ed1ece1045e15c8a",
+      "withNoticeSha256": "2bd1c55ff47c00c720997acecb960fa152e91506aa2187bafdd8b5daa953c174",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/n/index.html",
+      "originalSha256": "10463bb13ff8fe4fad3249eaae5a3ffef425aeab80af2e6b98d56dcb106ba811",
+      "withNoticeSha256": "30c72ba417d3e6c05136497ad603f18d27d8b44886c3f741f7f916bd1babbe16",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/o/index.html",
+      "originalSha256": "ea390588515871a317e2bf0077b8c3eaf2cfd1c5aae19773ad473119df3d7c8d",
+      "withNoticeSha256": "5a86d4ac0aa8b104514fccad1d529329352df7673a8f84fc2a7a05671b6a06f8",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/p/index.html",
+      "originalSha256": "ef41a99f2ea67aeae8a8af921007e9321448eff1a35f3708781e4c17e9b58fac",
+      "withNoticeSha256": "c0cf39e4b5bd20a7c7c6a327b2f13e254cc3c7d039eedecc238081b9a7765718",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/q/index.html",
+      "originalSha256": "5cc2074f1ef7227772cc1988eb01be68211e8dfc65280ff5275cbd6016b044cf",
+      "withNoticeSha256": "2a1803c158a278028736ce12aa05e80597b14743bb166f4bbaf49711fa688718",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/r/index.html",
+      "originalSha256": "8919f0ca43015a0e8418df77294d3b4ac049fef6dd90ca71b1de46c9701c592e",
+      "withNoticeSha256": "500fa02ec9805b365c7409772a73619b6cbd916e90e06ed56ff21c31af4a07b8",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/s/index.html",
+      "originalSha256": "eda357f1a06410eb399f79895ebfb3c8bd98f9bf827b971b0882bb2d9aae78db",
+      "withNoticeSha256": "2150360d90a0f8510470644f6232ed2c5e6dcdd2e9d7a9136cece530e41989bf",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/t/index.html",
+      "originalSha256": "4522f5b3400be7684c48f81cc4e1e2f354f522e08f910a3da5c6c52d00501c31",
+      "withNoticeSha256": "e33a10184c276f99ccad2f3081d5e671abf462228277d8a462e6cb90bd742bef",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/u/index.html",
+      "originalSha256": "8e3f2485cf181d080e7564fe5e6e7577957e561c23cf4833029e37fc7544ee85",
+      "withNoticeSha256": "8e93147b172394e37795149d1d341c7412bc7334badc97d27f24b29301bd20ab",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/v/index.html",
+      "originalSha256": "b4afc2b17a251b9c40a523010bae38a77f12b7d0f2a5702ae42e8598cccda1ba",
+      "withNoticeSha256": "b62a80875828f94700ebcea7290a0a4e76e17469ae39b842c8c31877a2bdd202",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/w/index.html",
+      "originalSha256": "63b521f1ea42eaab434a153b086440c82c2835e88f40f9ec9047a0c7f772e8d2",
+      "withNoticeSha256": "e5b6f10b8d61f0f396bbc5855a43d1129f8afa0ebdd79cf28b2645b8e0101296",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/x/index.html",
+      "originalSha256": "23b037ff33fa3f9a41f3aed93bc2e1c6a8b3ac0e5d1393b00e1d23ad47e560d2",
+      "withNoticeSha256": "b3e39ae9b14e07790f11dd768770b81012dd722ad76d3e13412b9f52c18ff7e4",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/y/index.html",
+      "originalSha256": "0b5a5d66a687704a4d4621e2721f98ef389a449ad4dcd50bb5c3119a8cf7a221",
+      "withNoticeSha256": "9ff01be62d05eb97868e577ae7072d0bd5574c07557b9e0560daa18f52d3fabe",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/alphabet/z/index.html",
+      "originalSha256": "c5164f1dbe3d0c015a413067c927a248764fecaf148f81973d905d3f7a369383",
+      "withNoticeSha256": "3a58afa201ae128c9ff11e95fc161859825369f44ad0089d25d150653b2a7ec2",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/loc-b8/apps/backup/index.html",
+      "originalSha256": "8f4ad39409efdedfe01fb4f455e9fa1f72273b598c1227898b2b3882d9ea5a58",
+      "withNoticeSha256": "1a91fbf771302982fd51609ef067ba58ae2933118e731b8156e44e590fdea67b",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/loc-b8/apps/catalog/index.html",
+      "originalSha256": "a2d26a8a1014b70b13e39baf3f4655c2df052400715a1bca5fd2bfdf34deb618",
+      "withNoticeSha256": "d664d5e2c3f1fd6d133fe7ea0e3beb702c9810d0242032875d13674f252a6a08",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/loc-b8/apps/completion/index.html",
+      "originalSha256": "549c45a8b26c99a09bd84cd92fda2146ff16ecffabfe2e1767d88564b90e0322",
+      "withNoticeSha256": "389b850af4cf892a342962433e1d13ff2c3b35320e9d17a9921185f38569b7e0",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/loc-b8/index.html",
+      "originalSha256": "9c24ee3b99c1d376237a736182585b8ab5a3126fb46723a92dc4e1562519a9e5",
+      "withNoticeSha256": "e8c3bd0cd7f8f7ebb2a56daae00d9e390879750526b5a13b47859eee06479b33",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "archive-index/unboxed/index.html",
+      "originalSha256": "8506acb1f5d736d493aa7f448977bcb15376d12e0a9de256a48ddc0f42cc8417",
+      "withNoticeSha256": "f5380961796b6dca8fe2965b0741a41dcee8020cd14636497193a154beaf54dd",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "docs/record/index.html",
+      "originalSha256": "746805ffaff9a3d33bad96caff7a15c3f1d025a8226723d8cc86d93d33878841",
+      "withNoticeSha256": "64ab61cb5df8e7ac238ab8b814cb272bf6dc8ffedb129b2d878417c17fc0a731",
+      "recordLink": "index.html"
+    },
+    {
+      "path": "index.html",
+      "originalSha256": "7ba26d7f4a1f88dab55b74109a2150277e96c89e634d8c813531e3bf76228abb",
+      "withNoticeSha256": "538eb5d89d5d87d59d0a0ea4eb0bbf28a3025f1db887e66bafd596d99465f9e9",
+      "recordLink": "docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/build-order/index.html",
+      "originalSha256": "3bfda6146ed15330ba93a6382cc44343b61a0508caab15aed51669b09b61bceb",
+      "withNoticeSha256": "819a204afa11286f7c78dc2f0ffa2317a6af528dd6151a0e93d5a087e829e475",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/christmas-toy-drive/index.html",
+      "originalSha256": "0d628ef2751ad03a1b5bf9e95ee824ac6c934b7ee38acea5477212f571f02988",
+      "withNoticeSha256": "2607a2bb63fb273755991005e83c2e8f91b949c03073fc8b3fa843a078076e09",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/core/audience-review/index.html",
+      "originalSha256": "361449190f2b7b3ff55c3adbdf2b71943b4d2995fb954d9ff60ba6fd6f5827b6",
+      "withNoticeSha256": "b35bd072dc7ccf219443daf93f6d8e46e31905f6cdcb31b1dc48056fbfbb6eb7",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/creative/dummie/index.html",
+      "originalSha256": "6fffdb85fcac654f3cd7416165b557e07233d671e25511f6d8464df7be357423",
+      "withNoticeSha256": "2642e8529662be89b877382f6ef2176586cc16e36254b4a51da1948c4f57d9a4",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/creative/music/better-together/index.html",
+      "originalSha256": "e0bd2b6fa8068df784d06c7a7c759f325ddefe55239e4ee14e92f0fcedbcad07",
+      "withNoticeSha256": "9bdfd1fb50bd07f71308b2553c8aa1969dd34db0629f9df5f6e461b953f6cc45",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/dummie-publisher/index.html",
+      "originalSha256": "30da231d893f014e27631e73b9d22fdbf2bd4b34870502b19eb6002c0fbae8be",
+      "withNoticeSha256": "c311660b69e11663b0012a14660ccdec9d9a65e07da4eece3decb94c8a5bd832",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/ecosystem/index.html",
+      "originalSha256": "6b773af49c30d0d955b9639a6a8a21f045a5383303857ae50acbae0d13fda835",
+      "withNoticeSha256": "7d4b0acb8e55151f4f8e2a4313a98d42405116ef06db0ecb6a0989411c1f95ff",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/game-reference-lab/all-morning/index.html",
+      "originalSha256": "409d75129230e06b2321114518cb489800c10bad519d389ecea11a98ffebbe01",
+      "withNoticeSha256": "74696c372e74a1bf3b9b96407e6fb8c9917006902780f5160e32ac03fdbe7430",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/game-reference-lab/index.html",
+      "originalSha256": "163ccdd011249a0b6c0a19b8c703e76b36fefc78c76673df572e4c7bf4f9111f",
+      "withNoticeSha256": "08e6fa57865082d450ff717751434f8d81f8aad7ca1e403141cdec69fb921c2e",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/game-reference-lab/zero-void-lab/index.html",
+      "originalSha256": "cd5b1a0e6bc9c7fff7c20f5308469fb3114bf8cefd717dbdcef9a608b030a515",
+      "withNoticeSha256": "dda4408d751df5dc79e357104f0f08e818d9cc334cc0a7dd5124d3b20d091b96",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/games/blackjack-life/index.html",
+      "originalSha256": "34cd9b44693c0ba93ae78752739432f09211fe8fb89ba47533d107854a9b1242",
+      "withNoticeSha256": "c2b01ce405e720a901bc52dbe7c4ed02ec27781f9405491aeca057b36de9da80",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/games/crowning-jewel/index.html",
+      "originalSha256": "b23818f394e4a2bf1747e89740ae0615ad3caeb1dca20fce00a8556f94c519c6",
+      "withNoticeSha256": "37191c376230846468bb1f647018d97fda9e0b0fe289b8b60b313c2db074149e",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/games/paradox-118/index.html",
+      "originalSha256": "28ad04329609d4452b38aac743c997580d4b475b1b9592b7f8361e5ca910e678",
+      "withNoticeSha256": "a08f32dbd7d5b8e85146583228c295b2d43e8f7e45e2d80f2f252d034c795d8b",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/historical-sports/index.html",
+      "originalSha256": "41127b7384cb47935401aaf802688870b87107da2619536840e37bd803517af6",
+      "withNoticeSha256": "8925e478eb56acea0c71f3f5b8c544f07f837e29d0b23b3ede87740ec7cb9279",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/icarus-baseball/index.html",
+      "originalSha256": "c3ab55507572338f25ee46fd76640f2cf7b1105daf3fcb5c3abd76ceb6003a4a",
+      "withNoticeSha256": "950d5d24aa9a7670c8b843042f62abaac727c06810bd412dcf7c16cd996b1b75",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/index.html",
+      "originalSha256": "424ffe83fcf771cf86439a5640f0e4556157ca31a21f97271cdc964963abaa21",
+      "withNoticeSha256": "c4983042cc86219f517cade99e179ef763ea50e2c49d4ea20f8a8436f1123baa",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/middle-c/index.html",
+      "originalSha256": "72bef4792bab3fa5c0cd57337a8dde79b34e275fdf71367037a741c381fc8eb7",
+      "withNoticeSha256": "6cf70c32a379cf9376b3b79e4092c77efc468cb2fb656fc44e8de7fb09cfe3a3",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/mythology/ancient-roots/index.html",
+      "originalSha256": "51734ec206daf54424270e6fbb5a5985c87ea9d6f2741400e0d53f49023184c5",
+      "withNoticeSha256": "3782343a7148bd2a2bd3ae789b4e2ec08ab87677217e3579193b1c506c983805",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/mythology/greek/index.html",
+      "originalSha256": "10928f50cae9cb2130e694f9a7563ae79ec5ecd0a0407589dca114e5d35d9062",
+      "withNoticeSha256": "6f010f8026c3bf2070e7f21f56d71e98cf61a8598ee9e9f473da3369b7292380",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/mythology/knave/index.html",
+      "originalSha256": "9d0006df502d9468e86020cbf8d130dfeefe112dc47eb5cf0055cfa6f222c52b",
+      "withNoticeSha256": "e285abddfa2bdb9c64796eb3f8312ff5c130d3d191db676a318a65ad88a6ebb5",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/absolute-intelligence/index.html",
+      "originalSha256": "0ee419cd67074e9717d0e596029d990267e7e663f7ebf6245d02a616c4f162af",
+      "withNoticeSha256": "1f0c4026aad9c4104900ef26cc397df18c40ecc2c9c915439e8c81035091a106",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/activation/index.html",
+      "originalSha256": "6161f4549cccc663ea44861c4fc04c4abb1da425ef71443fd628f392e380ea21",
+      "withNoticeSha256": "8d30d62a95fc8ba10d9efae068d1a20a628dc1661f44606f90a896cb990da8e6",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/ai-mapping/index.html",
+      "originalSha256": "fe00b82ca49728331e793081b63db70346a9db12b91f7d96010d58f709313bc9",
+      "withNoticeSha256": "e47b9c69375bcbd829523123c389d29d1e96fd7d7c1d2f88814ae729f055c9c9",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/anatomy/index.html",
+      "originalSha256": "5243da4e5f63743bdf1ee3accee2001d887e3f4bbdf9bbf0d239187d070e4932",
+      "withNoticeSha256": "6c3f6ba6cdbf964dd0b7f65f10486ab34c821caa1e8ba0c1f85d43f561d29fad",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/appearance/index.html",
+      "originalSha256": "d7cf3d81d0860f779ac1a1a36828e2b00f8aa8b594d1053549b0ca0ed3f25123",
+      "withNoticeSha256": "83ba17408212cd01d317f69ec7b0244dfd84a3575608f452ae9706619fda5b30",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/architecture-63/index.html",
+      "originalSha256": "3d335c6ddd0a75773d676c711a242a8d2efa81d5c1cce53f51aa0acc0371634f",
+      "withNoticeSha256": "8e044efd3529b29f7ba1e6618fce9729352cca7d083e6ec3ed71a46f06f25a46",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/assistant/index.html",
+      "originalSha256": "aea56d610733fcf8354d3cd6cb617854c8e79e20938e54dbe8c4c08ac421f4c7",
+      "withNoticeSha256": "376120c6d65157dbe4b828ff0cec8c59574a62f73fdbee9944652b49df078bed",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/build-recovery/index.html",
+      "originalSha256": "e60145d49b5ead228ae75f277bca09d6e3a458e003bb24c846eed72afe2083e4",
+      "withNoticeSha256": "56e0774398c6ae460a2d5872a75f64efe93e7df3866685b3cdfd67b2e292820f",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/children-innocence/index.html",
+      "originalSha256": "834be4971ec51468f46eb7b63f087442d18793c0707974de62320cff5642d14e",
+      "withNoticeSha256": "600c609aadf008ff2a30ae5337de8682ce51a1158dc774d7a0577f8bb42f0089",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/command-center/index.html",
+      "originalSha256": "f208127f7d4b7f929ac7922ee51d7cf00c188d5c53471fab6a5c34cff2ae843c",
+      "withNoticeSha256": "c2bdfc1b42411bd7e5ee845fa26a8249a320f89432b5095e12e0fb2e66a9e77c",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/consumer/index.html",
+      "originalSha256": "a057de4c1c8dd45574b250887611ca12e283f317c953476695098e3fda72d8b6",
+      "withNoticeSha256": "4594a9efd5685f78898bc4432560fbfe2794ef605fed469bbc1446f80c789e03",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/d-archive/index.html",
+      "originalSha256": "b2ed244ba15eb1801aa81495323668b3e9e4e49d95ef5e18936578076382418d",
+      "withNoticeSha256": "4c7229121b371b27d3ea638361fa8a29e25add2aed560b305be0a7b37956d7bf",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/deep-archive/index.html",
+      "originalSha256": "47b27d7d27c3646d50bde811e789564492550e363c138f90e08816125f239069",
+      "withNoticeSha256": "d58ac201235a5169b243e92ec31fa0ee5e602951b4ba751fdaa1482086bace99",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/deep-rock/index.html",
+      "originalSha256": "bef30bd789fca7e440d5a0aae8315386df20ab0aec65b3619aed70d7d9b64654",
+      "withNoticeSha256": "067f553976dd03d72a072b97c627e285067048bb8f012a9dad02c8d3eb351edc",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/dehack-deliver/index.html",
+      "originalSha256": "1543f90dba0b3cc88b6e00b4921376185df8d5b06ca03a113ecb0a224c325fc0",
+      "withNoticeSha256": "4a00b29ba8474ae97ca766ba7cf08d1f765d21b28793ba533c998feded9204a4",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/eyeprints-handprints/index.html",
+      "originalSha256": "68a8d7d0724f45ee18713e26db6bfa207afcd87a794ab5361c2b8fdb9781c4b4",
+      "withNoticeSha256": "7261149a566813940b016c47cac403127d2c368cdf4294a7f21d2fc39ecfa17e",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/family-research/index.html",
+      "originalSha256": "354dd50ed23b42da2ab7196a522d9e8f982d4b62bd144a37b32d568904a3c53a",
+      "withNoticeSha256": "134220b158f2c0f38a1efce05fb4cd9f52b4f6d129ee61b3acbf3c45fd63258c",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/fifty-three-year/index.html",
+      "originalSha256": "3afd3af05615f57e3a51ac2ffe90b0111e729215a3625ea1ed9fe8b47c991d81",
+      "withNoticeSha256": "fde5e5793b5f7134992d98f680952038b52f20caa231ff16308038e84ccedc05",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/five-guardians/index.html",
+      "originalSha256": "1e8089bed1e9fadf35407c82cb7cec99074a8bd1a9dc1763f20a62f4a99bc0ad",
+      "withNoticeSha256": "d0564f46375634edef41e0573d9d215523e2a8ce91ed363b6e580acb5ab70e07",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/flyer-studio/index.html",
+      "originalSha256": "eddc1272a51d7f6a7d3cb5f2592bdb2f8b7aeba7fcb432e8a2078065b8d40abe",
+      "withNoticeSha256": "9080528958aa23bb2aad1e7329e4763442bfbf6b620353fb8787d7feceb2de28",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/games/index.html",
+      "originalSha256": "a8e1deea90192d70d90d24f69fa5f56ac61ad4cc8660b3c0057acd5e27234b12",
+      "withNoticeSha256": "a7b8cb6ef79b61af5af69cb8e11f9319a7abfc2bf1a8b10611a63d845826c8d9",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/index.html",
+      "originalSha256": "97edf151e8fcf254d03a2afb64227e74662a3b6592133f6b894ab284c9203f1d",
+      "withNoticeSha256": "c841301ab6a67b2723e5ff6936721169c43360b94e4ce9ddc1e607d8607496ef",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/innocence-matrix/index.html",
+      "originalSha256": "d0db3e74874716b9e2fd1787ccceed42eff683f9a9e1462d554e79a90f77580a",
+      "withNoticeSha256": "57988e8ba5f51c6a8b2349b409de7d095e6f67db2f733c40ea70039f2453cdab",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/mind-neuropath/index.html",
+      "originalSha256": "f7de511956452eaa75fa974529ab66bb2018cedeaad72a7448d94e5c2645750f",
+      "withNoticeSha256": "2b0381584521415fe2d6eec8bfe799a3a268984e552e7c08a578fe5ea158c0b0",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/node-runtime/index.html",
+      "originalSha256": "0c434aec9d30f0866c5218627cb5cf22e698173fbc2f5eacbfc461b8ee1633de",
+      "withNoticeSha256": "5302b92ab5cd8e9acfc20a4f601b5a0e261eb7fd0ec300aea124d3e4dadeeab9",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/omni-god/index.html",
+      "originalSha256": "8ab01462bbdcf6eaed793ca095c36a5f50504cc2a68bea656f26196b640e930d",
+      "withNoticeSha256": "354aace2284b220897533cb3ebb07126bc4e2269b77cd9bd8231e3bfb9c2cbb8",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/operations/index.html",
+      "originalSha256": "ae35c59f068b2f3cdd902285f1df1dbe948e3759c40be7310fdcd115062c28b6",
+      "withNoticeSha256": "a52a55307d122b5635f0b9ac4ea46d5886396e0d2f8097d9f70b133915966fd9",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/original-works/index.html",
+      "originalSha256": "d4b7cd088230f4a408d48a81d2cfeb3f224429d0fff128505c0ca22b56a9c700",
+      "withNoticeSha256": "fc836615928b2bc9681d76230829b2ebbbba0bf4e49be3a0025cf5691c2d9345",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/phi-life/index.html",
+      "originalSha256": "7e01ddcd918b0af60d865b28bd53d080dd3cf8f4932a474f8a169f23031d4107",
+      "withNoticeSha256": "66403c94c7445f4b95913709737ea3a7070fa4435ba7a5bf24182cdffc6c1e09",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/plugins/index.html",
+      "originalSha256": "2ca7e58275e3b6f1b2b9ff3a94c28ef8c3cff0fdef19456bfd5f50a0138080a0",
+      "withNoticeSha256": "4f34f6e19a2abc79174fe43d470d845e03b26940d2da5f78b86bfe51e2fa6e48",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/program-jobs/index.html",
+      "originalSha256": "c9edbdd57ccb52d40178ea1c23eca0d240c5440cd82b88309acf1baede721846",
+      "withNoticeSha256": "4a46e389557ff1ae1a336cde9ed8fa8f02f33f3626047705c095e211ff78f271",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/route-raut-root/index.html",
+      "originalSha256": "3373921e0cbe763b1dddd4664c37f3c1383f59b52c00e9eaff94ba119a4239cf",
+      "withNoticeSha256": "b039d66fb01af281be8c716f80bdf369770a61bfdc06c82297b2e210b7751086",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/self-help/index.html",
+      "originalSha256": "6fb7979d20c17acbb770157d23994b2a63e9049d76986258f97104edadb6bd45",
+      "withNoticeSha256": "38f8a846327434796a9e60ce57a1bd3e50c2edaeb1ed788aba8ad8a1d9d4d2fe",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/six-dogs/index.html",
+      "originalSha256": "9d17382e285205ffafbee54807291b2e821e6e5fad1995b2fb7d31e7de6aff3d",
+      "withNoticeSha256": "9eb3708a29b639a766eceeb49edf2d13c9e13c5279540583db32b7c6126b4d1d",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/sovereign-coins/anchored/index.html",
+      "originalSha256": "858033e9ae156cba4e43fa2efaa6e9d7229a662a5a00dbfc8a55e49807a96dca",
+      "withNoticeSha256": "cf32a5e26714e2ac9dfb778bc3f5ed296facf3c835d679d7d939d9ff5b504566",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/sovereign-coins/index.html",
+      "originalSha256": "d197ed84f5fa2ec2fde192bbbc2ff854721e7a555ac838cd641197872429a3ed",
+      "withNoticeSha256": "f3de3ada7ada2ba1124dd102a63628d19fb2537bfef3b8f09e464956aca11ac2",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/sovereign-coins/integrations/index.html",
+      "originalSha256": "1ff5c0e0964fdd5af21fccba883d5bb045657689bac8eb84b3b4ede129f72968",
+      "withNoticeSha256": "87d28ce381b208f9491dca25bee141381e5156532771cd91808a5af0b438cdf7",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/sovereign-coins/life/index.html",
+      "originalSha256": "5312e6e55efeaedddc165f28a13c87cf3b59f7dcc6612f72dd66815aa5bd46cd",
+      "withNoticeSha256": "9209156479926d763b1d3891cd5c4fe6cb6fbff2750e650a0632d15993712369",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/sovereign-coins/phi-mining/index.html",
+      "originalSha256": "05415346bbc59854d309bcdf68c34b20238575f75db4ee9201e5bccff8de9de3",
+      "withNoticeSha256": "9a2f081e8301a05d4e9374d53e5de3daa994b978621168eab3f42a786dc0a318",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/sovereign-defender/index.html",
+      "originalSha256": "6b41e064f9c336de0874c278321f0891e5f16bede51ab62a2f34d2d7a4b1cfb1",
+      "withNoticeSha256": "a745edc13cf2f66700868fb5158cc5e384872e8eb24d3e7d00d27635306492e8",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/sovereign/index.html",
+      "originalSha256": "712ee63e727bbf983f756163d5ae39ad5acd1a2788ab7775e221056fd60bdb15",
+      "withNoticeSha256": "27f3c4a2fd919a6aacb1cb5bb0a7c5b35c32432d7b6bdc8f61b0d3448b925cb1",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/trinity-of-snow/index.html",
+      "originalSha256": "24c2baeeb7bf4099dda18e380397a2a9a8cbb731782b46084067c1dd8705df5f",
+      "withNoticeSha256": "c74b078f6251c9d49035253bbe885bcac7fb45149939a05fe3d67f27598fb78f",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/universal-tools/arrowhead-tree/index.html",
+      "originalSha256": "2ef234637a0f4328ff826e7c19e58f280b90560a24f9fd8a793648ba2f558e42",
+      "withNoticeSha256": "ab6de23150583cabf5959fb7aa8cbda5b4ae51da0eeb89c52d4e483ff7f5331b",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/universal-tools/index.html",
+      "originalSha256": "30846689e3ad589ed2361fceec716838daa89e14066130e22f9cfa693ef9a2e0",
+      "withNoticeSha256": "5d839b7bb5026a479803478c5695d95cd2233d5c1ac4a76f89915edf2771727b",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/universal-workspace/index.html",
+      "originalSha256": "06ce0012fe441b651b8c97adba7cd21da5aa603cc36d129433519e07bc2b242c",
+      "withNoticeSha256": "9d27f4cc0c63cd448809bb5d6e7809368d0e7496874c887e8b5b1af4f4eae825",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/websites/index.html",
+      "originalSha256": "55d5a3538e682e871f78bd1d9c828c4a118f1f37b739b8608953c384605ba112",
+      "withNoticeSha256": "a25b7093660216c87737d229b41a617620aa95b75e8813493b62f7805581e5f0",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/nathan-ai/websites/launchpad/index.html",
+      "originalSha256": "212ed44f6ffb9feb58a99dccb7af01086e6e5d3d455361b15e0a967c07e75c91",
+      "withNoticeSha256": "e36f5c7fca6d9826bd079db03319d7861bdcd442fbecdf978f7fb9b76e181c17",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/octopus-root/index.html",
+      "originalSha256": "5308446568e993ab76848b27f3833276d2fb0357db7c64d866b118910ee7b22c",
+      "withNoticeSha256": "8a9bb0e9b9e7c4ababdc24ae40b335b979947a4e1633cebfa23033af03002c37",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/octopus-root/octopus-arsenal/index.html",
+      "originalSha256": "e835887f455ca8fb1691d6becd64b3cdc46bf6b96da73271d2d68b76f2ead2bb",
+      "withNoticeSha256": "2bc2c2e1dac14e626ae758f79fac0c175c9555ca53b06e8618c463bd8e3a0271",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/octopus-root/sovereign-bubble/index.html",
+      "originalSha256": "176004eddbaf3ee02051bece8a81a8f3f69ce4f6eede3912b38b3938bf3aa49e",
+      "withNoticeSha256": "c6f796374ecee9d7f0d92fb24f6a358f4a3c302320074edbc33b5dfc03f85324",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/octopus-root/sovereign-continuum/index.html",
+      "originalSha256": "85bfabc17f12831760019934d72261e7b365181b426af5711e741fb28ada328b",
+      "withNoticeSha256": "a93229b557f61dae342459d7e036981be416b5e1c8931c547a59364e0f290603",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/octopus-root/sovereign-fields/index.html",
+      "originalSha256": "d043a653398e97745e0f3f0a05d366d08d7394b160083db30d0611d3257d2874",
+      "withNoticeSha256": "cc1cee1b8e175ff32de300187eeb42fe0be398465647790f39166816b2252590",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/octopus-root/sovereign-nexus/index.html",
+      "originalSha256": "e9bb1fa6a8ecb08f5b192e08a91b9a6cb207b2e003000a9ebf6700fc011f8a38",
+      "withNoticeSha256": "2e4ae0d985b53f222d8632b3aa6dd0711b74f56202a25903c01ac953773a2332",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/octopus-root/uct/index.html",
+      "originalSha256": "f594db5edc3747e17a0c4e0871736824e9b098e1677b76737d428233c5c05f72",
+      "withNoticeSha256": "2ca3fd93d2160fa00bc4557d6f44bbdb7d029f8c22bdb11a15f5d34b3a856225",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/octopus-root/uct/triple-code/index.html",
+      "originalSha256": "0cffa9001fbb1ae849d679db60837681c6fcf1b3afc6af2f975bb0cc3422f4b5",
+      "withNoticeSha256": "c1ab74a2d9b5f57771f5b828b17536483745d236edbcc35d8f46802f8a47b004",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/accountability/index.html",
+      "originalSha256": "7871466aa9d6b828201011992c8c7741a6d2abf81e2ea28e5a33d21c2f6ee777",
+      "withNoticeSha256": "4edd532127557aa274597edc19489334f330c1a684d24e043f0ada5e63b42cac",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/assocchio/index.html",
+      "originalSha256": "ba31652f4d333a333c014e23d96ee10d651f1195c9bdbb2acdb00f38733d7aaa",
+      "withNoticeSha256": "d8b226a2cb3bbacbeb6dcfd0cd704779efbbe1b4011d1c74edae2881831df44c",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/connected/index.html",
+      "originalSha256": "0562f2ee96a78ad4c02929febe1618d05d5ef98fd63ee3c09083d014d7c6ba41",
+      "withNoticeSha256": "b45d2d68d208bd515e77ecaf6cb88fb9acc1b0aeb11debdcb0286e0ce19fa268",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/hall-of-mirrors/index.html",
+      "originalSha256": "ccbdd14feff45d20241bcff4e38801e192ee08a5f4e56354fa7ae9b29cde955b",
+      "withNoticeSha256": "d61b9b1e7b1156bab253cb9871939d48960f9bb104e7170b4fb4b90e85098148",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/health/index.html",
+      "originalSha256": "547c0e2d136a41800b26b3beddf1dff0a1b1b277af9bf173018d3c9ee18a66d2",
+      "withNoticeSha256": "7bd0fb5051ac834d5634a9bc6500ddeef4b5991b6a95ff5da1d3bae382f33826",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/hey-you-total-eclipse/explorer/index.html",
+      "originalSha256": "131682bc51652f4a779d67fe9d9fabb9c11fff99013d4ddc60115aa25b5991e9",
+      "withNoticeSha256": "abcac661fcd49db0452f8591b492c98fcaa41bb8557c2df054286fda6c90371a",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/history-cosmos/index.html",
+      "originalSha256": "790ab7304056d8447d5c63544b83a51ff2f3eeeda7eb48b4cd672fbf388f4d84",
+      "withNoticeSha256": "3f9cdbf7fbefd22faeabc661c21a9f8309d68e1b8a2b9a3382e1209f4331f890",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/humanity-archive/index.html",
+      "originalSha256": "2b594f2b003e84292d11819de2017cae857620f52de9d24f36c9c53aadc285e2",
+      "withNoticeSha256": "5068a01c7c446c3c799e272d607a87ab839d390fb4cde6d892cd04a5677c1924",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/index.html",
+      "originalSha256": "251d0bd27835990e76d90d4c729d33146e314a71ecc021f7350101805a6bb562",
+      "withNoticeSha256": "1693559ce3234e8af3239790f7e75e6acf08dfd4a9eaca2dff3abd931bc387b5",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/inventions-101/index.html",
+      "originalSha256": "ce1a7aeb8b7ab7c44596d7afddbd8bcfc8dcad189bc709c8251a5654af180e56",
+      "withNoticeSha256": "f161d878f80a06d84b110ea6fa537ffe375c63aa8d7b3200a7ce8ed3b435a87e",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/library-mind/index.html",
+      "originalSha256": "a4d15ee035e4ed3d659679c74495079909807f673db5b9d94582ea42edf39ffa",
+      "withNoticeSha256": "891767dc1bdf7f3639da3c508d88056eedd6cbfafdbac55b1f879d6141de2bb1",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/library/index.html",
+      "originalSha256": "2c1a1ab1e1bd5fa4c80a5915b78c001f285b947e3d4d3fb04b6d02a7a21e5615",
+      "withNoticeSha256": "3bbc5a8802a33351245efc96e1fbcfe135f30d0d84515440753436a20c904467",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/meet/index.html",
+      "originalSha256": "9892d37ba48bed5fa370e190a8bead33e7257d2dbcb9da9f79695eb1a7c5c908",
+      "withNoticeSha256": "48e4295ace34bb641425509a0e69c136c1cf1331daefb788909a875be78a9e8c",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/mosaic-reader/game/index.html",
+      "originalSha256": "d109113b0bb3162f07f3dd1b0e229daad95a5a4c9bf2f911c8dcf22358e15857",
+      "withNoticeSha256": "2cf70e5234f000c7d042161d004e7d0e88d54ef754dad1a6930099d6432ae8f6",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/mosaic-reader/index.html",
+      "originalSha256": "351b605fcdec3be364770c785eb13b760970484904a7b4381ab68f553c9bc933",
+      "withNoticeSha256": "b1a95f8bf8f69a1b98646bc79e04b6e16f001fadba369c4fa5195543a8bfb1f3",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/mosaic-reader/reader/index.html",
+      "originalSha256": "de1750e0d5679345d5e0973f4c9c056b09d2e7c0f5c66c52cf2d70c972b83a1e",
+      "withNoticeSha256": "dc9da9d72c5f99c2f886688805937a57e93668ceda95d0f0de40d5760de8022d",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/mother-earth/index.html",
+      "originalSha256": "66a9ae3265a1537f79c5993f374f5979df6343d5d1f884b95dc92b77443c8553",
+      "withNoticeSha256": "eb2c5d8eb5762287e503fc4f975f197d9c5620e7d34dd591fe11d8f469225679",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/nathan-matrix/anatomy/index.html",
+      "originalSha256": "9ebd729cdae31dce192218cf126ae9edd4694445eb4cc2b680818fb5b1ff784c",
+      "withNoticeSha256": "8882ab21af0921d308fa9b9f52ad550d4dba4311ac7460c9a3dcfc73df4da166",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/nathan-matrix/dimensions-grids/index.html",
+      "originalSha256": "4314c3fdcb981cb881d332ca853b51c811d117dcff0427d401f890e5820bd64e",
+      "withNoticeSha256": "ed38e70cfe6d4200d5bcd6ce1ccb8b63f809c60b4e3cfccf56859049b3aa9179",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/nathan-matrix/distributed-ledger/index.html",
+      "originalSha256": "62c4ab0318604139c78dc3470632161f8f953ce0b299250d39815ce9261f0189",
+      "withNoticeSha256": "2a9a7b7e10d57f1c4a5e10e88fbbf95a44025c9631666f9ee57094e02c0bc723",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/nathan-matrix/index.html",
+      "originalSha256": "30bfbb345ee1b47a9d7d46bd84f9686f0dd5e919662e2b99f83b2ced6e25965b",
+      "withNoticeSha256": "8865e99bdeae3ca532051a893a80bbea5fa4f04d1b4f8b39d4b83e954e8d90e9",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/nathan-matrix/sovereignty-origins/index.html",
+      "originalSha256": "ee2c768c633af18e91afee6f2b147d41bf8b120383115c5f8b480ab61413e315",
+      "withNoticeSha256": "3f8788f77b06d09aec09d9de2a8548fe970ecd6ce0a4fcb65235788e6a718510",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/offloader/index.html",
+      "originalSha256": "10d8ae5b29182d4e0bc9dd445130a3220ba3f2033e3a1d4bdd6d26f396460e4e",
+      "withNoticeSha256": "95e6ebbfb00ea013d407dd652762793d8f50f995327e84e005b4ef98fa239a09",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/rcc-time/index.html",
+      "originalSha256": "17ba2c1e3016f5d4d46db15139f1385c75c7068cc5ea6f960eb8ce230653e340",
+      "withNoticeSha256": "cefa9c9324863cfab2a832e45276c82b7825861b2b46cac041a0fe8d4614383d",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/realist-ledger/index.html",
+      "originalSha256": "0d2635dfd374ac239fc60cc7c9815d223002d9f326fc4c6f84031e4c6994e1a6",
+      "withNoticeSha256": "a51b40ab360855985b6cffd786fd1c8939e316721a1e5e2ff45cb5e0c1ad9372",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/scriptures-007/index.html",
+      "originalSha256": "150f32fc5657c9f4893989f7aa11fddf6658cc4008c4df76605368d5624c1575",
+      "withNoticeSha256": "32e49cc1d47f927c00beb400bf9531139b9934c04efbc93049395c921cfa6e70",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/sovereign-acro-matrix/index.html",
+      "originalSha256": "57e5871d9d7c770c07254bb71111654d779c97a9f3b952376538d4150dc37766",
+      "withNoticeSha256": "997ce7965d270bc8b26fdd8420029ec27c7132bc3fabd1c0aca45766012a7d79",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/tabor-trinity/index.html",
+      "originalSha256": "1e9587837be8b6d7f4405e222df87c9922d55222254bf6a4d19a8cd113fc8c94",
+      "withNoticeSha256": "db3215cdcbd1df2f856aff10c474c34867dc34dedc63ea97e5dae516279f1ccd",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/taborite-language-matrix/books/index.html",
+      "originalSha256": "70d87dfd8a712ba68978f2640abdced0a665ca56ba94f1487a862fb795215774",
+      "withNoticeSha256": "939d6a95a1d146f3d26e783b975527202612024bac7c6c1d58bc87beb285a0e3",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/taborite-language-matrix/game/index.html",
+      "originalSha256": "b82a0411b4e58379cd6532f42647ed5b703f87f61f8d5ecda96d7aa66117348d",
+      "withNoticeSha256": "72887a626df0ba6f02b5c20a5cb39ed4dbc91f5fd1fe7a0d7a0a33adac614b97",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/taborite-language-matrix/index.html",
+      "originalSha256": "0d3ba512cdccd4fce68094499c7ea11be986ca8c09b423d6cf91de180e40b72e",
+      "withNoticeSha256": "96665eadf0f7f2417cee8219a6f1102d5c6fbecee6fcefa6a1684666eb9fa207",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/taborite-language-matrix/matrix/index.html",
+      "originalSha256": "0b0f51970464a62467976ce15d44fa18c10fcd21296cff8a95f728dd89742851",
+      "withNoticeSha256": "c30186a2428d1a741e5831e5e9b26458d40d3dce8e43ef13322f8263a9f90363",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/trial-matrix/index.html",
+      "originalSha256": "d79f2e807a58a5e82741c5a580d9ccf9f34a9b706a44540f4ee15892059a1b33",
+      "withNoticeSha256": "822bdd40e782051f3ffc0561be688d7eff3b86f0712f480022ff47197ef97e06",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/trials/index.html",
+      "originalSha256": "488c6effbf3f1b32eceb7a0e0b9ad8ed82427927213958994d0cfcf37f58e0b6",
+      "withNoticeSha256": "79c38b9a24d699a76bacb88de86a3241346720bf2410310f8016a6fda5fc392e",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/one/x-marks-the-spot/index.html",
+      "originalSha256": "2f3a2ba984e461fc97e6e6af00eb2c011f6e8f88c302e2d2f3104dfbbe237ac2",
+      "withNoticeSha256": "899a510b36cadb9d9089a3be769b698778f6f66e6c72f4963bed31e0f3ac27c4",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/pricing-router/index.html",
+      "originalSha256": "77b23286773ed46d5a15b251e55fcebf9ffec63411a5997a4b85af96939cdaf1",
+      "withNoticeSha256": "fe6815fbeb0c8215778e79d14e5e4ee8667dfe06f9e0f508b1b61eb91609c433",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/radix-ladder/index.html",
+      "originalSha256": "9752fc05645d527d439313e169badddd6ee234559d353bb44637830b941d6737",
+      "withNoticeSha256": "240fda7e011b08f4511f2b76a828c29bd87b296e5889320336ef3da8f5e79b7a",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/root-constellation/index.html",
+      "originalSha256": "ce67d946b9d60c8d5426f7f65b461fc61ab903e302598d9e4725eed66274a5a8",
+      "withNoticeSha256": "1d2d61d25e1dd22b497f6c03b823e4d863cd4171c941d9b2190a4561cf9815d4",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/sites/christmas-toy-factory/index.html",
+      "originalSha256": "dad11e4c74c18d2b7f834c5a0f4b6054db90bca013448045072efa76cadffb4f",
+      "withNoticeSha256": "4a8d07864dfae08f470da1c826d71c2d2bad1b68807f7d2e5443c9c1f12349c3",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/sites/find-the-tabor/index.html",
+      "originalSha256": "37a37618ed310be9821970ef11205b5522f77e8ee17477f71cdd15a4206b4a95",
+      "withNoticeSha256": "5631751a65f457e8024871ae84d9005ec2d00c5c12d34c9c39c21e25c9691a09",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/sites/handling-life/index.html",
+      "originalSha256": "2f82d533aa49b2402a444b0041389f762e4f3254dd5c05a4da158495cdf620c4",
+      "withNoticeSha256": "f9c0a7e0b8d0a38733c8ccff7f8062b31bc121b5d479a2faab8196aa37260019",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/sites/index.html",
+      "originalSha256": "3d22c41907e76eeb2dba011762d5c2b01d6c0ef96c75e97418351303e3a81b2f",
+      "withNoticeSha256": "f3d0840364bfb56e88fbab1b3a132f6a0a09c6781fd0cb3c21200adeafa99bca",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/sites/santa-claus-factory/index.html",
+      "originalSha256": "e3a0fbcc25eba593135c94ec23082c6da828feed2051e4ec9a1226313c7344f8",
+      "withNoticeSha256": "9693289d79e1715dfa01254345822fefeed5207023294c623cc50fe103428c55",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/sites/tabor-texting/index.html",
+      "originalSha256": "96b20c758d80ac6189b57e201fe2ff45f5b02ccb81a733eacd312093ce05fcec",
+      "withNoticeSha256": "7f16fd5924998b79e49642a3238c7086e6fc98eff1d041d6c7901289d6fbf9bb",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/sites/tabor-world/index.html",
+      "originalSha256": "af1c1518b21b666fab32b374ae1f51314dcd4beb4baa2dc7a45780214bd94f21",
+      "withNoticeSha256": "70be7d029a3434b5ab7e26ab7cee8af3686213efa2b05b5539442ade4e36ca99",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/sites/tabortales/index.html",
+      "originalSha256": "5e90476d3c1dcfa3d7fe24732143749a0cd8fc4759285b5a0d03032e98053055",
+      "withNoticeSha256": "4e126a49a2bb30647829ee2cb51eaeed12ca07351a80ffde0822c0342527115e",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/sites/words-library/index.html",
+      "originalSha256": "7b43f2d22479f40f70b5d88fe74f73a6fbc44c6b687b59fed5ce1df603a87e39",
+      "withNoticeSha256": "353f4302fad20db019a4add3f82ca95e338b7d1bd99b06469a5fe847fde18d7c",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/sites/you-sandbox/index.html",
+      "originalSha256": "b148690d2091a51477f1168f4615f78b170d7e696e6e13314d5424aebe80d12c",
+      "withNoticeSha256": "9dc47b22912ff41bdae90d1e02b12879507c6828095de58b25519970f7672b15",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/sovereign-boxes/index.html",
+      "originalSha256": "316984764a7965fb192e420d6af0f87ec479f43cc14434636c1b577e22efbb3f",
+      "withNoticeSha256": "65232b3334e0e598a14378cfbf748d08e8e4416e8b13f2c95edf5d5d10c9ef22",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/stewie-mr-finn/polar-middle-c/index.html",
+      "originalSha256": "dcaab1039c57f9c787e4502157f83b8d638f04397491cab0913bd40b29b05345",
+      "withNoticeSha256": "fd6da8c436409d7bc2df2637f1159af63a07d07a196169d4305a0110342dcb84",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/stewie-mr-finn/polar-middle-c/math-roots/index.html",
+      "originalSha256": "2bfad4d463c4555a7f80fb1a8a7da9c4a725203f95383c610a3f4b998c54cdec",
+      "withNoticeSha256": "da338e040894850fc6e381719c10ce586e5d08f49fc3f878e77310101b3f1fd9",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/stewie-mr-finn/polar-middle-c/mirror-bridge/index.html",
+      "originalSha256": "20890f468d8fbf7808a9196a92b8ed377a6e6463057f437e6f4f91e35071881b",
+      "withNoticeSha256": "326c5dab82143bdb4fc6e58bc3f9f532aad274765ba412d54288a7e8f7ff4fb5",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/system/index.html",
+      "originalSha256": "e83bbe50c969f6025c563553ba02ab89fe6215044824cf94e99ac48921101afd",
+      "withNoticeSha256": "0e714dc132db62c63acb965e7471350586b58910921efef9f6ccf2f90fcf7605",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/tabor-gps/index.html",
+      "originalSha256": "86d86ceb6ec6e3e814a4cfcf8d4a8aa5ef887c4998272bb5913c8c9aff5dda6e",
+      "withNoticeSha256": "481ece760046d4f7bddcfc14a00fe441ac4441fd14ad4c23976b64936a73636b",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/universal-node/babel-inferno/index.html",
+      "originalSha256": "6254ef5643714c3b32a8f300045a16c3611eaab4a8507bb4dda7edacd6c7457b",
+      "withNoticeSha256": "109d13dadc99f1d8f8f9120c145e2d84cc0db6cfa33bec18a6664f1f9dbf92f4",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/universal-node/index.html",
+      "originalSha256": "eee7a38ae3e7174f2e733827bc0c2d20eacb3e7025dad9b1979570e2a2f41e61",
+      "withNoticeSha256": "46814a1cf14bc074538717f06b66b0e71203c18ffc2788283ae34d6d6559bdc6",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/universal-node/mission-control/index.html",
+      "originalSha256": "e8396e66b8f6e1d625dd7576dc9e7308e1242039ce9af76cc6ffd7663f867411",
+      "withNoticeSha256": "fe76f0be59279bf3952cd92e2dcb8547f837c0543e4db5d1698649070ef44be2",
+      "recordLink": "../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/app-factory/vault/index.html",
+      "originalSha256": "41cee6a65f0e5f62a5512ac7e958a4fd5d723255bd36d7bcffcbc28b48e04730",
+      "withNoticeSha256": "9810522f0f7b85b99e47e2eae46057745c5b6452cadab8c149265cc3caad7a46",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/archive-index/2026-11-05/index.html",
+      "originalSha256": "b4c2ced7ba523189de6654bec75f8c4a08746878b7060ecf44b84fed4f4a2410",
+      "withNoticeSha256": "44380798f8e7ecf0e89145c8072bdcb4506a4291d1ae3e712bde40cca7d9f292",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/archive-index/loc-b8/apps/backup/index.html",
+      "originalSha256": "63b7c8afa945bcb9715feed5742832c1cc02869120ae8b9c60c07ccda627b69b",
+      "withNoticeSha256": "a00bde8625d09bda42fd2fe3574062587d81bd2d633242025cae56b14bb55536",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/archive-index/loc-b8/apps/catalog/index.html",
+      "originalSha256": "e5bb62a70dfca08025486e150b35bd9657597f572d919b07756bf751601bc4f3",
+      "withNoticeSha256": "7c099af7ac80d246b57f8d3f6d1c76623fe93da21f3243d6ed458afab2f5cd11",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/archive-index/loc-b8/apps/completion/index.html",
+      "originalSha256": "2be81d6f2fc594ca609445f1f9de113bf62ba12737f58038c5ff774ba8df30f7",
+      "withNoticeSha256": "15595e60e8e5ce66348ba7d2f0f5a01c4a9ecf26671b28c5873c95988f5dc964",
+      "recordLink": "../../../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/archive-index/loc-b8/index.html",
+      "originalSha256": "83fce37b90200601248f3dbcd5667a03b16720e5be3c065655b33c85b93d5055",
+      "withNoticeSha256": "9c7f46cd24e504d6c3dad27d678bb5216be24a56275062d84e717b6661c5e1d3",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/index.html",
+      "originalSha256": "14df7382d658da8abcb073f4fa49889df8740a3d67bda2e4d32e3633b8dba865",
+      "withNoticeSha256": "a194011a3a3a7796ab46d1cd959af91bcdf972e97d67421948a95f9aef16aee1",
+      "recordLink": "../docs/record/index.html"
+    },
+    {
+      "path": "standalone-apps/root/index.html",
+      "originalSha256": "598a3a38536cd7bc3676c8108fb37c13dc1511b11d7796490465c388cd39601b",
+      "withNoticeSha256": "6885a4eeff52e45e30360f21119dbf4a36653a39d05e9274f5c624713196fc77",
+      "recordLink": "../../docs/record/index.html"
+    }
+  ],
+  "bytePreservedOriginals": [
+    {
+      "path": "archive-index/brainstormer/originals/NathanAI_Brainstormer_Creative_Arcade_v003.html",
+      "sha256": "1092083f7b487d284902783e7310c67041db6c47c86ba3f18c7ac503d13ced16"
+    },
+    {
+      "path": "archive-index/brainstormer/originals/NathanAI_Brainstormer_Offline_v001.html",
+      "sha256": "4779dd6dab357d6c79368a9f291b48a94ab263655cb37de6fa4a7ee606a9c982"
+    },
+    {
+      "path": "landing/original-chat-landing.html",
+      "sha256": "8475a040643188b362205b7e768dc05fc0d363b09412e63e628d1b9eac33e472"
+    },
+    {
+      "path": "recovered-source/additional-local-artifacts/exports/AZ_STUDIO_PRIVATE_v025.html",
+      "sha256": "19025583c1e969fa120e36e233ad1baad12cfaf7449e92894f5484ce8166051b"
+    },
+    {
+      "path": "recovered-source/additional-local-artifacts/exports/ROOTKEEP_PRIVATE_v025.html",
+      "sha256": "21fe9c56929239e1615b2a77134c3a254164c9e23e22093a9fc082d62217edae"
+    },
+    {
+      "path": "recovered-source/additional-local-artifacts/exports/THE_33_PRIVATE_v025.html",
+      "sha256": "1eae1fa09ca4258cd4e6cee54a71c0b7f08b79b9fc61f28ecb99356100cb05d5"
+    },
+    {
+      "path": "recovered-source/additional-local-artifacts/validation-extractions/verify_tabor_v025_3hus6sks/AZ_STUDIO_PRIVATE_v025.html",
+      "sha256": "c492244337cda55f0ecc3fd9d9728583be3581f820ed2007cf6543fe77bd15be"
+    },
+    {
+      "path": "recovered-source/additional-local-artifacts/validation-extractions/verify_tabor_v025_3hus6sks/ROOTKEEP_PRIVATE_v025.html",
+      "sha256": "a51e470c82de1c373e10f3ead23e97b923af129fec54d8c492e1f866a6628aaa"
+    },
+    {
+      "path": "recovered-source/additional-local-artifacts/validation-extractions/verify_tabor_v025_3hus6sks/THE_33_PRIVATE_v025.html",
+      "sha256": "14b2137710a3e323470e27bbc7e4b34f3497e096cf70d871b404e11da237a903"
+    },
+    {
+      "path": "recovered-source/additional-local-artifacts/validation-extractions/verify_tabor_v025_3hus6sks/app-factory/one/index.html",
+      "sha256": "5e6bc23d93b471273fce3226faefd215c2b227af36ae282afb95d554f4ade943"
+    },
+    {
+      "path": "recovered-source/additional-local-artifacts/validation-extractions/verify_tabor_v025_3hus6sks/app-factory/one/trial-matrix/index.html",
+      "sha256": "7a5a5f712e88ddaa9c5150782c3787e6c5f6bca5c6bf8c58bd73501db9df5916"
+    },
+    {
+      "path": "recovered-source/additional-local-artifacts/validation-extractions/verify_tabor_v025_3hus6sks/app-factory/one/trial-matrix/realm/index.html",
+      "sha256": "2b64a18051f3291a8479b796bfb3becfeae90bca29bf2aa4235f3d0b31096ddc"
+    },
+    {
+      "path": "recovered-source/additional-local-artifacts/validation-extractions/verify_tabor_v025_3hus6sks/app-factory/one/trial-matrix/studio/index.html",
+      "sha256": "8c62549b554cdc9d574d888db8a694582260b6dd3205fd9a6d2ac85d5984bf31"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/build-order/index.html",
+      "sha256": "495bbea701e9f78d3458353fdbd1f8143121a6737d2f53609245944a20bf7015"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/creative/dummie/index.html",
+      "sha256": "e7dbbd4c85ef2fecdb1a07db6d1ed8193936886e8b8c9ddb1629fc4e1a1a16d5"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/creative/music/better-together/index.html",
+      "sha256": "8b139e0c66ffdd850130f6c3c6ab017ff2b54d5e34d514873a3fdf79b3dccfb1"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/dummie-publisher/index.html",
+      "sha256": "f076731beeea1348c460d3dae65ef734d8fb7ef12f3a60d2529b491b56add936"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/ecosystem.html",
+      "sha256": "57e81251ba957625e1cc375cf94c95ec8874a9a553f88232785e0d7fe5bddbae"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/game-reference-lab/all-morning.html",
+      "sha256": "7448bb7aa53dd41d285243ccefe128060908773d961624dd37704671ba59f8e0"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/game-reference-lab/index.html",
+      "sha256": "b62905df700d906d799ae065e079a8b22c7d8a329e09594178ae03d9b70ed824"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/game-reference-lab/zero-void-lab.html",
+      "sha256": "27fa689a7e6cc1a27f22a62aaa81c6cad068fe58d31337422563e493af472220"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/games/crowning-jewel.html",
+      "sha256": "a01278a8cf188df1e497f05e0bcb47a3bd9fd9ca579556870c598e50d538e25f"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/games/paradox-118/index.html",
+      "sha256": "54a943acf6b975acb3e540a502b4da1d292ca75e061af21ac83ef52b1d82a544"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/historical-sports/index.html",
+      "sha256": "8bce6157968e350164e03dd0ccac4ed63e1abfcf7bd563783f04bc1f8062df4c"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/icarus-baseball/index.html",
+      "sha256": "589294ccea0ac65c4d9e2edf235106c58742ec535f7bd2cd85fe42a04fd900e2"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/index.html",
+      "sha256": "085a8664e1e84721670dee5c8e8b3024b2d50040fc2bffbfc1dbe4ed6945418c"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/middle-c/index.html",
+      "sha256": "7b65f3c1930a709d0dc0b20a1f7d24f0070dfb2d1015a781f36d8cde628e32e1"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/mythology/ancient-roots/index.html",
+      "sha256": "633710baa205cd49310b739ded50eade4c596f86e60197e2fedb314c3ec9c454"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/mythology/greek/index.html",
+      "sha256": "c68f6bc30967d69e327b4bb014561c03dd178aedf29b47e170e93464f75db865"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/mythology/knave/index.html",
+      "sha256": "678b79210bacce83fb8bec4ebc726c282c82a912bb21c86f8a2d826b85dad84d"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/octopus-root/index.html",
+      "sha256": "12003d62f20aec7b2a299b9d338cdaa22b05858e1c45012232599d61e148b3cb"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/octopus-root/octopus-arsenal/index.html",
+      "sha256": "21084db740fed09e406a1774ccfebc2bd3a693a6ef6a3e558eda48ee0ead5c1b"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/octopus-root/sovereign-bubble/index.html",
+      "sha256": "eed3112dc7c67d5c36750051adab79e086c0c1a28c654d137680c81a99b4543e"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/octopus-root/sovereign-continuum/index.html",
+      "sha256": "bf6c54f72da6a539729b29b1497217016e63f37c9d2c2989dd4e3c8c549f13cc"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/octopus-root/sovereign-fields/index.html",
+      "sha256": "bd087436619c9f4756e0ecc14ab50dd82306cc6c2488ebe37aecf21a5716532b"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/octopus-root/sovereign-nexus/index.html",
+      "sha256": "909d2eac62e1e85ebfb8699286a9c34f7d363b72ca8572e40d1c68a663866f80"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/octopus-root/uct/index.html",
+      "sha256": "3e3567170778f7899707414b8c97a9ae54f80fd377013288c3d27b3162e682fa"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/octopus-root/uct/triple-code/index.html",
+      "sha256": "2731df4c83a5d5b2ae00934099fac55f5d0f83d7a93e797f4f04fde6eb923374"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/one/health/index.html",
+      "sha256": "823788ab64f25dc7ba7be9e37eeabe29cc958563dfc5257df2cc934cd90390a0"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/one/index.html",
+      "sha256": "38ad57a97e66557ceaae469d7002a26bc987e43e06b5691b363a0177cbd7be7f"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/one/library/index.html",
+      "sha256": "6cac38de93b1d626318c827186cb8fc318c0890b0f17672fb5164824649133c9"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/one/trial-matrix/index.html",
+      "sha256": "b561d1d91e04825681591ccc238542c6f53328231804ebadeb65b160156500de"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/one/trial-matrix/realm/index.html",
+      "sha256": "be5f2d938978acaf3d7446dc5e2972e0bf497f385e0967dbed2df1ca6b9215ad"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/one/trial-matrix/studio/index.html",
+      "sha256": "823476bf3e1dcf264f1e6b98161cb539273681eb13946fd384d70ef1d8fef25e"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/one/trials/index.html",
+      "sha256": "ce15b25a262fae5e5e58b8b98d6ee633ed9d4cffd1d8ad070a5698a452f90081"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/pricing-router/index.html",
+      "sha256": "07db72dde26c3fe80df1e12b79a698b10a2a78dc2bb17265579c2a27f6307634"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/radix-ladder/index.html",
+      "sha256": "8acc68dcd0f13a693cf179f2c235ea27558a203134a31f0094366d966ef697d1"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/root-constellation.html",
+      "sha256": "b3086614213a9d9b27684ad2ce1f1808efc4ff2143909db2e660c0988a56d1db"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/sovereign-boxes/index.html",
+      "sha256": "a02a6e73d55918443018ce97d1b44b52bd68fbfb547edd19a60905618b1f18a8"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/stewie-mr-finn/Resources/PolarMiddleC/index.html",
+      "sha256": "2cab3bb12c9f69009ac6950a4da88e0ba642d9dc309e9e567c7c08a238b36276"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/stewie-mr-finn/Resources/PolarMiddleC/math-roots/index.html",
+      "sha256": "949a19edfe8ec2eeefa2f700186a2e823ce5a1bfec0b90584f2364c8ff239543"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/stewie-mr-finn/Resources/PolarMiddleC/mirror-bridge/index.html",
+      "sha256": "c24e85a8b11e65587bc231371bab0d27b1690d91d7ec907172261a09f2b5cf43"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/stewie-mr-finn/polar-middle-c/index.html",
+      "sha256": "5864e59c64e6b23a165571a87006706eb06635571421b9ebc269418a9ee67dff"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/stewie-mr-finn/polar-middle-c/math-roots/index.html",
+      "sha256": "b364d5025bf0ed935a6859f47ce453485400c0c30d3cbb14e85d382a935a3acf"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/stewie-mr-finn/polar-middle-c/mirror-bridge/index.html",
+      "sha256": "7a74084d8af755b3bbf2c0abbd2c43b9624d78f3a58974c0ce82e84c27390554"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/tabor-gps/index.html",
+      "sha256": "897189645c2d1c95d8dee6ecf490d5c314b2cceb2d92600597eba51869a6be25"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/universal-node/babel-inferno.html",
+      "sha256": "365743f2dcd2cae25bf268c314d0185a1d4e0d43153bb0aafa4aa239bc4ec058"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/universal-node/index.html",
+      "sha256": "f0c3c65ff41df8e1abe91df827d9be1eafca90f7c1f79eb81b6d3fee826ae5f6"
+    },
+    {
+      "path": "recovered-source/one-v025/app-factory/vault.html",
+      "sha256": "496cae64d82dcc53df68aa457748ad70535683286762cf94a1e110da226670c8"
+    },
+    {
+      "path": "recovered-source/one-v025/archive/index.html",
+      "sha256": "2dbb4b178ae2a620da59773cff502b66d27a82d8b795d9aa674b667b3f3f083a"
+    },
+    {
+      "path": "recovered-source/one-v025/docs/index.html",
+      "sha256": "48e079bb8333b073f10467601c96c591505a53ff25c5dbbd8b21281c4ef1ef18"
+    },
+    {
+      "path": "recovered-source/one-v025/index.html",
+      "sha256": "6dbec3e4e38e83d68040dce314803518ee3f521445719bada4db0ba536f92d32"
+    },
+    {
+      "path": "recovered-source/one-v025/preserved/index.html",
+      "sha256": "966feed2b27f804bc90ae492c344c08fa448e5d89363510b54c026c8ec5d410e"
+    },
+    {
+      "path": "recovered-source/one-v025/references/index.html",
+      "sha256": "f458ebda188dd04a4f6de822483f605f39d3cdd55eb85ab7264582c916965bac"
+    },
+    {
+      "path": "recovered-source/one-v025/validation/index.html",
+      "sha256": "e206e3d99810d64c7a47e27f7ee125c059a33e3f7f9a80215d1fc07fc5444c50"
+    },
+    {
+      "path": "recovered-source/the-33-original-delivery/THE_33.html",
+      "sha256": "eb3bd8160733ff86b044e9854a8256a3b7989303961fd8189eecbc742ced74a6"
+    }
+  ],
+  "scope": "Maintained website HTML pages receive the notice. Historical original HTML and recovered-source artifacts retain exact original bytes."
+}
