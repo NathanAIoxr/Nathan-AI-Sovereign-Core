@@ -19,3 +19,7 @@ Use [index.html](index.html) in a browser. The engine supports full reversal, wo
 
 ## Preservation and provenance
 Original user-authored material: philosophical framework, transformation canon, ten-body symbolic structure and research proposals. Established outside evidence: historical manuscript collections and broad geological contexts. Interpretations are neither erased nor represented as primary-source facts. This module is additive, not a replacement for pre-existing Nathan AI/ONE modules.
+
+## Quad-Axis Cipher System
+
+[Open the runnable four-master decoder](./quad-axis/index.html), its [engine](./quad-axis/engine.js), and [tests](./quad-axis/engine.test.cjs). The four independent reversible ciphers and full inverse stack have been added without replacing the original Code of Codes or Complete Mind records. The Raphael, Donatello, and Michelangelo assignments are author-defined reconstructions.
