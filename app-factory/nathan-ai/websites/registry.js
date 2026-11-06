@@ -909,5 +909,19 @@ window.NathanAIWebsiteModules = [
     "url": "../../nathan-ai/d-archive/index.html",
     "group": "research",
     "status": "Interactive source-preserving D archive · 152 filename records, 19 routes"
+  },
+  {
+    "id": "sites/nathan-tabor/index.html",
+    "title": "Nathan Tabor — Home & Original Works",
+    "url": "../../sites/nathan-tabor/index.html",
+    "group": "apps",
+    "status": "Public website gateway"
+  },
+  {
+    "id": "sites/church-of-innocence/index.html",
+    "title": "The Church of Innocence — Rise and Serve",
+    "url": "../../sites/church-of-innocence/index.html",
+    "group": "community",
+    "status": "Public author-mission and research website; not a verified organization"
   }
 ];
