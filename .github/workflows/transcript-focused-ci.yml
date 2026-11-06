@@ -1,0 +1,61 @@
+name: Transcript Transporter focused quality
+on:
+  push:
+    branches:
+      - feature/tabor-transcript-transporter
+    paths:
+      - 'app-factory/one/tabor-transcript-transporter/**'
+      - '.github/workflows/transcript-focused-ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app-factory/one/tabor-transcript-transporter/**'
+      - '.github/workflows/transcript-focused-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: transcript-transporter-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  kdp-artifact-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Parse source code
+        run: |
+          node --check app-factory/one/tabor-transcript-transporter/engine.js
+          node --check app-factory/one/tabor-transcript-transporter/transporter-ui.js
+      - name: Run packager unit tests
+        run: |
+          node --test app-factory/one/tabor-transcript-transporter/engine.test.cjs
+          node --test app-factory/dummie-publisher/publisher.test.cjs
+      - name: Write sample EPUB and DOCX packages
+        run: |
+          node -e "const fs=require('node:fs'); const t=require('./app-factory/one/tabor-transcript-transporter/engine.js'); const m='# Chapter One\nTest & example.\n# Chapter Two\nFinal. 🐦'; const meta={title:'Local Transporter Test',author:'Nathan Tabor'}; fs.writeFileSync('/tmp/transcript.epub',t.makeEpub(meta,m));fs.writeFileSync('/tmp/transcript.docx',t.makeDocx(meta,m));"
+      - name: Verify container integrity and parse package XML
+        run: |
+          python3 - <<'PY'
+          import zipfile, xml.etree.ElementTree as ET
+          for filename in ['/tmp/transcript.epub', '/tmp/transcript.docx']:
+              with zipfile.ZipFile(filename) as z:
+                  assert z.testzip() is None, filename
+                  for name in z.namelist():
+                      if name.endswith(('.xml', '.xhtml', '.opf')):
+                          ET.fromstring(z.read(name))
+                  if filename.endswith('.epub'):
+                      assert z.namelist()[0] == 'mimetype'
+                      assert z.read('mimetype') == b'application/epub+zip'
+                      assert z.getinfo('mimetype').compress_type == zipfile.ZIP_STORED
+                      assert 'OEBPS/nav.xhtml' in z.namelist()
+                  else:
+                      assert 'word/document.xml' in z.namelist()
+                      assert '[Content_Types].xml' in z.namelist()
+          print('EPUB/DOCX ZIP and XML smoke checks passed')
+          PY

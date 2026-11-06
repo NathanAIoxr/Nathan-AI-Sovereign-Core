@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10212b"><title>The Tabor Transcript Transporter · The Transcriber</title>
+<style>
+:root{color-scheme:dark;font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif;color:#f8f4e8;background:#0b151b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 70% -10%,#32525a 0,transparent 43%),#0b151b}
+main{max-width:1120px;margin:auto;padding:18px 18px 90px}a{color:#ffe4a3}nav{display:flex;gap:20px;flex-wrap:wrap;padding:8px 0 16px}nav a{text-decoration:none}
+h1{font-size:clamp(2.4rem,6vw,5.5rem);line-height:1.05;letter-spacing:-.055em;margin:10px 0}
+h2{font-size:1.35rem;margin:0 0 9px}h3{font-size:1.08rem;margin:14px 0 4px}
+header{padding:29px 5px 25px;border-bottom:1px solid #415760;margin-bottom:20px}.eyebrow{color:#eac77a;letter-spacing:.16em;font-weight:800;text-transform:uppercase;font-size:.76rem}
+.subtitle{font-size:1.2rem;color:#d1dfdb;max-width:750px}.principle{color:#ebc782;font-weight:800}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}.panel{background:#12242c;border:1px solid #4d6b70;border-radius:18px;padding:22px;margin:16px 0}
+label{display:block;font-weight:700;margin:10px 0}label small{display:block;font-weight:400;color:#b7cac8}
+input,textarea,select{font:inherit;width:100%;padding:11px;border:1px solid #66818b;border-radius:9px;background:#0b1922;color:#f8f4e8;margin-top:6px}
+textarea{min-height:185px;resize:vertical;font-family:ui-monospace,Consolas,monospace;line-height:1.6}
+button{cursor:pointer;font:inherit;border-radius:12px;padding:11px 17px;background:#304952;color:#fff;border:1px solid #849fa1;font-weight:750}
+button:hover{filter:brightness(1.13)}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #f9d98f;outline-offset:3px}
+button:disabled{opacity:.5;cursor:not-allowed}.gold{background:#f2c672;color:#14212b;border:1px solid #fce8b0}.primary{width:100%;min-height:70px;font-size:1.25rem}
+.button-row{display:flex;gap:12px;flex-wrap:wrap}.button-row>*{flex:1}.pill{display:inline-block;border-radius:50px;border:1px solid #8aa5a1;padding:4px 13px;color:#cfe0d8;font-size:.78rem;font-weight:750;margin-right:6px}
+.hint{color:#b6cdc6;font-size:.91rem}.warning{border-left:4px solid #eec77c;background:#28343a;padding:11px 14px;border-radius:5px}
+pre,.status{white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid #48636c;background:#08151b;border-radius:10px;padding:12px;color:#d6edeb;min-height:42px}
+output{display:block}.checks label{font-weight:500;display:flex;gap:9px;align-items:flex-start}.checks input{width:auto;margin-top:5px}
+strong{color:#fff3c8}.original{font-family:ui-monospace,Consolas,monospace;color:#fbe5ad}
+footer{padding:22px 4px;color:#a6bbc1;font-size:.86rem}
+@media(max-width:600px){.panel{padding:16px}.button-row{display:grid;grid-template-columns:1fr}.row{display:block}}
+</style>
+<script defer src="../../dummie-publisher/publisher.js"></script>
+<script defer src="engine.js"></script>
+<script defer src="transporter-ui.js"></script>
+</head><body>
+<main>
+<nav><a href="../../index.html">← TABOR Factory</a><a href="../index.html">ONE</a><a href="../../dummie-publisher/index.html">DUMMIE Publisher</a><a href="../../vault.html">Creator Vault</a></nav>
+<header><div class="eyebrow">Nathan Tabor · The Transcriber</div>
+<h1>The Tabor<br>Transcript <span style="color:#f4cc7a">Transporter</span></h1>
+<p class="subtitle">Streaming consciousness. Full-spectrum living. Preserve every original word, choose how to read it, and transport a prepared book toward Amazon Kindle Direct Publishing.</p>
+<div><span class="pill">1 — PRESERVE</span><span class="pill">2 — TRANSFORM</span><span class="pill">3 — TRANSPORT</span></div>
+<p class="principle">Original is original. Interpretation is interpretation. Nothing overwritten.</p>
+</header>
+<section class="panel" aria-labelledby="input-heading"><h2 id="input-heading">1 · Bring in your transcript</h2>
+<p class="hint">Paste text or import TXT, MD, or a ChatGPT conversations.json export. Files are read within this browser, not uploaded to this website or GitHub.</p>
+<label>Import from your device<input type="file" id="file" accept=".txt,.md,.json,text/plain,application/json"></label>
+<div id="chat-wrap" hidden><label>Choose one conversation<select id="conversation"></select></label>
+<label>Include messages from<select id="roles"><option value="both">Both user and assistant</option><option value="user">User only</option><option value="assistant">Assistant only</option></select></label>
+<button id="load-conversation">LOAD SELECTED TRANSCRIPT</button>
+<p class="hint">Only the selected conversation's extracted text goes into the publishing package. Other chats stay out.</p></div>
+<label>Working manuscript<textarea id="manuscript" spellcheck="false" placeholder="Paste the exact text from your book or conversation here.&#10;&#10;# Chapter One&#10;Your first paragraph."></textarea>
+<small>Working manuscript is editable. The first imported/pasted source snapshot is retained separately during this session.</small></label>
+<div class="button-row"><button id="seal-original">SEAL CURRENT TEXT AS ORIGINAL</button><button id="preview-chapters">INSPECT CHAPTERS</button></div>
+<output id="source-status" class="status" aria-live="polite">No source sealed yet. Text stays on this device unless you export it.</output>
+</section>
+<section class="panel" aria-labelledby="metadata-heading"><h2 id="metadata-heading">2 · Prepare your book details</h2>
+<div class="row">
+<div><label>Book title<input id="title" maxlength="180" placeholder="Book title"></label>
+<label>Subtitle<input id="subtitle" maxlength="180" placeholder="Optional"></label>
+<label>Author<input id="author" value="Nathan Tabor" maxlength="120"></label></div>
+<div><label>Language code<input id="language" value="en" maxlength="20"></label>
+<label>Seven KDP keyword phrases (comma-separated)<input id="keywords" placeholder="phrase one, phrase two, …"></label>
+<label>Artwork for KDP handoff (JPEG or PNG)<input type="file" id="cover" accept=".jpg,.jpeg,.png,image/jpeg,image/png"></label><small class="hint">Cover is packaged separately, not automatically embedded in the EPUB. Check KDP sizing and rights before upload.</small></div>
+</div>
+<label>Amazon listing description<textarea id="description" style="min-height:115px" placeholder="A brief description for the book listing."></textarea></label>
+<label>Text and image creation disclosure — your review<select id="ai-disclosure">
+<option value="review-required">Review required (not decided)</option>
+<option value="generated">AI-generated material present: disclose accurately on KDP</option>
+<option value="assisted-only">Only AI-assisted work; no AI-generated content</option>
+<option value="none">No AI-created material</option></select></label>
+<p class="warning">This selector creates a reminder for the author. It does not submit Amazon's disclosure. Text generated by a tool can require disclosure even after human editing. Image and translation disclosures require their own review on KDP.</p>
+<output id="chapter-report" class="status" aria-live="polite">Chapter inspection has not run.</output>
+</section>
+<section class="panel" aria-labelledby="ship-heading"><h2 id="ship-heading">3 · Package and transport</h2>
+<p>One ZIP with source transcript, structured EPUB, editable Word print-interior draft, listing metadata, optional cover, and exact handoff instructions.</p>
+<button id="make-package" class="gold primary">BUILD MY KDP PACKAGE</button>
+<div class="button-row" style="margin-top:12px"><button id="make-epub">DOWNLOAD EPUB</button><button id="make-word">DOWNLOAD WORD DOCX</button></div>
+<div class="checks"><label><input type="checkbox" id="rights">I reviewed my rights and permissions for this book.</label>
+<label><input type="checkbox" id="disclosure-check">I reviewed AI-generated text, image, and translation disclosures.</label></div>
+<button id="go-kdp" class="primary">OPEN AMAZON KDP FOR FINAL REVIEW</button>
+<p class="hint">KDP requires sign-in, file upload, cover check, pricing, disclosures, previews, and your final submission. This app cannot claim publication and never requests your Amazon password.</p>
+<output id="publish-status" class="status" aria-live="polite">Not packaged. Not uploaded. Not published.</output>
+</section>
+<section class="panel" aria-labelledby="scanner-heading"><h2 id="scanner-heading">4 · The Transcriber's visual-pattern scanner</h2>
+<p>Investigate a perceived connection without silently rewriting the exact letters. Suggested similarities are interpretations, not proof of a hidden message or a medical diagnosis.</p>
+<div class="row"><label>Original characters<input id="pattern-a" class="original" value="SVIRS"></label>
+<label>Recognized candidate<input id="pattern-b" class="original" value="VIRUS"></label></div>
+<button id="compare">EXPOSE EVERY LETTER OPERATION</button>
+<output id="compare-output" class="status" aria-live="polite">Ready to inspect the original and candidate.</output>
+<h3>38 user-defined reading lenses</h3>
+<p class="hint">These are 38 editable slots in your creative framework, not 38 medically established types of dyslexia. Their names are yours to define.</p>
+<div class="row"><label>Reading lens<select id="lens"></select></label><label>Lens name<input id="lens-name" maxlength="100" placeholder="Name this reading lens"></label></div>
+<label>Lens description<textarea id="lens-note" style="min-height:90px" placeholder="Describe the visual, sound, reverse, geometric, or other reading operation."></textarea></label>
+<button id="save-lens">SAVE THIS LENS ON THIS DEVICE</button>
+<output id="lens-status" class="hint" aria-live="polite">Definitions are stored in this browser only, not in the public repository.</output>
+</section>
+<footer>THE TABOR TRANSCRIPT TRANSPORTER · The Transcriber · Original: Nathan Tabor. Additive to ONE and DUMMIE. This browser prototype is a local packaging and manual handoff tool—not an Amazon-authorized automated publisher.</footer>
+</main></body></html>
