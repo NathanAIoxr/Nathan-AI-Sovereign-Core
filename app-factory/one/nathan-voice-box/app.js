@@ -3,6 +3,18 @@ const $ = (id) => document.getElementById(id);
 const token = document.querySelector('meta[name="local-session"]').content;
 let currentAudioURL = null, currentArchiveURL = null;
 const setStatus = (message) => { $("status").textContent = message; };
+window.NathanVoiceBoxSetAudio = (wav, caption) => {
+  if (currentAudioURL) URL.revokeObjectURL(currentAudioURL);
+  currentAudioURL = URL.createObjectURL(wav);
+  $("player").src = currentAudioURL;
+  $("download").href = currentAudioURL;
+  $("download").hidden = false;
+  renderEarGates(wav).catch(error => {
+    $("ear-gates-label").textContent = "Graph unavailable: " + error.message;
+  });
+  if (caption) setStatus(caption + " — output is synthesized audio, not an authentic recording.");
+};
+
 async function init() {
   try {
     const response = await fetch("/voices", {cache:"no-store"});
@@ -17,6 +29,18 @@ async function init() {
       if (voice.language.toLowerCase() === "en-us") opt.selected = true;
       select.append(opt);
     }
+    document.dispatchEvent(new CustomEvent("voicebox:voices", {detail:data.voices}));
+    try {
+      const packsResponse = await fetch("/packs", {cache:"no-store"});
+      const packsData = await packsResponse.json(), datalist=$("installed-packs");
+      datalist.replaceChildren();
+      for (const pack of packsData.packs || []) {
+        if (pack.runtime !== "sherpa-onnx-zipvoice") continue;
+        const choice=document.createElement("option");choice.value=pack.id;
+        choice.label=pack.languages.join(", ");
+        datalist.append(choice);
+      }
+    } catch (error) { /* Catalog remains local even without ONNX models. */ }
     if (data.voices.length) {
       setStatus(data.voices.length + " installed voice choices detected. Ready to synthesize offline.");
     } else {
@@ -45,12 +69,7 @@ $("speak").addEventListener("click", async () => {
       throw new Error(error.error || "Local engine error");
     }
     const blob = await resp.blob();
-    if (currentAudioURL) URL.revokeObjectURL(currentAudioURL);
-    currentAudioURL = URL.createObjectURL(blob);
-    $("player").src = currentAudioURL;
-    $("download").href = currentAudioURL;
-    $("download").hidden = false;
-    renderEarGates(blob).catch(e => { $("ear-gates-label").textContent = "Graph unavailable: " + e.message; });
+    window.NathanVoiceBoxSetAudio(blob, "Local synthetic speech ready");
     setStatus("Done locally. " + Math.round(blob.size/1024) + " KiB PCM audio. "
       + ($("persona").value === "neutral" ? "Synthetic voice." : "Fictional dramatization."));
   } catch (e) { setStatus("Error: " + e.message); }
