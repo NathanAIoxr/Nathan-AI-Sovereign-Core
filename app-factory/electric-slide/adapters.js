@@ -105,6 +105,10 @@
    if(!text)throw Error('Original source text required. No packet without its source.');
    if(text.length>5000000)throw Error('Source exceeds 5 million characters; split it into intact parts.');
    const fields=validFields(destinationId,input.fields||{});
+   const fingerprint=String(input.sourceSha256||'');
+   if(fingerprint&&!/^[a-f0-9]{64}$/i.test(fingerprint))throw Error('Invalid SHA-256 fingerprint.');
+   const stamp=String(input.createdAtUtc||new Date().toISOString());
+   if(!/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?Z$/.test(stamp))throw Error('Invalid UTC timestamp.');
    const labels=d.fields.map(x=>({key:x.id,label:x.label,value:fields[x.id]??'',providerSelectorVerified:false}));
    return {
      schema:SCHEMA,creator:String(input.creator||'Nathan Tabor').slice(0,120),
@@ -113,7 +117,10 @@
      destination:{id:d.destination.id,name:d.destination.name,sector:d.destination.sector,
        registryStatus:d.destination.status,verifiedProviderFields:false,
        externalWriteSupported:false,importGuaranteed:false},
-     fields:labels,approval:{reviewed:false,submitted:false,published:false},
+     fields:labels,
+     provenance:{sha256:fingerprint||'not-calculated',createdAtUtc:stamp,encoding:'UTF-8',
+       integrityAlgorithm:'SHA-256',encrypted:false,verification:'local-computed-not-external'},
+     approval:{reviewed:false,submitted:false,published:false},
      warning:'Local planning template. Field names are generic, not verified live provider form selectors; no provider import guarantee.'
    };
  }
@@ -147,6 +154,7 @@
      {path:'SOURCE/ORIGINAL.txt',bytes:enc.encode(p.source.originalText)},
      {path:'DESTINATION/destination-packet.json',bytes:enc.encode(JSON.stringify(p,null,2)+'\n')},
      {path:'DESTINATION/mapping.csv',bytes:enc.encode(mappingCsv(p))},
+     {path:'PROVENANCE/receipt.json',bytes:enc.encode(JSON.stringify(p.provenance,null,2)+'\n')},
      {path:'DESTINATION/READ-ME-FIRST.txt',bytes:enc.encode(shortGuide(p))}
    ];
    if(!zip||!zip.zip)throw Error('DUMMIE ZIP engine unavailable.');
