@@ -15,7 +15,7 @@
    }
    let lastTarget=null,chosen='';
    const fields=data&&data.fields||{};
-   const keys=Object.keys(fields).filter(k=>typeof fields[k]==='string' && 
+   const keys=Object.keys(fields).filter(k=>typeof fields[k]==='string' && fields[k].trim().length>0 &&
      !/^(certification|account_info|tax_info|residency)$/.test(k));
    if(!keys.length)return;
    const box=document.createElement('section');
