@@ -1,0 +1,50 @@
+name: Nathan AI Device Voice Box
+
+on:
+  pull_request:
+    paths: ['app-factory/nathan-ai/voice-box/**', '.github/workflows/device-voice-box-ci.yml']
+  push:
+    branches: [main]
+    paths: ['app-factory/nathan-ai/voice-box/**', '.github/workflows/device-voice-box-ci.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-device-voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Pure JavaScript and PCM tests
+        run: |
+          node --check app-factory/nathan-ai/voice-box/app.js
+          node --check app-factory/nathan-ai/voice-box/policy.js
+          node --check app-factory/nathan-ai/voice-box/noise.js
+          node --check app-factory/nathan-ai/voice-box/macro.js
+          node --check app-factory/nathan-ai/voice-box/sw.js
+          node --test app-factory/nathan-ai/voice-box/engine.test.cjs
+      - name: Offline CLI safety tests without installing eSpeak NG
+        run: python3 -m unittest discover -s app-factory/nathan-ai/voice-box/native -p 'test_*.py' -v
+      - name: Inspect static device-only boundaries
+        run: |
+          node - <<'NODE'
+          const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+          const base='app-factory/nathan-ai/voice-box/';
+          const html=fs.readFileSync(base+'index.html','utf8');
+          for(const term of ['data-nathan-shared-appearance','data-nathan-command-center','localService','rightsOK','noiseInput','Living Ears']){
+            assert.ok(html.includes(term),term);
+          }
+          for(const file of ['README.md','MODEL-ADAPTERS.md','index.html','app.js','policy.js','noise.js','macro.js','style.css','sw.js','manifest.webmanifest','native/offline_tts.py']){
+            assert.ok(fs.existsSync(path.resolve(base,file)),file)
+          }
+          assert.doesNotMatch(html,/<script[^>]+src="https?:/);
+          for(const file of ['app.js','policy.js','noise.js','macro.js']){
+            assert.doesNotMatch(fs.readFileSync(base+file,'utf8'),/(?:fetch|XMLHttpRequest|sendBeacon)\s*\(/,file)
+          }
+          NODE

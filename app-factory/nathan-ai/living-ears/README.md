@@ -34,3 +34,7 @@ Source lineages are research cards with **status labels**. A historical claim in
 **Boundary:** This is a source-preserving educational acoustic workbench, not a sentient system, professional forensic authentication tool, medical device, lie detector or live surveillance engine.
 
 **1+1=2 — BUILD · 1−1=0 — CLEAR · YES IS YES — NO IS NO.**
+
+## Device-first speech companion — additive, independent
+
+The new [Nathan AI Device-First Voice Box](../voice-box/index.html) exposes browser-reported local TTS, optional strictly on-device transcription, authorized original-recording playback, safe acoustic presets, and local amplitude gating. Living Ears acoustic research and source remain unchanged.

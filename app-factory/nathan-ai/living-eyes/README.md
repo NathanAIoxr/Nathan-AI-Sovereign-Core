@@ -39,3 +39,8 @@ Run from the module directory: \`python3 -m unittest discover -s . -p 'test_prop
 ## Linked sister capability · Living Ears
 
 [Living Ears · Mother Earth, animals, human speech, and historic sound devices](../living-ears/index.html) is an **independent additive module**. It calls the existing `NathanLivingEyes.frame` API for the original 48/96/192/384 perspective geometry without changing this engine or its axis numbers.
+
+
+## On-device speech partner
+
+The new [Nathan AI Device-First Voice Box](../voice-box/index.html) is a separate app, providing local speech output and related original-preserving tools without changing the Living Eyes geometry engine.
