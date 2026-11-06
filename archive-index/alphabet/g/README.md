@@ -1,12 +1,12 @@
 # Nathan AI — G · Source-Preserving Alphabet Department
 
-This is the **G** department of the full 26-letter A–Z directory. It currently contains **45 primary source-catalog occurrences, plus a separate 713-title G master source archive**, indexed with source status, source provenance, App/Game classification proposals and preserved original source wording.
+This is the **G** department of the full 26-letter A–Z directory. It currently contains **50 primary source-catalog occurrences, plus a separate 713-title G master source archive**, indexed with source status, source provenance, App/Game classification proposals and preserved original source wording.
 
 - [Open G search, app and game categories](../index.html?letter=G)
 - [See this department's source ID manifest](./letter-manifest.json)
 - [Interactive G / 5 / 6 · Nautilus / Tabor Spiral laboratory](./laboratory/index.html)
 - [713 G publicly classified source-title occurrences (gzip)](./source-catalog-g.json.gz)
-- [21 creator and historical G references](./research-routes.json)
+- [26 creator, historical and literal-word G references](./research-routes.json)
 - [Nautilus/Tabor Spiral formulas and identity models](./geometry-spiral.json)
 
 **Preservation:** This department is a new index over existing independent apps, game references, author sequences and source inventories, not a new invented manuscript, finished software release, or replacement for an original. Original categories and title-initial letters can differ; the two are separate properties.
@@ -42,7 +42,7 @@ The original 6,056-row ALL_6056_SOURCE_ROWS_UNCHANGED_TITLES_v020.csv was read a
 
 Of the 713 general-public G titles, **604** belong to **MATERS vs TATERS — Family Grove**. Those are narrative and reference occurrences, not 604 finished apps. The archive preserves **21 source collections**. Its [metadata](./source-catalog-g.metadata.json) includes counts and the source-byte checksum. The independent [G laboratory](./laboratory/index.html) lets readers search all 713 title occurrences without moving their original files or publishing private manuscripts.
 
-The existing A–Z directory originally had 24 G entries; **21 additional creator/historical G records** bring the central G department to **45 main source occurrences**. The 713 master catalog rows remain a separate linked corpus rather than being mislabeled as independent completed apps.
+The existing A–Z directory originally had 24 G entries; **26 separate G reference records (the previous 21 plus five new words)** bring the central G department to **50 main source occurrences**. The 713 master catalog rows remain a separate linked corpus rather than being mislabeled as independent completed apps.
 
 ## Tabor Spiral and Counter-Spiral · two originals
 
@@ -61,8 +61,36 @@ Historically, the Latin letter **G developed from C** in Roman writing. Its ance
 
 ## Interactive experience and integrity
 
-[Open the G / 5 / 6 / Spiral laboratory](./laboratory/index.html). It provides a rotating-numeral viewer, separate 6/G comparator, dual spiral visualization, 63-chamber number navigation, complete compressed-source search across 21 collections, 21 original G source routes and a five-question learning game. No faces or invented historical portraits are added.
+[Open the G / 5 / 6 / Spiral laboratory](./laboratory/index.html). It provides a rotating-numeral viewer, separate 6/G comparator, dual spiral visualization, 63-chamber number navigation, complete compressed-source search across 21 collections, 26 original G source routes and a five-question learning game. No faces or invented historical portraits are added.
 
 Tests run from the repo root: node --test archive-index/alphabet/g/g-core.test.mjs archive-index/alphabet/directory.test.mjs
 
 Earlier E/3/M/W, F/P, FIVE MATRICES, ONE, and original game work remain independent. Private source manuscripts, source identifiers and hidden catalog names are not republished.
+
+
+## GOD · GODDESS · DOG · DOGGESS · SSEGGOD — original word-family addition
+
+**Author's exact new instruction:**
+
+> put all that in the G category plus adding God, Goddess, Dog, Doggess, Sseggod
+
+Preserve all five creator-supplied spellings **God**, **Goddess**, **Dog**, **Doggess**, **Sseggod**, with a case-preserving source field and independently derived literal reversals. Never substitute one word for another or change the author’s letters. This is a creator word-and-symbol cross-reference, not a new historical etymological claim.
+
+| Supplied name | Uppercase equivalent | Letter-reversed uppercase | Relationship |
+| --- | --- | --- | --- |
+| God | GOD | DOG | Dog is also one of the five supplied names |
+| Goddess | GODDESS | SSEDDOG | **SSEDDOG is a derived string, not the supplied Sseggod** |
+| Dog | DOG | GOD | God is also one of the five supplied names |
+| Doggess | DOGGESS | SSEGGOD | Sseggod is the supplied name with equivalent uppercase spelling |
+| Sseggod | SSEGGOD | DOGGESS | Literal reverse of Doggess |
+
+The original *DOG* and *Doggess* title initials remain **D**, and *Sseggod* remains **S**, although all five are **cross-indexed under G at the owner's request**. This is a linked G category, not deletion, relocation or renaming of D or S content.
+
+### Recovered earlier owner work — references only
+
+- **THE OG FAMILY**, an owner-authored twelve-book series, links DOG with OG-family language and innocence symbolism. The private manuscript remains in the owner's Library; no unpublished body is uploaded here.
+- **DOGGESS COMPANY Installation Protocol**, named in September 2025, is an owner project-title reference, not an independently verified finished installation.
+- **TABOR WORLD — DOG & DOGGESS COMPANY**, recorded in October 2026, is a separate owner project-title reference.
+- The existing [Six Dogs application](../../../../app-factory/nathan-ai/six-dogs/index.html) and [Omni God application](../../../../app-factory/nathan-ai/omni-god/index.html) remain independent and unmodified.
+
+**Source and implementation:** [five exact G original-word records](./g-words.json), [Unicode-character reversal/search module](./g-words.mjs), [G source research routes](./research-routes.json) and [tests](./g-words.test.mjs). This raises the G central A–Z index to **50 primary occurrences** and its separate research routes to **26**. The 713 public G-starting master titles remain independently preserved; five additional cross-index records are not claims of five published standalone apps.
