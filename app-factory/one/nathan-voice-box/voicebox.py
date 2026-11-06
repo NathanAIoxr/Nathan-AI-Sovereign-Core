@@ -124,6 +124,10 @@ def synthesize_espeak(text: str, lang: str, voice: str, persona: str) -> bytes:
     available = {value for v in list_espeak_voices() for value in (v["name"], v["language"])}
     if voice not in available:
         raise VoiceBoxError("Voice not installed. Run 'voices' for local choices")
+    requested = lang.lower().split("-")
+    selected = voice.lower().split("-")
+    if requested[0] != selected[0] or (len(requested) > 1 and len(selected) > 1 and requested[1] != selected[1]):
+        raise VoiceBoxError("Requested language/dialect does not match installed voice")
     cfg = PERSONAS[persona]
     args = [exe, "--stdout", "--stdin", "-v", voice, "-p", str(cfg["pitch"]), "-s", str(cfg["rate"])]
     cp = subprocess.run(args, input=text.encode("utf-8"), capture_output=True,
