@@ -5,6 +5,15 @@ class ReleaseTests(unittest.TestCase):
     def test_static_boundary(self):
         for name in ['index.html','LICENSE','app-factory/nathan-ai/index.html','app-factory/one/library/file-index.js','docs/LAUNCH.md','app-factory/one/library-mind/downloads/source.zip','app-factory/one/library-mind/downloads/source.docx']:self.assertTrue(build.site_file(name),name)
         for name in ['.env','app-factory/.env.local','app-factory/private-samples/photo.jpg','app-factory/a.test.cjs','app-factory/tests/a.js','app-factory/nathan-ai/assistant/server.py','.github/workflows/ci.yml']:self.assertFalse(build.site_file(name),name)
+    def test_current_public_site_has_no_missing_packaged_links(self):
+        files={name:(build.ROOT/name).read_bytes() for name in build.tracked() if build.site_file(name)}
+        for name in ['landing/landing.js','standalone-apps/index.html','archive-index/alphabet/d/index.html','app-factory/nathan-ai/brainstormer/originals/NathanAI_Brainstormer_Python_v002.py']:
+            self.assertIn(name,files)
+        build.check_links(files)
+
+    def test_site_root_directory_link(self):
+        build.check_links({'index.html':b'<a href="./">Home</a>'})
+
     def test_deterministic_archive(self):
         a=build.zip_bytes({'b.txt':b'b','a.txt':b'a'},1700000000)
         self.assertEqual(a,build.zip_bytes({'a.txt':b'a','b.txt':b'b'},1700000000))

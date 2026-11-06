@@ -3,6 +3,13 @@
 import argparse, json, os, pathlib, re, subprocess, tempfile
 
 ROOT=pathlib.Path(__file__).resolve().parents[2]
+TEST_ROOTS=('app-factory','archive-index','landing','standalone-apps','tools')
+
+def discover_node_tests(root=ROOT):
+    return sorted(p for folder in TEST_ROOTS for p in (root/folder).rglob('*')
+                  if p.is_file() and p.name.endswith(('.test.cjs','.test.mjs'))
+                  and not {'node_modules','__pycache__'}.intersection(p.relative_to(root).parts))
+
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',required=True,type=pathlib.Path);a=p.parse_args();out=a.out.resolve()
     if out.is_relative_to(ROOT):p.error('Keep release reports outside the source checkout.')
@@ -16,10 +23,10 @@ def main():
         result={'name':name,'passed':code==0,'exit_code':code,'reported_node_cases':int(matches[-1]) if matches else 0}
         results.append(result);(out/(str(len(results)).zfill(3)+'.log')).write_text(text)
         if code:print('FAILED '+name+'\n'+text[-3500:])
-    node=sorted(p for p in (ROOT/'app-factory').rglob('*') if p.name.endswith(('.test.cjs','.test.mjs')))
+    node=discover_node_tests()
     if not node:raise RuntimeError('No Node test suites discovered.')
     for path in node:run(str(path.relative_to(ROOT)),['node',str(path)])
-    python_dirs=sorted({p.parent for folder in [ROOT/'app-factory',ROOT/'tools'] for p in folder.rglob('test_*.py')})
+    python_dirs=sorted({p.parent for folder in [ROOT/name for name in TEST_ROOTS] for p in folder.rglob('test_*.py')})
     for directory in python_dirs:run(str(directory.relative_to(ROOT))+' Python',['python3','-B','-m','unittest','discover','-s',str(directory),'-p','test_*.py'])
     scanner=ROOT/'app-factory/nathan-ai/eyeprints-handprints'
     if scanner.exists():
@@ -27,6 +34,7 @@ def main():
         run('hand-eye static privacy',['python3','-B','tests/static_check.py'],scanner)
     run('bounded activation',['node','app-factory/nathan-ai/activation/runtime-cli.mjs','--activate','--ticks=8'])
     run('historical mining vector',['node','app-factory/nathan-ai/sovereign-coins/phi-mining/cli.mjs','--run','--start=2083236891','--attempts=5'])
+    run('static entry pages',['python3','-B','scripts/verify_d_pages.py','--root','.'])
     commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
     report={'commit':commit,'node_files':len(node),'reported_node_cases':sum(r['reported_node_cases'] for r in results),'python_suites':len(python_dirs),'checks':len(results),'passed':all(r['passed'] for r in results),'results':results}
     (out/'checks.json').write_text(json.dumps(report,indent=2));print(json.dumps({k:v for k,v in report.items() if k!='results'},indent=2))

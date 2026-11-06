@@ -6,7 +6,8 @@ from html.parser import HTMLParser
 
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 STATIC={'.html','.htm','.js','.mjs','.cjs','.css','.json','.webmanifest','.svg','.png','.jpg','.jpeg','.webp','.gif','.ico','.avif','.wasm','.pdf','.md','.txt','.csv','.tsv','.xml','.woff','.woff2','.ttf','.mp3','.mp4','.ogg','.wav','.zip','.docx','.xlsx','.pptx','.epub','.odt','.rtf'}
-SOURCE_DOWNLOADS={'app-factory/nathan-ai/sovereign-coins/anchored/bench_matrix.py','app-factory/octopus-root/sovereign-continuum/advanced.py','app-factory/octopus-root/sovereign-continuum/test_advanced.py'}
+PUBLIC_ROOTS=('app-factory/','docs/','archive-index/','landing/','standalone-apps/')
+SOURCE_DOWNLOADS={'app-factory/nathan-ai/brainstormer/originals/NathanAI_Brainstormer_Python_v002.py','app-factory/nathan-ai/sovereign-coins/anchored/bench_matrix.py','app-factory/octopus-root/sovereign-continuum/advanced.py','app-factory/octopus-root/sovereign-continuum/test_advanced.py'}
 def git(*args):return subprocess.check_output(['git','-C',str(ROOT),*args],text=True).strip()
 def tracked():return subprocess.check_output(['git','-C',str(ROOT),'ls-files','-z']).decode().split('\0')[:-1]
 def safe(path):
@@ -14,7 +15,7 @@ def safe(path):
     return not any(p.lower() in {'.git','.env','.aws','.ssh','private-samples','node_modules','__pycache__'} or (p.lower().startswith('.env.') and p.lower()!='.env.example') for p in parts) and pathlib.PurePosixPath(path).suffix.lower() not in {'.pem','.pfx','.p12','.key'}
 def site_file(path):
     p=pathlib.PurePosixPath(path)
-    return safe(path) and (path=='LICENSE' or path in SOURCE_DOWNLOADS or (len(p.parts)==1 and p.suffix=='.md') or ((path=='index.html' or path.startswith(('app-factory/','docs/'))) and p.suffix.lower() in STATIC and '/tests/' not in path and '.test.' not in p.name and not p.name.startswith('test_')))
+    return safe(path) and (path=='LICENSE' or path in SOURCE_DOWNLOADS or (len(p.parts)==1 and p.suffix=='.md') or ((path=='index.html' or path.startswith(PUBLIC_ROOTS)) and p.suffix.lower() in STATIC and '/tests/' not in path and '.test.' not in p.name and not p.name.startswith('test_')))
 def check_links(files):
     missing=[]
     class Links(HTMLParser):
@@ -24,9 +25,11 @@ def check_links(files):
                 url=urllib.parse.urlsplit(value)
                 if url.scheme or url.netloc or not url.path:continue
                 target=posixpath.normpath(posixpath.join(posixpath.dirname(self.name),urllib.parse.unquote(url.path))) if not url.path.startswith('/') else url.path.lstrip('/')
-                if target not in files and target.rstrip('/')+'/index.html' not in files:missing.append(self.name+' -> '+value)
+                if target == '.':target = ''
+                if target not in files and (target.rstrip('/')+'/' if target else '')+'index.html' not in files:missing.append(self.name+' -> '+value)
     for name,data in files.items():
-        if name.endswith('.html'):
+        # This historical root-page snapshot is intentionally byte-preserved at a new path.
+        if name.endswith('.html') and name != 'landing/original-chat-landing.html':
             parser=Links();parser.name=name;parser.feed(data.decode('utf8'))
     if missing:raise ValueError('Missing packaged relative links: '+'; '.join(missing[:20]))
 def digest(data):return hashlib.sha256(data).hexdigest()
