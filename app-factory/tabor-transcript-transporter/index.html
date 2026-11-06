@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#102029"/><title>The Tabor Transcript Transporter · The Transcriber</title>
+<style>
+:root{font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;color:#f5f2e9;background:#101820;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top left,#194550 0,transparent 54%),#101820;min-height:100vh}
+a{color:#a6e6d3}main{max-width:1100px;margin:auto;padding:20px 16px 70px}
+nav{display:flex;gap:18px;flex-wrap:wrap;font-size:.9rem;margin-bottom:20px}
+.hero{padding:clamp(20px,5vw,42px);border:1px solid #557985;border-radius:26px;background:linear-gradient(135deg,#132f3b,#19252e 65%,#392d2a)}
+.eyebrow{letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;font-weight:800;color:#d8a778}
+h1{font-size:clamp(2.5rem,7vw,5.7rem);letter-spacing:-.06em;line-height:.95;margin:14px 0}h1 span{color:#80d7c4}h2{font-size:1.45rem;margin:0 0 7px}h3{font-size:1.05rem;margin:0 0 7px}
+p{color:#d7dedb;margin:8px 0 16px}.manifesto{font-size:1.15rem;max-width:760px}
+.stat{display:flex;gap:8px;flex-wrap:wrap}.stat span{padding:6px 12px;border-radius:25px;background:#29424b;color:#e0f5ef;font-size:.83rem}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:19px 0}.flow div{border:1px solid #4d7580;background:#21343c;padding:12px;border-radius:13px;text-align:center;font-weight:750}.flow small{display:block;color:#c6dad6;font-size:.75rem;font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:15px}.panel{background:#1a2931;border:1px solid #49636d;border-radius:19px;padding:21px;margin-top:16px}
+label{display:block;font-size:.9rem;font-weight:700;margin-top:15px}input,textarea,select{width:100%;min-height:43px;font:inherit;padding:11px;color:#fff;background:#0d1a22;border:1px solid #68868c;border-radius:10px;margin-top:5px}
+textarea{resize:vertical;min-height:105px}textarea#draft{min-height:265px}textarea#source{min-height:170px}
+button{cursor:pointer;font:inherit;font-weight:800;min-height:44px;background:#365665;border:1px solid #93bbba;color:#fff;border-radius:12px;padding:10px 17px}
+button:hover{filter:brightness(1.12)}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #ffbe79;outline-offset:3px}
+button:disabled{opacity:.5;cursor:not-allowed}
+.primary{background:linear-gradient(#c74a37,#a32123);border:3px solid #ffb0a1;box-shadow:0 6px 0 #591713;font-size:1.3rem;min-height:76px;width:100%}.primary:active{transform:translateY(4px);box-shadow:0 2px 0 #591713}
+.secondary{background:#267d70;border:2px solid #a7edcc;font-size:1.25rem;min-height:76px;width:100%}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.actions button{flex:1}
+.note{padding:12px 14px;border-left:4px solid #e2ac69;background:#333332;border-radius:9px;font-size:.88rem}
+.hint{color:#bad2cf;font-size:.85rem}.path{color:#f9cd9a}
+.pill{display:inline-block;border:1px solid #5b8a80;border-radius:30px;padding:4px 11px;margin:4px 6px 4px 0;font-size:.8rem}
+.checkbox{display:flex;align-items:flex-start;gap:10px}.checkbox input{width:20px;min-height:20px;flex:0 0 auto}
+.hidden{display:none!important}
+.preview{white-space:pre-wrap;overflow:auto;overflow-wrap:anywhere;max-height:300px;background:#0b1920;border:1px solid #547477;border-radius:10px;padding:18px;font:1rem/1.6 Georgia,serif}
+.preview.focus{max-width:54ch;margin-inline:auto;line-height:2}.preview.large{font-size:1.36rem;line-height:1.9}.preview.contrast{background:#000;color:#fff;border-color:#fff;font-family:Arial,sans-serif}
+small{font-size:.8rem}.status{white-space:pre-wrap;overflow-wrap:anywhere;min-height:54px;padding:13px;background:#253a3b;border-radius:10px;border:1px solid #6fa29b;margin-top:12px}
+#coverPreview{max-width:140px;max-height:210px;object-fit:contain;margin-top:8px;border-radius:5px}
+@media(max-width:580px){.flow{grid-template-columns:1fr}h1{font-size:3rem}.panel{padding:15px}}
+</style>
+<script defer src="../dummie-publisher/publisher.js"></script>
+<script defer src="engine.js"></script>
+<script defer src="ui.js"></script>
+</head><body>
+<aside aria-label="Author record" style="padding:12px 16px;background:#f9e7aa;color:#121212;font:600 14px/1.4 system-ui"><a href="../../docs/record/index.html" style="color:#121212;text-decoration:underline">Read the timestamped Nathan Tabor authorship and correction record</a> · Application source is additive and original manuscripts are not rewritten.</aside>
+<main>
+<nav><a href="../index.html">TABOR FACTORY</a><a href="../dummie-publisher/index.html">DUMMIE Publisher</a><a href="../one/library/index.html">ONE Library</a><a href="../vault.html">Creator Vault</a></nav>
+<header class="hero">
+<div class="eyebrow">Nathan Tabor · The Transcriber · Sovereign Publishing</div>
+<h1>THE TABOR <span>TRANSCRIPT</span> TRANSPORTER</h1>
+<p class="manifesto">The beauty of a streaming consciousness. Full-spectrum living. The original stays whole; every transformation is a separately labeled layer.</p>
+<div class="stat"><span>1 + 1 = 2 · BUILD</span><span>1 − 1 = 0 · CLEAR</span><span>38 author-defined lenses</span><span>No faces · No lost words</span></div>
+</header>
+<div class="flow"><div>01 · TRANSCRIBE<small>ChatGPT export, text, or pasted manuscript</small></div><div>02 · TRANSPORT<small>EPUB + Word + metadata + optional cover</small></div><div>03 · HANDOFF<small>Owner reviews and submits on Amazon KDP</small></div></div>
+<section class="grid">
+<div class="panel"><h2>1 · Capture the original</h2>
+<p class="hint">Your source stays on your device in this session. Nothing is uploaded to GitHub or Amazon by this page.</p>
+<label for="sourceFile">Import ChatGPT export or manuscript (.json, .zip, .txt, .md)</label><input type="file" id="sourceFile" accept=".json,.zip,.txt,.md,text/plain,application/json"/>
+<div id="chatPick" class="hidden"><label for="conversation">Choose a ChatGPT conversation</label><select id="conversation"></select><button type="button" id="useConversation">Capture selected transcript</button></div>
+<label for="paste">Or paste original words here</label><textarea id="paste" placeholder="Paste the exact transcript or manuscript. Your original will be preserved as entered."></textarea>
+<button type="button" id="capture">CAPTURE ORIGINAL → MAKE WORKING COPY</button>
+<label for="source">Source record (read-only; exact selected transcript)</label><textarea id="source" readonly placeholder="Original source appears here after capture."></textarea>
+<button type="button" id="sourceDownload">Download original transcript .txt</button>
+</div>
+<div class="panel"><h2>2 · Shape the book</h2>
+<label for="title">Book title</label><input id="title" maxlength="200" value="The Tabor Transcript Transporter"/>
+<label for="subtitle">Subtitle</label><input id="subtitle" placeholder="Optional subtitle"/>
+<div class="grid" style="gap:8px"><div><label for="author">Author</label><input id="author" value="Nathan Tabor"/></div><div><label for="language">Language code</label><input id="language" value="en" maxlength="12"/></div></div>
+<label for="description">Amazon listing description (your wording)</label><textarea id="description" placeholder="Enter the actual book description. We won't fabricate sales claims or keyword search volume."></textarea>
+<label for="draft">Editable publication copy</label><textarea id="draft" placeholder="Capture a transcript first or write your manuscript here. # Chapter One headings create chapters."></textarea>
+<p id="words" class="hint">0 words · 0 chapters</p>
+<div class="actions"><button type="button" id="epub">Save EPUB</button><button type="button" id="docx">Save Word print draft</button></div>
+</div></section>
+<section class="grid">
+<div class="panel"><h2>3 · The 38 reading lenses</h2>
+<p class="hint">38 customizable slots in the author's full-spectrum system. These are design lenses, not a claim that medicine recognizes 38 diagnostic types.</p>
+<label for="lens">Lens <output id="lensNumber">1</output> of 38</label><input type="range" id="lens" min="1" max="38" value="1"/>
+<label for="lensName">Name this lens</label><input id="lensName" value="Original stream" maxlength="100"/>
+<label for="lensNotes">Transcription / reading instructions</label><textarea id="lensNotes" placeholder="Your own phonetic, spatial, auditory, mirrored, kinetic, or reading preference for this lens."></textarea>
+<label for="readMode">Preview style — original text remains unchanged</label><select id="readMode"><option value="">Original stream</option><option value="focus">Focused reading column</option><option value="large">Large print</option><option value="contrast">High contrast</option></select>
+<div id="preview" class="preview" aria-label="Read-only manuscript preview">Add a manuscript to see a reading preview.</div>
+<button id="saveLenses" type="button">Export all 38 lens labels and notes</button>
+</div>
+<div class="panel"><h2>4 · KDP readiness and disclosure</h2>
+<p class="hint">Select accurate origins for text, cover, and translated content. The Transporter records answers for your review; it never answers Amazon's disclosure forms for you.</p>
+<label for="textOrigin">Text origin</label><select id="textOrigin"><option value="unreviewed">Not reviewed</option><option value="human">Human-written</option><option value="assisted">Human-written, tool-assisted editing only</option><option value="generated">Tool-generated text included</option></select>
+<label for="coverOrigin">Image/cover origin</label><select id="coverOrigin"><option value="unreviewed">Not reviewed</option><option value="human">Human-created / licensed</option><option value="assisted">Human-created, assisted only</option><option value="generated">Tool-generated imagery included</option><option value="none">No cover included</option></select>
+<label for="translationOrigin">Translation origin</label><select id="translationOrigin"><option value="unreviewed">Not reviewed</option><option value="none">No translation used</option><option value="human">Human translation</option><option value="assisted">Human translation, assisted only</option><option value="generated">Tool-generated translation included</option></select>
+<label for="coverFile">Optional eBook front-cover image (JPG/PNG)</label><input type="file" id="coverFile" accept="image/jpeg,image/png"/><img id="coverPreview" class="hidden" alt="Preview of selected cover"/><p id="coverStatus" class="hint">Amazon recommends 1600 × 2560 pixels. Print covers need separate KDP templates.</p>
+<label class="checkbox"><input type="checkbox" id="includeSource"/> Include exact original transcript in my private ZIP package (off by default)</label>
+<label class="checkbox"><input type="checkbox" id="rights"/> I will verify rights, privacy, facts, and the file preview before KDP submission.</label>
+<p class="note">No automatic KDP publication and no password or payment information collected. KDP may review/reject a title, and final publication approval takes place inside your Amazon account.</p>
+</div></section>
+<section class="panel"><h2>5 · The two-button handoff</h2><div class="grid">
+<div><button class="primary" id="makeKit">1 · MAKE MY BOOK PACKAGE<span style="display:block;font-size:.83rem;font-weight:500">EPUB + DOCX + transcript + metadata + optional cover</span></button></div>
+<div><button class="secondary" id="openKdp">2 · TAKE ME TO AMAZON KDP<span style="display:block;font-size:.83rem;font-weight:500">Sign in, check previews/disclosures, and submit yourself</span></button></div>
+</div><div id="status" class="status" role="status" aria-live="polite">Ready. Capture a source, edit your book, and make your package.</div><p class="hint">The buttons are honest: step 1 makes actual downloadable files; step 2 opens the official KDP website. The app does not log into KDP, fill Amazon forms, bypass reviews, or claim your book went live.</p></section>
+<footer><p>© Nathan Tabor · The Transcriber. An additive module of Nathan AI / TABOR FACTORY. <a href="README.md">Read the publishing and privacy notes</a>.</p></footer>
+</main></body></html>

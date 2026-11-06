@@ -86,6 +86,11 @@ jobs:
         run: node --test app-factory/universal-node/source-adapters.test.cjs
       - name: Verify DUMMIE packaging and provider handoff integrity
         run: node --test app-factory/dummie-publisher/publisher.test.cjs
+      - name: Verify Tabor Transcript Transporter EPUB Word and privacy gates
+        run: |
+          node --check app-factory/tabor-transcript-transporter/engine.js
+          node --check app-factory/tabor-transcript-transporter/ui.js
+          node --test app-factory/tabor-transcript-transporter/engine.test.cjs
       - name: Verify Greek mythology archive taxonomy and provenance
         run: node --test app-factory/mythology/greek/atlas.test.cjs
       - name: Verify Universal 13 tools inventory and geometry-game data integrity
