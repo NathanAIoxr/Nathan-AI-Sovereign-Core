@@ -122,13 +122,7 @@
 
   emergency.addEventListener('click', () => {
     cancelPending();
-    mode = policy.DEFAULT_MODE;
-    for (const b of document.querySelectorAll('[data-network-mode]')) {
-      b.setAttribute('aria-pressed', String(b.dataset.networkMode === mode));
-    }
-    details.textContent = modes[mode].desc;
-    command.textContent = modes[mode].cmd;
-    hostedLink.hidden = true;
+    selectMode(policy.DEFAULT_MODE);
     announce('EMERGENCY BRAKE ENGAGED. Outstanding network check cancelled; Wi-Fi-only restored. Original wording, local queue and files remain unchanged.');
   });
   selectMode(policy.DEFAULT_MODE);
