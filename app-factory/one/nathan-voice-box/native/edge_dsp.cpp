@@ -1,0 +1,66 @@
+// Nathan AI Voice Box / platform-neutral real-time DSP.
+// Copyright: project root license. No network, no heap allocation in audio callback.
+// Native host provides CoreAudio AudioUnit, Android AAudio/Oboe, or desktop audio routing.
+#include <algorithm>
+#include <cstddef>
+#include <cstdint>
+#include <new>
+#include <vector>
+
+namespace nathan {
+enum class Effect : int { Clean = 0, Cave = 1, Echo = 2, Wind = 3 };
+
+class EdgeDSP {
+ public:
+  EdgeDSP(int sample_rate, Effect effect)
+      : sample_rate_(sample_rate), effect_(effect),
+        ring_(static_cast<size_t>(sample_rate / ((effect == Effect::Cave) ? 6 : 9) + 1), 0.0f) {}
+
+  // Samples are planar or interleaved mono. Must be called only on the audio thread.
+  void process(float* samples, size_t count) noexcept {
+    if (!samples || effect_ == Effect::Clean) return;
+    for (size_t i = 0; i < count; ++i) {
+      const float x = samples[i];
+      const float delayed = ring_[head_];
+      ring_[head_] = x;
+      head_ = (head_ + 1) % ring_.size();
+      float y = x;
+      if (effect_ == Effect::Cave) {
+        y = 0.84f * x + 0.18f * delayed;
+      } else if (effect_ == Effect::Echo) {
+        y = 0.82f * x + 0.28f * delayed;
+      } else if (effect_ == Effect::Wind) {
+        state_ = 1664525u * state_ + 1013904223u;
+        const float u = static_cast<float>((state_ >> 16) & 65535u) / 65535.0f;
+        // Low-level audible sound texture; NOT 19 Hz infrasound or psychological manipulation.
+        y = 0.91f * x + 0.008f * (2.0f * u - 1.0f);
+      }
+      samples[i] = std::clamp(y, -0.96f, 0.96f);
+    }
+  }
+
+ private:
+  int sample_rate_;
+  Effect effect_;
+  std::vector<float> ring_;  // Pre-allocated at engine creation.
+  size_t head_ = 0;
+  uint32_t state_ = 1u;
+};
+}  // namespace nathan
+
+// Portable C ABI for JNI / Swift / C / Rust wrappers. Call create BEFORE audio callback.
+// Destroy only AFTER audio stream stops. Not designed for concurrent processing.
+extern "C" {
+void* nathan_edge_create(int sample_rate, int effect) noexcept {
+  if (sample_rate < 8000 || sample_rate > 192000 || effect < 0 || effect > 3)
+    return nullptr;
+  return new (std::nothrow)
+      nathan::EdgeDSP(sample_rate, static_cast<nathan::Effect>(effect));
+}
+void nathan_edge_process(void* ptr, float* samples, size_t count) noexcept {
+  if (ptr) static_cast<nathan::EdgeDSP*>(ptr)->process(samples, count);
+}
+void nathan_edge_destroy(void* ptr) noexcept {
+  delete static_cast<nathan::EdgeDSP*>(ptr);
+}
+}
