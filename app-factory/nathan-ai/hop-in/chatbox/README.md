@@ -109,3 +109,9 @@ Use `/eloher`, `/ella`, `/evangelist`, `/eve`, `/eave` or natural-language quest
 ## Complete A–Z catalog routes
 
 The local chatbox supports `/az`, `/alphabet`, `/categories`, `/apps`, `/games` and `/letter A` through `/letter Z` as source-preserving navigation into [the full 26-letter directory](../../../../archive-index/alphabet/index.html). Directory records retain authored letter assignments even when titles begin with other characters. Apple and Google Play category values are low-confidence suggestions for review, not store submissions. App/game/feature/book/source occurrence counts overlap. No original source files, chat sessions or linked ONE apps are changed by browsing.
+
+## Letter F, the Fabric of the Matrix, P Cut Open and Nordic Stick Language
+
+New source-preserving local routes: `/f`, `/letter-f`, `/fabric`, `/f-runes`, `/f-geometry` and `/f-sticks`. Natural queries including “fabric of the matrix”, “F as P cut open”, “fehu rune”, and “nordic stick language” open the [original interactive F laboratory](../../../../archive-index/alphabet/f/laboratory/index.html). It hosts 64 general-public F source title occurrences from the 6,056-row owner catalog, 15 separate F/P and rune reference records, and 150 independent Fabric-of-the-Matrix candidate links. Five F master-catalog titles with non-general privacy states remain excluded.
+
+The owner's wording `F is also a P cut open` is kept as an original structural interpretation. Elder/Younger Futhark ᚠ, elder ᛈ, and Celtic Ogham ᚃ each keep distinct script identities. The phrase “the language that looks like a stick figure stretching” is indexed as an author visual analogy and is not asserted as a historical rune translation. The original Taborite language app and books, E/3/M/W archive and other alphabetical departments are unchanged. This HOP IN response is source navigation, not a configured external generative model.
