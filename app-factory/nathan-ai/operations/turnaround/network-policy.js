@@ -13,7 +13,7 @@
     const h = String(hostname || '').replace(/^\[|\]$/g, '').toLowerCase();
     if (h === 'localhost' || h.endsWith('.localhost') || h.endsWith('.local') ||
         h === '127.0.0.1' || h === '::1') return true;
-    if (h.startsWith('fc') || h.startsWith('fd') || /^fe[89ab]/.test(h)) return true; // private/link-local IPv6 prefixes
+    if (h.includes(':') && (h.startsWith('fc') || h.startsWith('fd') || /^fe[89ab]/.test(h))) return true; // private/link-local IPv6 prefixes
     const octets = h.split('.');
     if (octets.length !== 4 || !octets.every(x => /^\d{1,3}$/.test(x) && Number(x) <= 255)) return false;
     const [a,b] = octets.map(Number);
