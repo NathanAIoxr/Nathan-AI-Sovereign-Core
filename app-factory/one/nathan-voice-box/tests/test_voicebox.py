@@ -22,7 +22,7 @@ class VoiceBoxTests(unittest.TestCase):
 
     def test_effects_are_deterministic_and_bounded(self):
         self.assertEqual(self.wav, v.process_macro(self.wav, "none"))
-        for effect in ("cave", "echo", "wind"):
+        for effect in ("cave", "echo", "wind", "speech-clean"):
             out = v.process_macro(self.wav, effect)
             self.assertEqual(out, v.process_macro(self.wav, effect))
             samples, rate = v._wav_samples(out)
