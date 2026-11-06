@@ -81,7 +81,7 @@ Downloading a model once for installation is different from cloud inference; ver
 ## Privacy and product limits
 
 - No analytics, cloud services, external browser scripts, voice uploads, secrets, or implicit recording. Sample recordings selected in Family Archive never reach the Python server.
-- No model weights are shipped; no voice cloning/training/reconstruction from a 3-second clip is implemented by this reference.
+- No model weights are shipped; authorized reference-audio **inference** is now optionally implemented with a separately installed ZipVoice model. No voice-cloning training or guarantee of 3-second fidelity is included.
 - Local WAV generation uses memory until a user deliberately saves audio. The separate private model directory is the owner's responsibility.
 - The private pack directory is Git-ignored. Encrypt production assets at rest with platform key storage; **this reference does not pretend the Secure Enclave stores whole model files**.
 - The loopback UI uses a random per-process session token, strict same-origin checks, and no CORS permission. It is a local development panel, not a production multi-user server.
