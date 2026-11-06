@@ -50,7 +50,7 @@ LOCAL PLAYBACK / DOWNLOAD ── system audio output / transducer
 
 **Micro implementation:** `voicebox.py` supplies local text input validation, offline eSpeak NG synthesis, a sherpa-onnx VITS model-pack adapter, and PCM WAV handling. No model is fetched automatically. eSpeak NG has broad but finite language/dialect coverage; installed models define the *actual* supported choices. BCP-47 support means the registry can name languages, **not** that speech generation in every one is solved.
 
-**Macro implementation:** independent deterministic `none`, `cave`, `echo`, and `wind` modes; 12 actual spectral energy buckets, RMS, peak, crest, zero-crossing rate, centroid, and normalized band entropy. These are signal measurements, not medical, emotional or truth detectors. No inaudible carrier is used to manipulate fear or behavior.
+**Macro implementation:** independent deterministic `none`, `cave`, `echo`, `wind`, and `speech-clean` modes (local high-pass plus smoothed noise gate, not neural denoising); 12 actual spectral energy buckets, RMS, peak, crest, zero-crossing rate, centroid, and normalized band entropy. These are signal measurements, not medical, emotional or truth detectors. No inaudible carrier is used to manipulate fear or behavior.
 
 **Mobile DSP:** `native/edge_dsp.cpp` exports a C ABI; its processing loop performs no heap allocation or network I/O. Connect to Apple AudioUnit/AVAudioEngine or Android AAudio/Oboe from the host app; device discovery, speaker/haptic capabilities, actuator limits, audio permissions and safe volume controls belong to the native host. Surface transducers are ordinary audio output peripherals, not a way around OS permissions.
 
