@@ -1,0 +1,22 @@
+name: iCuBUDDY · protection of innocence text integrity
+on:
+  pull_request:
+    paths:
+      - "app-factory/nathan-ai/self-help/**"
+      - ".github/workflows/self-help-innocence-ci.yml"
+  push:
+    paths:
+      - "app-factory/nathan-ai/self-help/**"
+      - ".github/workflows/self-help-innocence-ci.yml"
+permissions:
+  contents: read
+jobs:
+  source-and-safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify no generated grooming-style prompts; preserve original author principles
+        run: node --test app-factory/nathan-ai/self-help/index.test.cjs
