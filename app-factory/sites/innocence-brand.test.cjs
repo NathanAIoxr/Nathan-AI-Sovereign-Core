@@ -51,6 +51,6 @@ test('Branded JavaScript parses and new sites have no private intake/payment for
 });
 test('Public release builder includes editable branding assets',()=>{
  assert.match(read('tools/release/build.py'),/PUBLIC_ROOTS=.*'branding\/'/);
- assert.match(read('app-factory/nathan-ai/websites/registry.js'),/sites\/church-of-innocence\/index\.html/);
+ assert.match(read('app-factory/sites/portal.js'),/church-of-innocence/);
  assert.match(read('README.md'),/branding\/nathan-tabor-banner\.svg/);
 });
