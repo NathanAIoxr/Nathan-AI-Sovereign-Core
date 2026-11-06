@@ -1,0 +1,18 @@
+{
+  "name": "TTFES&BTP — The Tabor Finger Electric Slide and Button Tapping Process",
+  "short_name": "TTFES&BTP",
+  "description": "Independent source-preserving universal manual transporter by Nathan Tabor",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#09131d",
+  "theme_color": "#0c1421",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
