@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TTFES&amp;BTP — Finger Electric Slide</title>
+<style>:root{font:14px/1.45 system-ui,sans-serif;color:#f4f1e7;background:#0c1d29;color-scheme:dark}body{width:380px;max-width:100vw;min-height:260px;padding:15px;margin:0}h1{font-size:17px;line-height:1.2;margin:5px 0}p{color:#bacecf}textarea{width:100%;height:145px;box-sizing:border-box;border-radius:8px;border:1px solid #7193a1;background:#0b2837;color:white;padding:9px}button{background:#f0c875;color:#172532;border:0;border-radius:8px;padding:11px 13px;font-weight:850;cursor:pointer;width:100%;margin:10px 0}button:focus-visible,textarea:focus-visible{outline:3px solid #f0c875}#status{border:1px solid #486a77;border-radius:8px;white-space:pre-wrap;padding:10px;min-height:44px}.small{font-size:12px}</style>
+</head><body>
+<p class="small">NATHAN TABOR · TTFES&amp;BTP</p><h1>The Finger Electric Slide</h1>
+<p>Paste the <strong>active destination JSON</strong> from the standalone app, then click Inject. This places an owner-operated panel in the current page only.</p>
+<label for="draft">Draft JSON</label>
+<textarea id="draft" spellcheck="false" placeholder='{"schema":"ttfes-btp.standalone.v1",...}'></textarea>
+<button id="inject" type="button">OPEN FOCUS-AND-TAP CONTROLS</button>
+<output id="status" aria-live="polite">No page inspected or modified.</output>
+<p class="small">Uses activeTab + scripting only. Does not store data, send network requests, or click Save/Submit/Launch/Pay.</p>
+<script src="popup.js"></script></body></html>

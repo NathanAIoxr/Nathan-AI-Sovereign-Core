@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "TTFES&BTP Electric Slide Companion",
+  "version": "1.0.0",
+  "description": "Owner-directed, one-field-at-a-time transfer from a local TTFES&BTP JSON draft. No background activity, no remote APIs, no submits.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_title": "TTFES&BTP Electric Slide",
+    "default_popup": "popup.html"
+  },
+  "author": "Nathan Tabor"
+}

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0c1421"><meta name="description" content="TTFES&BTP by Nathan Tabor: standalone local-first creation and multi-destination field transport workstation.">
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml">
+<title>TTFES&BTP — The Tabor Finger Electric Slide and Button Tapping Process</title>
+<link rel="stylesheet" href="./styles.css">
+<script defer src="./catalog.js"></script><script defer src="./engine.js"></script><script defer src="./matrix-engine.js"></script><script defer src="./app.js"></script><script defer src="./matrix-ui.js"></script>
+</head><body>
+<a class="skip" href="#main">Skip to application</a>
+<header class="topbar">
+  <div class="brand"><div class="glyph" aria-hidden="true">T<span>↔</span>T</div><div><strong>TTFES&amp;BTP</strong><small>Independent Transporter · Nathan Tabor</small></div></div>
+  <div class="nav-actions"><a href="#source-panel">SOURCE</a><a href="#targets-panel">DESTINATIONS</a><a href="#work-panel">WORKBENCH</a><a href="#batch-panel">DEPLOYMENT</a><a href="./README.md">GUIDE</a></div>
+</header>
+<main id="main">
+ <section class="hero">
+  <p class="eyebrow">THE TABOR FINGER ELECTRIC SLIDE AND BUTTON TAPPING PROCESS</p>
+  <h1>BUILD IT ALL.<br><span>SLIDE IT EVERYWHERE.</span></h1>
+  <p class="lede">One complete, freestanding command center. Original work stays original. Develop one canonical source, map any number of destination workspaces, generate the package, and let your finger handle the taps. Local tools work without provider accounts, servers, paid services, or API keys.</p>
+  <div class="hero-stats">
+    <div><strong id="stat-targets">—</strong><span>destinations</span></div>
+    <div><strong id="stat-sectors">—</strong><span>operational sectors</span></div>
+    <div><strong>0</strong><span>required subscriptions</span></div>
+    <div><strong>1 + 1 = 2</strong><span>BUILD / 1 − 1 = 0 CLEAR</span></div>
+  </div>
+  <div class="actions">
+    <a class="action gold" href="#source-panel">START THE ELECTRIC SLIDE</a>
+    <a class="action" href="#targets-panel">EXPLORE THE FULL MATRIX</a>
+  </div>
+ </section>
+ <section class="principles" aria-label="The Four Planes">
+  <article><span class="step">01</span><h2>GEOMETRY</h2><p>Source coordinates, letter shapes, structures, stacks, grids and dimensions.</p></article>
+  <article><span class="step">02</span><h2>LOGIC</h2><p>Validate derived states without deleting your original. Build or clear the transformation.</p></article>
+  <article><span class="step">03</span><h2>PHONETICS</h2><p>Sounds, mirrored text, acrostics, ciphers and classifications as separate labeled layers.</p></article>
+  <article><span class="step">04</span><h2>DEPLOYMENT</h2><p>Generate, inspect, copy, export and hand off through owner-approved steps.</p></article>
+ </section>
+ <section class="card" id="source-panel">
+  <div class="heading"><div><span class="eyebrow">INPUT · SOURCE VAULT</span><h2>01 / Preserve the original</h2></div><span class="pill">On this device only</span></div>
+  <p>Paste original material or load an existing UTF-8 file. Transformed field drafts never overwrite the source. Imported file bytes are separately retained in the exported ZIP unless the text is edited.</p>
+  <div class="cols-3">
+   <label>Project title<input id="project-title" type="text" value="The Tabor Finger Electric Slide" maxlength="200"></label>
+   <label>Creator<input id="creator" type="text" value="Nathan Tabor" maxlength="150"></label>
+   <label>Source reference<input id="source-reference" type="text" value="Master source / original" maxlength="140"></label>
+  </div>
+  <label>Original source<textarea id="original-source" rows="11" spellcheck="false" placeholder="Paste the exact original content here. Keep your independent original file as an additional backup."></textarea></label>
+  <div class="actions wrap">
+   <label class="file-button">LOAD ORIGINAL TXT / MD<input id="source-file" type="file" accept=".txt,.md,text/plain,text/markdown" hidden></label>
+   <button id="source-hash" type="button">FINGERPRINT ORIGINAL</button>
+   <button id="save-original" type="button">SAVE ORIGINAL TEXT</button>
+   <button id="restore-source" type="button" title="Restore last file-loaded original bytes">RESTORE IMPORTED FILE</button>
+  </div>
+  <output class="output" id="source-status" aria-live="polite">No source loaded. Files are not uploaded to GitHub or outside services.</output>
+ </section>
+ <section class="card" id="matrix-panel">
+  <div class="heading"><div><span class="eyebrow">LEARNING STACKS · GRIDS · DIMENSIONS</span><h2>01B / The original-to-derived Matrix Studio</h2></div><span class="pill">Source never overwritten</span></div>
+  <p>Work with the exact original as a separate immutable record. The derived layer can be reversed, indexed, arranged into a word grid or treated with the creator-defined binary BUILD/CLEAR operations. Each transformation is explicitly labeled as an interpretation.</p>
+  <div class="cols-3">
+   <label>Operating plane<select id="matrix-plane"><option value="Geometry">Geometry</option><option value="Logic">Logic</option><option value="Phonetic">Phonetic</option><option value="Deployment">Deployment</option></select></label>
+   <label>Transformation<select id="matrix-mode"></select></label>
+   <label>Stack/register<select id="matrix-stack"></select></label>
+  </div>
+  <div class="actions wrap">
+   <button type="button" id="matrix-derive">BUILD DERIVED VIEW</button>
+   <button type="button" id="matrix-export">EXPORT SOURCE + DERIVATIVE JSON</button>
+   <button type="button" id="matrix-copy">COPY DERIVED LAYER</button>
+  </div>
+  <label>Derived view (read-only)<textarea id="matrix-output" rows="9" readonly spellcheck="false" placeholder="Original content has not been transformed or overwritten."></textarea></label>
+  <output id="matrix-status" class="output" aria-live="polite">Select a plane and transformation after entering your original source. No historical or clinical status is implied.</output>
+  <details>
+   <summary>38 user-defined reading / transcription lens slots</summary>
+   <p>These are 38 <strong>editable creator-defined placeholders</strong>, not a standardized clinical classification. Label them in your own language and export the names as a separate data file.</p>
+   <div id="lens-list" class="field-grid"></div>
+   <button id="save-lenses" type="button">SAVE 38 LENS DEFINITIONS JSON</button>
+  </details>
+  <p class="muted" id="matrix-coordinates">4 planes · 9 axes · 11 stacks · 13 derived modes · 38 empty author-defined lenses.</p>
+ </section>
+ <section class="card" id="targets-panel">
+  <div class="heading"><div><span class="eyebrow">MATRIX · EVERY TARGET</span><h2>02 / Select the destinations</h2></div><span class="pill">No hidden APIs</span></div>
+  <p>This catalog includes the platform groups you specified and additional targets. Every destination has a working <strong>local planning/export template</strong>. It does not claim working account access, automated submissions, or officially verified import fields.</p>
+  <div class="cols-3">
+   <label>Search across sectors, platforms and fields<input id="search" type="search" placeholder="Government, NFT, ISBN, Amazon, GitHub…"></label>
+   <label>Sector<select id="sector-filter"><option value="">All sectors</option></select></label>
+   <label>Workflow<select id="workflow-filter"><option value="">All workflows</option><option value="local">Local preparation</option><option value="manual">Manual research / review</option><option value="restricted">Human-only regulated submission</option></select></label>
+  </div>
+  <div class="actions wrap"><button id="add-visible" type="button">ADD FILTERED TARGETS</button><button id="remove-all" type="button">CLEAR TARGET SELECTION</button></div>
+  <p class="muted"><span id="target-summary">Loading targets…</span></p>
+  <div class="target-grid" id="target-list" aria-live="polite"></div>
+ </section>
+ <section class="card" id="work-panel">
+  <div class="heading"><div><span class="eyebrow">BUILD · PERSONAL WORKBENCH</span><h2>03 / Map the complete payload</h2></div><span class="pill">Editable local fields</span></div>
+  <p>Select a destination, write its campaign/product/application metadata, or generate a ChatGPT prompt that keeps source material separate. All prepared values remain local until you explicitly export or copy them.</p>
+  <div id="selected-tags" class="selected-tags"></div>
+  <div class="cols-2">
+   <label>Active destination<select id="active-target"><option value="">Add a destination first</option></select></label>
+   <label>Field for one-tap copying<select id="field-copy"><option value="">Choose a destination</option></select></label>
+  </div>
+  <div id="form-fields" class="field-grid"></div>
+  <div class="actions wrap">
+   <button id="make-prompt" type="button">MAKE CHATGPT CREATIVE PAYLOAD PROMPT</button>
+   <button id="copy-field" type="button">COPY SELECTED FIELD</button>
+   <button id="make-preview" type="button">SHOW READABLE PREVIEW</button>
+  </div>
+  <details id="preview-wrap"><summary>Preview / prompt editor</summary><textarea id="preview" rows="12" spellcheck="false" readonly></textarea><div class="actions"><button id="copy-preview" type="button">COPY PREVIEW</button><button id="save-preview" type="button">SAVE PREVIEW TEXT</button></div></details>
+  <output class="output" id="field-status" aria-live="polite">Add a destination to begin mapping. All certification/account fields are locked out of exported draft values.</output>
+ </section>
+ <section class="card" id="batch-panel">
+  <div class="heading"><div><span class="eyebrow">SHIP · ALL WORKSPACES</span><h2>04 / The Electric Slide transport deck</h2></div><span class="pill">Owner-initiated only</span></div>
+  <p>The same source can produce separate drafts for every selected destination in one ZIP, with a readable record of which site each draft belongs to. A download or copy is never treated as a live submission.</p>
+  <div class="cols-2">
+   <div>
+    <h3>Selected batch</h3>
+    <div class="batch-list" id="batch-list"></div>
+   </div>
+   <div>
+    <h3>Optional local assets</h3>
+    <p>Include artwork, product photos, manuscripts, CSV references or other files you own. Max 30 files / 32 MiB total; no upload to this service.</p>
+    <label class="file-button inline">ATTACH SOURCE ASSETS<input id="asset-files" type="file" multiple hidden></label>
+    <ul id="asset-list" class="muted"></ul>
+   </div>
+  </div>
+  <div class="review-grid" aria-label="Creator review requirements">
+   <label><input type="checkbox" id="review-rights"> I reviewed rights, attributions and ownership.</label>
+   <label><input type="checkbox" id="review-claims"> I reviewed factual claims, prices, rewards and delivery.</label>
+   <label><input type="checkbox" id="review-government"> I understand government/legal filings and financial attestations require official-site review and submission.</label>
+  </div>
+  <div class="actions wrap">
+   <button class="gold" id="export-batch" type="button">BUILD + DOWNLOAD FULL BATCH ZIP</button>
+   <button id="export-project" type="button">SAVE EDITABLE WORKSPACE JSON</button>
+   <label class="file-button">RESTORE WORKSPACE JSON<input type="file" id="import-project" accept=".json,application/json" hidden></label>
+   <button id="export-csv" type="button">DOWNLOAD ALL FIELD MAPPINGS CSV</button>
+   <button id="export-json" type="button">DOWNLOAD ACTIVE DESTINATION JSON</button>
+  </div>
+  <output class="output" id="batch-status" aria-live="polite">Nothing submitted or published. No external platform connected.</output>
+  <details><summary>Local action ledger</summary><ol id="action-log" class="log"></ol><button type="button" id="download-log">DOWNLOAD ACTION LEDGER</button></details>
+ </section>
+ <section class="card" id="companion-panel">
+  <div class="heading"><div><span class="eyebrow">CLICK · HUMAN CONTROL</span><h2>05 / The Finger Electric Slide</h2></div><span class="pill">Manual focus-and-tap</span></div>
+  <p>The optional browser extension uses only the <code>activeTab</code> permission. Click it for the site you're operating, paste one of this application's JSON drafts, and transfer one chosen value to a field you focus. It does not click Launch, Submit, Save, Accept or Pay.</p>
+  <div class="actions wrap">
+   <a class="action" href="./extension/manifest.json">VIEW EXTENSION MANIFEST</a>
+   <a class="action" href="./GUIDE.md">READ SETUP / GOVERNMENT GUIDANCE</a>
+   <a class="action" href="./SCOPE.md">READ FULL SCOPE INDEX</a>
+  </div>
+  <div class="warning"><strong>Government and finance:</strong> prepare narratives, identifiers, grants and budget explanations in local drafts. Do not put taxpayer IDs, bank details, credentials, private keys, medical records, or signed certifications here. Complete legal declarations and submissions on each official service under your own account.</div>
+ </section>
+</main>
+<footer><div><strong>TTFES&amp;BTP</strong> · The Tabor Finger Electric Slide and Button Tapping Process · Creator Nathan Tabor</div>
+<div>Originals kept separate · No subscriptions · No remote requests · No invented platform access</div>
+<a href="./LICENSE">Open-source MIT license</a> · <a href="./README.md">Documentation</a></footer>
+</body></html>
