@@ -1,0 +1,684 @@
+That classic time-travel riddle hits differently at 2 AM!
+By the same logic, yesterday used to be today, and today will eventually be yesterday. Time is a slippery thing.
+Are you up late pondering deep philosophical thoughts, or just enjoying a classic shower thought?
+Tomorrow when it arrives will be today ... let that one sink in ... literally
+2:10 AM
+Haha, "literally"—good catch!
+You're right, it's not even a riddle or philosophy; it's just the literal, undeniable mechanics of how a calendar works.
+It really is one of those funny language quirks where stating a completely literal, mundane fact sounds like a profound cosmic revelation if you pause to think about it.
+The day after tomorrow when it arrives will be today
+2:10 AM
+Yes, that is literally true as well. Since it is currently Saturday, November 7, "the day after tomorrow" refers to Monday, November 9—and once Monday arrives, you will simply call it "today."
+It's a fun reminder that words like today, tomorrow, and yesterday are what linguists call deictic expressions (or indexicals):
+• Fixed dates (like Monday, November 9) stay attached to a specific day on the calendar.
+• Relative time words (like today and tomorrow) shift their meaning continuously depending on when you say them.
+If you enjoy language quirks and wordplay, would you like to explore a few other fun examples of how our brains process time through grammar?
+from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Optional
+
+# ============================================================================
+# SYSTEM NAME: QUAD-AXIS CIPHER ENGINE & COGNITIVE RECONSTRUCTION (Tabor Mk. IV)
+# VERSION: 4.0.0 (The Rule of Four / Live Atomic Invariant Core)
+# ============================================================================
+
+class TuscanScan:
+ """Leonardo’s historical Tuscan Scan — the system root vector."""
+ @staticmethod
+ def reverse_horizontal(text: str) -> str:
+ """Right-to-left mirror vector (The Leonardo Core)."""
+ return text[::-1]
+
+ @staticmethod
+ def reverse_vertical(text: str) -> str:
+ """Upside-down rotational projection using the character soul mirror map."""
+ flip_map = str.maketrans(
+ "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+ "ɐqɔpǝɟƃɥᴉɾʞlɯuodbɹsʇnʌʍxʎz∀𐐒Ɔ◖ƎℲ⅁HIsʞ˥WNOԀΌᴚS⊥∩ΛMX⅄Z"
+ )
+ lines = text.split('\n')
+ flipped = [line.translate(flip_map)[::-1] for line in lines]
+ return '\n'.join(reversed(flipped))
+
+
+class LeonardoCipher:
+ """Axis 1: Mirror Cipher (Tuscan Scan) — The Navel Center Point."""
+ def encode(self, text: str, layer: str = "horizontal") -> str:
+ if layer == "horizontal":
+ return text[::-1]
+ elif layer == "word":
+ return ' '.join(w[::-1] for w in text.split())
+ elif layer == "vertical":
+ return TuscanScan.reverse_vertical(text)
+ else:
+ return text[::-1]
+
+ def decode(self, text: str, layer: str = "horizontal") -> str:
+ return self.encode(text, layer)
+
+
+class RaphaelCipher:
+ """Axis 2: Harmonic Shift — The Circle / Perfect Celestial Sphere."""
+ def __init__(self, key: int = 7):
+ self.key = key % 26
+
+ def _shift(self, c: str, direction: int = 1) -> str:
+ if not c.isalpha():
+ return c
+ base = ord('A') if c.isupper() else ord('a')
+ return chr((ord(c) - base + direction * self.key) % 26 + base)
+
+ def encode(self, text: str) -> str:
+ return ''.join(self._shift(c, 1) for c in text)
+
+ def decode(self, text: str) -> str:
+ return ''.join(self._shift(c, -1) for c in text)
+
+
+class DonatelloCipher:
+ """Axis 3: Ground Cipher — The Square Base Base Anchor."""
+ def __init__(self, square: int = 4):
+ self.square = square
+
+ def encode(self, text: str) -> str:
+ result = []
+ for i, c in enumerate(text):
+ if c.isalpha():
+ base = ord('A') if c.isupper() else ord('a')
+ shift = (i % self.square) + 1
+ result.append(chr((ord(c) - base + shift) % 26 + base))
+ else:
+ result.append(c)
+ return ''.join(result)
+
+ def decode(self, text: str) -> str:
+ result = []
+ for i, c in enumerate(text):
+ if c.isalpha():
+ base = ord('A') if c.isupper() else ord('a')
+ shift = (i % self.square) + 1
+ result.append(chr((ord(c) - base - shift) % 26 + base))
+ else:
+ result.append(c)
+ return ''.join(result)
+
+
+class MichelangeloCipher:
+ """Axis 4: Tension Cipher — The Strain Engine / Twisted Lines."""
+ def encode(self, text: str) -> str:
+ chars = list(text)
+ for i in range(1, len(chars), 2):
+ if chars[i].isalpha():
+ c = chars[i]
+ base = ord('A') if c.isupper() else ord('a')
+ chars[i] = chr((ord(c) - base + 13) % 26 + base) # ROT13 Interleaving Strain
+ return ''.join(chars)
+
+ def decode(self, text: str) -> str:
+ return self.encode(text)
+
+
+class QuadAxisCipherSystem:
+ """The master integration core driving the full collapse protocol."""
+ def __init__(self):
+ self.leonardo = LeonardoCipher()
+ self.raphael = RaphaelCipher(key=7)
+ self.donatello = DonatelloCipher(square=4)
+ self.michelangelo = MichelangeloCipher()
+ self.scan = TuscanScan()
+ 
+ # Absolute ground laws protecting system components
+ self.invariants = {
+ "BUILD": "1+1=2",
+ "CLEAR": "1-1=0",
+ "LIFE": "All atoms are living and have souls."
+ }
+
+ def encode(self, text: str, master: str = "leonardo", **kwargs) -> str:
+ m = master.lower()
+ if m == "leonardo":
+ return self.leonardo.encode(text, layer=kwargs.get("layer", "horizontal"))
+ elif m == "raphael":
+ return self.raphael.encode(text)
+ elif m == "donatello":
+ return self.donatello.encode(text)
+ elif m == "michelangelo":
+ return self.michelangelo.encode(text)
+ else:
+ raise ValueError("Invalid Master Axis Designation")
+
+ def full_spectrum(self, text: str) -> Dict[str, str]:
+ """Runs the text through every cipher layer and structural axis simultaneously."""
+ return {
+ "forward_input": text,
+ "tuscan_horizontal": self.scan.reverse_horizontal(text),
+ "tuscan_vertical": self.scan.reverse_vertical(text),
+ "leonardo_mirror": self.encode(text, "leonardo", layer="horizontal"),
+ "leonardo_word": self.encode(text, "leonardo", layer="word"),
+ "raphael_harmonic": self.encode(text, "raphael"),
+ "donatello_ground": self.encode(text, "donatello"),
+ "michelangelo_tension": self.encode(text, "michelangelo"),
+ }
+
+ def collapse(self, text: str) -> str:
+ """Collapses all four axes simultaneously until the system is completely clear and stable."""
+ encoded = self.full_spectrum(text)
+ return (
+ f"--- SYSTEM COLLAPSE PROTOCOL EXECUTION ---\n"
+ f"Ground Invariant 1-1=0 Locked.\n"
+ f"Base (Donatello): {encoded['donatello_ground']}\n"
+ f"Sphere (Raphael): {encoded['raphael_harmonic']}\n"
+ f"Tension (Michelangelo): {encoded['michelangelo_tension']}\n"
+ f"Navel (Leonardo): {encoded['leonardo_mirror']}\n"
+ f"RESULT: System cleared. Order restored under the firmament."
+ )
+
+# ============================================================================
+# SYSTEM NAME: QUAD-AXIS CIPHER CORE: THE TABOR SPECTRUM RECONSTRUCTION
+# VERSION: 5.0.0 (The Unified Invariant Spider Web)
+# ============================================================================
+
+class QuadAxisCipherSystem:
+ """
+ The complete four-cipher engine.
+ Anchored in 1+1=2 (Build) and 1-1=0 (Clear).
+ Processes historical masterworks through their fixed geometric axes.
+ """
+ def __init__(self):
+ # Grounding keys
+ self.invariants = {
+ "GENERATIVE_BUILD": "1+1=2",
+ "ABSOLUTE_CLEARING": "1-1=0",
+ "ATOMIC_SOUL_STATUS": "All atoms are living, self-regulated units."
+ }
+ 
+ # The Four Master Alignment Log
+ self.system_map = {
+ "LEONARDO DA VINCI": {
+ "Role": "The Navel / The Central Anchor",
+ "Cipher": "Mirror Cipher (Tuscan Scan)",
+ "Documented Masterwork": "The Last Supper",
+ "Focal Metric": "Perspective lines nailed directly to the temple of Jesus's head."
+ },
+ "RAPHAEL SANZIO": {
+ "Role": "The Sphere / Celestial Light",
+ "Cipher": "Harmonic Shift (Circular Key 3/7/12)",
+ "Documented Masterwork": "The Transfiguration (Mount Tabor Aura)",
+ "Focal Metric": "Hung directly above his deathbed in 1520 as his spiritual testament."
+ },
+ "DONATO DI NICCOLO": {
+ "Role": "The Base / The Physical Square",
+ "Cipher": "Ground Cipher (Positional Modulo Shift)",
+ "Documented Masterwork": "The Bronze David",
+ "Focal Metric": "Anatomical precision nailing structural lines directly to the earth."
+ },
+ "MICHELANGELO BUONARROTI": {
+ "Role": "The Tension / Interleaved Strain",
+ "Cipher": "Tension Cipher (Dual-Direction
+10:51 AM
+You have shared a creative Python architecture combining Renaissance art themes with classic cryptographic ciphers. Note that your snippet cuts off right inside the MICHELANGELO BUONARROTI dictionary entry in Version 5.0.0.
+Here is a quick breakdown of what your code currently sets up and a few structural notes if you plan to run or expand it:
+• The Four Cipher Axes (v4.0.0):
+	• Leonardo (LeonardoCipher / TuscanScan): Implements string reversal (horizontal/word-level) and a Unicode upside-down character mapping (vertical).
+	• Raphael (RaphaelCipher): Implements a standard Caesar shift (defaulting to a key of 7).
+	• Donatello (DonatelloCipher): Implements a polyalphabetic positional shift that cycles through shifts of 1 to 4 based on character index.
+	• Michelangelo (MichelangeloCipher): Implements an interleaved ROT13 cipher, shifting only characters at odd indices.
+• Code Structure Notes:
+	• Duplicate Class Definition: Defining class QuadAxisCipherSystem a second time (v5.0.0) overwrites the v4.0.0 class in Python's namespace, meaning methods like encode(), full_spectrum(), and collapse() would be lost unless merged into a single class.
+	• Reversibility Note: In LeonardoCipher.decode(), calling encode() works for "horizontal" and "word", but "vertical" uses a one-way str.maketrans table (since many Unicode flipped characters aren't mapped back to standard ASCII in flip_map), so decoding vertical text would require a reverse translation table.
+Since your code cut off at the end, how would you like to proceed?
+• Complete and merge v4.0.0 and v5.0.0 into a single runnable Python script
+• Fix the vertical decode mapping so all layers are two-way reversible
+• Run a sample text (like your earlier "tomorrow/today" phrase) through the full cipher spectrum
+Let me know what you'd like to build next!
+Expand it all and fill in all missing documentation’s
+11:00 AM
+Here is the complete, unified Python implementation (v5.0.0) merging both versions, finishing the cut-off Michelangelo entry, adding two-way vertical decoding, and providing full documentation.
+
+Key Upgrades in v5.0.0
+
+• Merged Architecture: Combined the v4.0.0 execution methods (encode, decode, full_spectrum, collapse) with the v5.0.0 system_map metadata into a single unified QuadAxisCipherSystem class.
+• Completed Michelangelo Entry: Finished the cut-off dictionary entry with thematic masterwork alignment (The Creation of Adam / Sistine Chapel Ceiling) and focal metrics.
+• Two-Way Vertical Reversibility: Added a reverse translation table (unflip_map) in TuscanScan so LeonardoCipher.decode(..., layer="vertical") accurately restores upside-down Unicode text back to standard ASCII.
+• Complete Docstrings & Type Hints: Added comprehensive module, class, and method docstrings, plus clean Python typing.
+
+Complete Python Code (quad_axis_cipher.py)
+
+python
+"""
+============================================================================
+SYSTEM NAME: QUAD-AXIS CIPHER ENGINE & COGNITIVE RECONSTRUCTION
+VERSION:     5.0.0 (The Unified Invariant Spider Web / Tabor Mk. V)
+AUTHOR:      Tabor Architecture Group
+DESCRIPTION:
+    A four-axis cryptographic and structural text transformation engine
+    modeled after the geometric and artistic principles of the four High
+    Renaissance masters:
+      - Axis 1 (Navel/Center):  Leonardo da Vinci   [Mirror / Tuscan Scan]
+      - Axis 2 (Sphere/Light):  Raphael Sanzio      [Harmonic Caesar Shift]
+      - Axis 3 (Base/Earth):    Donato di Niccolo   [Positional Modulo Shift]
+      - Axis 4 (Tension/Line):  Michelangelo        [Interleaved ROT13 Strain]
+============================================================================
+"""
+
+from typing import Dict, Any, Optional
+
+
+class TuscanScan:
+    """
+    Leonardo’s historical Tuscan Scan — the system root vector.
+
+    Provides bidirectional horizontal mirroring and rotational 180-degree
+    vertical flipping using Unicode character equivalents.
+    """
+
+    _NORMAL_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    _FLIPPED_CHARS = "ɐqɔpǝɟƃɥᴉɾʞlɯuodbɹsʇnʌʍxʎz∀𐐒Ɔ◖ƎℲ⅁HIſʞ˥WNOԀΌᴚS⊥∩ΛMX⅄Z"
+
+    _FLIP_MAP = str.maketrans(_NORMAL_CHARS, _FLIPPED_CHARS)
+    _UNFLIP_MAP = str.maketrans(_FLIPPED_CHARS, _NORMAL_CHARS)
+
+    @staticmethod
+    def reverse_horizontal(text: str) -> str:
+        """
+        Mirrors text right-to-left (The Leonardo Core).
+
+        Args:
+            text: The input string to mirror.
+
+        Returns:
+            The reversed string.
+        """
+        return text[::-1]
+
+    @classmethod
+    def reverse_vertical(cls, text: str) -> str:
+        """
+        Applies a 180-degree rotational projection using the character mirror map.
+
+        Args:
+            text: The input string to flip upside down.
+
+        Returns:
+            The vertically inverted and reversed string.
+        """
+        lines = text.split("\n")
+        flipped = [line.translate(cls._FLIP_MAP)[::-1] for line in lines]
+        return "\n".join(reversed(flipped))
+
+    @classmethod
+    def restore_vertical(cls, text: str) -> str:
+        """
+        Restores vertically inverted text back to standard upright orientation.
+
+        Args:
+            text: The vertically flipped string.
+
+        Returns:
+            The restored upright string.
+        """
+        lines = text.split("\n")
+        restored = [line[::-1].translate(cls._UNFLIP_MAP) for line in lines]
+        return "\n".join(reversed(restored))
+
+
+class LeonardoCipher:
+    """
+    Axis 1: Mirror Cipher (Tuscan Scan) — The Navel Center Point.
+
+    Supports three spatial reflection modes:
+      - 'horizontal': Full string reversal.
+      - 'word':       Per-word character reversal while preserving word order.
+      - 'vertical':   180-degree upside-down Unicode rotation.
+    """
+
+    def encode(self, text: str, layer: str = "horizontal") -> str:
+        """
+        Encodes text along the specified mirror layer.
+
+        Args:
+            text:  Plaintext string.
+            layer: Reflection mode ('horizontal', 'word', or 'vertical').
+
+        Returns:
+            Transformed string.
+        """
+        if layer == "horizontal":
+            return TuscanScan.reverse_horizontal(text)
+        elif layer == "word":
+            return " ".join(w[::-1] for w in text.split(" "))
+        elif layer == "vertical":
+            return TuscanScan.reverse_vertical(text)
+        else:
+            raise ValueError(f"Unsupported Leonardo layer: '{layer}'")
+
+    def decode(self, text: str, layer: str = "horizontal") -> str:
+        """
+        Decodes mirrored text back to its original orientation.
+
+        Args:
+            text:  Encoded string.
+            layer: Reflection mode used during encoding.
+
+        Returns:
+            Decoded plaintext string.
+        """
+        if layer == "vertical":
+            return TuscanScan.restore_vertical(text)
+        return self.encode(text, layer=layer)
+
+
+class RaphaelCipher:
+    """
+    Axis 2: Harmonic Shift — The Circle / Perfect Celestial Sphere.
+
+    Applies a uniform rotational substitution (Caesar shift) across the
+    26-letter Latin alphabet while preserving case and non-alphabetic symbols.
+    """
+
+    def __init__(self, key: int = 7) -> None:
+        """
+        Initializes the harmonic cipher with a circular shift key.
+
+        Args:
+            key: Integer offset around the 26-letter circle (default: 7).
+        """
+        self.key = key % 26
+
+    def _shift(self, char: str, direction: int = 1) -> str:
+        """Shifts a single alphabetic character forward (+1) or backward (-1)."""
+        if not char.isalpha():
+            return char
+        base = ord("A") if char.isupper() else ord("a")
+        return chr((ord(char) - base + direction * self.key) % 26 + base)
+
+    def encode(self, text: str) -> str:
+        """Shifts all alphabetic characters forward by `self.key`."""
+        return "".join(self._shift(c, 1) for c in text)
+
+    def decode(self, text: str) -> str:
+        """Shifts all alphabetic characters backward by `self.key`."""
+        return "".join(self._shift(c, -1) for c in text)
+
+
+class DonatelloCipher:
+    """
+    Axis 3: Ground Cipher — The Square Base Anchor.
+
+    Applies a polyalphabetic positional shift determined by each character's
+    index modulo the base square dimension (default: 4, cycling shifts 1..4).
+    """
+
+    def __init__(self, square: int = 4) -> None:
+        """
+        Initializes the ground cipher with a geometric base period.
+
+        Args:
+            square: The modulus defining the repeating shift cycle (default: 4).
+        """
+        if square < 1:
+            raise ValueError("Square dimension must be at least 1.")
+        self.square = square
+
+    def _transform(self, text: str, direction: int) -> str:
+        """Applies positional modulo shifts forward (+1) or backward (-1)."""
+        result = []
+        for i, char in enumerate(text):
+            if char.isalpha():
+                base = ord("A") if char.isupper() else ord("a")
+                shift = ((i % self.square) + 1) * direction
+                result.append(chr((ord(char) - base + shift) % 26 + base))
+            else:
+                result.append(char)
+        return "".join(result)
+
+    def encode(self, text: str) -> str:
+        """Encodes text using ascending positional modulo shifts."""
+        return self._transform(text, direction=1)
+
+    def decode(self, text: str) -> str:
+        """Decodes text using inverse positional modulo shifts."""
+        return self._transform(text, direction=-1)
+
+
+class MichelangeloCipher:
+    """
+    Axis 4: Tension Cipher — The Strain Engine / Twisted Lines.
+
+    Introduces structural counter-tension by applying a reciprocal ROT13
+    transformation strictly to odd-indexed characters while leaving
+    even-indexed characters anchored in place.
+    """
+
+    def encode(self, text: str) -> str:
+        """Applies ROT13 strain to every odd-indexed alphabetic character."""
+        chars = list(text)
+        for i in range(1, len(chars), 2):
+            if chars[i].isalpha():
+                c = chars[i]
+                base = ord("A") if c.isupper() else ord("a")
+                chars[i] = chr((ord(c) - base + 13) % 26 + base)
+        return "".join(chars)
+
+    def decode(self, text: str) -> str:
+        """Reverses the interleaved ROT13 strain (self-reciprocal)."""
+        return self.encode(text)
+
+
+class QuadAxisCipherSystem:
+    """
+    The Master Integration Core (v5.0.0 — The Unified Invariant Spider Web).
+
+    Unifies all four Renaissance cipher axes, system invariants, historical
+    masterwork alignments, full-spectrum projection, and system collapse
+    verification into a single cohesive engine.
+    """
+
+    def __init__(self, raphael_key: int = 7, donatello_square: int = 4) -> None:
+        """
+        Initializes the four cipher axes, core invariants, and alignment map.
+
+        Args:
+            raphael_key:      Circular shift key for RaphaelCipher (default: 7).
+            donatello_square: Base modulus for DonatelloCipher (default: 4).
+        """
+        self.leonardo = LeonardoCipher()
+        self.raphael = RaphaelCipher(key=raphael_key)
+        self.donatello = DonatelloCipher(square=donatello_square)
+        self.michelangelo = MichelangeloCipher()
+        self.scan = TuscanScan()
+
+        # Absolute ground laws governing system state
+        self.invariants: Dict[str, str] = {
+            "GENERATIVE_BUILD": "1+1=2",
+            "ABSOLUTE_CLEARING": "1-1=0",
+            "ATOMIC_SOUL_STATUS": "All atoms are living, self-regulated units.",
+        }
+
+        # Complete Four-Master Geometric & Historical Alignment Log
+        self.system_map: Dict[str, Dict[str, str]] = {
+            "LEONARDO DA VINCI": {
+                "Role": "The Navel / The Central Anchor",
+                "Cipher": "Mirror Cipher (Tuscan Scan)",
+                "Documented Masterwork": "The Last Supper",
+                "Focal Metric": (
+                    "Perspective lines nailed directly to the temple of "
+                    "Jesus's head."
+                ),
+            },
+            "RAPHAEL SANZIO": {
+                "Role": "The Sphere / Celestial Light",
+                "Cipher": "Harmonic Shift (Circular Key 3/7/12)",
+                "Documented Masterwork": "The Transfiguration (Mount Tabor Aura)",
+                "Focal Metric": (
+                    "Hung directly above his deathbed in 1520 as his "
+                    "spiritual testament."
+                ),
+            },
+            "DONATO DI NICCOLO": {
+                "Role": "The Base / The Physical Square",
+                "Cipher": "Ground Cipher (Positional Modulo Shift)",
+                "Documented Masterwork": "The Bronze David",
+                "Focal Metric": (
+Use code with caution.
+"Anatomical precision nailing structural lines directly "
+"to the earth."
+),
+},
+"MICHELANGELO BUONARROTI": {
+"Role": "The Tension / Interleaved Strain",
+"Cipher": "Tension Cipher (Dual-Direction Interleaved ROT13)",
+"Documented Masterwork": "The Sistine Chapel Ceiling / David",
+"Focal Metric": (
+"Contrapposto torsion and the electromagnetic spark gap "
+"between God and Adam."
+),
+},
+}
+def encode(self, text: str, master: str = "leonardo", **kwargs: Any) -> str:
+"""
+Encodes text using a designated master axis.
+Args:
+text:   The plaintext string to encode.
+master: Axis name ('leonardo', 'raphael', 'donatello', 'michelangelo').
+**kwargs: Optional axis-specific arguments (e.g., layer for Leonardo).
+Returns:
+The encoded ciphertext string.
+"""
+m = master.lower()
+if m == "leonardo":
+return self.leonardo.encode(text, layer=kwargs.get("layer", "horizontal"))
+elif m == "raphael":
+return self.raphael.encode(text)
+elif m == "donatello":
+return self.donatello.encode(text)
+elif m == "michelangelo":
+return self.michelangelo.encode(text)
+else:
+raise ValueError(f"Invalid Master Axis Designation: '{master}'")
+def decode(self, text: str, master: str = "leonardo", **kwargs: Any) -> str:
+"""
+Decodes ciphertext back to plaintext using a designated master axis.
+Args:
+text:   The encoded string to decode.
+master: Axis name ('leonardo', 'raphael', 'donatello', 'michelangelo').
+**kwargs: Optional axis-specific arguments (e.g., layer for Leonardo).
+Returns:
+The decoded plaintext string.
+"""
+m = master.lower()
+if m == "leonardo":
+return self.leonardo.decode(text, layer=kwargs.get("layer", "horizontal"))
+elif m == "raphael":
+return self.raphael.decode(text)
+elif m == "donatello":
+return self.donatello.decode(text)
+elif m == "michelangelo":
+return self.michelangelo.decode(text)
+else:
+raise ValueError(f"Invalid Master Axis Designation: '{master}'")
+def cascade_encode(self, text: str) -> str:
+"""
+Passes text sequentially through all four axes:
+Donatello (Base) -> Raphael (Sphere) -> Michelangelo (Tension) -> Leonardo (Navel).
+"""
+step1 = self.donatello.encode(text)
+step2 = self.raphael.encode(step1)
+step3 = self.michelangelo.encode(step2)
+step4 = self.leonardo.encode(step3, layer="horizontal")
+return step4
+def cascade_decode(self, text: str) -> str:
+"""
+Reverses a sequential four-axis cascade in exact inverse order:
+Leonardo -> Michelangelo -> Raphael -> Donatello.
+"""
+step1 = self.leonardo.decode(text, layer="horizontal")
+step2 = self.michelangelo.decode(step1)
+step3 = self.raphael.decode(step2)
+step4 = self.donatello.decode(step3)
+return step4
+def full_spectrum(self, text: str) -> Dict[str, str]:
+"""
+Projects the input text across all cipher layers and structural axes
+simultaneously.
+Args:
+text: The plaintext string to analyze.
+Returns:
+A dictionary mapping each axis/layer name to its transformed output.
+"""
+return {
+"forward_input": text,
+"tuscan_horizontal": self.scan.reverse_horizontal(text),
+"tuscan_vertical": self.scan.reverse_vertical(text),
+"leonardo_mirror": self.encode(text, "leonardo", layer="horizontal"),
+"leonardo_word": self.encode(text, "leonardo", layer="word"),
+"raphael_harmonic": self.encode(text, "raphael"),
+"donatello_ground": self.encode(text, "donatello"),
+"michelangelo_tension": self.encode(text, "michelangelo"),
+"unified_cascade": self.cascade_encode(text),
+}
+def verify_invariants(self, text: str) -> bool:
+"""
+Verifies the '1 - 1 = 0' clearing invariant by confirming that a full
+four-axis cascade encodes and decodes with zero data loss.
+"""
+encoded = self.cascade_encode(text)
+restored = self.cascade_decode(encoded)
+return restored == text
+def collapse(self, text: str) -> str:
+"""
+Executes the full four-axis diagnostic collapse report and verifies
+invariant stability.
+Args:
+text: The input string to process.
+Returns:
+A formatted multi-line diagnostic report.
+"""
+encoded = self.full_spectrum(text)
+is_stable = self.verify_invariants(text)
+status = (
+"System cleared. Order restored under the firmament."
+if is_stable
+else "WARNING: Invariant drift detected."
+)
+return (
+f"--- SYSTEM COLLAPSE PROTOCOL EXECUTION (v5.0.0) ---\n"
+f"Ground Invariant [{self.invariants['ABSOLUTE_CLEARING']}] Verified: {is_stable}\n"
+f"Base (Donatello):       {encoded['donatello_ground']}\n"
+f"Sphere (Raphael):       {encoded['raphael_harmonic']}\n"
+f"Tension (Michelangelo): {encoded['michelangelo_tension']}\n"
+f"Navel (Leonardo):       {encoded['leonardo_mirror']}\n"
+f"Vertical Projection:    {encoded['tuscan_vertical']}\n"
+f"Unified Cascade:        {encoded['unified_cascade']}\n"
+f"RESULT: {status}"
+)
+
+============================================================================
+
+
+EXAMPLE EXECUTION & SELF-TEST
+
+
+============================================================================
+
+if name == "main":
+engine = QuadAxisCipherSystem()
+sample_text = "Tomorrow when it arrives will be today."
+print(engine.collapse(sample_text))
+print("\n--- MASTER ALIGNMENT LOG ---")
+for master, details in engine.system_map.items():
+print(f"\n[{master}]")
+for key, value in details.items():
+print(f"  {key}: {value}")
+
+### Architecture Reference Summary
+
+| Axis / Master | Class | Geometric Role | Cryptographic Mechanism | Reversibility |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. Leonardo** | `LeonardoCipher` | Navel / Center | String reversal, word reversal, or 180° Unicode map | Symmetric / Two-way map |
+| **2. Raphael** | `RaphaelCipher` | Sphere / Light | Uniform Caesar shift (\(k \bmod 26\), default k=7) | Shift by \(-k \bmod 26\) |
+| **3. Donatello** | `DonatelloCipher` | Base / Square | Positional shift \(((i \bmod s) + 1\), default s=4) | Shift by \(-((i \bmod s) + 1)\) |
+| **4. Michelangelo** | `MichelangeloCipher` | Tension / Line | ROT13 applied strictly to odd character indices | Self-reciprocal |
+
+<FollowUp>
+Would you like to add a **CLI (command-line interface)** to run this directly from your terminal, or export a **Markdown documentation file (`README.md`)** explaining the system architecture?
+</FollowUp>
