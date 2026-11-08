@@ -34,11 +34,11 @@ EVASIVE_PHRASES = (
 )
 def is_evasive_nonanswer(answer):
     """Reject obvious empathy/pivot boilerplate when it replaces the task entirely."""
-    lower = re.sub(r'\\s+', ' ', answer.lower())
+    lower = re.sub(r'\s+', ' ', answer.lower())
     hits = sum(phrase in lower for phrase in EVASIVE_PHRASES)
     # Two independent redirection phrases make this a clear boilerplate answer.
     # Do not censor single mentions, quoted analysis, or substantive explanations.
-    substantive = bool(re.search(r'(?m)^\\s*(?:source|evidence|finding|result|implementation|because|\\[\\d+\\])\\b', answer, re.I))
+    substantive = bool(re.search(r'(?m)^\s*(?:source|evidence|finding|result|implementation|because|\[\d+\])\b', answer, re.I))
     return hits >= 2 and not substantive
 
 def no_credentials(value):
