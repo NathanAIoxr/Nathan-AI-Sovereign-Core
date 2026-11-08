@@ -11,10 +11,10 @@
  }
  function search(graph,text){const q=String(text).normalize('NFC').toLocaleLowerCase();return [...graph.nodes.values()].filter(n=>[n.id,n.label||n.name,n.kind,n.source].join(' ').normalize('NFC').toLocaleLowerCase().includes(q));}
  function neighbors(graph,id){return graph.adj.get(id)||[];}
- function path(graph,start,end){
+ function path(graph,start,end,options={}){
   if(!graph.nodes.has(start)||!graph.nodes.has(end))throw Error('Select two existing nodes.');
   const previous=new Map([[start,null]]),queue=[start];
-  for(let i=0;i<queue.length;i++){const id=queue[i];if(id===end){const route=[];for(let p=end;p!==null;p=previous.get(p)?.parent??null)route.push({id:p,via:previous.get(p)?.edge||null});return route.reverse();}for(const next of neighbors(graph,id)){if(!previous.has(next.id)){previous.set(next.id,{parent:id,edge:next.edge});queue.push(next.id);}}}
+  for(let i=0;i<queue.length;i++){const id=queue[i];if(id===end){const route=[];for(let p=end;p!==null;p=previous.get(p)?.parent??null)route.push({id:p,via:previous.get(p)?.edge||null});return route.reverse();}for(const next of neighbors(graph,id)){if(!options.includeInventory&&['indexed_in_source','source_part_of_system'].includes(next.edge.relation))continue;if(!previous.has(next.id)){previous.set(next.id,{parent:id,edge:next.edge});queue.push(next.id);}}}
   return null;
  }
  return Object.freeze({load,search,neighbors,path});
