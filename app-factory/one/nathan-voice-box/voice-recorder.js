@@ -7,8 +7,8 @@
   const MAX_RECORD_SECONDS=12, MAX_REFERENCE_SECONDS=12;
   let stream=null, recorder=null, chunks=[], timeout=null, activeReference=null;
   let selectedProfile=null, worker=null, workerCounter=0, currentRecURL=null;
-  let currentRightsBasis="self";
-  const hasAuthority=()=>currentRightsBasis==="self" ? $("consent-self").checked : $("archive-rights").checked;
+  let currentRightsBasis="self", authorizationMode="self";
+  const hasAuthority=()=>authorizationMode==="self" ? $("consent-self").checked : $("archive-rights").checked;
   const status=msg=>{$("record-status").textContent=msg;};
 
   function stopMicrophone(){
@@ -130,7 +130,7 @@
       status("This browser does not support microphone recording on a secure local origin.");return;
     }
     try {
-      currentRightsBasis="self";
+      currentRightsBasis="self";authorizationMode="self";
       activeReference=null;lastProfile=null;$("record-save").disabled=true;$("clone-voice").disabled=true;$("transcribe-recording").disabled=true;
       stream=await navigator.mediaDevices.getUserMedia({audio:{
         channelCount:1,echoCancellation:false,noiseSuppression:false,autoGainControl:false
@@ -157,7 +157,7 @@
       return status("Unknown source-rights category.");
     const seconds=Number($("archive-offset").value);
     if(!Number.isFinite(seconds)||seconds<0)return status("Choose a nonnegative start time.");
-    currentRightsBasis=basis;
+    currentRightsBasis=basis;authorizationMode="archive";
     activeReference=null;lastProfile=null;
     $("record-save").disabled=true;$("clone-voice").disabled=true;
     $("transcribe-recording").disabled=true;
@@ -212,7 +212,8 @@
     }
     const item={id:crypto.randomUUID(),name,lang,dialect,transcript,
       created:new Date().toISOString(),metrics:lastProfile,encrypted_audio,
-      rights_basis:currentRightsBasis, consent_self:currentRightsBasis==="self",
+      rights_basis:currentRightsBasis, source_type:authorizationMode,
+      consent_self:authorizationMode==="self",
       claim:currentRightsBasis==="self"?"speaker self-attested":"archive rights self-attested; not independently verified"};
     try{
       await storage.put("profiles",item);selectedProfile=item;
@@ -225,6 +226,7 @@
     if(!item)return;
     selectedProfile=item;
     currentRightsBasis=item.rights_basis||"self";
+    authorizationMode=item.source_type||"self";
     $("archive-rights-basis").value=currentRightsBasis;
     showMetrics(item.metrics);
     $("profile-name").value=item.name;$("lang").value=item.lang;
