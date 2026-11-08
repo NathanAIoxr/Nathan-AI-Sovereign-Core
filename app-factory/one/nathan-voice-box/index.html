@@ -38,7 +38,7 @@
   <section class="panel">
     <div class="section-head"><h2>Speak</h2><p>Rendered locally by installed eSpeak NG or an authorized ONNX model pack.</p></div>
     <label for="text">Words to speak</label>
-    <textarea id="text" maxlength="4000" rows="5">From the cave to the canyon, from water and wind to the human voice, the sound of the world connects us.</textarea>
+    <textarea id="text" dir="auto" maxlength="4000" rows="5">From the cave to the canyon, from water and wind to the human voice, the sound of the world connects us.</textarea>
     <div class="grid">
       <div><label for="lang">Language / dialect tag (BCP 47)</label><input id="lang" value="en-US" autocomplete="off"></div>
       <div><label for="voice">Installed synthetic voice</label><select id="voice"><option value="en-us">en-us</option></select></div>
@@ -80,7 +80,7 @@
     <label for="profile-dialect">My dialect or pronunciation tradition (self-described)</label>
     <input id="profile-dialect" placeholder="e.g. North Alabama English — self-described" maxlength="120">
     <label for="reference-transcript">Exact words spoken in the recording (needed to synthesize from a reference)</label>
-    <textarea id="reference-transcript" rows="3" maxlength="2000">Today I am recording my own voice for Nathan AI. The wind moves through the trees, and the river runs beyond the hills. These words belong to my voice.</textarea>
+    <textarea id="reference-transcript" dir="auto" rows="3" maxlength="2000">Today I am recording my own voice for Nathan AI. The wind moves through the trees, and the river runs beyond the hills. These words belong to my voice.</textarea>
     <label class="checkbox-line"><input id="consent-self" type="checkbox">
       I am the person speaking. I authorize this local recording and the optional generation of synthetic speech from my own voice.</label>
     <div class="actions"><button id="record-start" type="button">Start microphone recording</button>
