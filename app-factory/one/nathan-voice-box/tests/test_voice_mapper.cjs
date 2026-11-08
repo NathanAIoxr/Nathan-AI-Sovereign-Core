@@ -48,3 +48,12 @@ test("quality assessment blocks silent and heavily clipped references",()=>{
   const spoken=mapper.analyze(sine(170,16000,3),16000);
   assert.equal(mapper.assessRecording(spoken).usable_for_reference,true);
 });
+
+test("anti-aliasing resampler suppresses out-of-band 12 kHz content when converting 48k to 16k",()=>{
+  const pcm=sine(12000,48000,1.5);
+  const converted=mapper.resample(pcm,48000,16000);
+  // Ignore boundary startup where the finite filter is not fully supported.
+  const window=converted.slice(64,-64);
+  const rms=Math.sqrt(window.reduce((a,v)=>a+v*v,0)/window.length);
+  assert.ok(rms<0.02,"Out-of-band signal should be attenuated: "+rms);
+});
