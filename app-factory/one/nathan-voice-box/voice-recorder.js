@@ -61,9 +61,14 @@
       activeReference=wavFromPCM(reference.subarray(0,Math.round(MAX_REFERENCE_SECONDS*16000)));
       const result=await analyzeInWorker(samples,decoded.sampleRate);
       showMetrics(result);
+      const quality=window.NathanVoiceMapper.assessRecording(result);
       $("record-save").disabled=false;
-      $("clone-voice").disabled=false;
-      $("transcribe-recording").disabled=false;
+      $("clone-voice").disabled=!quality.usable_for_reference;
+      $("transcribe-recording").disabled=!quality.usable_for_reference;
+      $("record-quality").textContent=[
+        quality.usable_for_reference?"Reference ready for opt-in synthesis.":"Re-record before reference synthesis.",
+        ...quality.blockers, ...quality.advisories
+      ].join(" ");
       status("Voice mapped locally: "+result.duration_seconds+"s. No audio was uploaded.");
       return result;
     } finally {await context.close();}
@@ -96,6 +101,11 @@
       ctx.fillText(String(index+1),column*(index+0.5),canvas.height-10);
     });
     $("profile-interpretation").textContent=profile.interpretation;
+    const quality=window.NathanVoiceMapper.assessRecording(profile);
+    $("record-quality").textContent=[
+      quality.usable_for_reference?"Reference quality: usable.":"Reference quality: recording needs improvement.",
+      ...quality.blockers, ...quality.advisories
+    ].join(" ");
   }
   let lastProfile=null;
   async function handleBlob(blob){
