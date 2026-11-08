@@ -28,7 +28,10 @@ jobs:
           node --check app-factory/nathan-ai/voice-box/noise.js
           node --check app-factory/nathan-ai/voice-box/macro.js
           node --check app-factory/nathan-ai/voice-box/sw.js
+          node --check app-factory/nathan-ai/voice-box/native-bridge.js
+          node --check app-factory/nathan-ai/voice-box/native-capture.js
           node --test app-factory/nathan-ai/voice-box/engine.test.cjs
+          node --test app-factory/nathan-ai/voice-box/native-bridge.test.cjs
       - name: Offline CLI safety tests without installing eSpeak NG
         run: python3 -m unittest discover -s app-factory/nathan-ai/voice-box/native -p 'test_*.py' -v
       - name: Inspect static device-only boundaries
@@ -40,7 +43,7 @@ jobs:
           for(const term of ['data-nathan-shared-appearance','data-nathan-command-center','localService','rightsOK','noiseInput','Living Ears']){
             assert.ok(html.includes(term),term);
           }
-          for(const file of ['README.md','MODEL-ADAPTERS.md','index.html','app.js','policy.js','noise.js','macro.js','style.css','sw.js','manifest.webmanifest','native/offline_tts.py']){
+          for(const file of ['NATIVE-RUNTIME.md','native/server.py','native/test_server.py','native-bridge.js','native-capture.js','README.md','MODEL-ADAPTERS.md','index.html','app.js','policy.js','noise.js','macro.js','style.css','sw.js','manifest.webmanifest','native/offline_tts.py']){
             assert.ok(fs.existsSync(path.resolve(base,file)),file)
           }
           assert.doesNotMatch(html,/<script[^>]+src="https?:/);

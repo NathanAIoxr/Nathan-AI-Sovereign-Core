@@ -17,3 +17,8 @@ For actual model-pack expansion: choose device and RAM budget; verify runtime li
 Future native and WASM packs may be added **additively**. The published static browser page currently cannot execute sherpa-onnx or whisper.cpp without separately deploying their compatible runtimes and model weights. No claim of authentic ancestral or historical voice reconstruction is made.
 
 The supplied PyTorch/Wav2Vec2/GRU sketch uses an audio input feature extractor on a text input and has not been trained as a synthesis model; it is preserved as a proposed direction, not shipped as verified voice cloning code. A person's anatomy or entire linguistic voice profile cannot be reliably derived from a 3-second recording.
+
+
+## November 8 implementation update
+
+The previously unconnected **eSpeak NG** and **whisper.cpp** CLI integration routes now have a **working, opt-in, native local Python server**: [NATIVE-RUNTIME.md](NATIVE-RUNTIME.md). The code for both command wrappers and a same-origin browser interface is checked in. Actual recognition still requires a separately installed whisper-cli binary and an explicit model file path, and speech synthesis requires a separately installed eSpeak NG binary. **sherpa-onnx and Kokoro remain non-bundled research options** rather than falsely claimed integrations.

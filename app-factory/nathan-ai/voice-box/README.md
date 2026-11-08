@@ -47,3 +47,10 @@ python3 -m unittest discover -s app-factory/nathan-ai/voice-box/native -p 'test_
 Dedicated check: \`.github/workflows/device-voice-box-ci.yml\`.
 
 **1+1=2 BUILD · 1−1=0 CLEAR · YES IS YES — NO IS NO.**
+
+
+## November 8, 2026 — executable native offline runtime (additive)
+
+The public static browser application remains usable without installation. For stronger offline functionality on a **desktop/laptop**, [NATIVE-RUNTIME.md](NATIVE-RUNTIME.md) describes the new working local HTTP server, independent eSpeak NG WAV synthesis and whisper.cpp speech-to-text buttons. No remote speech API, automatic model download or credential is required.
+
+Browser voice memos are now deliberately user-started, capped at 30 seconds and unloaded automatically on page navigation. An optional native transcription request sends **only to the same device** over a localhost socket, after selection and pressing Transcribe; unlike cloud uploads, this does not leave the local machine. Offline pack and language support remain limited by actual user-installed runtimes and models, not by catalog entries. Both engines are optional. Python backend safety tests and JS resampler tests are included.
