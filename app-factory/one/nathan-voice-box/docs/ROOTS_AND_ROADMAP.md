@@ -18,7 +18,7 @@
 |---|---|---|
 | Offline text-to-speech | eSpeak NG desktop adapter | Embed native sherpa-onnx & platform audio |
 | Language/dialect registry | Runtime installed-voice listing + BCP-47 tags | Per-language phonemizers & model metadata |
-| Family recording | Local-file playback, no upload | Device encrypted archive + access permissions |
+| Family recording | Local-file playback and authorized audio-segment mapping, no upload | Device encrypted archive + verified rights/permissions |
 | Consent-gated voice models | Local VITS manifest + model adapter | Verified consent receipt, revocation, anti-impersonation controls |
 | Self-recorded voice mapping | **Implemented** in browser worker | Validate pitch, rhythm and twelve-band measurements across accents |\n| Reference-audio voice inference | **Implemented** through optional local ZipVoice pack | Verify model files/rights, benchmark language-specific results |\n| Cross-lingual clone training | **Not implemented** | Authorized enrollment and quality eval; no 3-second fidelity promise |
 | Historical/mythic voices | Clearly labeled fictional synthetic presets | Script, local model quality and contextual annotations |
