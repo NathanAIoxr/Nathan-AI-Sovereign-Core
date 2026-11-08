@@ -4,7 +4,7 @@
 (() => {
   const $=id=>document.getElementById(id), storage=window.NathanVoiceStore;
   const token=document.querySelector('meta[name="local-session"]').content;
-  const MAX_RECORD_SECONDS=45, MAX_REFERENCE_SECONDS=12;
+  const MAX_RECORD_SECONDS=12, MAX_REFERENCE_SECONDS=12;
   let stream=null, recorder=null, chunks=[], timeout=null, activeReference=null;
   let selectedProfile=null, worker=null, workerCounter=0, currentRecURL=null;
   const status=msg=>{$("record-status").textContent=msg;};
@@ -50,7 +50,7 @@
     const context=new AudioContext(),bytes=await blob.arrayBuffer();
     try {
       const decoded=await context.decodeAudioData(bytes.slice(0));
-      if(decoded.duration>MAX_RECORD_SECONDS+2)throw Error("Recording exceeds 45 seconds");
+      if(decoded.duration>MAX_RECORD_SECONDS+2)throw Error("Recording exceeds 12 seconds");
       if(decoded.duration<1.5)throw Error("Record at least two seconds");
       const samples=new Float32Array(decoded.length);
       for(let ch=0;ch<decoded.numberOfChannels;ch++){
@@ -63,6 +63,7 @@
       showMetrics(result);
       $("record-save").disabled=false;
       $("clone-voice").disabled=false;
+      $("transcribe-recording").disabled=false;
       status("Voice mapped locally: "+result.duration_seconds+"s. No audio was uploaded.");
       return result;
     } finally {await context.close();}
@@ -114,7 +115,7 @@
       status("This browser does not support microphone recording on a secure local origin.");return;
     }
     try {
-      activeReference=null;lastProfile=null;$("record-save").disabled=true;$("clone-voice").disabled=true;
+      activeReference=null;lastProfile=null;$("record-save").disabled=true;$("clone-voice").disabled=true;$("transcribe-recording").disabled=true;
       stream=await navigator.mediaDevices.getUserMedia({audio:{
         channelCount:1,echoCancellation:false,noiseSuppression:false,autoGainControl:false
       },video:false});
@@ -214,6 +215,34 @@
     for(let i=0;i<bytes.length;i+=4096)text+=String.fromCharCode(...bytes.subarray(i,i+4096));
     return btoa(text);
   };
+  $("transcribe-recording").addEventListener("click",async()=>{
+    if (!$("consent-self").checked) return status("Confirm you are the speaker before transcribing.");
+    if (!activeReference) return status("Record your own voice or unlock the saved reference first.");
+    const pack=$("asr-pack").value;
+    if (!pack) return status("Install and select a licensed local Whisper ASR pack.");
+    const button=$("transcribe-recording");button.disabled=true;
+    status("Transcribing locally. The resulting words are an editable draft.");
+    try{
+      const response=await fetch("/transcribe",{
+        method:"POST",
+        headers:{"Content-Type":"application/json","X-Local-Session":token},
+        cache:"no-store",
+        body:JSON.stringify({
+          lang:$("lang").value.trim(),pack,
+          speaker_authorized:true,
+          reference_wav_base64:base64(activeReference)
+        })
+      });
+      if (!response.ok) {
+        const error=await response.json();throw Error(error.error||"Local transcription unavailable");
+      }
+      const result=await response.json();
+      if (typeof result.text!=="string") throw Error("Invalid transcript");
+      $("reference-transcript").value=result.text;
+      status("Draft transcription inserted. Compare it against the recording and correct it before saving or synthesizing.");
+    }catch(error){status("Transcription failed: "+error.message);}
+    finally{button.disabled=false;}
+  });
   $("clone-voice").addEventListener("click",async()=>{
     if(!$("consent-self").checked)return status("Confirm this is your voice and your authorized recording.");
     if(!activeReference)return status("Record yourself or unlock an encrypted reference.");
