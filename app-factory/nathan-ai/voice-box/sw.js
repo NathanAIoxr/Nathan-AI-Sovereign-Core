@@ -1,6 +1,6 @@
 /* Offline shell only. Never intercept microphone, local files or private data. */
-const CACHE='nathan-voice-box-shell-v1';
-const PATHS=['./','./index.html','./app.js','./policy.js','./noise.js','./macro.js','./style.css','./manifest.webmanifest',
+const CACHE='nathan-voice-box-shell-v2';
+const PATHS=['./','./index.html','./app.js','./policy.js','./noise.js','./macro.js','./native-bridge.js','./native-capture.js','./style.css','./manifest.webmanifest',
  '../appearance/shared.css','../appearance/engine.js','../appearance/app.js',
  '../launcher/shared.css','../assistant/engine.js','../launcher/engine.js','../launcher/app.js'];
 const ASSETS=PATHS.map(p=>new URL(p,self.registration.scope).href);

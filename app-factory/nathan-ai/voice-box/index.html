@@ -21,8 +21,38 @@
 <section class="panel" aria-labelledby="macro"><h2 id="macro">MACRO · Physical sound and storytelling</h2><p>Original synthetic sounds inspired by Earth, water, wind and imagined settings. No infrasonic anxiety/disorientation effects, covert manipulation or unsafe playback claims. This is a separate soundboard, not a real recording of Earth's core.</p>
 <div class="formcols"><div><label for="ambient">Synthetic sound sketch</label><select id="ambient"><option value="cave">Cave / echo</option><option value="river">River / water</option><option value="wind">Wind / valley</option><option value="myth">Mythic / historical fiction</option></select></div><div><label for="ambientVolume">Gentle soundboard gain <output id="ambientValue">5%</output></label><input type="range" min="0" max=".12" value=".05" step=".01" id="ambientVolume"></div></div>
 <div class="actions"><button id="playMacro">Play 4-second local sound</button><button id="stopMacro">Stop sound</button></div><p id="macroStatus" role="status">Silent until you start.</p></section>
+
+<section class="panel" aria-labelledby="localNative">
+<h2 id="localNative">MICRO · Actual offline native model runtime</h2>
+<p>Run the optional <a href="./NATIVE-RUNTIME.md">local-only Python server</a> on your own computer to connect an independently installed eSpeak NG or whisper.cpp. This section operates only from <code>http://127.0.0.1</code>; the publicly hosted app never sends your content to localhost or a cloud provider.</p>
+<div class="actions"><button id="nativeConnect" class="primary">Connect to this computer's offline speech engines</button></div>
+<p id="nativeStatus" role="status">Not connected. Install local engines and launch the local server first.</p>
+<div class="formcols">
+<div><label for="nativeVoice">Installed native voice</label><select id="nativeVoice" aria-label="Installed native speech voice"></select></div>
+<div><label for="nativeSpeed">Words per minute</label><input id="nativeSpeed" type="number" min="110" max="260" value="175" step="5"></div>
+</div>
+<div class="formcols"><div><label for="nativePitch">Native pitch setting (20–80)</label><input id="nativePitch" type="number" min="20" max="80" value="50" step="5"></div></div>
+<div class="actions"><button id="nativeSpeak">Generate WAV using native eSpeak NG</button><button id="nativeDownload">Download generated WAV</button></div>
+<audio id="nativePreview" controls preload="none" aria-label="Generated local synthetic speech preview"></audio>
+<label for="nativeFile">Audio file for native whisper.cpp transcription</label>
+<input id="nativeFile" type="file" accept="audio/*">
+<div class="formcols"><div><label for="nativeLanguage">Speech-recognition language</label><select id="nativeLanguage">
+<option value="auto">Auto-detect</option><option value="en">English</option><option value="es">Spanish</option><option value="fr">French</option><option value="de">German</option><option value="it">Italian</option><option value="pt">Portuguese</option><option value="zh">Chinese</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="ar">Arabic</option><option value="ru">Russian</option><option value="hi">Hindi</option>
+</select></div></div>
+<div class="actions"><button id="nativeTranscribe">Transcribe on this device</button><button id="nativeAppend">Append reviewed transcript to original input</button><button id="nativeClear">Clear native results</button></div>
+<label for="nativeTranscript">Separate, editable transcription result</label>
+<textarea id="nativeTranscript" placeholder="Only local whisper.cpp output appears here; review against the recording."></textarea>
+<p class="muted">Original selected audio remains unchanged. The browser decodes locally, mixes channels, resamples to mono PCM16 at 16 kHz, then passes up to 30 seconds only to the loopback process. A configured local model is required; nothing is downloaded automatically.</p>
+</section>
+<section class="panel" aria-labelledby="voiceCapture">
+<h2 id="voiceCapture">Record your own voice · foreground only</h2>
+<p>Microphone permission is requested only when you press Start. Recording lasts at most 30 seconds, stops when the page is hidden, and stays in temporary page memory unless you explicitly download it. This is your actual recording, not a synthetic clone.</p>
+<div class="actions"><button id="captureStart">Start my recording</button><button id="captureStop">Stop microphone</button><button id="captureDownload">Download my original recording</button><button id="captureClear">Discard recording</button></div>
+<audio id="capturePreview" controls preload="none" aria-label="Owner-controlled local voice recording"></audio>
+<p id="captureStatus" role="status">Microphone is off. No capture or background recording.</p>
+</section>
 <section class="panel" aria-labelledby="device"><h2 id="device">Device footprint · tokens / privacy / offline</h2><div class="stats"><div><strong id="bytes">0</strong><small>UTF-8 bytes of current working text</small></div><div><strong>0</strong><small>Outbound audio bytes initiated by app</small></div><div><strong>0</strong><small>Cloud model tokens in app</small></div><div><strong>0</strong><small>Automatic model downloads</small></div></div>
 <p id="footprint" role="status"></p><div class="actions"><button id="offline">Cache the app shell for offline use</button></div><p id="offlineStatus" role="status">App shell cache is opt-in; local OS voice and recognition packs are not part of the HTML bundle.</p>
 <p class="muted">Native/open-source upgrade routes: <a href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a> (offline ASR/TTS), <a href="https://github.com/ggml-org/whisper.cpp">whisper.cpp</a> (ASR), and <a href="https://github.com/espeak-ng/espeak-ng">eSpeak NG</a> (offline CLI). None is bundled or silently installed. The executable desktop eSpeak NG companion is supplied in <a href="./native/offline_tts.py">native/offline_tts.py</a>; model files and licenses are selected separately.</p></section>
 <footer><strong>1+1=2 — BUILD · 1−1=0 — CLEAR · YES IS YES — NO IS NO.</strong><p>One codebase, device-held data, explicit microphone consent, truthful provenance. No automatic cloning, no claims of authentic historical voices, no remote speech recognition fallback. <a href="./README.md">Full instructions and legal boundary notes.</a></p></footer>
-</main><script src="./policy.js"></script><script src="./noise.js"></script><script src="./macro.js"></script><script src="./app.js"></script></body></html>
+</main><script src="./policy.js"></script><script src="./noise.js"></script><script src="./macro.js"></script><script src="./app.js"></script><script src="./native-bridge.js"></script><script src="./native-capture.js"></script></body></html>
