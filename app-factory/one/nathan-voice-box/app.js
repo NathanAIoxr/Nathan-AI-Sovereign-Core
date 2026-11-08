@@ -35,10 +35,15 @@ async function init() {
       const packsData = await packsResponse.json(), datalist=$("installed-packs");
       datalist.replaceChildren();
       for (const pack of packsData.packs || []) {
-        if (pack.runtime !== "sherpa-onnx-zipvoice") continue;
-        const choice=document.createElement("option");choice.value=pack.id;
-        choice.label=pack.languages.join(", ");
-        datalist.append(choice);
+        if (pack.runtime === "sherpa-onnx-zipvoice") {
+          const choice=document.createElement("option");choice.value=pack.id;
+          choice.label=pack.languages.join(", ");datalist.append(choice);
+        }
+        if (pack.runtime === "sherpa-onnx-whisper-asr") {
+          const choice=document.createElement("option");choice.value=pack.id;
+          choice.textContent=pack.id+" · "+pack.languages.join(", ");
+          $("asr-pack").append(choice);
+        }
       }
     } catch (error) { /* Catalog remains local even without ONNX models. */ }
     if (data.voices.length) {
