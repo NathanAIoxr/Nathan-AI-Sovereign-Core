@@ -74,7 +74,7 @@
   </section>
   <section class="panel" id="voice-enrollment">
     <div class="section-head"><h2>Record & Map My Voice</h2>
-      <p>Capture your own voice, measure its physical acoustic characteristics, and save an optional local profile. The microphone stops when you choose Stop or after 45 seconds.</p></div>
+      <p>Capture your own voice, measure its physical acoustic characteristics, and save an optional local profile. The microphone stops when you choose Stop or after 12 seconds, keeping the recording and its exact transcript aligned.</p></div>
     <label for="profile-name">Name this voice profile</label>
     <input id="profile-name" value="My Voice" maxlength="100" autocomplete="off">
     <label for="profile-dialect">My dialect or pronunciation tradition (self-described)</label>
@@ -87,6 +87,13 @@
       <button id="record-stop" type="button" class="subtle-btn" disabled>Stop recording</button></div>
     <p id="record-status" class="status" role="status">No recording started. Microphone permission is requested only when you click Start.</p>
     <audio id="record-playback" controls preload="none"></audio>
+    <div class="asr-panel">
+      <h3>Optional offline transcription</h3>
+      <p class="quiet">Select a separately installed Whisper ONNX recognition pack. Nothing is sent to a cloud service. Review and correct every word before synthesis.</p>
+      <label for="asr-pack">Installed offline speech-recognition model</label>
+      <select id="asr-pack"><option value="">No local ASR pack selected</option></select>
+      <button id="transcribe-recording" type="button" class="subtle-btn" disabled>Transcribe my recording locally</button>
+    </div>
     <h3>Acoustic profile — 12 Ear Gates</h3>
     <div id="profile-metrics" class="metric-grid"></div>
     <canvas id="record-gates" width="760" height="210" role="img" aria-label="Measured 12 Ear Gates of your voice recording"></canvas>
