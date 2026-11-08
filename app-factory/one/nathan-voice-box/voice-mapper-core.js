@@ -154,5 +154,26 @@
     };
   }
 
-  return { analyze, resample, GATES, FFT_SIZE };
+  function assessRecording(profile) {
+    if (!profile || profile.schema !== "nathan-voice-profile/1")
+      throw Error("Invalid voice profile");
+    const blockers=[], advisories=[];
+    if (profile.duration_seconds < 2)
+      blockers.push("Record at least two seconds");
+    if (profile.rms < 0.004)
+      blockers.push("The recording is silent or too quiet");
+    else if (profile.rms < 0.02)
+      advisories.push("Raise the microphone level slightly");
+    if (profile.clipped_percent > 5)
+      blockers.push("Audio is heavily clipped; move away from the microphone");
+    else if (profile.clipped_percent > 0.25)
+      advisories.push("Some clipping detected; lower input gain");
+    if (profile.voiced_frames_sampled === 0 && profile.rms >= 0.004)
+      advisories.push("No stable voiced pitch found; speak clearly and reduce background noise");
+    // A quality hint about this sample only, never an estimate of voice identity.
+    return {usable_for_reference: blockers.length===0, blockers, advisories,
+      note:"Heuristic recording-quality checks. Not a voice biometric, accent analysis, or diagnosis."};
+  }
+
+  return { analyze, assessRecording, resample, GATES, FFT_SIZE };
 });
