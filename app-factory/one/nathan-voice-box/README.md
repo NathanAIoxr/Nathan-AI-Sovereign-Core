@@ -176,3 +176,10 @@ The local server now checks the HTTP Host and Origin, requires a random per-sess
 ### Status of native app packaging
 
 Android JNI and Kotlin voice capture/ZipVoice sources are provided for integration; the real sherpa-onnx Android SDK, compatible model files and an Android app host must be packaged before an APK can be compiled and device-tested. The iOS side has a Swift/C DSP bridge but still needs a full offline native recognition/synthesis adapter. No signed mobile build, trained voice model or full 7,000+ language set is asserted.
+
+
+### Map an existing family recording, not just a live microphone
+
+The **Family archive** panel can now take a locally selected existing audio file (for example, an authorized recording of a grandmother). Select the voice-rights basis: direct speaker consent, estate authorization, your own voice, or licensed synthetic voice. Check the explicit rights acknowledgment and choose the segment's start time in seconds. **Map selected authorized recording** analyzes only a 12-second segment locally, populates the same acoustic profile, and prepares an optional reference clip. The user must supply or verify its actual transcript. The archive input does not upload audio. The rights category is a self-declaration; this interface does not independently verify legal rights.
+
+This allows useful archival voice preservation even if no compatible cloning model is available. Replaying an authentic recording remains separate from synthesizing new speech. No absent historical voice is claimed authentic, and no microphone recording or family archive input itself trains a model.
