@@ -209,6 +209,7 @@
       if(pass.length<12)return status("Use a passphrase of at least 12 characters for encrypted audio storage.");
       if(!activeReference)return status("Voice recording is unavailable; record again.");
       encrypted_audio=await encryptLocal(activeReference,pass);
+      $("voice-passphrase").value="";
     }
     const item={id:crypto.randomUUID(),name,lang,dialect,transcript,
       created:new Date().toISOString(),metrics:lastProfile,encrypted_audio,
@@ -233,6 +234,7 @@
     $("profile-dialect").value=item.dialect||"";
     $("reference-transcript").value=item.transcript||"";
     activeReference=null;
+    $("voice-passphrase").value="";
     status(item.encrypted_audio?"Saved encrypted voice: enter its passphrase and choose Unlock.":"Saved metrics only: new recording needed for cloning.");
   });
   $("profile-unlock").addEventListener("click",async()=>{
@@ -240,7 +242,9 @@
     try{
       const pass=$("voice-passphrase").value;
       activeReference=await decryptLocal(selectedProfile.encrypted_audio,pass);
+      $("voice-passphrase").value="";
       $("clone-voice").disabled=false;
+      $("transcribe-recording").disabled=false;
       status("Reference audio decrypted for this session. It remains on this device.");
     }catch(e){activeReference=null;status("Unable to unlock audio. Check passphrase.");}
   });
