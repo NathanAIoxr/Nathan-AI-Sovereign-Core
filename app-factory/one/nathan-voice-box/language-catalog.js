@@ -43,8 +43,12 @@
     return "CATALOG ONLY";
   }
   function allEntries(){
-    const m=new Map(starter.map(x=>[norm(x.tag),x]));
-    for(const x of entries) m.set(norm(x.tag),x);
+    const m=new Map(starter.map(x=>["tag:"+norm(x.tag),x]));
+    // Preserve multiple locally authored dialects of the SAME BCP-47 language.
+    for(const x of entries){
+      const key=x.source==="local-user" ? "custom:"+x.id : "tag:"+norm(x.tag);
+      m.set(key,x);
+    }
     return [...m.values()];
   }
   function draw(){
@@ -55,7 +59,9 @@
     for(const item of filtered){
       const opt=document.createElement("option");
       opt.value=item.tag;
-      opt.textContent=item.name+" ["+item.tag+"] · "+support(item.tag);
+      opt.textContent=item.name+(item.dialect?" — "+item.dialect:"")+" ["+item.tag+"] · "+support(item.tag);
+      opt.dataset.registryId=item.id;
+      opt.dataset.source=item.source;
       results.append(opt);
     }
     $("language-count").textContent=
@@ -85,9 +91,22 @@
     if(!TAG.test(tag)||name.length<2||name.length>120||dialect.length>120){
       $("language-choice").textContent="Use a valid language tag, a name and an optional dialect label (up to 120 characters).";return;
     }
-    const item={id:tag.toLowerCase(),tag,name,dialect,source:"local-user"};
+    const item={id:crypto.randomUUID(),tag,name,dialect,source:"local-user"};
     try{await store.put("languages",item);entries.push(item);draw();$("language-choice").textContent="Saved local catalog entry: "+name+". No synthesis model was created.";}
     catch(e){$("language-choice").textContent="Unable to save language: "+e.message;}
+  });
+  $("remove-language").addEventListener("click",async()=>{
+    const opt=$("language-results").selectedOptions[0];
+    if(!opt||opt.dataset.source!=="local-user"){
+      $("language-choice").textContent="Select a locally added dialect. Standard catalog records are preserved.";return;
+    }
+    const id=opt.dataset.registryId;
+    try{
+      await store.remove("languages",id);
+      entries=entries.filter(x=>x.id!==id);
+      draw();
+      $("language-choice").textContent="Removed the selected locally added language/dialect label only. No model or audio was changed.";
+    }catch(error){$("language-choice").textContent="Could not remove the local record: "+error.message;}
   });
   $("language-import").addEventListener("change",async event=>{
     const file=event.target.files?.[0];
