@@ -65,15 +65,15 @@ def load_pack(pack_id: str | None) -> dict | None:
         raise VoiceBoxError("Local voice pack not installed: " + pack_id)
     data = json.loads(manifest.read_text(encoding="utf-8"))
     runtime = data.get("runtime")
-    if data.get("id") != pack_id or runtime not in ("sherpa-onnx-vits", "sherpa-onnx-zipvoice"):
+    if data.get("id") != pack_id or runtime not in ("sherpa-onnx-vits", "sherpa-onnx-zipvoice", "sherpa-onnx-whisper-asr"):
         raise VoiceBoxError("Unsupported voice pack manifest")
     if data.get("authorized") is not True or data.get("rights_basis") not in PERMITTED_BASES:
         raise VoiceBoxError("Voice authorization missing; local pack disabled")
     # Reject non-local paths and symlink escapes; the whole model stays under private-packs.
     folder = manifest.parent.resolve()
-    assets = ("model", "tokens", "data_dir") if runtime == "sherpa-onnx-vits" else (
-        "encoder", "decoder", "vocoder", "tokens", "lexicon"
-    )
+    assets = (("model", "tokens", "data_dir") if runtime == "sherpa-onnx-vits" else
+              ("encoder", "decoder", "vocoder", "tokens", "lexicon")
+              if runtime == "sherpa-onnx-zipvoice" else ("encoder", "decoder", "tokens"))
     for key in assets:
         value = data.get(key)
         if not isinstance(value, str) or not value or Path(value).is_absolute():
@@ -82,13 +82,13 @@ def load_pack(pack_id: str | None) -> dict | None:
         if not target.is_relative_to(folder) or not target.exists():
             raise VoiceBoxError("Missing or unsafe voice asset: " + key)
         data[key] = str(target)
-    if runtime == "sherpa-onnx-zipvoice":
+    if runtime in ("sherpa-onnx-zipvoice", "sherpa-onnx-whisper-asr"):
         allowed = data.get("languages")
         if not isinstance(allowed, list) or not allowed or not all(
             isinstance(tag, str) and LANGUAGE.fullmatch(tag) for tag in allowed
         ):
-            raise VoiceBoxError("ZipVoice pack must declare supported languages")
-        if data.get("data_dir"):
+            raise VoiceBoxError("The ONNX pack must declare supported language tags")
+        if runtime == "sherpa-onnx-zipvoice" and data.get("data_dir"):
             value = data["data_dir"]
             target = (folder / value).resolve()
             if Path(value).is_absolute() or not target.is_relative_to(folder) or not target.is_dir():
