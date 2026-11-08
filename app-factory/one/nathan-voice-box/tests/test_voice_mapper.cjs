@@ -37,3 +37,14 @@ test("clipping reported as measurement only",()=>{
  assert.equal(p.clipped_percent,100);
  assert.equal(p.peak,1);
 });
+
+test("quality assessment blocks silent and heavily clipped references",()=>{
+  const silence=mapper.analyze(new Float32Array(16000*3),16000);
+  const blocked=mapper.assessRecording(silence);
+  assert.equal(blocked.usable_for_reference,false);
+  assert.ok(blocked.blockers.length>0);
+  const loud=mapper.analyze(new Float32Array(16000*3).fill(1),16000);
+  assert.equal(mapper.assessRecording(loud).usable_for_reference,false);
+  const spoken=mapper.analyze(sine(170,16000,3),16000);
+  assert.equal(mapper.assessRecording(spoken).usable_for_reference,true);
+});
