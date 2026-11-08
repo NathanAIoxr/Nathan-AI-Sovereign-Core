@@ -110,9 +110,9 @@ This second-stage build adds **microphone enrollment**, a **12 Ear Gates acousti
 1. Open `http://127.0.0.1:8765` from the machine running the local engine.
 2. In **World Language & Dialect Atlas**, choose a language tag. Add the dialect name yourself if it is missing. No accent is falsely guessed from pitch.
 3. In **Record & Map My Voice**, name the profile, write the **exact words** you will say, and confirm that you are the speaker.
-4. Click **Start microphone recording**. Read the script, then **Stop**. Recording automatically stops after 45 seconds. The app immediately closes microphone tracks.
+4. Click **Start microphone recording**. Read the script, then **Stop**. Recording automatically stops after 12 seconds so the reference transcript can match the complete clip. The app immediately closes microphone tracks.
 5. Browser worker calculates duration, RMS/peak/clipping, pitch median and quantiles (when voiced), an approximate rhythmic onset count, spectral brightness proxy and normalized shares across twelve measured bands. The graph is local. These are **not** body measurements, true formants, a speaker identity check, accent recognition, a lie detector or a neural speaker embedding.
-6. Choose whether to save **metrics only** or **metrics plus an AES-GCM encrypted audio reference**. The reference is at most the first 12 seconds of the recorded sample. Use a 12+-character passphrase and retain it yourself: there is no recovery service.
+6. Choose whether to save **metrics only** or **metrics plus an AES-GCM encrypted audio reference**. The reference contains at most 12 seconds of the recorded sample. Use a 12+-character passphrase and retain it yourself: there is no recovery service.
 7. Select any saved voice profile to inspect its local acoustic map, unlock its encrypted reference with your passphrase, or delete it from the browser storage.
 
 **Local recording privacy:** Microphone permission is requested only when recording starts; audio is not sent to a cloud endpoint. Raw audio is not persisted by default. Basic acoustic metadata, profile names and dialect labels are unencrypted in browser IndexedDB. The optional encrypted clip uses AES-256-GCM with PBKDF2 SHA-256 (250,000 iterations), a random salt and nonce. Encryption is local to the browser, and the passphrase is never sent to the Python server. When clicking the separate reference-synthesis button, a short PCM clip is explicitly sent to the **loopback endpoint on the same machine**, not to an Internet server. Local playback, user-controlled deletion and optional encryption do not replace an independent privacy/security audit.
@@ -150,3 +150,29 @@ for file in app.js language-catalog.js voice-store.js voice-recorder.js mapper-w
 ```
 
 All new files are additive; no original MER4×6, J Matrix, foundational formula or source-archive text is overwritten.
+
+
+## Additional offline production code (November 8, 2026)
+
+The optional local Whisper ONNX **ASR** adapter creates an editable transcript of a speaker's self-recorded clip; it never silently corrects the transcript or treats recognition as proof of identity. The selected reference is now capped at **12 seconds** so all spoken words can reasonably be transcribed and checked before ZipVoice inference. A local audio-quality gate detects silence, heavy clipping and low microphone levels.
+
+### Install a compatible model from a local archive (no automatic downloads)
+
+```sh
+cd app-factory/one/nathan-voice-box
+python3 pack_manager.py list
+python3 pack_manager.py sha256 /absolute/path/to/your/encoder.onnx
+python3 pack_manager.py install /absolute/path/to/your/model.nvoicepack
+```
+
+The archive must contain a `manifest.json` at its root plus *all* required local model assets, a truthful voice-rights attestation, a real model-license declaration and SHA-256 checksums for every payload file. The installer forbids traversal, symlinks, overwritten packs, missing assets, checksum mismatches and oversized extraction. It extracts atomically into the Git-ignored `private-packs/<id>/` directory. There are no network calls or remote inference.
+
+For synthesis packs use `private-packs/ZIPVOICE_MANIFEST_EXAMPLE.json`; for optional speech-to-text use `private-packs/ASR_MANIFEST_EXAMPLE.json`. Example filenames are placeholders: choose the exact files required by the selected licensed model. The specific runtime's language list is **installed support**, not the broader ISO 639-3 language catalog. Never commit model weights, voice samples or owner-specific rights records.
+
+### Privacy and security validation
+
+The local server now checks the HTTP Host and Origin, requires a random per-session token on speech requests, and serializes local inference to avoid simultaneous expensive model jobs. A standalone black-box server test covers host, CSRF, asset access and model endpoints. The new offline model installer is covered by success, invalid rights/license, checksum corruption, symlink and path traversal tests. These are useful protections, not a substitute for a full independent mobile security audit.
+
+### Status of native app packaging
+
+Android JNI and Kotlin voice capture/ZipVoice sources are provided for integration; the real sherpa-onnx Android SDK, compatible model files and an Android app host must be packaged before an APK can be compiled and device-tested. The iOS side has a Swift/C DSP bridge but still needs a full offline native recognition/synthesis adapter. No signed mobile build, trained voice model or full 7,000+ language set is asserted.
