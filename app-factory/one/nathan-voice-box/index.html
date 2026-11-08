@@ -70,6 +70,20 @@
     <label for="archive">Select a personal WAV/MP3 recording for private local playback</label>
     <input id="archive" type="file" accept="audio/*">
     <audio id="archival-player" controls preload="none"></audio>
+    <h3>Map an existing authorized recording</h3>
+    <p class="quiet">Map a voice sample from an existing family archive, subject to the speaker's consent or applicable estate/license rights. The file is decoded on this device; no data is uploaded.</p>
+    <label for="archive-rights-basis">Authority to use the recorded voice</label>
+    <select id="archive-rights-basis">
+      <option value="speaker-consent">The speaker explicitly authorized this use</option>
+      <option value="estate-authorization">Estate or other appropriate rights authorization</option>
+      <option value="self">This is my own voice</option>
+      <option value="licensed-synthetic">This is a licensed synthetic voice</option>
+    </select>
+    <label for="archive-offset">Start of the 12-second reference segment (seconds)</label>
+    <input id="archive-offset" type="number" min="0" step="0.5" value="0">
+    <label class="checkbox-line"><input id="archive-rights" type="checkbox">
+      I confirm I have permission or appropriate rights for this recording and any proposed generated speech.</label>
+    <button id="archive-map" type="button" class="subtle-btn">Map selected authorized recording</button>
     <p class="quiet">Files selected here remain in this browser session; no upload or voice cloning occurs. A living person's voice model requires permission. A deceased person's voice model requires appropriate rights authorization.</p>
   </section>
   <section class="panel" id="voice-enrollment">
