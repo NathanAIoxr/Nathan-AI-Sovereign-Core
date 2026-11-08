@@ -8,7 +8,7 @@ from pathlib import Path
 import secrets
 from urllib.parse import urlsplit
 
-from voicebox import VoiceBoxError, ROOT, EFFECTS, PERSONAS, list_espeak_voices, speak, analyze, load_pack
+from voicebox import VoiceBoxError, ROOT, EFFECTS, PERSONAS, PERMITTED_BASES, list_espeak_voices, speak, analyze, load_pack
 from clone_engine import clone_with_reference
 from asr_engine import transcribe_reference
 
@@ -135,7 +135,8 @@ def serve(port=8765):
                             pack_id=obj.get("pack", ""),
                             reference_wav_base64=obj.get("reference_wav_base64", ""),
                             reference_text=obj.get("reference_text", ""),
-                            speaker_authorized=obj.get("speaker_authorized", False)
+                            speaker_authorized=obj.get("speaker_authorized", False),
+                            rights_basis=obj.get("rights_basis", "self")
                         )
                     finally:
                         synthesis_lock.release()
