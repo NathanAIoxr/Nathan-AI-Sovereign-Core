@@ -19,12 +19,38 @@
     if (sampleRate === target) return pcm;
     const length = Math.floor(pcm.length * target / sampleRate);
     const out = new Float32Array(length);
+    // A compact windowed-sinc polyphase resampler with anti-aliasing when
+    // downsampling 44.1/48 kHz microphone audio to the 16 kHz reference input.
     const ratio = sampleRate / target;
-    for (let j = 0; j < length; j++) {
-      const pos = j * ratio, i = Math.floor(pos), a = pos - i;
-      out[j] = pcm[i] * (1 - a) + pcm[Math.min(i + 1, pcm.length - 1)] * a;
+    const width = 16, taps = width * 2, phases = 256;
+    const cutoff = 0.94 * Math.min(1, target / sampleRate);
+    const table = new Float32Array(phases * taps);
+    for (let phase = 0; phase < phases; phase++) {
+      const frac = phase / phases;
+      for (let t = 0; t < taps; t++) {
+        const distance = t - width + 1 - frac;
+        const phaseX = Math.PI * cutoff * distance;
+        const sinc = Math.abs(phaseX) < 1e-9 ? cutoff :
+          cutoff * Math.sin(phaseX) / phaseX;
+        const window = Math.abs(distance) <= width ?
+          (0.5 + 0.5 * Math.cos(Math.PI * distance / width)) : 0;
+        table[phase * taps + t] = sinc * window;
+      }
     }
-    // Interpolation is a light front-end approximation, not a band-limited resampler.
+    for (let j = 0; j < length; j++) {
+      const pos = j * ratio, center = Math.floor(pos);
+      const phase = Math.min(phases - 1, Math.floor((pos - center) * phases));
+      const first = center - width + 1;
+      let sum = 0, norm = 0;
+      for (let t = 0; t < taps; t++) {
+        const idx = first + t;
+        if (idx < 0 || idx >= pcm.length) continue;
+        const w = table[phase * taps + t];
+        sum += pcm[idx] * w;
+        norm += w;
+      }
+      out[j] = norm ? sum / norm : 0;
+    }
     return out;
   }
 
