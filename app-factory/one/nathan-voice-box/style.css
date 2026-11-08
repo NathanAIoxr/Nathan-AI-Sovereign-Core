@@ -14,3 +14,5 @@
 .metric-row strong{color:#eefaff;text-align:right;font-variant-numeric:tabular-nums}
 .privacy-controls{border:1px solid #365e6a;border-radius:12px;padding:16px;margin-top:16px}
 @media(max-width:620px){.metric-grid{grid-template-columns:1fr}.metric-row{font-size:12px}}
+
+.asr-panel{margin:20px 0;border:1px solid #38606b;border-radius:12px;padding:15px;background:#0a1b24}.asr-panel button{margin:12px 0 2px}
