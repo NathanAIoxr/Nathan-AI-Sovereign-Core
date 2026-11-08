@@ -7,6 +7,8 @@
   const MAX_RECORD_SECONDS=12, MAX_REFERENCE_SECONDS=12;
   let stream=null, recorder=null, chunks=[], timeout=null, activeReference=null;
   let selectedProfile=null, worker=null, workerCounter=0, currentRecURL=null;
+  let currentRightsBasis="self";
+  const hasAuthority=()=>currentRightsBasis==="self" ? $("consent-self").checked : $("archive-rights").checked;
   const status=msg=>{$("record-status").textContent=msg;};
 
   function stopMicrophone(){
@@ -45,17 +47,20 @@
     }
     return new Uint8Array(buf);
   }
-  async function processRecording(blob){
+  async function processRecording(blob, offsetSeconds=0){
     if(blob.size>25*1024*1024)throw Error("Audio is too large for local voice mapping");
     const context=new AudioContext(),bytes=await blob.arrayBuffer();
     try {
       const decoded=await context.decodeAudioData(bytes.slice(0));
-      if(decoded.duration>MAX_RECORD_SECONDS+2)throw Error("Recording exceeds 12 seconds");
-      if(decoded.duration<1.5)throw Error("Record at least two seconds");
-      const samples=new Float32Array(decoded.length);
+      if(!Number.isFinite(offsetSeconds)||offsetSeconds<0||offsetSeconds>decoded.duration)
+        throw Error("Invalid archive start time");
+      const start=Math.floor(offsetSeconds*decoded.sampleRate);
+      const count=Math.min(decoded.length-start,MAX_REFERENCE_SECONDS*decoded.sampleRate);
+      if(count<Math.ceil(decoded.sampleRate*1.5))throw Error("Select at least two seconds of audio");
+      const samples=new Float32Array(count);
       for(let ch=0;ch<decoded.numberOfChannels;ch++){
         const channel=decoded.getChannelData(ch);
-        for(let i=0;i<samples.length;i++)samples[i]+=channel[i]/decoded.numberOfChannels;
+        for(let i=0;i<count;i++)samples[i]+=channel[start+i]/decoded.numberOfChannels;
       }
       const reference=window.NathanVoiceMapper.resample(samples,decoded.sampleRate);
       activeReference=wavFromPCM(reference.subarray(0,Math.round(MAX_REFERENCE_SECONDS*16000)));
@@ -125,6 +130,7 @@
       status("This browser does not support microphone recording on a secure local origin.");return;
     }
     try {
+      currentRightsBasis="self";
       activeReference=null;lastProfile=null;$("record-save").disabled=true;$("clone-voice").disabled=true;$("transcribe-recording").disabled=true;
       stream=await navigator.mediaDevices.getUserMedia({audio:{
         channelCount:1,echoCancellation:false,noiseSuppression:false,autoGainControl:false
@@ -141,7 +147,27 @@
       timeout=setTimeout(stopMicrophone,MAX_RECORD_SECONDS*1000);
     }catch(error){stopMicrophone();status("Microphone permission or device unavailable: "+error.message);}
   });
-  $("record-stop").addEventListener("click",stopMicrophone);
+  $("archive-map").addEventListener("click",async()=>{
+    const file=$("archive").files?.[0],basis=$("archive-rights-basis").value;
+    if(!file||(!file.type.startsWith("audio/") && !/\.(wav|mp3|m4a|ogg|flac)$/i.test(file.name)))
+      return status("Select an audio recording to map.");
+    if(!$("archive-rights").checked)
+      return status("Confirm appropriate rights to the archived recording before mapping.");
+    if(!["self","speaker-consent","estate-authorization","licensed-synthetic"].includes(basis))
+      return status("Unknown source-rights category.");
+    const seconds=Number($("archive-offset").value);
+    if(!Number.isFinite(seconds)||seconds<0)return status("Choose a nonnegative start time.");
+    currentRightsBasis=basis;
+    activeReference=null;lastProfile=null;
+    $("record-save").disabled=true;$("clone-voice").disabled=true;
+    $("transcribe-recording").disabled=true;
+    try {
+      status("Mapping only a selected 12-second segment of the authorized archive locally…");
+      lastProfile=await processRecording(file,seconds);
+      status("Mapped authorized archival recording on device. Confirm the exact transcript before synthesis.");
+    } catch(error) {status("Archive mapping failed: "+error.message);}
+  });
+    $("record-stop").addEventListener("click",stopMicrophone);
   const enc=new TextEncoder();
   async function encryptLocal(payload,pass){
     const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));
@@ -170,7 +196,7 @@
     $("profile-count").textContent=all.length+" profiles stored in this browser's IndexedDB. Acoustic metadata is not encrypted.";
   }
   $("record-save").addEventListener("click",async()=>{
-    if(!lastProfile||!$("consent-self").checked)return status("Record and map your own voice first.");
+    if(!lastProfile||!hasAuthority())return status("Confirm the speaker or archive authorization before saving.");
     const name=$("profile-name").value.trim(),lang=$("lang").value.trim(),
       dialect=$("profile-dialect").value.trim(),transcript=$("reference-transcript").value.trim();
     if(name.length<2||name.length>100||dialect.length>120||
@@ -186,7 +212,8 @@
     }
     const item={id:crypto.randomUUID(),name,lang,dialect,transcript,
       created:new Date().toISOString(),metrics:lastProfile,encrypted_audio,
-      consent_self:true,claim:"recorded by the person operating this device"};
+      rights_basis:currentRightsBasis, consent_self:currentRightsBasis==="self",
+      claim:currentRightsBasis==="self"?"speaker self-attested":"archive rights self-attested; not independently verified"};
     try{
       await storage.put("profiles",item);selectedProfile=item;
       status("Saved local voice map"+(encrypted_audio?" with AES-GCM encrypted reference audio.":". Reference audio not persisted."));
@@ -197,6 +224,8 @@
     const item=await storage.get("profiles",$("profile-list").value);
     if(!item)return;
     selectedProfile=item;
+    currentRightsBasis=item.rights_basis||"self";
+    $("archive-rights-basis").value=currentRightsBasis;
     showMetrics(item.metrics);
     $("profile-name").value=item.name;$("lang").value=item.lang;
     $("profile-dialect").value=item.dialect||"";
@@ -226,7 +255,7 @@
     return btoa(text);
   };
   $("transcribe-recording").addEventListener("click",async()=>{
-    if (!$("consent-self").checked) return status("Confirm you are the speaker before transcribing.");
+    if (!hasAuthority()) return status("Confirm speaker or archive permission before transcribing.");
     if (!activeReference) return status("Record your own voice or unlock the saved reference first.");
     const pack=$("asr-pack").value;
     if (!pack) return status("Install and select a licensed local Whisper ASR pack.");
@@ -239,7 +268,7 @@
         cache:"no-store",
         body:JSON.stringify({
           lang:$("lang").value.trim(),pack,
-          speaker_authorized:true,
+          speaker_authorized:true,rights_basis:currentRightsBasis,
           reference_wav_base64:base64(activeReference)
         })
       });
@@ -254,7 +283,7 @@
     finally{button.disabled=false;}
   });
   $("clone-voice").addEventListener("click",async()=>{
-    if(!$("consent-self").checked)return status("Confirm this is your voice and your authorized recording.");
+    if(!hasAuthority())return status("Confirm speaker or archive permission for generated speech.");
     if(!activeReference)return status("Record yourself or unlock an encrypted reference.");
     const pack=$("clone-pack").value.trim(),text=$("text").value.trim(),
       transcript=$("reference-transcript").value.trim(),lang=$("lang").value.trim();
@@ -267,7 +296,7 @@
       const response=await fetch("/clone",{
         method:"POST",headers:{"Content-Type":"application/json","X-Local-Session":token},
         body:JSON.stringify({pack,text,reference_text:transcript,lang,
-          speaker_authorized:true,reference_wav_base64:base64(activeReference)}),
+          speaker_authorized:true,rights_basis:currentRightsBasis,reference_wav_base64:base64(activeReference)}),
         cache:"no-store"});
       if(!response.ok){const error=await response.json();throw Error(error.error||"Local cloning unavailable");}
       const wav=await response.blob();
