@@ -1,13 +1,16 @@
-(function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory();else root.NathanConnections=factory();})(typeof globalThis!=='undefined'?globalThis:this,function(){
+(function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory(require('../../core/binary-anchor.js'));else root.NathanConnections=factory(root.NathanBinaryAnchor);})(typeof globalThis!=='undefined'?globalThis:this,function(Anchor){
  'use strict';
  function load(input){
   const data=input&&input.cross_connections||input;
   if(!data||!Array.isArray(data.nodes)||!Array.isArray(data.edges))throw Error('Choose a Nathan Root Codex or graph JSON containing nodes and edges.');
   if(data.nodes.length>20000||data.edges.length>100000)throw Error('Graph exceeds this viewer’s size limit.');
+  if(!Anchor)throw Error('Binary anchor module is required.');
+  if(Object.hasOwn(input,'binary_anchor'))Anchor.validate(input.binary_anchor);
+  if(data!==input&&Object.hasOwn(data,'binary_anchor'))Anchor.validate(data.binary_anchor);
   const nodes=new Map(),adj=new Map();
   for(const n of data.nodes){if(!n||typeof n.id!=='string'||!n.id||nodes.has(n.id))throw Error('Missing or duplicate node ID.');nodes.set(n.id,n);adj.set(n.id,[]);}
   const edges=data.edges.map((e,index)=>{const source=e.source||e.from,target=e.target||e.to;if(!nodes.has(source)||!nodes.has(target))throw Error('Connection has a missing endpoint.');const edge={...e,source,target,index};adj.get(source).push({id:target,edge,direction:'out'});adj.get(target).push({id:source,edge,direction:'in'});return edge;});
-  return {nodes,edges,adj};
+  return {nodes,edges,adj,binary_anchor:Anchor.ANCHOR};
  }
  function search(graph,text){const q=String(text).normalize('NFC').toLocaleLowerCase();return [...graph.nodes.values()].filter(n=>[n.id,n.label||n.name,n.kind,n.source].join(' ').normalize('NFC').toLocaleLowerCase().includes(q));}
  function neighbors(graph,id){return graph.adj.get(id)||[];}
@@ -19,3 +22,4 @@
  }
  return Object.freeze({load,search,neighbors,path});
 });
+
