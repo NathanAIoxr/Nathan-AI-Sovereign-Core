@@ -13,7 +13,7 @@ import io
 import sys
 import wave
 
-from voicebox import VoiceBoxError, _validate_text, _wav_from_float, load_pack
+from voicebox import VoiceBoxError, PERMITTED_BASES, _validate_text, _wav_from_float, load_pack
 
 MAX_REFERENCE_BYTES = 450_000
 
@@ -57,12 +57,14 @@ def _supports(pack: dict, lang: str):
 
 def clone_with_reference(text: str, lang: str, pack_id: str,
                          reference_wav_base64: str, reference_text: str,
-                         speaker_authorized: bool) -> bytes:
+                         speaker_authorized: bool, rights_basis: str = "self") -> bytes:
     _validate_text(text, lang)
     if len(text) > 800:
         raise VoiceBoxError("Local zero-shot synthesis is limited to 800 characters per request")
     if speaker_authorized is not True:
-        raise VoiceBoxError("The speaker must authorize this voice creation")
+        raise VoiceBoxError("The speaker or relevant rights holder must authorize voice creation")
+    if rights_basis not in PERMITTED_BASES:
+        raise VoiceBoxError("Invalid voice rights-basis declaration")
     if not isinstance(reference_text, str) or not (3 <= len(reference_text.strip()) <= 2000):
         raise VoiceBoxError("Enter the exact spoken transcript of the reference audio")
     pack = load_pack(pack_id)
