@@ -47,8 +47,11 @@ def safe_archive_name(name):
         raise VoiceBoxError("Unsafe archive path")
     if "\\" in name or "\x00" in name or ":" in name or name.startswith("/"):
         raise VoiceBoxError("Unsafe archive path")
-    path = PurePosixPath(name)
-    if path.is_absolute() or any(part in ("", ".", "..") for part in name.split("/")):
+    # ZIP directory entries normally end with one slash. Normalize only that
+    # trailing directory marker; reject empty, dot-dot, double slash and backslash.
+    normalized = name[:-1] if name.endswith("/") else name
+    path = PurePosixPath(normalized)
+    if not normalized or path.is_absolute() or any(part in ("", ".", "..") for part in normalized.split("/")):
         raise VoiceBoxError("Archive contains unsafe path")
     if len(path.parts) > 5:
         raise VoiceBoxError("Archive path nesting too deep")
@@ -63,7 +66,7 @@ def validate_archive_members(infos):
     names = set()
     for item in infos:
         path = safe_archive_name(item.filename)
-        key = item.filename.casefold()
+        key = str(path).casefold()
         if key in seen:
             raise VoiceBoxError("Archive has repeated paths")
         seen.add(key)
