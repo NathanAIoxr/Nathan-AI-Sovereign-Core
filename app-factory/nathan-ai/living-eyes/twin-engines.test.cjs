@@ -1,0 +1,12 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');
+const E=require('./twin-engines.js');
+test('the source inventories are complete and documented',()=>{assert.equal(E.MACHINE_MODULES.length,22);assert.equal(E.SAMARITAN_MODULES.length,14);assert.equal(E.DATA_LABELS.length,21);});
+test('all 64 states and 4096 directed transitions pass',()=>{assert.deepEqual(E.verify(),{states:64,transformations:4096,uniqueOrderedPairs:4096,reversible:true});});
+test('all binary transitions are reversible',()=>{for(let s=0;s<64;s++)for(let m=0;m<64;m++)assert.equal(E.transition(E.transition(s,m),m),s);});
+test('both engines reject unauthorised processing',()=>{const x=E.compare({title:'x',evidence:['test'],consent:false});assert.equal(x.machine.decision,'BLOCK');assert.equal(x.samaritan.decision,'BLOCK');});
+test('empty evidence never produces action proposals',()=>{const x=E.compare({title:'x',consent:true,confidence:1,impact:1,urgency:1});assert.equal(x.machine.decision,'INSUFFICIENT_EVIDENCE');assert.equal(x.samaritan.decision,'INSUFFICIENT_EVIDENCE');});
+test('explicit contradictions trigger conflict review',()=>{const x=E.compare({title:'x',consent:true,confidence:1,evidence:['bridge open','not bridge open']});assert.equal(x.machine.decision,'CONFLICT');assert.equal(x.samaritan.issues.length,1);});
+test('approved evidence yields independent decisions with no external execution',()=>{const x=E.compare({title:'x',consent:true,confidence:1,impact:1,urgency:1,evidence:['maintenance report']});for(const y of [x.machine,x.samaritan]){assert.ok(y.decision.startsWith('PROPOSE_'));assert.equal(y.executed,false);assert.equal(y.requiresHumanApproval,true);assert.equal(y.binary.next.length,6)}});
+test('scenario simulation produces 4 deterministic branches',()=>{const x={title:'x',consent:true,evidence:['test']};assert.equal(E.simulate('machine',x).length,4);assert.deepEqual(E.simulate('samaritan',x),E.simulate('samaritan',x));});
+test('audit logs can be exported and cleared',()=>{const s=E.createSession();s.evaluate({title:'x',consent:true,evidence:['test']});assert.equal(s.history().length,1);assert.equal(JSON.parse(s.export()).entries.length,1);s.clear();assert.equal(s.history().length,0);});
+test('reject malformed and out-of-range inputs',()=>{assert.throws(()=>E.transition(64,0),RangeError);assert.throws(()=>E.compare({confidence:2}),RangeError);assert.throws(()=>E.decide('unknown',{}),RangeError);});
