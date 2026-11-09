@@ -3,10 +3,12 @@ on:
   push:
     paths:
       - 'app-factory/nathan-ai/living-eyes/arithmetic-roots*'
+      - 'app-factory/nathan-ai/living-eyes/eyes-lockdown.test.cjs'
       - '.github/workflows/eyes-arithmetic-roots-ci.yml'
   pull_request:
     paths:
       - 'app-factory/nathan-ai/living-eyes/arithmetic-roots*'
+      - 'app-factory/nathan-ai/living-eyes/eyes-lockdown.test.cjs'
       - '.github/workflows/eyes-arithmetic-roots-ci.yml'
 jobs:
   verify:
@@ -18,3 +20,4 @@ jobs:
           node-version: '22'
       - run: node --check app-factory/nathan-ai/living-eyes/arithmetic-roots.js
       - run: node --test app-factory/nathan-ai/living-eyes/arithmetic-roots.test.cjs
+      - run: node --test app-factory/nathan-ai/living-eyes/eyes-lockdown.test.cjs
