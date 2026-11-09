@@ -1,0 +1,24 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const root=__dirname;
+const A=require('./arithmetic-roots.js');
+const E=require('./twin-engines.js');
+const arithmetic=fs.readFileSync(path.join(root,'arithmetic-roots.html'),'utf8');
+const twins=fs.readFileSync(path.join(root,'twin-engines.html'),'utf8');
+test('lock original formula outputs',()=>{
+ assert.equal(A.egyptianMultiply(13,12).result,156);
+ assert.equal(A.pingalaNashta(5,4),'0010');
+ assert.equal(A.pingalaUddishta('0010'),5);
+ assert.equal(A.fromNapier(A.napierMultiply('acd','ac')),65);
+ assert.equal(A.leibnizAdd('1101','10011'),'100000');
+ assert.equal(A.booleXor(1,0),1);
+});
+test('lock all six-bit transitions',()=>{assert.deepEqual(A.verify().transitions,4096);assert.deepEqual(E.verify().uniqueOrderedPairs,4096);});
+test('lock consent and human approval',()=>{for(const engine of ['machine','samaritan']){const x=E.decide(engine,{consent:false,evidence:['A'],confidence:1});assert.equal(x.decision,'BLOCK');assert.equal(x.executed,false);assert.equal(x.requiresHumanApproval,true)}});
+test('lock unsupported inputs',()=>{assert.throws(()=>A.iChingChange(-1,0),RangeError);assert.throws(()=>A.booleAnd(3,1),RangeError);assert.throws(()=>A.sexagesimalDecode([60]),RangeError);assert.throws(()=>E.compare({confidence:NaN}),RangeError);});
+test('lock user interface authorization off by default',()=>{assert.match(twins,/<input id="consent" type="checkbox">/);assert.doesNotMatch(twins,/<input id="consent" type="checkbox" checked>/);});
+test('lock arithmetic interface strict integer input',()=>{assert.match(arithmetic,/unsigned whole number/);assert.match(arithmetic,/1000000000/);});
+test('lock original owner code presence',()=>{assert.ok(fs.existsSync(path.join(root,'arithmetic-roots-original.py')));assert.ok(fs.existsSync(path.join(root,'engine.js')));});
+test('lock presence of source and disabled feed list',()=>{assert.equal(E.MACHINE_MODULES.length,22);assert.equal(E.SAMARITAN_MODULES.length,14);assert.equal(E.DATA_LABELS.length,21);});
