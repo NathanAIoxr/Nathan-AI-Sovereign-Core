@@ -3,10 +3,12 @@ on:
   push:
     paths:
       - 'app-factory/nathan-ai/living-eyes/twin-engines*'
+      - 'app-factory/nathan-ai/living-eyes/eyes-lockdown.test.cjs'
       - '.github/workflows/eyes-twin-engines-ci.yml'
   pull_request:
     paths:
       - 'app-factory/nathan-ai/living-eyes/twin-engines*'
+      - 'app-factory/nathan-ai/living-eyes/eyes-lockdown.test.cjs'
       - '.github/workflows/eyes-twin-engines-ci.yml'
 jobs:
   test:
@@ -18,3 +20,4 @@ jobs:
           node-version: '22'
       - run: node --check app-factory/nathan-ai/living-eyes/twin-engines.js
       - run: node --test app-factory/nathan-ai/living-eyes/twin-engines.test.cjs
+      - run: node --test app-factory/nathan-ai/living-eyes/eyes-lockdown.test.cjs
