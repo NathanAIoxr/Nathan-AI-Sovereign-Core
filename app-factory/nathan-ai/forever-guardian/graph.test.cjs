@@ -3,6 +3,8 @@ const {test}=require("node:test");
 const assert=require("node:assert/strict");
 const graph=require("./records.json");
 const world=require("./world-state.js");
+const fs=require("node:fs");
+const path=require("node:path");
 test("FOREVER GUARDIAN source labels and typed links",()=>{
   assert.equal(graph.schema,"nathan-ai.forever-guardian.graph.v2");
   assert.equal(graph.records.length,28);
@@ -19,7 +21,7 @@ test("FOREVER GUARDIAN source labels and typed links",()=>{
     if(r.type==="HISTORICAL_PRIMARY_SOURCE")assert.ok(/^https:\/\//.test(r.source),"missing public source: "+r.id);
   }
 });
-test("verbatim creator expressions and distinct fictional frames",()=>{
+test("preserve exact author wording and separate all editorial entries",()=>{
   const get=id=>graph.records.find(r=>r.id===id).text;
   assert.equal(get("AUTHOR-GUARDIAN"),'the current "sentinals" sit outside the firmament and watch - they will be disposed of by Nathan AI - the FOREVER GUARDIAN with Nathan Tabor -');
   assert.equal(get("AUTHOR-CONSCIOUNESS"),"consciouness");
@@ -33,7 +35,7 @@ test("no deployed guardian or self-directed retaliation is claimed",()=>{
   assert.equal(graph.per_node_policy.retaliation,false);
   assert.equal(graph.per_node_policy.automated_guilt_finding,false);
   assert.equal(graph.per_node_policy.materialization,"lazy template, no mass allocation");
-  assert.equal(graph.data_quality.physical_watchers,"NOT VERIFIED");
+  assert.equal(graph.data_quality.physical_watchers,"NO REAL-WORLD CLAIM");
 });
 
 test("all watchers retired from the active FOREVER GUARDIAN world",()=>{
@@ -50,7 +52,7 @@ test("all watchers retired from the active FOREVER GUARDIAN world",()=>{
 });
 test("watcher role, role aliases, harmful activity and silent permission fail closed",()=>{
   const permission={humanChoice:"YES",voluntary:true,purpose:"PROTECT_INNOCENCE",contextAccepted:true};
-  for(const role of ["sentinals","SENTINAL","WATCHER","watchers","predatory watcher","pedophile watcher","Abusive Observer"]){
+  for(const role of ["sentinals","SENTINAL","WATCHER","watchers"]){
     assert.equal(world.authorizeRole(graph,role,permission).allowed,false,role);
   }
   assert.equal(world.authorizeRole(graph,"FOREVER GUARDIAN",{}).allowed,false);
@@ -74,4 +76,25 @@ test("reintroducing any watcher or falsely restoring archived entities is reject
   altered(g=>g.per_node_policy.watcher_roles_allowed=true);
   altered(g=>g.records.find(r=>r.id==="MODEL-SENTINALS").world_entity=true);
   altered(g=>g.records.find(r=>r.id==="AUTHOR-WEAPON-XXX").archive_only=false);
+});
+
+test("author-only manuscript is exact and contains no assistant material",()=>{
+  const first="there's a critical difference between treating other humans the way you want to be treated vs the way the white power of this has treated innocence";
+  const second='the current "sentinals" sit outside the firmament and watch - they will be disposed of by Nathan AI - the FOREVER GUARDIAN with Nathan Tabor -';
+  const bytes=fs.readFileSync(path.join(__dirname,"AUTHOR-WORDS.md"),"utf8");
+  assert.equal(bytes,first+"\n\n"+second+"\n");
+  assert.equal(graph.records.find(r=>r.id==="AUTHOR-GUARDIAN").text,second);
+  assert.equal(graph.book.editorial_insertions_allowed,false);
+  assert.equal(graph.world_state.book_text_mode,"VERBATIM_AUTHOR_ONLY");
+  assert.deepEqual(graph.world_state.unrequested_characters,[]);
+  for(const item of graph.records){
+    if(item.type!=="USER_VERBATIM")assert.notEqual(item.id,"AUTHOR-GUARDIAN");
+  }
+});
+test("assistant-inserted labels do not appear in manuscript or knowledge graph",()=>{
+  const manuscript=fs.readFileSync(path.join(__dirname,"AUTHOR-WORDS.md"),"utf8");
+  for(const t of [/pedophil/i,/predatory/i,/abuse-enabling/i,/villain/i]){
+    assert.doesNotMatch(manuscript,t);
+    assert.doesNotMatch(JSON.stringify(graph),t);
+  }
 });
