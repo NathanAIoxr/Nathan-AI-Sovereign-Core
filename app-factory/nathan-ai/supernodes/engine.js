@@ -58,7 +58,7 @@
     if(typeof value!=="string"&&typeof value!=="number"&&typeof value!=="bigint")
       throw TypeError("Node ID must be an integer or decimal string");
     let raw=String(value).trim().replace(/^NT-/,"");
-    if(!/^(0|[1-9]\d{0,11})$/.test(raw))throw Error("A whole-number node ID is required");
+    if(!/^\d{1,12}$/.test(raw))throw Error("A whole-number node ID is required");
     const n=BigInt(raw);
     if(n<1n||n>TOTAL)throw RangeError("Supernode outside 1–732,000,000");
     return "NT-"+n.toString().padStart(12,"0");
