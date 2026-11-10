@@ -204,3 +204,8 @@ The original spelling records are linked from Ancient Divine Roots and registere
 ## Complete Mind Matrix — additive Code of Codes (2026-11-06)
 
 Open the [John Nathan Tabor Complete Mind Matrix](./complete-mind/index.html) and its [source-separated research registry](./complete-mind/records.json). The standalone module brings together the 10-body author-defined framework, Build/Clear invariants, reversible language transformations, Leonardo research crosswalk and Vinci–Owens Cross Roads parallels. This new layer does not overwrite the Mind–Neuropath or ONE catalogs; it contains its own abstract holographic vector rather than claiming to ship the original generated raster artwork.
+
+
+## 732m SUPERNODES by Nathan Tabor — Sovereign Node Database
+
+[Open the offline-first 732m SUPERNODES workbench](./supernodes/index.html) or [read its complete design, source preservation, and ethics specification](./supernodes/README.md). Every one of the 732,000,000 whole-number logical addresses inherits a source-preserving 27-module policy, 12 transformation dimensions, 8 human transformation pathways, and 9 interdisciplinary source threads. A voluntarily selected node receives its own persistent **logical namespace** in a shared browser-local IndexedDB; the 732 million records are not physically instantiated, and no remote agents, people, or external services are targeted. Knowledge is source-labeled; consent, context, human YES/NO and a nonviolent Innocence Defender review gate control local changes. New code sits alongside CONSCIOUNESS, Φ_life, the existing Node Runtime, Omni God, ONE, and both original arithmetic engines without overwriting their definitions.
