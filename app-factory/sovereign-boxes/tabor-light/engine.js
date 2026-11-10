@@ -51,6 +51,11 @@
     Object.freeze({key:"OBSERVABLE_UNIVERSE",label:"Observable universe",domain:"cosmology",evidence:"ESTIMATED_OBSERVER_RELATIVE",scale:"approximately 46.5 billion light-years in radius"}),
     Object.freeze({key:"BEYOND_OBSERVABLE",label:"Beyond the observable horizon",domain:"cosmology",evidence:"UNKNOWN",scale:"not an empirically mapped outer boundary"}),
     Object.freeze({key:"FIRMAMENT",label:"firmament",domain:"creator-authored-cosmology",evidence:"SYMBOLIC",scale:"no scientifically established physical surface"}),
+    Object.freeze({key:"ATOMIC_EQUATOR",label:"Atomic Equator",domain:"author-architecture",evidence:"CONCEPTUAL",scale:"creator-specified central-reference framework for polarity and feedback"}),
+    Object.freeze({key:"TRUTH",label:"Truth and evidence status",domain:"epistemology",evidence:"EVIDENCE_REVIEW",scale:"claims with support, contradiction, or unresolved review; not an infallible moral detector"}),
+    Object.freeze({key:"SOVEREIGNTY",label:"Free will and sovereignty",domain:"human-rights-ethics",evidence:"CONCEPTUAL",scale:"consent, context, autonomy, revocable approval"}),
+    Object.freeze({key:"FOREVER_GUARDIAN",label:"FOREVER GUARDIAN",domain:"creator-authored-mission",evidence:"SYMBOLIC",scale:"HELP OTHERS FIRST; preserve innocence through consent-based human review"}),
+    Object.freeze({key:"SENTINALS",label:"sentinals beyond the firmament",domain:"creator-fictional-cosmology",evidence:"SYMBOLIC",scale:"authored watch-figure depiction, not measured beings"}),
     Object.freeze({key:"NON_NODE",label:"non-node",domain:"sovereign-taxonomy",evidence:"CONCEPTUAL",scale:"zero, absence, unassigned, unknown, private, or external"})
   ]);
   const MIDDLES=Object.freeze({
@@ -69,7 +74,8 @@
     "../README.md","../registry.json","../../nathan-ai/supernodes/README.md",
     "../../nathan-ai/consciouness/README.md","../../nathan-ai/phi-life/README.md",
     "../../nathan-ai/node-runtime/README.md","../../nathan-ai/omni-god/README.md",
-    "../../one/mother-earth/","../../one/nathan-matrix/"
+    "../../one/mother-earth/","../../one/nathan-matrix/",
+    "../../nathan-ai/weapon-xxx/README.md"
   ]);
   function finite(n,label){if(typeof n!=="number"||!Number.isFinite(n))throw TypeError(label+" must be finite");return n}
   function radians(degrees){return degrees*Math.PI/180}
