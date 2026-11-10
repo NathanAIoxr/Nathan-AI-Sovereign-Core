@@ -2,7 +2,7 @@
 
 ## FOREVER GUARDIAN with Nathan Tabor — author's words
 
-**[The author's book text — verbatim, with no assistant additions](./forever-guardian/AUTHOR-WORDS.md).** [Separate technical notes](./forever-guardian/README.md) and [source database](./forever-guardian/records.json) are **not** part of the manuscript. The proposed system accepts only the FOREVER GUARDIAN role; it does not add watchers or other characters. Earlier modules, both original 0/1 engines, and source text remain unchanged.
+**Original author words:** [FOREVER GUARDIAN declarations](./forever-guardian/AUTHOR-WORDS.md) and [restored Civil War author statements](./forever-guardian/CIVIL-WAR-AUTHOR-WORDS.md), both verbatim with no assistant additions. **Separate historical material:** [Civil War / Slavery / Three-Fifths / Reconstruction research](./forever-guardian/CIVIL-WAR-RESEARCH.md). [Technical notes](./forever-guardian/README.md) and [evidence database](./forever-guardian/records.json) are not author-authored manuscript prose. The proposed system accepts only FOREVER GUARDIAN; it does not add watchers or other characters. Earlier modules and original 0/1 engines remain unchanged.
 
 
 ## Secular ONE REALITY / ONE TIMELINE — Codex SHA-256 anchor
