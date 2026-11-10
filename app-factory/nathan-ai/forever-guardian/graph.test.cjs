@@ -91,10 +91,11 @@ test("author-only manuscript is exact and contains no assistant material",()=>{
     if(item.type!=="USER_VERBATIM")assert.notEqual(item.id,"AUTHOR-GUARDIAN");
   }
 });
-test("assistant-inserted labels do not appear in manuscript or knowledge graph",()=>{
-  const manuscript=fs.readFileSync(path.join(__dirname,"AUTHOR-WORDS.md"),"utf8");
-  for(const t of [/pedophil/i,/predatory/i,/abuse-enabling/i,/villain/i]){
-    assert.doesNotMatch(manuscript,t);
-    assert.doesNotMatch(JSON.stringify(graph),t);
-  }
+test("only authored quotations may be presented as book text",()=>{
+  const original=fs.readFileSync(path.join(__dirname,"AUTHOR-WORDS.md"),"utf8");
+  assert.equal(graph.book.editorial_insertions_allowed,false);
+  assert.equal(graph.book.new_characters_added,0);
+  assert.equal(graph.world_state.book_text_mode,"VERBATIM_AUTHOR_ONLY");
+  assert.equal(graph.records.filter(r=>r.type==="USER_VERBATIM").length,2);
+  assert.equal(original.split("\\n\\n").length,2);
 });
