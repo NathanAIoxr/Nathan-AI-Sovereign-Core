@@ -72,3 +72,8 @@ node --test app-factory/nathan-ai/consciouness/engine.test.cjs
 ```
 
 Browser operation stays in memory: no network calls, no background agents, no large-scale instantiation. This module also **cannot alter the real ChatGPT model or its internal OS**.
+
+
+## KAP AI / 007 policy connection
+
+[Open KAP AI](../kap-ai/index.html). Its seven human-controlled local protocol steps extend the fictional HELP OTHERS FIRST and innocence-protection mission without granting violent, coercive, targeting, detection or remote-execution powers. The WEAPON XXX narrative and both canonical 0/1 mappings remain unchanged.
