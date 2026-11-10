@@ -186,8 +186,8 @@
     },
     {
       "id": "SOURCE-016",
-      "claim": "Both original uploads are preserved with exact bytes and SHA-256 in a separate local bundle, not silently published to the public repository",
-      "status": "BUNDLE_CREATION_PENDING",
+      "claim": "Both original uploads are preserved byte-for-byte with their SHA-256 hashes in a separate downloadable ZIP attached to this ChatGPT conversation. They are not silently posted to the public repository.",
+      "status": "PRIVATE_SOURCE_BUNDLE_CREATED_AND_SHA_VERIFIED",
       "type": "EDITORIAL_CROSS_REFERENCE",
       "source": null,
       "volumes": [
