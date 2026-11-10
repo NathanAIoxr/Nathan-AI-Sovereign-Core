@@ -27,3 +27,8 @@ Private recovery register dated Nov 1, 2026 (not committed), `PUBLISHER_BOOK_AND
 - **[Virginia Foxx / Epstein Files legislative-vote record](records/VIRGINIA_FOXX_EPSTEIN_DISCLOSURE_VOTE_RECORD_2025_2026.md):** seven identified Rules Committee NAY votes, the later House AYE vote, linked official records, and a dated **unofficial** 2026 NC-05 election snapshot. This is a documentary record, not a claim of criminal guilt or a certified election result.
 
 These entries are additive; they do not alter original children's books or imply any real-world autonomous safeguarding service.
+
+
+## KAP AI / 007 safety release companion
+
+[Open KAP AI — seven owner-controlled child safety protocols](../kap-ai/index.html). This additive, local-only module provides child-first guidance and official reporting links. No sensitive images, child-identifying information, real-person allegations, autonomous accusations, or external reports are collected or transmitted. The original children’s book manuscripts and this archive are untouched.
