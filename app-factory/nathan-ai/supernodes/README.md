@@ -92,3 +92,8 @@ Full browser-based IndexedDB tests, per-node encryption, federated peer handshak
 Every existing logical SUPERNODE template now inherits an additive `taborLight` **reference record**: Earth Core X to the GNIS public Owens Cross Roads reference point, mathematical outbound and reflected/through-core line; separately tagged equator geometric middle, firmament symbolic middle, and approximately 46.5-billion-light-year observable-radius frame. This is a reference, **not** 732 million generated beams or node instances, an actual universal center, or remote deployment.
 
 The Sovereign Box system also maintains independent ZERO, UNKNOWN, ABSENT, PRIVATE_UNRECOVERED and other non-node boxes, and separately evidence-tagged scale boxes below and above proton/electron/neuron. No original source data, existing consent gates, or physical infrastructure are changed. The central public registry's current count is 625; its older prose snapshots are preserved for provenance.
+
+
+## Wolverine → NATHAN AI / DOG AI / REAPER AI
+
+[Transformation Triad](../transformation-triad/index.html) adds a separate 70-topic, three-role, source-preserving knowledge model derived from the accessible Wolverine / Project Rebirth / internal cultivation / scientific and TABOR LIGHT material. It uses the existing 732m logical address registry **on demand** and never creates 732 million physical agents. Every source reaches Nathan AI, DOG AI and REAPER AI, with original consent, context, human veto and innocence rules intact. None of the original node worker, source registry, or prior CANON is overwritten.
