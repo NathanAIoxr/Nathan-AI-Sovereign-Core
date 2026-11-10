@@ -4,6 +4,12 @@
 
 The title above is taken from Nathan Tabor's own words, including original spelling. This series is connected to Nathan AI, but it is not a replacement for the Civil War books, FOREVER GUARDIAN, or any other work.
 
+## VOLUME ONE — WRITTEN MANUSCRIPT
+
+[**READ THE COMPLETE VOLUME ONE MANUSCRIPT**](./BOOK-ONE-MANUSCRIPT.md) — thirteen drafted chapters, three parts and an epilogue in a first-person voice guided by the creator's source material. The author's exact quotations remain intact. The surrounding manuscript prose was newly drafted at the author's request; it is not misrepresented as earlier verbatim speech.
+
+[**Separate primary-source research notes**](./BOOK-ONE-SOURCE-NOTES.md) — government/agency records, dates and citations maintained outside the book rather than inserted into the narrator's voice. The downloadable editable Word edition is delivered privately within the ChatGPT conversation; this branch retains the Markdown manuscript.
+
 ## THE AUTHOR'S WORDS — FIRST
 
 [**Read the exact source passages**](./AUTHOR-WORDS.md). No dialogue, characters, claims, or wording have been invented and attributed to Nathan Tabor. The two complete source uploads remain preserved separately.
