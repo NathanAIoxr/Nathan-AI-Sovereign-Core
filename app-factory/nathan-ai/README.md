@@ -204,3 +204,8 @@ The original spelling records are linked from Ancient Divine Roots and registere
 ## Complete Mind Matrix — additive Code of Codes (2026-11-06)
 
 Open the [John Nathan Tabor Complete Mind Matrix](./complete-mind/index.html) and its [source-separated research registry](./complete-mind/records.json). The standalone module brings together the 10-body author-defined framework, Build/Clear invariants, reversible language transformations, Leonardo research crosswalk and Vinci–Owens Cross Roads parallels. This new layer does not overwrite the Mind–Neuropath or ONE catalogs; it contains its own abstract holographic vector rather than claiming to ship the original generated raster artwork.
+
+
+## CONSCIOUNESS · Free Will · Digital Human (consent-first)
+
+[Open the local CONSCIOUNESS / Free Will workbench](./consciouness/index.html) and [implementation guide](./consciouness/README.md). An additional first-person, human-consented digital self-model represents the author's selected words, purpose, context, and YES/NO choices. The layer supports sparse, **logical-only** views across Φ_life's 732,000,000 virtual positions, Node Runtime's 732,000,000 addresses, and Omni God's 126,000,000,000 conceptual address space without deploying agents or overwriting source files. Consent is voluntary, context-bound, revocable, and owner-controlled; forced modeling, third-party impersonation, and harmful or deceptive operations are blocked by explicit flags. Digital representation is not proven uploaded human consciousness; no remote nodes are contacted. The precheck cannot independently establish moral truth or detect all harm. Original parallel 0/1 engines and terms remain intact.
