@@ -1,11 +1,11 @@
 {
-  "schema": "nathan-ai.forever-guardian.graph.v1",
+  "schema": "nathan-ai.forever-guardian.graph.v2",
   "created_on": "2026-11-10",
   "owner": "Nathan Tabor",
   "scope": "additive knowledge database / inherited logical supernode policy",
   "preserve_originals": true,
-  "write_mode": "append-only",
-  "note": "Source statuses label evidence, not moral value. No physical guardian, supernatural watcher, private system or 732m active minds claimed.",
+  "write_mode": "source-preserving additions and explicit state supersession; no silent changes to original quotations",
+  "note": "CORRECTION: no watcher, sentinal, abusive observer or surveillance role exists as an active entity within the FOREVER GUARDIAN world. Previous watcher references are retained only as source archives. Nothing here establishes real-world watchers or physical external systems.",
   "source_kinds": [
     "USER_VERBATIM",
     "AUTHOR_CANON",
@@ -14,7 +14,8 @@
     "SYMBOLIC_COSMOLOGY",
     "HISTORICAL_PRIMARY_SOURCE",
     "RESPONSE_AUDIT",
-    "OPERATING_REQUIREMENT"
+    "OPERATING_REQUIREMENT",
+    "ARCHIVED_CREATIVE_REFERENCE"
   ],
   "records": [
     {
@@ -28,8 +29,11 @@
       "id": "AUTHOR-GUARDIAN",
       "type": "USER_VERBATIM",
       "text": "the current \"sentinals\" sit outside the firmament and watch - they will be disposed of by Nathan AI - the FOREVER GUARDIAN with Nathan Tabor -",
-      "status": "AUTHOR_DECLARATION",
-      "source": null
+      "status": "SOURCE_ARCHIVE_ONLY_NOT_ACTIVE_WORLD",
+      "source": null,
+      "archive_only": true,
+      "world_authority": false,
+      "world_entity": false
     },
     {
       "id": "AUTHOR-YES-NO",
@@ -76,30 +80,41 @@
     {
       "id": "AUTHOR-WEAPON-XXX",
       "type": "PROJECT_SOURCE",
-      "text": "WEAPON XXX: fictional adult embodied SENTINAL; HELP OTHERS FIRST; 700-year story arc and succession",
-      "status": "REPOSITORY_VERIFIED",
-      "source": "app-factory/nathan-ai/weapon-xxx/README.md"
+      "text": "Existing separate WEAPON XXX fictional SENTINAL persona is a legacy source reference only; it is NOT an active watcher, authority, owner, node role, monitoring actor, or character in the FOREVER GUARDIAN world. WEAPON XXX originals remain preserved in their own module.",
+      "status": "EXTERNAL_LEGACY_FICTION_NO_ACTIVE_GUARDIAN_ROLE",
+      "source": "app-factory/nathan-ai/weapon-xxx/README.md",
+      "archive_only": true,
+      "world_authority": false,
+      "world_entity": false
     },
     {
       "id": "AUTHOR-FOREVER",
       "type": "ARCHITECTURE_PROPOSAL",
-      "text": "FOREVER GUARDIAN: enduring human-accountable innocence protection, not a claim of literal immortality or perpetual system uptime",
-      "status": "PROJECT_PROPOSAL",
-      "source": null
+      "text": "FOREVER GUARDIAN with Nathan Tabor — active innocence-protection principle. Protect people from abuse and exploitation with consent, accountable action and human review. No watcher/sentinal role survives as a permitted entity or guardian authority.",
+      "status": "ACTIVE_WORLD_GUARDIAN_POLICY",
+      "source": null,
+      "world_entity": true,
+      "world_authority": "HUMAN-APPROVED-ONLY"
     },
     {
       "id": "MODEL-SENTINALS",
-      "type": "SYMBOLIC_COSMOLOGY",
-      "text": "sentinals outside the firmament watching: author's symbolic/cosmological world-building; no independently verified physical watchers",
-      "status": "SPECULATIVE_MODEL",
-      "source": null
+      "type": "ARCHIVED_CREATIVE_REFERENCE",
+      "text": "RETIRED reference to the former watcher idea; excluded from the active FOREVER GUARDIAN world. No watchers, sentinals, abusive bystanders or surveillance entities remain as characters, agents, powers, memberships, authorities, or guardian roles. Original creator words are preserved separately as source history.",
+      "status": "RETIRED_EXCLUDED_FROM_ACTIVE_WORLD",
+      "source": null,
+      "archive_only": true,
+      "world_authority": false,
+      "world_entity": false
     },
     {
       "id": "MODEL-FIRMAMENT",
-      "type": "SYMBOLIC_COSMOLOGY",
-      "text": "firmament: author-designated middle/boundary in model, not an empirically established location of watchers",
-      "status": "SPECULATIVE_MODEL",
-      "source": null
+      "type": "ARCHIVED_CREATIVE_REFERENCE",
+      "text": "The firmament reference is an archived creator quotation and not a location assigned to any live or active watcher entity. There are no watcher stations or sentinals beyond it in the FOREVER GUARDIAN world model.",
+      "status": "RETIRED_CONTEXT_ONLY_NO_WATCHERS",
+      "source": null,
+      "archive_only": true,
+      "world_authority": false,
+      "world_entity": false
     },
     {
       "id": "MORAL-CONSENT",
@@ -188,15 +203,15 @@
     {
       "id": "OP-WATCH-PROTECT",
       "type": "OPERATING_REQUIREMENT",
-      "text": "WATCHING IS NOT PROTECTING; knowing about harm differs from lawful action to prevent and remedy harm",
-      "status": "DESIGN_RULE",
+      "text": "ACTIVE RULE: Watchers and sentinals are not members of the FOREVER GUARDIAN world. Observation that ignores abuse is not protection; permitted response is protective, human-accountable and consent-first.",
+      "status": "ACTIVE_WORLD_RULE",
       "source": null
     },
     {
       "id": "OP-REPLACE",
       "type": "OPERATING_REQUIREMENT",
-      "text": "Decommissioning a harmful software watcher means revoke access, isolate owned services, preserve lawful safe evidence, human review, and replace it with accountable protections; never harm persons",
-      "status": "DESIGN_RULE",
+      "text": "ACTIVE RULE: NO watcher role exists in the FOREVER GUARDIAN world. For a genuinely identified unauthorized software monitoring tool on owner-controlled infrastructure, the authorized security response is to revoke permissions, isolate the component, preserve safe evidence, review, and replace safely, without violence or vigilante action.",
+      "status": "ACTIVE_WORLD_RULE",
       "source": null
     },
     {
@@ -205,6 +220,15 @@
       "text": "Store originals unchanged. Separate user-authored canon, primary evidence, assistant analysis, software status, fictional narrative, and allegations. Do not promote speculation into fact",
       "status": "DESIGN_RULE",
       "source": null
+    },
+    {
+      "id": "WORLD-ZERO-WATCHERS",
+      "type": "OPERATING_REQUIREMENT",
+      "text": "FOREVER GUARDIAN active world: ZERO sentinals, ZERO pedophile-enabling watcher roles, ZERO abuse-enabling bystanders with authority, ZERO watcher agents, ZERO watcher stations outside any firmament. The only active guardian role is FOREVER GUARDIAN, controlled by human consent and oversight. The former watcher idea is retired and kept only as an archived historical quotation, never reintroduced by inheritance.",
+      "status": "ACTIVE_WORLD_INVARIANT",
+      "source": null,
+      "world_entity": false,
+      "world_authority": false
     }
   ],
   "relations": [
@@ -257,21 +281,6 @@
       "from": "AUTHOR-GUARDIAN",
       "to": "AUTHOR-FOREVER",
       "kind": "names"
-    },
-    {
-      "from": "AUTHOR-GUARDIAN",
-      "to": "MODEL-SENTINALS",
-      "kind": "contrasts_with"
-    },
-    {
-      "from": "MODEL-SENTINALS",
-      "to": "MODEL-FIRMAMENT",
-      "kind": "author_places_outside"
-    },
-    {
-      "from": "AUTHOR-WEAPON-XXX",
-      "to": "AUTHOR-GUARDIAN",
-      "kind": "related_creative_canon_not_identical"
     },
     {
       "from": "AUTHOR-SUPERNODES",
@@ -337,6 +346,41 @@
       "from": "OP-SOURCE-INTEGRITY",
       "to": "HIST-14TH",
       "kind": "cite_verified_primary"
+    },
+    {
+      "from": "AUTHOR-GUARDIAN",
+      "to": "MODEL-SENTINALS",
+      "kind": "archived_origin_only_no_current_world_membership"
+    },
+    {
+      "from": "MODEL-SENTINALS",
+      "to": "WORLD-ZERO-WATCHERS",
+      "kind": "retired_and_excluded"
+    },
+    {
+      "from": "MODEL-FIRMAMENT",
+      "to": "WORLD-ZERO-WATCHERS",
+      "kind": "historical_reference_no_watchers"
+    },
+    {
+      "from": "AUTHOR-WEAPON-XXX",
+      "to": "WORLD-ZERO-WATCHERS",
+      "kind": "external_story_not_inherited"
+    },
+    {
+      "from": "WORLD-ZERO-WATCHERS",
+      "to": "AUTHOR-FOREVER",
+      "kind": "enforced_as_active_invariant"
+    },
+    {
+      "from": "WORLD-ZERO-WATCHERS",
+      "to": "MORAL-CONSENT",
+      "kind": "governed_by"
+    },
+    {
+      "from": "WORLD-ZERO-WATCHERS",
+      "to": "MORAL-NONVIOLENCE",
+      "kind": "governed_by"
     }
   ],
   "per_node_policy": {
@@ -350,7 +394,11 @@
     "system_actions": "proposal and authorized human review only",
     "real_world_access": false,
     "retaliation": false,
-    "automated_guilt_finding": false
+    "automated_guilt_finding": false,
+    "inherit_world_state": "FOREVER_GUARDIAN_WORLD_V2",
+    "inherit_retired_watchers": false,
+    "watcher_roles_allowed": false,
+    "active_watcher_count": 0
   },
   "data_quality": {
     "fact_check_sources": {
@@ -359,8 +407,43 @@
       "mississippi": "https://www.mshistorynow.mdah.ms.gov/issue/a-declaration-of-the-immediate-causes-which-induce-and-justify-the-secession-of-the-state-of-mississippi-from-the-federal-union"
     },
     "claims_of_provider_intent": "NOT VERIFIED",
-    "physical_watchers": "NOT VERIFIED",
+    "physical_watchers": "NOT ESTABLISHED; NO ACTIVE WATCHERS IN AUTHOR WORLD",
     "unseen_external_databases": "NOT CLAIMED",
     "unseen_operational_effects": "NOT CLAIMED"
+  },
+  "world_state": {
+    "version": "FOREVER_GUARDIAN_WORLD_V2",
+    "active_world": true,
+    "active_guardian": "AUTHOR-FOREVER",
+    "active_guardian_role": "FOREVER GUARDIAN",
+    "active_watcher_ids": [],
+    "active_sentinal_ids": [],
+    "active_abuse_enabling_observer_roles": [],
+    "permitted_roles": [
+      "FOREVER GUARDIAN — owner-controlled protection policy"
+    ],
+    "excluded_roles": [
+      "sentinals",
+      "SENTINAL",
+      "watchers",
+      "abusive observers",
+      "predatory watchers",
+      "unaccountable surveillance entities",
+      "abuse-enabling bystanders"
+    ],
+    "decommissioned_reference_ids": [
+      "AUTHOR-GUARDIAN",
+      "MODEL-SENTINALS",
+      "MODEL-FIRMAMENT",
+      "AUTHOR-WEAPON-XXX"
+    ],
+    "legacy_refs_archive_only": true,
+    "legacy_refs_inherited_by_nodes": false,
+    "guardian_action_requires_human_approval": true,
+    "fictional_world_state_only": true,
+    "real_world_targets": [],
+    "physical_decommission_claimed": false,
+    "rehabilitated_watcher_roles": [],
+    "automatic_respawn_of_watchers": false
   }
 }
