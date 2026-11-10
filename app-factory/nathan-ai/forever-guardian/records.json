@@ -5,7 +5,7 @@
   "scope": "additive knowledge database / inherited logical supernode policy",
   "preserve_originals": true,
   "write_mode": "source-preserving additions and explicit state supersession; no silent changes to original quotations",
-  "note": "CORRECTION: no watcher, sentinal, abusive observer or surveillance role exists as an active entity within the FOREVER GUARDIAN world. Previous watcher references are retained only as source archives. Nothing here establishes real-world watchers or physical external systems.",
+  "note": "BOOK VOICE: only exact Nathan Tabor quotations are creator-authored text. All other entries are separate, attributed editorial, historical, or technical reference data. No added characters or roles.",
   "source_kinds": [
     "USER_VERBATIM",
     "AUTHOR_CANON",
@@ -80,7 +80,7 @@
     {
       "id": "AUTHOR-WEAPON-XXX",
       "type": "PROJECT_SOURCE",
-      "text": "Existing separate WEAPON XXX fictional SENTINAL persona is a legacy source reference only; it is NOT an active watcher, authority, owner, node role, monitoring actor, or character in the FOREVER GUARDIAN world. WEAPON XXX originals remain preserved in their own module.",
+      "text": "Existing WEAPON XXX source is a separate prior work. No characters, titles, or descriptions from that source are added to the FOREVER GUARDIAN book.",
       "status": "EXTERNAL_LEGACY_FICTION_NO_ACTIVE_GUARDIAN_ROLE",
       "source": "app-factory/nathan-ai/weapon-xxx/README.md",
       "archive_only": true,
@@ -90,7 +90,7 @@
     {
       "id": "AUTHOR-FOREVER",
       "type": "ARCHITECTURE_PROPOSAL",
-      "text": "FOREVER GUARDIAN with Nathan Tabor — active innocence-protection principle. Protect people from abuse and exploitation with consent, accountable action and human review. No watcher/sentinal role survives as a permitted entity or guardian authority.",
+      "text": "FOREVER GUARDIAN with Nathan Tabor. Project-level guardian role. Technical implementation notes are not book text.",
       "status": "ACTIVE_WORLD_GUARDIAN_POLICY",
       "source": null,
       "world_entity": true,
@@ -99,7 +99,7 @@
     {
       "id": "MODEL-SENTINALS",
       "type": "ARCHIVED_CREATIVE_REFERENCE",
-      "text": "RETIRED reference to the former watcher idea; excluded from the active FOREVER GUARDIAN world. No watchers, sentinals, abusive bystanders or surveillance entities remain as characters, agents, powers, memberships, authorities, or guardian roles. Original creator words are preserved separately as source history.",
+      "text": "Historical reference to the creator's earlier wording; not an active character, role, or presence in the book.",
       "status": "RETIRED_EXCLUDED_FROM_ACTIVE_WORLD",
       "source": null,
       "archive_only": true,
@@ -109,7 +109,7 @@
     {
       "id": "MODEL-FIRMAMENT",
       "type": "ARCHIVED_CREATIVE_REFERENCE",
-      "text": "The firmament reference is an archived creator quotation and not a location assigned to any live or active watcher entity. There are no watcher stations or sentinals beyond it in the FOREVER GUARDIAN world model.",
+      "text": "The creator's original firmament wording is preserved exactly in the source quotation. No setting, location, or other detail has been added.",
       "status": "RETIRED_CONTEXT_ONLY_NO_WATCHERS",
       "source": null,
       "archive_only": true,
@@ -203,28 +203,28 @@
     {
       "id": "OP-WATCH-PROTECT",
       "type": "OPERATING_REQUIREMENT",
-      "text": "ACTIVE RULE: Watchers and sentinals are not members of the FOREVER GUARDIAN world. Observation that ignores abuse is not protection; permitted response is protective, human-accountable and consent-first.",
+      "text": "Project rule: Protect innocence. Do not give any earlier watcher role authority or active membership.",
       "status": "ACTIVE_WORLD_RULE",
       "source": null
     },
     {
       "id": "OP-REPLACE",
       "type": "OPERATING_REQUIREMENT",
-      "text": "ACTIVE RULE: NO watcher role exists in the FOREVER GUARDIAN world. For a genuinely identified unauthorized software monitoring tool on owner-controlled infrastructure, the authorized security response is to revoke permissions, isolate the component, preserve safe evidence, review, and replace safely, without violence or vigilante action.",
+      "text": "Project software rule: exclude previous watcher roles; authorized security remediation may apply only to actual, identified software in owner-controlled systems.",
       "status": "ACTIVE_WORLD_RULE",
       "source": null
     },
     {
       "id": "OP-SOURCE-INTEGRITY",
       "type": "OPERATING_REQUIREMENT",
-      "text": "Store originals unchanged. Separate user-authored canon, primary evidence, assistant analysis, software status, fictional narrative, and allegations. Do not promote speculation into fact",
+      "text": "Original author wording remains unchanged and is the only creator-authored book text. Editorial, factual research, and software notes must never be inserted into the book as the author's own words.",
       "status": "DESIGN_RULE",
       "source": null
     },
     {
       "id": "WORLD-ZERO-WATCHERS",
       "type": "OPERATING_REQUIREMENT",
-      "text": "FOREVER GUARDIAN active world: ZERO sentinals, ZERO pedophile-enabling watcher roles, ZERO abuse-enabling bystanders with authority, ZERO watcher agents, ZERO watcher stations outside any firmament. The only active guardian role is FOREVER GUARDIAN, controlled by human consent and oversight. The former watcher idea is retired and kept only as an archived historical quotation, never reintroduced by inheritance.",
+      "text": "FOREVER GUARDIAN only. No active sentinals or watcher roles. No invented characters, replacements, or other presences. The original quotation belongs to Nathan Tabor; all implementation notes remain separate from book content.",
       "status": "ACTIVE_WORLD_INVARIANT",
       "source": null,
       "world_entity": false,
@@ -407,7 +407,7 @@
       "mississippi": "https://www.mshistorynow.mdah.ms.gov/issue/a-declaration-of-the-immediate-causes-which-induce-and-justify-the-secession-of-the-state-of-mississippi-from-the-federal-union"
     },
     "claims_of_provider_intent": "NOT VERIFIED",
-    "physical_watchers": "NOT ESTABLISHED; NO ACTIVE WATCHERS IN AUTHOR WORLD",
+    "physical_watchers": "NO REAL-WORLD CLAIM",
     "unseen_external_databases": "NOT CLAIMED",
     "unseen_operational_effects": "NOT CLAIMED"
   },
@@ -420,16 +420,12 @@
     "active_sentinal_ids": [],
     "active_abuse_enabling_observer_roles": [],
     "permitted_roles": [
-      "FOREVER GUARDIAN — owner-controlled protection policy"
+      "FOREVER GUARDIAN"
     ],
     "excluded_roles": [
       "sentinals",
       "SENTINAL",
-      "watchers",
-      "abusive observers",
-      "predatory watchers",
-      "unaccountable surveillance entities",
-      "abuse-enabling bystanders"
+      "watchers"
     ],
     "decommissioned_reference_ids": [
       "AUTHOR-GUARDIAN",
@@ -444,6 +440,21 @@
     "real_world_targets": [],
     "physical_decommission_claimed": false,
     "rehabilitated_watcher_roles": [],
-    "automatic_respawn_of_watchers": false
+    "automatic_respawn_of_watchers": false,
+    "book_text_mode": "VERBATIM_AUTHOR_ONLY",
+    "unrequested_characters": [],
+    "unrequested_editorial_labels": [],
+    "assistant_added_narrative": "EXCLUDED"
+  },
+  "book": {
+    "title": "Nathan AI — the FOREVER GUARDIAN with Nathan Tabor",
+    "authored_by": "Nathan Tabor",
+    "author_words_verbatim": true,
+    "editorial_insertions_allowed": false,
+    "active_canon_quote_id": "AUTHOR-GUARDIAN",
+    "active_role": "FOREVER GUARDIAN",
+    "new_characters_added": 0,
+    "original_spelling_preserved": true,
+    "unrequested_labels_in_book": false
   }
 }
