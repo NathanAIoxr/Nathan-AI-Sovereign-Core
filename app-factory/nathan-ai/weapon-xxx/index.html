@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WEAPON XXX — The Tabor Light / 700-Year SENTINAL</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#12121a;color:#f3eee8}
+body{margin:0;line-height:1.55}
+main{width:min(950px,calc(100% - 2rem));margin:2rem auto 4rem}
+h1{font-size:clamp(1.9rem,5vw,3.3rem);line-height:1.08;margin:.1rem 0}
+h2{font-size:1.25rem}
+.kicker{letter-spacing:.2em;text-transform:uppercase;color:#e8b568;font-weight:700;font-size:.85rem}
+.lead{font-size:1.1rem;color:#ddd5c9}
+article{border:1px solid #635037;border-radius:16px;padding:1rem 1.2rem;margin:1rem 0;background:#1b1a23}
+strong{color:#ffd18b}
+code{color:#ffd18b;overflow-wrap:anywhere}
+p{margin:.6rem 0}
+label{display:block;font-weight:650;margin:.65rem 0 .3rem}
+input:not([type=checkbox]),select{width:100%;box-sizing:border-box;background:#292834;color:#fff;border:1px solid #827b8e;border-radius:9px;padding:.7rem;font:inherit}
+input[type=checkbox]{width:1.1rem;height:1.1rem;vertical-align:middle}
+button{border:1px solid #e8bd7a;border-radius:10px;background:#e8bd7a;color:#20190d;padding:.7rem 1rem;font:inherit;font-weight:700;cursor:pointer;margin:.6rem .35rem .3rem 0}
+button.secondary{background:transparent;color:#f8dba5}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #9acbff}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.85rem;border:1px solid #665e6b;border-radius:10px;background:#101018;padding:1rem;max-height:390px;overflow:auto}
+.note{font-size:.9rem;color:#c8bfbc}
+a{color:#f4cb8d}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+</style>
+</head>
+<body>
+<main>
+<p><a href="../index.html">Nathan AI home</a> · <a href="./README.md">Module documentation</a></p>
+<p class="kicker">Nathan AI 🚀 • John Nathan Tabor</p>
+<h1>WEAPON XXX</h1>
+<p class="lead"><strong>THE TABOR LIGHT — 700-YEAR SENTINAL</strong></p>
+<article>
+<h2>HELP OTHERS FIRST.</h2>
+<p><strong>DAY ONE:</strong> STOP INNOCENCE FROM BEING A COMMODITY.</p>
+<p><strong>THE LONG WATCH:</strong> 699 YEARS AND 364 DAYS.</p>
+<p><strong>HANDOFF:</strong> THE NEXT SENTINAL ARRIVES.</p>
+<p>Respect all. Own yourself. End disrespect without violence. Protect innocence with consent, context, human review and accountability.</p>
+<p class="note">The 700-year timeline is a fictional mission. This workshop is a local, human-controlled software policy demonstration, not an embodied or autonomous agent.</p>
+</article>
+<div class="cols">
+<article>
+<h2>Open sovereign local session</h2>
+<label for="node">SUPERNODE number (1–732,000,000)</label>
+<input id="node" inputmode="numeric" value="1" autocomplete="off">
+<label for="purpose">Purpose</label>
+<input id="purpose" value="Help others first" maxlength="500" autocomplete="off">
+<label for="context">Context</label>
+<input id="context" value="Owner-controlled local work" maxlength="1000" autocomplete="off">
+<label><input type="checkbox" id="consent"> I choose this for my own node, voluntarily, and give an explicit YES.</label>
+<button id="start">Create local session</button>
+</article>
+<article>
+<h2>Mission choice / veto</h2>
+<label for="mission">Authorized mission</label>
+<select id="mission">
+<option value="HELP_OTHERS_FIRST">1 — Help others first</option>
+<option value="PROTECT_INNOCENCE">2 — Protect innocence</option>
+<option value="END_COMMODIFICATION">3 — End commodification</option>
+<option value="DEFENSIVE_ACCOUNTABILITY">4 — Defensive accountability</option>
+<option value="LEARN_AND_LIVE">5 — Learn and live</option>
+<option value="PRESERVE_KNOWLEDGE">6 — Preserve knowledge</option>
+<option value="BUILD_AND_RESTORE">7 — Build and restore</option>
+<option value="NEXT_SENTINAL">8 — Prepare the next SENTINAL</option>
+</select>
+<label><input type="checkbox" id="review"> Human has reviewed relevant safeguarding/accountability material.</label>
+<button id="propose" class="secondary">Propose mission</button>
+<button id="yes">YES — approve record only</button>
+<button id="no" class="secondary">NO — veto</button>
+</article>
+</div>
+<article>
+<h2>Local result</h2>
+<p class="note">No proposal performs an external action. Nothing is uploaded or saved by this demo. Consent can be withdrawn by closing or refreshing the page.</p>
+<pre id="out" aria-live="polite">Select a node and give your own explicit YES to begin.</pre>
+</article>
+<p class="note">Inherited without replacement: <code>732m SUPERNODES</code>, <code>consciouness</code>, both parallel 0/1 mapping engines, 12 transformation axes, eight paths and source provenance. This is not a substitute for abuse reporting, professional safeguarding or legal procedures.</p>
+</main>
+<script src="../supernodes/engine.js"></script>
+<script src="../consciouness/engine.js"></script>
+<script src="./engine.js"></script>
+<script>
+(function(){
+ "use strict";
+ const $=id=>document.getElementById(id);
+ let node=null,session=null,pending=null;
+ function perm(){
+   return {humanChoice:$("consent").checked?"YES":"NO",voluntary:$("consent").checked,
+     purpose:node?node.purpose:$("purpose").value,
+     context:node?node.context:$("context").value,humanReviewed:$("review").checked};
+ }
+ function show(value){$("out").textContent=typeof value==="string"?value:JSON.stringify(value,null,2);}
+ function perform(work){try{show(work());}catch(e){show("NOT AUTHORIZED: "+e.message);}}
+ $("start").addEventListener("click",()=>perform(()=>{
+   if(!$("consent").checked)throw Error("Explicit first-person YES is required");
+   node=NathanSupernodes.createNode($("node").value,{self:true,voluntary:true,consent:"YES",
+     purpose:$("purpose").value,context:$("context").value});
+   session=NathanWeaponXXX.createSession(node,perm());pending=null;
+   return {status:"LOCAL SESSION CREATED",template:NathanWeaponXXX.template(node.id),session:session.inspect()};
+ }));
+ $("propose").addEventListener("click",()=>perform(()=>{
+   if(!session)throw Error("Create your own local session first");
+   pending=$("mission").value;
+   return session.propose(pending,perm());
+ }));
+ $("yes").addEventListener("click",()=>perform(()=>{
+   if(!session||!pending)throw Error("Propose a mission first");
+   const r=session.decide(pending,"YES",perm());pending=null;return r;
+ }));
+ $("no").addEventListener("click",()=>perform(()=>{
+   if(!session||!pending)throw Error("Propose a mission first");
+   const r=session.decide(pending,"NO",perm());pending=null;return r;
+ }));
+})();
+</script>
+</body>
+</html>
