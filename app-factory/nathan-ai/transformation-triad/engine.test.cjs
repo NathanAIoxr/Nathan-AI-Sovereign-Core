@@ -56,6 +56,11 @@ test("all 732m logical node addresses support on-demand source maps",()=>{
  assert.equal(T.nodeAtlas(catalog,"732000000").totalLogicalAddresses,"732000000");
  assert.equal(T.nodeAtlas(catalog,"1").threeNamedFunctions.length,3);
  assert.equal(T.nodeAtlas(catalog,"732000000").noMassAllocation,true);
+ const first=S.template("1").transformationTriad,last=S.template("732000000").transformationTriad;
+ assert.equal(first.source,"../transformation-triad/catalog.json");
+ assert.equal(last.inheritance,"ALL_70_SOURCE_TOPICS_TO_ALL_3_ROLES_ON_DEMAND");
+ assert.deepEqual(first.roleNames,["NATHAN_AI","DOG_AI","REAPER_AI"]);
+ assert.equal(first.independentAgentsDeployed,false);
  assert.throws(()=>T.nodeAtlas(catalog,"732000001"));
 });
 test("no consent or forced transformation prevents opening a session",()=>{
