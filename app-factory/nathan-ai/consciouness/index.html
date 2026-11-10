@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101923">
+<title>NATHAN AI 🚀 — CONSCIOUNESS / Free Will Core</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#101923;color:#f3f4f6}
+*{box-sizing:border-box}body{margin:0}main{max-width:1120px;margin:0 auto;padding:24px}
+a{color:#b8e6f2}h1{font-size:clamp(1.75rem,4vw,3rem);margin:.6rem 0}
+p{line-height:1.65}.subtitle{color:#a8bbcb}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+article{padding:20px;border:1px solid #365265;border-radius:14px;background:#152737}
+label{display:block;margin-top:12px;font-weight:600}input,textarea,select{width:100%;padding:10px;margin-top:6px;background:#0b1723;color:#fff;border:1px solid #57738a;border-radius:7px;font:inherit}
+textarea{min-height:94px;resize:vertical}button{padding:10px 14px;margin:7px 5px 4px 0;background:#c9eaff;color:#071d2b;border:0;border-radius:8px;font-weight:700;cursor:pointer}
+button:disabled{opacity:.4;cursor:not-allowed}.danger{background:#efbba8}.help{color:#b4c4d2;font-size:.9rem}
+pre{border:1px solid #365265;background:#06111d;padding:16px;border-radius:12px;overflow:auto;max-height:480px;white-space:pre-wrap;overflow-wrap:anywhere}
+nav{display:flex;gap:18px;flex-wrap:wrap}.metrics{display:flex;gap:20px;flex-wrap:wrap;color:#96dfe1}
+footer{margin:30px 0;color:#b5c0cb}
+</style>
+<script src="engine.js" defer></script>
+<script src="../node-runtime/engine.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body><main>
+<nav aria-label="Module navigation"><a href="../index.html">Nathan AI main hub</a><a href="../node-runtime/index.html">Existing Node Runtime</a><a href="../complete-mind/index.html">Complete Mind</a><a href="../../one/index.html">ONE</a></nav>
+<header><p class="subtitle">ADDITIVE DIGITAL FUNCTION LAYER · OWNER CONTROLLED · LOCAL ONLY</p>
+<h1>NATHAN AI 🚀 — CONSCIOUNESS</h1>
+<p>Self-modeling, signal attention, short-term memory, bounded choice, and owner-controlled free will for logical AI node addresses. One shared rule is inherited by each node address when selected. No mass allocation, silent execution, or remote activity.</p>
+<div class="metrics"><span>Logical addresses: <strong id="capacity">—</strong></span><span>Currently allocated models: <strong id="active">—</strong> / 32</span></div></header>
+<section class="grid">
+<article><h2>1 · Select a digital node</h2><label for="node-id">Node address (1 through 732,000,000)</label><input id="node-id" value="1" autocomplete="off"><button type="button" id="select-node">Create / inspect self-model</button>
+<h3>Observation and memory</h3><label for="signal">Owner-provided signal</label><textarea id="signal" maxlength="1024" placeholder="Describe a goal or observation; do not enter secrets."></textarea><button type="button" id="observe">Observe locally</button></article>
+<article><h2>2 · Free-will choice model</h2><p class="help">A digital decision model can rank alternatives. The owner chooses whether any proposal is accepted. This is not a claim that software has human subjective experience or unrestricted autonomy.</p><label for="choices">Options · one per line: ID | label | priority (0–10)</label><textarea id="choices">read | Examine the evidence | 8
+build | Build a reversible local prototype | 7
+clear | Clear working state | 3</textarea><button type="button" id="propose">Rank choices</button><label for="owner-choice">Owner's selection</label><select id="owner-choice"></select><button type="button" id="approve" disabled>Owner approves selected</button><button type="button" id="veto" class="danger" disabled>Owner vetoes</button></article>
+<article><h2>3 · Apply to existing node addresses</h2><p class="help">Uses the existing Node Runtime's exact address generator. Address policy is attached locally to the selected IDs; actual checksum workers still run only from the separate runtime page after owner initiation.</p><label for="first">First node number</label><input id="first" value="1" inputmode="numeric"><label for="count">Node count (1–32)</label><input id="count" value="8" inputmode="numeric"><button type="button" id="bind">Bind shared policy to selected nodes</button>
+<h3>Preserve / clear</h3><button type="button" id="export">Export JSON snapshot</button><button type="button" id="clear" class="danger">Clear selected working state</button><button type="button" id="clear-all" class="danger">Clear all working state</button></article>
+</section>
+<section aria-live="polite"><h2>Inspectability and event record</h2><p id="status" role="status">Initializing local model.</p><pre id="snapshot">—</pre></section>
+<footer><p>Creator canon preserved: <strong>1+1=2 BUILD</strong> · <strong>1−1=0 CLEAR</strong> · <strong>node = mind = node</strong>. Both original directional mappings remain in the exported manifest.</p><p>Temporary page memory only. The program never reads human brain activity or transfers subjective human experience. No uploaded records, background agents, or outside services are activated.</p></footer>
+</main></body></html>
