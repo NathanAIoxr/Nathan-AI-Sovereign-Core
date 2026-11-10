@@ -97,5 +97,5 @@ test("only authored quotations may be presented as book text",()=>{
   assert.equal(graph.book.new_characters_added,0);
   assert.equal(graph.world_state.book_text_mode,"VERBATIM_AUTHOR_ONLY");
   assert.equal(graph.records.filter(r=>r.type==="USER_VERBATIM").length,2);
-  assert.equal(original.split("\\n\\n").length,2);
+  assert.equal(original.split("\n\n").length,2);
 });
