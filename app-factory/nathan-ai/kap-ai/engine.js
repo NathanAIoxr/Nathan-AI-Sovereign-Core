@@ -144,7 +144,7 @@
   return {schema:SCHEMA,version:VERSION,name:"KAP AI / 007",
     authorProvidedTitle:AUTHOR.fullOriginalTitle,authorTitleIsNonOperational:true,
     roles:ROLES.map(x=>x.id),protocols:PROTOCOLS.map(x=>x.id),
-    integration:["NATHAN_AI","DOG_AI","REAPER_AI","WEAPON_XXX","CONS CIOUNESS","732M_SUPERNODES"],
+    integration:["NATHAN_AI","DOG_AI","REAPER_AI","WEAPON_XXX","CONSCIOUNESS","732M_SUPERNODES"],
     mode:"LOCAL_HUMAN_APPROVED_PROTOCOL_PREVIEW",
     releasedPhysicalAgents:0,realWorldOperations:0,weaponFunctions:0,automatedGuiltDecisions:0,
     noAutonomousDeployment:true,officialResources:LINKS};
