@@ -38,6 +38,10 @@
   async function refresh(){
     viewSchema();
     if(!node){$("snapshot").textContent="Only the inherited template exists for "+currentId+". No stored node or database records.";return;}
+    if(!$("self").checked||!$("voluntary").checked||!$("consent").checked){
+      $("snapshot").textContent="Owner must affirm voluntary first-person consent in the creation panel, then click Show this node\u0027s database.";
+      return;
+    }
     const content=await db.exportNode(currentId);
     incidents=content.incidents;
     const control=$("incident-select"),oldValue=control.value;
