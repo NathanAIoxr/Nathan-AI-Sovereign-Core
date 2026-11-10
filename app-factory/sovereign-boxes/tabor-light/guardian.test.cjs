@@ -7,7 +7,7 @@ const reviewed={...yes,humanReviewed:true,ownerControlsSystem:true};
 function begin(){return G.create({purpose:"Help others first",context:"Own systems only",evidenceReference:"owner-controlled-document-reference",permission:yes});}
 test("creator authored guardian and sentinals spelling kept exact",()=>{
  assert.equal(G.CANON.title,"FOREVER GUARDIAN");
- assert.equal(G.CANON["author'sSpelling"],"sentinals");
+ assert.equal(G.CANON["sentinalsSpelling"],"sentinals");
  assert.match(G.CANON.authoredDisposition,/FOREVER GUARDIAN with Nathan Tabor/);
  assert.equal(G.CANON.role,"HELP OTHERS FIRST");
 });
