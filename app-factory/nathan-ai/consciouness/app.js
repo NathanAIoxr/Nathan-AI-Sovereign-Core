@@ -10,7 +10,7 @@
     $('snapshot').textContent = JSON.stringify(result || collective.exportSnapshot(), null, 2);
     $('capacity').textContent = collective.manifest().logicalCapacity;
     $('active').textContent = String(collective.manifest().activeNodes);
-    const decision = collective.inspect(selected).decision;
+    const decision = result && Object.prototype.hasOwnProperty.call(result, 'decision') ? result.decision : null;
     const pick = $('owner-choice');
     pick.replaceChildren();
     if (decision && decision.status === 'proposed') {
