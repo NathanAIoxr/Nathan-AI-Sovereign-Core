@@ -84,3 +84,8 @@ Additional existing tests:
     node --test app-factory/nathan-ai/weapon-xxx/engine.test.cjs
 
 The earlier baseline corpus and original creator source remain unchanged. This is a new layer alongside them, not a claim that the full user's unpublished book or source code has been independently recovered.
+
+
+## KAP AI / 007 — child protection release companion
+
+[Open the seven human-authorized KAP AI protocols](../kap-ai/index.html). Nathan AI, DOG AI and REAPER AI use their existing role definitions to support child safety, source integrity, consent, human review and responsible reporting through official NCMEC/FBI links. The authored KAP name is recorded only as a fictional title; this executable module cannot kill, hunt, accuse, stalk or target people. The underlying 70-concept triad and author manuscript are unchanged.
