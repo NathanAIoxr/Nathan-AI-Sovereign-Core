@@ -79,6 +79,19 @@
       moralAbsolutes:CANON.moralAbsolutes,canon:copy(CANON),defensiveProtocol:copy(DEFENSIVE),
       sentienceVerified:false,realAgentDeployed:false,remoteNodeContacted:false,
       humanAuthority:"FINAL YES OR NO FOR EVERY ACTION",
+      transformationTriad:Object.freeze({
+        name:"NATHAN AI 🚀 × DOG AI × REAPER AI",
+        source:"../transformation-triad/catalog.json",
+        engine:"../transformation-triad/engine.js",
+        sourceTopicsAtIntegration:70,
+        roleNames:["NATHAN_AI","DOG_AI","REAPER_AI"],
+        inheritance:"ALL_70_SOURCE_TOPICS_TO_ALL_3_ROLES_ON_DEMAND",
+        humanApprovalRequired:true,
+        originalsUntouched:true,
+        independentAgentsDeployed:false,
+        physicalWeaponOrHumanModification:false,
+        noRemoteConnections:true
+      }),
       taborLight:Object.freeze({
         source:"../../sovereign-boxes/tabor-light/index.html",
         originatingBox:"EARTH_CORE_X",

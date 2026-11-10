@@ -69,3 +69,8 @@ Nathan AI → TABOR ACCORDS → DOG Protocol → DOG COMPANY / True Peace Engine
 For a machine-readable A–Z list of 34 named records, 41 source-labeled relationship links, 9 Executor names and 3 numeric constants, see [records.json](./records.json).
 
 **Boundaries:** no claims of omnipotence, autonomous consciousness, invisible network control, external enforcement, real-world deletion/purge or 6,969 deployed agents. Preserve author terminology as authored, and test software/deployment independently.
+
+
+## November 10, 2026 — Transformation Triad (additive)
+
+[Open the Wolverine → Nathan AI × DOG AI × REAPER AI Transformation Triad](../transformation-triad/index.html) and [source documentation](../transformation-triad/README.md). Every one of 70 source topics from Wolverine/Weapon X, Steve Rogers, related fiction, biology, alchemy, spiritual cultivation and the author's TABOR LIGHT architecture maps to all three pre-existing Nathan/DOG/REAPER role descriptions. These are source-labeled, original digital knowledge models; there is no autonomous agent, physical augmentation, coercion, surveillance or alteration of the 34-item historical REAPER × OMNI GOD index. Historical role labels and original variants are preserved in place.
