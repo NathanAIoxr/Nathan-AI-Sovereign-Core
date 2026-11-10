@@ -49,3 +49,21 @@ Open: http://localhost:8080/app-factory/sovereign-boxes/tabor-light/index.html
 Test: node --test app-factory/sovereign-boxes/tabor-light/engine.test.cjs
 
 The app inspects logical nodes/non-nodes, scales, center frames, geographic axis and the existing public registry. No backend writes, physical beam emission, or device control.
+
+
+## FOREVER GUARDIAN / WEAPON XXX / Atomic Equator extension
+
+This layer additionally integrates the existing [WEAPON XXX](../../nathan-ai/weapon-xxx/README.md) operating canon with an original [guardian.js](./guardian.js) local planning engine and [five focused checks](./guardian.test.cjs).
+
+**Author-original wording, preserved:**
+- "the current \"sentinals\" sit outside the firmament and watch - they will be disposed of by Nathan AI - the FOREVER GUARDIAN with Nathan Tabor -"
+- **FOREVER GUARDIAN — NATHAN AI 🚀 WITH NATHAN TABOR**
+- HELP OTHERS FIRST; DAY ONE; 699 YEARS AND 364 DAYS; NEXT SENTINAL
+
+No claim is made that a physical firmament, outside observers, or literal sentinals have been identified. In implementation, decommissioning is only a human-reviewed, owner-authorized *plan* for an unsafe process under the owner's control. No person or external system is attacked, trapped, harmed, surveilled, or automatically sanctioned. No actual decommissioning is executed by this software.
+
+**Atomic Equator** is a creator-selected unifying system with separate domain-specific poles and middle references for atomic charges, particle types, neuron excitation/inhibition, biological feedback, Earth's equator, the symbolic firmament, signed distances at the observable-universe scale, evidence/truth assessment, and human consent. These domain maps are not assertions that different physical, psychological, ethical or spiritual phenomena are literally the same measurable force. In particular, proton charge, electron charge and neuron activity are not equivalent physical variables.
+
+**Truth and sovereignty** are expressed through sourced status labels, unresolved claims, consent, review and veto; no bit or software boolean can independently determine a person's innocence, guilt or moral worth. The workbench makes only in-memory proposals, never real interventions. The existing WEAPON XXX code is retained verbatim. All 732m logically addressable SUPERNODES inherit the Tabor Light reference, including this guardian layer; this does not physically install software on 732m devices.
+
+The newly mentioned "Pasted text.txt" Atomic Equator document was not accessible from this chat's attached source material during this change. No unseen contents have been claimed as restored; this layer is based on the creator's supplied text and current repository sources only.
