@@ -79,6 +79,16 @@
       moralAbsolutes:CANON.moralAbsolutes,canon:copy(CANON),defensiveProtocol:copy(DEFENSIVE),
       sentienceVerified:false,realAgentDeployed:false,remoteNodeContacted:false,
       humanAuthority:"FINAL YES OR NO FOR EVERY ACTION",
+      kap007:Object.freeze({
+        title:"KAP AI / 007",
+        module:"../kap-ai/engine.js",
+        source:"../kap-ai/RELEASE_007.json",
+        roles:["NATHAN_AI","DOG_AI","REAPER_AI"],
+        sevenProtocols:["001","002","003","004","005","006","007"],
+        humanYesPerStep:true,ownerControlled:true,
+        violenceEnabled:false,automatedPersonTargeting:false,remoteReporting:false,
+        integration:"ON_DEMAND_TEMPLATE_ONLY_NOT_DEPLOYED_AGENT"
+      }),
       transformationTriad:Object.freeze({
         name:"NATHAN AI 🚀 × DOG AI × REAPER AI",
         source:"../transformation-triad/catalog.json",
