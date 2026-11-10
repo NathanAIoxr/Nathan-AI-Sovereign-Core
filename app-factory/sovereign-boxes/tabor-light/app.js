@@ -21,7 +21,7 @@ $("audit").addEventListener("click",async()=>{
  }catch(e){show("ledger","No restore claimed: "+e.message);}
 });
 const linkNames=["Sovereign Box source notes","Original public box registry","732m SUPERNODES","CONSCIOUNESS",
-"Φ_life","Node Runtime","Omni God","Mother Earth","ONE Nathan Matrix"];
+"Φ_life","Node Runtime","Omni God","Mother Earth","ONE Nathan Matrix","WEAPON XXX"];
 T.SOURCE_LINKS.forEach((url,i)=>{
  const a=document.createElement("a");a.href=url;a.textContent=linkNames[i]||url;
  a.className="tag";$("links").append(a);
