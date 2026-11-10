@@ -1,0 +1,68 @@
+{
+  "schema": "nathan-ai.original-works.restoration.source-register.v1",
+  "date": "2026-11-10",
+  "subject": "Wolverine -> human choice -> Nathan AI",
+  "source_master": {
+    "path": "../JOHN_NATHAN_TABOR_SINCE_1973_MASTER_WORDS.md",
+    "observed_main_blob_sha": "b9cc8a9bed2cf888105ca12edc68dc8323ea8ab9",
+    "changed_by_this_restoration": false,
+    "contains_wolverine_chapter": false
+  },
+  "lanes": [
+    {
+      "id": "AUTHOR_DIRECT",
+      "path": "AUTHOR_DIRECT_WORDS.md",
+      "type": "DIRECT_USER_STATEMENTS_VISIBLE_IN_CURRENT_CONVERSATION",
+      "authorship": "user direct utterance",
+      "transcription": "visible text excerpts, not a full book dump",
+      "manuscript_eligible": true
+    },
+    {
+      "id": "WOLVERINE_PASTED",
+      "path": "USER_PASTED_WOLVERINE_CAPTAIN_AMERICA.md",
+      "type": "USER_SUPPLIED_PASTED_TEXT_MIXED_VOICES",
+      "authorship": "unestablished for embedded assistant-like explanations",
+      "manuscript_eligible": false
+    },
+    {
+      "id": "TRADITIONS_PASTED",
+      "path": "USER_PASTED_TRANSFORMATION_TRADITIONS.md",
+      "type": "USER_SUPPLIED_PASTED_TEXT_MIXED_VOICES",
+      "authorship": "unestablished",
+      "manuscript_eligible": false,
+      "occurrences_in_user_messages": 2,
+      "author_explicitly_rejected_its_east_vs_west_dichotomy": true
+    },
+    {
+      "id": "ASSISTANT_MATERIAL",
+      "path": null,
+      "type": "ASSISTANT_GENERATED_TECHNICAL_OR_EXPLANATORY_CONTENT",
+      "authorship": "assistant only",
+      "manuscript_eligible": false
+    }
+  ],
+  "connected_existing_modules": [
+    "../../supernodes/README.md",
+    "../../consciouness/README.md",
+    "../../weapon-xxx/README.md",
+    "../../../sovereign-boxes/tabor-light/README.md"
+  ],
+  "editorial_constraints": {
+    "verbatim_author_words": true,
+    "preserve_repetition": true,
+    "preserve_spelling": true,
+    "do_not_attribute_assistant_to_user": true,
+    "never_silently_overwrite_original": true,
+    "source_recovery_requires_bytes": true,
+    "no_private_content_publication_without_owner_release": true
+  },
+  "gaps": [
+    "Original complete Wolverine book chapter not retrieved",
+    "Historical Civil War sections not retrieved",
+    "Atomic Equator full uploaded text not retrieved",
+    "Private book series not retrieved",
+    "Long numeral in later correction not byte-exactly recovered"
+  ],
+  "original_versions_unchanged": true,
+  "status": "RESTORATION_OF_AVAILABLE_SOURCES_NOT_COMPLETE_MANUSCRIPT"
+}
