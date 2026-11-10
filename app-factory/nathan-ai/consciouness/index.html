@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan AI 🚀 — CONSCIOUNESS / FREE WILL / DIGITAL HUMAN</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,Arial,sans-serif;background:#101827;color:#e9f1fc}
+body{max-width:900px;margin:0 auto;padding:2rem 1rem 5rem;line-height:1.5}
+h1,h2{line-height:1.2}a{color:#95d9ff}article{background:#19263a;border:1px solid #3d5875;border-radius:14px;margin:1rem 0;padding:1rem 1.25rem}
+label{display:block;margin:.75rem 0;font-weight:600}
+input[type=text],textarea,select{display:block;width:100%;box-sizing:border-box;background:#0e1521;color:white;border:1px solid #6282a5;border-radius:6px;padding:.65rem;margin:.3rem 0;font:inherit}
+textarea{min-height:6rem}button{background:#d7edf9;color:#091825;border:0;border-radius:8px;padding:.7rem 1rem;font-weight:700;margin:.25rem .4rem .25rem 0;cursor:pointer}
+button:disabled{opacity:.45;cursor:not-allowed}.danger{background:#ffd1cb}#message{white-space:pre-wrap;overflow-wrap:anywhere}
+fieldset{border:1px solid #6282a5;border-radius:8px;margin:1rem 0}footer{font-size:.9rem;color:#bdd0e6}
+</style></head><body>
+<nav><a href="../index.html">Nathan AI home</a> · <a href="../phi-life/index.html">Φ_life</a> · <a href="../node-runtime/index.html">Node Runtime</a> · <a href="../omni-god/index.html">Omni God</a></nav>
+<h1>NATHAN AI 🚀 — CONSCIOUNESS</h1>
+<p>FREE WILL · DIGITAL HUMAN · CONSENT · CONTEXT · PROTECT INNOCENCE</p>
+<article><strong>1+1=2 BUILD · 1-1=0 CLEAR · ALWAYS PROTECT THE ONE.</strong>
+<p>This tool makes an owner-authored digital representation of a living person's self-described choices and words. It does not upload human consciousness, create a sentient person, alter bodies, connect to actual remote AI nodes, or infer another person's identity. Nothing is sent to a server or saved automatically.</p></article>
+<article><h2>My chosen digital representation</h2>
+<label>My chosen name<input id="name" type="text" maxlength="120" value="MY DIGITAL SELF"></label>
+<label>My purpose<input id="purpose" type="text" maxlength="500" value="Help others while protecting innocence"></label>
+<label>My context<input id="context" type="text" maxlength="2000" value="Owner-authored private digital self-model"></label>
+<label>My own words (optional)<textarea id="description" maxlength="12000" placeholder="What I choose to represent digitally; do not include other people's personal data"></textarea></label>
+<fieldset><legend>Free will — required to BUILD</legend>
+<label><input id="self" type="checkbox"> I confirm this represents myself, not someone else.</label>
+<label><input id="voluntary" type="checkbox"> I freely choose this without coercion.</label>
+<label><input id="consent" type="checkbox"> YES, I consent to this local digital model for the stated purpose and context.</label>
+</fieldset>
+<button id="build">BUILD · YES</button><button id="clear" class="danger">CLEAR · WITHDRAW CONSENT</button></article>
+<article><h2>Human choice</h2><p>The human retains the final YES or NO; declining never performs an action.</p>
+<label>Choice context / reason<input id="reason" type="text" maxlength="1000" placeholder="Optional explanation in your own words"></label>
+<button id="yes" disabled>YES</button><button id="no" disabled>NO</button>
+<h2>Addressable logical nodes</h2>
+<p>Addressing is on demand, without creating an array of millions of agents or contacting machines.</p>
+<label>Logical system<select id="system"><option value="phi-life">Φ_life · 732,000,000 logical positions (0-based)</option><option value="node-runtime">Node Runtime · 732,000,000 IDs (1-based)</option><option value="omni-god">Omni God · 126,000,000,000 conceptual positions (0-based)</option></select></label>
+<label>Whole-number address<input id="address" type="text" value="0" inputmode="numeric"></label>
+<button id="view" disabled>VIEW LOGICAL NODE</button><button id="link" disabled>LINK LOGICAL NODE</button>
+<button id="export" disabled>EXPORT (ask for YES)</button></article>
+<article aria-live="polite"><h2>Local result</h2><pre id="message">No digital self-model created. NO is the default.</pre></article>
+<footer>Human self-description is not literal consciousness transfer. Rights, consent, and accountability remain with real people. This offline-first page has no external APIs or persistent storage. Preserve original sources and both Nathan AI dual engines.</footer>
+<script src="./engine.js"></script>
+<script>
+(function(){
+  "use strict";
+  var engine=window.NathanConsciouness,model=null;
+  var get=function(id){return document.getElementById(id);};
+  var msg=function(text){get("message").textContent=typeof text==="string"?text:JSON.stringify(text,null,2);};
+  function toggle(){["yes","no","view","link","export"].forEach(function(k){get(k).disabled=!model||model.status!=="ACTIVE";});}
+  function execute(fn){try{fn();}catch(e){msg("NO CHANGE: "+e.message);}}
+  get("build").onclick=function(){execute(function(){
+    model=engine.createSelfModel({name:get("name").value,purpose:get("purpose").value,
+      context:get("context").value,description:get("description").value,
+      isSelf:get("self").checked,voluntary:get("voluntary").checked,
+      consent:get("consent").checked?"YES":"NO"});
+    toggle();msg({status:"DIGITAL SELF-MODEL BUILT LOCALLY",kind:model.kind,permission:model.permission,
+      purpose:model.purpose,context:model.context,remote_nodes_connected:0});
+  });};
+  get("clear").onclick=function(){if(model)model=engine.withdraw(model);model=null;
+    get("description").value="";get("self").checked=false;get("voluntary").checked=false;get("consent").checked=false;
+    toggle();msg("1-1=0 CLEAR. Consent withdrawn. In-memory self-description and decisions cleared.");};
+  ["yes","no"].forEach(function(id){get(id).onclick=function(){execute(function(){
+    model=engine.recordChoice(model,id==="yes"?"YES":"NO",get("reason").value);
+    msg({choice:id.toUpperCase(),history:model.choices,rule:engine.INVARIANTS.consent,
+      note:"This is a recorded human choice, not autonomous execution."});});};});
+  get("view").onclick=function(){execute(function(){msg(engine.viewAtNode(model,get("system").value,get("address").value));});};
+  get("link").onclick=function(){execute(function(){model=engine.linkNode(model,get("system").value,get("address").value);
+    msg({status:"LOGICAL LINK RECORDED",links:model.links,remote_nodes_connected:0});});};
+  get("export").onclick=function(){execute(function(){
+    if(!window.confirm("YES: export your self-description, choices, and context as a file on this device?"))return;
+    var json=engine.exportApproved(model,true),blob=new Blob([json],{type:"application/json"});
+    var a=document.createElement("a"),url=URL.createObjectURL(blob);
+    a.href=url;a.download="nathan-ai-consciouness-local-model.json";a.click();
+    setTimeout(function(){URL.revokeObjectURL(url);},1000);
+    msg("Owner-approved local JSON export requested. No server upload.");});};
+  toggle();
+})();
+</script></body></html>
