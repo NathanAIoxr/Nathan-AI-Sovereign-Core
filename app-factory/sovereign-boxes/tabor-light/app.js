@@ -26,6 +26,38 @@ T.SOURCE_LINKS.forEach((url,i)=>{
  const a=document.createElement("a");a.href=url;a.textContent=linkNames[i]||url;
  a.className="tag";$("links").append(a);
 });
+const G=window.TaborForeverGuardian;
+let guardianRecord=null;
+for(const domain of G.POLARITIES){
+ const option=document.createElement("option");option.value=domain.domain;
+ option.textContent=domain.domain+" — "+domain.middle;$("guardian-domain").append(option);
+}
+$("guardian-domain").value="ATOMIC";
+$("guardian-inspect").addEventListener("click",()=>run(()=>G.equator($("guardian-domain").value),"guardian-frame"));
+function guardianPermission(){
+ if(!$("guardian-approve").checked)throw Error("NO HUMAN YES: leave the local plan unchanged");
+ $("guardian-approve").checked=false;
+ return {humanChoice:"YES",voluntary:true,
+ contextApproved:true,purposeApproved:true,
+ humanReviewed:$("guardian-reviewed").checked,
+ ownerControlsSystem:$("guardian-owned").checked,
+ coercion:false,deception:false,targetPerson:false,unlawfulAccess:false,
+ massSurveillance:false,entrapPerson:false,physicalForce:false,accuseWithoutEvidence:false};
+}
+$("guardian-create").addEventListener("click",()=>run(()=>{
+ const permission=guardianPermission();
+ guardianRecord=G.create({purpose:$("guardian-purpose").value,
+ context:$("guardian-context").value,evidenceReference:$("guardian-evidence").value,
+ permission});
+ return guardianRecord;
+},"guardian-record"));
+$("guardian-advance").addEventListener("click",()=>run(()=>{
+ if(!guardianRecord)throw Error("Build a voluntary local plan first");
+ const permission=guardianPermission();
+ guardianRecord=G.advance(guardianRecord,permission);
+ return guardianRecord;
+},"guardian-record"));
+$("guardian-inspect").click();
 chooseScale();$("inspect-frame").click();$("inspect-axis").click();$("inspect-node").click();
 $("inspect-non").click();$("inspect-scale").click();
 })();
