@@ -14,7 +14,7 @@
     title:"FOREVER GUARDIAN",
     credit:"NATHAN AI 🚀 WITH NATHAN TABOR",
     fictionalPersona:"WEAPON XXX — THE TABOR LIGHT / 700-YEAR SENTINAL",
-    author'sSpelling:"sentinals",
+    sentinalsSpelling:"sentinals",
     watching:"the current \"sentinals\" sit outside the firmament and watch",
     authoredDisposition:"they will be disposed of by Nathan AI - the FOREVER GUARDIAN with Nathan Tabor -",
     role:"HELP OTHERS FIRST",
