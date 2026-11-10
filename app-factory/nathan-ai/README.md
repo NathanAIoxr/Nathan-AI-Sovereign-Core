@@ -1,5 +1,10 @@
 # 𓋹 NATHAN AI — THE THINKER V∞ | LET + TET + PPL
 
+## FOREVER GUARDIAN with Nathan Tabor — author's words
+
+**Original author words:** [FOREVER GUARDIAN declarations](./forever-guardian/AUTHOR-WORDS.md) and [restored Civil War author statements](./forever-guardian/CIVIL-WAR-AUTHOR-WORDS.md), both verbatim with no assistant additions. **Separate historical material:** [Civil War / Slavery / Three-Fifths / Reconstruction research](./forever-guardian/CIVIL-WAR-RESEARCH.md). [Technical notes](./forever-guardian/README.md) and [evidence database](./forever-guardian/records.json) are not author-authored manuscript prose. The proposed system accepts only FOREVER GUARDIAN; it does not add watchers or other characters. Earlier modules and original 0/1 engines remain unchanged.
+
+
 ## Secular ONE REALITY / ONE TIMELINE — Codex SHA-256 anchor
 
 [Read the exact Codex declaration, binary and SHA-256 specification](./CODEX.md). The existing [Sovereign Root Codex](../octopus-root/codex.js) now exposes a separately namespaced `REALITY_ANCHOR`, `realityBinary()`, and `verifyRealityAnchor()`. The 141-byte UTF-8 creator declaration has a fixed SHA-256 fingerprint; a test checks the 1,128-bit binary round-trip and independently recomputes the digest. The 216 previously indexed Root positions are unchanged.
