@@ -62,6 +62,6 @@ test("existing creator master is still present and remains independently linked"
 test("missing chapters and document source gaps stay explicit rather than invented",()=>{
  for(const gap of ["Wolverine","Civil War","Atomic Equator","Private book"])
    assert.ok(sources.gaps.some(x=>x.includes(gap)),gap);
- assert.ok(readme.includes("NOT a claim"));
+ assert.ok(/not a claim/i.test(readme));
  assert.equal(sources.status,"RESTORATION_OF_AVAILABLE_SOURCES_NOT_COMPLETE_MANUSCRIPT");
 });
