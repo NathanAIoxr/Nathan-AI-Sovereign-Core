@@ -1,0 +1,22 @@
+name: Nathan AI Consciouness Core
+
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/consciouness/**'
+      - '.github/workflows/consciouness-core-ci.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/consciouness/**'
+      - '.github/workflows/consciouness-core-ci.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate digital self-model and owner choice
+        run: node --test app-factory/nathan-ai/consciouness/engine.test.cjs
