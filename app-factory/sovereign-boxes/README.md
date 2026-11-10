@@ -47,3 +47,10 @@ The **Better Together** song expresses the same idea: “I will teach you how to
 
 ## Next development
 Implement a trusted owner-controlled backend with full original-byte assets, identity enforcement, consent-scoped links, audit, version history and permissioned graph edges; import **private ZIP catalogs** to authenticated project Vault; implement game-specific state machines individually. Never represent concept cards as working published apps or upload private original images to the public repo without rights/privacy review.
+
+
+## November 10, 2026 — TABOR LIGHT extension (additive, original records unchanged)
+
+[TABOR LIGHT · Earth-center X ⇄ Owens Cross Roads ⇄ both directions](./tabor-light/index.html) restores an inspectable scale- and source-provenance *reference* to every logical node and non-node in the Sovereign Box system. It mathematically defines the WGS84 Earth-fixed geocenter-to-OXR line, reflected along the same axis, and preserves equator/firmament/46.5-billion-light-year midpoint frames without presenting symbolic references as physical measurements. The scale boxes include proton, electron, neuron, smaller/larger levels, unknown space, and an independent "election" source spelling.
+
+The owner-approved public registry itself presently indexes **625** records (101 original games + 496 private proposal slots + 28 public app modules); historical references above to **618 / 620** remain as earlier prose, not the current count. The workbench's on-demand completeness audit reports real duplicate or missing references. Private original sources cannot be restored without original owner-provided bytes and permission, so missing private content remains an explicit non-node state instead of fabricated titles. Existing box IDs, source timestamps and private manifest are untouched.
