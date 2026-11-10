@@ -78,7 +78,18 @@
       modules:[...MODULES],axes:[...AXES],paths:[...PATHS],sourceThreads:[...SOURCE_THREADS],
       moralAbsolutes:CANON.moralAbsolutes,canon:copy(CANON),defensiveProtocol:copy(DEFENSIVE),
       sentienceVerified:false,realAgentDeployed:false,remoteNodeContacted:false,
-      humanAuthority:"FINAL YES OR NO FOR EVERY ACTION"
+      humanAuthority:"FINAL YES OR NO FOR EVERY ACTION",
+      taborLight:Object.freeze({
+        source:"../../sovereign-boxes/tabor-light/index.html",
+        originatingBox:"EARTH_CORE_X",
+        geographicReference:"Owens Cross Roads, Alabama, USA",
+        mathematicalAxis:"EARTH_CENTER_TO_OXR_STRAIGHT_LINE_BOTH_DIRECTIONS",
+        reflectedPath:"OXR_BACK_THROUGH_CORE_AND_OUT_OPPOSITE",
+        middleFrames:["EQUATOR","FIRMAMENT_SYMBOLIC","OBSERVABLE_RADIUS_APPROX_46_5_BILLION_LIGHT_YEARS"],
+        scaleBoxInheritance:"ALL_DEFINED_LEVELS_BELOW_AND_ABOVE_PROTON_ELECTRON_NEURON",
+        nonNodeBoxPolicy:"SOVEREIGN_UNASSIGNED_ZERO_AND_UNKNOWN_NOT_COERCED_TO_NODES",
+        onDemandOnly:true,noBeamEmitted:true,noRemoteConnection:true
+      })
     };
   }
   function createNode(value,permission){
