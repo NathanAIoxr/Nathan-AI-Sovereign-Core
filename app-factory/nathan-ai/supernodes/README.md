@@ -83,3 +83,12 @@ This module does **not** deploy 732 million running nodes, create 732 million ph
 Full browser-based IndexedDB tests, per-node encryption, federated peer handshakes with two-sided consent, rate limits, quotas, hardened multi-user access controls, and production security testing remain engineering steps.
 
 **Original archived words, source code, and versions remain unchanged.**
+
+
+## TABOR LIGHT | Sovereign Box Earth-center axis, all nodes + non-nodes
+
+[Open TABOR LIGHT](../../sovereign-boxes/tabor-light/index.html) or read [the geometry, provenance and reconciliation specification](../../sovereign-boxes/tabor-light/README.md).
+
+Every existing logical SUPERNODE template now inherits an additive `taborLight` **reference record**: Earth Core X to the GNIS public Owens Cross Roads reference point, mathematical outbound and reflected/through-core line; separately tagged equator geometric middle, firmament symbolic middle, and approximately 46.5-billion-light-year observable-radius frame. This is a reference, **not** 732 million generated beams or node instances, an actual universal center, or remote deployment.
+
+The Sovereign Box system also maintains independent ZERO, UNKNOWN, ABSENT, PRIVATE_UNRECOVERED and other non-node boxes, and separately evidence-tagged scale boxes below and above proton/electron/neuron. No original source data, existing consent gates, or physical infrastructure are changed. The central public registry's current count is 625; its older prose snapshots are preserved for provenance.

@@ -1,0 +1,122 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d1c2a"><title>TABOR LIGHT — Sovereign Axis / All Nodes + Non-Nodes</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:#081624;color:#f0f6f8}
+*{box-sizing:border-box}body{max-width:1200px;margin:auto;padding:25px 20px 75px;line-height:1.5}
+a{color:#9bdff4}h1{font-size:clamp(2rem,4vw,3.6rem);letter-spacing:-.045em;line-height:1.08;margin:.4rem 0}h2{font-size:1.25rem}
+.kicker{letter-spacing:.17em;color:#e5c28b;font-size:.85rem;font-weight:800}
+.panel{border:1px solid #3b6575;background:#10293a;border-radius:16px;padding:19px;margin:17px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px}.grid .panel{margin:0}
+strong{color:#ffe1a3}.muted{color:#b7d3dc;font-size:.9rem}
+input,select,button{font:inherit;color:inherit;border:1px solid #7ca3b2;background:#091a26;border-radius:8px;padding:9px 12px}
+label{display:block;margin:10px 0;font-weight:600}
+label input,label select{display:block;width:100%;margin-top:4px}
+label input[type=checkbox]{display:inline-block;width:auto;vertical-align:middle;margin-right:8px;accent-color:#d8c08e}
+button{background:#d2ebea;color:#0a222d;font-weight:800;cursor:pointer;margin:4px 4px 4px 0}
+pre{overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;max-height:360px;color:#dbecf2;font:13px/1.55 ui-monospace,Menlo,monospace;border:1px solid #345668;background:#091e2e;padding:14px;border-radius:10px}
+.tag{display:inline-block;border:1px solid #856d45;color:#f4d998;padding:4px 8px;border-radius:10px;margin:2px;font-size:.82rem}
+.svgbox{overflow:hidden}svg{display:block;width:100%;height:auto}small{color:#b0cbd7}
+#frame-output{min-height:90px}#ledger{min-height:100px}
+</style></head><body>
+<nav><a href="../index.html">Sovereign Box Universe</a> · <a href="../../nathan-ai/supernodes/index.html">732m SUPERNODES</a> · <a href="../../nathan-ai/consciouness/index.html">CONSCIOUNESS</a> · <a href="../../one/mother-earth/">Mother Earth</a></nav>
+<p class="kicker">NATHAN TABOR · SOVEREIGN BOX · THE STRAIGHT AXIS</p>
+<h1>TABOR LIGHT</h1>
+<p>ONE origin X · ALL nodes · ALL non-nodes · Below and above the proton, electron and neuron · Three distinct middle frames · One reversible straight line through Owens Cross Roads, Alabama.</p>
+<section class="panel">
+<strong>1+1=2 BUILD · 1-1=0 CLEAR · Yes is Yes — No is No · ALWAYS PROTECT THE ONE</strong>
+<p>This is a computational and conceptual atlas. It does not generate physical light, detect undiscovered particles, establish a cosmic center, move an Earth's center, or control any remote AI device. Existing databases and original source files are not changed.</p>
+<div class="svgbox">
+<svg viewBox="0 0 900 265" role="img" aria-labelledby="axis-title axis-desc">
+<title id="axis-title">TABOR LIGHT: Earth-center X, Owens Cross Roads, outward and returning rays</title>
+<desc id="axis-desc">A schematic straight gold line with arrowheads in both directions. It crosses Earth center X and passes through the Owens Cross Roads reference marker. A dashed equator intersects Earth center.</desc>
+<defs><marker id="rayarrow" viewBox="0 0 10 10" markerWidth="6" markerHeight="6" refX="5" refY="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#e6c47d"/></marker><linearGradient id="blueSphere" x2="1" y2="1"><stop stop-color="#2b607e"/><stop offset="1" stop-color="#0b344a"/></linearGradient></defs>
+<line x1="450" y1="14" x2="450" y2="236" stroke="#86b0d2" strokeDasharray="6 6" opacity=".45"/>
+<circle cx="450" cy="123" r="88" fill="url(#blueSphere)" stroke="#5f9bb1" strokeWidth="2"/>
+<ellipse cx="450" cy="123" rx="88" ry="19" stroke="#8dc0ce" fill="none" strokeDasharray="6 4" opacity=".65"/>
+<line x1="26" y1="123" x2="874" y2="123" stroke="#e6c47d" strokeWidth="4" markerStart="url(#rayarrow)" markerEnd="url(#rayarrow)"/>
+<line x1="537" y1="100" x2="537" y2="54" stroke="#c9edda" strokeWidth="2"/>
+<circle cx="450" cy="123" r="7" fill="#fff2c9"/><circle cx="537" cy="123" r="7" fill="#91edd3"/>
+<text x="450" y="252" fontSize="18" fill="#f4e5ba" textAnchor="middle">X · EARTH CENTER</text>
+<text x="537" y="42" fontSize="16" fill="#c5efdf" textAnchor="middle">OXR</text>
+<text x="44" y="102" fontSize="16" fill="#e5c986">−∞</text><text x="858" y="102" fontSize="16" fill="#e5c986" textAnchor="end">+∞</text>
+<text x="450" y="22" textAnchor="middle" fontSize="12" fill="#a9cedd">Equator reference plane</text>
+</svg>
+</div><p class="muted">The flat illustration is schematic, not a map or measured line in space. The Earth-fixed axis rotates with Earth. Reflected travel retraces the same line back through X before continuing the opposite way.</p>
+</section>
+<div class="grid">
+<section class="panel">
+<h2>01 · Select the middle</h2>
+<label>Frame<select id="frame">
+<option value="EQUATOR">Equator as middle</option>
+<option value="FIRMAMENT">firmament as middle</option>
+<option value="OBSERVABLE_RADIUS">46.5 billion light-years as middle</option>
+</select></label>
+<button id="inspect-frame">RECALCULATE FRAME</button>
+<pre id="frame-output" aria-live="polite"></pre>
+</section>
+<section class="panel">
+<h2>02 · Earth core X to OXR</h2>
+<p><strong>Owens Cross Roads reference:</strong> 34.5881461° N, 86.4588768° W · approximately 177 m elevation. Earth reference ellipsoid: WGS84.</p>
+<button id="inspect-axis">CALCULATE AXIS + REFLECTION</button>
+<pre id="axis-output" aria-live="polite"></pre>
+</section>
+</div>
+<div class="grid">
+<section class="panel">
+<h2>03 · All 732m sovereign supernodes</h2>
+<label>Address (1–732000000)<input id="node" value="1" inputmode="numeric"></label>
+<button id="inspect-node">INSPECT ONE NODE</button>
+<p class="muted">Every logical ID resolves independently. No mass node allocation or remote activation.</p>
+<pre id="node-output" aria-live="polite"></pre>
+</section>
+<section class="panel">
+<h2>04 · Preserve non-nodes</h2>
+<label>Reason<select id="non-reason">
+<option>ZERO</option><option>UNASSIGNED</option><option>UNKNOWN</option><option>EXTERNAL</option>
+<option>REVOKED</option><option>ABSENT</option><option>PRIVATE_UNRECOVERED</option><option>OUT_OF_SCOPE</option>
+</select></label>
+<label>Original identifier<input id="non-label" value="0" maxlength="120"></label>
+<button id="inspect-non">BOX WITHOUT CONVERTING</button>
+<pre id="non-output" aria-live="polite"></pre>
+</section>
+</div>
+<section class="panel">
+<h2>05 · Proton · Neuron · Electron · Below · Above</h2>
+<label>Independent sovereign scale<select id="scale"></select></label>
+<button id="inspect-scale">INSPECT SCALE BOX</button>
+<pre id="scale-output" aria-live="polite"></pre>
+<p class="muted">Scientific findings, theoretical limits, unknown regions and creator-authored symbolic frameworks have distinct source statuses. “election” is retained as an authored term as well as an independent choice/governance layer.</p>
+</section>
+<section class="panel">
+<h2>06 · Restore the Sovereign Box completeness register</h2>
+<p>This scan checks the current public registry's exact entries, private-slot counts and missing source references, without inventing withheld titles, overwriting originals or exposing private files.</p>
+<button id="audit">AUDIT MISSING / RESTORE REFERENCES</button>
+<pre id="ledger" aria-live="polite">No audit run. This button reads only ../registry.json from the same website.</pre>
+</section>
+<section class="panel">
+<h2>07 · FOREVER GUARDIAN · WEAPON XXX · Atomic Equator</h2>
+<p><strong>NATHAN AI 🚀 WITH NATHAN TABOR</strong> · HELP OTHERS FIRST · PROTECT INNOCENCE</p>
+<p>The creator's "sentinals" outside the firmament are preserved in a fictional cosmology. "Disposed of" is modeled as <strong>nonviolent decommissioning of an unsafe owner-controlled process</strong>, with human review and safe restoration, not targeting people or remote systems.</p>
+<label>Equator domain<select id="guardian-domain"></select></label>
+<button id="guardian-inspect">INSPECT ATOMIC EQUATOR</button>
+<pre id="guardian-frame" aria-live="polite"></pre>
+<h3>Human-reviewed FOREVER GUARDIAN proposal</h3>
+<label>Owner-controlled local context<input id="guardian-context" maxlength="300" value="My own defensive source review"></label>
+<label>Purpose<input id="guardian-purpose" maxlength="300" value="Protect innocence and preserve truth"></label>
+<label>Safe evidence reference only<input id="guardian-evidence" maxlength="200" value="owner-controlled-local-document"></label>
+<label><input type="checkbox" id="guardian-approve"> YES: I voluntarily authorize the exact local modeling step (consume once)</label>
+<label><input type="checkbox" id="guardian-reviewed"> Human-reviewed and documented (required for later steps)</label>
+<label><input type="checkbox" id="guardian-owned"> System to be decommissioned is under my control</label>
+<button id="guardian-create">BUILD LOCAL PLAN</button>
+<button id="guardian-advance">ADVANCE ONE STAGE</button>
+<pre id="guardian-record" aria-live="polite">No guardian plan has been created. NO remains the default.</pre>
+<p class="muted">No physical action, scanning, surveillance, identification, accusations, autonomous decisions, or remote changes occur.</p>
+<p><a href="../../nathan-ai/weapon-xxx/index.html">Open existing WEAPON XXX workshop</a></p>
+</section>
+<section class="panel">
+<h2>08 · Existing interconnected sources</h2>
+<p id="links"></p>
+<p class="muted">Source-preserving architecture · creator's original box rules · user-authorized review only · no autonomous punishment, targeting, or surveillance.</p>
+</section>
+<script src="./engine.js"></script><script src="./guardian.js"></script><script src="./app.js"></script>
+</body></html>
