@@ -7,6 +7,7 @@
   function message(text){$("status").textContent=text;}
   function approved(){
     if(!$("approve-action").checked)throw Error("NO human YES: operation stopped");
+    if(!$("self").checked||!$("voluntary").checked||!$("consent").checked)throw Error("Affirm your own voluntary consent for this node first");
     $("approve-action").checked=false;
     if(!node)throw Error("Create or select a consenting node first");
     return {humanChoice:"YES",voluntary:$("voluntary").checked,
@@ -56,7 +57,7 @@
     node=await db.getNode(currentId);
     if(node){
       $("purpose").value=node.purpose;$("context").value=node.context;$("owner").value=node.ownerLabel;
-      $("voluntary").checked=true;$("self").checked=true;$("consent").checked=true;
+      $("voluntary").checked=false;$("self").checked=false;$("consent").checked=false;
     }else{
       $("voluntary").checked=false;$("self").checked=false;$("consent").checked=false;
     }
@@ -105,6 +106,7 @@
   $("refresh").onclick=button(async()=>{node=await db.getNode(currentId);await refresh();message("Sovereign namespace read without cross-node data access.");});
   $("export").onclick=button(async()=>{
     if(!node)throw Error("No node created");
+    if(!$("self").checked||!$("voluntary").checked||!$("consent").checked)throw Error("Affirm your own voluntary consent before exporting");
     if(!$("approve-action").checked)throw Error("Separate human YES required for export");
     $("approve-action").checked=false;
     if(!window.confirm("YES: export only this node's private local data onto your device?"))return;
