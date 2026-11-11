@@ -70,6 +70,12 @@ jobs:
         run: node --test app-factory/build-order/planner.test.cjs
       - name: Verify original-byte Vault backup and recovery
         run: node --test app-factory/vault-backup.test.cjs
+      - name: Verify Personal Intelligence Builder contracts and read-only MCP bridge
+        run: |
+          node --check app-factory/nathan-ai/personal-intelligence/core.js
+          node --check app-factory/nathan-ai/personal-intelligence/app.js
+          node --check app-factory/nathan-ai/personal-intelligence/mcp-server.cjs
+          node --test app-factory/nathan-ai/personal-intelligence/core.test.cjs app-factory/nathan-ai/personal-intelligence/mcp-server.test.cjs
       - name: Verify Middle C reversible word and ancient number puzzle game
         run: node --test app-factory/middle-c/game.test.cjs
       - name: Verify Universal Mission Control and hardware contracts
