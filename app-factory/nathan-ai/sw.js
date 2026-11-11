@@ -1,6 +1,6 @@
 /* Only the explicitly selected public core screens are stored. No runtime cache. */
 'use strict';
-const CACHE='nathan-ai-public-core-v7';
+const CACHE='nathan-ai-public-core-v8';
 const ROOT=new URL(self.registration.scope);
 let allowed;
 async function paths(){
