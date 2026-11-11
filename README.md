@@ -211,3 +211,8 @@ The existing [KJV–Strong’s Universal Root Matrix master](app-factory/one/scr
 ### New original work — Grand Canyon Divine Family
 
 [**HOW BABY JESUS MADE THE GRAND CANYON — story, research and children's-book cover direction**](app-factory/nathan-ai/original-works/grand-canyon-divine-family/) · Creator: Nathan Tabor. An authored mythological picture-book concept with scientific and historical evidence clearly labeled. The generated PNG cover is not yet present in the repository.
+
+
+## Nathan AI Root Connections — local source graph
+
+[Root Connections](app-factory/nathan-ai/root-connections/index.html) adds exact-Unicode search, typed incoming/outgoing links, shortest-route inspection and JSON export for an owner-imported connected codex. The full private source graph stays outside this public repository. Source-inventory membership is distinguishable from semantic and historical connections. [Module documentation and tests](app-factory/nathan-ai/root-connections/README.md).
