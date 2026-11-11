@@ -34,6 +34,7 @@
     ['children','Children & Innocence','children-innocence/index.html','Children’s book and protection catalog'],
     ['mind','Mind & Neuropath','mind-neuropath/index.html','Brain games and symbolic frameworks'],
     ['anatomy','Anatomy A–Z','anatomy/index.html','Body systems and authored frameworks'],
+    ['m99-living-mammal','M-99 Living Mammal Matrix','matrix-grinder-m99/index.html','Universal Harmonic Gyre Box, five-matrix grinder, dual calf pumps, evidence review, bridge, anatomy and circulation'],
     ['family','Family Research','family-research/index.html','Tabor history and source-led investigation'],
     ['builds','Interfaces & Build Recovery','build-recovery/index.html','Build registry, recovered source references'],
     ['flyers','Flyer Studio','flyer-studio/index.html','Create and export marketing visuals'],
