@@ -20,7 +20,7 @@ test("Authored source preserves two objects, original words and corrections",()=
 });
 test("Full index keeps 19 subjects and clear evidence separation",()=>{
  const source=read("RESTORED_TWO_MOONS_MASTER_INDEX.md");
- const ids=[...source.matchAll(/^## (\\d{2}) \\| /gm)].map(x=>x[1]);
+ const ids=[...source.matchAll(/^## (\d{2}) \| /gm)].map(x=>x[1]);
  assert.deepEqual(ids,Array.from({length:19},(_,n)=>String(n).padStart(2,"0")));
  for(const s of ["FAMILY_TESTIMONY","PATENT_PROPOSAL","AUTHOR_CONCEPT","SUPERSEDED_ART","US5984239A","Operation Popeye","Camp Century"])assert.ok(source.includes(s),s);
 });
@@ -29,7 +29,7 @@ test("Workbench contains both objects and all 19 indexed sections",()=>{
  assert.ok(html.includes("B: UNIDENTIFIED SECOND OBJECT"));
  assert.ok(html.includes("A: THE MOON"));
  assert.ok(html.includes("AUTHOR CONCEPT"));
- const m=html.match(/<script id="data" type="application\\/json">([\\s\\S]*?)<\\/script>/);
+ const m=html.match(/<script id="data" type="application\/json">([\s\S]*?)<\/script>/);
  assert.ok(m,"embedded index JSON");
  const parsed=JSON.parse(m[1]);
  assert.equal(parsed.length,19);
