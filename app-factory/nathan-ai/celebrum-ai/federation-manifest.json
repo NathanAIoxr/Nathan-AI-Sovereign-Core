@@ -1,0 +1,68 @@
+{
+  "id": "NATHAN-CELEBRUM-FEDERATION-V2",
+  "name": "CELEBRUM AI 🧠 — BY NATHAN TABOR",
+  "edition": "2026-11-11",
+  "source_policy": "preserve original bytes and voices separately; metadata only public",
+  "status": "PUBLIC_METADATA_REFERENCE_WITH_OWNER_HELD_LOCAL_EXECUTABLE_PACKAGE",
+  "core_module": "app-factory/nathan-ai/celebrum-ai/",
+  "parent": "NATHAN AI / ONE MASTER INDEX",
+  "paths": {
+    "public_gateway": "index.html",
+    "public_docs": "README.md",
+    "private_local_full": "CELEBRUM_AI_Integrated_v2.zip — provided in conversation, not in repo"
+  },
+  "local_verified_counts": {
+    "nodes": 138,
+    "edges": 427,
+    "tests_passed": 22,
+    "full_logical_node_ceiling": 732000000,
+    "live_logical_nodes_claimed": 0
+  },
+  "directions": [
+    "ANCHORED",
+    "UNANCHORED",
+    "REANCHOR"
+  ],
+  "data_practices": [
+    "no raw private source in public registry",
+    "no child/case details public",
+    "no credential import",
+    "no financial source mutations",
+    "do not claim external action without receipt"
+  ],
+  "linked_systems": [
+    {
+      "name": "ONE MASTER INDEX",
+      "mode": "metadata links"
+    },
+    {
+      "name": "GitHub",
+      "mode": "public module"
+    },
+    {
+      "name": "Creator Vault",
+      "mode": "owner-held bytes"
+    },
+    {
+      "name": "Crypto Assets",
+      "mode": "independent specialized DB"
+    },
+    {
+      "name": "Mining Operations",
+      "mode": "independent specialized DB"
+    }
+  ],
+  "module_families": [
+    "brain anatomy",
+    "history and texts",
+    "multiscale systems",
+    "coding encodings",
+    "non-coding arts and speech",
+    "audio signals",
+    "fiction",
+    "biblical text crosswalk",
+    "non-destructive fault simulators",
+    "1,000 accountability witnesses",
+    "evidence and corrections"
+  ]
+}
