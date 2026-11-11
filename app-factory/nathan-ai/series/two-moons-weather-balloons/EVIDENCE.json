@@ -1,0 +1,208 @@
+{
+  "schema": "nathan-ai.series.two-moons-weather-balloons.claims.v1",
+  "date": "2026-11-10",
+  "creator": "Nathan Tabor",
+  "research": "assistant-separated documentary facts, user testimony and unverified assertions",
+  "series_title_author_quote": "two moons, two death stars and the ultimate con exposed - the Moons are is the Death Star by Nathan Tabor",
+  "research_volumes_planned": 13,
+  "raw_sources": [
+    {
+      "name": "Pasted text.txt",
+      "bytes": 24174,
+      "sha256": "129e089a76e759dc80996ecef380015d4032c23008db2d729bd525f02f95566e",
+      "public_copy": false
+    },
+    {
+      "name": "Pasted text (2).txt",
+      "bytes": 64285,
+      "sha256": "917c8adc4cfc3110e798cc48b171bd65f89bdf5470fea71c45daf4f61fb7d3a1",
+      "public_copy": false
+    }
+  ],
+  "source_types": [
+    "PRIMARY_DOCUMENT",
+    "OFFICIAL_SCIENTIFIC_SOURCE",
+    "INDEPENDENT_LOCAL_PRINT_SOURCE",
+    "AUTHOR_TESTIMONY",
+    "UNVERIFIED_ASSERTION",
+    "EDITORIAL_CROSS_REFERENCE"
+  ],
+  "claims": [
+    {
+      "id": "WX-001",
+      "claim": "Weather balloons carry radiosondes to measure the upper atmosphere and typically burst after ascent",
+      "status": "DOCUMENTED",
+      "type": "OFFICIAL_SCIENTIFIC_SOURCE",
+      "source": "https://www.weather.gov/upperair/factsheet",
+      "volumes": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "WX-002",
+      "claim": "Weather balloon flights are routinely made at 00Z and 12Z from many stations",
+      "status": "DOCUMENTED",
+      "type": "OFFICIAL_SCIENTIFIC_SOURCE",
+      "source": "https://www.noaa.gov/jetstream/upperair/radiosondes",
+      "volumes": [
+        1
+      ]
+    },
+    {
+      "id": "BAL-003",
+      "claim": "Classified military Project MOGUL used sensor-bearing balloon trains in the late 1940s; GAO documents the Air Force explanation of Roswell",
+      "status": "DOCUMENTED_GOVERNMENT_ACCOUNT",
+      "type": "PRIMARY_DOCUMENT",
+      "source": "https://www.gao.gov/assets/nsiad-95-187.pdf",
+      "volumes": [
+        2
+      ]
+    },
+    {
+      "id": "ECH-004",
+      "claim": "NASA Echo 1A was a 100-foot Mylar balloon satellite launched August 12 1960 as a passive radio reflector",
+      "status": "DOCUMENTED",
+      "type": "OFFICIAL_SCIENTIFIC_SOURCE",
+      "source": "https://www.nasa.gov/image-article/50-years-of-communications-space/",
+      "volumes": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": "ECH-005",
+      "claim": "Echo was a physically built orbiting artificial satellite, not an atmospheric radiosonde weather balloon",
+      "status": "DOCUMENTED",
+      "type": "OFFICIAL_SCIENTIFIC_SOURCE",
+      "source": "https://www.nasa.gov/image-article/echo-nasas-first-communications-satellite/",
+      "volumes": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": "HZN-006",
+      "claim": "Army Ballistic Missile Agency Project Horizon completed a lunar-outpost feasibility study dated June 8 1959; the outpost was not built",
+      "status": "DOCUMENTED",
+      "type": "PRIMARY_DOCUMENT",
+      "source": "https://www.army.mil/article/189129/",
+      "volumes": [
+        5,
+        6
+      ]
+    },
+    {
+      "id": "ICE-007",
+      "claim": "U.S. Army Corps of Engineers produced a 1965 construction/history report for Camp Century under Greenland ice",
+      "status": "DOCUMENTED",
+      "type": "PRIMARY_DOCUMENT",
+      "source": "https://www.govinfo.gov/app/details/GOVPUB-D103-PURL-gpo86535",
+      "volumes": [
+        8
+      ]
+    },
+    {
+      "id": "OPA-008",
+      "claim": "April 2005 Old Huntsville issue 146 page 16 reports Opal Tabor worked for Wernher von Braun as a receptionist for 27 years",
+      "status": "DOCUMENTED_LOCAL_PUBLICATION",
+      "type": "INDEPENDENT_LOCAL_PRINT_SOURCE",
+      "source": "https://huntsvillehistorycollection.org/hhc/oh/docs/OH-146.pdf?a=oh",
+      "volumes": [
+        7
+      ]
+    },
+    {
+      "id": "OPA-009",
+      "claim": "An uploaded AI reply described Opal as running Redstone Arsenal for 62 years",
+      "status": "NOT_VERIFIED_CONTRADICTS_27_YEAR_PUBLISHED_RECEPTIONIST_DETAIL",
+      "type": "UNVERIFIED_ASSERTION",
+      "source": null,
+      "volumes": [
+        7
+      ]
+    },
+    {
+      "id": "MON-010",
+      "claim": "Declassified plans establish an underground command complex excavated beneath Monte Sano",
+      "status": "NOT_ESTABLISHED",
+      "type": "UNVERIFIED_ASSERTION",
+      "source": null,
+      "volumes": [
+        10
+      ]
+    },
+    {
+      "id": "RED-011",
+      "claim": "Von Braun's Redstone office directly designed NASA's Echo 1A or handled Greenland Project Iceworm electrical systems",
+      "status": "NOT_ESTABLISHED",
+      "type": "UNVERIFIED_ASSERTION",
+      "source": null,
+      "volumes": [
+        3,
+        5,
+        8
+      ]
+    },
+    {
+      "id": "MOON-012",
+      "claim": "Lunar rock samples and other evidence support a natural geological origin and differentiated internal structure of Earth's Moon",
+      "status": "DOCUMENTED",
+      "type": "OFFICIAL_SCIENTIFIC_SOURCE",
+      "source": "https://science.nasa.gov/moon/formation/",
+      "volumes": [
+        11
+      ]
+    },
+    {
+      "id": "MOON-013",
+      "claim": "Earth's Moon is an artificial Death Star built by Redstone Arsenal",
+      "status": "NOT_SUPPORTED_BY_PRESENTED_EVIDENCE",
+      "type": "AUTHOR_TESTIMONY",
+      "source": null,
+      "volumes": [
+        12
+      ]
+    },
+    {
+      "id": "LUC-014",
+      "claim": "George Lucas was secretly paid under a U.S. government agreement to hide knowledge about the Moon",
+      "status": "NOT_SUBSTANTIATED_IN_SUPPLIED_MATERIAL",
+      "type": "UNVERIFIED_ASSERTION",
+      "source": null,
+      "volumes": [
+        12
+      ]
+    },
+    {
+      "id": "DOC-015",
+      "claim": "The alleged leaked Vatican classified text included in the upload is authentic",
+      "status": "AUTHENTICITY_NOT_ESTABLISHED",
+      "type": "UNVERIFIED_ASSERTION",
+      "source": null,
+      "volumes": [
+        13
+      ]
+    },
+    {
+      "id": "SOURCE-016",
+      "claim": "Both original uploads are preserved byte-for-byte with their SHA-256 hashes in a separate downloadable ZIP attached to this ChatGPT conversation. They are not silently posted to the public repository.",
+      "status": "PRIVATE_SOURCE_BUNDLE_CREATED_AND_SHA_VERIFIED",
+      "type": "EDITORIAL_CROSS_REFERENCE",
+      "source": null,
+      "volumes": [
+        13
+      ]
+    },
+    {
+      "id": "CIVIL-017",
+      "claim": "The previously restored Civil War and slavery material remains its own companion series, without mixing authorship or evidence categories",
+      "status": "PREVIOUS_GITHUB_PR",
+      "type": "EDITORIAL_CROSS_REFERENCE",
+      "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/176",
+      "volumes": [
+        13
+      ]
+    }
+  ]
+}

@@ -1,5 +1,9 @@
 # 𓋹 NATHAN AI — THE THINKER V∞ | LET + TET + PPL
 
+## TWO MOONS — Construction Concept Studio and Source Archive
+
+[OPEN TWO MOONS CONCEPT STUDIO](./series/two-moons-weather-balloons/studio.html) · [Restored source index](./series/two-moons-weather-balloons/index.html) · [Volume One](./series/two-moons-weather-balloons/BOOK-ONE-MANUSCRIPT.md) · [Blueprint dimensions and SHA-256 provenance](./series/two-moons-weather-balloons/BUILD-PLANS.md). The **two moons** remain the subject; “Death Stars” is the creator's cover-story framing. Construction images are contemporary speculative SVG art, not authentic Redstone construction plans.
+
 ## BOSSMAN × DOG — Street Files
 
 [Open the BOSSMAN × DOG four-style workbench](./bossman-dog/index.html) or [read its source register and operating boundaries](./bossman-dog/README.md). This additive, offline-first release preserves creator-attributed street names, archive leads, and five research lanes with unverified status by default. It supports reviewed local evidence notes, JSON backup, and four distinct art directions; it does not claim organization affiliations, conduct external monitoring, or modify earlier modules.
