@@ -18,4 +18,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run author source and research index integrity tests
-        run: node --test app-factory/nathan-ai/series/two-moons-weather-balloons/restoration/restoration.test.cjs
+        run: node --test app-factory/nathan-ai/series/two-moons-weather-balloons/restoration/restoration.test.cjs app-factory/nathan-ai/series/two-moons-weather-balloons/studio.test.cjs
