@@ -4,6 +4,14 @@
 
 The title above is taken from Nathan Tabor's own words, including original spelling. This series is connected to Nathan AI, but it is not a replacement for the Civil War books, FOREVER GUARDIAN, or any other work.
 
+## RESTORED TWO MOONS — ACTIVE RESEARCH BROWSER
+
+[**Open the searchable Two Moons workbench**](./index.html) — 19 indexed research sections and an intentionally conceptual, clearly labeled two-object orbital diagram. The second object remains **unidentified** rather than silently replaced by a specific asteroid; the author's “egg nascar loop” is preserved as their description of a proposed path. No Star Wars weapon dish, fictional construction approval, or fabricated provenance is substituted for a real source.
+
+[**Restored exact author words**](./restoration/RESTORED_TWO_MOONS_AUTHOR_WORDS.md) · [**Restored full 19-section master index**](./restoration/RESTORED_TWO_MOONS_MASTER_INDEX.md).
+
+These restoration files were added alongside the existing series; the author's prior passages, Book One, 13-volume plan and 17-claim register remain unchanged. The private source ZIP and superseded AI-generated art are not republished into this public repository.
+
 ## VOLUME ONE — WRITTEN MANUSCRIPT
 
 [**READ THE COMPLETE VOLUME ONE MANUSCRIPT**](./BOOK-ONE-MANUSCRIPT.md) — thirteen drafted chapters, three parts and an epilogue in a first-person voice guided by the creator's source material. The author's exact quotations remain intact. The surrounding manuscript prose was newly drafted at the author's request; it is not misrepresented as earlier verbatim speech.
