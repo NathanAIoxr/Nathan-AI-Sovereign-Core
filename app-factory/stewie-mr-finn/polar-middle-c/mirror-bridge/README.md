@@ -5,7 +5,7 @@
 [Play the Mirror Bridge](./index.html) inside the existing [HO ↔ OH Polar Middle C](../index.html) family. The code lives in `app-factory/stewie-mr-finn/polar-middle-c/mirror-bridge/`; a byte-identical offline copy lives in `app-factory/stewie-mr-finn/Resources/PolarMiddleC/mirror-bridge/` for the existing SwiftUI WebKit iPhone view.
 
 ## Original characters and mechanics
-Stewart (Stewie) and Mr. Finn, whose black-and-white patchwork markings complement each other, guide learners between the North Paw and South Paw houses. Santa Dog says HO, Ozzie says OH.
+Stewart (Stewie) and Mr. Finn, whose black-and-white patchwork markings complement each other, guide learners between the North Paw and Mrs Clause Cat’s Workshop houses. Santa Dog says HO, Ozzie says OH.
 
 * **Above C:** Read a word and identify its ordinary/contextual meaning.
 * **Below C:** Reverse the spelling exactly. PAWS ⇄ SWAP is a real two-way English word pair. Reverse twice to restore the starting word; characters and their counts are invariant.

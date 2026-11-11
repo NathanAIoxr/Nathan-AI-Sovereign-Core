@@ -50,8 +50,8 @@ struct GameHomeView: View {
 
                         adventureLink("🗺️", "THE GRAND ADVENTURE MAP", "48 boards · six magical worlds", to: CampaignMapView())
                         adventureLink("🎯", "THE MAMMAL CHALLENGE LAB", "Three new games: patchwork, tracking and kind choices", to: MammalChallengeLabView())
-                        adventureLink("🌎", "THE POLAR FAMILY · 16 CHAPTERS", "North Paw + South Paw · 48 new challenges and a family reunion", to: PolarFamilyQuestView())
-                        adventureLink("🎅", "HO ↔ OH · THE MIDDLE C", "North Paw + South Paw · words, sound, and ancient numbers", to: PolarMiddleCView())
+                        adventureLink("🌎", "THE POLAR FAMILY · 16 CHAPTERS", "North Paw + Mrs Clause Cat’s Workshop · 48 new challenges and a family reunion", to: PolarFamilyQuestView())
+                        adventureLink("🎅", "HO ↔ OH · THE MIDDLE C", "North Paw + Mrs Clause Cat’s Workshop · words, sound, and ancient numbers", to: PolarMiddleCView())
                         adventureLink("🐈‍⬛", "THE MIRROR BRIDGE · PAWS ⇄ SWAP", "Stewie + Finn · word mirrors and balanced paw drives", to: PawMirrorBridgeView())
                         adventureLink("🎨", "THE MAMMAL PLAYROOM", "Create your own world with stickers and stories", to: MammalPlayroomView())
                         adventureLink("📚", "STORYTIME TOGETHER", "Five real family moments and kind choices", to: MammalStoryMomentsView())
