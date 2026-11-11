@@ -1,0 +1,123 @@
+{
+  "version": "1.0.0",
+  "project": "BOSSMAN × DOG — Street Files",
+  "editorialRule": "Names and source references are creator-attributed. Research lanes are inquiry topics, not allegations, personal affiliations, or proven connections.",
+  "identities": [
+    {
+      "id": "bossman",
+      "name": "BOSSMAN",
+      "kind": "street name",
+      "source": "Creator-described street names; Nathan Tabor: A Force for Good.png (Library artwork, 2026-09-11)",
+      "status": "creator-attributed"
+    },
+    {
+      "id": "dog",
+      "name": "DOG",
+      "kind": "street name",
+      "source": "Creator-described street names; Nathan Tabor: A Force for Good.png (Library artwork, 2026-09-11)",
+      "status": "creator-attributed"
+    },
+    {
+      "id": "pineknot",
+      "name": "PINEKNOT",
+      "kind": "additional moniker",
+      "source": "Pineknot: River, Resilience, and Redemption.png (Library artwork, 2026-09-11)",
+      "status": "creator-attributed"
+    },
+    {
+      "id": "reaper",
+      "name": "REAPER",
+      "kind": "additional moniker",
+      "source": "Pineknot: River, Resilience, and Redemption.png (Library artwork, 2026-09-11)",
+      "status": "creator-attributed"
+    },
+    {
+      "id": "street-creed",
+      "name": "STREET CREED",
+      "kind": "additional moniker",
+      "source": "Pineknot: River, Resilience, and Redemption.png (Library artwork, 2026-09-11)",
+      "status": "creator-attributed"
+    },
+    {
+      "id": "smartdonkey",
+      "name": "SMARTDONKEY",
+      "kind": "additional moniker",
+      "source": "Creator-described moniker; user-authored archive reference",
+      "status": "creator-attributed"
+    },
+    {
+      "id": "king-of-paradox",
+      "name": "KING OF PARADOX",
+      "kind": "additional moniker",
+      "source": "Pineknot: River, Resilience, and Redemption.png (Library artwork, 2026-09-11)",
+      "status": "creator-attributed"
+    }
+  ],
+  "archiveLeads": [
+    {
+      "id": "raw-dog",
+      "title": "RAW DOG / OXR Crossroads Atlas",
+      "scope": "Crossroads narrative and atlas research",
+      "provenance": "TABOR_MASTER_PROJECT_CATALOG.csv / TABOR_TOTALITY_UNIFIED_v008.json",
+      "availability": "catalog reference; original not imported"
+    },
+    {
+      "id": "dog-company",
+      "title": "DOG COMPANY",
+      "scope": "Art, local archive, recovery references",
+      "provenance": "Creator history; original bytes not supplied to this public repository",
+      "availability": "source lead only"
+    },
+    {
+      "id": "heaven-demons",
+      "title": "Heaven Demons roster",
+      "scope": "Fictional character names including BOSSMAN and DOG",
+      "provenance": "Creator archive reference",
+      "availability": "source lead only"
+    },
+    {
+      "id": "earlier-tools",
+      "title": "Historical DOG terminal / archive / guardian tool names",
+      "scope": "dog_company_terminal.py, dog_company_archive.json, nathan_ai_genesis_system.py, nathan_ai_guardian_system.py, seal_to_binary.py",
+      "provenance": "Earlier recovery index references",
+      "availability": "some originals unverified; no code reconstructed"
+    }
+  ],
+  "researchLanes": [
+    {
+      "id": "mafia",
+      "name": "Mafia / organized crime",
+      "scope": "Historical organizations, trials, court records and reporting",
+      "status": "unverified",
+      "note": "No BOSSMAN/DOG affiliation established."
+    },
+    {
+      "id": "cartels",
+      "name": "Cartels",
+      "scope": "Public records, verified investigations and reporting",
+      "status": "unverified",
+      "note": "No BOSSMAN/DOG affiliation established."
+    },
+    {
+      "id": "white-house",
+      "name": "White House",
+      "scope": "Public archives, officials and government records",
+      "status": "unverified",
+      "note": "No BOSSMAN/DOG affiliation established."
+    },
+    {
+      "id": "vatican",
+      "name": "Vatican",
+      "scope": "Public institutional history and documented accountability records",
+      "status": "unverified",
+      "note": "No BOSSMAN/DOG affiliation established."
+    },
+    {
+      "id": "street-level",
+      "name": "Crack houses / street-level drug harms",
+      "scope": "Community history, public-health response and documented cases",
+      "status": "unverified",
+      "note": "No BOSSMAN/DOG affiliation established; do not expose private addresses."
+    }
+  ]
+}
