@@ -40,7 +40,7 @@ test('observed Moon and hypothetical second construction stay differentiated', (
 test('the numeric lunar reference is consistent and the art is not called authentic', () => {
   for (const x of [html,plan,stages,doc]) assert.match(x,/3,474\.8/);
   assert.match(html, /not genuine Redstone/i);
-  assert.match(doc, /The GitHub repository presently contains newly created source-labeled SVG alternatives/);
+  assert.match(doc, /the GitHub repository presently contains newly created source-labeled SVG alternatives/i);
 });
 
 test('the studio has no network or command activation code', () => {
