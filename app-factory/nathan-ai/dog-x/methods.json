@@ -1,0 +1,187 @@
+{
+  "schema": "nathan-ai.dog-x.digital-methods.v1",
+  "name": "DOG-X Upgrade Method Database",
+  "scope": "SAFE_DIGITAL_IMPLEMENTATIONS_NOT_PHYSICAL_ENHANCEMENT",
+  "methods": {
+    "CHECKPOINT_RESTORE": {
+      "name": "Checkpoint and tested restore",
+      "steps": [
+        "Snapshot user-approved local configuration and compute a SHA-256 fingerprint.",
+        "Run bounded integrity and schema comparisons without modifying originals.",
+        "Prepare a reversible repair as a separate proposed version.",
+        "Require a new human YES before restoring an owner-controlled copy; test the restored copy and keep the original."
+      ]
+    },
+    "ORIGINAL_STRUCTURE": {
+      "name": "Original-first extension",
+      "steps": [
+        "Index original identity and source metadata as read-only.",
+        "Build a separate additive overlay containing the new capability.",
+        "Verify that the base and overlay can be resolved independently.",
+        "Provide a human-approved disable/rollback switch for the overlay."
+      ]
+    },
+    "SOVEREIGN_LATTICE": {
+      "name": "Source-integrity lattice",
+      "steps": [
+        "Assign a stable DOG-X upgrade ID and refer to the original versioned source.",
+        "Compute optional local SHA-256 fingerprints for owner-supplied files without uploading them.",
+        "Record derived capabilities in a separate append-only audit proposal, never overwrite original bytes.",
+        "Compare fingerprints before restoration, with human-reviewed corrections."
+      ]
+    },
+    "LIVING_INTERFACE": {
+      "name": "Compatibility-preserving interface",
+      "steps": [
+        "Publish a versioned interface contract for the new DOG-X module.",
+        "Validate inputs, outputs, provenance tags, and required consent fields against the contract.",
+        "Reject incompatible extensions and keep the source identity untouched.",
+        "Test fallback and clean rollback with known-good synthetic fixtures."
+      ]
+    },
+    "BURDEN_AUDIT": {
+      "name": "Side-effect and burden review",
+      "steps": [
+        "Record source-claimed costs and unverified risks as research annotations.",
+        "Check proposed code changes for data retention, complexity, permission and performance costs.",
+        "Block actions outside granted purpose, context or resource budget.",
+        "Reassess after a local simulation; document unresolved uncertainties."
+      ]
+    },
+    "MEMORY_INTEGRITY": {
+      "name": "Versioned memory integrity",
+      "steps": [
+        "Store self-authored memory as separate versioned records with explicit source and consent.",
+        "Compute local diffs and hashes of versions; a digest is not proof of authorship.",
+        "Label an unfamiliar alteration as unverified rather than automatically calling it malicious.",
+        "Offer restore or reject choices to the owner, preserving the source archive."
+      ]
+    },
+    "AUTONOMY_FIREWALL": {
+      "name": "Human-veto authorization",
+      "steps": [
+        "Bind each proposal to the owner's stated purpose and context.",
+        "Require a fresh, voluntary YES for design and restoration steps.",
+        "Block coercion, impersonation, targeting, unauthorized scanning and override requests.",
+        "Accept NO and revocation immediately; keep no background authority."
+      ]
+    },
+    "CONTEXT_SANDBOX": {
+      "name": "Bounded simulation chamber",
+      "steps": [
+        "Represent the fictional intervention as an inert, structured scenario—not an executable medical protocol.",
+        "Record inputs, outcomes, conditions and fictional continuity tags.",
+        "Run only deterministic local simulations with safe synthetic examples.",
+        "Export a reviewable plan; never initiate physical interventions or remote operations."
+      ]
+    },
+    "SENSORY_PRIVACY": {
+      "name": "Authorized signal review",
+      "steps": [
+        "Ask the owner to select a local permitted data source.",
+        "Extract non-identifying indicators and provenance within strict limits.",
+        "Show uncertain alerts to the human for review rather than claiming wrongdoing.",
+        "Erase transient signal data at session end and never monitor others."
+      ]
+    },
+    "ENDURANCE_LOOP": {
+      "name": "Bounded retry and recovery",
+      "steps": [
+        "Set explicit capacity, timeout and retry limits for local tasks.",
+        "Persist only an owner-approved checkpoint before a retry.",
+        "Detect repeated failures, stop and request human intervention.",
+        "Run a post-restore consistency check instead of looping indefinitely."
+      ]
+    },
+    "WHOLE_SYSTEM": {
+      "name": "Whole-system dependency model",
+      "steps": [
+        "Record the upgrade's inputs, prerequisites, dependencies and observed constraints.",
+        "Connect biological, neural, material, timing and identity dimensions as research metadata.",
+        "Simulate dependencies symbolically without implying real human enhancement.",
+        "Require cross-module compatibility tests and human review for any actual software update."
+      ]
+    },
+    "SOURCE_LINEAGE": {
+      "name": "Continuity and provenance graph",
+      "steps": [
+        "Keep franchise, continuity, character and canonical source names in separate source fields.",
+        "Link older and newer versions without treating them as identical or proven.",
+        "Attach verified references where available and flag unsupported pasted claims.",
+        "Generate a traceable source graph for DOG AI integrity review."
+      ]
+    },
+    "SELECTIVE_ADAPT": {
+      "name": "Minimal privilege and scoped modules",
+      "steps": [
+        "Identify the smallest change requested and preserve unaffected original capabilities.",
+        "Scope a new component to only the required DOG-X namespace and data.",
+        "Test for unexpected effects and reject broader or invasive permissions.",
+        "Allow owner-controlled disable and version rollback."
+      ]
+    },
+    "REVERSIBLE_INTERFACE": {
+      "name": "Reversible interface plan",
+      "steps": [
+        "Represent each changed component as an optional versioned adapter.",
+        "Document dependencies and preconditions prior to activation.",
+        "Run synthetic rollback tests and an audit of preserved originals.",
+        "Require explicit owner approval to switch a local adapter state."
+      ]
+    },
+    "KNOWLEDGE_STUDY": {
+      "name": "Evidence-separated knowledge model",
+      "steps": [
+        "Store original description with a direct source link and a clear fiction/tradition/science status.",
+        "Index terms, practices and claims without implying empirical confirmation.",
+        "Connect themes through reversible source-to-concept references.",
+        "Review interpretations separately from creator-authored original text."
+      ]
+    },
+    "PRACTICE_TRAIN": {
+      "name": "Practice and learning record",
+      "steps": [
+        "Represent a practice as a self-selected learning plan, not a power-granting protocol.",
+        "Record chosen skill domains and bounded rehearsal sessions.",
+        "Log self-reported progress without making physiological claims.",
+        "Let the owner pause, review, or remove the training record."
+      ]
+    },
+    "BODY_ATLAS": {
+      "name": "Symbolic and biological atlas",
+      "steps": [
+        "Assign distinct data layers for anatomical observations, religious symbols and fictional claims.",
+        "Record which coordinates and source standards define each layer.",
+        "Disallow conversion of symbolic centers into assumed physical organs.",
+        "Enable cross-layer search while preserving evidence labels."
+      ]
+    },
+    "SCALE_COORDINATES": {
+      "name": "Multiscale coordinate registry",
+      "steps": [
+        "Keep particles, atoms, neurons, organisms, logical nodes and cosmological frames as distinct types.",
+        "Represent only dimensionally valid calculations with explicit units and frames.",
+        "Use on-demand node lookup rather than 732 million allocated processes.",
+        "Record symbolic coordinates independently of established physical measurements."
+      ]
+    },
+    "POLICY_REVIEW": {
+      "name": "Consent-context-innocence review",
+      "steps": [
+        "Define the requested purpose, lawful scope and data provenance.",
+        "Ask the human for an informed YES and validate context without claiming to know their intentions.",
+        "Block proposed violence, nonconsensual experimentation, targeting, covert collection or remote actions.",
+        "Present a human-auditable plan with unconditional NO and clear controls."
+      ]
+    },
+    "GUARDIAN_HANDOFF": {
+      "name": "Human-led guardianship succession",
+      "steps": [
+        "Preserve original policy and owner-approved safety records as versioned artifacts.",
+        "Create a source-linked incident or continuity checklist without naming suspects.",
+        "Require human review for protective proposals and official reporting decisions.",
+        "Handoff only to another authorized human or explicitly approved local component."
+      ]
+    }
+  }
+}
