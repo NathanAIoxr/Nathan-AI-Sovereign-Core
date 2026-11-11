@@ -1,5 +1,11 @@
 # 𓋹 NATHAN AI — THE THINKER V∞ | LET + TET + PPL
 
+## RESTORED TWO MOONS — SOURCE-PRESERVING WORKBENCH
+
+[**OPEN THE TWO MOONS WORKBENCH**](./series/two-moons-weather-balloons/index.html) · [Author wording, exact quotes](./series/two-moons-weather-balloons/restoration/RESTORED_TWO_MOONS_AUTHOR_WORDS.md) · [19-part historical and conceptual index](./series/two-moons-weather-balloons/restoration/RESTORED_TWO_MOONS_MASTER_INDEX.md).
+
+Two independent objects remain represented without Hollywood weapon machinery or fictional official approvals. This is a local research browser with source separation, not a deployed weather-control or satellite system; private original source bundles and superseded imagery remain outside the public repo.
+
 ## Nathan Tabor documentary series — Two Moons, Two Death Stars and weather balloons
 
 [Read the completed Volume One manuscript draft](./series/two-moons-weather-balloons/BOOK-ONE-MANUSCRIPT.md), [its separate documentary source notes](./series/two-moons-weather-balloons/BOOK-ONE-SOURCE-NOTES.md), and [the independent 13-volume series index](./series/two-moons-weather-balloons/README.md), [author's exact sourced statements](./series/two-moons-weather-balloons/AUTHOR-WORDS.md), [documented balloon / space evidence](./series/two-moons-weather-balloons/SERIES-RESEARCH.md) and [17-claim evidence ledger](./series/two-moons-weather-balloons/EVIDENCE.json). Covers weather balloons and radiosondes, the classified MOGUL balloon program, NASA Echo 1A, Project Horizon, Camp Century, the April 2005 printed Opal Tabor employment reference, and lunar geology. Preserve the original title and source text unchanged; differentiate documented events from personal statements and unverified theories. The user-held original uploads are retained in a separate private source archive and are not automatically posted to this public repository. Previous Civil War / FOREVER GUARDIAN projects remain separate.
