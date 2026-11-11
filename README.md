@@ -211,3 +211,7 @@ The existing [KJV–Strong’s Universal Root Matrix master](app-factory/one/scr
 ### New original work — Grand Canyon Divine Family
 
 [**HOW BABY JESUS MADE THE GRAND CANYON — story, research and children's-book cover direction**](app-factory/nathan-ai/original-works/grand-canyon-divine-family/) · Creator: Nathan Tabor. An authored mythological picture-book concept with scientific and historical evidence clearly labeled. The generated PNG cover is not yet present in the repository.
+
+## MAKE AI YOURS — Personal Intelligence Builder (November 11, 2026)
+
+[Launch MAKE AI YOURS](app-factory/nathan-ai/personal-intelligence/index.html) · [Source & setup guide](app-factory/nathan-ai/personal-intelligence/README.md). This new additive phone-first PWA links the existing original-byte Creator Vault with source-backed Memory Matrix notes, an eight-stage teaching course, owner-reviewed multi-AI handoff packets, full SHA-256 ZIP backup/restore and an optional read-only local MCP bridge. It does not claim automatic provider-account sync, private cloud storage or a kernel-level OS. Its current storage is on the local browser profile; originals remain recoverable through explicit owner backups.
