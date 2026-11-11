@@ -119,3 +119,7 @@ node --test app-factory/nathan-ai/launcher/engine.test.cjs
 ```
 
 GitHub Actions: `.github/workflows/m99-living-mammal-ci.yml`. Module engine tests were run locally, 5/5 passed; the other tests are checked by CI upon PR workflows running. A successful test only establishes the tested software behavior.
+
+### Repository-wide test caveat
+
+As observed in the first GitHub Actions run, the new M-99 tests pass (11/11). The existing global launcher suite fails its repository-wide coverage assertion on `app-factory/nathan-ai/atomic-equator-forever-guardian/index.html`, which lacks the `data-nathan-command-center` marker. That separate legacy failure is retained as a visible non-blocking diagnostic in the dedicated M-99 CI; it is not represented as an M-99 test failure or silently claimed fixed.
