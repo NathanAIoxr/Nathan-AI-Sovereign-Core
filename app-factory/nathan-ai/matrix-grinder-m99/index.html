@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M-99 Living Mammal Matrix</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,Arial,sans-serif;background:#061a31;color:#f2f6ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#173b60,#061a31 70%)}
+main{max-width:1180px;margin:auto;padding:24px}h1{color:#f9ca72;letter-spacing:.04em;margin-bottom:5px}h2{color:#f9ca72}
+small,.muted{color:#b5c9de}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}
+section,.node{background:#0c2b48;border:1px solid #416d93;border-radius:16px;padding:18px}
+label{display:block;margin:10px 0 5px}input,textarea,select{width:100%;background:#04182c;color:white;border:1px solid #6585a2;border-radius:8px;padding:10px;font:inherit}
+textarea{min-height:75px}button{background:#f9ca72;color:#13243a;border:0;border-radius:10px;padding:13px 18px;font-weight:700;cursor:pointer;margin:8px 8px 8px 0}
+button:focus-visible{outline:3px solid white}.node{text-align:center;margin:10px auto;max-width:650px;border-color:#e5ad4c}
+.arrow{text-align:center;color:#68d8ff;font-size:29px}.cycle{white-space:pre-wrap;background:#031629;border:1px solid #416d93;border-radius:12px;padding:14px}
+.matrix{border-left:3px solid #f9ca72;padding:10px;margin:10px 0;background:#071f38}
+a{color:#7fe0ff}summary{cursor:pointer}
+</style></head>
+<body><main><header><small>NATHAN AI · JOHN NATHAN TABOR · CONCEPTUAL SIMULATOR</small><h1>THE MATRIX GRINDER — M-99</h1>
+<p>THE LIVING MAMMAL MATRIX · UNIVERSAL HARMONIC GYRE BOX · FORWARD + REVERSE SPIRAL</p></header>
+<div class="grid"><section><h2>Current collector</h2><p>Choose measurable current families for the conceptual intake map.</p>
+<div id="currents"></div><p class="muted">The current families are analogies, not a unified power source; the simulator does not harvest energy.</p></section>
+<section><h2>Five-matrix evidence review</h2><label for="claim">Statement / thought / question</label><textarea id="claim" placeholder="Enter a claim to examine"></textarea>
+<label for="source">Source / provenance</label><input id="source" placeholder="Original source, citation or observation">
+<label for="evidence">Primary evidence</label><textarea id="evidence" placeholder="Evidence supporting or contradicting the claim"></textarea>
+<label for="uncertainty">Uncertainty / alternatives</label><textarea id="uncertainty"></textarea>
+<div id="checks"></div><button id="run">Run forward + reverse</button><button id="download" type="button">Export JSON</button>
+<p id="message" role="status"></p></section></div>
+<section><h2>Circulation schematic</h2>
+<div class="node">UNIVERSAL HARMONIC GYRE BOX<br><small>Cosmic · Air · Ocean · Earth · Body · Harmonics</small></div>
+<div class="arrow">↓</div><div class="node">HOLY GRAIL RESERVOIR<br><small>Top heart symbolism / central circulation analogy</small></div>
+<div class="arrow">↓ DESCENDING SPIRAL</div><div class="node">M1 LAW → M2 HISTORY → M3 WISDOM → M4 PROPHECY → M5 NEW TESTAMENT</div>
+<div class="arrow">↓</div><div class="grid"><div class="node">LEFT CALF RETURN PUMP</div><div class="node">RIGHT CALF RETURN PUMP</div></div>
+<div class="arrow">↖ RETURN CONVEYOR ↗</div><div class="node">BOTTOM ENTRY TO GRAIL → RISE → OVERFLOW<br><small>M5 → M4 → M3 → M2 → M1 · Recheck and repeat</small></div>
+<p class="muted">Anatomy: one actual heart and two calf muscle pumps that assist venous return. Evidence review is not an automatic lie detector.</p></section>
+<section><h2>Cycle output</h2><pre class="cycle" id="output">No cycles yet.</pre></section>
+<footer><p>1+1=2 BUILD · 1-1=0 CLEAR · PROTECT INNOCENCE · PRESERVE EVIDENCE</p>
+<a href="./README.md">Architecture specification</a> · <a href="./assets/m99-system-flow.svg">System blueprint</a> · <a href="./assets/m99-mammal-flow.svg">Mammal map</a></footer></main>
+<script type="module">
+import {MATRICES,CURRENT_FAMILIES,createRecord,runCycle,exportRecord} from "./engine.js";
+const byId=id=>document.getElementById(id);
+let record=null;
+byId("currents").innerHTML=CURRENT_FAMILIES.map(f=>'<label><input type="checkbox" value="'+f+'" checked style="width:auto"> '+f+'</label>').join("");
+byId("checks").innerHTML=MATRICES.map(m=>'<div class="matrix"><strong>'+m.id+' — '+m.name+'</strong><p>'+m.question+'</p><label>Finding <input id="'+m.id+'-finding"></label><label>Supporting evidence <input id="'+m.id+'-evidence"></label><label><input type="checkbox" id="'+m.id+'-reviewed" style="width:auto"> Human reviewed</label></div>').join("");
+byId("run").addEventListener("click",()=>{
+ try {
+  const claim=byId("claim").value.trim();
+  if(!claim)throw Error("Enter a statement or question first.");
+  if(!record || record.claim!==claim) record=createRecord({claim,source:byId("source").value,evidence:byId("evidence").value,uncertainty:byId("uncertainty").value});
+  else record={...record,source:byId("source").value,evidence:byId("evidence").value,uncertainty:byId("uncertainty").value};
+  const checks=Object.fromEntries(MATRICES.map(m=>[m.id,{finding:byId(m.id+"-finding").value,evidence:byId(m.id+"-evidence").value,status:byId(m.id+"-reviewed").checked?"reviewed":"unresolved"}]));
+  record=runCycle(record,checks);
+  const selected=[...byId("currents").querySelectorAll("input:checked")].map(x=>x.value);
+  byId("output").textContent="CYCLE "+record.revision+" · "+record.status.toUpperCase()+"\nCURRENT FAMILIES: "+selected.join(", ")+"\n\nFORWARD: "+record.passes.at(-1).forward.map(x=>x.matrix).join(" → ")+"\nREVERSE: "+record.passes.at(-1).reverse.map(x=>x.matrix).join(" → ")+"\n\nUNRESOLVED:\n"+(record.unresolved.join("\n")||"None recorded; review-complete does not certify truth.")+"\n\nROUTE:\n"+record.passes.at(-1).route.join(" → ");
+  byId("message").textContent="Cycle "+record.revision+" recorded locally in this page; no server upload.";
+ }catch(e){byId("message").textContent=e.message}
+});
+byId("download").addEventListener("click",()=>{
+ if(!record){byId("message").textContent="Run a cycle before exporting.";return}
+ const blob=new Blob([exportRecord(record)],{type:"application/json"}),url=URL.createObjectURL(blob);
+ const a=document.createElement("a");a.href=url;a.download="m99-review.json";a.click();URL.revokeObjectURL(url);
+});
+</script></body></html>
