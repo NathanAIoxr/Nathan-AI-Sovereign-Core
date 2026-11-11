@@ -23,6 +23,25 @@ const TOOL_LIST=[
 ];
 async function dispatch(msg,directory){if(msg.method==='notifications/initialized')return null;if(msg.method==='initialize')return {jsonrpc:'2.0',id:msg.id,result:{protocolVersion:'2025-06-18',capabilities:{tools:{}},serverInfo:{name:'nathan-personal-intelligence-local',version:'1.0.0'}}};if(msg.method==='ping')return {jsonrpc:'2.0',id:msg.id,result:{}};if(msg.method==='tools/list')return {jsonrpc:'2.0',id:msg.id,result:{tools:TOOL_LIST}};if(msg.method==='tools/call'){const args=msg.params?.arguments||{},name=msg.params?.name;try{let result;if(name==='list_sources')result=await listSources(directory);else if(name==='search_vault')result=await searchVault(directory,args.query,args.max_results);else if(name==='read_source')result=await readSource(directory,args.asset_id,args.max_chars);else if(name==='get_image'){const img=await getImage(directory,args.asset_id);return {jsonrpc:'2.0',id:msg.id,result:{content:[{type:'text',text:JSON.stringify({id:img.id,sha256:img.sha256})},{type:'image',data:img.data,mimeType:img.mime}]}};}else throw Error('Unknown MCP tool');return {jsonrpc:'2.0',id:msg.id,result:{content:[{type:'text',text:JSON.stringify(result)}]}};}catch(e){return {jsonrpc:'2.0',id:msg.id,result:{isError:true,content:[{type:'text',text:String(e.message)}]}};}}
 return {jsonrpc:'2.0',id:msg.id||null,error:{code:-32601,message:'Method not supported'}};}
-function run(){const directory=process.env.NATHAN_VAULT_DIR||'';let lineBuf='';process.stdin.setEncoding('utf8');process.stdin.on('data',chunk=>{lineBuf+=chunk;if(lineBuf.length>1024*1024){process.stderr.write('MCP input exceeded 1 MB\n');process.exitCode=1;process.stdin.pause();return;}let idx;while((idx=lineBuf.indexOf('\n'))>=0){const line=lineBuf.slice(0,idx);lineBuf=lineBuf.slice(idx+1);if(!line.trim())continue;let req;try{req=JSON.parse(line);}catch(e){process.stdout.write(JSON.stringify({jsonrpc:'2.0',id:null,error:{code:-32700,message:'Parse error'}})+'\n');continue;}Promise.resolve(dispatch(req,directory)).then(out=>{if(out)process.stdout.write(JSON.stringify(out)+'\n');}).catch(e=>process.stdout.write(JSON.stringify({jsonrpc:'2.0',id:req.id||null,error:{code:-32603,message:'Internal error: '+e.message}})+'\n'));}}});}
+function run(){
+  const directory=process.env.NATHAN_VAULT_DIR||'';
+  let lineBuf='';
+  process.stdin.setEncoding('utf8');
+  process.stdin.on('data',chunk=>{
+    lineBuf+=chunk;
+    if(lineBuf.length>1024*1024){process.stderr.write('MCP input exceeded 1 MB\n');process.exitCode=1;process.stdin.pause();return;}
+    let idx;
+    while((idx=lineBuf.indexOf('\n'))>=0){
+      const line=lineBuf.slice(0,idx);lineBuf=lineBuf.slice(idx+1);
+      if(!line.trim())continue;
+      let req;
+      try{req=JSON.parse(line);}
+      catch(e){process.stdout.write(JSON.stringify({jsonrpc:'2.0',id:null,error:{code:-32700,message:'Parse error'}})+'\n');continue;}
+      Promise.resolve(dispatch(req,directory))
+        .then(out=>{if(out)process.stdout.write(JSON.stringify(out)+'\n');})
+        .catch(e=>{process.stdout.write(JSON.stringify({jsonrpc:'2.0',id:req.id||null,error:{code:-32603,message:'Internal error: '+e.message}})+'\n');});
+    }
+  });
+}
 if(require.main===module)run();
 module.exports={listSources,getSelected,readSource,getImage,searchVault,dispatch,within,accepted,ignored};
