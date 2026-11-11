@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#081827">
+<title>TWO MOONS · Concept Studio · Nathan Tabor</title>
+<style>
+:root{color-scheme:dark;font:16px/1.6 system-ui,sans-serif;background:#071522;color:#e9f4fa}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 60% 0,#24465a,#071522 60%)}
+main{max-width:1180px;margin:auto;padding:22px clamp(14px,3vw,38px) 70px}
+header{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;border-bottom:1px solid #537487;padding-bottom:15px}
+h1{font:700 clamp(3rem,8vw,6rem)/1 Georgia,serif;letter-spacing:-.055em;margin:44px 0 20px}h1 span{color:#c98188}
+h2{font:700 1.5rem Georgia,serif;margin:0 0 12px}a{color:#b9e4ff}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+.muted{color:#b2c9d5}.lead{font-size:1.13rem;max-width:880px}.warning{border-left:5px solid #c9948b;background:#30242b;padding:14px 18px;margin:22px 0}
+figure{margin:22px 0}img{display:block;width:100%;border:1px solid #7c9baa;border-radius:10px;background:#152b3b}figcaption{font-size:.86rem;color:#b5ccdc;margin-top:8px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}
+.stats>div,.card{background:#122c3f;border:1px solid #4c7187;border-radius:12px;padding:18px}
+.stats strong{display:block;font-size:clamp(1.4rem,2.7vw,2.2rem)}.stats small{color:#b2c8d8}
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin:15px 0}
+button{font:inherit;cursor:pointer;padding:10px 17px;background:#1b3a51;color:#edf6f7;border:1px solid #8eb7c7;border-radius:7px}
+button[aria-pressed="true"]{background:#d2d4c8;color:#0d2130;font-weight:800}button:focus-visible,a:focus-visible{outline:3px solid #e6b873;outline-offset:3px}
+.stage{font-weight:800;font-size:1.25rem;color:#f2d8b2}#description{min-height:4.5em}
+.links{display:flex;flex-wrap:wrap;gap:14px}footer{border-top:1px solid #537487;padding-top:19px;margin-top:40px;font-size:.85rem;color:#b5c8d4}
+@media(max-width:660px){.stats{grid-template-columns:1fr}}
+</style></head><body><main>
+<header><strong>NATHAN AI · ORIGINAL TWO MOONS</strong><nav aria-label="Project links"><a href="./index.html">Restored research index</a><a href="./AUTHOR-WORDS.md">Author's words</a><a href="./README.md">Series</a><a href="../../index.html">Main hub</a></nav></header>
+<h1>TWO <span>MOONS</span></h1>
+<p class="lead">Two separate subjects, not two movie battle-station props. The “Death Stars” framing is the cover story in Nathan Tabor's creative project, while real observations, historical records and speculative engineering remain separate.</p>
+<div class="warning"><strong>Original speculative art:</strong> The Redstone “CLASSIFIED” typography is a book-design motif, not an authentic classified stamp or evidence that Redstone manufactured a Moon. The second object's appearance and construction are artistic hypotheses, not observed facts.</div>
+<section aria-label="Lunar reference scale" class="stats">
+<div><strong>3,474.8 km</strong><small>Natural Moon mean diameter</small></div>
+<div><strong>1,737.4 km</strong><small>Natural Moon mean radius</small></div>
+<div><strong>~10,916 km</strong><small>Circumference from 2π × radius</small></div></section>
+<section aria-labelledby="plan-title"><h2 id="plan-title">Sheet 01 — The two objects, separately identified</h2>
+<figure><img alt="Conceptual two-moon diagram: one observed natural Moon and a separately labeled hypothetical engineered companion" src="./assets/TWO-MOONS-CONCEPT-PLAN.svg"><figcaption>Conceptual construction drawing at lunar reference size. It is not a real Redstone plan and does not identify an observed second moon.</figcaption></figure></section>
+<section aria-labelledby="assembly-title" class="card"><h2 id="assembly-title">Sheet 02 — Interactive assembly-stage index</h2>
+<figure><img alt="Four-stage conceptual assembly diagram showing truss grid, rings, panel layers and a cratered visual shell" src="./assets/TWO-MOONS-ASSEMBLY-STAGES.svg"><figcaption>Four hypothetical illustrations; no material budget or construction timetable is asserted.</figcaption></figure>
+<div class="controls" role="group" aria-label="Choose conceptual stage">
+<button type="button" data-stage="0" aria-pressed="true">Stage 01</button><button type="button" data-stage="1" aria-pressed="false">Stage 02</button><button type="button" data-stage="2" aria-pressed="false">Stage 03</button><button type="button" data-stage="3" aria-pressed="false">Stage 04</button></div>
+<div class="stage" id="stage" aria-live="polite">01 · Structural grid</div>
+<p id="description">A hypothetical sphere-scale geometric truss, used to ask what a Moon-sized designed structure would look like, without asserting it exists.</p>
+<div class="controls"><button type="button" id="previous">Previous</button><button type="button" id="next">Next</button><button type="button" id="reset">Reset</button></div>
+</section>
+<section class="card" style="margin-top:22px"><h2>Original records and documentary sources</h2>
+<p>Original statements, the 13-volume research plan, Book One, weather-balloon records, Project MOGUL, NASA Echo, the 1959 Project Horizon feasibility study, and Opal Tabor's published Marshall history connection are linked below. The project's evidence ledger distinguishes documented history from author testimony and hypotheses.</p>
+<div class="links"><a href="./EVIDENCE.json">17-claim evidence ledger</a><a href="./SERIES-RESEARCH.md">Research series</a><a href="./BOOK-ONE-MANUSCRIPT.md">Book One</a><a href="./BUILD-PLANS.md">Dimensions &amp; provenance</a></div></section>
+<footer>2026 · Nathan Tabor's TWO MOONS concept studio · Browser-local interface; no external controls or hidden processes.</footer>
+</main><script>
+(()=>{const titles=["01 · Structural grid","02 · Ring assembly","03 · Surface layers","04 · Completed surface study"],descriptions=["A hypothetical sphere-scale geometric truss, used to ask what a Moon-sized designed structure would look like, without asserting it exists.","Speculative layered rings and trusses create a visible construction model; these are neither authenticated drawings nor real fabrication instructions.","An illustrative outer shell is added to the geometric model. Its mass, material and feasibility are unspecified.","The model gains a crater-like outer appearance to compare artistic conjecture with the observed Moon. A familiar visual likeness is not proof of construction."];let current=0;const buttons=[...document.querySelectorAll("[data-stage]")];function draw(){buttons.forEach((b,i)=>b.setAttribute("aria-pressed",String(i===current)));document.getElementById("stage").textContent=titles[current];document.getElementById("description").textContent=descriptions[current];}buttons.forEach((b,i)=>b.addEventListener("click",()=>{current=i;draw()}));document.getElementById("previous").addEventListener("click",()=>{current=(current+3)%4;draw()});document.getElementById("next").addEventListener("click",()=>{current=(current+1)%4;draw()});document.getElementById("reset").addEventListener("click",()=>{current=0;draw()});draw();})();
+</script></body></html>
