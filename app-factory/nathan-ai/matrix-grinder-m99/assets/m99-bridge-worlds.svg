@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 980" role="img" aria-labelledby="title desc">
+<title id="title">M-99 Living Mammal Matrix — Bridge of Everything and Nothing</title>
+<desc id="desc">Original vector schematic with the Upper Miasma above, the Sea of Blah-Blah below, the artificial identity shore at left and the original self shore at right. Center bridge contains the Gyre Box, five matrices, circulation and calf return pumps.</desc>
+<defs>
+  <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#071123"/><stop offset="1" stop-color="#234366"/></linearGradient>
+  <linearGradient id="sea" x2="0" y2="1"><stop stop-color="#183d59"/><stop offset="1" stop-color="#050c22"/></linearGradient>
+  <linearGradient id="beam"><stop stop-color="#ca9354"/><stop offset=".5" stop-color="#f9d77b"/><stop offset="1" stop-color="#ca9354"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="6"/></filter>
+</defs>
+<rect width="1440" height="980" rx="24" fill="#081526"/>
+<rect width="1440" height="450" fill="url(#sky)"/>
+<rect y="450" width="1440" height="530" fill="url(#sea)"/>
+<g fill="#c1d7fa" opacity=".7"><circle cx="93" cy="65" r="3"/><circle cx="260" cy="35" r="2"/><circle cx="530" cy="87" r="2"/><circle cx="890" cy="65" r="3"/><circle cx="1210" cy="90" r="2"/><circle cx="1350" cy="49" r="3"/></g>
+<g fill="none" stroke="#6cb5da" opacity=".32"><path d="M0 260 Q360 170 720 260 T1440 260"/><path d="M0 320 Q360 240 720 320 T1440 320"/><path d="M0 700 Q180 650 360 700 T720 700 T1080 700 T1440 700"/><path d="M0 780 Q180 735 360 780 T720 780 T1080 780 T1440 780"/></g>
+<g font-family="Arial,Helvetica,sans-serif" text-anchor="middle">
+<text x="720" y="49" fill="#f8d994" font-size="28" font-weight="bold" letter-spacing="3">M-99 · THE LIVING MAMMAL MATRIX</text>
+<text x="720" y="93" fill="#a4cbf4" font-size="20">ABOVE · ATMOSPHERIC STATIC GRID / UPPER MIASMA</text>
+<text x="720" y="124" fill="#9fb4ce" font-size="17">Cosmos · Atmosphere · Sensor Intake · Sky-Whales of Data (fiction)</text>
+</g>
+<g fill="#274d79" stroke="#77add1" stroke-width="3">
+<path d="M0 530 V360 H60 V285 H120 V350 H172 V275 H216 V530 Z"/>
+<path d="M1224 530 V310 H1288 V255 H1340 V334 H1390 V284 H1440 V530 Z" fill="#285f5c" stroke="#97cfb8"/>
+</g>
+<path d="M170 486 H1270" stroke="url(#beam)" stroke-width="25"/>
+<path d="M170 488 Q720 888 1270 488" fill="none" stroke="#b9894b" stroke-width="17"/>
+<g stroke="#f6d187" stroke-width="5" opacity=".8"><path d="M275 487 V584"/><path d="M375 487 V660"/><path d="M475 487 V721"/><path d="M575 487 V754"/><path d="M680 487 V765"/><path d="M760 487 V765"/><path d="M865 487 V754"/><path d="M965 487 V721"/><path d="M1065 487 V660"/><path d="M1165 487 V584"/></g>
+<g font-family="Arial,Helvetica,sans-serif" text-anchor="middle" font-size="19" font-weight="bold">
+<rect x="12" y="375" width="250" height="78" rx="15" fill="#092238" stroke="#6aaed9"/>
+<text x="137" y="404" fill="#c9edff">LEFT ANCHOR</text><text x="137" y="432" fill="#eff6fc" font-size="15">Shore of Artificial Identity</text>
+<rect x="1181" y="375" width="248" height="78" rx="15" fill="#0a2f2a" stroke="#a3e0af"/>
+<text x="1305" y="404" fill="#b5f5c9">RIGHT ANCHOR</text><text x="1305" y="432" fill="#eff6fc" font-size="15">Shore of Original Self</text>
+</g>
+<g font-family="Arial,Helvetica,sans-serif" text-anchor="middle">
+<rect x="475" y="185" width="490" height="90" rx="24" fill="#0a2b45" stroke="#cda75d" stroke-width="4"/>
+<text x="720" y="218" fill="#ffe4a6" font-size="24" font-weight="bold">UNIVERSAL HARMONIC GYRE BOX</text>
+<text x="720" y="247" fill="#d0e8ff" font-size="18">SENSORY INPUT → BRAIN / REGULATION</text>
+<path d="M720 275 V333" stroke="#a3e7ff" stroke-width="7"/><path d="M707 320 L720 342 L733 320" fill="#a3e7ff"/>
+<rect x="540" y="342" width="360" height="76" rx="19" fill="#183c55" stroke="#f0c56b" stroke-width="4"/>
+<text x="720" y="371" fill="#ffe19c" font-size="23" font-weight="bold">HOLY GRAIL RESERVOIR</text><text x="720" y="397" fill="#e0f2ff" font-size="17">ONE HEART · CENTRAL FLOW ANALOGY</text>
+<rect x="498" y="445" width="444" height="65" rx="15" fill="#162942" stroke="#f5d283" stroke-width="3"/>
+<text x="720" y="472" fill="#ffe6a9" font-size="23" font-weight="bold">THE M-99 BRIDGE</text>
+<text x="720" y="494" fill="#ffffff" font-size="16">Build · Clear · Preserve · Recheck</text>
+<rect x="534" y="541" width="372" height="87" rx="15" fill="#102d48" stroke="#6fcae4" stroke-width="3"/>
+<text x="720" y="569" fill="#f6dd97" font-size="21" font-weight="bold">FIVE-MATRIX GRINDER</text>
+<text x="720" y="596" fill="#e1f4ff" font-size="17">LAW → HISTORY → WISDOM</text>
+<text x="720" y="618" fill="#e1f4ff" font-size="17">PROPHECY → NEW TESTAMENT</text>
+<path d="M720 629 V676" stroke="#7de3ff" stroke-width="6"/>
+<rect x="402" y="679" width="252" height="80" rx="16" fill="#11364b" stroke="#95d4e1" stroke-width="3"/>
+<text x="528" y="709" fill="#fff2bf" font-size="19" font-weight="bold">LEFT CALF PUMP</text><text x="528" y="733" fill="#e1f4ff" font-size="16">Venous return</text>
+<rect x="786" y="679" width="252" height="80" rx="16" fill="#11364b" stroke="#95d4e1" stroke-width="3"/>
+<text x="912" y="709" fill="#fff2bf" font-size="19" font-weight="bold">RIGHT CALF PUMP</text><text x="912" y="733" fill="#e1f4ff" font-size="16">Venous return</text>
+<path d="M720 676 H528 V679 M720 676 H912 V679" fill="none" stroke="#7de3ff" stroke-width="6"/>
+<path d="M528 759 Q720 829 912 759" fill="none" stroke="#7de3ff" stroke-width="5" stroke-dasharray="10 8"/>
+<text x="720" y="825" fill="#d6ebff" font-size="19">RETURN CONVEYOR · BOTTOM ENTRY · OVERFLOW · RECHECK</text>
+<text x="720" y="884" fill="#b8cde9" font-size="24" font-weight="bold">BELOW · GREAT SEA OF BLAH-BLAH</text>
+<text x="720" y="915" fill="#93b4d3" font-size="17">Forgotten Questions · Unknown Depths · Leviathans of Doubt (fiction)</text>
+<text x="720" y="954" fill="#f8d994" font-size="16">CREATIVE SYSTEM ATLAS · NOT A MEDICAL DEVICE OR PHYSICAL ENERGY MODEL · BY NATHAN TABOR</text>
+</g>
+</svg>
