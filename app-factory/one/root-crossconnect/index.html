@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ONE · Root CrossConnect</title><style>
+:root{color-scheme:dark;background:#0c1320;color:#e5eef8;font:16px/1.55 system-ui,sans-serif}
+body{max-width:1160px;margin:auto;padding:22px}a{color:#8bdbf7}h1{line-height:1.2}header{border-bottom:1px solid #354458;padding-bottom:16px}
+.controls{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}input,select,button{padding:10px;color:inherit;background:#16253a;border:1px solid #506078;border-radius:7px}input{min-width:245px;flex:1}
+button{cursor:pointer}button:hover{background:#29405c}#results{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+article{padding:16px;border:1px solid #34475b;border-radius:9px;background:#142238;overflow-wrap:anywhere}small,.muted{color:#b4c6d8}code{overflow-wrap:anywhere}
+.tag{display:inline-block;border:1px solid #567086;padding:2px 7px;margin:3px;border-radius:20px;font-size:12px}
+pre{white-space:pre-wrap;overflow-wrap:anywhere}footer{margin-top:30px;border-top:1px solid #354458;padding-top:12px}
+</style></head><body>
+<header><a href="../index.html">← ONE</a> · <a href="../connected/index.html">Connected System</a> · <a href="../nathan-matrix/sovereignty-origins/index.html">Origins</a>
+<h1>ROOT CROSSCONNECT · 78 × 22 × SCRIPT</h1><p>Original roots, proposed correspondences, writing systems and existing ONE modules — indexed without replacing their source records.</p></header>
+<div class="controls"><input id="q" aria-label="Search roots and links" placeholder="Search: heart, *ḱer-, Ogham, Hebrew…"><select id="filter" aria-label="Evidence filter">
+<option value="">All evidence classes</option><option value="attested">Attested</option><option value="reconstructed">Reconstructed</option><option value="hypothesis">Hypothesis</option><option value="author-framework">Author framework</option><option value="comparison">Comparison</option></select><button id="export">Export JSON</button></div>
+<p id="stats" class="muted"></p><main id="results" aria-live="polite"></main>
+<footer><p>Preservation rule: no root is silently promoted from a hypothesis to established ancestry. A shared shape, sound, or religious theme is a comparison, not proof of descent. Original owner files and local private stores are never read, changed or uploaded by this page.</p></footer>
+<script>
+'use strict';
+const greek=['Alpha','Beta','Gamma','Delta','Epsilon','Digamma','Zeta','Eta','Theta','Iota','Kappa','Lambda','Mu','Nu','Xi','Omicron','Pi','Qoppa','Rho','Sigma','Tau','Upsilon','Phi','Chi','Psi','Omega'];
+const reverse=['Zlpha','Yeta','Xamma','Welta','Vpsilon','Uigamma','Teta','Sta','Rheta','Qota','Pappa','Oambda','Nu','Mu','Li','Kmicron','Ji','Ioppa','Hho','Gigma','Fau','Epsilon','Dhi','Chi','Bsi','Amega'];
+const alpha='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const matrix=greek.map((name,i)=>({id:'matrix:'+String(i+1).padStart(2,'0'),kind:'matrix',name,position:i+1,forward:alpha[i]+'lpha',reverse:reverse[i],evidence:'author-framework',note:'Greek slot and two user-authored transformations; not an ancient cipher'}));
+const rootRows=[
+['*ḱer- / *ḱerh₂-','horn/head','reconstructed','PIE','horn; Latin cornu; Greek keras','Debated extensions require language-by-language proof'],
+['*ḱr-oi-no-','proposed horned one','hypothesis','PIE derivation','reindeer hypothesis','Treat the specific derivation as proposed'],
+['*wréh₂ds','root','reconstructed','PIE','Latin radix; Greek rhiza; Germanic root','No established direct ancestry of wizard'],
+['*bʰer-','carry/bear','reconstructed','PIE','Latin ferre; Greek pherein; English bear','Separate from Latin ferus'],
+['*ǵʰwḗr-','wild beast','reconstructed','PIE','Latin ferus proposed relation','Check reconstruction notation by reference'],
+['*-(o)s','nominal ending','reconstructed','PIE morphology','Greek -os; Latin -us','An inflection, not a noun root'],
+['*-(t)ero-','contrast/comparative suffix','reconstructed','PIE morphology','suffix family','Do not interpret as unique species without context'],
+['*sker-','cut/turn family in differing reconstructions','hypothesis','PIE','ring/range claimed connection','No confirmed universal path from *sker- to ranger'],
+['*ser-','protect/watch','reconstructed','PIE','protective-word proposals','Hero/heroine derivation disputed'],
+['*ieh₁-','year/season','reconstructed','PIE','year','Separate from heroine absent evidence'],
+['*ḱel-','conceal/cover','reconstructed','PIE','English hell; Germanic *haljō','Hell and Hades are different language histories'],
+['*ǵʰer- / *gʰer-','grow or shorten proposed roots','hypothesis','PIE','girl proposals','Girl etymology remains unresolved'],
+['*h₂énti','front/opposite','reconstructed','PIE','Latin ante; antler proposed etymology','Antler compound is uncertain'],
+['*h₃ekʷ-','eye/see','reconstructed','PIE','Latin oculus','Antler connection hypothetical'],
+['*h₃reǵ-','straighten/direct','reconstructed','PIE','Latin regere; rack claimed connection','Rack has multiple historically distinct etymologies'],
+['*ḱḗr / *ḱerd-','heart','reconstructed','PIE','English heart; Latin cor; Greek kardia','Strong cross-family cognate set'],
+['*hrainaz','reindeer','reconstructed','Proto-Germanic','Old Norse hreinn; Rangifer comparison','Not automatically related to ranger'],
+['*hringaz','ring','reconstructed','Proto-Germanic','ring and range discussions','Range requires separate derivation'],
+['*haljō','concealed place / underworld','reconstructed','Proto-Germanic','Old English hel','Historically separate from Gehenna'],
+['*gurwjoz / *gurz-','young/small proposed','hypothesis','Proto-Germanic','girl proposed ancestry','Etymology remains contested'],
+['*gyrela / *gyrle','young person, proposed older form','hypothesis','Early English','Middle English girl','Do not present invented Old English as securely attested'],
+['*rakjaną','stretch/reach','reconstructed','Proto-Germanic','rack/reck proposed families','Check precise Germanic reconstruction'],
+['*hertô','heart','reconstructed','Proto-Germanic','Old English heorte','PIE *ḱerd- cognates'],
+['*ferō','carry','reconstructed','Proto-Italic','Latin fero','PIE *bʰer-'],
+['*feros','wild','reconstructed','Proto-Italic','Latin ferus','Not the same etymon as fero'],
+['*anteoculāris (rāmus)','front-of-eye branch','hypothesis','Vulgar Latin','antler proposed analysis','Unattested reconstructed compound'],
+['*θaran-','horned proposal','hypothesis','Scythian / Iranian','Greek tarandos','Borrowing origin unsettled'],
+['*θaran-tara-','proposed compound','hypothesis','Scythian / Iranian','tarandus','Unverified reconstruction'],
+['*-(t)ara-','comparative suffix','reconstructed','Iranian','suffix correspondence','Suffix alone does not establish tarandus origin'],
+['*ćar-','horn proposal','hypothesis','Indo-Iranian','taran hypothesis','Requires independent sound-law support'],
+['*šardo / *šardō / *šordō','deer/elk proposal','hypothesis','Proto-Uralic','tarandos borrowing hypothesis','Alternative to Iranian proposal']
+];
+const roots=rootRows.map((r,i)=>({id:'root:'+String(i+1).padStart(2,'0'),kind:'root',name:r[0],meaning:r[1],evidence:r[2],language:r[3],links:r[4],note:r[5]}));
+const hebrew='אבגדהוזחטיכלמנסעפצקרשת',names=['Aleph','Bet','Gimel','Dalet','He','Vav','Zayin','Chet','Tet','Yod','Kaf','Lamed','Mem','Nun','Samekh','Ayin','Pe','Tsadi','Qof','Resh','Shin','Tav'];
+const values=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400];
+const letters=[...hebrew].map((glyph,i)=>({id:'hebrew:'+String(i+1).padStart(2,'0'),kind:'letter',name:names[i],glyph,value:values[i],mirror:[...hebrew][21-i],evidence:'attested',note:'Traditional Hebrew numerical value and Atbash pairing; pictographic interpretations vary'}));
+const systems=[
+['Egyptian hieroglyphs','Script tradition; phonograms, logograms and classifiers','attested'],
+['Early alphabetic / Proto-Sinaitic','Adaptation of Egyptian signs to Semitic consonant values','attested'],
+['Phoenician / Paleo-Hebrew','Related early Northwest Semitic alphabets; 22 principal letters','attested'],
+['Greek','Alphabet borrowed and adapted from Phoenician; vowels developed','attested'],
+['Latin','Alphabet shaped through Italic/Etruscan and Greek contacts','attested'],
+['Braille','Modern tactile six-dot writing code; eight-dot variants','attested'],
+['Runes','Germanic alphabetic traditions; not a cave-script decipher','attested'],
+['Ogham','Celtic stroke alphabet; bottom-up stone reading depends on inscription','attested'],
+['Diné bizaad','Navajo language; distinct Athabaskan linguistic ancestry','attested'],
+['Sanskrit / Devanagari','Indo-Aryan language and a later Indic writing script','attested'],
+['Strong’s Concordance','Reference numbering, not a historical parent alphabet','attested'],
+['Atbash','Reversible substitution of 22 Hebrew letter positions','attested'],
+['Gematria','Letter-number correspondence; later convention than earliest letters','attested'],
+['Cave drawings','Visual prehistoric records, not a demonstrated alphabetic ancestor of runes','comparison'],
+['Osiris · Isis · Horus','Egyptian family triad','attested'],
+['Brahma · Vishnu · Shiva','Hindu Trimurti','attested'],
+['Buddha · Dharma · Sangha','Buddhist Three Jewels, not a three-deity family','attested'],
+['Father · Son · Holy Spirit','Christian Trinity','attested'],
+['Corn · Beans · Squash','Indigenous Three Sisters agricultural tradition','attested'],
+['Mother triad comparisons','Compare chronology and sources; resemblance is not proof of appropriation','comparison']
+];
+const comparisons=systems.map((s,i)=>({id:'system:'+String(i+1).padStart(2,'0'),kind:'system',name:s[0],note:s[1],evidence:s[2]}));
+const oneModules=[
+['ONE Connected System','../connected/index.html'],
+['Sovereignty Origins','../nathan-matrix/sovereignty-origins/index.html'],
+['Library Mind','../library-mind/index.html'],
+['ONE Master Library','../library/index.html'],
+['Hall of Mirrors','../hall-of-mirrors/index.html'],
+['Humanity Archive','../humanity-archive/index.html'],
+['Root/Clear','../../nathan-ai/hop-in/root-clear/index.html'],
+['Ancient Roots Atlas','../../mythology/ancient-roots/index.html'],
+['Route/Raut/Root','../../nathan-ai/route-raut-root/index.html'],
+['Octopus Root','../../octopus-root/index.html']
+].map((r,i)=>({id:'one:'+i,kind:'one-module',name:r[0],url:r[1],evidence:'attested',note:'Existing repository module; link is navigation, not imported private content'}));
+const records=[...matrix,...roots,...letters,...comparisons,...oneModules];
+const $=id=>document.getElementById(id);
+const render=()=>{
+ const q=$('q').value.trim().toLocaleLowerCase(),filter=$('filter').value;
+ const found=records.filter(r=>(!filter||r.evidence===filter)&&(!q||Object.values(r).join(' ').toLocaleLowerCase().includes(q)));
+ $('stats').textContent=found.length+' visible / '+records.length+' indexed · '+matrix.length+' matrix · '+roots.length+' roots · '+letters.length+' Hebrew letters · '+comparisons.length+' comparative systems · '+oneModules.length+' ONE modules';
+ const target=$('results');target.replaceChildren();
+ for(const r of found){
+  const card=document.createElement('article'),title=document.createElement('h2');title.textContent=r.name;card.append(title);
+  const badge=document.createElement('small');badge.textContent=r.kind+' · '+r.evidence;card.append(badge);
+  for(const key of ['meaning','language','links','glyph','value','mirror','forward','reverse','note']){
+    if(r[key]===undefined)continue;
+    const p=document.createElement('p');const b=document.createElement('strong');b.textContent=key+': ';p.append(b,document.createTextNode(String(r[key])));card.append(p);
+  }
+  if(r.url){const a=document.createElement('a');a.href=r.url;a.textContent='Open existing module';card.append(a);}
+  target.append(card);
+ }
+};
+$('q').addEventListener('input',render);$('filter').addEventListener('change',render);
+$('export').addEventListener('click',()=>{
+ const blob=new Blob([JSON.stringify({schema:'one.root-crossconnect.v1',created:'2026-11-08',records},null,2)],{type:'application/json'});
+ const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='one-root-crossconnect.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),5000);
+});render();
+</script></body></html>
