@@ -1,5 +1,10 @@
 # 𓋹 NATHAN AI — THE THINKER V∞ | LET + TET + PPL
 
+## BOSSMAN × DOG — Street Files
+
+[Open the BOSSMAN × DOG four-style workbench](./bossman-dog/index.html) or [read its source register and operating boundaries](./bossman-dog/README.md). This additive, offline-first release preserves creator-attributed street names, archive leads, and five research lanes with unverified status by default. It supports reviewed local evidence notes, JSON backup, and four distinct art directions; it does not claim organization affiliations, conduct external monitoring, or modify earlier modules.
+
+
 ## Secular ONE REALITY / ONE TIMELINE — Codex SHA-256 anchor
 
 [Read the exact Codex declaration, binary and SHA-256 specification](./CODEX.md). The existing [Sovereign Root Codex](../octopus-root/codex.js) now exposes a separately namespaced `REALITY_ANCHOR`, `realityBinary()`, and `verifyRealityAnchor()`. The 141-byte UTF-8 creator declaration has a fixed SHA-256 fingerprint; a test checks the 1,128-bit binary round-trip and independently recomputes the digest. The 216 previously indexed Root positions are unchanged.
