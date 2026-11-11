@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BOSSMAN × DOG · Street Files · Nathan AI</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="app.js"></script>
+<link rel="stylesheet" href="../appearance/shared.css" data-nathan-shared-appearance>
+<script src="../appearance/engine.js"></script><script src="../appearance/app.js"></script>
+<link rel="stylesheet" href="../launcher/shared.css" data-nathan-command-center>
+<script src="../launcher/engine.js" defer></script><script src="../launcher/app.js" defer></script>
+</head>
+<body data-skin="concrete">
+<aside id="nathan-record-notice" aria-label="Timestamped record" style="display:block!important;position:relative!important;box-sizing:border-box!important;width:100%;padding:12px 16px;margin:0;background:#fff0b3!important;color:#161616!important;border-bottom:3px solid #161616;font:600 16px/1.5 system-ui,sans-serif">
+<a href="../../../docs/record/index.html" style="color:#161616!important">READ THE TIMESTAMPED RECORD — Nathan Tabor / ChatGPT</a>
+<span style="display:block;font-size:14px;font-weight:400">Originals, corrections, and repository changes are separately documented.</span>
+</aside>
+<header>
+<nav><a href="../index.html">← Nathan AI Main Hub</a><a href="../deep-archive/index.html">Deep Archive</a><a href="../sovereign/index.html">Connections</a><a href="README.md">Source &amp; release notes</a></nav>
+</header>
+<main>
+<section class="hero" aria-labelledby="hero-title">
+<p class="eyebrow">Nathan AI · OXR · Original identity archive</p>
+<h1 id="hero-title">BOSSMAN × DOG</h1>
+<p style="font-size:1.15rem">The street names. The source files. The research lanes. Four distinct treatments of one archive—without rewriting the originals.</p>
+<p class="caps"><strong>Innocence is not a commodity.</strong></p>
+</section>
+<div class="switcher" role="group" aria-label="Visual treatment">
+<button type="button" data-theme="concrete" aria-pressed="true">01 / CONCRETE</button>
+<button type="button" data-theme="atlas" aria-pressed="false">02 / ROAD ATLAS</button>
+<button type="button" data-theme="caseboard" aria-pressed="false">03 / CASEBOARD</button>
+<button type="button" data-theme="signal" aria-pressed="false">04 / SIGNAL LEDGER</button>
+</div>
+<div class="notice" role="note"><strong>Evidence boundary:</strong> These names are creator-attributed; an organization appearing in a research lane does not establish any affiliation or misconduct. The app performs no outside searches, surveillance, or automatic investigations.</div>
+<section class="section">
+<h2>Street-name register <span id="identity-count" class="hint"></span></h2>
+<label for="identity-search">Filter names and sources<input id="identity-search" type="search" placeholder="BOSSMAN, DOG, PINEKNOT, STREET CREED…"></label>
+<div id="identities" class="grid" aria-live="polite"><p>Loading source register…</p></div>
+</section>
+<section class="section"><h2>Recovered archive leads</h2>
+<div id="archive-leads" class="grid"><p>Loading archive references…</p></div>
+</section>
+<section class="section"><h2>Research lanes <span class="hint">· unverified until sources are reviewed</span></h2>
+<div id="research-lanes" class="grid"></div>
+</section>
+<section class="section panel"><h2>Local evidence notebook</h2>
+<p class="hint">Drafts stay in this browser profile. Add public-source citations or your own notes; do not submit private addresses, credentials, accusations without evidence, or victim-identifying information. Nothing is automatically published.</p>
+<form id="evidence-form">
+<div class="form-grid">
+<label>Research lane<select name="lane" id="lane-select" required></select></label>
+<label>Review state<select name="state" id="state-select"><option value="unverified">Unverified lead</option><option value="source-attached">Source attached · review pending</option><option value="independently-reviewed">Manually reviewed (with source)</option></select></label>
+<label class="wide">Record title<input name="title" id="record-title" type="text" maxlength="160" required placeholder="A document, public report, or question to investigate"></label>
+<label class="wide">Public source URL (optional for unverified note)<input name="url" id="record-url" type="url" maxlength="2048" placeholder="https://…"></label>
+<label class="wide">Context / quotation / next verification step<textarea name="note" id="record-note" maxlength="4000" placeholder="Source date, what the source actually says, unresolved questions"></textarea></label>
+</div>
+<div class="form-actions"><button type="submit">Save local entry</button><button type="button" id="export">Export JSON backup</button><label class="btn" for="import" style="display:inline-block">Import JSON backup<input id="import" type="file" accept="application/json,.json" hidden></label><button type="button" id="clear">Clear local entries</button></div>
+</form>
+<p id="message" role="status" aria-live="polite"></p>
+<h3>My source notes <span id="evidence-count" class="hint"></span></h3>
+<div id="evidence-list" class="records"></div>
+</section>
+</main>
+<footer><p>Source-preserving local workbench · No affiliation claims · No outbound telemetry · Four distinct art directions</p><p><a href="records.json">Inspect source register</a> · <a href="../index.html">Back to Nathan AI</a></p></footer>
+</body></html>
