@@ -1,0 +1,21 @@
+name: Two Moons restoration integrity
+on:
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/series/two-moons-weather-balloons/**'
+      - '.github/workflows/two-moons-restoration.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/series/two-moons-weather-balloons/**'
+      - '.github/workflows/two-moons-restoration.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-restoration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run author source and research index integrity tests
+        run: node --test app-factory/nathan-ai/series/two-moons-weather-balloons/restoration/restoration.test.cjs
