@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nathan AI Universal Cartographic Core import/export v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "memory"
+  ],
+  "properties": {
+    "schema": {
+      "const": "nathan-uc-memory-v2"
+    },
+    "exported": {
+      "type": "string"
+    },
+    "system": {
+      "type": "string"
+    },
+    "memory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string"
+          },
+          "place": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "Recollection",
+              "Documented event",
+              "Folklore",
+              "Fictional scene",
+              "Research lead"
+            ]
+          },
+          "body": {
+            "type": "string"
+          },
+          "created": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "originalSource": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "continents": {
+      "type": "array"
+    },
+    "az": {
+      "type": "array"
+    },
+    "externalSources": {
+      "type": "array"
+    },
+    "claims": {
+      "type": "string"
+    }
+  }
+}
