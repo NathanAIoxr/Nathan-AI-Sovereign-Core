@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="local-session" content="__SESSION_TOKEN__">
+<title>Nathan AI | Universal Voice Box</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="shell">
+  <header>
+    <p class="eyebrow">ONE · ADDITIVE AUDIO MODULE · LOCAL ONLY</p>
+    <h1>NATHAN AI <span>VOICE BOX</span></h1>
+    <p class="intro">Hear languages, dialects, stories, personal recordings, and authorized installed voice models — without cloud speech processing.</p>
+    <div class="ribbon"><span>OFFLINE ENGINE</span><span>NO CLOUD TOKENS</span><span>NO UPLOADS</span><span>NO TELEMETRY</span></div>
+  </header>
+  <section class="panel" id="language-atlas">
+    <div class="section-head"><h2>World Language & Dialect Atlas</h2>
+      <p>Search the starter catalog, import the public ISO 639-3 code table, or add your own language and dialect labels. A catalog entry is not a trained speech model.</p></div>
+    <label for="language-search">Search language name, code, or dialect</label>
+    <input id="language-search" type="search" placeholder="English, Yoruba, Arabic, Aramaic, Cantonese…" autocomplete="off">
+    <label for="language-results">Languages and available local voices</label>
+    <select id="language-results" size="7" aria-label="Searchable language registry"></select>
+    <p id="language-count" class="quiet" role="status">Loading offline language catalog…</p>
+    <p id="language-choice" class="quiet">Choose a language to place its tag in the speaking panel.</p>
+    <div class="grid">
+      <div><label for="new-language-name">Add language name</label><input id="new-language-name" placeholder="Language name" maxlength="120"></div>
+      <div><label for="new-language-tag">Language tag</label><input id="new-language-tag" placeholder="en-US or three-letter ISO tag" maxlength="40"></div>
+      <div><label for="new-dialect-name">Dialect / locality / pronunciation tradition</label>
+        <input id="new-dialect-name" placeholder="Regional dialect name" maxlength="120"></div>
+      <div><label for="language-import">Import ISO 639-3 TSV (optional, stays here)</label>
+        <input id="language-import" type="file" accept=".tab,.tsv,text/tab-separated-values,text/plain"></div>
+    </div>
+    <button id="add-language" type="button" class="subtle-btn">Save my language / dialect label</button>
+    <button id="remove-language" type="button" class="subtle-btn">Remove selected local label</button>
+  </section>
+  <section class="panel">
+    <div class="section-head"><h2>Speak</h2><p>Rendered locally by installed eSpeak NG or an authorized ONNX model pack.</p></div>
+    <label for="text">Words to speak</label>
+    <textarea id="text" dir="auto" maxlength="4000" rows="5">From the cave to the canyon, from water and wind to the human voice, the sound of the world connects us.</textarea>
+    <div class="grid">
+      <div><label for="lang">Language / dialect tag (BCP 47)</label><input id="lang" value="en-US" autocomplete="off"></div>
+      <div><label for="voice">Installed synthetic voice</label><select id="voice"><option value="en-us">en-us</option></select></div>
+      <div><label for="persona">Story voice / characterization</label><select id="persona">
+        <option value="neutral">Neutral narrator</option>
+        <option value="jesus-story">Jesus — fictional interpretation</option>
+        <option value="satan-story">Satan — fictional interpretation</option>
+      </select></div>
+      <div><label for="effect">Planetary resonance (safe DSP)</label><select id="effect">
+        <option value="none">Clean</option><option value="cave">Cave chamber</option>
+        <option value="echo">Valley echo</option><option value="wind">Wind texture</option>
+        <option value="speech-clean">Speech clean (high-pass + noise gate)</option>
+      </select></div>
+    </div>
+    <label for="pack">Authorized ONNX pack ID (optional, stored only on this device)</label>
+    <input id="pack" placeholder="Leave blank for the default synthetic engine" autocomplete="off">
+    <div class="actions"><button id="speak">Generate local voice</button><a id="download" class="action-secondary" hidden download="nathan-voice.wav">Save WAV</a></div>
+    <p id="status" class="status" role="status">Loading locally installed voices…</p>
+    <audio id="player" controls preload="none"></audio>
+  </section>
+  <section class="panel">
+    <div class="section-head"><h2>12 Ear Gates</h2>
+      <p>Measured frequency energy from the locally generated sound. This graph makes no emotional, medical, or identity claims.</p></div>
+    <canvas id="ear-gates" width="760" height="210" role="img" aria-label="Twelve-band local audio frequency graph"></canvas>
+    <p id="ear-gates-label" class="quiet">Generate a voice to display its measurable spectral distribution.</p>
+  </section>
+  <section class="panel">
+    <div class="section-head"><h2>Family archive</h2><p>A recording is the person's actual voice. A generated voice is a simulation, not that person.</p></div>
+    <label for="archive">Select a personal WAV/MP3 recording for private local playback</label>
+    <input id="archive" type="file" accept="audio/*">
+    <audio id="archival-player" controls preload="none"></audio>
+    <h3>Map an existing authorized recording</h3>
+    <p class="quiet">Map a voice sample from an existing family archive, subject to the speaker's consent or applicable estate/license rights. The file is decoded on this device; no data is uploaded.</p>
+    <label for="archive-rights-basis">Authority to use the recorded voice</label>
+    <select id="archive-rights-basis">
+      <option value="speaker-consent">The speaker explicitly authorized this use</option>
+      <option value="estate-authorization">Estate or other appropriate rights authorization</option>
+      <option value="self">This is my own voice</option>
+      <option value="licensed-synthetic">This is a licensed synthetic voice</option>
+    </select>
+    <label for="archive-offset">Start of the 12-second reference segment (seconds)</label>
+    <input id="archive-offset" type="number" min="0" step="0.5" value="0">
+    <label class="checkbox-line"><input id="archive-rights" type="checkbox">
+      I confirm I have permission or appropriate rights for this recording and any proposed generated speech.</label>
+    <button id="archive-map" type="button" class="subtle-btn">Map selected authorized recording</button>
+    <p class="quiet">Files selected here remain in this browser session; no upload or voice cloning occurs. A living person's voice model requires permission. A deceased person's voice model requires appropriate rights authorization.</p>
+  </section>
+  <section class="panel" id="voice-enrollment">
+    <div class="section-head"><h2>Record & Map My Voice</h2>
+      <p>Capture your own voice, measure its physical acoustic characteristics, and save an optional local profile. The microphone stops when you choose Stop or after 12 seconds, keeping the recording and its exact transcript aligned.</p></div>
+    <label for="profile-name">Name this voice profile</label>
+    <input id="profile-name" value="My Voice" maxlength="100" autocomplete="off">
+    <label for="profile-dialect">My dialect or pronunciation tradition (self-described)</label>
+    <input id="profile-dialect" placeholder="e.g. North Alabama English — self-described" maxlength="120">
+    <label for="reference-transcript">Exact words spoken in the recording (needed to synthesize from a reference)</label>
+    <textarea id="reference-transcript" dir="auto" rows="3" maxlength="2000">Today I am recording my own voice for Nathan AI. The wind moves through the trees, and the river runs beyond the hills. These words belong to my voice.</textarea>
+    <label class="checkbox-line"><input id="consent-self" type="checkbox">
+      I am the person speaking. I authorize this local recording and the optional generation of synthetic speech from my own voice.</label>
+    <div class="actions"><button id="record-start" type="button">Start microphone recording</button>
+      <button id="record-stop" type="button" class="subtle-btn" disabled>Stop recording</button></div>
+    <p id="record-status" class="status" role="status">No recording started. Microphone permission is requested only when you click Start.</p>
+    <audio id="record-playback" controls preload="none"></audio>
+    <div class="asr-panel">
+      <h3>Optional offline transcription</h3>
+      <p class="quiet">Select a separately installed Whisper ONNX recognition pack. Nothing is sent to a cloud service. Review and correct every word before synthesis.</p>
+      <label for="asr-pack">Installed offline speech-recognition model</label>
+      <select id="asr-pack"><option value="">No local ASR pack selected</option></select>
+      <button id="transcribe-recording" type="button" class="subtle-btn" disabled>Transcribe my recording locally</button>
+    </div>
+    <h3>Acoustic profile — 12 Ear Gates</h3>
+    <div id="profile-metrics" class="metric-grid"></div>
+    <canvas id="record-gates" width="760" height="210" role="img" aria-label="Measured 12 Ear Gates of your voice recording"></canvas>
+    <p id="record-quality" class="status" role="status">Recording quality will be checked locally.</p>
+    <p id="profile-interpretation" class="quiet">No voice profile measured yet. No accent, identity, health or emotion will be inferred from these measurements.</p>
+    <div class="privacy-controls">
+      <label class="checkbox-line"><input id="remember-audio" type="checkbox">
+        Save up to 12 seconds of reference audio with AES-GCM encryption in this browser. Uncheck to save metrics only.</label>
+      <label for="voice-passphrase">Local encryption passphrase (12+ characters when saving audio; never transmitted)</label>
+      <input id="voice-passphrase" type="password" autocomplete="new-password" placeholder="Private passphrase for this browser's voice vault">
+      <div class="actions"><button id="record-save" type="button" disabled>Save local voice map</button></div>
+      <p class="quiet">Acoustic metadata is stored in the browser without encryption. Only the optional reference audio is encrypted. Losing the passphrase means the encrypted audio cannot be unlocked.</p>
+    </div>
+    <h3>My Saved Voice Maps</h3>
+    <select id="profile-list" size="4" aria-label="Saved local voice profiles"></select>
+    <p id="profile-count" class="quiet">Profiles exist only in this browser's storage.</p>
+    <div class="actions"><button id="profile-unlock" class="subtle-btn" type="button">Unlock selected audio</button>
+      <button id="profile-delete" class="subtle-btn" type="button">Delete selected profile</button></div>
+    <h3>Speak New Words In My Recorded Voice</h3>
+    <p class="quiet">This requires a separately installed, licensed, authorized ONNX ZipVoice model and the exact transcript above. Synthesis happens on this computer through the loopback engine; no recordings are sent off-device. Model coverage is currently limited by the installed pack.</p>
+    <label for="clone-pack">Installed reference-voice model pack ID</label>
+    <input id="clone-pack" list="installed-packs" placeholder="my-zipvoice-pack" maxlength="64" autocomplete="off">
+    <datalist id="installed-packs"></datalist>
+    <div class="actions"><button id="clone-voice" type="button" disabled>Generate with my recorded voice</button></div>
+  </section>
+  <footer>1 + 1 = 2 · BUILD &nbsp; | &nbsp; 1 − 1 = 0 · CLEAR<br>
+    Historical and mythic figures are clearly labeled dramatizations. Never treat a synthetic voice as proof of identity, truth, medical status or consent.
+  </footer>
+</main>
+<script src="/voice-store.js" defer></script>
+<script src="/voice-mapper-core.js" defer></script>
+<script src="/language-catalog.js" defer></script>
+<script src="/app.js" defer></script>
+<script src="/voice-recorder.js" defer></script>
+</body></html>
