@@ -12,6 +12,10 @@ The title above is taken from Nathan Tabor's own words, including original spell
 
 These restoration files were added alongside the existing series; the author's prior passages, Book One, 13-volume plan and 17-claim register remain unchanged. The private source ZIP and superseded AI-generated art are not republished into this public repository.
 
+## TWO MOONS — LIVE LOCAL CONCEPT STUDIO
+
+[**Open the interactive Two Moons construction concept studio**](./studio.html) · [**See conceptual Two Moons blueprint**](./assets/TWO-MOONS-CONCEPT-PLAN.svg) · [**See assembly stages**](./assets/TWO-MOONS-ASSEMBLY-STAGES.svg) · [**Build-plan dimensions, source provenance and SHA-256 manifest**](./BUILD-PLANS.md). The four-stage viewer works locally in the browser and does not control external hardware. The subject is **TWO MOONS**. The **Death Stars are the cover story** in the author's framing, not a substitute for the subjects. Both diagrams are contemporary fictional concepts, not authentic military archive scans.
+
 ## VOLUME ONE — WRITTEN MANUSCRIPT
 
 [**READ THE COMPLETE VOLUME ONE MANUSCRIPT**](./BOOK-ONE-MANUSCRIPT.md) — thirteen drafted chapters, three parts and an epilogue in a first-person voice guided by the creator's source material. The author's exact quotations remain intact. The surrounding manuscript prose was newly drafted at the author's request; it is not misrepresented as earlier verbatim speech.
