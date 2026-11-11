@@ -63,6 +63,17 @@ For a compatible AI client's MCP configuration (adapt to the client's documented
 
 Tools: `list_sources`, `search_vault`, `read_source`, `get_image`. The MCP process does not open a socket, change any file, run code from a file, sync browser IndexedDB, copy credentials, or contact model providers. It ignores hidden/credential-like files, rejects symlink traversal, and limits scans and source sizes. To use browser originals with MCP, first explicitly export/copy files to that folder.
 
+## Verified ZIP to MCP retrieval
+
+The user's file/image archive is stored in the browser Vault. To make the *original backed-up files* available to a local AI client **with deliberate permission**, create full-byte ZIP backups in the app, save them to the laptop, then run:
+
+~~~bash
+node import-backup.cjs /path/to/nathan-pi-original-backup-part-001-of-001.zip /path/to/my-approved-mcp-folder
+NATHAN_VAULT_DIR="/path/to/my-approved-mcp-folder" node mcp-server.cjs
+~~~
+
+The importer verifies the existing backup manifest and every original's SHA-256 before writing a content-addressed, non-overwriting copy to the selected folder. It keeps a hidden local provenance manifest. The read-only MCP service can then retrieve actual text and image bytes from that folder through an authorized MCP client. If there are several ZIP parts, import them all before claiming complete recovery. **This is owner-triggered transfer, not continuous synchronization of all AI accounts.**
+
 ## NATHAN OS (V1.0-RAW) mapping
 
 | Supplied original module | Executed by this app | Not yet implemented |
@@ -80,7 +91,8 @@ The original C/Go/Flask source snippets are **user-supplied specifications**, no
 node --check app-factory/nathan-ai/personal-intelligence/app.js
 node --check app-factory/nathan-ai/personal-intelligence/core.js
 node --check app-factory/nathan-ai/personal-intelligence/mcp-server.cjs
-node --test app-factory/nathan-ai/personal-intelligence/core.test.cjs app-factory/nathan-ai/personal-intelligence/mcp-server.test.cjs app-factory/vault-backup.test.cjs
+node --check app-factory/nathan-ai/personal-intelligence/import-backup.cjs
+node --test app-factory/nathan-ai/personal-intelligence/core.test.cjs app-factory/nathan-ai/personal-intelligence/mcp-server.test.cjs app-factory/nathan-ai/personal-intelligence/import-backup.test.cjs app-factory/vault-backup.test.cjs
 ~~~
 
 Manual browser QA required: upload a photo, preview/download it, open the existing Vault and see the same file, save linked notes, query source metadata and text, prepare metadata-only/full-excerpt handoffs, back up all bytes, restore in another profile, check image and SHA recovery, connect MCP to a knowingly selected directory, and remove the MCP client configuration to revoke access. Test both phone and laptop.
