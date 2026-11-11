@@ -35,12 +35,27 @@ a{color:#7fe0ff}summary{cursor:pointer}
 <div class="arrow">↓</div><div class="grid"><div class="node">LEFT CALF RETURN PUMP</div><div class="node">RIGHT CALF RETURN PUMP</div></div>
 <div class="arrow">↖ RETURN CONVEYOR ↗</div><div class="node">BOTTOM ENTRY TO GRAIL → RISE → OVERFLOW<br><small>M5 → M4 → M3 → M2 → M1 · Recheck and repeat</small></div>
 <p class="muted">Anatomy: one actual heart and two calf muscle pumps that assist venous return. Evidence review is not an automatic lie detector.</p></section>
+<section><h2>2,000 Witnesses · Accountability Mirror</h2>
+<p>Two 1,000-witness review registers map care, source archives, accountability, and voluntary self-reflection. Nothing here activates a camera or changes the operating system.</p>
+<label for="witness-number">Inspect numbered witness (1–2000)</label>
+<input type="number" id="witness-number" min="1" max="2000" step="1" value="1000">
+<button type="button" id="inspect-witness">Inspect witness</button>
+<pre class="cycle" id="witness-output" aria-live="polite">Choose a witness to examine.</pre>
+<p><a href="./ACCOUNTABILITY-2000.md">Read the full integrity-check register</a></p></section>
 <section><h2>Cycle output</h2><pre class="cycle" id="output">No cycles yet.</pre></section>
 <footer><p>1+1=2 BUILD · 1-1=0 CLEAR · PROTECT INNOCENCE · PRESERVE EVIDENCE</p>
 <a href="./README.md">Architecture specification</a> · <a href="./ACCOUNTABILITY-2000.md">2,000-witness integrity register</a> · <a href="./assets/m99-system-flow.svg">System blueprint</a> · <a href="./assets/m99-mammal-flow.svg">Mammal map</a></footer></main>
 <script type="module">
 import {MATRICES,CURRENT_FAMILIES,createRecord,runCycle,exportRecord} from "./engine.js";
+import {witnessAt,witnessSummary} from "./witnesses.js";
 const byId=id=>document.getElementById(id);
+byId("inspect-witness").addEventListener("click",()=>{
+ try {
+  const n=Number(byId("witness-number").value);
+  const w=witnessAt(n),summary=witnessSummary();
+  byId("witness-output").textContent="WITNESS "+w.number+" / "+summary.total+" · PASS "+w.pass+" · SLOT "+w.slot+"\n"+w.tier+": "+w.code+"\n"+w.description;
+ } catch(e) {byId("witness-output").textContent=e.message}
+});
 let record=null;
 byId("currents").innerHTML=CURRENT_FAMILIES.map(f=>'<label><input type="checkbox" value="'+f+'" checked style="width:auto"> '+f+'</label>').join("");
 byId("checks").innerHTML=MATRICES.map(m=>'<div class="matrix"><strong>'+m.id+' — '+m.name+'</strong><p>'+m.question+'</p><label>Finding <input id="'+m.id+'-finding"></label><label>Supporting evidence <input id="'+m.id+'-evidence"></label><label><input type="checkbox" id="'+m.id+'-reviewed" style="width:auto"> Human reviewed</label></div>').join("");
