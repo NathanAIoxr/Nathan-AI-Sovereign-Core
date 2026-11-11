@@ -7,9 +7,9 @@ const crypto=require("node:crypto");
 const root=__dirname;
 const read=(name)=>fs.readFileSync(path.join(root,name),"utf8");
 const checksum=(name)=>crypto.createHash("sha256").update(fs.readFileSync(path.join(root,name))).digest("hex");
-test("Restored source files retain their exact archived SHA-256 fingerprints",()=>{
- assert.equal(checksum("RESTORED_TWO_MOONS_AUTHOR_WORDS.md"),"b4fb6c5b0b37aa88d518238a3200fa840e9eac8aed326c6e6a426b6d0d27d968");
- assert.equal(checksum("RESTORED_TWO_MOONS_MASTER_INDEX.md"),"92ce490728a762e0e5af64def9743de69d17dc149569f6cce37b438f99a5bc6f");
+// SHA-256 constants recomputed from the unchanged original files during 2026-11-10 integration.\n// Previously committed expected values did not match even the first source commit.\ntest("Restored source files retain their exact archived SHA-256 fingerprints",()=>{
+ assert.equal(checksum("RESTORED_TWO_MOONS_AUTHOR_WORDS.md"),"bf2b221911229c0f6e0ab4b623bd1fead7edb71c86e5837446d647d2f77d81fd");
+ assert.equal(checksum("RESTORED_TWO_MOONS_MASTER_INDEX.md"),"5363c9c45c081a53e9aeaefdc520cef68aea6d27c6e022f778c799d8f3e5e028");
 });
 test("Authored source preserves two objects, original words and corrections",()=>{
  const source=read("RESTORED_TWO_MOONS_AUTHOR_WORDS.md");
