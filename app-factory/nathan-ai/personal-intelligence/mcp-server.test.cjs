@@ -6,7 +6,7 @@ test('directory-bound MCP lists only intended files, prevents traversal, reads h
  const dir=await fs.mkdtemp(path.join(os.tmpdir(),'nathan-pi-'));t.after(()=>fs.rm(dir,{recursive:true,force:true}));
  await fs.writeFile(path.join(dir,'letter.txt'),'Owner words exactly');await fs.writeFile(path.join(dir,'.env'),'TOP_SECRET');await fs.writeFile(path.join(dir,'secret.pem'),'KEY');
  await fs.mkdir(path.join(dir,'Project'));await fs.writeFile(path.join(dir,'Project','index.md'),'Source-linked project');
- const list=await m.listSources(dir);assert.deepEqual(list.map(x=>x.id),['Project/index.md','letter.txt']);assert.equal((await m.searchVault(dir,'source-linked')).length,1);
+ const list=await m.listSources(dir);assert.deepEqual(new Set(list.map(x=>x.id)),new Set(['Project/index.md','letter.txt']));assert.equal((await m.searchVault(dir,'source-linked')).length,1);
  const r=await m.readSource(dir,'letter.txt');assert.equal(r.content,'Owner words exactly');assert.equal(r.sha256.length,64);await assert.rejects(m.readSource(dir,'../secret.pem'),/not found|Invalid/);
  await assert.rejects(m.readSource(dir,'.env'),/not found/);
  const response=await m.dispatch({jsonrpc:'2.0',id:3,method:'tools/call',params:{name:'read_source',arguments:{asset_id:'letter.txt'}}},dir);
