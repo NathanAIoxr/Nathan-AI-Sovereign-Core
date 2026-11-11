@@ -1,0 +1,30 @@
+name: M-99 Living Mammal Matrix CI
+on:
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/matrix-grinder-m99/**'
+      - 'app-factory/nathan-ai/launcher/**'
+      - 'app-factory/nathan-ai/index.html'
+      - 'app-factory/nathan-ai/offline-assets.json'
+      - '.github/workflows/m99-living-mammal-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/matrix-grinder-m99/**'
+      - 'app-factory/nathan-ai/launcher/**'
+      - '.github/workflows/m99-living-mammal-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate-m99:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate M-99 cycles, witnesses and hub integration
+        run: node --test app-factory/nathan-ai/matrix-grinder-m99/*.test.mjs
+      - name: Validate global launcher integration
+        run: node --test app-factory/nathan-ai/launcher/engine.test.cjs
