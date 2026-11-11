@@ -101,3 +101,21 @@ Original generated raster blueprints and the supplied T-29/M-99 comparison image
 - The module is a visualization/specification, **not** an implemented energy harvester, medical device, or verified lie detector.
 - Preserve source records verbatim and make corrections additively.
 - Do not claim that the machine identifies guilt, intent, or truth automatically.
+
+
+## Nathan AI launcher and offline integration (Nov 11, 2026)
+
+Open [the M-99 simulator](./index.html) from the Nathan AI home hub or the shared `Ctrl/⌘ K` command palette. The page loads the same shared launcher as other Nathan AI modules. M-99 and its original vector diagrams are included in the public offline-asset manifest; the service-worker cache version is incremented to avoid retaining an outdated manifest.
+
+The [Bridge World Atlas](./assets/m99-bridge-worlds.svg) is an original text-and-geometry illustration of the **Upper Miasma / Great Sea of Blah-Blah / Artificial Identity Shore / Original Self Shore** and the central mammal machinery. It is *new conceptual artwork*, not the unavailable original full-resolution PNG/JPEG blueprint archive. Existing SVGs remain unchanged.
+
+The [2,000-witness register](./ACCOUNTABILITY-2000.md), `witnesses.js`, and deterministic tests implement the two mirrored symbolic accountability passes without privileged commands, camera activation, or remote services.
+
+## Validation
+
+```sh
+node --test app-factory/nathan-ai/matrix-grinder-m99/*.test.mjs
+node --test app-factory/nathan-ai/launcher/engine.test.cjs
+```
+
+GitHub Actions: `.github/workflows/m99-living-mammal-ci.yml`. Module engine tests were run locally, 5/5 passed; the other tests are checked by CI upon PR workflows running. A successful test only establishes the tested software behavior.
