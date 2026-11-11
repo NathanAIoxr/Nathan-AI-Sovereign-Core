@@ -11,6 +11,10 @@ on:
       - '.github/workflows/ios-stewie-finn.yml'
   workflow_dispatch:
 
+concurrency:
+  group: stewart-finn-${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -24,7 +28,11 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
-      - name: Select installed Xcode
+      - name: Select latest stable Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+      - name: Show selected Xcode
         run: xcodebuild -version
       - name: Test offline Polar Family story and progression (native Swift)
         run: |
@@ -35,9 +43,13 @@ jobs:
           node --test polar-middle-c/engine.test.cjs
           node --test polar-middle-c/mirror-bridge/engine.test.cjs
           node --test polar-middle-c/math-roots/engine.test.cjs
+      - name: Require submission-compatible SDK
+        run: |
+          SDK_VERSION="$(xcrun --sdk iphoneos --show-sdk-version)"
+          test "${SDK_VERSION%%.*}" -ge 26 || { echo "Select Xcode with iOS SDK 26 or later"; exit 1; }
       - name: Install XcodeGen
         run: brew install xcodegen
-      - name: Make original offline art
+      - name: Package recovered original artwork
         run: |
           python3 -m venv .venv
           .venv/bin/python -m pip install --disable-pip-version-check pillow
@@ -55,6 +67,21 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             build
+      - name: Build and inspect iPhone screens
+        run: |
+          xcodebuild -project StewieAndMrFinn.xcodeproj \
+            -scheme StewieAndMrFinn -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath simulator-build CODE_SIGNING_ALLOWED=NO \
+            ARCHS="$(uname -m)" ONLY_ACTIVE_ARCH=YES build
+          python3 scripts/capture_screens.py
+      - name: Upload visual QA screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: Stewart-Finn-Visual-QA
+          path: app-factory/stewie-mr-finn/dist/visual-qa
+          if-no-files-found: error
+          retention-days: 14
       - name: Package unsigned IPA
         run: |
           mkdir -p Payload dist

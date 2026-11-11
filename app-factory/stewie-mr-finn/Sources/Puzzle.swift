@@ -8,6 +8,7 @@ struct PuzzleView: View {
     @State private var moves = 0
     @State private var locked = false
     @State private var gameId = UUID()
+    @State private var hint = "Tap two cards. Matching pictures stay face up."
     private let faces = ["🐈", "🐈‍⬛", "🐾", "🧩", "❤️", "🍪"]
 
     var body: some View {
@@ -15,8 +16,10 @@ struct PuzzleView: View {
             ScrollView {
                 VStack(spacing: 18) {
                     StoryHeading(title: "Puzzle Pals", subtitle: "Find the matching pairs—just like Stewie and Mr. Finn!")
+                    GameArtwork("MirrorArt", ratio: 1.65, label: "Stewart and Mr. Finn solving their coat-pattern puzzle")
                     HStack { StarCount(); Spacer(); Text("\(matches.count / 2) / 6 pairs · \(moves) turns").font(.subheadline.bold()) }
                     GameCard {
+                        Text(hint).font(.headline).multilineTextAlignment(.center)
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 9), count: 3), spacing: 9) {
                             ForEach(symbols.indices, id: \.self) { index in
                                 Button { flip(index) } label: {
@@ -59,6 +62,7 @@ struct PuzzleView: View {
         matches = []
         locked = false
         moves = 0
+        hint = "Tap two cards. Matching pictures stay face up."
     }
 
     private func flip(_ index: Int) {
@@ -68,10 +72,12 @@ struct PuzzleView: View {
         moves += 1
         let pair = Array(open)
         if symbols[pair[0]] == symbols[pair[1]] {
+            hint = "A pair! Both pictures are the same."
             matches.formUnion(pair)
             open = []
             if matches.count == symbols.count { progress.win("puzzle", reward: 25) }
         } else {
+            hint = "These pictures are different. Remember where they are and try another pair."
             locked = true
             let roundID = gameId
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {

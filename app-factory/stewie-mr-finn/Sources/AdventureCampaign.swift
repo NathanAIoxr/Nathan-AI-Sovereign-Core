@@ -58,21 +58,26 @@ private final class QuestProgress: ObservableObject {
 }
 struct CampaignMapView: View {
     @StateObject private var campaign = QuestProgress.shared
+    private var nextLevel: Int { (1...48).first { campaign.ratings[$0] == nil } ?? 48 }
     var body: some View {
         GameBackground {
             ScrollView {
                 VStack(spacing: 17) {
-                    StoryHeading(title: "THE GRAND ADVENTURE", subtitle: "Six magical worlds · 48 playable boards · a lifetime of mammal lessons")
+                    StoryHeading(title: "THE GRAND ADVENTURE", subtitle: "One little adventure at a time. Your place is saved.")
                     GameCard {
-                        HStack { Text("Campaign completed").font(.headline); Spacer(); Text("\(campaign.ratings.count) / 48").bold().monospacedDigit() }
+                        Text("Your next stop").font(.headline)
+                        Text("Play a short puzzle, learn from each try, then follow the next arrow.").multilineTextAlignment(.center)
+                        NavigationLink(destination: QuestBoardView(levelID: nextLevel)) {
+                            Label(campaign.ratings.isEmpty ? "Start with puzzle 1" : "Continue with puzzle \(nextLevel)", systemImage: "play.circle.fill")
+                                .font(.headline).frame(maxWidth: .infinity, minHeight: 48)
+                        }
+                        HStack { Text("Puzzles explored").font(.headline); Spacer(); Text("\(campaign.ratings.count) / 48").bold().monospacedDigit() }
                         ProgressView(value: Double(campaign.ratings.count), total: 48).tint(.teal)
                         Text("Clear a board to unlock the next. Earn one, two, or three stars!").font(.footnote)
                     }
                     ForEach(questWorlds) { world in
                         GameCard {
-                            Image("World\(world.id)")
-                                .resizable().scaledToFill().frame(height: 116).clipped()
-                                .clipShape(RoundedRectangle(cornerRadius: 17))
+                            GameArtwork("World\(world.id)", ratio: 1.65, label: world.name)
                             HStack(spacing: 12) {
                                 Text(world.emoji).font(.system(size: 39))
                                 VStack(alignment: .leading, spacing: 2) {
@@ -139,6 +144,8 @@ struct QuestBoardView: View {
     @State private var step = 0
     @State private var completed = false
     @State private var feedback: String? = nil
+    @State private var answerCorrect = false
+    @State private var ready = false
     private let icons = ["🐾","🍪","🧩","🐈","🐕","⭐","❤️","🪶"]
     private var level: QuestLevel { QuestLevel(id: levelID) }
     private var count: Int { level.difficulty }
@@ -146,16 +153,17 @@ struct QuestBoardView: View {
 
     var body: some View {
         GameBackground {
-            ScrollView {
+            ScrollViewReader { proxy in
+                ScrollView {
                 VStack(spacing: 17) {
                     HStack { StarCount(); Spacer(); Text("WORLD \(level.world.id+1) · BOARD \(level.board)").font(.caption.bold()) }
                     StoryHeading(title: level.type.label, subtitle: level.world.name)
                     GameCard {
                         Text(level.world.emoji).font(.system(size: 54))
                         HStack {
-                            Text("Challenge \(step + 1) of \(count)").font(.headline)
+                            Text("Challenge \(min(step + 1, count)) of \(count)").font(.headline)
                             Spacer()
-                            Text("Misses \(mistakes)").font(.caption.bold())
+                            Image(systemName: "heart.fill").foregroundStyle(.teal).accessibilityLabel("Take your time")
                         }
                         ProgressView(value: Double(completed ? count : step), total: Double(count)).tint(level.world.tint)
                         if completed {
@@ -172,8 +180,18 @@ struct QuestBoardView: View {
                                 }
                             }
                             PawButton(title: "Play again", symbol: "arrow.clockwise", action: reset)
+                        } else if !ready {
+                            Text("How to play").font(.title2.bold())
+                            Text(instructions).multilineTextAlignment(.center)
+                            Text("No rush. A clue will help you if you need another try.")
+                                .font(.subheadline).multilineTextAlignment(.center)
+                            PawButton(title: "I’m ready!", symbol: "play.fill") { ready = true }
                         } else {
                             challenge
+                            if level.type != .kindness, let feedback {
+                                Text(feedback).font(.headline).multilineTextAlignment(.center).id("answer-feedback")
+                                    .accessibilityAddTraits(.updatesFrequently)
+                            }
                         }
                     }
                     GameCard {
@@ -183,9 +201,21 @@ struct QuestBoardView: View {
                     }
                 }.padding(18)
             }
+                .onChange(of: feedback) { _, _ in
+                    withAnimation { proxy.scrollTo("answer-feedback", anchor: .center) }
+                }
+                }
         }
         .navigationTitle("Board \(levelID)").navigationBarTitleDisplayMode(.inline)
         .onAppear { if cards.isEmpty { reset() } }
+    }
+    private var instructions: String {
+        switch level.type {
+        case .memory: return "Tap two cards. If their pictures match, they stay open. Find every pair."
+        case .pawPath: return "Start at 1. Tap the numbered pawprints in counting order."
+        case .treasure: return "Look at the big picture. Tap the small picture that is exactly the same."
+        case .kindness: return "Read the animal’s story. Choose a kind action. We will explain each answer together."
+        }
     }
     @ViewBuilder private var challenge: some View {
         switch level.type {
@@ -234,6 +264,7 @@ struct QuestBoardView: View {
             ForEach(q.choices.indices, id: \.self) { index in
                 Button {
                     guard feedback == nil else { return }
+                    answerCorrect = index == q.answer
                     if index != q.answer {
                         mistakes += 1
                         feedback = "Try again with kindness. " + q.explanation
@@ -246,17 +277,17 @@ struct QuestBoardView: View {
                 }.disabled(feedback != nil)
             }
             if let feedback {
-                Text(feedback).font(.footnote).multilineTextAlignment(.center)
-                PawButton(title: "Next", symbol: "arrow.right") {
+                Text(feedback).font(.footnote).multilineTextAlignment(.center).id("answer-feedback")
+                PawButton(title: answerCorrect ? "Next challenge" : "Try again", symbol: answerCorrect ? "arrow.right" : "arrow.clockwise") {
                     self.feedback = nil
-                    advance()
+                    if answerCorrect { advance() }
                 }
             }
         }
     }
     private func reset() {
         round = UUID(); mistakes = 0; shown = []; matched = []; busy = false
-        step = 0; completed = false; feedback = nil
+        step = 0; completed = false; feedback = nil; answerCorrect = false; ready = false
         if level.type == .memory {
             cards = (Array(0..<count) + Array(0..<count)).shuffled()
         } else { cards = Array(1...count).shuffled() }
@@ -277,10 +308,12 @@ struct QuestBoardView: View {
         if shown.count == 2 {
             let pair = Array(shown)
             if cards[pair[0]] == cards[pair[1]] {
+                feedback = "A match! Both pictures are the same."
                 matched.formUnion(pair); shown = []
                 step = matched.count / 2
                 if matched.count == cards.count { finish() }
             } else {
+                feedback = "These pictures are different. Remember their places and try another pair."
                 mistakes += 1; busy = true
                 let token = round
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.85) {
@@ -291,10 +324,10 @@ struct QuestBoardView: View {
         }
     }
     private func tapPaw(_ number: Int) {
-        if number == step+1 { advance() }
-        else { mistakes += 1; MammalHaptics.tap() }
+        if number == step+1 { feedback = "That’s the next number!"; advance() }
+        else { mistakes += 1; feedback = "We are counting in order. Look for \(step + 1) next."; MammalHaptics.tap() }
     }
     private func choose(_ correct: Bool) {
-        if correct { advance() } else { mistakes += 1; MammalHaptics.tap() }
+        if correct { feedback = "You matched the picture!"; advance() } else { mistakes += 1; feedback = "Look at the big \(icons[step % icons.count]). Find the exact same picture below."; MammalHaptics.tap() }
     }
 }

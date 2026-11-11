@@ -1,5 +1,5 @@
 # THE MIDDLE C — HO ↔ OH Polar Family Branch
-**Original game concept: Nathan Tabor** · Part of *The Adventures of Stewart & Mr. Finn* (North Paw / South Paw)
+**Original game concept: Nathan Tabor** · Part of *The Adventures of Stewart & Mr. Finn* (North Paw / Mrs Clause Cat’s Workshop)
 
 ## Play
 

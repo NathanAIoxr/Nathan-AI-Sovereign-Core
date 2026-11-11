@@ -48,7 +48,7 @@ struct ExploreView: View {
                         }
                         .clipShape(RoundedRectangle(cornerRadius: 24))
                     }
-                    .frame(height: 490)
+                    .aspectRatio(2.0 / 3.0, contentMode: .fit)
 
                     if let discovery = lastDiscovery { AwardBanner(title: "Found: \(discovery)!") }
                     if progress.findings.count == treasures.count {

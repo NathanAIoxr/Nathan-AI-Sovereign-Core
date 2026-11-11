@@ -8,6 +8,7 @@ struct MammalChallengeLabView: View {
     @State private var successes = 0
     @State private var message = "Choose a challenge!"
     @State private var boardSeed = 0
+    @State private var solved = false
 
     private let modes = ["Paint-Pony Puzzle", "Champ's Nose Knows", "Ace's Calm Choices"]
     private let icons = ["square.grid.3x3", "pawprint", "heart.text.square"]
@@ -18,9 +19,11 @@ struct MammalChallengeLabView: View {
 
     var body: some View {
         GameBackground {
-            ScrollView {
+            ScrollViewReader { proxy in
+                ScrollView {
                 VStack(spacing: 16) {
                     StoryHeading(title: "THE MAMMAL CHALLENGE LAB", subtitle: "Three brand-new ways to play, learn, and discover.")
+                    GameArtwork("MirrorArt", ratio: 1.65)
                     GameCard {
                         Text("Choose a mini-adventure").font(.headline)
                         ForEach(0..<modes.count, id: \.self) { i in
@@ -55,13 +58,22 @@ struct MammalChallengeLabView: View {
                                 reset()
                             }
                         } else {
+                            Group {
                             switch challenge {
                             case 0: paintPuzzle
                             case 1: champTrail
                             default: aceChoices
                             }
+                            }.disabled(solved)
+                            if solved {
+                                PawButton(title: round == 4 ? "Finish game" : "Next round", symbol: "arrow.right") {
+                                    round += 1; solved = false
+                                    message = "Take your time. Look for the clue."
+                                    if finished { progress.win("challenge.lab.\(challenge)", reward: 30) }
+                                }
+                            }
                         }
-                        Text(message).font(.subheadline).multilineTextAlignment(.center)
+                        Text(message).font(.subheadline).multilineTextAlignment(.center).id("answer-feedback")
                             .accessibilityAddTraits(.updatesFrequently)
                     }
                     GameCard {
@@ -71,6 +83,15 @@ struct MammalChallengeLabView: View {
                     }
                 }.padding(18)
             }
+                .onChange(of: message) { _, _ in
+                    withAnimation { proxy.scrollTo("answer-feedback", anchor: .center) }
+                }
+                }
+        }
+        .onAppear {
+            #if DEBUG
+            if ProcessInfo.processInfo.arguments.contains("--qa-wrong") { answer(false) }
+            #endif
         }
         .navigationTitle("Challenge Lab")
         .navigationBarTitleDisplayMode(.inline)
@@ -105,8 +126,7 @@ struct MammalChallengeLabView: View {
         VStack(spacing: 12) {
             Text("Champ is a long-legged tan hound who loves snacks. Which trail holds his DOG-SAFE pretend biscuit?")
                 .multilineTextAlignment(.center)
-            Image("ChampPortrait").resizable().scaledToFill()
-                .frame(height: 132).clipped().clipShape(RoundedRectangle(cornerRadius: 13))
+            GameArtwork("ChampPortrait", ratio: 1.65)
                 .accessibilityHidden(true)
             HStack(spacing: 8) {
                 ForEach(0..<3, id: \.self) { i in
@@ -127,8 +147,7 @@ struct MammalChallengeLabView: View {
 
     private var aceChoices: some View {
         VStack(spacing: 12) {
-            Image("AcePortrait").resizable().scaledToFill()
-                .frame(height: 135).clipped().clipShape(RoundedRectangle(cornerRadius: 13))
+            GameArtwork("AcePortrait", ratio: 1.65)
                 .accessibilityHidden(true)
             Text([
                 "Ace freezes and tilts his head. What's a good first response?",
@@ -152,21 +171,26 @@ struct MammalChallengeLabView: View {
         reset()
     }
     private func reset() {
-        round = 0; successes = 0
+        round = 0; successes = 0; solved = false
         message = "Take your time. Every try is welcome."
     }
     private func answer(_ correct: Bool) {
-        if correct {
-            successes += 1
-            round += 1
-            MammalHaptics.success()
-            message = "Great noticing! Kind choices grow trust."
-            if finished {
-                progress.win("challenge.lab.\(challenge)", reward: 30)
-            }
-        } else {
-            MammalHaptics.tap()
-            message = "Good try! Take another look. You can do it!"
+        guard !solved else { return }
+        let clue: String
+        switch challenge {
+        case 0: clue = "Look for the white square with a dark paw. The other squares are black."
+        case 1: clue = "The bone-shaped biscuit is pretend dog food. A sock or teddy is not a snack."
+        default:
+            clue = [
+                "When Ace freezes, pause and give him room. Watch his whole body to see how he feels.",
+                "A relaxed dog may want to play. Invite him gently and let him choose.",
+                "Ask a trusted grown-up before going near a dog you do not know.",
+                "Turning away can mean 'I need a break.' Stop petting and give Ace space.",
+                "Invite Ace calmly. He can choose to join in or rest."
+            ][round]
         }
+        message = (correct ? "You found it! " : "Here’s a clue. ") + clue
+        if correct { successes += 1; solved = true; MammalHaptics.success() }
+        else { MammalHaptics.tap() }
     }
 }

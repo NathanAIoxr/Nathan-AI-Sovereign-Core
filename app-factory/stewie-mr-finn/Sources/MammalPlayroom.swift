@@ -44,11 +44,9 @@ struct MammalPlayroomView: View {
                         }
                     }
                     GameCard {
-                        Image(worlds[worldIndex].art)
-                            .resizable().scaledToFill().frame(height: 165)
-                            .clipped().clipShape(RoundedRectangle(cornerRadius: 16))
+                        GameArtwork(worlds[worldIndex].art, ratio: 1.5)
                             .accessibilityHidden(true)
-                        Text("Tap a square to place your decoration").font(.headline)
+                        Text("Tap a square to place your decoration").font(.headline).multilineTextAlignment(.center)
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 3), spacing: 8) {
                             ForEach(0..<9, id: \.self) { cell in
                                 Button {
@@ -81,7 +79,7 @@ struct MammalPlayroomView: View {
                     }
                     GameCard {
                         Text("Your sticker box").font(.headline)
-                        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 6), spacing: 8) {
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 48), spacing: 8)], spacing: 8) {
                             ForEach(palette, id: \.self) { sticker in
                                 Button { selectedSticker = sticker } label: {
                                     Text(sticker).font(.system(size: 30))
@@ -199,10 +197,14 @@ struct MammalFamilyGuideView: View {
                         Text("Play together. Talk about how Champ, Ace, Stewie and Mr. Finn communicate without human words. Let children pause whenever they like.")
                         Toggle("Allow gentle visual motion", isOn: $motionEnabled)
                         Toggle("Sound when available", isOn: $soundEnabled)
-                        Text("This prototype is playable offline. It has no ads, accounts, chat, purchases, or third-party trackers. Game progress stays locally on the device; deleting the app may erase it.")
+                        Text("This game is playable offline. It has no ads, accounts, chat, purchases, or third-party trackers. Game progress stays locally on the device; deleting the app may erase it.")
                             .font(.footnote)
                         Text("All pets are different. Never encourage children to approach unfamiliar animals without a trusted adult.")
                             .font(.footnote)
+                    }
+                    GameCard {
+                        Text("Privacy").font(.headline)
+                        Text("Stewart & Mr. Finn stores game progress, choices, stickers, and comfort settings on this device. The app does not transmit this information to Nathan Tabor or third parties. It includes no advertising, analytics, account creation, chat, or purchases. It does not request access to contacts, location, camera, or microphone. Removing the app may erase local progress; device backups are managed by your Apple settings.")
                     }
                     GameCard {
                         Text("Conversation starters").font(.headline)

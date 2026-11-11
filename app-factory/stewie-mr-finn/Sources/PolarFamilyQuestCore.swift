@@ -6,9 +6,9 @@ import Foundation
 
 enum PolarRegion: String, Codable, CaseIterable {
     case north, south
-    var title: String { self == .north ? "NORTH PAW" : "SOUTH PAW" }
+    var title: String { self == .north ? "NORTH PAW" : "MRS CLAUSE CAT’S WORKSHOP" }
     var greeting: String { self == .north ? "HO HO HO!" : "OH OH OH!" }
-    var symbol: String { self == .north ? "🎅🐕" : "🐧❄️" }
+    var symbol: String { self == .north ? "🎅🐕" : "🐈🎁" }
 }
 enum PolarChallengeType: String, Codable {
     case hear, mirror, numbers, care, nature
@@ -76,15 +76,15 @@ enum PolarFamilyCatalog {
             .init(1,.numbers,"The train visits houses 2, 4, 6. Which is next in this pattern?",["10","8","7","5"],1,"The sequence grows by 2 each time."),
             .init(2,.hear,"What matters when a friend says the word PRESENT?",["Context: a gift, being here, or a moment in time","It always means a wrapped gift","It has only one use","It is always the past"],0,"Present has multiple English uses; listen to the sentence."),
             .init(3,.care,"An older dog needs more time boarding. What do the others do?",["Leave early","Rush the dog","Make a safe, patient plan","Close the door"],2,"Accessibility, patience and safety belong in every community.")]),
-        .init(id: 8,title:"The Great North Sleigh",guide:"Santa Dog and friends",icon:"🛷",story:"The North Paw Friendship Star is ready. The cats set course for the imaginary South Paw portal.",puzzles:[
+        .init(id: 8,title:"The Great North Sleigh",guide:"Santa Dog and friends",icon:"🛷",story:"The North Paw Friendship Star is ready. The cats set course for the imaginary Mrs Clause Cat’s Workshop portal.",puzzles:[
             .init(1,.mirror,"Reverse the greeting HO HO HO character by character. You get...",["HO OH HO","OH OH OH","OOO HHH","HO HO HO"],1,"Reversing the entire string swaps each HO to OH and reverses the spaces too."),
             .init(2,.numbers,"Four gift bags hold 2 toys each. How many toys?",["8","6","4","12"],0,"4 × 2 = 8 toys."),
             .init(3,.care,"The sleigh team disagrees on the route. Best next step?",["Ignore everyone","Push ahead blindly","Blame a teammate","Listen, compare ideas and choose a safe plan"],3,"Cooperation means hearing others while still checking safety.")]),
-        .init(id: 9,title:"Ozzie's South Paw Gate",guide:"OH OH OH Ozzie",icon:"🐧",story:"The portal opens in a sparkling fictional Antarctic village. Ozzie's family welcomes the cats.",puzzles:[
+        .init(id: 9,title:"Mrs Clause Cat’s Welcome",guide:"Mrs Clause Cat and Ozzie",icon:"🐈🎁",story:"The portal opens at Mrs Clause Cat’s Workshop in South Paw. Mrs Clause Cat welcomes Stewart and Mr. Finn to her gift-making tables, while Ozzie and the polar family help everyone find a place.",puzzles:[
             .init(1,.hear,"In this story, OH OH OH expresses...",["Fear of new friends","Anger at visitors","Surprise and curiosity","An order to go away"],2,"Ozzie uses OH OH OH as a friendly expression of wonder."),
             .init(2,.mirror,"Read OH in reverse. What do you get?",["HO","OO","HH","HOH"],0,"O-H becomes H-O."),
             .init(3,.nature,"Where do wild emperor penguins naturally live?",["At the geographic North Pole","Antarctica","In every tropical forest","On the Moon"],1,"Emperor penguins are native to Antarctica. This crossover between poles happens through a fantasy portal.")]),
-        .init(id: 10,title:"Oona's Southern Lights",guide:"Oona Aurora",icon:"✨",story:"Oona teaches the visitors to watch the beautiful lights above South Paw.",puzzles:[
+        .init(id: 10,title:"Oona's Southern Lights",guide:"Oona Aurora",icon:"✨",story:"Oona teaches the visitors to watch the beautiful lights above Mrs Clause Cat’s Workshop.",puzzles:[
             .init(1,.nature,"What is another name for the Southern Lights?",["Aurora australis","Aurora borealis only","Solar eclipse","Milky snow"],0,"Aurora australis is the southern aurora. Aurora borealis is the northern aurora."),
             .init(2,.numbers,"An ice arch has 3 glowing lights on each of 3 sides. Total?",["6","9","12","3"],1,"3 × 3 = 9 lights."),
             .init(3,.care,"A friend gets overwhelmed by bright lights. What's thoughtful?",["Demand they look","Tease them","Offer a quieter route","Turn the lights brighter"],2,"Kindness includes adapting activities to different sensory needs.")]),
@@ -108,7 +108,7 @@ enum PolarFamilyCatalog {
             .init(1,.mirror,"The scarf pattern is RED then BLUE. Reverse the order.",["RED, RED","BLUE, RED","BLUE, BLUE","RED, BLUE"],1,"Reversing order swaps the two positions but doesn't change either color."),
             .init(2,.numbers,"Each twin has 3 buttons. Both twins together have...",["3","5","9","6"],3,"3 + 3 = 6 buttons."),
             .init(3,.care,"A twin dislikes having their scarf touched. What is respectful?",["Take it anyway","Insist on matching","Ask permission and respect no","Hide their scarf"],2,"A person's or animal's boundaries matter even during a game.")]),
-        .init(id: 16,title:"THE MIDDLE C REUNION",guide:"Stewie, Finn, Santa Dog and Ozzie",icon:"🌈",story:"All the families cross the magical bridge, where opposite patterns meet without becoming the same.",puzzles:[
+        .init(id: 16,title:"THE MIDDLE C REUNION",guide:"Stewie, Finn, Santa Dog, Mrs Clause Cat and Ozzie",icon:"🌈",story:"Mrs Clause Cat opens her workshop for the family reunion. Santa Dog, Ozzie, Stewart and Mr. Finn bring everyone across the magical bridge, where opposite patterns meet without becoming the same.",puzzles:[
             .init(1,.hear,"What should you check when two words sound alike?",["Only how many letters each has","Their meaning, context and spelling","Their colors","Whether a pet likes them"],1,"Above C asks what was said and what was meant."),
             .init(2,.mirror,"Which statement is always true when a string is reversed twice?",["It loses one letter","It becomes a new alphabet","It becomes a different spoken language","It returns to the original string"],3,"For an exact reversal operation R, R(R(x)) = x."),
             .init(3,.numbers,"Two equal and opposite torques on one axle give zero...",["Angular acceleration, if the net torque is zero","Angular velocity in every situation","Mass of the axle","Time passing"],0,"With net torque zero, angular acceleration is zero; an axle already spinning need not stop.")])
@@ -152,5 +152,44 @@ struct PolarFamilySave: Codable, Equatable {
     func serialized() -> String {
         guard let data = try? JSONEncoder().encode(self) else { return "" }
         return String(data:data,encoding:.utf8) ?? ""
+    }
+}
+
+
+// Separate chapter checkpoint: scores are derived from validated answers, never trusted.
+struct PolarChapterAttempt: Codable, Equatable {
+    var answers: [Int] = []
+    var advanced: Int = 0
+    var isComplete: Bool { advanced == 3 }
+    var questionIndex: Int { min(advanced, 2) }
+    var selected: Int? { answers.indices.contains(questionIndex) ? answers[questionIndex] : nil }
+    func correct(in chapter: PolarChapter) -> Int {
+        zip(answers, chapter.puzzles).filter { $0.0 == $0.1.correct }.count
+    }
+    mutating func choose(_ option: Int) {
+        guard !isComplete, answers.count == advanced, (0..<4).contains(option) else { return }
+        answers.append(option)
+    }
+    mutating func retry(in chapter: PolarChapter) {
+        guard !isComplete, let selected,
+              selected != chapter.puzzles[questionIndex].correct else { return }
+        answers.removeLast()
+    }
+    mutating func next() {
+        guard !isComplete, answers.count == advanced + 1 else { return }
+        advanced += 1
+    }
+    func serialized() -> String {
+        guard let data = try? JSONEncoder().encode(self) else { return "" }
+        return String(data: data, encoding: .utf8) ?? ""
+    }
+    static func restored(_ raw: String) -> Self {
+        guard let data = raw.data(using: .utf8),
+              let saved = try? JSONDecoder().decode(Self.self, from: data),
+              (0...3).contains(saved.advanced), saved.answers.count <= 3,
+              saved.answers.allSatisfy({ (0..<4).contains($0) }),
+              saved.answers.count >= saved.advanced,
+              saved.answers.count <= saved.advanced + 1 else { return .init() }
+        return saved
     }
 }
