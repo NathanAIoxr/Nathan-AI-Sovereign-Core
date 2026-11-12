@@ -8,7 +8,7 @@ Open `index.html` in any modern web browser, or publish the static file to a sta
 
 ## Included titles
 
-GOD, GODTABOR, GODSALTER, THEOS, ELOHIM, ELOHER, ALLAH, JESUS, GODDESS, SATAN, and a fully customizable title. The launch catalog includes both FRANCHISE and ENTERPRISES versions of GODTABOR, GODSALTER, THEOS, ELOHIM, ELOHER, GODDESS.
+GOD, GODTABOR, GODSALTER, THEOS, ELOHIM, ELOHER, ALLAH, JESUS, GODDESS, SATAN, HUMAN MAMMAL, and a fully customizable title. Users can append any second word to their chosen title. The launch catalog includes both FRANCHISE and ENTERPRISES versions of GODTABOR, GODSALTER, THEOS, ELOHIM, ELOHER, GODDESS.
 
 ## Product features
 
