@@ -79,3 +79,17 @@ Read the original supplied exchange and compare exact words against the claims. 
 - [Transcript excerpts with attribution](EXCHANGE.md)
 - [Existing Omni God browser core](../omni-god/index.html)
 - [Nathan AI source repository](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core)
+
+
+## GOD v075 · Art, Bible and universal sources
+
+- [GOD generated app artwork (full-resolution PNG)](art/GOD_promotional_poster_original.png)
+- [GOD v075 conceptual dashboard (full-resolution PNG)](art/GOD_v075_app_dashboard_original.png)
+- [44-source GOD universal atlas](v075/GOD_UNIVERSAL_SOURCE_ATLAS_v075.html) — 35 KJV references and 9 comparative-source pointers.
+- [Creator's exact GOD proclamation](v075/GOD_AUTHOR_ORIGINAL_20261112.txt)
+- [Creator's exact additional indwelling thesis](v075/GOD_AUTHOR_ADDITIONAL_THESIS_20261112.txt)
+- [Google AI exchange addendum](v075/GOD_MARKETING_GOOGLE_AI_SOURCE_ADDENDUM.md)
+
+The accompanying visual poster dramatizes Google's role beyond what is directly quoted in the creator-supplied conversation. **Do not attribute the poster's fictionalized wording to Google as an authenticated statement.** The source quotations are in [EXCHANGE.md](EXCHANGE.md).
+
+The large v074/v075 SQLite databases and private ZIP archives are intentionally not published to this public repository. Their public, authored GOD materials have been exported separately. This is an additive GitHub publication, not a claim of independent app-store or AGI release.
