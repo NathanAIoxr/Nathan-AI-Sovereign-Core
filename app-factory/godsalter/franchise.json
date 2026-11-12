@@ -1,0 +1,58 @@
+{
+  "schema": "godsalter.franchise.v0.1",
+  "name": "GODSALTER",
+  "author": "Nathan Tabor",
+  "date": "2026-11-12",
+  "status": "public-source-prototype",
+  "dimensions": [
+    {
+      "id": "literal",
+      "title": "Enterprise",
+      "status": "prototype",
+      "types": [
+        "website",
+        "apps-planned",
+        "games-planned",
+        "publishing-proposed",
+        "events-proposed",
+        "licensing-not-established"
+      ]
+    },
+    {
+      "id": "figurative",
+      "title": "Alteration",
+      "status": "concept",
+      "rules": [
+        "consent",
+        "sovereignty",
+        "evidence",
+        "accountability",
+        "protection-of-innocence"
+      ]
+    },
+    {
+      "id": "mythic",
+      "title": "Universe",
+      "status": "fiction",
+      "sources": [
+        "MYTHOS.md"
+      ]
+    }
+  ],
+  "operational": {
+    "publicWebsiteSource": true,
+    "liveDeploymentVerified": false,
+    "registeredCompanyVerified": false,
+    "trademarkCleared": false,
+    "franchiseDisclosureCompleted": false,
+    "franchiseSalesAuthorized": false,
+    "dataCollectionEnabled": false,
+    "paymentsEnabled": false,
+    "databaseIntegrationEnabled": false
+  },
+  "links": {
+    "home": "index.html",
+    "charter": "README.md",
+    "mythology": "MYTHOS.md"
+  }
+}
