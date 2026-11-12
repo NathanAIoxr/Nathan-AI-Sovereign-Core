@@ -215,3 +215,7 @@ The existing [KJV–Strong’s Universal Root Matrix master](app-factory/one/scr
 ## MAKE AI YOURS — Personal Intelligence Builder (November 11, 2026)
 
 [Launch MAKE AI YOURS](app-factory/nathan-ai/personal-intelligence/index.html) · [Source & setup guide](app-factory/nathan-ai/personal-intelligence/README.md). This new additive phone-first PWA links the existing original-byte Creator Vault with source-backed Memory Matrix notes, an eight-stage teaching course, owner-reviewed multi-AI handoff packets, full SHA-256 ZIP backup/restore and an optional read-only local MCP bridge. It does not claim automatic provider-account sync, private cloud storage or a kernel-level OS. Its current storage is on the local browser profile; originals remain recoverable through explicit owner backups.
+
+## Personal Intelligence Minds Atlas (November 12, 2026)
+
+[Open the new read-only Minds Atlas](app-factory/nathan-ai/personal-intelligence/minds/index.html). Extends MAKE AI YOURS with an existing-source-linked 126-billion Omni God virtual namespace, original 20-name pantheon, Jesus and Buddha documentary research lenses, the independent Turtle worker and Renaissance Quad-Axis roles, owner-entered Cero/Uno/Dos and library classification, and local search across public Omni mapping, Complete Mind, NT-1 catalogs plus opt-in same-browser saved notes. Source originals are not overwritten; no active 126-billion-agent deployment or external account sync is claimed.

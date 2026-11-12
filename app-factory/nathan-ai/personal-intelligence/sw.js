@@ -1,6 +1,6 @@
 /* Only cache this public application shell. Never cache imported files or API responses. */
-const CACHE='nathan-pi-shell-v1';
-const FILES=['./index.html','./app.css','./core.js','./app.js','./manifest.webmanifest','../../vault-backup.js'];
+const CACHE='nathan-pi-shell-v2';
+const FILES=["./index.html","./app.css","./core.js","./app.js","./manifest.webmanifest","../../vault-backup.js","./minds/index.html","./minds/minds.css","./minds/model.js","./minds/app.js","../appearance/shared.css","../appearance/engine.js","../appearance/app.js","../launcher/shared.css","../launcher/engine.js","../launcher/app.js","../omni-god/engine.js","../complete-mind/quad-axis/engine.js","../ai-mapping/records.json","../complete-mind/records.json","../absolute-intelligence/registry.json"];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(names=>Promise.all(names.filter(x=>x.startsWith('nathan-pi-shell-')&&x!==CACHE).map(x=>caches.delete(x)))).then(()=>self.clients.claim()));});
 self.addEventListener('fetch',event=>{const u=new URL(event.request.url);if(event.request.method!=='GET'||u.origin!==self.location.origin||!FILES.some(p=>new URL(p,self.registration.scope).pathname===u.pathname))return;event.respondWith(fetch(event.request).then(response=>{if(response.ok){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy));}return response}).catch(()=>caches.match(event.request)));});

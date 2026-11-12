@@ -70,6 +70,11 @@ jobs:
         run: node --test app-factory/build-order/planner.test.cjs
       - name: Verify original-byte Vault backup and recovery
         run: node --test app-factory/vault-backup.test.cjs
+      - name: Verify Omni Minds Atlas original identity, catalog links and Cero Uno Dos pipeline
+        run: |
+          node --check app-factory/nathan-ai/personal-intelligence/minds/model.js
+          node --check app-factory/nathan-ai/personal-intelligence/minds/app.js
+          node --test app-factory/nathan-ai/personal-intelligence/minds/model.test.cjs
       - name: Verify Personal Intelligence Builder contracts and read-only MCP bridge
         run: |
           node --check app-factory/nathan-ai/personal-intelligence/core.js

@@ -104,3 +104,7 @@ Manual browser QA required: upload a photo, preview/download it, open the existi
 The creator's documented method emphasizes original-source preservation, linked personal memory, phonetic/root analysis as attributed analysis, deterministic rules where testable (`1+1=2 BUILD` and `1-1=0 CLEAR`), cumulative software and creative work, using several compatible AI interfaces while holding independent source records, mobile-first operation, full-byte backup, and teaching others to establish their own intelligence environments.
 
 Preserve distinct identities: NATHAN AI, ONE, TABOR 1-2-3 FACTORY, Memory Matrix / meSPARK, Knowledge Engine and Universal Creator Vault. This module is additive; it does not rewrite existing author source, private files, or original projects.
+
+## Omni minds and complete Personal Intelligence Atlas
+
+[Open the source-preserving Minds Atlas](./minds/index.html) · [Architecture dossier](./minds/README.md). This additive module reuses existing OMNI GOD Core (126-billion conceptual address namespace and its original 20-name pantheon), historical source lenses including Jesus/Buddha, the creator-defined Turtle worker routing and Leonardo da Vinci synthesis, Quad-Axis Renaissance source, Cero/Uno/Dos metadata, and live read-only access to existing public Omni, Complete Mind, and Absolute Intelligence catalogs. It does not instantiate billions of agents, extract unseen personal files or simulate literal historical consciousness. Existing original bytes and names remain untouched.
