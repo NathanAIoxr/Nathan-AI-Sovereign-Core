@@ -1,0 +1,51 @@
+name: ONE Federation worker bots (public registry)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/catalog.json'
+      - '.github/workflows/one-federation-workers.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/**'
+      - '.github/workflows/one-federation-workers.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '17 9 * * *'
+permissions:
+  contents: read
+jobs:
+  run-workers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test isolated worker engine
+        run: python3 -m unittest discover -s app-factory/nathan-ai/personal-intelligence/minds/federation -p test_federation.py -v
+      - name: Run all six workers on public mind registry
+        run: |
+          set -euo pipefail
+          W="app-factory/nathan-ai/personal-intelligence/minds/federation/federation.py"
+          C="app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/catalog.json"
+          python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" init
+          python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" ingest "$C"
+          python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" run > "$RUNNER_TEMP/audit.json"
+          python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" status
+          python3 - "$RUNNER_TEMP/audit.json" <<'PY'
+          import json,sys
+          d=json.load(open(sys.argv[1]))
+          assert len(d)==6
+          assert d["Raphael"]["checksum_failures"]==0
+          assert d["Leonardo"]["records"]==763
+          print("6/6 public workers completed; 763 records")
+          PY
+      - name: Upload public audit only
+        uses: actions/upload-artifact@v4
+        with:
+          name: one-public-federation-audit
+          path: ${{ runner.temp }}/audit.json
+          retention-days: 7
