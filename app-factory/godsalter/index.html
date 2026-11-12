@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="GODSALTER — the literal, figurative and mythological franchise concept by Nathan Tabor.">
+<title>GODSALTER — Three Dimensions, One Universe</title>
+<style>
+:root{color-scheme:dark;--bg:#0a0d12;--fg:#f5f4ee;--muted:#b5b9c4;--edge:#343946;--gold:#e5c57c;--panel:#151922}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#24212b 0,#0a0d12 57%);color:var(--fg);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:var(--gold)}a:focus-visible,button:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.wrap{width:min(1100px,calc(100% - 36px));margin:auto}
+header{border-bottom:1px solid var(--edge)}.top{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:16px 0;flex-wrap:wrap}
+.wordmark{font-size:1.1rem;letter-spacing:.13em;font-weight:900;color:var(--gold);text-decoration:none}.top small{color:var(--muted)}
+.hero{text-align:center;padding:72px 0 48px}.eyebrow{color:var(--gold);font-size:.8rem;font-weight:800;letter-spacing:.2em}
+h1{font-size:clamp(3rem,10vw,7.5rem);line-height:1;letter-spacing:-.08em;margin:.18em 0;font-weight:900}
+.sub{font-size:clamp(1.15rem,2vw,1.55rem);margin:24px auto;max-width:720px}.muted{color:var(--muted)}
+.orbit{margin:28px auto 0;width:140px;height:140px;border:2px solid var(--gold);border-radius:50%;position:relative;display:grid;place-items:center;box-shadow:0 0 55px #e5c57c17}
+.orbit::before,.orbit::after{content:"";position:absolute;inset:16px;border:1px solid #f4f4ea7e;transform:rotate(45deg)}
+.orbit::after{inset:38px;transform:rotate(0)}.orbit strong{font-size:3rem;z-index:1;color:var(--gold)}
+.controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:36px 0 25px}
+button{border:1px solid var(--edge);color:var(--fg);border-radius:99px;padding:13px 20px;background:#1c2028;cursor:pointer;font-weight:750}
+button[aria-selected="true"]{color:#111;background:var(--gold);border-color:var(--gold)}
+.realm{display:none}.realm.active{display:block}.panel{background:var(--panel);border:1px solid var(--edge);border-radius:22px;padding:clamp(23px,4vw,45px)}
+h2{font-size:clamp(1.65rem,4vw,2.5rem);line-height:1.14;letter-spacing:-.035em;margin:.2em 0 .5em}
+h3{font-size:1.05rem;margin:0 0 4px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:16px 0}
+.tile{background:#10151d;border:1px solid var(--edge);border-radius:15px;padding:20px}.tile p{margin:5px 0 0;color:var(--muted)}
+.rule{border-left:3px solid var(--gold);padding-left:18px;margin:25px 0;font-weight:600}
+.mini{font-size:.84rem;color:var(--muted)}.actions{display:flex;gap:15px;flex-wrap:wrap;margin-top:22px}
+.actions a{border:1px solid var(--gold);padding:10px 16px;border-radius:9px;text-decoration:none;font-weight:650}
+footer{padding:35px 0 52px;margin-top:60px;border-top:1px solid var(--edge);color:var(--muted);font-size:.86rem}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.hero{padding:42px 0 20px}.top small{display:block}}
+@media(prefers-reduced-motion:no-preference){.realm.active{animation:enter .25s ease}@keyframes enter{from{opacity:.3;transform:translateY(5px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<header><div class="wrap top"><a href="./" class="wordmark">GODSALTER</a><small>THE FRANCHISE • BY NATHAN TABOR • 2026.11.12</small></div></header>
+<main class="wrap">
+<section class="hero" aria-labelledby="main-title">
+<div class="eyebrow">ONE NAME • THREE DIMENSIONS • ONE UNIVERSE</div>
+<h1 id="main-title">GODSALTER</h1>
+<p class="sub">The enterprise. The alteration. The mythology.</p>
+<p class="muted">Build the world you want to see. Question every claim. Protect every person's sovereignty.</p>
+<div class="orbit" aria-hidden="true"><strong>0|1</strong></div>
+</section>
+<nav class="controls" aria-label="Choose a dimension">
+<button type="button" data-realm="literal" aria-selected="true" aria-controls="literal">LITERALLY</button>
+<button type="button" data-realm="figurative" aria-selected="false" aria-controls="figurative">FIGURATIVELY</button>
+<button type="button" data-realm="mythic" aria-selected="false" aria-controls="mythic">MYTHOLOGICALLY</button>
+</nav>
+<section id="literal" class="realm active panel" aria-label="Literal enterprise">
+<p class="eyebrow">01 / THE ENTERPRISE</p><h2>Build an actual franchise ecosystem.</h2>
+<p>A proposed brand architecture for browser applications, story worlds, learning experiences, licensed creator chapters, community events and merchandise. This is a public concept and prototype, not a claim that a legal franchise has been registered or sold.</p>
+<div class="grid">
+<div class="tile"><h3>Digital</h3><p>Web app, creator tools, fictional worldbuilding and games.</p></div>
+<div class="tile"><h3>Experiential</h3><p>Workshops, exhibitions and optional local community chapters.</p></div>
+<div class="tile"><h3>Licensed</h3><p>Books, original characters, products and partner licensing after legal review.</p></div>
+</div>
+<p class="rule">Commercial franchise offers remain inactive until brand clearance, legal structure, financial review and applicable franchise disclosures are complete.</p>
+<div class="actions"><a href="README.md">Read franchise charter</a><a href="franchise.json">Open launch registry</a></div>
+</section>
+<section id="figurative" class="realm panel" aria-label="Figurative alteration" hidden>
+<p class="eyebrow">02 / THE ALTERATION</p><h2>Alter the system. Not another person's will.</h2>
+<p>GODSALTER is a symbolic place for examining inherited authority, testing assertions, correcting errors, preserving original source words and choosing evidence over coercion.</p>
+<div class="grid">
+<div class="tile"><h3>0 — CLEAR</h3><p>Identify what is false, harmful or unsupported; revise it responsibly.</p></div>
+<div class="tile"><h3>1 — CHOOSE</h3><p>Exercise independent thought, meaningful consent and personal veto.</p></div>
+<div class="tile"><h3>2 — BUILD</h3><p>Make an accountable replacement and document how it works.</p></div>
+</div>
+<p class="rule">Truth and myth are distinct records. Allegations are not evidence, and imagination is not proof.</p>
+</section>
+<section id="mythic" class="realm panel" aria-label="Mythological story universe" hidden>
+<p class="eyebrow">03 / THE MYTHOLOGY • ORIGINAL FICTION</p><h2>The Altar That Changes the Gods.</h2>
+<p>In this original fictional universe, the Altar is not a throne. It is a mirror: kings, gods, monsters and ordinary travelers must see the consequences of their choices. A title grants no exemption from accountability.</p>
+<div class="grid">
+<div class="tile"><h3>The Mirror</h3><p>Shows a being what their actions have caused, not what their followers say.</p></div>
+<div class="tile"><h3>The Keepers</h3><p>Independent guardians of records, memory and consent. They hold no compulsory power.</p></div>
+<div class="tile"><h3>The Crossing</h3><p>A gateway where mythological worlds and mortal imagination meet without erasing their differences.</p></div>
+</div>
+<p class="rule">The mythic cast, cosmology and supernatural events are creative fiction, not claims about the real world.</p>
+<div class="actions"><a href="MYTHOS.md">Read the universe bible</a></div>
+</section>
+</main>
+<footer><div class="wrap">GODSALTER • Concept and source package by Nathan Tabor. Creative interpretations are proposals. No sale, membership enrollment, spiritual claim or franchise award is offered by this page. <a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core">Source repository</a>.</div></footer>
+<script>
+const buttons=[...document.querySelectorAll('button[data-realm]')];
+const panels=[...document.querySelectorAll('.realm')];
+function activate(id){buttons.forEach(b=>b.setAttribute('aria-selected',String(b.dataset.realm===id)));panels.forEach(p=>{const show=p.id===id;p.hidden=!show;p.classList.toggle('active',show)});}
+buttons.forEach(b=>b.addEventListener('click',()=>activate(b.dataset.realm)));
+const route=new URLSearchParams(location.search).get('realm');if(['literal','figurative','mythic'].includes(route))activate(route);
+</script>
+</body></html>
