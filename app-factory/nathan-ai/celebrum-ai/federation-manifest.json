@@ -81,5 +81,24 @@
       "four-roots-engine.test.cjs"
     ],
     "test_status": "tests supplied, external CI/local Node execution pending"
+  },
+  "babel_four_roots_language": {
+    "id": "NT-BABEL-FOUR-ROOTS-GRAMMAR-20261112",
+    "date": "2026-11-12",
+    "public_files": [
+      "BABEL_LANGUAGE_LAW_CROSSWALK.md",
+      "babel-language-law-crosswalk.json"
+    ],
+    "owner_held_source": "preserved locally and not published",
+    "editorial_draft_word_count": 3350,
+    "language_rule_count": 27,
+    "analysis_path_count": 64,
+    "local_nodes": 77,
+    "local_typed_links": 200,
+    "tests_passed_local": 18,
+    "tests_public_ci": "PENDING",
+    "standalone_book_title": "THE LAWS OF STUPIDITY — AKA THE LAWS OF ENGLISH",
+    "interpretation_status": "BABEL_SIMILE_AUTHOR_INTERPRETATION",
+    "history_status": "PUBLIC_SOURCE_ANCHORED"
   }
 }
