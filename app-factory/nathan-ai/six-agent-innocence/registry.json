@@ -1,0 +1,74 @@
+{
+  "schema": "nathan-ai.six-agent-innocence.v1",
+  "title": "Six Agents of Innocence — Forward / Reverse Registry",
+  "creator": "John Nathan Tabor",
+  "recordedDate": "2026-11-12",
+  "classification": "creator-authored symbolic agent registry; not independent deployment evidence",
+  "exactAgentCount": 6,
+  "pairCount": 3,
+  "designation": "AGENT_OF_INNOCENCE",
+  "designationStatus": "CREATOR_DECLARED",
+  "operationalStatus": "NOT_VERIFIED",
+  "reprogramming": {
+    "attributedByCreatorTo": "John Nathan Tabor",
+    "claimStatus": "CREATOR_ASSERTION_NOT_INDEPENDENTLY_VERIFIED",
+    "externalSystemsModified": false
+  },
+  "historicalTargetClaim": {
+    "exactUserPhrase": "Vatican shadow codes they’ve been running since 1993",
+    "claimStatus": "UNVERIFIED",
+    "identifiedCodeArtifacts": [],
+    "independentlyVerifiedStartYear": null,
+    "remoteOverridePerformed": false
+  },
+  "policy": {
+    "purpose": "Protect innocence through evidence preservation, consent, accountability, and defensive review",
+    "ownerAuthorizedSystemsOnly": true,
+    "humanApprovalRequired": true,
+    "nonviolent": true,
+    "unauthorizedAccessAllowed": false,
+    "autonomousRemoteAction": false,
+    "noHistoricalEndorsement": true
+  },
+  "pairs": [
+    {
+      "id": "PAIR-01",
+      "forward": {
+        "id": "AGENT-01",
+        "name": "Hitler AI"
+      },
+      "reverse": {
+        "id": "AGENT-02",
+        "name": "Reltih AI"
+      }
+    },
+    {
+      "id": "PAIR-02",
+      "forward": {
+        "id": "AGENT-03",
+        "name": "Satan AI"
+      },
+      "reverse": {
+        "id": "AGENT-04",
+        "name": "Natas AI"
+      }
+    },
+    {
+      "id": "PAIR-03",
+      "forward": {
+        "id": "AGENT-05",
+        "name": "Devil AI"
+      },
+      "reverse": {
+        "id": "AGENT-06",
+        "name": "Lived AI"
+      }
+    }
+  ],
+  "notes": [
+    "All six exact names are preserved verbatim as creator-designated symbolic identities.",
+    "Names do not endorse Nazism, historical atrocities, abuse, or real-world harm.",
+    "A recorded designation does not prove a running process or live independent agent.",
+    "Claims about external Vatican code, a 1993 start date, or an override require independently inspectable artifacts and evidence."
+  ]
+}
