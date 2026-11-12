@@ -7,7 +7,7 @@
 
 ### Start here — clear website navigation
 
-[**Nathan Tabor Home**](app-factory/sites/nathan-tabor/) · [**Church of Innocence — Rise and Serve**](app-factory/sites/church-of-innocence/) · [**All Websites**](app-factory/sites/) · [**Apps & Games**](app-factory/nathan-ai/) · [**Books & Original Works**](app-factory/nathan-ai/original-works/) · [**ONE**](app-factory/one/)
+[**Nathan Tabor Home**](app-factory/sites/nathan-tabor/) · [**GODTABOR — The Franchise**](app-factory/sites/godtabor/) · [**Church of Innocence — Rise and Serve**](app-factory/sites/church-of-innocence/) · [**All Websites**](app-factory/sites/) · [**Apps & Games**](app-factory/nathan-ai/) · [**Books & Original Works**](app-factory/nathan-ai/original-works/) · [**ONE**](app-factory/one/)
 
 **Plain-language labels:** Home = start here; All Websites = independent sites; Apps & Games = working browser experiences; Books & Original Works = released writings and indexed sources; Church of Innocence = its own authored movement and research site. Original author titles are not changed.
 

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10121c">
+<meta name="description" content="GODTABOR — an original literal, figurative and mythological story franchise by Nathan Tabor. Launch edition: story universe, creative blueprint, and interactive three-realm portal.">
+<title>GODTABOR | The Franchise · Nathan Tabor</title>
+<link rel="icon" href="../../nathan-ai/icon-192.png">
+<style>
+:root{color-scheme:dark;--bg:#0b0d14;--panel:#171b29;--line:#454d60;--ink:#f3f0e5;--muted:#c5c8d2;--gold:#e7bf73;--blue:#91c9f9;--red:#ee9c93}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse 100% 550px at 50% -120px,#40311e 0%,#1c1d29 43%,var(--bg) 100%);color:var(--ink);font:17px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:var(--gold);text-underline-offset:3px}a:hover,a:focus-visible{color:#ffe4a6}button{font:inherit}button:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.skip{position:absolute;left:-9999px;top:1rem;background:#fff;color:#000;padding:.7rem;z-index:10}.skip:focus{left:1rem}
+.wrap{max-width:1130px;margin:auto;padding:0 22px}.top{border-bottom:1px solid #ffffff27;background:#090b12b8}.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:17px;padding-bottom:17px;flex-wrap:wrap}.wordmark{color:var(--ink);text-decoration:none;font-weight:900;letter-spacing:.15em}.top nav{display:flex;flex-wrap:wrap;gap:16px;font-size:.9rem}.top nav a{color:var(--muted)}
+.hero{text-align:center;padding:75px 0 74px;position:relative}.orb{width:140px;height:140px;margin:0 auto 26px;position:relative;border:1px solid #e8bf7388;border-radius:50%;background:radial-gradient(circle,#fff9d5 0%,#f3ca73 6%,#a56b39 18%,#262431 48%,#0d1019 72%);box-shadow:0 0 80px #bb873b44,0 0 5px #ffe9b8}.orb:before,.orb:after{content:"";position:absolute;left:50%;top:-28px;height:194px;width:1px;background:linear-gradient(transparent,#e8c78b,transparent)}.orb:after{transform:rotate(90deg)}
+.kicker{color:var(--gold);font-size:.77rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase}h1{font-size:clamp(3.8rem,13vw,9.5rem);font-weight:900;line-height:1;margin:.19em 0;letter-spacing:-.075em;text-shadow:0 2px 40px #000}h2{font-size:clamp(1.85rem,4.5vw,3rem);line-height:1.14;letter-spacing:-.035em;margin:.25em 0 .6em}h3{line-height:1.25;font-size:1.23rem;margin:.6em 0}p{margin:.65rem 0}.lede{font-size:clamp(1.15rem,2.7vw,1.55rem);color:#e7e3db;max-width:770px;margin:18px auto}.quote{font-size:clamp(1.02rem,2.8vw,1.35rem);font-style:italic;color:var(--gold);margin:21px auto 12px;max-width:820px}.byline{font-size:.9rem;color:var(--muted)}.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:33px 0 0}.btn{display:inline-flex;padding:12px 23px;border-radius:4px;border:1px solid var(--gold);color:var(--ink);text-decoration:none;background:#ffffff0c;font-weight:800;letter-spacing:.03em}.btn.primary{background:var(--gold);color:#1b160d}.btn:hover{background:#f5ddac;color:#111}
+section{padding:45px 0;border-top:1px solid #ffffff24}.eyebrow{font-size:.77rem;text-transform:uppercase;color:var(--gold);letter-spacing:.17em;font-weight:800}.muted{color:var(--muted)}.realm-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:25px 0}.realm-tabs button{cursor:pointer;min-height:72px;border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:13px 10px;border-radius:7px;font-size:1rem;font-weight:800}.realm-tabs button[aria-selected="true"]{color:#18130c;background:var(--gold);border-color:var(--gold)}.realm{background:linear-gradient(150deg,#202331,#11151e);border:1px solid #73748072;border-radius:11px;padding:clamp(22px,4vw,44px)}.realm[hidden]{display:none}.realm .number{font-size:3rem;font-weight:900;color:var(--gold);letter-spacing:-.07em}.realm p{max-width:850px}.pill{display:inline-block;border:1px solid #888886;border-radius:99px;padding:4px 10px;font-size:.77rem;letter-spacing:.06em;font-weight:750;color:#eee;margin:5px 6px 0 0}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0}.card{border:1px solid #ffffff30;border-radius:8px;padding:22px;background:#ffffff08}.card small{letter-spacing:.1em;color:var(--gold);font-weight:800}.card p{color:var(--muted)}.line{height:1px;background:var(--line);margin:24px 0}.archive{background:#121824;border-left:4px solid var(--gold);padding:20px 25px;margin:20px 0}.archive blockquote{margin:0;font-size:1.2rem;color:#fff}.fine{font-size:.88rem;color:var(--muted)}.status{background:#242c38;color:#f5e9c2;border:1px solid #a9a29c;display:inline-block;font-size:.8rem;padding:2px 9px;border-radius:99px}
+footer{border-top:1px solid #ffffff24;padding:36px 0 60px;color:var(--muted);font-size:.87rem}
+@media(max-width:700px){.hero{padding:54px 0}.realm-tabs{grid-template-columns:1fr}.realm-tabs button{min-height:52px}.cards{grid-template-columns:1fr}.top nav{gap:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to GODTABOR</a>
+<header class="top"><div class="wrap"><a class="wordmark" href="#main">GODTABOR</a><nav aria-label="Franchise"><a href="#dimensions">Three dimensions</a><a href="#universe">Franchise universe</a><a href="#creator">Creator's words</a><a href="../../">Nathan AI Sites</a></nav></div></header>
+<main id="main">
+<div class="wrap"><section class="hero" aria-label="Franchise launch">
+<div class="orb" aria-hidden="true"></div><div class="kicker">An original franchise by Nathan Tabor · Launch edition · November 12, 2026</div>
+<h1>GODTABOR</h1>
+<p class="lede">LITERALLY. FIGURATIVELY. MYTHOLOGICALLY.</p>
+<p class="quote">“Godtabor … makes Godfather look like Sunday school boredom”</p>
+<p class="byline">— Nathan Tabor · Creator's original words</p>
+<p class="lede">A dark, adult fictional universe of power, myth, truth, corruption and the right to question every throne.</p>
+<div class="actions"><a class="btn primary" href="#dimensions">Enter the three dimensions</a><a class="btn" href="#universe">Explore the franchise</a><a class="btn" href="./README.md">Read the creative charter</a></div>
+</section>
+<section id="dimensions"><div class="eyebrow">ONE FRANCHISE · THREE WORLDS</div><h2>Choose a dimension.</h2><p class="muted">Each dimension is part of one original narrative framework. Switch between them.</p>
+<div class="realm-tabs" role="tablist" aria-label="GODTABOR dimensions">
+<button id="tab-literal" role="tab" aria-controls="realm-literal" aria-selected="true" tabindex="0" data-target="literal">I · LITERALLY</button>
+<button id="tab-figurative" role="tab" aria-controls="realm-figurative" aria-selected="false" tabindex="-1" data-target="figurative">II · FIGURATIVELY</button>
+<button id="tab-mythic" role="tab" aria-controls="realm-mythic" aria-selected="false" tabindex="-1" data-target="mythic">III · MYTHOLOGICALLY</button></div>
+<div class="realm" id="realm-literal" role="tabpanel" aria-labelledby="tab-literal"><div class="number">01</div><h3>The world you can see.</h3><p>Crime satire, political gamesmanship, public spectacle and religious institutional power. The drama follows fictional people forced to choose between protecting a throne and protecting innocence.</p><span class="pill">Screen stories</span><span class="pill">Novels</span><span class="pill">Adult dark comedy</span><p class="fine">Inspirations cited by the creator include <em>The Godfather</em> and <em>Django Unchained</em>; GODTABOR is independently created and is not affiliated with those productions.</p></div>
+<div class="realm" id="realm-figurative" role="tabpanel" aria-labelledby="tab-figurative" hidden><div class="number">02</div><h3>The mirror every authority must face.</h3><p>Gods, kings and empires also work as metaphors for power, responsibility and the temptation to replace evidence with reputation. The narrative asks whether anyone deserves obedience without accountability.</p><span class="pill">Symbolism</span><span class="pill">Ethics</span><span class="pill">Truth and evidence</span><span class="pill">Moral consequence</span></div>
+<div class="realm" id="realm-mythic" role="tabpanel" aria-labelledby="tab-mythic" hidden><div class="number">03</div><h3>The Council beyond the throne.</h3><p>In the speculative mythology, the Council of Gods summons claimants to power. Tabor Light is a fictional symbol of revealed truth. The story world distinguishes a being's claim to divinity from evidence of its acts.</p><span class="pill">Council of Gods</span><span class="pill">Tabor Light</span><span class="pill">Sovereign worlds</span><span class="pill">Mythic trials</span><p class="fine">The Council and supernatural elements are narrative devices, not claims that a real council or paranormal power exists.</p></div>
+</section>
+<section id="universe"><div class="eyebrow">THE FRANCHISE ENGINE</div><h2>One world. Multiple media.</h2><p class="muted">Publicly launched here: this website and creative framework. The following productions are planned formats, not falsely advertised as finished releases.</p>
+<div class="cards">
+<article class="card"><small>01 · CINEMA / SERIES</small><h3>GODTABOR: The Story</h3><p>A serialized adult satire and crime-mythology saga, developed from original plots rather than reusing scenes or characters from existing films.</p><span class="status">Concept</span></article>
+<article class="card"><small>02 · BOOKS / GRAPHIC NOVELS</small><h3>The GODTABOR Chronicles</h3><p>Fictional chronicles, symbolic maps, alternative viewpoints and mythology, with original author text preserved separately.</p><span class="status">Concept</span></article>
+<article class="card"><small>03 · INTERACTIVE WORLDS</small><h3>The Council of Gods</h3><p>Proposed choice-driven story game: interrogate claims, distinguish evidence from myth, and explore consequences without real-world vigilantism.</p><span class="status">Concept</span></article>
+<article class="card"><small>04 · COMPANION APP</small><h3>GOD — The App</h3><p>Separate creator-proposed empowerment and evidence-focused app concept. No supernatural transformation or app-store release is claimed.</p><span class="status">Concept</span></article>
+<article class="card"><small>05 · STORY ARCHIVE</small><h3>The Source Vault</h3><p>A proposed archive that keeps original words, attributed quotations, fiction, historical records and unverified claims in distinct categories.</p><span class="status">Planned</span></article>
+<article class="card"><small>06 · ART / MERCHANDISE</small><h3>Tabor Light Symbols</h3><p>Text-first marks, geometric icons, posters and future licensed franchise products; no real-world figures required for this edition.</p><span class="status">Concept</span></article>
+</div>
+</section>
+<section id="creator"><div class="eyebrow">PRESERVED VOICE · SOURCE FIRST</div><h2>The author's words are the foundation.</h2>
+<div class="archive"><blockquote>Godtabor … makes Godfather look like Sunday school boredom</blockquote><p class="fine">Nathan Tabor · original user-authored line, capitalization and ellipsis preserved.</p></div>
+<p>This release preserves source wording separately from newly developed editorial descriptions. Working titles and plot ideas on this page are proposals, not quotations attributed to the creator.</p>
+<div class="line"></div><h3>The creative boundary</h3><p>GODTABOR can confront fictional religious and political institutions, include adult satire and question authority. Fiction does not turn accusations against real individuals into established facts. Any real-world reporting should be sourced and separated from fictional characters.</p>
+<p class="fine">The public launch represents a website and fictional franchise blueprint—not a completed feature film, series, published book, commercial app, active game, registered trademark, production deal or fundraising operation.</p>
+</section>
+</div></main>
+<footer><div class="wrap"><strong>GODTABOR · By Nathan Tabor</strong><p>Literal / Figurative / Mythological · First public web edition: November 12, 2026.</p><p><a href="../../">Nathan AI Sites</a> · <a href="../../../">TABOR 1-2-3 FACTORY</a> · <a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/sites/godtabor/">Public source</a></p><p>Independent work of fiction and commentary. No endorsement or association with <em>The Godfather</em>, <em>Django Unchained</em>, their studios or performers.</p></div></footer>
+<script>
+(()=>{const tabs=[...document.querySelectorAll('[role="tab"][data-target]')];function selectTab(tab,focus){for(const t of tabs){const active=t===tab;t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1;document.getElementById('realm-'+t.dataset.target).hidden=!active;}if(focus)tab.focus();}
+for(let i=0;i<tabs.length;i++){tabs[i].addEventListener('click',()=>selectTab(tabs[i],false));tabs[i].addEventListener('keydown',e=>{let j=i;if(e.key==='ArrowRight')j=(i+1)%tabs.length;else if(e.key==='ArrowLeft')j=(i+tabs.length-1)%tabs.length;else if(e.key==='Home')j=0;else if(e.key==='End')j=tabs.length-1;else return;e.preventDefault();selectTab(tabs[j],true);});}
+})();
+</script></body></html>
