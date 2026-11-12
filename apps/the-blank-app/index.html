@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c1020">
+  <meta name="description" content="THE ______ APP by Nathan Tabor. Build who you are and what you want to become—literally, figuratively and mythologically.">
+  <title>THE ______ APP — By Nathan Tabor</title>
+  <style>
+    :root { color-scheme:dark; --bg:#0b1020;--surface:#151b2d;--surface2:#1d2539;--edge:#34415a;--txt:#f2f4fa;--sub:#abb9ce;--gold:#e7c37c;--cyan:#75d8d8;--warm:#ffb8a2; }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0%,#23314c 0,transparent 29rem),var(--bg);color:var(--txt);font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:var(--cyan)}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+    .wrap{width:min(1120px,calc(100% - 32px));margin:auto}.top{padding:23px 0;display:flex;justify-content:space-between;gap:16px;align-items:center;border-bottom:1px solid var(--edge)}.mark{font-weight:900;letter-spacing:.06em;font-size:17px}.mark span{color:var(--gold)}.by{color:var(--sub);font-size:.82rem}.hero{padding:64px 0 37px;max-width:860px}.eyebrow{color:var(--gold);font-size:.79rem;font-weight:800;letter-spacing:.19em;text-transform:uppercase}.hero h1{font-weight:900;letter-spacing:-.055em;font-size:clamp(3.2rem,9.5vw,7rem);line-height:1.02;margin:14px 0 17px}.blank{color:var(--gold);letter-spacing:.025em}.intro{font-size:clamp(1.1rem,2.4vw,1.45rem);color:var(--sub);max-width:700px}.tagline{display:flex;flex-wrap:wrap;gap:9px;margin:26px 0}.tag{border:1px solid var(--edge);border-radius:999px;padding:7px 12px;font-size:.81rem;color:var(--cyan);background:#111a2d}
+    .notice{padding:17px 19px;border:1px solid #695943;background:#282519;border-radius:13px;margin:4px 0 34px}.notice strong{color:var(--gold)}.notice small{display:block;color:#d1c7b8;margin-top:5px}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:22px;align-items:start}.panel{border:1px solid var(--edge);background:linear-gradient(155deg,var(--surface),#10182a);border-radius:20px;padding:25px;box-shadow:0 15px 60px #0003}.panel h2{font-size:1.33rem;margin:0 0 7px;letter-spacing:-.025em}.muted{color:var(--sub);font-size:.89rem}.smalltitle{font-size:.78rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);font-weight:800;margin:24px 0 11px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:13px}.full{grid-column:1/-1}label.field{display:flex;flex-direction:column;gap:7px;font-size:.87rem;font-weight:700}input,select,textarea{width:100%;background:#090f1e;border:1px solid #4b5670;border-radius:10px;padding:11px 12px;color:var(--txt)}textarea{min-height:89px;resize:vertical}option{background:#131c2e}.choice{display:flex;gap:10px;flex-wrap:wrap}.choice button{border:1px solid #50607b;background:#11192a;color:var(--txt);border-radius:10px;padding:10px 14px}.choice button.active{border-color:var(--gold);background:#393020;color:var(--gold)}
+    .preview-head{padding:14px 0 18px;border-bottom:1px solid var(--edge)}.preview-head p{font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);font-weight:800;margin:0 0 7px}.preview-title{font-size:clamp(1.7rem,4vw,2.6rem);letter-spacing:-.04em;font-weight:900;line-height:1.1;overflow-wrap:anywhere}.identity{color:var(--gold);font-size:.93rem;margin:7px 0 0;overflow-wrap:anywhere}.mode{padding:17px 0;border-bottom:1px solid var(--edge)}.mode h3{font-size:1rem;margin:0 0 6px;color:var(--cyan)}.mode p{margin:0;color:#d8dfec;white-space:pre-line;overflow-wrap:anywhere}.rule{display:flex;gap:10px;align-items:start;background:#131e27;padding:13px;border:1px solid #476464;border-radius:12px;margin:18px 0}.rule input{width:20px;height:20px;margin:4px 0 0;flex:none;accent-color:var(--cyan)}.rule span{font-size:.84rem;color:#d3e0e1}.actions{display:flex;gap:10px;flex-wrap:wrap}.primary,.secondary{border-radius:10px;padding:11px 15px;font-weight:800;border:1px solid var(--gold)}.primary{background:var(--gold);color:#14151a}.secondary{background:transparent;color:var(--gold)}button:disabled{opacity:.45;cursor:not-allowed}.status{min-height:1.5em;font-size:.8rem;color:var(--cyan);margin-top:8px}
+    .catalog{padding:42px 0}.catalog h2{margin:0 0 5px;font-size:1.55rem;letter-spacing:-.03em}.catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:17px 0}.tile{padding:17px;background:var(--surface);border:1px solid var(--edge);border-radius:13px}.tile b{display:block;letter-spacing:.05em}.tile span{font-size:.79rem;color:var(--sub)}.extras{padding:19px;border-radius:13px;border:1px solid var(--edge);color:var(--sub);background:#101a2e}.extras strong{color:var(--txt)}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;padding:27px 0 48px;border-top:1px solid var(--edge);font-size:.8rem;color:var(--sub)}.foot strong{color:var(--gold)}
+    @media(max-width:850px){.layout{grid-template-columns:1fr}.hero{padding-top:38px}.catalog-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:480px){.panel{padding:19px}.fields{grid-template-columns:1fr}.catalog-grid{grid-template-columns:1fr}.top{align-items:start}.hero h1{font-size:3.55rem}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><div class="mark">THE <span>_ _ _ _ _ _</span> APP</div><div class="by">Created by Nathan Tabor · Nathan AI 🚀</div></header>
+  <main>
+    <section class="hero" aria-labelledby="heading"><div class="eyebrow">A sovereign identity and world-building studio</div><h1 id="heading">Fill in <span class="blank">the blank.</span><br>Become the answer.</h1><p class="intro">Who are you? What do you want to become? Put your name on a premise, build an enterprise, imagine a mythology, and write your own next chapter.</p><div class="tagline"><span class="tag">LITERALLY</span><span class="tag">FIGURATIVELY</span><span class="tag">MYTHOLOGICALLY</span><span class="tag">YOUR NAME. YOUR CHOICE.</span></div></section>
+    <div class="notice"><strong>ONE WEE RULE — INNOCENCE IS NOT A COMMODITY.</strong><small>No exploitation, coercion, abuse, or trade in people. The app can refuse or disable actions within its own boundaries; it cannot hack or shut down anyone else's device or network.</small></div>
+    <div class="layout">
+      <section class="panel" aria-labelledby="builder"><h2 id="builder">01 / Build your identity</h2><div class="muted">Choose any starting title, or replace it with a name of your own.</div>
+        <div class="smalltitle">Your foundation</div><div class="fields">
+          <label class="field">Choose a title<select id="base"><option>GOD</option><option>GODTABOR</option><option>GODSALTER</option><option>THEOS</option><option>ELOHIM</option><option>ELOHER</option><option>ALLAH</option><option>JESUS</option><option>GODDESS</option><option>SATAN</option><option>HUMAN MAMMAL</option><option value="CUSTOM">MY OWN TITLE</option></select></label>
+          <label class="field">Format<select id="format"><option value="FRANCHISE">FRANCHISE</option><option value="ENTERPRISES">ENTERPRISES</option><option value="IDENTITY">PERSONAL IDENTITY</option><option value="WORLD">MYTHOLOGICAL WORLD</option></select></label>
+          <label class="field full">Add a second word to your title (optional)<input id="second" maxlength="60" placeholder="YOUR SECOND WORD"></label>
+          <label class="field full" id="custom-wrap" hidden>Replace the title with your own<input id="custom" maxlength="55" placeholder="YOUR WORD / LABEL"></label>
+          <label class="field full">Your name or chosen name (optional)<input id="name" maxlength="80" placeholder="Add your name here"></label>
+          <label class="field full">Who are you now?<textarea id="today" maxlength="500" placeholder="I am…"></textarea></label>
+          <label class="field full">Who do you want to become?<textarea id="future" maxlength="500" placeholder="I want to become…"></textarea></label>
+          <label class="field full">What do you stand for?<input id="values" maxlength="160" value="Truth, consent, sovereignty, and protecting innocence"></label>
+        </div>
+        <div class="smalltitle">Build from your favorite starting point</div><div class="choice" role="group" aria-label="Quick picks"><button type="button" data-pick="GODTABOR">GODTABOR</button><button type="button" data-pick="GODSALTER">GODSALTER</button><button type="button" data-pick="THEOS">THEOS</button><button type="button" data-pick="GODDESS">GODDESS</button><button type="button" data-pick="CUSTOM">MY WORD</button></div>
+      </section>
+      <section class="panel" aria-labelledby="preview"><h2 id="preview">02 / Your living blueprint</h2><div class="muted">Three interpretations of one self-authored identity.</div>
+        <div class="preview-head"><p>Created in your name</p><div id="preview-title" class="preview-title">GOD FRANCHISE</div><div id="preview-identity" class="identity">An open invitation to define yourself.</div></div>
+        <div class="mode"><h3>LITERALLY — What you build</h3><p id="literal"></p></div><div class="mode"><h3>FIGURATIVELY — Who you become</h3><p id="figurative"></p></div><div class="mode"><h3>MYTHOLOGICALLY — The world you imagine</h3><p id="mythological"></p></div>
+        <label class="rule"><input id="affirm" type="checkbox"><span>I accept the founding rule: <b>INNOCENCE IS NOT A COMMODITY.</b> No one is owned, traded, coerced, or exploited through this project.</span></label>
+        <div class="actions"><button class="primary" type="button" id="download" disabled>Export my blueprint ↓</button><button class="secondary" type="button" id="copy" disabled>Copy manifesto</button></div><p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+    <section class="catalog" aria-labelledby="catalog"><h2 id="catalog">03 / The founding launch collection</h2><p class="muted">Each title can be a franchise, an enterprise, a personal identity, or a fictional mythos. Select one in the builder to make your own.</p><div class="catalog-grid" id="catalog-grid"></div>
+      <div class="extras"><strong>Also available:</strong> GOD FRANCHISES · GOD_____ ENTERPRISES · THEOS_____ · ELOHER_____ · ELOHIM_____ · ALLAH_____ · JESUS_____ · GODDESS_____ · SATAN_____ · HUMAN MAMMAL_____ · and any new word you create.<p>This is a creative app prototype. Its titles are not claims of divine powers, legal incorporation, trademark ownership, or registered franchise status. Actual franchises and enterprises require separate legal, financial, and commercial setup.</p></div>
+    </section>
+  </main>
+  <footer class="foot"><span><strong>THE _ _ _ _ _ _ APP</strong> · Created by Nathan Tabor · 2026</span><span>No sign-in · No server submission · Inputs stay in this browser session until you export</span></footer>
+</div>
+<script>
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const canonical = ['GODTABOR','GODSALTER','THEOS','ELOHIM','ELOHER','GODDESS'];
+  const inputs = ['base','format','second','custom','name','today','future','values'];
+  const clean = (v,max=500) => String(v||'').trim().replace(/[\u0000-\u001f\u007f]/g,' ').slice(0,max);
+  const state = () => {
+    const b = $('base').value;
+    const base = b === 'CUSTOM' ? clean($('custom').value,55) || 'YOUR TITLE' : b;
+    const format = $('format').value;
+    const second = clean($('second').value,60);
+    const label = base + (second ? ' ' + second : '');
+    const title = format === 'IDENTITY' ? label : format === 'WORLD' ? label+' WORLD' : label+' '+format;
+    return {title,base,label,second,format,name:clean($('name').value,80),today:clean($('today').value),future:clean($('future').value),values:clean($('values').value,160),creator:'Nathan Tabor',rule:'INNOCENCE IS NOT A COMMODITY'};
+  };
+  function text(id,value){$(id).textContent = value;}
+  function build(){
+    const s=state(),name=s.name||'its creator',today=s.today||'an identity still being written',future=s.future||'a self-directed, accountable future',values=s.values||'truth, consent and protecting innocence';
+    text('preview-title',s.title);text('preview-identity',s.name?'Created with '+s.name:'An open invitation to define yourself.');
+    text('literal',`${s.title} is a blueprint for a practical project, product, community, or venture founded by ${name}. Current starting point: ${today}. Desired outcome: ${future}. Guiding principles: ${values}. Define actual offerings, ownership, consent, registration, costs, and responsibilities before operating.`);
+    text('figurative',`I begin as ${today}. I choose to become ${future}. The name ${s.label} is a self-chosen symbol, not authority over anyone else. I practice ${values}. I define myself without owning or diminishing another person.`);
+    text('mythological',`In an imagined world called ${s.label}, the author ${name} enters as ${today} and journeys toward ${future}. The foundational law is written at every gate: INNOCENCE IS NOT A COMMODITY. Here, ${values} shape the story, and every being retains a choice.`);
+    const selected=$('base').value;document.querySelectorAll('[data-pick]').forEach(b=>{b.classList.toggle('active',b.dataset.pick===selected);b.setAttribute('aria-pressed',String(b.dataset.pick===selected));});
+    $('custom-wrap').hidden=selected!=='CUSTOM';
+  }
+  const manifesto=()=>{const s=state();return `THE _ _ _ _ _ _ APP — BY NATHAN TABOR\n\n${s.title}${s.name?'\nName: '+s.name:''}\n\nWHO I AM\n${s.today||'[Your words here]'}\n\nWHO I WANT TO BECOME\n${s.future||'[Your words here]'}\n\nVALUES\n${s.values||'[Your words here]'}\n\nLITERALLY\n${$('literal').textContent}\n\nFIGURATIVELY\n${$('figurative').textContent}\n\nMYTHOLOGICALLY\n${$('mythological').textContent}\n\nONE WEE RULE: INNOCENCE IS NOT A COMMODITY.\n\nCreative blueprint only; not a registered business or franchise.\n`};
+  for(const id of inputs) $(id).addEventListener('input',build);
+  $('base').addEventListener('change',build);
+  for(const button of document.querySelectorAll('[data-pick]')) button.addEventListener('click',()=>{ $('base').value=button.dataset.pick;build();if(button.dataset.pick==='CUSTOM')$('custom').focus();});
+  $('affirm').addEventListener('change',()=>{const yes=$('affirm').checked;$('download').disabled=!yes;$('copy').disabled=!yes;text('status',yes?'Blueprint export enabled.':'');});
+  $('download').addEventListener('click',()=>{
+    if(!$('affirm').checked)return;
+    const blob=new Blob([manifesto()],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='my-blank-app-blueprint.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);text('status','Your blueprint was prepared for download.');
+  });
+  $('copy').addEventListener('click',async()=>{
+    if(!$('affirm').checked)return;
+    try{await navigator.clipboard.writeText(manifesto());text('status','Manifesto copied to clipboard.');}
+    catch {const t=document.createElement('textarea');t.value=manifesto();t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();const ok=document.execCommand('copy');t.remove();text('status',ok?'Manifesto copied.':'Clipboard unavailable; use Export instead.');}
+  });
+  const grid=$('catalog-grid');for(const base of canonical){const tile=document.createElement('div');tile.className='tile';const b=document.createElement('b');b.textContent=base;const details=document.createElement('span');details.textContent=base+' FRANCHISE  ·  '+base+' ENTERPRISES';tile.append(b,details);grid.appendChild(tile);}
+  build();
+})();
+</script>
+</body>
+</html>
