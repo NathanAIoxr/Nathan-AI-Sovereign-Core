@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="House and Houses of Lamentations Beyond Duality, cross-domain concept atlas by Nathan Tabor">
+<defs>
+ <radialGradient id="sky" cx="50%" cy="35%" r="85%"><stop stop-color="#19375a"/><stop offset="0.52" stop-color="#0b1b32"/><stop offset="1" stop-color="#050b19"/></radialGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff3bb"/><stop offset=".48" stop-color="#ffc876"/><stop offset="1" stop-color="#e0933c"/></linearGradient>
+ <linearGradient id="river" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#47e0e0" stop-opacity=".32"/><stop offset="1" stop-color="#825ded" stop-opacity=".06"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="9"/></filter>
+ <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse"><path d="M46 0H0V46" fill="none" stroke="#4d7199" stroke-width=".65" opacity=".11"/></pattern>
+ <style>
+ text{font-family:Georgia,'Times New Roman',serif;fill:#f0e9d4}
+ .title{font-size:54px;font-weight:bold;letter-spacing:4px;fill:#ffe3a2}
+ .sub{font-size:18px;letter-spacing:4px;fill:#e8bd7e}
+ .paneltitle{font-size:23px;font-weight:bold;letter-spacing:2px;fill:#ffe2a7}
+ .item{font-size:21px;font-weight:bold;fill:#fce2b7}
+ .detail{font:17px Arial,sans-serif;fill:#c4d4e7}
+ .small{font:14px Arial,sans-serif;fill:#a9bfd6}
+ .stat{font:bold 43px Georgia,serif;fill:#ffdf93}
+ .caption{font:16px Arial,sans-serif;fill:#f0dbc3}
+ </style>
+</defs>
+<rect width="1600" height="1000" fill="url(#sky)"/>
+<rect width="1600" height="1000" fill="url(#grid)"/>
+<g opacity=".65" fill="#ffe3a1"><circle cx="101" cy="62" r="2.3" opacity="0.75"/><circle cx="238" cy="151" r="0.8" opacity="0.27"/><circle cx="375" cy="240" r="0.8" opacity="0.27"/><circle cx="512" cy="329" r="0.8" opacity="0.27"/><circle cx="649" cy="418" r="0.8" opacity="0.27"/><circle cx="786" cy="507" r="0.8" opacity="0.27"/><circle cx="923" cy="596" r="0.8" opacity="0.27"/><circle cx="1060" cy="685" r="0.8" opacity="0.75"/><circle cx="1197" cy="774" r="0.8" opacity="0.27"/><circle cx="1334" cy="863" r="2.3" opacity="0.27"/><circle cx="1471" cy="32" r="0.8" opacity="0.27"/><circle cx="28" cy="121" r="0.8" opacity="0.27"/><circle cx="165" cy="210" r="0.8" opacity="0.27"/><circle cx="302" cy="299" r="0.8" opacity="0.27"/><circle cx="439" cy="388" r="0.8" opacity="0.75"/><circle cx="576" cy="477" r="0.8" opacity="0.27"/><circle cx="713" cy="566" r="0.8" opacity="0.27"/><circle cx="850" cy="655" r="0.8" opacity="0.27"/><circle cx="987" cy="744" r="2.3" opacity="0.27"/><circle cx="1124" cy="833" r="0.8" opacity="0.27"/><circle cx="1261" cy="922" r="0.8" opacity="0.27"/><circle cx="1398" cy="91" r="0.8" opacity="0.75"/><circle cx="1535" cy="180" r="0.8" opacity="0.27"/><circle cx="92" cy="269" r="0.8" opacity="0.27"/><circle cx="229" cy="358" r="0.8" opacity="0.27"/><circle cx="366" cy="447" r="0.8" opacity="0.27"/><circle cx="503" cy="536" r="0.8" opacity="0.27"/><circle cx="640" cy="625" r="2.3" opacity="0.27"/><circle cx="777" cy="714" r="0.8" opacity="0.75"/><circle cx="914" cy="803" r="0.8" opacity="0.27"/><circle cx="1051" cy="892" r="0.8" opacity="0.27"/><circle cx="1188" cy="61" r="0.8" opacity="0.27"/><circle cx="1325" cy="150" r="0.8" opacity="0.27"/><circle cx="1462" cy="239" r="0.8" opacity="0.27"/><circle cx="19" cy="328" r="0.8" opacity="0.27"/><circle cx="156" cy="417" r="0.8" opacity="0.75"/><circle cx="293" cy="506" r="2.3" opacity="0.27"/><circle cx="430" cy="595" r="0.8" opacity="0.27"/><circle cx="567" cy="684" r="0.8" opacity="0.27"/><circle cx="704" cy="773" r="0.8" opacity="0.27"/><circle cx="841" cy="862" r="0.8" opacity="0.27"/><circle cx="978" cy="31" r="0.8" opacity="0.27"/><circle cx="1115" cy="120" r="0.8" opacity="0.75"/><circle cx="1252" cy="209" r="0.8" opacity="0.27"/><circle cx="1389" cy="298" r="0.8" opacity="0.27"/><circle cx="1526" cy="387" r="2.3" opacity="0.27"/><circle cx="83" cy="476" r="0.8" opacity="0.27"/><circle cx="220" cy="565" r="0.8" opacity="0.27"/><circle cx="357" cy="654" r="0.8" opacity="0.27"/><circle cx="494" cy="743" r="0.8" opacity="0.75"/><circle cx="631" cy="832" r="0.8" opacity="0.27"/><circle cx="768" cy="921" r="0.8" opacity="0.27"/><circle cx="905" cy="90" r="0.8" opacity="0.27"/><circle cx="1042" cy="179" r="0.8" opacity="0.27"/><circle cx="1179" cy="268" r="2.3" opacity="0.27"/><circle cx="1316" cy="357" r="0.8" opacity="0.27"/><circle cx="1453" cy="446" r="0.8" opacity="0.75"/><circle cx="10" cy="535" r="0.8" opacity="0.27"/><circle cx="147" cy="624" r="0.8" opacity="0.27"/><circle cx="284" cy="713" r="0.8" opacity="0.27"/><circle cx="421" cy="802" r="0.8" opacity="0.27"/><circle cx="558" cy="891" r="0.8" opacity="0.27"/><circle cx="695" cy="60" r="0.8" opacity="0.27"/><circle cx="832" cy="149" r="2.3" opacity="0.75"/><circle cx="969" cy="238" r="0.8" opacity="0.27"/><circle cx="1106" cy="327" r="0.8" opacity="0.27"/><circle cx="1243" cy="416" r="0.8" opacity="0.27"/><circle cx="1380" cy="505" r="0.8" opacity="0.27"/><circle cx="1517" cy="594" r="0.8" opacity="0.27"/><circle cx="74" cy="683" r="0.8" opacity="0.27"/><circle cx="211" cy="772" r="0.8" opacity="0.75"/><circle cx="348" cy="861" r="0.8" opacity="0.27"/><circle cx="485" cy="30" r="2.3" opacity="0.27"/><circle cx="622" cy="119" r="0.8" opacity="0.27"/><circle cx="759" cy="208" r="0.8" opacity="0.27"/><circle cx="896" cy="297" r="0.8" opacity="0.27"/><circle cx="1033" cy="386" r="0.8" opacity="0.27"/><circle cx="1170" cy="475" r="0.8" opacity="0.75"/><circle cx="1307" cy="564" r="0.8" opacity="0.27"/><circle cx="1444" cy="653" r="0.8" opacity="0.27"/><circle cx="1581" cy="742" r="0.8" opacity="0.27"/><circle cx="138" cy="831" r="2.3" opacity="0.27"/><circle cx="275" cy="920" r="0.8" opacity="0.27"/><circle cx="412" cy="89" r="0.8" opacity="0.27"/><circle cx="549" cy="178" r="0.8" opacity="0.75"/><circle cx="686" cy="267" r="0.8" opacity="0.27"/><circle cx="823" cy="356" r="0.8" opacity="0.27"/><circle cx="960" cy="445" r="0.8" opacity="0.27"/><circle cx="1097" cy="534" r="0.8" opacity="0.27"/><circle cx="1234" cy="623" r="0.8" opacity="0.27"/></g>
+<text x="800" y="76" class="title" text-anchor="middle">HOUSE &amp; HOUSES OF LAMENTATIONS</text>
+<text x="800" y="115" class="sub" text-anchor="middle">B E Y O N D   D U A L I T Y</text>
+<line x1="105" y1="140" x2="1495" y2="140" stroke="#d5a75b" stroke-width="2" opacity=".8"/>
+<text x="800" y="166" text-anchor="middle" class="detail">Body · Soul · Spirit · Mind · Kingdom Within · Scripture · Literature · Civilization · Life</text>
+<rect x="45" y="193" width="423" height="620" rx="16" fill="#071324" fill-opacity=".8" stroke="#c99549" stroke-width="2"/>
+<rect x="490" y="193" width="620" height="620" rx="16" fill="#071324" fill-opacity=".8" stroke="#c99549" stroke-width="2"/>
+<rect x="1132" y="193" width="423" height="620" rx="16" fill="#071324" fill-opacity=".8" stroke="#c99549" stroke-width="2"/>
+<text x="256" y="237" class="paneltitle" text-anchor="middle">ANCIENT HOUSES</text>
+<line x1="70" y1="250" x2="444" y2="250" stroke="#d5a75b" opacity=".7"/>
+<text x="82" y="291" class="item">BEIT EVEL</text>
+<text x="82" y="320" class="detail">House of Mourning · Ecclesiastes 7</text>
+<text x="82" y="343" class="detail">A household gathered in grief</text>
+<line x1="82" y1="376" x2="431" y2="376" stroke="#53708b" opacity=".5"/>
+<text x="82" y="416" class="item">BEIT MARZEAH</text>
+<text x="82" y="445" class="detail">Jeremiah 16 · Ritual gathering</text>
+<text x="82" y="468" class="detail">Association, feast and remembrance</text>
+<line x1="82" y1="501" x2="431" y2="501" stroke="#53708b" opacity=".5"/>
+<text x="82" y="541" class="item">NEPHESH / RUACH</text>
+<text x="82" y="570" class="detail">Soul, breath and spirit</text>
+<text x="82" y="593" class="detail">Distinct concepts across traditions</text>
+<line x1="82" y1="626" x2="431" y2="626" stroke="#53708b" opacity=".5"/>
+<text x="82" y="666" class="item">THE HEART / MIND</text>
+<text x="82" y="695" class="detail">Memory, lamentation and reflection</text>
+<text x="82" y="718" class="detail">An inward interpretive synthesis</text>
+<line x1="82" y1="751" x2="431" y2="751" stroke="#53708b" opacity=".5"/>
+<text x="800" y="235" class="paneltitle" text-anchor="middle">THE HUMAN HOUSE</text>
+<text x="800" y="264" class="small" text-anchor="middle">A layered vessel, metaphor and comparison framework</text>
+<g transform="translate(800 511)">
+ <circle r="233" fill="#48c4f8" opacity=".08" filter="url(#glow)"/>
+ <circle r="216" fill="none" stroke="#76b9d7" stroke-width="3" opacity=".7"/>
+ <circle r="171" fill="none" stroke="#b19dec" stroke-width="3" opacity=".8"/>
+ <circle r="128" fill="none" stroke="#ecc48b" stroke-width="3"/>
+ <circle r="86" fill="url(#river)" stroke="#f1d18a" stroke-width="3"/>
+ <circle r="56" fill="#ffe6a6" opacity=".12" filter="url(#glow)"/>
+ <path d="M-255 0H255M0 -239V239" stroke="#c0cdea" stroke-width="1" opacity=".3"/>
+ <text y="-186" text-anchor="middle" font-size="22" fill="#d4efff">NATURAL BODY</text>
+ <text y="-144" text-anchor="middle" font-size="19" fill="#e6d3ff">SOUL / MEMORY</text>
+ <text y="-101" text-anchor="middle" font-size="19" fill="#ffe8c0">SPIRIT / BREATH</text>
+ <text y="-12" text-anchor="middle" font-size="25" font-weight="bold" fill="#fff0be">INNER</text>
+ <text y="19" text-anchor="middle" font-size="25" font-weight="bold" fill="#fff0be">KINGDOM</text>
+</g>
+<text x="800" y="774" text-anchor="middle" class="detail">Mourning → examination → discernment → transformation</text>
+<text x="1343" y="237" class="paneltitle" text-anchor="middle">HOUSES OF MEANING</text>
+<line x1="1158" y1="250" x2="1530" y2="250" stroke="#d5a75b" opacity=".7"/>
+<circle cx="1170" cy="280" r="5" fill="#f6c275"/><text x="1187" y="287" class="item">SHEOL</text><text x="1187" y="314" class="detail">Mortality, the grave and silence</text><line x1="1168" y1="332" x2="1521" y2="332" stroke="#53708b" opacity=".5"/>
+<circle cx="1170" cy="368" r="5" fill="#f6c275"/><text x="1187" y="375" class="item">DANTE'S INFERNO</text><text x="1187" y="402" class="detail">Judgment, consequence and allegory</text><line x1="1168" y1="420" x2="1521" y2="420" stroke="#53708b" opacity=".5"/>
+<circle cx="1170" cy="456" r="5" fill="#f6c275"/><text x="1187" y="463" class="item">BABEL</text><text x="1187" y="490" class="detail">Ambition, language and division</text><line x1="1168" y1="508" x2="1521" y2="508" stroke="#53708b" opacity=".5"/>
+<circle cx="1170" cy="544" r="5" fill="#f6c275"/><text x="1187" y="551" class="item">TOLKIEN</text><text x="1187" y="578" class="detail">Houses of Lamentation · the Eye</text><line x1="1168" y1="596" x2="1521" y2="596" stroke="#53708b" opacity=".5"/>
+<circle cx="1170" cy="632" r="5" fill="#f6c275"/><text x="1187" y="639" class="item">EGYPT / MESOPOTAMIA</text><text x="1187" y="666" class="detail">Funerary rites, city laments</text><line x1="1168" y1="684" x2="1521" y2="684" stroke="#53708b" opacity=".5"/>
+<circle cx="1170" cy="720" r="5" fill="#f6c275"/><text x="1187" y="727" class="item">THE GAME OF LIFE</text><text x="1187" y="754" class="detail">Choices, systems and outcomes</text><line x1="1168" y1="772" x2="1521" y2="772" stroke="#53708b" opacity=".5"/>
+<rect x="45" y="833" width="1510" height="139" rx="14" fill="#09172b" stroke="#c99549" stroke-width="2"/>
+<text x="75" y="869" class="paneltitle">COMPARE BEYOND THE LABEL</text>
+<text x="75" y="902" class="caption">NAME → ATTRIBUTES → CHARACTERISTICS → FUNCTIONALITIES → FRUITS / NON-FRUITS → HISTORY</text>
+<text x="75" y="932" class="caption">WHAT THEY SAY → WHAT THEY DON'T SAY → WHAT THEY PROMISED → WHAT WAS DELIVERED</text>
+<line x1="1170" y1="848" x2="1170" y2="954" stroke="#9b7e55"/>
+<text x="1220" y="892" class="stat">46 · 42 · 18</text>
+<text x="1220" y="921" class="small">Concepts · Links · Domains</text>
+<text x="800" y="992" class="small" text-anchor="middle">NATHAN TABOR  ·  12 NOVEMBER 2026  ·  PYTHON ATLAS  ·  SOURCE ≠ INTERPRETATION ≠ VERIFIED OUTCOME</text>
+</svg>
