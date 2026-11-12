@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#08111f">
+  <meta name="description" content="GODTABOR ENTERPRISES by Nathan Tabor. Literally, figuratively, mythologically: one connected directory for independent products and original worlds.">
+  <title>GODTABOR ENTERPRISES | Literally · Figuratively · Mythologically</title>
+  <style>
+    :root{color-scheme:dark;--bg:#08111f;--panel:#102133;--edge:#294257;--ink:#f5f4e9;--dim:#b6c6d0;--gold:#e8bf6e;--aqua:#83e2e4;--green:#bbdfb1}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 85% 3%,#173649 0,transparent 37%),var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:var(--aqua);text-underline-offset:4px}a:hover{color:#fff}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    .wrap{max-width:1180px;margin:auto;padding:0 24px}.top{border-bottom:1px solid var(--edge)}.top .wrap{display:flex;gap:20px;justify-content:space-between;align-items:center;padding-top:15px;padding-bottom:15px;flex-wrap:wrap}
+    .brand{font-weight:900;letter-spacing:.09em;color:var(--ink);text-decoration:none}.top nav{display:flex;gap:18px;flex-wrap:wrap}.top nav a{color:var(--dim);font-size:.89rem;text-decoration:none}
+    .eyebrow{font-size:.75rem;letter-spacing:.21em;font-weight:800;color:var(--aqua);text-transform:uppercase}.hero{padding:90px 0 64px}.hero h1{font-size:clamp(3rem,9.3vw,7.8rem);font-weight:900;line-height:.93;letter-spacing:-.064em;margin:13px 0 24px;overflow-wrap:anywhere}.hero h1 span{color:var(--gold)}.hero .lead{font-size:clamp(1.12rem,2.3vw,1.55rem);max-width:850px;color:var(--dim)}.hero .byline{margin-top:24px;color:var(--ink);font-weight:600}
+    .actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:31px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border-radius:10px;background:var(--gold);border:1px solid var(--gold);padding:10px 20px;text-decoration:none;color:#0b1522;font-weight:850}.btn.secondary{background:transparent;color:var(--ink);border-color:var(--edge)}.btn:hover{color:#0b1522;background:#fff}.btn.secondary:hover{color:#08111f}
+    .stripe{border-block:1px solid var(--edge);background:#0b1a29;padding:18px 0}.stripe p{margin:0;text-align:center;font-size:.92rem;color:var(--dim);letter-spacing:.08em}.stripe strong{color:var(--ink)}
+    section{scroll-margin-top:20px}.section{padding:62px 0}.section h2{font-size:clamp(1.7rem,4.3vw,2.7rem);line-height:1.15;letter-spacing:-.04em;margin:5px 0 14px}.intro{color:var(--dim);max-width:800px}.realm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+    .realm{border:1px solid var(--edge);border-radius:18px;padding:28px;background:linear-gradient(145deg,#122437,#0c1b2b)}.realm .num{font-weight:900;color:var(--gold);letter-spacing:.22em}.realm h3{font-size:1.36rem;margin:10px 0}.realm p{margin:0;color:var(--dim)}.realm strong{color:var(--ink)}
+    .directory{background:#0c1928;border-block:1px solid var(--edge)}.tools{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:27px;margin-bottom:24px}input[type="search"]{background:#14273a;border:1px solid #45617a;padding:12px 14px;border-radius:10px;color:var(--ink);font:inherit;width:min(100%,360px)}input::placeholder{color:#9ab0bd}
+    .filters{display:flex;gap:8px;flex-wrap:wrap}.filters button{border:1px solid var(--edge);border-radius:9px;padding:10px 12px;background:#14283a;color:var(--ink);font:inherit;cursor:pointer}.filters button[aria-pressed="true"]{background:var(--aqua);color:#09202c;border-color:var(--aqua);font-weight:800}
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.card{border:1px solid var(--edge);background:#102338;border-radius:14px;padding:21px;display:flex;flex-direction:column;gap:10px}.card h3{font-size:1.12rem;margin:0}.card p{margin:0;color:var(--dim);flex:1}.card .meta{display:flex;gap:7px;flex-wrap:wrap}.pill{border:1px solid #45617a;border-radius:100px;padding:3px 10px;font-size:.73rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink)}.pill.literal{color:var(--aqua)}.pill.mythological{color:var(--gold)}.pill.figurative{color:var(--green)}.card .cardlink{font-weight:750;align-self:flex-start}
+    .notice{margin-top:21px;border-left:3px solid var(--gold);padding:10px 17px;background:#152537;color:var(--dim)}.notice strong{color:var(--ink)}.grid-two{display:grid;grid-template-columns:1fr 1fr;gap:28px}.box{background:#102235;border:1px solid var(--edge);padding:26px;border-radius:17px}.box h3{margin-top:0}.box p,.box li{color:var(--dim)}.box ul{padding-left:21px}
+    .callout{margin-top:30px;padding:28px;border-radius:16px;border:1px solid #655337;background:linear-gradient(125deg,#182e39,#302b22)}.callout p{margin:0;color:var(--ink);font-size:1.18rem;font-weight:600}.steps{counter-reset:steps;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px}.step{background:#122538;border-radius:14px;border:1px solid var(--edge);padding:20px}.step strong{color:var(--gold);letter-spacing:.08em}.step p{margin-bottom:0;color:var(--dim)}
+    footer{padding:36px 0 52px;border-top:1px solid var(--edge);color:var(--dim);font-size:.88rem}footer p{max-width:900px}.small{font-size:.84rem;color:var(--dim)}
+    @media(max-width:750px){.hero{padding-top:60px}.realm-grid,.cards,.grid-two,.steps{grid-template-columns:1fr}.top .wrap{align-items:flex-start}.wrap{padding-left:18px;padding-right:18px}.section{padding:49px 0}.realm{padding:23px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="top"><div class="wrap"><a class="brand" href="#top" aria-label="GODTABOR Enterprises home">GODTABOR ENTERPRISES</a><nav aria-label="Site sections"><a href="#realms">Three realms</a><a href="#directory">Directory</a><a href="#charter">Charter</a><a href="#launch">Launch status</a></nav></div></header>
+  <main id="top">
+    <div class="wrap hero"><p class="eyebrow">Nathan Tabor · Original enterprise and mythology</p><h1>GODTABOR<br><span>ENTERPRISES.</span></h1><p class="lead">Literally. Figuratively. Mythologically. A connected home for independent software, original businesses, research, creative franchises, and mythic worlds.</p><p class="byline">One directory. Separate identities. The creator controls what gets built and released.</p><div class="actions"><a class="btn" href="#directory">Explore the enterprises</a><a class="btn secondary" href="#launch">See what is actually launched</a></div></div>
+    <div class="stripe"><div class="wrap"><p><strong>1. CREATE</strong> &nbsp;→&nbsp; <strong>2. CONNECT</strong> &nbsp;→&nbsp; <strong>3. LAUNCH</strong> &nbsp;·&nbsp; EVIDENCE AND MYTH REMAIN DISTINCT</p></div></div>
+    <section id="realms" class="section wrap"><div class="eyebrow">The three realms</div><h2>One name. Three different kinds of creation.</h2><p class="intro">A business can sell a real product. A symbol can carry an idea. A fictional universe can explore anything imaginable. None of those categories should impersonate the other.</p>
+      <div class="realm-grid">
+        <article class="realm"><div class="num">01 / LITERAL</div><h3>Real-world enterprise</h3><p>Software, services, product development, publishing, research, operations and potential future commercial entities. <strong>Business formation and trademark rights must be verified separately.</strong></p></article>
+        <article class="realm"><div class="num">02 / FIGURATIVE</div><h3>Meaning and imagination</h3><p>Language, symbols, philosophy, creative identity and stories about sovereignty, personal agency and accountability. Metaphors are not claims of supernatural effects.</p></article>
+        <article class="realm"><div class="num">03 / MYTHOLOGICAL</div><h3>Worlds and legends</h3><p>The GODTABOR story universe: Tabor Light, the Council of Gods, original archetypes and realms. <strong>Its events and institutions are fictional unless independently sourced.</strong></p></article>
+      </div>
+    </section>
+    <section id="directory" class="section directory"><div class="wrap"><div class="eyebrow">Independent products · One public index</div><h2>The enterprises directory</h2><p class="intro">Each identity stands on its own. The directory is a public catalog, not a shared customer database or a claim that every entry is an incorporated subsidiary.</p>
+      <div class="tools"><label for="search" class="small">Search the catalog<br><input id="search" type="search" placeholder="Find a product or world" autocomplete="off"></label><div class="filters" role="group" aria-label="Filter by realm"><button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="literal" aria-pressed="false">Literal</button><button type="button" data-filter="figurative" aria-pressed="false">Figurative</button><button type="button" data-filter="mythological" aria-pressed="false">Mythological</button></div></div>
+      <p id="count" class="small" role="status" aria-live="polite">Loading catalog…</p><div id="catalog" class="cards" aria-label="Enterprise catalog"><noscript>JavaScript enables the searchable catalog. Browse the <a href="./catalog.json">public catalog JSON</a>, or visit the <a href="https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/">Nathan AI hub</a>.</noscript></div>
+      <div class="notice"><strong>Status truth:</strong> An existing browser prototype is not a production SaaS or an approved store release. A proposal is not a legal subsidiary. A mythological setting is not a verified historical account.</div>
+    </div></section>
+    <section id="charter" class="section wrap"><div class="eyebrow">Enterprise charter · Draft for creator review</div><h2>Separate by design. Connected by consent.</h2><div class="grid-two">
+      <div class="box"><h3>Ownership and operations</h3><ul><li>Keep a separate project identity, source history, database and permissions for every business or creation.</li><li>Use one owner-controlled index with links, provenance, status and explicit relationships.</li><li>Require approval for public releases, payments, licenses, production infrastructure and changes affecting another project.</li><li>No passwords, payment credentials, private manuscripts or child/case records in this public catalog.</li></ul></div>
+      <div class="box"><h3>The GODTABOR story universe</h3><p>In an invented council beyond any single throne, characters argue about what power should mean. The light is not a ruler; it is the question every ruler must answer: who has the freedom to choose, who bears the consequences, and who protects people from harm?</p><p>Original fiction may borrow mythic language while keeping its own characters, rules, and continuity separate from religion, history and evidence.</p></div>
+    </div><div class="callout"><p>THE WORLD CAN BE IMAGINED WITHOUT CLAIMING IT HAS ALREADY BEEN BUILT. WHAT IS BUILT CAN BE VERIFIED WITHOUT ERASING THE IMAGINATION.</p></div></section>
+    <section id="launch" class="section wrap"><div class="eyebrow">Launch control · 2026-11-12</div><h2>What “launch” means here</h2><div class="steps">
+      <div class="step"><strong>01 · SOURCE</strong><p>A public-facing page, catalog and charter prepared for inclusion in the existing Nathan AI GitHub Pages ecosystem.</p></div>
+      <div class="step"><strong>02 · BUSINESS</strong><p>Legal registration, tax setup, domain ownership, merchant accounts, contracts and trademark clearance are separate real-world tasks; none is claimed complete.</p></div>
+      <div class="step"><strong>03 · RELEASE</strong><p>Production deployments, mobile-store submissions, commercial product claims and database integrations require their own verification and authorization.</p></div>
+    </div><p class="small">Source and revision history: <a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core">Nathan-AI-Sovereign-Core on GitHub</a>. See the <a href="./LAUNCH.md">launch charter</a> and <a href="./catalog.json">structured catalog</a>.</p></section>
+  </main>
+  <footer><div class="wrap"><strong>GODTABOR ENTERPRISES</strong><p>An original enterprise and fictional mythology created by Nathan Tabor. This site is a public creative/technology project page, not evidence of legal incorporation, trademark registration, operational payments, supernatural claims or ownership of unrelated organizations.</p><span>© 2026 Nathan Tabor · Literal / Figurative / Mythological</span></div></footer>
+  <script>
+    (function(){
+      "use strict";
+      const target=document.getElementById("catalog"),count=document.getElementById("count"),search=document.getElementById("search"),filters=[...document.querySelectorAll("[data-filter]")];
+      let items=[],realm="all";
+      function el(tag,cls,value){const node=document.createElement(tag);if(cls)node.className=cls;if(value!==undefined)node.textContent=value;return node}
+      function render(){
+        const term=search.value.trim().toLocaleLowerCase();
+        const found=items.filter(x=>(realm==="all"||x.realm===realm)&&[x.name,x.description,x.kind,x.realm].join(" ").toLocaleLowerCase().includes(term));
+        target.replaceChildren();
+        found.forEach(x=>{
+          const card=el("article","card"),meta=el("div","meta");
+          meta.append(el("span","pill "+x.realm,x.realm),el("span","pill",x.status.replace(/_/g," ")));
+          card.append(meta,el("h3","",x.name),el("p","",x.description));
+          if(x.href&&x.href.startsWith("https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/")){const link=el("a","cardlink","Open existing project");link.href=x.href;card.append(link)}
+          else card.append(el("span","small","Concept record · no independent release link"));
+          target.append(card);
+        });
+        count.textContent=found.length+" of "+items.length+" catalog entries shown"+(found.length?"":". No matching entries.");
+      }
+      filters.forEach(button=>button.addEventListener("click",()=>{realm=button.dataset.filter;filters.forEach(b=>b.setAttribute("aria-pressed",String(b===button)));render()}));
+      search.addEventListener("input",render);
+      fetch("./catalog.json").then(res=>{if(!res.ok)throw Error("Catalog unavailable");return res.json()}).then(data=>{
+        if(!Array.isArray(data.projects))throw Error("Invalid catalog");
+        items=data.projects.filter(x=>typeof x.name==="string"&&typeof x.description==="string"&&["literal","figurative","mythological"].includes(x.realm));
+        render();
+      }).catch(()=>{count.textContent="The live catalog could not load. Open the structured catalog directly.";const a=el("a","","Open catalog.json");a.href="./catalog.json";target.append(a)});
+    })();
+  </script>
+</body>
+</html>
