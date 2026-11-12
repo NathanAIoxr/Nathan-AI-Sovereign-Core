@@ -10,10 +10,10 @@
 
 ## Independent record spaces and one minimal master index
 This gateway uses **browser-local**, **origin-scoped** storage keys:
-- god tabor literal: god tabor dot literal dot v1 (actual storage key is god tabor with no spaces, as defined in index.html).
-- figurative key: defined in index.html.
-- mythology key: defined in index.html.
-- master index key: stores only record IDs, types and timestamps rather than merging actual content.
+- GODTABOR literal: godtab or literal v1 storage key (canonical: godtabor.literal.v1) — private local creator charter.
+- GODTABOR figurative: godtabor.figurative.v1 — symbolic declarations.
+- GODTABOR mythology: godtabor.mythology.v1 — fiction-only story seeds.
+- GODTABOR master index: godtabor.master-index.v1 — only record IDs, types and timestamps; no content merging.
 
 Actual namespace strings are in the page source and unit tests. Existing ONE, GOD v074, Nathan AI, Airtable and other private records are not touched. Browser storage does not sync between devices. JSON export is implemented only for the literal charter.
 
