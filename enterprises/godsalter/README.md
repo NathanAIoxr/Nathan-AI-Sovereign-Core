@@ -53,3 +53,10 @@ A fictional multiverse where players create worlds and explore gods, goddesses, 
 
 ## Technical organization
 Proposed directory: `enterprises/godsalter/` within the Sovereign Core as a separate namespace. This documentation does not activate bots, modify databases, create a legal business, or deploy a website.
+
+## Creative archive (November 12, 2026)
+The enterprise's commissioned ChatGPT artwork and visual concepts are documented separately:
+- [Visual canon, original PNG identifiers and SHA-256 checksums](VISUAL_CANON.md)
+- [Original source-controlled SVG companion poster](POSTER.svg)
+
+The generated full-resolution PNG artwork remains a conversation asset; the repository currently holds its provenance and a separate vector companion, not the PNG binaries.
