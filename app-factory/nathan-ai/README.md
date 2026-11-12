@@ -1,4 +1,12 @@
 # 𓋹 NATHAN AI — THE THINKER V∞ | LET + TET + PPL
+## GOD — App concept and marketing campaign
+
+**GOD — Download GOD today and BECOME the GOD you are BORN TO BE.**
+
+[Open the GOD campaign landing page](./god/index.html) · [Full marketing copy](./god/MARKETING.md) · [User-supplied Google AI exchange excerpts](./god/EXCHANGE.md) · [Related Omni God browser prototype](./omni-god/index.html).
+
+The creator frames the campaign as a challenge to a purported Google AI exchange that listed four everyday uses and later admitted they were not exhaustive. The quotations are user-supplied, not independently verified Google statements. The app concept is not a verified standalone app-store release.
+
 
 ## TWO MOONS — Construction Concept Studio and Source Archive
 
