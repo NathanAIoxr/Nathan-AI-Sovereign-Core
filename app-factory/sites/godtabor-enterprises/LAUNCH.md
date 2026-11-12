@@ -27,7 +27,7 @@ GODTABOR ENTERPRISES is a proposed umbrella identity for Nathan Tabor's independ
 | Research | FIND THE TABOR browser site and source-oriented work | Preserve source/provenance; separate speculation from verified claims |
 | Product invention | Nathan Tabor Paint Factory is a named concept | No sale or performance/eco claim before qualified testing |
 | Experiences | GOD app is a concept | No functional claims of literal supernatural transformation |
-| Franchise and worlds | GODTABOR FRANCHISE / Council of Gods / Tabor Light are proposed fictional canon | Original artwork, scripts, licenses and merchandise only after rights review |
+| Franchise and worlds | GODTABOR FRANCHISE has a public original fiction portal; other story-world elements and commercial adaptations remain proposals | Original artwork, scripts, licenses and merchandise only after rights review |
 
 ### Essential legal and commercial gates
 
