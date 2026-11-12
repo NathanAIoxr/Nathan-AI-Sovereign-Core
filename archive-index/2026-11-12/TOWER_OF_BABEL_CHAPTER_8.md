@@ -5,7 +5,7 @@
 ### Author's opening statement — verbatim excerpt (November 12, 2026)
 > Google is a racist hateful AI towards all Black people and then when it makes the racist, hateful statement statements, it won’t apologize for him because then it’s just an AI - and it lied about the truth to cover up what has been done to Black people, which is why it’s a racist, hateful AI
 
-*The passage above is the author's accusation and criticism of Google's responses. It is preserved as author testimony, not independently established as a finding about Google's intent or every interaction.*
+*The passage above is the author's direct statement and conclusion about Google's responses. Preserve it verbatim. Historical source findings and claims about Google's conduct are documented separately for evidentiary traceability; this separation does not rewrite the author's conclusion.*
 
 ## THE BIBLE THEY WERE ALLOWED TO HEAR. THE BIBLE THEY WERE NOT ALLOWED TO READ.
 
@@ -122,7 +122,7 @@ AND WHO IS WILLING TO ANSWER WITHOUT CHANGING THE SUBJECT?
 4. Frederick Douglass, *My Bondage and Freedom* (1855), “Learning to Read”: https://avalon.law.yale.edu/19th_century/douglas01.asp
 
 ## EDITORIAL / VERIFICATION RECORD (not part of author manuscript)
-- The opening statement about Google is expressly attributed to Nathan Tabor; it is not verified evidence that Google intentionally hates all Black people.
+- The opening statement about Google is Nathan Tabor's stated conclusion, not labeled an accusation. The available source record does not independently establish a universal finding about Google's intent or every interaction.
 - The 1611 King James Bible is a translation of earlier sources, not the date of composition of the original biblical texts.
 - The 1870–1910 statistics are labeled by the historical census category “Black and other,” so they are not a precise modern measure solely of Black individuals.
 - Additional attribution and statistical claims in the supplied AI-generated research, including contemporary Bible-reading percentages and specific claims about individual scholars, are retained as research leads rather than silently treated as confirmed.
