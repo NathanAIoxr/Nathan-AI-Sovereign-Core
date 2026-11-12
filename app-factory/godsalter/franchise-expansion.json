@@ -1,0 +1,176 @@
+{
+  "schema": "godsalter.franchise-expansion.v0.2",
+  "title": "GODSALTER — The Franchise",
+  "attribution": "Nathan Tabor",
+  "launchDate": "2026-11-12",
+  "classifications": {
+    "originalUserBrand": "GODSALTER",
+    "description": "assistant-generated concept expansion",
+    "notEvidenceOfBusinessRegistration": true,
+    "fictionSeparatedFromFacts": true
+  },
+  "creativeDimensions": [
+    {
+      "id": "literal",
+      "label": "LITERALLY",
+      "name": "The Enterprise",
+      "phase": "concept with web prototype"
+    },
+    {
+      "id": "figurative",
+      "label": "FIGURATIVELY",
+      "name": "The Alteration",
+      "phase": "symbolic design framework"
+    },
+    {
+      "id": "mythological",
+      "label": "MYTHOLOGICALLY",
+      "name": "The Universe",
+      "phase": "original fictional universe"
+    }
+  ],
+  "nameVariants": [
+    {
+      "text": "GOD'S ALTAR",
+      "type": "creative wordplay"
+    },
+    {
+      "text": "GODS ALTER",
+      "type": "creative wordplay"
+    },
+    {
+      "text": "GOD SALTER",
+      "type": "creative wordplay"
+    }
+  ],
+  "poster": {
+    "fullImage": {
+      "filename": "a_hyper_detailed_ultra_dense_cinematic_franchis.png",
+      "format": "PNG",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "b6c2c670d04b352a49e27dfb9764cc53da099bd0be28052193ce1e30957ca23c",
+      "inRepository": false,
+      "location": "original ChatGPT conversation attachment"
+    },
+    "companion": {
+      "path": "poster-companion.svg",
+      "format": "SVG",
+      "inRepository": true,
+      "byteIdenticalToOriginal": false
+    },
+    "artDirection": [
+      "gold cinematic title",
+      "purple cosmic aurora",
+      "portal and symbolic mirror",
+      "two moons",
+      "golden lion",
+      "fictional travelers",
+      "Myrtle Beach motif",
+      "lighthouse",
+      "retro-arcade references",
+      "Stewart black and white cat",
+      "mythological realms"
+    ],
+    "thirdPartyRights": "Pop-culture references shown in the original collage do not establish rights or licenses for franchise merchandise."
+  },
+  "brandUniverse": [
+    {
+      "title": "Dirty Myrtle",
+      "type": "user-authored fictional mythos",
+      "relation": "creative crossover proposal"
+    },
+    {
+      "title": "Two Moons",
+      "type": "user-authored world motif",
+      "relation": "symbolic sky design"
+    },
+    {
+      "title": "Stewart",
+      "type": "pet reference / fictional companion",
+      "relation": "creative crossover proposal"
+    },
+    {
+      "title": "FRA-GEE-LAY.me — Naughty & Nice",
+      "type": "user-authored brand",
+      "relation": "proposed cross-brand element"
+    },
+    {
+      "title": "Nathan Tabor Paint Factory — Limestone",
+      "type": "user-authored product concept",
+      "relation": "proposed merchandise line; no performance verification"
+    },
+    {
+      "title": "Nathan AI",
+      "type": "user-authored software ecosystem",
+      "relation": "proposed integration, not deployed here"
+    },
+    {
+      "title": "ONE v025",
+      "type": "user-authored software framework",
+      "relation": "separate project; reference only"
+    }
+  ],
+  "futureStudios": [
+    {
+      "name": "Books & graphic novels",
+      "status": "proposed"
+    },
+    {
+      "name": "Film & streaming",
+      "status": "proposed"
+    },
+    {
+      "name": "Games & interactive worlds",
+      "status": "proposed"
+    },
+    {
+      "name": "Education & language",
+      "status": "proposed"
+    },
+    {
+      "name": "Merchandise & collectibles",
+      "status": "proposed"
+    },
+    {
+      "name": "Apps & AI tools",
+      "status": "proposed"
+    },
+    {
+      "name": "Franchise chapters",
+      "status": "unlaunched; subject to legal review"
+    },
+    {
+      "name": "Community & storybuilding",
+      "status": "proposed"
+    }
+  ],
+  "coreRules": [
+    "sovereignty",
+    "consent",
+    "truth",
+    "protection of innocence",
+    "accountability",
+    "no compulsory worship"
+  ],
+  "launchChecks": {
+    "sourceRepository": "NathanAIoxr/Nathan-AI-Sovereign-Core",
+    "gitHubSourceCommitted": true,
+    "websiteLiveVerified": false,
+    "highResPNGCommitted": false,
+    "registeredBusinessVerified": false,
+    "franchiseOfferAuthorized": false,
+    "trademarkClearanceVerified": false,
+    "paymentsEnabled": false
+  },
+  "relatedFiles": [
+    "index.html",
+    "README.md",
+    "MYTHOS.md",
+    "franchise.json",
+    "ARTWORK_2026-11-12.md",
+    "poster-companion.svg"
+  ]
+}
