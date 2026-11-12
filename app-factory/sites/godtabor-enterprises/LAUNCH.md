@@ -77,7 +77,7 @@ A metaphor about being a god expresses authorship, freedom or responsibility in 
 
 Proposed non-destructive relationship model:
 
-\`\`\`text
+```text
 GODTABOR PUBLIC DIRECTORY (catalog.json)
     |
     +--- project_id → independent project/source
@@ -90,13 +90,13 @@ GODTABOR PUBLIC DIRECTORY (catalog.json)
               +--- approved cross-project asset references
               +--- non-public integration connectors
               +--- verified per-project records and backups
-\`\`\`
+```
 
 Each project remains separately addressable. No direct access is assumed to private databases, documents, linked accounts or software agents. A master catalog may point to records without copying them or merging unrelated data.
 
 ### Catalog schema
 
-The [catalog.json](./catalog.json) file defines \`schema\`, brand, creator, launch state, relationship model, explicit \`status_terms\` and an array of \`projects\`. Every project has a stable \`id\`, creator-visible \`name\`, \`realm\`, \`kind\`, \`status\`, \`description\` and an optional verified public \`href\`.
+The [catalog.json](./catalog.json) file defines `schema`, brand, creator, launch state, relationship model, explicit `status_terms` and an array of `projects`. Every project has a stable `id`, creator-visible `name`, `realm`, `kind`, `status`, `description` and an optional verified public `href`.
 
 ## 5. Release checklist
 
