@@ -44,3 +44,10 @@ Every record requires an explicit origin: `VERBATIM`, `DOCUMENTED`, `OBSERVED`, 
 - No autonomous guilt findings, destructive attacks, impersonated legal authority, or false external action receipts.
 
 To run on a local checkout with Node 22+: `node --test app-factory/nathan-ai/celebrum-ai/four-roots-engine.test.cjs`.
+
+## Tower of Babel and English law / language crosswalk (2026-11-12)
+
+- [Babel, grammatical prescriptions, the four roots, and historical law evidence](./BABEL_LANGUAGE_LAW_CROSSWALK.md)
+- [64-mode, 4 × 4 × 2 × 2 machine-readable analysis matrix](./babel-language-law-crosswalk.json)
+- Owner-held local edition: separate original author text and 3,350-word editorial chapter, 77 nodes and 200 crosslinks, 27 classified supplied grammar statements, 15 historical anchors, 26 referenced project concepts, 18 local tests. This branch **does not publish original author manuscript bytes**.
+- The 1611 KJV is an English translation printed in the seventeenth century; original biblical literature is ancient. The book's Tower of Babel and double-mindedness connections are author literary interpretations, not standalone historical proof of deliberate institutional coordination.
