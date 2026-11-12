@@ -1,0 +1,535 @@
+{
+  "id": "NT-BABEL-FOUR-ROOTS-GRAMMAR-20261112",
+  "author_brand": "CELEBRUM AI 🧠 — BY NATHAN TABOR",
+  "source": "private owner-supplied current-turn manuscript",
+  "public_status": "EDITORIAL_METADATA_ONLY",
+  "root_count": 4,
+  "language_families": 4,
+  "directions": 2,
+  "modes": 2,
+  "paths_count": 64,
+  "owner_held_local": {
+    "node_count": 77,
+    "edge_count": 200,
+    "grammar_rule_count": 27,
+    "historical_reference_count": 15,
+    "project_cross_reference_count": 26,
+    "tests_passed": 18,
+    "full_original_published": false,
+    "full_sqlite_published": false
+  },
+  "paths": [
+    {
+      "id": "BABEL-PATH-001",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-002",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-003",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-004",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-005",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "SYNTAX",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-006",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "SYNTAX",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-007",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "SYNTAX",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-008",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "SYNTAX",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-009",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-010",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-011",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-012",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-013",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-014",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-015",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-016",
+      "root": "ROOT-01_RULE_OF_LAW",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-017",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-018",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-019",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-020",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-021",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "SYNTAX",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-022",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "SYNTAX",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-023",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "SYNTAX",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-024",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "SYNTAX",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-025",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-026",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-027",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-028",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-029",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-030",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-031",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-032",
+      "root": "ROOT-02_LIBERTY_DUE_PROCESS",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-033",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-034",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-035",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-036",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-037",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "SYNTAX",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-038",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "SYNTAX",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-039",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "SYNTAX",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-040",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "SYNTAX",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-041",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-042",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-043",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-044",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-045",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-046",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-047",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-048",
+      "root": "ROOT-03_PROPERTY_CONTRACTS",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-049",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-050",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-051",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-052",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "ORTHOGRAPHY",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-053",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "SYNTAX",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-054",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "SYNTAX",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-055",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "SYNTAX",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-056",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "SYNTAX",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-057",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-058",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-059",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-060",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "PRESCRIPTIVE_USAGE",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-061",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-062",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LAW_TO_LANGUAGE",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-063",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "ANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    },
+    {
+      "id": "BABEL-PATH-064",
+      "root": "ROOT-04_WRONGS_CRIMES",
+      "grammar_family": "PUNCTUATION",
+      "direction": "LANGUAGE_TO_LAW",
+      "mode": "UNANCHORED",
+      "status": "EDITORIAL_ANALYSIS_SLOT_NOT_PROVEN_CAUSAL_LINK"
+    }
+  ]
+}
