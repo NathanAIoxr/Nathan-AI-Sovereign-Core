@@ -219,3 +219,7 @@ The existing [KJV–Strong’s Universal Root Matrix master](app-factory/one/scr
 ## Personal Intelligence Minds Atlas (November 12, 2026)
 
 [Open the new read-only Minds Atlas](app-factory/nathan-ai/personal-intelligence/minds/index.html). Extends MAKE AI YOURS with an existing-source-linked 126-billion Omni God virtual namespace, original 20-name pantheon, Jesus and Buddha documentary research lenses, the independent Turtle worker and Renaissance Quad-Axis roles, owner-entered Cero/Uno/Dos and library classification, and local search across public Omni mapping, Complete Mind, NT-1 catalogs plus opt-in same-browser saved notes. Source originals are not overwritten; no active 126-billion-agent deployment or external account sync is claimed.
+
+## House & Houses of Lamentations — Beyond Duality (2026-11-12)
+
+[Nathan Tabor's source-preserving Python atlas, comparison matrix, tests and scalable artwork](research/houses-of-lamentations-beyond-duality/) — 46 concepts, 42 relationships, 18 domains; original transcript, biblical and literary comparisons, and a promises-versus-delivery audit framework.
