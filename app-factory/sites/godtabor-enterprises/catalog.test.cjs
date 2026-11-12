@@ -43,3 +43,17 @@ test('responsive landing is source-linked and distinct from legal registration',
   assert.match(charter,/No filing is claimed here/);
   assert.match(charter,/private databases, documents, linked accounts/);
 });
+
+
+test('poster companion is present, accessible, correctly attributed and not confused with the original raster',()=>{
+  const svg=fs.readFileSync(path.join(root,'godtabor-enterprises-poster-vector.svg'),'utf8');
+  const art=fs.readFileSync(path.join(root,'ARTWORK.md'),'utf8');
+  assert.match(svg,/<svg[^>]+xmlns="http:\/\/www\.w3\.org\/2000\/svg"/);
+  assert.match(svg,/<title id="poster-title">GODTABOR ENTERPRISES/);
+  for(const heading of ['LITERAL','FIGURATIVE','MYTHOLOGICAL','Nathan AI','FIND THE TABOR']) assert.ok(svg.includes(heading),heading);
+  assert.match(page,/src="\.\/godtabor-enterprises-poster-vector\.svg"/);
+  assert.match(page,/alt="GODTABOR ENTERPRISES/);
+  assert.match(page,/ARTWORK\.md/);
+  assert.match(art,/b15c7766b29e4e43131efaf7c7b8d9b818a0107cc4360413885ea6ef4820351f/);
+  assert.match(art,/not uploaded/i);
+});
