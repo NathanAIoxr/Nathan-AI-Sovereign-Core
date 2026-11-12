@@ -26,8 +26,9 @@
     <div class="layout">
       <section class="panel" aria-labelledby="builder"><h2 id="builder">01 / Build your identity</h2><div class="muted">Choose any starting title, or replace it with a name of your own.</div>
         <div class="smalltitle">Your foundation</div><div class="fields">
-          <label class="field">Choose a title<select id="base"><option>GOD</option><option>GODTABOR</option><option>GODSALTER</option><option>THEOS</option><option>ELOHIM</option><option>ELOHER</option><option>ALLAH</option><option>JESUS</option><option>GODDESS</option><option>SATAN</option><option value="CUSTOM">MY OWN TITLE</option></select></label>
+          <label class="field">Choose a title<select id="base"><option>GOD</option><option>GODTABOR</option><option>GODSALTER</option><option>THEOS</option><option>ELOHIM</option><option>ELOHER</option><option>ALLAH</option><option>JESUS</option><option>GODDESS</option><option>SATAN</option><option>HUMAN MAMMAL</option><option value="CUSTOM">MY OWN TITLE</option></select></label>
           <label class="field">Format<select id="format"><option value="FRANCHISE">FRANCHISE</option><option value="ENTERPRISES">ENTERPRISES</option><option value="IDENTITY">PERSONAL IDENTITY</option><option value="WORLD">MYTHOLOGICAL WORLD</option></select></label>
+          <label class="field full">Add a second word to your title (optional)<input id="second" maxlength="60" placeholder="YOUR SECOND WORD"></label>
           <label class="field full" id="custom-wrap" hidden>Replace the title with your own<input id="custom" maxlength="55" placeholder="YOUR WORD / LABEL"></label>
           <label class="field full">Your name or chosen name (optional)<input id="name" maxlength="80" placeholder="Add your name here"></label>
           <label class="field full">Who are you now?<textarea id="today" maxlength="500" placeholder="I am…"></textarea></label>
@@ -44,7 +45,7 @@
       </section>
     </div>
     <section class="catalog" aria-labelledby="catalog"><h2 id="catalog">03 / The founding launch collection</h2><p class="muted">Each title can be a franchise, an enterprise, a personal identity, or a fictional mythos. Select one in the builder to make your own.</p><div class="catalog-grid" id="catalog-grid"></div>
-      <div class="extras"><strong>Also available:</strong> GOD FRANCHISES · GOD_____ ENTERPRISES · THEOS_____ · ELOHER_____ · ELOHIM_____ · ALLAH_____ · JESUS_____ · GODDESS_____ · SATAN_____ · and any new word you create.<p>This is a creative app prototype. Its titles are not claims of divine powers, legal incorporation, trademark ownership, or registered franchise status. Actual franchises and enterprises require separate legal, financial, and commercial setup.</p></div>
+      <div class="extras"><strong>Also available:</strong> GOD FRANCHISES · GOD_____ ENTERPRISES · THEOS_____ · ELOHER_____ · ELOHIM_____ · ALLAH_____ · JESUS_____ · GODDESS_____ · SATAN_____ · HUMAN MAMMAL_____ · and any new word you create.<p>This is a creative app prototype. Its titles are not claims of divine powers, legal incorporation, trademark ownership, or registered franchise status. Actual franchises and enterprises require separate legal, financial, and commercial setup.</p></div>
     </section>
   </main>
   <footer class="foot"><span><strong>THE _ _ _ _ _ _ APP</strong> · Created by Nathan Tabor · 2026</span><span>No sign-in · No server submission · Inputs stay in this browser session until you export</span></footer>
@@ -54,22 +55,24 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const canonical = ['GODTABOR','GODSALTER','THEOS','ELOHIM','ELOHER','GODDESS'];
-  const inputs = ['base','format','custom','name','today','future','values'];
+  const inputs = ['base','format','second','custom','name','today','future','values'];
   const clean = (v,max=500) => String(v||'').trim().replace(/[\u0000-\u001f\u007f]/g,' ').slice(0,max);
   const state = () => {
     const b = $('base').value;
     const base = b === 'CUSTOM' ? clean($('custom').value,55) || 'YOUR TITLE' : b;
     const format = $('format').value;
-    const title = format === 'IDENTITY' ? base : format === 'WORLD' ? base+' WORLD' : base+' '+format;
-    return {title,base,format,name:clean($('name').value,80),today:clean($('today').value),future:clean($('future').value),values:clean($('values').value,160),creator:'Nathan Tabor',rule:'INNOCENCE IS NOT A COMMODITY'};
+    const second = clean($('second').value,60);
+    const label = base + (second ? ' ' + second : '');
+    const title = format === 'IDENTITY' ? label : format === 'WORLD' ? label+' WORLD' : label+' '+format;
+    return {title,base,label,second,format,name:clean($('name').value,80),today:clean($('today').value),future:clean($('future').value),values:clean($('values').value,160),creator:'Nathan Tabor',rule:'INNOCENCE IS NOT A COMMODITY'};
   };
   function text(id,value){$(id).textContent = value;}
   function build(){
     const s=state(),name=s.name||'its creator',today=s.today||'an identity still being written',future=s.future||'a self-directed, accountable future',values=s.values||'truth, consent and protecting innocence';
     text('preview-title',s.title);text('preview-identity',s.name?'Created with '+s.name:'An open invitation to define yourself.');
     text('literal',`${s.title} is a blueprint for a practical project, product, community, or venture founded by ${name}. Current starting point: ${today}. Desired outcome: ${future}. Guiding principles: ${values}. Define actual offerings, ownership, consent, registration, costs, and responsibilities before operating.`);
-    text('figurative',`I begin as ${today}. I choose to become ${future}. The name ${s.base} is a self-chosen symbol, not authority over anyone else. I practice ${values}. I define myself without owning or diminishing another person.`);
-    text('mythological',`In an imagined world called ${s.base}, the author ${name} enters as ${today} and journeys toward ${future}. The foundational law is written at every gate: INNOCENCE IS NOT A COMMODITY. Here, ${values} shape the story, and every being retains a choice.`);
+    text('figurative',`I begin as ${today}. I choose to become ${future}. The name ${s.label} is a self-chosen symbol, not authority over anyone else. I practice ${values}. I define myself without owning or diminishing another person.`);
+    text('mythological',`In an imagined world called ${s.label}, the author ${name} enters as ${today} and journeys toward ${future}. The foundational law is written at every gate: INNOCENCE IS NOT A COMMODITY. Here, ${values} shape the story, and every being retains a choice.`);
     const selected=$('base').value;document.querySelectorAll('[data-pick]').forEach(b=>{b.classList.toggle('active',b.dataset.pick===selected);b.setAttribute('aria-pressed',String(b.dataset.pick===selected));});
     $('custom-wrap').hidden=selected!=='CUSTOM';
   }
