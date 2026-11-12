@@ -51,3 +51,13 @@ The URL is a publication target until independently checked; a GitHub commit by 
 
 ## Repository isolation
 GODSALTER lives in \`app-factory/godsalter/\`. It does not replace GODTABOR, GODTABOR ENTERPRISES, Nathan AI, prior texts, existing registries, or existing applications. Future integration is additive and versioned.
+
+## November 12, 2026 poster expansion
+
+The follow-on cinematic artwork introduced additional references and proposed lines. The repository now includes:
+
+- [Visual companion (SVG)](poster-companion.svg) — a new scalable, GitHub-hosted interpretation. This is **not** the exact generated PNG.
+- [Artwork inventory & integrity ledger](ARTWORK_2026-11-12.md) — original PNG resolution, SHA-256, thematic components, rights caveats, and verified status.
+- [Expansion registry (JSON)](franchise-expansion.json) — the mythological, figurative and literal expansion map.
+
+The original 1672 × 941 PNG remains in the chat attachment; its original bytes have **not** been committed to GitHub by this update. The source-side SVG is an additive companion. Nothing here represents a franchise registration, patent, trademark grant, or license to third-party characters.
