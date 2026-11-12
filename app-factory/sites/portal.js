@@ -19,7 +19,8 @@ sites.forEach(function(site){
 /* Public information gateways are separate from the original studio and app source registries. */
 var extraGateways=[
  {slug:'nathan-tabor',title:'NATHAN TABOR — HOME',icon:'✦',summary:'The personal homepage for Nathan AI, books, games, research and original websites.'},
- {slug:'church-of-innocence',title:'THE CHURCH OF INNOCENCE',icon:'✧',summary:'Rise and Serve · Founding principles, KJV references and source-indexed companion works. Information site, not an emergency service.'}
+ {slug:'church-of-innocence',title:'THE CHURCH OF INNOCENCE',icon:'✧',summary:'Rise and Serve · Founding principles, KJV references and source-indexed companion works. Information site, not an emergency service.'},
+ {slug:'godtabor',title:'GODTABOR · THE FRANCHISE',icon:'◇',summary:'Literally, Figuratively, Mythologically · Independent public gateway, local charter studio, symbolic mirror and fictional Council of Gods atlas.'}
 ];
 extraGateways.forEach(function(site){
  var card=make('article','site-card'),symbol=make('span','symbol',site.icon),chip=make('span','chip','Public information site'),title=make('h3','',site.title),desc=make('p','',site.summary),link=make('a','','Open website ↗');
