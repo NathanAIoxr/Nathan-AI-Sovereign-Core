@@ -1,0 +1,38 @@
+{
+  "artifact": "TactileCoreSDK HybridKineticEngine",
+  "version": "0.2.0",
+  "design_attribution": "Nathan Tabor (user-designated; not independently legally verified)",
+  "date": "2026-11-12",
+  "results": {
+    "node_automated_tests_passed": 12,
+    "headless_browser_smoke_test": "passed: five demo UI flows, no JavaScript page errors",
+    "swift_syntax_parse": "passed for 3 native iOS files",
+    "native_xcode_compile": "not executed",
+    "physical_imu_validation": "not executed"
+  },
+  "limitations": "Checksums establish bitwise integrity, not patent filing, novelty, inventorship or legal authorship.",
+  "sha256": {
+    "docs/HYBRID_KINETIC_RELEASE_NOTES.md": "9898b96f5448fbc4384e034eaef7e19232f54eefa5da4008d983d7c3fde76ccf",
+    "docs/OPEN_SOURCE_RESEARCH.md": "2ce1a92ad16abefb5ba9550f86054bc5c85772562ff03e65c830c11051c3d029",
+    "docs/README.md": "e548022ced2778c35be2909ecc25459db2ffe5186004bcca79645a6a60bf19ad",
+    "docs/USER_SUPPLIED_HYBRID_SPEC_2026-11-12.txt": "cbd1cc2b3257fa68ea2e0f70e94fad49d43d1d60f8046ce89c0b906dbd7291c0",
+    "docs/hybrid-mobile-preview.png": "0db5170e4aab64590d3c1751e19ee53ef5b37b4e6d77d1566646837907ec7469",
+    "docs/mobile-preview.png": "a152a1f9cbdd4516edb39309e5ad6816294d47f6b1fcd7182cbe6968b477c39a",
+    "icon.svg": "09cd05c0709de49e629906fc2b49f181974ff613be72092b9a9270edc566b993",
+    "index.html": "9e8a5038a2ac2dc3c4609e772043edec201035c50fb856a8e624ef342ab56131",
+    "manifest.webmanifest": "3c25c0ee2b555471d159a246f4446052e6ad0d8642eaf37293d16d66e9ab0a95",
+    "native/android/TactileCaptureView.kt": "2aac802736a48ce33663930780610bc9bd375b3d6da1036249482d4bc60d35a4",
+    "native/ios/TactileCaptureView.swift": "f58277c2306b21c71b480d28ef264ece811c39a3f65ebf91d535e4c1a17d1b1c",
+    "native/ios/hybrid/HybridKineticDemoApp.swift": "f6d58211760df033a4a9b1087868ddc570da52588503fa9e24cc932e2526c667",
+    "native/ios/hybrid/TactileCoreSDK.swift": "96a2493fb1d7515291088e0c1e1737a5aa658cbd8a3154bde2f62ca9e460c225",
+    "native/ios/hybrid/UniversalPhysicsArenaView.swift": "d6facaeda01d553ea41ea7d51492c8d5e35dc3e2a3e350d7508449e2d78ca6d1",
+    "package.json": "0c2e6af267553b7013c0197f986199b39aa46b58eec95fbf5a0236923814c066",
+    "src/app.mjs": "235c83e8f676cb1bab5401146d01ceff7547872baf4da6d3a4c82f1469250165",
+    "src/engine.mjs": "6430311bd3b0fcd0759aef91409ccd9633ba5a0a3ce1b9332dd30ab0a2c423f9",
+    "src/games.mjs": "bd85c7f6aebc4cd6c9dabf6dfc0a391a3e0874f3514feebc394522539b017364",
+    "src/kinetic.mjs": "01586979db9d642880e5ae6d48970d21c7c8f3a13033546b3c097eccc10f39d8",
+    "standalone.html": "3380e95404c46c43945c769862d908d8e7aecb5c311f91a2c502daa5cddeaf0a",
+    "tests/engine.test.mjs": "9cf5e44d5f44aaeb514b178c68e8034e22195b421b0bcc8359ee8ff6e69ec33a",
+    "tests/kinetic.test.mjs": "056fe384738c7aecf60f4314b251a6f743250c383b3a79c38a14d25e749e1fb5"
+  }
+}

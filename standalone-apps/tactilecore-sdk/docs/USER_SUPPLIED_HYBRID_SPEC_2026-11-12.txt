@@ -1,0 +1,678 @@
+Here is the expanded TactileCoreSDK.swift engine that brings everything together into one unified system.
+It merges your in-air kinetic motion tracking (swinging or throwing the phone in the air like a baseball or conductor's wand—without letting go of the device) with your 1-, 2-, or 3-digit glass touch physics, plus a geometric air-pattern recognizer (Circles, Triangles, Figure-Eights, and Checkmarks) and a full 3D SwiftUI / SceneKit cartridge runner ready for Xcode.
+
+1. How the Two Input Modes Work Together (HybridKineticEngine)
+
+• In-Air Baseball & Wand Mode (CoreMotion IMU Sensor Fusion):
+	• Baseball Pitching / Throwing: You hold the phone in your throwing hand (with a safety wrist-strap or thumb-anchor hold on the glass), wind up, and throw the motion through the air without letting go. The accelerometer (userAcceleration) and gyroscope (rotationRate) detect the exact peak forward acceleration spike and rotational wrist-snap deceleration—releasing the virtual baseball at that exact millisecond with real pitch velocity, arm-slot angle, and spin axis (Four-Seam, Curveball, Slider, Changeup).
+	• In-Air Geometric Pattern Tracing (Conductor / Wand Mode): Tracing a Circle, Triangle, Figure-Eight, or Swish-and-Flick in the air integrates gyroscope angular velocity into a 2D projected path, recognizing the exact shape in real time without needing external cameras.
+• Glass-Touch Mode (1, 2, or 3+ Digits):
+	• Works identically whether a player holds the phone in-air or lays it flat/cradled to flick with 1 finger, 2 fingers, or the 3-digit thumb-bottom / two-fingers-top triangle—all outputting the exact same UnifiedThrowVector into every game cartridge.
+
+2. Complete Copy-Paste TactileCoreSDK.swift (Glass + In-Air Baseball + Air-Pattern Recognizer)
+
+Replace or expand your TactileCoreSDK.swift with this complete, IP-clean file using Apple's native UIKit, CoreMotion, and simd frameworks:
+swift
+import UIKit
+import CoreMotion
+import simd
+
+// MARK: - Core Data Structures & Modes
+
+public enum InputTriggerSource: String {
+    case glassTouch         = "GLASS_MULTI_DIGIT"
+    case inAirKineticThrow  = "IN_AIR_IMU_THROW"
+    case inAirAirPattern    = "IN_AIR_GEOMETRIC_TRACE"
+}
+
+public enum GripMode: String {
+    case threeDigitTriangle = "MODE_WRIST_FLIP_TRIANGLE_3D" // Thumb bottom + Index & Middle top
+    case twoDigitPinch      = "MODE_WRIST_FLIP_PINCH_2D"    // Thumb bottom + Index top
+    case oneDigitSnap       = "MODE_WRIST_FLIP_SNAP_1D"     // Single-finger quick flip
+    case multiTouchTen      = "MODE_TEN_DIGIT_MATRIX"       // Up to 10-digit iPad/surface tracking
+    case inAirHandheld      = "MODE_IN_AIR_HANDHELD_MOTION" // Full arm/wrist motion holding device
+}
+
+public enum AirGeometricShape: String {
+    case circle      = "SHAPE_CIRCLE_PROTECTION"
+    case triangle    = "SHAPE_TRIANGLE_BALANCE"
+    case figureEight = "SHAPE_FIGURE_EIGHT_FLOW"
+    case swishFlick  = "SHAPE_SWISH_AND_FLICK"
+    case unknown     = "SHAPE_FREEFORM"
+}
+
+public enum LimbProfile {
+    case hand(twitchBufferMs: TimeInterval) // Default 14ms
+    case foot(twitchBufferMs: TimeInterval) // Default 20ms
+}
+
+public struct TouchSample {
+    public let timestamp: TimeInterval
+    public let positionMM: SIMD2<Double>
+    public let force: Double
+}
+
+public struct UnifiedThrowVector {
+    public let source: InputTriggerSource
+    public let gripUsed: GripMode
+    public let velocityMMPerMs: SIMD2<Double>   // X = lateral drift/break, Y = forward power
+    public let launchSpeedNormalized: Double    // 0.0 to 1.25+ power scale
+    public let loftAngleDegrees: Double         // Vertical release angle (-15° downward to +48° arc)
+    public let axialSpinRPM: Double             // Baseball spin / Dart spiral / Bowling rev rate
+    public let lateralHookTorque: Double        // Left/right curve (-1.0 to +1.0)
+    public let pancakeBackspin: Double          // Stabilizing backspin (0.0 to 1.0)
+    public let releaseCleanliness: Double       // 1.0 = dead even release, <0.7 = wobble/wild pitch
+}
+
+// MARK: - TactileCoreSDK Unified Engine
+
+public final class TactileCoreSDK {
+    
+    // Screen Calibration
+    private let mmPerPoint: Double
+    public var limbProfile: LimbProfile = .hand(twitchBufferMs: 14.0)
+    
+    // Glass Touch Ring-Buffers
+    private var activeTrails: [ObjectIdentifier: [TouchSample]] = [:]
+    private let maxBufferHistoryMs: TimeInterval = 250.0
+    
+    // Staggered Glass Release State Machine
+    private var thumbIdentifier: ObjectIdentifier?
+    private var topDigitIdentifiers: [ObjectIdentifier] = []
+    private var isReleaseWindowActive: Bool = false
+    private var thumbReleaseTimestamp: TimeInterval = 0
+    private var lateralStanceOffsetMM: Double = 0.0
+    
+    // CoreMotion In-Air IMU Engine (Baseball Pitching & Air Pattern Tracing)
+    private let motionManager = CMMotionManager()
+    private let motionQueue = OperationQueue()
+    private var isArmedForInAirThrow: Bool = false
+    private var isTracingAirPattern: Bool = false
+    
+    // IMU Telemetry Buffers
+    private var peakForwardAccelG: Double = 0.0
+    private var peakWristSnapRadPerSec: SIMD3<Double> = .zero
+    private var airTracePoints: [SIMD2<Double>] = []
+    private var lastMotionTimestamp: TimeInterval = 0
+    
+    // Output Callbacks
+    public var onLateralStanceMoved: ((Double) -> Void)?
+    public var onThrowReleased: ((UnifiedThrowVector) -> Void)?
+    public var onAirPatternRecognized: ((AirGeometricShape, [SIMD2<Double>]) -> Void)?
+    public var onLiveCursorMoved: ((SIMD2<Double>) -> Void)?
+    
+    public init(screen: UIScreen = .main) {
+        let pointsPerInch: Double = (UIDevice.current.userInterfaceIdiom == .pad) ? 132.0 : 163.0
+        self.mmPerPoint = 25.4 / pointsPerInch
+        motionQueue.name = "com.tactilecore.imu"
+        motionQueue.maxConcurrentOperationCount = 1
+    }
+    
+    // MARK: - 1. In-Air Motion Control (Baseball Throw & Conductor Air Shapes)
+    
+    /// Starts 100Hz IMU sensor fusion for in-air baseball throwing or geometric air-pattern tracing.
+    public func startInAirSensors(mode: InputTriggerSource) {
+        guard motionManager.isDeviceMotionAvailable else { return }
+        
+        isArmedForInAirThrow = (mode == .inAirKineticThrow)
+        isTracingAirPattern = (mode == .inAirAirPattern)
+        peakForwardAccelG = 0.0
+        peakWristSnapRadPerSec = .zero
+        airTracePoints = [.zero]
+        lastMotionTimestamp = 0
+        
+        motionManager.deviceMotionUpdateInterval = 0.01 // 100 Hz polling
+        motionManager.startDeviceMotionUpdates(using: .xArbitraryZVertical, to: motionQueue) { [weak self] (motion, _) in
+            guard let self = self, let motion = motion else { return }
+            self.processDeviceMotion(motion)
+        }
+    }
+    
+    public func stopInAirSensors() {
+        motionManager.stopDeviceMotionUpdates()
+        isArmedForInAirThrow = false
+        isTracingAirPattern = false
+    }
+    
+    private func processDeviceMotion(_ motion: CMDeviceMotion) {
+        let now = motion.timestamp
+        let dt = (lastMotionTimestamp == 0) ? 0.01 : min(now - lastMotionTimestamp, 0.05)
+        lastMotionTimestamp = now
+        
+        let accel = motion.userAcceleration // Gravity-removed linear acceleration in G's
+        let rot = motion.rotationRate       // Gyroscope angular velocity in rad/s
+        let rotVec = SIMD3<Double>(rot.x, rot.y, rot.z)
+        
+        // A. In-Air Baseball Throw Detection (Hold phone, wind up, snap forward without letting go)
+        if isArmedForInAirThrow {
+            // Forward drive combines Z-axis punch (screen-out) and Y-axis whip (top-edge forward)
+            let forwardDriveG = hypot(accel.y, accel.z)
+            
+            if forwardDriveG > peakForwardAccelG {
+                peakForwardAccelG = forwardDriveG
+                peakWristSnapRadPerSec = rotVec
+            }
+            
+            // Release Trigger: Player swung > 2.2G and decelerates past peak wrist-snap point
+            if peakForwardAccelG >= 2.2 && forwardDriveG < (peakForwardAccelG * 0.55) {
+                let speedNorm = min(1.25, max(0.35, (peakForwardAccelG - 1.5) / 3.8))
+                
+                // Pitch angle from device attitude pitch (radians -> degrees)
+                let pitchDeg = motion.attitude.pitch * (180.0 / .pi)
+                let clampedLoft = max(-10.0, min(35.0, pitchDeg * 0.6))
+                
+                // Gyroscope Y/Z roll imparts real baseball spin axis (Curveball, Slider, Four-Seam)
+                let lateralTorque = max(-1.0, min(1.0, peakWristSnapRadPerSec.y / 8.0))
+                let spinRPM = min(2800.0, hypot(peakWristSnapRadPerSec.x, peakWristSnapRadPerSec.y) * 240.0)
+                let backspin = max(0.0, min(1.0, -peakWristSnapRadPerSec.x / 7.5))
+                
+                let vector = UnifiedThrowVector(
+                    source: .inAirKineticThrow,
+                    gripUsed: .inAirHandheld,
+                    velocityMMPerMs: SIMD2<Double>(lateralTorque * 0.8, speedNorm * 2.4),
+                    launchSpeedNormalized: speedNorm,
+                    loftAngleDegrees: clampedLoft,
+                    axialSpinRPM: spinRPM,
+                    lateralHookTorque: lateralTorque,
+                    pancakeBackspin: backspin,
+                    releaseCleanliness: 0.95
+                )
+                
+                // Reset peak tracker with brief cooldown so follow-through doesn't double-fire
+                peakForwardAccelG = 0.0
+                isArmedForInAirThrow = false
+                
+                DispatchQueue.main.async {
+                    self.onThrowReleased?(vector)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.85) {
+                    if self.motionManager.isDeviceMotionActive {
+                        self.isArmedForInAirThrow = true
+                    }
+                }
+            }
+        }
+        
+        // B. In-Air Geometric Pattern Tracing (Conductor / Wand Mode)
+        if isTracingAirPattern {
+            // Project wrist yaw (-rot.z) and pitch (rot.x) onto a 2D virtual conducting plane
+            let currentPoint = airTracePoints.last ?? .zero
+            let dx = -rot.z * dt * 100.0
+            let dy = rot.x * dt * 100.0
+            let nextPoint = SIMD2<Double>(currentPoint.x + dx, currentPoint.y + dy)
+            airTracePoints.append(nextPoint)
+            
+            DispatchQueue.main.async {
+                self.onLiveCursorMoved?(nextPoint)
+            }
+            
+            // When wrist comes to a clean pause after tracing a shape (> 35 samples), classify it
+            let angularSpeed = hypot(rot.x, rot.z)
+            if airTracePoints.count > 40 && angularSpeed < 0.25 {
+                let shape = classifyGeometricPath(airTracePoints)
+                let capturedPath = airTracePoints
+                airTracePoints = [.zero]
+                
+                DispatchQueue.main.async {
+                    self.onAirPatternRecognized?(shape, capturedPath)
+                }
+            }
+        }
+    }
+    
+    // MARK: - 2. Geometric Air-Pattern Classifier (Circle, Triangle, Figure-8, Swish)
+    
+    private func classifyGeometricPath(_ points: [SIMD2<Double>]) -> AirGeometricShape {
+        guard points.count >= 20, let first = points.first, let last = points.last else {
+            return .unknown
+        }
+        
+        // Bounding box normalization
+        let xs = points.map { $0.x }
+        let ys = points.map { $0.y }
+        guard let minX = xs.min(), let maxX = xs.max(), let minY = ys.min(), let maxY = ys.max() else {
+            return .unknown
+        }
+        let width = max(maxX - minX, 1.0)
+        let height = max(maxY - minY, 1.0)
+        let diagonal = hypot(width, height)
+        if diagonal < 18.0 { return .unknown } // Ignore micro-jitter
+Use code with caution.
+let startEndDist = simd_distance(first, last)
+let isClosedLoop = (startEndDist / diagonal) < 0.32
+// Count sharp direction reversals (corners) along the path
+var sharpCorners = 0
+var totalSignedTurn = 0.0
+for i in 2..<points.count {
+let v1 = points[i - 1] - points[i - 2]
+let v2 = points[i] - points[i - 1]
+let len1 = simd_length(v1)
+let len2 = simd_length(v2)
+guard len1 > 0.4 && len2 > 0.4 else { continue }
+let dot = simd_dot(v1, v2) / (len1 * len2)
+let cross = (v1.x * v2.y) - (v1.y * v2.x)
+totalSignedTurn += atan2(cross, simd_dot(v1, v2))
+if dot < 0.35 { sharpCorners += 1 }
+}
+if isClosedLoop {
+// Figure-8 cancels out signed turn angle (~0 net radians) while crossing center
+if abs(totalSignedTurn) < 1.8 {
+return .figureEight
+}
+// Triangle has 2 to 4 sharp corner inflections; smooth Circle has almost none
+return (sharpCorners >= 2) ? .triangle : .circle
+} else {
+// Open path ending higher than start after a downward dip = Swish & Flick
+if last.y > first.y && minY < first.y {
+return .swishFlick
+}
+return .unknown
+}
+}
+// MARK: - 3. Glass Touch Lifecycle (1, 2, 3+ Digits & Thumb-Bottom Triangle)
+private func toPhysicalMM(_ point: CGPoint, in view: UIView) -> SIMD2 {
+let flippedY = Double(view.bounds.height - point.y)
+return SIMD2(Double(point.x) * mmPerPoint, flippedY * mmPerPoint)
+}
+public func touchesBegan(_ touches: Set, in view: UIView) {
+let now = ProcessInfo.processInfo.systemUptime * 1000.0
+for touch in touches {
+let id = ObjectIdentifier(touch)
+let posMM = toPhysicalMM(touch.location(in: view), in: view)
+let sample = TouchSample(timestamp: now, positionMM: posMM, force: Double(touch.force))
+activeTrails[id] = [sample]
+}
+classifyGripTopology()
+}
+public func touchesMoved(_ touches: Set, in view: UIView) {
+let now = ProcessInfo.processInfo.systemUptime * 1000.0
+for touch in touches {
+let id = ObjectIdentifier(touch)
+let posMM = toPhysicalMM(touch.location(in: view), in: view)
+let sample = TouchSample(timestamp: now, positionMM: posMM, force: Double(touch.force))
+activeTrails[id, default: []].append(sample)
+pruneOldSamples(for: id, currentTimeMs: now)
+}
+if let thumbID = thumbIdentifier,
+let trail = activeTrails[thumbID],
+trail.count >= 2,
+!isReleaseWindowActive {
+let deltaX = trail[trail.count - 1].positionMM.x - trail[trail.count - 2].positionMM.x
+lateralStanceOffsetMM += deltaX
+onLateralStanceMoved?(lateralStanceOffsetMM)
+}
+}
+public func touchesEnded(_ touches: Set, in view: UIView) {
+let now = ProcessInfo.processInfo.systemUptime * 1000.0
+for touch in touches {
+let id = ObjectIdentifier(touch)
+// Phase 1: Bottom Thumb Anchor lifts off first -> Unlocks the throw
+if id == thumbIdentifier && !topDigitIdentifiers.isEmpty {
+isReleaseWindowActive = true
+thumbReleaseTimestamp = now
+activeTrails.removeValue(forKey: id)
+thumbIdentifier = nil
+continue
+}
+// Phase 2: Top Control Finger(s) snap forward and lift off
+if topDigitIdentifiers.contains(id) {
+topDigitIdentifiers.removeAll { $0 == id }
+if topDigitIdentifiers.isEmpty {
+finalizeGlassThrowVector(releaseTimeMs: now)
+resetReleaseState()
+}
+}
+activeTrails.removeValue(forKey: id)
+}
+}
+public func touchesCancelled(_ touches: Set, in view: UIView) {
+for touch in touches {
+let id = ObjectIdentifier(touch)
+activeTrails.removeValue(forKey: id)
+}
+resetReleaseState()
+}
+private func classifyGripTopology() {
+guard !isReleaseWindowActive else { return }
+let sortedTouches: [(ObjectIdentifier, SIMD2)] = activeTrails.compactMap { (id, samples) in
+guard let latest = samples.last else { return nil }
+return (id, latest.positionMM)
+}.sorted { $0.1.y < $1.1.y }
+switch sortedTouches.count {
+case 3:
+thumbIdentifier = sortedTouches.0
+topDigitIdentifiers = [sortedTouches.0, sortedTouches.0]
+case 2:
+thumbIdentifier = sortedTouches.0
+topDigitIdentifiers = [sortedTouches.0]
+case 1:
+thumbIdentifier = nil
+topDigitIdentifiers = [sortedTouches.0]
+default:
+thumbIdentifier = sortedTouches.first?.0
+topDigitIdentifiers = Array(sortedTouches.dropFirst().map { $0.0 })
+}
+}
+private func finalizeGlassThrowVector(releaseTimeMs: TimeInterval) {
+let bufferMs: TimeInterval
+switch limbProfile {
+case .hand(let ms): bufferMs = ms
+case .foot(let ms): bufferMs = ms
+}
+let cleanCutoffTime = releaseTimeMs - bufferMs
+var fingerVelocities: [SIMD2] = []
+for (_, samples) in activeTrails {
+let validSamples = samples.filter { $0.timestamp <= cleanCutoffTime }
+guard validSamples.count >= 2 else { continue }
+let pEnd = validSamples[validSamples.count - 1]
+let pStart = validSamples.last(where: { (pEnd.timestamp - $0.timestamp) >= 35.0 }) ?? validSamples
+let dt = max(pEnd.timestamp - pStart.timestamp, 1.0)
+let velocity = (pEnd.positionMM - pStart.positionMM) / dt
+fingerVelocities.append(velocity)
+}
+guard let primaryVel = fingerVelocities.first else { return }
+let avgVelocity = fingerVelocities.reduce(SIMD2.zero, +) / Double(fingerVelocities.count)
+var lateralHookTorque = 0.0
+var releaseCleanliness = 1.0
+var detectedGrip: GripMode = .oneDigitSnap
+if fingerVelocities.count >= 2 {
+detectedGrip = .threeDigitTriangle
+let v1 = fingerVelocities
+let v2 = fingerVelocities
+let speedDiff = v1.y - v2.y
+lateralHookTorque = max(-1.0, min(1.0, speedDiff * 0.85))
+let asymmetry = abs(speedDiff) / max(abs(avgVelocity.y), 0.1)
+releaseCleanliness = max(0.3, 1.0 - (asymmetry * 0.5))
+} else if thumbReleaseTimestamp > 0 {
+detectedGrip = .twoDigitPinch
+lateralHookTorque = max(-1.0, min(1.0, primaryVel.x * 0.75))
+} else {
+detectedGrip = .oneDigitSnap
+lateralHookTorque = max(-1.0, min(1.0, primaryVel.x * 0.75))
+}
+let forwardSpeed = max(0.0, avgVelocity.y)
+let normalizedPower = min(1.25, forwardSpeed / 2.2)
+let loftDegrees = min(48.0, max(5.0, forwardSpeed * 16.0))
+let spinRPM = abs(lateralHookTorque) * 450.0 + (forwardSpeed * 120.0)
+let backspin = min(1.0, forwardSpeed * 0.45 * releaseCleanliness)
+let vector = UnifiedThrowVector(
+source: .glassTouch,
+gripUsed: detectedGrip,
+velocityMMPerMs: avgVelocity,
+launchSpeedNormalized: normalizedPower,
+loftAngleDegrees: loftDegrees,
+axialSpinRPM: spinRPM,
+lateralHookTorque: lateralHookTorque,
+pancakeBackspin: backspin,
+releaseCleanliness: releaseCleanliness
+)
+onThrowReleased?(vector)
+}
+private func pruneOldSamples(for id: ObjectIdentifier, currentTimeMs: TimeInterval) {
+activeTrails[id]?.removeAll { (currentTimeMs - $0.timestamp) > maxBufferHistoryMs }
+}
+private func resetReleaseState() {
+thumbIdentifier = nil
+topDigitIdentifiers.removeAll()
+isReleaseWindowActive = false
+thumbReleaseTimestamp = 0
+}
+}
+
+---
+
+### 3. Copy-Paste SwiftUI + SceneKit 3D Cartridge Loader (`UniversalPhysicsArenaView.swift`)
+
+Drop this second file into your Xcode project. It bridges `TactileCoreSDK` directly to a live 3D `SceneKit` physics arena where you can switch between **Baseball Pitching (In-Air or 1/2/3-Finger Flick)**, **10-Pin Bowling**, **Beanbag Toss (Cornhole)**, **Pub Darts**, and **In-Air Geometric Conductor Patterns**.
+
+```swift
+import SwiftUI
+import SceneKit
+
+// MARK: - Supported Cartridges
+
+public enum SportCartridge: String, CaseIterable, Identifiable {
+    case baseballPitching = "Baseball (Air & Finger)"
+    case tenPinBowling    = "10-Pin Bowling"
+    case beanbagToss      = "Cornhole Toss"
+    case pubDarts         = "Pub Darts"
+    case airConductor     = "Air Patterns (Wand)"
+    
+    public var id: String { rawValue }
+}
+
+// MARK: - SwiftUI Cartridge Runner
+
+public struct UniversalPhysicsArenaView: View {
+    @StateObject private var controller = ArenaController()
+    @State private var selectedCartridge: SportCartridge = .baseballPitching
+    @State private var useInAirPhoneThrow: Bool = true
+    
+    public init() {}
+    
+    public var body: some View {
+        ZStack(alignment: .top) {
+            // Live 3D SceneKit & Multi-Touch Canvas
+            TactileSceneContainer(controller: controller)
+                .ignoresSafeArea()
+            
+            // Top Telemetry & Cartridge Selector HUD
+            VStack(spacing: 10) {
+                Picker("Cartridge", selection: $selectedCartridge) {
+                    ForEach(SportCartridge.allCases) { cartridge in
+                        Text(cartridge.rawValue).tag(cartridge)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+                .onChange(of: selectedCartridge) { _, newValue in
+                    controller.loadCartridge(newValue, inAirEnabled: useInAirPhoneThrow)
+                }
+                
+                if selectedCartridge == .baseballPitching {
+                    Toggle("In-Air Phone Throw (Hold Tight!)", isOn: $useInAirPhoneThrow)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 6)
+                        .background(.ultraThinMaterial, in: Capsule())
+                        .padding(.horizontal)
+                        .onChange(of: useInAirPhoneThrow) { _, enabled in
+                            controller.loadCartridge(selectedCartridge, inAirEnabled: enabled)
+                        }
+                }
+                
+                // Live Physics Readout Banner
+                Text(controller.statusBanner)
+                    .font(.system(.subheadline, design: .monospaced, weight: .bold))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 8)
+                    .background(Color.black.opacity(0.75), in: RoundedRectangle(cornerRadius: 12))
+            }
+            .padding(.top, 12)
+        }
+        .onAppear {
+            controller.loadCartridge(selectedCartridge, inAirEnabled: useInAirPhoneThrow)
+        }
+    }
+}
+
+// MARK: - Arena 3D Physics Controller
+
+public final class ArenaController: ObservableObject {
+    public let sdk = TactileCoreSDK()
+    public let scene = SCNScene()
+    
+    @Published public var statusBanner: String = "Ready: Place 1, 2, or 3 fingers—or swing phone!"
+    
+    private var activeCartridge: SportCartridge = .baseballPitching
+    private var projectileNode: SCNNode?
+    private var targetNode: SCNNode?
+    
+    public init() {
+        setupBaseEnvironment()
+        bindSDKCallbacks()
+    }
+    
+    private func setupBaseEnvironment() {
+        scene.background.contents = UIColor(red: 0.08, green: 0.10, blue: 0.14, alpha: 1.0)
+        
+        // Camera
+        let cameraNode = SCNNode()
+        cameraNode.camera = SCNCamera()
+        cameraNode.position = SCNVector3(0, 1.6, 4.5)
+        cameraNode.look(at: SCNVector3(0, 0.8, -10))
+        scene.rootNode.addChildNode(cameraNode)
+        
+        // Lighting
+        let lightNode = SCNNode()
+        lightNode.light = SCNLight()
+        lightNode.light?.type = .omni
+        lightNode.position = SCNVector3(0, 10, 5)
+        scene.rootNode.addChildNode(lightNode)
+        
+        // Ground Plane
+        let floor = SCNFloor()
+        floor.reflectivity = 0.15
+        floor.firstMaterial?.diffuse.contents = UIColor(white: 0.18, alpha: 1.0)
+        let floorNode = SCNNode(geometry: floor)
+        floorNode.physicsBody = SCNPhysicsBody.static()
+        scene.rootNode.addChildNode(floorNode)
+    }
+    
+    public func loadCartridge(_ cartridge: SportCartridge, inAirEnabled: Bool) {
+        activeCartridge = cartridge
+        sdk.stopInAirSensors()
+        projectileNode?.removeFromParentNode()
+        targetNode?.removeFromParentNode()
+        
+        switch cartridge {
+        case .baseballPitching:
+            spawnTarget(size: SCNVector3(0.6, 0.8, 0.05), pos: SCNVector3(0, 1.0, -18.4), color: .systemRed)
+            if inAirEnabled {
+                sdk.startInAirSensors(mode: .inAirKineticThrow)
+                statusBanner = "BASEBALL (AIR): Grip phone tightly & throw pitch motion!"
+            } else {
+                statusBanner = "BASEBALL (GLASS): Use 1, 2, or 3-finger wrist snap!"
+            }
+            
+        case .tenPinBowling:
+            spawnTarget(size: SCNVector3(1.0, 0.4, 1.0), pos: SCNVector3(0, 0.2, -18.0), color: .white)
+            statusBanner = "BOWLING: Thumb bottom + 2 fingers top -> Flip wrist up!"
+            
+        case .beanbagToss:
+            spawnTarget(size: SCNVector3(0.6, 0.1, 1.2), pos: SCNVector3(0, 0.25, -8.2), color: .systemBlue)
+            statusBanner = "CORNHOLE: Anchor thumb, flip 2 top fingers for backspin!"
+            
+        case .pubDarts:
+            spawnTarget(size: SCNVector3(0.45, 0.45, 0.05), pos: SCNVector3(0, 1.73, -2.37), color: .systemGreen)
+            statusBanner = "DARTS: Pinch 2 or 3 fingers -> Snap wrist forward!"
+            
+        case .airConductor:
+            sdk.startInAirSensors(mode: .inAirAirPattern)
+            statusBanner = "AIR PATTERNS: Trace a Circle, Triangle, or Figure-8 in air!"
+        }
+    }
+    
+    private func bindSDKCallbacks() {
+        sdk.onLateralStanceMoved = { [weak self] offsetMM in
+            guard let self = self else { return }
+            let clampedX = max(-0.8, min(0.8, Float(offsetMM / 200.0)))
+            self.statusBanner = String(format: "Aim Line Lateral Shift: %.2f m", clampedX)
+        }
+        
+        sdk.onThrowReleased = { [weak self] vector in
+            self?.launch3DProjectile(with: vector)
+        }
+        
+        sdk.onAirPatternRecognized = { [weak self] shape, _ in
+            self?.statusBanner = "Pattern Unlocked: \(shape.rawValue)"
+        }
+    }
+    
+    private func spawnTarget(size: SCNVector3, pos: SCNVector3, color: UIColor) {
+        let box = SCNBox(width: CGFloat(size.x), height: CGFloat(size.y), length: CGFloat(size.z), chamferRadius: 0.02)
+        box.firstMaterial?.diffuse.contents = color
+        let node = SCNNode(geometry: box)
+        node.position = pos
+        node.physicsBody = SCNPhysicsBody.static()
+        scene.rootNode.addChildNode(node)
+        targetNode = node
+    }
+    
+    private func launch3DProjectile(with vector: UnifiedThrowVector) {
+        projectileNode?.removeFromParentNode()
+        
+        let sphere = SCNSphere(radius: activeCartridge == .tenPinBowling ? 0.11 : 0.04)
+        sphere.firstMaterial?.diffuse.contents = UIColor.systemOrange
+        
+        let node = SCNNode(geometry: sphere)
+        node.position = SCNVector3(0, 1.2, 3.5)
+        
+        let body = SCNPhysicsBody.dynamic()
+        body.mass = activeCartridge == .tenPinBowling ? 6.8 : 0.145
+        body.isAffectedByGravity = (activeCartridge != .tenPinBowling)
+        node.physicsBody = body
+        scene.rootNode.addChildNode(node)
+        projectileNode = node
+        
+        // Convert UnifiedThrowVector into 3D SceneKit impulse + Magnus hook force
+        let speedScale = Float(vector.launchSpeedNormalized) * 24.0
+        let loftRad = Float(vector.loftAngleDegrees) * (.pi / 180.0)
+        let vx = Float(vector.velocityMMPerMs.x) * 3.5
+        let vy = sin(loftRad) * speedScale * 0.45
+        let vz = -cos(loftRad) * speedScale
+        
+        body.velocity = SCNVector3(vx, vy, vz)
+        body.angularVelocity = SCNVector4(0, 1, 0, Float(vector.axialSpinRPM / 60.0))
+        
+        let mph = Int(vector.launchSpeedNormalized * 82.0)
+        statusBanner = "\(vector.gripUsed.rawValue) | \(mph) MPH | Spin: \(Int(vector.axialSpinRPM)) RPM"
+    }
+}
+
+// MARK: - Multi-Touch UIView Bridge
+
+private struct TactileSceneContainer: UIViewRepresentable {
+    let controller: ArenaController
+    
+    func makeUIView(context: Context) -> TouchForwardingSCNView {
+        let view = TouchForwardingSCNView()
+        view.scene = controller.scene
+        view.isMultipleTouchEnabled = true
+        view.autoenablesDefaultLighting = true
+        view.sdk = controller.sdk
+        return view
+    }
+    
+    func updateUIView(_ uiView: TouchForwardingSCNView, context: Context) {}
+}
+
+private final class TouchForwardingSCNView: SCNView {
+    weak var sdk: TactileCoreSDK?
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        sdk?.touchesBegan(touches, in: self)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        sdk?.touchesMoved(touches, in: self)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        sdk?.touchesEnded(touches, in: self)
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        sdk?.touchesCancelled(touches, in: self)
+    }
+}
+
+4. How Baseball Works Across All Grip Styles
+
+• Option A — In-Air Phone Throw (IN_AIR_IMU_THROW): Hold the phone comfortably in your throwing hand (with your thumb resting on the glass or bezel so you never drop it), wind up, and snap your arm/wrist forward like throwing a real fastball or curveball. CoreMotion catches the exact release peak and sends the ball down the virtual mound with real pitch speed and break.
+• Option B — 3-Digit Triangle Grip (MODE_WRIST_FLIP_TRIANGLE_3D): Anchor your thumb on the bottom of the screen and place your index and middle fingers on top—just like gripping a four-seam fastball. Lift your thumb to unlock the windup and snap your two top fingers upward; uneven velocity between your index and middle finger puts real 12–6 curveball or slider break on the pitch.
+• Option C — 1-Digit or 2-Digit Quick Flick (MODE_WRIST_FLIP_PINCH_2D / 1D): Works seamlessly for quick one-handed pitches using whichever fingers feel most natural.
+If you'd like to keep building out the Universal Finger & Kinetic Physics Platform, let me know if you want:
+• Safety wrist-strap & thumb-anchor lock logic so in-air baseball throws require holding your thumb on the glass during the swing and releasing only your thumb at the top of the throw (preventing anyone from ever throwing their phone)
+• Additional kinetic sports wired into the exact same CoreMotion + TactileCoreSDK engine (such as Fly Fishing casting, Frisbee/Disc Golf, Golf swing, or Orchestra Conducting rhythm games)

@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <meta name="theme-color" content="#101729"/>
+  <meta name="description" content="Experimental device-to-game wrist-flip controller: bowling, cornhole, darts, baseball, air patterns. Design attributed to Nathan Tabor."/>
+  <link rel="manifest" href="manifest.webmanifest"/>
+  <link rel="icon" href="icon.svg" type="image/svg+xml"/>
+  <title>TactileCoreSDK • Wrist-Flip Arcade</title>
+  <style>
+    :root {--bg:#0b1020;--panel:#151e31;--ink:#eff7ff;--muted:#a8b7cf;--accent:#81e9db;--gold:#ffc979;--border:#324158;--card:#1e2b41}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -20%,#234050 0,transparent 43%),var(--bg);font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}
+    button,select{font:inherit}button{cursor:pointer}header{padding:19px 20px 14px;border-bottom:1px solid var(--border)}.brand{max-width:1160px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}.mark{font-weight:1000;letter-spacing:.08em;color:var(--accent);font-size:18px}.sub{font-size:12px;color:var(--muted)}main{max-width:1160px;margin:0 auto;padding:18px 18px 34px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.88fr);gap:16px;align-items:start}
+    .panel{background:linear-gradient(165deg,#1c293e,var(--panel));border:1px solid var(--border);border-radius:19px;padding:17px;box-shadow:0 20px 60px #0002}.eyebrow{color:var(--accent);letter-spacing:.15em;text-transform:uppercase;font-size:11px;font-weight:800}.headline{font-size:24px;margin:6px 0 4px;letter-spacing:-.04em}.muted{color:var(--muted);line-height:1.48;font-size:13px}.tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(93px,1fr));gap:7px;margin:14px 0}.tab{padding:11px 5px;border:1px solid var(--border);border-radius:12px;background:#152238;color:var(--ink);font-weight:750}.tab.active{background:#25515b;border-color:#5dd7c8;color:white}.tab small{display:block;color:var(--muted);font-size:10px;margin-top:4px}
+    .gameboard{width:100%;height:auto;aspect-ratio:600/690;display:block;background:#0d192b;border-radius:14px;border:1px solid #425470}.scoreline{display:flex;justify-content:space-between;margin:11px 0 0;align-items:center;gap:12px}.score{font-size:18px;font-weight:900}.score-num{font-variant-numeric:tabular-nums;color:var(--gold)}
+    .device{background:linear-gradient(140deg,#091020,#142840);border:7px solid #070b14;border-radius:34px;padding:18px 14px 13px;box-shadow:inset 0 0 0 1px #60778a,0 12px 24px #0005;margin:15px auto 10px;max-width:410px}.device-speaker{width:70px;height:6px;border-radius:20px;background:#33485d;margin:-6px auto 17px}.pad{position:relative;overflow:hidden;height:min(46vh,330px);min-height:235px;touch-action:none;user-select:none;background:repeating-linear-gradient(0deg,transparent 0 35px,#ffffff09 36px),repeating-linear-gradient(90deg,transparent 0 35px,#ffffff09 36px),radial-gradient(circle at center,#1b5b65,#102938 76%);border:1px solid #4a7884;border-radius:19px;cursor:crosshair}.pad:before{content:'';position:absolute;left:50%;top:50%;width:56%;height:72%;transform:translate(-50%,-50%);border:1px dashed #5cded75c;border-radius:50%}.pad:after{content:'↑ FLIP / RELEASE';position:absolute;top:8%;width:100%;text-align:center;color:#b7ffe8;letter-spacing:.16em;font-size:10px;font-weight:900;pointer-events:none}.pad .instruction{position:absolute;bottom:14px;left:12px;right:12px;text-align:center;color:#cbe1e6;font-size:12px;line-height:1.3;pointer-events:none}.touchdot{position:absolute;border-radius:50%;width:34px;height:34px;border:2px solid #eeffdb;background:#85e3d590;transform:translate(-50%,-50%);box-shadow:0 0 17px #91f6da66;pointer-events:none;display:flex;justify-content:center;align-items:center;font-size:9px;color:#001}.touchdot.anchor{background:#ffd17cb8;border-color:#fff6b9}
+    .device-foot{text-align:center;color:#8b9daf;font-size:10px;margin-top:11px}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.action{border:1px solid #4c6a73;background:#23384b;color:white;padding:10px 13px;border-radius:10px;font-weight:750}.action.main{background:var(--accent);color:#08202b;border-color:var(--accent)}.status{background:#0d182b;padding:13px;border:1px solid var(--border);border-radius:13px;margin-top:12px;color:#dae9ef;font-size:12px;min-height:56px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}.metric{background:#101d2c;border-radius:9px;padding:10px 8px}.metric .k{color:var(--muted);font-size:10px}.metric .v{font-size:17px;font-variant-numeric:tabular-nums;font-weight:850;margin-top:3px}.about{margin-top:12px;border-top:1px solid #3a5060;padding-top:12px}.about summary{cursor:pointer;font-weight:750;font-size:12px;color:var(--accent)}.about p{font-size:12px;color:var(--muted);line-height:1.5}.footer{max-width:1160px;margin:0 auto;padding:0 20px 20px;color:#879ab1;font-size:12px}
+    @media(max-width:760px){main{display:flex;flex-direction:column;padding:12px;gap:12px}.panel{width:100%;padding:14px}.brand{align-items:flex-start}.gameboard{aspect-ratio:600/500}.device{padding:14px}.pad{height:280px;min-height:220px}.headline{font-size:21px}.scoreline{font-size:12px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<header><div class="brand"><div><div class="mark">TC ◈ TACTILECORE SDK</div><div class="sub">UNIVERSAL WRIST-FLIP CONTROLLER · HYBRID KINETIC BUILD 0.2</div></div><div class="sub">DESIGN: NATHAN TABOR<br>2026.11.12</div></div></header>
+<main>
+<section class="panel" aria-label="Selected game"><div class="eyebrow">CARTRIDGE SELECTOR</div><h1 class="headline" id="gameTitle">Ten-pin bowling</h1><p class="muted" id="gameDescription">Your device becomes the game controller: aim, swipe, and release.</p>
+<div class="tabs" role="group" aria-label="Game cartridge"><button class="tab active" data-game="ten_pin_bowling">BOWLING<small>CARTRIDGE 08</small></button><button class="tab" data-game="beanbag_toss">CORNHOLE<small>CARTRIDGE 02</small></button><button class="tab" data-game="pub_darts">DARTS<small>CARTRIDGE 09</small></button><button class="tab" data-game="baseball_pitching">BASEBALL<small>AIR / TOUCH</small></button><button class="tab" data-game="air_patterns">AIR PATTERNS<small>CONDUCTOR</small></button></div>
+<canvas class="gameboard" id="game" width="600" height="690" aria-label="Game board showing the result of a throw"></canvas><div class="scoreline"><span class="score" id="roundText">READY TO PLAY</span><span class="score score-num" id="scoreText">SCORE 0</span></div>
+</section>
+<section class="panel" aria-label="Wrist flip input controller"><div class="eyebrow">PHONE → GAME OBJECT</div><h2 class="headline">Grip. Aim. Flip. Release.</h2><p class="muted">Use one fingertip, a two-point pinch, or a three-point triangle. Baseball also supports deliberately armed handheld air gestures, and Conductor recognizes rotational patterns. Your bottommost touch acts as the <strong>estimated anchor</strong>; touch contacts are not fingerprint-identified.</p>
+<div class="device"><div class="device-speaker"></div><div id="pad" class="pad" role="application" aria-label="Touch area for game gestures"><div class="instruction">Place fingers on this pad.<br>Swipe upward, then lift to throw.<br><strong>Never throw your actual device.</strong></div></div><div class="device-foot" id="gripText">0 CONTACTS • TOUCH OR SWIPE TO BEGIN</div></div>
+<div class="controls"><button id="demo" class="action main">TRY DEMO FLIP</button><button id="motion" class="action">ENABLE DEVICE MOTION</button><button id="reset" class="action">RESET SCORE</button><button id="holdAir" class="action" hidden>HOLD TO ARM / TRACE</button><button id="airDemo" class="action" hidden>SIMULATE AIR INPUT</button></div>
+<div class="status" id="status" role="status" aria-live="polite">Ready. All games work with touch alone. Physical motion sensing is optional and requires browser/device support.</div>
+<div class="metrics"><div class="metric"><div class="k">POWER</div><div class="v" id="metricPower">0%</div></div><div class="metric"><div class="k">SPIN</div><div class="v" id="metricSpin">0.00</div></div><div class="metric"><div class="k">GRIP</div><div class="v" id="metricGrip">–</div></div></div>
+<details class="about"><summary>How this experimental controller works</summary><p>Touch contacts are tracked using stable pointer IDs. A bottommost contact is estimated as the anchor when multiple touches are present. Lifting the anchor opens a short 15–45 ms release window; a 14 ms guard excludes noisy lift-off position spikes. Touch movement sets arcade-game power, aim, and spin. With permission, recent device gyroscope readings can modify touch results or drive the new virtual air mode. Air motion is armed only while holding an explicit control; never let go of your device. Air patterns use projected angular movement, not true XYZ position.</p><p>Finger identities, actual fingertip pressure, guaranteed latency, professional dart aerodynamics, and real-world collision physics are not established by this demo. Calibration and hardware trials are necessary.</p></details>
+</section>
+</main><div class="footer">Experimental prototype • No advertising, analytics, network transmission, or third-party packages • Local processing only • Authorship attribution: Nathan Tabor (user designation).</div>
+<script>
+// File: engine.mjs
+/**
+ * TactileCoreSDK - wrist-flip gesture engine (original demonstration implementation)
+ * Authorship/design attribution: Nathan Tabor, 2026-11-12 (user-designated IP).
+ * The implementation reads TOUCH CONTACTS, not biological finger identities.
+ * Screen Y increases downward; the bottommost contact has MAXIMUM y.
+ * It never instructs the player to actually throw or release a device.
+ */
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const finite = (n, d=0) => Number.isFinite(n) ? n : d;
+const angleDelta = (a, b) => Math.atan2(Math.sin(b-a), Math.cos(b-a));
+
+class WristFlipEngine {
+  constructor({onThrow = () => {}, liftGuardMs = 14, historyMs = 50,
+    maxReleaseMs = 45, useMotion = false, padWidth = 360, padHeight = 320} = {}) {
+    this.onThrow = onThrow;
+    this.liftGuardMs = liftGuardMs;
+    this.historyMs = historyMs;
+    this.maxReleaseMs = maxReleaseMs;
+    this.useMotion = useMotion;
+    this.padWidth = padWidth;
+    this.padHeight = padHeight;
+    this.contacts = new Map();
+    this.grip = null;
+    this.lastMotion = null;
+    this.lastThrow = null;
+    this.activeThrowCount = 0;
+  }
+  size(w,h) { this.padWidth = Math.max(1,w); this.padHeight = Math.max(1,h); }
+  enableMotion(v) { this.useMotion = !!v; }
+  motion(sample) {
+    if (sample && (Number.isFinite(sample.beta) || Number.isFinite(sample.gamma))) {
+      this.lastMotion = {beta:finite(sample.beta), gamma:finite(sample.gamma),
+        accelerationY:finite(sample.accelerationY), t: finite(sample.t)};
+    }
+  }
+  down(id,x,y,t) {
+    if (this.grip?.fired && this.contacts.size) return;
+    if (this.grip?.fired && !this.contacts.size) this.grip=null;
+    if (this.contacts.has(id) || this.contacts.size>=10) return;
+    const c={id, x, y, tDown:t, hist:[{x,y,t}], tUp:null};
+    this.contacts.set(id,c);
+    this._layout();
+  }
+  move(id,x,y,t) {
+    const c=this.contacts.get(id); if (!c) return;
+    if (t < c.hist[c.hist.length-1].t) return;
+    c.x=x; c.y=y;
+    c.hist.push({x,y,t});
+    // Keep >50ms prehistory until a contact is released.
+    while (c.hist.length>2 && c.hist[1].t < t-this.historyMs-55) c.hist.shift();
+  }
+  up(id,x,y,t) {
+    const c=this.contacts.get(id); if(!c) return;
+    // An up position may be a hardware edge artifact. Retain it but guard it.
+    c.hist.push({x,y,t}); c.x=x; c.y=y; c.tUp=t;
+    if (this.grip) {
+      this.grip.finished.set(id, {...c,hist:[...c.hist]});
+      if (!this.grip.releaseAt && this.grip.count>=2 && id===this.grip.anchorId) {
+        this.grip.releaseAt=t;
+      }
+    }
+    this.contacts.delete(id);
+    if (!this.contacts.size) this._finalize(t);
+    else if (this.grip?.releaseAt && t-this.grip.releaseAt>=this.maxReleaseMs) this._finalize(t);
+  }
+  cancel() { this.contacts.clear(); this.grip=null; }
+  tick(t) {
+    if (this.grip?.releaseAt && !this.grip.fired && t-this.grip.releaseAt>=this.maxReleaseMs) this._finalize(t);
+  }
+  _layout() {
+    if (!this.contacts.size || this.grip?.releaseAt) return;
+    const ordered=[...this.contacts.values()].sort((a,b)=>b.y-a.y);
+    const selected=ordered.slice(0,3);
+    const prevCount=this.grip?.count ?? 0;
+    if (selected.length < prevCount) return;
+    const anchor=selected[0];
+    this.grip={count:selected.length,anchorId:anchor.id,
+      controlIds:selected.slice(1).map(c=>c.id),
+      initial:[...selected].map(c=>({id:c.id,x:c.x,y:c.y})),
+      finished:new Map(),releaseAt:null,fired:false};
+  }
+  _contactFor(id) { return this.grip?.finished.get(id) || this.contacts.get(id); }
+  _slope(contact, tEnd) {
+    if(!contact) return {vx:0,vy:0,point:{x:0,y:0,t:tEnd}};
+    const hist=contact.hist;
+    const cut = tEnd-this.liftGuardMs;
+    const valid=hist.filter(p=>p.t<=cut);
+    // Sparse devices can deliver only a short history. Use oldest available
+    // and avoid trusting the last UP point unless absolutely necessary.
+    const end = valid[valid.length-1] || hist[0];
+    const start = valid.find(p=>p.t>=end.t-this.historyMs) || valid[0] || hist[0];
+    const dt=Math.max(1,end.t-start.t);
+    return {vx:(end.x-start.x)/dt,vy:(end.y-start.y)/dt,point:end};
+  }
+  _finalize(t) {
+    const g=this.grip;
+    if(!g || g.fired) return;
+    g.fired=true;
+    const ids=[g.anchorId,...g.controlIds];
+    const contacts=ids.map(id=>this._contactFor(id)).filter(Boolean);
+    if(!contacts.length) { this.grip=null; return; }
+    const release=g.releaseAt || Math.max(...contacts.map(c=>c.tUp??t));
+    const slopes=contacts.map(c=>this._slope(c,c.tUp??release));
+    const controls=g.count===1?slopes:slopes.slice(1);
+    const mean=(arr,key)=>arr.reduce((s,v)=>s+v[key],0)/Math.max(1,arr.length);
+    const meanX=mean(controls,'vx'), meanY=mean(controls,'vy');
+    const anchor = contacts[0];
+    const prior = g.initial.find(c=>c.id===g.anchorId) || g.initial[0];
+    const rawStance = clamp((prior?.x??anchor.x)/this.padWidth,0,1);
+    let angleSpin=0;
+    if(g.controlIds.length===2) {
+      const first=g.initial.find(c=>c.id===g.controlIds[0]);
+      const second=g.initial.find(c=>c.id===g.controlIds[1]);
+      const p=slopes[1]?.point, q=slopes[2]?.point;
+      if(first && second && p && q) {
+        const a=Math.atan2(second.y-first.y,second.x-first.x);
+        const b=Math.atan2(q.y-p.y,q.x-p.x);
+        angleSpin=angleDelta(a,b)/(Math.PI/2);
+      }
+    }
+    const differential=controls.length===2 ? (controls[1].vx-controls[0].vx) : 0;
+    const freshMotion=this.useMotion && this.lastMotion && Math.abs(release-this.lastMotion.t)<300;
+    const motion=freshMotion ? this.lastMotion : null;
+    // Positive power on upward swipe; touchscreen alone never senses true wrist motion.
+    const swipe=clamp(-meanY/1.25,0,1);
+    const power=clamp(swipe + Math.max(0,finite(motion?.beta))/450,0,1);
+    const spin=clamp(angleSpin*.62+differential*.22+(motion?.gamma||0)/480,-1,1);
+    const aimX=clamp(rawStance*.72+clamp(.5+meanX*.55,0,1)*.28,0,1);
+    const loft=clamp(.20+power*.65+(motion?Math.max(0,motion.accelerationY)/30:0),0,1);
+    const out={type:'wrist-flip',fingerCount:g.count,mode: `${g.count}_digit`,
+      anchor:'bottommost contact at initial grip (estimated)',
+      t:release,stance:rawStance,aimX,power,spin,loft,
+      velocity:{x:meanX,y:meanY},
+      motionUsed:!!motion,releaseWindowMs: g.releaseAt?Math.max(0,t-g.releaseAt):0,
+      guardedMs:this.liftGuardMs,
+      contactIds:ids, // pointer IDs; NOT physical finger identities
+    };
+    this.lastThrow=out;
+    this.activeThrowCount++;
+    this.onThrow(out);
+    if(!this.contacts.size) this.grip=null;
+  }
+  snapshot() {
+    return {touchCount:this.contacts.size, fingerCount:this.grip?.count||0,
+      bottomId:this.grip?.anchorId??null,releasePending:!!this.grip?.releaseAt,
+      contacts:[...this.contacts.values()].map(({id,x,y})=>({id,x,y}))};
+  }
+}
+
+
+// File: games.mjs
+
+/** Deliberately playable ARCADE physics, not claimed to replicate real-world ball/bag/dart physics. */
+const cartridges=[
+  {id:'ten_pin_bowling',label:'Bowling',number:'08',description:'Lane placement, power, late hook'},
+  {id:'beanbag_toss',label:'Cornhole',number:'02',description:'Underhand bag toss and board scoring'},
+  {id:'pub_darts',label:'Darts',number:'09',description:'Wrist-flip aim, rings, and scoring'},
+  {id:'baseball_pitching',label:'Baseball',number:'B',description:'Virtual pitch with a wrist flick or deliberately armed handheld motion'},
+  {id:'air_patterns',label:'Air Patterns',number:'A',description:'Trace circles, triangles, figure-eights, and swish-and-flick gestures'},
+];
+const scores=[20,1,18,4,13,6,10,15,2,17,3,19,7,16,8,11,14,9,12,5];
+function evaluateThrow(gameId,g) {
+  const power=clamp(g.power,0,1), spin=clamp(g.spin,-1,1);
+  if(gameId==='ten_pin_bowling') {
+    const x=clamp(g.aimX+.10*spin,0,1);
+    const ideal=Math.abs(x-.51);
+    const efficiency=Math.min(1,power/.58);
+    const pins=clamp(Math.round((10-ideal*24)*efficiency + Math.min(2,Math.abs(spin)*2)),0,10);
+    return {x,y:.18+.32*(1-power),score:pins,kind:pins===10?'STRIKE!':`${pins} pins`,
+      hint:'Demonstration scoring only; upgrade to rigid-body ball/pin simulation'};
+  }
+  if(gameId==='beanbag_toss') {
+    const x=clamp(g.aimX+spin*.12,0,1);
+    const y=clamp(1.05-power*1.05,0,1);
+    const dx=(x-.5)*1.35, dy=(y-.28)*1.4;
+    const dist=Math.hypot(dx,dy);
+    const score=dist<.11?3:dist<.55?1:0;
+    return {x,y,score,kind:score===3?'IN THE HOLE':score===1?'ON THE BOARD':'OFF THE BOARD',
+      hint:'Illustrative bag placement; independent contact and friction modelling is future work'};
+  }
+  if(gameId==='baseball_pitching'){
+    const x=clamp(g.aimX+.16*spin,0,1);
+    const y=clamp(.5+(0.55-power)*.50,0,1);
+    const strike=(x>.31&&x<.69&&y>.30&&y<.72);
+    return {x,y,score:strike?1:0,kind:strike?'STRIKE ZONE':'BALL',
+      hint:'Arcade strike-zone scoring; neither true pitch MPH nor ball flight has been measured'};
+  }
+  const x=clamp(g.aimX+spin*.13,0,1);
+  const y=clamp(.5+(0.54-power)*.65,0,1);
+  const dx=x-.5,dy=y-.5,dist=Math.hypot(dx,dy);
+  let score=0,kind='MISS';
+  if(dist<.034) {score=50;kind='DOUBLE BULL';}
+  else if(dist<.07) {score=25;kind='SINGLE BULL';}
+  else if(dist<.48) {
+    // 20 on top; each wedge spans 18 degrees, clockwise from 12 o'clock.
+    const angle=(Math.atan2(dx,-dy)+Math.PI*2)%(Math.PI*2);
+    const wedge=Math.floor((angle+Math.PI/20)/(Math.PI/10))%20;
+    const base=scores[wedge];
+    const multiplier=(dist>.41 && dist<.48)?2:(dist>.235 && dist<.285)?3:1;
+    score=base*multiplier;kind=`${multiplier===3?'TRIPLE ':multiplier===2?'DOUBLE ':''}${base}`;
+  }
+  return {x,y,score,kind,hint:'Illustrative dart trajectory; advanced dart flight/collision remains unimplemented'};
+}
+
+
+// File: kinetic.mjs
+/**
+ * TactileCoreSDK HybridKineticEngine (browser research version).
+ * Input is live accelerometer/gyroscope telemetry if available and permitted.
+ * In-air release is an IN-GAME EVENT. NEVER throw the phone physically.
+ * Rotation-only integration estimates ORIENTATION TRACES, not 3D hand position.
+ * Conceptual design and vocabulary: Nathan Tabor, 2026-11-12 (user-designated IP).
+ */
+
+function classifyAirPath(points) {
+  if (points.length<18) return 'unknown';
+  const xs=points.map(p=>p.x),ys=points.map(p=>p.y);
+  const diag=Math.hypot(Math.max(...xs)-Math.min(...xs),Math.max(...ys)-Math.min(...ys));
+  if (diag<18) return 'unknown';
+  const [first,last]=[points[0],points.at(-1)];
+  const closed=Math.hypot(last.x-first.x,last.y-first.y)/diag<.32;
+  let turn=0,corners=0;
+  for(let i=2;i<points.length;i++){
+    const a={x:points[i-1].x-points[i-2].x,y:points[i-1].y-points[i-2].y};
+    const b={x:points[i].x-points[i-1].x,y:points[i].y-points[i-1].y};
+    const la=Math.hypot(a.x,a.y),lb=Math.hypot(b.x,b.y);
+    if(la<=.4||lb<=.4)continue;
+    const dot=a.x*b.x+a.y*b.y;
+    turn+=Math.atan2(a.x*b.y-a.y*b.x,dot);
+    if(dot/(la*lb)<.35)corners++;
+  }
+  if(closed)return Math.abs(turn)<1.8?'figureEight':corners>=2?'triangle':'circle';
+  return last.y>first.y && Math.min(...ys)<first.y?'swishFlick':'unknown';
+}
+class HybridKineticEngine {
+  constructor({onThrow=()=>{},onPattern=()=>{},onPath=()=>{}}={}){
+    this.onThrow=onThrow;this.onPattern=onPattern;this.onPath=onPath;
+    this.mode='off';this.armed=false;this.tracing=false;
+    this.peak=0;this.peakAt=-Infinity;this.peakRot={x:0,y:0,z:0};
+    this.lastFire=-Infinity;this.lastSample=null;this.points=[];
+  }
+  setMode(mode){this.mode=['off','throw','trace'].includes(mode)?mode:'off';
+    this.armed=false;this.tracing=false;this.peak=0;this.points=[];this.lastSample=null;}
+  arm(yes){this.armed=!!yes&&this.mode==='throw';this.peak=0;this.peakAt=-Infinity;}
+  trace(yes){
+    if(this.mode!=='trace')return;
+    if(yes){this.tracing=true;this.points=[{x:0,y:0}];this.lastSample=null;}
+    else if(this.tracing){this.tracing=false;const p=this.points.slice();this.onPattern(classifyAirPath(p),p);this.points=[];}
+  }
+  ingest(s){
+    // t in ms; accel in g; gyro in rad/s (web DeviceMotion conversions in app.mjs)
+    if(!s||!Number.isFinite(s.t))return;
+    const accel=Math.hypot(s.ay||0,s.az||0);
+    if(this.mode==='throw'&&this.armed){
+      if(accel>this.peak){this.peak=accel;this.peakAt=s.t;this.peakRot={x:s.rx||0,y:s.ry||0,z:s.rz||0};}
+      if(this.peak>.75 && s.t-this.peakAt<250 && accel<this.peak*.45 && s.t-this.lastFire>=900){
+        this.armed=false;this.lastFire=s.t;
+        const power=clamp((this.peak-.3)/2.5,.1,1);
+        const spin=clamp(this.peakRot.y/8,-1,1);
+        this.onThrow({type:'in-air-virtual',fingerCount:0,mode:'inAir',power,
+          aimX:clamp(.5+spin*.12,0,1),spin,loft:clamp(.5+(s.pitch||0)/90,0,1),
+          motionUsed:true,axialSpinRPM:clamp(Math.hypot(this.peakRot.x,this.peakRot.y)*240,0,2800),
+          releaseAt:s.t,guardedMs:null});
+      }
+    }
+    if(this.mode==='trace'&&this.tracing){
+      if(this.lastSample){
+        const dt=clamp((s.t-this.lastSample.t)/1000,0,.05);
+        const last=this.points.at(-1)||{x:0,y:0};
+        const pt={x:last.x-(s.rz||0)*dt*100,y:last.y+(s.rx||0)*dt*100};
+        this.points.push(pt);if(this.points.length>600)this.points.shift();
+        this.onPath(pt);
+      }
+    }
+    this.lastSample=s;
+  }
+}
+
+
+// File: app.mjs
+
+
+
+const $=(id)=>document.getElementById(id);
+const gameCanvas=$('game'),ctx=gameCanvas.getContext('2d');
+const pad=$('pad');
+let cartridge='ten_pin_bowling',score=0,rounds=0;
+let lastOutcome=null,animation=null,history=[];
+let lastPattern=null, drawnPattern=[], patternPointer=null;
+let motionEnabled=false,motionSeen=false;
+let lastMotionAt=0;
+const gameLabel={ten_pin_bowling:'Ten-pin bowling',beanbag_toss:'Cornhole',pub_darts:'Pub darts',baseball_pitching:'Baseball pitching',air_patterns:'Air conductor patterns'};
+function handleThrow(g){
+  if(cartridge==='air_patterns') return;
+  const outcome=evaluateThrow(cartridge,g);
+  lastOutcome={...outcome,g};
+  history.push({timestamp:new Date().toISOString(),cartridge,gesture:g,result:outcome});
+  score+=outcome.score;rounds++;
+  $('scoreText').textContent=`SCORE ${score}`;
+  $('roundText').textContent=`${outcome.kind}  •  THROW ${rounds}`;
+  $('metricPower').textContent=Math.round(g.power*100)+'%';
+  $('metricSpin').textContent=g.spin.toFixed(2);
+  $('metricGrip').textContent=g.fingerCount+' DIGIT';
+  $('status').textContent=`${gameLabel[cartridge]}: ${outcome.kind} (${outcome.score} pts). ${g.fingerCount}-contact grip, ${g.motionUsed?'motion + touch':'touch only'}. ${outcome.hint}`;
+  animation={t:performance.now(),duration:870,result:outcome,cartridge};
+  if(navigator.vibrate) navigator.vibrate(18);
+}
+const engine=new WristFlipEngine({padWidth:pad.clientWidth,padHeight:pad.clientHeight,onThrow:handleThrow});
+const kinetic=new HybridKineticEngine({onThrow:g=>{if(cartridge==='baseball_pitching')handleThrow(g);},onPattern:(shape,points)=>showPattern(shape,points,'air rotation')});
+function showPattern(shape,points,source){
+  lastPattern={shape,points,source};
+  history.push({timestamp:new Date().toISOString(),cartridge:'air_patterns',source,shape,pointCount:points.length});
+  rounds++;if(shape!=='unknown')score++;
+  $('scoreText').textContent=`SCORE ${score}`;
+  $('roundText').textContent=`PATTERN ${rounds}`;
+  $('metricGrip').textContent=source==='air rotation'?'AIR':'DRAW';
+  $('metricSpin').textContent=shape;
+  $('status').textContent=`${source.toUpperCase()}: ${shape}. Pattern detection uses projected motion; this is not calibrated 3D tracking.`;
+}
+
+function setGame(id){
+  if(!cartridges.some(g=>g.id===id))return;
+  cartridge=id;score=0;rounds=0;lastOutcome=null;animation=null;lastPattern=null;drawnPattern=[];
+  kinetic.setMode(motionEnabled?(id==='baseball_pitching'?'throw':id==='air_patterns'?'trace':'off'):'off');
+  $('holdAir').hidden=!['baseball_pitching','air_patterns'].includes(id);
+  $('airDemo').hidden=!['baseball_pitching','air_patterns'].includes(id);
+  $('holdAir').textContent=id==='air_patterns'?'HOLD TO TRACE':'HOLD TO ARM';
+  $('gameTitle').textContent=gameLabel[id];
+  $('gameDescription').textContent=cartridges.find(g=>g.id===id).description+' • Shared 1/2/3-contact wrist-flip control';
+  document.querySelectorAll('.tab').forEach(b=>{b.classList.toggle('active',b.dataset.game===id);b.setAttribute('aria-pressed',String(b.dataset.game===id));});
+  $('roundText').textContent='READY TO PLAY';$('scoreText').textContent='SCORE 0';
+  $('status').textContent=id==='air_patterns'?'Air patterns: enable sensors, hold TRACE and rotate the device gently; or DRAW on the pad for a screen-based preview. Never throw the device.':id==='baseball_pitching'?'Baseball: use touch flicks, or enable motion and hold ARM for a controlled virtual pitch. Keep the phone in your hand.':`${gameLabel[id]} selected. Place fingers on the pad, swipe upward and release. Do not toss the device.`;
+}
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>setGame(btn.dataset.game)));
+$('reset').addEventListener('click',()=>setGame(cartridge));
+
+function coords(e){const r=pad.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
+function capturePad(e){if(e.pointerType==='mouse'&&e.button!==0)return;
+  if(cartridge==='air_patterns'){const p=coords(e);patternPointer=e.pointerId;drawnPattern=[p];pad.setPointerCapture?.(e.pointerId);e.preventDefault();return;}
+  e.preventDefault(); const {x,y}=coords(e);pad.setPointerCapture?.(e.pointerId);
+  engine.down(e.pointerId,x,y,performance.now());showTouches();}
+pad.addEventListener('pointerdown',capturePad);
+pad.addEventListener('pointermove',e=>{
+  if(cartridge==='air_patterns'&&e.pointerId===patternPointer){e.preventDefault();drawnPattern.push(coords(e));return;}
+  if(!engine.contacts.has(e.pointerId))return; e.preventDefault();
+  const events=typeof e.getCoalescedEvents==='function'?e.getCoalescedEvents():[];
+  // Browser coalesced event timestamps share the performance timebase.
+  for(const s of events){const p=coords(s);engine.move(e.pointerId,p.x,p.y,s.timeStamp);}
+  const p=coords(e);engine.move(e.pointerId,p.x,p.y,performance.now());showTouches();
+});
+pad.addEventListener('pointerup',e=>{
+  if(cartridge==='air_patterns'&&patternPointer===e.pointerId){e.preventDefault();drawnPattern.push(coords(e));showPattern(classifyAirPath(drawnPattern),drawnPattern.slice(),'on-screen drawing');drawnPattern=[];patternPointer=null;return;}
+  e.preventDefault();const p=coords(e);engine.up(e.pointerId,p.x,p.y,performance.now());showTouches();});
+pad.addEventListener('pointercancel',()=>{patternPointer=null;drawnPattern=[];engine.cancel();showTouches();$('status').textContent='Gesture canceled by the system. Try again.';});
+pad.addEventListener('lostpointercapture',e=>{if(engine.contacts.has(e.pointerId)){engine.cancel();showTouches();}});
+function showTouches(){
+  const snap=engine.snapshot();
+  pad.querySelectorAll('.touchdot').forEach(n=>n.remove());
+  for(const c of snap.contacts){const dot=document.createElement('div');dot.className='touchdot'+(c.id===snap.bottomId?' anchor':'');dot.style.left=c.x+'px';dot.style.top=c.y+'px';dot.textContent=c.id===snap.bottomId?'A':'C';pad.append(dot);}
+  $('gripText').textContent=`${snap.touchCount} CONTACT${snap.touchCount===1?'':'S'} • ${snap.fingerCount}-DIGIT ${snap.releasePending?'RELEASE WINDOW':'GRIP'}`;
+}
+
+$('demo').addEventListener('click',()=>{
+  if(cartridge==='air_patterns'){const points=Array.from({length:91},(_,i)=>({x:125+55*Math.cos(i*2*Math.PI/90),y:130+55*Math.sin(i*2*Math.PI/90)}));showPattern('circle',points,'simulated on-screen');return;}
+  if(engine.contacts.size) return;
+  const t=performance.now();const w=pad.clientWidth,h=pad.clientHeight;
+  const thumb=w*.50,lower=h*.85;
+  engine.down(101,thumb,lower,t);engine.down(102,w*.38,h*.58,t);engine.down(103,w*.64,h*.58,t);
+  engine.move(102,w*.39,h*.45,t+20);engine.move(103,w*.64,h*.44,t+20);
+  engine.move(102,w*.39,h*.28,t+42);engine.move(103,w*.66,h*.29,t+42);
+  engine.up(101,thumb,lower,t+48);engine.up(102,w*.39,h*.25,t+66);engine.up(103,w*.66,h*.25,t+67);
+  showTouches();
+});
+
+$('motion').addEventListener('click',async()=>{
+  if(motionEnabled){motionEnabled=false;engine.enableMotion(false);kinetic.setMode('off');$('motion').textContent='ENABLE DEVICE MOTION';$('status').textContent='Device motion disabled. Touch-only controls remain active.';return;}
+  if(typeof DeviceMotionEvent==='undefined'){$('status').textContent='Device-motion API is not available on this browser. Touch-only mode still works.';return;}
+  if(!window.isSecureContext){$('status').textContent='Device motion generally requires HTTPS or localhost. Touch-only mode works without it.';return;}
+  try {
+    if(typeof DeviceMotionEvent.requestPermission==='function'){
+      const res=await DeviceMotionEvent.requestPermission();
+      if(res!=='granted'){$('status').textContent='Motion permission not granted. Touch-only mode stays active.';return;}
+    }
+    if(!motionEnabled){window.addEventListener('devicemotion',handleMotion,{passive:true});}
+    motionEnabled=true;engine.enableMotion(true);kinetic.setMode(cartridge==='baseball_pitching'?'throw':cartridge==='air_patterns'?'trace':'off');$('motion').textContent='DISABLE DEVICE MOTION';
+    $('status').textContent='Motion requested. Gyroscope effects apply only when the device supplies recent sensor data. Touch-only is always supported.';
+  }catch(err){$('status').textContent='Motion permission or hardware unavailable. Touch-only mode remains available.';}
+});
+function handleMotion(e){if(!motionEnabled)return;const r=e.rotationRate||{};
+  const t=performance.now();
+  if(Number.isFinite(r.beta)||Number.isFinite(r.gamma)||Number.isFinite(e.acceleration?.y)){
+    motionSeen=true;lastMotionAt=t;
+    engine.motion({beta:r.beta,gamma:r.gamma,accelerationY:e.acceleration?.y,t});
+    // Browser DeviceMotion rotationRate is degrees/sec; native CoreMotion is rad/sec.
+    const deg=Math.PI/180;kinetic.ingest({t,ay:(e.acceleration?.y||0)/9.80665,az:(e.acceleration?.z||0)/9.80665,
+      rx:(r.beta||0)*deg,ry:(r.gamma||0)*deg,rz:(r.alpha||0)*deg,pitch:0});
+  }
+}
+function holdState(v){if(!motionEnabled&&v){$('status').textContent='Enable device motion to use real handheld input, or use SIMULATE AIR INPUT.';return;}
+  if(cartridge==='baseball_pitching')kinetic.arm(v);else if(cartridge==='air_patterns')kinetic.trace(v);}
+const hold=$('holdAir');
+hold.addEventListener('pointerdown',e=>{hold.setPointerCapture?.(e.pointerId);holdState(true);});
+hold.addEventListener('pointerup',()=>holdState(false));
+hold.addEventListener('pointercancel',()=>holdState(false));
+hold.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter')holdState(true);});
+hold.addEventListener('keyup',e=>{if(e.key===' '||e.key==='Enter')holdState(false);});
+$('airDemo').addEventListener('click',()=>{
+  if(cartridge==='baseball_pitching'){kinetic.setMode('throw');kinetic.arm(true);const t=performance.now();kinetic.ingest({t,ay:1.2,az:.1,rx:.6,ry:2});kinetic.ingest({t:t+35,ay:.12,az:0,rx:.15,ry:.2});kinetic.setMode(motionEnabled?'throw':'off');}
+  else if(cartridge==='air_patterns'){const points=Array.from({length:101},(_,i)=>({x:200+60*Math.sin(i*2*Math.PI/100),y:140+46*Math.sin(i*4*Math.PI/100)}));showPattern(classifyAirPath(points),points,'simulated gesture');}
+});
+
+function text(x,y,value,size=20,color='#e9fafb',align='center'){
+  ctx.fillStyle=color;ctx.font=`${size}px system-ui`;ctx.textAlign=align;ctx.fillText(value,x,y);
+}
+function circle(x,y,r,color,stroke='#ffffff66',line=2){ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();ctx.lineWidth=line;ctx.strokeStyle=stroke;ctx.stroke();}
+function rounded(x,y,w,h,r,fill){ctx.fillStyle=fill;ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill();}
+function boardBase(){ctx.clearRect(0,0,600,690);const g=ctx.createLinearGradient(0,0,600,690);g.addColorStop(0,'#12334a');g.addColorStop(1,'#0c152c');ctx.fillStyle=g;ctx.fillRect(0,0,600,690);}
+function bowling(){
+  boardBase(); text(300,43,'TEN-PIN BOWLING',27,'#c7eff0');
+  ctx.fillStyle='#31475d';ctx.beginPath();ctx.moveTo(175,92);ctx.lineTo(425,92);ctx.lineTo(565,641);ctx.lineTo(35,641);ctx.closePath();ctx.fill();
+  ctx.fillStyle='#cfa673';ctx.beginPath();ctx.moveTo(194,102);ctx.lineTo(405,102);ctx.lineTo(509,625);ctx.lineTo(94,625);ctx.closePath();ctx.fill();
+  ctx.strokeStyle='#816039';ctx.lineWidth=2;for(let i=1;i<9;i++){let x=194+(405-194)*i/9;ctx.beginPath();ctx.moveTo(x,102);ctx.lineTo(94+(509-94)*i/9,625);ctx.stroke();}
+  text(300,87,'PINS',12,'#ffe4b9');
+  const pins=[[300,180],[277,167],[323,167],[254,154],[300,154],[346,154],[232,140],[277,140],[323,140],[368,140]];
+  pins.forEach(([x,y])=>{rounded(x-7,y-10,14,26,6,'#f0f6e7');rounded(x-7,y-2,14,4,1,'#e95366');});
+  const x=lastOutcome?.x*400+100||300;const y=lastOutcome?.y*330+120||495;
+  if(lastOutcome){circle(x,y,33,'#202533','#b9dfe7',3);circle(x-12,y-10,5,'#64728d');circle(x+3,y-13,5,'#64728d');circle(x+12,y,5,'#64728d');}
+  else{circle(300,563,32,'#202533','#b9dfe7',3);text(300,681,'Aim with contact position • Flip upward to roll',15,'#b5d1d1');}
+}
+function cornhole(){
+  boardBase();text(300,43,'CORNHOLE',29,'#e9d7aa');
+  ctx.fillStyle='#3f6171';ctx.fillRect(0,525,600,165);
+  ctx.fillStyle='#d7a36b';ctx.beginPath();ctx.moveTo(239,110);ctx.lineTo(365,110);ctx.lineTo(520,580);ctx.lineTo(80,580);ctx.closePath();ctx.fill();
+  ctx.strokeStyle='#805831';ctx.lineWidth=12;ctx.stroke();circle(300,205,42,'#142839','#9c6e45',8);
+  text(300,92,'THE BAG BOARD',15,'#ffe9c6');
+  if(lastOutcome){const x=135+lastOutcome.x*330,y=155+lastOutcome.y*365;
+    ctx.save();ctx.translate(x,y);ctx.rotate(lastOutcome.g.spin*.35);
+    rounded(-27,-19,54,38,9,'#89e1da');ctx.strokeStyle='#d1fff9';ctx.lineWidth=3;ctx.strokeRect(-23,-15,46,30);ctx.restore();
+  }else{text(300,660,'Flat landing = points • Hole = 3',17,'#e8edca');}
+}
+function darts(){
+  boardBase();text(300,43,'PUB DARTS',29,'#eff8eb');const cx=300,cy=338,R=243;
+  circle(cx,cy,R+12,'#715c4b','#c9ae81',13);
+  const wedgeColors=['#e2d6af','#273c3d'];
+  for(let i=0;i<20;i++){
+    const start=-Math.PI/2+(i-.5)*Math.PI/10,end=start+Math.PI/10;
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,R,start,end);ctx.closePath();ctx.fillStyle=wedgeColors[i%2];ctx.fill();
+  }
+  const rings=[{r:R*.98,w:18,col:'#153c31'},{r:R*.95,w:12,col:'#c33e3c'},{r:R*.61,w:17,col:'#17483b'},{r:R*.59,w:11,col:'#b6373e'}];
+  for(const q of rings){ctx.beginPath();ctx.arc(cx,cy,q.r,0,Math.PI*2);ctx.strokeStyle=q.col;ctx.lineWidth=q.w;ctx.stroke();}
+  circle(cx,cy,34,'#165b4b','#e3e4a2',1);circle(cx,cy,17,'#be4a44','#e5c4a0',1);
+  for(let i=0;i<20;i++){const a=-Math.PI/2+i*Math.PI/10;text(cx+Math.cos(a)*222,cy+Math.sin(a)*222,String([20,1,18,4,13,6,10,15,2,17,3,19,7,16,8,11,14,9,12,5][i]),13,'#fff5cb');}
+  if(lastOutcome){const x=cx+(lastOutcome.x-.5)*R*2,y=cy+(lastOutcome.y-.5)*R*2;ctx.strokeStyle='#e6ffff';ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(x-38,y+47);ctx.lineTo(x,y);ctx.stroke();circle(x,y,7,'#b7f5ee','#153337',2);}
+  else{text(300,657,'Center bull = 50 • Outer ring doubles',16,'#c1e5dc');}
+}
+function baseball(){
+ boardBase();text(300,43,'BASEBALL PITCHING',27,'#d9faf2');
+ const g=ctx.createLinearGradient(0,80,0,640);g.addColorStop(0,'#0b523e');g.addColorStop(1,'#184d3a');ctx.fillStyle=g;ctx.fillRect(50,90,500,530);
+ rounded(155,160,290,360,8,'#ba9270');rounded(215,240,170,200,4,'#eef9f5');
+ ctx.lineWidth=3;ctx.strokeStyle='#e05b47';ctx.strokeRect(215,240,170,200);
+ text(300,190,'STRIKE ZONE',17,'#183c30');
+ if(lastOutcome){const x=150+lastOutcome.x*300,y=210+lastOutcome.y*300;circle(x,y,16,'#f9faf5','#d64747',3);}
+ text(300,665,'ARCADE power / spin — not actual MPH',15,'#c0dbd3');
+}
+function airPatterns(){
+ boardBase();text(300,43,'AIR CONDUCTOR',29,'#cdf8e9');text(300,79,'CIRCLE • TRIANGLE • FIGURE EIGHT • SWISH',15,'#acd6de');
+ ctx.strokeStyle='#68d4c7';ctx.lineWidth=5;ctx.beginPath();
+ const p=drawnPattern.length>1?drawnPattern:lastPattern?.points||[];
+ if(p.length>1){
+   const xs=p.map(v=>v.x),ys=p.map(v=>v.y),
+     minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys);
+   const scale=Math.min(310/Math.max(1,maxX-minX),380/Math.max(1,maxY-minY),3);
+   const xy=v=>({x:300+(v.x-(minX+maxX)/2)*scale,y:348+(v.y-(minY+maxY)/2)*scale});
+   const first=xy(p[0]);ctx.moveTo(first.x,first.y);
+   for(const v of p.slice(1)){const point=xy(v);ctx.lineTo(point.x,point.y);}ctx.stroke();
+ }else{ctx.strokeStyle='#3b716c';ctx.lineWidth=3;ctx.beginPath();ctx.arc(300,340,155,0,Math.PI*2);ctx.stroke();text(300,350,'TRACE OR DRAW',24,'#baf7ed');}
+ text(300,654,lastPattern?`${lastPattern.shape} (${lastPattern.source})`:'Hold TRACE with sensors, or draw on touch pad',17,'#cdf8e9');
+}
+function animateShot(now){
+ if(!animation)return;const t=clamp((now-animation.t)/animation.duration,0,1);
+ const sx=300,sy=640,tx=180+animation.result.x*240,ty=190+animation.result.y*180;
+ if(t<1){const x=sx+(tx-sx)*t,y=sy+(ty-sy)*t-135*Math.sin(t*Math.PI);
+   circle(x,y,Math.max(6,27*(1-t)),'#b7fff2','#ffffffaa',2);
+ }else{animation=null;}
+}
+function loop(now){engine.tick(now);if(cartridge==='ten_pin_bowling')bowling();else if(cartridge==='beanbag_toss')cornhole();else if(cartridge==='pub_darts')darts();else if(cartridge==='baseball_pitching')baseball();else airPatterns();animateShot(now);requestAnimationFrame(loop);}
+window.addEventListener('resize',()=>{engine.size(pad.clientWidth,pad.clientHeight);});
+setGame(cartridge);requestAnimationFrame(loop);
+
+</script>
+</body></html>
