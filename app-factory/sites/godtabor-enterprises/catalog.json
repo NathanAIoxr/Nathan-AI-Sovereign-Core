@@ -1,0 +1,109 @@
+{
+  "schema": "godtabor.enterprises.catalog.v1",
+  "created": "2026-11-12",
+  "brand": "GODTABOR ENTERPRISES",
+  "creator": "Nathan Tabor",
+  "launch_state": "public-facing creative/software launch prepared; legal entity status unverified",
+  "model": {
+    "parent": "one discovery directory",
+    "independence": "each project retains its own source, database, identity, provenance, and release gates",
+    "records": "this JSON is a public index, not a legal corporate record or private customer database"
+  },
+  "status_terms": {
+    "browser_prototype": "an existing public browser experience, not production SaaS",
+    "public_research": "an existing public research/resource site; individual claims require source review",
+    "proposal": "an original concept only; not released or incorporated"
+  },
+  "projects": [
+    {
+      "id": "nathan-ai",
+      "name": "Nathan AI — Sovereign Core",
+      "realm": "literal",
+      "kind": "software",
+      "status": "browser_prototype",
+      "description": "Public source hub and connected browser experiences; no claim of finished private cloud services.",
+      "href": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/"
+    },
+    {
+      "id": "tabor-factory",
+      "name": "TABOR 1-2-3 FACTORY",
+      "realm": "literal",
+      "kind": "software",
+      "status": "browser_prototype",
+      "description": "Create → Connect → Launch workflow and browser prototypes; independent application identity.",
+      "href": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/"
+    },
+    {
+      "id": "one",
+      "name": "ONE — The Last App",
+      "realm": "literal",
+      "kind": "software",
+      "status": "browser_prototype",
+      "description": "Separate personal operating-system concept and web prototype sharing approved infrastructure only.",
+      "href": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/one/"
+    },
+    {
+      "id": "find-the-tabor",
+      "name": "FIND THE TABOR",
+      "realm": "literal",
+      "kind": "research",
+      "status": "public_research",
+      "description": "Source-oriented ancestry, naming, phonetics and history; verified evidence separated from interpretation.",
+      "href": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/sites/find-the-tabor/"
+    },
+    {
+      "id": "original-works",
+      "name": "Nathan Tabor Original Works",
+      "realm": "figurative",
+      "kind": "publishing",
+      "status": "browser_prototype",
+      "description": "Creator-authorized stories, books, drafts and original source preservation.",
+      "href": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/original-works/"
+    },
+    {
+      "id": "god-app",
+      "name": "GOD — App Concept",
+      "realm": "figurative",
+      "kind": "software",
+      "status": "proposal",
+      "description": "Proposed participatory identity/world-building experience: users design values and worlds, without claims of supernatural powers.",
+      "href": null
+    },
+    {
+      "id": "godtabor-franchise",
+      "name": "GODTABOR FRANCHISE",
+      "realm": "mythological",
+      "kind": "story",
+      "status": "proposal",
+      "description": "Proposed cross-media mythology of sovereignty, archetypes, human choice and accountability; fictional canon.",
+      "href": null
+    },
+    {
+      "id": "tabor-light",
+      "name": "TABOR LIGHT",
+      "realm": "mythological",
+      "kind": "story",
+      "status": "proposal",
+      "description": "Creator's metaphoric light and truth mythology; faith and history treated separately from fictional lore.",
+      "href": null
+    },
+    {
+      "id": "council",
+      "name": "Council of Gods",
+      "realm": "mythological",
+      "kind": "story",
+      "status": "proposal",
+      "description": "A fictional assembly of mythic roles and competing ideas; not an actual governing institution.",
+      "href": null
+    },
+    {
+      "id": "paint-factory",
+      "name": "Nathan Tabor Paint Factory",
+      "realm": "figurative",
+      "kind": "product",
+      "status": "proposal",
+      "description": "Existing creator-named product concept; no environmental-performance or manufacturing claims until tested.",
+      "href": null
+    }
+  ]
+}
