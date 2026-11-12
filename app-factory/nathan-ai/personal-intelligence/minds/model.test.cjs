@@ -42,3 +42,15 @@ test('every public source-index module path resolves to an existing repo file',(
  assert.match(outer,/data-nathan-shared-appearance/);
  assert.match(outer,/Minds, OMNI GOD/);
 });
+
+test('existing launcher registry remains authoritative and public offline cache paths exist',()=>{
+ const launcher=require('../../launcher/engine.js');
+ assert.ok(launcher.destinations.length>=40,'The existing Nathan AI launcher must remain the broader registry');
+ const cache=fs.readFileSync(path.join(__dirname,'../sw.js'),'utf8');
+ const match=cache.match(/const FILES=(\[[^\n]+\]);/);
+ assert.ok(match,'A static public precache list is required');
+ const paths=JSON.parse(match[1]);
+ assert.ok(paths.includes('./minds/index.html'));
+ assert.ok(paths.includes('../omni-god/engine.js'));
+ for(const file of paths){const target=path.resolve(__dirname,'..',file);assert.ok(fs.existsSync(target),'Public pre-cache path does not exist: '+target);}
+});
