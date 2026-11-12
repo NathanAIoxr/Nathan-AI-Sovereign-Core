@@ -51,3 +51,13 @@ To run on a local checkout with Node 22+: `node --test app-factory/nathan-ai/cel
 - [64-mode, 4 × 4 × 2 × 2 machine-readable analysis matrix](./babel-language-law-crosswalk.json)
 - Owner-held local edition: separate original author text and 3,350-word editorial chapter, 77 nodes and 200 crosslinks, 27 classified supplied grammar statements, 15 historical anchors, 26 referenced project concepts, 18 local tests. This branch **does not publish original author manuscript bytes**.
 - The 1611 KJV is an English translation printed in the seventeenth century; original biblical literature is ancient. The book's Tower of Babel and double-mindedness connections are author literary interpretations, not standalone historical proof of deliberate institutional coordination.
+
+## Pandora × Ceres × ABCDEFU — BOOM 💥 (2026-11-12)
+
+- [Open the public source-safe symbolic release interface](./pandora-ceres/index.html)
+- [Read the new connected software/hardware/middleware and book specification](./pandora-ceres/README.md)
+- [Inspect the additive public manifest](./pandora-ceres/manifest.json)
+- The source user declaration, including all unconventional wording, punctuation and self-described claims, remains **exactly preserved in the owner-held downloadable V3 bundle**. It is not placed in the public repository or recharacterized as verified fact.
+- Historical Pandora (jar), mythological Ceres and astronomical Ceres are separate source/creative records; an earlier `PANDORA=CLOSED` version remains unchanged alongside the current author's release instruction.
+- Owner-held full offline edition: 126 nodes; 442 typed edges; 64 language/legal reciprocal slots; SQLite data model; 17 Python tests and JavaScript syntax check passed; offline Chromium smoke test passed. Do **not** conflate this fuller private edition with the smaller published static interface.
+- No live AI/AGI, hardware control, autonomous cybersecurity attacks, real-world punitive action, cloud database mutation by the static page, or private-original import is asserted.
