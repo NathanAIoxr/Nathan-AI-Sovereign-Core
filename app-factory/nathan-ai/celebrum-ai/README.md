@@ -33,3 +33,14 @@ Every record requires an explicit origin: `VERBATIM`, `DOCUMENTED`, `OBSERVED`, 
 **Creator / author identity:** CELEBRUM AI 🧠 — BY NATHAN TABOR.
 
 > Public technical documentation newly drafted for integration; not a verbatim manuscript attribution.
+
+## Four Roots of America × CELEBRUM AI (2026-11-12)
+
+- [Detailed double-direction editorial/legal framework](./FOUR_ROOTS_BIDIRECTIONAL.md)
+- [Typed 4-root / 16-cell crosswalk and 15 subject connections](./four-roots-crosswalk.json)
+- [Offline, non-authoritative claim classifier](./four-roots-engine.cjs) + [tests](./four-roots-engine.test.cjs)
+- Both directions: **LAW → CELEBRUM** and **CELEBRUM → LAW**, each with ANCHORED/UNANCHORED. Original author book text stays owner-held; this is a derived reference, not the final book.
+- England 1600s and America 1700s onward remain historically distinct. Colonial exclusions, slavery, Indigenous dispossession and Reconstruction are not omitted.
+- No autonomous guilt findings, destructive attacks, impersonated legal authority, or false external action receipts.
+
+To run on a local checkout with Node 22+: `node --test app-factory/nathan-ai/celebrum-ai/four-roots-engine.test.cjs`.
