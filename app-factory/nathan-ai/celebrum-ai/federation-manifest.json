@@ -64,5 +64,22 @@
     "non-destructive fault simulators",
     "1,000 accountability witnesses",
     "evidence and corrections"
-  ]
+  ],
+  "four_roots": {
+    "id": "NT-FOUR-ROOTS-CELEBRUM-CROSSWALK-20261112",
+    "kind": "source-preserving technical/editorial crosswalk",
+    "source_original": "owner-held, no manuscript text publicly copied",
+    "law_to_system": true,
+    "system_to_law": true,
+    "anchored_and_unanchored": true,
+    "directional_mode_cells": 16,
+    "related_subjects": 15,
+    "paths": [
+      "FOUR_ROOTS_BIDIRECTIONAL.md",
+      "four-roots-crosswalk.json",
+      "four-roots-engine.cjs",
+      "four-roots-engine.test.cjs"
+    ],
+    "test_status": "tests supplied, external CI/local Node execution pending"
+  }
 }
