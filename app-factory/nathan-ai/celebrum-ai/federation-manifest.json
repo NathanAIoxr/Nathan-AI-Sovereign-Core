@@ -100,5 +100,23 @@
     "standalone_book_title": "THE LAWS OF STUPIDITY — AKA THE LAWS OF ENGLISH",
     "interpretation_status": "BABEL_SIMILE_AUTHOR_INTERPRETATION",
     "history_status": "PUBLIC_SOURCE_ANCHORED"
+  },
+  "pandora_ceres_abcdefu_v3": {
+    "id": "NT-CELEBRUM-PANDORA-CERES-ABCDEFU-V3",
+    "author": "Nathan Tabor",
+    "created": "2026-11-12",
+    "public_reference": "pandora-ceres/index.html",
+    "documentation": "pandora-ceres/README.md",
+    "public_manifest": "pandora-ceres/manifest.json",
+    "private_verbatim_original": "owner-held only; never published",
+    "private_local_graph_nodes": 126,
+    "private_local_typed_connections": 442,
+    "reciprocal_law_grammar_slots": 64,
+    "local_python_tests_passed": 17,
+    "local_js_syntax_passed": true,
+    "local_chromium_smoke_passed": true,
+    "production_tested": false,
+    "physical_devices_connected": false,
+    "remote_actions_claimed": 0
   }
 }
