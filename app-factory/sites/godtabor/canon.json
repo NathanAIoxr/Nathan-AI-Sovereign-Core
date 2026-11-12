@@ -1,0 +1,87 @@
+{
+  "title": "GODTABOR",
+  "creator": "Nathan Tabor",
+  "edition_date": "2026-11-12",
+  "edition_type": "public-web-franchise-blueprint",
+  "author_verbatim": [
+    {
+      "text": "Godtabor … makes Godfather look like Sunday school boredom",
+      "source": "creator supplied"
+    },
+    {
+      "text": "GODTABOR vs the Pope and the Vatican",
+      "source": "creator supplied thematic conflict"
+    },
+    {
+      "text": "GOD — MAKES you GOD - GODDESS - BUDDHA - JESUS - LILITH",
+      "source": "creator supplied concept"
+    }
+  ],
+  "realms": [
+    {
+      "id": "literal",
+      "label": "LITERALLY",
+      "mode": "fiction",
+      "description": "Adult crime and institutional satire",
+      "status": "concept"
+    },
+    {
+      "id": "figurative",
+      "label": "FIGURATIVELY",
+      "mode": "metaphor",
+      "description": "Accountability, sovereignty, evidence, perception",
+      "status": "concept"
+    },
+    {
+      "id": "mythological",
+      "label": "MYTHOLOGICALLY",
+      "mode": "fictional mythology",
+      "description": "Council of Gods and Tabor Light",
+      "status": "concept"
+    }
+  ],
+  "creative_proposals": [
+    {
+      "title": "GODTABOR: The Story",
+      "format": "film_or_series",
+      "status": "concept"
+    },
+    {
+      "title": "The GODTABOR Chronicles",
+      "format": "books_or_graphic_novels",
+      "status": "concept"
+    },
+    {
+      "title": "The Council of Gods",
+      "format": "interactive_story_game",
+      "status": "concept"
+    },
+    {
+      "title": "GOD — The App",
+      "format": "companion_app",
+      "status": "concept"
+    },
+    {
+      "title": "The Source Vault",
+      "format": "archive",
+      "status": "planned"
+    },
+    {
+      "title": "Tabor Light Symbols",
+      "format": "art_and_merchandise",
+      "status": "concept"
+    }
+  ],
+  "release_status": {
+    "web_landing": "repository-file-created",
+    "screenplay": "not_built",
+    "film": "not_produced",
+    "game": "not_built",
+    "app": "not_built"
+  },
+  "status_rules": {
+    "author_quotes": "author_verbatim",
+    "new_material": "editorial_proposal",
+    "real_world_allegations": "do_not_represent_as_established_fact"
+  }
+}
