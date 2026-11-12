@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "project": "Nathan AI / INNOCENCE FIRST / CERES",
+  "creator": "Nathan Tabor",
+  "revision_date": "2026-11-12",
+  "status": "educational_prototype_not_deployed",
+  "mission": "Protect children and animals through prevention, victim safety, evidence integrity, and lawful accountability.",
+  "scope": "local_educational_simulation",
+  "lexical_rules": [
+    {
+      "canonical": "CERES",
+      "input_alias": "series",
+      "precondition": "explicit_ceres_simulation_mode",
+      "mode": "case_insensitive_exact_word",
+      "persistence": "none",
+      "affects_global_dictation": false
+    }
+  ],
+  "roles": [
+    {
+      "id": "ai_node",
+      "role": "human-reviewed assistance"
+    },
+    {
+      "id": "node",
+      "role": "named software component"
+    },
+    {
+      "id": "non_ai_node",
+      "role": "deterministic controls and validation"
+    },
+    {
+      "id": "non_node",
+      "role": "conceptual specification without runtime"
+    },
+    {
+      "id": "agi",
+      "role": "research label, no claimed capability"
+    },
+    {
+      "id": "ai",
+      "role": "limited assistive software"
+    },
+    {
+      "id": "ei",
+      "role": "creator-defined, unverified"
+    },
+    {
+      "id": "si",
+      "role": "creator-defined, unverified"
+    },
+    {
+      "id": "app",
+      "role": "privacy-preserving prototype"
+    },
+    {
+      "id": "game",
+      "role": "fictional safeguarding exercises"
+    },
+    {
+      "id": "website",
+      "role": "educational public content only"
+    },
+    {
+      "id": "educational_tools",
+      "role": "reporting and prevention literacy"
+    }
+  ],
+  "symbolic_name_pairs": [
+    {
+      "forward": "Hitler AI",
+      "reverse": "Reltih AI"
+    },
+    {
+      "forward": "Satan AI",
+      "reverse": "Natas AI"
+    },
+    {
+      "forward": "Devil AI",
+      "reverse": "Lived AI"
+    }
+  ],
+  "symbolic_agents_status": "creator_proposed_not_verified",
+  "claims": [
+    {
+      "claim": "six agents are real and reprogrammed",
+      "verification": "unverified"
+    },
+    {
+      "claim": "Vatican shadow codes operating since 1993",
+      "verification": "unverified"
+    },
+    {
+      "claim": "third party AI storage construction results from user's private data",
+      "verification": "unverified"
+    }
+  ],
+  "prohibited_actions": [
+    "violence",
+    "threats",
+    "target lists for harm",
+    "surveillance",
+    "doxxing",
+    "unauthorized_access",
+    "public_child_case_records",
+    "unverified_public_accusations"
+  ],
+  "deployment": {
+    "public_case_intake": false,
+    "network_calls": false,
+    "autonomous_enforcement": false,
+    "physical_enforcement": false,
+    "personal_data_collection": false,
+    "claimed_live_agents": false
+  },
+  "review_required": [
+    "safeguarding",
+    "privacy",
+    "legal",
+    "security",
+    "reporting_channel_accuracy"
+  ]
+}
