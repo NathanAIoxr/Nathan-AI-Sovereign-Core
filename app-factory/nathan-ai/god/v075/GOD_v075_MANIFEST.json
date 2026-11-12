@@ -1,0 +1,29 @@
+{
+  "version": "v075",
+  "base": "v074",
+  "source_database": "TABOR_MAIN_DATABASE_v074_GOD_ONE_INTEGRATED.sqlite3",
+  "new_database": "TABOR_MAIN_DATABASE_v075_GOD_UNIVERSAL_SOURCE_ATLAS.sqlite3",
+  "source_records": 44,
+  "KJV": 35,
+  "comparative": 9,
+  "sqlite_quick_check": "ok",
+  "tables": [
+    [
+      "god_universal_source_v075",
+      44
+    ],
+    [
+      "god_author_thesis_v075",
+      1
+    ],
+    [
+      "god_marketing_source_v075",
+      2
+    ]
+  ],
+  "privacy": "local package; no public deployment claim",
+  "not_proven": "supernatural entities, universal equivalence across religious traditions, Google technology limits",
+  "original_v074_sha256": "947d3b526c170cbb743dc60a66f6e523fc17280fe671a0ec6a4565cbb6fbae8a",
+  "transcribed_verses": 12,
+  "database_sha256": "9b5eecf974e6c2637cfa468ec0345260dee70c59f503591f9412754ee74b1351"
+}
