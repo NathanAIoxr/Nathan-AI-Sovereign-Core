@@ -10,7 +10,7 @@
 
 ## Independent record spaces and one minimal master index
 This gateway uses **browser-local**, **origin-scoped** storage keys:
-- GODTABOR literal: godtab or literal v1 storage key (canonical: godtabor.literal.v1) — private local creator charter.
+- GODTABOR literal: godtabor.literal.v1 — private local creator charter.
 - GODTABOR figurative: godtabor.figurative.v1 — symbolic declarations.
 - GODTABOR mythology: godtabor.mythology.v1 — fiction-only story seeds.
 - GODTABOR master index: godtabor.master-index.v1 — only record IDs, types and timestamps; no content merging.
