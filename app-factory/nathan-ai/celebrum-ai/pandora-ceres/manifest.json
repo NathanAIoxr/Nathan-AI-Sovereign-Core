@@ -1,0 +1,70 @@
+{
+  "id": "NT-CELEBRUM-PANDORA-CERES-ABCDEFU-V3",
+  "canonical_name": "CELEBRUM AI 🧠 — BY NATHAN TABOR",
+  "author": "Nathan Tabor",
+  "release": "2026-11-12",
+  "status": "PUBLIC_REFERENCE_METADATA_ONLY",
+  "current_author_intent": "symbolic release of Pandora and Ceres; non-destructive",
+  "earlier_canon": "PANDORA = CLOSED (versioned source; not erased)",
+  "previous_pr": 192,
+  "private_owner_edition": {
+    "version": "v3",
+    "node_count": 126,
+    "edge_count": 442,
+    "bidirectional_analysis_slots": 64,
+    "python_checks_passed": 17,
+    "javascript_syntax_passed": true,
+    "browser_smoke_passed": true,
+    "original_verbatim_in_public": false,
+    "real_world_actions": 0
+  },
+  "public_paths": {
+    "index": "index.html",
+    "documentation": "README.md",
+    "manifest": "manifest.json"
+  },
+  "role_types": [
+    "AI_NODE",
+    "NODE",
+    "NON_AI_NODE",
+    "NON_NODE",
+    "AGI",
+    "AI",
+    "EI",
+    "SI",
+    "APP",
+    "GAME",
+    "WEBSITE",
+    "EDUCATIONAL_TOOL",
+    "SOFTWARE",
+    "HARDWARE",
+    "MIDDLEWARE",
+    "TECHNOLOGY"
+  ],
+  "modes": [
+    "ANCHOR",
+    "UNANCHOR",
+    "REANCHOR",
+    "REVERSE_TO_SOURCE"
+  ],
+  "guards": [
+    "original author text not rewritten",
+    "no harmful system access",
+    "no unsupported capability claims",
+    "no child/health/case/wallet source import",
+    "no medical/criminal/self descriptors published as fact",
+    "versioned releases preserve older source state"
+  ],
+  "sources": [
+    {
+      "type": "ANCIENT_TEXT",
+      "title": "Hesiod Works and Days",
+      "url": "https://www-current.chs.harvard.edu/primary-source/hesiod-works-and-days-sb/"
+    },
+    {
+      "type": "SCIENCE",
+      "title": "NASA Ceres",
+      "url": "https://science.nasa.gov/dwarf-planets/ceres/facts/"
+    }
+  ]
+}
