@@ -34,6 +34,11 @@ jobs:
       - name: Verify Family 21 ONE and original Omega source preservation
         run: |
           python3 -m unittest discover             -s app-factory/nathan-ai/personal-intelligence/minds/federation             -p test_family_registry.py -v
+      - name: Verify 70-dimensional 630-unit matrix and exact Family 65–75 uploads
+        run: |
+          set -euo pipefail
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          python3 -m unittest discover -s "$F/dimensions-v70" -p test_dimension_builder.py -v
       - name: Prepare existing ONE Federation main index
         run: |
           set -euo pipefail
@@ -82,6 +87,39 @@ jobs:
           with open(sys.argv[3],"a") as f:
               f.write(f"drift_count={summary['protected_original_drift_count']}\n")
           PY
+      - name: Execute all 630 dimensional source-index workcards in the ONE master
+        run: |
+          set -euo pipefail
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          DB="$RUNNER_TEMP/ONE_Creator_Teams.sqlite3"
+          python3 "$F/dimensions-v70/dimension_builder.py" --db "$DB" build \
+            --out "$RUNNER_TEMP/DIMENSION_70_WORKCARDS" > "$RUNNER_TEMP/dimension-70-summary.json"
+          python3 - "$RUNNER_TEMP/DIMENSION_70_WORKCARDS" "$DB" <<'PY'
+          from pathlib import Path
+          import json,sqlite3,sys
+          work=Path(sys.argv[1])
+          db=sqlite3.connect(sys.argv[2])
+          manifest=json.loads((work/"MANIFEST.json").read_text())
+          assert manifest["tier_count"]==7 and manifest["dimensional_families"]==70
+          assert manifest["dimensional_workcards"]==630
+          assert manifest["source_family65_to75_count"]==11
+          assert manifest["source_member65_to163_count"]==99
+          assert manifest["family_archetype_and_dimensional_unit_namespaces_distinct"] is True
+          assert manifest["real_world_operations"]==0
+          assert len(list((work/"units").glob("DIM-??-??.json")))==630
+          assert len(list((work/"tiers").glob("TIER_*.json")))==7
+          assert db.execute("SELECT COUNT(*) FROM dimension70_units").fetchone()[0]==630
+          assert db.execute("SELECT COUNT(*) FROM dimension70_family75_links").fetchone()[0]==99
+          assert db.execute("SELECT COUNT(*) FROM creator_team_roles").fetchone()[0]==763
+          assert db.execute("PRAGMA quick_check").fetchone()[0]=="ok"
+          print("Dimensional index: 70 × 9 = 630; Family 65–75: 11 × 9 = 99, independent namespaces")
+          PY
+      - name: Publish 630 source-linked dimensional workcards and 99-family crosswalk
+        uses: actions/upload-artifact@v4
+        with:
+          name: nathan-one-v074-dimensional-70-630
+          path: ${{ runner.temp }}/DIMENSION_70_WORKCARDS/
+          retention-days: 14
       - name: Publish source-safe team deliverables and monitoring report
         uses: actions/upload-artifact@v4
         with:
@@ -135,14 +173,16 @@ jobs:
             app-factory/nathan-ai/original-works/the-rebellion/2026-11-13/AUTHOR_ORIGINAL_WORDS.md \
             app-factory/nathan-ai/original-works/JOHN_NATHAN_TABOR_SINCE_1973_MASTER_WORDS.md \
             app-factory/nathan-ai/personal-intelligence/minds/federation/source-packs/law-of-order-books-2026-11-13/CREATOR_ORIGINALS.txt \
-            "app-factory/nathan-ai/personal-intelligence/minds/federation/source-packs/law-of-order-books-2026-11-13/Pasted text.txt"
-            app-factory/nathan-ai/personal-intelligence/minds/federation/families/USER_SUPPLIED_FAMILIES_16_TO_21_20261113.txt
+            "app-factory/nathan-ai/personal-intelligence/minds/federation/source-packs/law-of-order-books-2026-11-13/Pasted text.txt" \
+            app-factory/nathan-ai/personal-intelligence/minds/federation/families/USER_SUPPLIED_FAMILIES_16_TO_21_20261113.txt \
+            app-factory/nathan-ai/personal-intelligence/minds/federation/families-v75/USER_UPLOADED_EXACT_65_75_20261113.txt \
+            app-factory/nathan-ai/personal-intelligence/minds/federation/dimensions-v70/USER_UPLOADED_EXACT_DIMENSIONS_0_69_20261113.txt
           git diff --cached --quiet && exit 0
           git commit -m "restore(proposal): return creator originals to pinned Git objects for owner review"
           if git push origin "$branch"; then
             if ! gh pr create --draft --base main --head "$branch" \
               --title "Creator source preservation: review exact-original restoration" \
-              --body "Automatic monitor found differences in pinned author-original files. This DRAFT PR restores only four explicitly guarded original paths to their recorded original Git objects. Inspect the diff before merging. No editorial, code or website changes are reverted. The owner decides whether later changes were authorized."; then
+              --body "Automatic monitor found differences in pinned author-original files. This DRAFT PR proposes exact restoration for explicitly pinned original-source paths to their recorded original Git objects. Inspect the diff before merging. No editorial, code or website changes are reverted. The owner decides whether later changes were authorized."; then
               gh issue create \
                 --title "Review owner-original source drift (restoration branch prepared)" \
                 --body "The exact-original restoration branch was pushed but could not automatically open a PR. Compare the bot/creator-source-restore-v074 branch against main and review before merge." || true
