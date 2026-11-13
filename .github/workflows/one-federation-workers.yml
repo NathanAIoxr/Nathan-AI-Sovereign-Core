@@ -69,6 +69,34 @@ jobs:
           assert d["Leonardo"]["records"]==804
           print("6/6 public workers completed; 763 mind records + 41 source-linked v074 knowledge records")
           PY
+      - name: Validate new source archives, provenance and v074 importer
+        run: python3 -m unittest discover -s app-factory/nathan-ai/personal-intelligence/minds/federation -p test_nathan_method_v074.py -v
+      - name: Index Nathan Method, 101 historic leads, 101 maxims and 206 bones in SAME ONE master
+        run: |
+          set -euo pipefail
+          F="app-factory/nathan-ai/personal-intelligence/minds/federation"
+          W="$F/federation.py"
+          K="$F/data/nathan-method-integrated-v074.json"
+          python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" ingest "$K"
+          python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" ingest "$K"
+          python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" run > "$RUNNER_TEMP/audit-expanded.json"
+          python3 - "$RUNNER_TEMP/ONE_Public.sqlite3" "$RUNNER_TEMP/audit-expanded.json" <<'PY'
+          import json,sqlite3,sys
+          con=sqlite3.connect(sys.argv[1])
+          report=json.load(open(sys.argv[2]))
+          total=con.execute("SELECT COUNT(*) FROM federation_records").fetchone()[0]
+          assert total==1326, f"Expected 763 + 41 + 522 records; found {total}"
+          assert report["Leonardo"]["records"]==1326
+          assert report["Raphael"]["checksum_failures"]==0
+          new=con.execute("SELECT COUNT(*) FROM federation_records WHERE record_id LIKE 'knowledge:author.word-image-%'").fetchone()[0]
+          assert new==1, f"Author discovery-trail record missing: {new}"
+          proposals=con.execute("SELECT COUNT(*) FROM federation_links WHERE state='proposed'").fetchone()[0]
+          assert proposals>=559, f"Expected >= 40+519 proposed source links: {proposals}"
+          assert con.execute("PRAGMA quick_check").fetchone()[0]=="ok"
+          con.close()
+          print("ONE v074 1,326 public source records; 11 original hashes verified; 6 workers; SHA clean")
+          PY
+
       - name: Federate the public Ancient Minds sample into the SAME ONE database
         run: |
           set -euo pipefail
