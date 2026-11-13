@@ -14,6 +14,7 @@ The quoted line is user-authored; everything else in this module is an *engineer
 - `engine.py`: standard-library command-line interface for finding problems, generating case templates, and auditing staged evidence claims. This is a *documentation* gate, not automatic root-cause discovery or proof of real-world correctness.
 - `tests/test_engine.py`: **18** local tests for catalog structure, evidence-gate behavior and miniature corrective mechanisms.
 - `index.html`: text-first browser for the catalog, search, domain filters and expansion of problem records. It loads `problems.json` locally or on GitHub Pages.
+- `catalog-standalone.html`: single-file offline browser with all 128 records embedded and no server requirement.
 - `docs/ENGINEERING_REPORT.md`: engineering interpretation, prioritization, measured local results and limitations.
 - `cases/`: examples for the ledger, not production case evidence.
 
@@ -61,7 +62,9 @@ python -m unittest discover -s tests -v
 
 `new-case` refuses to overwrite an existing file. It creates an `UNASSESSED` template; fill the fields with real, authorized project evidence and advance stage only as the checks are met.
 
-To browse the catalog locally:
+To browse without a server, open `catalog-standalone.html` directly in a browser.
+
+To browse the linked catalog locally:
 
 ```bash
 python -m http.server 8000
