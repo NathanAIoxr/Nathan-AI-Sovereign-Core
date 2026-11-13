@@ -219,5 +219,18 @@ class ThirteenRootControls(unittest.TestCase):
         self.assertEqual(1 - 2 + 0, -1)
 
 
+    def test_root13_worker_roster_and_universal_targets(self):
+        registry = json.loads((Path(__file__).resolve().parent / "root13-workers.json").read_text(encoding="utf-8"))
+        self.assertEqual(registry["root_count"], 13)
+        self.assertEqual(len(registry["minds"]), 13)
+        self.assertEqual([m["root_number"] for m in registry["minds"]], list(range(1, 14)))
+        self.assertEqual(len({m["id"] for m in registry["minds"]}), 13)
+        self.assertEqual(len(registry["adoption_targets"]), 12)
+        self.assertEqual(registry["anchors_verbatim"], ["1+1=2", "1-2+0"])
+        self.assertTrue(all(m["external_action"] == "none" for m in registry["minds"]))
+        self.assertTrue(all(x["compliance_status"] == "UNVERIFIED_EXISTING_MODULES"
+                            for x in registry["adoption_targets"]))
+
+
 if __name__ == "__main__":
     unittest.main()
