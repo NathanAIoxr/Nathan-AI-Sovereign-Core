@@ -1,0 +1,192 @@
+{
+  "schema": "nathan.one.operation-swarm.seven-stations.v1",
+  "title": "STREAMING CONSCIOUSNESS",
+  "subtitle": "THE 7 STATIONS · 7 CERVICAL PILLARS · 7 PLANETARY METALS · 7 MUSICAL NOTES · 118 ELEMENTS",
+  "author": "John Nathan Tabor",
+  "provenance": "Structured transcription of the author's submitted seven-station matrix; not an independent anatomical or frequency claim.",
+  "pillars": {
+    "spinal": 33,
+    "question_neck": 7,
+    "skeletal": 206,
+    "total": 246
+  },
+  "stations": [
+    {
+      "station": 7,
+      "name": "CROWN",
+      "cervical": "C1 · Atlas",
+      "chakra": "Sahasrara",
+      "gland": "Pineal",
+      "celestial": "Outer cosmos",
+      "metal": "Platinum / Pure Light",
+      "note": "B",
+      "assigned_hz": 963,
+      "period": 1,
+      "first_element": 1,
+      "last_element": 2,
+      "start": "Hydrogen",
+      "end": "Helium",
+      "designation": "The Spark"
+    },
+    {
+      "station": 6,
+      "name": "THIRD EYE",
+      "cervical": "C2 · Axis",
+      "chakra": "Ajna",
+      "gland": "Pituitary",
+      "celestial": "Saturn",
+      "metal": "Lead",
+      "note": "A",
+      "assigned_hz": 852,
+      "period": 2,
+      "first_element": 3,
+      "last_element": 10,
+      "start": "Lithium",
+      "end": "Neon",
+      "designation": "The Lens"
+    },
+    {
+      "station": 5,
+      "name": "THROAT",
+      "cervical": "C3",
+      "chakra": "Vishuddha",
+      "gland": "Thyroid",
+      "celestial": "Mercury",
+      "metal": "Quicksilver",
+      "note": "G",
+      "assigned_hz": 741,
+      "period": 3,
+      "first_element": 11,
+      "last_element": 18,
+      "start": "Sodium",
+      "end": "Argon",
+      "designation": "The Voice"
+    },
+    {
+      "station": 4,
+      "name": "HEART",
+      "cervical": "C4",
+      "chakra": "Anahata",
+      "gland": "Thymus",
+      "celestial": "Sun",
+      "metal": "Gold",
+      "note": "F",
+      "assigned_hz": 639,
+      "period": 4,
+      "first_element": 19,
+      "last_element": 36,
+      "start": "Potassium",
+      "end": "Krypton",
+      "designation": "The Shield"
+    },
+    {
+      "station": 3,
+      "name": "SOLAR PLEXUS",
+      "cervical": "C5",
+      "chakra": "Manipura",
+      "gland": "Pancreas",
+      "celestial": "Mars / Venus",
+      "metal": "Iron / Copper",
+      "note": "E",
+      "assigned_hz": 528,
+      "period": 5,
+      "first_element": 37,
+      "last_element": 54,
+      "start": "Rubidium",
+      "end": "Xenon",
+      "designation": "The Engine"
+    },
+    {
+      "station": 2,
+      "name": "SACRAL",
+      "cervical": "C6",
+      "chakra": "Svadhishthana",
+      "gland": "Gonads",
+      "celestial": "Moon",
+      "metal": "Silver",
+      "note": "D",
+      "assigned_hz": 417,
+      "period": 6,
+      "first_element": 55,
+      "last_element": 86,
+      "start": "Cesium",
+      "end": "Radon",
+      "designation": "The Flow"
+    },
+    {
+      "station": 1,
+      "name": "ROOT",
+      "cervical": "C7 · Prominens",
+      "chakra": "Muladhara",
+      "gland": "Adrenals",
+      "celestial": "Earth",
+      "metal": "Tin / Iron / Salt",
+      "note": "C",
+      "assigned_hz": 396,
+      "period": 7,
+      "first_element": 87,
+      "last_element": 118,
+      "start": "Francium",
+      "end": "Oganesson",
+      "designation": "The Anchor"
+    }
+  ],
+  "periodic_symbols": [
+    "H He",
+    "Li Be B C N O F Ne",
+    "Na Mg Al Si P S Cl Ar",
+    "K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr",
+    "Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe",
+    "Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn",
+    "Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og"
+  ],
+  "classical_planetary_metals": [
+    [
+      "Sun",
+      "Gold",
+      "Au"
+    ],
+    [
+      "Moon",
+      "Silver",
+      "Ag"
+    ],
+    [
+      "Mercury",
+      "Mercury",
+      "Hg"
+    ],
+    [
+      "Venus",
+      "Copper",
+      "Cu"
+    ],
+    [
+      "Mars",
+      "Iron",
+      "Fe"
+    ],
+    [
+      "Jupiter",
+      "Tin",
+      "Sn"
+    ],
+    [
+      "Saturn",
+      "Lead",
+      "Pb"
+    ]
+  ],
+  "relationship_types": [
+    "scientifically_established",
+    "historically_documented",
+    "author_defined_symbolism",
+    "hypothesis_requires_research"
+  ],
+  "boundaries": [
+    "Station/gland/cervical pairings are author-defined symbolism, not gland anatomical locations.",
+    "The manuscript's assigned 396–963 Hz sequence is not the equal-tempered pitch of C major.",
+    "Periodic table membership and atomic numbers are scientifically established; symbolic station-to-period mapping is not.",
+    "The 246 existing pillar identifiers are never generated or renumbered from counts."
+  ]
+}
