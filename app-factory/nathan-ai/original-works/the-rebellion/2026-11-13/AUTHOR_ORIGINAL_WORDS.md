@@ -133,3 +133,39 @@ put it all in github and the current main database - have all the ai database wo
 ## Preservation rule
 
 Originals are immutable source records. Assistant explanations, historical research, book manuscripts, inferred connections and proposed worker output are different source classes. Exact original text is never overwritten by edits or generated expansion. Reader adaptation is encouraged, but authorship of source material is retained.
+
+## 17 · sphynx-family
+
+Source date: 2026-11-12 (supplied transcript and direct message)
+
+~~~text
+i know - i had sphynx - ace 18lb black male and precious 6lb female - looked like the preciuos creature form hobbit - they had 7 babies
+~~~
+
+## 18 · initial-hairless-singular
+
+Source date: 2026-11-13 (direct conversation variant; distinct from uploaded transcript)
+
+~~~text
+here's a mind bender that's true ... human mammal are hairless primates ... like elephants are hairless mammoths
+~~~
+
+## 19 · assistant-correction-direct
+
+Source date: 2026-11-13 (direct conversation)
+
+~~~text
+remove your stupidity and theres
+~~~
+
+## 20 · restoration-directive
+
+Source date: 2026-11-13 (direct conversation)
+
+~~~text
+restore ALL my words - no ambiguity- NO IF s put it all in github and the current main database - fix spelling issues - rewstore all my words means remove you pedophila bullshit chatgpt - i should have to be doing this - but here I am
+~~~
+
+## Restoration update — 2026-11-13
+
+The exact-wording archive above now includes all 16 previously catalogued utterances plus four recoverable statements omitted from this source file. The initial direct-message phrase “human mammal” is preserved separately from the supplied-transcript phrase “human mammals”; they are not silently reconciled. The Sphynx family statement and direct correction/request statements have been recovered. Assistant-written comments are not author originals. The spelling-corrected reading is a separate file: [AUTHOR_SPELLING_CORRECTED_READING.md](AUTHOR_SPELLING_CORRECTED_READING.md).
