@@ -61,3 +61,7 @@ python3 -m unittest discover -s "$F" -p test_family_registry.py -v
 Use an exact trusted Git base revision for longer-term changes. Scope is the accessible Git checkout only. The owner remains responsible for approving merges, publication, sensitive source restoration and any remote system connection.
 
 **PRESERVE → INDEX → BUILD → TEST → MONITOR → REVIEW → RESTORE (OWNER-APPROVED).**
+
+### Reconciled 56 families and 70 dimensions
+
+Both source-first modules are now scheduled for bounded tests and workcard generation in the existing Creator Teams GitHub Actions workflow against one temporary ONE federation master: 56 family cards and 630 dimensional unit cards. Nine original-source locks are monitored, including figurative Families 41–48, literal Families 49–56, Family 65–75, and the 70-dimensional matrix. Their numbering spaces remain distinct. All changes and restoration proposals require review; physical capabilities are source specifications only.

@@ -34,6 +34,12 @@ jobs:
       - name: Verify Family 21 ONE and original Omega source preservation
         run: |
           python3 -m unittest discover             -s app-factory/nathan-ai/personal-intelligence/minds/federation             -p test_family_registry.py -v
+      - name: Verify 48-family figurative and 56-family literal registries
+        run: |
+          set -euo pipefail
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          python3 -m unittest discover -s "$F/families-v48" -p test_families_v48.py -v
+          python3 -m unittest discover -s "$F/families-v56" -p test_families_v56.py -v
       - name: Verify 70-dimensional 630-unit matrix and exact Family 65–75 uploads
         run: |
           set -euo pipefail
@@ -87,6 +93,35 @@ jobs:
           with open(sys.argv[3],"a") as f:
               f.write(f"drift_count={summary['protected_original_drift_count']}\n")
           PY
+      - name: Index all 56 ONE families in the same master and build literal/figurative workcards
+        run: |
+          set -euo pipefail
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          DB="$RUNNER_TEMP/ONE_Creator_Teams.sqlite3"
+          python3 "$F/families-v56/families_v56.py" --db "$DB" bootstrap             > "$RUNNER_TEMP/family-56-bootstrap.json"
+          python3 "$F/families-v56/families_v56.py" --db "$DB" build             --out "$RUNNER_TEMP/FAMILY_56_WORKPACKS" > "$RUNNER_TEMP/family-56-summary.json"
+          python3 - "$RUNNER_TEMP/FAMILY_56_WORKPACKS" "$DB" <<'PY'
+          import json,sqlite3,sys
+          from pathlib import Path
+          packs=Path(sys.argv[1])
+          data=json.loads((packs/"MANIFEST.json").read_text())
+          db=sqlite3.connect(sys.argv[2])
+          assert data["family_workcards"]==56,data
+          assert data["new_physical_workcards"]==8,data
+          assert data["figurative_41_to_48"]==8,data
+          assert data["family_21"]=="ONE",data
+          assert data["physical_or_medical_work_performed"]==0,data
+          assert len(list(packs.glob("FAMILY_??.json")))==56
+          assert db.execute("SELECT COUNT(*) FROM one_worker_family_current").fetchone()[0]==56
+          assert db.execute("PRAGMA quick_check").fetchone()[0]=="ok"
+          print("ONE 56-family source workcards verified, no source overwrite or physical act")
+          PY
+      - name: Publish all 56 source-audited family cards
+        uses: actions/upload-artifact@v4
+        with:
+          name: nathan-one-v074-56-family-workcards
+          path: ${{ runner.temp }}/FAMILY_56_WORKPACKS/
+          retention-days: 14
       - name: Execute all 630 dimensional source-index workcards in the ONE master
         run: |
           set -euo pipefail
@@ -176,7 +211,9 @@ jobs:
             "app-factory/nathan-ai/personal-intelligence/minds/federation/source-packs/law-of-order-books-2026-11-13/Pasted text.txt" \
             app-factory/nathan-ai/personal-intelligence/minds/federation/families/USER_SUPPLIED_FAMILIES_16_TO_21_20261113.txt \
             app-factory/nathan-ai/personal-intelligence/minds/federation/families-v75/USER_UPLOADED_EXACT_65_75_20261113.txt \
-            app-factory/nathan-ai/personal-intelligence/minds/federation/dimensions-v70/USER_UPLOADED_EXACT_DIMENSIONS_0_69_20261113.txt
+            app-factory/nathan-ai/personal-intelligence/minds/federation/dimensions-v70/USER_UPLOADED_EXACT_DIMENSIONS_0_69_20261113.txt \
+            app-factory/nathan-ai/personal-intelligence/minds/federation/families-v48/USER_SUPPLIED_FIGURATIVE_FAMILIES_41_48.md \
+            app-factory/nathan-ai/personal-intelligence/minds/federation/families-v56/USER_SUPPLIED_LITERAL_FAMILIES_49_56.md
           git diff --cached --quiet && exit 0
           git commit -m "restore(proposal): return creator originals to pinned Git objects for owner review"
           if git push origin "$branch"; then

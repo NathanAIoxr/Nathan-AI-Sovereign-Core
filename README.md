@@ -280,3 +280,5 @@ The local Ancient Minds worker pipeline (six named specialists, four unnamed res
 ## Nathan Tabor · ONE Master Continuity #1–#496 (Zero-Slide)
 
 [**Read the preserved source and exact #164–#496 crosswalk**](app-factory/nathan-ai/personal-intelligence/minds/federation/continuity-v496/README.md) · [333 new master positions as CSV](app-factory/nathan-ai/personal-intelligence/minds/federation/continuity-v496/master-positions-164-496.csv) · [108 Technology/Software/Hardware positional triplets](app-factory/nathan-ai/personal-intelligence/minds/federation/continuity-v496/full-stack-108-crosswalk.csv). The previous #1–#163 numbering is retained as a declared baseline; 333 newly numbered items are gap-free. Original Technology-v108 local IDs, Family 21 and other independent registries are not renumbered. No physical bots or private master database are claimed deployed.
+
+- [ONE Federation · source-exact 56-family and 70-dimension successor registries](app-factory/nathan-ai/personal-intelligence/minds/federation/README.md) — original source, executable local tests and inspectable workcards; no autonomous physical deployment claimed.
