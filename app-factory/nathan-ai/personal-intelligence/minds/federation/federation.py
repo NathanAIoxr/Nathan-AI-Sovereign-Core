@@ -94,6 +94,16 @@ def ingest(c, filename):
         raise ValueError("Allowed sources: SQLite or JSON Mind of Minds catalog")
     source_id=sha(str(path).encode())[:20]
     kind="json" if path.suffix.lower()==".json" else "sqlite"
+    # Preflight known Tech108 schema before writing any database metadata.
+    # Other legacy source formats remain unchanged and are not declared
+    # universally clean merely because this adapter exists.
+    if kind=="json":
+        preflight=json.loads(path.read_text(encoding="utf-8"))
+        if isinstance(preflight,dict) and preflight.get("schema")=="nathan.one.federation.technology-worker-codex.v108":
+            import sys
+            sys.path.insert(0,str(Path(__file__).resolve().parent / "technology-v108"))
+            from boundary_contract import validate_registry
+            validate_registry(preflight)
     c.execute("""INSERT INTO federation_sources VALUES(?,?,?,?,?,?,?)
        ON CONFLICT(source_id) DO UPDATE SET file_sha256=excluded.file_sha256,
        bytes=excluded.bytes,indexed_at=excluded.indexed_at""",
@@ -276,10 +286,24 @@ def main():
     p.add_argument("--db",default="ONE_Federation_Master.sqlite3")
     sub=p.add_subparsers(dest="cmd",required=True)
     sub.add_parser("init")
+    boundary=sub.add_parser("validate-boundaries")
+    boundary.add_argument("payload",help="JSON object to validate; never imported by this command")
+    boundary.add_argument("contract",help="JSON field-to-type mapping")
     i=sub.add_parser("ingest");i.add_argument("sources",nargs="+")
     sub.add_parser("run");sub.add_parser("status")
     q=sub.add_parser("search");q.add_argument("query");q.add_argument("--limit",type=int,default=20)
     a=p.parse_args()
+    if a.cmd == "validate-boundaries":
+        # Read-only, owner-selected validation: never open or create a master DB.
+        import sys
+        sys.path.insert(0,str(Path(__file__).resolve().parent / "fencepost-error-syndrome"))
+        from core_primitives import sanitize_json
+        raw=json.loads(Path(a.payload).read_text(encoding="utf-8"))
+        contract=json.loads(Path(a.contract).read_text(encoding="utf-8"))
+        result=sanitize_json(raw,contract)
+        print(json.dumps({"valid":True,"validated_fields":len(result),
+                          "contract":"nathan.one.root13.boundary.v1"},indent=2))
+        return
     c=open_main(a.db)
     if a.cmd=="init":out={"status":"ready","db":a.db}
     elif a.cmd=="ingest":out=[ingest(c,x) for x in a.sources]
