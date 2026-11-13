@@ -1,0 +1,522 @@
+{
+  "schema": "nathan.one.federation.knowledge.v074",
+  "title": "River and Spark master compilation 2026-11-13",
+  "status": "new editorial compilation, not complete original manuscript",
+  "uploaded_file_sha256": "fce7b5b740177ef2c3b82508b3f504f080119bd65965fd3f24ece5ba833576b1",
+  "records": [
+    {
+      "id": "river-spark-project",
+      "title": "THE RIVER AND THE SPARK",
+      "exact_text": "Uploaded text describes a multi-part research manuscript, but full previous PDF/Word bytes are not available.",
+      "evidence_status": "present_in_uploaded_excerpt",
+      "source_locator": "Uploaded Pasted markdown.md or associated public-safe manuscript summary",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-mirror",
+      "title": "BOOK III — THE MIRROR",
+      "exact_text": "The supplied heading explores what survives when arrangements change but elements remain.",
+      "evidence_status": "present_in_uploaded_excerpt",
+      "source_locator": "Uploaded Pasted markdown.md or associated public-safe manuscript summary",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-bone206",
+      "title": "206 anatomical bone entries",
+      "exact_text": "The source manuscript describes a 206-entry standard adult-bone index.",
+      "evidence_status": "present_in_uploaded_excerpt",
+      "source_locator": "Uploaded Pasted markdown.md or associated public-safe manuscript summary",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-spine40",
+      "title": "40 editorial spinal entries",
+      "exact_text": "The source describes 33 vertebral-segment studies plus seven additional cervical reflections; not 40 distinct vertebrae.",
+      "evidence_status": "present_in_uploaded_excerpt",
+      "source_locator": "Uploaded Pasted markdown.md or associated public-safe manuscript summary",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-editorial246",
+      "title": "246 combined editorial entries",
+      "exact_text": "206 bone entries and 40 editorial spinal entries sum to 246 editorial entries, not 246 bones.",
+      "evidence_status": "derived_arithmetic",
+      "source_locator": "Uploaded Pasted markdown.md or associated public-safe manuscript summary",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-reflexsix",
+      "title": "Six supplied Reflex Point examples",
+      "exact_text": "Six exact opening statements are reproduced in the uploaded text, but not all forty previously reported completed statements.",
+      "evidence_status": "present_in_uploaded_excerpt",
+      "source_locator": "Uploaded Pasted markdown.md or associated public-safe manuscript summary",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-reflexnew40",
+      "title": "Forty new Reflex Point proposals",
+      "exact_text": "Forty new suggested sentences are explicitly separated from the original six available examples and missing prior text.",
+      "evidence_status": "assistant_editorial_proposal",
+      "source_locator": "NEW_REFLEX_POINT_DRAFTS_40.json",
+      "provenance": "new editorial draft for creator review",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-reflexology",
+      "title": "Reflexology literary mapping",
+      "exact_text": "Traditional foot/hand zone maps are useful literary metaphors; healing distant organs by foot pressure is not an established mechanism.",
+      "evidence_status": "researched_caveat",
+      "source_locator": "https://www.nccih.nih.gov/health/reflexology",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-sefer32",
+      "title": "Sefer Yetzirah 32 paths",
+      "exact_text": "An attested opening framework connects 32 paths to ten sefirot and twenty-two foundational letters; versions and translations vary.",
+      "evidence_status": "named_primary_text",
+      "source_locator": "https://www.sefaria.org/Sefer_Yetzirah_Gra_Version.1.4",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-seven",
+      "title": "Seven vertical symbolic stations",
+      "exact_text": "Chakra/color/sound/metal/gland pairs are proposed correspondences and not a proven physiological frequency system.",
+      "evidence_status": "source_assertion_with_caveat",
+      "source_locator": "Uploaded Pasted markdown.md or associated public-safe manuscript summary",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-tone",
+      "title": "Assigned Hz versus musical note",
+      "exact_text": "The 396–963 Hz tone scheme and conventional diatonic C-to-B frequencies are separate sound references.",
+      "evidence_status": "source_disciplined_distinction",
+      "source_locator": "Uploaded Pasted markdown.md or associated public-safe manuscript summary",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-isha114",
+      "title": "Isha's 114 teaching",
+      "exact_text": "Isha describes 112 chakras within and two outside, with 108 workable in its yogic teaching; not new anatomical organs.",
+      "evidence_status": "named_tradition",
+      "source_locator": "https://isha.sadhguru.org/en/wisdom/article/7-chakras-mystical-dimensions-body-seven-chakras",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-alt114",
+      "title": "Modern 7 + 21 + 86 classification",
+      "exact_text": "A source-described modern 114 grouping is numerically valid but not verified as equivalent to Isha's 112+2 taxonomy.",
+      "evidence_status": "source_assertion_unverified_origin",
+      "source_locator": "Uploaded Pasted markdown.md or associated public-safe manuscript summary",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-himalayan14",
+      "title": "Himalayan Academy's 14 model",
+      "exact_text": "Its fourteen-center account is seven above and seven below, including Atala through Patala.",
+      "evidence_status": "named_tradition",
+      "source_locator": "https://www.himalayanacademy.com/media/books/saiva-dharma-shastras/web/glossary.html",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-vbt12",
+      "title": "Vijñāna-bhairava twelve centers/vowels",
+      "exact_text": "A twelve-center and twelve-vowel contemplative practice is discussed in some translations of verse 30.",
+      "evidence_status": "named_text_comparison",
+      "source_locator": "https://hareesh.org/blog/2023/9/27/vijaana-bhairava-tantra-translation-concordance",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-soundx",
+      "title": "Part X — Sound, Silence & Inner Speech Laboratory",
+      "exact_text": "New draft: separate source recording, acoustic observation and interpretive hypothesis; make missing transcripts explicit.",
+      "evidence_status": "assistant_editorial_proposal",
+      "source_locator": "THE_RIVER_AND_THE_SPARK_MASTER_EXPANSION.md",
+      "provenance": "new editorial draft for creator review",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-mirrorxi",
+      "title": "Part XI — The Mirror Engine",
+      "exact_text": "New draft: pair reversal, arithmetic and reader navigation with source-provenance checks.",
+      "evidence_status": "assistant_editorial_proposal",
+      "source_locator": "THE_RIVER_AND_THE_SPARK_MASTER_EXPANSION.md",
+      "provenance": "new editorial draft for creator review",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-indexxii",
+      "title": "Part XII — The Living Index",
+      "exact_text": "New draft: cue-driven, source-first navigational cards with proposed links and owner review.",
+      "evidence_status": "assistant_editorial_proposal",
+      "source_locator": "THE_RIVER_AND_THE_SPARK_MASTER_EXPANSION.md",
+      "provenance": "new editorial draft for creator review",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-root13",
+      "title": "ONE thirteen-root exactness",
+      "exact_text": "Shared Root13 library addresses boundary counts, units, money, date formats, missing values, bitemporality and idempotency.",
+      "evidence_status": "versioned_repo_tested_scope",
+      "source_locator": "../fencepost-error-syndrome/ROOT13_UNIVERSAL_CONTRACT.md",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-v496",
+      "title": "ONE master positions 1..496",
+      "exact_text": "The catalog declares master IDs through 496; added IDs 164..496 are 333 source-verified new positions, earlier baseline is declared.",
+      "evidence_status": "versioned_repo_catalog",
+      "source_locator": "../continuity-v496/README.md",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-tech108",
+      "title": "ONE technology 108",
+      "exact_text": "Twelve technology families with nine named local roles each are separately namespaced and not the same as yogic 108.",
+      "evidence_status": "versioned_repo_catalog",
+      "source_locator": "../technology-v108/README.md",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-stack108",
+      "title": "ONE full-stack 108 triplets",
+      "exact_text": "The crosswalk links identical ordinal positions of technology, software and hardware catalogs but does not prove device interoperability.",
+      "evidence_status": "versioned_repo_catalog",
+      "source_locator": "../continuity-v496/full-stack-108-crosswalk.csv",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-dimensions630",
+      "title": "ONE 70 x 9 dimensions",
+      "exact_text": "Independent dimension catalog reports seventy coordinates with nine workcards each; it is not appended to ID #496.",
+      "evidence_status": "versioned_repo_catalog",
+      "source_locator": "../dimensions-v70/README.md",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-unknown59",
+      "title": "Missing prior 59-page source file",
+      "exact_text": "The uploaded text describes a 59-page Version 0.4, but the complete file was not provided for verification.",
+      "evidence_status": "source_claim_unverified",
+      "source_locator": "Uploaded Pasted markdown.md or associated public-safe manuscript summary",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    },
+    {
+      "id": "river-spark-humanreview",
+      "title": "Source-first human review",
+      "exact_text": "Protect exact source, segregate derived claims, preserve unknowns, and require approval before external publication or actions.",
+      "evidence_status": "editorial_system_proposal",
+      "source_locator": "PROVENANCE_AND_GAPS.md",
+      "provenance": "summarized from supplied excerpt or cited public repo/reference; not a new original author quote",
+      "kind": "knowledge_crosswalk",
+      "tags": [
+        "river-and-spark",
+        "compiled-v1"
+      ],
+      "privacy": "public"
+    }
+  ],
+  "links": [
+    {
+      "left": "river-spark-project",
+      "right": "river-spark-mirror",
+      "relation": "has_book_section",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-project",
+      "right": "river-spark-bone206",
+      "relation": "book_index",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-project",
+      "right": "river-spark-spine40",
+      "relation": "book_index",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-bone206",
+      "right": "river-spark-editorial246",
+      "relation": "part_of_editorial_sum",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-spine40",
+      "right": "river-spark-editorial246",
+      "relation": "part_of_editorial_sum",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-project",
+      "right": "river-spark-reflexsix",
+      "relation": "reproduced_examples",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-reflexsix",
+      "right": "river-spark-reflexnew40",
+      "relation": "new_drafts_are_not_originals",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-reflexology",
+      "right": "river-spark-reflexnew40",
+      "relation": "literary_analogy_not_medical_mechanism",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-mirror",
+      "right": "river-spark-sefer32",
+      "relation": "comparative_number_text_lead",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-mirror",
+      "right": "river-spark-mirrorxi",
+      "relation": "new_expansion",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-seven",
+      "right": "river-spark-tone",
+      "relation": "symbolic_vs_measured_sound",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-seven",
+      "right": "river-spark-isha114",
+      "relation": "alternate_model_not_same_anatomy",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-seven",
+      "right": "river-spark-himalayan14",
+      "relation": "alternate_tradition",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-isha114",
+      "right": "river-spark-alt114",
+      "relation": "same_sum_distinct_taxonomy",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-vbt12",
+      "right": "river-spark-soundx",
+      "relation": "historical_text_comparison",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-soundx",
+      "right": "river-spark-indexxii",
+      "relation": "source_based_navigation",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-mirrorxi",
+      "right": "river-spark-root13",
+      "relation": "editorial_technical_analogy",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-mirrorxi",
+      "right": "river-spark-v496",
+      "relation": "namespaced_number_reference",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-indexxii",
+      "right": "river-spark-humanreview",
+      "relation": "requires_review",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-v496",
+      "right": "river-spark-tech108",
+      "relation": "new_global_crosswalk_preserves_local_id",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-v496",
+      "right": "river-spark-stack108",
+      "relation": "contains_positional_links",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-tech108",
+      "right": "river-spark-isha114",
+      "relation": "coincidental_shared_108_not_identity",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-stack108",
+      "right": "river-spark-isha114",
+      "relation": "coincidental_shared_108_not_identity",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-dimensions630",
+      "right": "river-spark-v496",
+      "relation": "independent_catalog",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-unknown59",
+      "right": "river-spark-humanreview",
+      "relation": "cannot_certify_unseen_pages",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-reflexsix",
+      "right": "river-spark-unknown59",
+      "relation": "only_excerpt_visible",
+      "state": "proposed"
+    },
+    {
+      "left": "river-spark-root13",
+      "right": "river-spark-humanreview",
+      "relation": "publishing_guard_analogy",
+      "state": "proposed"
+    }
+  ]
+}

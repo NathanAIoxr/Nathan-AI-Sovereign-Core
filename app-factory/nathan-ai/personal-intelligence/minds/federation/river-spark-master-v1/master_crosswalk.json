@@ -1,0 +1,127 @@
+{
+  "schema": "nathan.one.master-crosswalk.v1",
+  "project": "Nathan AI / ONE + THE RIVER AND THE SPARK — BOOK III THE MIRROR",
+  "source_upload_sha256": "fce7b5b740177ef2c3b82508b3f504f080119bd65965fd3f24ece5ba833576b1",
+  "rule": "All counts are namespaced. A common integer or ordinal correspondence never establishes common identity, historical origin, hardware interoperation, or medical mechanism.",
+  "machine": [
+    {
+      "id": "one-v496",
+      "count": 496,
+      "first": 1,
+      "last": 496,
+      "verified_new_start": 164,
+      "verified_new_last": 496,
+      "verified_new_count": 333,
+      "prior_status": "1-163 declared baseline not fully reaudited"
+    },
+    {
+      "id": "tech108",
+      "count": 108,
+      "families": 12,
+      "per_family": 9,
+      "status": "indexed roles, not running hardware"
+    },
+    {
+      "id": "root13",
+      "count": 13,
+      "status": "shared controls and tests, not universal migration"
+    },
+    {
+      "id": "dimension70",
+      "count": 630,
+      "dimensions": 70,
+      "functions_each": 9,
+      "status": "separate dimension namespace"
+    },
+    {
+      "id": "mindofminds",
+      "reported_count": 763,
+      "status": "reported in earlier repository, not independently reaudited here"
+    }
+  ],
+  "manuscript": [
+    {
+      "id": "bones",
+      "count": 206,
+      "meaning": "adult anatomical bone subjects"
+    },
+    {
+      "id": "spinal",
+      "count": 40,
+      "parts": {
+        "segment_studies": 33,
+        "extra_cervical_editorial_reflections": 7
+      }
+    },
+    {
+      "id": "editorial",
+      "count": 246,
+      "formula": "206+40"
+    },
+    {
+      "id": "reflex",
+      "prior_reported": 40,
+      "quoted_exact_examples_available": 6,
+      "originals_not_available": 34,
+      "new_drafts": 40
+    },
+    {
+      "id": "vertical",
+      "count": 7,
+      "meaning": "symbolic editorial stations"
+    },
+    {
+      "id": "himalayan14",
+      "count": 14,
+      "parts": {
+        "upper": 7,
+        "lower": 7
+      },
+      "meaning": "tradition"
+    },
+    {
+      "id": "isha114",
+      "count": 114,
+      "parts": {
+        "within": 112,
+        "outside": 2,
+        "workable_tradition": 108
+      },
+      "meaning": "tradition"
+    },
+    {
+      "id": "alternative114",
+      "count": 114,
+      "parts": {
+        "major": 7,
+        "minor": 21,
+        "micro": 86
+      },
+      "meaning": "modern distinct classification"
+    },
+    {
+      "id": "tantra12",
+      "count": 12,
+      "meaning": "twelve-center/vowel practice textual interpretation"
+    }
+  ],
+  "new_drafts": [
+    "BOOK III — THE MIRROR",
+    "PART X — THE SOUND, SILENCE & INNER SPEECH LABORATORY",
+    "PART XI — THE MIRROR ENGINE",
+    "PART XII — THE LIVING INDEX"
+  ],
+  "source_files": [
+    "PROVENANCE_AND_GAPS.md",
+    "THE_RIVER_AND_THE_SPARK_MASTER_EXPANSION.md",
+    "NEW_REFLEX_POINT_DRAFTS_40.json",
+    "knowledge_pack.v074.json"
+  ],
+  "prohibited_claims": [
+    "No equation identifying chakra centers as new organs",
+    "No 40 brand-new vertebrae",
+    "No direct equality between the multiple 108-identity groups",
+    "No recreation of absent 59-page PDF/Word manuscript",
+    "No assumption of live AI worker deployment from a registry"
+  ]
+}
