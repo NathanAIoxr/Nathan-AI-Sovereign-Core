@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NATHAN AI — ONE DATABASE FEDERATION v074 · ME R U U R ME</title>
+<meta name="description" content="Source-preserving read-only ONE Federation v074 graph of the user's SPACE between the EARS and ME R U U R ME records.">
+<style>
+:root{color-scheme:dark;--bg:#09131c;--card:#142532;--line:#365263;--text:#f1f4f4;--muted:#aec2c8;--accent:#8cdbc7}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px/1.55 system-ui,sans-serif;color:var(--text)}
+main{max-width:1140px;margin:0 auto;padding:24px}a{color:var(--accent)}
+header{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+h1{font-size:clamp(25px,4.5vw,49px);line-height:1.12;margin:15px 0}h2{font-size:21px}p{color:var(--muted)}
+.hero,.panel{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--card);margin:17px 0}
+.hero{background:linear-gradient(130deg,#154151,#152331)}
+.signature{font-size:clamp(19px,4vw,35px);font-weight:850;letter-spacing:.09em;line-height:1.4}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{border:1px solid var(--line);padding:12px;border-radius:10px}
+.stat b{display:block;font-size:25px}.stat small{color:var(--muted)}
+.controls{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:16px}
+input,select{width:100%;padding:12px;color:var(--text);background:#0a1b25;border:1px solid #638089;border-radius:9px;font:inherit}
+input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+#results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+article{border:1px solid var(--line);background:#0e202c;padding:16px;border-radius:12px;overflow-wrap:anywhere}
+article h3{margin:0 0 8px;font-size:18px}small,.muted{color:var(--muted)}
+code{font-size:12px;color:#a3e4d5}blockquote,pre{white-space:pre-wrap;overflow-wrap:anywhere;margin:10px 0;background:#091722;border-left:3px solid var(--accent);padding:12px;color:#e6eef2}
+.tags{font-size:12px;color:#c1cece}.links{padding:8px 0;border-top:1px solid var(--line);margin-top:12px}
+footer{font-size:13px;color:var(--muted);padding:18px 0}
+@media(max-width:720px){main{padding:12px}.controls,#results,.grid{grid-template-columns:1fr}.hero,.panel{padding:17px}}
+</style></head>
+<body><main>
+<header><strong>NATHAN AI 🚀 · ONE FEDERATION v074</strong><nav><a href="../../../../one/index.html">ONE</a> · <a href="../index.html">Minds Atlas</a> · <a href="./README.md">Federation README</a></nav></header>
+<section class="hero"><small>JOHN NATHAN TABOR · ORIGINALS PRESERVED</small>
+<h1>SPACE ... THE FINAL FRONTIER</h1>
+<div class="signature">ME R U &nbsp;|&nbsp; U R ME</div>
+<p>“SPACE ... THE FINAL FRONTIER aka the SPACE between the EARS as my grandmother said”</p>
+<p>This read-only atlas shows the v074 source records and proposed cross-links. Cultural symbolism, reported traditions, literal anatomy, and the author's wordplay are not treated as interchangeable factual claims.</p>
+<div class="grid"><div class="stat"><b id="countRecords">—</b><small>Knowledge records</small></div><div class="stat"><b id="countLinks">—</b><small>Proposed relationships</small></div><div class="stat"><b>CERO</b><small>Source-preservation tier</small></div></div>
+</section>
+<section class="panel"><h2>Search the ONE v074 knowledge graph</h2>
+<div class="controls"><label>Search names, exact source text, interpretation, tags<input id="query" type="search" placeholder="MERU, Samana, 72,000, SPACE, RAM ..." autocomplete="off"></label><label>Record type<select id="kind"><option value="">All record types</option></select></label></div>
+<p id="state" role="status">Loading the source-linked knowledge pack…</p><div id="results"></div></section>
+<footer>Read-only public source browser · Private master federation SQLite stays local · Proposed edges are not verified conclusions · <a href="./data/space-final-frontier-meru-v074.json">Source pack JSON</a></footer>
+</main>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id); let data=null;
+const node=(tag,text,cls)=>{const e=document.createElement(tag); if(text!=null)e.textContent=String(text);if(cls)e.className=cls;return e};
+function render(){
+ if(!data)return;
+ const q=$('query').value.trim().toLocaleLowerCase(),kind=$('kind').value,root=$('results');
+ root.replaceChildren();
+ const list=data.records.filter(r=>(!kind||r.kind===kind)&&(!q||[r.title,r.id,r.exact_text,r.kind,r.evidence_status,r.provenance,...(r.tags||[])].join(' ').toLocaleLowerCase().includes(q)));
+ $('state').textContent=list.length+' of '+data.records.length+' entries · All semantic links are proposed';
+ const byId=new Map(data.records.map(r=>[r.id,r.title]));
+ for(const r of list.slice(0,200)){
+   const c=node('article');c.append(node('h3',r.title),node('code',r.id));
+   c.append(node('blockquote',r.exact_text));
+   c.append(node('small','Record type: '+r.kind+' · Evidence state: '+r.evidence_status+' · Tier: '+r.tier));
+   c.append(node('p',r.provenance,'muted'),node('p',(r.tags||[]).join(' · '),'tags'));
+   const related=data.links.filter(e=>e.left===r.id||e.right===r.id).slice(0,8);
+   if(related.length){const links=node('div',null,'links');links.append(node('strong','Linked entries (proposed)'));
+     for(const e of related){const other=e.left===r.id?e.right:e.left;links.append(node('p',(byId.get(other)||other)+' — '+e.relation,'tags'))}
+     c.append(links);
+   }root.append(c);
+ }
+ if(list.length>200)root.append(node('p','Showing first 200 matches; refine search.'));
+}
+Promise.resolve().then(async()=>{
+ const r=await fetch('./data/space-final-frontier-meru-v074.json',{cache:'no-store'});
+ if(!r.ok)throw Error('Unable to load source pack (HTTP '+r.status+')');
+ data=await r.json();
+ if(data.schema!=='nathan.one.federation.knowledge.v074'||!Array.isArray(data.records)||!Array.isArray(data.links))throw Error('Unexpected source pack schema');
+ $('countRecords').textContent=data.records.length;
+ $('countLinks').textContent=data.links.length;
+ for(const kind of [...new Set(data.records.map(r=>r.kind))].sort()){$('kind').append(new Option(kind,kind))}
+ $('query').addEventListener('input',render);$('kind').addEventListener('change',render);render();
+}).catch(e=>{$('state').textContent='Source pack unavailable: '+e.message+'. Open through the hosted ONE site or a local HTTP server.'});
+})();
+</script></body></html>
