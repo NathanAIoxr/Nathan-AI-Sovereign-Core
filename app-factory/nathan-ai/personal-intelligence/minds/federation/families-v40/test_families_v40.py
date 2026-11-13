@@ -24,7 +24,7 @@ class Master40Tests(unittest.TestCase):
         self.assertEqual([x["family_id"] for x in r["minds"]], list(range(1, 41)))
         self.assertEqual(r["minds"][20]["name"], "ONE")
         self.assertIn("all mammals are my equals", r["minds"][20]["author_verbatim"])
-        self.assertIn("all family", r["equal_standing"])
+        self.assertIn("all 40 families", r["equal_standing"])
 
     def test_22_33_remain_explicitly_undefined(self):
         records = module.load_registry()["minds"]
