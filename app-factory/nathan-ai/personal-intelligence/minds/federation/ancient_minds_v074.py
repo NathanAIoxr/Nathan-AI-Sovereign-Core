@@ -291,6 +291,8 @@ def status(conn: sqlite3.Connection, source_id: str | None=None) -> dict:
     where=" WHERE source_id=?" if source_id else ""
     args=(source_id,) if source_id else ()
     def count(table):
+        if table == "ancient_embeddings" and source_id:
+            return conn.execute("SELECT COUNT(*) FROM ancient_embeddings e JOIN ancient_knowledge_records k ON e.knowledge_id=k.id WHERE k.source_id=?",args).fetchone()[0]
         return conn.execute("SELECT COUNT(*) FROM "+table+where,args).fetchone()[0]
     # worker_runs are linked by job ID rather than containing source_id
     runs=conn.execute("SELECT COUNT(*) FROM ancient_worker_runs r JOIN ancient_worker_jobs j ON j.id=r.job_id"
