@@ -1,0 +1,84 @@
+name: Nathan AI ONE v074 · Universal Worker Federation
+# Year-round recurring source checks, not an always-on 126B-process deployment.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/universal_workers.py'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/test_universal_workers.py'
+      - '.github/workflows/universal-worker-federation.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/universal_workers.py'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/test_universal_workers.py'
+      - '.github/workflows/universal-worker-federation.yml'
+  schedule:
+    # Twice each hour, all days of the year. GitHub may queue or skip a scheduled run.
+    - cron: '17,47 * * * *'
+permissions:
+  contents: read
+concurrency:
+  group: one-v074-universal-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  source-preserving-universal-workers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test no-exclusion namespace, all original role identities and owner veto
+        run: |
+          python3 -m unittest discover \
+            -s app-factory/nathan-ai/personal-intelligence/minds/federation \
+            -p test_universal_workers.py -v
+      - name: Prepare and verify ONE public source records in ephemeral federation
+        run: |
+          set -euo pipefail
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          W="$F/federation.py"
+          C=app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/catalog.json
+          python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" init
+          python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" ingest \
+            "$C" "$F/data/space-final-frontier-meru-v074.json" \
+            "$F/data/nathan-method-integrated-v074.json"
+          python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" run > "$RUNNER_TEMP/one-six-worker-audit.json"
+      - name: Invite every logical category across system and non-system scopes
+        run: |
+          set -euo pipefail
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          U="$F/universal_workers.py"
+          C=app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/catalog.json
+          python3 "$U" --db "$RUNNER_TEMP/ONE_Public.sqlite3" bootstrap \
+            --catalog "$C" --public-root app-factory > "$RUNNER_TEMP/invitations.json"
+          python3 "$U" --db "$RUNNER_TEMP/ONE_Public.sqlite3" once \
+            --budget 32 > "$RUNNER_TEMP/universal-run.json"
+          python3 "$U" --db "$RUNNER_TEMP/ONE_Public.sqlite3" status \
+            > "$RUNNER_TEMP/universal-status.json"
+          python3 - "$RUNNER_TEMP/universal-run.json" "$RUNNER_TEMP/universal-status.json" <<'PY'
+          import json,sys
+          run=json.load(open(sys.argv[1]))
+          status=json.load(open(sys.argv[2]))
+          assert run['status']=='completed',run
+          assert run['tasks']==32 and run['logical_coverage_groups']==32,run
+          assert run['roles_checked']==763,run
+          assert run['original_hash_failures']==0,run
+          assert run['federation_originals_checked']==1326,run
+          assert status['virtual_id_capacity']==126732000000,status
+          assert status['public_app_entrypoints']>=50,status
+          assert status['sampled_worker_tasks_total']==32,status
+          assert status['paused'] is False,status
+          print('All 32 groups invited; 763 roles; 1,326 public records verified;')
+          print('126,732,000,000 logical IDs addressable, 32 bounded metadata jobs performed.')
+          PY
+      - name: Upload derived metadata-only audit (no source originals or database)
+        uses: actions/upload-artifact@v4
+        with:
+          name: one-v074-universal-public-audit
+          path: |
+            ${{ runner.temp }}/universal-run.json
+            ${{ runner.temp }}/universal-status.json
+          retention-days: 7
