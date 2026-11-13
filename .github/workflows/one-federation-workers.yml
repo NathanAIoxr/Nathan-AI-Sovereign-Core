@@ -9,6 +9,7 @@ on:
   pull_request:
     paths:
       - 'app-factory/nathan-ai/personal-intelligence/minds/federation/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/catalog.json'
       - '.github/workflows/one-federation-workers.yml'
   workflow_dispatch:
   schedule:
@@ -26,13 +27,14 @@ jobs:
           python-version: '3.12'
       - name: Test isolated worker engine
         run: python3 -m unittest discover -s app-factory/nathan-ai/personal-intelligence/minds/federation -p test_federation.py -v
-      - name: Run all six workers on public mind registry
+      - name: Run all six workers on public mind registry and Meru v074
         run: |
           set -euo pipefail
           W="app-factory/nathan-ai/personal-intelligence/minds/federation/federation.py"
           C="app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/catalog.json"
+          K="app-factory/nathan-ai/personal-intelligence/minds/federation/data/space-final-frontier-meru-v074.json"
           python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" init
-          python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" ingest "$C"
+          python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" ingest "$C" "$K"
           python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" run > "$RUNNER_TEMP/audit.json"
           python3 "$W" --db "$RUNNER_TEMP/ONE_Public.sqlite3" status
           python3 - "$RUNNER_TEMP/audit.json" <<'PY'
@@ -40,8 +42,8 @@ jobs:
           d=json.load(open(sys.argv[1]))
           assert len(d)==6
           assert d["Raphael"]["checksum_failures"]==0
-          assert d["Leonardo"]["records"]==763
-          print("6/6 public workers completed; 763 records")
+          assert d["Leonardo"]["records"]==804
+          print("6/6 public workers completed; 763 mind records + 41 source-linked v074 knowledge records")
           PY
       - name: Upload public audit only
         uses: actions/upload-artifact@v4
