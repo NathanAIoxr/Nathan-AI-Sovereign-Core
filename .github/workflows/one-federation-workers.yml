@@ -33,6 +33,24 @@ jobs:
           F="app-factory/nathan-ai/personal-intelligence/minds/federation"
           python3 -m unittest discover -s "$F/ancient_minds_reference" -p test_worker_engine.py -v
           python3 -m unittest discover -s "$F" -p test_ancient_bridge.py -v
+      - name: Test v074 Ancient Minds internal adapter (synthetic fixtures only)
+        run: python3 -m unittest discover -s app-factory/nathan-ai/personal-intelligence/minds/federation -p test_ancient_minds_v074.py -v
+      - name: Run v074 Ancient Minds deterministic worker smoke test
+        run: |
+          set -euo pipefail
+          A="app-factory/nathan-ai/personal-intelligence/minds/federation/ancient_minds_v074.py"
+          printf 'Old English blāc and blæc, Sanskrit nāraṅga, 1500s, Aristotelian and optical comparison.\n' > "$RUNNER_TEMP/ancient-synthetic.txt"
+          python3 "$A" --db "$RUNNER_TEMP/ONE_Ancient_Private.sqlite3" ingest-ancient "$RUNNER_TEMP/ancient-synthetic.txt" > "$RUNNER_TEMP/ancient-ingest-audit.json"
+          python3 "$A" --db "$RUNNER_TEMP/ONE_Ancient_Private.sqlite3" run-ancient > "$RUNNER_TEMP/ancient-workers-audit.json"
+          python3 - "$RUNNER_TEMP/ancient-workers-audit.json" <<'PY'
+          import json,sys
+          d=json.load(open(sys.argv[1]))
+          assert d["native_tables"]==14 and d["worker_runs"]==6
+          assert d["proposed_links"]==1 and d["claims_needing_review"]==2
+          assert d["evidence"]==0 and d["embedding_rows"]==0
+          assert d["jobs_queued"]==0 and d["originals"]==1
+          print("v074 Ancient Minds synthetic workers: 6/6 successful; source separate; 14 families")
+          PY
       - name: Run all six workers on public mind registry and Meru v074
         run: |
           set -euo pipefail

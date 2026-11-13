@@ -44,3 +44,7 @@ node --test app-factory/nathan-ai/personal-intelligence/minds/model.test.cjs
 ~~~
 
 Manual browser/device QA is separate from Node testing. A production PostgreSQL/pgvector store or live provider-approved AI gateway is a different future milestone, not silently included in a static PWA.
+
+## Internal ONE Federation v074 · Ancient Minds
+
+[Integrated 14-table Ancient Minds adapter and worker guide](./federation/README.md) · [Reference public-safe audit](./federation/ancient_minds_reference_run.json). Keeps exact owner-selected originals as append-only bytes in the existing private ONE Federation SQLite file; runs six named language, Duo/base-12, phonetic, chronology and interpretation workers; separates candidate links from independent evidence. Four unnamed specialists stay unassigned. No cloud database or historical-mind simulation is implied.
