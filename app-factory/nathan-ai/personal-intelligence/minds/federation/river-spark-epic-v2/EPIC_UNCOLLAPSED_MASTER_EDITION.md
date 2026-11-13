@@ -1710,7 +1710,7 @@ Gold (Sun), silver (Moon), mercury (Mercury), copper (Venus), iron (Mars), tin (
 
 ---
 
-# APPENDIX F — ALL 108 POSitional FULL-STACK TRIPLETS
+# APPENDIX F — ALL 108 POSITIONAL FULL-STACK TRIPLETS
 
 These are **ordinal equivalences, not verified device/software integrations**. Each row carries three independently assigned source names. A real interoperability claim would need additional technical evidence and a named relationship.
 
