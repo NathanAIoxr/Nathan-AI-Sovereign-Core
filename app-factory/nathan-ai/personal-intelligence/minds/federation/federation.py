@@ -44,6 +44,15 @@ CREATE TABLE IF NOT EXISTS federation_records(
   PRIMARY KEY(source_id,record_id,content_sha256)
 );
 CREATE INDEX IF NOT EXISTS ix_federation_title ON federation_records(title);
+CREATE TABLE IF NOT EXISTS federation_record_metadata(
+  source_id TEXT NOT NULL, record_id TEXT NOT NULL, content_sha256 TEXT NOT NULL,
+  source_locator TEXT NOT NULL, provenance TEXT NOT NULL, evidence_status TEXT NOT NULL,
+  kind TEXT NOT NULL, tags_json TEXT NOT NULL, privacy TEXT NOT NULL,
+  definition_json TEXT NOT NULL,
+  PRIMARY KEY(source_id,record_id,content_sha256),
+  FOREIGN KEY(source_id,record_id,content_sha256)
+    REFERENCES federation_records(source_id,record_id,content_sha256)
+);
 CREATE TABLE IF NOT EXISTS federation_proposals(
   source_id TEXT NOT NULL, record_id TEXT NOT NULL, content_sha256 TEXT NOT NULL,
   system TEXT NOT NULL, proposed_code TEXT NOT NULL,
@@ -98,6 +107,7 @@ def ingest(c, filename):
         c.execute("INSERT OR IGNORE INTO federation_records(source_id,record_id,content_sha256,exact_source_text,title,record_kind) VALUES(?,?,?,?,?,?)",
           (source_id,str(key),sha(exact.encode("utf-8")),exact,str(title),record_kind))
         added+=int(c.total_changes>before)
+        return sha(exact.encode("utf-8"))
     if kind=="sqlite":
         # URI read-only + immutable: never modify a source database.
         source=sqlite3.connect(f"file:{path.as_posix()}?mode=ro&immutable=1",uri=True)
@@ -126,15 +136,52 @@ def ingest(c, filename):
             source.close()
     else:
         data=json.loads(path.read_text(encoding="utf-8"))
-        if not isinstance(data,dict) or not isinstance(data.get("minds"),list):
-            raise ValueError("JSON input must contain a 'minds' array")
-        for item in data["minds"]:
-            if isinstance(item,dict) and "id" in item:
-                record("mind:"+str(item["id"]),item.get("name",item["id"]),
-                       json.dumps(item,sort_keys=True,ensure_ascii=False),"mind-registry")
-        c.execute("INSERT OR REPLACE INTO federation_tables VALUES(?,?,?)",
-                  (source_id,"minds",len(data["minds"])))
-        tables+=1
+        if isinstance(data,dict) and data.get("schema") == "nathan.one.federation.knowledge.v074":
+            items=data.get("records")
+            edges=data.get("links")
+            if not isinstance(items,list) or not isinstance(edges,list):
+                raise ValueError("Knowledge v074 input requires records and links arrays")
+            ids=set()
+            for item in items:
+                if not isinstance(item,dict) or not isinstance(item.get("id"),str) or not isinstance(item.get("exact_text"),str) or not isinstance(item.get("title"),str):
+                    raise ValueError("Every knowledge record needs id, title and exact_text strings")
+                if not item["id"] or not item["title"] or not item["exact_text"]:
+                    raise ValueError("Knowledge records must not have blank ids, titles, or source text")
+                if item["id"] in ids:
+                    raise ValueError("Duplicate knowledge record id: "+item["id"])
+                ids.add(item["id"])
+            for edge in edges:
+                if not isinstance(edge,dict) or edge.get("left") not in ids or edge.get("right") not in ids or not isinstance(edge.get("relation"),str):
+                    raise ValueError("Knowledge link refers to an unknown record id")
+            for item in items:
+                key="knowledge:"+item["id"]
+                digest=record(key,item["title"],item["exact_text"],"knowledge-v074")
+                c.execute("""INSERT OR IGNORE INTO federation_record_metadata
+                    (source_id,record_id,content_sha256,source_locator,provenance,evidence_status,kind,tags_json,privacy,definition_json)
+                    VALUES(?,?,?,?,?,?,?,?,?,?)""",
+                  (source_id,key,digest,item.get("source_locator",""),item.get("provenance",""),
+                   item.get("evidence_status","unreviewed"),item.get("kind","knowledge"),
+                   json.dumps(item.get("tags",[]),ensure_ascii=False),item.get("privacy","private"),
+                   json.dumps(item,ensure_ascii=False,sort_keys=True)))
+            for edge in edges:
+                c.execute("""INSERT OR IGNORE INTO federation_links
+                    (left_source,left_record,right_source,right_record,relation,state)
+                    VALUES(?,?,?,?,?,?)""",
+                  (source_id,"knowledge:"+edge["left"],source_id,"knowledge:"+edge["right"],
+                   edge["relation"],"proposed"))
+            c.execute("INSERT OR REPLACE INTO federation_tables VALUES(?,?,?)",
+                      (source_id,"v074_knowledge",len(items)))
+            tables+=1
+        else:
+            if not isinstance(data,dict) or not isinstance(data.get("minds"),list):
+                raise ValueError("JSON input must contain a 'minds' array or v074 knowledge pack")
+            for item in data["minds"]:
+                if isinstance(item,dict) and "id" in item:
+                    record("mind:"+str(item["id"]),item.get("name",item["id"]),
+                           json.dumps(item,sort_keys=True,ensure_ascii=False),"mind-registry")
+            c.execute("INSERT OR REPLACE INTO federation_tables VALUES(?,?,?)",
+                      (source_id,"minds",len(data["minds"])))
+            tables+=1
     report={"source_id":source_id,"new_records":added,"tables":tables}
     audit(c,"Leonardo","ingested",report)
     c.commit()
@@ -203,6 +250,27 @@ def run(c):
         "classification":"owner review required; LoC/Dewey/Duo not claimed as official"})
     return result
 
+def search_records(c,query,limit=20):
+    """Search indexed titles, record IDs and exact source text; do not rewrite originals."""
+    pattern="%"+str(query).replace("\\","\\\\").replace("%","\\%").replace("_","\\_")+"%"
+    limit=max(1,min(int(limit),100))
+    return [
+        dict(source_id=s,record_id=r,title=t,record_kind=k,evidence_status=status)
+        for s,r,t,k,status in c.execute(
+            """SELECT f.source_id,f.record_id,f.title,f.record_kind,
+                      COALESCE(m.evidence_status,'not-individually-reviewed')
+               FROM federation_records f
+               LEFT JOIN federation_record_metadata m
+                 ON f.source_id=m.source_id
+                AND f.record_id=m.record_id
+                AND f.content_sha256=m.content_sha256
+               WHERE f.title LIKE ? ESCAPE '\\'
+                  OR f.record_id LIKE ? ESCAPE '\\'
+                  OR f.exact_source_text LIKE ? ESCAPE '\\'
+               ORDER BY f.title,f.source_id LIMIT ?""",
+            (pattern,pattern,pattern,limit))
+    ]
+
 def main():
     p=argparse.ArgumentParser(description="Nathan AI ONE local, private federation")
     p.add_argument("--db",default="ONE_Federation_Master.sqlite3")
@@ -222,9 +290,7 @@ def main():
         "tables":c.execute("SELECT COUNT(*) FROM federation_tables").fetchone()[0],
         "integrity":c.execute("PRAGMA quick_check").fetchone()[0]}
     else:
-        out=[dict(source_id=s,record_id=r,title=t) for s,r,t in
-             c.execute("SELECT source_id,record_id,title FROM federation_records WHERE title LIKE ? LIMIT ?",
-                       ("%"+a.query+"%",max(1,min(a.limit,100))))]
+        out=search_records(c,a.query,a.limit)
     print(json.dumps(out,indent=2,ensure_ascii=False))
     c.close()
 
