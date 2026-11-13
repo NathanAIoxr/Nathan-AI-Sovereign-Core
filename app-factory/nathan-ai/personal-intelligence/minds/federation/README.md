@@ -79,3 +79,24 @@ python3 "$F/ancient_bridge.py" --db "/private/ONE_Federation_Master.sqlite3" ing
 ~~~
 
 An exact owner-held reference ZIP can optionally be run with `--archive /path/to/Nathan_Mind_OS_Ancient_Minds_Reference_Build.zip`, after its SHA-256 is checked. GitHub Actions only processes the public 763-entry registry plus the public Ancient Minds sample, in an **ephemeral** CI database. It does **not** synchronize or publish the private master.
+
+## NATHAN AI — ONE DATABASE FEDERATION v074 / Ancient Minds (November 12, 2026)
+
+The `ancient_minds_v074.py` adapter **adds 14 native SQLite table families inside the existing local/private ONE Federation master database**, without replacing `federation.py` or its original public catalog. It adds six deterministic specialists: Sumerian Scribe, Babylonian Mathematician, Egyptian Keeper of Names, Indian Grammarian, Chronologist, and House of Wisdom Scholar. Four ten-specialist slots remain unnamed, not invented.
+
+The common interface is **Input → Rules + State → Output → Reviewed Feedback**. Physical atomic behavior, reptilian neural systems, and mammalian cognition are conceptual analogies for software layers—not evidence that particles have literal minds or identical brains. The six workers create proposed evidence questions, CERO / UNO / DOS stages, source-linked linguistic notes, conditional chronological labels, DUO base-12 conversions and auditable runs. They do not call a network AI service or validate a historical assertion from a phrase match.
+
+**Read-only owner-selected source workflow:**
+
+```sh
+F=app-factory/nathan-ai/personal-intelligence/minds/federation
+python3 "$F/ancient_minds_v074.py" --db ./ONE_Federation_Master.sqlite3 init
+python3 "$F/ancient_minds_v074.py" --db ./ONE_Federation_Master.sqlite3 ingest-ancient /owner/private/notes.txt
+python3 "$F/ancient_minds_v074.py" --db ./ONE_Federation_Master.sqlite3 run-ancient
+python3 "$F/ancient_minds_v074.py" --db ./ONE_Federation_Master.sqlite3 ancient-status
+python3 -m unittest discover -s "$F" -p test_ancient_minds_v074.py -v
+```
+
+The base SQLite file remains private on the host running the commands; do not commit its generated `.sqlite3` data. The original input remains unchanged on disk; exact bytes are preserved in `ancient_originals` with an append-only trigger and SHA-256. The parent federation search table gets a separate, internally indexed source view. Source SHA identifies different revisions, and repeat input is idempotent. The optional PostgreSQL **reference schema** `ancient_minds_v074.postgres.sql` defines the same 14 logical families but is not applied or hosted; pgvector requires separate operator authorization and infrastructure.
+
+[Public-safe reference-run metadata](./ancient_minds_reference_run.json) preserves the earlier user-uploaded local demonstration results without publishing the private original 11,869-byte note. The full reference ZIP is retained in its owner-provided chat attachment rather than silently posted as source. This in-repository Python implementation is a new additive adapter based on that specification, **not a claim that the ZIP was extracted verbatim into GitHub**. Existing `GOD ONE v074`, Omni God, 763-mind registry, and independent worker scripts are preserved.
