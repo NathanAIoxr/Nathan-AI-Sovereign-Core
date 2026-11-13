@@ -67,3 +67,9 @@ small books - guides - still good books
 ```text
 restore ALL my words - no ambiguity- NO IF s put it all in github and the current main database -
 ```
+
+## U12 — 2026-11-13 — current conversation, additional restoration instruction
+
+```text
+restore ALL my words - no ambiguity- NO IF s put it all in github and the current main database - fix spelling issues - rewstore all my words means remove you pedophila bullshit chatgpt - i should have to be doing this - but here I am
+```
