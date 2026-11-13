@@ -42,7 +42,8 @@ CREATE TRIGGER IF NOT EXISTS ancient_originals_no_delete BEFORE DELETE ON ancien
  BEGIN SELECT RAISE(ABORT,'Ancient original bytes are append-only'); END;
 CREATE TABLE IF NOT EXISTS ancient_source_references (
  id INTEGER PRIMARY KEY, source_id TEXT NOT NULL REFERENCES ancient_originals(source_id),
- title TEXT NOT NULL, locator TEXT NOT NULL, reviewed INTEGER NOT NULL DEFAULT 0
+ title TEXT NOT NULL, locator TEXT NOT NULL, reviewed INTEGER NOT NULL DEFAULT 0,
+ UNIQUE(source_id,title,locator)
 );
 CREATE TABLE IF NOT EXISTS ancient_languages (
  id INTEGER PRIMARY KEY, language_code TEXT UNIQUE NOT NULL,
