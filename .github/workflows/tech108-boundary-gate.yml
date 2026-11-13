@@ -1,0 +1,35 @@
+name: ONE - Tech108 Fencepost Integrity Gate
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/technology-v108/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/federation.py'
+      - '.github/workflows/tech108-boundary-gate.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/technology-v108/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/federation.py'
+      - '.github/workflows/tech108-boundary-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate-108:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check 12 families, 108 units and edge cases
+        run: |
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          python3 -m unittest discover -s "$F/technology-v108" -p 'test_boundary_contract.py' -v
+          python3 "$F/technology-v108/boundary_contract.py" --days 7 --out /tmp/tech108-results.json
+      - name: Verify import into disposable ONE master
+        run: |
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          python3 "$F/federation.py" --db /tmp/ONE_Federation_Master_test.sqlite3 ingest "$F/technology-v108/registry.tech108.json"
+          python3 "$F/technology-v108/boundary_contract.py" --verify-db /tmp/ONE_Federation_Master_test.sqlite3
+          python3 "$F/federation.py" --db /tmp/ONE_Federation_Master_test.sqlite3 status
