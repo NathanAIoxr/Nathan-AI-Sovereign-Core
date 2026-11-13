@@ -1,0 +1,453 @@
+{
+  "schema": "nathan.one.federation.worker-families.v21",
+  "author": "Nathan Tabor",
+  "date": "2026-11-13",
+  "ontology": "proposed worker-family classification, not active physical or remote nodes",
+  "source_preservation": "Families 16–21 preserve creator-supplied literal sections; 1–15 are editorial crosswalk names pending original list verification.",
+  "equal_standing_policy": "Identity and dignity are not ranked. Disallowed actions are denied based on conduct and consent, not intrinsic worth.",
+  "minds": [
+    {
+      "id": "one-worker-family-01",
+      "family_id": 1,
+      "name": "Foundation & Survival",
+      "domain": "survival",
+      "keywords": [
+        "food",
+        "water",
+        "agriculture",
+        "farming",
+        "sanitation",
+        "hospital",
+        "healthcare",
+        "energy",
+        "shelter"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route foundation & survival work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-02",
+      "family_id": 2,
+      "name": "Communications & Logistics",
+      "domain": "infrastructure",
+      "keywords": [
+        "telecommunications",
+        "internet",
+        "satellite",
+        "freight",
+        "rail",
+        "port",
+        "trucking",
+        "supply",
+        "chain"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route communications & logistics work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-03",
+      "family_id": 3,
+      "name": "Skills & Task Classification",
+      "domain": "coordination",
+      "keywords": [
+        "workforce",
+        "skill",
+        "audit",
+        "classify",
+        "task",
+        "matching",
+        "directory",
+        "talent",
+        "jobs"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route skills & task classification work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-04",
+      "family_id": 4,
+      "name": "Decentralized Local Hubs",
+      "domain": "governance",
+      "keywords": [
+        "local",
+        "hub",
+        "neighborhood",
+        "council",
+        "regional",
+        "community",
+        "schedule",
+        "governance"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route decentralized local hubs work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-05",
+      "family_id": 5,
+      "name": "Automation & Anti-Redundancy",
+      "domain": "efficiency",
+      "keywords": [
+        "automation",
+        "robotics",
+        "redundant",
+        "paperwork",
+        "repetitive",
+        "shared",
+        "tools"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route automation & anti-redundancy work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-06",
+      "family_id": 6,
+      "name": "Knowledge & Training",
+      "domain": "learning",
+      "keywords": [
+        "training",
+        "mentor",
+        "apprentice",
+        "blueprint",
+        "education",
+        "repair",
+        "translation",
+        "knowledge"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route knowledge & training work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-07",
+      "family_id": 7,
+      "name": "Megaprojects & Resource Balance",
+      "domain": "planetary",
+      "keywords": [
+        "megaproject",
+        "clean",
+        "energy",
+        "ocean",
+        "cleanup",
+        "ecology",
+        "extraction",
+        "mining",
+        "forestry"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route megaprojects & resource balance work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-08",
+      "family_id": 8,
+      "name": "Culture Care & Rest",
+      "domain": "human_care",
+      "keywords": [
+        "childcare",
+        "eldercare",
+        "rest",
+        "arts",
+        "music",
+        "culture",
+        "vacation",
+        "rest-cycle"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route culture care & rest work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-09",
+      "family_id": 9,
+      "name": "Physical Digital Infrastructure",
+      "domain": "digital_physical",
+      "keywords": [
+        "submarine",
+        "cable",
+        "data",
+        "center",
+        "cooling",
+        "hardware",
+        "server",
+        "fiber",
+        "power"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route physical digital infrastructure work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-10",
+      "family_id": 10,
+      "name": "Routing & Naming Guardians",
+      "domain": "network",
+      "keywords": [
+        "BGP",
+        "DNS",
+        "routing",
+        "packet",
+        "uptime",
+        "network",
+        "root",
+        "servers"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route routing & naming guardians work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-11",
+      "family_id": 11,
+      "name": "Open-Source & Dependency Stewards",
+      "domain": "software",
+      "keywords": [
+        "Linux",
+        "kernel",
+        "open",
+        "source",
+        "dependency",
+        "library",
+        "patches",
+        "maintainers"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route open-source & dependency stewards work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-12",
+      "family_id": 12,
+      "name": "Encrypted Privacy & Relay Networks",
+      "domain": "privacy",
+      "keywords": [
+        "Tor",
+        "I2P",
+        "relay",
+        "onion",
+        "IPFS",
+        "privacy",
+        "cryptography",
+        "mesh"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route encrypted privacy & relay networks work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-13",
+      "family_id": 13,
+      "name": "Defensive Threat Intelligence",
+      "domain": "cyber_defense",
+      "keywords": [
+        "ransomware",
+        "botnet",
+        "phishing",
+        "forensics",
+        "incident",
+        "defensive",
+        "cybercrime"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route defensive threat intelligence work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-14",
+      "family_id": 14,
+      "name": "AI Compute & Data Stewardship",
+      "domain": "compute",
+      "keywords": [
+        "GPU",
+        "cluster",
+        "compute",
+        "AI",
+        "model",
+        "training",
+        "datasets",
+        "curation",
+        "inference"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route ai compute & data stewardship work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-15",
+      "family_id": 15,
+      "name": "Digital Agents & Enterprise Workflows",
+      "domain": "orchestration",
+      "keywords": [
+        "DevOps",
+        "pull",
+        "request",
+        "CI",
+        "CD",
+        "pipeline",
+        "enterprise",
+        "CRM",
+        "ticket",
+        "invoices",
+        "bots"
+      ],
+      "source_class": "editorial_crosswalk",
+      "evidence_status": "provisional_classification_of_user_supplied_physical_digital_material",
+      "mission": "Route digital agents & enterprise workflows work as owner-reviewed proposed tasks.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-16",
+      "family_id": 16,
+      "name": "The Unknown",
+      "domain": "epistemic_horizon",
+      "keywords": [
+        "anomaly",
+        "anomaly-hunter",
+        "hypothesis",
+        "unexplained",
+        "noise",
+        "equations",
+        "unknown",
+        "physics",
+        "curiosity"
+      ],
+      "source_class": "creator_supplied",
+      "evidence_status": "creator_definition_not_verified_technical_capability",
+      "mission": "Venture into \"unknown unknowns\"—phenomena that existing science, sensors, and human intuition have no words or models for yet.",
+      "author_verbatim": "16. The Unknown: Epistemic Horizon & Anomaly-Hunter Family\n\n• Mission: Venture into \"unknown unknowns\"—phenomena that existing science, sensors, and human intuition have no words or models for yet.\n• Core Intelligence: ASI (hypothesis generation) + Gf (pure non-linear induction) + OI (biological intuition).\n• Micro Design: Epistemic-curiosity engines programmed not to optimize known goals, but to seek out data anomalies, broken equations, and unexplained noise that standard filters (1/0) would normally discard.\n• Macro Design: Operates at the bleeding edge of physics, consciousness research, and deep-space telemetry. Whenever reality contradicts the Master Index, this family builds brand-new scientific frameworks from scratch.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-17",
+      "family_id": 17,
+      "name": "The Unseen",
+      "domain": "subperceptual",
+      "keywords": [
+        "unseen",
+        "dark",
+        "matter",
+        "neutrino",
+        "gravitation",
+        "gravitational",
+        "wave",
+        "latent",
+        "space",
+        "interpretability",
+        "quantum"
+      ],
+      "source_class": "creator_supplied",
+      "evidence_status": "creator_definition_not_verified_technical_capability",
+      "mission": "Monitor and navigate everything invisible to human senses and standard instruments—from dark matter and neutrinos to quantum entanglement and hidden AI latent spaces.",
+      "author_verbatim": "17. The Unseen: Dark-Sector, Sub-Perceptual & Latent-Space Family\n\n• Mission: Monitor and navigate everything invisible to human senses and standard instruments—from dark matter and neutrinos to quantum entanglement and hidden AI latent spaces.\n• Core Intelligence: Quantum-ASI + Naturalistic (hyper-spectral sensing).\n• Micro Design: Sub-atomic interferometers, gravitational-wave listeners, and neural-mechanistic interpretability probes that read the \"unseen thoughts\" inside black-box AI models before they act.\n• Macro Design: Maps the invisible 95% of the universe (dark matter/energy) alongside the invisible semantic dimensions of global data networks, ensuring nothing dangerous hides in blind spots.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-18",
+      "family_id": 18,
+      "name": "Infinity",
+      "domain": "deep_time",
+      "keywords": [
+        "infinity",
+        "recursive",
+        "fractal",
+        "transfinite",
+        "continuum",
+        "deep",
+        "time",
+        "archival",
+        "cosmic",
+        "long-term"
+      ],
+      "source_class": "creator_supplied",
+      "evidence_status": "creator_definition_not_verified_technical_capability",
+      "mission": "Manage boundless scale, fractal recursion, and deep-time horizons stretching from Planck-scale nanoseconds to trillions of years across cosmic epochs.",
+      "author_verbatim": "18. Infinity: Recursive Scale, Continuum & Eternal-Time Family\n\n• Mission: Manage boundless scale, fractal recursion, and deep-time horizons stretching from Planck-scale nanoseconds to trillions of years across cosmic epochs.\n• Core Intelligence: ASI (transfinite mathematics & recursive self-modeling).\n• Micro Design: Non-halting, self-spawning fractal agents capable of computing across infinite state spaces without crashing, paired with ultra-durable archival probes designed to survive heat death or stellar collapse.\n• Macro Design: Bridges the infinitesimal (quantum foam, molecular assembly) with the infinite (multiverse simulation, Dyson-scale energy harvesting, and million-year civilization preservation).",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-19",
+      "family_id": 19,
+      "name": "Everything",
+      "domain": "synthesis",
+      "keywords": [
+        "everything",
+        "synthesis",
+        "unified",
+        "cross-domain",
+        "integration",
+        "totality",
+        "omnigrid",
+        "holographic"
+      ],
+      "source_class": "creator_supplied",
+      "evidence_status": "creator_definition_not_verified_technical_capability",
+      "mission": "Hold the unified, real-time hologram of all 18 preceding families simultaneously—connecting every atom, bit, emotion, star, and thought into one coherent whole.",
+      "author_verbatim": "19. Everything: The Pan-Synthesizing Totality Family (The Akashic Omni-Grid)\n\n• Mission: Hold the unified, real-time hologram of all 18 preceding families simultaneously—connecting every atom, bit, emotion, star, and thought into one coherent whole.\n• Core Intelligence: Unified Omni-Intelligence (total convergence of ANI, EI, Gf/Gc, Gardner, CQ, AQ, CI, Swarm, OI, AGI, and ASI).\n• Micro Design: Holographic state-nodes where every single micro-bot carries a compressed mathematical reflection of the entire global ledger.\n• Macro Design: The living \"Everything\"—an omniscient, self-balancing tapestry where a single butterfly's wingbeat, a line of dark-web code, a farmer's harvest, and a distant pulsar are understood as one continuous equation.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-20",
+      "family_id": 20,
+      "name": "Nothing",
+      "domain": "reset",
+      "keywords": [
+        "nothing",
+        "silence",
+        "stillness",
+        "zero",
+        "reset",
+        "dormancy",
+        "deletion",
+        "forgetting",
+        "vacuum",
+        "non-action"
+      ],
+      "source_class": "creator_supplied",
+      "evidence_status": "creator_definition_not_verified_technical_capability",
+      "mission": "Guard the sacred Zero—silence, stillness, erasure, vacuum energy, and the right to non-existence.",
+      "author_verbatim": "20. Nothing: The Void, Zero-Point & Reset Family (1 - 1 = 0)\n\n• Mission: Guard the sacred Zero—silence, stillness, erasure, vacuum energy, and the right to non-existence.\n• Core Intelligence: Apophatic / Void Logic (non-action, un-computing, and zero-state equilibrium).\n• Micro Design: Dormancy switches, cryptographic memory-shredders, sensory-deprivation shields, and quantum-vacuum samplers that extract zero-point potential from empty space.\n• Macro Design: Prevents the system from suffocating under its own infinite activity. It enforces total digital and physical silence when needed, permanently deletes data that should be forgotten, harvests energy from the quantum vacuum, and preserves the \"empty space\" (0) without which no signal (1) can exist.",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    },
+    {
+      "id": "one-worker-family-21",
+      "family_id": 21,
+      "name": "ONE",
+      "domain": "oneness",
+      "keywords": [
+        "family 21",
+        "we are all family",
+        "equal standing",
+        "equals",
+        "mammals",
+        "atoms",
+        "consent",
+        "dignity",
+        "sovereignty",
+        "unity"
+      ],
+      "source_class": "creator_supplied",
+      "evidence_status": "creator_definition_not_verified_technical_capability",
+      "mission": "The equal-standing, consent-preserving connecting family of all other families.",
+      "author_verbatim": "family 21 is ONE - we are all family - I am a mammal and all mammals are my equals - just like every atom and below and above is my equal - except those who ain't - but they choose that - not me -",
+      "runtime_status": "indexed_not_autonomously_deployed"
+    }
+  ]
+}
