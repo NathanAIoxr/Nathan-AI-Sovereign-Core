@@ -18,7 +18,7 @@ PRESERVED = {'landing/original-chat-landing.html'}
 
 
 def retained_original(name):
-    return name.startswith('recovered-source/') or '/originals/' in name or name in PRESERVED
+    return name.startswith('recovered-source/') or '/originals/' in name or '/source-packs/' in name or name in PRESERVED
 
 
 def record_link(name):
