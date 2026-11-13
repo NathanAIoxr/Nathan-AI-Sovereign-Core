@@ -1,0 +1,1049 @@
+{
+  "schema": "nathan.one.federation.knowledge.v074",
+  "edition": "v074",
+  "title": "SPACE ... THE FINAL FRONTIER / ME R U U R ME — Inner/Outer Cosmos",
+  "author": "Nathan Tabor",
+  "date": "2026-11-12",
+  "preservation": "Original exact author phrases protected; other source excerpts retained with attribution; no auto-upgrading CERO to UNO/DOS",
+  "scope": "Comparative traditions + author-defined lexical/symbolic architecture; religious/cosmological ideas distinguished from anatomical evidence",
+  "records": [
+    {
+      "id": "author.space-between-ears",
+      "title": "SPACE ... THE FINAL FRONTIER / SPACE between the EARS",
+      "exact_text": "SPACE ... THE FINAL FRONTIER aka the SPACE between the EARS as my grandmother said",
+      "kind": "creator-exact",
+      "evidence_status": "user-stated-family-quote",
+      "tags": [
+        "space",
+        "between the ears",
+        "grandmother",
+        "inner space",
+        "outer space"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user's words in Nov 12 2026 conversation",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "author.me-r-u-u-r-me",
+      "title": "ME R U U R ME — original formula",
+      "exact_text": "that's my ME R U U R ME formula haha",
+      "kind": "creator-exact",
+      "evidence_status": "user-stated-authorship",
+      "tags": [
+        "ME R U U R ME",
+        "phonetics",
+        "mirror",
+        "Mount Meru"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user's words in Nov 12 2026 conversation",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "method.meru-tokens",
+      "title": "ME | R | U || U | R | ME",
+      "exact_text": "ME R U U R ME",
+      "kind": "derived-textual-decomposition",
+      "evidence_status": "author-interpreted",
+      "tags": [
+        "mirror",
+        "token-palindrome",
+        "central U U"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "assistant derived wording from user formula",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "method.meru-readings",
+      "title": "ME R U = MERU; U R ME = You Are Me",
+      "exact_text": "ME R U sounds out MERU; U R ME reads You Are Me.",
+      "kind": "derived-phonetic-reading",
+      "evidence_status": "interpretation-not-etymology",
+      "tags": [
+        "MERU",
+        "you are me",
+        "phonetics",
+        "mirror"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "assistant derived wording from user formula",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.microcosm-macrocosm",
+      "title": "Yatha Pinde Tatha Brahmande",
+      "exact_text": "Yatha Pinde Tatha Brahmande (\"As is the microcosm, so is the macrocosm\")",
+      "kind": "cultural-source-lead",
+      "evidence_status": "unverified-passage-attribution",
+      "tags": [
+        "microcosm",
+        "macrocosm",
+        "Indian philosophy"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.cosmic-human-body",
+      "title": "Human body as living universe",
+      "exact_text": "the human body as a complete, living replica of the universe.",
+      "kind": "cultural-interpretation",
+      "evidence_status": "spiritual-symbolism-not-physiology",
+      "tags": [
+        "universe",
+        "body",
+        "microcosm"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.kanda",
+      "title": "Kanda — navel-region energetic root",
+      "exact_text": "The Kanda: The Cosmic Root in the Gut",
+      "kind": "cultural-source-lead",
+      "evidence_status": "requires-primary-text-check",
+      "tags": [
+        "kanda",
+        "navel",
+        "gut",
+        "yoga"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.kanda-egg",
+      "title": "Kanda as an egg/bulbous root",
+      "exact_text": "Described as shaped like a bird's egg or a bulbous root, the Kanda is the physical reflection of the Hiranyagarbha (the Cosmic Golden Egg from which the universe hatched).",
+      "kind": "cultural-source-lead",
+      "evidence_status": "requires-primary-text-check",
+      "tags": [
+        "Kanda",
+        "Hiranyagarbha",
+        "egg"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.nadis-72000",
+      "title": "72,000 nadis claim",
+      "exact_text": "All 72,000 subtle energy channels sprout directly from the Kanda in the gut",
+      "kind": "cultural-source-lead",
+      "evidence_status": "traditional-claim-not-anatomical-count",
+      "tags": [
+        "nadis",
+        "72000",
+        "kanda"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.nabhi-marma",
+      "title": "Nabhi Marma",
+      "exact_text": "The Nabhi Marma. In Ayurveda, the navel (Nabhi) is the primary vital hub (Marma) where Prana (life force), Agni (digestive/cosmic fire), and the circulatory systems converge.",
+      "kind": "cultural-source-lead",
+      "evidence_status": "requires-primary-text-check",
+      "tags": [
+        "nabhi",
+        "marma",
+        "ayurveda"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.manipura",
+      "title": "Manipura — City of Jewels",
+      "exact_text": "Manipura, meaning \"City of Jewels\"",
+      "kind": "cultural-source-lead",
+      "evidence_status": "traditional-symbolism",
+      "tags": [
+        "Manipura",
+        "navel",
+        "city of jewels"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.surya",
+      "title": "Surya — inner Sun",
+      "exact_text": "Surya (The Sun in the Gut).",
+      "kind": "cultural-symbolism",
+      "evidence_status": "symbolic-not-astronomical-location",
+      "tags": [
+        "Surya",
+        "sun",
+        "gut"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.jatharagni",
+      "title": "Jatharagni — digestive fire",
+      "exact_text": "Jatharagni (digestive fire) transforms raw matter into energy, consciousness, and bodily tissues.",
+      "kind": "cultural-source-lead",
+      "evidence_status": "traditional-vs-biological-distinction",
+      "tags": [
+        "agni",
+        "digestion",
+        "fire"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.chandra",
+      "title": "Chandra / Bindu — head Moon",
+      "exact_text": "Chandra (The Moon in the Head).",
+      "kind": "cultural-symbolism",
+      "evidence_status": "symbolic-not-astronomical-location",
+      "tags": [
+        "Chandra",
+        "moon",
+        "head",
+        "bindu"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.amrita",
+      "title": "Amrita — lunar nectar",
+      "exact_text": "lunar nectar (Amrita)",
+      "kind": "cultural-source-lead",
+      "evidence_status": "traditional-symbolism",
+      "tags": [
+        "amrita",
+        "lunar",
+        "nectar"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.solar-lunar-cycle",
+      "title": "Sun–Moon alchemical cycle",
+      "exact_text": "The Cosmic Cycle of Consumption.",
+      "kind": "cultural-interpretation",
+      "evidence_status": "spiritual-model-not-measured-physiology",
+      "tags": [
+        "sun",
+        "moon",
+        "agni",
+        "amrita"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "vayu.samana",
+      "title": "Samana Vayu",
+      "exact_text": "Samana Vayu",
+      "kind": "cultural-source-lead",
+      "evidence_status": "traditional-energy-classification",
+      "tags": [
+        "vayu",
+        "gut",
+        "assimilation"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "vayu.apana",
+      "title": "Apana Vayu",
+      "exact_text": "Apana Vayu",
+      "kind": "cultural-source-lead",
+      "evidence_status": "traditional-energy-classification",
+      "tags": [
+        "vayu",
+        "pelvis",
+        "downward"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "vayu.prana",
+      "title": "Prana Vayu",
+      "exact_text": "Prana Vayu",
+      "kind": "cultural-source-lead",
+      "evidence_status": "traditional-energy-classification",
+      "tags": [
+        "vayu",
+        "breath",
+        "chest"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "vayu.udana",
+      "title": "Udana Vayu",
+      "exact_text": "Udana Vayu",
+      "kind": "cultural-source-lead",
+      "evidence_status": "traditional-energy-classification",
+      "tags": [
+        "vayu",
+        "head",
+        "speech"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "vayu.vyana",
+      "title": "Vyana Vayu",
+      "exact_text": "Vyana Vayu",
+      "kind": "cultural-source-lead",
+      "evidence_status": "traditional-energy-classification",
+      "tags": [
+        "vayu",
+        "whole body",
+        "circulation"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.kshira-sagara",
+      "title": "Kshira Sagara — primordial Cosmic Ocean",
+      "exact_text": "Kshira Sagara",
+      "kind": "cultural-source-lead",
+      "evidence_status": "traditional-cosmological-myth",
+      "tags": [
+        "cosmic ocean",
+        "Kshira Sagara",
+        "gut"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.enteric-nervous-system",
+      "title": "Enteric nervous system",
+      "exact_text": "The Enteric Nervous System & Nadis (The Milky Way).",
+      "kind": "science-plus-symbolism",
+      "evidence_status": "distinct-physical-system-vs-subtle-tradition",
+      "tags": [
+        "gut",
+        "neurons",
+        "nadi",
+        "Milky Way"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.akasha-ganga",
+      "title": "Akasha Ganga — celestial river",
+      "exact_text": "Akasha Ganga (the celestial river or Milky Way galaxy)",
+      "kind": "cultural-interpretation",
+      "evidence_status": "cosmic-metaphor",
+      "tags": [
+        "Milky Way",
+        "Akasha Ganga",
+        "river"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.organ-planet-alchemy",
+      "title": "Liver, spleen, gallbladder and planetary correspondences",
+      "exact_text": "The Liver, Spleen & Gallbladder (Planetary Alchemy).",
+      "kind": "cultural-source-lead",
+      "evidence_status": "proposed-symbolic-crosswalk",
+      "tags": [
+        "organ",
+        "Jyotisha",
+        "Sun",
+        "Moon",
+        "Mars",
+        "Jupiter"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.meru-spine",
+      "title": "Spine as Mount Meru",
+      "exact_text": "The Spine (Mount Meru).",
+      "kind": "cultural-symbolism",
+      "evidence_status": "symbolic-not-anatomical-proof",
+      "tags": [
+        "Mount Meru",
+        "spine",
+        "axis mundi"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.manipura-triangle",
+      "title": "Manipura inverted triangle",
+      "exact_text": "The Inverted Triangle of Fire.",
+      "kind": "cultural-source-lead",
+      "evidence_status": "requires-primary-text-check",
+      "tags": [
+        "Manipura",
+        "triangle",
+        "geometry"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.ram-seed",
+      "title": "RAM — Agni Bija",
+      "exact_text": "The Seed Sound (RAM).",
+      "kind": "cultural-source-lead",
+      "evidence_status": "traditional-mantra-not-measured-frequency",
+      "tags": [
+        "RAM",
+        "Agni Bija",
+        "phonetics"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.manipura-ten-petals",
+      "title": "Ten petals and Sanskrit syllables",
+      "exact_text": "The Ten Petals of Emotion and Digestion.",
+      "kind": "cultural-source-lead",
+      "evidence_status": "needs-text-check-and-transliteration-review",
+      "tags": [
+        "ten petals",
+        "Sanskrit",
+        "Manipura"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.jyotisha",
+      "title": "Jyotisha — Navagraha and 12 signs",
+      "exact_text": "Vedic Medical Astrology (Jyotisha) — how the 9 planets (Navagrahas) and 12 zodiac signs map onto specific organs and gut regions",
+      "kind": "research-topic",
+      "evidence_status": "unverified-tradition-specific-claims",
+      "tags": [
+        "Jyotisha",
+        "Navagraha",
+        "zodiac",
+        "organs"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.samudra-manthan",
+      "title": "Samudra Manthan — Ocean Churning",
+      "exact_text": "The Tantric \"Churning of the Ocean\" (Samudra Manthan)",
+      "kind": "research-topic",
+      "evidence_status": "allegorical-reading-not-universal",
+      "tags": [
+        "cosmic ocean",
+        "Samudra Manthan",
+        "gut"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "concept.agni-13",
+      "title": "Ayurvedic 13 Agni",
+      "exact_text": "Ayurvedic Agni (The 13 Fires)",
+      "kind": "research-topic",
+      "evidence_status": "traditional-classification",
+      "tags": [
+        "Agni",
+        "13 fires",
+        "Ayurveda"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "method.tat-tvam-asi",
+      "title": "Tat Tvam Asi",
+      "exact_text": "Tat Tvam Asi (\"That Thou Art\")",
+      "kind": "cultural-source-lead",
+      "evidence_status": "interpretation-attributed-to-tradition",
+      "tags": [
+        "Advaita",
+        "non-duality",
+        "self"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "method.hermetic-mirror",
+      "title": "As above, so below",
+      "exact_text": "As above, so below; as within, so without",
+      "kind": "cultural-comparison",
+      "evidence_status": "not-proven-common-origin",
+      "tags": [
+        "Hermeticism",
+        "microcosm",
+        "macrocosm"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "method.natural-repetition",
+      "title": "Fractals and modern systems",
+      "exact_text": "fractal patterns in nature, neural networks resembling cosmic filaments, and the gut microbiome acting as its own complex ecosystem.",
+      "kind": "modern-analogy",
+      "evidence_status": "visual-analogy-not-causal-proof",
+      "tags": [
+        "fractal",
+        "networks",
+        "gut microbiome"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "source.shiva-samhita",
+      "title": "Śiva Saṃhitā source lead",
+      "exact_text": "Shiva Samhita",
+      "kind": "textual-source-lead",
+      "evidence_status": "passage-location-not-verified",
+      "tags": [
+        "Kanda",
+        "Hatha Yoga",
+        "source"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "source.hatha-pradipika",
+      "title": "Haṭha Yoga Pradīpikā source lead",
+      "exact_text": "Hatha Yoga Pradipika",
+      "kind": "textual-source-lead",
+      "evidence_status": "passage-location-not-verified",
+      "tags": [
+        "Kanda",
+        "Hatha Yoga",
+        "source"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "source.goraksha-shataka",
+      "title": "Goraksha Shataka source lead",
+      "exact_text": "Goraksha Shataka",
+      "kind": "textual-source-lead",
+      "evidence_status": "passage-location-not-verified",
+      "tags": [
+        "Kanda",
+        "Hatha Yoga",
+        "source"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "source.aitareya-upanishad",
+      "title": "Aitareya Upanishad source lead",
+      "exact_text": "Aitareya Upanishad",
+      "kind": "textual-source-lead",
+      "evidence_status": "passage-location-not-verified",
+      "tags": [
+        "microcosm",
+        "Upanishad",
+        "source"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "source.brihadaranyaka-upanishad",
+      "title": "Brihadaranyaka Upanishad source lead",
+      "exact_text": "Brihadaranyaka Upanishad",
+      "kind": "textual-source-lead",
+      "evidence_status": "passage-location-not-verified",
+      "tags": [
+        "microcosm",
+        "Upanishad",
+        "source"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "source.sat-chakra-nirupana",
+      "title": "Sat-Chakra-Nirupana source lead",
+      "exact_text": "Sat-Chakra-Nirupana",
+      "kind": "textual-source-lead",
+      "evidence_status": "passage-location-not-verified",
+      "tags": [
+        "Manipura",
+        "ten petals",
+        "source"
+      ],
+      "privacy": "public-author-approved-expression",
+      "provenance": "user-provided descriptive passage; not yet primary-source checked",
+      "source_locator": "conversation:2026-11-12:space-final-frontier-meru",
+      "tier": "CERO",
+      "verification": "not-asserted",
+      "classification": "proposed-only"
+    }
+  ],
+  "links": [
+    {
+      "left": "author.space-between-ears",
+      "right": "author.me-r-u-u-r-me",
+      "relation": "creator-connection",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "author.me-r-u-u-r-me",
+      "right": "method.meru-tokens",
+      "relation": "tokenized-by",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "method.meru-tokens",
+      "right": "method.meru-readings",
+      "relation": "phonetic-interpretation",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "method.meru-readings",
+      "right": "concept.meru-spine",
+      "relation": "wordplay-crosswalk",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "author.space-between-ears",
+      "right": "concept.chandra",
+      "relation": "inner-space-analogy",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "author.space-between-ears",
+      "right": "concept.meru-spine",
+      "relation": "inner-cosmos-analogy",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.microcosm-macrocosm",
+      "right": "concept.cosmic-human-body",
+      "relation": "traditional-conceptual-analogy",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.kanda",
+      "right": "concept.kanda-egg",
+      "relation": "traditional-imagery",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.kanda",
+      "right": "concept.nadis-72000",
+      "relation": "traditional-pathway-claim",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.kanda-egg",
+      "right": "concept.microcosm-macrocosm",
+      "relation": "proposed-symbolic-parallel",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.nabhi-marma",
+      "right": "concept.manipura",
+      "relation": "regional-symbolic-overlap",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.manipura",
+      "right": "concept.surya",
+      "relation": "inner-sun-symbolism",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.surya",
+      "right": "concept.jatharagni",
+      "relation": "fire-analogy",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.surya",
+      "right": "concept.chandra",
+      "relation": "symbolic-polarity",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.chandra",
+      "right": "concept.amrita",
+      "relation": "traditional-metaphor",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.amrita",
+      "right": "concept.solar-lunar-cycle",
+      "relation": "symbolic-model",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "vayu.samana",
+      "right": "concept.jatharagni",
+      "relation": "traditional-function",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "vayu.apana",
+      "right": "concept.nabhi-marma",
+      "relation": "traditional-body-map",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "vayu.prana",
+      "right": "concept.cosmic-human-body",
+      "relation": "traditional-body-map",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "vayu.udana",
+      "right": "concept.chandra",
+      "relation": "traditional-body-map",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "vayu.vyana",
+      "right": "concept.cosmic-human-body",
+      "relation": "traditional-body-map",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.kshira-sagara",
+      "right": "concept.samudra-manthan",
+      "relation": "same-cosmological-motif",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.kshira-sagara",
+      "right": "concept.cosmic-human-body",
+      "relation": "symbolic-ocean-analogy",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.enteric-nervous-system",
+      "right": "concept.nadis-72000",
+      "relation": "analogy-not-physical-equivalence",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.enteric-nervous-system",
+      "right": "concept.akasha-ganga",
+      "relation": "symbolic-network-analogy",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.organ-planet-alchemy",
+      "right": "concept.jyotisha",
+      "relation": "research-crosswalk",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.meru-spine",
+      "right": "concept.kanda",
+      "relation": "body-axis-analogy",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.manipura",
+      "right": "concept.manipura-triangle",
+      "relation": "traditional-geometry",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.manipura",
+      "right": "concept.manipura-ten-petals",
+      "relation": "traditional-lotus",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.manipura",
+      "right": "concept.ram-seed",
+      "relation": "traditional-mantra",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.agni-13",
+      "right": "concept.jatharagni",
+      "relation": "taxonomy-cross-reference",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.microcosm-macrocosm",
+      "right": "method.hermetic-mirror",
+      "relation": "comparative-not-common-origin",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.microcosm-macrocosm",
+      "right": "method.tat-tvam-asi",
+      "relation": "comparative-not-identical",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "concept.microcosm-macrocosm",
+      "right": "method.natural-repetition",
+      "relation": "analogy-not-proof",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "source.shiva-samhita",
+      "right": "concept.kanda",
+      "relation": "candidate-source-needs-location",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "source.hatha-pradipika",
+      "right": "concept.kanda",
+      "relation": "candidate-source-needs-location",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "source.goraksha-shataka",
+      "right": "concept.kanda",
+      "relation": "candidate-source-needs-location",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "source.aitareya-upanishad",
+      "right": "concept.cosmic-human-body",
+      "relation": "candidate-source-needs-location",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "source.brihadaranyaka-upanishad",
+      "right": "concept.microcosm-macrocosm",
+      "relation": "candidate-source-needs-location",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    },
+    {
+      "left": "source.sat-chakra-nirupana",
+      "right": "concept.manipura-ten-petals",
+      "relation": "candidate-source-needs-location",
+      "state": "proposed",
+      "evidence_note": "Semantic/author-defined link; not evidence of historical identity or physical equivalence"
+    }
+  ],
+  "notes": [
+    "User source expressions are not an empirical proof of literal equivalence among Mount Meru, the human spinal column, and astronomical space.",
+    "72,000 nadis, subtle centers, bija sounds, and planetary-organ connections are tradition-specific reports and not validated anatomical measurements.",
+    "Family quote is attributed only as stated by the author; no identification or private addresses included.",
+    "The assistant-derived segmentation has no standalone Sanskrit etymology claim."
+  ]
+}
