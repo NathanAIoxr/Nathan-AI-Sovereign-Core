@@ -100,3 +100,17 @@ python3 -m unittest discover -s "$F" -p test_ancient_minds_v074.py -v
 The base SQLite file remains private on the host running the commands; do not commit its generated `.sqlite3` data. The original input remains unchanged on disk; exact bytes are preserved in `ancient_originals` with an append-only trigger and SHA-256. The parent federation search table gets a separate, internally indexed source view. Source SHA identifies different revisions, and repeat input is idempotent. The optional PostgreSQL **reference schema** `ancient_minds_v074.postgres.sql` defines the same 14 logical families but is not applied or hosted; pgvector requires separate operator authorization and infrastructure.
 
 [Public-safe reference-run metadata](./ancient_minds_reference_run.json) preserves the earlier user-uploaded local demonstration results without publishing the private original 11,869-byte note. The full reference ZIP is retained in its owner-provided chat attachment rather than silently posted as source. This in-repository Python implementation is a new additive adapter based on that specification, **not a claim that the ZIP was extracted verbatim into GitHub**. Existing `GOD ONE v074`, Omni God, 763-mind registry, and independent worker scripts are preserved.
+
+## THE NATHAN TABOR METHOD — source-linked integration (v074)
+
+[Open the 522-record mobile archive](./v074-method.html) · [Original source files](./source-packs/nathan-method-2026-11-12/README.md) · [Knowledge pack](./data/nathan-method-integrated-v074.json) · [Word/image discovery trail](./data/word-image-discovery-trail-v074.json).
+
+Additive to this **same** ONE Federation SQLite engine: 11 byte-preserved original artifacts; 101 historical source leads, 101 user-supplied sayings, 206 bone index entries, 40 narrative pillars, five overlays, 12 cranial nerves, ten operating principles, 25 module records, six primary text references, four incentive mechanisms, and one exact creator account of word/image-triggered topic movement. The pack contains **522 indexed records and 519 proposed associations**. Its original file hashes are checked in `test_nathan_method_v074.py`. No original master DB is published or overwritten.
+
+Ingest with:
+```sh
+python3 federation.py --db /path/to/owner-private/ONE_Federation_Master.sqlite3 ingest data/nathan-method-integrated-v074.json
+python3 federation.py --db /path/to/owner-private/ONE_Federation_Master.sqlite3 run
+```
+
+Public CI adds the source pack after the existing 763 mind records and 41 Meru records for a **1,326-record** temporary test. This is a local/ephemeral federation process, not live cross-provider, Airtable, or multi-device sync. Specific word/image triggers are **unknown unless owner-confirmed**, and source comparatives are not automatically factual, clinical or causal equivalences. Original works and source identities remain independent.
