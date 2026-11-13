@@ -21,6 +21,7 @@ import subprocess
 from urllib.parse import urlsplit, unquote
 
 from az_builder import normalized
+from family_registry import family_overlay, overlay_markdown
 from universal_workers import digest, open_universal, utc
 
 VERSION = "nathan.one.v074.creator-teams.v1"
@@ -344,6 +345,7 @@ def run_teams(root: Path, config: Path, output: Path, git_base: str,
     if len(ids)!=len(set(ids)) or len(ids)!=10:
         raise ValueError("Exactly ten distinct creator teams are required")
     roles,role_report=roles_to_teams(root,cfg)
+    families=family_overlay(root_path(root,cfg["family_registry"]),cfg["teams"])
     sites=inspect_websites(root,cfg)
     book,book_report=book_working_edition(root,cfg)
     code=inspect_code(root,cfg)
@@ -381,6 +383,8 @@ def run_teams(root: Path, config: Path, output: Path, git_base: str,
     work.sort(key=lambda x:(x["priority"],x["team"],x["source_path"]))
     if len(work)>MAX_TASKS:raise ValueError("Work queue requires a reviewed expanded capacity")
     output.mkdir(parents=True,exist_ok=True)
+    publish_report(output/"families"/"ONE_21_TEAM_OVERLAY.json",families)
+    publish_report(output/"families"/"ONE_21_MASTER_NOTE.md",overlay_markdown(families))
     publish_report(output/"teams.json",{"schema":VERSION,"teams":cfg["teams"],
                                         "assigned_roles":role_report})
     publish_report(output/"role-assignments.json",roles)
@@ -395,13 +399,17 @@ def run_teams(root: Path, config: Path, output: Path, git_base: str,
     publish_report(output/"work-queue.json",work)
     report={
       "schema":VERSION,"status":"completed_local_team_artifact_build",
-      "creator_teams":len(ids),"registered_roles_assigned":len(roles),
+      "creator_teams":len(ids),"family_slots":families["family_slots"],
+      "family21_overlay_teams":families["family21_team_count"],
+      "family_defined_from_supplied_source":families["source_defined_from_this_message"],
+      "family_prior_definitions_unresolved":families["unresolved_prior_family_definitions"],
+      "registered_roles_assigned":len(roles),
       "roles_excluded":0,"website_pages_checked":len(sites),
       "book_sources_preserved":1,"python_source_files_syntax_checked":len(code),
       "python_source_syntax_errors":sum(not x["syntax_valid"] for x in code),
       "tracked_committed_changes":len(changes),"protected_source_locks_checked":len(locks),
       "protected_original_drift_count":len(drift),"pending_proposed_work_items":len(work),
-      "completed_products":["source-linked website inventory","verbatim book working edition",
+      "completed_products":["family21 ONE shared team overlay","source-linked website inventory","verbatim book working edition",
                             "Python syntax audit","change monitor and restoration plan",
                             "ten-team role assignments and work queue"],
       "remaining_work_truth":"Proposed books, website fixes and coding tasks are NOT considered implemented",
