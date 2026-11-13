@@ -43,7 +43,7 @@ jobs:
           python3 "$F/federation.py" --db "$DB" ingest "$F/continuity-v496/registry.v496.json"
           python3 "$F/federation.py" --db "$DB" ingest "$F/fencepost-error-syndrome/root13-workers.json"
           python3 "$F/federation.py" --db "$DB" status
-          python3 -c 'import sqlite3; c=sqlite3.connect("/tmp/ONE_Federation_RiverSpark_test.sqlite3"); assert c.execute("SELECT COUNT(*) FROM federation_records").fetchone()[0] == 479; assert c.execute("SELECT COUNT(*) FROM federation_links WHERE relation NOT NULL").fetchone()[0] == 27; assert c.execute("PRAGMA quick_check").fetchone()[0] == "ok"; c.close()'
+          python3 -c 'import sqlite3; c=sqlite3.connect("/tmp/ONE_Federation_RiverSpark_test.sqlite3"); assert c.execute("SELECT COUNT(*) FROM federation_records").fetchone()[0] == 479; assert c.execute("SELECT COUNT(*) FROM federation_links WHERE relation IS NOT NULL").fetchone()[0] == 27; assert c.execute("PRAGMA quick_check").fetchone()[0] == "ok"; c.close()'
       - name: Publish source-safe synthesis verification
         uses: actions/upload-artifact@v4
         with:
