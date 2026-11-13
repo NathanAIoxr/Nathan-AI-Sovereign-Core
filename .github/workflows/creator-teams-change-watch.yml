@@ -100,7 +100,7 @@ jobs:
 
   propose-restoration-on-drift:
     needs: audit-and-build
-    if: ${{ github.event_name }} != 'pull_request' && needs.audit-and-build.outputs.drift_count != '0'
+    if: ${{ github.event_name != 'pull_request' && needs.audit-and-build.outputs.drift_count != '0' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
