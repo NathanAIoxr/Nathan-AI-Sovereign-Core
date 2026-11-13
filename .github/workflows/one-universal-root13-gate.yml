@@ -30,6 +30,8 @@ jobs:
           python3 "$F/technology-v108/boundary_contract.py" --days 7 --out "/tmp/root13-tech108-simulation.json"
           python3 "$F/federation.py" --db "/tmp/ONE_Master_test.sqlite3" ingest "$F/technology-v108/registry.tech108.json"
           python3 "$F/technology-v108/boundary_contract.py" --verify-db "/tmp/ONE_Master_test.sqlite3"
+          python3 "$F/federation.py" --db "/tmp/ONE_Master_test.sqlite3" ingest "$F/fencepost-error-syndrome/root13-workers.json"
+          python3 -c 'import sqlite3; c=sqlite3.connect("/tmp/ONE_Master_test.sqlite3"); assert c.execute("SELECT COUNT(*) FROM federation_records").fetchone()[0] == 121; assert c.execute("SELECT COUNT(*) FROM federation_records WHERE record_id LIKE ?", ("mind:one-root13-worker-%",)).fetchone()[0] == 13; c.close()'
       - name: Test fail-closed gateway without creating a database
         run: |
           F=app-factory/nathan-ai/personal-intelligence/minds/federation
