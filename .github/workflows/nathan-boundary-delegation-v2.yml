@@ -1,0 +1,49 @@
+name: ONE · Fencepost worker delegation v2
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/nathan_ai_boundary_gateway.py'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/federation.py'
+      - '.github/workflows/nathan-boundary-delegation-v2.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/nathan_ai_boundary_gateway.py'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/federation.py'
+      - '.github/workflows/nathan-boundary-delegation-v2.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-one-delegation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile source and main federation
+        run: |
+          python3 -m py_compile app-factory/nathan-ai/personal-intelligence/minds/federation/federation.py
+          python3 -m py_compile app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome/boundary_engine.py
+          python3 -m py_compile app-factory/nathan-ai/personal-intelligence/minds/federation/nathan_ai_boundary_gateway.py
+      - name: Run 31 boundary worker regression tests and randomized invariants
+        run: python3 -m unittest discover -s app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome -p 'test_boundary_engine.py' -v
+      - name: Test delegated CLI without creating private ONE database
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          req = {'kind':'calendar','inputs':{'start':'2026-11-15','end':'2026-11-22','measure':'half_open_dates'},'expected':{'count':7}}
+          Path('/tmp/nathan-boundary-request.json').write_text(json.dumps(req), encoding='utf-8')
+          PY
+          python3 app-factory/nathan-ai/personal-intelligence/minds/federation/federation.py --db /tmp/SHOULD_NOT_EXIST_ONE.sqlite3 boundaries --request-file /tmp/nathan-boundary-request.json >/tmp/nathan-boundary-response.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          out=json.loads(Path('/tmp/nathan-boundary-response.json').read_text())
+          assert out['status']=='verified' and out['result']['count']==7
+          assert not Path('/tmp/SHOULD_NOT_EXIST_ONE.sqlite3').exists()
+          PY
