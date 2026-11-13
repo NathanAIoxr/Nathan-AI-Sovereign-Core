@@ -1,0 +1,88 @@
+name: Handling Life / ONE v074 recurring identity-defense index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/data/handling-life-root-identity-v074.json'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/handling_life_worker.py'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/test_handling_life_worker.py'
+      - '.github/workflows/handling-life-federation-workers.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/data/handling-life-root-identity-v074.json'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/handling_life_worker.py'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/test_handling_life_worker.py'
+      - '.github/workflows/handling-life-federation-workers.yml'
+  workflow_dispatch:
+  schedule:
+    # UTC; GitHub may delay or skip scheduled events. This is not a 24/7 daemon.
+    - cron: '7,37 * * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: handling-life-federation-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  source-safe-federation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out public repository
+        uses: actions/checkout@v4
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify Handling Life privacy and source-preservation tests
+        run: |
+          python3 -m unittest discover \
+            -s app-factory/nathan-ai/personal-intelligence/minds/federation \
+            -p test_handling_life_worker.py -v
+      - name: Run six existing ONE Federation worker roles against public-safe pack
+        run: |
+          set -euo pipefail
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          python3 "$F/handling_life_worker.py" \
+            --db "$RUNNER_TEMP/ONE_Public_Handling_Life.sqlite3" \
+            --report "$RUNNER_TEMP/handling-life-audit.json"
+          python3 - "$RUNNER_TEMP/handling-life-audit.json" <<'PY'
+          import json,sys
+          a=json.load(open(sys.argv[1],encoding="utf-8"))
+          assert a["source_pack_records"]==36
+          assert a["source_pack_proposed_links"]==40
+          assert a["federation_total_records"]==1362
+          assert len(a["existing_workers_executed"])==6
+          assert a["role_reports"]["Raphael"]["checksum_failures"]==0
+          assert all(x==0 for x in a["automated_actions"].values())
+          print("Handling Life v074: 1,362 source records; six workers; no private imports or external actions")
+          PY
+      - name: Verify six Ancient Minds specialist roles on synthetic input only
+        run: |
+          set -euo pipefail
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          printf 'Synthetic fixture: Old English blāc and blæc, Sanskrit nāraṅga, 1500s.\n' > "$RUNNER_TEMP/handling-ancient-synthetic.txt"
+          python3 "$F/ancient_minds_v074.py" \
+            --db "$RUNNER_TEMP/ONE_Ancient_Handling_Test.sqlite3" \
+            ingest-ancient "$RUNNER_TEMP/handling-ancient-synthetic.txt" > /dev/null
+          python3 "$F/ancient_minds_v074.py" \
+            --db "$RUNNER_TEMP/ONE_Ancient_Handling_Test.sqlite3" \
+            run-ancient > "$RUNNER_TEMP/handling-ancient-audit.json"
+          python3 - "$RUNNER_TEMP/handling-ancient-audit.json" <<'PY'
+          import json,sys
+          a=json.load(open(sys.argv[1],encoding="utf-8"))
+          assert a["worker_runs"]==6
+          assert a["native_tables"]==14
+          print("Ancient Minds: six deterministic specialist roles executed on synthetic input")
+          PY
+      - name: Retain limited public-safe audit artifacts for seven days
+        uses: actions/upload-artifact@v4
+        with:
+          name: handling-life-federation-audit
+          path: |
+            ${{ runner.temp }}/handling-life-audit.json
+            ${{ runner.temp }}/handling-ancient-audit.json
+          retention-days: 7

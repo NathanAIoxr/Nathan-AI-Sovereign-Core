@@ -1,0 +1,844 @@
+{
+  "schema": "nathan.one.federation.knowledge.v074",
+  "edition": "v074",
+  "title": "Handling Life — Root Identity, Binary Provenance and Digital Defense",
+  "author": "Nathan Tabor",
+  "date": "2026-11-13",
+  "preservation": "PRESERVE → INDEX → RELATE → DERIVE — NEVER REPLACE; only public-safe quotations from the user's supplied specification; private source originals remain outside this public repo.",
+  "records": [
+    {
+      "id": "author.binary-digital-everything",
+      "title": "Protection of your digital image, digital everything",
+      "exact_text": "Protection of your digital image, digital everything - by protecting the binary code the algorithms everything’s that is assigned to you that you’re not even aware of",
+      "kind": "creator-exact",
+      "evidence_status": "author-stated",
+      "tags": [
+        "root",
+        "binary",
+        "digital-identity"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Verbatim user-authored phrase from Nov 6 2026 source",
+      "source_locator": "personal-intelligence:Pasted text(20261106-170938).txt",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "author.proactive-scan-video",
+      "title": "Proactive scan image and video misuse",
+      "exact_text": "And it proactively scans to see if anyone’s trying to use your images or have used them if they’ve used them it removes them even if your face is used in video",
+      "kind": "creator-exact",
+      "evidence_status": "author-stated-requirement-not-implemented",
+      "tags": [
+        "scan",
+        "video",
+        "likeness"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Verbatim user-authored phrase from Nov 6 2026 source",
+      "source_locator": "personal-intelligence:Pasted text(20261106-170938).txt",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "author.nonprofit-mandate",
+      "title": "Handling Life nonprofit sovereign digital profile",
+      "exact_text": "Handling Life Non-Profit by Nathan Tabor - protecting the sovereignty of every humans digital profile at the root of imagery and the internet 🛜",
+      "kind": "creator-exact-excerpt",
+      "evidence_status": "author-stated-design-not-established-entity",
+      "tags": [
+        "nonprofit",
+        "sovereignty",
+        "root"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Verbatim excerpt from author-provided October source",
+      "source_locator": "personal-intelligence:Pasted markdown(20261009-214501).md",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "author.binary-anchors",
+      "title": "Binary rule and consent anchors",
+      "exact_text": "1+1 = 2 (build); 1-1 = 0 (clear). YES IS YES — NO IS NO. Operational controls require verified evidence and a human-authorized action.",
+      "kind": "assistant-interpretation",
+      "evidence_status": "user-defined-formulas;implementation-proposal",
+      "tags": [
+        "binary",
+        "consent",
+        "invariants"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "mission.icann-like-coordination",
+      "title": "ICANN-like registry for digital everything",
+      "exact_text": "Proposed federated coordination and lookup layer for subject identity, asset provenance, signatures, consent and revocation. Unlike ICANN, not a legally authoritative regulator or exclusive global naming root.",
+      "kind": "user-supplied-vision",
+      "evidence_status": "proposed-analogy-not-governance-authority",
+      "tags": [
+        "identity",
+        "registry",
+        "ICANN"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "mission.nonprofit-open-source",
+      "title": "Public-interest Handling Life architecture",
+      "exact_text": "Handling Life aims to be an open-source nonprofit public utility, with no paywall for basic defense and the author's Christmas Toy Drive donation concept; nonprofit status, public launch, and donations operations are not verified.",
+      "kind": "source-described-concept",
+      "evidence_status": "not-operationally-verified",
+      "tags": [
+        "nonprofit",
+        "open-source",
+        "donations"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant summary of user-supplied design",
+      "source_locator": "personal-intelligence:Pasted markdown(20261009-214501).md",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "registry.root-identity",
+      "title": "Privacy-preserving root identity record",
+      "exact_text": "Pseudonymous identifier, verified public signing keys, controlled recovery, disputes and appeals; never publish baseline face embeddings, biometric samples, residential data or secret keys.",
+      "kind": "system-spec",
+      "evidence_status": "planned",
+      "tags": [
+        "root",
+        "key",
+        "privacy"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "registry.verified-asset",
+      "title": "Verified Identity Vault",
+      "exact_text": "Catalog legitimately verified books, publications, media, interviews, identity records and permissioned works with source citations, source-side verification and owner review.",
+      "kind": "system-spec",
+      "evidence_status": "planned",
+      "tags": [
+        "vault",
+        "verified-assets"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "registry.name-twin",
+      "title": "Name-Twin Noise",
+      "exact_text": "Separate similarly named people by verifiable identity attributes; exclude from a given person's matching queue without deleting the unrelated person's content.",
+      "kind": "user-supplied-four-buckets",
+      "evidence_status": "planned",
+      "tags": [
+        "four-buckets",
+        "name-twin"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "registry.impersonation",
+      "title": "Fake AI / impersonation triage",
+      "exact_text": "Flag suspected synthetic media, cloned voices, unauthorized endorsements and spoof profiles. Missing or invalid provenance alone never establishes deepfake or illegality.",
+      "kind": "user-supplied-four-buckets",
+      "evidence_status": "planned",
+      "tags": [
+        "four-buckets",
+        "impersonation",
+        "deepfake"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "registry.reputation",
+      "title": "Reputation harm triage",
+      "exact_text": "Flag suspected doxxing, privacy violations, proven false statements and obsolete exposures; route criticism, opinion and lawful journalism to a non-removal evidence review.",
+      "kind": "user-supplied-four-buckets",
+      "evidence_status": "planned",
+      "tags": [
+        "four-buckets",
+        "privacy",
+        "reputation"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "registry.identity-roles",
+      "title": "Distinguish subject, creator, rights holder",
+      "exact_text": "Person depicted, photographer or creator, copyright holder, licensee and consenting subject are distinct roles; a hash or registration does not automatically establish ownership or rights.",
+      "kind": "system-spec",
+      "evidence_status": "planned",
+      "tags": [
+        "identity",
+        "rights",
+        "claims"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "provenance.sha256",
+      "title": "SHA-256 exact-byte fingerprint",
+      "exact_text": "Generate SHA-256 on source bytes; a changed file hash shows byte difference, not authorship, consent or legal ownership. Cropping/re-encoding changes bytes.",
+      "kind": "standard-mapping",
+      "evidence_status": "known-capability-not-integrated",
+      "tags": [
+        "sha256",
+        "hash"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "provenance.ed25519",
+      "title": "Ed25519 signatures and signed statements",
+      "exact_text": "Verify whether a claim was signed by a key linked to a reviewed credential. Key ownership and identity binding require separate verification.",
+      "kind": "standard-mapping",
+      "evidence_status": "known-capability-not-integrated",
+      "tags": [
+        "ed25519",
+        "signature"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "provenance.c2pa",
+      "title": "C2PA Content Credentials",
+      "exact_text": "Attach and verify provenance manifests for assets when supported by capture or publishing tooling. Provenance does not establish that depicted statements are factually true.",
+      "kind": "standard-mapping",
+      "evidence_status": "known-capability-not-integrated",
+      "tags": [
+        "c2pa",
+        "manifest"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "provenance.merkle",
+      "title": "Merkle evidence journal",
+      "exact_text": "Create append-only verifiable event commitments and inclusion receipts; Merkle inclusion proves recorded consistency, not truth, original authorship or legal entitlement.",
+      "kind": "standard-mapping",
+      "evidence_status": "known-capability-not-integrated",
+      "tags": [
+        "merkle",
+        "ledger"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "provenance.perceptual",
+      "title": "Robust matching and perceptual signatures",
+      "exact_text": "For consented supplied media, use perceptual fingerprints to propose matches across crops and re-encoding; confidence thresholds, false positives and human review required.",
+      "kind": "standard-mapping",
+      "evidence_status": "planned",
+      "tags": [
+        "perceptual",
+        "matching"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "provenance.watermark",
+      "title": "Watermark / soft-binding recovery",
+      "exact_text": "Optional robust watermark plus lookup service may help recover detached manifests. No watermark survives all edits and no missing mark establishes unauthorized use.",
+      "kind": "standard-mapping",
+      "evidence_status": "planned",
+      "tags": [
+        "watermark",
+        "soft-binding"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "provenance.capture",
+      "title": "Hardware-attested capture optional",
+      "exact_text": "Use trusted capture-chain evidence when hardware/platform support exists. A signature can authenticate a device assertion, but not every scene fact or the subject's consent.",
+      "kind": "standard-mapping",
+      "evidence_status": "planned",
+      "tags": [
+        "capture",
+        "hardware"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "provenance.credentials",
+      "title": "Verifiable identities and issuer trust",
+      "exact_text": "Separate issuer-signed identity credentials from subject claims; provide revocation, key rotation, appeals, and multiple trusted issuers rather than one unchallengeable registry.",
+      "kind": "standard-mapping",
+      "evidence_status": "planned",
+      "tags": [
+        "credentials",
+        "trust"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "security.envelope",
+      "title": "Encryption envelope / ML-KEM",
+      "exact_text": "Optional authenticated encryption AES-256-GCM with properly managed keys; ML-KEM may be used in a hybrid key-establishment design. Encryption protects controlled assets, not arbitrary copied web files.",
+      "kind": "standard-mapping",
+      "evidence_status": "planned",
+      "tags": [
+        "aes-256-gcm",
+        "ml-kem"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "consent.grant",
+      "title": "Explicit purpose-scoped authorization",
+      "exact_text": "Signed, timestamped grant names the subject, media, use, license scope, platform, duration, and jurisdiction. Silence or an absent signature is not equivalent to proof of refusal.",
+      "kind": "system-spec",
+      "evidence_status": "planned",
+      "tags": [
+        "consent",
+        "authorization"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "consent.revoke",
+      "title": "Revocation with effect and audit",
+      "exact_text": "Record withdrawal and notify participating systems; do not claim that revocation retroactively erases third-party copies or overrides valid competing legal rights.",
+      "kind": "system-spec",
+      "evidence_status": "planned",
+      "tags": [
+        "consent",
+        "revocation"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "cases.discovery",
+      "title": "Permitted discovery and monitoring",
+      "exact_text": "Query public sources and authorized platform APIs within terms and law, deduplicate matches and track detected URL snapshots. No unauthorized penetration of hidden systems.",
+      "kind": "system-spec",
+      "evidence_status": "planned",
+      "tags": [
+        "scan",
+        "discovery"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "cases.deepfake-review",
+      "title": "Forensics risk review",
+      "exact_text": "Combine provenance validation, model-based anomaly signals and source comparison. Display uncertainty and obtain review before asserting fraud or synthetic generation.",
+      "kind": "system-spec",
+      "evidence_status": "planned",
+      "tags": [
+        "forensics",
+        "deepfake"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "cases.evidence",
+      "title": "Immutable evidence and SHA-256 audit",
+      "exact_text": "Record discovery URL, date, source, lawful screenshot, original-vs-copy comparison, cryptographic digest, reviewer, action, responses and reversals; keep sensitive evidence private.",
+      "kind": "system-spec",
+      "evidence_status": "planned",
+      "tags": [
+        "evidence",
+        "sha256",
+        "audit"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "cases.dmca",
+      "title": "Copyright notice draft",
+      "exact_text": "Draft DMCA requests only with a credible copyright basis and claimant authorization; likeness alone is not copyright ownership; review before sending.",
+      "kind": "system-spec",
+      "evidence_status": "planned",
+      "tags": [
+        "dmca",
+        "takedown"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "cases.likeness",
+      "title": "Impersonation and right-of-publicity reporting",
+      "exact_text": "Use platform-specific impersonation, non-consensual synthetic-media, privacy or right-of-publicity channels when facts and applicable law support them.",
+      "kind": "system-spec",
+      "evidence_status": "planned",
+      "tags": [
+        "impersonation",
+        "takedown"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "cases.deindex",
+      "title": "Search removal packets",
+      "exact_text": "Prepare supported Google and Bing personal-content removal requests; removing a search result does not delete a source page; review eligibility.",
+      "kind": "system-spec",
+      "evidence_status": "planned",
+      "tags": [
+        "deindex",
+        "search"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "cases.broker",
+      "title": "Data-broker opt-out",
+      "exact_text": "Prepare privacy-preserving deletion or opt-out requests to supported data brokers using minimum necessary personal information; require authorization and confirmation.",
+      "kind": "system-spec",
+      "evidence_status": "planned",
+      "tags": [
+        "opt-out",
+        "data-broker"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "cases.seo",
+      "title": "Positive verification footprint",
+      "exact_text": "Publish fact-checked, permissioned source material and cross-links to improve discoverability without deceptive SEO tactics or rewriting historical facts.",
+      "kind": "system-spec",
+      "evidence_status": "planned",
+      "tags": [
+        "reputation",
+        "seo"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "cases.appeal",
+      "title": "Dispute and appeal procedure",
+      "exact_text": "Allow conflicting ownership and consent claims, public-interest exceptions, documented appeals and reinstatement; never auto-erase unrelated people's legitimate content.",
+      "kind": "system-spec",
+      "evidence_status": "planned",
+      "tags": [
+        "appeal",
+        "due-process"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "automation.workers",
+      "title": "Six ONE Federation deterministic workers",
+      "exact_text": "Leonardo orchestrates; Donatello proposes classification; Raphael checks SHA-256; Michelangelo relates exact hashes; DaVinci audits counts; AncientSpecialists preserves review tiers. These are deterministic processes, not provisioned independent LLM agents.",
+      "kind": "existing-repository-capability",
+      "evidence_status": "code-existing;no-24-7-service-verified",
+      "tags": [
+        "workers",
+        "v074",
+        "audit"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "automation.continuous",
+      "title": "Periodic GitHub runner schedule",
+      "exact_text": "GitHub Actions can periodically run the public-safe ingestion, six roles and gap analysis. Jobs are transient; scheduling is best effort; the owner's private master cannot be persistently synchronized without hosted storage and credentials.",
+      "kind": "deployment-plan",
+      "evidence_status": "workflow-proposed",
+      "tags": [
+        "cron",
+        "automation",
+        "worker"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "safety.no-remote-purge",
+      "title": "No remote sabotage disguised as takedown",
+      "exact_text": "Never inject code, exploit hosts, destroy external datasets, sabotage AI services, claim automatic universal deletion, or deploy payloads as a defensive policy. Use controlled access and documented authorized enforcement channels.",
+      "kind": "technical-boundary",
+      "evidence_status": "enforced-by-design",
+      "tags": [
+        "safety",
+        "non-destructive"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    },
+    {
+      "id": "status.registry",
+      "title": "Current federation integration status",
+      "exact_text": "The design is indexed as Handling Life Digital Provenance Engine / MASTER-008; current public ONE Federation v074 uses append-only import, source hashes and CERO/UNO/DOS reviews. No globally authoritative live identity service or remote takedown capability is established.",
+      "kind": "implementation-record",
+      "evidence_status": "repository-catalogued",
+      "tags": [
+        "status",
+        "v074"
+      ],
+      "privacy": "public-design-only",
+      "provenance": "Assistant-derived technical architecture based on user-supplied project",
+      "source_locator": "handling-life:2026-11-13:architecture-synthesis",
+      "tier": "CERO",
+      "verification": "review-required",
+      "classification": "proposed-only"
+    }
+  ],
+  "links": [
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "author.proactive-scan-video",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "author.nonprofit-mandate",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "author.binary-anchors",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "mission.nonprofit-open-source",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "registry.root-identity",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "registry.verified-asset",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "registry.name-twin",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "registry.impersonation",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "registry.reputation",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "registry.identity-roles",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "provenance.sha256",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "provenance.ed25519",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "provenance.c2pa",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "provenance.merkle",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "provenance.perceptual",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "provenance.watermark",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "provenance.capture",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "provenance.credentials",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "security.envelope",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "consent.grant",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "consent.revoke",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "cases.discovery",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "cases.deepfake-review",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "cases.evidence",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "cases.dmca",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "cases.likeness",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "cases.deindex",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "cases.broker",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "cases.seo",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "cases.appeal",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "automation.workers",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "automation.continuous",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "safety.no-remote-purge",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "mission.icann-like-coordination",
+      "right": "status.registry",
+      "relation": "proposed-component"
+    },
+    {
+      "left": "author.binary-digital-everything",
+      "right": "mission.icann-like-coordination",
+      "relation": "author-purpose-informs"
+    },
+    {
+      "left": "author.proactive-scan-video",
+      "right": "cases.discovery",
+      "relation": "author-purpose-informs"
+    },
+    {
+      "left": "registry.impersonation",
+      "right": "cases.deepfake-review",
+      "relation": "requires-review"
+    },
+    {
+      "left": "consent.grant",
+      "right": "cases.likeness",
+      "relation": "evidence-needed"
+    },
+    {
+      "left": "cases.evidence",
+      "right": "cases.dmca",
+      "relation": "supports-review"
+    },
+    {
+      "left": "provenance.sha256",
+      "right": "cases.evidence",
+      "relation": "integrity-evidence"
+    }
+  ],
+  "notes": [
+    "All entries are CERO; author-exact source phrases are labeled separately from assistant interpretations, standards summaries and implementation proposals.",
+    "Source locator is a provenance pointer, not a publication of private source files.",
+    "No biometric data, private keys, personal addresses, recordings or scanned personal material is included.",
+    "No system-level autonomous takedown, guaranteed watermark survival, global identification authority or 24/7 permanent AI agent is claimed.",
+    "Copyright ownership, likeness rights, content provenance and consent are distinct questions."
+  ]
+}
