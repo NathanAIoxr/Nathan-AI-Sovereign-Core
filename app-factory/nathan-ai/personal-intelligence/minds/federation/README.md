@@ -145,3 +145,7 @@ Public CI adds the source pack after the existing 763 mind records and 41 Meru r
 ## Nathan Tabor · Tech108 fencepost boundary gate (2026-11-13)
 
 [Technology-v108 source-indexed roster, exact 12 x 9 IDs, date/index counting simulation and tests](technology-v108/README.md) adds a **separate** technology-family namespace without replacing ONE Family 21, Families 65–75, the current master schema, or original work. The 108 role definitions may be imported with the existing `federation.py ingest` command. A CI workflow validates the roster and imports into a disposable SQLite master; importing into the owner's private master is an explicit, separate authorized action. Existing apps need adapter-by-adapter audits before they can be declared free of fencepost defects.
+
+## ONE dimensional 70 × 9 / 630 worker-unit source index
+
+[Read dimensional builder](./dimensions-v70/README.md) · [Original 70-dimensional source](./dimensions-v70/USER_UPLOADED_EXACT_DIMENSIONS_0_69_20261113.txt) · [Original Family 65–75 source](./families-v75/USER_UPLOADED_EXACT_65_75_20261113.txt). The 70-dimensional, 630-unit source is numbered **Dimension 0–69** independently of the 11-family, 99-archetype expansion (#65–#163). Its executable standard-library worker creates workcards for every source-defined dimensional unit, keeps independent family member records in the same ONE SQLite master and tests original SHA-256 values. Original documents, conceptual/physical claims and actual model deployment statuses are clearly distinguished.

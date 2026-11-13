@@ -263,3 +263,7 @@ The local Ancient Minds worker pipeline (six named specialists, four unnamed res
 ## Nathan Tabor · Fencepost Error Syndrome · Technology-v108
 
 [**Nathan AI / ONE Tech108 boundary repair**](app-factory/nathan-ai/personal-intelligence/minds/federation/technology-v108/README.md) — source-preserving 12 technological families / 108 named roles, executable off-by-one contract, 7-day fixed-versus-bug simulation, tests, CI gate and owner-approved integration into the **existing** private ONE Federation master. A validated roster is not a claim that all existing projects, Google services or physical systems are fixed.
+
+## ONE Federation: 70 dimensions × 9 functions = 630 source-defined units · Family 65–75 / 99 members
+
+[70-Dimensional Matrix / 630-Unit operating guide](app-factory/nathan-ai/personal-intelligence/minds/federation/dimensions-v70/README.md) · [Exact uploaded dimensional text](app-factory/nathan-ai/personal-intelligence/minds/federation/dimensions-v70/USER_UPLOADED_EXACT_DIMENSIONS_0_69_20261113.txt) · [Exact uploaded 11 families, 99 members](app-factory/nathan-ai/personal-intelligence/minds/federation/families-v75/USER_UPLOADED_EXACT_65_75_20261113.txt). The two independent source namespaces contain 729 distinct labelled items, not 729 running AI processes. The existing ONE Federation's recurring Creator Teams workflow validates byte hashes, stores records in its SQLite master and publishes 630 source-linked JSON workcards plus a separate 99-member crosswalk. All originals remain preserved.

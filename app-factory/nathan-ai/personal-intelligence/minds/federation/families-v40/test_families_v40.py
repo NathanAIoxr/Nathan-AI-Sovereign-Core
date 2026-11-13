@@ -81,7 +81,7 @@ class Master40Tests(unittest.TestCase):
 
     def test_unknown_work_sends_to_existing_classifier(self):
         module.bootstrap(self.db)
-        proposal = module.propose(self.db, "ZXQTW-9A obscure request")
+        proposal = module.propose(self.db, "ZXQTW-9A")  # No family keyword; avoids the known "request" matcher
         self.assertEqual(proposal["primary_family"], 3)
         self.assertFalse(proposal["external_execution"])
 
