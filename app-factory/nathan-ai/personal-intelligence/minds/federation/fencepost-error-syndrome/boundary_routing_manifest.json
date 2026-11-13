@@ -1,0 +1,44 @@
+{
+  "system": "Nathan AI — ONE",
+  "module": "FENCEPOST ERROR SYNDROME — by Nathan Tabor",
+  "version": "one-boundary-gateway.v1",
+  "source_code": "./fencepost-error-syndrome/boundary_engine.py",
+  "gateway": "./nathan_ai_boundary_gateway.py",
+  "intent_source": [
+    "restore all my intent and build on it - no ambiguity - make Nathan AI work bots to fix all that while also removing it from Nathan AI -",
+    "google has fencepost error syndrome by Nathan Tabor -",
+    "make Nathan AI work bots to fix all that while also removing it from Nathan AI -"
+  ],
+  "ownership": {
+    "core_nathan_ai": [
+      "receive raw typed input",
+      "forward unchanged to workers",
+      "return signed result with status",
+      "reject blocked results",
+      "audit authorization"
+    ],
+    "dedicated_worker_bots": [
+      "count discrete points and sections",
+      "handle inclusive vs exclusive endpoints",
+      "date windows and hotel nights",
+      "clock time across DST",
+      "billing date boundaries without charging",
+      "array bounds",
+      "historical recurrence index",
+      "music shared endpoints",
+      "static Python literal range review"
+    ]
+  },
+  "enforcement": {
+    "require_typed_contract": true,
+    "core_math_fallback": false,
+    "auto_apply_code_patch": false,
+    "execute_external_action": false,
+    "all_results_include_receipt": true,
+    "unrecognized_request": "blocked",
+    "review_required_on_mismatch": true
+  },
+  "rollout_status": "implementation_and_test_contract_committed_not_globally_wired",
+  "existing_sources": "retained; no deletions or renumbering",
+  "relation_to_family_21": "ONE human review and equal standing remain in effect"
+}
