@@ -145,3 +145,4 @@ Public CI adds the source pack after the existing 763 mind records and 41 Meru r
 ## Nathan Tabor · Tech108 fencepost boundary gate (2026-11-13)
 
 [Technology-v108 source-indexed roster, exact 12 x 9 IDs, date/index counting simulation and tests](technology-v108/README.md) adds a **separate** technology-family namespace without replacing ONE Family 21, Families 65–75, the current master schema, or original work. The 108 role definitions may be imported with the existing `federation.py ingest` command. A CI workflow validates the roster and imports into a disposable SQLite master; importing into the owner's private master is an explicit, separate authorized action. Existing apps need adapter-by-adapter audits before they can be declared free of fencepost defects.
+undefined
