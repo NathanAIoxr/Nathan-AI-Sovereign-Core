@@ -1,0 +1,43 @@
+name: Handling Life identity-defense worker
+
+on:
+  pull_request:
+    paths:
+      - 'app-factory/sites/handling-life/identity-defense/**'
+      - '.github/workflows/handling-life-identity-defense.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/sites/handling-life/identity-defense/**'
+      - '.github/workflows/handling-life-identity-defense.yml'
+  workflow_dispatch:
+  schedule:
+    # Repeats around the clock while enabled on the DEFAULT branch.
+    # GitHub scheduling is best-effort, not a continuously running bot.
+    - cron: '17,47 * * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: handling-life-identity-defense-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  identity-triage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Offline identity and privacy test suite
+        run: python3 -m unittest discover -s app-factory/sites/handling-life/identity-defense -p 'test_*.py' -v
+      - name: Bounded scheduled collection and optional private case intake
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.HANDLING_LIFE_AIRTABLE_TOKEN }}
+          AIRTABLE_BASE_ID: ${{ secrets.HANDLING_LIFE_AIRTABLE_BASE_ID }}
+          AIRTABLE_CASE_TABLE_ID: ${{ secrets.HANDLING_LIFE_AIRTABLE_CASE_TABLE_ID }}
+        run: python3 app-factory/sites/handling-life/identity-defense/worker.py --scan
