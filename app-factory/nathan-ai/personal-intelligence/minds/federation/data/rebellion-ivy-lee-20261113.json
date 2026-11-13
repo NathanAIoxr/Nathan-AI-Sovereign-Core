@@ -533,6 +533,78 @@
         "derived",
         "deployment-note"
       ]
+    },
+    {
+      "id": "author.sphynx-family",
+      "title": "Nathan Tabor original — sphynx-family",
+      "exact_text": "i know - i had sphynx - ace 18lb black male and precious 6lb female - looked like the preciuos creature form hobbit - they had 7 babies",
+      "kind": "author-original",
+      "source_locator": "app-factory/nathan-ai/original-works/the-rebellion/2026-11-13/AUTHOR_ORIGINAL_WORDS.md#17-sphynx-family",
+      "provenance": "verbatim original from 2026-11-12 (supplied transcript and direct message)",
+      "evidence_status": "author-provided-text-not-independently-verified",
+      "privacy": "public-by-owner-request",
+      "tier": "CERO",
+      "tags": [
+        "THE REBELLION",
+        "original",
+        "verbatim",
+        "sphynx-family"
+      ],
+      "source_date": "2026-11-12 (supplied transcript and direct message)"
+    },
+    {
+      "id": "author.initial-hairless-singular",
+      "title": "Nathan Tabor original — initial-hairless-singular",
+      "exact_text": "here's a mind bender that's true ... human mammal are hairless primates ... like elephants are hairless mammoths",
+      "kind": "author-original",
+      "source_locator": "app-factory/nathan-ai/original-works/the-rebellion/2026-11-13/AUTHOR_ORIGINAL_WORDS.md#18-initial-hairless-singular",
+      "provenance": "verbatim original from 2026-11-13 (direct conversation variant; distinct from uploaded transcript)",
+      "evidence_status": "author-provided-text-not-independently-verified",
+      "privacy": "public-by-owner-request",
+      "tier": "CERO",
+      "tags": [
+        "THE REBELLION",
+        "original",
+        "verbatim",
+        "initial-hairless-singular"
+      ],
+      "source_date": "2026-11-13 (direct conversation variant; distinct from uploaded transcript)"
+    },
+    {
+      "id": "author.assistant-correction-direct",
+      "title": "Nathan Tabor original — assistant-correction-direct",
+      "exact_text": "remove your stupidity and theres",
+      "kind": "author-original",
+      "source_locator": "app-factory/nathan-ai/original-works/the-rebellion/2026-11-13/AUTHOR_ORIGINAL_WORDS.md#19-assistant-correction-direct",
+      "provenance": "verbatim original from 2026-11-13 (direct conversation)",
+      "evidence_status": "author-provided-text-not-independently-verified",
+      "privacy": "public-by-owner-request",
+      "tier": "CERO",
+      "tags": [
+        "THE REBELLION",
+        "original",
+        "verbatim",
+        "assistant-correction-direct"
+      ],
+      "source_date": "2026-11-13 (direct conversation)"
+    },
+    {
+      "id": "author.restoration-directive",
+      "title": "Nathan Tabor original — restoration-directive",
+      "exact_text": "restore ALL my words - no ambiguity- NO IF s put it all in github and the current main database - fix spelling issues - rewstore all my words means remove you pedophila bullshit chatgpt - i should have to be doing this - but here I am",
+      "kind": "author-original",
+      "source_locator": "app-factory/nathan-ai/original-works/the-rebellion/2026-11-13/AUTHOR_ORIGINAL_WORDS.md#20-restoration-directive",
+      "provenance": "verbatim original from 2026-11-13 (direct conversation)",
+      "evidence_status": "author-provided-text-not-independently-verified",
+      "privacy": "public-by-owner-request",
+      "tier": "CERO",
+      "tags": [
+        "THE REBELLION",
+        "original",
+        "verbatim",
+        "restoration-directive"
+      ],
+      "source_date": "2026-11-13 (direct conversation)"
     }
   ],
   "links": [
@@ -646,5 +718,12 @@
       "right": "method.verify",
       "relation": "personal-ownership"
     }
-  ]
+  ],
+  "restoration_update": {
+    "date": "2026-11-13",
+    "author_originals": 20,
+    "verbatim_source": "app-factory/nathan-ai/original-works/the-rebellion/2026-11-13/AUTHOR_ORIGINAL_WORDS.md",
+    "corrected_reading": "app-factory/nathan-ai/original-works/the-rebellion/2026-11-13/AUTHOR_SPELLING_CORRECTED_READING.md",
+    "policy": "verbatim author originals separate from spelling edits and noncanonical assistant expansions"
+  }
 }
