@@ -6,6 +6,11 @@ Connect existing ONE and Mind of Minds databases through a separate local main d
 
 **Worker roles:** Leonardo (orchestration); Donatello (proposed classification); Raphael (SHA-256 verification); Michelangelo (exact-content cross-references); DaVinci (audited totals); AncientSpecialists (CERO / UNO / DOS and owner-reviewed crosswalks).
 
+
+## ONE · 40 Worker Bot Families · Family 21 is ONE
+
+[Open the new 40-Family Codex](./families-v40/index.html) · [full v40 provenance and Python commands](./families-v40/README.md) · [v40 registry](./families-v40/registry.v40.json) · [original v21 registry](./families-v21/registry.v21.json). This additive registry is ingested into the **existing ONE master**, preserving both versions and original source hashes. Families 22–33 retain explicitly unresolved exact original names. No live or third-party bots launched.
+
 ## Run locally
 
 Requires Python 3.10+, standard library only:
