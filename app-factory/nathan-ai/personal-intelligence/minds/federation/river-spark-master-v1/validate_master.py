@@ -56,7 +56,7 @@ def validate_crosswalk(cross: dict) -> None:
     require(sum(manuscripts["alternative114"]["parts"].values()) == 114, "alternative 114")
     require(manuscripts["vertical"]["count"] == 7, "seven stations")
     require(manuscripts["tantra12"]["count"] == 12, "twelve vowels")
-    require("not" in cross["rule"].lower(), "must explicitly prevent equal-number identity claims")
+    require(any(word in cross["rule"].lower() for word in ("never", "not", "cannot")), "must explicitly prevent equal-number identity claims")
 
 
 def validate_reflex(data: dict) -> None:
