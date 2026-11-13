@@ -1,0 +1,2113 @@
+{
+  "schema": "nathan.anatomy-earth-symbolic-book.v1",
+  "title": "The 40 Pillars — Five-System Integration",
+  "created_on": "2026-11-12",
+  "scope": "editable manuscript reference, not scientific equivalence claim",
+  "vertebral_segments": 33,
+  "additional_cervical_editorial_gates": 7,
+  "total_chapter_pillars": 40,
+  "adult_skeleton_bones": 206,
+  "bone_index": [
+    {
+      "id": "B001",
+      "group": "Axial",
+      "subgroup": "Cranium",
+      "name": "frontal",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B002",
+      "group": "Axial",
+      "subgroup": "Cranium",
+      "name": "occipital",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B003",
+      "group": "Axial",
+      "subgroup": "Cranium",
+      "name": "sphenoid",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B004",
+      "group": "Axial",
+      "subgroup": "Cranium",
+      "name": "ethmoid",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B005",
+      "group": "Axial",
+      "subgroup": "Cranium",
+      "name": "parietal",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B006",
+      "group": "Axial",
+      "subgroup": "Cranium",
+      "name": "parietal",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B007",
+      "group": "Axial",
+      "subgroup": "Cranium",
+      "name": "temporal",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B008",
+      "group": "Axial",
+      "subgroup": "Cranium",
+      "name": "temporal",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B009",
+      "group": "Axial",
+      "subgroup": "Face",
+      "name": "mandible",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B010",
+      "group": "Axial",
+      "subgroup": "Face",
+      "name": "vomer",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B011",
+      "group": "Axial",
+      "subgroup": "Face",
+      "name": "maxilla",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B012",
+      "group": "Axial",
+      "subgroup": "Face",
+      "name": "maxilla",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B013",
+      "group": "Axial",
+      "subgroup": "Face",
+      "name": "zygomatic",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B014",
+      "group": "Axial",
+      "subgroup": "Face",
+      "name": "zygomatic",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B015",
+      "group": "Axial",
+      "subgroup": "Face",
+      "name": "nasal",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B016",
+      "group": "Axial",
+      "subgroup": "Face",
+      "name": "nasal",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B017",
+      "group": "Axial",
+      "subgroup": "Face",
+      "name": "lacrimal",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B018",
+      "group": "Axial",
+      "subgroup": "Face",
+      "name": "lacrimal",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B019",
+      "group": "Axial",
+      "subgroup": "Face",
+      "name": "palatine",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B020",
+      "group": "Axial",
+      "subgroup": "Face",
+      "name": "palatine",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B021",
+      "group": "Axial",
+      "subgroup": "Face",
+      "name": "inferior nasal concha",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B022",
+      "group": "Axial",
+      "subgroup": "Face",
+      "name": "inferior nasal concha",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B023",
+      "group": "Axial",
+      "subgroup": "Middle ear",
+      "name": "malleus",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B024",
+      "group": "Axial",
+      "subgroup": "Middle ear",
+      "name": "malleus",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B025",
+      "group": "Axial",
+      "subgroup": "Middle ear",
+      "name": "incus",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B026",
+      "group": "Axial",
+      "subgroup": "Middle ear",
+      "name": "incus",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B027",
+      "group": "Axial",
+      "subgroup": "Middle ear",
+      "name": "stapes",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B028",
+      "group": "Axial",
+      "subgroup": "Middle ear",
+      "name": "stapes",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B029",
+      "group": "Axial",
+      "subgroup": "Neck",
+      "name": "hyoid",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B030",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "C1 cervical vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B031",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "C2 cervical vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B032",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "C3 cervical vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B033",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "C4 cervical vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B034",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "C5 cervical vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B035",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "C6 cervical vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B036",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "C7 cervical vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B037",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "T1 thoracic vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B038",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "T2 thoracic vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B039",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "T3 thoracic vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B040",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "T4 thoracic vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B041",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "T5 thoracic vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B042",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "T6 thoracic vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B043",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "T7 thoracic vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B044",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "T8 thoracic vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B045",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "T9 thoracic vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B046",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "T10 thoracic vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B047",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "T11 thoracic vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B048",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "T12 thoracic vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B049",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "L1 lumbar vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B050",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "L2 lumbar vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B051",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "L3 lumbar vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B052",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "L4 lumbar vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B053",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "L5 lumbar vertebra",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B054",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "sacrum",
+      "side": null,
+      "notes": "composite of usually five fused sacral vertebral segments"
+    },
+    {
+      "id": "B055",
+      "group": "Axial",
+      "subgroup": "Vertebral column",
+      "name": "coccyx",
+      "side": null,
+      "notes": "composite of typically 3–5 fused coccygeal segments, commonly four"
+    },
+    {
+      "id": "B056",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 1",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B057",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 1",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B058",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 2",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B059",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 2",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B060",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 3",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B061",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 3",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B062",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 4",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B063",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 4",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B064",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 5",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B065",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 5",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B066",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 6",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B067",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 6",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B068",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 7",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B069",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 7",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B070",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 8",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B071",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 8",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B072",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 9",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B073",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 9",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B074",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 10",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B075",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 10",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B076",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 11",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B077",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 11",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B078",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 12",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B079",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "rib 12",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B080",
+      "group": "Axial",
+      "subgroup": "Thoracic cage",
+      "name": "sternum",
+      "side": null,
+      "notes": ""
+    },
+    {
+      "id": "B081",
+      "group": "Appendicular",
+      "subgroup": "Pectoral girdle",
+      "name": "clavicle",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B082",
+      "group": "Appendicular",
+      "subgroup": "Pectoral girdle",
+      "name": "clavicle",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B083",
+      "group": "Appendicular",
+      "subgroup": "Pectoral girdle",
+      "name": "scapula",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B084",
+      "group": "Appendicular",
+      "subgroup": "Pectoral girdle",
+      "name": "scapula",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B085",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: arm and forearm",
+      "name": "humerus",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B086",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: arm and forearm",
+      "name": "humerus",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B087",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: arm and forearm",
+      "name": "radius",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B088",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: arm and forearm",
+      "name": "radius",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B089",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: arm and forearm",
+      "name": "ulna",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B090",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: arm and forearm",
+      "name": "ulna",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B091",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "scaphoid",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B092",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "scaphoid",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B093",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "lunate",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B094",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "lunate",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B095",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "triquetrum",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B096",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "triquetrum",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B097",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "pisiform",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B098",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "pisiform",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B099",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "trapezium",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B100",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "trapezium",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B101",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "trapezoid",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B102",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "trapezoid",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B103",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "capitate",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B104",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "capitate",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B105",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "hamate",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B106",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: carpals",
+      "name": "hamate",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B107",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: metacarpals",
+      "name": "metacarpal 1",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B108",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: metacarpals",
+      "name": "metacarpal 1",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B109",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: metacarpals",
+      "name": "metacarpal 2",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B110",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: metacarpals",
+      "name": "metacarpal 2",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B111",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: metacarpals",
+      "name": "metacarpal 3",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B112",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: metacarpals",
+      "name": "metacarpal 3",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B113",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: metacarpals",
+      "name": "metacarpal 4",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B114",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: metacarpals",
+      "name": "metacarpal 4",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B115",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: metacarpals",
+      "name": "metacarpal 5",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B116",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: metacarpals",
+      "name": "metacarpal 5",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B117",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "thumb proximal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B118",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "thumb proximal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B119",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "thumb distal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B120",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "thumb distal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B121",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "index proximal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B122",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "index proximal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B123",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "index middle phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B124",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "index middle phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B125",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "index distal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B126",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "index distal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B127",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "middle proximal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B128",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "middle proximal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B129",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "middle middle phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B130",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "middle middle phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B131",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "middle distal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B132",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "middle distal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B133",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "ring proximal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B134",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "ring proximal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B135",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "ring middle phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B136",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "ring middle phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B137",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "ring distal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B138",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "ring distal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B139",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "little proximal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B140",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "little proximal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B141",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "little middle phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B142",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "little middle phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B143",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "little distal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B144",
+      "group": "Appendicular",
+      "subgroup": "Upper limb: hand phalanges",
+      "name": "little distal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B145",
+      "group": "Appendicular",
+      "subgroup": "Pelvic girdle",
+      "name": "hip bone (os coxae)",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B146",
+      "group": "Appendicular",
+      "subgroup": "Pelvic girdle",
+      "name": "hip bone (os coxae)",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B147",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: thigh, knee, and leg",
+      "name": "femur",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B148",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: thigh, knee, and leg",
+      "name": "femur",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B149",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: thigh, knee, and leg",
+      "name": "patella",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B150",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: thigh, knee, and leg",
+      "name": "patella",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B151",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: thigh, knee, and leg",
+      "name": "tibia",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B152",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: thigh, knee, and leg",
+      "name": "tibia",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B153",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: thigh, knee, and leg",
+      "name": "fibula",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B154",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: thigh, knee, and leg",
+      "name": "fibula",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B155",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: tarsals",
+      "name": "talus",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B156",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: tarsals",
+      "name": "talus",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B157",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: tarsals",
+      "name": "calcaneus",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B158",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: tarsals",
+      "name": "calcaneus",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B159",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: tarsals",
+      "name": "navicular",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B160",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: tarsals",
+      "name": "navicular",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B161",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: tarsals",
+      "name": "cuboid",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B162",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: tarsals",
+      "name": "cuboid",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B163",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: tarsals",
+      "name": "medial cuneiform",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B164",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: tarsals",
+      "name": "medial cuneiform",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B165",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: tarsals",
+      "name": "intermediate cuneiform",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B166",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: tarsals",
+      "name": "intermediate cuneiform",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B167",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: tarsals",
+      "name": "lateral cuneiform",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B168",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: tarsals",
+      "name": "lateral cuneiform",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B169",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: metatarsals",
+      "name": "metatarsal 1",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B170",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: metatarsals",
+      "name": "metatarsal 1",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B171",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: metatarsals",
+      "name": "metatarsal 2",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B172",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: metatarsals",
+      "name": "metatarsal 2",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B173",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: metatarsals",
+      "name": "metatarsal 3",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B174",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: metatarsals",
+      "name": "metatarsal 3",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B175",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: metatarsals",
+      "name": "metatarsal 4",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B176",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: metatarsals",
+      "name": "metatarsal 4",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B177",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: metatarsals",
+      "name": "metatarsal 5",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B178",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: metatarsals",
+      "name": "metatarsal 5",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B179",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "great toe proximal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B180",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "great toe proximal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B181",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "great toe distal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B182",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "great toe distal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B183",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "second toe proximal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B184",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "second toe proximal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B185",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "second toe middle phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B186",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "second toe middle phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B187",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "second toe distal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B188",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "second toe distal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B189",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "third toe proximal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B190",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "third toe proximal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B191",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "third toe middle phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B192",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "third toe middle phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B193",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "third toe distal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B194",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "third toe distal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B195",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "fourth toe proximal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B196",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "fourth toe proximal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B197",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "fourth toe middle phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B198",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "fourth toe middle phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B199",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "fourth toe distal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B200",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "fourth toe distal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B201",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "fifth toe proximal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B202",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "fifth toe proximal phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B203",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "fifth toe middle phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B204",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "fifth toe middle phalanx",
+      "side": "left",
+      "notes": ""
+    },
+    {
+      "id": "B205",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "fifth toe distal phalanx",
+      "side": "right",
+      "notes": ""
+    },
+    {
+      "id": "B206",
+      "group": "Appendicular",
+      "subgroup": "Lower limb: foot phalanges",
+      "name": "fifth toe distal phalanx",
+      "side": "left",
+      "notes": ""
+    }
+  ],
+  "pillars": [
+    {
+      "id": "P01",
+      "anchor": "C1",
+      "region": "Cervical",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P02",
+      "anchor": "C2",
+      "region": "Cervical",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P03",
+      "anchor": "C3",
+      "region": "Cervical",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P04",
+      "anchor": "C4",
+      "region": "Cervical",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P05",
+      "anchor": "C5",
+      "region": "Cervical",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P06",
+      "anchor": "C6",
+      "region": "Cervical",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P07",
+      "anchor": "C7",
+      "region": "Cervical",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P08",
+      "anchor": "T1",
+      "region": "Thoracic",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P09",
+      "anchor": "T2",
+      "region": "Thoracic",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P10",
+      "anchor": "T3",
+      "region": "Thoracic",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P11",
+      "anchor": "T4",
+      "region": "Thoracic",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P12",
+      "anchor": "T5",
+      "region": "Thoracic",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P13",
+      "anchor": "T6",
+      "region": "Thoracic",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P14",
+      "anchor": "T7",
+      "region": "Thoracic",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P15",
+      "anchor": "T8",
+      "region": "Thoracic",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P16",
+      "anchor": "T9",
+      "region": "Thoracic",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P17",
+      "anchor": "T10",
+      "region": "Thoracic",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P18",
+      "anchor": "T11",
+      "region": "Thoracic",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P19",
+      "anchor": "T12",
+      "region": "Thoracic",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P20",
+      "anchor": "L1",
+      "region": "Lumbar",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P21",
+      "anchor": "L2",
+      "region": "Lumbar",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P22",
+      "anchor": "L3",
+      "region": "Lumbar",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P23",
+      "anchor": "L4",
+      "region": "Lumbar",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P24",
+      "anchor": "L5",
+      "region": "Lumbar",
+      "kind": "segment_based",
+      "anatomy_status": "individual_vertebra_in_adult"
+    },
+    {
+      "id": "P25",
+      "anchor": "S1",
+      "region": "Sacral",
+      "kind": "segment_based",
+      "anatomy_status": "fused_into_sacrum_in_adult"
+    },
+    {
+      "id": "P26",
+      "anchor": "S2",
+      "region": "Sacral",
+      "kind": "segment_based",
+      "anatomy_status": "fused_into_sacrum_in_adult"
+    },
+    {
+      "id": "P27",
+      "anchor": "S3",
+      "region": "Sacral",
+      "kind": "segment_based",
+      "anatomy_status": "fused_into_sacrum_in_adult"
+    },
+    {
+      "id": "P28",
+      "anchor": "S4",
+      "region": "Sacral",
+      "kind": "segment_based",
+      "anatomy_status": "fused_into_sacrum_in_adult"
+    },
+    {
+      "id": "P29",
+      "anchor": "S5",
+      "region": "Sacral",
+      "kind": "segment_based",
+      "anatomy_status": "fused_into_sacrum_in_adult"
+    },
+    {
+      "id": "P30",
+      "anchor": "Co1",
+      "region": "Coccygeal",
+      "kind": "segment_based",
+      "anatomy_status": "fused_into_coccyx_in_adult"
+    },
+    {
+      "id": "P31",
+      "anchor": "Co2",
+      "region": "Coccygeal",
+      "kind": "segment_based",
+      "anatomy_status": "fused_into_coccyx_in_adult"
+    },
+    {
+      "id": "P32",
+      "anchor": "Co3",
+      "region": "Coccygeal",
+      "kind": "segment_based",
+      "anatomy_status": "fused_into_coccyx_in_adult"
+    },
+    {
+      "id": "P33",
+      "anchor": "Co4",
+      "region": "Coccygeal",
+      "kind": "segment_based",
+      "anatomy_status": "fused_into_coccyx_in_adult"
+    },
+    {
+      "id": "P34",
+      "anchor": "C1",
+      "region": "Cervical revisit",
+      "kind": "editorial_reflection_gate_not_new_vertebra",
+      "title": "Atlas: orientation"
+    },
+    {
+      "id": "P35",
+      "anchor": "C2",
+      "region": "Cervical revisit",
+      "kind": "editorial_reflection_gate_not_new_vertebra",
+      "title": "Axis: turning"
+    },
+    {
+      "id": "P36",
+      "anchor": "C3",
+      "region": "Cervical revisit",
+      "kind": "editorial_reflection_gate_not_new_vertebra",
+      "title": "Threshold: support"
+    },
+    {
+      "id": "P37",
+      "anchor": "C4",
+      "region": "Cervical revisit",
+      "kind": "editorial_reflection_gate_not_new_vertebra",
+      "title": "Bridge: attention"
+    },
+    {
+      "id": "P38",
+      "anchor": "C5",
+      "region": "Cervical revisit",
+      "kind": "editorial_reflection_gate_not_new_vertebra",
+      "title": "Expression: voice"
+    },
+    {
+      "id": "P39",
+      "anchor": "C6",
+      "region": "Cervical revisit",
+      "kind": "editorial_reflection_gate_not_new_vertebra",
+      "title": "Coordination: movement"
+    },
+    {
+      "id": "P40",
+      "anchor": "C7",
+      "region": "Cervical revisit",
+      "kind": "editorial_reflection_gate_not_new_vertebra",
+      "title": "Transition: continuity"
+    }
+  ],
+  "layers": [
+    {
+      "id": "L01",
+      "label": "Endocrine / regulation",
+      "anatomy": "Hypothalamus, pituitary, pineal, thyroid, parathyroids, adrenals, pancreatic islets, gonads and other endocrine tissues",
+      "seven_anchor_set_from_user": [
+        "pineal",
+        "pituitary",
+        "thyroid",
+        "thymus",
+        "adrenals",
+        "pancreas",
+        "gonads"
+      ],
+      "astronomy_analogy": "Seven classical planets as historical astronomical-symbolic classification; not hormone mapping",
+      "tradition": "Seven double letters in Sefer Yetzirah; modern seven-chakra comparison is separately sourced tradition",
+      "book_role": "State shifts, physiology, homeostasis, time and rhythm",
+      "status": "anatomy_established_correspondences_editorial"
+    },
+    {
+      "id": "L02",
+      "label": "Cranial nerves / perception",
+      "anatomy": "Twelve paired cranial nerves I–XII; I and II associated with the forebrain rather than emerging from the brainstem",
+      "astronomy_analogy": "Twelve zodiacal signs as traditional symbolic counting scheme",
+      "tradition": "Twelve simple letters and diagonal spatial boundaries in Sefer Yetzirah; assigning individual nerves to individual letters is a modern editorial crosswalk",
+      "book_role": "Observation, sensory input, expression, movement and interpretation",
+      "status": "anatomy_established_correspondences_editorial"
+    },
+    {
+      "id": "L03",
+      "label": "Bioelectromagnetism / shadow",
+      "anatomy": "Electrical potentials and weak magnetic fields from physiological activity; ordinary optical shadows",
+      "astronomy_analogy": "Magnetosphere, ionosphere and Van Allen belts are independently measured geophysical structures, not homologues of a human aura",
+      "tradition": "Tzelem and torus imagery as separate spiritual or artistic systems",
+      "book_role": "Presence, evidence, contrast, perception, reputation",
+      "status": "measurable_biofields_distinct_from_spiritual_aura"
+    },
+    {
+      "id": "L04",
+      "label": "Water / electrolytes / CSF",
+      "anatomy": "Water compartments and electrolytes; CSF surrounds the central nervous system, not individual vertebral bones",
+      "astronomy_analogy": "Oceans, aquifers and water cycle; approximately 71% of Earth’s surface is covered by water",
+      "tradition": "Mem and water imagery in Sefer Yetzirah",
+      "book_role": "Flow, support, exchange, reflection and recovery",
+      "status": "physical_mechanisms_distinct_from_memory_conductivity_metaphor"
+    },
+    {
+      "id": "L05",
+      "label": "Joints / discs / synovial tissues",
+      "anatomy": "Synovial fluid lubricates synovial joints; intervertebral discs are fibrocartilaginous and are not synovial fluid-filled joints",
+      "astronomy_analogy": "Faults and tectonic deformation as analogies for strain accommodation, not direct anatomical equivalents",
+      "tradition": "Tzimtzum from later Jewish mystical thought, especially Lurianic Kabbalah",
+      "book_role": "Flexibility, boundaries, resilience, space and adaptation",
+      "status": "physical_mechanisms_distinct_from_traditional_metaphor"
+    }
+  ],
+  "cranial_nerves": [
+    {
+      "roman": "I",
+      "name": "Olfactory",
+      "primary_function": "Smell"
+    },
+    {
+      "roman": "II",
+      "name": "Optic",
+      "primary_function": "Vision"
+    },
+    {
+      "roman": "III",
+      "name": "Oculomotor",
+      "primary_function": "Most eye movements; pupil constriction"
+    },
+    {
+      "roman": "IV",
+      "name": "Trochlear",
+      "primary_function": "Superior oblique eye movement"
+    },
+    {
+      "roman": "V",
+      "name": "Trigeminal",
+      "primary_function": "Facial sensation and chewing"
+    },
+    {
+      "roman": "VI",
+      "name": "Abducens",
+      "primary_function": "Lateral eye movement"
+    },
+    {
+      "roman": "VII",
+      "name": "Facial",
+      "primary_function": "Facial expression; anterior tongue taste"
+    },
+    {
+      "roman": "VIII",
+      "name": "Vestibulocochlear",
+      "primary_function": "Hearing and balance"
+    },
+    {
+      "roman": "IX",
+      "name": "Glossopharyngeal",
+      "primary_function": "Swallowing; posterior tongue taste"
+    },
+    {
+      "roman": "X",
+      "name": "Vagus",
+      "primary_function": "Autonomic visceral function; voice and swallowing"
+    },
+    {
+      "roman": "XI",
+      "name": "Accessory",
+      "primary_function": "Head turn and shoulder elevation"
+    },
+    {
+      "roman": "XII",
+      "name": "Hypoglossal",
+      "primary_function": "Tongue movements"
+    }
+  ],
+  "integration_links": [
+    {
+      "system": "original_source",
+      "destination": "Creator Vault",
+      "mode": "explicit local import, do not overwrite"
+    },
+    {
+      "system": "structured notes",
+      "destination": "Memory Matrix / meSPARK",
+      "mode": "separate interpretations with source IDs"
+    },
+    {
+      "system": "search and sources",
+      "destination": "Knowledge Engine / WORDS",
+      "mode": "text/phonetic/symbolic comparisons, mark hypothesis"
+    },
+    {
+      "system": "manuscript",
+      "destination": "ONE and TABOR 1-2-3 FACTORY",
+      "mode": "derived chapters and index with provenance"
+    },
+    {
+      "system": "AI support",
+      "destination": "Multi-AI Gateway",
+      "mode": "approved packet only; no automatic provider sync"
+    },
+    {
+      "system": "recovery",
+      "destination": "Original-byte backup and restore",
+      "mode": "hash verification, separate device restore"
+    }
+  ],
+  "reference_urls": {
+    "endocrine": "https://medlineplus.gov/ency/article/002351.htm",
+    "cranial": "https://www.ncbi.nlm.nih.gov/books/NBK470353/",
+    "csf": "https://www.ncbi.nlm.nih.gov/books/NBK519007/",
+    "spine": "https://www.ncbi.nlm.nih.gov/books/NBK279468/",
+    "skeletal": "https://openstax.org/books/biology-ap-courses/pages/29-1-types-of-skeletal-systems",
+    "joints": "https://openstax.org/books/anatomy-and-physiology-2e/pages/9-4-synovial-joints",
+    "water": "https://science.nasa.gov/earth/earth-observatory/the-water-cycle/",
+    "magnetosphere": "https://science.nasa.gov/science-research/earth-science/earths-magnetosphere-protecting-our-planet-from-harmful-space-energy/",
+    "yetzirah": "https://www.sefaria.org/Sefer_Yetzirah.5.2?lang=en",
+    "yetzirahLetters": "https://www.sefaria.org/Sefer_Yetzirah_Gra_Version.2.6",
+    "tzimtzum": "https://jewishvirtuallibrary.org/jsource/judaica/ejud_0002_0011_0_10514.html"
+  },
+  "source_status_vocabulary": [
+    "established_anatomy",
+    "documented_textual_tradition",
+    "editorial_symbolic_correspondence",
+    "speculative_claim",
+    "not_verified"
+  ],
+  "quality_rule": "Every comparison requires source type, original location, editor-supplied interpretation, verification state. Do not silently replace original wording."
+}
