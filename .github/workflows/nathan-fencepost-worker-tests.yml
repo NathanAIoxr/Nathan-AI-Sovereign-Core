@@ -1,0 +1,26 @@
+name: Nathan AI · Fencepost Error Syndrome Tests
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome/**'
+      - '.github/workflows/nathan-fencepost-worker-tests.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome/**'
+      - '.github/workflows/nathan-fencepost-worker-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-boundary-workers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run 19 unit tests and randomized invariants
+        run: python3 -m unittest discover -s app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome -p 'test_fencepost_workers.py' -v
+      - name: Reproduce synthetic seven-day report
+        run: python3 app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome/fencepost_workers.py --days 7 --output /tmp/nathan-fencepost-results.json
