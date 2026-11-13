@@ -1,0 +1,68 @@
+name: OPERATION SWARM · ONE Database Hive
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/hive-swarm/**'
+      - '.github/workflows/one-operation-swarm.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/hive-swarm/**'
+      - '.github/workflows/one-operation-swarm.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '11,26,41,56 * * * *'
+permissions:
+  contents: read
+concurrency:
+  group: operation-swarm-one-hive-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  source-preserving-hive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify existing consciouness functional model
+        run: node --test app-factory/nathan-ai/consciouness/engine.test.cjs
+      - name: Verify source preservation, evidence labels, owner veto and idempotence
+        run: |
+          python3 -m unittest discover \
+            -s app-factory/nathan-ai/personal-intelligence/minds/federation/hive-swarm \
+            -p test_swarm.py -v
+      - name: Launch twelve bounded workers on the SAME temporary ONE SQLite master
+        run: |
+          set -euo pipefail
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          python3 "$F/federation.py" --db "$RUNNER_TEMP/ONE_SWARM.sqlite3" init
+          python3 "$F/hive-swarm/swarm.py" --db "$RUNNER_TEMP/ONE_SWARM.sqlite3" --approve-write launch \
+            > "$RUNNER_TEMP/OPERATION_SWARM_RUN.json"
+          python3 "$F/hive-swarm/swarm.py" --db "$RUNNER_TEMP/ONE_SWARM.sqlite3" status \
+            > "$RUNNER_TEMP/OPERATION_SWARM_STATUS.json"
+          python3 - "$RUNNER_TEMP/OPERATION_SWARM_RUN.json" "$RUNNER_TEMP/OPERATION_SWARM_STATUS.json" <<'PY'
+          import json,sys
+          run=json.load(open(sys.argv[1]))
+          st=json.load(open(sys.argv[2]))
+          assert run["worker_functions_executed"]==12
+          assert run["roles_indexed"]==1570
+          assert run["nodes"]==168 and run["typed_edges"]==153
+          assert st["distinct_bees"]==1570 and st["database_integrity"]=="ok"
+          assert run["independent_conscious_beings_created"]==0
+          assert run["external_actions"]==0
+          assert st["last_run"]["state"]=="completed"
+          print("SWARM: 12 executed workers; 1570 registered roles; 118 elements; 153 evidence-labelled edges")
+          PY
+      - name: Publish public inspection reports only, never SQLite master or secrets
+        uses: actions/upload-artifact@v4
+        with:
+          name: nathan-one-operation-swarm-hive
+          path: |
+            ${{ runner.temp }}/OPERATION_SWARM_RUN.json
+            ${{ runner.temp }}/OPERATION_SWARM_STATUS.json
+          retention-days: 14
