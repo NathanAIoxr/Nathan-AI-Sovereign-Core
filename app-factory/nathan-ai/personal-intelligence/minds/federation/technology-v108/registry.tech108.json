@@ -1,0 +1,2227 @@
+{
+  "schema": "nathan.one.federation.technology-worker-codex.v108",
+  "title": "Google Has Fencepost Error Syndrome — by Nathan Tabor · Nathan AI Boundary Repair",
+  "attribution": "Nathan Tabor",
+  "captured_from": "2026-11-13 user-supplied technology family matrix and fencepost error discussion",
+  "namespace_rule": "Technology family IDs 1–12 and technology unit IDs 1–108 belong to technology-v108 namespace; they do not renumber ONE family 21 or Families 65–75 / members 65–163.",
+  "counts": {
+    "families": 12,
+    "units_per_family": 9,
+    "units": 108,
+    "first_unit": 1,
+    "last_unit": 108
+  },
+  "counting_contract": {
+    "integer_units": "inclusive [1,108]",
+    "unit_indexing": "family_position is one-based 1..9; Python slices are zero-based and half-open",
+    "calendar_schedule": "use [start,end) date windows",
+    "date_examples": {
+      "elapsed_days": 7,
+      "interior_dates": 6,
+      "inclusive_calendar_dates": 8
+    },
+    "fail_closed_on": "duplicate, omitted, extra, unclassified, or ambiguous boundary"
+  },
+  "status": "INDEXED SPECIFICATION; NOT DEPLOYED ROBOTS OR 100% REPAIRED SOFTWARE",
+  "evidence_boundary": "This user-authored name does not establish that Google deliberately programmed an error. No live Google, hardware, power-grid, biological, or third-party systems are accessed.",
+  "families": [
+    {
+      "technology_family_id": 1,
+      "era_id": 1,
+      "technological_era": "Prehistoric & Ancient Foundational Tech (Stone, Bronze & Simple Machines)",
+      "name": "The Lithic, Fire & Primitive-Tool Family",
+      "tech_root": "Knapped flint blades, controlled fire hearths, woven cordage, pottery kilns, and bone needles.",
+      "mission": "Transform raw earth, wood, and fire into basic survival tools, shelters, and preserved food with zero external supply chains.",
+      "unit_first": 1,
+      "unit_last": 9,
+      "unit_count": 9,
+      "source_status": "user_supplied"
+    },
+    {
+      "technology_family_id": 2,
+      "era_id": 1,
+      "technological_era": "Prehistoric & Ancient Foundational Tech (Stone, Bronze & Simple Machines)",
+      "name": "The Agricultural, Irrigation & Fermentation Family",
+      "tech_root": "The heavy plow, qanat underground aqueducts, Archimedes screws, terrace farming, grain mills, and ancient food preservation (salting, drying, fermenting).",
+      "mission": "Engineer soil, water flow, and biological fermentation to feed dense populations reliably across seasons.",
+      "unit_first": 10,
+      "unit_last": 18,
+      "unit_count": 9,
+      "source_status": "user_supplied"
+    },
+    {
+      "technology_family_id": 3,
+      "era_id": 1,
+      "technological_era": "Prehistoric & Ancient Foundational Tech (Stone, Bronze & Simple Machines)",
+      "name": "The Metallurgy, Glass & Ceramic-Kiln Family",
+      "tech_root": "Copper/tin bronze smelting, iron bloomeries, crucible Damascus steel, glassblowing, and high-fire porcelain.",
+      "mission": "Extract, alloy, and heat-treat raw minerals into durable cutting edges, transparent optics, and heat-proof vessels.",
+      "unit_first": 19,
+      "unit_last": 27,
+      "unit_count": 9,
+      "source_status": "user_supplied"
+    },
+    {
+      "technology_family_id": 4,
+      "era_id": 2,
+      "technological_era": "Classical & Medieval Mechanical Tech (Gears, Optics & Navigation)",
+      "name": "The Clockwork, Windmill & Waterwheel Family",
+      "tech_root": "Overshot waterwheels, vertical windmills, compound gear trains, escapement clocks, and the Antikythera astronomical calculator.",
+      "mission": "Capture natural wind, water, and spring tension to automate milling, pumping, and precision mechanical timekeeping.",
+      "unit_first": 28,
+      "unit_last": 36,
+      "unit_count": 9,
+      "source_status": "user_supplied"
+    },
+    {
+      "technology_family_id": 5,
+      "era_id": 2,
+      "technological_era": "Classical & Medieval Mechanical Tech (Gears, Optics & Navigation)",
+      "name": "The Maritime, Cartography & Celestial-Navigation Family",
+      "tech_root": "Clinker-built hulls, lateen sails, sternpost rudders, magnetic compasses, astrolabes, sextants, and marine chronometers.",
+      "mission": "Navigate open oceans and uncharted terrain using stars, magnetism, and precision geometry.",
+      "unit_first": 37,
+      "unit_last": 45,
+      "unit_count": 9,
+      "source_status": "user_supplied"
+    },
+    {
+      "technology_family_id": 6,
+      "era_id": 2,
+      "technological_era": "Classical & Medieval Mechanical Tech (Gears, Optics & Navigation)",
+      "name": "The Printing Press, Paper & Cryptographic-Cipher Family",
+      "tech_root": "Woodblock printing, Gutenberg’s movable metal type, rag-paper mills, mechanical cipher wheels, and early optical semaphores.",
+      "mission": "Mass-produce accurate written records, standardize schematics, and secure sensitive dispatches across long distances.",
+      "unit_first": 46,
+      "unit_last": 54,
+      "unit_count": 9,
+      "source_status": "user_supplied"
+    },
+    {
+      "technology_family_id": 7,
+      "era_id": 3,
+      "technological_era": "Industrial & Electromagnetic Tech (Steam, Combustion & Grids)",
+      "name": "The Steam, Internal-Combustion & Turbine Family",
+      "tech_root": "Watt’s condensing steam engine, high-pressure locomotives, Otto/Diesel combustion engines, and Parsons steam/gas turbines.",
+      "mission": "Convert fossil, solar, or thermal heat into high-torque rotational power for factories, rail networks, and aviation.",
+      "unit_first": 55,
+      "unit_last": 63,
+      "unit_count": 9,
+      "source_status": "user_supplied"
+    },
+    {
+      "technology_family_id": 8,
+      "era_id": 3,
+      "technological_era": "Industrial & Electromagnetic Tech (Steam, Combustion & Grids)",
+      "name": "The Electrification, Power-Grid & Telecommunications Family",
+      "tech_root": "Faraday dynamos, Tesla AC polyphase motors, high-voltage transformers, telegraph/telephone switches, and vacuum-tube radio.",
+      "mission": "Generate, step up, transmit, and modulate electromagnetic energy to power cities and carry instant voice/data globally.",
+      "unit_first": 64,
+      "unit_last": 72,
+      "unit_count": 9,
+      "source_status": "user_supplied"
+    },
+    {
+      "technology_family_id": 9,
+      "era_id": 4,
+      "technological_era": "Modern Silicon, Quantum & Bio-Digital Tech (Compute, Space & Atoms)",
+      "name": "The Semiconductor, Photonic & Cloud-Compute Family",
+      "tech_root": "Transistors, integrated circuits, EUV lithography, fiber-optic lasers, TCP/IP packet routers, and hyperscale GPU clusters.",
+      "mission": "Etch microscopic silicon/photonic logic gates to process, route, and store planetary-scale information at the speed of light.",
+      "unit_first": 73,
+      "unit_last": 81,
+      "unit_count": 9,
+      "source_status": "user_supplied"
+    },
+    {
+      "technology_family_id": 10,
+      "era_id": 4,
+      "technological_era": "Modern Silicon, Quantum & Bio-Digital Tech (Compute, Space & Atoms)",
+      "name": "The Autonomous Robotics, Additive-3D & Drone-Swarm Family",
+      "tech_root": "CNC multi-axis mills, industrial 3D metal/polymer printers, LiDAR spatial SLAM, bipedal actuators, and autonomous drone swarms.",
+      "mission": "Translate digital CAD files directly into physical parts and deploy self-navigating machines across factories, farms, and disaster zones.",
+      "unit_first": 82,
+      "unit_last": 90,
+      "unit_count": 9,
+      "source_status": "user_supplied"
+    },
+    {
+      "technology_family_id": 11,
+      "era_id": 4,
+      "technological_era": "Modern Silicon, Quantum & Bio-Digital Tech (Compute, Space & Atoms)",
+      "name": "The Aerospace, Orbital-Satellite & Propulsion Family",
+      "tech_root": "Fly-by-wire avionics, reusable liquid-fuel rockets, ion thrusters, GPS atomic-clock constellations, and deep-space radio arrays.",
+      "mission": "Escape Earth’s gravity well, maintain global satellite communications/navigation, and explore orbital and planetary frontiers.",
+      "unit_first": 91,
+      "unit_last": 99,
+      "unit_count": 9,
+      "source_status": "user_supplied"
+    },
+    {
+      "technology_family_id": 12,
+      "era_id": 4,
+      "technological_era": "Modern Silicon, Quantum & Bio-Digital Tech (Compute, Space & Atoms)",
+      "name": "The Quantum-Compute, Nanotech & Bio-Engineering Family",
+      "tech_root": "Superconducting/trapped-ion qubits, quantum key distribution (QKD), CRISPR gene-editing tools, mRNA synthesizers, and atomic-layer assemblers.",
+      "mission": "Engineer matter, encryption, and living cells at the quantum and molecular scale to cure disease and solve intractable equations.",
+      "unit_first": 100,
+      "unit_last": 108,
+      "unit_count": 9,
+      "source_status": "user_supplied"
+    }
+  ],
+  "minds": [
+    {
+      "id": "one-tech108-unit-001",
+      "technology_unit_id": 1,
+      "technology_family_id": 1,
+      "family_position": 1,
+      "name": "Flint-Knapper",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Transform raw earth, wood, and fire into basic survival tools, shelters, and preserved food with zero external supply chains.",
+      "exact_source_member_name": "Flint-Knapper",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-002",
+      "technology_unit_id": 2,
+      "technology_family_id": 1,
+      "family_position": 2,
+      "name": "Hearth-Tender",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Transform raw earth, wood, and fire into basic survival tools, shelters, and preserved food with zero external supply chains.",
+      "exact_source_member_name": "Hearth-Tender",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-003",
+      "technology_unit_id": 3,
+      "technology_family_id": 1,
+      "family_position": 3,
+      "name": "Kiln-Firer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Transform raw earth, wood, and fire into basic survival tools, shelters, and preserved food with zero external supply chains.",
+      "exact_source_member_name": "Kiln-Firer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-004",
+      "technology_unit_id": 4,
+      "technology_family_id": 1,
+      "family_position": 4,
+      "name": "Cordage-Weaver",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Transform raw earth, wood, and fire into basic survival tools, shelters, and preserved food with zero external supply chains.",
+      "exact_source_member_name": "Cordage-Weaver",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-005",
+      "technology_unit_id": 5,
+      "technology_family_id": 1,
+      "family_position": 5,
+      "name": "Timber-Feller",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Transform raw earth, wood, and fire into basic survival tools, shelters, and preserved food with zero external supply chains.",
+      "exact_source_member_name": "Timber-Feller",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-006",
+      "technology_unit_id": 6,
+      "technology_family_id": 1,
+      "family_position": 6,
+      "name": "Hide-Tanner",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Transform raw earth, wood, and fire into basic survival tools, shelters, and preserved food with zero external supply chains.",
+      "exact_source_member_name": "Hide-Tanner",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-007",
+      "technology_unit_id": 7,
+      "technology_family_id": 1,
+      "family_position": 7,
+      "name": "Shelter-Framer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Transform raw earth, wood, and fire into basic survival tools, shelters, and preserved food with zero external supply chains.",
+      "exact_source_member_name": "Shelter-Framer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-008",
+      "technology_unit_id": 8,
+      "technology_family_id": 1,
+      "family_position": 8,
+      "name": "Ash-Purifier",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Transform raw earth, wood, and fire into basic survival tools, shelters, and preserved food with zero external supply chains.",
+      "exact_source_member_name": "Ash-Purifier",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-009",
+      "technology_unit_id": 9,
+      "technology_family_id": 1,
+      "family_position": 9,
+      "name": "Ember-Keeper",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Transform raw earth, wood, and fire into basic survival tools, shelters, and preserved food with zero external supply chains.",
+      "exact_source_member_name": "Ember-Keeper",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-010",
+      "technology_unit_id": 10,
+      "technology_family_id": 2,
+      "family_position": 1,
+      "name": "Furrow-Plower",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer soil, water flow, and biological fermentation to feed dense populations reliably across seasons.",
+      "exact_source_member_name": "Furrow-Plower",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-011",
+      "technology_unit_id": 11,
+      "technology_family_id": 2,
+      "family_position": 2,
+      "name": "Canal-Leveler",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer soil, water flow, and biological fermentation to feed dense populations reliably across seasons.",
+      "exact_source_member_name": "Canal-Leveler",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-012",
+      "technology_unit_id": 12,
+      "technology_family_id": 2,
+      "family_position": 3,
+      "name": "Water-Lifter",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer soil, water flow, and biological fermentation to feed dense populations reliably across seasons.",
+      "exact_source_member_name": "Water-Lifter",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-013",
+      "technology_unit_id": 13,
+      "technology_family_id": 2,
+      "family_position": 4,
+      "name": "Terrace-Grader",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer soil, water flow, and biological fermentation to feed dense populations reliably across seasons.",
+      "exact_source_member_name": "Terrace-Grader",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-014",
+      "technology_unit_id": 14,
+      "technology_family_id": 2,
+      "family_position": 5,
+      "name": "Seed-Selector",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer soil, water flow, and biological fermentation to feed dense populations reliably across seasons.",
+      "exact_source_member_name": "Seed-Selector",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-015",
+      "technology_unit_id": 15,
+      "technology_family_id": 2,
+      "family_position": 6,
+      "name": "Millstone-Grinder",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer soil, water flow, and biological fermentation to feed dense populations reliably across seasons.",
+      "exact_source_member_name": "Millstone-Grinder",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-016",
+      "technology_unit_id": 16,
+      "technology_family_id": 2,
+      "family_position": 7,
+      "name": "Granary-Sealer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer soil, water flow, and biological fermentation to feed dense populations reliably across seasons.",
+      "exact_source_member_name": "Granary-Sealer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-017",
+      "technology_unit_id": 17,
+      "technology_family_id": 2,
+      "family_position": 8,
+      "name": "Ferment-Culturer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer soil, water flow, and biological fermentation to feed dense populations reliably across seasons.",
+      "exact_source_member_name": "Ferment-Culturer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-018",
+      "technology_unit_id": 18,
+      "technology_family_id": 2,
+      "family_position": 9,
+      "name": "Soil-Rotator",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer soil, water flow, and biological fermentation to feed dense populations reliably across seasons.",
+      "exact_source_member_name": "Soil-Rotator",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-019",
+      "technology_unit_id": 19,
+      "technology_family_id": 3,
+      "family_position": 1,
+      "name": "Ore-Prospector",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Extract, alloy, and heat-treat raw minerals into durable cutting edges, transparent optics, and heat-proof vessels.",
+      "exact_source_member_name": "Ore-Prospector",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-020",
+      "technology_unit_id": 20,
+      "technology_family_id": 3,
+      "family_position": 2,
+      "name": "Smelter-Stoker",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Extract, alloy, and heat-treat raw minerals into durable cutting edges, transparent optics, and heat-proof vessels.",
+      "exact_source_member_name": "Smelter-Stoker",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-021",
+      "technology_unit_id": 21,
+      "technology_family_id": 3,
+      "family_position": 3,
+      "name": "Alloy-Blender",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Extract, alloy, and heat-treat raw minerals into durable cutting edges, transparent optics, and heat-proof vessels.",
+      "exact_source_member_name": "Alloy-Blender",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-022",
+      "technology_unit_id": 22,
+      "technology_family_id": 3,
+      "family_position": 4,
+      "name": "Anvil-Forger",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Extract, alloy, and heat-treat raw minerals into durable cutting edges, transparent optics, and heat-proof vessels.",
+      "exact_source_member_name": "Anvil-Forger",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-023",
+      "technology_unit_id": 23,
+      "technology_family_id": 3,
+      "family_position": 5,
+      "name": "Quench-Temperer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Extract, alloy, and heat-treat raw minerals into durable cutting edges, transparent optics, and heat-proof vessels.",
+      "exact_source_member_name": "Quench-Temperer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-024",
+      "technology_unit_id": 24,
+      "technology_family_id": 3,
+      "family_position": 6,
+      "name": "Glass-Blower",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Extract, alloy, and heat-treat raw minerals into durable cutting edges, transparent optics, and heat-proof vessels.",
+      "exact_source_member_name": "Glass-Blower",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-025",
+      "technology_unit_id": 25,
+      "technology_family_id": 3,
+      "family_position": 7,
+      "name": "Lens-Grinder",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Extract, alloy, and heat-treat raw minerals into durable cutting edges, transparent optics, and heat-proof vessels.",
+      "exact_source_member_name": "Lens-Grinder",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-026",
+      "technology_unit_id": 26,
+      "technology_family_id": 3,
+      "family_position": 8,
+      "name": "Ceramic-Glazer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Extract, alloy, and heat-treat raw minerals into durable cutting edges, transparent optics, and heat-proof vessels.",
+      "exact_source_member_name": "Ceramic-Glazer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-027",
+      "technology_unit_id": 27,
+      "technology_family_id": 3,
+      "family_position": 9,
+      "name": "Assay-Tester",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Extract, alloy, and heat-treat raw minerals into durable cutting edges, transparent optics, and heat-proof vessels.",
+      "exact_source_member_name": "Assay-Tester",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-028",
+      "technology_unit_id": 28,
+      "technology_family_id": 4,
+      "family_position": 1,
+      "name": "Millrace-Gatekeeper",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Capture natural wind, water, and spring tension to automate milling, pumping, and precision mechanical timekeeping.",
+      "exact_source_member_name": "Millrace-Gatekeeper",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-029",
+      "technology_unit_id": 29,
+      "technology_family_id": 4,
+      "family_position": 2,
+      "name": "Wind-Vane Turner",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Capture natural wind, water, and spring tension to automate milling, pumping, and precision mechanical timekeeping.",
+      "exact_source_member_name": "Wind-Vane Turner",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-030",
+      "technology_unit_id": 30,
+      "technology_family_id": 4,
+      "family_position": 3,
+      "name": "Gear-Tooth Cutter",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Capture natural wind, water, and spring tension to automate milling, pumping, and precision mechanical timekeeping.",
+      "exact_source_member_name": "Gear-Tooth Cutter",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-031",
+      "technology_unit_id": 31,
+      "technology_family_id": 4,
+      "family_position": 4,
+      "name": "Escapement-Regulator",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Capture natural wind, water, and spring tension to automate milling, pumping, and precision mechanical timekeeping.",
+      "exact_source_member_name": "Escapement-Regulator",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-032",
+      "technology_unit_id": 32,
+      "technology_family_id": 4,
+      "family_position": 5,
+      "name": "Camshaft-Timer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Capture natural wind, water, and spring tension to automate milling, pumping, and precision mechanical timekeeping.",
+      "exact_source_member_name": "Camshaft-Timer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-033",
+      "technology_unit_id": 33,
+      "technology_family_id": 4,
+      "family_position": 6,
+      "name": "Pulley-Rigger",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Capture natural wind, water, and spring tension to automate milling, pumping, and precision mechanical timekeeping.",
+      "exact_source_member_name": "Pulley-Rigger",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-034",
+      "technology_unit_id": 34,
+      "technology_family_id": 4,
+      "family_position": 7,
+      "name": "Pendulum-Calibrator",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Capture natural wind, water, and spring tension to automate milling, pumping, and precision mechanical timekeeping.",
+      "exact_source_member_name": "Pendulum-Calibrator",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-035",
+      "technology_unit_id": 35,
+      "technology_family_id": 4,
+      "family_position": 8,
+      "name": "Spring-Winder",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Capture natural wind, water, and spring tension to automate milling, pumping, and precision mechanical timekeeping.",
+      "exact_source_member_name": "Spring-Winder",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-036",
+      "technology_unit_id": 36,
+      "technology_family_id": 4,
+      "family_position": 9,
+      "name": "Gearbox-Oiler",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Capture natural wind, water, and spring tension to automate milling, pumping, and precision mechanical timekeeping.",
+      "exact_source_member_name": "Gearbox-Oiler",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-037",
+      "technology_unit_id": 37,
+      "technology_family_id": 5,
+      "family_position": 1,
+      "name": "Hull-Shipwright",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Navigate open oceans and uncharted terrain using stars, magnetism, and precision geometry.",
+      "exact_source_member_name": "Hull-Shipwright",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-038",
+      "technology_unit_id": 38,
+      "technology_family_id": 5,
+      "family_position": 2,
+      "name": "Sail-Trimmer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Navigate open oceans and uncharted terrain using stars, magnetism, and precision geometry.",
+      "exact_source_member_name": "Sail-Trimmer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-039",
+      "technology_unit_id": 39,
+      "technology_family_id": 5,
+      "family_position": 3,
+      "name": "Rudder-Helmsman",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Navigate open oceans and uncharted terrain using stars, magnetism, and precision geometry.",
+      "exact_source_member_name": "Rudder-Helmsman",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-040",
+      "technology_unit_id": 40,
+      "technology_family_id": 5,
+      "family_position": 4,
+      "name": "Compass-Aligner",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Navigate open oceans and uncharted terrain using stars, magnetism, and precision geometry.",
+      "exact_source_member_name": "Compass-Aligner",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-041",
+      "technology_unit_id": 41,
+      "technology_family_id": 5,
+      "family_position": 5,
+      "name": "Astrolabe-Sighter",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Navigate open oceans and uncharted terrain using stars, magnetism, and precision geometry.",
+      "exact_source_member_name": "Astrolabe-Sighter",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-042",
+      "technology_unit_id": 42,
+      "technology_family_id": 5,
+      "family_position": 6,
+      "name": "Chronometer-Keeper",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Navigate open oceans and uncharted terrain using stars, magnetism, and precision geometry.",
+      "exact_source_member_name": "Chronometer-Keeper",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-043",
+      "technology_unit_id": 43,
+      "technology_family_id": 5,
+      "family_position": 7,
+      "name": "Chart-Plotter",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Navigate open oceans and uncharted terrain using stars, magnetism, and precision geometry.",
+      "exact_source_member_name": "Chart-Plotter",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-044",
+      "technology_unit_id": 44,
+      "technology_family_id": 5,
+      "family_position": 8,
+      "name": "Sounding-Lead Caster",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Navigate open oceans and uncharted terrain using stars, magnetism, and precision geometry.",
+      "exact_source_member_name": "Sounding-Lead Caster",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-045",
+      "technology_unit_id": 45,
+      "technology_family_id": 5,
+      "family_position": 9,
+      "name": "Beacon-Lighter",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Navigate open oceans and uncharted terrain using stars, magnetism, and precision geometry.",
+      "exact_source_member_name": "Beacon-Lighter",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-046",
+      "technology_unit_id": 46,
+      "technology_family_id": 6,
+      "family_position": 1,
+      "name": "Pulp-Molder",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Mass-produce accurate written records, standardize schematics, and secure sensitive dispatches across long distances.",
+      "exact_source_member_name": "Pulp-Molder",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-047",
+      "technology_unit_id": 47,
+      "technology_family_id": 6,
+      "family_position": 2,
+      "name": "Type-Founder",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Mass-produce accurate written records, standardize schematics, and secure sensitive dispatches across long distances.",
+      "exact_source_member_name": "Type-Founder",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-048",
+      "technology_unit_id": 48,
+      "technology_family_id": 6,
+      "family_position": 3,
+      "name": "Typesetter-Composer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Mass-produce accurate written records, standardize schematics, and secure sensitive dispatches across long distances.",
+      "exact_source_member_name": "Typesetter-Composer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-049",
+      "technology_unit_id": 49,
+      "technology_family_id": 6,
+      "family_position": 4,
+      "name": "Ink-Press Operator",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Mass-produce accurate written records, standardize schematics, and secure sensitive dispatches across long distances.",
+      "exact_source_member_name": "Ink-Press Operator",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-050",
+      "technology_unit_id": 50,
+      "technology_family_id": 6,
+      "family_position": 5,
+      "name": "Proofreader-Corrector",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Mass-produce accurate written records, standardize schematics, and secure sensitive dispatches across long distances.",
+      "exact_source_member_name": "Proofreader-Corrector",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-051",
+      "technology_unit_id": 51,
+      "technology_family_id": 6,
+      "family_position": 6,
+      "name": "Folio-Binder",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Mass-produce accurate written records, standardize schematics, and secure sensitive dispatches across long distances.",
+      "exact_source_member_name": "Folio-Binder",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-052",
+      "technology_unit_id": 52,
+      "technology_family_id": 6,
+      "family_position": 7,
+      "name": "Cipher-Encoder",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Mass-produce accurate written records, standardize schematics, and secure sensitive dispatches across long distances.",
+      "exact_source_member_name": "Cipher-Encoder",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-053",
+      "technology_unit_id": 53,
+      "technology_family_id": 6,
+      "family_position": 8,
+      "name": "Semaphore-Signaler",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Mass-produce accurate written records, standardize schematics, and secure sensitive dispatches across long distances.",
+      "exact_source_member_name": "Semaphore-Signaler",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-054",
+      "technology_unit_id": 54,
+      "technology_family_id": 6,
+      "family_position": 9,
+      "name": "Archive-Preserver",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Mass-produce accurate written records, standardize schematics, and secure sensitive dispatches across long distances.",
+      "exact_source_member_name": "Archive-Preserver",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-055",
+      "technology_unit_id": 55,
+      "technology_family_id": 7,
+      "family_position": 1,
+      "name": "Boiler-Pressurizer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Convert fossil, solar, or thermal heat into high-torque rotational power for factories, rail networks, and aviation.",
+      "exact_source_member_name": "Boiler-Pressurizer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-056",
+      "technology_unit_id": 56,
+      "technology_family_id": 7,
+      "family_position": 2,
+      "name": "Piston-Machinist",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Convert fossil, solar, or thermal heat into high-torque rotational power for factories, rail networks, and aviation.",
+      "exact_source_member_name": "Piston-Machinist",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-057",
+      "technology_unit_id": 57,
+      "technology_family_id": 7,
+      "family_position": 3,
+      "name": "Flywheel-Governor",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Convert fossil, solar, or thermal heat into high-torque rotational power for factories, rail networks, and aviation.",
+      "exact_source_member_name": "Flywheel-Governor",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-058",
+      "technology_unit_id": 58,
+      "technology_family_id": 7,
+      "family_position": 4,
+      "name": "Valve-Injector",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Convert fossil, solar, or thermal heat into high-torque rotational power for factories, rail networks, and aviation.",
+      "exact_source_member_name": "Valve-Injector",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-059",
+      "technology_unit_id": 59,
+      "technology_family_id": 7,
+      "family_position": 5,
+      "name": "Turbine-Balancer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Convert fossil, solar, or thermal heat into high-torque rotational power for factories, rail networks, and aviation.",
+      "exact_source_member_name": "Turbine-Balancer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-060",
+      "technology_unit_id": 60,
+      "technology_family_id": 7,
+      "family_position": 6,
+      "name": "Exhaust-Condenser",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Convert fossil, solar, or thermal heat into high-torque rotational power for factories, rail networks, and aviation.",
+      "exact_source_member_name": "Exhaust-Condenser",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-061",
+      "technology_unit_id": 61,
+      "technology_family_id": 7,
+      "family_position": 7,
+      "name": "Rail-Switchman",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Convert fossil, solar, or thermal heat into high-torque rotational power for factories, rail networks, and aviation.",
+      "exact_source_member_name": "Rail-Switchman",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-062",
+      "technology_unit_id": 62,
+      "technology_family_id": 7,
+      "family_position": 8,
+      "name": "Drivetrain-Coupler",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Convert fossil, solar, or thermal heat into high-torque rotational power for factories, rail networks, and aviation.",
+      "exact_source_member_name": "Drivetrain-Coupler",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-063",
+      "technology_unit_id": 63,
+      "technology_family_id": 7,
+      "family_position": 9,
+      "name": "Thermal-Inspector",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Convert fossil, solar, or thermal heat into high-torque rotational power for factories, rail networks, and aviation.",
+      "exact_source_member_name": "Thermal-Inspector",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-064",
+      "technology_unit_id": 64,
+      "technology_family_id": 8,
+      "family_position": 1,
+      "name": "Dynamo-Exciter",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Generate, step up, transmit, and modulate electromagnetic energy to power cities and carry instant voice/data globally.",
+      "exact_source_member_name": "Dynamo-Exciter",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-065",
+      "technology_unit_id": 65,
+      "technology_family_id": 8,
+      "family_position": 2,
+      "name": "Transformer-Winder",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Generate, step up, transmit, and modulate electromagnetic energy to power cities and carry instant voice/data globally.",
+      "exact_source_member_name": "Transformer-Winder",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-066",
+      "technology_unit_id": 66,
+      "technology_family_id": 8,
+      "family_position": 3,
+      "name": "Grid-Load Balancer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Generate, step up, transmit, and modulate electromagnetic energy to power cities and carry instant voice/data globally.",
+      "exact_source_member_name": "Grid-Load Balancer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-067",
+      "technology_unit_id": 67,
+      "technology_family_id": 8,
+      "family_position": 4,
+      "name": "Substation-Breaker",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Generate, step up, transmit, and modulate electromagnetic energy to power cities and carry instant voice/data globally.",
+      "exact_source_member_name": "Substation-Breaker",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-068",
+      "technology_unit_id": 68,
+      "technology_family_id": 8,
+      "family_position": 5,
+      "name": "Copper-Line Stringer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Generate, step up, transmit, and modulate electromagnetic energy to power cities and carry instant voice/data globally.",
+      "exact_source_member_name": "Copper-Line Stringer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-069",
+      "technology_unit_id": 69,
+      "technology_family_id": 8,
+      "family_position": 6,
+      "name": "Telegraph-Keyer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Generate, step up, transmit, and modulate electromagnetic energy to power cities and carry instant voice/data globally.",
+      "exact_source_member_name": "Telegraph-Keyer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-070",
+      "technology_unit_id": 70,
+      "technology_family_id": 8,
+      "family_position": 7,
+      "name": "Switchboard-Router",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Generate, step up, transmit, and modulate electromagnetic energy to power cities and carry instant voice/data globally.",
+      "exact_source_member_name": "Switchboard-Router",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-071",
+      "technology_unit_id": 71,
+      "technology_family_id": 8,
+      "family_position": 8,
+      "name": "Radio-Modulator",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Generate, step up, transmit, and modulate electromagnetic energy to power cities and carry instant voice/data globally.",
+      "exact_source_member_name": "Radio-Modulator",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-072",
+      "technology_unit_id": 72,
+      "technology_family_id": 8,
+      "family_position": 9,
+      "name": "Ground-Fault Earther",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Generate, step up, transmit, and modulate electromagnetic energy to power cities and carry instant voice/data globally.",
+      "exact_source_member_name": "Ground-Fault Earther",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-073",
+      "technology_unit_id": 73,
+      "technology_family_id": 9,
+      "family_position": 1,
+      "name": "Wafer-Grower",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Etch microscopic silicon/photonic logic gates to process, route, and store planetary-scale information at the speed of light.",
+      "exact_source_member_name": "Wafer-Grower",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-074",
+      "technology_unit_id": 74,
+      "technology_family_id": 9,
+      "family_position": 2,
+      "name": "EUV-Lithographer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Etch microscopic silicon/photonic logic gates to process, route, and store planetary-scale information at the speed of light.",
+      "exact_source_member_name": "EUV-Lithographer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-075",
+      "technology_unit_id": 75,
+      "technology_family_id": 9,
+      "family_position": 3,
+      "name": "Gate-Etcher",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Etch microscopic silicon/photonic logic gates to process, route, and store planetary-scale information at the speed of light.",
+      "exact_source_member_name": "Gate-Etcher",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-076",
+      "technology_unit_id": 76,
+      "technology_family_id": 9,
+      "family_position": 4,
+      "name": "Fiber-Splicer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Etch microscopic silicon/photonic logic gates to process, route, and store planetary-scale information at the speed of light.",
+      "exact_source_member_name": "Fiber-Splicer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-077",
+      "technology_unit_id": 77,
+      "technology_family_id": 9,
+      "family_position": 5,
+      "name": "Packet-Router",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Etch microscopic silicon/photonic logic gates to process, route, and store planetary-scale information at the speed of light.",
+      "exact_source_member_name": "Packet-Router",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-078",
+      "technology_unit_id": 78,
+      "technology_family_id": 9,
+      "family_position": 6,
+      "name": "Cache-Optimizer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Etch microscopic silicon/photonic logic gates to process, route, and store planetary-scale information at the speed of light.",
+      "exact_source_member_name": "Cache-Optimizer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-079",
+      "technology_unit_id": 79,
+      "technology_family_id": 9,
+      "family_position": 7,
+      "name": "Kernel-Scheduler",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Etch microscopic silicon/photonic logic gates to process, route, and store planetary-scale information at the speed of light.",
+      "exact_source_member_name": "Kernel-Scheduler",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-080",
+      "technology_unit_id": 80,
+      "technology_family_id": 9,
+      "family_position": 8,
+      "name": "Cryo-Cooler",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Etch microscopic silicon/photonic logic gates to process, route, and store planetary-scale information at the speed of light.",
+      "exact_source_member_name": "Cryo-Cooler",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-081",
+      "technology_unit_id": 81,
+      "technology_family_id": 9,
+      "family_position": 9,
+      "name": "Parity-Checker",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Etch microscopic silicon/photonic logic gates to process, route, and store planetary-scale information at the speed of light.",
+      "exact_source_member_name": "Parity-Checker",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-082",
+      "technology_unit_id": 82,
+      "technology_family_id": 10,
+      "family_position": 1,
+      "name": "CAD-Slicer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Translate digital CAD files directly into physical parts and deploy self-navigating machines across factories, farms, and disaster zones.",
+      "exact_source_member_name": "CAD-Slicer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-083",
+      "technology_unit_id": 83,
+      "technology_family_id": 10,
+      "family_position": 2,
+      "name": "Extruder-Depositor",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Translate digital CAD files directly into physical parts and deploy self-navigating machines across factories, farms, and disaster zones.",
+      "exact_source_member_name": "Extruder-Depositor",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-084",
+      "technology_unit_id": 84,
+      "technology_family_id": 10,
+      "family_position": 3,
+      "name": "CNC-Miller",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Translate digital CAD files directly into physical parts and deploy self-navigating machines across factories, farms, and disaster zones.",
+      "exact_source_member_name": "CNC-Miller",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-085",
+      "technology_unit_id": 85,
+      "technology_family_id": 10,
+      "family_position": 4,
+      "name": "LiDAR-Mapper",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Translate digital CAD files directly into physical parts and deploy self-navigating machines across factories, farms, and disaster zones.",
+      "exact_source_member_name": "LiDAR-Mapper",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-086",
+      "technology_unit_id": 86,
+      "technology_family_id": 10,
+      "family_position": 5,
+      "name": "Servo-Actuator",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Translate digital CAD files directly into physical parts and deploy self-navigating machines across factories, farms, and disaster zones.",
+      "exact_source_member_name": "Servo-Actuator",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-087",
+      "technology_unit_id": 87,
+      "technology_family_id": 10,
+      "family_position": 6,
+      "name": "Gyro-Stabilizer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Translate digital CAD files directly into physical parts and deploy self-navigating machines across factories, farms, and disaster zones.",
+      "exact_source_member_name": "Gyro-Stabilizer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-088",
+      "technology_unit_id": 88,
+      "technology_family_id": 10,
+      "family_position": 7,
+      "name": "Swarm-Coordinator",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Translate digital CAD files directly into physical parts and deploy self-navigating machines across factories, farms, and disaster zones.",
+      "exact_source_member_name": "Swarm-Coordinator",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-089",
+      "technology_unit_id": 89,
+      "technology_family_id": 10,
+      "family_position": 8,
+      "name": "Battery-Swapper",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Translate digital CAD files directly into physical parts and deploy self-navigating machines across factories, farms, and disaster zones.",
+      "exact_source_member_name": "Battery-Swapper",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-090",
+      "technology_unit_id": 90,
+      "technology_family_id": 10,
+      "family_position": 9,
+      "name": "Force-Feedback Sensor",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Translate digital CAD files directly into physical parts and deploy self-navigating machines across factories, farms, and disaster zones.",
+      "exact_source_member_name": "Force-Feedback Sensor",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-091",
+      "technology_unit_id": 91,
+      "technology_family_id": 11,
+      "family_position": 1,
+      "name": "Airfoil-Shaper",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Escape Earth’s gravity well, maintain global satellite communications/navigation, and explore orbital and planetary frontiers.",
+      "exact_source_member_name": "Airfoil-Shaper",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-092",
+      "technology_unit_id": 92,
+      "technology_family_id": 11,
+      "family_position": 2,
+      "name": "Cryo-Propellant Loader",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Escape Earth’s gravity well, maintain global satellite communications/navigation, and explore orbital and planetary frontiers.",
+      "exact_source_member_name": "Cryo-Propellant Loader",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-093",
+      "technology_unit_id": 93,
+      "technology_family_id": 11,
+      "family_position": 3,
+      "name": "Gimbal-Thrust Vectorer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Escape Earth’s gravity well, maintain global satellite communications/navigation, and explore orbital and planetary frontiers.",
+      "exact_source_member_name": "Gimbal-Thrust Vectorer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-094",
+      "technology_unit_id": 94,
+      "technology_family_id": 11,
+      "family_position": 4,
+      "name": "Avionics-Navigator",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Escape Earth’s gravity well, maintain global satellite communications/navigation, and explore orbital and planetary frontiers.",
+      "exact_source_member_name": "Avionics-Navigator",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-095",
+      "technology_unit_id": 95,
+      "technology_family_id": 11,
+      "family_position": 5,
+      "name": "Orbital-Slot Keeper",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Escape Earth’s gravity well, maintain global satellite communications/navigation, and explore orbital and planetary frontiers.",
+      "exact_source_member_name": "Orbital-Slot Keeper",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-096",
+      "technology_unit_id": 96,
+      "technology_family_id": 11,
+      "family_position": 6,
+      "name": "Solar-Wing Deployer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Escape Earth’s gravity well, maintain global satellite communications/navigation, and explore orbital and planetary frontiers.",
+      "exact_source_member_name": "Solar-Wing Deployer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-097",
+      "technology_unit_id": 97,
+      "technology_family_id": 11,
+      "family_position": 7,
+      "name": "Heat-Shield Tiler",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Escape Earth’s gravity well, maintain global satellite communications/navigation, and explore orbital and planetary frontiers.",
+      "exact_source_member_name": "Heat-Shield Tiler",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-098",
+      "technology_unit_id": 98,
+      "technology_family_id": 11,
+      "family_position": 8,
+      "name": "Telemetry-Dish Tracker",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Escape Earth’s gravity well, maintain global satellite communications/navigation, and explore orbital and planetary frontiers.",
+      "exact_source_member_name": "Telemetry-Dish Tracker",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-099",
+      "technology_unit_id": 99,
+      "technology_family_id": 11,
+      "family_position": 9,
+      "name": "Debris-Deorbiter",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Escape Earth’s gravity well, maintain global satellite communications/navigation, and explore orbital and planetary frontiers.",
+      "exact_source_member_name": "Debris-Deorbiter",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-100",
+      "technology_unit_id": 100,
+      "technology_family_id": 12,
+      "family_position": 1,
+      "name": "Qubit-Isolator",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer matter, encryption, and living cells at the quantum and molecular scale to cure disease and solve intractable equations.",
+      "exact_source_member_name": "Qubit-Isolator",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-101",
+      "technology_unit_id": 101,
+      "technology_family_id": 12,
+      "family_position": 2,
+      "name": "Entanglement-Router",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer matter, encryption, and living cells at the quantum and molecular scale to cure disease and solve intractable equations.",
+      "exact_source_member_name": "Entanglement-Router",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-102",
+      "technology_unit_id": 102,
+      "technology_family_id": 12,
+      "family_position": 3,
+      "name": "Quantum-Decrypt Guard",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer matter, encryption, and living cells at the quantum and molecular scale to cure disease and solve intractable equations.",
+      "exact_source_member_name": "Quantum-Decrypt Guard",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-103",
+      "technology_unit_id": 103,
+      "technology_family_id": 12,
+      "family_position": 4,
+      "name": "Atom-Manipulator",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer matter, encryption, and living cells at the quantum and molecular scale to cure disease and solve intractable equations.",
+      "exact_source_member_name": "Atom-Manipulator",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-104",
+      "technology_unit_id": 104,
+      "technology_family_id": 12,
+      "family_position": 5,
+      "name": "CRISPR-Guide Splicer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer matter, encryption, and living cells at the quantum and molecular scale to cure disease and solve intractable equations.",
+      "exact_source_member_name": "CRISPR-Guide Splicer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-105",
+      "technology_unit_id": 105,
+      "technology_family_id": 12,
+      "family_position": 6,
+      "name": "Protein-Synthesizer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer matter, encryption, and living cells at the quantum and molecular scale to cure disease and solve intractable equations.",
+      "exact_source_member_name": "Protein-Synthesizer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-106",
+      "technology_unit_id": 106,
+      "technology_family_id": 12,
+      "family_position": 7,
+      "name": "Bio-Reactor Sterilizer",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer matter, encryption, and living cells at the quantum and molecular scale to cure disease and solve intractable equations.",
+      "exact_source_member_name": "Bio-Reactor Sterilizer",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-107",
+      "technology_unit_id": 107,
+      "technology_family_id": 12,
+      "family_position": 8,
+      "name": "Nano-Capsule Loader",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer matter, encryption, and living cells at the quantum and molecular scale to cure disease and solve intractable equations.",
+      "exact_source_member_name": "Nano-Capsule Loader",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    },
+    {
+      "id": "one-tech108-unit-108",
+      "technology_unit_id": 108,
+      "technology_family_id": 12,
+      "family_position": 9,
+      "name": "Ethics-Containment Lock",
+      "role_type": "technology_worker_archetype",
+      "family_mission": "Engineer matter, encryption, and living cells at the quantum and molecular scale to cure disease and solve intractable equations.",
+      "exact_source_member_name": "Ethics-Containment Lock",
+      "source_status": "user_supplied",
+      "runtime_status": "indexed_only",
+      "capability_status": "specification_not_verified",
+      "external_action": "none",
+      "inherited_controls": [
+        "ONE family 21 consent",
+        "boundary-contract-v1",
+        "human approval for external action"
+      ]
+    }
+  ]
+}
