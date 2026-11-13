@@ -76,3 +76,5 @@ Output includes a SHA-256 digest of the canonical JSON report for repeatable aud
 
 **Original words preserved. Boundaries specified. Errors demonstrated. Fixes verified in the bounded simulation.**
 undefined
+
+[**13 root rule-worker registry and twelve workstream targets**](root13-workers.json) is compatible with the existing ONE Federation JSON mind importer. It adds namespaced role records without replacing earlier numbered families or altering the owner's private master.
