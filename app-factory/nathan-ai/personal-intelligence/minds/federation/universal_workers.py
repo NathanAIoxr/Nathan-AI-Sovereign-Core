@@ -190,7 +190,14 @@ def _integrity(con: sqlite3.Connection) -> tuple[int,int]:
 def _role_count(con: sqlite3.Connection) -> int:
     row=con.execute("SELECT sha256 FROM universal_catalog_snapshots ORDER BY indexed_at DESC,sha256 DESC LIMIT 1").fetchone()
     if row is None:return 0
-    return con.execute("SELECT COUNT(*) FROM universal_role_templates WHERE catalog_sha256=?",(row[0],)).fetchone()[0]
+    rows=con.execute("SELECT role_id,display_name,role_type,source_status,record_sha256 "
+                     "FROM universal_role_templates WHERE catalog_sha256=?",(row[0],)).fetchall()
+    for role_id,name,role_type,source_status,source_hash in rows:
+        if not all(isinstance(v,str) and v.strip() for v in (role_id,name,role_type,source_status)):
+            raise ValueError("Registered role metadata is incomplete")
+        if len(source_hash)!=64 or any(c not in "0123456789abcdef" for c in source_hash):
+            raise ValueError("Registered source role digest invalid")
+    return len(rows)
 
 def stats(con: sqlite3.Connection) -> dict:
     n=con.execute("SELECT COUNT(*) FROM universal_invitations").fetchone()[0]
