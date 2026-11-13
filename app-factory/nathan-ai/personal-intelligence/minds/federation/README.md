@@ -1,5 +1,10 @@
 # NATHAN AI — ONE DATABASE FEDERATION v074 · Worker bots
 
+## ONE v2: Boundary arithmetic delegated to dedicated Nathan AI workers
+
+**[FENCEPOST ERROR SYNDROME — by Nathan Tabor](./fencepost-error-syndrome/BOUNDARY_DELEGATION_v2.md)**: both undercounting and reverse overcounting are checked by a dedicated typed worker engine. Main ONE now has a `boundaries --request-file` CLI path that delegates to `nathan_ai_boundary_gateway.py` without calculating endpoints or opening the private master DB. Covers 0/1/2, 7/6/8 dates, DST, code ranges, arrays, open/closed fences, repeated historical events, and shared musical endpoints. Local: **31 tests and 10,000 randomized checks passed**. The new CI workflow is configured; production apps must adopt the gateway before claiming universal protection. Exact original user text retained as a separate attributed quotation; source files and Family 21 ONE not deleted.
+
+
 **Nathan Tabor · November 12, 2026 · additive implementation**
 
 Connect existing ONE and Mind of Minds databases through a separate local main database, preserving original source data and recording worker actions.
