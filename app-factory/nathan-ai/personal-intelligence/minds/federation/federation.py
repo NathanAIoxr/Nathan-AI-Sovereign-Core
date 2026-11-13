@@ -94,6 +94,15 @@ def ingest(c, filename):
         raise ValueError("Allowed sources: SQLite or JSON Mind of Minds catalog")
     source_id=sha(str(path).encode())[:20]
     kind="json" if path.suffix.lower()==".json" else "sqlite"
+    # Known Tech108 records must pass their dedicated boundary worker
+    # *before* the master receives any source metadata write.
+    if kind=="json":
+        payload=json.loads(path.read_text(encoding="utf-8"))
+        if isinstance(payload,dict) and payload.get("schema")=="nathan.one.federation.technology-worker-codex.v108":
+            import sys
+            sys.path.insert(0,str(Path(__file__).resolve().parent / "technology-v108"))
+            from boundary_contract import validate_registry
+            validate_registry(payload)
     c.execute("""INSERT INTO federation_sources VALUES(?,?,?,?,?,?,?)
        ON CONFLICT(source_id) DO UPDATE SET file_sha256=excluded.file_sha256,
        bytes=excluded.bytes,indexed_at=excluded.indexed_at""",
@@ -276,6 +285,9 @@ def main():
     p.add_argument("--db",default="ONE_Federation_Master.sqlite3")
     sub=p.add_subparsers(dest="cmd",required=True)
     sub.add_parser("init")
+    root13=sub.add_parser("validate-boundaries")
+    root13.add_argument("payload",help="JSON input; read-only validation")
+    root13.add_argument("contract",help="JSON field-to-type contract")
     i=sub.add_parser("ingest");i.add_argument("sources",nargs="+")
     sub.add_parser("run");sub.add_parser("status")
     q=sub.add_parser("search");q.add_argument("query");q.add_argument("--limit",type=int,default=20)
@@ -284,6 +296,18 @@ def main():
     b=sub.add_parser("boundaries")
     b.add_argument("--request-file",required=True)
     a=p.parse_args()
+    if a.cmd=="validate-boundaries":
+        # Leave the existing ONE boundaries gateway and its contract unchanged.
+        # Dispatch a separate explicit Root13 JSON contract without opening SQLite.
+        import sys
+        sys.path.insert(0,str(Path(__file__).resolve().parent / "fencepost-error-syndrome"))
+        from core_primitives import sanitize_json
+        payload=json.loads(Path(a.payload).read_text(encoding="utf-8"))
+        contract=json.loads(Path(a.contract).read_text(encoding="utf-8"))
+        result=sanitize_json(payload,contract)
+        print(json.dumps({"valid":True,"validated_fields":len(result),
+                          "contract":"nathan.one.root13.boundary.v1"},indent=2))
+        return
     if a.cmd=="boundaries":
         from nathan_ai_boundary_gateway import dispatch_boundary_request
         request=json.loads(Path(a.request_file).read_text(encoding="utf-8"))
