@@ -7,11 +7,15 @@ on:
     paths:
       - 'app-factory/nathan-ai/personal-intelligence/minds/federation/universal_workers.py'
       - 'app-factory/nathan-ai/personal-intelligence/minds/federation/test_universal_workers.py'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/az_builder.py'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/test_az_builder.py'
       - '.github/workflows/universal-worker-federation.yml'
   pull_request:
     paths:
       - 'app-factory/nathan-ai/personal-intelligence/minds/federation/universal_workers.py'
       - 'app-factory/nathan-ai/personal-intelligence/minds/federation/test_universal_workers.py'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/az_builder.py'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/test_az_builder.py'
       - '.github/workflows/universal-worker-federation.yml'
   schedule:
     # Twice each hour, all days of the year. GitHub may queue or skip a scheduled run.
@@ -74,6 +78,48 @@ jobs:
           print('All 32 groups invited; 763 roles; 1,326 public records verified;')
           print('126,732,000,000 logical IDs addressable, 32 bounded metadata jobs performed.')
           PY
+      - name: Verify A-Z and Z-A worker build completeness
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover \
+            -s app-factory/nathan-ai/personal-intelligence/minds/federation \
+            -p test_az_builder.py -v
+      - name: Execute all 52 alphabet build tasks against ONE public sources
+        run: |
+          set -euo pipefail
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          C=app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/catalog.json
+          python3 "$F/az_builder.py" \
+            --db "$RUNNER_TEMP/ONE_Public.sqlite3" \
+            --catalog "$C" \
+            --public-root app-factory \
+            --output "$RUNNER_TEMP/AZ_ZA_BUILD" > "$RUNNER_TEMP/az-builder-summary.json"
+          python3 - "$RUNNER_TEMP/AZ_ZA_BUILD" "$RUNNER_TEMP/ONE_Public.sqlite3" <<'PY'
+          from pathlib import Path
+          import json,sqlite3,sys
+          output=Path(sys.argv[1])
+          summary=json.loads((output/"manifest.json").read_text())
+          db=sqlite3.connect(sys.argv[2])
+          assert summary["letter_tasks_completed"]==52,summary
+          assert summary["unique_source_roles"]==763,summary
+          assert summary["forward_roles_checked"]==summary["reverse_roles_checked"]==763,summary
+          assert summary["forward_modules_checked"]==summary["reverse_modules_checked"]==summary["unique_public_modules"],summary
+          assert summary["unique_public_modules"]>=50,summary
+          assert summary["all_registered_virtual_groups_invited"]==32,summary
+          assert summary["source_mutations"]==0,summary
+          assert db.execute("SELECT COUNT(*) FROM az_build_tasks WHERE status='completed'").fetchone()[0]==52
+          assert db.execute("SELECT COUNT(*) FROM az_build_backlog").fetchone()[0]==summary["proposed_work_items"]
+          assert db.execute("PRAGMA quick_check").fetchone()[0]=="ok"
+          assert len(list((output/"forward").glob("*.json")))==26
+          assert len(list((output/"reverse").glob("*.json")))==26
+          print(f"A-Z/Z-A COMPLETE: 52 work packages, {summary['unique_source_roles']} source roles, {summary['unique_public_modules']} public modules, {summary['proposed_work_items']} owner-review build tasks")
+          PY
+      - name: Publish all 52 A-Z and Z-A build packages and development ledger
+        uses: actions/upload-artifact@v4
+        with:
+          name: one-v074-a-z-z-a-build-packages
+          path: ${{ runner.temp }}/AZ_ZA_BUILD/
+          retention-days: 14
       - name: Upload derived metadata-only audit (no source originals or database)
         uses: actions/upload-artifact@v4
         with:
