@@ -1,0 +1,48 @@
+{
+  "schema": "nathan.mind-os.local-demo.v1",
+  "source_basis": "Owner-uploaded Ancient Minds reference build, Pasted text.txt run; original file bytes intentionally excluded from public GitHub",
+  "source_sha256": "246f85522e3e4185d6ae52f61ad15a33796c042f5344bd5997b14ff8dd4d936a",
+  "original_bytes": 11869,
+  "original_bytes_preserved": true,
+  "proposed_families": 14,
+  "names": [
+    "Sumerian Scribe",
+    "Babylonian Mathematician",
+    "Egyptian Keeper of Names",
+    "Indian Grammarian",
+    "Chronologist",
+    "House of Wisdom Scholar"
+  ],
+  "unassigned_specialist_slots": 4,
+  "worker_runs_completed": 6,
+  "classification": [
+    {
+      "tier": "0.0",
+      "label": "0 · LA · AL",
+      "count": 1
+    },
+    {
+      "tier": "1.0",
+      "label": "1 · EL · LE",
+      "count": 5
+    },
+    {
+      "tier": "2.0",
+      "label": "2 (derived/connected state)",
+      "count": 1
+    }
+  ],
+  "duo": {
+    "decimal_value": 11869,
+    "base": 12,
+    "code": "6A51",
+    "meaning": "UTF-8 source byte length"
+  },
+  "proposed_orthographic_relationships": 1,
+  "claims_needing_review": 2,
+  "independent_evidence_rows": 0,
+  "embeddings_created": 0,
+  "jobs_left_queued": 0,
+  "verified_scope": "Prior local reference demonstration only; not v074 cloud deployment",
+  "security": "Contains derived metadata, no original owner text or private records."
+}
