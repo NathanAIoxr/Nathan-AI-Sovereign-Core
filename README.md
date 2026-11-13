@@ -80,6 +80,9 @@ Find the same D archive from the [Nathan AI Main Hub](app-factory/nathan-ai/inde
 The [Nathan AI AI-accountability archive](app-factory/nathan-ai/ai-accountability/README.md) preserves the original supplied Google AI / Trump press-conference exchange, repeated roleplay denials and reversals, the JD Vance comparison, and ChatGPT's own omitted-word correction log. The archive separates exact creator allegations from independently substantiated facts and analysis.
 
 
+
+**ONE — new Families 65–75, 99 role definitions, fixed counting simulation:** [Read the source-preserving member registry and 7-day results](app-factory/nathan-ai/personal-intelligence/minds/federation/families-v75/README.md). The simulation detects off-by-one omissions, duplicates and invalid ID 164; it does not launch real workers. The preceding Families 41–64 still require source verification.
+
 ## ONE · Universal Worker Bot Families (40-family codex)
 
 [Open the interactive **40-Family Master Codex**](app-factory/nathan-ai/personal-intelligence/minds/federation/families-v40/index.html) · [read the code/SQLite integration](app-factory/nathan-ai/personal-intelligence/minds/federation/families-v40/README.md). **Family 21 is ONE.** Includes the seven creator-supplied mythic families 34–40, exact original declarations for 16–21 and 34–40, and deliberately unfilled original-definition slots 22–33. Integrated with existing ONE Federation v074 as source-indexing and proposal-only routing, not remote bot deployment. The older v21 source snapshot remains separate.
