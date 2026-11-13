@@ -1,0 +1,11 @@
+# ONE Federation v074: generated owner-private databases must never be committed
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+*.wal
+*.shm
+*.backup
+*_PRIVATE_*.json
+local-output/
