@@ -1,0 +1,187 @@
+{
+  "schema": "nathan.one.v074.creator-teams.v1",
+  "owner": "Nathan Tabor",
+  "goal": "Build and maintain websites, books, code, research, education, brand publishing and the ONE Federation under owner-controlled source-preserving change monitoring.",
+  "rules": {
+    "original_words": "Byte-for-byte originals never rewritten by a team; editorial drafts and code changes live in separate proposed outputs.",
+    "no_fabricated_completion": "A proposal is never marked as implemented, published, tested or deployed until the corresponding validation actually passes.",
+    "permissions": "Read-only project inspection and local generated artifacts. No unauthorized external system access, account actions, private uploads, secret collection or automatic merges.",
+    "monitored_changes": "Observe any tracked git change in the compared revision and compare the specifically locked creator originals against recorded Git object IDs.",
+    "restoration": "Generate exact restoration patches for locked sources and open an owner-review issue; never silently revert owner-approved changes on main.",
+    "workers": "Use existing 763 catalog identities as source-defined role labels; execute a bounded number of real team processes, not billions of model calls."
+  },
+  "teams": [
+    {
+      "id": "nathan_orchestrator",
+      "name": "NATHAN AI · Owner Orchestration",
+      "function": "Prioritize, allocate work, preserve exact directives, validate all team outputs",
+      "keywords": [
+        "nathan",
+        "manager",
+        "orchestrat",
+        "coordination",
+        "plan"
+      ]
+    },
+    {
+      "id": "websites",
+      "name": "Website Factory",
+      "function": "Inspect, build draft website entrypoints, audit accessibility and links",
+      "keywords": [
+        "website",
+        "html",
+        "web",
+        "design",
+        "site",
+        "page"
+      ]
+    },
+    {
+      "id": "books",
+      "name": "Book & Manuscript Studio",
+      "function": "Index exact author manuscript headings; produce separate editorial maps and working editions",
+      "keywords": [
+        "book",
+        "writer",
+        "author",
+        "manuscript",
+        "story",
+        "novel"
+      ]
+    },
+    {
+      "id": "code",
+      "name": "Software & Code Engineering",
+      "function": "Check software syntax, module/test coverage and actionable source-linked implementation work",
+      "keywords": [
+        "coding",
+        "code",
+        "engineer",
+        "program",
+        "developer",
+        "software",
+        "api"
+      ]
+    },
+    {
+      "id": "database",
+      "name": "ONE Database & Provenance",
+      "function": "Verify original-source digests, version identities, and database worker contracts",
+      "keywords": [
+        "database",
+        "data",
+        "archive",
+        "source",
+        "hash",
+        "index"
+      ]
+    },
+    {
+      "id": "research",
+      "name": "Research, Language & Evidence",
+      "function": "Track source leads, etymologies and claims separately from verified evidence",
+      "keywords": [
+        "research",
+        "etymology",
+        "language",
+        "history",
+        "science",
+        "evidence"
+      ]
+    },
+    {
+      "id": "education",
+      "name": "Courses & Teaching",
+      "function": "Plan instruction and workbook material from source-grounded methods without inventing teachings",
+      "keywords": [
+        "education",
+        "teach",
+        "course",
+        "train",
+        "curriculum",
+        "ivy"
+      ]
+    },
+    {
+      "id": "marketing",
+      "name": "Marketing, Publishing & Outreach",
+      "function": "Prepare linked publishing and website inventories, copy plans and source-backed launch checklists",
+      "keywords": [
+        "marketing",
+        "promotion",
+        "sales",
+        "publishing",
+        "brand",
+        "outreach"
+      ]
+    },
+    {
+      "id": "quality",
+      "name": "Quality, Release & Test",
+      "function": "Check executable output, missing tests, release readiness and CI contract",
+      "keywords": [
+        "qa",
+        "quality",
+        "test",
+        "release",
+        "audit",
+        "verify"
+      ]
+    },
+    {
+      "id": "watch",
+      "name": "Change Watch & Restoration",
+      "function": "Track any repo change; verify locked creator originals; prepare reversible repair proposals",
+      "keywords": [
+        "watch",
+        "guard",
+        "restore",
+        "monitor",
+        "protect",
+        "security"
+      ]
+    }
+  ],
+  "source_locks": [
+    {
+      "path": "app-factory/nathan-ai/original-works/the-rebellion/2026-11-13/AUTHOR_ORIGINAL_WORDS.md",
+      "pinned_git_blob": "37c3fc894903446246a000e8511281d950d92936",
+      "reason": "Exact author original words"
+    },
+    {
+      "path": "app-factory/nathan-ai/original-works/JOHN_NATHAN_TABOR_SINCE_1973_MASTER_WORDS.md",
+      "pinned_git_blob": "b9cc8a9bed2cf888105ca12edc68dc8323ea8ab9",
+      "reason": "Original master words"
+    },
+    {
+      "path": "app-factory/nathan-ai/personal-intelligence/minds/federation/source-packs/law-of-order-books-2026-11-13/CREATOR_ORIGINALS.txt",
+      "pinned_git_blob": "c13abc619358c697a993dad5952b432565f7dd00",
+      "reason": "Law of Order creator originals"
+    },
+    {
+      "path": "app-factory/nathan-ai/personal-intelligence/minds/federation/source-packs/law-of-order-books-2026-11-13/Pasted text.txt",
+      "pinned_git_blob": "212a340ab3863591b097cde39970c562ea524e83",
+      "reason": "Original submitted source text"
+    },
+    {
+      "path": "app-factory/nathan-ai/personal-intelligence/minds/federation/families/USER_SUPPLIED_FAMILIES_16_TO_21_20261113.txt",
+      "pinned_git_blob": "1b8aa51d21b20fd9cfcb00f1a8902e9fa04f58a2",
+      "reason": "Verbatim user-supplied family 16–20 and family 21 transcript"
+    }
+  ],
+  "monitored_roots": [
+    "app-factory/sites",
+    "app-factory/nathan-ai",
+    "app-factory/one",
+    ".github/workflows",
+    "docs"
+  ],
+  "selected_book_source": "app-factory/nathan-ai/original-works/the-rebellion/2026-11-13/AUTHOR_ORIGINAL_WORDS.md",
+  "selected_course_source": "app-factory/nathan-ai/personal-intelligence/minds/federation/data/law-of-order-books-2026-11-13.json",
+  "public_sites_root": "app-factory/sites",
+  "public_apps_root": "app-factory",
+  "catalog": "app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/catalog.json",
+  "family_registry": "app-factory/nathan-ai/personal-intelligence/minds/federation/families/FAMILY_21_ONE_MASTER_ARCHITECTURE.json",
+  "family_source": "app-factory/nathan-ai/personal-intelligence/minds/federation/families/USER_SUPPLIED_FAMILIES_16_TO_21_20261113.txt",
+  "family21_policy": "Shared source-authored oneness principle applied to all 10 creator workstreams; retain evidence, consent, and clear boundaries between conceptual life and verified software execution."
+}
