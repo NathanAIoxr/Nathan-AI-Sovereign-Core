@@ -1,0 +1,110 @@
+{
+  "schema": "nathan.mind-os.local-demo.v1",
+  "original_id": 1,
+  "sha256": "246f85522e3e4185d6ae52f61ad15a33796c042f5344bd5997b14ff8dd4d936a",
+  "original_bytes_preserved": true,
+  "source_provenance": "owner-supplied source; unverified assertions",
+  "tables": 14,
+  "table_names": [
+    "cero_uno_dos",
+    "claims",
+    "duo_codes",
+    "embeddings",
+    "evidence",
+    "knowledge_records",
+    "languages",
+    "originals",
+    "phonetics",
+    "relationships",
+    "source_references",
+    "timelines",
+    "worker_jobs",
+    "worker_runs"
+  ],
+  "workers_defined": [
+    "Sumerian Scribe",
+    "Babylonian Mathematician",
+    "Egyptian Keeper of Names",
+    "Indian Grammarian",
+    "Chronologist",
+    "House of Wisdom Scholar"
+  ],
+  "worker_slots_waiting_for_original_names": 4,
+  "worker_runs": [
+    {
+      "worker_name": "Sumerian Scribe",
+      "outcome": "done",
+      "derived_count": 1,
+      "summary": "Source indexed; five bounded specialist jobs queued"
+    },
+    {
+      "worker_name": "Babylonian Mathematician",
+      "outcome": "done",
+      "derived_count": 1,
+      "summary": "Converted source byte length to base 12"
+    },
+    {
+      "worker_name": "Egyptian Keeper of Names",
+      "outcome": "done",
+      "derived_count": 2,
+      "summary": "Proposed form link; added unverified claim for evidence review"
+    },
+    {
+      "worker_name": "Indian Grammarian",
+      "outcome": "done",
+      "derived_count": 1,
+      "summary": "Indexed candidate form and evidence question"
+    },
+    {
+      "worker_name": "Chronologist",
+      "outcome": "done",
+      "derived_count": 1,
+      "summary": "Captured time labels, marked unverified"
+    },
+    {
+      "worker_name": "House of Wisdom Scholar",
+      "outcome": "done",
+      "derived_count": 1,
+      "summary": "Created source-attributed, reviewable comparison"
+    }
+  ],
+  "cero_uno_dos": [
+    {
+      "tier": "0.0",
+      "count": 1
+    },
+    {
+      "tier": "1.0",
+      "count": 5
+    },
+    {
+      "tier": "2.0",
+      "count": 1
+    }
+  ],
+  "cero_uno_dos_author_labels": {
+    "0.0": "0 · LA · AL",
+    "1.0": "1 · EL · LE",
+    "2.0": "2 (derived/connected state)"
+  },
+  "duo_codes": [
+    {
+      "decimal_value": 11869,
+      "base": 12,
+      "duodecimal_representation": "6A51",
+      "meaning": "UTF-8 source byte length"
+    }
+  ],
+  "relationships": [
+    {
+      "relation_type": "proposed_orthographic_similarity",
+      "evidence_status": "proposed",
+      "rationale": "Visually related spellings; historical derivation or meaning change has NOT been established by this bot"
+    }
+  ],
+  "claims_needing_review": 2,
+  "independent_evidence_rows": 0,
+  "embeddings_created": 0,
+  "jobs_left_queued": 0,
+  "scope": "Local reference pipeline only; no model, external account, or PostgreSQL deployment"
+}
