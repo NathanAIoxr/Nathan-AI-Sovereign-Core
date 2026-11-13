@@ -17,8 +17,7 @@ class AncientFederationBridgeTests(unittest.TestCase):
                       "the 1500s, and Aristotelian versus optical frameworks.").encode()
             source.write_bytes(original)
             db=open_main(root/"ONE_Federation_v074.sqlite3")
-            archive=Path(__file__).with_name(ARCHIVE_NAME)
-            first=run_source(db,source,archive)
+            first=run_source(db,source)
             self.assertEqual(first["pipeline"]["runs"],6)
             self.assertEqual(first["pipeline"]["proposed_links"],1)
             result=first["federation"]
@@ -37,7 +36,7 @@ class AncientFederationBridgeTests(unittest.TestCase):
             with self.assertRaises(sqlite3.IntegrityError):
                 db.execute("DELETE FROM federation_ancient_originals")
             self.assertEqual(source.read_bytes(),original)
-            second=run_source(db,source,archive)["federation"]
+            second=run_source(db,source)["federation"]
             self.assertEqual(second["source_id"],result["source_id"])
             self.assertEqual(second["originals_new"],0)
             self.assertEqual(second["derived_rows_new"],0)
@@ -65,10 +64,7 @@ class AncientFederationBridgeTests(unittest.TestCase):
     def test_tampered_source_has_no_federation_side_effects(self):
         with TemporaryDirectory() as root:
             root=Path(root)
-            archive=Path(__file__).with_name(ARCHIVE_NAME)
-            worker=root/"worker_engine.py"
-            with ZipFile(archive) as z:
-                worker.write_bytes(z.read("nathan_mind_os/worker_engine.py"))
+            worker=Path(__file__).with_name("ancient_minds_reference")/"worker_engine.py"
             import importlib.util
             spec=importlib.util.spec_from_file_location("ancient_workers",worker)
             module=importlib.util.module_from_spec(spec)
@@ -96,7 +92,7 @@ class AncientFederationBridgeTests(unittest.TestCase):
             db=open_main(root/"ONE.sqlite3")
             source=root/"brief.txt"
             source.write_text("Owner original")
-            result=run_source(db,source,Path(__file__).with_name(ARCHIVE_NAME))
+            result=run_source(db,source)
             self.assertTrue(result["federation"]["source_preserved"])
             statuses=run(db)
             self.assertEqual(len(statuses),6)
