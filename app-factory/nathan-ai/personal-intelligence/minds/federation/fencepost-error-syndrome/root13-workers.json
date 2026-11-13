@@ -1,0 +1,523 @@
+{
+  "schema": "nathan.one.federation.root13.worker-registry.v1",
+  "title": "FENCEPOST ERROR SYNDROME — by Nathan Tabor — UNIVERSAL 13 ROOTS",
+  "owner_attribution": "Nathan Tabor",
+  "anchors_verbatim": [
+    "1+1=2",
+    "1-2+0"
+  ],
+  "anchors_note": "Labels retained exactly; 1-2+0 evaluates to -1 in arithmetic. No historical source modified.",
+  "root_count": 13,
+  "root_role_ids": "root13/01..root13/13 (namespaced, not Tech108 or Family21)",
+  "status": "indexed_deterministic_rule_roles; not autonomous network agents",
+  "policy": "new modules must declare and implement applicable controls; existing modules pending verification",
+  "minds": [
+    {
+      "id": "one-root13-worker-01",
+      "root_number": 1,
+      "name": "Half-Open Boundary Sentinel",
+      "implementation": "HalfOpen and inclusive conversion",
+      "author_label": "implementation role derived from the creator-supplied root specification",
+      "anchor_group": "1+1=2",
+      "role_type": "deterministic_root_guard",
+      "runtime_status": "library_available_in_repository_not_running_as_persistent_worker",
+      "external_action": "none",
+      "source_status": "user_supplied_root; developer_derived_worker_name"
+    },
+    {
+      "id": "one-root13-worker-02",
+      "root_number": 2,
+      "name": "Zero/One Origin Translator",
+      "implementation": "one_to_zero and zero_to_one",
+      "author_label": "implementation role derived from the creator-supplied root specification",
+      "anchor_group": "1+1=2",
+      "role_type": "deterministic_root_guard",
+      "runtime_status": "library_available_in_repository_not_running_as_persistent_worker",
+      "external_action": "none",
+      "source_status": "user_supplied_root; developer_derived_worker_name"
+    },
+    {
+      "id": "one-root13-worker-03",
+      "root_number": 3,
+      "name": "Unique-Identity Guard",
+      "implementation": "canonical_uuid and validate_distinct_ids",
+      "author_label": "implementation role derived from the creator-supplied root specification",
+      "anchor_group": "1+1=2",
+      "role_type": "deterministic_root_guard",
+      "runtime_status": "library_available_in_repository_not_running_as_persistent_worker",
+      "external_action": "none",
+      "source_status": "user_supplied_root; developer_derived_worker_name"
+    },
+    {
+      "id": "one-root13-worker-04",
+      "root_number": 4,
+      "name": "Denominator Keeper",
+      "implementation": "Rate and pooled_rate",
+      "author_label": "implementation role derived from the creator-supplied root specification",
+      "anchor_group": "1+1=2",
+      "role_type": "deterministic_root_guard",
+      "runtime_status": "library_available_in_repository_not_running_as_persistent_worker",
+      "external_action": "none",
+      "source_status": "user_supplied_root; developer_derived_worker_name"
+    },
+    {
+      "id": "one-root13-worker-05",
+      "root_number": 5,
+      "name": "Exact Money Keeper",
+      "implementation": "Money and from_decimal_text",
+      "author_label": "implementation role derived from the creator-supplied root specification",
+      "anchor_group": "1+1=2",
+      "role_type": "deterministic_root_guard",
+      "runtime_status": "library_available_in_repository_not_running_as_persistent_worker",
+      "external_action": "none",
+      "source_status": "user_supplied_root; developer_derived_worker_name"
+    },
+    {
+      "id": "one-root13-worker-06",
+      "root_number": 6,
+      "name": "Unit-Type Sentinel",
+      "implementation": "Quantity.convert and Quantity.add",
+      "author_label": "implementation role derived from the creator-supplied root specification",
+      "anchor_group": "1+1=2",
+      "role_type": "deterministic_root_guard",
+      "runtime_status": "library_available_in_repository_not_running_as_persistent_worker",
+      "external_action": "none",
+      "source_status": "user_supplied_root; developer_derived_worker_name"
+    },
+    {
+      "id": "one-root13-worker-07",
+      "root_number": 7,
+      "name": "Rational Reversal Guard",
+      "implementation": "scale_exact and inverse_scale",
+      "author_label": "implementation role derived from the creator-supplied root specification",
+      "anchor_group": "1+1=2",
+      "role_type": "deterministic_root_guard",
+      "runtime_status": "library_available_in_repository_not_running_as_persistent_worker",
+      "external_action": "none",
+      "source_status": "user_supplied_root; developer_derived_worker_name"
+    },
+    {
+      "id": "one-root13-worker-08",
+      "root_number": 8,
+      "name": "UTC/DST Resolver",
+      "implementation": "utc_instant and local_to_utc",
+      "author_label": "implementation role derived from the creator-supplied root specification",
+      "anchor_group": "1-2+0",
+      "role_type": "deterministic_root_guard",
+      "runtime_status": "library_available_in_repository_not_running_as_persistent_worker",
+      "external_action": "none",
+      "source_status": "user_supplied_root; developer_derived_worker_name"
+    },
+    {
+      "id": "one-root13-worker-09",
+      "root_number": 9,
+      "name": "ISO Order Guardian",
+      "implementation": "strict_iso_date and parse_iso_utc",
+      "author_label": "implementation role derived from the creator-supplied root specification",
+      "anchor_group": "1-2+0",
+      "role_type": "deterministic_root_guard",
+      "runtime_status": "library_available_in_repository_not_running_as_persistent_worker",
+      "external_action": "none",
+      "source_status": "user_supplied_root; developer_derived_worker_name"
+    },
+    {
+      "id": "one-root13-worker-10",
+      "root_number": 10,
+      "name": "Bitemporal Historian",
+      "implementation": "Bitemporal(valid_at,recorded_at)",
+      "author_label": "implementation role derived from the creator-supplied root specification",
+      "anchor_group": "1-2+0",
+      "role_type": "deterministic_root_guard",
+      "runtime_status": "library_available_in_repository_not_running_as_persistent_worker",
+      "external_action": "none",
+      "source_status": "user_supplied_root; developer_derived_worker_name"
+    },
+    {
+      "id": "one-root13-worker-11",
+      "root_number": 11,
+      "name": "Zero/Null Witness",
+      "implementation": "Observation state contract",
+      "author_label": "implementation role derived from the creator-supplied root specification",
+      "anchor_group": "1-2+0",
+      "role_type": "deterministic_root_guard",
+      "runtime_status": "library_available_in_repository_not_running_as_persistent_worker",
+      "external_action": "none",
+      "source_status": "user_supplied_root; developer_derived_worker_name"
+    },
+    {
+      "id": "one-root13-worker-12",
+      "root_number": 12,
+      "name": "Append-Only Event Keeper",
+      "implementation": "EventStore immutable schema and transaction",
+      "author_label": "implementation role derived from the creator-supplied root specification",
+      "anchor_group": "1-2+0",
+      "role_type": "deterministic_root_guard",
+      "runtime_status": "library_available_in_repository_not_running_as_persistent_worker",
+      "external_action": "none",
+      "source_status": "user_supplied_root; developer_derived_worker_name"
+    },
+    {
+      "id": "one-root13-worker-13",
+      "root_number": 13,
+      "name": "Idempotent Canon Keeper",
+      "implementation": "EventStore source_id and idempotency_key",
+      "author_label": "implementation role derived from the creator-supplied root specification",
+      "anchor_group": "1-2+0",
+      "role_type": "deterministic_root_guard",
+      "runtime_status": "library_available_in_repository_not_running_as_persistent_worker",
+      "external_action": "none",
+      "source_status": "user_supplied_root; developer_derived_worker_name"
+    }
+  ],
+  "adoption_targets": [
+    {
+      "id": "program-job-01",
+      "name": "Threat defense, malware analysis and dehacking",
+      "target_root_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "compliance_status": "UNVERIFIED_EXISTING_MODULES",
+      "per_project_evidence_required": [
+        "source_inventory",
+        "applicable_contracts",
+        "integration_tests",
+        "ci_execution",
+        "security_review",
+        "deployment_and_rollback"
+      ],
+      "no_autofix_without_owner_review": true
+    },
+    {
+      "id": "program-job-02",
+      "name": "Encryption, identity and permissions",
+      "target_root_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "compliance_status": "UNVERIFIED_EXISTING_MODULES",
+      "per_project_evidence_required": [
+        "source_inventory",
+        "applicable_contracts",
+        "integration_tests",
+        "ci_execution",
+        "security_review",
+        "deployment_and_rollback"
+      ],
+      "no_autofix_without_owner_review": true
+    },
+    {
+      "id": "program-job-03",
+      "name": "Backups and restoration",
+      "target_root_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "compliance_status": "UNVERIFIED_EXISTING_MODULES",
+      "per_project_evidence_required": [
+        "source_inventory",
+        "applicable_contracts",
+        "integration_tests",
+        "ci_execution",
+        "security_review",
+        "deployment_and_rollback"
+      ],
+      "no_autofix_without_owner_review": true
+    },
+    {
+      "id": "program-job-04",
+      "name": "AI models, agents and reasoning",
+      "target_root_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "compliance_status": "UNVERIFIED_EXISTING_MODULES",
+      "per_project_evidence_required": [
+        "source_inventory",
+        "applicable_contracts",
+        "integration_tests",
+        "ci_execution",
+        "security_review",
+        "deployment_and_rollback"
+      ],
+      "no_autofix_without_owner_review": true
+    },
+    {
+      "id": "program-job-05",
+      "name": "Coding, apps and automation",
+      "target_root_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "compliance_status": "UNVERIFIED_EXISTING_MODULES",
+      "per_project_evidence_required": [
+        "source_inventory",
+        "applicable_contracts",
+        "integration_tests",
+        "ci_execution",
+        "security_review",
+        "deployment_and_rollback"
+      ],
+      "no_autofix_without_owner_review": true
+    },
+    {
+      "id": "program-job-06",
+      "name": "Hardware and embedded firmware",
+      "target_root_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "compliance_status": "UNVERIFIED_EXISTING_MODULES",
+      "per_project_evidence_required": [
+        "source_inventory",
+        "applicable_contracts",
+        "integration_tests",
+        "ci_execution",
+        "security_review",
+        "deployment_and_rollback"
+      ],
+      "no_autofix_without_owner_review": true
+    },
+    {
+      "id": "program-job-07",
+      "name": "Language, research and knowledge",
+      "target_root_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "compliance_status": "UNVERIFIED_EXISTING_MODULES",
+      "per_project_evidence_required": [
+        "source_inventory",
+        "applicable_contracts",
+        "integration_tests",
+        "ci_execution",
+        "security_review",
+        "deployment_and_rollback"
+      ],
+      "no_autofix_without_owner_review": true
+    },
+    {
+      "id": "program-job-08",
+      "name": "Games, publishing and media",
+      "target_root_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "compliance_status": "UNVERIFIED_EXISTING_MODULES",
+      "per_project_evidence_required": [
+        "source_inventory",
+        "applicable_contracts",
+        "integration_tests",
+        "ci_execution",
+        "security_review",
+        "deployment_and_rollback"
+      ],
+      "no_autofix_without_owner_review": true
+    },
+    {
+      "id": "program-job-09",
+      "name": "Commercial ledgers",
+      "target_root_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "compliance_status": "UNVERIFIED_EXISTING_MODULES",
+      "per_project_evidence_required": [
+        "source_inventory",
+        "applicable_contracts",
+        "integration_tests",
+        "ci_execution",
+        "security_review",
+        "deployment_and_rollback"
+      ],
+      "no_autofix_without_owner_review": true
+    },
+    {
+      "id": "program-job-10",
+      "name": "Community and education",
+      "target_root_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "compliance_status": "UNVERIFIED_EXISTING_MODULES",
+      "per_project_evidence_required": [
+        "source_inventory",
+        "applicable_contracts",
+        "integration_tests",
+        "ci_execution",
+        "security_review",
+        "deployment_and_rollback"
+      ],
+      "no_autofix_without_owner_review": true
+    },
+    {
+      "id": "program-job-11",
+      "name": "Governance and accountability",
+      "target_root_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "compliance_status": "UNVERIFIED_EXISTING_MODULES",
+      "per_project_evidence_required": [
+        "source_inventory",
+        "applicable_contracts",
+        "integration_tests",
+        "ci_execution",
+        "security_review",
+        "deployment_and_rollback"
+      ],
+      "no_autofix_without_owner_review": true
+    },
+    {
+      "id": "program-job-12",
+      "name": "Original-source triage",
+      "target_root_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "compliance_status": "UNVERIFIED_EXISTING_MODULES",
+      "per_project_evidence_required": [
+        "source_inventory",
+        "applicable_contracts",
+        "integration_tests",
+        "ci_execution",
+        "security_review",
+        "deployment_and_rollback"
+      ],
+      "no_autofix_without_owner_review": true
+    }
+  ],
+  "verification_boundary": "13 core tests, roster test and CI do not establish 100% compliance of every existing project or Google service."
+}
