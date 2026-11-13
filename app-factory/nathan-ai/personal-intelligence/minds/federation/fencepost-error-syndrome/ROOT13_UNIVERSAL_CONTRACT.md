@@ -86,3 +86,5 @@ To call an individual existing project **verified compliant**, its owner must ma
 **13/13 core-controls compliance** means all thirteen named root test cases passed on the shared library. **108/108 Tech108 roster compliance** is a separate verified register. **Universal Nathan AI project compliance remains unverified** until every relevant existing program has actually been adapted and tested. We have not audited or changed Google's code or any remote hardware, payment, or biological system.
 
 **ZERO SILENT ASSUMPTIONS. ZERO FALSE COMPLETION CLAIMS.**
+
+**Machine-readable workforce and adoption plan:** [13 deterministic worker-role records and 12 program-job coverage targets](root13-workers.json) preserve ONE Family 21, Tech108 IDs and the original eight Fencepost workers. Their presence in the registry is not evidence of a running 24/7 workforce. CI tests an import into the existing ONE schema using an ephemeral database.
