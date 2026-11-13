@@ -330,7 +330,8 @@ def publish_report(path: Path, obj):
     if isinstance(obj,str):path.write_text(obj,encoding="utf-8")
     else:path.write_text(json.dumps(obj,indent=2,ensure_ascii=False,sort_keys=True)+"\n",encoding="utf-8")
 
-def run_teams(root: Path, config: Path, output: Path, git_base: str) -> dict:
+def run_teams(root: Path, config: Path, output: Path, git_base: str,
+              database: Path | None=None) -> dict:
     root=root.resolve(strict=True)
     if not (root/".git").exists():
         raise ValueError("Team runner requires an actual Git checkout")
@@ -408,7 +409,7 @@ def run_teams(root: Path, config: Path, output: Path, git_base: str) -> dict:
       "changes_made_to_original_source":0
     }
     # Use an existing ONE master; retained only on the owner host / ephemeral runner.
-    with open_universal(output/"ONE_CREATOR_TEAMS.sqlite3") as con:
+    with open_universal(database or output/"ONE_CREATOR_TEAMS.sqlite3") as con:
         con.executescript(TEAM_DDL)
         with con:
             cur=con.execute(
@@ -431,6 +432,7 @@ def main():
     p.add_argument("--config",default="app-factory/nathan-ai/personal-intelligence/minds/federation/creator-teams.v074.json")
     p.add_argument("--output",default="")
     p.add_argument("--git-base",default="HEAD^")
+    p.add_argument("--db",default="",help="Existing owner-controlled ONE Federation SQLite master")
     p.add_argument("--apply-review-restoration",action="store_true")
     args=p.parse_args()
     root=Path(args.root).resolve(strict=True)
@@ -440,7 +442,8 @@ def main():
         print(json.dumps({"restored_for_review":apply_restoration_on_review_branch(root,cfg)},indent=2))
         return
     if not args.output:raise ValueError("--output is required for a scan")
-    print(json.dumps(run_teams(root,config,Path(args.output).resolve(),args.git_base),
+    print(json.dumps(run_teams(root,config,Path(args.output).resolve(),args.git_base,
+                               Path(args.db) if args.db else None),
                      indent=2,ensure_ascii=False))
 
 if __name__=="__main__":
