@@ -173,40 +173,58 @@ def ingest_ancient(main,source_file,source_id_override=None,source_path_override
             "relationships_new":n_links,"native_tables":14,
             "source_preserved":file_sha(path)==before_file}
 
-def run_source(main,source_file,archive_file):
-    """Run pinned no-network worker reference in a private temp DB, then merge to v074."""
-    source=_regular(source_file,(".txt",".md"))
-    if source.stat().st_size>2_000_000: raise ValueError("Input text exceeds 2 MB")
-    archive=_regular(archive_file,(".zip",))
-    if archive.stat().st_size>MAX_ARCHIVE_BYTES:
-        raise ValueError("Engine archive exceeds 5 MB")
-    if file_sha(archive)!=ARCHIVE_SHA256:
-        raise ValueError("Engine archive SHA-256 mismatch; execution blocked")
-    with TemporaryDirectory(prefix="nathan-ancient-v074-") as tmp:
-        tmp=Path(tmp)
+VENDORED_WORKER_GIT_BLOB_SHA = "3a34845af966054884fb1cbc98f474250c371e44"
+
+def _trusted_worker_bytes(archive_file=None):
+    """Use the pinned, reviewable in-repository worker, or the original supplied ZIP."""
+    if archive_file:
+        archive=_regular(archive_file,(".zip",))
+        if archive.stat().st_size>MAX_ARCHIVE_BYTES:
+            raise ValueError("Engine archive exceeds 5 MB")
+        if file_sha(archive)!=ARCHIVE_SHA256:
+            raise ValueError("Engine archive SHA-256 mismatch; execution blocked")
         with zipfile.ZipFile(archive) as z:
             info=z.getinfo("nathan_mind_os/worker_engine.py")
             if info.file_size>2_000_000: raise ValueError("Archive worker too large")
-            payload=z.read(info.filename)
-            if len(payload)!=info.file_size: raise ValueError("Archive code size mismatch")
-            (tmp/"worker_engine.py").write_bytes(payload)
+            raw=z.read(info.filename)
+            if len(raw)!=info.file_size: raise ValueError("Archive worker size mismatch")
+            return raw
+    worker=Path(__file__).with_name("ancient_minds_reference")/"worker_engine.py"
+    if worker.is_symlink() or not worker.is_file():
+        raise ValueError("Vendored Ancient Minds worker missing or symlink")
+    raw=worker.read_bytes()
+    blob_id=hashlib.sha1(b"blob "+str(len(raw)).encode("ascii")+b"\0"+raw).hexdigest()
+    if blob_id!=VENDORED_WORKER_GIT_BLOB_SHA:
+        raise ValueError("Vendored Ancient Minds worker version mismatch")
+    return raw
+
+def run_source(main,source_file,archive_file=None):
+    """Execute the bounded reference on local owner text, merge original BLOBs into ONE."""
+    source=_regular(source_file,(".txt",".md"))
+    if source.stat().st_size>2_000_000:
+        raise ValueError("Owner source exceeds the reference engine's 2 MB limit")
+    raw_worker=_trusted_worker_bytes(archive_file)
+    with TemporaryDirectory(prefix="nathan-ancient-v074-") as tmp:
+        tmp=Path(tmp)
+        (tmp/"worker_engine.py").write_bytes(raw_worker)
         db_path=tmp/"run.sqlite3"
         out_path=tmp/"report.json"
         proc=subprocess.run([sys.executable,"-B",str(tmp/"worker_engine.py"),
                              "--source",str(source),"--db",str(db_path),
                              "--output",str(out_path)],text=True,capture_output=True,
                             timeout=40,check=False)
-        if proc.returncode: raise RuntimeError("Worker failed: "+proc.stderr[-1500:])
+        if proc.returncode:
+            raise RuntimeError("Ancient reference worker failed: "+proc.stderr[-1500:])
         outcome=json.loads(out_path.read_text(encoding="utf-8"))
         if not outcome.get("original_bytes_preserved") or outcome.get("jobs_left_queued")!=0:
-            raise ValueError("Worker original preservation and completion not verified")
+            raise ValueError("Ancient workers did not verify source integrity and completion")
         stable=sha(("ancient-mind-os:source-sha256:"+file_sha(source)).encode("ascii"))[:20]
-        result=ingest_ancient(main,db_path,stable,str(source))
+        merged=ingest_ancient(main,db_path,stable,str(source))
         return {"pipeline":{"runs":len(outcome.get("worker_runs",[])),
                             "claims_needing_review":outcome.get("claims_needing_review",0),
                             "proposed_links":len(outcome.get("relationships",[])),
                             "original_sha256":outcome.get("sha256")},
-                "federation":result}
+                "federation":merged}
 
 def status(main):
     main.executescript(ANCIENT_SCHEMA)
@@ -228,12 +246,12 @@ def main_cli():
     subs.add_parser("ingest-ancient").add_argument("sqlite_source")
     run=subs.add_parser("run-source")
     run.add_argument("text_source")
-    run.add_argument("--archive",default=str(Path(__file__).with_name(ARCHIVE_NAME)))
+    run.add_argument("--archive",default="",help="Optional original ZIP; built-in pinned worker is default")
     a=p.parse_args()
     with closing(open_main(a.db)) as db:
         if a.command=="status": result=status(db)
         elif a.command=="ingest-ancient": result=ingest_ancient(db,a.sqlite_source)
-        else: result=run_source(db,a.text_source,a.archive)
+        else: result=run_source(db,a.text_source,a.archive or None)
         print(json.dumps(result,indent=2,ensure_ascii=False))
 
 if __name__=="__main__": main_cli()
