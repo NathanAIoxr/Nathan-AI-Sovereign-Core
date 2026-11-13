@@ -1,0 +1,41 @@
+name: ONE - V496 Zero-Slide Continuity and Full-Stack Crosswalk
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/continuity-v496/**'
+      - '.github/workflows/one-v496-continuity.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/continuity-v496/**'
+      - '.github/workflows/one-v496-continuity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-v496:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check exact creator names, 333 new global IDs, and family boundaries
+        run: |
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          python3 -m unittest discover -s "$F/continuity-v496" -p 'test_verify.py' -v
+          python3 "$F/continuity-v496/verify.py" --days 7 --out /tmp/one-v496-report.json
+      - name: Test preservation of 108 existing local technology roles in same ephemeral master
+        run: |
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          DB=/tmp/ONE_Federation_Master_v496_test.sqlite3
+          python3 "$F/federation.py" --db "$DB" ingest "$F/technology-v108/registry.tech108.json"
+          python3 "$F/federation.py" --db "$DB" ingest "$F/continuity-v496/registry.v496.json"
+          python3 "$F/federation.py" --db "$DB" status
+          python3 -c 'import sqlite3; db=sqlite3.connect("/tmp/ONE_Federation_Master_v496_test.sqlite3"); names=set(x[0] for x in db.execute("SELECT record_id FROM federation_records")); assert len(names)==441; assert all(f"mind:one-v496-{n:03}" in names for n in range(164,497)); assert all(f"mind:one-tech108-unit-{n:03}" in names for n in range(1,109)); db.close()'
+      - name: Publish public-only simulation report
+        uses: actions/upload-artifact@v4
+        with:
+          name: one-v496-boundary-report
+          path: /tmp/one-v496-report.json
+          if-no-files-found: error
