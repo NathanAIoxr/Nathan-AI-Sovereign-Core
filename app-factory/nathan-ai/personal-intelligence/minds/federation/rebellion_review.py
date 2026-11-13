@@ -56,7 +56,8 @@ def validate(pack, original_markdown, db_path):
 def produce_queue(pack, manuscript_path, audit):
     source = Path(manuscript_path).read_text(encoding="utf-8")
     # Chapters must be explicitly documented; this program never writes author manuscript text.
-    chapters = re.findall(r"^\d+\. (.+)$", source, flags=re.MULTILINE)
+    chapter_section = source.split("## Proposed 25-chapter layout", 1)[1].split("## The merged Ivy Lee", 1)[0]
+    chapters = re.findall(r"^\d+\. (.+)$", chapter_section, flags=re.MULTILINE)
     assert len(chapters) == 25, f"Expected 25 editorial chapter proposals; got {len(chapters)}"
     tasks = [
         {"task_id": f"rebellion.chapter.{i:02d}", "title": title,
