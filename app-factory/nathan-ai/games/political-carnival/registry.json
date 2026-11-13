@@ -1,0 +1,49 @@
+{
+  "schema": "nathan-arcade-module.v1",
+  "owner": "Nathan Tabor",
+  "module_id": "political_carnival",
+  "entrypoint": "./index.html",
+  "stage": "browser-demo",
+  "platforms": [
+    "browser",
+    "mobile-browser"
+  ],
+  "titles": [
+    "Pin the Donkey on the Tail",
+    "Pin the Tail on the ASS"
+  ],
+  "games": [
+    {
+      "id": "pin_donkey_on_tail",
+      "stage": "browser-demo"
+    },
+    {
+      "id": "pin_tail_on_ass",
+      "stage": "browser-demo"
+    },
+    {
+      "id": "dunking_booth",
+      "stage": "planned"
+    },
+    {
+      "id": "pie_in_the_face",
+      "stage": "planned"
+    },
+    {
+      "id": "apple_bobbing",
+      "stage": "planned"
+    }
+  ],
+  "interoperability": {
+    "event": "nathan:arcade:score",
+    "schema": "nathan-arcade-score.v1",
+    "adapter": "./bridge.mjs",
+    "requires_sdk_modification": false
+  },
+  "privacy": {
+    "accounts": false,
+    "server": false,
+    "optional_owner_import": true,
+    "score_storage": "browser-local"
+  }
+}
