@@ -31,6 +31,9 @@ jobs:
           python3 -m unittest discover \
             -s app-factory/nathan-ai/personal-intelligence/minds/federation \
             -p test_team_factory.py -v
+      - name: Verify Family 21 ONE and original Omega source preservation
+        run: |
+          python3 -m unittest discover             -s app-factory/nathan-ai/personal-intelligence/minds/federation             -p test_family_registry.py -v
       - name: Prepare existing ONE Federation main index
         run: |
           set -euo pipefail
@@ -59,6 +62,10 @@ jobs:
           summary=json.loads((output/"summary.json").read_text())
           con=sqlite3.connect(sys.argv[2])
           assert summary["creator_teams"]==10,summary
+          assert summary["family_slots"]==21,summary
+          assert summary["family21_overlay_teams"]==10,summary
+          assert summary["family_prior_definitions_unresolved"]==15,summary
+          assert (output/"families/ONE_21_TEAM_OVERLAY.json").is_file()
           assert summary["registered_roles_assigned"]==763,summary
           assert summary["roles_excluded"]==0,summary
           assert summary["website_pages_checked"]>=5,summary
@@ -129,6 +136,7 @@ jobs:
             app-factory/nathan-ai/original-works/JOHN_NATHAN_TABOR_SINCE_1973_MASTER_WORDS.md \
             app-factory/nathan-ai/personal-intelligence/minds/federation/source-packs/law-of-order-books-2026-11-13/CREATOR_ORIGINALS.txt \
             "app-factory/nathan-ai/personal-intelligence/minds/federation/source-packs/law-of-order-books-2026-11-13/Pasted text.txt"
+            app-factory/nathan-ai/personal-intelligence/minds/federation/families/USER_SUPPLIED_FAMILIES_16_TO_21_20261113.txt
           git diff --cached --quiet && exit 0
           git commit -m "restore(proposal): return creator originals to pinned Git objects for owner review"
           if git push origin "$branch"; then
