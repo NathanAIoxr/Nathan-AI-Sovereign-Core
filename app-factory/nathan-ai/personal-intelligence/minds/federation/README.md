@@ -54,3 +54,28 @@ python3 federation.py --db ./ONE_Federation_Master.sqlite3 status
 Expected public ingest: **763 existing mind definitions + 41 v074 knowledge records = 804 federated source records** across two inputs. The 40 suggested Meru links are auditable and remain unverified. Six worker roles inspect the combined registry; no live provider agents are launched. Original JSON and original SQLite sources are opened/read as inputs without overwriting; the output master SQLite is local/private and Git-ignored by workflow convention. The public GitHub Actions federation run is ephemeral and publishes only a short audit report.
 
 The user's private source files and family identity details are **not** uploaded to this public repository. The named grandmother quotation is included only as supplied by the author, without her identifying details. The wordplay is the author's creative interpretation, not a verified Sanskrit derivation.
+
+## NATHAN AI — ONE DATABASE FEDERATION v074 / Ancient Minds
+
+[Ancient Minds v074 adapter](./ancient_bridge.py) · [Bridge tests](./test_ancient_bridge.py) · [14-table reference source](./ancient_minds_reference/README.md).
+
+The new Ancient Minds system plugs into **this existing ONE Federation**—there is no replacement or separate master database. It runs six user-supplied specialist roles through the local source-preserving reference and imports every one of the 14 native SQLite table families into the **same** private ONE master. Four unnamed specialist positions stay vacant.
+
+- SHA-256-verifies and retains source bytes in an append-only `federation_ancient_originals` table with update/delete guards
+- Indexes non-original rows as typed derived federation records with preserved per-row hashes, source IDs, CERO/UNO/DOS tiers and audit snapshots
+- Imports relationships as **proposed**, not automatically proven; preserves source originals independently
+- Uses stable ID-by-owner-file-SHA for repeatable runs and does not create duplicates
+- Integrates with existing Leonardo/Donatello/Raphael/Michelangelo/DaVinci/AncientSpecialists worker roles, without reauthoring their code
+- Includes an optional PostgreSQL + pgvector **schema reference**, not an external deployment
+
+Use your owner-approved **private** federation database:
+
+~~~sh
+F=app-factory/nathan-ai/personal-intelligence/minds/federation
+python3 "$F/ancient_bridge.py" --db "/private/ONE_Federation_Master.sqlite3" run-source "/path/to/owner-original.txt"
+python3 "$F/ancient_bridge.py" --db "/private/ONE_Federation_Master.sqlite3" status
+# Or import an already-produced Ancient Minds SQLite source read-only:
+python3 "$F/ancient_bridge.py" --db "/private/ONE_Federation_Master.sqlite3" ingest-ancient "/path/to/private-ancient.sqlite3"
+~~~
+
+An exact owner-held reference ZIP can optionally be run with `--archive /path/to/Nathan_Mind_OS_Ancient_Minds_Reference_Build.zip`, after its SHA-256 is checked. GitHub Actions only processes the public 763-entry registry plus the public Ancient Minds sample, in an **ephemeral** CI database. It does **not** synchronize or publish the private master.
