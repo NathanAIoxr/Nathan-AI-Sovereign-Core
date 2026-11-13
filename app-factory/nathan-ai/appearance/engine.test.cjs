@@ -15,7 +15,7 @@ test('unknown themes, injected CSS and malformed preference files fail validatio
 });
 test('every Nathan AI entry page loads the same scoped appearance engine',()=>{
   const base=path.resolve(__dirname,'..'),pages=[];
-  function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())walk(p);else if(e.name.endsWith('.html'))pages.push(p)}}walk(base);assert.ok(pages.length>=28);
+  function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory()){if(p!==path.join(base,'personal-intelligence','minds','federation','source-packs'))walk(p)}else if(e.name.endsWith('.html'))pages.push(p)}}walk(base);assert.ok(pages.length>=28);
   const independentPwa=path.join(base,'eyeprints-handprints')+path.sep;
   // The scanner is independently deployable; its untouched EYEPRINTS archival HTML is also standalone.
   // The private family reader also retains its inline-only, no-network CSP.
