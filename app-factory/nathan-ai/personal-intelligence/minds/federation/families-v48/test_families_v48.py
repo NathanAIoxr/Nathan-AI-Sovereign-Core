@@ -27,7 +27,7 @@ class Family48Tests(unittest.TestCase):
         self.assertEqual({x["family_id"] for x in rows if x.get("source_class")=="source_excerpt_restored"},
                          {22,23,24,25,26,27,28,30,31,32,33})
         self.assertEqual([x["family_id"] for x in rows if x.get("source_class")=="partial_source_excerpt"],[29])
-        self.assertIn("only summary row",rows[28]["source_provenance"].lower())
+        self.assertIn("summary matrix",rows[28]["source_provenance"].lower())
     def test_original_v40_kept_and_bootstrap_is_idempotent(self):
         prior=model.previous.load_registry()
         before=(model.previous.REGISTRY.read_bytes(),model.core.REGISTRY.read_bytes())
