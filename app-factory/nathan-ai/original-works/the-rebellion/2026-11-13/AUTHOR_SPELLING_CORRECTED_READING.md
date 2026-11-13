@@ -79,7 +79,7 @@ the cat is opposite - the hairless Sphynx moved in and grew hair hehe - how does
 Source: [Original author wording](AUTHOR_ORIGINAL_WORDS.md#10-ace)
 
 ~~~text
-Ace could stand at the bottom of my feet - i was 6'4" at the time - and he could launch up and land on my shoulder with precision - people didn't believe til they saw it
+Ace could stand at the bottom of my feet - I was 6'4" at the time - and he could launch up and land on my shoulder with precision - people didn't believe til they saw it
 ~~~
 
 ## 11 · restore
