@@ -134,7 +134,7 @@ class CreatorTeamsTests(unittest.TestCase):
             self.assertEqual(status[0]["status"],"source_missing")
             with self.assertRaises(ValueError):
                 changed_paths(root,"--output=/tmp/hack")
-            with self.assertRaisesRegex(ValueError,"source"):
+            with self.assertRaises(FileNotFoundError):
                 run_teams(root,config,Path(temp)/"out","HEAD^")
 
     def test_protection_blocks_artifacts_inside_original_tree(self):
