@@ -6,6 +6,7 @@
   var source = new URL(loader.src, document.baseURI);
   var websites = new URL('../nathan-ai/websites/', source);
   var atlas = new URL('../nathan-ai/games/', source);
+  var carnival = new URL('../nathan-ai/games/political-carnival/', source);
   function element(tag, cls, content) {
     var el = document.createElement(tag);
     if (cls) el.className = cls;
@@ -24,9 +25,11 @@
     var links = element('div', 'nathan-desktop-links');
     var back = element('a', '', 'Games & puzzles');
     back.href = atlas.href;
+    var politicalCarnival = element('a', '', 'Political Carnival');
+    politicalCarnival.href = carnival.href;
     var all = element('a', '', 'All Nathan AI websites');
     all.href = websites.href;
-    links.append(back, all);
+    links.append(back, politicalCarnival, all);
     first.append(label, links);
     var actions = element('div', 'nathan-desktop-actions');
     var focus = element('button', '', 'Focus gameplay');
