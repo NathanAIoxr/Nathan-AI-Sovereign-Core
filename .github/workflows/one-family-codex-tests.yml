@@ -1,0 +1,30 @@
+name: ONE Family Codex · Source & Safety Tests
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/families-v21/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/families-v40/**'
+      - '.github/workflows/one-family-codex-tests.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/families-v21/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/families-v40/**'
+      - '.github/workflows/one-family-codex-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-provenance-and-inert-routing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify v21 family invariants and source registry
+        run: python3 -m unittest discover -s app-factory/nathan-ai/personal-intelligence/minds/federation/families-v21 -p 'test_families_v21.py' -v
+      - name: Verify v40 master, unresolved source slots, and bounded dispatcher
+        run: python3 -m unittest discover -s app-factory/nathan-ai/personal-intelligence/minds/federation/families-v40 -p 'test_families_v40.py' -v
