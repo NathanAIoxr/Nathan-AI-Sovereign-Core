@@ -1,0 +1,334 @@
+global_id,name,layer,family,family_name,local_id,status
+164,The Code Sentinel (Loop & Array Guard),boundary,1,Boundary-Lock & Fencepost-Elimination Family,1,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+165,The Calendar & Itinerary Synchronizer,boundary,1,Boundary-Lock & Fencepost-Elimination Family,2,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+166,The Endpoint & Material Estimator,boundary,1,Boundary-Lock & Fencepost-Elimination Family,3,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+167,The Interval-vs.-Count Translator,boundary,1,Boundary-Lock & Fencepost-Elimination Family,4,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+168,The Buffer-Overflow & Memory Firewall,boundary,1,Boundary-Lock & Fencepost-Elimination Family,5,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+169,The Billing-Cycle & Financial Cutoff Auditor,boundary,1,Boundary-Lock & Fencepost-Elimination Family,6,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+170,The Supply-Chain & Freight-Slot Matcher,boundary,1,Boundary-Lock & Fencepost-Elimination Family,7,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+171,The CNC & Toolpath Calibrator,boundary,1,Boundary-Lock & Fencepost-Elimination Family,8,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+172,The Human-Plain-Language Clarifier,boundary,1,Boundary-Lock & Fencepost-Elimination Family,9,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+173,Flint-Knapper,technology,1,"Lithic, Fire & Primitive Tools",1,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+174,Hearth-Tender,technology,1,"Lithic, Fire & Primitive Tools",2,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+175,Kiln-Firer,technology,1,"Lithic, Fire & Primitive Tools",3,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+176,Cordage-Weaver,technology,1,"Lithic, Fire & Primitive Tools",4,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+177,Timber-Feller,technology,1,"Lithic, Fire & Primitive Tools",5,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+178,Hide-Tanner,technology,1,"Lithic, Fire & Primitive Tools",6,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+179,Shelter-Framer,technology,1,"Lithic, Fire & Primitive Tools",7,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+180,Ash-Purifier,technology,1,"Lithic, Fire & Primitive Tools",8,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+181,Ember-Keeper,technology,1,"Lithic, Fire & Primitive Tools",9,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+182,Furrow-Plower,technology,2,"Agriculture, Irrigation & Fermentation",10,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+183,Canal-Leveler,technology,2,"Agriculture, Irrigation & Fermentation",11,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+184,Water-Lifter,technology,2,"Agriculture, Irrigation & Fermentation",12,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+185,Terrace-Grader,technology,2,"Agriculture, Irrigation & Fermentation",13,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+186,Seed-Selector,technology,2,"Agriculture, Irrigation & Fermentation",14,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+187,Millstone-Grinder,technology,2,"Agriculture, Irrigation & Fermentation",15,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+188,Granary-Sealer,technology,2,"Agriculture, Irrigation & Fermentation",16,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+189,Ferment-Culturer,technology,2,"Agriculture, Irrigation & Fermentation",17,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+190,Soil-Rotator,technology,2,"Agriculture, Irrigation & Fermentation",18,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+191,Ore-Prospector,technology,3,"Metallurgy, Glass & Ceramic-Kiln",19,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+192,Smelter-Stoker,technology,3,"Metallurgy, Glass & Ceramic-Kiln",20,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+193,Alloy-Blender,technology,3,"Metallurgy, Glass & Ceramic-Kiln",21,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+194,Anvil-Forger,technology,3,"Metallurgy, Glass & Ceramic-Kiln",22,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+195,Quench-Temperer,technology,3,"Metallurgy, Glass & Ceramic-Kiln",23,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+196,Glass-Blower,technology,3,"Metallurgy, Glass & Ceramic-Kiln",24,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+197,Lens-Grinder,technology,3,"Metallurgy, Glass & Ceramic-Kiln",25,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+198,Ceramic-Glazer,technology,3,"Metallurgy, Glass & Ceramic-Kiln",26,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+199,Assay-Tester,technology,3,"Metallurgy, Glass & Ceramic-Kiln",27,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+200,Millrace-Gatekeeper,technology,4,"Clockwork, Windmill & Waterwheel",28,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+201,Wind-Vane Turner,technology,4,"Clockwork, Windmill & Waterwheel",29,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+202,Gear-Tooth Cutter,technology,4,"Clockwork, Windmill & Waterwheel",30,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+203,Escapement-Regulator,technology,4,"Clockwork, Windmill & Waterwheel",31,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+204,Camshaft-Timer,technology,4,"Clockwork, Windmill & Waterwheel",32,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+205,Pulley-Rigger,technology,4,"Clockwork, Windmill & Waterwheel",33,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+206,Pendulum-Calibrator,technology,4,"Clockwork, Windmill & Waterwheel",34,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+207,Spring-Winder,technology,4,"Clockwork, Windmill & Waterwheel",35,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+208,Gearbox-Oiler,technology,4,"Clockwork, Windmill & Waterwheel",36,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+209,Hull-Shipwright,technology,5,"Maritime, Cartography & Celestial-Navigation",37,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+210,Sail-Trimmer,technology,5,"Maritime, Cartography & Celestial-Navigation",38,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+211,Rudder-Helmsman,technology,5,"Maritime, Cartography & Celestial-Navigation",39,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+212,Compass-Aligner,technology,5,"Maritime, Cartography & Celestial-Navigation",40,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+213,Astrolabe-Sighter,technology,5,"Maritime, Cartography & Celestial-Navigation",41,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+214,Chronometer-Keeper,technology,5,"Maritime, Cartography & Celestial-Navigation",42,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+215,Chart-Plotter,technology,5,"Maritime, Cartography & Celestial-Navigation",43,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+216,Sounding-Lead Caster,technology,5,"Maritime, Cartography & Celestial-Navigation",44,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+217,Beacon-Lighter,technology,5,"Maritime, Cartography & Celestial-Navigation",45,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+218,Pulp-Molder,technology,6,"Printing Press, Paper & Cryptographic-Cipher",46,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+219,Type-Founder,technology,6,"Printing Press, Paper & Cryptographic-Cipher",47,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+220,Typesetter-Composer,technology,6,"Printing Press, Paper & Cryptographic-Cipher",48,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+221,Ink-Press Operator,technology,6,"Printing Press, Paper & Cryptographic-Cipher",49,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+222,Proofreader-Corrector,technology,6,"Printing Press, Paper & Cryptographic-Cipher",50,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+223,Folio-Binder,technology,6,"Printing Press, Paper & Cryptographic-Cipher",51,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+224,Cipher-Encoder,technology,6,"Printing Press, Paper & Cryptographic-Cipher",52,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+225,Semaphore-Signaler,technology,6,"Printing Press, Paper & Cryptographic-Cipher",53,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+226,Archive-Preserver,technology,6,"Printing Press, Paper & Cryptographic-Cipher",54,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+227,Boiler-Pressurizer,technology,7,"Steam, Internal-Combustion & Turbine",55,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+228,Piston-Machinist,technology,7,"Steam, Internal-Combustion & Turbine",56,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+229,Flywheel-Governor,technology,7,"Steam, Internal-Combustion & Turbine",57,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+230,Valve-Injector,technology,7,"Steam, Internal-Combustion & Turbine",58,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+231,Turbine-Balancer,technology,7,"Steam, Internal-Combustion & Turbine",59,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+232,Exhaust-Condenser,technology,7,"Steam, Internal-Combustion & Turbine",60,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+233,Rail-Switchman,technology,7,"Steam, Internal-Combustion & Turbine",61,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+234,Drivetrain-Coupler,technology,7,"Steam, Internal-Combustion & Turbine",62,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+235,Thermal-Inspector,technology,7,"Steam, Internal-Combustion & Turbine",63,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+236,Dynamo-Exciter,technology,8,"Electrification, Power-Grid & Telecommunications",64,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+237,Transformer-Winder,technology,8,"Electrification, Power-Grid & Telecommunications",65,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+238,Grid-Load Balancer,technology,8,"Electrification, Power-Grid & Telecommunications",66,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+239,Substation-Breaker,technology,8,"Electrification, Power-Grid & Telecommunications",67,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+240,Copper-Line Stringer,technology,8,"Electrification, Power-Grid & Telecommunications",68,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+241,Telegraph-Keyer,technology,8,"Electrification, Power-Grid & Telecommunications",69,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+242,Switchboard-Router,technology,8,"Electrification, Power-Grid & Telecommunications",70,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+243,Radio-Modulator,technology,8,"Electrification, Power-Grid & Telecommunications",71,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+244,Ground-Fault Earther,technology,8,"Electrification, Power-Grid & Telecommunications",72,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+245,Wafer-Grower,technology,9,"Semiconductor, Photonic & Cloud-Compute",73,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+246,EUV-Lithographer,technology,9,"Semiconductor, Photonic & Cloud-Compute",74,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+247,Gate-Etcher,technology,9,"Semiconductor, Photonic & Cloud-Compute",75,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+248,Fiber-Splicer,technology,9,"Semiconductor, Photonic & Cloud-Compute",76,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+249,Packet-Router,technology,9,"Semiconductor, Photonic & Cloud-Compute",77,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+250,Cache-Optimizer,technology,9,"Semiconductor, Photonic & Cloud-Compute",78,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+251,Kernel-Scheduler,technology,9,"Semiconductor, Photonic & Cloud-Compute",79,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+252,Cryo-Cooler,technology,9,"Semiconductor, Photonic & Cloud-Compute",80,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+253,Parity-Checker,technology,9,"Semiconductor, Photonic & Cloud-Compute",81,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+254,CAD-Slicer,technology,10,"Autonomous Robotics, Additive-3D & Drone-Swarm",82,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+255,Extruder-Depositor,technology,10,"Autonomous Robotics, Additive-3D & Drone-Swarm",83,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+256,CNC-Miller,technology,10,"Autonomous Robotics, Additive-3D & Drone-Swarm",84,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+257,LiDAR-Mapper,technology,10,"Autonomous Robotics, Additive-3D & Drone-Swarm",85,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+258,Servo-Actuator,technology,10,"Autonomous Robotics, Additive-3D & Drone-Swarm",86,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+259,Gyro-Stabilizer,technology,10,"Autonomous Robotics, Additive-3D & Drone-Swarm",87,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+260,Swarm-Coordinator,technology,10,"Autonomous Robotics, Additive-3D & Drone-Swarm",88,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+261,Battery-Swapper,technology,10,"Autonomous Robotics, Additive-3D & Drone-Swarm",89,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+262,Force-Feedback Sensor,technology,10,"Autonomous Robotics, Additive-3D & Drone-Swarm",90,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+263,Airfoil-Shaper,technology,11,"Aerospace, Orbital-Satellite & Propulsion",91,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+264,Cryo-Propellant Loader,technology,11,"Aerospace, Orbital-Satellite & Propulsion",92,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+265,Gimbal-Thrust Vectorer,technology,11,"Aerospace, Orbital-Satellite & Propulsion",93,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+266,Avionics-Navigator,technology,11,"Aerospace, Orbital-Satellite & Propulsion",94,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+267,Orbital-Slot Keeper,technology,11,"Aerospace, Orbital-Satellite & Propulsion",95,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+268,Solar-Wing Deployer,technology,11,"Aerospace, Orbital-Satellite & Propulsion",96,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+269,Heat-Shield Tiler,technology,11,"Aerospace, Orbital-Satellite & Propulsion",97,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+270,Telemetry-Dish Tracker,technology,11,"Aerospace, Orbital-Satellite & Propulsion",98,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+271,Debris-Deorbiter,technology,11,"Aerospace, Orbital-Satellite & Propulsion",99,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+272,Qubit-Isolator,technology,12,"Quantum-Compute, Nanotech & Bio-Engineering",100,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+273,Entanglement-Router,technology,12,"Quantum-Compute, Nanotech & Bio-Engineering",101,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+274,Quantum-Decrypt Guard,technology,12,"Quantum-Compute, Nanotech & Bio-Engineering",102,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+275,Atom-Manipulator,technology,12,"Quantum-Compute, Nanotech & Bio-Engineering",103,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+276,CRISPR-Guide Splicer,technology,12,"Quantum-Compute, Nanotech & Bio-Engineering",104,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+277,Protein-Synthesizer,technology,12,"Quantum-Compute, Nanotech & Bio-Engineering",105,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+278,Bio-Reactor Sterilizer,technology,12,"Quantum-Compute, Nanotech & Bio-Engineering",106,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+279,Nano-Capsule Loader,technology,12,"Quantum-Compute, Nanotech & Bio-Engineering",107,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+280,Ethics-Containment Lock,technology,12,"Quantum-Compute, Nanotech & Bio-Engineering",108,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+281,Card-Perforator,software,1,"Punch-Card, Jacquard & Analytical-Engine",1,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+282,Hole-Reader,software,1,"Punch-Card, Jacquard & Analytical-Engine",2,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+283,Loom-Sequencer,software,1,"Punch-Card, Jacquard & Analytical-Engine",3,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+284,Relay-Switcher,software,1,"Punch-Card, Jacquard & Analytical-Engine",4,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+285,Tape-Spooler,software,1,"Punch-Card, Jacquard & Analytical-Engine",5,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+286,Drum-Indexer,software,1,"Punch-Card, Jacquard & Analytical-Engine",6,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+287,Batch-Feeder,software,1,"Punch-Card, Jacquard & Analytical-Engine",7,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+288,Tabulator-Sorter,software,1,"Punch-Card, Jacquard & Analytical-Engine",8,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+289,Checksum-Verifier,software,1,"Punch-Card, Jacquard & Analytical-Engine",9,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+290,Opcode-Encoder,software,2,"Machine-Code, Assembly & Register",10,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+291,Register-Allocator,software,2,"Machine-Code, Assembly & Register",11,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+292,Stack-Pointer Guard,software,2,"Machine-Code, Assembly & Register",12,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+293,Interrupt-Handler,software,2,"Machine-Code, Assembly & Register",13,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+294,Bitwise-Shifter,software,2,"Machine-Code, Assembly & Register",14,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+295,Bus-Arbitrator,software,2,"Machine-Code, Assembly & Register",15,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+296,Microcode-Sequencer,software,2,"Machine-Code, Assembly & Register",16,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+297,Memory-Mapper,software,2,"Machine-Code, Assembly & Register",17,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+298,Watchdog-Timer,software,2,"Machine-Code, Assembly & Register",18,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+299,Lexer-Tokenizer,software,3,"Compiler, Linker & Runtime-Engine",19,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+300,Syntax-Tree Parser,software,3,"Compiler, Linker & Runtime-Engine",20,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+301,Type-Checker,software,3,"Compiler, Linker & Runtime-Engine",21,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+302,Loop-Boundary Auditor,software,3,"Compiler, Linker & Runtime-Engine",22,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+303,Dead-Code Eliminator,software,3,"Compiler, Linker & Runtime-Engine",23,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+304,Register-Optimizer,software,3,"Compiler, Linker & Runtime-Engine",24,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+305,Static-Linker,software,3,"Compiler, Linker & Runtime-Engine",25,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+306,JIT-Bytecode Compiler,software,3,"Compiler, Linker & Runtime-Engine",26,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+307,Garbage-Collector,software,3,"Compiler, Linker & Runtime-Engine",27,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+308,Kernel-Bootloader,software,4,"Operating-System, Kernel & File-System",28,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+309,Process-Scheduler,software,4,"Operating-System, Kernel & File-System",29,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+310,Virtual-Memory Pager,software,4,"Operating-System, Kernel & File-System",30,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+311,Inode-File Indexer,software,4,"Operating-System, Kernel & File-System",31,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+312,Device-Driver Bridge,software,4,"Operating-System, Kernel & File-System",32,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+313,Syscall-Gatekeeper,software,4,"Operating-System, Kernel & File-System",33,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+314,Daemon-Supervisor,software,4,"Operating-System, Kernel & File-System",34,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+315,Journaling-Recovery Bot,software,4,"Operating-System, Kernel & File-System",35,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+316,Permission-Enforcer,software,4,"Operating-System, Kernel & File-System",36,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+317,Schema-Architect,software,5,"Relational-Database, SQL & Storage-Engine",37,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+318,B-Tree Indexer,software,5,"Relational-Database, SQL & Storage-Engine",38,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+319,Query-Optimizer,software,5,"Relational-Database, SQL & Storage-Engine",39,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+320,ACID-Transaction Lock,software,5,"Relational-Database, SQL & Storage-Engine",40,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+321,Write-Ahead Logger,software,5,"Relational-Database, SQL & Storage-Engine",41,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+322,Replication-Syncer,software,5,"Relational-Database, SQL & Storage-Engine",42,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+323,Shard-Partitioner,software,5,"Relational-Database, SQL & Storage-Engine",43,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+324,Vector-Embedding Indexer,software,5,"Relational-Database, SQL & Storage-Engine",44,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+325,Point-in-Time Snapshotter,software,5,"Relational-Database, SQL & Storage-Engine",45,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+326,DNS-Resolver,software,6,"Networking, TCP/IP & Internet-Protocol",46,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+327,BGP-Path Router,software,6,"Networking, TCP/IP & Internet-Protocol",47,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+328,TCP-Handshake Sequencer,software,6,"Networking, TCP/IP & Internet-Protocol",48,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+329,Packet-Fragmenter,software,6,"Networking, TCP/IP & Internet-Protocol",49,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+330,TLS-Cipher Negotiator,software,6,"Networking, TCP/IP & Internet-Protocol",50,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+331,Load-Balancer,software,6,"Networking, TCP/IP & Internet-Protocol",51,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+332,NAT-Gateway Translator,software,6,"Networking, TCP/IP & Internet-Protocol",52,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+333,Onion-Relay Wrapper,software,6,"Networking, TCP/IP & Internet-Protocol",53,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+334,Latency-Probe Monitor,software,6,"Networking, TCP/IP & Internet-Protocol",54,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+335,DOM-Layout Renderer,software,7,"User-Interface, Graphics & Human-Interaction",55,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+336,Pixel-Shader Rasterizer,software,7,"User-Interface, Graphics & Human-Interaction",56,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+337,Event-Loop Listener,software,7,"User-Interface, Graphics & Human-Interaction",57,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+338,State-Store Synchronizer,software,7,"User-Interface, Graphics & Human-Interaction",58,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+339,Responsive-Grid Aligner,software,7,"User-Interface, Graphics & Human-Interaction",59,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+340,Accessibility-Narrator,software,7,"User-Interface, Graphics & Human-Interaction",60,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+341,Input-Debouncer,software,7,"User-Interface, Graphics & Human-Interaction",61,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+342,Frame-Rate Pacer,software,7,"User-Interface, Graphics & Human-Interaction",62,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+343,Plain-Language Tooltip Writer,software,7,"User-Interface, Graphics & Human-Interaction",63,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+344,Git-Commit Hasher,software,8,"Version-Control, CI/CD & DevOps-Pipeline",64,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+345,Branch-Merge Resolver,software,8,"Version-Control, CI/CD & DevOps-Pipeline",65,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+346,Pull-Request Router,software,8,"Version-Control, CI/CD & DevOps-Pipeline",66,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+347,Unit-Test Runner,software,8,"Version-Control, CI/CD & DevOps-Pipeline",67,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+348,Boundary-Fuzz Tester,software,8,"Version-Control, CI/CD & DevOps-Pipeline",68,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+349,Container-Packager,software,8,"Version-Control, CI/CD & DevOps-Pipeline",69,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+350,Kubernetes-Pod Scaler,software,8,"Version-Control, CI/CD & DevOps-Pipeline",70,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+351,Canary-Rollout Watcher,software,8,"Version-Control, CI/CD & DevOps-Pipeline",71,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+352,Instant-Rollback Trigger,software,8,"Version-Control, CI/CD & DevOps-Pipeline",72,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+353,Zero-Trust Identity Verifier,software,9,"Cybersecurity, Cryptography & Zero-Trust",73,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+354,Post-Quantum Key Generator,software,9,"Cybersecurity, Cryptography & Zero-Trust",74,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+355,Buffer-Overflow Hard-Lock,software,9,"Cybersecurity, Cryptography & Zero-Trust",75,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+356,Malware-Signature Scanner,software,9,"Cybersecurity, Cryptography & Zero-Trust",76,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+357,Honeypot-Decoy Trap,software,9,"Cybersecurity, Cryptography & Zero-Trust",77,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+358,Firewall-Packet Filter,software,9,"Cybersecurity, Cryptography & Zero-Trust",78,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+359,Secret-Vault Rotator,software,9,"Cybersecurity, Cryptography & Zero-Trust",79,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+360,Forensic-Log Auditor,software,9,"Cybersecurity, Cryptography & Zero-Trust",80,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+361,Quarantine-Isolator,software,9,"Cybersecurity, Cryptography & Zero-Trust",81,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+362,Event-Stream Producer,software,10,"Distributed-Streaming, Event-Bus & Big-Data",82,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+363,Partition-Offset Tracker,software,10,"Distributed-Streaming, Event-Bus & Big-Data",83,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+364,Schema-Registry Guard,software,10,"Distributed-Streaming, Event-Bus & Big-Data",84,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+365,Stream-Window Aggregator,software,10,"Distributed-Streaming, Event-Bus & Big-Data",85,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+366,CRDT-Conflict Merger,software,10,"Distributed-Streaming, Event-Bus & Big-Data",86,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+367,Dead-Letter Queue Handler,software,10,"Distributed-Streaming, Event-Bus & Big-Data",87,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+368,Backpressure-Throttle Valve,software,10,"Distributed-Streaming, Event-Bus & Big-Data",88,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+369,ETL-Pipeline Cleaner,software,10,"Distributed-Streaming, Event-Bus & Big-Data",89,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+370,Exactly-Once Deduplicator,software,10,"Distributed-Streaming, Event-Bus & Big-Data",90,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+371,Physics-Tick Integrator,software,11,"Simulation, Game-Engine & Digital-Twin",91,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+372,Collision-Hitbox Detector,software,11,"Simulation, Game-Engine & Digital-Twin",92,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+373,A*-Pathfinding Navigator,software,11,"Simulation, Game-Engine & Digital-Twin",93,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+374,Terrain-Mesh Generator,software,11,"Simulation, Game-Engine & Digital-Twin",94,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+375,Deterministic-Seed Replay Bot,software,11,"Simulation, Game-Engine & Digital-Twin",95,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+376,Entity-Component Manager,software,11,"Simulation, Game-Engine & Digital-Twin",96,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+377,Weather-Cycle Simulator,software,11,"Simulation, Game-Engine & Digital-Twin",97,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+378,Sensor-Twin Calibrator,software,11,"Simulation, Game-Engine & Digital-Twin",98,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+379,Bottleneck-Stress Tester,software,11,"Simulation, Game-Engine & Digital-Twin",99,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+380,Attention-Context Router,software,12,"Neural-Network, Foundation-Model & Agentic-AI",100,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+381,Token-Window Manager,software,12,"Neural-Network, Foundation-Model & Agentic-AI",101,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+382,Retrieval-Augmented Grounder (RAG),software,12,"Neural-Network, Foundation-Model & Agentic-AI",102,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+383,Tool-Call API Dispatcher,software,12,"Neural-Network, Foundation-Model & Agentic-AI",103,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+384,Hallucination-Fact Verifier,software,12,"Neural-Network, Foundation-Model & Agentic-AI",104,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+385,Provenance-Citation Logger,software,12,"Neural-Network, Foundation-Model & Agentic-AI",105,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+386,Alignment-Guardrail Enforcer,software,12,"Neural-Network, Foundation-Model & Agentic-AI",106,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+387,Multi-Agent Swarm Coordinator,software,12,"Neural-Network, Foundation-Model & Agentic-AI",107,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+388,Human-Override Escalation Gate,software,12,"Neural-Network, Foundation-Model & Agentic-AI",108,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+389,Bead-Slider,hardware,1,"Abacus, Tally-Stick & Counting-Board",1,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+390,Place-Value Column Guard,hardware,1,"Abacus, Tally-Stick & Counting-Board",2,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+391,Carry-Over Trigger,hardware,1,"Abacus, Tally-Stick & Counting-Board",3,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+392,Tally-Notch Cutter,hardware,1,"Abacus, Tally-Stick & Counting-Board",4,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+393,Napier-Rod Aligner,hardware,1,"Abacus, Tally-Stick & Counting-Board",5,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+394,Slide-Rule Cursor,hardware,1,"Abacus, Tally-Stick & Counting-Board",6,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+395,Abacus-Reset Bar,hardware,1,"Abacus, Tally-Stick & Counting-Board",7,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+396,Tactile-Parity Checker,hardware,1,"Abacus, Tally-Stick & Counting-Board",8,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+397,Zero-Clearance Frame,hardware,1,"Abacus, Tally-Stick & Counting-Board",9,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+398,Epicyclic-Gear Mesher,hardware,2,"Geared Automata, Astrolabe & Difference-Engine",10,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+399,Stepped-Drum Indexer,hardware,2,"Geared Automata, Astrolabe & Difference-Engine",11,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+400,Carry-Lever Actuator,hardware,2,"Geared Automata, Astrolabe & Difference-Engine",12,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+401,Cam-Follower Sensor,hardware,2,"Geared Automata, Astrolabe & Difference-Engine",13,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+402,Crank-Torque Regulator,hardware,2,"Geared Automata, Astrolabe & Difference-Engine",14,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+403,Number-Wheel Lock,hardware,2,"Geared Automata, Astrolabe & Difference-Engine",15,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+404,Escapement-Tick Counter,hardware,2,"Geared Automata, Astrolabe & Difference-Engine",16,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+405,Brass-Bearing Oiler,hardware,2,"Geared Automata, Astrolabe & Difference-Engine",17,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+406,Zero-Angle Calibrator,hardware,2,"Geared Automata, Astrolabe & Difference-Engine",18,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+407,Coil-Energizer,hardware,3,"Electromechanical Relay, Switchboard & Tabulator",19,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+408,Contact-Arc Suppressor,hardware,3,"Electromechanical Relay, Switchboard & Tabulator",20,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+409,Stepping-Switch Rotator,hardware,3,"Electromechanical Relay, Switchboard & Tabulator",21,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+410,Plugboard-Patch Router,hardware,3,"Electromechanical Relay, Switchboard & Tabulator",22,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+411,Card-Brush Sensor,hardware,3,"Electromechanical Relay, Switchboard & Tabulator",23,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+412,Solenoid-Latch,hardware,3,"Electromechanical Relay, Switchboard & Tabulator",24,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+413,Bus-Bar Distributor,hardware,3,"Electromechanical Relay, Switchboard & Tabulator",25,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+414,Relay-Bounce Filter,hardware,3,"Electromechanical Relay, Switchboard & Tabulator",26,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+415,Master-Clock Breaker,hardware,3,"Electromechanical Relay, Switchboard & Tabulator",27,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+416,Filament-Heater Regulator,hardware,4,"Vacuum-Tube, CRT & Magnetic-Core Memory",28,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+417,Triode-Grid Switcher,hardware,4,"Vacuum-Tube, CRT & Magnetic-Core Memory",29,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+418,Cathode-Ray Refresher,hardware,4,"Vacuum-Tube, CRT & Magnetic-Core Memory",30,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+419,Ferrite-Core Threader,hardware,4,"Vacuum-Tube, CRT & Magnetic-Core Memory",31,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+420,Sense-Wire Reader,hardware,4,"Vacuum-Tube, CRT & Magnetic-Core Memory",32,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+421,Magnetic-Drum Head,hardware,4,"Vacuum-Tube, CRT & Magnetic-Core Memory",33,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+422,Tube-Burnout Swapper,hardware,4,"Vacuum-Tube, CRT & Magnetic-Core Memory",34,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+423,High-Voltage Rectifier,hardware,4,"Vacuum-Tube, CRT & Magnetic-Core Memory",35,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+424,Rack-Blower Cooler,hardware,4,"Vacuum-Tube, CRT & Magnetic-Core Memory",36,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+425,Silicon-Junction Biaser,hardware,5,"Discrete Transistor, PCB & Logic-Board",37,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+426,Copper-Trace Router,hardware,5,"Discrete Transistor, PCB & Logic-Board",38,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+427,Solder-Joint Inspector,hardware,5,"Discrete Transistor, PCB & Logic-Board",39,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+428,Capacitor-Decoupler,hardware,5,"Discrete Transistor, PCB & Logic-Board",40,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+429,Resistor-Divider,hardware,5,"Discrete Transistor, PCB & Logic-Board",41,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+430,Backplane-Bus Bridge,hardware,5,"Discrete Transistor, PCB & Logic-Board",42,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+431,Edge-Connector Lock,hardware,5,"Discrete Transistor, PCB & Logic-Board",43,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+432,Heat-Sink Fin,hardware,5,"Discrete Transistor, PCB & Logic-Board",44,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+433,Continuity-Multimeter Probe,hardware,5,"Discrete Transistor, PCB & Logic-Board",45,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+434,Clock-Crystal Oscillator,hardware,6,"CPU, ALU, GPU & Silicon-Wafer",46,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+435,Instruction-Decoder,hardware,6,"CPU, ALU, GPU & Silicon-Wafer",47,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+436,ALU-Adder Core,hardware,6,"CPU, ALU, GPU & Silicon-Wafer",48,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+437,Branch-Predictor Unit,hardware,6,"CPU, ALU, GPU & Silicon-Wafer",49,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+438,L1/L2/L3 Cache Controller,hardware,6,"CPU, ALU, GPU & Silicon-Wafer",50,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+439,Tensor-Matrix Array,hardware,6,"CPU, ALU, GPU & Silicon-Wafer",51,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+440,Voltage-Regulator Module (VRM),hardware,6,"CPU, ALU, GPU & Silicon-Wafer",52,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+441,Thermal-Throttle Sensor,hardware,6,"CPU, ALU, GPU & Silicon-Wafer",53,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+442,Silicon-Die Grounder,hardware,6,"CPU, ALU, GPU & Silicon-Wafer",54,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+443,DRAM-Cell Refresher,hardware,7,"RAM, Hard-Drive, Flash-SSD & Optical Storage",55,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+444,Spindle-Motor Governor,hardware,7,"RAM, Hard-Drive, Flash-SSD & Optical Storage",56,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+445,Voice-Coil Actuator Arm,hardware,7,"RAM, Hard-Drive, Flash-SSD & Optical Storage",57,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+446,Magnetic-Head Gimbal,hardware,7,"RAM, Hard-Drive, Flash-SSD & Optical Storage",58,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+447,NAND-Block Wear Leveler,hardware,7,"RAM, Hard-Drive, Flash-SSD & Optical Storage",59,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+448,Optical-Laser Focuser,hardware,7,"RAM, Hard-Drive, Flash-SSD & Optical Storage",60,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+449,ECC-Parity Corrector,hardware,7,"RAM, Hard-Drive, Flash-SSD & Optical Storage",61,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+450,NVMe-Lane Controller,hardware,7,"RAM, Hard-Drive, Flash-SSD & Optical Storage",62,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+451,Write-Protect Switch,hardware,7,"RAM, Hard-Drive, Flash-SSD & Optical Storage",63,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+452,AC-to-DC Rectifier,hardware,8,"Motherboard, Bus-Architecture & Power-Supply",64,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+453,Rail-Voltage Balancer,hardware,8,"Motherboard, Bus-Architecture & Power-Supply",65,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+454,PCIe-Lane Multiplexer,hardware,8,"Motherboard, Bus-Architecture & Power-Supply",66,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+455,Chipset-Southbridge Hub,hardware,8,"Motherboard, Bus-Architecture & Power-Supply",67,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+456,BIOS/UEFI Flash Chip,hardware,8,"Motherboard, Bus-Architecture & Power-Supply",68,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+457,CMOS-Battery Timekeeper,hardware,8,"Motherboard, Bus-Architecture & Power-Supply",69,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+458,USB-Port Handshaker,hardware,8,"Motherboard, Bus-Architecture & Power-Supply",70,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+459,Surge-Fuse Breaker,hardware,8,"Motherboard, Bus-Architecture & Power-Supply",71,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+460,Chassis-Ground Strap,hardware,8,"Motherboard, Bus-Architecture & Power-Supply",72,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+461,Key-Switch Debouncer,hardware,9,"Human-Interface, Display & Sensor-Peripheral",73,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+462,Optical-Track Sensor,hardware,9,"Human-Interface, Display & Sensor-Peripheral",74,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+463,Capacitive-Touch Grid,hardware,9,"Human-Interface, Display & Sensor-Peripheral",75,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+464,OLED-Pixel Driver,hardware,9,"Human-Interface, Display & Sensor-Peripheral",76,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+465,Backlight-Dimmer PWM,hardware,9,"Human-Interface, Display & Sensor-Peripheral",77,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+466,Acoustic-Transducer Mic,hardware,9,"Human-Interface, Display & Sensor-Peripheral",78,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+467,Speaker-Cone Amplifier,hardware,9,"Human-Interface, Display & Sensor-Peripheral",79,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+468,CMOS-Camera Shutter,hardware,9,"Human-Interface, Display & Sensor-Peripheral",80,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+469,Haptic-Vibration Motor,hardware,9,"Human-Interface, Display & Sensor-Peripheral",81,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+470,Laser-Diode Transceiver,hardware,10,"Fiber-Optic, RF-Wireless & Submarine-Cable",82,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+471,Glass-Core Waveguide,hardware,10,"Fiber-Optic, RF-Wireless & Submarine-Cable",83,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+472,Optical-Repeater Amplifier,hardware,10,"Fiber-Optic, RF-Wireless & Submarine-Cable",84,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+473,RJ45-Magnetics Transformer,hardware,10,"Fiber-Optic, RF-Wireless & Submarine-Cable",85,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+474,Phased-Array Beamformer,hardware,10,"Fiber-Optic, RF-Wireless & Submarine-Cable",86,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+475,Coaxial-Shield Braid,hardware,10,"Fiber-Optic, RF-Wireless & Submarine-Cable",87,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+476,Undersea-Armor Sheath,hardware,10,"Fiber-Optic, RF-Wireless & Submarine-Cable",88,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+477,Switch-Fabric Backplane,hardware,10,"Fiber-Optic, RF-Wireless & Submarine-Cable",89,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+478,Signal-Attenuation Meter,hardware,10,"Fiber-Optic, RF-Wireless & Submarine-Cable",90,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+479,Blade-Chassis Latch,hardware,11,"Server-Rack, Liquid-Cooling & Hyperscale-Cluster",91,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+480,Cold-Plate Coolant Pump,hardware,11,"Server-Rack, Liquid-Cooling & Hyperscale-Cluster",92,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+481,Radiator-Chiller Loop,hardware,11,"Server-Rack, Liquid-Cooling & Hyperscale-Cluster",93,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+482,Hot-Swap PSU Failover,hardware,11,"Server-Rack, Liquid-Cooling & Hyperscale-Cluster",94,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+483,UPS-Battery Inverter,hardware,11,"Server-Rack, Liquid-Cooling & Hyperscale-Cluster",95,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+484,High-Speed Interconnect Switch,hardware,11,"Server-Rack, Liquid-Cooling & Hyperscale-Cluster",96,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+485,Airflow-Containment Baffle,hardware,11,"Server-Rack, Liquid-Cooling & Hyperscale-Cluster",97,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+486,Leak-Detection Rope,hardware,11,"Server-Rack, Liquid-Cooling & Hyperscale-Cluster",98,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+487,Remote-IPMI Hardware Reset,hardware,11,"Server-Rack, Liquid-Cooling & Hyperscale-Cluster",99,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+488,Dilution-Fridge Compressor,hardware,12,"Quantum-Cryogenic, Neuromorphic & Bio-Silicon",100,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+489,Millikelvin-Shield Canister,hardware,12,"Quantum-Cryogenic, Neuromorphic & Bio-Silicon",101,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+490,Microwave-Pulse Waveguide,hardware,12,"Quantum-Cryogenic, Neuromorphic & Bio-Silicon",102,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+491,Ion-Trap Vacuum Pump,hardware,12,"Quantum-Cryogenic, Neuromorphic & Bio-Silicon",103,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+492,Magnetic-Flux Cage,hardware,12,"Quantum-Cryogenic, Neuromorphic & Bio-Silicon",104,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+493,Neuromorphic-Synapse Core,hardware,12,"Quantum-Cryogenic, Neuromorphic & Bio-Silicon",105,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+494,Micro-Electrode Bio-Well,hardware,12,"Quantum-Cryogenic, Neuromorphic & Bio-Silicon",106,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+495,Vibration-Isolation Table,hardware,12,"Quantum-Cryogenic, Neuromorphic & Bio-Silicon",107,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
+496,Quench-Safety Vent,hardware,12,"Quantum-Cryogenic, Neuromorphic & Bio-Silicon",108,SOURCE-INDEXED ROLE / NOT OPERATING HARDWARE
