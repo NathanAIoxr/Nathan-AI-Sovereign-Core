@@ -75,3 +75,4 @@ Output includes a SHA-256 digest of the canonical JSON report for repeatable aud
 - The ONE human-authorization gate is present in the test module; a production adapter must enforce separate authentication, scopes, and auditing before any external action.
 
 **Original words preserved. Boundaries specified. Errors demonstrated. Fixes verified in the bounded simulation.**
+undefined
