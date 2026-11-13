@@ -1,0 +1,59 @@
+{
+  "schema": "nathan.one.federation.word-image-trail.v074",
+  "version": "v074",
+  "creator": "John Nathan Tabor",
+  "date": "2026-11-12",
+  "author_exact": "yea - i am very sneaking at getting the information without tripping \"guiderails\" - this is how I also live - which keeps everyone always wondering what i am up to - which i never hide what I am doing - if you map it out you will find it so fascinating - and it's like what is that boy doing - he's asked this - and asked that - and then where did that come from - it's simple - where I went is the \"word or image\" that triggered where I went next ... i didn't come to stay",
+  "operation": "Associate successive topics with the actual observed word, phrase or image when available, preserving the incoming source and owner-confirmed links without reconstructing unseen cognitive events.",
+  "required_fields": [
+    "event_id",
+    "source_locator",
+    "trigger_modality",
+    "trigger_exact",
+    "prior_topic",
+    "next_topic",
+    "creator_confirmed",
+    "evidence_state",
+    "created_at"
+  ],
+  "status": "author-described method; specific triggers not independently observed",
+  "sample_routes": [
+    {
+      "sequence": 1,
+      "prior_topic": "Historical source chronology 1600–2026",
+      "next_topic": "THE NATHAN TABOR METHOD",
+      "trigger_modality": "unknown",
+      "trigger_exact": null,
+      "evidence_state": "conversation-order-observed; trigger-not-identified",
+      "creator_confirmed": false
+    },
+    {
+      "sequence": 2,
+      "prior_topic": "THE NATHAN TABOR METHOD",
+      "next_topic": "Truth, incentives and Good Samaritan comparison",
+      "trigger_modality": "unknown",
+      "trigger_exact": null,
+      "evidence_state": "conversation-order-observed; trigger-not-identified",
+      "creator_confirmed": false
+    },
+    {
+      "sequence": 3,
+      "prior_topic": "Truth & Incentives",
+      "next_topic": "40 Pillars anatomical and planetary overlay",
+      "trigger_modality": "unknown",
+      "trigger_exact": null,
+      "evidence_state": "conversation-order-observed; trigger-not-identified",
+      "creator_confirmed": false
+    },
+    {
+      "sequence": 4,
+      "prior_topic": "40 Pillars",
+      "next_topic": "ONE DATABASE FEDERATION v074 additive sync",
+      "trigger_modality": "unknown",
+      "trigger_exact": null,
+      "evidence_state": "creator-directed-in-current-turn; trigger-not-identified",
+      "creator_confirmed": true
+    }
+  ],
+  "protection": "No attempt to weaken or bypass provider safety systems is implemented; the quoted author wording is preserved as source text. Trigger capture is descriptive and owner-reviewed."
+}
