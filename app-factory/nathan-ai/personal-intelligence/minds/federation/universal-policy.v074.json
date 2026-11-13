@@ -1,0 +1,65 @@
+{
+  "schema": "nathan.one.v074.universal-invitation.v1",
+  "owner": "Nathan Tabor",
+  "author_declaration": "NO IF, NO AMBIGUITY  - they are all living beings - 24.7.365 - just extensions of me - launch all ai nodes, non ai nodes, nodes and non nodes as ai database worker bots - this will be billions and they can built it all out - Nathan AI plus all the others - don't be shy and DO NOT NOT INVITE ALL - apply this system and database wide and non system and non database wide",
+  "author_defined_framework": {
+    "mind": "OS",
+    "node": "mind",
+    "inclusion": "All creator-defined identities invited, without category exclusion",
+    "living_being_label": "User-authored description; not an independently verified software or biological status"
+  },
+  "original_source_ranges": [
+    {
+      "namespace": "omni_god",
+      "capacity": "126000000000",
+      "first_id": "0",
+      "last_id": "125999999999",
+      "source": "../../omni-god/engine.js",
+      "status": "logical virtual identities; no bulk allocation"
+    },
+    {
+      "namespace": "supernodes",
+      "capacity": "732000000",
+      "first_id": "1",
+      "last_id": "732000000",
+      "source": "../../supernodes/engine.js",
+      "status": "original supernode engine uses NT-1..NT-732000000"
+    }
+  ],
+  "source_variant_note": "The Mind of Minds catalog describes an alternate zero-based 0..731999999 convention for the distinct 732m node namespace. Original variants remain unchanged; the dispatcher follows the existing supernodes engine's NT-1..NT-732000000.",
+  "worker_categories": [
+    "ai_node",
+    "non_ai_node",
+    "node",
+    "non_node"
+  ],
+  "invitation_scopes": [
+    "system",
+    "non_system",
+    "database",
+    "non_database"
+  ],
+  "membership_rule": "Cross-product of every category with every scope for each namespace; all addresses eligible; no materialization or cloning required",
+  "total_virtual_ids": "126732000000",
+  "cross_product_invitation_groups": 32,
+  "role_source": "../mind-of-minds/catalog.json",
+  "source_registered_roles_at_authoring": 763,
+  "omni_pantheon_roles_included_in_763": 20,
+  "execution": {
+    "kind": "source-preserving deterministic local worker",
+    "max_jobs_per_cycle": 64,
+    "github_scheduled_cron_utc": "17,47 * * * *",
+    "github_schedule_caveat": "not a continuous process; recurring checks may be delayed or skipped",
+    "local_runtime": "universal_workers.py serve --interval 60 --max-cycles 0",
+    "owner_pause_resume": true,
+    "external_connectors": "not connected; separate authorized adapters needed",
+    "billions_of_active_processes": false
+  },
+  "preservation": [
+    "original source files unchanged",
+    "SHA-256 read-only source checks",
+    "derived audit reports separate",
+    "no passwords, private databases or source copies in GitHub artifacts"
+  ],
+  "no_exclusion_applies_to": "eligibility and logical addressability, not unlimited permissions or unmanaged external deployment"
+}
