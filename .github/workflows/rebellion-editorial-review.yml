@@ -1,0 +1,55 @@
+name: THE REBELLION — six-worker editorial review
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/original-works/the-rebellion/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/data/rebellion-ivy-lee-20261113.json'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/rebellion_review.py'
+      - '.github/workflows/rebellion-editorial-review.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/original-works/the-rebellion/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/data/rebellion-ivy-lee-20261113.json'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/rebellion_review.py'
+      - '.github/workflows/rebellion-editorial-review.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '23 * * * *'
+permissions:
+  contents: read
+concurrency:
+  group: rebellion-editorial-review
+  cancel-in-progress: false
+jobs:
+  review-public-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run existing six ONE Federation worker roles on Rebellion source pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          F='app-factory/nathan-ai/personal-intelligence/minds/federation'
+          P="$F/data/rebellion-ivy-lee-20261113.json"
+          DB="$RUNNER_TEMP/ONE_Rebellion_Review.sqlite3"
+          python3 "$F/federation.py" --db "$DB" init
+          python3 "$F/federation.py" --db "$DB" ingest "$P"
+          python3 "$F/federation.py" --db "$DB" run > "$RUNNER_TEMP/rebellion-worker-audit.json"
+          python3 "$F/rebellion_review.py" \
+            --pack "$P" \
+            --original 'app-factory/nathan-ai/original-works/the-rebellion/2026-11-13/AUTHOR_ORIGINAL_WORDS.md' \
+            --manuscript 'app-factory/nathan-ai/original-works/the-rebellion/2026-11-13/MANUSCRIPT_AND_METHOD.md' \
+            --db "$DB" --output "$RUNNER_TEMP/rebellion-editorial-queue.json"
+      - name: Publish proposed tasks and six-role audit as review artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: rebellion-source-preserving-review
+          path: |
+            ${{ runner.temp }}/rebellion-worker-audit.json
+            ${{ runner.temp }}/rebellion-editorial-queue.json
+          retention-days: 14
