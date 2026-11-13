@@ -1,0 +1,59 @@
+name: ONE - Epic Uncollapsed Master Source Integrity
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/river-spark-epic-v2/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/continuity-v496/**'
+      - '.github/workflows/one-epic-uncollapsed-integrity.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/river-spark-epic-v2/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/continuity-v496/**'
+      - '.github/workflows/one-epic-uncollapsed-integrity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  epic-source-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check every uncollapsed role and editorial reference
+        run: |
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          python3 "$F/river-spark-epic-v2/validate_epic.py" | tee /tmp/one-epic-integrity.json
+          python3 "$F/continuity-v496/verify.py" --days 7 > /tmp/one-v496-source-proof.json
+      - name: Verify the validator rejects an extra non-source #497
+        run: |
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation/river-spark-epic-v2
+          cp "$F/ONE_333_ROLES.csv" /tmp/one-roles-original.csv
+          python3 - "$F/ONE_333_ROLES.csv" <<'PY'
+          import csv,sys
+          p=sys.argv[1]
+          with open(p,encoding='utf8',newline='') as f:
+              rows=list(csv.DictReader(f))
+              names=list(rows[0])
+          rows[-1]['global_id']='497'
+          with open(p,'w',encoding='utf8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=names)
+              w.writeheader()
+              w.writerows(rows)
+          PY
+          if python3 "$F/validate_epic.py"; then
+            echo 'Boundary validator accepted forbidden last position'
+            exit 1
+          fi
+          cp /tmp/one-roles-original.csv "$F/ONE_333_ROLES.csv"
+          python3 "$F/validate_epic.py" > /dev/null
+      - name: Attach public-only verification evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: one-epic-uncollapsed-validation
+          path: |
+            /tmp/one-epic-integrity.json
+            /tmp/one-v496-source-proof.json
+          if-no-files-found: error
