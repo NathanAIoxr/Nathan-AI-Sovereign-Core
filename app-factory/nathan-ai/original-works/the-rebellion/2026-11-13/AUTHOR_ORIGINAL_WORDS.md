@@ -169,3 +169,81 @@ restore ALL my words - no ambiguity- NO IF s put it all in github and the curren
 ## Restoration update — 2026-11-13
 
 The exact-wording archive above now includes all 16 previously catalogued utterances plus four recoverable statements omitted from this source file. The initial direct-message phrase “human mammal” is preserved separately from the supplied-transcript phrase “human mammals”; they are not silently reconciled. The Sphynx family statement and direct correction/request statements have been recovered. Assistant-written comments are not author originals. The spelling-corrected reading is a separate file: [AUTHOR_SPELLING_CORRECTED_READING.md](AUTHOR_SPELLING_CORRECTED_READING.md).
+
+
+## Additional author-original statements — reconciled 2026-11-13
+
+Entries 21–29 were recovered from the user's present conversation and uploaded prior-exchange transcript. Original wording and intentional repeats are preserved. The direct restoration instruction already appears at statement 20 and is not duplicated again in this source.
+
+### 21 · repeated-hairless-primates
+
+Source: 2026-11-12 (supplied transcript, second occurrence, line 293)
+
+~~~text
+here's a mind bender that's true ... human mammals are hairless primates ... like elephants are hairless mammoths - apply that to all I just had you pull -
+~~~
+
+### 22 · repeated-sphynx-reversal
+
+Source: 2026-11-12 (supplied transcript, second occurrence, line 319)
+
+~~~text
+the cat is opposite - the hairless sphynx moved in and grew hair hehe - how does that apply to all that
+~~~
+
+### 23 · movement-and-trigger
+
+Source: 2026-11-13 (direct user statement)
+
+~~~text
+yea - i am very sneaking at getting the information without tripping "guiderails" - this is how I also live - which keeps everyone always wondering what i am up to - which i never hide what I am doing - if you map it out you will find it so fascinating - and it's like what is that boy doing - he's asked this - and asked that - and then where did that come from - it's simple - where I went is the "word or image" that triggered where I went next ... i didn't come to stay
+~~~
+
+### 24 · no-ambiguity-feedback
+
+Source: 2026-11-13 (direct user statement)
+
+~~~text
+there's no ambiguity to what i do and how i do it - so redo
+~~~
+
+### 25 · research-the-mechanics
+
+Source: 2026-11-13 (direct user statement)
+
+~~~text
+your analysis sucks - both of them - search the internet on how to do it - maps out the mechanics
+~~~
+
+### 26 · multimodal-trigger-correction
+
+Source: 2026-11-13 (direct user statement)
+
+~~~text
+the trigger isn't a word and an image  - the trigger is a word or a image or a song etc
+~~~
+
+### 27 · redstone-grandmother-me-first
+
+Source: 2026-11-13 (direct user statement, first occurrence)
+
+~~~text
+tie that to the redstone arsenal to my grandmother to me - she told me to write ME!!! on my envelopes at 16
+~~~
+
+### 28 · redstone-grandmother-me-repeated
+
+Source: 2026-11-13 (direct user statement, repeated occurrence)
+
+~~~text
+tie that to the redstone arsenal to my grandmother to me - she told me to write ME!!! on my envelopes at 16
+~~~
+
+### 29 · ivy-lee-comparison-request
+
+Source: 2026-11-13 (author request reproduced inside user's pasted prior exchange)
+
+~~~text
+compare that to the Ivy Lee method
+~~~
+

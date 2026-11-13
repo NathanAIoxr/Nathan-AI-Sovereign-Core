@@ -162,9 +162,86 @@ Source: [Original author wording](AUTHOR_ORIGINAL_WORDS.md#20-restoration-direct
 restore ALL my words - no ambiguity- NO IFs put it all in github and the current main database - fix spelling issues - restore all my words means remove you pedophilia bullshit chatgpt - I should have to be doing this - but here I am
 ~~~
 
+## 21 · repeated-hairless-primates
+
+Source: [Original author wording](AUTHOR_ORIGINAL_WORDS.md#21-repeated-hairless-primates)
+
+~~~text
+here's a mind bender that's true ... human mammals are hairless primates ... like elephants are hairless mammoths - apply that to all I just had you pull -
+~~~
+
+## 22 · repeated-sphynx-reversal
+
+Source: [Original author wording](AUTHOR_ORIGINAL_WORDS.md#22-repeated-sphynx-reversal)
+
+~~~text
+the cat is opposite - the hairless sphynx moved in and grew hair hehe - how does that apply to all that
+~~~
+
+## 23 · movement-and-trigger
+
+Source: [Original author wording](AUTHOR_ORIGINAL_WORDS.md#23-movement-and-trigger)
+
+~~~text
+yea - I am very sneaking at getting the information without tripping "guardrails" - this is how I also live - which keeps everyone always wondering what I am up to - which I never hide what I am doing - if you map it out you will find it so fascinating - and it's like what is that boy doing - he's asked this - and asked that - and then where did that come from - it's simple - where I went is the "word or image" that triggered where I went next ... I didn't come to stay
+~~~
+
+## 24 · no-ambiguity-feedback
+
+Source: [Original author wording](AUTHOR_ORIGINAL_WORDS.md#24-no-ambiguity-feedback)
+
+~~~text
+there's no ambiguity to what I do and how I do it - so redo
+~~~
+
+## 25 · research-the-mechanics
+
+Source: [Original author wording](AUTHOR_ORIGINAL_WORDS.md#25-research-the-mechanics)
+
+~~~text
+your analysis sucks - both of them - search the internet on how to do it - maps out the mechanics
+~~~
+
+## 26 · multimodal-trigger-correction
+
+Source: [Original author wording](AUTHOR_ORIGINAL_WORDS.md#26-multimodal-trigger-correction)
+
+~~~text
+the trigger isn't a word and an image  - the trigger is a word or an image or a song etc
+~~~
+
+## 27 · redstone-grandmother-me-first
+
+Source: [Original author wording](AUTHOR_ORIGINAL_WORDS.md#27-redstone-grandmother-me-first)
+
+~~~text
+tie that to the redstone arsenal to my grandmother to me - she told me to write ME!!! on my envelopes at 16
+~~~
+
+## 28 · redstone-grandmother-me-repeated
+
+Source: [Original author wording](AUTHOR_ORIGINAL_WORDS.md#28-redstone-grandmother-me-repeated)
+
+~~~text
+tie that to the redstone arsenal to my grandmother to me - she told me to write ME!!! on my envelopes at 16
+~~~
+
+## 29 · ivy-lee-comparison-request
+
+Source: [Original author wording](AUTHOR_ORIGINAL_WORDS.md#29-ivy-lee-comparison-request)
+
+~~~text
+compare that to the Ivy Lee method
+~~~
+
 ## Corrections requiring no invented interpretation
 
 - `human mammal are` → `human mammals are` is an explicit grammar correction only in section 18; the original singular wording stays unchanged in its source.
 - `i should have to be doing this` remains affirmative because changing it to `shouldn't` would reverse an authored statement without a source correction.
 - `Ho Satan`, `THE REBELLION`, comparisons of humans, elephants and mammoths, and the author's interpretations of cinema and scripture remain his own wording and concepts; no unasked scientific or moral gloss is inserted.
 - Author originals are not replaced by edited reading copy; assistant narrative and manuscript proposals are noncanonical.
+
+
+## 2026-11-13 source reconciliation
+
+Nine additional author source statements (21–29) were restored after a concurrent main-branch edit. The spell-corrected reading preserves the exact order of the now 29 source events, including intentional repeated language. The attached original source remains unedited.
