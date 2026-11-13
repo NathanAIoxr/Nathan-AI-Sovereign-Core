@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>THE NATHAN TABOR WAY — Technology Root-Problem Registry</title>
+<style>
+:root{color-scheme:dark;--bg:#0d1320;--panel:#162035;--muted:#a8b7cc;--line:#374860;--accent:#5de0c3}
+*{box-sizing:border-box}body{font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;color:#edf3fc;background:var(--bg);margin:0}
+main{max-width:1100px;margin:0 auto;padding:clamp(18px,4vw,44px)}h1{font-size:clamp(1.55rem,4vw,2.6rem);line-height:1.15;margin:0 0 10px}h2{font-size:1.22rem}
+p{margin:10px 0}.muted,.meta{color:var(--muted)}.tag{border:1px solid var(--line);border-radius:18px;padding:3px 9px;display:inline-block;font-size:.8rem}
+.hero{border-bottom:1px solid var(--line);padding-bottom:24px}.controls{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+input,select{background:var(--panel);color:#fff;border:1px solid var(--line);border-radius:9px;padding:12px;font:inherit;max-width:100%}
+input{flex:2;min-width:220px}select{flex:1;min-width:185px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
+.stat{border:1px solid var(--line);border-radius:9px;padding:10px 15px;background:var(--panel);flex:1;min-width:150px}.stat strong{display:block;font-size:1.6rem}
+details{border:1px solid var(--line);border-radius:10px;padding:0 14px;margin:10px 0;background:var(--panel)}summary{cursor:pointer;padding:13px 2px;font-weight:650}
+summary:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.grid{display:grid;grid-template-columns:180px 1fr;gap:8px 15px;padding:8px 0 16px}dt{color:var(--muted)}dd{margin:0}
+@media(max-width:600px){.grid{grid-template-columns:1fr}dt{margin-top:8px}}
+.warning{border-left:4px solid var(--accent);background:var(--panel);padding:12px 14px;margin:20px 0}
+a{color:#8fc8ff}footer{margin:45px 0 0;border-top:1px solid var(--line);padding-top:15px;color:var(--muted)}
+</style></head>
+<body><main><header class="hero"><p class="tag">BY NATHAN TABOR · EVIDENCE-FIRST ENGINEERING</p>
+<h1>THE NATHAN TABOR WAY</h1><p style="font-size:1.2rem">REVERSE, ENGINEER — FORWARD, ENGINEER</p>
+<blockquote>Start with the result. Reverse-engineer its functionality. Reconstruct the mechanisms. Test the connections. Build forward from what the evidence establishes.</blockquote>
+<p class="muted">The sentence above is the original author statement. Root-problem records and testing procedures are a separate engineering elaboration.</p></header>
+<section class="warning"><strong>Zero verified production repairs.</strong> These are hypotheses and acceptance-test designs, not claims that real systems have been fixed. Never add private source files or secrets to the public catalog.</section>
+<section class="stats" aria-label="Catalog totals"><div class="stat"><strong id="count">—</strong>visible problems</div><div class="stat"><strong id="domains">—</strong>domains</div><div class="stat"><strong id="verified">0</strong>verified deployments</div></section>
+<h2>Find a root problem</h2><div class="controls"><input id="query" type="search" placeholder="Search failures, mechanisms, corrections, tests" aria-label="Search problems"><select id="domain" aria-label="Filter by domain"><option value="">All domains</option></select><select id="limit" aria-label="Filter by addressability"><option value="">All addressability classes</option><option value="fixable">Fixable in a specified scope</option><option value="reducible">Risk reducible</option><option value="constrained">Constrained by external limits</option></select></div>
+<p id="message" class="muted" role="status">Loading data...</p><section id="results" aria-label="Problem records"></section>
+<footer>Source standards: <a href="https://csrc.nist.gov/pubs/sp/800/218/final">NIST SSDF</a> · <a href="https://top10.owasp.org/">OWASP 2025</a> · <a href="https://www.iso.org/standard/78176.html">ISO/IEC 25010</a> · <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2</a>. No endorsement or certification is implied.</footer></main>
+<script>
+'use strict';
+const results=document.getElementById('results'), message=document.getElementById('message');
+const query=document.getElementById('query'), domain=document.getElementById('domain'), limit=document.getElementById('limit');
+let rows=[];
+function addDefinition(dl,label,value){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=value;dl.append(dt,dd)}
+function render(){
+ const needle=query.value.trim().toLowerCase();
+ const filtered=rows.filter(r=>(!domain.value||domain.value===r.domain)&&(!limit.value||limit.value===r.limit)&&(!needle||[r.id,r.domain,r.problem,r.mechanism_hypothesis,r.forward_correction,r.acceptance_test].join(' ').toLowerCase().includes(needle)));
+ results.replaceChildren();document.getElementById('count').textContent=filtered.length;
+ message.textContent=`${filtered.length} of ${rows.length} unassessed hypotheses shown.`;
+ for(const r of filtered){const details=document.createElement('details'),summary=document.createElement('summary'),dl=document.createElement('dl');
+ summary.textContent=`${r.id} — ${r.problem}`;dl.className='grid';
+ addDefinition(dl,'Domain',r.domain);addDefinition(dl,'Observed failure','Not audited or observed in a named system');
+ addDefinition(dl,'Possible mechanism',r.mechanism_hypothesis);addDefinition(dl,'Forward correction',r.forward_correction);
+ addDefinition(dl,'Acceptance test',r.acceptance_test);addDefinition(dl,'Addressability estimate',r.limit);
+ addDefinition(dl,'Evidence status',r.status);details.append(summary,dl);results.append(details)}
+}
+(async()=>{try{const response=await fetch('problems.json',{cache:'no-store'});if(!response.ok)throw Error(`HTTP ${response.status}`);
+ const data=await response.json();if(!Array.isArray(data))throw Error('Invalid catalog');rows=data;
+ for(const name of [...new Set(rows.map(r=>r.domain))]){const option=document.createElement('option');option.value=name;option.textContent=name;domain.append(option)}
+ document.getElementById('domains').textContent=new Set(rows.map(r=>r.domain)).size;
+ for(const el of [query,domain,limit])el.addEventListener('input',render);render();
+}catch(error){message.textContent='Could not load the catalog. Serve this directory with python -m http.server 8000, then reload. '+error.message;}})();
+</script></body></html>
