@@ -41,6 +41,21 @@ def setup(tmp):
     git(root,"add",".")
     git(root,"commit","-m","preserve original creator files")
     pinned=git(root,"hash-object","originals/AUTHOR_ORIGINAL_WORDS.md")
+    families=root/"families.json"
+    records=[{"number":i,"name":None,
+               "status":"original_definition_not_supplied_in_this_message"}
+             for i in range(1,16)]
+    for i in range(16,21):
+        records.append({"number":i,"name":"Omega "+str(i),
+                        "source_fields":{"Mission":"Original mission",
+                                         "Core Intelligence":"Original core",
+                                         "Micro Design":"Original micro",
+                                         "Macro Design":"Original macro"}})
+    records.append({"number":21,"name":"ONE",
+                    "source_fields":{"Author exact declaration":
+                       "family 21 is ONE - we are all family - all source voices remain exact"}})
+    families.write_text(json.dumps({"schema":"nathan.one.federation.v074.families21.v1",
+                                    "families":records}))
     conf={
         "schema":VERSION,
         "teams":[
@@ -55,6 +70,7 @@ def setup(tmp):
           {"id":"quality","name":"QA","keywords":["quality"]},
           {"id":"watch","name":"Watch","keywords":["watch"]}
         ],
+        "family_registry":"families.json",
         "catalog":"catalog.json",
         "source_locks":[{"path":"originals/AUTHOR_ORIGINAL_WORDS.md","pinned_git_blob":pinned,"reason":"preserved verbatim"}],
         "public_sites_root":"app-factory/sites",
@@ -75,6 +91,10 @@ class CreatorTeamsTests(unittest.TestCase):
             output=Path(temp)/"artifact"
             summary=run_teams(root,config,output,"HEAD^")
             self.assertEqual(summary["creator_teams"],10)
+            self.assertEqual(summary["family_slots"],21)
+            self.assertEqual(summary["family21_overlay_teams"],10)
+            self.assertEqual(summary["family_prior_definitions_unresolved"],15)
+            self.assertTrue((output/"families/ONE_21_MASTER_NOTE.md").is_file())
             self.assertEqual(summary["registered_roles_assigned"],3)
             self.assertEqual(summary["roles_excluded"],0)
             self.assertEqual(summary["book_sources_preserved"],1)
