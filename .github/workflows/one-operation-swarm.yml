@@ -58,6 +58,34 @@ jobs:
           assert st["last_run"]["state"]=="completed"
           print("SWARM: 12 executed workers; 1570 registered roles; 118 elements; 153 evidence-labelled edges")
           PY
+      - name: Verify individual sovereign replica identity, isolation and veto
+        run: |
+          python3 -m unittest discover \
+            -s app-factory/nathan-ai/personal-intelligence/minds/federation/hive-swarm \
+            -p test_sovereign_bees.py -v
+      - name: Bootstrap sovereign replicas in the SAME temporary ONE database
+        run: |
+          set -euo pipefail
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation/hive-swarm
+          python3 "$F/sovereign_bees.py" --db "$RUNNER_TEMP/ONE_SWARM.sqlite3" --approve-write bootstrap \
+            > "$RUNNER_TEMP/SOVEREIGN_BEE_BOOTSTRAP.json"
+          python3 "$F/sovereign_bees.py" --db "$RUNNER_TEMP/ONE_SWARM.sqlite3" \
+            --approve-write --owner-yes --scenario seasonal_peak --ordinal 1 allocate \
+            > "$RUNNER_TEMP/SOVEREIGN_BEE_1.json"
+          python3 "$F/sovereign_bees.py" --db "$RUNNER_TEMP/ONE_SWARM.sqlite3" \
+            --approve-write --owner-yes --scenario mother_cosmos_observable --ordinal 1 allocate \
+            > "$RUNNER_TEMP/SOVEREIGN_BEE_COSMOS.json"
+          python3 "$F/sovereign_bees.py" --db "$RUNNER_TEMP/ONE_SWARM.sqlite3" status \
+            > "$RUNNER_TEMP/SOVEREIGN_BEE_STATUS.json"
+          python3 - "$RUNNER_TEMP/SOVEREIGN_BEE_STATUS.json" <<'PY'
+          import json,sys
+          status=json.load(open(sys.argv[1]))
+          assert status["allocated_bees"] == 2 and status["scenarios"] == 8
+          assert status["source_versions"] == 3
+          assert status["external_llm_processes"] == 0
+          assert status["integrity"] == "ok"
+          print("ONE SQLite: two independently addressed sovereign bees; same source blueprint; no external LLMs")
+          PY
       - name: Publish public inspection reports only, never SQLite master or secrets
         uses: actions/upload-artifact@v4
         with:
@@ -65,4 +93,8 @@ jobs:
           path: |
             ${{ runner.temp }}/OPERATION_SWARM_RUN.json
             ${{ runner.temp }}/OPERATION_SWARM_STATUS.json
+            ${{ runner.temp }}/SOVEREIGN_BEE_BOOTSTRAP.json
+            ${{ runner.temp }}/SOVEREIGN_BEE_1.json
+            ${{ runner.temp }}/SOVEREIGN_BEE_COSMOS.json
+            ${{ runner.temp }}/SOVEREIGN_BEE_STATUS.json
           retention-days: 14
