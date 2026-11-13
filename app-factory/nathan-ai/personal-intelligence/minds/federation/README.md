@@ -8,6 +8,11 @@ Connect existing ONE and Mind of Minds databases through a separate local main d
 
 
 
+
+## FENCEPOST ERROR SYNDROME — by Nathan Tabor
+
+[Eight bounded worker bots](./fencepost-error-syndrome/README.md) · [Python implementation](./fencepost-error-syndrome/fencepost_workers.py) · [unit tests](./fencepost-error-syndrome/test_fencepost_workers.py). Includes 10,000 seeded boundary checks and a multi-domain seven-day simulation. Named as a creator-authored framework, not as an independently verified defect in Google's systems. No remote actions or unreviewed patches.
+
 ## ONE · Families 65–75 · Off-by-One Fix & Simulation
 
 [Source-preserving 99-member expansion](./families-v75/README.md) · [11 families and 99 members JSON](./families-v75/registry.v75.json) · [reproducible seven-day simulation](./families-v75/simulate_indexing.py). This additive record does not overwrite Family 21 ONE or the 40-family codex; it preserves separate family/member numbering and records unverified earlier family definitions.
