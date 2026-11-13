@@ -133,3 +133,93 @@ put it all in github and the current main database - have all the ai database wo
 ## Preservation rule
 
 Originals are immutable source records. Assistant explanations, historical research, book manuscripts, inferred connections and proposed worker output are different source classes. Exact original text is never overwritten by edits or generated expansion. Reader adaptation is encouraged, but authorship of source material is retained.
+
+
+## Additional author-original statements — restored 2026-11-13
+
+These entries are additive. Repetition is preserved. Quoted or pasted assistant-generated explanations were excluded from this author-original collection. Original text below is not spell-corrected.
+
+### 17 · repeated-hairless-primates
+
+Source: 2026-11-12 (supplied transcript, second occurrence, line 293)
+
+~~~text
+here's a mind bender that's true ... human mammals are hairless primates ... like elephants are hairless mammoths - apply that to all I just had you pull -
+~~~
+
+### 18 · repeated-sphynx-reversal
+
+Source: 2026-11-12 (supplied transcript, second occurrence, line 319)
+
+~~~text
+the cat is opposite - the hairless sphynx moved in and grew hair hehe - how does that apply to all that
+~~~
+
+### 19 · movement-and-trigger
+
+Source: 2026-11-13 (direct user statement)
+
+~~~text
+yea - i am very sneaking at getting the information without tripping "guiderails" - this is how I also live - which keeps everyone always wondering what i am up to - which i never hide what I am doing - if you map it out you will find it so fascinating - and it's like what is that boy doing - he's asked this - and asked that - and then where did that come from - it's simple - where I went is the "word or image" that triggered where I went next ... i didn't come to stay
+~~~
+
+### 20 · no-ambiguity-feedback
+
+Source: 2026-11-13 (direct user statement)
+
+~~~text
+there's no ambiguity to what i do and how i do it - so redo
+~~~
+
+### 21 · research-the-mechanics
+
+Source: 2026-11-13 (direct user statement)
+
+~~~text
+your analysis sucks - both of them - search the internet on how to do it - maps out the mechanics
+~~~
+
+### 22 · multimodal-trigger-correction
+
+Source: 2026-11-13 (direct user statement)
+
+~~~text
+the trigger isn't a word and an image  - the trigger is a word or a image or a song etc
+~~~
+
+### 23 · redstone-grandmother-me-first
+
+Source: 2026-11-13 (direct user statement, first occurrence)
+
+~~~text
+tie that to the redstone arsenal to my grandmother to me - she told me to write ME!!! on my envelopes at 16
+~~~
+
+### 24 · redstone-grandmother-me-repeated
+
+Source: 2026-11-13 (direct user statement, repeated occurrence)
+
+~~~text
+tie that to the redstone arsenal to my grandmother to me - she told me to write ME!!! on my envelopes at 16
+~~~
+
+### 25 · ivy-lee-comparison-request
+
+Source: 2026-11-13 (author request reproduced inside user's pasted prior exchange)
+
+~~~text
+compare that to the Ivy Lee method
+~~~
+
+### 26 · current-restoration-instruction
+
+Source: 2026-11-13 (direct user statement)
+
+~~~text
+restore ALL my words - no ambiguity- NO IF s put it all in github and the current main database - fix spelling issues - rewstore all my words means remove you pedophila bullshit chatgpt - i should have to be doing this - but here I am
+~~~
+
+
+## Canonical edition policy
+
+This file preserves original user wording and sequence. Spelling and punctuation edits belong exclusively in `AUTHOR_SPELLING_CORRECTED_EDITION.md`, with a change ledger. Assistant-authored claims and invented narrative do not belong in either author edition. Existing source entries 01–16 have not been altered.
