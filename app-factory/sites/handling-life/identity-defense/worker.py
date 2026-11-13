@@ -116,25 +116,30 @@ def case_from_news(item):
 
 
 def airtable_sync(cases, token, base_id, table_id):
-    """Airtable PATCH upsert is idempotent by Case Key. Max 10 per batch."""
+    """Create new leads ONLY: preserve any prior owner reviews and resolutions."""
     endpoint = ("https://api.airtable.com/v0/" +
                 urllib.parse.quote(base_id, safe="") + "/" +
                 urllib.parse.quote(table_id, safe=""))
     synced = 0
-    for start in range(0, len(cases), 10):
-        batch = cases[start:start + 10]
-        payload = json.dumps({
-            "performUpsert": {"fieldsToMergeOn": ["Case Key"]},
-            "records": [{"fields": c} for c in batch],
-            "typecast": False
-        }).encode("utf-8")
-        req = urllib.request.Request(
-            endpoint, data=payload, method="PATCH",
-            headers={"Authorization": "Bearer " + token,
-                     "Content-Type": "application/json", "User-Agent": UA})
+    headers = {"Authorization": "Bearer " + token,
+               "Content-Type": "application/json", "User-Agent": UA}
+    for case in cases:
+        # Case Key is generated as IDDEF-[0-9a-f], safe to embed in the formula.
+        key = case["Case Key"]
+        formula = "{Case Key}='" + key + "'"
+        lookup = endpoint + "?" + urllib.parse.urlencode({"filterByFormula": formula,
+                                                             "maxRecords": 1})
+        with urllib.request.urlopen(urllib.request.Request(lookup, headers=headers),
+                                    timeout=20) as response:
+            existing = json.load(response).get("records", [])
+        if existing:
+            continue
+        payload = json.dumps({"records": [{"fields": case}], "typecast": False}).encode("utf-8")
+        req = urllib.request.Request(endpoint, data=payload, method="POST",
+                                     headers=headers)
         with urllib.request.urlopen(req, timeout=20) as response:
             response.read(65536)
-        synced += len(batch)
+        synced += 1
     return synced
 
 
