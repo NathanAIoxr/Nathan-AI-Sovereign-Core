@@ -12,3 +12,11 @@ private-samples/
 
 # Scratch work; release artifacts belong outside the checkout
 /work/
+
+# ONE Federation: local/private master databases and SQLite journal files
+/app-factory/nathan-ai/personal-intelligence/minds/federation/*.sqlite
+/app-factory/nathan-ai/personal-intelligence/minds/federation/*.sqlite3
+/app-factory/nathan-ai/personal-intelligence/minds/federation/*.db
+/app-factory/nathan-ai/personal-intelligence/minds/federation/*.sqlite3-*
+/app-factory/nathan-ai/personal-intelligence/minds/federation/*.sqlite-*
+/app-factory/nathan-ai/personal-intelligence/minds/federation/*.db-*
