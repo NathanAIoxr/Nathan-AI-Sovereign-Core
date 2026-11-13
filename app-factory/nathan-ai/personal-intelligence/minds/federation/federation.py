@@ -279,7 +279,17 @@ def main():
     i=sub.add_parser("ingest");i.add_argument("sources",nargs="+")
     sub.add_parser("run");sub.add_parser("status")
     q=sub.add_parser("search");q.add_argument("query");q.add_argument("--limit",type=int,default=20)
+    # Boundary math stays OUT of the ONE core; dispatch verbatim typed contracts
+    # to dedicated, read-only worker bots. No SQLite database is opened here.
+    b=sub.add_parser("boundaries")
+    b.add_argument("--request-file",required=True)
     a=p.parse_args()
+    if a.cmd=="boundaries":
+        from nathan_ai_boundary_gateway import dispatch_boundary_request
+        request=json.loads(Path(a.request_file).read_text(encoding="utf-8"))
+        out=dispatch_boundary_request(request)
+        print(json.dumps(out,indent=2,ensure_ascii=False))
+        return
     c=open_main(a.db)
     if a.cmd=="init":out={"status":"ready","db":a.db}
     elif a.cmd=="ingest":out=[ingest(c,x) for x in a.sources]
