@@ -1,0 +1,86 @@
+{
+  "schema": "nathan.one.v75.indexing-simulation-result.v1",
+  "source": "registry.v75.json",
+  "status": "deterministic synthetic model",
+  "assumption": "One simulated role assignment for each of 99 worker archetype members per calendar day, for 7 days.",
+  "calendar": {
+    "first": "2026-11-15",
+    "last_scheduled": "2026-11-21",
+    "exclusive_end": "2026-11-22",
+    "elapsed_days": 7,
+    "endpoint_dates_inclusive": 8,
+    "days_strictly_between_endpoints": 6
+  },
+  "actual_registered_members": 99,
+  "expected_valid_role_slots": 693,
+  "scenarios": {
+    "off_by_one_omission": {
+      "proposed_attempts": 616,
+      "unique_valid_role_slots": 616,
+      "missed_valid_role_slots": 77,
+      "duplicate_slots": 0,
+      "invalid_slots": 0,
+      "first_day_examples": {
+        "omitted": [
+          73,
+          82,
+          91,
+          100,
+          109,
+          118,
+          127,
+          136,
+          145,
+          154,
+          163
+        ],
+        "duplicated": [],
+        "invalid": []
+      }
+    },
+    "off_by_one_overrun": {
+      "proposed_attempts": 770,
+      "unique_valid_role_slots": 693,
+      "missed_valid_role_slots": 0,
+      "duplicate_slots": 70,
+      "invalid_slots": 7,
+      "first_day_examples": {
+        "omitted": [],
+        "duplicated": [
+          74,
+          83,
+          92,
+          101,
+          110,
+          119,
+          128,
+          137,
+          146,
+          155
+        ],
+        "invalid": [
+          164
+        ]
+      }
+    },
+    "fixed_inclusive_range": {
+      "proposed_attempts": 693,
+      "unique_valid_role_slots": 693,
+      "missed_valid_role_slots": 0,
+      "duplicate_slots": 0,
+      "invalid_slots": 0,
+      "first_day_examples": {
+        "omitted": [],
+        "duplicated": [],
+        "invalid": []
+      }
+    }
+  },
+  "corrected_vs_omission": {
+    "recovered_valid_role_slots": 77,
+    "prior_coverage_percent": 88.89,
+    "fixed_coverage_percent": 100,
+    "valid_assignment_gain_percent": 12.5
+  },
+  "limitations": "No live worker bots or real performance/availability data measured. Values come solely from deliberately defective and corrected index-range algorithms."
+}
