@@ -167,6 +167,16 @@
       "path": "app-factory/nathan-ai/personal-intelligence/minds/federation/families/USER_SUPPLIED_FAMILIES_16_TO_21_20261113.txt",
       "pinned_git_blob": "1b8aa51d21b20fd9cfcb00f1a8902e9fa04f58a2",
       "reason": "Verbatim user-supplied family 16–20 and family 21 transcript"
+    },
+    {
+      "path": "app-factory/nathan-ai/personal-intelligence/minds/federation/families-v75/USER_UPLOADED_EXACT_65_75_20261113.txt",
+      "pinned_git_blob": "f9cbbe0ec78dd283b2569477798b181e0a30b00f",
+      "reason": "Exact uploaded Family 65–75 text, original members 65–163"
+    },
+    {
+      "path": "app-factory/nathan-ai/personal-intelligence/minds/federation/dimensions-v70/USER_UPLOADED_EXACT_DIMENSIONS_0_69_20261113.txt",
+      "pinned_git_blob": "3bbbc71beff3cb1d9566054edaa78126b6e244f3",
+      "reason": "Exact 70 conceptual dimensions and 630 source unit names"
     }
   ],
   "monitored_roots": [
@@ -183,5 +193,7 @@
   "catalog": "app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/catalog.json",
   "family_registry": "app-factory/nathan-ai/personal-intelligence/minds/federation/families/FAMILY_21_ONE_MASTER_ARCHITECTURE.json",
   "family_source": "app-factory/nathan-ai/personal-intelligence/minds/federation/families/USER_SUPPLIED_FAMILIES_16_TO_21_20261113.txt",
-  "family21_policy": "Shared source-authored oneness principle applied to all 10 creator workstreams; retain evidence, consent, and clear boundaries between conceptual life and verified software execution."
+  "family21_policy": "Shared source-authored oneness principle applied to all 10 creator workstreams; retain evidence, consent, and clear boundaries between conceptual life and verified software execution.",
+  "dimension_registry": "app-factory/nathan-ai/personal-intelligence/minds/federation/dimensions-v70/registry.v70.json",
+  "dimension_model": "Dimension 0..69 and functional units DIM-DD-01..09 are independent of source Family 65..75 member 65..163. 630 plus 99 distinct, not 729 externally running AI agents."
 }
