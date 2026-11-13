@@ -75,3 +75,7 @@ Output includes a SHA-256 digest of the canonical JSON report for repeatable aud
 - The ONE human-authorization gate is present in the test module; a production adapter must enforce separate authentication, scopes, and auditing before any external action.
 
 **Original words preserved. Boundaries specified. Errors demonstrated. Fixes verified in the bounded simulation.**
+
+## Universal 13-root extension (source-preserving)
+
+[13-root contract and exact source labels](ROOT13_UNIVERSAL_CONTRACT.md) · [core correctness primitives](core_primitives.py) · [regression tests](test_core_primitives.py) · [13 worker-role registry and twelve coverage tracks](root13-workers.json) · [repository adoption inventory](universal_audit.py). This adds a new deterministic, testable foundation without replacing the original eight worker bots and their 19 tests. A successful library test is not evidence that every prior application has been retrofitted or that 108 external robots are running.
