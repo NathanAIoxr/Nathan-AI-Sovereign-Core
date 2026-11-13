@@ -230,3 +230,7 @@ The existing [KJV–Strong’s Universal Root Matrix master](app-factory/one/scr
 [Open the additive v074 federation bridge](app-factory/nathan-ai/personal-intelligence/minds/federation/ancient_bridge.py) · [Reference implementation, sample, 14-table schema, and tests](app-factory/nathan-ai/personal-intelligence/minds/federation/ancient_minds_reference/README.md) · [Public CI](.github/workflows/one-federation-workers.yml).
 
 The local Ancient Minds worker pipeline (six named specialists, four unnamed reserved slots) integrates **internally** into the pre-existing ONE Federation database without overwriting original source records. It stores complete original bytes separately from derived classifications, claims and proposed relationships. The 14-family source schema is available as a PostgreSQL/pgvector **reference**, not a claimed live database service. GitHub contains software and public fixtures only, never the owner's private master.
+
+## ONE DATABASE FEDERATION v074 · Ancient Minds internal adapter
+
+[Open the v074 Ancient Minds federation source and runbook](app-factory/nathan-ai/personal-intelligence/minds/federation/README.md). Adds 14 internal SQLite families, six source-grounded specialists, Cero/Uno/Dos, Duo base-12, SHA-256 original preservation, typed evidence review, audit tests and an optional (not deployed) PostgreSQL schema. Original owner text and generated private databases are not committed publicly.
