@@ -1,6 +1,7 @@
 import {GAMES,DEMO_ROSTER,normalizeRoster,makeRound} from './engine.mjs';
 import {publishScore,saveScore,readScores} from './bridge.mjs';
 const el=id=>document.getElementById(id);
+function safeStorage(){try{return window.localStorage;}catch{return null;}}
 let roster=[...DEMO_ROSTER],rounds=0,tickets=0,best=0,locked=false;
 let target={x:.5,y:.45};
 const mode=()=>GAMES.find(g=>g.id===el('game').value);
@@ -38,7 +39,7 @@ function place(x,y){
  rounds++;tickets+=round.tickets;best=Math.max(best,round.points);
  el('pin').style.left=(x*100)+'%';el('pin').style.top=(y*100)+'%';el('pin').hidden=false;
  el('result').textContent=round.points+' / 100 points · +'+round.tickets+' carnival tickets. Choose Next round to try again.';
- renderStats();saveScore(round,globalThis.localStorage);publishScore(round,window);
+ renderStats();saveScore(round,safeStorage());publishScore(round,window);
 }
 const board=el('board');
 board.addEventListener('pointerdown',e=>{if(board.setPointerCapture)board.setPointerCapture(e.pointerId)});
@@ -69,5 +70,5 @@ el('share').addEventListener('click',async()=>{
  el('result').textContent=msg;
 });
 renderRoster();renderGame();
-const prior=readScores(globalThis.localStorage);
+const prior=readScores(safeStorage());
 if(prior.length)el('result').textContent='Ready to play. '+prior.length+' recent round receipts are on this browser.';
