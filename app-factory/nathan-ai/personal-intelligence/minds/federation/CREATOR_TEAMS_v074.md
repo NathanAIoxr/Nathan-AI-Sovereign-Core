@@ -61,3 +61,7 @@ python3 -m unittest discover -s "$F" -p test_family_registry.py -v
 Use an exact trusted Git base revision for longer-term changes. Scope is the accessible Git checkout only. The owner remains responsible for approving merges, publication, sensitive source restoration and any remote system connection.
 
 **PRESERVE → INDEX → BUILD → TEST → MONITOR → REVIEW → RESTORE (OWNER-APPROVED).**
+
+## Expanded 56-Family master codex across all Creator Teams
+
+The [source-first 56-Family edition](./families-v56/README.md) extends the existing 21/40-family ONE architecture without replacing original records. Families 41–48 handle figurative story, inversion and insight work, while 49–56 describe literal engineering, calibration, evidence, clinical and molecular disciplines. Every one of the ten Creator Teams remains under Family 21 ONE and owner review. The recurring Change Watch workflow indexes all 56 in the same local ONE database, audits original-source hashes and publishes workcards without executing high-stakes physical processes.
