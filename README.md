@@ -234,3 +234,7 @@ The local Ancient Minds worker pipeline (six named specialists, four unnamed res
 ## ONE DATABASE FEDERATION v074 · Ancient Minds internal adapter
 
 [Open the v074 Ancient Minds federation source and runbook](app-factory/nathan-ai/personal-intelligence/minds/federation/README.md). Adds 14 internal SQLite families, six source-grounded specialists, Cero/Uno/Dos, Duo base-12, SHA-256 original preservation, typed evidence review, audit tests and an optional (not deployed) PostgreSQL schema. Original owner text and generated private databases are not committed publicly.
+
+## Universal Omni + SUPERNODES Federation v074 (November 13, 2026)
+
+[Universal Worker Atlas](app-factory/nathan-ai/personal-intelligence/minds/federation/universal.html) · [Owner-controlled continuous local service and GitHub schedule](app-factory/nathan-ai/personal-intelligence/minds/federation/UNIVERSAL_WORKERS_v074.md). All source-defined AI/non-AI, node/non-node, system/non-system and database/non-database classes are logically invited across 126,732,000,000 virtual IDs, without copying the original source or implying billions of instantiated AI processes. A bounded, auditable worker run checks all 763 source-name roles and federated source hashes; the public scheduled workflow runs twice an hour, subject to GitHub availability.
