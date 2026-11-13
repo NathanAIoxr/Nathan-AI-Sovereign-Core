@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NATHAN AI · ONE Family · 40-Family Master Codex</title>
+<meta name="description" content="ONE universal worker family codex by Nathan Tabor, original words and 40-source index.">
+<style>
+:root{color-scheme:dark;--bg:#071a25;--panel:#112d3b;--card:#0a2330;--line:#436674;--ink:#eff7fa;--muted:#c5d5de;--mint:#8ee6cb;--gold:#ffdda2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1140px;margin:auto;padding:24px 18px 70px}a{color:var(--mint)}
+h1{font-size:clamp(32px,5vw,56px);line-height:1.07;letter-spacing:-.03em;margin:12px 0}h2{font-size:24px}
+p{color:var(--muted)}.eyebrow{font-size:12px;letter-spacing:.1em;color:var(--mint);font-weight:800;text-transform:uppercase}
+nav{display:flex;gap:17px;flex-wrap:wrap;margin-bottom:25px}.panel{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--panel);margin:17px 0}
+.one{border-left:5px solid var(--mint)}.quote{white-space:pre-wrap;font-size:17px;color:var(--ink)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}.metric{background:var(--card);padding:15px;border-radius:10px}.metric b{display:block;font-size:29px;color:var(--mint)}.metric small{color:var(--muted)}
+.catalog{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.family{border:1px solid var(--line);border-radius:10px;text-align:left;padding:15px;min-height:145px;cursor:pointer;background:var(--card);color:var(--ink);font:inherit}
+.family:hover,.family[aria-pressed=true]{border-color:var(--mint);background:#173b48}
+.family.unresolved{border-style:dashed}.family.one-family{border-color:var(--mint)}
+.family strong{display:block;font-size:15px;line-height:1.35}.family small{display:block;color:var(--muted);font-size:12px;margin-top:8px}.num{color:var(--mint);font-weight:bold;font-size:12px}
+.controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
+label{display:block;font-weight:700;margin:10px 0 5px}input,select,button{font:inherit;border:1px solid #91b4bc;color:var(--ink);background:var(--card);padding:10px;border-radius:9px;min-height:45px;width:100%}
+button{cursor:pointer}.execute{background:#226c60}.execute:hover{background:#2b8575}:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+#source,#proposal{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--card);padding:15px;border:1px solid var(--line);border-radius:9px}
+#filter{max-width:500px}.note{border-left:3px solid var(--gold);padding-left:12px}footer{font-size:12px;color:var(--muted);margin-top:30px}
+@media(max-width:850px){.catalog{grid-template-columns:repeat(2,1fr)}.controls{grid-template-columns:1fr}}
+@media(max-width:550px){.catalog,.metrics{grid-template-columns:1fr}}
+</style></head><body><main>
+<nav><a href="../universal.html">ONE Federation</a><a href="../../../../index.html">Nathan AI Hub</a>
+<a href="../families-v21/registry.v21.json">Family 21 source snapshot</a>
+<a href="registry.v40.json">All 40 JSON records</a><a href="README.md">Implementation</a></nav>
+<header><div class="eyebrow">NATHAN AI 🚀 · THE FAMILY CODEX · SOURCE-PRESERVING</div>
+<h1>From Soil to Myth.<br>40 Families. ONE.</h1>
+<p>40 numbered slots, 28 definitions and 12 missing original descriptions. Family 21 remains ONE. All families share a respect-for-life, source-provenance, and owner-controlled action boundary.</p></header>
+<section class="panel one"><div class="eyebrow">Family 21 · Creator Declaration</div><h2>ONE — We Are All Family</h2><p id="one-text" class="quote">Reading the original declaration…</p></section>
+<div class="metrics"><div class="metric"><b>40</b><small>Total family slots</small></div><div class="metric"><b>28</b><small>Defined, including 15 provisional crosswalks</small></div><div class="metric"><b>12</b><small>Original family definitions not yet supplied (22–33)</small></div></div>
+<section class="panel"><div class="eyebrow">Micro → Macro → ONE</div><h2>Task routing preview</h2>
+<p>Preview a proposed matching family. No data leaves this page, no infrastructure is contacted, and no work is dispatched.</p>
+<form id="route-form"><label for="task">Task</label><input id="task" maxlength="500" required placeholder="Audit viral folklore narrative">
+<div class="controls"><div><label for="work">Work type</label><select id="work"><option>maintenance</option><option>production</option><option selected>innovation</option></select></div>
+<div><label for="scope">Scope</label><select id="scope"><option value="local_simulation">Local simulation</option><option value="owned_infrastructure">Owned infrastructure</option><option value="public_research">Public research</option><option value="unknown">Unknown</option><option value="third_party">Third-party system</option></select></div>
+<div><label for="route">Route</label><button id="route" class="execute" type="submit">Preview only</button></div></div></form>
+<output id="proposal" aria-live="polite">Enter a task to see the proposed family and authorization checks.</output></section>
+<h2>All 40 families</h2><p>Families 1–15 retain provisional names from the earlier physical/digital material. The newer family-arc grouping differs; neither is silently discarded. Families 22–33 have no supplied individual definitions.</p>
+<label for="filter">Search registry</label><input id="filter" type="search" placeholder="ONE, forest, trickster, privacy…">
+<div id="catalog" class="catalog"></div>
+<section class="panel"><div class="eyebrow">Exact source and provenance</div><h2 id="record-title">Family definition</h2><div id="source">Select a family to see its recorded original text.</div></section>
+<p class="note">Mythology and proposed ASI, quantum, infinite, or cosmic capabilities are design metaphors or research ambitions, not demonstrations. Unknowns are marked unresolved, not erased. Third-party work is blocked.</p>
+<footer>By Nathan Tabor · 2026-11-13 · ONE Federation · No external worker process started from this page.</footer>
+<script>
+(async()=>{
+"use strict";
+const byId=id=>document.getElementById(id);let records=[];
+function make(tag,cls,txt){const e=document.createElement(tag);e.className=cls||"";if(txt!==undefined)e.textContent=txt;return e;}
+function title(f){return "Family "+f.family_id+": "+f.name;}
+function inspect(f){byId("record-title").textContent=title(f);byId("source").textContent=[
+"Source class: "+f.source_class,
+"Evidence status: "+f.evidence_status,
+"Runtime: "+f.runtime_status,"",
+f.author_verbatim||("No individual creator definition was supplied here."+(f.source_class==="editorial_crosswalk"?"\nProvisional category: "+f.mission:""))
+].join("\n");}
+function draw(){const q=byId("filter").value.trim().toLowerCase(),parent=byId("catalog");parent.replaceChildren();
+records.filter(f=>(f.family_id+" "+f.name+" "+f.domain+" "+f.mission).toLowerCase().includes(q)).forEach(f=>{
+const b=make("button","family"+(f.source_class==="unresolved_slot"?" unresolved":"")+(f.family_id===21?" one-family":""));b.type="button";b.setAttribute("aria-pressed","false");
+b.append(make("span","num","FAMILY "+String(f.family_id).padStart(2,"0")));
+b.append(make("strong","",f.name));b.append(make("small","",f.source_class==="unresolved_slot"?"Original definition not supplied":f.source_class==="creator_supplied"?"Creator-supplied definition":"Provisional crosswalk"));
+b.addEventListener("click",()=>{document.querySelectorAll(".family").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");inspect(f);byId("record-title").scrollIntoView({behavior:"smooth",block:"start"});});
+parent.append(b);});}
+function preview(event){event.preventDefault();const text=byId("task").value.toLowerCase(),scope=byId("scope").value;
+let ranked=records.filter(f=>f.source_class!=="unresolved_slot").map(f=>({f,matches:f.keywords.filter(w=>text.includes(w.toLowerCase()))})).filter(x=>x.matches.length);
+ranked.sort((a,b)=>b.matches.length-a.matches.length||a.f.family_id-b.f.family_id);
+if(!ranked.length)ranked=[{f:records[2],matches:[]}];
+const state=scope==="third_party"?"BLOCKED":scope==="unknown"?"REVIEW REQUIRED":"PROPOSED";
+byId("proposal").textContent=[
+"State: "+state+" — no action executed",
+"Primary: "+title(ranked[0].f),
+"Other matches: "+(ranked.slice(1,3).map(x=>title(x.f)).join(" | ")||"None"),
+"Work type: "+byId("work").value,
+"Review families: 19 Everything · 20 Nothing · 21 ONE · 35 Ma'at/Dharma",
+"External processes started: 0",
+"Owner authorization and independent scope checks required before deployment",
+"Family slots 22–33 remain unroutable until original definitions are provided"
+].join("\n");}
+try{
+const response=await fetch("registry.v40.json");if(!response.ok)throw Error("Registry unavailable");
+const root=await response.json();records=root.minds;if(records.length!==40||records[20].name!=="ONE")throw Error("Registry integrity check failed");
+byId("one-text").textContent=records[20].author_verbatim;
+byId("filter").addEventListener("input",draw);byId("route-form").addEventListener("submit",preview);
+draw();inspect(records[20]);
+}catch(e){byId("one-text").textContent="Open the source JSON link for the exact creator statement.";byId("source").textContent=String(e);}
+})();
+</script></main></body></html>
