@@ -109,7 +109,7 @@ class CreatorTeamsTests(unittest.TestCase):
             self.assertIn("assistant-generated",book)
             self.assertEqual((original.read_bytes(),site.read_bytes()),before)
             changes=json.loads((output/"monitor/tracked-changes.json").read_text())
-            self.assertEqual(changes[0]["path"],"teams.json")
+            self.assertEqual({item["path"] for item in changes},{"teams.json","families.json"})
             tasks=json.loads((output/"work-queue.json").read_text())
             self.assertTrue(any(t["kind"]=="broken_relative_links" and t["team"]=="websites" for t in tasks))
             con=sqlite3.connect(output/"ONE_CREATOR_TEAMS.sqlite3")
