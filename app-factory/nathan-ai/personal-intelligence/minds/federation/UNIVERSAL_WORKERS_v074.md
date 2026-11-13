@@ -58,3 +58,20 @@ The public workflow runs by schedule **twice every hour, every day** (at UTC min
 True production-scale always-on deployment needs owner-provisioned persistent infrastructure, private data access authorization, durable queues, budget limits, monitoring, backoff, secret management, and external integration permissions. None are silently deployed or claimed complete by a repository workflow.
 
 **Invariants:** NO CATEGORY EXCLUDED · PRESERVE ORIGINAL · VERIFY SOURCE · SEPARATE EVIDENCE FROM INTERPRETATION · OWNER CAN STOP · NO UNBOUNDED EXECUTION · NO UNAUTHORIZED CONNECTION.
+
+## A–Z → Z–A BUILD ENGINE — 52 executable passes
+
+The existing universal worker schedule now also executes **26 forward A–Z** and **26 reverse Z–A** deterministic source-work jobs, processing each registered mind role and each discovered public app module exactly once in each direction. The new [A–Z / Z–A build engine](./az_builder.py) writes 52 source-linked JSON work packages, a lexical and mechanical token-reversal index, per-module SHA-256 and documentation/test checks, and a [development work ledger](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/actions/workflows/universal-worker-federation.yml) published as a downloadable GitHub Actions artifact named `one-v074-a-z-z-a-build-packages`. The same ONE master database holds the 52 completed job records and proposed backlog entries.
+
+This **runs code and produces build deliverables** rather than claiming that missing application functionality is complete: work items are visibly marked `proposed_not_implemented`; only source-audit and indexing work is marked complete. Each of the 763 role identities participates in both passes by metadata checks, not by starting a separate language model instance. The 126,732,000,000 source-defined virtual addresses remain logically eligible in all 32 invitation groups. Actual tasks are bounded and the GitHub runner remains ephemeral.
+
+Local command (after cloning repo):
+
+~~~sh
+F=app-factory/nathan-ai/personal-intelligence/minds/federation
+C=app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/catalog.json
+python3 "$F/az_builder.py" --db /owner/private/ONE_Federation_Master.sqlite3 --catalog "$C" --public-root app-factory --output /owner/private/NATHAN_AZ_ZA_BUILD
+python3 -m unittest discover -s "$F" -p test_az_builder.py -v
+~~~
+
+The original repo's app source, legacy authorship, source text, no-invented-completion standard and private-owner data remain unchanged. The generated report is separately inspectable, and mechanical DOG↔GOD-like reversals are **not** recorded as independently verified linguistic derivations.
