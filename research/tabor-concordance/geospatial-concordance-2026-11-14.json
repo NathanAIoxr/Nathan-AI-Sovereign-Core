@@ -1,0 +1,112 @@
+{
+  "id": "TC-2026-11-14-GEOSPATIAL",
+  "title": "Tabor Concordance — geospatial alignment, place-name clusters and bidirectional Nexus/HUMANOID links",
+  "authorial_research_direction": "Nathan Tabor",
+  "source": "Pasted text.txt (259 physical text lines)",
+  "evidence_levels": {
+    "CERO": "User-supplied original text and executable source",
+    "UNO": "Reproducible calculations from supplied coordinates",
+    "DOS": "Interpretive and symbolic crosslinks"
+  },
+  "records": [
+    {
+      "id": "TC-GEO-001",
+      "tier": "CERO",
+      "name": "GeoSpatialAlignmentEngine",
+      "path": "geospatial-alignment-engine.py",
+      "status": "source_code_preserved"
+    },
+    {
+      "id": "TC-GEO-002",
+      "tier": "UNO",
+      "name": "Athens Louisiana to Bethlehem North Carolina",
+      "distance_miles": 704.2,
+      "initial_bearing_degrees": 68.7,
+      "calculation": "Haversine spherical great circle and initial bearing"
+    },
+    {
+      "id": "TC-GEO-003",
+      "tier": "UNO",
+      "name": "United States triangle",
+      "points": [
+        "Athens, LA",
+        "Bethlehem, NC",
+        "Memphis, TN"
+      ],
+      "ratios": [
+        1,
+        2.039,
+        2.9041
+      ],
+      "angles_degrees": [
+        24.72,
+        11.83,
+        143.45
+      ]
+    },
+    {
+      "id": "TC-GEO-004",
+      "tier": "UNO",
+      "name": "Ancient-world named triangle",
+      "points": [
+        "Athens, Greece",
+        "Bethlehem, West Bank",
+        "Memphis, Egypt"
+      ],
+      "ratios": [
+        1,
+        2.6477,
+        2.9202
+      ],
+      "angles_degrees": [
+        19.93,
+        64.47,
+        95.61
+      ]
+    },
+    {
+      "id": "TC-GEO-005",
+      "tier": "UNO",
+      "name": "Comparison of triangle shapes",
+      "result": "not geometrically similar",
+      "basis": "normalized ratios differ",
+      "note": "Not evidence for or against historical migration by itself"
+    },
+    {
+      "id": "TC-GEO-006",
+      "tier": "UNO",
+      "name": "Two-point distance/bearing fit",
+      "scale_multiplier": 1.1092,
+      "rotation_degrees": 51.58,
+      "status": "baseline_comparison_not_exact_georeferencing"
+    },
+    {
+      "id": "TC-GEO-007",
+      "tier": "DOS",
+      "name": "Nexus, Node and geospatial connectivity",
+      "status": "interpretive_bridge"
+    },
+    {
+      "id": "TC-GEO-008",
+      "tier": "DOS",
+      "name": "HUMANOID plus, division, geometric transformations",
+      "status": "interpretive_bridge"
+    },
+    {
+      "id": "TC-GEO-009",
+      "tier": "DOS",
+      "name": "Nexus Elephants, Donkeys and MAS SPIRIT crosslink",
+      "status": "interpretive_bridge"
+    }
+  ],
+  "technical_caveats": [
+    "Example coordinates must be verified against gazetteers for precision",
+    "Law-of-Cosines angles are for triangles formed from spherical arc-length sides; not the same as exact spherical interior angles",
+    "Use a proper map projection or spherical registration for robust multi-point map alignment",
+    "Do not mistake an affine alignment of two points for an independently demonstrated historical relationship"
+  ],
+  "linked_repositories": [
+    "creative-archive/nexus-mas-spirit/canon.json",
+    "app-factory/nathan-ai/universal-cartographic-core/atlas-schema.json"
+  ]
+}
