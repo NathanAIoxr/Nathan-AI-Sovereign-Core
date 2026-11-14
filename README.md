@@ -1,3 +1,5 @@
+**[Modern Day Bible · Story Library](app-factory/modern-day-bible/)** · Private source-preserving reader connected to ONE App Shell.
+
 **[ONE App Shell — apps, database themes and workspaces](app-factory/app-shell/)** · [Backend setup](app-factory/app-shell/README.md)
 
 > **[READ THE TIMESTAMPED RECORD — Nathan Tabor / ChatGPT](docs/record/RECORD.md)**

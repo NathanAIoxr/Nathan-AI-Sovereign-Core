@@ -16,7 +16,7 @@ node app-factory/app-shell/server.cjs
 
 Open `http://127.0.0.1:8793/` and enter your owner token. The server binds only to loopback. A successful login creates an eight-hour HttpOnly, SameSite cookie. The frontend never persists the token. Restarting the server invalidates sessions, while SQLite retains themes, manifests and records.
 
-The database is initialized once from `seed.json`. Existing stored apps are never overwritten by seed updates. Initial apps: GOD Universe, GODTABOR World Builder, ONE Library and ONE Design Studio. Select an app to fetch its records and apply its saved appearance; changing its theme persists that app's configuration to SQLite.
+The database is initialized once from `seed.json`. Existing stored apps are never overwritten by seed updates. Initial apps: GOD Universe, GODTABOR World Builder, ONE Library ONE Design Studio, and Modern Day Bible · Stories. Select an app to fetch its records and apply its saved appearance; changing its theme persists that app's configuration to SQLite.
 
 ## Register another app
 
@@ -53,7 +53,7 @@ All `/api` routes except login require an owner session. JSON is required for wr
 | `/api/apps/:app/records` | GET, POST | List/create app-specific records |
 | `/api/apps/:app/records/:record` | PUT, DELETE | Edit/delete within that app |
 
-Record lists return the latest 1,000 rows. The UI can search those loaded rows and export them with the app manifest. SQLite foreign keys preserve app association; updates and deletions include the app ID. This is a single-owner local backend, not a multi-tenant hosted identity service. Remote hosting needs HTTPS, a proper identity provider, tenant policies and operational backups. No external providers, private library data or payment systems are configured automatically.
+Record lists return up to 1,000 rows per page. Pass `?offset=N` and follow the returned `nextOffset` for subsequent pages; the story reader does this automatically. The UI can search those loaded rows and export them with the app manifest. SQLite foreign keys preserve app association; updates and deletions include the app ID. This is a single-owner local backend, not a multi-tenant hosted identity service. Remote hosting needs HTTPS, a proper identity provider, tenant policies and operational backups. No external providers, private library data or payment systems are configured automatically.
 
 ## GitHub Pages
 
@@ -66,3 +66,5 @@ node --test app-factory/app-shell/server.test.cjs
 ```
 
 The integration test opens an actual HTTP server and temporary SQLite database. It tests login/logout, request origin/host validation, app registration, field validation, record isolation, CRUD, and data/theme persistence after a real server restart.
+
+Story imports/exports use authenticated `/api/story-import` (POST) and `/api/story-export` (GET). See the [private story reader](../modern-day-bible/README.md) for source preservation and import format.

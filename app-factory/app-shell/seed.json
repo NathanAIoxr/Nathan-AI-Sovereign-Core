@@ -124,6 +124,64 @@
           "type": "boolean"
         }
       ]
+    },
+    {
+      "id": "modern-day-bible",
+      "name": "Modern Day Bible · Stories",
+      "description": "A private, source-preserving library of related manuscripts, stories and scripture references.",
+      "entry": "app-factory/modern-day-bible/index.html",
+      "appearance": {
+        "skin": "parchment",
+        "font": "serif",
+        "width": "reading"
+      },
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text"
+        },
+        {
+          "key": "text",
+          "label": "Original text",
+          "type": "text"
+        },
+        {
+          "key": "source",
+          "label": "Source URL",
+          "type": "text"
+        },
+        {
+          "key": "kind",
+          "label": "Source type",
+          "type": "text"
+        },
+        {
+          "key": "source-id",
+          "label": "Source ID",
+          "type": "text"
+        },
+        {
+          "key": "part",
+          "label": "Part",
+          "type": "number"
+        },
+        {
+          "key": "parts",
+          "label": "Parts",
+          "type": "number"
+        },
+        {
+          "key": "sha256",
+          "label": "Full text SHA-256",
+          "type": "text"
+        },
+        {
+          "key": "scope",
+          "label": "Collection status",
+          "type": "text"
+        }
+      ]
     }
   ]
 }

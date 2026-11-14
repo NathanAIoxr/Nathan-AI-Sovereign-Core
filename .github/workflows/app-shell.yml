@@ -1,9 +1,9 @@
 name: ONE app shell integration
 on:
   push:
-    paths: ['app-factory/app-shell/**', 'app-factory/nathan-ai/appearance/**', '.github/workflows/app-shell.yml']
+    paths: ['app-factory/app-shell/**', 'app-factory/modern-day-bible/**', 'app-factory/nathan-ai/appearance/**', '.github/workflows/app-shell.yml']
   pull_request:
-    paths: ['app-factory/app-shell/**', 'app-factory/nathan-ai/appearance/**', '.github/workflows/app-shell.yml']
+    paths: ['app-factory/app-shell/**', 'app-factory/modern-day-bible/**', 'app-factory/nathan-ai/appearance/**', '.github/workflows/app-shell.yml']
 permissions:
   contents: read
 jobs:
@@ -14,4 +14,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - run: node --test app-factory/app-shell/server.test.cjs app-factory/nathan-ai/appearance/engine.test.cjs
+      - run: node --test app-factory/modern-day-bible/import.test.cjs app-factory/app-shell/server.test.cjs app-factory/nathan-ai/appearance/engine.test.cjs

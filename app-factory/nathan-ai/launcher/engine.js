@@ -2,6 +2,7 @@
   'use strict';
   const KEY='nathan-ai.launcher.v1';
   const destinations=[
+    ['modern-day-bible','Modern Day Bible · Stories','../modern-day-bible/index.html','Private searchable manuscripts, stories and related scripture sources'],
     ['app-shell','ONE App Shell','../app-shell/index.html','Database-driven application registry, themes and persistent workspaces'],
     ['god-universe','GOD Universe v075','../sites/godtabor/god.html','Latest GODTABOR app, universal source atlas and artwork'],
     ['god-world','GODTABOR World Builder','../sites/godtabor/world.html','Interactive world governance app'],

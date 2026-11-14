@@ -17,12 +17,16 @@ function checkRecord(app,input){
  if(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).some(k=>!app.fields.some(f=>f.key===k)))throw Error('Unknown record field');
  const clean={};for(const f of app.fields){const v=input[f.key];if(v===undefined)continue;if(typeof v!==(f.type==='text'?'string':f.type)||(f.type==='number'&&!Number.isFinite(v))||(f.type==='text'&&v.length>10000))throw Error('Invalid '+f.label);clean[f.key]=v}return clean;
 }
-function createApp({dbPath,token,root=ROOT}={}){
- if(typeof token!=='string'||token.length<32)throw Error('ONE_SHELL_TOKEN must be at least 32 characters');
- if(!dbPath)throw Error('Database path required');
+function openDatabase(dbPath){
  const db=new DatabaseSync(dbPath);db.exec('PRAGMA foreign_keys=ON; PRAGMA journal_mode=WAL; CREATE TABLE IF NOT EXISTS apps(id TEXT PRIMARY KEY, body TEXT NOT NULL); CREATE TABLE IF NOT EXISTS records(id TEXT PRIMARY KEY, app_id TEXT NOT NULL REFERENCES apps(id), body TEXT NOT NULL, updated_at TEXT NOT NULL); CREATE INDEX IF NOT EXISTS records_by_app ON records(app_id); PRAGMA user_version=1;');
  const seed=JSON.parse(fs.readFileSync(path.join(__dirname,'seed.json'),'utf8'));
  for(const row of seed.apps){const a=checkApp(row);db.prepare('INSERT OR IGNORE INTO apps VALUES(?,?)').run(a.id,JSON.stringify(a))}
+ return db;
+}
+function createApp({dbPath,token,root=ROOT}={}){
+ if(typeof token!=='string'||token.length<32)throw Error('ONE_SHELL_TOKEN must be at least 32 characters');
+ if(!dbPath)throw Error('Database path required');
+ const db=openDatabase(dbPath);
  const sessions=new Map(),attempts=new Map(),expected=hash(token);
  const app=id=>{const row=db.prepare('SELECT body FROM apps WHERE id=?').get(id);return row?JSON.parse(row.body):null};
  const server=http.createServer(async(req,res)=>{
@@ -38,7 +42,7 @@ function createApp({dbPath,token,root=ROOT}={}){
     if(!['GET','POST','PUT','DELETE'].includes(req.method))return send(405,{error:'Unsupported method'});
     let body={};if(['POST','PUT'].includes(req.method)){
      if(!req.headers['content-type']?.startsWith('application/json'))return send(415,{error:'JSON required'});
-     const chunks=[];let size=0;for await(const c of req){size+=c.length;if(size>262144)return send(413,{error:'Request too large'});chunks.push(c)}
+     const chunks=[];let size=0;for await(const c of req){size+=c.length;if(size>(p==='/api/story-import'?8*1024*1024:262144))return send(413,{error:'Request too large'});chunks.push(c)}
      try{body=JSON.parse(Buffer.concat(chunks).toString())}catch{return send(400,{error:'Invalid JSON'})}
     }
     if(p==='/api/session'&&req.method==='POST'){
@@ -52,6 +56,8 @@ function createApp({dbPath,token,root=ROOT}={}){
     const sid=(req.headers.cookie||'').match(/(?:^|;\s*)one_shell=([a-f0-9]{64})(?:;|$)/)?.[1];
     if(!sid||(sessions.get(sid)||0)<Date.now())return send(401,{error:'Sign in with the owner token'});
     if(p==='/api/session'&&req.method==='DELETE'){sessions.delete(sid);res.setHeader('Set-Cookie','one_shell=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0');return send(200,{authenticated:false})}
+    if(p==='/api/story-export'&&req.method==='GET')return send(200,require('../modern-day-bible/import.cjs').exportBundle(db));
+    if(p==='/api/story-import'&&req.method==='POST')return send(200,require('../modern-day-bible/import.cjs').importBundle(db,body));
     if(p==='/api/bootstrap'&&req.method==='GET')return send(200,{mode:'sqlite',apps:db.prepare('SELECT body FROM apps ORDER BY id').all().map(x=>JSON.parse(x.body)),themes:skins});
     if(p==='/api/apps'&&req.method==='POST'){
      const a=checkApp(body);if(app(a.id))return send(409,{error:'App already exists'});db.prepare('INSERT INTO apps VALUES(?,?)').run(a.id,JSON.stringify(a));return send(201,a);
@@ -68,7 +74,11 @@ function createApp({dbPath,token,root=ROOT}={}){
       db.prepare('UPDATE apps SET body=? WHERE id=?').run(JSON.stringify(next),a.id);return send(200,next);
      }
     }else{
-     if(!m[2]&&req.method==='GET')return send(200,{items:db.prepare('SELECT id,body,updated_at FROM records WHERE app_id=? ORDER BY updated_at DESC LIMIT 1000').all(a.id).map(x=>({id:x.id,data:JSON.parse(x.body),updatedAt:x.updated_at})),limit:1000});
+     if(!m[2]&&req.method==='GET'){
+      const offset=u.searchParams.get('offset')||'0';if(!/^(0|[1-9]\d{0,7})$/.test(offset))return send(400,{error:'Invalid record offset'});
+      const rows=db.prepare('SELECT id,body,updated_at FROM records WHERE app_id=? ORDER BY updated_at DESC,id ASC LIMIT 1001 OFFSET ?').all(a.id,Number(offset));
+      return send(200,{items:rows.slice(0,1000).map(x=>({id:x.id,data:JSON.parse(x.body),updatedAt:x.updated_at})),limit:1000,nextOffset:rows.length>1000?Number(offset)+1000:null});
+     }
      if(!m[2]&&req.method==='POST'){const data=checkRecord(a,body),id=randomUUID(),at=new Date().toISOString();db.prepare('INSERT INTO records VALUES(?,?,?,?)').run(id,a.id,JSON.stringify(data),at);return send(201,{id,data,updatedAt:at})}
      if(m[2]){
       const r=db.prepare('SELECT id FROM records WHERE id=? AND app_id=?').get(m[2],a.id);if(!r)return send(404,{error:'Record not found in this app'});
@@ -100,4 +110,4 @@ if(require.main===module){
  fs.mkdirSync(dir,{recursive:true,mode:0o700});
  const s=createApp({dbPath:path.join(dir,'one-shell.sqlite'),token:process.env.ONE_SHELL_TOKEN});s.listen(Number(process.env.PORT||8793),'127.0.0.1',()=>console.log(`ONE app shell: http://${s.allowedHost}`));
 }
-module.exports={createApp,checkApp,checkRecord};
+module.exports={createApp,checkApp,checkRecord,openDatabase};

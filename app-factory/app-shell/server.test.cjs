@@ -13,6 +13,9 @@ test('database theme, manifest and records survive restart; app scopes and authe
   assert.equal((await req('/api/bootstrap')).status,401);
   assert.equal((await req('/api/session','POST',{token:'wrong'})).status,401);
   const login=await req('/api/session','POST',{token:TOKEN});assert.equal(login.status,200);assert.match(login.headers.get('set-cookie'),/HttpOnly; SameSite=Strict/);cookie=login.headers.get('set-cookie').split(';')[0];
+  const source={id:'api-import-test',title:'API source',url:'local:upload/test.txt',kind:'story',scope:'Owner test source',text:'Preserved source text',original:{format:'text/plain',text:'Preserved source text'}};
+  const imported=await req('/api/story-import','POST',{schema:'one.story-sources.v1',sources:[source]});assert.equal(imported.status,200);assert.equal(imported.data.imported,1);
+  const exported=await req('/api/story-export');assert.equal(exported.status,200);assert.deepEqual(exported.data.sources[0],source);
   let boot=await req('/api/bootstrap');assert.equal(boot.data.mode,'sqlite');let a=boot.data.apps.find(a=>a.id==='god');
   assert.equal((await req('/api/apps/god','PUT',{...a,appearance:{...a.appearance,skin:'parchment'}},{Origin:'https://evil.example'})).status,403);
   assert.equal((await req('/api/apps/god','PUT',{...a,appearance:{skin:'injected'}})).status,400);
