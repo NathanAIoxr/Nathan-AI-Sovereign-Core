@@ -1,0 +1,160 @@
+{
+  "id": "TC-2026-11-13-R-NIGER-GODDESS",
+  "title": "Tabor Concordance — Letter Reversal, Niger, and Goddess Research",
+  "archive_date": "2026-11-13",
+  "authorial_research_direction": "Nathan Tabor",
+  "data_status": "repository research index, not proof of a live database synchronization",
+  "evidence_levels": {
+    "CERO": "original source material; pending means source not directly inspected",
+    "UNO": "documented information and verified calculations",
+    "DOS": "interpretations and symbolic connections"
+  },
+  "documents": {
+    "summary": "letter-reversal-niger-goddess-2026-11-13.md",
+    "full_narrative": "full-research-letter-reversal-niger-goddess-2026-11-13.md"
+  },
+  "entries": [
+    {
+      "id": "TC-R-01",
+      "topic": "letter_reversal",
+      "term": "boustrophedon",
+      "evidence_level": "UNO",
+      "statement": "Pausanias, Description of Greece 5.17.6 describes changing writing direction on the Chest of Kypselos",
+      "status": "source-located",
+      "source_url": "https://reader.humanitext.ai/en/read/urn%3Acts%3AgreekLit%3Atlg0525.tlg001.humanitext-grc2%3A5.17.1-5.17.6"
+    },
+    {
+      "id": "TC-R-02",
+      "topic": "letter_reversal",
+      "term": "Greek letters reversed with reading direction",
+      "evidence_level": "UNO",
+      "statement": "Museum example of letter orientation reflecting direction of writing; does not establish mirrored Latin R genealogy",
+      "status": "source-located",
+      "source_url": "https://source.museum.ie/ga-IE/Collections-Research/Registration-Department/Registration-Blog/Greek-Letters%2C-Coins%2C-Troubleshooting-Adlib"
+    },
+    {
+      "id": "TC-R-03",
+      "topic": "letter_reversal",
+      "term": "R ↔ Я",
+      "evidence_level": "DOS",
+      "statement": "Research hypothesis testing visual mirror and possible origin; letter similarity is not a demonstrated historical derivation",
+      "status": "unverified",
+      "source_url": null
+    },
+    {
+      "id": "TC-N-01",
+      "topic": "biblical_name",
+      "term": "Simeon called Niger",
+      "evidence_level": "UNO",
+      "statement": "Acts 13:1 in KJV; Greek Νίγερ is the name/epithet of a man",
+      "status": "source-located",
+      "source_url": "https://www.kingjamesbibleonline.org/strongs-concordance/?v=Acts-13-1"
+    },
+    {
+      "id": "TC-N-02",
+      "topic": "latin_etymology",
+      "term": "niger / nigr-",
+      "evidence_level": "UNO",
+      "statement": "Latin black/dark, with later developments through Spanish/French and English historical racial terminology",
+      "status": "dictionary-located",
+      "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/nigger"
+    },
+    {
+      "id": "TC-N-03",
+      "topic": "english_spelling",
+      "term": "neger / nègre / negro / later English slur",
+      "evidence_level": "UNO",
+      "statement": "Historical English spelling pathways; not an extra letter added to the biblical personal name",
+      "status": "dictionary-located",
+      "source_url": "https://www.etymonline.com/word/nigger"
+    },
+    {
+      "id": "TC-I-01",
+      "topic": "goddess_hypothesis",
+      "term": "original Goddess named Niger",
+      "evidence_level": "DOS",
+      "statement": "Proposed original goddess connection, retained as a research hypothesis, not independently attested",
+      "status": "unverified",
+      "source_url": null
+    },
+    {
+      "id": "TC-I-02",
+      "topic": "egyptian_religion",
+      "term": "Isis / Black Land / P. Berlin 15660",
+      "evidence_level": "CERO",
+      "statement": "Research lead to original papyrus and translation; specific relevant wording not verified against original",
+      "status": "primary-source-pending",
+      "source_url": null
+    },
+    {
+      "id": "TC-I-03",
+      "topic": "roman_religion",
+      "term": "Dea Africa",
+      "evidence_level": "DOS",
+      "statement": "Compare named deity and geographic personification; no established etymological descent to the English slur",
+      "status": "source-check-pending",
+      "source_url": null
+    },
+    {
+      "id": "TC-P-01",
+      "topic": "printed_records",
+      "term": "Century Dictionary 1895",
+      "evidence_level": "CERO",
+      "statement": "Original scan of cited historical language-use discussion not yet examined",
+      "status": "primary-source-pending",
+      "source_url": null
+    },
+    {
+      "id": "TC-P-02",
+      "topic": "printed_records",
+      "term": "Harper's Weekly June 2 1906",
+      "evidence_level": "CERO",
+      "statement": "Original newspaper page of Booker T. Washington terminology discussion not yet examined",
+      "status": "primary-source-pending",
+      "source_url": null
+    },
+    {
+      "id": "TC-A-01",
+      "topic": "alphabet_sources",
+      "term": "The Origin of the Alphabet 1943 edition",
+      "evidence_level": "CERO",
+      "statement": "Bibliography and page still needed; a later book, not direct antiquity witness",
+      "status": "primary-source-pending",
+      "source_url": null
+    },
+    {
+      "id": "TC-A-02",
+      "topic": "alphabet_sources",
+      "term": "Man and His Ancestor page 205",
+      "evidence_level": "CERO",
+      "statement": "Illinois scanned historical book; Sigean example and Pausanias citation require page-level inspection",
+      "status": "primary-source-pending",
+      "source_url": "https://brittlebooks.library.illinois.edu/brittlebooks_open/Books2009-08/redfge0001mananc/redfge0001mananc.pdf"
+    },
+    {
+      "id": "TC-F-01",
+      "topic": "phonetic_form",
+      "term": "ME R U U R EM",
+      "evidence_level": "DOS",
+      "statement": "User-directed inverse letter formula preserved verbatim",
+      "status": "authorial-interpretation",
+      "source_url": null
+    },
+    {
+      "id": "TC-F-02",
+      "topic": "phonetic_form",
+      "term": "YA / Y'ALL / Yahweh",
+      "evidence_level": "DOS",
+      "statement": "User-directed comparison; no historical common etymology established",
+      "status": "authorial-interpretation",
+      "source_url": null
+    }
+  ],
+  "integrity": {
+    "source_narrative_preserved": true,
+    "original_inscription_photos_inspected": false,
+    "papyrus_p_berlin_15660_inspected": false,
+    "original_print_scans_inspected": false,
+    "live_database_import_verified": false
+  }
+}
