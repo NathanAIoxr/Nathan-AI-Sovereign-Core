@@ -1,3 +1,5 @@
+**[ONE App Shell — apps, database themes and workspaces](app-factory/app-shell/)** · [Backend setup](app-factory/app-shell/README.md)
+
 > **[READ THE TIMESTAMPED RECORD — Nathan Tabor / ChatGPT](docs/record/RECORD.md)**
 
 ## ONE v2: Boundary arithmetic delegated to dedicated Nathan AI workers

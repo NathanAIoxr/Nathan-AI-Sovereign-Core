@@ -1,0 +1,67 @@
+{
+  "schema": "one.existing-component-assembly.v1",
+  "base_commit": "e6fd7f47ef6118e6a2420403c4909fa982c08ef2",
+  "restored": [
+    {
+      "path": "app-factory/one/design-studio/ARCHITECTURE.md",
+      "branch": "feature/one-system-design-studio-2026-10-31",
+      "commit": "814fb84a892251b1c4b9f34eb52a101a7ad802d5",
+      "sha256": "cfc7862983f245a128a356dd75b88f13b914f5e4a85d7152612ae8cf3ee1082b"
+    },
+    {
+      "path": "app-factory/one/design-studio/five-matrices.html",
+      "branch": "feature/one-system-design-studio-2026-10-31",
+      "commit": "814fb84a892251b1c4b9f34eb52a101a7ad802d5",
+      "sha256": "6ea620e446f8868ab1d413f3a61b35e4245e2e1c6f97ab1f2ec68b310b67d60e"
+    },
+    {
+      "path": "app-factory/one/design-studio/five-matrices.test.cjs",
+      "branch": "feature/one-system-design-studio-2026-10-31",
+      "commit": "814fb84a892251b1c4b9f34eb52a101a7ad802d5",
+      "sha256": "be7545e9173c8b47bebe4b825862758745a1922a3d3c9f344ca91266b0767c81"
+    },
+    {
+      "path": "app-factory/one/design-studio/index.html",
+      "branch": "feature/one-system-design-studio-2026-10-31",
+      "commit": "814fb84a892251b1c4b9f34eb52a101a7ad802d5",
+      "sha256": "0d66c459bc20fbdc09371c3d1c24a24695db550cadb6d0255cbc85c063a87d44"
+    },
+    {
+      "path": "app-factory/one/catalog-api/.env.example",
+      "branch": "feature/one-readonly-airtable-catalog-20261102",
+      "commit": "87c59ff00dcfca8acbeb4f762cd62b1a0784099c",
+      "sha256": "aade2e415cd02fde85734fb4a15195a942fd8731c5e12ad7dad9c63c6077295d"
+    },
+    {
+      "path": "app-factory/one/catalog-api/.gitignore",
+      "branch": "feature/one-readonly-airtable-catalog-20261102",
+      "commit": "87c59ff00dcfca8acbeb4f762cd62b1a0784099c",
+      "sha256": "8cb362932f27990fd925040d9b37faa5017494cc53d0ccf0387e2e8198039419"
+    },
+    {
+      "path": "app-factory/one/catalog-api/README.md",
+      "branch": "feature/one-readonly-airtable-catalog-20261102",
+      "commit": "87c59ff00dcfca8acbeb4f762cd62b1a0784099c",
+      "sha256": "f6079ea8c245d6330c6670c5d677402974782c5cf01da9eb419c30e6a321dc00"
+    },
+    {
+      "path": "app-factory/one/catalog-api/server.cjs",
+      "branch": "feature/one-readonly-airtable-catalog-20261102",
+      "commit": "87c59ff00dcfca8acbeb4f762cd62b1a0784099c",
+      "sha256": "de55b31471ef6ea57c2a7049bff7c24b5615246cce63e6a96bcc20bc83714a41"
+    },
+    {
+      "path": "app-factory/one/catalog-api/server.test.cjs",
+      "branch": "feature/one-readonly-airtable-catalog-20261102",
+      "commit": "87c59ff00dcfca8acbeb4f762cd62b1a0784099c",
+      "sha256": "9fa1f0c38967f3fc6e5c7779ea10ea75076ccbe85a90bac3de3ca421a7de1064"
+    },
+    {
+      "path": "app-factory/one/catalog-api/supabase/001_catalog_schema.sql",
+      "branch": "feature/one-readonly-airtable-catalog-20261102",
+      "commit": "87c59ff00dcfca8acbeb4f762cd62b1a0784099c",
+      "sha256": "e946f80d9acfd2d784b3ce4d84cd3c50a44e5662d7de50fc77a7e660b89566e7"
+    }
+  ],
+  "theme_database_connection": "app-factory/app-shell/server.cjs: SQLite app manifests and appearance settings through authenticated API"
+}

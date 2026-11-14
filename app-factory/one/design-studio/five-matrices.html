@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1424">
+<meta name="description" content="The Five Matrices of ONE: eras, errors and corrections across the entire application lifecycle. By Nathan Tabor.">
+<title>THE FIVE MATRICES — ERA / ERROR | ONE by Nathan Tabor</title>
+<style>
+:root{color-scheme:dark;--bg:#07101e;--panel:#102139;--panel2:#152b45;--line:#31475d;--ink:#ecf6ff;--sub:#afc0d1;--accent:#95e0ff;--warn:#ffc77c;--ok:#b0efc6;--radius:17px;--space:15px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 12% -7%,#244363 0%,transparent 35%),var(--bg);color:var(--ink);line-height:1.55}
+a{color:#a7e4ff}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #fff2a7;outline-offset:3px}
+.wrap{max-width:1180px;margin:auto;padding:24px clamp(13px,4vw,34px) 60px}
+.top{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}.top a{text-decoration:none}.tag{font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:#bbd9e7;font-weight:800}
+h1{margin:12px 0 8px;letter-spacing:-.055em;font-size:clamp(2.1rem,6.5vw,4.6rem);line-height:1.06}
+h2{font-size:clamp(1.25rem,3vw,1.7rem);margin:0 0 8px}h3{margin:8px 0 6px}
+p{margin:.4rem 0 1rem}small,.muted{color:var(--sub)}.lede{max-width:850px;font-size:1.02rem;color:#c7dcec}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;align-items:center;margin:24px 0}.hero-side{padding:20px;background:#0f273b;border:1px solid #346078;border-radius:var(--radius)}
+.orbit{height:155px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.ring{position:absolute;width:138px;height:138px;border:2px dashed #75a6bf;border-radius:50%;opacity:.78}.ring:after{content:'';position:absolute;top:-7px;left:62px;width:12px;height:12px;border-radius:50%;background:#b4efff;box-shadow:0 0 22px #96d8f8}.pendulum{height:100px;width:2px;background:#8dd8fe;transform-origin:top center;transform:rotate(-23deg);animation:rock 5s ease-in-out infinite alternate;position:relative}.pendulum:after{content:'';position:absolute;bottom:-8px;left:-9px;width:20px;height:20px;border-radius:50%;background:#aee7fb;box-shadow:0 0 18px #aee7fb}@keyframes rock{from{transform:rotate(-23deg)}to{transform:rotate(23deg)}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(14px,3vw,22px);margin:17px 0}.toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.btn{border-radius:11px;border:1px solid #507089;background:#18304b;color:var(--ink);padding:11px 14px;min-height:43px}.btn:hover{background:#24425e}.btn[aria-pressed=true],.btn.primary{background:#b8ebff;color:#091a26;border-color:#b8ebff;font-weight:800}
+.matrix-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:16px}.stage{display:flex;flex-direction:column;align-items:flex-start;gap:7px;min-height:155px;padding:14px;border-radius:14px;border:1px solid #3d5a71;background:#152b42;color:var(--ink);text-align:left}.stage.active,.stage[aria-pressed=true]{border:2px solid #a7eaff;background:#23506b}.stage .num{font-size:.74rem;color:#b1cadd}.stage strong{font-size:1.63rem;letter-spacing:-.04em;line-height:1.1}.stage span:last-child{font-size:.84rem;color:#c0d5e0}
+.content-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}.metric{font-size:.8rem;color:#a9d4ea;text-transform:uppercase;letter-spacing:.08em;font-weight:800}.mode-title{color:var(--accent);font-size:1.15rem;font-weight:800}.mode-title.error{color:var(--warn)}.label{display:block;color:#9fc2d6;font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;font-weight:800;margin-top:16px}.desc{font-size:1.02rem}.item{border-top:1px solid #2e4a60;padding:11px 0}.item strong{display:block}.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.check{border:1px solid #37566b;background:#122e40;border-radius:11px;padding:11px}.check .check-title{font-size:.74rem;text-transform:uppercase;color:#b8d0db;font-weight:800}.check .check-data{font-size:.96rem;margin-top:3px}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.note{background:#122c42;border:1px solid #37526b;border-radius:13px;padding:13px}.note strong{display:block;margin-bottom:5px}
+code{padding:3px 6px;background:#203b54;border-radius:5px;color:#cdf3ff}footer{color:#a9c4d4;font-size:.85rem;border-top:1px solid #274059;margin-top:24px;padding-top:20px}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:840px){.hero,.content-grid{grid-template-columns:1fr}.matrix-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.notes{grid-template-columns:1fr}.hero-side{display:none}}
+@media(max-width:480px){.matrix-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.checks{grid-template-columns:1fr}.stage{min-height:126px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pendulum{animation:none;transform:rotate(0)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><a href="./index.html">← ONE Design Studio</a><span class="tag">NATHAN AI → TABOR ROOT → ONE</span></div>
+<header>
+ <div class="tag" style="margin-top:24px">Original framework by Nathan Tabor · Interactive specification</div>
+ <h1>THE FIVE MATRICES <span style="color:#9fcee5">/</span><br>ERA <span style="color:#9fcee5">↔</span> ERROR</h1>
+ <p class="lede">One continuous application lifecycle: legacy → intention → visual system → runtime → observation → legacy review. Select a matrix, flip between its constructive <b>ERA</b> and possible <b>ERROR</b>, then trace the corrective return.</p>
+</header>
+<div class="hero">
+ <div class="panel" style="margin:0"><div class="tag">ONE · Continuous cycle</div><h2 style="margin:10px 0">BCE → BC → AC → CE → AD → BCE</h2><p>The five matrices are a design and engineering metaphor. The software terms below are project-specific acronym expansions, not the conventional historical definitions of BC, BCE, CE, or AD.</p><div class="toolbar"><button class="btn" id="previous" type="button">← Previous</button><button class="btn primary" id="next" type="button">Next matrix →</button><button class="btn" id="reverse" type="button" aria-pressed="false">RTL / Reverse reading</button></div></div>
+ <div class="hero-side"><div class="orbit" aria-hidden="true"><div class="ring"></div><div class="pendulum"></div></div><div style="text-align:center;font-size:.9rem;color:#c9d6e2">Fall → transfer → return → settle<br><small>Illustrative, not a physical perpetual-motion claim</small></div></div>
+</div>
+<section class="panel" aria-label="Five matrix selector">
+ <div class="toolbar"><h2 style="margin-right:auto">Choose your matrix</h2><button id="era" class="btn primary" aria-pressed="true" type="button">ERA · Structure</button><button id="error" class="btn" aria-pressed="false" type="button">ERROR · Failure / Repair</button></div>
+ <div class="matrix-grid" id="matrixGrid"></div>
+</section>
+<section class="content-grid" aria-label="Matrix analysis">
+ <article class="panel" aria-live="polite" aria-atomic="true"><div class="metric" id="stageNumber"></div><h2 id="stageTitle"></h2><div id="modeTitle" class="mode-title"></div><p class="desc" id="summary"></p><span class="label" id="detailsLabel"></span><div id="details"></div></article>
+ <aside class="panel"><h2>Build ↔ Clear</h2><div class="checks"><div class="check"><div class="check-title">BUILD</div><div class="check-data">1 + 1 = 2<br><small>Specify · Create · Verify</small></div></div><div class="check"><div class="check-title">CLEAR</div><div class="check-data">1 − 1 = 0<br><small>Detect · Correct · Retest</small></div></div></div><span class="label">Matrix invariant</span><p id="rule"></p><span class="label">Handoff to next stage</span><p id="handoff"></p><div class="toolbar"><button id="export" type="button" class="btn">↓ Export JSON specification</button><button id="reset" type="button" class="btn">Reset controls</button></div><p class="muted" id="message" role="status"></p></aside>
+</section>
+<section class="panel"><h2>Three separate readings of the same words</h2><div class="notes">
+ <div class="note"><strong>1 · The owner's theological interpretation</strong>“Errors of the world aka eras,” the Tower of Babel, and intentional deception are identified as Nathan Tabor's theological/creative interpretation, preserved as the author's statement—not validated as a hidden historical mechanism.</div>
+ <div class="note"><strong>2 · Documentary biblical reading</strong>Genesis 11:1–9 concerns languages and dispersal at Babel. Other passages about deception or renewal can be studied as separate biblical themes, but Scripture does not name BCE/BC/AC/CE/AD as five apocalyptic software matrices.</div>
+ <div class="note"><strong>3 · Operational software model</strong>Every matrix defines an intended state, a testable failure state, a correction, and an observable next-stage handoff. This model can be used in ONE and TABOR 1-2-3 FACTORY without claiming historical proof from wordplay.</div>
+</div></section>
+<footer><strong>THE FIVE MATRICES — ERA / ERROR</strong> · By Nathan Tabor · ONE / Nathan AI · This is a client-side, offline-capable educational/prototyping module. No network calls, tracking, background sync, cloud accounts, or server writes. Changes are held locally for this visit. Export produces a downloadable JSON specification.</footer>
+</div>
+<script>
+(()=>{'use strict';
+const stages=[
+{id:'BCE',name:'Before Component Engines',subtitle:'The Technical Past',era:'Legacy structures and earlier decisions enter the present system.',error:'Inherited defects become normalized because the original reason for a choice is lost.',steps:['Inventory existing screens, code, assets and content.','Preserve author originals; record provenance and licensing.','Identify hardcoded colors, table layouts and duplicated components.'],fail:['Unmapped dependencies and dead links.','Inconsistent design values and undocumented changes.','Unverified assumptions treated as original intent.'],fix:'Archive sources; label unverified claims; run a dependency and accessibility audit.',rule:'Preserve originals without copying undocumented assumptions into new components.',handoff:'A known inventory and explicit requirements enter BC.'},
+{id:'BC',name:'Before Code',subtitle:'The Architectural Setup',era:'Intent is turned into a specification before implementation.',error:'Unclear intent becomes a finished feature with the wrong behavior.',steps:['Capture exact author words and separate them from interpretation.','Create flows, wireframes, content models and acceptance criteria.','Record consent, permissions and expected failure cases.'],fail:['Skipped user research or broken flow maps.','Ambiguous requirements and missing test criteria.','Publishing or charging without approval.'],fix:'Validate scope, trace every feature to its source and introduce approval gates.',rule:'A feature cannot be called complete if its desired behavior has no testable description.',handoff:'Approved wireframes and requirements determine AC tokens and components.'},
+{id:'AC',name:'Atomic & Cosmic',subtitle:'The Living Design System',era:'The interface is composed from tokens, fills, wallpapers, skins and visual hierarchies.',error:'A visually coherent system can still hide unreadable, misleading or inaccessible controls.',steps:['Apply shared tokens across typography, fill, wallpaper and skins.','Test mobile, tablet, desktop, LTR, RTL and reduced motion.','Check contrast, focus order, text expansion and visual hierarchy.'],fail:['Contrast, navigation or spacing regression.','A skin overrides semantic meaning or accessible focus.','A wallpaper obscures readable content.'],fix:'Reconcile token contracts and run accessible multi-device component tests.',rule:'The skin changes appearance; the meaning and permissions of actions remain intact.',handoff:'Reusable components and their design contracts proceed to CE.'},
+{id:'CE',name:'Component Era',subtitle:'Active Execution',era:'Components run with live state, rendering rules, validated data and protected actions.',error:'Runtime state diverges from user intent or the system shows data it cannot verify.',steps:['Implement events, state machines, rendering and navigation.','Validate API contracts, loading, offline and empty states.','Test auth, permissions, error handling and data hydration.'],fail:['A control appears to work but discards or misroutes the action.','Stale data or fabricated success feedback.','Unauthorized access, unhandled exceptions or broken RTL behavior.'],fix:'Enforce contracts, simulate failure, test state transitions and require server acknowledgments.',rule:'Never claim an external action succeeded until a trusted result confirms it.',handoff:'A verified release candidate enters AD monitoring.'},
+{id:'AD',name:'After Deployment',subtitle:'The Living Product Lifecycle',era:'A released experience is maintained, measured and improved through controlled changes.',error:'Unbounded telemetry, silent product drift or weak rollback erodes sovereignty and trust.',steps:['Use privacy-respecting metrics only with appropriate consent.','Monitor errors, accessibility and performance.','Version releases, handle regressions and restore from backups.'],fail:['Sensitive data is sent to analytics without proper authorization.','Hotfixes change author intent without review.','No recovery or rollback route for broken deployments.'],fix:'Minimize telemetry; make a reversible patch; log decisions; run regression checks.',rule:'Data ownership, permission boundaries and traceable versions survive every release.',handoff:'Documented production findings feed the next BCE legacy review.'}
+];
+let index=0,mode='era',reverse=false;
+const $=id=>document.getElementById(id),buttons=()=>Array.from(document.querySelectorAll('.stage'));
+function render(){const stage=stages[index],label=mode==='era'?'Constructive era':'Error and correction';
+$('stageNumber').textContent=`MATRIX ${index+1} OF 5 · ${stage.id}`;$('stageTitle').textContent=`${stage.id} — ${stage.name}`;$('modeTitle').textContent=label;$('modeTitle').className='mode-title'+(mode==='error'?' error':'');$('summary').textContent=stage[mode];
+$('detailsLabel').textContent=mode==='era'?'What belongs in this matrix':'Possible errors / failure modes';
+const all=mode==='era'?stage.steps:stage.fail;$('details').replaceChildren(...all.map((t,i)=>{const el=document.createElement('div');el.className='item';const label=document.createElement('strong');label.textContent=`${String(i+1).padStart(2,'0')} · ${t}`;el.append(label);return el;}));
+if(mode==='error'){const l=document.createElement('span');l.className='label';l.textContent='Repair / correction';const p=document.createElement('p');p.textContent=stage.fix;$('details').append(l,p)};
+$('rule').textContent=stage.rule;$('handoff').textContent=stage.handoff;
+$('era').setAttribute('aria-pressed',String(mode==='era'));$('error').setAttribute('aria-pressed',String(mode==='error'));$('era').classList.toggle('primary',mode==='era');$('error').classList.toggle('primary',mode==='error');$('reverse').setAttribute('aria-pressed',String(reverse));
+const order=reverse?[...stages].reverse():stages;$('matrixGrid').replaceChildren(...order.map(s=>{const b=document.createElement('button');b.type='button';b.className='stage'+(s.id===stage.id?' active':'');b.setAttribute('aria-pressed',String(s.id===stage.id));const n=document.createElement('span');n.className='num';n.textContent=`MATRIX ${stages.indexOf(s)+1}`;const strong=document.createElement('strong');strong.textContent=s.id;const span=document.createElement('span');span.textContent=s.name;b.append(n,strong,span);b.addEventListener('click',()=>{index=stages.indexOf(s);render()});return b;}));
+$('message').textContent='Selected '+stage.id+' · '+label+'.';}
+$('next').addEventListener('click',()=>{index=(index+1)%5;render()});$('previous').addEventListener('click',()=>{index=(index+4)%5;render()});
+$('reverse').addEventListener('click',()=>{reverse=!reverse;render()});$('era').addEventListener('click',()=>{mode='era';render()});$('error').addEventListener('click',()=>{mode='error';render()});
+$('reset').addEventListener('click',()=>{index=0;mode='era';reverse=false;render()});
+$('export').addEventListener('click',()=>{const data={schema:'one.five-matrices.v1',author:'Nathan Tabor',title:'THE FIVE MATRICES — ERA / ERROR',sequence:stages.map(s=>s.id),readMode:reverse?'reverse':'forward',lens:mode,selected:stages[index].id,interpretationBoundary:'Scriptural association is an author interpretation, not an established Bible-derived historical chronology.',matrices:stages};const json=JSON.stringify(data,null,2);const blob=new Blob([json],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='ONE_Five_Matrices_v1.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);$('message').textContent='JSON specification exported.';});
+render();
+})();
+</script>
+</body>
+</html>

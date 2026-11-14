@@ -1,0 +1,129 @@
+{
+  "schema": "one.app-shell.v1",
+  "apps": [
+    {
+      "id": "god",
+      "name": "GOD Universe",
+      "description": "Universal source atlas, original artwork and authored declarations.",
+      "entry": "app-factory/sites/godtabor/god.html",
+      "appearance": {
+        "skin": "midnight",
+        "font": "system",
+        "scale": "1",
+        "density": "comfortable",
+        "width": "comfortable",
+        "reduceMotion": false
+      },
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "text"
+        },
+        {
+          "key": "complete",
+          "label": "Complete",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "name": "GODTABOR World Builder",
+      "description": "World building, governance and creative planning.",
+      "entry": "app-factory/sites/godtabor/world.html",
+      "appearance": {
+        "skin": "aurora",
+        "font": "system",
+        "scale": "1",
+        "density": "comfortable",
+        "width": "comfortable",
+        "reduceMotion": false
+      },
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "text"
+        },
+        {
+          "key": "complete",
+          "label": "Complete",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "library",
+      "name": "ONE Library",
+      "description": "Reading, reference and source-linked research.",
+      "entry": "app-factory/one/library-mind/index.html",
+      "appearance": {
+        "skin": "parchment",
+        "font": "system",
+        "scale": "1",
+        "density": "comfortable",
+        "width": "comfortable",
+        "reduceMotion": false
+      },
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "text"
+        },
+        {
+          "key": "complete",
+          "label": "Complete",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "studio",
+      "name": "ONE Design Studio",
+      "description": "Shared design tokens, themes and layout tools.",
+      "entry": "app-factory/one/design-studio/index.html",
+      "appearance": {
+        "skin": "studio",
+        "font": "system",
+        "scale": "1",
+        "density": "comfortable",
+        "width": "comfortable",
+        "reduceMotion": false
+      },
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "text"
+        },
+        {
+          "key": "complete",
+          "label": "Complete",
+          "type": "boolean"
+        }
+      ]
+    }
+  ]
+}

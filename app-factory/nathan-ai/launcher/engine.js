@@ -2,6 +2,11 @@
   'use strict';
   const KEY='nathan-ai.launcher.v1';
   const destinations=[
+    ['app-shell','ONE App Shell','../app-shell/index.html','Database-driven application registry, themes and persistent workspaces'],
+    ['god-universe','GOD Universe v075','../sites/godtabor/god.html','Latest GODTABOR app, universal source atlas and artwork'],
+    ['god-world','GODTABOR World Builder','../sites/godtabor/world.html','Interactive world governance app'],
+    ['one-design-studio','ONE Design & System Studio','../one/design-studio/index.html','Existing token, skin, layout and typography editor recovered from original branch'],
+    ['one-system','ONE Universal System','../system/index.html','Shared shell, app atlas and assembled component directory'],
     ['original-works','My Original Works','original-works/index.html','Original manuscripts, saved words, earlier versions, canonical book titles and unchanged downloads'],
     ['universal-workspace','Universal Workspace','universal-workspace/index.html','Local tools and source workspace'],
     ['self-help','iCuBUDDY Self Help','self-help/index.html','Self help, Buddy AI and planning'],
