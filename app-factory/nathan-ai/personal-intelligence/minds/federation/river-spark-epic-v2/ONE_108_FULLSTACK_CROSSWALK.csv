@@ -1,0 +1,109 @@
+position,tech_master_id,tech_name,software_master_id,software_name,hardware_master_id,hardware_name,relation
+1,173,Flint-Knapper,281,Card-Perforator,389,Bead-Slider,source ordinal correspondence only; not functional equivalence
+2,174,Hearth-Tender,282,Hole-Reader,390,Place-Value Column Guard,source ordinal correspondence only; not functional equivalence
+3,175,Kiln-Firer,283,Loom-Sequencer,391,Carry-Over Trigger,source ordinal correspondence only; not functional equivalence
+4,176,Cordage-Weaver,284,Relay-Switcher,392,Tally-Notch Cutter,source ordinal correspondence only; not functional equivalence
+5,177,Timber-Feller,285,Tape-Spooler,393,Napier-Rod Aligner,source ordinal correspondence only; not functional equivalence
+6,178,Hide-Tanner,286,Drum-Indexer,394,Slide-Rule Cursor,source ordinal correspondence only; not functional equivalence
+7,179,Shelter-Framer,287,Batch-Feeder,395,Abacus-Reset Bar,source ordinal correspondence only; not functional equivalence
+8,180,Ash-Purifier,288,Tabulator-Sorter,396,Tactile-Parity Checker,source ordinal correspondence only; not functional equivalence
+9,181,Ember-Keeper,289,Checksum-Verifier,397,Zero-Clearance Frame,source ordinal correspondence only; not functional equivalence
+10,182,Furrow-Plower,290,Opcode-Encoder,398,Epicyclic-Gear Mesher,source ordinal correspondence only; not functional equivalence
+11,183,Canal-Leveler,291,Register-Allocator,399,Stepped-Drum Indexer,source ordinal correspondence only; not functional equivalence
+12,184,Water-Lifter,292,Stack-Pointer Guard,400,Carry-Lever Actuator,source ordinal correspondence only; not functional equivalence
+13,185,Terrace-Grader,293,Interrupt-Handler,401,Cam-Follower Sensor,source ordinal correspondence only; not functional equivalence
+14,186,Seed-Selector,294,Bitwise-Shifter,402,Crank-Torque Regulator,source ordinal correspondence only; not functional equivalence
+15,187,Millstone-Grinder,295,Bus-Arbitrator,403,Number-Wheel Lock,source ordinal correspondence only; not functional equivalence
+16,188,Granary-Sealer,296,Microcode-Sequencer,404,Escapement-Tick Counter,source ordinal correspondence only; not functional equivalence
+17,189,Ferment-Culturer,297,Memory-Mapper,405,Brass-Bearing Oiler,source ordinal correspondence only; not functional equivalence
+18,190,Soil-Rotator,298,Watchdog-Timer,406,Zero-Angle Calibrator,source ordinal correspondence only; not functional equivalence
+19,191,Ore-Prospector,299,Lexer-Tokenizer,407,Coil-Energizer,source ordinal correspondence only; not functional equivalence
+20,192,Smelter-Stoker,300,Syntax-Tree Parser,408,Contact-Arc Suppressor,source ordinal correspondence only; not functional equivalence
+21,193,Alloy-Blender,301,Type-Checker,409,Stepping-Switch Rotator,source ordinal correspondence only; not functional equivalence
+22,194,Anvil-Forger,302,Loop-Boundary Auditor,410,Plugboard-Patch Router,source ordinal correspondence only; not functional equivalence
+23,195,Quench-Temperer,303,Dead-Code Eliminator,411,Card-Brush Sensor,source ordinal correspondence only; not functional equivalence
+24,196,Glass-Blower,304,Register-Optimizer,412,Solenoid-Latch,source ordinal correspondence only; not functional equivalence
+25,197,Lens-Grinder,305,Static-Linker,413,Bus-Bar Distributor,source ordinal correspondence only; not functional equivalence
+26,198,Ceramic-Glazer,306,JIT-Bytecode Compiler,414,Relay-Bounce Filter,source ordinal correspondence only; not functional equivalence
+27,199,Assay-Tester,307,Garbage-Collector,415,Master-Clock Breaker,source ordinal correspondence only; not functional equivalence
+28,200,Millrace-Gatekeeper,308,Kernel-Bootloader,416,Filament-Heater Regulator,source ordinal correspondence only; not functional equivalence
+29,201,Wind-Vane Turner,309,Process-Scheduler,417,Triode-Grid Switcher,source ordinal correspondence only; not functional equivalence
+30,202,Gear-Tooth Cutter,310,Virtual-Memory Pager,418,Cathode-Ray Refresher,source ordinal correspondence only; not functional equivalence
+31,203,Escapement-Regulator,311,Inode-File Indexer,419,Ferrite-Core Threader,source ordinal correspondence only; not functional equivalence
+32,204,Camshaft-Timer,312,Device-Driver Bridge,420,Sense-Wire Reader,source ordinal correspondence only; not functional equivalence
+33,205,Pulley-Rigger,313,Syscall-Gatekeeper,421,Magnetic-Drum Head,source ordinal correspondence only; not functional equivalence
+34,206,Pendulum-Calibrator,314,Daemon-Supervisor,422,Tube-Burnout Swapper,source ordinal correspondence only; not functional equivalence
+35,207,Spring-Winder,315,Journaling-Recovery Bot,423,High-Voltage Rectifier,source ordinal correspondence only; not functional equivalence
+36,208,Gearbox-Oiler,316,Permission-Enforcer,424,Rack-Blower Cooler,source ordinal correspondence only; not functional equivalence
+37,209,Hull-Shipwright,317,Schema-Architect,425,Silicon-Junction Biaser,source ordinal correspondence only; not functional equivalence
+38,210,Sail-Trimmer,318,B-Tree Indexer,426,Copper-Trace Router,source ordinal correspondence only; not functional equivalence
+39,211,Rudder-Helmsman,319,Query-Optimizer,427,Solder-Joint Inspector,source ordinal correspondence only; not functional equivalence
+40,212,Compass-Aligner,320,ACID-Transaction Lock,428,Capacitor-Decoupler,source ordinal correspondence only; not functional equivalence
+41,213,Astrolabe-Sighter,321,Write-Ahead Logger,429,Resistor-Divider,source ordinal correspondence only; not functional equivalence
+42,214,Chronometer-Keeper,322,Replication-Syncer,430,Backplane-Bus Bridge,source ordinal correspondence only; not functional equivalence
+43,215,Chart-Plotter,323,Shard-Partitioner,431,Edge-Connector Lock,source ordinal correspondence only; not functional equivalence
+44,216,Sounding-Lead Caster,324,Vector-Embedding Indexer,432,Heat-Sink Fin,source ordinal correspondence only; not functional equivalence
+45,217,Beacon-Lighter,325,Point-in-Time Snapshotter,433,Continuity-Multimeter Probe,source ordinal correspondence only; not functional equivalence
+46,218,Pulp-Molder,326,DNS-Resolver,434,Clock-Crystal Oscillator,source ordinal correspondence only; not functional equivalence
+47,219,Type-Founder,327,BGP-Path Router,435,Instruction-Decoder,source ordinal correspondence only; not functional equivalence
+48,220,Typesetter-Composer,328,TCP-Handshake Sequencer,436,ALU-Adder Core,source ordinal correspondence only; not functional equivalence
+49,221,Ink-Press Operator,329,Packet-Fragmenter,437,Branch-Predictor Unit,source ordinal correspondence only; not functional equivalence
+50,222,Proofreader-Corrector,330,TLS-Cipher Negotiator,438,L1/L2/L3 Cache Controller,source ordinal correspondence only; not functional equivalence
+51,223,Folio-Binder,331,Load-Balancer,439,Tensor-Matrix Array,source ordinal correspondence only; not functional equivalence
+52,224,Cipher-Encoder,332,NAT-Gateway Translator,440,Voltage-Regulator Module (VRM),source ordinal correspondence only; not functional equivalence
+53,225,Semaphore-Signaler,333,Onion-Relay Wrapper,441,Thermal-Throttle Sensor,source ordinal correspondence only; not functional equivalence
+54,226,Archive-Preserver,334,Latency-Probe Monitor,442,Silicon-Die Grounder,source ordinal correspondence only; not functional equivalence
+55,227,Boiler-Pressurizer,335,DOM-Layout Renderer,443,DRAM-Cell Refresher,source ordinal correspondence only; not functional equivalence
+56,228,Piston-Machinist,336,Pixel-Shader Rasterizer,444,Spindle-Motor Governor,source ordinal correspondence only; not functional equivalence
+57,229,Flywheel-Governor,337,Event-Loop Listener,445,Voice-Coil Actuator Arm,source ordinal correspondence only; not functional equivalence
+58,230,Valve-Injector,338,State-Store Synchronizer,446,Magnetic-Head Gimbal,source ordinal correspondence only; not functional equivalence
+59,231,Turbine-Balancer,339,Responsive-Grid Aligner,447,NAND-Block Wear Leveler,source ordinal correspondence only; not functional equivalence
+60,232,Exhaust-Condenser,340,Accessibility-Narrator,448,Optical-Laser Focuser,source ordinal correspondence only; not functional equivalence
+61,233,Rail-Switchman,341,Input-Debouncer,449,ECC-Parity Corrector,source ordinal correspondence only; not functional equivalence
+62,234,Drivetrain-Coupler,342,Frame-Rate Pacer,450,NVMe-Lane Controller,source ordinal correspondence only; not functional equivalence
+63,235,Thermal-Inspector,343,Plain-Language Tooltip Writer,451,Write-Protect Switch,source ordinal correspondence only; not functional equivalence
+64,236,Dynamo-Exciter,344,Git-Commit Hasher,452,AC-to-DC Rectifier,source ordinal correspondence only; not functional equivalence
+65,237,Transformer-Winder,345,Branch-Merge Resolver,453,Rail-Voltage Balancer,source ordinal correspondence only; not functional equivalence
+66,238,Grid-Load Balancer,346,Pull-Request Router,454,PCIe-Lane Multiplexer,source ordinal correspondence only; not functional equivalence
+67,239,Substation-Breaker,347,Unit-Test Runner,455,Chipset-Southbridge Hub,source ordinal correspondence only; not functional equivalence
+68,240,Copper-Line Stringer,348,Boundary-Fuzz Tester,456,BIOS/UEFI Flash Chip,source ordinal correspondence only; not functional equivalence
+69,241,Telegraph-Keyer,349,Container-Packager,457,CMOS-Battery Timekeeper,source ordinal correspondence only; not functional equivalence
+70,242,Switchboard-Router,350,Kubernetes-Pod Scaler,458,USB-Port Handshaker,source ordinal correspondence only; not functional equivalence
+71,243,Radio-Modulator,351,Canary-Rollout Watcher,459,Surge-Fuse Breaker,source ordinal correspondence only; not functional equivalence
+72,244,Ground-Fault Earther,352,Instant-Rollback Trigger,460,Chassis-Ground Strap,source ordinal correspondence only; not functional equivalence
+73,245,Wafer-Grower,353,Zero-Trust Identity Verifier,461,Key-Switch Debouncer,source ordinal correspondence only; not functional equivalence
+74,246,EUV-Lithographer,354,Post-Quantum Key Generator,462,Optical-Track Sensor,source ordinal correspondence only; not functional equivalence
+75,247,Gate-Etcher,355,Buffer-Overflow Hard-Lock,463,Capacitive-Touch Grid,source ordinal correspondence only; not functional equivalence
+76,248,Fiber-Splicer,356,Malware-Signature Scanner,464,OLED-Pixel Driver,source ordinal correspondence only; not functional equivalence
+77,249,Packet-Router,357,Honeypot-Decoy Trap,465,Backlight-Dimmer PWM,source ordinal correspondence only; not functional equivalence
+78,250,Cache-Optimizer,358,Firewall-Packet Filter,466,Acoustic-Transducer Mic,source ordinal correspondence only; not functional equivalence
+79,251,Kernel-Scheduler,359,Secret-Vault Rotator,467,Speaker-Cone Amplifier,source ordinal correspondence only; not functional equivalence
+80,252,Cryo-Cooler,360,Forensic-Log Auditor,468,CMOS-Camera Shutter,source ordinal correspondence only; not functional equivalence
+81,253,Parity-Checker,361,Quarantine-Isolator,469,Haptic-Vibration Motor,source ordinal correspondence only; not functional equivalence
+82,254,CAD-Slicer,362,Event-Stream Producer,470,Laser-Diode Transceiver,source ordinal correspondence only; not functional equivalence
+83,255,Extruder-Depositor,363,Partition-Offset Tracker,471,Glass-Core Waveguide,source ordinal correspondence only; not functional equivalence
+84,256,CNC-Miller,364,Schema-Registry Guard,472,Optical-Repeater Amplifier,source ordinal correspondence only; not functional equivalence
+85,257,LiDAR-Mapper,365,Stream-Window Aggregator,473,RJ45-Magnetics Transformer,source ordinal correspondence only; not functional equivalence
+86,258,Servo-Actuator,366,CRDT-Conflict Merger,474,Phased-Array Beamformer,source ordinal correspondence only; not functional equivalence
+87,259,Gyro-Stabilizer,367,Dead-Letter Queue Handler,475,Coaxial-Shield Braid,source ordinal correspondence only; not functional equivalence
+88,260,Swarm-Coordinator,368,Backpressure-Throttle Valve,476,Undersea-Armor Sheath,source ordinal correspondence only; not functional equivalence
+89,261,Battery-Swapper,369,ETL-Pipeline Cleaner,477,Switch-Fabric Backplane,source ordinal correspondence only; not functional equivalence
+90,262,Force-Feedback Sensor,370,Exactly-Once Deduplicator,478,Signal-Attenuation Meter,source ordinal correspondence only; not functional equivalence
+91,263,Airfoil-Shaper,371,Physics-Tick Integrator,479,Blade-Chassis Latch,source ordinal correspondence only; not functional equivalence
+92,264,Cryo-Propellant Loader,372,Collision-Hitbox Detector,480,Cold-Plate Coolant Pump,source ordinal correspondence only; not functional equivalence
+93,265,Gimbal-Thrust Vectorer,373,A*-Pathfinding Navigator,481,Radiator-Chiller Loop,source ordinal correspondence only; not functional equivalence
+94,266,Avionics-Navigator,374,Terrain-Mesh Generator,482,Hot-Swap PSU Failover,source ordinal correspondence only; not functional equivalence
+95,267,Orbital-Slot Keeper,375,Deterministic-Seed Replay Bot,483,UPS-Battery Inverter,source ordinal correspondence only; not functional equivalence
+96,268,Solar-Wing Deployer,376,Entity-Component Manager,484,High-Speed Interconnect Switch,source ordinal correspondence only; not functional equivalence
+97,269,Heat-Shield Tiler,377,Weather-Cycle Simulator,485,Airflow-Containment Baffle,source ordinal correspondence only; not functional equivalence
+98,270,Telemetry-Dish Tracker,378,Sensor-Twin Calibrator,486,Leak-Detection Rope,source ordinal correspondence only; not functional equivalence
+99,271,Debris-Deorbiter,379,Bottleneck-Stress Tester,487,Remote-IPMI Hardware Reset,source ordinal correspondence only; not functional equivalence
+100,272,Qubit-Isolator,380,Attention-Context Router,488,Dilution-Fridge Compressor,source ordinal correspondence only; not functional equivalence
+101,273,Entanglement-Router,381,Token-Window Manager,489,Millikelvin-Shield Canister,source ordinal correspondence only; not functional equivalence
+102,274,Quantum-Decrypt Guard,382,Retrieval-Augmented Grounder (RAG),490,Microwave-Pulse Waveguide,source ordinal correspondence only; not functional equivalence
+103,275,Atom-Manipulator,383,Tool-Call API Dispatcher,491,Ion-Trap Vacuum Pump,source ordinal correspondence only; not functional equivalence
+104,276,CRISPR-Guide Splicer,384,Hallucination-Fact Verifier,492,Magnetic-Flux Cage,source ordinal correspondence only; not functional equivalence
+105,277,Protein-Synthesizer,385,Provenance-Citation Logger,493,Neuromorphic-Synapse Core,source ordinal correspondence only; not functional equivalence
+106,278,Bio-Reactor Sterilizer,386,Alignment-Guardrail Enforcer,494,Micro-Electrode Bio-Well,source ordinal correspondence only; not functional equivalence
+107,279,Nano-Capsule Loader,387,Multi-Agent Swarm Coordinator,495,Vibration-Isolation Table,source ordinal correspondence only; not functional equivalence
+108,280,Ethics-Containment Lock,388,Human-Override Escalation Gate,496,Quench-Safety Vent,source ordinal correspondence only; not functional equivalence

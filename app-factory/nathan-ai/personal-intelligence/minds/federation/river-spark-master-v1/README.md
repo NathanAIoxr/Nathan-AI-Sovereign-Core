@@ -72,3 +72,7 @@ GitHub CI uses a disposable master for integration tests. No private database, e
 5. **No false completion**: older PDFs/Word files are mentioned in the uploaded text but were not provided as the files themselves. The present compilation cannot validate their pagination or recover unseen pages.
 
 **PRESERVE → ATTRIBUTION → TYPE → CONNECT → TEST → REVIEW → AUTHORIZE.**
+
+## Extended full uncollapsed reader
+
+The prior compilation is now supplemented by the [**EPIC UNCOLLAPSED MASTER EDITION**](../river-spark-epic-v2/README.md), expanding from summarized relationships into 28 narrative chapters and 11 fully enumerated appendices. The new edition preserves this prior source/provenance registry, does not overwrite the author’s missing original manuscripts, and links new assistant-drafted material separately.

@@ -172,3 +172,7 @@ The 56-family and 70-dimension modules use the **same existing ONE SQLite databa
 ## THE RIVER AND THE SPARK — BOOK III: THE MIRROR · Compiled ONE Crosswalk
 
 [**Master synthesis, new Parts X–XII and evidence ledger**](river-spark-master-v1/README.md) uses a separate manuscript namespace to index 206 bones, 40 editorial spine entries, seven symbolic stations, and distinct 14/114/12 traditional research systems. The adjacent ONE systems remain separately numbered (#1–#496 declared, 333 newly verified, Root13 and Tech108). A new CI gate checks source-classified references, forty newly drafted noncanonical Reflex Points and an ephemeral import of 25 knowledge records alongside 454 existing role records. The upload remains unpublished in the public repo; only attributed and qualified synthesis is indexed.
+
+## EPIC UNCOLLAPSED EDITION — Source-preserving full manuscript index
+
+[**Full-length River/Spark book, Mirror, ONE and Living Atlas**](river-spark-epic-v2/README.md) explicitly displays every 333 verified new #164–#496 role, every 206 newly researched adult bone reference, all 40 new Reflex Point drafts and forty editorial spine slots, both distinct 114-chakra teaching registers, 108 source-order three-layer mappings and the 13 Root13 controls. The accompanying CI checks exact role names against continuity-v496 and rejects an extra #497. Original mixed private attachments and unrecovered earlier full manuscript pages are **not** placed in the public repository.
