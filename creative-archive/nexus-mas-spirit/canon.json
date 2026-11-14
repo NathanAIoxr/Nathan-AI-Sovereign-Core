@@ -1,0 +1,576 @@
+{
+  "title": "NEXUS REPLICATES / NEXUS ELEPHANTS / NEXUS DONKEYS / MAS SPIRIT",
+  "author": "Nathan Tabor",
+  "version": "2026-11-13",
+  "source": "User-provided Pasted text.txt, 486 lines; historic user utterances and assistant responses preserved separately in local source bundle",
+  "principles": {
+    "attribution": "User-authored language and characters attributed to Nathan Tabor; real trademarks and third-party franchise elements remain their respective owners' works",
+    "categories": "original canon | source-derived factual | third-party fictional | folklore/theology | assistant interpretation | unresolved",
+    "no_silent_merging": true,
+    "no_spying_expansion": "User states only: 'He doesnt watch children sleep - none of the do' and 'Creepy to watch kids sleep that ain’t yours'; do not invent broader rules",
+    "latest_spelling": "SANTA SUPMALG, supersedes earlier SANTA SUPMALS",
+    "reversals": [
+      "RAM ↔ MAR",
+      "PUS ↔ SUP"
+    ],
+    "meaning": "MAS SPIRIT = MORE SPIRIT",
+    "rights": "Source material contains third-party names and entertainment references; no ownership of those third-party properties is asserted"
+  },
+  "nodes": [
+    {
+      "id": "N001",
+      "name": "THE NEXUS REPLICATES",
+      "type": "work",
+      "description": "Nathan Tabor authored compilation",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N002",
+      "name": "THE NEXUS ELEPHANTS",
+      "type": "work",
+      "description": "Elephant political symbolism edition",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N003",
+      "name": "THE NEXUS DONKEYS",
+      "type": "work",
+      "description": "Donkey political symbolism edition",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N004",
+      "name": "Lexus",
+      "type": "real_brand",
+      "description": "Toyota luxury automobile brand",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N005",
+      "name": "LexisNexis",
+      "type": "real_brand",
+      "description": "Legal research and data analytics",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N006",
+      "name": "Nexus",
+      "type": "lexeme",
+      "description": "Connection; nexus wordplay hub",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N007",
+      "name": "Jexus",
+      "type": "ambiguous_name",
+      "description": "User expressly distinguishes Jexus from Jesus; synth artist, web server and wordplay senses remain distinct",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N008",
+      "name": "Jesus",
+      "type": "religious_figure",
+      "description": "New Testament figure; separate from Jexus",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N009",
+      "name": "Lilith",
+      "type": "folklore_figure",
+      "description": "Medieval Jewish folklore; not a Genesis named character",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N010",
+      "name": "Adam",
+      "type": "scriptural_figure",
+      "description": "Genesis creation narrative",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N011",
+      "name": "Eve",
+      "type": "scriptural_figure",
+      "description": "Genesis creation narrative",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N012",
+      "name": "Nexus Replicants",
+      "type": "fictional_franchise",
+      "description": "Blade Runner bioengineered humans; distinct from user-authored Nexus Replicates",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N013",
+      "name": "Nexus-6",
+      "type": "fictional_model",
+      "description": "Blade Runner replicant line",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N014",
+      "name": "Nexus-7",
+      "type": "fictional_model",
+      "description": "Blade Runner replicant line",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N015",
+      "name": "Nexus-8",
+      "type": "fictional_model",
+      "description": "Blade Runner replicant line",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N016",
+      "name": "Nexus-9",
+      "type": "fictional_model",
+      "description": "Blade Runner replicant line",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N017",
+      "name": "Republican elephant",
+      "type": "political_symbol",
+      "description": "Traditional Republican mascot",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N018",
+      "name": "Democratic donkey",
+      "type": "political_symbol",
+      "description": "Traditional Democratic mascot",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N019",
+      "name": "Nexus Republicans",
+      "type": "creative_political_label",
+      "description": "User's crossover label; not established as one actual organization",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N020",
+      "name": "Nexus Democrats",
+      "type": "creative_political_label",
+      "description": "User's crossover label; not established as one actual organization",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N021",
+      "name": "Voight-Kampff test",
+      "type": "fictional_device",
+      "description": "Blade Runner empathy testing device",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N022",
+      "name": "Krampus Test",
+      "type": "creative_concept",
+      "description": "Earlier assistant proposal; not established user-authored canon",
+      "authority": "assistant_suggested"
+    },
+    {
+      "id": "N023",
+      "name": "SANTA KRAMPUS",
+      "type": "original_character",
+      "description": "Twin of MAS; paired with SANTA GLAMPUS",
+      "authority": "user_authored"
+    },
+    {
+      "id": "N024",
+      "name": "SANTA SUPMARK",
+      "type": "original_character",
+      "description": "Twin of MAS; paired with SANTA SUPMALG",
+      "authority": "user_authored"
+    },
+    {
+      "id": "N025",
+      "name": "SANTA GLAMPUS",
+      "type": "original_character",
+      "description": "Twin of SPIRIT; equal wife of SANTA KRAMPUS",
+      "authority": "user_authored"
+    },
+    {
+      "id": "N026",
+      "name": "SANTA SUPMALG",
+      "type": "original_character",
+      "description": "Twin of SPIRIT; equal wife of SANTA SUPMARK; current spelling",
+      "authority": "user_authored"
+    },
+    {
+      "id": "N027",
+      "name": "SANTA SUPMALS",
+      "type": "superseded_spelling",
+      "description": "Earlier text form; preserve as variant, not current canonical spelling",
+      "authority": "source_variant"
+    },
+    {
+      "id": "N028",
+      "name": "MAS SPIRIT",
+      "type": "original_concept",
+      "description": "MAS SPIRIT = MORE SPIRIT",
+      "authority": "user_authored"
+    },
+    {
+      "id": "N029",
+      "name": "RAM",
+      "type": "wordplay",
+      "description": "RAM reversed is MAR",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N030",
+      "name": "MAR",
+      "type": "wordplay",
+      "description": "Reverse of RAM",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N031",
+      "name": "PUS",
+      "type": "wordplay",
+      "description": "PUS reversed is SUP",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N032",
+      "name": "SUP",
+      "type": "wordplay",
+      "description": "Reverse of PUS",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N033",
+      "name": "KRAMPUS",
+      "type": "original_concept",
+      "description": "Ancient mystical forgotten Krampus in Nathan Tabor's authored mythology; distinguish from folklore",
+      "authority": "user_authored"
+    },
+    {
+      "id": "N034",
+      "name": "Krampus Hanukkah",
+      "type": "original_greeting",
+      "description": "User-authored holiday greeting",
+      "authority": "user_authored"
+    },
+    {
+      "id": "N035",
+      "name": "Merry Krampus",
+      "type": "original_greeting",
+      "description": "User-authored holiday greeting",
+      "authority": "user_authored"
+    },
+    {
+      "id": "N036",
+      "name": "HAPPY HANUKKAH and MARY KRAMPUS",
+      "type": "original_greeting",
+      "description": "Preserve exact user spelling MARY",
+      "authority": "user_authored"
+    },
+    {
+      "id": "N037",
+      "name": "MAS",
+      "type": "original_concept",
+      "description": "Twins of MAS branch",
+      "authority": "user_authored"
+    },
+    {
+      "id": "N038",
+      "name": "SPIRIT",
+      "type": "original_concept",
+      "description": "Twins of SPIRIT branch",
+      "authority": "user_authored"
+    },
+    {
+      "id": "N039",
+      "name": "Do Androids Dream of Electric Sheep?",
+      "type": "literary_work",
+      "description": "Philip K Dick novel",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N040",
+      "name": "Blade Runner",
+      "type": "film_franchise",
+      "description": "Source franchise, not user's original IP",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N041",
+      "name": "The Nexus Trilogy",
+      "type": "compilation_label",
+      "description": "Umbrella title occurring in supplied transcript",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N042",
+      "name": "Nexus Strategies",
+      "type": "real_organization",
+      "description": "Political consulting firm; separate from creative label",
+      "authority": "mixed_reference"
+    },
+    {
+      "id": "N043",
+      "name": "Nexus Project",
+      "type": "real_organization",
+      "description": "Real-world advocacy organization; separate from creative label",
+      "authority": "mixed_reference"
+    }
+  ],
+  "edges": [
+    {
+      "from": "N001",
+      "to": "N002",
+      "relation": "edition"
+    },
+    {
+      "from": "N001",
+      "to": "N003",
+      "relation": "edition"
+    },
+    {
+      "from": "N001",
+      "to": "N012",
+      "relation": "alludes_to"
+    },
+    {
+      "from": "N001",
+      "to": "N028",
+      "relation": "crosses_over_with"
+    },
+    {
+      "from": "N002",
+      "to": "N017",
+      "relation": "symbolizes"
+    },
+    {
+      "from": "N003",
+      "to": "N018",
+      "relation": "symbolizes"
+    },
+    {
+      "from": "N003",
+      "to": "N039",
+      "relation": "alludes_to"
+    },
+    {
+      "from": "N006",
+      "to": "N004",
+      "relation": "phonetic_association"
+    },
+    {
+      "from": "N006",
+      "to": "N005",
+      "relation": "phonetic_association"
+    },
+    {
+      "from": "N006",
+      "to": "N007",
+      "relation": "phonetic_association"
+    },
+    {
+      "from": "N007",
+      "to": "N008",
+      "relation": "user_requested_sequence_not_identity"
+    },
+    {
+      "from": "N008",
+      "to": "N009",
+      "relation": "user_requested_sequence"
+    },
+    {
+      "from": "N009",
+      "to": "N010",
+      "relation": "folklore_link"
+    },
+    {
+      "from": "N010",
+      "to": "N011",
+      "relation": "genesis_link"
+    },
+    {
+      "from": "N012",
+      "to": "N040",
+      "relation": "appears_in"
+    },
+    {
+      "from": "N013",
+      "to": "N012",
+      "relation": "generation_of"
+    },
+    {
+      "from": "N014",
+      "to": "N012",
+      "relation": "generation_of"
+    },
+    {
+      "from": "N015",
+      "to": "N012",
+      "relation": "generation_of"
+    },
+    {
+      "from": "N016",
+      "to": "N012",
+      "relation": "generation_of"
+    },
+    {
+      "from": "N019",
+      "to": "N017",
+      "relation": "satirical_alignment"
+    },
+    {
+      "from": "N020",
+      "to": "N018",
+      "relation": "satirical_alignment"
+    },
+    {
+      "from": "N021",
+      "to": "N040",
+      "relation": "appears_in"
+    },
+    {
+      "from": "N022",
+      "to": "N021",
+      "relation": "assistant_proposed_parallel"
+    },
+    {
+      "from": "N023",
+      "to": "N024",
+      "relation": "twins_of_MAS"
+    },
+    {
+      "from": "N025",
+      "to": "N026",
+      "relation": "twins_of_SPIRIT"
+    },
+    {
+      "from": "N023",
+      "to": "N025",
+      "relation": "equal_spouses"
+    },
+    {
+      "from": "N024",
+      "to": "N026",
+      "relation": "equal_spouses"
+    },
+    {
+      "from": "N023",
+      "to": "N028",
+      "relation": "member_of"
+    },
+    {
+      "from": "N024",
+      "to": "N028",
+      "relation": "member_of"
+    },
+    {
+      "from": "N025",
+      "to": "N028",
+      "relation": "member_of"
+    },
+    {
+      "from": "N026",
+      "to": "N028",
+      "relation": "member_of"
+    },
+    {
+      "from": "N027",
+      "to": "N026",
+      "relation": "superseded_by"
+    },
+    {
+      "from": "N029",
+      "to": "N030",
+      "relation": "reverse_of"
+    },
+    {
+      "from": "N031",
+      "to": "N032",
+      "relation": "reverse_of"
+    },
+    {
+      "from": "N028",
+      "to": "N037",
+      "relation": "composed_of"
+    },
+    {
+      "from": "N028",
+      "to": "N038",
+      "relation": "composed_of"
+    },
+    {
+      "from": "N033",
+      "to": "N028",
+      "relation": "restores"
+    },
+    {
+      "from": "N034",
+      "to": "N028",
+      "relation": "greeting_for"
+    },
+    {
+      "from": "N035",
+      "to": "N028",
+      "relation": "greeting_for"
+    },
+    {
+      "from": "N036",
+      "to": "N028",
+      "relation": "greeting_for"
+    },
+    {
+      "from": "N042",
+      "to": "N020",
+      "relation": "not_equivalent_to"
+    },
+    {
+      "from": "N043",
+      "to": "N020",
+      "relation": "not_equivalent_to"
+    }
+  ],
+  "quotes": [
+    {
+      "text": "KRAMPUS ... the MAS SPIRIT for ALL ... K? By Pus and Ram ... founding members of KRAMPUS ... not the sick, evil, perverted Hollywood one ... this is the ancient, mystical, forgotten one",
+      "source_lines": "319"
+    },
+    {
+      "text": "But He has returned to restore the MAS spirit and override the BULLSHIT of Modern-Day Christmas",
+      "source_lines": "321"
+    },
+    {
+      "text": "Merry Krampus AND Krampus Hanukkah",
+      "source_lines": "323"
+    },
+    {
+      "text": "HAPPY HANUKKAH and MARY KRAMPUS",
+      "source_lines": "327"
+    },
+    {
+      "text": "He doesnt watch children sleep - none of the do",
+      "source_lines": "329"
+    },
+    {
+      "text": "Creepy to watch kids sleep that ain’t yours",
+      "source_lines": "331"
+    },
+    {
+      "text": "SANTA KRAMPUS & SANTA SUPMARK - the TWINS of MAS",
+      "source_lines": "311"
+    },
+    {
+      "text": "SANTA GLAMPUS & SANTA SUPMALG — the TWINS of SPIRIT",
+      "source_lines": "420"
+    }
+  ],
+  "verification_queue": [
+    "Confirm Lexus/Lexis 1989 trademark dispute from primary court opinion",
+    "Confirm direct text and exact wording of 'mobile donkey engine' quotation from original novel",
+    "Validate the distinct real-world political organizations without equating them with the creative Nexus Democrats label",
+    "Research earliest original sources for Lilith folklore and separate Genesis from later medieval texts",
+    "Separate fictional Nexus model information by original film/novel canon and continuity",
+    "Treat the assistant-developed 'Krampus Test' as noncanonical unless the author adopts it"
+  ]
+}
