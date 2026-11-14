@@ -1,0 +1,46 @@
+{
+  "schema": "nathan.one.restoration.user-source-captures.v1",
+  "owner": "John Nathan Tabor",
+  "source_scope": "verbatim chat transcript captures; current user request and previous attached text",
+  "sources": [
+    {
+      "path": "app-factory/nathan-ai/personal-intelligence/minds/federation/hive-swarm/source-captures/PASTED_HIVE_TRANSCRIPT_20261113_VERBATIM.txt",
+      "bytes": 19041,
+      "sha256": "0fc23fa3d5462a82d3a9b76c747a00a026cde2499f1633e3f9c13563dab8dc0e",
+      "git_blob_sha1": "3caeaeed30f84f9494239499d0ef775c72ed99b6",
+      "classification": "mixed_user_and_assistant_transcript",
+      "author_only": false
+    },
+    {
+      "path": "app-factory/nathan-ai/personal-intelligence/minds/federation/hive-swarm/source-captures/PASTED_FEDERATION_TRANSCRIPT_VERBATIM.md",
+      "bytes": 25729,
+      "sha256": "5bbbb069f06062a25c3d323af059dff38b93d2742c0258067928f39e6c008019",
+      "git_blob_sha1": "599165b26c7861d00f2777ef5e0f662f45f2cdc2",
+      "classification": "mixed_user_and_assistant_transcript",
+      "author_only": false
+    },
+    {
+      "path": "app-factory/nathan-ai/personal-intelligence/minds/federation/hive-swarm/source-captures/ACE_AUTHOR_AND_RESTORATION_VERBATIM.md",
+      "classification": "explicit_author_typed_wording",
+      "author_only": true
+    },
+    {
+      "path": "app-factory/nathan-ai/personal-intelligence/minds/federation/hive-swarm/source-captures/AUTHOR_ONLY_RECOVERED_LINES.md",
+      "classification": "selected_explicit_author_utterances",
+      "author_only": true
+    },
+    {
+      "path": "app-factory/nathan-ai/personal-intelligence/minds/federation/hive-swarm/source-captures/SEPARATE_SPELLING_REVIEW.md",
+      "classification": "editorial_derived_not_canon",
+      "author_only": false
+    }
+  ],
+  "privacy": "Contains user's voluntarily shared source transcripts; do not import into public online LLM agents",
+  "rules": [
+    "No original bytes overwritten",
+    "Original user lines distinguished from assistant-authored narrative",
+    "Spelling corrections separate from originals",
+    "No fabricated Ace launch measurements",
+    "Source reference does not equal live private master sync"
+  ]
+}
