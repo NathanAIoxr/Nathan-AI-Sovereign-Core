@@ -1,0 +1,43 @@
+{
+  "title": "THE MODERN DAY BIBLE BY NATHAN TABOR",
+  "byline": "Nathan Tabor",
+  "github_directory": "data/tabor/modern_day_bible",
+  "volume_2_recovered": {
+    "count": 100,
+    "first": 102,
+    "last": 201,
+    "missing_within_heading": [
+      202
+    ],
+    "original_source_sha256": "daf10de6d2e199f5f6bff3d06c2b7ceb468bcd0090a9e1326807211247c2c80d",
+    "scripture_verified": false
+  },
+  "existing_separate_collection": {
+    "path": "data/tabor/biblical_kinship_52_entities_2026-11-14.json",
+    "count": 52,
+    "full_original_descriptions_in_index": false
+  },
+  "previously_reported_local_artifacts": {
+    "indexed_count": 303,
+    "restored_count": 404,
+    "files_located_in_this_recovery": false
+  },
+  "missing_full_original_source_spans": [
+    [
+      1,
+      101
+    ],
+    [
+      202,
+      404
+    ]
+  ],
+  "original_aisles": 7,
+  "claims_not_to_make": [
+    "complete 404-entry database is on main",
+    "full KJV Bible text imported",
+    "all items are independently Bible-verified",
+    "52 kinship index items are 52 distinct extra numbered stories",
+    "full original descriptions for 1–101 and 203–404 are restored"
+  ]
+}
