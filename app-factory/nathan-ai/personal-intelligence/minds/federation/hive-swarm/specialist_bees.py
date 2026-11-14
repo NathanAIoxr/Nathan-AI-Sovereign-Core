@@ -20,7 +20,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import sovereign_bees as core
 
-VERSION = "nathan.one.operation-swarm.specialists.v2"
+VERSION = "nathan.one.operation-swarm.specialist-bees.v2"
 START_ORDINAL = 101
 EXPECTED_ROLES = 25
 ROLE_FILE = HERE / "specialist_bees.v2.json"
@@ -97,7 +97,7 @@ def parse_sources():
     if (reg.get("schema") != VERSION or len(roles) != EXPECTED_ROLES
             or len({r["id"] for r in roles}) != EXPECTED_ROLES
             or len({r["handler"] for r in roles}) != EXPECTED_ROLES):
-        raise ValueError("24 specialist source-defined role IDs must be unique")
+        raise ValueError("25 specialist source-defined role IDs must be unique")
     if reg.get("creator_directive") != core.AUTHOR_DIRECTIVE:
         raise ValueError("Exact creator directive changed")
     if reg.get("queen_overrides_individual_veto") is not False:
