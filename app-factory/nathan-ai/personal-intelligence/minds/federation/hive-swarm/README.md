@@ -39,3 +39,7 @@ Use a privately held path for persistent master data. `status` is read-only; `la
 ### Protocol SWARM research boundary
 
 `OPERATION SWARM` is a project-local protocol name. Multiple unrelated external multi-agent projects use SWARM, but none is claimed as an existing dependency of this repository. This implementation intentionally adds no third-party dependency or credential exchange.
+
+## Atomic hive — no crush, 1,332 and 2,272 source versions
+
+See [Atomic Hive v1332/v2272](./atomic-hive/README.md), [source coverage and duplicate audit](./atomic-hive/README.md#original-supplied-2272-document-preserved-not-reconstructed), and the executable [atomic_hive.py](./atomic-hive/atomic_hive.py). Every conceptual atom has 50,000 virtual sovereign addresses; every bee inherits its **entire selected 1332 or 2272 source-version codex**, with separate owner-controlled identity, memory, and veto. Neither model replaces the previous 12-worker and 25-specialist actual code. Full astronomical population counts are **mathematical hypotheses, not running model instances**.
