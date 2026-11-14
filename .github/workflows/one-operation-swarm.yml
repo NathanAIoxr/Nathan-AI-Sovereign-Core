@@ -86,6 +86,36 @@ jobs:
           assert status["integrity"] == "ok"
           print("ONE SQLite: two independently addressed sovereign bees; same source blueprint; no external LLMs")
           PY
+      - name: Verify 25 sovereign specialist worker functions, source restoration and Ace account
+        run: |
+          python3 -m unittest discover \
+            -s app-factory/nathan-ai/personal-intelligence/minds/federation/hive-swarm \
+            -p test_specialist_bees.py -v
+      - name: Run 25 distinct sovereign specialists and restore author records into SAME ONE SQLite
+        run: |
+          set -euo pipefail
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          python3 "$F/hive-swarm/specialist_bees.py" --db "$RUNNER_TEMP/ONE_SWARM.sqlite3" \
+            --approve-write --owner-yes demo > "$RUNNER_TEMP/SPECIALIST_BEE_DEMO.json"
+          python3 "$F/hive-swarm/specialist_bees.py" --db "$RUNNER_TEMP/ONE_SWARM.sqlite3" status \
+            > "$RUNNER_TEMP/SPECIALIST_BEE_STATUS.json"
+          python3 "$F/federation.py" --db "$RUNNER_TEMP/ONE_SWARM.sqlite3" ingest \
+            "$F/hive-swarm/source-captures/ONE_RESTORATION_KNOWLEDGE_PACK.json" \
+            > "$RUNNER_TEMP/ACE_RESTORED_INGEST.json"
+          python3 - "$RUNNER_TEMP/ONE_SWARM.sqlite3" "$RUNNER_TEMP/SPECIALIST_BEE_DEMO.json" <<'PY'
+          import json,sqlite3,sys
+          d=json.load(open(sys.argv[2]))
+          c=sqlite3.connect(sys.argv[1])
+          assert d["specialist_functions_executed"]==25
+          assert d["specialist_bee_identities"]==25
+          assert d["combined_core_and_additional_function_count"]==37
+          assert d["independent_llm_instances_started"]==0
+          assert c.execute("SELECT COUNT(*) FROM sovereign_bees").fetchone()[0]==27
+          assert c.execute("SELECT COUNT(*) FROM federation_records").fetchone()[0]==14
+          assert c.execute("SELECT COUNT(*) FROM federation_links").fetchone()[0]==10
+          assert c.execute("PRAGMA quick_check").fetchone()[0]=="ok"
+          print("25 additional sovereign worker functions and 14 exact indexed source records")
+          PY
       - name: Publish public inspection reports only, never SQLite master or secrets
         uses: actions/upload-artifact@v4
         with:
@@ -97,4 +127,7 @@ jobs:
             ${{ runner.temp }}/SOVEREIGN_BEE_1.json
             ${{ runner.temp }}/SOVEREIGN_BEE_COSMOS.json
             ${{ runner.temp }}/SOVEREIGN_BEE_STATUS.json
+            ${{ runner.temp }}/SPECIALIST_BEE_DEMO.json
+            ${{ runner.temp }}/SPECIALIST_BEE_STATUS.json
+            ${{ runner.temp }}/ACE_RESTORED_INGEST.json
           retention-days: 14
