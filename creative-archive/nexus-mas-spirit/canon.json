@@ -565,6 +565,190 @@
       "description": "Amuh = Am + U + H = tenth level",
       "authority": "verbatim_user_authored",
       "version": "2026-11-14"
+    },
+    {
+      "id": "G001",
+      "name": "GeoSpatialAlignmentEngine",
+      "type": "software_module",
+      "description": "User-supplied geodesic, triangle profile and 2D map transform Python engine",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G002",
+      "name": "Haversine distance",
+      "type": "mathematics",
+      "description": "Spherical great-circle distance approximation",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G003",
+      "name": "Initial bearing",
+      "type": "mathematics",
+      "description": "Initial azimuth for a great-circle path",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G004",
+      "name": "Triangle ratios",
+      "type": "mathematics",
+      "description": "Scale-invariant normalized side lengths",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G005",
+      "name": "Law of Cosines",
+      "type": "mathematics",
+      "description": "Compute planar angles from three side lengths",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G006",
+      "name": "Rotation",
+      "type": "transform",
+      "description": "2D angular transform",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G007",
+      "name": "Uniform scaling",
+      "type": "transform",
+      "description": "Multiply relative plane coordinates by common scalar",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G008",
+      "name": "Translation",
+      "type": "transform",
+      "description": "Shift plane coordinates by vector",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G009",
+      "name": "Two-point alignment",
+      "type": "transform",
+      "description": "Compare baselines by distance and bearing; approximate geographic overlay, not full geodesic fit",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G010",
+      "name": "Athens, Louisiana, USA",
+      "type": "geographic_place",
+      "description": "Sample point 32.6581,-93.0278; user-supplied location coordinates",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G011",
+      "name": "Bethlehem, North Carolina, USA",
+      "type": "geographic_place",
+      "description": "Sample point 35.8161,-81.2961; user-supplied location coordinates",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G012",
+      "name": "Memphis, Tennessee, USA",
+      "type": "geographic_place",
+      "description": "Sample point 35.1495,-90.0490; user-supplied location coordinates",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G013",
+      "name": "Athens, Greece",
+      "type": "geographic_place",
+      "description": "Sample point 37.9838,23.7275; user-supplied location coordinates",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G014",
+      "name": "Bethlehem, West Bank",
+      "type": "geographic_place",
+      "description": "Sample point 31.7054,35.2024; user-supplied location coordinates",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G015",
+      "name": "Memphis, Egypt",
+      "type": "geographic_place",
+      "description": "Sample point 29.8447,31.2508; user-supplied location coordinates",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G016",
+      "name": "United States namesake triangle",
+      "type": "geospatial_group",
+      "description": "Athens LA, Bethlehem NC, Memphis TN",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G017",
+      "name": "Mediterranean namesake triangle",
+      "type": "geospatial_group",
+      "description": "Athens Greece, Bethlehem West Bank, Memphis Egypt",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G018",
+      "name": "Place-name correspondence",
+      "type": "research_hypothesis",
+      "description": "Matching names across geographic regions; no demonstrated historical causal relationship",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G019",
+      "name": "Tabor Concordance",
+      "type": "research_index",
+      "description": "User's concordance for direct sources, verified calculations and interpretive links",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G020",
+      "name": "Universal Cartographic Core",
+      "type": "software_module",
+      "description": "Existing repository cartographic atlas import/export model",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G021",
+      "name": "Angular coordinate transform caveat",
+      "type": "methodological_caveat",
+      "description": "Planar affine formula on longitude/latitude does not inherently preserve geodesic distances or projective map geometry",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G022",
+      "name": "Coordinate source and precision",
+      "type": "methodological_caveat",
+      "description": "Sample coordinates are unverified center/point estimates from uploaded code",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
+    },
+    {
+      "id": "G023",
+      "name": "Geographic overlay similarity test",
+      "type": "mathematics",
+      "description": "Compare side ratios and residuals before inferring congruence",
+      "authority": "user_supplied_code_and_calculation",
+      "version": "2026-11-14"
     }
   ],
   "edges": [
@@ -1659,6 +1843,522 @@
       "to": "H013",
       "relation": "reverse_transformation_motif_link",
       "note": "Transformation wordplay with Krampus alternate mythology"
+    },
+    {
+      "from": "G001",
+      "to": "G002",
+      "relation": "implements",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G002",
+      "to": "G001",
+      "relation": "reverse_implements",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "G003",
+      "relation": "implements",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G003",
+      "to": "G001",
+      "relation": "reverse_implements",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "G004",
+      "relation": "implements",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G004",
+      "to": "G001",
+      "relation": "reverse_implements",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "G006",
+      "relation": "implements",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G006",
+      "to": "G001",
+      "relation": "reverse_implements",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "G007",
+      "relation": "implements",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G007",
+      "to": "G001",
+      "relation": "reverse_implements",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "G008",
+      "relation": "implements",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G008",
+      "to": "G001",
+      "relation": "reverse_implements",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "G009",
+      "relation": "implements",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G009",
+      "to": "G001",
+      "relation": "reverse_implements",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G004",
+      "to": "G005",
+      "relation": "uses",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G005",
+      "to": "G004",
+      "relation": "reverse_uses",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G009",
+      "to": "G003",
+      "relation": "uses",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G003",
+      "to": "G009",
+      "relation": "reverse_uses",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G009",
+      "to": "G002",
+      "relation": "uses",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G002",
+      "to": "G009",
+      "relation": "reverse_uses",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G009",
+      "to": "G021",
+      "relation": "has_limitation",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G021",
+      "to": "G009",
+      "relation": "reverse_has_limitation",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "G022",
+      "relation": "uses_example_coordinates",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G022",
+      "to": "G001",
+      "relation": "reverse_uses_example_coordinates",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "G020",
+      "relation": "cartographic_integration_target",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G020",
+      "to": "G001",
+      "relation": "reverse_cartographic_integration_target",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "G019",
+      "relation": "cataloged_in",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G019",
+      "to": "G001",
+      "relation": "reverse_cataloged_in",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G016",
+      "to": "G010",
+      "relation": "contains",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G010",
+      "to": "G016",
+      "relation": "reverse_contains",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G016",
+      "to": "G011",
+      "relation": "contains",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G011",
+      "to": "G016",
+      "relation": "reverse_contains",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G016",
+      "to": "G012",
+      "relation": "contains",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G012",
+      "to": "G016",
+      "relation": "reverse_contains",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G017",
+      "to": "G013",
+      "relation": "contains",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G013",
+      "to": "G017",
+      "relation": "reverse_contains",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G017",
+      "to": "G014",
+      "relation": "contains",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G014",
+      "to": "G017",
+      "relation": "reverse_contains",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G017",
+      "to": "G015",
+      "relation": "contains",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G015",
+      "to": "G017",
+      "relation": "reverse_contains",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G016",
+      "to": "G017",
+      "relation": "compared_with",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G017",
+      "to": "G016",
+      "relation": "reverse_compared_with",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G016",
+      "to": "G023",
+      "relation": "evaluated_by",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G023",
+      "to": "G016",
+      "relation": "reverse_evaluated_by",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G017",
+      "to": "G023",
+      "relation": "evaluated_by",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G023",
+      "to": "G017",
+      "relation": "reverse_evaluated_by",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G018",
+      "to": "G016",
+      "relation": "compares_name_cluster",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G016",
+      "to": "G018",
+      "relation": "reverse_compares_name_cluster",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G018",
+      "to": "G017",
+      "relation": "compares_name_cluster",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G017",
+      "to": "G018",
+      "relation": "reverse_compares_name_cluster",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "H003",
+      "relation": "symbolic_operator_bridge",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "H003",
+      "to": "G001",
+      "relation": "reverse_symbolic_operator_bridge",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "H004",
+      "relation": "symbolic_node_bridge",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "H004",
+      "to": "G001",
+      "relation": "reverse_symbolic_node_bridge",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "H001",
+      "relation": "humanoid_structural_bridge",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "H001",
+      "to": "G001",
+      "relation": "reverse_humanoid_structural_bridge",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "N006",
+      "relation": "nexus_connection_metaphor",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "N006",
+      "to": "G001",
+      "relation": "reverse_nexus_connection_metaphor",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "N001",
+      "relation": "linked_to_nexus_replicates",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "N001",
+      "to": "G001",
+      "relation": "reverse_linked_to_nexus_replicates",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "N002",
+      "relation": "linked_to_nexus_elephants",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "N002",
+      "to": "G001",
+      "relation": "reverse_linked_to_nexus_elephants",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "N003",
+      "relation": "linked_to_nexus_donkeys",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "N003",
+      "to": "G001",
+      "relation": "reverse_linked_to_nexus_donkeys",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "N028",
+      "relation": "linked_to_mas_spirit",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "N028",
+      "to": "G001",
+      "relation": "reverse_linked_to_mas_spirit",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G018",
+      "to": "N006",
+      "relation": "conceptual_nexus_link",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "N006",
+      "to": "G018",
+      "relation": "reverse_conceptual_nexus_link",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G023",
+      "to": "H007",
+      "relation": "geometric_ratio_vs_void_concept_analogy",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "H007",
+      "to": "G023",
+      "relation": "reverse_geometric_ratio_vs_void_concept_analogy",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G006",
+      "to": "H008",
+      "relation": "symbolic_level_bridge",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "H008",
+      "to": "G006",
+      "relation": "reverse_symbolic_level_bridge",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "H003",
+      "relation": "word_to_graph_node",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "H003",
+      "to": "G001",
+      "relation": "reverse_word_to_graph_node",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G001",
+      "to": "H001",
+      "relation": "compositional_analogy",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "H001",
+      "to": "G001",
+      "relation": "reverse_compositional_analogy",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G018",
+      "to": "N006",
+      "relation": "connection_wordplay",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "N006",
+      "to": "G018",
+      "relation": "reverse_connection_wordplay",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G004",
+      "to": "H016",
+      "relation": "geometric_form_wordplay",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "H016",
+      "to": "G004",
+      "relation": "reverse_geometric_form_wordplay",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G006",
+      "to": "H008",
+      "relation": "operator_and_transform_comparison",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "H008",
+      "to": "G006",
+      "relation": "reverse_operator_and_transform_comparison",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G007",
+      "to": "H008",
+      "relation": "scale_and_combination_comparison",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "H008",
+      "to": "G007",
+      "relation": "reverse_scale_and_combination_comparison",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "G008",
+      "to": "H008",
+      "relation": "translation_and_combination_comparison",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
+    },
+    {
+      "from": "H008",
+      "to": "G008",
+      "relation": "reverse_translation_and_combination_comparison",
+      "note": "Research/implementation cross-reference; not an etymological or historical causal assertion"
     }
   ],
   "quotes": [
@@ -1914,5 +2614,35 @@
       }
     ],
     "reverse_edges_materialized": true
+  },
+  "geospatial_extension": {
+    "date": "2026-11-14",
+    "author": "Nathan Tabor",
+    "source": "User-uploaded Pasted text.txt (GeoSpatialAlignmentEngine)",
+    "code_path": "research/tabor-concordance/geospatial-alignment-engine.py",
+    "source_path": "research/tabor-concordance/geospatial-source-verbatim.txt",
+    "concordance_path": "research/tabor-concordance/geospatial-concordance-2026-11-14.json",
+    "comparison": {
+      "us_ratios": [
+        1,
+        2.039,
+        2.9041
+      ],
+      "mediterranean_ratios": [
+        1,
+        2.6477,
+        2.9202
+      ],
+      "similarity": "not similar within 4 decimal places",
+      "athens_la_bethlehem_nc_miles": 704.2,
+      "bearing_deg": 68.7,
+      "source_coordinate_status": "user supplied"
+    },
+    "limitations": [
+      "haversine on spherical Earth is an approximation, not an exact ellipsoidal geodesic",
+      "map transform on raw latitude/longitude is not an accurate georeferenced projection",
+      "two-point fit cannot determine an exact multi-point overlay",
+      "resemblance of city names is not proof of historical relationship"
+    ]
   }
 }
