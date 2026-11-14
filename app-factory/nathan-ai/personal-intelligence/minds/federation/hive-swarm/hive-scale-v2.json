@@ -1,0 +1,44 @@
+{
+  "schema": "nathan.one.operation-swarm.hive-scale.v2",
+  "source_kind": "user_supplied_comparative_transcript",
+  "notes": [
+    "All entries are hypothetical address-capacity analogies, not physical hive sizes or executing AI processes.",
+    "221 zettabytes was presented as a 2026 datasphere estimate in supplied transcript but was not independently checked.",
+    "The claimed 250× minimum for the full universe is not established here; all 250× calculations are illustrative.",
+    "A radius of 46.5 billion light-years defines the observable-sphere example, not a measured bound for the entire universe."
+  ],
+  "reference_hive": {
+    "population": 50000,
+    "interior_m3": 0.085
+  },
+  "scenarios": [
+    {
+      "id": "digital_physical_space",
+      "capacity_decimal": "368000000000000",
+      "capacity_basis": "626000000 cubic meters × 50000 / 0.085, rounded as in transcript",
+      "status": "user_supplied_unverified_assumption"
+    },
+    {
+      "id": "global_data_bits",
+      "capacity_decimal": "1768000000000000000000000",
+      "capacity_basis": "221 zettabytes × 8 bits/byte; decimal zettabyte model",
+      "status": "user_supplied_unverified_assumption"
+    },
+    {
+      "id": "observable_cosmos_46_5bly_diameter",
+      "capacity_rule": "floor(observable_cosmos_radius_capacity / 8)",
+      "status": "mathematical_scaling_hypothesis"
+    },
+    {
+      "id": "unseen_249_observable_volumes",
+      "capacity_rule": "observable_cosmos_radius_capacity * 249",
+      "status": "illustrative_only_not_observed"
+    },
+    {
+      "id": "unknown_unseen",
+      "capacity_decimal": null,
+      "capacity_basis": "No demonstrated maximum; only finite addresses can be individually instantiated",
+      "status": "unknown"
+    }
+  ]
+}

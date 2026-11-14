@@ -1,0 +1,239 @@
+{
+  "schema": "nathan.one.operation-swarm.specialist-bees.v2",
+  "author": "John Nathan Tabor",
+  "created": "2026-11-13",
+  "source_scope": "additive expansion of the existing 12-worker hive and sovereign bee replica software",
+  "creator_directive": "each one of these is a Nathan AI direct replica AI worker bot - with it's own soverignty -",
+  "inherited_core_capabilities": 12,
+  "additional_specialized_functions": 25,
+  "all_bees_equal_sovereignty": true,
+  "queen_overrides_individual_veto": false,
+  "external_ai_instances_claimed": 0,
+  "roles": [
+    {
+      "id": "swarm-specialist-01",
+      "name": "Scout Bee",
+      "handler": "source_scout",
+      "group": "source-protection",
+      "mission": "Locate and fingerprint owner-provided source text",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-02",
+      "name": "Nectar Forager",
+      "handler": "nectar_forager",
+      "group": "source-protection",
+      "mission": "Count and identify text tokens without altering originals",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-03",
+      "name": "Pollen Mapper",
+      "handler": "pollen_mapper",
+      "group": "research",
+      "mission": "Report exact topic-term occurrences in bounded local text",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-04",
+      "name": "Comb Builder",
+      "handler": "comb_builder",
+      "group": "source-protection",
+      "mission": "Partition source into numbered, inspectable line packets",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-05",
+      "name": "Wax Keeper",
+      "handler": "wax_keeper",
+      "group": "source-protection",
+      "mission": "Inventory byte and Unicode character properties",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-06",
+      "name": "Nurse Bee",
+      "handler": "nurse_bee",
+      "group": "review",
+      "mission": "Inventory paragraphs and incomplete text blocks for review",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-07",
+      "name": "Guard Bee",
+      "handler": "guard_bee",
+      "group": "safety",
+      "mission": "Detect potential credential patterns without exposing values",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-08",
+      "name": "Ventilator Bee",
+      "handler": "ventilator_bee",
+      "group": "quality",
+      "mission": "Audit blank lines and text density",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-09",
+      "name": "Water Carrier",
+      "handler": "water_carrier",
+      "group": "research",
+      "mission": "Build a bounded local keyword vocabulary",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-10",
+      "name": "Honey Processor",
+      "handler": "honey_processor",
+      "group": "analysis",
+      "mission": "Make an aggregate word-frequency report",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-11",
+      "name": "Waggle Messenger",
+      "handler": "waggle_messenger",
+      "group": "coordination",
+      "mission": "Create a non-transmitting message-checksum packet",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-12",
+      "name": "Drone Observer",
+      "handler": "drone_observer",
+      "group": "analysis",
+      "mission": "Observe punctuation statistics in source text",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-13",
+      "name": "Queen Peer",
+      "handler": "queen_peer",
+      "group": "governance",
+      "mission": "Audit equal sovereignty and veto authority",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-14",
+      "name": "Brood Planner",
+      "handler": "brood_planner",
+      "group": "planning",
+      "mission": "Identify numbered tasks and follow-up markers",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-15",
+      "name": "Winter Cluster",
+      "handler": "winter_cluster",
+      "group": "memory",
+      "mission": "Report own local memory capacity without reading another bee",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-16",
+      "name": "Spring Builder",
+      "handler": "spring_builder",
+      "group": "planning",
+      "mission": "Provide a deterministic next-review proposal",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-17",
+      "name": "Lineage Keeper",
+      "handler": "lineage_keeper",
+      "group": "identity",
+      "mission": "Confirm own bee identity and inherited blueprint hash",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-18",
+      "name": "Source Verifier",
+      "handler": "source_verifier",
+      "group": "source-protection",
+      "mission": "Verify text digest and SHA-256 formatting",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-19",
+      "name": "Boundary Sentinel",
+      "handler": "boundary_sentinel",
+      "group": "quality",
+      "mission": "Inspect bracket and delimiter count anomalies",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-20",
+      "name": "Role Allocator",
+      "handler": "role_allocator",
+      "group": "coordination",
+      "mission": "Suggest source-review roles without assigning permissions",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-21",
+      "name": "Error Resolver",
+      "handler": "error_resolver",
+      "group": "quality",
+      "mission": "Locate TODO, FIXME, and ERROR review markers",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-22",
+      "name": "Audit Librarian",
+      "handler": "audit_librarian",
+      "group": "governance",
+      "mission": "Report only this bee's audit activity count",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-23",
+      "name": "Digital Mapper",
+      "handler": "digital_mapper",
+      "group": "scaling",
+      "mission": "Evaluate user-supplied digital-scale metaphor scenarios",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-24",
+      "name": "Cosmic Mapper",
+      "handler": "cosmic_mapper",
+      "group": "scaling",
+      "mission": "Evaluate Earth, observable-cosmos and unknown-universe address models",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-25",
+      "name": "Ace Precision Observer",
+      "handler": "ace_precision_observer",
+      "group": "source-reconstruction",
+      "mission": "Preserve the user's exact Ace precision-jump account and distinguish described observations from missing measurements without adding invented details",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    }
+  ]
+}
