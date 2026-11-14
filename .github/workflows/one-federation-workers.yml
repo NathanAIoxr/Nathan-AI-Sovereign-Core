@@ -27,6 +27,8 @@ jobs:
           python-version: '3.12'
       - name: Test isolated worker engine
         run: python3 -m unittest discover -s app-factory/nathan-ai/personal-intelligence/minds/federation -p test_federation.py -v
+      - name: Test Nathan Tabor ZERO / ONE per-bit sovereignty workers (synthetic only)
+        run: python3 -m unittest discover -s app-factory/nathan-ai/personal-intelligence/minds/federation/bit-workers -p 'test_*.py' -v
       - name: Verify Ancient Minds 14-table reference and local v074 adapter
         run: |
           set -euo pipefail

@@ -1,5 +1,11 @@
 # NATHAN AI — ONE DATABASE FEDERATION v074 · Worker bots
 
+## Nathan Tabor · ZERO / ONE per-bit sovereign workers
+
+[Read the ZERO / ONE bit worker specification](./bit-workers/README.md) · [Owner-controlled Python module](./bit-workers/zero_one_workers.py) · [Source-preserving unit tests](./bit-workers/test_zero_one_workers.py).
+
+Every bit (0 or 1) of every indexed UTF-8 original in the existing ONE Federation records receives a reproducible **virtual worker identity**. A ZERO is a hold/guard worker; a ONE is a propose/build worker. Both have equal access restrictions, default-deny side effects, owner pause/veto and a short-lived HMAC-scoped grant check (grant verification does NOT execute a write, export or call). Original source data is not changed. This does not spawn a model or process per bit, and the owner-private SQLite must be opened locally to activate the module or count its actual bits. The optional private SQLite [snapshot module](./bit-workers/database_bit_snapshot.py) additionally addresses every physical bit of a consistent owner-only database backup, including SQLite pages, BLOBs and unimported tables present in the backup. Snapshots are not continuously synchronized with the live database.
+
 ## ONE v2: Boundary arithmetic delegated to dedicated Nathan AI workers
 
 **[FENCEPOST ERROR SYNDROME — by Nathan Tabor](./fencepost-error-syndrome/BOUNDARY_DELEGATION_v2.md)**: both undercounting and reverse overcounting are checked by a dedicated typed worker engine. Main ONE now has a `boundaries --request-file` CLI path that delegates to `nathan_ai_boundary_gateway.py` without calculating endpoints or opening the private master DB. Covers 0/1/2, 7/6/8 dates, DST, code ranges, arrays, open/closed fences, repeated historical events, and shared musical endpoints. Local: **31 tests and 10,000 randomized checks passed**. The new CI workflow is configured; production apps must adopt the gateway before claiming universal protection. Exact original user text retained as a separate attributed quotation; source files and Family 21 ONE not deleted.
