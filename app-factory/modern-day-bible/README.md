@@ -4,9 +4,23 @@ A searchable reader connected to the existing ONE App Shell SQLite database. It 
 
 ## Read
 
-Start the ONE App Shell backend as described in [`../app-shell/README.md`](../app-shell/README.md), sign in, and choose **Modern Day Bible · Stories → Open original app**. The reader loads and reassembles the source records, verifies their full-text SHA-256 hashes, supports full-text keyword search and source-type filters, and links to the original sources. The static public page contains no story corpus and points to the private backend.
+Start the ONE App Shell backend as described in [`../app-shell/README.md`](../app-shell/README.md), sign in, and choose **Modern Day Bible · Stories → Open original app**. The reader loads and reassembles the source records, verifies their full-text SHA-256 hashes, supports full-text keyword search and source-type filters, and links to the original sources. The static page reads the existing public recovery corpus; private manuscripts require the owner backend.
 
-The initial requested collection comprises three related sources, not a verified recovery of the recent Modern Day Bible project: a manuscript, a fictional story/research chapter, and a scripture-project index. An index is not a full corpus. The reader displays this coverage distinction. It never treats a generated or fictional passage as verified historical material.
+The app loads the repository's recovered **100 numbered entries (#102–201)** and the
+**separate 52-record kinship index**, preserving the supplied story lines, references and
+numbering. The 52 index records do not contain full original descriptions and are not
+counted as additional numbered stories. Missing original spans remain **#1–101 and
+#202–404**. The seven recovered aisle labels are shown with their provenance; story
+placements are not invented, and the five Volume 2 section headings do not replace them.
+
+On static hosting, those existing public recovery files load directly into the reader.
+With the private backend, the authenticated reader imports them idempotently into the
+same SQLite database as related private sources. The complete original Volume 2 file
+and its verified SHA-256 are retained in `story_source_documents` in that database.
+The three requested related sources remain separate: a manuscript, a fictional story/
+research chapter, and a scripture-project index. Their private contents are not copied
+into this public repository. Supplied scripture interpretations are not represented as
+independently verified translations or historical facts.
 
 ## Import more stories
 
@@ -44,3 +58,13 @@ node --test app-factory/modern-day-bible/import.test.cjs app-factory/app-shell/s
 ```
 
 Covers long Unicode text, exact reconstruction, original-byte export, duplicate imports, source revisions, incomplete-part detection, invalid bundles, transaction safety and isolation from unrelated app records. API imports and exports use the existing authenticated owner session; no private source data is published to GitHub.
+
+To import the public recovery from the command line:
+
+```sh
+node app-factory/modern-day-bible/recover.cjs /absolute/private/path/one-shell.sqlite
+```
+
+The reader calls authenticated `POST /api/story-recover` automatically. Recovery verifies
+the raw Volume 2 SHA-256 against both existing manifests and checks every supplied story
+line against the original file before importing.

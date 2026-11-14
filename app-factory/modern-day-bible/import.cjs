@@ -8,7 +8,7 @@ const manifest={id:APP_ID,name:'Modern Day Bible · Stories',description:'A priv
 const digest=text=>createHash('sha256').update(text,'utf8').digest('hex');
 function splitText(text){const out=[];let at=0;while(at<text.length){let end=Math.min(at+9000,text.length);if(end<text.length&&/[\uD800-\uDBFF]/.test(text[end-1]))end--;out.push(text.slice(at,end));at=end}return out}
 function validateBundle(bundle){
- if(!bundle||bundle.schema!=='one.story-sources.v1'||!Array.isArray(bundle.sources)||!bundle.sources.length||bundle.sources.length>100)throw Error('Expected 1–100 source records in one.story-sources.v1');
+ if(!bundle||bundle.schema!=='one.story-sources.v1'||!Array.isArray(bundle.sources)||!bundle.sources.length||bundle.sources.length>500)throw Error('Expected 1–500 source records in one.story-sources.v1');
  const keys=new Set();for(const s of bundle.sources){
   if(!s||typeof s.id!=='string'||!s.id.length||s.id.length>200||keys.has(s.id))throw Error('Missing or duplicate source ID');keys.add(s.id);
   for(const [key,max]of [['title',500],['text',1000000],['url',2000],['kind',100],['scope',2000]])if(typeof s[key]!=='string'||!s[key].trim()||s[key].length>max)throw Error('Invalid source '+key);
@@ -40,7 +40,7 @@ function importBundle(db,input){
 function exportBundle(db){
  const rows=db.prepare('SELECT source_key,snapshot FROM story_source_versions ORDER BY imported_at DESC,rowid DESC').all(),seen=new Set(),sources=[];
  for(const row of rows){if(seen.has(row.source_key))continue;seen.add(row.source_key);sources.push(JSON.parse(row.snapshot))}
- return {schema:'one.story-sources.v1',collection:'Modern Day Bible — related sources',recentProjectLocated:false,sources};
+ return {schema:'one.story-sources.v1',collection:'THE MODERN DAY BIBLE BY NATHAN TABOR',recentProjectLocated:sources.some(s=>s.id.startsWith('mdb-')),sources};
 }
 if(require.main===module){
  const [dbPath,bundlePath]=process.argv.slice(2);if(!dbPath||!bundlePath)throw Error('Usage: node import.cjs /private/one-shell.sqlite /private/source-bundle.json');

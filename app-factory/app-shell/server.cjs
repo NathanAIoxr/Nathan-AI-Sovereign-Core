@@ -56,6 +56,7 @@ function createApp({dbPath,token,root=ROOT}={}){
     const sid=(req.headers.cookie||'').match(/(?:^|;\s*)one_shell=([a-f0-9]{64})(?:;|$)/)?.[1];
     if(!sid||(sessions.get(sid)||0)<Date.now())return send(401,{error:'Sign in with the owner token'});
     if(p==='/api/session'&&req.method==='DELETE'){sessions.delete(sid);res.setHeader('Set-Cookie','one_shell=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0');return send(200,{authenticated:false})}
+    if(p==='/api/story-recover'&&req.method==='POST')return send(200,require('../modern-day-bible/recover.cjs').recover(db));
     if(p==='/api/story-export'&&req.method==='GET')return send(200,require('../modern-day-bible/import.cjs').exportBundle(db));
     if(p==='/api/story-import'&&req.method==='POST')return send(200,require('../modern-day-bible/import.cjs').importBundle(db,body));
     if(p==='/api/bootstrap'&&req.method==='GET')return send(200,{mode:'sqlite',apps:db.prepare('SELECT body FROM apps ORDER BY id').all().map(x=>JSON.parse(x.body)),themes:skins});
@@ -91,7 +92,7 @@ function createApp({dbPath,token,root=ROOT}={}){
    if(req.method!=='GET'&&req.method!=='HEAD')return send(405,{error:'Read only static files'});
    // Serve only this shell and its shared appearance implementation.
    let file=decodeURIComponent(p);if(file==='/'){res.writeHead(302,{Location:'/app-factory/app-shell/index.html'});res.end();return;}
-   const allowed=file.startsWith('/app-factory/')||file.startsWith('/branding/')||file.startsWith('/docs/');
+   const allowed=file.startsWith('/app-factory/')||file.startsWith('/branding/')||file.startsWith('/docs/')||file.startsWith('/data/tabor/');
    const resolved=path.resolve(root,'.'+file),ext=path.extname(resolved);
    if(!allowed||!resolved.startsWith(root+path.sep)||!['.html','.js','.mjs','.css','.json','.svg','.png','.jpg','.webmanifest'].includes(ext)||file.split('/').some(x=>x.startsWith('.')))return send(404,{error:'Not found'});
    // Do not follow symlinks outside the static root.

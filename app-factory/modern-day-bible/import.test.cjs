@@ -21,3 +21,14 @@ test('invalid bundles cannot partially import or overwrite unrelated app records
  importBundle(db,{schema:'one.story-sources.v1',sources:[a]});assert.equal(db.prepare('SELECT count(*) n FROM records WHERE app_id=?').get('god').n,0);
  }finally{db.close()}
 });
+test('actual recovered corpus preserves all 100 supplied lines, distinct 52-index records and missing story gaps',()=>{
+ const {recover}=require('./recover.cjs'),fs=require('node:fs'),path=require('node:path');
+ const db=openDatabase(':memory:');try{
+ const result=recover(db);assert.equal(result.imported,152);assert.equal(result.numberedStories,100);assert.equal(result.kinshipIndex,52);assert.equal(result.aisles.length,7);assert.deepEqual(result.missingSpans,[[1,101],[202,404]]);
+ const all=exportBundle(db).sources,stories=all.filter(x=>x.kind==='numbered-story');assert.equal(stories.length,100);assert.equal(all.filter(x=>x.kind==='index').length,52);assert.ok(!all.some(x=>x.id==='mdb-0202'));
+ const supplied=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../../data/tabor/modern_day_bible/stories_102_201.json'))).records;
+ for(const r of supplied)assert.equal(stories.find(s=>s.id===r.entry_id.toLowerCase()).text,r.original_line);
+ const raw=db.prepare('SELECT body FROM story_source_documents').get().body;assert.deepEqual(Buffer.from(raw),fs.readFileSync(path.resolve(__dirname,'../../data/tabor/modern_day_bible/volume_2_102_201_original.txt')));
+ assert.equal(recover(db).skipped,152);
+ }finally{db.close()}
+});
