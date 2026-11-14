@@ -1,0 +1,9 @@
+{
+  "claims": [{"tier": "DOS", "source": "Nathan Tabor particle-hive proposal"}],
+  "items": [{"id": "proton"}, {"id": "neutron"}, {"id": "electron"}],
+  "measurements": [{"value": "50000", "unit": "workers_per_hive"}],
+  "intervals": [{"start": 0, "end": 50000}],
+  "fractions": [{"numerator": 1, "denominator": 3}],
+  "ordered_steps": [{"sequence": 0}, {"sequence": 1}],
+  "time": {"utc_iso": "2026-11-14T00:00:00Z", "duration_monotonic_seconds": 2}
+}
