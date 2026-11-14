@@ -26,3 +26,21 @@ This module expands the user-provided 486-line Nexus/MAS SPIRIT compilation into
 `canon.json` is a portable, structured graph source: stable node IDs, typed directed edges, direct quotes and versioned spelling. `schema.sql` defines relational ingestion tables for integration with the repository's live database when its configuration is available.
 
 **Deployment status:** Canon records committed to GitHub repository main. SQLite schema provided; no claim of live external database insertion without a confirmed database connection and migration.
+
+
+## HUMANOID: TEN LEVELS — by Nathan Tabor (2026-11-14)
+
+1. Humanoid = Human + Node + Void = first level
+2. Human = Hu + Ma + N = second level
+3. + = + = third level
+4. Node = N + O + De = fourth level
+5. + = + = fifth level
+6. Void = Voi + D = sixth level
+7. Dionamuh = Dion + Amuh = Diamond = seventh level
+8. Dion = D+ Ion = Dinosaurs = eight level
+9. + = + = ninth level
+10. Amuh = Am + U + H = tenth level
+
+Crosslinked **both directions** to Nexus Replicates, Elephants, Donkeys, Blade Runner references, Lexus/LexisNexis/Jexus phonetics, Genesis/Lilith association, and the four MAS SPIRIT figures. This is **author-defined phonetic and creative decomposition**, not verified etymology or scientific genealogy. Every new bridge has a `note` explaining its interpretive nature and matching reverse edge. Node IDs `H001+` identify vocabulary; `L01–L10` are levels. See `humanoid-expansion.md` and `canon.json`.
+
+For SQLite ingestion use `import_canon.py` with an existing SQLite file or a new file. The importer performs ID-aware upserts without deleting existing records. Running the importer is a separate deployment action and is **not** implied by committing these files.
