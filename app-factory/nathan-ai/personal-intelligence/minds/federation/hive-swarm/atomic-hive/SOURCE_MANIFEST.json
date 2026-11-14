@@ -1,0 +1,23 @@
+{
+  "schema": "nathan.one.atomic-hive.source-manifest.v1",
+  "captured_utc": "2026-11-13",
+  "sources": [
+    {
+      "file": "PASTED_2272_SOURCE_AS_UPLOADED.txt",
+      "byte_count": 43169,
+      "sha256": "77de76af631a0eff79f8aa9a9a3043b71e9d268f942f1808fb68da0f1fad3a5f",
+      "git_blob_sha1": "e0813d7e201201b2cb22458695f253012399273d",
+      "provenance": "attached_pasted_text",
+      "author_only": false,
+      "coverage": "truncated at Folklore O, incomplete through #2272"
+    },
+    {
+      "file": "ATOMIC_1332_SOURCE_AS_SUPPLIED.md",
+      "provenance": "user_supplied_current_message_transcription",
+      "exact_directive": "each one is a nathan ai worker bee bot - do not CRUSH -",
+      "scope": "Atomic-hive 1332 total, model assumptions and original role-block labels",
+      "author_only": false
+    }
+  ],
+  "original_policy": "Never replace 1332 with 2272; separate versioned records and expose source inconsistencies"
+}
