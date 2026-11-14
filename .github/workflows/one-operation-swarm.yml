@@ -116,6 +116,46 @@ jobs:
           assert c.execute("PRAGMA quick_check").fetchone()[0]=="ok"
           print("25 additional sovereign worker functions and 14 exact indexed source records")
           PY
+      - name: Test NO CRUSH atomic hive, exact 2272 source, 1332 coexistence, and individual sovereignty
+        run: |
+          python3 -m unittest discover \
+            -s app-factory/nathan-ai/personal-intelligence/minds/federation/hive-swarm/atomic-hive \
+            -p test_atomic_hive.py -v
+      - name: Exercise two versioned atomic hives on SAME disposable ONE SQLite master
+        run: |
+          set -euo pipefail
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation
+          H="$F/hive-swarm/atomic-hive/atomic_hive.py"
+          D="$RUNNER_TEMP/ONE_SWARM.sqlite3"
+          python3 "$H" --db "$D" --approve-write bootstrap > "$RUNNER_TEMP/ATOMIC_BOOTSTRAP.json"
+          python3 "$H" --db "$D" --approve-write --owner-yes --atom CI-ATOM-A \
+            --version atomic-1332 create-hive > "$RUNNER_TEMP/ATOMIC_HIVE_A.json"
+          python3 "$H" --db "$D" --approve-write --owner-yes --atom CI-ATOM-B \
+            --version expanded-2272 create-hive > "$RUNNER_TEMP/ATOMIC_HIVE_B.json"
+          A=$(python3 -c 'import json,sys;print(json.load(open(sys.argv[1]))["hive_id"])' "$RUNNER_TEMP/ATOMIC_HIVE_A.json")
+          B=$(python3 -c 'import json,sys;print(json.load(open(sys.argv[1]))["hive_id"])' "$RUNNER_TEMP/ATOMIC_HIVE_B.json")
+          python3 "$H" --db "$D" --approve-write --owner-yes --hive "$A" \
+            --bee 1 activate > "$RUNNER_TEMP/ATOMIC_BEE_A.json"
+          python3 "$H" --db "$D" --approve-write --owner-yes --hive "$B" \
+            --bee 50000 activate > "$RUNNER_TEMP/ATOMIC_BEE_B.json"
+          python3 "$H" --db "$D" summary > "$RUNNER_TEMP/ATOMIC_SOURCE_COVERAGE.json"
+          python3 "$H" --db "$D" status > "$RUNNER_TEMP/ATOMIC_STATUS.json"
+          python3 "$F/federation.py" --db "$D" ingest \
+            "$F/hive-swarm/atomic-hive/ONE_ATOMIC_HIVE_KNOWLEDGE_PACK.json" \
+            > "$RUNNER_TEMP/ATOMIC_ONE_INGEST.json"
+          python3 - "$D" "$RUNNER_TEMP/ATOMIC_STATUS.json" <<'PY'
+          import json,sqlite3,sys
+          db=sqlite3.connect(sys.argv[1])
+          st=json.load(open(sys.argv[2]))
+          assert st["atomic_hives_initialized"]==2
+          assert st["individual_bees_activated"]==2
+          assert st["source_original_versions"]==2
+          assert st["actual_external_llm_agents"]==0
+          assert db.execute("SELECT COUNT(*) FROM federation_records").fetchone()[0]==25
+          assert db.execute("SELECT COUNT(*) FROM federation_links").fetchone()[0]==22
+          assert db.execute("PRAGMA quick_check").fetchone()[0]=="ok"
+          print("NO CRUSH: 2 atomic hives, separate 1332/2272 full-codex identities, 11 indexed records")
+          PY
       - name: Publish public inspection reports only, never SQLite master or secrets
         uses: actions/upload-artifact@v4
         with:
@@ -130,4 +170,12 @@ jobs:
             ${{ runner.temp }}/SPECIALIST_BEE_DEMO.json
             ${{ runner.temp }}/SPECIALIST_BEE_STATUS.json
             ${{ runner.temp }}/ACE_RESTORED_INGEST.json
+            ${{ runner.temp }}/ATOMIC_BOOTSTRAP.json
+            ${{ runner.temp }}/ATOMIC_HIVE_A.json
+            ${{ runner.temp }}/ATOMIC_HIVE_B.json
+            ${{ runner.temp }}/ATOMIC_BEE_A.json
+            ${{ runner.temp }}/ATOMIC_BEE_B.json
+            ${{ runner.temp }}/ATOMIC_SOURCE_COVERAGE.json
+            ${{ runner.temp }}/ATOMIC_STATUS.json
+            ${{ runner.temp }}/ATOMIC_ONE_INGEST.json
           retention-days: 14
