@@ -7,10 +7,10 @@
 
 ## Repository code verified on main
 
-- [TactileCoreSDK](../../../../standalone-apps/tactilecore-sdk/README.md) — working JavaScript + Swift reference prototype; its own [status report](../../../../standalone-apps/tactilecore-sdk/PROJECT_STATUS.md) distinguishes verified JS tests from unverified native compilation and actual phone hardware.
-- [Tabor Tags](../../../../app-factory/tabor-tags/README.md) — existing user-authored sensor/tag specification and related project materials.
-- [ONE Factory](../../../../app-factory/README.md) — creator/platform structure.
-- [GODSALTER](../../../../app-factory/godsalter/README.md) — existing franchise/project work; do not create an unrelated replacement.
+- [TactileCoreSDK](../../../standalone-apps/tactilecore-sdk/README.md) — working JavaScript + Swift reference prototype; its own [status report](../../../standalone-apps/tactilecore-sdk/PROJECT_STATUS.md) distinguishes verified JS tests from unverified native compilation and actual phone hardware.
+- [Tabor Tags](../../../app-factory/tabor-tags/README.md) — existing user-authored sensor/tag specification and related project materials.
+- [ONE Factory](../../../app-factory/README.md) — creator/platform structure.
+- [GODSALTER](../../../app-factory/godsalter/README.md) — existing franchise/project work; do not create an unrelated replacement.
 
 ## New canonical Airtable entries
 
