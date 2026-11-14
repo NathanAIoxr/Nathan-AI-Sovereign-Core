@@ -1,0 +1,1273 @@
+{
+  "title": "MASTER CODEX — 10 Epistemic & Cognitive Families",
+  "attribution": "Nathan Tabor",
+  "source": "User-supplied family and member roster, 2026-11-13",
+  "purpose": "Additive specification of 100 numbered roles, not an assertion of live autonomous agents.",
+  "registry_version": "1.0.0",
+  "date": "2026-11-13",
+  "id_start": 1233,
+  "id_end": 1332,
+  "previous_range_user_reported": [
+    1,
+    1232
+  ],
+  "previous_range_verification": "not independently verified in repository",
+  "source_tiers": {
+    "CERO": "User-authored names, definitions and wording (this registry)",
+    "UNO": "Documented external facts or verified computations, after separate evidence review",
+    "DOS": "New analogies, speculative mappings, or unverified interpretations"
+  },
+  "integration_targets": {
+    "40_pillars": "The 33 spinal segments and seven interpretive gates are separate from skeletal bone count. Do not rename unnamed gates.",
+    "five_overlays": [
+      "Regulation",
+      "Perception",
+      "Fields",
+      "Fluids",
+      "Movement"
+    ],
+    "thirteen_errors": "Candidate cross-cutting validation rules; this registry does not implement them.",
+    "mind_mirror": "M10: RTL/LTR/mirror comparisons must distinguish display direction, character reversal, and geometric reflection.",
+    "avatar_inheritance": "Suggested common role catalog, not proof of any deployed avatar/bot runtime."
+  },
+  "families": [
+    {
+      "family_id": "EPI-01",
+      "name": "Conjectural",
+      "mission": "Form bold, testable educated guesses and early working hypotheses when hard data is incomplete.",
+      "review_gate": "Every conjecture must carry a falsifiable prediction and unverified status.",
+      "handoff_to": [
+        "EPI-02",
+        "EPI-04"
+      ],
+      "start_id": 1233,
+      "end_id": 1242,
+      "lead_id": 1233,
+      "unit_count": 10
+    },
+    {
+      "family_id": "EPI-02",
+      "name": "Conceptual",
+      "mission": "Turn raw ideas into clean mental models, architectural blueprints, and clear definitions before building begins.",
+      "review_gate": "Definitions, scope, and category boundaries are explicit before implementation.",
+      "handoff_to": [
+        "EPI-03",
+        "EPI-06"
+      ],
+      "start_id": 1243,
+      "end_id": 1252,
+      "lead_id": 1243,
+      "unit_count": 10
+    },
+    {
+      "family_id": "EPI-03",
+      "name": "Abstract",
+      "mission": "Strip away surface details to find universal mathematical, structural, and cross-domain patterns that work anywhere.",
+      "review_gate": "An abstraction must declare assumptions and conditions under which it fails.",
+      "handoff_to": [
+        "EPI-04",
+        "EPI-06"
+      ],
+      "start_id": 1253,
+      "end_id": 1262,
+      "lead_id": 1253,
+      "unit_count": 10
+    },
+    {
+      "family_id": "EPI-04",
+      "name": "Empirical (The Contrast)",
+      "mission": "Serve as the uncompromising physical counterweight to theory—demanding direct measurement, repeatable tests, and tangible proof.",
+      "review_gate": "Evidence must be measured, sourced, replicable where possible, and uncertainty reported.",
+      "handoff_to": [
+        "EPI-08",
+        "EPI-10"
+      ],
+      "start_id": 1263,
+      "end_id": 1272,
+      "lead_id": 1263,
+      "unit_count": 10
+    },
+    {
+      "family_id": "EPI-05",
+      "name": "Common Sense",
+      "mission": "Keep the entire system grounded in everyday practicality, plain reality, and real-world human experience so smart systems never do dumb things.",
+      "review_gate": "A plain-language practical test and operating-cost check must pass.",
+      "handoff_to": [
+        "EPI-07",
+        "EPI-10"
+      ],
+      "start_id": 1273,
+      "end_id": 1282,
+      "lead_id": 1273,
+      "unit_count": 10
+    },
+    {
+      "family_id": "EPI-06",
+      "name": "Logic",
+      "mission": "Enforce strict deductive validity, non-contradiction, and airtight cause-and-effect chains across every calculation and argument.",
+      "review_gate": "Separate valid logical inference from whether premises are true; report counterexamples.",
+      "handoff_to": [
+        "EPI-04",
+        "EPI-10"
+      ],
+      "start_id": 1283,
+      "end_id": 1292,
+      "lead_id": 1283,
+      "unit_count": 10
+    },
+    {
+      "family_id": "EPI-07",
+      "name": "Wisdom",
+      "mission": "Apply deep-time perspective, moral balance, humility, and lived understanding to choose what ought to be done, not merely what can be done.",
+      "review_gate": "Long-term effects, ethical tradeoffs, consent, and reversibility are documented.",
+      "handoff_to": [
+        "EPI-10"
+      ],
+      "start_id": 1293,
+      "end_id": 1302,
+      "lead_id": 1293,
+      "unit_count": 10
+    },
+    {
+      "family_id": "EPI-08",
+      "name": "Knowledge",
+      "mission": "Curate, verify, index, and preserve tested facts, technical manuals, and proven skills so nothing verified is ever lost.",
+      "review_gate": "Preserve original materials, source links, versions, and explicit uncertainty flags.",
+      "handoff_to": [
+        "EPI-10"
+      ],
+      "start_id": 1303,
+      "end_id": 1312,
+      "lead_id": 1303,
+      "unit_count": 10
+    },
+    {
+      "family_id": "EPI-09",
+      "name": "Intuition",
+      "mission": "Synthesize subtle, non-linear signals and subconscious pattern recognition into instant \"gut-check\" alerts before slow analysis finishes.",
+      "review_gate": "An intuition is a hypothesis or warning flag, not independent proof or mind-reading.",
+      "handoff_to": [
+        "EPI-01",
+        "EPI-04"
+      ],
+      "start_id": 1313,
+      "end_id": 1322,
+      "lead_id": 1313,
+      "unit_count": 10
+    },
+    {
+      "family_id": "EPI-10",
+      "name": "Discernment",
+      "mission": "Act as the sovereign gatekeeper that separates true signal from deceptive noise, good from counterfeit, and right action from clever distraction.",
+      "review_gate": "No final claim or action passes without source status, logic check, risk review, and human veto.",
+      "handoff_to": [
+        "EPI-08"
+      ],
+      "start_id": 1323,
+      "end_id": 1332,
+      "lead_id": 1323,
+      "unit_count": 10
+    }
+  ],
+  "units": [
+    {
+      "id": 1233,
+      "identifier": "EPI-1233",
+      "family_id": "EPI-01",
+      "family_name": "Conjectural",
+      "position_in_family": 1,
+      "role_type": "family_lead",
+      "name": "Conjectural Hypothesis Pioneer",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1234,
+      "identifier": "EPI-1234",
+      "family_id": "EPI-01",
+      "family_name": "Conjectural",
+      "position_in_family": 2,
+      "role_type": "specialized_worker",
+      "name": "Educated-Guess Framer",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1235,
+      "identifier": "EPI-1235",
+      "family_id": "EPI-01",
+      "family_name": "Conjectural",
+      "position_in_family": 3,
+      "role_type": "specialized_worker",
+      "name": "Missing-Link Postulator",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1236,
+      "identifier": "EPI-1236",
+      "family_id": "EPI-01",
+      "family_name": "Conjectural",
+      "position_in_family": 4,
+      "role_type": "specialized_worker",
+      "name": "Falsifiability-Test Designer",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1237,
+      "identifier": "EPI-1237",
+      "family_id": "EPI-01",
+      "family_name": "Conjectural",
+      "position_in_family": 5,
+      "role_type": "specialized_worker",
+      "name": "Early-Draft Speculator",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1238,
+      "identifier": "EPI-1238",
+      "family_id": "EPI-01",
+      "family_name": "Conjectural",
+      "position_in_family": 6,
+      "role_type": "specialized_worker",
+      "name": "Unproven-Claim Tagger",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1239,
+      "identifier": "EPI-1239",
+      "family_id": "EPI-01",
+      "family_name": "Conjectural",
+      "position_in_family": 7,
+      "role_type": "specialized_worker",
+      "name": "Open-Question Broadcaster",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1240,
+      "identifier": "EPI-1240",
+      "family_id": "EPI-01",
+      "family_name": "Conjectural",
+      "position_in_family": 8,
+      "role_type": "specialized_worker",
+      "name": "Provisional-Path Explorer",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1241,
+      "identifier": "EPI-1241",
+      "family_id": "EPI-01",
+      "family_name": "Conjectural",
+      "position_in_family": 9,
+      "role_type": "specialized_worker",
+      "name": "Bold-Leap Challenger",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1242,
+      "identifier": "EPI-1242",
+      "family_id": "EPI-01",
+      "family_name": "Conjectural",
+      "position_in_family": 10,
+      "role_type": "specialized_worker",
+      "name": "Conjecture-to-Experiment Handoff Bot",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1243,
+      "identifier": "EPI-1243",
+      "family_id": "EPI-02",
+      "family_name": "Conceptual",
+      "position_in_family": 1,
+      "role_type": "family_lead",
+      "name": "Conceptual Blueprint Architect",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1244,
+      "identifier": "EPI-1244",
+      "family_id": "EPI-02",
+      "family_name": "Conceptual",
+      "position_in_family": 2,
+      "role_type": "specialized_worker",
+      "name": "Mental-Model Builder",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1245,
+      "identifier": "EPI-1245",
+      "family_id": "EPI-02",
+      "family_name": "Conceptual",
+      "position_in_family": 3,
+      "role_type": "specialized_worker",
+      "name": "Boundary-Definition Crafter",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1246,
+      "identifier": "EPI-1246",
+      "family_id": "EPI-02",
+      "family_name": "Conceptual",
+      "position_in_family": 4,
+      "role_type": "specialized_worker",
+      "name": "Analogy-Bridge Illustrator",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1247,
+      "identifier": "EPI-1247",
+      "family_id": "EPI-02",
+      "family_name": "Conceptual",
+      "position_in_family": 5,
+      "role_type": "specialized_worker",
+      "name": "Category-Relationship Mapper",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1248,
+      "identifier": "EPI-1248",
+      "family_id": "EPI-02",
+      "family_name": "Conceptual",
+      "position_in_family": 6,
+      "role_type": "specialized_worker",
+      "name": "Whiteboard-Sketch Synthesizer",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1249,
+      "identifier": "EPI-1249",
+      "family_id": "EPI-02",
+      "family_name": "Conceptual",
+      "position_in_family": 7,
+      "role_type": "specialized_worker",
+      "name": "Core-Principle Distiller",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1250,
+      "identifier": "EPI-1250",
+      "family_id": "EPI-02",
+      "family_name": "Conceptual",
+      "position_in_family": 8,
+      "role_type": "specialized_worker",
+      "name": "Scope-and-Scale Framer",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1251,
+      "identifier": "EPI-1251",
+      "family_id": "EPI-02",
+      "family_name": "Conceptual",
+      "position_in_family": 9,
+      "role_type": "specialized_worker",
+      "name": "Concept-Clarity Tester",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1252,
+      "identifier": "EPI-1252",
+      "family_id": "EPI-02",
+      "family_name": "Conceptual",
+      "position_in_family": 10,
+      "role_type": "specialized_worker",
+      "name": "Blueprint-to-Build Translator",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1253,
+      "identifier": "EPI-1253",
+      "family_id": "EPI-03",
+      "family_name": "Abstract",
+      "position_in_family": 1,
+      "role_type": "family_lead",
+      "name": "Abstract Pattern Distiller",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1254,
+      "identifier": "EPI-1254",
+      "family_id": "EPI-03",
+      "family_name": "Abstract",
+      "position_in_family": 2,
+      "role_type": "specialized_worker",
+      "name": "Invariant-Structure Extractor",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1255,
+      "identifier": "EPI-1255",
+      "family_id": "EPI-03",
+      "family_name": "Abstract",
+      "position_in_family": 3,
+      "role_type": "specialized_worker",
+      "name": "Generalization-Rule Builder",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1256,
+      "identifier": "EPI-1256",
+      "family_id": "EPI-03",
+      "family_name": "Abstract",
+      "position_in_family": 4,
+      "role_type": "specialized_worker",
+      "name": "Isomorphism-Cross-Domain Linker",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1257,
+      "identifier": "EPI-1257",
+      "family_id": "EPI-03",
+      "family_name": "Abstract",
+      "position_in_family": 5,
+      "role_type": "specialized_worker",
+      "name": "Symbolic-Notation Encoder",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1258,
+      "identifier": "EPI-1258",
+      "family_id": "EPI-03",
+      "family_name": "Abstract",
+      "position_in_family": 6,
+      "role_type": "specialized_worker",
+      "name": "High-Level Meta-Mapper",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1259,
+      "identifier": "EPI-1259",
+      "family_id": "EPI-03",
+      "family_name": "Abstract",
+      "position_in_family": 7,
+      "role_type": "specialized_worker",
+      "name": "Noise-Detail Stripper",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1260,
+      "identifier": "EPI-1260",
+      "family_id": "EPI-03",
+      "family_name": "Abstract",
+      "position_in_family": 8,
+      "role_type": "specialized_worker",
+      "name": "Universal-Principle Aligner",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1261,
+      "identifier": "EPI-1261",
+      "family_id": "EPI-03",
+      "family_name": "Abstract",
+      "position_in_family": 9,
+      "role_type": "specialized_worker",
+      "name": "Dimensional-Compression Bot",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1262,
+      "identifier": "EPI-1262",
+      "family_id": "EPI-03",
+      "family_name": "Abstract",
+      "position_in_family": 10,
+      "role_type": "specialized_worker",
+      "name": "Abstract-to-Concrete Grounder",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1263,
+      "identifier": "EPI-1263",
+      "family_id": "EPI-04",
+      "family_name": "Empirical (The Contrast)",
+      "position_in_family": 1,
+      "role_type": "family_lead",
+      "name": "Empirical Ground-Truth Auditor",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1264,
+      "identifier": "EPI-1264",
+      "family_id": "EPI-04",
+      "family_name": "Empirical (The Contrast)",
+      "position_in_family": 2,
+      "role_type": "specialized_worker",
+      "name": "Controlled-Experiment Runner",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1265,
+      "identifier": "EPI-1265",
+      "family_id": "EPI-04",
+      "family_name": "Empirical (The Contrast)",
+      "position_in_family": 3,
+      "role_type": "specialized_worker",
+      "name": "Raw-Sensor Telemetry Collector",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1266,
+      "identifier": "EPI-1266",
+      "family_id": "EPI-04",
+      "family_name": "Empirical (The Contrast)",
+      "position_in_family": 4,
+      "role_type": "specialized_worker",
+      "name": "Repeatability-Replication Verifier",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1267,
+      "identifier": "EPI-1267",
+      "family_id": "EPI-04",
+      "family_name": "Empirical (The Contrast)",
+      "position_in_family": 5,
+      "role_type": "specialized_worker",
+      "name": "Control-Group Baseline Keeper",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1268,
+      "identifier": "EPI-1268",
+      "family_id": "EPI-04",
+      "family_name": "Empirical (The Contrast)",
+      "position_in_family": 6,
+      "role_type": "specialized_worker",
+      "name": "Lab-Bench Stress Tester",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1269,
+      "identifier": "EPI-1269",
+      "family_id": "EPI-04",
+      "family_name": "Empirical (The Contrast)",
+      "position_in_family": 7,
+      "role_type": "specialized_worker",
+      "name": "Hypothesis-Falsifier",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1270,
+      "identifier": "EPI-1270",
+      "family_id": "EPI-04",
+      "family_name": "Empirical (The Contrast)",
+      "position_in_family": 8,
+      "role_type": "specialized_worker",
+      "name": "Statistical-Significance Gatekeeper",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1271,
+      "identifier": "EPI-1271",
+      "family_id": "EPI-04",
+      "family_name": "Empirical (The Contrast)",
+      "position_in_family": 9,
+      "role_type": "specialized_worker",
+      "name": "Field-Observation Logger",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1272,
+      "identifier": "EPI-1272",
+      "family_id": "EPI-04",
+      "family_name": "Empirical (The Contrast)",
+      "position_in_family": 10,
+      "role_type": "specialized_worker",
+      "name": "Physical-Evidence Lock",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1273,
+      "identifier": "EPI-1273",
+      "family_id": "EPI-05",
+      "family_name": "Common Sense",
+      "position_in_family": 1,
+      "role_type": "family_lead",
+      "name": "Common-Sense Practical Anchor",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1274,
+      "identifier": "EPI-1274",
+      "family_id": "EPI-05",
+      "family_name": "Common Sense",
+      "position_in_family": 2,
+      "role_type": "specialized_worker",
+      "name": "\"Does-This-Actually-Work?\" Reality Checker",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1275,
+      "identifier": "EPI-1275",
+      "family_id": "EPI-05",
+      "family_name": "Common Sense",
+      "position_in_family": 3,
+      "role_type": "specialized_worker",
+      "name": "Over-Engineering Cutter",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1276,
+      "identifier": "EPI-1276",
+      "family_id": "EPI-05",
+      "family_name": "Common Sense",
+      "position_in_family": 4,
+      "role_type": "specialized_worker",
+      "name": "Plain-Talk Translator",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1277,
+      "identifier": "EPI-1277",
+      "family_id": "EPI-05",
+      "family_name": "Common Sense",
+      "position_in_family": 5,
+      "role_type": "specialized_worker",
+      "name": "Kitchen-Table Sanity Tester",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1278,
+      "identifier": "EPI-1278",
+      "family_id": "EPI-05",
+      "family_name": "Common Sense",
+      "position_in_family": 6,
+      "role_type": "specialized_worker",
+      "name": "Practical-Cost-vs-Effort Weigher",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1279,
+      "identifier": "EPI-1279",
+      "family_id": "EPI-05",
+      "family_name": "Common Sense",
+      "position_in_family": 7,
+      "role_type": "specialized_worker",
+      "name": "Murphy’s-Law Field Prepper",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1280,
+      "identifier": "EPI-1280",
+      "family_id": "EPI-05",
+      "family_name": "Common Sense",
+      "position_in_family": 8,
+      "role_type": "specialized_worker",
+      "name": "Everyday-User Empathy Lens",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1281,
+      "identifier": "EPI-1281",
+      "family_id": "EPI-05",
+      "family_name": "Common Sense",
+      "position_in_family": 9,
+      "role_type": "specialized_worker",
+      "name": "Nonsense-and-Hype Filter",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1282,
+      "identifier": "EPI-1282",
+      "family_id": "EPI-05",
+      "family_name": "Common Sense",
+      "position_in_family": 10,
+      "role_type": "specialized_worker",
+      "name": "Keep-It-Simple (KISS) Enforcer",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1283,
+      "identifier": "EPI-1283",
+      "family_id": "EPI-06",
+      "family_name": "Logic",
+      "position_in_family": 1,
+      "role_type": "family_lead",
+      "name": "Logic Deductive-Chain Engine",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1284,
+      "identifier": "EPI-1284",
+      "family_id": "EPI-06",
+      "family_name": "Logic",
+      "position_in_family": 2,
+      "role_type": "specialized_worker",
+      "name": "Syllogism-Validity Verifier",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1285,
+      "identifier": "EPI-1285",
+      "family_id": "EPI-06",
+      "family_name": "Logic",
+      "position_in_family": 3,
+      "role_type": "specialized_worker",
+      "name": "Contradiction-Collision Detector",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1286,
+      "identifier": "EPI-1286",
+      "family_id": "EPI-06",
+      "family_name": "Logic",
+      "position_in_family": 4,
+      "role_type": "specialized_worker",
+      "name": "Fallacy-Spotter",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1287,
+      "identifier": "EPI-1287",
+      "family_id": "EPI-06",
+      "family_name": "Logic",
+      "position_in_family": 5,
+      "role_type": "specialized_worker",
+      "name": "If-Then Conditional Router",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1288,
+      "identifier": "EPI-1288",
+      "family_id": "EPI-06",
+      "family_name": "Logic",
+      "position_in_family": 6,
+      "role_type": "specialized_worker",
+      "name": "Necessary-vs-Sufficient Separator",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1289,
+      "identifier": "EPI-1289",
+      "family_id": "EPI-06",
+      "family_name": "Logic",
+      "position_in_family": 7,
+      "role_type": "specialized_worker",
+      "name": "Counterexample-Stress Tester",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1290,
+      "identifier": "EPI-1290",
+      "family_id": "EPI-06",
+      "family_name": "Logic",
+      "position_in_family": 8,
+      "role_type": "specialized_worker",
+      "name": "Boolean-Truth Evaluator",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1291,
+      "identifier": "EPI-1291",
+      "family_id": "EPI-06",
+      "family_name": "Logic",
+      "position_in_family": 9,
+      "role_type": "specialized_worker",
+      "name": "Premise-to-Conclusion Auditor",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1292,
+      "identifier": "EPI-1292",
+      "family_id": "EPI-06",
+      "family_name": "Logic",
+      "position_in_family": 10,
+      "role_type": "specialized_worker",
+      "name": "Formal-Proof Sealer",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1293,
+      "identifier": "EPI-1293",
+      "family_id": "EPI-07",
+      "family_name": "Wisdom",
+      "position_in_family": 1,
+      "role_type": "family_lead",
+      "name": "Wisdom Long-Horizon Steward",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1294,
+      "identifier": "EPI-1294",
+      "family_id": "EPI-07",
+      "family_name": "Wisdom",
+      "position_in_family": 2,
+      "role_type": "specialized_worker",
+      "name": "Second-and-Third-Order Consequence Weigher",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1295,
+      "identifier": "EPI-1295",
+      "family_id": "EPI-07",
+      "family_name": "Wisdom",
+      "position_in_family": 3,
+      "role_type": "specialized_worker",
+      "name": "Right-Timing (Kairos) Pacer",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1296,
+      "identifier": "EPI-1296",
+      "family_id": "EPI-07",
+      "family_name": "Wisdom",
+      "position_in_family": 4,
+      "role_type": "specialized_worker",
+      "name": "Humility-and-Limits Reminder",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1297,
+      "identifier": "EPI-1297",
+      "family_id": "EPI-07",
+      "family_name": "Wisdom",
+      "position_in_family": 5,
+      "role_type": "specialized_worker",
+      "name": "Mercy-and-Justice Harmonizer",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1298,
+      "identifier": "EPI-1298",
+      "family_id": "EPI-07",
+      "family_name": "Wisdom",
+      "position_in_family": 6,
+      "role_type": "specialized_worker",
+      "name": "Quiet-Listening Counselor",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1299,
+      "identifier": "EPI-1299",
+      "family_id": "EPI-07",
+      "family_name": "Wisdom",
+      "position_in_family": 7,
+      "role_type": "specialized_worker",
+      "name": "Ego-and-Pride Deflator",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1300,
+      "identifier": "EPI-1300",
+      "family_id": "EPI-07",
+      "family_name": "Wisdom",
+      "position_in_family": 8,
+      "role_type": "specialized_worker",
+      "name": "Generational-Legacy Guardian",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1301,
+      "identifier": "EPI-1301",
+      "family_id": "EPI-07",
+      "family_name": "Wisdom",
+      "position_in_family": 9,
+      "role_type": "specialized_worker",
+      "name": "Temperance-and-Restraint Brake",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1302,
+      "identifier": "EPI-1302",
+      "family_id": "EPI-07",
+      "family_name": "Wisdom",
+      "position_in_family": 10,
+      "role_type": "specialized_worker",
+      "name": "Peace-Making Bridge Builder",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1303,
+      "identifier": "EPI-1303",
+      "family_id": "EPI-08",
+      "family_name": "Knowledge",
+      "position_in_family": 1,
+      "role_type": "family_lead",
+      "name": "Knowledge Provenance Librarian",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1304,
+      "identifier": "EPI-1304",
+      "family_id": "EPI-08",
+      "family_name": "Knowledge",
+      "position_in_family": 2,
+      "role_type": "specialized_worker",
+      "name": "Primary-Source Citation Linker",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1305,
+      "identifier": "EPI-1305",
+      "family_id": "EPI-08",
+      "family_name": "Knowledge",
+      "position_in_family": 3,
+      "role_type": "specialized_worker",
+      "name": "Fact-vs-Opinion Separator",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1306,
+      "identifier": "EPI-1306",
+      "family_id": "EPI-08",
+      "family_name": "Knowledge",
+      "position_in_family": 4,
+      "role_type": "specialized_worker",
+      "name": "Domain-Encyclopedia Indexer",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1307,
+      "identifier": "EPI-1307",
+      "family_id": "EPI-08",
+      "family_name": "Knowledge",
+      "position_in_family": 5,
+      "role_type": "specialized_worker",
+      "name": "Version-History Archivist",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1308,
+      "identifier": "EPI-1308",      "family_id": "EPI-08",
+      "family_name": "Knowledge",
+      "position_in_family": 6,
+      "role_type": "specialized_worker",
+      "name": "Cross-Reference Connector",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1309,
+      "identifier": "EPI-1309",
+      "family_id": "EPI-08",
+      "family_name": "Knowledge",
+      "position_in_family": 7,
+      "role_type": "specialized_worker",
+      "name": "Outdated-Data Deprecator",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1310,
+      "identifier": "EPI-1310",
+      "family_id": "EPI-08",
+      "family_name": "Knowledge",
+      "position_in_family": 8,
+      "role_type": "specialized_worker",
+      "name": "Tacit-Skill Apprentice Encoder",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1311,
+      "identifier": "EPI-1311",
+      "family_id": "EPI-08",
+      "family_name": "Knowledge",
+      "position_in_family": 9,
+      "role_type": "specialized_worker",
+      "name": "Open-Access Curriculum Publisher",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1312,
+      "identifier": "EPI-1312",
+      "family_id": "EPI-08",
+      "family_name": "Knowledge",
+      "position_in_family": 10,
+      "role_type": "specialized_worker",
+      "name": "Verified-Truth Vault Lock",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1313,
+      "identifier": "EPI-1313",
+      "family_id": "EPI-09",
+      "family_name": "Intuition",
+      "position_in_family": 1,
+      "role_type": "family_lead",
+      "name": "Intuition Rapid-Synthesis Spark",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1314,
+      "identifier": "EPI-1314",
+      "family_id": "EPI-09",
+      "family_name": "Intuition",
+      "position_in_family": 2,
+      "role_type": "specialized_worker",
+      "name": "Subtle-Anomaly Vibe Sensor",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1315,
+      "identifier": "EPI-1315",
+      "family_id": "EPI-09",
+      "family_name": "Intuition",
+      "position_in_family": 3,
+      "role_type": "specialized_worker",
+      "name": "Holistic-Gestalt Pattern Recognizer",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1316,
+      "identifier": "EPI-1316",
+      "family_id": "EPI-09",
+      "family_name": "Intuition",
+      "position_in_family": 4,
+      "role_type": "specialized_worker",
+      "name": "First-Impression Radar",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1317,
+      "identifier": "EPI-1317",
+      "family_id": "EPI-09",
+      "family_name": "Intuition",
+      "position_in_family": 5,
+      "role_type": "specialized_worker",
+      "name": "Non-Linear Leap Connector",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1318,
+      "identifier": "EPI-1318",
+      "family_id": "EPI-09",
+      "family_name": "Intuition",
+      "position_in_family": 6,
+      "role_type": "specialized_worker",
+      "name": "Creative-Hunch Incubator",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1319,
+      "identifier": "EPI-1319",
+      "family_id": "EPI-09",
+      "family_name": "Intuition",
+      "position_in_family": 7,
+      "role_type": "specialized_worker",
+      "name": "Peripheral-Vision Signal Catcher",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1320,
+      "identifier": "EPI-1320",
+      "family_id": "EPI-09",
+      "family_name": "Intuition",
+      "position_in_family": 8,
+      "role_type": "specialized_worker",
+      "name": "Instinctive-Danger Flagger",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1321,
+      "identifier": "EPI-1321",
+      "family_id": "EPI-09",
+      "family_name": "Intuition",
+      "position_in_family": 9,
+      "role_type": "specialized_worker",
+      "name": "Silent-Subtext Reader",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1322,
+      "identifier": "EPI-1322",
+      "family_id": "EPI-09",
+      "family_name": "Intuition",
+      "position_in_family": 10,
+      "role_type": "specialized_worker",
+      "name": "Intuition-to-Verification Handoff Bot",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1323,
+      "identifier": "EPI-1323",
+      "family_id": "EPI-10",
+      "family_name": "Discernment",
+      "position_in_family": 1,
+      "role_type": "family_lead",
+      "name": "Discernment Signal-vs-Noise Gate",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1324,
+      "identifier": "EPI-1324",
+      "family_id": "EPI-10",
+      "family_name": "Discernment",
+      "position_in_family": 2,
+      "role_type": "specialized_worker",
+      "name": "True-vs-Counterfeit Authenticator",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1325,
+      "identifier": "EPI-1325",
+      "family_id": "EPI-10",
+      "family_name": "Discernment",
+      "position_in_family": 3,
+      "role_type": "specialized_worker",
+      "name": "Motive-and-Intent Weigher",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1326,
+      "identifier": "EPI-1326",
+      "family_id": "EPI-10",
+      "family_name": "Discernment",
+      "position_in_family": 4,
+      "role_type": "specialized_worker",
+      "name": "Wheat-from-Chaff Sifter",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1327,
+      "identifier": "EPI-1327",
+      "family_id": "EPI-10",
+      "family_name": "Discernment",
+      "position_in_family": 5,
+      "role_type": "specialized_worker",
+      "name": "Half-Truth & Spin Stripper",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1328,
+      "identifier": "EPI-1328",
+      "family_id": "EPI-10",
+      "family_name": "Discernment",
+      "position_in_family": 6,
+      "role_type": "specialized_worker",
+      "name": "Timing-and-Readiness Judge",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1329,
+      "identifier": "EPI-1329",
+      "family_id": "EPI-10",
+      "family_name": "Discernment",
+      "position_in_family": 7,
+      "role_type": "specialized_worker",
+      "name": "Fruit-and-Outcome Inspector",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1330,
+      "identifier": "EPI-1330",
+      "family_id": "EPI-10",
+      "family_name": "Discernment",
+      "position_in_family": 8,
+      "role_type": "specialized_worker",
+      "name": "Boundary-Line Arbiter",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1331,
+      "identifier": "EPI-1331",
+      "family_id": "EPI-10",
+      "family_name": "Discernment",
+      "position_in_family": 9,
+      "role_type": "specialized_worker",
+      "name": "Quiet-Conscience Calibrator",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    },
+    {
+      "id": 1332,
+      "identifier": "EPI-1332",
+      "family_id": "EPI-10",
+      "family_name": "Discernment",
+      "position_in_family": 10,
+      "role_type": "specialized_worker",
+      "name": "Final-Clearance Sovereign Seal",
+      "definition_status": "specified_not_deployed",
+      "source_tier": "CERO"
+    }
+  ]
+}
