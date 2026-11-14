@@ -38,3 +38,11 @@ R; mirrored R; Я; ya; y'all; Yahweh; YHWH; ME R U U R EM; resh; rho; boustrophe
 
 ## Next verification
 Record artifact date, script, writing direction, letter orientation, image/plate, transcription, source URL, and confidence for each example. Link every claim to the earliest inspectable evidence. Preserve user hypotheses as authored hypotheses; never silently promote them to verified historical facts.
+
+
+## Full-text preservation and structured Concordance entry (2026-11-13)
+- [Full supplied research narrative, source verification distinctions and follow-up queue](full-research-letter-reversal-niger-goddess-2026-11-13.md)
+- [Machine-readable Concordance index with 15 evidence-tagged records](concordance-index-2026-11-13.json)
+- The full-text companion preserves the original five historical sections, Acts 13:1 wording, letter-reversal claims, Isis/Black Land hypothesis, printed-record leads and research trail, while clearly distinguishing supplied text from independently inspected historical sources.
+- The JSON index is a **version-controlled research index**, not a claim of synchronization with an external live Concordance database.
+- CERO / UNO / DOS evidence tags follow the established Nathan AI definitions; source acquisitions marked pending do **not** imply the ancient manuscript, papyrus or original newspaper has been visually inspected.
