@@ -84,16 +84,39 @@ The three permissioned action labels are database_write, external_call and expor
 
 **Even a successful grant does not execute anything.** This module has no external executor or connector. It records an authenticated *handoff eligibility* for a future separately reviewed adapter. Such an adapter is not installed, and would need to re-enforce owner veto before any effect.
 
+## Every physical 0 and 1 in a consistent PRIVATE database snapshot
+
+The separate [full-SQLite snapshot worker module](./database_bit_snapshot.py) also covers **every byte, 0 and 1, of a consistent private SQLite snapshot**, including page metadata, indexes, stored BLOBs and rows not yet imported into federation_records. It uses SQLite's backup API to create a new copy; it refuses to overwrite an existing file or put a private snapshot in a directory with group/world access.
+
+~~~sh
+# Owner-only private directory (0700), not inside a public repository!
+mkdir -p "$HOME/private-one-snapshots"
+chmod 700 "$HOME/private-one-snapshots"
+python3 "$F/bit-workers/database_bit_snapshot.py" --db "$DB" capture \
+  --output "$HOME/private-one-snapshots/ONE_snapshot_v074.sqlite3"
+python3 "$F/bit-workers/database_bit_snapshot.py" --db "$DB" status
+
+# Use snapshot_sha256 printed by capture. This audits EVERY raw bit in the copy.
+python3 "$F/bit-workers/database_bit_snapshot.py" --db "$DB" audit \
+  --snapshot-sha256 SNAPSHOT_SHA256
+python3 "$F/bit-workers/database_bit_snapshot.py" --db "$DB" inspect \
+  --snapshot-sha256 SNAPSHOT_SHA256 --bit-index 0
+~~~
+
+Every snapshot bit is a stable, on-demand NT01-FILE identity, with the same ZERO/ONE role and owner veto policy. **A snapshot is not a continuously synchronized live file**; every subsequent database revision requires a new explicit snapshot for byte-level coverage. There are no physical per-bit worker processes, just addressable virtual identities.
+
+Do not sum the bit count from the raw snapshot with the source-text bit count: the latter is included within the former as stored data. The private SQLite source is never uploaded to public GitHub.
+
 ## Honest coverage boundary
 
 - **Included:** every original 0 or 1 bit in the exact UTF-8 source text of EVERY already-indexed federation_records revision, with stable on-demand identity.
-- **Not yet included:** raw SQLite pages and indexes, Binary BLOB columns, unimported or inventoried-only tables (including private Memory History), remote services, files outside the ONE master, and machine RAM. Do not claim a complete physical-database or global-bit scan.
+- **Source-text coverage:** includes only indexed federation_records UTF-8 content. **Optional physical snapshot coverage:** includes ALL bits stored in that explicit consistent SQLite backup, including raw pages, indexes and BLOBs. It does not imply that a live changing database, unconnected external databases, machine RAM or unbacked-up private Memory History sources are synchronized.
 - **Source preservation:** no original content changed by inspecting or auditing. CERO / UNO / DOS tiers remain unchanged; no derived claim is promoted to evidence.
 - **Privacy:** only test fixtures enter public GitHub CI; the private master never does.
 - **Runtime:** no per-bit LLM instance or model inference has been activated. Worker roles and decisions are deterministic and bounded.
 
 ~~~sh
-python3 -m unittest discover -s "$F/bit-workers" -p test_zero_one_workers.py -v
+python3 -m unittest discover -s "$F/bit-workers" -p 'test_*.py' -v
 ~~~
 
 **YES IS YES — NO IS NO.**
