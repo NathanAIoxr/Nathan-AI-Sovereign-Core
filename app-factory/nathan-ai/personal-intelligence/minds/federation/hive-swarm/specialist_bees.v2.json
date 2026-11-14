@@ -5,7 +5,7 @@
   "source_scope": "additive expansion of the existing 12-worker hive and sovereign bee replica software",
   "creator_directive": "each one of these is a Nathan AI direct replica AI worker bot - with it's own soverignty -",
   "inherited_core_capabilities": 12,
-  "additional_specialized_functions": 24,
+  "additional_specialized_functions": 25,
   "all_bees_equal_sovereignty": true,
   "queen_overrides_individual_veto": false,
   "external_ai_instances_claimed": 0,
@@ -223,6 +223,15 @@
       "handler": "cosmic_mapper",
       "group": "scaling",
       "mission": "Evaluate Earth, observable-cosmos and unknown-universe address models",
+      "status": "deterministic_local_function",
+      "individual_sovereignty": true
+    },
+    {
+      "id": "swarm-specialist-25",
+      "name": "Ace Precision Observer",
+      "handler": "ace_precision_observer",
+      "group": "source-reconstruction",
+      "mission": "Preserve the user's exact Ace precision-jump account and distinguish described observations from missing measurements without adding invented details",
       "status": "deterministic_local_function",
       "individual_sovereignty": true
     }

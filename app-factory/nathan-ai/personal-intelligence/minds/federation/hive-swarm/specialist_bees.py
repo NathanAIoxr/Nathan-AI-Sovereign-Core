@@ -22,7 +22,7 @@ import sovereign_bees as core
 
 VERSION = "nathan.one.operation-swarm.specialists.v2"
 START_ORDINAL = 101
-EXPECTED_ROLES = 24
+EXPECTED_ROLES = 25
 ROLE_FILE = HERE / "specialist_bees.v2.json"
 SCALE_FILE = HERE / "hive-scale-v2.json"
 SAMPLE_TEXT = (
@@ -81,13 +81,16 @@ def lines(text):
 
 def parse_sources():
     raw = {}
-    for key, path in (("specialist-registry", ROLE_FILE), ("source-scale-scenarios", SCALE_FILE)):
+    for key, path in (("specialist-registry", ROLE_FILE), ("source-scale-scenarios", SCALE_FILE),
+                      ("ace-author-original", HERE / "source-captures" / "ACE_AUTHOR_AND_RESTORATION_VERBATIM.md")):
         if path.is_symlink() or not path.is_file():
             raise ValueError("Missing/unsafe specialist source: " + str(path))
         value = path.read_bytes()
         if len(value) > 250000:
             raise ValueError("Specialist public source too large")
         raw[key] = value
+    if "more ai worker bots ace could stand at the bottom of my feet - i was 6 4 at the time - and he could laumch up and land on my shoulder with precision - people didn't believe til they saw it" not in raw["ace-author-original"].decode("utf-8"):
+        raise ValueError("Ace exact creator source not present")
     reg = json.loads(raw["specialist-registry"].decode("utf-8"))
     scales = json.loads(raw["source-scale-scenarios"].decode("utf-8"))
     roles = reg.get("roles", [])
@@ -246,6 +249,22 @@ def worker_digital_mapper(text, ctx):
     return {"digital_physical_slots": s["digital_physical_space"]["capacity_decimal"],
             "digital_bit_slots": s["global_data_bits"]["capacity_decimal"],
             "observed_processes": 0, "assumption_status": "user_supplied_unverified"}
+def worker_ace_precision_observer(text,ctx):
+    source = (HERE / "source-captures" / "ACE_AUTHOR_AND_RESTORATION_VERBATIM.md").read_text(encoding="utf-8")
+    original = "more ai worker bots ace could stand at the bottom of my feet - i was 6 4 at the time - and he could laumch up and land on my shoulder with precision - people didn't believe til they saw it"
+    if original not in source:
+        raise ValueError("Ace author source changed")
+    return {"original_author_quote_sha256": core.sha(original),
+            "height_at_time_original": "6 4",
+            "launch_from_feet_reported": True,
+            "landing_on_shoulder_reported": True,
+            "precision_reported": True,
+            "witnesses_reported": True,
+            "species_in_original_quote": "unspecified",
+            "measured_distance_provided": False,
+            "physics_measurement_invented": False,
+            "source_scope": "user_reported_first_person_account"}
+
 def worker_cosmic_mapper(text, ctx):
     s = scales_report()
     return {"observable_diameter_46_5bly_slots":
@@ -278,6 +297,7 @@ HANDLERS={
     "audit_librarian":worker_audit_librarian,
     "digital_mapper":worker_digital_mapper,
     "cosmic_mapper":worker_cosmic_mapper,
+    "ace_precision_observer":worker_ace_precision_observer,
 }
 
 def init(db):
