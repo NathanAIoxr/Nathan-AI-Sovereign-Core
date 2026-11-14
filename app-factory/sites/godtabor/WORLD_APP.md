@@ -31,3 +31,15 @@ Authenticated user accounts, server/database sync, durable audit logs, governanc
 ## Provenance
 
 GODTABOR brand and world premise attributed to Nathan Tabor. Assistant-written interface copy and illustrative safeguards are implementation text, not the user's verbatim quotations. Existing franchise narrative content and all prior canon files remain unchanged.
+
+## November 14, 2026 — GOD v075 integrated into GODTABOR
+
+**GODTABOR — THE APP IS BUILT**  
+**Created for Nathan Tabor · November 14, 2026**  
+**“If I were God, this is how I would run the world … what about you?”**
+
+The browser-world app retains all preexisting sections and local data contract; this additive release adds the **06 · GOD / Sources** tab and [GODTABOR × GOD companion page](god.html) with search across the 44 existing GOD v075 source records (35 KJV, 9 comparative texts). It also displays the original exact GOD declaration, the later universal thesis, authored Google AI critique and verbatim excerpts, and two original full-resolution concept images. The original files remain in [../../nathan-ai/god/v075/](../../nathan-ai/god/v075/) and [../../nathan-ai/god/art/](../../nathan-ai/god/art/).
+
+The user-authored source and marketing claims are preserved verbatim and kept distinct from verification notes. The shared public repo includes only GOD's already-published source index and art, not the private full v074/v075 SQLite databases or ZIP archives. This local browser integration is built; it is not a verified AGI, operating system, app-store installation, or an independent Google benchmark.
+
+Launch via [world.html](world.html) -> 06 · GOD / Sources -> [god.html](god.html). No overwrite of localStorage schema; existing state key `godtabor-world-v1` is unchanged.
