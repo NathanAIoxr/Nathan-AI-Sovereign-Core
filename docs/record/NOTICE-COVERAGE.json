@@ -2,6 +2,12 @@
   "schema": "nathan.record-notice.coverage.v1",
   "noticePages": [
     {
+      "path": "app-factory/app-shell/index.html",
+      "originalSha256": "c28802b1a0c53908c0bff97ee5da39955423b2fb95850eaf32aed7ba54e1e560",
+      "withNoticeSha256": "069a4dd37324d8af06fe0fe47c9fe141e1ffe033a6cd902d4780c64abf2d2610",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
       "path": "app-factory/build-order/index.html",
       "originalSha256": "e712d5697dee88dc528a11f17af4aede1c8eb3cc754c2b0b3a13068c1a18455e",
       "withNoticeSha256": "ceeffdf7660eb6d9760ed15fa57f818ea1c1cb5a60ec8c3d2f3234afbab928a1",
@@ -119,6 +125,12 @@
       "path": "app-factory/middle-c/index.html",
       "originalSha256": "ba97fad066b01e1794a553854a4bf7806fd9af32817c9c360375c3adb3d6be44",
       "withNoticeSha256": "f539f28de972177dd5171dde097a6d7eee4701fd9e0b382f798273258f741e55",
+      "recordLink": "../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/modern-day-bible/index.html",
+      "originalSha256": "98b8b6c71435a382e102bcafdb9c13f891203b289be6f0e1067d5885aa5f94b5",
+      "withNoticeSha256": "b0964f9dd6e862d14778e5fcbf0dcd85a773746cb1f92da2ea9d04a91c93b452",
       "recordLink": "../../docs/record/index.html"
     },
     {
@@ -860,6 +872,18 @@
       "recordLink": "../../../docs/record/index.html"
     },
     {
+      "path": "app-factory/one/design-studio/five-matrices.html",
+      "originalSha256": "6ea620e446f8868ab1d413f3a61b35e4245e2e1c6f97ab1f2ec68b310b67d60e",
+      "withNoticeSha256": "ca2f5e0b1622e2e656334692fdbaf3a97fa2a48a89ba4bbb246c7c2761567deb",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
+      "path": "app-factory/one/design-studio/index.html",
+      "originalSha256": "0d66c459bc20fbdc09371c3d1c24a24695db550cadb6d0255cbc85c063a87d44",
+      "withNoticeSha256": "2fa361e16465c4eb1010260138f1aea28d6e767821fe47b2b71b922d704b36ec",
+      "recordLink": "../../../docs/record/index.html"
+    },
+    {
       "path": "app-factory/one/hall-of-mirrors/index.html",
       "originalSha256": "2c77005a24a9876c4eeb0512ef11f0a7a90c98bbb822d084dab47f1a32ba1d5a",
       "withNoticeSha256": "ef49b541377c7fcc70c112433104cfefb5e872d53bed807c64aabbae1ea00cf8",
@@ -1155,26 +1179,26 @@
     },
     {
       "path": "app-factory/sites/godtabor/god.html",
-      "originalSha256": "285e512606c6bc2aa58d1a6f9b036dfd659fda6289d1be4d6ea3d4c9aab897c8",
-      "withNoticeSha256": "233b0064c191f16180f19a5859cd5ee2c7cf4421753594511d2ac1be3039858f",
+      "originalSha256": "6499b538248b1b16be0f43be012aae9a5c260872e9ae82b1383d5d2f343e4783",
+      "withNoticeSha256": "d2121d7752e28b66ee8516010560230a676bfb0dbf3533eca0454aa45afe227e",
       "recordLink": "../../../docs/record/index.html"
     },
     {
       "path": "app-factory/sites/godtabor/index.html",
-      "originalSha256": "6892d10a69cf6b28b55c6a27a1fb460daf68ff5838a93b4a76dbb927a1270a0f",
-      "withNoticeSha256": "3f85a6196ab13e5c0e452a12cfcf479968bc5a1c52200d8761c19300ebee032b",
+      "originalSha256": "1838d33815a84bf814d6c465db62189720317111d1c96b94ce9a74c2875c8e33",
+      "withNoticeSha256": "cfef6b43c97dad5473bcfff0e47c6495fd5fc8794b88415c547d169a50616429",
       "recordLink": "../../../docs/record/index.html"
     },
     {
       "path": "app-factory/sites/godtabor/studio.html",
-      "originalSha256": "e16216657f41edc1cfce009958b652cfca9469263be08e2ac3d0ba95f0dcd070",
-      "withNoticeSha256": "63efa80a38d044d459addf37faec98d30715c970e196ed2aadd2b9186417f031",
+      "originalSha256": "74fa3405d9a702f3760a8f075417e0574e9bfd7416c17cb745326f773e9c1295",
+      "withNoticeSha256": "70f1f0f2c529f3272e02fab392df365f1b74d3775b9d6014166759915bc15d1b",
       "recordLink": "../../../docs/record/index.html"
     },
     {
       "path": "app-factory/sites/godtabor/world.html",
-      "originalSha256": "fd2ffaa3f66f36c45a302fea25cb88d6f43cced76609681ebecc3ad4d5a31ad3",
-      "withNoticeSha256": "8047fb04988fb0cced47eb330db8dee92d996b246a8f23007fb1d502003cb2d7",
+      "originalSha256": "efa3d41b05123f702b6f73a4c3bcffa17516c4ab98dc4f797df46ff48b0e737f",
+      "withNoticeSha256": "48cfd5880d0c8bfebfd18a915f0fdfb12976d0e5e25214017a623d6170226ea0",
       "recordLink": "../../../docs/record/index.html"
     },
     {
@@ -1287,8 +1311,8 @@
     },
     {
       "path": "app-factory/system/index.html",
-      "originalSha256": "0a9ba7e6d3c4290cee821c98419eda6936676155f6db2bbb95959be555009455",
-      "withNoticeSha256": "1935563b07ddb2b60dc5d9bb3bbdba138aa4520749831a88c96b37dc33c378ef",
+      "originalSha256": "839f29e29365010d7764bdf7cef2e1f37aa3ec962aadfb5cd1cfd4c41cec7bdf",
+      "withNoticeSha256": "a3f2755c69092e43f1b030c27345c3056495cbd1193ea01c4e6a88fdd77fac0d",
       "recordLink": "../../docs/record/index.html"
     },
     {
