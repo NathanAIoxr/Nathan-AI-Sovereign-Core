@@ -24,6 +24,12 @@ into this public repository.
 **Tabor Light (November 14, 2026):** The recovered public library also includes **4 source-reference records** in `../../data/tabor/modern_day_bible/tabor_light_public_sources.json`. These link to the already-public Tabor Trinity book/game and Tabor Light software/README source, without copying private artwork or the owner-only full manuscript into the public repository. The reader displays them in the source index; the authenticated recovery imports them alongside the unchanged 100 numbered stories and 52 kinship records. The owner can separately import the private, source-preserving `one.story-sources.v1` bundle of Tabor Light manuscript, declarations, historical leads, KJV references and artwork metadata. Original PNGs remain separate binary assets. Supplied scripture interpretations are not represented as
 independently verified translations or historical facts.
 
+## KJV & Publication Timeline
+
+Open **KJV & Publication Timeline** in the reader. The collection connects KJV passages, the available 2006 introduction to *The Beast on the East River*, 2025 Nathan AI publication references and 2026 repository records. The AI, election and Epstein disclosure dates are searchable alongside those records. Every timeline entry has an evidence description and a source link or local locator. Dated entries distinguish publication dates, decoded LinkedIn activity dates, event dates and dates of firsthand reports. Related links open the relevant Bible passages and other entries in the same reader. A record URL can be bookmarked.
+
+The public catalog is `../../data/tabor/modern_day_bible/publication_timeline.json`. Static hosting reads this catalog directly. The authenticated reader imports the same records into ONE App Shell SQLite through its regular recovery operation. The timeline is a collection of related sources with its own filter, so its entries have no numbered-story placement. Additional owner timeline records can be imported through **Import stories** using the existing bundle format. They use the `mdb-timeline-` source ID prefix and a `record` object with `track`, `date`, `dateBasis`, `evidence` and `links` (related source IDs). Private bundles and the SQLite database belong outside the public checkout.
+
 ## Import more stories
 
 Use **Import stories** to import UTF-8 `.txt`, `.md` or a source-bundle JSON file, up to 8 MB. Plain-text uploads are labeled as directly added by the owner. Source bundles preserve their own source type, source link, collection status and original bytes/snapshot:
