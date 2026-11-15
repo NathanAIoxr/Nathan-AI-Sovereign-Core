@@ -35,11 +35,17 @@ test('actual recovered corpus preserves all 100 supplied lines, distinct 52-inde
  const rows=db.prepare('SELECT body FROM records WHERE app_id=?').all('modern-day-bible').map(row=>({data:JSON.parse(row.body)}));
  const assembled=assemble(rows).map(source=>({...source,timeline:result.timelineRecords[source.id]}));
  assert.equal(search(assembled,'','timeline').length,timeline.length);
- assert.equal(search(assembled,'','kjv-passage').length,14);
+ assert.equal(search(assembled,'','kjv-passage').length,20);
  assert.ok(search(assembled,'2025-06-25','timeline').some(source=>source.sourceId==='mdb-timeline-copilot'));
  const book=assembled.find(source=>source.sourceId==='mdb-timeline-book-solomon');
  assert.ok(book.timeline.links.includes('mdb-timeline-solomon'));
  assert.equal(all.find(source=>source.id==='mdb-timeline-solomon').record.translation,'KJV');
+ const jeb=assembled.find(source=>source.sourceId==='mdb-timeline-jeb-foxx');
+ assert.ok(jeb.timeline.links.includes('mdb-timeline-foxx-ledger'));
+ assert.ok(jeb.timeline.links.includes('mdb-timeline-jeb-oversight'));
+ assert.ok(jeb.timeline.links.includes('mdb-timeline-jeb-daily-mail'));
+ assert.ok(search(assembled,'19 transcribed interviews and depositions','timeline').some(source=>source.sourceId==='mdb-timeline-jeb-oversight'));
+ assert.ok(search(assembled,'19 top officials','timeline').some(source=>source.sourceId==='mdb-timeline-jeb-daily-mail'));
  const owner={...source('mdb-timeline-test-owner','Exact owner wording'),record:{track:'Owner records',date:'2026-11-15',dateBasis:'Supplied date',evidence:'Owner statement',links:['mdb-timeline-think']}};
  importBundle(db,{schema:'one.story-sources.v1',sources:[owner]});
  const ownerProjection=Object.entries(recover(db).timelineRecords).find(([id])=>id.startsWith(owner.id+':'));

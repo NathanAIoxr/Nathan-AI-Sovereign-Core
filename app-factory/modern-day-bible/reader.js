@@ -2,6 +2,9 @@
 const $=id=>document.getElementById(id),node=(tag,text)=>{const e=document.createElement(tag);e.textContent=text;return e};
 let sources=[],active=null,connected=false,selection=0;
 const overview='mdb-timeline-overview';
+const jebIndex='mdb-timeline-jeb-foxx';
+const foxxLinks=new Set(['mdb-timeline-foxx-ledger','mdb-timeline-foxx-july','mdb-timeline-foxx-house']);
+const jebHighlights=['mdb-timeline-jeb-dedication','mdb-timeline-jeb-author-words','mdb-timeline-jeb-grok-refusal','mdb-timeline-jeb-article-excerpt'];
 async function request(route,method='GET',body){const r=await fetch('/api/'+route,{method,headers:body?{'Content-Type':'application/json'}:{},body:body?JSON.stringify(body):undefined});if(r.status===401)throw Error('Connect the private database through ONE App Shell first.');if(!r.ok)throw Error((await r.json()).error||'Unable to read the database');return r.json()}
 function renderList(){
  const rows=window.OneStoryLibrary.search(sources,$('query').value,$('kind').value),out=$('sources');out.replaceChildren();$('count').textContent=rows.length+' OF '+sources.length+' SOURCES';
@@ -9,6 +12,12 @@ function renderList(){
  if(!rows.length)out.append(node('p','No matching sources.'));return rows;
 }
 function relatedSource(id){return sources.find(source=>source.sourceId===id&&source.complete)}
+function relatedIds(source){
+ const links=source.timeline.links;
+ if(source.sourceId===jebIndex)return [...new Set([...links,...jebHighlights])];
+ if(foxxLinks.has(source.sourceId))return [...new Set([...links,jebIndex])];
+ return links;
+}
 function openTimeline(source){
  if(!source)return;
  $('kind').value='timeline';$('query').value='';
@@ -21,7 +30,7 @@ function showTimeline(source){
  $('related').hidden=true;
  if(!record)return;
  $('timeline-details').textContent=[record.date,record.track,record.dateBasis,record.publishedAtUtc].filter(Boolean).join(' · ');
- for(const id of record.links){
+ for(const id of relatedIds(source)){
   const target=relatedSource(id);
   if(!target)continue;
   const link=node('a',target.title);
@@ -71,6 +80,7 @@ async function load(){
 
 }
 $('timeline').onclick=()=>openTimeline(relatedSource(overview));
+$('jeb').onclick=()=>openTimeline(relatedSource(jebIndex));
 $('query').oninput=()=>{const rows=renderList();if(rows.length)open(rows.find(s=>s.id===active)||rows[0]);else{selection++;$('title').textContent='No matching sources';$('text').textContent='';$('metadata').textContent='';$('scope').textContent='';$('original').hidden=true;showTimeline({})}};
 $('kind').onchange=$('query').oninput;$('import').onclick=()=>$('file').click();
 $('file').onchange=async()=>{const file=$('file').files[0];if(!file||!connected)return;try{if(file.size>8*1024*1024)throw Error('Import exceeds 8 MB');const bytes=new Uint8Array(await file.arrayBuffer()),text=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(bytes);let originalBytes='';if(!file.name.toLowerCase().endsWith('.json'))for(const byte of bytes)originalBytes+=String.fromCharCode(byte);const bundle=file.name.toLowerCase().endsWith('.json')?JSON.parse(text.replace(/^\uFEFF/,'')):{schema:'one.story-sources.v1',sources:[{id:'owner-'+crypto.randomUUID(),title:file.name.replace(/\.(txt|md)$/i,''),url:'local:upload/'+encodeURIComponent(file.name),kind:'story',scope:'Added directly by the owner to this collection.',text,original:{format:'text/plain',base64:btoa(originalBytes)}}]};const result=await request('story-import','POST',bundle);await load();$('status').textContent=result.imported+' sources imported; '+result.skipped+' unchanged sources skipped.'}catch(e){$('status').textContent=e.message}finally{$('file').value=''}};
