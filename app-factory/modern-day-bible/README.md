@@ -19,7 +19,9 @@ same SQLite database as related private sources. The complete original Volume 2 
 and its verified SHA-256 are retained in `story_source_documents` in that database.
 The three requested related sources remain separate: a manuscript, a fictional story/
 research chapter, and a scripture-project index. Their private contents are not copied
-into this public repository. Supplied scripture interpretations are not represented as
+into this public repository.
+
+**Tabor Light (November 14, 2026):** The recovered public library also includes **4 source-reference records** in `../../data/tabor/modern_day_bible/tabor_light_public_sources.json`. These link to the already-public Tabor Trinity book/game and Tabor Light software/README source, without copying private artwork or the owner-only full manuscript into the public repository. The reader displays them in the source index; the authenticated recovery imports them alongside the unchanged 100 numbered stories and 52 kinship records. The owner can separately import the private, source-preserving `one.story-sources.v1` bundle of Tabor Light manuscript, declarations, historical leads, KJV references and artwork metadata. Original PNGs remain separate binary assets. Supplied scripture interpretations are not represented as
 independently verified translations or historical facts.
 
 ## Import more stories
