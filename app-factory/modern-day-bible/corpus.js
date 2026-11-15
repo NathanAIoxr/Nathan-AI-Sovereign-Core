@@ -6,5 +6,15 @@ function buildBundle(stories,kinship){
  for(const r of kinship.records){const text=r.title_as_supplied+'\n'+r.bible_reference_as_supplied+'\n'+r.section_as_supplied;sources.push({id:r.id.toLowerCase(),title:r.title_as_supplied,url:BASE+'data/tabor/biblical_kinship_52_entities_2026-11-14.json',kind:'index',scope:'Separate kinship index #'+r.source_sequence+' · Title and citation only; full original description not recovered; not an additional numbered story.',text,original:{format:'application/json',text:JSON.stringify(r)},record:r})}
  return {schema:'one.story-sources.v1',collection:'THE MODERN DAY BIBLE BY NATHAN TABOR',recentProjectLocated:true,sources};
 }
-const api={buildBundle};if(typeof module==='object'&&module.exports)module.exports=api;else root.OneBibleCorpus=api;
+function publicationTimeline(bundle){
+ if(bundle?.schema!=='one.story-sources.v1'||bundle.related_collection!=='KJV AND PUBLICATION TIMELINE'||!Array.isArray(bundle.sources)||!bundle.sources.length)throw Error('Invalid publication timeline');
+ const ids=new Set(bundle.sources.map(source=>source.id));
+ if(ids.size!==bundle.sources.length||bundle.sources.some(source=>!source.id.startsWith('mdb-timeline-')||!timelineMetadata(source.record)||source.record.links.some(id=>!ids.has(id))))throw Error('Invalid publication timeline links');
+ return bundle.sources;
+}
+function timelineMetadata(record){
+ if(!record||typeof record.track!=='string'||typeof record.evidence!=='string'||typeof record.dateBasis!=='string'||typeof record.date!=='string'||(record.date&&!/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/.test(record.date))||!Array.isArray(record.links)||record.links.some(id=>typeof id!=='string'||!id.startsWith('mdb-timeline-')))return null;
+ return record;
+}
+const api={buildBundle,publicationTimeline,timelineMetadata};if(typeof module==='object'&&module.exports)module.exports=api;else root.OneBibleCorpus=api;
 })(typeof globalThis==='object'?globalThis:this);
