@@ -4,6 +4,7 @@ const searchBase = 'https://api.github.com/search/issues';
 const resultKey = 'queue:v1';
 const attemptKey = 'attempt:v1';
 const cap = 50;
+const firstContribution = {"id":"goldener-data/goldener#422","title":"Goldener density-weighing guide","issue":"https://github.com/goldener-data/goldener/issues/422","patch":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/feat/help-wanted-worker/hosting/help-wanted/contributions/goldener-422.patch","stage":"Patch prepared · Python run and upstream handoff pending"};
 const sensitive = /\b(exploit|vulnerabilit(?:y|ies)|payload|intrusion|malware|rce|cve[- ]\d+|bypass|credential)\b/i;
 const issuePattern = /^https:\/\/github\.com\/([a-z\d_.-]+)\/([a-z\d_.-]+)\/issues\/([1-9]\d*)$/i;
 
@@ -69,6 +70,7 @@ function html(snapshot, attempt) {
     '<p>Find open requests for help. Review the source and contribution rules, build the fix, verify it, and prepare a handoff.</p>' +
     '<p><strong>' + escapeHtml(snapshot?.publicMatchCount ?? 'Pending') + '</strong> reported public matches · <strong>' + (snapshot?.issues?.length ?? 0) + '</strong> documentation leads in this queue.</p>' +
     '<p class="status">' + escapeHtml(status) + (snapshot?.publicIncomplete || snapshot?.documentationIncomplete ? ' · GitHub flagged partial search results.' : '') + '</p>' +
+    '<section aria-labelledby="contribution"><h2 id="contribution">Prepared contribution</h2><p><a href="' + firstContribution.issue + '">' + escapeHtml(firstContribution.title) + '</a> · <a href="' + firstContribution.patch + '">Read the patch</a><small>' + escapeHtml(firstContribution.stage) + '</small></p></section>' +
     '<p><a href="' + searchPage(publicQuery).replaceAll('&','&amp;') + '">Open the full GitHub search</a> · <a href="/api/queue">Queue and evidence</a></p><ol>' + rows + '</ol></main></body></html>';
 }
 async function handle(request, env) {
