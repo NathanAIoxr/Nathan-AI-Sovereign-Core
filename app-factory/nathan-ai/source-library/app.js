@@ -111,6 +111,7 @@ function mount() {
       return option;
     });
     byId('source-filter').replaceChildren(...options);
+    byId('source-filter').value = '';
     byId('snapshot-date').textContent = 'Cataloged ' + next.date;
     byId('author-source').hidden = !next.authorText;
     byId('author-text').textContent = next.authorText;
