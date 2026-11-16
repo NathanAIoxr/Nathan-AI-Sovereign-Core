@@ -1,0 +1,20 @@
+name: Nathan AI hosting check
+on:
+  push:
+    branches: ["hosting/nathan-ai-deployment-check"]
+    paths:
+      - "hosting/deploy-check/**"
+      - ".github/workflows/nathan-ai-hosting-check.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - run: node --test hosting/deploy-check/worker.test.mjs
