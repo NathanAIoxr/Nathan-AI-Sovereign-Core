@@ -10,7 +10,12 @@
     {id:'intelligence',name:'Intelligence architecture',url:'./absolute-intelligence/registry.json',keys:['modules','topics'],href:'./absolute-intelligence/index.html'},
     {id:'family',name:'Family & historical research',url:'./family-research/records.json',keys:['records'],href:'./family-research/index.html'},
     {id:'games',name:'Games & puzzles',url:'./games/catalog.json',keys:['entries'],href:'./games/index.html'},
-    {id:'anatomy',name:'Anatomy & authored frameworks',url:'./anatomy/atlas.json',keys:['anatomyAZ','iversions','biologicalEquator','grammar','relatedOriginalFrameworks'],href:'./anatomy/index.html'}
+    {id:'anatomy',name:'Anatomy & authored frameworks',url:'./anatomy/atlas.json',keys:['anatomyAZ','iversions','biologicalEquator','grammar','relatedOriginalFrameworks'],href:'./anatomy/index.html'},
+    {id:'root-blocks',name:'17 Root Building Blocks',url:'./source-library/roots.json',keys:['records'],href:'./source-library/index.html'},
+    {id:'original-works',name:'My Original Works index',url:'./original-works/manifest.json',keys:['records'],href:'./original-works/index.html'},
+    {id:'program-jobs',name:'Program Jobs · build evidence',url:'./program-jobs/catalog.json',keys:['records'],href:'./program-jobs/index.html'},
+    {id:'app-registry',name:'ONE · application registry',url:'./universal-workspace/app-registry.json',keys:['entries'],href:'./universal-workspace/index.html'},
+    {id:'ai-mapping',name:'AI source map',url:'./ai-mapping/records.json',keys:['nodes'],href:'./ai-mapping/index.html'}
   ];
   function strings(value){
     return Object.entries(value).filter(([key,v])=>typeof v==='string'&&!/url|href|identifier|source_name/i.test(key)).map(([,v])=>v).join('\n');

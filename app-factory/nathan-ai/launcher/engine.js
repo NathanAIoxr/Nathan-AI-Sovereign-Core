@@ -19,6 +19,7 @@
     ['home','Nathan AI Home','index.html','Start, overview, dashboard'],
     ['assistant','Ask Nathan AI','assistant/index.html','Questions, source answers, drafts, chat'],
     ['research','Research Workspace','index.html#workspace','Search original records, books and notes'],
+    ['source-library','Source Library · 17 Root Building Blocks','source-library/index.html','Sovereign Box inspector, source catalogs and private snapshots'],
     ['plugins','Apps & Plugins','plugins/index.html','Tools, connected workflows and handoffs'],
     ['connections','Sovereign Connections','sovereign/index.html','Coins, life timeline, source graph, ledger'],
     ['runtime','Formula & Node Runtime','node-runtime/index.html','Formula of Life, tasks, narrative simulation'],

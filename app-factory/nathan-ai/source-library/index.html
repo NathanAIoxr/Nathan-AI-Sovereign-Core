@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101720">
+  <title>Nathan AI · Source Library &amp; 17 Root Building Blocks</title>
+  <link rel="stylesheet" href="../appearance/shared.css" data-nathan-shared-appearance>
+  <link rel="stylesheet" href="../launcher/shared.css" data-nathan-command-center>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="../../sovereign-boxes/engine.js"></script>
+  <script defer src="../appearance/engine.js"></script>
+  <script defer src="../appearance/app.js"></script>
+  <script defer src="../launcher/engine.js"></script>
+  <script defer src="../launcher/app.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <header class="shell">
+    <a class="brand" href="../index.html">NATHAN AI <span aria-hidden="true">↗</span></a>
+    <nav aria-label="Nathan AI navigation">
+      <a href="../../one/index.html">ONE</a>
+      <a href="../index.html#workspace">Research Workspace</a>
+      <a href="../../one/connected/index.html">Connected System</a>
+    </nav>
+  </header>
+  <main class="shell">
+    <div class="intro">
+      <h1>Source Library</h1>
+      <p>Explore the 17 Root Building Blocks. Open a source catalog or load an owner snapshot to find records by title, identifier, and source.</p>
+    </div>
+    <div class="columns">
+      <section class="panel" aria-labelledby="roots-heading">
+        <h2 id="roots-heading">17 Root Building Blocks</h2>
+        <p class="muted">Nathan Tabor’s framework with engineering proposals for each block.</p>
+        <label for="root-filter">Find a block</label>
+        <input id="root-filter" type="search" placeholder="Try memory, causality, or 14">
+        <p id="root-count" class="status" role="status"></p>
+        <ol id="root-list" class="roots"></ol>
+      </section>
+      <div class="side">
+        <section class="panel" aria-labelledby="catalog-heading">
+          <h2 id="catalog-heading">Source catalogs</h2>
+          <ul class="doors">
+            <li><a href="../index.html#workspace">Public research catalogs</a><span>Books, games, lexicons, applications and original works</span></li>
+            <li><a href="../original-works/index.html">My Original Works</a><span>Verbatim text, original files and revisions</span></li>
+            <li><a href="../../one/connected/index.html">ONE Connected System</a><span>Private material already imported to ONE or Creator Vault</span></li>
+            <li><a href="../program-jobs/index.html">Program Jobs</a><span>Source inventories and build evidence</span></li>
+          </ul>
+          <label class="upload" for="owner-pack">Open an owner source snapshot</label>
+          <input id="owner-pack" type="file" accept=".json,application/json">
+          <p class="muted">The snapshot is read into this tab. Close it or reload the page to release it.</p>
+          <p class="status" id="pack-status" role="status"></p>
+        </section>
+        <section class="panel" aria-labelledby="boxes-heading">
+          <h2 id="boxes-heading">Sovereign Box inspector</h2>
+          <label for="box-input">Text or expression</label>
+          <input id="box-input" maxlength="120" type="text" value="1+1=2">
+          <ol id="character-boxes" class="boxes" aria-label="Character positions"></ol>
+          <a href="../../sovereign-boxes/index.html">Open the Sovereign Boxes registry</a>
+        </section>
+      </div>
+    </div>
+    <section class="panel owner-panel" id="owner" aria-labelledby="owner-heading" hidden>
+      <div class="owner-header">
+        <div><h2 id="owner-heading">Owner source snapshot</h2><p id="snapshot-date" class="muted"></p></div>
+        <button id="close-pack" type="button">Close snapshot</button>
+      </div>
+      <div id="author-source" hidden>
+        <h3>Original wording</h3><pre id="author-text"></pre>
+      </div>
+      <div class="filters">
+        <label for="record-filter">Search records<input id="record-filter" type="search"></label>
+        <label for="source-filter">Source<select id="source-filter"></select></label>
+      </div>
+      <p id="record-count" class="status" role="status"></p>
+      <ul id="record-list" class="records"></ul>
+      <button id="more-records" type="button" hidden>Show more records</button>
+    </section>
+    <noscript><p>JavaScript is required to filter the blocks and open a local snapshot.</p></noscript>
+  </main>
+</body>
+</html>
