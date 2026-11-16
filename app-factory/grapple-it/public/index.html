@@ -23,6 +23,7 @@
 <button type="button" data-view="arcade" aria-pressed="false">Toss &amp; Target Arcade</button>
 <button type="button" data-view="campaign" aria-pressed="false">Through the Ages</button>
 <button type="button" data-view="daily" aria-pressed="false">Daily Grapple</button>
+<button type="button" data-view="gear" aria-pressed="false">Gear Trials &amp; Tournaments</button>
 </nav>
 <section id="toy-view" class="layout" aria-label="Water-Ring Toy">
 <section class="play" aria-labelledby="toy-title">
@@ -91,6 +92,28 @@
 <p id="curator-pilot" hidden>Playing as Grape 🍇 Apple 🍎</p>
 <details><summary>Curator shop</summary><p>Clear courses to unlock cosmetic finishes for the water toy.</p><div id="curator-shop" class="line-controls"></div></details>
 </section>
+<section id="gear-view" hidden aria-labelledby="gr-title">
+<div class="gr-header"><div><p class="byline">By Nathan Tabor</p><h2 id="gr-title">Gear Trials &amp; Tournaments</h2>
+<p class="gr-wordmark" id="gr-wordmark"></p></div>
+<label for="gr-form">GRAPPLE form<select id="gr-form"></select></label></div>
+<div class="layout">
+<section class="play" aria-label="Gear trial">
+<div class="gr-selects"><label for="gr-mode">Mode<select id="gr-mode"></select></label>
+<label for="gr-gear" id="gr-gear-wrap">Gear<select id="gr-gear"></select></label>
+<label for="gr-mission" id="gr-mission-wrap" hidden>Expedition<select id="gr-mission"></select></label></div>
+<p id="gr-mode-help" class="gr-help"></p><p id="gr-rule" class="gr-help"></p>
+<p id="gr-current" class="gr-counter"></p>
+<div class="tank gr-tank"><canvas id="gr-gear-board" aria-label="Moving gear marker and catch window" aria-describedby="gr-rule"></canvas></div>
+<div class="gr-meter" id="gr-meter-wrap" hidden><label for="gr-meter" id="gr-meter-name"></label><meter id="gr-meter" min="0" max="1"></meter><span id="gr-meter-text"></span></div>
+<div class="line-controls"><button type="button" id="gr-play">Release</button><button type="button" id="gr-reset">Reset round</button></div>
+<p class="gr-help" id="gr-notice" role="status"></p>
+</section>
+<aside><section class="side"><h3>Grape 🍇 Apple 🍎’s Gear Locker</h3><p id="gr-locker-score"></p><p id="gr-reward"></p></section>
+<section class="side"><h3>PK 🐽</h3><p id="gr-pk-line"></p><p id="gr-pk-origin"></p></section>
+<section class="side"><h3>Round receipts</h3><ol class="record-list" id="gr-gear-ledger"></ol></section></aside>
+</div>
+<section class="arcade" aria-labelledby="gr-tiers"><h3 id="gr-tiers">Gear and progression</h3><div class="arcade-grid gr-roster" id="gr-roster"></div></section>
+</section>
 <section class="arcade" id="collection" aria-labelledby="collection-title">
 <h2 id="collection-title">Grape 🍇 Apple 🍎’s collection</h2><div class="arcade-grid">
 <article><h3>Ancient Naval Warfare</h3><p>Polybius describes the Roman corvus as a boarding bridge during the First Punic War. Play Roman harbor, Trireme Tow, and Corvus Crossing. The corvus exhibit shows a separate boarding bridge. <a href="https://adfonteslibrary.org/polybius-1">Polybius, Histories 1.22</a></p></article>
@@ -102,6 +125,6 @@
 <article><h3>Floodgate</h3><p>Lock onto a buoy in the fictional waterworks course. The current raises tension during the retrieval.</p></article>
 <article><h3>Hog Wild</h3><p>PK’s feed bucket finishes the campaign. The bucket and barn course are part of the game’s fiction.</p></article>
 </div></section>
-<details class="side save-box"><summary>Move progress between devices</summary><p>Copy a save code or restore Water-Ring Toy, Bubble Courses, Catch &amp; Swing, Arcade, campaign and daily records.</p><label for="save-code">Save code</label><textarea id="save-code" rows="3" spellcheck="false" maxlength="20000"></textarea><div class="line-controls"><button type="button" id="export-save">Export save</button><button type="button" id="import-save">Restore save</button></div><p id="save-status" role="status"></p></details>
+<details class="side save-box"><summary>Move progress between devices</summary><p>Copy a save code or restore Water-Ring Toy, Bubble Courses, Catch &amp; Swing, Toss &amp; Target Arcade, gear trials, brackets, campaign and daily records.</p><label for="save-code">Save code</label><textarea id="save-code" rows="3" spellcheck="false" maxlength="20000"></textarea><div class="line-controls"><button type="button" id="export-save">Export save</button><button type="button" id="import-save">Restore save</button></div><p id="save-status" role="status"></p></details>
 </main>
-<script type="module" src="./toy-ui.mjs"></script><script type="module" src="./grapple-ui.mjs"></script><script type="module" src="./expansion-ui.mjs"></script><script type="module" src="./campaign-ui.mjs"></script></body></html>
+<script type="module" src="./toy-ui.mjs"></script><script type="module" src="./grapple-ui.mjs"></script><script type="module" src="./expansion-ui.mjs"></script><script type="module" src="./arcade-ui.mjs"></script><script type="module" src="./campaign-ui.mjs"></script></body></html>
