@@ -1,11 +1,11 @@
-import { repairRoute, refreshRepairs } from "./repair.mjs";
+import { repairRoute, refreshRepairs, directInternalScan } from "./repair.mjs";
 
 const REPOSITORY = "NathanAIoxr/Nathan-AI-Sovereign-Core";
 const GITHUB = "https://api.github.com/repos/" + REPOSITORY + "/issues";
 const MAX_PAGES = 10;
 const RECEIPT_LIMIT = 24;
 
-export async function collectIssues(read = fetch) {
+export async function collectIssues(read = fetch, token) {
   const issues = [];
   for (let page = 1; page <= MAX_PAGES; page += 1) {
     const url = new URL(GITHUB);
@@ -13,7 +13,7 @@ export async function collectIssues(read = fetch) {
       state: "open", sort: "created", direction: "asc", per_page: "100", page: String(page)
     });
     const response = await read(url, {
-      headers: { Accept: "application/vnd.github+json", "User-Agent": "NathanAI-Sovereign-Hive" },
+      headers: { Accept: "application/vnd.github+json", "User-Agent": "NathanAI-Sovereign-Hive", ...(token ? { Authorization: "Bearer " + token } : {}) },
       redirect: "manual",
       signal: AbortSignal.timeout(12000)
     });
@@ -130,11 +130,7 @@ export default {
   },
 
   async scheduled(controller, env) {
-    try {
-      const issues = validateIssues(await collectIssues());
-      await compareAndStore(env.HIVE, issues, controller.scheduledTime);
-    } finally {
-      await refreshRepairs(env, controller.scheduledTime);
-    }
+    await directInternalScan(env, controller.scheduledTime, collectIssues, validateIssues, compareAndStore);
+    await refreshRepairs(env, controller.scheduledTime);
   }
 };

@@ -105,7 +105,7 @@ async function syncExternal(db,config,now,read=fetch){
   if(source?.checked_at>=now) return;
   const offset=source?.cursor??0;
   try{
-    const response=await read(pageUrl(config,offset),{headers:{Accept:"application/json","User-Agent":"NathanAI-Sovereign-Hive"},redirect:"manual",signal:AbortSignal.timeout(8000)});
+    const response=await read(pageUrl(config,offset),{headers:{Accept:"application/json","User-Agent":"NathanAI-Sovereign-Hive"},redirect:"manual",signal:AbortSignal.timeout(12000)});
     if(!response.ok) throw Error("HTTP "+response.status);
     const data=await response.json();
     const rows=config.type==="bugzilla" ? data.bugs : data;
@@ -287,4 +287,21 @@ async function repairRoute(request,env){
   return reply({error:"Lease lost or result already differs"},409);
 }
 
-export { externalJob, githubJob, pageUrl, refreshRepairs, repairRoute, validResult };
+async function directInternalScan(env, scheduledTime, collect, validate, persist) {
+  const db=env.HIVE;
+  const key="internal-direct-github";
+  const now=Math.floor(scheduledTime/1000);
+  const previous=await db.prepare("SELECT checked_at,error FROM repair_sources WHERE id=?").bind(key).first();
+  if(!env.HIVE_GITHUB_READ_TOKEN&&previous?.error&&now-previous.checked_at<3600) return;
+  try {
+    const issues=validate(await collect(fetch,env.HIVE_GITHUB_READ_TOKEN));
+    await persist(db,issues,scheduledTime);
+    await db.prepare(q.markSource).bind(key,0,now,null,now,issues.length).run();
+  } catch(error) {
+    const message=String(error.message).slice(0,110);
+    await db.prepare(q.failSource).bind(key,now,message).run();
+    console.warn(JSON.stringify({source:key,message}));
+  }
+}
+
+export { directInternalScan, externalJob, githubJob, pageUrl, refreshRepairs, repairRoute, validResult };
