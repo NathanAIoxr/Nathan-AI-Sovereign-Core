@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabor Concordance · Nathan Tabor</title>
+<link rel="stylesheet" href="reader.css">
+<script defer src="reader.js"></script>
+</head>
+<body>
+<main>
+  <header class="edition">
+    <div>
+      <p class="byline">NATHAN TABOR</p>
+      <h1>Tabor Concordance</h1>
+      <p class="scope">Root word meanings only</p>
+      <p>Hebrew · Aramaic · Greek · Strong’s numbering</p>
+      <p><a href="Tabor_Concordance.csv" download>Download the full concordance (CSV)</a></p>
+    </div>
+    <a class="cover" href="cover.webp"><img src="cover.webp" width="1024" height="1536" alt="Tabor Concordance cover by Nathan Tabor"></a>
+  </header>
+  <section class="lookup" aria-label="Concordance lookup">
+    <div>
+      <label for="query">Strong’s number, original word, or transliteration</label>
+      <input id="query" type="search" placeholder="H8396, διάβολος, logos" autocomplete="off" autocapitalize="off" spellcheck="false">
+    </div>
+    <div>
+      <label for="language">Language</label>
+      <select id="language"><option value="">All languages</option><option>Hebrew</option><option>Aramaic</option><option>Greek</option></select>
+    </div>
+    <button id="show-all" type="button" aria-pressed="false">Show all matching entries</button>
+    <p id="status" role="status">Loading 14,197 entries…</p>
+  </section>
+  <table>
+    <thead><tr><th scope="col">Strong’s no.</th><th scope="col">Original word</th><th scope="col">Root word meaning</th></tr></thead>
+    <tbody id="results"></tbody>
+  </table>
+  <nav id="pages" aria-label="Result pages">
+    <button id="previous" type="button" disabled>Previous</button>
+    <span id="page"></span>
+    <button id="next" type="button" disabled>Next</button>
+  </nav>
+  <section class="sources" aria-labelledby="source-heading">
+    <h2 id="source-heading">Sources</h2>
+    <p>Numbered links give the immediate source forms identified by Strong. The original Greek numbering leaves G2717 and G3203–G3302 unassigned. Tentative and unavailable meanings are marked. This digital extraction still requires entry-by-entry review against the print edition.</p>
+    <p>James Strong’s dictionaries. Hebrew and Aramaic XML edited by David Troidl and David Instone-Brewer. Greek XML prepared by Ulrik Sandborg-Petersen (CC0). <a href="https://github.com/openscriptures/strongs/blob/master/hebrew/StrongHebrewG.xml">Hebrew and Aramaic source</a> · <a href="https://github.com/morphgnt/strongs-dictionary-xml">Greek source</a></p>
+  </section>
+</main>
+</body>
+</html>

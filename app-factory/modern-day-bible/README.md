@@ -30,6 +30,10 @@ Open **KJV & Publication Timeline** in the reader. The collection connects KJV p
 
 The public catalog is `../../data/tabor/modern_day_bible/publication_timeline.json`. Static hosting reads this catalog directly. The authenticated reader imports the same records into ONE App Shell SQLite through its regular recovery operation. The timeline is a collection of related sources with its own filter, so its entries have no numbered-story placement. Additional owner timeline records can be imported through **Import stories** using the existing bundle format. They use the `mdb-timeline-` source ID prefix and a `record` object with `track`, `date`, `dateBasis`, `evidence` and `links` (related source IDs). Private bundles and the SQLite database belong outside the public checkout.
 
+## Tabor Concordance
+
+Open **Tabor Concordance** from the reader. The full [Bible root-word edition](../../research/tabor-concordance/bible/) uses the original Strong’s numbering for 14,197 Hebrew, Aramaic and Greek entries. The original-language spelling and root-word meaning remain directly accessible. Download the complete CSV to edit or extend the reference.
+
 ## Import more stories
 
 Use **Import stories** to import UTF-8 `.txt`, `.md` or a source-bundle JSON file, up to 8 MB. Plain-text uploads are labeled as directly added by the owner. Source bundles preserve their own source type, source link, collection status and original bytes/snapshot:
