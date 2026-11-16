@@ -1,0 +1,14 @@
+[Unit]
+Description=Nathan AI repair worker (%i)
+
+[Service]
+Type=simple
+EnvironmentFile=%h/.config/nathan-repair/runner.env
+ExecStart=/usr/bin/python3 %h/.local/lib/nathan-repair/runner.py --config %h/.config/nathan-repair/%i.json
+Restart=always
+RestartSec=10
+TimeoutStopSec=50
+KillMode=control-group
+
+[Install]
+WantedBy=default.target

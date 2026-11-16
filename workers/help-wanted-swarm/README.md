@@ -2,24 +2,63 @@
 
 By Nathan Tabor and Nathan AI.
 
-The [Sovereign Hive](https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/) scans open issues in [Nathan AI Sovereign Core](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues). It follows GitHub pagination, skips pull requests, validates issue numbers and labels, and stages the exact `help wanted` label as a count within the full open queue. The [public discovery worker](https://nathan-ai-help-wanted.nathantaboract.workers.dev/) has a separate scope and reports its own coverage.
+- [Internal issue snapshot](https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/api/queue)
+- [Repair queue, source coverage and attempt counts](https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/api/repair/status)
+- [Public repair leads](https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/api/repair/leads)
+- [GitHub Help Wanted discovery](https://nathan-ai-help-wanted.nathantaboract.workers.dev/)
 
-- **1+1=2** adds issues newly observed in the open queue.
-- **1-1=0** removes issues from the active queue only after a complete successful scan no longer lists them. A removal means the issue exited the open list. Verify the issue state and resolution on GitHub.
-- **Sovereignty** keeps the preexisting worker catalog and master database separate. The Hive uses a dedicated Cloudflare D1 database named `nathan-ai-sovereign-hive`.
+**1+1=2** admits a verified source identity and saves its evidence.
+**1-1=0** clears an active item on verified withdrawal or closure, with its evidence retained. Nathan controls implementation. Upstream maintainers control acceptance and merge.
 
-The scheduled sweep performs four steps: collect, validate, reconcile, and persist. GitHub/API failures and truncated scans leave the last good snapshot in place. Duplicate or older invocations cannot overwrite a newer snapshot. [Queue JSON](https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/api/queue) includes completion time, issue counts, additions and removals, and the latest 24 successful receipts. Receipts cover public issue indexing. GitHub issue acceptance checks, code edits and deployments are tracked in their respective repositories and run logs.
+## Cloudflare
 
-## Cloudflare setup
+The existing Hive Worker runs every five minutes. Upload `worker.mjs` and `repair.mjs` as ES modules. The `HIVE` binding points at the Hive D1 database. Apply `schema.sql` before deployment. The `DISCOVERY` service binding points at `nathan-ai-help-wanted`. The worker imports that index and the internal issue snapshot. Non-GitHub discovery connects the documented GNOME project label, Codeberg's Help Wanted issues, and Mozilla's good-first-bug keywords. A failure records the provider error and preserves its previous cursor and coverage.
 
-Deploy `worker.mjs` as an ES module and attach the D1 database as `HIVE`. Apply this migration once before enabling the scheduled trigger. The deployed Worker runs every five minutes.
+Expand public coverage by adding confirmed provider/project definitions in `repair.mjs`. Jira and Azure DevOps require a tenant, project and maintainer-approved query. For more internal projects, add public owner-controlled tracker inputs or enqueue private tasks through an authorized operator. Private titles and patches belong behind authenticated endpoints. A current scan receipt applies only to its registered source.
 
-```sql
-CREATE TABLE IF NOT EXISTS issue_queue (
-    id INTEGER PRIMARY KEY CHECK (id = 1),
-    observed_ms INTEGER NOT NULL,
-    snapshot TEXT NOT NULL CHECK (json_valid(snapshot))
-);
+## Repair state and authenticated API
+
+POST endpoints accept JSON with an Authorization Bearer credential. Add independently generated secrets named `REPAIR_RUNNER_TOKEN` and `REPAIR_OWNER_TOKEN` to the Worker. Store the runner token in the owner's runner environment with restrictive permissions. The Worker refuses writes for each role until its secret exists. Each worker uses a distinct worker ID and an authorized runner credential.
+
+| Endpoint | Request |
+| --- | --- |
+| `/api/repair/claim` | `worker`, `requestId`, `scope` and optional `repositories` |
+| `/api/repair/heartbeat` | `id`, `worker`, `lease` |
+| `/api/repair/finish` | Lease fields plus `status`, `receipt` |
+| `/api/repair/task` | Owner credential and `id` |
+| `/api/repair/advance` | Owner credential plus `id`, `from`, `to`, `updatedAt`, `evidence` |
+
+`PATCH_READY` requires a pinned base and unified diff. `VERIFIED` also requires real passing test records with a command and numeric exit code. `IMPLEMENTED` records the applied revision. `DONE` requires an applied revision and passing verification. Keep the actual process logs or a reference to them in the receipt. `RETRY_WAIT` and `NEEDS_REVIEW` require a reason. Active leases expire after 120 seconds and the runner renews them every 25 seconds. Claim request IDs and finish receipts support retries. The run history keeps each attempt. Provider coverage, runnable work and terminal outcomes are independently visible.
+
+## Continuous Linux runner
+
+Use a Linux host with rootless Podman, Python 3.10+ and a trusted locally installed job image. The runner leases only the repositories in its profile. Use distinct profiles for `INTERNAL` and `GLOBAL` capacity. Choose the image and its command in the local profile. The command consumes `/job/task.json` and writes `/job/result.json` with a status and receipt. The profile should resolve a pinned base, check contribution rules, produce the diff and report checks actually run. The runner does not send repository issue text as a shell command or give credentials to the job image. Set `network` only in profiles that require network I/O. Keep repository code and tool artifacts inside the sandbox.
+
+Example local profile:
+
+```json
+{
+  "url": "https://nathan-ai-sovereign-hive.nathantaboract.workers.dev",
+  "worker": "internal-linux-1",
+  "scope": "INTERNAL",
+  "repositories": ["NathanAIoxr/Nathan-AI-Sovereign-Core"],
+  "profile": {
+    "image": "localhost/nathan-repair-runner:local",
+    "network": false,
+    "timeoutSeconds": 600
+  }
+}
 ```
 
-For verification, check `/api/queue` for a completed receipt and compare it with GitHub's Issues list. Public requests have read access to the dashboard and the queue receipt. The first snapshot may be initialized from a separately verified GitHub REST response. A bootstrap receipt has a null `scheduledAt`. A cron receipt records the scheduled time. The job reads only public issue metadata from the configured repository. It has no GitHub write credentials.
+Install `runner.py` under `~/.local/lib/nathan-repair/`, place the profile at `~/.config/nathan-repair/internal.json`, and put the token in `~/.config/nathan-repair/runner.env` with permissions `0600`. Install `nathan-repair@.service` under `~/.config/systemd/user/`. From that service user, run:
+
+```sh
+systemctl --user daemon-reload
+systemctl --user enable --now nathan-repair@internal.service
+```
+
+Enable lingering for the service user when it should run across logouts and boot. Verify the first claim and completion in the queue and journal before expanding the pool. Save a status receipt before requesting the next claim. A sandbox job that fails or loses its lease is retried or sent to the review queue. Linux profiles do not establish macOS test results.
+
+## Validation
+
+Run `node --test workers/help-wanted-swarm/repair.test.mjs`. The Cloudflare D1 setup was also exercised with a temporary job, covering an exclusive claim, an idempotent replay, expiry/reclaim, stale completion rejection and attempt history. The fixture was removed in the same batch. The Linux runner requires host enrollment and an installed job image before an end-to-end run is possible.

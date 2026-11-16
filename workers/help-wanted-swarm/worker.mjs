@@ -1,3 +1,5 @@
+import { repairRoute, refreshRepairs } from "./repair.mjs";
+
 const REPOSITORY = "NathanAIoxr/Nathan-AI-Sovereign-Core";
 const GITHUB = "https://api.github.com/repos/" + REPOSITORY + "/issues";
 const MAX_PAGES = 10;
@@ -12,7 +14,7 @@ export async function collectIssues(read = fetch) {
     });
     const response = await read(url, {
       headers: { Accept: "application/vnd.github+json", "User-Agent": "NathanAI-Sovereign-Hive" },
-      redirect: "error",
+      redirect: "manual",
       signal: AbortSignal.timeout(12000)
     });
     if (!response.ok) throw new Error("GitHub issue listing failed (HTTP " + response.status + ")");
@@ -102,6 +104,7 @@ function queuePage(snapshot) {
     '<main><h1>Nathan AI Sovereign Hive</h1><p>By Nathan Tabor and Nathan AI</p>' +
     '<p><code>1+1=2</code> records additions. <code>1-1=0</code> clears items from the active queue after GitHub removes them from the open list.</p>' +
     status + '<ul>' + items + '</ul><p><a href="/api/queue">Queue and run receipts</a> · ' +
+    '<a href="/api/repair/status">Repair queue status</a> · <a href="/api/repair/leads">Global repair leads</a> · ' +
     '<a href="https://nathan-ai-help-wanted.nathantaboract.workers.dev/">Public Help Wanted discovery</a> · ' +
     '<a href="https://nathan-ai-workers.nathantaboract.workers.dev/">Worker workspace</a></p></main></html>';
 }
@@ -114,6 +117,7 @@ const HEADERS = {
 
 export default {
   async fetch(request, env) {
+    if (new URL(request.url).pathname.startsWith("/api/repair/")) return repairRoute(request, env);
     if (request.method !== "GET") return new Response("Method not allowed", { status: 405, headers: { Allow: "GET" } });
     const path = new URL(request.url).pathname;
     if (path !== "/" && path !== "/api/queue") return new Response("Not found", { status: 404 });
@@ -126,7 +130,11 @@ export default {
   },
 
   async scheduled(controller, env) {
-    const issues = validateIssues(await collectIssues());
-    await compareAndStore(env.HIVE, issues, controller.scheduledTime);
+    try {
+      const issues = validateIssues(await collectIssues());
+      await compareAndStore(env.HIVE, issues, controller.scheduledTime);
+    } finally {
+      await refreshRepairs(env, controller.scheduledTime);
+    }
   }
 };
