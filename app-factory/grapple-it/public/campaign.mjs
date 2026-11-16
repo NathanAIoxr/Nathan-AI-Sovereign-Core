@@ -20,6 +20,10 @@ export const MISSIONS=[
  ERAS[3],
  mission(ERAS[3],'skyline','Skyscraper Gap','Rooftop crossing','Rooftop anchor', {mechanic:'swing',action:'Cross gap',ready:'Line secured. Cross when the marker reaches gold.',zone:.095,load:.27,tip:'Make the arcade rescue line reach the opposite rooftop, then time the crossing.'}),
  mission(ERAS[3],'hiker','Cliff Hiker Rescue','Cliff ledge','Hiker’s rescue sled', {mechanic:'rescue',action:'Lift',load:.26,tip:'Attach to the rescue sled. Lift in short bursts and keep tension in the narrower green band.'}),
+ {id:'salvage-pier',name:'Salvage Pier',place:'Working pier',target:'Floating cargo ring',zone:.087,speed:1.3,amplitude:.24,drift:.20,load:.18,tension:.24,slack:.23,ink:'#b8eee4',water:'#255357',tip:'Cast through the tide. Start reeling when the line enters the green band.'},
+ {id:'night-market',name:'Night Market',chapter:'after-hours',place:'Lantern market',target:'Banner ring',zone:.079,speed:2.05,amplitude:.25,drift:.11,load:.23,tension:.26,slack:.20,ink:'#e7c1ff',water:'#403858',tip:'The banner moves quickly. Wait for its next pass and release while the ring is centered.'},
+ {id:'floodgate',name:'Floodgate',chapter:'after-hours',place:'River waterworks',target:'Gate buoy',zone:.074,speed:1.63,amplitude:.27,drift:.26,load:.18,tension:.29,slack:.26,ink:'#aeeeff',water:'#24506b',tip:'Read the tension between surges. Ease before the meter reaches red.'},
+ {id:'hog-wild',name:'Hog Wild',chapter:'after-hours',place:'PK’s barn',target:'Swinging feed bucket',zone:.071,speed:1.90,amplitude:.28,drift:.21,load:.22,tension:.31,slack:.25,ink:'#ffb996',water:'#614039',tip:'Catch the bucket inside the bracket. Alternate short reels and longer rests.'},
 ];
 export const PK_LINE='PK .. that’s the wild card .. that boy ain’t rite …';
 export function dailyCourse(day){
