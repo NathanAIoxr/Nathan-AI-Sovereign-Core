@@ -1,0 +1,134 @@
+[
+  {
+    "id": "storm",
+    "title": "Hurricane",
+    "group": "Weather",
+    "hint": "Circle either way and lift. Bigger loops reach farther. Sweep up the field of debris.",
+    "example": "Make a loop",
+    "controllerOverlay": {
+      "widgetType": "TABOR_TRACKBALL",
+      "gestureOutputMode": "SWIRL_RPM_ACCUMULATOR"
+    }
+  },
+  {
+    "id": "whirl",
+    "title": "Whirlpool",
+    "group": "Water",
+    "hint": "Draw tight circles over the floating markers. Match the arrow to pull them into the whirlpool.",
+    "example": "Make a whirlpool",
+    "controllerOverlay": {
+      "widgetType": "TABOR_TRACKBALL",
+      "gestureOutputMode": "SWIRL_RPM_ACCUMULATOR"
+    }
+  },
+  {
+    "id": "sword",
+    "title": "Swordplay",
+    "group": "Rhythm",
+    "hint": "Swipe through the arrow target. Match its direction for a bonus. Hold and release when the guard ring turns green.",
+    "example": "Try the slash",
+    "controllerOverlay": {
+      "widgetType": "TABOR_TRACKBALL",
+      "gestureOutputMode": "DIRECTIONAL_SNAP_FLICK"
+    }
+  },
+  {
+    "id": "ball",
+    "title": "Spin Ball",
+    "group": "Sports",
+    "hint": "Flick from the ball toward a pocket. Add a curved finish for side spin.",
+    "example": "Try a shot",
+    "controllerOverlay": {
+      "widgetType": "TABOR_TRACKBALL",
+      "gestureOutputMode": "AIMED_ROLL_AND_CURVE"
+    }
+  },
+  {
+    "id": "magic",
+    "title": "Spellcasting",
+    "group": "Magic",
+    "hint": "Trace a figure-eight to open a portal. A steady circle conjures a ward.",
+    "example": "Trace a figure-eight",
+    "controllerOverlay": {
+      "widgetType": "TABOR_TRACKBALL",
+      "gestureOutputMode": "SWIRL_RPM_ACCUMULATOR"
+    }
+  },
+  {
+    "id": "dj",
+    "title": "DJ Deck",
+    "group": "Music",
+    "hint": "Scrub the platter back and forth. Keep your drag and releases in rhythm with the beat ring.",
+    "example": "Try a scratch",
+    "controllerOverlay": {
+      "widgetType": "TABOR_TRACKBALL",
+      "gestureOutputMode": "SCRUB_REVERSALS"
+    }
+  },
+  {
+    "id": "forge",
+    "title": "Forge Bellows",
+    "group": "Craft",
+    "hint": "Scrub left and right to stoke the forge. Heat falls between strokes. Release above the green line.",
+    "example": "Pump bellows",
+    "controllerOverlay": {
+      "widgetType": "TABOR_TRACKBALL",
+      "gestureOutputMode": "SCRUB_REVERSALS"
+    }
+  },
+  {
+    "id": "globe",
+    "title": "Globe Explorer",
+    "group": "Navigation",
+    "hint": "Drag in any direction to rotate the globe. Bring amber landmarks into the center window.",
+    "example": "Roll toward a landmark",
+    "controllerOverlay": {
+      "widgetType": "TABOR_TRACKBALL",
+      "gestureOutputMode": "CONTINUOUS_ROLL"
+    }
+  },
+  {
+    "id": "dial",
+    "title": "Combination Dial",
+    "group": "Precision",
+    "hint": "Turn the fictional puzzle dial in the arrow’s direction. Reach each marked turn and lift.",
+    "example": "Turn the dial",
+    "controllerOverlay": {
+      "widgetType": "TABOR_TRACKBALL",
+      "gestureOutputMode": "PRECISION_MICRO_TURN"
+    }
+  },
+  {
+    "id": "pottery",
+    "title": "Pottery Wheel",
+    "group": "Craft",
+    "hint": "Tap one of the three clay bands to select it. Turn around the wheel to shape that band to its dashed outline.",
+    "example": "Shape a band",
+    "controllerOverlay": {
+      "widgetType": "TABOR_TRACKBALL",
+      "gestureOutputMode": "PRECISION_MICRO_TURN"
+    }
+  },
+  {
+    "id": "lift",
+    "title": "Propeller Lift",
+    "group": "Flight",
+    "hint": "Circle to keep the propeller turning. Rise to the marked band and stay there through the next checkpoint.",
+    "example": "Spin to lift",
+    "controllerOverlay": {
+      "widgetType": "TABOR_TRACKBALL",
+      "gestureOutputMode": "SWIRL_RPM_ACCUMULATOR"
+    }
+  },
+  {
+    "id": "fish",
+    "title": "Fishing Reel",
+    "group": "Tension",
+    "hint": "Use controlled clockwise turns. Reel toward the center while keeping tension inside the green band.",
+    "example": "Reel in",
+    "controllerOverlay": {
+      "widgetType": "TABOR_TRACKBALL",
+      "gestureOutputMode": "PRECISION_MICRO_TURN"
+    }
+  }
+]
