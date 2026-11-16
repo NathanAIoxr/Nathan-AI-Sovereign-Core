@@ -3,6 +3,7 @@ const $=id=>document.getElementById(id),node=(tag,text)=>{const e=document.creat
 let sources=[],active=null,connected=false,selection=0;
 const overview='mdb-timeline-overview';
 const jebIndex='mdb-timeline-jeb-foxx';
+const epsteinFull='mdb-timeline-epstein-full-record';
 const foxxLinks=new Set(['mdb-timeline-foxx-ledger','mdb-timeline-foxx-july','mdb-timeline-foxx-house']);
 const jebHighlights=['mdb-timeline-jeb-dedication','mdb-timeline-jeb-author-words','mdb-timeline-jeb-grok-refusal','mdb-timeline-jeb-article-excerpt'];
 async function request(route,method='GET',body){const r=await fetch('/api/'+route,{method,headers:body?{'Content-Type':'application/json'}:{},body:body?JSON.stringify(body):undefined});if(r.status===401)throw Error('Connect the private database through ONE App Shell first.');if(!r.ok)throw Error((await r.json()).error||'Unable to read the database');return r.json()}
@@ -47,6 +48,19 @@ async function open(source){
  else if(location.hash.startsWith('#mdb-timeline-'))history.replaceState(null,'',location.pathname+location.search);
  $('original').hidden=!source.source.startsWith('https:');if(!$('original').hidden)$('original').href=source.source;
  $('text').replaceChildren();const q=$('query').value.trim(),text=source.text;
+ const fullRecord=$('epstein-record-documents');fullRecord.replaceChildren();
+ if(source.sourceId===epsteinFull){
+  for(const id of source.timeline.links){
+   const documentSource=relatedSource(id);
+   if(!documentSource)continue;
+   const section=node('section','');
+   const heading=node('h3',documentSource.title);
+   section.append(heading,node('p',documentSource.scope),node('pre',documentSource.text));
+   const original=node('a','Open original source ↗');
+   original.href=documentSource.source;original.target='_blank';original.rel='noopener noreferrer';
+   section.append(original);fullRecord.append(section);
+  }
+ }
  if(q){let at=0,found=0;const lower=text.toLocaleLowerCase(),needle=q.toLocaleLowerCase();let index;while((index=lower.indexOf(needle,at))!==-1&&found++<1000){$('text').append(document.createTextNode(text.slice(at,index)),node('mark',text.slice(index,index+q.length)));at=index+q.length}$('text').append(document.createTextNode(text.slice(at)))}else $('text').textContent=text;
  try{const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)))).map(n=>n.toString(16).padStart(2,'0')).join('');if(current!==selection)return;$('metadata').textContent=source.kind+' · '+text.length.toLocaleString()+' characters · '+(source.complete&&hash===source.sha256?'full text integrity verified':'INCOMPLETE OR CHANGED — review source')}catch{if(current===selection)$('metadata').textContent='Integrity check unavailable in this browser. Source text retained.'}
 }
@@ -82,7 +96,8 @@ async function load(){
 $('timeline').onclick=()=>openTimeline(relatedSource(overview));
 $('double-mindedness').onclick=()=>openTimeline(relatedSource('mdb-timeline-double-mindedness'));
 $('jeb').onclick=()=>openTimeline(relatedSource(jebIndex));
-$('query').oninput=()=>{const rows=renderList();if(rows.length)open(rows.find(s=>s.id===active)||rows[0]);else{selection++;$('title').textContent='No matching sources';$('text').textContent='';$('metadata').textContent='';$('scope').textContent='';$('original').hidden=true;showTimeline({})}};
+$('epstein-full').onclick=()=>openTimeline(relatedSource(epsteinFull));
+$('query').oninput=()=>{const rows=renderList();if(rows.length)open(rows.find(s=>s.id===active)||rows[0]);else{selection++;$('title').textContent='No matching sources';$('text').textContent='';$('epstein-record-documents').replaceChildren();$('metadata').textContent='';$('scope').textContent='';$('original').hidden=true;showTimeline({})}};
 $('kind').onchange=$('query').oninput;$('import').onclick=()=>$('file').click();
 $('file').onchange=async()=>{const file=$('file').files[0];if(!file||!connected)return;try{if(file.size>8*1024*1024)throw Error('Import exceeds 8 MB');const bytes=new Uint8Array(await file.arrayBuffer()),text=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(bytes);let originalBytes='';if(!file.name.toLowerCase().endsWith('.json'))for(const byte of bytes)originalBytes+=String.fromCharCode(byte);const bundle=file.name.toLowerCase().endsWith('.json')?JSON.parse(text.replace(/^\uFEFF/,'')):{schema:'one.story-sources.v1',sources:[{id:'owner-'+crypto.randomUUID(),title:file.name.replace(/\.(txt|md)$/i,''),url:'local:upload/'+encodeURIComponent(file.name),kind:'story',scope:'Added directly by the owner to this collection.',text,original:{format:'text/plain',base64:btoa(originalBytes)}}]};const result=await request('story-import','POST',bundle);await load();$('status').textContent=result.imported+' sources imported; '+result.skipped+' unchanged sources skipped.'}catch(e){$('status').textContent=e.message}finally{$('file').value=''}};
 $('export').onclick=async()=>{try{const bundle=await request('story-export'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(bundle,null,2)],{type:'application/json'}));a.download='modern-day-bible-related-sources.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}catch(e){$('status').textContent=e.message}};

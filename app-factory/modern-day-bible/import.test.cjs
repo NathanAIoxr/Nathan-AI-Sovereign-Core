@@ -57,6 +57,19 @@ test('actual recovered corpus preserves all 100 supplied lines, distinct 52-inde
  assert.ok(jeb.timeline.links.includes('mdb-timeline-jeb-daily-mail'));
  assert.ok(search(assembled,'19 transcribed interviews and depositions','timeline').some(source=>source.sourceId==='mdb-timeline-jeb-oversight'));
  assert.ok(search(assembled,'19 top officials','timeline').some(source=>source.sourceId==='mdb-timeline-jeb-daily-mail'));
+ const epstein=assembled.find(item=>item.sourceId==='mdb-timeline-epstein-full-record');
+ assert.equal(epstein.timeline.links.length,6);
+ for(const id of epstein.timeline.links){
+  const entry=all.find(item=>item.id===id);
+  const filename=new URL(entry.url).pathname.split('/').pop();
+  const original=fs.readFileSync(path.resolve(__dirname,'../../data/tabor/modern_day_bible',filename),'utf8');
+  assert.equal(entry.original.text,original);
+  const readable=assembled.find(item=>item.sourceId===id);
+  assert.ok(readable.complete);
+  assert.equal(readable.text,original);
+ }
+ assert.ok(search(assembled,'operatio','timeline').some(item=>item.sourceId==='mdb-timeline-epstein-agreement-conversation'));
+ assert.ok(search(assembled,'BCCI','timeline').some(item=>item.sourceId==='mdb-timeline-epstein-reagan-review'));
  const owner={...source('mdb-timeline-test-owner','Exact owner wording'),record:{track:'Owner records',date:'2026-11-15',dateBasis:'Supplied date',evidence:'Owner statement',links:['mdb-timeline-think']}};
  importBundle(db,{schema:'one.story-sources.v1',sources:[owner]});
  const ownerProjection=Object.entries(recover(db).timelineRecords).find(([id])=>id.startsWith(owner.id+':'));
