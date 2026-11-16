@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a1115"><meta name="author" content="Nathan Tabor">
+<meta name="description" content="Tabor Tracker Ball, a touchscreen trackball arcade and reusable Tabor World controller by Nathan Tabor.">
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css">
+<title>Tabor Tracker Ball 🖲️ by Nathan Tabor</title></head>
+<body>
+<aside id="nathan-record-notice" aria-label="Timestamped record" style="display:block!important;position:relative!important;box-sizing:border-box!important;grid-column:1/-1;flex:0 0 100%;width:100%;padding:12px 16px;margin:0;background:#fff0b3!important;color:#161616!important;border-bottom:3px solid #161616;font:600 16px/1.5 system-ui,sans-serif;text-align:left;overflow-wrap:anywhere;"><a href="../../../docs/record/index.html" style="color:#161616!important;text-decoration:underline!important;">READ THE TIMESTAMPED RECORD — Nathan Tabor / ChatGPT</a><span style="display:block;font-size:14px;font-weight:400;color:#161616!important;">Repository changes, authorship complaints, correction claims, and unfinished work. Record opened November 5, 2026, 7:42:08 p.m. EST.</span></aside>
+<main class="site">
+  <header><a class="brand" href="./" aria-label="Tabor Tracker Ball home"><span aria-hidden="true">◉</span> TABOR WORLD</a><a href="#controls">Controller settings</a></header>
+  <div class="heading"><p>Tech with Technology by Nathan Tabor</p><h1>Tabor Tracker Ball <span aria-hidden="true">🖲️</span></h1></div>
+  <div class="main-grid">
+    <section class="arena" aria-labelledby="game-title">
+      <div class="stage"><div><div id="game-group">Weather</div><h2 id="game-title">Hurricane</h2></div><output id="score">0 pts</output></div>
+      <div class="field"><canvas id="field" aria-label="Interactive game area" aria-describedby="guide"></canvas><div id="objective"></div><div id="trace-label" hidden>Trace replay</div></div>
+      <p id="guide"></p><p id="status" role="status" aria-live="polite"></p>
+      <div class="buttons"><button type="button" id="example">Try a gesture</button><button type="button" id="alternate">Try opposite</button><button type="button" id="replay" disabled>Replay trace</button><button type="button" id="reset">Reset round</button></div>
+    </section>
+    <aside class="sidebar">
+      <section class="card games" aria-labelledby="select-title"><h2 id="select-title">Choose a game</h2><div id="game-list"></div></section>
+      <section class="card telemetry" aria-labelledby="signals"><h2 id="signals">Live controller</h2><dl>
+        <div><dt>Gesture</dt><dd id="gesture">—</dd></div><div><dt>Direction</dt><dd id="direction">—</dd></div>
+        <div><dt>Spin rate</dt><dd id="rpm">—</dd></div><div><dt>Speed</dt><dd id="speed">—</dd></div>
+        <div><dt>Power</dt><dd id="power">—</dd></div><div><dt>Best score</dt><dd id="best">0</dd></div>
+      </dl></section>
+    </aside>
+  </div>
+  <section class="card settings" id="controls" aria-labelledby="settings-title">
+    <h2 id="settings-title">Controller settings</h2>
+    <div class="setting-grid">
+      <label>Ball inertia <output id="inertia-value"></output><input type="range" id="inertia" min=".5" max="3" value="1.4" step=".1"></label>
+      <label>Coast <output id="coast-value"></output><input type="range" id="coast" min=".87" max=".99" value=".96" step=".01"></label>
+      <label>Sensitivity <output id="gain-value"></output><input type="range" id="gain" min=".5" max="1.8" value="1" step=".1"></label>
+      <label>Haptic tick angle <output id="ticks-value"></output><input type="range" id="ticks" min="0" max="45" value="15" step="5"></label>
+      <div class="switches"><label><input id="haptics" type="checkbox"> Haptic ticks where supported</label><label><input id="audio" type="checkbox"> DJ sound</label></div>
+    </div>
+    <p>Speed uses the shorter edge of the playfield as one unit. Scores and settings are saved on this device.</p>
+  </section>
+  <details class="card"><summary>Use Track Baller in your game</summary><p>Attach the controller to a game surface with <code>touch-action: none</code>. Read <code>taborTrackballGesture</code> to map live movement and release events to your game.</p><p><a href="./track-baller.mjs" download>Download the controller module</a> <span aria-hidden="true">·</span> <a href="./catalog.json">Game configurations</a></p></details>
+  <noscript><p>Enable JavaScript to play the arcade.</p></noscript>
+</main><script type="module" src="./app.mjs"></script></body></html>
