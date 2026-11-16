@@ -1,3 +1,5 @@
+import {CARTRIDGES,arena,checkpoints,tracePoint,scoreChallenge,arcadeGrade,openTier,sanitizeExpansion} from './public/arcade.mjs';
+import {startSwing,stepSwing,swingAction,swingCourse} from './public/swing.mjs';
 import assert from 'node:assert/strict';
 import {STAGES,newLift,pump,stepLift} from './public/grapple.mjs';
 import {ERAS,MISSIONS,dailyCourse,freshLine,castLine,advanceLine,linedUp,medal,tensionBand,actionMarker,doAction} from './public/campaign.mjs';
@@ -52,4 +54,46 @@ for(const course of TOY_COURSES){
  }
  assert.ok(state.done,course.name);
 }
-console.log('Six classic bubble courses, four water-ring courses, 46 line-course simulations, and line-break recovery passed.');
+console.log('Six classic bubble courses, four water-ring courses, 54 line-course simulations, and line-break recovery passed.');
+
+for(const [level,stage] of STAGES.entries()){
+ const state=startSwing(level);
+ const step=1/120;
+ for(let i=0;i<7200&&state.phase==='lift';i++){
+  const [x,y]=stage.anchors[state.lift.next]??[state.x,state.y];
+  const shift=x-state.x;
+  if(state.y>y+.025&&state.lift.vy>=-.25&&Math.abs(shift)<.16)swingAction(state);
+  stepSwing(state,step,Math.max(-1,Math.min(1,shift*10)));
+ }
+ assert.equal(state.phase,'swing',stage.name+' latched');
+ const side=Math.sign(swingCourse(level).goal[0]-swingCourse(level).pivot[0]);
+ let won=false;
+ for(let frame=18;frame<140&&!won;frame++){
+  const trial={...state,lift:{...state.lift}};
+  for(let i=0;i<frame;i++)stepSwing(trial,step,side);
+  swingAction(trial);
+  for(let i=0;i<390&&trial.phase==='flight';i++)stepSwing(trial,step);
+  won=trial.phase==='won';
+ }
+ assert.ok(won,stage.name+' has a successful swing release');
+}
+assert.equal(CARTRIDGES.length,24);
+assert.equal(new Set(CARTRIDGES.map(game=>game.id)).size,24);
+assert.equal(new Set(CARTRIDGES.map(game=>game.chassis)).size,5);
+for(const game of CARTRIDGES)for(const wild of [false,true])for(let round=0;round<3;round++){
+ let maximum=0;
+ for(let i=0;i<600&&maximum<100;i++){
+  const t=i/60;
+  const a=arena(game,t,round,wild);
+  let caught=0;
+  if(game.chassis==='craft')for(const [x,y] of checkpoints(game,round))caught=tracePoint(checkpoints(game,round),caught,x,y);
+  maximum=Math.max(maximum,scoreChallenge(game,t,round,{x:a.x-a.drift,y:a.y},wild,caught));
+ }
+ assert.equal(maximum,100,game.title+' round '+(round+1)+' has a perfect score');
+}
+assert.equal(openTier({},1),false);
+assert.equal(openTier({brass:150},1),true);
+assert.equal(arcadeGrade(205),'Silver');
+assert.equal(sanitizeExpansion({games:{brass:300,unknown:300},swings:{0:6000},form:'female'}).form,'female');
+assert.equal(sanitizeExpansion({games:{brass:301,unknown:300}}).games.brass,undefined);
+console.log('Six swing releases and 144 cartridge rounds across both rulesets passed.');
