@@ -25,3 +25,23 @@
 .chapter-label{font-weight:750;list-style:none;margin-top:1rem!important;color:var(--mint)}
 .fruit .digits .apple{width:6px;height:6px}.fruit-limb.right i:nth-child(odd){background:radial-gradient(circle at 26% 27%,#dbef9b,#729950 62%,#466037)}
 @media(max-width:390px){.toy-controls button{font-size:.83rem}.mode-bar{display:grid;grid-template-columns:1fr 1fr}}
+
+#arcade-view{scroll-margin-top:1rem}
+.gr-header,.gr-selects{display:flex;align-items:flex-end;justify-content:space-between;gap:.8rem;flex-wrap:wrap}
+.gr-header{margin:1rem 0}
+.gr-header h2{margin:.25rem 0;font-size:clamp(1.5rem,4vw,2.5rem)}
+.gr-header label,.gr-selects label{display:grid;gap:.25rem;flex:1 1 12rem}
+.gr-header label{flex:0 1 13rem}
+.gr-selects select,.gr-header select{width:100%;max-width:100%;min-width:0;color:#f0f5eb;background:#1c383b;border:1px solid #51796e;border-radius:.55rem;padding:.6rem;font:inherit}
+.gr-wordmark{margin:.35rem 0;font-weight:650;color:#d7efac;overflow-wrap:anywhere}
+.gr-help{margin:.55rem 0;color:#c3d7cc;font-size:.94rem}
+.gr-counter{font-weight:750;color:#d7efac;margin:.6rem 0}
+.gr-tank{min-height:185px;height:clamp(185px,31vw,300px)}
+.gr-meter{display:flex;align-items:center;flex-wrap:wrap;gap:.65rem;margin:.6rem 0}
+.gr-meter meter{width:min(45%,16rem)}
+.gr-roster ul{padding:0;list-style:none;margin:.7rem 0 0}
+.gr-roster li{padding:.45rem 0;border-top:1px solid #52756c55;display:grid;gap:.1rem}
+.gr-roster li span{color:#b9d0c5;font-size:.88rem}
+#gr-gear-ledger{max-height:19rem;overflow:auto}
+#gr-gear-ledger:empty{display:none}
+#gr-play{min-width:9rem}

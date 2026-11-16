@@ -238,8 +238,9 @@ function select(view){
  $('toy-view').hidden=view!=='toy';
  $('bubble-view').hidden=view!=='bubble';
  $('line-view').hidden=view!=='campaign'&&view!=='daily';
+ $('arcade-view').hidden=view!=='arcade';
  for(const button of document.querySelectorAll('[data-view]'))button.setAttribute('aria-pressed',String(button.dataset.view===view));
- window.dispatchEvent(new Event('grapple-view'));
+ window.dispatchEvent(new CustomEvent('grapple-view',{detail:view}));
  cancelAnimationFrame(frame);
  if(!$('line-view').hidden){resetLine();resize();startFrames();}
  try{history.replaceState(null,'','#'+view);}catch{}
@@ -277,14 +278,14 @@ for(const button of document.querySelectorAll('[data-view]'))button.onclick=()=>
 window.addEventListener('grapple-progress',()=>{bubbles=sanitizeBubbles(read(BUBBLES));});
 const transfer=$('save-code');
 $('export-save').onclick=()=>{
- transfer.value=JSON.stringify({version:2,bubbles,profile,toys});
+ transfer.value=JSON.stringify({version:3,bubbles,profile,toys,arcade:window.grappleArcadeSave.export()});
  transfer.focus();transfer.select();
  $('save-status').textContent='Save code ready to copy.';
 };
 $('import-save').onclick=()=>{
  try{
   const data=JSON.parse(transfer.value);
-  if(![1,2].includes(data?.version)||!data.bubbles||!data.profile)throw Error('format');
+  if(![1,2,3].includes(data?.version)||!data.bubbles||!data.profile)throw Error('format');
   const incoming=sanitize(data.profile), lift=sanitizeBubbles(data.bubbles);
   for(const [index,score] of Object.entries(lift))bubbles[index]=Math.min(bubbles[index]??Infinity,score);
   for(const group of ['eras','days'])for(const [id,record] of Object.entries(incoming[group]))profile[group][id]=better(profile[group][id],record);
@@ -295,10 +296,11 @@ $('import-save').onclick=()=>{
   window.dispatchEvent(new CustomEvent('grapple-toy-restore',{detail:toys}));
   if(!$('line-view').hidden)updateSidebar();
   renderCurator();
-  $('save-status').textContent=liftSaved&&campaignSaved&&toySaved?'Progress restored.':'Progress loaded. This browser could not save it.';
+  const arcadeSaved=!data.arcade||window.grappleArcadeSave.restore(data.arcade);
+  $('save-status').textContent=liftSaved&&campaignSaved&&toySaved&&arcadeSaved?'Progress restored.':'Progress loaded. This browser could not save it.';
  }catch{$('save-status').textContent='That save code could not be read.';}
 };
 const initial=location.hash.slice(1);
-select(['bubble','campaign','daily'].includes(initial)?initial:'toy');
+select(['bubble','campaign','daily','arcade'].includes(initial)?initial:'toy');
 renderCurator();
 if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
