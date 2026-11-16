@@ -42,6 +42,37 @@ The [portable static check](hosting-verification/index.html) has no runtime depe
 | Wasmer | Test a personal/noncommercial WebAssembly or static deployment. Its advertised Hobby allowance includes 150 GB bandwidth and six compute hours. Confirm effective app and storage quota in the account because the public pricing page contains different app counts. Verify region and data terms before choosing a residency workload. [Pricing](https://wasmer.io/pricing) |
 | Multos AI | Prototype with sample inputs and export the resulting source to a selected Git repo. The vendor advertises unlimited projects and a monthly generation allowance. Deployment quotas come from the selected host. [Builder and source export](https://multos.ai/ai/ai-app-builder-unlimited-projects/) |
 
+## Seven-continent deployment map
+
+| Continent | First deployment or recovery test | Availability and residency |
+| --- | --- | --- |
+| North America | GitHub and GitHub Pages for the core and public catalog. Cloudflare Workers for the games. Vercel Hobby for the standalone static check. | The live URLs are listed above. For an in-region copy of private source, review the Git host's storage terms separately from public edge delivery. |
+| Europe | Gitoro for a private Git pilot, Koyeb Frankfurt for a disposable EU runtime, and Codeberg or Framagit for eligible open-source work. Keep Wasmer for personal app experiments. | Gitoro states that repository, CI and upload data stay on EU infrastructure. Framagit lists 42 projects per person. Codeberg recommends Woodpecker for hosted CI and documents self-hosted Forgejo Actions runners. Wasmer advertises global edge delivery, so verify its storage and build locations for the chosen workload. [Gitoro](https://gitoro.com/de/preise) · [Codeberg CI](https://docs.codeberg.org/ci/actions/) · [Framagit](https://docs.framasoft.org/fr/gitlab/) · [Koyeb](https://www.koyeb.com/docs/reference/instances) · [Wasmer](https://wasmer.io/pricing) |
+| Asia and Eurasia | Use already-public sample code to test Git pushes and CI on Gitee and GitVerse. | Gitee lists Pages and Pages Pro as offline. GitVerse documents limits on hosted build time and artifact storage. Verify signup and quotas before committing a workload. [Gitee Help](https://gitee.com/help.com) · [GitVerse CI limits](https://gitverse.ru/docs/cicd/docs/limits/) |
+| South America | Pilot Forgejo or Gitea on one OCI home region in Brazil, either São Paulo or Vinhedo, if Always Free compute is selectable. Vultr São Paulo is a paid alternative. | Oracle lists both cities as OCI regions. Contabo's published location list does not show São Paulo. [Oracle regions](https://www.oracle.com/cloud/public-cloud-regions/) · [Vultr status and locations](https://status.vultr.com/) · [Contabo locations](https://contabo.com/en-us/locations/) |
+| Africa | Pilot Forgejo or Gitea in OCI Johannesburg if eligible. Use AWS Cape Town (`af-south-1`) for a short-lived trial only after confirming eligibility for the region, service and instance. | New AWS Free Plan accounts close after six months or when their credits run out, whichever comes first. Cloudflare and Vercel can deliver regional traffic, while the source repo and database have their own storage locations. [Oracle regions](https://www.oracle.com/cloud/public-cloud-regions/) · [AWS regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-region-billing-codes.html) · [AWS Free Tier](https://aws.amazon.com/free/) · [Cloudflare network](https://www.cloudflare.com/network/) · [Vercel regions](https://vercel.com/docs/regions) |
+| Australia and Oceania | Use Bitbucket for ordinary Git and CI. For private source with an Australian storage requirement, pilot Forgejo or Gitea on an OCI home region in Sydney or Melbourne if eligible. | Atlassian's Bitbucket Cloud roadmap starts with EU and India. Australian headquarters or edge presence does not establish that a Bitbucket workspace's Git data is pinned in Australia. [Bitbucket plans](https://www.atlassian.com/software/bitbucket/pricing) · [Bitbucket residency roadmap](https://www.atlassian.com/blog/it-teams/building-a-more-resilient-multi-region-bitbucket-cloud) · [Oracle regions](https://www.oracle.com/cloud/public-cloud-regions/) |
+| Antarctica and disconnected sites | Carry a verified Git bundle for restoration. Use Radicle for peer-to-peer Git collaboration when the devices can reach each other. Choose Fossil for a standalone project that needs an integrated offline wiki and tracker. | A Radicle repo can be worked on locally. Replication requires a reachable peer that has the repo. Fossil uses its own repository format backed by SQLite and provides Git import/export. [Git bundle](https://git-scm.com/docs/git-bundle) · [Radicle protocol](https://radicle.dev/guides/protocol) · [Fossil](https://fossil-scm.org/home/doc/trunk/README.md) |
+
+### Provision one regional forge
+
+1. In an authenticated Oracle tenancy, check the home region and look for an **Always Free-eligible** compute shape and storage. Select one region for the pilot. Oracle limits Always Free compute to the tenancy's home region, capacity can be unavailable, and idle instances can be reclaimed. Review the quote for the VM, disks, public IP and backups together before creating resources. [Oracle Always Free](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm)
+2. Install one forge and use a persistent volume for repositories and application data. Start with a private pilot repo. Pick an instance size for the actual workload. Run CI jobs separately when their memory or CPU usage would compete with the forge. [Forgejo installation](https://forgejo.org/docs/latest/admin/installation/) · [Gitea Docker installation](https://docs.gitea.com/installation/install-with-docker)
+3. Make a verified Git copy using the commands below. Sign out to check that the pilot remains private. Back up the forge database, config and any separate LFS or artifact storage, then restore to a clean test environment. Record the storage, backup and build regions separately from any CDN location.
+
+### Test a disconnected recovery
+
+Create and verify a bundle from a clean checkout of the pilot. Use the project's default branch name in place of `main` if it differs.
+
+```sh
+git bundle create bootstrap-pilot.bundle --all &&
+git bundle verify bootstrap-pilot.bundle &&
+git clone --branch main bootstrap-pilot.bundle bootstrap-pilot-restored &&
+test "$(git rev-parse HEAD)" = "$(git -C bootstrap-pilot-restored rev-parse HEAD)"
+```
+
+Transfer the bundle and a checksum on approved media. Preserve Git LFS content, submodule repositories and build dependencies separately when the offline project uses them. To verify offline readiness, disconnect the test machine and build the restored checkout there.
+
 ## Activation order
 
 1. **GitLab and Gitoro.** Sign in to each provider and create an empty private pilot repository. Push the same sample Git history to both and compare the default-branch commit to the source. Check the plan limits before moving a larger repo.
