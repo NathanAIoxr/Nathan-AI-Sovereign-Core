@@ -6,7 +6,7 @@ By Nathan Tabor and Nathan AI.
 
 ## Discovery
 
-Cloudflare runs the discovery Worker at minute 32 of every hour in UTC. It reports the total GitHub returns for open, public issues marked Help Wanted, then reads up to 50 recently updated, open, unassigned documentation issues. Security-related labels and selected titles are excluded from that working queue. GitHub's result caps and partial-response flag apply. The KV snapshot retains the latest results per query when a later query fails.
+The deployed Cloudflare schedule starts a discovery run every ten minutes, at minutes 02, 12, 22, 32, 42, and 52. The live worker combines recent discovery with a database-backed historical scan. GitHub's result caps and partial-response flag apply. Use the queue coverage and last-success timestamp to check what has actually been indexed. The repair jobs read the shared handoff branch and prepare scoped work for Nathan. One job starts at :15 and the other at :45 each hour in Eastern Time.
 
 Each issue keeps one identity based on its repository and number. The evidence fields track source, rules, patch, and delivery separately. A discovery result starts with only the source gate checked. GitHub labels are references to review against each maintainer's current rules and conversation.
 
