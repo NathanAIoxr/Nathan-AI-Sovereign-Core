@@ -80,3 +80,13 @@ node app-factory/modern-day-bible/recover.cjs /absolute/private/path/one-shell.s
 The reader calls authenticated `POST /api/story-recover` automatically. Recovery verifies
 the raw Volume 2 SHA-256 against both existing manifests and checks every supplied story
 line against the original file before importing.
+
+## Additional numbered index recovery — November 16, 2026
+
+The reader also includes the existing **101-entry numbered scripture index (#1–101)**,
+using its original `tabor-scripture-*` IDs and a separate **Numbered scripture index ·
+titles only** filter. Original descriptions are absent from that source. These are not
+counted as 101 recovered full narratives. The 100 exact supplied story lines (#102–201)
+keep their existing source IDs and classification. See the
+[numbered source audit](../../data/tabor/modern_day_bible/NUMBERED_STORY_SOURCE_AUDIT_2026-11-16.md)
+for search coverage, original aisle provenance and the outstanding larger-corpus leads.

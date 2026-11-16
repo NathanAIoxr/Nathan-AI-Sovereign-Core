@@ -38,6 +38,16 @@
     "full KJV Bible text imported",
     "all items are independently Bible-verified",
     "52 kinship index items are 52 distinct extra numbered stories",
-    "full original descriptions for 1–101 and 203–404 are restored"
-  ]
+    "full original descriptions for 1\u2013101 and 203\u2013404 are restored"
+  ],
+  "separate_numbered_scripture_index": {
+    "path": "data/tabor/scripture_passage_entities_2026-11-14.json",
+    "count": 101,
+    "range": [
+      1,
+      101
+    ],
+    "original_descriptions_recovered": false,
+    "same_numbered_series_confirmed": false
+  }
 }

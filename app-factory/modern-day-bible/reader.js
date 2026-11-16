@@ -64,7 +64,7 @@ async function open(source){
  if(q){let at=0,found=0;const lower=text.toLocaleLowerCase(),needle=q.toLocaleLowerCase();let index;while((index=lower.indexOf(needle,at))!==-1&&found++<1000){$('text').append(document.createTextNode(text.slice(at,index)),node('mark',text.slice(index,index+q.length)));at=index+q.length}$('text').append(document.createTextNode(text.slice(at)))}else $('text').textContent=text;
  try{const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)))).map(n=>n.toString(16).padStart(2,'0')).join('');if(current!==selection)return;$('metadata').textContent=source.kind+' · '+text.length.toLocaleString()+' characters · '+(source.complete&&hash===source.sha256?'full text integrity verified':'INCOMPLETE OR CHANGED — review source')}catch{if(current===selection)$('metadata').textContent='Integrity check unavailable in this browser. Source text retained.'}
 }
-function coverage(){return '100 recovered numbered stories (#102–201), 52 kinship index entries, 4 public Tabor Light references, and a KJV and publication timeline. Missing original story spans: #1–101 and #202–404.'}
+function coverage(){return '100 numbered stories with original supplied text (#102–201), 101 separately numbered scripture-index entries (#1–101; descriptions missing), 52 kinship index entries, 4 public Tabor Light references, and a KJV and publication timeline. Missing original story spans: #1–101 and #202–404.'}
 function showAisles(labels,provenance){$('aisle-panel').hidden=false;$('aisle-provenance').textContent=provenance||'';$('aisles').replaceChildren();for(const label of labels||[])$('aisles').append(node('li',label))}
 function showCollection(){
  $('coverage').textContent=coverage();
@@ -82,9 +82,9 @@ async function load(){
  }catch(e){connected=false;$('connection').textContent='Public recovered collection';$('connect').hidden=false;
   $('import').disabled=true;$('export').disabled=true;
   try{
-   const base='../../data/tabor/',paths=['modern_day_bible/stories_102_201.json','biblical_kinship_52_entities_2026-11-14.json','modern_day_bible/aisle_labels_7.json','modern_day_bible/tabor_light_public_sources.json','modern_day_bible/publication_timeline.json'];
-   const [stories,kinship,aisles,related,timeline]=await Promise.all(paths.map(async path=>{const response=await fetch(base+path);if(!response.ok)throw Error('Public recovery sources unavailable');return response.json()}));
-   const bundle=window.OneBibleCorpus.buildBundle(stories,kinship);
+   const base='../../data/tabor/',paths=['modern_day_bible/stories_102_201.json','biblical_kinship_52_entities_2026-11-14.json','modern_day_bible/aisle_labels_7.json','modern_day_bible/tabor_light_public_sources.json','modern_day_bible/publication_timeline.json','scripture_passage_entities_2026-11-14.json'];
+   const [stories,kinship,aisles,related,timeline,passages]=await Promise.all(paths.map(async path=>{const response=await fetch(base+path);if(!response.ok)throw Error('Public recovery sources unavailable');return response.json()}));
+   const bundle=window.OneBibleCorpus.buildBundle(stories,kinship,passages);
    if(related.schema!=='one.story-sources.v1'||related.related_collection!=='TABOR LIGHT'||!Array.isArray(related.sources))throw Error('Invalid Tabor Light source index');
    bundle.sources.push(...related.sources,...window.OneBibleCorpus.publicationTimeline(timeline));
    sources=await Promise.all(bundle.sources.map(async x=>({...x,sourceId:x.id,timeline:window.OneBibleCorpus.timelineMetadata(x.record),number:x.record?.number||null,source:x.url,sha256:Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(x.text)))).map(n=>n.toString(16).padStart(2,'0')).join(''),complete:true})));

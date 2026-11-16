@@ -26,12 +26,12 @@ test('actual recovered corpus preserves all 100 supplied lines, distinct 52-inde
  const db=openDatabase(':memory:');try{
  const {publicationTimeline}=require('./corpus.js');
  const timeline=publicationTimeline(require('../../data/tabor/modern_day_bible/publication_timeline.json'));
- const result=recover(db);assert.equal(result.imported,156+timeline.length);assert.equal(result.numberedStories,100);assert.equal(result.kinshipIndex,52);assert.equal(result.taborLightReferences,4);assert.equal(result.aisles.length,7);assert.deepEqual(result.missingSpans,[[1,101],[202,404]]);
- const all=exportBundle(db).sources,stories=all.filter(x=>x.kind==='numbered-story');assert.equal(stories.length,100);assert.equal(all.filter(x=>x.kind==='index').length,56);assert.equal(all.filter(x=>x.id.startsWith('mdb-tabor-pub-')).length,4);assert.ok(!all.some(x=>x.id==='mdb-0202'));
+ const result=recover(db);assert.equal(result.imported,257+timeline.length);assert.equal(result.numberedStories,100);assert.equal(result.numberedIndexEntries,101);assert.equal(result.kinshipIndex,52);assert.equal(result.taborLightReferences,4);assert.equal(result.aisles.length,7);assert.deepEqual(result.missingSpans,[[1,101],[202,404]]);
+ const all=exportBundle(db).sources,stories=all.filter(x=>x.kind==='numbered-story');assert.equal(stories.length,100);assert.equal(all.filter(x=>x.kind==='numbered-index').length,101);assert.ok(all.filter(x=>x.kind==='numbered-index').every(x=>x.scope.includes('original description missing')));assert.equal(all.filter(x=>x.kind==='index').length,56);assert.equal(all.filter(x=>x.id.startsWith('mdb-tabor-pub-')).length,4);assert.ok(!all.some(x=>x.id==='mdb-0202'));
  const supplied=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../../data/tabor/modern_day_bible/stories_102_201.json'))).records;
  for(const r of supplied)assert.equal(stories.find(s=>s.id===r.entry_id.toLowerCase()).text,r.original_line);
  const raw=db.prepare('SELECT body FROM story_source_documents').get().body;assert.deepEqual(Buffer.from(raw),fs.readFileSync(path.resolve(__dirname,'../../data/tabor/modern_day_bible/volume_2_102_201_original.txt')));
- assert.equal(recover(db).skipped,156+timeline.length);
+ assert.equal(recover(db).skipped,257+timeline.length);
  const rows=db.prepare('SELECT body FROM records WHERE app_id=?').all('modern-day-bible').map(row=>({data:JSON.parse(row.body)}));
  const assembled=assemble(rows).map(source=>({...source,timeline:result.timelineRecords[source.id]}));
  assert.equal(search(assembled,'','timeline').length,timeline.length);

@@ -10,7 +10,8 @@ function recover(db){
  for(const r of stories.records)if(!raw.toString('utf8').split(/\r?\n/).includes(r.original_line))throw Error('Story line does not match original source');
  const related=read(path.join(dir,'tabor_light_public_sources.json'));if(related.schema!=='one.story-sources.v1'||related.related_collection!=='TABOR LIGHT'||!Array.isArray(related.sources)||related.sources.length!==4)throw Error('Tabor Light public source catalog mismatch');
  const timeline=publicationTimeline(read(path.join(dir,'publication_timeline.json')));
- const bundle=buildBundle(stories,kinship);bundle.sources.push(...related.sources,...timeline);
+ const passages=read(path.join(ROOT,'data/tabor/scripture_passage_entities_2026-11-14.json'));
+ const bundle=buildBundle(stories,kinship,passages);bundle.sources.push(...related.sources,...timeline);
  const result=importBundle(db,bundle);
  db.exec('CREATE TABLE IF NOT EXISTS story_source_documents(sha256 TEXT PRIMARY KEY,path TEXT NOT NULL,body BLOB NOT NULL)');
  db.prepare('INSERT OR IGNORE INTO story_source_documents VALUES(?,?,?)').run(sha,'data/tabor/modern_day_bible/volume_2_102_201_original.txt',raw);
@@ -20,7 +21,7 @@ function recover(db){
   const record=timelineMetadata(JSON.parse(row.snapshot).record);
   if(record)timelineRecords[row.source_key+':'+row.text_sha256]=record;
  }
- return {...result,numberedStories:100,kinshipIndex:kinship.records.length,taborLightReferences:related.sources.length,timelineRecords,missingSpans:manifest.missing_full_original_source_spans,aisles:aisles.labels,aisleProvenance:aisles.provenance};
+ return {...result,numberedStories:100,numberedIndexEntries:passages.entities.length,kinshipIndex:kinship.records.length,taborLightReferences:related.sources.length,timelineRecords,missingSpans:manifest.missing_full_original_source_spans,aisles:aisles.labels,aisleProvenance:aisles.provenance};
 }
 if(require.main===module){const {openDatabase}=require('../app-shell/server.cjs');const dest=process.argv[2];if(!dest||!path.isAbsolute(dest)||path.resolve(dest).startsWith(ROOT+path.sep))throw Error('Supply a private absolute database path outside the repository');const db=openDatabase(dest);try{const r=recover(db);console.log(JSON.stringify({...r,evidence:undefined,timelineRecords:undefined,timelineCount:Object.keys(r.timelineRecords).length},null,2))}finally{db.close()}}
 module.exports={recover};
