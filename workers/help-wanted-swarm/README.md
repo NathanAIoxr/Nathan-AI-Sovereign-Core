@@ -22,4 +22,4 @@ CREATE TABLE IF NOT EXISTS issue_queue (
 );
 ```
 
-For verification, check `/api/queue` for a completed receipt and compare it with GitHub's Issues list. Public requests have read access to the dashboard and the queue receipt. The first snapshot may be initialized from a separately verified GitHub REST response. A bootstrap receipt has a null `scheduledAt`; a genuine cron receipt records the scheduled time. The job reads only public issue metadata from the configured repository. It has no GitHub write credentials.
+For verification, check `/api/queue` for a completed receipt and compare it with GitHub's Issues list. Public requests have read access to the dashboard and the queue receipt. The first snapshot may be initialized from a separately verified GitHub REST response. A bootstrap receipt has a null `scheduledAt`. A cron receipt records the scheduled time. The job reads only public issue metadata from the configured repository. It has no GitHub write credentials.
