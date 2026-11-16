@@ -14,7 +14,7 @@ npm test
 npm run dev
 ```
 
-Open http://127.0.0.1:8787. The local database starts empty and resets when the server stops. `npm run build` produces `dist/worker.mjs` for the Cloudflare Workers module runtime. Browser sources and assets are in `game/`, API and Worker logic are in `server/`, and SQL migrations are in `migrations/`.
+Open http://127.0.0.1:8787. The local database starts empty and resets when the server stops. `npm run build` produces `dist/worker.mjs` for the Cloudflare Workers module runtime. Browser sources and assets, including the Worker’s `.html.in` templates, are in `game/`, API and Worker logic are in `server/`, and SQL migrations are in `migrations/`.
 
 ## Cloudflare
 

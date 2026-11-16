@@ -1,8 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import worker from '../dist/worker.mjs';
 import { eventResults } from '../game/event-results.mjs';
 import { validatePlugins, playChassis, traceOutline } from '../game/chassis.mjs';
+
+await import('../scripts/build.mjs');
+const { default: worker } = await import('../dist/worker.mjs');
 
 const get = (route, env = {}, method = 'GET') => worker.fetch(new Request('https://game.test' + route, { method }), env);
 

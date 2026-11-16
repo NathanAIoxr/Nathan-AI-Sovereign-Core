@@ -1,13 +1,13 @@
 export const routes = [
   [
     "/",
-    "index.html",
+    "index.html.in",
     "text/html; charset=utf-8",
     false
   ],
   [
     "/competition",
-    "competition.html",
+    "competition.html.in",
     "text/html; charset=utf-8",
     false
   ],
@@ -25,7 +25,7 @@ export const routes = [
   ],
   [
     "/chassis",
-    "chassis.html",
+    "chassis.html.in",
     "text/html; charset=utf-8",
     false
   ],
@@ -49,7 +49,7 @@ export const routes = [
   ],
   [
     "/arcade",
-    "arcade.html",
+    "arcade.html.in",
     "text/html; charset=utf-8",
     false
   ],
@@ -61,7 +61,7 @@ export const routes = [
   ],
   [
     "/yard-darts",
-    "yard-darts.html",
+    "yard-darts.html.in",
     "text/html; charset=utf-8",
     false
   ],
@@ -73,7 +73,7 @@ export const routes = [
   ],
   [
     "/grapple-it",
-    "grapple.html",
+    "grapple.html.in",
     "text/html; charset=utf-8",
     false
   ],
@@ -229,7 +229,7 @@ export const routes = [
   ],
   [
     "/index.html",
-    "index.html",
+    "index.html.in",
     "text/html; charset=utf-8",
     false
   ],
