@@ -16,3 +16,12 @@
 .save-box{margin-top:14px}.save-box textarea{display:block;width:100%;color:var(--text);background:var(--bg);border:1px solid var(--edge);border-radius:5px;margin:.35rem 0 .6rem;padding:.4rem}
 .save-box label{font-size:.8rem;color:var(--muted)}.save-box .line-controls{padding:0}#pk-area{margin-top:.7rem}
 @media(max-width:420px){.mode-bar button{font-size:.75rem;padding:.55rem .45rem}.line-meters label{grid-template-columns:63px minmax(0,1fr) 72px}.line-tank{height:245px}}
+
+.toy-tank{height:clamp(285px,43vw,480px)}.toy-controls{grid-template-columns:1fr 1.1fr 1fr}
+.toy-controls button{padding:.5rem .25rem}#toy-hook{background:var(--lime);color:#232c14;border-color:var(--lime)}
+#toy-status{margin:0;min-height:2.4em}#toy-score{margin-left:auto;color:var(--lime);white-space:nowrap}
+.curator-desk{margin-top:1.25rem}.curator-desk .line-controls{padding:0;margin-top:8px}
+.curator-desk button[aria-pressed=true]{color:var(--lime);border-color:var(--lime)}
+.chapter-label{font-weight:750;list-style:none;margin-top:1rem!important;color:var(--mint)}
+.fruit .digits .apple{width:6px;height:6px}.fruit-limb.right i:nth-child(odd){background:radial-gradient(circle at 26% 27%,#dbef9b,#729950 62%,#466037)}
+@media(max-width:390px){.toy-controls button{font-size:.83rem}.mode-bar{display:grid;grid-template-columns:1fr 1fr}}
