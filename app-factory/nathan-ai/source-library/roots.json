@@ -1,0 +1,21 @@
+{
+  "records": [
+    {"id":"ROOT-01","title":"Compute Infrastructure","group":"Foundation & Core AI","description":"Record runtime inputs and versions. Define which operations require exact results and which permit rounding."},
+    {"id":"ROOT-02","title":"Data Pipelines","group":"Foundation & Core AI","description":"Preserve original input and link each parsed item back to its source position."},
+    {"id":"ROOT-03","title":"Neural Networks","group":"Foundation & Core AI","description":"Keep entities in individually addressable records. Verify proposed changes before accepting them."},
+    {"id":"ROOT-04","title":"Embeddings & Vector Space","group":"Foundation & Core AI","description":"Use similarity to discover relationships. Use explicit identifiers to resolve which record is which."},
+    {"id":"ROOT-05","title":"Reinforcement Learning (RL)","group":"Foundation & Core AI","description":"Record feedback with the proposed update and apply consistency rules before committing a change."},
+    {"id":"ROOT-06","title":"Tokenization","group":"Large Language Models","description":"Preserve original characters and positions. Map model tokens back to their source characters."},
+    {"id":"ROOT-07","title":"Transformer Architecture & Attention","group":"Large Language Models","description":"Track relationships across positions while retaining distinct source references."},
+    {"id":"ROOT-08","title":"Pre-Training & Scaling Laws","group":"Large Language Models","description":"Preserve authored axioms in their original form. Version executable operators separately."},
+    {"id":"ROOT-09","title":"Post-Training & Alignment (RLHF)","group":"Large Language Models","description":"Check proposed claims against the rules and verified records for their scope."},
+    {"id":"ROOT-10","title":"Multimodality","group":"Large Language Models","description":"Preserve originals in each format and explicitly record cross-format links."},
+    {"id":"ROOT-11","title":"Retrieval-Augmented Generation (RAG)","group":"Production AI & Agents","description":"Resolve canonical identifiers by exact match. Keep assertions linked to the sources that supplied them."},
+    {"id":"ROOT-12","title":"Memory Systems","group":"Production AI & Agents","description":"Retain prior versions. Record evidence, date, and the version superseded by a correction."},
+    {"id":"ROOT-13","title":"Tool Use & Protocols (MCP)","group":"Production AI & Agents","description":"Resolve each command to a tool, target, and arguments. Record the observed outcome."},
+    {"id":"ROOT-14","title":"Guardrails & Evaluation","group":"Production AI & Agents","description":"Check accepted claims within their scope. Preserve competing evidence without accepting incompatible claims in the same scope."},
+    {"id":"ROOT-15","title":"System-2 Reasoning & Planning","group":"Artificial General Intelligence","description":"Connect each reasoning step to its premises and the rule used to derive it."},
+    {"id":"ROOT-16","title":"World Models & Causal Reasoning","group":"Artificial General Intelligence","description":"Give entities and events persistent identities. Track time, scope, state, and evidence."},
+    {"id":"ROOT-17","title":"Embodiment & Continual Learning","group":"Artificial General Intelligence","description":"Record new observations with their sources and run consistency checks before changing accepted state."}
+  ]
+}

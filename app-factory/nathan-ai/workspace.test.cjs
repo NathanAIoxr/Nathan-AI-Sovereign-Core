@@ -5,10 +5,13 @@ const api=require('./workspace.js');
 const item={id:'books:records:original-1',title:'Original manuscript',sourceName:'Reading records',collection:'Book research',note:'My interpretation'};
 test('every configured catalog loads without omitting source collections or colliding IDs',async()=>{
   const result=await api.load(async url=>({ok:true,json:async()=>JSON.parse(fs.readFileSync(path.resolve(__dirname,url),'utf8'))}));
-  assert.equal(result.coverage.length,9);
+  assert.equal(result.coverage.length,14);
   assert.ok(result.coverage.every(x=>!x.error));
-  assert.equal(result.rows.length,10641);
+  assert.equal(result.rows.length,11246);
   assert.equal(new Set(result.rows.map(r=>r.id)).size,result.rows.length);
+  assert.equal(api.search(result.rows,'','root-blocks').length,17);
+  assert.ok(api.search(result.rows,'attention','root-blocks').some(row=>row.originalId==='ROOT-07'));
+  assert.ok(api.search(result.rows,'','original-works').length>0);
   const children=api.records({id:'children',name:'Children'},require('./children-innocence/registry.js').projects);
   const roots=api.records({id:'roots',name:'Language roots'},require('./route-raut-root/records.js').searchRecords('','all'));
   assert.equal(children.length,46);assert.equal(roots.length,37);
@@ -20,7 +23,7 @@ test('partial catalog failure keeps other records and identifies missing coverag
     if(url.includes('documents'))throw Error('network unavailable');
     return {ok:true,json:async()=>JSON.parse(fs.readFileSync(path.resolve(__dirname,url),'utf8'))};
   });
-  assert.equal(result.rows.length,10641-55);
+  assert.equal(result.rows.length,11246-55);
   assert.equal(result.coverage.filter(x=>x.error).length,1);
   assert.match(result.coverage[0].error,/network unavailable/);
 });

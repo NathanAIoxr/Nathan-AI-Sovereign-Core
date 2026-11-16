@@ -125,7 +125,7 @@ jobs:
       - name: Verify Nathan AI projects, wallets, exact balances and import audit
         run: node --test app-factory/nathan-ai/command-center/engine.test.cjs
       - name: Verify Nathan AI source workspace, coverage and portable research notes
-        run: node --test app-factory/nathan-ai/workspace.test.cjs
+        run: node --test app-factory/nathan-ai/workspace.test.cjs app-factory/nathan-ai/source-library/app.test.cjs
       - name: Verify Nathan AI sovereign source graph and exact observation ledger
         run: node --test app-factory/nathan-ai/sovereign/engine.test.cjs
       - name: Verify Nathan AI lifecycle formula and bounded worker execution
