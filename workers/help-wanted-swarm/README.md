@@ -12,7 +12,7 @@ The scheduled sweep performs four steps: collect, validate, reconcile, and persi
 
 ## Cloudflare setup
 
-Deploy `worker.mjs` as an ES module and attach the D1 database as `HIVE`. Apply this migration once before enabling the scheduled trigger.
+Deploy `worker.mjs` as an ES module and attach the D1 database as `HIVE`. Apply this migration once before enabling the scheduled trigger. The deployed Worker runs every five minutes.
 
 ```sql
 CREATE TABLE IF NOT EXISTS issue_queue (
@@ -22,4 +22,4 @@ CREATE TABLE IF NOT EXISTS issue_queue (
 );
 ```
 
-For verification, check `/api/queue` for a completed receipt and compare it with GitHub's Issues list. Public requests have read access to the dashboard and the queue receipt. The job reads only public issue metadata from the configured repository. It has no GitHub write credentials.
+For verification, check `/api/queue` for a completed receipt and compare it with GitHub's Issues list. Public requests have read access to the dashboard and the queue receipt. The first snapshot may be initialized from a separately verified GitHub REST response. A bootstrap receipt has a null `scheduledAt`; a genuine cron receipt records the scheduled time. The job reads only public issue metadata from the configured repository. It has no GitHub write credentials.
