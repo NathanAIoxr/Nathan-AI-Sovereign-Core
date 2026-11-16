@@ -1,0 +1,14 @@
+{
+  "name": "hook-and-ring-by-nathan-tabor",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "npm run build && node --test",
+    "dev": "npm run build && node scripts/dev.mjs"
+  }
+}

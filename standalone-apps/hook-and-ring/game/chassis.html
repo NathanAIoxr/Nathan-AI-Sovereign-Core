@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0e1d20"><title>Five Physics Chassis by Nathan Tabor</title>
+<link rel="icon" href="/icon.svg"><link rel="stylesheet" href="/grapple.css?v=9"><link rel="stylesheet" href="/chassis.css?v=11">
+</head><body>
+<header><nav aria-label="Games"><a href="/">‹ Hook and Ring</a><a href="/arcade">Toss &amp; Target</a><a href="/grapple-it">Grapple It</a><a href="/competition">Play friends</a></nav></header>
+<main>
+<section class="intro"><div><h1>Five Physics <em>Chassis</em></h1><p class="byline">By Nathan Tabor</p></div></section>
+<div class="lab">
+<section class="side choices"><h2>Choose a game</h2>
+<div class="filters"><label>Find a game<input id="game-search" type="search" autocomplete="off" placeholder="Name or chassis"></label>
+<label>Chassis<select id="game-filter"><option value="">All chassis</option></select></label></div>
+<p id="catalog-count" role="status"></p><div id="games"></div></section>
+<section class="side board" aria-labelledby="game-name">
+<div class="lab-heading"><div><p id="chassis-name"></p><h2 id="game-name">Loading games…</h2></div><button id="sound-toggle" aria-pressed="false">Sound off</button></div>
+<p id="instructions"></p><div class="game-tools"><button id="favorite" aria-pressed="false">☆ Favorite</button><button id="copy-game">Copy game link</button><span id="local-record"></span></div>
+<canvas id="lab-board" width="800" height="390" aria-label="Physics preview" aria-describedby="instructions"></canvas>
+<div id="sliders"></div>
+<div id="rhythm-controls" hidden><label>Lane <select id="lane"><option value="0">Top</option><option value="1">Middle</option><option value="2">Bottom</option></select></label><button id="parry">Parry</button></div>
+<div id="trace-controls" hidden aria-label="Trace points"></div>
+<div class="lab-actions"><button id="run" disabled>Play</button><button id="reset-chassis">Reset game</button></div>
+<p id="result" role="status"></p><p id="arcade-gift" role="status" hidden></p>
+</section>
+<aside class="side bridge">
+<h2>Universal Bridge</h2>
+<dl><div><dt>Points</dt><dd id="points">0</dd></div><div><dt>Loaded shots</dt><dd id="shots">0</dd></div><div><dt>Shots used</dt><dd id="round">0</dd></div></dl>
+<label class="target-progress">Practice target <progress id="bridge-target" max="3" value="0"></progress></label>
+<button id="consume" disabled>Use loaded shot</button>
+<p id="bridge-result" role="status">Clear a game to load a shot.</p>
+<details><summary>GamePluginConfig</summary><pre id="config"></pre><a href="/game-plugins.json" download>Download example JSON</a><br><a href="/GamePluginConfig.cs" download>Download C# data contract</a></details>
+</aside></div>
+</main><script type="module" src="/chassis-ui.mjs?v=11"></script></body></html>

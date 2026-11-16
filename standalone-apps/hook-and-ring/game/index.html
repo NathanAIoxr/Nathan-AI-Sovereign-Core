@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12100e">
+<meta name="description" content="Hook &amp; Ring by Nathan Tabor. A ring on a rope, one hook straight ahead.">
+<link rel="icon" href="/icon.svg">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/style.css?v=7">
+<title>Hook &amp; Ring by Nathan Tabor</title>
+</head>
+<body>
+<header class="top"><div class="top-inner">
+<a class="brand" href="/" aria-label="Hook and Ring home"><span class="brand-icon"></span> <span>HOOK <i>&amp;</i> RING</span></a>
+<div class="top-actions">
+<a class="arcade-link" href="/arcade">Toss &amp; Target Arcade</a>
+<a class="arcade-link" href="/competition">Play Friends</a>
+<button class="quiet" id="open-rewards" type="button">Rewards</button>
+<button class="quiet" id="sound" type="button" aria-pressed="false">Sound off</button>
+<button class="quiet" id="open-settings" type="button">Settings</button>
+</div>
+</div></header>
+<main>
+<div class="hero">
+<div><h1>Hook <em>&amp;</em> Ring</h1><p class="byline">By Nathan Tabor</p></div>
+<div class="mode-picker"><label for="mode">Game mode</label><select id="mode"><option value="practice">Practice</option><option value="first5">First to 5</option><option value="first11">First to 11</option><option value="first21">First to 21</option><option value="ladder">Tug of War</option><option value="streak">Sudden Death</option><option value="trick">Trick Shots</option><option value="breeze">Porch Breeze</option><option value="daily">Daily Tournament</option></select></div>
+</div>
+<div class="layout">
+<section class="stage-card" aria-label="Hook and Ring play area">
+<div class="stage-top"><div><span class="dot"></span><span id="phase-label">Ready to swing</span></div><button id="view" class="quiet" aria-pressed="false" type="button">2D view</button></div>
+<div class="arena" id="arena">
+<canvas id="scene" aria-label="Ring hangs from a rope facing a centered wall hook"></canvas>
+<div class="stage-instructions"><span id="cue">Grab the ring, pull back, then release.</span></div>
+<div id="feedback" class="feedback" hidden></div>
+<div id="gift-toast" class="gift-toast" hidden><strong>A gift for you</strong><span id="gift-toast-detail"></span></div>
+</div>
+<div class="control-strip">
+<button id="launch" class="primary" type="button">Release ring <span aria-hidden="true">→</span></button>
+<button id="replay" type="button" disabled>Replay</button>
+<button id="reset" type="button">Reset</button>
+<button id="end-session" type="button" hidden>End session</button>
+</div>
+<details class="adjust" id="adjust"><summary>Aim &amp; pull controls</summary><div class="slider-grid"><label for="aim">Aim <output id="aim-value">Center</output></label><input type="range" id="aim" min="-100" max="100" value="0" step="1"><label for="pull">Pull <output id="pull-value">49%</output></label><input type="range" id="pull" min="0" max="100" value="49" step="1"></div></details>
+</section>
+<aside aria-label="Score and progress">
+<section class="panel score-panel">
+<div class="panel-heading"><h2>Scorecard</h2><span id="mode-tag">Practice</span></div>
+<div id="solo-score" class="score"><strong id="catches">0</strong><div>Catches</div></div>
+<div id="versus-score" class="versus-score" hidden><div><strong id="p1">0</strong><span id="p1-name">Player 1</span></div><span aria-hidden="true">/</span><div><strong id="p2">0</strong><span id="p2-name">Player 2</span></div></div>
+<div id="ladder" class="ladder" hidden aria-label="Tug of War position"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<div class="stats"><div><span>Tosses</span><strong id="throws">0</strong></div><div><span>Accuracy</span><strong id="accuracy">—</strong></div></div>
+<p id="match-status" class="match-status" aria-live="polite">Set your aim and swing.</p>
+<div class="match-buttons"><button class="wide" type="button" id="play-opponent">Play AI</button>
+<button class="wide" type="button" id="players">Play local versus</button>
+<button class="wide" type="button" id="leave-opponent" hidden>Back to solo</button></div>
+<p id="opponent-banter" class="opponent-banter" hidden></p>
+<div id="daily-controls" class="daily-controls" hidden>
+<div class="timer"><span>2-minute round</span><strong id="clock">2:00</strong></div>
+<button type="button" id="start-daily" class="primary wide">Start ranked round</button>
+<button type="button" id="share" class="wide" disabled>Share challenge</button>
+<button type="button" id="board" class="wide">Leaderboard</button>
+</div>
+</section>
+<section class="panel gift-panel" id="break-card" hidden aria-live="polite">
+<div class="panel-heading"><h2 id="break-title">Thanks for hanging out</h2><button type="button" class="quiet" id="dismiss-break" aria-label="Dismiss break reward">×</button></div>
+<p id="break-detail"></p>
+</section>
+<section class="panel gift-panel" id="gift-card" hidden aria-live="polite">
+<div class="panel-heading"><h2 id="gift-title">A gift for you</h2><button type="button" class="quiet" id="dismiss-gift" aria-label="Dismiss gift">×</button></div>
+<p id="gift-detail"></p><button type="button" class="wide" id="view-gift">See your rewards</button>
+</section>
+<section class="panel progress-panel">
+<div class="panel-heading"><h2>Ring collection</h2><strong id="unlocked">1 / 4</strong></div>
+<div id="skins" class="skins" aria-label="Available rings"></div>
+<p id="progress-caption">5 catches to unlock Copper</p>
+<progress id="progress" max="5" value="0" aria-label="Catches toward next ring"></progress>
+</section>
+</aside>
+</div>
+<footer><span>Hook &amp; Ring by Nathan Tabor</span><a class="arcade-link" href="/yard-darts">Yard Darts</a><a class="arcade-link" href="/grapple-it">Grapple It</a><span>Cartridge 01</span></footer>
+</main>
+
+<dialog id="opponent-settings" aria-labelledby="opponent-title">
+<div class="dialog-head"><h2 id="opponent-title">Play AI</h2><button type="button" class="quiet" data-close="opponent-settings">Close</button></div>
+<form id="opponent-form" class="fields">
+<label for="opponent-name">Opponent name</label><input id="opponent-name" type="text" value="Nathan AI 🚀" autocomplete="off">
+<label for="opponent-level">Difficulty</label><select id="opponent-level"><option value="warmup">Warm-up</option><option value="steady">Steady</option><option value="sharp">Sharp</option><option value="full">Full ON</option></select>
+<p id="opponent-hint">A steady opponent who lands plenty of catches.</p>
+<label for="opponent-mode">Match rules</label><select id="opponent-mode"><option value="first5">First to 5</option><option value="first11">First to 11</option><option value="first21">First to 21</option><option value="ladder">Tug of War</option></select>
+<label class="check"><input type="checkbox" id="opponent-talk" checked> In-game banter</label>
+<details class="opponent-bio" id="opponent-bio"><summary>About the Nathan AI 🚀 preset</summary><p>Inspired by Nathan Tabor. From his own description.</p><blockquote>Baby boy of three, son of a pig farmer (who daddy later became a IFB KJV only minister and house painter)</blockquote><blockquote id="pk-line">PK .. that’s the wild card .. that boy ain’t rite</blockquote><p>That’s when the psychiatrists and psychologists sit straight up and say, “What?”</p></details>
+<button type="submit" class="primary wide">Start match</button>
+</form>
+</dialog>
+
+<dialog id="settings" aria-labelledby="settings-title">
+<div class="dialog-head"><h2 id="settings-title">Settings</h2><button type="button" class="quiet" data-close="settings" aria-label="Close settings">Close</button></div>
+<div class="fields">
+<label for="controls">Controls</label><select id="controls"><option value="touch">Touch / mouse</option><option value="tilt">Tilt to aim</option><option value="hybrid">Touch + tilt</option></select>
+<p id="motion-note">Touch with one or more fingers. In tilt and hybrid modes, keep the phone in your hands.</p>
+<button type="button" id="zero-motion">Center tilt</button>
+<label for="scale">Touch scale <output id="scale-value">1.00×</output></label><input id="scale" type="range" min="0.65" max="1.7" step="0.01" value="1">
+<label for="calibration">Measured width of the line below (mm)</label><div id="ruler"></div><div class="calibrate"><input id="calibration" type="number" min="10" max="120" step=".1" inputmode="decimal" required placeholder="e.g. 31.8"><button id="apply-scale" type="button">Calibrate</button></div>
+<button type="button" id="reset-scale">Reset calibration</button>
+<button type="button" id="export-replay" disabled>Download last replay</button>
+<label class="check"><input type="checkbox" id="haptic"> Haptics when supported</label>
+<label class="check"><input type="checkbox" id="adaptive"> Adaptive grip</label>
+</div>
+</dialog>
+
+<dialog id="leaderboard" aria-labelledby="leader-title">
+<div class="dialog-head"><h2 id="leader-title">Daily leaderboard</h2><button type="button" class="quiet" data-close="leaderboard">Close</button></div>
+<p id="board-status" role="status"></p><ol id="board-list"></ol>
+<form id="submit-score" hidden><label for="alias">Leaderboard name</label><input type="text" id="alias" maxlength="24" required autocomplete="nickname" placeholder="Your name"><button type="submit" class="primary">Post my score</button></form>
+</dialog>
+<dialog id="rewards" aria-labelledby="rewards-title">
+<div class="dialog-head"><h2 id="rewards-title">Your Rewards</h2><button type="button" class="quiet" data-close="rewards">Close</button></div>
+<p id="reward-balance"></p><p id="reward-days"></p>
+<h3>Gift rings</h3><div class="reward-list" id="gift-rings"></div>
+<h3>Boards</h3><div class="reward-list" id="gift-boards"></div>
+<h3>Gift history</h3><ol id="gift-history"></ol>
+</dialog>
+<div id="announce" class="sr-only" aria-live="polite"></div>
+<script type="module" src="/app.mjs?v=9"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#091c24" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="YARD DARTS" />
+<meta name="description" content="YARD DARTS — THE GAME. A colorful, entirely digital backyard arcade game with solo, computer, and two-player play." />
+<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+<link rel="apple-touch-icon" href="/icon-192.png" />
+<title>YARD DARTS — THE GAME</title>
+<style>
+:root { --ink:#081921; --ink2:#10303b; --cream:#fff9e8; --mint:#50f8d0; --gold:#ffe16a; --pink:#ff6c9b; --muted:#a9c5bd; --line:#325561; }
+* { box-sizing:border-box; }
+html { background:var(--ink); }
+body { margin:0; min-height:100svh; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--cream); background:radial-gradient(circle at 50% -18%,#285b53 0%,#0d323a 36%,#081921 75%); overscroll-behavior:none; }
+button { font:inherit; cursor:pointer; border:0; }
+button:focus-visible, canvas:focus-visible { outline:3px solid #fff; outline-offset:3px; }
+.app { width:min(100%,590px); margin:0 auto; padding:10px 13px max(16px,env(safe-area-inset-bottom)); }
+header { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:5px 2px 12px; }
+.brand { min-width:0; }
+.eyebrow { font-size:10px; font-weight:900; letter-spacing:3.5px; color:var(--mint); text-transform:uppercase; }
+h1 { font-family:Impact,"Arial Black",system-ui,sans-serif; margin:0; text-transform:uppercase; font-size:clamp(39px,11vw,68px); letter-spacing:1px; font-weight:950; line-height:.96; color:var(--gold); text-shadow:2px 3px 0 #db5278,4px 6px 0 #0a181e; white-space:nowrap; }
+.subtitle { font-size:11px; letter-spacing:2.1px; font-weight:850; color:#f5d3a5; margin-top:7px; }
+.header-icon { height:60px; width:60px; flex:0 0 60px; border:2px solid #70d7b0; border-radius:19px; background:linear-gradient(145deg,#31675c,#102b39); display:grid; place-items:center; box-shadow:0 5px 0 #051117,inset 0 0 18px #3d976744; }
+.header-icon svg { width:49px; height:49px; }
+.menu { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; margin-bottom:10px; }
+.mode { padding:10px 5px; border-radius:12px; font-size:12px; font-weight:950; letter-spacing:.35px; background:#1a3e46; color:#b9ddd3; border:1.5px solid #476c69; transition:transform .1s,border-color .1s; }
+.mode.active { color:#082523; background:var(--mint); border-color:#c1fff1; box-shadow:0 4px 0 #1d7e70; }
+.mode:active,.btn:active { transform:translateY(2px); }
+.hud { display:grid; grid-template-columns:1fr 1.1fr 1fr; gap:7px; margin-bottom:11px; }
+.score { min-width:0; border-radius:14px; background:#183e43; border:1.5px solid #45706e; text-align:center; padding:6px 4px 5px; }
+.score.you { background:linear-gradient(155deg,#285c57,#14413f); border-color:#59bd9f; }
+.score.them { background:linear-gradient(155deg,#554057,#342f44); border-color:#a16e84; }
+.score small { display:block; color:#d0e0d8; font-size:9px; letter-spacing:1.2px; font-weight:900; white-space:nowrap; }
+.score strong { display:block; font-size:28px; line-height:1.2; font-family:Impact,"Arial Black",sans-serif; font-variant-numeric:tabular-nums; color:#fff1af; }
+.center-hud { display:flex; flex-direction:column; justify-content:center; align-items:center; gap:4px; min-width:0; }
+.round { font-size:12px; font-weight:950; white-space:nowrap; letter-spacing:.5px; }
+.turn { font-size:10px; font-weight:900; letter-spacing:.35px; color:var(--mint); white-space:nowrap; text-align:center; }
+.darts-left { font-size:10px; color:#cbded0; text-align:center; }
+.court-wrap { position:relative; border-radius:19px; overflow:hidden; border:4px solid #6fe4b6; background:#2e9d60; box-shadow:0 9px 0 #041d22,0 18px 40px #0007,inset 0 0 20px #0018; }
+canvas { display:block; width:100%; height:auto; aspect-ratio:420/505; touch-action:none; cursor:crosshair; }
+.court-flag { position:absolute; top:12px; right:12px; pointer-events:none; border-radius:40px; font-size:10px; padding:6px 10px; font-weight:950; letter-spacing:.5px; color:#112a29; background:#ecffd4e8; box-shadow:0 3px 8px #0004; }
+.bottom { margin-top:15px; }
+.instructions { font-size:12px; font-weight:800; text-align:center; color:#d9ece0; padding:3px 0 12px; line-height:1.5; }
+.instructions b { color:var(--gold); }
+.actions { display:grid; grid-template-columns:1.15fr 1fr 1fr; gap:8px; }
+.btn { border-radius:12px; padding:12px 7px; min-height:46px; font-size:12px; font-weight:950; border:1px solid #6e8a7d; background:#29454a; color:#ebf5e4; box-shadow:0 4px 0 #04181e; }
+.btn.primary { background:var(--gold); color:#182722; border:1.5px solid #fff3a9; box-shadow:0 4px 0 #a66d31; font-size:15px; }
+.btn:disabled { opacity:.48; cursor:wait; }
+.sub-actions { display:flex; align-items:center; justify-content:space-between; margin:11px 2px 0; gap:7px; }
+.high { font-size:11px; letter-spacing:.3px; font-weight:800; color:#b9dcd1; }
+.high strong { color:var(--gold); }
+.tiny { font-size:10px; padding:8px 10px; background:transparent; color:#c1e5dc; border:1px solid #496d71; border-radius:10px; font-weight:800; }
+.footer { margin:15px 4px 4px; color:#83b4ad; text-align:center; font-size:9px; line-height:1.45; letter-spacing:.2px; }
+.toast { position:absolute; top:45%; left:50%; transform:translate(-50%,-50%) scale(.9); z-index:2; pointer-events:none; font-family:Impact,"Arial Black",sans-serif; font-weight:950; text-transform:uppercase; letter-spacing:2px; font-size:clamp(20px,7vw,40px); text-align:center; color:#fff6b7; text-shadow:2px 3px 0 #ae275d,4px 6px 0 #16343a,0 2px 16px #06160a; opacity:0; transition:opacity .16s,transform .18s; white-space:pre-line; width:90%; }
+.toast.show { opacity:1; transform:translate(-50%,-50%) scale(1); }
+.overlay { position:fixed; inset:0; z-index:10; background:#01151bd9; display:none; align-items:center; justify-content:center; padding:18px; }
+.overlay.open { display:flex; }
+.dialog { background:linear-gradient(145deg,#164049,#0e2730); border:2px solid var(--mint); box-shadow:0 16px 60px #000b,0 5px 0 #0a7865; border-radius:22px; width:min(100%,430px); padding:23px 21px; max-height:86svh; overflow:auto; }
+.dialog h2 { margin:0 0 10px; font-size:32px; font-family:Impact,"Arial Black",sans-serif; color:var(--gold); letter-spacing:.6px; }
+.dialog p { font-size:13px; line-height:1.63; color:#ecf3ec; }
+.dialog ul { padding-left:21px; color:#e5eee2; font-size:13px; line-height:1.72; }
+.dialog strong { color:var(--mint); }
+.dialog .btn { width:100%; margin-top:11px; }
+.dialog .result { font-family:Impact,"Arial Black",sans-serif; font-size:34px; color:#fff0a9; text-align:center; line-height:1.1; padding:16px 0 8px; }
+.dialog .result-sub { text-align:center; color:#e4f3d8; }
+@media (max-width:370px) { h1 { font-size:39px; } .header-icon { width:48px; height:48px; flex-basis:48px; } .subtitle { font-size:9px; letter-spacing:1.7px; } .app { padding-left:9px; padding-right:9px; } .score strong { font-size:24px; } .btn { font-size:11px; } }
+@media (max-height:740px) { .app { max-width:490px; } .subtitle { margin-top:3px; } header { padding-bottom:6px; } .menu { margin-bottom:6px; } .hud { margin-bottom:7px; } canvas { max-height:50svh; object-fit:fill; } .bottom { margin-top:10px; } .instructions { padding-bottom:6px; } }
+@media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto !important; transition:none !important; } }
+.safety {background:#3c211d;border:2px solid #ffcc52;color:#fff9e9;border-radius:12px;padding:10px 12px;margin:7px 0 12px;font-size:12px;line-height:1.5} .safety strong{color:#ffda72} .settings{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin:13px 2px 0;padding:10px;background:#163741;border:1px solid #4a7472;border-radius:12px;font-size:11px;font-weight:750} .settings label{display:flex;align-items:center;gap:4px} .settings select{background:#f7f4df;color:#102c31;border-radius:6px;border:0;padding:6px} .settings input{accent-color:#5dfbd5} .extras{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin:12px 0} body.calm .toast{transition:none} body.calm .court-wrap{box-shadow:none}
+.yard-nav{display:flex;justify-content:space-between;gap:12px;width:min(100% - 30px,580px);margin:12px auto 0;font-weight:700}.yard-nav a{color:#b3f7e2}
+
+.menu{grid-template-columns:repeat(3,minmax(0,1fr))}.yard-extras{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center;margin:10px 0}.yard-extras span{font-weight:850;color:#ffdf8e}
+.yard-panel{background:#132f3a;border:1px solid #47717a;border-radius:12px;margin:12px 0;padding:12px}.yard-panel p{font-size:.82rem;margin:8px 0}.yard-panel h2{font-size:1rem;margin:0}.yard-panel input:not([type=checkbox]){background:#fff5d9;color:#122630;border:0;border-radius:7px;padding:.5rem;max-width:100%;font:inherit}
+.yard-panel button{margin:3px 0}#yard-reward{min-height:1.25em;text-align:center;font-size:.8rem;color:#ffe792}#yard-shop,#yard-board{color:#f5ffe9;width:min(94vw,565px);max-height:85dvh}#yard-shop::backdrop,#yard-board::backdrop{background:#09161cbb}.shop-table{width:100%;border-collapse:collapse;font-size:.8rem}.shop-table td,.shop-table th{text-align:left;padding:6px 5px;border-bottom:1px solid #4e6e73}.shop-table td:last-child{color:#ffe292}.yard-panel [hidden]{display:none}.yard-dialog-row{display:flex;justify-content:space-between;align-items:center;gap:8px}.yard-dialog-row button{min-height:40px}.yard-panel summary{cursor:pointer;margin:10px 0}@media(max-width:440px){.menu{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<nav aria-label="Arcade games" class="yard-nav"><a href="/arcade">‹ Toss &amp; Target Arcade</a><a href="/grapple-it">Grapple It</a></nav>
+<main class="app" aria-label="Yard Darts game">
+<header>
+ <div class="brand"><div class="eyebrow">The backyard arcade</div><h1>YARD DARTS</h1><div class="subtitle">THE GAME <span aria-hidden="true">✦</span> AIM • FLICK • STICK</div></div>
+ <div class="header-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><ellipse cx="32" cy="34" rx="25" ry="15" fill="none" stroke="#ffe270" stroke-width="5"/><ellipse cx="32" cy="34" rx="12" ry="7" fill="none" stroke="#f86695" stroke-width="4"/><path d="M35 10L25 31M36 9L45 17L32 23Z" fill="#5bf7d0" stroke="#0d2735" stroke-width="2"/><path d="M27 27L25 40" stroke="#fff6bc" stroke-width="3"/></svg></div>
+</header>
+<nav class="menu" aria-label="Game modes">
+ <button type="button" class="mode" id="solo" aria-pressed="false">SOLO ARCADE</button>
+ <button type="button" class="mode active" id="cpu" aria-pressed="true">VS COMPUTER</button>
+ <button type="button" class="mode" id="local" aria-pressed="false">2 PLAYERS</button>
+ <button type="button" class="mode" id="practice" aria-pressed="false">PRACTICE</button>
+ <button type="button" class="mode" id="daily" aria-pressed="false">DAILY TOURNAMENT</button>
+</nav>
+<div class="yard-extras"><span id="yard-coins"></span><button class="btn" id="yard-shop-open" type="button">Rewards &amp; Shop</button><button class="btn" id="yard-board-open" type="button">Leaderboard</button></div>
+<p id="yard-reward" role="status"></p>
+<section id="yard-daily" class="yard-panel" hidden>
+<h2>Free Daily Tournament</h2>
+<p>10 darts · <strong id="yard-clock">2:00</strong> · New court at midnight Eastern.</p>
+<button class="btn primary" id="yard-start" type="button">Start ranked round</button>
+<div id="yard-submit-panel" hidden><label>Leaderboard name <input id="yard-alias" maxlength="24" autocomplete="nickname"></label> <button class="btn" id="yard-submit" type="button">Post score</button></div>
+<button class="btn" id="yard-share" type="button" hidden>Share challenge</button>
+<p id="yard-daily-status" role="status"></p>
+</section>
+<section class="hud" aria-label="Scores and round">
+ <div class="score you"><small id="name1">YOU</small><strong id="score1">00</strong></div>
+ <div class="center-hud"><div class="round" id="round">ROUND 1 / 3</div><div class="turn" id="turn" role="status" aria-live="polite">YOUR TURN</div><div class="darts-left" id="shots">3 DARTS LEFT</div></div>
+ <div class="score them"><small id="name2">COMPUTER</small><strong id="score2">00</strong></div>
+</section>
+<aside class="safety" role="note"><strong>⚠ DON’T PLAY THIS FOR REAL.</strong> A digital memory game only. Real metal-tipped yard darts can cause severe or fatal injuries. No real projectiles.</aside>
+<div class="court-wrap">
+ <canvas id="game" width="840" height="1010" tabindex="0" role="img" aria-label="Virtual lawn darts game field. Tap or drag on the lawn to aim and throw. Use keyboard arrow keys to move aim, space to throw."></canvas>
+ <div class="court-flag" id="wind">WIND → 0</div>
+ <div class="toast" id="toast" aria-hidden="true"></div>
+</div>
+<section class="settings" aria-label="Game settings"><label>Computer skill <select id="difficulty"><option value="easy">Easy</option><option value="normal" selected>Normal</option><option value="hard">Hard</option></select></label><label><input type="checkbox" id="calm"> Calm visuals</label><label><input type="checkbox" id="windToggle" checked> Wind challenge</label></section>
+<section class="bottom">
+ <div class="instructions" id="instruction">Tap a spot on the lawn to throw, or <b>drag and release</b> to aim. <b>Center = 5 points!</b></div>
+ <div class="actions"><button type="button" class="btn primary" id="throw">🎯 THROW!</button><button type="button" class="btn" id="new">↻ NEW GAME</button><button type="button" class="btn" id="help">? HOW TO PLAY</button></div>
+ <div class="sub-actions"><div class="high" id="best">SOLO BEST <strong>00</strong></div><button type="button" class="tiny" id="sound" aria-pressed="false">♪ SOUND OFF</button><button type="button" class="tiny" id="install" hidden>＋ INSTALL ARCADE</button></div>
+</section>
+<section class="extras" aria-label="Additional functions"><button type="button" class="tiny" id="copyScore">COPY SCORE</button><button type="button" class="tiny" id="resetBest">RESET PERSONAL BEST</button><button type="button" class="tiny" id="hardwareHelp">SAFE CONTROLLER GUIDE</button></section>
+<footer class="footer">By Nathan Tabor<br/>A 100% DIGITAL BACKYARD GAME • NO REAL PROJECTILES • NO ACCOUNT OR TRACKING<br/>YARD DARTS — THE GAME</footer>
+</main>
+<div class="overlay" id="helpOverlay" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+ <div class="dialog"><h2 id="helpTitle">HOW TO PLAY</h2><p>Welcome to <strong>YARD DARTS — THE GAME</strong>. This is a virtual arcade competition: throw bright digital lawn darts into a backyard ring.</p><ul><li><strong>TAP</strong> anywhere on the field for a quick throw, or <strong>DRAG AND RELEASE</strong> to fine-tune your aim.</li><li>Use <strong>← ↑ → ↓</strong> to move the crosshair and <strong>SPACE</strong> or the <strong>THROW!</strong> button to shoot.</li><li><strong>5 points</strong> for a bullseye, <strong>3</strong> for the inner zone, <strong>1</strong> for the outer ring.</li><li><strong>WIND</strong> nudges the dart sideways, so aim a little against the arrow.</li><li><strong>SOLO</strong>: 5 rounds × 3 darts. Chase your personal best.</li><li><strong>VS COMPUTER</strong> or <strong>2 PLAYERS</strong>: 3 rounds, 3 darts each per round. Highest total wins.</li></ul><p>Everything happens on screen. No physical projectiles are involved. <strong>DON’T PLAY THIS FOR REAL:</strong> real metal-tipped yard darts can cause serious or fatal injuries.</p><button type="button" class="btn primary" id="closeHelp">LET'S PLAY!</button></div>
+</div>
+<div class="overlay" id="endOverlay" role="dialog" aria-modal="true" aria-labelledby="endTitle">
+ <div class="dialog"><h2 id="endTitle">GAME OVER</h2><div class="result" id="endResult">YOU WIN!</div><p class="result-sub" id="endDetail"></p><button type="button" class="btn primary" id="again">PLAY AGAIN</button><button type="button" class="btn" id="changeMode">TRY A DIFFERENT MODE</button></div>
+</div>
+<dialog class="yard-panel" id="yard-shop" aria-labelledby="yard-shop-title">
+<div class="yard-dialog-row"><h2 id="yard-shop-title">Rewards &amp; Shop</h2><button class="btn" id="yard-shop-close" type="button">Close</button></div>
+<p id="yard-shop-coins"></p><p>Play days earn 40, 60, 80, 100, 120, 150 and 200 Coins. A missed day pauses the track. Earn 250 Coins for your first three Practice darts and 75 for your first verified Daily Tournament score each day.</p><div class="yard-extras" id="yard-items"></div>
+<details><summary>Recent rewards</summary><ul id="yard-history"></ul></details>
+<details><summary>Planned U.S. storefront pricing</summary>
+<p>Free download, free games, free ranked play and free tournament entry. Earn Coins through play and spend them on cosmetics.</p>
+<table class="shop-table"><thead><tr><th>Offer</th><th>U.S. price</th></tr></thead><tbody>
+<tr><td>Remove automatic ads</td><td>$2.99 once</td></tr>
+<tr><td>Founder’s Gold dart set and nameplate</td><td>$1.99 once</td></tr>
+<tr><td>Themed court</td><td>$1.99 each</td></tr>
+<tr><td>Three-court collection</td><td>$4.99 once</td></tr>
+<tr><td>Host Pass for one advanced event</td><td>$1.99</td></tr>
+<tr><td>Yard Darts VIP</td><td>$4.99/month or $29.99/year</td></tr>
+</tbody></table>
+<p>Permanent ad removal becomes available when automatic ads launch. The web build uses earned Coins.</p>
+</details>
+<details><summary>Planned online play and hosting</summary>
+<p>Free casual and ranked 1v1. Ranked matches use best of three with equal wind conditions and equal turns. Free brackets are planned for up to 8 players, one per account each week. Advanced brackets support up to 32 players, scheduling, co-hosting and results export.</p>
+<p>VIP includes three advanced-host credits per week, longer results history and monthly cosmetic and skill challenges. Each credit or single-event Host Pass is used when a valid bracket starts. Entry stays free.</p>
+</details>
+</dialog>
+<dialog class="yard-panel" id="yard-board" aria-labelledby="yard-board-title">
+<div class="yard-dialog-row"><h2 id="yard-board-title">Yard Darts leaderboard</h2><button class="btn" id="yard-board-close" type="button">Close</button></div>
+<p id="yard-board-status" role="status"></p>
+<ol id="yard-board-scores"></ol>
+</dialog>
+<script src="/yard-darts.js?v=8" type="module"></script>
+</body>
+</html>
