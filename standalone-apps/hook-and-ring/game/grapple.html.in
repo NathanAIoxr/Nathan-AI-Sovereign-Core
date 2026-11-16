@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0e1d20">
+<title>Grapple It by Nathan Tabor</title>
+<link rel="icon" href="/icon.svg"><link rel="stylesheet" href="/grapple.css?v=9">
+</head><body>
+<header><nav aria-label="Games"><a href="/">‹ Hook and Ring by Nathan Tabor</a><a href="/arcade">Toss &amp; Target Arcade</a></nav></header>
+<main>
+<section class="intro"><div><h1>Grapple <em>It</em></h1><p class="byline">By Nathan Tabor</p><p class="intro-copy">Pump a bubble up through the water. Steer it through the tank and latch onto the glowing target.</p></div>
+<div class="curator"><div class="fruit" role="img" aria-label="Grape Apple has an apple core, a head, arms and legs made of grapes, and little apples for fingers and toes">
+<div class="fruit-head"><i></i><i></i><i></i><i></i><b></b></div><div class="apple core"></div>
+<div class="fruit-limb arm left"><i></i><i></i><i></i><span class="digits"><b class="apple"></b><b class="apple"></b><b class="apple"></b></span></div>
+<div class="fruit-limb arm right"><i></i><i></i><i></i><span class="digits"><b class="apple"></b><b class="apple"></b><b class="apple"></b></span></div>
+<div class="fruit-limb leg left"><i></i><i></i><span class="digits"><b class="apple"></b><b class="apple"></b><b class="apple"></b></span></div>
+<div class="fruit-limb leg right"><i></i><i></i><span class="digits"><b class="apple"></b><b class="apple"></b><b class="apple"></b></span></div>
+</div><div><strong>Grape 🍇 Apple 🍎</strong><span>Your arcade curator</span><span class="curator-flag" id="curator-flag" hidden>⚑ All bubble courses cleared</span></div></div></section>
+<div class="layout">
+<section class="play" aria-label="Bubble grapple game">
+<div class="board-head"><label for="stage">Course</label><select id="stage"><option value="0">Harbor Lift</option><option value="1">Canal Crossing</option><option value="2">Orchard Lift</option><option value="3">Sunken Salvage</option></select><span id="goal">0 / 1 caught</span></div>
+<div id="tank" class="tank" data-scene="harbor"><canvas id="grapple-scene" aria-label="Bubble floats toward the glowing grapple target"></canvas>
+<div id="overlay" hidden><strong>Course cleared!</strong><button id="next" type="button">Next course</button></div></div>
+<div class="controls"><button id="left" type="button" aria-label="Steer left">←</button><button id="pump" type="button">Pump Air <span aria-hidden="true">↑</span></button><button id="right" type="button" aria-label="Steer right">→</button></div>
+<div class="game-foot"><span id="game-status" role="status">Tap or hold Pump Air. Steer with the arrow buttons or keys.</span><button id="restart" type="button">Reset</button></div>
+</section>
+<aside>
+<section class="side"><h2>Bubble log</h2><dl><div><dt>Air pumps</dt><dd id="pumps">0</dd></div><div><dt>Fewest pumps</dt><dd id="best">—</dd></div></dl></section>
+<section class="side"><h2>From the curator’s collection</h2>
+<details><summary>Ancient naval warfare</summary><p>Polybius describes a Roman boarding bridge in his account of the First Punic War. Historians discuss its role at Mylae in 260 BCE. <a href="https://journals.ub.uni-heidelberg.de/index.php/deimos/issue/view/7196/1407">Historical study</a></p></details>
+<details><summary>Grappling at sea</summary><p>The National Army Museum identifies grappling hooks and lines in its account of ship boarding in the Napoleonic era. <a href="https://collection.nam.ac.uk/detail.php?acc=1971-02-33-533-2">Museum collection</a></p></details>
+<details><summary>A grapnel on a salmon boat</summary><p>The National Maritime Museum catalogues a metal grapnel with rope from a salmon boat dating to around 1922. <a href="https://www.rmg.co.uk/collections/objects/rmgc-object-252026">Museum collection</a></p></details>
+</section>
+</aside></div>
+<section class="arcade collection" id="collection" aria-labelledby="progress-title">
+<h2 id="progress-title">Grape 🍇 Apple 🍎’s collection</h2>
+<p class="progress-summary" id="progress-summary" aria-live="polite"></p>
+<ol class="milestones" id="milestones"></ol>
+</section>
+<section class="arcade" aria-labelledby="planned-title">
+<h2 id="planned-title">Planned arcade games</h2>
+<div class="arcade-grid roadmap">
+<article><h3>Backyard</h3><p>Quoits, Cornhole, and pub Darts. Time the arc and land on marked targets.</p><p class="actions">Toss · Ring · Stick</p></article>
+<article><h3>Rope &amp; Wrap</h3><p>Ropes, Magnetic Fishing, and Crane Claw. Capture posts or retrieve arcade prizes.</p><p class="actions">Loop · Latch · Reel</p></article>
+<article><h3>Workshop</h3><p>Sledge Hammers and Axes. Hit timing pads and earn points from swinging arcade targets.</p><p class="actions">Swing · Tap · Stick</p></article>
+<article><h3>Precision Room</h3><p>Chinese Throwing Stars, Killer Hairpins, Bows, Crossbows, and Wrist Bows. Score on patterned arcade boards. Arrow and Holiday editions.</p><p class="actions">Flick · Bank · Thread</p></article>
+<article><h3>Currents &amp; Curves</h3><p>Ornament Catch and underwater treasure variants. Reel in a floating prize.</p><p class="actions">Skip · Glide · Catch</p></article>
+<article><h3>Holiday</h3><p>Candy-cane hooks and wreath rings, Cupid hearts, and pumpkin-stem hooks.</p><p class="actions">Hook · Launch · Drop</p></article>
+</div></section>
+<section class="arcade" id="arcade"><h2>Grapple It · Through the Ages</h2><div class="arcade-grid">
+<article><h3><a href="/arcade?event=roman#play">Ancient Naval Warfare</a></h3><p>Start the campaign by grappling the empty training barge. Polybius describes the corvus as a Roman boarding bridge in the First Punic War. <a href="https://adfonteslibrary.org/polybius-1">Histories, Book 1.22</a></p></article>
+<article><h3>Castle Walls</h3><p>Clear Ancient Naval Warfare to unlock the lantern-ring course. The Met’s collection includes a Japanese grappling hook catalogued as a kagi nawa. <a href="https://www.metmuseum.org/art/collection/search/24590">The Met</a></p></article>
+<article><h3>Wild West Frontier</h3><p>Clear Castle Walls to unlock the rolling stagecoach prop. Cowboys used a rope called a lariat in cattle work. <a href="https://nationalcowboymuseum.org/wp-content/uploads/2026/02/Tech-on-the-Trail-color-pkt.pdf">National Cowboy &amp; Western Heritage Museum</a></p></article>
+<article><h3>Modern Rescue</h3><p>Clear Wild West Frontier to unlock the cliff course. Thread a line around the ledge to reach the rescue dummy’s anchor.</p></article>
+</div></section>
+</main><script type="module" src="/grapple-ui.mjs?v=9"></script></body></html>

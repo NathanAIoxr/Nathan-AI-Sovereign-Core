@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0e1d20">
+<title>Toss &amp; Target Arcade by Nathan Tabor</title>
+<link rel="icon" href="/icon.svg"><link rel="stylesheet" href="/grapple.css">
+<link rel="stylesheet" href="/arcade.css">
+</head><body>
+<header><nav aria-label="Games"><a href="/">‹ Hook &amp; Ring</a><a href="/yard-darts">Yard Darts</a><a href="/grapple-it">Grapple It</a><a href="/grapple-it#collection">Curator’s collection</a><a href="/chassis">Five Physics Chassis</a></nav></header>
+<main>
+<div class="intro"><div><h1>Toss &amp; <em>Target</em></h1><p class="byline">Arcade by Nathan Tabor</p></div></div>
+<div class="featured">
+<a href="/chassis"><strong>60 Arcade Games</strong><span>Find a game across five physics chassis</span></a>
+<a href="/competition"><strong>Play Friends</strong><span>Invite a rival or host a 32-seat bracket</span></a>
+
+<a href="/"><strong>Hook &amp; Ring</strong><span>Flagship · Swing and hook</span></a>
+<a href="/yard-darts"><strong>Yard Darts</strong><span>Solo, computer or two players</span></a>
+<a href="/grapple-it"><strong>Grapple It</strong><span>Bubble toy and historical campaign</span></a>
+</div>
+<div class="arcade-layout" id="play">
+<section class="side event-picker">
+<h2>Choose an event</h2>
+<p id="progress">0 / 10 cleared</p>
+<div id="events" class="event-list"></div>
+</section>
+<section class="side course">
+<div class="course-head"><h2 id="event-name"></h2><label>Season <select id="season"><option value="classic">Classic</option><option value="winter">Winter / Christmas</option><option value="valentine">Valentine’s Day</option><option value="halloween">Halloween</option><option value="july">4th of July</option></select></label></div>
+<p class="guide"><strong>Grape 🍇 Apple 🍎</strong> <span id="guide"></span></p>
+<canvas id="court" width="740" height="385" role="img" aria-label="Precision game court" aria-describedby="guide result"></canvas>
+<div id="settings">
+<label>Angle <output id="angle-value" for="angle"></output><input id="angle" type="range" min="0" max="78" value="32"></label>
+<label>Power <output id="force-value" for="force"></output><input id="force" type="range" min="20" max="100" value="75"></label>
+<label>Spin <output id="spin-value" for="spin"></output><input id="spin" type="range" min="0" max="100" value="55"></label>
+</div>
+<div class="course-actions"><button type="button" id="toss">Toss</button><label><input type="checkbox" id="pk"> PK Wild Card</label></div>
+<p class="pk-line">PK .. that’s the wild card .. that boy ain’t rite …</p>
+<p id="wind"></p>
+<p id="result" role="status"></p>
+</section>
+</div>
+<details class="side moves"><summary>Arcade moves</summary><p>Hook · Toss · Throw · Grapple · Ring · Catch · Swing · Sling · Flick · Launch · Cast · Snag · Latch · Spear · Lasso · Stick · Nail · Thread · Bank · Drop · Reel</p></details>
+</main><script type="module" src="/arcade.mjs"></script></body></html>

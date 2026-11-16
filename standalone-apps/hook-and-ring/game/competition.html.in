@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0e1d20">
+<title>Hook and Ring · Play Friends by Nathan Tabor</title>
+<link rel="icon" href="/icon.svg"><link rel="stylesheet" href="/grapple.css?v=9"><link rel="stylesheet" href="/competition.css">
+</head>
+<body>
+<header><nav aria-label="Games"><a href="/">‹ Hook and Ring</a><a href="/chassis">Five Physics Chassis</a></nav></header>
+<main>
+<section class="intro"><div><h1>Play <em>Friends</em></h1><p class="byline">Hook and Ring by Nathan Tabor</p></div></section>
+<p id="status" role="status" aria-live="polite"></p>
+<div id="entrance" class="room-layout">
+<form id="create-event" class="side room-form">
+<h2>Host a match</h2>
+<label>Your name<input name="name" maxlength="24" autocomplete="nickname" required></label>
+<label>Event name<input name="title" maxlength="40" required value="Hook and Ring night"></label>
+<div class="room-pair">
+<label>Seats<select name="capacity"><option value="2">2 · Head to head</option><option value="4">4 · Bracket</option><option value="8">8 · Bracket</option><option value="16">16 · Bracket</option><option value="32">32 · Bracket</option></select></label>
+<label>Win at<select name="goal"><option value="3">3 catches</option><option value="5">5 catches</option><option value="11">11 catches</option></select></label>
+</div>
+<button class="room-primary">Create invite</button>
+</form>
+<form id="join-event" class="side room-form">
+<h2>Join by invite</h2>
+<label>Your name<input name="name" maxlength="24" autocomplete="nickname" required></label>
+<label>Invite code<input name="code" inputmode="text" autocapitalize="off" spellcheck="false" maxlength="10" pattern="[A-Fa-f0-9]{10}" required></label>
+<button class="room-primary">Join event</button>
+</form>
+</div>
+<section id="event" hidden>
+<div class="side room-bar">
+<div><h2 id="event-title"></h2><p id="event-subtitle"></p></div>
+<div class="room-actions"><button id="copy-invite">Copy invite</button><button id="download-results" hidden>Download results</button><button id="exit-room">Back to lobby</button><button id="cancel-room" hidden>Cancel event</button></div>
+</div>
+<p id="invite-display" hidden></p>
+<div class="room-layout event-layout">
+<section id="play-room" class="side" aria-labelledby="play-title">
+<h2 id="play-title">Playfield</h2>
+<canvas id="court" width="660" height="340" role="img" aria-label="Ring, rope and hook. Set pull and aim with the sliders or drag the ring."></canvas>
+<p id="turn-status" role="status"></p>
+<div id="toss-controls" class="room-pair" hidden>
+<label>Pull <output for="pull" id="pull-read">49</output><input id="pull" type="range" min="10" max="95" value="49"></label>
+<label>Aim <output for="aim" id="aim-read">0</output><input id="aim" type="range" min="-100" max="100" value="0"></label>
+</div>
+<div class="room-actions">
+<button id="toss" class="room-primary" hidden>Release ring</button>
+<button id="host-start" class="room-primary" hidden>Start bracket</button>
+</div>
+<p id="match-detail"></p><p id="wind-readout"></p>
+</section>
+<section class="side" aria-labelledby="players-title">
+<h2 id="players-title">Players</h2><ol id="players"></ol>
+<h2 id="bracket-title">Bracket</h2><div id="bracket"></div>
+</section>
+</div>
+</section>
+</main>
+<script type="module" src="/competition-ui.mjs?v=2"></script>
+</body>
+</html>
