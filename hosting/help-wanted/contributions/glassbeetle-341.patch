@@ -1,0 +1,49 @@
+diff --git a/apps/api/test/projects-artifacts.e2e-spec.ts b/apps/api/test/projects-artifacts.e2e-spec.ts
+--- a/apps/api/test/projects-artifacts.e2e-spec.ts
++++ b/apps/api/test/projects-artifacts.e2e-spec.ts
+@@ -92,23 +92,28 @@
+       }).toThrow(/FOREIGN KEY/i);
+     });
+ 
+-    it('verifies the test harness exposes isolated storage and database paths inside tmpdir, never touching the real data directory', () => {
+-      const fileStorage = testApp.app.get(FileStorageService);
+-      const systemTmp = tmpdir();
+-      const realDataDir = resolveDefaultDataDir();
+-
+-      // Test storage root must be inside OS temp dir
+-      expect(fileStorage.storageRoot.startsWith(systemTmp)).toBe(true);
+-      // Test storage root must never match or be inside the real user data directory
+-      expect(fileStorage.storageRoot).not.toBe(
+-        path.resolve(realDataDir, 'storage'),
+-      );
+-
+-      // SQLite database file must also reside in temp dir
+-      const dbList = testApp.db.get<{ file: string }>('PRAGMA database_list');
+-      expect(dbList?.file).toBeDefined();
+-      expect(dbList!.file.startsWith(systemTmp)).toBe(true);
+-    });
++    it('verifies the test harness exposes isolated storage and database paths inside tmpdir, never touching the real data directory', async () => {
++      const fileStorage = testApp.app.get(FileStorageService);
++      const systemTmp = await fs.realpath(tmpdir());
++      const tempPrefix = systemTmp.endsWith(path.sep)
++        ? systemTmp
++        : systemTmp + path.sep;
++      const realDataDir = resolveDefaultDataDir();
++
++      // Test storage root must be inside OS temp dir
++      const storageRoot = await fs.realpath(fileStorage.storageRoot);
++      expect(storageRoot.startsWith(tempPrefix)).toBe(true);
++      // Test storage root must never match or be inside the real user data directory
++      expect(fileStorage.storageRoot).not.toBe(
++        path.resolve(realDataDir, 'storage'),
++      );
++
++      // SQLite can return the resolved spelling of a symlinked temp directory.
++      const dbList = testApp.db.get<{ file: string }>('PRAGMA database_list');
++      expect(dbList?.file).toBeDefined();
++      const databasePath = await fs.realpath(dbList!.file);
++      expect(databasePath.startsWith(tempPrefix)).toBe(true);
++    });
+   });
+ 
+   // ---------------------------------------------------------------------------
