@@ -80,6 +80,7 @@ async function load(){
 
 }
 $('timeline').onclick=()=>openTimeline(relatedSource(overview));
+$('double-mindedness').onclick=()=>openTimeline(relatedSource('mdb-timeline-double-mindedness'));
 $('jeb').onclick=()=>openTimeline(relatedSource(jebIndex));
 $('query').oninput=()=>{const rows=renderList();if(rows.length)open(rows.find(s=>s.id===active)||rows[0]);else{selection++;$('title').textContent='No matching sources';$('text').textContent='';$('metadata').textContent='';$('scope').textContent='';$('original').hidden=true;showTimeline({})}};
 $('kind').onchange=$('query').oninput;$('import').onclick=()=>$('file').click();
