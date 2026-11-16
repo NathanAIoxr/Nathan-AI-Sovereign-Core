@@ -65,10 +65,12 @@ The [portable static check](hosting-verification/index.html) has no runtime depe
 Create and verify a bundle from a clean checkout of the pilot. Use the project's default branch name in place of `main` if it differs.
 
 ```sh
+default_branch=main
+expected_commit=$(git rev-parse --verify "refs/heads/$default_branch") &&
 git bundle create bootstrap-pilot.bundle --all &&
 git bundle verify bootstrap-pilot.bundle &&
-git clone --branch main bootstrap-pilot.bundle bootstrap-pilot-restored &&
-test "$(git rev-parse HEAD)" = "$(git -C bootstrap-pilot-restored rev-parse HEAD)"
+git clone --branch "$default_branch" bootstrap-pilot.bundle bootstrap-pilot-restored &&
+test "$expected_commit" = "$(git -C bootstrap-pilot-restored rev-parse HEAD)"
 ```
 
 Transfer the bundle and a checksum on approved media. Preserve Git LFS content, submodule repositories and build dependencies separately when the offline project uses them. To verify offline readiness, disconnect the test machine and build the restored checkout there.
