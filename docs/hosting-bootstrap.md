@@ -5,6 +5,7 @@
 | Workload | Provider | Verification on 2026-11-16 |
 | --- | --- | --- |
 | [Nathan AI Sovereign Core](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core) | GitHub | Existing public repository, default branch `main` |
+| [Nathan AI home](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/) | GitHub Pages | HTTP 200 with the Nathan AI catalog |
 | [Hook & Ring by Nathan Tabor](https://hook-and-ring.nathantaboract.workers.dev/) | Cloudflare Workers | Active deployment and HTTP 200 with the game UI |
 | [Grapple It by Nathan Tabor](https://grapple-it.nathantaboract.workers.dev/) | Cloudflare Workers | Active deployment and HTTP 200 with the game UI |
 | [Dual-Screen Arcade by Nathan Tabor](https://dual-screen-arcade.nathantaboract.workers.dev/) | Cloudflare Workers | Active deployment and HTTP 200 with the game UI |
