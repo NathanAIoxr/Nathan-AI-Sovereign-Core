@@ -107,6 +107,7 @@ for(const [id,value] of [['swing-left',-1],['swing-right',1]]){
 function refreshForm(){
  setOptions($('grapple-form'),FORMS.map(form=>({id:form.id,title:form.label})),records.form);
  $('curator-panel').dataset.form=records.form;
+ window.dispatchEvent(new CustomEvent('grapple-form', {detail:records.form}));
 }
 $('grapple-form').onchange=()=>{records.form=$('grapple-form').value;refreshForm();save();};
 window.addEventListener('grapple-expansion-restore',event=>{
