@@ -1,5 +1,5 @@
 const q={
-  "upsert": "INSERT INTO repair_jobs(id,scope,provider,repository,number,url,title,signal,source_at,last_seen)\n VALUES(?,?,?,?,?,?,?,?,?,?)\n ON CONFLICT(id) DO UPDATE SET\n scope=CASE WHEN repair_jobs.scope='INTERNAL' THEN 'INTERNAL' ELSE excluded.scope END,\n title=excluded.title,signal=excluded.signal,last_seen=excluded.last_seen,source_at=excluded.source_at,\n status=CASE WHEN repair_jobs.status='WITHDRAWN' THEN 'QUEUED' ELSE repair_jobs.status END,\n attempts=CASE WHEN repair_jobs.status='WITHDRAWN' THEN 0 ELSE repair_jobs.attempts END\n WHERE excluded.source_at >= repair_jobs.source_at OR\n       (excluded.scope='INTERNAL' AND repair_jobs.scope='GLOBAL')",
+  "upsert": "INSERT INTO repair_jobs(id,scope,provider,repository,number,url,title,signal,source_at,last_seen)\n VALUES(?,?,?,?,?,?,?,?,?,?)\n ON CONFLICT(id) DO UPDATE SET\n scope=CASE WHEN repair_jobs.scope='INTERNAL' THEN 'INTERNAL' ELSE excluded.scope END,\n title=excluded.title,signal=excluded.signal,last_seen=excluded.last_seen,source_at=excluded.source_at,\n status=CASE WHEN repair_jobs.status='WITHDRAWN' THEN 'QUEUED' ELSE repair_jobs.status END,\n attempts=CASE WHEN repair_jobs.status='WITHDRAWN' THEN 0 ELSE repair_jobs.attempts END\n WHERE (excluded.scope='INTERNAL' AND repair_jobs.scope='GLOBAL')\n OR (excluded.source_at >= repair_jobs.source_at AND (\n   excluded.source_at > repair_jobs.source_at OR excluded.title <> repair_jobs.title OR\n   excluded.signal <> repair_jobs.signal OR repair_jobs.status='WITHDRAWN'\n ))",
   "reap": "UPDATE repair_jobs SET status='NEEDS_REVIEW', updated_at=unixepoch(),\n receipt=json_object('reason','Last lease expired') WHERE status='LEASED' AND lease_until<=unixepoch() AND attempts>=max_attempts",
   "claim": "UPDATE repair_jobs SET status='LEASED',attempts=attempts+1,\n worker_id=?1,request_id=?2,lease_id=?3,lease_until=unixepoch()+120,updated_at=unixepoch()\n WHERE NOT EXISTS(SELECT 1 FROM repair_runs WHERE worker_id=?1 AND request_id=?2)\n AND id=(SELECT id FROM repair_jobs WHERE (?4='ANY' OR scope=?4) AND attempts<max_attempts\n AND (?5='[]' OR EXISTS(SELECT 1 FROM json_each(?5) WHERE value=lower(repair_jobs.repository))) AND ((status IN ('QUEUED','RETRY_WAIT') AND ready_at<=unixepoch()) OR (status='LEASED' AND lease_until<=unixepoch()))\n ORDER BY CASE scope WHEN 'INTERNAL' THEN 0 ELSE 1 END,ready_at,source_at,id LIMIT 1)\n RETURNING id,scope,provider,repository,number,url,title,signal,attempts,lease_id,lease_until",
   "heartbeat": "UPDATE repair_jobs SET lease_until=unixepoch()+120,updated_at=unixepoch()\n WHERE id=? AND worker_id=? AND lease_id=? AND status='LEASED' AND lease_until>unixepoch()\n RETURNING id,lease_until",
@@ -52,7 +52,7 @@ function githubJob(row,scope,now){
   const isInternal=repository.toLowerCase()==="nathanaioxr/nathan-ai-sovereign-core";
   return job("github:"+repository.toLowerCase()+"#"+number,isInternal ? "INTERNAL" : scope,
     "github",repository,number,row.url,row.title,isInternal ? "owner tracker" : "help wanted",
-    sourceTimestamp(row.updated_at,now),now);
+    sourceTimestamp(row.updated_at,0),now);
 }
 
 function externalJob(config,item,now){
@@ -125,8 +125,10 @@ async function syncInternal(db,now){
   const source=await db.prepare("SELECT observed_ms,snapshot FROM issue_queue WHERE id=1").first();
   if(!source) return;
   const asOf=Math.floor(source.observed_ms/1000);
+  const coverage=await db.prepare("SELECT covered_through FROM repair_sources WHERE id='internal-sovereign-core'").first();
+  if(coverage?.covered_through>=asOf) return;
   const data=JSON.parse(source.snapshot);
-  const rows=data.issues.map(item=>githubJob(item,"INTERNAL",asOf)).filter(Boolean);
+  const rows=data.issues.map(item=>githubJob({...item,updated_at:data.receipt?.completedAt},"INTERNAL",asOf)).filter(Boolean);
   if(rows.length!==data.issues.length) throw Error("Invalid internal snapshot");
   const statements=batchJobs(db,rows);
   // Repair evidence and active leases survive upstream closure.
@@ -143,8 +145,8 @@ async function syncGlobal(env,now){
   const key="github-help-wanted-index";
   try {
     const source=await db.prepare("SELECT * FROM repair_sources WHERE id=?").bind(key).first();
-    if(source?.checked_at>=now) return;
     const offset=source?.cursor??0;
+    if(source?.checked_at>=now || (!offset&&source?.success_at&&now-source.success_at<1800)) return;
     const upstream=await env.DISCOVERY.fetch("https://help-wanted.internal/api/queue?offset="+offset);
     if(!upstream.ok) throw Error("Discovery HTTP "+upstream.status);
     const {snapshot}=await upstream.json();
