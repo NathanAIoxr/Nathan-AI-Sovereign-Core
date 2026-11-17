@@ -77,8 +77,8 @@ for(const [level,stage] of STAGES.entries()){
  }
  assert.ok(won,stage.name+' has a successful swing release');
 }
-assert.equal(CARTRIDGES.length,24);
-assert.equal(new Set(CARTRIDGES.map(game=>game.id)).size,24);
+assert.equal(CARTRIDGES.length,32);
+assert.equal(new Set(CARTRIDGES.map(game=>game.id)).size,32);
 assert.equal(new Set(CARTRIDGES.map(game=>game.chassis)).size,5);
 for(const game of CARTRIDGES)for(const wild of [false,true])for(let round=0;round<3;round++){
  let maximum=0;
@@ -96,4 +96,4 @@ assert.equal(openTier({brass:150},1),true);
 assert.equal(arcadeGrade(205),'Silver');
 assert.equal(sanitizeExpansion({games:{brass:300,unknown:300},swings:{0:6000},form:'female'}).form,'female');
 assert.equal(sanitizeExpansion({games:{brass:301,unknown:300}}).games.brass,undefined);
-console.log('Six swing releases and 144 cartridge rounds across both rulesets passed.');
+console.log('Six swing releases and 192 cartridge rounds across both rulesets passed.');

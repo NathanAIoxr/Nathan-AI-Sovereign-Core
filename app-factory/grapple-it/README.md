@@ -8,8 +8,8 @@ Play on [Cloudflare](https://grapple-it.nathantaboract.workers.dev/).
 | Bubble Courses | Pump air and steer through Harbor Lift, Canal Crossing, Orchard Lift, Sunken Salvage, Tide Gate and Midnight Reef. The fewest pumps are recorded separately for each course. |
 | Catch & Swing | On each of those six courses, move the ball through its anchors, latch to the last anchor, build a pendulum swing, and release into the goal. A missed release returns the ball to the anchor for another attempt. |
 | Through the Ages | Sixteen missions: the twelve original missions across Ancient Naval Warfare, Castle Walls, Wild West Frontier, and Modern Rescue, plus Salvage Pier, Night Market, Floodgate, and Hog Wild. Bridge crossings, climbs, herding and rescue lifts keep their distinct actions. Medals reward clean casts and intact lines. Campaign progression and the original four-headline-course condition for PK Wild Card carry forward. |
-| Toss & Target Arcade | Twenty-four playable cartridges across six eras. Five reusable rule sets handle arc flight and drift, rotation and landing, pendulum release, rhythm timing, and ordered precision tracing. Three attempts earn medals and open the next era. Turn on PK Wild Card after opening Hog Wild. |
-| Daily Grapple | The deterministic UTC challenge continues to draw from the original rotation. The most recent 60 dated records are kept on this browser. |
+| Toss & Target Arcade | Thirty-two playable cartridges across seven eras. Five reusable rule sets handle arc flight and drift, rotation and landing, pendulum release, rhythm timing, and ordered precision tracing. Three attempts earn medals and open the next era. Turn on PK Wild Card after opening Hog Wild. |
+| Daily Grapple | The deterministic UTC challenge continues its original rotation. The most recent 60 dated records are kept on this browser. Players may also post a replay-checked result to the D1 leaderboard. |
 
 Talk to the curator, play as Grape Apple, or unlock four toy finishes. The Grape-Apple Curator uses an apple core, grapes for the head and limbs, and small apples for the fingers and toes. The Male and Female GRAPPLE form options share scoring and progression. Nathan Tabor’s GRAPPLE notation and PK origin line are preserved in the game. The Curator’s collection credits published historical references and describes the fictional courses.
 
@@ -32,3 +32,13 @@ Gear Trials adds time-and-retrieve challenges alongside the Toss & Target cartri
 ## Run and deploy
 
 From this directory, run `node test.mjs` and `node arcade.test.mjs` for the rule and course simulations, then `node build.mjs` to generate the Worker asset module. Use `npx wrangler dev` to preview or `npx wrangler deploy` with access to the existing `grapple-it` Worker. The browser game has no package dependencies.
+
+## Physics and input
+
+- The gameplay clocks advance in 240 fixed steps per second of simulated time. Rendering remains on the display clock. Long pauses are capped, and backgrounding a tab clears held input. Catch & Swing uses a 16-node constrained rope around the existing pendulum and a swept goal check in flight.
+- Toss & Target uses the Hook & Ring One Euro filter and 50 ms contact history with a 16 ms lift-off guard. A release in the outer 5% cancels without using a shot. Gesture feedback uses the existing Tabor Tracker Ball classifier and reports approximate millimeters at the browser's CSS reference scale, release speed, rotation and power. Haptics use browser vibration where supported. Buttons, sliders and key controls remain available.
+- The Precision Circuit brings Skip-Stones, Frisbee Chains, Bolas, Chain Wrap, Snowball Toss, Cupid Hearts, Pumpkin-Stem Hook and a Fourth of July Sparkler Ring into the five existing cartridge engines.
+- Universal Bridge pairs any Toss & Target cartridge with a sequence puzzle. Completing the sequence adds one shot, one damage buff and one shield. Those rounds have their own score and do not affect single-cartridge medals.
+- Daily Grapple uses the original UTC course rotation. On a successful run, the browser can submit a bounded timeline of casts, reels and eases. The Worker replays the same physics and derives medal and duration. D1 retains the best posted score per browser ID per date. The board is ranked by medal and simulation time. Only an explicit post sends the replay and display name. The D1 record contains the browser ID, date, display name and verified result. Online submissions and reads are rate limited.
+
+Apply the D1 migration with `npx wrangler d1 migrations apply grapple-it --remote` before deploying with a new database. On Node with SQLite available, `node technology.test.mjs` exercises the timing, release guard, rope, bridge, replay and database ranking paths.

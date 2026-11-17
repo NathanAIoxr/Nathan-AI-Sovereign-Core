@@ -27,7 +27,12 @@ export const ERAS = [
   ['fireworks','Firework Rings','spin','Carnival spark pad'],['boomerang','Boomerangs','arc','Return hoop'],
   ['candy','Holiday Candy-Cane Hooks','rope','Peppermint peg'],['chicken','Rubber Chickens','rhythm','Squeaky bell'],
   ['skillet','Cast-Iron Skillet & Bacon Hook','spin','Breakfast griddle'],['lucky','Lucky Horseshoe','arc','Barn-door peg'],
-  ['paint','The “Sunday Best” Paint Can','craft','Paint trim']]]
+  ['paint','The “Sunday Best” Paint Can','craft','Paint trim']]],
+ ['Precision Circuit',[
+  ['skip-stones','Skip-Stones','spin','Ripple ring'],['disc-chains','Frisbee Chains','arc','Chain basket'],
+  ['moving-bolas','Bolas','rope','Moving post'],['wrap-chain','Chain Wrap','rope','Padded bollard'],
+  ['snowball-toss','Snowball Toss','arc','Snow target'],['cupid-hearts','Cupid Hearts','rhythm','Heart beacon'],
+  ['pumpkin-hook','Pumpkin-Stem Hook','rope','Pumpkin stem'],['sparkle-ring','Fourth of July Sparkler Ring','spin','Star pad']]]
 ];
 
 export const CARTRIDGES = ERAS.flatMap(([era,games],tier)=>games.map(([id,title,chassis,target],slot)=>

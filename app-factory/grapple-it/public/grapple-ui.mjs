@@ -1,3 +1,4 @@
+import {createClock} from './fixed-clock.mjs';
 import {STAGES,newLift,pump,stepLift} from './grapple.mjs';
 const $=id=>document.getElementById(id);
 const canvas=$('grapple-scene');
@@ -20,9 +21,10 @@ function renderCollection(){
 }
 for(const [i,stage] of STAGES.entries()) courseMenu.add(new Option(stage.name,String(i)));
 const directions=new Map();
+const clock=createClock();
 let heldPump=null;
 let keyboardPump=null;
-let state=newLift(), started=false, last=0, width=0, height=0, dirty=true;
+let state=newLift(), started=false, width=0, height=0, dirty=true;
 const particles=Array.from({length:25},(_,i)=>[(((i+7)*1777)%101)/101,(((i+11)*337)%103)/103,1+(i%4)]);
 
 function ring(x,y,r,color,thickness){
@@ -78,7 +80,7 @@ new ResizeObserver(()=>{
 }).observe(canvas);
 
 function reset(level){
-  state=newLift(level);started=false;heldPump=null;keyboardPump=null;directions.clear();
+  clock.reset();state=newLift(level);started=false;heldPump=null;keyboardPump=null;directions.clear();
   $('stage').value=String(level);
   $('tank').dataset.scene=STAGES[level].scene;
   $('goal').textContent='0 / '+STAGES[level].anchors.length+' caught';
@@ -96,12 +98,14 @@ function air(){
   }
 }
 function loop(now){
-  const dt=Math.min(.032,(now-last)/1000);
   if(started&&!state.done&&width&&!$('bubble-view').hidden){
     const before=state.next;
     const direction=Math.sign([...directions.values()].reduce((sum,value)=>sum+value,0));
-    if((heldPump!==null||keyboardPump!==null)&&state.time-state.lastPump>=.25) air();
-    stepLift(state,dt,direction);
+    clock.frame(now,dt=>{
+      if((heldPump!==null||keyboardPump!==null)&&state.time-state.lastPump>=.25) air();
+      stepLift(state,dt,direction);
+      if(state.done)return false;
+    });
     if(state.next!==before){
       $('goal').textContent=state.next+' / '+STAGES[state.level].anchors.length+' caught';
       const name=STAGES[state.level].targets?.[state.next-1]??'ring '+state.next;
@@ -122,9 +126,9 @@ function loop(now){
       $('pump').disabled=true;
     }
     dirty=true;
-  }
+  }else clock.pause();
   if(dirty&&width&&height){draw();dirty=false;}
-  last=now;requestAnimationFrame(loop);
+  requestAnimationFrame(loop);
 }
 const pumpButton=$('pump');
 pumpButton.onpointerdown=event=>{
@@ -168,8 +172,9 @@ window.addEventListener('keydown',event=>{
   }
 });
 window.addEventListener('keyup',event=>{directions.delete(event.code);if(event.code===keyboardPump) keyboardPump=null;});
-const clearInput=()=>{directions.clear();heldPump=null;keyboardPump=null;};
+const clearInput=()=>{clock.pause();directions.clear();heldPump=null;keyboardPump=null;};
 window.addEventListener('blur',clearInput);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInput();});
 window.addEventListener('grapple-view',clearInput);
 window.addEventListener('grapple-restore',event=>{
  records=event.detail;
