@@ -1,7 +1,7 @@
 import {TAU,clamp,project} from "./track-baller.mjs";
 import {dialTargets,guardOpen,getSwordTarget,potteryTargets,pockets,globeTargets,vortexFor} from "./games.mjs";
 
-export const colors={storm:"#77efd0",whirl:"#76ceff",sword:"#ffd191",ball:"#d8f98e",magic:"#c5a5ff",
+export const colors={grip:"#9beed8",storm:"#77efd0",whirl:"#76ceff",sword:"#ffd191",ball:"#d8f98e",magic:"#c5a5ff",
   dj:"#f7a4d8",forge:"#ffc075",globe:"#87e3bb",dial:"#e3da9c",pottery:"#ffb5a4",lift:"#9bd3ff",fish:"#a0e4c5"};
 export const pins=q=>globeTargets.map(p=>project(q,p));
 const amber="#ffc980", white="#e9f4ef";
@@ -89,7 +89,7 @@ export function makeRenderer(canvas){
       stroke([[x+Math.cos(a)*(r-.018),y+Math.sin(a)*(r-.018)],[x+Math.cos(a)*r,y+Math.sin(a)*r]],color,i%6===0?3:1);
     }
   }
-  function draw(game,q,live,trace,replaying,reduced){
+  function draw(game,q,live,trace,replaying,reduced,digit){
     if(!scale) return;
     const a=colors[game.id], time=reduced?0:game.time;
     const background=c.createRadialGradient(width/2,height/2,10,width/2,height/2,Math.max(width,height)*.65);
@@ -98,6 +98,11 @@ export function makeRenderer(canvas){
     for(let x=15;x<width;x+=25) for(let y=15;y<height;y+=25) circle(x,y,.8,"#93bcc233");
 
     switch(game.id){
+      case "grip":
+        sphere(q,0,0,.16,a);
+        label(game.done?"DRILLS COMPLETE":["ONE-DIGIT FLICK","TWO-DIGIT PINCH","THREE-POINT RELEASE"][game.progress],0,-.29,a,16);
+        label("↑  FLICK UP",0,.29,a);
+        break;
       case "storm":case "whirl":
         for(const r of [.17,.25,.33,.41]) disc(0,0,r,null,a+"28");
         sphere(q,0,0,.115,a);
@@ -153,7 +158,7 @@ export function makeRenderer(canvas){
         }
         meter("FORGE HEAT",game.heat,0,.34,.55,a,[.72,1]);break;
       case "globe":
-        sphere(q,0,0,.305,a,true);
+        sphere(q,0,0,.305*game.zoom,a,true);
         disc(0,0,.058,null,white,2);
         label(game.landmarks.size+" / "+globeTargets.length+" LANDMARKS",0,.39,a);
         break;
@@ -202,6 +207,10 @@ export function makeRenderer(canvas){
         disc(ix,-.05,.023,amber,white);
         meter("LINE TENSION",game.tension,0,.31,.56,a,[.32,.76]);break;
       }
+    }
+    if(digit?.contacts){
+      for(const point of digit.points) disc(point.x,point.y,.024,a+"50",a,2);
+      if(digit.points.length>1) stroke(digit.points.slice(0,2).map(({x,y})=>[x,y]),a+"a0",2);
     }
     if(trace.length>1){
       const path=trace.map(({x,y})=>[x,y]);

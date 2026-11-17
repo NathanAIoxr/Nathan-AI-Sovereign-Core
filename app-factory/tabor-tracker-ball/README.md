@@ -6,10 +6,11 @@ Tabor Tracker Ball is a browser arcade and a reusable touchscreen controller for
 
 ## Play
 
-Deploy or serve the release at a site root. Use touch, pen, or the primary mouse button. The game field owns one active stroke at a time. Outside the field the browser retains normal page gestures. The Try buttons give keyboard-accessible examples. Trace replay plays the last completed stroke without applying it to the score. Scores and tuning are stored locally. The service worker caches the game shell after a successful online visit. Haptic feedback depends on browser and device support. DJ sound uses synthesized Web Audio tones and starts only after a user action.
+Deploy or serve the release at a site root. Use touch, pen, or the primary mouse button. The game field handles a single-finger stroke or a multi-contact grip. Outside the field the browser retains normal page gestures. The Try buttons give keyboard-accessible examples. Trace replay plays the last completed stroke without applying it to the score. Scores and tuning are stored locally. The service worker caches the game shell after a successful online visit. Haptic feedback depends on browser and device support. DJ sound uses synthesized Web Audio tones and starts only after a user action.
 
 | Game | Input and objective |
 | --- | --- |
+| Pinch & Flick Lab | Complete a one-digit flick, two-digit pinch release, and staggered three-point release. |
 | Hurricane | Start a live clockwise or counterclockwise vortex. Alter its position, radius, and strength and clear the debris field. |
 | Whirlpool | Use tight turns near floating markers, matching the required direction. |
 | Swordplay | Cross the target at its displayed angle or release a hold inside the timed guard window. |
@@ -22,6 +23,17 @@ Deploy or serve the release at a site root. Use touch, pen, or the primary mouse
 | Pottery Wheel | Select and sculpt three clay bands to target profiles. |
 | Propeller Lift | Build lift and hold altitude inside a checkpoint band. |
 | Fishing Reel | Gain progress while winding inside the tension band. High tension can slip the line. |
+
+## Universal Digit Physics integration
+
+- The Pinch & Flick Lab calls the original TactileCoreSDK WristFlipEngine. Its two-contact event preserves MODE_WRIST_FLIP_PINCH_2D. A three-contact grip uses the bottommost initial touch as the estimated anchor, with the original 45 ms stagger window. The browser receives contact IDs and locations.
+- Hook & Ring supplies the One Euro filter, guarded 50 ms release history, 5% edge Safe-Cancel, and 16 ms hand and 20 ms toe profiles. The profile and filter are selectable. The toe option changes release timing. The nominal CSS millimeter conversion uses 96 CSS pixels per inch.
+- Capture accepts up to ten simultaneous contacts. The first two contacts control pinch and twist. WristFlipEngine selects up to three contacts for its release calculation.
+- Stay inside the playfield's edge band. Pinch or spread to zoom Globe Explorer or shape a pottery band. Twist to turn the dial. Spread an active Hurricane to grow it. A guarded upward flick near the Spin Ball launches it. A steady two-contact hold in Swordplay can trigger the existing timed guard.
+- The enhancement attaches with attachDigitTrackBaller in public/digit-input.mjs. The taborDigitGesture event bubbles with start, move, end, or cancel stage. Live detail carries contacts, peakContacts, scale, twist in radians, estimated spanMm, and the contact's starting position. End detail adds wristFlip, guardMs, and guardedVelocity. The original taborTrackballGesture contract continues to serve one-finger, mouse, and pen interactions.
+- The arcade uses touchscreen data. The original TactileCoreSDK also contains a separate HybridKinetic motion and native sensor implementation.
+
+The build reads the shared modules from [TactileCoreSDK](../../standalone-apps/tactilecore-sdk/) and [Hook & Ring](../../standalone-apps/hook-and-ring/). The [TactileCoreSDK project-specific rights notice](../../standalone-apps/tactilecore-sdk/LICENSE.md) applies to its bundled module.
 
 ## Use it from a Tabor World game
 

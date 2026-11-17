@@ -33,7 +33,7 @@ function simulate(game, sample=makeExample(game), margin=0, pins=[]){
   endMove(game,prior);
   for(let t=0;t<margin;t+=.015) tickGame(game,.015,null,pins);
 }
-assert.equal(Object.keys(catalog).length,12);
+assert.equal(Object.keys(catalog).length,13);
 for(const id of Object.keys(catalog)) normalizeOverlay(catalog[id].controllerOverlay);
 for(const id of ["storm","whirl","sword","ball","magic","dj","forge","dial"]){
   const game=createRound(id);
@@ -67,3 +67,99 @@ for(const [x,y,z] of globeTargets){
   const centered=project(q,[x,y,z]);
   assert.ok(Math.hypot(centered[0],centered[1])<1e-9&&centered[2]>0);
 }
+
+const {DigitGrip}=await import("./public/digit-input.mjs");
+const {applyGrip}=await import("./public/games.mjs");
+const two=new DigitGrip({width:400,height:360,adaptive:false});
+const p=(x,y,t)=>({x,y,t});
+two.down(1,p(150,190,0));two.down(2,p(250,190,0));
+two.move(1,p(175,150,65));two.move(2,p(225,150,66));
+assert.equal(two.state(67).scale,.5);
+const globeGrip=createRound("globe");
+applyGrip(globeGrip,two.state(67),"move",{zoom:1});
+assert.equal(globeGrip.zoom,.72);
+two.move(1,p(200,125,80));two.move(2,p(200,175,81));
+assert.ok(Math.abs(two.state(81).twist-Math.PI/2)<1e-9);
+assert.ok(two.state(81).spanMm>13&&two.state(81).spanMm<14);
+two.up(1,p(0,358,100));
+two.move(2,p(1,358,110));
+const twoRelease=two.up(2,p(1,358,130));
+assert.ok(Math.abs(twoRelease.twist-Math.PI/2)<1e-9,"first lift freezes the grip");
+assert.equal(twoRelease.guardMs,16);
+assert.equal(twoRelease.wristFlip.fingerCount,2);
+assert.equal(twoRelease.mode,"MODE_WRIST_FLIP_PINCH_2D");
+
+const lab=createRound("grip");
+for(const count of [1,2,3]){
+  const sample=new DigitGrip({width:440,height:400,limb:"toe",adaptive:true});
+  const pt=(id,t,delta=0)=>p(id===2?270:id===1?190:220,(id===0?250:170)-delta,t);
+  for(let id=0;id<count;id++) sample.down(id,pt(id,0));
+  for(let t=12;t<=144;t+=12){
+    for(let id=0;id<count;id++) sample.move(id,pt(id,t,t*.68));
+  }
+  let detail;
+  for(let id=0;id<count;id++) detail=sample.up(id,p(435,399,158+id*12));
+  assert.equal(detail.guardMs,20);
+  assert.ok(detail.wristFlip.power>.12,"up-event outlier cannot reverse a guarded release");
+  if(count===3) assert.equal(detail.wristFlip.releaseWindowMs,24);
+  applyGrip(lab,detail,"end");
+}
+assert.equal(lab.score,300);
+assert.equal(lab.done,true);
+const cap=new DigitGrip({width:400,height:400});
+for(let id=0;id<10;id++) assert.equal(cap.down(id,p(85+id*8,150,0)),true);
+assert.equal(cap.down(10,p(200,200,0)),false);
+assert.equal(cap.state(1).peakContacts,10);
+const ballGrip=createRound("ball");
+applyGrip(ballGrip,{...twoRelease,start:{x:0,y:.36},wristFlip:{power:.55,spin:.2,velocity:{x:.1}}},"end");
+assert.ok(ballGrip.shot?.vy<-.55&&ballGrip.shot.spin>.1);
+
+const {attachDigitTrackBaller}=await import("./public/digit-input.mjs");
+const frames=new Map();
+let frameId=0;
+globalThis.requestAnimationFrame=f=>{frames.set(++frameId,f);return frameId;};
+globalThis.cancelAnimationFrame=id=>frames.delete(id);
+class PlaySurface {
+  constructor(){this.events=new Map();this.capture=new Set();}
+  getBoundingClientRect(){return {width:400,height:400,left:0,top:0};}
+  addEventListener(name,handler){this.events.set(name,[...(this.events.get(name)??[]),handler]);}
+  dispatchEvent(event){
+    for(const handler of this.events.get(event.type)??[]){
+      handler(event);
+      if(event.stopped) break;
+    }
+  }
+  hasPointerCapture(id){return this.capture.has(id);}
+  setPointerCapture(id){this.capture.add(id);}
+  releasePointerCapture(id){this.capture.delete(id);}
+}
+const surface=new PlaySurface(), stages=[], results=[];
+let plainReleases=0;
+surface.addEventListener("taborDigitGesture",event=>stages.push(event.detail.stage));
+const control=attachDigitTrackBaller(surface,{onGripEnd:g=>results.push(g),onEnd:()=>plainReleases++});
+function pointer(type,id,x,y,t){
+  surface.dispatchEvent({type,pointerId:id,pointerType:"touch",button:0,clientX:x,clientY:y,timeStamp:t,
+    stopImmediatePropagation(){this.stopped=true;}});
+  for(const [id,callback] of [...frames]) {frames.delete(id);callback();}
+}
+pointer("pointerdown",1,150,200,10);
+pointer("pointerdown",2,250,200,12);
+pointer("pointermove",1,177,175,40);
+pointer("pointermove",2,223,175,44);
+pointer("pointerup",1,177,175,70);
+pointer("pointerup",2,223,175,82);
+assert.equal(results.length,1);
+assert.equal(results[0].peakContacts,2);
+assert.ok(results[0].scale<1);
+assert.equal(plainReleases,0,"multitouch cannot fire a second single-pointer shot");
+pointer("pointerdown",1,150,200,100);
+pointer("pointerdown",2,250,200,102);
+pointer("pointermove",2,396,200,112);
+pointer("pointerup",1,150,200,126);
+assert.equal(results.length,1);
+assert.equal(stages.at(-1),"cancel");
+assert.equal(surface.capture.size,0);
+pointer("pointerdown",1,150,200,140);
+pointer("pointerup",1,150,200,160);
+assert.equal(plainReleases,1,"ordinary single-pointer input remains playable");
+control.destroy();
