@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { runInNewContext } from 'node:vm';
 import { eventResults } from '../game/event-results.mjs';
 import { validatePlugins, playChassis, traceOutline } from '../game/chassis.mjs';
 
@@ -45,6 +46,53 @@ test('results controls and offline module are served together', async () => {
   assert.match(await (await get('/competition')).text(), /download-results.*Download results/);
   assert.match(await (await get('/sw.js')).text(), /event-results\.mjs/);
   assert.equal((await get('/event-results.mjs')).status, 200);
+});
+
+test('the built service worker precaches a release and falls back only when the game is unavailable', async () => {
+  const script = await (await get('/sw.js')).text();
+  const revision = script.match(/hook-ring-cloudflare-[a-f0-9]{24}/)?.[0];
+  assert.ok(revision);
+  const origin = 'https://game.test';
+  const handlers = new Map();
+  const offline = new Map();
+  const storage = {
+    async addAll(requests) {
+      for (const request of requests) {
+        assert.equal(request.cache, 'reload');
+        const url = new URL(request.url);
+        const response = await get(url.pathname + url.search);
+        assert.equal(response.status, 200, request.url);
+        offline.set(url.pathname, response);
+      }
+    },
+    match(request, options) {
+      assert.deepEqual({ ...options }, { ignoreSearch: true });
+      return offline.get(new URL(request.url).pathname);
+    },
+  };
+  let upstream = new Response('new game module');
+  runInNewContext(script, {
+    Request, Response, URL,
+    self: { location: { origin }, addEventListener: (name, handler) => handlers.set(name, handler), skipWaiting() {} },
+    caches: { open: async key => { assert.equal(key, revision); return storage; } },
+    fetch: async () => { if (!upstream) throw new Error('Offline'); return upstream; },
+  });
+  await new Promise(resolve => handlers.get('install')({ waitUntil: resolve }));
+  const fetchRoute = path => {
+    let response;
+    handlers.get('fetch')({ request: new Request(origin + path), respondWith: value => { response = value; } });
+    return response;
+  };
+  assert.equal(await fetchRoute('/training.mjs?v=2'), upstream);
+  upstream = new Response('outage', { status: 503 });
+  assert.equal(await fetchRoute('/training.mjs?v=2'), offline.get('/training.mjs'));
+  upstream = new Response('removed', { status: 404 });
+  assert.equal(await fetchRoute('/training.mjs?v=2'), upstream);
+  upstream = null;
+  assert.equal(await fetchRoute('/training.mjs?other=1'), offline.get('/training.mjs'));
+  assert.equal(fetchRoute('/api/status'), undefined);
+  assert.equal(fetchRoute('/release.json'), undefined);
+  assert.equal(fetchRoute('/source.tar.gz'), undefined);
 });
 
 test('toss lab, modules, and offline shell ship together', async () => {

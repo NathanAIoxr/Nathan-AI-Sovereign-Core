@@ -33,6 +33,10 @@ const assets = await Promise.all(routes.map(async ([route, path, type, binary]) 
   }
   return [route,{type,content,binary}];
 }));
+const offlineRevision = sha(JSON.stringify(assets)).slice(0, 24);
+const serviceWorker = assets.find(([route]) => route === '/sw.js')[1];
+serviceWorker.content = serviceWorker.content.replace('__OFFLINE_REVISION__', offlineRevision);
+
 let sourceCommit=null;
 try {sourceCommit=git(['rev-parse','HEAD']).toString().trim();}catch {}
 let archive=null;

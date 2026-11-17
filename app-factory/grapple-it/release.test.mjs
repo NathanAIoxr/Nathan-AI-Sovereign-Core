@@ -21,12 +21,26 @@ const handlers={};
 const cached=new Response('verified cached shell');
 let upstream=new Response('outage',{status:503});
 const origin='https://game.test';
-runInNewContext(await readFile(new URL('./public/sw.js',import.meta.url),'utf8'),{
- self:{registration:{scope:origin+'/'},addEventListener:(event,fn)=>handlers[event]=fn},
- caches:{open:async()=>({match:async()=>cached})},
+await import('./build.mjs');
+const {default:worker}=await import('./entry.mjs');
+const script=await (await worker.fetch(new Request(origin+'/sw.js'))).text();
+const cacheName=script.match(/grapple-it-[a-f0-9]{24}/)?.[0];
+assert.ok(cacheName);
+runInNewContext(script,{
+ self:{registration:{scope:origin+'/'},addEventListener:(event,fn)=>handlers[event]=fn,skipWaiting(){}},
+ caches:{open:async key=>{
+  assert.equal(key,cacheName);
+  return {match:async()=>cached,async addAll(requests){
+   for(const request of requests){
+    assert.equal(request.cache,'reload');
+    assert.equal((await worker.fetch(request)).status,200,request.url);
+   }
+  }};
+ }},
  fetch:async()=>upstream,
- URL,Response
+ Request,URL,Response
 });
+await new Promise(resolve=>handlers.install({waitUntil:resolve}));
 const request=path=>{
  let value;
  handlers.fetch({request:new Request(origin+path),respondWith:p=>{value=p;}});
