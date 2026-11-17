@@ -102,9 +102,10 @@ function queuePage(snapshot) {
   return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
     '<title>Nathan AI Sovereign Hive</title><style>:root{color-scheme:dark}body{font:1rem/1.55 system-ui,sans-serif;max-width:52rem;margin:3rem auto;padding:0 1.25rem}a{color:#a5dcff}li{margin:.65rem 0}code{color:#acebc4}</style>' +
     '<main><h1>Nathan AI Sovereign Hive</h1><p>By Nathan Tabor and Nathan AI</p>' +
-    '<p><code>1+1=2</code> records additions. <code>1-1=0</code> clears items from the active queue after GitHub removes them from the open list.</p>' +
+    '<p><code>1+1=2</code> Build. <code>1-1=0</code> Clear. <code>1×1=1</code> Integrate. <code>1÷1=1</code> Verify.</p>' +
     status + '<ul>' + items + '</ul><p><a href="/api/queue">Queue and run receipts</a> · ' +
     '<a href="/api/repair/status">Repair queue status</a> · <a href="/api/repair/leads">Global repair leads</a> · ' +
+    '<a href="https://nathan-ai-patch-verifier.nathantaboract.workers.dev/api/status">Patch verification receipts</a> · ' +
     '<a href="/api/repair/runtime">Nathan AI / Absolute Intelligence runtime</a> · ' +
     '<a href="https://nathan-ai-help-wanted.nathantaboract.workers.dev/">Public Help Wanted discovery</a> · ' +
     '<a href="https://nathan-ai-workers.nathantaboract.workers.dev/">Worker workspace</a></p></main></html>';
