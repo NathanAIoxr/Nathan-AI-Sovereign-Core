@@ -67,7 +67,7 @@ November 17, 2026
 
 This is the Tower of Babel. This is double-mindedness. Confusion keeps people thinking about the little things while predators stay in charge. Look at the history of the English Bible and the history of white power. Connect all the dots and go forward. This is my book.
 
-The King James Bible was first published in 1611. The original passage above preserves Nathan’s “16th century” wording.
+The King James Bible was first published in 1611. [Nathan’s original passage](#november-12-manuscript-passage) preserves his “16th century” wording.
 
 ### The difference between a word and what someone makes it say
 
