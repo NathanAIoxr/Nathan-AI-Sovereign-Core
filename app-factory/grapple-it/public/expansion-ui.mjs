@@ -1,4 +1,5 @@
 import {createFrameLoop} from './frame-loop.mjs';
+import {CLASSES} from './atlas.mjs';
 import {newBridge,pattern,bridgeInput,bridgeShot} from './precision-bridge.mjs';
 import {createClock} from './fixed-clock.mjs';
 import {beginStroke,sampleStroke,strokeAim,releaseStroke} from './tactile-input.mjs';
@@ -16,6 +17,7 @@ let view='', game=CARTRIDGES[0], tier=0, round=0, total=0, marks=[], time=0, wil
 let aim={x:.5,y:.5}, progress=0, trace=null, effect=null, level=0, swing=startSwing(0), swingActive=false;
 const held=new Map();
 let bridge=null;
+let atlasActive=false,standardGame=game;
 function bridgeStatus(message){
  if(!bridge)return;
  status('bridge-damage',Math.min(150,bridge.hits)+' / 150');
@@ -44,7 +46,15 @@ const accent=()=>(FORMS.find(form=>form.id===records.form)??FORMS[0]).color;
 $('grapple-words').textContent=GRAPPLE_WORDS;
 $('arcade-origin').textContent=PK_ORIGIN;
 
+function atlasProgress(){
+ window.dispatchEvent(new CustomEvent('grapple-atlas-medals',{detail:{...records.atlas}}));
+}
 function setupLibrary(){
+ if(atlasActive){
+  const best=records.atlas[game.id];
+  status('arcade-best',best?arcadeGrade(best)+' · '+best+' pts':'—');
+  return;
+ }
  setOptions($('arcade-era'),ERAS.map(([title],id)=>({id,title:openTier(records.games,id)?title:title+' · Locked',disabled:!openTier(records.games,id)})),tier);
  setOptions($('arcade-game'),CARTRIDGES.filter(item=>item.tier===tier).map(item=>({id:item.id,title:item.title})),game.id);
  status('arcade-collection',Object.keys(records.games).length+' / '+CARTRIDGES.length+' challenges medaled');
@@ -59,7 +69,7 @@ function resetArcade(){
  $('arcade-action').disabled=game.chassis==='craft';
  status('arcade-title',game.title);
  status('arcade-chassis',CHASSIS[game.chassis].name);
- status('arcade-tip',CHASSIS[game.chassis].hint);
+ status('arcade-tip',(atlasActive?game.application+'. ':'')+CHASSIS[game.chassis].hint);
  status('arcade-target',game.target);
  status('arcade-status','Attempt 1 of 3.');
  status('arcade-score','0 / 300');
@@ -73,11 +83,11 @@ function resetArcade(){
 function chooseGame(id){
  const selected=CARTRIDGES.find(item=>item.id===id);
  if(!selected||!openTier(records.games,selected.tier))return;
- game=selected;tier=game.tier;resetArcade();
+ standardGame=selected;game=selected;tier=game.tier;resetArcade();
 }
 function arcadeAction(){
  if(round>=3||bridge?.hits>=150)return;
- const points=scoreChallenge(game,time,round,aim,wild,progress);
+ const points=scoreChallenge(game,time,round,aim,!atlasActive&&wild,progress);
  if(bridge){
   const attack=bridgeShot(bridge,points);
   if(attack===null){
@@ -103,10 +113,15 @@ function arcadeAction(){
  }
  const grade=arcadeGrade(total);
  const nextWasOpen=tier===ERAS.length-1||openTier(records.games,tier+1);
- if(grade){records.games[game.id]=Math.max(records.games[game.id]??0,total);save();}
+ if(grade){
+  const scores=atlasActive?records.atlas:records.games;
+  scores[game.id]=Math.max(scores[game.id]??0,total);
+  save();
+  if(atlasActive)atlasProgress();
+ }
  $('arcade-action').disabled=true;
  setupLibrary();
- status('arcade-status',grade?grade+' · '+total+' points.'+(!nextWasOpen&&openTier(records.games,tier+1)?' '+ERAS[tier+1][0]+' unlocked.':''):'Round complete. Score 150 points for Bronze.');
+ status('arcade-status',grade?grade+' · '+total+' points.'+(!atlasActive&&!nextWasOpen&&openTier(records.games,tier+1)?' '+ERAS[tier+1][0]+' unlocked.':''):'Round complete. Score 150 points for Bronze.');
 }
 $('arcade-era').onchange=()=>chooseGame(CARTRIDGES.find(item=>item.tier===Number($('arcade-era').value)).id);
 $('arcade-game').onchange=()=>chooseGame($('arcade-game').value);
@@ -156,12 +171,23 @@ $('grapple-form').onchange=()=>{records.form=$('grapple-form').value;refreshForm
 window.addEventListener('grapple-expansion-restore',event=>{
  const incoming=sanitizeExpansion(event.detail);
  for(const [id,value] of Object.entries(incoming.games)) records.games[id]=Math.max(records.games[id]??0,value);
+ for(const [id,value] of Object.entries(incoming.atlas)) records.atlas[id]=Math.max(records.atlas[id]??0,value);
  for(const [id,value] of Object.entries(incoming.swings)) records.swings[id]=Math.min(records.swings[id]??Infinity,value);
  if(event.detail&&FORMS.some(form=>form.id===event.detail.form))records.form=incoming.form;
- refreshForm();save();setupLibrary();
+ refreshForm();save();setupLibrary();atlasProgress();
  status('swing-best',records.swings[level]?(records.swings[level]/1000).toFixed(1)+' s':'—');
 });
 window.addEventListener('grapple-expansion-export',event=>{event.detail.expansion=sanitizeExpansion(records);});
+window.addEventListener('grapple-atlas-play',event=>{
+ if(!atlasActive&&!event.detail)return;
+ atlasActive=Boolean(event.detail);
+ game=event.detail??standardGame;tier=game.tier;
+ $('arcade-standard-picker').hidden=atlasActive;
+ $('arcade-pk-panel').hidden=atlasActive;
+ $('arcade-atlas-details').hidden=!atlasActive;
+ status('arcade-atlas-summary',atlasActive?game.id+' · '+CLASSES[game.lcc]+' — '+game.traits:'');
+ resetArcade();
+});
 window.addEventListener('grapple-view',event=>{
  view=event.detail??'';
  clearMotion();
@@ -262,7 +288,7 @@ function background(s,color){
 }
 function renderArcade(){
  if(!board.w)return;
- const i=Math.min(round,2), a=arena(game,time,i,wild);
+ const i=Math.min(round,2), a=arena(game,time,i,!atlasActive&&wild);
  const green='#e4fa92';
  background(board,['#284948','#594440','#54394c','#403756','#22485a','#613a46','#345268'][tier]);
  if(game.chassis==='craft'){
@@ -338,4 +364,4 @@ function frame(now){
  }
 }
 const frames=createFrameLoop(frame);
-refreshForm();resetArcade();resetSwing();syncFrames();
+refreshForm();resetArcade();resetSwing();atlasProgress();syncFrames();

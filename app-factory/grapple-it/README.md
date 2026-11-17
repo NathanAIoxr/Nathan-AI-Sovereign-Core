@@ -48,3 +48,9 @@ Apply the D1 migration with `npx wrangler d1 migrations apply grapple-it --remot
 The separate `grapple-it-bees` Worker runs launch, Daily Grapple API, offline shell, and mobile-runtime checks every five minutes. Its service binding reads the production Grapple It Worker. The latest public status is at [Grapple It Bee status](https://grapple-it-bees.nathantaboract.workers.dev/status). The last seven days of receipts are kept in `grapple_bee_runs`, separate from scores. The endpoint marks records older than thirteen minutes as stale.
 
 Run `node release.test.mjs` for animation lifecycle, offline recovery, and passing and failing Bee receipts. Deploy the Bee Worker from `bee/` after applying `bee/migration.sql` to the Grapple It database.
+
+## 101 Applications
+
+Nathan Tabor's catalog maps 101 characters, objects, places, concepts, recordings, workflows, datasets, and other entities onto the five existing physics chassis. It uses the 21 main classes of the [Library of Congress Classification](https://www.loc.gov/aba/cataloging/classification/lcco/) as subject labels. Three-digit numbers are game entry IDs. Filter by subject, entity type or mechanic, inspect the entry's attributes and traits, and launch its configured challenge. Each entry has a shareable deep link and separate medal in the save code. The Universal Bridge sequence game can pair with any entry.
+
+Run `node --test atlas.test.mjs` to verify coverage, search, score restoration, and that every challenge is winnable.

@@ -24,6 +24,7 @@
 <button type="button" data-view="campaign" aria-pressed="false">Through the Ages</button>
 <button type="button" data-view="daily" aria-pressed="false">Daily Grapple</button>
 <button type="button" data-view="gear" aria-pressed="false">Gear Trials &amp; Tournaments</button>
+<button type="button" data-view="atlas" aria-pressed="false">101 Applications</button>
 </nav>
 <section id="toy-view" class="layout" aria-label="Water-Ring Toy">
 <section class="play" aria-labelledby="toy-title">
@@ -71,9 +72,34 @@
  </section>
  <aside><section class="side"><h2>Catch &amp; Swing log</h2><dl><div><dt>Fastest clear on this course</dt><dd id="swing-best">—</dd></div></dl><p>Pump to rise and steer through the anchors. At the last anchor, hold a direction to pick up speed. Release toward the goal. Use arrow keys and Space while the board is active.</p></section></aside>
 </section>
+<section id="atlas-view" class="side atlas" hidden aria-labelledby="atlas-heading">
+ <h2 id="atlas-heading">101 Applications</h2>
+ <p>Find a character, object, place, or system. Read what makes it playable, then try it in the arcade.</p>
+ <p><a href="https://www.loc.gov/aba/cataloging/classification/lcco/">Library of Congress Classification outline</a> · Main classes organize Nathan Tabor’s game catalog. Entry numbers identify the challenges.</p>
+ <div class="atlas-filters">
+  <label for="atlas-query">Find an entry<input id="atlas-query" type="search" placeholder="Name, record, trait, or mechanic"></label>
+  <label for="atlas-lcc">Subject class<select id="atlas-lcc"><option value="">All classes</option></select></label>
+  <label for="atlas-kind">Entity type<select id="atlas-kind"><option value="">All types</option></select></label>
+  <label for="atlas-engine">Mechanic<select id="atlas-engine"><option value="">All mechanics</option></select></label>
+  <button id="atlas-clear" type="button">Clear filters</button>
+ </div>
+ <p id="atlas-count" role="status"></p><p id="atlas-empty" hidden>No entries match these filters.</p>
+ <div class="atlas-content">
+  <div id="atlas-index" aria-label="Matching entries"></div>
+  <article id="atlas-detail" class="side">
+   <h3 id="atlas-name"></h3><p id="atlas-location"></p>
+   <dl><div><dt>Attributes</dt><dd id="atlas-attributes"></dd></div>
+    <div><dt>Characteristics</dt><dd id="atlas-characteristics"></dd></div>
+    <div><dt>Traits</dt><dd id="atlas-traits"></dd></div>
+    <div><dt>Functionality</dt><dd id="atlas-application"></dd></div>
+    <div><dt>Target</dt><dd id="atlas-target"></dd></div></dl>
+   <p id="atlas-best"></p><a class="atlas-play" id="atlas-launch" href="#atlas/001">Play this challenge</a>
+  </article>
+ </div>
+</section>
 <section id="arcade-view" class="layout" aria-label="Toss and Target Arcade" hidden>
  <section class="play" aria-labelledby="arcade-title">
-  <div class="board-head"><strong id="arcade-title"></strong><span class="exp-label" id="arcade-target"></span></div>
+  <div class="board-head"><strong id="arcade-title" tabindex="-1"></strong><span class="exp-label" id="arcade-target"></span></div>
   <div class="tank arcade-tank"><canvas id="arcade-canvas" aria-label="Cartridge playfield. Use the action and aim controls for keyboard input." aria-describedby="arcade-tip"></canvas></div>
   <div class="arcade-aim" id="arcade-aim-controls">
    <label>Horizontal aim <input type="range" min="4" max="96" value="50" id="aim-x"></label>
@@ -88,7 +114,8 @@
   <output id="tactile-readout">No touch release yet.</output></details>
  </section>
  <aside>
-  <section class="side cartridge-picker"><h2>Cartridge shelf</h2><label for="arcade-era">Era</label><select id="arcade-era"></select><label for="arcade-game">Challenge</label><select id="arcade-game"></select><p id="arcade-collection"></p></section>
+  <section class="side" id="arcade-atlas-details" hidden><h2>101 Applications</h2><p id="arcade-atlas-summary"></p><button id="arcade-atlas-back" type="button">Back to the 101 entries</button></section>
+  <section class="side cartridge-picker" id="arcade-standard-picker"><h2>Cartridge shelf</h2><label for="arcade-era">Era</label><select id="arcade-era"></select><label for="arcade-game">Challenge</label><select id="arcade-game"></select><p id="arcade-collection"></p></section>
   <section class="side"><h2 id="arcade-chassis"></h2><p id="arcade-tip"></p><dl><div><dt>Score</dt><dd id="arcade-score">0 / 300</dd></div><div><dt>Shots</dt><dd id="arcade-shots">—</dd></div><div><dt>Best medal</dt><dd id="arcade-best">—</dd></div></dl></section>
   <section class="side bridge-game" aria-labelledby="bridge-heading"><h2 id="bridge-heading">Universal Bridge</h2>
 <label><input id="bridge-on" type="checkbox"> Pair this cartridge with the sequence game</label>
@@ -97,7 +124,7 @@
 <p id="bridge-order"></p><div class="line-controls" id="bridge-keys">
 <button type="button" data-key="0">1</button><button type="button" data-key="1">2</button><button type="button" data-key="2">3</button></div>
 <p id="bridge-status" role="status"></p></div></section>
-<section class="side"><h2>PK Wild Card</h2><label><input type="checkbox" id="arcade-wild"> PK moves the target</label><p id="arcade-origin"></p></section>
+<section class="side" id="arcade-pk-panel"><h2>PK Wild Card</h2><label><input type="checkbox" id="arcade-wild"> PK moves the target</label><p id="arcade-origin"></p></section>
  </aside>
 </section>
 <section id="curator-desk" class="side curator-desk" aria-labelledby="curator-title">
@@ -142,4 +169,4 @@
 </div></section>
 <details class="side save-box"><summary>Move progress between devices</summary><p>Copy a save code or restore Water-Ring Toy, Bubble Courses, Catch &amp; Swing, Toss &amp; Target Arcade, gear trials, brackets, campaign and daily records.</p><label for="save-code">Save code</label><textarea id="save-code" rows="3" spellcheck="false" maxlength="20000"></textarea><div class="line-controls"><button type="button" id="export-save">Export save</button><button type="button" id="import-save">Restore save</button></div><p id="save-status" role="status"></p></details>
 </main>
-<script type="module" src="./toy-ui.mjs"></script><script type="module" src="./grapple-ui.mjs"></script><script type="module" src="./expansion-ui.mjs"></script><script type="module" src="./arcade-ui.mjs"></script><script type="module" src="./campaign-ui.mjs"></script></body></html>
+<script type="module" src="./toy-ui.mjs"></script><script type="module" src="./grapple-ui.mjs"></script><script type="module" src="./atlas-ui.mjs"></script><script type="module" src="./expansion-ui.mjs"></script><script type="module" src="./arcade-ui.mjs"></script><script type="module" src="./campaign-ui.mjs"></script></body></html>
