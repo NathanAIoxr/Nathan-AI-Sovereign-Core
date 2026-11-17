@@ -33,16 +33,20 @@ export async function build(){
   const generated=arcadeModule(await read(arcade));
   const assets=Object.fromEntries(await Promise.all(browserFiles.map(async p=>["/"+p,await read(p)])));
   assets[entry+"arcade-core.mjs"]=generated;
-  for(const f of ["index.html","world.css","world.mjs","world-core.mjs","world.json","source-catalog.json","cast-and-props.json"])
+  for(const f of ["index.html","world.css","world.mjs","world-core.mjs","frontier.mjs","world.json","source-catalog.json","cast-and-props.json","release-ledger.json","destinations.json"])
     assets[entry+"world/"+f]=await read(app+"/public/world/"+f);
   assets[entry+"world/cosmic-body.json"]=await read("app-factory/nathan-ai/anatomy/cosmic-body/atlas.json");
   assets[entry+"world/worlds-atlas.json"]=await read("app-factory/one/mespark-memory-matrix/worlds-atlas.json");
+  const hero=entry+"world/tabor-world-hero.webp";
+  assets[hero]=await readFile(resolve(root,app+"/public/world/tabor-world-hero.webp"));
+  const manifest=JSON.parse(assets[entry+"world/release-ledger.json"]);
+  const releaseInfo={schema:manifest.schema,release:manifest.current,counts:manifest.counts};
   const out=resolve(dir,".release");
   await mkdir(out,{recursive:true});
   await writeFile(resolve(dir,"public/arcade-core.mjs"),generated);
   const packed=Object.fromEntries(Object.entries(assets).map(([path,content])=>
-    [path,Buffer.byteLength(content)>12000?[gzipSync(content,{level:9}).toString("base64")]:content]));
-  const worker="const files="+JSON.stringify(packed)+";\nconst entry="+JSON.stringify(entry)+";\n"+
+    [path,Buffer.isBuffer(content)?{base64:content.toString("base64")}:Buffer.byteLength(content)>12000?[gzipSync(content,{level:9}).toString("base64")]:content]));
+  const worker="const files="+JSON.stringify(packed)+";\nconst entry="+JSON.stringify(entry)+";\nconst releaseInfo="+JSON.stringify(releaseInfo)+";\n"+
     await read(app+"/worker.mjs");
   await writeFile(resolve(out,"worker.mjs"),worker);
   return {worker,assets};

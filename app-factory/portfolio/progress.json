@@ -10,7 +10,7 @@
   },
   "continuation": {
     "next": "portfolio-02",
-    "cursor": "The published catalog is the public starting point. Inspect inventory source links by app family, starting with Bible Topia, Tabor World, and the tactile arcade.",
+    "cursor": "Finish the tactile arcade browser checks. Bible Topia and Tabor World have initial mobile search receipts. Continue with their original builds, backend connections, and alternate editions.",
     "doneWhen": "Each batch has a source commit, specific tests, and observed hosting receipts where relevant. Keep alternate builds and missing material identifiable."
   },
   "batches": [
@@ -46,6 +46,18 @@
         "grapple-it",
         "hook-and-ring",
         "tabor-tracker-ball"
+      ],
+      "receipts": [
+        {
+          "project": "bibletopia",
+          "check": "390 px mobile search for Ruth 1:16 returned 16 matches",
+          "url": "https://bibletopia.nathantaboract.workers.dev/"
+        },
+        {
+          "project": "tabor-world",
+          "check": "390 px mobile destination search for Grapple returned two entries",
+          "url": "https://tabor-world.nathantaboract.workers.dev/"
+        }
       ]
     },
     {

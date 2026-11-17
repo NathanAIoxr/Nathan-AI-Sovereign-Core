@@ -1,75 +1,66 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {readFile} from "node:fs/promises";
-import {createWorker} from "./worker.mjs";
+import {execFileSync} from "node:child_process";
+import {mkdtemp, readFile, rm} from "node:fs/promises";
+import {tmpdir} from "node:os";
+import {join} from "node:path";
+import {pathToFileURL} from "node:url";
 
 const host = "https://tabor-app-portfolio.nathantaboract.workers.dev";
 const commit = "0123456789012345678901234567890123456789";
-const env = {PORTFOLIO_SOURCE:commit};
-const origin = "https://raw.githubusercontent.com/NathanAIoxr/Nathan-AI-Sovereign-Core/";
-const resource = path => new Request(host + path);
+const temp = await mkdtemp(join(tmpdir(), "tabor-portfolio-"));
+const bundle = join(temp, "worker.mjs");
+execFileSync("python3", [new URL("./pack_worker.py", import.meta.url).pathname, "--output", bundle, "--source", commit]);
+const {default:worker} = await import(pathToFileURL(bundle));
+await rm(temp, {recursive:true});
+const resource = (path, options) => new Request(host + path, options);
+const file = name => readFile(new URL(name, import.meta.url));
 
-test("catalog and progress are served from a pinned public commit", async () => {
-  const requests = [];
-  const worker = createWorker(async (url, options) => {
-    requests.push([url, options.method]);
-    return new Response('{"schema":1}', {headers:{"etag":"test"}});
-  });
-  for (const [route, file] of [["catalog","catalog.json"],["progress","progress.json"]]) {
-    const response = await worker.fetch(resource("/api/" + route), env);
+test("packaged catalog and progress match checked-in bytes", async () => {
+  for (const asset of ["catalog","progress"]) {
+    const response = await worker.fetch(resource("/api/" + asset));
     assert.equal(response.status, 200);
-    assert.equal(response.headers.get("content-type"), "application/json; charset=utf-8");
-    assert.equal(response.headers.get("etag"), "test");
-    assert.equal((await response.json()).schema, 1);
-    assert.deepEqual(requests.at(-1), [origin + commit + "/app-factory/portfolio/" + file, "GET"]);
+    assert.match(response.headers.get("content-type"), /application\/json/);
+    assert.deepEqual(Buffer.from(await response.arrayBuffer()), await file(asset + ".json"));
   }
 });
 
-test("website and image routes use their expected types and CSP", async () => {
-  const worker = createWorker(async () => new Response("asset"));
-  for (const [path, mime] of [["/","text/html"],["/style.css","text/css"],["/assets/tabor-world.webp","image/webp"]]) {
-    const response = await worker.fetch(resource(path), env);
+test("website and artwork serve their exact bytes, MIME types, and CSP", async () => {
+  for (const [path, name, mime] of [["/","index.html","text/html"],["/style.css","style.css","text/css"],
+    ["/assets/tabor-world.webp","assets/tabor-world.webp","image/webp"]]) {
+    const response = await worker.fetch(resource(path));
     assert.match(response.headers.get("content-type"), new RegExp(mime));
     assert.match(response.headers.get("content-security-policy"), /frame-ancestors 'none'/);
+    assert.deepEqual(Buffer.from(await response.arrayBuffer()), await file(name));
   }
 });
 
-test("health probes the catalog and HEAD returns an empty body", async () => {
-  const calls = [];
-  const worker = createWorker(async (url, options) => {
-    calls.push([url, options.method]);
-    return new Response(null);
-  });
-  const response = await worker.fetch(resource("/api/health"), env);
-  assert.equal((await response.json()).source, commit);
-  assert.equal(calls[0][1], "HEAD");
-  const head = await worker.fetch(new Request(host, {method:"HEAD"}), env);
+test("health identifies the bundled release and HEAD returns an empty body", async () => {
+  const response = await worker.fetch(resource("/api/health"));
+  assert.deepEqual(await response.json(), {status:"ok", service:"tabor-app-portfolio",source:commit,bundledFiles:6});
+  const head = await worker.fetch(resource("/", {method:"HEAD"}));
+  assert.equal(head.status, 200);
   assert.equal(await head.text(), "");
-  assert.equal(calls[1][1], "HEAD");
 });
 
-test("unknown routes and modifying methods never reach the source", async () => {
-  const worker = createWorker(() => assert.fail("Unexpected source request"));
-  const notice = await worker.fetch(resource("/docs/record/index.html"), env);
+test("allowlisted record link redirects and other paths cannot access files", async () => {
+  const notice = await worker.fetch(resource("/docs/record/index.html"));
   assert.equal(notice.status, 302);
-  assert.match(notice.headers.get("location"), /github\.io.*\/docs\/record\/index\.html/);
-  assert.equal((await worker.fetch(resource("/.env"), env)).status, 404);
-  assert.equal((await worker.fetch(resource("/api/../../../etc/passwd"), env)).status, 404);
-  assert.equal((await worker.fetch(new Request(host, {method:"POST"}), env)).status, 405);
-  assert.equal((await worker.fetch(resource("/"), {PORTFOLIO_SOURCE:"../main"})).status, 503);
+  assert(notice.headers.get("location").endsWith("/docs/record/index.html"));
+  assert.equal((await worker.fetch(resource("/.env"))).status, 404);
+  assert.equal((await worker.fetch(resource("/api/../../../etc/passwd"))).status, 404);
+  assert.equal((await worker.fetch(resource("/", {method:"POST"}))).status, 405);
 });
 
-test("upstream failures return a bounded gateway error", async () => {
-  const missing = createWorker(async () => new Response("HTML error", {status:404}));
-  assert.equal((await missing.fetch(resource("/api/health"), env)).status, 502);
-  const failed = createWorker(async () => { throw new Error("network error"); });
-  const response = await failed.fetch(resource("/api/progress"), env);
-  assert.equal(response.status, 502);
-  assert.equal(response.headers.get("cache-control"), "no-store");
+test("a matching resource ETag avoids sending the asset body again", async () => {
+  const first = await worker.fetch(resource("/style.css",{method:"HEAD"}));
+  const cached = await worker.fetch(resource("/style.css",{headers:{"if-none-match":first.headers.get("etag")}}));
+  assert.equal(cached.status, 304);
+  assert.equal(await cached.text(), "");
 });
 
-test("checked-in catalog retains unique stable IDs and paths", async () => {
-  const data = JSON.parse(await readFile(new URL("./catalog.json", import.meta.url)));
+test("the current catalog retains unique IDs and source paths", async () => {
+  const data = JSON.parse(await file("catalog.json"));
   assert.equal(data.schema, 1);
   assert(data.items.length > 334);
   assert.equal(new Set(data.items.map(item => item.id)).size, data.items.length);

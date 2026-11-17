@@ -1,14 +1,7 @@
-const origin = "https://raw.githubusercontent.com/NathanAIoxr/Nathan-AI-Sovereign-Core";
-const assets = new Map([
-  ["/", ["index.html", "text/html; charset=utf-8"]],
-  ["/index.html", ["index.html", "text/html; charset=utf-8"]],
-  ["/style.css", ["style.css", "text/css; charset=utf-8"]],
-  ["/app.mjs", ["app.mjs", "application/javascript; charset=utf-8"]],
-  ["/assets/tabor-world.webp", ["assets/tabor-world.webp", "image/webp"]],
-  ["/catalog.json", ["catalog.json", "application/json; charset=utf-8"]],
-  ["/api/catalog", ["catalog.json", "application/json; charset=utf-8"]],
-  ["/progress.json", ["progress.json", "application/json; charset=utf-8"]],
-  ["/api/progress", ["progress.json", "application/json; charset=utf-8"]],
+const aliases = new Map([
+  ["/", "/index.html"],
+  ["/api/catalog", "/catalog.json"],
+  ["/api/progress", "/progress.json"],
 ]);
 
 const policy = {
@@ -18,56 +11,31 @@ const policy = {
   "permissions-policy": "camera=(), microphone=(), geolocation=()",
 };
 
-function respond(request, body, status = 200, headers = {}) {
-  return new Response(request.method === "HEAD" ? null : body, {
-    status, headers: {"cache-control":"no-store", ...policy, ...headers},
-  });
-}
-
-export function createWorker(originFetch = fetch) {
+export function createWorker(files, source) {
   return {
-    async fetch(request, env) {
+    async fetch(request) {
+      const respond = (body, status = 200, headers = {}) => new Response(request.method === "HEAD" ? null : body, {
+        status, headers: {"cache-control":"no-store", ...policy, ...headers},
+      });
       if (request.method !== "GET" && request.method !== "HEAD") {
-        return respond(request, "Method not allowed", 405, {"allow":"GET, HEAD"});
+        return respond("Method not allowed", 405, {"allow":"GET, HEAD"});
       }
       const path = new URL(request.url).pathname;
       if (path === "/docs/record/index.html") {
-        return respond(request, null, 302, {
-          "location":"https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/docs/record/index.html",
-        });
+        return respond(null, 302, {"location":"https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/docs/record/index.html"});
       }
-      const health = path === "/api/health";
-      const asset = assets.get(health ? "/api/catalog" : path);
-      if (!asset) return respond(request, "Page not found", 404);
-      const snapshot = env.PORTFOLIO_SOURCE;
-      if (typeof snapshot !== "string" || !/^[0-9a-f]{40}$/.test(snapshot)) {
-        return respond(request, "Portfolio source is unavailable", 503);
+      if (path === "/api/health") {
+        return respond(JSON.stringify({status:"ok", service:"tabor-app-portfolio", source, bundledFiles:files.size}),
+          200, {"content-type":"application/json; charset=utf-8"});
       }
-
-      const [file, type] = asset;
-      const target = origin + "/" + snapshot + "/app-factory/portfolio/" + file;
-      let result;
-      try {
-        result = await originFetch(target, {
-          method: health ? "HEAD" : request.method,
-          redirect: "error",
-          cf: {cacheEverything:true, cacheTtlByStatus:{"200-299":86400,"400-599":0}},
-        });
-      } catch {
-        return respond(request, "Portfolio source is temporarily unavailable", 502);
-      }
-      if (!result.ok) return respond(request, "Portfolio source is temporarily unavailable", 502);
-      if (health) {
-        return respond(request, JSON.stringify({status:"ok", service:"tabor-app-portfolio", source:snapshot}), 200,
-          {"content-type":"application/json; charset=utf-8"});
-      }
-
-      return respond(request, result.body, 200, {
-        "content-type":type, "cache-control":"public, max-age=300",
-        ...(result.headers.has("etag") ? {"etag":result.headers.get("etag")} : {}),
-      });
+      const asset = files.get(aliases.get(path) ?? path);
+      if (!asset) return respond("Page not found", 404);
+      const headers = {"content-type":asset.type, "cache-control":"public, max-age=300", "etag":asset.etag};
+      if (request.headers.get("if-none-match") === asset.etag) return respond(null, 304, headers);
+      if (request.method === "HEAD") return respond(null, 200, headers);
+      const bytes = Uint8Array.from(atob(asset.gzip), char => char.charCodeAt(0));
+      const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
+      return respond(stream, 200, headers);
     },
   };
 }
-
-export default createWorker();

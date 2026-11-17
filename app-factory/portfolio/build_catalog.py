@@ -114,7 +114,7 @@ def build():
             "kind": kind(name.lower()), "state": "template" if url is None else "registered",
             "url": url, "path": name, "viewport": meta.viewport,
         })
-    records[12:] = sorted(records[12:], key=lambda x: (x["title"].casefold(), x["path"]))
+    records[len(WORKERS):] = sorted(records[len(WORKERS):], key=lambda x: (x["title"].casefold(), x["path"]))
     return {"schema": 1, "commit": commit, "repository": REPOSITORY, "items": records}
 
 
