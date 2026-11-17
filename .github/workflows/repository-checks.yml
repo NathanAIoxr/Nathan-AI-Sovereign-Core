@@ -35,7 +35,9 @@ jobs:
         run: python3 -B tools/release/check.py --out "$RUNNER_TEMP/repository-checks"
       - name: Build and verify the complete public site package
         run: |
-          python3 -B tools/release/build.py --out "$RUNNER_TEMP/repository-release"
+          # Package the tested commit in a fresh worktree, isolated from test outputs.
+          git worktree add --detach "$RUNNER_TEMP/repository-release-source" HEAD
+          python3 -B "$RUNNER_TEMP/repository-release-source/tools/release/build.py" --out "$RUNNER_TEMP/repository-release"
           python3 -B tools/release/build.py --verify "$RUNNER_TEMP/repository-release/nathan-ai-site.zip"
       - name: Save check report and logs
         if: always()
