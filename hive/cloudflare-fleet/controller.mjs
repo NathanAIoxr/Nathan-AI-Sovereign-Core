@@ -65,8 +65,11 @@ export class FleetSummary extends DurableObject {
     });
   }
 
-  status() {
+  async status() {
     const entries = this.ctx.storage.sql.exec('SELECT worker, checked_at, outcome, failures FROM receipts').toArray();
+    if (entries.length === 0 && await this.ctx.storage.getAlarm() === null) {
+      await this.ctx.storage.setAlarm(Date.now());
+    }
     const byWorker = new Map(entries.map(row => [row.worker, row]));
     const now = Date.now();
     const empty = () => ({assigned: 0, checked: 0, healthy: 0, protected: 0, failed: 0, stale: 0, pending: 0, attention: 0});
@@ -95,10 +98,31 @@ export class FleetSummary extends DurableObject {
       lastChecked: lastChecked ? new Date(lastChecked).toISOString() : null,
     };
   }
+
+  async alarm() {
+    const currentTick = Math.floor(Date.now() / MINUTE);
+    for (let tick = currentTick - CHECK_INTERVAL + 1; tick <= currentTick; tick++) {
+      this.record(await runCohort(this.env, tick));
+    }
+  }
 }
 
 function summary(env) {
   return env.FLEET_SUMMARY.getByName('fleet');
+}
+
+async function runCohort(env, tick) {
+  const jobs = SLOTS.filter(slot => slot.cohort === tick % CHECK_INTERVAL);
+  const receipts = [];
+  for (let index = 0; index < jobs.length; index += 4) {
+    const results = await Promise.allSettled(jobs.slice(index, index + 4).map(slot =>
+      env.SUPERVISORS.getByName(slot.worker).run(slot.worker, tick)));
+    for (const result of results) {
+      if (result.status === 'fulfilled') receipts.push(result.value);
+      else console.error('Fleet supervisor could not record a check', String(result.reason));
+    }
+  }
+  return receipts;
 }
 
 export default {
@@ -110,16 +134,6 @@ export default {
 
   async scheduled(event, env) {
     const tick = Math.floor(event.scheduledTime / MINUTE);
-    const jobs = SLOTS.filter(slot => slot.cohort === tick % CHECK_INTERVAL);
-    const receipts = [];
-    for (let index = 0; index < jobs.length; index += 4) {
-      const results = await Promise.allSettled(jobs.slice(index, index + 4).map(slot =>
-        env.SUPERVISORS.getByName(slot.worker).run(slot.worker, tick)));
-      for (const result of results) {
-        if (result.status === 'fulfilled') receipts.push(result.value);
-        else console.error('Fleet supervisor could not record a check', String(result.reason));
-      }
-    }
-    await summary(env).record(receipts);
+    await summary(env).record(await runCohort(env, tick));
   },
 };
