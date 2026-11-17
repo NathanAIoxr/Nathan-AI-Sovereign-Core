@@ -1,7 +1,7 @@
 import {quantum,chip,shard,runChecks,DIVISIONS} from './science.mjs';
 import {page,ui} from './web.mjs';
 import {homeStatus, homePulse, ownChecks} from './home-core.mjs';
-import {home, styles, browser} from './home-web.mjs';
+import {home, systems, workers, styles, browser} from './home-web.mjs';
 import * as mind from './mind-game.mjs';
 import * as hounds from './hounds-game.mjs';
 import * as labs from './labs-game.mjs';
@@ -43,6 +43,8 @@ export default {
     if(!['GET','HEAD'].includes(request.method))return json({error:"Read-only endpoint."},405);
     const url=new URL(request.url), p=url.searchParams;
     if(url.pathname==="/")return body(home,"text/html; charset=utf-8",200,cached);
+    if(url.pathname==="/systems" || url.pathname==="/systems/")return body(systems,"text/html; charset=utf-8",200,cached);
+    if(url.pathname==="/workers" || url.pathname==="/workers/")return body(workers,"text/html; charset=utf-8",200,cached);
     if(url.pathname==="/workbench" || url.pathname==="/workbench/")return body(page,"text/html; charset=utf-8",200,cached);
     if(url.pathname==="/home.css")return body(styles,"text/css; charset=utf-8",200,cached);
     if(url.pathname==="/home.js")return body(browser,"application/javascript; charset=utf-8",200,cached);

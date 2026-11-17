@@ -13,9 +13,10 @@ export const connections = Object.freeze([
   service('nathan-absolute-intelligence', 'Absolute Intelligence', '/api/health'),
   service('nathan-ai-sovereign-hive', 'Sovereign Hive', '/api/repair/status'),
   service('nathan-ai-workers', 'Worker catalog', '/api/health'),
+  service('nathan-ai-fleet', 'Nathan AI Fleet', '/'),
   service('one-sovereign-hub', 'ONE owner hub', '/api/status', true),
 ]);
-export const release = 'nathan-ai-home-v1';
+export const release = 'nathan-ai-home-v2';
 export const roles = Object.values(bees).map(({id,name,domain}) => ({id,name,domain}));
 
 export function ownChecks() {
@@ -38,12 +39,39 @@ export function ownChecks() {
   return {release,passed:checks.every(item=>item.passed),checks};
 }
 
+async function readFleet(response) {
+  const reader = response.body?.getReader();
+  if (!reader) return;
+  const decoder = new TextDecoder();
+  let size = 0, body = '';
+  while (true) {
+    const part = await reader.read();
+    if (part.done) break;
+    size += part.value.byteLength;
+    if (size > 8192) { await reader.cancel(); return; }
+    body += decoder.decode(part.value,{stream:true});
+  }
+  const payload = JSON.parse(body+decoder.decode());
+  if (payload?.service !== 'nathan-ai-fleet') return;
+  const keys = ['assigned','checked','healthy','protected','failed','pending'];
+  const counts = {managed:payload.workers?.managed,
+    ...Object.fromEntries(keys.map(name=>[name,payload.supervisors?.[name]]))};
+  if (Object.values(counts).some(n=>!Number.isSafeInteger(n)||n<0||n>100000)) return;
+  if (counts.checked>counts.assigned || counts.pending>counts.assigned ||
+      counts.healthy+counts.protected+counts.failed>counts.checked) return;
+  return counts;
+}
+
 async function probe(target,fetcher) {
   try {
     const response = await fetcher(target.url+target.path,{method:'GET',redirect:'manual',
       headers:{Accept:'application/json'},signal:AbortSignal.timeout(3500)});
-    // Never read or return a downstream response body, headers or errors.
     const status = response.status;
+    if (target.id==='nathan-ai-fleet' && status===200) {
+      const fleet = await readFleet(response);
+      return fleet ? {id:target.id,http:status,state:'online',fleet} : {id:target.id,http:status,state:'unexpected'};
+    }
+    // Other services contribute HTTP status only.
     await response.body?.cancel().catch(()=>{});
     return {id:target.id,http:status,state:target.protectedRoute ?
       ([401,403].includes(status)?'owner-sign-in':'unexpected') :
