@@ -29,4 +29,3 @@ Deploy the generated modules from `.release/` to the `tabor-universal-library-en
 
 The rotunda WebP is a new site illustration based on the Library of Tabor poster. The site uses live HTML for the title and opens the original Grapple It implementation for play and scoring.
 
-Cloudflare version IDs for Library of Tabor 1: `873c9c24-9011-4d43-ace3-bfeb68e8fa12` (Library Worker) and `b8ce4ec3-a42a-4aed-8ea3-80b63aa290f2` (Tabor World gateway).

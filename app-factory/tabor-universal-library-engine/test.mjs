@@ -19,7 +19,9 @@ test("the Worker serves the original shared modules, browser shell and full sour
   for(const path of Object.keys(assets)){
     const response=await request(path);
     assert.equal(response.status,200,path);
-    assert.equal(await response.text(),assets[path],path);
+    const expected=assets[path];
+    if(Buffer.isBuffer(expected))assert.deepEqual(Buffer.from(await response.arrayBuffer()),expected,path);
+    else assert.equal(await response.text(),expected,path);
   }
   for(const [path,name] of [
     ["/app-factory/nathan-ai/anatomy/cosmic-body/atlas.json","cosmic-body"],
@@ -119,4 +121,29 @@ test("Tabor World loads complete scoped editions and preserves a real relationsh
   assert.match(location,/\/world\/\?record=classic-water$/);
   const response=await request(location);
   assert.match(await response.text(),/Tabor World by Nathan Tabor/);
+});
+
+
+test("World release APIs agree with the source data and preserve access labels",async ()=>{
+  const ledger=await (await request("/api/releases")).json();
+  const destinations=await (await request("/api/destinations")).json();
+  const health=await (await request("/api/health")).json();
+  assert.equal(health.status,"ok");
+  assert.equal(health.release,ledger.current);
+  assert.equal(ledger.history[0].id,ledger.current);
+  assert.deepEqual(health.counts,ledger.counts);
+  assert.equal(ledger.counts.trackerCatalog,catalog.ledger.length+catalog.trackerSupplement.length);
+  assert.equal(ledger.counts.records,ledger.counts.elements+ledger.counts.nonElements);
+  assert.equal(ledger.counts.runnable,Object.keys(labs.active).length);
+  assert.equal(ledger.counts.destinations,destinations.length);
+  assert.equal(ledger.counts.publicDestinations,destinations.filter(row=>row.access==="public").length);
+  assert.equal(new Set(destinations.map(row=>row.id)).size,destinations.length);
+  assert.equal(destinations.find(row=>row.id==="nathan-tabor-library").access,"sign-in");
+  assert.ok(destinations.every(row=>new URL(row.url).protocol==="https:"&&row.checkedOn));
+  assert.ok(ledger.next.every(item=>item.id&&item.title&&item.detail));
+  assert.equal((await request("/docs/record/index.html")).headers.get("location"),"https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/docs/record/index.html");
+  const image=await request(assetDir+"world/tabor-world-hero.webp");
+  assert.equal(image.headers.get("content-type"),"image/webp");
+  assert.equal(Buffer.from(await image.arrayBuffer()).toString("ascii",8,12),"WEBP");
+  assert.equal((await request("/api/releases",{method:"POST"})).status,405);
 });

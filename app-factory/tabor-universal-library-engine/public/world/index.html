@@ -5,15 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#11201e">
 <meta name="author" content="Nathan Tabor">
-<title>Tabor World by Nathan Tabor</title>
+<title>Library of Tabor · Tabor World by Nathan Tabor</title>
 <link rel="stylesheet" href="./world.css">
 <script type="module" src="./world.mjs"></script>
+<script type="module" src="./frontier.mjs"></script>
 </head>
 <body>
 <aside id="nathan-record-notice" aria-label="Timestamped record" style="display:block!important;position:relative!important;box-sizing:border-box!important;grid-column:1/-1;flex:0 0 100%;width:100%;padding:12px 16px;margin:0;background:#fff0b3!important;color:#161616!important;border-bottom:3px solid #161616;font:600 16px/1.5 system-ui,sans-serif;text-align:left;overflow-wrap:anywhere;"><a href="../../../../docs/record/index.html" style="color:#161616!important;text-decoration:underline!important;">READ THE TIMESTAMPED RECORD — Nathan Tabor / ChatGPT</a><span style="display:block;font-size:14px;font-weight:400;color:#161616!important;">Repository changes, authorship complaints, correction claims, and unfinished work. Record opened November 5, 2026, 7:42:08 p.m. EST.</span></aside>
 
 <main>
-<header><div><p class="credit">NATHAN TABOR</p><h1>Tabor World</h1></div><nav aria-label="World destinations"><a class="button" href="../library/">Library of Tabor</a> <a class="button" href="../">Open v.7 engine</a></nav></header>
+<header class="hero">
+<div class="hero-text">
+<p class="credit">TABOR WORLD · BY NATHAN TABOR</p>
+<h1>Library of Tabor</h1>
+<p>Explore the elements, worlds, characters, and playable cartridges. Open the source of any record and follow its connections.</p>
+<div class="hero-actions"><a class="button hero-primary" href="#catalog">Explore records</a><a class="button" href="../library/">Play 101 applications</a><a class="button" href="#launchpad">Games &amp; apps</a><a class="button" href="#release-notes">Release ledger</a></div>
+</div>
+<figure class="hero-visual" aria-label="Illustration of the Tabor World archive">
+<img src="./tabor-world-hero.webp" width="1040" height="693" alt="An illuminated circular archive, roads, and a suspended globe at twilight" fetchpriority="high">
+<div class="orbit" aria-hidden="true"><i></i></div>
+<button id="motion" type="button" aria-pressed="false" hidden>Pause motion</button>
+</figure>
+</header>
+<div class="world-tools"><a href="../">Open v.7 engine</a><span id="top-release" role="status"></span></div>
+<section id="catalog" aria-label="Library catalog">
 <nav id="views" aria-label="World views">
 <button data-view="all" aria-pressed="true">All records</button>
 <button data-view="elements" aria-pressed="false">Elements</button>
@@ -48,6 +63,20 @@
 </aside>
 </div>
 <details class="panel sources"><summary>Source editions and downloads</summary><ul id="sources"></ul></details>
+</section>
+<section id="launchpad" class="panel section" aria-labelledby="launchpad-title">
+<div class="section-head"><h2 id="launchpad-title">Games, worlds &amp; apps</h2><p id="destination-count" role="status">Loading destinations…</p></div>
+<div class="filters launch-filters">
+<label>Find a destination<input id="destination-search" type="search" autocomplete="off" placeholder="Game, world, or tool"></label>
+<label>Destination category<select id="destination-category"><option value="">All categories</option></select></label>
+</div>
+<div id="destinations" class="destinations"></div>
+</section>
+<section id="release-notes" class="panel section" aria-labelledby="release-title">
+<div class="section-head"><h2 id="release-title">Release ledger</h2><a href="./release-ledger.json" download>Download release JSON</a></div>
+<p id="release-status" role="status">Loading the release ledger…</p>
+<div class="release-layout"><div><h3>Release history</h3><div id="release-history"></div></div><div><h3>Next work</h3><div id="next-work"></div></div></div>
+</section>
 </main>
 </body>
 </html>
