@@ -9,12 +9,13 @@ test('101 individually indexed entries cover every subject, type and chassis',()
  for(const [index,entry] of ATLAS.entries()){
   assert.equal(entry.id,String(index+1).padStart(3,'0'));
   assert.equal(atlasEntry(entry.id),entry);
-  assert.ok(entry.attributes && entry.traits && entry.application && entry.target);
+  assert.ok(entry.attributes && entry.characteristics && entry.traits && entry.application && entry.target);
  }
  assert.deepEqual(new Set(ATLAS.map(entry=>entry.lcc)),new Set(Object.keys(CLASSES)));
  assert.deepEqual(new Set(ATLAS.map(entry=>entry.kind)),new Set(Object.keys(TYPES)));
  assert.deepEqual(new Set(ATLAS.map(entry=>entry.chassis)),new Set(Object.keys(CHASSIS)));
  assert.equal(new Set(ATLAS.map(entry=>entry.title)).size,101);
+ assert.equal(new Set(ATLAS.map(entry=>entry.characteristics)).size,101);
 });
 
 test('search intersects subject, type and mechanic',()=>{

@@ -1,5 +1,5 @@
 import {CHASSIS,arcadeGrade} from './arcade.mjs';
-import {ATLAS,CLASSES,TYPES,MECHANICS,atlasSearch,atlasEntry} from './atlas.mjs';
+import {ATLAS,CLASSES,TYPES,atlasSearch,atlasEntry} from './atlas.mjs';
 
 const at=id=>document.getElementById(id);
 let selected=ATLAS[0], medals={};
@@ -14,7 +14,8 @@ function inspect(item){
  at('atlas-name').textContent=item.id+' · '+item.title;
  at('atlas-location').textContent=item.lcc+' · '+CLASSES[item.lcc]+' / '+TYPES[item.kind];
  at('atlas-attributes').textContent=item.attributes;
- at('atlas-characteristics').textContent=MECHANICS[item.chassis];
+ at('atlas-characteristics').textContent=item.characteristics;
+ at('atlas-mechanic').textContent=CHASSIS[item.chassis].name;
  at('atlas-traits').textContent=item.traits;
  at('atlas-application').textContent=item.application+'.';
  at('atlas-target').textContent=item.target;
