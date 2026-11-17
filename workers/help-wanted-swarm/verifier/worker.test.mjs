@@ -66,3 +66,16 @@ test("a registered GitHub handoff supports blank context and rejects a mismatche
     { base, files: 1, hunks: 1 });
   await assert.rejects(verifyPatch("github:example/docs#8", receipt, read, "Other/docs"), /pinned Git revision/);
 });
+
+test("GitHub contents can supply the same pinned source when raw fetch is unavailable", async () => {
+  const read = async url => {
+    const target = new URL(url);
+    if (target.hostname === "raw.githubusercontent.com") throw new TypeError("Connection unavailable");
+    assert.equal(target.hostname, "api.github.com");
+    assert.equal(target.searchParams.get("ref"),base);
+    return target.pathname.endsWith("README.md") ?
+      Response.json({type:"file",encoding:"base64",content:btoa("Original\n")}) :
+      new Response(null,{status:404});
+  };
+  assert.deepEqual(await verifyPatch(job, {base,patch}, read), {base,files:2,hunks:2});
+});

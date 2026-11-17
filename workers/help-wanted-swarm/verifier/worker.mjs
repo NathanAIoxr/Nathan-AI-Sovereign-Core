@@ -127,6 +127,31 @@ async function readSource(response) {
   }
 }
 
+async function getPinnedFile(read, repository, base, path) {
+  const raw = "https://raw.githubusercontent.com/" + repository + "/" + base + "/" + path;
+  const primary = await read(raw, {redirect:"error", signal:AbortSignal.timeout(4000)}).catch(() => null);
+  if (primary && (primary.ok || primary.status === 404)) return {response:primary, fromApi:false};
+  await primary?.body?.cancel().catch(() => {});
+  const api = new URL("https://api.github.com/repos/" + repository + "/contents/" + path);
+  api.searchParams.set("ref",base);
+  const response = await read(api.href, {
+    headers: {"User-Agent":"NathanAI-Sovereign-Hive",Accept:"application/vnd.github.raw+json"},
+    redirect:"error",signal:AbortSignal.timeout(6000)
+  });
+  return {response, fromApi:true};
+}
+
+async function fileText(response, fromApi) {
+  const code = await readSource(response);
+  if (!fromApi || !response.headers.get("content-type")?.includes("application/json")) return code;
+  const {type,encoding,content} = JSON.parse(code);
+  if (type !== "file" || encoding !== "base64" || typeof content !== "string") {
+    throw new PendingSource("GitHub returned an unsupported source representation");
+  }
+  const bytes = Uint8Array.from(atob(content), char => char.charCodeAt(0));
+  return new TextDecoder("utf-8", {fatal:true}).decode(bytes);
+}
+
 export async function verifyPatch(jobId, receipt, read = fetch, repository) {
   const canonical = /^github:([\w.-]+\/[\w.-]+)#[1-9]\d*$/.exec(jobId);
   const target = TARGETS[jobId] ??
@@ -141,15 +166,14 @@ export async function verifyPatch(jobId, receipt, read = fetch, repository) {
     if (!base.ok) throw new PendingSource("Could not establish the pinned commit (HTTP " + base.status + ")");
   }
   await Promise.all(files.map(async f => {
-    const url = "https://raw.githubusercontent.com/" + target.repository + "/" + receipt.base + "/" + f.path;
-    const response = await read(url, request);
+    const {response,fromApi} = await getPinnedFile(read,target.repository,receipt.base,f.path);
     if (!response.ok || f.created) {
       await response.body?.cancel();
       if (f.created && response.status === 404) return;
       if (!response.ok) throw new PendingSource("Source read returned HTTP " + response.status);
       throw Error("New file already exists at the pinned revision");
     }
-    const code = await readSource(response);
+    const code = await fileText(response,fromApi);
     const source = code.split("\n");
     for (const h of f.hunks) {
       if (h.before.some((line, i) => line !== source[h.oldLine - 1 + i])) {
