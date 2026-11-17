@@ -18,8 +18,16 @@ export default {
     if(url.pathname==="/")return new Response(null,{status:302,headers:{Location:entry+url.search,"Cache-Control":"no-store"}});
     if(url.pathname==="/world"||url.pathname==="/world/"||url.pathname===entry+"world")
       return new Response(null,{status:302,headers:{Location:entry+"world/"+url.search,"Cache-Control":"no-store"}});
-    const path=sourceAliases[url.pathname] ??
-      (url.pathname===entry||url.pathname===entry+"world/"?url.pathname+"index.html":url.pathname);
+    const library=entry+"library/";
+    if(url.pathname==="/library"||url.pathname===library.slice(0,-1))
+      return new Response(null,{status:302,headers:{Location:"/library/"+url.search,"Cache-Control":"no-store"}});
+    const pathName=url.pathname.startsWith("/library/")?library+url.pathname.slice("/library/".length):url.pathname;
+    if(pathName.startsWith(library)){
+      const endpoint=pathName.slice(library.length);
+      if(endpoint==="catalog.json"||endpoint.startsWith("api/"))return catalogResponse(catalog,endpoint,url,head);
+    }
+    const path=sourceAliases[pathName] ??
+      ([entry,entry+"world/",library].includes(pathName)?pathName+"index.html":pathName);
     if(!Object.hasOwn(files,path))return new Response(head?null:"Not found",{status:404});
     const headers={"Content-Type":types[path.split(".").pop()],"Cache-Control":"no-cache","X-Content-Type-Options":"nosniff",
       "Referrer-Policy":"no-referrer","Content-Security-Policy":"default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"};
