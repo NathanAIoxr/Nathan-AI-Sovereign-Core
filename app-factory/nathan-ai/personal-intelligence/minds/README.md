@@ -21,7 +21,7 @@ Bring together existing recovered original modules and historical source indexes
 | Tier | Role | Scope | Review |
 |---|---|---|---|
 | CERO 0.0 | Source intake | Original unchanged data, identity, hash | Never erase original |
-| UNO 1.0 | Classify | Owner-entered Dewey, Library of Congress, Duo and custom tags | Candidate until checked |
+| UNO 1.0 | Classify | Owner-entered Dewey, Library of Tabor, Duo and custom tags | Candidate until checked |
 | DOS 2.0 | Connect | Phonetic, lexical, geometric, source-linked synthesis | Proposed until verified |
 
 These are custom metadata tiers for the educational workflow, **not** a forced new meaning for pre-existing arithmetic or decimal source text. The deterministic simulation makes no database writes; linked matches are lexical overlap, not vector search or independent evidence. Raphael flags unsupported assertions rather than deleting original testimony.

@@ -36,7 +36,7 @@ The browser is static: no backend, tracking, external API keys or installations.
 ## Source links
 
 - [Koninklijke Bibliotheek manuscript reproduction and catalog identification](https://commons.wikimedia.org/wiki/File:Schneemann_haag.jpg)
-- [Library of Congress — From Snowballs to Sculptures](https://blogs.loc.gov/folklife/2014/12/snowballs-to-sculptures/)
+- [U.S. federal library — From Snowballs to Sculptures](https://blogs.loc.gov/folklife/2014/12/snowballs-to-sculptures/)
 - [Oxford Academic — The Yeti and the 1921 naming history](https://doi.org/10.7312/columbia/9780231153201.003.0003)
 - [Victoria & Albert Museum — Snegurochka](https://www.vam.ac.uk/blog/museum-life/a-shifting-snow-maiden)
 - [Lafcadio Hearn — Kwaidan / Yuki-onna (1904)](https://www.gutenberg.org/files/1210/1210-h/1210-h.htm)

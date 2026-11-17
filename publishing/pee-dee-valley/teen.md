@@ -447,7 +447,7 @@ The Pee Dee is a real river system. The households, household marks, council dec
 Book 7 depicts the first encounter of two particular cousins, at an unnamed local ford. The series uses a fictional chronology. European contact took different forms at different times in the Southeast. At Joara, in the Catawba watershed of present-day western North Carolina, archaeological and documentary work places Spanish contact in the sixteenth century. John Lawson’s travels began in 1700, and his account was published in 1709. Lawson wrote as an English colonial observer. The College of Charleston’s Lowcountry Digital History Initiative documents the trade in enslaved Indigenous people in colonial Carolina. The Yamassee War began in 1715 amid disputes over trade, debt and abuses. The salt landing, buyers’ records, and hearing in Books 8, 9, 11 and 12 are fictional.
 
 [Exploring Joara Foundation · Research at the Berry Site](https://exploringjoara.org/research-berry/)
-[Library of Congress · John Lawson’s A New Voyage to Carolina](https://www.loc.gov/item/02018519/)
+[U.S. federal library · John Lawson’s A New Voyage to Carolina](https://www.loc.gov/item/02018519/)
 [College of Charleston · American Indian Slavery in Carolina](https://ldhi.library.cofc.edu/exhibits/show/africanpassageslowcountryadapt/sectionii_introduction/american_indian_slavery_caroli)
 [South Carolina Encyclopedia · Yamassee War](https://www.scencyclopedia.org/sce/entries/yamassee-war/)
 

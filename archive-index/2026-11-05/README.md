@@ -36,4 +36,4 @@ Inventory: 6,103 entries and 5,964 distinct file IDs. Inspector fixtures: text w
 
 ## Subject catalog and B / 8 discovery crosswalk
 
-The [additive subject catalog](../loc-b8/index.html) uses the existing owner Library of Congress-style shelving file. It preserves 19,317 source items, links 5,851 discovery candidates without creating duplicate source copies, and keeps original completion status and work remaining visible. [Read the integration and coverage notes](../loc-b8/README.md). Private originals and raw recovery records remain in the owner-controlled archive.
+The [additive subject catalog](../loc-b8/index.html) uses the existing owner Library of Tabor shelving file. It preserves 19,317 source items, links 5,851 discovery candidates without creating duplicate source copies, and keeps original completion status and work remaining visible. [Read the integration and coverage notes](../loc-b8/README.md). Private originals and raw recovery records remain in the owner-controlled archive.

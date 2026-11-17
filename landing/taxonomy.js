@@ -24,7 +24,7 @@
     {id:'manuscript',era:'Medieval / manuscript',name:'Collection and shelf inventories',method:'Preserve each originating collection and its historical context',sort:'scope',url:'https://www.loc.gov/collections/'},
     {id:'print',era:'Print era',name:'Bibliographies and alphabetical indexes',method:'Find by literal title or selected keyword',sort:'title',url:'https://www.loc.gov/'},
     {id:'dewey',era:'1876 onward',name:'Dewey Decimal Classification',method:'Ten broad subject classes from 000 through 900',sort:'ddc',url:'https://www.oclc.org/en/dewey.html'},
-    {id:'lcc',era:'Modern library science',name:'Library of Congress Classification',method:'Alternative subject arrangement; not equivalent to Dewey numbers',sort:'category',url:'https://www.loc.gov/aba/cataloging/classification/'},
+    {id:'lcc',era:'Modern library science',name:'U.S. federal library Classification',method:'Alternative subject arrangement; not equivalent to Dewey numbers',sort:'category',url:'https://www.loc.gov/aba/cataloging/classification/'},
     {id:'colon',era:'1933 onward',name:'Ranganathan faceted classification',method:'Combine independent facets of a subject rather than relying on one hierarchy',sort:'capability',url:'https://www.isko.org/cyclo/colon_classification.htm'},
     {id:'digital',era:'Digital / contemporary',name:'Machine-readable metadata and full-text search',method:'Find by ID, title, metadata and text where available',sort:'path',url:'https://www.loc.gov/marc/'},
     {id:'stores',era:'Contemporary app distribution',name:'Apple and Google Play taxonomies',method:'Discover by primary purpose, optional secondary classification and approved tags',sort:'category',url:'https://developer.apple.com/app-store/categories/'},

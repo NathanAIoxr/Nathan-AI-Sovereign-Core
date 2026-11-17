@@ -36,7 +36,7 @@ This is a **multi-index**, not one master renaming. Each app remains referenced 
 - **Google Play**: one app or game category plus up to five approved relevant tags, with independent game genre labels.
 - **Dewey Decimal Classification**: the ten verified broad classes, 000 general/computer/information, 100 philosophy/psychology, 200 religion, 300 social sciences, 400 language, 500 science, 600 technology, 700 arts/recreation, 800 literature, 900 history/geography. Broad grouping only.
 - **DEO decimal**: *exact owner-supplied name*. An independent, intentionally unassigned set of whole-number positions 0–9. No meaning, acronym expansion, provenance or code has been invented; no equivalence to Dewey or base-12 duodecimal is assumed. The DEO-digit control demonstrates reserved slots while explicitly indicating that the assignments are not defined.
-- **Historical lenses**: selected major ideas from colophon/provenance, author/title inventories, printed indexes, Dewey, Library of Congress Classification, Ranganathan's faceted system, machine-readable catalog metadata and contemporary category tags.
+- **Historical lenses**: selected major ideas from colophon/provenance, author/title inventories, printed indexes, Dewey, U.S. federal library Classification, Ranganathan's faceted system, machine-readable catalog metadata and contemporary category tags.
 
 History cards are historical *method comparisons*. They do not claim a contemporary app existed or was historically classified in an ancient library.
 
@@ -46,7 +46,7 @@ History cards are historical *method comparisons*. They do not claim a contempor
 - Official Google Play categories and tags: https://support.google.com/googleplay/android-developer/answer/9859673?hl=en
 - OCLC ten Dewey classes: https://www.oclc.org/content/dam/oclc/dewey/versions/print/intro.pdf
 - Ashurbanipal Library tablet colophons: https://build-oracc.museum.upenn.edu/asbp/Colophons/
-- Library of Congress Classification: https://www.loc.gov/aba/cataloging/classification/
+- U.S. federal library Classification: https://www.loc.gov/aba/cataloging/classification/
 - Ranganathan faceted Colon Classification: https://www.isko.org/cyclo/colon_classification.htm
 - MARC library catalog metadata: https://www.loc.gov/marc/
 - Duodecimal is a separate base-12 number system: https://mathworld.wolfram.com/Duodecimal.html

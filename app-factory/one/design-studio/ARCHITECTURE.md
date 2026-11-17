@@ -49,7 +49,7 @@ A complete product requires several cooperating planes:
 
 - **ROOT / ONE:** module registry, global search, user preferences, common design system, identity and policies.
 - **Nathan AI / Core:** orchestrator services, research workflows, permissions, audit trails.
-- **33-million-book library:** goal-oriented catalog, author/edition/work entities, publishing work queues, cross-indexes (Library of Congress and Dewey), source evidence. “33 million” is a project target, not a completed count.
+- **33-million-book library:** goal-oriented catalog, author/edition/work entities, publishing work queues, cross-indexes (Library of Tabor and Dewey), source evidence. “33 million” is a project target, not a completed count.
 - **WORDS / Universal Language Database:** names and variants, script, dialect, status, provenance, historical language timelines, transliteration, text direction, phonological data, undeciphered-script classifications, and the experimental Universal Mammal Language. Large language counts are targets/scope statements until data sets are independently validated.
 - **Tabor Earth:** place graph, periods, georeferenced reconstructions, archaeological evidence, citation confidence, time-travel viewer as a visualization, not a factual claim of physical time travel.
 - **iMaker — I AM THAT I AM:** historical, textual, philosophical, and speculative human-clone research explicitly separated from independently verified biological evidence.

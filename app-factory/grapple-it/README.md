@@ -51,6 +51,6 @@ Run `node release.test.mjs` for animation lifecycle, offline recovery, and passi
 
 ## 101 Applications
 
-Nathan Tabor's catalog maps 101 characters, objects, places, concepts, recordings, workflows, datasets, and other entities onto the five existing physics chassis. It uses the 21 main classes of the [Library of Congress Classification](https://www.loc.gov/aba/cataloging/classification/lcco/) as subject labels. Three-digit numbers are game entry IDs. Filter by subject, entity type or mechanic, inspect the entry's attributes and traits, and launch its configured challenge. Each entry has a shareable deep link and separate medal in the save code. The Universal Bridge sequence game can pair with any entry.
+Nathan Tabor's catalog maps 101 characters, objects, places, concepts, recordings, workflows, datasets, and other entities onto the five existing physics chassis. The Library of Tabor uses 21 subject classes. See the [source classification outline](https://www.loc.gov/aba/cataloging/classification/lcco/). Three-digit numbers are game entry IDs. Filter by subject, entity type or mechanic, inspect the entry's attributes and traits, and launch its configured challenge. Each entry has a shareable deep link and separate medal in the save code. The Universal Bridge sequence game can pair with any entry.
 
 Run `node --test atlas.test.mjs` to verify coverage, search, score restoration, and that every challenge is winnable.

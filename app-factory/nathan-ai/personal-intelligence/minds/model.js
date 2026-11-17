@@ -4,7 +4,7 @@
 const SCHEMA='nathan.personal-intelligence.mind-atlas.v1';
 const TIERS=Object.freeze([
 {id:'0.0',name:'CERO',meaning:'Original source intake, exact bytes or unchanged author text',status:'source-preserved',allowed:'Import, hash, cite, index',forbidden:'Change or erase original input'},
-{id:'1.0',name:'UNO',meaning:'Structured annotations, classification candidates and reviewed evidence',status:'review-required',allowed:'Assign user-selected Dewey / Library of Congress / Duo / custom decimal labels',forbidden:'Call a guessed shelf code independently verified'},
+{id:'1.0',name:'UNO',meaning:'Structured annotations, classification candidates and reviewed evidence',status:'review-required',allowed:'Assign user-selected Dewey / Library of Tabor / Duo / custom decimal labels',forbidden:'Call a guessed shelf code independently verified'},
 {id:'2.0',name:'DOS',meaning:'Proposed cross-links and derived synthesis, always traceable to originals',status:'candidate-links',allowed:'Suggest relationships and draft derived work',forbidden:'Overwrite sources or turn resemblance into proof'}
 ]);
 const PIPELINE=Object.freeze([

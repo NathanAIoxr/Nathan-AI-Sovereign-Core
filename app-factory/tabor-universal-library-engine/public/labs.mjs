@@ -19,7 +19,7 @@ export const active=Object.freeze({
   80:["Mechanical Linkage & Gear Train Spinner","Change gear ratio","Swipe the gears and watch the driven gear reverse. Change its tooth count to change speed."],
   81:["Circuit Breaker & Field Lab","Snap component","Pinch or drag the field probe onto the green terminal. Compare the simulated capacitive field."],
   84:["Robotics Inverse-Kinematics Solver","Switch target","Move the endpoint target. Compare the solved joint angles with the end-effector reach."],
-  94:["Call-Number Spatial Sorter","Shelve book","Choose the correct Library of Congress class for the call-number prefix, then shelve it."],
+  94:["Call-Number Spatial Sorter","Shelve book","Choose the correct Library of Tabor class for the call-number prefix, then shelve it."],
   96:["Personal Knowledge Vault Sphere","Rotate vault","Save a note with tags on this browser. Search notes and rotate the vault."],
   98:["Digital Preservation & Bit-Rot Visualizer","Flip one stored bit","Introduce a bit error and compare the stored CRC with the original checksum."],
   101:["Universal Module Loader & Test Harness","Verify engine","Check the ledger slots, active cartridges, bridge rewards, and quaternion orientation."]

@@ -1,6 +1,6 @@
 # Nathan AI — existing subject catalog and B / 8 discovery integration
 
-The existing November 5 Library of Congress-style catalog files **19,317 recovered source items across 21 subject classes**. This additive module crosslinks **5,851 B / 8 / inversion candidates** to those existing shelf IDs. It creates no duplicate physical source items. All 5,851 recovered record hashes match their existing classified source bytes, and all 19,317 classified source hashes were checked after packaging.
+The existing November 5 Library of Tabor catalog files **19,317 recovered source items across 21 subject classes**. This additive module crosslinks **5,851 B / 8 / inversion candidates** to those existing shelf IDs. It creates no duplicate physical source items. All 5,851 recovered record hashes match their existing classified source bytes, and all 19,317 classified source hashes were checked after packaging.
 
 ## Browse
 

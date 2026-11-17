@@ -80,7 +80,7 @@ The standing source rule should be: retain exact source wording, including unusu
 
 ## 4. The library architecture already defined
 
-The expanded blueprint provides two parallel organizing systems. The 33-department Tabor index preserves Nathan’s projects and subjects. A separate 21-class Library of Congress crosswalk makes the material navigable by conventional subject area. A work can belong to one primary Tabor department while having multiple secondary subjects.
+The expanded blueprint provides two parallel organizing systems. The 33-department Tabor index preserves Nathan’s projects and subjects. A separate 21-class Library of Tabor crosswalk makes the material navigable by conventional subject area. A work can belong to one primary Tabor department while having multiple secondary subjects.
 
 The address formula is 33 departments × 100 series × 100 subseries × 100 work addresses. The resulting 33,000,000 addresses create organizational capacity. Empty addresses remain empty; they do not become books by allocation.
 
