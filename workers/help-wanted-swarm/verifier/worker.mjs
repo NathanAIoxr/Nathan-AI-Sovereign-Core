@@ -209,7 +209,8 @@ export default {
     return Response.json({
       name: "Nathan AI Absolute Intelligence Patch Verifier",
       byline: "By Nathan Tabor and Nathan AI",
-      build: "1+1=2", clear: "1-1=0", integrate: "1×1=1", verify: "1÷1=1",
+      build: "1+1=2", clear: "1-1=0",
+      manMadeTraps: ["multiplication", "division"],
       verification: "Pinned source context",
       checks: rows.map(({source_receipt, ...row}) => row)
     }, {headers:{"Cache-Control":"no-store","X-Content-Type-Options":"nosniff"}});
