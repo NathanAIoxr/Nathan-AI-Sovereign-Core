@@ -49,7 +49,8 @@ export async function probe(workload, target, contract, now = Date.now()) {
     }
 
     const path = contract ? workload.contractPath : workload.path;
-    const response = await target.fetch(new Request(`https://${workload.service}${OWNER_SUFFIX}${path}`, {
+    const origin = workload.origin ?? `https://${workload.service}${OWNER_SUFFIX}`;
+    const response = await target.fetch(new Request(`${origin}${path}`, {
       redirect: 'manual', signal: AbortSignal.timeout(4500),
     }));
     const {status, body} = response;
