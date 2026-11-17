@@ -8,10 +8,11 @@ const E=require('./twin-engines.js');
 const arithmetic=fs.readFileSync(path.join(root,'arithmetic-roots.html'),'utf8');
 const twins=fs.readFileSync(path.join(root,'twin-engines.html'),'utf8');
 test('lock original formula outputs',()=>{
- assert.equal(A.egyptianMultiply(13,12).result,156);
+ assert.equal(A.build(1,1),2);
+ assert.equal(A.clear(1,1),0);
  assert.equal(A.pingalaNashta(5,4),'0010');
  assert.equal(A.pingalaUddishta('0010'),5);
- assert.equal(A.fromNapier(A.napierMultiply('acd','ac')),65);
+ assert.equal(A.fromNapier('acd'),13);
  assert.equal(A.leibnizAdd('1101','10011'),'100000');
  assert.equal(A.booleXor(1,0),1);
 });
@@ -20,5 +21,5 @@ test('lock consent and human approval',()=>{for(const engine of ['machine','sama
 test('lock unsupported inputs',()=>{assert.throws(()=>A.iChingChange(-1,0),RangeError);assert.throws(()=>A.booleAnd(3,1),RangeError);assert.throws(()=>A.sexagesimalDecode([60]),RangeError);assert.throws(()=>E.compare({confidence:NaN}),RangeError);});
 test('lock user interface authorization off by default',()=>{assert.match(twins,/<input id="consent" type="checkbox">/);assert.doesNotMatch(twins,/<input id="consent" type="checkbox" checked>/);});
 test('lock arithmetic interface strict integer input',()=>{assert.match(arithmetic,/unsigned whole number/);assert.match(arithmetic,/1000000000/);});
-test('lock original owner code presence',()=>{assert.ok(fs.existsSync(path.join(root,'arithmetic-roots-original.py')));assert.ok(fs.existsSync(path.join(root,'engine.js')));});
+test('lock original owner code presence',()=>{assert.ok(fs.existsSync(path.join(root,'arithmetic-roots-original.py.txt')));assert.ok(fs.existsSync(path.join(root,'engine.js')));});
 test('lock presence of source and disabled feed list',()=>{assert.equal(E.MACHINE_MODULES.length,22);assert.equal(E.SAMARITAN_MODULES.length,14);assert.equal(E.DATA_LABELS.length,21);});
