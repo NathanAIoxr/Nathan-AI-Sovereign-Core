@@ -5,6 +5,7 @@ By Nathan Tabor and Nathan AI.
 - [Internal issue snapshot](https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/api/queue)
 - [Repair queue, source coverage and attempt counts](https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/api/repair/status)
 - [Public repair leads](https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/api/repair/leads)
+- [Patch verification receipts](https://nathan-ai-patch-verifier.nathantaboract.workers.dev/api/status)
 - [GitHub Help Wanted discovery](https://nathan-ai-help-wanted.nathantaboract.workers.dev/)
 
 **1+1=2** admits a verified source identity and saves its evidence.
@@ -68,3 +69,7 @@ Run `node --test workers/help-wanted-swarm/repair.test.mjs`. The Cloudflare D1 s
 `nathan-ai-handoff-bee` uses `handoff/worker.mjs` with the existing `HIVE` D1 binding. Apply the repair schema, `handoff/schema.sql`, then `handoff/immediate.sql` before deploying the Worker. D1 stages or invalidates drafts in the same transaction that changes a repair receipt or status. The one-minute schedule reconciles up to 100 drafts per run to cover historical receipts. Draft notes carry Nathan Tabor's sign-off and show whether runtime checks are pending. The source receipt preserves the pinned base, patch, and test evidence.
 
 The outbox is available in the account's D1 console. The Worker has no HTTP routes or upstream publishing credentials. Repeated scheduled invocations do not duplicate drafts. When a source receipt changes or a job leaves an eligible state, the Worker refreshes or removes the stale draft. The run ledger retains seven days of scheduled receipts.
+
+## Patch source verification
+
+The [patch verifier](verifier/README.md) reads Goldener and Glassbeetle handoff receipts from D1, checks source context at each pinned revision, and publishes a receipt. It runs every five minutes and recognizes a new patch by the exact source receipt. Its checks leave implementation and upstream release with Nathan Tabor.
