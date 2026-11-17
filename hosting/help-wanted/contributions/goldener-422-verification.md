@@ -30,3 +30,10 @@ An in-memory JavaScript check compared the patch's declared preimage against the
 ## Pending
 
 Run `git apply --check` against the pinned upstream commit and execute the documentation's Python example and relevant upstream tests in an isolated checkout. Delivery and upstream merge remain pending.
+
+## November 17 recheck
+
+- Rebased and regenerated the patch against upstream [`d6e7040`](https://github.com/goldener-data/goldener/commit/d6e7040dbe751266d8ee5843306a0329c9c64f61). The prior patch needed `git apply --recount` because a hunk count was incorrect. The replacement passes Git's application check without it.
+- Verified the Markdown links and parsed the embedded Python example.
+- The upstream weighing suite passed 49 checks. Its 45 PixelTable integration checks and the full example were blocked when the execution environment denied PostgreSQL's local socket initialization.
+- The contribution remains a draft pending the runtime example and upstream delivery.
