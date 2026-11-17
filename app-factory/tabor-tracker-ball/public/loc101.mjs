@@ -1,4 +1,5 @@
 import {mountHive} from "../../tabor-hive/surface.mjs";
+import v7Catalog from "../../tabor-universal-library-engine/public/catalog.json" with {type: "json"};
 import {attachDigitTrackBaller} from "./digit-input.mjs";
 import {clamp, decayMotion, TAU} from "./track-baller.mjs";
 import {classes, modules} from "./loc101-catalog.mjs";
@@ -15,7 +16,7 @@ const elements = Object.fromEntries([
 ].map(id => [id, byId(id)]));
 const canvas = elements.surface, ctx = canvas.getContext("2d");
 const key = "tabor-loc101-v6";
-const hive = mountHive({modules, classes});
+const hive = mountHive({modules, classes, v7Ledger: v7Catalog.ledger});
 const byNumber = new Map(modules.map(module => [module.id, module]));
 let local = {};
 try { local = JSON.parse(localStorage.getItem(key) ?? "{}") ?? {}; } catch {}
@@ -381,8 +382,10 @@ function tick(time) {
   requestAnimationFrame(tick);
 }
 
-document.addEventListener("tabor-hive:surface-return", () => {
-  hive.emit("module.open", {module: scene.module.id, surface: "library"});
+document.addEventListener("tabor-hive:surface-return", event => {
+  const selected = byNumber.get(event.detail?.module);
+  if (selected) present(selected);
+  else hive.emit("module.open", {module: scene.module.id, surface: "library"});
 });
 new ResizeObserver(() => { frameNeeded = true; }).observe(canvas);
 showList();

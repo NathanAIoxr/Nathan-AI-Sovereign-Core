@@ -6,6 +6,7 @@ import {busKey, makeEvent, openPacket, sealPacket} from "./bus.mjs";
 import {createHive} from "./hive.mjs";
 import {bees} from "./registry.mjs";
 import worker, {HiveState} from "./worker.mjs";
+import v7 from "../tabor-universal-library-engine/public/catalog.json" with {type: "json"};
 
 test("Ant Farm runs independent opposing phases, advances hidden and changes route order vertically", () => {
   const farm = createAntFarm(), eligible = ["library", "physics", "curriculum", "index"];
@@ -52,6 +53,20 @@ test("all 101 modules load through the Hive with provenance, local cast and prog
   surface.emit("bridge.clear", {attempts: 4, shield: 0, attack: 2, charge: 1});
   assert.equal(surface.read().physics.bridge.attack, 2);
   assert.equal(surface.read().economy.bridgeClears, 1);
+});
+
+test("the v.7 authored ledger and Track Baller keep separate cartridge state and provenance", () => {
+  const {surface, owner} = createHive({modules, classes, v7Ledger: v7.ledger});
+  owner.setCast({voice: "curator", chaos: false});
+  surface.emit("module.open", {module: 67, surface: "universal-library"});
+  assert.match(surface.read().voice.text, /ripple sources/);
+  assert.equal(surface.read().provenance.cartridge, "V7-067");
+  surface.emit("interaction.summary", {surface: "universal-library", module: 67, kind: "release", successes: 3});
+  assert.equal(surface.read().learning.level, 2);
+  surface.emit("module.open", {module: 67, surface: "library"});
+  assert.equal(surface.read().learning.level, 1);
+  assert.equal(surface.read().provenance.cartridge, "LC-Q-067");
+  assert.notEqual(surface.read().voice.text, v7.ledger.find(item => item.id === 67).description);
 });
 
 test("Hive Bus rejects raw sensor content, spoofing, unauthorized device reports and repeats", () => {
@@ -109,12 +124,14 @@ test("Worker serves 101 cartridges and fails closed without the owner credential
   const fetch = (path, env = {}) => worker.fetch(new Request("https://hive.example" + path), env);
   const catalog = await (await fetch("/api/catalog")).json();
   assert.equal(catalog.modules.length, 101);
+  assert.equal(catalog.v7Ledger.length, 37);
   const status = await (await fetch("/api/status")).json();
   assert.equal(status.ownerBus, false);
   assert.equal((await fetch("/api/owner")).status, 503);
   assert.equal((await fetch("/?module=65")).headers.get("location").split("?")[1], "module=65");
   const arcade = await fetch("/app-factory/games/dual-screen-arcade/index.html");
   assert.match(arcade.headers.get("content-security-policy"), /'sha256-/);
+  assert.equal((await fetch("/app-factory/tabor-universal-library-engine/public/arcade-core.mjs")).status, 200);
   assert.equal((await fetch("/app-factory/tabor-hive/worker.mjs")).status, 404);
 });
 

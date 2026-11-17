@@ -20,7 +20,8 @@ const addBounded = (current, earned) => Math.min(100000, current + earned);
 const capabilities = ["observe", "simulate", "project"];
 const observedBy = device => [...new Set([device.domain, "integration", "security"])];
 
-export function createHive({modules, classes, storage, initial, clock = Date.now}) {
+export function createHive({modules, classes, v7Ledger = [], storage, initial, clock = Date.now}) {
+  const authoredV7 = new Map(v7Ledger.map(entry => [entry.id, entry]));
   const library = createLibraryBee(modules, classes);
   const memory = storage ? createMemoryBee(storage) : null;
   const state = initial ?? {
@@ -64,16 +65,37 @@ export function createHive({modules, classes, storage, initial, clock = Date.now
     return state.active ? library.load(state.active.module) : null;
   }
 
+  function currentLessonKey() {
+    return state.active.surface === "universal-library" ? "v7-" + state.active.module : state.active.module;
+  }
+
+  function currentReference(module) {
+    const ref = library.reference(module.id);
+    if (state.active.surface !== "universal-library") return ref;
+    const ledger = authoredV7.get(module.id);
+    const classCode = ledger?.lcClass ?? ref.classCode;
+    return {...ref, classCode, className: classes[classCode[0]] ?? ref.className,
+      cartridge: "V7-" + String(module.id).padStart(3, "0"),
+      source: ledger ? "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/4300aa2/app-factory/tabor-universal-library-engine/public/catalog.json" : ref.source};
+  }
+
   function say() {
     const module = activeModule();
     const selected = voices[state.cast];
     if (!module) return {...selected, text: "Choose an LC cartridge or open an interaction surface."};
-    const lesson = state.modules[module.id];
+    const lesson = state.modules[currentLessonKey()];
+    const v7 = state.active.surface === "universal-library";
+    const authored = v7 ? authoredV7.get(module.id) : null;
+    const task = v7 ? "Complete the lower sequence to load another attempt." : module.task;
+    const practice = lesson.level === 3 ? " Try the same task with a different control." :
+      lesson.level === 2 ? " Pick your next checkpoint before moving the controller." : "";
+    const summary = authored?.description ?? module.brief;
+    const ref = currentReference(module);
     const challenge = state.pk ? " Use the secondary control path on your next attempt." : "";
     const lines = {
-      nathan: lesson.completed ? "Module complete. Try a linked subject or replay the challenge." : module.task,
+      nathan: lesson.completed ? "Module complete. Try a linked subject or replay the challenge." : task + practice,
       pk: state.pk ? "Wild Card is on." + challenge : "Play the standard round. Wild Card is available from the Hive.",
-      curator: module.brief + " · Class " + module.classCode + " · " + library.reference(module.id).className,
+      curator: summary + " · Class " + ref.classCode + " · " + ref.className,
     };
     return {...selected, text: lines[state.cast]};
   }
@@ -84,8 +106,8 @@ export function createHive({modules, classes, storage, initial, clock = Date.now
     return {
       version: 9, active: state.active, voice: say(), pk: state.pk, ant: state.ant,
       physics: state.physics, economy: state.economy, shadow: state.shadow, lastRoute: state.lastRoute,
-      learning: module ? state.modules[module.id] : null, indexedClasses: state.indexedClasses,
-      provenance: module ? library.reference(module.id) : null,
+      learning: module ? state.modules[currentLessonKey()] : null, indexedClasses: state.indexedClasses,
+      provenance: module ? currentReference(module) : null,
       workers: Object.values(state.workers).map(record => ({...record, healthy: record.heartbeatAt !== null &&
         clock() - record.heartbeatAt <= 30000})),
       groups: Object.values(state.groups), devices: Object.values(state.devices),
@@ -117,14 +139,14 @@ export function createHive({modules, classes, storage, initial, clock = Date.now
       case "module.open": {
         const module = library.load(payload.module);
         state.active = payload;
-        state.modules[module.id] ??= {attempts: 0, successes: 0, level: 1, completed: false};
-        state.indexedClasses = library.links(module.id);
+        state.modules[currentLessonKey()] ??= {attempts: 0, successes: 0, level: 1, completed: false};
+        state.indexedClasses = payload.surface === "universal-library" ? [] : library.links(module.id);
         state.physics = {orientation: [1, 0, 0, 0], field: 0, bridge: bridgeInitial()};
         break;
       }
       case "module.complete": {
-        const lesson = state.modules[payload.module];
-        if (!lesson || state.active.module !== payload.module) throw new Error("Open the module before completing it.");
+        const lesson = state.active?.module === payload.module ? state.modules[currentLessonKey()] : null;
+        if (!lesson) throw new Error("Open the module before completing it.");
         if (!lesson.completed) state.economy.coins = addBounded(state.economy.coins, 1);
         lesson.completed = true;
         break;
@@ -135,7 +157,7 @@ export function createHive({modules, classes, storage, initial, clock = Date.now
         }
         if (payload.orientation) state.physics.orientation = payload.orientation;
         if (payload.field !== undefined) state.physics.field = payload.field;
-        const lesson = payload.module ? state.modules[payload.module] : null;
+        const lesson = payload.module ? state.modules[currentLessonKey()] : null;
         if (lesson) {
           lesson.attempts = addBounded(lesson.attempts, 1);
           lesson.successes = addBounded(lesson.successes, payload.successes ?? 0);
@@ -166,7 +188,8 @@ export function createHive({modules, classes, storage, initial, clock = Date.now
         break;
       }
     }
-    const route = event.type === "device.status" ? observedBy(state.devices[payload.device]) : effects[event.type];
+    let route = event.type === "device.status" ? observedBy(state.devices[payload.device]) : effects[event.type];
+    if (event.type === "interaction.summary" && payload.surface === "circuit") route = [...route, "hardware"];
     state.lastRoute = ["queen", ...routeAnts(state.ant, route.filter(bee => bee !== "queen"))];
     state.seen[event.id] = event.at;
     state.serial += 1;

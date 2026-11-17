@@ -165,7 +165,7 @@ function grant(round,reward={}){
   round.freeze=Math.max(round.freeze,freeze);
   round.beam=Math.max(round.beam,beam);
   const attack=damage(round,hit,pierce);
-  reportHive("bridge.clear",{attempts:round.ammo,shield:round.shield,attack,charge:round.charge});
+  round.hiveReport?.("bridge.clear",{attempts:round.ammo,shield:round.shield,attack,charge:round.charge});
 }
 function beginAttempt(round){
   if(round.result||round.attempt||(round.ammo===0&&round.rapid===0))return null;
@@ -179,7 +179,7 @@ function beginAttempt(round){
 function endAttempt(round,attempt,result){
   if(round.attempt!==attempt)return 0;
   round.attempt=null;
-  reportHive("interaction.summary",{surface:"arcade",kind:"release"});
+  round.hiveReport?.("interaction.summary",{surface:"arcade",kind:"release"});
   if(round.result||result<=0)return 0;
   round.hits++;
   const raw=result*(1+round.bonus/100)*(round.critical?1.75:1);
@@ -696,6 +696,7 @@ function showTop(text){put("top-message",text);}
 function showBottom(text){bottomFeedback=text;put("bottom-message",text);}
 function startRound(top,bottom,pace){
   round=newRound(top,bottom,pace);
+  if(hiveEmbedded)round.hiveReport=reportHive;
   topState={aim:defaultAim(top),heldAt:null,flight:null};
   gesture=null;topPointer=null;recorded=false;
   options={top,bottom,pace};persist();

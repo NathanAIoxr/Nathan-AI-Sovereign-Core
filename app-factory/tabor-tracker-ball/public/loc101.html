@@ -22,6 +22,8 @@
     </div>
     <section class="hive-deck" aria-label="Nathan AI Hive">
       <nav class="hive-nav" aria-label="Interaction surfaces">
+        <button type="button" data-hive-surface="universal-library">v.7 Library Engine</button>
+        <button type="button" data-hive-surface="universal-library" data-hive-module="81">Circuit Lab</button>
         <button type="button" data-hive-surface="arcade">Dual-Screen Arcade</button>
         <button type="button" data-hive-surface="track-baller">Tabor Tracker Ball</button>
         <a href="https://hook-and-ring.nathantaboract.workers.dev/">Hook &amp; Ring</a>
@@ -65,7 +67,7 @@
         </svg>
       </details>
       <details id="hive-circuit">
-        <summary>Circuit Lab</summary>
+        <summary>Circuit Switches</summary>
         <div class="hive-controls">
           <label>Wiring <select id="circuit-mode"><option value="series">Series</option><option value="parallel">Parallel</option></select></label>
           <label><input type="checkbox" id="circuit-a"> Switch A</label>
@@ -85,7 +87,7 @@
         <ul id="hive-devices" aria-label="Registered in this session"></ul>
         <p id="hive-status" role="status"></p>
       </details>
-      <details>
+      <details id="hive-vault">
         <summary>Z-101 Personal Knowledge Vault</summary>
         <p>Notes are encrypted in this browser. Keep your passphrase to reopen them.</p>
         <form id="vault-unlock" class="hive-controls">
@@ -110,6 +112,7 @@
       <header><h2 id="hive-surface-title"></h2><button type="button" id="hive-surface-close">Back to Hive</button></header>
       <iframe id="hive-surface-frame" title="Interaction surface"></iframe>
       <p id="hive-surface-status" role="status"></p>
+      <p id="hive-surface-voice"></p>
     </dialog>
     <div class="layout">
       <aside class="catalog" aria-labelledby="browse-heading">

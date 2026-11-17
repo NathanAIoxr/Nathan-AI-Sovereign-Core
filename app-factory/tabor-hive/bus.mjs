@@ -4,7 +4,7 @@ const eventId = /^[\w.-]{1,96}$/;
 const domains = /^[a-z][a-z0-9-]{1,47}$/;
 const gestureTypes = new Set(["tap", "hold", "flick", "swipe", "swirl", "wheel", "pinch", "tilt", "snap",
   "trace", "orbit", "dial", "line", "arc", "spiral", "circle", "grip", "gesture", "release"]);
-const surfaces = new Set(["library", "arcade", "track-baller", "circuit"]);
+const surfaces = new Set(["library", "arcade", "track-baller", "circuit", "universal-library"]);
 const deviceStates = new Set(["ready", "degraded", "offline"]);
 const boundaryCodes = new Set(["contradiction", "authorship", "consent", "data-boundary"]);
 const safeInteger = (v, upper, lower = 0) => Number.isInteger(v) && v >= lower && v <= upper;

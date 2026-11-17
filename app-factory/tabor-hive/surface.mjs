@@ -10,9 +10,9 @@ const button = (label, listener) => {
   return element;
 };
 
-export function mountHive({modules, classes}) {
+export function mountHive({modules, classes, v7Ledger}) {
   const {surface, owner} = createHive({
-    modules, classes,
+    modules, classes, v7Ledger,
     storage: {
       getItem: key => localStorage.getItem(key),
       setItem: (key, value) => localStorage.setItem(key, value),
@@ -60,6 +60,7 @@ export function mountHive({modules, classes}) {
   function render(snapshot = surface.read()) {
     who("hive-cast-output").textContent = snapshot.voice.name;
     who("hive-cast-line").textContent = snapshot.voice.text;
+    who("hive-surface-voice").textContent = snapshot.voice.name + " · " + snapshot.voice.text;
     who("hive-lesson").textContent = snapshot.learning
       ? "Level " + snapshot.learning.level + " · " + snapshot.learning.successes + " checkpoints · " +
         snapshot.economy.coins + " Hive rewards" : "";
@@ -109,8 +110,9 @@ export function mountHive({modules, classes}) {
   });
 
   const frameDialog = who("hive-surface-dialog"), iframe = who("hive-surface-frame");
-  let embedded = null;
+  let embedded = null, returnModule;
   const embeddedApps = {
+    "universal-library": {title: "v.7 Tabor Universal Library Engine", path: "../../tabor-universal-library-engine/public/index.html"},
     arcade: {title: "Dual-Screen Arcade", path: "../../games/dual-screen-arcade/index.html"},
     "track-baller": {title: "Tabor Tracker Ball", path: "./index.html"},
   };
@@ -119,11 +121,13 @@ export function mountHive({modules, classes}) {
       const next = launcher.dataset.hiveSurface;
       const app = embeddedApps[next];
       embedded = next;
-      surface.emit("module.open", {module: 101, surface: next});
+      const module = Number(launcher.dataset.hiveModule ?? 101);
+      surface.emit("module.open", {module, surface: next});
       who("hive-surface-title").textContent = app.title;
       iframe.title = app.title;
       const url = new URL(app.path, location.href);
       url.searchParams.set("hive", "9");
+      if (launcher.dataset.hiveModule) url.searchParams.set("module", launcher.dataset.hiveModule);
       iframe.src = url.href;
       frameDialog.showModal();
     });
@@ -132,21 +136,40 @@ export function mountHive({modules, classes}) {
   frameDialog.addEventListener("close", () => {
     iframe.removeAttribute("src");
     embedded = null;
-    document.dispatchEvent(new CustomEvent("tabor-hive:surface-return"));
+    document.dispatchEvent(new CustomEvent("tabor-hive:surface-return", {detail: {module: returnModule}}));
+    returnModule = undefined;
   });
   window.addEventListener("message", event => {
     if (event.origin !== location.origin || event.source !== iframe.contentWindow || !embedded ||
         event.data?.channel !== "tabor-hive-v9" || event.data.surface !== embedded) return;
     const {type, payload} = event.data;
+    if (embedded === "universal-library" && type === "surface.ready") {
+      iframe.contentWindow.postMessage({channel: "tabor-hive-v9", type: "cast.setting",
+        chaos: surface.read().pk}, location.origin);
+      return;
+    }
+    if (embedded === "universal-library" && type === "vault.open") {
+      frameDialog.close();
+      who("hive-vault").open = true;
+      who("hive-vault").querySelector("summary").focus();
+      return;
+    }
+    if (embedded === "universal-library" && type === "catalog.open" &&
+        Number.isInteger(payload?.module) && payload.module >= 1 && payload.module <= 101) {
+      returnModule = payload.module;
+      frameDialog.close();
+      return;
+    }
     const allowed = type === "interaction.summary" && payload?.surface === embedded ||
-      type === "bridge.clear" && embedded === "arcade";
+      type === "module.open" && embedded === "universal-library" && payload?.surface === embedded ||
+      type === "bridge.clear" && ["arcade", "universal-library"].includes(embedded);
     if (!allowed) return;
     try {
       surface.emit(type, payload);
       const snapshot = surface.read();
       who("hive-surface-status").textContent = type === "bridge.clear"
         ? "Universal Bridge · " + snapshot.economy.bridgeClears + " clears · " + snapshot.economy.coins + " Hive rewards"
-        : "Track Baller · " + payload.kind;
+        : type === "interaction.summary" ? "Tactile input · " + payload.kind : "";
     } catch { owner.report("data-boundary"); }
   });
   document.addEventListener("tabor-hive:surface-return", () => {

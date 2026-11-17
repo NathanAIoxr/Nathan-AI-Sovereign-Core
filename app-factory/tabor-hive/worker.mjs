@@ -2,6 +2,7 @@ import {busKey, openPacket, sealPacket} from "./bus.mjs";
 import {createHive} from "./hive.mjs";
 import {bees} from "./registry.mjs";
 import {classes, modules} from "../tabor-tracker-ball/public/loc101-catalog.mjs";
+import v7 from "../tabor-universal-library-engine/public/catalog.json" with {type: "json"};
 import assets from "./asset-bundle.mjs";
 
 const root = "/app-factory/tabor-tracker-ball/public/";
@@ -88,7 +89,7 @@ export class HiveState {
     }
 
     const initial = await this.ctx.storage.get("hive-v9");
-    const hive = createHive({modules, classes, initial});
+    const hive = createHive({modules, classes, v7Ledger: v7.ledger, initial});
     const owner = hive.owner;
     try {
       if (isOwner) {
@@ -165,7 +166,7 @@ export default {
     if (path === "/api/status" || path === "/health") return request.method === "HEAD"
       ? new Response(null, {headers}) : json(status(env));
     if (path === "/api/catalog") return request.method === "HEAD"
-      ? new Response(null, {headers}) : json({classes, modules});
+      ? new Response(null, {headers}) : json({classes, modules, v7Ledger: v7.ledger});
     if (path === "/" || path === "/library") {
       const destination = new URL(root + "loc101.html", request.url);
       destination.search = url.search;

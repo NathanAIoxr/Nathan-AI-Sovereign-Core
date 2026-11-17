@@ -4,7 +4,9 @@ import bee, { intervalMs, reportStatus, scanRelease } from '../server/release-be
 
 test('the release bee flags bad responses and checks every linked service', async () => {
   const seen = new Set();
-  const report = await scanRelease(1234, async (url, options) => {
+  const report = await scanRelease(1234, async (target, options) => {
+    assert.equal(typeof target, 'string');
+    const url = new URL(target);
     seen.add(url.hostname);
     if (url.pathname === '/api/board') {
       assert.equal(options.method, 'GET');
@@ -15,14 +17,14 @@ test('the release bee flags bad responses and checks every linked service', asyn
       assert.equal(options.method, 'HEAD');
       return new Response(null, { headers: { 'Content-Type': 'text/html' } });
     }
-    throw Error('Simulated offline route');
+    return new Response(null, { status: 404 });
   });
   assert.equal(seen.size, 6);
   assert.equal(report.startedAt, 1234);
   assert.equal(report.ok, false);
   assert.equal(report.checks.find(check => check.id === 'ranked-ring').ok, true);
   assert.equal(report.checks.find(check => check.id === 'ranked-yard').detail, 'HTTP 503');
-  assert.equal(report.checks.find(check => check.id === 'catalog').detail, 'Request failed');
+  assert.equal(report.checks.find(check => check.id === 'catalog').detail, 'HTTP 404');
 });
 
 test('the published status reports overdue checks and exposes no write operation', async () => {
