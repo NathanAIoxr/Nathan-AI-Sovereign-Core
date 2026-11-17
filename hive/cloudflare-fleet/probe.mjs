@@ -1,6 +1,10 @@
 import {OWNER_SUFFIX} from './fleet-plan.mjs';
 
 const CONTENT_TYPES = {html: 'text/html', json: 'application/json'};
+const ACCESS_RESPONSES = {
+  'nathan-tabor-library': 'Owner sign-in required.',
+  'tabor-one': 'Sign in through Cloudflare Access.',
+};
 
 async function readPrefix(body) {
   if (!body) return '';
@@ -57,9 +61,15 @@ export async function probe(workload, target, contract, now = Date.now()) {
       return result('protected', status, 'private_route');
     }
 
-    if (['nathan-tabor-library', 'tabor-one'].includes(workload.service) && isAccessLogin(response, workload.service)) {
+    const expectedAccessResponse = ACCESS_RESPONSES[workload.service];
+    if (expectedAccessResponse && isAccessLogin(response, workload.service)) {
       await body?.cancel().catch(() => {});
       return result('protected', status, 'access_login');
+    }
+    if (expectedAccessResponse && status === 401) {
+      const protectedRoute = (await readPrefix(body)).includes(expectedAccessResponse);
+      return result(protectedRoute ? 'protected' : 'failed', status,
+        protectedRoute ? 'owner_sign_in_required' : 'unexpected_auth_response');
     }
     if (workload.contractType === 'private' || !response.ok) {
       await body?.cancel().catch(() => {});
