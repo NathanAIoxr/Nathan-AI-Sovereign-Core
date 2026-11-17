@@ -2,7 +2,7 @@
 
 The fleet has 64 Cloudflare Worker deployments in its roster. The roster includes 33 existing workloads and 31 new fleet Workers. The fleet controller also performs one companion check. Each roster entry has a named, SQLite-backed Durable Object supervisor.
 
-`fleet-plan.mjs` maps the applications to reachability checks and, where configured, companion checks. Companion Workers run through private service bindings. Supervisors record their latest result and consecutive failures. The second consecutive failure flags the check for attention. Check failures also appear in Cloudflare Workers Logs. The schedule runs one of five cohorts per minute, so each supervisor runs every five minutes.
+`fleet-plan.mjs` maps the applications to reachability checks and, where configured, companion checks. Companion Workers run through private service bindings. Supervisors record their latest result and consecutive failures. The second consecutive failure flags the check for attention. Check failures also appear in Cloudflare Workers Logs. The schedule runs one of five cohorts per minute, so each supervisor runs every five minutes. The first status request schedules an initial sweep when the receipt ledger is empty.
 
 Checks cover application routes, response type or page title, and the age of the handoff job receipt. A `protected` result confirms an expected access restriction. A `stale` result means a supervisor has missed more than two check intervals.
 
