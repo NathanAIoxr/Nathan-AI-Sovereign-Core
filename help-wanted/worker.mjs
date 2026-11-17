@@ -47,6 +47,9 @@ export default {
         "Content-Security-Policy":"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'"
       }});
     }
+    if (url.pathname === "/docs/record/index.html") {
+      return Response.redirect("https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/docs/record/index.html", 302);
+    }
     if (url.pathname === "/api/overview") return Response.json(await overview(env), {headers:PUBLIC});
     if (url.pathname === "/api/pairs") {
       const kind = url.searchParams.get("kind") ?? "help-wanted";
