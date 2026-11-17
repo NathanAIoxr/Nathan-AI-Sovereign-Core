@@ -16,6 +16,7 @@ The D1 registry records each database, the source revision or observation time, 
 | `tabor-airtable-one-master` | ONE MASTER INDEX field-ID and record snapshot |
 | `tabor-airtable-crypto-wallets` | Crypto Wallets & Assets field-ID and record snapshot |
 | `tabor-airtable-crypto-mining` | Crypto Mining Operations field-ID and record snapshot |
+| `tabor-notion-master-work` | Notion Master Work Registry data source and page properties |
 
 ## Rebuild
 
@@ -24,5 +25,7 @@ The D1 registry records each database, the source revision or observation time, 
 3. For Airtable, export base and table metadata with complete field-ID record pages. Use a `schema.json` and one or more `TABLE_ID-NNN.json` arrays per table. Each record has `id`, `createdTime`, and `cellValuesByFieldId`. Each schema table has `recordCount` and an `included` flag for each field. Run `python tools/d1_airtable_snapshot.py /path/to/source snapshot.sql`. Retain attachment metadata separately from any temporary download links. Airtable remains the source for live records, formulas, and automations.
 4. Import each snapshot into a clean D1 target using the Cloudflare SQL import API or `wrangler d1 execute DB_NAME --remote --file snapshot.sql`. Verify live counts and FTS lookups before recording a successful import. The export is intended for fresh targets.
 5. Apply `tools/d1_database_registry.sql` to the registry and record the live counts, source hash, and source revision for each import. Existing databases can be registered from their Cloudflare metadata.
+
+For the Notion registry, collect all results from the data source and retain the source IDs, title, observation time, independent row count and pagination flag. Run `python tools/d1_notion_snapshot.py notion-export.json snapshot.sql`. The snapshot keeps page URLs and record properties. Page bodies and Notion automations stay in Notion.
 
 The checked-in meSPARK private index requires an owner-provided source export. The PostgreSQL migrations for Ancient Minds, meSPARK Mammal and the ONE Catalog contain PostgreSQL features such as vector search or row-level security. Their live data requires the source database or an export. Treat the SQLite copies as point-in-time snapshots.
