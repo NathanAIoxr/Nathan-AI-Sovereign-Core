@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a151c">
+  <meta name="author" content="Nathan Tabor">
+  <meta name="description" content="101 interactive Tabor Track Baller applications across the Library of Congress Classification.">
+  <title>Tabor Track Baller v6 · 101 Applications by Nathan Tabor</title>
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./loc101.css">
+</head>
+<body>
+  <header class="topbar"><div class="shell nav">
+    <a class="brand" href="./"><span aria-hidden="true">◉</span> Tabor Track Baller</a>
+    <a class="navlink" href="./">Arcade <span aria-hidden="true">↗</span></a>
+  </div></header>
+  <main class="shell">
+    <div class="intro">
+      <div><p class="byline">Tabor Track Baller v6 · by Nathan Tabor</p><h1>101 Applications</h1></div>
+      <div class="summary"><strong>21 subject classes</strong><p>Explore the Library of Congress classification through touch, motion, and sound.</p></div>
+    </div>
+    <div class="layout">
+      <aside class="catalog" aria-labelledby="browse-heading">
+        <div class="catalog-head">
+          <h2 id="browse-heading">Browse modules</h2>
+          <label class="field-label" for="search">Search</label>
+          <input id="search" type="search" placeholder="Module, subject, or number">
+          <label class="field-label" for="class-filter">Subject class</label>
+          <select id="class-filter"><option value="">All 21 classes</option></select>
+          <div class="filter-row"><label><input type="checkbox" id="finished-only"> Completed only</label><button id="random" type="button">Surprise me</button></div>
+          <div class="counter"><output id="result-count" aria-live="polite"></output><output id="total-progress"></output></div>
+        </div>
+        <div id="module-list" class="module-list"></div>
+      </aside>
+      <section class="workspace" aria-labelledby="module-title">
+        <div class="workspace-head">
+          <div class="sequence"><span id="class-name"></span><span id="profile-name"></span></div>
+          <h2 id="module-title"></h2>
+          <p id="brief"></p>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="surface" aria-label="Interactive controller" aria-describedby="guide" tabindex="0"></canvas>
+          <span id="canvas-label" aria-hidden="true"></span>
+          <output id="workspace-progress" aria-label="Scene progress"></output>
+        </div>
+        <div class="workspace-body">
+          <p id="guide"></p>
+          <p id="task"></p>
+          <div class="controls">
+            <button id="previous" title="Previous position" type="button">− <span class="sr">Previous position</span></button>
+            <button id="record" class="primary" type="button">Record selection</button>
+            <button id="next" title="Next position" type="button">+ <span class="sr">Next position</span></button>
+            <button id="zoom-out" type="button" hidden>Zoom out</button>
+            <button id="zoom-in" type="button" hidden>Zoom in</button>
+            <button id="reset" type="button">Clear scene</button>
+            <button id="motion" type="button" aria-pressed="false" hidden>Enable tilt</button>
+            <button id="sound" type="button" aria-pressed="false" hidden>Enable sound</button>
+          </div>
+          <div id="items" class="items" aria-label="Scene positions"></div>
+          <div class="readout">
+            <strong id="item-title"></strong><p id="item-detail"></p><blockquote id="verse" hidden></blockquote>
+            <button type="button" id="jump" hidden></button>
+            <p id="telemetry"></p>
+          </div>
+          <p id="status" role="status"></p>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <a href="https://www.loc.gov/aba/cataloging/classification/lcco/">Library of Congress Classification Outline</a>
+      <span>Module order follows Nathan Tabor’s brief. Scenarios use small sample datasets and schematic models.</span>
+    </footer>
+    <noscript>Enable JavaScript to use the controller and browse the 101 modules.</noscript>
+  </main>
+  <script type="module" src="./loc101.mjs"></script>
+</body>
+</html>

@@ -72,3 +72,32 @@ Run node --test test.mjs, followed by node build.mjs from this directory. The bu
 - Coalesced pointer samples https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent/getCoalescedEvents
 - Vibration API https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API
 - Cloudflare Worker upload https://developers.cloudflare.com/api/resources/workers/subresources/scripts/methods/update/
+
+## Tabor Track Baller v6 · 101 Applications
+
+Open `loc101.html` from the **101 Applications** link in the arcade. Nathan Tabor's
+numbered brief supplies module order. Its 101 modules cover all 21 main classes
+in the [Library of Congress Classification Outline](https://www.loc.gov/aba/cataloging/classification/lcco/),
+with E and F available as individual filters.
+
+- The searchable catalog stores each module's class, brief, input profile, task,
+  and sample data. Search matches the original brief titles for adapted entries.
+  A module opens directly at `loc101.html?module=63`, for example.
+- Scenes use eight shared interactive profiles. These cover quaternion orbit,
+  a precision dial, ordered gesture paths, an illustrative contact field, animated
+  flow, Web Audio, a node network, and a Boolean logic table. The samples are
+  schematic activities. Some titles describe the intended larger application.
+- The controller reuses one-finger gesture analysis and the existing multi-contact
+  gesture implementation. Buttons and the keyboard offer alternatives. The field
+  visualizes contacts that the browser exposes. Tilt and sound require explicit
+  interaction and depend on browser and hardware support.
+- Module 5 shows three KJV verses. The app uses sample records and simulated
+  data elsewhere. The medical entries are educational demonstrations. Weapon-
+  related entries use exhibition, sporting, and classroom analogs.
+- Completion is browser-local. **Clear scene** resets the current interaction and
+  retains the completion history. The service worker caches the catalog and
+  application shell on the first successful connected visit.
+
+Run `node --test test.mjs loc101.test.mjs` and `node build.mjs` to validate and
+package the release. The Worker health endpoint reports both arcade and
+application counts.
