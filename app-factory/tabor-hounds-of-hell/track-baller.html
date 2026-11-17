@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101519">
+<title>Tabor Track Baller · Release the Hounds of Hell</title>
+<style>
+:root{color-scheme:dark;--bg:#101519;--panel:#171e23;--line:#34434a;--paper:#f5f0e5;--muted:#b8c4c2;--lime:#cdf87b;--gold:#f9cc74;--aqua:#6fe7d1}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 85% -25%,#253d36,transparent 58%),var(--bg);color:var(--paper);font-family:system-ui,sans-serif;line-height:1.45}
+main{max-width:950px;margin:auto;padding:22px max(15px,env(safe-area-inset-left)) 28px max(15px,env(safe-area-inset-right))}
+header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+h1{margin:0;font-size:clamp(1.65rem,4vw,2.75rem);letter-spacing:-.055em;line-height:1.05}
+.brand{font-size:.74rem;color:var(--aqua);margin:0 0 5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.tag{color:var(--muted);font-size:.82rem;margin:0}
+button,select{font:inherit;color:var(--paper);background:#202b30;border:1px solid var(--line);border-radius:8px;min-height:42px;padding:6px 11px;font-size:.83rem;font-weight:650;cursor:pointer}
+button:hover:not(:disabled){background:#324247}
+button:focus-visible,select:focus-visible,canvas:focus-visible,summary:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
+button[aria-pressed="true"]{color:var(--lime);border-color:#8aaa52;background:#263525}
+button:disabled{cursor:default;opacity:.48}
+#launch{background:var(--lime);color:#171e10;border-color:var(--lime)}
+#launch:hover:not(:disabled){background:#e4ffaa}
+.bar,.actions,.views{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+.bar{justify-content:space-between;margin-bottom:8px}
+.hound-purpose{margin:12px 0 8px;color:var(--gold);font-size:.9rem}
+#hound-controls{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:8px}
+#release-hounds{color:#221009;background:#ffc18b;border-color:#ffc18b;letter-spacing:.035em}
+#release-hounds:hover:not(:disabled){background:#ffd9b6}
+#hound-status{margin:0;color:#f6c39c;font-size:.82rem}
+#exit-hounds[hidden],#hound-status[hidden]{display:none}
+label{font-size:.8rem;color:var(--muted)}
+select{max-width:100%;margin-left:4px}
+#stats{display:flex;gap:15px;font-variant-numeric:tabular-nums;font-size:.84rem;margin:0}
+#stats b{color:var(--lime);font-size:1.05rem;margin-left:3px}
+#play{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel)}
+canvas{display:block;width:100%;touch-action:none}
+#arena{height:clamp(205px,34vh,315px)}
+#pad{height:clamp(100px,20vh,165px)}
+#message{min-height:42px;margin:0;padding:8px 11px;display:flex;align-items:center;background:#263432;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:.85rem}
+.padHint{margin:0;padding:0 10px 8px;color:var(--muted);text-align:center;font-size:.74rem}
+.actions{margin-top:8px}.views{margin-top:8px}
+.actions button,.views button{flex:0 1 auto}
+#region{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.info{border:1px solid var(--line);padding:10px 12px;border-radius:10px;background:#171e23}
+.info h2{font-size:.87rem;margin:0 0 3px;color:var(--gold)}
+.info p{font-size:.82rem;color:var(--muted);margin:0}
+details{margin-top:13px;border-top:1px solid var(--line);padding-top:9px;color:var(--muted);font-size:.87rem}
+summary{cursor:pointer;color:var(--paper);font-weight:650;padding:3px 0}
+blockquote{border-left:2px solid var(--aqua);padding-left:10px;margin:10px 0;color:var(--paper)}
+dl{margin:10px 0;display:grid;grid-template-columns:max-content 1fr;gap:6px 11px}
+dt{color:var(--lime);font-weight:650}dd{margin:0}
+@media(max-width:520px){main{padding-top:13px}#stats{gap:10px}.bar{row-gap:5px}button,select{min-height:39px;padding-inline:8px}.actions,.views{gap:5px}#region{gap:6px}.info{padding:8px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div><p class="brand">Tabor World · Consumer Arcade</p><h1>Tabor Track Baller</h1></div>
+  <p class="tag">Mind of Nathan Tabor · 🪐☢️♌️☸️♉️♎️🍥</p>
+</header>
+<div class="bar">
+  <label for="world">World
+    <select id="world">
+      <option>Ring Rush</option><option>Hurricane Sky</option><option>PK’s Chaos Volcano</option><option>Cosmic Overdrive</option>
+    </select>
+  </label>
+  <p id="stats"><span>Score <b id="score">0</b></span><span>Streak <b id="streak">0</b></span><span>Charge <b id="charge">0%</b></span></p>
+</div>
+<p class="hound-purpose"><strong>PROTECT INNOCENCE</strong> · Keep the gold Spark safe. A shot that touches it earns zero.</p>
+<div id="hound-controls" aria-label="Hounds of Hell challenge">
+  <button id="release-hounds" type="button">RELEASE THE HOUNDS OF HELL</button>
+  <button id="exit-hounds" type="button" hidden>Exit Hounds</button>
+  <p id="hound-status" hidden></p>
+</div>
+<section id="play" aria-label="Track Baller playfield">
+  <canvas id="arena" role="img" aria-label="Arena with the grapple hook, target ring and obstacles"></canvas>
+  <p id="message" role="status" aria-live="polite">Nathan AI 🚀 · Flick up to launch.</p>
+  <canvas id="pad" tabindex="0" aria-label="Tactile trackball. Flick upward to launch. Space launches, C charges, X clears, and O activates Overdrive."></canvas>
+  <p class="padHint">Flick up to launch · Swirl to charge · Pinch for Overdrive</p>
+</section>
+<div class="actions" aria-label="Play controls">
+  <button id="launch" type="button">Launch</button><button id="boost" type="button">Charge</button><button id="overdrive" type="button">Overdrive</button>
+  <button id="clear" type="button">Clear attempt</button><button id="replay" type="button" disabled>Replay</button>
+</div>
+<div class="views" aria-label="View controls">
+  <button id="scene" type="button" aria-pressed="false">View: Scene</button>
+  <button id="field" type="button" aria-pressed="false">Show unseen forces</button>
+  <button id="duel" type="button" aria-pressed="false">2-player duel</button>
+</div>
+<div id="region">
+  <section class="info"><h2>Known</h2><p id="known">Your last result appears here.</p></section>
+  <section class="info"><h2>Unknown</h2><p id="unknown">The Curator has a charged-shot discovery for you.</p></section>
+</div>
+<details>
+  <summary>Mind of Nathan Tabor</summary>
+  <blockquote>the grounded never moved mind while never being grounded</blockquote>
+  <dl>
+    <dt>Known</dt><dd>Your confirmed score, completed attempts, and discoveries.</dd>
+    <dt>Unknown</dt><dd>A discovery you can uncover by playing. The result becomes Known when you earn it.</dd>
+    <dt>Seen</dt><dd>The hook, target, obstacles, charge, and action you can see in play.</dd>
+    <dt>Unseen</dt><dd>The pull and wind acting on the hook. Show their directions without changing the shot.</dd>
+    <dt>Scene</dt><dd>The forward view of the arena.</dd>
+    <dt>Unscene</dt><dd>The same arena viewed from the opposite side. Live input and replay both follow that viewpoint.</dd>
+  </dl>
+  <p><strong>1+1=2 · BUILD</strong> awards a confirmed result once. <strong>1-1=0 · CLEAR</strong> clears the active charge and throw. Score and discoveries stay in your record.</p>
+  <p><strong>PROTECT ALL INNOCENCE AT THE ATOMIC LEVEL.</strong> The gold piece is protected. Release the Hounds to clear the red gate. A throw that touches the gold piece earns zero. Clear the attempt to reset the gate and release the pack again.</p>
+</details>
+</main>
+<script>
+"use strict";
+const get = id => document.getElementById(id);
+const W = 720;
+const H = 350;
+const ORIGIN = Object.freeze({x: 120, y: 257});
+const STEP = 1 / 120;
+const WORLDS = [
+  {name: "Ring Rush", color: "#f9cc74", wind: 0, movement: 0, unlock: 0},
+  {name: "Hurricane Sky", color: "#75edd0", wind: 54, movement: 25, unlock: 5},
+  {name: "PK’s Chaos Volcano", color: "#f6a09b", wind: -45, movement: 28, unlock: 10},
+  {name: "Cosmic Overdrive", color: "#bac6ff", wind: 88, movement: 37, unlock: 15},
+  {name: "Hounds of Hell", color: "#ffc18b", wind: 58, movement: 18, unlock: 0}
+];
+const HOUNDS_WORLD = WORLDS.length - 1;
+const HOUND_TRAVEL = .9;
+const PROTECTED_PIECE = Object.freeze({x: 330, y: 149, r: 11});
+const storeKey = "tabor-track-baller-mind-v1";
+function readProgress() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(storeKey));
+    if (Number.isSafeInteger(saved?.score) && saved.score >= 0) {
+      return {score: saved.score, discovery: saved.discovery === true};
+    }
+  } catch {}
+  return {score: 0, discovery: false};
+}
+const progress = readProgress();
+function saveProgress() {
+  try { localStorage.setItem(storeKey, JSON.stringify(progress)); } catch {}
+}
+const ui = Object.fromEntries(
+  ["arena","pad","world","score","streak","charge","message","known","unknown",
+   "launch","boost","overdrive","clear","replay","scene","field","duel",
+   "release-hounds","exit-hounds","hound-status"].map(id => [id, get(id)])
+);
+const arena = ui.arena.getContext("2d");
+const pad = ui.pad.getContext("2d");
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+let world = 0;
+let previousWorld = 0;
+let houndsReleasedAt = null;
+let gateOpened = false;
+let streak = 0;
+let charge = 0;
+let mirrored = false;
+let showField = false;
+let duel = false;
+let ambient = 0;
+let shot = null;
+let history = null;
+let replay = null;
+let blockers = [];
+let impact = null;
+let pinchDone = false;
+let spin = 0;
+let spinVelocity = 0;
+let gesture = null;
+const pointers = new Map();
+const limit = (value, min, max) => Math.max(min, Math.min(max, value));
+const mirroredX = x => mirrored ? W - x : x;
+const message = text => {ui.message.textContent = text;};
+
+let audio = null;
+function feedback(cue) {
+  const frequencies = {launch: [210, 370], hit: [510, 850], charged: [510, 1010], blocked: [230, 100], hounds: [112, 67]};
+  if (navigator.vibrate && !reducedMotion.matches) {
+    navigator.vibrate(cue === "charged" ? [12, 30, 20] : cue === "hit" ? 18 : 7);
+  }
+  if (!audio || audio.state !== "running") return;
+  const [from, to] = frequencies[cue];
+  const oscillator = audio.createOscillator();
+  const gain = audio.createGain();
+  const now = audio.currentTime;
+  oscillator.frequency.setValueAtTime(from, now);
+  oscillator.frequency.exponentialRampToValueAtTime(to, now + .16);
+  gain.gain.setValueAtTime(.055, now);
+  gain.gain.exponentialRampToValueAtTime(.001, now + .16);
+  oscillator.connect(gain).connect(audio.destination);
+  oscillator.start(now);
+  oscillator.stop(now + .17);
+}
+function enableAudio() {
+  const Audio = window.AudioContext || window.webkitAudioContext;
+  if (!Audio) return;
+  try {
+    audio ??= new Audio();
+    audio.resume().catch(() => {});
+  } catch {}
+}
+function refresh() {
+  const houndsMode = world === HOUNDS_WORLD;
+  ui.score.textContent = progress.score;
+  ui.streak.textContent = streak;
+  ui.charge.textContent = Math.floor(charge) + "%";
+  ui.replay.disabled = !history || Boolean(shot);
+  ui.replay.textContent = replay ? "Close replay" : "Replay";
+  ui.launch.disabled = Boolean(shot);
+  ui.boost.disabled = Boolean(shot) || charge >= 100;
+  ui.overdrive.disabled = houndsMode || Boolean(shot) || !currentBlockers().length;
+  ui.world.disabled = houndsMode;
+  ui.duel.disabled = houndsMode;
+  ui["release-hounds"].disabled = Boolean(shot) || (houndsMode && houndsReleasedAt !== null);
+  ui["exit-hounds"].hidden = !houndsMode;
+  ui["hound-status"].hidden = !houndsMode;
+  if (houndsMode) {
+    ui["hound-status"].textContent = gateOpened ? "Gate clear · Keep the gold piece safe"
+      : houndsReleasedAt === null ? "Gate armed · Protect the gold piece"
+      : "Pack released · Clearing the moving gate";
+  }
+  for (const [i, option] of Array.from(ui.world.options).entries()) {
+    option.disabled = WORLDS[i].unlock > progress.score;
+    option.textContent = WORLDS[i].name + (option.disabled ? " · " + WORLDS[i].unlock + " points" : "");
+  }
+  const nextWorld = WORLDS.find(entry => entry.unlock > progress.score);
+  ui.unknown.textContent = houndsMode
+    ? "Can you land the ring without touching the gold piece? Replay shows the gate and the pack on the same timeline."
+    : !progress.discovery
+    ? "The Curator has a charged-shot discovery for you."
+    : nextWorld
+      ? "Next world opens at " + nextWorld.unlock + " points."
+      : "Try the reversed view or a blocker you place yourself.";
+  ui.known.textContent = [
+    history && history.outcome + " · +" + history.gained + " · " + WORLDS[history.world].name + ".",
+    progress.discovery && "Tornado Shot discovered · full charge scores +3."
+  ].filter(Boolean).join(" ") || "Your last result appears here.";
+}
+
+function targetAt(index, t) {
+  const distance = WORLDS[index].movement;
+  return {x: 555 + distance * Math.sin(t * 1.25), y: 159 + distance * .65 * Math.sin(t * 1.8), r: 24};
+}
+
+function currentBlockers() {
+  if (world === HOUNDS_WORLD) return [];
+  if (duel) return blockers;
+  if (world < 2) return [];
+  return blockers;
+}
+
+function gateAt(moment, releasedAt) {
+  if (releasedAt !== null && moment - releasedAt >= HOUND_TRAVEL) return null;
+  return {x: 442, y: 167 + 17 * Math.sin(moment * 2.9), r: 32};
+}
+
+function releaseHounds() {
+  if (shot || (world === HOUNDS_WORLD && houndsReleasedAt !== null)) return;
+  if (world !== HOUNDS_WORLD) {
+    previousWorld = world;
+    world = HOUNDS_WORLD;
+  }
+  replay = null;
+  houndsReleasedAt = ambient;
+  gateOpened = false;
+  enableAudio();
+  feedback("hounds");
+  message("HOUNDS RELEASED · The pack goes for the gate. Keep the gold piece safe.");
+  refresh();
+}
+
+function setupBlockers() {
+  blockers = [];
+  if (!duel && world >= 2) blockers = [{x: 390, y: 170, r: 23}];
+}
+
+function setCharge(value) {
+  charge = limit(value, 0, 100);
+  refresh();
+}
+
+function beginShot(dx = 0, strength = 0) {
+  if (shot) return;
+  replay = null;
+  impact = null;
+  const gust = WORLDS[world].wind;
+  const t = .78;
+  const startTarget = targetAt(world, ambient + t);
+  shot = {
+    world, phase: ambient, elapsed: 0, x: ORIGIN.x, y: ORIGIN.y, charged: charge >= 100,
+    vx: (startTarget.x - ORIGIN.x) / t - gust * t / 2 + limit(dx * 2, -140, 140),
+    vy: (startTarget.y - ORIGIN.y) / t - 190 * t + strength,
+    blockers: currentBlockers().map(b => ({...b})),
+    houndsReleasedAt,
+    path: [{x: ORIGIN.x, y: ORIGIN.y}]
+  };
+  charge = 0;
+  enableAudio();
+  feedback("launch");
+  message("Nathan AI 🚀 · Hook in flight.");
+  refresh();
+}
+
+function finish(outcome) {
+  const finished = shot;
+  shot = null;
+  const gained = outcome === "Hit" ? (finished.charged ? 3 : 1) : 0;
+  history = {...finished, outcome, gained};
+  if (gained) {
+    const before = progress.score;
+    progress.score += gained;
+    streak += 1;
+    const discovered = finished.charged && !progress.discovery;
+    progress.discovery ||= finished.charged;
+    saveProgress();
+    feedback(finished.charged ? "charged" : "hit");
+    impact = {x: finished.x, y: finished.y, time: 0, color: WORLDS[world].color};
+    const opened = WORLDS.find(w => w.unlock > before && w.unlock <= progress.score);
+    message(discovered ? "Grape-Apple Curator 🍇🍎 · Tornado Shot discovered. +3!"
+      : opened ? "Grape-Apple Curator 🍇🍎 · " + opened.name + " is open."
+      : "Nathan AI 🚀 · Clean ring. +" + gained + ".");
+  } else {
+    streak = 0;
+    if (outcome === "Blocked" || outcome === "Protected piece touched") feedback("blocked");
+    if (outcome === "Protected piece touched") {
+      message("GOLD PIECE TOUCHED · +0. Clear the attempt and try a different shot.");
+    } else if (outcome === "Blocked") {
+      message(finished.world === HOUNDS_WORLD ? "PK · The gate caught the hook. Wait for the pack or change your release."
+        : "PK · Blocked! Try Overdrive or change your release.");
+    } else {
+      message("Nathan AI 🚀 · Missed. Replay the path or try again.");
+    }
+  }
+  refresh();
+}
+
+function tick() {
+  if (!shot) return;
+  const s = shot;
+  s.elapsed += STEP;
+  s.vx += WORLDS[s.world].wind * STEP;
+  s.vy += 380 * STEP;
+  s.x += s.vx * STEP;
+  s.y += s.vy * STEP;
+  s.path.push({x: s.x, y: s.y});
+  const movingGate = s.world === HOUNDS_WORLD ? gateAt(s.phase + s.elapsed, s.houndsReleasedAt) : null;
+  const touches = piece => Math.hypot(s.x - piece.x, s.y - piece.y) <= piece.r + 7;
+  if (s.world === HOUNDS_WORLD && touches(PROTECTED_PIECE)) {
+    finish("Protected piece touched");
+    return;
+  }
+  if ((movingGate && touches(movingGate)) || s.blockers.some(h => Math.hypot(s.x - h.x, s.y - h.y) < h.r + 7)) {
+    finish("Blocked");
+    return;
+  }
+  const goal = targetAt(s.world, s.phase + s.elapsed);
+  if (Math.hypot(s.x - goal.x, s.y - goal.y) < goal.r - 4) {
+    finish("Hit");
+    return;
+  }
+  if (s.elapsed > 2 || s.x > W + 12 || s.y > H + 12 || s.y < -24) finish("Miss");
+}
+
+function clearAttempt() {
+  shot = null;
+  replay = null;
+  charge = 0;
+  impact = null;
+  houndsReleasedAt = null;
+  gateOpened = false;
+  pointers.clear();
+  gesture = null;
+  pinchDone = false;
+  message(world === HOUNDS_WORLD ? "1-1=0 · Gate reset. Release the Hounds for another run."
+    : "Nathan AI 🚀 · Attempt cleared. Your score is saved.");
+  refresh();
+}
+
+function activateOverdrive() {
+  if (shot || !currentBlockers().length) return;
+  blockers = [];
+  impact = {x: W / 2, y: H / 2, time: 0, color: "#6fe7d1"};
+  message("Overdrive · Obstacles cleared.");
+  refresh();
+}
+
+function onPadDown(event) {
+  ui.pad.setPointerCapture(event.pointerId);
+  const p = {x: event.offsetX, y: event.offsetY};
+  pointers.set(event.pointerId, p);
+  if (pointers.size === 1) gesture = {start: p, dx: 0, dy: 0, travel: 0, multi: false};
+  if (pointers.size === 2 && gesture) {
+    const [first, second] = [...pointers.values()];
+    gesture.multi = true;
+    gesture.pinchStart = Math.hypot(first.x - second.x, first.y - second.y);
+  }
+}
+
+function onPadMove(event) {
+  const old = pointers.get(event.pointerId);
+  if (!old || !gesture) return;
+  const p = {x: event.offsetX, y: event.offsetY};
+  pointers.set(event.pointerId, p);
+  if (pointers.size >= 2) {
+    const [first, second] = [...pointers.values()];
+    const separation = Math.hypot(first.x - second.x, first.y - second.y);
+    if (!pinchDone && separation < 60 && gesture.pinchStart - separation > 10) {
+      pinchDone = true;
+      activateOverdrive();
+    }
+    return;
+  }
+  if (gesture.multi) return;
+  const dx = p.x - old.x;
+  const dy = p.y - old.y;
+  const rx = p.x - ui.pad.clientWidth / 2;
+  const ry = p.y - ui.pad.clientHeight / 2;
+  const torque = (rx * dy - ry * dx) / Math.max(32, Math.hypot(rx, ry));
+  spinVelocity = limit(spinVelocity + torque * .004, -.4, .4);
+  if (!shot && Math.abs(torque) > 2) setCharge(charge + Math.abs(torque) * .42);
+  gesture.dx = (p.x - gesture.start.x) * W / Math.max(ui.pad.clientWidth, 1);
+  gesture.dy = p.y - gesture.start.y;
+  gesture.travel += Math.hypot(dx, dy);
+}
+
+function onPadUp(event) {
+  if (!pointers.delete(event.pointerId)) return;
+  if (pointers.size) return;
+  const completed = gesture;
+  gesture = null;
+  pinchDone = false;
+  if (!completed || completed.multi || completed.travel < 16 || completed.dy > -24) return;
+  beginShot(completed.dx * (mirrored ? -1 : 1), limit((completed.dy + 55) * 1.7, -58, 55));
+}
+
+function abortGesture() {
+  pointers.clear();
+  gesture = null;
+  pinchDone = false;
+}
+ui.pad.addEventListener("pointerdown", onPadDown);
+ui.pad.addEventListener("pointermove", onPadMove);
+ui.pad.addEventListener("pointerup", onPadUp);
+ui.pad.addEventListener("pointercancel", abortGesture);
+ui.arena.addEventListener("pointerup", event => {
+  if (world === HOUNDS_WORLD || !duel || shot || replay || blockers.length >= 4) return;
+  const x = mirroredX(event.offsetX * W / ui.arena.clientWidth);
+  const y = event.offsetY * H / ui.arena.clientHeight;
+  if (x < 215 || x > 490 || y < 65 || y > 285) {
+    message("PK · Place a blocker in the center lane.");
+    return;
+  }
+  blockers.push({x, y, r: 21});
+  message("PK · Blocker placed. Player one, take your shot.");
+  refresh();
+});
+ui.pad.addEventListener("keydown", event => {
+  const key = event.key.toLowerCase();
+  if (![" ","c","x","o"].includes(key)) return;
+  event.preventDefault();
+  if (key === " ") beginShot();
+  if (key === "c") ui.boost.click();
+  if (key === "x") clearAttempt();
+  if (key === "o") activateOverdrive();
+});
+ui.world.addEventListener("change", () => {
+  clearAttempt();
+  world = ui.world.selectedIndex;
+  setupBlockers();
+  message("Grape-Apple Curator 🍇🍎 · " + WORLDS[world].name + ".");
+  refresh();
+});
+ui.launch.onclick = () => beginShot();
+ui["release-hounds"].onclick = releaseHounds;
+ui["exit-hounds"].onclick = () => {
+  world = previousWorld;
+  clearAttempt();
+  ui["release-hounds"].focus();
+};
+ui.boost.onclick = () => { if (!shot) setCharge(charge + 25); };
+ui.overdrive.onclick = activateOverdrive;
+ui.clear.onclick = clearAttempt;
+ui.replay.onclick = () => {
+  if (!history || shot) return;
+  replay = replay ? null : {at: 0, record: history};
+  message(replay ? "Replay · " + history.outcome + " · +" + history.gained + " recorded."
+    : "Nathan AI 🚀 · Ready for the next shot.");
+  refresh();
+};
+ui.scene.onclick = () => {
+  mirrored = !mirrored;
+  abortGesture();
+  ui.scene.setAttribute("aria-pressed", String(mirrored));
+  ui.scene.textContent = "View: " + (mirrored ? "Unscene" : "Scene");
+};
+ui.field.onclick = () => {
+  showField = !showField;
+  ui.field.setAttribute("aria-pressed", String(showField));
+  ui.field.textContent = (showField ? "Hide" : "Show") + " unseen forces";
+};
+ui.duel.onclick = () => {
+  clearAttempt();
+  duel = !duel;
+  setupBlockers();
+  ui.duel.setAttribute("aria-pressed", String(duel));
+  message(duel ? "PK · Player two, tap the upper arena to place a blocker." : "Nathan AI 🚀 · Solo play.");
+  refresh();
+};
+
+function resizeCanvas(canvas) {
+  const scale = Math.min(devicePixelRatio || 1, 2);
+  const bounds = canvas.getBoundingClientRect();
+  canvas.width = Math.max(1, Math.round(bounds.width * scale));
+  canvas.height = Math.max(1, Math.round(bounds.height * scale));
+}
+const resize = new ResizeObserver(() => {
+  resizeCanvas(ui.arena);
+  resizeCanvas(ui.pad);
+});
+resize.observe(ui.arena);
+resize.observe(ui.pad);
+resizeCanvas(ui.arena);
+resizeCanvas(ui.pad);
+
+function circle(ctx, p, r, color, stroke = false) {
+  ctx.beginPath();
+  ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+  if (stroke) {
+    ctx.strokeStyle = color;
+    ctx.stroke();
+  } else {
+    ctx.fillStyle = color;
+    ctx.fill();
+  }
+}
+function arrow(ctx, x, y, dx, dy) {
+  const endX = x + dx;
+  const endY = y + dy;
+  const angle = Math.atan2(dy, dx);
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.lineTo(endX, endY);
+  ctx.lineTo(endX - 6 * Math.cos(angle - .45), endY - 6 * Math.sin(angle - .45));
+  ctx.moveTo(endX, endY);
+  ctx.lineTo(endX - 6 * Math.cos(angle + .45), endY - 6 * Math.sin(angle + .45));
+  ctx.stroke();
+}
+function paintHounds(moment, releasedAt) {
+  const gate = gateAt(moment, releasedAt);
+  if (gate) {
+    arena.lineWidth = 3;
+    circle(arena, gate, gate.r, "#a43c34");
+    circle(arena, gate, gate.r, "#ffc18b", true);
+  }
+  arena.lineWidth = 2;
+  circle(arena, PROTECTED_PIECE, 18, "#ffd67835");
+  circle(arena, PROTECTED_PIECE, PROTECTED_PIECE.r, "#ffd678", true);
+  circle(arena, PROTECTED_PIECE, 4, "#ffd678");
+  if (releasedAt === null || moment < releasedAt || moment >= releasedAt + HOUND_TRAVEL + .2) return;
+  const phase = limit((moment - releasedAt) / HOUND_TRAVEL, 0, 1);
+  const destination = 167 + 17 * Math.sin((releasedAt + HOUND_TRAVEL) * 2.9);
+  for (const [i, lane] of [-1, 0, 1].entries()) {
+    const x = 125 + 317 * phase - lane * lane * 8 * (1 - phase);
+    const y = 257 + (destination - 257) * phase + lane * 43 * (1 - phase);
+    const trail = reducedMotion.matches ? 0 : 20 + i * 5;
+    if (trail) {
+      arena.strokeStyle = "#c47549";
+      arrow(arena, x - trail, y + trail * .3, trail, -trail * .3);
+    }
+    circle(arena, {x, y}, 6, "#ff9b5e");
+    for (const [dx, dy] of [[3,-9],[8,-6],[10,0],[7,5]]) {
+      circle(arena, {x:x + dx, y:y + dy}, 2.3, "#ffc18b");
+    }
+  }
+}
+function paintArena() {
+  arena.setTransform(ui.arena.width / W, 0, 0, ui.arena.height / H, 0, 0);
+  arena.fillStyle = "#101a21";
+  arena.fillRect(0, 0, W, H);
+  const past = replay?.record;
+  const active = past ?? shot;
+  const worldIndex = active?.world ?? world;
+  const moment = active ? active.phase + (replay ? replay.at : shot.elapsed) : ambient;
+  const target = targetAt(worldIndex, moment);
+  const color = WORLDS[worldIndex].color;
+  arena.save();
+  if (mirrored) {
+    arena.translate(W, 0);
+    arena.scale(-1, 1);
+  }
+  arena.lineWidth = 1;
+  arena.strokeStyle = "#24383e";
+  for (let x = 40; x < W; x += 40) {
+    arena.beginPath();
+    arena.moveTo(x, 0);
+    arena.lineTo(x, H);
+    arena.stroke();
+  }
+  for (let y = 40; y < H; y += 40) {
+    arena.beginPath();
+    arena.moveTo(0, y);
+    arena.lineTo(W, y);
+    arena.stroke();
+  }
+  if (showField) {
+    for (let x = 44; x < W; x += 80) {
+      for (let y = 28; y < H; y += 65) {
+        arena.strokeStyle = "#64ab9f";
+        arrow(arena, x, y, 0, 20);
+        if (WORLDS[worldIndex].wind) {
+          arena.strokeStyle = "#c7ae6c";
+          arrow(arena, x, y, WORLDS[worldIndex].wind * .28, 0);
+        }
+      }
+    }
+  }
+  if (duel && !active && worldIndex !== HOUNDS_WORLD) {
+    arena.lineWidth = 1;
+    arena.strokeStyle = "#835967";
+    arena.setLineDash([5, 6]);
+    arena.strokeRect(215, 65, 275, 220);
+    arena.setLineDash([]);
+  }
+  for (const blocker of active?.blockers ?? currentBlockers()) {
+    circle(arena, blocker, blocker.r, "#823e53");
+    arena.lineWidth = 2;
+    circle(arena, blocker, blocker.r, "#f9a7a9", true);
+  }
+  if (worldIndex === HOUNDS_WORLD) paintHounds(moment, active ? active.houndsReleasedAt : houndsReleasedAt);
+  circle(arena, target, target.r + 12, color + "21");
+  arena.lineWidth = 4;
+  circle(arena, target, target.r, color, true);
+  circle(arena, target, 4, color);
+  arena.lineWidth = 2;
+  circle(arena, ORIGIN, 13, color, true);
+  circle(arena, ORIGIN, 4, color);
+  if (active) {
+    const last = past ? Math.min(past.path.length - 1, Math.floor(replay.at / STEP)) : shot.path.length - 1;
+    arena.beginPath();
+    arena.moveTo(ORIGIN.x, ORIGIN.y);
+    for (let i = 1; i <= last; i++) arena.lineTo(active.path[i].x, active.path[i].y);
+    arena.strokeStyle = "#75edd0";
+    arena.lineWidth = past ? 3 : 2;
+    arena.stroke();
+    circle(arena, active.path[last], 7, "#f5f0e5");
+  } else if (impact && !reducedMotion.matches) {
+    arena.lineWidth = 3;
+    arena.globalAlpha = Math.max(0, 1 - impact.time * 2.3);
+    circle(arena, impact, 12 + impact.time * 130, impact.color, true);
+  }
+  arena.restore();
+  if (showField) {
+    arena.fillStyle = "#e5f8f1";
+    arena.font = "16px system-ui";
+    const wind = WORLDS[worldIndex].wind;
+    const direction = (wind < 0) !== mirrored ? "←" : "→";
+    arena.fillText(wind ? "Gravity ↓   Wind " + direction : "Gravity ↓", 14, 24);
+  }
+}
+function paintPad(dt) {
+  const width = ui.pad.width;
+  const height = ui.pad.height;
+  const radius = Math.min(width, height) * .28;
+  spin += spinVelocity * dt * 60;
+  spinVelocity *= Math.pow(.93, dt * 60);
+  pad.clearRect(0, 0, width, height);
+  pad.save();
+  pad.translate(width / 2, height / 2);
+  const center = {x: 0, y: 0};
+  const glow = pad.createRadialGradient(0, 0, radius * .4, 0, 0, radius * 2.2);
+  glow.addColorStop(0, "#336a5e");
+  glow.addColorStop(1, "#171e23");
+  circle(pad, center, radius * 2.2, glow);
+  pad.lineWidth = radius * .075;
+  circle(pad, center, radius * 1.24, "#4f655d", true);
+  pad.beginPath();
+  pad.arc(0, 0, radius * 1.24, -Math.PI / 2, -Math.PI / 2 + charge / 100 * Math.PI * 2);
+  pad.strokeStyle = "#cdf87b";
+  pad.stroke();
+  circle(pad, center, radius, "#153932");
+  pad.rotate(reducedMotion.matches ? 0 : spin * (mirrored ? -1 : 1));
+  pad.lineWidth = radius * .065;
+  circle(pad, center, radius, "#6fe7d1", true);
+  pad.beginPath();
+  pad.ellipse(0, 0, radius * .48, radius, 0, 0, Math.PI * 2);
+  pad.moveTo(-radius, 0);
+  pad.lineTo(radius, 0);
+  pad.stroke();
+  pad.restore();
+}
+let previous = 0;
+let accumulator = 0;
+function draw(now) {
+  const dt = previous ? limit((now - previous) / 1000, 0, .05) : 0;
+  previous = now;
+  ambient += dt;
+  if (!gateOpened && houndsReleasedAt !== null && ambient >= houndsReleasedAt + HOUND_TRAVEL) {
+    gateOpened = true;
+    if (!shot && !replay && ui.message.textContent.startsWith("HOUNDS RELEASED")) {
+      message("GATE CLEARED · Take the shot. Protect the gold piece.");
+    }
+    refresh();
+  }
+  accumulator += dt;
+  while (accumulator >= STEP) {
+    tick();
+    accumulator -= STEP;
+  }
+  if (replay) replay.at = Math.min(replay.record.elapsed, replay.at + dt);
+  if (impact) {
+    impact.time += dt;
+    if (impact.time > .42) impact = null;
+  }
+  paintArena();
+  paintPad(dt);
+  requestAnimationFrame(draw);
+}
+refresh();
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>
