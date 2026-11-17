@@ -50,6 +50,9 @@ test("health probes the catalog and HEAD returns an empty body", async () => {
 
 test("unknown routes and modifying methods never reach the source", async () => {
   const worker = createWorker(() => assert.fail("Unexpected source request"));
+  const notice = await worker.fetch(resource("/docs/record/index.html"), env);
+  assert.equal(notice.status, 302);
+  assert.match(notice.headers.get("location"), /github\.io.*\/docs\/record\/index\.html/);
   assert.equal((await worker.fetch(resource("/.env"), env)).status, 404);
   assert.equal((await worker.fetch(resource("/api/../../../etc/passwd"), env)).status, 404);
   assert.equal((await worker.fetch(new Request(host, {method:"POST"}), env)).status, 405);

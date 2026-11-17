@@ -12,7 +12,7 @@ const assets = new Map([
 ]);
 
 const policy = {
-  "content-security-policy": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'",
+  "content-security-policy": "default-src 'none'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self'; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'",
   "x-content-type-options": "nosniff",
   "referrer-policy": "strict-origin-when-cross-origin",
   "permissions-policy": "camera=(), microphone=(), geolocation=()",
@@ -31,6 +31,11 @@ export function createWorker(originFetch = fetch) {
         return respond(request, "Method not allowed", 405, {"allow":"GET, HEAD"});
       }
       const path = new URL(request.url).pathname;
+      if (path === "/docs/record/index.html") {
+        return respond(request, null, 302, {
+          "location":"https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/docs/record/index.html",
+        });
+      }
       const health = path === "/api/health";
       const asset = assets.get(health ? "/api/catalog" : path);
       if (!asset) return respond(request, "Page not found", 404);
