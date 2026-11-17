@@ -18,6 +18,18 @@ const SELECT_HANDOFFS = `
   WHERE h.job_id IN (?, ?) ORDER BY h.job_id
 `;
 
+const PENDING_HANDOFFS = `
+  SELECT h.job_id,h.source_receipt,j.repository
+  FROM repair_handoff_outbox h
+  JOIN repair_jobs j ON j.id=h.job_id
+  LEFT JOIN repair_patch_checks v ON v.job_id=h.job_id AND v.source_receipt=h.source_receipt
+  WHERE j.provider='github' AND j.status='PATCH_READY' AND h.source_receipt=j.receipt
+    AND (v.job_id IS NULL OR (v.status='SOURCE_UNAVAILABLE' AND v.checked_at<=?1)
+      OR (v.status='SOURCE_MATCH' AND v.execution<>'Cloudflare scheduled run'))
+  ORDER BY v.checked_at IS NOT NULL, v.checked_at, j.scope='INTERNAL' DESC, h.draft_at, h.job_id
+  LIMIT 4
+`;
+
 const STORE_CHECK = `
   INSERT INTO repair_patch_checks
     (job_id, source_receipt, checked_at, status, base, files, hunks, reason, execution)
@@ -33,6 +45,11 @@ const STORE_CHECK = `
 
 class PendingSource extends Error {}
 
+function validPath(path) {
+  return /^[\w.@+/-]+$/.test(path) &&
+    path.split("/").every(part => part && part !== "." && part !== "..");
+}
+
 function parseDiff(diff, allowed) {
   if (typeof diff !== "string" || !diff.startsWith("diff --git ") || diff.length > 50000) {
     throw Error("Expected a bounded unified diff");
@@ -42,7 +59,8 @@ function parseDiff(diff, allowed) {
   for (const line of diff.split("\n")) {
     if (line.startsWith("diff --git ")) {
       const match = /^diff --git a\/([^ ]+) b\/([^ ]+)$/.exec(line);
-      if (!match || match[1] !== match[2] || !allowed.has(match[1]) || files.has(match[1])) {
+      if (!match || match[1] !== match[2] || !validPath(match[1]) ||
+          (allowed && !allowed.has(match[1])) || files.has(match[1]) || files.size >= 8) {
         throw Error("Diff includes an unsupported path or operation");
       }
       file = { path: match[1], hunks: [], created: false, oldHeader: false, newHeader: false };
@@ -58,6 +76,9 @@ function parseDiff(diff, allowed) {
     } else if (hunk && " +-".includes(line[0])) {
       if (line[0] !== "+") hunk.before.push(line.slice(1));
       if (line[0] !== "-") hunk.after.push(line.slice(1));
+    } else if (hunk && line === "" && hunk.before.length < hunk.oldCount && hunk.after.length < hunk.newCount) {
+      hunk.before.push("");
+      hunk.after.push("");
     } else if (!hunk && line.startsWith("--- ")) {
       file.created = line === "--- /dev/null";
       file.oldHeader = file.created || line === "--- a/" + file.path;
@@ -87,36 +108,64 @@ function parseDiff(diff, allowed) {
   return [...files.values()];
 }
 
-export async function verifyPatch(jobId, receipt, read = fetch) {
-  const target = TARGETS[jobId];
+async function readSource(response) {
+  const reader = response.body?.getReader();
+  if (!reader) throw new PendingSource("Source response had no body");
+  const decoder = new TextDecoder("utf-8", { fatal:true });
+  let bytes = 0, code = "";
+  try {
+    for (;;) {
+      const {done,value} = await reader.read();
+      if (done) return code + decoder.decode();
+      bytes += value.byteLength;
+      if (bytes > 300000) throw Error("Source exceeds verifier size limit");
+      code += decoder.decode(value, {stream:true});
+    }
+  } catch (error) {
+    await reader.cancel().catch(() => {});
+    throw error;
+  }
+}
+
+export async function verifyPatch(jobId, receipt, read = fetch, repository) {
+  const canonical = /^github:([\w.-]+\/[\w.-]+)#[1-9]\d*$/.exec(jobId);
+  const target = TARGETS[jobId] ??
+    (repository && canonical?.[1] === repository.toLowerCase() && validPath(repository) ? {repository} : null);
   if (!target || !/^[0-9a-f]{40}$/i.test(receipt.base || "")) throw Error("Missing pinned Git revision");
   const files = parseDiff(receipt.patch, target.paths);
-  for (const f of files) {
+  const request = { redirect: "error", signal: AbortSignal.timeout(10000) };
+  if (files.every(file => file.created)) {
+    const base = await read("https://api.github.com/repos/" + target.repository + "/commits/" + receipt.base,
+      {...request, headers: {"User-Agent":"NathanAI-Sovereign-Hive",Accept:"application/vnd.github+json"}});
+    await base.body?.cancel();
+    if (!base.ok) throw new PendingSource("Could not establish the pinned commit (HTTP " + base.status + ")");
+  }
+  await Promise.all(files.map(async f => {
     const url = "https://raw.githubusercontent.com/" + target.repository + "/" + receipt.base + "/" + f.path;
-    const response = await read(url, { redirect: "error", signal: AbortSignal.timeout(10000) });
-    if (f.created && response.status === 404) continue;
-    if (!response.ok) throw new PendingSource("Source read returned HTTP " + response.status);
-    if (f.created) throw Error("New file already exists at the pinned revision");
-    const code = await response.text();
-    if (code.length > 300000) throw Error("Source exceeds verifier size limit");
+    const response = await read(url, request);
+    if (!response.ok || f.created) {
+      await response.body?.cancel();
+      if (f.created && response.status === 404) return;
+      if (!response.ok) throw new PendingSource("Source read returned HTTP " + response.status);
+      throw Error("New file already exists at the pinned revision");
+    }
+    const code = await readSource(response);
     const source = code.split("\n");
     for (const h of f.hunks) {
       if (h.before.some((line, i) => line !== source[h.oldLine - 1 + i])) {
         throw Error("Source context differs at the pinned revision");
       }
     }
-  }
+  }));
   return { base: receipt.base, files: files.length, hunks: files.reduce((n, f) => n + f.hunks.length, 0) };
 }
 
 export async function refreshChecks(db, scheduledAt, read = fetch) {
-  const rows = (await db.prepare(SELECT_HANDOFFS).bind(...Object.keys(TARGETS)).all()).results;
-  for (const row of rows) {
-    if (row.checked_at >= scheduledAt ||
-        (row.status === "SOURCE_MATCH" && row.execution === "Cloudflare scheduled run")) continue;
+  const rows = (await db.prepare(PENDING_HANDOFFS).bind(scheduledAt - 15 * 60_000).all()).results;
+  await Promise.all(rows.map(async row => {
     let status = "SOURCE_MATCH", reason = null, proof = {base:null,files:0,hunks:0};
     try {
-      proof = await verifyPatch(row.job_id, JSON.parse(row.source_receipt), read);
+      proof = await verifyPatch(row.job_id, JSON.parse(row.source_receipt), read, row.repository);
     } catch (error) {
       status = error instanceof PendingSource || error.name === "TimeoutError" ||
         error.name === "AbortError" || error instanceof TypeError ? "SOURCE_UNAVAILABLE" : "REVIEW";
@@ -124,7 +173,7 @@ export async function refreshChecks(db, scheduledAt, read = fetch) {
     }
     await db.prepare(STORE_CHECK).bind(row.job_id, row.source_receipt, scheduledAt, status, proof.base,
       proof.files, proof.hunks, reason, "Cloudflare scheduled run", row.job_id, row.source_receipt).run();
-  }
+  }));
 }
 
 export default {

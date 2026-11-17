@@ -4,9 +4,9 @@ By Nathan Tabor and Nathan AI
 
 **1+1=2** Build the fix. **1-1=0** Remove the defect. **1×1=1** Integrate. **1÷1=1** Verify.
 
-The Worker checks the patch receipts for Goldener #422 and Glassbeetle #341 against their pinned Git revisions. It checks hunk counts, positions, file paths and unchanged context. New files must be absent at the pinned revision. It writes evidence against the exact source receipt and repeats when that receipt changes. The public status returns evidence fields for these two public handoffs.
+The Worker checks public GitHub handoff receipts against their pinned Git revisions. It checks hunk counts, positions, file paths and unchanged context. New files must be absent at the pinned revision. It writes evidence against the exact source receipt and repeats when that receipt changes. The public status returns evidence fields for Goldener #422 and Glassbeetle #341. The Hive status reports aggregate counts.
 
-Apply `schema.sql` to the existing Sovereign Hive D1 database, bind it as `HIVE`, deploy `worker.mjs`, and configure its five-minute schedule. A GitHub fetch failure is recorded as `SOURCE_UNAVAILABLE` and retried on a later run. A diff that needs attention is marked `REVIEW`. A match is recorded as `SOURCE_MATCH`. The handoff's existing repair status is retained.
+Apply `schema.sql` to the existing Sovereign Hive D1 database, bind it as `HIVE`, deploy `worker.mjs`, and configure its five-minute schedule. The Worker checks up to four eligible handoffs per run, with up to eight source files per patch. A GitHub fetch failure is recorded as `SOURCE_UNAVAILABLE` and can retry after fifteen minutes. A diff that needs attention is marked `REVIEW`. A match is recorded as `SOURCE_MATCH`. The handoff's existing repair status is retained.
 
 Initial verification applied the exact D1 receipt diffs with `git apply --check` in temporary Git repositories populated from the pinned files. Both passed. The verifier also rejected altered hunks and reported HTTP 403 as unavailable source. The live cron checks source context in JavaScript. Goldener's PixelTable example and Glassbeetle's macOS integration test have separate runtime requirements.
 

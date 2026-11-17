@@ -19,6 +19,13 @@ const plan={
       "repository": "GNOME/gnome-shell"
     },
     {
+      "id": "gitlab-gitlab-community",
+      "type": "gitlab",
+      "endpoint": "https://gitlab.com/api/v4/projects/gitlab-org%2Fgitlab/issues",
+      "label": "Accepting merge requests",
+      "repository": "gitlab-org/gitlab"
+    },
+    {
       "id": "codeberg",
       "type": "forgejo",
       "endpoint": "https://codeberg.org/api/v1/repos/issues/search",
@@ -228,15 +235,21 @@ async function repairRoute(request,env){
   const route=url.pathname;
   const db=env.HIVE;
   if(request.method==="GET"&&route==="/api/repair/status"){
-    const [counts,sources,latest]=await Promise.all([
+    const [counts,sources,latest,checks,handoff]=await Promise.all([
       db.prepare("SELECT scope,status,COUNT(*) AS count FROM repair_jobs GROUP BY scope,status ORDER BY scope,status").all(),
       db.prepare("SELECT * FROM repair_sources ORDER BY id").all(),
-      db.prepare("SELECT outcome,COUNT(*) AS count FROM repair_runs GROUP BY outcome ORDER BY outcome").all()
+      db.prepare("SELECT outcome,COUNT(*) AS count FROM repair_runs GROUP BY outcome ORDER BY outcome").all(),
+      db.prepare(`SELECT c.status,COUNT(*) AS count,MAX(c.checked_at) AS latest
+        FROM repair_patch_checks c JOIN repair_handoff_outbox h
+          ON h.job_id=c.job_id AND h.source_receipt=c.source_receipt
+        GROUP BY c.status ORDER BY c.status`).all(),
+      db.prepare("SELECT MAX(scheduled_at) AS latest,COUNT(*) AS runs FROM repair_handoff_runs").first()
     ]);
     return reply({queue:counts.results,sources:sources.results,attempts:latest.results,
+      checks:checks.results,handoff,byline:"By Nathan Tabor and Nathan AI",
       runnerApiConfigured:typeof env.REPAIR_RUNNER_TOKEN==="string"&&env.REPAIR_RUNNER_TOKEN.length>=32,
       ownerApiConfigured:typeof env.REPAIR_OWNER_TOKEN==="string"&&env.REPAIR_OWNER_TOKEN.length>=32,
-      anchors:["1+1=2","1-1=0"]});
+      anchors:["1+1=2","1-1=0","1×1=1","1÷1=1"]});
   }
   if(request.method==="GET"&&route==="/api/repair/leads"){
     const out=await db.prepare("SELECT id,provider,repository,number,url,title,signal,status FROM repair_jobs WHERE scope='GLOBAL' ORDER BY source_at DESC,id LIMIT 50").all();

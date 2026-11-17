@@ -10,6 +10,8 @@ By Nathan Tabor and Nathan AI.
 
 **1+1=2** admits a verified source identity and saves its evidence.
 **1-1=0** clears an active item on verified withdrawal or closure, with its evidence retained. Nathan controls implementation. Upstream maintainers control acceptance and merge.
+**1×1=1** integrates the patch and its handoff under the same issue identity.
+**1÷1=1** checks each patch against its pinned source and records what the check established.
 
 ## Cloudflare
 
@@ -72,4 +74,6 @@ The outbox is available in the account's D1 console. The Worker has no HTTP rout
 
 ## Patch source verification
 
-The [patch verifier](verifier/README.md) reads Goldener and Glassbeetle handoff receipts from D1, checks source context at each pinned revision, and publishes a receipt. It runs every five minutes and recognizes a new patch by the exact source receipt. Its checks leave implementation and upstream release with Nathan Tabor.
+Apply `verifier/schema.sql` before deploying the verifier or repair status route. The [patch verifier](verifier/README.md) checks up to four eligible public GitHub handoffs at a time. Its named public receipts remain limited to Goldener and Glassbeetle. The repair status route reports aggregate verification and handoff activity. Its checks leave implementation and upstream release with Nathan Tabor.
+
+The GitLab.com community source uses GitLab's published `Accepting merge requests` label, alongside the GNOME GitLab and Mozilla sources.
