@@ -10,7 +10,7 @@ try {
     localStorage.setItem('tabor-competition-player-v1',playerKey);
   }
 } catch {playerKey=crypto.randomUUID().replaceAll('-','');}
-let event, busy=false, poll, animateId, capture=null, tossAnimating=false;
+let event, busy=false, poll, pollCursor=0, animateId, capture=null, tossAnimating=false;
 const initialCode = new URLSearchParams(location.search).get('event')??'';
 const setStatus = message => {node('status').textContent=message;};
 const court=node('court'), ctx=court.getContext('2d');
@@ -24,6 +24,7 @@ async function request(path, payload) {
   const headers={'X-Player-Key':playerKey};
   if(payload)headers['Content-Type']='application/json';
   const response=await fetch('/api/events'+path,{method:payload?'POST':'GET',headers,body:payload?JSON.stringify(payload):undefined});
+  if(response.status===204)return null;
   let data;
   try {data=await response.json();}catch {throw new Error('Online events are unavailable. Try again in a moment.');}
   if(!response.ok)throw new Error(data.error??'Online events are unavailable.');
@@ -130,14 +131,30 @@ async function submitAction(action,payload){
   finally {busy=false;if(event)controls();}
 }
 function beginPolling(){
-  clearInterval(poll);
-  poll=setInterval(async()=>{
-    if(!event||busy||document.hidden||event.champion!==null)return;
-    const code=event.code;
-    try{const next=await request('/'+code);if(event?.code===code&&event.revision!==next.revision)update(next);}
-    catch(error){if(event?.code===code)setStatus(error.message);}
-  },1800);
+  clearTimeout(poll);
+  const cycle=++pollCursor;
+  let delay=1800;
+  async function refresh(){
+    if(cycle!==pollCursor||!event||event.champion!==null)return;
+    if(!busy&&!document.hidden){
+      const code=event.code;
+      try{
+        const next=await request('/'+code+'?revision='+event.revision);
+        if(cycle===pollCursor&&event?.code===code&&next)update(next);
+        if(delay>1800&&cycle===pollCursor)setStatus('');
+        delay=1800;
+      }catch(error){
+        if(cycle===pollCursor&&event?.code===code)setStatus(error.message);
+        delay=Math.min(15000,delay*2);
+      }
+    }
+    if(cycle===pollCursor&&event?.champion===null)poll=setTimeout(refresh,delay);
+  }
+  poll=setTimeout(refresh,delay);
 }
+document.addEventListener('visibilitychange',()=>{
+  if(!document.hidden&&event?.champion===null)beginPolling();
+});
 node('create-event').onsubmit=async e=>{
   e.preventDefault();const data=inputOf(e.currentTarget);
   await submitAction('',{...data,capacity:Number(data.capacity),goal:Number(data.goal)});
@@ -177,7 +194,7 @@ node('copy-invite').onclick=async()=>{
 };
 function exitRoom(){
   if(busy)return;
-  clearInterval(poll);cancelAnimationFrame(animateId);event=null;history.replaceState(null,'','/competition');
+  pollCursor++;clearTimeout(poll);cancelAnimationFrame(animateId);event=null;history.replaceState(null,'','/competition');
   node('event').hidden=true;node('entrance').hidden=false;node('invite-display').hidden=true;setStatus('');
 }
 node('exit-room').onclick=exitRoom;

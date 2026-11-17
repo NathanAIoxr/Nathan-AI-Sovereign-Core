@@ -1,4 +1,11 @@
 export const routes = [
+  ['/training', 'training.html.in', 'text/html; charset=utf-8', false],
+  ['/training.css', 'training.css', 'text/css; charset=utf-8', false],
+  ['/training.mjs', 'training.mjs', 'text/javascript; charset=utf-8', false],
+  ['/shot-record.mjs', 'shot-record.mjs', 'text/javascript; charset=utf-8', false],
+  ['/controllers/engine.mjs', '../../tactilecore-sdk/src/engine.mjs', 'text/javascript; charset=utf-8', false],
+  ['/controllers/kinetic.mjs', '../../tactilecore-sdk/src/kinetic.mjs', 'text/javascript; charset=utf-8', false],
+  ['/controllers/track-baller.mjs', '../../../app-factory/tabor-tracker-ball/public/track-baller.mjs', 'text/javascript; charset=utf-8', false],
   [
     "/",
     "index.html.in",

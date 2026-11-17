@@ -15,6 +15,7 @@
 <a class="brand" href="/" aria-label="Hook and Ring home"><span class="brand-icon"></span> <span>HOOK <i>&amp;</i> RING</span></a>
 <div class="top-actions">
 <a class="arcade-link" href="/arcade">Toss &amp; Target Arcade</a>
+<a class="arcade-link" href="/training">Toss Lab</a>
 <a class="arcade-link" href="/competition">Play Friends</a>
 <button class="quiet" id="open-rewards" type="button">Rewards</button>
 <button class="quiet" id="sound" type="button" aria-pressed="false">Sound off</button>
@@ -100,6 +101,7 @@
 <label for="controls">Controls</label><select id="controls"><option value="touch">Touch / mouse</option><option value="tilt">Tilt to aim</option><option value="hybrid">Touch + tilt</option></select>
 <p id="motion-note">Touch with one or more fingers. In tilt and hybrid modes, keep the phone in your hands.</p>
 <button type="button" id="zero-motion">Center tilt</button>
+<label for="limb-profile">Contact profile</label><select id="limb-profile"><option value="hand">Hand · 16 ms guard</option><option value="toe">Toe · 20 ms guard</option></select>
 <label for="scale">Touch scale <output id="scale-value">1.00×</output></label><input id="scale" type="range" min="0.65" max="1.7" step="0.01" value="1">
 <label for="calibration">Measured width of the line below (mm)</label><div id="ruler"></div><div class="calibrate"><input id="calibration" type="number" min="10" max="120" step=".1" inputmode="decimal" required placeholder="e.g. 31.8"><button id="apply-scale" type="button">Calibrate</button></div>
 <button type="button" id="reset-scale">Reset calibration</button>
@@ -122,6 +124,6 @@
 <h3>Gift history</h3><ol id="gift-history"></ol>
 </dialog>
 <div id="announce" class="sr-only" aria-live="polite"></div>
-<script type="module" src="/app.mjs?v=9"></script>
+<script type="module" src="/app.mjs?v=10"></script>
 </body>
 </html>

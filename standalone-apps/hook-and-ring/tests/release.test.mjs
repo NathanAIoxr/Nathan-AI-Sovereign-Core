@@ -46,3 +46,22 @@ test('results controls and offline module are served together', async () => {
   assert.match(await (await get('/sw.js')).text(), /event-results\.mjs/);
   assert.equal((await get('/event-results.mjs')).status, 200);
 });
+
+test('toss lab, modules, and offline shell ship together', async () => {
+  assert.match(await (await get('/training')).text(), /Toss Lab/);
+  for(const path of ['/controllers/engine.mjs','/controllers/kinetic.mjs','/controllers/track-baller.mjs','/shot-record.mjs']){
+    assert.equal((await get(path)).status,200);
+    assert.ok((await (await get('/sw.js')).text()).includes(path));
+  }
+});
+test('online refresh returns no bracket payload when the revision is unchanged', async () => {
+  let queries=0;
+  const env={DB:{prepare:()=>({bind:()=>({first:async()=>{
+    queries++;
+    return {code:'1234567890',revision:4,expires_ms:Date.now()+10000,body:'must not be parsed'};
+  }})})}};
+  const response=await get('/api/events/1234567890?revision=4',env);
+  assert.equal(response.status,204);
+  assert.equal(await response.text(),'');
+  assert.equal(queries,1);
+});
