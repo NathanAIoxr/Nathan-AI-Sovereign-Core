@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0e1d20"><title>Arcade Ecosystem · Hook and Ring by Nathan Tabor</title>
+<link rel="icon" href="/icon.svg"><link rel="stylesheet" href="/grapple.css?v=9"><link rel="stylesheet" href="/ecosystem.css">
+</head><body>
+<header><nav aria-label="Games"><a href="/">Hook and Ring</a><a href="/training">Toss Lab</a><a href="/chassis">60-game arcade</a><a href="/competition">Play Friends</a></nav></header>
+<main>
+<section class="intro"><div><h1>Arcade <em>Ecosystem</em></h1><p class="byline">By Nathan Tabor</p></div></section>
+<section aria-labelledby="linked-heading"><h2 id="linked-heading">Connected games and tools</h2>
+<ul id="ecosystem-games" class="ecosystem-grid"></ul><p id="ecosystem-list-status" role="status"></p></section>
+<div class="ecosystem-grid release-panels">
+<section class="side" aria-labelledby="release-heading"><h2 id="release-heading">Cloudflare release</h2>
+<p id="ecosystem-release" role="status">Checking source and release…</p>
+<div class="ecosystem-actions"><a href="/release.json">Release manifest</a><a id="ecosystem-source" href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/standalone-apps/hook-and-ring">GitHub source</a><a id="ecosystem-download" href="/source.tar.gz" download hidden>Download source</a></div></section>
+<section class="side" aria-labelledby="bee-heading"><h2 id="bee-heading">Release bee</h2>
+<p id="ecosystem-bee" role="status">Looking for the latest checks…</p><ul id="ecosystem-checks"></ul>
+<a href="https://hook-and-ring-bee.nathantaboract.workers.dev/api/status">Read the monitoring report</a>
+</section></div>
+</main><script type="module" src="/ecosystem.mjs"></script></body></html>

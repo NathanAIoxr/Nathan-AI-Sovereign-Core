@@ -7,7 +7,7 @@
 <link rel="icon" href="/icon.svg"><link rel="stylesheet" href="/grapple.css?v=9"><link rel="stylesheet" href="/competition.css">
 </head>
 <body>
-<header><nav aria-label="Games"><a href="/">‹ Hook and Ring</a><a href="/chassis">Five Physics Chassis</a></nav></header>
+<header><nav aria-label="Games"><a href="/">‹ Hook and Ring</a><a href="/chassis">Five Physics Chassis</a><a href="/ecosystem">Ecosystem</a></nav></header>
 <main>
 <section class="intro"><div><h1>Play <em>Friends</em></h1><p class="byline">Hook and Ring by Nathan Tabor</p></div></section>
 <p id="status" role="status" aria-live="polite"></p>
@@ -57,6 +57,6 @@
 </div>
 </section>
 </main>
-<script type="module" src="/competition-ui.mjs?v=3"></script>
+<script type="module" src="/competition-ui.mjs?v=4"></script>
 </body>
 </html>

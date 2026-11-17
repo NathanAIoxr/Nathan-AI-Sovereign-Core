@@ -3,14 +3,16 @@ import { advanceShot, createShot, normalizeThrow, STEP, TRICKS, trickResult } fr
 const KEY = 'hook-ring-toss-lab-v1';
 const CAP = 40;
 const bounded = (value, min, max) => Number.isFinite(value) && value >= min && value <= max;
-const sources = ['controls','glass','toe','tracker-ball','wrist-flip','air-motion','import'];
+const sources = ['controls','glass','toe','tracker-ball','digit-pinch','wrist-flip','air-motion','import'];
 const modes = ['practice','first5','first11','first21','ladder','streak','trick','breeze','daily','lab'];
 const vector = (value) => value && bounded(value.x,-100,100) && bounded(value.y,-100,100)
   ? {x:value.x,y:value.y} : undefined;
 const cleanGesture = value => {
   if (!value || !Number.isInteger(value.contacts) || !bounded(value.contacts,0,10)) return undefined;
   return {contacts:value.contacts, guard:bounded(value.guard,0,45)?value.guard:null, velocity:vector(value.velocity),
-    twist:bounded(value.twist,-Math.PI,Math.PI)?value.twist:undefined};
+    twist:bounded(value.twist,-Math.PI,Math.PI)?value.twist:undefined,
+    pinchScale:bounded(value.pinchScale,.2,5)?value.pinchScale:undefined,
+    pinchSpan:bounded(value.pinchSpan,0,2000)?value.pinchSpan:undefined};
 };
 
 export function traceToss(raw, wind, trick) {

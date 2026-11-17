@@ -1,4 +1,9 @@
 export const routes = [
+  ['/ecosystem', 'ecosystem.html.in', 'text/html; charset=utf-8', false],
+  ['/ecosystem.css', 'ecosystem.css', 'text/css; charset=utf-8', false],
+  ['/ecosystem.mjs', 'ecosystem.mjs', 'text/javascript; charset=utf-8', false],
+  ['/ecosystem.json', 'ecosystem.json', 'application/json; charset=utf-8', false],
+  ['/controllers/digit-input.mjs', '../../../app-factory/tabor-tracker-ball/public/digit-input.mjs', 'text/javascript; charset=utf-8', false],
   ['/training', 'training.html.in', 'text/html; charset=utf-8', false],
   ['/training.css', 'training.css', 'text/css; charset=utf-8', false],
   ['/training.mjs', 'training.mjs', 'text/javascript; charset=utf-8', false],

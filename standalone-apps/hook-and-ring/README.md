@@ -35,3 +35,20 @@ The lab serves the original Tracker Ball, WristFlipEngine, and HybridKineticEngi
 ### Verify
 
 `npm test` builds from source and checks the core public routes, arcade, replay and input handling, and the tournament refresh protocol. Deploy to the existing Worker with its `DB` binding; this release requires no schema migration.
+
+## Cloudflare release
+
+Build from a clean committed checkout with `PUBLISH_SOURCE=1 npm run build`. The build emits
+`dist/worker.mjs` for Hook and Ring and `dist/release-bee.mjs` for its monitoring Worker.
+The public `/release.json` records the GitHub commit and deployed asset checksums.
+The `/source.tar.gz` archive contains the Hook and Ring subtree and the shared Tracker Ball
+and TactileCore source files used by that release.
+
+Apply `migrations/0002_release_bee.sql` to the Hook and Ring D1 database. Deploy the monitor
+as `hook-and-ring-bee` with a `MONITOR_DB` binding to that database, the
+`*/5 * * * *` Cron Trigger, and HTTP service bindings to the six Workers listed in
+`game/ecosystem.json`. Use each Worker name in uppercase, replacing hyphens with
+underscores, as the binding name.
+Bind the game Worker to the monitor via the `RELEASE_BEE` service binding.
+The monitor reads the game routes and writes its results to the dedicated
+`hook_ring_bee_runs` table. The game directory at `/ecosystem` displays the latest report.

@@ -4,7 +4,7 @@
 <title>Toss Lab · Hook and Ring by Nathan Tabor</title>
 <link rel="stylesheet" href="/grapple.css?v=9"><link rel="stylesheet" href="/training.css">
 </head><body>
-<header><nav aria-label="Games"><a href="/">‹ Hook and Ring</a><a href="/chassis">60-game arcade</a><a href="/competition">Play Friends</a></nav></header>
+<header><nav aria-label="Games"><a href="/">‹ Hook and Ring</a><a href="/chassis">60-game arcade</a><a href="/competition">Play Friends</a><a href="/ecosystem">Ecosystem</a></nav></header>
 <main>
 <section class="intro"><div><h1>Toss <em>Lab</em></h1><p class="byline">Hook and Ring by Nathan Tabor</p></div></section>
 <div class="training-grid">
@@ -26,7 +26,8 @@
 </section>
 <section class="side lab-controller" aria-labelledby="controller-title">
 <h2 id="controller-title">TactileCore controls</h2>
-<label>Controller <select id="lab-controller"><option value="tracker-ball">Tabor Tracker Ball 🖲️</option><option value="wrist-flip">Wrist flip</option><option value="air-motion">Motion toss</option><option value="air-trace">Air trace</option></select></label>
+<label>Controller <select id="lab-controller"><option value="tracker-ball">Tabor Tracker Ball 🖲️</option><option value="digit-pinch">Finger pinch and twist</option><option value="wrist-flip">Wrist flip</option><option value="air-motion">Motion toss</option><option value="air-trace">Air trace</option></select></label>
+<label id="lab-limb-setting" hidden>Contact profile <select id="lab-limb"><option value="hand">Hand</option><option value="toe">Toe</option></select></label>
 <div id="lab-pad" class="lab-pad"><div class="lab-ball" aria-hidden="true"></div><span id="lab-pad-title">Roll or swirl</span></div>
 <div class="lab-actions"><button id="lab-motion" hidden>Enable motion</button><button id="lab-arm" hidden>Arm one toss</button></div>
 <p id="lab-controller-help">Drag or swirl on the ball. Your release becomes aim, pull, and flick. The sliders give you the same controls.</p>
@@ -41,4 +42,4 @@
 <p id="lab-file-status" role="status"></p>
 </section>
 </div></main>
-<script type="module" src="/training.mjs"></script></body></html>
+<script type="module" src="/training.mjs?v=2"></script></body></html>

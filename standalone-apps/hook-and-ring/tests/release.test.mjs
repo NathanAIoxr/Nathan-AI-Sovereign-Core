@@ -65,3 +65,15 @@ test('online refresh returns no bracket payload when the revision is unchanged',
   assert.equal(await response.text(),'');
   assert.equal(queries,1);
 });
+
+test('the release directory serves the shared controller and reports its asset checksum', async () => {
+  const { createHash } = await import('node:crypto');
+  const release = await (await get('/release.json')).json();
+  const path = '/controllers/digit-input.mjs';
+  const module = await (await get(path)).text();
+  assert.match(module, /from ["']\.\/engine\.mjs["']/);
+  assert.match(module, /from ["']\/input\.mjs\?v=3["']/);
+  assert.equal(release.routes.find(route => route.path === path).sha256, createHash('sha256').update(module).digest('hex'));
+  assert.equal(release.boardCount, 60);
+  assert.match(await (await get('/ecosystem')).text(), /ecosystem-bee/);
+});

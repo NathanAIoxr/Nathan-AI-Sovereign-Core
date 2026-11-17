@@ -1,15 +1,16 @@
 import { attachTrackBaller } from '/controllers/track-baller.mjs';
+import { attachDigitTrackBaller } from '/controllers/digit-input.mjs';
 import { WristFlipEngine } from '/controllers/engine.mjs';
 import { HybridKineticEngine } from '/controllers/kinetic.mjs';
 import { clamp, HOOK, defaultThrow } from './physics.mjs';
-import { importTosses, readTosses, saveToss, traceToss, drills } from './shot-record.mjs';
+import { importTosses, readTosses, saveToss, traceToss, drills } from './shot-record.mjs?v=2';
 
 const $ = id => document.getElementById('lab-'+id);
 const canvas = $('trajectory'), ctx = canvas.getContext('2d');
 const pad = $('pad'), reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const storage = (()=>{try{return localStorage;}catch{return null;}})();
 const labels = {controls:'Controls',glass:'Glass touch',toe:'Toe profile','tracker-ball':'Tracker Ball',
-  'wrist-flip':'Wrist flip','air-motion':'Motion toss',import:'Imported'};
+  'digit-pinch':'Finger pinch','wrist-flip':'Wrist flip','air-motion':'Motion toss',import:'Imported'};
 let records=readTosses(storage), active=null, reference=null, animation=0, controller, wristTimer, connected=false;
 const settings = ['pull','aim','flick','wind'];
 const currentMode = ()=>$('controller').value;
@@ -59,7 +60,9 @@ function display(record) {
   const measures=[['Flight',formatted(result.ms/1000,2)+' s'],['Reach',formatted(result.depth/1000,2)+' m'],
     ['Off center',Math.abs(result.lateral)+' mm'],['Hook speed',formatted(result.speed/1000,2)+' m/s'],['Input',labels[record.source]??'Controls']];
   if(gesture){
-    const {contacts,guard,velocity,twist}=gesture;
+    const {contacts,guard,velocity,twist,pinchScale,pinchSpan}=gesture;
+    if(pinchScale!==undefined)measures.push(['Pinch scale',formatted(pinchScale,2)+'×']);
+    if(pinchSpan!==undefined)measures.push(['Contact span',formatted(pinchSpan)+' mm']);
     measures.push(['Contacts',String(contacts)]);
     if(guard!==null)measures.push(['Lift guard',guard+' ms']);
     if(velocity)measures.push(['Release speed',formatted(Math.hypot(velocity.x,velocity.y),2)+' mm/ms']);
@@ -144,6 +147,7 @@ $('import').onchange=async()=>{
 
 const controlCopy={
   'tracker-ball':['Roll or swirl','Drag or swirl on the ball. Your release becomes aim, pull, and flick. The sliders give you the same controls.'],
+  'digit-pinch':['Pinch or twist','Use two contacts to change the pinch distance and twist the ball. Release both contacts to toss. The sliders remain available.'],
   'wrist-flip':['Flick up','Use one to three contacts. Move upward, then lift. A 14 ms guard filters the lift-off sample.'],
   'air-motion':['Hold the device','Enable motion, arm one toss, and tilt your device in your hands. Touch and sliders are always available.'],
   'air-trace':['Hold the device','Start tracing, then tilt the device slowly to draw a circle, triangle, or figure eight. Finish to see the classification.'],
@@ -202,6 +206,24 @@ function selectController(){
   $('arm').hidden=!mode.startsWith('air-')||!connected;
   if(mode.startsWith('air-')&&connected)window.addEventListener('devicemotion',sensor);
   $('arm').textContent=mode==='air-trace'?'Start tracing':'Arm one toss';
+  $('limb-setting').hidden=mode!=='digit-pinch';
+  if(mode==='digit-pinch')controller=attachDigitTrackBaller(pad,{
+    limb:()=>$('limb').value,
+    onGripMove(detail){
+      pad.style.setProperty('--ball-turn',formatted(detail.twist*180/Math.PI)+'deg');
+      $('gesture').textContent=detail.peakContacts+' contacts · '+formatted(detail.scale,2)+'× pinch';
+    },
+    onGripEnd(detail){
+      if(detail.peakContacts<2)return;
+      const twist=clamp(detail.twist,-Math.PI,Math.PI);
+      $('gesture').textContent=detail.peakContacts+' contacts · '+formatted(detail.scale,2)+'× pinch · '+detail.guardMs+' ms guard';
+      run('digit-pinch',{
+        pull:clamp(.49+(detail.scale-1)*.16-detail.dy*.15,.25,.85),
+        aim:clamp(detail.dx*3,-1,1),flick:clamp(twist/Math.PI,-1,1),
+      },{contacts:detail.peakContacts,guard:detail.guardMs,velocity:detail.guardedVelocity,twist,
+        pinchScale:detail.scale,pinchSpan:detail.spanMm});
+    },
+  });
   pad.dataset.mode=mode;$('pad-title').textContent=controlCopy[mode][0];$('controller-help').textContent=controlCopy[mode][1];
   $('gesture').textContent='';
   if(mode==='tracker-ball')controller=attachTrackBaller(pad,{
