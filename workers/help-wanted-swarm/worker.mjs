@@ -1,4 +1,4 @@
-import { pairIds, probeProjects, servePairs } from "./pairs.mjs";
+import { pairIds, probeProjects, serveCoverage, servePairs } from "./pairs.mjs";
 import { repairRoute, refreshRepairs, directInternalScan } from "./repair.mjs";
 
 const REPOSITORY = "NathanAIoxr/Nathan-AI-Sovereign-Core";
@@ -122,6 +122,7 @@ export default {
   async fetch(request, env) {
     const route = new URL(request.url).pathname;
     if (route === "/pairs" || route === "/api/repair/pairs") return servePairs(request, env.HIVE, HEADERS);
+    if (route === "/api/repair/coverage") return serveCoverage(request, env.HIVE, HEADERS);
     if (route.startsWith("/api/repair/")) {
       const response = await repairRoute(request, env);
       if (route !== "/api/repair/claim" || !response.ok) return response;

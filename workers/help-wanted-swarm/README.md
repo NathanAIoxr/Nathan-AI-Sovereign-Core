@@ -87,3 +87,9 @@ Every Help Wanted record and registered owned project has a stable Worker Bee an
 - [Read-only assignments API](https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/api/repair/pairs)
 
 For a fresh Hive environment, apply `schema.sql` followed by `pair-runtime.sql` to D1. Upload `worker.mjs`, `repair.mjs`, and `pairs.mjs` as ES modules. The owned project registry is populated from verified ownership sources. Scheduled checks run in batches through the Hive's existing trigger, for known public Cloudflare endpoints.
+
+### Explore the live ledger
+
+Use title or ID, provider, lane, and Bee status to filter the public assignments. The JSON API validates those filters and preserves them across keyset pages. Each assignment shows the Bee and Ant IDs and the timestamp of the latest recorded evidence.
+
+[`GET /api/repair/coverage`](https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/api/repair/coverage) provides recorded source check outcomes, coverage watermarks, and counts by provider, lane and status. The public owned-project counts use the same visibility filter as the dashboard. Source check outcomes and coverage watermarks document the recorded scans.
