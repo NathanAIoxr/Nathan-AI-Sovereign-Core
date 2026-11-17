@@ -106,9 +106,14 @@ export function createScene(canvas) {
     const sx=end.x+(end.x-start.x)*.06, sy=end.y+radius*1.72;
     cx.beginPath();cx.ellipse(sx,sy,radius*1.05,radius*.28,0,0,Math.PI*2);
     cx.fillStyle='#170d0790';cx.fill();
-    line(cx,[[start.x+2,start.y],[end.x+2,end.y-radius+2]],'#1a100bc5',5);
-    line(cx,[[start.x,start.y],[end.x,end.y-radius]],'#d0aa73',3.1);
-    cx.save();cx.setLineDash([1.2,3.1]);line(cx,[[start.x,start.y],[end.x,end.y-radius]],'#755131',1);cx.restore();
+    const rope=Array.from({length:16},(_,index)=>{
+      const t=index/15;
+      const flex=phase==='held'||phase==='ready'?Math.sin(t*Math.PI)*width*.006:0;
+      return [start.x+(end.x-start.x)*t+flex,start.y+(end.y-radius-start.y)*t];
+    });
+    line(cx,rope.map(([x,y])=>[x+2,y+2]),'#1a100bc5',5);
+    line(cx,rope,'#d0aa73',3.1);
+    cx.save();cx.setLineDash([1.2,3.1]);line(cx,rope,'#755131',1);cx.restore();
     cx.beginPath();cx.ellipse(start.x,start.y,11,4,0,0,Math.PI*2);cx.fillStyle='#1e160f';cx.fill();cx.strokeStyle='#a7794c';cx.lineWidth=1;cx.stroke();
     cx.beginPath();cx.arc(end.x,end.y-radius,3.4,0,Math.PI*2);cx.fillStyle='#dfba83';cx.fill();
     const g=cx.createLinearGradient(end.x-radius,end.y-radius,end.x+radius,end.y+radius);

@@ -184,6 +184,9 @@ async function competition(request,db,now=Date.now()) {
   for(let retry=0;retry<4;retry++) {
     const row=await db.prepare('SELECT code,revision,expires_ms,body FROM arcade_events WHERE code=?').bind(code).first();
     if(!row || row.expires_ms<=now) return eventError('This event is unavailable or has expired.',404);
+    if(request.method==='GET' && url.searchParams.get('revision')===String(row.revision)){
+      return new Response(null,{status:204,headers:{'Cache-Control':'no-store'}});
+    }
     const event=JSON.parse(row.body);
     if(action==='cancel'&&request.method==='POST'){
       if(key!==event.players[0].key)return eventError('Only the host can cancel an open lobby.',403);
@@ -214,7 +217,7 @@ function createWorker(assets) {
             if(request.method!=='GET')return Response.json({error:'Use GET.'},{status:405});
             const row=await env.DB.prepare("SELECT COUNT(*) AS count FROM sqlite_master WHERE type='table' AND name IN ('arcade_events','ranked_rounds')").first();
             const ready=row?.count===2;
-            return Response.json({service:'hook-and-ring',release:'2026-11-16.2',onlinePlay:ready},{status:ready?200:503,headers:{'Cache-Control':'no-store'}});
+            return Response.json({service:'hook-and-ring',release:'2026-11-17.1',onlinePlay:ready},{status:ready?200:503,headers:{'Cache-Control':'no-store'}});
           }
           if(pathname==='/api/events'||pathname.startsWith('/api/events/'))return await competition(request,env.DB);
           return await tournament(request,env.DB);

@@ -1,7 +1,8 @@
 import { STEP, MODES, SKINS, DAILY_MS, DAILY_SHOTS, TRICKS, trickResult, defaultThrow, clamp, normalizeThrow, heldPoint,
   createShot, advanceShot, freshMatch, recordShot, breezeFor, dayKey } from './physics.mjs';
-import { OneEuro, guardedRelease, inBezel, CSS_MM } from './input.mjs';
-import { createScene } from './render.mjs?v=3';
+import { OneEuro, inBezel, CSS_MM, MAX_CONTACTS, releaseSetup, trackSample } from './input.mjs?v=3';
+import { saveToss } from './shot-record.mjs';
+import { createScene } from './render.mjs?v=4';
 import { GIFT_RINGS, BOARDS, rewardState, playRewards, rankReward, buyBoard, awardReward } from './rewards.mjs';
 import { throwBreakState, countThrow, settleThrowBreak, acknowledgeBreak, THANKS_COINS, HOUSE_GIFT_COINS } from './throw-breaks.mjs';
 import { NATHAN_NAME, LEVELS, opponentSettings, opponentToss, opponentLine, OPPONENT_MODES } from './opponent.mjs';
@@ -11,13 +12,14 @@ const $ = id => document.getElementById(id);
 const canvas = $('scene');
 const scene = createScene(canvas);
 const key = 'nathan-hook-ring-v1';
-const saved = (() => {try {return JSON.parse(localStorage.getItem(key)) ?? {};}catch {return {};}})();
+const storage = (()=>{try{return localStorage;}catch{return null;}})();
+const saved = (() => {try {return JSON.parse(storage?.getItem(key)) ?? {};}catch {return {};}})();
 const profile = { catches:0, skin:0, flat:false, sound:false, haptic:true, scale:1, adaptive:true,
-  grip:1, control:'touch', last:null, ...saved };
+  grip:1, control:'touch', limb:'hand', last:null, ...saved };
 profile.rewards=rewardState(profile.rewards);
 profile.throwBreak=throwBreakState(profile.throwBreak);
 profile.opponent=opponentSettings(profile.opponent);
-function persist() { try {localStorage.setItem(key,JSON.stringify(profile));}catch {} }
+function persist() { try {storage?.setItem(key,JSON.stringify(profile));}catch {} }
 let match = freshMatch('practice'), versus = false, phase = 'ready';
 let sessionEnded=false;
 let opponent=null, opponentSeed='', aiAt=0, playerAttempts=0, playedLine='';
@@ -272,7 +274,7 @@ function aimWithTilt(setup) {
   if(profile.control==='tilt') return {...setup,aim:clamp(tilt.x/31,-1,1)};
   return {...setup,aim:clamp(setup.aim+tilt.x/48,-1,1),flick:clamp(setup.flick+tilt.y/95,-1,1)};
 }
-function startSwing(setup=throwSetup, replay=null, computer=false) {
+function startSwing(setup=throwSetup, replay=null, computer=false, gesture=null) {
   if(!replay&&aiTurn()!==computer) return false;
   if(!replay && (!['ready','held'].includes(phase)||performance.now()<breezeAt||(match.mode==='daily'&&!daily?.active))) return false;
   if(!replay && daily?.active && performance.now()>=daily.deadline){endDaily();return false;}
@@ -280,7 +282,7 @@ function startSwing(setup=throwSetup, replay=null, computer=false) {
   const raw=replay?.throw ?? normalizeThrow(computer?setup:aimWithTilt(setup));
   const appliedWind=replay?.wind ?? wind;
   shot=createShot(raw,appliedWind);
-  if(!replay) pendingShot={throw:raw,wind:appliedWind,computer,...(daily?.active?{releasedMs:Math.round(performance.now()-daily.started)}:{})};
+  if(!replay) pendingShot={throw:raw,wind:appliedWind,computer,gesture,...(daily?.active?{releasedMs:Math.round(performance.now()-daily.started)}:{})};
   accumulator=0;
   replaying=Boolean(replay);
   feedback('');
@@ -328,6 +330,7 @@ function score(result) {
       profile.throwBreak=countThrow(profile.throwBreak);
       lastShot={throw:counted.throw,wind:counted.wind,result,...(match.mode==='trick'?{trick:attempt}:{})};
       profile.last=lastShot;
+      saveToss(storage,{...lastShot,mode:match.mode,source:counted.gesture?.source??'controls',gesture:counted.gesture});
       if(result.outcome==='catch'){profile.catches++;layoutSkins();}
       const rewards=playRewards(profile.rewards,{mode:match.mode,outcome:result.outcome,ended:match.ended,versus,localCompleted:match.ended&&versus&&!opponent});
       profile.rewards=rewards.state;
@@ -382,8 +385,7 @@ function gripPoint(grip,time) {
 function trackGrip(grip,t) {
   const p=gripPoint(grip,t);
   const sample={x:grip.fx.sample(p.x,t),y:grip.fy.sample(p.y,t),t};
-  grip.history.push(sample);
-  while(grip.history.length>2 && grip.history[1].t<t-240) grip.history.shift();
+  trackSample(grip.history,sample);
   return sample;
 }
 function pointerSetup(grip,p) {
@@ -401,11 +403,11 @@ canvas.addEventListener('pointerdown',event=>{
     pendingGrip={base:{...throwSetup},contacts:new Map(),history:[],fx:new OneEuro(),fy:new OneEuro(),maxTravel:0};
     setPhase('held');updateScore();
   }
-  if(phase!=='held'||!pendingGrip||pendingGrip.contacts.size===3) return;
+  if(phase!=='held'||!pendingGrip||pendingGrip.contacts.size>=MAX_CONTACTS) return;
   event.preventDefault();
   const grip=pendingGrip;
   grip.base={...throwSetup};
-  grip.contacts.set(event.pointerId,p);
+  grip.contacts.set(event.pointerId,{...p,start:p,trail:[p]});
   grip.origin=gripPoint(grip,p.t);
   grip.fx=new OneEuro();grip.fy=new OneEuro();grip.history=[];
   trackGrip(grip,p.t);
@@ -417,9 +419,11 @@ canvas.addEventListener('pointermove',event=>{
   const grip=pendingGrip;
   if(!grip?.contacts.has(event.pointerId)) return;
   const events=event.getCoalescedEvents?.();
-  for(const movement of events?.length?events:[event]){
+  for(const movement of [...(events??[]),event]){
     const p=coords(movement);
-    grip.contacts.set(event.pointerId,p);
+    const contact=grip.contacts.get(event.pointerId);
+    if(!trackSample(contact.trail,p))continue;
+    contact.x=p.x;contact.y=p.y;
     const sample=trackGrip(grip,p.t);
     grip.maxTravel=Math.max(grip.maxTravel,Math.abs(sample.y-grip.origin.y));
     throwSetup=pointerSetup(grip,sample);
@@ -437,7 +441,11 @@ canvas.addEventListener('pointerup',event=>{
   if(!grip?.contacts.has(event.pointerId)) return;
   const p=coords(event);
   if(inBezel(p.x,p.y,p.w,p.h)){ cancelGrip();return; }
-  const sampled=guardedRelease(grip.history,p.t);
+  const density=CSS_MM*profile.scale;
+  const sample=releaseSetup(grip,p.t,density,profile.limb);
+  if(!grip.release||sample?.contacts>grip.release.contacts){
+    grip.release=sample?{...sample,setup:pointerSetup(grip,sample.point),at:p.t}:null;
+  }
   grip.contacts.delete(event.pointerId);
   if(grip.contacts.size && phase==='held'){
     grip.base={...throwSetup};grip.origin=gripPoint(grip,p.t);
@@ -445,15 +453,17 @@ canvas.addEventListener('pointerup',event=>{
     trackGrip(grip,p.t);
     return;
   }
-  const setup=sampled?pointerSetup(grip,sampled):throwSetup;
-  setup.flick=clamp(-(sampled?.velocityY??0)/(CSS_MM*profile.scale)*2.0,-1,1);
+  const chosen=grip.release&&p.t-grip.release.at<=45?grip.release:sample;
+  const setup=chosen?{...(chosen.setup??pointerSetup(grip,chosen.point)),flick:chosen.flick}:throwSetup;
   pendingGrip=null;
   if(grip.maxTravel>15 && profile.adaptive){
     const normalized=grip.maxTravel/(CSS_MM*profile.scale);
     profile.grip=clamp(profile.grip*.92+clamp(16/normalized,.75,1.3)*.08,.78,1.24);
     persist();
   }
-  if(!startSwing(setup) && phase==='held') prepareShot();
+  const gesture=chosen?{source:profile.limb==='toe'?'toe':'glass',contacts:chosen.contacts,guard:chosen.guard,
+    velocity:chosen.velocity,twist:chosen.twist}:null;
+  if(!startSwing(setup,null,false,gesture) && phase==='held') prepareShot();
 });
 canvas.addEventListener('lostpointercapture',event=>{if(pendingGrip?.contacts.has(event.pointerId)) cancelGrip();});
 new ResizeObserver(()=>{drawNeeded=true;}).observe(canvas);
@@ -487,9 +497,15 @@ async function enableMotion(request) {
 $('controls').addEventListener('change',()=>{
   profile.control=$('controls').value;persist();
   if(profile.control!=='touch') enableMotion(true);
-  else $('motion-note').textContent='Touch or use the aim and pull sliders.';
+  else {
+    window.removeEventListener('deviceorientation',sensor);
+    tilt.active=false;
+    tilt.zero=null;
+    $('motion-note').textContent='Touch or use the aim and pull sliders.';
+    drawNeeded=true;
+  }
 });
-$('zero-motion').onclick=()=>{tilt.zero=tilt.latest;tilt.x=0;tilt.y=0;tilt.filters=[new OneEuro(1.8),new OneEuro(1.8)];if(!tilt.active)enableMotion(true);};
+$('zero-motion').onclick=()=>{if(profile.control==='touch')return;tilt.zero=tilt.latest;tilt.x=0;tilt.y=0;tilt.filters=[new OneEuro(1.8),new OneEuro(1.8)];if(!tilt.active)enableMotion(true);};
 function setScale(value) {
   profile.scale=clamp(value,.65,1.7);
   $('scale').value=profile.scale;
@@ -502,6 +518,8 @@ $('apply-scale').onclick=()=>{
   if(mm<10||mm>120||!Number.isFinite(mm)){ $('calibration').reportValidity(); return; }
   setScale($('ruler').getBoundingClientRect().width/mm/CSS_MM);
 };
+$('limb-profile').value=profile.limb==='toe'?'toe':'hand';
+$('limb-profile').onchange=()=>{profile.limb=$('limb-profile').value;persist();};
 $('reset-scale').onclick=()=>{profile.grip=1;$('calibration').value='';setScale(1);};
 for(const pref of preferences){
   const button=$(pref==='flat'?'view':pref);

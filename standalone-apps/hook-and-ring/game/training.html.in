@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d1d20"><link rel="icon" href="/icon.svg">
+<title>Toss Lab · Hook and Ring by Nathan Tabor</title>
+<link rel="stylesheet" href="/grapple.css?v=9"><link rel="stylesheet" href="/training.css">
+</head><body>
+<header><nav aria-label="Games"><a href="/">‹ Hook and Ring</a><a href="/chassis">60-game arcade</a><a href="/competition">Play Friends</a></nav></header>
+<main>
+<section class="intro"><div><h1>Toss <em>Lab</em></h1><p class="byline">Hook and Ring by Nathan Tabor</p></div></section>
+<div class="training-grid">
+<section class="side trainer" aria-labelledby="toss-title">
+<h2 id="toss-title">Practice a toss</h2>
+<label class="drill-label">Drill <select id="lab-drill"><option value="">Free practice</option></select></label>
+<p id="lab-drill-goal" role="status" hidden></p>
+<div class="lab-inputs">
+<label>Pull <input id="lab-pull" type="range" min="0" max="100" value="49"><output id="lab-pull-read">49%</output></label>
+<label>Aim <input id="lab-aim" type="range" min="-100" max="100" value="0"><output id="lab-aim-read">0%</output></label>
+<label>Flick <input id="lab-flick" type="range" min="-100" max="100" value="0"><output id="lab-flick-read">0%</output></label>
+<label>Breeze <input id="lab-wind" type="range" min="-60" max="60" value="0"><output id="lab-wind-read">0 m/s²</output></label>
+</div>
+<div class="lab-actions"><button id="lab-run" class="lab-primary">Simulate toss</button><button id="lab-reference">Compare with a clean catch</button></div>
+<p id="lab-result" role="status">Adjust the controls to see how the ring approaches the hook.</p>
+<canvas id="lab-trajectory" width="760" height="300" role="img" aria-label="Overhead trace of the ring path, with an optional reference toss"></canvas>
+<div class="lab-actions"><button id="lab-replay" disabled>Replay</button><label class="time-control">Timeline <input id="lab-time" type="range" min="0" max="1" value="0" disabled></label></div>
+<dl id="lab-readouts" class="lab-readouts"></dl>
+</section>
+<section class="side lab-controller" aria-labelledby="controller-title">
+<h2 id="controller-title">TactileCore controls</h2>
+<label>Controller <select id="lab-controller"><option value="tracker-ball">Tabor Tracker Ball 🖲️</option><option value="wrist-flip">Wrist flip</option><option value="air-motion">Motion toss</option><option value="air-trace">Air trace</option></select></label>
+<div id="lab-pad" class="lab-pad"><div class="lab-ball" aria-hidden="true"></div><span id="lab-pad-title">Roll or swirl</span></div>
+<div class="lab-actions"><button id="lab-motion" hidden>Enable motion</button><button id="lab-arm" hidden>Arm one toss</button></div>
+<p id="lab-controller-help">Drag or swirl on the ball. Your release becomes aim, pull, and flick. The sliders give you the same controls.</p>
+<p id="lab-gesture" role="status"></p>
+</section>
+<section class="side lab-archive" aria-labelledby="archive-title">
+<h2 id="archive-title">Toss history</h2>
+<p>Your last 40 tosses on this device. Pick one to replay or compare.</p>
+<label>Recorded toss <select id="lab-history"><option value="">Choose a toss</option></select></label>
+<div class="lab-actions"><button id="lab-load" disabled>Load toss</button><button id="lab-compare" disabled>Compare toss</button><button id="lab-export">Export history</button></div>
+<label>Import a replay or toss history <input type="file" id="lab-import" accept=".json,application/json"></label>
+<p id="lab-file-status" role="status"></p>
+</section>
+</div></main>
+<script type="module" src="/training.mjs"></script></body></html>
