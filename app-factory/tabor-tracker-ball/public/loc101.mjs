@@ -241,7 +241,7 @@ const controller = attachDigitTrackBaller(canvas,{
     detail();
   },
   onGripEnd(grip) {
-    if (grip.peakContacts < 2) { clearInput(); return; }
+    if (grip.peakContacts < 2) { scene.contacts = []; frameNeeded = true; return; }
     if (scene.module.profile === "link") {
       const locations = markers(scene);
       const ids = [...new Set(grip.points.map(point => nearest(locations,point,.115)).filter(index => index !== -1))];
