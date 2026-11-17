@@ -30,3 +30,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 @media(max-width:385px){main{padding:9px 8px 16px}.lab-heading p,.bridge span{font-size:.68rem}.panel{padding:7px}.puzzle{gap:4px;padding:6px}#sequence button{min-width:30px;padding:4px}}
 
 .world-link{font-size:.82rem;padding:.4rem .58rem;border:1px solid var(--line);border-radius:8px;background:#263c33;white-space:nowrap}
+
+@media (max-width: 730px) {
+  .mast { flex-wrap: wrap; }
+  .mast-actions { justify-content: flex-start; }
+  .stack { height: auto; grid-template-rows: auto auto auto; }
+  .viewport { min-height: clamp(11rem, 58vw, 19rem); }
+  .viewport canvas { position: absolute; inset: 0; }
+  .bottom { overflow: visible; }
+  .puzzle { flex-wrap: wrap; overflow-wrap: anywhere; }
+}
+@media (pointer: coarse) {
+  .mast-actions :is(button,.world-link), .entry, .arrows button, #sequence button, .primary { min-height: 2.75rem; }
+  :is(button,.world-link) { touch-action: manipulation; }
+  .world-link { display: inline-flex; align-items: center; }
+  :is(input,select,textarea) { font-size: 1rem; }
+  .arrows button, #sequence button { min-width: 2.75rem; }
+}

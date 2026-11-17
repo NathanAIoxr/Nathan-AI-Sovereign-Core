@@ -93,3 +93,11 @@
  .atlas-content {grid-template-columns:minmax(0,1fr)}
  #atlas-index {max-height:10rem}
 }
+
+@media (max-width: 420px) {
+  .intro { flex-wrap: wrap; }
+  .curator { flex-direction: row; text-align: start; }
+}
+@media (pointer: coarse) {
+  :is(.controls,.line-controls,.mode-bar) button { min-height: 2.75rem; }
+}

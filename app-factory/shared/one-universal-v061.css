@@ -33,3 +33,9 @@
 #one-v061-root .one-v061-boundary{border-top:1px solid var(--one-line);padding-top:9px;font-size:.74em}
 html.one-v061-reduced-motion *,html.one-v061-reduced-motion *::before,html.one-v061-reduced-motion *::after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
 @media(prefers-reduced-motion:reduce){#one-v061-root *{animation:none!important;transition:none!important}}
+#one-v061-root { max-width: calc(100% - 24px); overflow-wrap: anywhere; }
+#one-v061-root fieldset { min-width: 0; }
+#one-v061-root select { min-width: 0; }
+@media (pointer: coarse) {
+  #one-v061-root button, #one-v061-root select { min-height: 2.75rem; }
+}

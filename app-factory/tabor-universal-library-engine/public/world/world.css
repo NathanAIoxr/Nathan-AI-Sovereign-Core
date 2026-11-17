@@ -26,3 +26,14 @@ aside{min-width:0}.inspector,.tray{margin-bottom:8px}#detail-empty,.tray p{font-
 .pick{display:flex;justify-content:space-between;gap:6px;align-items:center;margin-top:5px;font-size:.81rem}.pick button{padding:3px 7px}.sources{margin-top:8px}
 .sources ul{padding-left:18px;font-size:.85rem}.sources li{margin-top:4px}
 @media(max-width:680px){.shell{grid-template-columns:minmax(0,1fr)}aside{display:grid;grid-template-columns:minmax(0,1fr)}.element-note{font-size:.85rem}.record{min-height:46px}.filters{margin:6px 0}.panel p{overflow-wrap:anywhere}}
+
+@media (max-width: 400px) {
+  header { align-items: flex-start; flex-wrap: wrap; }
+  #pages { flex-wrap: wrap; }
+  .filters { grid-template-columns: minmax(0, 1fr); }
+}
+@media (pointer: coarse) {
+  button, .button, input, select { min-height: 2.75rem; }
+  .button { display: inline-flex; align-items: center; }
+  input, select { font-size: 1rem; }
+}

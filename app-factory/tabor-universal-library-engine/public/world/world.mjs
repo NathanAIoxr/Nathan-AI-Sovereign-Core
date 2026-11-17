@@ -110,9 +110,11 @@ async function get(path){
   return response.json();
 }
 try{
+  const cosmicSource="../../../nathan-ai/anatomy/cosmic-body/atlas.json";
+  const placesSource="../../../one/mespark-memory-matrix/worlds-atlas.json";
   const [ledger,library,castAndProps,atlas,places,entries]=await Promise.all([
     get("../catalog.json"),get("./source-catalog.json"),get("./cast-and-props.json"),
-    get("./cosmic-body.json"),get("./worlds-atlas.json"),get("./world.json")]);
+    get(cosmicSource),get(placesSource),get("./world.json")]);
   const world=createWorld({ledger,library,castAndProps,atlas,places,entries});
   all=world.records;index=new Map(all.map(row=>[row.id,row]));
   counts=world.summary;
@@ -121,8 +123,8 @@ try{
     [counts.tracker+" Tracker Ball entries · v.7 edition","../catalog.json"],
     [counts.world+" Tabor World cartridges · separate edition","./source-catalog.json"],
     ["Tabor World source branch",worldEdition],
-    [counts.cosmic+" Cosmic Body records and "+counts.cosmicRelationships+" source relationships","./cosmic-body.json"],
-    [counts.places+" meSPARK Worlds Atlas records","./worlds-atlas.json"],
+    [counts.cosmic+" Cosmic Body records and "+counts.cosmicRelationships+" source relationships",cosmicSource],
+    [counts.places+" meSPARK Worlds Atlas records",placesSource],
     ["Cast and workbench object records","./cast-and-props.json"],["World reference records","./world.json"]
   ]){
     const li=el("li");li.append(link(label,href));$("sources").append(li);

@@ -21,6 +21,14 @@ test("the Worker serves the original shared modules, browser shell and full sour
     assert.equal(response.status,200,path);
     assert.equal(await response.text(),assets[path],path);
   }
+  for(const [path,name] of [
+    ["/app-factory/nathan-ai/anatomy/cosmic-body/atlas.json","cosmic-body"],
+    ["/app-factory/one/mespark-memory-matrix/worlds-atlas.json","worlds-atlas"],
+  ]){
+    const response=await request(path);
+    assert.equal(response.status,200,path);
+    assert.equal(await response.text(),assets[assetDir+"world/"+name+".json"],path);
+  }
   assert.equal(await (await request(redirect.headers.get("location"),{method:"HEAD"})).text(),"");
   assert.equal((await request("/missing")).status,404);
   assert.equal((await request("/",{method:"POST"})).status,405);
