@@ -1,9 +1,20 @@
 [
   {
+    "id": "grip",
+    "title": "Pinch & Flick Lab",
+    "group": "Universal Digit Physics",
+    "hint": "Flick upward with one finger. Next, use two contacts with one below the other. For the final drill, start with three contacts and lift the bottom contact first.",
+    "example": "Try current drill",
+    "controllerOverlay": {
+      "widgetType": "TABOR_TRACKBALL",
+      "gestureOutputMode": "DIRECTIONAL_SNAP_FLICK"
+    }
+  },
+  {
     "id": "storm",
     "title": "Hurricane",
     "group": "Weather",
-    "hint": "Circle either way and lift. Bigger loops reach farther. Sweep up the field of debris.",
+    "hint": "Circle either way and lift. Bigger loops reach farther. Sweep up the field of debris. Spread two fingers to grow an existing vortex.",
     "example": "Make a loop",
     "controllerOverlay": {
       "widgetType": "TABOR_TRACKBALL",
@@ -36,7 +47,7 @@
     "id": "ball",
     "title": "Spin Ball",
     "group": "Sports",
-    "hint": "Flick from the ball toward a pocket. Add a curved finish for side spin.",
+    "hint": "Flick from the ball toward a pocket. Add a curved finish for side spin, or flick upward from the ball with a two- or three-contact grip.",
     "example": "Try a shot",
     "controllerOverlay": {
       "widgetType": "TABOR_TRACKBALL",
@@ -80,7 +91,7 @@
     "id": "globe",
     "title": "Globe Explorer",
     "group": "Navigation",
-    "hint": "Drag in any direction to rotate the globe. Bring amber landmarks into the center window.",
+    "hint": "Drag in any direction to rotate the globe. Pinch or spread to zoom and twist to roll. Bring amber landmarks into the center window.",
     "example": "Roll toward a landmark",
     "controllerOverlay": {
       "widgetType": "TABOR_TRACKBALL",
@@ -91,7 +102,7 @@
     "id": "dial",
     "title": "Combination Dial",
     "group": "Precision",
-    "hint": "Turn the fictional puzzle dial in the arrow’s direction. Reach each marked turn and lift.",
+    "hint": "Turn the fictional puzzle dial in the arrow’s direction. Reach each marked turn and lift. Use one finger around the dial or twist two fingers.",
     "example": "Turn the dial",
     "controllerOverlay": {
       "widgetType": "TABOR_TRACKBALL",
@@ -102,7 +113,7 @@
     "id": "pottery",
     "title": "Pottery Wheel",
     "group": "Craft",
-    "hint": "Tap one of the three clay bands to select it. Turn around the wheel to shape that band to its dashed outline.",
+    "hint": "Tap one of the three clay bands to select it. Turn around the wheel, or pinch and spread, to shape that band to its dashed outline.",
     "example": "Shape a band",
     "controllerOverlay": {
       "widgetType": "TABOR_TRACKBALL",

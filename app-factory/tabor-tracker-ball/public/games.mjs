@@ -1,16 +1,17 @@
 import {TAU,clamp,gap} from "./track-baller.mjs";
 
 const profiles = {
-  storm:["Hurricane","Weather","Circle either way and lift. Bigger loops reach farther. Sweep up the field of debris.","Make a loop", "SWIRL_RPM_ACCUMULATOR"],
+  grip:["Pinch & Flick Lab","Universal Digit Physics","Flick upward with one finger. Next, use two contacts with one below the other. For the final drill, start with three contacts and lift the bottom contact first.","Try current drill","DIRECTIONAL_SNAP_FLICK"],
+  storm:["Hurricane","Weather","Circle either way and lift. Bigger loops reach farther. Sweep up the field of debris. Spread two fingers to grow an existing vortex.","Make a loop", "SWIRL_RPM_ACCUMULATOR"],
   whirl:["Whirlpool","Water","Draw tight circles over the floating markers. Match the arrow to pull them into the whirlpool.","Make a whirlpool","SWIRL_RPM_ACCUMULATOR"],
   sword:["Swordplay","Rhythm","Swipe through the arrow target. Match its direction for a bonus. Hold and release when the guard ring turns green.","Try the slash","DIRECTIONAL_SNAP_FLICK"],
-  ball:["Spin Ball","Sports","Flick from the ball toward a pocket. Add a curved finish for side spin.","Try a shot","AIMED_ROLL_AND_CURVE"],
+  ball:["Spin Ball","Sports","Flick from the ball toward a pocket. Add a curved finish for side spin, or flick upward from the ball with a two- or three-contact grip.","Try a shot","AIMED_ROLL_AND_CURVE"],
   magic:["Spellcasting","Magic","Trace a figure-eight to open a portal. A steady circle conjures a ward.","Trace a figure-eight","SWIRL_RPM_ACCUMULATOR"],
   dj:["DJ Deck","Music","Scrub the platter back and forth. Keep your drag and releases in rhythm with the beat ring.","Try a scratch","SCRUB_REVERSALS"],
   forge:["Forge Bellows","Craft","Scrub left and right to stoke the forge. Heat falls between strokes. Release above the green line.","Pump bellows","SCRUB_REVERSALS"],
-  globe:["Globe Explorer","Navigation","Drag in any direction to rotate the globe. Bring amber landmarks into the center window.","Roll toward a landmark","CONTINUOUS_ROLL"],
-  dial:["Combination Dial","Precision","Turn the fictional puzzle dial in the arrow’s direction. Reach each marked turn and lift.","Turn the dial","PRECISION_MICRO_TURN"],
-  pottery:["Pottery Wheel","Craft","Tap one of the three clay bands to select it. Turn around the wheel to shape that band to its dashed outline.","Shape a band","PRECISION_MICRO_TURN"],
+  globe:["Globe Explorer","Navigation","Drag in any direction to rotate the globe. Pinch or spread to zoom and twist to roll. Bring amber landmarks into the center window.","Roll toward a landmark","CONTINUOUS_ROLL"],
+  dial:["Combination Dial","Precision","Turn the fictional puzzle dial in the arrow’s direction. Reach each marked turn and lift. Use one finger around the dial or twist two fingers.","Turn the dial","PRECISION_MICRO_TURN"],
+  pottery:["Pottery Wheel","Craft","Tap one of the three clay bands to select it. Turn around the wheel, or pinch and spread, to shape that band to its dashed outline.","Shape a band","PRECISION_MICRO_TURN"],
   lift:["Propeller Lift","Flight","Circle to keep the propeller turning. Rise to the marked band and stay there through the next checkpoint.","Spin to lift","SWIRL_RPM_ACCUMULATOR"],
   fish:["Fishing Reel","Tension","Use controlled clockwise turns. Reel toward the center while keeping tension inside the green band.","Reel in","PRECISION_MICRO_TURN"],
 };
@@ -29,13 +30,46 @@ export function createRound(id){
   const debris=Array.from({length:13},(_,i)=>({x:Math.cos(i*2.399)*(.1+(i%6)*.052),
     y:Math.sin(i*2.399)*(.1+(i%6)*.052),active:true,i}));
   return {id,time:0,score:0,progress:0,notice:"",debris,vortex:null,shot:null,target:0,clock:0,
-    spark:0,heat:0,height:.16,lift:0,tension:.4,reel:0,band:1,clay:[1,1,1],dial:0,landmarks:new Set(),done:false};
+    spark:0,heat:0,zoom:1,height:.16,lift:0,tension:.4,reel:0,band:1,clay:[1,1,1],dial:0,landmarks:new Set(),done:false};
 }
 function say(game,text,points=0){
   game.notice=text;game.score+=points;
 }
 function objective(game,text,bonus=0){
   say(game,text,bonus);game.done=true;
+}
+export function applyGrip(game,grip,phase,base){
+  const {peakContacts,scale,twist,wristFlip,durationMs}=grip;
+  if(game.done) return;
+  if(phase==="move"){
+    if(game.id==="globe") game.zoom=clamp(base.zoom*scale,.72,1.44);
+    if(game.id==="dial") game.dial=twist;
+    if(game.id==="pottery") game.clay[game.band]=clamp(base.clay+Math.log(scale)*.66,.52,1.48);
+    if(game.id==="storm"&&game.vortex&&base.radius) game.vortex.radius=clamp(base.radius*scale,.12,.74);
+    return;
+  }
+  if(game.id==="grip"){
+    const count=game.progress+1;
+    if(peakContacts!==count){say(game,"Use "+count+(count===1?" contact.":" contacts."));return;}
+    if(wristFlip?.power<.12||!wristFlip){say(game,"Move up before lifting to register a guarded release.");return;}
+    if(count===3&&wristFlip.releaseWindowMs<=0){say(game,"Lift the bottom contact, then the other two.");return;}
+    game.progress++;
+    if(game.progress===3) objective(game,"All three grip drills complete. +100",100);
+    else say(game,(count===1?"One-digit flick read.":"Two-digit pinch release read.")+" +100",100);
+    return;
+  }
+  if(peakContacts<2) return;
+  if(game.id==="dial"){
+    endMove(game,{dial:twist});game.dial=0;
+  }
+  if(game.id==="pottery") endMove(game,{kind:"drag"});
+  if(game.id==="sword"&&durationMs>=420&&Math.abs(scale-1)<.24&&Math.abs(twist)<.35&&Math.hypot(grip.dx,grip.dy)<.075) endMove(game,{kind:"hold"});
+  if(game.id==="ball"&&!game.shot&&wristFlip?.power>=.14&&gap(ballStart,grip.start)<.22){
+    const speed=.55+.95*wristFlip.power;
+    game.shot={...ballStart,vx:clamp(wristFlip.velocity.x*1.15,-.75,.75),vy:-speed,
+      spin:clamp(wristFlip.spin*2+twist,-2.1,2.1),age:0};
+    say(game,peakContacts===2?"Pinch flick rolling.":"Multi-contact flick rolling.");
+  }
 }
 function segmentGap(a,b,p){
   const dx=b.x-a.x,dy=b.y-a.y;

@@ -1,5 +1,6 @@
-import {TAU,analyze,attachTrackBaller,clamp,axisRotation,multiply,decayMotion} from "./track-baller.mjs";
-import {catalog,createRound,endMove,guardOpen,makeExample,tickGame,updateLive} from "./games.mjs";
+import {TAU,analyze,clamp,axisRotation,multiply,decayMotion} from "./track-baller.mjs";
+import {attachDigitTrackBaller,DigitGrip} from "./digit-input.mjs";
+import {applyGrip,catalog,createRound,endMove,guardOpen,makeExample,tickGame,updateLive} from "./games.mjs";
 import {colors,makeRenderer,pins} from "./render.mjs";
 
 const el=id=>document.getElementById(id);
@@ -7,7 +8,7 @@ const canvas=el("field");
 const renderer=makeRenderer(canvas);
 const reduce=matchMedia("(prefers-reduced-motion: reduce)");
 const key="tabor-tracker-ball:v1";
-const defaults={inertia:1.4,coast:.96,gain:1,ticks:15,haptics:false,audio:false};
+const defaults={inertia:1.4,coast:.96,gain:1,ticks:15,haptics:false,audio:false,adaptive:true,safe:true,toe:false};
 function load(){
   try{return JSON.parse(localStorage.getItem(key))??{};}catch{return {};}
 }
@@ -16,6 +17,7 @@ const settings={...defaults,...saved.settings};
 const best=saved.best&&typeof saved.best==="object"?saved.best:{};
 const options=Object.keys(defaults);
 let game,rotation,velocity,live,trail,history,pressed,previousPoint,previousDial,example,replay;
+let digit=null,gripBase=null;
 let lastTick=0,lastVibration=-Infinity,lastBeat=-1,lastSound=-Infinity,audioContext,frameTime;
 function write(id,text){const node=el(id);if(node.textContent!==String(text)) node.textContent=text;}
 function persist(){
@@ -61,7 +63,7 @@ function updateHud(){
   if(game.score>(Number(best[game.id])||0)){best[game.id]=game.score;persist();}
   write("score",game.score+" pts");write("best",Number(best[game.id])||0);
   write("status",game.notice||(game.done?"Round complete.":""));
-  const objectives={storm:game.debris.filter(d=>d.active).length+" pieces left",
+  const objectives={grip:game.progress+" / 3 release drills",storm:game.debris.filter(d=>d.active).length+" pieces left",
     whirl:game.debris.filter(d=>d.active).length+" markers left · "+(game.progress%2?"CCW":"CW"),
     sword:game.progress+" / 5 moves",ball:game.progress+" / 3 pockets",magic:game.progress+" / 3 portals",
     dj:game.progress+" / 5 scratches",forge:game.progress+" / 3 heats",globe:game.landmarks.size+" / 4 landmarks",
@@ -73,14 +75,53 @@ function interrupt(){
   pressed=false;example=null;replay=null;live=null;trail=[];
   previousPoint=null;previousDial=0;el("trace-label").hidden=true;
 }
-const controls=attachTrackBaller(canvas,{
+function contact(detail){
+  digit=detail;
+  write("contact-count",detail.contacts||detail.peakContacts);
+  write("grip-size",detail.peakContacts>1?Math.round(detail.scale*100)+"% · "+Math.round(detail.twist*180/Math.PI)+"°":"—");
+  if(detail.guardMs!=null) write("lift-guard",detail.guardMs+" ms");
+  if(detail.wristFlip) write("grip-power",Math.round(detail.wristFlip.power*100)+"%");
+}
+function startGrip(detail){
+  if(game.done) return;
+  pressed=true;live=null;trail=[];velocity=[0,0,0];
+  gripBase={zoom:game.zoom,clay:game.clay[game.band],radius:game.vortex?.radius,
+    rotation,initial:detail};
+}
+function moveGrip(detail){
+  if(!gripBase||game.done) return;
+  applyGrip(game,detail,"move",gripBase);
+  if(game.id==="globe"){
+    const initial=gripBase.initial;
+    rotation=multiply(axisRotation((detail.dy-initial.dy)*3,-(detail.dx-initial.dx)*3,detail.twist),gripBase.rotation);
+  }
+}
+function endGrip(detail){
+  contact(detail);
+  if(gripBase){
+    moveGrip(detail);applyGrip(game,detail,"end",gripBase);
+    gripBase=null;pressed=false;
+  }else if(game.id==="grip") applyGrip(game,detail,"end");
+  updateHud();
+}
+function clearGrip(){
+  if(gripBase){
+    game.zoom=gripBase.zoom;game.dial=0;game.clay[game.band]=gripBase.clay;rotation=gripBase.rotation;
+    if(game.vortex&&gripBase.radius) game.vortex.radius=gripBase.radius;
+  }
+  digit=null;gripBase=null;interrupt();
+  write("contact-count","—");write("grip-size","—");
+}
+const controls=attachDigitTrackBaller(canvas,{
+  limb:()=>settings.toe?"toe":"hand",adaptive:()=>settings.adaptive,safeCancel:()=>settings.safe,
+  onGripStart:startGrip,onGripMove:moveGrip,onContact:contact,onGripEnd:endGrip,onGripCancel:clearGrip,
   onStart(p){if(!game.done){wakeAudio();start(p);}},
   onMove(s){if(pressed) move(s);},
   onEnd(s){if(pressed) release(s);},
   onCancel:interrupt,
 });
 function begin(id){
-  controls.cancel();interrupt();
+  controls.cancel();interrupt();digit=null;gripBase=null;
   game=createRound(id);rotation=[1,0,0,0];velocity=[0,0,0];history=[];lastBeat=-1;
   write("game-title",catalog[id].title);write("game-group",catalog[id].group);write("guide",catalog[id].hint);
   write("example",catalog[id].example);
@@ -88,7 +129,7 @@ function begin(id){
   el("alternate").hidden=!alt[id];write("alternate",alt[id]??"");el("replay").disabled=true;
   for(const button of el("game-list").children) button.setAttribute("aria-pressed",String(button.dataset.game===id));
   document.documentElement.style.setProperty("--accent",colors[id]);
-  for(const label of ["gesture","direction","rpm","speed","power"]) write(label,"—");
+  for(const label of ["gesture","direction","rpm","speed","power","contact-count","grip-size","lift-guard","grip-power"]) write(label,"—");
   updateHud();
 }
 function start(p){
@@ -132,9 +173,23 @@ function globeExample(){
   const dx=l?x/l*phi/(4*settings.gain):z<0?.5:0,dy=l?y/l*phi/(4*settings.gain):0;
   return Array.from({length:80},(_,j)=>({x:(j/79-.5)*dx,y:(j/79-.5)*dy,t:j*10,pointerType:"sample"}));
 }
+function sampleGrip(){
+  const count=game.progress+1;
+  const grip=new DigitGrip({width:440,height:400,limb:settings.toe?"toe":"hand",adaptive:settings.adaptive});
+  const point=(id,t,travel)=>({x:id===2?270:id===1?190:220,y:(id===0?250:170)-travel,t});
+  for(let id=0;id<count;id++) grip.down(id,point(id,0,0));
+  for(let t=12;t<=144;t+=12){
+    for(let id=0;id<count;id++) grip.move(id,point(id,t,t*.68));
+  }
+  for(let id=0;id<count;id++){
+    const result=grip.up(id,point(id,158+id*12,100));
+    if(result) endGrip(result);
+  }
+}
 function sample(alternate=false){
   if(game.done) begin(game.id);
   controls.cancel(); wakeAudio();
+  if(game.id==="grip"){sampleGrip();return;}
   if(game.id==="pottery"&&alternate){endMove(game,analyze([{x:0,y:((game.band+1)%3-1)*.22,t:0}]));updateHud();return;}
   if(game.id==="sword"&&alternate) game.clock=1.19;
   const points=game.id==="globe"?globeExample():makeExample(game,alternate);
@@ -175,7 +230,7 @@ function tick(now){
     if(beat!==lastBeat){sound(beat%4?105:153,.10,"sine");lastBeat=beat;}
   }
   updateHud();
-  renderer.draw(game,rotation,live,trail,!!replay,reduce.matches);
+  renderer.draw(game,rotation,live,trail,!!replay,reduce.matches,digit);
   requestAnimationFrame(tick);
 }
 for(const item of Object.values(catalog)){

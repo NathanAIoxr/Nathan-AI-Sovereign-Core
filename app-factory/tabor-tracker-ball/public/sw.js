@@ -1,5 +1,12 @@
-const cacheName="tabor-tracker-ball-1.0.0";
-const shell=[".","index.html","style.css","app.mjs","track-baller.mjs","games.mjs","render.mjs","manifest.webmanifest","icon.svg","catalog.json"].map(name=>new URL(name,self.registration.scope).pathname);
+const cacheName="tabor-tracker-ball-1.1.0";
+const shell=[".","index.html","style.css","app.mjs","track-baller.mjs","digit-input.mjs","games.mjs","render.mjs","manifest.webmanifest","icon.svg","catalog.json"].map(name=>new URL(name,self.registration.scope).pathname);
+for(const path of [
+  "standalone-apps/tactilecore-sdk/src/engine.mjs",
+  "standalone-apps/hook-and-ring/game/input.mjs",
+  "standalone-apps/hook-and-ring/game/physics.mjs",
+]){
+  shell.push(new URL("../../../"+path,self.registration.scope).pathname);
+}
 self.addEventListener("install",event=>event.waitUntil(caches.open(cacheName).then(cache=>cache.addAll(shell))));
 self.addEventListener("activate",event=>event.waitUntil(caches.keys().then(keys=>Promise.all(
   keys.filter(key=>key.startsWith("tabor-tracker-ball-")&&key!==cacheName).map(key=>caches.delete(key))
