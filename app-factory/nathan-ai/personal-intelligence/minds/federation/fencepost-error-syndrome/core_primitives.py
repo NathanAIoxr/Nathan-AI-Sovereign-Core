@@ -58,6 +58,22 @@ class HalfOpen:
     def contains(self, index: int) -> bool:
         return self.start <= exact_int(index, "index") < self.stop
 
+    def overlaps(self, other: "HalfOpen") -> bool:
+        return max(self.start, other.start) < min(self.stop, other.stop)
+
+    def split(self, at: int) -> tuple["HalfOpen", "HalfOpen"]:
+        if not self.start <= exact_int(at, "split") <= self.stop:
+            raise ContractViolation("split outside range")
+        return HalfOpen(self.start, at), HalfOpen(at, self.stop)
+
+    def indices(self) -> range:
+        return range(self.start, self.stop)
+
+    def bounded(self, length: int) -> "HalfOpen":
+        if not 0 <= self.start <= self.stop <= exact_int(length, "length"):
+            raise ContractViolation("range outside collection")
+        return self
+
     @classmethod
     def inclusive(cls, first: int, last: int) -> "HalfOpen":
         exact_int(first, "first")
@@ -146,13 +162,16 @@ class Money:
 
     @classmethod
     def from_decimal_text(cls, amount: str, currency: str, decimal_places: int) -> "Money":
+        if exact_int(decimal_places, "decimal places") not in (0, 2, 3):
+            raise ContractViolation("declare a supported currency precision (0/2/3)")
         if not isinstance(amount, str) or not re.fullmatch(r"-?\d+(?:\.\d+)?", amount):
             raise ContractViolation("exact monetary input must be a decimal string")
         try:
-            scaled = Decimal(amount) * (10 ** exact_int(decimal_places, "decimal places"))
+            # Fraction avoids Decimal context rounding for long exact inputs.
+            scaled = Fraction(Decimal(amount)) * (10 ** exact_int(decimal_places, "decimal places"))
         except InvalidOperation as exc:
             raise ContractViolation("invalid decimal amount") from exc
-        if scaled != scaled.to_integral_value():
+        if scaled.denominator != 1:
             raise ContractViolation("fractional minor unit; explicit rounding policy required")
         return cls(int(scaled), currency, decimal_places)
 

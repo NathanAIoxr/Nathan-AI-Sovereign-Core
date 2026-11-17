@@ -1,5 +1,9 @@
 # FENCEPOST ERROR SYNDROME — by Nathan Tabor
 
+## Sovereign boundary architecture: runnable full-stack extension
+
+[Master architecture and acceptance matrix](MASTER_BOUNDARY_ARCHITECTURE.md) · [Local API and browser app](boundary_api.py) · [Production boundary primitives](production_boundaries.py) · [Property, concurrency and HTTP tests](test_production_boundaries.py) · [Evidence runner](verify_boundaries.py). Extends this existing library with immutable 0/1 boxes anchored in **1+1=2** and **1-1=0**, storage constraints, cursor traversal, atomic idempotency, fencing, state machines, Unicode, money allocation, replay and bounded recovery. Original workers and historical source remain below.
+
 **NATHAN AI 🚀 · ONE Federation · Eight boundary-audit worker bots · 2026-11-13**
 
 Source author attribution: **“google has fencepost error syndrome by Nathan Tabor”** is preserved as the creator's allegation/name for this work. The model has **not** examined Google's production source code or established an intentional Google defect.

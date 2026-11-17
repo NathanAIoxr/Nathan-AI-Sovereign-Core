@@ -1,0 +1,16 @@
+{
+  "name": "one-sovereign-cloud",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test core.test.mjs runtime.test.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "build": "node build.mjs",
+    "pretest": "node build.mjs"
+  },
+  "devDependencies": {
+    "miniflare": "4.20260730.0",
+    "wrangler": "4.163.0"
+  }
+}

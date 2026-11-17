@@ -1,0 +1,49 @@
+name: ONE Sovereign Hub acceptance
+on:
+  push:
+    paths:
+      - 'app-factory/sovereign-hub/**'
+      - 'app-factory/app-shell/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome/**'
+      - '.github/workflows/sovereign-hub.yml'
+  pull_request:
+    paths:
+      - 'app-factory/sovereign-hub/**'
+      - 'app-factory/app-shell/**'
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome/**'
+      - '.github/workflows/sovereign-hub.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install local test dependencies
+        run: |
+          python -m pip install -r app-factory/sovereign-hub/requirements.txt
+          python -m pip install -r app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome/requirements-browser.txt
+      - name: Verify local contracts and preserved regressions
+        run: python app-factory/sovereign-hub/verify_hub.py --out /tmp/one-hub-evidence.json
+      - name: Verify real browser and offline behavior
+        run: |
+          python -m playwright install --with-deps chromium
+          python app-factory/sovereign-hub/browser_acceptance.py --screenshot /tmp/one-hub.png --report /tmp/one-hub-browser.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: one-sovereign-hub-acceptance
+          path: |
+            /tmp/one-hub-evidence.json
+            /tmp/one-hub-evidence-boundaries.json
+            /tmp/one-hub-browser.json
+            /tmp/one-hub.png
+          if-no-files-found: error

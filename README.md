@@ -1,4 +1,10 @@
+**[Live ONE Cloudflare Hub](https://one-sovereign-hub.nathantaboract.workers.dev/)** · [333-app adoption catalog](https://one-sovereign-hub.nathantaboract.workers.dev/apps.html) · [Cloud deployment and ownership guide](app-factory/sovereign-hub/cloudflare/README.md). Separate private owner-device access, scoped agents, Durable Object state, D1 projections, KV, background jobs and verified recovery. Existing projects retain explicit integration status.
+
 **[Modern Day Bible · Story Library](app-factory/modern-day-bible/)** · Private source-preserving reader connected to ONE App Shell.
+
+**[ONE Sovereign App Hub — diagnostic port, permissioned agents and offline sync](app-factory/sovereign-hub/README.md)** · Local runnable app with signed agent requests, scoped context, connector diagnostics, conflict-preserving sync, exact micro-apps, issuer attestations, payment-intent verification, public action schemas and integrated boundary recovery. External accounts, hardware and neural models retain explicit provider requirements.
+
+**[Sovereign Boundary Architecture — runnable app, contracts and acceptance matrix](app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome/MASTER_BOUNDARY_ARCHITECTURE.md)** · Additive full-stack extension of the existing Root13 engine: separate immutable 0/1 boxes, API/UI adapters, transactional booking and event history, cursor pagination, Unicode, exact money, fencing and bounded recovery. Includes property/concurrency/browser tests and PostgreSQL exclusion checks. Adoption by other apps remains separately verifiable.
 
 **[ONE App Shell — apps, database themes and workspaces](app-factory/app-shell/)** · [Backend setup](app-factory/app-shell/README.md)
 

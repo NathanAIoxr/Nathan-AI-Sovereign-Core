@@ -2,6 +2,8 @@
 
 A shared frontend and SQLite backend for app registration, per-app themes, configurable fields and persisted records. Existing apps remain available through their original entry points. The shell reuses Nathan AI's existing Appearance Studio and its validated palettes.
 
+The seed also registers [ONE Sovereign App Hub](../sovereign-hub/README.md), a local diagnostic, agent-permission, context and offline-sync workspace. Its preview links to the separately authenticated Python runtime on loopback port 8780. Existing database entries remain intact; the new seed entry is inserted on the next shell startup.
+
 ## Start
 
 Requires Node.js 24 or newer; no npm installation is needed.

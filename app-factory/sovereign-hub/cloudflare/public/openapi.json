@@ -1,0 +1,2313 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ONE Sovereign Hub",
+    "version": "1.0.0",
+    "description": "Cloudflare owner-device proofs and capability-bound agent actions. External providers require individual authorization."
+  },
+  "servers": [
+    {
+      "url": "https://one-sovereign-hub.nathantaboract.workers.dev"
+    }
+  ],
+  "paths": {
+    "/api/agents": {
+      "post": {
+        "operationId": "agents",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "agent": {
+                    "type": "string"
+                  },
+                  "public_key": {
+                    "type": "string"
+                  },
+                  "scopes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "resources": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "agent",
+                  "public_key",
+                  "scopes",
+                  "resources"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/tokens": {
+      "post": {
+        "operationId": "tokens",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "agent": {
+                    "type": "string"
+                  },
+                  "scopes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "ttl": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 3600
+                  }
+                },
+                "required": [
+                  "agent",
+                  "scopes",
+                  "ttl"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/revoke": {
+      "post": {
+        "operationId": "revoke",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "jti": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "jti"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/connectors": {
+      "post": {
+        "operationId": "connectors",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "connector": {
+                    "type": "string"
+                  },
+                  "mode": {
+                    "enum": [
+                      "local",
+                      "oauth",
+                      "webhook",
+                      "device",
+                      "model",
+                      "payment"
+                    ]
+                  }
+                },
+                "required": [
+                  "connector",
+                  "mode"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/context": {
+      "post": {
+        "operationId": "context",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {},
+                  "expected": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "readers": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "ttl": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 1,
+                    "maximum": 31536000
+                  }
+                },
+                "required": [
+                  "key",
+                  "value",
+                  "expected",
+                  "readers",
+                  "ttl"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      },
+      "get": {
+        "operationId": "context_read",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/sync": {
+      "post": {
+        "operationId": "sync",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "connector": {
+                    "type": "string"
+                  },
+                  "record": {
+                    "type": "string"
+                  },
+                  "value": {},
+                  "expected": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "key": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "connector",
+                  "record",
+                  "value",
+                  "expected",
+                  "key"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/conflicts/resolve": {
+      "post": {
+        "operationId": "conflicts_resolve",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "conflict": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "choice": {
+                    "enum": [
+                      "local",
+                      "remote"
+                    ]
+                  }
+                },
+                "required": [
+                  "conflict",
+                  "choice"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/faults": {
+      "post": {
+        "operationId": "faults",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "connector": {
+                    "type": "string"
+                  },
+                  "code": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "enum": [
+                      "info",
+                      "warning",
+                      "critical"
+                    ]
+                  },
+                  "detail": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "connector",
+                  "code",
+                  "severity",
+                  "detail"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/commands": {
+      "post": {
+        "operationId": "commands",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "connector": {
+                    "type": "string"
+                  },
+                  "action": {
+                    "enum": [
+                      "clear-warning-codes",
+                      "verify-storage"
+                    ]
+                  },
+                  "key": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "connector",
+                  "action",
+                  "key"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/edge-summary": {
+      "post": {
+        "operationId": "edge_summary",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "maxLength": 32768
+                  },
+                  "sentences": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 10
+                  }
+                },
+                "required": [
+                  "text",
+                  "sentences"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/ambient": {
+      "post": {
+        "operationId": "ambient",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "modality": {
+                    "enum": [
+                      "voice",
+                      "gaze",
+                      "gesture",
+                      "sensor",
+                      "touch"
+                    ]
+                  },
+                  "consent": {
+                    "const": true
+                  },
+                  "action": {
+                    "enum": [
+                      "show-health",
+                      "next-step",
+                      "previous-step"
+                    ]
+                  }
+                },
+                "required": [
+                  "modality",
+                  "consent",
+                  "action"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/issuers": {
+      "post": {
+        "operationId": "issuers",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "issuer": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "issuer",
+                  "key"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/attestations": {
+      "post": {
+        "operationId": "attestations",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "claims": {
+                    "type": "object"
+                  },
+                  "signature": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "claims",
+                  "signature"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/invites": {
+      "post": {
+        "operationId": "invites",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ttl": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 86400
+                  }
+                },
+                "required": [
+                  "ttl"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/redeem": {
+      "post": {
+        "operationId": "redeem",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "invite": {
+                    "type": "string"
+                  },
+                  "member": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "invite",
+                  "member"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/snapshot": {
+      "get": {
+        "operationId": "_api_snapshot",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/audit-health": {
+      "get": {
+        "operationId": "_api_audit_health",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/catalog": {
+      "get": {
+        "operationId": "_api_catalog",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/.well-known/one-actions.json": {
+      "get": {
+        "operationId": "__well_known_one_actions_json",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/changes": {
+      "get": {
+        "operationId": "sync_changes",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connector",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          {
+            "name": "until",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/microapps": {
+      "post": {
+        "operationId": "microapp_run",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "kind",
+                      "amount_minor",
+                      "currency",
+                      "buckets"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {
+                        "const": "split-budget"
+                      },
+                      "amount_minor": {
+                        "type": "integer"
+                      },
+                      "currency": {
+                        "type": "string"
+                      },
+                      "buckets": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 10000
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "kind",
+                      "start",
+                      "end"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {
+                        "const": "duration"
+                      },
+                      "start": {
+                        "type": "integer"
+                      },
+                      "end": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "kind",
+                      "room_mm",
+                      "object_mm"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {
+                        "const": "room-fit"
+                      },
+                      "room_mm": {
+                        "type": "array",
+                        "minItems": 3,
+                        "maxItems": 3,
+                        "items": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 9007199254740991
+                        }
+                      },
+                      "object_mm": {
+                        "type": "array",
+                        "minItems": 3,
+                        "maxItems": 3,
+                        "items": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 9007199254740991
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/mcp": {
+      "post": {
+        "operationId": "mcp_tools",
+        "description": "Stateless JSON-RPC initialize/tools/list/tools/call subset; same authorization as REST.",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "jsonrpc",
+                  "method"
+                ],
+                "properties": {
+                  "jsonrpc": {
+                    "const": "2.0"
+                  },
+                  "id": {
+                    "type": [
+                      "integer",
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "method": {
+                    "type": "string"
+                  },
+                  "params": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/booking-fences": {
+      "post": {
+        "operationId": "booking_fences_write",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "resource"
+                ],
+                "properties": {
+                  "resource": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/bookings": {
+      "post": {
+        "operationId": "bookings_write",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "resource",
+                  "key",
+                  "range",
+                  "token"
+                ],
+                "properties": {
+                  "resource": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "range": {
+                    "type": "object",
+                    "required": [
+                      "start",
+                      "end"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "start": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "end": {
+                        "type": "string",
+                        "format": "date"
+                      }
+                    }
+                  },
+                  "token": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      },
+      "get": {
+        "operationId": "bookings_read",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "resource",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          {
+            "name": "until",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/export": {
+      "get": {
+        "operationId": "export",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/telemetry": {
+      "get": {
+        "operationId": "telemetry",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary contract rejected"
+          },
+          "403": {
+            "description": "Permission or request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "503": {
+            "description": "Storage/provider unavailable"
+          }
+        }
+      }
+    },
+    "/api/devices": {
+      "post": {
+        "operationId": "owner_device_add",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "public_key": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "public_key"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary rejected"
+          },
+          "403": {
+            "description": "Permission or proof rejected"
+          },
+          "409": {
+            "description": "State conflict"
+          },
+          "429": {
+            "description": "App free-tier budget reached"
+          },
+          "503": {
+            "description": "Provider or storage unavailable"
+          }
+        }
+      }
+    },
+    "/api/ai": {
+      "post": {
+        "operationId": "workers_ai_invoke",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "prompt": {
+                    "type": "string",
+                    "maxLength": 2048
+                  }
+                },
+                "required": [
+                  "prompt"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary rejected"
+          },
+          "403": {
+            "description": "Permission or proof rejected"
+          },
+          "409": {
+            "description": "State conflict"
+          },
+          "429": {
+            "description": "App free-tier budget reached"
+          },
+          "503": {
+            "description": "Provider or storage unavailable"
+          }
+        }
+      }
+    },
+    "/api/recovery": {
+      "post": {
+        "operationId": "recovery_start",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary rejected"
+          },
+          "403": {
+            "description": "Permission or proof rejected"
+          },
+          "409": {
+            "description": "State conflict"
+          },
+          "429": {
+            "description": "App free-tier budget reached"
+          },
+          "503": {
+            "description": "Provider or storage unavailable"
+          }
+        }
+      },
+      "get": {
+        "operationId": "recovery_status",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary rejected"
+          },
+          "403": {
+            "description": "Permission or proof rejected"
+          },
+          "409": {
+            "description": "State conflict"
+          },
+          "429": {
+            "description": "App free-tier budget reached"
+          },
+          "503": {
+            "description": "Provider or storage unavailable"
+          }
+        }
+      }
+    },
+    "/api/flows": {
+      "post": {
+        "operationId": "flow_transition",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "expected": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "target": {
+                    "enum": [
+                      "shipping",
+                      "payment",
+                      "complete"
+                    ]
+                  },
+                  "key": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "expected",
+                  "target",
+                  "key"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary rejected"
+          },
+          "403": {
+            "description": "Permission or proof rejected"
+          },
+          "409": {
+            "description": "State conflict"
+          },
+          "429": {
+            "description": "App free-tier budget reached"
+          },
+          "503": {
+            "description": "Provider or storage unavailable"
+          }
+        }
+      },
+      "get": {
+        "operationId": "flow_read",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary rejected"
+          },
+          "403": {
+            "description": "Permission or proof rejected"
+          },
+          "409": {
+            "description": "State conflict"
+          },
+          "429": {
+            "description": "App free-tier budget reached"
+          },
+          "503": {
+            "description": "Provider or storage unavailable"
+          }
+        }
+      }
+    },
+    "/api/text/slice": {
+      "post": {
+        "operationId": "grapheme_slice",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          },
+          {
+            "AgentBearer": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "maxLength": 32768
+                  },
+                  "start": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "end": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  }
+                },
+                "required": [
+                  "text",
+                  "start",
+                  "end"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary rejected"
+          },
+          "403": {
+            "description": "Permission or proof rejected"
+          },
+          "409": {
+            "description": "State conflict"
+          },
+          "429": {
+            "description": "App free-tier budget reached"
+          },
+          "503": {
+            "description": "Provider or storage unavailable"
+          }
+        }
+      }
+    },
+    "/auth/pair": {
+      "post": {
+        "operationId": "owner_device_pair",
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "maxLength": 128
+                  },
+                  "public_key": {
+                    "type": "string"
+                  },
+                  "turnstile": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "code",
+                  "public_key",
+                  "turnstile"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary rejected"
+          },
+          "403": {
+            "description": "Permission or proof rejected"
+          },
+          "409": {
+            "description": "State conflict"
+          },
+          "429": {
+            "description": "App free-tier budget reached"
+          },
+          "503": {
+            "description": "Provider or storage unavailable"
+          }
+        }
+      }
+    },
+    "/api/config": {
+      "get": {
+        "operationId": "public_configuration",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary rejected"
+          },
+          "403": {
+            "description": "Permission or proof rejected"
+          },
+          "409": {
+            "description": "State conflict"
+          },
+          "429": {
+            "description": "App free-tier budget reached"
+          },
+          "503": {
+            "description": "Provider or storage unavailable"
+          }
+        }
+      }
+    },
+    "/api/swarm/run": {
+      "post": {
+        "operationId": "swarm_run",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary rejected"
+          },
+          "403": {
+            "description": "Permission or proof rejected"
+          },
+          "409": {
+            "description": "State conflict"
+          },
+          "429": {
+            "description": "App free-tier budget reached"
+          },
+          "503": {
+            "description": "Provider or storage unavailable"
+          }
+        }
+      }
+    },
+    "/api/swarm/control": {
+      "post": {
+        "operationId": "swarm_control",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "type": "string"
+                  },
+                  "paused": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "role",
+                  "paused"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary rejected"
+          },
+          "403": {
+            "description": "Permission or proof rejected"
+          },
+          "409": {
+            "description": "State conflict"
+          },
+          "429": {
+            "description": "App free-tier budget reached"
+          },
+          "503": {
+            "description": "Provider or storage unavailable"
+          }
+        }
+      }
+    },
+    "/api/swarm": {
+      "get": {
+        "operationId": "swarm_status",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Verified result"
+          },
+          "400": {
+            "description": "Boundary rejected"
+          },
+          "403": {
+            "description": "Permission or proof rejected"
+          },
+          "409": {
+            "description": "State conflict"
+          },
+          "429": {
+            "description": "App free-tier budget reached"
+          },
+          "503": {
+            "description": "Provider or storage unavailable"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "AgentBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "AgentSignature": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Agent-Signature"
+      },
+      "AgentTime": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Agent-Time"
+      },
+      "AgentNonce": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Agent-Nonce"
+      },
+      "EventSignature": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Event-Signature"
+      },
+      "EventTime": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Event-Time"
+      },
+      "EventID": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Event-ID"
+      },
+      "OwnerDevice": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Owner <Ed25519 public key>, accompanied by AgentTime, AgentNonce and AgentSignature proof headers."
+      }
+    }
+  }
+}

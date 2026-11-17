@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Sovereign booking command: start inclusive, end exclusive",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["resource", "key", "range", "token"],
+  "properties": {
+    "resource": {"type": "string", "minLength": 1},
+    "key": {"type": "string", "minLength": 1},
+    "token": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+    "range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start", "end"],
+      "properties": {
+        "start": {"type": "string", "format": "date"},
+        "end": {"type": "string", "format": "date"}
+      }
+    }
+  },
+  "$comment": "Runtime parser additionally enforces canonical dates, start < end, trimmed text, int64 and idempotency payload identity. JSON Schema alone does not compare fields."
+}

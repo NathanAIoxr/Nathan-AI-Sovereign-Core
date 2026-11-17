@@ -1,0 +1,102 @@
+{
+  "name": "one-sovereign-hub",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-08-01",
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*",
+      "/auth/*",
+      "/mcp",
+      "/health",
+      "/.well-known/*"
+    ]
+  },
+  "vars": {
+    "APP_HOST": "one-sovereign-hub.nathantaboract.workers.dev",
+    "HUB_INSTANCE": "owner",
+    "TURNSTILE_SITEKEY": "0x4AAAAAAGEDOhKjgcubQTpR",
+    "REMOTE_CATALOG": "enabled"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "one-sovereign-hub",
+      "database_id": "2b7c6452-9ed7-4934-b423-44ebe2fea128"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "PUBLIC_KV",
+      "id": "59e7d0238bd3447586f7cfd4523f748a"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "HUB",
+        "class_name": "SovereignHub"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "SovereignHub"
+      ]
+    }
+  ],
+  "queues": {
+    "producers": [
+      {
+        "binding": "JOBS",
+        "queue": "one-sovereign-hub-jobs"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "one-sovereign-hub-jobs",
+        "max_batch_size": 5,
+        "max_batch_timeout": 1,
+        "max_retries": 3,
+        "retry_delay": 30,
+        "dead_letter_queue": "one-sovereign-hub-dead",
+        "max_concurrency": 1
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "binding": "RECOVERY",
+      "name": "one-sovereign-hub-recovery",
+      "class_name": "RecoveryWorkflow"
+    }
+  ],
+  "ai": {
+    "binding": "AI"
+  },
+  "triggers": {
+    "crons": [
+      "7 */6 * * *",
+      "*/15 * * * *"
+    ]
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 0.05
+  },
+  "services": [
+    {
+      "binding": "GRAPPLE_BEE",
+      "service": "grapple-it-bees"
+    },
+    {
+      "binding": "HOOK_BEE",
+      "service": "hook-and-ring-bee"
+    }
+  ]
+}

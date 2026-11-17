@@ -1,0 +1,62 @@
+name: Sovereign boundary contracts
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome/**'
+      - '.github/workflows/sovereign-boundary-contracts.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome/**'
+      - '.github/workflows/sovereign-boundary-contracts.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_PASSWORD: local-boundary-test
+          POSTGRES_DB: boundary_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d boundary_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated verification dependencies
+        run: python -m pip install -r app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome/requirements-boundaries.txt
+      - name: Run contracts, property tests, HTTP integration and preserved-anchor regressions
+        run: python app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome/verify_boundaries.py --out /tmp/sovereign-boundary-evidence.json
+      - name: Verify real PostgreSQL exclusion constraints
+        env:
+          PGPASSWORD: local-boundary-test
+        run: |
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome
+          psql -h 127.0.0.1 -U postgres -d boundary_test -v ON_ERROR_STOP=1 -f "$F/booking_ranges.sql"
+          psql -h 127.0.0.1 -U postgres -d boundary_test -v ON_ERROR_STOP=1 -f "$F/test_booking_ranges.sql"
+      - name: Verify browser retry, state, and responsive layout
+        run: |
+          F=app-factory/nathan-ai/personal-intelligence/minds/federation/fencepost-error-syndrome
+          python -m pip install -r "$F/requirements-browser.txt"
+          python -m playwright install --with-deps chromium
+          python "$F/browser_acceptance.py" --screenshot /tmp/sovereign-boundary-browser.png --report /tmp/sovereign-boundary-browser.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sovereign-boundary-evidence
+          path: |
+            /tmp/sovereign-boundary-evidence.json
+            /tmp/sovereign-boundary-browser.json
+            /tmp/sovereign-boundary-browser.png
+          if-no-files-found: error

@@ -1,0 +1,62 @@
+name: ONE shared Cloudflare foundation
+on:
+  push:
+    paths:
+      - 'app-factory/**'
+      - 'standalone-apps/**'
+      - '.github/workflows/sovereign-cloud.yml'
+  pull_request:
+    paths:
+      - 'app-factory/sovereign-hub/**'
+      - '.github/workflows/sovereign-cloud.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cloud-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: app-factory/sovereign-hub/cloudflare/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Refresh the public app adoption inventory
+        run: python app-factory/sovereign-hub/cloudflare/build_catalog.py
+      - name: Install pinned cloud runtime
+        working-directory: app-factory/sovereign-hub/cloudflare
+        run: npm ci
+      - name: Test exact primitives and actual Workers runtime
+        working-directory: app-factory/sovereign-hub/cloudflare
+        run: npm test
+      - name: Verify static scripts
+        run: |
+          node --check app-factory/sovereign-hub/cloudflare/public/app.js
+          node --check app-factory/sovereign-hub/cloudflare/public/apps.js
+          node --check app-factory/sovereign-hub/cloudflare/public/one-sdk.mjs
+      - name: Run existing worker-bee build assignments
+        run: python app-factory/sovereign-hub/cloudflare/bot_build_jobs.py --owner-authorized --db "$RUNNER_TEMP/one-bee-build.sqlite3" --out "$RUNNER_TEMP/bee-build-receipts.json"
+      - name: Refresh only the generated catalog on main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python app-factory/sovereign-hub/cloudflare/build_catalog.py
+          if git diff --quiet -- app-factory/sovereign-hub/cloudflare/public/apps.json; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- app-factory/sovereign-hub/cloudflare/public/apps.json
+          git commit -m 'Refresh ONE public app adoption catalog'
+          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        with:
+          name: one-app-adoption-catalog
+          path: app-factory/sovereign-hub/cloudflare/public/apps.json
+          if-no-files-found: error

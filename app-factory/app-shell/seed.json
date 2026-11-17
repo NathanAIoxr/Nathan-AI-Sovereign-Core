@@ -127,7 +127,7 @@
     },
     {
       "id": "modern-day-bible",
-      "name": "Modern Day Bible · Stories",
+      "name": "Modern Day Bible \u00b7 Stories",
       "description": "A private, source-preserving library of related manuscripts, stories and scripture references.",
       "entry": "app-factory/modern-day-bible/index.html",
       "appearance": {
@@ -180,6 +180,32 @@
           "key": "scope",
           "label": "Collection status",
           "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "sovereign-hub",
+      "name": "ONE Sovereign App Hub",
+      "description": "Owner-controlled app diagnostics, permissioned agent actions, local tools and offline sync. Live runtime: http://127.0.0.1:8780.",
+      "entry": "app-factory/sovereign-hub/index.html",
+      "appearance": {
+        "skin": "midnight"
+      },
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text"
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "text"
+        },
+        {
+          "key": "complete",
+          "label": "Complete",
+          "type": "boolean"
         }
       ]
     }
