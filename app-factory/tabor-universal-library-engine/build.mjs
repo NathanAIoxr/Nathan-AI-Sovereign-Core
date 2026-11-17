@@ -1,3 +1,4 @@
+import {ATLAS,CLASSES,TYPES,LCC_SOURCE} from "../grapple-it/public/atlas.mjs";
 import { readFile,writeFile,mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -37,14 +38,29 @@ export async function build(){
     assets[entry+"world/"+f]=await read(app+"/public/world/"+f);
   assets[entry+"world/cosmic-body.json"]=await read("app-factory/nathan-ai/anatomy/cosmic-body/atlas.json");
   assets[entry+"world/worlds-atlas.json"]=await read("app-factory/one/mespark-memory-matrix/worlds-atlas.json");
+  const libraryPath=app+"/public/library/";
+  for(const file of ["index.html","library.css","library.mjs","library-core.mjs"])
+    assets["/"+libraryPath+file]=await read(libraryPath+file);
+  const artwork=await readFile(resolve(root,libraryPath+"rotunda.webp"));
+  const catalog={
+    name:"Library of Tabor", release:"library-of-tabor-1", credit:"Nathan Tabor", subjectSource:LCC_SOURCE,
+    shelves:CLASSES, kinds:TYPES,
+    entries:ATLAS.map(({id,title,lcc,kind,chassis,attributes,characteristics,traits,application,target})=>({
+      id,title,lcc,kind,chassis,attributes,characteristics,traits,application,target,
+      play:"https://grapple-it.nathantaboract.workers.dev/#atlas/"+id,
+    })),
+  };
   const out=resolve(dir,".release");
   await mkdir(out,{recursive:true});
   await writeFile(resolve(dir,"public/arcade-core.mjs"),generated);
   const packed=Object.fromEntries(Object.entries(assets).map(([path,content])=>
     [path,Buffer.byteLength(content)>12000?[gzipSync(content,{level:9}).toString("base64")]:content]));
-  const worker="const files="+JSON.stringify(packed)+";\nconst entry="+JSON.stringify(entry)+";\n"+
+  packed[entry+"library/rotunda.webp"]=[artwork.toString("base64"),"raw"];
+  const worker='import {catalogResponse} from "./library-core.mjs";\n'+
+    "const catalog="+JSON.stringify(catalog)+";\nconst files="+JSON.stringify(packed)+";\nconst entry="+JSON.stringify(entry)+";\n"+
     await read(app+"/worker.mjs");
   await writeFile(resolve(out,"worker.mjs"),worker);
+  await writeFile(resolve(out,"library-core.mjs"),await read(libraryPath+"library-core.mjs"));
   return {worker,assets};
 }
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url))await build();
