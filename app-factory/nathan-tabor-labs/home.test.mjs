@@ -5,6 +5,7 @@ import { Script, runInNewContext } from 'node:vm';
 import test from 'node:test';
 import worker from './worker.mjs';
 import { homePulse, connections, INTERVAL } from './home-core.mjs';
+import { directory } from './home-directory.mjs';
 import { script as mind } from './mind-game.mjs';
 import { script as hounds } from './hounds-game.mjs';
 import { page as playerPage, script as player } from './labs-game.mjs';
@@ -23,7 +24,15 @@ function database() {
 test('home and play routes coexist with legacy APIs and prohibit writes',async()=>{
   const {db}=database();
   const call=(path,method='GET')=>worker.fetch(new Request('https://labs.example'+path,{method}),{PUBLIC_LABS_DB:db});
-  assert.match(await (await call('/')).text(),/The mind\.<br>The brain\.<br>The skull\./);
+  const home=await (await call('/')).text();
+  assert.match(home,/The mind\. The brain\. The skull\./);
+  assert.doesNotMatch(home,/Machine-readable receipt|21 Hive role definitions/);
+  const catalog=await (await call('/systems/')).text();
+  assert.match(catalog,/Library of Tabor/);
+  assert.match(catalog,/Find a system/);
+  const links=directory.flatMap(group=>group.entries.map(entry=>entry[1]));
+  assert.equal(new Set(links).size,links.length);
+  assert.match(await (await call('/workers')).text(),/21 Hive role definitions/);
   assert.match(await (await call('/workbench')).text(),/4T Clover logic/);
   assert.equal((await call('/api/chip?a=1&b=1&carry=0')).status,200);
   assert.equal((await call('/api/home/status','POST')).status,405);
@@ -49,6 +58,8 @@ test('scheduled pulse validates expected auth, records status only, and bounds r
     assert.ok(connections.some(s=>s.url+s.path===url));
     assert.equal(opts.redirect,'manual');
     assert.equal(opts.method,'GET');
+    if(url.includes('nathan-ai-fleet'))return Response.json({service:'nathan-ai-fleet',workers:{managed:64},
+      supervisors:{assigned:64,checked:40,healthy:39,protected:1,failed:0,pending:24,ignored:'unpublished body'}});
     return new Response('unpublished body',{status:url.includes('one-sovereign-hub')?403:200});
   };
   await homePulse(db,moment,fake);
@@ -56,6 +67,8 @@ test('scheduled pulse validates expected auth, records status only, and bounds r
   const last=JSON.parse(sqlite.prepare('SELECT result FROM home_pulses').get().result);
   assert.equal(last.passed,true);
   assert.equal(last.targets.at(-1).state,'owner-sign-in');
+  assert.deepEqual(last.targets.find(x=>x.id==='nathan-ai-fleet').fleet,
+    {managed:64,assigned:64,checked:40,healthy:39,protected:1,failed:0,pending:24});
   assert.doesNotMatch(JSON.stringify(last),/unpublished body/);
   await homePulse(db,moment+INTERVAL,async()=>new Response(null,{status:200}));
   assert.equal(JSON.parse(sqlite.prepare('SELECT result FROM home_pulses ORDER BY slot DESC').get().result).passed,false);
