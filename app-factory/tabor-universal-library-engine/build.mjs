@@ -43,11 +43,11 @@ export async function build(){
   const manifest=JSON.parse(assets[entry+"world/release-ledger.json"]);
   const releaseInfo={schema:manifest.schema,release:manifest.current,counts:manifest.counts};
   const libraryPath=app+"/public/library/";
-  for(const file of ["index.html","library.css","library.mjs","library-core.mjs"])
+  for(const file of ["index.html","library.css","library.mjs","library-core.mjs","connections.mjs","root-core.mjs"])
     assets["/"+libraryPath+file]=await read(libraryPath+file);
   assets[entry+"library/rotunda.webp"]=await readFile(resolve(root,libraryPath+"rotunda.webp"));
   const catalog={
-    name:"Library of Tabor", release:"library-of-tabor-1", credit:"Nathan Tabor", subjectSource:LCC_SOURCE,
+    name:"Library of Tabor", release:"library-of-tabor-2", credit:"Nathan Tabor", subjectSource:LCC_SOURCE,
     shelves:CLASSES, kinds:TYPES,
     entries:ATLAS.map(({id,title,lcc,kind,chassis,attributes,characteristics,traits,application,target})=>({
       id,title,lcc,kind,chassis,attributes,characteristics,traits,application,target,

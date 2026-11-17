@@ -6,7 +6,7 @@ const sourceAliases={
   "/app-factory/one/mespark-memory-matrix/worlds-atlas.json":entry+"world/worlds-atlas.json",
 };
 export default {
-  fetch(request){
+  fetch(request,env){
     const url=new URL(request.url),head=request.method==="HEAD";
     if(request.method!=="GET"&&!head)return new Response(null,{status:405,headers:{Allow:"GET, HEAD"}});
     if(url.pathname==="/docs/record/index.html")
@@ -24,6 +24,13 @@ export default {
     const pathName=url.pathname.startsWith("/library/")?library+url.pathname.slice("/library/".length):url.pathname;
     if(pathName.startsWith(library)){
       const endpoint=pathName.slice(library.length);
+      if(endpoint==="api/connections"||/^api\/collections\/(worlds|cosmic)$/.test(endpoint)){
+        const headers={"Content-Type":types.json,"Cache-Control":"no-store","X-Content-Type-Options":"nosniff"};
+        if(url.search)return new Response(head?null:JSON.stringify({error:"Unknown route"}),{status:404,headers});
+        if(!env?.LIBRARY_DATA)return new Response(head?null:JSON.stringify({error:"Data connection unavailable"}),{status:503,headers});
+        return env.LIBRARY_DATA.fetch("https://library-data.internal/"+endpoint.slice(4),{method:request.method})
+          .catch(()=>new Response(head?null:JSON.stringify({error:"Data connection unavailable"}),{status:503,headers}));
+      }
       if(endpoint==="catalog.json"||endpoint.startsWith("api/"))return catalogResponse(catalog,endpoint,url,head);
     }
     const path=sourceAliases[pathName] ??

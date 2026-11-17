@@ -29,3 +29,12 @@ Deploy the generated modules from `.release/` to the `tabor-universal-library-en
 
 The rotunda WebP is a new site illustration based on the Library of Tabor poster. The site uses live HTML for the title and opens the original Grapple It implementation for play and scoring.
 
+
+## Tabor Accords connections and 85/15
+
+- Tabor World alias: https://tabor-world.nathantaboract.workers.dev/accords/library/
+- Live receipt: https://tabor-universal-library-engine.nathantaboract.workers.dev/library/api/connections
+- Cloudflare Worker `library-of-tabor-data` receives D1 bindings in `data-broker/connections.mjs`. Resolve each database name to its account database ID at deployment. The Worker has no public route. The Library uses the `LIBRARY_DATA` service binding to read status and two fixed public sample projections.
+- The public receipt returns readiness counts, a limited set of library labels, and provider integration status. Other databases appear only in aggregate. A readiness check is a read-only database round trip. It does not attest to freshness or content completeness.
+- Airtable and Notion use existing D1 snapshots. GitHub is linked as source provenance. Live external providers need their own authorized scopes and Worker secrets before they can be queried. Existing private keys, signing tokens, and owner-authentication bindings remain on their source Workers.
+- The 85/15 workbench runs in the browser. Each of the six adapters supplies sample vocabulary and four evidence checks. The shared core keeps the observed symptom and candidate visible and distinguishes an open cause from one supported by the recorded checks.
