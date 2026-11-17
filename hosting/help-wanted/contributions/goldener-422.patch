@@ -1,0 +1,89 @@
+diff --git a/README.md b/README.md
+index 5857aec..1e89b11 100644
+--- a/README.md
++++ b/README.md
+@@ -239,6 +239,9 @@ weighted = weigher.weigh_in_table(vectors)
+ sample_weights = weigher.get_weights_per_idx(weighted)
+ ```
+ 
++See [Weighting training samples by embedding density](docs/posts/GOLD_DENSITY_WEIGHING.md)
++for the scoring formula, a complete example, and training integration.
++
+ # Installation
+ 
+ Installing Goldener is as simple as running the following command:
+diff --git a/docs/posts/GOLD_DENSITY_WEIGHING.md b/docs/posts/GOLD_DENSITY_WEIGHING.md
+new file mode 100644
+index 0000000..aca4384
+--- /dev/null
++++ b/docs/posts/GOLD_DENSITY_WEIGHING.md
+@@ -0,0 +1,69 @@
++# GOLDENER <br> Weighting training samples by embedding density
++
++[**Introduction**](#1-introduction) |
++[**Components**](#2-components) |
++[**Working example**](#3-working-example) |
++[**Using weights in training**](#4-using-weights-in-training)
++
++## 1. Introduction
++
++A training set can contain many near-duplicate observations and very few examples of a rare configuration. Embedding-space density gives you a way to change their relative influence. Vectors surrounded by close neighbors receive smaller scores. Vectors farther from their neighbors receive larger scores.
++
++Sparsity measures the geometry of the embeddings. A sparse point may represent a useful rare case, an embedding artifact, or a mislabeled sample. Inspect high-scoring examples and compare weighted and unweighted training on held-out data before relying on the scores. The values do not estimate calibrated prediction difficulty or replace class-balance checks.
++
++## 2. Components
++
++- Prepare one fixed-width, finite floating-point vector per row with a descriptor and vectorizer, or use existing vectors. Use a unique `idx_vector` per vector and a common `idx` for all vectors belonging to one sample.
++- `GoldKnnDensityWeighingTool` finds the `k` nearest neighbors after excluding one copy of the query. It averages the distances and computes `max(mean_distance, eps) ** power`. The default distance is Euclidean and the default exponent is `0.5`. A scoring population needs at least `k + 2` vectors.
++- `GoldDensityWeigher.weigh_in_table` writes one raw score per vector to a PixelTable result table. Reopening an existing result table can reuse completed scores. Choose a new result table when the source vectors or scoring configuration change.
++- `get_weights_per_idx` aggregates each sample's vectors using the arithmetic mean by default. With `normalize=True`, it divides the returned values by the largest positive result after filtering and aggregation. This makes the maximum one when positive scores exist. All-zero scores stay zero.
++
++## 3. Working example
++
++The example uses synthetic vectors to make the weighting behavior easy to inspect. Run it in a local PixelTable workspace where the example table names are available.
++
++```python
++from math import isclose, sqrt
++
++import numpy as np
++import pixeltable as pxt
++
++from goldener import GoldDensityWeigher, GoldKnnDensityWeighingTool
++
++vectors = pxt.create_table(
++    "density_example_vectors",
++    source=[
++        {"idx": 20, "idx_vector": 0, "vectorized": np.array([0.0], dtype=np.float32)},
++        {"idx": 20, "idx_vector": 1, "vectorized": np.array([0.1], dtype=np.float32)},
++        {"idx": 50, "idx_vector": 2, "vectorized": np.array([0.2], dtype=np.float32)},
++        {"idx": 90, "idx_vector": 3, "vectorized": np.array([5.0], dtype=np.float32)},
++    ],
++    primary_key="idx_vector",
++)
++
++weigher = GoldDensityWeigher(
++    "density_example_weights",
++    weigher=GoldKnnDensityWeighingTool(k=1),
++)
++result = weigher.weigh_in_table(vectors)
++sample_weights = weigher.get_weights_per_idx(result)
++
++assert set(sample_weights) == {20, 50, 90}
++assert isclose(sample_weights[90], 1.0)
++assert isclose(sample_weights[20], sqrt(0.1 / 4.8), rel_tol=1e-5)
++assert isclose(sample_weights[50], sample_weights[20], rel_tol=1e-5)
++
++# Use the order of sample IDs in your training dataset.
++training_ids = [50, 90, 20]
++ordered_weights = [sample_weights[idx] for idx in training_ids]
++```
++
++Sample `20` contributes two vectors to its mean. Sample `90` has the largest weight because its nearest neighbor is approximately `4.8` units away while the clustered points have a neighbor approximately `0.1` units away.
++
++## 4. Using weights in training
++
++For sampling, supply `ordered_weights` in dataset order to a weighted sampler. For a weighted loss, join each batch's sample IDs to the dictionary and choose the loss reduction explicitly. Calculate scores for the training split when using them to train a model.
++
++To inspect individual vector scores, call `get_weights_per_idx(result, idx_key="idx_vector", normalize=False)`. For raw sample averages, keep `idx_key="idx"` and set `normalize=False`. To compare samples within a label, configure label stratification on the weigher when scoring and use `label_key` and `label_value` when retrieving weights. Every independently scored label or chunk must meet the population requirement.
++
++See the [weighing implementation](../../goldener/weigh.py), [weighing tests](../../tests/test_weigh.py), and [smart batching](GOLD_BATCHER.md).
