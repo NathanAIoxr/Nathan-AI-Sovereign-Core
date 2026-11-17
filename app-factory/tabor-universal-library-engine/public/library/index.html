@@ -9,12 +9,14 @@
 <title>Library of Tabor within Tabor World</title>
 <link rel="stylesheet" href="./library.css">
 <script type="module" src="./library.mjs"></script>
+<script type="module" src="./connections.mjs"></script>
 </head>
 <body>
 <a class="skip" href="#collection">Skip to the collection</a>
 <header class="top">
   <a class="world-mark" href="https://tabor-world.nathantaboract.workers.dev/">Tabor World</a>
   <nav aria-label="Tabor World destinations">
+    <a href="#accords">Tabor Accords</a>
     <a href="../world/">World records</a>
     <a href="../">v.7 workbench</a>
   </nav>
@@ -27,6 +29,7 @@
       <h1 id="library-title">Library<br>of Tabor</h1>
       <p>Find a character, object, or system. Follow it from the shelf into a playable challenge.</p>
       <a class="action" href="#collection">Explore 101 applications <span aria-hidden="true">↓</span></a>
+      <a class="action" href="#accords">Connections and 85/15 workbench</a>
     </div>
   </section>
   <section class="rooms" aria-labelledby="room-title">
@@ -54,6 +57,35 @@
       <div id="results" class="record-list" aria-label="Matching applications"></div>
       <article id="detail" class="detail" aria-label="Selected application" hidden></article>
     </div>
+  </section>
+  <section class="collection accords" id="accords" aria-labelledby="accords-title">
+    <div class="section-intro"><div><p class="credit">TABOR ACCORDS → TABOR WORLD → LIBRARY OF TABOR</p><h2 id="accords-title">Connections</h2></div>
+      <a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/one/tabor-recovered/Tabor_Accords_Recovery_Registry_2026-11-01.json">Accords source registry</a></div>
+    <p id="connections-status" role="status">Checking the database connections…</p>
+    <div class="connections-grid">
+      <div><h3>Library sources</h3><ul id="database-connections"></ul></div>
+      <div><h3>Provider connections</h3><ul id="provider-connections"></ul></div>
+    </div>
+    <div class="connection-actions">
+      <button type="button" data-collection="worlds">Read Worlds Atlas sample</button>
+      <button type="button" data-collection="cosmic">Read Cosmic Body sample</button>
+      <a href="./api/connections">Connection receipt JSON</a>
+    </div>
+    <p id="collection-status" role="status"></p><ul id="collection-sample"></ul>
+  </section>
+  <section class="collection accords" id="root-workbench" aria-labelledby="root-title">
+    <div class="section-intro"><div><p class="credit">1+1=2 BUILD · 1−1=0 CLEAR</p><h2 id="root-title">85/15 Root-Cause Plug</h2></div></div>
+    <p>The shared core checks evidence. Your category supplies the terms and tests. Your entries stay in this browser session.</p>
+    <form id="root-form">
+      <div class="root-fields">
+        <label>Category<select id="root-adapter"></select></label>
+        <label>Observed symptom<input id="root-symptom" required maxlength="300"></label>
+        <label>Candidate cause<input id="root-candidate" required maxlength="300"></label>
+      </div>
+      <fieldset><legend>Evidence checks</legend><div id="root-checks" class="root-fields"></div></fieldset>
+      <div class="connection-actions"><button type="submit">Evaluate evidence</button><button type="button" id="root-example">Load example</button><button type="reset">Clear</button></div>
+    </form>
+    <div id="root-result" role="status" aria-live="polite"></div>
   </section>
 </main>
 <footer>

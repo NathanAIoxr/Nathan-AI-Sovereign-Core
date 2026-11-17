@@ -96,3 +96,11 @@ footer { color: var(--muted); border-top: 1px solid var(--line); border-bottom: 
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; }
 }
+
+.accords{margin-top:20px;padding:clamp(12px,3vw,24px);border:1px solid #3f6656;border-radius:14px;background:#142923;scroll-margin-top:12px}
+.accords h3{margin:8px 0 4px}.accords ul{margin:0 0 8px;padding-inline-start:20px;line-height:1.55;overflow-wrap:anywhere}
+.connections-grid,.root-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px}
+.connection-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0}
+.accords form{display:block;padding:0}.accords input,.accords select{width:100%;min-width:0}.accords fieldset{margin:12px 0 0;padding:10px;border:1px solid #43705b;border-radius:8px;min-width:0}
+.accords legend{padding-inline:5px}.accords button{min-height:42px}.accords #root-result p{margin:5px 0;overflow-wrap:anywhere}.accords .section-intro{flex-wrap:wrap;gap:8px}
+@media(max-width:540px){.accords .section-intro{align-items:flex-start}.connection-actions{gap:5px}}
