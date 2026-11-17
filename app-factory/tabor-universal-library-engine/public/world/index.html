@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#11201e">
+<meta name="author" content="Nathan Tabor">
+<title>Tabor World by Nathan Tabor</title>
+<link rel="stylesheet" href="./world.css">
+<script type="module" src="./world.mjs"></script>
+</head>
+<body>
+<main>
+<header><div><p class="credit">NATHAN TABOR</p><h1>Tabor World</h1></div><a class="button" href="../">Open v.7 engine</a></header>
+<nav id="views" aria-label="World views">
+<button data-view="all" aria-pressed="true">All records</button>
+<button data-view="elements" aria-pressed="false">Elements</button>
+<button data-view="non-elements" aria-pressed="false">Non-elements</button>
+</nav>
+<section id="element-note" class="panel element-note" hidden>
+<h2>Chemical elements</h2><p>Atomic numbers 1–118. Open IUPAC for the full table with names and symbols.</p>
+<a href="https://iupac.org/what-we-do/periodic-table-of-elements/">IUPAC periodic table</a>
+</section>
+<div class="shell">
+<section class="panel list-panel" aria-labelledby="list-title">
+<h2 id="list-title">World index</h2>
+<div class="filters">
+<label>Search<input id="query" type="search" autocomplete="off" placeholder="Title, ID, atomic number"></label>
+<label>Category<select id="category"><option value="">All categories</option></select></label>
+</div>
+<p id="status" role="status">Loading Tabor World…</p>
+<div id="records"></div>
+<div id="pages" aria-label="Result pages"><button id="previous-page">Previous</button><span id="current-page"></span><button id="next-page">Next</button></div>
+</section>
+<aside>
+<section class="panel inspector" aria-labelledby="detail-title">
+<h2 id="detail-title">Record details</h2>
+<p id="detail-empty">Choose a record to see its source, properties, and connections.</p>
+<div id="detail" hidden></div>
+</section>
+<section class="panel tray" aria-labelledby="tray-title">
+<div class="tray-head"><h2 id="tray-title">Compare records</h2><button id="clear" type="button" disabled>Clear</button></div>
+<p id="tray-status" aria-live="polite">Add two records to compare them.</p>
+<div id="comparison"></div>
+</section>
+</aside>
+</div>
+<details class="panel sources"><summary>Source editions and downloads</summary><ul id="sources"></ul></details>
+</main>
+</body>
+</html>

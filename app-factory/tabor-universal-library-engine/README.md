@@ -6,7 +6,7 @@ The portrait workspace uses the 45/10/45 layout. Select a cartridge, interact in
 
 - 101 numbered slots.
 - Items 65–101 retain the original title, description, number, and class from Nathan Tabor's supplied ledger.
-- The 64 earlier slots are reserved for the original source.
+- Items 1–64 come from the Tracker Ball branch supplement. The separate 101-entry Tabor World numbering is kept alongside it.
 - 13 runnable numbered cartridges include the #101 loader and the #81 Circuit Lab preset. Five supplemental drills include Hook & Ring, Grapple It, BIBLeTopia, Sword-Play, and Fishing-Rod Line Release.
 - Classroom models are simplified, use normalized quantities, and describe their own controls. The personal vault saves tagged text notes in the current browser. The Cast presents authored or rule-triggered lines.
 
@@ -24,3 +24,9 @@ Run a development server from the repository root after building. Open app-facto
 Circuit Lab accepts the LC_TK_CIRCUITS_V7 schema from public/catalog.json. Imported packs affect the current browser session. Physics parameters and text are validated before use.
 
 Official classification outline: https://www.loc.gov/aba/cataloging/classification/lcco/
+
+## Tabor World
+
+Open the World link in the engine or use /world/ on the deployed Worker. The registry has an Elements view with the 118 atomic-number references and a link to IUPAC, and a Non-elements view for material, physical, symbolic, narrative, geographic, anatomical, and software records. The browser can compare two records and follow recorded links.
+
+The source catalog and cast/props come from GitHub PR #273 (source commit be390336dad6076f930ed1f8dc9f3cf771ed6629). The build also includes the unchanged public Cosmic Body and meSPARK Worlds Atlas JSON from their repository paths. The Worlds Atlas source notes that its coordinates can be anchors for fictional and mythological settings. The Cosmic Body source tiers remain visible.

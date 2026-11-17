@@ -28,3 +28,5 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .releases{margin-top:17px}.releases h2{font-size:1rem;margin-bottom:5px}.releases div{display:flex;gap:8px 15px;flex-wrap:wrap;font-size:.8rem}
 @media(max-width:730px){.workspace{grid-template-columns:minmax(0,1fr)}.stack{height:clamp(600px,calc(100dvh - 126px),790px)}.catalog{padding:7px 9px}#entries{max-height:36dvh}.mast{align-items:center}.mast-actions button{font-size:.71rem;padding:5px 6px}}
 @media(max-width:385px){main{padding:9px 8px 16px}.lab-heading p,.bridge span{font-size:.68rem}.panel{padding:7px}.puzzle{gap:4px;padding:6px}#sequence button{min-width:30px;padding:4px}}
+
+.world-link{font-size:.82rem;padding:.4rem .58rem;border:1px solid var(--line);border-radius:8px;background:#263c33;white-space:nowrap}

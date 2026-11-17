@@ -10,6 +10,7 @@ const catalog=JSON.parse(await readFile(new URL("./public/catalog.json",import.m
 const root=new URL("https://tabor-universal-library-engine.workers.dev/");
 const worker=(await import("./.release/worker.mjs")).default;
 const request=(path,options)=>worker.fetch(new Request(new URL(path,root),options));
+const assetDir="/app-factory/tabor-universal-library-engine/public/";
 
 test("the Worker serves the original shared modules, browser shell and full source catalog",async ()=>{
   const redirect=await request("/?module=81");
@@ -24,10 +25,10 @@ test("the Worker serves the original shared modules, browser shell and full sour
   assert.equal((await request("/missing")).status,404);
   assert.equal((await request("/",{method:"POST"})).status,405);
 });
-test("37 authored records retain stable IDs and all 64 missing slots stay empty",()=>{
-  const rows=engine.sourceIndex(catalog.ledger);
+test("both Tracker Ball fragments retain their original titles and numbering",()=>{
+  const rows=engine.sourceIndex(catalog.ledger,catalog.trackerSupplement);
   assert.deepEqual(rows.map(r=>r.id),Array.from({length:101},(_,i)=>i+1));
-  assert.ok(rows.slice(0,64).every(r=>!r.title));
+  assert.deepEqual(rows.slice(0,64).map(r=>r.title),catalog.trackerSupplement.map(r=>r.title));
   assert.deepEqual(rows.slice(64),catalog.ledger);
   assert.ok(engine.validCircuit(catalog.circuit));
   const invalid=structuredClone(catalog.circuit);
@@ -87,4 +88,24 @@ test("call-number sorting and bit-rot checksum have observable results",()=>{
   assert.match(labs.actLab("94",sort,"Q",bus,catalog.circuit),/Shelved/);
   assert.match(labs.actLab("98",memory,null,bus,catalog.circuit),/differs/);
   assert.equal(sort.correct,1);
+});
+
+test("Tabor World loads complete scoped editions and preserves a real relationship",async ()=>{
+  const {createWorld,matches,compare}=await import("./public/world/world-core.mjs");
+  const data=f=>JSON.parse(assets[assetDir+"world/"+f+".json"]);
+  const {records,summary}=createWorld({ledger:catalog,library:data("source-catalog"),castAndProps:data("cast-and-props"),
+    atlas:data("cosmic-body"),places:data("worlds-atlas"),entries:data("world")});
+  assert.deepEqual(summary,{elements:118,nonElements:714,tracker:101,world:101,cosmic:374,cosmicRelationships:331,places:53});
+  const atomic=records.filter(r=>r.kind==="Chemical element");
+  assert.deepEqual(atomic.map(r=>r.number),Array.from({length:118},(_,i)=>i+1));
+  assert.deepEqual(atomic.filter(r=>matches(r,"118")).map(r=>r.id),["atomic-118"]);
+  const index=new Map(records.map(r=>[r.id,r]));
+  assert.equal(index.get("tracker-65").title,"Molecular Geometry & Bond Rotator");
+  assert.equal(index.get("world-library-65").title,"Grammar Sentence Diagrammer");
+  assert.equal(compare(index.get("materials-water"),index.get("classic-water")).length,2);
+  assert.ok(records.some(r=>r.source==="Cosmic Body Atlas · DOS"));
+  const location=(await request("/world/?record=classic-water")).headers.get("location");
+  assert.match(location,/\/world\/\?record=classic-water$/);
+  const response=await request(location);
+  assert.match(await response.text(),/Tabor World by Nathan Tabor/);
 });

@@ -1,0 +1,571 @@
+{
+  "cast": [
+    {
+      "id": "nathan",
+      "label": "Nathan AI 🚀",
+      "kind": "character",
+      "attributes": [
+        "coach",
+        "rival"
+      ],
+      "characteristics": [
+        "checks the evidence"
+      ],
+      "functionalities": [
+        "explains BUILD and VERIFY"
+      ],
+      "traits": [
+        "precise"
+      ]
+    },
+    {
+      "id": "pk",
+      "label": "PK",
+      "kind": "character",
+      "attributes": [
+        "wild card"
+      ],
+      "characteristics": [
+        "changes the order of the tray"
+      ],
+      "functionalities": [
+        "starts a new round for a second attempt"
+      ],
+      "traits": [
+        "playful"
+      ]
+    },
+    {
+      "id": "curator",
+      "label": "Grape-Apple Curator",
+      "kind": "character",
+      "attributes": [
+        "subject guide"
+      ],
+      "characteristics": [
+        "keeps the original labels"
+      ],
+      "functionalities": [
+        "explains the two records behind the exercise"
+      ],
+      "traits": [
+        "curious"
+      ]
+    }
+  ],
+  "pilots": {
+    "1": {
+      "goal": "Build an exhibit object and its provenance record.",
+      "required": [
+        "A",
+        "B"
+      ],
+      "records": [
+        {
+          "label": "Artifact A",
+          "kind": "non-character",
+          "attributes": [
+            "object ID"
+          ],
+          "characteristics": [
+            "physical exhibit"
+          ],
+          "functionalities": [
+            "inspect the object"
+          ],
+          "traits": [
+            "movable"
+          ]
+        },
+        {
+          "label": "Provenance card A",
+          "kind": "non-character",
+          "attributes": [
+            "source ID"
+          ],
+          "characteristics": [
+            "references Artifact A"
+          ],
+          "functionalities": [
+            "trace acquisition"
+          ],
+          "traits": [
+            "source-linked"
+          ]
+        },
+        {
+          "label": "Provenance card B",
+          "kind": "non-character",
+          "attributes": [
+            "source ID"
+          ],
+          "characteristics": [
+            "references another object"
+          ],
+          "functionalities": [
+            "trace a separate acquisition"
+          ],
+          "traits": [
+            "source-linked"
+          ]
+        }
+      ]
+    },
+    "6": {
+      "goal": "Pair a Scripture scene with its passage citation.",
+      "required": [
+        "A",
+        "B"
+      ],
+      "records": [
+        {
+          "label": "Scene card",
+          "kind": "non-character",
+          "attributes": [
+            "Luke 10"
+          ],
+          "characteristics": [
+            "Good Samaritan scene"
+          ],
+          "functionalities": [
+            "assemble a scene"
+          ],
+          "traits": [
+            "KJV track"
+          ]
+        },
+        {
+          "label": "Luke 10:30–37 citation",
+          "kind": "non-character",
+          "attributes": [
+            "passage range"
+          ],
+          "characteristics": [
+            "matches the scene"
+          ],
+          "functionalities": [
+            "open the passage reference"
+          ],
+          "traits": [
+            "source-linked"
+          ]
+        },
+        {
+          "label": "Genesis 1 citation",
+          "kind": "non-character",
+          "attributes": [
+            "passage"
+          ],
+          "characteristics": [
+            "different scene"
+          ],
+          "functionalities": [
+            "open another reference"
+          ],
+          "traits": [
+            "source-linked"
+          ]
+        }
+      ]
+    },
+    "16": {
+      "goal": "Match the two identifiers on the sample family record.",
+      "required": [
+        "A",
+        "C"
+      ],
+      "records": [
+        {
+          "label": "Person record P-01",
+          "kind": "non-character",
+          "attributes": [
+            "record ID"
+          ],
+          "characteristics": [
+            "fictional genealogy record"
+          ],
+          "functionalities": [
+            "open identity"
+          ],
+          "traits": [
+            "source-stable"
+          ]
+        },
+        {
+          "label": "Relationship P-07 / P-12",
+          "kind": "non-character",
+          "attributes": [
+            "two person IDs"
+          ],
+          "characteristics": [
+            "another branch"
+          ],
+          "functionalities": [
+            "trace a link"
+          ],
+          "traits": [
+            "source-linked"
+          ]
+        },
+        {
+          "label": "Relationship P-01 / P-02",
+          "kind": "non-character",
+          "attributes": [
+            "two person IDs"
+          ],
+          "characteristics": [
+            "references P-01"
+          ],
+          "functionalities": [
+            "trace a link"
+          ],
+          "traits": [
+            "source-linked"
+          ]
+        }
+      ]
+    },
+    "28": {
+      "goal": "Pair the ring with the hook, then use your charge on the play surface.",
+      "required": [
+        "B",
+        "C"
+      ],
+      "records": [
+        {
+          "label": "Scoreboard",
+          "kind": "non-character",
+          "attributes": [
+            "score"
+          ],
+          "characteristics": [
+            "display"
+          ],
+          "functionalities": [
+            "show the outcome"
+          ],
+          "traits": [
+            "updates after play"
+          ]
+        },
+        {
+          "label": "Ring",
+          "kind": "non-character",
+          "attributes": [
+            "throwable"
+          ],
+          "characteristics": [
+            "circular"
+          ],
+          "functionalities": [
+            "release toward a target"
+          ],
+          "traits": [
+            "virtual prop"
+          ]
+        },
+        {
+          "label": "Hook",
+          "kind": "non-character",
+          "attributes": [
+            "target"
+          ],
+          "characteristics": [
+            "fixed"
+          ],
+          "functionalities": [
+            "receive the ring"
+          ],
+          "traits": [
+            "virtual prop"
+          ]
+        }
+      ]
+    },
+    "50": {
+      "goal": "Build the word AT from its first sound and its final sound.",
+      "required": [
+        "A",
+        "B"
+      ],
+      "records": [
+        {
+          "label": "A",
+          "kind": "non-character",
+          "attributes": [
+            "first sound"
+          ],
+          "characteristics": [
+            "short a in AT"
+          ],
+          "functionalities": [
+            "start the blend"
+          ],
+          "traits": [
+            "letter"
+          ]
+        },
+        {
+          "label": "T",
+          "kind": "non-character",
+          "attributes": [
+            "last sound"
+          ],
+          "characteristics": [
+            "ends AT"
+          ],
+          "functionalities": [
+            "finish the blend"
+          ],
+          "traits": [
+            "letter"
+          ]
+        },
+        {
+          "label": "B",
+          "kind": "non-character",
+          "attributes": [
+            "another sound"
+          ],
+          "characteristics": [
+            "appears in BAT"
+          ],
+          "functionalities": [
+            "start another word"
+          ],
+          "traits": [
+            "letter"
+          ]
+        }
+      ]
+    },
+    "68": {
+      "goal": "Build two recorded units with two distinct car IDs.",
+      "required": [
+        "A",
+        "C"
+      ],
+      "records": [
+        {
+          "label": "Car C-01",
+          "kind": "non-character",
+          "attributes": [
+            "unit ID C-01"
+          ],
+          "characteristics": [
+            "physically present"
+          ],
+          "functionalities": [
+            "add one unit"
+          ],
+          "traits": [
+            "parked"
+          ]
+        },
+        {
+          "label": "Photo of Car C-01",
+          "kind": "non-character",
+          "attributes": [
+            "image ID"
+          ],
+          "characteristics": [
+            "depicts an already counted car"
+          ],
+          "functionalities": [
+            "link evidence"
+          ],
+          "traits": [
+            "observation"
+          ]
+        },
+        {
+          "label": "Car C-02",
+          "kind": "non-character",
+          "attributes": [
+            "unit ID C-02"
+          ],
+          "characteristics": [
+            "physically present"
+          ],
+          "functionalities": [
+            "add one unit"
+          ],
+          "traits": [
+            "parked"
+          ]
+        }
+      ]
+    },
+    "86": {
+      "goal": "Match a fictional circuit board with its diagram.",
+      "required": [
+        "A",
+        "C"
+      ],
+      "records": [
+        {
+          "label": "Board Y",
+          "kind": "non-character",
+          "attributes": [
+            "board ID Y"
+          ],
+          "characteristics": [
+            "virtual board"
+          ],
+          "functionalities": [
+            "inspect parts"
+          ],
+          "traits": [
+            "sample"
+          ]
+        },
+        {
+          "label": "Diagram Z",
+          "kind": "non-character",
+          "attributes": [
+            "diagram ID Z"
+          ],
+          "characteristics": [
+            "labels another board"
+          ],
+          "functionalities": [
+            "inspect a different model"
+          ],
+          "traits": [
+            "sample"
+          ]
+        },
+        {
+          "label": "Diagram Y",
+          "kind": "non-character",
+          "attributes": [
+            "diagram ID Y"
+          ],
+          "characteristics": [
+            "labels Board Y"
+          ],
+          "functionalities": [
+            "match component labels"
+          ],
+          "traits": [
+            "sample"
+          ]
+        }
+      ]
+    },
+    "100": {
+      "goal": "Match a library item with the shelf bearing its main class.",
+      "required": [
+        "A",
+        "B"
+      ],
+      "records": [
+        {
+          "label": "Cataloging handbook",
+          "kind": "non-character",
+          "attributes": [
+            "subject library science"
+          ],
+          "characteristics": [
+            "starts in Z"
+          ],
+          "functionalities": [
+            "look up the subject"
+          ],
+          "traits": [
+            "book"
+          ]
+        },
+        {
+          "label": "Class Z shelf",
+          "kind": "non-character",
+          "attributes": [
+            "Z"
+          ],
+          "characteristics": [
+            "library science"
+          ],
+          "functionalities": [
+            "receive the book"
+          ],
+          "traits": [
+            "location"
+          ]
+        },
+        {
+          "label": "Class M shelf",
+          "kind": "non-character",
+          "attributes": [
+            "M"
+          ],
+          "characteristics": [
+            "music"
+          ],
+          "functionalities": [
+            "receive a music item"
+          ],
+          "traits": [
+            "location"
+          ]
+        }
+      ]
+    },
+    "101": {
+      "goal": "Pair a fictional note with the tag used by its source.",
+      "required": [
+        "B",
+        "C"
+      ],
+      "records": [
+        {
+          "label": "Topic: tracks",
+          "kind": "non-character",
+          "attributes": [
+            "tag ID"
+          ],
+          "characteristics": [
+            "separate topic"
+          ],
+          "functionalities": [
+            "filter another note"
+          ],
+          "traits": [
+            "index label"
+          ]
+        },
+        {
+          "label": "Sample note: museum visit",
+          "kind": "non-character",
+          "attributes": [
+            "note ID"
+          ],
+          "characteristics": [
+            "mentions a collection"
+          ],
+          "functionalities": [
+            "open the record"
+          ],
+          "traits": [
+            "fictional"
+          ]
+        },
+        {
+          "label": "Topic: museum",
+          "kind": "non-character",
+          "attributes": [
+            "tag ID"
+          ],
+          "characteristics": [
+            "matches the note"
+          ],
+          "functionalities": [
+            "filter the note"
+          ],
+          "traits": [
+            "index label"
+          ]
+        }
+      ]
+    }
+  }
+}

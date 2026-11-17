@@ -1,6 +1,7 @@
 import { readFile,writeFile,mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { gzipSync } from "node:zlib";
 
 const dir=fileURLToPath(new URL(".",import.meta.url));
 const root=resolve(dir,"../..");
@@ -32,10 +33,16 @@ export async function build(){
   const generated=arcadeModule(await read(arcade));
   const assets=Object.fromEntries(await Promise.all(browserFiles.map(async p=>["/"+p,await read(p)])));
   assets[entry+"arcade-core.mjs"]=generated;
+  for(const f of ["index.html","world.css","world.mjs","world-core.mjs","world.json","source-catalog.json","cast-and-props.json"])
+    assets[entry+"world/"+f]=await read(app+"/public/world/"+f);
+  assets[entry+"world/cosmic-body.json"]=await read("app-factory/nathan-ai/anatomy/cosmic-body/atlas.json");
+  assets[entry+"world/worlds-atlas.json"]=await read("app-factory/one/mespark-memory-matrix/worlds-atlas.json");
   const out=resolve(dir,".release");
   await mkdir(out,{recursive:true});
   await writeFile(resolve(dir,"public/arcade-core.mjs"),generated);
-  const worker="const files="+JSON.stringify(assets)+";\nconst entry="+JSON.stringify(entry)+";\n"+
+  const packed=Object.fromEntries(Object.entries(assets).map(([path,content])=>
+    [path,Buffer.byteLength(content)>12000?[gzipSync(content,{level:9}).toString("base64")]:content]));
+  const worker="const files="+JSON.stringify(packed)+";\nconst entry="+JSON.stringify(entry)+";\n"+
     await read(app+"/worker.mjs");
   await writeFile(resolve(out,"worker.mjs"),worker);
   return {worker,assets};

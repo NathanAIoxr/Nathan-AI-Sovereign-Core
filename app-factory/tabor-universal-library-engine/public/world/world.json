@@ -1,0 +1,489 @@
+[
+  {
+    "id": "components-atom",
+    "kind": "Particle & structure",
+    "title": "Atom",
+    "description": "An atomic structure consists of a nucleus and electrons. Its atomic number identifies its chemical element."
+  },
+  {
+    "id": "components-nucleus",
+    "kind": "Particle & structure",
+    "title": "Atomic nucleus",
+    "description": "The central structure of an atom.",
+    "links": [
+      "components-atom",
+      "components-proton",
+      "components-neutron"
+    ]
+  },
+  {
+    "id": "components-electron",
+    "kind": "Particle & structure",
+    "title": "Electron",
+    "description": "A negatively charged elementary particle.",
+    "links": [
+      "components-atom"
+    ]
+  },
+  {
+    "id": "components-proton",
+    "kind": "Particle & structure",
+    "title": "Proton",
+    "description": "A positively charged constituent of an atomic nucleus. Its count gives the atomic number.",
+    "links": [
+      "components-nucleus"
+    ]
+  },
+  {
+    "id": "components-neutron",
+    "kind": "Particle & structure",
+    "title": "Neutron",
+    "description": "An electrically neutral constituent of most atomic nuclei.",
+    "links": [
+      "components-nucleus"
+    ]
+  },
+  {
+    "id": "components-photon",
+    "kind": "Particle & structure",
+    "title": "Photon",
+    "description": "A quantum of the electromagnetic field.",
+    "links": [
+      "phenomena-light"
+    ]
+  },
+  {
+    "id": "components-quark",
+    "kind": "Particle & structure",
+    "title": "Quark",
+    "description": "A kind of elementary particle that makes up protons and neutrons.",
+    "links": [
+      "components-proton",
+      "components-neutron"
+    ]
+  },
+  {
+    "id": "materials-water",
+    "kind": "Material",
+    "title": "Water",
+    "description": "A molecular compound. Here it also connects to the irrigation cartridge and to water as a classical element.",
+    "links": [
+      "classic-water",
+      "tracker-77"
+    ]
+  },
+  {
+    "id": "materials-air",
+    "kind": "Material",
+    "title": "Air",
+    "description": "A mixture of gases. Its composition may vary with moisture, altitude, and local conditions.",
+    "links": [
+      "classic-air",
+      "phenomena-sound"
+    ]
+  },
+  {
+    "id": "materials-soil",
+    "kind": "Material",
+    "title": "Soil",
+    "description": "A mixture that can include mineral particles, organic matter, water, air, and organisms.",
+    "links": [
+      "classic-earth",
+      "tracker-75"
+    ]
+  },
+  {
+    "id": "materials-rock",
+    "kind": "Material",
+    "title": "Rock",
+    "description": "A naturally occurring solid material composed of one or more minerals or similar substances."
+  },
+  {
+    "id": "materials-glass",
+    "kind": "Material",
+    "title": "Glass",
+    "description": "A noncrystalline solid material."
+  },
+  {
+    "id": "materials-alloy",
+    "kind": "Material",
+    "title": "Alloy",
+    "description": "A metallic material that contains more than one chemical element."
+  },
+  {
+    "id": "materials-molecule",
+    "kind": "Material",
+    "title": "Molecule",
+    "description": "A bonded group of atoms.",
+    "links": [
+      "components-atom",
+      "tracker-65"
+    ]
+  },
+  {
+    "id": "phenomena-light",
+    "kind": "Force & phenomenon",
+    "title": "Light",
+    "description": "Electromagnetic radiation. Visible light is the part of the spectrum people can see.",
+    "links": [
+      "components-photon"
+    ]
+  },
+  {
+    "id": "phenomena-sound",
+    "kind": "Force & phenomenon",
+    "title": "Sound",
+    "description": "A mechanical disturbance that propagates through a medium.",
+    "links": [
+      "tracker-67"
+    ]
+  },
+  {
+    "id": "phenomena-gravity",
+    "kind": "Force & phenomenon",
+    "title": "Gravity",
+    "description": "Gravitational interaction, explored in the orbital mechanics and force field cartridges.",
+    "links": [
+      "tracker-66",
+      "tracker-68"
+    ]
+  },
+  {
+    "id": "phenomena-magnetism",
+    "kind": "Force & phenomenon",
+    "title": "Magnetism",
+    "description": "A family of electromagnetic phenomena. Tabor World uses magnetic snapping as a separate interface behavior.",
+    "links": [
+      "tracker-68",
+      "tracker-81"
+    ]
+  },
+  {
+    "id": "phenomena-fire",
+    "kind": "Force & phenomenon",
+    "title": "Fire",
+    "description": "Combustion can produce heat and light. Fire also has a distinct place in classical cosmologies.",
+    "links": [
+      "classic-fire"
+    ]
+  },
+  {
+    "id": "phenomena-vacuum",
+    "kind": "Force & phenomenon",
+    "title": "Vacuum",
+    "description": "A region with very little matter."
+  },
+  {
+    "id": "phenomena-time",
+    "kind": "Force & phenomenon",
+    "title": "Time",
+    "description": "The order and duration of events. In the engine it also controls simulation and timing challenges."
+  },
+  {
+    "id": "phenomena-solid",
+    "kind": "State of matter",
+    "title": "Solid",
+    "description": "Matter with a characteristic shape and volume under ordinary conditions."
+  },
+  {
+    "id": "phenomena-liquid",
+    "kind": "State of matter",
+    "title": "Liquid",
+    "description": "Matter that flows and generally retains its volume while taking the shape of its container.",
+    "links": [
+      "materials-water"
+    ]
+  },
+  {
+    "id": "phenomena-gas",
+    "kind": "State of matter",
+    "title": "Gas",
+    "description": "Matter that expands to fill the space available to it.",
+    "links": [
+      "materials-air"
+    ]
+  },
+  {
+    "id": "phenomena-plasma",
+    "kind": "State of matter",
+    "title": "Plasma",
+    "description": "Ionized matter with mobile charged particles."
+  },
+  {
+    "id": "classic-earth",
+    "kind": "Classical element",
+    "title": "Earth",
+    "description": "Classical and symbolic use of earth. See the Worlds Atlas for Earth as a planet.",
+    "links": [
+      "materials-soil",
+      "place-world-001"
+    ]
+  },
+  {
+    "id": "classic-water",
+    "kind": "Classical element",
+    "title": "Water",
+    "description": "Classical and symbolic use of water.",
+    "links": [
+      "materials-water"
+    ]
+  },
+  {
+    "id": "classic-air",
+    "kind": "Classical element",
+    "title": "Air",
+    "description": "Classical and symbolic use of air.",
+    "links": [
+      "materials-air"
+    ]
+  },
+  {
+    "id": "classic-fire",
+    "kind": "Classical element",
+    "title": "Fire",
+    "description": "Classical and symbolic use of fire.",
+    "links": [
+      "phenomena-fire"
+    ]
+  },
+  {
+    "id": "classic-space",
+    "kind": "Classical element",
+    "title": "Space / aether",
+    "description": "A concept appearing in several classical traditions with different meanings."
+  },
+  {
+    "id": "rule-build",
+    "kind": "Rule & concept",
+    "title": "1+1=2 · BUILD",
+    "description": "Nathan Tabor’s BUILD anchor. Add two distinct records to the comparison tray."
+  },
+  {
+    "id": "rule-clear",
+    "kind": "Rule & concept",
+    "title": "1−1=0 · CLEAR",
+    "description": "Nathan Tabor’s CLEAR anchor. Remove a record from the comparison tray or clear the tray."
+  },
+  {
+    "id": "rule-bridge",
+    "kind": "Rule & concept",
+    "title": "Universal Bridge",
+    "description": "The existing Tabor engine connects bottom-screen progress to charge, buffs, shield, and top-screen scoring.",
+    "links": [
+      "rule-build",
+      "tracker-101"
+    ]
+  },
+  {
+    "id": "rule-pinching",
+    "kind": "Rule & concept",
+    "title": "Pinch-to-Move",
+    "description": "The shared input path for two-contact positioning, scale, and twist.",
+    "links": [
+      "tracker-81"
+    ]
+  },
+  {
+    "id": "object-hook",
+    "kind": "Object & mechanism",
+    "title": "Hook",
+    "description": "The receiving target in Hook & Ring.",
+    "links": [
+      "object-ring"
+    ]
+  },
+  {
+    "id": "object-ring",
+    "kind": "Object & mechanism",
+    "title": "Ring",
+    "description": "The swinging prop in Hook & Ring.",
+    "links": [
+      "object-hook",
+      "rule-bridge"
+    ]
+  },
+  {
+    "id": "object-rope",
+    "kind": "Object & mechanism",
+    "title": "16-node rope",
+    "description": "The fixed-step visual rope shared with Grapple It.",
+    "links": [
+      "rule-bridge"
+    ]
+  },
+  {
+    "id": "object-trackball",
+    "kind": "Object & mechanism",
+    "title": "Tabor Track Baller",
+    "description": "Nathan Tabor’s touchscreen controller for rolling, swirling, strokes, pinch, twist, and tilt.",
+    "links": [
+      "rule-pinching",
+      "tracker-101"
+    ]
+  },
+  {
+    "id": "cast-krampus",
+    "kind": "Character",
+    "title": "SANTA KRAMPUS",
+    "description": "One of Nathan Tabor’s TWINS of MAS.",
+    "links": [
+      "cast-supmark",
+      "work-mas"
+    ]
+  },
+  {
+    "id": "cast-supmark",
+    "kind": "Character",
+    "title": "SANTA SUPMARK",
+    "description": "One of Nathan Tabor’s TWINS of MAS.",
+    "links": [
+      "cast-krampus",
+      "work-mas"
+    ]
+  },
+  {
+    "id": "cast-glampus",
+    "kind": "Character",
+    "title": "SANTA GLAMPUS",
+    "description": "One of Nathan Tabor’s TWINS of SPIRIT.",
+    "links": [
+      "cast-supmals",
+      "work-mas"
+    ]
+  },
+  {
+    "id": "cast-supmals",
+    "kind": "Character",
+    "title": "SANTA SUPMALS",
+    "description": "One of Nathan Tabor’s TWINS of SPIRIT.",
+    "links": [
+      "cast-glampus",
+      "work-mas"
+    ]
+  },
+  {
+    "id": "work-mas",
+    "kind": "World & work",
+    "title": "MAS SPIRIT",
+    "description": "Nathan Tabor’s TWINS of MAS and TWINS of SPIRIT, together.",
+    "links": [
+      "cast-krampus",
+      "cast-supmark",
+      "cast-glampus",
+      "cast-supmals"
+    ]
+  },
+  {
+    "id": "work-village",
+    "kind": "World & work",
+    "title": "BIBLeTopia",
+    "description": "Nathan Tabor’s village- and town-building world with game and story connections.",
+    "links": [
+      "world-library-6"
+    ],
+    "url": "https://bibletopia.nathantaboract.workers.dev/"
+  },
+  {
+    "id": "work-grapple",
+    "kind": "World & work",
+    "title": "Grapple It",
+    "description": "Nathan Tabor’s game world with rope and trajectory play.",
+    "links": [
+      "object-rope"
+    ],
+    "url": "https://grapple-it.nathantaboract.workers.dev/"
+  },
+  {
+    "id": "life-organism",
+    "kind": "Life & ecosystem",
+    "title": "Organism",
+    "description": "A living individual in an ecosystem."
+  },
+  {
+    "id": "life-cell",
+    "kind": "Life & ecosystem",
+    "title": "Cell",
+    "description": "A basic structural and functional unit of living organisms."
+  },
+  {
+    "id": "life-plant",
+    "kind": "Life & ecosystem",
+    "title": "Plant",
+    "description": "A group of organisms represented in Tabor World through growth, soil, water, and canopy interactions.",
+    "links": [
+      "materials-soil",
+      "materials-water",
+      "tracker-75",
+      "tracker-78"
+    ]
+  },
+  {
+    "id": "life-animal",
+    "kind": "Life & ecosystem",
+    "title": "Animal",
+    "description": "A group of living organisms represented in the agriculture, forestry, and animal care branch.",
+    "links": [
+      "tracker-76"
+    ]
+  },
+  {
+    "id": "life-ecosystem",
+    "kind": "Life & ecosystem",
+    "title": "Ecosystem",
+    "description": "Organisms and their physical environment considered together.",
+    "links": [
+      "life-organism",
+      "life-plant",
+      "life-animal"
+    ]
+  },
+  {
+    "id": "life-habitat",
+    "kind": "Life & ecosystem",
+    "title": "Habitat",
+    "description": "The environment in which a given organism lives.",
+    "links": [
+      "life-organism",
+      "life-ecosystem"
+    ]
+  },
+  {
+    "id": "concept-absence",
+    "kind": "Rule & concept",
+    "title": "Absence",
+    "description": "A missing object or record in a defined context. The interface displays missing connections as a catalog state.",
+    "links": [
+      "rule-clear"
+    ]
+  },
+  {
+    "id": "concept-number",
+    "kind": "Rule & concept",
+    "title": "Number",
+    "description": "A way to express count, amount, position, or value, including the atomic-number index.",
+    "links": [
+      "rule-build",
+      "rule-clear"
+    ]
+  },
+  {
+    "id": "concept-pattern",
+    "kind": "Rule & concept",
+    "title": "Pattern",
+    "description": "A recurring arrangement or behavior that can be inspected across cartridges and catalog records.",
+    "links": [
+      "tracker-67",
+      "tracker-69"
+    ]
+  },
+  {
+    "id": "phenomena-wave",
+    "kind": "Force & phenomenon",
+    "title": "Wave",
+    "description": "A propagating disturbance. The v.7 wave pool lets the user compare one source and two.",
+    "links": [
+      "phenomena-sound",
+      "tracker-67"
+    ]
+  }
+]
