@@ -1,9 +1,14 @@
-const cacheName="tabor-tracker-ball-1.1.0";
-const shell=[".","index.html","style.css","app.mjs","track-baller.mjs","digit-input.mjs","games.mjs","render.mjs","manifest.webmanifest","icon.svg","catalog.json"].map(name=>new URL(name,self.registration.scope).pathname);
+const cacheName="tabor-tracker-ball-1.1.0-library-v7";
+const shell=[".","index.html","style.css","app.mjs","track-baller.mjs","digit-input.mjs","games.mjs","render.mjs","manifest.webmanifest","icon.svg","catalog.json","loc101.html","loc101.css","loc101.mjs","loc101-core.mjs","loc101-view.mjs",
+  "loc101-catalog.mjs","loc101-arcade.mjs","loc101-bridge.mjs","loc101-harness.mjs"].map(name=>new URL(name,self.registration.scope).pathname);
 for(const path of [
   "standalone-apps/tactilecore-sdk/src/engine.mjs",
   "standalone-apps/hook-and-ring/game/input.mjs",
   "standalone-apps/hook-and-ring/game/physics.mjs",
+  "standalone-apps/hook-and-ring/game/universal-bridge.mjs",
+  "app-factory/grapple-it/public/swing.mjs",
+  "app-factory/grapple-it/public/grapple.mjs",
+  "app-factory/grapple-it/public/rope.mjs",
 ]){
   shell.push(new URL("../../../"+path,self.registration.scope).pathname);
 }

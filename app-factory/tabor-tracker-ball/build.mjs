@@ -9,6 +9,10 @@ for(const path of [
   "standalone-apps/tactilecore-sdk/LICENSE.md",
   "standalone-apps/hook-and-ring/game/input.mjs",
   "standalone-apps/hook-and-ring/game/physics.mjs",
+  "standalone-apps/hook-and-ring/game/universal-bridge.mjs",
+  "app-factory/grapple-it/public/swing.mjs",
+  "app-factory/grapple-it/public/grapple.mjs",
+  "app-factory/grapple-it/public/rope.mjs",
 ]){
   files[path]=await readFile(new URL("../../"+path,import.meta.url),"utf8");
 }
