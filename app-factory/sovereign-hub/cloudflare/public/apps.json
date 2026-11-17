@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 336,
+  "count": 337,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -1274,6 +1274,14 @@
       "entry": "app-factory/one/x-marks-the-spot/index.html",
       "group": "one",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/one/x-marks-the-spot/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-d36824b52b2bb859",
+      "title": "Tabor World \u00b7 App Portfolio",
+      "entry": "app-factory/portfolio/index.html",
+      "group": "portfolio",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/portfolio/index.html",
       "adoption": "integration_required"
     },
     {
