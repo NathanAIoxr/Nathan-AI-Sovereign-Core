@@ -50,3 +50,21 @@ test("sample handoffs require a choice and cannot be applied twice", () => {
   assert.match(approved.specialist, /dissolved/);
   assert.equal(resolve(approved, "approve"), approved);
 });
+
+test("all configured hives have 50,000 slots and the fleet spans 126 billion addresses", async () => {
+  const { readFile } = await import("node:fs/promises");
+  const { addressBee } = await import("./public/hive-core.mjs");
+  const fleet = JSON.parse(await readFile(new URL("./public/hive-population.json", import.meta.url), "utf8"));
+  assert.equal(fleet.configuredWorkers, 126_000_000_000);
+  assert.equal(fleet.referenceWorkersPerHive, 50_000);
+  assert.equal(fleet.configuredHives, 2_520_000);
+  let total = 0;
+  for (let hive = 1; hive <= fleet.configuredHives; hive++) total += fleet.referenceWorkersPerHive;
+  assert.equal(total, fleet.configuredWorkers);
+  assert.equal(addressBee(1, 1, fleet), "H0000001-B00001");
+  assert.equal(addressBee(2_520_000, 50_000, fleet), "H2520000-B50000");
+  assert.notEqual(addressBee(1, 50_000, fleet), addressBee(2, 1, fleet));
+  assert.throws(() => addressBee(2_520_001, 1, fleet), RangeError);
+  assert.throws(() => addressBee(1, 50_001, fleet), RangeError);
+  assert.equal(propose("Sensor", false, addressBee(2_520_000, 50_000, fleet)).workerAddress, "H2520000-B50000");
+});

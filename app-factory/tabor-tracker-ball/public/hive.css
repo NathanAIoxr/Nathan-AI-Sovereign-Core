@@ -20,3 +20,11 @@ main .catalog h3{margin:.9em 0 .35em}
 .handoff{border-top:1px solid var(--edge);margin-top:18px;padding-top:15px}
 .handoff .controls{margin-bottom:10px}
 @media(max-width:710px){.workspace .details{grid-row:1}.farm-layout{gap:9px}}
+
+.population{margin-bottom:16px}
+.population-counts{display:flex;flex-wrap:wrap;gap:12px 30px;margin:0 0 14px}
+.population-counts dt,#population-status{color:var(--quiet);font-size:.85rem}
+.population-counts dd{font-weight:700;font-size:clamp(1.3rem,3.8vw,2.45rem);margin:0;color:var(--light);font-variant-numeric:tabular-nums}
+#bee-lookup{margin-bottom:10px}
+#bee-lookup .actions{align-items:end}
+#bee-lookup input{min-width:0;max-width:144px}

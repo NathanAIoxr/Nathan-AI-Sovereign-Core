@@ -1,4 +1,4 @@
-import { createPattern, domainBees, orbit, patternPositions, previousBees, propose, resolve, stepPattern, trail } from "./hive-core.mjs";
+import { addressBee, createPattern, domainBees, orbit, patternPositions, previousBees, propose, resolve, stepPattern, trail } from "./hive-core.mjs";
 
 const get = id => document.getElementById(id);
 const named = (tag, text) => {
@@ -14,6 +14,46 @@ let state = createPattern();
 let timer;
 let task;
 
+let population;
+let selectedWorker;
+const manifestURL = new URL("./hive-population.json", import.meta.url);
+const lookup = get("bee-lookup");
+get("propose").disabled = true;
+function selectAddress() {
+  if (!population) return;
+  try {
+    selectedWorker = addressBee(get("hive-number").valueAsNumber, get("slot-number").valueAsNumber, population);
+    get("bee-address").textContent = selectedWorker + " · Available for simulation";
+  } catch (error) {
+    selectedWorker = undefined;
+    get("bee-address").textContent = error.message;
+  }
+  renderTask();
+}
+lookup.addEventListener("submit", event => {
+  event.preventDefault();
+  selectAddress();
+});
+for (const id of ["hive-number", "slot-number"]) {
+  get(id).addEventListener("input", () => {
+    selectedWorker = undefined;
+    renderTask();
+  });
+}
+async function loadPopulation() {
+  const response = await fetch(manifestURL);
+  if (!response.ok) throw Error("Worker directory unavailable");
+  population = await response.json();
+  get("worker-count").textContent = population.configuredWorkers.toLocaleString();
+  get("hive-count").textContent = population.configuredHives.toLocaleString();
+  get("slots-count").textContent = population.referenceWorkersPerHive.toLocaleString();
+  get("hive-number").max = population.configuredHives;
+  get("slot-number").max = population.referenceWorkersPerHive;
+  selectAddress();
+}
+loadPopulation().catch(() => {
+  get("bee-address").textContent = "Worker directory unavailable. Reload to retry.";
+});
 get("previous-bees").textContent = previousBees.map(bee => bee + " Bee").join(" · ");
 for (const [domain, scope] of domainBees) {
   const option = named("option", domain);
@@ -94,15 +134,15 @@ document.addEventListener("visibilitychange", () => {
 
 function renderTask() {
   const pending = task?.state === "proposed";
-  get("propose").disabled = pending;
+  get("propose").disabled = pending || !selectedWorker;
   get("approve").disabled = !pending;
   get("hold").disabled = !pending;
   if (!task) return;
-  get("task").textContent = [task.authority, task.bee, task.ant, task.state, task.result, task.specialist].filter(Boolean).join(" · ");
+  get("task").textContent = [task.authority, task.bee, task.workerAddress, task.ant, task.state, task.result, task.specialist].filter(Boolean).join(" · ");
 }
 get("propose").addEventListener("click", () => {
-  if (task?.state === "proposed") return;
-  task = propose(get("domain").value, get("specialist").checked);
+  if (task?.state === "proposed" || !selectedWorker) return;
+  task = propose(get("domain").value, get("specialist").checked, selectedWorker);
   renderTask();
 });
 for (const decision of ["approve", "hold"]) get(decision).addEventListener("click", () => {

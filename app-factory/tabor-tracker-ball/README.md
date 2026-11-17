@@ -94,3 +94,20 @@ Open [Tabor Hive v.9](./public/hive.html) from Tracker Ball or Library Cartridge
 The sample handoff has a domain, an action, a priority, a decision, a result, and an optional specialist lifecycle. It reads a fictional inventory entry inside the browser. The v.9 Hive Bus encryption, device registration, vault permission service, and production hardware integrations are architecture. The demo uses neither connected device operations nor actual worker provisioning.
 
 Related Tabor work includes the [Living Eyes concurrent CW/CCW tests](../nathan-ai/living-eyes/engine.test.cjs) and the [Five Matrix Print Shop](../nathan-ai/3d-print-shop/). NASA documents ant-inspired central-place foraging in [Swarmies](https://ntrs.nasa.gov/citations/20150016084) and division of labor in its [ANTS archive](https://science.gsfc.nasa.gov/attic/ants/faqs.html). Those records establish the ant-swarm precedent. Nathan's vertical and counter-rotating pattern is recorded here as his own extension.
+
+## Tabor Hive v.10 — worker population
+
+The shared fleet manifest configures **126,000,000,000 worker addresses** across **2,520,000 hives**, with **50,000 worker slots per hive**. The 10 existing and 11 technical Bee roles are job assignments. Each hive and slot pair identifies its own worker. The address range starts at **H0000001-B00001** and ends at **H2520000-B50000**. Use the population form to route a sample handoff to any address in that range. Changing the selected role leaves the worker address as the sample's identity.
+
+The Python runtime materializes addressed records on demand. It reads the same fleet manifest and the 101-cartridge catalog. Its local dispatch uses a prioritized queue, and the Ant Farm reports forward, reverse, vertical, left, and right readings. The sample vault starts closed to writes. The coordinator can issue one-use approval for a specific record. The sample runtime reports configured population and represented local worker records separately. Its loopback WebSocket streams read-only display state and uses zero external API tokens.
+
+From this directory:
+
+```text
+python3 tabor_hive_v10/main.py --hive 2520000 --worker 50000 --cartridge 101
+python3 tabor_hive_v10/main.py --serve 8765
+node --test test.mjs library.test.mjs hive.test.mjs
+python3 -m unittest discover -s tabor_hive_v10 -v
+```
+
+For the live local view, open http://127.0.0.1:8765/. The browser workbench is a separate surface that uses the shared population manifest. The scope of this runtime is local execution. Distributed provisioning and a fleet-wide count of live instances require deployed infrastructure.

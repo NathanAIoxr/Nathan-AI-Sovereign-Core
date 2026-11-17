@@ -50,10 +50,17 @@ export function patternPositions(state, axis) {
   };
 }
 
-export function propose(domain, specialist = false) {
+export function addressBee(hive, slot, population) {
+  const valid = (value, end) => Number.isSafeInteger(value) && value >= 1 && value <= end;
+  if (!valid(hive, population.configuredHives)) throw RangeError("Hive is outside the configured fleet");
+  if (!valid(slot, population.referenceWorkersPerHive)) throw RangeError("Worker is outside this hive");
+  return "H" + String(hive).padStart(7, "0") + "-B" + String(slot).padStart(5, "0");
+}
+
+export function propose(domain, specialist = false, workerAddress = null) {
   if (!domainBees.some(([owner]) => owner === domain)) throw RangeError("Unknown domain");
   return Object.freeze({
-    domain, authority: "Nathan AI Hive", bee: domain + " Bee",
+    domain, authority: "Nathan AI Hive", bee: domain + " Bee", workerAddress,
     ant: "Ant Farm simulation", action: "review the sample inventory record",
     state: "proposed", priority: "observe", simulated: true,
     specialist: specialist ? "requested from Replication Bee" : "none"

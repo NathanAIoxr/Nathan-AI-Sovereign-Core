@@ -4,15 +4,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#151914">
-  <title>Tabor Hive v.9 · Ant Farm</title>
+  <title>Tabor Hive v.10 · Ant Farm</title>
   <link rel="stylesheet" href="./library.css">
   <link rel="stylesheet" href="./hive.css">
 </head>
 <body>
 <main>
   <header><nav aria-label="Tabor World"><a href="./">Tracker Ball</a> · <a href="./library.html">101 Library Cartridges</a></nav><span>by Nathan Tabor</span></header>
-  <h1>Tabor Hive v.9</h1>
+  <h1>Tabor Hive v.10</h1>
   <p class="subtitle">Universal Tech Dominion</p>
+  <section class="catalog population" aria-labelledby="population-title">
+    <h2 id="population-title">Worker population</h2>
+    <dl class="population-counts">
+      <div><dt>Configured worker addresses</dt><dd id="worker-count">126,000,000,000</dd></div>
+      <div><dt>Configured hives</dt><dd id="hive-count">2,520,000</dd></div>
+      <div><dt>Worker slots per hive</dt><dd id="slots-count">50,000</dd></div>
+    </dl>
+    <form id="bee-lookup">
+      <div class="actions controls">
+        <label>Hive number <input id="hive-number" type="number" min="1" max="2520000" step="1" value="1" required></label>
+        <label>Worker slot <input id="slot-number" type="number" min="1" max="50000" step="1" value="1" required></label>
+        <button type="submit">Find worker address</button>
+      </div>
+    </form>
+    <p id="bee-address" role="status">H0000001-B00001 · Available for simulation</p>
+    <p id="population-status">This browser can address the configured fleet. Live deployment requires a Worker runtime.</p>
+  </section>
   <div class="workspace">
     <section class="catalog" aria-labelledby="above">
       <h2 id="above">Above</h2>
@@ -23,7 +40,7 @@
       <p>Design for encrypted messages, scoped decisions, priority, and audit records.</p>
       <h3>Database Bee 🐝 Worker Swarm</h3>
       <p id="previous-bees"></p>
-      <details open><summary>11 technology domain Bees</summary><dl id="domain-bees"></dl></details>
+      <details open><summary>11 technology domain roles</summary><dl id="domain-bees"></dl></details>
       <h3>Universal Interaction + Control Surface</h3>
       <p><a href="./library.html">45/10/45 Dual-Screen Universal Bridge</a> · <a href="./">Tabor Tracker Ball and gesture controls</a></p>
       <p>Screen, headset, and device adapters each need their own capability and permission records.</p>
@@ -52,7 +69,7 @@
 
       <section class="handoff" aria-labelledby="handoff-title">
         <h3 id="handoff-title">Hive → Bee → Ant Farm</h3>
-        <p>Sample inventory review</p>
+        <p>Sample inventory review for the selected worker address</p>
         <div class="actions controls">
           <label>Domain <select id="domain"></select></label>
           <label class="check"><input id="specialist" type="checkbox"> Request a temporary specialist</label>
