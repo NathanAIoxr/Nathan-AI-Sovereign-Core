@@ -1,7 +1,7 @@
 import { createWorld, matches, compare, periodicSource, worldEdition } from "./world-core.mjs";
 const $=id=>document.getElementById(id);
 const size=36;
-let page=0,view="all",all=[],index=new Map(),focus="",selection=[];
+let page=0,view="all",all=[],index=new Map(),focus="",selection=[],counts;
 const query=$("query"),category=$("category");
 function el(tag,text,attributes={}){
   const n=document.createElement(tag);
@@ -34,7 +34,9 @@ function paint(){
   const rows=all.filter(r=>inView(r)&&(!category.value||r.kind===category.value)&&matches(r,query.value.trim()));
   const pages=Math.max(1,Math.ceil(rows.length/size));
   page=Math.min(page,pages-1);
-  $("status").textContent=rows.length+" "+(rows.length===1?"record":"records");
+  const total=rows.length+" "+(rows.length===1?"record":"records");
+  $("status").textContent=view==="all"&&!category.value&&!query.value.trim()?
+    total+" · "+counts.elements+" elements · "+counts.nonElements+" non-elements":total;
   $("records").replaceChildren(...rows.slice(page*size,(page+1)*size).map(row=>{
     const b=button(row.title,()=>open(row),{class:"record","data-record":row.id,"aria-current":String(row.id===focus)});
     if(view!=="elements")b.append(el("small",row.kind));
@@ -92,9 +94,9 @@ function paintTray(){
   $("tray-status").textContent=rows.length===0?"Add two records to compare them.":rows.length===1?"Add a second record.":"Two records selected.";
   for(const row of rows){
     const pick=el("div",undefined,{class:"pick"});
-    pick.append(button(row.title,()=>open(row)),button("Remove",()=>{
+    pick.append(button(row.title+" · "+row.kind,()=>open(row)),button("Remove",()=>{
       selection=selection.filter(id=>id!==row.id);paintTray();
-    },{"aria-label":"Remove "+row.title}));tray.append(pick);
+    },{"aria-label":"Remove "+row.title+" "+row.kind}));tray.append(pick);
   }
   if(rows.length===2){
     const relations=compare(...rows);
@@ -113,7 +115,7 @@ try{
     get("./cosmic-body.json"),get("./worlds-atlas.json"),get("./world.json")]);
   const world=createWorld({ledger,library,castAndProps,atlas,places,entries});
   all=world.records;index=new Map(all.map(row=>[row.id,row]));
-  const counts=world.summary;
+  counts=world.summary;
   for(const [label,href] of [
     ["IUPAC periodic table",periodicSource],
     [counts.tracker+" Tracker Ball entries · v.7 edition","../catalog.json"],

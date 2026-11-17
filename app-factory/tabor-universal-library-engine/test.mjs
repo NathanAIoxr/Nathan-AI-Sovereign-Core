@@ -102,7 +102,10 @@ test("Tabor World loads complete scoped editions and preserves a real relationsh
   const index=new Map(records.map(r=>[r.id,r]));
   assert.equal(index.get("tracker-65").title,"Molecular Geometry & Bond Rotator");
   assert.equal(index.get("world-library-65").title,"Grammar Sentence Diagrammer");
-  assert.equal(compare(index.get("materials-water"),index.get("classic-water")).length,2);
+  const water=compare(index.get("materials-water"),index.get("classic-water"));
+  assert.equal(water.length,2);
+  assert.equal(water[0].from,"Water (Material)");
+  assert.equal(water[0].to,"Water (Classical element)");
   assert.ok(records.some(r=>r.source==="Cosmic Body Atlas · DOS"));
   const location=(await request("/world/?record=classic-water")).headers.get("location");
   assert.match(location,/\/world\/\?record=classic-water$/);

@@ -56,7 +56,7 @@ export function createWorld({ledger,library,castAndProps,atlas,places,entries}){
     r.kind==="Classical element"?"Classical and symbolic usage":r.id.startsWith("rule-")||r.id.startsWith("object-")?
     "Tabor Universal Library Engine":"Science reference",connections:r.links?.map(id=>relation(id))??[]}));
   const elements=elementIndex();
-  const records=[...elements,...catalogEntries,...cast,...props,...worldPlaces,...tracker,...sourceLibrary,...cosmic];
+  const records=[...catalogEntries,...cast,...props,...worldPlaces,...tracker,...sourceLibrary,...cosmic,...elements];
   const ids=new Set(records.map(r=>r.id));
   if(ids.size!==records.length)throw Error("Duplicate Tabor World record ID");
   return {records,summary:{elements:elements.length,nonElements:records.length-elements.length,tracker:tracker.length,
@@ -70,7 +70,8 @@ export function matches(record,query){
     [record.title,record.id,record.kind,record.description,record.source].some(field=>String(field??"").toLocaleLowerCase().includes(word)));
 }
 export function compare(first,second){
+  const title=row=>first.title===second.title?row.title+" ("+row.kind+")":row.title;
   return [first,second].flatMap((row,index)=>(row.connections??[])
     .filter(link=>link.id===[second,first][index].id)
-    .map(link=>({from:row.title,to:[second,first][index].title,label:link.label,note:link.note})));
+    .map(link=>({from:title(row),to:title([second,first][index]),label:link.label,note:link.note})));
 }
