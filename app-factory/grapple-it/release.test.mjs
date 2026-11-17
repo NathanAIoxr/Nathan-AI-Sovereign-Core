@@ -21,7 +21,7 @@ const handlers={};
 const cached=new Response('verified cached shell');
 let upstream=new Response('outage',{status:503});
 const origin='https://game.test';
-runInNewContext(await readFile('public/sw.js','utf8'),{
+runInNewContext(await readFile(new URL('./public/sw.js',import.meta.url),'utf8'),{
  self:{registration:{scope:origin+'/'},addEventListener:(event,fn)=>handlers[event]=fn},
  caches:{open:async()=>({match:async()=>cached})},
  fetch:async()=>upstream,
@@ -39,7 +39,7 @@ upstream=new Response('missing',{status:404});
 assert.equal((await request('/frame-loop.mjs')).status,404);
 
 const db=new DatabaseSync(':memory:');
-db.exec(await readFile('bee/migration.sql','utf8'));
+db.exec(await readFile(new URL('./bee/migration.sql',import.meta.url),'utf8'));
 const DB={
  prepare(sql){return {bind(...params){return ()=>db.prepare(sql).run(...params);}};},
  async batch(ops){return ops.map(run=>run());},
@@ -48,7 +48,7 @@ const GAME={async fetch(req){
  const path=new URL(req.url).pathname;
  if(path==='/api/daily')return Response.json({day:'2026-11-17',scores:[]});
  const file=path==='/'?'index.html':path.slice(1);
- return new Response(await readFile('public/'+file,'utf8'),{headers:{'Content-Type':path==='/'?'text/html':'text/javascript'}});
+ return new Response(await readFile(new URL('./public/'+file,import.meta.url),'utf8'),{headers:{'Content-Type':path==='/'?'text/html':'text/javascript'}});
 }};
 const now=Date.now();
 const passing=await runBees({DB,GAME},now);
