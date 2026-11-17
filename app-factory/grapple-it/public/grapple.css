@@ -94,10 +94,21 @@
  #atlas-index {max-height:10rem}
 }
 
-@media (max-width: 420px) {
-  .intro { flex-wrap: wrap; }
-  .curator { flex-direction: row; text-align: start; }
+@media(pointer:coarse) {
+  .mode-bar button,.line-controls button,.cartridge-picker select,.gr-selects select,.gr-header select{min-height:44px}
+  #daily-alias,.save-box textarea{font-size:1rem}
 }
-@media (pointer: coarse) {
-  :is(.controls,.line-controls,.mode-bar) button { min-height: 2.75rem; }
+@media(max-width:360px) {
+  .mode-bar{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mode-bar button,.line-controls button,.gr-header label,.gr-selects label{min-width:0;overflow-wrap:anywhere}
+  .toy-controls{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+header nav{flex-wrap:wrap;align-items:center}
+header nav a{min-width:0;overflow-wrap:anywhere}
+@media(max-width:700px){.layout{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:360px){.intro h1{font-size:clamp(2.45rem,12vw,3.2rem)}.board-head,.game-foot{flex-wrap:wrap}.board-head select{max-width:100%;min-width:0}}
+@media(max-width:470px){
+  .intro{display:grid;grid-template-columns:minmax(0,1fr);gap:.75rem}
+  .intro .curator{justify-self:start;flex-direction:row;gap:.6rem;text-align:left}
 }
