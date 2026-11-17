@@ -1,3 +1,4 @@
+import {createFrameLoop} from './frame-loop.mjs';
 import {createClock} from './fixed-clock.mjs';
 import {STAGES,newLift,pump,stepLift} from './grapple.mjs';
 const $=id=>document.getElementById(id);
@@ -128,7 +129,6 @@ function loop(now){
     dirty=true;
   }else clock.pause();
   if(dirty&&width&&height){draw();dirty=false;}
-  requestAnimationFrame(loop);
 }
 const pumpButton=$('pump');
 pumpButton.onpointerdown=event=>{
@@ -174,8 +174,13 @@ window.addEventListener('keydown',event=>{
 window.addEventListener('keyup',event=>{directions.delete(event.code);if(event.code===keyboardPump) keyboardPump=null;});
 const clearInput=()=>{clock.pause();directions.clear();heldPump=null;keyboardPump=null;};
 window.addEventListener('blur',clearInput);
-document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInput();});
-window.addEventListener('grapple-view',clearInput);
+const frames=createFrameLoop(loop);
+function syncFrames(){
+ if(!$('bubble-view').hidden&&!document.hidden)frames.start();
+ else{frames.stop();clearInput();}
+}
+document.addEventListener('visibilitychange',syncFrames);
+window.addEventListener('grapple-view',syncFrames);
 window.addEventListener('grapple-restore',event=>{
  records=event.detail;
  reset(state.level);
@@ -183,5 +188,5 @@ window.addEventListener('grapple-restore',event=>{
 });
 reset(0);
 renderCollection();
-requestAnimationFrame(loop);
+syncFrames();
 

@@ -1,7 +1,7 @@
 const $=id=>document.getElementById(id);
 const PLAYER_KEY='grapple-it-daily-player';
 const ALIAS_KEY='grapple-it-daily-alias';
-let current,sequence=0;
+let current,readAbort,posting=false;
 let player,alias='';
 try {
   player=localStorage.getItem(PLAYER_KEY);
@@ -15,32 +15,38 @@ $('daily-alias').value=alias;
 const say=text=>{$('daily-board-status').textContent=text;};
 export function setRankedRun(run){
   current=run;
-  $('daily-submit').disabled=!run||!player;
+  updateActions();
 }
-export async function loadDailyBoard(){
-  const id=++sequence;
+function updateActions(){
+  $('daily-submit').disabled=posting||!current||!player;
+  $('daily-refresh').disabled=posting;
+}
+export async function loadDailyBoard(message){
+  readAbort?.abort();
+  const active=new AbortController();
+  readAbort=active;
   say('Loading the online rankings…');
   try{
-    const answer=await fetch('./api/daily',{cache:'no-store'});
+    const answer=await fetch('./api/daily',{cache:'no-store',signal:active.signal});
     const data=await answer.json();
-    if(id!==sequence)return;
+    if(active.signal.aborted)return;
     if(!answer.ok)throw Error(data.error);
     $('daily-board-rows').replaceChildren(...data.scores.map(score=>{
       const row=document.createElement('li');
       row.textContent=score.alias+' · '+score.medal+' · '+(score.ms/1000).toFixed(2)+' s';
       return row;
     }));
-    say(data.scores.length?'Ranked by medal, then fastest finish.':'No scores posted for '+data.day+' UTC.');
+    say(message??(data.scores.length?'Ranked by medal, then fastest finish.':'No scores posted for '+data.day+' UTC.'));
   }catch(error){
-    if(id===sequence)say(navigator.onLine?'Rankings unavailable. Try Refresh.':'You’re offline. Local play is ready.');
+    if(!active.signal.aborted)say(message??(navigator.onLine?'Rankings unavailable. Try Refresh.':'You’re offline. Local play is ready.'));
   }
 }
-$('daily-refresh').onclick=loadDailyBoard;
+$('daily-refresh').onclick=()=>loadDailyBoard();
 $('daily-form').onsubmit=async event=>{
   event.preventDefault();
   if(!current||!player||$('daily-submit').disabled)return;
-  const submitted=current, id=++sequence;
-  $('daily-submit').disabled=true;
+  const submitted=current;
+  readAbort?.abort();posting=true;updateActions();
   say('Checking the input replay…');
   try{
     const alias=$('daily-alias').value.trim();
@@ -50,11 +56,12 @@ $('daily-form').onsubmit=async event=>{
     if(!response.ok)throw Error(data.error);
     try{localStorage.setItem(ALIAS_KEY,alias);}catch{}
     if(submitted!==current)return;
-    await loadDailyBoard();
-    say(data.improved?'Posted '+data.accepted.medal+' · '+(data.accepted.ms/1000).toFixed(2)+' s.':'Run verified. Your better result is already on the board.');
+    await loadDailyBoard(data.improved?'Posted '+data.accepted.medal+' · '+(data.accepted.ms/1000).toFixed(2)+' s.':'Run verified. Your better result is already on the board.');
   }catch(error){
-    if(id===sequence&&current===submitted)say(navigator.onLine?error.message:'You’re offline. This run can be posted while this round is open.');
+    if(current===submitted)say(navigator.onLine?error.message:'You’re offline. This run can be posted while this round is open.');
   }finally{
-    if(current===submitted)$('daily-submit').disabled=false;
+    posting=false;updateActions();
   }
 };
+
+window.addEventListener('grapple-view',event=>{if(event.detail!=='daily')readAbort?.abort();});

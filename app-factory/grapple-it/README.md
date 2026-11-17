@@ -42,3 +42,9 @@ From this directory, run `node test.mjs` and `node arcade.test.mjs` for the rule
 - Daily Grapple uses the original UTC course rotation. On a successful run, the browser can submit a bounded timeline of casts, reels and eases. The Worker replays the same physics and derives medal and duration. D1 retains the best posted score per browser ID per date. The board is ranked by medal and simulation time. Only an explicit post sends the replay and display name. The D1 record contains the browser ID, date, display name and verified result. Online submissions and reads are rate limited.
 
 Apply the D1 migration with `npx wrangler d1 migrations apply grapple-it --remote` before deploying with a new database. On Node with SQLite available, `node technology.test.mjs` exercises the timing, release guard, rope, bridge, replay and database ranking paths.
+
+## Release Bees
+
+The separate `grapple-it-bees` Worker runs launch, Daily Grapple API, offline shell, and mobile-runtime checks every five minutes. Its service binding reads the production Grapple It Worker. The latest public status is at [Grapple It Bee status](https://grapple-it-bees.nathantaboract.workers.dev/status). The last seven days of receipts are kept in `grapple_bee_runs`, separate from scores. The endpoint marks records older than thirteen minutes as stale.
+
+Run `node release.test.mjs` for animation lifecycle, offline recovery, and passing and failing Bee receipts. Deploy the Bee Worker from `bee/` after applying `bee/migration.sql` to the Grapple It database.
