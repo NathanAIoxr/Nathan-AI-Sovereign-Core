@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "release": "portfolio-01",
+  "date": "2026-11-17",
+  "source": "b1a2547a23582bd58d2368a3825100da488e6922",
+  "inventoryBaseline": {
+    "records": 6922,
+    "distinctInteractiveFiles": 1718,
+    "historicalGitHubVariants": 358
+  },
+  "continuation": {
+    "next": "portfolio-02",
+    "cursor": "The published catalog is the public starting point. Inspect inventory source links by app family, starting with Bible Topia, Tabor World, and the tactile arcade.",
+    "doneWhen": "Each batch has a source commit, specific tests, and observed hosting receipts where relevant. Keep alternate builds and missing material identifiable."
+  },
+  "batches": [
+    {
+      "id": "portfolio-01",
+      "state": "Completed",
+      "title": "Public portfolio",
+      "summary": "Search and filter public app entries. Launch hosted projects, find GitHub source, and open the versioned progress ledger.",
+      "evidence": [
+        "catalog.json",
+        "worker.test.mjs",
+        "browser-check.py"
+      ],
+      "checks": {
+        "publicCatalogEntries": 398,
+        "hostedLandingResponses": 12,
+        "workerTests": 6,
+        "browserViewportWidths": [
+          320,
+          390,
+          1440
+        ]
+      }
+    },
+    {
+      "id": "portfolio-02",
+      "state": "Next",
+      "title": "Bible Topia, Tabor World and arcade",
+      "summary": "Check the primary user journeys, review alternate builds, and record each fix against its upstream project and deployed URL.",
+      "projects": [
+        "bibletopia",
+        "tabor-world",
+        "grapple-it",
+        "hook-and-ring",
+        "tabor-tracker-ball"
+      ]
+    },
+    {
+      "id": "portfolio-03",
+      "state": "Queued",
+      "title": "Earlier builds and archive leads",
+      "summary": "Identify launchable variants from the inventory, recover missing assets, and add public source and deployment links for each verified release."
+    }
+  ]
+}
