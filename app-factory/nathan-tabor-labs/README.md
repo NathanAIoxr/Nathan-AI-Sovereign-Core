@@ -22,6 +22,10 @@ The public UI links to the existing Absolute Intelligence and ONE owner
 consoles. It does not pass credentials, call owner mutation endpoints, or
 include the private local archive. Owner actions remain in those consoles.
 
+## Protect Innocence
+
+The [public Hounds arcade](https://nathan-tabor-labs.nathantaboract.workers.dev/play/hounds) opens directly in the protection challenge. The Hounds clear a gate, a shot must keep the gold Spark safe, and touching it earns zero. The [restoration ledger](../../docs/INNOCENCE_RESTORATION.md) records the source and checks.
+
 ## Validate
 
 ```sh

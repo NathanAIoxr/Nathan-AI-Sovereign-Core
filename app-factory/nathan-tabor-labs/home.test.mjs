@@ -42,7 +42,9 @@ test('home and play routes coexist with legacy APIs and prohibit writes',async()
     const response=await call('/play/'+mode);
     assert.equal(response.status,200);
     assert.match(response.headers.get('content-security-policy'),/script-src 'self'/);
-    assert.match(await response.text(), new RegExp('src="/play/'+mode+'\\.js"'));
+    const gameHtml=await response.text();
+    if(mode==='hounds')assert.ok(gameHtml.includes('src="/play/hounds.js?v=protect-1"'));
+    else assert.match(gameHtml, new RegExp('src="/play/'+mode+'\\.js"'));
     assert.equal((await call('/play/'+mode+'.js')).status,200);
   }
   for(const code of [mind,hounds,player,await (await call('/home.js')).text()]) new Script(code);
@@ -103,4 +105,50 @@ test('the alternate uses the same release without changing history or score',()=
   `,{document:{getElementById:get},localStorage:{getItem(){return null;},setItem(){}},
     matchMedia:()=>({matches:true}),navigator:{},window:{}});
   assert.deepEqual(JSON.parse(JSON.stringify(result)),{rerun:true,original:true,score:true,wind:500,changed:true,label:true});
+});
+
+test('the public Hounds route opens with the purpose visible and protects the Spark in play', async () => {
+  const html=await (await worker.fetch(new Request('https://labs.example/play/hounds'),{})).text();
+  assert.match(html,/<h1>Release the Hounds of Hell<\/h1>/);
+  assert.match(html,/<h2 id="purpose-title">Protect Innocence<\/h2>/);
+  assert.ok(html.indexOf('PROTECT ALL INNOCENCE AT THE ATOMIC LEVEL.') < html.indexOf('id="play"'));
+  const map=new Map();
+  const get=id=>{
+    if(!map.has(id))map.set(id,{textContent:'',options:[],setAttribute(){},addEventListener(){},getContext(){return {};}});
+    return map.get(id);
+  };
+  const end=hounds.indexOf('function resizeCanvas(');
+  assert.ok(end>0);
+  const result=runInNewContext(hounds.slice(0,end)+`
+    refresh();
+    const startsProtected=world===HOUNDS_WORLD && ui.launch.disabled;
+    beginShot();
+    const beforeRelease=shot===null;
+    releaseHounds();
+    beginShot();
+    const beforeGate=shot===null;
+    ambient=HOUND_TRAVEL+1;
+    gateOpened=true;
+    beginShot();
+    shot.x=PROTECTED_PIECE.x-25;
+    shot.y=PROTECTED_PIECE.y;
+    shot.vx=6000;
+    shot.vy=0;
+    shot.path=[{x:shot.x,y:shot.y}];
+    tick();
+    const blockedSpark=history.outcome==="Protected piece touched" && history.gained===0 && progress.score===0;
+    let won=false;
+    for(let power=-58;power<=55&&!won;power+=1){
+      beginShot(0,power);
+      for(let i=0;i<242&&shot;i++)tick();
+      won=history.outcome==="Hit" && history.gained>0 && ui.message.textContent.startsWith("SPARK PROTECTED");
+    }
+    const saved=progress.score;
+    clearAttempt();
+    ({startsProtected,beforeRelease,beforeGate,blockedSpark,won,reset:ui.launch.disabled && progress.score===saved});
+  `,{document:{getElementById:get},localStorage:{getItem(){return null;},setItem(){}},
+    matchMedia:()=>({matches:true}),navigator:{},window:{}});
+  assert.deepEqual(JSON.parse(JSON.stringify(result)),{
+    startsProtected:true,beforeRelease:true,beforeGate:true,blockedSpark:true,won:true,reset:true
+  });
 });

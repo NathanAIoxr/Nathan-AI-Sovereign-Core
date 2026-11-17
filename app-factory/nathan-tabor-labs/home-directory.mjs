@@ -10,7 +10,7 @@ export const directory = Object.freeze([
   {heading:'Play',entries:[
     ['Mind of Nathan Tabor','/play/mind','Play a shot, replay it, and change the wind.'],
     ['Labs Player Edition','/play/labs','134 playable challenges.'],
-    ['Release the Hounds of Hell','/play/hounds','Arcade defense.'],
+    ['Release the Hounds of Hell','/play/hounds','Protect innocence. Clear the gate and keep the Spark safe.'],
     ['Tabor World',cloud('tabor-world'),'Explore the world and its connected games.'],
     ['Tabor Track Baller',cloud('tabor-tracker-ball'),'Trackball, gestures and tactile physics.'],
     ['Universal Library Engine',cloud('tabor-universal-library-engine'),'Playable cartridges and the project ledger.'],
