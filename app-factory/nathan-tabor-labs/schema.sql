@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS campaign (id INTEGER PRIMARY KEY CHECK(id=1), started_ms INTEGER NOT NULL, ends_ms INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS receipts (slot INTEGER PRIMARY KEY, scheduled_ms INTEGER NOT NULL, source TEXT NOT NULL CHECK(source IN ('launch','scheduled')), passed INTEGER NOT NULL, result TEXT NOT NULL);
