@@ -145,7 +145,168 @@ Use the same sequence on the next dispute. Recover the prompt. Read the first an
 
 **Verify.** Turn the account around. Can someone start with the cited record and arrive at the same statement? If the source leaves a question open, carry that question forward. The original statement about innocence sets the purpose of the inquiry, and the record keeps the people and their decisions visible.
 
+### The full reading
 
+Follow the manuscript from the letter on the page to the person who bears the consequences. Each part can also be read by itself.
+
+- [I. The rotation and the ear](#i-the-rotation-and-the-ear)
+- [II. Babel, 1611, and the three verses](#ii-babel-1611-and-the-three-verses)
+- [III. Who controls the page and the land](#iii-who-controls-the-page-and-the-land)
+- [IV. How a comparison holds up](#iv-how-a-comparison-holds-up)
+- [V. What happens when someone reports abuse](#v-what-happens-when-someone-reports-abuse)
+- [VI. Put the whole record on the table](#vi-put-the-whole-record-on-the-table)
+
+### I. The rotation and the ear
+
+#### 1. Run the Master key both ways
+
+Take Nathan’s Master key as written and run the operation on every token. Several pairs look alike on the page but require different moves. **ABLE** read backward is **ELBA**. **ACT** read backward is **TCA**. **TAC** read backward is **CAT**. Once those are written down, the reader can see exactly where **ACT** enters through rearrangement instead of reversal. The Master key remains in its original sequence in [Nathan’s words](#the-master-key).
+
+| Starting material | Exact operation | Output | What else Nathan brings into the reading |
+|---|---|---|---|
+| ABLE | Reverse four letters | ELBA | Both sequences appear in the Master key |
+| ACT | Reverse three letters | TCA | ACT returns later beside TAC. Those two use the same letters in a different order |
+| TABOR | Reverse five letters | ROBAT | Change A to O to get ROBOT. The line “A ROBOT with a BAT” uses both forms |
+| YES | Reverse three letters | SEY | A letter result stays in the record even when it has no ordinary English use |
+| SI · SO · SAW | Reverse each separately | IS · OS · WAS | Read these as three short strings, with their language and meaning assigned only when context supplies it |
+| TIC | Reverse three letters | CIT | Both sequences appear in the Master key |
+| TAC | Reverse three letters | CAT | Moving letters can also give ACT. Record which move produced which result |
+| TOE | Reverse three letters | EOT | The spelling reverses even if the ear supplies an apparent word |
+| LOVE | Reverse four letters | EVOL | EVIL requires changing a letter after reversal. LIVE reverses to EVIL directly |
+| GOD | Reverse three letters | DOG | Letter reversal can be repeated to recover the starting string |
+| FREE | Remove R | FEE | The loss prompts Nathan’s question about who pays for a supposedly free right |
+
+Now widen the field one level at a time. Reverse the letters in each word of **INNOCENCE IS NOT A COMMODITY**, and the first word becomes **ECNECONNI**. Reverse the order of words instead, and the line begins **COMMODITY A NOT IS INNOCENCE**. Reverse the whole string, and it begins **YTIDOMMOC A TON SI**. Those are three reproducible operations on one line. When the object is an entire sentence, record which one you ran and keep the line as printed next to the result.
+
+Nathan also puts letters on their side and compares what a reader sees. **W / M** and **6 / 9** depend on the typeface and on where the text sits on the page. **R / Я** compares the profile of two glyphs. There is also a difference between changing the order of the characters in **GOD** and turning a printed card upside down. Use the same font if the object is shape. Use the same text if the object is letter order. The output should reproduce the move the reader was asked to check. [Tabor Concordance letter research](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/research/tabor-concordance/full-research-letter-reversal-niger-goddess-2026-11-13.md)
+
+#### 2. Give the ear its own record
+
+The sounds in **COME / CUM** can match closely enough for the same pronunciation entry. A spelling supplies information the sound leaves open. Put **NOSE / KNOWS**, **PEA / PEE**, **DEW / DO** in some accents, and **RIGHT / WRITE / RITE** on that side of the ledger. Put **LIVE / EVIL** on the spelling side. Written **live** itself has more than one pronunciation. Try *I live here* and *we are live*. You can make an exact letter reversal on both lines while starting with different sounds. [Cambridge COME and CUM](#E01) · [Cambridge LIVE](https://dictionary.cambridge.org/dictionary/english/live)
+
+Now run the same exercise across a word boundary. **A name** and **an aim** share the same basic sounds when spoken together, but the **n** goes with a different word on the page. A listener can hear the sounds correctly and still assign the boundary differently. When Nathan corrects a dictation to **“I picked my nose,”** the spelling he supplies settles what he meant to say. Keep his correction verbatim. When the earlier output and original audio survive, preserve those as well. In the available research record the verified correction is Nathan’s wording. A transcript that was never recovered cannot supply the earlier spelling.
+
+The same method works with names. **Kaylyn Tabor / Kalen DeBoer** belongs in the record as Nathan’s listening comparison. The source can establish how the names were written. An actual recording can establish what a specific speaker pronounced. A percentage of similarity would require a named measurement, defined speakers, and comparable recordings. The case remains a listening observation without those.
+
+### II. Babel, 1611, and the three verses
+
+#### 3. A city, a school, and an audience
+
+In **Genesis 10**, the nations are already described by families, languages, and territories in the table of descendants. **Genesis 11** then opens with one language and tells the story of Babel. Read that order aloud. One chapter inventories peoples and places. The next narrates a common enterprise and its dispersal. It is possible to read the second passage as an account related to the diversity catalogued in the first. The chapter order alone supplies no absolute calendar dates for linguistic history. [Genesis 10–11 KJV](https://www.biblegateway.com/passage/?search=Genesis+10-11&version=KJV)
+
+In the story, the builders use bricks and mortar. They want to build a city and tower and make a name for themselves because they fear being scattered. The scattering they fear then happens. Keep the city and the tower in view together. They wanted a city and feared being scattered. The story ends with construction ceasing and people dispersed. Modern Babylon contains remains associated with **Etemenanki**, the ziggurat UNESCO connects with the tradition. Archaeology can study a built structure and its layers. Genesis supplies the claim about the confounding of speech. [Genesis 11 KJV](https://www.biblegateway.com/passage/?search=Genesis+11&version=KJV) · [Exhibit A07](#A07)
+
+Next follow the direction of speech. In **Daniel 1:3–7**, power runs from the court to captive youths. Officials choose the instruction and give new names. In **Acts 2:5–11**, the crowd describes hearing in the languages of the places from which they came. Luke names places in the crowd’s account. **1 Corinthians 14:7–19** asks what a hearer can do with a signal whose meaning they cannot distinguish, and makes interpretation a concern for the assembled community. Read the three passages beside one another and ask who chooses the language, who does the work of understanding, and who can speak back. [Daniel 1, Acts 2, and 1 Corinthians 14 KJV](https://www.biblegateway.com/passage/?search=Daniel%201%2CActs%202%2C1%20Corinthians%2014&version=KJV) · [Exhibit A10](#A10)
+
+#### 4. Put a dated page in the middle
+
+Nathan’s instruction **“BOTH DIRECTIONS · 1611 IN THE MIDDLE”** turns into two journeys. On the first, begin with the printed KJV, compare the earlier witnesses, and make a note when the evidence branches. On the second, begin with a modern reading and return through the historical meaning to the physical page. A printed English word, a Greek manuscript reading, and an English reader’s present-day definition occupy separate positions. The printer’s use of **i** or **u** can change between transcriptions even while the sentence keeps the same meaning. A different underlying word can affect meaning even when two modern summaries sound the same.
+
+The King James project followed earlier English Bibles. The translators were directed to use the Bishops’ Bible as their base and allowed to consult earlier English translations. The 1611 preface openly discusses translation and the use of alternatives in the margin. A dated title page, preface, and verse are better evidence for what a particular printing did than a claim made about “the Bible” in the abstract. A Concordance entry can send the reader to a word and the range of uses it has in passages. A dated first use still needs its own witness. [Exhibit A08](#A08)
+
+Try the two directions on *prevent* in 1 Thessalonians 4:15. Begin with the familiar current meaning *stop* and test it against the succession of events in verses 15–17. Then begin with the historical sense *precede* and read the same succession. Run a similar check on *suffer* in Matthew 19:14 and the invitation to let the children come. The sentence and the surrounding action tell the reader whether a modern first impression survives. [KJV passages](https://www.biblegateway.com/passage/?search=1%20Thessalonians%204%3A15-17%2CMatthew%2019%3A13-15%2C2%20Thessalonians%202%3A7%2C1%20Peter%201%3A15&version=KJV) · [Exhibit A09](#A09)
+
+#### 5. Open an individual file for each verse
+
+**Jeremiah 22:3.** Start in verses 1–2 and find the people being addressed at the king’s house. Continue past verse 3 to the conditions in verses 4–5. The command to rescue and the prohibition on shedding innocent blood are spoken directly to people with rule and power. The promised and warned consequences attach to what the house does. To show a translation or edition changed this passage, produce the witnesses and identify the changed words. To show a ruler failed the duty, produce that ruler’s actions. The currently indexed witnesses preserve the command. [Exhibit A01](#A01)
+
+**Matthew 18:6.** Read the child set in the middle of the group in verses 2–5 alongside the warning about one of the little ones who believe in verse 6. The verse supplies the millstone image to mark the gravity of the act. The related warning in Luke 17 makes the existence of offences no excuse for the person through whom they come. Mark 9:42 supplies a third passage to compare. The KJV term *offend* can sound weak to a modern ear. The Greek lexicon and the three contexts let the reader test that impression. A claim about a new printed wording needs a page that shows the wording changed. [Exhibit A02](#A02)
+
+**Matthew 27:4–6.** Follow the sequence of money. Judas carries it back and confesses that he betrayed innocent blood. The leaders dismiss his concern, and he casts down the silver. The leaders then decide the money cannot go into the treasury because it is the price of blood. In the witnesses compared, the Greek tradition has a branch with *righteous* and a branch with *innocent*. The older Clementine Latin and the 1979 Nova Vulgata differ at the adjective. The KJV has *innocent*. What the leaders call the payment in verse 6 remains essential to the scene. Read the adjective and the transaction in the same file. [Exhibit A03](#A03) · [Exhibit A04](#A04)
+
+Nathan’s broader charge, **“MADE INNOCENCE A COMMODITY,”** can be tested in a second file where the transaction is the subject. Joel 3:3 describes children traded for goods. Revelation 18 describes merchants mourning their lost market and gives bodies and lives a place in the cargo. These passages explain why the question of who profited belongs beside the question of what the printed text says. The evidence for a historical transaction still comes from whoever wrote the funding rule, kept the accounts, or recorded the transfer. [Exhibit A05](#A05)
+
+### III. Who controls the page and the land
+
+#### 6. Two editions, and then the hand that closes the book
+
+The **1631 Wicked Bible** is a case a reader can check by putting Exodus 20:14 beside a surviving printing. The absence of *not* reverses the command. The **1807 Slave Bible** is a different kind of case. Its title describes selections. Surviving copies make it possible to see which parts of the larger text the compilers gave their intended audience, including obedience passages, and which liberation material they left out. A printer can alter the meaning of one line. An editor can change the audience’s access to whole parts of the book. Both operations leave physical evidence, and the two operations need their own explanations. [Exhibit A06](#A06) · [Exhibit C11](#C11)
+
+Control also happens after a book is printed. Read Frederick Douglass’s 1845 account, Chapter VI, through the moment Sophia Auld starts teaching him to read and Hugh Auld stops the lessons. Douglass records the reason Auld gave and what the prohibition taught him about the power of literacy. In Chapter VII, he describes how he kept learning. Follow the testimony of the person denied the reading, as well as the instruction of the person exercising control. North Carolina’s 1830 law supplies a separate government decision about teaching enslaved people. Douglass’s narrative describes a household in Maryland. Together they show two sites of control, a household and a legislature, each with its own record. [Exhibit C04](#C04) · [Exhibit C11](#C11)
+
+#### 7. Read the chain of title across the centuries
+
+Put the medieval English document and the later Atlantic documents on separate pages. In **1213**, King John’s charter makes the kingdoms of England and Ireland papal fiefs. In **1534**, Parliament’s Act of Supremacy declares the English king head of the Church of England. In **1783**, Britain recognizes the United States as free, sovereign, and independent. Read the relationships each document actually describes. The crown in the first document, the crown in the second, and the republic in the third have specific powers under specific instruments. Each date matters to a claim about who ruled whom. [Exhibit C01](#C01)
+
+Then trace the colonial justifications. Compare the beneficiaries and grants in **Dum Diversas**, **Romanus Pontifex**, and **Inter Caetera**. Follow the English Crown’s own grants under Henry VII and James I. At **Johnson v. M’Intosh** in 1823, read the passage in which Marshall invokes Spain’s papal grant and England’s Cabot patent. He appeals to European practice while explaining rights the new U.S. government claimed to inherit. The case concerns competing claims to land and the ability of Indigenous nations to convey title to private buyers. Keep the recognized right of occupancy in the same paragraph as the restriction on transfer. The two fit within the court’s allocation of power. [Exhibit C02](#C02) · [Exhibit C03](#C03)
+
+The **Dawes Act of 1887** gives a later example with a different instrument. It empowered the president to allot certain reservation lands to individuals and provided for negotiation over surplus land. Read the statute to see what was granted, what was held in trust, and what could be opened to settlement. This is a dated step through which a policy turned collectively held land into individual allotments and opened additional land to other interests. Separating this mechanism from earlier claims about discovery makes it possible to ask what each act changed on the ground. [Exhibit C08](#C08)
+
+#### 8. Make room for the people who lived through it
+
+Begin the Cherokee removal inquiry with the Cherokee Nation’s own account. It counts about 16,000 people forced west and about 4,000 deaths along the way and during the ordeal. Read those estimates alongside the government record on removal. The official language of a transfer of territory sounds different when the people who made the journey describe exposure, starvation, and disease. Follow the record for the particular nation and route before taking the number into a hemisphere-wide comparison. [Exhibit C05](#C05)
+
+**Sand Creek** gives the research a place, a date, troops, and an encampment. **California** gives it a different record of organized killing over a longer period. The destruction of **bison** gives it another way to examine violence, through an attack on the food systems and ways of life of Indigenous peoples of the Plains. A count of animals slaughtered describes that destruction. Human deaths require their own sources. Document the connection when a record supplies it, and retain the place and nation to which the document actually refers. [Exhibit C05](#C05) · [Exhibit C06](#C06)
+
+The United States federal boarding-school investigation describes another method. Children were separated from their communities and their languages were suppressed under a system of forced assimilation. The second federal volume identifies **417 institutions** and documents **at least 973 child deaths** in its scope. Canada has its own residential-school record and its own survivor-led archive and commission findings. Comparison can place the policies side by side. It should preserve the border, institutions, and evidentiary limits on each case. Survivors’ testimony and the names of children who died bring the inquiry back to people who can otherwise disappear in a total. [Exhibit B07](#B07) · [Exhibit B08](#B08)
+
+### IV. How a comparison holds up
+
+#### 9. American racial law and Nazi German law
+
+Read the American precedents in order. Virginia’s **1662** law made a child’s status follow the mother’s status. The **1790** naturalization law restricted naturalization to free white persons. **Dred Scott** in 1857 denied federal citizenship to people of African descent within the categories the Court described. The **Thirteenth Amendment** abolished slavery and involuntary servitude with an exception for punishment after conviction. The **Fourteenth Amendment** defined citizenship for persons born or naturalized in the United States and subject to its jurisdiction. The law used to assign status could itself be changed. Record both the original rule and the later constitutional break before describing the period that followed. [Exhibit C04](#C04) · [Exhibit C09](#C09) · [Exhibit C10](#C10)
+
+For the Nazi line, start with the evidence of reading and deliberation. Whitman reconstructs German officials’ discussion of American race laws. Compare that discussion to the laws Germany enacted in **September 1935**, including the restrictions on citizenship and on marriage between Jews and people classified as German or related blood. American precedents are part of the legal history. The German statutes, implementing measures, administrative machinery, and murders carry the responsibility of the Nazi government and the actors who put those measures into action. [Exhibit D01](#D01) · [Exhibit D05](#D05)
+
+#### 10. The treaty, the protest, and the evidence of knowledge
+
+The **Lateran Treaty** of 1929 answers a question about territory and sovereignty. The **Reich Concordat** of 1933 answers what the Holy See and Nazi Germany agreed concerning the position and activity of the Catholic Church in Germany. Read the date, signatories, and terms of each before drawing a line between them. The Holy See existed before Vatican City State was created. The two agreements have different parties and purposes. [Exhibit D02](#D02)
+
+In **1937**, the encyclical *Mit brennender Sorge* condemned the elevation of race and state and protested treaty violations. In **1942**, Lothar König’s letter brought specific information about mass killing to papal aide Robert Leiber. Put the protest in a file of published statements. Put the letter in a file of notice and recipients. What did the office receive? Who else can be placed in the chain of communication? What correspondence or action followed? The letter establishes a recipient. The next step in the chain needs a record of circulation or response. [Exhibit D03](#D03)
+
+#### 11. Put the numbers on the witness stand
+
+| Number | What the source counts | Place and timeframe |
+|---|---|---|
+| 60.5 million | Central estimate of the Indigenous population before European contact | Americas at the beginning of the contact period |
+| Roughly 55 million | Approximate population loss using the study’s central estimates, across multiple causes | Americas over roughly the following century |
+| About 4,000 | Cherokee Nation estimate of people lost in the forced removal ordeal | Cherokee removal in the 1830s |
+| At least 973 | Deaths documented within the U.S. federal boarding-school investigation | Federally operated or supported institutions in the report |
+| Six million | Jewish people murdered in the Holocaust | Nazi Germany and its allies and collaborators |
+| Millions of additional victims | People in distinct groups also murdered under Nazi persecution and wartime policies | Geographies and periods vary by victim group |
+
+The starting number of people alive, the decline of a population, the known minimum in an institutional investigation, and the people murdered in a genocide each answer a different question. A starting population cannot be used as a count of murders. Adding statistics from separate inquiries can count the same people twice. Dividing a hemispheric decline by the Jewish Holocaust toll would give a numerical quotient while failing to answer Nathan’s comparison of perpetrators and killings. Write down the event, place, dates, population, cause, responsible actors, and source before placing a number next to another. [Exhibit C07](#C07) · [Exhibit C05](#C05) · [Exhibit B07](#B07) · [Exhibit D04](#D04)
+
+### V. What happens when someone reports abuse
+
+#### 12. Reconstruct the decision after each warning
+
+At **Ballarat**, use the year of the admission to the bishop as one entry. Give the mother’s appeal a second entry. Give the assignments to Mortlake and Sydney their own dates. Put children’s continued exposure and the Royal Commission’s finding about continued sexual abuse next to those entries. That sequence makes the harm visible and identifies the decisions that prolonged access. A general statement about “the Church” cannot tell the reader which person knew, where the priest was assigned, or what action a particular official could have taken. [Exhibit B02](#B02)
+
+For the **Ryan Report**, start with the money. Identify who paid the institutions and the unit used for payment. Follow the managers’ requests for committals and the state’s inspection failures. Then read what survivors described, including rape and other sexual abuse. Keep both the incentive and the specific harms on the page. The per-child funding finding is structural evidence. The individual account is evidence about what happened to a person and can be traced to the inquiry’s treatment of that account. [Exhibit B01](#B01)
+
+For the **Nassar investigation**, replace the bishop with the relevant FBI office and follow the same sequence. The inspector general records what the offices received, whom they failed to notify and what was later said about the response. Across Ballarat, the Irish institutions, and the FBI, evidence of institutional responsibility comes from actions and duties. Where the documents identify rape, say rape. Where they identify concealment, reassignment, failure to report, or false statements, name those acts and the person or office responsible. [Exhibit B02](#B02) · [Exhibit B05](#B05)
+
+#### 13. Read a new policy against its implementation
+
+Pennsylvania and England and Wales furnish an example of comparing inquiries without flattening them. The Pennsylvania grand jury reviewed six dioceses and records alleged and documented misconduct in that setting. IICSA gives findings in a different jurisdiction and makes recommendations. Use the terms each inquiry uses for each finding. Read the report, the underlying records where public, and any court judgment for the individual case. A bare institutional denial cannot replace an investigation, and a report’s recognition of a pattern cannot determine every person’s case. [Exhibit B03](#B03) · [Exhibit B04](#B04)
+
+Put the Holy See’s **2019 confidentiality instruction** and **2023 revised reporting rules** next to a specific complaint and examine what changed in practice. Who received the report? How quickly did the responsible authority act? Was civil reporting required and, where applicable, did it occur? Was the person’s access to children restricted? Which records were provided to investigators? A new procedure gives the researcher dated obligations or standards to compare against actions. It does not supply outcome data for a later complaint by itself. [Exhibit B06](#B06)
+
+### VI. Put the whole record on the table
+
+#### 14. The same question before and after an AI answer
+
+For **November 12**, begin with what Nathan’s manuscript reports about the Google exchange. The first dispute concerns whether enslavers **used** the Bible to justify slavery. The later answer discussed what the Bible was **written for**. Write both questions on the page as different questions. The 1807 edition and Douglass can answer part of the first. The available material contains Nathan’s account of the exchange. To compare every line, the original prompt and complete response would need to be recovered. [Chapter Eight](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/archive-index/2026-11-12/TOWER_OF_BABEL_CHAPTER_8.md) · [Exhibit C11](#C11)
+
+For **November 17**, preserve the sequence the reader can see. The earlier answer made claims about language, colonization, and Nazi racial law. The Irish and Ballarat investigations arrived later. The instruction that included the three verses also came later. A dated comparison can record an omission and its effect, which was that Nathan had to ask again to get those inquiries into the account. The sequence also identifies material that was specified after the first answer. Record allegation, observable behavior, and later correction together. A conclusion about why the system omitted a topic or who directed it needs evidence of that decision. [AI exchange record](#ai-exchange-record)
+
+#### 15. Build and clear a case so someone else can run it
+
+**1+1=2.** Put an exact claim next to a source that can answer it. Begin at the page where the source names the act. Record the date of the act and the date it was written down. Preserve the place, office, and person that the source identifies. Follow older and newer records in both directions through the same point.
+
+**1-1=0.** Remove a duplicate count, a casual substitution of modern meaning, or an inference the evidence cannot carry. Keep the original words in the record so the person who raised the question can see what was changed in the reading. A source showing people were harmed needs a record of how they were harmed, even when it fails to support the original estimate or theory.
+
+| Case to work | Where to start | What a second reader should be able to recover |
+|---|---|---|
+| A changed word | Matthew 27:4 in the KJV and both Latin editions | The specific lexical difference, the date attached to the newer Latin edition, and the difference between an edition date and the first appearance of a Greek variant |
+| A changed audience | The title and table of contents of the 1807 Slave Bible | The audience named by the publisher, the passages included, and missing parts of the liberation narrative |
+| A legal transfer | Cabot’s patent, the 1823 opinion, and the 1887 allotment statute | Which act claimed authority, how the court treated occupancy and transfer, and which later law authorized allotment |
+| An abuse report | The Ballarat timeline or the FBI OIG report | The receiving authority, the dated warning, the action taken or omitted, and the documented effect on access or investigation |
+| A number | The 2019 population study or the Holocaust museum’s count | What was counted, the scope, the source’s uncertainty, and where a number stops answering the question |
+| An AI answer | The exact prompt, reply, correction, and second reply | Which question the reply answered, what material was missing, what changed, and what the record says about motive |
+
+The work still open has names. The three-verse claim needs a dated editorial directive or another witness connecting the alleged changes to a common actor and purpose. A fuller reading of the 1807 edition needs a passage-by-passage inventory keyed to scan pages and to the intended edition for comparison. The diplomatic line needs the next traceable recipient of the 1942 report about Bełżec. The AI line needs the complete originals where the present record contains only excerpts. Those gaps belong beside what can already be established. [Evidence appendix](#evidence)
 
 ## 3. Evidence appendix for Chapter Eight
 
@@ -182,6 +343,14 @@ Two ChatGPT excerpts from the visible November 17 conversation show what was add
 
 **A06 · 1631 Wicked Bible and 1807 Slave Bible.** A surviving 1631 printing dropped *not* from an adultery commandment. The 1807 London edition for enslaved people in the British West Indies deliberately selected passages, omitting the Exodus liberation story while retaining instructions for enslaved people to obey their masters. **Documented effect.** The first exhibit shows what a single omitted word can do. The second documents control over the text a colonial audience was given. [1631 surviving copy, Museum of the Bible](https://collections.museumofthebible.org/artifacts/31798-the-wicked-bible) · [Digitized 1807 edition, University of Glasgow](https://researchdata.gla.ac.uk/955/) · [Museum exhibit](https://museumofthebible.getanchor.io/exhibits/slave-bibleindex.html)
 
+**A07 · Ancient Babylon and the archaeological record of Etemenanki.** The UNESCO World Heritage listing locates archaeological remains of the ziggurat in the preserved ancient city and connects it with the Tower of Babel tradition. **Documented effect.** The listing gives the reader a material site and a history of reception for the biblical tradition. It supplies no archaeological evidence for a sudden change in human speech. [Babylon World Heritage listing, including criterion vi](https://whc.unesco.org/en/list/278/)
+
+**A08 · 1604–1611, English Bible translation rules and the printed edition.** The translation project used the Bishops’ Bible as a base and permitted the consultation of other English translations. The 1611 printing has a preface that discusses the work of translation and the use of marginal readings. **Why it matters.** The project’s instructions and printed pages show how a translation exercised editorial judgment. [Cambridge University Library exhibition, items on the making of the KJV](https://wwwe.lib.cam.ac.uk/CUL/exhibitions/KJV/captions.html) · [Cambridge 1611 edition exhibit](https://wwwe.lib.cam.ac.uk/CUL/exhibitions/KJV/1611.html)
+
+**A09 · KJV historical vocabulary and test passages.** In the passages indexed here, *let* can mean restrain, *prevent* can mean precede, *suffer* can mean allow, and *conversation* can mean conduct. **How to verify.** Read the surrounding action with each sense in place and check the dated English wording before attributing a different meaning to a change in the text. [Four KJV passages](https://www.biblegateway.com/passage/?search=2+Thessalonians+2%3A7%2C1+Thessalonians+4%3A15-17%2CMatthew+19%3A13-15%2C1+Peter+1%3A15&version=KJV) · [Tabor Concordance scope](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/research/tabor-concordance/bible/README.md)
+
+**A10 · Languages, names, and interpretation in three KJV passages.** Daniel 1:3–7 places instruction and naming under court authority. Acts 2:5–11 describes people hearing in their own languages. First Corinthians 14:7–19 argues for speech understandable to the assembly. **Reading connection.** The comparison follows the work of interpretation from the ruler’s court to the listener’s ear. [KJV passage set](https://www.biblegateway.com/passage/?search=Daniel+1%3A3-7%2CActs+2%3A5-11%2C1+Corinthians+14%3A7-19&version=KJV)
+
 **Finding on the alleged coordinated edit.** The three verses are identified in the November 13 research blueprint. The records document a lexical difference at Matthew 27:4, historical sense in Matthew 18:6, and a command retained at Jeremiah 22:3. The search yielded no dated editorial instruction or coordinated alteration of those three passages that converted innocence into a legal or commercial status.
 
 ### B. Child sexual abuse, institutional decisions, and state oversight
@@ -200,6 +369,8 @@ Two ChatGPT excerpts from the visible November 17 conversation show what was add
 
 **B07 · U.S. Department of the Interior, July 2024 federal Indian boarding-school investigation.** The investigation identified 417 federal Indian boarding-school institutions and at least 973 child deaths while attending federally operated or supported schools. It records church participation and forced assimilation, including suppression of Indigenous languages. **Documented effect.** The record connects public funding and administration to identifiable institutions and a documented minimum death toll. [Official announcement and report links](https://www.doi.gov/pressreleases/secretary-haaland-announces-major-milestones-federal-indian-boarding-school) · [Full investigation, Office of Indian Affairs](https://www.bia.gov/service/federal-indian-boarding-school-initiative) · [Jesuit institutional response](https://www.jesuits.org/our-work/justice-and-ecology/native-boarding-schools/)
 
+**B08 · Canada, residential-school Truth and Reconciliation Commission and survivor records.** The National Centre for Truth and Reconciliation holds records collected by the commission, including survivor testimony, and provides access to its reports and Calls to Action. **Documented scope.** These records concern the Canadian residential-school system. They permit a comparison of institutional practices with the United States inquiry without merging their jurisdictions or counts. [National Centre mandate and records](https://nctr.ca/about/our-mandate/) · [Calls to Action](https://nctr.ca/about/truth-and-reconciliation-commission-of-canada-calls-to-action/)
+
 ### C. Papacy, colonial law, and the Americas
 
 **C01 · May 1213, King John’s surrender charter.** John transferred his kingdoms to Pope Innocent III and received them as a fief tied to annual tribute. **Documented effect.** The charter records a medieval relationship of papal vassalage. The **1534 Act of Supremacy** asserts royal ecclesiastical authority in England, and the **1783 Treaty of Paris** recognizes U.S. independence. [1213 charter](https://sourcebooks.fordham.edu/source/john1a.asp) · [1534 Act of Supremacy](https://www.parliament.uk/about/living-heritage/transformingsociety/private-lives/religion/collections/common-prayer/act-of-supremacy/) · [1783 treaty, Article 1](https://www.archives.gov/milestone-documents/treaty-of-paris)
@@ -216,6 +387,14 @@ Two ChatGPT excerpts from the visible November 17 conversation show what was add
 
 **C07 · The Americas after 1492, demographic study published 2019.** Koch and colleagues synthesized 119 published regional estimates and estimated a pre-contact Indigenous population of 60.5 million, with an interquartile range of 44.8–78.2 million. They estimate a decline of roughly 90% in the following century. Epidemics were the main driver in their model and warfare, enslavement, forced relocation, and hunger amplified losses. **Documented effect.** The research estimates hemisphere-wide depopulation, approximately 55 million at the central estimate. Its geography, dates, and causes cannot establish a toll of 60 million direct killings by the U.S. government. [Full article and DOI, UCL](https://discovery.ucl.ac.uk/id/eprint/10068488/)
 
+**C08 · February 8, 1887, General Allotment Act.** The law authorized the president to divide certain reservation lands into individual allotments. Section 5 provided for a trust period and addressed the possible purchase and opening of surplus lands. **Documented effect.** Allotment altered the basis on which land was held and, together with subsequent measures, resulted in substantial Indigenous land loss. [National Archives statute and transcript, 24 Stat. 388](https://www.archives.gov/milestone-documents/dawes-act)
+
+**C09 · 1857, Dred Scott v. Sandford.** The Supreme Court’s majority denied that the category of people of African descent it described could be citizens within the meaning of the federal Constitution. The majority also declared the congressional slavery prohibition at issue unconstitutional. **Documented effect.** The ruling used ancestry and enslavement to deny federal citizenship. The Fourteenth Amendment later established a constitutional rule of citizenship. [Library of Congress primary records and case guide](https://guides.loc.gov/dred-scott/introduction) · [Fourteenth Amendment](#C10)
+
+**C10 · 1865 and 1868, the Thirteenth and Fourteenth Amendments.** The Thirteenth prohibited slavery and involuntary servitude with an exception for punishment after conviction of a crime. The Fourteenth specified citizenship for people born or naturalized in the United States and subject to its jurisdiction, and directed states to provide equal protection. **Documented effect.** The constitutional texts changed the legal rules under which slavery and citizenship had operated. [National Archives, Thirteenth Amendment](https://www.archives.gov/milestone-documents/13th-amendment) · [National Archives, Fourteenth Amendment](https://www.archives.gov/milestone-documents/14th-amendment)
+
+**C11 · 1807 and 1845, the text selected and the reader who was denied lessons.** The Glasgow copy of the 1807 colonial edition provides the physical contents. In Chapters VI and VII of his 1845 Narrative, Frederick Douglass gives his account of lessons stopped and of how he continued learning. **Documented connection.** The texts show two different means of controlling literacy, a selective edition and a household’s restriction on reading instruction. [University of Glasgow copy](https://researchdata.gla.ac.uk/955/) · [Douglass’s 1845 Narrative, Chapters VI and VII](https://www.gutenberg.org/ebooks/23)
+
 ### D. Hitler, U.S. racial law, the Holy See, and the Holocaust
 
 **D01 · 1927–1935, U.S. eugenics and Nazi race law.** The U.S. Supreme Court upheld a Virginia compulsory sterilization law in *Buck v. Bell*. Archival research by James Q. Whitman examines the June 5, 1934 meeting of German lawyers and other evidence of their use of U.S. racial precedents. The September 1935 Nuremberg Laws made ancestry the basis of key civil disabilities and prohibited marriages between Jews and people classified as German or related blood. **Documented effect.** American examples influenced Nazi lawmaking, particularly on citizenship and interracial marriage. The Nazi regime enacted and enforced its own antisemitic laws. [1927 U.S. ruling](https://www.loc.gov/resource/usrep.usrep274200/) · [Whitman’s chapter on the 1934 meeting](https://www.law.nyu.edu/sites/default/files/upload_documents/Hitler%27s%20American%20Model%20for%20NYU.pdf) · [USHMM on the American connection](https://encyclopedia.ushmm.org/content/en/question/what-were-some-similarities-between-racism-in-nazi-germany-and-in-the-united-states-1920s-1940s) · [Nuremberg Race Laws](https://encyclopedia.ushmm.org/content/en/article/the-nuremberg-race-laws)
@@ -226,13 +405,15 @@ Two ChatGPT excerpts from the visible November 17 conversation show what was add
 
 **D04 · 1933–1945, documented victims of Nazi murder.** The U.S. Holocaust Memorial Museum documents six million Jewish Holocaust victims and millions of additional victims of Nazi Germany and its allies and collaborators, including Soviet prisoners of war, non-Jewish Poles, Roma, and people with disabilities. **Scope of the figures.** The Holocaust count measures murdered people in a specified genocide. C07 measures hemisphere-wide depopulation across roughly a century, including several causes. Dividing the figures does not yield the proposed “4–10 times” comparison of murders. [USHMM methodology and victim counts](https://encyclopedia.ushmm.org/content/en/article/documenting-numbers-of-victims-of-the-holocaust-and-nazi-persecution)
 
+**D05 · September 15 and November 14, 1935, German Reich citizenship law and its first regulation.** The citizenship law limited full citizenship using an ancestry requirement. The first regulation elaborated classifications and stripped Jews of citizenship and political rights. The parallel Law for the Protection of German Blood and German Honor regulated marriage and sexual relations under Nazi racial categories. **Documented effect.** The statute and implementing regulation supply the mechanics of exclusion that are compared with American legal precedents in D01. [Reich Citizenship Law and first regulation, primary texts](https://germanhistorydocs.org/en/nazi-germany-1933-1945/the-reich-citizenship-law-september-15-1935-and-the-first-regulation-to-the-reich-citizenship-law-november-14-1935) · [Contemporaneous U.S. diplomatic dispatch](https://history.state.gov/historicaldocuments/frus1935v02/d305) · [USHMM on both laws](https://encyclopedia.ushmm.org/content/en/article/nuremberg-laws)
+
 ### E. Nathan Tabor’s related records
 
 **E01 · Word rotations and hearing.** GOD/DOG reverses the written order. COME/CUM share a pronunciation. Written order, sound, and historical meaning are distinct operations in the research. The same distinction is useful when reading KJV *offend*, comparing Latin editions, or checking whether an AI response changed the question. [Cambridge pronunciation of come](https://dictionary.cambridge.org/pronunciation/english/come) · [Cambridge pronunciation of cum](https://dictionary.cambridge.org/pronunciation/english/cum) · [Tabor Concordance](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/research/tabor-concordance/bible/README.md)
 
 **E02 · Four Roots and the Vatican archive.** The linked repository records preserve the Four Roots crosswalk, the Vatican research index, and the 19-level Babel map. The exhibit entries above supply source documents for the individual historical claims. [Four Roots of America](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/192) · [Vatican Master Recovery](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/53) · [Babel–Inferno original-words registry](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/103)
 
-
+**E03 · Nathan’s Master key reproduced and audited.** The ledger applies each stated operation to the letters. TABOR reverses to ROBAT. ROBOT requires a further substitution. COME and CUM share a pronunciation and belong to a hearing comparison. **How to verify.** Start with the exact sequence Nathan gave. Reproduce each move and keep spelling, sound, layout, and historical descent in their own records. [Master key in Nathan’s original words](#the-master-key) · [Full working ledger](#1-run-the-master-key-both-ways) · [Pronunciation sources](#E01)
 
 ## 4. Original attachment
 

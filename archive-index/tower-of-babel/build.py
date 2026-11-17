@@ -52,9 +52,10 @@ def evidence_sections(evidence):
         rendered_groups.append(
             f'<section class="exhibit-group"><h3>{escape(title)}</h3>{"".join(lines)}</section>'
         )
-    if len(exhibits) != 26:
-        raise ValueError(f"Expected all 26 exhibits, found {len(exhibits)}")
-    return render(evidence[:groups[0].start()]) + "".join(general_notes), "".join(options), "".join(rendered_groups)
+    return (
+        render(evidence[:groups[0].start()]) + "".join(general_notes),
+        "".join(options), "".join(rendered_groups), len(exhibits),
+    )
 
 
 def static_page(manuscript, artwork_revision):
@@ -62,7 +63,7 @@ def static_page(manuscript, artwork_revision):
     if len(parts) != 5:
         raise ValueError("Expected four manuscript sections")
     _, original, editorial, evidence, attachment = parts
-    preface, options, groups = evidence_sections(evidence)
+    preface, options, groups, exhibit_count = evidence_sections(evidence)
     editorial_html = render(editorial)
     contents = [
         f'<li><a href="#{escape(section)}">{label}</a></li>'
@@ -75,8 +76,10 @@ def static_page(manuscript, artwork_revision):
         "ORIGINAL": render(original), "EDITORIAL": editorial_html,
         "EVIDENCE_PREFACE": preface, "CATEGORIES": options,
         "EVIDENCE": groups, "ATTACHMENT": render(attachment),
+        "EXHIBIT_COUNT": str(exhibit_count),
     }
-    return re.sub(r"%%([A-Z_]+)%%", lambda m: regions[m[1]], (ROOT / "reader.html").read_text())
+    page = re.sub(r"%%([A-Z_]+)%%", lambda m: regions[m[1]], (ROOT / "reader.html").read_text())
+    return page, exhibit_count
 
 
 def worker_source(page, manuscript, metadata, artwork):
@@ -128,12 +131,12 @@ def main():
     manuscript = raw.decode()
     artwork = (ROOT / "tower.webp").read_bytes()
     artwork_sha256 = hashlib.sha256(artwork).hexdigest()
-    page = static_page(manuscript, artwork_sha256[:12])
+    page, exhibit_count = static_page(manuscript, artwork_sha256[:12])
     metadata = json.dumps({
         "title": "The Tower of Babel",
         "author": "Nathan Tabor",
-        "edition": "revised-reading-edition",
-        "exhibits": 26,
+        "edition": "expanded-reading-edition",
+        "exhibits": exhibit_count,
         "artwork_sha256": artwork_sha256,
         "manuscript_sha256": hashlib.sha256(raw).hexdigest(),
     }, indent=2) + "\n"
