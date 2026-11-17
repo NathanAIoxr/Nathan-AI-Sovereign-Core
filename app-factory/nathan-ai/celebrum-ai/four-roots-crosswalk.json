@@ -1,0 +1,275 @@
+{
+  "id": "NT-FOUR-ROOTS-CELEBRUM-CROSSWALK-20261112",
+  "title": "THE FOUR ROOTS OF AMERICA × CELEBRUM AI 🧠",
+  "author_origin": "Nathan Tabor",
+  "content_status": "ASSISTANT_DERIVED_CROSSWALK_NOT_VERBATIM_AUTHOR_MANUSCRIPT",
+  "edition": "2026-11-12",
+  "roots": [
+    {
+      "id": "ROOT-01",
+      "title": "The Rule of Law & Limits on Power",
+      "axis": "authority",
+      "documents": [
+        "Petition of Right (England, 1628)",
+        "English Bill of Rights (1689)",
+        "U.S. Constitution (1787)"
+      ],
+      "law_to_system": {
+        "anchored": "Policies bind administrators, services and models; log actual authority, approvals, permission scopes, overrides, receipts and appealability.",
+        "unanchored": "Explore hypothetical constitutions and systems of power in clearly labeled simulation; never confer real authority."
+      },
+      "system_to_law": {
+        "anchored": "Use an evidence ledger to compare the text of legal limits with documented decisions, exemptions and institutional conduct.",
+        "unanchored": "Model alternative allocations of power and governance outcomes without calling counterfactuals historical facts."
+      },
+      "controls": [
+        "role_scopes",
+        "no_secret_superuser_exemption",
+        "audit_records",
+        "override_review"
+      ],
+      "failure": "An institution or assistant claims it can override a rule but does not establish the authority or supporting record."
+    },
+    {
+      "id": "ROOT-02",
+      "title": "Personal Liberty & Fair Trials",
+      "axis": "liberty",
+      "documents": [
+        "Habeas Corpus Act (England, 1679)",
+        "U.S. Bill of Rights (1791)",
+        "U.S. Fourteenth Amendment (1868)"
+      ],
+      "law_to_system": {
+        "anchored": "Separate user speech, hypothesis and fiction; protect bodily autonomy, privacy and consent; keep review and correction channels for adverse decisions.",
+        "unanchored": "Protect the freedom to ask what-if questions about different minds, bodies, Gods, imagined planets and ant-gods while labeling fiction as fiction."
+      },
+      "system_to_law": {
+        "anchored": "Track detention, procedure, notice, counsel, review and disparate application in verifiable records without deciding guilt.",
+        "unanchored": "Simulate institutional choices and compare human-centered appeal processes; scenarios do not establish actual rights violations."
+      },
+      "controls": [
+        "consent",
+        "privacy_minimization",
+        "notice",
+        "correction_path",
+        "human_review"
+      ],
+      "failure": "A speculative question is recast as an assertion and redirected to mental-health commentary instead of the source requested."
+    },
+    {
+      "id": "ROOT-03",
+      "title": "Property & Contracts (Things and Promises)",
+      "axis": "ownership",
+      "documents": [
+        "Semayne's Case (England, 1604)",
+        "Statute of Frauds (England, 1677)",
+        "U.S. Constitution Fourth and Fifth Amendments"
+      ],
+      "law_to_system": {
+        "anchored": "Preserve original wording/bytes, attribution, versions, provenance, permissions and contracts. Proposed edits never silently replace source.",
+        "unanchored": "Permit new books, lexical structures, fictional worlds and inventions to branch into new versions without appropriating the source."
+      },
+      "system_to_law": {
+        "anchored": "Use provenance to compare title, authorship, transfer, license and reliance on agreements with evidence; legal ownership remains a legal determination.",
+        "unanchored": "Test hypothetical ownership and consent schemes; identify where fictional contracts conflict with real-world requirements."
+      },
+      "controls": [
+        "immutable_source",
+        "version_history",
+        "licensing_review",
+        "revocable_access",
+        "original_attribution"
+      ],
+      "failure": "An assistant takes an author source, rewrites it, claims the author supplied the rewritten wording, or implies the content was deployed."
+    },
+    {
+      "id": "ROOT-04",
+      "title": "Wrongs & Crimes (Torts and Punishments)",
+      "axis": "harm",
+      "documents": [
+        "Common-law civil wrongs and public crimes",
+        "U.S. Bill of Rights Fifth, Sixth and Eighth Amendments",
+        "U.S. Fourteenth Amendment"
+      ],
+      "law_to_system": {
+        "anchored": "Protect potential victims and evidence, classify incident reports, provide lawful escalation, independent review, correction and proportionate remedies. Do not issue automatic guilt verdicts.",
+        "unanchored": "Use biblical digital-plague analogies and the 1,000 SNAKES as fictional, non-destructive accountability scenarios; model corrective alternatives."
+      },
+      "system_to_law": {
+        "anchored": "Distinguish allegation, evidence, finding, remedy and observed outcome; audit concealment and failures to protect innocence with dates and sources.",
+        "unanchored": "Explore counterfactual outcomes and ethically bounded simulations; never turn metaphorical destruction into real attack instructions."
+      },
+      "controls": [
+        "incident_provenance",
+        "protection_first",
+        "nonviolent_simulation",
+        "no_automatic_punishment",
+        "record_correction"
+      ],
+      "failure": "System declares harm addressed or commands executed while no independent action receipt exists."
+    }
+  ],
+  "source_documents": [
+    {
+      "year": 1604,
+      "name": "Semayne's Case",
+      "jurisdiction": "England",
+      "url": "https://oll.libertyfund.org/quotes/sir-edward-coke-declares-that-your-house-is-your-castle-and-fortress-1604"
+    },
+    {
+      "year": 1628,
+      "name": "Petition of Right",
+      "jurisdiction": "England",
+      "url": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/parliamentaryauthority/civilwar/collections/petition-of-right/"
+    },
+    {
+      "year": 1677,
+      "name": "Statute of Frauds",
+      "jurisdiction": "England",
+      "url": "https://www.legislation.gov.uk/aep/Cha2/29/3/contents"
+    },
+    {
+      "year": 1679,
+      "name": "Habeas Corpus Act",
+      "jurisdiction": "England",
+      "url": "https://www.legislation.gov.uk/aep/Cha2/31/2/contents"
+    },
+    {
+      "year": 1689,
+      "name": "English Bill of Rights",
+      "jurisdiction": "England",
+      "url": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/parliamentaryauthority/revolution/collections1/collections-glorious-revolution/billofrights/"
+    },
+    {
+      "year": 1791,
+      "name": "U.S. Bill of Rights ratified",
+      "jurisdiction": "United States",
+      "url": "https://www.archives.gov/legislative/features/bor"
+    },
+    {
+      "year": 1868,
+      "name": "U.S. Fourteenth Amendment ratified",
+      "jurisdiction": "United States",
+      "url": "https://www.archives.gov/milestone-documents/14th-amendment"
+    }
+  ],
+  "connections": [
+    {
+      "from": "CEREBRO-FICTION",
+      "to": "ROOT-02",
+      "why": "hypothetical consciousness and fictional connection network",
+      "relationship": "cross-reference_not_proof"
+    },
+    {
+      "from": "MONROE-GATEWAY",
+      "to": "ROOT-02",
+      "why": "consented audio EEG modeling and stated scientific limits",
+      "relationship": "cross-reference_not_proof"
+    },
+    {
+      "from": "CELEBRUM-SOURCE-ARCHIVE",
+      "to": "ROOT-03",
+      "why": "original author bytes, attribution and versioned derivatives",
+      "relationship": "cross-reference_not_proof"
+    },
+    {
+      "from": "ONE-MASTER-INDEX",
+      "to": "ROOT-03",
+      "why": "canonical public metadata points to owner-held sources, not their bytes",
+      "relationship": "cross-reference_not_proof"
+    },
+    {
+      "from": "NATHAN-ACCOUNTABILITY",
+      "to": "ROOT-01",
+      "why": "authority records, immutable changes and contradictions",
+      "relationship": "cross-reference_not_proof"
+    },
+    {
+      "from": "THOUSAND-SNAKES",
+      "to": "ROOT-04",
+      "why": "1000 symbolic witnesses; last witness reflects on system itself",
+      "relationship": "cross-reference_not_proof"
+    },
+    {
+      "from": "BIBLICAL-DIGITAL-JUDGMENTS",
+      "to": "ROOT-04",
+      "why": "bounded defensive failure analogies, never destructive payloads",
+      "relationship": "cross-reference_not_proof"
+    },
+    {
+      "from": "ANT-GODS-STORY",
+      "to": "ROOT-02",
+      "why": "clearly labeled independent fiction that tests epistemic category preservation",
+      "relationship": "cross-reference_not_proof"
+    },
+    {
+      "from": "NATHAN-AI-LEXICON",
+      "to": "ROOT-03",
+      "why": "phonetic/linguistic versions retain exact original spellings",
+      "relationship": "cross-reference_not_proof"
+    },
+    {
+      "from": "BRAIN-MIND-BODY-HISTORY",
+      "to": "ROOT-02",
+      "why": "ancient-modern claims keep distinct source and interpretation",
+      "relationship": "cross-reference_not_proof"
+    },
+    {
+      "from": "732M-SUPERNODES",
+      "to": "ROOT-01",
+      "why": "logical identities subject to common owner-governed permissions; never claim deployed scale",
+      "relationship": "cross-reference_not_proof"
+    },
+    {
+      "from": "FIRST-ROOTS-BOOK",
+      "to": "ROOT-01",
+      "why": "legal authority and limits tracked across sources",
+      "relationship": "cross-reference_not_proof"
+    },
+    {
+      "from": "FIRST-ROOTS-BOOK",
+      "to": "ROOT-02",
+      "why": "actual application vs promised fairness",
+      "relationship": "cross-reference_not_proof"
+    },
+    {
+      "from": "FIRST-ROOTS-BOOK",
+      "to": "ROOT-03",
+      "why": "land/deeds/contract rights and dispossession compared",
+      "relationship": "cross-reference_not_proof"
+    },
+    {
+      "from": "FIRST-ROOTS-BOOK",
+      "to": "ROOT-04",
+      "why": "distinguish harms and documented remedies",
+      "relationship": "cross-reference_not_proof"
+    }
+  ],
+  "record_origin_types": [
+    "VERBATIM",
+    "DOCUMENTED",
+    "OBSERVED",
+    "SUPPORTED_INFERENCE",
+    "HYPOTHESIS",
+    "FICTION",
+    "SIMULATED",
+    "EXECUTED_LOCAL",
+    "EXTERNAL_ACTION",
+    "UNKNOWN"
+  ],
+  "rules": {
+    "anchored": "Preserve exact primary source and verifiable actions, with citations and correction history.",
+    "unanchored": "Branch speculative thought into labeled independent contexts without changing original facts.",
+    "reanchor": "Append newly verified finding as new linked record; never silently promote a hypothesis or overwrite original.",
+    "double_connection_rule": "Each root exposes both directions and two modes; 4 × 2 × 2 = 16 explicit cells.",
+    "author_protection": "Keep original words and authored book text separately from editorial additions; no invented authorship.",
+    "real_world_safety": "No independent arrest, punishment, abuse accusation findings, physical intervention or attack simulation that affects systems."
+  },
+  "historical_limits": [
+    "The four roots are an author-defined organizational model, not a complete or exhaustive origin of law.",
+    "The English 1600s documents predate United States independence and must not be misattributed as enacted American federal law.",
+    "Colonial law coexisted with enslavement and Indigenous dispossession; rights were not universally applied.",
+    "Not every major transaction requires written terms today; specific statutory provisions, exceptions and jurisdictions matter.",
+    "Criminal punishment is imposed by lawful institutions after due process; an AI index may only assist evidence organization."
+  ]
+}

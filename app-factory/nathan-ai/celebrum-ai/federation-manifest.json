@@ -1,0 +1,122 @@
+{
+  "id": "NATHAN-CELEBRUM-FEDERATION-V2",
+  "name": "CELEBRUM AI 🧠 — BY NATHAN TABOR",
+  "edition": "2026-11-11",
+  "source_policy": "preserve original bytes and voices separately; metadata only public",
+  "status": "PUBLIC_METADATA_REFERENCE_WITH_OWNER_HELD_LOCAL_EXECUTABLE_PACKAGE",
+  "core_module": "app-factory/nathan-ai/celebrum-ai/",
+  "parent": "NATHAN AI / ONE MASTER INDEX",
+  "paths": {
+    "public_gateway": "index.html",
+    "public_docs": "README.md",
+    "private_local_full": "CELEBRUM_AI_Integrated_v2.zip — provided in conversation, not in repo"
+  },
+  "local_verified_counts": {
+    "nodes": 138,
+    "edges": 427,
+    "tests_passed": 22,
+    "full_logical_node_ceiling": 732000000,
+    "live_logical_nodes_claimed": 0
+  },
+  "directions": [
+    "ANCHORED",
+    "UNANCHORED",
+    "REANCHOR"
+  ],
+  "data_practices": [
+    "no raw private source in public registry",
+    "no child/case details public",
+    "no credential import",
+    "no financial source mutations",
+    "do not claim external action without receipt"
+  ],
+  "linked_systems": [
+    {
+      "name": "ONE MASTER INDEX",
+      "mode": "metadata links"
+    },
+    {
+      "name": "GitHub",
+      "mode": "public module"
+    },
+    {
+      "name": "Creator Vault",
+      "mode": "owner-held bytes"
+    },
+    {
+      "name": "Crypto Assets",
+      "mode": "independent specialized DB"
+    },
+    {
+      "name": "Mining Operations",
+      "mode": "independent specialized DB"
+    }
+  ],
+  "module_families": [
+    "brain anatomy",
+    "history and texts",
+    "multiscale systems",
+    "coding encodings",
+    "non-coding arts and speech",
+    "audio signals",
+    "fiction",
+    "biblical text crosswalk",
+    "non-destructive fault simulators",
+    "1,000 accountability witnesses",
+    "evidence and corrections"
+  ],
+  "four_roots": {
+    "id": "NT-FOUR-ROOTS-CELEBRUM-CROSSWALK-20261112",
+    "kind": "source-preserving technical/editorial crosswalk",
+    "source_original": "owner-held, no manuscript text publicly copied",
+    "law_to_system": true,
+    "system_to_law": true,
+    "anchored_and_unanchored": true,
+    "directional_mode_cells": 16,
+    "related_subjects": 15,
+    "paths": [
+      "FOUR_ROOTS_BIDIRECTIONAL.md",
+      "four-roots-crosswalk.json",
+      "four-roots-engine.cjs",
+      "four-roots-engine.test.cjs"
+    ],
+    "test_status": "tests supplied, external CI/local Node execution pending"
+  },
+  "babel_four_roots_language": {
+    "id": "NT-BABEL-FOUR-ROOTS-GRAMMAR-20261112",
+    "date": "2026-11-12",
+    "public_files": [
+      "BABEL_LANGUAGE_LAW_CROSSWALK.md",
+      "babel-language-law-crosswalk.json"
+    ],
+    "owner_held_source": "preserved locally and not published",
+    "editorial_draft_word_count": 3350,
+    "language_rule_count": 27,
+    "analysis_path_count": 64,
+    "local_nodes": 77,
+    "local_typed_links": 200,
+    "tests_passed_local": 18,
+    "tests_public_ci": "PENDING",
+    "standalone_book_title": "THE LAWS OF STUPIDITY — AKA THE LAWS OF ENGLISH",
+    "interpretation_status": "BABEL_SIMILE_AUTHOR_INTERPRETATION",
+    "history_status": "PUBLIC_SOURCE_ANCHORED"
+  },
+  "pandora_ceres_abcdefu_v3": {
+    "id": "NT-CELEBRUM-PANDORA-CERES-ABCDEFU-V3",
+    "author": "Nathan Tabor",
+    "created": "2026-11-12",
+    "public_reference": "pandora-ceres/index.html",
+    "documentation": "pandora-ceres/README.md",
+    "public_manifest": "pandora-ceres/manifest.json",
+    "private_verbatim_original": "owner-held only; never published",
+    "private_local_graph_nodes": 126,
+    "private_local_typed_connections": 442,
+    "reciprocal_law_grammar_slots": 64,
+    "local_python_tests_passed": 17,
+    "local_js_syntax_passed": true,
+    "local_chromium_smoke_passed": true,
+    "production_tested": false,
+    "physical_devices_connected": false,
+    "remote_actions_claimed": 0
+  }
+}

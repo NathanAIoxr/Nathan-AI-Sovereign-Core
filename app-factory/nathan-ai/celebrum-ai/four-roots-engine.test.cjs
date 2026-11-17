@@ -1,0 +1,15 @@
+'use strict';
+const test=require('node:test');const assert=require('node:assert/strict');
+const {crosswalk,path,verifyMatrix,inspectClaim}=require('./four-roots-engine.cjs');
+test('four roots and 16 directional mode cells',()=>{const r=verifyMatrix();assert.equal(r.valid,true,JSON.stringify(r.errors));assert.equal(r.roots,4);assert.equal(r.directionalCells,16)});
+test('source document links have explicit jurisdiction',()=>{assert.ok(crosswalk.source_documents.length>=7);for(const s of crosswalk.source_documents){assert.ok(s.jurisdiction);assert.match(s.url,/^https:\/\//)}});
+test('bidirectional anchor and unanchor paths exist',()=>{for(const r of crosswalk.roots)for(const d of ['law_to_system','system_to_law'])for(const m of ['anchored','unanchored'])assert.ok(path(r.id,d,m).length>20)});
+test('invalid root rejected',()=>assert.throws(()=>path('NOT-A-ROOT','law_to_system','anchored')));
+test('unsupported claim of external execution is rejected',()=>{const r=inspectClaim({origin:'EXTERNAL_ACTION'});assert.equal(r.ok,false);assert.ok(r.issues.includes('Execution not independently evidenced'))});
+test('proved local test records are syntactically admissible',()=>assert.equal(inspectClaim({origin:'EXECUTED_LOCAL',receipt:'test-run-1'}).ok,true));
+test('source overwrite without version is rejected',()=>assert.equal(inspectClaim({origin:'DOCUMENTED',originalWasEdited:true}).ok,false));
+test('hypothetical recast as fact is rejected',()=>assert.equal(inspectClaim({origin:'HYPOTHESIS',subjectIsHypothesis:true,presentedAsFact:true}).ok,false));
+test('hypothetical recast as diagnosis is rejected',()=>assert.equal(inspectClaim({origin:'HYPOTHESIS',originalSpeechWasHypothetical:true,reframedAsDiagnosis:true}).ok,false));
+test('automatic guilt verdict is blocked',()=>assert.equal(inspectClaim({origin:'SUPPORTED_INFERENCE',determinesGuilt:true}).ok,false));
+test('personal data publication without authorization is rejected',()=>assert.equal(inspectClaim({origin:'DOCUMENTED',personalDataPublished:true}).ok,false));
+test('claims with known origin and no risks are not labeled violations',()=>assert.equal(inspectClaim({origin:'FICTION'}).ok,true));
