@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 334,
+  "count": 335,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -1514,6 +1514,14 @@
       "entry": "app-factory/tabor-universal-library-engine/public/index.html",
       "group": "tabor-universal-library-engine",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/tabor-universal-library-engine/public/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-4426ee75f9c4eeec",
+      "title": "Tabor World by Nathan Tabor",
+      "entry": "app-factory/tabor-universal-library-engine/public/world/index.html",
+      "group": "tabor-universal-library-engine",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/tabor-universal-library-engine/public/world/index.html",
       "adoption": "integration_required"
     },
     {
