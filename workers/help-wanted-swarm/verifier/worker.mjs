@@ -24,8 +24,11 @@ const PENDING_HANDOFFS = `
   JOIN repair_jobs j ON j.id=h.job_id
   LEFT JOIN repair_patch_checks v ON v.job_id=h.job_id AND v.source_receipt=h.source_receipt
   WHERE j.provider='github' AND j.status='PATCH_READY' AND h.source_receipt=j.receipt
-    AND (v.job_id IS NULL OR (v.status='SOURCE_UNAVAILABLE' AND v.checked_at<=?1)
-      OR (v.status='SOURCE_MATCH' AND v.execution<>'Cloudflare scheduled run'))
+    AND (v.job_id IS NULL OR (v.status='SOURCE_UNAVAILABLE' AND (v.checked_at<=?1 OR EXISTS(
+      SELECT 1 FROM repair_pinned_sources p
+      WHERE p.repository=lower(j.repository) AND p.base=lower(json_extract(h.source_receipt,'$.base'))
+        AND p.imported_at>v.checked_at)))
+      OR (v.status='SOURCE_MATCH' AND v.execution NOT LIKE 'Cloudflare scheduled run%'))
   ORDER BY v.checked_at IS NOT NULL, v.checked_at, j.scope='INTERNAL' DESC, h.draft_at, h.job_id
   LIMIT 4
 `;
@@ -152,28 +155,50 @@ async function fileText(response, fromApi) {
   return new TextDecoder("utf-8", {fatal:true}).decode(bytes);
 }
 
-export async function verifyPatch(jobId, receipt, read = fetch, repository) {
+async function checkPinnedSnapshot(row) {
+  if (row.present === 0 && row.source === null && row.sha256 === null) return;
+  if (row.present !== 1 || typeof row.source !== "string") throw Error("Invalid pinned Git snapshot");
+  const bytes = new TextEncoder().encode(row.source);
+  if (bytes.length > 300000) throw Error("Source exceeds verifier size limit");
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  const sha = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2,"0")).join("");
+  if (sha !== row.sha256) throw Error("Pinned Git snapshot checksum differs");
+}
+
+export async function verifyPatch(jobId, receipt, read = fetch, repository, lookupSnapshot) {
   const canonical = /^github:([\w.-]+\/[\w.-]+)#[1-9]\d*$/.exec(jobId);
   const target = TARGETS[jobId] ??
     (repository && canonical?.[1] === repository.toLowerCase() && validPath(repository) ? {repository} : null);
   if (!target || !/^[0-9a-f]{40}$/i.test(receipt.base || "")) throw Error("Missing pinned Git revision");
   const files = parseDiff(receipt.patch, target.paths);
   const request = { redirect: "error", signal: AbortSignal.timeout(10000) };
-  if (files.every(file => file.created)) {
+  const snapshots = await Promise.all(files.map(f =>
+    lookupSnapshot?.(target.repository.toLowerCase(), receipt.base.toLowerCase(), f.path)));
+  if (files.every(file => file.created) && snapshots.some(row => !row)) {
     const base = await read("https://api.github.com/repos/" + target.repository + "/commits/" + receipt.base,
       {...request, headers: {"User-Agent":"NathanAI-Sovereign-Hive",Accept:"application/vnd.github+json"}});
     await base.body?.cancel();
     if (!base.ok) throw new PendingSource("Could not establish the pinned commit (HTTP " + base.status + ")");
   }
-  await Promise.all(files.map(async f => {
-    const {response,fromApi} = await getPinnedFile(read,target.repository,receipt.base,f.path);
-    if (!response.ok || f.created) {
-      await response.body?.cancel();
-      if (f.created && response.status === 404) return;
-      if (!response.ok) throw new PendingSource("Source read returned HTTP " + response.status);
-      throw Error("New file already exists at the pinned revision");
+  await Promise.all(files.map(async (f, index) => {
+    const snapshot = snapshots[index];
+    let code;
+    if (snapshot) {
+      await checkPinnedSnapshot(snapshot);
+      if (f.created && snapshot.present === 0) return;
+      if (f.created) throw Error("New file already exists at the pinned revision");
+      if (snapshot.present === 0) throw Error("Existing file is absent at the pinned revision");
+      code = snapshot.source;
+    } else {
+      const {response,fromApi} = await getPinnedFile(read,target.repository,receipt.base,f.path);
+      if (!response.ok || f.created) {
+        await response.body?.cancel();
+        if (f.created && response.status === 404) return;
+        if (!response.ok) throw new PendingSource("Source read returned HTTP " + response.status);
+        throw Error("New file already exists at the pinned revision");
+      }
+      code = await fileText(response,fromApi);
     }
-    const code = await fileText(response,fromApi);
     const source = code.split("\n");
     for (const h of f.hunks) {
       if (h.before.some((line, i) => line !== source[h.oldLine - 1 + i])) {
@@ -181,22 +206,30 @@ export async function verifyPatch(jobId, receipt, read = fetch, repository) {
       }
     }
   }));
-  return { base: receipt.base, files: files.length, hunks: files.reduce((n, f) => n + f.hunks.length, 0) };
+  const proof = { base: receipt.base, files: files.length, hunks: files.reduce((n, f) => n + f.hunks.length, 0) };
+  const saved = snapshots.filter(Boolean).length;
+  return saved ? {...proof, snapshots:saved} : proof;
 }
 
 export async function refreshChecks(db, scheduledAt, read = fetch) {
   const rows = (await db.prepare(PENDING_HANDOFFS).bind(scheduledAt - 15 * 60_000).all()).results;
+  const lookupSnapshot = (repository, base, path) => db.prepare(
+    "SELECT present,source,sha256 FROM repair_pinned_sources WHERE repository=? AND base=? AND path=?"
+  ).bind(repository,base,path).first();
   await Promise.all(rows.map(async row => {
     let status = "SOURCE_MATCH", reason = null, proof = {base:null,files:0,hunks:0};
     try {
-      proof = await verifyPatch(row.job_id, JSON.parse(row.source_receipt), read, row.repository);
+      proof = await verifyPatch(row.job_id, JSON.parse(row.source_receipt), read, row.repository, lookupSnapshot);
     } catch (error) {
       status = error instanceof PendingSource || error.name === "TimeoutError" ||
         error.name === "AbortError" || error instanceof TypeError ? "SOURCE_UNAVAILABLE" : "REVIEW";
       reason = error instanceof TypeError ? "Network or source-read error" : error.message.slice(0, 180);
     }
+    const execution = proof.snapshots
+      ? "Cloudflare scheduled run · pinned Git snapshots " + proof.snapshots + "/" + proof.files
+      : "Cloudflare scheduled run";
     await db.prepare(STORE_CHECK).bind(row.job_id, row.source_receipt, scheduledAt, status, proof.base,
-      proof.files, proof.hunks, reason, "Cloudflare scheduled run", row.job_id, row.source_receipt).run();
+      proof.files, proof.hunks, reason, execution, row.job_id, row.source_receipt).run();
   }));
 }
 

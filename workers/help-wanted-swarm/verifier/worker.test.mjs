@@ -79,3 +79,21 @@ test("GitHub contents can supply the same pinned source when raw fetch is unavai
   };
   assert.deepEqual(await verifyPatch(job, {base,patch}, read), {base,files:2,hunks:2});
 });
+
+test("immutable Git snapshots support scheduled source checks without network egress", async () => {
+  const source = "Original\n";
+  const {createHash} = await import("node:crypto");
+  const sha256 = createHash("sha256").update(source).digest("hex");
+  const lookup = async (repository, revision, path) => {
+    assert.equal(repository,"goldener-data/goldener");
+    assert.equal(revision,base);
+    return path === "README.md"
+      ? {present:1,source,sha256}
+      : {present:0,source:null,sha256:null};
+  };
+  const read = () => assert.fail("Pinned files should not make network requests");
+  assert.deepEqual(await verifyPatch(job,{base,patch},read,undefined,lookup),{base,files:2,hunks:2,snapshots:2});
+  await assert.rejects(verifyPatch(job,{base,patch},read,undefined,async () => ({
+    present:1,source:"Changed\n",sha256
+  })),/checksum differs/);
+});
