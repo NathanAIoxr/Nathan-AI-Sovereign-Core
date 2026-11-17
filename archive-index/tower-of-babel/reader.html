@@ -3,139 +3,162 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#201710">
-<meta name="description" content="The Tower of Babel by Nathan Tabor. Read the restored manuscript, editorial expansion, and 26 linked evidence exhibits.">
+<meta name="theme-color" content="#18130f">
+<meta name="description" content="The Tower of Babel by Nathan Tabor. Read the manuscript and explore 26 linked evidence exhibits.">
 <title>The Tower of Babel by Nathan Tabor</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;650;750&amp;family=STIX+Two+Text:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;650;750&amp;family=STIX+Two+Text:wght@400;500;700&amp;display=swap">
 <style>
-:root{color-scheme:light;--ink:#241b14;--muted:#64564c;--paper:#f6efe3;--panel:#fffaf0;--dark:#201710;--bright:#ffdf9e;--red:#922b23;--line:#d8c8b5;--serif:"STIX Two Text",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif}
+:root{color-scheme:light;--ink:#211912;--paper:#f6f0e6;--panel:#fffaf1;--accent:#963522;--line:#d5c6b6;--subtle:#62534a;--dark:#18130f;--gold:#f5c680;--serif:"STIX Two Text",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif}
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-padding-top:5rem}
-body{margin:0;background:var(--paper);color:var(--ink);font:1.02rem/1.7 var(--sans)}
-a{color:var(--red);text-underline-offset:.2em;text-decoration-thickness:.08em}
-a:hover{text-decoration-thickness:.16em}
+html{scroll-padding-top:6rem}
+body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.65 var(--sans)}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-underline-offset:.22em;text-decoration-thickness:.08em}
+a:hover{text-decoration-thickness:.14em}
 :focus-visible{outline:3px solid currentColor;outline-offset:4px}
+button,input,select{font:inherit}
+button{cursor:pointer}
 [hidden]{display:none!important}
-.wrap{width:min(1160px,calc(100% - 3.25rem));margin-inline:auto}
-.skip{position:absolute;z-index:4;left:1rem;top:1rem;padding:.55rem 1rem;background:var(--panel);transform:translateY(-160%)}
+.wrap{width:min(1180px,calc(100% - 3.5rem));margin-inline:auto}
+.skip{position:fixed;z-index:5;left:1rem;top:1rem;padding:.45rem .8rem;background:var(--panel);transform:translateY(-200%)}
 .skip:focus{transform:translateY(0)}
-.mast{color:var(--paper);background:var(--dark);overflow:hidden}
-.imprint{display:flex;justify-content:space-between;align-items:center;gap:1em;padding:1.3rem 0;border-bottom:1px solid #ffffff35;font-size:.8rem;letter-spacing:.13em;text-transform:uppercase}
-.imprint a{color:var(--bright)}
-.hero{position:relative;padding:clamp(2.3rem,6vw,5.3rem) 0 clamp(2.4rem,6vw,5rem);isolation:isolate}
-.hero::after{content:"";position:absolute;right:2%;bottom:-2rem;z-index:-1;width:40%;height:100%;opacity:.32;background:repeating-linear-gradient(to top,transparent 0 20px,#df8e56 21px 22px,transparent 23px 29px);clip-path:polygon(5% 100%,95% 100%,88% 78%,78% 78%,73% 57%,65% 57%,60% 37%,55% 37%,52% 18%,48% 18%,44% 37%,40% 37%,36% 57%,28% 57%,22% 78%,13% 78%)}
-.hero h1{max-width:10ch;margin:0;font-family:var(--serif);font-weight:900;font-size:clamp(3.65rem,11vw,9.2rem);letter-spacing:-.075em;line-height:.92}
-.hero h1 span{display:block;color:var(--bright)}
-.hero p{margin:1.4rem 0 1.6rem;max-width:39ch;color:#f0e2d0;font-size:1.08rem}
-.actions{display:flex;align-items:center;flex-wrap:wrap;gap:.8rem}
-.actions a{color:var(--bright);display:inline-block;padding:.55rem .85rem;border:1px solid #eed2a76b;text-decoration:none;font-weight:650}
-.actions a:first-child{background:var(--bright);color:var(--dark);border-color:var(--bright)}
-.actions a:hover{outline:1px solid currentColor}
-.tabs{position:sticky;top:0;z-index:2;border-bottom:1px solid var(--line);background:var(--paper)}
-.tabs .wrap{display:flex;overflow:auto;white-space:nowrap;gap:clamp(.8rem,4vw,2.5rem);scrollbar-width:thin}
-.tabs a{padding:.77rem 0;display:block;color:var(--ink);font-size:.84rem;font-weight:750}
-main{padding:clamp(1.6rem,5vw,4rem) 0 3rem}
-.chapter{margin:0 0 3.5rem;scroll-margin-top:1rem}
-.chapter>h2,.attachment>summary{border-top:2px solid var(--red);margin:0 0 .75rem;padding:.65rem 0;font:700 clamp(1.65rem,4vw,2.85rem)/1.14 var(--serif);letter-spacing:-.032em}
-.essay{max-width:78ch;font:1.13rem/1.72 var(--serif)}
-.essay h3{font:700 1.48rem/1.2 var(--serif);margin:1.9rem 0 .5rem}
-p{margin:.65em 0 1em}
-blockquote{border-inline-start:3px solid var(--red);margin:1rem 0;padding:.1rem 1rem;color:var(--ink);background:#fff9ef80}
+.mast{position:relative;isolation:isolate;overflow:hidden;background:var(--dark);color:#faf3e9}
+.mast::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#18130f 2%,#18130feb 33%,#18130f42 75%),linear-gradient(0deg,#18130f 0%,#18130f00 30%)}
+.mast-art{position:absolute;inset:0 0 0 auto;width:78%;height:100%;object-fit:cover;object-position:70% 53%;z-index:-2}
+.imprint{display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:74px;border-bottom:1px solid #ecd8bf46;font-size:.8rem;letter-spacing:.13em;text-transform:uppercase}
+.imprint a{color:#fce4bd;text-decoration:none;font-weight:650}
+.imprint a:hover{text-decoration:underline}
+.hero{padding:clamp(3.25rem,8vw,7.4rem) 0 clamp(3.8rem,8vw,6.4rem)}
+.hero h1{margin:0;font:700 clamp(4rem,11vw,9.1rem)/.83 var(--serif);letter-spacing:-.063em}
+.hero h1 span{display:block;color:var(--gold)}
+.hero p{margin:1.55rem 0 1.7rem;max-width:34ch;color:#f5e5d4;font-size:clamp(1rem,2vw,1.17rem)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.7rem}
+.hero-actions a,.small-action{display:inline-flex;gap:.6rem;align-items:center;justify-content:center;border:1px solid #c3a47e;border-radius:.2rem;padding:.6rem .9rem;color:#fae4c3;text-decoration:none;font-weight:750}
+.hero-actions a:first-child{background:var(--gold);color:#21180e;border-color:var(--gold)}
+.hero-actions a:hover,.small-action:hover,.timeline button:hover{transform:translateY(-2px)}
+.section-nav{position:sticky;top:0;z-index:3;background:var(--paper);border-bottom:1px solid var(--line)}
+.section-nav .wrap{display:flex;align-items:stretch;gap:clamp(1rem,4.3vw,3.2rem);justify-content:flex-start}
+.section-nav a{padding:.8rem 0 .73rem;color:var(--ink);font-size:.88rem;font-weight:750;text-decoration:none;border-block-end:3px solid transparent}
+.section-nav a:hover,.section-nav a[aria-current="location"]{color:var(--accent);border-color:var(--accent)}
+.read-progress{display:block;width:100%;height:3px;border:0;background:transparent;appearance:none}
+.read-progress::-webkit-progress-bar{background:#e5d9cb}.read-progress::-webkit-progress-value{background:var(--accent)}.read-progress::-moz-progress-bar{background:var(--accent)}
+main{padding:2.4rem 0 4rem;outline:none}
+.overview{display:grid;grid-template-columns:1fr 1.12fr;gap:1rem;margin:0 0 4rem}
+.panel{min-width:0;background:var(--panel);border:1px solid var(--line);padding:clamp(1rem,3.5vw,1.7rem)}
+.panel h2{margin:0 0 .25rem;font:700 1.75rem/1.12 var(--serif);letter-spacing:-.026em}
+.panel p{margin:.55rem 0 1rem;color:var(--subtle);font-size:.94rem}
+.letters{display:flex;gap:.4rem;margin:.85rem 0 1rem}
+.letter{display:grid;place-items:center;width:clamp(43px,14vw,72px);height:clamp(48px,14vw,79px);border:1px solid #514231;border-bottom:3px solid #b98650;background:#211911;color:#ffe0b3;font:700 clamp(1.7rem,5vw,3rem)/1 var(--serif)}
+.flip-signal .letter{animation:settle .45s cubic-bezier(.2,.6,.3,1) both}
+.flip-signal .letter:nth-child(2){animation-delay:.055s}.flip-signal .letter:nth-child(3){animation-delay:.11s}
+@keyframes settle{from{transform:translateY(-7px);opacity:.5}to{transform:translateY(0);opacity:1}}
+.panel .small-action{background:transparent;color:var(--accent);border-color:#ac8a79;padding:.35rem .7rem;border-radius:.18rem;transition:transform .18s}
+.letter-note{min-block-size:1.25em}
+.timeline{display:flex;flex-wrap:wrap;gap:.5rem;margin:.85rem 0 .9rem;padding:0;list-style:none}
+.timeline li{display:flex}
+.timeline a,.timeline button{display:block;padding:.29rem .56rem;border:1px solid #b49a83;background:transparent;color:var(--ink);font-weight:750;text-decoration:none;transition:transform .18s,background .18s;border-radius:.16rem}
+.timeline button[aria-pressed="true"]{background:#281b14;border-color:#281b14;color:#fbe4bd}
+.timeline-detail{display:grid;gap:.2em;margin-top:.7em;padding-top:.65em;border-top:1px solid var(--line);min-height:6rem}
+.timeline-detail p{margin:0}
+.chapter{margin:0 0 3.8rem;font-size:1.02rem}
+.chapter>h2,.attachment>summary{border-top:2px solid var(--accent);margin:0 0 .7rem;padding:.75rem 0;font:700 clamp(2rem,4.5vw,3.2rem)/1.05 var(--serif);letter-spacing:-.035em}
+.essay{max-width:73ch;font:1.21rem/1.64 var(--serif)}
+.essay h3{margin:1.65rem 0 .35rem;font:700 1.55rem/1.2 var(--serif);letter-spacing:-.02em}
+.provenance{color:var(--subtle);font-size:.9rem}
+blockquote{border-inline-start:3px solid var(--accent);margin:.8rem 0 1rem;padding:.1rem 1rem;background:#fff9ef9c;white-space:pre-wrap}
 blockquote p{margin:.6rem 0}
-.filter-bar{max-width:78ch;border:1px solid var(--line);padding:1rem;background:var(--panel);margin:1.4rem 0}
-.filter-bar label{display:block;font-weight:750;font-size:.88rem}
-.filter-row{display:flex;flex-wrap:wrap;gap:.65rem}
-.filter-row input{flex:1 1 235px;min-width:0}
-input,select{border:1px solid #9a8571;color:var(--ink);background:white;padding:.55rem .7rem;font:inherit}
-.filter-bar output{display:block;font-size:.86rem;color:var(--muted);margin-top:.45rem}
+.chapter-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(190px,245px);gap:clamp(1rem,4vw,3.5rem)}
+.chapter-contents{align-self:start;position:sticky;top:6rem;padding:1rem 0 1rem 1.1rem;border-inline-start:1px solid var(--line);color:var(--subtle);font-size:.88rem;line-height:1.4}
+.chapter-contents ul{list-style:none;margin:.4rem 0 0;padding:0}
+.chapter-contents li{margin:.6rem 0}
+.chapter-contents a{color:var(--ink)}
+.chapter-contents a[aria-current="location"]{color:var(--accent);font-weight:750}
+.next{display:inline-block;margin:1rem 0;border-bottom:1px solid var(--accent);font-weight:750;text-decoration:none}
+.filter-bar{max-width:94ch;border:1px solid var(--line);background:var(--panel);padding:1rem;margin:1.5rem 0}
+.filter-bar label{display:block;margin-bottom:.3rem;font-size:.85rem;font-weight:750}
+.filter-row{display:flex;flex-wrap:wrap;gap:.55rem}
+.filter-row input{flex:1 1 230px}
+.filter-row select{flex:1 1 210px}
+.filter-row input,.filter-row select,.filter-row button{min-width:0;max-width:100%;padding:.45rem .65rem;border:1px solid #9c8974;background:white;color:var(--ink)}
+.filter-row button{font-weight:650}
+.filter-bar output{display:block;margin-top:.4rem;color:var(--subtle);font-size:.85rem}
 .exhibit-group{margin:2rem 0}
-.exhibit-group>h3{font:700 clamp(1.3rem,4vw,1.9rem)/1.18 var(--serif);margin:.3rem 0 1rem}
-.exhibit{background:var(--panel);padding:.9rem 1rem;margin:.65rem 0;max-width:88ch;border:1px solid var(--line);border-inline-start:3px solid var(--red);overflow-wrap:anywhere}
+.exhibit-group>h3{margin:0 0 .75rem;font:700 clamp(1.5rem,4vw,2rem)/1.2 var(--serif)}
+.exhibit{background:var(--panel);padding:.82rem 1rem;margin:.6rem 0;max-width:93ch;border:1px solid var(--line);border-inline-start:3px solid var(--accent);overflow-wrap:anywhere}
 .exhibit p{margin:0}
-.exhibit:target{outline:2px solid var(--red);outline-offset:3px}
-.exhibit>a{float:right;font-size:.75rem;margin:0 0 .25rem .8rem;color:var(--muted)}
+.exhibit:target{outline:2px solid var(--accent);outline-offset:3px}
+.exhibit>a{float:right;display:grid;place-items:center;min-width:2.75rem;min-height:2.75rem;margin:-.3rem -.35rem .12rem .65rem;font-size:.95rem;color:var(--accent);text-decoration:none}.exhibit>a:hover{background:#eee2d4}
+.evidence-preface{max-width:93ch}
 .table-scroll{max-width:100%;overflow-x:auto;margin:1.1rem 0}
-table{border-collapse:collapse;width:100%;min-width:575px;font-size:.88rem;background:var(--panel)}
-th,td{text-align:left;padding:.62rem .7rem;vertical-align:top;border-bottom:1px solid var(--line)}
-th{color:var(--panel);background:#432920}
+table{border-collapse:collapse;width:100%;min-width:550px;font-size:.86rem;background:var(--panel)}
+th,td{text-align:left;padding:.6rem .7rem;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:#432920;color:#fff9ee}
 .attachment>summary{cursor:pointer}
-.attachment article{padding:.25rem 0 1rem}
-.attachment h2{font-family:var(--serif)}
-.attachment,.chapter{overflow-wrap:anywhere}
-footer{border-top:1px solid var(--line);padding:1.45rem 0 2.5rem;color:var(--muted);font-size:.9rem}
+.attachment article{padding:.2rem 0 1rem}
+.attachment,.chapter,.essay,.panel{overflow-wrap:anywhere}
+footer{border-top:1px solid var(--line);padding:1.25rem 0 2.35rem;color:var(--subtle);font-size:.9rem}
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-@media(max-width:590px){.wrap{width:calc(100% - 2rem)}.imprint{letter-spacing:.07em}.hero::after{right:-8%;width:65%;opacity:.23}}
-@media print{.tabs,.filter-bar,.actions,.skip,footer{display:none}.mast{background:white;color:black}.hero h1 span,.hero p{color:black}.hero::after{display:none}.chapter{break-before:page}}
+@media(max-width:800px){.chapter-layout{display:flex;flex-direction:column;gap:.6rem}.chapter-contents{position:static;order:-1;border-inline-start:0;border-bottom:1px solid var(--line);padding-left:0}.chapter-contents ul{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem}.section-nav .wrap{justify-content:space-between}}
+@media(max-width:600px){.wrap{width:calc(100% - 1.9rem)}.overview{grid-template-columns:1fr;margin-bottom:2.6rem}.mast-art{width:100%;object-position:65% 48%}.mast::after{background:linear-gradient(90deg,#18130fec 0%,#18130fa1 60%,#18130f52 100%),linear-gradient(0deg,#18130f 0%,transparent 43%)}.imprint{letter-spacing:.06em}.section-nav .wrap{gap:.48rem}.section-nav a{text-align:center;font-size:.75rem;line-height:1.2;display:flex;align-items:center}.hero h1{font-size:clamp(3.55rem,14vw,6rem)}.essay{font-size:1.13rem}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+@media print{.section-nav,.overview,.filter-bar,.hero-actions,.skip,.next,.chapter-contents,.mast-art,footer{display:none}.mast{color:black;background:white}.mast::after{display:none}.hero h1 span,.hero p,.imprint a{color:black}.hero{padding:1.5rem 0}.chapter{break-before:page}.exhibit[hidden],.exhibit-group[hidden]{display:block!important}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to manuscript</a>
 <header class="mast">
+  %%HERO%%
   <div class="wrap imprint"><strong>Nathan Tabor</strong><a href="./manuscript.md" download>Download manuscript</a></div>
   <div class="wrap hero">
     <h1>The Tower <span>of Babel</span></h1>
-    <p>Restored words, expanded manuscript, and the Chapter Eight evidence record.</p>
-    <div class="actions"><a href="#original-words">Read the original words</a><a href="#evidence">Browse 26 exhibits</a></div>
+    <p>The reading edition, Nathan’s original words, and the evidence behind Chapter Eight.</p>
+    <div class="hero-actions"><a href="#editorial-expansion">Read the manuscript <span aria-hidden="true">→</span></a><a href="#evidence">Browse 26 exhibits</a></div>
   </div>
 </header>
-<nav class="tabs" aria-label="Reading sections">
-  <div class="wrap"><a href="#original-words">Original words</a><a href="#editorial-expansion">Editorial expansion</a><a href="#evidence">Evidence</a><a href="#original-attachment">Original attachment</a></div>
+<nav class="section-nav" aria-label="Reading sections">
+  <div class="wrap"><a href="#editorial-expansion">Read</a><a href="#original-words">Original words</a><a href="#evidence">Evidence</a><a href="#original-attachment">Attachment</a></div>
+  <progress class="read-progress" aria-label="Reading progress" max="100" value="0" hidden></progress>
 </nav>
-<main class="wrap" id="main">
-  <section class="chapter" id="original-words"><h2>Nathan Tabor’s original words</h2><div class="essay">%%ORIGINAL%%</div></section>
-  <section class="chapter" id="editorial-expansion"><h2>Editorial expansion</h2><p>Editorial text by ChatGPT</p><div class="essay">%%EDITORIAL%%</div></section>
-  <section class="chapter" id="evidence"><h2>Evidence appendix for Chapter Eight</h2>
-    <div>%%EVIDENCE_PREFACE%%</div>
-    <div class="filter-bar" id="exhibit-filters" hidden>
-      <label for="query">Search the exhibits</label>
-      <div class="filter-row"><input type="search" id="query" placeholder="Title, person, place, date, or exhibit number"><select id="category" aria-label="Exhibit category"><option value="">All categories</option>%%CATEGORIES%%</select></div>
-      <output id="result-count" aria-live="polite"></output>
+<main class="wrap" id="main" tabindex="-1">
+  <div class="overview">
+    <section class="panel"><h2>Both directions</h2><p>Reverse the letters and keep the starting word in view.</p>
+      <div class="letters" aria-hidden="true"><span class="letter">G</span><span class="letter">O</span><span class="letter">D</span></div>
+      <p id="letter-status" class="letter-note" aria-live="polite">GOD → DOG · a letter-by-letter reversal</p>
+      <button class="small-action" id="reverse" type="button" hidden>Reverse GOD <span aria-hidden="true">↔</span></button>
+    </section>
+    <section class="panel"><h2>Follow the evidence</h2><p>Open the exhibit behind each point in the manuscript.</p>
+      <ul class="timeline" id="timeline">
+        <li><a href="#A04" data-exhibit-id="A04" data-title="1611 KJV and the Latin witnesses" data-note="Compare the editions of Matthew 27:4 and the words for innocent blood.">1611</a></li>
+        <li><a href="#A06" data-exhibit-id="A06" data-title="The 1807 Slave Bible" data-note="See the colonial edition that omitted the Exodus liberation story.">1807</a></li>
+        <li><a href="#C03" data-exhibit-id="C03" data-title="Johnson v. M’Intosh" data-note="Read where the U.S. Supreme Court cited papal and English colonial claims.">1823</a></li>
+        <li><a href="#D02" data-exhibit-id="D02" data-title="The Reich Concordat" data-note="See the agreement between the Holy See and Nazi Germany.">1933</a></li>
+        <li><a href="#B01" data-exhibit-id="B01" data-title="Ireland’s Ryan Report" data-note="Follow the findings on per-child funding, state oversight, and abuse.">2009</a></li>
+      </ul>
+      <div class="timeline-detail" id="timeline-detail" hidden><strong></strong><p aria-live="polite"></p><a href="#A04">Open exhibit A04</a></div>
+    </section>
+  </div>
+  <section class="chapter" id="editorial-expansion"><h2>Editorial expansion</h2><p class="provenance">Editorial text by ChatGPT, based on Nathan Tabor’s manuscript and research</p>
+    <div class="chapter-layout">
+      <article class="essay">%%EDITORIAL%%</article>
+      <nav class="chapter-contents" aria-label="Manuscript chapters"><strong>In the manuscript</strong><ul>%%CONTENTS%%</ul></nav>
     </div>
+    <a class="next" href="#original-words">Continue to Nathan’s original words →</a>
+  </section>
+  <section class="chapter" id="original-words"><h2>Nathan Tabor’s original words</h2><p class="provenance">Verbatim manuscript excerpts and instructions</p><div class="essay">%%ORIGINAL%%</div><a class="next" href="#evidence">Continue to the evidence →</a></section>
+  <section class="chapter" id="evidence"><h2>Evidence appendix for Chapter Eight</h2>
+    <div class="evidence-preface">%%EVIDENCE_PREFACE%%</div>
+    <form class="filter-bar" id="exhibit-filters" role="search" hidden>
+      <label for="query">Search the exhibits</label>
+      <div class="filter-row"><input type="search" id="query" placeholder="Try a title, person, date, or exhibit number"><select id="category" aria-label="Exhibit category"><option value="">All categories</option>%%CATEGORIES%%</select><button type="reset">Clear</button></div>
+      <output id="result-count" aria-live="polite"></output>
+    </form>
     <div>%%EVIDENCE%%</div>
   </section>
   <details class="attachment" id="original-attachment"><summary>Original attachment</summary><article aria-label="Full original attachment">%%ATTACHMENT%%</article></details>
 </main>
-<footer><div class="wrap"><span>The Tower of Babel · Nathan Tabor</span><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/archive-index/tower-of-babel">GitHub source</a></div></footer>
+<footer><div class="wrap"><span>The Tower of Babel · Nathan Tabor</span><a href="#main">Back to top</a><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/archive-index/tower-of-babel">GitHub source</a></div></footer>
 <script>
-(() => {
-  const filters = document.querySelector("#exhibit-filters");
-  const query = document.querySelector("#query");
-  const category = document.querySelector("#category");
-  const counter = document.querySelector("#result-count");
-  const rows = [...document.querySelectorAll("[data-exhibit]")].map(el => ({el, text: el.textContent.toLowerCase()}));
-  const groups = [...document.querySelectorAll(".exhibit-group")];
-  function render() {
-    const terms = query.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
-    let total = 0;
-    for (const {el, text} of rows) {
-      const shown = (!category.value || el.dataset.exhibit === category.value) && terms.every(term => text.includes(term));
-      el.hidden = !shown;
-      total += Number(shown);
-    }
-    for (const group of groups) {
-      group.querySelector("h3").hidden = !group.querySelector("[data-exhibit]:not([hidden])");
-    }
-    counter.textContent = total ? `${total} of ${rows.length} exhibits` : "No matching exhibits";
-  }
-  function openTarget() {
-    const id = location.hash.slice(1);
-    const attachment = document.querySelector("#original-attachment");
-    if (id === attachment.id) attachment.open = true;
-    const exhibit = document.getElementById(id);
-    if (exhibit?.hasAttribute("data-exhibit") && exhibit.hidden) {
-      query.value = "";
-      category.value = "";
-      render();
-      exhibit.scrollIntoView();
-    }
-  }
-  filters.hidden = false;
-  query.addEventListener("input", render);
-  category.addEventListener("change", render);
-  window.addEventListener("hashchange", openTarget);
-  render();
-  openTarget();
-})();
+%%SCRIPT%%
 </script>
 </body>
 </html>
