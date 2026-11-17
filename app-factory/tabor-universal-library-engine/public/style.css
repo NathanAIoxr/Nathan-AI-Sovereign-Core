@@ -31,14 +31,25 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 
 .world-link{font-size:.82rem;padding:.4rem .58rem;border:1px solid var(--line);border-radius:8px;background:#263c33;white-space:nowrap}
 
-@media(max-width:730px) {
-  .stack{height:auto;grid-template-rows:auto auto auto}
-  .viewport{min-height:clamp(210px,42svh,360px)}
-  .bridge{grid-template-columns:repeat(4,minmax(0,1fr))}
-  .bridge>div:last-child{grid-column:1/-1}
-  .bottom{overflow:visible}
-  .mast-actions button,.world-link,.arrows button,#sequence button,.entry{min-height:44px}
-  .world-link{display:inline-flex;align-items:center}
-  .catalog-body input,.catalog-body select{font-size:1rem}
+@media (max-width: 730px) {
+  .mast { flex-wrap: wrap; }
+  .mast-actions { justify-content: flex-start; }
+  .stack { height: auto; grid-template-rows: auto auto auto; }
+  .viewport { min-height: clamp(11rem, 58vw, 19rem); }
+  .viewport canvas { position: absolute; inset: 0; }
+  .bottom { overflow: visible; }
+  .puzzle { flex-wrap: wrap; overflow-wrap: anywhere; }
 }
-@media(pointer:coarse){.lab-tools button,.lab-tools select{min-height:44px}.lab-tools input,.lab-tools textarea{font-size:1rem}}
+@media (pointer: coarse) {
+  .mast-actions :is(button,.world-link), .entry, .arrows button, #sequence button, .primary { min-height: 2.75rem; }
+  :is(button,.world-link) { touch-action: manipulation; }
+  .world-link { display: inline-flex; align-items: center; }
+  :is(input,select,textarea) { font-size: 1rem; }
+  .arrows button, #sequence button { min-width: 2.75rem; }
+}
+@media (max-width: 730px) {
+  .bridge { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .bridge > div:last-child { grid-column: 1/-1; }
+  .catalog-body input,.catalog-body select { font-size: 1rem; }
+}
+@media (pointer: coarse) { .lab-tools button,.lab-tools select { min-height: 44px; } }

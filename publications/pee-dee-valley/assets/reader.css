@@ -76,10 +76,19 @@ h1 span { display: block; color: var(--gold); font-size: .72em; margin-top: .32e
   .reader { padding-block: 1.75rem 3rem; }
   .book-nav { align-items: start; }
 }
+@media (max-width: 25rem) {
+  .bar { align-items: flex-start; flex-direction: column; gap: .2rem; }
+  h1, .reader h1 { overflow-wrap: anywhere; }
+}
+@media (pointer: coarse) {
+  :is(.bar,.book-nav,.actions) a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+}
 @media print {
   :root { color-scheme: light; --ink: #141414; --bg: #fff; --gold: #222; --soft: #333; }
   header, footer, .book-nav, .actions, .skip { display: none; }
   .shell { width: 100%; }
   .reader h2 { break-after: avoid; }
   .reader { padding: 0; }
+  h1, h2, h3 { break-after: avoid; }
+  p { orphans: 3; widows: 3; }
 }

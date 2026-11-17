@@ -1,3 +1,4 @@
+// Generated from the Dual-Screen Arcade by ../build.mjs.
 const TOP = {
   ring: ["Hook & Ring","Release when the swinging ring lines up with the hook."],
   darts: ["Darts","Drag to aim. Release over the bullseye."],

@@ -78,7 +78,7 @@ def static_page(manuscript, artwork_revision):
         "EVIDENCE": groups, "ATTACHMENT": render(attachment),
         "EXHIBIT_COUNT": str(exhibit_count),
     }
-    page = re.sub(r"%%([A-Z_]+)%%", lambda m: regions[m[1]], (ROOT / "reader.html").read_text())
+    page = re.sub(r"%%([A-Z_]+)%%", lambda m: regions[m[1]], (ROOT / "reader.html.in").read_text())
     return page, exhibit_count
 
 

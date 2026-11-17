@@ -17,7 +17,7 @@ function extract(text,begin,end){
 export function arcadeModule(source){
   const bridge=extract(source,"const TOP = {","const COLORS=");
   const physics=extract(source,"const W=560,H=208;","function drawTarget");
-  return bridge+"\n"+physics+"\nexport {newRound,grant,beginAttempt,endAttempt,updateBridge,evaluateShot,ringX};\n";
+  return "// Generated from the Dual-Screen Arcade by ../build.mjs.\n"+bridge+"\n"+physics+"\nexport {newRound,grant,beginAttempt,endAttempt,updateBridge,evaluateShot,ringX};\n";
 }
 const browserFiles=[
   "app-factory/tabor-tracker-ball/public/track-baller.mjs",

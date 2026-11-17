@@ -2,9 +2,11 @@
 
 [hidden]{display:none!important}input[type=checkbox]{width:auto;align-self:start}#context-form button{margin-right:8px}
 
-.cards,.card,nav,.toolbar{min-width:0;overflow-wrap:anywhere}
-a:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #fff;outline-offset:3px}
-@media(pointer:coarse){
-  button,select,input:not([type=checkbox]),textarea{min-height:44px}
-  input:not([type=checkbox]),select,textarea{font-size:1rem}
+.panel h2, .panel p { overflow-wrap: anywhere; }
+#apps .panel a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+:is(a,select,summary):focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+@media (pointer: coarse) {
+  input:not([type=checkbox]), select, textarea { min-height: 2.75rem; font-size: 1rem; }
+  button { min-height: 2.75rem; }
 }
+.cards,.card,nav,.toolbar{min-width:0;overflow-wrap:anywhere}

@@ -50,6 +50,18 @@ small,.muted{color:var(--muted)}.hidden{display:none!important}
 @media(max-width:520px){.top{align-items:start;gap:7px;flex-direction:column}.top-actions{justify-content:start}.split{grid-template-columns:1fr}.p-modules{grid-template-columns:1fr}.qa{grid-template-columns:1fr}.preview:not(.mobile) .p-stats{grid-template-columns:1fr 1fr 1fr}.preview:not(.mobile) .p-modules{grid-template-columns:1fr}.stage{padding:7px}.workspace{padding:10px}.controls{padding:12px}.p-body{padding:11px}.preview-nav{padding:8px}.preview.mobile .p-title{font-size:1.35rem}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 body.reduce-motion *,body.reduce-motion *:before,body.reduce-motion *:after{animation-duration:0ms!important;transition-duration:0ms!important;scroll-behavior:auto!important}
+
+@media (max-width: 900px) {
+  .app { grid-template-columns: minmax(0, 1fr); }
+  .sidebar { min-width: 0; }
+  .menu button { flex-shrink: 0; }
+}
+@media (max-width: 520px) {
+  .device-controls, .preview-nav { flex-wrap: wrap; }
+  .control-group, .workspace { overflow-wrap: anywhere; }
+  .preview { max-width: 100%; }
+  .preview:not(.mobile) .p-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 </style>
 </head>
 <body>

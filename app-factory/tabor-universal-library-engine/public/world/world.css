@@ -27,8 +27,16 @@ aside{min-width:0}.inspector,.tray{margin-bottom:8px}#detail-empty,.tray p{font-
 .sources ul{padding-left:18px;font-size:.85rem}.sources li{margin-top:4px}
 @media(max-width:680px){.shell{grid-template-columns:minmax(0,1fr)}aside{display:grid;grid-template-columns:minmax(0,1fr)}.element-note{font-size:.85rem}.record{min-height:46px}.filters{margin:6px 0}.panel p{overflow-wrap:anywhere}}
 
-header,.tray-head,#pages{flex-wrap:wrap}
+@media (max-width: 400px) {
+  header { align-items: flex-start; flex-wrap: wrap; }
+  #pages { flex-wrap: wrap; }
+  .filters { grid-template-columns: minmax(0, 1fr); }
+}
+@media (pointer: coarse) {
+  button, .button, input, select { min-height: 2.75rem; }
+  .button { display: inline-flex; align-items: center; }
+  input, select { font-size: 1rem; }
+}
+.tray-head,.pick{flex-wrap:wrap}
 .filters,.panel,.pick{min-width:0}
-.pick{flex-wrap:wrap;overflow-wrap:anywhere}
-@media(max-width:380px){.filters{grid-template-columns:minmax(0,1fr)}}
-@media(pointer:coarse){button,.button,input,select{min-height:44px}.button{display:inline-flex;align-items:center}input,select{font-size:1rem}}
+.pick{overflow-wrap:anywhere}
