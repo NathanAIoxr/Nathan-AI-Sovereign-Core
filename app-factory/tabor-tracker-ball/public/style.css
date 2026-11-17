@@ -15,3 +15,14 @@ dl{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin:.7rem 0 0}dl 
 @media(max-width:510px){.sidebar{grid-template-columns:1fr}.heading{padding:1.1rem 0}.site{width:calc(100% - 20px)}.setting-grid{grid-template-columns:repeat(2,minmax(100px,1fr))}.buttons button{font-size:.81rem}.games #game-list{grid-template-columns:repeat(3,minmax(0,1fr))}.games button{font-size:.78rem}.stage{padding:10px 12px}}
 
 #nathan-record-notice{display:block;position:relative;width:100%;padding:12px 16px;background:#fff0b3;color:#161616;border-bottom:3px solid #161616;font:600 16px/1.5 system-ui,sans-serif;overflow-wrap:anywhere}#nathan-record-notice a{color:#161616;text-decoration:underline}#nathan-record-notice span{display:block;font-size:14px;font-weight:400;color:#161616}
+
+#keys{margin:.4rem 1rem 0;color:var(--muted);font-size:.84rem}
+#field:focus-visible{outline:3px solid var(--green);outline-offset:-4px}
+.brand,.site header>a,.settings label,.card summary{min-height:44px}
+.site header>a,.card summary{align-content:center}
+.stage,#game-list,.stage>div{min-width:0}
+.stage{flex-wrap:wrap}
+.site,.games button{overflow-wrap:anywhere}
+.switches label,.settings input[type=range]{min-height:44px}
+@media(max-width:380px){.games #game-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(orientation:landscape) and (max-height:550px){canvas{height:clamp(170px,60svh,370px)}}

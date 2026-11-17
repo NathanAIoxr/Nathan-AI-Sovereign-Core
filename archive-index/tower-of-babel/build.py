@@ -17,7 +17,7 @@ def render(markdown):
         ["pandoc", "-f", "gfm-raw_html", "-t", "html5", "--wrap=none"],
         input=markdown, text=True, capture_output=True, check=True,
     ).stdout
-    return html.replace("<table>", '<div class="table-scroll" tabindex="0"><table>').replace(
+    return html.replace("<table>", '<div class="table-scroll" role="region" aria-label="Scrollable table" tabindex="0"><table>').replace(
         "</table>", "</table></div>"
     )
 
@@ -138,6 +138,7 @@ def main():
         "edition": "expanded-reading-edition",
         "exhibits": exhibit_count,
         "artwork_sha256": artwork_sha256,
+        "reader_sha256": hashlib.sha256(page.encode()).hexdigest(),
         "manuscript_sha256": hashlib.sha256(raw).hexdigest(),
     }, indent=2) + "\n"
     (ROOT / "index.html").write_text(page, encoding="utf-8")

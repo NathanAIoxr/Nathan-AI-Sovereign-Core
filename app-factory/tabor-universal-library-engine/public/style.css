@@ -30,3 +30,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 @media(max-width:385px){main{padding:9px 8px 16px}.lab-heading p,.bridge span{font-size:.68rem}.panel{padding:7px}.puzzle{gap:4px;padding:6px}#sequence button{min-width:30px;padding:4px}}
 
 .world-link{font-size:.82rem;padding:.4rem .58rem;border:1px solid var(--line);border-radius:8px;background:#263c33;white-space:nowrap}
+
+@media(max-width:730px) {
+  .stack{height:auto;grid-template-rows:auto auto auto}
+  .viewport{min-height:clamp(210px,42svh,360px)}
+  .bridge{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .bridge>div:last-child{grid-column:1/-1}
+  .bottom{overflow:visible}
+  .mast-actions button,.world-link,.arrows button,#sequence button,.entry{min-height:44px}
+  .world-link{display:inline-flex;align-items:center}
+  .catalog-body input,.catalog-body select{font-size:1rem}
+}
+@media(pointer:coarse){.lab-tools button,.lab-tools select{min-height:44px}.lab-tools input,.lab-tools textarea{font-size:1rem}}

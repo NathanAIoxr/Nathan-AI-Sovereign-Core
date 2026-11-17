@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#18130f">
 <meta name="description" content="The Tower of Babel by Nathan Tabor. Read the expanded manuscript and explore 37 linked evidence exhibits.">
 <title>The Tower of Babel by Nathan Tabor</title>
@@ -19,7 +19,7 @@ a:hover{text-decoration-thickness:.14em}
 button,input,select{font:inherit}
 button{cursor:pointer}
 [hidden]{display:none!important}
-.wrap{width:min(1180px,calc(100% - 3.5rem));margin-inline:auto}
+.wrap{width:min(1180px,100% - max(1.75rem,env(safe-area-inset-left)) - max(1.75rem,env(safe-area-inset-right)));margin-inline:auto}
 .skip{position:fixed;z-index:5;left:1rem;top:1rem;padding:.45rem .8rem;background:var(--panel);transform:translateY(-200%)}
 .skip:focus{transform:translateY(0)}
 .mast{position:relative;isolation:isolate;overflow:hidden;background:var(--dark);color:#faf3e9}
@@ -105,8 +105,17 @@ th{background:#432920;color:#fff9ee}
 .attachment,.chapter,.essay,.panel{overflow-wrap:anywhere}
 footer{border-top:1px solid var(--line);padding:1.25rem 0 2.35rem;color:var(--subtle);font-size:.9rem}
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.chapter-contents summary{min-height:44px;display:flex;align-items:center;gap:.5rem;cursor:pointer;font-weight:750}
+.chapter-contents summary::before{content:"+";color:var(--accent)}
+.chapter-contents[open] summary::before{content:"−"}
+.section-nav a,.hero-actions a,.timeline button,.timeline a,.small-action,.word-controls select,.filter-row input,.filter-row select,.filter-row button{min-height:44px}
+.table-scroll:focus-visible{outline-offset:2px}
+@media(max-width:800px){.chapter-contents{width:100%}.chapter-contents li a{display:block;padding:.4rem 0}}
+@media(pointer:coarse){.word-controls select,.filter-row input,.filter-row select{font-size:1rem}}
+@media(max-height:430px){html{scroll-padding-top:3.25rem}.section-nav a{padding:.35rem 0}}
+
 @media(max-width:800px){.chapter-layout{display:flex;flex-direction:column;gap:.6rem}.chapter-contents{position:static;max-block-size:none;order:-1;border-inline-start:0;border-bottom:1px solid var(--line);padding-left:0}.chapter-contents ul{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem}.section-nav .wrap{justify-content:space-between}}
-@media(max-width:600px){.wrap{width:calc(100% - 1.9rem)}.overview{grid-template-columns:1fr;margin-bottom:2.6rem}.mast-art{width:100%;object-position:65% 48%}.mast::after{background:linear-gradient(90deg,#18130fec 0%,#18130fa1 60%,#18130f52 100%),linear-gradient(0deg,#18130f 0%,transparent 43%)}.imprint{letter-spacing:.06em}.section-nav .wrap{gap:.48rem}.section-nav a{text-align:center;font-size:.75rem;line-height:1.2;display:flex;align-items:center}.hero h1{font-size:clamp(3.55rem,14vw,6rem)}.essay{font-size:1.13rem}}
+@media(max-width:600px){.wrap{width:calc(100% - max(.95rem,env(safe-area-inset-left)) - max(.95rem,env(safe-area-inset-right)))}.overview{grid-template-columns:1fr;margin-bottom:2.6rem}.mast-art{width:100%;object-position:65% 48%}.mast::after{background:linear-gradient(90deg,#18130fec 0%,#18130fa1 60%,#18130f52 100%),linear-gradient(0deg,#18130f 0%,transparent 43%)}.imprint{letter-spacing:.06em}.section-nav .wrap{gap:.48rem}.section-nav a{text-align:center;font-size:.75rem;line-height:1.2;display:flex;align-items:center}.hero h1{font-size:clamp(3.55rem,14vw,6rem)}.essay{font-size:1.13rem}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media print{.section-nav,.overview,.filter-bar,.hero-actions,.skip,.next,.chapter-contents,.mast-art,footer{display:none}.mast{color:black;background:white}.mast::after{display:none}.hero h1 span,.hero p,.imprint a{color:black}.hero{padding:1.5rem 0}.chapter{break-before:page}.exhibit[hidden],.exhibit-group[hidden]{display:block!important}}
 </style>
@@ -209,7 +218,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <h3 id="i-the-rotation-and-the-ear">I. The rotation and the ear</h3>
 <h4 id="1-run-the-master-key-both-ways">1. Run the Master key both ways</h4>
 <p>Take Nathan’s Master key as written and run the operation on every token. Several pairs look alike on the page but require different moves. <strong>ABLE</strong> read backward is <strong>ELBA</strong>. <strong>ACT</strong> read backward is <strong>TCA</strong>. <strong>TAC</strong> read backward is <strong>CAT</strong>. Once those are written down, the reader can see exactly where <strong>ACT</strong> enters through rearrangement instead of reversal. The Master key remains in its original sequence in <a href="#the-master-key">Nathan’s words</a>.</p>
-<div class="table-scroll" tabindex="0"><table>
+<div class="table-scroll" role="region" aria-label="Scrollable table" tabindex="0"><table>
 <thead>
 <tr class="header">
 <th>Starting material</th>
@@ -327,7 +336,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <p>The <strong>Lateran Treaty</strong> of 1929 answers a question about territory and sovereignty. The <strong>Reich Concordat</strong> of 1933 answers what the Holy See and Nazi Germany agreed concerning the position and activity of the Catholic Church in Germany. Read the date, signatories, and terms of each before drawing a line between them. The Holy See existed before Vatican City State was created. The two agreements have different parties and purposes. <a href="#D02">Exhibit D02</a></p>
 <p>In <strong>1937</strong>, the encyclical <em>Mit brennender Sorge</em> condemned the elevation of race and state and protested treaty violations. In <strong>1942</strong>, Lothar König’s letter brought specific information about mass killing to papal aide Robert Leiber. Put the protest in a file of published statements. Put the letter in a file of notice and recipients. What did the office receive? Who else can be placed in the chain of communication? What correspondence or action followed? The letter establishes a recipient. The next step in the chain needs a record of circulation or response. <a href="#D03">Exhibit D03</a></p>
 <h4 id="11-put-the-numbers-on-the-witness-stand">11. Put the numbers on the witness stand</h4>
-<div class="table-scroll" tabindex="0"><table>
+<div class="table-scroll" role="region" aria-label="Scrollable table" tabindex="0"><table>
 <thead>
 <tr class="header">
 <th>Number</th>
@@ -384,7 +393,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <h4 id="15-build-and-clear-a-case-so-someone-else-can-run-it">15. Build and clear a case so someone else can run it</h4>
 <p><strong>1+1=2.</strong> Put an exact claim next to a source that can answer it. Begin at the page where the source names the act. Record the date of the act and the date it was written down. Preserve the place, office, and person that the source identifies. Follow older and newer records in both directions through the same point.</p>
 <p><strong>1-1=0.</strong> Remove a duplicate count, a casual substitution of modern meaning, or an inference the evidence cannot carry. Keep the original words in the record so the person who raised the question can see what was changed in the reading. A source showing people were harmed needs a record of how they were harmed, even when it fails to support the original estimate or theory.</p>
-<div class="table-scroll" tabindex="0"><table>
+<div class="table-scroll" role="region" aria-label="Scrollable table" tabindex="0"><table>
 <thead>
 <tr class="header">
 <th>Case to work</th>
@@ -427,7 +436,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 </table></div>
 <p>The work still open has names. The three-verse claim needs a dated editorial directive or another witness connecting the alleged changes to a common actor and purpose. A fuller reading of the 1807 edition needs a passage-by-passage inventory keyed to scan pages and to the intended edition for comparison. The diplomatic line needs the next traceable recipient of the 1942 report about Bełżec. The AI line needs the complete originals where the present record contains only excerpts. Those gaps belong beside what can already be established. <a href="#evidence">Evidence appendix</a></p>
 </article>
-      <nav class="chapter-contents" aria-label="Manuscript chapters"><strong>In the manuscript</strong><ul><li><a href="#a-copy-edited-reading-of-the-opening">A copy-edited reading of the opening</a></li><li><a href="#the-difference-between-a-word-and-what-someone-makes-it-say">The difference between a word and what someone makes it say</a></li><li><a href="#the-tower-and-the-power-to-interpret">The tower and the power to interpret</a></li><li><a href="#three-verses-three-different-findings">Three verses, three different findings</a></li><li><a href="#from-the-person-who-offended-to-the-authority-that-could-stop-it">From the person who offended to the authority that could stop it</a></li><li><a href="#from-a-papal-grant-to-a-rule-a-us-court-applied">From a papal grant to a rule a U.S. court applied</a></li><li><a href="#the-comparison-with-hitler-and-the-count-of-the-dead">The comparison with Hitler and the count of the dead</a></li><li><a href="#what-the-ai-record-can-answer">What the AI record can answer</a></li><li><a href="#the-nathan-tabor-way-applied-to-a-record">The Nathan Tabor Way, applied to a record</a></li><li><a href="#the-full-reading">The full reading</a></li><li><a href="#i-the-rotation-and-the-ear">I. The rotation and the ear</a></li><li><a href="#ii-babel-1611-and-the-three-verses">II. Babel, 1611, and the three verses</a></li><li><a href="#iii-who-controls-the-page-and-the-land">III. Who controls the page and the land</a></li><li><a href="#iv-how-a-comparison-holds-up">IV. How a comparison holds up</a></li><li><a href="#v-what-happens-when-someone-reports-abuse">V. What happens when someone reports abuse</a></li><li><a href="#vi-put-the-whole-record-on-the-table">VI. Put the whole record on the table</a></li></ul></nav>
+      <details class="chapter-contents" open><summary>In the manuscript</summary><nav aria-label="Manuscript chapters"><ul><li><a href="#a-copy-edited-reading-of-the-opening">A copy-edited reading of the opening</a></li><li><a href="#the-difference-between-a-word-and-what-someone-makes-it-say">The difference between a word and what someone makes it say</a></li><li><a href="#the-tower-and-the-power-to-interpret">The tower and the power to interpret</a></li><li><a href="#three-verses-three-different-findings">Three verses, three different findings</a></li><li><a href="#from-the-person-who-offended-to-the-authority-that-could-stop-it">From the person who offended to the authority that could stop it</a></li><li><a href="#from-a-papal-grant-to-a-rule-a-us-court-applied">From a papal grant to a rule a U.S. court applied</a></li><li><a href="#the-comparison-with-hitler-and-the-count-of-the-dead">The comparison with Hitler and the count of the dead</a></li><li><a href="#what-the-ai-record-can-answer">What the AI record can answer</a></li><li><a href="#the-nathan-tabor-way-applied-to-a-record">The Nathan Tabor Way, applied to a record</a></li><li><a href="#the-full-reading">The full reading</a></li><li><a href="#i-the-rotation-and-the-ear">I. The rotation and the ear</a></li><li><a href="#ii-babel-1611-and-the-three-verses">II. Babel, 1611, and the three verses</a></li><li><a href="#iii-who-controls-the-page-and-the-land">III. Who controls the page and the land</a></li><li><a href="#iv-how-a-comparison-holds-up">IV. How a comparison holds up</a></li><li><a href="#v-what-happens-when-someone-reports-abuse">V. What happens when someone reports abuse</a></li><li><a href="#vi-put-the-whole-record-on-the-table">VI. Put the whole record on the table</a></li></ul></nav></details>
     </div>
     <a class="next" href="#original-words">Continue to Nathan’s original words →</a>
   </section>
@@ -496,7 +505,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <p><strong>Author statement, November 17, 2026.</strong> The wording above is Nathan Tabor’s. The AI exchange record below identifies the omissions, responses, and corrections that can be traced. The historical exhibits give dates, mechanisms, and documented impacts. The source links open the underlying documents or their catalog records.</p>
 <p><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/archive-index/2026-11-12/TOWER_OF_BABEL_CHAPTER_8.md">Chapter Eight and its original text</a> · <a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/archive-index/2026-11-12/tower_babel_literacy_evidence.json">Chapter Eight’s existing evidence record</a></p>
 <h3 id="ai-exchange-record">AI exchange record</h3>
-<div class="table-scroll" tabindex="0"><table>
+<div class="table-scroll" role="region" aria-label="Scrollable table" tabindex="0"><table>
 <thead>
 <tr class="header">
 <th>Date</th>
@@ -583,7 +592,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <blockquote>
 <p>ABLE ELBA ACT TCA TABOR ROBOT YES SEY SI SO SAW TIC CIT TAC ACT TOE EOT LOVE EVOL</p>
 </blockquote>
-<div class="table-scroll" tabindex="0"><table>
+<div class="table-scroll" role="region" aria-label="Scrollable table" tabindex="0"><table>
 <thead>
 <tr class="header">
 <th><strong>Operation</strong></th>
@@ -632,7 +641,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <p>“This is the tower of Babel. This is the double mindedness. This is confusion…”</p>
 </blockquote>
 <p>You use Babel both for people hearing different meanings while thinking they understand each other and for institutions controlling who gets to define words, interpret rules, or read texts. Your notes connect it to <em>The Laws of Stupidity</em>, the <em>BabelDissolver</em>, the <strong>Vatican → England → America</strong> sequence, and <em>The War of the Tabor Light</em>, where <strong>“CHRIST LIGHT”</strong> is your name for the institutional claim and <strong>“TABOR LIGHT”</strong> is tied to <strong>“SOVEREIGNTY FOR ALL ATOMS.”</strong></p>
-<div class="table-scroll" tabindex="0"><table>
+<div class="table-scroll" role="region" aria-label="Scrollable table" tabindex="0"><table>
 <thead>
 <tr class="header">
 <th><strong>KJV passage</strong></th>
@@ -665,7 +674,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <p><strong>Ancient Babel and Dante.</strong> Genesis plays on the Hebrew verb <em>balal</em>, “to mix” or “confound.” Babylon’s <strong>Etemenanki</strong> ziggurat is a proposed historical inspiration for the tower. Dante gives Babel a literary connection to <em>Inferno</em> in <strong>Canto 31</strong>, where Nimrod speaks unintelligibly. The Vatican Library holds Botticelli’s illustrated <em>Inferno</em>, including the <em>Chart of Hell</em>. Your own diagram puts <strong>Babel above (+9 through +1), the Equator/Void at 0, and Inferno below (−9 through −1)</strong>. The diagram’s equatorial geography comes from your framework. </p>
 <h2 id="3-the-vatican-hitler-and-american-white-supremacy">3. The Vatican, Hitler, and American white supremacy</h2>
 <p>Your phrase <strong>“pathetic white power”</strong> is your condemnation. The historical records identify the institutions, policies, and people responsible with more precision.</p>
-<div class="table-scroll" tabindex="0"><table>
+<div class="table-scroll" role="region" aria-label="Scrollable table" tabindex="0"><table>
 <thead>
 <tr class="header">
 <th><strong>Date</strong></th>
@@ -816,6 +825,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
   details.hidden = false;
   selectDate(dateButtons[0].button, dateButtons[0].source);
+
+  const contents = document.querySelector(".chapter-contents");
+  const singleColumn = window.matchMedia("(max-width: 800px)");
+  function syncContents() {
+    contents.open = !singleColumn.matches;
+  }
+  syncContents();
+  singleColumn.addEventListener("change", syncContents);
+  contents.addEventListener("click", event => {
+    if (singleColumn.matches && event.target.closest("a")) contents.open = false;
+  });
 
   const progress = document.querySelector(".read-progress");
   const navigation = [...document.querySelectorAll(".section-nav a, .chapter-contents a")].map(link => ({

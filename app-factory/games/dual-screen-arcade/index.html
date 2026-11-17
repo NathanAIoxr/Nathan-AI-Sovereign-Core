@@ -14,11 +14,12 @@ button,select{font:inherit;color:inherit;border:1px solid var(--edge);border-rad
 button:hover,select:hover{border-color:var(--mint)}button:disabled{cursor:default;opacity:.55}
 :focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 [hidden]{display:none!important}
+.skip{position:absolute;left:.6rem;top:.6rem;padding:.6rem;background:var(--panel);color:var(--ink);z-index:5;transform:translateY(-180%)}.skip:focus{transform:none}
 header{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.45rem 0 .65rem}
 h1{margin:0;font-size:clamp(1.1rem,4.8vw,1.7rem);letter-spacing:-.035em;line-height:1.1}
 h2{margin:0;font-size:1.05rem}p{margin:0}
 .author{display:block;color:var(--mint);font-size:.72rem;margin-top:.16rem}
-.app{width:min(100%,760px);margin:auto;padding:.35rem max(9px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(9px,env(safe-area-inset-left))}
+.app{width:min(100%,760px);margin:auto;padding:max(.35rem,env(safe-area-inset-top)) max(9px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(9px,env(safe-area-inset-left))}
 #arena{display:grid;grid-template-rows:minmax(0,45fr) minmax(54px,10fr) minmax(0,45fr);gap:6px;height:calc(100dvh - 69px);min-height:680px;max-height:1060px}
 .panel{background:var(--panel);border:1px solid var(--edge);border-radius:12px;min-width:0;min-height:0;overflow:hidden}
 .play{display:flex;flex-direction:column;padding:7px;gap:4px}
@@ -35,7 +36,7 @@ progress{width:100%;height:6px;accent-color:var(--mint);display:block}.enemy pro
 #swap{padding:.35rem .42rem;font-size:.72rem;white-space:nowrap}
 #board{min-height:0;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;overflow:hidden}
 .grid{display:grid;gap:2px;grid-template-columns:repeat(var(--size),1fr);grid-template-rows:repeat(var(--size),1fr);height:100%;min-height:0;max-width:100%;width:auto;aspect-ratio:1;touch-action:none}
-.grid.with-tray{flex:1;height:auto;min-height:0}.cell{padding:0;min-width:0;min-height:0;display:grid;place-items:center;background:#202e47;border-color:#3b4c6b;line-height:1;font-size:clamp(.68rem,2.8vw,1.05rem);border-radius:5px;user-select:none;touch-action:none}
+.grid.with-tray{flex:1;height:auto;min-height:0}.grid:not([data-draggable]),.grid:not([data-draggable]) .cell{touch-action:manipulation}.tray .piece{touch-action:none}.cell{padding:0;min-width:0;min-height:0;display:grid;place-items:center;background:#202e47;border-color:#3b4c6b;line-height:1;font-size:clamp(.68rem,2.8vw,1.05rem);border-radius:5px;user-select:none;touch-action:none}
 .cell.selected{outline:2px solid var(--mint);outline-offset:-2px;filter:brightness(1.23)}.cell.wall{background:#5a6375}.cell.revealed{background:#101a2a}.cell.gem{color:var(--amber)}
 .tray{display:flex;gap:5px;align-items:center;flex-shrink:0;max-width:100%}.piece{padding:4px 10px;min-height:33px;display:grid;place-items:center}.piece[aria-pressed="true"]{border-color:var(--mint);background:#1f4a49}
 .shape{display:grid;gap:1px;grid-template-columns:repeat(var(--width),6px);grid-auto-rows:6px}.shape i{border-radius:1px}.shape .filled{background:var(--mint)}
@@ -52,13 +53,29 @@ dialog::backdrop{background:#080d1bd9}dialog h2{font-size:1.36rem;margin-bottom:
 .primary{background:var(--mint);border-color:var(--mint);color:#09251f;font-weight:800}
 #records{margin-top:.8rem;color:var(--muted);font-size:.76rem}
 @media(max-height:730px){#arena{min-height:600px}.caption small{font-size:.65rem}}
+.app header,.caption,#bottom-tools{flex-wrap:wrap}
+.app header button,#swap,#bottom-tools button,.actions button,.form-row select,.tray button,.route-controls button{min-height:44px}
+.bridge{overflow:visible}.bridge-effects{line-height:1.2}
+@media(max-width:470px){
+  #arena{height:auto;max-height:none;min-height:0;grid-template-rows:auto auto auto}
+  .stage-wrap{flex:none;height:clamp(190px,36svh,300px)}
+  #board{flex:none;height:clamp(255px,42svh,330px)}
+  .bridge{grid-template-columns:repeat(3,minmax(0,1fr)) auto}
+}
+@media(orientation:landscape) and (max-height:550px) and (min-width:620px){
+  .app{width:min(100%,1030px)}
+  #arena{height:auto;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto}
+  #arena .bridge{grid-column:1/-1;grid-row:2}
+  .stage-wrap,#board{flex:none;height:clamp(195px,64svh,335px)}
+}
 @media(max-width:360px){.bridge{gap:3px;padding-inline:4px}.stat strong{font-size:.75rem}#swap{font-size:.64rem}.play{padding:5px}}
 </style>
 </head>
 <body>
 <aside id="nathan-record-notice" aria-label="Timestamped record" style="display:block!important;position:relative!important;box-sizing:border-box!important;grid-column:1/-1;flex:0 0 100%;width:100%;padding:12px 16px;margin:0;background:#fff0b3!important;color:#161616!important;border-bottom:3px solid #161616;font:600 16px/1.5 system-ui,sans-serif;text-align:left;overflow-wrap:anywhere;"><a href="../../../docs/record/index.html" style="color:#161616!important;text-decoration:underline!important;">READ THE TIMESTAMPED RECORD — Nathan Tabor / ChatGPT</a><span style="display:block;font-size:14px;font-weight:400;color:#161616!important;">Repository changes, authorship complaints, correction claims, and unfinished work. Record opened November 5, 2026, 7:42:08 p.m. EST.</span></aside>
 
-<main class="app">
+<a class="skip" href="#main">Skip to games</a>
+<main class="app" id="main" tabindex="-1">
 <header><div><h1>Dual-Screen Arcade</h1><span class="author">by Nathan Tabor</span></div><button id="setup" type="button">Game picker</button></header>
 <div id="arena">
 <section class="panel play" aria-labelledby="top-title">
@@ -794,7 +811,7 @@ function releaseInput(){
   showTop(attempt.guaranteed?"Auto-hit in flight":"Attempt in flight");updateHUD();
 }
 stage.addEventListener("pointerdown",event=>{
-  if(!beginInput())return;
+  if((event.pointerType==="mouse"&&event.button!==0)||!beginInput())return;
   event.preventDefault();stage.focus({preventScroll:true});
   topPointer=event.pointerId;setAim(event);stage.setPointerCapture(event.pointerId);
 });
@@ -803,9 +820,11 @@ stage.addEventListener("pointerup",event=>{
   if(event.pointerId!==topPointer)return;
   setAim(event);topPointer=null;releaseInput();
 });
-stage.addEventListener("pointercancel",event=>{
-  if(event.pointerId===topPointer){topPointer=null;topState.heldAt=null;paid=false;}
-});
+for(const type of ["pointercancel","lostpointercapture"]){
+  stage.addEventListener(type,event=>{
+    if(event.pointerId===topPointer){topPointer=null;topState.heldAt=null;paid=false;}
+  });
+}
 stage.addEventListener("keydown",event=>{
   if(event.code==="Space"||event.code==="Enter"){event.preventDefault();if(!event.repeat)beginInput();return;}
   const direction=["ArrowUp","ArrowRight","ArrowDown","ArrowLeft"].indexOf(event.key);
@@ -833,7 +852,9 @@ function gridCell(grid,i,text,label,color,style){
 }
 function makeGrid(size,withTray=false){
   const grid=el("div","grid"+(withTray?" with-tray":""));
-  grid.style.setProperty("--size",size);board.append(grid);return grid;
+  grid.style.setProperty("--size",size);
+  if(["chain","dice","mines","slam"].includes(round.bottom))grid.dataset.draggable="";
+  board.append(grid);return grid;
 }
 function renderShape(tray,shape,index,selected){
   const piece=el("button","piece");piece.dataset.piece=index;piece.disabled=shape===null;
@@ -1080,11 +1101,13 @@ board.addEventListener("pointerup",event=>{
     }else bottomAction("piece",piece);
   }
 });
-board.addEventListener("pointercancel",event=>{
-  if(gesture?.pointer!==event.pointerId)return;
-  if(gesture.id==="chain"){const s=boardState();s.path=[];s.closed=false;markChain(s);}
-  gesture=null;
-});
+for(const type of ["pointercancel","lostpointercapture"]){
+  board.addEventListener(type,event=>{
+    if(gesture?.pointer!==event.pointerId)return;
+    if(gesture.id==="chain"){const s=boardState();s.path=[];s.closed=false;markChain(s);}
+    gesture=null;
+  });
+}
 board.addEventListener("contextmenu",event=>{
   const node=cellFrom(event.target);
   if(!node||round.bottom!=="mines")return;

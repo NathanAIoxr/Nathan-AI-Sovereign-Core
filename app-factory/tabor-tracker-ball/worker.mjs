@@ -13,7 +13,7 @@ export default {
     const {pathname}=new URL(request.url);
     if(pathname==="/docs/record/index.html") return Response.redirect("https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/docs/record/",302);
     if(pathname==="/health"){
-      return new Response(request.method==="HEAD"?null:JSON.stringify({ok:true,app:"tabor-tracker-ball",release:"1.1.0",games:13}),
+      return new Response(request.method==="HEAD"?null:JSON.stringify({ok:true,app:"tabor-tracker-ball",release:"1.1.1",games:13}),
         {headers:{...headers,"content-type":types.json,"cache-control":"no-store"}});
     }
     const name=pathname==="/"?"index.html":pathname.slice(1);

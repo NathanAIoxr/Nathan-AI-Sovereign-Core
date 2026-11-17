@@ -24,7 +24,8 @@ header, footer {
 footer { border-bottom: 0; border-top: 1px solid var(--rule); color: var(--soft); }
 .shell { width: min(100% - 2.4rem, 69rem); margin-inline: auto; }
 .bar { min-height: 4.2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.bar nav { display: flex; gap: 1.1rem; flex-wrap: wrap; }
+.bar nav { display: flex; gap: .15rem 1rem; flex-wrap: wrap; }
+.bar a, .book-nav a { display: inline-flex; align-items: center; min-height: 44px; }
 .brand { color: var(--ink); text-decoration: none; }
 .hero {
   display: grid;
@@ -60,6 +61,7 @@ h1 span { display: block; color: var(--gold); font-size: .72em; margin-top: .32e
 .book-label { color: var(--gold); font-weight: 650; margin-bottom: .6rem; }
 .reader article { font-size: clamp(1.15rem, .95rem + .38vw, 1.34rem); line-height: 1.68; }
 .reader article p { margin-bottom: .95em; }
+.reader, .sources, .bar, .table-grid { overflow-wrap: anywhere; }
 .reader article h2 { margin: 1.7em 0 .55em; font-size: 1.5em; line-height: 1.17; }
 .reader article h2:first-child { margin-top: 0; }
 .sources { font-size: .93rem; }
@@ -70,10 +72,14 @@ h1 span { display: block; color: var(--gold); font-size: .72em; margin-top: .32e
   .hero { grid-template-columns: 1fr; }
   .poster { max-width: 26rem; justify-self: start; }
   .table-grid { columns: 1; }
-  .bar { padding-block: .7rem; }
+  .bar { flex-wrap: wrap; gap: .25rem 1rem; padding-block: .55rem; }
+  .reader { padding-block: 1.75rem 3rem; }
+  .book-nav { align-items: start; }
 }
 @media print {
   :root { color-scheme: light; --ink: #141414; --bg: #fff; --gold: #222; --soft: #333; }
   header, footer, .book-nav, .actions, .skip { display: none; }
+  .shell { width: 100%; }
+  .reader h2 { break-after: avoid; }
   .reader { padding: 0; }
 }

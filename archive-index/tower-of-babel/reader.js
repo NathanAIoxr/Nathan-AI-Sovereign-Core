@@ -101,6 +101,17 @@
   details.hidden = false;
   selectDate(dateButtons[0].button, dateButtons[0].source);
 
+  const contents = document.querySelector(".chapter-contents");
+  const singleColumn = window.matchMedia("(max-width: 800px)");
+  function syncContents() {
+    contents.open = !singleColumn.matches;
+  }
+  syncContents();
+  singleColumn.addEventListener("change", syncContents);
+  contents.addEventListener("click", event => {
+    if (singleColumn.matches && event.target.closest("a")) contents.open = false;
+  });
+
   const progress = document.querySelector(".read-progress");
   const navigation = [...document.querySelectorAll(".section-nav a, .chapter-contents a")].map(link => ({
     link, target: document.getElementById(link.hash.slice(1)),
