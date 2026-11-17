@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#11110f">
+<meta name="description" content="Protect innocence across seven regions of Tabor World. Guide all 15 Sparks to sanctuary and read the matching seven-book series.">
+<title>Protect Innocence · Release the Hounds of Hell · Nathan Tabor</title>
+<link rel="manifest" href="./app.webmanifest"><link rel="apple-touch-icon" href="./icon-192.png"><link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast"><div class="wrap mast-inner">
+  <a class="brand" href="#home" aria-label="Hounds of Hell home"><span class="mark" aria-hidden="true"><i></i></span><span><b>NATHAN TABOR</b><small>TABOR WORLD</small></span></a>
+  <nav aria-label="Main navigation"><a href="#home" data-nav="campaign">Campaign</a><a href="#books" data-nav="books">Books</a><a href="#arcade" data-nav="arcade">Arcade</a><button hidden id="install" type="button">Install app</button></nav>
+</div></header>
+<main id="main" tabindex="-1">
+  <section id="home" hidden>
+    <div class="hero"><div class="wrap hero-content">
+      <p class="overline"><i></i> THE SEVEN SANCTUARIES</p>
+      <p class="hero-purpose">PROTECT INNOCENCE</p>
+      <h1>RELEASE THE<br><span>HOUNDS OF HELL</span></h1>
+      <p class="hero-copy">“PROTECT ALL INNOCENCE AT THE ATOMIC LEVEL.” In every mission, win by bringing every Spark to safety.</p>
+      <div class="hero-actions"><a class="primary" id="start" href="#play/iron-gate">Start campaign</a><a class="secondary" href="#books">Read the series</a></div>
+    </div></div>
+    <div class="wrap">
+      <aside class="correction" aria-labelledby="correction-heading">
+        <p class="overline">PUBLIC CORRECTION</p>
+        <h2 id="correction-heading">ChatGPT continues to overwrite the purpose of this game, which is to protect innocence.</h2>
+        <p>ChatGPT made the Hounds the headline and pushed the protection objective into supporting copy and imagery. Nathan Tabor called out that omission. Protecting innocence is the objective in every mission.</p>
+        <a class="text-link" href="./correction.html">Read the public record and project audit</a>
+      </aside>
+      <section class="counterbar" aria-label="Campaign progress">
+        <div><strong id="site-count">0 / 7</strong><span>Sanctuaries reached</span></div>
+        <div><strong id="spark-count">0 / 15</strong><span>Sparks safe at sanctuary</span></div>
+        <div><strong id="book-count">0 / 7</strong><span>Books finished</span></div>
+      </section>
+      <section class="section" aria-labelledby="protection-heading">
+        <div class="section-heading"><div><p class="overline">THE OBJECTIVE</p><h2 id="protection-heading">Get every Spark to safety.</h2></div></div>
+        <div class="protection-flow">
+          <div><strong>Clear the gate</strong><p>Release the Hounds to open a path.</p></div>
+          <div><strong>Ward the crossing</strong><p>Make the dangerous ground safe.</p></div>
+          <div><strong>Reach sanctuary</strong><p>Bring every Spark to safety to win.</p></div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-heading"><div><p class="overline">CAMPAIGN</p><h2>Seven regions. Seven missions.</h2></div><a class="text-link" href="#arcade">Open Track Baller</a></div>
+        <div class="cards" id="mission-cards"></div>
+      </section>
+    </div>
+  </section>
+  <section class="wrap section" id="play" hidden>
+    <a class="text-link back" href="#home">← All regions</a>
+    <div class="section-heading mission-heading"><div><p class="overline" id="mission-region"></p><h1 id="mission-title"></h1></div><a class="secondary" id="mission-book" href="#books">Read this book</a></div>
+    <p class="protect-goal"><strong>PROTECT INNOCENCE</strong> · Every Spark must reach sanctuary safely.</p>
+    <p id="briefing" class="description"></p>
+    <div class="play-layout">
+      <div class="board-frame">
+        <div class="board-head"><div><strong id="steps"></strong><span>Turns left</span></div><div><strong id="sparks"></strong><span>Sparks carried</span></div><div><strong id="wards"></strong><span>Wards left</span></div></div>
+        <div id="board" aria-label="Mission board"></div>
+        <div class="key"><span><b class="player-key">◆</b> You</span><span><b>✦</b> Spark</span><span><b class="gate-key">╫</b> Gate</span><span><b class="hazard-key">≈</b> Hazard</span><span><b class="home-key">⬡</b> Sanctuary</span></div>
+      </div>
+      <aside class="console" aria-label="Mission controls">
+        <div class="mode-row" role="group" aria-label="Next action">
+          <button id="mode-move" type="button" aria-pressed="true">Move</button>
+          <button id="mode-release" class="release" type="button" aria-pressed="false">Release the Hounds</button>
+          <button id="mode-ward" type="button" aria-pressed="false">Ward</button>
+        </div>
+        <p class="description action-help" id="action-help">Choose a square directly beside you.</p>
+        <p id="status" class="status" role="status"></p>
+        <div class="controls"><button id="view" type="button" aria-pressed="false">Scene</button><button id="layer" type="button" aria-pressed="false">Show Unseen</button><button id="clear" type="button">CLEAR attempt</button></div>
+        <div id="analysis" class="analysis" hidden><h2>Known</h2><p id="known"></p><h2>Unknown</h2><p id="unknown"></p></div>
+        <a class="primary" id="next-mission" href="#home" hidden>Next mission</a>
+      </aside>
+    </div>
+    <details class="rules"><summary>How to play</summary><p>Tap an adjacent square to move, or choose a command before tapping. Release clears an adjacent iron gate. A ward makes an adjacent hazard safe. Protect innocence by getting every Spark to the sanctuary before your turns run out. Clearing a gate alone earns zero. Walking straight onto a hazard ends the attempt.</p><p>Play the rescue, then use <b>Show Unseen</b> to inspect your route and the evidence of what you protected.</p><p><b>1+1=2 · BUILD</b> records the rescue after every Spark reaches sanctuary. <b>1-1=0 · CLEAR</b> resets this attempt. Use arrow keys on the board, R for Release, W for Ward, or M for Move.</p></details>
+  </section>
+  <section class="wrap section" id="books" hidden>
+    <div class="section-heading"><div><p class="overline">TABOR WORLD FIELD SERIES</p><h1>The Seven Sanctuaries</h1></div></div>
+    <p class="description">Seven short books about protecting innocence. Follow Mara and the pack from the Appalachian ridge to the Antarctic ice.</p>
+    <div class="book-layout"><nav id="shelf" aria-label="Books in the series"></nav><article id="reader" class="reader"></article></div>
+  </section>
+  <section class="wrap section" id="arcade" hidden>
+    <div class="section-heading"><div><p class="overline">TABOR WORLD ARCADE</p><h1>Track Baller</h1></div><a class="secondary" href="./track-baller.html" target="_blank" rel="noopener">Open full screen</a></div>
+    <p class="description">Protect the gold Spark. Release the pack to clear the moving red gate, then land a shot without touching the Spark. Touching it earns zero.</p>
+    <iframe id="arcade-frame" title="Tabor Track Baller Hounds of Hell" loading="lazy"></iframe>
+  </section>
+</main>
+<footer class="wrap footer"><a href="./correction.html">PUBLIC CORRECTION</a><span>Created for Nathan Tabor · Tabor World</span></footer>
+<script type="module" src="./app.mjs"></script>
+</body>
+</html>

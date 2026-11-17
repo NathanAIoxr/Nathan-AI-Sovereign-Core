@@ -1,0 +1,37 @@
+export const books = [
+  {title:'The Iron Gate', chapters:[
+    ['The Road Above the Fog','Mara reached the Appalachian ridge at dusk with a lamp that would burn only when it was carried for somebody else. She was nearly at the sanctuary when an iron gate dropped across the road. From the other side came a light no bigger than the head of a pin. She set her lamp down and called into the fog.'],
+    ['First Release','Three hounds stepped out of the mist. Their faces were covered in black armor, and red light ran along the seams. Mara raised her hand toward the little light. The pack stood still. Then she pointed at the gate, and every hound looked at the hinges. When she lowered her hand the road filled with iron thunder.'],
+    ['The First Spark','The gate fell away from the light. Mara cupped the Spark in both hands and walked the last mile. At the sanctuary, the keeper took down seven unlit lanterns and lit the first. The lead hound waited at the door with a bit of red iron caught beneath its collar. Mara pulled it free. Beyond the ridge a second lantern was already calling.']
+  ]},
+  {title:'The Flooded Steps', chapters:[
+    ['Two Lights in the Rain','On the terraces above a flooded valley, Tomás was counting by bell strokes. At the fourth bell, a lower step went beneath the water. He pointed Mara toward two small lights. One was under the lip of a dry wall. The other sat on a ledge already gathering rain.'],
+    ['The Ward','The Hounds could tear through the iron barrier at the low end of the terraces, but water would claim the ledge before they came back. Mara set a ward stone on the tilting stair. Tomás watched the crack under his boot stop widening. He crossed for the first Spark while Mara kept a hand on the wall and reached for the second.'],
+    ['A Crossing Left Behind','The pack took the gate down at the moment Tomás came back across. He wanted to pull the ward stone from the stairs and bring it with them. Then he saw the keeper following with a lantern and left it where it was. Long after the two Sparks reached the bell tower, the stairs remained open.']
+  ]},
+  {title:'The Bells Below', chapters:[
+    ['A Bell With No Rope','A keeper named Iona lived where the North Atlantic blew salt straight into the keyholes. Her upper bell answered every dawn. The lower bell had fallen silent. One morning she found its rope stuck under the lowest gate and a warm dot of gold on the shelf above her window.'],
+    ['Up First','When Mara and the Hounds arrived, the pack paced beside the first gate. Iona tapped the stair above them. The first Spark was in the bell loft. From there she could see a second Spark reflected in a flooded well below. She tied a red thread to the rail so they would remember the way back after the wind took their lantern.'],
+    ['The Return Stroke','At the second gate, the pack sprang. The released rope slapped against Iona’s wrist and she caught it. She rang once for the carrier on the stairs and again for the folks waiting by the coast. In the sanctuary she hung the red thread beside the bells. Next winter, she thought, someone else might have to find this road in the dark.']
+  ]},
+  {title:'The Lantern Road', chapters:[
+    ['A Shining Track','At midday the Saharan salt flat had two roads. The bright one looked straight and smooth across the crust. The dim one bent behind a low bank where the shade was only a hand wide. A guide named Aya left her water jug at the fork and listened to the crust crack down the bright road.'],
+    ['The Bend','Mara wanted to set the one ward at the first crack. Aya dropped a pinch of salt on the second crack and watched it vanish. They walked the bend. Beyond the red gate, the smallest Hound held still while Aya crouched and lifted a Spark from its pawprint. They took the second light where the bank rose above the flats.'],
+    ['The Jug','The sanctuary keeper heard the pack pass and opened his door. Aya came back for her jug after the gold lamps were lit. On the dim road she found a traveler leaning against the bank, shaking sand out of both boots. She poured him some water. He asked where the road went. She took a lantern off the wall and walked with him.']
+  ]},
+  {title:'The Rain Lock', chapters:[
+    ['Water on Both Sides','The Pacific rain ran off the eaves in sheets. Jun had been raised with the sound of locks opening, and he knew this groan belonged to a lock that was still shut. On a bridge behind the queue of shutters, a Spark made a steady gold mark in the falling water. Far below, a second one moved with the reflected light.'],
+    ['The Lower Way','Jun led Mara to the upper crossing. They set one ward in the broken footbridge and went for the close Spark. A Hound waited with one paw over the edge of the first open gate. When the lower road rattled, Jun motioned for the pack to stand and watched the water. An old service stair emerged when the surge slid back.'],
+    ['The Lock Opens','They reached the last red gate with water at their ankles. The pack broke its frozen hinge. Jun stayed long enough to hold the loose gate off its track while Mara took both Sparks through the sanctuary door. Later he wrote the water height on the stone, where the next keeper would see it even if the lock fell silent again.']
+  ]},
+  {title:'The Reef of Glass', chapters:[
+    ['The Light Beyond the Shoal','Nia knew the southern reef by the color it showed through a wave. A black splash meant a deep hole. Green meant sand. That night the reef turned as pale and sharp as glass. Three little sparks rose and fell in the distance, and the longest causeway was already breathing underwater.'],
+    ['The Return Route','Mara marked the nearest crossing. Nia drew an arrow the other way and sent her to study the return from the far ledge. They found a cracked third route the tide would soon take. The Hounds waited on the hard stone until Nia signaled from high ground. Then they cleared the red gate and held beside it while all three carriers came past.'],
+    ['Three Warm Lamps','The flood reached the gate a moment after the last Hound crossed. Nia climbed the sanctuary stairs with her sleeves wet and a Spark warming both hands. She lit three lamps and put one down low where a tired walker could see the landing. Before dawn the tide dropped. The glass road was gone, but the lamps were still burning.']
+  ]},
+  {title:'The White Gate', chapters:[
+    ['The Third Light','By the time the Hounds reached the Antarctic shelf, their black armor was white with drift. The sanctuary door lay beyond two gaps and a lock frozen into the snow. Mara counted two lights across the shelf. The smallest Hound pressed its head to the ground, and a third light answered from a shallow hollow behind them.'],
+    ['The Way Back','Mara carried the first Spark up while the pack held beside a gate groaning with ice. She put a ward on the upper crossing so they could use it in both directions. When the final gate lifted, the wind made a sound she knew from the Appalachian ridge. She could hardly see the gold point in her gloves, but she felt it turn warm.'],
+    ['Back at the Door','At the sanctuary, the keeper left room for all three Hounds at the stove. Across the world the lamps blinked on in order, ending with the little light above the ice. Mara set her old lamp on the table. It had taken her seven roads to get here. By morning she had polished it and put it back by the door, facing out.']
+  ]}
+];
