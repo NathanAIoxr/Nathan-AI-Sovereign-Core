@@ -1,3 +1,4 @@
+import {createFrameLoop} from './frame-loop.mjs';
 import {newBridge,pattern,bridgeInput,bridgeShot} from './precision-bridge.mjs';
 import {createClock} from './fixed-clock.mjs';
 import {beginStroke,sampleStroke,strokeAim,releaseStroke} from './tactile-input.mjs';
@@ -163,12 +164,17 @@ window.addEventListener('grapple-expansion-restore',event=>{
 window.addEventListener('grapple-expansion-export',event=>{event.detail.expansion=sanitizeExpansion(records);});
 window.addEventListener('grapple-view',event=>{
  view=event.detail??'';
- arcadeClock.pause();swingClock.pause();trace=null;held.clear();
+ clearMotion();
  if(view==='arcade')setupLibrary();
+ syncFrames();
 });
-function clearMotion(){held.clear();trace=null;arcadeClock.pause();swingClock.pause();}
+function clearMotion(){held.clear();if(trace)progress=trace.initialProgress;trace=null;arcadeClock.pause();swingClock.pause();}
 window.addEventListener('blur',clearMotion);
-document.addEventListener('visibilitychange',()=>{if(document.hidden)clearMotion();});
+function syncFrames(){
+ if(!document.hidden&&(view==='arcade'||view==='swing'))frames.start();
+ else{frames.stop();clearMotion();}
+}
+document.addEventListener('visibilitychange',syncFrames);
 window.addEventListener('keydown',event=>{
  if(view!=='swing'||event.target.closest?.('input, textarea, select, a, summary')||event.ctrlKey||event.altKey||event.metaKey)return;
  if(event.code==='ArrowLeft'||event.code==='ArrowRight'){
@@ -330,6 +336,6 @@ function frame(now){
   }else swingClock.pause();
   renderSwing();
  }
- requestAnimationFrame(frame);
 }
-refreshForm();resetArcade();resetSwing();requestAnimationFrame(frame);
+const frames=createFrameLoop(frame);
+refreshForm();resetArcade();resetSwing();syncFrames();

@@ -1,3 +1,4 @@
+import {createFrameLoop} from './frame-loop.mjs';
 import {createClock} from './fixed-clock.mjs';
 
 import { TOY_COURSES,startToy,toyTarget,blowJet,stepToy,grappleToy } from './toy.mjs';
@@ -11,7 +12,7 @@ try{const stored=JSON.parse(localStorage.getItem(storage));if(stored&&typeof sto
 const inputs=new Map();
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const clock=createClock();
-let index=0, state=startToy(TOY_COURSES[0]), width=0,height=0, frame=0, color='#fff1ac';
+let index=0, state=startToy(TOY_COURSES[0]), width=0,height=0, color='#fff1ac';
 const say=message=>{$('toy-status').textContent=message;};
 function update(){
  $('toy-score').textContent=state.next+' / '+state.course.targets.length+' caught';
@@ -69,7 +70,6 @@ new ResizeObserver(()=>{
 }).observe(canvas);
 function jet(side){if(blowJet(state,side))update();}
 function play(now){
- if(view.hidden){frame=0;clock.pause();return;}
  const sides=new Set(inputs.values());
  clock.frame(now,dt=>{
   for(const side of sides)if(state.t-state.lastJet[side]>=.24)jet(side);
@@ -77,7 +77,6 @@ function play(now){
   stepToy(state,dt);
  });
  draw();
- frame=requestAnimationFrame(play);
 }
 function grapple(){
  const result=grappleToy(state);
@@ -110,10 +109,13 @@ window.addEventListener('keydown',event=>{
 window.addEventListener('keyup',event=>inputs.delete(event.code));
 function pause(){inputs.clear();clock.pause();}
 window.addEventListener('blur',pause);
-document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
-window.addEventListener('grapple-view',()=>{
- inputs.clear();clock.pause();if(!view.hidden&&!frame){frame=requestAnimationFrame(play);}
-});
+const frames=createFrameLoop(play);
+function syncFrames(){
+ if(!view.hidden&&!document.hidden)frames.start();
+ else{frames.stop();pause();}
+}
+document.addEventListener('visibilitychange',syncFrames);
+window.addEventListener('grapple-view',syncFrames);
 window.addEventListener('grapple-toy-restore',event=>{saved=event.detail;update();});
 window.addEventListener('grapple-toy-finish',event=>{color=event.detail;draw();});
 $('toy-hook').onclick=grapple;
@@ -122,4 +124,4 @@ $('toy-next').onclick=()=>{reset((index+1)%TOY_COURSES.length);$('jet-left').foc
 for(const [i,course] of TOY_COURSES.entries())choice.add(new Option(course.name,String(i)));
 choice.onchange=()=>reset(Number(choice.value));
 reset(0);
-if(!view.hidden)frame=requestAnimationFrame(play);
+syncFrames();
