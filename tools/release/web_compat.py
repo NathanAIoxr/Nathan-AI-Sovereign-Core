@@ -96,6 +96,10 @@ def check_page(browser, url, width, height, touch):
                 failures.append((path, width, height, size, overflow))
         assert not failures, failures
         assert not errors, (width, height, errors)
+        page.goto(url + ENGINE)
+        page.wait_for_function("document.getElementById('catalog-count').textContent.includes('runnable')")
+        page.goto(url + ENGINE + "world/")
+        page.wait_for_function("document.querySelectorAll('#records button').length > 0")
         page.goto(url + TOWER)
         toc = page.locator("details.chapter-contents")
         assert toc.evaluate("(el) => el.open") == (width > 800)

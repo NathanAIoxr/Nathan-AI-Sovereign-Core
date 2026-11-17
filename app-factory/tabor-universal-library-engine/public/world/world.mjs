@@ -109,11 +109,19 @@ async function get(path){
   if(!response.ok)throw Error(path);
   return response.json();
 }
+async function worldSource(local, repository){
+  const response=await fetch(local);
+  if(response.ok)return {data:await response.json(),href:local};
+  if(response.status!==404)throw Error(local);
+  return {data:await get(repository),href:repository};
+}
 try{
-  const [ledger,library,castAndProps,atlas,places,entries]=await Promise.all([
+  const [ledger,library,castAndProps,cosmic,atlasPlaces,entries]=await Promise.all([
     get("../catalog.json"),get("./source-catalog.json"),get("./cast-and-props.json"),
-    get("./cosmic-body.json"),get("./worlds-atlas.json"),get("./world.json")]);
-  const world=createWorld({ledger,library,castAndProps,atlas,places,entries});
+    worldSource("./cosmic-body.json","../../../nathan-ai/anatomy/cosmic-body/atlas.json"),
+    worldSource("./worlds-atlas.json","../../../one/mespark-memory-matrix/worlds-atlas.json"),
+    get("./world.json")]);
+  const world=createWorld({ledger,library,castAndProps,atlas:cosmic.data,places:atlasPlaces.data,entries});
   all=world.records;index=new Map(all.map(row=>[row.id,row]));
   counts=world.summary;
   for(const [label,href] of [
@@ -121,8 +129,8 @@ try{
     [counts.tracker+" Tracker Ball entries · v.7 edition","../catalog.json"],
     [counts.world+" Tabor World cartridges · separate edition","./source-catalog.json"],
     ["Tabor World source branch",worldEdition],
-    [counts.cosmic+" Cosmic Body records and "+counts.cosmicRelationships+" source relationships","./cosmic-body.json"],
-    [counts.places+" meSPARK Worlds Atlas records","./worlds-atlas.json"],
+    [counts.cosmic+" Cosmic Body records and "+counts.cosmicRelationships+" source relationships",cosmic.href],
+    [counts.places+" meSPARK Worlds Atlas records",atlasPlaces.href],
     ["Cast and workbench object records","./cast-and-props.json"],["World reference records","./world.json"]
   ]){
     const li=el("li");li.append(link(label,href));$("sources").append(li);

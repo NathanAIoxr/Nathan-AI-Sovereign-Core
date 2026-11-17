@@ -60,5 +60,12 @@ jobs:
         run: |
           python3 -m pip install playwright==1.62.0
           python3 -m playwright install --with-deps chromium
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Verify the static engine module matches its game source
+        run: |
+          node app-factory/tabor-universal-library-engine/build.mjs
+          git diff --exit-code -- app-factory/tabor-universal-library-engine/public/arcade-core.mjs
       - name: Check web pages at phone, landscape, and desktop sizes
         run: python3 tools/release/web_compat.py --browser
