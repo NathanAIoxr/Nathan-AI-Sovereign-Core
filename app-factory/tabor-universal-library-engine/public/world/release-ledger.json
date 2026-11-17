@@ -1,6 +1,6 @@
 {
   "schema": "tabor-world.release-ledger.v1",
-  "current": "2026-11-17.1",
+  "current": "2026-11-17.2",
   "counts": {
     "records": 832,
     "elements": 118,
@@ -8,10 +8,24 @@
     "trackerCatalog": 101,
     "worldCatalog": 101,
     "runnable": 18,
-    "destinations": 14,
-    "publicDestinations": 13
+    "destinations": 15,
+    "publicDestinations": 14,
+    "playableApplications": 101
   },
   "history": [
+    {
+      "id": "2026-11-17.2",
+      "title": "101 playable applications in the Library of Tabor",
+      "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/296",
+      "changes": [
+        "Opened a dedicated playable wing with rotunda artwork and reduced-motion-aware room animations.",
+        "Kept all 101 Grapple It launch IDs and exposed a read-only search and lookup API.",
+        "Linked the playable wing from the World registry and Gateway."
+      ],
+      "checks": [
+        "Worker and catalog regression suite."
+      ]
+    },
     {
       "id": "2026-11-17.1",
       "title": "Library of Tabor and world launch directory",

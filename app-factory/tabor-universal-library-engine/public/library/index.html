@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a1b17">
+<meta name="author" content="Nathan Tabor">
+<meta name="description" content="Explore 101 playable applications across 21 shelves in the Library of Tabor within Tabor World.">
+<title>Library of Tabor within Tabor World</title>
+<link rel="stylesheet" href="./library.css">
+<script type="module" src="./library.mjs"></script>
+</head>
+<body>
+<aside id="nathan-record-notice" aria-label="Timestamped record" style="display:block!important;position:relative!important;box-sizing:border-box!important;grid-column:1/-1;flex:0 0 100%;width:100%;padding:12px 16px;margin:0;background:#fff0b3!important;color:#161616!important;border-bottom:3px solid #161616;font:600 16px/1.5 system-ui,sans-serif;text-align:left;overflow-wrap:anywhere;"><a href="../../../../docs/record/index.html" style="color:#161616!important;text-decoration:underline!important;">READ THE TIMESTAMPED RECORD — Nathan Tabor / ChatGPT</a><span style="display:block;font-size:14px;font-weight:400;color:#161616!important;">Repository changes, authorship complaints, correction claims, and unfinished work. Record opened November 5, 2026, 7:42:08 p.m. EST.</span></aside>
+
+<a class="skip" href="#collection">Skip to the collection</a>
+<header class="top">
+  <a class="world-mark" href="https://tabor-world.nathantaboract.workers.dev/">Tabor World</a>
+  <nav aria-label="Tabor World destinations">
+    <a href="../world/">World records</a>
+    <a href="../">v.7 workbench</a>
+  </nav>
+</header>
+<main>
+  <section class="hero" aria-labelledby="library-title">
+    <img src="./rotunda.webp" width="1440" height="810" fetchpriority="high" alt="">
+    <div class="hero-copy">
+      <p class="credit">By Nathan Tabor</p>
+      <h1 id="library-title">Library<br>of Tabor</h1>
+      <p>Find a character, object, or system. Follow it from the shelf into a playable challenge.</p>
+      <a class="action" href="#collection">Explore 101 applications <span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+  <section class="rooms" aria-labelledby="room-title">
+    <div class="section-intro">
+      <h2 id="room-title">Choose a room</h2>
+      <p>Five ways to play across the 21 subject shelves.</p>
+    </div>
+    <div id="rooms" class="room-grid" aria-label="Filter by game mechanic"></div>
+  </section>
+  <section class="collection" id="collection" aria-labelledby="collection-title">
+    <div class="section-intro">
+      <h2 id="collection-title">The collection</h2>
+      <a href="https://grapple-it.nathantaboract.workers.dev/#atlas">Open in Grapple It ↗</a>
+    </div>
+    <form id="filters" role="search">
+      <label>Find an entry<input id="query" type="search" name="q" placeholder="Name, trait, or number" maxlength="120"></label>
+      <label>Subject shelf<select id="shelf" name="shelf"><option value="">All shelves</option></select></label>
+      <label>Record type<select id="kind" name="kind"><option value="">All records</option></select></label>
+      <label>Room<select id="room" name="room"><option value="">All rooms</option></select></label>
+      <button id="clear" type="button">Clear filters</button>
+    </form>
+    <p id="status" role="status">Loading the shelves…</p>
+    <noscript><p><a href="https://grapple-it.nathantaboract.workers.dev/#atlas">Explore the collection in Grapple It</a> or <a href="./catalog.json">read the full catalog as JSON</a>.</p></noscript>
+    <div class="reading">
+      <div id="results" class="record-list" aria-label="Matching applications"></div>
+      <article id="detail" class="detail" aria-label="Selected application" hidden></article>
+    </div>
+  </section>
+</main>
+<footer>
+  <span>Library of Tabor · Nathan Tabor</span>
+  <a href="./catalog.json">Catalog JSON</a>
+  <a href="https://www.loc.gov/aba/cataloging/classification/lcco/">Subject classification source</a>
+</footer>
+</body>
+</html>
