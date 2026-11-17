@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#18130f">
-<meta name="description" content="The Tower of Babel by Nathan Tabor. Read the manuscript and explore 26 linked evidence exhibits.">
+<meta name="description" content="The Tower of Babel by Nathan Tabor. Read the expanded manuscript and explore %%EXHIBIT_COUNT%% linked evidence exhibits.">
 <title>The Tower of Babel by Nathan Tabor</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;650;750&amp;family=STIX+Two+Text:wght@400;500;700&amp;display=swap">
 <style>
@@ -48,11 +48,14 @@ main{padding:2.4rem 0 4rem;outline:none}
 .panel h2{margin:0 0 .25rem;font:700 1.75rem/1.12 var(--serif);letter-spacing:-.026em}
 .panel p{margin:.55rem 0 1rem;color:var(--subtle);font-size:.94rem}
 .letters{display:flex;gap:.4rem;margin:.85rem 0 1rem}
-.letter{display:grid;place-items:center;width:clamp(43px,14vw,72px);height:clamp(48px,14vw,79px);border:1px solid #514231;border-bottom:3px solid #b98650;background:#211911;color:#ffe0b3;font:700 clamp(1.7rem,5vw,3rem)/1 var(--serif)}
+.letter{display:grid;place-items:center;width:clamp(43px,14vw,72px);height:clamp(48px,14vw,79px);min-width:0;flex-shrink:1;border:1px solid #514231;border-bottom:3px solid #b98650;background:#211911;color:#ffe0b3;font:700 clamp(1.7rem,5vw,3rem)/1 var(--serif)}
 .flip-signal .letter{animation:settle .45s cubic-bezier(.2,.6,.3,1) both}
 .flip-signal .letter:nth-child(2){animation-delay:.055s}.flip-signal .letter:nth-child(3){animation-delay:.11s}
 @keyframes settle{from{transform:translateY(-7px);opacity:.5}to{transform:translateY(0);opacity:1}}
 .panel .small-action{background:transparent;color:var(--accent);border-color:#ac8a79;padding:.35rem .7rem;border-radius:.18rem;transition:transform .18s}
+.word-controls{display:flex;flex-wrap:wrap;align-items:end;gap:.65rem}
+.word-controls label{display:grid;gap:.2rem;font-size:.85rem;font-weight:750}
+.word-controls select{max-width:100%;padding:.37rem .5rem;color:var(--ink);background:white;border:1px solid #9c8974;border-radius:.18rem}
 .letter-note{min-block-size:1.25em}
 .timeline{display:flex;flex-wrap:wrap;gap:.5rem;margin:.85rem 0 .9rem;padding:0;list-style:none}
 .timeline li{display:flex}
@@ -64,11 +67,15 @@ main{padding:2.4rem 0 4rem;outline:none}
 .chapter>h2,.attachment>summary{border-top:2px solid var(--accent);margin:0 0 .7rem;padding:.75rem 0;font:700 clamp(2rem,4.5vw,3.2rem)/1.05 var(--serif);letter-spacing:-.035em}
 .essay{max-width:73ch;font:1.21rem/1.64 var(--serif)}
 .essay h3{margin:1.65rem 0 .35rem;font:700 1.55rem/1.2 var(--serif);letter-spacing:-.02em}
+.essay h4{margin:1.8rem 0 .45rem;font:700 1.24rem/1.3 var(--sans)}
+#the-full-reading{border-block-start:2px solid var(--accent);margin-top:2.5rem;padding-top:1.45rem;font-size:2.35rem}
+#the-full-reading+p+ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:.55rem;margin:1.2rem 0 2rem;padding:0;list-style:none}
+#the-full-reading+p+ul a{display:flex;align-items:center;min-height:100%;padding:.55rem .7rem;border:1px solid var(--line);background:var(--panel);font:650 .95rem/1.38 var(--sans)}
 .provenance{color:var(--subtle);font-size:.9rem}
 blockquote{border-inline-start:3px solid var(--accent);margin:.8rem 0 1rem;padding:.1rem 1rem;background:#fff9ef9c;white-space:pre-wrap}
 blockquote p{margin:.6rem 0}
 .chapter-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(190px,245px);gap:clamp(1rem,4vw,3.5rem)}
-.chapter-contents{align-self:start;position:sticky;top:6rem;padding:1rem 0 1rem 1.1rem;border-inline-start:1px solid var(--line);color:var(--subtle);font-size:.88rem;line-height:1.4}
+.chapter-contents{align-self:start;position:sticky;top:6rem;max-block-size:calc(100dvh - 7rem);overflow:auto;padding:1rem .5rem 1rem 1.1rem;border-inline-start:1px solid var(--line);color:var(--subtle);font-size:.88rem;line-height:1.4}
 .chapter-contents ul{list-style:none;margin:.4rem 0 0;padding:0}
 .chapter-contents li{margin:.6rem 0}
 .chapter-contents a{color:var(--ink)}
@@ -98,7 +105,7 @@ th{background:#432920;color:#fff9ee}
 .attachment,.chapter,.essay,.panel{overflow-wrap:anywhere}
 footer{border-top:1px solid var(--line);padding:1.25rem 0 2.35rem;color:var(--subtle);font-size:.9rem}
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-@media(max-width:800px){.chapter-layout{display:flex;flex-direction:column;gap:.6rem}.chapter-contents{position:static;order:-1;border-inline-start:0;border-bottom:1px solid var(--line);padding-left:0}.chapter-contents ul{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem}.section-nav .wrap{justify-content:space-between}}
+@media(max-width:800px){.chapter-layout{display:flex;flex-direction:column;gap:.6rem}.chapter-contents{position:static;max-block-size:none;order:-1;border-inline-start:0;border-bottom:1px solid var(--line);padding-left:0}.chapter-contents ul{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem}.section-nav .wrap{justify-content:space-between}}
 @media(max-width:600px){.wrap{width:calc(100% - 1.9rem)}.overview{grid-template-columns:1fr;margin-bottom:2.6rem}.mast-art{width:100%;object-position:65% 48%}.mast::after{background:linear-gradient(90deg,#18130fec 0%,#18130fa1 60%,#18130f52 100%),linear-gradient(0deg,#18130f 0%,transparent 43%)}.imprint{letter-spacing:.06em}.section-nav .wrap{gap:.48rem}.section-nav a{text-align:center;font-size:.75rem;line-height:1.2;display:flex;align-items:center}.hero h1{font-size:clamp(3.55rem,14vw,6rem)}.essay{font-size:1.13rem}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media print{.section-nav,.overview,.filter-bar,.hero-actions,.skip,.next,.chapter-contents,.mast-art,footer{display:none}.mast{color:black;background:white}.mast::after{display:none}.hero h1 span,.hero p,.imprint a{color:black}.hero{padding:1.5rem 0}.chapter{break-before:page}.exhibit[hidden],.exhibit-group[hidden]{display:block!important}}
@@ -111,8 +118,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   <div class="wrap imprint"><strong>Nathan Tabor</strong><a href="./manuscript.md" download>Download manuscript</a></div>
   <div class="wrap hero">
     <h1>The Tower <span>of Babel</span></h1>
-    <p>The reading edition, Nathan’s original words, and the evidence behind Chapter Eight.</p>
-    <div class="hero-actions"><a href="#editorial-expansion">Read the manuscript <span aria-hidden="true">→</span></a><a href="#evidence">Browse 26 exhibits</a></div>
+    <p>The expanded reading edition, Nathan’s original words, and the evidence behind Chapter Eight.</p>
+    <div class="hero-actions"><a href="#the-full-reading">Read the expanded chapters <span aria-hidden="true">→</span></a><a href="#evidence">Browse %%EXHIBIT_COUNT%% exhibits</a></div>
   </div>
 </header>
 <nav class="section-nav" aria-label="Reading sections">
@@ -124,7 +131,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     <section class="panel"><h2>Both directions</h2><p>Reverse the letters and keep the starting word in view.</p>
       <div class="letters" aria-hidden="true"><span class="letter">G</span><span class="letter">O</span><span class="letter">D</span></div>
       <p id="letter-status" class="letter-note" aria-live="polite">GOD → DOG · a letter-by-letter reversal</p>
-      <button class="small-action" id="reverse" type="button" hidden>Reverse GOD <span aria-hidden="true">↔</span></button>
+      <div class="word-controls" id="word-controls" hidden>
+        <label>Starting word
+          <select id="starting-word"><option>GOD</option><option>LIVE</option><option>LOVE</option><option>TABOR</option><option>ABLE</option><option>ACT</option><option>YES</option><option>SI</option><option>SO</option><option>SAW</option><option>TIC</option><option>TAC</option><option>TOE</option></select>
+        </label>
+        <button class="small-action" id="reverse" type="button">Reverse GOD <span aria-hidden="true">↔</span></button>
+      </div>
     </section>
     <section class="panel"><h2>Follow the evidence</h2><p>Open the exhibit behind each point in the manuscript.</p>
       <ul class="timeline" id="timeline">
@@ -133,6 +145,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
         <li><a href="#C03" data-exhibit-id="C03" data-title="Johnson v. M’Intosh" data-note="Read where the U.S. Supreme Court cited papal and English colonial claims.">1823</a></li>
         <li><a href="#D02" data-exhibit-id="D02" data-title="The Reich Concordat" data-note="See the agreement between the Holy See and Nazi Germany.">1933</a></li>
         <li><a href="#B01" data-exhibit-id="B01" data-title="Ireland’s Ryan Report" data-note="Follow the findings on per-child funding, state oversight, and abuse.">2009</a></li>
+        <li><a href="#B07" data-exhibit-id="B07" data-title="Federal Indian boarding-school investigation" data-note="See how the federal report counted institutions and documented child deaths.">2024</a></li>
       </ul>
       <div class="timeline-detail" id="timeline-detail" hidden><strong></strong><p aria-live="polite"></p><a href="#A04">Open exhibit A04</a></div>
     </section>
