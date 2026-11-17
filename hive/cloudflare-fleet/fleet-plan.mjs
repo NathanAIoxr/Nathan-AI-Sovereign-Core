@@ -61,6 +61,15 @@ export const SLOTS = [
   targetBinding: `TARGET_${slot.key}`,
 }));
 
+export const ADDITIONAL_WORKLOADS = [
+  {service: 'tabor-app-portfolio', supervisor: 'nathan-tabor-labs', contractPath: '/', contractType: 'html'},
+  {service: 'library-of-tabor-data', supervisor: 'nathan-tabor-library', origin: 'https://library-data.internal',
+    contractPath: '/connections', contractType: 'json'},
+].map((workload, index) => ({
+  ...workload, worker: workload.service, targetBinding: `ADDITIONAL_${index + 1}`,
+  cohort: SLOTS.find(slot => slot.worker === workload.supervisor).cohort,
+}));
+
 export function targetBinding(workload, name) {
   return workload.contractType === 'handoff'
     ? {type: 'd1', name, database_id: HANDOFF_DB, id: HANDOFF_DB}
