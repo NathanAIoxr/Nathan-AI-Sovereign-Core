@@ -242,6 +242,13 @@ el("reset").addEventListener("click",()=>begin(game.id));
 el("example").addEventListener("click",()=>sample());
 el("alternate").addEventListener("click",()=>sample(true));
 el("replay").addEventListener("click",startReplay);
+canvas.addEventListener("keydown",event=>{
+  if(event.repeat||event.altKey||event.ctrlKey||event.metaKey||event.shiftKey) return;
+  const action={Space:()=>sample(),KeyR:startReplay,Escape:interrupt}[event.code];
+  if(!action) return;
+  event.preventDefault();
+  action();
+});
 const selected=new URLSearchParams(location.search).get("game");
 begin(Object.hasOwn(catalog,selected)?selected:"storm");
 renderer.fit();

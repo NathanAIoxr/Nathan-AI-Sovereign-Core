@@ -9,3 +9,4 @@
   input:not([type=checkbox]), select, textarea { min-height: 2.75rem; font-size: 1rem; }
   button { min-height: 2.75rem; }
 }
+.cards,.card,nav,.toolbar{min-width:0;overflow-wrap:anywhere}

@@ -1,4 +1,4 @@
-const cacheName="tabor-tracker-ball-1.1.0";
+const cacheName="tabor-tracker-ball-1.1.1";
 const shell=[".","index.html","style.css","app.mjs","track-baller.mjs","digit-input.mjs","games.mjs","render.mjs","manifest.webmanifest","icon.svg","catalog.json"].map(name=>new URL(name,self.registration.scope).pathname);
 for(const path of [
   "standalone-apps/tactilecore-sdk/src/engine.mjs",

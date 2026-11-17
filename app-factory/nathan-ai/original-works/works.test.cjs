@@ -1,7 +1,7 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process');
 const root=path.resolve(__dirname,'../..'),library=path.join(root,'one/library-mind'),manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'manifest.json'))),first=JSON.parse(fs.readFileSync(path.join(__dirname,'first-versions.json'))),current=JSON.parse(fs.readFileSync(path.join(library,'documents.json'))),sha=s=>crypto.createHash('sha256').update(s).digest('hex');
 test('all current texts and recovered earlier texts match the preservation manifest',()=>{
- assert.equal(manifest.records.length,55);assert.equal(manifest.summary.unchanged_from_first_saved,52);assert.equal(first.length,3);
+ assert.equal(manifest.records.length,55);assert.equal(manifest.summary.unchanged_from_first_saved,51);assert.equal(first.length,4);
  for(const m of manifest.records){const row=current.find(r=>r.id===m.id);assert.equal(sha(row.content),m.current_sha256);const old=first.find(r=>r.id===m.id)?.record||row;assert.equal(sha(old.content),m.first_sha256);assert.equal(m.has_revisions,m.first_sha256!==m.current_sha256);}
 });
 test('recovered records are byte-equivalent JSON values from their stated source commit',()=>{
@@ -9,7 +9,17 @@ test('recovered records are byte-equivalent JSON values from their stated source
 });
 test('all original downloads keep their published SHA-256 and size',()=>{
  const publication=JSON.parse(fs.readFileSync(path.join(library,'publication.json')));assert.equal(manifest.downloads.length,publication.downloads.length);
- for(const row of manifest.downloads){const bytes=fs.readFileSync(path.join(library,row.file));assert.equal(bytes.length,row.bytes);assert.equal(sha(bytes),row.sha256);assert.equal(row.sha256,publication.downloads.find(r=>r.file===row.file).sha256);}
+ for(const row of manifest.downloads){
+  const bytes=fs.readFileSync(path.join(library,row.file));
+  assert.equal(bytes.length,row.bytes);assert.equal(sha(bytes),row.sha256);
+  const released=publication.downloads.find(r=>r.file===row.file);
+  assert.equal(row.sha256,released.sha256);
+  if(row.original){
+   assert.deepEqual(released.original,row.original);
+   const original=cp.execFileSync('python3',['-c','import sys,zipfile; sys.stdout.buffer.write(zipfile.ZipFile(sys.argv[1]).read(sys.argv[2]))',path.join(library,row.original.archive),row.original.member]);
+   assert.equal(original.length,row.original.bytes);assert.equal(sha(original),row.original.sha256);
+  }
+ }
 });
 test('the reader preserves source separation and renders saved words inertly',()=>{
  const js=fs.readFileSync(path.join(__dirname,'works.js'),'utf8');assert.doesNotMatch(js,/innerHTML\s*=|localStorage\.|\.replace\([^\n]*content/);assert.match(js,/textContent=r.content/);assert.match(js,/version==='first'/);

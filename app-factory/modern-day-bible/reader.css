@@ -4,3 +4,16 @@
 
 #epstein-record-documents section{border-top:1px solid var(--n-border,#a99a7b);margin-top:28px;padding-top:16px}
 #epstein-record-documents pre{margin-top:12px}
+
+.reader-jump{display:inline-flex;align-items:center;min-height:44px}
+.library,#sources,#original,#reader{min-width:0;overflow-wrap:anywhere}
+.actions .button,.actions button{display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:750px){#sources{max-height:45svh;overflow:auto;padding:4px}.toolbar input,.toolbar select{font-size:1rem}}
+@media print{
+  :root{color-scheme:light;background:#fff;color:#111}
+  #nathan-record-notice,header,.hero,.toolbar,.library>aside,.reader-jump{display:none!important}
+  main{max-width:none;padding:0}
+  .library{display:block}
+  #reader{border:0;background:#fff;padding:0}
+  pre{font-size:11pt;line-height:1.5}
+}

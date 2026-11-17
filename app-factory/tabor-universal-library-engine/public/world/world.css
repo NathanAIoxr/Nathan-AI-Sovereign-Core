@@ -37,3 +37,6 @@ aside{min-width:0}.inspector,.tray{margin-bottom:8px}#detail-empty,.tray p{font-
   .button { display: inline-flex; align-items: center; }
   input, select { font-size: 1rem; }
 }
+.tray-head,.pick{flex-wrap:wrap}
+.filters,.panel,.pick{min-width:0}
+.pick{overflow-wrap:anywhere}

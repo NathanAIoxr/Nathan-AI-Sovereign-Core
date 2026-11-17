@@ -47,3 +47,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   :is(input,select,textarea) { font-size: 1rem; }
   .arrows button, #sequence button { min-width: 2.75rem; }
 }
+@media (max-width: 730px) {
+  .bridge { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .bridge > div:last-child { grid-column: 1/-1; }
+  .catalog-body input,.catalog-body select { font-size: 1rem; }
+}
+@media (pointer: coarse) { .lab-tools button,.lab-tools select { min-height: 44px; } }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#18130f">
 <meta name="description" content="The Tower of Babel by Nathan Tabor. Read the expanded manuscript and explore %%EXHIBIT_COUNT%% linked evidence exhibits.">
 <title>The Tower of Babel by Nathan Tabor</title>
@@ -19,7 +19,7 @@ a:hover{text-decoration-thickness:.14em}
 button,input,select{font:inherit}
 button{cursor:pointer}
 [hidden]{display:none!important}
-.wrap{width:min(1180px,calc(100% - 3.5rem));margin-inline:auto}
+.wrap{width:min(1180px,100% - max(1.75rem,env(safe-area-inset-left)) - max(1.75rem,env(safe-area-inset-right)));margin-inline:auto}
 .skip{position:fixed;z-index:5;left:1rem;top:1rem;padding:.45rem .8rem;background:var(--panel);transform:translateY(-200%)}
 .skip:focus{transform:translateY(0)}
 .mast{position:relative;isolation:isolate;overflow:hidden;background:var(--dark);color:#faf3e9}
@@ -105,8 +105,17 @@ th{background:#432920;color:#fff9ee}
 .attachment,.chapter,.essay,.panel{overflow-wrap:anywhere}
 footer{border-top:1px solid var(--line);padding:1.25rem 0 2.35rem;color:var(--subtle);font-size:.9rem}
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.chapter-contents summary{min-height:44px;display:flex;align-items:center;gap:.5rem;cursor:pointer;font-weight:750}
+.chapter-contents summary::before{content:"+";color:var(--accent)}
+.chapter-contents[open] summary::before{content:"−"}
+.section-nav a,.hero-actions a,.timeline button,.timeline a,.small-action,.word-controls select,.filter-row input,.filter-row select,.filter-row button{min-height:44px}
+.table-scroll:focus-visible{outline-offset:2px}
+@media(max-width:800px){.chapter-contents{width:100%}.chapter-contents li a{display:block;padding:.4rem 0}}
+@media(pointer:coarse){.word-controls select,.filter-row input,.filter-row select{font-size:1rem}}
+@media(max-height:430px){html{scroll-padding-top:3.25rem}.section-nav a{padding:.35rem 0}}
+
 @media(max-width:800px){.chapter-layout{display:flex;flex-direction:column;gap:.6rem}.chapter-contents{position:static;max-block-size:none;order:-1;border-inline-start:0;border-bottom:1px solid var(--line);padding-left:0}.chapter-contents ul{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem}.section-nav .wrap{justify-content:space-between}}
-@media(max-width:600px){.wrap{width:calc(100% - 1.9rem)}.overview{grid-template-columns:1fr;margin-bottom:2.6rem}.mast-art{width:100%;object-position:65% 48%}.mast::after{background:linear-gradient(90deg,#18130fec 0%,#18130fa1 60%,#18130f52 100%),linear-gradient(0deg,#18130f 0%,transparent 43%)}.imprint{letter-spacing:.06em}.section-nav .wrap{gap:.48rem}.section-nav a{text-align:center;font-size:.75rem;line-height:1.2;display:flex;align-items:center}.hero h1{font-size:clamp(3.55rem,14vw,6rem)}.essay{font-size:1.13rem}}
+@media(max-width:600px){.wrap{width:calc(100% - max(.95rem,env(safe-area-inset-left)) - max(.95rem,env(safe-area-inset-right)))}.overview{grid-template-columns:1fr;margin-bottom:2.6rem}.mast-art{width:100%;object-position:65% 48%}.mast::after{background:linear-gradient(90deg,#18130fec 0%,#18130fa1 60%,#18130f52 100%),linear-gradient(0deg,#18130f 0%,transparent 43%)}.imprint{letter-spacing:.06em}.section-nav .wrap{gap:.48rem}.section-nav a{text-align:center;font-size:.75rem;line-height:1.2;display:flex;align-items:center}.hero h1{font-size:clamp(3.55rem,14vw,6rem)}.essay{font-size:1.13rem}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media print{.section-nav,.overview,.filter-bar,.hero-actions,.skip,.next,.chapter-contents,.mast-art,footer{display:none}.mast{color:black;background:white}.mast::after{display:none}.hero h1 span,.hero p,.imprint a{color:black}.hero{padding:1.5rem 0}.chapter{break-before:page}.exhibit[hidden],.exhibit-group[hidden]{display:block!important}}
 </style>
@@ -155,7 +164,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   <section class="chapter" id="editorial-expansion"><h2>Editorial expansion</h2><p class="provenance">Editorial text by ChatGPT, based on Nathan Tabor’s manuscript and research</p>
     <div class="chapter-layout">
       <article class="essay">%%EDITORIAL%%</article>
-      <nav class="chapter-contents" aria-label="Manuscript chapters"><strong>In the manuscript</strong><ul>%%CONTENTS%%</ul></nav>
+      <details class="chapter-contents" open><summary>In the manuscript</summary><nav aria-label="Manuscript chapters"><ul>%%CONTENTS%%</ul></nav></details>
     </div>
     <a class="next" href="#original-words">Continue to Nathan’s original words →</a>
   </section>
