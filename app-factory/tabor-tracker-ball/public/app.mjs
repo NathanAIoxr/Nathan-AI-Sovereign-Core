@@ -8,8 +8,15 @@ const canvas=el("field");
 const renderer=makeRenderer(canvas);
 const reduce=matchMedia("(prefers-reduced-motion: reduce)");
 const key="tabor-tracker-ball:v1";
+const hiveEmbedded=window.parent!==window && new URLSearchParams(location.search).get("hive")==="9";
+function reportHive(kind){
+  if(!hiveEmbedded) return;
+  window.parent.postMessage({channel:"tabor-hive-v9",surface:"track-baller",
+    type:"interaction.summary",payload:{surface:"track-baller",kind,orientation:rotation}},location.origin);
+}
 const defaults={inertia:1.4,coast:.96,gain:1,ticks:15,haptics:false,audio:false,adaptive:true,safe:true,toe:false};
 function load(){
+  if(hiveEmbedded) return {};
   try{return JSON.parse(localStorage.getItem(key))??{};}catch{return {};}
 }
 const saved=load();
@@ -21,6 +28,7 @@ let digit=null,gripBase=null;
 let lastTick=0,lastVibration=-Infinity,lastBeat=-1,lastSound=-Infinity,audioContext,frameTime;
 function write(id,text){const node=el(id);if(node.textContent!==String(text)) node.textContent=text;}
 function persist(){
+  if(hiveEmbedded) return;
   try{localStorage.setItem(key,JSON.stringify({settings,best}));}catch{}
 }
 for(const id of options){
@@ -102,6 +110,7 @@ function endGrip(detail){
     moveGrip(detail);applyGrip(game,detail,"end",gripBase);
     gripBase=null;pressed=false;
   }else if(game.id==="grip") applyGrip(game,detail,"end");
+  reportHive("pinch");
   updateHud();
 }
 function clearGrip(){
@@ -162,6 +171,7 @@ function release(s){
     velocity=[clamp(-s.vy*scale*3,-10,10),clamp(s.vx*scale*3,-10,10),clamp(s.angularVel*scale,-15,15)];
     if(game.id==="globe") velocity=[clamp(s.vy*scale*2,-6,6),clamp(-s.vx*scale*2,-6,6),0];
     endMove(game,s,settings.gain);updateHud();
+    reportHive(s.kind==="tap"?"tap":"release");
   }
   pressed=false;live=null;previousPoint=null;previousDial=0;
 }
@@ -247,4 +257,4 @@ begin(Object.hasOwn(catalog,selected)?selected:"storm");
 renderer.fit();
 new ResizeObserver(()=>{controls.cancel();renderer.fit();}).observe(canvas);
 requestAnimationFrame(tick);
-if("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js").catch(()=>{});
+if(!hiveEmbedded && "serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js").catch(()=>{});
