@@ -24,6 +24,16 @@
     ol { padding-left: 1.35rem; }
     li { padding: .55rem 0; border-bottom: 1px solid #3c5065; overflow-wrap: anywhere; }
     small { display: block; color: #c2d0de; }
+    form { display: flex; flex-wrap: wrap; align-items: end; gap: .65rem; margin: 1rem 0; }
+    label, input, select { display: block; }
+    [hidden] { display: none; }
+    input, select { font: inherit; max-width: 100%; padding: .35rem .5rem; }
+    details { margin-top: .25rem; }
+    summary { cursor: pointer; }
+    .table { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; text-align: left; }
+    th, td { min-width: 7rem; padding: .35rem .6rem; border-bottom: 1px solid #3c5065; }
+    section { margin: 2rem 0; }
   </style>
   <script src="./hive.js" defer></script>
 </head>
@@ -36,6 +46,7 @@
     <nav aria-label="Hive links">
       <a href="https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/pairs">Cloudflare dashboard</a>
       <a href="https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/api/repair/status">Repair status</a>
+      <a href="#coverage">Source coverage</a>
       <a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/feature/help-wanted-swarm/workers/help-wanted-swarm">Hive source</a>
     </nav>
     <dl class="counts" aria-label="Public assignment coverage">
@@ -46,10 +57,36 @@
       <h2 id="assignments">Assignments</h2>
       <button type="button" id="help" aria-pressed="true">Help Wanted</button>
       <button type="button" id="projects" aria-pressed="false">Owned projects</button>
+      <form id="filters">
+        <label>Title or ID<input name="q" maxlength="160" type="search"></label>
+        <label>Provider<select name="provider"><option value="">All providers</option></select></label>
+        <label id="lane">Lane<select name="scope"><option value="">All lanes</option><option>INTERNAL</option><option>GLOBAL</option></select></label>
+        <label>Bee status<select name="state"><option value="">All statuses</option></select></label>
+        <button>Filter</button>
+        <button type="reset">Reset</button>
+      </form>
       <p id="status" role="status">Loading assignments from the Hive…</p>
       <ol id="results"></ol>
       <button type="button" id="next" hidden>Load more</button>
       <noscript><p>Use the Cloudflare dashboard to browse assignments with JavaScript disabled.</p></noscript>
+    </section>
+    <section id="coverage" aria-labelledby="coverage-title">
+      <h2 id="coverage-title">Source coverage</h2>
+      <p>Counts reflect the Hive ledger. The coverage watermark belongs to each source scan.</p>
+      <p role="status" id="coverage-status">Loading source checks…</p>
+      <div class="table">
+        <table>
+          <thead><tr><th scope="col">Source</th><th scope="col">Last outcome</th><th scope="col">Last batch</th><th scope="col">Last success</th><th scope="col">Covered through</th></tr></thead>
+          <tbody id="source-checks"></tbody>
+        </table>
+      </div>
+      <h2>Assignments by provider and state</h2>
+      <div class="table">
+        <table>
+          <thead><tr><th scope="col">Provider</th><th scope="col">Lane</th><th scope="col">Bee status</th><th scope="col">Records</th></tr></thead>
+          <tbody id="coverage-counts"></tbody>
+        </table>
+      </div>
     </section>
   </main>
 </body>
