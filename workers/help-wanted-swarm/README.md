@@ -62,3 +62,9 @@ Enable lingering for the service user when it should run across logouts and boot
 ## Validation
 
 Run `node --test workers/help-wanted-swarm/repair.test.mjs`. The Cloudflare D1 setup was also exercised with a temporary job, covering an exclusive claim, an idempotent replay, expiry/reclaim, stale completion rejection and attempt history. The fixture was removed in the same batch. The Linux runner requires host enrollment and an installed job image before an end-to-end run is possible.
+
+## Contribution drafts
+
+`nathan-ai-handoff-bee` uses `handoff/worker.mjs` with the existing `HIVE` D1 binding. Apply `handoff/schema.sql` after the repair schema. Its one-minute schedule syncs up to 100 current patch handoffs per tick. Draft notes carry Nathan Tabor's sign-off and show whether runtime checks are pending. The source receipt preserves the pinned base, patch, and test evidence.
+
+The outbox is available in the account's D1 console. The Worker has no HTTP routes or upstream publishing credentials. Repeated scheduled invocations do not duplicate drafts. When a source receipt changes or a job leaves an eligible state, the Worker refreshes or removes the stale draft. The run ledger retains seven days of scheduled receipts.
