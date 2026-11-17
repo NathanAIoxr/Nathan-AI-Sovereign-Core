@@ -1,3 +1,4 @@
+import { pairIds, probeProjects, servePairs } from "./pairs.mjs";
 import { repairRoute, refreshRepairs, directInternalScan } from "./repair.mjs";
 
 const REPOSITORY = "NathanAIoxr/Nathan-AI-Sovereign-Core";
@@ -106,6 +107,7 @@ function queuePage(snapshot) {
     status + '<ul>' + items + '</ul><p><a href="/api/queue">Queue and run receipts</a> · ' +
     '<a href="/api/repair/status">Repair queue status</a> · <a href="/api/repair/leads">Global repair leads</a> · ' +
     '<a href="https://nathan-ai-patch-verifier.nathantaboract.workers.dev/api/status">Patch verification receipts</a> · ' +
+    '<a href="/pairs">Worker Bees and Ant Bots</a> · ' +
     '<a href="/api/repair/runtime">Nathan AI / Absolute Intelligence runtime</a> · ' +
     '<a href="https://nathan-ai-help-wanted.nathantaboract.workers.dev/">Public Help Wanted discovery</a> · ' +
     '<a href="https://nathan-ai-workers.nathantaboract.workers.dev/">Worker workspace</a></p></main></html>';
@@ -137,7 +139,14 @@ export default {
           command:receipt.command??null,exitCode:receipt.exitCode??null,testsPassed:tests,error:receipt.error??null} : null
       }, {headers:HEADERS});
     }
-    if (route.startsWith("/api/repair/")) return repairRoute(request, env);
+    if (route === "/pairs" || route === "/api/repair/pairs") return servePairs(request, env.HIVE, HEADERS);
+    if (route.startsWith("/api/repair/")) {
+      const response = await repairRoute(request, env);
+      if (route !== "/api/repair/claim" || !response.ok) return response;
+      const claim = await response.json();
+      if (claim.task) claim.pair = pairIds(claim.task.id);
+      return Response.json(claim, { status: response.status, headers: response.headers });
+    }
     if (request.method !== "GET") return new Response("Method not allowed", { status: 405, headers: { Allow: "GET" } });
     const path = new URL(request.url).pathname;
     if (path !== "/" && path !== "/api/queue") return new Response("Not found", { status: 404 });
@@ -149,7 +158,8 @@ export default {
     return new Response(queuePage(snapshot), { headers: { ...HEADERS, "Content-Type": "text/html; charset=utf-8" } });
   },
 
-  async scheduled(controller, env) {
+  async scheduled(controller, env, ctx) {
+    ctx.waitUntil(probeProjects(env.HIVE));
     await directInternalScan(env, controller.scheduledTime, collectIssues, validateIssues, compareAndStore);
     await refreshRepairs(env, controller.scheduledTime);
   }
