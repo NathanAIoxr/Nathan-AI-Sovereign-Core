@@ -54,6 +54,7 @@ export async function build(){
       play:"https://grapple-it.nathantaboract.workers.dev/#atlas/"+id,
     })),
   };
+  await writeFile(resolve(root,libraryPath+"catalog.json"),JSON.stringify(catalog,null,2)+"\n");
   const out=resolve(dir,".release");
   await mkdir(out,{recursive:true});
   await writeFile(resolve(dir,"public/arcade-core.mjs"),generated);

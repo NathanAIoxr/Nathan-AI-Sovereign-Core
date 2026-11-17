@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101923">
+<meta name="description" content="Explore and launch Nathan Tabor’s public apps, games, worlds and study tools.">
+<title>Tabor World · App Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.mjs"></script>
+</head>
+<body>
+<aside id="nathan-record-notice" aria-label="Timestamped record" style="display:block!important;position:relative!important;box-sizing:border-box!important;grid-column:1/-1;flex:0 0 100%;width:100%;padding:12px 16px;margin:0;background:#fff0b3!important;color:#161616!important;border-bottom:3px solid #161616;font:600 16px/1.5 system-ui,sans-serif;text-align:left;overflow-wrap:anywhere;"><a href="../../docs/record/index.html" style="color:#161616!important;text-decoration:underline!important;">READ THE TIMESTAMPED RECORD — Nathan Tabor / ChatGPT</a><span style="display:block;font-size:14px;font-weight:400;color:#161616!important;">Repository changes, authorship complaints, correction claims, and unfinished work. Record opened November 5, 2026, 7:42:08 p.m. EST.</span></aside>
+
+<a class="skip" href="#catalog">Skip to the catalog</a>
+<header class="masthead wrap">
+  <a class="brand" href="./" aria-label="Tabor World home"><span class="brand-mark" aria-hidden="true">✦</span> TABOR WORLD</a>
+  <nav aria-label="Main"><a href="#catalog">Catalog</a><a href="#progress">Progress</a></nav>
+</header>
+<main>
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <img src="assets/tabor-world.webp" width="1440" height="607" alt="" fetchpriority="high">
+    <div class="hero-copy">
+      <p class="byline">By Nathan Tabor</p>
+      <h1 id="hero-title">Tabor World</h1>
+      <p>Explore the apps, games, worlds and libraries.</p>
+      <a class="primary" href="#catalog">Explore the catalog <span class="down-arrow" aria-hidden="true"></span></a>
+    </div>
+  </section>
+  <section class="wrap section" id="featured" aria-labelledby="featured-title">
+    <div class="section-head"><h2 id="featured-title">Start here</h2></div>
+    <div id="featured-grid" class="featured-grid"></div>
+  </section>
+  <section class="wrap section" id="catalog" aria-labelledby="catalog-title">
+    <div class="section-head"><h2 id="catalog-title">App catalog</h2><p id="catalog-count" aria-live="polite"></p></div>
+    <div class="filters">
+      <label>Search apps<input type="search" id="search" placeholder="Search by title or source path"></label>
+      <label>Category<select id="kind"><option value="">All categories</option><option>Games</option><option>Worlds</option><option>Study</option><option>Tools</option></select></label>
+      <label>Availability<select id="state"><option value="">All entries</option><option value="hosted">Cloudflare routes</option><option value="registered">Registered pages</option><option value="template">Source templates</option></select></label>
+    </div>
+    <div id="catalog-results" class="catalog-grid"></div>
+    <button type="button" id="more" hidden>Show more apps</button>
+    <noscript><p><a href="https://one-sovereign-hub.nathantaboract.workers.dev/apps.html">Browse the ONE Hub catalog</a></p></noscript>
+  </section>
+  <section class="wrap section" id="progress" aria-labelledby="progress-title">
+    <div class="section-head"><h2 id="progress-title">Build progress</h2><a href="progress.json">JSON ledger</a></div>
+    <div id="progress-list" class="progress-grid"><p>Loading the release ledger…</p></div>
+  </section>
+</main>
+<footer class="wrap"><span>Tabor World by Nathan Tabor</span> <a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core">GitHub source</a></footer>
+</body>
+</html>
