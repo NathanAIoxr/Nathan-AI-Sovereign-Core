@@ -1,0 +1,26 @@
+diff --git a/servo/components/style/properties/longhands.toml b/servo/components/style/properties/longhands.toml
+index 7806a07..e23864b 100644
+--- a/servo/components/style/properties/longhands.toml
++++ b/servo/components/style/properties/longhands.toml
+@@ -18,7 +18,6 @@
+ #
+ # Optional fields:
+ #   initial                     - The computed initial value expression
+-#   keyword                     - Description of the keyword.
+ #   initial_specified_value     - Initial specified value (if different from initial)
+ #   animation_type              - "none", "normal", or "discrete" (default: "normal")
+ #   parse_method                - Parse method name (default: "parse")
+@@ -29,13 +28,6 @@
+ #     simple_bindings - true/false
+ #     need_index      - true/false
+ #     separator       - "Comma" or "Space" (for vector properties, default comma)
+-#   keyword                     - A dictionary with:
+-#     values                 - Space separated list of valid values
+-#     extra_gecko_values
+-#     gecko_enum_prefix
+-#     gecko_constant_prefix
+-#     custom_consts - map with name -> enum mapping
+-#     gecko_inexhaustive - Whether the gecko enum doesn't cover all keywords
+ #   gecko_pref                  - Gecko preference name
+ #   servo_pref                  - Servo preference name
+ #   gecko_ffi_name              - Gecko FFI name (defaults to "m" + CamelCase)

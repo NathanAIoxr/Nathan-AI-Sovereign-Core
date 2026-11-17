@@ -73,3 +73,28 @@ The outbox is available in the account's D1 console. The Worker has no HTTP rout
 ## Patch source verification
 
 The [patch verifier](verifier/README.md) reads Goldener and Glassbeetle handoff receipts from D1, checks source context at each pinned revision, and publishes a receipt. It runs every five minutes and recognizes a new patch by the exact source receipt. Its checks leave implementation and upstream release with Nathan Tabor.
+
+## Nathan AI / Absolute Intelligence
+
+By Nathan Tabor and Nathan AI
+
+**1+1=2** Build · **1-1=0** Clear · **1×1=1** Integrate · **1÷1=1** Verify
+
+[Live runtime receipts](https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/api/repair/runtime)
+
+The private Cloudflare runner uses a SQLite Durable Object named
+`RepairSandbox`, the Cloudflare-managed Node.js Linux image, and the Hive D1
+binding. Its five-minute schedule checks for queued supported verification
+profiles. A successful Linux canary is reused for one day. Instances run
+without internet access or credentials and stop after each check.
+
+Apply `sandbox-runtime.sql` to the Hive D1 database. Build the ES module by
+running `node sandbox-pack.mjs > runner.mjs` from this directory. Upload
+`runner.mjs` to `nathan-ai-repair-sandbox`, bind `HIVE` and the
+`RepairSandbox` namespace as `SANDBOX`, and attach the Durable Object-managed
+Container application and the five-minute trigger.
+
+The available profile checks comment-only TOML patches against pinned source
+excerpts. Broader runtime coverage requires explicit test profiles. macOS
+checks still need a Mac runner, and the Goldener Python execution still needs
+its project dependencies.

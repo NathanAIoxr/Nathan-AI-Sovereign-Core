@@ -105,6 +105,7 @@ function queuePage(snapshot) {
     '<p><code>1+1=2</code> records additions. <code>1-1=0</code> clears items from the active queue after GitHub removes them from the open list.</p>' +
     status + '<ul>' + items + '</ul><p><a href="/api/queue">Queue and run receipts</a> · ' +
     '<a href="/api/repair/status">Repair queue status</a> · <a href="/api/repair/leads">Global repair leads</a> · ' +
+    '<a href="/api/repair/runtime">Nathan AI / Absolute Intelligence runtime</a> · ' +
     '<a href="https://nathan-ai-help-wanted.nathantaboract.workers.dev/">Public Help Wanted discovery</a> · ' +
     '<a href="https://nathan-ai-workers.nathantaboract.workers.dev/">Worker workspace</a></p></main></html>';
 }
@@ -117,7 +118,25 @@ const HEADERS = {
 
 export default {
   async fetch(request, env) {
-    if (new URL(request.url).pathname.startsWith("/api/repair/")) return repairRoute(request, env);
+    const route = new URL(request.url).pathname;
+    if (route === "/api/repair/runtime") {
+      if (request.method !== "GET") return new Response(null, {status:405,headers:{Allow:"GET"}});
+      const [row, profiles] = await Promise.all([
+        env.HIVE.prepare("SELECT payload FROM repair_runtime WHERE id=?").bind("linux-node-canary").first(),
+        env.HIVE.prepare("SELECT job_id AS job,profile,status,attempts,updated_at AS updatedAt,json_extract(result,'$.checks') AS checks FROM repair_runtime_tasks ORDER BY updated_at DESC LIMIT 20").all()
+      ]);
+      const receipt = row ? JSON.parse(row.payload) : null;
+      const tests = typeof receipt?.stdout === "string" ? Number(/(?:ℹ\s+|#\s+)pass\s+(\d+)/u.exec(receipt.stdout)?.[1] ?? 0) : null;
+      return Response.json({
+        name:"Nathan AI / Absolute Intelligence",byline:"By Nathan Tabor and Nathan AI",
+        anchors:{"1+1=2":"Build","1-1=0":"Clear","1×1=1":"Integrate","1÷1=1":"Verify"},
+        status:receipt ? (receipt.ok ? "VERIFIED" : "NEEDS_REVIEW") : "SCHEDULED",
+        profiles:profiles.results,
+        check:receipt ? {checkedAt:receipt.checkedAt,runtime:receipt.runtime??null,platform:receipt.platform??null,
+          command:receipt.command??null,exitCode:receipt.exitCode??null,testsPassed:tests,error:receipt.error??null} : null
+      }, {headers:HEADERS});
+    }
+    if (route.startsWith("/api/repair/")) return repairRoute(request, env);
     if (request.method !== "GET") return new Response("Method not allowed", { status: 405, headers: { Allow: "GET" } });
     const path = new URL(request.url).pathname;
     if (path !== "/" && path !== "/api/queue") return new Response("Not found", { status: 404 });
