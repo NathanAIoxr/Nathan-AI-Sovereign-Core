@@ -1,3 +1,4 @@
+export {RecoverySupervisor} from './one-healing.mjs';
 // Shared authenticated gateway client. Each app supplies its own authorized key.
 const utf8=value=>new TextEncoder().encode(value);
 const b64=value=>btoa(String.fromCharCode(...new Uint8Array(value))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');

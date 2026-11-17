@@ -19,7 +19,8 @@
     "APP_HOST": "one-sovereign-hub.nathantaboract.workers.dev",
     "HUB_INSTANCE": "owner",
     "TURNSTILE_SITEKEY": "0x4AAAAAAGEDOhKjgcubQTpR",
-    "REMOTE_CATALOG": "enabled"
+    "REMOTE_CATALOG": "enabled",
+    "FLEET_PROBES": "enabled"
   },
   "d1_databases": [
     {

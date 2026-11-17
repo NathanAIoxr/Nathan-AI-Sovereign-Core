@@ -80,3 +80,24 @@ Optional Chromium acceptance uses `browser_acceptance.py`, the existing Python b
 Eight bounded deterministic roles run every 15 minutes. Existing Grapple It and Hook and Ring bee services are observed through read-only service bindings. Catalog refresh uses only the fixed public repository source, at most every six hours; source hashes, adoption status, derived projection repair, outbox delivery, and receipt checks produce retained operational receipts. Each role and the entire swarm have owner-controlled pause switches, a three-attempt ceiling and a daily cycle ceiling. No bot receives owner context text or payment authority. Catalog registration does not mean every app has integrated the foundation.
 
 The build also runs five original specialist-bee handlers through their existing proposal, approval and veto machinery on a disposable metadata-only database. `bot_build_jobs.py --owner-authorized` records those build receipts. These are deterministic jobs, not independent language models or autonomous patch deployment.
+
+## Continuous self-healing: micro and macro
+
+The nine-role scheduler repeats every 15 minutes while the Cloudflare account, Worker and cron remain active. There is no infinite loop within a request. Per-role failure state persists across cycles: exponential cooldown begins at one minute, caps at one hour, and escalates at three failures. Success must be checked before the incident clears. Owners retain global and individual pause controls. Operational jobs remain bounded by the existing daily cycle budget.
+
+The fleet sentinel rotates at most four unique public owner Workers app pages per cycle, with five-second timeouts, no redirect following and per-app cooldown. It measures HTTP reachability, not correctness of every application. GitHub Pages entries are not probed. Full coverage therefore takes multiple cycles and depends on the eligible app count. The owner-only swarm panel includes the latest observations, incident state and coverage description. Failed apps are reported; these probes do not rewrite or restart unrelated services.
+
+For individual components, import `RecoverySupervisor` from the public `one-sdk.mjs`. Supply a `check` returning a boolean and a reversible, idempotent `repair`. The supervisor prevents concurrent runs, verifies again after repair, applies cooldown, halts after the configured consecutive failure limit, and supports `stop()` and explicit `resume()`. Call `start()` to run recurring checks. No private data is transmitted by the supervisor. Adopters must bound their own callbacks and preserve application state.
+
+```js
+import {RecoverySupervisor} from './one-sdk.mjs';
+const recovery = new RecoverySupervisor({
+  check: async () => verifyDerivedView(),
+  repair: async () => rebuildDerivedViewFromAuthoritativeState(),
+  onEvent: receipt => recordRecoveryReceipt(receipt)
+});
+recovery.start();
+// Stop during component teardown: recovery.stop();
+```
+
+This is a shared adoption surface; catalog registration alone does not install it into existing apps. Automated actions currently cover validated catalog refresh, derived D1 projection reconstruction and durable idempotent outbox delivery. Arbitrary source patches, security bypasses, financial transactions and source-data deletion are not recovery actions.
