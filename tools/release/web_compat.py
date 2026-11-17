@@ -79,6 +79,7 @@ def check_page(browser, url, width, height, touch):
         reduced_motion="reduce",
     )
     try:
+        failures = []
         page = context.new_page()
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
@@ -88,7 +89,12 @@ def check_page(browser, url, width, height, touch):
             assert response and response.ok, (path, response and response.status)
             assert page.title(), path
             size = page.evaluate("({reported:innerWidth, actual:document.documentElement.scrollWidth})")
-            assert size["reported"] == width and size["actual"] <= width + 1, (path, width, size)
+            if size["reported"] != width or size["actual"] > width + 1:
+                overflow = page.evaluate("""width => [...document.querySelectorAll('body *')]
+                    .filter(el => el.getBoundingClientRect().right > width + 2 && getComputedStyle(el).position !== 'fixed')
+                    .slice(0, 8).map(el => el.id || el.className?.baseVal || el.className || el.tagName)""", width)
+                failures.append((path, width, height, size, overflow))
+        assert not failures, failures
         assert not errors, (width, height, errors)
         page.goto(url + TOWER)
         toc = page.locator("details.chapter-contents")

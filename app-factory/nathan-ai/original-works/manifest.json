@@ -12,8 +12,8 @@
       "language": "English",
       "first_commit": "07cec787a85ef38de2e7ad163f0786fb18eca540",
       "first_sha256": "c77df9e1fb6991d79f16fc497b4f1d72b0f5a64f99fb14b0d40975e3e26385e0",
-      "current_sha256": "c77df9e1fb6991d79f16fc497b4f1d72b0f5a64f99fb14b0d40975e3e26385e0",
-      "has_revisions": false,
+      "current_sha256": "2bc8f3ea1738c24d8f07bf86460bc3f698158b56fcd782ec664602a573a7bd8c",
+      "has_revisions": true,
       "authorship": "See original record; not independently inferred"
     },
     {
@@ -693,8 +693,15 @@
     },
     {
       "file": "downloads/Nathan_Tabor_Forensic_Project_Dossier_2026-10-30.md",
-      "bytes": 43711,
-      "sha256": "c77df9e1fb6991d79f16fc497b4f1d72b0f5a64f99fb14b0d40975e3e26385e0"
+      "bytes": 43708,
+      "sha256": "2bc8f3ea1738c24d8f07bf86460bc3f698158b56fcd782ec664602a573a7bd8c",
+      "edition": "Library of Tabor naming update",
+      "original": {
+        "archive": "downloads/Nathan_Tabor_Dossier_Complete_Evidence_Package.zip",
+        "member": "Nathan_Tabor_Forensic_Project_Dossier_2026-10-30.md",
+        "bytes": 43711,
+        "sha256": "c77df9e1fb6991d79f16fc497b4f1d72b0f5a64f99fb14b0d40975e3e26385e0"
+      }
     },
     {
       "file": "downloads/Nathan_Tabor_Forensic_Project_Dossier_2026-10-30.docx",
@@ -734,8 +741,8 @@
   ],
   "summary": {
     "records": 55,
-    "unchanged_from_first_saved": 52,
-    "with_prior_text": 3,
+    "unchanged_from_first_saved": 51,
+    "with_prior_text": 4,
     "verified_downloads": 13,
     "git_versions_examined": 6
   }
