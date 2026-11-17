@@ -52,12 +52,14 @@
   revealTarget();
 
   const reverse = document.querySelector("#reverse");
+  const startingWord = document.querySelector("#starting-word");
   const letterGroup = document.querySelector(".letters");
   const letterNote = document.querySelector("#letter-status");
-  reverse.hidden = false;
-  let word = "GOD";
-  reverse.addEventListener("click", () => {
-    const next = [...word].reverse().join("");
+  document.querySelector("#word-controls").hidden = false;
+  let word = startingWord.value;
+  const backwards = value => [...value].reverse().join("");
+
+  function setWord(next, previous) {
     const letters = [...next].map(char => {
       const tile = document.createElement("span");
       tile.className = "letter";
@@ -66,10 +68,13 @@
     });
     letterGroup.replaceChildren(...letters);
     letterGroup.classList.add("flip-signal");
-    letterNote.textContent = `${word} → ${next} · a letter-by-letter reversal`;
+    letterNote.textContent = `${previous} → ${backwards(previous)} · a letter-by-letter reversal`;
     reverse.firstChild.textContent = `Reverse ${next} `;
     word = next;
-  });
+  }
+
+  startingWord.addEventListener("change", () => setWord(startingWord.value, startingWord.value));
+  reverse.addEventListener("click", () => setWord(backwards(word), word));
 
   const timeline = document.querySelector("#timeline");
   const details = document.querySelector("#timeline-detail");
