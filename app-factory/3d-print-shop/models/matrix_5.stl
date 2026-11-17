@@ -1,0 +1,198 @@
+solid nathan_matrix_5
+  facet normal 0.000000 0.000000 1.000000
+    outer loop
+      vertex 0.00000 14.80000 5.00000
+      vertex 0.00000 0.00000 5.00000
+      vertex 70.00000 0.00000 5.00000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 -1.000000
+    outer loop
+      vertex 70.00000 0.00000 0.00000
+      vertex 0.00000 0.00000 0.00000
+      vertex 0.00000 14.80000 0.00000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 1.000000
+    outer loop
+      vertex 70.00000 0.00000 5.00000
+      vertex 70.00000 45.00000 5.00000
+      vertex 0.00000 45.00000 5.00000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 -1.000000
+    outer loop
+      vertex 0.00000 45.00000 0.00000
+      vertex 70.00000 45.00000 0.00000
+      vertex 70.00000 0.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 1.000000
+    outer loop
+      vertex 0.00000 45.00000 5.00000
+      vertex 0.00000 30.20000 5.00000
+      vertex 10.35000 30.20000 5.00000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 -1.000000
+    outer loop
+      vertex 10.35000 30.20000 0.00000
+      vertex 0.00000 30.20000 0.00000
+      vertex 0.00000 45.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 1.000000
+    outer loop
+      vertex 70.00000 0.00000 5.00000
+      vertex 0.00000 45.00000 5.00000
+      vertex 10.35000 30.20000 5.00000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 -1.000000
+    outer loop
+      vertex 10.35000 30.20000 0.00000
+      vertex 0.00000 45.00000 0.00000
+      vertex 70.00000 0.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 1.000000
+    outer loop
+      vertex 70.00000 0.00000 5.00000
+      vertex 10.35000 30.20000 5.00000
+      vertex 10.35000 14.80000 5.00000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 -1.000000
+    outer loop
+      vertex 10.35000 14.80000 0.00000
+      vertex 10.35000 30.20000 0.00000
+      vertex 70.00000 0.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 1.000000
+    outer loop
+      vertex 70.00000 0.00000 5.00000
+      vertex 10.35000 14.80000 5.00000
+      vertex 0.00000 14.80000 5.00000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 -1.000000
+    outer loop
+      vertex 0.00000 14.80000 0.00000
+      vertex 10.35000 14.80000 0.00000
+      vertex 70.00000 0.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.000000 -1.000000 0.000000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 70.00000 0.00000 0.00000
+      vertex 70.00000 0.00000 5.00000
+    endloop
+  endfacet
+  facet normal 0.000000 -1.000000 0.000000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 70.00000 0.00000 5.00000
+      vertex 0.00000 0.00000 5.00000
+    endloop
+  endfacet
+  facet normal 1.000000 0.000000 0.000000
+    outer loop
+      vertex 70.00000 0.00000 0.00000
+      vertex 70.00000 45.00000 0.00000
+      vertex 70.00000 45.00000 5.00000
+    endloop
+  endfacet
+  facet normal 1.000000 0.000000 0.000000
+    outer loop
+      vertex 70.00000 0.00000 0.00000
+      vertex 70.00000 45.00000 5.00000
+      vertex 70.00000 0.00000 5.00000
+    endloop
+  endfacet
+  facet normal 0.000000 1.000000 0.000000
+    outer loop
+      vertex 70.00000 45.00000 0.00000
+      vertex 0.00000 45.00000 0.00000
+      vertex 0.00000 45.00000 5.00000
+    endloop
+  endfacet
+  facet normal 0.000000 1.000000 0.000000
+    outer loop
+      vertex 70.00000 45.00000 0.00000
+      vertex 0.00000 45.00000 5.00000
+      vertex 70.00000 45.00000 5.00000
+    endloop
+  endfacet
+  facet normal -1.000000 0.000000 0.000000
+    outer loop
+      vertex 0.00000 45.00000 0.00000
+      vertex 0.00000 30.20000 0.00000
+      vertex 0.00000 30.20000 5.00000
+    endloop
+  endfacet
+  facet normal -1.000000 0.000000 0.000000
+    outer loop
+      vertex 0.00000 45.00000 0.00000
+      vertex 0.00000 30.20000 5.00000
+      vertex 0.00000 45.00000 5.00000
+    endloop
+  endfacet
+  facet normal 0.000000 -1.000000 0.000000
+    outer loop
+      vertex 0.00000 30.20000 0.00000
+      vertex 10.35000 30.20000 0.00000
+      vertex 10.35000 30.20000 5.00000
+    endloop
+  endfacet
+  facet normal 0.000000 -1.000000 0.000000
+    outer loop
+      vertex 0.00000 30.20000 0.00000
+      vertex 10.35000 30.20000 5.00000
+      vertex 0.00000 30.20000 5.00000
+    endloop
+  endfacet
+  facet normal -1.000000 0.000000 0.000000
+    outer loop
+      vertex 10.35000 30.20000 0.00000
+      vertex 10.35000 14.80000 0.00000
+      vertex 10.35000 14.80000 5.00000
+    endloop
+  endfacet
+  facet normal -1.000000 0.000000 0.000000
+    outer loop
+      vertex 10.35000 30.20000 0.00000
+      vertex 10.35000 14.80000 5.00000
+      vertex 10.35000 30.20000 5.00000
+    endloop
+  endfacet
+  facet normal 0.000000 1.000000 0.000000
+    outer loop
+      vertex 10.35000 14.80000 0.00000
+      vertex 0.00000 14.80000 0.00000
+      vertex 0.00000 14.80000 5.00000
+    endloop
+  endfacet
+  facet normal 0.000000 1.000000 0.000000
+    outer loop
+      vertex 10.35000 14.80000 0.00000
+      vertex 0.00000 14.80000 5.00000
+      vertex 10.35000 14.80000 5.00000
+    endloop
+  endfacet
+  facet normal -1.000000 0.000000 0.000000
+    outer loop
+      vertex 0.00000 14.80000 0.00000
+      vertex 0.00000 0.00000 0.00000
+      vertex 0.00000 0.00000 5.00000
+    endloop
+  endfacet
+  facet normal -1.000000 0.000000 0.000000
+    outer loop
+      vertex 0.00000 14.80000 0.00000
+      vertex 0.00000 0.00000 5.00000
+      vertex 0.00000 14.80000 5.00000
+    endloop
+  endfacet
+endsolid nathan_matrix_5

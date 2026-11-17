@@ -1,0 +1,40 @@
+name: Five Matrix Print Shop checks
+on:
+  push:
+    paths:
+      - 'app-factory/3d-print-shop/**'
+      - 'app-factory/one/nathan-matrix/3d-print-shop/**'
+      - '.github/workflows/nathan-five-matrix-shop.yml'
+  pull_request:
+    paths:
+      - 'app-factory/3d-print-shop/**'
+      - 'app-factory/one/nathan-matrix/3d-print-shop/**'
+      - '.github/workflows/nathan-five-matrix-shop.yml'
+jobs:
+  test-simulation:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test Five Matrix scheduler
+        run: node --test app-factory/3d-print-shop/shop-core.test.cjs
+      - name: Validate Gopher Ants offline catalog
+        run: python3 app-factory/3d-print-shop/gopher_ants.py
+      - name: Validate public source and file presence
+        run: |
+          python3 - <<'PY'
+          import json, pathlib
+          root = pathlib.Path('app-factory/3d-print-shop')
+          data = json.loads((root/'sources.json').read_text())
+          assert len(data['sources']) == 9
+          for i in range(1, 6):
+              f = root/'models'/f'matrix_{i}.stl'
+              assert f.exists() and f.read_text().startswith('solid nathan_matrix_')
+          assert (root/'docs'/'SOURCE_RECOVERY.md').exists()
+          assert (root/'index.html').exists()
+          print('Five public STL files, source catalog, index and app verified')
+          PY
