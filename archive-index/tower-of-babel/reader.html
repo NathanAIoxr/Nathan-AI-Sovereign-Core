@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#201710">
+<meta name="description" content="The Tower of Babel by Nathan Tabor. Read the restored manuscript, editorial expansion, and 26 linked evidence exhibits.">
+<title>The Tower of Babel by Nathan Tabor</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;650;750&amp;family=STIX+Two+Text:wght@400;700&amp;display=swap">
+<style>
+:root{color-scheme:light;--ink:#241b14;--muted:#64564c;--paper:#f6efe3;--panel:#fffaf0;--dark:#201710;--bright:#ffdf9e;--red:#922b23;--line:#d8c8b5;--serif:"STIX Two Text",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:5rem}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.02rem/1.7 var(--sans)}
+a{color:var(--red);text-underline-offset:.2em;text-decoration-thickness:.08em}
+a:hover{text-decoration-thickness:.16em}
+:focus-visible{outline:3px solid currentColor;outline-offset:4px}
+[hidden]{display:none!important}
+.wrap{width:min(1160px,calc(100% - 3.25rem));margin-inline:auto}
+.skip{position:absolute;z-index:4;left:1rem;top:1rem;padding:.55rem 1rem;background:var(--panel);transform:translateY(-160%)}
+.skip:focus{transform:translateY(0)}
+.mast{color:var(--paper);background:var(--dark);overflow:hidden}
+.imprint{display:flex;justify-content:space-between;align-items:center;gap:1em;padding:1.3rem 0;border-bottom:1px solid #ffffff35;font-size:.8rem;letter-spacing:.13em;text-transform:uppercase}
+.imprint a{color:var(--bright)}
+.hero{position:relative;padding:clamp(2.3rem,6vw,5.3rem) 0 clamp(2.4rem,6vw,5rem);isolation:isolate}
+.hero::after{content:"";position:absolute;right:2%;bottom:-2rem;z-index:-1;width:40%;height:100%;opacity:.32;background:repeating-linear-gradient(to top,transparent 0 20px,#df8e56 21px 22px,transparent 23px 29px);clip-path:polygon(5% 100%,95% 100%,88% 78%,78% 78%,73% 57%,65% 57%,60% 37%,55% 37%,52% 18%,48% 18%,44% 37%,40% 37%,36% 57%,28% 57%,22% 78%,13% 78%)}
+.hero h1{max-width:10ch;margin:0;font-family:var(--serif);font-weight:900;font-size:clamp(3.65rem,11vw,9.2rem);letter-spacing:-.075em;line-height:.92}
+.hero h1 span{display:block;color:var(--bright)}
+.hero p{margin:1.4rem 0 1.6rem;max-width:39ch;color:#f0e2d0;font-size:1.08rem}
+.actions{display:flex;align-items:center;flex-wrap:wrap;gap:.8rem}
+.actions a{color:var(--bright);display:inline-block;padding:.55rem .85rem;border:1px solid #eed2a76b;text-decoration:none;font-weight:650}
+.actions a:first-child{background:var(--bright);color:var(--dark);border-color:var(--bright)}
+.actions a:hover{outline:1px solid currentColor}
+.tabs{position:sticky;top:0;z-index:2;border-bottom:1px solid var(--line);background:var(--paper)}
+.tabs .wrap{display:flex;overflow:auto;white-space:nowrap;gap:clamp(.8rem,4vw,2.5rem);scrollbar-width:thin}
+.tabs a{padding:.77rem 0;display:block;color:var(--ink);font-size:.84rem;font-weight:750}
+main{padding:clamp(1.6rem,5vw,4rem) 0 3rem}
+.chapter{margin:0 0 3.5rem;scroll-margin-top:1rem}
+.chapter>h2,.attachment>summary{border-top:2px solid var(--red);margin:0 0 .75rem;padding:.65rem 0;font:700 clamp(1.65rem,4vw,2.85rem)/1.14 var(--serif);letter-spacing:-.032em}
+.essay{max-width:78ch;font:1.13rem/1.72 var(--serif)}
+.essay h3{font:700 1.48rem/1.2 var(--serif);margin:1.9rem 0 .5rem}
+p{margin:.65em 0 1em}
+blockquote{border-inline-start:3px solid var(--red);margin:1rem 0;padding:.1rem 1rem;color:var(--ink);background:#fff9ef80}
+blockquote p{margin:.6rem 0}
+.filter-bar{max-width:78ch;border:1px solid var(--line);padding:1rem;background:var(--panel);margin:1.4rem 0}
+.filter-bar label{display:block;font-weight:750;font-size:.88rem}
+.filter-row{display:flex;flex-wrap:wrap;gap:.65rem}
+.filter-row input{flex:1 1 235px;min-width:0}
+input,select{border:1px solid #9a8571;color:var(--ink);background:white;padding:.55rem .7rem;font:inherit}
+.filter-bar output{display:block;font-size:.86rem;color:var(--muted);margin-top:.45rem}
+.exhibit-group{margin:2rem 0}
+.exhibit-group>h3{font:700 clamp(1.3rem,4vw,1.9rem)/1.18 var(--serif);margin:.3rem 0 1rem}
+.exhibit{background:var(--panel);padding:.9rem 1rem;margin:.65rem 0;max-width:88ch;border:1px solid var(--line);border-inline-start:3px solid var(--red);overflow-wrap:anywhere}
+.exhibit p{margin:0}
+.exhibit:target{outline:2px solid var(--red);outline-offset:3px}
+.exhibit>a{float:right;font-size:.75rem;margin:0 0 .25rem .8rem;color:var(--muted)}
+.table-scroll{max-width:100%;overflow-x:auto;margin:1.1rem 0}
+table{border-collapse:collapse;width:100%;min-width:575px;font-size:.88rem;background:var(--panel)}
+th,td{text-align:left;padding:.62rem .7rem;vertical-align:top;border-bottom:1px solid var(--line)}
+th{color:var(--panel);background:#432920}
+.attachment>summary{cursor:pointer}
+.attachment article{padding:.25rem 0 1rem}
+.attachment h2{font-family:var(--serif)}
+.attachment,.chapter{overflow-wrap:anywhere}
+footer{border-top:1px solid var(--line);padding:1.45rem 0 2.5rem;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+@media(max-width:590px){.wrap{width:calc(100% - 2rem)}.imprint{letter-spacing:.07em}.hero::after{right:-8%;width:65%;opacity:.23}}
+@media print{.tabs,.filter-bar,.actions,.skip,footer{display:none}.mast{background:white;color:black}.hero h1 span,.hero p{color:black}.hero::after{display:none}.chapter{break-before:page}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to manuscript</a>
+<header class="mast">
+  <div class="wrap imprint"><strong>Nathan Tabor</strong><a href="./manuscript.md" download>Download manuscript</a></div>
+  <div class="wrap hero">
+    <h1>The Tower <span>of Babel</span></h1>
+    <p>Restored words, expanded manuscript, and the Chapter Eight evidence record.</p>
+    <div class="actions"><a href="#original-words">Read the original words</a><a href="#evidence">Browse 26 exhibits</a></div>
+  </div>
+</header>
+<nav class="tabs" aria-label="Reading sections">
+  <div class="wrap"><a href="#original-words">Original words</a><a href="#editorial-expansion">Editorial expansion</a><a href="#evidence">Evidence</a><a href="#original-attachment">Original attachment</a></div>
+</nav>
+<main class="wrap" id="main">
+  <section class="chapter" id="original-words"><h2>Nathan Tabor’s original words</h2><div class="essay">%%ORIGINAL%%</div></section>
+  <section class="chapter" id="editorial-expansion"><h2>Editorial expansion</h2><p>Editorial text by ChatGPT</p><div class="essay">%%EDITORIAL%%</div></section>
+  <section class="chapter" id="evidence"><h2>Evidence appendix for Chapter Eight</h2>
+    <div>%%EVIDENCE_PREFACE%%</div>
+    <div class="filter-bar" id="exhibit-filters" hidden>
+      <label for="query">Search the exhibits</label>
+      <div class="filter-row"><input type="search" id="query" placeholder="Title, person, place, date, or exhibit number"><select id="category" aria-label="Exhibit category"><option value="">All categories</option>%%CATEGORIES%%</select></div>
+      <output id="result-count" aria-live="polite"></output>
+    </div>
+    <div>%%EVIDENCE%%</div>
+  </section>
+  <details class="attachment" id="original-attachment"><summary>Original attachment</summary><article aria-label="Full original attachment">%%ATTACHMENT%%</article></details>
+</main>
+<footer><div class="wrap"><span>The Tower of Babel · Nathan Tabor</span><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/archive-index/tower-of-babel">GitHub source</a></div></footer>
+<script>
+(() => {
+  const filters = document.querySelector("#exhibit-filters");
+  const query = document.querySelector("#query");
+  const category = document.querySelector("#category");
+  const counter = document.querySelector("#result-count");
+  const rows = [...document.querySelectorAll("[data-exhibit]")].map(el => ({el, text: el.textContent.toLowerCase()}));
+  const groups = [...document.querySelectorAll(".exhibit-group")];
+  function render() {
+    const terms = query.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    let total = 0;
+    for (const {el, text} of rows) {
+      const shown = (!category.value || el.dataset.exhibit === category.value) && terms.every(term => text.includes(term));
+      el.hidden = !shown;
+      total += Number(shown);
+    }
+    for (const group of groups) {
+      group.querySelector("h3").hidden = !group.querySelector("[data-exhibit]:not([hidden])");
+    }
+    counter.textContent = total ? `${total} of ${rows.length} exhibits` : "No matching exhibits";
+  }
+  function openTarget() {
+    const id = location.hash.slice(1);
+    const attachment = document.querySelector("#original-attachment");
+    if (id === attachment.id) attachment.open = true;
+    const exhibit = document.getElementById(id);
+    if (exhibit?.hasAttribute("data-exhibit") && exhibit.hidden) {
+      query.value = "";
+      category.value = "";
+      render();
+      exhibit.scrollIntoView();
+    }
+  }
+  filters.hidden = false;
+  query.addEventListener("input", render);
+  category.addEventListener("change", render);
+  window.addEventListener("hashchange", openTarget);
+  render();
+  openTarget();
+})();
+</script>
+</body>
+</html>
