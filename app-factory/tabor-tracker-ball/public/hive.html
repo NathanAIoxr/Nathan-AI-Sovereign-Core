@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090b13">
+  <meta name="author" content="Nathan Tabor">
+  <meta name="description" content="Tabor Hive v9 by Nathan Tabor. The Hive Core, living foundation, dual-screen arcade and database bee workers.">
+  <title>Tabor Hive v9 by Nathan Tabor</title>
+  <link rel="icon" href="./icon.svg">
+  <link rel="stylesheet" href="./hive.css">
+</head>
+<body>
+  <header class="top"><div class="shell nav">
+    <a class="wordmark" href="./hive.html"><span aria-hidden="true">⬡</span>TABOR HIVE</a>
+    <nav aria-label="Console"><a href="#domains">Domains</a><a href="#bridge">Arcade</a><a href="#bees">Bee workers</a><a href="./loc101.html">101 cartridges ↗</a></nav>
+  </div></header>
+  <main class="shell">
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-copy"><p class="eyebrow">SOVEREIGN · ADAPTIVE · MULTI-DIMENSIONAL</p>
+        <h1 id="title">Tabor Hive <span>v9</span></h1><p class="byline">by Nathan Tabor</p>
+        <p class="subtitle">Nathan AI Hive Core above. Track Baller and the Dual-Screen Arcade in the middle. Database Bee workers and the Living Foundation below.</p>
+        <div class="actions"><a class="primary" href="#bridge">Enter the arcade</a><a class="secondary" href="#foundation">Living Foundation ↓</a></div>
+      </div>
+      <div class="hero-art"><div class="halo" aria-hidden="true">⬡</div><img src="./hive-art/crown.jpg" alt="Nathan AI Hive crown above a ring of bees" hidden></div>
+    </section>
+    <div class="counts"><span><strong>101</strong> cartridges</span><span><strong>21</strong> subject classes</span><span><strong>13</strong> arcade games</span><span><strong>3</strong> voices</span></div>
+
+    <section class="section panel" aria-labelledby="flow-title">
+      <div class="section-head"><div><p class="eyebrow">HIVE CORE ↕ LIVING FOUNDATION</p><h2 id="flow-title">Hive Flow</h2></div><output id="flow-status"></output></div>
+      <div class="switches" aria-label="Hive flow controls">
+        <button type="button" id="axis" aria-pressed="true">Vertical</button>
+        <button type="button" id="forward" aria-pressed="true">Forward</button>
+        <button type="button" id="reverse" aria-pressed="true">Reverse</button>
+        <button type="button" id="pause" aria-pressed="false">Pause</button>
+        <label>Spin rate <input id="rate" type="range" min="0.25" max="2" step=".25" value="1"></label>
+      </div>
+      <div class="flow-stage"><canvas id="flow" role="img" aria-label="Diagram of forward and reverse paths through the Hive"></canvas><span class="flow-top">Nathan AI Hive Core</span><span class="flow-bottom">Living Foundation</span></div>
+      <div class="flow-key"><span><i class="gold"></i> Forward / downward</span><span><i class="blue"></i> Reverse / upward</span><span>Flow simulation</span></div>
+    </section>
+
+    <section class="section" id="domains" aria-labelledby="domain-heading">
+      <div class="section-head"><div><p class="eyebrow">NATHAN AI HIVE CORE</p><h2 id="domain-heading">Orchestration Console</h2></div></div>
+      <div id="domain-list" class="domain-list" aria-label="Hive domains"></div>
+      <div class="panel domain-detail">
+        <div><p class="eyebrow" id="domain-mode"></p><h3 id="domain-title"></h3><p id="domain-copy"></p></div>
+        <div><label for="cartridge-search">Search cartridges in this domain</label><div class="search-line"><input type="search" id="cartridge-search" placeholder="Name, class, or number"><button id="all-cartridges" type="button" aria-pressed="false">All domains</button></div><output id="cartridge-count"></output><div id="cartridges" class="cartridges"></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="bridge" aria-labelledby="arcade-heading">
+      <div class="section-head"><div><p class="eyebrow">UNIVERSAL BRIDGE</p><h2 id="arcade-heading">Dual-Screen Arcade</h2></div><a href="./" class="secondary">Full arcade ↗</a></div>
+      <div class="panel arcade-shell">
+        <div class="arc-top">
+          <div class="arc-head"><h3>Track Baller</h3><label for="game">Game</label><select id="game"></select></div>
+          <iframe title="Track Baller arcade game" id="game-frame" loading="lazy"></iframe>
+        </div>
+        <div class="bridge-strip" aria-label="Bridge score and resources">
+          <div><span>Score</span><output id="bridge-score">0</output></div>
+          <div><span>Attack</span><output id="attack">0</output></div>
+          <div><span>Charge</span><output id="charge">2</output></div>
+          <div><span>Buff</span><output id="buff">0</output></div>
+          <div><span>Shield</span><output id="shield">0</output></div>
+        </div>
+        <div class="arc-bottom">
+          <div><h3>Cast Puzzle</h3><div id="voices" class="switches" aria-label="Cast voices"></div><p id="voice-role"></p><p id="voice-line"></p></div>
+          <div><p class="prompt" id="pattern-label">Enter the sequence from left to right</p><div id="sequence" class="sequence" aria-labelledby="pattern-label"></div><div id="pads" class="pads"></div><p id="bridge-status" role="status"></p><button type="button" id="reset-bridge">Clear bridge</button></div>
+        </div>
+      </div>
+      <nav class="connected" aria-label="Related Tabor World apps">
+        <a class="secondary" href="https://hook-and-ring.nathantaboract.workers.dev/">Hook and Ring ↗</a>
+        <a class="secondary" href="https://grapple-it.nathantaboract.workers.dev/">Grapple It ↗</a>
+        <a class="secondary" href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/standalone-apps/tactilecore-sdk">TactileCoreSDK ↗</a>
+      </nav>
+    </section>
+
+    <section class="section" id="bees" aria-labelledby="bee-heading">
+      <div class="section-head"><div><p class="eyebrow">LOCAL DATABASE WORKERS</p><h2 id="bee-heading">Database Bee Workers</h2></div><button type="button" class="primary" id="audit">Run catalog audit</button></div>
+      <div class="panel bees-panel"><p>Two worker threads verify the catalog, index domains, and check the arcade and bridge. The queue and results stay in this browser.</p>
+        <div id="job-counts" class="job-counts" aria-label="Worker counts"></div>
+        <p id="bee-state" role="status"></p><ol id="jobs"></ol>
+      </div>
+    </section>
+
+    <section class="section" id="foundation" aria-labelledby="foundation-heading">
+      <div class="section-head"><div><p class="eyebrow">OBSERVE · ORIENT · ADAPT · ENDURE</p><h2 id="foundation-heading">Living Foundation</h2></div></div>
+      <div class="foundation-grid" id="foundation-links"></div>
+      <div class="gallery" aria-label="Nathan Tabor’s design references" hidden>
+        <figure><img loading="lazy" src="./hive-art/hive-system.jpg" alt="Hive Core, bees and domains above the Living Foundation"><figcaption>Tabor Hive System</figcaption></figure>
+        <figure><img loading="lazy" src="./hive-art/hive-flow.jpg" alt="Golden console with streams moving up and down between domains"><figcaption>Hive Orchestration Console</figcaption></figure>
+        <figure><img loading="lazy" src="./hive-art/ant-foundation.jpg" alt="Ant tunnels with two glowing routes through the soil"><figcaption>Living Foundation</figcaption></figure>
+      </div>
+    </section>
+  </main>
+  <footer class="shell"><a href="./loc101.html">101 Applications</a><a href="./">Track Baller Arcade</a><a href="https://www.loc.gov/aba/cataloging/classification/lcco/">Classification source</a></footer>
+  <noscript><p class="shell">Enable JavaScript for the Hive console, arcade bridge, and workers.</p></noscript>
+  <script type="module" src="./hive.mjs"></script>
+</body></html>

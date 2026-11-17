@@ -72,3 +72,55 @@ Run node --test test.mjs, followed by node build.mjs from this directory. The bu
 - Coalesced pointer samples https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent/getCoalescedEvents
 - Vibration API https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API
 - Cloudflare Worker upload https://developers.cloudflare.com/api/resources/workers/subresources/scripts/methods/update/
+
+## Tabor Track Baller v6 · 101 Applications
+
+Open `loc101.html` from the **101 Applications** link in the arcade. Nathan Tabor's
+numbered brief supplies module order. Its 101 modules cover all 21 main classes
+in the [Library of Congress Classification Outline](https://www.loc.gov/aba/cataloging/classification/lcco/),
+with E and F available as individual filters.
+
+- The searchable catalog stores each module's class, brief, input profile, task,
+  and sample data. Search matches the original brief titles for adapted entries.
+  A module opens directly at `loc101.html?module=63`, for example.
+- Scenes use eight shared interactive profiles. These cover quaternion orbit,
+  a precision dial, ordered gesture paths, an illustrative contact field, animated
+  flow, Web Audio, a node network, and a Boolean logic table. The samples are
+  schematic activities. Some titles describe the intended larger application.
+- The controller reuses one-finger gesture analysis and the existing multi-contact
+  gesture implementation. Buttons and the keyboard offer alternatives. The field
+  visualizes contacts that the browser exposes. Tilt and sound require explicit
+  interaction and depend on browser and hardware support.
+- Module 5 shows three KJV verses. The app uses sample records and simulated
+  data elsewhere. The medical entries are educational demonstrations. Weapon-
+  related entries use exhibition, sporting, and classroom analogs.
+- Completion is browser-local. **Clear scene** resets the current interaction and
+  retains the completion history. The service worker caches the catalog and
+  application shell on the first successful connected visit.
+
+Run `node --test test.mjs loc101.test.mjs` and `node build.mjs` to validate and
+package the release. The Worker health endpoint reports both arcade and
+application counts.
+
+## Tabor Hive v9 by Nathan Tabor
+
+Open `hive.html` from Track Baller or the 101 Applications catalog. The Hive Flow
+simulator provides forward, reverse, simultaneous counter-rotation, vertical
+and horizontal layout, a speed control, and pause. Nine domain stations and
+twelve Living Foundation branches open their relevant cartridges. All 101 are
+also searchable from the Hive.
+
+The Dual-Screen Arcade embeds the existing Track Baller gameplay. Arcade score
+feeds the bridge through same-origin messages scoped to that game session.
+Nathan AI, PK, and Grape-Apple offer different local puzzle patterns and rewards.
+Attack, charge, buffs, and shields affect the bridge session.
+
+The Database Bee Workers run five allowlisted verification and indexing tasks
+in two browser worker threads. IndexedDB transactions make a claim atomic across
+Hive tabs. Expired leases can be reclaimed, mismatched results are ignored,
+and retries are bounded. The queue and latest results persist for this browser.
+An open Hive tab processes the work. Quantum, energy, biology, navigation, and
+device domains use sample models. The app uses no external execution service.
+
+Run `node --test test.mjs loc101.test.mjs hive.test.mjs` before packaging. Original
+design-reference images may be supplied as optional private preview assets.
