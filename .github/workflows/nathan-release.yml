@@ -20,10 +20,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install repository verification dependencies
+        run: |
+          python3 -m pip install -r app-factory/sovereign-hub/requirements.txt
+          npm ci --prefix app-factory/sovereign-hub/cloudflare
       - name: Run release checks
         run: python3 tools/release/check.py --out /tmp/nathan-checks
       - name: Package tracked public app and source
-        run: python3 tools/release/build.py --out /tmp/nathan-release
+        run: |
+          # Package the tested commit in a fresh worktree, isolated from test outputs.
+          git worktree add --detach "$RUNNER_TEMP/repository-release-source" HEAD
+          python3 -B "$RUNNER_TEMP/repository-release-source/tools/release/build.py" --out /tmp/nathan-release
       - name: Verify release bytes
         run: python3 tools/release/build.py --verify /tmp/nathan-release/nathan-ai-site.zip
       - name: Save release archives and checks

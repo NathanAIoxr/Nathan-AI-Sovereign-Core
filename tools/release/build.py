@@ -6,7 +6,8 @@ from html.parser import HTMLParser
 
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 STATIC={'.html','.htm','.js','.mjs','.cjs','.css','.json','.webmanifest','.svg','.png','.jpg','.jpeg','.webp','.gif','.ico','.avif','.wasm','.pdf','.md','.txt','.csv','.tsv','.xml','.woff','.woff2','.ttf','.mp3','.mp4','.ogg','.wav','.zip','.docx','.xlsx','.pptx','.epub','.odt','.rtf'}
-PUBLIC_ROOTS=('app-factory/','docs/','archive-index/','landing/','standalone-apps/','branding/')
+PUBLIC_ROOTS=('app-factory/','docs/','archive-index/','landing/','standalone-apps/','branding/',
+              'hive/','research/tabor-concordance/bible/')
 SOURCE_DOWNLOADS={'app-factory/nathan-ai/voice-box/native/offline_tts.py','standalone-apps/ttfes-btp/LICENSE','archive-index/alphabet/g/source-catalog-g.json.gz','app-factory/nathan-ai/brainstormer/originals/NathanAI_Brainstormer_Python_v002.py','app-factory/nathan-ai/sovereign-coins/anchored/bench_matrix.py','app-factory/octopus-root/sovereign-continuum/advanced.py','app-factory/octopus-root/sovereign-continuum/test_advanced.py'}
 def git(*args):return subprocess.check_output(['git','-C',str(ROOT),*args],text=True).strip()
 def tracked():return subprocess.check_output(['git','-C',str(ROOT),'ls-files','-z']).decode().split('\0')[:-1]
@@ -15,7 +16,7 @@ def safe(path):
     return not any(p.lower() in {'.git','.env','.aws','.ssh','private-samples','node_modules','__pycache__'} or (p.lower().startswith('.env.') and p.lower()!='.env.example') for p in parts) and pathlib.PurePosixPath(path).suffix.lower() not in {'.pem','.pfx','.p12','.key'}
 def site_file(path):
     p=pathlib.PurePosixPath(path)
-    return safe(path) and (path=='LICENSE' or path in SOURCE_DOWNLOADS or (len(p.parts)==1 and p.suffix=='.md') or ((path=='index.html' or path.startswith(PUBLIC_ROOTS)) and p.suffix.lower() in STATIC and '/tests/' not in path and '.test.' not in p.name and not p.name.startswith('test_')))
+    return safe(path) and (path=='LICENSE' or path in SOURCE_DOWNLOADS or (len(p.parts)==1 and p.suffix=='.md') or ((path in {'index.html','help-wanted/index.html'} or path.startswith(PUBLIC_ROOTS)) and p.suffix.lower() in STATIC and '/tests/' not in path and '.test.' not in p.name and not p.name.startswith('test_')))
 def check_links(files):
     missing=[]
     class Links(HTMLParser):

@@ -10,7 +10,7 @@ const vm=require('node:vm');
 const {execFileSync}=require('node:child_process');
 const root=path.resolve(__dirname,'..');
 const factory=__dirname;
-function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(ent=>ent.isDirectory()?walk(path.join(dir,ent.name)):[path.join(dir,ent.name)])}
+function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).filter(ent=>ent.name!=='node_modules').flatMap(ent=>ent.isDirectory()?walk(path.join(dir,ent.name)):[path.join(dir,ent.name)])}
 const sourceFiles=walk(factory);
 const read=file=>fs.readFileSync(file,'utf8');
 

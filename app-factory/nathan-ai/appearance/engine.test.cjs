@@ -20,7 +20,9 @@ test('every Nathan AI entry page loads the same scoped appearance engine',()=>{
   // The scanner is independently deployable; its untouched EYEPRINTS archival HTML is also standalone.
   // The private family reader also retains its inline-only, no-network CSP.
   // Neither should acquire Nathan AI's shared appearance dependency just to satisfy this hub test.
-  for(const p of pages){if(p.startsWith(independentPwa)||p===path.join(base,'family-research','private-reader.html'))continue;const html=fs.readFileSync(p,'utf8');assert.equal((html.match(/data-nathan-shared-appearance/g)||[]).length,1,p);const style=[...html.matchAll(/href="([^"]*shared\.css)"/g)][0];assert.ok(style,p);assert.equal(path.resolve(path.dirname(p),style[1]),path.join(__dirname,'shared.css'))}
+  // The local Boundary Lab is served with a fixed allowlist of its own assets.
+  const boundaryLab=path.join(base,'personal-intelligence','minds','federation','fencepost-error-syndrome','boundary_ui.html');
+  for(const p of pages){if(p.startsWith(independentPwa)||p===boundaryLab||p===path.join(base,'family-research','private-reader.html'))continue;const html=fs.readFileSync(p,'utf8');assert.equal((html.match(/data-nathan-shared-appearance/g)||[]).length,1,p);const style=[...html.matchAll(/href="([^"]*shared\.css)"/g)][0];assert.ok(style,p);assert.equal(path.resolve(path.dirname(p),style[1]),path.join(__dirname,'shared.css'))}
 });
 test('preference storage and reset never use content, wallet or legacy shell keys',()=>{
   const script=fs.readFileSync(path.join(__dirname,'app.js'),'utf8');assert.doesNotMatch(script,/localStorage\.clear\(|tabor123_projects|one\.v061\.shell\.preferences|innerHTML\s*=/);assert.match(script,/localStorage\.setItem\(api\.KEY/);assert.match(script,/dialog\.showModal/);

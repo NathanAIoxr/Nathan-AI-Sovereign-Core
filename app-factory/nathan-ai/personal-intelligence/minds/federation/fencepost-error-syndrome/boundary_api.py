@@ -76,7 +76,9 @@ def handler_for(service):
                     raise ContractViolation("duplicate query parameter")
                 assets = {"/": ("boundary_ui.html", "text/html"),
                           "/ui.js": ("boundary_ui.js", "text/javascript"),
-                          "/ui.css": ("boundary_ui.css", "text/css")}
+                          "/ui.css": ("boundary_ui.css", "text/css"),
+                          "/boundary_ui.js": ("boundary_ui.js", "text/javascript"),
+                          "/boundary_ui.css": ("boundary_ui.css", "text/css")}
                 if url.path in assets and not query:
                     filename, mime = assets[url.path]
                     raw = Path(__file__).with_name(filename).read_bytes()
@@ -87,6 +89,10 @@ def handler_for(service):
                     self.send_header("Content-Security-Policy", "default-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'")
                     self.end_headers()
                     self.wfile.write(raw)
+                elif url.path == "/docs/record/index.html" and not query:
+                    self.send_response(302)
+                    self.send_header("Location", "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/docs/record/index.html")
+                    self.end_headers()
                 elif url.path == "/health" and not query:
                     report = service.health()
                     self.send_json(200 if report["healthy"] else 503, report)
