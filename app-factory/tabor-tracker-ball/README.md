@@ -72,3 +72,11 @@ Run node --test test.mjs, followed by node build.mjs from this directory. The bu
 - Coalesced pointer samples https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent/getCoalescedEvents
 - Vibration API https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API
 - Cloudflare Worker upload https://developers.cloudflare.com/api/resources/workers/subresources/scripts/methods/update/
+
+## 101 Library Cartridges
+
+Open [101 Library Cartridges](./public/library.html) from Tracker Ball. Search the complete 101-position brief under the 21 main [Library of Congress classes](https://www.loc.gov/aba/cataloging/classification/lcco/). The catalog uses internal Tabor IDs and suggested subject labels. It retains supplied subclass codes and notes discrepancies, including QM under Q. The separate Tracker Ball draft stops during row 65. Related rows are cross-linked where the designs overlap.
+
+Nine cartridges have short, playable exercises using the Universal Bridge's planned 45/10/45 layout. Match two records to earn one charge, then spend it on the touch surface or with the action button. The same touch adapter supplies one-finger strokes and pinch release. The exercise scores one point for one committed action. It uses addition, subtraction, and record IDs. The existing Tracker Ball controller is shared with the older arcade and retains its own underlying numerical code.
+
+Cartridge records and characters expose attributes, characteristics, functionalities, and traits. Nathan AI, PK, and the Grape-Apple Curator have scripted roles. Exhibit and design records describe subjects for future development. Data export is local.

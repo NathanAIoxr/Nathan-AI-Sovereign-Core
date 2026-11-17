@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151914">
+  <title>Tabor World · 101 Library Cartridges</title>
+  <link rel="stylesheet" href="./library.css">
+</head>
+<body>
+  <main>
+    <header><a href="./">Tabor Tracker Ball</a><span>by Nathan Tabor</span></header>
+    <h1>101 Library Cartridges</h1>
+    <div class="tabs" aria-label="Catalog sources">
+      <button id="main-source" type="button" aria-pressed="true">101 applications</button>
+      <button id="tracker-source" type="button" aria-pressed="false">Tracker Ball draft</button>
+    </div>
+    <div class="workspace">
+      <section class="catalog" aria-labelledby="browse-title">
+        <h2 id="browse-title">Browse the catalog</h2>
+        <div class="filters">
+          <label>Search <input id="search" type="search" placeholder="e.g. phonics, QM, 68"></label>
+          <label>Class <select id="category"><option value="">All 21 classes</option></select></label>
+          <label id="status-label">Status <select id="status"><option value="">All stages</option><option value="prototype">Shared exercise</option><option value="design">Design record</option></select></label>
+        </div>
+        <p id="results" role="status"></p>
+        <ol id="cartridges"></ol>
+      </section>
+      <section class="details" aria-labelledby="entry-title" id="detail">
+        <p id="entry-meta"></p>
+        <h2 id="entry-title" tabindex="-1">Select a cartridge</h2>
+        <p id="entry-description"></p>
+        <p id="entry-note" hidden></p>
+        <ul id="related" hidden></ul>
+        <details id="record" hidden><summary>Cartridge fields</summary><dl id="record-fields"></dl></details>
+        <div class="actions" id="entry-actions" hidden>
+          <a id="game-link" hidden>Try a related Tracker Ball control</a>
+          <button id="download" type="button">Export record</button>
+        </div>
+
+        <section id="bridge" aria-label="Universal Bridge exercise" hidden>
+          <div class="top">
+            <p id="goal"></p>
+            <div id="surface" aria-label="Tracker Ball gesture surface"><span id="surface-status">Build a pair to earn charge.</span></div>
+            <button id="apply" type="button" disabled>Use one charge</button>
+          </div>
+          <div class="bridge-meter" aria-live="polite"><span>Charge <output id="charge">0</output></span><span>Points <output id="points">0</output></span><span id="feedback"></span></div>
+          <div class="bottom">
+            <h3>Build a pair</h3>
+            <div id="choices"></div>
+            <div class="actions">
+              <button id="verify" type="button">Verify pair</button>
+              <button id="clear" type="button">Clear selection</button>
+              <button id="restart" type="button">New round</button>
+            </div>
+            <details><summary>Cast</summary><div id="cast"></div></details>
+          </div>
+        </section>
+      </section>
+    </div>
+    <footer><a href="https://www.loc.gov/aba/cataloging/classification/lcco/">Library of Congress Classification outline</a><p>Class labels organize this project catalog. Cartridge numbers are Tabor World IDs.</p></footer>
+  </main>
+  <script type="module" src="./library.mjs"></script>
+</body>
+</html>
