@@ -30,6 +30,7 @@ test('home and play routes coexist with legacy APIs and prohibit writes',async()
   const catalog=await (await call('/systems/')).text();
   assert.match(catalog,/Library of Tabor/);
   assert.match(catalog,/Find a system/);
+  assert.match(catalog,/src="\/home\.js\?v=2"/);
   const links=directory.flatMap(group=>group.entries.map(entry=>entry[1]));
   assert.equal(new Set(links).size,links.length);
   assert.match(await (await call('/workers')).text(),/21 Hive role definitions/);

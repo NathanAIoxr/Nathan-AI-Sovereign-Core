@@ -5,7 +5,7 @@ const link = (title, href, primary = false) => `<a class="button${primary?' prim
 const frame = (title, content, script = false) => `<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark"><title>${title} · Nathan AI 🚀</title>
-<link rel="stylesheet" href="/home.css">${script?'<script type="module" src="/home.js"></script>':''}</head>
+<link rel="stylesheet" href="/home.css?v=2">${script?'<script type="module" src="/home.js?v=2"></script>':''}</head>
 <body><a class="skip" href="#main">Skip to content</a><header><div class="shell top">
 <a class="wordmark" href="/">Nathan AI 🚀</a><nav aria-label="Main navigation">
 <a href="/play/mind">Play</a><a href="/systems">Systems</a><a href="/workers">Workers</a><a href="/#owner">Owner</a>
@@ -112,10 +112,13 @@ if(refresh){
         const tag=document.querySelector('[data-service="'+item.id+'"]');
         if(tag)tag.textContent=labels[item.state]??'Unknown';
       }
-      const fleet=current?.targets?.find(t=>t.id==='nathan-ai-fleet')?.fleet;
-      if(fleet)get('fleet').textContent=fleet.managed+' managed workers · '+fleet.assigned+' supervisors assigned · '+
-        fleet.checked+' checked · '+fleet.healthy+' healthy · '+fleet.protected+' protected · '+fleet.failed+' failed · '+fleet.pending+' pending';
-      else get('fleet').textContent='Fleet counts are available in the fleet status.';
+      const fleetSummary=get('fleet');
+      if(fleetSummary){
+        const fleet=current?.targets?.find(t=>t.id==='nathan-ai-fleet')?.fleet;
+        fleetSummary.textContent=fleet ? fleet.managed+' managed workers · '+fleet.assigned+' supervisors assigned · '+
+          fleet.checked+' checked · '+fleet.healthy+' healthy · '+fleet.protected+' protected · '+fleet.failed+' failed · '+fleet.pending+' pending'
+          : 'Fleet counts are available in the fleet status.';
+      }
     }catch{
       get('cycle').textContent='Receipt unavailable. Use the linked systems to check their status.';
     }finally{refresh.disabled=false;}
