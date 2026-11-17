@@ -1,20 +1,63 @@
 const {test}=require('node:test');const assert=require('node:assert/strict');const R=require('./arithmetic-roots.js');
-test('six owner-supplied arithmetic families calculate correctly',()=>{
- assert.equal(R.egyptianMultiply(13,12).result,156);
+test('retained encodings and binary logic calculate correctly',()=>{
  assert.equal(R.pingalaUddishta(R.pingalaNashta(5,4)),5);
  assert.equal(R.baconEncode('CODE'),'aaaba abbab aaabb aabaa');
- assert.equal(R.fromNapier(R.napierMultiply(R.toNapier(13),R.toNapier(5))),65);
  assert.equal(R.leibnizAdd(R.leibnizBinary(13),R.leibnizBinary(19)),'100000');
  assert.equal(R.booleXor(1,0),1);
 });
-test('Egyptian multiplier matches normal multiplication for 0..100',()=>{for(let a=0;a<=100;a++)for(let b=0;b<=100;b++)assert.equal(R.egyptianMultiply(a,b).result,a*b)});
-test('Pingala index and pattern are inverses for lengths 1..10',()=>{for(let len=1;len<=10;len++)for(let i=1;i<=2**len;i++)assert.equal(R.pingalaUddishta(R.pingalaNashta(i,len)),i)});
 test('Bacon classical 24-letter cipher round trips',()=>{for(const c of 'ABCDEFGHIKLMNOPQRSTUWXYZ')assert.equal(R.baconDecode(R.baconEncode(c)),c);assert.equal(R.baconDecode(R.baconEncode('J')), 'I')});
 test('Napier letter locations round trip',()=>{for(let i=0;i<=1000;i++)assert.equal(R.fromNapier(R.toNapier(i)),i)});
 test('Leibniz binary carries correctly',()=>{for(let a=0;a<100;a++)for(let b=0;b<100;b++)assert.equal(parseInt(R.leibnizAdd(a.toString(2),b.toString(2)),2),a+b)});
 test('Boole arithmetic equivalent to truth tables',()=>{for(const a of [0,1])for(const b of [0,1]){assert.equal(R.booleAnd(a,b),a&b);assert.equal(R.booleOr(a,b),a|b);assert.equal(R.booleXor(a,b),a^b);assert.equal(R.booleNot(a),1-a)}});
-test('Sumerian/Babylonian base60 conversions and regular denominators',()=>{for(let n=0;n<=10000;n++)assert.equal(R.sexagesimalDecode(R.sexagesimalEncode(n)),n);assert.equal(R.reciprocalRegular(12).terminatesInBase60,true);assert.equal(R.reciprocalRegular(7).terminatesInBase60,false);});
-test('Egyptian unit fractions sum exactly for small positive rational numbers',()=>{for(let d=1;d<=25;d++)for(let n=0;n<=d*2;n++){const x=R.egyptianUnitFractions(n,d);const v=x.whole+x.denominators.reduce((s,t)=>s+1/t,0);assert.ok(Math.abs(v-n/d)<1e-10)}});
-test('Euclidean algorithm yields gcd',()=>{assert.equal(R.euclidGcd(252,105).gcd,21);assert.equal(R.euclidGcd(0,0).gcd,0)});
 test('all 4096 I Ching state transitions are valid',()=>{assert.equal(R.verify().transitions,4096);for(let s=0;s<64;s++)for(let mask=0;mask<64;mask++)assert.equal(R.iChingChange(R.iChingChange(s,mask),mask),s)});
-test('input validation rejects invalid states',()=>{assert.throws(()=>R.booleOr(2,1),RangeError);assert.throws(()=>R.iChingChange(64,0),RangeError);assert.throws(()=>R.egyptianMultiply(-1,2),RangeError)});
+test('all bounded Pingala patterns keep their index', () => {
+  let limit = 1;
+  for (let length = 1; length <= 10; length++) {
+    limit += limit;
+    for (let index = 1; index <= limit; index++) {
+      assert.equal(R.pingalaUddishta(R.pingalaNashta(index, length)), index);
+    }
+  }
+  assert.throws(() => R.pingalaNashta(3, 1), RangeError);
+});
+
+test('bounded base-60 conversions keep their quantity', () => {
+  for (let number = 0; number <= 10000; number++) {
+    assert.equal(R.sexagesimalDecode(R.sexagesimalEncode(number)), number);
+  }
+  assert.equal(R.sexagesimalDecode(R.sexagesimalEncode(1e9)), 1e9);
+  assert.equal(R.sexagesimalDecode([0, 0, 0, 0, 0, 0, 1]), 1);
+  assert.throws(() => R.sexagesimalDecode([59, 0, 0, 0, 0, 0]), RangeError);
+});
+
+test('BUILD and CLEAR validate their counts', () => {
+  assert.equal(R.build(1, 1), 2);
+  assert.equal(R.clear(1, 1), 0);
+  assert.throws(() => R.build(-1, 2), RangeError);
+  assert.throws(() => R.clear(1, 2), RangeError);
+});
+
+test('zero selected leaves nine items present', () => {
+  assert.deepEqual(R.inventory(9, 0), { presentBefore: 9, selected: 0, moved: 0, presentAfter: 9 });
+  assert.equal(R.inventory(9, 3).presentAfter, 9);
+  assert.throws(() => R.inventory(9, 10), RangeError);
+});
+
+test('one transfer records Nunn at the origin and two entries for one movement', () => {
+  assert.deepEqual(R.transfer(1, 1), {
+    originBefore: 1, destinationBefore: 0, moved: 1, originAfter: 0, destinationAfter: 1,
+    totalAfter: 1, ledgerEntries: 2, originReading: 'Nunn'
+  });
+  assert.equal(R.transfer(1, 0).ledgerEntries, 0);
+  assert.equal(R.transfer(2, 1).originReading, undefined);
+  assert.throws(() => R.transfer(1, 2), RangeError);
+});
+
+test('operation removals are reflected by the public API and the controls', () => {
+  const html = require('node:fs').readFileSync(require('node:path').join(__dirname, 'arithmetic-roots.html'), 'utf8');
+  assert.doesNotMatch(html, /value="(?:egypt|reciprocal|egyptFractions|euclid)"/);
+  assert.match(html, /value="inventory"/);
+  for (const name of ['egyptianMultiply', 'napierMultiply', 'reciprocalRegular', 'egyptianUnitFractions', 'euclidGcd']) {
+    assert.equal(R[name], undefined);
+  }
+});

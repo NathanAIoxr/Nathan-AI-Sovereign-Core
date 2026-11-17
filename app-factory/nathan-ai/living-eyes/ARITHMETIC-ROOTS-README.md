@@ -1,6 +1,6 @@
 # Nathan AI 🚀 · EYES · Ancient Arithmetic Roots Lab
 
-**Scope:** Additive implementation; no changes to prior owner-authored source or Living Eyes geometry, state engines, scanner axes, or Twin Engines logic.
+**Active arithmetic:** BUILD uses addition and CLEAR uses subtraction. Inventory selection and transfer report separate named counts. [Original source capture](arithmetic-roots-original.py.txt) is preserved as text.
 
 ## Application
 
@@ -13,13 +13,14 @@
 
 | Domain | Runnable entry points | Historically grounded relationship |
 | --- | --- | --- |
-| Egypt, Rhind papyrus | `egyptianMultiply`, `egyptianUnitFractions` | Repeated doubling/addition; unit-fraction sums |
-| Sumer / Old Babylon | `sexagesimalEncode`, `sexagesimalDecode`, `reciprocalRegular` | Mesopotamian place-value base-60 and reciprocal calculation |
+| Nathan Tabor | `build`, `clear`, `inventory`, `transfer` | Count what is present, selected, moved, and left |
+| Egypt, Rhind papyrus | Historical source | Repeated doubling and unit-fraction notation |
+| Sumer / Old Babylon | `sexagesimalEncode`, `sexagesimalDecode` | Mesopotamian place-value base-60 |
 | Sanskrit prosody / Pingala | `pingalaNashta`, `pingalaUddishta` | Two alternatives per syllable, mapping indices and metrical patterns |
 | I Ching | `iChingState`, `iChingChange` | 6 bits, 64 configurations, 4,096 ordered transitions |
-| Greek / Euclid | `euclidGcd` | Repeated remainders as a deterministic procedure |
+| Greek / Euclid | Historical source | Classical greatest-common-divisor procedure |
 | Francis Bacon | `baconEncode`, `baconDecode` | 5-symbol biliteral encodings; I/J and U/V merged |
-| John Napier | `toNapier`, `fromNapier`, `napierMultiply` | Letter positions denote powers of 2 |
+| John Napier | `toNapier`, `fromNapier` | Letter positions denote powers of 2 |
 | Leibniz | `leibnizBinary`, `leibnizAdd` | Positional binary notation and carry |
 | George Boole | `booleNot`, `booleAnd`, `booleOr`, `booleXor` | Boolean functions over 0 and 1 |
 
@@ -27,11 +28,10 @@
 
 `node --test app-factory/nathan-ai/living-eyes/arithmetic-roots.test.cjs`
 
-Tests include 10,201 Egyptian products, all 2,046 Pingala patterns of lengths 1–10, standard cipher mappings, 1,001 Napier round-trips, 10,000 Leibniz additions, 10,001 base-60 conversions, 4,096 six-bit transitions and checks of fractions and Euclidean GCD.
+Tests cover BUILD and CLEAR, the nine-car selection count, Nunn after a transfer, all 2,046 Pingala patterns of lengths 1–10, cipher mappings, Napier round-trips, binary addition, base-60 conversion, and 4,096 six-bit transitions.
 
 ## Critical source boundaries
 
-- Modern bit operations are used **to implement** Egyptian doubling but are not evidence that ancient Egyptians used electronic binary.
 - Ancient Sumerian and Old Babylonian calculation prominently used sexagesimal place value, not exclusively base-2. The precise chronology of individual inventions and manuscript survival differs.
 - Pingala's two syllable classes permit a binary encoding; the numbering/orientation represented here follows the user-provided conventions and should not be presented as the sole authentic historical convention.
 - Napier location arithmetic was published in 1617, predating Leibniz's 1703 publication.
