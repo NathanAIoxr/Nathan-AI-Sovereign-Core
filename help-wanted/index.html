@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Browse Nathan Tabor's public Help Wanted and project assignments, verification and source coverage.">
+<title>Help Wanted · Nathan AI</title>
+<style>
+:root{color-scheme:dark;--bg:#101319;--panel:#191e27;--line:#343c48;--text:#f7f4e9;--muted:#adb7c6;--gold:#ffd178;--mint:#91e6bf;--warn:#ffc2a2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 "Instrument Sans",system-ui,sans-serif}a{color:var(--gold);text-underline-offset:.22em}
+main,footer{width:min(1120px,calc(100% - 2rem));margin:auto}header{padding:clamp(2.6rem,7vw,5rem) 0 2rem;border-bottom:1px solid var(--line)}
+h1,h2,h3,p{margin:0}h1{font-size:clamp(3rem,10vw,7rem);line-height:.94;letter-spacing:-.075em;margin:.32em 0 .2em}h2{font-size:clamp(1.5rem,4vw,2.2rem);letter-spacing:-.045em}h3{font-size:1rem}
+nav{display:flex;gap:.55rem 1.15rem;flex-wrap:wrap}.name,.muted,small{color:var(--muted)}.brand{color:var(--gold);font-weight:750;letter-spacing:.04em}
+.statusline{margin:1.15rem 0;color:var(--muted);font-size:.9rem}.anchors{margin-top:1.05rem;display:flex;gap:.55rem 1.2rem;flex-wrap:wrap;color:var(--muted);font-size:.91rem}.anchors b{color:var(--text)}
+section{margin:2.4rem 0}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:.65rem;margin:1.3rem 0}
+.metric{border:1px solid var(--line);background:var(--panel);padding:clamp(.8rem,2.5vw,1.35rem);border-radius:.65rem}.metric strong{display:block;font-size:clamp(1.4rem,4vw,2.8rem);line-height:1.1;letter-spacing:-.04em}.metric span{font-size:.87rem;color:var(--muted)}
+.tools,.pager{display:flex;align-items:center;flex-wrap:wrap;gap:.65rem;margin:.95rem 0}.tools input{margin-left:auto;min-width:12rem}
+button,input{font:inherit;border-radius:.4rem;border:1px solid var(--line);background:var(--panel);color:var(--text);padding:.52rem .75rem}
+button{cursor:pointer}button[aria-pressed=true]{background:var(--gold);color:#18140e;border-color:var(--gold);font-weight:750}button:disabled{opacity:.45;cursor:default}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+ul{padding:0;list-style:none}.records{margin:0;border-top:1px solid var(--line)}.record{padding:1rem .05rem;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,2.5fr) minmax(9rem,1fr) minmax(8rem,1fr);gap:.7rem 1rem}
+.record a{font-weight:700;overflow-wrap:anywhere}.record small{display:block;overflow-wrap:anywhere}.role{color:var(--text);font-size:.93rem}.tag{font-weight:750;color:var(--mint);font-size:.85rem}.bad{color:var(--warn)}
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.panel{border:1px solid var(--line);border-radius:.65rem;padding:1rem 1.1rem;background:var(--panel);min-width:0}.panel li{border-top:1px solid var(--line);padding:.6rem 0;overflow-wrap:anywhere}.panel ul{margin:.7rem 0 0}
+footer{border-top:1px solid var(--line);padding:1.3rem 0 2.8rem;color:var(--muted)}[hidden]{display:none!important}
+@media(max-width:760px){.metrics{grid-template-columns:1fr 1fr}.panels{grid-template-columns:1fr}.record{grid-template-columns:1fr 1fr}.record>div:first-child{grid-column:1/-1}.tools input{margin-left:0;width:100%}}
+</style>
+</head>
+<body>
+<aside id="nathan-record-notice" aria-label="Timestamped record" style="display:block!important;position:relative!important;box-sizing:border-box!important;grid-column:1/-1;flex:0 0 100%;width:100%;padding:12px 16px;margin:0;background:#fff0b3!important;color:#161616!important;border-bottom:3px solid #161616;font:600 16px/1.5 system-ui,sans-serif;text-align:left;overflow-wrap:anywhere;"><a href="../docs/record/index.html" style="color:#161616!important;text-decoration:underline!important;">READ THE TIMESTAMPED RECORD — Nathan Tabor / ChatGPT</a><span style="display:block;font-size:14px;font-weight:400;color:#161616!important;">Repository changes, authorship complaints, correction claims, and unfinished work. Record opened November 5, 2026, 7:42:08 p.m. EST.</span></aside>
+
+<main>
+<header>
+<p class="brand">Nathan AI / Absolute Intelligence</p>
+<h1>Help Wanted</h1>
+<p class="name">By Nathan Tabor and Nathan AI</p>
+<div class="anchors"><span><b>1+1=2</b> Build</span><span><b>1-1=0</b> Clear</span><span>Multiplication and division are man-made traps.</span></div>
+</header>
+
+<p id="load" class="statusline" role="status">Loading live evidence…</p>
+<div class="metrics" aria-label="Live totals">
+<div class="metric"><strong id="issue-count">—</strong><span>Help Wanted pairs</span></div>
+<div class="metric"><strong id="project-count">—</strong><span>Public project pairs</span></div>
+<div class="metric"><strong id="indexed-count">—</strong><span>GitHub leads indexed</span></div>
+<div class="metric"><strong id="handoff-count">—</strong><span>Handoff runs recorded</span></div>
+</div>
+
+<section aria-labelledby="pairs-heading">
+<h2 id="pairs-heading">Worker Bees and Ant Bots</h2>
+<p class="muted">Worker Bees track repair or project checks. Ant Bots track source evidence.</p>
+<div class="tools">
+<button type="button" data-kind="help-wanted" aria-pressed="true">Help Wanted</button>
+<button type="button" data-kind="projects" aria-pressed="false">My projects</button>
+<input id="filter" type="search" aria-label="Filter this page" placeholder="Filter this page">
+</div>
+<p id="pair-status" class="statusline" role="status"></p>
+<ol id="records" class="records"></ol>
+<div class="pager">
+<button id="previous" type="button" disabled>Previous</button>
+<button id="next" type="button" disabled>Next</button>
+<button id="refresh" type="button">Refresh</button>
+</div>
+</section>
+
+<section class="panels" aria-label="Verification and source coverage">
+<div class="panel">
+<h2>Patch receipts</h2>
+<ul id="checks"><li class="muted">Loading…</li></ul>
+</div>
+<div class="panel">
+<h2>Source coverage</h2>
+<p id="coverage" class="muted">Loading…</p>
+<ul id="sources"></ul>
+</div>
+</section>
+
+<noscript><p>Live browsing needs JavaScript. Open the raw sources below for current evidence.</p></noscript>
+</main>
+<footer>
+<nav aria-label="Evidence sources">
+<a href="https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/pairs">Raw pair roster</a>
+<a href="https://nathan-ai-help-wanted.nathantaboract.workers.dev/">Public discovery</a>
+<a href="https://nathan-ai-patch-verifier.nathantaboract.workers.dev/api/status">Raw patch receipts</a>
+<a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core">GitHub source</a>
+</nav>
+</footer>
+
+<script>
+"use strict";
+const launchOrigin = "https://nathan-ai-help-wanted-live.nathantaboract.workers.dev";
+const $ = id => document.getElementById(id);
+const number = new Intl.NumberFormat();
+const state = {kind:"help-wanted", cursor:"", trail:[], next:null, pairs:[], serial:0};
+const readable = value => ({SOURCE_UNAVAILABLE:"Source unavailable",SOURCE_MATCH:"Source matched",PATCH_READY:"Patch ready",NEEDS_REVIEW:"Needs review",HTTP_OK:"HTTP reached"})[value] || (value || "Pending").toLowerCase().replaceAll("_"," ").replace(/^./,c=>c.toUpperCase());
+function newText(tag,value,style){
+  const item=document.createElement(tag);
+  item.textContent=value; if(style)item.className=style; return item;
+}
+function count(id,value){ $(id).textContent=Number.isSafeInteger(value)?number.format(value):"—"; }
+function evidence(timestamp){
+  if(!Number.isFinite(timestamp)||timestamp<=0)return "Evidence pending";
+  return new Date(timestamp<1e12?timestamp*1000:timestamp).toLocaleString();
+}
+function link(item){
+  try{ const url=new URL(item.url); if(url.protocol!=="https:") return null;
+    const a=newText("a",item.title||item.id);a.href=url.href;return a;
+  }catch{return null;}
+}
+function renderPairs(){
+  const find=$("filter").value.trim().toLowerCase();
+  const items=state.pairs.filter(x=>[x.title,x.id,x.provider,x.workerBee?.status,x.antBot?.status].some(v=>String(v||"").toLowerCase().includes(find)));
+  $("records").replaceChildren(...items.map(x=>{
+    const row=newText("li","","record");
+    const origin=newText("div","");
+    origin.append(link(x)||newText("span",x.title||x.id),newText("small",x.id));
+    row.append(origin);
+    for(const [label,role] of [["Worker Bee",x.workerBee],["Ant Bot",x.antBot]]){
+      const part=newText("div","");
+      part.append(newText("div",label,"role"),newText("div",readable(role?.status),"tag"),newText("small",evidence(role?.evidenceAt)));
+      row.append(part);
+    }
+    return row;
+  }));
+  $("pair-status").textContent=items.length?number.format(items.length)+" shown on page "+(state.trail.length+1):
+    find?"No matches on this page.":"No pairs returned.";
+}
+async function request(path, parameters={}){
+  const url=new URL(path,launchOrigin); url.search=new URLSearchParams(parameters);
+  const response=await fetch(url,{signal:AbortSignal.timeout(15000)});
+  if(!response.ok)throw Error("HTTP "+response.status);
+  return response.json();
+}
+async function loadPairs(){
+  const serial=++state.serial;
+  $("pair-status").textContent="Loading pairs…";
+  state.pairs=[];
+  $("records").replaceChildren();
+  $("previous").disabled=$("next").disabled=true;
+  try{
+    const data=await request("/api/pairs",{kind:state.kind,after:state.cursor});
+    if(serial!==state.serial)return;
+    state.pairs=Array.isArray(data.items)?data.items:[];
+    state.next=typeof data.nextAfter==="string"?data.nextAfter:null;
+    count("issue-count",data.coverage?.helpWanted);
+    count("project-count",data.coverage?.publicProjects);
+    renderPairs();
+  }catch{
+    if(serial!==state.serial)return;
+    state.pairs=[];state.next=null;$("pair-status").textContent="Pair data is unavailable. Use Refresh to retry.";
+  }finally{
+    if(serial===state.serial){
+      $("previous").disabled=!state.trail.length;$("next").disabled=!state.next;
+    }
+  }
+}
+async function loadSummary(){
+  $("load").textContent="Loading live evidence…";
+  try{
+    const data=await request("/api/overview");
+    count("indexed-count",data.discovery?.indexedOpen);
+    count("handoff-count",data.handoff?.runs);
+    const issues=data.unavailable||[];
+    $("load").textContent="Last dashboard fetch "+evidence(data.fetchedAt)+(issues.length?" · Unavailable: "+issues.join(", "):"");
+    const backfill=data.discovery?.coverage;
+    $("coverage").textContent=backfill?"Historical GitHub backfill "+(backfill.backfillComplete?"complete":"in progress")+
+      " · "+number.format(backfill.finishedWindows||0)+" windows recorded.":"GitHub coverage unavailable.";
+    const checks=Array.isArray(data.checks)?data.checks:[];
+    $("checks").replaceChildren(...(checks.length?checks.map(check=>{
+      const item=newText("li","");
+      item.append(newText("strong",check.job_id.replace(/^github:/,"")),newText("small",readable(check.job_status)+" · "+readable(check.status),check.status==="SOURCE_UNAVAILABLE"?"bad":"muted"));
+      if(check.reason)item.append(newText("small",check.reason,"bad"));
+      return item;
+    }):[newText("li","No patch receipts available.","muted")]));
+    $("sources").replaceChildren(...(data.sources||[]).map(source=>{
+      const item=newText("li","");
+      item.append(newText("strong",source.id),newText("small",source.error||evidence(source.success_at),source.error?"bad":"muted"));
+      return item;
+    }));
+  }catch{ $("load").textContent="Live evidence could not be fetched. Use Refresh to retry."; }
+}
+document.querySelectorAll("[data-kind]").forEach(btn=>btn.addEventListener("click",()=>{
+  if(state.kind===btn.dataset.kind)return;
+  state.kind=btn.dataset.kind;state.cursor="";state.trail=[];$("filter").value="";
+  document.querySelectorAll("[data-kind]").forEach(x=>x.setAttribute("aria-pressed",String(x===btn)));
+  loadPairs();
+}));
+$("filter").addEventListener("input",renderPairs);
+$("next").addEventListener("click",()=>{if(state.next){state.trail.push(state.cursor);state.cursor=state.next;loadPairs();}});
+$("previous").addEventListener("click",()=>{if(state.trail.length){state.cursor=state.trail.pop();loadPairs();}});
+$("refresh").addEventListener("click",()=>{loadSummary();loadPairs();});
+loadSummary();loadPairs();
+</script>
+</body>
+</html>
