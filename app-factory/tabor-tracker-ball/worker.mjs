@@ -1,5 +1,7 @@
 import assets from "./asset-bundle.mjs";
 
+const population=JSON.parse(assets["hive-population.json"]);
+
 const types={html:"text/html; charset=utf-8",css:"text/css; charset=utf-8",mjs:"text/javascript; charset=utf-8",
   js:"text/javascript; charset=utf-8",json:"application/json; charset=utf-8",
   webmanifest:"application/manifest+json; charset=utf-8",svg:"image/svg+xml",md:"text/plain; charset=utf-8"};
@@ -13,7 +15,7 @@ export default {
     const {pathname}=new URL(request.url);
     if(pathname==="/docs/record/index.html") return Response.redirect("https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/docs/record/",302);
     if(pathname==="/health"){
-      return new Response(request.method==="HEAD"?null:JSON.stringify({ok:true,app:"tabor-tracker-ball",release:"1.1.0",games:13}),
+      return new Response(request.method==="HEAD"?null:JSON.stringify({ok:true,app:"tabor-tracker-ball",release:"1.4.0",games:13,libraryCartridges:101,hiveVersion:population.version,configuredWorkers:population.configuredWorkers,configuredHives:population.configuredHives,referenceWorkersPerHive:population.referenceWorkersPerHive}),
         {headers:{...headers,"content-type":types.json,"cache-control":"no-store"}});
     }
     const name=pathname==="/"?"index.html":pathname.slice(1);
