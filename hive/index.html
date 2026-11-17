@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Live Help Wanted and owned project assignments for the Nathan AI Sovereign Hive.">
+  <meta name="color-scheme" content="dark">
+  <title>Worker Bees and Ant Bots | Nathan AI Sovereign Hive</title>
+  <style>
+    :root { color-scheme: dark; background: #101822; color: #f3f7fb; font: 100%/1.55 system-ui, sans-serif; }
+    main { max-width: 70rem; margin: auto; padding: clamp(1rem, 4vw, 3rem); }
+    h1 { font-size: clamp(2.3rem, 6vw, 4.6rem); line-height: 1.05; margin: 1.25rem 0 0.5rem; }
+    h2 { font-size: 1.45rem; }
+    a { color: #a0dcff; text-underline-offset: .2em; }
+    nav { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin: 1.25rem 0; }
+    .counts { display: flex; flex-wrap: wrap; gap: .75rem; padding: 0; }
+    .counts div { min-width: 12rem; padding: .75rem 1rem; border: 1px solid #52677d; border-radius: .45rem; background: #1a2634; }
+    dt { color: #c2d0de; }
+    dd { color: #ffdb87; font-size: 1.8rem; font-weight: bold; margin: 0; }
+    button { font: inherit; padding: .45rem .85rem; border: 1px solid #7490a7; border-radius: .35rem; background: #1a2634; color: inherit; cursor: pointer; }
+    button[aria-pressed="true"] { background: #ffdb87; color: #1d1b12; border-color: #ffdb87; }
+    button:disabled { opacity: .6; cursor: default; }
+    :focus-visible { outline: 3px solid #a0dcff; outline-offset: .2rem; }
+    ol { padding-left: 1.35rem; }
+    li { padding: .55rem 0; border-bottom: 1px solid #3c5065; overflow-wrap: anywhere; }
+    small { display: block; color: #c2d0de; }
+  </style>
+  <script src="./hive.js" defer></script>
+</head>
+<body>
+  <main>
+    <a href="../">Nathan AI Sovereign Core</a>
+    <h1>Worker Bees and Ant Bots</h1>
+    <p>By Nathan Tabor and Nathan AI</p>
+    <p>One Worker Bee and one Ant Bot per Help Wanted record and owned project. Bees track repairs and run eligible project health checks. Ant Bots track source and registration evidence.</p>
+    <nav aria-label="Hive links">
+      <a href="https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/pairs">Cloudflare dashboard</a>
+      <a href="https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/api/repair/status">Repair status</a>
+      <a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/feature/help-wanted-swarm/workers/help-wanted-swarm">Hive source</a>
+    </nav>
+    <dl class="counts" aria-label="Public assignment coverage">
+      <div><dt>Help Wanted records</dt><dd id="help-count">—</dd></div>
+      <div><dt>Public owned project records</dt><dd id="owned-count">—</dd></div>
+    </dl>
+    <section aria-labelledby="assignments">
+      <h2 id="assignments">Assignments</h2>
+      <button type="button" id="help" aria-pressed="true">Help Wanted</button>
+      <button type="button" id="projects" aria-pressed="false">Owned projects</button>
+      <p id="status" role="status">Loading assignments from the Hive…</p>
+      <ol id="results"></ol>
+      <button type="button" id="next" hidden>Load more</button>
+      <noscript><p>Use the Cloudflare dashboard to browse assignments with JavaScript disabled.</p></noscript>
+    </section>
+  </main>
+</body>
+</html>
