@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 333,
+  "count": 334,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -2626,6 +2626,14 @@
       "entry": "standalone-apps/archive-index/loc-b8/index.html",
       "group": "archive-index",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/standalone-apps/archive-index/loc-b8/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-167c443337a59950",
+      "title": "Tabor Database Atlas \u00b7 Nathan AI",
+      "entry": "standalone-apps/database-atlas/index.html",
+      "group": "database-atlas",
+      "url": "https://tabor-database-atlas.nathantaboract.workers.dev/",
       "adoption": "integration_required"
     },
     {
