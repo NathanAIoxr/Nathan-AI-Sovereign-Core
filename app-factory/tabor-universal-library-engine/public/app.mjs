@@ -155,9 +155,9 @@ function verify(){
   const orientationOK=Math.abs(after[0])<1e-8&&Math.abs(after[1]-1)<1e-8;
   const fieldOK=Math.abs(force([1,0],[{p:[0,0],strength:1}],0)[0]*4-force([.5,0],[{p:[0,0],strength:1}],0)[0])<1e-8;
   const tracks=analyze([{x:-.3,y:0,t:0},{x:.31,y:0,t:130}]).kind==="swipe";
-  const registry=entries.length===101&&entries.filter(x=>x.title).length===37&&activeOrder.every(key=>labState(key));
+  const registry=entries.length===101&&entries.filter(x=>x.title).length===101&&activeOrder.every(key=>labState(key));
   if(!launcher||!orientationOK||!fieldOK||!tracks||!registry||!validCircuit(pack)||!arm([.5,0]).reachable)return "Verification failed.";
-  return "Passed · 101 slots · 37 source entries · "+activeOrder.length+" runnable · rotation, field, stroke, and bridge.";
+  return "Passed · 101 Tracker Ball entries · "+activeOrder.length+" runnable · rotation, field, stroke, and bridge.";
 }
 function applyAction(){
   if(!lab)return;
@@ -266,9 +266,9 @@ function frame(ts){
 try{
   const response=await fetch("./catalog.json");
   if(!response.ok)throw Error("Catalog fetch");
-  catalog=await response.json();pack=catalog.circuit;entries=sourceIndex(catalog.ledger);
+  catalog=await response.json();pack=catalog.circuit;entries=sourceIndex(catalog.ledger,catalog.trackerSupplement);
   if(!validCircuit(pack))throw Error("Catalog cartridge invalid");
-  set("catalog-count",activeOrder.length+" runnable · "+catalog.ledger.length+" source entries · 101 numbered slots");
+  set("catalog-count",activeOrder.length+" runnable · "+entries.filter(x=>x.title).length+" source entries · 101 numbered slots");
   $("filter").addEventListener("change",showCatalog);$("search").addEventListener("input",showCatalog);
   if(matchMedia("(max-width:730px)").matches)$("catalog-panel").open=false;
   const requested=new URL(location.href).searchParams.get("module");

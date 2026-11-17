@@ -252,5 +252,621 @@
       "nathan_ai_tip": "Keep polarity clean. Crossed leads still short, even in zero-g.",
       "pk_chaos_modifier": "SURGE_MODE: random field spikes every 12–18 s"
     }
-  }
+  },
+  "trackerSupplement": [
+    {
+      "id": 1,
+      "class": "A",
+      "title": "Encyclopedia 3D Topic Sphere",
+      "description": "Spin a 3D knowledge globe to browse interconnected subjects by gravitational weight.",
+      "complete": true,
+      "related": [
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "class": "A",
+      "title": "Digital Museum Artifact Inspector",
+      "description": "Roll fragile scanned relics on all three axes with zero gimbal lock.",
+      "complete": true,
+      "related": [
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "class": "A",
+      "title": "Almanac Weather & Tide Dial",
+      "description": "Swirl a circular dial to scrub through historical weather cycles and lunar tides.",
+      "complete": true,
+      "related": [
+        5
+      ]
+    },
+    {
+      "id": 4,
+      "class": "A",
+      "title": "Newspaper Microfilm Scroller",
+      "description": "Flick the trackball with momentum friction to zip through archived pages.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 5,
+      "class": "B",
+      "title": "Biblical Scroll & Verse Wheel",
+      "description": "Roll smoothly through scripture chapters and cross-reference verses by magnetic proximity.",
+      "complete": true,
+      "related": [
+        6
+      ]
+    },
+    {
+      "id": 6,
+      "class": "B",
+      "title": "Ethical Dilemma Balance Scale",
+      "description": "Tilt the device and adjust magnetic weights to test moral trade-offs.",
+      "complete": true,
+      "related": [
+        9
+      ]
+    },
+    {
+      "id": 7,
+      "class": "B",
+      "title": "Cognitive Focus & Decompression Orb",
+      "description": "Trace slow, rhythmic spirals to regulate breathing and heart-rate pacing.",
+      "complete": true,
+      "related": [
+        8
+      ]
+    },
+    {
+      "id": 8,
+      "class": "B",
+      "title": "Logic Gate & Syllogism Synthesizer",
+      "description": "Connect two finger nodes to test binary truth values (1+1=2 vs. 1-1=0).",
+      "complete": true,
+      "related": [
+        10
+      ]
+    },
+    {
+      "id": 9,
+      "class": "B",
+      "title": "Memory Matrix Spatial Mapper",
+      "description": "Place personal milestones onto a 3D sphere and spin to recall linked events.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 10,
+      "class": "C",
+      "title": "Archaeological Stratigraphy Core",
+      "description": "Spin and peel back 3D soil layers to uncover buried artifacts.",
+      "complete": true,
+      "related": [
+        13
+      ]
+    },
+    {
+      "id": 11,
+      "class": "C",
+      "title": "Numismatics (Coin) Examiner",
+      "description": "Tilt and rotate high-resolution ancient coins to inspect minted edges under virtual light.",
+      "complete": true,
+      "related": [
+        14
+      ]
+    },
+    {
+      "id": 12,
+      "class": "C",
+      "title": "Genealogy Family Tree Orbit",
+      "description": "Flick through generational rings where close relatives pull together magnetically.",
+      "complete": true,
+      "related": [
+        16
+      ]
+    },
+    {
+      "id": 13,
+      "class": "C",
+      "title": "Heraldry Crest & Seal Carver",
+      "description": "Use unistroke gesture recognition to etch coats of arms into virtual wax.",
+      "complete": true,
+      "related": [
+        15
+      ]
+    },
+    {
+      "id": 14,
+      "class": "D",
+      "title": "Ancient Formation History",
+      "description": "Compare dated exhibit records about historical formations.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 15,
+      "class": "D",
+      "title": "Silk Road Trade Route Globe",
+      "description": "Spin the 3D Earth to trace historic caravan paths and monsoon wind currents.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 16,
+      "class": "D",
+      "title": "Medieval Siege Equipment Archive",
+      "description": "Inspect historical exhibits and compare captions.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 17,
+      "class": "D",
+      "title": "Historical Timeline Vortex",
+      "description": "Swirl clockwise to advance centuries or counter-clockwise to rewind eras.",
+      "complete": true,
+      "related": [
+        22
+      ]
+    },
+    {
+      "id": 18,
+      "class": "D",
+      "title": "Maritime Empire Navigation Astrolabe",
+      "description": "Rotate concentric brass rings to align stars with historic voyages.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 19,
+      "class": "E/F",
+      "title": "U.S",
+      "description": "Westward Expansion Relief Map. Tilt and roll a 3D topological map of trails, rivers, and mountain passes.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 20,
+      "class": "E/F",
+      "title": "Constitutional Convention Delegate Web",
+      "description": "Tap multiple nodes to visualize voting coalitions and compromises.",
+      "complete": true,
+      "related": [
+        23
+      ]
+    },
+    {
+      "id": 21,
+      "class": "E/F",
+      "title": "Mayan & Mesoamerican Calendar Wheel",
+      "description": "Spin interlocking stone calendar gears to align dates.",
+      "complete": true,
+      "related": [
+        27
+      ]
+    },
+    {
+      "id": 22,
+      "class": "E/F",
+      "title": "American Civil War Terrain & Troop Tracker",
+      "description": "Use two-finger pinch and swirl to inspect battlefield elevations.",
+      "complete": true,
+      "related": [
+        24
+      ]
+    },
+    {
+      "id": 23,
+      "class": "E/F",
+      "title": "Local County & Homestead Parcel Explorer",
+      "description": "Pan and zoom historical land deeds across Alabama and North Carolina.",
+      "complete": true,
+      "related": [
+        26,
+        47
+      ]
+    },
+    {
+      "id": 24,
+      "class": "G",
+      "title": "Hurricane & Cyclone Vortex Simulator",
+      "description": "Swirl a finger to generate low-pressure wind spirals and watch debris orbit.",
+      "complete": true,
+      "related": [
+        5,
+        31
+      ]
+    },
+    {
+      "id": 25,
+      "class": "G",
+      "title": "Tectonic Plate Repulsion Sandbox",
+      "description": "Push continental plates together or pull them apart with reverse magnets.",
+      "complete": true,
+      "related": [
+        72
+      ]
+    },
+    {
+      "id": 26,
+      "class": "G",
+      "title": "3D Topographic Earth Globe",
+      "description": "Spin the planet with realistic angular momentum and tilt-based camera pitch.",
+      "complete": true,
+      "related": [
+        30
+      ]
+    },
+    {
+      "id": 27,
+      "class": "G",
+      "title": "Bowling & Billiards Spin Controller",
+      "description": "Apply English (side-spin) and curve torque to virtual sports balls.",
+      "complete": true,
+      "related": [
+        29
+      ]
+    },
+    {
+      "id": 28,
+      "class": "G",
+      "title": "Swordplay Game Concept",
+      "description": "Fantasy gesture-game concept.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 29,
+      "class": "G",
+      "title": "Carnival Ring-Toss",
+      "description": "Roll and flick virtual rings toward carnival targets.",
+      "complete": true,
+      "related": [
+        28
+      ]
+    },
+    {
+      "id": 30,
+      "class": "H",
+      "title": "Supply & Demand Magnetic Equilibrium",
+      "description": "Move price and supply nodes that repel or attract toward market balance.",
+      "complete": true,
+      "related": [
+        34
+      ]
+    },
+    {
+      "id": 31,
+      "class": "H",
+      "title": "Corporate Subsidiary Network Orbit",
+      "description": "Spin a 3D organizational sphere to inspect parent-child company links.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 32,
+      "class": "H",
+      "title": "Currency Flow & Velocity Dial",
+      "description": "Adjust interest-rate friction to watch money circulate faster or slow down.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 33,
+      "class": "H",
+      "title": "Urban Traffic Congestion Grid",
+      "description": "Touch road intersections to divert commuter blobs away from bottlenecks.",
+      "complete": true,
+      "related": [
+        37
+      ]
+    },
+    {
+      "id": 34,
+      "class": "H",
+      "title": "Global Shipping Lane Router",
+      "description": "Curve maritime freight paths around storm systems on a 3D ocean sphere.",
+      "complete": true,
+      "related": [
+        37
+      ]
+    },
+    {
+      "id": 35,
+      "class": "J",
+      "title": "Electoral District Boundary Mapper",
+      "description": "Drag nodes on a capacitive grid to test how district shapes shift representation.",
+      "complete": true,
+      "related": [
+        40
+      ]
+    },
+    {
+      "id": 36,
+      "class": "J",
+      "title": "Legislative Bill-to-Law Pipeline",
+      "description": "Roll a bill through committee gates using momentum and tilt controls.",
+      "complete": true,
+      "related": [
+        41
+      ]
+    },
+    {
+      "id": 37,
+      "class": "J",
+      "title": "International Diplomacy Polarity Map",
+      "description": "Model alliances (attraction) and sanctions (reverse-magnet repulsion).",
+      "complete": true,
+      "related": [
+        42
+      ]
+    },
+    {
+      "id": 38,
+      "class": "J",
+      "title": "Constitutional Checks & Balances Gyro",
+      "description": "Tilt three interconnected branches to test institutional stability.",
+      "complete": true,
+      "related": [
+        43
+      ]
+    },
+    {
+      "id": 39,
+      "class": "K",
+      "title": "Case Precedent Citation Web",
+      "description": "Tap a landmark ruling to pull related appellate decisions into orbit.",
+      "complete": true,
+      "related": [
+        46
+      ]
+    },
+    {
+      "id": 40,
+      "class": "K",
+      "title": "Contract Clause Dependency Spinner",
+      "description": "Rotate multi-party obligations to spot conflicting terms.",
+      "complete": true,
+      "related": [
+        44
+      ]
+    },
+    {
+      "id": 41,
+      "class": "K",
+      "title": "Evidence Timeline Reconstructor",
+      "description": "Scrub forward and backward along a forensic sequence of events.",
+      "complete": true,
+      "related": [
+        45
+      ]
+    },
+    {
+      "id": 42,
+      "class": "K",
+      "title": "Statutory Code Hierarchy Sphere",
+      "description": "Drill down from constitutional articles to local ordinances on a 3D globe.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 43,
+      "class": "L",
+      "title": "Interactive Phonics & Letter Tracer",
+      "description": "Draw unistroke letters and shapes with instant geometric feedback.",
+      "complete": true,
+      "related": [
+        50
+      ]
+    },
+    {
+      "id": 44,
+      "class": "L",
+      "title": "3D Geometry & Solid Rotator",
+      "description": "Spin polyhedra, cones, and spheres to inspect vertices, faces, and edges.",
+      "complete": true,
+      "related": [
+        69
+      ]
+    },
+    {
+      "id": 45,
+      "class": "L",
+      "title": "Kinesthetic Physics Sandbox",
+      "description": "Let students feel inverse-square repulsion and angular momentum firsthand.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 46,
+      "class": "L",
+      "title": "Early Childhood Safe-Cracker Math Dial",
+      "description": "Spin to target numbers with haptic clicks for counting practice.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 47,
+      "class": "L",
+      "title": "Dual-Screen Classroom Demonstration Pad",
+      "description": "Roll 3D models on a tablet while projecting telemetry to a board.",
+      "complete": true,
+      "related": [
+        48
+      ]
+    },
+    {
+      "id": 48,
+      "class": "M",
+      "title": "DJ Vinyl Turntable Scratcher",
+      "description": "Spin forward and backward with inertia to scratch audio waveforms.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 49,
+      "class": "M",
+      "title": "Theremin Proximity Pitch Controller",
+      "description": "Move fingers closer or farther from the core to sweep audio frequencies.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 50,
+      "class": "M",
+      "title": "Radial Rhythm & Drum Sequencer",
+      "description": "Spin a circular beat wheel and tap nodes to trigger percussion.",
+      "complete": true,
+      "related": [
+        53
+      ]
+    },
+    {
+      "id": 51,
+      "class": "M",
+      "title": "Harmonic Chord Polyrhythm Web",
+      "description": "Touch 3 or 4 fingers simultaneously to generate multi-note synth chords.",
+      "complete": true,
+      "related": [
+        55
+      ]
+    },
+    {
+      "id": 52,
+      "class": "M",
+      "title": "Doppler Filter & Synth Modulator",
+      "description": "Control low-pass filter resonance using finger speed and swirl torque.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 53,
+      "class": "N",
+      "title": "Virtual Pottery Wheel Sculptor",
+      "description": "Spin clay at high RPM while pressing inward with fingertip pressure.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 54,
+      "class": "N",
+      "title": "3D Marble & Wood Carving Block",
+      "description": "Rotate a virtual block on all axes and chisel away material.",
+      "complete": true,
+      "related": [
+        59
+      ]
+    },
+    {
+      "id": 55,
+      "class": "N",
+      "title": "Radial Mandala & Kaleidoscope Drawer",
+      "description": "Draw one stroke and watch it mirror symmetrically across a spinning canvas.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 56,
+      "class": "N",
+      "title": "Architectural 3D Dome & Arch Inspector",
+      "description": "Roll building models smoothly to examine structural geometry.",
+      "complete": true,
+      "related": [
+        57
+      ]
+    },
+    {
+      "id": 57,
+      "class": "N",
+      "title": "Calligraphy Brush Pressure & Tilt Pad",
+      "description": "Use stylus tilt and contact blob width to vary ink stroke thickness.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 58,
+      "class": "P",
+      "title": "Phonetic Vowel & Consonant Articulation Globe",
+      "description": "Rotate a 3D vocal-tract map to explore tongue and lip positions.",
+      "complete": true,
+      "related": [
+        62
+      ]
+    },
+    {
+      "id": 59,
+      "class": "P",
+      "title": "Etymology Root-Word Constellation",
+      "description": "Pull Latin, Greek, and Germanic roots together to form modern words.",
+      "complete": true,
+      "related": [
+        63
+      ]
+    },
+    {
+      "id": 60,
+      "class": "P",
+      "title": "Story Plot Arc & Pacing Spinner",
+      "description": "Map narrative tension along a circular track from inciting incident to climax.",
+      "complete": true,
+      "related": [
+        66
+      ]
+    },
+    {
+      "id": 61,
+      "class": "P",
+      "title": "Shorthand & Stenography Stroke Recognizer",
+      "description": "Convert rapid unistroke finger gestures into text symbols.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 62,
+      "class": "P",
+      "title": "Interactive Book Page-Flip & Marginalia Wheel",
+      "description": "Flick through chapters and draw rune bookmarks.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 63,
+      "class": "Q",
+      "title": "Magnetic Pole Repulsion Lab",
+      "description": "Test North-North reverse magnets obeying the inverse-square law.",
+      "complete": true,
+      "related": []
+    },
+    {
+      "id": 64,
+      "class": "Q",
+      "title": "Atomic Orbital & Electron Cloud Viewer",
+      "description": "Spin 3D s, p, d, and f orbitals to visualize quantum probability shells.",
+      "complete": true,
+      "related": [
+        73
+      ]
+    }
+  ],
+  "trackerSupplementSource": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/273",
+  "runnableNumbers": [
+    65,
+    66,
+    67,
+    68,
+    69,
+    77,
+    80,
+    81,
+    84,
+    94,
+    96,
+    98,
+    101
+  ]
 }

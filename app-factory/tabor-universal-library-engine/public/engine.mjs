@@ -89,7 +89,8 @@ export const releaseLinks=Object.freeze({
   arcade:["Dual-Screen Arcade","https://dual-screen-arcade.nathantaboract.workers.dev/"]
 });
 
-export function sourceIndex(ledger){
-  const entries=new Map(ledger.map(row=>[row.id,row]));
+export function sourceIndex(ledger,supplement=[]){
+  const entries=new Map(supplement.map(row=>[row.id,{...row,lcClass:row.class,source:"Tracker Ball branch"}]));
+  for(const row of ledger)entries.set(row.id,row);
   return Array.from({length:101},(_,i)=>entries.get(i+1)??{id:i+1,lcClass:"",title:"",description:""});
 }
