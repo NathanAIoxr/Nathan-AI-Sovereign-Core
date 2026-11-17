@@ -35,6 +35,29 @@ Deploy or serve the release at a site root. Use touch, pen, or the primary mouse
 
 The build reads the shared modules from [TactileCoreSDK](../../standalone-apps/tactilecore-sdk/) and [Hook & Ring](../../standalone-apps/hook-and-ring/). The [TactileCoreSDK project-specific rights notice](../../standalone-apps/tactilecore-sdk/LICENSE.md) applies to its bundled module.
 
+## v.7 Tabor Universal Library Engine
+
+Open `loc101.html` on the same release. The top field offers the shared Hook & Ring pendulum,
+the Grapple It swing, and a Bibletopia village-to-archive route. The bottom field loads 101
+schematic subject cartridges through the same Track Baller and DigitGrip controls. The
+45/10/45 layout puts the Universal Bridge between them.
+
+The catalog retains the Track Baller list through item 64 and adopts the v.7 numbering for
+items 65–101. These IDs are the Tabor curriculum order. The official subject class codes
+come from the [Library of Congress classification outline](https://www.loc.gov/aba/cataloging/classification/lcco/).
+Class R uses generic dexterity and anatomy exhibits. Class U uses terrain illustration,
+a rotating classroom platform, a formation history gallery, and a museum delivery archive.
+
+- A bottom-screen clear generates Charge and may add Shield or Focus. Top-screen hits
+  grant points, another Charge, and a Nathan AI clue. Practice attempts leave rewards alone.
+- Module 81 opens the Circuit Breaker & Field Lab. Position the three parts by touch or
+  use their labeled buttons. Nathan AI, PK, and Grape-Apple Curator use local scripted lines.
+- Module 101 runs the catalog, scene, bridge, and cast checks for all 101 entries.
+  Entries use shared schematic profiles, including sample records in the Knowledge Vault.
+- Completion is stored on the device. Bridge rewards apply to the current session.
+
+Run `node --test test.mjs loc101.test.mjs` and `node build.mjs` from this directory.
+
 ## Use it from a Tabor World game
 
 ```js
