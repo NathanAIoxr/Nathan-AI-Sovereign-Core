@@ -1,3 +1,4 @@
+import { pairIds, probeProjects, servePairs } from "./pairs.mjs";
 import { repairRoute, refreshRepairs, directInternalScan } from "./repair.mjs";
 
 const REPOSITORY = "NathanAIoxr/Nathan-AI-Sovereign-Core";
@@ -102,6 +103,7 @@ function queuePage(snapshot) {
   return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
     '<title>Nathan AI Sovereign Hive</title><style>:root{color-scheme:dark}body{font:1rem/1.55 system-ui,sans-serif;max-width:52rem;margin:3rem auto;padding:0 1.25rem}a{color:#a5dcff}li{margin:.65rem 0}code{color:#acebc4}</style>' +
     '<main><h1>Nathan AI Sovereign Hive</h1><p>By Nathan Tabor and Nathan AI</p>' +
+    '<p><a href="/pairs">Worker Bees and Ant Bots</a></p>' +
     '<p><code>1+1=2</code> Build. <code>1-1=0</code> Clear. <code>1×1=1</code> Integrate. <code>1÷1=1</code> Verify.</p>' +
     status + '<ul>' + items + '</ul><p><a href="/api/queue">Queue and run receipts</a> · ' +
     '<a href="/api/repair/status">Repair queue status</a> · <a href="/api/repair/leads">Global repair leads</a> · ' +
@@ -118,7 +120,15 @@ const HEADERS = {
 
 export default {
   async fetch(request, env) {
-    if (new URL(request.url).pathname.startsWith("/api/repair/")) return repairRoute(request, env);
+    const route = new URL(request.url).pathname;
+    if (route === "/pairs" || route === "/api/repair/pairs") return servePairs(request, env.HIVE, HEADERS);
+    if (route.startsWith("/api/repair/")) {
+      const response = await repairRoute(request, env);
+      if (route !== "/api/repair/claim" || !response.ok) return response;
+      const claim = await response.json();
+      if (claim.task) claim.pair = pairIds(claim.task.id);
+      return Response.json(claim, { status: response.status, headers: response.headers });
+    }
     if (request.method !== "GET") return new Response("Method not allowed", { status: 405, headers: { Allow: "GET" } });
     const path = new URL(request.url).pathname;
     if (path !== "/" && path !== "/api/queue") return new Response("Not found", { status: 404 });
@@ -130,7 +140,8 @@ export default {
     return new Response(queuePage(snapshot), { headers: { ...HEADERS, "Content-Type": "text/html; charset=utf-8" } });
   },
 
-  async scheduled(controller, env) {
+  async scheduled(controller, env, ctx) {
+    ctx.waitUntil(probeProjects(env.HIVE));
     await directInternalScan(env, controller.scheduledTime, collectIssues, validateIssues, compareAndStore);
     await refreshRepairs(env, controller.scheduledTime);
   }

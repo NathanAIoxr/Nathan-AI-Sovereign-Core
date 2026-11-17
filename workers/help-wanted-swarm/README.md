@@ -77,3 +77,13 @@ The outbox is available in the account's D1 console. The Worker has no HTTP rout
 Apply `verifier/schema.sql` before deploying the verifier or repair status route. The [patch verifier](verifier/README.md) checks up to four eligible public GitHub handoffs at a time. Its named public receipts remain limited to Goldener and Glassbeetle. The repair status route reports aggregate verification and handoff activity. Its checks leave implementation and upstream release with Nathan Tabor.
 
 The GitLab.com community source uses GitLab's published `Accepting merge requests` label, alongside the GNOME GitLab and Mozilla sources.
+
+## Worker Bees and Ant Bots
+
+Every Help Wanted record and registered owned project has a stable Worker Bee and Ant Bot identity. The Bee tracks repair state or the latest eligible project HTTP check. The Ant tracks the source observation or ownership registration. Both use the existing ledger. Public project listings include public registrations, and repairs retain the existing lease and handoff workflow.
+
+- [Cloudflare dashboard](https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/pairs)
+- [GitHub Pages dashboard](https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/hive/)
+- [Read-only assignments API](https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/api/repair/pairs)
+
+For a fresh Hive environment, apply `schema.sql` followed by `pair-runtime.sql` to D1. Upload `worker.mjs`, `repair.mjs`, and `pairs.mjs` as ES modules. The owned project registry is populated from verified ownership sources. Scheduled checks run in batches through the Hive's existing trigger, for known public Cloudflare endpoints.
