@@ -8,6 +8,13 @@ const canvas=el("field");
 const renderer=makeRenderer(canvas);
 const reduce=matchMedia("(prefers-reduced-motion: reduce)");
 const key="tabor-tracker-ball:v1";
+const launch=new URLSearchParams(location.search);
+const hiveEmbed=launch.get("embed")==="hive"&&window.parent!==window&&!!launch.get("session");
+if(hiveEmbed){
+  document.documentElement.dataset.embed="hive";
+  el("nathan-record-notice")?.remove();
+}
+let lastBridgeSignal;
 const defaults={inertia:1.4,coast:.96,gain:1,ticks:15,haptics:false,audio:false,adaptive:true,safe:true,toe:false};
 function load(){
   try{return JSON.parse(localStorage.getItem(key))??{};}catch{return {};}
@@ -70,6 +77,13 @@ function updateHud(){
     dial:game.progress+" / 3 tumblers",pottery:"Band "+(game.band+1)+" of 3",
     lift:Math.min(2.2,game.progress).toFixed(1)+" / 2.2 s at altitude",fish:Math.round(game.reel*100)+"% reeled in"};
   write("objective",game.done?"Round complete":objectives[game.id]);
+  if(hiveEmbed){
+    const signal=game.id+":"+game.score+":"+game.done;
+    if(signal!==lastBridgeSignal){
+      lastBridgeSignal=signal;
+      window.parent.postMessage({type:"tabor:hive-arcade",session:launch.get("session"),score:game.score,done:game.done},location.origin);
+    }
+  }
 }
 function interrupt(){
   pressed=false;example=null;replay=null;live=null;trail=[];
@@ -242,7 +256,7 @@ el("reset").addEventListener("click",()=>begin(game.id));
 el("example").addEventListener("click",()=>sample());
 el("alternate").addEventListener("click",()=>sample(true));
 el("replay").addEventListener("click",startReplay);
-const selected=new URLSearchParams(location.search).get("game");
+const selected=launch.get("game");
 begin(Object.hasOwn(catalog,selected)?selected:"storm");
 renderer.fit();
 new ResizeObserver(()=>{controls.cancel();renderer.fit();}).observe(canvas);

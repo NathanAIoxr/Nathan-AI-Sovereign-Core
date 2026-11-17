@@ -101,3 +101,26 @@ with E and F available as individual filters.
 Run `node --test test.mjs loc101.test.mjs` and `node build.mjs` to validate and
 package the release. The Worker health endpoint reports both arcade and
 application counts.
+
+## Tabor Hive v9 by Nathan Tabor
+
+Open `hive.html` from Track Baller or the 101 Applications catalog. The Hive Flow
+simulator provides forward, reverse, simultaneous counter-rotation, vertical
+and horizontal layout, a speed control, and pause. Nine domain stations and
+twelve Living Foundation branches open their relevant cartridges. All 101 are
+also searchable from the Hive.
+
+The Dual-Screen Arcade embeds the existing Track Baller gameplay. Arcade score
+feeds the bridge through same-origin messages scoped to that game session.
+Nathan AI, PK, and Grape-Apple offer different local puzzle patterns and rewards.
+Attack, charge, buffs, and shields affect the bridge session.
+
+The Database Bee Workers run five allowlisted verification and indexing tasks
+in two browser worker threads. IndexedDB transactions make a claim atomic across
+Hive tabs. Expired leases can be reclaimed, mismatched results are ignored,
+and retries are bounded. The queue and latest results persist for this browser.
+An open Hive tab processes the work. Quantum, energy, biology, navigation, and
+device domains use sample models. The app uses no external execution service.
+
+Run `node --test test.mjs loc101.test.mjs hive.test.mjs` before packaging. Original
+design-reference images may be supplied as optional private preview assets.

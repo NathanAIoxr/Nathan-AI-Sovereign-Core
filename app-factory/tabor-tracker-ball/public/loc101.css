@@ -59,3 +59,5 @@ footer a{color:var(--cool)}
 [hidden]{display:none!important}
 @media(max-width:760px){.shell{width:calc(100% - 28px)}.layout{grid-template-columns:1fr}.intro{margin:23px 0 17px;align-items:start}.summary{max-width:180px}.module-list{max-height:178px}.workspace-head,.workspace-body,.catalog-head{padding:12px}.nav{min-height:53px}}
 @media(max-width:460px){.intro{display:grid;gap:9px}.summary{max-width:none}.summary p{display:inline;margin-left:5px}.canvas-wrap canvas{height:270px}.sequence{align-items:start}.counter{margin-top:6px}}
+
+.navlinks{display:flex;gap:8px 14px;align-items:center;justify-content:end;flex-wrap:wrap}
