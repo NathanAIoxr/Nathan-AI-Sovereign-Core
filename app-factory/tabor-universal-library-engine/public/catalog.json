@@ -1,0 +1,256 @@
+{
+  "title": "v.7 Tabor Universal Library Engine",
+  "author": "Nathan Tabor",
+  "classification": "https://www.loc.gov/aba/cataloging/classification/lcco/",
+  "firstSourceNumber": 65,
+  "lastSourceNumber": 101,
+  "ledger": [
+    {
+      "id": 65,
+      "lcClass": "Q",
+      "title": "Molecular Geometry & Bond Rotator",
+      "description": "Roll DNA double helices or protein backbone models on all axes; feel bond-angle constraints via magnetic locking."
+    },
+    {
+      "id": 66,
+      "lcClass": "Q",
+      "title": "Orbital Mechanics & Gravity-Assist Lab",
+      "description": "Spin a planetary system; apply inverse-square pull to slingshot probes."
+    },
+    {
+      "id": 67,
+      "lcClass": "Q",
+      "title": "Wave Interference & Superposition Pool",
+      "description": "Swirl two ripple sources and watch constructive/destructive patterns lock into standing waves."
+    },
+    {
+      "id": 68,
+      "lcClass": "Q",
+      "title": "Vector Field & Force Line Mapper",
+      "description": "Trace streamlines with unistroke gestures; tilt device to reorient the entire field."
+    },
+    {
+      "id": 69,
+      "lcClass": "Q",
+      "title": "Fractal & Chaos Attractor Explorer",
+      "description": "Spin Julia or Lorenz attractors; magnetic repulsion keeps trajectories from collapsing."
+    },
+    {
+      "id": 70,
+      "lcClass": "R",
+      "title": "3D Anatomical Joint & Ligament Spinner",
+      "description": "Rotate skeletal joints through full range of motion; feel soft-stop magnetic limits."
+    },
+    {
+      "id": 71,
+      "lcClass": "R",
+      "title": "Surgical Instrument Path Planner",
+      "description": "Trace precise unistroke trajectories for laparoscopic tools while the device is tilted."
+    },
+    {
+      "id": 72,
+      "lcClass": "R",
+      "title": "Neural Pathway & Synapse Web",
+      "description": "Spin a brain region; touch nodes to fire magnetic “action potentials” that cascade."
+    },
+    {
+      "id": 73,
+      "lcClass": "R",
+      "title": "Cardiovascular Pressure & Flow Dial",
+      "description": "Spin a circular pressure wheel; watch real-time volume and resistance changes."
+    },
+    {
+      "id": 74,
+      "lcClass": "R",
+      "title": "Rehabilitation Range-of-Motion Tracker",
+      "description": "Gentle multi-axis rolls record and score progressive joint mobility."
+    },
+    {
+      "id": 75,
+      "lcClass": "S",
+      "title": "Soil Profile & Root Architecture Spinner",
+      "description": "Peel concentric soil layers by rotation; inspect root systems in 3-D."
+    },
+    {
+      "id": 76,
+      "lcClass": "S",
+      "title": "Livestock Genetic Trait Sphere",
+      "description": "Orbit parental and offspring trait nodes; magnetic attraction shows heritability."
+    },
+    {
+      "id": 77,
+      "lcClass": "S",
+      "title": "Irrigation Network & Contour Flow Map",
+      "description": "Tilt the device to let virtual water find the lowest path across a field."
+    },
+    {
+      "id": 78,
+      "lcClass": "S",
+      "title": "Forestry Canopy & Light-Penetration Globe",
+      "description": "Spin a forest stand; adjust leaf density to see understory light levels."
+    },
+    {
+      "id": 79,
+      "lcClass": "S",
+      "title": "Aquaculture Tank Hydrodynamics",
+      "description": "Swirl water currents and watch oxygen and waste particle paths."
+    },
+    {
+      "id": 80,
+      "lcClass": "T",
+      "title": "Mechanical Linkage & Gear Train Spinner",
+      "description": "Rotate complex gear assemblies; feel backlash and mesh via magnetic detents."
+    },
+    {
+      "id": 81,
+      "lcClass": "T",
+      "title": "Electrical Field & Capacitive Sensing Demo",
+      "description": "Move fingers across the grid while watching charge distribution update live."
+    },
+    {
+      "id": 82,
+      "lcClass": "T",
+      "title": "Structural Load & Finite-Element Visualizer",
+      "description": "Spin a beam or truss; color-map stress under changing tilt loads."
+    },
+    {
+      "id": 83,
+      "lcClass": "T",
+      "title": "Fluid Dynamics & Bernoulli Streamline Lab",
+      "description": "Swirl air or water around airfoils; inverse-square fields model pressure gradients."
+    },
+    {
+      "id": 84,
+      "lcClass": "T",
+      "title": "Robotics Inverse-Kinematics Solver",
+      "description": "Rotate end-effectors; the engine solves joint angles in real time."
+    },
+    {
+      "id": 85,
+      "lcClass": "T",
+      "title": "Additive Manufacturing Layer Preview",
+      "description": "Spin a 3-D print model layer by layer with gyro-controlled cross-sections."
+    },
+    {
+      "id": 86,
+      "lcClass": "U",
+      "title": "Terrain & Line-of-Sight Analyzer",
+      "description": "Spin a 3-D elevation map; magnetic occlusion shows which units can see each other."
+    },
+    {
+      "id": 87,
+      "lcClass": "U",
+      "title": "Ballistic Trajectory & Coriolis Compensator",
+      "description": "Apply spin and tilt to correct long-range artillery paths."
+    },
+    {
+      "id": 88,
+      "lcClass": "U",
+      "title": "Unit Formation & Cohesion Field",
+      "description": "Troops maintain magnetic spacing while the whole formation is rotated."
+    },
+    {
+      "id": 89,
+      "lcClass": "U",
+      "title": "Logistics Network & Chokepoint Mapper",
+      "description": "Spin a supply graph; pinch to reinforce or cut critical edges."
+    },
+    {
+      "id": 90,
+      "lcClass": "V",
+      "title": "Hydrodynamic Hull & Wake Simulator",
+      "description": "Spin ship models at different angles of attack; visualize pressure and drag."
+    },
+    {
+      "id": 91,
+      "lcClass": "V",
+      "title": "Submarine Buoyancy & Trim Sphere",
+      "description": "Adjust ballast by tilting; magnetic centers of buoyancy and gravity interact."
+    },
+    {
+      "id": 92,
+      "lcClass": "V",
+      "title": "Celestial Navigation Astrolabe",
+      "description": "Rotate concentric rings to solve star-sight problems under gyro tilt."
+    },
+    {
+      "id": 93,
+      "lcClass": "V",
+      "title": "Harbor Current & Tidal Stream Map",
+      "description": "Swirl tidal vectors; feel residual currents after the tide turns."
+    },
+    {
+      "id": 94,
+      "lcClass": "Z",
+      "title": "Call-Number Spatial Sorter",
+      "description": "Books float in a 3-D volume ordered by LC class; magnetic shelves snap them into place."
+    },
+    {
+      "id": 95,
+      "lcClass": "Z",
+      "title": "Citation & Influence Graph Spinner",
+      "description": "Academic papers orbit one another by citation strength."
+    },
+    {
+      "id": 96,
+      "lcClass": "Z",
+      "title": "Personal Knowledge Vault Sphere",
+      "description": "User notes and media occupy a private 3-D library that can be spun, tagged, and searched."
+    },
+    {
+      "id": 97,
+      "lcClass": "Z",
+      "title": "Metadata Facet Browser",
+      "description": "Spin concentric rings of subject headings, dates, and formats to filter collections."
+    },
+    {
+      "id": 98,
+      "lcClass": "Z",
+      "title": "Digital Preservation & Bit-Rot Visualizer",
+      "description": "Rotate a media object while watching simulated degradation progress."
+    },
+    {
+      "id": 99,
+      "lcClass": "Z",
+      "title": "Cross-Collection Discovery Engine",
+      "description": "Magnetic attraction pulls related items from different LC classes into a temporary cluster."
+    },
+    {
+      "id": 100,
+      "lcClass": "Z",
+      "title": "Interactive Catalog Card & Authority Record Editor",
+      "description": "Spin authority records; edit headings with unistroke gestures."
+    },
+    {
+      "id": 101,
+      "lcClass": "Z",
+      "title": "Universal Module Loader & Test Harness",
+      "description": "Load any of the 101 cartridges, spin the interface, and verify physics + AI responses in real time."
+    }
+  ],
+  "circuit": {
+    "cartridge_id": "LC_TK_CIRCUITS_V7",
+    "lc_class": "T - Technology (TK)",
+    "title": "Circuit Breaker & Field Lab",
+    "interaction_modes": [
+      "PINCH_AND_PLACE",
+      "TRACKBALL_SPIN",
+      "MAGNETIC_SNAP"
+    ],
+    "physics_profile": {
+      "gravity": 0,
+      "magnetic_strength": 1.8,
+      "snap_to_grid": true,
+      "allow_full_quaternion": true
+    },
+    "bridge_rules": {
+      "bottom_clear_grants": "POWER_CHARGE",
+      "magnetic_lock_grants": "CIRCUIT_STABLE"
+    },
+    "cast_roles": {
+      "curator_intro": "Welcome to Class TK. Spin the board, pinch the components, feel the field.",
+      "nathan_ai_tip": "Keep polarity clean. Crossed leads still short, even in zero-g.",
+      "pk_chaos_modifier": "SURGE_MODE: random field spikes every 12–18 s"
+    }
+  }
+}
