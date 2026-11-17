@@ -1,5 +1,5 @@
 import {readFileSync} from 'node:fs';
-import {ADDITIONAL_WORKLOADS, COMPANIONS, CRON, FLEET_WORKER, targetBinding, WORKLOADS} from './fleet-plan.mjs';
+import {COMPANIONS, CRON, FLEET_WORKER, targetBinding, WORKLOADS} from './fleet-plan.mjs';
 
 export function buildDeployment({firstControllerDeployment = false} = {}) {
   const metadata = (main_module, bindings) => ({main_module, compatibility_date: '2026-11-17', bindings});
@@ -18,7 +18,6 @@ export function buildDeployment({firstControllerDeployment = false} = {}) {
         {type: 'durable_object_namespace', name: 'FLEET_SUMMARY', class_name: 'FleetSummary'},
         ...WORKLOADS.map(workload => targetBinding(workload, `TARGET_${workload.key}`)),
         ...companions.map((worker, index) => ({type: 'service', name: COMPANIONS[index].binding, service: worker.name})),
-        ...ADDITIONAL_WORKLOADS.map(workload => targetBinding(workload, workload.targetBinding)),
       ]),
       observability: {enabled: true, head_sampling_rate: 1},
       ...(firstControllerDeployment && {migrations: {new_tag: 'v1', new_sqlite_classes: ['Supervisor', 'FleetSummary']}}),
