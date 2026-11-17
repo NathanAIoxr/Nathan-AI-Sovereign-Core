@@ -2,7 +2,7 @@
 
 Nathan Tabor’s 13-book historical gothic series for teen readers and its companion children’s read-aloud edition.
 
-- [Read the public site](https://pee-dee-valley.nathantaboract.workers.dev/)
+- [Read the public site](https://pee-dee-valley-editions.nathantaboract.workers.dev/)
 - [Teen manuscript and sources](teen.md)
 - [Children’s manuscript](children.md) · [PDF](children.pdf)
 - [Launch statement](launch.txt)
