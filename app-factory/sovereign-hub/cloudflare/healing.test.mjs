@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {transition,supervise,probeFleet} from './healing.mjs';
+import {transition,supervise,probeFleet,fleetCoverage,fleetRegistryCount} from './healing.mjs';
 import {refreshCatalog} from './swarm.mjs';
 import {RecoverySupervisor} from './public/one-healing.mjs';
 function state(){const data=new Map();return {env:{},tx:fn=>fn(),get:(k,f=null)=>data.has(k)?data.get(k):f,set:(k,v)=>data.set(k,v)};}
@@ -29,8 +29,10 @@ test('component single-flight prevents concurrent repairs and healthy check skip
 test('fleet rotates bounded own-host probes, rejects external and credential URLs, and isolates incidents',async()=>{
  const hub=state();hub.env.FLEET_PROBES='enabled';const seen=[];const request=async(url,options)=>{assert.equal(options.redirect,'manual');seen.push(url);return new Response('',{status:url.includes('app0.')?503:200});};
  const apps=Array.from({length:6},(_,i)=>({url:`https://app${i}.nathantaboract.workers.dev/`}));apps.push({url:'https://evil.test/'},{url:'https://user:pass@app.nathantaboract.workers.dev/'});
- const first=await probeFleet(hub,{apps},request);assert.equal(first.checked,4);assert.equal(first.total,6);assert.equal(first.healthy,false);
- const second=await probeFleet(hub,{apps},request);assert.equal(second.checked,3);assert.equal(second.deferred,1);assert.equal(seen.length,7);assert.equal(seen.filter(x=>x.includes('app0.')).length,1);assert.ok(!seen.some(x=>x.includes('evil')));
+ hub.set('fleet_cursor',fleetRegistryCount);
+ const first=await probeFleet(hub,{apps},request,1000);assert.equal(first.checked,4);assert.equal(first.total,fleetRegistryCount+6);assert.equal(first.healthy,false);
+ hub.set('fleet_cursor',fleetRegistryCount);
+ const second=await probeFleet(hub,{apps},request,2000);assert.equal(second.checked,3);assert.equal(second.deferred,1);assert.equal(seen.length,7);assert.equal(seen.filter(x=>x.includes('app0.')).length,1);assert.ok(!seen.some(x=>x.includes('evil')));
 });
 test('thrown check enters repair; thrown telemetry cannot turn verified recovery into failure',async()=>{
  let checks=0,repairs=0;const supervisor=new RecoverySupervisor({check:async()=>{if(++checks===1)throw Error('offline');return true;},repair:async()=>{repairs++;},onEvent:()=>{throw Error('telemetry');}});
@@ -97,4 +99,24 @@ test('catalog courier does not accept invalid upstream data or mark a stale read
  assert.equal(pending.reason,'catalog_readback_pending');
  assert.equal(hub.get('catalog_verified').checked_at,100);
  assert.equal(writes,1);
+});
+
+test('fleet covers its reviewed targets without a catalog and keeps receipts across rotations',async()=>{
+ const hub=state();hub.env.FLEET_PROBES='enabled';
+ hub.set('fleet_cursor',11);
+ const start=9_000_000;
+ const request=async url=>new Response(url.includes('bibletopia')?'<title>BIBLETOPIA by Nathan Tabor</title>'+('a'.repeat(64*1024)):'<title>Unexpected App</title>',{headers:{'Content-Type':'text/html'}});
+ const first=await probeFleet(hub,{apps:[]},request,start);
+ assert.equal(first.total,21);
+ const before=fleetCoverage(hub,start);
+ assert.deepEqual(before.counts,{total:21,healthy:1,attention:3,stale:0,pending:17});
+ const findBible=coverage=>coverage.targets.find(t=>t.url==='https://bibletopia.nathantaboract.workers.dev/');
+ assert.equal(findBible(before).last_healthy_at,start);
+ await probeFleet(hub,{apps:[]},request,start+15*60_000);
+ const next=fleetCoverage(hub,start+15*60_000);
+ assert.equal(findBible(next).last_checked_at,start);
+ assert.equal(next.counts.pending,13);
+ const aged=fleetCoverage(hub,start+181*60_000);
+ assert.equal(findBible(aged).state,'stale');
+ assert.equal(aged.counts.stale,4);
 });
