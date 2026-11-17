@@ -1,0 +1,1668 @@
+{
+  "schema": "tabor-world-spiderweb-v1",
+  "updated": "2026-11-17",
+  "rights": "Original-only public index. Third-party titles, artwork, character likenesses and story dialogue are not republished.",
+  "notes": [
+    "This is a provenance graph and creative crosswalk, not a completed-manuscript inventory.",
+    "Links labeled 'new' are fresh original development concepts, not recovered author manuscripts.",
+    "A previously indexed 24-entry cartoon plan is incomplete; the starter edition contains 12 commentary entries and one original character.",
+    "F1–F33 are archived creative formulas and metaphors, not verified scientific discoveries.",
+    "Private emails and third-party reference artwork are not embedded."
+  ],
+  "nodes": [
+    {
+      "id": "root",
+      "label": "SATURDAY MORNING WORLD",
+      "parent": null,
+      "summary": "A source-linked creative web of remembered media, original stories, language, games, and truth/innocence themes. Research influences are not copied into public characters.",
+      "stage": "umbrella",
+      "source": "Tabor World project"
+    },
+    {
+      "id": "origins",
+      "label": "Childhood & Media",
+      "parent": "root",
+      "summary": "1973–2026 viewing and learning timeline; radio, film, family and faith",
+      "stage": "branch",
+      "source": "Crosswalk organization — editorial"
+    },
+    {
+      "id": "southern",
+      "label": "Southern Roads",
+      "parent": "root",
+      "summary": "Southern humor, independence, family, travel, resourcefulness and original road adventures",
+      "stage": "branch",
+      "source": "Crosswalk organization — editorial"
+    },
+    {
+      "id": "team",
+      "label": "The Crew",
+      "parent": "root",
+      "summary": "Complementary skills, clever teamwork, repairs and community service",
+      "stage": "branch",
+      "source": "Crosswalk organization — editorial"
+    },
+    {
+      "id": "cartoon",
+      "label": "Cartoon Archive",
+      "parent": "root",
+      "summary": "Commentary starters, original character and incomplete 24-entry plan",
+      "stage": "branch",
+      "source": "Crosswalk organization — editorial"
+    },
+    {
+      "id": "word",
+      "label": "Sound & Reversal",
+      "parent": "root",
+      "summary": "HO–BO–BOW, phonetics, word rotations, names, labels and meanings",
+      "stage": "branch",
+      "source": "Crosswalk organization — editorial"
+    },
+    {
+      "id": "books",
+      "label": "Books & Rewrites",
+      "parent": "root",
+      "summary": "Distinct manuscripts, rewrites and recovery states",
+      "stage": "branch",
+      "source": "Crosswalk organization — editorial"
+    },
+    {
+      "id": "worlds",
+      "label": "Original Worlds",
+      "parent": "root",
+      "summary": "Maters & Taters, TaborTales, Tabor World and connected story families",
+      "stage": "branch",
+      "source": "Crosswalk organization — editorial"
+    },
+    {
+      "id": "games",
+      "label": "Games & Technology",
+      "parent": "root",
+      "summary": "Touch physics, creator platforms, 13-axis rules and live game links",
+      "stage": "branch",
+      "source": "Crosswalk organization — editorial"
+    },
+    {
+      "id": "signal",
+      "label": "Signals & 33 Formulas",
+      "parent": "root",
+      "summary": "Antenna metaphors, creative equations and the Saturday Morning Matrix",
+      "stage": "branch",
+      "source": "Crosswalk organization — editorial"
+    },
+    {
+      "id": "values",
+      "label": "Innocence & Logic",
+      "parent": "root",
+      "summary": "Justice, loyalty, truth, honor, teamwork, knowing and doing",
+      "stage": "branch",
+      "source": "Crosswalk organization — editorial"
+    },
+    {
+      "id": "sources",
+      "label": "Evidence & Provenance",
+      "parent": "root",
+      "summary": "Original source artifacts, dates, stages and rights checks",
+      "stage": "branch",
+      "source": "Crosswalk organization — editorial"
+    },
+    {
+      "id": "timeline",
+      "label": "1973 → 2026",
+      "parent": "origins",
+      "summary": "Author's media timeline and personal recollection span, not a complete episode chronology.",
+      "stage": "recollected",
+      "source": "User chronology, November 2026"
+    },
+    {
+      "id": "screen-learning",
+      "label": "Learning from Screens",
+      "parent": "origins",
+      "summary": "TV, radio, movies, games and cartoons named as formative influences.",
+      "stage": "recollected",
+      "source": "October 2025 correspondence"
+    },
+    {
+      "id": "friday-viewing",
+      "label": "Friday-Night Family Viewing",
+      "parent": "origins",
+      "summary": "Family memories of Southern-road television and changing household rules.",
+      "stage": "recollected",
+      "source": "February 2026 correspondence"
+    },
+    {
+      "id": "radio",
+      "label": "Radio & Music",
+      "parent": "origins",
+      "summary": "Music, spoken rhythm and broadcast sound link media memories to wordplay.",
+      "stage": "recollected",
+      "source": "Personal media matrix"
+    },
+    {
+      "id": "pk",
+      "label": "PK · KJV · Questions",
+      "parent": "origins",
+      "summary": "Preacher's-kid experience, KJV study, authority, observation and questioning.",
+      "stage": "recollected",
+      "source": "Saturday Morning Cartoon Matrix artwork"
+    },
+    {
+      "id": "movie-tv",
+      "label": "Mystery · Sci-Fi · Adventure",
+      "parent": "origins",
+      "summary": "A broad television-and-film influence shelf; no third-party stories reproduced.",
+      "stage": "indexed",
+      "source": "Media matrix and correspondence"
+    },
+    {
+      "id": "south-seed",
+      "label": "Country Roads",
+      "parent": "southern",
+      "summary": "New original rural-adventure channel; source influence preserved separately.",
+      "stage": "new",
+      "source": "Saturday Morning Studio v1",
+      "link": "/#channels"
+    },
+    {
+      "id": "south-freedom",
+      "label": "Independent Problem-Solvers",
+      "parent": "southern",
+      "summary": "Characters challenge unfair rules through ingenuity and lawful community action.",
+      "stage": "new",
+      "source": "New original motif"
+    },
+    {
+      "id": "south-humor",
+      "label": "Southern Humor",
+      "parent": "southern",
+      "summary": "Roadside wit, eccentric neighbors, family banter and surprising reversals.",
+      "stage": "new",
+      "source": "Original adaptation motif"
+    },
+    {
+      "id": "south-justice",
+      "label": "Roadside Justice",
+      "parent": "southern",
+      "summary": "Compare what authority says with what people actually do.",
+      "stage": "recollected",
+      "source": "User media-and-ethics framework"
+    },
+    {
+      "id": "south-music",
+      "label": "Rhythm on the Road",
+      "parent": "southern",
+      "summary": "A music-and-language crossover connecting sound chains with journey puzzles.",
+      "stage": "new",
+      "source": "New story mechanic"
+    },
+    {
+      "id": "crew-seed",
+      "label": "Community Fix-It Crew",
+      "parent": "team",
+      "summary": "Original problem-solving ensemble; not a copy of a television team.",
+      "stage": "new",
+      "source": "Saturday Morning Studio v1",
+      "link": "/#channels"
+    },
+    {
+      "id": "crew-roles",
+      "label": "Different Skills · One Task",
+      "parent": "team",
+      "summary": "Engineer, navigator, listener, archivist and organizer contribute different abilities.",
+      "stage": "new",
+      "source": "New ensemble design"
+    },
+    {
+      "id": "crew-tools",
+      "label": "Build · Repair · Rescue",
+      "parent": "team",
+      "summary": "Nonviolent fictional service missions: repair bridges, restore signals, protect communities.",
+      "stage": "new",
+      "source": "New original missions"
+    },
+    {
+      "id": "crew-logic",
+      "label": "Observe → Plan → Verify",
+      "parent": "team",
+      "summary": "Clear decision chain with evidence and consent checks.",
+      "stage": "new",
+      "source": "Original gameplay logic"
+    },
+    {
+      "id": "crew-bonds",
+      "label": "Team Trust",
+      "parent": "team",
+      "summary": "Trust and cooperation grow through repeated acts rather than labels.",
+      "stage": "new",
+      "source": "Original story mechanics"
+    },
+    {
+      "id": "commentary",
+      "label": "12 Cartoon Commentary Starters",
+      "parent": "cartoon",
+      "summary": "Twelve independently indexed commentary entries; not verified completed novels.",
+      "stage": "indexed",
+      "source": "October 24 HTML/EPUB starter collection"
+    },
+    {
+      "id": "occhio",
+      "label": "OCCHIO",
+      "parent": "cartoon",
+      "summary": "Separately indexed original satirical character; original draft status needs review.",
+      "stage": "indexed",
+      "source": "October 24 starter collection"
+    },
+    {
+      "id": "cartoon-24",
+      "label": "24-Entry Source Plan",
+      "parent": "cartoon",
+      "summary": "An earlier 24-entry source is mentioned; entries 13–24 are not verified in the starter package.",
+      "stage": "incomplete",
+      "source": "October 24 starter index"
+    },
+    {
+      "id": "animation",
+      "label": "Animation & Frames",
+      "parent": "cartoon",
+      "summary": "Frame-by-frame animation, broadcasting and storytelling as an original creative medium.",
+      "stage": "new",
+      "source": "Adaptation opportunity"
+    },
+    {
+      "id": "cartoon-themes",
+      "label": "Saturday Morning Themes",
+      "parent": "cartoon",
+      "summary": "Justice, loyalty, truth, honor, teamwork, good versus evil, knowing and doing.",
+      "stage": "recovered",
+      "source": "Saturday Morning Cartoon Matrix artwork"
+    },
+    {
+      "id": "sound-chain",
+      "label": "HO → BO → BOW",
+      "parent": "word",
+      "summary": "User's phonetic chain, with a broader HOBO and musical-name spiderweb preserved in conversation.",
+      "stage": "recollected",
+      "source": "November 7 user wordplay"
+    },
+    {
+      "id": "phonetics",
+      "label": "Hearing & Homophones",
+      "parent": "word",
+      "summary": "Sounds, homophones, and distinctions between heard and written words.",
+      "stage": "recollected",
+      "source": "User language-method records"
+    },
+    {
+      "id": "rotations",
+      "label": "Word Rotations",
+      "parent": "word",
+      "summary": "Reverse and rotate words while keeping meaning, evidence and context separate.",
+      "stage": "recollected",
+      "source": "Tabor language explorer"
+    },
+    {
+      "id": "identity",
+      "label": "Name ≠ Character",
+      "parent": "word",
+      "summary": "An unchanged sound or label does not prove two people, stories or entities are the same.",
+      "stage": "editorial",
+      "source": "Provenance guardrail"
+    },
+    {
+      "id": "alphabet",
+      "label": "A–Z & Z–A",
+      "parent": "word",
+      "summary": "Bidirectional alphabetical indexing and original wordplay.",
+      "stage": "recollected",
+      "source": "Tabor Library and language system"
+    },
+    {
+      "id": "semantic",
+      "label": "Semantic Label Questions",
+      "parent": "word",
+      "summary": "Examine how labels affect interpretation without assuming equivalence.",
+      "stage": "recovered",
+      "source": "33-formula creative source"
+    },
+    {
+      "id": "indoctrination",
+      "label": "THE INDOCTRINATION AND PROGRAMMING OF JOHN NATHAN TABOR",
+      "parent": "books",
+      "summary": "12 commentary starters plus OCCHIO; preserve originals and source titles in archive, not public adaptations.",
+      "stage": "indexed",
+      "source": "October 24 independent books index"
+    },
+    {
+      "id": "twinkling-frames",
+      "label": "THE TWINKLING · World Between Frames",
+      "parent": "books",
+      "summary": "One complete first novella draft in eight parts, assistant-developed from Nathan Tabor's blueprint; original cast and setting.",
+      "stage": "draft",
+      "source": "THE_TWINKLING_The_World_Between_Frames.md"
+    },
+    {
+      "id": "twinkling-bible",
+      "label": "THE TWINKLING · Eight Bible Books",
+      "parent": "books",
+      "summary": "Separate condensed eight-book Bible-based manuscript, not an exhaustive retelling.",
+      "stage": "draft",
+      "source": "October 3, 2026 correspondence"
+    },
+    {
+      "id": "five-eye",
+      "label": "THE FIVE AND THE EYE THAT BLINKED",
+      "parent": "books",
+      "summary": "Distinct eight-book family adaptation plan; complete manuscripts not verified.",
+      "stage": "planned",
+      "source": "Innocence Children Recovery Register"
+    },
+    {
+      "id": "memoir",
+      "label": "Life & Mind of John Nathan Tabor",
+      "parent": "books",
+      "summary": "Autobiographical source material and creative stories must remain separately attributed.",
+      "stage": "planned",
+      "source": "Master publishing catalog"
+    },
+    {
+      "id": "books-catalog",
+      "label": "Finished Catalog & Master Index",
+      "parent": "books",
+      "summary": "Tracks work IDs, stages and source identifiers to avoid treating outlines as finished books.",
+      "stage": "recovered",
+      "source": "John_Nathan_Tabor_Finished_Catalog_2026-11-08.md"
+    },
+    {
+      "id": "maters",
+      "label": "Maters & Taters",
+      "parent": "worlds",
+      "summary": "Two servant-leader families and a living community framework; preserved as its own creative rail.",
+      "stage": "recovered",
+      "source": "Tabor World Living Family Tree artwork"
+    },
+    {
+      "id": "families",
+      "label": "22 Family Labels",
+      "parent": "worlds",
+      "summary": "Twenty-two recovered family labels, including ACT, AMT, ATM and the other indexed labels.",
+      "stage": "recovered",
+      "source": "Tabor World Living Family Tree artwork"
+    },
+    {
+      "id": "slots",
+      "label": "26 A–Z · 572 Slots",
+      "parent": "worlds",
+      "summary": "572 primary index positions; not 572 finished characters, books or games.",
+      "stage": "recovered",
+      "source": "Tabor World Living Family Tree artwork"
+    },
+    {
+      "id": "tabortales",
+      "label": "TABORTALES · Nature & Stories",
+      "parent": "worlds",
+      "summary": "Original nature-and-faith story world with Tater, Buddy, Moe, Paulie and Chief Cocoa.",
+      "stage": "recovered",
+      "source": "Innocence Children Recovery Register"
+    },
+    {
+      "id": "tales-quest",
+      "label": "The Division of the Red Matrix",
+      "parent": "worlds",
+      "summary": "Environmental teamwork quest involving wind, water and cooperation; original story concept.",
+      "stage": "indexed",
+      "source": "TaborTales project register"
+    },
+    {
+      "id": "ropato",
+      "label": "Ropato & Otapor",
+      "parent": "worlds",
+      "summary": "Legacy twin guardian concepts retained independently; one source proposes TaborTales as the current core.",
+      "stage": "legacy",
+      "source": "tabor_master_database.json"
+    },
+    {
+      "id": "og",
+      "label": "THE OG FAMILY",
+      "parent": "worlds",
+      "summary": "Separate original DOG/CAT-centered proposed twelve-book foundation.",
+      "stage": "planned",
+      "source": "Innocence Children Recovery Register"
+    },
+    {
+      "id": "act",
+      "label": "THE ACT CHRONICLES",
+      "parent": "worlds",
+      "summary": "Separate family fantasy and original opening; cross-linked, not merged.",
+      "stage": "draft",
+      "source": "Innocence Children Recovery Register"
+    },
+    {
+      "id": "world-gateway",
+      "label": "Tabor World Gateway",
+      "parent": "worlds",
+      "summary": "Live gateway to connected independent games and worlds.",
+      "stage": "live",
+      "source": "Connected Cloudflare deployment",
+      "link": "https://tabor-world.nathantaboract.workers.dev/"
+    },
+    {
+      "id": "grapple",
+      "label": "Grapple It",
+      "parent": "games",
+      "summary": "Live touch-and-physics arcade with 32 challenges and Daily Grapple.",
+      "stage": "live",
+      "source": "Connected Cloudflare deployment",
+      "link": "https://grapple-it.nathantaboract.workers.dev/"
+    },
+    {
+      "id": "hook",
+      "label": "Hook & Ring",
+      "parent": "games",
+      "summary": "Independent live ring-and-physics arcade.",
+      "stage": "live",
+      "source": "Connected Cloudflare deployment",
+      "link": "https://hook-and-ring.nathantaboract.workers.dev/"
+    },
+    {
+      "id": "tracker",
+      "label": "Tabor Tracker Ball",
+      "parent": "games",
+      "summary": "Gesture and trackball controller lab, separately hosted.",
+      "stage": "live",
+      "source": "Connected Cloudflare deployment",
+      "link": "https://tabor-tracker-ball.nathantaboract.workers.dev/"
+    },
+    {
+      "id": "dual",
+      "label": "Dual-Screen Arcade",
+      "parent": "games",
+      "summary": "Upper playfield, lower puzzle and shared Universal Bridge actions.",
+      "stage": "live",
+      "source": "Connected Cloudflare deployment",
+      "link": "https://dual-screen-arcade.nathantaboract.workers.dev/"
+    },
+    {
+      "id": "finger",
+      "label": "Universal Finger-Physics",
+      "parent": "games",
+      "summary": "Shared touch filtering, lift-off buffering, physics chassis and tactile game cartridges.",
+      "stage": "blueprint",
+      "source": "Nathan Tabor engineering framework"
+    },
+    {
+      "id": "rubber",
+      "label": "THE RUBBER HOSE · Two Tabors",
+      "parent": "games",
+      "summary": "Separate fictional, virtual-only game inspired by a 1987 family story; real hose reenactment prohibited.",
+      "stage": "prototype",
+      "source": "TECHNOLOGY_BLUEPRINT(1).md"
+    },
+    {
+      "id": "polar",
+      "label": "13-Axis Polarity Game",
+      "parent": "games",
+      "summary": "Eight processing stages plus five gameplay tiers; local prototype and rule hooks.",
+      "stage": "prototype",
+      "source": "BLUEPRINT.md"
+    },
+    {
+      "id": "library",
+      "label": "Library of Tabor · 101",
+      "parent": "games",
+      "summary": "A catalog of modular applications; catalog entries are not all implemented games.",
+      "stage": "catalog",
+      "source": "Tabor Universal Library Engine",
+      "link": "https://tabor-universal-library-engine.nathantaboract.workers.dev/"
+    },
+    {
+      "id": "signal-game",
+      "label": "Signal Switchboard",
+      "parent": "signal",
+      "summary": "Live original memory-and-verification game in the Saturday Morning Studio.",
+      "stage": "live",
+      "source": "Saturday Morning Studio v1",
+      "link": "/#signal-game"
+    },
+    {
+      "id": "rabbit",
+      "label": "Rabbit-Ear Antenna",
+      "parent": "signal",
+      "summary": "Broadcast imagery links signals, attention, timing and meaning.",
+      "stage": "recovered",
+      "source": "Saturday Morning Cartoon Matrix artwork"
+    },
+    {
+      "id": "formula-index",
+      "label": "33 Creative Formula Entries",
+      "parent": "signal",
+      "summary": "Four blocks of creative/speculative equations; not independently validated physics.",
+      "stage": "recovered",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "f1-8",
+      "label": "F1–F8 · Spatial Folding",
+      "parent": "signal",
+      "summary": "Creative geometry and geography analogies.",
+      "stage": "recovered",
+      "source": "33-formula source document"
+    },
+    {
+      "id": "f9-16",
+      "label": "F9–F16 · Zigzag Dynamics",
+      "parent": "signal",
+      "summary": "Speculative wave, resonance and dimensional metaphors.",
+      "stage": "recovered",
+      "source": "33-formula source document"
+    },
+    {
+      "id": "f17-24",
+      "label": "F17–F24 · Antenna & Scripture",
+      "parent": "signal",
+      "summary": "Signal, precision, geometry and biblical metaphor.",
+      "stage": "recovered",
+      "source": "33-formula source document"
+    },
+    {
+      "id": "f25-33",
+      "label": "F25–F33 · Labels & Archetypes",
+      "parent": "signal",
+      "summary": "Semantic labels, transformation, ethics and broadcast metaphors.",
+      "stage": "recovered",
+      "source": "33-formula source document"
+    },
+    {
+      "id": "justice",
+      "label": "Justice",
+      "parent": "values",
+      "summary": "A named Saturday Morning Matrix theme.",
+      "stage": "recovered",
+      "source": "Saturday Morning Cartoon Matrix artwork"
+    },
+    {
+      "id": "loyalty",
+      "label": "Loyalty",
+      "parent": "values",
+      "summary": "A named Saturday Morning Matrix theme.",
+      "stage": "recovered",
+      "source": "Saturday Morning Cartoon Matrix artwork"
+    },
+    {
+      "id": "truth",
+      "label": "Truth",
+      "parent": "values",
+      "summary": "Compare evidence with assertion; label interpretation and uncertainty.",
+      "stage": "recovered",
+      "source": "Saturday Morning Cartoon Matrix artwork"
+    },
+    {
+      "id": "honor",
+      "label": "Honor",
+      "parent": "values",
+      "summary": "A named Saturday Morning Matrix theme.",
+      "stage": "recovered",
+      "source": "Saturday Morning Cartoon Matrix artwork"
+    },
+    {
+      "id": "teamwork",
+      "label": "Teamwork",
+      "parent": "values",
+      "summary": "A named Saturday Morning Matrix theme.",
+      "stage": "recovered",
+      "source": "Saturday Morning Cartoon Matrix artwork"
+    },
+    {
+      "id": "knowing",
+      "label": "Knowing & Doing",
+      "parent": "values",
+      "summary": "Connect what a character knows to what they actually choose to do.",
+      "stage": "recovered",
+      "source": "Saturday Morning Cartoon Matrix artwork"
+    },
+    {
+      "id": "innocence",
+      "label": "Innocence Is Not a Commodity",
+      "parent": "values",
+      "summary": "Standing creative theme; child-safe defaults and consent-aware stories.",
+      "stage": "recollected",
+      "source": "User-authored principle"
+    },
+    {
+      "id": "build-clear",
+      "label": "1+1=2 · 1−1=0",
+      "parent": "values",
+      "summary": "Build and clear anchors; story-game integrity rules.",
+      "stage": "recollected",
+      "source": "Nathan Tabor Way"
+    },
+    {
+      "id": "source-art",
+      "label": "Cartoon Matrix Artwork",
+      "parent": "sources",
+      "summary": "Archival reference graphic; includes third-party imagery and is not redistributed here.",
+      "stage": "recovered",
+      "source": "Saturday Morning Cartoon Matrix.png"
+    },
+    {
+      "id": "source-formulas",
+      "label": "33-Formula Document",
+      "parent": "sources",
+      "summary": "Complete F1–F33 creative text was located; scientific claims not validated.",
+      "stage": "recovered",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "source-html",
+      "label": "13-Entry Starter Index",
+      "parent": "sources",
+      "summary": "Twelve commentary starters plus OCCHIO; the 24-entry source plan is incomplete.",
+      "stage": "recovered",
+      "source": "index(20261024-153047).html"
+    },
+    {
+      "id": "source-novella",
+      "label": "World Between Frames Draft",
+      "parent": "sources",
+      "summary": "Complete first novella draft in eight parts located and read; keep original text separate.",
+      "stage": "recovered",
+      "source": "THE_TWINKLING_The_World_Between_Frames.md"
+    },
+    {
+      "id": "source-2025",
+      "label": "2025 Media Correspondence",
+      "parent": "sources",
+      "summary": "User-linked viewing, radio, movie and detective influences.",
+      "stage": "recovered",
+      "source": "October 7, 2025 correspondence"
+    },
+    {
+      "id": "source-2026",
+      "label": "2026 Cartoon Correspondence",
+      "parent": "sources",
+      "summary": "User-linked Saturday cartoons, Southern television and spiritual interpretations.",
+      "stage": "recovered",
+      "source": "February 2026 correspondence"
+    },
+    {
+      "id": "source-blueprint",
+      "label": "Two Tabors Technology Blueprint",
+      "parent": "sources",
+      "summary": "Virtual-only Rubber Hose game and creator-platform roadmap.",
+      "stage": "recovered",
+      "source": "TECHNOLOGY_BLUEPRINT(1).md"
+    },
+    {
+      "id": "source-polar",
+      "label": "13-Axis Game Blueprint",
+      "parent": "sources",
+      "summary": "Detailed 8+5 stage/tier system and offline prototype limits.",
+      "stage": "recovered",
+      "source": "BLUEPRINT.md"
+    }
+  ],
+  "edges": [
+    {
+      "from": "root",
+      "to": "origins",
+      "relation": "contains"
+    },
+    {
+      "from": "root",
+      "to": "southern",
+      "relation": "contains"
+    },
+    {
+      "from": "root",
+      "to": "team",
+      "relation": "contains"
+    },
+    {
+      "from": "root",
+      "to": "cartoon",
+      "relation": "contains"
+    },
+    {
+      "from": "root",
+      "to": "word",
+      "relation": "contains"
+    },
+    {
+      "from": "root",
+      "to": "books",
+      "relation": "contains"
+    },
+    {
+      "from": "root",
+      "to": "worlds",
+      "relation": "contains"
+    },
+    {
+      "from": "root",
+      "to": "games",
+      "relation": "contains"
+    },
+    {
+      "from": "root",
+      "to": "signal",
+      "relation": "contains"
+    },
+    {
+      "from": "root",
+      "to": "values",
+      "relation": "contains"
+    },
+    {
+      "from": "root",
+      "to": "sources",
+      "relation": "contains"
+    },
+    {
+      "from": "origins",
+      "to": "timeline",
+      "relation": "contains"
+    },
+    {
+      "from": "origins",
+      "to": "screen-learning",
+      "relation": "contains"
+    },
+    {
+      "from": "origins",
+      "to": "friday-viewing",
+      "relation": "contains"
+    },
+    {
+      "from": "origins",
+      "to": "radio",
+      "relation": "contains"
+    },
+    {
+      "from": "origins",
+      "to": "pk",
+      "relation": "contains"
+    },
+    {
+      "from": "origins",
+      "to": "movie-tv",
+      "relation": "contains"
+    },
+    {
+      "from": "southern",
+      "to": "south-seed",
+      "relation": "contains"
+    },
+    {
+      "from": "southern",
+      "to": "south-freedom",
+      "relation": "contains"
+    },
+    {
+      "from": "southern",
+      "to": "south-humor",
+      "relation": "contains"
+    },
+    {
+      "from": "southern",
+      "to": "south-justice",
+      "relation": "contains"
+    },
+    {
+      "from": "southern",
+      "to": "south-music",
+      "relation": "contains"
+    },
+    {
+      "from": "team",
+      "to": "crew-seed",
+      "relation": "contains"
+    },
+    {
+      "from": "team",
+      "to": "crew-roles",
+      "relation": "contains"
+    },
+    {
+      "from": "team",
+      "to": "crew-tools",
+      "relation": "contains"
+    },
+    {
+      "from": "team",
+      "to": "crew-logic",
+      "relation": "contains"
+    },
+    {
+      "from": "team",
+      "to": "crew-bonds",
+      "relation": "contains"
+    },
+    {
+      "from": "cartoon",
+      "to": "commentary",
+      "relation": "contains"
+    },
+    {
+      "from": "cartoon",
+      "to": "occhio",
+      "relation": "contains"
+    },
+    {
+      "from": "cartoon",
+      "to": "cartoon-24",
+      "relation": "contains"
+    },
+    {
+      "from": "cartoon",
+      "to": "animation",
+      "relation": "contains"
+    },
+    {
+      "from": "cartoon",
+      "to": "cartoon-themes",
+      "relation": "contains"
+    },
+    {
+      "from": "word",
+      "to": "sound-chain",
+      "relation": "contains"
+    },
+    {
+      "from": "word",
+      "to": "phonetics",
+      "relation": "contains"
+    },
+    {
+      "from": "word",
+      "to": "rotations",
+      "relation": "contains"
+    },
+    {
+      "from": "word",
+      "to": "identity",
+      "relation": "contains"
+    },
+    {
+      "from": "word",
+      "to": "alphabet",
+      "relation": "contains"
+    },
+    {
+      "from": "word",
+      "to": "semantic",
+      "relation": "contains"
+    },
+    {
+      "from": "books",
+      "to": "indoctrination",
+      "relation": "contains"
+    },
+    {
+      "from": "books",
+      "to": "twinkling-frames",
+      "relation": "contains"
+    },
+    {
+      "from": "books",
+      "to": "twinkling-bible",
+      "relation": "contains"
+    },
+    {
+      "from": "books",
+      "to": "five-eye",
+      "relation": "contains"
+    },
+    {
+      "from": "books",
+      "to": "memoir",
+      "relation": "contains"
+    },
+    {
+      "from": "books",
+      "to": "books-catalog",
+      "relation": "contains"
+    },
+    {
+      "from": "worlds",
+      "to": "maters",
+      "relation": "contains"
+    },
+    {
+      "from": "worlds",
+      "to": "families",
+      "relation": "contains"
+    },
+    {
+      "from": "worlds",
+      "to": "slots",
+      "relation": "contains"
+    },
+    {
+      "from": "worlds",
+      "to": "tabortales",
+      "relation": "contains"
+    },
+    {
+      "from": "worlds",
+      "to": "tales-quest",
+      "relation": "contains"
+    },
+    {
+      "from": "worlds",
+      "to": "ropato",
+      "relation": "contains"
+    },
+    {
+      "from": "worlds",
+      "to": "og",
+      "relation": "contains"
+    },
+    {
+      "from": "worlds",
+      "to": "act",
+      "relation": "contains"
+    },
+    {
+      "from": "worlds",
+      "to": "world-gateway",
+      "relation": "contains"
+    },
+    {
+      "from": "games",
+      "to": "grapple",
+      "relation": "contains"
+    },
+    {
+      "from": "games",
+      "to": "hook",
+      "relation": "contains"
+    },
+    {
+      "from": "games",
+      "to": "tracker",
+      "relation": "contains"
+    },
+    {
+      "from": "games",
+      "to": "dual",
+      "relation": "contains"
+    },
+    {
+      "from": "games",
+      "to": "finger",
+      "relation": "contains"
+    },
+    {
+      "from": "games",
+      "to": "rubber",
+      "relation": "contains"
+    },
+    {
+      "from": "games",
+      "to": "polar",
+      "relation": "contains"
+    },
+    {
+      "from": "games",
+      "to": "library",
+      "relation": "contains"
+    },
+    {
+      "from": "signal",
+      "to": "signal-game",
+      "relation": "contains"
+    },
+    {
+      "from": "signal",
+      "to": "rabbit",
+      "relation": "contains"
+    },
+    {
+      "from": "signal",
+      "to": "formula-index",
+      "relation": "contains"
+    },
+    {
+      "from": "signal",
+      "to": "f1-8",
+      "relation": "contains"
+    },
+    {
+      "from": "signal",
+      "to": "f9-16",
+      "relation": "contains"
+    },
+    {
+      "from": "signal",
+      "to": "f17-24",
+      "relation": "contains"
+    },
+    {
+      "from": "signal",
+      "to": "f25-33",
+      "relation": "contains"
+    },
+    {
+      "from": "values",
+      "to": "justice",
+      "relation": "contains"
+    },
+    {
+      "from": "values",
+      "to": "loyalty",
+      "relation": "contains"
+    },
+    {
+      "from": "values",
+      "to": "truth",
+      "relation": "contains"
+    },
+    {
+      "from": "values",
+      "to": "honor",
+      "relation": "contains"
+    },
+    {
+      "from": "values",
+      "to": "teamwork",
+      "relation": "contains"
+    },
+    {
+      "from": "values",
+      "to": "knowing",
+      "relation": "contains"
+    },
+    {
+      "from": "values",
+      "to": "innocence",
+      "relation": "contains"
+    },
+    {
+      "from": "values",
+      "to": "build-clear",
+      "relation": "contains"
+    },
+    {
+      "from": "sources",
+      "to": "source-art",
+      "relation": "contains"
+    },
+    {
+      "from": "sources",
+      "to": "source-formulas",
+      "relation": "contains"
+    },
+    {
+      "from": "sources",
+      "to": "source-html",
+      "relation": "contains"
+    },
+    {
+      "from": "sources",
+      "to": "source-novella",
+      "relation": "contains"
+    },
+    {
+      "from": "sources",
+      "to": "source-2025",
+      "relation": "contains"
+    },
+    {
+      "from": "sources",
+      "to": "source-2026",
+      "relation": "contains"
+    },
+    {
+      "from": "sources",
+      "to": "source-blueprint",
+      "relation": "contains"
+    },
+    {
+      "from": "sources",
+      "to": "source-polar",
+      "relation": "contains"
+    },
+    {
+      "from": "timeline",
+      "to": "screen-learning",
+      "relation": "chronology"
+    },
+    {
+      "from": "friday-viewing",
+      "to": "south-seed",
+      "relation": "influence"
+    },
+    {
+      "from": "screen-learning",
+      "to": "commentary",
+      "relation": "influence"
+    },
+    {
+      "from": "screen-learning",
+      "to": "movie-tv",
+      "relation": "influence"
+    },
+    {
+      "from": "south-seed",
+      "to": "south-humor",
+      "relation": "story mechanic"
+    },
+    {
+      "from": "south-seed",
+      "to": "south-justice",
+      "relation": "theme"
+    },
+    {
+      "from": "south-seed",
+      "to": "crew-seed",
+      "relation": "crossover"
+    },
+    {
+      "from": "south-music",
+      "to": "sound-chain",
+      "relation": "sound link"
+    },
+    {
+      "from": "south-justice",
+      "to": "justice",
+      "relation": "value"
+    },
+    {
+      "from": "crew-seed",
+      "to": "crew-roles",
+      "relation": "roles"
+    },
+    {
+      "from": "crew-seed",
+      "to": "crew-tools",
+      "relation": "mission"
+    },
+    {
+      "from": "crew-logic",
+      "to": "build-clear",
+      "relation": "logic"
+    },
+    {
+      "from": "crew-bonds",
+      "to": "teamwork",
+      "relation": "value"
+    },
+    {
+      "from": "commentary",
+      "to": "indoctrination",
+      "relation": "source work"
+    },
+    {
+      "from": "occhio",
+      "to": "indoctrination",
+      "relation": "indexed alongside"
+    },
+    {
+      "from": "cartoon-24",
+      "to": "source-html",
+      "relation": "provenance"
+    },
+    {
+      "from": "cartoon-themes",
+      "to": "truth",
+      "relation": "theme"
+    },
+    {
+      "from": "cartoon-themes",
+      "to": "honor",
+      "relation": "theme"
+    },
+    {
+      "from": "cartoon-themes",
+      "to": "loyalty",
+      "relation": "theme"
+    },
+    {
+      "from": "sound-chain",
+      "to": "phonetics",
+      "relation": "sound"
+    },
+    {
+      "from": "phonetics",
+      "to": "rotations",
+      "relation": "language"
+    },
+    {
+      "from": "rotations",
+      "to": "alphabet",
+      "relation": "indexing"
+    },
+    {
+      "from": "semantic",
+      "to": "identity",
+      "relation": "interpretation"
+    },
+    {
+      "from": "semantic",
+      "to": "f25-33",
+      "relation": "formula"
+    },
+    {
+      "from": "twinkling-frames",
+      "to": "source-novella",
+      "relation": "manuscript"
+    },
+    {
+      "from": "twinkling-frames",
+      "to": "five-eye",
+      "relation": "distinct adaptation"
+    },
+    {
+      "from": "twinkling-bible",
+      "to": "twinkling-frames",
+      "relation": "distinct work"
+    },
+    {
+      "from": "twinkling-frames",
+      "to": "rabbit",
+      "relation": "story signal"
+    },
+    {
+      "from": "twinkling-frames",
+      "to": "tabortales",
+      "relation": "cross-world possibility"
+    },
+    {
+      "from": "maters",
+      "to": "families",
+      "relation": "world structure"
+    },
+    {
+      "from": "families",
+      "to": "slots",
+      "relation": "A-Z expansion"
+    },
+    {
+      "from": "maters",
+      "to": "tabortales",
+      "relation": "related separate worlds"
+    },
+    {
+      "from": "tabortales",
+      "to": "tales-quest",
+      "relation": "episode concept"
+    },
+    {
+      "from": "ropato",
+      "to": "maters",
+      "relation": "legacy link"
+    },
+    {
+      "from": "og",
+      "to": "act",
+      "relation": "related distinct"
+    },
+    {
+      "from": "world-gateway",
+      "to": "maters",
+      "relation": "world connection"
+    },
+    {
+      "from": "grapple",
+      "to": "finger",
+      "relation": "shared tech"
+    },
+    {
+      "from": "hook",
+      "to": "finger",
+      "relation": "shared tech"
+    },
+    {
+      "from": "tracker",
+      "to": "finger",
+      "relation": "input technology"
+    },
+    {
+      "from": "dual",
+      "to": "grapple",
+      "relation": "arcade crossover"
+    },
+    {
+      "from": "dual",
+      "to": "tracker",
+      "relation": "input crossover"
+    },
+    {
+      "from": "rubber",
+      "to": "finger",
+      "relation": "engineering crossover"
+    },
+    {
+      "from": "polar",
+      "to": "dual",
+      "relation": "rules architecture"
+    },
+    {
+      "from": "library",
+      "to": "polar",
+      "relation": "catalog architecture"
+    },
+    {
+      "from": "rubber",
+      "to": "source-blueprint",
+      "relation": "evidence"
+    },
+    {
+      "from": "rabbit",
+      "to": "signal-game",
+      "relation": "signal mechanic"
+    },
+    {
+      "from": "rabbit",
+      "to": "f17-24",
+      "relation": "formula"
+    },
+    {
+      "from": "formula-index",
+      "to": "f1-8",
+      "relation": "block"
+    },
+    {
+      "from": "formula-index",
+      "to": "f9-16",
+      "relation": "block"
+    },
+    {
+      "from": "formula-index",
+      "to": "f17-24",
+      "relation": "block"
+    },
+    {
+      "from": "formula-index",
+      "to": "f25-33",
+      "relation": "block"
+    },
+    {
+      "from": "formula-index",
+      "to": "source-formulas",
+      "relation": "source"
+    },
+    {
+      "from": "signal-game",
+      "to": "knowing",
+      "relation": "verification"
+    },
+    {
+      "from": "innocence",
+      "to": "knowing",
+      "relation": "ethics"
+    },
+    {
+      "from": "justice",
+      "to": "truth",
+      "relation": "ethics"
+    },
+    {
+      "from": "teamwork",
+      "to": "crew-tools",
+      "relation": "action"
+    },
+    {
+      "from": "build-clear",
+      "to": "crew-logic",
+      "relation": "logic"
+    },
+    {
+      "from": "source-art",
+      "to": "cartoon-themes",
+      "relation": "evidence"
+    },
+    {
+      "from": "source-2025",
+      "to": "screen-learning",
+      "relation": "evidence"
+    },
+    {
+      "from": "source-2026",
+      "to": "friday-viewing",
+      "relation": "evidence"
+    },
+    {
+      "from": "source-polar",
+      "to": "polar",
+      "relation": "evidence"
+    },
+    {
+      "from": "source-html",
+      "to": "commentary",
+      "relation": "evidence"
+    }
+  ],
+  "formulas": [
+    {
+      "id": "F1",
+      "label": "Vertical Accordion Squeeze",
+      "block": "Spatial Folding",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F2",
+      "label": "Horizontal Surface Stretch",
+      "block": "Spatial Folding",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F3",
+      "label": "Accordion Pleat Frequency",
+      "block": "Spatial Folding",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F4",
+      "label": "Boundary Contraction",
+      "block": "Spatial Folding",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F5",
+      "label": "Sea-Floor Sedimentary Mesh",
+      "block": "Spatial Folding",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F6",
+      "label": "River Winding",
+      "block": "Spatial Folding",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F7",
+      "label": "Horizon Flattening",
+      "block": "Spatial Folding",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F8",
+      "label": "Fault-and-Ridge Rhythm",
+      "block": "Spatial Folding",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F9",
+      "label": "Zigzag Wavefunction",
+      "block": "Zigzag Dynamics",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F10",
+      "label": "Duality Resonance",
+      "block": "Zigzag Dynamics",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F11",
+      "label": "Speculative String Tension",
+      "block": "Zigzag Dynamics",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F12",
+      "label": "Filament Tuning Frequency",
+      "block": "Zigzag Dynamics",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F13",
+      "label": "Expansion Energy Metaphor",
+      "block": "Zigzag Dynamics",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F14",
+      "label": "Pop-Up Extrusion",
+      "block": "Zigzag Dynamics",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F15",
+      "label": "Ribbon Balance",
+      "block": "Zigzag Dynamics",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F16",
+      "label": "Spectral Density",
+      "block": "Zigzag Dynamics",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F17",
+      "label": "Foursquare Symmetry",
+      "block": "Antenna & Scripture",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F18",
+      "label": "Compactness Index",
+      "block": "Antenna & Scripture",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F19",
+      "label": "Jot-and-Tittle Precision",
+      "block": "Antenna & Scripture",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F20",
+      "label": "Humility Input Impedance",
+      "block": "Antenna & Scripture",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F21",
+      "label": "Rabbit-Ear Phase Match",
+      "block": "Antenna & Scripture",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F22",
+      "label": "Back-Pew Filter",
+      "block": "Antenna & Scripture",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F23",
+      "label": "Timeline Shift",
+      "block": "Antenna & Scripture",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F24",
+      "label": "White-Steed Luminance",
+      "block": "Antenna & Scripture",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F25",
+      "label": "Semantic Label Identity",
+      "block": "Labels & Archetypes",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F26",
+      "label": "Miracle-to-Magic Comparison",
+      "block": "Labels & Archetypes",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F27",
+      "label": "Serpent Transformation",
+      "block": "Labels & Archetypes",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F28",
+      "label": "Heat Absorption",
+      "block": "Labels & Archetypes",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F29",
+      "label": "Stone Grinding",
+      "block": "Labels & Archetypes",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F30",
+      "label": "Four-Value Ethics Vector",
+      "block": "Labels & Archetypes",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F31",
+      "label": "Venture Result Curve",
+      "block": "Labels & Archetypes",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F32",
+      "label": "Broadcast Frame Density",
+      "block": "Labels & Archetypes",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    },
+    {
+      "id": "F33",
+      "label": "Replicated Creation Tensor",
+      "block": "Labels & Archetypes",
+      "status": "Archived creative/speculative formula; not scientifically validated",
+      "source": "Pasted text(20261024-143704).txt"
+    }
+  ]
+}
