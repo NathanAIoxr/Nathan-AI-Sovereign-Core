@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151815">
+  <meta name="description" content="Live database receipts, hosted project checks, and Help Wanted activity from the Nathan AI Sovereign Hive.">
+  <title>Tabor Database Atlas · Nathan AI</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the dashboard</a>
+  <header class="top">
+    <a class="brand" href="./"><b aria-hidden="true">N</b><span>NATHAN AI<small>ABSOLUTE INTELLIGENCE</small></span></a>
+    <nav aria-label="Dashboard"><a href="#sources">Databases</a><a href="#projects">Projects</a><a href="#repairs">Help Wanted</a></nav>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="title">
+      <div>
+        <p class="eyebrow">BY NATHAN TABOR &amp; NATHAN AI</p>
+        <h1 id="title">Tabor<br><em>Database Atlas.</em></h1>
+        <p class="lede">Live import receipts, hosted projects, and the Help Wanted queue.</p>
+      </div>
+      <div class="equations" aria-label="Build and clear">
+        <p><span>1+1=2</span> BUILD</p><p><span>1−1=0</span> CLEAR</p>
+      </div>
+    </section>
+    <section class="metrics" aria-label="Database totals">
+      <div><strong id="tracked">—</strong><span>D1 databases tracked</span></div>
+      <div><strong id="snapshots">—</strong><span>Verified snapshots</span></div>
+      <div><strong id="matched">—</strong><span>Matching table counts</span></div>
+      <div><strong id="pending">—</strong><span>Sources awaiting access</span></div>
+    </section>
+    <div class="statusbar"><p id="status" role="status">Loading Cloudflare receipts…</p><button id="refresh" type="button">Refresh</button></div>
+    <section id="sources" aria-labelledby="sources-title">
+      <div class="section-heading"><h2 id="sources-title">Database snapshots</h2><a href="https://dash.cloudflare.com/?to=/:account/workers/d1">Open Cloudflare D1 ↗</a></div>
+      <div class="panel table-wrap">
+        <table>
+          <caption class="sr-only">Published database snapshot titles, origins, and row-count receipts</caption>
+          <thead><tr><th scope="col">Snapshot</th><th scope="col">Origin</th><th scope="col">Table counts matched</th></tr></thead>
+          <tbody id="database-rows"><tr><td colspan="3">Loading receipts…</td></tr></tbody>
+        </table>
+      </div>
+      <p class="hint">Airtable and Notion show the records captured at import time.</p>
+    </section>
+    <section id="projects" aria-labelledby="projects-title">
+      <div class="section-heading"><h2 id="projects-title">Hosted projects</h2><span>WORKER BEE · HTTP CHECKS</span></div>
+      <div class="projects" id="project-cards"><p class="panel placeholder">Loading project checks…</p></div>
+    </section>
+    <section id="repairs" aria-labelledby="repairs-title">
+      <div class="section-heading"><h2 id="repairs-title">Help Wanted</h2><a href="https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/api/repair/status">Inspect Hive status ↗</a></div>
+      <div class="repairs">
+        <div class="panel"><h3>Global queue</h3><dl id="global-repairs"><dt>Loading status</dt><dd>—</dd></dl></div>
+        <div class="panel"><h3>Internal queue</h3><dl id="internal-repairs"><dt>Loading status</dt><dd>—</dd></dl></div>
+      </div>
+      <p class="hint" id="audit">Ant Bot receipt pending.</p>
+    </section>
+  </main>
+  <footer><span>By Nathan Tabor and Nathan AI</span><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/280">GitHub source ↗</a></footer>
+</body>
+</html>
