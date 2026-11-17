@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151914">
+  <title>Tabor Hive v.9 · Ant Farm</title>
+  <link rel="stylesheet" href="./library.css">
+  <link rel="stylesheet" href="./hive.css">
+</head>
+<body>
+<main>
+  <header><nav aria-label="Tabor World"><a href="./">Tracker Ball</a> · <a href="./library.html">101 Library Cartridges</a></nav><span>by Nathan Tabor</span></header>
+  <h1>Tabor Hive v.9</h1>
+  <p class="subtitle">Universal Tech Dominion</p>
+  <div class="workspace">
+    <section class="catalog" aria-labelledby="above">
+      <h2 id="above">Above</h2>
+      <h3>Nathan AI Hive</h3>
+      <p>Intent, Life Mandate, Law of Order, and decisions for the operator-approved scope.</p>
+      <p>Nathan AI 🚀 · PK · Grape-Apple Curator</p>
+      <h3>Hive Bus</h3>
+      <p>Design for encrypted messages, scoped decisions, priority, and audit records.</p>
+      <h3>Database Bee 🐝 Worker Swarm</h3>
+      <p id="previous-bees"></p>
+      <details open><summary>11 technology domain Bees</summary><dl id="domain-bees"></dl></details>
+      <h3>Universal Interaction + Control Surface</h3>
+      <p><a href="./library.html">45/10/45 Dual-Screen Universal Bridge</a> · <a href="./">Tabor Tracker Ball and gesture controls</a></p>
+      <p>Screen, headset, and device adapters each need their own capability and permission records.</p>
+    </section>
+
+    <section class="details" aria-labelledby="below">
+      <h2 id="below">Below · Ants 🐜 and the Ant Farm</h2>
+      <div class="actions controls">
+        <label>Trail pattern <select id="pattern"><option value="both">Normal and reverse</option><option value="normal">Normal</option><option value="reverse">Reverse</option></select></label>
+        <label>Orientation <select id="axis"><option value="horizontal">Horizontal</option><option value="vertical">Vertical</option></select></label>
+        <label>Rotation <select id="spin"><option value="both">Both directions</option><option value="left">Left</option><option value="right">Right</option></select></label>
+        <label>View <select id="view"><option value="lanes">Separate lanes</option><option value="combined">Combined reading</option></select></label>
+      </div>
+      <div class="farm-layout">
+        <div id="arena" class="farm" aria-hidden="true"></div>
+        <dl class="readings">
+          <dt>Normal trail steps</dt><dd id="normal">0</dd>
+          <dt>Reverse trail steps</dt><dd id="reverse">0</dd>
+          <dt>Left spin steps</dt><dd id="left">0</dd>
+          <dt>Right spin steps</dt><dd id="right">0</dd>
+          <dt>Net signed spin</dt><dd id="net">0</dd>
+        </dl>
+      </div>
+      <div class="actions"><button type="button" id="run">Run pattern</button><button type="button" id="step">Step once</button><button type="button" id="reset">Reset pattern</button></div>
+      <p id="view-explainer">N is normal. V is reverse. L and R are left and right rotation. In the combined view, Σ can stay at zero while both rotation counters advance.</p>
+
+      <section class="handoff" aria-labelledby="handoff-title">
+        <h3 id="handoff-title">Hive → Bee → Ant Farm</h3>
+        <p>Sample inventory review</p>
+        <div class="actions controls">
+          <label>Domain <select id="domain"></select></label>
+          <label class="check"><input id="specialist" type="checkbox"> Request a temporary specialist</label>
+        </div>
+        <div class="actions">
+          <button type="button" id="propose">Propose review</button>
+          <button type="button" id="approve" disabled>Approve sample review</button>
+          <button type="button" id="hold" disabled>Hold</button>
+        </div>
+        <p id="task" role="status">Choose a domain to start a simulated review.</p>
+      </section>
+    </section>
+  </div>
+  <footer>
+    <p><a href="https://ntrs.nasa.gov/citations/20150016084">NASA Swarmies research</a> · <a href="https://science.gsfc.nasa.gov/attic/ants/faqs.html">NASA ANTS archive</a></p>
+    <p>The Ant Farm runs in the browser. Each Hive, Bee, and Ant handoff shown here uses sample data.</p>
+  </footer>
+</main>
+<script type="module" src="./hive.mjs"></script>
+</body>
+</html>

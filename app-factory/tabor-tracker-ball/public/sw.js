@@ -1,5 +1,5 @@
-const cacheName="tabor-tracker-ball-1.2.0";
-const shell=[".","index.html","style.css","app.mjs","track-baller.mjs","digit-input.mjs","games.mjs","render.mjs","manifest.webmanifest","icon.svg","catalog.json","library.html","library.css","library.mjs","library-core.mjs","library-catalog.json"].map(name=>new URL(name,self.registration.scope).pathname);
+const cacheName="tabor-tracker-ball-1.3.0";
+const shell=[".","index.html","style.css","app.mjs","track-baller.mjs","digit-input.mjs","games.mjs","render.mjs","manifest.webmanifest","icon.svg","catalog.json","library.html","library.css","library.mjs","library-core.mjs","library-catalog.json","hive.html","hive.css","hive.mjs","hive-core.mjs"].map(name=>new URL(name,self.registration.scope).pathname);
 for(const path of [
   "standalone-apps/tactilecore-sdk/src/engine.mjs",
   "standalone-apps/hook-and-ring/game/input.mjs",

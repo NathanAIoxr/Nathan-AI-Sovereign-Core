@@ -80,3 +80,17 @@ Open [101 Library Cartridges](./public/library.html) from Tracker Ball. Search t
 Nine cartridges have short, playable exercises using the Universal Bridge's planned 45/10/45 layout. Match two records to earn one charge, then spend it on the touch surface or with the action button. The same touch adapter supplies one-finger strokes and pinch release. The exercise scores one point for one committed action. It uses addition, subtraction, and record IDs. The existing Tracker Ball controller is shared with the older arcade and retains its own underlying numerical code.
 
 Cartridge records and characters expose attributes, characteristics, functionalities, and traits. Nathan AI, PK, and the Grape-Apple Curator have scripted roles. Exhibit and design records describe subjects for future development. Data export is local.
+
+## Tabor Hive v.9 — Universal Tech Dominion
+
+Open [Tabor Hive v.9](./public/hive.html) from Tracker Ball or Library Cartridges.
+
+> Thats the above the blow is Ants 🐜 and the Ant 🐜 Farm - nasa uses the pattern - so do I -I used the normal pattern but then I also reverse the pattern. Also turn the pattern up so it runs vertical not just linear and then I spin it left or right at the same time spinning it right to left so it’s going both ways at the same time so you can’t see it - but it’s there -
+
+**Above** places intent and approval with the Nathan AI Hive. The Database Bee swarm has its ten previous roles plus eleven technology domains. The Universal Interaction + Control Surface links the existing Tracker Ball and the 101 Library Cartridges. The Personal Knowledge Vault is the designated long-term personal memory store in the design. Its write path requires explicit approval. Shadow Bee owns internal audit design. A temporary specialist request goes through Replication Bee and ends with its assigned task.
+
+**Below** places Ants and the Ant Farm under the interaction surface. Normal and reverse walk the same trail in opposite directions. The vertical setting changes the trail coordinates and keeps the counters. Left and right orbit concurrently. Separate lanes render their individual positions. The combined reading uses the sum of their signed steps. Equal steps from a reset keep the net at zero while each lane accumulates steps.
+
+The sample handoff has a domain, an action, a priority, a decision, a result, and an optional specialist lifecycle. It reads a fictional inventory entry inside the browser. The v.9 Hive Bus encryption, device registration, vault permission service, and production hardware integrations are architecture. The demo uses neither connected device operations nor actual worker provisioning.
+
+Related Tabor work includes the [Living Eyes concurrent CW/CCW tests](../nathan-ai/living-eyes/engine.test.cjs) and the [Five Matrix Print Shop](../nathan-ai/3d-print-shop/). NASA documents ant-inspired central-place foraging in [Swarmies](https://ntrs.nasa.gov/citations/20150016084) and division of labor in its [ANTS archive](https://science.gsfc.nasa.gov/attic/ants/faqs.html). Those records establish the ant-swarm precedent. Nathan's vertical and counter-rotating pattern is recorded here as his own extension.
