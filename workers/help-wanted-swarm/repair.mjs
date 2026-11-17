@@ -249,7 +249,7 @@ async function repairRoute(request,env){
       checks:checks.results,handoff,byline:"By Nathan Tabor and Nathan AI",
       runnerApiConfigured:typeof env.REPAIR_RUNNER_TOKEN==="string"&&env.REPAIR_RUNNER_TOKEN.length>=32,
       ownerApiConfigured:typeof env.REPAIR_OWNER_TOKEN==="string"&&env.REPAIR_OWNER_TOKEN.length>=32,
-      anchors:["1+1=2","1-1=0","1×1=1","1÷1=1"]});
+      anchors:["1+1=2","1-1=0"],manMadeTraps:["multiplication","division"]});
   }
   if(request.method==="GET"&&route==="/api/repair/leads"){
     const out=await db.prepare("SELECT id,provider,repository,number,url,title,signal,status FROM repair_jobs WHERE scope='GLOBAL' ORDER BY source_at DESC,id LIMIT 50").all();
