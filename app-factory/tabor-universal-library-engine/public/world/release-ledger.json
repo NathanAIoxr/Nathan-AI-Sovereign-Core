@@ -1,0 +1,65 @@
+{
+  "schema": "tabor-world.release-ledger.v1",
+  "current": "2026-11-17.1",
+  "counts": {
+    "records": 832,
+    "elements": 118,
+    "nonElements": 714,
+    "trackerCatalog": 101,
+    "worldCatalog": 101,
+    "runnable": 18,
+    "destinations": 14,
+    "publicDestinations": 13
+  },
+  "history": [
+    {
+      "id": "2026-11-17.1",
+      "title": "Library of Tabor and world launch directory",
+      "changes": [
+        "Added original world artwork and a motion preference.",
+        "Connected 14 Cloudflare destinations and recorded their public or sign-in access.",
+        "Added a release ledger and a read-only deployment status endpoint."
+      ],
+      "checks": [
+        "Automated engine, registry, image delivery, and release API tests.",
+        "Public destination page checks."
+      ]
+    },
+    {
+      "id": "world-registry",
+      "title": "Tabor World Elements and Non-elements",
+      "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/286",
+      "changes": [
+        "Published 832 world records.",
+        "Restored Tracker Ball entries 1–64 alongside 65–101. Preserved the separately numbered Tabor World catalog."
+      ]
+    },
+    {
+      "id": "v7-engine",
+      "title": "v.7 Tabor Universal Library Engine",
+      "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/276",
+      "changes": [
+        "Released 13 numbered runnable cartridges and five drills.",
+        "Connected the trackball, digit input, rope simulation, and Universal Bridge."
+      ]
+    }
+  ],
+  "next": [
+    {
+      "id": "app-inventory",
+      "title": "Reconcile the repository inventory",
+      "detail": "Identify distinct apps, games, and materials in the repository inventory. Verify their source, mobile status, and deployment individually.",
+      "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/capability-atlas"
+    },
+    {
+      "id": "catalog-play",
+      "title": "Build more playable cartridges",
+      "detail": "The 101-entry Tracker Ball catalog has 13 runnable numbered cartridges. Continue implementation from the design records and verify each new cartridge in the browser."
+    },
+    {
+      "id": "phone-qa",
+      "title": "Verify the experience on physical phones",
+      "detail": "Use a physical iPhone and Android phone to verify touch, motion preferences, and the launch directory. Record each device result."
+    }
+  ]
+}

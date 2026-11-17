@@ -30,3 +30,9 @@ Official classification outline: https://www.loc.gov/aba/cataloging/classificati
 Open the World link in the engine or use /world/ on the deployed Worker. The registry has an Elements view with the 118 atomic-number references and a link to IUPAC, and a Non-elements view for material, physical, symbolic, narrative, geographic, anatomical, and software records. The browser can compare two records and follow recorded links.
 
 The source catalog and cast/props come from GitHub PR #273 (source commit be390336dad6076f930ed1f8dc9f3cf771ed6629). The build also includes the unchanged public Cosmic Body and meSPARK Worlds Atlas JSON from their repository paths. The Worlds Atlas source notes that its coordinates can be anchors for fictional and mythological settings. The Cosmic Body source tiers remain visible.
+
+## Release ledger
+
+Tabor World presents its catalog as the **Library of Tabor**. The launch directory records the address, observed access, and check date for each destination. It does not configure access on sibling Workers. The animated hero observes reduced-motion preferences and can be paused in the browser.
+
+The deployment exposes three read-only URLs: /api/health, /api/releases, and /api/destinations. Static hosts read the corresponding JSON files under public/world/ without needing a Worker. When the owner says “keep going,” start with the next list in public/world/release-ledger.json, confirm the deployed release via /api/health, and record completed work in the history list. New browser or provider test results should report their date and scope.
