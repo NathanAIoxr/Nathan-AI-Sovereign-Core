@@ -74,3 +74,22 @@
 .tactile-panel{margin:.6rem .75rem .75rem}
 #tactile-readout{display:block;color:var(--mint);font-size:.8rem;margin-top:.5rem}
 .bridge-game .line-controls{padding:0}.bridge-game .line-controls button{min-width:48px}
+
+
+.atlas {margin-block:1rem}
+.atlas-filters {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem;align-items:end}
+.atlas-filters label {display:grid;gap:.3rem;min-width:0}
+.atlas-filters input,.atlas-filters select {width:100%;min-width:0;min-height:2.75rem;padding:.5rem;border:1px solid #54736c;border-radius:.45rem;background:#1c383b;color:#f0f5eb;font:inherit}
+.atlas-content {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.8rem;align-items:start}
+#atlas-index {display:grid;gap:.35rem;overflow:auto;max-height:23rem}
+#atlas-index button {text-align:left;min-height:2.75rem}
+#atlas-index button[aria-pressed="true"] {outline:2px solid #cbe586;outline-offset:-3px}
+#atlas-detail dl>div {display:block;border-top:1px solid #53726a;padding-block:.4rem}
+#atlas-detail dd {margin:.25rem 0 0;text-align:left}
+.atlas-play {display:inline-block;padding:.65rem .85rem;background:#d3ee95;color:#142421;border-radius:.5rem;font-weight:750}
+#arcade-atlas-details {margin-top:.6rem}
+@media(max-width:650px){
+ .atlas-filters {grid-template-columns:repeat(2,minmax(0,1fr))}
+ .atlas-content {grid-template-columns:minmax(0,1fr)}
+ #atlas-index {max-height:10rem}
+}

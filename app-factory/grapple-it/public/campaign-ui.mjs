@@ -1,3 +1,4 @@
+import {atlasEntry} from './atlas.mjs';
 import {createClock} from './fixed-clock.mjs';
 import {lineInput,MAX_INPUTS,MAX_TICKS} from './daily-replay.mjs';
 import {setRankedRun,loadDailyBoard} from './daily-board.mjs';
@@ -246,20 +247,23 @@ function startFrames(){
  cancelAnimationFrame(frame);lineClock.pause();
  frame=requestAnimationFrame(tick);
 }
-function select(view){
+let lastAtlasId=null;
+function select(view,entry=null){
  mode=view;
  $('toy-view').hidden=view!=='toy';
  $('bubble-view').hidden=view!=='bubble';
  $('line-view').hidden=view!=='campaign'&&view!=='daily';
  $('swing-view').hidden=view!=='swing';
  $('arcade-view').hidden=view!=='arcade';
+ $('atlas-view').hidden=view!=='atlas';
  $('gear-view').hidden=view!=='gear';
- for(const button of document.querySelectorAll('[data-view]'))button.setAttribute('aria-pressed',String(button.dataset.view===view));
+ for(const button of document.querySelectorAll('[data-view]'))button.setAttribute('aria-pressed',String(button.dataset.view===(entry?'atlas':view)));
+ if(view==='arcade')window.dispatchEvent(new CustomEvent('grapple-atlas-play',{detail:entry}));
  window.dispatchEvent(new CustomEvent('grapple-view',{detail:view}));
  cancelAnimationFrame(frame);
  if(!$('line-view').hidden){resetLine();resize();startFrames();}
  if(view==='daily')loadDailyBoard();
- try{history.replaceState(null,'','#'+view);}catch{}
+ try{history.replaceState(null,'','#'+(entry?'atlas/'+entry.id:view));}catch{}
 }
 function recordLine(action){
  if(mode==='daily'&&moves.length<=MAX_INPUTS)moves.push([lineClock.ticks,action]);
@@ -301,6 +305,18 @@ window.addEventListener('keydown',event=>{
   event.preventDefault();if(['aim','action'].includes(state.phase))cast();else reel();
  }
 });
+function launchAtlas(id,focus=false){
+ const entry=atlasEntry(id);
+ if(!entry){select('atlas');return;}
+ lastAtlasId=entry.id;
+ select('arcade',entry);
+ if(focus)$('arcade-title').focus();
+}
+window.addEventListener('grapple-atlas-launch',event=>launchAtlas(event.detail,true));
+$('arcade-atlas-back').onclick=()=>{
+ select('atlas');
+ window.dispatchEvent(new CustomEvent('grapple-atlas-browse',{detail:lastAtlasId}));
+};
 for(const button of document.querySelectorAll('[data-view]'))button.onclick=()=>select(button.dataset.view);
 window.addEventListener('grapple-progress',()=>{bubbles=sanitizeBubbles(read(BUBBLES));});
 const transfer=$('save-code');
@@ -331,6 +347,7 @@ $('import-save').onclick=()=>{
  }catch{$('save-status').textContent='That save code could not be read.';}
 };
 const initial=location.hash.slice(1);
-select(['bubble','swing','arcade','gear','campaign','daily'].includes(initial)?initial:'toy');
+if(initial.startsWith('atlas/'))launchAtlas(initial.slice(6));
+else select(['bubble','swing','arcade','gear','campaign','daily','atlas'].includes(initial)?initial:'toy');
 renderCurator();
 if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});

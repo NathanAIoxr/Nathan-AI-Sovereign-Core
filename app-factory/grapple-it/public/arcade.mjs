@@ -1,3 +1,4 @@
+import {atlasMedals} from './atlas.mjs';
 
 export const CHASSIS = {
  arc: {name:'Trajectory & Arc', hint:'Drag to set direction and power. The dotted flight path accounts for drift.'},
@@ -47,6 +48,7 @@ const clamp=(x,lo=0,hi=1)=>Math.max(lo,Math.min(hi,x));
 const cycle=(x)=>((x%1)+1)%1;
 
 export function arena(game,time,round,wild=false){
+ time*=game.pace??1;
  const phase=round*.85+game.seed*.08;
  const pulse=cycle(time*(.65+game.tier*.08)+phase*.13);
  const swing=.5+Math.sin(time*(1.55+game.tier*.16)+phase)*.35;
@@ -109,5 +111,5 @@ export function sanitizeExpansion(raw){
    if(Number.isInteger(score)&&score>0&&score<=3600000)swings[level]=score;
   }
  }
- return {games,swings,form:FORMS.some(form=>form.id===raw?.form)?raw.form:'male'};
+ return {games,swings,atlas:atlasMedals(raw?.atlas),form:FORMS.some(form=>form.id===raw?.form)?raw.form:'male'};
 }
