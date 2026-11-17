@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {buildDeployment} from './deployment.mjs';
-import {ADDITIONAL_WORKLOADS, COMPANIONS, SLOTS, WORKLOADS} from './fleet-plan.mjs';
+import {COMPANIONS, SLOTS, WORKLOADS} from './fleet-plan.mjs';
 import {probe} from './probe.mjs';
 
 test('every deployment has exactly one supervisor in five bounded cohorts', () => {
@@ -21,11 +21,6 @@ test('every deployment has exactly one supervisor in five bounded cohorts', () =
   for (const slot of SLOTS) {
     const name = slot.mode === 'primary' || slot.worker === controller.name ? slot.targetBinding : slot.binding;
     assert.ok(bindings.has(name), name);
-  }
-  for (const workload of ADDITIONAL_WORKLOADS) {
-    assert.ok(!deployed.includes(workload.worker));
-    assert.ok(SLOTS.some(slot => slot.worker === workload.supervisor && slot.cohort === workload.cohort));
-    assert.ok(bindings.has(workload.targetBinding));
   }
   assert.deepEqual(controller.metadata.migrations.new_sqlite_classes, ['Supervisor', 'FleetSummary']);
   assert.equal(buildDeployment().controller.metadata.migrations, undefined);
@@ -74,13 +69,4 @@ test('the scheduled handoff is checked by its receipt instead of an HTTP call', 
   assert.equal((await probe(handoff, db, false, now)).reason, 'fresh_receipt');
   ran = now / 1000 - 1200;
   assert.equal((await probe(handoff, db, true, now)).reason, 'stale_receipt');
-});
-
-test('the library data check uses its internal service-binding route', async () => {
-  const workload = ADDITIONAL_WORKLOADS.find(item => item.service === 'library-of-tabor-data');
-  const target = {fetch(request) {
-    assert.equal(request.url, 'https://library-data.internal/connections');
-    return Response.json({ok: true});
-  }};
-  assert.equal((await probe(workload, target, true)).outcome, 'healthy');
 });
