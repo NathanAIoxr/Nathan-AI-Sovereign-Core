@@ -65,6 +65,6 @@ Run `node --test workers/help-wanted-swarm/repair.test.mjs`. The Cloudflare D1 s
 
 ## Contribution drafts
 
-`nathan-ai-handoff-bee` uses `handoff/worker.mjs` with the existing `HIVE` D1 binding. Apply `handoff/schema.sql` after the repair schema. Its one-minute schedule syncs up to 100 current patch handoffs per tick. Draft notes carry Nathan Tabor's sign-off and show whether runtime checks are pending. The source receipt preserves the pinned base, patch, and test evidence.
+`nathan-ai-handoff-bee` uses `handoff/worker.mjs` with the existing `HIVE` D1 binding. Apply the repair schema, `handoff/schema.sql`, then `handoff/immediate.sql` before deploying the Worker. D1 stages or invalidates drafts in the same transaction that changes a repair receipt or status. The one-minute schedule reconciles up to 100 drafts per run to cover historical receipts. Draft notes carry Nathan Tabor's sign-off and show whether runtime checks are pending. The source receipt preserves the pinned base, patch, and test evidence.
 
 The outbox is available in the account's D1 console. The Worker has no HTTP routes or upstream publishing credentials. Repeated scheduled invocations do not duplicate drafts. When a source receipt changes or a job leaves an eligible state, the Worker refreshes or removes the stale draft. The run ledger retains seven days of scheduled receipts.
