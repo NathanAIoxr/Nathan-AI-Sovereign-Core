@@ -65,3 +65,12 @@
 #gr-gear-ledger{max-height:19rem;overflow:auto}
 #gr-gear-ledger:empty{display:none}
 #gr-play{min-width:9rem}
+
+.daily-online{margin-top:1rem;padding-top:.85rem;border-top:1px solid var(--edge)}
+.daily-online h3{margin:0 0 .5rem}
+#daily-form{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+#daily-form label,#daily-alias{grid-column:1/-1}
+#daily-alias{width:100%;font:inherit;background:var(--bg);color:var(--text);border:1px solid var(--edge);border-radius:7px;padding:.55rem}
+.tactile-panel{margin:.6rem .75rem .75rem}
+#tactile-readout{display:block;color:var(--mint);font-size:.8rem;margin-top:.5rem}
+.bridge-game .line-controls{padding:0}.bridge-game .line-controls button{min-width:48px}

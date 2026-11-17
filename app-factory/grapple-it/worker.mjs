@@ -1,8 +1,14 @@
+import { dailyApi } from './daily-api.mjs';
+
 
 export function createWorker(assets){
  const types={'.html':'text/html','.css':'text/css','.mjs':'text/javascript','.js':'text/javascript','.svg':'image/svg+xml','.webmanifest':'application/manifest+json'};
- return {async fetch(request){
+ return {async fetch(request,env={}){
   const {pathname}=new URL(request.url);
+  if(pathname.startsWith('/api/')){
+   try{return await dailyApi(request,env);}
+   catch{return Response.json({error:'The online board is temporarily unavailable.'},{status:503,headers:{'Cache-Control':'no-store'}});}
+  }
   if(request.method!=='GET'&&request.method!=='HEAD')return new Response(null,{status:405,headers:{Allow:'GET, HEAD'}});
   const asset=pathname==='/'?'index.html':pathname.slice(1);
   if(!Object.hasOwn(assets,asset))return new Response('Page not found',{status:404});

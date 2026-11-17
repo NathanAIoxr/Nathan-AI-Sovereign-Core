@@ -1,3 +1,4 @@
+import {createClock} from './fixed-clock.mjs';
 
 import { TOY_COURSES,startToy,toyTarget,blowJet,stepToy,grappleToy } from './toy.mjs';
 
@@ -9,7 +10,8 @@ let saved={};
 try{const stored=JSON.parse(localStorage.getItem(storage));if(stored&&typeof stored==='object'&&!Array.isArray(stored))saved=stored;}catch{}
 const inputs=new Map();
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-let index=0, state=startToy(TOY_COURSES[0]), width=0,height=0,previous=0, frame=0, color='#fff1ac';
+const clock=createClock();
+let index=0, state=startToy(TOY_COURSES[0]), width=0,height=0, frame=0, color='#fff1ac';
 const say=message=>{$('toy-status').textContent=message;};
 function update(){
  $('toy-score').textContent=state.next+' / '+state.course.targets.length+' caught';
@@ -21,7 +23,7 @@ function update(){
  $('toy-next').textContent=index===TOY_COURSES.length-1?'First course':'Next course';
 }
 function reset(i){
- index=i;choice.value=String(i);state=startToy(TOY_COURSES[i]);inputs.clear();
+ clock.reset();index=i;choice.value=String(i);state=startToy(TOY_COURSES[i]);inputs.clear();
  say('Use both air jets to lift the '+state.course.prop.toLowerCase()+'. Grapple when it reaches the target.');
  update();draw();
 }
@@ -67,10 +69,14 @@ new ResizeObserver(()=>{
 }).observe(canvas);
 function jet(side){if(blowJet(state,side))update();}
 function play(now){
- if(view.hidden){frame=0;previous=0;return;}
- const dt=previous?Math.min(.04,(now-previous)/1000):0;previous=now;
- for(const side of new Set(inputs.values()))if(state.t-state.lastJet[side]>=.24)jet(side);
- stepToy(state,dt);draw();
+ if(view.hidden){frame=0;clock.pause();return;}
+ const sides=new Set(inputs.values());
+ clock.frame(now,dt=>{
+  for(const side of sides)if(state.t-state.lastJet[side]>=.24)jet(side);
+  if(state.done)return false;
+  stepToy(state,dt);
+ });
+ draw();
  frame=requestAnimationFrame(play);
 }
 function grapple(){
@@ -102,9 +108,11 @@ window.addEventListener('keydown',event=>{
  else if(event.code==='Space'&&!event.repeat&&!event.target.closest?.('button')){event.preventDefault();grapple();}
 });
 window.addEventListener('keyup',event=>inputs.delete(event.code));
-window.addEventListener('blur',()=>inputs.clear());
+function pause(){inputs.clear();clock.pause();}
+window.addEventListener('blur',pause);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
 window.addEventListener('grapple-view',()=>{
- inputs.clear();if(!view.hidden&&!frame){previous=0;frame=requestAnimationFrame(play);}
+ inputs.clear();clock.pause();if(!view.hidden&&!frame){frame=requestAnimationFrame(play);}
 });
 window.addEventListener('grapple-toy-restore',event=>{saved=event.detail;update();});
 window.addEventListener('grapple-toy-finish',event=>{color=event.detail;draw();});

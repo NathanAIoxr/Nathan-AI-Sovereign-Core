@@ -1,6 +1,8 @@
 
 import {newLift,pump,stepLift,STAGES} from './grapple.mjs';
 
+import {makeRope,stepRope} from './rope.mjs';
+
 const clamp=(value,lo,hi)=>Math.max(lo,Math.min(hi,value));
 export function swingCourse(level){
  const anchors=STAGES[level].anchors;
@@ -30,6 +32,7 @@ export function stepSwing(state,dt,direction=0){
   state.x=state.lift.x;state.y=state.lift.y;
   if(!state.lift.done)return '';
   state.phase='swing';state.x=pivot[0];state.y=pivot[1]+radius;
+  state.rope=makeRope(pivot,[state.x,state.y],radius);
   return 'Latched. Use left or right to build a swing, then release toward the goal.';
  }
  if(state.phase==='swing'){
@@ -38,6 +41,7 @@ export function stepSwing(state,dt,direction=0){
   if(Math.abs(state.angle)>1.22){state.angle=Math.sign(state.angle)*1.22;state.speed*=-.62;}
   state.x=pivot[0]+Math.sin(state.angle)*radius;
   state.y=pivot[1]+Math.cos(state.angle)*radius;
+  stepRope(state.rope,pivot,[state.x,state.y],dt);
   return '';
  }
  const fromX=state.x,fromY=state.y;
@@ -47,6 +51,7 @@ export function stepSwing(state,dt,direction=0){
  if(Math.hypot(fromX+dx*ratio-goal[0],fromY+dy*ratio-goal[1])<.095){state.phase='won';return 'Goal secured.';}
  if(state.x<-.06||state.x>1.06||state.y>1.05){
   state.phase='swing';state.angle=0;state.speed=0;state.x=pivot[0];state.y=pivot[1]+radius;
+  state.rope=makeRope(pivot,[state.x,state.y],radius);
   return 'Missed the goal. The line is still latched. Swing and try again.';
  }
  return '';

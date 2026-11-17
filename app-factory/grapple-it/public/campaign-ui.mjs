@@ -1,5 +1,8 @@
+import {createClock} from './fixed-clock.mjs';
+import {lineInput,MAX_INPUTS,MAX_TICKS} from './daily-replay.mjs';
+import {setRankedRun,loadDailyBoard} from './daily-board.mjs';
 
-import {ERAS,MISSIONS,PK_LINE,dailyCourse,freshLine,ringX,linedUp,castLine,advanceLine,medal,tensionBand,actionMarker,doAction} from './campaign.mjs';
+import {ERAS,MISSIONS,PK_LINE,dailyCourse,freshLine,ringX,linedUp,advanceLine,medal,tensionBand,actionMarker} from './campaign.mjs';
 import {TOY_COURSES} from './toy.mjs';
 import {STAGES} from './grapple.mjs';
 
@@ -15,7 +18,9 @@ const finishes=[
 const grades=['Bronze','Silver','Gold'];
 const canvas=$('line-canvas');
 const ctx=canvas.getContext('2d');
-let mode='toy', era=0, day='', pk=false, state, previous=0, width=0,height=0, frame=0;
+let mode='toy', era=0, day='', pk=false, state, width=0,height=0, frame=0;
+const lineClock=createClock();
+let moves=[];
 function read(key){
  try{return JSON.parse(localStorage.getItem(key))??{};}catch{return {};}
 }
@@ -201,7 +206,7 @@ function resetLine(focus=false){
  day=today();
  const course=mode==='daily'?dailyCourse(day):MISSIONS[era];
  state=freshLine(course,mode==='campaign'&&wildUnlocked()&&pk);
- previous=0;
+ lineClock.reset();moves=[];setRankedRun(null);
  $('line-title').textContent=course.name;
  $('line-place').textContent=course.place;
  $('line-tip').textContent=course.tip;
@@ -211,7 +216,12 @@ function resetLine(focus=false){
 }
 function finish(){
  const result={medal:medal(state),ms:Math.max(1,Math.round(state.t*1000))};
- if(mode==='daily')profile.days[day]=better(profile.days[day],result);
+ if(mode==='daily'){
+  profile.days[day]=better(profile.days[day],result);
+  if(lineClock.ticks<=MAX_TICKS&&moves.length<=MAX_INPUTS){
+   setRankedRun({day,moves:[...moves]});
+  }
+ }
  else profile.eras[MISSIONS[era].id]=better(profile.eras[MISSIONS[era].id],result);
  profile=sanitize(profile);
  const saved=write(KEY,profile);
@@ -219,9 +229,12 @@ function finish(){
  updateSidebar();renderCurator();
 }
 function tick(now){
- const elapsed=previous?Math.min(.05,(now-previous)/1000):0;previous=now;
  const oldPhase=state.phase;
- const message=advanceLine(state,elapsed);
+ let message;
+ lineClock.frame(now,dt=>{
+  message=advanceLine(state,dt)||message;
+  if(state.phase==='won')return false;
+ });
  if(state.phase==='won'&&oldPhase!=='won')finish();
  else if(message)say(message);
  const focusAction=oldPhase==='reel'&&state.phase==='action'&&document.activeElement===$('reel');
@@ -230,7 +243,7 @@ function tick(now){
  if(state.phase!=='won')frame=requestAnimationFrame(tick);
 }
 function startFrames(){
- cancelAnimationFrame(frame);previous=0;
+ cancelAnimationFrame(frame);lineClock.pause();
  frame=requestAnimationFrame(tick);
 }
 function select(view){
@@ -245,15 +258,21 @@ function select(view){
  window.dispatchEvent(new CustomEvent('grapple-view',{detail:view}));
  cancelAnimationFrame(frame);
  if(!$('line-view').hidden){resetLine();resize();startFrames();}
+ if(view==='daily')loadDailyBoard();
  try{history.replaceState(null,'','#'+view);}catch{}
 }
+function recordLine(action){
+ if(mode==='daily'&&moves.length<=MAX_INPUTS)moves.push([lineClock.ticks,action]);
+ return lineInput(state,action);
+}
 function cast(){
+ if(!['aim','action'].includes(state.phase))return;
  if(state.phase==='action'){
-  const message=doAction(state);
+  const message=recordLine('cast');
   if(state.phase==='won'){finish();cancelAnimationFrame(frame);paint();if(!$('next-era').hidden)$('next-era').focus();}
   else if(message)say(message);
  }else{
-  const message=castLine(state);
+  const message=recordLine('cast');
   if(message)say(message);
  }
  updateBoard();
@@ -261,14 +280,20 @@ function cast(){
 }
 function reel(){
  if(state.phase!=='reel')return;
- state.hold=!state.hold;updateBoard();
+ recordLine(state.hold?'ease':'reel');updateBoard();
 }
 $('cast').onclick=cast;
 $('reel').onclick=reel;
 $('reset-line').onclick=()=>{resetLine(true);startFrames();};
 $('next-era').onclick=()=>{if(era<MISSIONS.length-1&&unlocked(era+1)){era++;resetLine(true);startFrames();}};
 $('pk').onchange=()=>{pk=$('pk').checked;resetLine(true);startFrames();};
-window.addEventListener('blur',()=>{if(state)state.hold=false;});
+function suspend(){
+ if(!state||$('line-view').hidden)return;
+ if(state.phase==='reel'&&state.hold)recordLine('ease');
+ lineClock.pause();
+}
+window.addEventListener('blur',suspend);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
 window.addEventListener('keydown',event=>{
  if($('line-view').hidden||event.repeat||event.ctrlKey||event.metaKey||event.altKey||event.target.closest?.('input,textarea,select,a,summary'))return;
  if(event.code==='KeyR'&&state.phase==='reel'){event.preventDefault();reel();}

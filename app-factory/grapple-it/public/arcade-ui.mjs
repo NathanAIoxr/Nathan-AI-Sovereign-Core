@@ -1,3 +1,4 @@
+import {createClock} from './fixed-clock.mjs';
 import {CAST,EXPEDITIONS,GEAR,REWARD,RULES,TIERS,WORDMARK} from './roster.mjs';
 import {actionArcade,actor,assistNathan,cleanProgress,completeArcade,isNathanTurn,newArcade,scores,shotBoard,stepArcade,turn,unlockedTier} from './arcade-engine.mjs';
 
@@ -7,8 +8,9 @@ function saved(){
   try{return cleanProgress(JSON.parse(localStorage.getItem(storageKey))??{});}
   catch{return cleanProgress();}
 }
-let profile=saved(), state, mode='classic', visible=false, frame=0, last=0, processed=0, buttonsDirty=true;
+let profile=saved(), state, mode='classic', visible=false, frame=0, processed=0, buttonsDirty=true;
 const session={nathan:false};
+const clock=createClock();
 const canvas=at('gr-gear-board'), ctx=canvas.getContext('2d');
 let width=0,height=0,scoreboard;
 const controls={
@@ -164,16 +166,16 @@ function updateReceipt(){
 }
 function loop(now){
   if(!visible)return;
-  const dt=last?Math.min((now-last)/1000,.045):0;last=now;
   if(state.phase!=='done'){
-    stepArcade(state,dt);assistNathan(state);updateReceipt();update();paint();
+    clock.frame(now,dt=>{stepArcade(state,dt);assistNathan(state);if(state.phase==='done')return false;});
+    updateReceipt();update();paint();
   }
   if(state.phase!=='done')frame=requestAnimationFrame(loop);
 }
 function reset(){
   cancelAnimationFrame(frame);
   state=newArcade({mode,id:controls.gear.value,mission:mode==='expedition'?controls.mission.value:null});
-  controls.ledger.replaceChildren();processed=0;last=0;scoreboard=scores(state);
+  controls.ledger.replaceChildren();processed=0;clock.reset();scoreboard=scores(state);
   controls.notice.textContent=state.notice;
   at('gr-rule').textContent=state.gear.name+' · '+RULES[state.gear.rule].name+'. '+RULES[state.gear.rule].hint;
   at('gr-mode-help').textContent=modes[mode][1];
@@ -228,3 +230,5 @@ window.grappleArcadeSave=Object.freeze({
   }
 });
 drawLocker();reset();
+
+document.addEventListener('visibilitychange',()=>{if(document.hidden)clock.pause();});

@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0e1d20">
-<meta name="description" content="Grapple It by Nathan Tabor. Play the Water-Ring Toy, Catch &amp; Swing, a 16-mission campaign, and the 24-cartridge Toss &amp; Target Arcade.">
+<meta name="description" content="Grapple It by Nathan Tabor. Play the Water-Ring Toy, Catch &amp; Swing, a 16-mission campaign, and the 32-cartridge Toss &amp; Target Arcade.">
 <title>Grapple It by Nathan Tabor</title>
 <link rel="icon" href="./icon.svg"><link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="./grapple.css">
 </head><body>
 <header><nav aria-label="Arcade games"><a href="https://hook-and-ring.nathantaboract.workers.dev/">‹ Hook &amp; Ring</a><a href="https://hook-and-ring.nathantaboract.workers.dev/arcade">Toss &amp; Target Arcade</a></nav></header>
 <main>
-<section class="intro"><div><h1>Grapple <em>It</em></h1><p class="byline">By Nathan Tabor</p><p class="intro-copy">Push air through a handheld water toy, swing to a goal, run the 16-mission campaign, or play the six-era Toss &amp; Target Arcade.</p></div>
+<section class="intro"><div><h1>Grapple <em>It</em></h1><p class="byline">By Nathan Tabor</p><p class="intro-copy">Push air through a handheld water toy, swing to a goal, run the 16-mission campaign, or play the seven-era Toss &amp; Target Arcade.</p></div>
 <div class="curator" id="curator-panel"><div class="fruit" role="img" aria-label="Grape Apple has an apple core, a head, arms and legs made of grapes, and little apples for fingers and toes">
 <div class="fruit-head"><i></i><i></i><i></i><i></i><b></b></div><div class="apple core"></div>
 <div class="fruit-limb arm left"><i></i><i></i><i></i><span class="digits"><b class="apple"></b><b class="apple"></b><b class="apple"></b><b class="apple"></b><b class="apple"></b></span></div>
@@ -56,7 +56,11 @@
 <aside>
 <section class="side"><h2>Grape 🍇 Apple 🍎</h2><p id="line-tip"></p><p>Space activates the main action. R toggles the rope. Ease when tension rises above green.</p></section>
 <section class="side" id="era-list-box"><h2>Campaign</h2><ol class="record-list" id="era-list"></ol><div id="pk-area" hidden><label><input id="pk" type="checkbox"> PK Wild Card</label><p id="pk-line"></p></div></section>
-<section class="side" id="daily-box" hidden><h2>Daily record</h2><p id="daily-day"></p><p id="daily-best"></p><p>Same course for the UTC date. Your record is saved on this device.</p></section>
+<section class="side" id="daily-box" hidden><h2>Daily record</h2><p id="daily-day"></p><p id="daily-best"></p><p>Same course for the UTC date. Local records save automatically.</p><div class="daily-online"><h3>Daily leaderboard</h3>
+<p>Finish within two minutes to post a replay-checked score.</p>
+<form id="daily-form"><label for="daily-alias">Display name</label><input id="daily-alias" maxlength="24" autocomplete="nickname" required>
+<button type="submit" id="daily-submit" disabled>Post score</button><button type="button" id="daily-refresh">Refresh</button></form>
+<p id="daily-board-status" role="status"></p><ol class="record-list" id="daily-board-rows"></ol></div></section>
 </aside></section>
 <section id="swing-view" class="layout" aria-label="Catch and Swing" hidden>
  <section class="play" aria-label="Catch and Swing course">
@@ -78,11 +82,22 @@
   </div>
   <div class="line-controls"><button type="button" id="arcade-action">Release</button><button type="button" id="arcade-reset">Restart round</button></div>
   <div class="game-foot"><span id="arcade-status" role="status"></span></div>
+  <details class="side tactile-panel"><summary>Gesture feedback</summary>
+  <p>Drag inside the board, then lift to play. Release in the outer 5% to cancel. Press the action button or use the aim sliders for a direct input.</p>
+  <label><input type="checkbox" id="tactile-vibrate"> Haptic feedback on supported devices</label>
+  <output id="tactile-readout">No touch release yet.</output></details>
  </section>
  <aside>
   <section class="side cartridge-picker"><h2>Cartridge shelf</h2><label for="arcade-era">Era</label><select id="arcade-era"></select><label for="arcade-game">Challenge</label><select id="arcade-game"></select><p id="arcade-collection"></p></section>
   <section class="side"><h2 id="arcade-chassis"></h2><p id="arcade-tip"></p><dl><div><dt>Score</dt><dd id="arcade-score">0 / 300</dd></div><div><dt>Shots</dt><dd id="arcade-shots">—</dd></div><div><dt>Best medal</dt><dd id="arcade-best">—</dd></div></dl></section>
-  <section class="side"><h2>PK Wild Card</h2><label><input type="checkbox" id="arcade-wild"> PK moves the target</label><p id="arcade-origin"></p></section>
+  <section class="side bridge-game" aria-labelledby="bridge-heading"><h2 id="bridge-heading">Universal Bridge</h2>
+<label><input id="bridge-on" type="checkbox"> Pair this cartridge with the sequence game</label>
+<div id="bridge-panel" hidden><p>Solve the numbered sequence to load shots, stack buffs, and gain shields. Land 150 damage in three shots.</p>
+<dl><div><dt>Attack</dt><dd id="bridge-damage"></dd></div><div><dt>Charge</dt><dd id="bridge-charge"></dd></div><div><dt>Buff</dt><dd id="bridge-buff"></dd></div><div><dt>Shield</dt><dd id="bridge-shield"></dd></div></dl>
+<p id="bridge-order"></p><div class="line-controls" id="bridge-keys">
+<button type="button" data-key="0">1</button><button type="button" data-key="1">2</button><button type="button" data-key="2">3</button></div>
+<p id="bridge-status" role="status"></p></div></section>
+<section class="side"><h2>PK Wild Card</h2><label><input type="checkbox" id="arcade-wild"> PK moves the target</label><p id="arcade-origin"></p></section>
  </aside>
 </section>
 <section id="curator-desk" class="side curator-desk" aria-labelledby="curator-title">
