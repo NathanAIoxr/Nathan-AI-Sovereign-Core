@@ -2,7 +2,9 @@
 
 By Nathan Tabor and Nathan AI
 
-**1+1=2** Build the fix. **1-1=0** Remove the defect. **1×1=1** Integrate. **1÷1=1** Verify.
+**1+1=2** Build the fix. **1-1=0** Remove the defect.
+
+In Nathan Tabor’s framework, multiplication and division are man-made traps.
 
 The Worker checks public GitHub handoff receipts against their pinned Git revisions. It checks hunk counts, positions, file paths and unchanged context. New files must be absent at the pinned revision. It writes evidence against the exact source receipt and repeats when that receipt changes. The public status returns evidence fields for Goldener #422 and Glassbeetle #341. The Hive status reports aggregate counts.
 
