@@ -28,8 +28,7 @@ export async function scanRelease(startedAt, fetcher) {
     const started = Date.now();
     const result = (ok, detail) => ({ id, label, ok, detail, latencyMs: Date.now() - started });
     try {
-      const response = await fetcher(new URL(path, base), {
-        redirect: 'error',
+      const response = await fetcher(new URL(path, base).href, {
         method: kind === 'head' ? 'HEAD' : 'GET',
         signal: AbortSignal.timeout(8000),
       });
@@ -43,7 +42,8 @@ export async function scanRelease(startedAt, fetcher) {
       if (kind === 'head') data = response.headers.get('content-type') ?? '';
       const ok = verify(data);
       return result(ok, ok ? 'Ready' : 'Unexpected response');
-    } catch {
+    } catch (error) {
+      console.error('Arcade release check failed', id, String(error));
       return result(false, 'Request failed');
     }
   }));
@@ -68,7 +68,7 @@ export default {
   async scheduled(controller, env) {
     const startedAt = controller.scheduledTime;
     const report = await scanRelease(startedAt, (url, options) => {
-      const binding = url.hostname.split('.')[0].replaceAll('-', '_').toUpperCase();
+      const binding = new URL(url).hostname.split('.')[0].replaceAll('-', '_').toUpperCase();
       return env[binding].fetch(new Request(url, options));
     });
     await env.MONITOR_DB.batch([
