@@ -1,5 +1,20 @@
+diff --git a/README.md b/README.md
+index 5857aec..1e89b11 100644
+--- a/README.md
++++ b/README.md
+@@ -239,6 +239,9 @@ weighted = weigher.weigh_in_table(vectors)
+ sample_weights = weigher.get_weights_per_idx(weighted)
+ ```
+ 
++See [Weighting training samples by embedding density](docs/posts/GOLD_DENSITY_WEIGHING.md)
++for the scoring formula, a complete example, and training integration.
++
+ # Installation
+ 
+ Installing Goldener is as simple as running the following command:
 diff --git a/docs/posts/GOLD_DENSITY_WEIGHING.md b/docs/posts/GOLD_DENSITY_WEIGHING.md
 new file mode 100644
+index 0000000..aca4384
 --- /dev/null
 +++ b/docs/posts/GOLD_DENSITY_WEIGHING.md
 @@ -0,0 +1,69 @@
@@ -72,16 +87,3 @@ new file mode 100644
 +To inspect individual vector scores, call `get_weights_per_idx(result, idx_key="idx_vector", normalize=False)`. For raw sample averages, keep `idx_key="idx"` and set `normalize=False`. To compare samples within a label, configure label stratification on the weigher when scoring and use `label_key` and `label_value` when retrieving weights. Every independently scored label or chunk must meet the population requirement.
 +
 +See the [weighing implementation](../../goldener/weigh.py), [weighing tests](../../tests/test_weigh.py), and [smart batching](GOLD_BATCHER.md).
-diff --git a/README.md b/README.md
---- a/README.md
-+++ b/README.md
-@@ -238,6 +238,9 @@
- weighted = weigher.weigh_in_table(vectors)
- sample_weights = weigher.get_weights_per_idx(weighted)
- ```
-+
-+See [Weighting training samples by embedding density](docs/posts/GOLD_DENSITY_WEIGHING.md)
-+for the scoring formula, a complete example, and training integration.
- 
- # Installation
- 
