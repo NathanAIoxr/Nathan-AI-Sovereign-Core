@@ -105,3 +105,79 @@ recovery.start();
 ```
 
 This is a shared adoption surface; catalog registration alone does not install it into existing apps. Automated actions currently cover validated catalog refresh, derived D1 projection reconstruction and durable idempotent outbox delivery. Arbitrary source patches, security bypasses, financial transactions and source-data deletion are not recovery actions.
+
+## Nathan AI Sovereign Personal Cores
+
+Zero-Cloud and ZORRO-Cloud share the same planner, evidence gates, agent roster
+and Ed25519 grant format. Each of the nine bot roles has a goal-driven counterpart
+that chooses its next planning action from available evidence. The agents record
+observations and proposals. Applying a repair uses the existing separately
+authorized recovery workflow.
+
+The registry links agents to existing Sovereign Boxes, Tabor Light, Guardian,
+ONE Hub, Hive, Tabor World, Voice Box and Silicon-to-Source code. Links are
+derived from shared attributes, characteristics, functionalities and traits.
+The original identifiers and source paths remain inspectable.
+
+### Zero-Cloud on your device
+
+Run from this directory with Node 24. Commands read local input files and store
+switches and receipts in a SQLite file on your device.
+
+```sh
+node personal-core-cli.mjs registry
+node personal-core-cli.mjs run run.json ./owner-core.sqlite
+node personal-core-cli.mjs status ./owner-core.sqlite
+node personal-core-cli.mjs control control.json ./owner-core.sqlite
+```
+
+A local run accepts a unique key, role, goal and source-tagged observation.
+
+```json
+{"key":"run-1","role":"ant-fleet-sentinel","goal":"recover","evidence":{"state":"unknown","source":"owner-snapshot-1"}}
+```
+
+Set `role` to `"*"` in a control input such as
+`{"role":"*","paused":true}` to pause all agent runs. Use a role ID for one
+agent. Resume explicitly with `paused:false`. These switches are independent
+of the original bot switches. Root observations supplied from a file are
+identified as owner-supplied evidence.
+
+Use `box` with `{"root":"project","value":{"existing":0,"empty":null}}`.
+Objects, arrays, numbers and explicit nulls get stable addresses. Missing entries
+stay absent. Use `pixel` with root, width, height, x, y and channel (or null)
+to address an individual pixel or channel within a declared raster. JSON traversal
+is bounded to 4,096 boxes and 32 levels.
+
+Use `reverse` with `{"goal":"candidate","rules":[{"id":"build","produces":"candidate","requires":["source"]}],"facts":[{"id":"source","state":"verified","source":"owner-revision"}]}`.
+The reverse engine searches owned, declared dependency contracts from an outcome
+back to the evidence needed to support it. It chooses a supported path where
+available, reports blocked or missing prerequisites, and returns an ordered plan.
+A verified plan is an evidence-gate result for the supplied contract. Completion
+of an external action requires a subsequent execution receipt.
+
+### ZORRO-Cloud in the ONE Hub
+
+Open the existing Hub on a paired owner device and load the ZORRO-Cloud agents.
+Select a role and an assess or recover goal. Agents read the corresponding
+durable bot receipt, check its recorded hash and freshness, and store a new
+receipt under the run key. Missing, stale, or unreadable proof produces an
+unknown evidence state and a held action. Paused runs are rejected. No agent
+can approve its own recovery proposal through these routes.
+
+- `GET /api/personal-core` lists the agent roster and switches for the paired owner.
+- `POST /api/personal-core/control` accepts role and paused for owner control.
+- `POST /api/personal-core/run` accepts key, role, goal and identity. An owner
+  can provide null for identity and use the existing signed device request.
+- A delegated agent uses a Hub-issued proof-bound token scoped to
+  `personal-core:run` and to the named role, plus an owner-signed portable grant.
+  The grant binds the issuer, subject key, audience, role, expiry and request
+  contents. The receiver checks its own trusted issuers. The Hub honors its
+  existing agent and token revocation controls.
+
+The local CLI can generate a device key with `key <new-file>`, sign an
+invocation with `envelope <json>` using issuer_file, subject_file, audience,
+role, key and goal, and verify it with `verify <json>` using audience,
+trusted_issuer and input. Keep private key files on the owning devices.
+ZORRO-Cloud uses the audience `zorro-cloud:<hub-host>`. A trusted deployment
+must recognize the issuer and authorize the requested operation independently.

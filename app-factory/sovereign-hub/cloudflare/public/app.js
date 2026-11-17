@@ -182,3 +182,30 @@ byId('export-data').addEventListener('click',async()=>{try{const result=await ap
 async function showSwarm(){const result=await api('/api/swarm');byId('swarm-result').textContent=JSON.stringify({healing:result.healing,paused:result.paused,roles:result.roles.map(role=>({id:role.id,paused:role.paused})),recent:result.recent.slice(0,3)},null,2);}
 byId('swarm-run').addEventListener('click',async()=>{try{await api('/api/swarm/run',{key:crypto.randomUUID()});await showSwarm();}catch(error){status(error.message);}});
 for(const [button,paused] of [['swarm-pause',true],['swarm-resume',false]])byId(button).addEventListener('click',async()=>{try{await api('/api/swarm/control',{role:'*',paused});await showSwarm();}catch(error){status(error.message);}});
+
+const personalCore = document.createElement('section');
+personalCore.id = 'personal-core';
+personalCore.className = 'panel wide';
+personalCore.innerHTML = '<h2>Nathan AI Sovereign Personal Cores</h2><button type="button" id="core-load">Load ZORRO-Cloud agents</button><form id="core-run" hidden><label>Agent<select name="role"></select></label><label>Goal<select name="goal"><option value="assess">Assess evidence</option><option value="recover">Plan recovery</option></select></label><button>Run agent</button></form><div id="core-guards" hidden><button type="button" id="core-pause">Pause all agents</button><button type="button" id="core-resume">Resume all agents</button></div><output id="core-result" aria-live="polite"></output>';
+byId('swarm').after(personalCore);
+const showCore = result => { byId('core-result').textContent = JSON.stringify(result,null,2); };
+byId('core-load').addEventListener('click', async () => {
+ try {
+  const result = await api('/api/personal-core');
+  const form = byId('core-run');
+  form.elements.role.replaceChildren(...result.agents.map(agent => new Option(agent.id,agent.id)));
+  form.hidden = false;
+  byId('core-guards').hidden = false;
+  showCore({profile:result.profile,agents:result.agents.length,source_links:result.links.length,guards:result.guards});
+ } catch (error) { status(error.message); }
+});
+handler('core-run',async data=>{
+ const result = await api('/api/personal-core/run',{key:crypto.randomUUID(),role:data.get('role'),goal:data.get('goal'),identity:null});
+ showCore(result);
+});
+for (const [button,paused] of [['core-pause',true],['core-resume',false]]) {
+ byId(button).addEventListener('click', async () => {
+  try { showCore(await api('/api/personal-core/control',{role:'*',paused})); }
+  catch (error) { status(error.message); }
+ });
+}

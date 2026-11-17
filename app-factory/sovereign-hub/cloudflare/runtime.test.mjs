@@ -1,6 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {b64,digest,utf8,canonical} from './core.mjs';
+import {grantMessage,subjectMessage} from './personal-core.mjs';
 import {createRuntime} from './runtime-fixture.mjs';
 function signer(pair,key){return async(path,body,overrides={})=>{const method=body===undefined?'GET':'POST',raw=body===undefined?'':JSON.stringify(body),timestamp=Math.floor(Date.now()/1000),nonce=crypto.randomUUID(),message=canonical(['owner',method,path,await digest(raw),timestamp,nonce]);return {method,headers:{Authorization:'Owner '+key,'X-Agent-Time':String(timestamp),'X-Agent-Nonce':nonce,'X-Agent-Signature':b64(await crypto.subtle.sign('Ed25519',pair.privateKey,utf8(message))),...(method==='POST'?{'Content-Type':'application/json'}:{})},...(method==='POST'?{body:raw}:{}),...overrides};};}
 test('actual Workers runtime: owner pairing, identity, sync, booking, projection and workflow',async()=>{const {mf,setup}=await createRuntime();try{const pair=await crypto.subtle.generateKey('Ed25519',true,['sign','verify']),publicKey=b64(await crypto.subtle.exportKey('raw',pair.publicKey)),signed=signer(pair,publicKey);async function call(path,body,status=200){const r=await mf.dispatchFetch('https://example.com'+path,await signed(path,body));const value=await r.json();assert.equal(r.status,status,JSON.stringify(value));return value;}
@@ -12,5 +13,38 @@ test('actual Workers runtime: owner pairing, identity, sync, booking, projection
  const agent=await crypto.subtle.generateKey('Ed25519',true,['sign','verify']),agentPub=b64(await crypto.subtle.exportKey('raw',agent.publicKey));await call('/api/agents',{agent:'reader',public_key:agentPub,scopes:['diagnostics:read'],resources:['notes']});const capability=await call('/api/tokens',{agent:'reader',scopes:['diagnostics:read'],ttl:60});const now=Math.floor(Date.now()/1000),nonce=crypto.randomUUID(),proof=canonical([await digest(capability.token),'GET','/api/snapshot',await digest(''),now,nonce]);const agentHeaders={Authorization:'Bearer '+capability.token,'X-Agent-Time':String(now),'X-Agent-Nonce':nonce,'X-Agent-Signature':b64(await crypto.subtle.sign('Ed25519',agent.privateKey,utf8(proof)))};response=await mf.dispatchFetch('https://example.com/api/snapshot',{headers:agentHeaders});assert.equal(response.status,200);await call('/api/revoke',{jti:capability.jti});
  const health=await call('/api/commands',{connector:'notes',action:'verify-storage',key:'verify-one'});assert.equal(health.healthy,true);const db=await mf.getD1Database('DB');assert.ok((await db.prepare('SELECT COUNT(*) AS n FROM hub_projection').first()).n>=1);await db.prepare("UPDATE hub_projection SET counts='{}',healthy=0").run();assert.equal((await call('/api/commands',{connector:'notes',action:'verify-storage',key:'verify-two'})).healthy,true);assert.equal((await db.prepare('SELECT healthy FROM hub_projection').first()).healthy,1);
  const flow=await call('/api/recovery',{key:'recovery-test'});assert.ok(flow.id);await call('/api/flows',{id:'checkout',expected:0,target:'complete',key:'bad-flow'},409);await call('/api/flows',{id:'checkout',expected:0,target:'shipping',key:'flow-one'});await call('/api/flows',{id:'checkout',expected:1,target:'payment',key:'flow-two'});await call('/api/flows',{id:'checkout',expected:2,target:'complete',key:'flow-three'});await call('/api/flows',{id:'checkout',expected:3,target:'shipping',key:'flow-overshoot'},409);await call('/api/swarm/control',{role:'bee-grapple-observer',paused:true});const swarm=await call('/api/swarm/run',{key:'swarm-local-test'});assert.equal(swarm.roles,9);assert.equal(swarm.vetoed,1);assert.equal(swarm.executed,8);const publicHealth=await (await mf.dispatchFetch('https://example.com/health')).json();assert.equal(publicHealth.recovery.fleet_contracts,11);assert.equal(publicHealth.recovery.fleet_targets,21);const catalogReceipt=(await call('/api/swarm')).healing.catalog;assert.ok(catalogReceipt.count>0);assert.match(catalogReceipt.sha256,/^[a-f0-9]{64}$/);const duplicate=await call('/api/swarm/run',{key:'swarm-local-test'});assert.deepEqual(duplicate,swarm);await call('/api/swarm/control',{role:'*',paused:true});assert.equal((await call('/api/swarm/run',{key:'swarm-veto'})).executed,0);await call('/api/export');assert.equal((await call('/api/snapshot')).conflicts,0);
+ const core=(await call('/api/personal-core'));assert.equal(core.profile.mode,'zorro-cloud');assert.equal(core.agents.length,9);
+ const agentRequest={key:'fleet-assess',role:'bee-source-verifier',goal:'assess',identity:null};
+ const agentRun=await call('/api/personal-core/run',agentRequest);assert.equal(agentRun.observation.state,'verified');assert.equal(agentRun.plan.next,'record-verification');
+ assert.deepEqual(await call('/api/personal-core/run',agentRequest),agentRun);
+ await call('/api/personal-core/run',{...agentRequest,goal:'recover'},409);
+ await call('/api/personal-core/control',{role:agentRequest.role,paused:true});
+ await call('/api/personal-core/run',{...agentRequest,key:'paused-run'},423);
+ await call('/api/personal-core/control',{role:agentRequest.role,paused:false});
+ await call('/api/personal-core/run',{...agentRequest,key:'resumed-run'});
+ const delegate=await crypto.subtle.generateKey('Ed25519',true,['sign','verify']);
+ const delegatePub=b64(await crypto.subtle.exportKey('raw',delegate.publicKey));
+ await call('/api/agents',{agent:'core-delegate',public_key:delegatePub,scopes:['personal-core:run'],resources:[agentRequest.role]});
+ const access=await call('/api/tokens',{agent:'core-delegate',scopes:['personal-core:run'],ttl:60});
+ const input={key:'portable-run',role:agentRequest.role,goal:'assess'};
+ const issued=Math.floor(Date.now()/1000),grant={id:'delegation',issuer:publicKey,subject:delegatePub,
+  audience:'zorro-cloud:example.com',role:input.role,purpose:'plan',issued,expires:issued+60};
+ const signature=b64(await crypto.subtle.sign('Ed25519',pair.privateKey,utf8(grantMessage(grant))));
+ const delegateProof=b64(await crypto.subtle.sign('Ed25519',delegate.privateKey,utf8(subjectMessage(grant,await digest(canonical(input))))));
+ const delegated=async body=>{
+  const path='/api/personal-core/run',raw=JSON.stringify(body),at=Math.floor(Date.now()/1000),nonce=crypto.randomUUID();
+  const message=canonical([await digest(access.token),'POST',path,await digest(raw),at,nonce]);
+  const signed=b64(await crypto.subtle.sign('Ed25519',delegate.privateKey,utf8(message)));
+  return mf.dispatchFetch('https://example.com'+path,{method:'POST',body:raw,headers:{Authorization:'Bearer '+access.token,
+   'Content-Type':'application/json','X-Agent-Time':String(at),'X-Agent-Nonce':nonce,'X-Agent-Signature':signed}});
+ };
+ const delegatedBody={...input,identity:{grant,signature,proof:delegateProof}};
+ const rejected=await delegated({...delegatedBody,key:'tampered'});
+ assert.equal(rejected.status,403,await rejected.text());
+ const accepted=await delegated(delegatedBody);
+ assert.equal(accepted.status,200);
+ assert.equal((await accepted.json()).identity.grant,'delegation');
+ await call('/api/revoke',{jti:access.jti});
+ assert.equal((await delegated(delegatedBody)).status,403);
  const publicModule=await mf.dispatchFetch('https://example.com/one-core.mjs',{headers:{Origin:'https://other-app.test'}});assert.equal(publicModule.status,200);const evil=await mf.dispatchFetch('https://example.com/api/catalog',{headers:{Origin:'https://evil.test'}});assert.equal(evil.status,403);
  }finally{await mf.dispose();}});

@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test core.test.mjs healing.test.mjs runtime.test.mjs",
+    "test": "node --test core.test.mjs healing.test.mjs personal-core.test.mjs runtime.test.mjs",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "build": "node build.mjs",
