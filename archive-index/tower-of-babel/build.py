@@ -1,5 +1,8 @@
 """Build the static reader and, optionally, its self-contained Cloudflare Worker."""
 import argparse
+from base64 import b64encode
+import gzip
+import hashlib
 from html import escape
 import json
 from pathlib import Path
@@ -26,6 +29,7 @@ def evidence_sections(evidence):
     exhibits = set()
     rendered_groups = []
     options = []
+    general_notes = []
     for i, group in enumerate(groups):
         key, title = group.groups()
         end = groups[i + 1].start() if i + 1 < len(groups) else len(evidence)
@@ -33,7 +37,7 @@ def evidence_sections(evidence):
         for paragraph in re.split(r"\n\n", evidence[group.end():end].strip()):
             match = exhibit.match(paragraph)
             if not match:
-                lines.append(render(paragraph))
+                general_notes.append(render(paragraph))
                 continue
             exhibit_id = match[1]
             if exhibit_id in exhibits:
@@ -50,28 +54,40 @@ def evidence_sections(evidence):
         )
     if len(exhibits) != 26:
         raise ValueError(f"Expected all 26 exhibits, found {len(exhibits)}")
-    return render(evidence[:groups[0].start()]), "".join(options), "".join(rendered_groups)
+    return render(evidence[:groups[0].start()]) + "".join(general_notes), "".join(options), "".join(rendered_groups)
 
 
-def static_page(manuscript):
+def static_page(manuscript, artwork_revision):
     parts = re.split(r"(?m)^## [1-4]\. [^\n]+\n", manuscript, maxsplit=4)
     if len(parts) != 5:
         raise ValueError("Expected four manuscript sections")
     _, original, editorial, evidence, attachment = parts
     preface, options, groups = evidence_sections(evidence)
+    editorial_html = render(editorial)
+    contents = [
+        f'<li><a href="#{escape(section)}">{label}</a></li>'
+        for section, label in re.findall(r'<h3 id="([^"]+)">(.+?)</h3>', editorial_html)
+    ]
     regions = {
-        "ORIGINAL": render(original), "EDITORIAL": render(editorial),
+        "HERO": f'<img class="mast-art" src="./tower.webp?v={artwork_revision}" alt="" width="1320" height="743" fetchpriority="high">',
+        "SCRIPT": (ROOT / "reader.js").read_text().rstrip(),
+        "CONTENTS": "".join(contents),
+        "ORIGINAL": render(original), "EDITORIAL": editorial_html,
         "EVIDENCE_PREFACE": preface, "CATEGORIES": options,
         "EVIDENCE": groups, "ATTACHMENT": render(attachment),
     }
     return re.sub(r"%%([A-Z_]+)%%", lambda m: regions[m[1]], (ROOT / "reader.html").read_text())
 
 
-def worker_source(page, manuscript, metadata):
+def worker_source(page, manuscript, metadata, artwork):
+    def text_asset(text, mime_type):
+        return [b64encode(gzip.compress(text.encode(), mtime=0)).decode(), mime_type, True]
+
     assets = {
-        "/": [page, "text/html; charset=utf-8"],
-        "/manuscript.md": [manuscript, "text/markdown; charset=utf-8"],
-        "/release.json": [metadata, "application/json; charset=utf-8"],
+        "/": text_asset(page, "text/html; charset=utf-8"),
+        "/manuscript.md": text_asset(manuscript, "text/markdown; charset=utf-8"),
+        "/release.json": text_asset(metadata, "application/json; charset=utf-8"),
+        "/tower.webp": [b64encode(artwork).decode(), "image/webp", False],
     }
     return "const assets = " + json.dumps(assets, ensure_ascii=False) + r""";
 export default {
@@ -88,36 +104,43 @@ export default {
       "X-Content-Type-Options": "nosniff",
       "Cache-Control": "public, max-age=300",
       "Referrer-Policy": "strict-origin-when-cross-origin",
-      "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'",
+      "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; script-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'",
     };
     if (path === "/manuscript.md") {
       headers["Content-Disposition"] = 'attachment; filename="Tower_of_Babel_Restored_and_Expanded.md"';
     }
-    return new Response(request.method === "HEAD" ? null : entry[0], { headers });
+    let body = null;
+    if (request.method === "GET") {
+      const bytes = Uint8Array.from(atob(entry[0]), char => char.charCodeAt(0));
+      body = entry[2] ? new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip")) : bytes;
+    }
+    return new Response(body, { headers });
   },
 };
 """
 
 
 def main():
-    import hashlib
-
     args = argparse.ArgumentParser(description=__doc__)
     args.add_argument("--worker", type=Path, help="Write the Cloudflare module to this path")
     options = args.parse_args()
     raw = (ROOT / "manuscript.md").read_bytes()
     manuscript = raw.decode()
-    page = static_page(manuscript)
+    artwork = (ROOT / "tower.webp").read_bytes()
+    artwork_sha256 = hashlib.sha256(artwork).hexdigest()
+    page = static_page(manuscript, artwork_sha256[:12])
     metadata = json.dumps({
         "title": "The Tower of Babel",
         "author": "Nathan Tabor",
+        "edition": "revised-reading-edition",
         "exhibits": 26,
+        "artwork_sha256": artwork_sha256,
         "manuscript_sha256": hashlib.sha256(raw).hexdigest(),
     }, indent=2) + "\n"
-    (ROOT / "index.html").write_text(page)
+    (ROOT / "index.html").write_text(page, encoding="utf-8")
     (ROOT / "release.json").write_text(metadata)
     if options.worker:
-        options.worker.write_text(worker_source(page, manuscript, metadata))
+        options.worker.write_text(worker_source(page, manuscript, metadata, artwork))
 
 
 if __name__ == "__main__":
