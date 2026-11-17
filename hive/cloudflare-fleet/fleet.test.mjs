@@ -47,6 +47,10 @@ test('known Access and private responses are recorded as protected', async () =>
   const library = WORKLOADS.find(item => item.service === 'nathan-tabor-library');
   const login = {fetch: () => Response.redirect('https://nathantaboract.cloudflareaccess.com/cdn-cgi/access/login/nathan-tabor-library.nathantaboract.workers.dev', 302)};
   assert.equal((await probe(library, login, true)).outcome, 'protected');
+  login.fetch = () => Response.json({error: 'Owner sign-in required.'}, {status: 401});
+  assert.equal((await probe(library, login, true)).outcome, 'protected');
+  login.fetch = () => Response.json({error: 'Unexpected auth response'}, {status: 401});
+  assert.equal((await probe(library, login, true)).outcome, 'failed');
   const runner = WORKLOADS.find(item => item.service === 'nathan-ai-repair-sandbox');
   const target = {fetch: () => new Response('Private runner', {status: 404})};
   assert.equal((await probe(runner, target, true)).outcome, 'protected');
