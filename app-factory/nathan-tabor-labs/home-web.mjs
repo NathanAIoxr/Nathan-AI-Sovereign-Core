@@ -24,6 +24,7 @@ export const home = frame('Home', `
 <section class="panel" aria-labelledby="mind-heading"><h2 id="mind-heading">The mind</h2>
 <p>Make a move. Replay it. Change one input and see what follows.</p>
 <p><a href="/play/labs">Play 134 Labs challenges</a></p>
+<p><a href="/play/hounds">Release the Hounds of Hell · Protect Innocence</a></p>
 <details id="mind"><summary>In Nathan Tabor’s words</summary>
 <blockquote>“my mind my soul, my spirit, my shadow, my essence, my core, my moral absolute my everything programed in binary code algorithms LLM’s the code of code with code, but no code 👩‍💻”</blockquote>
 <dl><dt>Known / Unknown</dt><dd>The replay records the release and result. The player can say why they let go.</dd>
