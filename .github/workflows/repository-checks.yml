@@ -27,6 +27,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install repository verification dependencies
+        run: |
+          python3 -m pip install -r app-factory/sovereign-hub/requirements.txt
+          npm ci --prefix app-factory/sovereign-hub/cloudflare
       - name: Run all repository suites and bounded smoke checks
         run: python3 -B tools/release/check.py --out "$RUNNER_TEMP/repository-checks"
       - name: Build and verify the complete public site package
