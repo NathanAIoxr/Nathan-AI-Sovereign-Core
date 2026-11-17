@@ -134,6 +134,7 @@ function beginPolling(){
   clearTimeout(poll);
   const cycle=++pollCursor;
   let delay=1800;
+  const timeout=()=>event?.rounds.length?delay:Math.max(delay,4000);
   async function refresh(){
     if(cycle!==pollCursor||!event||event.champion!==null)return;
     if(!busy&&!document.hidden){
@@ -148,9 +149,9 @@ function beginPolling(){
         delay=Math.min(15000,delay*2);
       }
     }
-    if(cycle===pollCursor&&event?.champion===null)poll=setTimeout(refresh,delay);
+    if(cycle===pollCursor&&event?.champion===null)poll=setTimeout(refresh,timeout());
   }
-  poll=setTimeout(refresh,delay);
+  poll=setTimeout(refresh,timeout());
 }
 document.addEventListener('visibilitychange',()=>{
   if(!document.hidden&&event?.champion===null)beginPolling();

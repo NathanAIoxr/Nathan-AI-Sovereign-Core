@@ -213,11 +213,15 @@ function createWorker(assets) {
       const {pathname}=new URL(request.url);
       if(pathname.startsWith('/api/')){
         try {
+          if(pathname==='/api/bee'&&request.method==='GET'){
+            if(!env.RELEASE_BEE)return Response.json({latest:null},{headers:{'Cache-Control':'no-store'}});
+            return await env.RELEASE_BEE.fetch('https://hook-and-ring-bee.nathantaboract.workers.dev/api/status');
+          }
           if(pathname==='/api/status'){
             if(request.method!=='GET')return Response.json({error:'Use GET.'},{status:405});
             const row=await env.DB.prepare("SELECT COUNT(*) AS count FROM sqlite_master WHERE type='table' AND name IN ('arcade_events','ranked_rounds')").first();
             const ready=row?.count===2;
-            return Response.json({service:'hook-and-ring',release:'2026-11-17.1',onlinePlay:ready},{status:ready?200:503,headers:{'Cache-Control':'no-store'}});
+            return Response.json({service:'hook-and-ring',release:'2026-11-17.2',onlinePlay:ready},{status:ready?200:503,headers:{'Cache-Control':'no-store'}});
           }
           if(pathname==='/api/events'||pathname.startsWith('/api/events/'))return await competition(request,env.DB);
           return await tournament(request,env.DB);
