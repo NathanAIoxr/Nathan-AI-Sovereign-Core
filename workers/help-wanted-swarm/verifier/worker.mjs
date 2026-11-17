@@ -27,7 +27,7 @@ const PENDING_HANDOFFS = `
     AND (v.job_id IS NULL OR (v.status='SOURCE_UNAVAILABLE' AND (v.checked_at<=?1 OR EXISTS(
       SELECT 1 FROM repair_pinned_sources p
       WHERE p.repository=lower(j.repository) AND p.base=lower(json_extract(h.source_receipt,'$.base'))
-        AND p.imported_at>v.checked_at)))
+        AND (p.imported_at>v.checked_at OR v.execution='Cloudflare scheduled run'))))
       OR (v.status='SOURCE_MATCH' AND v.execution NOT LIKE 'Cloudflare scheduled run%'))
   ORDER BY v.checked_at IS NOT NULL, v.checked_at, j.scope='INTERNAL' DESC, h.draft_at, h.job_id
   LIMIT 4
@@ -213,10 +213,15 @@ export async function verifyPatch(jobId, receipt, read = fetch, repository, look
 
 export async function refreshChecks(db, scheduledAt, read = fetch) {
   const rows = (await db.prepare(PENDING_HANDOFFS).bind(scheduledAt - 15 * 60_000).all()).results;
-  const lookupSnapshot = (repository, base, path) => db.prepare(
-    "SELECT present,source,sha256 FROM repair_pinned_sources WHERE repository=? AND base=? AND path=?"
-  ).bind(repository,base,path).first();
   await Promise.all(rows.map(async row => {
+    let usedSnapshot = false;
+    const lookupSnapshot = async (repository, base, path) => {
+      const source = await db.prepare(
+        "SELECT present,source,sha256 FROM repair_pinned_sources WHERE repository=? AND base=? AND path=?"
+      ).bind(repository,base,path).first();
+      usedSnapshot ||= Boolean(source);
+      return source;
+    };
     let status = "SOURCE_MATCH", reason = null, proof = {base:null,files:0,hunks:0};
     try {
       proof = await verifyPatch(row.job_id, JSON.parse(row.source_receipt), read, row.repository, lookupSnapshot);
@@ -227,7 +232,7 @@ export async function refreshChecks(db, scheduledAt, read = fetch) {
     }
     const execution = proof.snapshots
       ? "Cloudflare scheduled run · pinned Git snapshots " + proof.snapshots + "/" + proof.files
-      : "Cloudflare scheduled run";
+      : usedSnapshot ? "Cloudflare scheduled run · pinned Git snapshot attempt" : "Cloudflare scheduled run";
     await db.prepare(STORE_CHECK).bind(row.job_id, row.source_receipt, scheduledAt, status, proof.base,
       proof.files, proof.hunks, reason, execution, row.job_id, row.source_receipt).run();
   }));
