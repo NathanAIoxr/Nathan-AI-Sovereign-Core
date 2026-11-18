@@ -1,0 +1,916 @@
+{
+  "schema_version": 1,
+  "namespace": "tabor-imagination-101",
+  "description": "Fourth independent catalog; specifications, not 101 verified upstream repos",
+  "entries": [
+    {
+      "id": "IMAG-001",
+      "name": "Dragon Species & Elemental Breath Generator",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-002",
+      "name": "Dragon Egg Incubator & Hatching Timer",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-003",
+      "name": "Dragonese Roar & Rhyme Translator",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-004",
+      "name": "Cloud-Canyon Flight Path Simulator",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-005",
+      "name": "Dragon Hoard Treasure & Riddle Vault",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-006",
+      "name": "Baby Dragon Scale-Color Mixer",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-007",
+      "name": "Volcano & Mountain Lair Map Builder",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-008",
+      "name": "Dragon-Back Mail & Scroll Carrier",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-009",
+      "name": "Friendly Dragon Name & Title Forger",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-010",
+      "name": "Paper-Dragon Origami Folding Guide",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-011",
+      "name": "Dragon Lullaby & Campfire Story Weaver",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-012",
+      "name": "Star-Dragon Constellation Mapper",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-013",
+      "name": "Dragon-Fire Marshmallow & Bakery Recipe Spinner",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-014",
+      "name": "Tiny Pocket-Dragon Companion Widget",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-015",
+      "name": "Dragon Sanctuary Care & Feeding Tracker",
+      "category": "dragons",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-016",
+      "name": "Unicorn Mane & Rainbow Prism Generator",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-017",
+      "name": "Star-Fairy Dust Sparkle Physics Engine",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-018",
+      "name": "Rainbow Bridge & Cloud-Kingdom Builder",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-019",
+      "name": "Unicorn Horn Glow & Wish-Light Decoder",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-020",
+      "name": "Pegacorn & Alicorn Hybrid Creature Studio",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-021",
+      "name": "Whispering Meadow Flower-Language Translator",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-022",
+      "name": "Glitter-Hoofprint Trail Generator",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-023",
+      "name": "Unicorn Tea-Party & Cloud-Cupcake Menu Maker",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-024",
+      "name": "Silver-Moon Unicorn Lullaby Composer",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-025",
+      "name": "Crystal Cavern Gem & Geode Cracker",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-026",
+      "name": "Unicorn Herd Friendship & Cutie-Crest Designer",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-027",
+      "name": "Rainbow Weather & Sunshower Predictor",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-028",
+      "name": "Sleigh-Flight & Reindeer Star-Dust Booster",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-029",
+      "name": "Lost-in-the-Clouds Maze & Rainbow Slide Game",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-030",
+      "name": "Unicorn & Dragon Best-Friends Duo Builder",
+      "category": "unicorns",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-031",
+      "name": "Interactive Yin-Yang Balance Toy",
+      "category": "harmony",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-032",
+      "name": "Sun-Lion & Moon-Owl Day/Night Cycle Switcher",
+      "category": "harmony",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-033",
+      "name": "Opposites & Harmony Word-Pair Matcher",
+      "category": "harmony",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-034",
+      "name": "Balance-Scale Riddle & Weight Game",
+      "category": "harmony",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-035",
+      "name": "Five-Elements Creature Wheel",
+      "category": "harmony",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-036",
+      "name": "Shadow-Puppet Theater Generator",
+      "category": "harmony",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-037",
+      "name": "Calm-Breath & Heartbeat Ripple Visualizer",
+      "category": "harmony",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-038",
+      "name": "Mirror-World & Topsy-Turvy Flip Engine",
+      "category": "harmony",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-039",
+      "name": "Season-Spinner",
+      "category": "harmony",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-040",
+      "name": "Echo & Resonance Sound-Wave Visualizer",
+      "category": "harmony",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-041",
+      "name": "Good-Deed Ripple & Kindness Chain Tracker",
+      "category": "harmony",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-042",
+      "name": "Puzzle-Piece Two-Halves Story Completer",
+      "category": "harmony",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-043",
+      "name": "Day-Sky / Night-Sky Constellation & Cloud Spotter",
+      "category": "harmony",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-044",
+      "name": "Harmony-Chime & Pentatonic Wind-Chime Synthesizer",
+      "category": "harmony",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-045",
+      "name": "A–Z Creature Kingdom Portal Router",
+      "category": "alphabet",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-046",
+      "name": "Alliterative Tongue-Twister & Title Generator",
+      "category": "alphabet",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-047",
+      "name": "Bouncy Rhyme-Time Stanza Completer",
+      "category": "alphabet",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-048",
+      "name": "Alphabet Soup & Letter-Monster Word Builder",
+      "category": "alphabet",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-049",
+      "name": "Phonics Sound-Out & Syllable Clapper",
+      "category": "alphabet",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-050",
+      "name": "Silly-Dictionary & Invented-Word Forger",
+      "category": "alphabet",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-051",
+      "name": "Acrostic Name-Poem Generator",
+      "category": "alphabet",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-052",
+      "name": "Alphabetical Town & Land Builder",
+      "category": "alphabet",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-053",
+      "name": "Rhyme-Scheme & Meter Rhythm Checker",
+      "category": "alphabet",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-054",
+      "name": "Backwards-Words & Palindrome Playground",
+      "category": "alphabet",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-055",
+      "name": "Onomatopoeia Sound-Effects Comic Pop-Up Engine",
+      "category": "alphabet",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-056",
+      "name": "Story-Starter Dice Roller",
+      "category": "alphabet",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-057",
+      "name": "Choose-Your-Own-Adventure Branching Tree Engine",
+      "category": "alphabet",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-058",
+      "name": "Tiny-Hero Big-World Perspective Storyteller",
+      "category": "alphabet",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-059",
+      "name": "Savanna Lion/Lioness Royal Decree Engine",
+      "category": "creatures",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-060",
+      "name": "Friendly Dinosaur Time-Machine Explorer",
+      "category": "creatures",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-061",
+      "name": "Hybrid Animal Mashup Lab",
+      "category": "creatures",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-062",
+      "name": "Backyard Bug & Tiny-Ant Flight Simulator",
+      "category": "creatures",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-063",
+      "name": "Ocean Trench & Bioluminescent Deep-Sea Explorer",
+      "category": "creatures",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-064",
+      "name": "Woodland Treehouse & Hollow-Oak Village Architect",
+      "category": "creatures",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-065",
+      "name": "Talking-Animal Fable & Moral Lesson Generator",
+      "category": "creatures",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-066",
+      "name": "Footprint & Animal-Track Detective Game",
+      "category": "creatures",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-067",
+      "name": "Chameleon & Octopus Camouflage Color-Matcher",
+      "category": "creatures",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-068",
+      "name": "Migration & Great Animal Journey Globe",
+      "category": "creatures",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-069",
+      "name": "Prehistoric Amber & Fossil Dig Simulator",
+      "category": "creatures",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-070",
+      "name": "Nocturnal Firefly & Moonlight Forest Chorus",
+      "category": "creatures",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-071",
+      "name": "Animal Superpower Comparator",
+      "category": "creatures",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-072",
+      "name": "Good-Health & Safety Parable Storyteller",
+      "category": "creatures",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-073",
+      "name": "Instant Printable SVG Coloring-Book Page Generator",
+      "category": "visual-art",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-074",
+      "name": "Pixel-Art & Perler-Bead Grid Designer",
+      "category": "visual-art",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-075",
+      "name": "Kaleidoscope & Mandala Symmetry Painter",
+      "category": "visual-art",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-076",
+      "name": "Paper-Airplane Folding & Aerodynamics Lab",
+      "category": "visual-art",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-077",
+      "name": "Custom Coat-of-Arms & Family Shield Builder",
+      "category": "visual-art",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-078",
+      "name": "Comic-Strip 4-Panel Storyboard Creator",
+      "category": "visual-art",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-079",
+      "name": "Sticker-Pack & Badge SVG Generator",
+      "category": "visual-art",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-080",
+      "name": "Rainbow Spirograph & Geometric Curve Drawer",
+      "category": "visual-art",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-081",
+      "name": "3D Pop-Up Card & Paper-Craft Template Maker",
+      "category": "visual-art",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-082",
+      "name": "Pixel-Monster & Cute-Robot Avatar Generator",
+      "category": "visual-art",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-083",
+      "name": "Cloud-Shape & Star-Constellation Connect-the-Dots",
+      "category": "visual-art",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-084",
+      "name": "LEGO / Brick-Builder Mosaic Converter",
+      "category": "visual-art",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-085",
+      "name": "Finger-Paint & Watercolor Splash Canvas",
+      "category": "visual-art",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-086",
+      "name": "Bedtime Storybook PDF & Flipbook Compiler",
+      "category": "visual-art",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-087",
+      "name": "Solar System & Planet-Hopper Rocket Simulator",
+      "category": "science",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-088",
+      "name": "Cloud-Type & Rainbow-Physics Weather Station",
+      "category": "science",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-089",
+      "name": "Kitchen-Science Safe Experiment Cards",
+      "category": "science",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-090",
+      "name": "Moon-Phase & Crescent-Smile Calendar",
+      "category": "science",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-091",
+      "name": "Seed-to-Oak-Tree Time-Lapse Grower",
+      "category": "science",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-092",
+      "name": "Time-Capsule & Future-Self Letter Vault",
+      "category": "science",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-093",
+      "name": "Secret-Clubhouse Cipher & Decoder Ring",
+      "category": "science",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-094",
+      "name": "World-Holidays & Global Festival Explorer",
+      "category": "science",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-095",
+      "name": "Musical-Story Soundboard",
+      "category": "science",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-096",
+      "name": "Grandparent / Parent & Child Co-Authoring Relay",
+      "category": "master",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-097",
+      "name": "Voice-to-Storybook Bedtime Recorder",
+      "category": "master",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-098",
+      "name": "Kid-Safe Content & Positive-Tone Guardrail Filter",
+      "category": "master",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-099",
+      "name": "Illustration Prompt & SVG Scene Composer",
+      "category": "master",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-100",
+      "name": "Achievement Patch & Explorer Badge Hall of Fame",
+      "category": "master",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "IMAG-101",
+      "name": "Universal Imagination & Wonder Engine",
+      "category": "master",
+      "source_type": "user_proposed_microservice",
+      "state": "queued",
+      "script_uploaded": false,
+      "production_verified": false
+    }
+  ]
+}
