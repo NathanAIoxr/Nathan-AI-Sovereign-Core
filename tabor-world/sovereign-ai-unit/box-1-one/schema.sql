@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS sovereign_ledger (id INTEGER PRIMARY KEY AUTOINCREMENT, input_hash TEXT NOT NULL, output_payload TEXT NOT NULL, created_at INTEGER NOT NULL); CREATE INDEX IF NOT EXISTS idx_sovereign_ledger_hash ON sovereign_ledger(input_hash);
