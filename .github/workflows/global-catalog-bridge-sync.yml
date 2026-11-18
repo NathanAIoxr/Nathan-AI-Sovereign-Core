@@ -1,0 +1,22 @@
+name: Nathan Global Catalog GitHub-Cloudflare Reconciliation
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "12 */6 * * *"
+  pull_request:
+    paths:
+      - "integrations/global-catalog-bridge/**"
+      - "app-factory/nathan-ai/global-infrastructure-atlas/public-github-discovery-205.json"
+permissions:
+  contents: read
+jobs:
+  verify-catalog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Compare Cloudflare D1-backed API with GitHub 205-repository mirror
+        run: node integrations/global-catalog-bridge/verify.mjs
