@@ -1,0 +1,335 @@
+{
+  "family_address_space": 172,
+  "clover_address_space": 1382,
+  "supernode_address_space": 732000000,
+  "omni_address_space": 126000000000,
+  "factory_target": 101,
+  "zones": [
+    "HIVE_ABOVE",
+    "ANTHILL_MIDDLE",
+    "CATACOMB_BELOW"
+  ],
+  "quadrants": [
+    "TRUTH",
+    "TIME",
+    "TRAVEL",
+    "TRANSFIGURATION"
+  ],
+  "expansion_families": [
+    {
+      "id": 164,
+      "code": "EDGE_GATEKEEPERS",
+      "zone": "HIVE_ABOVE"
+    },
+    {
+      "id": 165,
+      "code": "D1_SNAPSHOT_KEEPERS",
+      "zone": "CATACOMB_BELOW"
+    },
+    {
+      "id": 166,
+      "code": "R2_VAULT_ARCHIVERS",
+      "zone": "CATACOMB_BELOW"
+    },
+    {
+      "id": 167,
+      "code": "PORTFOLIO_ROUTER_BEES",
+      "zone": "HIVE_ABOVE"
+    },
+    {
+      "id": 168,
+      "code": "WORLDWIDE_INTAKE_ANTS",
+      "zone": "ANTHILL_MIDDLE"
+    },
+    {
+      "id": 169,
+      "code": "DYNAMIC_WORKER_BUNDLERS",
+      "zone": "HIVE_ABOVE"
+    },
+    {
+      "id": 170,
+      "code": "MIRROR_AUDIT_SENTINELS",
+      "zone": "ANTHILL_MIDDLE"
+    },
+    {
+      "id": 171,
+      "code": "ROLLBACK_HEALERS",
+      "zone": "CATACOMB_BELOW"
+    },
+    {
+      "id": 172,
+      "code": "CROSS_PLATFORM_BRIDGES",
+      "zone": "HIVE_ABOVE"
+    }
+  ],
+  "council_archetypes": [
+    {
+      "id": "hist-01",
+      "category": "HISTORICAL_12",
+      "name": "Cleopatra VII",
+      "zone": "HIVE_ABOVE",
+      "function": "Polyglot Diplomacy & Zero-Trust Ciphers"
+    },
+    {
+      "id": "hist-02",
+      "category": "HISTORICAL_12",
+      "name": "Leonardo da Vinci",
+      "zone": "ANTHILL_MIDDLE",
+      "function": "Anatomical Octo-Builders & Mirror Blueprints"
+    },
+    {
+      "id": "hist-03",
+      "category": "HISTORICAL_12",
+      "name": "Nikola Tesla",
+      "zone": "CATACOMB_BELOW",
+      "function": "Wireless Resonance & P2P Mesh Compute"
+    },
+    {
+      "id": "hist-04",
+      "category": "HISTORICAL_12",
+      "name": "Ada Lovelace",
+      "zone": "ANTHILL_MIDDLE",
+      "function": "Symbolic Loops & Poetic-to-Binary Compilers"
+    },
+    {
+      "id": "hist-05",
+      "category": "HISTORICAL_12",
+      "name": "Sun Tzu",
+      "zone": "CATACOMB_BELOW",
+      "function": "Ghost Scouts & Pre-Battle Simulation Gates"
+    },
+    {
+      "id": "hist-06",
+      "category": "HISTORICAL_12",
+      "name": "Archimedes",
+      "zone": "HIVE_ABOVE",
+      "function": "Fulcrum Multipliers & WASM Compression"
+    },
+    {
+      "id": "hist-07",
+      "category": "HISTORICAL_12",
+      "name": "Hypatia of Alexandria",
+      "zone": "CATACOMB_BELOW",
+      "function": "Unburnable Library & Geometric Indexing"
+    },
+    {
+      "id": "hist-08",
+      "category": "HISTORICAL_12",
+      "name": "Imhotep",
+      "zone": "ANTHILL_MIDDLE",
+      "function": "Stone-Cut Schemas & System Diagnostics"
+    },
+    {
+      "id": "hist-09",
+      "category": "HISTORICAL_12",
+      "name": "Ibn al-Haytham (Alhazen)",
+      "zone": "ANTHILL_MIDDLE",
+      "function": "Camera Obscura Visual Verification Gates"
+    },
+    {
+      "id": "hist-10",
+      "category": "HISTORICAL_12",
+      "name": "Wu Zetian",
+      "zone": "HIVE_ABOVE",
+      "function": "Bronze-Urn Intake & Meritocratic Scheduling"
+    },
+    {
+      "id": "hist-11",
+      "category": "HISTORICAL_12",
+      "name": "Alan Turing",
+      "zone": "ANTHILL_MIDDLE",
+      "function": "Parallel Permutations & Self-Organizing Grids"
+    },
+    {
+      "id": "hist-12",
+      "category": "HISTORICAL_12",
+      "name": "Harriet Tubman",
+      "zone": "CATACOMB_BELOW",
+      "function": "Zero-Trace Extraction & Safe-House Routing"
+    },
+    {
+      "id": "myth-01",
+      "category": "MYTHIC_12",
+      "name": "Zeus",
+      "zone": "HIVE_ABOVE",
+      "function": "Instantaneous Broadcast & Perimeter Defense"
+    },
+    {
+      "id": "myth-02",
+      "category": "MYTHIC_12",
+      "name": "Odin",
+      "zone": "CATACOMB_BELOW",
+      "function": "Twin-Raven Telemetry & Root Memory Wells"
+    },
+    {
+      "id": "myth-03",
+      "category": "MYTHIC_12",
+      "name": "Thoth",
+      "zone": "ANTHILL_MIDDLE",
+      "function": "Precision Scribe Ledger & Truth Verification"
+    },
+    {
+      "id": "myth-04",
+      "category": "MYTHIC_12",
+      "name": "Hephaestus",
+      "zone": "ANTHILL_MIDDLE",
+      "function": "Subterranean Forge & Self-Moving Automata"
+    },
+    {
+      "id": "myth-05",
+      "category": "MYTHIC_12",
+      "name": "Shiva",
+      "zone": "CATACOMB_BELOW",
+      "function": "Creation-Destruction Loop & Instant Purge"
+    },
+    {
+      "id": "myth-06",
+      "category": "MYTHIC_12",
+      "name": "Ganesha",
+      "zone": "HIVE_ABOVE",
+      "function": "Threshold Gatekeeper & Obstacle Clearing"
+    },
+    {
+      "id": "myth-07",
+      "category": "MYTHIC_12",
+      "name": "Athena",
+      "zone": "ANTHILL_MIDDLE",
+      "function": "Tactical Loom & Night-Ops Scouts"
+    },
+    {
+      "id": "myth-08",
+      "category": "MYTHIC_12",
+      "name": "Isis",
+      "zone": "CATACOMB_BELOW",
+      "function": "Fragment Reassembly & Root-Name Authority"
+    },
+    {
+      "id": "myth-09",
+      "category": "MYTHIC_12",
+      "name": "Saraswati",
+      "zone": "HIVE_ABOVE",
+      "function": "Noise-Filtering Streams & Syntax Compilers"
+    },
+    {
+      "id": "myth-10",
+      "category": "MYTHIC_12",
+      "name": "Freya",
+      "zone": "HIVE_ABOVE",
+      "function": "Stealth Edge Runners & Priority Selection"
+    },
+    {
+      "id": "myth-11",
+      "category": "MYTHIC_12",
+      "name": "Amaterasu",
+      "zone": "HIVE_ABOVE",
+      "function": "Photographic State Reflection & Cave Fail-Safe"
+    },
+    {
+      "id": "myth-12",
+      "category": "MYTHIC_12",
+      "name": "Kali",
+      "zone": "CATACOMB_BELOW",
+      "function": "Zero-Mercy Garbage Collection & Quarantine"
+    }
+  ],
+  "blueprint_apps": [
+    {
+      "id": 1,
+      "slug": "one-the-last-app",
+      "title": "ONE — The Last App",
+      "zone": "HIVE_ABOVE",
+      "blueprintRoute": "/apps/one"
+    },
+    {
+      "id": 2,
+      "slug": "make-ai-yours",
+      "title": "MAKE AI YOURS — Powered by NATHAN AI",
+      "zone": "HIVE_ABOVE",
+      "blueprintRoute": "/apps/make-ai-yours"
+    },
+    {
+      "id": 3,
+      "slug": "icu-buddy",
+      "title": "BUDDY AI (THE iCU APP)",
+      "zone": "HIVE_ABOVE",
+      "blueprintRoute": "/apps/icu-buddy"
+    },
+    {
+      "id": 4,
+      "slug": "mad-man-app",
+      "title": "MAD MAN APP",
+      "zone": "HIVE_ABOVE",
+      "blueprintRoute": "/apps/mad-man"
+    },
+    {
+      "id": 5,
+      "slug": "tabor-light-bible",
+      "title": "The Modern Day Bible — Tabor Light",
+      "zone": "CATACOMB_BELOW",
+      "blueprintRoute": "/apps/tabor-light"
+    },
+    {
+      "id": 6,
+      "slug": "mespark-matrix",
+      "title": "meSPARK & Memory Matrix",
+      "zone": "CATACOMB_BELOW",
+      "blueprintRoute": "/apps/mespark"
+    },
+    {
+      "id": 7,
+      "slug": "mammal-lineage",
+      "title": "MAMMAL Ancestral Lineage",
+      "zone": "CATACOMB_BELOW",
+      "blueprintRoute": "/apps/mammal"
+    },
+    {
+      "id": 8,
+      "slug": "gathering-circle",
+      "title": "The Gathering Circle",
+      "zone": "HIVE_ABOVE",
+      "blueprintRoute": "/apps/gathering-circle"
+    },
+    {
+      "id": 9,
+      "slug": "universal-obd",
+      "title": "Nathan AI Universal OBD Diagnostics",
+      "zone": "ANTHILL_MIDDLE",
+      "blueprintRoute": "/apps/obd"
+    },
+    {
+      "id": 10,
+      "slug": "tabor-logistics",
+      "title": "Tabor Logistics & Fleet Dispatch",
+      "zone": "ANTHILL_MIDDLE",
+      "blueprintRoute": "/apps/logistics"
+    },
+    {
+      "id": 11,
+      "slug": "icarus-baseball",
+      "title": "The Icarus's of Baseball",
+      "zone": "HIVE_ABOVE",
+      "blueprintRoute": "/apps/icarus-baseball"
+    },
+    {
+      "id": 12,
+      "slug": "aters-universe",
+      "title": "The Complete Aters Alphabet Universe",
+      "zone": "HIVE_ABOVE",
+      "blueprintRoute": "/apps/aters"
+    },
+    {
+      "id": 13,
+      "slug": "gang-builder",
+      "title": "The Gang Builder",
+      "zone": "ANTHILL_MIDDLE",
+      "blueprintRoute": "/apps/gang-builder"
+    },
+    {
+      "id": 14,
+      "slug": "godtabor-portal",
+      "title": "GODTABOR: Literal, Figurative & Mythological Portal",
+      "zone": "HIVE_ABOVE",
+      "blueprintRoute": "/godtabor.html"
+    }
+  ]
+}

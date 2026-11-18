@@ -1,0 +1,25 @@
+name: Tabor Cannonball Stack
+on:
+  push:
+    paths:
+      - 'tabor-world/cannonball-stack/**'
+      - '.github/workflows/tabor-cannonball-stack.yml'
+  pull_request:
+    paths:
+      - 'tabor-world/cannonball-stack/**'
+      - '.github/workflows/tabor-cannonball-stack.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tabor-world/cannonball-stack
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - run: npm test
+      - run: npx --yes wrangler@4.164.0 deploy --dry-run
