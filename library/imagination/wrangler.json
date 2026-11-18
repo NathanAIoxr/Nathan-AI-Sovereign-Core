@@ -1,0 +1,32 @@
+{
+  "name": "library-of-tabor-imagination",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-11-18",
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": {
+    "enabled": true,
+    "logs": { "enabled": true, "invocation_logs": false },
+    "traces": { "enabled": true, "head_sampling_rate": 0.01 }
+  },
+  "d1_databases": [{
+    "binding": "ARCHIVE_DB",
+    "database_name": "library-of-tabor-archive",
+    "database_id": "afa95111-b71a-4b29-bb17-c15e0386923e"
+  }],
+  "r2_buckets": [{
+    "binding": "ARCHIVE_BLOB",
+    "bucket_name": "library-of-tabor-archive"
+  }],
+  "services": [
+    { "binding": "IMAG_001", "service": "tabor-imag-001-dragon-species" },
+    { "binding": "IMAG_009", "service": "tabor-imag-009-dragon-names" },
+    { "binding": "IMAG_031", "service": "tabor-imag-031-yin-yang-svg" },
+    { "binding": "IMAG_045", "service": "tabor-imag-045-alphabet-portals" },
+    { "binding": "IMAG_056", "service": "tabor-imag-056-story-dice" },
+    { "binding": "IMAG_073", "service": "tabor-imag-073-coloring-svg" },
+    { "binding": "IMAG_087", "service": "tabor-imag-087-planet-jump" },
+    { "binding": "IMAG_093", "service": "tabor-imag-093-clubhouse-cipher" }
+  ],
+  "vars": { "RELEASE_SHA256": "4b6397ec47d1b9cc69d265191a74bd5229c2981c8c28d55ab750e20c09c5b31d" }
+}
