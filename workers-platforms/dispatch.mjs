@@ -8,7 +8,7 @@ function home() {
   return page("Nathan Tabor Hyper Supercomputer Federation", `
 <h1>Nathan Tabor Hyper Supercomputer Federation</h1>
 <p>One federation of independently deployed platforms. Each platform keeps its own data and release, and connects to the rest through its published routes.</p>
-<p><a href="/api/platforms">Platform directory API</a> · <a href="/p/languages/catalog">Explore languages</a> · <a href="/api/shards">Language shard directory</a></p>
+<p><a href="/api/platforms">Platform directory API</a> · <a href="/p/languages/catalog">Explore languages</a> · <a href="/api/shards">Language shard directory</a> · <a href="/hpc">Digital HPC</a></p>
 <div class="grid">${platforms.map(({ title, route, purpose }) => `<article><h2><a href="${route}">${escape(title)}</a></h2><p>${escape(purpose)}</p></article>`).join("")}</div>`);
 }
 
@@ -17,6 +17,7 @@ export default {
     if (request.method !== "GET") return json({ error: "Method not allowed" }, 405);
     const url = new URL(request.url);
     if (url.pathname === "/") return home();
+    if (url.pathname === "/hpc") return Response.redirect("https://tabor-digital-hpc.nathantaboract.workers.dev/", 302);
     if (url.pathname === "/api/platforms") return json({ owner, namespace, languageTarget, platforms });
     if (url.pathname === "/health") return json({
       status: "ok", owner, namespace, registered: platforms.length,
