@@ -1,6 +1,6 @@
 export default {
   async fetch() {
-    const html = \`<!doctype html>
+    const html = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -57,7 +57,7 @@ footer{color:#a1aec1;border-top:1px solid #344258;margin-top:40px;padding-top:20
 </section>
 <section><div class="note"><strong>1,000 logical supercomputer slots</strong> exist in the fleet index, not as 1,000 rented or physical compute instances. DNS zones require control of domain names. External open-source projects require license, runtime, and security review before onboarding. The numbers above are a timestamped snapshot; the linked endpoints query production registry data.</div></section>
 <footer>By Nathan Tabor and Nathan AI · Built on Cloudflare and GitHub · Preserves original source attribution</footer>
-</main></body></html>\`;
+</main></body></html>`;
     return new Response(html, {
       headers: {"content-type":"text/html; charset=utf-8","cache-control":"public,max-age=300"}
     });
