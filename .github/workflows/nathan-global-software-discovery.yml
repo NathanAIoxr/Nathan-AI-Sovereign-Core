@@ -2,6 +2,11 @@ name: Nathan AI Global Software Discovery
 # Public GitHub metadata only; zero code installations, scans or outbound probing.
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/global-infrastructure-atlas/public_discovery.py'
+      - '.github/workflows/nathan-global-software-discovery.yml'
   schedule:
     - cron: '11 * * * *'
 permissions:
