@@ -1,3 +1,4 @@
+export const clientWords = String.raw`
 export async function words(value) {
   if(typeof value!=="string"||value.length>16000)throw RangeError("Use text up to 16,000 characters.");
   const segmenter=new Intl.Segmenter(undefined,{granularity:"grapheme"});
@@ -10,3 +11,4 @@ export async function words(value) {
     family:Number(seed%172n)+1,clover:Number(seed%1382n)+1,supernode:Number(seed%732000000n)+1,
     omni:Number(seed%126000000000n)+1,duodecimal:seed.toString(12).toUpperCase()};
 }
+`;

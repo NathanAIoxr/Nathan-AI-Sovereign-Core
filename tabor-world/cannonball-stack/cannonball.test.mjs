@@ -2,7 +2,6 @@ import assert from "node:assert/strict";
 import {test} from "node:test";
 import worker from "./src/index.mjs";
 import {rhythm,score} from "./src/core.mjs";
-import {words} from "./src/words.mjs";
 import {generation} from "./src/power.mjs";
 
 const request=path=>new Request("https://example.test"+path);
@@ -19,6 +18,8 @@ test("13 and 17 meet every 221 ticks and the recovered score contains 54 pulses 
 
 test("WORDS retains every character, mirrors graphemes and extracts actual first letters",async()=>{
   const sample="  Nathan AI Sovereign Core 👩‍🚀";
+  const response=await worker.fetch(request("/words.js"),{});
+  const {words}=await import("data:text/javascript,"+encodeURIComponent(await response.text()));
   const result=await words(sample);
   assert.equal(result.exact,sample);
   assert.equal(result.firstLetters,"NASC");
@@ -29,9 +30,6 @@ test("WORDS retains every character, mirrors graphemes and extracts actual first
   assert.ok(result.supernode>=1&&result.supernode<=732000000);
   assert.ok(result.omni>=1&&result.omni<=126000000000);
   assert.notEqual(result.sha256,(await words(sample.trim())).sha256);
-  const response=await worker.fetch(request("/words.js"),{});
-  const served=await import("data:text/javascript,"+encodeURIComponent(await response.text()));
-  assert.deepEqual(await served.words(sample),result);
 });
 
 test("the public catalog preserves known entries and the six directional connections",async()=>{

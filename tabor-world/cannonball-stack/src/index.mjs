@@ -1,7 +1,8 @@
 import catalog from "./catalog.json" with {type:"json"};
 import {identities,rhythm,score} from "./core.mjs";
 import {generation} from "./power.mjs";
-import {page,script,clientWords} from "./site.mjs";
+import {page,script} from "./site.mjs";
+import {clientWords} from "./words.mjs";
 
 const common={"x-content-type-options":"nosniff","cache-control":"no-store"};
 const json=(value,status=200)=>Response.json(value,{status,headers:{...common,"access-control-allow-origin":"*"}});
