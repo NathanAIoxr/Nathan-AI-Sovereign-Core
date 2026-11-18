@@ -39,3 +39,17 @@ The initial deployment already enabled the hub’s workers.dev hostname. For a f
 Hammarström, Forkel, Haspelmath and Bank, [Glottolog v5.4](https://glottolog.org/meta/downloads), CC BY 4.0. The import projects a subset of the CLDF metadata columns and derives the sign marker from the release's classification and parent-language field. The pinned release includes all rows labeled language, dialect or family by CLDF. Its counts include catalog classifications and can differ from Glottolog’s published count of spoken first languages. Documentation years are source data. Records without dates remain searchable without a date filter.
 
 Run `python3 workers-platforms/import-languages.py /tmp/tabor-languages.sql` and import the resulting SQL into `tabor-platform-languages` using [D1 import](https://developers.cloudflare.com/d1/best-practices/import-export-data/). Verify the row totals and catalog release through the coverage endpoint after import.
+
+## Full 1,000-slot deployment
+
+The namespace includes eleven core platforms and 989 independent read-only catalog Workers, named `language-shard-0001` through `language-shard-0989`. Each shard bundles a unique range of 27 or 28 public Glottolog entries and has zero database bindings. Together they carry the same 27,275 source entries as the central D1 catalog, projected to Glottocode, name, kind, and ISO code. They retain local readable data if the central catalog database is unavailable. The public router serves one named shard per request. Shard directory links start at `/api/shards`.
+
+The bulk deployment reconciles the expected IDs against Cloudflare's namespace inventory. It uploads only missing workers in bounded batches, verifies its final inventory, and stops if the change would exceed 1,000 scripts. Run it again to resume after an interrupted upload or a Cloudflare rate limit. Existing tagged catalog shards remain in place. For a new catalog release, version the catalog and migration deliberately.
+
+```sh
+python3 workers-platforms/build-shards.py /tmp/tabor-shards.ndjson
+node workers-platforms/deploy.mjs shards /tmp/tabor-shards.ndjson
+node workers-platforms/deploy.mjs hub
+```
+
+The GitHub Actions `shards` target regenerates the dataset from its verified release hash and reconciles the same inventory after the workflow is available on main.

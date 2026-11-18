@@ -8,12 +8,13 @@ on:
   workflow_dispatch:
     inputs:
       target:
-        description: Deploy one hub or platform ID
+        description: Deploy one hub, platform ID, or the catalog shards
         required: true
         type: choice
         options:
           - hub
           - languages
+          - shards
           - wordplay
           - compute
           - memory
@@ -45,7 +46,7 @@ jobs:
     needs: verify
     if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 25
     concurrency:
       group: tabor-platforms-${{ inputs.target }}
     steps:
@@ -59,4 +60,10 @@ jobs:
           TARGET: ${{ inputs.target }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        run: node workers-platforms/deploy.mjs "$TARGET"
+        run: |
+          if [ "$TARGET" = shards ]; then
+            python3 workers-platforms/build-shards.py "$RUNNER_TEMP/tabor-shards.ndjson"
+            node workers-platforms/deploy.mjs shards "$RUNNER_TEMP/tabor-shards.ndjson"
+          else
+            node workers-platforms/deploy.mjs "$TARGET"
+          fi

@@ -42,3 +42,22 @@ test("tenant mismatch and malformed language filters cannot reach the database",
     assert.equal(response.status, 400);
   }
 });
+
+test("catalog shards are individually routed within the purchased fleet size", async () => {
+  const first = await (await dispatch.fetch(req("/api/shards"))).json();
+  const last = await (await dispatch.fetch(req("/api/shards?start=951"))).json();
+  assert.equal(first.shards[0].id, "language-shard-0001");
+  assert.equal(first.nextStart, 51);
+  assert.equal(last.shards.at(-1).id, "language-shard-0989");
+  assert.equal(last.nextStart, null);
+  assert.equal(platforms.length + first.total, 1000);
+  const get = (id, _, { limits }) => {
+    assert.equal(id, "language-shard-0989");
+    assert.deepEqual(limits, { cpuMs: 20, subRequests: 1 });
+    return { fetch: () => Response.json({ id }) };
+  };
+  assert.equal((await dispatch.fetch(req(last.shards.at(-1).route), { PLATFORMS: { get } })).status, 200);
+  for (const id of ["language-shard-0000", "language-shard-0990", "language-shard-1"]) {
+    assert.equal((await dispatch.fetch(req("/p/" + id + "/"), {})).status, 404);
+  }
+});
