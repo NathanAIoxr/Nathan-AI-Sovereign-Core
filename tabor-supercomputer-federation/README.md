@@ -1,16 +1,18 @@
 # Tabor Supercomputer Federation
 
-Operator-facing registry for fifty logical systems. Each system has its own SQLite-backed Durable Object and a separately addressable database record. Workload attachments describe what is live, simulated, or requires a physical host. Physical processors, storage and mining equipment are provisioned separately.
+Operator-facing registry for 1,000 logical edge compute units, numbered from node-001 through node-1000. Each system has its own SQLite-backed Durable Object and a separately addressable database record. Workload attachments describe what is live, simulated, or requires a physical host. Physical processors, storage and mining equipment are provisioned separately.
 
 | Public route | Use |
 |---|---|
 | / | Federation dashboard |
 | /health | Cohort identity, declared slots, and binding availability |
-| /v1/nodes | Node ID manifest |
+| /v1/nodes | Node ID manifest and per-node task links |
+| /v1/tasks | ONE status across all ten task families |
+| /v1/nodes/node-1000/assigned-task | Stored evidence receipt for this unit's assigned task |
 | /v1/nodes/node-001 | Read an independently provisioned database record |
 | /v1/nodes/node-001/matrix-demo | Run the bounded Matrix workload inside the node object |
 | /v1/plan?systems=1 | Model one 450 TB system |
-| /v1/plan?systems=50 | Model 50 systems |
+| /v1/plan?systems=1000 | Model 1,000 systems |
 | /v1/services | Probe the six approved internal service bindings |
 | /v1/attachments | Review workload modes and provider requirements |
 | /v1/bitcoin-demo | Run the existing fixed synthetic SHA-256d benchmark via the Sovereign Digital Stack |
@@ -22,6 +24,12 @@ The decimal model uses 20 drives at 30 TB each. Two drives' worth is parity and 
 
 The 30 TB drive is a sizing reference. Hardware qualification needs a confirmed BOM and measured capacity, throughput, rebuild impact, recovery time, and available power. For any claim of worldwide leadership, compare matching metrics and measurement dates. Storage capacity, compute throughput and mining hashrate use separate units.
 
+## ONE Sovereign Box workloads
+
+Each unit runs its own named task against a selected record in the 20 → 40 → 80 → 160 dataset. The 1,000 assignments cover ten families of 100 tasks each. Each node stores its result in its own SQLite Durable Object. The shared ledger counts verified receipts by task family. Replaying a batch returns the stored receipts and records each unit once.
+
+Set the two Workers secrets SOVEREIGN_BOX_SEEDS_A and SOVEREIGN_BOX_SEEDS_B to JSON arrays containing the supplied 20 records in order. Set FLEET_TASK_TOKEN to a random bearer secret. Send authenticated POST requests to /v1/tasks/run with start values 1, 26, 51, through 976 and limit=25. The node dataset stays in the Worker secrets. The public routes return task IDs, summary evidence and receipt hashes. Archive the private seed data with its owner. Remove the temporary FLEET_TASK_TOKEN after the run. Changes to the seed data use a new task version so older receipts retain their identity.
+
 ## Deploy and provision
 
 Run local tests with Node 24. Deploy within the Cloudflare account where the six service bindings are available. For a new account, configure the bindings to that account's services and verify the provider routes before exposing the endpoints.
@@ -32,7 +40,7 @@ npx wrangler deploy
 npx wrangler secret put PROVISION_TOKEN
 ```
 
-Use a randomly generated provisioning token of at least 32 characters. Send an authenticated POST to `/v1/provision?start=1&limit=10`, and repeat with starts 11, 21, 31 and 41. Retry individual failed batches if needed. Insert-if-absent preserves the original database record. Verify all 50 through their public read endpoints. Remove the provisioning credential when the initial cohort is complete.
+Use a randomly generated provisioning token of at least 32 characters. Send an authenticated POST to `/v1/provision?start=1&limit=10`, and advance the start by ten for additional node ranges. Retry individual failed batches if needed. Insert-if-absent preserves the original database record. Check each requested node through its public read endpoint. Remove the provisioning credential when the initial cohort is complete.
 
 The public read API returns inventory, service status and synthetic workload data. It does not accept connection credentials or expose real machine control. GitHub Actions verifies the repository. Actual Bitcoin and cryptocurrency mining requires approved hardware, power, network, and pool connections. Keep mining off GitHub Actions. The same portable manifest can be imported by a compatible registry on another provider with its own database and compute runtime.
 
