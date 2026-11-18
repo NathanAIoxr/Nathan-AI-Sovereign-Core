@@ -8,10 +8,12 @@ const next = Object.keys(roster).map(id => ({id, title: id}));
 const fixture = {current: "2026-11-17.4", next};
 const limits = {standaloneGames: 101, bookPages: 94, websiteRecords: 1, databaseBindings: 25, trackerCatalog: 101, runnable: 18};
 const data = {
-  world: {counts: limits}, library: {entries: 101},
+  world: {counts: limits}, library: {entries: 2},
   connections: {totals: {ready: 25}, providers: [{title: "Notion", state: "D1 snapshot"}]},
-  standalone: {counts: {games: 101, books: 94}},
-  inventory: {items: [{id: "site", type: "sites", path: "/sites/site/"}]},
+  standalone: {counts: {games: 3, books: 94}},
+  libraryCatalog: {entries: [{id: "001"}, {id: "066"}]},
+  inventory: {items: [{id: "site", type: "sites", path: "/sites/site/"},
+    ...["atlas-001", "atlas-066", "arcade-board-1"].map(id => ({id, type: "games", path: "/games/" + id + "/"}))]},
   atlas: {id: "066", title: "Alice in Wonderland"},
   devices: {viewport: true, manifest: {scope: "/games/atlas-066/", start_url: "/games/atlas-066/"}},
 };
@@ -27,7 +29,7 @@ function bindings() {
     db,
     env: {
       WORLD: service({"/api/releases": fixture, "/api/health": data.world, "/library/api/health": data.library,
-        "/library/api/connections": data.connections, "/library/api/entries/066": data.atlas}),
+        "/library/api/connections": data.connections, "/library/catalog.json": data.libraryCatalog, "/library/api/entries/066": data.atlas}),
       STANDALONE: service({"/api/health": data.standalone, "/api/catalog": data.inventory,
         "/games/atlas-066/": '<meta name="viewport">', "/games/atlas-066/manifest.webmanifest": data.devices.manifest}),
       RECEIPTS: {prepare(sql) {
@@ -51,6 +53,12 @@ test("checks distinguish live coverage from device and access work", () => {
   for (const task of next) assert.ok(assess(task.id, data).every(c => c.pass));
   assert.equal(review("phone-qa", assess("phone-qa", data)).state, "manual-device-check");
   assert.equal(review("provider-credentials", assess("provider-credentials", data)).state, "provider-review");
+  const [coverage] = assess("catalog-play", data);
+  assert.equal(coverage.measured.totalStandalone, 3);
+  assert.equal(coverage.measured.matched, 2);
+  const partial = {...data, inventory: {items: data.inventory.items.filter(item => item.id !== "atlas-066")}};
+  assert.deepEqual(assess("catalog-play", partial)[0].measured.missing, ["066"]);
+  assert.equal(assess("catalog-play", partial)[0].pass, false);
   assert.equal(review("app-inventory", assess("app-inventory", {...data, inventory: null})).state, "attention");
 });
 
