@@ -25,9 +25,11 @@ jobs:
         run: |
           node --check tabor-world/sovereign-ai-unit/cli/nathan-jobs.mjs
           node --check tabor-world/sovereign-ai-unit/benchmark/health-benchmark.mjs
-      - name: Check TypeScript syntax
+      - name: Compile TypeScript Worker entrypoints
         run: |
-          npx --yes --package typescript@5.7.3 tsc --noEmit --noResolve --skipLibCheck --target ES2022 --module ESNext --noLib tabor-world/sovereign-ai-unit/box-0-zero/src/index.ts 2>&1 | tee /tmp/tsc-output || true
+          npm install --no-save --no-package-lock esbuild@0.24.2
+          ./node_modules/.bin/esbuild tabor-world/sovereign-ai-unit/box-0-zero/src/index.ts --bundle --platform=browser --format=esm --outfile=/tmp/nathan-box-zero.mjs
+          ./node_modules/.bin/esbuild tabor-world/sovereign-ai-unit/box-1-one/src/job-platform.ts --bundle --platform=browser --format=esm --outfile=/tmp/nathan-box-one.mjs
       - name: Deployment guard
         run: |
           echo "Source validation only. Production deployment requires queue, R2, migrations and secret verification."
