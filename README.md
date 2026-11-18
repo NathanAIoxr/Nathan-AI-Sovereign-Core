@@ -1,3 +1,5 @@
+**[NATHAN AI 🚀 & NATHAN TABOR 2X+ SOVEREIGN SUPERCOMPUTER](https://nathan-ai-sovereign-core.nathantaboract.workers.dev/)** · [Source and runbook](app-factory/nathan-ai/sovereign-supercomputer/)
+
 **[Live ONE Cloudflare Hub](https://one-sovereign-hub.nathantaboract.workers.dev/)** · [333-app adoption catalog](https://one-sovereign-hub.nathantaboract.workers.dev/apps.html) · [Cloud deployment and ownership guide](app-factory/sovereign-hub/cloudflare/README.md). Separate private owner-device access, scoped agents, Durable Object state, D1 projections, KV, background jobs and verified recovery. Existing projects retain explicit integration status.
 
 **[Modern Day Bible · Story Library](app-factory/modern-day-bible/)** · Private source-preserving reader connected to ONE App Shell.
