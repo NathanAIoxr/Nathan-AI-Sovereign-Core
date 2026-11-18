@@ -1,0 +1,814 @@
+{
+  "schema_version": 1,
+  "description": "101 additive candidate integrations; no third-party source deployed",
+  "entries": [
+    {
+      "id": "EXT-001",
+      "name": "cloudflare/mcp-server-cloudflare",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-002",
+      "name": "cloudflare/cloudflare-os",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-003",
+      "name": "cloudflare/computer",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-004",
+      "name": "cloudflare/agents",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-005",
+      "name": "anysphere/cloudflare-workers",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-006",
+      "name": "Moltworker",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-007",
+      "name": "Claude Code on Cloudflare",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-008",
+      "name": "Codra",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-009",
+      "name": "Cloudbox",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-010",
+      "name": "AwaitStep",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-011",
+      "name": "llm-chat-app-template",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-012",
+      "name": "voice-agent-template",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-013",
+      "name": "vectorize-rag",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-014",
+      "name": "mcp-server-d1",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-015",
+      "name": "Agentic Inbox",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-016",
+      "name": "EdgeEver",
+      "category": "agents-mcp",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-017",
+      "name": "cloudflare/kitesurf",
+      "category": "crawlers",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-018",
+      "name": "Deepcrawl",
+      "category": "crawlers",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-019",
+      "name": "workers-firecrawl",
+      "category": "crawlers",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-020",
+      "name": "Browser Rendering API Worker",
+      "category": "crawlers",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-021",
+      "name": "HTMLRewriter OpenGraph Extractor",
+      "category": "crawlers",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-022",
+      "name": "Repo Hunt",
+      "category": "crawlers",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-023",
+      "name": "RSS-to-JSON Edge Feed",
+      "category": "crawlers",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-024",
+      "name": "Sitemap XML Generator",
+      "category": "crawlers",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-025",
+      "name": "Link Preview & Unfurler",
+      "category": "crawlers",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-026",
+      "name": "Web Archive Snapshotter",
+      "category": "crawlers",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-027",
+      "name": "mdhruvil/gitflare",
+      "category": "storage",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-028",
+      "name": "888wiki",
+      "category": "storage",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-029",
+      "name": "FlareMo",
+      "category": "storage",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-030",
+      "name": "Inkstone",
+      "category": "storage",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-031",
+      "name": "logseq-selfhost",
+      "category": "storage",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-032",
+      "name": "cloudmark",
+      "category": "storage",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-033",
+      "name": "Supaflare",
+      "category": "storage",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-034",
+      "name": "Cloudflare DuckLake",
+      "category": "storage",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-035",
+      "name": "pgEdge/cloudflare-worker-template",
+      "category": "storage",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-036",
+      "name": "mysql-hyperdrive-template",
+      "category": "storage",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-037",
+      "name": "R2 Presigned Uploader",
+      "category": "storage",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-038",
+      "name": "KV Rest API Wrapper",
+      "category": "storage",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-039",
+      "name": "GitCF (RawGit Clone)",
+      "category": "storage",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-040",
+      "name": "dinasaur404/platform-template",
+      "category": "routing",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-041",
+      "name": "workers-for-platforms-template",
+      "category": "routing",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-042",
+      "name": "worker-publisher-template",
+      "category": "routing",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-043",
+      "name": "workflows-starter-template",
+      "category": "routing",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-044",
+      "name": "Geographic Load Balancer",
+      "category": "routing",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-045",
+      "name": "microfrontend-template",
+      "category": "routing",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-046",
+      "name": "dynamic-py-py",
+      "category": "routing",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-047",
+      "name": "A/B & Canary Traffic Splitter",
+      "category": "routing",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-048",
+      "name": "splitio/cloudflare-workers-template",
+      "category": "routing",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-049",
+      "name": "IP & ASN Geolocation Redirector",
+      "category": "routing",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-050",
+      "name": "rivet-dev/open-orange",
+      "category": "routing",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-051",
+      "name": "Cloud Mail",
+      "category": "messaging",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-052",
+      "name": "HQBase",
+      "category": "messaging",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-053",
+      "name": "Doota",
+      "category": "messaging",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-054",
+      "name": "EmailFlare",
+      "category": "messaging",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-055",
+      "name": "Email Explorer",
+      "category": "messaging",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-056",
+      "name": "LetterDrop",
+      "category": "messaging",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-057",
+      "name": "Auth Inbox",
+      "category": "messaging",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-058",
+      "name": "cindermail",
+      "category": "messaging",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-059",
+      "name": "mail2telegram",
+      "category": "messaging",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-060",
+      "name": "Cloudflare Temp Email",
+      "category": "messaging",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-061",
+      "name": "workers-builds-notifications-template",
+      "category": "messaging",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-062",
+      "name": "Serverless Telegram Bot Webhook",
+      "category": "messaging",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-063",
+      "name": "Discord Slash Command Responder",
+      "category": "messaging",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-064",
+      "name": "cloudflare/openauth-template-24",
+      "category": "security",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-065",
+      "name": "x402-proxy-template",
+      "category": "security",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-066",
+      "name": "JWT WebCrypto Authenticator",
+      "category": "security",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-067",
+      "name": "Airtable & API Key Vault Proxy",
+      "category": "security",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-068",
+      "name": "Durable Object Rate Limiter",
+      "category": "security",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-069",
+      "name": "Google reCAPTCHA & Turnstile Verifier",
+      "category": "security",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-070",
+      "name": "CORS Anywhere Edge Proxy",
+      "category": "security",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-071",
+      "name": "Webhook Signature Validator",
+      "category": "security",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-072",
+      "name": "Hasura GraphQL Auth Gatekeeper",
+      "category": "security",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-073",
+      "name": "Basic Auth & IP Allowlist Shield",
+      "category": "security",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-074",
+      "name": "Cryptocurrency Multi-Provider Gateway",
+      "category": "security",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-075",
+      "name": "wifski Video-to-GIF Converter",
+      "category": "media",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-076",
+      "name": "Bannero Image API",
+      "category": "media",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-077",
+      "name": "Lazy Invoice PDF Generator",
+      "category": "media",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-078",
+      "name": "Auto WebP/AVIF Image Converter",
+      "category": "media",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-079",
+      "name": "Rust WASM Image Flipper & Resizer",
+      "category": "media",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-080",
+      "name": "Python Pillow Image Processor",
+      "category": "media",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-081",
+      "name": "AI Image Redraw Pipeline",
+      "category": "media",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-082",
+      "name": "Cloudflare Stream Video Signer",
+      "category": "media",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-083",
+      "name": "QR Code & Barcode SVG Generator",
+      "category": "media",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-084",
+      "name": "Markdown-to-HTML Renderer",
+      "category": "media",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-085",
+      "name": "multiplayer-globe-template",
+      "category": "realtime",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-086",
+      "name": "WebSocket Chatroom",
+      "category": "realtime",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-087",
+      "name": "Hono Ultrafast API Starter",
+      "category": "realtime",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-088",
+      "name": "FastAPI Python Edge Server",
+      "category": "realtime",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-089",
+      "name": "Django on Workers",
+      "category": "realtime",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-090",
+      "name": "next-starter-template",
+      "category": "realtime",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-091",
+      "name": "vite-react-template",
+      "category": "realtime",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-092",
+      "name": "Preact Edge PWA",
+      "category": "realtime",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-093",
+      "name": "LavaRand URL Shortener",
+      "category": "utilities",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-094",
+      "name": "Google Analytics Ad-Block Shield",
+      "category": "utilities",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-095",
+      "name": "Logflare Edge Collector",
+      "category": "utilities",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-096",
+      "name": "UTM & Tracking Parameter Stripper",
+      "category": "utilities",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-097",
+      "name": "Google Fonts Inline Optimizer",
+      "category": "utilities",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-098",
+      "name": "WebCrypto Hashing Microservice",
+      "category": "utilities",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-099",
+      "name": "Dynamic DDNS Updater",
+      "category": "utilities",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-100",
+      "name": "Cron Heartbeat & Uptime Monitor",
+      "category": "utilities",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-101",
+      "name": "Cloudflare API Fleet Deployer",
+      "category": "utilities",
+      "state": "candidate_unverified",
+      "enabled": false,
+      "deploy_approved": false
+    }
+  ]
+}
