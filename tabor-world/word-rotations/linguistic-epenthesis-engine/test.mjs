@@ -1,0 +1,8 @@
+import assert from "node:assert/strict";import {test} from "node:test";import {MATRIX,applyIntrusiveR,applyParagogicS,processNode} from "./src/engine.mjs";import worker from "./src/index.mjs";
+test("all four axes, twelve nodes preserved",()=>{assert.equal(Object.keys(MATRIX).length,4);assert.equal(Object.values(MATRIX).flatMap(x=>x.nodes).length,12);});
+test("third nodes and intrusive r",()=>{for(const [axis,expected] of [["W_axis","Way-r-always"],["M_axis","May-r-always"],["3_axis","3ay-r-always"],["chevron_axis","<<ay-r-always"]])assert.equal(processNode(axis,2,"always").intrusive_r_bridge,expected);});
+test("paragogic s and no double suffix",()=>{assert.equal(applyParagogicS("Wheel"),"Wheels");assert.equal(applyParagogicS("Wills"),"Wills");assert.equal(applyParagogicS("<<ay"),"<<ays");});
+test("no r insertion without both conditions",()=>{assert.equal(applyIntrusiveR("Will","always"),"Will always");assert.equal(applyIntrusiveR("Way","go"),"Way go");});
+test("invalid axis/index",()=>{assert.ok(processNode("bogus",0).error);assert.ok(processNode("W_axis",9).error);});
+test("HTTP axis and node endpoints",async()=>{const r=await worker.fetch(new Request("https://test.invalid/?axis=M_axis&next=over"),{});assert.equal(r.status,200);const body=await r.json();assert.equal(body.nodes[2].intrusive_r_bridge,"May-r-over");});
+test("HTTP rejects unsafe or unsupported requests",async()=>{assert.equal((await worker.fetch(new Request("https://test.invalid/?axis=none"),{})).status,400);assert.equal((await worker.fetch(new Request("https://test.invalid/",{method:"POST"}),{})).status,405);assert.equal((await worker.fetch(new Request("https://test.invalid/api/bridge?first="+("a".repeat(300))),{})).status,400);});
