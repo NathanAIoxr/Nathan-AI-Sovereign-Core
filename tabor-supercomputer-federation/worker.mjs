@@ -9,6 +9,8 @@ import { authenticateRoad, gateRejection, routeToSovereignty } from './sovereign
 const digitalSeatNodes = 50
 const taskLedgerId = 'fleet-receipts-' + fleetTaskVersion
 const taskBatchSize = 25
+// These two new slots returned unknown_node at their original object addresses.
+const reassignedStorage = new Set(['node-893', 'node-939'])
 const cohort = 'tabor-federation-v1'
 const encoder = new TextEncoder()
 const attachments = [
@@ -185,8 +187,9 @@ function readInteger(params, name, fallback, max) {
   return value <= max ? value : null
 }
 
-function nodeFetch(env, id, method = 'GET', suffix = '') {
-  return env.NODES.getByName(id).fetch('https://node.internal/' + id + suffix, { method })
+function nodeFetch(env, id, method = 'GET', suffix = '', body) {
+  const name = reassignedStorage.has(id) ? 'sovereign-box/' + id : id
+  return env.NODES.getByName(name).fetch('https://node.internal/' + id + suffix, { method, body })
 }
 
 function taskLedger(env, entries) {
@@ -310,9 +313,7 @@ export default {
       const packet = await authenticateRoad(request, node, env.SOVEREIGN_ROAD_KEY)
       if (!packet) return json(gateRejection, 403)
       try {
-        return await env.NODES.getByName(node).fetch('https://node.internal/' + node + '/sovereign-road', {
-          method: 'POST', body: JSON.stringify(packet),
-        })
+        return await nodeFetch(env, node, 'POST', '/sovereign-road', JSON.stringify(packet))
       } catch {
         return json({ error: 'node_dataset_unavailable' }, 503)
       }
