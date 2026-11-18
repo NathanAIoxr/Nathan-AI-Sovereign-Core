@@ -1,0 +1,2 @@
+# Nathan AI telemetry pipeline
+This is a telemetry receipt pipeline, **not** an exaflop benchmark or physical HPC deployment. Python validates bounded packet batches and writes SQLite receipts. Cloudflare Worker exposes GET /health, GET /status, POST /ingest. D1 is append-only with unique state hashes. POST requires secret INGEST_SECRET, which is not installed by this commit. Do not confuse design targets with measured performance. No proxy swarm, mining, remote device access or actual hardware provisioning.
