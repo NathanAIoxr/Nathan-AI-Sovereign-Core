@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tabor World · Minds and Field Devices</title>
+<style>
+:root{color-scheme:dark;background:#101711;color:#f4efd9;font:16px/1.52 system-ui,sans-serif;--panel:#192319;--line:#435044;--muted:#c0c9b4;--accent:#e5bc7e;--focus:#a9cead}
+*{box-sizing:border-box}body{margin:0}main{width:min(1200px,100%);margin:auto;padding:clamp(16px,4vw,48px)}
+header{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:19px}h1,h2,h3,p{margin:0}h1{font:clamp(42px,8vw,82px)/1 Georgia,serif;letter-spacing:-.056em;margin:.2em 0}.credit{color:var(--accent);font-size:.78rem;letter-spacing:.1em;font-weight:750;text-transform:uppercase}
+h2{font:27px/1.18 Georgia,serif}h3{font:20px/1.15 Georgia,serif}.small,figcaption{font-size:.87rem;color:var(--muted)}a{color:var(--accent);text-underline-offset:3px}nav{display:flex;gap:18px;flex-wrap:wrap;margin-top:15px}.layout{display:grid;grid-template-columns:minmax(250px,1fr) minmax(0,1.8fr);gap:16px;align-items:start}.panel{background:var(--panel);border:1px solid var(--line);padding:15px;min-width:0;margin-bottom:13px}
+label{display:grid;gap:4px;color:var(--muted)}input,select,textarea,button{font:inherit;color:#fff8e8;border:1px solid var(--line);background:#111910;padding:9px 10px;min-height:43px;min-width:0;border-radius:4px}textarea{resize:vertical}button{cursor:pointer}button:hover{border-color:var(--focus)}button:disabled{opacity:.55;cursor:auto}button.primary{background:#dfb575;border-color:#dfb575;color:#161911;font-weight:800}.stack{display:grid;gap:10px;margin-top:10px}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.row>button{flex:0 1 auto}.roster{max-height:280px;overflow:auto;display:grid;gap:4px;margin-block:9px}.roster button{text-align:left;width:100%;min-height:37px}.roster button[aria-pressed=true]{border-color:var(--accent);color:var(--accent)}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.chips span{font-size:.79rem;border:1px solid var(--line);padding:3px 8px}.result{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.86rem;background:#111910;padding:9px;margin:10px 0 0;max-height:360px;overflow:auto}
+details{margin-top:8px}summary{cursor:pointer}.status{color:var(--accent);min-height:1.4em}.facet{border-left:2px solid #576b50;padding:7px 9px;margin:6px 0}.facet code{display:block;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--muted)}#receipt-list{padding-left:21px;overflow-wrap:anywhere}.scene-view{margin-top:6px}.scene-view strong{color:var(--accent)}[hidden]{display:none!important}:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+@media(max-width:750px){.layout{grid-template-columns:1fr}.roster{max-height:210px}.panel{padding:12px}.row>button{flex:1 1 auto}}
+</style>
+<script type="module" src="/runtime-ui.mjs"></script>
+</head>
+<body>
+<main>
+  <header><p class="credit">Nathan Tabor · Nathan AI</p><h1>Minds and Field Devices</h1>
+    <p>Run a restored mind or enter the Light and Dark field scene.</p><nav aria-label="Tabor World links"><a href="/">Original rosters and sources</a><a href="https://tabor-world.nathantaboract.workers.dev/">Tabor World</a></nav></header>
+  <div class="layout">
+    <aside>
+      <section class="panel" aria-labelledby="roster-title"><h2 id="roster-title">Roster</h2>
+        <div class="stack"><label>Collection <select id="group"></select></label><label>Find a name <input id="query" type="search" maxlength="100"></label></div>
+        <p id="roster-status" class="small" role="status"></p><div id="roster" class="roster"></div>
+        <div class="row"><button id="previous" disabled>Previous</button><button id="next" disabled>Next</button></div>
+      </section>
+      <section id="scene" class="panel" aria-labelledby="scene-title" hidden><h2 id="scene-title">Field scene</h2>
+        <div id="scene-view" class="scene-view"></div>
+        <div class="stack"><label>New scene obstacle <select id="obstacle"><option>Snag</option><option>Fracture</option><option>Fog</option></select></label>
+          <button id="reset-scene">Start a new scene</button></div>
+      </section>
+    </aside>
+    <div>
+      <section class="panel" aria-labelledby="title"><h2 id="title">Select a profile</h2><p id="source" class="small"></p>
+        <details id="facet-panel" hidden><summary>Attributes, characteristics, functionality and traits</summary><div id="facets"></div><a id="source-link">Open the source record</a></details>
+        <div id="actions" class="stack" hidden>
+          <label>Action <select id="action"></select></label>
+          <label id="working-wrap">Working text <textarea id="working" maxlength="6000" rows="5"></textarea></label>
+          <label id="compare-wrap" hidden>Compare with <textarea id="compare" maxlength="6000" rows="3"></textarea></label>
+          <label id="expected-wrap" hidden>Expected SHA-256 <input id="expected" maxlength="64" spellcheck="false"></label>
+          <label id="blade-wrap" hidden>Blade form <select id="blade"><option value="">Let the blade choose</option><option>Fine Edge</option><option>Bridged Edge</option><option>Wide Edge</option></select></label>
+          <div class="row"><button id="run" class="primary">Run action</button><button id="grasp" hidden>Grasp the handle</button><button id="add-step">Add to sequence</button></div>
+          <div id="sequence-box" hidden><p id="sequence" class="small"></p><div class="row"><button id="run-sequence">Run sequence</button><button id="clear-sequence">Clear sequence</button></div></div>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite"></p><pre id="result" class="result" hidden></pre>
+      </section>
+      <section class="panel" aria-labelledby="receipt-title"><h2 id="receipt-title">Recent receipts</h2><p class="small">The scene and receipt summaries are saved in this browser.</p><ol id="receipt-list" reversed></ol></section>
+    </div>
+  </div>
+</main>
+</body>
+</html>
