@@ -4,7 +4,7 @@ const json = (data, status = 200) => Response.json(data, {
   status, headers: { "cache-control": "no-store", "x-content-type-options": "nosniff" },
 });
 
-async function inputJSON(request) {
+export async function inputJSON(request) {
   if ((request.headers.get("content-type") || "").split(";")[0] !== "application/json") {
     throw new RangeError("Send an application/json request");
   }

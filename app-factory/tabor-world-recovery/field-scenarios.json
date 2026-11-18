@@ -1,0 +1,23 @@
+[
+  {
+    "id": "sector-alpha",
+    "name": "Cleared Sector Alpha",
+    "description": "Clear the Illusion Barrier, convert Deception on the Mental & Financial plane, and weave the first pillar in Sector Alpha.",
+    "barrier": "Illusion Barrier", "shadow": "Deception", "plane": "Mental & Financial",
+    "ruin": "Old System Ruins", "sector": "Cleared Sector Alpha", "directive": "Clear Decay"
+  },
+  {
+    "id": "dream-archive",
+    "name": "Dream Archive",
+    "description": "Record a dream, recover the Broken Dream Thread, and restore a place for the Dream Weavers.",
+    "barrier": "Sleeping Gate", "shadow": "Broken Dream Thread", "plane": "Dream",
+    "ruin": "Abandoned Dream Chamber", "sector": "Dream Archive Sanctuary", "directive": "Clear Decay", "dreamRequired": true
+  },
+  {
+    "id": "time-crossing",
+    "name": "Matrix Crossing",
+    "description": "Open the Folded Hour, capture the Clock Echo, and return to an earlier Loom frame before completing the sanctuary.",
+    "barrier": "Folded Hour", "shadow": "Clock Echo", "plane": "Time & Matrix",
+    "ruin": "Expired Matrix", "sector": "Matrix Crossing Sanctuary", "directive": "Clear Decay", "rewindRequired": true
+  }
+]

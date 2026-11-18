@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tabor World · Slayers and Sleyers</title>
+<style>
+:root{color-scheme:dark;--bg:#111619;--panel:#1c2426;--outline:#495556;--ink:#fbefdb;--muted:#c5cbc1;--accent:#ecc98e;--light:#b9e3dd;--shadow:#d0b8e6;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 18% -5%,#304341,transparent 36rem),var(--bg)}main{width:min(1160px,100%);margin:auto;padding:clamp(16px,4vw,48px)}
+h1,h2,h3,p{margin:0}h1{font:clamp(44px,8vw,86px)/.99 Georgia,serif;letter-spacing:-.055em;margin:.12em 0}h2{font:28px/1.1 Georgia,serif}.credit{color:var(--accent);font-size:.78rem;letter-spacing:.13em;font-weight:750;text-transform:uppercase}.muted{color:var(--muted);font-size:.91rem}
+a{color:var(--accent);text-underline-offset:3px}nav{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}header{padding-bottom:18px;border-bottom:1px solid var(--outline);margin-bottom:16px}
+.setup,.commands{display:flex;gap:8px;align-items:end;flex-wrap:wrap}.setup label{flex:1 1 180px}.commands label{flex:1 1 200px}
+.layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(230px,1fr);gap:14px;margin-top:16px}.panel{padding:16px;border:1px solid var(--outline);background:var(--panel);min-width:0;margin-bottom:12px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}.card{padding:9px 10px;border:1px solid var(--outline);background:#131c1e;overflow-wrap:anywhere}.card p{color:var(--muted);font-size:.87rem}.card strong{display:block;margin:2px 0;color:var(--light)}.card:nth-child(n+3) strong{color:var(--shadow)}
+input,button,select{color:inherit;background:#131a1c;border:1px solid var(--outline);font:inherit;border-radius:4px;padding:7px 10px;min-height:44px;min-width:0}button{cursor:pointer}button:hover{border-color:var(--accent)}button:disabled{opacity:.6;cursor:auto}.run{color:#141616;background:var(--accent);font-weight:750}label{display:grid;gap:4px}.quick{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0}.quick button{font-size:.82rem}.reported{min-height:1.5em;color:var(--accent);margin:9px 0}meter{width:100%;height:24px;display:block}ul,ol{margin:9px 0;padding-left:21px}#log{max-height:300px;overflow:auto}li{overflow-wrap:anywhere}code{word-break:break-all;color:var(--muted);font-size:.81rem}details{margin-top:10px}summary{cursor:pointer}:focus-visible{outline:2px solid var(--light);outline-offset:2px}
+@media(max-width:740px){.layout{grid-template-columns:1fr}.panel{padding:12px}}
+</style>
+<script type="module" src="/field-ui.mjs"></script>
+</head>
+<body><main>
+<header><p class="credit">Nathan Tabor · Tabor World</p><h1>Slayers and Sleyers</h1><p>Light and Dark field game</p><nav><a href="/runtime/">Minds and Field Devices</a><a href="/">Original rosters and sources</a></nav></header>
+<div class="layout">
+  <div>
+    <section class="panel" aria-labelledby="board-title"><h2 id="board-title">Field board</h2>
+      <div class="setup"><label>Scenario <select id="scenario"></select></label><button id="start" type="button">New run</button></div>
+      <p id="mission" class="muted"></p>
+      <div class="cards" id="cards"></div>
+      <form class="commands" id="console">
+        <label>Command <input id="command" maxlength="160" autocomplete="off" spellcheck="false" placeholder="Type grasp or choose a move below"></label>
+        <button id="run" class="run" type="submit">Run command</button>
+      </form>
+      <div class="quick" id="quick" aria-label="Available commands"></div>
+      <p id="event" class="reported" role="status" aria-live="polite"></p>
+      <details><summary>Command guide</summary><ul id="guide"></ul></details>
+    </section>
+  </div>
+  <aside>
+    <section class="panel" aria-labelledby="balance-title"><h2 id="balance-title">World balance</h2>
+      <meter id="meter" aria-label="World balance" min="0" max="100" value="0"></meter>
+      <p id="balance" role="status">0 / 100</p><ul id="checks"></ul>
+    </section>
+    <section class="panel"><h2>Turn receipts</h2><ol id="log"></ol><p class="muted">Current board digest</p><code id="digest"></code></section>
+  </aside>
+</div>
+</main></body>
+</html>

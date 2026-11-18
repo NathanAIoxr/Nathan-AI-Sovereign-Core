@@ -168,7 +168,7 @@ el("run").onclick = () => perform();
 el("grasp").onclick = () => {
   if (running) return;
   stopClock();
-  let seconds = 7;
+  let seconds = 2;
   el("status").textContent = "Choose a form within " + seconds + " seconds, then run the action.";
   countdown = setInterval(() => {
     seconds--;
