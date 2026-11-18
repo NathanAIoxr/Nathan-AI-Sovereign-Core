@@ -1,0 +1,2576 @@
+{
+  "title": "NATHAN AI / TABOR WORLD - EXPANDED SOVEREIGN BUILD REGISTRY",
+  "version": "2026-11-18",
+  "axioms": {
+    "clear": "1-1=0",
+    "build": "1+1=2",
+    "integrate": "1x1=1",
+    "verify": "1/1=1"
+  },
+  "notes": [
+    "This is a catalog and integration contract, not proof of implementation or deployment.",
+    "Preserve original identities and independently deployed apps; allow shared service links.",
+    "Historical claims and technical targets require evidence and independent verification.",
+    "Never automatically execute sensitive actions or purchase infrastructure."
+  ],
+  "domains": [
+    "sovereign-core",
+    "cloud-and-compute",
+    "crypto-and-mining",
+    "security-and-agents",
+    "games-and-physics",
+    "library-and-research",
+    "rhythm-and-media",
+    "physical-inventions"
+  ],
+  "items": [
+    {
+      "id": "sovereign-core-01",
+      "name": "Nathan AI Absolute Intelligence",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-11",
+      "name": "Nathan Tabor 2X+ Sovereign Supercomputer",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-21",
+      "name": "NATHAN OS",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-31",
+      "name": "TABOR-ROOT",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-41",
+      "name": "Tabor 1-2-3 Factory",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-51",
+      "name": "Sovereign Box 0",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-61",
+      "name": "Sovereign Box 1",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-71",
+      "name": "Sovereign Integrate",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-81",
+      "name": "Sovereign Verify",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-91",
+      "name": "4T Clover",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-101",
+      "name": "732m SUPERNODES",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-111",
+      "name": "320-node 10x32 grid",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-121",
+      "name": "8-layer bitwise state machine",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-131",
+      "name": "78-field validation gate",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-141",
+      "name": "1001 matrices",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-151",
+      "name": "17 blocks",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-161",
+      "name": "33-level quantum-classical routing",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-171",
+      "name": "1T1C DRAM ECC",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-181",
+      "name": "vSoC",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-191",
+      "name": "LET/TET",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-201",
+      "name": "NT-1",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-211",
+      "name": "Zero-Cloud",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-221",
+      "name": "ZORRO-Cloud",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-231",
+      "name": "Reaper 6969 Engine",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "sovereign-core-241",
+      "name": "NODESMINDS",
+      "domain": "sovereign-core",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-01",
+      "name": "Tabor World Hub",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-11",
+      "name": "True Cloud Computing",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-21",
+      "name": "Cloudflare Containers Linux Server",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-31",
+      "name": "Cloudflare Workers AI",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-41",
+      "name": "Cloudflare D1",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-51",
+      "name": "Cloudflare R2",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-61",
+      "name": "Cloudflare KV",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-71",
+      "name": "Cloudflare Queues",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-81",
+      "name": "Cloudflare Workflows",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-91",
+      "name": "Cloudflare Vectorize",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-101",
+      "name": "Durable Objects",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-111",
+      "name": "GitHub CI/CD",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-121",
+      "name": "Supercomputer Compute Fleet",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-131",
+      "name": "Supercomputer Node Agent",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-141",
+      "name": "Supercomputer Benchmark",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-151",
+      "name": "Sovereign Mirror",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-161",
+      "name": "Tabor Job Orchestrator",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-171",
+      "name": "Tabor Infrastructure Gateway",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-181",
+      "name": "Telemetry Edge",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-191",
+      "name": "Cloudflare Zero Trust",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-201",
+      "name": "Worker Swarm",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-211",
+      "name": "Operation Swarm",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "cloud-and-compute-221",
+      "name": "Operation Octopus",
+      "domain": "cloud-and-compute",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-01",
+      "name": "Tabor Corp Mining Hub",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-11",
+      "name": "Bitcoin SHA-256d",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-21",
+      "name": "Bitcoin full node",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-31",
+      "name": "Mining Pool",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-41",
+      "name": "ASIC Mining Farm",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-51",
+      "name": "Mining Hardware Registry",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-61",
+      "name": "Mining Verification Receipts",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-71",
+      "name": "Mining Economics",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-81",
+      "name": "SEN",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-91",
+      "name": "SIN",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-101",
+      "name": "21-slot Coin Registry",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-111",
+      "name": "64-slot Coin Federation",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-121",
+      "name": "Coin Market Observations",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-131",
+      "name": "Sovereign Currency",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-141",
+      "name": "Coin Agent Scheduler",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-151",
+      "name": "Quantum Mining",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "crypto-and-mining-161",
+      "name": "Cosmic Tracking",
+      "domain": "crypto-and-mining",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-01",
+      "name": "Guardian V2",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-11",
+      "name": "CoreOrder",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-21",
+      "name": "ConsentFlow",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-31",
+      "name": "RAPTURE Protocol",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-41",
+      "name": "CipherEngine",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-51",
+      "name": "SpiralCipher",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-61",
+      "name": "iCU Buddy",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-71",
+      "name": "AnkhBabelDissolver",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-81",
+      "name": "BabelDissolver",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-91",
+      "name": "AnkhAE Binder",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-101",
+      "name": "Sovereign Defender",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-111",
+      "name": "Dehack Deliver",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-121",
+      "name": "Truth Mode",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-131",
+      "name": "Binary Truth Gates",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-141",
+      "name": "Ed25519 Grants",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-151",
+      "name": "Identity Bridge",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-161",
+      "name": "Kill Switches",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-171",
+      "name": "Agent Hive",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-181",
+      "name": "Ant Farm",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-191",
+      "name": "Bee Hive",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-201",
+      "name": "17 Worker Families",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-211",
+      "name": "8-stage Pipeline",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-221",
+      "name": "Slayer",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-231",
+      "name": "Sleyer",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-241",
+      "name": "Light Slayer",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-251",
+      "name": "Light Sleyer",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-261",
+      "name": "Dark Slayer",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-271",
+      "name": "Dark Sleyer",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-281",
+      "name": "Mosaic Indexer",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-291",
+      "name": "Browser Sync",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "security-and-agents-301",
+      "name": "Sovereignty Ledger",
+      "domain": "security-and-agents",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-01",
+      "name": "Universal Finger Physics",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-11",
+      "name": "TactileCoreSDK",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-21",
+      "name": "Tabor Track Baller",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-31",
+      "name": "Universal Digit Physics",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-41",
+      "name": "Dual-Screen Arcade",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-51",
+      "name": "Universal Bridge",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-61",
+      "name": "Grapple It",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-71",
+      "name": "Hook and Ring",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-81",
+      "name": "Ringer Marbles",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-91",
+      "name": "Beanbag",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-101",
+      "name": "Target Archery",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-111",
+      "name": "One-Finger Boxing",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-121",
+      "name": "Shield Interceptor",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-131",
+      "name": "Pop-Up Reflex",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-141",
+      "name": "Bowling",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-151",
+      "name": "Cornhole",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-161",
+      "name": "Horseshoes",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-171",
+      "name": "Bolas",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-181",
+      "name": "Darts",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-191",
+      "name": "Lasso",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-201",
+      "name": "Universal Library Engine",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-211",
+      "name": "101 Library Cartridges",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-221",
+      "name": "Bibletopia",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-231",
+      "name": "Release the Hounds of Hell",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-241",
+      "name": "Sinners vs Saints",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-251",
+      "name": "Icarus's of Baseball",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "games-and-physics-261",
+      "name": "Pinky and the Brain-style Protect Innocence Games",
+      "domain": "games-and-physics",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-01",
+      "name": "Library of Tabor",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-11",
+      "name": "Modern Day Bible",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-21",
+      "name": "Tabor Concordance",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-31",
+      "name": "Tabor Light",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-41",
+      "name": "Tabor Trinity",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-51",
+      "name": "Tabor Accords",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-61",
+      "name": "Find the Tabor",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-71",
+      "name": "Tabor Ancestry",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-81",
+      "name": "Coat of Arms Builder",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-91",
+      "name": "Surname Variant Engine",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-101",
+      "name": "Tree of Life",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-111",
+      "name": "Redstone Arsenal Research",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-121",
+      "name": "Opal Phillips Tabor",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-131",
+      "name": "John Ferrell Tabor",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-141",
+      "name": "Operation Paperclip Research",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-151",
+      "name": "Von Braun Research",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-161",
+      "name": "Tabor Train of Truth",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-171",
+      "name": "Mind of Minds",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-181",
+      "name": "Misfits",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-191",
+      "name": "Pee Dee Valley Editions",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-201",
+      "name": "Tower of Babel",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-211",
+      "name": "MAMMAL",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-221",
+      "name": "Word Rotations",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-231",
+      "name": "Phonetics Engine",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-241",
+      "name": "Root Word Meaning",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-251",
+      "name": "Reversal Cipher",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-261",
+      "name": "Codex 4 5 9",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-271",
+      "name": "UniversalMatrix",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "library-and-research-281",
+      "name": "Duodecimal Thinker",
+      "domain": "library-and-research",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-01",
+      "name": "Rhythm Matrix",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-11",
+      "name": "Heartbeat Constant",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-21",
+      "name": "Mother Earth",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-31",
+      "name": "Father Time",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-41",
+      "name": "13/17 Cicada Clocks",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-51",
+      "name": "17-movement Heartbeat",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-61",
+      "name": "54-pulse Music",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-71",
+      "name": "19-position Study",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-81",
+      "name": "NT-1 THE HEARTBEAT",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-91",
+      "name": "OXR Rhythm",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-101",
+      "name": "The Twinkling World Between Frames",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-111",
+      "name": "Saturday Morning",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-121",
+      "name": "Tabor Light Slayers",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-131",
+      "name": "Tabor Light Sleyers",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-141",
+      "name": "MAS SPIRIT",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-151",
+      "name": "Santa Krampus",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-161",
+      "name": "Santa Supmark",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-171",
+      "name": "Santa Glampus",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "rhythm-and-media-181",
+      "name": "Santa Supmals",
+      "domain": "rhythm-and-media",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "physical-inventions-01",
+      "name": "Trinitycycle",
+      "domain": "physical-inventions",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "physical-inventions-11",
+      "name": "3-Wheel Lateral Vehicle",
+      "domain": "physical-inventions",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "physical-inventions-21",
+      "name": "Plymouth Prowler",
+      "domain": "physical-inventions",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "physical-inventions-31",
+      "name": "Hemo Home",
+      "domain": "physical-inventions",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "physical-inventions-41",
+      "name": "Heated Blanket",
+      "domain": "physical-inventions",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "physical-inventions-51",
+      "name": "Drawer-Hinge Table",
+      "domain": "physical-inventions",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "physical-inventions-61",
+      "name": "AlumaGrip",
+      "domain": "physical-inventions",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "physical-inventions-71",
+      "name": "ChristmasAutoStickLights",
+      "domain": "physical-inventions",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "physical-inventions-81",
+      "name": "5-node Voxel Printing",
+      "domain": "physical-inventions",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "physical-inventions-91",
+      "name": "Geological Supercomputer",
+      "domain": "physical-inventions",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    },
+    {
+      "id": "physical-inventions-101",
+      "name": "Universal Physics Chassis",
+      "domain": "physical-inventions",
+      "kind": "standalone-capability",
+      "stage": "cataloged-not-verified",
+      "provenance": "prior-user-project-context",
+      "policy": {
+        "preserve_identity": true,
+        "independent_module": true,
+        "link_to_world_hub": true,
+        "require_receipt": true
+      }
+    }
+  ]
+}
