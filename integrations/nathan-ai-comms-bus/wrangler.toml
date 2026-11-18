@@ -5,7 +5,12 @@ account_id = "a70580bacdf96c946662b7b67dcb45b5"
 workers_dev = true
 
 [triggers]
-crons = ["*/15 * * * *"]
+crons = ["* * * * *"]
+
+# Every minute invokes only the light scheduler; D1 sampling is every 5m and
+# Queue heartbeats are every 15m. This does not scale other Workers or cap bills.
+[vars]
+LOCAL_QUEUE_MESSAGES_PER_DAY = "200"
 
 [[d1_databases]]
 binding = "COMMS_DB"
