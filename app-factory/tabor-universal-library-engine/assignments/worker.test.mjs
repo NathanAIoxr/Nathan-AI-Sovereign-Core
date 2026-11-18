@@ -20,7 +20,7 @@ function bindings() {
   const db = new DatabaseSync(":memory:");
   db.exec(readFileSync(new URL("./migration.sql", import.meta.url), "utf8"));
   const service = paths => ({fetch(request) {
-    const value = paths[new URL(request.url).pathname];
+    const value = paths[new URL(request).pathname];
     return typeof value === "string" ? new Response(value) : Response.json(value ?? {});
   }});
   return {

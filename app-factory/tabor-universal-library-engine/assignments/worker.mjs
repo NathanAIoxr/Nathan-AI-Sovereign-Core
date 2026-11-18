@@ -89,12 +89,18 @@ export function review(id, checks) {
 }
 
 async function request(binding, base, path, type = "json") {
+  let timer;
   try {
-    const response = await binding.fetch(new Request(base + path, {redirect: "error", signal: AbortSignal.timeout(12000)}));
-    if (!response.ok) return null;
-    return await response[type]();
+    const timeout = new Promise(resolve => {timer = setTimeout(() => resolve(null), 12000);});
+    const read = async () => {
+      const response = await binding.fetch(base + path);
+      return response.ok ? await response[type]() : null;
+    };
+    return await Promise.race([read(), timeout]);
   } catch {
     return null;
+  } finally {
+    clearTimeout(timer);
   }
 }
 
@@ -140,6 +146,7 @@ export async function status(env) {
   ]);
   const last = receipt ? JSON.parse(receipt.payload) : null;
   if (!ledger && last) return {...last, sourceAvailable: false};
+  if (!ledger) throw new Error("Source unavailable");
   const current = last && ledger && last.release === ledger.current ? last : null;
   const checked = new Map((current?.tasks ?? []).map(task => [task.id, task]));
   const tasks = assign(ledger).map(task => ({...task, checks: checked.get(task.id)?.checks ?? [],
@@ -158,8 +165,10 @@ export default {
       if (path === "/health") return asJSON({service: RELEASE, release: data.release, tasks: data.tasks.length,
         checkedAt: data.checkedAt, sourceAvailable: data.sourceAvailable});
       return asJSON(data);
-    } catch {
-      return asJSON({error: "Assignment ledger unavailable"}, 503);
+    } catch (error) {
+      const status = error?.message === "Source unavailable" ? "World release ledger unavailable" : "Assignment receipts unavailable";
+      console.warn(status, error?.message);
+      return asJSON({error: status}, 503);
     }
   },
   async scheduled(controller, env) {
