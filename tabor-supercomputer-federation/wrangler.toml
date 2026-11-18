@@ -1,0 +1,42 @@
+name = "tabor-supercomputer-federation"
+main = "worker.mjs"
+compatibility_date = "2026-11-18"
+workers_dev = true
+preview_urls = false
+
+[observability]
+enabled = true
+[observability.traces]
+enabled = true
+
+[[durable_objects.bindings]]
+name = "NODES"
+class_name = "SupercomputerNode"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SupercomputerNode"]
+
+[[services]]
+binding = "WORLD"
+service = "tabor-world-hub"
+
+[[services]]
+binding = "STACK"
+service = "tabor-sovereign-digital-stack"
+
+[[services]]
+binding = "MEMORY"
+service = "tabor-raw-memory-storage"
+
+[[services]]
+binding = "SUPER"
+service = "nathan-tabor-supercomputer"
+
+[[services]]
+binding = "SUPER2X"
+service = "nathan-tabor-supercomputer-2x"
+
+[[services]]
+binding = "MINING"
+service = "tabor-corp-mining-hub"
