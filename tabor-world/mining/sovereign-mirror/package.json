@@ -1,0 +1,8 @@
+{
+  "name": "nathan-ai-sovereign-mirror",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test worker.test.js"
+  }
+}
