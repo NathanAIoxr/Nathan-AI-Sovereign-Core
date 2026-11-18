@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { ipaSoundMap, strongRootLookup } from './units.mjs';
+test('maps curated IPA without changing original', () => {const r=ipaSoundMap('Two cats');assert.equal(r.original,'Two cats');assert.equal(r.tokens[0].ipa,'/tuː/');assert.equal(r.tokens[1].ipa,null)});
+test('unknown pronunciation stays unknown', () => assert.equal(ipaSoundMap('Tabor').tokens[0].ipa,null));
+test('rejects non-string and oversize IPA input', () => {assert.throws(()=>ipaSoundMap(null),TypeError);assert.throws(()=>ipaSoundMap('a'.repeat(4097)),TypeError)});
+test('empty IPA input is valid', () => assert.deepEqual(ipaSoundMap('').tokens,[]));
+test('returns exact matching supplied concordance record', () => {const r=strongRootLookup('H1',[{number:'H1',root:'sample',meaning:'provided'},{number:'G2',root:'other',meaning:'other'}]);assert.deepEqual(r.matches,[{number:'H1',root:'sample',meaning:'provided'}])});
+test('no matching root is not fabricated', () => assert.equal(strongRootLookup('G1',[]).found,false));
+test('rejects invalid identifier', () => assert.throws(()=>strongRootLookup('H0',[]),TypeError));
+test('rejects malformed record', () => assert.throws(()=>strongRootLookup('G1',[{number:'G1',root:42,meaning:'x'}]),TypeError));
+test('rejects excessive records', () => assert.throws(()=>strongRootLookup('G1',Array(257).fill({number:'G1',root:'a',meaning:'b'})),RangeError));
