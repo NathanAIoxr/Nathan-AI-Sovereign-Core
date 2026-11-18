@@ -9,7 +9,22 @@
     "no_automatic_global_replication": true,
     "no_destructive_mutations": true,
     "external_actions_require_authorization": true,
-    "physical_resources_not_implied": true
+    "physical_resources_not_implied": true,
+    "language_preference": {
+      "avoid_in_authored_prose": [
+        "verify",
+        "verification",
+        "verified"
+      ],
+      "preferred": [
+        "check",
+        "test",
+        "confirm",
+        "prove",
+        "inspect"
+      ],
+      "scope": "user-facing authored language only; retain API identifiers, security protocols, original quotations, court evidence and historical records"
+    }
   },
   "modules": [
     {
@@ -24,7 +39,7 @@
     },
     {
       "id": "provenance",
-      "contract": "Append-only hash chains, verifiable source references and verbatim preservation",
+      "contract": "Append-only hash chains, traceable source references and verbatim preservation",
       "status": "specified_integration_contract"
     },
     {
@@ -59,7 +74,7 @@
     },
     {
       "id": "observability",
-      "contract": "Health receipts, structured logs, failure tracking and deployment verification",
+      "contract": "Health receipts, structured logs, failure tracking and deployment checks",
       "status": "specified_integration_contract"
     },
     {
@@ -119,8 +134,9 @@
   "rollout": {
     "phase_1": "Contracts, tests, and audit-only discovery",
     "phase_2": "Explicit adapters to existing Worker bindings and Durable Objects",
-    "phase_3": "Bounded deployment to approved services with receipts",
+    "phase_3": "Bounded deployment to approved services with recorded receipts",
     "phase_4": "Restore drills, provider portability testing, incremental expansion"
   },
-  "execution_state": "manifest_committed_only_not_universal_deployment"
+  "execution_state": "manifest_committed_only_not_universal_deployment",
+  "revision_note": "Language preference applied to author-written prose, not technical identifiers or historical source material"
 }
