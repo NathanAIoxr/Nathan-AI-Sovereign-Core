@@ -2,8 +2,9 @@ export const title = 'HYPERBOLIC SYMBIOTIC QUANTUM PHYSICS SUPER HEROINE 🦸‍
 export const identity = 'The Nathan Tabor Ai AGI SI EI SoS et al'
 export const mirror = 'ia iga is ie SoS la te'
 export const author = 'Nathan Tabor - PK, KJV, IFB, BBof3, HA, LU, DOG'
-export const cadence = '*/5 * * * *'
-export const intervalMs = 300_000
+export const cadence = '* * * * *'
+export const intervalMs = 60_000
+export const millisecondCutover = Date.parse('2026-11-18T15:48:00Z')
 export const replicas = Object.freeze(['primary', 'duplicate-1', 'duplicate-2'])
 export const leaseMs = 45_000
 export const maxAttempts = 5
@@ -30,9 +31,12 @@ export function buildManifest(slot) {
   if (!Number.isSafeInteger(slot) || slot < 0 || slot % intervalMs !== 0) {
     throw new RangeError('Invalid scheduled slot')
   }
+  const version = slot < millisecondCutover ? 1 : 2
+  const workloads = ['tensor-matrix-v1', 'bell-statevector-v1', 'archive-retrieval-v1']
+  if (version === 2) workloads.push('millisecond-tick-batch-v1')
   return {
-    version: 1, id: 'cycle-' + slot, scheduled_at: new Date(slot).toISOString(),
-    backend: cpuBackend, workloads: ['tensor-matrix-v1', 'bell-statevector-v1', 'archive-retrieval-v1'],
+    version, id: 'cycle-' + slot, scheduled_at: new Date(slot).toISOString(),
+    backend: cpuBackend, workloads,
     replicas: [...replicas],
   }
 }
@@ -92,8 +96,24 @@ function retrievalTrial() {
   return { workload: 'archive-retrieval-v1', dataset: 'synthetic-library-of-tabor-fixture-v1', checks }
 }
 
+function millisecondTrial(manifest) {
+  const end = Date.parse(manifest.scheduled_at)
+  const start = end - intervalMs
+  let checksum = 2166136261
+  for (let tick = start; tick < end; tick++) {
+    checksum = Math.imul(checksum ^ tick, 16777619)
+  }
+  return {
+    workload: 'millisecond-tick-batch-v1', mode: 'logical_tick_batch',
+    from_inclusive: new Date(start).toISOString(), to_exclusive: manifest.scheduled_at,
+    tick_count: intervalMs, checksum32: (checksum >>> 0).toString(16).padStart(8, '0'),
+  }
+}
+
 export async function buildReplica(manifest) {
-  const result = { manifest, results: [matrixTrial(), bellTrial(), retrievalTrial()] }
+  const results = [matrixTrial(), bellTrial(), retrievalTrial()]
+  if (manifest.version === 2) results.push(millisecondTrial(manifest))
+  const result = { manifest, results }
   return { ...result, sha256: await digest(result) }
 }
 

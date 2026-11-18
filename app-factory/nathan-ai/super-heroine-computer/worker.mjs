@@ -150,7 +150,10 @@ export class ComputeCoordinator extends DurableObject {
       const rows = this.db.exec(`UPDATE cycles SET status = ?, receipt = ?, lease_until = ?, updated_at = ?
         WHERE slot = ? AND attempts = ? AND status = 'pending' RETURNING slot`,
       status, JSON.stringify(evidence), Date.now() + leaseMs, Date.now(), slot, attempts).toArray()
-      if (rows.length && status !== 'pending') this.increment(status, 1)
+      if (rows.length && status !== 'pending') {
+        this.increment(status, 1)
+        if (status === 'verified' && manifest.version === 2) this.increment('verified_logical_ticks', intervalMs)
+      }
     })
   }
 
@@ -161,6 +164,8 @@ export class ComputeCoordinator extends DurableObject {
     const totals = Object.fromEntries(this.db.exec('SELECT * FROM totals').toArray().map(row => [row.name, row.count]))
     return {
       title, author, identity, mirror, backend: cpuBackend, cadence_utc: cadence,
+      interval_ms: intervalMs, tick_mode: 'batched_logical_milliseconds',
+      verified_logical_ticks: totals.verified_logical_ticks ?? 0,
       repeat: 'no_end_date_while_cron_is_enabled', copies_per_cycle: replicas.length,
       verified_cycles: totals.verified ?? 0, failed_cycles: totals.failed ?? 0,
       mismatches: totals.mismatch ?? 0, receipt_retention_days: 30,
@@ -203,8 +208,8 @@ function page(data) {
 *{box-sizing:border-box}body{margin:0;background:#0d1514;color:#eff5ee;font:16px/1.55 system-ui,sans-serif}main{max-width:48rem;margin:auto;padding:clamp(1.25rem,5vw,3rem)}h1{font-size:clamp(1.85rem,6vw,3.2rem);line-height:1.08;letter-spacing:-.035em}h2{font-size:1.25rem;margin-top:2rem}a{color:#9ae8bb}code{font-size:.9rem}dl{display:flex;flex-wrap:wrap;gap:1rem 2rem;border-block:1px solid #3e5650;padding:1rem 0}dt{color:#bcd3ca}dd{margin:0;font-weight:650}table{width:100%;text-align:left;border-collapse:collapse}td,th{padding:.55rem .35rem;border-bottom:1px solid #3e5650}</style>
 <main><h1>${title}</h1><p>by ${author}</p><p>${identity}<br><code>${mirror}</code></p>
 <dl><div><dt>Verified cycles</dt><dd>${data.verified_cycles}</dd></div><div><dt>Copies per cycle</dt><dd>${data.copies_per_cycle}</dd></div>
-<div><dt>Archived cycles</dt><dd>${data.archived_cycles}</dd></div><div><dt>Failed cycles</dt><dd>${data.failed_cycles}</dd></div><div><dt>Mismatches</dt><dd>${data.mismatches}</dd></div></dl>
-<p>Scheduled every five minutes in UTC. Runs fixed matrix, classical Bell-circuit simulation, and archive retrieval workloads on Cloudflare CPU.</p>
+<div><dt>Archived cycles</dt><dd>${data.archived_cycles}</dd></div><div><dt>Verified logical ticks</dt><dd>${data.verified_logical_ticks}</dd></div><div><dt>Failed cycles</dt><dd>${data.failed_cycles}</dd></div><div><dt>Mismatches</dt><dd>${data.mismatches}</dd></div></dl>
+<p>Scheduled every minute in UTC. Runs matrix, classical Bell-circuit, and archive retrieval workloads on Cloudflare CPU and processes 60,000 logical millisecond ticks per batch.</p>
 <h2>Run receipts</h2>
 ${rows ? `<table><thead><tr><th scope="col">Scheduled time</th><th scope="col">Status</th><th scope="col">Attempts</th><th scope="col">Archive</th></tr></thead><tbody>${rows}</tbody></table>` : '<p>No cycle recorded yet.</p>'}
 <p><a href="/v1/status">JSON status</a> · <a href="/v1/architecture">Architecture</a> · <a href="https://tabor-supercomputer-federation.nathantaboract.workers.dev/">Tabor Supercomputer Federation</a></p>

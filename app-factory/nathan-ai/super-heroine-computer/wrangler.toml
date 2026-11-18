@@ -11,7 +11,7 @@ enabled = true
 enabled = true
 
 [triggers]
-crons = ["*/5 * * * *"]
+crons = ["* * * * *"]
 
 [[durable_objects.bindings]]
 name = "COORDINATOR"

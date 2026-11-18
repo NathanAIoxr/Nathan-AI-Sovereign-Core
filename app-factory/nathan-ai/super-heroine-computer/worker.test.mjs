@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { registerHooks } from 'node:module'
 import { DatabaseSync } from 'node:sqlite'
 import { test } from 'node:test'
-import { buildManifest, buildReplica, digest, intervalMs, maxAttempts, replicas, verifyReplicas } from './workloads.mjs'
+import { buildManifest, buildReplica, digest, intervalMs, maxAttempts, millisecondCutover, replicas, verifyReplicas } from './workloads.mjs'
 
 const hooks = registerHooks({
   resolve(specifier, context, next) {
@@ -169,4 +169,27 @@ test('archive failures retry, and a corrupt stored artifact is never returned', 
   archiveState.storage.sql.exec('UPDATE archived_cycles SET record = ? WHERE slot = ?', JSON.stringify(stored), slot)
   const response = await worker.fetch(new Request(url('/v1/archives/cycle-' + slot)), env)
   assert.equal(response.status, 503)
+})
+
+test('the faster cadence keeps the production v1 digest and verifies each logical tick once', async t => {
+  const { env, coordinator } = runtime(t)
+  const legacy = await buildReplica(buildManifest(Date.parse('2026-11-18T15:25:00Z')))
+  assert.equal(legacy.sha256, '56fe74995d1dbb6dc7954e0e63d77e2eed559a5d491ed271624e20e96c681252')
+  t.mock.method(Date, 'now', () => millisecondCutover + intervalMs)
+  const schedule = slot => worker.scheduled({ scheduledTime: slot }, env)
+  await Promise.all([schedule(millisecondCutover), schedule(millisecondCutover)])
+  await schedule(millisecondCutover + intervalMs)
+  const status = coordinator().status()
+  assert.equal(status.cadence_utc, '* * * * *')
+  assert.equal(status.verified_logical_ticks, 120_000)
+  const first = await env.REPLICAS.getByName('primary').stored(millisecondCutover)
+  const second = await env.REPLICAS.getByName('primary').stored(millisecondCutover + intervalMs)
+  const tick = result => result.results.find(item => item.workload === 'millisecond-tick-batch-v1')
+  assert.equal(tick(first).tick_count, 60_000)
+  assert.equal(tick(first).to_exclusive, tick(second).from_inclusive)
+  let reference = 2166136261n
+  for (let n = BigInt(millisecondCutover - intervalMs); n < BigInt(millisecondCutover); n++) {
+    reference = ((reference ^ n) * 16777619n) & 0xffffffffn
+  }
+  assert.equal(tick(first).checksum32, reference.toString(16).padStart(8, '0'))
 })
