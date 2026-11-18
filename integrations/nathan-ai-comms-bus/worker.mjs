@@ -1,4 +1,5 @@
 // Nathan AI Communications Bus. Control-plane messages only; no remote command execution.
+import { DEFAULT_POLICY, monthlyPacing, parseLocalQuota, scheduleActions } from './capacity-policy.mjs';
 const KINDS = new Set(["heartbeat", "status_report", "sync_request", "registry_ping", "ack"]);
 const PEERS = new Set(["cloudflare", "github", "chatgpt", "nathan-ai"]);
 const BASE = { "cache-control": "no-store", "content-type": "application/json; charset=utf-8" };
@@ -29,6 +30,17 @@ async function totals(db, sql) {
   } catch {
     return null;
   }
+}
+// Transactional cap on THIS ONE bus only, not a billing/account-wide kill switch.
+async function takeBusSlot(env, at) {
+  const day = at.toISOString().slice(0, 10);
+  const limit = parseLocalQuota(env.LOCAL_QUEUE_MESSAGES_PER_DAY);
+  const saved = await env.COMMS_DB.prepare(
+    "INSERT INTO local_queue_daily(day_utc,accepted,last_accepted_at) VALUES (?1,1,?2) " +
+    "ON CONFLICT(day_utc) DO UPDATE SET accepted=accepted+1,last_accepted_at=excluded.last_accepted_at " +
+    "WHERE local_queue_daily.accepted < ?3 RETURNING accepted"
+  ).bind(day, at.toISOString(), limit).first();
+  return { allowed: Boolean(saved), accepted: saved?.accepted ?? null, day, limit };
 }
 async function dispatchGithub(env, message) {
   // Optional and disabled until a repository-scoped fine-grained secret is installed.
@@ -64,6 +76,34 @@ export default {
           github_to_cloudflare: Boolean(env.BRIDGE_TOKEN),
           cloudflare_to_github: Boolean(env.GITHUB_DISPATCH_TOKEN)
         }
+      });
+    }
+    if (request.method === "GET" && path === "/v1/capacity") {
+      const now = new Date();
+      const day = now.toISOString().slice(0, 10);
+      const policy = parseLocalQuota(env.LOCAL_QUEUE_MESSAGES_PER_DAY);
+      const [local, recent, latestUsage] = await Promise.all([
+        env.COMMS_DB.prepare("SELECT accepted FROM local_queue_daily WHERE day_utc=?").bind(day).first(),
+        env.COMMS_DB.prepare(
+          "SELECT bucket_utc,action,state,observed_at FROM scheduler_receipts ORDER BY observed_at DESC LIMIT 4"
+        ).all(),
+        env.COMMS_DB.prepare(
+          "SELECT observed_at,provenance,workers_requests,workers_cpu_ms,queue_operations " +
+          "FROM usage_observations ORDER BY observed_at DESC LIMIT 1"
+        ).first()
+      ]);
+      return reply({
+        service: "nathan-ai-comms-bus",
+        schedule: { cron: "* * * * *", sample_every_minutes: 5, heartbeat_every_minutes: 15 },
+        local_bus_quota: {
+          day_utc: day, accepted_messages: local?.accepted ?? 0, daily_cap: policy,
+          scope: "this Worker only; not account-wide"
+        },
+        pacing_reference: monthlyPacing({ days: new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth()+1, 0)).getUTCDate() }),
+        recorded_scheduler_receipts: recent.results || [],
+        billing_observation: latestUsage || null,
+        billing_permission: "unverified_or_unavailable; no assumption of actual spend",
+        warning: "Do not create traffic to meet quotas. No billing usage, cross-worker spending, or zero-overage guarantee is implied."
       });
     }
     if (request.method === "GET" && path === "/v1/registry") {
@@ -123,14 +163,38 @@ export default {
         return reply({ error: "invalid_control_plane_message" }, 400);
       }
       const msg = newMessage(body.kind, body.source, body.destination, body.payload);
+      const budget = await takeBusSlot(env, new Date());
+      if (!budget.allowed) return reply({
+        error: "local_bus_daily_budget_exhausted", day_utc: budget.day, daily_cap: budget.limit
+      }, 429);
       await env.EVENTS_QUEUE.send(msg);
       return reply({ accepted: true, id: msg.id, state: "queued_not_yet_processed" }, 202);
     }
     return reply({ error: "not_found" }, 404);
   },
   async scheduled(controller, env) {
+    // Called every minute, intentionally no D1/Queue/API work on four out of five ticks.
+    const at = new Date(controller.scheduledTime);
+    const actions = scheduleActions(controller.scheduledTime);
+    if (!actions.sample) return;
+    const bucket = at.toISOString().slice(0, 16);
+    await env.COMMS_DB.prepare(
+      "INSERT OR IGNORE INTO scheduler_receipts(bucket_utc,observed_at,action,state) VALUES (?,?,?,?)"
+    ).bind(bucket, new Date().toISOString(), actions.heartbeat ? "heartbeat" : "sample", "scheduled").run();
+    if (at.getUTCHours() === 0 && at.getUTCMinutes() === 0) {
+      // Retain source messages and catalog records; only prune this new derived telemetry.
+      await env.COMMS_DB.prepare(
+        "DELETE FROM scheduler_receipts WHERE observed_at < datetime('now','-30 days')"
+      ).run();
+      await env.COMMS_DB.prepare(
+        "DELETE FROM local_queue_daily WHERE day_utc < date('now','-30 days')"
+      ).run();
+    }
+    if (!actions.heartbeat) return;
+    const budget = await takeBusSlot(env, at);
+    if (!budget.allowed) return; // Preserve headroom instead of generating more work.
     const msg = newMessage("heartbeat", "cloudflare", "github", {
-      trigger: "cron", scheduled_at: new Date(controller.scheduledTime).toISOString()
+      trigger: "cron", scheduled_at: at.toISOString(), scope: "local_bus"
     });
     await env.EVENTS_QUEUE.send(msg);
     await dispatchGithub(env, msg);
