@@ -25,6 +25,10 @@
     {
       "binding": "CURRENCY",
       "service": "tabor-sovereign-currency"
+    },
+    {
+      "binding": "TABOR_CHIPS",
+      "service": "tabor-chips"
     }
   ]
 }

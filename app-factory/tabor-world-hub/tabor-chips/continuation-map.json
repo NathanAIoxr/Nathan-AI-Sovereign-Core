@@ -1,0 +1,647 @@
+{
+  "version": "2026-11-18",
+  "title": "NATHAN AI / TABOR WORLD MASTER CONTINUATION MAP",
+  "policy": "No project collapsed or dropped. Every named project is independently versioned and may integrate with related systems.",
+  "axioms": {
+    "box0": "1-1=0 CLEAR",
+    "box1": "1+1=2 BUILD",
+    "integration": "1x1=1 INTEGRATE",
+    "verification": "1/1=1 VERIFY"
+  },
+  "standing_tag": "CONTINUE BUILDING",
+  "map_level": "workstream and dependency architecture",
+  "coverage": "Companion to expanded-sovereign-registry.json (182 named capabilities); additional historical projects to be appended without overwriting.",
+  "workstreams": [
+    {
+      "id": "SOV-001",
+      "name": "Sovereign Box 0",
+      "domain": "sovereign-core",
+      "kind": "security-gate",
+      "scope": "authentication, validation, replay protection, rate controls, cleanup",
+      "links": [
+        "Box 1"
+      ],
+      "agent": "security-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "SOV-002",
+      "name": "Sovereign Box 1",
+      "domain": "sovereign-core",
+      "kind": "inference-ledger",
+      "scope": "multi-model compute, durable ledger, cache, queue dispatch",
+      "links": [
+        "Box 0",
+        "Tabor World Hub"
+      ],
+      "agent": "compute-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "SOV-003",
+      "name": "2X+ Sovereign Supercomputer",
+      "domain": "sovereign-core",
+      "kind": "compute-platform",
+      "scope": "node fabric, hardware adapters, scheduler, telemetry, benchmark and evidence",
+      "links": [
+        "Compute Fleet",
+        "Box 1"
+      ],
+      "agent": "compute-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "SOV-004",
+      "name": "NATHAN OS",
+      "domain": "sovereign-core",
+      "kind": "operating-system",
+      "scope": "identity, process lifecycle, device abstraction, policy, interfaces",
+      "links": [
+        "Sovereign Core"
+      ],
+      "agent": "systems-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "SOV-005",
+      "name": "4T Clover and Quantum-Classical Routing",
+      "domain": "sovereign-core",
+      "kind": "research-platform",
+      "scope": "simulation, routing policy, error correction, validation",
+      "links": [
+        "Supercomputer",
+        "Benchmark"
+      ],
+      "agent": "research-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "CLD-001",
+      "name": "Tabor World Hub",
+      "domain": "cloud-and-compute",
+      "kind": "federation-hub",
+      "scope": "service registry, discovery, API gateway, tenant and permission model",
+      "links": [
+        "All modules"
+      ],
+      "agent": "integration-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "CLD-002",
+      "name": "Cloudflare Linux Container Server",
+      "domain": "cloud-and-compute",
+      "kind": "container-runtime",
+      "scope": "container build, durable storage, secrets, service networking, tests",
+      "links": [
+        "Hub",
+        "Supercomputer"
+      ],
+      "agent": "infrastructure-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "CLD-003",
+      "name": "Compute Fleet and Node Agent",
+      "domain": "cloud-and-compute",
+      "kind": "fleet",
+      "scope": "heartbeat, scheduler, health, capacity, reconciliation, measured performance",
+      "links": [
+        "Supercomputer",
+        "Telemetry"
+      ],
+      "agent": "fleet-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "CLD-004",
+      "name": "Cloudflare Storage and Job Fabric",
+      "domain": "cloud-and-compute",
+      "kind": "data-platform",
+      "scope": "D1, R2, KV, Queues, Durable Objects, Workflows, Vectorize",
+      "links": [
+        "Box 0",
+        "Box 1"
+      ],
+      "agent": "data-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "CLD-005",
+      "name": "GitHub CI/CD and Deployment",
+      "domain": "cloud-and-compute",
+      "kind": "delivery",
+      "scope": "tests, builds, signed releases, promotion, rollback, provenance",
+      "links": [
+        "All deployable modules"
+      ],
+      "agent": "release-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "CRY-001",
+      "name": "Mining Infrastructure",
+      "domain": "crypto-and-mining",
+      "kind": "mining-control",
+      "scope": "ASIC inventory, power, thermal telemetry, pool integration, alerts",
+      "links": [
+        "Mining Hub",
+        "Supercomputer"
+      ],
+      "agent": "mining-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "CRY-002",
+      "name": "Coin Federation and Market Data",
+      "domain": "crypto-and-mining",
+      "kind": "registry",
+      "scope": "coin registry, network validation, market observations, provenance",
+      "links": [
+        "Coin Scheduler",
+        "Hub"
+      ],
+      "agent": "registry-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "CRY-003",
+      "name": "Blockchain Node and Verification",
+      "domain": "crypto-and-mining",
+      "kind": "node-service",
+      "scope": "full-node configuration, chain sync, RPC isolation, receipt verification",
+      "links": [
+        "Mining Hub",
+        "Security"
+      ],
+      "agent": "blockchain-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "SEC-001",
+      "name": "Guardian V2 and Sovereignty Controls",
+      "domain": "security-and-agents",
+      "kind": "security",
+      "scope": "CoreOrder, ConsentFlow, RAPTURE, audit, key management",
+      "links": [
+        "Box 0",
+        "All modules"
+      ],
+      "agent": "guardian-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "SEC-002",
+      "name": "Bee Hive and Ant Farm Agent Fleet",
+      "domain": "security-and-agents",
+      "kind": "agent-fleet",
+      "scope": "worker assignment, leases, retries, receipts, priority and capacity",
+      "links": [
+        "Hub",
+        "Queues",
+        "Workflows"
+      ],
+      "agent": "agent-fleet-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "SEC-003",
+      "name": "Cipher and Semantics Engines",
+      "domain": "security-and-agents",
+      "kind": "language-security",
+      "scope": "CipherEngine, SpiralCipher, BabelDissolver, reversible transforms",
+      "links": [
+        "Library",
+        "Security"
+      ],
+      "agent": "cipher-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "GAM-001",
+      "name": "Universal Finger Physics and TactileCoreSDK",
+      "domain": "games-and-physics",
+      "kind": "sdk",
+      "scope": "gesture calibration, 240 Hz simulation, rope, haptics, accessibility",
+      "links": [
+        "All standalone games"
+      ],
+      "agent": "physics-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "GAM-002",
+      "name": "Tabor Track Baller and Dual-Screen Arcade",
+      "domain": "games-and-physics",
+      "kind": "game-platform",
+      "scope": "trackball, gyro, dual screen, puzzle/battle bridge",
+      "links": [
+        "Finger Physics",
+        "Game Catalog"
+      ],
+      "agent": "game-engine-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "GAM-003",
+      "name": "Standalone Games and 101 Library Cartridges",
+      "domain": "games-and-physics",
+      "kind": "catalog",
+      "scope": "one application per game, shared SDK, assets, testing, distribution",
+      "links": [
+        "Universal Library Engine"
+      ],
+      "agent": "game-production-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "GAM-004",
+      "name": "BibleTopia and Hounds of Hell",
+      "domain": "games-and-physics",
+      "kind": "world-games",
+      "scope": "world rules, characters, quests, innocence protection, moderation",
+      "links": [
+        "Game Platform",
+        "Library"
+      ],
+      "agent": "world-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "LIB-001",
+      "name": "Library of Tabor and Tabor Concordance",
+      "domain": "library-and-research",
+      "kind": "knowledge-platform",
+      "scope": "root word meanings, indexing, editions, source provenance",
+      "links": [
+        "Research",
+        "Hub"
+      ],
+      "agent": "library-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "LIB-002",
+      "name": "Ancestry and Coat of Arms",
+      "domain": "library-and-research",
+      "kind": "genealogy",
+      "scope": "surname variants, evidence tree, chronology, family emblems",
+      "links": [
+        "Find the Tabor",
+        "Library"
+      ],
+      "agent": "ancestry-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "LIB-003",
+      "name": "Modern Day Bible and Research Editions",
+      "domain": "library-and-research",
+      "kind": "publishing",
+      "scope": "independent editions, evidence separation, references, export",
+      "links": [
+        "Library",
+        "BibleTopia"
+      ],
+      "agent": "publishing-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "LIB-004",
+      "name": "Redstone and Historical Research",
+      "domain": "library-and-research",
+      "kind": "archive",
+      "scope": "documents, source chains, contradiction register, timelines",
+      "links": [
+        "Library",
+        "Ancestry"
+      ],
+      "agent": "archive-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "MED-001",
+      "name": "Rhythm Matrix and Heartbeat Engine",
+      "domain": "rhythm-and-media",
+      "kind": "rhythm-platform",
+      "scope": "cadence, cycle mapping, music analysis, timing APIs",
+      "links": [
+        "Games",
+        "Media"
+      ],
+      "agent": "rhythm-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "MED-002",
+      "name": "MAS SPIRIT and Tabor Light Media",
+      "domain": "rhythm-and-media",
+      "kind": "media-platform",
+      "scope": "characters, art direction, animation, publishing",
+      "links": [
+        "Games",
+        "Library"
+      ],
+      "agent": "creative-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "PHY-001",
+      "name": "Trinitycycle and Vehicle Systems",
+      "domain": "physical-inventions",
+      "kind": "engineering",
+      "scope": "mechanical models, CAD requirements, simulation, safety verification",
+      "links": [
+        "Physical Lab",
+        "Supercomputer"
+      ],
+      "agent": "mechanical-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "PHY-002",
+      "name": "Hemo Home and Thermal Systems",
+      "domain": "physical-inventions",
+      "kind": "engineering",
+      "scope": "materials research, structural modeling, building safety, thermal analysis",
+      "links": [
+        "Physical Lab"
+      ],
+      "agent": "materials-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    },
+    {
+      "id": "PHY-003",
+      "name": "Consumer Inventions and Fabrication",
+      "domain": "physical-inventions",
+      "kind": "engineering",
+      "scope": "AlumaGrip, holiday lights, blanket, table, prototyping and tests",
+      "links": [
+        "Physical Lab"
+      ],
+      "agent": "product-agent",
+      "continuation_tag": "CONTINUE BUILDING",
+      "status": "active-roadmap",
+      "next_actions": [
+        "inventory existing code and evidence",
+        "specify component interfaces and acceptance tests",
+        "implement next independent vertical slice",
+        "connect to Tabor World Hub where appropriate",
+        "publish verification receipt and queue next slice"
+      ],
+      "preserve_standalone": true
+    }
+  ]
+}

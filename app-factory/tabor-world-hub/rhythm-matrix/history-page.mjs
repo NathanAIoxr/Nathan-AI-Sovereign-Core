@@ -24,7 +24,7 @@ ${history.filter(entry => entry.era === k).map(entry => `<li id="${entry.id}" da
 <link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/history.css"><script type="module" src="/history-client.mjs"></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap top-inner"><a class="brand" href="/">THE RHYTHM MATRIX</a>
-<nav aria-label="Rhythm Matrix"><a href="/#chronology">Nathan’s chronology</a><a href="#timeline">Timeline</a><a href="#lab">Rhythm lab</a></nav>
+<nav aria-label="Rhythm Matrix"><a href="/#chronology">Nathan’s chronology</a><a href="#timeline">Timeline</a><a href="#lab">Rhythm lab</a><a href="https://tabor-chips.nathantaboract.workers.dev/#timing">Tabor Chips timing lab</a></nav>
 </div></header>
 <main id="main" class="wrap history-page">
 <section class="history-hero">
