@@ -34,7 +34,7 @@ async function upload(path, entry, bindings, limits) {
   const metadata = { main_module: entry, compatibility_date: "2026-11-18", bindings, limits };
   form.append("metadata", new Blob([JSON.stringify(metadata)], { type: "application/json" }));
   const modules = [entry, "platforms.mjs", "view.mjs"];
-  if (entry === "dispatch.mjs") modules.push("shard-routes.mjs", "library-plan.mjs", "library-routes.mjs");
+  if (entry === "dispatch.mjs") modules.push("shard-routes.mjs", "library-plan.mjs", "library-routes.mjs", "act-seed.mjs");
   for (const file of modules) {
     form.append(file, new Blob([await read(file)], { type: "application/javascript+module" }), file);
   }

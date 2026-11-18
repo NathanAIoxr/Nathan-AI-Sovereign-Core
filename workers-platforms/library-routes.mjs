@@ -1,3 +1,4 @@
+import { result as actNodes, seedNodes } from "./act-seed.mjs";
 import { assignment, bookAssignment, collections, lccClasses, references, storagePlan, summary, traditions,
   workerAssignment, workerCount, corpusSize } from "./library-plan.mjs";
 import { escape, headers, json, page } from "./view.mjs";
@@ -12,15 +13,15 @@ function home() {
     const label = ["8 KB metadata", "1 MB reading files", "5 MB ebooks", "25 MB scans", "100 MB scans"][index];
     return `<tr><th scope="row">${label}</th><td>${decimal(item.singleCopyBytes / 1e12)} TB</td><td>${decimal(item.allCopyBytes / 1e12)} TB</td><td>${item.totalNodes}</td></tr>`;
   }).join("");
-  const work = collections.map(({ title, dewey }) => `<li>${escape(title)} · ${dewey.map((code) => `<a href="/library/api/locate?dewey=${code}">${code}</a>`).join(", ")}</li>`).join("");
+  const work = collections.map(({ title, dewey, route }) => `<li>${route ? `<a href="${route}">${escape(title)}</a>` : escape(title)} · ${dewey.map((code) => `<a href="/library/api/locate?dewey=${code}">${code}</a>`).join(", ")}</li>`).join("");
   const heritage = traditions.map(({ title, task, source }) => `<li>${escape(title)}. ${escape(task)}${source ? ` <a href="${escape(source)}">Source</a>` : ""}</li>`).join("");
   return page("Library of Tabor · 1,000 Worker assignments", `
 <h1>Library of Tabor</h1>
-<p><strong>${count(plan.totalWorkers)} Worker assignments</strong> · ${count(corpusSize)} planned books · 0 imported into this plan</p>
-<p>Find a subject desk by Dewey address or a storage assignment by accession. Every Worker has both a cataloging duty and a reserved range of ${count(plan.balancedBookCapacityPerWorker)} accessions. A book’s subject desk and storage Worker can differ.</p>
+<p><strong>${count(plan.totalWorkers)} Worker assignments</strong> · ${count(corpusSize)} planned books · ${count(plan.targetLanguages)} target languages · 0 books imported into this plan</p>
+<p>Find a subject desk by Dewey address or a storage assignment by accession. Every Worker has both a cataloging duty and a reserved range of ${count(Math.floor(plan.balancedBookCapacityPerWorker))} or ${count(Math.ceil(plan.balancedBookCapacityPerWorker))} accessions. A book’s subject desk and storage Worker can differ.</p>
 <p><a href="/library/api/assignments">Browse assignments</a> · <a href="/library/assignments.csv">Download all assignments</a> · <a href="/library/api/summary">Classification and sizing API</a></p>
 <form action="/library/api/locate"><label>Dewey address <input name="dewey" pattern="[0-9]{3}" placeholder="929" required></label> <button>Find subject desk</button></form>
-<form action="/library/api/locate"><label>Accession <input name="accession" type="number" min="1" max="${corpusSize}" placeholder="13301" required></label> <button>Find storage Worker</button></form>
+<form action="/library/api/locate"><label>Accession <input name="accession" type="number" min="1" max="${corpusSize}" placeholder="133334" required></label> <button>Find storage Worker</button></form>
 <h2>Storage capacity</h2><p>The examples assume three complete copies and 120 TB raw per storage server, with 80% usable. All units are decimal. Search indexes and ingest scratch are additional.</p>
 <table><thead><tr><th>Per book</th><th>One copy</th><th>Three copies</th><th>Servers</th></tr></thead><tbody>${storageRows}</tbody></table>
 <form action="/library/api/capacity"><label>Bytes per book <input name="bytes" type="number" min="1" max="500000000" value="25000000" required></label>
@@ -47,6 +48,18 @@ export function libraryRoute(url) {
   if (path === "/library" || path === "/library/") return home();
   if (path === "/library/assignments.csv") return csv();
   if (path === "/library/api/summary") return json(summary());
+  if (path === "/library/act") {
+    return page("ACT Pi/Phi seed collection", `<h1>ACT Pi/Phi seed collection</h1>
+<p>${seedNodes.length} source records and ${actNodes.length - seedNodes.length} derived records across three generations.</p>
+<p><a href="/library/api/act">Source records</a> · <a href="/library/api/act?view=expanded">All generated records</a></p>
+<ul>${seedNodes.map((node) => `<li><strong>${escape(node.title)}</strong> · ${escape(node.kind)}<p>${escape(node.summary)}</p></li>`).join("")}</ul>`);
+  }
+  if (path === "/library/api/act") {
+    const view = q.get("view") ?? "source";
+    if (view !== "source" && view !== "expanded") return json({ error: "Invalid ACT view" }, 400);
+    return json({ view, generations: [20, 40, 80, 160], sourceRecords: seedNodes.length,
+      derivedRecords: actNodes.length - seedNodes.length, nodes: view === "source" ? seedNodes : actNodes });
+  }
   const worker = /^\/p\/([a-z0-9-]+)\/library\/?$/.exec(path)?.[1];
   if (worker) {
     const match = workerAssignment(worker);

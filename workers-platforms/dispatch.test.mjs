@@ -62,7 +62,7 @@ test("catalog shards are individually routed within the purchased fleet size", a
   }
 });
 
-test("all 1000 library duties have a unique address and cover 13.3 million accession numbers once", async () => {
+test("all 1000 library duties have a unique address and cover 133,333,333 accession numbers once", async () => {
   const { assignment, bookAssignment, corpusSize, lccClasses } = await import("./library-plan.mjs");
   const all = Array.from({ length: 1000 }, (_, index) => assignment(index));
   assert.equal(new Set(all.map((row) => row.worker)).size, 1000);
@@ -72,12 +72,13 @@ test("all 1000 library duties have a unique address and cover 13.3 million acces
   let start = 1;
   for (const row of all) {
     assert.equal(row.bookRange.start, start);
-    assert.equal(row.bookRange.capacity, 13300);
+    assert.ok([133333, 133334].includes(row.bookRange.capacity));
     assert.equal(bookAssignment(start).worker, row.worker);
     assert.equal(bookAssignment(row.bookRange.end).worker, row.worker);
     start = row.bookRange.end + 1;
   }
   assert.equal(start, corpusSize + 1);
+  assert.equal(all.filter((row) => row.bookRange.capacity === 133334).length, 333);
   const final = await (await dispatch.fetch(req("/p/language-shard-0989/library"))).json();
   const byBase12 = await (await dispatch.fetch(req("/library/api/locate?base12=6B3"))).json();
   assert.deepEqual(final, byBase12);
@@ -85,7 +86,18 @@ test("all 1000 library duties have a unique address and cover 13.3 million acces
   assert.equal((await dispatch.fetch(req("/library/api/locate?base12=BBB"))).status, 404);
   assert.equal((await dispatch.fetch(req("/library/api/capacity?copies=-1"))).status, 400);
   const capacity = await (await dispatch.fetch(req("/library/api/capacity"))).json();
-  assert.equal(capacity.totalNodes, 12);
+  assert.equal(capacity.totalNodes, 105);
   const csv = await (await dispatch.fetch(req("/library/assignments.csv"))).text();
   assert.equal(csv.trimEnd().split("\r\n").length, 1001);
+});
+
+test("ACT preserves the original values and yields a bounded expansion", async () => {
+  const source = await (await dispatch.fetch(req("/library/api/act"))).json();
+  const expanded = await (await dispatch.fetch(req("/library/api/act?view=expanded"))).json();
+  assert.equal(source.nodes.length, 20);
+  assert.equal(expanded.nodes.length, 160);
+  assert.equal(new Set(expanded.nodes.map(node => node.slug)).size, 160);
+  assert.equal(source.nodes.find(node => node.slug === "act-recorded-value-1-168").value_text, "1.168");
+  assert.equal(source.nodes.find(node => node.slug === "alias-phi-glyph").target_slug, "phi");
+  assert.equal(source.nodes.find(node => node.slug === "alias-pie").target_slug, "pie-pi-phi");
 });

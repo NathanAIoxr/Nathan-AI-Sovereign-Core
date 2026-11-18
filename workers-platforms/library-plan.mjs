@@ -1,7 +1,7 @@
-import { platforms } from "./platforms.mjs";
+import { languageTarget, platforms } from "./platforms.mjs";
 import { shardCount, shardId } from "./shard-routes.mjs";
 
-export const corpusSize = 13_300_000;
+export const corpusSize = 133_333_333;
 export const workerCount = platforms.length + shardCount;
 const names = [
   "Computing, information and general works", "Philosophy and psychology", "Religion",
@@ -53,6 +53,7 @@ export const traditions = [
 ];
 
 export const collections = [
+  { title: "ACT Pi/Phi naming, mathematical references and phonetic nodes", dewey: ["410", "510"], lcc: ["P", "Q"], route: "/library/act" },
   { title: "Tabor Concordance and Modern Day Bible", dewey: ["220", "221", "225"], lcc: ["B", "P"] },
   { title: "Find the Tabor, lineage, coat of arms and Tree of Life", dewey: ["929", "910"], lcc: ["C", "D", "E", "F", "G"] },
   { title: "Tower of Babel, languages, phonetics, root words, glyphs and wordplay", dewey: ["400", "410", "411"], lcc: ["P"] },
@@ -104,11 +105,13 @@ export function bookAssignment(accession) {
 }
 
 export function storagePlan(bytesPerBook, copies, rawTbPerNode, usableFraction = .8) {
-  const singleCopyBytes = corpusSize * bytesPerBook;
-  const usableBytesPerNode = rawTbPerNode * 1e12 * usableFraction;
-  const nodesPerCopy = Math.ceil(singleCopyBytes / usableBytesPerNode);
-  return { bytesPerBook, copies, rawTbPerNode, usableFraction, singleCopyBytes,
-    allCopyBytes: singleCopyBytes * copies, nodesPerCopy, totalNodes: nodesPerCopy * copies };
+  const singleCopyBytes = BigInt(corpusSize) * BigInt(bytesPerBook);
+  const allCopyBytes = singleCopyBytes * BigInt(copies);
+  const usableBytesPerNode = BigInt(Math.floor(rawTbPerNode * 1e12 * usableFraction));
+  const nodesPerCopy = Number((singleCopyBytes + usableBytesPerNode - 1n) / usableBytesPerNode);
+  return { bytesPerBook, copies, rawTbPerNode, usableFraction, singleCopyBytes: Number(singleCopyBytes),
+    allCopyBytes: Number(allCopyBytes), singleCopyBytesExact: String(singleCopyBytes), allCopyBytesExact: String(allCopyBytes),
+    nodesPerCopy, totalNodes: nodesPerCopy * copies };
 }
 
 export const references = {
@@ -120,8 +123,12 @@ export const references = {
 
 export function summary() {
   return {
-    totalWorkers: workerCount, totalPlannedBooks: corpusSize, importedBooks: 0,
+    totalWorkers: workerCount, totalPlannedBooks: corpusSize, targetLanguages: languageTarget, importedBooks: 0,
     balancedBookCapacityPerWorker: corpusSize / workerCount,
+    bookCapacityDistribution: {
+      [Math.floor(corpusSize / workerCount)]: workerCount - corpusSize % workerCount,
+      [Math.ceil(corpusSize / workerCount)]: corpusSize % workerCount
+    },
     decimalAddresses: workerCount, duodecimalAddresses: 1728, spareAddresses: 1728 - workerCount,
     history: traditions, collections, lccClasses, references,
     storageExamples: [8_000, 1e6, 5e6, 25e6, 100e6].map((bytes) => storagePlan(bytes, 3, 120))
