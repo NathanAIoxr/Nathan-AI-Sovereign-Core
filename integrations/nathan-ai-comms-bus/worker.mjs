@@ -75,6 +75,32 @@ export default {
       return reply({ fleet_catalog_entries: fleet, logical_slots: slots, imported_worker_records: imports,
         caveat: "Registry rows are not proof of runtime deployment or physical machines." });
     }
+    if (request.method === "GET" && path === "/v1/open-source") {
+      const u = new URL(request.url);
+      const offset = Number(u.searchParams.get("offset") || "0");
+      const safeOffset = Number.isSafeInteger(offset) && offset >= 0 && offset <= 10000 ? offset : 0;
+      const category = u.searchParams.get("category");
+      let query;
+      if (category && category.length <= 100) {
+        query = env.ATLAS_DB.prepare(
+          "SELECT repo,name,category,url,status FROM global_atlas_public_repos WHERE category=? ORDER BY repo LIMIT 50 OFFSET ?"
+        ).bind(category, safeOffset);
+      } else {
+        query = env.ATLAS_DB.prepare(
+          "SELECT repo,name,category,url,status FROM global_atlas_public_repos ORDER BY category,repo LIMIT 50 OFFSET ?"
+        ).bind(safeOffset);
+      }
+      const result = await query.all();
+      const counts = await env.ATLAS_DB.prepare(
+        "SELECT status,COUNT(*) AS count FROM global_atlas_public_repos GROUP BY status"
+      ).all();
+      return reply({
+        source: "existing_cloudflare_d1_global_atlas_public_repos",
+        offset: safeOffset, page_size: 50, entries: result.results || [],
+        statuses: counts.results || [],
+        caveat: "Open-source references are discovery leads, not installed or authorized remote computers."
+      });
+    }
     if (path === "/v1/messages" && !await bearerAuthorized(request, env)) {
       return reply({ error: env.BRIDGE_TOKEN ? "unauthorized" : "inbound_token_not_configured" },
         env.BRIDGE_TOKEN ? 401 : 503);
