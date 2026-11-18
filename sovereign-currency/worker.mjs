@@ -24,6 +24,232 @@ const security = {
 
 const execute = () => runThreePhases(quantumDesign, genesisPrefix, hashHeader, JSON.parse(assets["registry.json"]));
 
+const recoveredCoins = [
+  {
+    "slot": 1,
+    "ticker": "NTC",
+    "name": "Nathan Coin"
+  },
+  {
+    "slot": 2,
+    "ticker": "OXR",
+    "name": "OXR Coin"
+  },
+  {
+    "slot": 3,
+    "ticker": "TAB",
+    "name": "Tabor Coin"
+  },
+  {
+    "slot": 4,
+    "ticker": "THC",
+    "name": "THC Coin"
+  },
+  {
+    "slot": 5,
+    "ticker": "ONE",
+    "name": "ONE Coin"
+  },
+  {
+    "slot": 6,
+    "ticker": "YULL",
+    "name": "YULL Coin"
+  },
+  {
+    "slot": 7,
+    "ticker": "YALL",
+    "name": "YALL Coin"
+  },
+  {
+    "slot": 8,
+    "ticker": "SSS",
+    "name": "SSS Coin"
+  },
+  {
+    "slot": 9,
+    "ticker": "4T",
+    "name": "4T Coin"
+  },
+  {
+    "slot": 10,
+    "ticker": "TBC",
+    "name": "Tabor Block"
+  },
+  {
+    "slot": 11,
+    "ticker": "LTC",
+    "name": "Light Cipher"
+  },
+  {
+    "slot": 12,
+    "ticker": "LTG",
+    "name": "Light Grail"
+  },
+  {
+    "slot": 13,
+    "ticker": "TAB8",
+    "name": "Tabor 8"
+  },
+  {
+    "slot": 14,
+    "ticker": "T1",
+    "name": "Tabor 1"
+  },
+  {
+    "slot": 15,
+    "ticker": "T2",
+    "name": "Tabor 2"
+  },
+  {
+    "slot": 16,
+    "ticker": "T3",
+    "name": "Tabor 3"
+  },
+  {
+    "slot": 17,
+    "ticker": "T4",
+    "name": "Tabor 4"
+  },
+  {
+    "slot": 18,
+    "ticker": "T5",
+    "name": "Tabor 5"
+  },
+  {
+    "slot": 19,
+    "ticker": "T6",
+    "name": "Tabor 6"
+  },
+  {
+    "slot": 20,
+    "ticker": "T7",
+    "name": "Tabor 7"
+  },
+  {
+    "slot": 21,
+    "ticker": "T8",
+    "name": "Tabor 8 (Core)"
+  },
+  {
+    "slot": 22,
+    "ticker": "TABOR",
+    "name": "Tabor One (9th)"
+  },
+  {
+    "slot": 23,
+    "ticker": "INN",
+    "name": "Innocence"
+  },
+  {
+    "slot": 24,
+    "ticker": "BAM",
+    "name": "Bam Bam"
+  },
+  {
+    "slot": 25,
+    "ticker": "MAB",
+    "name": "Mab Mab"
+  },
+  {
+    "slot": 26,
+    "ticker": "REM",
+    "name": "Rem Coin"
+  },
+  {
+    "slot": 27,
+    "ticker": "TAM",
+    "name": "Tam Coin"
+  },
+  {
+    "slot": 28,
+    "ticker": "HER",
+    "name": "Her Coin"
+  },
+  {
+    "slot": 29,
+    "ticker": "MAT",
+    "name": "Mat Coin"
+  },
+  {
+    "slot": 30,
+    "ticker": "MAAT",
+    "name": "Ma’at Coin"
+  },
+  {
+    "slot": 31,
+    "ticker": "BAAL",
+    "name": "Ba’al Coin"
+  },
+  {
+    "slot": 32,
+    "ticker": "GOD",
+    "name": "God Coin"
+  },
+  {
+    "slot": 33,
+    "ticker": "TRN",
+    "name": "Trinity Coin"
+  },
+  {
+    "slot": 34,
+    "ticker": "KIN",
+    "name": "KINETICS"
+  },
+  {
+    "slot": 35,
+    "ticker": "EQT",
+    "name": "Equator Coin"
+  },
+  {
+    "slot": 36,
+    "ticker": "GLY",
+    "name": "Glycerine Coin"
+  },
+  {
+    "slot": 37,
+    "ticker": "RBT",
+    "name": "Ribat Coin"
+  },
+  {
+    "slot": 38,
+    "ticker": "SP1",
+    "name": "Sparta I"
+  },
+  {
+    "slot": 39,
+    "ticker": "SP2",
+    "name": "Sparta II"
+  },
+  {
+    "slot": 40,
+    "ticker": "OXR-X",
+    "name": "OXR XOR"
+  },
+  {
+    "slot": 41,
+    "ticker": "VOX",
+    "name": "Voicebox"
+  },
+  {
+    "slot": 42,
+    "ticker": "JNT",
+    "name": "John Nathan Tabor"
+  }
+];
+const coinRestoration = {
+  source: "Nathan AI Crypto Ecosystem.png · November 2, 2026",
+  recovered: recoveredCoins.length,
+  requested: 64,
+  slots: Array.from({length:64}, (_, i) => recoveredCoins[i]
+    ? {...recoveredCoins[i], status:"recovered_from_42_coin_artwork"}
+    : {slot:i+1, ticker:null, name:null, status:"source_unverified"})
+};
+function restoredCoinPage() {
+  const rows = coinRestoration.slots.map(coin => "<tr><th scope=\"row\">" + coin.slot + "</th><td>" +
+    (coin.ticker ?? "—") + "</td><td>" + (coin.name ?? "Original entry unverified") + "</td></tr>").join("");
+  return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nathan Tabor Sovereign Coins</title><link rel="stylesheet" href="/catalog.css"><main><nav><a href="/coins">All coin families</a><a href="/api/coins/64">Registry JSON</a></nav><h1>Nathan Tabor Sovereign Coins</h1><p>42 numbered entries recovered from Nathan AI Crypto Ecosystem.png. The original entries for the remaining 22 slots are unverified.</p><table><thead><tr><th>Slot</th><th>Ticker</th><th>Coin name</th></tr></thead><tbody>' + rows + '</tbody></table></main></html>';
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -87,8 +313,10 @@ export default {
       }
     }
     if (path === "/switchboard") return send(switchboardPage(), "text/html");
+    if (path === "/api/coins/64") return json(coinRestoration);
+    if (path === "/coins/64") return send(restoredCoinPage(), "text/html");
     if (path === "/coins" || path === "/coins/") {
-      return send(catalogPage(catalog, (url.searchParams.get("q") ?? "").slice(0, 120).trim()), "text/html");
+      return send(catalogPage(catalog, (url.searchParams.get("q") ?? "").slice(0, 120).trim()).replace('<main>', '<main><p><a href="/coins/64">64-slot Sovereign Coin restoration</a></p>'), "text/html");
     }
     if (path === "/api/coins") return send(JSON.stringify(catalog), "application/json");
     if (path === "/api/conspectus") return send(assets["conspectus.json"], "application/json");
