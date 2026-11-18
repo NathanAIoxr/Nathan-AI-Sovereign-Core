@@ -405,26 +405,10 @@
       ]
     },
     {
-      "id": "WISE-028",
-      "name": "Aristotle Organon Syllogism & Four Causes Validator",
-      "category": "greek-founders",
-      "assigned_agent": "tabor-wisdom-builder-02",
-      "status": "awaiting_implementation",
-      "stages": [
-        "resolve_primary_text",
-        "verify_rights",
-        "implement",
-        "unit_test",
-        "security_review",
-        "deploy",
-        "smoke_test"
-      ]
-    },
-    {
       "id": "WISE-029",
       "name": "Diogenes Cynic Satire & Radical Autonomy Generator",
       "category": "greek-founders",
-      "assigned_agent": "tabor-wisdom-builder-03",
+      "assigned_agent": "tabor-wisdom-builder-02",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -440,7 +424,7 @@
       "id": "WISE-030",
       "name": "Plotinus Enneads Emanation Engine",
       "category": "greek-founders",
-      "assigned_agent": "tabor-wisdom-builder-04",
+      "assigned_agent": "tabor-wisdom-builder-03",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -456,7 +440,7 @@
       "id": "WISE-031",
       "name": "Zeno & Chrysippus Stoic Propositional Logic Engine",
       "category": "hellenistic-roman",
-      "assigned_agent": "tabor-wisdom-builder-05",
+      "assigned_agent": "tabor-wisdom-builder-04",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -472,23 +456,7 @@
       "id": "WISE-032",
       "name": "Marcus Aurelius Meditations Reflection API",
       "category": "hellenistic-roman",
-      "assigned_agent": "tabor-wisdom-builder-06",
-      "status": "awaiting_implementation",
-      "stages": [
-        "resolve_primary_text",
-        "verify_rights",
-        "implement",
-        "unit_test",
-        "security_review",
-        "deploy",
-        "smoke_test"
-      ]
-    },
-    {
-      "id": "WISE-033",
-      "name": "Epictetus Dichotomy of Control Filter",
-      "category": "hellenistic-roman",
-      "assigned_agent": "tabor-wisdom-builder-07",
+      "assigned_agent": "tabor-wisdom-builder-05",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -504,23 +472,7 @@
       "id": "WISE-034",
       "name": "Seneca Letters Time Wealth & Adversity Indexer",
       "category": "hellenistic-roman",
-      "assigned_agent": "tabor-wisdom-builder-08",
-      "status": "awaiting_implementation",
-      "stages": [
-        "resolve_primary_text",
-        "verify_rights",
-        "implement",
-        "unit_test",
-        "security_review",
-        "deploy",
-        "smoke_test"
-      ]
-    },
-    {
-      "id": "WISE-035",
-      "name": "Epicurus Tetrapharmakos & Hedonic Calculus",
-      "category": "hellenistic-roman",
-      "assigned_agent": "tabor-wisdom-builder-01",
+      "assigned_agent": "tabor-wisdom-builder-06",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -536,7 +488,7 @@
       "id": "WISE-036",
       "name": "Lucretius De Rerum Natura Physics API",
       "category": "hellenistic-roman",
-      "assigned_agent": "tabor-wisdom-builder-02",
+      "assigned_agent": "tabor-wisdom-builder-07",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -552,7 +504,7 @@
       "id": "WISE-037",
       "name": "Pyrrho & Sextus Empiricus Skeptic Engine",
       "category": "hellenistic-roman",
-      "assigned_agent": "tabor-wisdom-builder-03",
+      "assigned_agent": "tabor-wisdom-builder-08",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -568,7 +520,7 @@
       "id": "WISE-038",
       "name": "Cicero Natural Law & Civic Duty Lexicon",
       "category": "hellenistic-roman",
-      "assigned_agent": "tabor-wisdom-builder-04",
+      "assigned_agent": "tabor-wisdom-builder-01",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -584,7 +536,7 @@
       "id": "WISE-039",
       "name": "Plutarch Parallel Lives Biography Matcher",
       "category": "hellenistic-roman",
-      "assigned_agent": "tabor-wisdom-builder-05",
+      "assigned_agent": "tabor-wisdom-builder-02",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -600,7 +552,7 @@
       "id": "WISE-040",
       "name": "Boethius Wheel of Fortune & Providence Engine",
       "category": "hellenistic-roman",
-      "assigned_agent": "tabor-wisdom-builder-06",
+      "assigned_agent": "tabor-wisdom-builder-03",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -616,7 +568,7 @@
       "id": "WISE-041",
       "name": "Hypatia Astronomy & Astrolabe Calculator",
       "category": "hellenistic-roman",
-      "assigned_agent": "tabor-wisdom-builder-07",
+      "assigned_agent": "tabor-wisdom-builder-04",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -632,7 +584,7 @@
       "id": "WISE-042",
       "name": "Philo Allegorical Scriptural-Platonic Bridge",
       "category": "hellenistic-roman",
-      "assigned_agent": "tabor-wisdom-builder-08",
+      "assigned_agent": "tabor-wisdom-builder-05",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -648,7 +600,7 @@
       "id": "WISE-043",
       "name": "Hermes Trismegistus Corpus Hermeticum & Kybalion Mapper",
       "category": "hellenistic-roman",
-      "assigned_agent": "tabor-wisdom-builder-01",
+      "assigned_agent": "tabor-wisdom-builder-06",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -664,7 +616,7 @@
       "id": "WISE-044",
       "name": "Apollonius of Tyana Travel Itinerary Tracker",
       "category": "hellenistic-roman",
-      "assigned_agent": "tabor-wisdom-builder-02",
+      "assigned_agent": "tabor-wisdom-builder-07",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -680,23 +632,7 @@
       "id": "WISE-045",
       "name": "Buddha Pali Canon & Four Noble Truths Engine",
       "category": "indian-buddhist-jain",
-      "assigned_agent": "tabor-wisdom-builder-03",
-      "status": "awaiting_implementation",
-      "stages": [
-        "resolve_primary_text",
-        "verify_rights",
-        "implement",
-        "unit_test",
-        "security_review",
-        "deploy",
-        "smoke_test"
-      ]
-    },
-    {
-      "id": "WISE-046",
-      "name": "Nagarjuna Tetralemma Solver",
-      "category": "indian-buddhist-jain",
-      "assigned_agent": "tabor-wisdom-builder-04",
+      "assigned_agent": "tabor-wisdom-builder-08",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -712,7 +648,7 @@
       "id": "WISE-047",
       "name": "Adi Shankara Advaita Vedanta Analyzer",
       "category": "indian-buddhist-jain",
-      "assigned_agent": "tabor-wisdom-builder-05",
+      "assigned_agent": "tabor-wisdom-builder-01",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -728,7 +664,7 @@
       "id": "WISE-048",
       "name": "Patanjali Yoga Sutras Eight-Limbed Tracker",
       "category": "indian-buddhist-jain",
-      "assigned_agent": "tabor-wisdom-builder-06",
+      "assigned_agent": "tabor-wisdom-builder-02",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -744,7 +680,7 @@
       "id": "WISE-049",
       "name": "Chanakya Arthashastra Mandala Geopolitics Engine",
       "category": "indian-buddhist-jain",
-      "assigned_agent": "tabor-wisdom-builder-07",
+      "assigned_agent": "tabor-wisdom-builder-03",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -760,7 +696,7 @@
       "id": "WISE-050",
       "name": "Kapila Samkhya Dualism Classifier",
       "category": "indian-buddhist-jain",
-      "assigned_agent": "tabor-wisdom-builder-08",
+      "assigned_agent": "tabor-wisdom-builder-04",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -776,7 +712,7 @@
       "id": "WISE-051",
       "name": "Kanada Vaisheshika Padartha Ontology",
       "category": "indian-buddhist-jain",
-      "assigned_agent": "tabor-wisdom-builder-01",
+      "assigned_agent": "tabor-wisdom-builder-05",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -792,23 +728,7 @@
       "id": "WISE-052",
       "name": "Gautama Nyaya 4-Pramana Epistemology Validator",
       "category": "indian-buddhist-jain",
-      "assigned_agent": "tabor-wisdom-builder-02",
-      "status": "awaiting_implementation",
-      "stages": [
-        "resolve_primary_text",
-        "verify_rights",
-        "implement",
-        "unit_test",
-        "security_review",
-        "deploy",
-        "smoke_test"
-      ]
-    },
-    {
-      "id": "WISE-053",
-      "name": "Mahavira Jain Anekantavada & Syadvada Engine",
-      "category": "indian-buddhist-jain",
-      "assigned_agent": "tabor-wisdom-builder-03",
+      "assigned_agent": "tabor-wisdom-builder-06",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -824,7 +744,7 @@
       "id": "WISE-054",
       "name": "Thiruvalluvar Tirukkural 1330 Couplets API",
       "category": "indian-buddhist-jain",
-      "assigned_agent": "tabor-wisdom-builder-04",
+      "assigned_agent": "tabor-wisdom-builder-07",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -840,7 +760,7 @@
       "id": "WISE-055",
       "name": "Bodhidharma & Huineng Zen Koan Engine",
       "category": "indian-buddhist-jain",
-      "assigned_agent": "tabor-wisdom-builder-05",
+      "assigned_agent": "tabor-wisdom-builder-08",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -856,7 +776,7 @@
       "id": "WISE-056",
       "name": "Dogen Shobogenzo Being-Time Indexer",
       "category": "indian-buddhist-jain",
-      "assigned_agent": "tabor-wisdom-builder-06",
+      "assigned_agent": "tabor-wisdom-builder-01",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -872,7 +792,7 @@
       "id": "WISE-057",
       "name": "Miyamoto Musashi Book of Five Rings Strategy",
       "category": "indian-buddhist-jain",
-      "assigned_agent": "tabor-wisdom-builder-07",
+      "assigned_agent": "tabor-wisdom-builder-02",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -888,7 +808,7 @@
       "id": "WISE-058",
       "name": "Ramanuja & Madhva Vedanta Comparator",
       "category": "indian-buddhist-jain",
-      "assigned_agent": "tabor-wisdom-builder-08",
+      "assigned_agent": "tabor-wisdom-builder-03",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -904,7 +824,7 @@
       "id": "WISE-059",
       "name": "Zoroaster Gathas & Avesta Dualism Engine",
       "category": "persian-islamic-jewish",
-      "assigned_agent": "tabor-wisdom-builder-01",
+      "assigned_agent": "tabor-wisdom-builder-04",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -920,7 +840,7 @@
       "id": "WISE-060",
       "name": "Rumi Masnavi & Divan-e Shams Poetry API",
       "category": "persian-islamic-jewish",
-      "assigned_agent": "tabor-wisdom-builder-02",
+      "assigned_agent": "tabor-wisdom-builder-05",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -936,7 +856,7 @@
       "id": "WISE-061",
       "name": "Al-Farabi Virtuous City Mapper",
       "category": "persian-islamic-jewish",
-      "assigned_agent": "tabor-wisdom-builder-03",
+      "assigned_agent": "tabor-wisdom-builder-06",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -952,7 +872,7 @@
       "id": "WISE-062",
       "name": "Ibn Sina Flying Man & Book of Healing API",
       "category": "persian-islamic-jewish",
-      "assigned_agent": "tabor-wisdom-builder-04",
+      "assigned_agent": "tabor-wisdom-builder-07",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -968,7 +888,7 @@
       "id": "WISE-063",
       "name": "Al-Ghazali Incoherence & Revival Indexer",
       "category": "persian-islamic-jewish",
-      "assigned_agent": "tabor-wisdom-builder-05",
+      "assigned_agent": "tabor-wisdom-builder-08",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -984,7 +904,7 @@
       "id": "WISE-064",
       "name": "Ibn Rushd Aristotelian Commentary Engine",
       "category": "persian-islamic-jewish",
-      "assigned_agent": "tabor-wisdom-builder-06",
+      "assigned_agent": "tabor-wisdom-builder-01",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -1000,23 +920,7 @@
       "id": "WISE-065",
       "name": "Ibn Khaldun Asabiyyah Dynastic Cycle Simulator",
       "category": "persian-islamic-jewish",
-      "assigned_agent": "tabor-wisdom-builder-07",
-      "status": "awaiting_implementation",
-      "stages": [
-        "resolve_primary_text",
-        "verify_rights",
-        "implement",
-        "unit_test",
-        "security_review",
-        "deploy",
-        "smoke_test"
-      ]
-    },
-    {
-      "id": "WISE-066",
-      "name": "Al-Khwarizmi Algorithm & Algebra Solver",
-      "category": "persian-islamic-jewish",
-      "assigned_agent": "tabor-wisdom-builder-08",
+      "assigned_agent": "tabor-wisdom-builder-02",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -1032,7 +936,7 @@
       "id": "WISE-067",
       "name": "Omar Khayyam Rubaiyat Cubic & Jalali Engine",
       "category": "persian-islamic-jewish",
-      "assigned_agent": "tabor-wisdom-builder-01",
+      "assigned_agent": "tabor-wisdom-builder-03",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -1048,7 +952,7 @@
       "id": "WISE-068",
       "name": "Maimonides Guide for the Perplexed Indexer",
       "category": "persian-islamic-jewish",
-      "assigned_agent": "tabor-wisdom-builder-02",
+      "assigned_agent": "tabor-wisdom-builder-04",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -1064,7 +968,7 @@
       "id": "WISE-069",
       "name": "King Solomon KJV Wisdom Concordance",
       "category": "persian-islamic-jewish",
-      "assigned_agent": "tabor-wisdom-builder-03",
+      "assigned_agent": "tabor-wisdom-builder-05",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -1080,7 +984,7 @@
       "id": "WISE-070",
       "name": "Kabbalistic Sefer Yetzirah Tree of Life Graph",
       "category": "persian-islamic-jewish",
-      "assigned_agent": "tabor-wisdom-builder-04",
+      "assigned_agent": "tabor-wisdom-builder-06",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -1096,23 +1000,7 @@
       "id": "WISE-071",
       "name": "Hillel & Shammai Talmudic Debate Engine",
       "category": "persian-islamic-jewish",
-      "assigned_agent": "tabor-wisdom-builder-05",
-      "status": "awaiting_implementation",
-      "stages": [
-        "resolve_primary_text",
-        "verify_rights",
-        "implement",
-        "unit_test",
-        "security_review",
-        "deploy",
-        "smoke_test"
-      ]
-    },
-    {
-      "id": "WISE-072",
-      "name": "Archimedes Lever Buoyancy & Palimpsest Worker",
-      "category": "ancient-scientists",
-      "assigned_agent": "tabor-wisdom-builder-06",
+      "assigned_agent": "tabor-wisdom-builder-07",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -1128,7 +1016,7 @@
       "id": "WISE-073",
       "name": "Euclid Elements Geometry Verifier",
       "category": "ancient-scientists",
-      "assigned_agent": "tabor-wisdom-builder-07",
+      "assigned_agent": "tabor-wisdom-builder-08",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -1144,7 +1032,7 @@
       "id": "WISE-075",
       "name": "Ptolemy Almagest & Geography Engine",
       "category": "ancient-scientists",
-      "assigned_agent": "tabor-wisdom-builder-08",
+      "assigned_agent": "tabor-wisdom-builder-01",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -1160,7 +1048,7 @@
       "id": "WISE-076",
       "name": "Galen & Hippocrates Four Humors Tracker",
       "category": "ancient-scientists",
-      "assigned_agent": "tabor-wisdom-builder-01",
+      "assigned_agent": "tabor-wisdom-builder-02",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -1176,7 +1064,7 @@
       "id": "WISE-077",
       "name": "Vitruvius De Architectura Proportion Engine",
       "category": "ancient-scientists",
-      "assigned_agent": "tabor-wisdom-builder-02",
+      "assigned_agent": "tabor-wisdom-builder-03",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -1192,7 +1080,7 @@
       "id": "WISE-078",
       "name": "Hero of Alexandria Automata & Pneumatics Simulator",
       "category": "ancient-scientists",
-      "assigned_agent": "tabor-wisdom-builder-03",
+      "assigned_agent": "tabor-wisdom-builder-04",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -1208,7 +1096,7 @@
       "id": "WISE-079",
       "name": "Zhang Heng Seismoscope & Armillary Tracker",
       "category": "ancient-scientists",
-      "assigned_agent": "tabor-wisdom-builder-04",
+      "assigned_agent": "tabor-wisdom-builder-05",
       "status": "awaiting_implementation",
       "stages": [
         "resolve_primary_text",
@@ -1223,22 +1111,6 @@
     {
       "id": "WISE-080",
       "name": "Shen Kuo Dream Pool Essays Archive",
-      "category": "ancient-scientists",
-      "assigned_agent": "tabor-wisdom-builder-05",
-      "status": "awaiting_implementation",
-      "stages": [
-        "resolve_primary_text",
-        "verify_rights",
-        "implement",
-        "unit_test",
-        "security_review",
-        "deploy",
-        "smoke_test"
-      ]
-    },
-    {
-      "id": "WISE-081",
-      "name": "Aryabhata & Brahmagupta Zero & Sine Calculator",
       "category": "ancient-scientists",
       "assigned_agent": "tabor-wisdom-builder-06",
       "status": "awaiting_implementation",
