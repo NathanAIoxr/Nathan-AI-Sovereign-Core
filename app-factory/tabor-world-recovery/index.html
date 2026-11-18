@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tabor World · Original Rosters and Sources</title>
+<style>
+:root{color-scheme:dark;background:#101813;color:#f4ecd7;font:16px/1.53 system-ui,sans-serif;--panel:#1a251b;--muted:#bdc7af;--line:#465241;--accent:#e9bc77}
+*{box-sizing:border-box}body{margin:0}main{max-width:1130px;margin:auto;padding:clamp(18px,5vw,56px)}
+header{border-bottom:1px solid var(--line);padding-bottom:22px}h1,h2,h3,p{margin:0}h1{font:clamp(48px,9vw,95px)/.94 Georgia,serif;letter-spacing:-.065em;margin:10px 0 14px}h2,h3{font-family:Georgia,serif}.small{letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;font-size:.76rem}
+nav,.filters,.paging{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-block:14px}a{color:var(--accent);text-underline-offset:.18em}
+.filters label{display:grid;flex:1 1 235px;gap:4px;color:var(--muted)}input,select,button{font:inherit;color:inherit;border:1px solid var(--line);padding:9px 10px;background:#162017;border-radius:4px;min-height:42px;min-width:0}
+button{cursor:pointer}button:disabled{opacity:.5;cursor:auto}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+#count,#errors{color:var(--muted);margin-block:10px}#errors:empty{display:none}#records{display:grid;gap:8px}article{background:var(--panel);border:1px solid var(--line);padding:12px 14px;min-width:0}
+details>summary{cursor:pointer}summary strong{font-weight:650}summary span{display:block;color:var(--muted);margin-left:17px;font-size:.83rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;margin-block:9px 13px;color:#e5dfcb;font-size:.85rem}code{word-break:break-word}.paging{justify-content:space-between}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="small">Nathan Tabor · Nathan AI</p>
+    <h1>Tabor World</h1>
+    <p>Original worker rosters, minds, archetypes, agent projects, applications and Tabor Accords.</p>
+    <nav aria-label="World destinations">
+      <a href="https://tabor-world-recovery.nathantaboract.workers.dev/field/">Play the Slayer and Sleyer field game</a>
+      <a href="https://tabor-world-recovery.nathantaboract.workers.dev/runtime/">Run the minds and field devices</a>
+      <a href="https://tabor-world.nathantaboract.workers.dev/">Tabor World</a>
+      <a href="https://nathan-ai-sovereign-hive.nathantaboract.workers.dev/">Sovereign Hive</a>
+      <a href="https://nathan-ai-fleet.nathantaboract.workers.dev/health">Fleet status</a>
+    </nav>
+  </header>
+  <section aria-label="Search the source records">
+    <div class="filters">
+      <label>Collection <select id="collection"><option value="">All collections</option></select></label>
+      <label>Search <input id="search" type="search" placeholder="Try Athena, Family 21 or PeerClaw"></label>
+    </div>
+    <p id="count" role="status">Loading source collections…</p>
+    <p id="errors" role="status"></p>
+    <div class="paging"><button id="prev" type="button" disabled>Previous</button><span id="page"></span><button id="next" type="button" disabled>Next</button></div>
+    <div id="records"></div>
+  </section>
+</main>
+<!-- RECOVERY_BOOTSTRAP -->
+<script type="module" src="./viewer.mjs"></script>
+</body>
+</html>
