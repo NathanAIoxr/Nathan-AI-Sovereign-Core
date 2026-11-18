@@ -1,0 +1,6 @@
+// Nathan AI 1ms logical-clock scheduler — bounded and event-driven.
+// No promise of 1ms wall-clock invocation on Cloudflare.
+const PERIOD_MS=1n;
+export function logicalTick(nowMs,epochMs){const now=BigInt(Math.floor(nowMs));const epoch=BigInt(Math.floor(epochMs));return now>=epoch?(now-epoch)/PERIOD_MS:0n;}
+export function dueJobs(jobs,nowMs,limit=32){return jobs.filter(j=>j.enabled===true&&Number.isFinite(j.next_due_ms)&&j.next_due_ms<=nowMs).sort((a,b)=>a.next_due_ms-b.next_due_ms||String(a.id).localeCompare(String(b.id))).slice(0,Math.max(0,Math.min(32,limit)));}
+export default {async fetch(req,env){const url=new URL(req.url);if(url.pathname==='/health')return Response.json({ok:true,clock_resolution_ms:1,delivery:'event-driven',continuous_wall_clock_guarantee:false});if(url.pathname!=='/tick')return new Response('Not found',{status:404});const secret=env.TICK_TOKEN;if(!secret||req.headers.get('authorization')!==`Bearer ${secret}`)return new Response('Unauthorized',{status:401});const now=Date.now();const epoch=Number(env.EPOCH_MS||now);const tick=logicalTick(now,epoch).toString();return Response.json({tick,now_ms:now,queued:0,note:'Tick observation only; queue consumers must be configured independently'});}};
