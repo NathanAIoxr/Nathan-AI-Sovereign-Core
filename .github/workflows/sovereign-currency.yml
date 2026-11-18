@@ -1,0 +1,83 @@
+name: Sovereign Currency and SHA-256d proof ledger
+on:
+  pull_request:
+    paths:
+      - 'sovereign-currency/**'
+      - 'app-factory/nathan-ai/sovereign-coins/**'
+      - '.github/workflows/sovereign-currency.yml'
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Deploy the verified package to Cloudflare
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: node sovereign-currency/build.mjs
+      - run: node --test sovereign-currency/proof-ledger.test.mjs app-factory/nathan-ai/sovereign-coins/engine.test.mjs app-factory/nathan-ai/sovereign-coins/phi-mining/engine.test.mjs
+      - run: python -m unittest discover -s app-factory/nathan-ai/sovereign-coins -p test_coin_audit.py
+      - run: python sovereign-currency/tabor_sha256d_mirror.py --demo
+      - run: python sovereign-currency/nathan_ai_quantum_miner.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tabor-sovereign-agent
+          path: sovereign-currency/tabor-sovereign-agent.zip
+          if-no-files-found: error
+  deploy:
+    if: github.event_name == 'workflow_dispatch' && inputs.deploy && github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency: sovereign-currency-production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: node sovereign-currency/build.mjs
+      - name: Configure the existing Worker and D1 binding
+        working-directory: sovereign-currency
+        env:
+          SOVEREIGN_CURRENCY_D1_ID: ${{ vars.SOVEREIGN_CURRENCY_D1_ID }}
+        run: |
+          node --input-type=module <<'JS'
+          import { writeFileSync } from 'node:fs';
+          const database_id = process.env.SOVEREIGN_CURRENCY_D1_ID;
+          if (!/^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$/i.test(database_id)) {
+            throw new Error('Set SOVEREIGN_CURRENCY_D1_ID to the production D1 database ID');
+          }
+          writeFileSync('wrangler.json', JSON.stringify({
+            name: 'tabor-sovereign-currency',
+            main: 'dist.mjs',
+            compatibility_date: '2026-11-17',
+            workers_dev: true,
+            preview_urls: false,
+            d1_databases: [{ binding: 'SWITCHBOARD_DB', database_name: 'nathan-ai-sovereign-db', database_id }]
+          }));
+          JS
+      - uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: sovereign-currency
+          preCommands: |
+            wrangler d1 execute SWITCHBOARD_DB --remote --file=switchboard.sql
+            wrangler d1 execute SWITCHBOARD_DB --remote --file=proof-ledger.sql
+          command: deploy
+      - run: curl --fail --silent --show-error https://tabor-sovereign-currency.nathantaboract.workers.dev/healthz
+      - run: curl --fail --silent --show-error https://tabor-sovereign-currency.nathantaboract.workers.dev/api/agent-downloads
