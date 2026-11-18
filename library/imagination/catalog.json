@@ -1,0 +1,803 @@
+{
+  "schema": "tabor.imagination-catalog.v1",
+  "title": "Library of Tabor · Imagination Engines",
+  "categories": [
+    {
+      "id": 1,
+      "title": "Dragon Realms, Flight & Fire Engines",
+      "first": 1,
+      "last": 15
+    },
+    {
+      "id": 2,
+      "title": "Unicorn Meadows, Rainbows & Star-Dust Engines",
+      "first": 16,
+      "last": 30
+    },
+    {
+      "id": 3,
+      "title": "Yin-Yang Balance, Light & Shadow Harmony",
+      "first": 31,
+      "last": 44
+    },
+    {
+      "id": 4,
+      "title": "A–Z Alphabet Portals & Rhyming Worlds",
+      "first": 45,
+      "last": 58
+    },
+    {
+      "id": 5,
+      "title": "Creature Kingdoms, Dinosaurs & Savanna Royalty",
+      "first": 59,
+      "last": 72
+    },
+    {
+      "id": 6,
+      "title": "Visual Art, Coloring Books & Toy Makers",
+      "first": 73,
+      "last": 86
+    },
+    {
+      "id": 7,
+      "title": "Playful Science, Space & Wonder Explorers",
+      "first": 87,
+      "last": 95
+    },
+    {
+      "id": 8,
+      "title": "Master Imagination Routers & Family Co-Creation",
+      "first": 96,
+      "last": 101
+    }
+  ],
+  "engines": [
+    {
+      "id": "IMAG-001",
+      "number": 1,
+      "category": 1,
+      "title": "Dragon Species & Elemental Breath Generator",
+      "description": "Builds custom dragons (Fire, Frost, Starlight, Crystal, Storm, Moss) with wing-span stats, scale colors, and habitat lore in D1.",
+      "demo": {
+        "service": "tabor-imag-001-dragon-species",
+        "path": "/dragon?seed=Ember",
+        "label": "Dragon species"
+      }
+    },
+    {
+      "id": "IMAG-002",
+      "number": 2,
+      "category": 1,
+      "title": "Dragon Egg Incubator & Hatching Timer",
+      "description": "Stateful Durable Object worker that warms, rocks, and hatches digital dragon eggs over real-time intervals."
+    },
+    {
+      "id": "IMAG-003",
+      "number": 3,
+      "category": 1,
+      "title": "Dragonese Roar & Rhyme Translator",
+      "description": "Converts plain English sentences into playful phonetic dragon-speak with smoke-puff annotations."
+    },
+    {
+      "id": "IMAG-004",
+      "number": 4,
+      "category": 1,
+      "title": "Cloud-Canyon Flight Path Simulator",
+      "description": "Calculates wind currents, thermal updrafts, and aerial barrel-roll maneuvers for young dragon riders."
+    },
+    {
+      "id": "IMAG-005",
+      "number": 5,
+      "category": 1,
+      "title": "Dragon Hoard Treasure & Riddle Vault",
+      "description": "Stores shiny pebbles, golden acorns, starlight marbles, and rhyming riddles guarded by friendly library dragons."
+    },
+    {
+      "id": "IMAG-006",
+      "number": 6,
+      "category": 1,
+      "title": "Baby Dragon Scale-Color Mixer",
+      "description": "Blends parent dragon traits (e.g., Ruby + Sapphire = Amethyst) using fun color-math rules."
+    },
+    {
+      "id": "IMAG-007",
+      "number": 7,
+      "category": 1,
+      "title": "Volcano & Mountain Lair Map Builder",
+      "description": "Generates SVG treasure maps showing sleeping volcano caves, waterfall perches, and crystal roosts."
+    },
+    {
+      "id": "IMAG-008",
+      "number": 8,
+      "category": 1,
+      "title": "Dragon-Back Mail & Scroll Carrier",
+      "description": "Dispatches short illustrated messages between family members or story kingdoms via flying dragon post."
+    },
+    {
+      "id": "IMAG-009",
+      "number": 9,
+      "category": 1,
+      "title": "Friendly Dragon Name & Title Forger",
+      "description": "Combines alliterative syllables and noble titles (e.g., Barnaby Blaze-Wing of Ember Peak).",
+      "demo": {
+        "service": "tabor-imag-009-dragon-names",
+        "path": "/?seed=cloud",
+        "label": "Dragon name"
+      }
+    },
+    {
+      "id": "IMAG-010",
+      "number": 10,
+      "category": 1,
+      "title": "Paper-Dragon Origami Folding Guide",
+      "description": "Step-by-step SVG diagram worker for folding paper dragons, gliders, and flapping wings."
+    },
+    {
+      "id": "IMAG-011",
+      "number": 11,
+      "category": 1,
+      "title": "Dragon Lullaby & Campfire Story Weaver",
+      "description": "Generates gentle, rhythmic bedtime tales starring sleepy baby dragons."
+    },
+    {
+      "id": "IMAG-012",
+      "number": 12,
+      "category": 1,
+      "title": "Star-Dragon Constellation Mapper",
+      "description": "Connects night-sky stars into glowing dragon silhouettes with interactive SVG star charts."
+    },
+    {
+      "id": "IMAG-013",
+      "number": 13,
+      "category": 1,
+      "title": "Dragon-Fire Marshmallow & Bakery Recipe Spinner",
+      "description": "Creates silly, kid-friendly imaginary snack recipes cooked by tiny kitchen dragons."
+    },
+    {
+      "id": "IMAG-014",
+      "number": 14,
+      "category": 1,
+      "title": "Tiny Pocket-Dragon Companion Widget",
+      "description": "Lightweight edge widget that sits in the corner of any page, blinking, yawning, and blowing tiny sparkles."
+    },
+    {
+      "id": "IMAG-015",
+      "number": 15,
+      "category": 1,
+      "title": "Dragon Sanctuary Care & Feeding Tracker",
+      "description": "Tracks daily berries, cloud-water, and wing-polishing chores for a whole flock of rescued dragons."
+    },
+    {
+      "id": "IMAG-016",
+      "number": 16,
+      "category": 2,
+      "title": "Unicorn Mane & Rainbow Prism Generator",
+      "description": "Generates custom SVG unicorns with shimmering pastel manes, star hooves, and spiraling crystal horns."
+    },
+    {
+      "id": "IMAG-017",
+      "number": 17,
+      "category": 2,
+      "title": "Star-Fairy Dust Sparkle Physics Engine",
+      "description": "Interactive canvas/SVG worker that scatters glowing golden fairy dust trails wherever a cursor or finger moves."
+    },
+    {
+      "id": "IMAG-018",
+      "number": 18,
+      "category": 2,
+      "title": "Rainbow Bridge & Cloud-Kingdom Builder",
+      "description": "Constructs multi-layered cloud castles connected by seven-color rainbow bridges."
+    },
+    {
+      "id": "IMAG-019",
+      "number": 19,
+      "category": 2,
+      "title": "Unicorn Horn Glow & Wish-Light Decoder",
+      "description": "Turns positive words and kind deeds into glowing color-coded light beams."
+    },
+    {
+      "id": "IMAG-020",
+      "number": 20,
+      "category": 2,
+      "title": "Pegacorn & Alicorn Hybrid Creature Studio",
+      "description": "Combines unicorn horns with feathered Pegasus wings and butterfly trails."
+    },
+    {
+      "id": "IMAG-021",
+      "number": 21,
+      "category": 2,
+      "title": "Whispering Meadow Flower-Language Translator",
+      "description": "Matches every unicorn with a magical meadow flower (moon-daisy, sun-clover, star-bell) and secret meaning."
+    },
+    {
+      "id": "IMAG-022",
+      "number": 22,
+      "category": 2,
+      "title": "Glitter-Hoofprint Trail Generator",
+      "description": "Leaves sparkling crescent hoofprints across web pages and digital storybooks."
+    },
+    {
+      "id": "IMAG-023",
+      "number": 23,
+      "category": 2,
+      "title": "Unicorn Tea-Party & Cloud-Cupcake Menu Maker",
+      "description": "Generates whimsical menus of dewdrop tea, rainbow tarts, and cotton-candy clouds."
+    },
+    {
+      "id": "IMAG-024",
+      "number": 24,
+      "category": 2,
+      "title": "Silver-Moon Unicorn Lullaby Composer",
+      "description": "Creates soothing rhyming verses under crescent moons and twinkling constellations."
+    },
+    {
+      "id": "IMAG-025",
+      "number": 25,
+      "category": 2,
+      "title": "Crystal Cavern Gem & Geode Cracker",
+      "description": "Lets kids tap virtual geodes to reveal glowing amethyst, rose-quartz, and star-sapphire interiors."
+    },
+    {
+      "id": "IMAG-026",
+      "number": 26,
+      "category": 2,
+      "title": "Unicorn Herd Friendship & Cutie-Crest Designer",
+      "description": "Generates custom SVG emblems (shooting stars, musical notes, acorns, suns) for each unicorn character."
+    },
+    {
+      "id": "IMAG-027",
+      "number": 27,
+      "category": 2,
+      "title": "Rainbow Weather & Sunshower Predictor",
+      "description": "Turns everyday sunny/rainy weather into playful explanations of unicorns painting the sky."
+    },
+    {
+      "id": "IMAG-028",
+      "number": 28,
+      "category": 2,
+      "title": "Sleigh-Flight & Reindeer Star-Dust Booster",
+      "description": "Powers holiday sleighs and flying friends with harvested star-fairy dust energy meters."
+    },
+    {
+      "id": "IMAG-029",
+      "number": 29,
+      "category": 2,
+      "title": "Lost-in-the-Clouds Maze & Rainbow Slide Game",
+      "description": "Procedurally generates solvable cloud mazes with rainbow slide shortcuts."
+    },
+    {
+      "id": "IMAG-030",
+      "number": 30,
+      "category": 2,
+      "title": "Unicorn & Dragon Best-Friends Duo Builder",
+      "description": "Pairs an energetic fire-dragon with a gentle star-unicorn for cooperative buddy adventures."
+    },
+    {
+      "id": "IMAG-031",
+      "number": 31,
+      "category": 3,
+      "title": "Interactive Yin-Yang Balance Toy (SVG + Physics)",
+      "description": "Spinning, pulsing Yin-Yang engine where kids balance Sun/Moon, Fire/Water, and Loud/Quiet forces.",
+      "demo": {
+        "service": "tabor-imag-031-yin-yang-svg",
+        "path": "/",
+        "label": "Yin-Yang SVG"
+      }
+    },
+    {
+      "id": "IMAG-032",
+      "number": 32,
+      "category": 3,
+      "title": "Sun-Lion & Moon-Owl Day/Night Cycle Switcher",
+      "description": "Shifts entire web pages smoothly between bright golden savanna daytime and starry indigo nighttime."
+    },
+    {
+      "id": "IMAG-033",
+      "number": 33,
+      "category": 3,
+      "title": "Opposites & Harmony Word-Pair Matcher",
+      "description": "Playful game pairing complementary concepts (Hot & Cold, Fast & Slow, Roar & Whisper, Light & Shadow)."
+    },
+    {
+      "id": "IMAG-034",
+      "number": 34,
+      "category": 3,
+      "title": "Balance-Scale Riddle & Weight Game",
+      "description": "Visual seesaw puzzle where kids balance dragons, feathers, pebbles, and stars to level the beam."
+    },
+    {
+      "id": "IMAG-035",
+      "number": 35,
+      "category": 3,
+      "title": "Five-Elements (Wood, Fire, Earth, Metal, Water) Creature Wheel",
+      "description": "Shows how forest, volcano, mountain, crystal, and ocean creatures help each other grow."
+    },
+    {
+      "id": "IMAG-036",
+      "number": 36,
+      "category": 3,
+      "title": "Shadow-Puppet Theater Generator",
+      "description": "Turns hand shapes and animal silhouettes into dramatic campfire shadow-puppet stories."
+    },
+    {
+      "id": "IMAG-037",
+      "number": 37,
+      "category": 3,
+      "title": "Calm-Breath & Heartbeat Ripple Visualizer",
+      "description": "Expanding and contracting Yin-Yang lotus circles for quiet focus and breathing games."
+    },
+    {
+      "id": "IMAG-038",
+      "number": 38,
+      "category": 3,
+      "title": "Mirror-World & Topsy-Turvy Flip Engine",
+      "description": "Flips text, drawings, and worlds upside-down and backwards to spark lateral thinking."
+    },
+    {
+      "id": "IMAG-039",
+      "number": 39,
+      "category": 3,
+      "title": "Season-Spinner (Spring Blossom, Summer Sun, Autumn Leaf, Winter Snow)",
+      "description": "Morphs a single magical tree across all four seasons in real time."
+    },
+    {
+      "id": "IMAG-040",
+      "number": 40,
+      "category": 3,
+      "title": "Echo & Resonance Sound-Wave Visualizer",
+      "description": "Shows how loud shouts and tiny whispers create matching wave patterns in water."
+    },
+    {
+      "id": "IMAG-041",
+      "number": 41,
+      "category": 3,
+      "title": "Good-Deed Ripple & Kindness Chain Tracker",
+      "description": "Logs small acts of kindness in D1 and visualizes how one good action ripples outward."
+    },
+    {
+      "id": "IMAG-042",
+      "number": 42,
+      "category": 3,
+      "title": "Puzzle-Piece Two-Halves Story Completer",
+      "description": "Gives two different characters half a map or half a rhyme that only makes sense when joined together."
+    },
+    {
+      "id": "IMAG-043",
+      "number": 43,
+      "category": 3,
+      "title": "Day-Sky / Night-Sky Constellation & Cloud Spotter",
+      "description": "Matches daytime cloud shapes (dragon clouds, bunny clouds) to nighttime star constellations."
+    },
+    {
+      "id": "IMAG-044",
+      "number": 44,
+      "category": 3,
+      "title": "Harmony-Chime & Pentatonic Wind-Chime Synthesizer",
+      "description": "Generates pure, pleasant pentatonic musical notes that always sound harmonious no matter what order kids tap them."
+    },
+    {
+      "id": "IMAG-045",
+      "number": 45,
+      "category": 4,
+      "title": "A–Z Creature Kingdom Portal Router",
+      "description": "Maps all 26 letters (A to Z) to dedicated interactive world portals, creatures, and mini-stories in D1.",
+      "demo": {
+        "service": "tabor-imag-045-alphabet-portals",
+        "path": "/?letter=C",
+        "label": "Creature portal"
+      }
+    },
+    {
+      "id": "IMAG-046",
+      "number": 46,
+      "category": 4,
+      "title": "Alliterative Tongue-Twister & Title Generator",
+      "description": "Builds bouncy alliterative phrases (e.g., Beautiful Buddy Baboon, Zany Zilla of Zonilla) on demand."
+    },
+    {
+      "id": "IMAG-047",
+      "number": 47,
+      "category": 4,
+      "title": "Bouncy Rhyme-Time Stanza Completer",
+      "description": "Takes any two-line kid rhyme and generates playful, clean rhythmic continuations."
+    },
+    {
+      "id": "IMAG-048",
+      "number": 48,
+      "category": 4,
+      "title": "Alphabet Soup & Letter-Monster Word Builder",
+      "description": "Scrambles letters into friendly monsters that kids \"feed\" by spelling real words."
+    },
+    {
+      "id": "IMAG-049",
+      "number": 49,
+      "category": 4,
+      "title": "Phonics Sound-Out & Syllable Clapper",
+      "description": "Breaks big dinosaur and dragon names into rhythmic, easy-to-clap syllables."
+    },
+    {
+      "id": "IMAG-050",
+      "number": 50,
+      "category": 4,
+      "title": "Silly-Dictionary & Invented-Word Forger",
+      "description": "Creates brand-new whimsical words (like Snickerdoodle-saurus or Wobble-wink) with funny definitions."
+    },
+    {
+      "id": "IMAG-051",
+      "number": 51,
+      "category": 4,
+      "title": "Acrostic Name-Poem Generator",
+      "description": "Turns any child's first name into a positive, imaginative acrostic adventure poem."
+    },
+    {
+      "id": "IMAG-052",
+      "number": 52,
+      "category": 4,
+      "title": "Alphabetical Town & Land Builder (Land of Illa)",
+      "description": "Generates entire peaceful, helpful, kind villages for every letter of the alphabet."
+    },
+    {
+      "id": "IMAG-053",
+      "number": 53,
+      "category": 4,
+      "title": "Rhyme-Scheme & Meter Rhythm Checker",
+      "description": "Highlights rhyming end-words in matching rainbow colors for budding young poets."
+    },
+    {
+      "id": "IMAG-054",
+      "number": 54,
+      "category": 4,
+      "title": "Backwards-Words & Palindrome Playground",
+      "description": "Plays with words that read the same forward and backward (racecar, level, noon, taco cat)."
+    },
+    {
+      "id": "IMAG-055",
+      "number": 55,
+      "category": 4,
+      "title": "Onomatopoeia Sound-Effects Comic Pop-Up Engine",
+      "description": "Renders bold comic-book SVG bursts (BOOM!, WHOOSH!, SPLASH!, ZAP!, BOING!)."
+    },
+    {
+      "id": "IMAG-056",
+      "number": 56,
+      "category": 4,
+      "title": "Story-Starter Dice Roller (Character + Setting + Magic Item)",
+      "description": "Rolls three animated dice to spark instant bedtime or classroom stories.",
+      "demo": {
+        "service": "tabor-imag-056-story-dice",
+        "path": "/?seed=starlight",
+        "label": "Story prompt"
+      }
+    },
+    {
+      "id": "IMAG-057",
+      "number": 57,
+      "category": 4,
+      "title": "Choose-Your-Own-Adventure Branching Tree Engine",
+      "description": "D1-backed interactive story engine where every page ends with two fun choices."
+    },
+    {
+      "id": "IMAG-058",
+      "number": 58,
+      "category": 4,
+      "title": "Tiny-Hero Big-World Perspective Storyteller",
+      "description": "Writes adventures from the viewpoint of a tiny ant that flew or a little man living behind the refrigerator."
+    },
+    {
+      "id": "IMAG-059",
+      "number": 59,
+      "category": 5,
+      "title": "Savanna & Grassland Lion/Lioness Royal Decree Engine",
+      "description": "Celebrates lions and lionesses as the true Kings and Queens of the Savanna and Grasslands with wildlife facts."
+    },
+    {
+      "id": "IMAG-060",
+      "number": 60,
+      "category": 5,
+      "title": "Friendly Dinosaur Time-Machine Explorer",
+      "description": "Interactive Mesozoic encyclopedia featuring T-Rex, Triceratops, Brachiosaurus, and tiny pocket dinosaurs."
+    },
+    {
+      "id": "IMAG-061",
+      "number": 61,
+      "category": 5,
+      "title": "Hybrid Animal Mashup Lab",
+      "description": "Combines two real animals (e.g., Butterfly + Elephant = Flutterphant) with custom habitat descriptions."
+    },
+    {
+      "id": "IMAG-062",
+      "number": 62,
+      "category": 5,
+      "title": "Backyard Bug & Tiny-Ant Flight Simulator",
+      "description": "Explores the giant world of blades of grass, dewdrop lakes, and flying ants."
+    },
+    {
+      "id": "IMAG-063",
+      "number": 63,
+      "category": 5,
+      "title": "Ocean Trench & Bioluminescent Deep-Sea Explorer",
+      "description": "Reveals glowing jellyfish, friendly sea serpents, and sunken treasure chests."
+    },
+    {
+      "id": "IMAG-064",
+      "number": 64,
+      "category": 5,
+      "title": "Woodland Treehouse & Hollow-Oak Village Architect",
+      "description": "Designs multi-story squirrel, owl, and badger treehouses with rope bridges."
+    },
+    {
+      "id": "IMAG-065",
+      "number": 65,
+      "category": 5,
+      "title": "Talking-Animal Fable & Moral Lesson Generator",
+      "description": "Crafts short, punchy Aesop-style animal fables with clear, positive takeaways."
+    },
+    {
+      "id": "IMAG-066",
+      "number": 66,
+      "category": 5,
+      "title": "Footprint & Animal-Track Detective Game",
+      "description": "Shows mud/snow tracks and lets kids guess which woodland or savanna creature walked by."
+    },
+    {
+      "id": "IMAG-067",
+      "number": 67,
+      "category": 5,
+      "title": "Chameleon & Octopus Camouflage Color-Matcher",
+      "description": "Interactive color-blending game matching creatures to jungle leaves and coral reefs."
+    },
+    {
+      "id": "IMAG-068",
+      "number": 68,
+      "category": 5,
+      "title": "Migration & Great Animal Journey Globe",
+      "description": "Traces monarch butterflies, arctic terns, and whales across interactive world maps."
+    },
+    {
+      "id": "IMAG-069",
+      "number": 69,
+      "category": 5,
+      "title": "Prehistoric Amber & Fossil Dig Simulator",
+      "description": "Lets kids brush away layers of virtual sandstone to uncover ammonites and dinosaur footprints."
+    },
+    {
+      "id": "IMAG-070",
+      "number": 70,
+      "category": 5,
+      "title": "Nocturnal Firefly & Moonlight Forest Chorus",
+      "description": "Simulates blinking firefly light patterns and owl/cricket night symphonies."
+    },
+    {
+      "id": "IMAG-071",
+      "number": 71,
+      "category": 5,
+      "title": "Animal Superpower Comparator",
+      "description": "Compares cheetah speed, ant lifting strength, owl night vision, and dolphin sonar in kid-friendly metrics."
+    },
+    {
+      "id": "IMAG-072",
+      "number": 72,
+      "category": 5,
+      "title": "Good-Health & Safety Parable Storyteller",
+      "description": "Uses playful, imaginative characters (like a tiny refrigerator friend) to teach kids everyday safety and healthy habits."
+    },
+    {
+      "id": "IMAG-073",
+      "number": 73,
+      "category": 6,
+      "title": "Instant Printable SVG Coloring-Book Page Generator",
+      "description": "Generates crisp black-and-white line-art dragons, unicorns, castles, and Yin-Yang mandalas ready to print or color on screen.",
+      "demo": {
+        "service": "tabor-imag-073-coloring-svg",
+        "path": "/?kind=castle",
+        "label": "Printable coloring page"
+      }
+    },
+    {
+      "id": "IMAG-074",
+      "number": 74,
+      "category": 6,
+      "title": "Pixel-Art & Perler-Bead Grid Designer",
+      "description": "Turns simple drawings into 16x16 or 32x32 block grids for craft beads or voxel worlds."
+    },
+    {
+      "id": "IMAG-075",
+      "number": 75,
+      "category": 6,
+      "title": "Kaleidoscope & Mandala Symmetry Painter",
+      "description": "Mirrors every brush stroke 6, 8, or 12 times around a center point in real time."
+    },
+    {
+      "id": "IMAG-076",
+      "number": 76,
+      "category": 6,
+      "title": "Paper-Airplane Folding & Aerodynamics Lab",
+      "description": "Compares dart, glider, and stunt-plane fold patterns with flight-distance tips."
+    },
+    {
+      "id": "IMAG-077",
+      "number": 77,
+      "category": 6,
+      "title": "Custom Coat-of-Arms & Family Shield Builder",
+      "description": "Combines dragons, unicorns, lions, stars, and motto banners into downloadable SVG crests."
+    },
+    {
+      "id": "IMAG-078",
+      "number": 78,
+      "category": 6,
+      "title": "Comic-Strip 4-Panel Storyboard Creator",
+      "description": "Arranges speech bubbles, characters, and backgrounds into clean four-panel comic strips."
+    },
+    {
+      "id": "IMAG-079",
+      "number": 79,
+      "category": 6,
+      "title": "Sticker-Pack & Badge SVG Generator",
+      "description": "Creates glossy, die-cut style digital stickers (Super Reader, Dragon Tamer, Kindness Knight)."
+    },
+    {
+      "id": "IMAG-080",
+      "number": 80,
+      "category": 6,
+      "title": "Rainbow Spirograph & Geometric Curve Drawer",
+      "description": "Uses mathematical hypocycloid formulas to spin intricate rainbow gear-drawings."
+    },
+    {
+      "id": "IMAG-081",
+      "number": 81,
+      "category": 6,
+      "title": "3D Pop-Up Card & Paper-Craft Template Maker",
+      "description": "Generates cut-and-fold SVG templates for greeting cards that pop up when opened."
+    },
+    {
+      "id": "IMAG-082",
+      "number": 82,
+      "category": 6,
+      "title": "Pixel-Monster & Cute-Robot Avatar Generator",
+      "description": "Deterministically builds a unique friendly robot or monster avatar from any name or seed word."
+    },
+    {
+      "id": "IMAG-083",
+      "number": 83,
+      "category": 6,
+      "title": "Cloud-Shape & Star-Constellation Connect-the-Dots",
+      "description": "Generates numbered dot-to-dot puzzles that reveal hidden mythical creatures."
+    },
+    {
+      "id": "IMAG-084",
+      "number": 84,
+      "category": 6,
+      "title": "LEGO / Brick-Builder Mosaic Converter",
+      "description": "Converts uploaded kid drawings into brick-by-brick color counts and building instructions."
+    },
+    {
+      "id": "IMAG-085",
+      "number": 85,
+      "category": 6,
+      "title": "Finger-Paint & Watercolor Splash Canvas",
+      "description": "Zero-dependency HTML5 canvas worker with blended pastel watercolors and sparkle brushes."
+    },
+    {
+      "id": "IMAG-086",
+      "number": 86,
+      "category": 6,
+      "title": "Bedtime Storybook PDF & Flipbook Compiler",
+      "description": "Bundles generated stories and SVG illustrations into a clean, readable digital flipbook."
+    },
+    {
+      "id": "IMAG-087",
+      "number": 87,
+      "category": 7,
+      "title": "Solar System & Planet-Hopper Rocket Simulator",
+      "description": "Calculates how high you can jump on the Moon, Mars, and Jupiter, plus fun planet trivia.",
+      "demo": {
+        "service": "tabor-imag-087-planet-jump",
+        "path": "/?planet=Moon&earth_jump_m=0.5",
+        "label": "Moon jump"
+      }
+    },
+    {
+      "id": "IMAG-088",
+      "number": 88,
+      "category": 7,
+      "title": "Cloud-Type & Rainbow-Physics Weather Station",
+      "description": "Explains cumulus castles, cirrus feathers, and how sunlight bends through raindrops."
+    },
+    {
+      "id": "IMAG-089",
+      "number": 89,
+      "category": 7,
+      "title": "Kitchen-Science Safe Experiment Cards",
+      "description": "Step-by-step instructions for baking-soda volcanoes, magic milk color swirls, and rock-candy crystals."
+    },
+    {
+      "id": "IMAG-090",
+      "number": 90,
+      "category": 7,
+      "title": "Moon-Phase & Crescent-Smile Calendar",
+      "description": "Shows tonight's exact moon phase with a friendly illustrated face and folklore name."
+    },
+    {
+      "id": "IMAG-091",
+      "number": 91,
+      "category": 7,
+      "title": "Seed-to-Oak-Tree Time-Lapse Grower",
+      "description": "Interactive garden worker where watering a virtual acorn grows roots, sprouts, leaves, and blossoms."
+    },
+    {
+      "id": "IMAG-092",
+      "number": 92,
+      "category": 7,
+      "title": "Time-Capsule & Future-Self Letter Vault",
+      "description": "Lets kids write or dictate a message today and seal it in D1 until their next birthday."
+    },
+    {
+      "id": "IMAG-093",
+      "number": 93,
+      "category": 7,
+      "title": "Secret-Clubhouse Cipher & Decoder Ring",
+      "description": "Kid-friendly letter-shift and symbol substitution wheels for passing secret clubhouse notes.",
+      "demo": {
+        "service": "tabor-imag-093-clubhouse-cipher",
+        "path": "/",
+        "label": "Decoder ring"
+      }
+    },
+    {
+      "id": "IMAG-094",
+      "number": 94,
+      "category": 7,
+      "title": "World-Holidays & Global Festival Explorer",
+      "description": "Celebrates Lunar New Year dragon dances, Diwali lamps, Holi colors, and global traditions."
+    },
+    {
+      "id": "IMAG-095",
+      "number": 95,
+      "category": 7,
+      "title": "Musical-Story Soundboard (8-Bit & Orchestral Chimes)",
+      "description": "Plays whimsical sound effects (harp glissandos, dragon purrs, magic wands) via WebAudio synthesis."
+    },
+    {
+      "id": "IMAG-096",
+      "number": 96,
+      "category": 8,
+      "title": "Grandparent / Parent & Child Co-Authoring Relay",
+      "description": "Durable Object session where an adult writes two sentences and a child finishes the adventure (or vice versa)."
+    },
+    {
+      "id": "IMAG-097",
+      "number": 97,
+      "category": 8,
+      "title": "Voice-to-Storybook Bedtime Recorder",
+      "description": "Transcribes a child's spoken wild imagination via Whisper AI and formats it into an illustrated chapter."
+    },
+    {
+      "id": "IMAG-098",
+      "number": 98,
+      "category": 8,
+      "title": "Kid-Safe Content & Positive-Tone Guardrail Filter",
+      "description": "Ensures every generated story, riddle, and image stays uplifting, imaginative, and age-appropriate."
+    },
+    {
+      "id": "IMAG-099",
+      "number": 99,
+      "category": 8,
+      "title": "Illustration Prompt & SVG Scene Composer",
+      "description": "Translates story paragraphs into structured visual scenes featuring dragons, unicorns, and starry skies."
+    },
+    {
+      "id": "IMAG-100",
+      "number": 100,
+      "category": 8,
+      "title": "Achievement Patch & Explorer Badge Hall of Fame",
+      "description": "Tracks reading milestones, completed riddles, and hatched dragons with colorful digital patches."
+    },
+    {
+      "id": "IMAG-101",
+      "number": 101,
+      "category": 8,
+      "title": "Universal Imagination & Wonder Engine",
+      "description": "Master dispatch Worker that weaves dragons, unicorns, Yin-Yang balance, A–Z portals, and rhyming fables into a unified interactive storybook universe."
+    }
+  ]
+}
