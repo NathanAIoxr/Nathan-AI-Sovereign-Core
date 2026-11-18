@@ -1,0 +1,9 @@
+{
+  "name": "tabor-global-import-catalog",
+  "main": "index.ts",
+  "compatibility_date": "2026-11-18",
+  "workers_dev": true,
+  "d1_databases": [
+    { "binding": "DB", "database_name": "tabor-global-import-catalog", "database_id": "00000000-0000-0000-0000-000000000000" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "tabor-ext-045-microfrontends",
+  "main": "index.ts",
+  "compatibility_date": "2026-11-18",
+  "workers_dev": true,
+  "services": [
+    { "binding": "CATALOG", "service": "tabor-global-import-catalog" },
+    { "binding": "IMPORT", "service": "tabor-global-json-response" }
+  ],
+  "vars": {
+    "ROUTES": "[{\"binding\":\"CATALOG\",\"path\":\"/catalog\"},{\"binding\":\"IMPORT\",\"path\":\"/example\"}]"
+  }
+}

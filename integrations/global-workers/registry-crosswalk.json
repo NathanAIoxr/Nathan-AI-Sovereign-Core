@@ -472,11 +472,14 @@
       "id": "EXT-045",
       "label": "microfrontend-template",
       "registry_state": "candidate_unverified",
-      "existing_cloudflare_names": [],
-      "imported_worker": null,
-      "status": "upstream_candidate_confirmed",
+      "existing_cloudflare_names": [
+        "tabor-ext-045-microfrontends"
+      ],
+      "imported_worker": "tabor-ext-045-microfrontends",
+      "status": "existing_worker_name",
       "candidate_source": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/microfrontend-template",
-      "project_requirements": "Multiple services or configured app targets"
+      "project_requirements": "Multiple services or configured app targets",
+      "deployment_receipt": "complete-apps/deployment-receipt.json"
     },
     {
       "id": "EXT-046",

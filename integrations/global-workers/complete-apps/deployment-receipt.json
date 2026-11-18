@@ -1,0 +1,29 @@
+{
+  "verified_utc": "2026-11-18T18:22:33.158620+00:00",
+  "checks": [
+    {
+      "check": "catalog through microfrontend",
+      "url": "https://tabor-ext-045-microfrontends.nathantaboract.workers.dev/catalog/api/workers",
+      "http_status": 200,
+      "passed": true
+    },
+    {
+      "check": "example through microfrontend",
+      "url": "https://tabor-ext-045-microfrontends.nathantaboract.workers.dev/example/",
+      "http_status": 200,
+      "passed": true
+    },
+    {
+      "check": "catalog Worker API",
+      "url": "https://tabor-global-import-catalog.nathantaboract.workers.dev/api/workers",
+      "http_status": 200,
+      "passed": true
+    },
+    {
+      "check": "catalog HTML",
+      "url": "https://tabor-ext-045-microfrontends.nathantaboract.workers.dev/catalog/",
+      "http_status": 200,
+      "passed": true
+    }
+  ]
+}

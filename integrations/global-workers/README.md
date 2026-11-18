@@ -31,3 +31,5 @@ An additive import to the Nathan AI Sovereign Core collection. Each row has a se
 The edge uploads use the named builds from this directory. The new services add no scheduled jobs, API secrets, paid service bindings, external fetch paths, or pooled account credentials.
 
 A separate template search located more source projects whose normal builds use AI services, state bindings, build assets or integration credentials. The crosswalk records verified upstream folders where available.
+
+[Complete application imports and live checks](complete-apps/README.md), including EXT-045 and the D1-backed import catalog.
