@@ -20,4 +20,4 @@ jobs:
         with:
           node-version: "22"
       - name: Verify graph, read-only API, and bounded scheduler
-        run: node --test creative-archive/persona-duality/worker.test.mjs
+        run: node --test creative-archive/persona-duality/*.test.mjs
