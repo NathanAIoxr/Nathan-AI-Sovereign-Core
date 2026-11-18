@@ -1,0 +1,44 @@
+name: Nathan AI Global Software Discovery
+# Public GitHub metadata only; zero code installations, scans or outbound probing.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '11 * * * *'
+permissions:
+  contents: read
+concurrency:
+  group: nathan-global-software-discovery
+  cancel-in-progress: false
+jobs:
+  catalog-public-projects:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate read-only discovery tool
+        run: python3 -m py_compile app-factory/nathan-ai/global-infrastructure-atlas/public_discovery.py
+      - name: Search bounded rotating category and language batch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # There are 20 software topics + 25 source languages + 14 human-language queries.
+          # Rotate 5 of 59 each UTC hour; this is source discovery, NOT host scanning.
+          utc_hour=$(( $(date -u +%s) / 3600 ))
+          offset=$(( (utc_hour * 5) % 59 ))
+          python3 app-factory/nathan-ai/global-infrastructure-atlas/public_discovery.py \
+            --pages 1 --all-languages --multilingual --max-queries 5 \
+            --offset "$offset" --pause 2 \
+            --output "$RUNNER_TEMP/public-candidates.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: global-public-repo-discovery
+          path: ${{ runner.temp }}/public-candidates.json
+          if-no-files-found: warn
+          retention-days: 7
