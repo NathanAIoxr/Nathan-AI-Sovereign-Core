@@ -1,0 +1,40 @@
+{
+  "milestone": "NATHAN AI sovereign job platform source and D1 schema",
+  "timestamp": "2026-11-18",
+  "source_branch": "feature/tabor-supercomputer-heartbeat-20261117",
+  "source_revision": "7403e083faf8e7a96c9b84ccf61746042fa7bfbb",
+  "cloudflare_account": "a70580bacdf96c946662b7b67dcb45b5",
+  "verified": {
+    "existingWorkers": [
+      {
+        "name": "tabor-true-cloud-computing",
+        "deployment_id": "06b186c0-11c1-4ab7-9c75-886de51d1334",
+        "version": "e6496078-bf9b-4977-8037-e7dad8f85cc7"
+      },
+      {
+        "name": "nathan-ai-supercomputer-control",
+        "deployment_id": "65a1200a-4fc5-4d8a-9827-ffb282077238",
+        "version": "4feb4b3e-0b8e-400f-bfc7-603883ca69a2"
+      },
+      {
+        "name": "nathan-ai-sovereign-2x",
+        "deployment_id": "96de364f-194d-42f4-a55a-b64fc04f7ef5",
+        "version": "479ed725-1b80-41fa-bae1-802fe42a5f95"
+      }
+    ],
+    "d1Migration": "7 additive statements succeeded",
+    "existingQueues": [
+      "one-sovereign-hub-dead",
+      "one-sovereign-hub-jobs"
+    ]
+  },
+  "pending": {
+    "newBoxWorkers": "deployment not attempted",
+    "newQueue": "nathan-sovereign-jobs not present",
+    "r2": "permission denied on bucket listing; account access needed",
+    "gpu": "no authorized GPU backend inventory",
+    "benchmark": "no measured inference comparison yet",
+    "secrets": "must configure outside repository"
+  },
+  "tag": "CONTINUE BUILDING"
+}
