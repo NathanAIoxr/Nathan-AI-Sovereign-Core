@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import worker, {VERSION, summary, recordReceipt} from './worker.mjs';
+function fakeDb(tableCounts={}) {
+  const writes=[];
+  return {writes,prepare(sql){return {bind(...binds){this.params=binds;return this;}, async first(){if(sql.includes('COUNT(*) AS n FROM')){const k=sql.split('FROM ')[1].split(' ')[0];return {n:tableCounts[k] ?? 0};}return {n:15,ok:1};},async all(){ if(sql.includes('GROUP BY'))return {results:[{status:'discovered_not_installed',n:205}]};if(sql.includes('SELECT observed_at'))return {results:[]};return {results:[]};},async run(){writes.push({sql,params:this.params});return {success:true};}};}};
+}
+const env={ATLAS:fakeDb({global_atlas_layers:18,global_atlas_components:334,global_atlas_public_repos:205,global_atlas_sources:13,global_atlas_existing_fleet:505,imported_workers:15}), FLEET:fakeDb({fleet_entry:505,virtual_supercomputer_slot_v1:1000})};
+test('summary uses source database counts rather than claiming deployment',async()=>{const s=await summary(env);assert.equal(s.totals.public_repository_candidates,205);assert.equal(s.totals.logical_slots,1000);assert.match(s.note,/not deployments/);});
+test('reads are bounded, writes refused',async()=>{const r=await worker.fetch(new Request('https://example.test/api/repositories?limit=100000&offset=-5'),env);assert.equal(r.status,200);const v=await r.json();assert.equal(v.pagination.limit,100);assert.equal(v.pagination.offset,0);const denied=await worker.fetch(new Request('https://example.test/api/fleet',{method:'POST'}),env);assert.equal(denied.status,405);});
+test('healthy endpoint, kernels endpoint, unknown endpoint',async()=>{const h=await(await worker.fetch(new Request('https://example.test/health'),env)).json();assert.equal(h.healthy,true);assert.equal(h.version,VERSION);assert.equal((await worker.fetch(new Request('https://example.test/api/kernels'),env)).status,200);assert.equal((await worker.fetch(new Request('https://example.test/nope'),env)).status,404);});
+test('autonomous receipts retain digest and source totals',async()=>{const r=await recordReceipt(env,'2026-11-18T22:00:00Z');assert.equal(r.sha256.length,64);assert.equal(r.summary.totals.layers,18);assert.equal(env.ATLAS.writes.length,1);});
