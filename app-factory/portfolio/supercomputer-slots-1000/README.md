@@ -34,3 +34,6 @@ D1 table names use `virtual_...` prefixes; application assignments can later be 
 
 ## Counts mean different things
 A source file, app directory entry, book edition, worker script, logical slot, deployed Worker and physical supercomputer are **different types of object** and must never be summed as if all were real running computers.
+
+## Read-only live Cloudflare index
+A separate Worker named `tabor-1000-fleet-index` is deployed with a D1 binding to the new additive metadata-only tables. Open `https://tabor-1000-fleet-index.nathantaboract.workers.dev/` to filter slots or use `/api/summary`, `/api/slots?page=1`, and `/api/slot/1000`. The API returns public catalog references only; it does not expose the original 505 fleet details or private books. The Worker has an independently verified Cloudflare deployment and subdomain route; slot `indexed_only` remains an intentional runtime status.
