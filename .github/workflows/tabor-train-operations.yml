@@ -1,0 +1,25 @@
+name: Tabor Train Operations CI
+on:
+  pull_request:
+    paths:
+      - "app-factory/nathan-ai/operations/**"
+      - ".github/workflows/tabor-train-operations.yml"
+  push:
+    paths:
+      - "app-factory/nathan-ai/operations/**"
+      - ".github/workflows/tabor-train-operations.yml"
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Test archival source preservation and new bounded runtime
+        run: |
+          node --test app-factory/nathan-ai/operations/operations.test.cjs
+          node --test app-factory/nathan-ai/operations/train-runtime/worker.test.cjs
