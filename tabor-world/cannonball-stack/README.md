@@ -12,3 +12,25 @@ By Nathan Tabor. This release connects parts of the Stack that can run on the pu
 The read-only routes are `/api/rhythm?tick=221`, `/api/score`, `/api/will-wheel-way`, `/api/catalog`, `/api/power`, and `/api/connections`.
 
 Use Node 24. Run `npm test`, then `npx --yes wrangler@4.164.0 deploy --dry-run` or deploy to the authorized Cloudflare account. Users can preserve their own results from the browser without creating a public intake record.
+
+## Install and play
+
+Open the Cloudflare site in a browser or add it to the phone’s home screen. The
+installable shell stores the campaign and Factory drafts on that browser. Once
+the offline shell is ready, the campaign and Factory workspaces can open
+without a network. The public grid feed, connected Worker status, and Library
+launches use live network requests.
+
+- **Tabor Light Slayers & Sleyers** at `/slayers-sleyers/` provides three
+  playable sectors, four distinct roles, timed autonomous manifestation,
+  conversion webs, an Innocence Pillar, and the original two-right/four-left
+  lock. Undo restores the previous move.
+- **Tabor 1-2-3 Factory** at `/factory/` gives the 14 named projects individual
+  local workspaces with downloadable output. The other 87 Factory project
+  slots are awaiting sourced names and specifications.
+- **Library of Tabor** supplies its independent catalog of 101 games through a
+  Worker service binding. The Factory preserves each original three-digit
+  launch ID and sends visitors to the canonical Grapple It game.
+
+The read-only release endpoints are `/api/factory` and `/api/factory/library`.
+The library index consumes only the existing public catalog.

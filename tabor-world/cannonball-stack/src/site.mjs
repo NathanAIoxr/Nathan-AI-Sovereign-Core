@@ -3,8 +3,8 @@ const style=`
 :root{color-scheme:dark;--bg:#101319;--card:#1a222b;--line:#3a4657;--text:#edf0e8;--dim:#b3bdc4;--gold:#ffcd8e;--mint:#a2ebca}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,sans-serif}main{width:min(1180px,100%);margin:auto;padding:clamp(15px,4vw,48px)}header{border-bottom:1px solid var(--line);padding:12px 0 24px}nav,.controls{display:flex;flex-wrap:wrap;gap:9px 15px;margin:8px 0 16px}nav a,a{color:var(--mint);text-underline-offset:.2em}h1{font-size:clamp(2.8rem,8vw,6rem);letter-spacing:-.065em;margin:12px 0;line-height:.98}h2,h3,p{margin:0 0 11px}p.lead,.muted,small{color:var(--dim)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:13px}section{min-width:0;padding:clamp(14px,3vw,24px);background:var(--card);border:1px solid var(--line)}.wide{margin-top:12px}textarea,input,button,select{background:#111b24;color:var(--text);border:1px solid #4a6671;border-radius:4px;min-height:43px;padding:6px 10px;font:inherit;max-width:100%}textarea{width:100%;min-height:95px;resize:vertical}button{background:var(--gold);color:#251b16;cursor:pointer;font-weight:700}button:disabled{opacity:.48}output{display:block;color:var(--gold);overflow-wrap:anywhere;margin:10px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#111b24;padding:10px;font-size:.83rem}ul{list-style:none;padding:0}li{border-top:1px solid var(--line);padding:6px 0}.pulses{margin:4px 0 9px;font:600 1rem ui-monospace,monospace;color:var(--mint)}label{display:grid;gap:3px}input[type=number]{width:110px}footer{padding:16px 0}:focus-visible{outline:2px solid var(--gold);outline-offset:2px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
 `;
 export const page=`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>.:. My stack of cannon balls by Nathan Tabor</title><style>${style}</style>
-<main><header><nav><a href="#rhythm">Rhythm Matrix</a><a href="#words">WORDS / Mirror</a><a href="#power">Power data</a><a href="/api/catalog">Catalog API</a></nav>
+<title>.:. My stack of cannon balls by Nathan Tabor</title><meta name="theme-color" content="#101319"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/icon-192.png"><link rel="icon" href="/icon-192.png"><style>${style}</style>
+<main><header><nav><a href="/slayers-sleyers/">Play Slayers &amp; Sleyers</a><a href="/factory/">Open the Factory</a><a href="#rhythm">Rhythm Matrix</a><a href="#words">WORDS / Mirror</a><a href="#power">Power data</a><a href="/api/catalog">Catalog API</a></nav>
 <h1>.:. My stack of cannon balls</h1><p class="lead">By Nathan Tabor</p><p>Will · Wheel · Way</p></header>
 <div class="grid"><section id="rhythm"><h2>13 / 17 Magi Cicada Rhythm Matrix</h2>
 <p class="pulses">10 · 8 · 6 · 5 · 4 · 10 · 9 · 2 = 54 pulses</p><form id="clock" class="controls">
@@ -20,7 +20,7 @@ export const page=`<!doctype html><html lang="en"><meta charset="utf-8"><meta na
 <label>View<select id="category"><option value="expansion_families">Expansion families</option><option value="council_archetypes">Council archetypes</option><option value="blueprint_apps">Factory app blueprint entries</option></select></label>
 <ul id="catalog-list"></ul></section><section><h2>Connected builds</h2><ul id="links"></ul></section></div>
 <footer><a href="/api/score">Score JSON</a> · <a href="https://api.carbonintensity.org.uk/">Power data documentation</a></footer>
-</main><script type="module" src="/app.js"></script></html>`;
+</main><script type="module" src="/app.js"></script><script defer src="/install.js"></script></html>`;
 
 export const script=`
 import {words} from "/words.js";

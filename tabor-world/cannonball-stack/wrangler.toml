@@ -18,3 +18,7 @@ service = "tabor-true-cloud-computing"
 [[services]]
 binding = "FEDERATION"
 service = "tabor-family-federation"
+
+[[services]]
+binding = "LIBRARY"
+service = "tabor-universal-library-engine"

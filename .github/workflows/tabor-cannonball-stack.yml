@@ -22,4 +22,5 @@ jobs:
         with:
           node-version: '24'
       - run: npm test
-      - run: npx --yes wrangler@4.164.0 deploy --dry-run
+      - run: npx --yes wrangler@4.164.0 deploy --dry-run --minify --outdir "$RUNNER_TEMP/tabor-cannonball"
+      - run: TABOR_TEST_BUNDLE="$RUNNER_TEMP/tabor-cannonball/index.js" node --test install.test.mjs
