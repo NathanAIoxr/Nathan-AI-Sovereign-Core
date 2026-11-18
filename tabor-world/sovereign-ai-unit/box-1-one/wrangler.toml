@@ -1,0 +1,12 @@
+name = "nathan-sovereign-box-one"
+main = "index.js"
+compatibility_date = "2026-11-18"
+workers_dev = false
+
+[ai]
+binding = "AI"
+
+[[d1_databases]]
+binding = "LEDGER"
+database_name = "tabor-database-registry"
+database_id = "af177f57-154c-41a1-a5cd-5602568a4a2f"
