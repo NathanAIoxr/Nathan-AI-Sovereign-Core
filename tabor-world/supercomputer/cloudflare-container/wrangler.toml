@@ -11,6 +11,6 @@ max_instances = 1
 name = "TABOR_SERVER"
 class_name = "TaborServer"
 
-[exports.TaborServer]
-type = "durable-object"
-storage = "sqlite"
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["TaborServer"]
