@@ -1,0 +1,23 @@
+name: Topological Fiber Engine CI
+on:
+  push:
+    paths:
+      - 'app-factory/topological-fiber-engine/**'
+      - '.github/workflows/topological-fiber-engine-ci.yml'
+  pull_request:
+    paths:
+      - 'app-factory/topological-fiber-engine/**'
+      - '.github/workflows/topological-fiber-engine-ci.yml'
+permissions:
+  contents: read
+jobs:
+  node-contract-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run fiber engine tests
+        run: node --test app-factory/topological-fiber-engine/worker.test.mjs
