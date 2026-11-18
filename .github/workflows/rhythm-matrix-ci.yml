@@ -1,0 +1,24 @@
+name: Tabor Rhythm Matrix
+on:
+  pull_request:
+    paths:
+      - 'app-factory/tabor-world-hub/rhythm-matrix/**'
+      - '.github/workflows/rhythm-matrix-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rhythm-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: app-factory/tabor-world-hub/rhythm-matrix
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --check app.mjs
+      - run: node build.mjs
+      - run: node --test worker.test.mjs
