@@ -6,10 +6,16 @@ const source = process.argv[2]
 const publicSource = new URL("https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/sovereign-coins/");
 const names = ["index.html", "style.css", "app.mjs", "engine.mjs", "registry.json"];
 const assets = Object.fromEntries(await Promise.all(names.map(async name => [name, await readFile(new URL(name, source), "utf8")])));
+for (const name of ["coin-families.json", "additional-coins.json", "conspectus.json", "catalog.css"]) {
+  assets[name] = await readFile(new URL(name, import.meta.url), "utf8");
+}
 assets["index.html"] = assets["index.html"]
   .replace(/<link[^>]+(?:data-nathan-shared-appearance|data-nathan-command-center)[^>]*>|<script\b[^>]*\bsrc="\.\.\/[^"]+"[^>]*><\/script>/g, "")
   .replace(/href="(\.\.?\/[^"]+)"/g, (attr, href) => href === "./style.css" ? attr : 'href="' + new URL(href, publicSource).href + '"')
-  .replace("<body>", '<body><p><a href="https://tabor-world.nathantaboract.workers.dev/">Tabor World Hub</a> · <a href="/api/genesis">Run genesis verification</a></p>');
+  .replace("<body>", '<body><p><a href="https://tabor-world.nathantaboract.workers.dev/">Tabor World Hub</a> · <a href="/coins">All coin families</a> · <a href="/api/genesis">Run genesis verification</a></p>');
 const worker = await readFile(new URL("worker.mjs", import.meta.url), "utf8");
-await writeFile(new URL("dist.mjs", import.meta.url),
-  worker.replace('import { assets } from "./assets.mjs";', () => "const assets = " + JSON.stringify(assets) + ";"));
+const catalog = await readFile(new URL("catalog.mjs", import.meta.url), "utf8");
+const bundle = worker
+  .replace('import { assets } from "./assets.mjs";', () => "const assets = " + JSON.stringify(assets) + ";")
+  .replace('import { makeCatalog, catalogPage } from "./catalog.mjs";', () => catalog);
+await writeFile(new URL("dist.mjs", import.meta.url), bundle);

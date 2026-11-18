@@ -1,4 +1,7 @@
 import { assets } from "./assets.mjs";
+import { makeCatalog, catalogPage } from "./catalog.mjs";
+
+const catalog = makeCatalog(assets);
 
 const genesisPrefix = "01000000" + "00".repeat(32) +
   "3ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a" + "29ab5f49ffff001d";
@@ -43,17 +46,24 @@ const contentTypes = {
 const security = {
   "X-Content-Type-Options": "nosniff",
   "Referrer-Policy": "no-referrer",
-  "Content-Security-Policy": "default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+  "Content-Security-Policy": "default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
 };
 
 export default {
   async fetch(request) {
-    const path = new URL(request.url).pathname;
+    const url = new URL(request.url);
+    const path = url.pathname;
     const head = request.method === "HEAD";
     if (request.method !== "GET" && !head) return new Response(null, { status: 405, headers: { Allow: "GET, HEAD" } });
     const send = (value, type, status = 200) => new Response(head ? null : value, {
       status, headers: { ...security, "Content-Type": type + "; charset=utf-8", "Cache-Control": "no-cache" }
     });
+    if (path === "/coins" || path === "/coins/") {
+      return send(catalogPage(catalog, (url.searchParams.get("q") ?? "").slice(0, 120).trim()), "text/html");
+    }
+    if (path === "/api/coins") return send(JSON.stringify(catalog), "application/json");
+    if (path === "/api/conspectus") return send(assets["conspectus.json"], "application/json");
+    if (path === "/catalog.css") return send(assets["catalog.css"], "text/css");
     if (path === "/api/genesis") {
       const receipt = await genesisReceipt();
       return send(JSON.stringify(receipt), "application/json", receipt.ok ? 200 : 500);
