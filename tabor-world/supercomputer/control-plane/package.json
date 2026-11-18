@@ -1,0 +1,8 @@
+{
+  "name": "nathan-ai-supercomputer-control-plane",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test index.test.js"
+  }
+}
