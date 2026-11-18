@@ -25,7 +25,35 @@ test('all Nathan AI entry pages share the same launcher',()=>{
   const base=path.resolve(__dirname,'..');
   // The loopback Boundary Lab does not expose the launcher or the wider app tree.
   const boundaryLab=path.join(base,'personal-intelligence','minds','federation','fencepost-error-syndrome','boundary_ui.html');
-  let count=0;function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory()){if(p===path.join(base,'eyeprints-handprints')||p===path.join(base,'personal-intelligence','minds','federation','source-packs'))continue;walk(p)}else if(e.name.endsWith('.html')){if(p===path.join(base,'family-research','private-reader.html')){const source=fs.readFileSync(p,'utf8');assert.match(source,/connect-src 'none'/);assert.doesNotMatch(source,/<script[^>]+src=/i);continue;}if(p===boundaryLab)continue;count++;assert.equal((fs.readFileSync(p,'utf8').match(/data-nathan-command-center/g)||[]).length,1,p)}}}walk(base);assert.ok(count>=28);
+  const outsideBox=path.join(base,'sovereign-defender','toolbox','outside-box','index.html');
+  let count=0;
+  function walk(dir){
+    for(const e of fs.readdirSync(dir,{withFileTypes:true})){
+      const p=path.join(dir,e.name);
+      if(e.isDirectory()){
+        if(p===path.join(base,'eyeprints-handprints')||p===path.join(base,'personal-intelligence','minds','federation','source-packs'))continue;
+        walk(p);
+        continue;
+      }
+      if(!e.name.endsWith('.html')||p===boundaryLab)continue;
+      const source=fs.readFileSync(p,'utf8');
+      if(p===path.join(base,'family-research','private-reader.html')){
+        assert.match(source,/connect-src 'none'/);
+        assert.doesNotMatch(source,/<script[^>]+src=/i);
+        continue;
+      }
+      if(p===outsideBox){
+        // Keep the launcher's network and search handoff outside the incident page.
+        assert.match(source,/connect-src 'none'/);
+        assert.doesNotMatch(source,/data-nathan-command-center|launcher\/app\.js/);
+        continue;
+      }
+      count++;
+      assert.equal((source.match(/data-nathan-command-center/g)||[]).length,1,p);
+    }
+  }
+  walk(base);
+  assert.ok(count>=28);
 });
 test('launcher never stores queries, executes plugins or embeds source text in URLs',()=>{
   const s=fs.readFileSync(path.join(__dirname,'app.js'),'utf8');assert.doesNotMatch(s,/innerHTML\s*=|localStorage\.clear\(|\beval\s*\(/);assert.match(s,/sessionStorage\.setItem\('nathan-ai\.source-handoff/);assert.match(s,/remember:false|remember:remember\.checked/);

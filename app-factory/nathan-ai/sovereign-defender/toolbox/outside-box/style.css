@@ -43,3 +43,19 @@ summary { cursor: pointer; }
   section, .playbook { padding: 1rem; }
   .form-grid, .summary-grid { grid-template-columns: 1fr; }
 }
+
+html.nathan-themed {
+  --panel: var(--n-panel);
+  --line: var(--n-border);
+  --muted: var(--n-muted);
+  --accent: var(--n-accent);
+  --focus: var(--n-accent);
+}
+#nathan-record-notice {
+  padding: .75rem 1rem;
+  background: #fff0b3;
+  color: #161616;
+  font: 600 1rem/1.5 system-ui, sans-serif;
+}
+#nathan-record-notice a { color: #161616; }
+#nathan-record-notice span { display: block; font-size: .875rem; font-weight: 400; }

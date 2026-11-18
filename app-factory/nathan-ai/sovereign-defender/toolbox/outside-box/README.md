@@ -26,7 +26,7 @@ Each source is limited to 2 MiB and 1,000 rows. Each case holds up to 10 sources
 
 **1 − 1 = 0** plans containment. **1 + 1 = 2** adds evidence. **1 × 1 = 1** joins sources. **1 ÷ 1 = 1** records verification.
 
-The browser records choices and owner-reported results. Live enforcement and telemetry collection require separate authorized adapters. The workspace does not fetch imported URLs or use imported text as markup or commands. Human attribution stays unknown. The owner can record a possible tactical goal with supporting evidence and confidence.
+The browser records choices and owner-reported results. Live enforcement and telemetry collection require separate authorized adapters. The workspace uses the shared appearance preferences and keeps the network-enabled command center outside the incident page. It does not fetch imported URLs or use imported text as markup or commands. Human attribution stays unknown. The owner can record a possible tactical goal with supporting evidence and confidence.
 
 ## Verify
 
