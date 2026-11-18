@@ -1,6 +1,6 @@
 import {catalogText,catalogDigest} from "./bundle.mjs";
 import {engines} from "./engines.mjs";
-import {invokeRemote,remoteTools} from "./remote-tools.mjs";
+import {invokeRemote,mindTool,remoteTools} from "./remote-tools.mjs";
 
 const compiled = JSON.parse(catalogText);
 const bytes = new TextEncoder().encode(catalogText).length;
@@ -57,6 +57,7 @@ function receipt(id,storage,env) {
     schema:compiled.schema, release:compiled.release, node:id, storage, sha256:catalogDigest,
     bytes, entries:totals, collections:compiled.counts, verified:true,
     native_tools:engines.size, service_routes:[...remoteTools.values()].filter(tool=>env[tool.binding]).length,
+    mind_routes:env.FLEET_MIND ? {workers:101,bots:101,mode:"on_demand"} : null,
   };
 }
 
@@ -105,7 +106,12 @@ function catalog(request,snapshot,url) {
 
 function capabilities(request,prefix,env) {
   const tools=[...engines,...[...remoteTools].filter(([,tool])=>env[tool.binding])].sort(([a],[b])=>a-b);
-  return output(request,{release:compiled.release,tools:tools.map(([id,tool])=>({
+  const mind = env.FLEET_MIND ? {
+    workers:101,bots:101,method:"POST",mode:"on_demand",
+    worker:prefix+"/mind/worker/{id}",bot:prefix+"/mind/bot/{id}",
+    source:"https://tabor-nathan-mind-fleet-registry.nathantaboract.workers.dev/fleet",
+  } : null;
+  return output(request,{release:compiled.release,mind,tools:tools.map(([id,tool])=>({
     id,execution:engines.has(id)?"node":"service_binding",path:prefix+"/tools/"+id,method:tool.method,example:tool.example,
   }))});
 }
@@ -135,14 +141,15 @@ function forward(request, response, id) {
   }});
 }
 
-export const matchesSuffix = path => /^\/(?:receipt|catalog|package\.json|capabilities|tools\/[1-9]\d{0,2})?$/.test(path);
+export const matchesSuffix = path => /^\/(?:receipt|catalog|package\.json|capabilities|tools\/[1-9]\d{0,2}|mind\/(?:worker|bot)\/[1-9]\d{0,2})?$/.test(path);
 
 export async function fleetRoute(request,id,prefix,suffix,storage,getSnapshot,env={}) {
   const url=new URL(request.url);
   if (!matchesSuffix(suffix)) return failure(request,"fleet_route_not_found",404);
   const toolId=Number(/^\/tools\/([1-9]\d{0,2})$/.exec(suffix)?.[1]);
-  const tool=engines.get(toolId)??remoteTools.get(toolId);
-  const readOnly=!toolId;
+  const mind=/^\/mind\/(worker|bot)\/([1-9]\d{0,2})$/.exec(suffix);
+  const tool=mind ? mindTool(mind[1],Number(mind[2])) : engines.get(toolId)??remoteTools.get(toolId);
+  const readOnly=!toolId&&!mind;
   if (!readOnly&&!tool) return failure(request,"tool_not_available_in_release",404);
   const allowed=readOnly?["GET","HEAD"]:[tool.method];
   if (!allowed.includes(request.method)) return output(request,{error:"method_not_allowed"},405,{allow:allowed.join(", ")});

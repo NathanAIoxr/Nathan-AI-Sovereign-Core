@@ -1,6 +1,7 @@
 const crown = "tabor-sovereign-crown";
 const polyglot = "tabor-polyglot-knowledge-gateway";
 const imagination = "library-of-tabor-imagination";
+const mind = "tabor-nathan-mind-fleet-registry";
 
 const crownTools = [
   [421,"POST",{nodes:[{id:"box",type:"container"},{id:"book",type:"content"}]}],
@@ -29,7 +30,7 @@ const languageTools = [
 ];
 const imaginationDemos = [1,9,31,45,56,73,87,93];
 export const providerBindings = {
-  FLEET_CROWN:crown, FLEET_POLYGLOT:polyglot, FLEET_IMAGINATION:imagination,
+  FLEET_CROWN:crown, FLEET_POLYGLOT:polyglot, FLEET_IMAGINATION:imagination, FLEET_MIND:mind,
 };
 const pad = id => String(id).padStart(3,"0");
 
@@ -42,6 +43,11 @@ export const remoteTools = new Map([
     method:"GET",example:{},binding:"FLEET_IMAGINATION",path:"/demo/IMAG-"+pad(id),fixed:true,
   }]),
 ]);
+
+export function mindTool(kind,id) {
+  if (!["worker","bot"].includes(kind) || !Number.isInteger(id) || id<1 || id>101) return null;
+  return {method:"POST",binding:"FLEET_MIND",path:"/"+kind+"/"+id};
+}
 
 export async function invokeRemote(tool, url, payload, env) {
   const target=new URL(tool.path,"https://"+providerBindings[tool.binding]+".internal");

@@ -56,3 +56,7 @@ service = "tabor-polyglot-knowledge-gateway"
 [[services]]
 binding = "FLEET_IMAGINATION"
 service = "library-of-tabor-imagination"
+
+[[services]]
+binding = "FLEET_MIND"
+service = "tabor-nathan-mind-fleet-registry"

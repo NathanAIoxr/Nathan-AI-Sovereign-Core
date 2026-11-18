@@ -83,6 +83,27 @@ test("serves node package and per-node tools, rejects methods and unknown tools"
   assert.equal(await (await run("/receipt",undefined,{method:"HEAD"})).text(),"");
 });
 
+test("dispatches only registered Mind tools with fixed on-demand routes",async()=>{
+  const sql=sqlite(), base="https://worker.example/fleet";
+  const hits=[];
+  const env={FLEET_MIND:{async fetch(url,options){
+    hits.push({path:url.pathname,args:JSON.parse(options.body)});
+    return Response.json({mode:"on_demand"});
+  }}};
+  async function run(suffix,method) {
+    const init=method==="POST"?{method,headers:{"content-type":"application/json"},body:'{"text":"Tabor"}'}:{method};
+    return fleetRoute(new Request(base+suffix,init),"one","/fleet",suffix,"one_d1",()=>localReplica(sql),env);
+  }
+  assert.deepEqual((await (await run("/capabilities","GET")).json()).mind,{workers:101,bots:101,method:"POST",
+    mode:"on_demand",worker:"/fleet/mind/worker/{id}",bot:"/fleet/mind/bot/{id}",
+    source:"https://tabor-nathan-mind-fleet-registry.nathantaboract.workers.dev/fleet"});
+  assert.equal((await run("/mind/worker/101","POST")).status,200);
+  assert.equal((await run("/mind/bot/1","POST")).status,200);
+  assert.equal((await run("/mind/bot/102","POST")).status,404);
+  assert.equal((await run("/mind/bot/1","GET")).status,405);
+  assert.deepEqual(hits,[{path:"/worker/101",args:{text:"Tabor"}},{path:"/bot/1",args:{text:"Tabor"}}]);
+});
+
 test("batch receipt page fails closed for unmatched node identity",async()=>{
   const req=new Request("https://worker.example/v1/fleet/receipts?start=999&limit=2");
   const res=await batchReceipts(req,String,node=>Response.json({node:"different",sha256:catalogDigest,verified:true}),1000);
