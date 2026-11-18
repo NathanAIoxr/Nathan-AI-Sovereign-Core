@@ -1,0 +1,78 @@
+{
+  "title": "TABOR Symmetry Runtime",
+  "tag": "CONTINUE BUILDING",
+  "engines": {
+    "W": {
+      "nodes": [
+        "WILL",
+        "WHEEL",
+        "WAY"
+      ],
+      "steps": 9,
+      "mode": "standalone"
+    },
+    "M": {
+      "nodes": [
+        "MILL",
+        "MHEEL",
+        "MAY"
+      ],
+      "steps": 6,
+      "mode": "mirrored-twin"
+    },
+    "THREE": {
+      "nodes": [
+        "3ILL",
+        "3HEEL",
+        "3AY"
+      ],
+      "mode": "standalone-transform"
+    },
+    "STACKED": {
+      "nodes": [
+        "<<ILL",
+        "<<HEEL",
+        "<<AY"
+      ],
+      "mode": "standalone-transform"
+    }
+  },
+  "pairedNodes": [
+    [
+      "WILL",
+      "MILL"
+    ],
+    [
+      "WHEEL",
+      "MHEEL"
+    ],
+    [
+      "WAY",
+      "MAY"
+    ]
+  ],
+  "operationalChecks": [
+    "authorization",
+    "intent",
+    "buffer readiness",
+    "compute capacity",
+    "fabric route",
+    "thermal headroom"
+  ],
+  "digitalHardwareLinks": [
+    "virtual compute",
+    "virtual memory",
+    "virtual photonic fabric",
+    "virtual thermal controller",
+    "virtual interrupt/latch"
+  ],
+  "separation": "Symbolic equalities are directed conceptual relationships; software execution obeys actual authorization, resource limits and timing.",
+  "next": [
+    "implement runtime adapters to virtual hardware registry",
+    "add FPGA configuration model and optical switching simulation",
+    "build interactive nine-point and six-point dashboards",
+    "add receipts and event persistence",
+    "connect agent orchestration with bounded budgets",
+    "extend to 3 and stacked-chevron family semantics"
+  ]
+}
