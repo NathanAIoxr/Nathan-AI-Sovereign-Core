@@ -1,0 +1,1296 @@
+{
+  "schema": "tabor.library.language-workers.v1",
+  "groups": [
+    {
+      "id": 1,
+      "title": "Foreign Language Translation & Multilingual Routers",
+      "first": 1,
+      "last": 16
+    },
+    {
+      "id": 2,
+      "title": "Ancient Languages & Dead Script Decipherment",
+      "first": 17,
+      "last": 32
+    },
+    {
+      "id": 3,
+      "title": "Egyptian, Mayan & Anatolian Hieroglyphics",
+      "first": 33,
+      "last": 45
+    },
+    {
+      "id": 4,
+      "title": "Right-to-Left (RTL), Left-to-Right (LTR) & Bidirectional Text Engines",
+      "first": 46,
+      "last": 57
+    },
+    {
+      "id": 5,
+      "title": "Mythology, Folklore & Comparative Deity Systems",
+      "first": 58,
+      "last": 73
+    },
+    {
+      "id": 6,
+      "title": "Conspiracies, Esoterica, Ciphers & Hidden History",
+      "first": 74,
+      "last": 88
+    },
+    {
+      "id": 7,
+      "title": "Universal Library Ingestion & Knowledge Graph Pipelines",
+      "first": 89,
+      "last": 95
+    },
+    {
+      "id": 8,
+      "title": "Visual Glyph Rendering & Edge Typography",
+      "first": 96,
+      "last": 101
+    }
+  ],
+  "entries": [
+    {
+      "id": 1,
+      "group": 1,
+      "title": "elizabethsiegle/cfworkers-ai-translate",
+      "submitted_scope": "Multimodal audio and text translator running Meta's m2m100-1.2b model natively on Workers AI.",
+      "upstream": {
+        "repo": "elizabethsiegle/cfworkers-ai-translate",
+        "revision": "8a3ad2005293f2d43d3fe62f282d31907b00c02c",
+        "url": "https://github.com/elizabethsiegle/cfworkers-ai-translate/tree/8a3ad2005293f2d43d3fe62f282d31907b00c02c",
+        "license": null,
+        "note": "Workers example. Independent text endpoint."
+      },
+      "status": "owner",
+      "available_scope": "M2M100 text translation. For audio, use #004 first.",
+      "route": "/api/tools/001",
+      "method": "POST",
+      "example": {
+        "text": "Good morning",
+        "sourceLanguage": "en",
+        "targetLanguage": "es"
+      }
+    },
+    {
+      "id": 2,
+      "group": 1,
+      "title": "genie-oh/rrv7-cf-i18n-starter",
+      "submitted_scope": "Edge SSR multilingual router supporting automatic Accept-Language header detection and locale path prefixes.",
+      "upstream": {
+        "repo": "genie-oh/rrv7-cf-i18n-starter",
+        "revision": "634a93a3591357d73a5db71337597d918af2ef7f",
+        "url": "https://github.com/genie-oh/rrv7-cf-i18n-starter/tree/634a93a3591357d73a5db71337597d918af2ef7f",
+        "license": null,
+        "note": "Cloudflare SSR starter. Independent locale negotiation endpoint."
+      },
+      "status": "limited",
+      "available_scope": "Locale negotiation and path generation for a calling application.",
+      "route": "/api/tools/002",
+      "method": "POST",
+      "example": {
+        "acceptLanguage": "es-MX,es;q=0.9,en;q=0.8",
+        "path": "/library"
+      }
+    },
+    {
+      "id": 3,
+      "group": 1,
+      "title": "HTMLRewriter Edge Localizer (via Cloudflare Pages Tutorials)",
+      "submitted_scope": "Streams HTML responses and swaps data-i18n-key attributes in real time without client-side lag.",
+      "source_documentation": "https://developers.cloudflare.com/workers/runtime-apis/html-rewriter/",
+      "status": "live",
+      "available_scope": "Replace escaped text inside matching data-i18n-key elements.",
+      "route": "/api/tools/003",
+      "method": "POST",
+      "example": {
+        "html": "<p data-i18n-key=\"greeting\">Hello</p>",
+        "messages": {
+          "greeting": "שלום"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "group": 1,
+      "title": "Whisper Audio Transcription Worker (via cloudflare/templates)",
+      "submitted_scope": "Converts spoken foreign language audio streams into text using OpenAI Whisper on Workers AI.",
+      "source_documentation": "https://developers.cloudflare.com/workers-ai/models/whisper/",
+      "status": "owner",
+      "available_scope": "Workers AI Whisper accepts raw audio. Set the owner AI secret.",
+      "route": "/api/tools/004",
+      "method": "POST"
+    },
+    {
+      "id": 5,
+      "group": 1,
+      "title": "ISO-639 Language Code Resolver",
+      "submitted_scope": "Edge JSON microservice mapping 7,100+ living and extinct ISO 639-1, 639-2, and 639-3 language codes to regions and scripts.",
+      "source_documentation": "https://iso639-3.sil.org/code_tables/download_tables",
+      "status": "limited",
+      "available_scope": "ISO 639-1, 639-2 and 639-3 code and name lookup. Region and script metadata are outside this data release.",
+      "route": "/api/tools/005",
+      "method": "POST",
+      "example": {
+        "code": "akk"
+      }
+    },
+    {
+      "id": 6,
+      "group": 1,
+      "title": "Glottolog & WALS API Proxy",
+      "submitted_scope": "Caches and serves linguistic typology, family trees, and phonological inventory data at the edge.",
+      "source_documentation": "https://glottolog.org/",
+      "status": "requires_build",
+      "next_dependency": "Glottolog and WALS snapshots with separately attributed record IDs, licenses and data update rules."
+    },
+    {
+      "id": 7,
+      "group": 1,
+      "title": "Phonetic IPA Transcriber Worker",
+      "submitted_scope": "Converts Latin, Cyrillic, and Semitic text strings into International Phonetic Alphabet (IPA) representations.",
+      "status": "requires_build",
+      "next_dependency": "Per-language grapheme-to-phoneme dictionaries or a WASM runtime with licensed models."
+    },
+    {
+      "id": 8,
+      "group": 1,
+      "title": "Soundex & Metaphone Phonetic Matcher",
+      "submitted_scope": "Compares cross-language root words by phonetic resonance rather than exact spelling.",
+      "status": "limited",
+      "available_scope": "Soundex and Double Metaphone after romanization. Designed as phonetic approximations.",
+      "route": "/api/tools/008",
+      "method": "POST",
+      "example": {
+        "text": "Tabor"
+      }
+    },
+    {
+      "id": 9,
+      "group": 1,
+      "title": "Bilingual Parallel Corpus Aligner",
+      "submitted_scope": "Splits and aligns dual-language texts sentence-by-sentence into D1 tables.",
+      "status": "limited",
+      "available_scope": "Sentence segmentation and positional alignment. Returns unmatched sentence slots.",
+      "route": "/api/tools/009",
+      "method": "POST",
+      "example": {
+        "source": "Hello. I am here.",
+        "target": "Bonjour. Je suis ici.",
+        "targetLanguage": "fr"
+      }
+    },
+    {
+      "id": 10,
+      "group": 1,
+      "title": "Wiktionary Edge Dictionary Scraper",
+      "submitted_scope": "Fetches etymologies, cognates, and declensions from Wikimedia REST endpoints with KV caching.",
+      "status": "provider",
+      "available_scope": "English Wiktionary revision excerpt and section headings with page attribution.",
+      "route": "/api/tools/010",
+      "method": "POST",
+      "example": {
+        "query": "tabor"
+      }
+    },
+    {
+      "id": 11,
+      "group": 1,
+      "title": "DeepL / LibreTranslate Hybrid Gateway",
+      "submitted_scope": "Routes translation payloads across multiple language APIs with automatic fallback.",
+      "status": "requires_build",
+      "next_dependency": "DeepL and LibreTranslate service credentials and a configured provider fallback."
+    },
+    {
+      "id": 12,
+      "group": 1,
+      "title": "Subtitles (.SRT / .VTT) Batch Translator",
+      "submitted_scope": "Parses video subtitle files and translates dialogue lines while preserving exact timestamps.",
+      "status": "owner",
+      "available_scope": "Translate up to ten untagged subtitle cues with exact timestamp lines.",
+      "route": "/api/tools/012",
+      "method": "POST",
+      "example": {
+        "text": "1\n00:00:00,000 --> 00:00:01,000\nGood morning\n",
+        "targetLanguage": "es"
+      }
+    },
+    {
+      "id": 13,
+      "group": 1,
+      "title": "Unicode Script Block Detector",
+      "submitted_scope": "Inspects incoming text strings and returns exact Unicode script percentages (Latin, Han, Arabic, Devanagari, Egyptian, Cuneiform).",
+      "existing_cloudflare_worker": "tabor-lang-013-unicode-script-detector",
+      "status": "live",
+      "available_scope": "Unicode Script counts for 30 named scripts, Common, Inherited and Other.",
+      "route": "/api/tools/013",
+      "method": "POST",
+      "example": {
+        "text": "Tabor שלום 𓀀 𒀀"
+      }
+    },
+    {
+      "id": 14,
+      "group": 1,
+      "title": "Polyglot Search Stemmer",
+      "submitted_scope": "Normalizes inflected verb endings and plural nouns across 30+ languages before querying D1.",
+      "status": "requires_build",
+      "next_dependency": "Language-specific stemming implementations and search-index integration."
+    },
+    {
+      "id": 15,
+      "group": 1,
+      "title": "Transliteration & Romanization Engine",
+      "submitted_scope": "Converts non-Latin scripts (Cyrillic, Greek, Hangul, Katakana, Arabic) into standardized ASCII/Latin phonetics.",
+      "status": "limited",
+      "available_scope": "Library romanization with default mappings; standards and spellings vary by language.",
+      "route": "/api/tools/015",
+      "method": "POST",
+      "example": {
+        "text": "Ελληνικά Кириллица 한글"
+      }
+    },
+    {
+      "id": 16,
+      "group": 1,
+      "title": "Dialect & Regional Slang Normalizer",
+      "submitted_scope": "Maps regional variants (e.g., Levantine vs. Gulf Arabic, Iberian vs. Latin American Spanish) to root lemmas.",
+      "status": "requires_build",
+      "next_dependency": "Dialect-specific lexical tables with regional labels and reviewed examples."
+    },
+    {
+      "id": 17,
+      "group": 2,
+      "title": "DigitalPasts/CuReD",
+      "submitted_scope": "Deep learning OCR and transliteration pipeline for Akkadian and Sumerian cuneiform tablets and museum index cards.",
+      "upstream": {
+        "repo": "DigitalPasts/CuReD",
+        "revision": "d5e211cfb47a62cab5465215ba9fd4f33eca4343",
+        "url": "https://github.com/DigitalPasts/CuReD/tree/d5e211cfb47a62cab5465215ba9fd4f33eca4343",
+        "license": null,
+        "note": "Python/Kraken human-guided OCR for printed cuneiform transliterations."
+      },
+      "status": "upstream_reference",
+      "next_dependency": "A Python/Kraken CPU or GPU OCR service, curated scans, and explicit code/model reuse terms."
+    },
+    {
+      "id": 18,
+      "group": 2,
+      "title": "JamesPiggott/Ancient-Language-Decipherer",
+      "submitted_scope": "Computer vision and NLP framework built to detect, recognize, and translate Egyptian hieroglyphs, Sumerian cuneiform, and Mayan glyphs.",
+      "upstream": {
+        "repo": "JamesPiggott/Ancient-Language-Decipherer",
+        "revision": "64d652db8da6fd58ebff5d6536328cfe0dac3c5e",
+        "url": "https://github.com/JamesPiggott/Ancient-Language-Decipherer/tree/64d652db8da6fd58ebff5d6536328cfe0dac3c5e",
+        "license": null,
+        "note": "TensorFlow 2 research code for Egyptian glyph classification."
+      },
+      "status": "upstream_reference",
+      "next_dependency": "A Python/TensorFlow inference service, its trained artifacts, and explicit reuse terms."
+    },
+    {
+      "id": 19,
+      "group": 2,
+      "title": "Linear B Syllabary Parser",
+      "submitted_scope": "Maps Mycenaean Greek Linear B Unicode characters (U+10000–U+1007F) to syllabic phonetic values.",
+      "source_documentation": "https://www.unicode.org/charts/PDF/U10000.pdf",
+      "status": "live",
+      "available_scope": "Linear B Unicode syllabogram names and readings.",
+      "route": "/api/tools/019",
+      "method": "POST",
+      "example": {
+        "text": "𐀀𐀁"
+      }
+    },
+    {
+      "id": 20,
+      "group": 2,
+      "title": "Proto-Sinaitic & Phoenician Root Mapper",
+      "submitted_scope": "Traces ancient Canaanite/Phoenician abjad glyphs forward into Greek, Latin, Hebrew, and Arabic descendants.",
+      "source_documentation": "https://www.unicode.org/charts/PDF/U10900.pdf",
+      "status": "limited",
+      "available_scope": "Phoenician-to-Hebrew letter correspondences. No historical root reconstruction.",
+      "route": "/api/tools/020",
+      "method": "POST",
+      "example": {
+        "text": "𐤀𐤁𐤂"
+      }
+    },
+    {
+      "id": 21,
+      "group": 2,
+      "title": "Sumerian & Akkadian Cuneiform Unicode Converter",
+      "submitted_scope": "Translates ASCII sign-list transliterations into Unicode Sumero-Akkadian Cuneiform (U+12000–U+123FF).",
+      "source_documentation": "https://oracc.museum.upenn.edu/osl/",
+      "status": "requires_build",
+      "next_dependency": "A versioned sign-list dataset that maps named readings and disambiguates homophones."
+    },
+    {
+      "id": 22,
+      "group": 2,
+      "title": "Biblical Hebrew & Aramaic Strong's Lexicon API",
+      "submitted_scope": "Edge D1 database serving root consonants, morphological parsing, and concordance lookups.",
+      "source_documentation": "https://github.com/openscriptures/morphhb",
+      "status": "requires_build",
+      "next_dependency": "An ingestable lexicon and aligned Hebrew and Aramaic morphology edition with reuse terms."
+    },
+    {
+      "id": 23,
+      "group": 2,
+      "title": "Koine & Ancient Greek Morphological Analyzer",
+      "submitted_scope": "Breaks down classical Greek verb tenses, cases, and root lemmas at the edge.",
+      "status": "requires_build",
+      "next_dependency": "An Ancient Greek morphology lexicon or service and an evaluated ambiguity policy."
+    },
+    {
+      "id": 24,
+      "group": 2,
+      "title": "Classical Latin Declension & Conjugation Engine",
+      "submitted_scope": "Generates full grammatical tables and etymological roots for Latin texts.",
+      "status": "requires_build",
+      "next_dependency": "A Classical Latin inflection lexicon with morphological classes and exceptions."
+    },
+    {
+      "id": 25,
+      "group": 2,
+      "title": "Old Norse & Elder Futhark Runic Transliterator",
+      "submitted_scope": "Converts Old Norse and English text into Elder Futhark, Younger Futhark, and Anglo-Saxon Futhorc runes.",
+      "status": "limited",
+      "available_scope": "Modern Elder Futhark character substitution.",
+      "route": "/api/tools/025",
+      "method": "POST",
+      "example": {
+        "text": "thunder"
+      }
+    },
+    {
+      "id": 26,
+      "group": 2,
+      "title": "Ogham Celtic Tree-Alphabet Encoder",
+      "submitted_scope": "Translates Old Irish inscriptions into Unicode Ogham (U+1680–U+169F) notches.",
+      "status": "live",
+      "available_scope": "Unicode Ogham letter substitution, preserving unsupported characters.",
+      "route": "/api/tools/026",
+      "method": "POST",
+      "example": {
+        "text": "tabor"
+      }
+    },
+    {
+      "id": 27,
+      "group": 2,
+      "title": "Sanskrit Devanagari & IAST Sandhi Splitter",
+      "submitted_scope": "Separates compound Sanskrit words according to classical phonetic sandhi rules.",
+      "status": "requires_build",
+      "next_dependency": "Sanskrit splitter model or sandhi rules with an attested test corpus."
+    },
+    {
+      "id": 28,
+      "group": 2,
+      "title": "Old Church Slavonic & Glagolitic Converter",
+      "submitted_scope": "Converts early Slavic texts between Glagolitic (U+2C00–U+2C5F) and early Cyrillic scripts.",
+      "status": "requires_build",
+      "next_dependency": "An aligned Glagolitic/early Cyrillic mapping with historical variant notes."
+    },
+    {
+      "id": 29,
+      "group": 2,
+      "title": "Ge'ez & Ethiopic Abugida Analyzer",
+      "submitted_scope": "Parses classical Aksumite and liturgical Ge'ez syllabic characters.",
+      "status": "limited",
+      "available_scope": "Ethiopic base series and order for a subset of the basic block.",
+      "route": "/api/tools/029",
+      "method": "POST",
+      "example": {
+        "text": "ሀሁሂ"
+      }
+    },
+    {
+      "id": 30,
+      "group": 2,
+      "title": "Etruscan & Old Italic Inscription Indexer",
+      "submitted_scope": "Maps right-to-left Old Italic Unicode glyphs (U+10300–U+1032F) to attested Etruscan vocabulary.",
+      "source_documentation": "https://www.unicode.org/charts/PDF/U10300.pdf",
+      "status": "limited",
+      "available_scope": "Unicode Old Italic character names. Vocabulary and inscriptions need a corpus.",
+      "route": "/api/tools/030",
+      "method": "POST",
+      "example": {
+        "text": "𐌀𐌁𐌂"
+      }
+    },
+    {
+      "id": 31,
+      "group": 2,
+      "title": "Ugaritic Cuneiform Abjad Decoder",
+      "submitted_scope": "Translates 30-letter Ugaritic cuneiform tablets (U+10380–U+1039F) into Semitic root consonants.",
+      "source_documentation": "https://www.unicode.org/charts/PDF/U10380.pdf",
+      "status": "limited",
+      "available_scope": "Ugaritic letter-by-letter scholarly transcription.",
+      "route": "/api/tools/031",
+      "method": "POST",
+      "example": {
+        "text": "𐎀𐎁𐎂"
+      }
+    },
+    {
+      "id": 32,
+      "group": 2,
+      "title": "Voynich Manuscript & Undeciphered Script Entropy Analyzer",
+      "submitted_scope": "Computes character frequency, Zipf's law curves, and conditional entropy on unknown corpora.",
+      "status": "live",
+      "available_scope": "Unigram and conditional entropy plus ranked frequencies.",
+      "route": "/api/tools/032",
+      "method": "POST",
+      "example": {
+        "text": "ababcababc"
+      }
+    },
+    {
+      "id": 33,
+      "group": 3,
+      "title": "puzzlet/seshat",
+      "submitted_scope": "Programming language and algorithmic interpreter written directly in Ancient Egyptian hieroglyphs.",
+      "upstream": {
+        "repo": "puzzlet/seshat",
+        "revision": "227b2c3e2c49731ca6a81e4a0d79b057bc8daeba",
+        "url": "https://github.com/puzzlet/seshat/tree/227b2c3e2c49731ca6a81e4a0d79b057bc8daeba",
+        "license": "MIT",
+        "note": "Browser interpreter available at the upstream demo.",
+        "demo": "https://puzzlet.github.io/seshat/interpreter.html"
+      },
+      "status": "upstream_reference",
+      "next_dependency": "Upstream web interpreter. Server-side execution is outside this release."
+    },
+    {
+      "id": 34,
+      "group": 3,
+      "title": "nederhof/opentypehiero",
+      "submitted_scope": "Ancient Egyptian hieroglyphic Unicode and OpenType rendering engine for web documents.",
+      "upstream": {
+        "repo": "nederhof/opentypehiero",
+        "revision": "089a8d604b19cb3e5883b03ad1159ba0800a7a8f",
+        "url": "https://github.com/nederhof/opentypehiero/tree/089a8d604b19cb3e5883b03ad1159ba0800a7a8f",
+        "license": "Apache-2.0",
+        "note": "Pinned NewGardiner font asset. Font-production tools require Python.",
+        "asset_license": "OFL-1.1",
+        "asset_license_source": "https://mjn.host.cs.st-andrews.ac.uk/egyptian/fonts/newgardiner.html"
+      },
+      "status": "provider",
+      "available_scope": "OpenTypeHiero pinned NewGardiner font download.",
+      "route": "/api/tools/034",
+      "method": "POST",
+      "example": {}
+    },
+    {
+      "id": 35,
+      "group": 3,
+      "title": "Gardiner Sign-List Lookup Worker",
+      "submitted_scope": "Edge API querying all 1,071 standard Egyptian hieroglyphs by Gardiner code (e.g., A1, G17, N35), phonetic value, or determinative category.",
+      "source_documentation": "https://www.unicode.org/charts/PDF/U13000.pdf",
+      "status": "limited",
+      "available_scope": "Gardiner-code crosswalk to the assigned Egyptian Unicode glyphs.",
+      "route": "/api/tools/035",
+      "method": "POST",
+      "example": {
+        "code": "A1"
+      }
+    },
+    {
+      "id": 36,
+      "group": 3,
+      "title": "Manuel de Codage (MdC) to Unicode Hieroglyph Renderer",
+      "submitted_scope": "Converts ASCII MdC transliteration strings (nfr, ankh, m-n-t) into stacked Unicode Egyptian Hieroglyphs (U+13000–U+1342F).",
+      "status": "limited",
+      "available_scope": "Selected MdC aliases and Gardiner code transliteration.",
+      "route": "/api/tools/036",
+      "method": "POST",
+      "example": {
+        "text": "nfr-ankh-G17"
+      }
+    },
+    {
+      "id": 37,
+      "group": 3,
+      "title": "Egyptian Hieroglyphic Format Controls Quadrats Builder",
+      "submitted_scope": "Uses Unicode format controls (U+13430–U+1345F) to group horizontal and vertical glyphs into authentic square quadrats.",
+      "source_documentation": "https://www.unicode.org/charts/PDF/U13430.pdf",
+      "status": "live",
+      "available_scope": "Unicode Egyptian format controls for explicit rows and quadrat joins.",
+      "route": "/api/tools/037",
+      "method": "POST",
+      "example": {
+        "rows": [
+          [
+            "A1",
+            "N35"
+          ],
+          [
+            "G17"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 38,
+      "group": 3,
+      "title": "Cartouche & Royal Titulary Generator",
+      "submitted_scope": "Wraps phonetic name spellings inside SVG Egyptian royal cartouches with directional orientation.",
+      "status": "limited",
+      "available_scope": "Illustrative SVG cartouche from explicit Gardiner codes.",
+      "route": "/api/tools/038",
+      "method": "POST",
+      "example": {
+        "codes": [
+          "A1",
+          "N35",
+          "X1"
+        ],
+        "direction": "rtl"
+      }
+    },
+    {
+      "id": 39,
+      "group": 3,
+      "title": "Mayan Long Count & Tzolk'in Calendar Converter",
+      "submitted_scope": "Translates Gregorian dates into Mayan Long Count, Haab', and Tzolk'in day-sign glyphs.",
+      "status": "live",
+      "available_scope": "GMT 584283 correlation with numeric Long Count, Tzolk’in and Haab’ labels.",
+      "route": "/api/tools/039",
+      "method": "POST",
+      "example": {
+        "date": "2012-12-21"
+      }
+    },
+    {
+      "id": 40,
+      "group": 3,
+      "title": "Mayan Logosyllabic Block Decoder",
+      "submitted_scope": "Maps Mayan epigraphic catalog codes (Thompson numbers) to phonetic syllables and logograms.",
+      "status": "requires_build",
+      "next_dependency": "An epigraphic catalog and licensed readings with uncertainty labels."
+    },
+    {
+      "id": 41,
+      "group": 3,
+      "title": "Anatolian (Luwian) Hieroglyphic Sign Indexer",
+      "submitted_scope": "Queries Unicode Anatolian Hieroglyphs (U+14400–U+1467F) used across Hittite and Luwian monuments.",
+      "source_documentation": "https://www.unicode.org/charts/PDF/U14400.pdf",
+      "status": "limited",
+      "available_scope": "Unicode Anatolian hieroglyphic names. No epigraphic readings.",
+      "route": "/api/tools/041",
+      "method": "POST",
+      "example": {
+        "text": "𔐀𔐁"
+      }
+    },
+    {
+      "id": 42,
+      "group": 3,
+      "title": "Hieratic & Demotic Cursive Comparative Mapper",
+      "submitted_scope": "Links monumental hieroglyphic signs to their cursive Hieratic and Demotic descendants.",
+      "status": "requires_build",
+      "next_dependency": "A cited crosswalk of Hieratic and Demotic forms, periods and variants."
+    },
+    {
+      "id": 43,
+      "group": 3,
+      "title": "Coptic Script & Egyptian Phonetic Bridge",
+      "submitted_scope": "Maps the 24 Greek-derived and 7 Demotic-derived Coptic letters used by Champollion to decode hieroglyphs.",
+      "status": "requires_build",
+      "next_dependency": "An aligned, cited Coptic-to-Egyptian historical phonology dataset."
+    },
+    {
+      "id": 44,
+      "group": 3,
+      "title": "Rosetta Stone Trilingual Parallel Aligner",
+      "submitted_scope": "Serves aligned segments of Hieroglyphic, Demotic, and Ancient Greek decrees for side-by-side analysis.",
+      "status": "requires_build",
+      "next_dependency": "Three aligned, citable text editions of the Rosetta decree."
+    },
+    {
+      "id": 45,
+      "group": 3,
+      "title": "Determinative & Semantic Classifier Tagging Worker",
+      "submitted_scope": "Identifies silent end-of-word hieroglyphs (god, king, foreign land, water, motion) to disambiguate homophones.",
+      "status": "requires_build",
+      "next_dependency": "An Egyptian lexicon with determinative categories and segmented word examples."
+    },
+    {
+      "id": 46,
+      "group": 4,
+      "title": "Unicode BiDi (UAX #9) Directionality Analyzer",
+      "submitted_scope": "Inspects mixed strings and resolves strong/weak directional runs for Arabic, Hebrew, Syriac, and Thaana.",
+      "source_documentation": "https://www.unicode.org/reports/tr9/",
+      "status": "limited",
+      "available_scope": "UAX #9 embedding levels from bidi-js with Unicode 13 data and UTF-16 offsets.",
+      "route": "/api/tools/046",
+      "method": "POST",
+      "example": {
+        "text": "Tabor שלום 123"
+      }
+    },
+    {
+      "id": 47,
+      "group": 4,
+      "title": "Hieroglyphic Gaze-Direction Detector",
+      "submitted_scope": "Determines whether an Egyptian inscription reads RTL or LTR by checking which way human and animal glyphs face.",
+      "status": "requires_build",
+      "next_dependency": "An orientation-aware glyph font/image or explicit inscription metadata."
+    },
+    {
+      "id": 48,
+      "group": 4,
+      "title": "Boustrophedon (\"As the Ox Plows\") Line Reverser",
+      "submitted_scope": "Formats and parses ancient Greek, Sabaean, and Rongorongo texts where reading direction alternates on every line.",
+      "existing_cloudflare_worker": "tabor-lang-048-boustrophedon",
+      "status": "live",
+      "available_scope": "Reverse alternating lines by grapheme, preserving line separators.",
+      "route": "/api/tools/048",
+      "method": "POST",
+      "example": {
+        "text": "ABC\nA👩‍🚀B\n123"
+      }
+    },
+    {
+      "id": 49,
+      "group": 4,
+      "title": "CSS Logical Properties & HTML dir=\"auto\" Rewriter",
+      "submitted_scope": "Edge HTMLRewriter Worker that automatically injects dir=\"rtl\" and flips margins/paddings for Arabic, Hebrew, Persian, and Urdu.",
+      "status": "limited",
+      "available_scope": "Set dir on the HTML root. CSS conversion is pending.",
+      "route": "/api/tools/049",
+      "method": "POST",
+      "example": {
+        "html": "<html><p>שלום</p></html>",
+        "direction": "rtl"
+      }
+    },
+    {
+      "id": 50,
+      "group": 4,
+      "title": "Mixed RTL/LTR Code-Block Isolator",
+      "submitted_scope": "Wraps inline Latin code snippets and numbers inside <bdi> tags so they never scramble inside right-to-left paragraphs.",
+      "status": "live",
+      "available_scope": "Escaped HTML bdi markup for an LTR fragment.",
+      "route": "/api/tools/050",
+      "method": "POST",
+      "example": {
+        "text": "const n = 42;"
+      }
+    },
+    {
+      "id": 51,
+      "group": 4,
+      "title": "Arabic Diacritics (Tashkeel) Stripper & Vocalizer",
+      "submitted_scope": "Adds or removes vowel markings (fatha, kasra, damma) for search indexing vs. recitation.",
+      "status": "limited",
+      "available_scope": "Remove Arabic-script combining marks. Vocalization requires a separate model.",
+      "route": "/api/tools/051",
+      "method": "POST",
+      "example": {
+        "text": "ٱلسَّلَامُ عَلَيْكُمْ"
+      }
+    },
+    {
+      "id": 52,
+      "group": 4,
+      "title": "Hebrew Niqqud & Cantillation Parser",
+      "submitted_scope": "Strips or preserves vowel points and trope marks in biblical and modern Hebrew texts.",
+      "existing_cloudflare_worker": "tabor-lang-052-hebrew-marks",
+      "status": "live",
+      "available_scope": "Independent filtering of Hebrew vowel and cantillation marks.",
+      "route": "/api/tools/052",
+      "method": "POST",
+      "example": {
+        "text": "בְּרֵאשִׁ֖ית",
+        "remove": "cantillation"
+      }
+    },
+    {
+      "id": 53,
+      "group": 4,
+      "title": "Syriac Estrangela, Serto & Madnhaya Script Switcher",
+      "submitted_scope": "Converts right-to-left Aramaic/Syriac texts across its three classical calligraphic styles.",
+      "status": "limited",
+      "available_scope": "Select a Syriac font family for the three calligraphic styles.",
+      "route": "/api/tools/053",
+      "method": "POST",
+      "example": {
+        "text": "ܫܠܡܐ",
+        "style": "serto"
+      }
+    },
+    {
+      "id": 54,
+      "group": 4,
+      "title": "Traditional Mongolian & Manchu Top-to-Bottom Vertical Renderer",
+      "submitted_scope": "Applies writing-mode: vertical-lr transformations for vertical scripts.",
+      "status": "live",
+      "available_scope": "HTML vertical-lr formatting for supplied text.",
+      "route": "/api/tools/054",
+      "method": "POST",
+      "example": {
+        "text": "ᠮᠣᠩᠭᠣᠯ"
+      }
+    },
+    {
+      "id": 55,
+      "group": 4,
+      "title": "Vertical CJK (Chinese/Japanese) Ruby Furigana Annotator",
+      "submitted_scope": "Formats top-to-bottom, right-to-left columns (writing-mode: vertical-rl) with phonetic ruby guides.",
+      "status": "limited",
+      "available_scope": "HTML vertical ruby markup with a caller-supplied reading.",
+      "route": "/api/tools/055",
+      "method": "POST",
+      "example": {
+        "base": "日本",
+        "reading": "にほん"
+      }
+    },
+    {
+      "id": 56,
+      "group": 4,
+      "title": "Mirror-Glyph & Palindrome Symmetry Checker",
+      "submitted_scope": "Tests character strings for horizontal, vertical, and rotational symmetry across scripts.",
+      "status": "limited",
+      "available_scope": "Grapheme reversal and palindrome test. Geometric glyph symmetry needs font outlines.",
+      "route": "/api/tools/056",
+      "method": "POST",
+      "example": {
+        "text": "Able was I ere I saw Elba"
+      }
+    },
+    {
+      "id": 57,
+      "group": 4,
+      "title": "Arabic & Hebrew Calendar / Numeral Converter",
+      "submitted_scope": "Converts Western digits (0–9) to Eastern Arabic-Indic (٠–٩) and Hebrew gematria numerals.",
+      "status": "limited",
+      "available_scope": "Arabic-Indic digit conversion and Hebrew number text. Calendar conversion is available at #085.",
+      "route": "/api/tools/057",
+      "method": "POST",
+      "example": {
+        "number": 15
+      }
+    },
+    {
+      "id": 58,
+      "group": 5,
+      "title": "HistoryLabs/events-api",
+      "submitted_scope": "Fetches historical and mythological calendar events, births, and antiquity milestones from Wikimedia feeds.",
+      "upstream": {
+        "repo": "HistoryLabs/events-api",
+        "revision": "0adf57bd3db3352caa5971c15e5bbae52befeaf6",
+        "url": "https://github.com/HistoryLabs/events-api/tree/0adf57bd3db3352caa5971c15e5bbae52befeaf6",
+        "license": "MIT",
+        "note": "Go server. Independent Wikimedia feed adapter."
+      },
+      "status": "provider",
+      "available_scope": "Wikimedia On This Day adapter with source article URLs.",
+      "route": "/api/tools/058",
+      "method": "POST",
+      "example": {
+        "date": "2026-11-18",
+        "limit": 5
+      }
+    },
+    {
+      "id": 59,
+      "group": 5,
+      "title": "Wikidata Mythological Entity Graph Worker",
+      "submitted_scope": "Queries SPARQL endpoints for deities, pantheons, sacred animals, parentage, and cultural equivalents.",
+      "source_documentation": "https://www.wikidata.org/",
+      "status": "provider",
+      "available_scope": "Wikidata search and selected sourced relation edges by Q ID.",
+      "route": "/api/tools/059",
+      "method": "POST",
+      "example": {
+        "query": "Thoth",
+        "limit": 5
+      }
+    },
+    {
+      "id": 60,
+      "group": 5,
+      "title": "Cross-Pantheon Syncretism Mapper",
+      "submitted_scope": "Links equivalent archetypes across Sumerian, Egyptian, Greek, Roman, Norse, Hindu, and Mesoamerican traditions (e.g., Thoth–Hermes–Mercury).",
+      "status": "requires_build",
+      "next_dependency": "A citable table distinguishing historically attested syncretism from comparative interpretation."
+    },
+    {
+      "id": 61,
+      "group": 5,
+      "title": "Aarne-Thompson-Uther (ATU) Folktale Motif Classifier",
+      "submitted_scope": "Tags global myths and legends by standardized folklore motif numbers (flood myths, underworld descents, tricksters).",
+      "status": "requires_build",
+      "next_dependency": "A licensed ATU index and reviewed motif/ATU distinction."
+    },
+    {
+      "id": 62,
+      "group": 5,
+      "title": "Hero's Journey & Monomyth Structural Parser",
+      "submitted_scope": "Breaks mythological narratives into Joseph Campbell's 17 archetypal stages using Workers AI.",
+      "status": "requires_build",
+      "next_dependency": "A narrative annotation rubric and model evaluation against human-reviewed examples."
+    },
+    {
+      "id": 63,
+      "group": 5,
+      "title": "Sacred Geography & Ley-Line Coordinate Indexer",
+      "submitted_scope": "Stores ancient temples, megaliths, oracle sites, and ziggurats in D1 with geospatial distance queries.",
+      "status": "requires_build",
+      "next_dependency": "A georeferenced monument gazetteer with citations and coordinate confidence."
+    },
+    {
+      "id": 64,
+      "group": 5,
+      "title": "Archaeoastronomy & Solstice Alignment Calculator",
+      "submitted_scope": "Computes historical star positions, precession of the equinoxes, and solar alignments for ancient monuments.",
+      "status": "requires_build",
+      "next_dependency": "Ephemeris and horizon data with historical precession and uncertainty parameters."
+    },
+    {
+      "id": 65,
+      "group": 5,
+      "title": "Ancient Cosmology & Underworld Realm Mapper",
+      "submitted_scope": "Catalogs structural cosmologies (Duat, Kur, Tartarus, Helheim, Xibalba, Patala) and guardian entities.",
+      "status": "requires_build",
+      "next_dependency": "Primary-source catalog with edition, passage, and cultural attribution."
+    },
+    {
+      "id": 66,
+      "group": 5,
+      "title": "Arthurian, Celtic & Grail Legend Concordance",
+      "submitted_scope": "Indexes medieval manuscripts, characters, and relics across Welsh, Breton, and French sources.",
+      "status": "requires_build",
+      "next_dependency": "Citable Arthurian corpora with variant witnesses and controlled entity names."
+    },
+    {
+      "id": 67,
+      "group": 5,
+      "title": "Norse Edda & Kenning Poetic Decoder",
+      "submitted_scope": "Translates Old Norse poetic metaphors (kennings) into literal mythological referents.",
+      "status": "requires_build",
+      "next_dependency": "An Edda edition paired with a licensed kenning index and referent notes."
+    },
+    {
+      "id": 68,
+      "group": 5,
+      "title": "Vedic & Puranic Sanskrit Epics Graph",
+      "submitted_scope": "Cross-references characters, astras (weapons), and genealogies across the Mahabharata and Ramayana.",
+      "status": "requires_build",
+      "next_dependency": "Source editions and passage-aware link data for Mahabharata, Ramayana and Puranic sources."
+    },
+    {
+      "id": 69,
+      "group": 5,
+      "title": "Mesoamerican Codices & Creation Myth Indexer",
+      "submitted_scope": "Structured API for the Popol Vuh, Borgia Group codices, and Aztec Sun cycles.",
+      "status": "requires_build",
+      "next_dependency": "Codex facsimile and edition metadata with interpretation records linked to provenance."
+    },
+    {
+      "id": 70,
+      "group": 5,
+      "title": "Ancient Monster, Chimera & Bestiary API",
+      "submitted_scope": "Searchable database of mythical creatures, hybrid attributes, and primary classical citations.",
+      "status": "requires_build",
+      "next_dependency": "An indexed bestiary source corpus with primary passage citations."
+    },
+    {
+      "id": 71,
+      "group": 5,
+      "title": "Comparative Flood & Cataclysm Narrative Aligner",
+      "submitted_scope": "Aligns parallel verses across Atrahasis, Gilgamesh Tablet XI, Genesis, Deucalion, and Manu.",
+      "status": "requires_build",
+      "next_dependency": "Comparable editions and manually reviewed segment alignments."
+    },
+    {
+      "id": 72,
+      "group": 5,
+      "title": "Mythological Etymology & English Word-Origin Finder",
+      "submitted_scope": "Traces modern English words back to ancient deity names (e.g., panic, cereal, martial, jovial, atlas).",
+      "status": "requires_build",
+      "next_dependency": "Historical etymology data with dated attestations and references."
+    },
+    {
+      "id": 73,
+      "group": 5,
+      "title": "Oracle & Divination Corpus Engine (I Ching / Runes / Tarot)",
+      "submitted_scope": "Deterministic hexagram and symbol lookup engine backed by classical commentary texts.",
+      "status": "limited",
+      "available_scope": "Lookup the 64 I Ching Unicode hexagrams in King Wen order. Commentary corpora are pending.",
+      "route": "/api/tools/073",
+      "method": "POST",
+      "example": {
+        "number": 1
+      }
+    },
+    {
+      "id": 74,
+      "group": 6,
+      "title": "Gematria & Isopsephy Numerical Calculator",
+      "submitted_scope": "Computes Hebrew Mispar Gadol, Greek Isopsephy, and English Ordinal/Reduction values for any phrase.",
+      "existing_cloudflare_worker": "tabor-lang-074-gematria",
+      "status": "live",
+      "available_scope": "English ordinal and reduction, Hebrew standard and Mispar Gadol, and Greek isopsephy.",
+      "route": "/api/tools/074",
+      "method": "POST",
+      "example": {
+        "text": "Tabor שלום Αλφα"
+      }
+    },
+    {
+      "id": 75,
+      "group": 6,
+      "title": "Classical Cipher Suite Worker (Caesar, Vigenère, Atbash, Enigma)",
+      "submitted_scope": "Encodes, decodes, and brute-forces historical substitution and polyalphabetic ciphers at the edge.",
+      "status": "limited",
+      "available_scope": "Caesar, Atbash and Vigenère encode/decode, plus Caesar candidate listing.",
+      "route": "/api/tools/075",
+      "method": "POST",
+      "example": {
+        "cipher": "caesar",
+        "text": "Tabor",
+        "shift": 3
+      }
+    },
+    {
+      "id": 76,
+      "group": 6,
+      "title": "Steganography Zero-Width Character Encoder/Decoder",
+      "submitted_scope": "Hides and extracts secret payloads inside plain text using invisible Unicode zero-width joiners.",
+      "status": "limited",
+      "available_scope": "Inspect commonly used zero-width and bidirectional control characters.",
+      "route": "/api/tools/076",
+      "method": "POST",
+      "example": {
+        "text": "A​B"
+      }
+    },
+    {
+      "id": 77,
+      "group": 6,
+      "title": "CIA FOIA Reading Room & Declassified Document Searcher",
+      "submitted_scope": "Queries and caches declassified government archives (Project Stargate, MKUltra, UAP files) via public APIs.",
+      "source_documentation": "https://www.cia.gov/readingroom/",
+      "status": "requires_build",
+      "next_dependency": "A documented stable public query endpoint or downloadable government dataset."
+    },
+    {
+      "id": 78,
+      "group": 6,
+      "title": "Historical Conspiracy & Secret Society Knowledge Graph",
+      "submitted_scope": "Maps documented historical organizations, timelines, primary sources, and debunking/verification citations.",
+      "status": "requires_build",
+      "next_dependency": "An evidence model for claims and dated citation records with primary/secondary distinctions."
+    },
+    {
+      "id": 79,
+      "group": 6,
+      "title": "Hermetic, Alchemical & Rosicrucian Symbol Lexicon",
+      "submitted_scope": "Decodes Unicode Alchemical Symbols (U+1F700–U+1F77F) and classical planetary glyphs.",
+      "status": "limited",
+      "available_scope": "Unicode alchemical and planetary symbol identification.",
+      "route": "/api/tools/079",
+      "method": "POST",
+      "example": {
+        "text": "☉ 🜁 🜄"
+      }
+    },
+    {
+      "id": 80,
+      "group": 6,
+      "title": "Sacred Geometry & Golden Ratio (\\\\(\\phi \\\\)) SVG Generator",
+      "submitted_scope": "Generates Metatron's Cube, Flower of Life, Sri Yantra, and Fibonacci spirals dynamically.",
+      "status": "limited",
+      "available_scope": "SVG Flower of Life seed, Metatron-style diagram and golden spiral.",
+      "route": "/api/tools/080",
+      "method": "POST",
+      "example": {
+        "shape": "golden_spiral"
+      }
+    },
+    {
+      "id": 81,
+      "group": 6,
+      "title": "Library of Congress Chronicling America Newspaper Scraper",
+      "submitted_scope": "Searches historical 19th- and early 20th-century newspaper archives for suppressed or forgotten local reports.",
+      "source_documentation": "https://www.loc.gov/apis/additional-apis/chronicling-america-api/",
+      "status": "provider",
+      "available_scope": "Library of Congress page search with date filters and source URLs.",
+      "route": "/api/tools/081",
+      "method": "POST",
+      "example": {
+        "query": "Tabor",
+        "start_date": "1900-01-01",
+        "end_date": "1910-12-31",
+        "limit": 3
+      }
+    },
+    {
+      "id": 82,
+      "group": 6,
+      "title": "Internet Archive Wayback Machine Diff Checker",
+      "submitted_scope": "Compares historical snapshots of web pages to detect silent edits, redactions, or deleted articles.",
+      "source_documentation": "https://github.com/internetarchive/wayback/tree/master/wayback-cdx-server",
+      "status": "provider",
+      "available_scope": "Compare Wayback CDX capture digests. Version content diffs require another stage.",
+      "route": "/api/tools/082",
+      "method": "POST",
+      "example": {
+        "url": "https://example.com/",
+        "from": 2010,
+        "to": 2012,
+        "limit": 4
+      }
+    },
+    {
+      "id": 83,
+      "group": 6,
+      "title": "Anagram & Palindrome Permuter Engine",
+      "submitted_scope": "Finds hidden word rearrangements and phonetic anagrams across multi-word phrases.",
+      "existing_cloudflare_worker": "tabor-lang-083-palindrome",
+      "status": "live",
+      "available_scope": "Unicode-aware palindrome checks and exact normalized anagram comparison.",
+      "route": "/api/tools/083",
+      "method": "POST",
+      "example": {
+        "text": "Tabor",
+        "compare": "Robat"
+      }
+    },
+    {
+      "id": 84,
+      "group": 6,
+      "title": "Biblical & Apocryphal Dead Sea Scrolls Cross-Referencer",
+      "submitted_scope": "Compares canonical verses against Qumran fragments, Enoch, Jubilees, and Nag Hammadi texts.",
+      "source_documentation": "https://www.deadseascrolls.org.il/",
+      "status": "requires_build",
+      "next_dependency": "An authorized verse-to-fragment concordance, with Qumran and Nag Hammadi sources distinguished."
+    },
+    {
+      "id": 85,
+      "group": 6,
+      "title": "Numerology & Calendar Synchronizer (Julian, Gregorian, Hebrew, Hijri, Mayan)",
+      "submitted_scope": "Converts dates simultaneously across seven historical calendar systems to spot date alignments.",
+      "status": "live",
+      "available_scope": "Gregorian, Julian, Hebrew, Islamic civil, Persian, Coptic, Chinese and Maya date views.",
+      "route": "/api/tools/085",
+      "method": "POST",
+      "example": {
+        "date": "2026-11-18"
+      }
+    },
+    {
+      "id": 86,
+      "group": 6,
+      "title": "UFO / UAP Sighting Database (NUFORC / MUFON) Edge API",
+      "submitted_scope": "Geo-indexes historical sighting reports by date, shape, and coordinates in D1.",
+      "status": "requires_build",
+      "next_dependency": "NUFORC and MUFON permissions or authorized data exports with publishable fields."
+    },
+    {
+      "id": 87,
+      "group": 6,
+      "title": "Acoustic Resonance & Solfeggio Frequency Tone Generator",
+      "submitted_scope": "Synthesizes WebAudio / WAV frequency tones (432 Hz, 528 Hz, Schumann 7.83 Hz) directly from Worker responses.",
+      "status": "live",
+      "available_scope": "Generate a 16 kHz PCM WAV sine wave with a short fade at each end.",
+      "route": "/api/tools/087",
+      "method": "POST",
+      "example": {
+        "frequency": 528,
+        "milliseconds": 500
+      }
+    },
+    {
+      "id": 88,
+      "group": 6,
+      "title": "Rumor, Meme & Narrative Propagation Tracker",
+      "submitted_scope": "Analyzes timestamped social/RSS feeds to trace where an idea or theory originated and how it mutated.",
+      "status": "limited",
+      "available_scope": "Chronological timeline from user-supplied RSS 2.0 or Atom XML.",
+      "route": "/api/tools/088",
+      "method": "POST",
+      "example": {
+        "xml": "<rss><channel><item><title>Tabor</title><pubDate>Wed, 18 Nov 2026 12:00:00 GMT</pubDate></item></channel></rss>"
+      }
+    },
+    {
+      "id": 89,
+      "group": 7,
+      "title": "Project Gutenberg EPUB/TXT Edge Ingestor",
+      "submitted_scope": "Streams public-domain classic books, splits them into chapters, and indexes paragraphs into D1.",
+      "source_documentation": "https://www.gutenberg.org/policy/robot_access.html",
+      "status": "provider",
+      "available_scope": "Search Gutenberg metadata via Gutendex or preview supplied TXT paragraphs and SHA-256.",
+      "route": "/api/tools/089",
+      "method": "POST",
+      "example": {
+        "query": "Homer",
+        "limit": 3
+      }
+    },
+    {
+      "id": 90,
+      "group": 7,
+      "title": "Perseus Digital Library Classics XML Parser",
+      "submitted_scope": "Extracts bilingual Greek/Latin and English texts from open classical repositories.",
+      "source_documentation": "https://github.com/PerseusDL/canonical-greekLit",
+      "status": "limited",
+      "available_scope": "Extract TEI paragraphs and verses with XML IDs and language tags from supplied XML.",
+      "route": "/api/tools/090",
+      "method": "POST",
+      "example": {
+        "xml": "<TEI><text xml:lang=\"grc\"><body><p xml:id=\"p1\">λόγος</p></body></text></TEI>"
+      }
+    },
+    {
+      "id": 91,
+      "group": 7,
+      "title": "OpenLibrary & ISBN Metadata Harvester",
+      "submitted_scope": "Enriches book catalogs with publication histories, subjects, and Dewey/LOC call numbers.",
+      "source_documentation": "https://openlibrary.org/dev/docs/api/search",
+      "status": "provider",
+      "available_scope": "Open Library book search by query or ISBN.",
+      "route": "/api/tools/091",
+      "method": "POST",
+      "example": {
+        "isbn": "9780140447934",
+        "limit": 3
+      }
+    },
+    {
+      "id": 92,
+      "group": 7,
+      "title": "ArXiv & Open-Access Linguistics Preprint Crawler",
+      "submitted_scope": "Monitors new academic papers on computational linguistics, decipherment, and archaeology.",
+      "source_documentation": "https://info.arxiv.org/help/api/user-manual.html",
+      "status": "provider",
+      "available_scope": "arXiv Atom search with bounded results.",
+      "route": "/api/tools/092",
+      "method": "POST",
+      "example": {
+        "query": "language decipherment",
+        "limit": 3
+      }
+    },
+    {
+      "id": 93,
+      "group": 7,
+      "title": "Vectorize Semantic Cross-Cultural Search Engine",
+      "submitted_scope": "Embeds texts across 50+ languages into a unified vector space so a query in English retrieves matching ancient Sumerian or Chinese passages.",
+      "source_documentation": "https://developers.cloudflare.com/vectorize/",
+      "status": "requires_build",
+      "next_dependency": "Vectorize index, embedding model, rights-cleared corpus and multilingual relevance evaluation."
+    },
+    {
+      "id": 94,
+      "group": 7,
+      "title": "Entity-Relation Triple Extractor Worker",
+      "submitted_scope": "Uses Workers AI to turn raw historical prose into (Subject) -> [Predicate] -> (Object) graph triples.",
+      "status": "requires_build",
+      "next_dependency": "A provenance-preserving extraction schema and model evaluation with evidence spans."
+    },
+    {
+      "id": 95,
+      "group": 7,
+      "title": "Citation & Provenance Verifier",
+      "submitted_scope": "Cross-checks claims against primary source URLs and attaches immutable SHA-256 content hashes.",
+      "existing_cloudflare_worker": "tabor-lang-095-provenance-sha256",
+      "status": "limited",
+      "available_scope": "SHA-256 of exact bytes or a supplied string. Source claims require independent evaluation.",
+      "route": "/api/tools/095",
+      "method": "POST",
+      "example": {
+        "text": "Tabor"
+      }
+    },
+    {
+      "id": 96,
+      "group": 8,
+      "title": "Noto Sans Universal Fallback Font Subsetter",
+      "submitted_scope": "Dynamically subsets and serves Google Noto fonts for rare scripts (Cuneiform, Hieroglyphs, Linear B, Gothic) so browsers never render missing □ boxes.",
+      "source_documentation": "https://notofonts.github.io/",
+      "status": "limited",
+      "available_scope": "Noto stylesheet pointers for five rare scripts. Dynamic file subsetting is pending.",
+      "route": "/api/tools/096",
+      "method": "POST",
+      "example": {
+        "script": "egyptian"
+      }
+    },
+    {
+      "id": 97,
+      "group": 8,
+      "title": "SVG Stone-Carving & Papyrus Texture Renderer",
+      "submitted_scope": "Renders ancient inscriptions onto realistic limestone, clay tablet, or papyrus SVG cards.",
+      "status": "live",
+      "available_scope": "Decorative stone, clay, or papyrus inscription SVG.",
+      "route": "/api/tools/097",
+      "method": "POST",
+      "example": {
+        "text": "𓀀 𓈖",
+        "material": "papyrus"
+      }
+    },
+    {
+      "id": 98,
+      "group": 8,
+      "title": "Interactive Stroke-Order & Glyph Anatomy Visualizer",
+      "submitted_scope": "Generates animated SVG stroke paths for Chinese characters, Hangul jamo, and Arabic ligatures.",
+      "status": "limited",
+      "available_scope": "Animated stroke diagrams for four Chinese characters.",
+      "route": "/api/tools/098",
+      "method": "POST",
+      "example": {
+        "glyph": "三"
+      }
+    },
+    {
+      "id": 99,
+      "group": 8,
+      "title": "Side-by-Side Paleography Comparison Grid",
+      "submitted_scope": "Displays how a single letterform (e.g., Aleph / Alpha / A) evolved visually over 4,000 years.",
+      "status": "limited",
+      "available_scope": "Side-by-side glyph forms for Aleph and Beth.",
+      "route": "/api/tools/099",
+      "method": "POST",
+      "example": {
+        "letter": "aleph"
+      }
+    },
+    {
+      "id": 100,
+      "group": 8,
+      "title": "Audio Pronunciation & TTS Reader Worker",
+      "submitted_scope": "Synthesizes spoken audio for foreign and reconstructed ancient words via edge TTS endpoints.",
+      "source_documentation": "https://developers.cloudflare.com/workers-ai/models/aura-2-en/",
+      "status": "owner",
+      "available_scope": "Authenticated English and Spanish Workers AI TTS. Ancient phonetic reconstructions require a separate source.",
+      "route": "/api/tools/100",
+      "method": "POST",
+      "example": {
+        "text": "Good morning",
+        "language": "en"
+      }
+    },
+    {
+      "id": 101,
+      "group": 8,
+      "title": "Universal Polyglot Knowledge Gateway",
+      "submitted_scope": "Master dispatch Worker that routes any query through language detection, script directionality (RTL/LTR), ancient root lookup, and mythological cross-referencing in a single API call.",
+      "status": "limited",
+      "available_scope": "Combine script counts, bidi levels, optional language-code lookup and relevant shelf routes.",
+      "route": "/api/tools/101",
+      "method": "POST",
+      "example": {
+        "text": "Tabor שלום 𓀀",
+        "language": "eng"
+      }
+    }
+  ]
+}
