@@ -29,6 +29,10 @@ The first pass searched maintained apps, standalone apps, documentation, data, a
 | The Modern Day Bible | A visible Protect Innocence study path into the KJV reader and charter alongside the original story library. |
 | WEAPON XXX, Agents of Innocence, Children’s Books & Innocence Protection, Innocence Matrix, Church of Innocence | Existing source pages already state protection in their opening content or title. Their source wording remains the reference for any subsequent workflow changes. |
 
-The Bible Topia and Library Worker overlays affect designated HTML responses. The app data, existing consent checkbox, browser saves, database access, and private APIs remain under their original code. The “no missing children” phrase is a creator direction, with no new simulation mechanic inferred from it.
+The Bible Topia and Library Worker overlays affect designated HTML responses. Four Cloudflare surfaces were verified live. The Bible Topia page matches its previous release byte for byte with the two insertions removed, the Library reports 101 entries, and the portfolio still publishes its 398 original registrations. The app data, existing consent checkbox, browser saves, database access, and private APIs remain under their original code. The “no missing children” phrase is a creator direction, with no new simulation mechanic inferred from it.
+
+The portfolio scan inspected the text of 386 tracked HTML entries and found direct protection wording in 24, including the restored Modern Day Bible. The other 12 entries are hosted routes without a static path. This scan locates wording for inspection. It cannot establish a missing purpose or verify gameplay.
 
 Next review: the wider app and archive inventory. Trace the original purpose by project before editing, then record which launch, rules, progression, or published descriptions were checked.
+
+For releases, the standalone Bible Topia Worker imports the existing app Worker, then calls `withProtection(original, "bibletopia")` from [the overlay module](../app-factory/protect-innocence/releases.mjs). Future Library builds use the section in their checked-in HTML. This live Library release adds the same section through its overlay.
