@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "mode": "continuous-budget-aware",
+  "description": "Operate continuously on useful work, not synthetic quota consumption.",
+  "execution": {
+    "micro": "Cloudflare Cron and Queues",
+    "macro": "GitHub Actions",
+    "chatgpt": "high-level oversight only",
+    "batch_size": 20,
+    "max_parallel_batches": 4,
+    "cron": "*/5 * * * *",
+    "scheduling_note": "Use one shared dispatcher rather than per-Worker crons; raise frequency only after monitoring."
+  },
+  "budgets": {
+    "monthly_requests": {
+      "assumed_included": 10000000,
+      "verify_against_account": true
+    },
+    "monthly_cpu_ms": {
+      "assumed_included": 30000000,
+      "verify_against_account": true
+    },
+    "safety_headroom_percent": 20,
+    "external_api_429_policy": "respect Retry-After, exponential backoff with jitter",
+    "max_retry_attempts": 4,
+    "rate_limits": "per-provider token buckets; no fixed 231/min target",
+    "spend_limit": "verify available Cloudflare controls; do not assume hard zero-dollar cap exists"
+  },
+  "priority": [
+    "failed-job recovery",
+    "live service health",
+    "catalog verification in batches of 20",
+    "license and security review",
+    "authorized builds and deployments"
+  ],
+  "states": [
+    "discovered",
+    "queued",
+    "verifying",
+    "verified",
+    "blocked",
+    "failed",
+    "retrying",
+    "completed"
+  ],
+  "audit": {
+    "d1": "operational state",
+    "r2": "optional long-term immutable-style archive with access controls",
+    "github": "versioned code and configuration",
+    "never_claim": "a discovered candidate is deployed"
+  },
+  "security": {
+    "authentication": "COCKPIT_KEY secret or Cloudflare Access",
+    "secrets": "never commit API tokens",
+    "write_actions": "approved allowlisted resources only",
+    "prohibited": "unauthorized external network scans or deployment into third-party infrastructure"
+  },
+  "known_gaps": [
+    "Worker deployment and binding verification",
+    "billing/usage API coverage and actual entitlements",
+    "automated cost feedback",
+    "external source ingestion",
+    "end-to-end queue consumer testing"
+  ]
+}
