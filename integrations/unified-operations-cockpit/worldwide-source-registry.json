@@ -1,0 +1,163 @@
+{
+  "title": "Nathan AI worldwide free/open-source candidate discovery",
+  "purpose": "Catalog source registries for review and batch ingestion; not a list of installed programs.",
+  "source_count": 14,
+  "prior_user_inventory": {
+    "public_repository_candidates_reported": 205,
+    "logical_supercomputer_slots_reported": 1000,
+    "interpretation": "Historical inventories require revalidation; slots are not physical machines."
+  },
+  "pipeline": [
+    "source discovery",
+    "retrieve metadata in pages of 20",
+    "canonical deduplication",
+    "license and cost classification",
+    "security and maintenance review",
+    "Cloudflare/GitHub compatibility assessment",
+    "dry-run build",
+    "authorized installation",
+    "runtime verification"
+  ],
+  "records": [
+    {
+      "id": "official-mcp",
+      "name": "Official MCP Registry",
+      "url": "https://registry.modelcontextprotocol.io/",
+      "category": "mcp-servers",
+      "scale": "public registry",
+      "license": "license and execution cost per item",
+      "stage": "source_discovered",
+      "installed": false
+    },
+    {
+      "id": "mcp-canonical",
+      "name": "MCP ecosystem canonical snapshot",
+      "url": "https://huggingface.co/datasets/BIFF-AI/mcptoplist",
+      "category": "mcp-servers",
+      "scale": "186049 reported records (2026-11-17)",
+      "license": "dataset CC BY 4.0; software licenses per item",
+      "stage": "source_discovered",
+      "installed": false
+    },
+    {
+      "id": "mcp-census",
+      "name": "MCP GitHub npm PyPI census",
+      "url": "https://huggingface.co/datasets/Mr-Bridge/mcp-servers-github-npm-pypi-2026",
+      "category": "repositories-and-packages",
+      "scale": "112951 reported records (2026-09)",
+      "license": "licenses and cost per item",
+      "stage": "source_discovered",
+      "installed": false
+    },
+    {
+      "id": "github-topics",
+      "name": "GitHub topic catalog",
+      "url": "https://github.com/topics",
+      "category": "repositories",
+      "scale": "unbounded",
+      "license": "licenses per repository",
+      "stage": "source_discovered",
+      "installed": false
+    },
+    {
+      "id": "cncf",
+      "name": "CNCF Landscape",
+      "url": "https://landscape.cncf.io/",
+      "category": "cloud-native-projects",
+      "scale": "unbounded",
+      "license": "licenses per project",
+      "stage": "source_discovered",
+      "installed": false
+    },
+    {
+      "id": "artifact-hub",
+      "name": "Artifact Hub",
+      "url": "https://artifacthub.io/",
+      "category": "cloud-native-packages",
+      "scale": "unbounded",
+      "license": "licenses per package",
+      "stage": "source_discovered",
+      "installed": false
+    },
+    {
+      "id": "ros-index",
+      "name": "ROS Index",
+      "url": "https://index.ros.org/",
+      "category": "robotics-packages",
+      "scale": "unbounded",
+      "license": "licenses per package",
+      "stage": "source_discovered",
+      "installed": false
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face Hub",
+      "url": "https://huggingface.co/",
+      "category": "models-datasets-spaces",
+      "scale": "unbounded",
+      "license": "model/data licenses and compute costs",
+      "stage": "source_discovered",
+      "installed": false
+    },
+    {
+      "id": "actions",
+      "name": "GitHub Actions Marketplace",
+      "url": "https://github.com/marketplace?type=actions",
+      "category": "ci-automation",
+      "scale": "unbounded",
+      "license": "licenses and service costs per action",
+      "stage": "source_discovered",
+      "installed": false
+    },
+    {
+      "id": "npm",
+      "name": "npm Registry",
+      "url": "https://www.npmjs.com/",
+      "category": "javascript-packages",
+      "scale": "unbounded",
+      "license": "licenses per package",
+      "stage": "source_discovered",
+      "installed": false
+    },
+    {
+      "id": "pypi",
+      "name": "PyPI",
+      "url": "https://pypi.org/",
+      "category": "python-packages",
+      "scale": "unbounded",
+      "license": "licenses per package",
+      "stage": "source_discovered",
+      "installed": false
+    },
+    {
+      "id": "opentofu",
+      "name": "OpenTofu Registry",
+      "url": "https://search.opentofu.org/",
+      "category": "infrastructure-modules",
+      "scale": "unbounded",
+      "license": "licenses and provider costs",
+      "stage": "source_discovered",
+      "installed": false
+    },
+    {
+      "id": "docker",
+      "name": "Docker Hub",
+      "url": "https://hub.docker.com/",
+      "category": "container-images",
+      "scale": "unbounded",
+      "license": "licenses and execution costs",
+      "stage": "source_discovered",
+      "installed": false
+    },
+    {
+      "id": "open-vsx",
+      "name": "Open VSX Registry",
+      "url": "https://open-vsx.org/",
+      "category": "developer-extensions",
+      "scale": "unbounded",
+      "license": "licenses per extension",
+      "stage": "source_discovered",
+      "installed": false
+    }
+  ]
+}
