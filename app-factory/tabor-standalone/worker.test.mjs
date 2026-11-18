@@ -6,7 +6,7 @@ const {default:worker}=await import("./.release/worker.mjs");
 const read=(url,method="GET")=>worker.fetch(new Request("https://standalone.example"+url,{method}));
 
 test("all 101 standalone games have their own runnable route and install identity",async()=>{
-  const games=data.items.filter(x=>x.type==="games");
+  const games=data.items.filter(x=>x.mode==="playable");
   assert.equal(games.length,101);
   const scopes=new Set();
   for(const entry of games){
@@ -67,10 +67,22 @@ test("release metadata is consistent and searching preserves accessible server-r
   const receipt=await (await read("/api/health")).json();
   assert.deepEqual(receipt.counts,data.counts);
   const catalog=await (await read("/api/catalog")).json();
-  assert.equal(catalog.items.length,593);
+  assert.equal(catalog.items.length,653);
   assert.ok(catalog.items.every(x=>!Object.hasOwn(x,"html")&&!Object.hasOwn(x,"words")));
   const search=await (await read("/books/?q=The+Ford+Stone")).text();
   assert.match(search,/2 entries/);
   assert.equal((await read("/api/catalog","POST")).status,405);
   assert.equal(await (await read("/games/atlas-001/","HEAD")).text(),"");
+});
+
+test("published portfolio pages and arcade boards have distinct launch URLs",async()=>{
+  const siteRows=data.items.filter(x=>x.deployment);
+  assert.equal(new Set(siteRows.map(x=>x.deployment)).size,386);
+  const site=await read("/sites/"+siteRows[0].id+"/");
+  assert.match(await site.text(),/Open on Cloudflare/);
+  const boards=data.items.filter(x=>x.mode==="arcade-board");
+  assert.equal(new Set(boards.map(x=>x.source)).size,60);
+  assert.match(await (await read("/games/toss-horseshoes/")).text(),/chassis\?game=horseshoes/);
+  assert.equal((await read("/games/toss-horseshoes/manifest.webmanifest")).status,404);
+  assert.match(await (await read("/collections/toss-target/")).text(),/60 entries/);
 });
