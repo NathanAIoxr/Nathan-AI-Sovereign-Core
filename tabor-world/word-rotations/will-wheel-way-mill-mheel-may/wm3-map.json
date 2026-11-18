@@ -1,0 +1,95 @@
+{
+  "name": "TABOR W M 3 Rotation — Triple Triplet Nine Node",
+  "version": "2026-11-18",
+  "tag": "CONTINUE BUILDING",
+  "families": [
+    [
+      "WILL",
+      "WHEEL",
+      "WAY"
+    ],
+    [
+      "MILL",
+      "MHEEL",
+      "MAY"
+    ],
+    [
+      "3ILL",
+      "3HEEL",
+      "3AY"
+    ]
+  ],
+  "columns": [
+    [
+      "WILL",
+      "MILL",
+      "3ILL"
+    ],
+    [
+      "WHEEL",
+      "MHEEL",
+      "3HEEL"
+    ],
+    [
+      "WAY",
+      "MAY",
+      "3AY"
+    ]
+  ],
+  "rotation": {
+    "symbols": [
+      "W",
+      "M",
+      "3"
+    ],
+    "operation": "symbolic leading-glyph rotation/substitution",
+    "reversible": true,
+    "notLiteralGeometry": "Glyph orientation depends on font; W→3 is a designed symbol mapping, not a universal typographic rotation."
+  },
+  "nodes": {
+    "3ILL": {
+      "title": "Three Ills",
+      "branches": [
+        "ill-one",
+        "ill-two",
+        "ill-three"
+      ],
+      "meaning": "Three distinct types of ills; classifications remain user-definable"
+    },
+    "3HEEL": {
+      "title": "Three Heels / Three Feet",
+      "branches": [
+        "heel-one",
+        "heel-two",
+        "heel-three"
+      ],
+      "meaning": "Three heels and three feet, linked to movement, contact and door mechanics"
+    },
+    "3AY": {
+      "title": "SUP Head Node",
+      "branches": [
+        "thug",
+        "pirate",
+        "spartan"
+      ],
+      "role": "head-node",
+      "parent": "SUP",
+      "meaning": "User-defined Thug–Pirate–Spartan character/role triad"
+    }
+  },
+  "connections": [
+    "Tabor Word Rotations",
+    "Tabor Universal Digital Hardware",
+    "Universal Finger Physics",
+    "Tabor Track Baller",
+    "Tabor World Hub",
+    "Nathan AI Agent Mesh",
+    "SUP family"
+  ],
+  "project_policy": {
+    "each_node_standalone": true,
+    "each_triplet_standalone": true,
+    "all_nine_integrated": true,
+    "retain_prior_six": true
+  }
+}
