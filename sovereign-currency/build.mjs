@@ -12,12 +12,14 @@ for (const name of ["coin-families.json", "additional-coins.json", "conspectus.j
 assets["index.html"] = assets["index.html"]
   .replace(/<link[^>]+(?:data-nathan-shared-appearance|data-nathan-command-center)[^>]*>|<script\b[^>]*\bsrc="\.\.\/[^"]+"[^>]*><\/script>/g, "")
   .replace(/href="(\.\.?\/[^"]+)"/g, (attr, href) => href === "./style.css" ? attr : 'href="' + new URL(href, publicSource).href + '"')
-  .replace("<body>", '<body><p><a href="https://tabor-world.nathantaboract.workers.dev/">Tabor World Hub</a> · <a href="/coins">All coin families</a> · <a href="/api/genesis">Run genesis verification</a> · <a href="/api/quantum/execute">Run Sovereign Core</a></p>');
+  .replace("<body>", '<body><p><a href="https://tabor-world.nathantaboract.workers.dev/">Tabor World Hub</a> · <a href="/coins">All coin families</a> · <a href="/api/genesis">Run genesis verification</a> · <a href="/api/quantum/execute">Run Sovereign Core</a> · <a href="/switchboard">Sovereign Edge Switchboard</a></p>');
 const worker = await readFile(new URL("worker.mjs", import.meta.url), "utf8");
 const catalog = await readFile(new URL("catalog.mjs", import.meta.url), "utf8");
 const quantum = await readFile(new URL("quantum.mjs", import.meta.url), "utf8");
+const switchboard = await readFile(new URL("switchboard.mjs", import.meta.url), "utf8");
 const bundle = worker
   .replace('import { assets } from "./assets.mjs";', () => "const assets = " + JSON.stringify(assets) + ";")
   .replace('import { makeCatalog, catalogPage } from "./catalog.mjs";', () => catalog)
-  .replace('import { runThreePhases } from "./quantum.mjs";', () => quantum);
+  .replace('import { runThreePhases } from "./quantum.mjs";', () => quantum)
+  .replace('import { switchboardPage, switchboardReceipt } from "./switchboard.mjs";', () => switchboard);
 await writeFile(new URL("dist.mjs", import.meta.url), bundle);

@@ -3,6 +3,8 @@ import { makeCatalog, catalogPage } from "./catalog.mjs";
 
 import { runThreePhases } from "./quantum.mjs";
 
+import { switchboardPage, switchboardReceipt } from "./switchboard.mjs";
+
 const quantumDesign = JSON.parse(assets["quantum-design.json"]);
 const catalog = makeCatalog(assets);
 
@@ -52,15 +54,29 @@ const security = {
   "Content-Security-Policy": "default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
 };
 
+const execute = () => runThreePhases(quantumDesign, genesisPrefix, hashHeader, JSON.parse(assets["registry.json"]));
+
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname;
     const head = request.method === "HEAD";
-    if (request.method !== "GET" && !head) return new Response(null, { status: 405, headers: { Allow: "GET, HEAD" } });
+    const receiptPath = path === "/api/quantum/receipt";
+    const allowed = receiptPath ? ["GET", "HEAD", "POST"] : ["GET", "HEAD"];
+    if (!allowed.includes(request.method)) return new Response(null, { status: 405, headers: { Allow: allowed.join(", ") } });
     const send = (value, type, status = 200) => new Response(head ? null : value, {
       status, headers: { ...security, "Content-Type": type + "; charset=utf-8", "Cache-Control": "no-cache" }
     });
+    if (receiptPath) {
+      if (!env?.SWITCHBOARD_DB) return send(JSON.stringify({ error: "Receipt store unavailable" }), "application/json", 503);
+      try {
+        const receipt = await switchboardReceipt(request, env.SWITCHBOARD_DB, execute);
+        return send(JSON.stringify(receipt ?? { error: "Run the fixture to create a receipt" }), "application/json", receipt ? 200 : 404);
+      } catch {
+        return send(JSON.stringify({ error: "Receipt store unavailable" }), "application/json", 503);
+      }
+    }
+    if (path === "/switchboard") return send(switchboardPage(), "text/html");
     if (path === "/coins" || path === "/coins/") {
       return send(catalogPage(catalog, (url.searchParams.get("q") ?? "").slice(0, 120).trim()), "text/html");
     }
@@ -69,7 +85,7 @@ export default {
     if (path === "/catalog.css") return send(assets["catalog.css"], "text/css");
     if (path === "/api/quantum/traits") return send(JSON.stringify(quantumDesign.traits), "application/json");
     if (path === "/api/quantum/execute") {
-      const result = await runThreePhases(quantumDesign, genesisPrefix, hashHeader, JSON.parse(assets["registry.json"]));
+      const result = await execute();
       return send(JSON.stringify(result), "application/json");
     }
     if (path === "/api/genesis") {

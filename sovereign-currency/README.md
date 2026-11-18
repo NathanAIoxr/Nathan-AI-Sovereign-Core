@@ -21,3 +21,9 @@ The historical crosswalk is preserved in `coin_systems_and_values.csv`. `tabor_w
 `GET /api/quantum/execute` runs the three-phase BLACK_NOTE isolation, bounded backwards and XOR-complement nonce scan, and neutral restoration of WHITE_NOTES and flat indices 0–3. It reports 64 classical SHA-256d evaluations on the historical Bitcoin genesis prefix and references the attached 21-ring registry. `GET /api/quantum/traits` returns the original hardware and network design parameters.
 
 Run `python3 sovereign-currency/nathan_ai_quantum_miner.py` for the repaired Python reference. Its three phases share one SQLite connection. The Cloudflare endpoint is stateless. Both use classical hashing. The hardware, grid and Stratum values are design parameters.
+
+## D1 Edge Switchboard
+
+Apply `switchboard.sql` to the `nathan-ai-sovereign-db` D1 database and bind it as `SWITCHBOARD_DB`. The `/switchboard` page runs the fixed historical fixture through `POST /api/quantum/receipt`. D1 retains one idempotent receipt per fixture version, retrievable via GET. The endpoint accepts no custom payload. The original live scan remains at `GET /api/quantum/execute`.
+
+The switchboard uses Light for linear traversal, Dark for circular traversal, Slayer for clearing a demo cell (0), and Sleyer for copying a bit to the next demo cell (1). SIN and SEN are registry references in the fixture. The gates operate on an isolated demo register.
