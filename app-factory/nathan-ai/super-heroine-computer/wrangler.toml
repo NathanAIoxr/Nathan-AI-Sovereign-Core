@@ -21,9 +21,17 @@ class_name = "ComputeCoordinator"
 name = "REPLICAS"
 class_name = "ComputeReplica"
 
+[[durable_objects.bindings]]
+name = "ARCHIVE"
+class_name = "ReceiptArchive"
+
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["ComputeCoordinator", "ComputeReplica"]
+
+[[migrations]]
+tag = "v2"
+new_sqlite_classes = ["ReceiptArchive"]
 
 [[services]]
 binding = "FEDERATION"

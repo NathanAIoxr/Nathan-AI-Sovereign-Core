@@ -18,6 +18,8 @@ Cloudflare Cron starts a new generation every five minutes in UTC, with no end d
 
 A generation runs the integer tensor, classical Bell statevector, and synthetic Library of Tabor retrieval workloads. Duplicate cron deliveries use a unique slot and lease. Failed replicas retry on subsequent ticks, with up to five attempts per generation. A failed generation or a mismatch does not stop later generations. For retries that outlive a lease, a fenced attempt number prevents stale workers from updating the final receipt. After a scheduler outage, the next tick starts a new generation and resumes recorded pending work. Missed time slots without records are skipped.
 
+Verified generations are also copied to a separate SQLite-backed Durable Object namespace, split into 16 archive shards. Each scheduled tick prioritizes the current cycle and backfills up to five other eligible receipts when the current cycle is ready. Failed archive writes are retried after an hour. The archive recomputes the result hash, checks the three matching replica hashes, and stores a digest over the combined receipt and artifact. Copies are accessible for 90 days, even after the 30-day working retention has elapsed. Both storage paths use Cloudflare.
+
 ## Routes
 
 | Method | Route | Purpose |
@@ -27,9 +29,12 @@ A generation runs the integer tensor, classical Bell statevector, and synthetic 
 | GET | `/v1/architecture` | Live architecture from the existing federation service |
 | GET | `/v1/receipts/cycle-<slot>` | Generation verification, attempts, and per-copy hashes |
 | GET | `/v1/results/cycle-<slot>` | Verified artifact, with fallback to the other stored copies |
+| GET | `/v1/archives/cycle-<slot>` | Independently readable archive record containing receipt, artifact, and archive SHA-256 |
 | POST | `/v1/operator/tick` | Start or retry the current slot with an operator bearer token if configured |
 
 The public routes expose only synthetic workload data. Receipts are SHA-256 integrity records for the JSON manifest and results. The scheduled workload runs on Cloudflare CPUs. The Bell trial is a classical simulation.
+
+The receipt and result routes fall back to a verified archive after working copies or the live coordinator become unavailable. The archive route reads and verifies the archival copy directly. It does not require a live coordinator or working replica.
 
 ## Run and validate
 

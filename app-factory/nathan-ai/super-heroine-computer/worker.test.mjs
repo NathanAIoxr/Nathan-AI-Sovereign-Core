@@ -13,7 +13,7 @@ const hooks = registerHooks({
     }
   },
 })
-const { default: worker, ComputeCoordinator, ComputeReplica } = await import('./worker.mjs')
+const { default: worker, ComputeCoordinator, ComputeReplica, ReceiptArchive } = await import('./worker.mjs')
 hooks.deregister()
 
 function context(t) {
@@ -47,7 +47,11 @@ function runtime(t) {
   let control = new ComputeCoordinator(state, env)
   env.COORDINATOR = { getByName: () => control }
   env.REPLICAS = { getByName: name => copies[name] }
-  return { env, copies, state, coordinator: () => control, restart: () => { control = new ComputeCoordinator(state, env) } }
+  const archiveState = context(t)
+  const archive = new ReceiptArchive(archiveState, env)
+  const enableArchive = () => { env.ARCHIVE = { getByName: () => archive } }
+  return { env, copies, state, archiveState, archive, enableArchive,
+    coordinator: () => control, restart: () => { control = new ComputeCoordinator(state, env) } }
 }
 
 const url = path => new URL(path, 'https://super-heroine.example')
@@ -123,4 +127,46 @@ test('public traffic can read status and cannot start work without the operator 
   assert.equal((await tick(env.OPERATOR_TOKEN)).status, 200)
   assert.equal(coordinator().status().verified_cycles, 1)
   assert.equal((await worker.fetch(new Request(url('/')), env)).status, 200)
+})
+
+test('a scheduled tick archives new and prior runs, and the archive serves them on its own', async t => {
+  const { env, copies, state, enableArchive } = runtime(t)
+  const slot = currentSlot()
+  await worker.scheduled({ scheduledTime: slot - intervalMs }, env)
+  enableArchive()
+  await Promise.all([worker.scheduled({ scheduledTime: slot }, env), worker.scheduled({ scheduledTime: slot }, env)])
+  const get = path => worker.fetch(new Request(url(path)), env)
+  const original = await (await get('/v1/status')).json()
+  assert.equal(original.archived_cycles, 2)
+  assert.equal(original.archive_retention_days, 90)
+  assert.ok(original.recent.every(row => row.archived))
+  const id = 'cycle-' + (slot - intervalMs)
+  const archive = await (await get('/v1/archives/' + id)).json()
+  assert.equal(archive.archive_sha256, await digest({ receipt: archive.receipt, result: archive.result }))
+  for (const name of replicas) copies[name].stored = () => null
+  assert.deepEqual(await (await get('/v1/results/' + id)).json(), archive.result)
+  state.storage.sql.exec('DELETE FROM cycles WHERE slot = ?', slot - intervalMs)
+  assert.deepEqual(await (await get('/v1/receipts/' + id)).json(), { status: 'verified', evidence: archive.receipt })
+  env.COORDINATOR.getByName = () => { throw new Error('simulated coordinator outage') }
+  assert.deepEqual(await (await get('/v1/results/' + id)).json(), archive.result)
+})
+
+test('archive failures retry, and a corrupt stored artifact is never returned', async t => {
+  const { env, state, archive, archiveState, coordinator, enableArchive } = runtime(t)
+  const slot = currentSlot()
+  enableArchive()
+  const store = archive.store.bind(archive)
+  archive.store = () => { throw new Error('simulated archive outage') }
+  await worker.scheduled({ scheduledTime: slot }, env)
+  assert.equal(coordinator().status().verified_cycles, 1)
+  assert.equal(coordinator().status().archived_cycles, 0)
+  state.storage.sql.exec('UPDATE archive_index SET retry_at = 0')
+  archive.store = store
+  await worker.scheduled({ scheduledTime: slot }, env)
+  assert.equal(coordinator().status().archived_cycles, 1)
+  const stored = await archive.read(slot)
+  stored.result.results[0].values[0][0]++
+  archiveState.storage.sql.exec('UPDATE archived_cycles SET record = ? WHERE slot = ?', JSON.stringify(stored), slot)
+  const response = await worker.fetch(new Request(url('/v1/archives/cycle-' + slot)), env)
+  assert.equal(response.status, 503)
 })
