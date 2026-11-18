@@ -1,11 +1,34 @@
 name = "unified-operations-cockpit"
 main = "src/worker.js"
 compatibility_date = "2026-11-18"
+
+# Existing cockpit ledger (preserves 4,131 previously indexed records).
 [[d1_databases]]
 binding = "DB"
 database_name = "nathan-ai-cockpit-ledger"
 database_id = "ee93da4e-7d2d-4440-9dfc-ce4b6cdbdb3c"
+
+[[d1_databases]]
+binding = "GLOBAL_DB"
+database_name = "tabor-global-import-catalog"
+database_id = "6ff28930-62b4-416e-89ee-a2c3f985730a"
+
+[[d1_databases]]
+binding = "FLEET_DB"
+database_name = "tabor-fleet-registry"
+database_id = "00e422eb-5222-4892-8f90-74aaf8ab0518"
+
+[[d1_databases]]
+binding = "MASTER_DB"
+database_name = "nathan-ai-global-catalog"
+database_id = "1889fb08-9b26-45b9-8a71-f22a6ee3fc66"
+
+[[dispatch_namespaces]]
+binding = "PLATFORMS"
+namespace = "nathan-tabor-platforms"
+
 [triggers]
 crons = ["*/5 * * * *"]
-# Mutating endpoints require CONTROL_TOKEN stored as a Worker secret.
-# GH_PAT, GH_OWNER and GH_REPO are also Worker secrets, never plaintext.
+
+# Secrets: COCKPIT_KEY, GH_PAT, GH_OWNER, GH_REPO.
+# Optional secret: ALLOWED_DISPATCH_SCRIPTS (comma-separated, explicit allowlist).
