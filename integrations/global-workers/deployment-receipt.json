@@ -1,0 +1,95 @@
+{
+  "verified_utc": "2026-11-18T18:14:29.436410+00:00",
+  "workers": [
+    {
+      "name": "tabor-global-json-response",
+      "url": "https://tabor-global-json-response.nathantaboract.workers.dev/",
+      "status": 200,
+      "functional_check": "passed"
+    },
+    {
+      "name": "tabor-global-html-response",
+      "url": "https://tabor-global-html-response.nathantaboract.workers.dev/",
+      "status": 200,
+      "functional_check": "passed"
+    },
+    {
+      "name": "tabor-global-bulk-redirects",
+      "url": "https://tabor-global-bulk-redirects.nathantaboract.workers.dev/redirects",
+      "status": 200,
+      "functional_check": "passed"
+    },
+    {
+      "name": "tabor-global-security-headers",
+      "url": "https://tabor-global-security-headers.nathantaboract.workers.dev/",
+      "status": 200,
+      "functional_check": "passed"
+    },
+    {
+      "name": "tabor-global-tls-inspector",
+      "url": "https://tabor-global-tls-inspector.nathantaboract.workers.dev/",
+      "status": 200,
+      "functional_check": "passed"
+    },
+    {
+      "name": "tabor-global-body-inspector",
+      "url": "https://tabor-global-body-inspector.nathantaboract.workers.dev/",
+      "status": 200,
+      "functional_check": "passed"
+    },
+    {
+      "name": "tabor-global-connection-region",
+      "url": "https://tabor-global-connection-region.nathantaboract.workers.dev/",
+      "status": 200,
+      "functional_check": "passed"
+    },
+    {
+      "name": "tabor-global-country-routing",
+      "url": "https://tabor-global-country-routing.nathantaboract.workers.dev/routes",
+      "status": 200,
+      "functional_check": "passed"
+    },
+    {
+      "name": "tabor-global-response-headers",
+      "url": "https://tabor-global-response-headers.nathantaboract.workers.dev/",
+      "status": 200,
+      "functional_check": "passed"
+    },
+    {
+      "name": "tabor-global-uuid",
+      "url": "https://tabor-global-uuid.nathantaboract.workers.dev/",
+      "status": 200,
+      "functional_check": "passed"
+    },
+    {
+      "name": "tabor-global-request-ip",
+      "url": "https://tabor-global-request-ip.nathantaboract.workers.dev/",
+      "status": 200,
+      "functional_check": "passed"
+    },
+    {
+      "name": "tabor-global-qr-svg",
+      "url": "https://tabor-global-qr-svg.nathantaboract.workers.dev/?url=https%3A%2F%2Fexample.com",
+      "status": 200,
+      "functional_check": "passed"
+    },
+    {
+      "name": "tabor-global-node-http",
+      "url": "https://tabor-global-node-http.nathantaboract.workers.dev/api/status",
+      "status": 200,
+      "functional_check": "passed"
+    },
+    {
+      "name": "tabor-global-social-card",
+      "url": "https://tabor-global-social-card.nathantaboract.workers.dev/api/og?title=Tabor+Worker",
+      "status": 200,
+      "functional_check": "passed"
+    },
+    {
+      "name": "tabor-global-hono-api",
+      "url": "https://tabor-global-hono-api.nathantaboract.workers.dev/api/status",
+      "status": 200,
+      "functional_check": "passed"
+    }
+  ]
+}

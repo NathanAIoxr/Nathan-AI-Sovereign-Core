@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "dependencies": {
+    "hono": "^4.13.19",
+    "qrcode": "1.5.4"
+  },
+  "type": "module",
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "miniflare": "5.20261117.0-beta"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "npm run build && node smoke.mjs"
+  }
+}

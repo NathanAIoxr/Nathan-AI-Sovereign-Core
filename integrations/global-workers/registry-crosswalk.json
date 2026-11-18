@@ -1,0 +1,1088 @@
+{
+  "registry_source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/4238767627ea67f00e242f49bda31e8396c654ef/integrations/tabor-worker-101-registry.json",
+  "cloudflare_snapshot_utc": "2026-11-18T18:14:22.937Z",
+  "entries": [
+    {
+      "id": "EXT-001",
+      "label": "cloudflare/mcp-server-cloudflare",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-002",
+      "label": "cloudflare/cloudflare-os",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-003",
+      "label": "cloudflare/computer",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-004",
+      "label": "cloudflare/agents",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-005",
+      "label": "anysphere/cloudflare-workers",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-006",
+      "label": "Moltworker",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-007",
+      "label": "Claude Code on Cloudflare",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-008",
+      "label": "Codra",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-009",
+      "label": "Cloudbox",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-010",
+      "label": "AwaitStep",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-011",
+      "label": "llm-chat-app-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-011-ai-chat"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/llm-chat-app-template",
+      "project_requirements": "Workers AI and durable state"
+    },
+    {
+      "id": "EXT-012",
+      "label": "voice-agent-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "upstream_candidate_confirmed",
+      "candidate_source": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/voice-agent-template",
+      "project_requirements": "Workers AI, durable state and voice configuration"
+    },
+    {
+      "id": "EXT-013",
+      "label": "vectorize-rag",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-013-vectorize-rag"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-014",
+      "label": "mcp-server-d1",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-015",
+      "label": "Agentic Inbox",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-016",
+      "label": "EdgeEver",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-017",
+      "label": "cloudflare/kitesurf",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-018",
+      "label": "Deepcrawl",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-019",
+      "label": "workers-firecrawl",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-020",
+      "label": "Browser Rendering API Worker",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-021",
+      "label": "HTMLRewriter OpenGraph Extractor",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-021-opengraph"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-022",
+      "label": "Repo Hunt",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-022-repo-hunt"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-023",
+      "label": "RSS-to-JSON Edge Feed",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-023-rss-json"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-024",
+      "label": "Sitemap XML Generator",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-024-sitemap"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-025",
+      "label": "Link Preview & Unfurler",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-025-link-preview"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-026",
+      "label": "Web Archive Snapshotter",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-026-web-archive"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-027",
+      "label": "mdhruvil/gitflare",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-028",
+      "label": "888wiki",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-029",
+      "label": "FlareMo",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-030",
+      "label": "Inkstone",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-031",
+      "label": "logseq-selfhost",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-032",
+      "label": "cloudmark",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-033",
+      "label": "Supaflare",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-034",
+      "label": "Cloudflare DuckLake",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-035",
+      "label": "pgEdge/cloudflare-worker-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-036",
+      "label": "mysql-hyperdrive-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "upstream_candidate_confirmed",
+      "candidate_source": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/mysql-hyperdrive-template",
+      "project_requirements": "An existing MySQL source and a Hyperdrive connection"
+    },
+    {
+      "id": "EXT-037",
+      "label": "R2 Presigned Uploader",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-037-r2-upload-sign"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-038",
+      "label": "KV Rest API Wrapper",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-038-private-kv"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-039",
+      "label": "GitCF (RawGit Clone)",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-039-github-raw"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-040",
+      "label": "dinasaur404/platform-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-041",
+      "label": "workers-for-platforms-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "upstream_candidate_confirmed",
+      "candidate_source": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/workers-for-platforms-template",
+      "project_requirements": "Dispatch namespace and scoped upload credentials"
+    },
+    {
+      "id": "EXT-042",
+      "label": "worker-publisher-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "upstream_candidate_confirmed",
+      "candidate_source": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/worker-publisher-template",
+      "project_requirements": "Scoped deployment credentials and project configuration"
+    },
+    {
+      "id": "EXT-043",
+      "label": "workflows-starter-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-043-workflows"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/workflows-starter-template",
+      "project_requirements": "A Workflow binding and project configuration"
+    },
+    {
+      "id": "EXT-044",
+      "label": "Geographic Load Balancer",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-044-geo-routing"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-045",
+      "label": "microfrontend-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "upstream_candidate_confirmed",
+      "candidate_source": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/microfrontend-template",
+      "project_requirements": "Multiple services or configured app targets"
+    },
+    {
+      "id": "EXT-046",
+      "label": "dynamic-py-py",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-047",
+      "label": "A/B & Canary Traffic Splitter",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-047-canary-split"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-048",
+      "label": "splitio/cloudflare-workers-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-049",
+      "label": "IP & ASN Geolocation Redirector",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-049-geo-policy"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-050",
+      "label": "rivet-dev/open-orange",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-051",
+      "label": "Cloud Mail",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-052",
+      "label": "HQBase",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-053",
+      "label": "Doota",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-054",
+      "label": "EmailFlare",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-055",
+      "label": "Email Explorer",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-056",
+      "label": "LetterDrop",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-057",
+      "label": "Auth Inbox",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-058",
+      "label": "cindermail",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-059",
+      "label": "mail2telegram",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-060",
+      "label": "Cloudflare Temp Email",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-061",
+      "label": "workers-builds-notifications-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "upstream_candidate_confirmed",
+      "candidate_source": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/workers-builds-notifications-template",
+      "project_requirements": "A build event source and configuration of the notification target"
+    },
+    {
+      "id": "EXT-062",
+      "label": "Serverless Telegram Bot Webhook",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-062-telegram-webhook"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-063",
+      "label": "Discord Slash Command Responder",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-063-discord-verify"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-064",
+      "label": "cloudflare/openauth-template-24",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-065",
+      "label": "x402-proxy-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "upstream_candidate_confirmed",
+      "candidate_source": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/x402-proxy-template",
+      "project_requirements": "Payment and origin configuration"
+    },
+    {
+      "id": "EXT-066",
+      "label": "JWT WebCrypto Authenticator",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-066-jwt-inspector"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-067",
+      "label": "Airtable & API Key Vault Proxy",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-068",
+      "label": "Durable Object Rate Limiter",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-068-rate-limiter"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-069",
+      "label": "Google reCAPTCHA & Turnstile Verifier",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-069-turnstile-verify"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-070",
+      "label": "CORS Anywhere Edge Proxy",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-071",
+      "label": "Webhook Signature Validator",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-071-hmac-validator"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-072",
+      "label": "Hasura GraphQL Auth Gatekeeper",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-073",
+      "label": "Basic Auth & IP Allowlist Shield",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-073-basic-auth-shield"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-074",
+      "label": "Cryptocurrency Multi-Provider Gateway",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-074-crypto-prices"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-075",
+      "label": "wifski Video-to-GIF Converter",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-076",
+      "label": "Bannero Image API",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-076-banner"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-077",
+      "label": "Lazy Invoice PDF Generator",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-077-invoice-pdf"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-078",
+      "label": "Auto WebP/AVIF Image Converter",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-078-image-convert"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-079",
+      "label": "Rust WASM Image Flipper & Resizer",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-080",
+      "label": "Python Pillow Image Processor",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-081",
+      "label": "AI Image Redraw Pipeline",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-082",
+      "label": "Cloudflare Stream Video Signer",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-083",
+      "label": "QR Code & Barcode SVG Generator",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-083-svg-barcodes"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-084",
+      "label": "Markdown-to-HTML Renderer",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-084-markdown-renderer"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-085",
+      "label": "multiplayer-globe-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "upstream_candidate_confirmed",
+      "candidate_source": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/multiplayer-globe-template",
+      "project_requirements": "Durable Object binding and static assets"
+    },
+    {
+      "id": "EXT-086",
+      "label": "WebSocket Chatroom",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-086-chatroom"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-087",
+      "label": "Hono Ultrafast API Starter",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-087-hono"
+      ],
+      "imported_worker": "tabor-global-hono-api",
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-088",
+      "label": "FastAPI Python Edge Server",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-089",
+      "label": "Django on Workers",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-090",
+      "label": "next-starter-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "upstream_candidate_confirmed",
+      "candidate_source": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/next-starter-template",
+      "project_requirements": "Application build with its package dependencies"
+    },
+    {
+      "id": "EXT-091",
+      "label": "vite-react-template",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-091-vite-react"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/vite-react-template",
+      "project_requirements": "Application build with its static asset bundle"
+    },
+    {
+      "id": "EXT-092",
+      "label": "Preact Edge PWA",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-093",
+      "label": "LavaRand URL Shortener",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-093-url-shortener"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-094",
+      "label": "Google Analytics Ad-Block Shield",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-095",
+      "label": "Logflare Edge Collector",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-096",
+      "label": "UTM & Tracking Parameter Stripper",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-096-utm-stripper"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-097",
+      "label": "Google Fonts Inline Optimizer",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-097-google-fonts"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-098",
+      "label": "WebCrypto Hashing Microservice",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-098-webcrypto-hashing"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-099",
+      "label": "Dynamic DDNS Updater",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-100",
+      "label": "Cron Heartbeat & Uptime Monitor",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [
+        "tabor-ext-100-uptime-probe"
+      ],
+      "imported_worker": null,
+      "status": "existing_worker_name",
+      "candidate_source": null,
+      "project_requirements": null
+    },
+    {
+      "id": "EXT-101",
+      "label": "Cloudflare API Fleet Deployer",
+      "registry_state": "candidate_unverified",
+      "existing_cloudflare_names": [],
+      "imported_worker": null,
+      "status": "further_source_verification",
+      "candidate_source": null,
+      "project_requirements": null
+    }
+  ]
+}
