@@ -2,7 +2,11 @@ import {readFile} from "node:fs/promises";
 import {createHash} from "node:crypto";
 import assert from "node:assert/strict";
 import test from "node:test";
-import worker from "./.release/public-sites/worker.mjs";
+import {execFileSync} from "node:child_process";
+import {fileURLToPath} from "node:url";
+
+execFileSync("python3", [fileURLToPath(new URL("./build_public_sites.py", import.meta.url))]);
+const {default: worker} = await import("./.release/public-sites/worker.mjs");
 
 const origin="https://tabor-public-sites.example";
 const getFile=(file)=>readFile(new URL(file,import.meta.url));
