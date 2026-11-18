@@ -17,17 +17,21 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        partition: [workers, pages, zones, repositories]
+        partition: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+      max-parallel: 4
     steps:
       - uses: actions/checkout@v4
-      - name: Record scoped partition
-        run: |
-          echo "Partition: ${{ matrix.partition }}"
-          echo "Execution is a scoped diagnostic; no import or deployment is claimed."
+      - name: Verify batch of up to 20 Cloudflare Workers
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: python3 integrations/unified-operations-cockpit/process-batch.py ${{ matrix.partition }}
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: cockpit-${{ matrix.partition }}
-          path: schema.sql
+          name: cockpit-batch-${{ matrix.partition }}
+          path: integrations/unified-operations-cockpit/batch-results/batch-*.json
+          if-no-files-found: warn
   callback:
     if: ${{ always() }}
     needs: [macro-batch-matrix]
