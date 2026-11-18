@@ -21,4 +21,12 @@ This project integrates the creator's Santa/Reaper duality, KJV Isaiah 45:7 comp
 
 Cloudflare Cron `*/15 * * * *` rotates a *maximum three-item public backlog review batch* and writes a timestamped receipt to one dedicated KV namespace. It never marks development tasks complete; it does not write GitHub, call untrusted URLs, scan external networks, touch other Workers, publish art, or make payments. A separate, owner-authorized human/agent review loop implements code and tests through PRs.
 
-Run `node --test creative-archive/persona-duality/worker.test.mjs`. Deploy with the included Wrangler config or an equivalent audited module upload, verifying KV binding and assigned hostname first. The public GitHub repo is not a safe place for private original source/asset archives; transfer those only to approved access-controlled storage.
+## Verified deployment receipt (November 18, 2026)
+
+- Cloudflare script: `tabor-persona-duality`; deployment API reports an active version at 100%.
+- workers.dev routing: enabled; expected public endpoint `https://tabor-persona-duality.nathantaboract.workers.dev/` and `/api/health`. Direct HTTP verification was unavailable to the initiating browsing tool, so the endpoint is not independently smoke-tested here.
+- Cron Trigger: `*/15 * * * *` saved and read back from Cloudflare.
+- KV namespace: `tabor-persona-duality-receipts` created and bound as `RECEIPTS` through module upload metadata. This does not establish a completed cron invocation; inspect `/api/receipts` after a scheduled event.
+- GitHub CI: [Persona Atlas workflow run](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/actions/runs/44401670227) succeeded on the initial feature branch. Future commits require fresh CI.
+
+Run `node --test creative-archive/persona-duality/worker.test.mjs`. The public GitHub repo is not a safe place for private original source/asset archives; transfer those only to approved access-controlled storage.
