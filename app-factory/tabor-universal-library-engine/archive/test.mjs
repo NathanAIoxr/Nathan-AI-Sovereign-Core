@@ -131,3 +131,17 @@ test("Vilya requires three independent source families",()=>{
   assert.equal(evidenceConsensus([a,b,{...c,family:" CATALOG-A "}]).status,"dependent-evidence");
   assert.equal(evidenceConsensus([a,c,{...b,sha256:"c".repeat(64)}]).status,"disagreement");
 });
+
+test("Library of Congress discovery preserves IDs and source pagination", async()=>{
+  const { readPage } = await import("./scripts/discover-loc.mjs");
+  const url = new URL("https://www.loc.gov/books/?q=book+of+hours&fo=json&sp=1");
+  const data = {pagination:{next:"https://www.loc.gov/books/?sp=2"},results:[
+    {id:"http://www.loc.gov/item/example-1/",title:"Book of hours",contributor:["Anonymous"]},
+    {id:"https://outside.example/item/1",title:"Outside provider"},
+    {id:"incomplete",title:"Invalid ID"}
+  ]};
+  assert.deepEqual(readPage(data,url),{hasNext:true,records:[{sourceId:"https://www.loc.gov/item/example-1/",
+    title:"Book of hours",date:null,contributors:["Anonymous"],language:[],originalFormat:[],rightsReview:"pending",sourceSearch:url.href}]});
+  assert.equal(readPage({pagination:{next:null},results:[]},url).hasNext,false);
+  assert.throws(()=>readPage({results:[]},url),/Unexpected Library of Congress response/);
+});
