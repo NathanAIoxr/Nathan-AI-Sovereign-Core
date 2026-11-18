@@ -1,0 +1,22 @@
+[Unit]
+Description=Tabor Sovereign Compute Fleet Node Agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=tabor
+Group=tabor
+EnvironmentFile=/etc/tabor/node-agent.env
+ExecStart=/usr/bin/python3 /opt/tabor/node-agent/agent.py
+Restart=always
+RestartSec=15
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadOnlyPaths=/opt/tabor/node-agent
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target
