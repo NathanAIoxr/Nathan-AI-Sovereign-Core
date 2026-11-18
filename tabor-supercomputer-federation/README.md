@@ -35,3 +35,22 @@ npx wrangler secret put PROVISION_TOKEN
 Use a randomly generated provisioning token of at least 32 characters. Send an authenticated POST to `/v1/provision?start=1&limit=10`, and repeat with starts 11, 21, 31 and 41. Retry individual failed batches if needed. Insert-if-absent preserves the original database record. Verify all 50 through their public read endpoints. Remove the provisioning credential when the initial cohort is complete.
 
 The public read API returns inventory, service status and synthetic workload data. It does not accept connection credentials or expose real machine control. GitHub Actions verifies the repository. Actual Bitcoin and cryptocurrency mining requires approved hardware, power, network, and pool connections. Keep mining off GitHub Actions. The same portable manifest can be imported by a compatible registry on another provider with its own database and compute runtime.
+
+## Digital MOMENT × 1,000 and Lisssarrr
+
+The digital allocation assigns twenty logical seats to each of the fifty existing node databases. Each workload request checks the persisted node identity and executes inside its Durable Object. Seat IDs are derived from the node identity. These are logical allocations and runnable models. This release does not host video streams, virtual desktops, or playable clients.
+
+| Route | Output |
+|---|---|
+| /v1/digital | 1,000-seat allocation and the Nathan Tabor Way steps |
+| /v1/nodes/node-001/digital | This node's twenty seats and workload links |
+| /v1/nodes/node-001/moment?profile=loaded&seat=seat-0001 | One seat across 120 deterministic sample draws |
+| /v1/nodes/node-001/moment?profile=tuned | One run covering the node's twenty seats |
+| /v1/nodes/node-050/lisssarrr?exercise=backup-restore | Fixture-based defensive recovery timeline |
+| /v1/nodes/node-050/lisssarrr?exercise=backup-restore&recovery_source=missing | Recovery blocked because a prerequisite is unavailable |
+
+MOMENT models render frame time, input-to-display delay, and network RTT independently. Profiles are baseline, loaded, tuned, clarity at 240 Hz, and speed at 720 Hz. Loaded and tuned share display and rendering assumptions so you can see the modeled effect of queueing. The per-seat random seed makes the comparison repeatable. The p50, p95, and p99 values are synthetic, with no game-server latency or hardware benchmark claims.
+
+Lisssarrr supports identity recovery, backup restore, and service recovery using local synthetic fixtures. It records detect, contain, recover, and verify stages. Each exercise can test an available or missing recovery prerequisite. It sends no external requests and changes no real account or service.
+
+Both workloads return a SHA-256 receipt over the UTF-8 bytes of the JSON response fields without the receipt, using their original order. This is a reproducibility and integrity check, not a signed attestation or a stored audit log. Existing node records, public provisioning permissions, and the physical capacity model stay outside these runtime simulations.

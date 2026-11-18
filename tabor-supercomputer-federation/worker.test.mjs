@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { createHash } from 'node:crypto'
 import { DatabaseSync } from 'node:sqlite'
 import test from 'node:test'
 import worker, { capacityPlan, matrixDemo, SupercomputerNode } from './worker.mjs'
@@ -55,4 +56,40 @@ test('private provisioning writes independent databases and leaves public reads 
   assert.equal((await call('/v1/nodes/node-051')).status, 404)
   const manifest = await (await call('/v1/export')).json()
   assert.equal(new Set(manifest.nodes.map(node => node.id)).size, 50)
+})
+
+test('digital allocation, modeled improvement, and evidence receipts run inside a persisted node', async () => {
+  const allocation = await (await worker.fetch(new Request('https://test.invalid/v1/digital'), {})).json()
+  assert.equal(allocation.total_seats, 1000)
+  assert.equal(allocation.allocation.at(-1).last_seat, 'seat-1000')
+  const db = new DatabaseSync(':memory:')
+  const sql = { exec(query, ...bindings) {
+    const stmt = db.prepare(query)
+    return query.startsWith('SELECT') ? { toArray: () => stmt.all(...bindings) } : stmt.run(...bindings)
+  } }
+  const instance = new SupercomputerNode({ storage: { sql } })
+  await instance.fetch(new Request('https://node.internal/node-050', { method: 'POST' }))
+  const env = { NODES: { getByName(id) {
+    assert.equal(id, 'node-050')
+    return { fetch: (url, options) => instance.fetch(new Request(url, options)) }
+  } } }
+  const request = suffix => worker.fetch(new Request('https://test.invalid/v1/nodes/node-050/' + suffix), env)
+  const node = await (await request('digital')).json()
+  assert.deepEqual([node.seats[0], node.seats.at(-1)], ['seat-0981', 'seat-1000'])
+  const loaded = await (await request('moment?seat=seat-1000&profile=loaded')).json()
+  const tuned = await (await request('moment?seat=seat-1000&profile=tuned')).json()
+  assert.ok(tuned.seats[0].modeled_rtt_ms.p95 < loaded.seats[0].modeled_rtt_ms.p95)
+  assert.deepEqual(tuned.seats[0].modeled_input_to_display_ms, loaded.seats[0].modeled_input_to_display_ms)
+  assert.equal((await request('moment?seat=seat-0001')).status, 400)
+  assert.equal((await request('moment?profile=tuned&profile=loaded')).status, 400)
+  const lab = await (await request('lisssarrr?exercise=backup-restore')).json()
+  assert.equal(lab.external_actions, 0)
+  assert.equal(lab.result, 'fixture_recovery_verified')
+  const blocked = await (await request('lisssarrr?exercise=backup-restore&recovery_source=missing')).json()
+  assert.equal(blocked.result, 'fixture_recovery_blocked')
+  assert.equal(blocked.checks.recovered, false)
+  for (const { receipt, ...body } of [loaded, tuned, lab, blocked]) {
+    assert.equal(receipt.sha256, createHash('sha256').update(JSON.stringify(body)).digest('hex'))
+  }
+  db.close()
 })

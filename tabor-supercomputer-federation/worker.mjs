@@ -1,3 +1,5 @@
+import { digitalFleet, digitalOperations, runDigital } from './digital.mjs'
+
 const count = 50
 const cohort = 'tabor-federation-v1'
 const encoder = new TextEncoder()
@@ -13,6 +15,10 @@ const attachments = [
   { id: 'memory-storage', category: 'RAM and storage', mode: 'service_link' },
   { id: 'github-supercomputer', category: 'GitHub release and verification', mode: 'source_and_ci',
     href: 'https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/codex/tabor-supercomputer-federation/tabor-supercomputer-federation' },
+]
+const digitalAttachments = [
+  { id: 'moment', category: 'MOMENT', mode: 'synthetic_latency_simulation', link: '/v1/digital' },
+  { id: 'lisssarrr', category: 'Lisssarrr', mode: 'synthetic_defensive_tabletop', link: '/v1/digital' },
 ]
 const providers = [
   ['WORLD', 'tabor-world-hub', '/health'],
@@ -67,7 +73,8 @@ export class SupercomputerNode {
     this.sql.exec('CREATE TABLE IF NOT EXISTS node_record (slot INTEGER PRIMARY KEY CHECK (slot = 1), record TEXT NOT NULL)')
   }
   async fetch(request) {
-    const [id, operation] = new URL(request.url).pathname.slice(1).split('/')
+    const url = new URL(request.url)
+    const [id, operation] = url.pathname.slice(1).split('/')
     if (!nodePattern.test(id)) return json({ error: 'unknown_node' }, 404)
     if (request.method === 'POST') {
       this.sql.exec('INSERT OR IGNORE INTO node_record(slot, record) VALUES (1, ?)', JSON.stringify(record(id)))
@@ -77,6 +84,10 @@ export class SupercomputerNode {
     const item = JSON.parse(entries[0].record)
     if (item.id !== id) return json({ error: 'node_identity_mismatch' }, 409)
     if (operation === 'matrix-demo') return json({ node: id, workload: matrixDemo(8) })
+    if (digitalOperations.includes(operation)) {
+      const result = await runDigital(id, operation, url.searchParams)
+      return json(result, result.error ? 400 : 200)
+    }
     return json(item)
   }
 }
@@ -133,7 +144,11 @@ function dashboard() {
 <main><header><h1>Tabor Supercomputer Federation</h1><p>By Nathan Tabor</p><p>Individual node databases, workload attachments, and a shared fleet plan.</p></header>
 <section class="stats" aria-label="Fleet design">
 <article><strong>50</strong><span>Node database slots</span></article><article><strong>450 TB</strong><span>Storage target per system</span></article><article><strong>22.5 PB</strong><span>Modeled fleet target</span></article>
-</section><h2>Federation</h2><ul><li><a href="/v1/nodes">Inspect node databases</a></li><li><a href="/v1/plan?systems=1">One-system capacity plan</a></li><li><a href="/v1/plan?systems=50">50-system capacity plan</a></li><li><a href="/v1/services">Check connected services</a></li><li><a href="/v1/attachments">View workload attachments</a></li><li><a href="/v1/matrix-demo">Run the Matrix demo</a></li><li><a href="/v1/bitcoin-demo">Run the synthetic Bitcoin benchmark</a></li><li><a href="/v1/export">Export portable fleet manifest</a></li></ul>
+</section><h2>Federation</h2><ul><li><a href="/v1/nodes">Inspect node databases</a></li><li><a href="/v1/plan?systems=1">One-system capacity plan</a></li><li><a href="/v1/plan?systems=50">50-system capacity plan</a></li><li><a href="/v1/services">Check connected services</a></li><li><a href="/v1/attachments">View workload attachments</a></li><li><a href="/v1/matrix-demo">Run the Matrix demo</a></li><li><a href="/v1/bitcoin-demo">Run the synthetic Bitcoin benchmark</a></li><li><a href="/v1/export">Export portable fleet manifest</a></li></ul><h2>MOMENT × 1,000 and Lisssarrr</h2><ul>
+<li><a href="/v1/digital">View the 1,000-seat digital allocation</a></li>
+<li><a href="/v1/nodes/node-001/moment?profile=loaded&amp;seat=seat-0001">Run MOMENT with simulated network load</a></li>
+<li><a href="/v1/nodes/node-001/moment?profile=tuned&amp;seat=seat-0001">Run MOMENT with modeled queue tuning</a></li>
+<li><a href="/v1/nodes/node-050/lisssarrr?exercise=backup-restore">Run the Lisssarrr recovery exercise</a></li></ul>
 <footer><p>Storage figures are design targets. Physical compute and storage capacity require independently verified hardware.</p></footer></main></html>`, {
     headers: { 'Content-Type': 'text/html; charset=utf-8', 'X-Content-Type-Options': 'nosniff',
       'Content-Security-Policy': "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'" },
@@ -164,7 +179,10 @@ export default {
     if (pathname === '/') return dashboard()
     if (pathname === '/health') return json({ service: 'Tabor Supercomputer Federation', cohort,
       fleet_slots: count, database_binding: Boolean(env.NODES), provisioning_enabled: Boolean(env.PROVISION_TOKEN?.length >= 32) })
-    if (pathname === '/v1/attachments') return json({ attachments })
+    if (pathname === '/v1/attachments') return json({ attachments: [...attachments, ...digitalAttachments] })
+    if (pathname === '/v1/digital') {
+      return json(digitalFleet(Array.from({ length: count }, (_, index) => nodeId(index + 1))))
+    }
     if (pathname === '/v1/services') return json({ services: await providerStatus(env) })
     if (pathname === '/v1/plan') {
       const systems = readInteger(searchParams, 'systems', count, count)
@@ -174,9 +192,10 @@ export default {
       slots: Array.from({ length: count }, (_, i) => ({ id: nodeId(i + 1), path: '/v1/nodes/' + nodeId(i + 1), matrix: '/v1/nodes/' + nodeId(i + 1) + '/matrix-demo' })) })
     if (pathname.startsWith('/v1/nodes/')) {
       const [id, operation, ...extra] = pathname.slice('/v1/nodes/'.length).split('/')
-      if (!nodePattern.test(id) || extra.length || (operation !== undefined && operation !== 'matrix-demo')) return json({ error: 'unknown_node' }, 404)
+      if (!nodePattern.test(id) || extra.length || (operation !== undefined && operation !== 'matrix-demo' && !digitalOperations.includes(operation))) return json({ error: 'unknown_node' }, 404)
       try {
-        return await nodeFetch(env, id, 'GET', operation ? '/matrix-demo' : '')
+        const suffix = operation ? '/' + operation + (digitalOperations.includes(operation) ? '?' + searchParams : '') : ''
+        return await nodeFetch(env, id, 'GET', suffix)
       } catch {
         return json({ error: 'database_unavailable' }, 503)
       }
