@@ -26,3 +26,6 @@ jobs:
       - run: node --test test.mjs
       - run: node --check scripts/capture.mjs
       - run: node --check scripts/discover-loc.mjs
+      - run: node --check scripts/import-worker.mjs
+      - run: node --check scripts/upload-corpus.mjs
+      - run: python3 -m py_compile scripts/prepare-corpus.py

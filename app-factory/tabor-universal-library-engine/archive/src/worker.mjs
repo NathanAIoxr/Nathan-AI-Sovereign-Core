@@ -1,7 +1,7 @@
 import architecture from "../data/architecture.json" with { type: "json" };
 import modules from "../data/edge-registry.json" with { type: "json" };
 import act from "../data/act-graph.json" with { type: "json" };
-import { bodyKey, cadence, classNames, groups, idPattern, maxEditionBytes, shaPattern, states, vaults } from "./model.mjs";
+import { bodyKey, cadence, classNames, groups, idPattern, maxEditionBytes, materials, providers, shaPattern, states, vaults } from "./model.mjs";
 import { sha256 } from "./integrity.mjs";
 import { browse, browseParams, editionById, workDetail } from "./catalog.mjs";
 import { architecturePage, css, readingRoom, shelvesPage, shell, workPage } from "./ui.mjs";
@@ -14,7 +14,7 @@ const coreHeaders = {
 };
 const counts = { modules: modules.length, nodes: act.nodes.length, primitives: act.primitives.length, shelves: Object.keys(classNames).length };
 const moduleCounts = Object.fromEntries([...new Set(modules.map(x=>x[3]))].map(state=>[state,modules.filter(x=>x[3]===state).length]));
-const release = "tabor-archive-v1";
+const release = "tabor-archive-v2";
 const respond = (body, type, status=200, options={})=>new Response(body,{status,headers:{...coreHeaders,"content-type":type,...options}});
 const json = (body,status=200)=>respond(JSON.stringify(body),"application/json; charset=utf-8",status);
 const html = (body,status=200)=>respond(body,"text/html; charset=utf-8",status);
@@ -40,9 +40,10 @@ async function serveEdition(request, env, work, id, action) {
   if (action === "verify") {
     const actual = await sha256(await object.arrayBuffer());
     const verified = actual === digest;
-    return json({work,edition:id,bytes,sha256:digest,verified},verified?200:503);
+    return json({work,edition:id,bytes,sha256:digest,format:edition.format??"source-text",verified},verified?200:503);
   }
-  return respond(object.body ?? null,"text/plain; charset=utf-8",200,{
+  const mediaType = edition.format === "tei" ? "application/xml; charset=utf-8" : "text/plain; charset=utf-8";
+  return respond(object.body ?? null,mediaType,200,{
     "content-length":String(bytes), etag:'"sha256-'+digest+'"'
   });
 }
@@ -52,7 +53,7 @@ async function routes(request, env, url) {
   if (path === "/archive.css") return respond(css,"text/css; charset=utf-8");
   if (path === "/shelves") return html(shelvesPage());
   if (path === "/architecture") return html(architecturePage(architecture,counts));
-  if (path === "/api/shelves") return json({classes:classNames, vaults, states});
+  if (path === "/api/shelves") return json({classes:classNames, vaults, states, materials, providers});
   if (path === "/api/architecture") return json({...architecture,cadence,groups,counts});
   if (path === "/api/registry/act") return json({...act,nodeColumns:["index","slug","generation","parent","sourceSeal"]});
   if (path === "/api/registry/modules") {
@@ -60,6 +61,13 @@ async function routes(request, env, url) {
     const record = id && modules.find(row=>row[0]===id);
     if (id && !record) return notFound(true);
     return json({upstream:architecture.upstream.syscalls,counts:moduleCounts,columns:["id","ring","title","sourceStatus"],entries:id?[record]:modules});
+  }
+  if (path === "/api/collections") {
+    const [sources,formats] = await env.ARCHIVE_DB.batch([
+      env.ARCHIVE_DB.prepare("SELECT provider,material,count(*) AS records FROM archive_sources GROUP BY provider,material ORDER BY provider,material"),
+      env.ARCHIVE_DB.prepare("SELECT format,count(*) AS editions FROM archive_edition_formats GROUP BY format ORDER BY format")
+    ]);
+    return json({collections:sources.results,formats:formats.results});
   }
   if (path === "/api/health") {
     const [catalog,editions,witnesses,receipts] = await env.ARCHIVE_DB.batch([

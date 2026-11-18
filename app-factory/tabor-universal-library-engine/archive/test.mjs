@@ -10,7 +10,9 @@ import editions from "./data/editions.json" with { type: "json" };
 
 const db = new DatabaseSync(":memory:");
 db.exec(readFileSync(new URL("./migrations/0001_archive.sql",import.meta.url),"utf8"));
+db.exec(readFileSync(new URL("./migrations/0002_corpora.sql",import.meta.url),"utf8"));
 for (const item of catalogBatch) db.prepare(item.sql).run(...item.params);
+db.exec(readFileSync(new URL("./migrations/0003_existing_ebooks.sql",import.meta.url),"utf8"));
 const demo = new TextEncoder().encode("Verbatim evidence\r\n");
 const digest = await sha256(demo);
 const example = {...editions[0],bytes:demo.length,sha256:digest};
@@ -144,4 +146,35 @@ test("Library of Congress discovery preserves IDs and source pagination", async(
     title:"Book of hours",date:null,contributors:["Anonymous"],language:[],originalFormat:[],rightsReview:"pending",sourceSearch:url.href}]});
   assert.equal(readPage({pagination:{next:null},results:[]},url).hasNext,false);
   assert.throws(()=>readPage({results:[]},url),/Unexpected Library of Congress response/);
+});
+
+test("source receipts, repeat imports, holding filters and archive search agree", async()=>{
+  const { putRecords } = await import("./scripts/import-worker.mjs");
+  const operators = {ARCHIVE_DB:{
+    prepare:sql=>({bind:(...args)=>({sql,args})}),
+    async batch(items) {
+      db.exec("BEGIN");
+      try {
+        const values=items.map(({sql,args})=>({results:db.prepare(sql).all(...args)}));
+        db.exec("COMMIT");
+        return values;
+      } catch(error) {
+        db.exec("ROLLBACK");
+        throw error;
+      }
+    }
+  }};
+  const example={work:["cdli-p999999","Trial clay tablet","Ancient catalog","sux","C","ancient",
+    "artifact","surviving-witness","Administrative account from Ur",
+    "https://cdli.earth/artifacts/999999","P999999","CDLI terms"],
+    source:["cdli","P999999","tablet","Holding institution","Ur III","VAT fixture","Pinned test snapshot"]};
+  assert.equal((await putRecords(operators,[example])).added,1);
+  assert.equal((await putRecords(operators,[example])).added,0);
+  const result=await (await fetch("/api/catalog?material=tablet&provider=cdli&q=clay%20Ur")).json();
+  assert.deepEqual(result.entries.map(x=>x.id),["cdli-p999999"]);
+  const work = await (await fetch("/api/works/cdli-p999999")).json();
+  assert.equal(work.source.shelfmark,"VAT fixture");
+  assert.equal(work.source.snapshot,"Pinned test snapshot");
+  assert.equal(db.prepare("SELECT count(*) AS n FROM archive_import_receipts").get().n,1);
+  await assert.rejects(putRecords(operators,[{...example,work:example.work.map((v,i)=>i===9?"https://outside.invalid":v)}]),/Invalid catalog record/);
 });

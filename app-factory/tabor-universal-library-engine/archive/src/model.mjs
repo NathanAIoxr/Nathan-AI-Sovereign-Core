@@ -56,3 +56,31 @@ export function evidenceConsensus(lanes) {
   const agree = lanes.find((lane, i) => lanes.some((other, j) => j !== i && other.sha256 === lane.sha256));
   return agree ? { status: "candidate-agreement", sha256: agree.sha256 } : { status: "disagreement" };
 }
+
+export const materials = {
+  book: "Books and e-books",
+  tablet: "Inscribed tablets",
+  papyrus: "Papyri and papyrus fragments",
+  scroll: "Scrolls and scroll fragments",
+  codex: "Codices and bound manuscripts",
+  inscription: "Inscriptions and other inscribed objects",
+  manuscript: "Other manuscripts",
+  seal: "Seals and sealings"
+};
+
+export const providers = {
+  loc: "Library of Congress · Selected Digitized Books",
+  gutenberg: "Project Gutenberg · E-books",
+  cdli: "Cuneiform Digital Library Initiative · Tablets and inscriptions",
+  papyri: "Papyri.info · Duke Databank of Documentary Papyri",
+  iaa: "Israel Antiquities Authority · Dead Sea Scrolls",
+  idp: "British Library · International Dunhuang Programme",
+  vat: "Vatican Library · Digitized Manuscripts",
+  sinai: "Codex Sinaiticus Project"
+};
+
+export const editionFormats = {
+  ocr: "OCR reading copy",
+  atf: "ATF transliteration",
+  tei: "TEI XML transcription"
+};

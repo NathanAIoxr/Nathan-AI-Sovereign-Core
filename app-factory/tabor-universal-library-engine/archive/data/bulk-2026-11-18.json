@@ -1,0 +1,49 @@
+{
+  "release": "tabor-archive-v2",
+  "catalogRecordsAdded": 14308,
+  "archivedFilesAdded": 195,
+  "catalogTotal": 14342,
+  "archivedFileTotal": 198,
+  "catalogRecordsAddedBySource": {
+    "loc": 5000,
+    "gutenberg": 3500,
+    "cdli": 4000,
+    "papyri": 1800,
+    "iaa": 4,
+    "idp": 2,
+    "vat": 1,
+    "sinai": 1
+  },
+  "archivedFilesAddedByFormat": {
+    "ocr": 90,
+    "atf": 60,
+    "tei": 45
+  },
+  "sourceSnapshots": {
+    "loc": {
+      "recordSelection": "Selected Digitized Books, through 2022-08-26",
+      "bulkMetadata": "https://data.labs.loc.gov/digitized-books/metadata.jsonl",
+      "bulkMetadataSha256": "ccd596d47e9e9bcd1cd1ba9d8f9aed953b984b45d04c9242082bbe02cb635e3b",
+      "ocrManifest": "https://data.labs.loc.gov/digitized-books/sample-data/manifest.json",
+      "ocrManifestSha256": "dd72e2dc6f65139267245c172a115fabf2c0eeec032e9bdaac80380ad8c1a57b"
+    },
+    "gutenberg": {
+      "metadata": "https://gutenberg.pglaf.org/cache/epub/feeds/pg_catalog.csv",
+      "recordSelection": "Complete rows from the first 7438065 bytes of the 2026-11-08 mirror snapshot",
+      "etag": "6af0fb27-144dd59",
+      "catalogSegmentSha256": "97067b66a74c000fb083458e494b2c196a1de405e98cfdedddc79d842dc050d6"
+    },
+    "cdli": {
+      "project": "https://github.com/cdli-gh/data",
+      "revision": "d66b12b065af39a57d640576b4c7e098db5dac7f",
+      "catalogSha256": "2e3232f75325b61c4d1e788d4d8c074c6230a947aed422110f9f35a6e353d09c",
+      "atfSha256": "2896ec253767fa07fcaa5424af6fc25d6a047dc30b99c95f99d57ce75384d836"
+    },
+    "papyri": {
+      "project": "https://github.com/papyri/idp.data",
+      "revision": "83e0a6ad0fb4e2726fe96ded26dcc22e11bf29f0",
+      "ddbSubtree": "3eb6404c40b7f68dfcb562d60d2f041fef2e7896",
+      "sourceArchiveSha256": "92cc5adb73c6b7e4da109092c0940b27d11cef6bf2cad2ea35b7005efbda1d67"
+    }
+  }
+}

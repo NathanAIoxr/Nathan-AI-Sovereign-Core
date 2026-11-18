@@ -65,3 +65,29 @@ The discovery command prints metadata candidates and a page checkpoint. It runs 
 The operator capture Worker in `scripts/capture.mjs` is deployed on demand for pinned entries in `data/editions.json`. It requires a scoped `CAPTURE_KEY` Worker secret and the two archive bindings. It downloads exact allowlisted commit URLs, validates their lengths and digests, and then writes R2 and D1. Deploy `src/worker.mjs` as the public Worker after capture. Keep R2 public access disabled. Verify the archive receipt, source pages, edition hashes, method restrictions and the existing Library’s health.
 
 See [the full build-out](ARCHITECTURE.md) for phase boundaries, provenance rules, ring and layer mappings, and hardware/software responsibilities.
+
+## Bulk collection intake
+
+The second release imports actual item records and source files from several institutions. The Reading Room offers material and provider filters. A work record can name its provider, original ID, edition or shelfmark, historical period, holding institution and import snapshot. `/api/collections` summarizes catalog items by provider and material and archived files by format.
+
+- **Library of Congress** — Selected Digitized Books metadata. The locally copied, public-domain OCR reading files retain exact LC Labs bytes and are marked as OCR. The individual asset is checked against the supplier's manifest size and MD5 before its SHA-256 archive receipt. Consult provider scans for accurate page readings.
+- **Project Gutenberg** — Machine-readable catalog records with original eBook numbers and edition-specific source links. The earlier three verified eBook texts also appear under the books and Project Gutenberg filters.
+- **CDLI** — The public bulk catalog, artifact IDs, object forms, institutions, material and periods. Each preserved ATF edition is the unchanged byte segment for its artifact in the pinned source dump. Catalog and ATF attribution go to the Cuneiform Digital Library Initiative. Photographs remain with their holders.
+- **Papyri.info DDbDP** — Pinned EpiDoc XML with issuer attribution and editorial markings. Where associated HGV data identifies the physical material, date or holding institution, that detail is carried onto the card. Original digitized facsimiles are reached from the provider record when available.
+- **Featured scrolls and codices** — Shelfmark-level records for Qumran witnesses, British Library Dunhuang witnesses and digitized Greek codices.
+
+### Run an intake
+
+1. Download the source bundles into a working directory using the provider's bulk endpoints. Keep a known snapshot for repeat submissions. The preparation tool accepts `--sizes LOC,GUTENBERG,CDLI,PAPYRI` and `--files OCR,ATF,TEI`.
+2. Apply migrations in sequence. On a fresh catalog, apply migration 0003 after the seed works have been registered if the historical three editions are included.
+3. Run `python3 scripts/prepare-corpus.py <sources> <staging>`. In staging, `records.ndjson` contains normalized catalog records and `editions/` contains the original byte files and SHA-256 manifests. A rerun of an import can use the same staging files.
+4. Deploy `scripts/import-worker.mjs` with the existing private D1 and R2 bindings, on its own temporary Worker with a scoped random `IMPORT_KEY` secret. Supply the same key securely through the process environment as `TABOR_IMPORT_KEY` when running `node scripts/upload-corpus.mjs <staging> <https-import-endpoint>`. Disable the temporary public route and remove the key after ingestion.
+5. Verify collection counts and sample read and SHA-256 receipts. Retain the date and provider snapshot in the release notes. Metadata import is append-only by provider ID, and retries preserve the first published data. R2 objects are content-addressed and prior editions remain immutable.
+
+| Input filename | Authorized source |
+| --- | --- |
+| `loc-overview.jsonl` | [LC Labs selected books metadata](https://data.labs.loc.gov/digitized-books/metadata.jsonl) |
+| `loc-metadata.json` and `loc-manifest.json` | [LC Labs sample metadata and OCR manifest](https://data.labs.loc.gov/digitized-books/) |
+| `pg-catalog.csv` | [Project Gutenberg machine-readable catalog](https://www.gutenberg.org/ebooks/offline_catalogs.html) using the PGLAF mirror |
+| `cdli.csv`, `cdli.atf`, `cdli-ref.json` | [CDLI public bulk dump](https://github.com/cdli-gh/data) and the pinned Git reference |
+| `papyri.tar.gz`, `papyri-tree.json`, `papyri-ddb-tree.json` | [Papyri.info official data](https://github.com/papyri/idp.data) pinned archive, root Git tree and recursive DDbDP subtree |
