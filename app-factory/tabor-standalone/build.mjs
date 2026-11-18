@@ -8,6 +8,8 @@ const project=fileURLToPath(new URL(".",import.meta.url));
 const root=resolve(project,"../..");
 const repo="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core";
 const cloud="https://tabor-standalone.nathantaboract.workers.dev";
+const publisher="https://tabor-public-sites.nathantaboract.workers.dev";
+const hook="https://hook-and-ring.nathantaboract.workers.dev";
 const library="https://tabor-world.nathantaboract.workers.dev/library/";
 const grapple="https://grapple-it.nathantaboract.workers.dev/";
 const pee="https://pee-dee-valley.nathantaboract.workers.dev/";
@@ -18,7 +20,7 @@ const read=p=>readFile(resolve(root,p),"utf8");
 const decode=s=>s.replace(/&(?:amp|lt|gt|quot|apos|#39|nbsp);/g,m=>({"&amp;":"&","&lt;":"<","&gt;":">","&quot;":'"',"&apos;":"'","&#39;":"'","&nbsp;":" "})[m]);
 const title=s=>decode(s.replace(/<[^>]+>/g,"").trim());
 const safeTextTags=new Set(["p","h2","h3","h4","blockquote","em","strong","ol","ul","li","hr","br","cite","i","b","span","div","section","a"]);
-export const release="2026-11-17.4";
+export const release="2026-11-17.5";
 
 function bookBody(s){
   if(/<\s*(?:script|style|iframe|object|embed)\b/i.test(s))throw Error("Unexpected executable markup in a source article");
@@ -38,6 +40,7 @@ export async function catalog(){
   const groups={
     "library-of-tabor":{title:"Library of Tabor",source:library},
     "grapple-atlas":{title:"Grapple It · 101 Applications",source:grapple+"#atlas"},
+    "toss-target":{title:"Toss & Target · 60 arcade boards",source:publisher+"/boards/"},
     "pee-dee-valley":{title:"Pee Tabor and Dee Tabor of the Pee Dee Valley",source:pee},
     "pee-dee-original":{title:"Pee Dee Valley · Original 13 books",source:pee},
     "pee-dee-teen":{title:"Pee Dee Valley · Teen edition",source:editions+"teen.html"},
@@ -91,19 +94,26 @@ export async function catalog(){
   books.push({id:"tower-of-babel",type:"books",title:babel.title,category:"Published reading edition",mode:"original",
     groups:["library-of-tabor","original-works"],source:"https://tower-of-babel-by-nathan-tabor.nathantaboract.workers.dev/"});
   const portfolio=JSON.parse(await read("app-factory/portfolio/catalog.json"));
+  const plugins=JSON.parse(await read("standalone-apps/hook-and-ring/game/game-plugins.json"));
+  const boards=plugins.map(x=>({id:"toss-"+x.id,type:"games",title:x.name,category:"Toss & Target",mode:"arcade-board",
+    source:hook+"/chassis?game="+encodeURIComponent(x.id),groups:["toss-target","tabor-world"]}));
   const sites=portfolio.items.map(x=>{
     const group="sites-"+slug(x.kind);
     groups[group]={title:x.kind+" · Websites"};
-    return {id:x.id,type:"sites",title:x.title,category:x.kind,detail:x.description,mode:x.state,
+    return {id:x.id,type:"sites",title:x.title,category:x.kind,detail:x.description,
+      mode:x.state==="registered"?"cloud-published":x.state==="template"?"cloud-template":x.state,
+      deployment:x.state==="hosted"?undefined:publisher+"/launch/"+x.id+"/",
       source:x.url??(x.path?repo+"/blob/"+portfolio.commit+"/"+x.path:undefined),
       groups:["app-portfolio","tabor-world",group,...(x.id==="pee-dee-valley"?["pee-dee-valley"]:[]),
         ...(x.id==="grapple-it"?["grapple-atlas"]:[])],access:x.id==="nathan-tabor-library"?"Sign-in required":undefined};
   });
-  const items=[...games,...books,...sites];
+  const items=[...games,...boards,...books,...sites];
   const keys=new Set(items.map(x=>x.type+"/"+x.id));
   if(keys.size!==items.length||items.some(x=>!x.groups.every(id=>Object.hasOwn(groups,id))))throw Error("Catalog identity conflict");
-  return {release,cloud,library,groups,items,counts:{games:games.length,books:books.length,sites:sites.length,
-    hostedSites:sites.filter(x=>x.mode==="hosted").length,publicArchiveEditions:books.filter(x=>x.sourceId).length}};
+  return {release,cloud,library,groups,items,counts:{games:games.length+boards.length,
+    installableGames:games.length,arcadeBoards:boards.length,books:books.length,sites:sites.length,
+    hostedSites:sites.filter(x=>x.mode==="hosted").length,publishedSites:sites.filter(x=>x.mode==="cloud-published").length,
+    templateLaunches:sites.filter(x=>x.mode==="cloud-template").length,publicArchiveEditions:books.filter(x=>x.sourceId).length}};
 }
 
 export async function build(){

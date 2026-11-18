@@ -1,6 +1,6 @@
 const types={"style.css":"text/css; charset=utf-8","game.mjs":"text/javascript; charset=utf-8","icon.svg":"image/svg+xml","arcade.mjs":"text/javascript; charset=utf-8","atlas.mjs":"text/javascript; charset=utf-8"};
 const labels={games:"Games",books:"Books & editions",sites:"Websites & project pages"};
-const stages={hosted:"Hosted destination",registered:"Registered site",template:"Site template",playable:"Playable standalone app",reader:"Standalone reader",original:"Original hosted reader"};
+const stages={hosted:"Hosted destination","cloud-published":"Published website","cloud-template":"Live app page","arcade-board":"Playable arcade board",playable:"Playable standalone app",reader:"Standalone reader",original:"Original hosted reader"};
 const headers={"X-Content-Type-Options":"nosniff","Referrer-Policy":"no-referrer","Cache-Control":"no-cache",
   "Content-Security-Policy":"default-src 'self'; script-src 'self'; style-src 'self'; worker-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"};
 const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
@@ -75,12 +75,14 @@ function gamePage(x,host){
 }
 function recordPage(x,host){
   const source=safeSource(x.source);
+  const deployment=safeSource(x.deployment);
   const siblings=x.volume?host.items.filter(y=>y.volume===x.volume&&y.id.startsWith("pee-dee-")&&y.id!==x.id):[];
   const series=x.volume?host.items.filter(y=>y.type==="books"&&y.id.replace(/-\d+$/,"")===x.id.replace(/-\d+$/,"")):[];
   const near=nav(series.filter(y=>Math.abs(y.volume-x.volume)===1).map(y=>a(pagePath(y),(y.volume<x.volume?"Previous: ":"Next: ")+y.title,"chip")),"Books in this edition");
   const content='<section class="intro"><p class="eyebrow">'+esc(x.category)+(x.volume?" · BOOK "+x.volume:"")+'</p><h1>'+esc(x.title)+'</h1>'+
     (x.detail?"<p>"+esc(x.detail)+"</p>":"")+(x.language?"<p>"+esc(x.language)+"</p>":"")+(x.access?"<p>"+esc(x.access)+"</p>":"")+
-    (source?a(source,x.type==="sites"?(x.mode==="template"?"Open source":"Open website"):"Open the original edition or source","chip"):"")+
+    (deployment?a(deployment,"Open on Cloudflare","chip"):"")+
+    (source?a(source,x.mode==="arcade-board"?"Play this board":x.type==="sites"?(deployment?"Open original source":"Open website"):"Open the original edition or source","chip"):"")+
     (x.sourceId?'<p class="kind">Source ID · '+esc(x.sourceId)+"</p>":"")+
     (x.html||x.words?a(pagePath(x)+"download","Download this edition","chip"):"")+'</section>'+
     (x.html?'<article class="reading">'+x.html+"</article>":x.words?'<article class="reading"><pre>'+esc(x.words)+"</pre></article>":"")+
@@ -105,7 +107,7 @@ function serviceWorker(x,release){
 function landing(host,url){
   const sections=Object.entries(labels).map(([key,name])=>'<article class="card"><p class="kind">'+host.counts[key]+' entries</p><h2>'+
     a("/"+key+"/",name)+'</h2></article>');
-  const focus=["library-of-tabor","grapple-atlas","pee-dee-valley","the-twinkling","color-of-truth","app-portfolio"];
+  const focus=["library-of-tabor","grapple-atlas","toss-target","pee-dee-valley","the-twinkling","color-of-truth","app-portfolio"];
   const home='<section class="intro"><p class="eyebrow">TABOR WORLD · NATHAN TABOR</p><h1>Standalones</h1>'+
     '<p>Open an individual game, book, or site record. Follow the same item back into the collections it belongs to.</p></section>'+
     '<div class="grid">'+sections.join("")+'</div><h2>Collections</h2>'+groupLinks(focus,host);
@@ -149,10 +151,10 @@ export default {
       return out(body,x.words?"text/plain; charset=utf-8":"text/html; charset=utf-8",200,
         {"Content-Disposition":'attachment; filename="'+x.id+(x.words?".txt":".html")+'"'});
     }
-    if(asset&&x.type!=="games")return plain("Not found",404);
+    if(asset&&x.mode!=="playable")return plain("Not found",404);
     if(asset==="manifest.webmanifest")return json(manifest(x),"application/manifest+json; charset=utf-8");
     if(asset==="sw.js")return out(serviceWorker(x,host.release),"text/javascript; charset=utf-8");
     if(!path.endsWith("/"))return new Response(null,{status:308,headers:{Location:pagePath(x)+url.search}});
-    return html(x.type==="games"?gamePage(x,host):recordPage(x,host));
+    return html(x.mode==="playable"?gamePage(x,host):recordPage(x,host));
   }
 };

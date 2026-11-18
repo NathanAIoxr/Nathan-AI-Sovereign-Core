@@ -1,6 +1,6 @@
 {
   "schema": "tabor-world.release-ledger.v1",
-  "current": "2026-11-17.4",
+  "current": "2026-11-17.5",
   "counts": {
     "records": 832,
     "elements": 118,
@@ -15,9 +15,26 @@
     "rootAdapters": 6,
     "standaloneGames": 101,
     "bookPages": 94,
-    "websiteRecords": 398
+    "websiteRecords": 398,
+    "cloudPublishedSites": 379,
+    "cloudTemplateRoutes": 7,
+    "arcadeBoardLaunches": 60,
+    "publishedSiteFiles": 1056
   },
   "history": [
+    {
+      "id": "2026-11-17.5",
+      "title": "Public site family and individual arcade boards",
+      "changes": [
+        "Published the 379 cataloged website entry files and local dependencies on the Tabor Public Sites Worker.",
+        "Linked seven Hook and Ring template records to their live applications.",
+        "Added 60 individual Toss and Target board launch pages and collection links."
+      ],
+      "checks": [
+        "All 379 entry page response hashes matched the original public source.",
+        "Eight Worker tests passed. Two full-resolution image links resolve to their pinned originals."
+      ]
+    },
     {
       "id": "2026-11-17.4",
       "title": "Tabor Standalone games, books, and websites",
@@ -90,8 +107,8 @@
   "next": [
     {
       "id": "standalone-coverage",
-      "title": "Continue finding individual works and original sites",
-      "detail": "Match projects outside the current Atlas, Pee Dee releases, public writing archive and app portfolio to their sources."
+      "title": "Reconcile the remaining archive and app inventory",
+      "detail": "Find playable or readable original works outside the current public portfolio, Atlas, Pee Dee editions and public writing archive. Test external service dependencies as each source app is recovered."
     },
     {
       "id": "provider-credentials",
