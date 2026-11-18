@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import { DatabaseSync } from "node:sqlite";
 import { test } from "node:test";
 import { authenticate, oauth } from "./oauth.mjs";
-import { enqueue, getJob, nextWake, runOne, stats } from "./queue.mjs";
+import { enqueue, getJob, nextWake, resumePublish, runOne, stats } from "./queue.mjs";
 
 const schema = readFileSync(new URL("schema.sql", import.meta.url),"utf8");
 function testEnv() {
@@ -84,4 +84,21 @@ test("OAuth restricts redirects and gives a one-time authorization code bound to
   assert.equal((await exchange()).status,400);
   form.set("redirect_uri","https://chatgpt.com.attacker.invalid/");
   assert.equal((await oauth(new Request(origin+"/oauth/authorize",{method:"POST",headers:{origin},body:form}),env)).status,400);
+});
+
+test("a generated artifact can resume draft delivery without another model call",async()=>{
+  const env={...testEnv(),AI:{async run(){return {response:"export const proof = 100;"};}}};
+  const job=await enqueue(env,{prompt:"Create the published proof",publish:true});
+  await runOne(env);
+  const first=await getJob(env,job.id,true);
+  await assert.rejects(resumePublish(env,job.id),RangeError);
+  env.GITHUB_TOKEN="draft";
+  env.GITHUB_REPOSITORY="owner/builds";
+  env.GITHUB_DRAFT_BRANCH="automation/tabor-build-drafts";
+  env.AI={async run(){throw new Error("Never generate a second time");}};
+  await resumePublish(env,job.id);
+  await runOne(env,async()=>Response.json({commit:{html_url:"https://github.com/owner/builds/commit/test"}}));
+  const result=await getJob(env,job.id,true);
+  assert.equal(result.status,"published");
+  assert.equal(result.code_sha256,first.code_sha256);
 });

@@ -135,8 +135,13 @@ export async function runOne(env, fetcher = fetch, now = Date.now()) {
   const task = await claim(env, now);
   if (!task) return null;
   try {
-    const generated = await generate(env, task, fetcher);
+    const generated = task.code_output ? { code: task.code_output, provider: task.provider } : await generate(env, task, fetcher);
     const sha = await digest(generated.code);
+    const time = Date.now();
+    const staged = await env.DB.prepare(`UPDATE build_queue SET code_output=?,code_sha256=?,provider=?,
+      lease_until=max(lease_until,?) WHERE id=? AND status='running' AND lease_owner=? AND lease_until>?`)
+      .bind(generated.code,sha,generated.provider,time+65000,task.id,task.lease_owner,time).run();
+    if (!staged.meta.changes) return null;
     let draft;
     try { draft = await publishDraft(env, task, generated.code, fetcher); }
     catch { draft = { state: "github_delivery_error" }; }
@@ -171,4 +176,16 @@ export async function getJob(env, id, code = false) {
   if (typeof id !== "string" || !/^[0-9a-f-]{36}$/i.test(id)) throw new RangeError("Invalid job ID.");
   const columns = "id,file_path,status,provider,code_sha256,publish_status,commit_url,attempts,last_error,created_at,finished_at";
   return env.DB.prepare("SELECT " + columns + (code ? ",code_output" : "") + " FROM build_queue WHERE id=?").bind(id).first();
+}
+
+export async function resumePublish(env, id, now = Date.now()) {
+  if (!env.GITHUB_TOKEN) throw new RangeError("Configure GITHUB_TOKEN before requesting draft publication.");
+  const previous = await getJob(env, id);
+  if (!previous) throw new RangeError("Build job not found");
+  if (previous.status === "published") return previous;
+  const row = await env.DB.prepare(`UPDATE build_queue SET status='pending',publish=1,attempts=0,next_at=?,finished_at=NULL,
+    publish_status='queued' WHERE id=? AND status='generated' AND code_output IS NOT NULL
+    RETURNING id,file_path,status,publish_status`).bind(now,id).first();
+  if (!row) throw new RangeError("A generated artifact is required before draft publication.");
+  return row;
 }

@@ -1,13 +1,17 @@
 import { DurableObject } from "cloudflare:workers";
+import { consoleCode, consolePage } from "./console.mjs";
 import { authenticate, challenge, oauth } from "./oauth.mjs";
-import { enqueue, getJob, nextWake, readText, reply, runOne, stats } from "./queue.mjs";
+import { enqueue, getJob, nextWake, readText, reply, resumePublish, runOne, stats } from "./queue.mjs";
 
 const protocol = "2025-06-18";
 const toolDefinitions = [
   { name:"queue_build",description:"Queue a JavaScript module draft in the owner’s Tabor build queue. GitHub publishing is opt-in and limited to its dedicated draft branch.",
     inputSchema:{type:"object",properties:{prompt:{type:"string",maxLength:4000},kind:{type:"string",enum:["module","probe"]},
       idempotency_key:{type:"string",maxLength:100},publish:{type:"boolean"}},required:["prompt"],additionalProperties:false},
-    annotations:{readOnlyHint:false,destructiveHint:false,idempotentHint:false,openWorldHint:false} },
+    annotations:{readOnlyHint:false,destructiveHint:false,idempotentHint:false,openWorldHint:true} },
+  { name:"publish_build",description:"Requeue an existing generated module for delivery to the dedicated draft branch after GitHub credentials are configured.",
+    inputSchema:{type:"object",properties:{id:{type:"string"}},required:["id"],additionalProperties:false},
+    annotations:{readOnlyHint:false,destructiveHint:false,idempotentHint:false,openWorldHint:true} },
   { name:"build_status",description:"Read the state, provider, hash, and optional code for one build job.",inputSchema:{type:"object",
     properties:{id:{type:"string"},include_code:{type:"boolean"}},required:["id"],additionalProperties:false},annotations:{readOnlyHint:true} },
   { name:"build_queue_status",description:"Read aggregate job counts and last Cron and alarm timestamps.",inputSchema:{type:"object",properties:{},additionalProperties:false},
@@ -53,6 +57,9 @@ async function mcp(request, env, ctx, origin) {
       if (name === "queue_build") {
         result = await enqueue(env,args);
         ctx.waitUntil(scheduler(env).wake());
+      } else if (name === "publish_build") {
+        result = await resumePublish(env,args.id);
+        if (result.status === "pending") ctx.waitUntil(scheduler(env).wake());
       } else if (name === "build_status") result = await getJob(env,args.id,args.include_code === true);
       else if (name === "build_queue_status") result = await stats(env);
       else throw new RangeError("Unknown tool");
@@ -70,10 +77,18 @@ export default {
   async fetch(request, env, ctx) {
     const { pathname,origin } = new URL(request.url);
     if (pathname === "/mcp") return mcp(request,env,ctx,origin);
+    if (request.method === "GET" && ["/console","/console/","/console.mjs"].includes(pathname)) {
+      const js = pathname.endsWith(".mjs");
+      return new Response(js ? consoleCode : consolePage,{headers:{
+        "content-type":js ? "text/javascript; charset=utf-8" : "text/html; charset=utf-8",
+        "cache-control":"no-store","referrer-policy":"no-referrer","x-content-type-options":"nosniff",
+        "content-security-policy":"default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'",
+      }});
+    }
     if (pathname === "/health" && request.method === "GET") return reply({service:"tabor-build-loop",
       repository:env.GITHUB_REPOSITORY, model:env.OPENAI_API_KEY ? "OpenAI" : env.AI ? "Workers AI" : "deterministic",
       github_configured:Boolean(env.GITHUB_TOKEN), ...await stats(env)});
-    if (pathname === "/" && request.method === "GET") return reply({service:"Tabor Build Loop",mcp:origin+"/mcp",health:origin+"/health"});
+    if (pathname === "/" && request.method === "GET") return reply({service:"Tabor Build Loop",mcp:origin+"/mcp",health:origin+"/health",console:origin+"/console/"});
     try { return await oauth(request,env) || reply({error:"not_found"},404); }
     catch { return reply({error:"invalid_request"},400); }
   },
