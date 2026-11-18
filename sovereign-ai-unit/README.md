@@ -33,7 +33,7 @@ Pending jobs can be cancelled by the owning project. A cancelled attempt cannot 
 
 ## Release and rollback
 
-Use the three configuration files in `config/` to deploy the in-place extensions. Apply `migrations/0002_jobs.sql` to the existing `sovereign-ledger` database before activating Box 1. Deploy Box 1, then Box 0, then the True Cloud bridge. Set `PLATFORM_REVISION` in Box 1 to the exact GitHub revision. Check `/health`, `/platform/status`, and `/compute-platform/status`. Roll back by switching each Worker to its preceding version and keeping the additive database migration. The one-minute Box 1 cron can be removed when rolling back to a version without a scheduled handler. GitHub checks run the matching SQL and module contracts. Deploy through the existing account or a future authorized GitHub Cloudflare credential.
+Use the three configuration files in `config/` to deploy the in-place extensions. Apply `migrations/0002_jobs.sql` to the existing `sovereign-ledger` database before activating Box 1. Apply `migrations/0003_cache.sql` for the verified cache index. Deploy Box 1, then Box 0, then the True Cloud bridge. Set `PLATFORM_REVISION` in Box 1 to the exact GitHub revision. Check `/health`, `/platform/status`, and `/compute-platform/status`. Roll back by switching each Worker to its preceding version and keeping the additive database migration. The one-minute Box 1 cron can be removed when rolling back to a version without a scheduled handler. GitHub checks run the matching SQL and module contracts. Deploy through the existing account or a future authorized GitHub Cloudflare credential.
 
 ## Owner setup and expansion
 
@@ -47,8 +47,10 @@ Use the three configuration files in `config/` to deploy the in-place extensions
 The first release uses the checked-in public retrieval fixture in `tools/benchmark-dataset.json` with predetermined top-1 quality and a 120 s job SLA. The runner hashes the dataset and each artifact, measures queue and execution time, prints failed rows, and records costs and the version. Embeddings do not stream tokens, so TTFT is null. The benchmark books a conservative model cost and records the provider invoice as unknown. Physical hardware information is also unknown for Workers AI. The latency target and selected data are a baseline for this workload only. Do not extrapolate the measured four cases to sustained worldwide capacity. To compare results at equal spend, reconcile actual comparable billing, retain both raw runs, and report scope, workload, precision, hardware, failures and important uncertainty.
 
 ```sh
-node tools/benchmark.mjs receipts/fresh-run.json 1 fresh-baseline
+node tools/benchmark.mjs receipts/fresh-run.json 1 fresh-baseline fresh
+node tools/benchmark.mjs receipts/cache-run.json 1 verified-cache verified
+node tools/compare.mjs receipts/fresh-run.json receipts/cache-run.json
 node tools/capacity.mjs receipts/fresh-run.json 100000 32 1000 2 12000 2000 3600
 ```
 
-The example capacity parameters are illustrative. A second phase should compare cache-off, measured cache-hit, and optimized fresh-compute trials on the same held-out quality set and budget. GPU-hours, training time to target and precision throughput require physical backend telemetry.
+The example capacity parameters are illustrative. The second working release adds opt-in verified reuse. Set `cacheMode` to `verified` for a managed embedding with no delay. A cached artifact must come from the same project, model, platform revision, and identical work input, remain within its retention window, and pass SHA-256 verification again. A cache miss follows ordinary admission and costs. Default requests stay fresh. A cache hit avoids a provider model call; edge and storage request overhead still applies. GPU-hours, training time to target and precision throughput require physical backend telemetry.

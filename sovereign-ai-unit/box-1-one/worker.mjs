@@ -45,8 +45,8 @@ async function privateRoutes(request,env,ctx,url) {
     if (!/^[a-zA-Z0-9_-]{1,80}$/.test(key) || !Number.isSafeInteger(dailyMicro) || dailyMicro<0 || dailyMicro>1e9
       || !Number.isSafeInteger(maxActive) || maxActive<1 || maxActive>64) throw new PlatformError("Invalid admission parameters.");
     const {row,duplicate}=await admit(db,{project,dailyMicro,maxActive},key,input,env);
-    if (!duplicate && row.ready_at<=Date.now()) ctx?.waitUntil(drain(env).catch(()=>console.error("platform dispatch unavailable")));
-    return response(duplicate?"accepted":input.delaySeconds?"deferred":"accepted",duplicate?"duplicate-replayed":input.delaySeconds?"scheduled-delay":"job-queued",
+    if (!duplicate && row.state==="queued" && row.ready_at<=Date.now()) ctx?.waitUntil(drain(env).catch(()=>console.error("platform dispatch unavailable")));
+    return response(duplicate?"accepted":input.delaySeconds?"deferred":"accepted",duplicate?"duplicate-replayed":row.backend==="verified-cache"?"verified-cache-hit":input.delaySeconds?"scheduled-delay":"job-queued",
       {job:publicJob(row),duplicate},duplicate?200:202);
   }
   if (path==="/platform/jobs" && method==="GET") return response("accepted","project-jobs",{jobs:(await listFor(db,project)).map(publicJob)});

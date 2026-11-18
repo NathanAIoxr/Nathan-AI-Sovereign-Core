@@ -159,3 +159,24 @@ test("project-scoped storage and attested training restart from a finished check
   assert.equal(JSON.parse(final.output).heldOutQuality,.90);
   assert.equal(calls,2);
 });
+
+test("verified-cache replay is hash-checked, fresh by default, revision and tenant scoped",async()=>{
+  const db=database(),env={AI:validAi,BOX_1_LEDGER:db,PLATFORM_REVISION:"rev-a"},now=Date.now();
+  const baseline=validateJob(body);
+  const fresh=await admit(db,person,"cache-source",baseline,env,now);
+  await drain(env);
+  const committed=db.sqlite.prepare("SELECT state,output_sha256 FROM platform_jobs WHERE id=?").get(fresh.row.id);
+  assert.equal(committed.state,"succeeded");
+  const cached=await admit(db,person,"cache-hit",validateJob({...body,cacheMode:"verified",budgetMicro:0}),env,Date.now());
+  assert.equal(cached.row.backend,"verified-cache");
+  assert.equal(cached.row.spent_micro,0);
+  assert.equal(cached.row.output_sha256,committed.output_sha256);
+  const forced=await admit(db,person,"forced",baseline,env,Date.now());
+  assert.equal(forced.row.state,"queued");
+  await assert.rejects(admit(db,{...person,project:"project-b"},"cache-no-leak",validateJob({...body,cacheMode:"verified",budgetMicro:0}),env),{status:402});
+  const next=await admit(db,person,"new-revision",validateJob({...body,cacheMode:"verified"}),{...env,PLATFORM_REVISION:"rev-b"});
+  assert.equal(next.row.state,"queued");
+  db.sqlite.prepare("UPDATE platform_jobs SET output='[]' WHERE id=?").run(fresh.row.id);
+  const corrupt=await admit(db,person,"bad-cache",validateJob({...body,cacheMode:"verified"}),env);
+  assert.equal(corrupt.row.state,"queued");
+});

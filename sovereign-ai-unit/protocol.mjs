@@ -66,6 +66,10 @@ export function validateJob(raw) {
   const region = raw.region ?? null;
   if (region !== null && (typeof region !== "string" || !ident.test(region))) throw new PlatformError("Invalid region.");
   const benchmark = raw.benchmark === true;
+  const cacheMode = raw.cacheMode ?? "fresh";
+  if (!["fresh","verified"].includes(cacheMode) || cacheMode==="verified" && (!["embedding","batch-embedding"].includes(kind) || region&&region!=="provider-managed" || delaySeconds)) {
+    throw new PlatformError("Verified cache requires a managed embedding with no delay.");
+  }
   let work;
   if (kind === "embedding" || kind === "batch-embedding") {
     const texts = raw.texts;
@@ -90,5 +94,5 @@ export function validateJob(raw) {
         minInterconnectGbps:number(raw.minInterconnectGbps ?? 100,"interconnect Gbps",1,3200) };
     }
   }
-  return {kind,work,budgetMicro,deadlineSeconds,delaySeconds,retentionSeconds,region,benchmark};
+  return {kind,work,budgetMicro,deadlineSeconds,delaySeconds,retentionSeconds,region,benchmark,cacheMode};
 }

@@ -6,7 +6,8 @@ const stmt = (db,sql,...params) => db.prepare(sql).bind(...params);
 const get = (db,id) => stmt(db,"SELECT * FROM platform_jobs WHERE id=?",id).first();
 
 export async function admit(db, principal, key, input, env, now=clock()) {
-  const requestHash = await sha256(JSON.stringify(input));
+  const {cacheMode,...rest}=input;
+  const requestHash = await sha256(JSON.stringify(cacheMode==="fresh"?rest:input));
   const find = () => stmt(db,"SELECT * FROM platform_jobs WHERE project=? AND idem=?",principal.project,key).first();
   const replay = row => {
     if (row.request_hash !== requestHash) throw new PlatformError("Idempotency key already belongs to another request.",409);
@@ -21,20 +22,34 @@ export async function admit(db, principal, key, input, env, now=clock()) {
       throw new PlatformError("Object unavailable for the requested project or deadline.",404);
     }
   }
-  const { reserve,allowed } = estimate(input,backends(env));
+  const inputHash=await sha256(JSON.stringify(input.work));
+  const candidate = input.cacheMode==="verified" && env.PLATFORM_REVISION ? await stmt(db,`SELECT id,output,output_sha256 FROM platform_jobs
+    WHERE project=? AND kind=? AND state='succeeded' AND backend='workers-ai-bge' AND input_sha256=?
+      AND finished+retain_ms>? AND json_extract(evidence,'$[0].revision')=?
+      AND NOT EXISTS(SELECT 1 FROM json_each(evidence) WHERE json_extract(value,'$.backend')<>'workers-ai-bge'
+        OR json_extract(value,'$.revision')<>?) ORDER BY finished DESC LIMIT 1`,
+    principal.project,input.kind,inputHash,now,env.PLATFORM_REVISION,env.PLATFORM_REVISION).first() : null;
+  const cached=candidate?.output && await sha256(candidate.output)===candidate.output_sha256?candidate:null;
+  const { reserve,allowed } = cached?{reserve:0,allowed:[]}:estimate(input,backends(env));
   const total = totalFor(input);
   const job = {...input,allowed};
   const id = crypto.randomUUID();
   const dayStart = Math.floor(now/86400000)*86400000;
   const row = await stmt(db,`INSERT INTO platform_jobs
-    (id,project,idem,request_hash,kind,payload,input_sha256,state,created,updated,ready_at,deadline,retain_ms,reserve_micro,total)
-    SELECT ?,?,?,?,?,?,?,'queued',?,?,?,?,?,?,? WHERE
+    (id,project,idem,request_hash,kind,payload,input_sha256,state,created,updated,ready_at,deadline,retain_ms,reserve_micro,total,
+     backend, progress, finished, output, output_sha256, evidence)
+    SELECT ?,?,?,?,?,?,?,?,
+           ?,?,?,?,?,?,?,
+           ?,?,?,?,?,? WHERE
     (SELECT COUNT(*) FROM platform_jobs WHERE project=? AND state IN ('queued','running')) < ?
     AND (SELECT COALESCE(SUM(CASE WHEN state IN ('queued','running') THEN reserve_micro ELSE spent_micro END),0)
       FROM platform_jobs WHERE project=? AND (created>=? OR state IN ('queued','running') OR finished>=?)) + ? <= ?
     ON CONFLICT(project,idem) DO NOTHING RETURNING *`,
-    id,principal.project,key,requestHash,input.kind,JSON.stringify(job),await sha256(JSON.stringify(input.work)),
+    id,principal.project,key,requestHash,input.kind,JSON.stringify(job),inputHash,cached?"succeeded":"queued",
     now,now,now+input.delaySeconds*1000,now+input.deadlineSeconds*1000,input.retentionSeconds*1000,reserve,total,
+    cached?"verified-cache":null,cached?total:0,cached?now:null,cached?.output??null,cached?.output_sha256??null,
+    cached?JSON.stringify([{stage:"Fo",backend:"verified-cache",count:total,backendMs:0,estimatedMicros:0,
+      quality:"Previous verified result and matching SHA-256",sourceJob:cached.id,revision:env.PLATFORM_REVISION}]):null,
     principal.project,principal.maxActive,principal.project,dayStart,dayStart,reserve,principal.dailyMicro).first();
   if (row) return {row,duplicate:false};
   const existing = await find();

@@ -1,9 +1,9 @@
 import { readFile,writeFile } from "node:fs/promises";
 import { MODEL,sha256 } from "../protocol.mjs";
 import { api,artifact,submit,wait,origin } from "./client.mjs";
-const [file,parallelRaw="1",label="fresh-baseline"]=process.argv.slice(2);
+const [file,parallelRaw="1",label="fresh-baseline",cacheMode="fresh"]=process.argv.slice(2);
 const parallel=Number(parallelRaw);
-if (!file || !Number.isInteger(parallel) || parallel<1 || parallel>4) throw Error("Usage: node tools/benchmark.mjs output.json [1-4] [label]");
+if (!file || !Number.isInteger(parallel) || parallel<1 || parallel>4 || !["fresh","verified"].includes(cacheMode)) throw Error("Usage: node tools/benchmark.mjs output.json [1-4] [label] [fresh|verified]");
 const datasetRaw=await readFile(new URL("benchmark-dataset.json",import.meta.url),"utf8");
 const dataset=JSON.parse(datasetRaw);
 const info=await (await api("/status",{auth:false})).json();
@@ -15,7 +15,7 @@ async function measure(item) {
   const begin=Date.now();
   let job=null;
   try {
-    job=(await submit({kind:"batch-embedding",texts:[item.query,...item.candidates],benchmark:true,budgetMicro:300,
+    job=(await submit({kind:"batch-embedding",texts:[item.query,...item.candidates],benchmark:true,budgetMicro:300,cacheMode,
       region:"provider-managed",deadlineSeconds:dataset.acceptance.maxLatencyMs/1000,retentionSeconds:3600},
       "bench-"+runId+"-"+item.id)).job;
     if(!["succeeded","failed","cancelled","cleared"].includes(job.state)) job=await wait(job.id,180);
@@ -25,9 +25,9 @@ async function measure(item) {
     const found=scores.indexOf(Math.max(...scores));
     const latency=job.finished-job.created;
     return {case:item.id,id:job.id,latencyMs:latency,observedMs:Date.now()-begin,
-      backendMs:job.slices.reduce((t,s)=>t+s.backendMs,0),queueWaitMs:job.started-job.created,estimatedMicros:job.spentEstimateMicro,
+      backendMs:job.slices.reduce((t,s)=>t+s.backendMs,0),queueWaitMs:job.started===null?0:job.started-job.created,estimatedMicros:job.spentEstimateMicro,
       accepted:latency<=dataset.acceptance.maxLatencyMs && found===item.expected,expected:item.expected,found,scores,
-      inputSha256:job.inputSha256,resultSha256:result.hash,backend:job.backend,slices:job.slices,cache:"fresh"};
+      inputSha256:job.inputSha256,resultSha256:result.hash,backend:job.backend,slices:job.slices,cache:job.backend==="verified-cache"?"hit":"fresh"};
   } catch(error) {
     return {case:item.id,id:job?.id??null,accepted:false,error:error.message,estimatedMicros:job?.spentEstimateMicro??null,observedMs:Date.now()-begin};
   }
@@ -40,15 +40,15 @@ const estimated=raw.every(r=>Number.isInteger(r.estimatedMicros))?raw.reduce((n,
 const report = {
   runId,revision:info.revision,model:MODEL,dataset:{name:dataset.name,sha256:await sha256(datasetRaw)},hardware:pool?.deviceType??null,
   devices:pool?.deviceCount??null,precision:pool?.precision??null,interconnect:pool?.interconnect??null,
-  load:{concurrency:parallel,requests:raw.length,cache:"disabled",label},time:{start:new Date(started).toISOString(),end:new Date(finished).toISOString(),durationMs:finished-started},
+  load:{concurrency:parallel,requests:raw.length,cacheMode,label},time:{start:new Date(started).toISOString(),end:new Date(finished).toISOString(),durationMs:finished-started},
   criteria:{...dataset.acceptance,quality:dataset.quality},latencyUnit:"Job creation to durable artifact commit",
   summary:{accepted,total:raw.length,failed:raw.length-accepted,top1:raw.filter(r=>r.found!==undefined&&r.found===r.expected).length/raw.length,
-    p95LatencyMs:ms[Math.ceil(ms.length*.95)-1]??null,acceptedPerSecond:1000*accepted/Math.max(1,finished-started),
+    cacheHits:raw.filter(r=>r.cache==="hit").length,p95LatencyMs:ms[Math.ceil(ms.length*.95)-1]??null,acceptedPerSecond:1000*accepted/Math.max(1,finished-started),
     acceptedPerHour:3600000*accepted/Math.max(1,finished-started),timeToFirstTokenMs:null,errorRate:raw.filter(r=>r.error).length/raw.length,
     estimatedMicros:estimated,estimatedMicrosPerAccepted:accepted&&estimated!==null?estimated/accepted:null,actualSpend:null},
   costBasis:pool?.rateBasis??null,raw,
   benchmarkClaim:"Baseline only. Equal-spend 2X+ requires a second comparable run with reconciled billing.",
-  reproduce:{endpoint:origin,command:"node tools/benchmark.mjs output.json "+parallel+" "+label}
+  reproduce:{endpoint:origin,command:"node tools/benchmark.mjs output.json "+parallel+" "+label+" "+cacheMode}
 };
 await writeFile(file,JSON.stringify(report,null,2)+"\n",{flag:"wx"});
 console.log(JSON.stringify({file,runId,summary:report.summary}));
