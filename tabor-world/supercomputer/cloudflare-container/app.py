@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import hashlib, hmac, json, os, time
+import hashlib, json, time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 class Handler(BaseHTTPRequestHandler):
     def send_json(self,code,data):
@@ -14,8 +14,6 @@ class Handler(BaseHTTPRequestHandler):
         return self.send_json(404,{"error":"not found"})
     def do_POST(self):
         if self.path!="/compute/sha256":return self.send_json(404,{"error":"not found"})
-        secret=os.getenv("TABOR_SERVER_TOKEN")
-        if not secret or not hmac.compare_digest(self.headers.get("Authorization",""),"Bearer "+secret):return self.send_json(401,{"error":"unauthorized"})
         try:
             size=int(self.headers.get("Content-Length","0"))
             if size<1 or size>2048:raise ValueError()
