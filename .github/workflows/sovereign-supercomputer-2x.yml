@@ -1,0 +1,41 @@
+name: Sovereign Supercomputer 2X
+on:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Deploy the verified Cloudflare bundle
+        type: boolean
+        default: false
+  pull_request:
+    paths:
+      - 'supercomputer/2x/**'
+      - '.github/workflows/sovereign-supercomputer-2x.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: node supercomputer/2x/build.mjs
+      - run: node supercomputer/2x/check.mjs
+      - uses: cloudflare/wrangler-action@v3
+        if: github.event_name == 'workflow_dispatch' && inputs.deploy
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: supercomputer/2x
+          command: d1 execute nathan-supercomputer-2x --remote --file schema.sql
+      - uses: cloudflare/wrangler-action@v3
+        if: github.event_name == 'workflow_dispatch' && inputs.deploy
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: supercomputer/2x
+          command: deploy

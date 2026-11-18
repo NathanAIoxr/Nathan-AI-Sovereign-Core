@@ -1,0 +1,23 @@
+name = "nathan-tabor-supercomputer-2x"
+main = "dist.mjs"
+compatibility_date = "2026-11-17"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nathan-supercomputer-2x"
+database_id = "46a04265-4187-4641-8809-2e184e5eb185"
+
+[triggers]
+crons = ["*/5 * * * *"]
+
+[[services]]
+binding = "CORE"
+service = "nathan-tabor-supercomputer"
+
+[[services]]
+binding = "CURRENCY"
+service = "tabor-sovereign-currency"
+
+[[services]]
+binding = "HUB"
+service = "tabor-world"
