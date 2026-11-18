@@ -1,0 +1,322 @@
+{
+  "title": "TABOR CHIPS — ENHANCED NATHAN AI SOVEREIGN SUPERCOMPUTER",
+  "version": "2026-11-18",
+  "standing_tag": "CONTINUE BUILDING",
+  "classification": "engineering architecture and development roadmap",
+  "ownership_label": "Tabor Chips — Nathan AI technology",
+  "preservation": "Additive extension of existing master continuation map; no NVIDIA or previous Tabor components removed",
+  "axioms": [
+    "1-1=0 CLEAR",
+    "1+1=2 BUILD",
+    "1x1=1 INTEGRATE",
+    "1/1=1 VERIFY"
+  ],
+  "reference_baselines": [
+    "NVIDIA Blackwell B200/GB200/GB300",
+    "DGX Spark GB10",
+    "RTX 5090",
+    "Jetson Orin Nano Super",
+    "NVLink/NVSwitch",
+    "Spectrum-X/Quantum-X",
+    "BlueField/ConnectX",
+    "HBM3e/LPDDR5X",
+    "direct-liquid-cooled AI racks"
+  ],
+  "principles": [
+    "Tabor Chips is a distinct proposed design family; vendor reference architectures are comparison inputs, not copied proprietary RTL.",
+    "Preserve every physical and virtual subsystem as a separate design track.",
+    "The cloud control plane does not substitute for physical semiconductor manufacturing.",
+    "Do not claim fabricated silicon, demonstrated benchmarks, or measured 2x improvement without evidence.",
+    "Each layer has interfaces, test benches, agent ownership and a continuation tag."
+  ],
+  "layers": [
+    {
+      "number": "01",
+      "name": "Tabor Chip Die",
+      "scope": "GPU/SIMD/SIMT compute arrays, tensor/matrix engines, scalar and vector execution, cache hierarchy, clock and reset domains",
+      "agent": "compute-die-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "02",
+      "name": "Tabor Memory Complex",
+      "scope": "HBM-class stacked memory, ECC, controllers, coherent CPU/GPU address spaces, SRAM and LPDDR interfaces",
+      "agent": "memory-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "03",
+      "name": "Tabor Host CPU",
+      "scope": "Grace/Vera/x86/ARM comparison, instruction orchestration, OS, IOMMU, secure boot",
+      "agent": "cpu-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "04",
+      "name": "Tabor On-Package Fabric",
+      "scope": "chiplets, die-to-die bridge, interposer, advanced packaging, signaling and bandwidth",
+      "agent": "package-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "05",
+      "name": "Tabor Rack Fabric",
+      "scope": "NVLink/NVSwitch-class topology, cable/backplane, fabric routing, fault domains",
+      "agent": "fabric-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "06",
+      "name": "Tabor Network Fabric",
+      "scope": "NIC, DPU, Ethernet/InfiniBand, optical transceivers, silicon photonics, congestion control",
+      "agent": "network-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "07",
+      "name": "Tabor Storage Fabric",
+      "scope": "boot NVMe, checkpoint NVMe, distributed storage, D1/R2 integration and backups",
+      "agent": "storage-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "08",
+      "name": "Tabor Thermal System",
+      "scope": "cold plates, CDU, manifolds, liquid loops, sensors, airflow and thermal simulation",
+      "agent": "thermal-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "09",
+      "name": "Tabor Power System",
+      "scope": "power shelves, busbars, UPS, redundancy, distribution, metering and protection",
+      "agent": "power-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "10",
+      "name": "Tabor Mechanical Rack",
+      "scope": "chassis, compute trays, switch trays, serviceability, cables, facility requirements",
+      "agent": "mechanical-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "11",
+      "name": "Tabor Management Plane",
+      "scope": "BMC, firmware, telemetry, attestation, out-of-band control, recovery",
+      "agent": "management-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "12",
+      "name": "Tabor AI Software Stack",
+      "scope": "compiler, runtime, kernel scheduling, model execution, inference/training, WASM, accelerator abstraction",
+      "agent": "compiler-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "13",
+      "name": "Tabor Sovereign Security",
+      "scope": "Box 0 clear gate, Box 1 build engine, identity, cryptography, audit, provenance",
+      "agent": "guardian-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "14",
+      "name": "Tabor Distributed Cloud",
+      "scope": "Cloudflare Workers, Containers, Workflows, Queues, D1, R2, KV, Durable Objects, Vectorize, GitHub",
+      "agent": "cloud-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "15",
+      "name": "Tabor Agent and Application Mesh",
+      "scope": "Tabor World Hub, agent fleets, games, books, ancestry, library, rhythm, inventions",
+      "agent": "integration-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "16",
+      "name": "Tabor Benchmark and Verification",
+      "scope": "FP64/FP32/FP16/FP8/FP4, tokens/sec, energy, memory bandwidth, networking, mining hashes/sec, reproducibility",
+      "agent": "benchmark-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "17",
+      "name": "Tabor Silicon Design and Fabrication",
+      "scope": "RTL, ISA specification, EDA, synthesis, timing, floorplanning, physical design, verification, foundry and packaging handoff",
+      "agent": "silicon-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    },
+    {
+      "number": "18",
+      "name": "Tabor ASIC Mining Branch",
+      "scope": "SHA-256d datapath, mining controller, ASIC farm, pool/node interface, power economics and safety",
+      "agent": "mining-agent",
+      "tag": "CONTINUE BUILDING",
+      "stage": "architecture-to-implementation",
+      "deliverables": [
+        "requirements and interface specification",
+        "component model or RTL where applicable",
+        "simulation or software test harness",
+        "integration test and benchmark",
+        "verification receipt",
+        "next build iteration"
+      ]
+    }
+  ]
+}
