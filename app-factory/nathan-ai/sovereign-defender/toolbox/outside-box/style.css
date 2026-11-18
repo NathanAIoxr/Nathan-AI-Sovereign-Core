@@ -1,0 +1,45 @@
+:root {
+  color-scheme: dark;
+  font: 16px/1.55 system-ui, sans-serif;
+  color: #eef6f6;
+  background: #101c28;
+  --panel: #182a38;
+  --line: #416071;
+  --muted: #bdced7;
+  --accent: #9fe7da;
+  --focus: #f5cd90;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 65rem; margin: auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--accent); }
+header { border-bottom: 1px solid var(--line); margin: 1.5rem 0 1.25rem; padding-bottom: 1.25rem; }
+h1 { font-size: clamp(2.6rem, 8vw, 4.9rem); letter-spacing: -.055em; line-height: 1; margin: 0; }
+h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
+p { max-width: 72ch; }
+.eyebrow { color: var(--accent); font-size: .85rem; font-weight: 700; margin: 0 0 .7rem; }
+.status { min-height: 1.65em; color: var(--accent); }
+.subtle, dt { color: var(--muted); }
+section, .playbook { border: 1px solid var(--line); border-radius: .7rem; padding: 1.3rem; background: var(--panel); margin: 1rem 0; }
+label { display: block; margin: .75rem 0 .2rem; font-weight: 600; }
+button, input, select, textarea { font: inherit; color: inherit; }
+input, select, textarea { background: #12212d; border: 1px solid #6b8693; width: 100%; border-radius: .36rem; padding: .65rem; }
+button { min-height: 44px; border: 1px solid #6b8693; border-radius: .45rem; background: #224554; padding: .55rem .9rem; cursor: pointer; }
+button:disabled { opacity: .55; cursor: default; }
+button:not(:disabled):hover { background: #315b69; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.buttons { display: flex; flex-wrap: wrap; gap: .55rem; margin: .8rem 0; }
+.form-grid, .summary-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem 1rem; }
+.summary-grid div { border-top: 1px solid var(--line); padding: .5rem 0; }
+dt { font-size: .86rem; font-weight: 700; }
+dd { margin: 0; overflow-wrap: anywhere; }
+.check { display: flex; align-items: center; gap: .55rem; }
+.check input { width: auto; }
+.timeline, #source-list, #playbook { padding-left: 1.3rem; overflow-wrap: anywhere; }
+.timeline li, #source-list li, #playbook li { margin: .6rem 0; }
+summary { cursor: pointer; }
+@media (max-width: 36rem) {
+  main { padding: 1.25rem .85rem 3rem; }
+  section, .playbook { padding: 1rem; }
+  .form-grid, .summary-grid { grid-template-columns: 1fr; }
+}
