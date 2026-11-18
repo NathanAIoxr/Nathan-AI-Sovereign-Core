@@ -1,0 +1,47 @@
+{
+  "title": "Genie Mechanics 21 Formalisms",
+  "date": "2026-11-18",
+  "source": {
+    "repository": "NathanAIoxr/Nathan-AI-Sovereign-Core",
+    "branch": "feature/tabor-supercomputer-heartbeat-20261117",
+    "files": 7
+  },
+  "cloudflare": {
+    "worker": "nathan-genie-mechanics",
+    "deployment_id": "c7ecd46846a8484085870626b81cb561",
+    "subdomain_enabled": true,
+    "endpoint": "https://nathan-genie-mechanics.nathantaboract.workers.dev"
+  },
+  "features": {
+    "formalism_records": 21,
+    "engineering_layers": 4,
+    "software_simulator": [
+      "seal",
+      "unseal",
+      "arm-fold",
+      "blink",
+      "command",
+      "snapshot",
+      "restore",
+      "revoke",
+      "violate"
+    ]
+  },
+  "verification": {
+    "github_commits": true,
+    "cloudflare_upload": true,
+    "subdomain_enabled": true,
+    "public_http_response": "not independently checked",
+    "unit_tests": "committed not executed",
+    "real_biometrics": false,
+    "physical_magic": false,
+    "production_authentication": false
+  },
+  "next": [
+    "run Node test suite",
+    "build browser UI",
+    "server-side signed capability authentication",
+    "encrypted snapshot persistence",
+    "opt-in sensor adapter"
+  ]
+}
