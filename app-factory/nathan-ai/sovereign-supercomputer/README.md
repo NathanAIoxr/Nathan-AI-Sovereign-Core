@@ -1,6 +1,7 @@
 # NATHAN AI 🚀 & NATHAN TABOR 2X+ SOVEREIGN SUPERCOMPUTER
 
 [Live Sovereign Core](https://nathan-ai-sovereign-core.nathantaboract.workers.dev/) ·
+[Live Vercel entry point](https://nathan-ai-sovereign-core.vercel.app/) ·
 [Existing compute cluster](https://nathan-ai-sovereign-2x.nathantaboract.workers.dev/cluster) ·
 [Tabor World Hub](https://tabor-world-hub.nathantaboract.workers.dev/)
 
@@ -51,4 +52,4 @@ The design inventory also includes eBPF, vSoC enclaves, quantum-HPC, silicon pho
 
 ## Vercel and GitHub Pages
 
-The Vercel project uses the `vercel/` directory. External rewrites expose the same public console and runtime on Cloudflare. The allowlist excludes private intake, snapshot commands and node claims. The Nathan AI home page links to the primary Worker for GitHub Pages visitors.
+The Vercel project uses the [`hive/sovereign-supercomputer-vercel/` directory](../../../hive/sovereign-supercomputer-vercel/). External rewrites expose the same public console and runtime on Cloudflare. The allowlist excludes private intake, snapshot commands and node claims. The Nathan AI home page links to the primary Worker for GitHub Pages visitors.
