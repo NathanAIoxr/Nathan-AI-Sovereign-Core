@@ -1,0 +1,6952 @@
+[
+  {
+    "id": "001",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "SHA-256 text digest",
+    "status": "executable",
+    "implementation": "SHA-256 text digest",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/001",
+    "syscall": "/syscall",
+    "sample": {
+      "text": "Nathan Tabor"
+    }
+  },
+  {
+    "id": "002",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "SHA-512 text digest",
+    "status": "executable",
+    "implementation": "SHA-512 text digest",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/002",
+    "syscall": "/syscall",
+    "sample": {
+      "text": "Nathan Tabor"
+    }
+  },
+  {
+    "id": "003",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "BLAKE3 text digest",
+    "status": "executable",
+    "implementation": "BLAKE3 text digest",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/003",
+    "syscall": "/syscall",
+    "sample": {
+      "text": "Nathan Tabor"
+    }
+  },
+  {
+    "id": "004",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "Triple modular redundancy voter",
+    "status": "executable",
+    "implementation": "Triple modular redundancy voter",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/004",
+    "syscall": "/syscall",
+    "sample": {
+      "replicas": [
+        21,
+        20,
+        21
+      ]
+    }
+  },
+  {
+    "id": "005",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "HMAC-SHA-256 fixture",
+    "status": "executable",
+    "implementation": "HMAC-SHA-256 fixture",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/005",
+    "syscall": "/syscall",
+    "sample": {
+      "text": "message",
+      "fixtureKey": "demo-key"
+    }
+  },
+  {
+    "id": "006",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "CRC-32 byte checksum",
+    "status": "executable",
+    "implementation": "CRC-32 byte checksum",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/006",
+    "syscall": "/syscall",
+    "sample": {
+      "bytes": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ]
+    }
+  },
+  {
+    "id": "007",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "Byte parity",
+    "status": "executable",
+    "implementation": "Byte parity",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/007",
+    "syscall": "/syscall",
+    "sample": {
+      "bytes": [
+        1,
+        3,
+        7
+      ]
+    }
+  },
+  {
+    "id": "008",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "Shamir polynomial share fixture",
+    "status": "executable",
+    "implementation": "Shamir polynomial share fixture",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/008",
+    "syscall": "/syscall",
+    "sample": {
+      "secret": 42,
+      "coefficients": [
+        7,
+        11
+      ],
+      "shares": 5
+    }
+  },
+  {
+    "id": "009",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "Shamir share reconstruction fixture",
+    "status": "executable",
+    "implementation": "Shamir share reconstruction fixture",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/009",
+    "syscall": "/syscall",
+    "sample": {
+      "shares": [
+        [
+          1,
+          60
+        ],
+        [
+          2,
+          100
+        ],
+        [
+          3,
+          162
+        ]
+      ]
+    }
+  },
+  {
+    "id": "010",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "Quorum decision",
+    "status": "executable",
+    "implementation": "Quorum decision",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/010",
+    "syscall": "/syscall",
+    "sample": {
+      "votes": [
+        true,
+        true,
+        false
+      ]
+    }
+  },
+  {
+    "id": "011",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "Scalar modular exponentiation",
+    "status": "executable",
+    "implementation": "Scalar modular exponentiation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/011",
+    "syscall": "/syscall",
+    "sample": {
+      "base": 7,
+      "exponent": 23,
+      "modulus": 257
+    }
+  },
+  {
+    "id": "012",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "Lattice arithmetic teaching fixture",
+    "status": "executable",
+    "implementation": "Lattice arithmetic teaching fixture",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/012",
+    "syscall": "/syscall",
+    "sample": {
+      "coefficients": [
+        4,
+        -6,
+        8,
+        13
+      ],
+      "modulus": 17,
+      "shift": 1
+    }
+  },
+  {
+    "id": "013",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "Hamming distance across bytes",
+    "status": "executable",
+    "implementation": "Hamming distance across bytes",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/013",
+    "syscall": "/syscall",
+    "sample": {
+      "left": [
+        3,
+        7
+      ],
+      "right": [
+        2,
+        1
+      ]
+    }
+  },
+  {
+    "id": "014",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "SHA-256 binary digest",
+    "status": "executable",
+    "implementation": "SHA-256 binary digest",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/014",
+    "syscall": "/syscall",
+    "sample": {
+      "bytes": [
+        0,
+        128,
+        255
+      ]
+    }
+  },
+  {
+    "id": "015",
+    "ring": 1,
+    "category": "01-crypto-silicon",
+    "title": "Fletcher-16 checksum",
+    "status": "executable",
+    "implementation": "Fletcher-16 checksum",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/015",
+    "syscall": "/syscall",
+    "sample": {
+      "bytes": [
+        65,
+        66,
+        67
+      ]
+    }
+  },
+  {
+    "id": "016",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "Radix-2 FFT",
+    "status": "executable",
+    "implementation": "Radix-2 FFT",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/016",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1
+      ]
+    }
+  },
+  {
+    "id": "017",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "FFT power spectrum",
+    "status": "executable",
+    "implementation": "FFT power spectrum",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/017",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1
+      ]
+    }
+  },
+  {
+    "id": "018",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "Sine wave generator",
+    "status": "executable",
+    "implementation": "Sine wave generator",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/018",
+    "syscall": "/syscall",
+    "sample": {
+      "count": 16,
+      "cycles": 2,
+      "phase": 0
+    }
+  },
+  {
+    "id": "019",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "Square wave fixture",
+    "status": "executable",
+    "implementation": "Square wave fixture",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/019",
+    "syscall": "/syscall",
+    "sample": {
+      "count": 16,
+      "cycles": 2
+    }
+  },
+  {
+    "id": "020",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "Linear chirp generator",
+    "status": "executable",
+    "implementation": "Linear chirp generator",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/020",
+    "syscall": "/syscall",
+    "sample": {
+      "count": 16,
+      "start": 1,
+      "end": 4
+    }
+  },
+  {
+    "id": "021",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "Hann window",
+    "status": "executable",
+    "implementation": "Hann window",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/021",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1
+      ]
+    }
+  },
+  {
+    "id": "022",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "Root mean square",
+    "status": "executable",
+    "implementation": "Root mean square",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/022",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1
+      ]
+    }
+  },
+  {
+    "id": "023",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "Lagged autocorrelation",
+    "status": "executable",
+    "implementation": "Lagged autocorrelation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/023",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1
+      ],
+      "lag": 2
+    }
+  },
+  {
+    "id": "024",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "Cross-correlation",
+    "status": "executable",
+    "implementation": "Cross-correlation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/024",
+    "syscall": "/syscall",
+    "sample": {
+      "left": [
+        1,
+        2,
+        3
+      ],
+      "right": [
+        2,
+        1
+      ],
+      "lag": 1
+    }
+  },
+  {
+    "id": "025",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "Causal moving average",
+    "status": "executable",
+    "implementation": "Causal moving average",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/025",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1
+      ],
+      "window": 3
+    }
+  },
+  {
+    "id": "026",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "Finite impulse response",
+    "status": "executable",
+    "implementation": "Finite impulse response",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/026",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1
+      ],
+      "taps": [
+        0.25,
+        0.5,
+        0.25
+      ]
+    }
+  },
+  {
+    "id": "027",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "Scalar Kalman smoother",
+    "status": "executable",
+    "implementation": "Scalar Kalman smoother",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/027",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        1,
+        3,
+        2,
+        4
+      ],
+      "processNoise": 0.1,
+      "measurementNoise": 0.4
+    }
+  },
+  {
+    "id": "028",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "Decimation with block averaging",
+    "status": "executable",
+    "implementation": "Decimation with block averaging",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/028",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1
+      ],
+      "factor": 2
+    }
+  },
+  {
+    "id": "029",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "Zero crossing rate",
+    "status": "executable",
+    "implementation": "Zero crossing rate",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/029",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1
+      ]
+    }
+  },
+  {
+    "id": "030",
+    "ring": 2,
+    "category": "02-signal-dsp",
+    "title": "Peak frequency bin",
+    "status": "executable",
+    "implementation": "Peak frequency bin",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/030",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1
+      ]
+    }
+  },
+  {
+    "id": "031",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Circular orbit speed",
+    "status": "executable",
+    "implementation": "Circular orbit speed",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/031",
+    "syscall": "/syscall",
+    "sample": {
+      "radius": 7000,
+      "mu": 398600
+    }
+  },
+  {
+    "id": "032",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Circular orbital period",
+    "status": "executable",
+    "implementation": "Circular orbital period",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/032",
+    "syscall": "/syscall",
+    "sample": {
+      "radius": 7000,
+      "mu": 398600
+    }
+  },
+  {
+    "id": "033",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Specific orbital energy",
+    "status": "executable",
+    "implementation": "Specific orbital energy",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/033",
+    "syscall": "/syscall",
+    "sample": {
+      "position": [
+        7000,
+        0
+      ],
+      "velocity": [
+        0,
+        7.5
+      ],
+      "mu": 398600
+    }
+  },
+  {
+    "id": "034",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Escape speed",
+    "status": "executable",
+    "implementation": "Escape speed",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/034",
+    "syscall": "/syscall",
+    "sample": {
+      "radius": 7000,
+      "mu": 398600
+    }
+  },
+  {
+    "id": "035",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Two-dimensional specific angular momentum",
+    "status": "executable",
+    "implementation": "Two-dimensional specific angular momentum",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/035",
+    "syscall": "/syscall",
+    "sample": {
+      "position": [
+        7000,
+        0
+      ],
+      "velocity": [
+        0,
+        7.5
+      ],
+      "mu": 398600
+    }
+  },
+  {
+    "id": "036",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Elliptic Kepler equation",
+    "status": "executable",
+    "implementation": "Elliptic Kepler equation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/036",
+    "syscall": "/syscall",
+    "sample": {
+      "meanAnomaly": 1,
+      "eccentricity": 0.4
+    }
+  },
+  {
+    "id": "037",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Elliptic orbital radius",
+    "status": "executable",
+    "implementation": "Elliptic orbital radius",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/037",
+    "syscall": "/syscall",
+    "sample": {
+      "semiMajor": 7000,
+      "eccentricity": 0.1,
+      "eccentricAnomaly": 1
+    }
+  },
+  {
+    "id": "038",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Velocity-Verlet orbit propagation",
+    "status": "executable",
+    "implementation": "Velocity-Verlet orbit propagation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/038",
+    "syscall": "/syscall",
+    "sample": {
+      "position": [
+        7000,
+        0
+      ],
+      "velocity": [
+        0,
+        7.5
+      ],
+      "mu": 398600,
+      "dt": 15,
+      "steps": 12
+    }
+  },
+  {
+    "id": "039",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Two-body gravitational acceleration",
+    "status": "executable",
+    "implementation": "Two-body gravitational acceleration",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/039",
+    "syscall": "/syscall",
+    "sample": {
+      "position": [
+        7000,
+        0
+      ],
+      "velocity": [
+        0,
+        7.5
+      ],
+      "mu": 398600
+    }
+  },
+  {
+    "id": "040",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Quaternion normalization",
+    "status": "executable",
+    "implementation": "Quaternion normalization",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/040",
+    "syscall": "/syscall",
+    "sample": {
+      "quaternion": [
+        2,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": "041",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Quaternion attitude composition",
+    "status": "executable",
+    "implementation": "Quaternion attitude composition",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/041",
+    "syscall": "/syscall",
+    "sample": {
+      "first": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "second": [
+        1,
+        1,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": "042",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Quaternion vector rotation",
+    "status": "executable",
+    "implementation": "Quaternion vector rotation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/042",
+    "syscall": "/syscall",
+    "sample": {
+      "quaternion": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "vector": [
+        1,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": "043",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Star direction angular separation",
+    "status": "executable",
+    "implementation": "Star direction angular separation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/043",
+    "syscall": "/syscall",
+    "sample": {
+      "left": [
+        1,
+        0,
+        0
+      ],
+      "right": [
+        1,
+        1,
+        0
+      ]
+    }
+  },
+  {
+    "id": "044",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Exponential atmosphere density model",
+    "status": "executable",
+    "implementation": "Exponential atmosphere density model",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/044",
+    "syscall": "/syscall",
+    "sample": {
+      "height": 35000,
+      "scaleHeight": 8500,
+      "surfaceDensity": 1.225
+    }
+  },
+  {
+    "id": "045",
+    "ring": 2,
+    "category": "03-orbital-physics",
+    "title": "Atmospheric drag acceleration",
+    "status": "executable",
+    "implementation": "Atmospheric drag acceleration",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/045",
+    "syscall": "/syscall",
+    "sample": {
+      "density": 0.001,
+      "velocity": [
+        30,
+        40
+      ],
+      "coefficient": 2,
+      "area": 1,
+      "mass": 10
+    }
+  },
+  {
+    "id": "046",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Synthetic arrival-time differences",
+    "status": "executable",
+    "implementation": "Synthetic arrival-time differences",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/046",
+    "syscall": "/syscall",
+    "sample": {
+      "stations": [
+        [
+          0,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          0,
+          8
+        ]
+      ],
+      "source": [
+        2,
+        3
+      ],
+      "speed": 343
+    }
+  },
+  {
+    "id": "047",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Synthetic TDOA grid reconstruction",
+    "status": "executable",
+    "implementation": "Synthetic TDOA grid reconstruction",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/047",
+    "syscall": "/syscall",
+    "sample": {
+      "stations": [
+        [
+          0,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          0,
+          8
+        ]
+      ],
+      "relativeSeconds": [
+        0,
+        0
+      ],
+      "speed": 343,
+      "extent": 8,
+      "grid": 21
+    }
+  },
+  {
+    "id": "048",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Online mean and sample variance",
+    "status": "executable",
+    "implementation": "Online mean and sample variance",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/048",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        2,
+        4,
+        8,
+        16,
+        31
+      ]
+    }
+  },
+  {
+    "id": "049",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Median and MAD",
+    "status": "executable",
+    "implementation": "Median and MAD",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/049",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        2,
+        4,
+        8,
+        16,
+        31
+      ]
+    }
+  },
+  {
+    "id": "050",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Median absolute deviation outliers",
+    "status": "executable",
+    "implementation": "Median absolute deviation outliers",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/050",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        2,
+        4,
+        8,
+        16,
+        31
+      ],
+      "threshold": 3
+    }
+  },
+  {
+    "id": "051",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Synthetic telemetry Kalman filter",
+    "status": "executable",
+    "implementation": "Synthetic telemetry Kalman filter",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/051",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        2,
+        4,
+        8,
+        16,
+        31
+      ],
+      "q": 0.1,
+      "r": 1
+    }
+  },
+  {
+    "id": "052",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Sensor offset and gain calibration",
+    "status": "executable",
+    "implementation": "Sensor offset and gain calibration",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/052",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        2,
+        4,
+        8,
+        16,
+        31
+      ],
+      "offset": 1,
+      "gain": 0.5
+    }
+  },
+  {
+    "id": "053",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Linear sample interpolation",
+    "status": "executable",
+    "implementation": "Linear sample interpolation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/053",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        2,
+        4,
+        8,
+        16,
+        31
+      ],
+      "position": 1.5
+    }
+  },
+  {
+    "id": "054",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Time-window aggregation",
+    "status": "executable",
+    "implementation": "Time-window aggregation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/054",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        2,
+        4,
+        8,
+        16,
+        31
+      ],
+      "width": 2
+    }
+  },
+  {
+    "id": "055",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Bearing between points",
+    "status": "executable",
+    "implementation": "Bearing between points",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/055",
+    "syscall": "/syscall",
+    "sample": {
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        5,
+        8
+      ]
+    }
+  },
+  {
+    "id": "056",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Sample covariance",
+    "status": "executable",
+    "implementation": "Sample covariance",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/056",
+    "syscall": "/syscall",
+    "sample": {
+      "left": [
+        1,
+        2,
+        3
+      ],
+      "right": [
+        2,
+        4,
+        6
+      ]
+    }
+  },
+  {
+    "id": "057",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Confidence-weighted sensor fusion",
+    "status": "executable",
+    "implementation": "Confidence-weighted sensor fusion",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/057",
+    "syscall": "/syscall",
+    "sample": {
+      "values": [
+        10,
+        11,
+        13
+      ],
+      "variances": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "058",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Synthetic aperture delay-and-sum fixture",
+    "status": "executable",
+    "implementation": "Synthetic aperture delay-and-sum fixture",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/058",
+    "syscall": "/syscall",
+    "sample": {
+      "traces": [
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "offsets": [
+        1,
+        2,
+        0
+      ]
+    }
+  },
+  {
+    "id": "059",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Quantized sensor reading",
+    "status": "executable",
+    "implementation": "Quantized sensor reading",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/059",
+    "syscall": "/syscall",
+    "sample": {
+      "samples": [
+        2,
+        4,
+        8,
+        16,
+        31
+      ],
+      "min": 0,
+      "max": 32,
+      "levels": 8
+    }
+  },
+  {
+    "id": "060",
+    "ring": 2,
+    "category": "04-sensor-telemetry",
+    "title": "Vector residual checks",
+    "status": "executable",
+    "implementation": "Vector residual checks",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/060",
+    "syscall": "/syscall",
+    "sample": {
+      "readings": [
+        3,
+        4
+      ],
+      "expected": [
+        0,
+        0
+      ],
+      "threshold": 4
+    }
+  },
+  {
+    "id": "061",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "Synthetic packet header validation",
+    "status": "executable",
+    "implementation": "Synthetic packet header validation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/061",
+    "syscall": "/syscall",
+    "sample": {
+      "bytes": [
+        1,
+        5,
+        0,
+        2,
+        65,
+        66
+      ]
+    }
+  },
+  {
+    "id": "062",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "Network event volume by protocol",
+    "status": "executable",
+    "implementation": "Network event volume by protocol",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/062",
+    "syscall": "/syscall",
+    "sample": {
+      "protocols": [
+        "https",
+        "dns",
+        "https"
+      ]
+    }
+  },
+  {
+    "id": "063",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "Merkle root for synthetic records",
+    "status": "executable",
+    "implementation": "Merkle root for synthetic records",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/063",
+    "syscall": "/syscall",
+    "sample": {
+      "items": [
+        "catalog",
+        "restore",
+        "verify"
+      ]
+    }
+  },
+  {
+    "id": "064",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "Compare audit chain root",
+    "status": "executable",
+    "implementation": "Compare audit chain root",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/064",
+    "syscall": "/syscall",
+    "sample": {
+      "items": [
+        "first"
+      ],
+      "expected": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "id": "065",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "Dependency graph breadth-first order",
+    "status": "executable",
+    "implementation": "Dependency graph breadth-first order",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/065",
+    "syscall": "/syscall",
+    "sample": {
+      "edges": [
+        [
+          "catalog",
+          "index"
+        ],
+        [
+          "index",
+          "archive"
+        ],
+        [
+          "archive",
+          "restore"
+        ],
+        [
+          "catalog",
+          "preview"
+        ]
+      ],
+      "start": "catalog"
+    }
+  },
+  {
+    "id": "066",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "Shortest dependency path",
+    "status": "executable",
+    "implementation": "Shortest dependency path",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/066",
+    "syscall": "/syscall",
+    "sample": {
+      "edges": [
+        [
+          "catalog",
+          "index"
+        ],
+        [
+          "index",
+          "archive"
+        ],
+        [
+          "archive",
+          "restore"
+        ],
+        [
+          "catalog",
+          "preview"
+        ]
+      ],
+      "start": "catalog",
+      "goal": "restore"
+    }
+  },
+  {
+    "id": "067",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "Dependency in-degree and out-degree",
+    "status": "executable",
+    "implementation": "Dependency in-degree and out-degree",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/067",
+    "syscall": "/syscall",
+    "sample": {
+      "edges": [
+        [
+          "catalog",
+          "index"
+        ],
+        [
+          "index",
+          "archive"
+        ],
+        [
+          "archive",
+          "restore"
+        ],
+        [
+          "catalog",
+          "preview"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "068",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "Directed dependency cycle check",
+    "status": "executable",
+    "implementation": "Directed dependency cycle check",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/068",
+    "syscall": "/syscall",
+    "sample": {
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "b",
+          "a"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "069",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "Record secret-field redaction",
+    "status": "executable",
+    "implementation": "Record secret-field redaction",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/069",
+    "syscall": "/syscall",
+    "sample": {
+      "record": {
+        "name": "example",
+        "password": "remove",
+        "token": "remove"
+      }
+    }
+  },
+  {
+    "id": "070",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "Repeated event detection",
+    "status": "executable",
+    "implementation": "Repeated event detection",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/070",
+    "syscall": "/syscall",
+    "sample": {
+      "ids": [
+        "a",
+        "b",
+        "a",
+        "c",
+        "b"
+      ]
+    }
+  },
+  {
+    "id": "071",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "D1 dependency graph traversal",
+    "status": "executable",
+    "implementation": "D1 dependency graph traversal",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [
+      "GRAPH"
+    ],
+    "endpoint": "/api/modules/071",
+    "syscall": "/syscall",
+    "sample": {
+      "start": "catalog"
+    }
+  },
+  {
+    "id": "072",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "Synthetic log gap detector",
+    "status": "executable",
+    "implementation": "Synthetic log gap detector",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/072",
+    "syscall": "/syscall",
+    "sample": {
+      "sequence": [
+        8,
+        9,
+        12,
+        13
+      ]
+    }
+  },
+  {
+    "id": "073",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "Fixture byte-size anomaly report",
+    "status": "executable",
+    "implementation": "Fixture byte-size anomaly report",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/073",
+    "syscall": "/syscall",
+    "sample": {
+      "sizes": [
+        5,
+        8,
+        12,
+        40
+      ],
+      "threshold": 12
+    }
+  },
+  {
+    "id": "074",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "Audit manifest digest comparison",
+    "status": "executable",
+    "implementation": "Audit manifest digest comparison",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/074",
+    "syscall": "/syscall",
+    "sample": {
+      "before": "approved build",
+      "after": "approved build"
+    }
+  },
+  {
+    "id": "075",
+    "ring": 3,
+    "category": "05-cyber-defense",
+    "title": "Permission set difference",
+    "status": "executable",
+    "implementation": "Permission set difference",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/075",
+    "syscall": "/syscall",
+    "sample": {
+      "granted": [
+        "read",
+        "write"
+      ],
+      "expected": [
+        "read"
+      ]
+    }
+  },
+  {
+    "id": "076",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Reynolds Boids simulation step",
+    "status": "executable",
+    "implementation": "Reynolds Boids simulation step",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/076",
+    "syscall": "/syscall",
+    "sample": {
+      "agents": [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          2,
+          -1,
+          0
+        ]
+      ],
+      "radius": 5,
+      "dt": 0.2
+    }
+  },
+  {
+    "id": "077",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Flock centroid",
+    "status": "executable",
+    "implementation": "Flock centroid",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/077",
+    "syscall": "/syscall",
+    "sample": {
+      "agents": [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          2,
+          -1,
+          0
+        ]
+      ],
+      "radius": 5,
+      "dt": 0.2
+    }
+  },
+  {
+    "id": "078",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Neighborhood counts",
+    "status": "executable",
+    "implementation": "Neighborhood counts",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/078",
+    "syscall": "/syscall",
+    "sample": {
+      "agents": [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          2,
+          -1,
+          0
+        ]
+      ],
+      "radius": 5,
+      "dt": 0.2
+    }
+  },
+  {
+    "id": "079",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Boids separation vector",
+    "status": "executable",
+    "implementation": "Boids separation vector",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/079",
+    "syscall": "/syscall",
+    "sample": {
+      "agents": [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          2,
+          -1,
+          0
+        ]
+      ],
+      "radius": 5,
+      "dt": 0.2
+    }
+  },
+  {
+    "id": "080",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Boids alignment vector",
+    "status": "executable",
+    "implementation": "Boids alignment vector",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/080",
+    "syscall": "/syscall",
+    "sample": {
+      "agents": [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          2,
+          -1,
+          0
+        ]
+      ],
+      "radius": 5,
+      "dt": 0.2
+    }
+  },
+  {
+    "id": "081",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Boids cohesion vector",
+    "status": "executable",
+    "implementation": "Boids cohesion vector",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/081",
+    "syscall": "/syscall",
+    "sample": {
+      "agents": [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          2,
+          -1,
+          0
+        ]
+      ],
+      "radius": 5,
+      "dt": 0.2
+    }
+  },
+  {
+    "id": "082",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Grid A-star pathfinding",
+    "status": "executable",
+    "implementation": "Grid A-star pathfinding",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/082",
+    "syscall": "/syscall",
+    "sample": {
+      "grid": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        3,
+        2
+      ]
+    }
+  },
+  {
+    "id": "083",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Occupancy grid coverage",
+    "status": "executable",
+    "implementation": "Occupancy grid coverage",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/083",
+    "syscall": "/syscall",
+    "sample": {
+      "grid": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        3,
+        2
+      ]
+    }
+  },
+  {
+    "id": "084",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Dead-reckoning pose update",
+    "status": "executable",
+    "implementation": "Dead-reckoning pose update",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/084",
+    "syscall": "/syscall",
+    "sample": {
+      "pose": [
+        0,
+        0,
+        0
+      ],
+      "speed": 2,
+      "turn": 0.1,
+      "dt": 0.5
+    }
+  },
+  {
+    "id": "085",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Visual-inertial displacement blend",
+    "status": "executable",
+    "implementation": "Visual-inertial displacement blend",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/085",
+    "syscall": "/syscall",
+    "sample": {
+      "camera": [
+        1,
+        1
+      ],
+      "inertial": [
+        2,
+        1
+      ],
+      "weight": 0.7
+    }
+  },
+  {
+    "id": "086",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Flock heading agreement",
+    "status": "executable",
+    "implementation": "Flock heading agreement",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/086",
+    "syscall": "/syscall",
+    "sample": {
+      "agents": [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          2,
+          -1,
+          0
+        ]
+      ],
+      "radius": 5,
+      "dt": 0.2
+    }
+  },
+  {
+    "id": "087",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Waypoint route length",
+    "status": "executable",
+    "implementation": "Waypoint route length",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/087",
+    "syscall": "/syscall",
+    "sample": {
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          6,
+          4
+        ]
+      ]
+    }
+  },
+  {
+    "id": "088",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Synthetic formation error",
+    "status": "executable",
+    "implementation": "Synthetic formation error",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/088",
+    "syscall": "/syscall",
+    "sample": {
+      "agents": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          0
+        ]
+      ],
+      "target": [
+        1,
+        0
+      ]
+    }
+  },
+  {
+    "id": "089",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Synthetic grid overlay update",
+    "status": "executable",
+    "implementation": "Synthetic grid overlay update",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/089",
+    "syscall": "/syscall",
+    "sample": {
+      "grid": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "blocked": [
+        [
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "id": "090",
+    "ring": 2,
+    "category": "06-swarm-autonomy",
+    "title": "Bounded multi-step flock simulation",
+    "status": "executable",
+    "implementation": "Bounded multi-step flock simulation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/090",
+    "syscall": "/syscall",
+    "sample": {
+      "agents": [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          2,
+          -1,
+          0
+        ]
+      ],
+      "radius": 5,
+      "dt": 0.2,
+      "steps": 8
+    }
+  },
+  {
+    "id": "091",
+    "ring": 2,
+    "category": "07-materials-sim",
+    "title": "One-dimensional explicit heat solver",
+    "status": "executable",
+    "implementation": "One-dimensional explicit heat solver",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [
+      "Rust WebAssembly"
+    ],
+    "endpoint": "/api/modules/091",
+    "syscall": "/syscall",
+    "sample": {
+      "initial": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "ratio": 0.2,
+      "steps": 3
+    }
+  },
+  {
+    "id": "092",
+    "ring": 2,
+    "category": "07-materials-sim",
+    "title": "Two-dimensional explicit heat solver",
+    "status": "executable",
+    "implementation": "Two-dimensional explicit heat solver",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/092",
+    "syscall": "/syscall",
+    "sample": {
+      "grid": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          100,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "ratio": 0.2,
+      "steps": 2
+    }
+  },
+  {
+    "id": "093",
+    "ring": 2,
+    "category": "07-materials-sim",
+    "title": "Exponential wave attenuation",
+    "status": "executable",
+    "implementation": "Exponential wave attenuation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/093",
+    "syscall": "/syscall",
+    "sample": {
+      "amplitude": 1,
+      "coefficient": 0.2,
+      "distances": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "094",
+    "ring": 2,
+    "category": "07-materials-sim",
+    "title": "Hooke law spring force",
+    "status": "executable",
+    "implementation": "Hooke law spring force",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/094",
+    "syscall": "/syscall",
+    "sample": {
+      "displacement": [
+        0.1,
+        0.2,
+        -0.1
+      ],
+      "stiffness": 10
+    }
+  },
+  {
+    "id": "095",
+    "ring": 2,
+    "category": "07-materials-sim",
+    "title": "Damped oscillator integration",
+    "status": "executable",
+    "implementation": "Damped oscillator integration",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/095",
+    "syscall": "/syscall",
+    "sample": {
+      "displacement": 1,
+      "velocity": 0,
+      "stiffness": 10,
+      "damping": 0.3,
+      "mass": 1,
+      "dt": 0.01,
+      "steps": 50
+    }
+  },
+  {
+    "id": "096",
+    "ring": 2,
+    "category": "07-materials-sim",
+    "title": "Axial two-node finite-element stiffness",
+    "status": "executable",
+    "implementation": "Axial two-node finite-element stiffness",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/096",
+    "syscall": "/syscall",
+    "sample": {
+      "young": 200,
+      "area": 2,
+      "length": 4
+    }
+  },
+  {
+    "id": "097",
+    "ring": 2,
+    "category": "07-materials-sim",
+    "title": "Axial strain and stress",
+    "status": "executable",
+    "implementation": "Axial strain and stress",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/097",
+    "syscall": "/syscall",
+    "sample": {
+      "extension": 0.005,
+      "length": 2,
+      "young": 200
+    }
+  },
+  {
+    "id": "098",
+    "ring": 2,
+    "category": "07-materials-sim",
+    "title": "Plane-wave travel time",
+    "status": "executable",
+    "implementation": "Plane-wave travel time",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/098",
+    "syscall": "/syscall",
+    "sample": {
+      "distances": [
+        0,
+        4,
+        8
+      ],
+      "speed": 2
+    }
+  },
+  {
+    "id": "099",
+    "ring": 2,
+    "category": "07-materials-sim",
+    "title": "Composite layer thermal resistance",
+    "status": "executable",
+    "implementation": "Composite layer thermal resistance",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/099",
+    "syscall": "/syscall",
+    "sample": {
+      "thickness": [
+        0.1,
+        0.15,
+        0.2
+      ],
+      "conductivity": [
+        0.2,
+        0.3,
+        0.4
+      ],
+      "area": 2
+    }
+  },
+  {
+    "id": "100",
+    "ring": 2,
+    "category": "07-materials-sim",
+    "title": "Heat-capacity-weighted temperature",
+    "status": "executable",
+    "implementation": "Heat-capacity-weighted temperature",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/100",
+    "syscall": "/syscall",
+    "sample": {
+      "masses": [
+        1,
+        2
+      ],
+      "specificHeat": [
+        2,
+        4
+      ],
+      "temperature": [
+        10,
+        30
+      ]
+    }
+  },
+  {
+    "id": "101",
+    "ring": 2,
+    "category": "07-materials-sim",
+    "title": "Thermal mesh convergence metric",
+    "status": "executable",
+    "implementation": "Thermal mesh convergence metric",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/101",
+    "syscall": "/syscall",
+    "sample": {
+      "coarse": [
+        1,
+        2,
+        4
+      ],
+      "fine": [
+        1,
+        2.1,
+        3.9
+      ]
+    }
+  },
+  {
+    "id": "102",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "103",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "104",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "105",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "106",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "107",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "108",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "109",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "110",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "111",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "112",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "113",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "114",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "115",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "116",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "117",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "118",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "119",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "120",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "121",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "122",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "123",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "124",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "125",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "126",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "127",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "128",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "129",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "130",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "131",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "132",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "133",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "134",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "135",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "136",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "137",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "138",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "139",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "140",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "141",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "142",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "143",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "144",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "145",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "146",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "147",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "148",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "149",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "150",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "151",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "152",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "153",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "154",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "155",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "156",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "157",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "158",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "159",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "160",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "161",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "162",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "163",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "164",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "165",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "166",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "167",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "168",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "169",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "170",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "171",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "172",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "173",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "174",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "175",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "176",
+    "ring": 1,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "177",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "178",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "179",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "180",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "181",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "182",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "183",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "184",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "185",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "186",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "187",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "188",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "189",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "190",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "191",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "192",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "193",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "194",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "195",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "196",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "197",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "198",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "199",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "200",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "201",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "202",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "203",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "IMAP Folder & Label Synchronization Engine",
+    "status": "fixture",
+    "implementation": "Folder flag change plan",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/203",
+    "syscall": "/syscall",
+    "sample": {
+      "before": {
+        "a": [
+          "read"
+        ]
+      },
+      "after": {
+        "a": [
+          "read",
+          "archived"
+        ],
+        "b": [
+          "read"
+        ]
+      }
+    }
+  },
+  {
+    "id": "204",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "Email Threading & In-Reply-To Header Linker",
+    "status": "fixture",
+    "implementation": "Thread parent resolution",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/204",
+    "syscall": "/syscall",
+    "sample": {
+      "messages": [
+        {
+          "id": "a"
+        },
+        {
+          "id": "b",
+          "replyTo": "a"
+        },
+        {
+          "id": "c",
+          "references": [
+            "a",
+            "b"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "205",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "Email Unsubscribe & List-Header Extractor",
+    "status": "fixture",
+    "implementation": "Parse opt-out metadata",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/205",
+    "syscall": "/syscall",
+    "sample": {
+      "header": "<https://example.org/remove>, <mailto:list@example.org>",
+      "post": "List-Unsubscribe=One-Click"
+    }
+  },
+  {
+    "id": "206",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "Bounced Email & DSN Parser",
+    "status": "fixture",
+    "implementation": "Delivery status categorization",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/206",
+    "syscall": "/syscall",
+    "sample": {
+      "status": "5.1.1"
+    }
+  },
+  {
+    "id": "207",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "Disposable & Role-Based Email Address Validator",
+    "status": "fixture",
+    "implementation": "Address syntax and role detection",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/207",
+    "syscall": "/syscall",
+    "sample": {
+      "address": "support@example.org",
+      "disposableDomains": [
+        "test.invalid"
+      ]
+    }
+  },
+  {
+    "id": "208",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "SMS Long-Message Concatenation & GSM-7 Encoder",
+    "status": "fixture",
+    "implementation": "SMS segment estimator",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/208",
+    "syscall": "/syscall",
+    "sample": {
+      "text": "A message with € and ^"
+    }
+  },
+  {
+    "id": "209",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "Interactive Voice Response DTMF Menu Router",
+    "status": "fixture",
+    "implementation": "DTMF menu routing",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/209",
+    "syscall": "/syscall",
+    "sample": {
+      "digit": "1",
+      "menu": {
+        "1": "support",
+        "2": "billing"
+      }
+    }
+  },
+  {
+    "id": "210",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "Voicemail Audio Drop & Transcript Summarizer",
+    "status": "specified"
+  },
+  {
+    "id": "211",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "Shared Team Inbox & Collision Detection Lock",
+    "status": "specified"
+  },
+  {
+    "id": "212",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "Smart Snooze & Scheduled Send Queue",
+    "status": "fixture",
+    "implementation": "UTC scheduled-send planner",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/212",
+    "syscall": "/syscall",
+    "sample": {
+      "now": 3600,
+      "deliverAfter": 7200
+    }
+  },
+  {
+    "id": "213",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "Link-Preview OpenGraph & Twitter-Card Scraper",
+    "status": "specified"
+  },
+  {
+    "id": "214",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "Emoji Reaction & Read-Receipt Aggregator",
+    "status": "fixture",
+    "implementation": "Latest reaction per actor and receipt watermark",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/214",
+    "syscall": "/syscall",
+    "sample": {
+      "events": [
+        {
+          "actor": "a",
+          "emoji": "👍",
+          "at": 1
+        },
+        {
+          "actor": "a",
+          "emoji": "✨",
+          "at": 2
+        },
+        {
+          "actor": "b",
+          "emoji": "👍",
+          "at": 3
+        }
+      ]
+    }
+  },
+  {
+    "id": "215",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "Disposable Alias & Masked Forwarding Proxy",
+    "status": "specified"
+  },
+  {
+    "id": "216",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "Automated Meeting Time-Slot Negotiator",
+    "status": "fixture",
+    "implementation": "Mutual appointment windows",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/216",
+    "syscall": "/syscall",
+    "sample": {
+      "first": [
+        [
+          0,
+          60
+        ],
+        [
+          120,
+          180
+        ]
+      ],
+      "second": [
+        [
+          30,
+          150
+        ]
+      ],
+      "minutes": 30
+    }
+  },
+  {
+    "id": "217",
+    "ring": 2,
+    "category": "08-messaging",
+    "title": "Rich HTML Email CSS Inliner",
+    "status": "specified"
+  },
+  {
+    "id": "218",
+    "ring": 4,
+    "category": "09-device-utilities",
+    "title": "Cross-Platform Window & Workspace State Restorer",
+    "status": "fixture",
+    "implementation": "Safe workspace snapshot validator",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/218",
+    "syscall": "/syscall",
+    "sample": {
+      "tabs": [
+        {
+          "url": "https://example.org",
+          "scroll": 110
+        }
+      ]
+    }
+  },
+  {
+    "id": "219",
+    "ring": 4,
+    "category": "09-device-utilities",
+    "title": "Local Font & Glyph Subset Generator",
+    "status": "specified"
+  },
+  {
+    "id": "220",
+    "ring": 4,
+    "category": "09-device-utilities",
+    "title": "System Tray & Menu-Bar Quick-Capture Webhook",
+    "status": "specified"
+  },
+  {
+    "id": "221",
+    "ring": 4,
+    "category": "09-device-utilities",
+    "title": "Automated Screenshot Redaction & Blur Tool",
+    "status": "specified"
+  },
+  {
+    "id": "222",
+    "ring": 4,
+    "category": "09-device-utilities",
+    "title": "Mobile Share-Sheet & Intent Payload Receiver",
+    "status": "fixture",
+    "implementation": "Mobile share payload normalization",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/222",
+    "syscall": "/syscall",
+    "sample": {
+      "title": "Example",
+      "text": "Read this",
+      "url": "https://example.org"
+    }
+  },
+  {
+    "id": "223",
+    "ring": 4,
+    "category": "09-device-utilities",
+    "title": "Universal File Format Converter Router",
+    "status": "specified"
+  },
+  {
+    "id": "224",
+    "ring": 4,
+    "category": "09-device-utilities",
+    "title": "Archive Extractor & Creator",
+    "status": "fixture",
+    "implementation": "Bounded GZIP creation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/224",
+    "syscall": "/syscall",
+    "sample": {
+      "text": "compress me"
+    }
+  },
+  {
+    "id": "225",
+    "ring": 4,
+    "category": "09-device-utilities",
+    "title": "Duplicate File & Perceptual Image Hasher",
+    "status": "fixture",
+    "implementation": "Exact binary duplicate digest",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/225",
+    "syscall": "/syscall",
+    "sample": {
+      "bytes": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "id": "226",
+    "ring": 4,
+    "category": "09-device-utilities",
+    "title": "Battery-Friendly Background Sync Coalescer",
+    "status": "fixture",
+    "implementation": "Background event coalescer",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/226",
+    "syscall": "/syscall",
+    "sample": {
+      "times": [
+        1,
+        3,
+        4,
+        12,
+        14,
+        29
+      ],
+      "window": 10
+    }
+  },
+  {
+    "id": "227",
+    "ring": 4,
+    "category": "09-device-utilities",
+    "title": "Desktop App Auto-Updater Manifest Server",
+    "status": "fixture",
+    "implementation": "Update manifest shape and digest check",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/227",
+    "syscall": "/syscall",
+    "sample": {
+      "version": "1.2.3",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  },
+  {
+    "id": "228",
+    "ring": 1,
+    "category": "09-device-utilities",
+    "title": "Local-First Keychain & Encrypted Note Vault",
+    "status": "specified"
+  },
+  {
+    "id": "229",
+    "ring": 4,
+    "category": "09-device-utilities",
+    "title": "Time-Zone & Daylight-Saving Transition Resolver",
+    "status": "fixture",
+    "implementation": "UTC-to-local IANA time conversion",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/229",
+    "syscall": "/syscall",
+    "sample": {
+      "utc": "2026-11-18T16:00:00Z",
+      "zone": "America/New_York"
+    }
+  },
+  {
+    "id": "230",
+    "ring": 4,
+    "category": "09-device-utilities",
+    "title": "QR-Code Wi-Fi & vCard Provisioning Generator",
+    "status": "specified"
+  },
+  {
+    "id": "231",
+    "ring": 4,
+    "category": "09-device-utilities",
+    "title": "Print-Ready Thermal Receipt & Label Formatter",
+    "status": "fixture",
+    "implementation": "Plain-text thermal receipt layout",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/231",
+    "syscall": "/syscall",
+    "sample": {
+      "store": "Library of Tabor",
+      "items": [
+        {
+          "label": "Catalog",
+          "cents": 500
+        }
+      ],
+      "width": 32
+    }
+  },
+  {
+    "id": "232",
+    "ring": 4,
+    "category": "09-device-utilities",
+    "title": "Voice-Command Intent & Entity Slot Parser",
+    "status": "fixture",
+    "implementation": "Literal voice-command intent parser",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/232",
+    "syscall": "/syscall",
+    "sample": {
+      "text": "remind me tomorrow at 9"
+    }
+  },
+  {
+    "id": "233",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "HLS & DASH Adaptive Video Manifest Packager",
+    "status": "fixture",
+    "implementation": "HLS manifest from supplied segments",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/233",
+    "syscall": "/syscall",
+    "sample": {
+      "segments": [
+        {
+          "name": "clip001.ts",
+          "duration": 6
+        },
+        {
+          "name": "clip002.ts",
+          "duration": 5.2
+        }
+      ]
+    }
+  },
+  {
+    "id": "234",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "Audio Loudness Normalizer",
+    "status": "fixture",
+    "implementation": "PCM RMS and peak report",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/234",
+    "syscall": "/syscall",
+    "sample": {
+      "pcm": [
+        0,
+        0.2,
+        -0.3,
+        0.9
+      ]
+    }
+  },
+  {
+    "id": "235",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "Silence Trimmer & Voice Activity Detector",
+    "status": "fixture",
+    "implementation": "Amplitude-threshold silence trimming",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/235",
+    "syscall": "/syscall",
+    "sample": {
+      "pcm": [
+        0,
+        0,
+        0.3,
+        0.4,
+        0
+      ],
+      "threshold": 0.01
+    }
+  },
+  {
+    "id": "236",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "WebVTT & SRT Subtitle Generator/Translator",
+    "status": "fixture",
+    "implementation": "WebVTT or SRT subtitle formatting",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/236",
+    "syscall": "/syscall",
+    "sample": {
+      "format": "vtt",
+      "cues": [
+        {
+          "text": "Hello",
+          "start": 0,
+          "end": 1500
+        }
+      ]
+    }
+  },
+  {
+    "id": "237",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "SVG Path Optimizer & Icon Sprite Bundler",
+    "status": "specified"
+  },
+  {
+    "id": "238",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "Dynamic Social-Share Image Renderer",
+    "status": "fixture",
+    "implementation": "SVG share card renderer",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/238",
+    "syscall": "/syscall",
+    "sample": {
+      "title": "Library of Tabor",
+      "subtitle": "Digital Edge 101"
+    }
+  },
+  {
+    "id": "239",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "PDF Page Splitter, Merger & Watermark Stamper",
+    "status": "specified"
+  },
+  {
+    "id": "240",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "Spreadsheet Formula Evaluator Engine",
+    "status": "fixture",
+    "implementation": "Formula arithmetic and aggregate evaluator",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/240",
+    "syscall": "/syscall",
+    "sample": {
+      "operator": "SUM",
+      "values": [
+        2,
+        4,
+        6
+      ]
+    }
+  },
+  {
+    "id": "241",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "Color Palette & Contrast Ratio Extractor",
+    "status": "fixture",
+    "implementation": "WCAG color contrast ratio",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/241",
+    "syscall": "/syscall",
+    "sample": {
+      "foreground": "#ffffff",
+      "background": "#112442"
+    }
+  },
+  {
+    "id": "242",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "Audio Fingerprinting & Acoustic Hash Matcher",
+    "status": "specified"
+  },
+  {
+    "id": "243",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "Animated GIF-to-MP4/WebM Transcoder Pipeline",
+    "status": "specified"
+  },
+  {
+    "id": "244",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "3D Mesh & glTF Asset Validator",
+    "status": "fixture",
+    "implementation": "glTF asset structure inspection",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/244",
+    "syscall": "/syscall",
+    "sample": {
+      "asset": {
+        "version": "2.0"
+      },
+      "meshes": [
+        {
+          "primitives": [
+            {
+              "attributes": {
+                "POSITION": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "245",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "Markdown-to-Slide-Deck Presentation Builder",
+    "status": "fixture",
+    "implementation": "Escaped Markdown section slide preview",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/245",
+    "syscall": "/syscall",
+    "sample": {
+      "markdown": "# Opening\nHello\n---\n# Next\nMore"
+    }
+  },
+  {
+    "id": "246",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "Document Redline & Word-Level Diff Visualizer",
+    "status": "fixture",
+    "implementation": "Word-level edit sequence",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/246",
+    "syscall": "/syscall",
+    "sample": {
+      "before": "the red cat",
+      "after": "the blue cat"
+    }
+  },
+  {
+    "id": "247",
+    "ring": 4,
+    "category": "10-media-documents",
+    "title": "Barcode & ISBN Book/Product Metadata Lookup",
+    "status": "fixture",
+    "implementation": "ISBN ISBN-10 and ISBN-13 check-digit validator",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/247",
+    "syscall": "/syscall",
+    "sample": {
+      "isbn": "9780306406157"
+    }
+  },
+  {
+    "id": "248",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Optimistic Offline Mutation Queue",
+    "status": "specified"
+  },
+  {
+    "id": "249",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Infinite-Canvas Pan & Zoom Spatial Engine",
+    "status": "fixture",
+    "implementation": "Canvas viewport coordinate transform",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/249",
+    "syscall": "/syscall",
+    "sample": {
+      "point": [
+        40,
+        20
+      ],
+      "pan": [
+        10,
+        5
+      ],
+      "zoom": 2
+    }
+  },
+  {
+    "id": "250",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Custom Syntax Highlighter & Code Editor Tokenizer",
+    "status": "specified"
+  },
+  {
+    "id": "251",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Client-Side Web Worker Thread Pool",
+    "status": "fixture",
+    "implementation": "Stable pool task assignment",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/251",
+    "syscall": "/syscall",
+    "sample": {
+      "tasks": [
+        "a",
+        "b",
+        "c"
+      ],
+      "workers": 2
+    }
+  },
+  {
+    "id": "252",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Responsive Breakpoint & Container-Query Layout Engine",
+    "status": "fixture",
+    "implementation": "Container-width layout columns",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/252",
+    "syscall": "/syscall",
+    "sample": {
+      "width": 800,
+      "cardWidth": 240,
+      "gap": 16
+    }
+  },
+  {
+    "id": "253",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Interactive Data Table Pivot & Grouping Engine",
+    "status": "fixture",
+    "implementation": "Grouped table subtotal core",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/253",
+    "syscall": "/syscall",
+    "sample": {
+      "rows": [
+        [
+          "A",
+          1
+        ],
+        [
+          "B",
+          2
+        ],
+        [
+          "A",
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "254",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Web Push Service Worker Subscription Manager",
+    "status": "specified"
+  },
+  {
+    "id": "255",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Form Auto-Save & Crash-Recovery Draft Restorer",
+    "status": "specified"
+  },
+  {
+    "id": "256",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Deep-Nested URL Query-String State Serializer",
+    "status": "fixture",
+    "implementation": "Nested URL state encoding",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/256",
+    "syscall": "/syscall",
+    "sample": {
+      "state": {
+        "page": 2,
+        "filters": {
+          "language": [
+            "en",
+            "la"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "257",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Smart Skeleton Loader & Progressive Blur-Up Placeholder",
+    "status": "specified"
+  },
+  {
+    "id": "258",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Touch Gesture & Swipe Physics Recognizer",
+    "status": "fixture",
+    "implementation": "Two-point swipe classification",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/258",
+    "syscall": "/syscall",
+    "sample": {
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        90,
+        10
+      ],
+      "milliseconds": 120,
+      "threshold": 40
+    }
+  },
+  {
+    "id": "259",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Browser Tab BroadcastChannel Cross-Tab Syncer",
+    "status": "specified"
+  },
+  {
+    "id": "260",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Client-Side Telemetry & Core Web Vitals Collector",
+    "status": "fixture",
+    "implementation": "Anonymized Web Vitals fixture aggregation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/260",
+    "syscall": "/syscall",
+    "sample": {
+      "metrics": [
+        {
+          "name": "LCP",
+          "value": 2000
+        },
+        {
+          "name": "LCP",
+          "value": 3000
+        },
+        {
+          "name": "CLS",
+          "value": 0.05
+        }
+      ]
+    }
+  },
+  {
+    "id": "261",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Interactive Onboarding Tour & Spotlight Overlay",
+    "status": "specified"
+  },
+  {
+    "id": "262",
+    "ring": 4,
+    "category": "11-browser-runtime",
+    "title": "Print Stylesheet & Clean Article Reader-Mode Extractor",
+    "status": "specified"
+  },
+  {
+    "id": "263",
+    "ring": 2,
+    "category": "12-edge-networking",
+    "title": "GraphQL-to-SQL Query Compiler",
+    "status": "specified"
+  },
+  {
+    "id": "264",
+    "ring": 2,
+    "category": "12-edge-networking",
+    "title": "gRPC-Web & Protocol Buffers Binary Gateway",
+    "status": "specified"
+  },
+  {
+    "id": "265",
+    "ring": 2,
+    "category": "12-edge-networking",
+    "title": "Edge Geo-IP & ASN Lookup Enricher",
+    "status": "fixture",
+    "implementation": "Edge context projection from fixture headers",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/265",
+    "syscall": "/syscall",
+    "sample": {
+      "country": "US",
+      "timezone": "America/New_York",
+      "asn": 13335
+    }
+  },
+  {
+    "id": "266",
+    "ring": 2,
+    "category": "12-edge-networking",
+    "title": "Dynamic CORS & Preflight Cache Responder",
+    "status": "fixture",
+    "implementation": "Exact-origin CORS decision",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/266",
+    "syscall": "/syscall",
+    "sample": {
+      "origin": "https://example.org",
+      "allow": [
+        "https://example.org"
+      ],
+      "method": "GET"
+    }
+  },
+  {
+    "id": "267",
+    "ring": 2,
+    "category": "12-edge-networking",
+    "title": "Request/Response Payload Compression Negotiator",
+    "status": "fixture",
+    "implementation": "Allowed compression negotiation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/267",
+    "syscall": "/syscall",
+    "sample": {
+      "header": "gzip;q=0.8, br;q=1"
+    }
+  },
+  {
+    "id": "268",
+    "ring": 1,
+    "category": "12-edge-networking",
+    "title": "Signed Expiring URL & Token-Gated Download Server",
+    "status": "specified"
+  },
+  {
+    "id": "269",
+    "ring": 2,
+    "category": "12-edge-networking",
+    "title": "Multi-Provider OAuth Social Login Broker",
+    "status": "specified"
+  },
+  {
+    "id": "270",
+    "ring": 2,
+    "category": "12-edge-networking",
+    "title": "API Versioning & Backward-Compatibility Transformer",
+    "status": "fixture",
+    "implementation": "Sample v1 to v2 field transformer",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/270",
+    "syscall": "/syscall",
+    "sample": {
+      "version": 1,
+      "book_title": "Example",
+      "book_id": "demo"
+    }
+  },
+  {
+    "id": "271",
+    "ring": 1,
+    "category": "12-edge-networking",
+    "title": "Distributed Leader Election Coordinator",
+    "status": "specified"
+  },
+  {
+    "id": "272",
+    "ring": 2,
+    "category": "12-edge-networking",
+    "title": "Smart Retry-After & Backpressure Shedder",
+    "status": "fixture",
+    "implementation": "Bounded Retry-After backpressure policy",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/272",
+    "syscall": "/syscall",
+    "sample": {
+      "pending": 40,
+      "capacity": 32,
+      "drainPerSecond": 4
+    }
+  },
+  {
+    "id": "273",
+    "ring": 2,
+    "category": "12-edge-networking",
+    "title": "Webhook Event Fan-Out & Topic Subscription Bus",
+    "status": "fixture",
+    "implementation": "Event-to-topic recipient plan",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/273",
+    "syscall": "/syscall",
+    "sample": {
+      "event": "file.created",
+      "subscriptions": [
+        {
+          "id": "archive",
+          "topic": "file.created"
+        },
+        {
+          "id": "other",
+          "topic": "book.created"
+        }
+      ]
+    }
+  },
+  {
+    "id": "274",
+    "ring": 2,
+    "category": "12-edge-networking",
+    "title": "Edge A/B Redirect & Split-Testing Router",
+    "status": "fixture",
+    "implementation": "Deterministic A/B bucket for opaque identifier",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/274",
+    "syscall": "/syscall",
+    "sample": {
+      "key": "anonymous-demo",
+      "percentB": 30
+    }
+  },
+  {
+    "id": "275",
+    "ring": 2,
+    "category": "12-edge-networking",
+    "title": "IPv4/IPv6 CIDR Allowlist & Firewall Rule Evaluator",
+    "status": "fixture",
+    "implementation": "Offline IPv4 CIDR allowlist evaluation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/275",
+    "syscall": "/syscall",
+    "sample": {
+      "address": "192.0.2.42",
+      "cidr": "192.0.2.0/24"
+    }
+  },
+  {
+    "id": "276",
+    "ring": 2,
+    "category": "12-edge-networking",
+    "title": "Session Replay & Event-Stream Recorder",
+    "status": "specified"
+  },
+  {
+    "id": "277",
+    "ring": 2,
+    "category": "12-edge-networking",
+    "title": "Automated Sitemap & robots.txt Generator",
+    "status": "specified"
+  },
+  {
+    "id": "278",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Model Context Protocol Tool Server",
+    "status": "specified"
+  },
+  {
+    "id": "279",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Hybrid Keyword & Vector Reciprocal Rank Fusion",
+    "status": "fixture",
+    "implementation": "Reciprocal rank fusion of supplied rankings",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/279",
+    "syscall": "/syscall",
+    "sample": {
+      "keyword": [
+        "a",
+        "b",
+        "c"
+      ],
+      "vector": [
+        "b",
+        "d",
+        "a"
+      ],
+      "k": 60
+    }
+  },
+  {
+    "id": "280",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Document Chunking & Semantic Boundary Splitter",
+    "status": "fixture",
+    "implementation": "Paragraph-aware supplied text chunking",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/280",
+    "syscall": "/syscall",
+    "sample": {
+      "text": "Opening paragraph.\n\nSecond paragraph.",
+      "limit": 40
+    }
+  },
+  {
+    "id": "281",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Multi-Agent Task Handoff & State Machine Router",
+    "status": "fixture",
+    "implementation": "Pure planner–executor–verifier state transition",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/281",
+    "syscall": "/syscall",
+    "sample": {
+      "state": "planning",
+      "event": "plan-valid"
+    }
+  },
+  {
+    "id": "282",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Deterministic Tool-Call Argument Validator",
+    "status": "fixture",
+    "implementation": "Strict typed object field validation",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/282",
+    "syscall": "/syscall",
+    "sample": {
+      "record": {
+        "count": 2,
+        "label": "catalog"
+      },
+      "required": {
+        "count": "number",
+        "label": "string"
+      }
+    }
+  },
+  {
+    "id": "283",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Automated PII & Secret Leak Scanner for Prompts",
+    "status": "fixture",
+    "implementation": "Basic prompt leak screening without echo",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/283",
+    "syscall": "/syscall",
+    "sample": {
+      "text": "Contact demo@example.org"
+    }
+  },
+  {
+    "id": "284",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Dynamic Prompt Template & Version Registry",
+    "status": "fixture",
+    "implementation": "Versioned literal prompt template preview",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/284",
+    "syscall": "/syscall",
+    "sample": {
+      "template": "Find {{subject}}",
+      "values": {
+        "subject": "Greek tablets"
+      },
+      "version": 3
+    }
+  },
+  {
+    "id": "285",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Web-Search & Citation Grounding Aggregator",
+    "status": "specified"
+  },
+  {
+    "id": "286",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Automated Cron Data-Retention & Archival Sweeper",
+    "status": "fixture",
+    "implementation": "Retention dry-run candidate selection",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/286",
+    "syscall": "/syscall",
+    "sample": {
+      "nowDay": 120,
+      "ageDays": 90,
+      "records": [
+        {
+          "id": "a",
+          "day": 1
+        },
+        {
+          "id": "b",
+          "day": 110
+        }
+      ]
+    }
+  },
+  {
+    "id": "287",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Multi-Currency Exchange Rate & Tax/VAT Calculator",
+    "status": "fixture",
+    "implementation": "Currency and supplied tax-rate arithmetic",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/287",
+    "syscall": "/syscall",
+    "sample": {
+      "amountCents": 10000,
+      "unitsPerBase": 1.2,
+      "taxRate": 0.1
+    }
+  },
+  {
+    "id": "288",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Invoicing, Receipt & Line-Item Ledger Generator",
+    "status": "fixture",
+    "implementation": "Invoice integer-cent line subtotal",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/288",
+    "syscall": "/syscall",
+    "sample": {
+      "lines": [
+        {
+          "units": 5,
+          "priceCents": 400
+        },
+        {
+          "units": 1,
+          "priceCents": 1000
+        }
+      ],
+      "discountCents": 500
+    }
+  },
+  {
+    "id": "289",
+    "ring": 1,
+    "category": "13-agent-operations",
+    "title": "Inventory & Seat-License Reservation Counter",
+    "status": "specified"
+  },
+  {
+    "id": "290",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Referral Code & Affiliate Attribution Tracker",
+    "status": "specified"
+  },
+  {
+    "id": "291",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Customer Support Ticket SLA & Escalation Timer",
+    "status": "fixture",
+    "implementation": "Support SLA elapsed time assessment",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/291",
+    "syscall": "/syscall",
+    "sample": {
+      "opened": 10,
+      "now": 40,
+      "slaMinutes": 25
+    }
+  },
+  {
+    "id": "292",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Automated Changelog & Release-Notes Compiler",
+    "status": "fixture",
+    "implementation": "Conventional commit release-notes grouping",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/292",
+    "syscall": "/syscall",
+    "sample": {
+      "subjects": [
+        "feat: catalog lookup",
+        "fix(parser): handle empty string",
+        "docs: setup"
+      ]
+    }
+  },
+  {
+    "id": "293",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Database Query Slow-Log & Index Advisor",
+    "status": "specified"
+  },
+  {
+    "id": "294",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Environment Configuration & Feature-Flag Diff Checker",
+    "status": "fixture",
+    "implementation": "Environment key-set diff without values",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/294",
+    "syscall": "/syscall",
+    "sample": {
+      "staging": [
+        "APP_VERSION",
+        "DATABASE"
+      ],
+      "production": [
+        "APP_VERSION"
+      ]
+    }
+  },
+  {
+    "id": "295",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Automated SSL/TLS Certificate Expiry Monitor",
+    "status": "fixture",
+    "implementation": "Certificate-expiry alert from supplied dates",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/295",
+    "syscall": "/syscall",
+    "sample": {
+      "nowDay": 100,
+      "expiryDay": 111
+    }
+  },
+  {
+    "id": "296",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Public Status Page & Incident Timeline Updater",
+    "status": "fixture",
+    "implementation": "Synthetic probe availability rollup",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/296",
+    "syscall": "/syscall",
+    "sample": {
+      "probes": [
+        {
+          "ok": true
+        },
+        {
+          "ok": false
+        },
+        {
+          "ok": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "297",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Custom Domain DNS Verification Poller",
+    "status": "specified"
+  },
+  {
+    "id": "298",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Bulk CSV Import Validator & Dry-Run Previewer",
+    "status": "fixture",
+    "implementation": "Structured CSV dry-run rows",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/298",
+    "syscall": "/syscall",
+    "sample": {
+      "rows": [
+        [
+          "id",
+          "title"
+        ],
+        [
+          "1",
+          "A"
+        ],
+        [
+          "2"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "299",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Automated Code-Formatting & Linting Pre-Commit Gate",
+    "status": "specified"
+  },
+  {
+    "id": "300",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Sandbox Code-Execution Isolate Runner",
+    "status": "specified"
+  },
+  {
+    "id": "301",
+    "ring": 1,
+    "category": "13-agent-operations",
+    "title": "Cross-Region Configuration & Secret Replicator",
+    "status": "specified"
+  },
+  {
+    "id": "302",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Master Module Dependency Graph & Health Inspector",
+    "status": "specified"
+  },
+  {
+    "id": "303",
+    "ring": 3,
+    "category": "13-agent-operations",
+    "title": "Global CLI & API SDK Generator",
+    "status": "specified"
+  },
+  {
+    "id": "304",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "305",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "306",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "307",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "308",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "309",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "310",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "311",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "312",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "313",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "314",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "315",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "316",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "317",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "318",
+    "ring": 2,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "319",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "320",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "321",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "322",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "323",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "324",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "325",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "326",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "327",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "328",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "329",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "330",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "331",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "332",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "333",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "334",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "335",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "336",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "337",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "338",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "339",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "340",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "341",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "342",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "343",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "344",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "345",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "346",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "347",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "348",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "349",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "350",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "351",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "352",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "353",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "354",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "355",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "356",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "357",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "358",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "359",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "360",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "361",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "362",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "363",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "364",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "365",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "366",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "367",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "368",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "369",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "370",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "371",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "372",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "373",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "374",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "375",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "376",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "377",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "378",
+    "ring": 4,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "379",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "380",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "381",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "382",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "383",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "384",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "385",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "386",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "387",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "388",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "389",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "390",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "391",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "392",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "393",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "394",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "395",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "396",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "397",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "398",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "399",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "400",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "401",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "402",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "403",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "404",
+    "ring": 3,
+    "category": "unassigned",
+    "title": null,
+    "status": "awaiting-spec"
+  },
+  {
+    "id": "OG-101",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Mosaic Web Browser",
+    "submittedDate": "1993",
+    "status": "specified"
+  },
+  {
+    "id": "OG-100",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Linux Kernel 0.01",
+    "submittedDate": "1991",
+    "status": "specified"
+  },
+  {
+    "id": "OG-099",
+    "ring": 0,
+    "category": "kernel",
+    "title": "WorldWideWeb / Nexus",
+    "submittedDate": "1990",
+    "status": "fixture",
+    "implementation": "HTTP/0.9 request-line teaching parser",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-099",
+    "syscall": "/syscall",
+    "sample": {
+      "request": "GET /library\r\n"
+    }
+  },
+  {
+    "id": "OG-098",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Game Boy",
+    "submittedDate": "1989",
+    "status": "specified"
+  },
+  {
+    "id": "OG-097",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Morris Worm",
+    "submittedDate": "1988",
+    "status": "specified"
+  },
+  {
+    "id": "OG-096",
+    "ring": 0,
+    "category": "kernel",
+    "title": "GIF87a Image Format",
+    "submittedDate": "1987",
+    "status": "fixture",
+    "implementation": "GIF87a header and dimensions inspector",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-096",
+    "syscall": "/syscall",
+    "sample": {
+      "bytes": [
+        71,
+        73,
+        70,
+        56,
+        55,
+        97,
+        8,
+        0,
+        6,
+        0
+      ]
+    }
+  },
+  {
+    "id": "OG-095",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Windows 1.0",
+    "submittedDate": "1985",
+    "status": "specified"
+  },
+  {
+    "id": "OG-094",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Tetris",
+    "submittedDate": "1985",
+    "status": "specified"
+  },
+  {
+    "id": "OG-093",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Apple Macintosh 128K",
+    "submittedDate": "1984",
+    "status": "specified"
+  },
+  {
+    "id": "OG-092",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Domain Name System / DNS",
+    "submittedDate": "1983",
+    "status": "fixture",
+    "implementation": "Local DNS fixture lookup",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-092",
+    "syscall": "/syscall",
+    "sample": {
+      "name": "catalog.example",
+      "records": {
+        "catalog.example": "192.0.2.1"
+      }
+    }
+  },
+  {
+    "id": "OG-091",
+    "ring": 0,
+    "category": "kernel",
+    "title": "TCP/IP Protocol Suite Activation",
+    "submittedDate": "1983",
+    "status": "specified"
+  },
+  {
+    "id": "OG-090",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Commodore 64",
+    "submittedDate": "1982",
+    "status": "specified"
+  },
+  {
+    "id": "OG-089",
+    "ring": 0,
+    "category": "kernel",
+    "title": "IBM Personal Computer 5150",
+    "submittedDate": "1981",
+    "status": "specified"
+  },
+  {
+    "id": "OG-088",
+    "ring": 0,
+    "category": "kernel",
+    "title": "MS-DOS 1.0",
+    "submittedDate": "1981",
+    "status": "specified"
+  },
+  {
+    "id": "OG-087",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Pac-Man",
+    "submittedDate": "1980",
+    "status": "specified"
+  },
+  {
+    "id": "OG-086",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Usenet Distributed Discussion System",
+    "submittedDate": "1980",
+    "status": "specified"
+  },
+  {
+    "id": "OG-085",
+    "ring": 0,
+    "category": "kernel",
+    "title": "VisiCalc",
+    "submittedDate": "1979",
+    "status": "fixture",
+    "implementation": "VisiCalc-inspired column sum",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-085",
+    "syscall": "/syscall",
+    "sample": {
+      "cells": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "OG-084",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Space Invaders",
+    "submittedDate": "1978",
+    "status": "specified"
+  },
+  {
+    "id": "OG-083",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Apple II",
+    "submittedDate": "1977",
+    "status": "fixture",
+    "implementation": "MOS 6502 immediate-load/add teaching trace",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-083",
+    "syscall": "/syscall",
+    "sample": {
+      "program": [
+        169,
+        5,
+        105,
+        3,
+        0
+      ]
+    }
+  },
+  {
+    "id": "OG-082",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Atari 2600 / VCS",
+    "submittedDate": "1977",
+    "status": "specified"
+  },
+  {
+    "id": "OG-081",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Cray-1 Supercomputer",
+    "submittedDate": "1976",
+    "status": "fixture",
+    "implementation": "Cray-style vector add teaching fixture",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-081",
+    "syscall": "/syscall",
+    "sample": {
+      "a": [
+        1,
+        2
+      ],
+      "b": [
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "id": "OG-080",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Altair 8800",
+    "submittedDate": "1975",
+    "status": "specified"
+  },
+  {
+    "id": "OG-079",
+    "ring": 0,
+    "category": "kernel",
+    "title": "HP-65 Programmable Pocket Calculator",
+    "submittedDate": "1974",
+    "status": "specified"
+  },
+  {
+    "id": "OG-078",
+    "ring": 0,
+    "category": "kernel",
+    "title": "TCP Specification / RFC 675",
+    "submittedDate": "1974",
+    "status": "specified"
+  },
+  {
+    "id": "OG-077",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Xerox Alto",
+    "submittedDate": "1973",
+    "status": "specified"
+  },
+  {
+    "id": "OG-076",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Ethernet Networking Protocol",
+    "submittedDate": "1973",
+    "status": "specified"
+  },
+  {
+    "id": "OG-075",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Pong",
+    "submittedDate": "1972",
+    "status": "fixture",
+    "implementation": "Pong headless reflection tick",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-075",
+    "syscall": "/syscall",
+    "sample": {
+      "state": [
+        1,
+        4,
+        2,
+        -1
+      ],
+      "width": 8,
+      "height": 6,
+      "dt": 0.5
+    }
+  },
+  {
+    "id": "OG-074",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Magnavox Odyssey",
+    "submittedDate": "1972",
+    "status": "specified"
+  },
+  {
+    "id": "OG-073",
+    "ring": 0,
+    "category": "kernel",
+    "title": "HP-35 Pocket Scientific Calculator",
+    "submittedDate": "1972",
+    "status": "fixture",
+    "implementation": "HP-35-inspired RPN stack evaluator",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-073",
+    "syscall": "/syscall",
+    "sample": {
+      "tokens": [
+        9,
+        "sqrt",
+        3,
+        "+"
+      ]
+    }
+  },
+  {
+    "id": "OG-072",
+    "ring": 0,
+    "category": "kernel",
+    "title": "C Programming Language",
+    "submittedDate": "1972",
+    "status": "specified"
+  },
+  {
+    "id": "OG-071",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Computer Space",
+    "submittedDate": "1971",
+    "status": "specified"
+  },
+  {
+    "id": "OG-070",
+    "ring": 0,
+    "category": "kernel",
+    "title": "First Networked Email / @ Symbol",
+    "submittedDate": "1971",
+    "status": "specified"
+  },
+  {
+    "id": "OG-069",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Intel 4004 Microprocessor",
+    "submittedDate": "1971",
+    "status": "fixture",
+    "implementation": "Intel 4004-inspired nibble accumulator fixture",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-069",
+    "syscall": "/syscall",
+    "sample": {
+      "instructions": [
+        [
+          "ld",
+          14
+        ],
+        [
+          "add",
+          3
+        ],
+        [
+          "add",
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "id": "OG-068",
+    "ring": 0,
+    "category": "kernel",
+    "title": "The Oregon Trail",
+    "submittedDate": "1971",
+    "status": "specified"
+  },
+  {
+    "id": "OG-067",
+    "ring": 0,
+    "category": "kernel",
+    "title": "8-Inch Floppy Disk",
+    "submittedDate": "1971",
+    "status": "specified"
+  },
+  {
+    "id": "OG-066",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Unix Operating System",
+    "submittedDate": "1969",
+    "status": "specified"
+  },
+  {
+    "id": "OG-065",
+    "ring": 0,
+    "category": "kernel",
+    "title": "First ARPANET Packet Transmission",
+    "submittedDate": "1969",
+    "status": "specified"
+  },
+  {
+    "id": "OG-064",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Apollo Guidance Computer / AGC",
+    "submittedDate": "1969",
+    "status": "specified"
+  },
+  {
+    "id": "OG-063",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Douglas Engelbart's Mother of All Demos",
+    "submittedDate": "1968",
+    "status": "specified"
+  },
+  {
+    "id": "OG-062",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Canon Pocketronic",
+    "submittedDate": "1970",
+    "status": "specified"
+  },
+  {
+    "id": "OG-061",
+    "ring": 0,
+    "category": "kernel",
+    "title": "DRAM Single-Transistor Memory Cell",
+    "submittedDate": "1967",
+    "status": "specified"
+  },
+  {
+    "id": "OG-060",
+    "ring": 0,
+    "category": "kernel",
+    "title": "CDC 6600 Supercomputer",
+    "submittedDate": "1964",
+    "status": "specified"
+  },
+  {
+    "id": "OG-059",
+    "ring": 0,
+    "category": "kernel",
+    "title": "BASIC Programming Language",
+    "submittedDate": "1964",
+    "status": "specified"
+  },
+  {
+    "id": "OG-058",
+    "ring": 0,
+    "category": "kernel",
+    "title": "IBM System/360",
+    "submittedDate": "1964",
+    "status": "specified"
+  },
+  {
+    "id": "OG-057",
+    "ring": 0,
+    "category": "kernel",
+    "title": "ASCII 7-Bit Character Standard",
+    "submittedDate": "1963",
+    "status": "fixture",
+    "implementation": "7-bit ASCII codec",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-057",
+    "syscall": "/syscall",
+    "sample": {
+      "text": "ACT"
+    }
+  },
+  {
+    "id": "OG-056",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Spacewar!",
+    "submittedDate": "1962",
+    "status": "specified"
+  },
+  {
+    "id": "OG-055",
+    "ring": 0,
+    "category": "kernel",
+    "title": "CTSS Time-Sharing System",
+    "submittedDate": "1961",
+    "status": "fixture",
+    "implementation": "Round-robin scheduling fixture",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-055",
+    "syscall": "/syscall",
+    "sample": {
+      "tasks": [
+        {
+          "id": "catalog",
+          "ticks": 2
+        },
+        {
+          "id": "search",
+          "ticks": 3
+        }
+      ]
+    }
+  },
+  {
+    "id": "OG-054",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Sharp CS-10A Compet",
+    "submittedDate": "1964",
+    "status": "specified"
+  },
+  {
+    "id": "OG-053",
+    "ring": 0,
+    "category": "kernel",
+    "title": "DEC PDP-1 Minicomputer",
+    "submittedDate": "1959",
+    "status": "specified"
+  },
+  {
+    "id": "OG-052",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Integrated Circuit / Microchip",
+    "submittedDate": "1958",
+    "status": "specified"
+  },
+  {
+    "id": "OG-051",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Tennis for Two",
+    "submittedDate": "1958",
+    "status": "fixture",
+    "implementation": "Tennis for Two headless physics tick",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-051",
+    "syscall": "/syscall",
+    "sample": {
+      "state": [
+        1,
+        4,
+        2,
+        -1
+      ],
+      "width": 8,
+      "height": 6,
+      "dt": 0.5
+    }
+  },
+  {
+    "id": "OG-050",
+    "ring": 0,
+    "category": "kernel",
+    "title": "COBOL Business Language",
+    "submittedDate": "1959",
+    "status": "specified"
+  },
+  {
+    "id": "OG-049",
+    "ring": 0,
+    "category": "kernel",
+    "title": "FORTRAN Compiler",
+    "submittedDate": "1957",
+    "status": "specified"
+  },
+  {
+    "id": "OG-048",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Hard Disk Drive / IBM 305 RAMAC",
+    "submittedDate": "1956",
+    "status": "specified"
+  },
+  {
+    "id": "OG-047",
+    "ring": 0,
+    "category": "kernel",
+    "title": "TRADIC Transistor Computer",
+    "submittedDate": "1954",
+    "status": "specified"
+  },
+  {
+    "id": "OG-046",
+    "ring": 0,
+    "category": "kernel",
+    "title": "OXO / Noughts and Crosses",
+    "submittedDate": "1952",
+    "status": "fixture",
+    "implementation": "Noughts and crosses state evaluator",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-046",
+    "syscall": "/syscall",
+    "sample": {
+      "board": "XXXOO...."
+    }
+  },
+  {
+    "id": "OG-045",
+    "ring": 0,
+    "category": "kernel",
+    "title": "A-0 System Compiler",
+    "submittedDate": "1952",
+    "status": "specified"
+  },
+  {
+    "id": "OG-044",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Bertie the Brain",
+    "submittedDate": "1950",
+    "status": "specified"
+  },
+  {
+    "id": "OG-043",
+    "ring": 0,
+    "category": "kernel",
+    "title": "UNIVAC I",
+    "submittedDate": "1951",
+    "status": "specified"
+  },
+  {
+    "id": "OG-042",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Magnetic Core Memory",
+    "submittedDate": "1951",
+    "status": "fixture",
+    "implementation": "Core-memory bit grid readout",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-042",
+    "syscall": "/syscall",
+    "sample": {
+      "grid": [
+        "10",
+        "01"
+      ]
+    }
+  },
+  {
+    "id": "OG-041",
+    "ring": 0,
+    "category": "kernel",
+    "title": "EDVAC Binary Stored-Program Design",
+    "submittedDate": "1949",
+    "status": "specified"
+  },
+  {
+    "id": "OG-040",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Manchester Baby / SSEM",
+    "submittedDate": "1948",
+    "status": "specified"
+  },
+  {
+    "id": "OG-039",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Cathode-Ray Tube Amusement Device",
+    "submittedDate": "1947",
+    "status": "specified"
+  },
+  {
+    "id": "OG-038",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Point-Contact Transistor",
+    "submittedDate": "1947",
+    "status": "specified"
+  },
+  {
+    "id": "OG-037",
+    "ring": 0,
+    "category": "kernel",
+    "title": "ENIAC",
+    "submittedDate": "1945",
+    "status": "specified"
+  },
+  {
+    "id": "OG-036",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Von Neumann Architecture Report",
+    "submittedDate": "1945",
+    "status": "specified"
+  },
+  {
+    "id": "OG-035",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Harvard Mark I / IBM ASCC",
+    "submittedDate": "1944",
+    "status": "specified"
+  },
+  {
+    "id": "OG-034",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Colossus Mark 1",
+    "submittedDate": "1943",
+    "status": "specified"
+  },
+  {
+    "id": "OG-033",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Atanasoff–Berry Computer / ABC",
+    "submittedDate": "1942",
+    "status": "specified"
+  },
+  {
+    "id": "OG-032",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Zuse Z3",
+    "submittedDate": "1941",
+    "status": "specified"
+  },
+  {
+    "id": "OG-031",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Complex Number Calculator / Model K",
+    "submittedDate": "1939",
+    "status": "fixture",
+    "implementation": "Complex number multiplication",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-031",
+    "syscall": "/syscall",
+    "sample": {
+      "a": [
+        1,
+        2
+      ],
+      "b": [
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "id": "OG-030",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Turing Machine Theoretical Model",
+    "submittedDate": "1936",
+    "status": "fixture",
+    "implementation": "Bounded Turing tape bit-inversion fixture",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-030",
+    "syscall": "/syscall",
+    "sample": {
+      "tape": "1011",
+      "steps": 8
+    }
+  },
+  {
+    "id": "OG-029",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Curta Mechanical Pocket Calculator",
+    "submittedDate": "1948 / designed 1938",
+    "status": "specified"
+  },
+  {
+    "id": "OG-028",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Claude Shannon's Switching Circuit Thesis",
+    "submittedDate": "1937",
+    "status": "fixture",
+    "implementation": "Relay switching truth table",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-028",
+    "syscall": "/syscall",
+    "sample": {
+      "inputs": [
+        1,
+        1,
+        0
+      ]
+    }
+  },
+  {
+    "id": "OG-027",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Differential Analyzer",
+    "submittedDate": "1931",
+    "status": "specified"
+  },
+  {
+    "id": "OG-026",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Enigma Cipher Machine",
+    "submittedDate": "1918",
+    "status": "fixture",
+    "implementation": "Historical rotor-permutation teaching fixture",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-026",
+    "syscall": "/syscall",
+    "sample": {
+      "message": "TABOR",
+      "rotor": "EKMFLGDQVZNTOWYHXUSPAIBRCJ",
+      "start": 0
+    }
+  },
+  {
+    "id": "OG-025",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Torres Quevedo Electromechanical Arithmometer",
+    "submittedDate": "1920",
+    "status": "specified"
+  },
+  {
+    "id": "OG-024",
+    "ring": 0,
+    "category": "kernel",
+    "title": "El Ajedrecista Chess Automaton",
+    "submittedDate": "1912",
+    "status": "specified"
+  },
+  {
+    "id": "OG-023",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Monroe & Marchant Mechanical Calculators",
+    "submittedDate": "1911",
+    "status": "specified"
+  },
+  {
+    "id": "OG-022",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Triode Vacuum Tube / Audion",
+    "submittedDate": "1906",
+    "status": "specified"
+  },
+  {
+    "id": "OG-021",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Hollerith Tabulating Machine",
+    "submittedDate": "1890",
+    "status": "fixture",
+    "implementation": "Punch-card column tally",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-021",
+    "syscall": "/syscall",
+    "sample": {
+      "cards": [
+        "101",
+        "111",
+        "100"
+      ]
+    }
+  },
+  {
+    "id": "OG-020",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Comptometer",
+    "submittedDate": "1887",
+    "status": "fixture",
+    "implementation": "Comptometer key sum",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-020",
+    "syscall": "/syscall",
+    "sample": {
+      "keys": [
+        12,
+        31,
+        7
+      ]
+    }
+  },
+  {
+    "id": "OG-019",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Pinwheel Calculator / Odhner Arithmometer",
+    "submittedDate": "1873",
+    "status": "specified"
+  },
+  {
+    "id": "OG-018",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Tide-Predicting Machine",
+    "submittedDate": "1872",
+    "status": "fixture",
+    "implementation": "Harmonic tide teaching model",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-018",
+    "syscall": "/syscall",
+    "sample": {
+      "phases": [
+        0,
+        1
+      ],
+      "amplitudes": [
+        1,
+        0.5
+      ]
+    }
+  },
+  {
+    "id": "OG-017",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Boole's The Laws of Thought",
+    "submittedDate": "1854",
+    "status": "fixture",
+    "implementation": "Boolean gate truth table",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-017",
+    "syscall": "/syscall",
+    "sample": {
+      "gate": "NAND"
+    }
+  },
+  {
+    "id": "OG-016",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Ada Lovelace's Bernoulli Number Algorithm",
+    "submittedDate": "1843",
+    "status": "fixture",
+    "implementation": "Bernoulli number teaching recurrence",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-016",
+    "syscall": "/syscall",
+    "sample": {
+      "index": 6
+    }
+  },
+  {
+    "id": "OG-015",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Babbage Analytical Engine Design",
+    "submittedDate": "1837",
+    "status": "specified"
+  },
+  {
+    "id": "OG-014",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Babbage Difference Engine",
+    "submittedDate": "1822",
+    "status": "fixture",
+    "implementation": "Finite-difference next table value",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-014",
+    "syscall": "/syscall",
+    "sample": {
+      "values": [
+        1,
+        4,
+        9,
+        16
+      ]
+    }
+  },
+  {
+    "id": "OG-013",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Thomas Arithmometer",
+    "submittedDate": "1820",
+    "status": "fixture",
+    "implementation": "Arithmometer quotient and remainder",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-013",
+    "syscall": "/syscall",
+    "sample": {
+      "a": 37,
+      "b": 6,
+      "op": "divide"
+    }
+  },
+  {
+    "id": "OG-012",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Jacquard Loom Punched Cards",
+    "submittedDate": "1804",
+    "status": "fixture",
+    "implementation": "Jacquard binary pattern",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-012",
+    "syscall": "/syscall",
+    "sample": {
+      "rows": [
+        "101",
+        "011"
+      ]
+    }
+  },
+  {
+    "id": "OG-011",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Leibniz Stepped Reckoner",
+    "submittedDate": "1673",
+    "status": "fixture",
+    "implementation": "Stepped reckoner multiplication",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-011",
+    "syscall": "/syscall",
+    "sample": {
+      "a": 37,
+      "b": 24,
+      "op": "multiply"
+    }
+  },
+  {
+    "id": "OG-010",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Pascaline Mechanical Calculator",
+    "submittedDate": "1642",
+    "status": "fixture",
+    "implementation": "Decimal carry wheels",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-010",
+    "syscall": "/syscall",
+    "sample": {
+      "a": 95,
+      "b": 28,
+      "op": "add"
+    }
+  },
+  {
+    "id": "OG-009",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Schickard Calculating Clock",
+    "submittedDate": "1623",
+    "status": "fixture",
+    "implementation": "Six-register add/subtract fixture",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-009",
+    "syscall": "/syscall",
+    "sample": {
+      "a": 17,
+      "b": 6,
+      "op": "subtract"
+    }
+  },
+  {
+    "id": "OG-008",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Slide Rule",
+    "submittedDate": "1622",
+    "status": "fixture",
+    "implementation": "Slide-rule log addition",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-008",
+    "syscall": "/syscall",
+    "sample": {
+      "a": 3,
+      "b": 7
+    }
+  },
+  {
+    "id": "OG-007",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Napier's Bones",
+    "submittedDate": "1617",
+    "status": "fixture",
+    "implementation": "Napier rods multiplication table",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-007",
+    "syscall": "/syscall",
+    "sample": {
+      "digit": 7
+    }
+  },
+  {
+    "id": "OG-006",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Planispheric Astrolabe",
+    "submittedDate": "c. 150 BCE – Medieval Era",
+    "status": "specified"
+  },
+  {
+    "id": "OG-005",
+    "ring": 0,
+    "category": "kernel",
+    "title": "South-Pointing Chariot Differential Gear",
+    "submittedDate": "c. 250 CE",
+    "status": "fixture",
+    "implementation": "Differential wheel heading fixture",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-005",
+    "syscall": "/syscall",
+    "sample": {
+      "leftTravel": 5,
+      "rightTravel": 7,
+      "trackWidth": 2
+    }
+  },
+  {
+    "id": "OG-004",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Antikythera Mechanism",
+    "submittedDate": "c. 100 BCE",
+    "status": "fixture",
+    "implementation": "Simplified lunar cycle phase",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-004",
+    "syscall": "/syscall",
+    "sample": {
+      "days": 15,
+      "period": 29.530588
+    }
+  },
+  {
+    "id": "OG-003",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Salamis Tablet Counting Board",
+    "submittedDate": "c. 300 BCE",
+    "status": "fixture",
+    "implementation": "Counting-board place-value register",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-003",
+    "syscall": "/syscall",
+    "sample": {
+      "digits": [
+        6,
+        2,
+        1
+      ],
+      "base": 10
+    }
+  },
+  {
+    "id": "OG-002",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Mesopotamian Abacus",
+    "submittedDate": "c. 2700 BCE",
+    "status": "fixture",
+    "implementation": "Place-value abacus",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-002",
+    "syscall": "/syscall",
+    "sample": {
+      "digits": [
+        1,
+        2,
+        3
+      ],
+      "base": 10
+    }
+  },
+  {
+    "id": "OG-001",
+    "ring": 0,
+    "category": "kernel",
+    "title": "Ishango & Lebombo Tally Bones",
+    "submittedDate": "c. 20,000–40,000 BCE",
+    "status": "fixture",
+    "implementation": "Tally-mark grouping",
+    "effect": "read-only",
+    "request": "JSON object; binary modules also accept an ArrayBuffer in the TypeScript interface",
+    "output": "JSON result",
+    "bindings": [],
+    "endpoint": "/api/modules/OG-001",
+    "syscall": "/syscall",
+    "sample": {
+      "marks": "|||| ||| ||"
+    }
+  }
+]

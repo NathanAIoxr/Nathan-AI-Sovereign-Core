@@ -1,0 +1,50 @@
+name = "tabor-digital-edge-os"
+main = "dist/index.js"
+compatibility_date = "2026-11-18"
+workers_dev = true
+preview_urls = false
+
+[limits]
+cpu_ms = 80
+subrequests = 40
+
+[[rules]]
+type = "CompiledWasm"
+globs = ["**/*.wasm"]
+fallthrough = true
+
+[[d1_databases]]
+binding = "GRAPH"
+database_name = "tabor-sovereign-edge-os"
+database_id = "6ec6a896-49ee-44f7-9875-3152c69ec118"
+
+[[kv_namespaces]]
+binding = "OS_KV"
+id = "cbce994dee364f7b8b60d7815f913480"
+
+[[r2_buckets]]
+binding = "OS_BLOBS"
+bucket_name = "tabor-sovereign-edge-os"
+
+[[queues.producers]]
+binding = "OS_QUEUE"
+queue = "tabor-edge-os-jobs"
+
+[[queues.consumers]]
+queue = "tabor-edge-os-jobs"
+max_batch_size = 5
+max_batch_timeout = 2
+max_retries = 3
+
+[[durable_objects.bindings]]
+name = "STATE_COORDINATOR"
+class_name = "StateCoordinatorDO"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["StateCoordinatorDO"]
+
+[[workflows]]
+binding = "BATCH"
+name = "tabor-edge-os-fixtures"
+class_name = "BatchWorkflow"

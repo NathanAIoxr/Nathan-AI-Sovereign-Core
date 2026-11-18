@@ -1,0 +1,22 @@
+{
+  "name": "nathan-tabor-digital-edge-101",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "test": "vitest run",
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@noble/hashes": "2.0.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20260702.1",
+    "esbuild": "0.27.3",
+    "typescript": "5.9.3",
+    "vitest": "4.0.18",
+    "wrangler": "4.63.0"
+  }
+}
