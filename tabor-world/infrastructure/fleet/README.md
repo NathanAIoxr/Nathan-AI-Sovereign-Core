@@ -1,0 +1,3 @@
+# NATHAN AI compute fleet integration
+
+Cloudflare Worker `tabor-compute-fleet` + existing D1 registry. Endpoints: GET /health, GET /api/fleet, GET /api/heartbeats?node_id=..., POST /api/heartbeat (Bearer FLEET_TOKEN). Agent is opt-in Python standard library only. Set TABOR_NODE_ID, TABOR_FLEET_URL, TABOR_FLEET_TOKEN on a machine you own, then run python3 agent.py. Configure Worker FLEET_TOKEN securely before posting. Do not commit tokens. Node metrics are self-reported, not independently attested. No machines are purchased or deployed by this module. No mining is performed. Bitcoin Core and ASIC telemetry adapters can be added after approved hardware credentials and an appropriate access policy. The project is not a verified exascale supercomputer.
