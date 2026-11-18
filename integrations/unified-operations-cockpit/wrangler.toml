@@ -1,0 +1,20 @@
+name = "nathan-ai-unified-cockpit"
+main = "worker.ts"
+compatibility_date = "2026-11-18"
+[triggers]
+crons = ["*/5 * * * *"]
+[[queues.producers]]
+binding = "COCKPIT_QUEUE"
+queue = "nathan-ai-cockpit-jobs"
+[[queues.consumers]]
+queue = "nathan-ai-cockpit-jobs"
+max_batch_size = 25
+max_batch_timeout = 5
+max_retries = 3
+dead_letter_queue = "nathan-ai-cockpit-dlq"
+# Set database_id from a D1 database you own before deployment.
+[[d1_databases]]
+binding = "COCKPIT_DB"
+database_name = "nathan-ai-cockpit-ledger"
+database_id = "REPLACE_WITH_ACTUAL_D1_ID"
+# Set CONTROL_TOKEN using wrangler secret put CONTROL_TOKEN. Never commit it.
