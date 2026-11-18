@@ -1,0 +1,20 @@
+{
+  "schema": "tabor.fleet-deployment-receipt.v1",
+  "release": "2026-11-18.1",
+  "sha256": "02e7f1bef824a7309620d1a1cdd57af1d2c490b5e788fb590b665e17992b13e8",
+  "package_bytes": 226828,
+  "catalog_entries": 1234,
+  "federation_nodes": 1000,
+  "one_control_plane_replicas": 1,
+  "verified_replica_receipts": 1001,
+  "working_native_and_bound_tool_examples": 39,
+  "mind_worker_and_bot_examples": 202,
+  "mind_worker_and_bot_examples_passed": 202,
+  "production_versions": {
+    "one": "975d28f1-ab27-4686-bb33-dc1240cdf469",
+    "federation": "61bc017d-2562-4f55-8fd6-98361db1dcb0"
+  },
+  "receipts_route": "https://tabor-supercomputer-federation.nathantaboract.workers.dev/v1/fleet/receipts",
+  "one_route": "https://one-sovereign-hub.nathantaboract.workers.dev/fleet/receipt",
+  "physical_server_attachment": "unverified"
+}

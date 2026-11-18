@@ -187,9 +187,9 @@ function readInteger(params, name, fallback, max) {
   return value <= max ? value : null
 }
 
-function nodeFetch(env, id, method = 'GET', suffix = '', body) {
+export function nodeFetch(env, id, method = 'GET', suffix = '', body, headers) {
   const name = reassignedStorage.has(id) ? 'sovereign-box/' + id : id
-  return env.NODES.getByName(name).fetch('https://node.internal/' + id + suffix, { method, body })
+  return env.NODES.getByName(name).fetch('https://node.internal/' + id + suffix, { method, body, headers })
 }
 
 function taskLedger(env, entries) {

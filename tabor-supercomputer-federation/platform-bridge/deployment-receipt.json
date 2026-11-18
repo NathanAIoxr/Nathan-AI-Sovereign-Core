@@ -1,0 +1,18 @@
+{
+  "schema": "tabor.platform-bridge-deployment.v1",
+  "date": "2026-11-18",
+  "worker": "one-sovereign-hub",
+  "activeVersion": "3d0a6e47-a23a-44ac-b07b-78607bf0f69c",
+  "previousVersion": "975d28f1-ab27-4686-bb33-dc1240cdf469",
+  "controller": "nathan-tabor-hyper-federation",
+  "dispatchNamespace": "nathan-tabor-platforms",
+  "platformScripts": 1000,
+  "platformServices": 11,
+  "languageShards": 989,
+  "additionalLogicalDatabaseNodes": 1000,
+  "bridgeBinding": "PLATFORM_HUB",
+  "physicalDedicatedMachinesVerified": 0,
+  "runtimeHTTPVerified": false,
+  "subscriptionVerified": false,
+  "reason": "Cloudflare account subscription endpoint denied permission; network DNS unavailable for live GET probes."
+}
