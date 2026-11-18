@@ -1,0 +1,31 @@
+name: Nathan AI Macro Cockpit
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
+  repository_dispatch:
+    types: [nathan-ai-macro-batch]
+permissions:
+  contents: read
+concurrency:
+  group: nathan-ai-macro-cockpit
+  cancel-in-progress: false
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        component: [workers, pages, zones, repositories]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record inventory scope
+        run: |
+          echo "Inventory component: ${{ matrix.component }}"
+          echo "This workflow does not claim deployment or import."
+      - name: Upload execution record
+        uses: actions/upload-artifact@v4
+        with:
+          name: cockpit-${{ matrix.component }}
+          path: integrations/unified-operations-cockpit/README.md
