@@ -1,10 +1,90 @@
-const TARGETS=[{id:"lineshine",baseline:2.198,target:4.396,unit:"EFLOPS",status:"unverified-target"},{id:"el-capitan",baseline:1.809,target:3.618,unit:"EFLOPS",status:"unverified-target"},{id:"zettascale",baseline:1,target:2,unit:"ZFLOPS",status:"unverified-target"},{id:"hybrid-axes",baseline:33,target:66,unit:"logical axes",status:"design-target"}];
-const modules=["Operation Octopus","Four-Anchor BUILD FLIP QI QE","78-Field Matrix","4T Clover","8-Layer State Machine","Slayer 0 / Sleyer 1","ROO","WOW","BLACKJACK authentication adapter","320-node grid","732m logical supernodes","vSoC","33-level routing","Bitcoin SHA-256d","64-coin federation"];
-const json=(v,s=200)=>Response.json(v,{status:s,headers:{"cache-control":"no-store"}});
-export default {async fetch(request,env){const u=new URL(request.url);if(request.method!=="GET")return json({error:"read-only; no unauthenticated control"},405);
-if(u.pathname==="/health")return json({system:"Nathan AI 2X Sovereign Supercomputer",deployment:"control-plane",physical_compute_verified:false,benchmark_verified:false,axioms:["1+1=2","1-1=0"]});
-if(u.pathname==="/api/architecture")return json({modules,benchmarks:TARGETS,notes:"2X numbers are arithmetic design targets, not achieved performance. Logical nodes are not physical servers. Cloudflare Workers are a control plane, not an exascale HPC cluster."});
-if(u.pathname==="/api/telemetry"){const r=await env.REGISTRY.prepare("SELECT id,metric,value,unit,evidence,status,created_at FROM nathan_2x_telemetry ORDER BY id DESC LIMIT 25").all();return json({records:r.results,verified_hpc_benchmark:false})}
-if(u.pathname==="/api/coins"){const r=await env.REGISTRY.prepare("SELECT slot,symbol,verification FROM tabor_coin_federation ORDER BY slot").all();return json({count:r.results.length,coins:r.results})}
-if(u.pathname==="/"){const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));const tiles=TARGETS.map(t=>'<article><h2>'+esc(t.id)+'</h2><strong>'+t.target+' '+esc(t.unit)+'</strong><p>Target from '+t.baseline+' · NOT MEASURED</p></article>').join("");return new Response('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nathan AI 2X Supercomputer</title><style>body{margin:0;background:#0a1324;color:#eaf4ff;font:16px system-ui}header,main{padding:28px 6%}header{background:#123047}h1{font-size:clamp(2rem,5vw,4rem)}section{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}article{border:1px solid #426077;padding:20px;border-radius:12px}strong{font-size:1.5rem}p{color:#bfd0df}a{color:#80dfdf}</style><header><h1>NATHAN AI 🚀 2X+ SOVEREIGN SUPERCOMPUTER</h1><p>Control-plane blueprint · performance targets are not achieved benchmarks</p><a href="/api/architecture">Architecture API</a> · <a href="/api/telemetry">Evidence ledger</a> · <a href="/api/coins">64 coins</a></header><main><h2>Performance targets</h2><section>'+tiles+'</section><h2>Federated modules</h2><p>'+modules.map(esc).join(' · ')+'</p></main></html>',{headers:{"content-type":"text/html; charset=utf-8"}})}
-return json({error:"not found"},404)}};
+import legacy from "./legacy.mjs";
+import { blueprint,canonical,dot,fieldCount,frameContract,kernelId,route,run,sha,validateFrame } from "./core.mjs";
+import { dashboard, dashboardCsp } from "./site.mjs";
+
+const headers={"cache-control":"no-store","x-content-type-options":"nosniff","access-control-allow-origin":"*"};
+const json=(data,status=200)=>Response.json(data,{status,headers});
+const prefix="/api/compute/";
+const select="SELECT run_id,created_ms,source,receipt,digest FROM sovereign_compute_runs";
+const exampleKey="launch-2.1.0";
+
+async function store(db,key,result) {
+  await db.prepare("INSERT INTO sovereign_compute_runs(run_id,created_ms,source,receipt,digest) VALUES(?,?,?,?,?) ON CONFLICT DO NOTHING")
+    .bind(key,result.frame.Identity.createdMs,result.frame.Identity.source,canonical(result.frame),result.digest).run();
+}
+
+function summarize(row) {
+  const frame=JSON.parse(row.receipt);
+  const {terms,operations,elapsedNs,checksum,timed}=frame.Execution;
+  return {id:row.run_id,created_ms:row.created_ms,source:row.source,digest:row.digest,terms,operations,elapsed_ns:elapsedNs,checksum,
+    measured_flop_s:timed?operations*1e9/elapsedNs:null,ecc_status:frame.Integrity.eccStatus,slot:frame.Routing.slot};
+}
+
+export async function audit(row) {
+  const stored=JSON.parse(row.receipt);
+  validateFrame(stored);
+  const e=stored.Execution, expectedRoute=route(e.seed);
+  const routeMatches=expectedRoute.slot===stored.Routing.slot && expectedRoute.logicalId===stored.Routing.logicalId &&
+    expectedRoute.forward.every((slot,i)=>slot===expectedRoute.reverse[expectedRoute.reverse.length-1-i]);
+  const rebuilt=await run({seed:e.seed,terms:e.terms,faults:stored.Integrity.faultCount,
+    source:stored.Identity.source,now:stored.Identity.createdMs});
+  const stableLayers=["Operation","Noise","Integrity","Routing"];
+  const stableMatch=stableLayers.every(layer=>canonical(rebuilt.frame[layer])===canonical(stored[layer]));
+  const checksumMatch=e.checksum===rebuilt.frame.Execution.checksum && e.operations===rebuilt.frame.Execution.operations &&
+    (!e.operations || e.checksum===dot(e.seed,e.terms));
+  const expectedHash=await sha(canonical({kernel:kernelId,seed:e.seed,terms:e.terms,checksum:e.checksum}));
+  const result={receipt_hash:await sha(canonical(stored))===row.digest,checksum_replay:checksumMatch,reverse_route:routeMatches,
+    operation_integrity:stableMatch,result_hash:expectedHash===stored.Mirror.resultHash,
+    identity:row.created_ms===stored.Identity.createdMs&&row.source===stored.Identity.source};
+  return {verified:Object.values(result).every(Boolean),checks:result};
+}
+
+async function compute(request,env,url) {
+  if (request.method!=="GET") return json({error:"GET required"},405);
+  const path=url.pathname.slice(prefix.length);
+  if (path==="manifest") return json({...blueprint,frame_fields:fieldCount,contract:frameContract,
+    hpl_evidence:"pending hardware run",launch_receipt:exampleKey});
+  if (path==="probe") {
+    const num=(name,fallback)=>{
+      const value=url.searchParams.get(name);
+      if (value===null) return fallback;
+      if (!/^\d{1,10}$/.test(value)) throw RangeError("Expected an unsigned integer for "+name);
+      return Number(value);
+    };
+    return json(await run({seed:num("seed",73),terms:num("terms",2048),faults:num("faults",1)}));
+  }
+  if (path==="receipts") {
+    const {results}=await env.COMPUTE.prepare(select+" ORDER BY created_ms DESC,run_id DESC LIMIT 20").all();
+    return json({receipts:results.map(summarize)});
+  }
+  const match=/^receipts\/([A-Za-z0-9-]{1,100})(\/audit)?$/.exec(path);
+  if (!match) return json({error:"Unknown compute endpoint"},404);
+  const row=await env.COMPUTE.prepare(select+" WHERE run_id=?").bind(match[1]).first();
+  if (!row) return json({error:"Receipt not found"},404);
+  return json(match[2]?await audit(row):{...summarize(row),frame:JSON.parse(row.receipt)});
+}
+
+export default {
+  async fetch(request,env) {
+    const url=new URL(request.url);
+    if (request.method==="GET" && url.pathname==="/") {
+      return new Response(dashboard(""),{headers:{...headers,"content-type":"text/html; charset=utf-8","content-security-policy":dashboardCsp("'self'")}});
+    }
+    if (url.pathname.startsWith(prefix)) {
+      try { return await compute(request,env,url); }
+      catch(error) {
+        if (error instanceof RangeError) return json({error:error.message},400);
+        console.error("compute",error.message);
+        return json({error:"Compute route unavailable"},503);
+      }
+    }
+    return legacy.fetch(request,env);
+  },
+  async scheduled(event,env,ctx) {
+    ctx.waitUntil((async ()=>{
+      const bucket=Math.floor(event.scheduledTime/900000);
+      const result=await run({seed:bucket>>>0,terms:4096,source:"cloudflare-cron",now:event.scheduledTime});
+      await store(env.COMPUTE,"cron-"+bucket,result);
+    })());
+  }
+};

@@ -1,0 +1,60 @@
+name: Nathan AI 2X+ Sovereign Supercomputer
+on:
+  push:
+    paths:
+      - 'tabor-world/supercomputer/sovereign-2x/**'
+      - '.github/workflows/nathan-2x-supercomputer.yml'
+  pull_request:
+    paths:
+      - 'tabor-world/supercomputer/sovereign-2x/**'
+      - '.github/workflows/nathan-2x-supercomputer.yml'
+  workflow_dispatch:
+    inputs:
+      deploy_cloudflare:
+        description: Apply the compute schema and deploy the live Worker
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tabor-world/supercomputer/sovereign-2x
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm test
+      - run: npm run mirror
+      - run: npx --yes wrangler@4.164.0 deploy --dry-run
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nathan-2x-vercel-mirror
+          path: tabor-world/supercomputer/sovereign-2x/dist
+  deploy:
+    if: github.event_name == 'workflow_dispatch' && inputs.deploy_cloudflare
+    needs: verify
+    runs-on: ubuntu-latest
+    concurrency:
+      group: nathan-ai-sovereign-2x-production
+      cancel-in-progress: false
+    defaults:
+      run:
+        working-directory: tabor-world/supercomputer/sovereign-2x
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - run: npx --yes wrangler@4.164.0 d1 execute COMPUTE --remote --file compute.sql
+      - run: npx --yes wrangler@4.164.0 deploy
+      - run: curl --fail --silent --show-error --retry 5 https://nathan-ai-sovereign-2x.nathantaboract.workers.dev/api/compute/manifest

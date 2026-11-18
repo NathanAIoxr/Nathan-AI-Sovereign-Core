@@ -1,0 +1,20 @@
+name = "nathan-ai-sovereign-2x"
+main = "src/index.js"
+compatibility_date = "2026-11-17"
+workers_dev = true
+
+[observability]
+enabled = true
+
+[triggers]
+crons = ["*/15 * * * *"]
+
+[[d1_databases]]
+binding = "REGISTRY"
+database_name = "tabor-database-registry"
+database_id = "af177f57-154c-41a1-a5cd-5602568a4a2f"
+
+[[d1_databases]]
+binding = "COMPUTE"
+database_name = "nathan-supercomputer-2x"
+database_id = "46a04265-4187-4641-8809-2e184e5eb185"
