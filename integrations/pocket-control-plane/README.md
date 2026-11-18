@@ -24,3 +24,12 @@ For iPhone use an iOS Shortcut with a bearer header stored in a protected locati
 - Queue-backed incident notifications
 - PR review/merge workflow with branch protection checks and explicit per-PR confirmation
 - Live end-to-end tests and audit logging
+
+## Dual-interface expansion (November 2026)
+The mobile UI is in `mobile/index.html`. It has GitHub and Cloudflare tabs. GitHub endpoints include `/workflows`, `/incidents`, `/runs/:id`, `/runs/:id/jobs`. Cloudflare read-only endpoints: `/cf/overview`, `/cf/workers`, `/cf/databases`, `/cf/queues`, `/cf/pages`.
+
+For Cloudflare, configure secrets `CF_API_TOKEN` (read-only permissions for listed services) and variable `CF_ACCOUNT_ID`. Never expose them to mobile clients. The mobile screen expects a separate `POCKET_KEY`, not a GitHub or Cloudflare credential.
+
+**Integration is not yet operational.** The HTML has not been hosted, Worker deployment is unverified, secrets have not been verified, and cross-origin access needs an explicit trusted-origin CORS policy or same-origin hosting before the browser UI can call the gateway. Do not enable wildcard CORS with bearer-token operations. The current Cloudflare routes are read-only; Clouder Pro's own proprietary app cannot be embedded or operated from this Worker. Add Cloudflare write controls only through named, audited, confirmation-gated actions with least-privilege permissions.
+
+Clouder Pro remains an independent user-owned mobile interface; this code reproduces supported API capabilities in a user-owned control plane, without claiming to copy Clouder source code or its private credentials.
