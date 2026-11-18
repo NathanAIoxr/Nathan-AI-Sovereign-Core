@@ -1,0 +1,128 @@
+[
+  {
+    "source_id": "mcp-registry",
+    "item_id": "registry:official-mcp-registry",
+    "external_id": "official-mcp-registry",
+    "name": "Official MCP Registry",
+    "url": "https://registry.modelcontextprotocol.io/",
+    "cost_class": "unknown",
+    "compatibility": "discovery-source"
+  },
+  {
+    "source_id": "github",
+    "item_id": "registry:github-topics",
+    "external_id": "github-topics",
+    "name": "GitHub Topics",
+    "url": "https://github.com/topics",
+    "cost_class": "unknown",
+    "compatibility": "discovery-source"
+  },
+  {
+    "source_id": "cncf",
+    "item_id": "registry:cncf-landscape",
+    "external_id": "cncf-landscape",
+    "name": "CNCF Landscape",
+    "url": "https://landscape.cncf.io/",
+    "cost_class": "unknown",
+    "compatibility": "discovery-source"
+  },
+  {
+    "source_id": "artifacthub",
+    "item_id": "registry:artifact-hub",
+    "external_id": "artifact-hub",
+    "name": "Artifact Hub",
+    "url": "https://artifacthub.io/",
+    "cost_class": "unknown",
+    "compatibility": "discovery-source"
+  },
+  {
+    "source_id": "ros",
+    "item_id": "registry:ros-index",
+    "external_id": "ros-index",
+    "name": "ROS Index",
+    "url": "https://index.ros.org/",
+    "cost_class": "unknown",
+    "compatibility": "discovery-source"
+  },
+  {
+    "source_id": "huggingface",
+    "item_id": "registry:huggingface-hub",
+    "external_id": "huggingface-hub",
+    "name": "Hugging Face Hub",
+    "url": "https://huggingface.co/",
+    "cost_class": "unknown",
+    "compatibility": "discovery-source"
+  },
+  {
+    "source_id": "github-actions",
+    "item_id": "registry:github-actions-marketplace",
+    "external_id": "github-actions-marketplace",
+    "name": "GitHub Actions Marketplace",
+    "url": "https://github.com/marketplace?type=actions",
+    "cost_class": "unknown",
+    "compatibility": "discovery-source"
+  },
+  {
+    "source_id": "npm",
+    "item_id": "registry:npm-registry",
+    "external_id": "npm-registry",
+    "name": "npm Registry",
+    "url": "https://www.npmjs.com/",
+    "cost_class": "unknown",
+    "compatibility": "discovery-source"
+  },
+  {
+    "source_id": "pypi",
+    "item_id": "registry:pypi-index",
+    "external_id": "pypi-index",
+    "name": "Python Package Index",
+    "url": "https://pypi.org/",
+    "cost_class": "unknown",
+    "compatibility": "discovery-source"
+  },
+  {
+    "source_id": "opentofu",
+    "item_id": "registry:opentofu-registry",
+    "external_id": "opentofu-registry",
+    "name": "OpenTofu Registry",
+    "url": "https://search.opentofu.org/",
+    "cost_class": "unknown",
+    "compatibility": "discovery-source"
+  },
+  {
+    "source_id": "dockerhub",
+    "item_id": "registry:docker-hub",
+    "external_id": "docker-hub",
+    "name": "Docker Hub",
+    "url": "https://hub.docker.com/",
+    "cost_class": "unknown",
+    "compatibility": "discovery-source"
+  },
+  {
+    "source_id": "openvsx",
+    "item_id": "registry:openvsx-registry",
+    "external_id": "openvsx-registry",
+    "name": "Open VSX Registry",
+    "url": "https://open-vsx.org/",
+    "cost_class": "unknown",
+    "compatibility": "discovery-source"
+  },
+  {
+    "source_id": "mcp-snapshot",
+    "item_id": "registry:mcp-toplist",
+    "external_id": "mcp-toplist",
+    "name": "MCP Toplist dataset",
+    "url": "https://huggingface.co/datasets/BIFF-AI/mcptoplist",
+    "cost_class": "unknown",
+    "compatibility": "discovery-source"
+  },
+  {
+    "source_id": "mcp-census",
+    "item_id": "registry:mcp-census-2026",
+    "external_id": "mcp-census-2026",
+    "name": "MCP servers census",
+    "url": "https://huggingface.co/datasets/Mr-Bridge/mcp-servers-github-npm-pypi-2026",
+    "cost_class": "unknown",
+    "compatibility": "discovery-source"
+  }
+]
