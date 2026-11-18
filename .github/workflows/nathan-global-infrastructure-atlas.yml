@@ -1,0 +1,36 @@
+name: Nathan AI Global Infrastructure Atlas audit
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/global-infrastructure-atlas/**'
+      - '.github/workflows/nathan-global-infrastructure-atlas.yml'
+  schedule:
+    - cron: '31 * * * *'
+permissions:
+  contents: read
+concurrency:
+  group: nathan-global-atlas
+  cancel-in-progress: false
+jobs:
+  verify-public-reference-atlas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify atlas endpoints and layer integrity
+        run: node --test app-factory/nathan-ai/global-infrastructure-atlas/index.test.mjs
+      - name: Write bounded audit receipt
+        run: |
+          node --input-type=module -e "import{LAYERS,COMPONENTS,EDGES,SOURCES}from './app-factory/nathan-ai/global-infrastructure-atlas/index.mjs';import{writeFileSync}from'node:fs';writeFileSync(process.env.RUNNER_TEMP+'/atlas-receipt.json',JSON.stringify({timestamp:new Date().toISOString(),layers:LAYERS.length,seed_components:COMPONENTS.length,edges:EDGES.length,sources:SOURCES.length,scope:'public_architectural_reference_only',remotely_installed:0},null,2))"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: global-atlas-audit
+          path: ${{ runner.temp }}/atlas-receipt.json
+          retention-days: 7
