@@ -3,7 +3,9 @@ import { readFile } from "node:fs/promises";
 import { createRequire } from "node:module";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import { replay } from "./compute.mjs";
+import { replay, sha256 } from "./compute.mjs";
+import { advanceTerms, FABRIC_SHARD_TERMS, FABRIC_TERMS, runFabric } from "./fabric.mjs";
+import fabricExecutor from "./fabric-executor.mjs";
 import { archiveSnapshot, auditSnapshot } from "./ledger.mjs";
 import { browser } from "./site.mjs";
 
@@ -87,4 +89,84 @@ test("runs the eight-shard workload and D1 mirror, including concurrent retries"
   const status = await (await get("/api/mirror/status")).json();
   assert.equal(status.latest_snapshot.r2_key, archived.r2_key);
   assert(!JSON.stringify(status).includes("changed"));
+});
+
+test("routes and verifies the full FP64 fabric workload through a private Worker", async t => {
+  const compatibilityDate = "2026-08-06";
+  const runtime = new Miniflare({ workers: [
+    {
+      name: "sovereign", modules: true, scriptPath: root + "worker.mjs", modulesRoot: root,
+      compatibilityDate, serviceBindings: { FABRIC_EXECUTOR: "fabric" },
+    },
+    {
+      name: "fabric", modules: true, scriptPath: root + "fabric-executor.mjs", modulesRoot: root,
+      compatibilityDate,
+    },
+  ] });
+  t.after(() => runtime.dispose());
+  const get = path => runtime.dispatchFetch("http://localhost" + path);
+  const manifest = await (await get("/api/architecture")).json();
+  assert.deepEqual(manifest.fp64.fabric, { terms: 2097152, shards: 16, terms_per_shard: 131072 });
+  assert.equal(manifest.aggregate_hpl_reference.eflop_s, 19.70);
+  const response = await get("/api/fp64/run?profile=fabric&seed=73");
+  assert.equal(response.status, 200);
+  const { receipt, sha256: digest } = await response.json();
+  assert.equal(receipt.profile, "fabric");
+  assert.equal(receipt.terms, 2097152);
+  assert.equal(receipt.operations, 4194304);
+  assert.equal(receipt.shard_count, 16);
+  assert.equal(receipt.checksum, 549043171266);
+  assert.equal(receipt.replay_verified, true);
+  assert.equal(receipt.comparable_hpl, false);
+  assert.equal(digest, await sha256(JSON.stringify(receipt)));
+
+  let serialState = 73;
+  let total = 0;
+  const invocations = new Set();
+  for (const [index, shard] of receipt.shards.entries()) {
+    assert.equal(shard.index, index);
+    assert.equal(shard.global_offset, index * FABRIC_SHARD_TERMS);
+    assert.equal(shard.count, FABRIC_SHARD_TERMS);
+    assert.equal(shard.start, serialState);
+    const serial = replay(serialState, shard.count);
+    assert.equal(shard.next_state, serial.state);
+    assert.equal(shard.checksum, serial.checksum);
+    serialState = serial.state;
+    total += serial.checksum;
+    invocations.add(shard.invocation);
+  }
+  assert.equal(total, receipt.checksum);
+  assert.equal(invocations.size, 16);
+
+  const uneven = await get("/api/fp64/run?profile=fabric&seed=4294967295&terms=65&shards=16");
+  assert.equal(uneven.status, 200);
+  const { receipt: small } = await uneven.json();
+  assert.equal(small.checksum, replay(0xffffffff, 65).checksum);
+  assert.equal(small.shards.at(-1).global_offset + small.shards.at(-1).count, 65);
+  const invalid = [
+    "profile=fabric&terms=63", "profile=fabric&terms=2097153",
+    "profile=fabric&shards=17", "profile=fabric&shards=0",
+    "profile=fabric&terms=131073&shards=1", "profile=fabric&seed=4294967296",
+    "profile=fabric&profile=classic", "profile=unknown",
+  ];
+  for (const query of invalid) {
+    assert.equal((await get("/api/fp64/run?" + query)).status, 400, query);
+  }
+});
+
+test("matches affine skip to serial states and rejects altered shard boundaries", async () => {
+  for (const seed of [0, 73, 0xffffffff]) {
+    for (const terms of [0, 1, 65, 1048583, FABRIC_TERMS]) {
+      assert.equal(advanceTerms(seed, terms), replay(seed, terms).state);
+    }
+  }
+  const tampered = {
+    async fetch(url, options) {
+      const response = await fabricExecutor.fetch(new Request(url, options));
+      const result = await response.json();
+      return Response.json({ ...result, next_state: (result.next_state + 1) >>> 0 });
+    },
+  };
+  await assert.rejects(runFabric(tampered, { seed: 73, terms: 64, shards: 1 }),
+    /shard receipt failed validation/);
 });

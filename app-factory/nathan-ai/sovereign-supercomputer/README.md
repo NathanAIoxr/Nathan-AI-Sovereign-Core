@@ -5,11 +5,21 @@
 [Existing compute cluster](https://nathan-ai-sovereign-2x.nathantaboract.workers.dev/cluster) ·
 [Tabor World Hub](https://tabor-world-hub.nathantaboract.workers.dev/)
 
-The Cloudflare Worker sends the same deterministic FP64 kernel to the existing private executor in up to two logical banks. It checks each shard, independently replays the full dot product and supplies a SHA-256 receipt. The previous cluster supports 16,384 terms and four shard invocations per workload. The extended path supports 32,768 terms, 65,536 floating-point operations and eight shard invocations per workload. Time in each receipt is request elapsed time, including dispatch and verification. The exact doubled LineShine HPL Rmax target is **4.3968 EFLOP/s**. Sustained HPL, power, and physical hardware results require their own runs and evidence. [TOP500 November 2026](https://top500.org/lists/top500/list/2026/11/?page=1)
+## FP64 compute profiles
+
+The console opens in **Expanded FP64**. API requests without a profile use **Classic FP64** and keep the existing receipt format. Both profiles run the same deterministic FP64 dot product.
+
+| Profile | Maximum terms per request | Maximum shard calls | Counted FP64 operations |
+| --- | ---: | ---: | ---: |
+| Classic (`classic`) | 32,768 | 8 | 65,536 |
+| Expanded (`fabric`) | 2,097,152 | 16 | 4,194,304 |
+
+Expanded FP64 processes **64×** as many terms per request. Each shard runs one floating-point multiplication and one addition per term, then checks the result with an exact integer replay. The public Worker validates the input ranges and shard boundaries, combines the checksums, and hashes the receipt with SHA-256. The Python verifier replays the entire input sequence and checks the receipt digest. The reported elapsed time includes dispatch and shard verification.
 
 | Route | Result |
 | --- | --- |
-| `GET /api/fp64/run?seed=73&terms=32768&shards=8` | Runs FP64 on the executor and returns a replay-checked receipt. |
+| `GET /api/fp64/run?profile=fabric` | Runs the maximum expanded workload with seed 73 and returns a replay-checked receipt. The expected checksum is `549043171266`. |
+| `GET /api/fp64/run?seed=73&terms=32768&shards=8` | Runs the classic workload with its original receipt format. |
 | `GET /api/cluster/services`, `GET /api/cluster/receipts`, `GET /api/compute/manifest` | Existing cluster services and receipts, plus the 78-field, eight-layer compute contract. |
 | `GET /api/architecture`, `GET /api/registry` | Benchmark targets, 172 families, 1,382 Clover nodes, 24 Council entries and 14 supplied app records of 101 slots. The 732 million and 126 billion address spaces are sparse logical capacities. |
 | `GET /api/route`, `GET /api/rhythm` | Will, Wheel and Way trace all six directed links and three identities. The 13- and 17-year composition has a shared 221-year recurrence from the chosen anchor. |
@@ -28,7 +38,18 @@ node --test app-factory/nathan-ai/sovereign-supercomputer/runtime.test.mjs
 python3 app-factory/nathan-ai/sovereign-supercomputer/nathan_ai_supercomputer.py run
 ```
 
-Use the pinned Wrangler from the existing Cloudflare package. The project configuration binds the account's existing Sovereign 2X control and FP64 executor services. Use the account's D1 database, configure `OWNER_TOKEN` using `wrangler secret put OWNER_TOKEN` and send it as `Authorization: Bearer …` to write routes. Use a random owner token of at least 24 printable ASCII characters. A missing secret disables the write routes. Scheduled audits run every six hours and skip writes with an empty queue.
+From this directory, use the pinned Wrangler to apply the D1 migrations, deploy the private executor, then deploy the public Worker that binds to it.
+
+```sh
+WRANGLER=../../sovereign-hub/cloudflare/node_modules/.bin/wrangler
+"$WRANGLER" d1 migrations apply SOVEREIGN_DB --remote
+"$WRANGLER" deploy --config wrangler.fabric.jsonc
+"$WRANGLER" deploy --keep-vars
+```
+
+The public `nathan-ai-sovereign-core` Worker serves the console and API, and it calls the private `nathan-sovereign-fp64-fabric` Worker through a service binding. The classic profile uses the existing `nathan-sovereign-fp64-executor` service. Vercel uses the same public API path.
+
+Set `OWNER_TOKEN` through `wrangler secret put OWNER_TOKEN` and send it as `Authorization: Bearer …` to write routes. Use a random token of at least 24 printable ASCII characters. Scheduled audits run every six hours and skip writes with an empty queue.
 
 The D1 batch commits mirror state and the corresponding SHA-256 manifest together. Retry an interrupted R2 archive using the snapshot ID. The account must enable R2 and bind `VAULT_R2` before archives can be copied. D1 retains the manifests in the current configuration. Snapshot manifests contain hashes and row identity, while the owner-only records retain the original text. They are audit manifests, not payload backups.
 
@@ -38,11 +59,24 @@ Put owner manuscript data in a JSON object, array, or `records` array. The impor
 
 ```sh
 python3 import_tabor_light.py /path/to/private-records.json --sql /path/to/private-import.sql
-python3 nathan_ai_supercomputer.py verify nathan-fp64-receipt.json
-python3 nathan_ai_supercomputer.py hpl HPL.out
 ```
 
-The HPL command hashes and parses user-supplied output with a passing normalized residual. Include hardware, interconnect, software, precision and power evidence alongside the receipt for independently reproducible comparisons.
+## Workload and HPL evidence
+
+Run the deployed expanded profile and replay its receipt locally.
+
+```sh
+curl -fsS 'https://nathan-ai-sovereign-core.nathantaboract.workers.dev/api/fp64/run?profile=fabric' -o nathan-fp64-receipt.json
+python3 nathan_ai_supercomputer.py verify nathan-fp64-receipt.json
+```
+
+The receipt records total operations in a single dot-product request. The November 2026 TOP500 reports **19.71 EFLOP/s** as the combined HPL result for its 500 listed systems. The physical milestone is one sustained HPL run above that published aggregate. Twice LineShine's listed HPL result is **4.3968 EFLOP/s**. [TOP500 highlights](https://www.top500.org/lists/top500/2026/11/highs/) · [TOP500 November 2026 rankings](https://top500.org/lists/top500/list/2026/11/?page=1)
+
+Run HPL on a provisioned physical cluster and retain the raw output, matrix and process grid settings, hardware inventory, interconnect, software versions, precision and power measurements. The HPL command hashes the supplied output and compares results with a passing normalized residual to the published milestones.
+
+```sh
+python3 nathan_ai_supercomputer.py hpl HPL.out
+```
 
 ## Architecture carried forward
 

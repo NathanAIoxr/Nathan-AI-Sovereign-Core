@@ -13,6 +13,11 @@ on:
       - 'app-factory/sovereign-hub/cloudflare/package-lock.json'
       - '.github/workflows/nathan-sovereign-supercomputer.yml'
   workflow_dispatch:
+    inputs:
+      qualify_live:
+        description: Qualify the live expanded FP64 service
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -46,4 +51,49 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
           ../../sovereign-hub/cloudflare/node_modules/.bin/wrangler d1 migrations apply SOVEREIGN_DB --remote
+          ../../sovereign-hub/cloudflare/node_modules/.bin/wrangler deploy --config wrangler.fabric.jsonc
           ../../sovereign-hub/cloudflare/node_modules/.bin/wrangler deploy --keep-vars
+
+  live-qualification:
+    name: Live FP64 qualification · seed ${{ matrix.seed }}
+    if: >-
+      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository) ||
+      (github.event_name == 'workflow_dispatch' && inputs.qualify_live)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        seed: ['0', '73', '2147483648', '4294967295']
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Run one live job and independently replay its receipt
+        env:
+          TEST_SEED: ${{ matrix.seed }}
+        run: |
+          output="$RUNNER_TEMP/nathan-fp64-$TEST_SEED"
+          mkdir -p "$output"
+          curl --fail --silent --show-error --proto '=https' --max-time 25 --connect-timeout 8 \
+            "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/api/fp64/run?profile=fabric&seed=$TEST_SEED" \
+            --output "$output/receipt.json"
+          python3 app-factory/nathan-ai/sovereign-supercomputer/nathan_ai_supercomputer.py \
+            verify "$output/receipt.json" > "$output/verified.json"
+          python3 - "$output" "$TEST_SEED" <<'PYTHON'
+          import json
+          import sys
+          from pathlib import Path
+
+          output, seed = Path(sys.argv[1]), int(sys.argv[2])
+          receipt = json.loads((output / "receipt.json").read_text())["receipt"]
+          verified = json.loads((output / "verified.json").read_text())
+          expected = {
+              "verified": True, "profile": "fabric", "terms": 2097152,
+              "shards": 16, "operations": 4194304, "comparable_hpl": False,
+          }
+          if receipt["seed"] != seed or any(verified.get(key) != value for key, value in expected.items()):
+              raise SystemExit(f"Unexpected live receipt: {verified}")
+          print(json.dumps({"seed": seed, **verified}, indent=2))
+          PYTHON
