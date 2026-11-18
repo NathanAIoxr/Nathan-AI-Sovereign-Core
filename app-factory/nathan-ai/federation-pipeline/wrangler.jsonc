@@ -1,0 +1,31 @@
+{
+  "name": "tabor-federation-pipeline",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-11-18",
+  "workers_dev": true,
+  "preview_urls": false,
+  "durable_objects": {
+    "bindings": [{ "name": "COORDINATOR", "class_name": "PipelineCoordinator" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["PipelineCoordinator"] }],
+  "workflows": [
+    { "name": "tabor-federation-pipeline", "binding": "PIPELINE", "class_name": "FederationPipeline" }
+  ],
+  "queues": {
+    "consumers": [{
+      "queue": "tabor-federation-pipeline",
+      "dead_letter_queue": "tabor-federation-pipeline-dlq",
+      "max_batch_size": 1,
+      "max_batch_timeout": 1,
+      "max_concurrency": 1,
+      "max_retries": 3
+    }]
+  },
+  "services": [
+    { "binding": "FLEET", "service": "tabor-supercomputer-federation" },
+    { "binding": "CORE", "service": "nathan-ai-sovereign-core" }
+  ],
+  "ai": { "binding": "AI" },
+  "vectorize": [{ "binding": "MEMORY", "index_name": "tabor-federation-memory" }],
+  "observability": { "enabled": true, "head_sampling_rate": 1 }
+}
