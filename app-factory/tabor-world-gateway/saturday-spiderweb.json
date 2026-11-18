@@ -7,7 +7,8 @@
     "Links labeled 'new' are fresh original development concepts, not recovered author manuscripts.",
     "A previously indexed 24-entry cartoon plan is incomplete; the starter edition contains 12 commentary entries and one original character.",
     "F1–F33 are archived creative formulas and metaphors, not verified scientific discoveries.",
-    "Private emails and third-party reference artwork are not embedded."
+    "Private emails and third-party reference artwork are not embedded.",
+    "Three independent new apps deployed: music, Tablet of Tabor and Typography Vault. The vault source conflicts on whether the 169-font tier is additive or nested in the 222."
   ],
   "nodes": [
     {
@@ -698,6 +699,194 @@
       "summary": "Detailed 8+5 stage/tier system and offline prototype limits.",
       "stage": "recovered",
       "source": "BLUEPRINT.md"
+    },
+    {
+      "id": "music",
+      "label": "Music · Original Compositions",
+      "parent": "root",
+      "summary": "Secret Cords of David, 54 pulses, black-note piano, 19 rungs and rhythm games",
+      "stage": "branch",
+      "source": "2026-11-17 recovery"
+    },
+    {
+      "id": "glyphs",
+      "label": "Egyptian · Scripts · Cipher",
+      "parent": "root",
+      "summary": "Tablet of Tabor, Egyptian hieroglyphs, historical sign research and modern reversible ciphers",
+      "stage": "branch",
+      "source": "2026-11-17 recovery"
+    },
+    {
+      "id": "fonts",
+      "label": "Typography · Font Foundry",
+      "parent": "root",
+      "summary": "Two Tabors historical typography vault, 33 core concepts and planned expansions",
+      "stage": "branch",
+      "source": "2026-11-17 recovery"
+    },
+    {
+      "id": "music-lab",
+      "label": "Music — The Language of God",
+      "parent": "music",
+      "summary": "Original interactive 54-pulse / 19-rung music lab",
+      "stage": "live",
+      "source": "The Secret Cords of David.png; the_19_secret_chords_piano_key_map.txt",
+      "link": "https://tabor-music-lab.nathantaboract.workers.dev/"
+    },
+    {
+      "id": "music-pentatonic",
+      "label": "Five Black Notes",
+      "parent": "music",
+      "summary": "F# G# A# C# D#; thumb and pinky technique",
+      "stage": "recovered",
+      "source": "Music: The Language of God infographic"
+    },
+    {
+      "id": "music-54",
+      "label": "Eight Phrases · 54 Pulses",
+      "parent": "music",
+      "summary": "10 8 6 5 4 10 9 2, each with its own black-key pair",
+      "stage": "recovered",
+      "source": "Music: The Language of God infographic"
+    },
+    {
+      "id": "music-19",
+      "label": "Nineteen Secret Chords",
+      "parent": "music",
+      "summary": "−9 to +9, center silent equator, 96 BPM original study",
+      "stage": "recovered",
+      "source": "the_19_secret_chords_piano_key_map.txt"
+    },
+    {
+      "id": "music-13-17",
+      "label": "13 & 17 Cicada Cycles",
+      "parent": "music",
+      "summary": "Cicada timing inspiration; not a direct claim about musical pitches",
+      "stage": "recovered",
+      "source": "Music: The Language of God infographic"
+    },
+    {
+      "id": "music-voice",
+      "label": "Rhythm · Speech · Proverbs",
+      "parent": "music",
+      "summary": "Cadence, speech and wisdom-pattern storytelling",
+      "stage": "recovered",
+      "source": "Music: The Language of God infographic"
+    },
+    {
+      "id": "music-echo",
+      "label": "Black Note Echo Game",
+      "parent": "music",
+      "summary": "Playable memory game for matching phrase/pulse to note pairs",
+      "stage": "live",
+      "source": "Music Lab 1.0"
+    },
+    {
+      "id": "tablet-app",
+      "label": "Tablet of Tabor",
+      "parent": "glyphs",
+      "summary": "Independent Egyptian-symbol editor and modern reversible cipher game",
+      "stage": "live",
+      "source": "Pasted markdown(20261009-213738).md",
+      "link": "https://tabor-tablet.nathantaboract.workers.dev/"
+    },
+    {
+      "id": "tablet-babel",
+      "label": "Babel Glyph / Chaos Script",
+      "parent": "glyphs",
+      "summary": "Original symbolic fiction; not an actual Egyptian inscription",
+      "stage": "recovered",
+      "source": "Pasted markdown(20261009-213738).md"
+    },
+    {
+      "id": "egypt-unicode",
+      "label": "Egyptian Unicode Sign List",
+      "parent": "glyphs",
+      "summary": "Unicode Egyptian Hieroglyphs U+13000..U+1342F, historical sign references",
+      "stage": "verified reference",
+      "source": "Unicode Standard 18.0",
+      "link": "https://www.unicode.org/versions/Unicode18.0.0/core-spec/chapter-11/"
+    },
+    {
+      "id": "tablet-ankh",
+      "label": "Ankh-Æ Binder",
+      "parent": "glyphs",
+      "summary": "Distinct original cipher architecture, separate from Tablet of Tabor",
+      "stage": "recovered",
+      "source": "TABOR_COMPLETE_CIPHER_DECIPHER_REGISTER_2026-10-23.json"
+    },
+    {
+      "id": "tablet-babel-100",
+      "label": "BabelDissolver",
+      "parent": "glyphs",
+      "summary": "Separate 100-node hash-based rail, not a translation algorithm",
+      "stage": "recovered",
+      "source": "TABOR_COMPLETE_CIPHER_DECIPHER_REGISTER_2026-10-23.json"
+    },
+    {
+      "id": "tablet-101",
+      "label": "101 Master Matrix Reversals",
+      "parent": "glyphs",
+      "summary": "Original 101 conceptual reversals; distinct from ancient script history",
+      "stage": "recovered",
+      "source": "Pasted text(20261101-211506).txt"
+    },
+    {
+      "id": "tablet-zorro",
+      "label": "Christmas Cipher Matrix / Zorro Font",
+      "parent": "glyphs",
+      "summary": "52-week / 26 upper + 26 lower glyph design; distinct font project",
+      "stage": "authored design",
+      "source": "ONE_MASTER_LIBRARY_PRIVATE_BOOK_EDITION_MOSES_2026-10-24.json"
+    },
+    {
+      "id": "vault-app",
+      "label": "Historical Typography Revival Vault",
+      "parent": "fonts",
+      "summary": "Live searchable 33-concept catalog; no verified installable font files",
+      "stage": "live",
+      "source": "Pasted markdown(3).md",
+      "link": "https://tabor-typography-vault.nathantaboract.workers.dev/"
+    },
+    {
+      "id": "vault-core",
+      "label": "33 Core Font Concepts",
+      "parent": "fonts",
+      "summary": "33 named foundational specifications; actual binary fonts unverified",
+      "stage": "recovered",
+      "source": "Pasted markdown(3).md"
+    },
+    {
+      "id": "vault-222",
+      "label": "222 Bonus Font Manifest",
+      "parent": "fonts",
+      "summary": "Expansion plan; includes 169 mythological designs in detailed specification",
+      "stage": "planned",
+      "source": "Pasted markdown(3).md"
+    },
+    {
+      "id": "vault-169",
+      "label": "169 Mythological Variants",
+      "parent": "fonts",
+      "summary": "Nested in 222 according to software spec; poster counts them again",
+      "stage": "conflicting source totals",
+      "source": "Pasted markdown(3).md; Historical Typography Revival Vault.png"
+    },
+    {
+      "id": "vault-rosetta",
+      "label": "Rosetta Glyphs",
+      "parent": "fonts",
+      "summary": "F_13 Egyptian pictorial glyph typeface concept, not yet a font binary",
+      "stage": "recovered",
+      "source": "Pasted markdown(3).md"
+    },
+    {
+      "id": "vault-zorro",
+      "label": "Zorro Font · 52 Glyph Weeks",
+      "parent": "fonts",
+      "summary": "Separate Christmas Cipher Matrix product identity",
+      "stage": "authored design",
+      "source": "ONE_MASTER_LIBRARY_PRIVATE_BOOK_EDITION_MOSES_2026-10-24.json"
     }
   ],
   "edges": [
@@ -1430,6 +1619,231 @@
       "from": "source-html",
       "to": "commentary",
       "relation": "evidence"
+    },
+    {
+      "from": "root",
+      "to": "music",
+      "relation": "contains"
+    },
+    {
+      "from": "root",
+      "to": "glyphs",
+      "relation": "contains"
+    },
+    {
+      "from": "root",
+      "to": "fonts",
+      "relation": "contains"
+    },
+    {
+      "from": "music",
+      "to": "music-lab",
+      "relation": "contains"
+    },
+    {
+      "from": "music",
+      "to": "music-pentatonic",
+      "relation": "contains"
+    },
+    {
+      "from": "music",
+      "to": "music-54",
+      "relation": "contains"
+    },
+    {
+      "from": "music",
+      "to": "music-19",
+      "relation": "contains"
+    },
+    {
+      "from": "music",
+      "to": "music-13-17",
+      "relation": "contains"
+    },
+    {
+      "from": "music",
+      "to": "music-voice",
+      "relation": "contains"
+    },
+    {
+      "from": "music",
+      "to": "music-echo",
+      "relation": "contains"
+    },
+    {
+      "from": "glyphs",
+      "to": "tablet-app",
+      "relation": "contains"
+    },
+    {
+      "from": "glyphs",
+      "to": "tablet-babel",
+      "relation": "contains"
+    },
+    {
+      "from": "glyphs",
+      "to": "egypt-unicode",
+      "relation": "contains"
+    },
+    {
+      "from": "glyphs",
+      "to": "tablet-ankh",
+      "relation": "contains"
+    },
+    {
+      "from": "glyphs",
+      "to": "tablet-babel-100",
+      "relation": "contains"
+    },
+    {
+      "from": "glyphs",
+      "to": "tablet-101",
+      "relation": "contains"
+    },
+    {
+      "from": "glyphs",
+      "to": "tablet-zorro",
+      "relation": "contains"
+    },
+    {
+      "from": "fonts",
+      "to": "vault-app",
+      "relation": "contains"
+    },
+    {
+      "from": "fonts",
+      "to": "vault-core",
+      "relation": "contains"
+    },
+    {
+      "from": "fonts",
+      "to": "vault-222",
+      "relation": "contains"
+    },
+    {
+      "from": "fonts",
+      "to": "vault-169",
+      "relation": "contains"
+    },
+    {
+      "from": "fonts",
+      "to": "vault-rosetta",
+      "relation": "contains"
+    },
+    {
+      "from": "fonts",
+      "to": "vault-zorro",
+      "relation": "contains"
+    },
+    {
+      "from": "music-lab",
+      "to": "music-54",
+      "relation": "score"
+    },
+    {
+      "from": "music-lab",
+      "to": "music-19",
+      "relation": "score"
+    },
+    {
+      "from": "music-54",
+      "to": "signal-game",
+      "relation": "rhythm link"
+    },
+    {
+      "from": "music-voice",
+      "to": "south-music",
+      "relation": "story link"
+    },
+    {
+      "from": "music-13-17",
+      "to": "formula-index",
+      "relation": "pattern link"
+    },
+    {
+      "from": "music-lab",
+      "to": "tracker",
+      "relation": "controller crossover"
+    },
+    {
+      "from": "music-19",
+      "to": "polar",
+      "relation": "19 vs 13 axis comparison"
+    },
+    {
+      "from": "tablet-app",
+      "to": "tablet-babel",
+      "relation": "source"
+    },
+    {
+      "from": "tablet-app",
+      "to": "egypt-unicode",
+      "relation": "research reference"
+    },
+    {
+      "from": "tablet-app",
+      "to": "tablet-101",
+      "relation": "word rotation"
+    },
+    {
+      "from": "tablet-101",
+      "to": "rotations",
+      "relation": "language crossover"
+    },
+    {
+      "from": "tablet-ankh",
+      "to": "tablet-babel-100",
+      "relation": "separate cipher rail"
+    },
+    {
+      "from": "tablet-zorro",
+      "to": "vault-zorro",
+      "relation": "font identity"
+    },
+    {
+      "from": "vault-app",
+      "to": "vault-core",
+      "relation": "catalog"
+    },
+    {
+      "from": "vault-app",
+      "to": "vault-222",
+      "relation": "catalog"
+    },
+    {
+      "from": "vault-169",
+      "to": "vault-222",
+      "relation": "nested in specification"
+    },
+    {
+      "from": "vault-rosetta",
+      "to": "egypt-unicode",
+      "relation": "script reference"
+    },
+    {
+      "from": "vault-app",
+      "to": "tablet-app",
+      "relation": "glyph preview crossover"
+    },
+    {
+      "from": "vault-app",
+      "to": "music-lab",
+      "relation": "score typography crossover"
+    },
+    {
+      "from": "vault-zorro",
+      "to": "alphabet",
+      "relation": "A–Z crossover"
+    },
+    {
+      "from": "tablet-app",
+      "to": "semantic",
+      "relation": "cipher crossover"
+    },
+    {
+      "from": "music-lab",
+      "to": "knowing",
+      "relation": "music memory game"
     }
   ],
   "formulas": [
