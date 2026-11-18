@@ -5,7 +5,7 @@ import { sha256 } from "../protocol.mjs";
 
 export function database() {
   const sqlite=new DatabaseSync(":memory:");
-  sqlite.exec("CREATE TABLE sovereign_ledger(request_id TEXT PRIMARY KEY); CREATE TABLE compute_leases(request_id TEXT PRIMARY KEY, expires_at INTEGER);");
+  sqlite.exec("CREATE TABLE sovereign_ledger(request_id TEXT PRIMARY KEY, axiom TEXT DEFAULT '1 + 1 = 2', input_hash TEXT, output_hash TEXT, output_payload TEXT, model TEXT, created_at INTEGER, will_wheel_way_receipt TEXT); CREATE TABLE compute_leases(request_id TEXT PRIMARY KEY, lease_token TEXT, expires_at INTEGER);");
   sqlite.exec(readFileSync(new URL("../migrations/0002_jobs.sql",import.meta.url),"utf8"));
   return {
     sqlite,

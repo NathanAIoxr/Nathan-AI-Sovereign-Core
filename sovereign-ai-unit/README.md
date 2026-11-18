@@ -1,6 +1,6 @@
 # NATHAN AI — NATHAN TABOR 2X+ SOVEREIGN SUPERCOMPUTER
 
-Compute platform for **TRUE CLOUD COMPUTING BY NATHAN TABOR**. The original Sovereign AI Unit stays in place on the same two Worker IDs. The exact previous deployed modules are recorded in `legacy/` and `cloud-bridge/original-worker.mjs`. Legacy Box 0 version `47f84348-47d1-4d8f-b001-ed239f98c453`, Box 1 version `c4416d98-3959-431f-92ae-4fa235d8a42c`, and True Cloud version `e6496078-bf9b-4977-8037-e7dad8f85cc7` remain in Cloudflare deployment history. Marketplace and worldwide capacity comparisons require comparable measured work and a documented denominator.
+Compute platform for **TRUE CLOUD COMPUTING BY NATHAN TABOR**. The original Sovereign AI Unit stays in place on the same two Worker IDs. The exact previous deployed modules are recorded in `legacy/` and `cloud-bridge/original-worker.mjs`. Legacy Box 0 version `47f84348-47d1-4d8f-b001-ed239f98c453`, Box 1 version `c4416d98-3959-431f-92ae-4fa235d8a42c`, and True Cloud version `e6496078-bf9b-4977-8037-e7dad8f85cc7` remain in Cloudflare deployment history. The in-place wrappers extend the subsequently activated Will · Wheel · Way module snapshots in `legacy/*-live.mjs`, Box 0 version `911bc79a-2792-47d5-9326-331721ab255a` and Box 1 version `55889bf5-42cf-43da-8a7c-4759a94414e0`. Marketplace and worldwide capacity comparisons require comparable measured work and a documented denominator.
 
 ## Working release
 

@@ -1,4 +1,4 @@
-import legacy from "../legacy/gatekeeper.mjs";
+import legacy from "../legacy/gatekeeper-live.mjs";
 import { PLATFORM, PlatformError, bodyJson, headers, json, receipt, validateJob } from "../protocol.mjs";
 import { authenticate, projectKeys } from "./auth.mjs";
 import { dashboard, dashboardScript, dashboardStyle } from "./dashboard.mjs";

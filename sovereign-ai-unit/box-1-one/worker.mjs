@@ -1,4 +1,4 @@
-import legacy from "../legacy/orchestrator.mjs";
+import legacy from "../legacy/orchestrator-live.mjs";
 import { PLATFORM, PlatformError, bodyJson, json, validateJob, ident, uuid, receipt, headers } from "../protocol.mjs";
 import { backends } from "./backends.mjs";
 import { admit, cancel, drain, publicJob, jobFor, listFor } from "./queue.mjs";

@@ -11,9 +11,11 @@ import { database,vectors,validAi,person,body,environment,request } from "./fixt
 test("legacy public /health and /compute contract stays present",async()=>{
   const x=await environment();
   const health=await gate.fetch(request("https://gate/health"),x.publicEnv);
+  assert.equal(health.status,200);
   assert.equal((await health.json()).authentication_configured,false);
   const response=await gate.fetch(request("https://gate/compute",{method:"POST"}),x.publicEnv);
   assert.deepEqual(await response.json(),{box:0,equation:"1 - 1 = 0",error:"Authentication is not configured."});
+  assert.equal((await gate.fetch(request("https://gate/will-wheel-way/preview"),x.publicEnv)).status,200);
   assert.equal((await box1.fetch(request("https://public.example/platform/status"),x.privateEnv)).status,404);
 });
 
