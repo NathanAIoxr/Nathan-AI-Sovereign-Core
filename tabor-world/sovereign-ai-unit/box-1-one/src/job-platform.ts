@@ -32,7 +32,7 @@ async function processJob(env,id){
   if(env.ARTIFACTS)await env.ARTIFACTS.put(artifactKey,answer,{httpMetadata:{contentType:"text/plain"}});
   const saved=await env.LEDGER.prepare("UPDATE nathan_jobs SET status='completed',stage='Fum',result_hash=?,artifact_key=?,updated_at=?,lease_until=NULL WHERE id=? AND status='running'").bind(resultHash,env.ARTIFACTS?artifactKey:null,stamp(),id).run();
   if(saved.meta?.changes){
-   if(!env.ARTIFACTS)await env.LEDGER.prepare("INSERT INTO sovereign_ledger(input_hash,output_payload,created_at) VALUES(?,?,?)").bind(job.input_hash,answer,stamp()).run();
+   await env.LEDGER.prepare("INSERT INTO sovereign_ledger(input_hash,output_payload,created_at) VALUES(?,?,?)").bind(job.input_hash,answer,stamp()).run();
    await record(env,id,"Fum","completed",{resultHash,durationMs:stamp()-start,backend:backend.id,cost:"unmeasured"});
   }
  }catch(e){
@@ -77,9 +77,12 @@ export default {
    if(!Number.isFinite(maxCost)||maxCost<0)return out({status:"rejected",reason:"budget_invalid"},400);
    const digest=await sha(input),existing=await env.LEDGER.prepare("SELECT id,input_hash,status FROM nathan_jobs WHERE project_id=? AND idempotency_key=?").bind(project,key).first();
    if(existing)return existing.input_hash===digest?out({status:existing.status,job_id:existing.id,duplicate:true,receipt:existing.id},200):out({status:"rejected",reason:"idempotency_conflict"},409);
-   if(!env.JOBS)return out({status:"deferred",reason:"queue_unavailable"},503);
+   if(!env.JOBS||!env.ARTIFACTS)return out({status:"deferred",reason:"queue_or_artifact_storage_unavailable"},503);
+   const estimatedCost=Number(env.ESTIMATED_JOB_COST_USD);
+   if(!Number.isFinite(estimatedCost)||estimatedCost<=0)return out({status:"deferred",reason:"budget_estimate_unavailable"},503);
+   if(maxCost<estimatedCost)return out({status:"rejected",reason:"budget_exhausted",required_usd:estimatedCost},402);
    const id=crypto.randomUUID(),now=stamp();
-   await env.LEDGER.prepare("INSERT INTO nathan_jobs(id,project_id,idempotency_key,input_hash,input_text,workload,status,stage,max_cost_usd,created_at,updated_at) VALUES(?,?,?,?,?,'inference','queued','Fe',?,?,?)").bind(id,project,key,digest,input, maxCost,now,now).run();
+   await env.LEDGER.prepare("INSERT INTO nathan_jobs(id,project_id,idempotency_key,input_hash,input_text,workload,status,stage,max_cost_usd,estimated_cost_usd,created_at,updated_at) VALUES(?,?,?,?,?,'inference','queued','Fe',?,?,?,?)").bind(id,project,key,digest,input,maxCost,estimatedCost,now,now).run();
    await record(env,id,"Fe","accepted",{maxCost});
    try{await env.JOBS.send({jobId:id})}catch{
     await env.LEDGER.prepare("UPDATE nathan_jobs SET status='failed',error_code='queue_delivery_failed',updated_at=? WHERE id=?").bind(stamp(),id).run();
