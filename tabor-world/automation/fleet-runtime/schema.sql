@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS tabor_agent_run_receipts (id INTEGER PRIMARY KEY AUTOINCREMENT, agent_id TEXT NOT NULL, bot_id TEXT NOT NULL, task_type TEXT NOT NULL, started_at TEXT NOT NULL, completed_at TEXT NOT NULL, status TEXT NOT NULL, result_json TEXT NOT NULL, UNIQUE(agent_id,started_at));CREATE INDEX IF NOT EXISTS tabor_agent_run_recent ON tabor_agent_run_receipts(id DESC);
