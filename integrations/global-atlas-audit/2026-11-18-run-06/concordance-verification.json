@@ -1,0 +1,47 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "scope": "authorized Cloudflare account, read-only API and D1 reconciliation",
+  "ordinary_worker_scripts": 447,
+  "dispatch_namespace": "nathan-tabor-platforms",
+  "dispatch_scripts": 1000,
+  "total_uploaded_scripts": 1447,
+  "d1_databases": 53,
+  "concordance": {
+    "name": "nathan-ai-sovereign-concordance",
+    "deployment_id": "ca623bbe-4dea-4220-9cae-a9b93bd853f0",
+    "version_id": "55b348c7-3e3e-4e0f-bc10-719e32c7f4bb",
+    "traffic_percentage": 100,
+    "cron": "31 * * * *",
+    "bindings": {
+      "ATLAS": "tabor-global-import-catalog",
+      "FLEET": "tabor-fleet-registry"
+    },
+    "receipt_count": 1,
+    "latest_receipt_at": "2026-11-18T22:31:28.225Z",
+    "latest_sha256": "152738290aaca87b70f370a571e2ead9d2b8e50dd11aa106414ead571bbea5c0",
+    "scheduled_invocation_proven": false,
+    "external_http_health_verified_this_run": false
+  },
+  "atlas": {
+    "layers": 18,
+    "components": 334,
+    "public_repository_candidates": 205,
+    "imported_worker_records": 15
+  },
+  "changes": {
+    "cloudflare_deployments": 0,
+    "cloudflare_mutations": 0,
+    "third_party_executions": 0
+  },
+  "limitations": [
+    "One receipt exists but event provenance is not established from D1 alone",
+    "External HTTP probe failed due to DNS resolution in execution environment",
+    "GitHub CI not verified",
+    "Counts are API list and database counts, not runtime health proof"
+  ],
+  "next": [
+    "Verify next scheduled receipt after 23:31 UTC and inspect Cron execution logs",
+    "Probe public /health and /api/summary from a network-capable environment",
+    "Reconcile 447 ordinary scripts against per-script deployments and 1000 dispatch scripts against dispatch routing"
+  ]
+}
