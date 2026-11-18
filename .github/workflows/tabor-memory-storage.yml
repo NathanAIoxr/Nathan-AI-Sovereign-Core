@@ -1,0 +1,32 @@
+name: Tabor RAM and Storage
+on:
+  pull_request:
+    paths:
+      - 'tabor-memory-storage/**'
+      - '.github/workflows/tabor-memory-storage.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tabor-memory-storage
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test worker.test.mjs
+      - run: |
+          gcc -std=gnu17 -O2 -Wall -Wextra -Werror bench.c -o /tmp/tabor-mem-bench
+          /tmp/tabor-mem-bench ram 8
+          /tmp/tabor-mem-bench buffered /tmp 8
+          python3 inventory.py > /tmp/tabor-inventory.json
+          archive_test=$(mktemp -d)
+          printf 'receipt verification sample\n' > "$archive_test/snapshot"
+          python3 archive.py create "$archive_test" "$archive_test/manifest.json" snapshot
+          python3 archive.py verify "$archive_test" "$archive_test/manifest.json"
+          printf 'tampered\n' >> "$archive_test/snapshot"
+          if python3 archive.py verify "$archive_test" "$archive_test/manifest.json"; then exit 1; fi
