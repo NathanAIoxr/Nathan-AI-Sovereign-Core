@@ -1,0 +1,233 @@
+{
+  "schema_version": "1.0.0",
+  "work_item": "PD-002",
+  "title": "Santa / Reaper and companion concept provenance ledger",
+  "author": "Nathan Tabor",
+  "compiled_on": "2026-11-18",
+  "policy": {
+    "source_date_not_creation_date": true,
+    "unknown_origin_dates_remain_null": true,
+    "author_statement_distinct_from_assistant_interpretation": true,
+    "scripture_distinct_from_comparative_metaphor": true,
+    "source_paths_are_repository_relative": true,
+    "private_material_excluded": true,
+    "never_relabel_assistant_words_as_creator_quotes": true
+  },
+  "sources": [
+    {
+      "id": "S-ATLAS",
+      "path": "creative-archive/persona-duality/registry.mjs",
+      "record_date": "2026-11-18",
+      "date_kind": "repository_record",
+      "source_type": "assistant_structured_interpretation",
+      "verified": "repository_file_read"
+    },
+    {
+      "id": "S-TRAIN",
+      "path": "app-factory/nathan-ai/operations/train-runtime/README.md",
+      "record_date": null,
+      "date_kind": "undated_repository_document",
+      "source_type": "project_description",
+      "verified": "repository_file_read"
+    },
+    {
+      "id": "S-SANTA",
+      "path": "app-factory/sites/santa-claus-factory/index.html",
+      "record_date": null,
+      "date_kind": "undated_repository_document",
+      "source_type": "working_app_page",
+      "verified": "repository_file_read"
+    },
+    {
+      "id": "S-MAS",
+      "path": "creative-archive/nexus-mas-spirit/canon.json",
+      "record_date": "2026-11-14",
+      "date_kind": "source_version_not_first_utterance",
+      "source_type": "mixed_source_canon",
+      "verified": "repository_file_read"
+    },
+    {
+      "id": "S-MAS-README",
+      "path": "creative-archive/nexus-mas-spirit/README.md",
+      "record_date": "2026-11-13",
+      "date_kind": "documentation_version_not_first_utterance",
+      "source_type": "project_description",
+      "verified": "repository_file_read"
+    }
+  ],
+  "records": [
+    {
+      "id": "P-001",
+      "topic": "Santa Claus",
+      "assertion": "Santa Claus is a creator persona represented in the Persona Atlas.",
+      "classification": "assistant_structured_interpretation",
+      "source_ids": [
+        "S-ATLAS"
+      ],
+      "original_author_date": null,
+      "source_record_date": "2026-11-18",
+      "quote": null,
+      "certainty": "documented_interpretation",
+      "notes": "Do not represent this paraphrase as an exact creator quotation."
+    },
+    {
+      "id": "P-002",
+      "topic": "The Reaper",
+      "assertion": "The Reaper is a contrasting creative persona in the Atlas; accountability and protective boundaries are descriptive labels.",
+      "classification": "assistant_structured_interpretation",
+      "source_ids": [
+        "S-ATLAS"
+      ],
+      "original_author_date": null,
+      "source_record_date": "2026-11-18",
+      "quote": null,
+      "certainty": "documented_interpretation",
+      "notes": "No verified original creation date."
+    },
+    {
+      "id": "P-003",
+      "topic": "Santa Claus AI and REAPER AI",
+      "assertion": "Both labels appear as planning roles in the Tabor Train roster, not proof of autonomous agents.",
+      "classification": "project_description",
+      "source_ids": [
+        "S-TRAIN"
+      ],
+      "original_author_date": null,
+      "source_record_date": null,
+      "quote": null,
+      "certainty": "repository_documented",
+      "notes": "Software roles, not personhood or deployment proof."
+    },
+    {
+      "id": "P-004",
+      "topic": "Santa Claus Factory",
+      "assertion": "The factory page describes North Pole, South Pole and a browser-local sorting-hat story studio.",
+      "classification": "software_artifact",
+      "source_ids": [
+        "S-SANTA"
+      ],
+      "original_author_date": null,
+      "source_record_date": null,
+      "quote": null,
+      "certainty": "repository_documented",
+      "notes": "Do not infer a historical date from undated page."
+    },
+    {
+      "id": "P-005",
+      "topic": "Isaiah 45:7",
+      "assertion": "The KJV scripture is an explicitly labeled textual anchor; a Santa/Reaper comparison is an interpretation rather than the verse itself.",
+      "classification": "scriptural_anchor",
+      "source_ids": [
+        "S-ATLAS"
+      ],
+      "original_author_date": null,
+      "source_record_date": "2026-11-18",
+      "quote": null,
+      "certainty": "reference_only",
+      "notes": "No Hebrew root-word interpretation is verified in this ledger."
+    },
+    {
+      "id": "P-006",
+      "topic": "Yin and Yang",
+      "assertion": "The Atlas relates yin and yang to the creative duality as a comparison, not an equivalence of religious traditions.",
+      "classification": "assistant_comparative_interpretation",
+      "source_ids": [
+        "S-ATLAS"
+      ],
+      "original_author_date": null,
+      "source_record_date": "2026-11-18",
+      "quote": null,
+      "certainty": "documented_interpretation",
+      "notes": "Do not label as scriptural teaching."
+    },
+    {
+      "id": "P-007",
+      "topic": "White Dog / Black Dog",
+      "assertion": "The Atlas records a family-metaphor interpretation, but the original family wording and date are not established by this file.",
+      "classification": "assistant_structured_interpretation",
+      "source_ids": [
+        "S-ATLAS"
+      ],
+      "original_author_date": null,
+      "source_record_date": "2026-11-18",
+      "quote": null,
+      "certainty": "original_source_needed",
+      "notes": "Await original creator text before quoting."
+    },
+    {
+      "id": "P-008",
+      "topic": "Buddy Boo / Hunny Zoo",
+      "assertion": "The Atlas lists both as original German Shepherd mystery characters in the Hidden Kingdom.",
+      "classification": "assistant_structured_interpretation",
+      "source_ids": [
+        "S-ATLAS"
+      ],
+      "original_author_date": null,
+      "source_record_date": "2026-11-18",
+      "quote": null,
+      "certainty": "original_source_needed",
+      "notes": "No original private character art is published or inferred."
+    },
+    {
+      "id": "P-009",
+      "topic": "HH Lifestyle",
+      "assertion": "The Atlas contains an HH Lifestyle concept summary; its exact originating wording and date are not verified.",
+      "classification": "assistant_structured_interpretation",
+      "source_ids": [
+        "S-ATLAS"
+      ],
+      "original_author_date": null,
+      "source_record_date": "2026-11-18",
+      "quote": null,
+      "certainty": "original_source_needed",
+      "notes": "Do not infer exact user-authored wording."
+    },
+    {
+      "id": "P-010",
+      "topic": "MAS SPIRIT",
+      "assertion": "The source canon records MAS SPIRIT = MORE SPIRIT and the quartet with source attribution; its version date does not establish the first utterance.",
+      "classification": "source_derived_creator_canon",
+      "source_ids": [
+        "S-MAS",
+        "S-MAS-README"
+      ],
+      "original_author_date": null,
+      "source_record_date": "2026-11-14",
+      "quote": null,
+      "certainty": "source_canon_version",
+      "notes": "Retain SUPMALG and SUPMALS separately; PD-001 crosswalk remains its own PR."
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "U-001",
+      "topic": "Santa and Reaper original chronology",
+      "needed": "Dated primary creator utterances or files",
+      "status": "not_verified"
+    },
+    {
+      "id": "U-002",
+      "topic": "White Dog / Black Dog exact family quote",
+      "needed": "Original creator-authored wording and provenance",
+      "status": "not_verified"
+    },
+    {
+      "id": "U-003",
+      "topic": "Buddy Boo / Hunny Zoo earliest character design",
+      "needed": "Dated owner-approved source records",
+      "status": "not_verified"
+    },
+    {
+      "id": "U-004",
+      "topic": "HH Lifestyle origin",
+      "needed": "Dated primary wording",
+      "status": "not_verified"
+    },
+    {
+      "id": "U-005",
+      "topic": "Isaiah 45:7 comparative reading",
+      "needed": "Separate documented linguistic study and interpretation",
+      "status": "not_verified"
+    }
+  ]
+}
