@@ -1,0 +1,30 @@
+{
+  "name": "tabor-world-hub",
+  "main": "index.mjs",
+  "compatibility_date": "2026-11-17",
+  "d1_databases": [
+    {
+      "binding": "REGISTRY",
+      "database_name": "tabor-database-registry",
+      "database_id": "af177f57-154c-41a1-a5cd-5602568a4a2f"
+    }
+  ],
+  "services": [
+    {
+      "binding": "SUPERCOMPUTER",
+      "service": "nathan-tabor-supercomputer"
+    },
+    {
+      "binding": "COMPUTE_REGISTRY",
+      "service": "tabor-supercomputer-registry"
+    },
+    {
+      "binding": "MINING_HUB",
+      "service": "tabor-corp-mining-hub"
+    },
+    {
+      "binding": "CURRENCY",
+      "service": "tabor-sovereign-currency"
+    }
+  ]
+}
