@@ -60,6 +60,8 @@ function actionView() {
   el("blade-wrap").hidden = action !== "manifest";
   el("grasp").hidden = action !== "manifest";
   el("working-wrap").hidden = fictional.has(action) && action !== "dream";
+  const inputLabels = { "audit-range": "Ordinal to check (optional)", trace: "Find an evidence field (optional)", dream: "Dream to record" };
+  el("input-label").textContent = inputLabels[action] ?? "Working text";
   el("scene").hidden = profile?.id.startsWith("tabor:") !== true;
   sceneView();
 }

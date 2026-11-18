@@ -23,6 +23,8 @@ const verbs = {
   verify: "Compute SHA-256 and check an expected digest",
   restore: "Reconstruct the original input and verify its round trip",
   compose: "Join distinct source lines into an editable draft",
+  trace: "Find exact evidence fields and return the original source location",
+  "audit-range": "Check an ordinal against the original family bounds",
   manifest: "Manifest a blade form and apply it to the scene",
   weave: "Cast the Loom’s web or weave a held shadow into a thread",
   dream: "Record a dream on the Loom",
@@ -31,10 +33,10 @@ const verbs = {
   sanctuary: "Weave the New World’s sanctuary",
 };
 const fieldNames = {
-  attributes: ["attributes", "attribute", "features", "domains", "symbols", "powers"],
-  characteristics: ["characteristics", "characteristic", "description", "summary", "group", "role_type", "domain", "identity"],
-  functionality: ["functionality", "functionalities", "function", "functions", "purpose", "mission", "action", "role", "task", "application", "responsibility", "responsibilities", "method", "capabilities"],
-  traits: ["traits", "trait", "values", "qualities", "principles", "constraints", "ethos", "tags"],
+  attributes: ["attributes", "attribute", "features", "domains", "symbols", "powers", "associations", "fields"],
+  characteristics: ["characteristics", "characteristic", "description", "summary", "group", "role_type", "domain", "identity", "layer", "tradition", "technologicalera"],
+  functionality: ["functionality", "functionalities", "function", "functions", "purpose", "mission", "action", "role", "task", "application", "responsibility", "responsibilities", "method", "capabilities", "familymission", "microdesign", "macrodesign", "techroot"],
+  traits: ["traits", "trait", "values", "qualities", "principles", "constraints", "ethos", "tags", "inheritedcontrols"],
 };
 const cues = [
   ["verify", /verif|audit|test|validat|integrity|proof|check|digest|review/],
@@ -42,38 +44,67 @@ const cues = [
   ["clear", /dedup|clear|purge|filter|noise|reduc|normaliz/],
   ["relate", /relat|cross.reference|connect|bridge|match|compar|pattern|correl/],
   ["classify", /classif|categor|index|sort|label|cluster|taxonom|tag|triag/],
-  ["plan", /design|plan|build|orchestrat|coordinat|execut|strateg|roadmap|engineer/],
+  ["plan", /design|plan|build|orchestrat|coordinat|execut|strateg|roadmap|engineer|transform|difficulty|pacing|prioriti/],
   ["compose", /creat|write|compos|construct|assembl|produc|craft|generat|teach|weav/],
 ];
 const keys = field => field.toLowerCase().replace(/[^a-z]/g, "");
 
-export function profileFor(group, row, position, revision = snapshot) {
-  const entry = row?.record && typeof row.record === "object" ? row.record : row;
+function unwrapped(row) {
+  return row?.record && typeof row.record === "object" ? row.record : row;
+}
+function displayName(row, position) {
+  return unwrapped(row)?.originalName ?? recordTitle(row, position);
+}
+function ordinalRange(group, entry, registry) {
+  if (group.id === "g7" || group.id === "g8") {
+    const family = group.id === "g8" ? entry : registry?.families?.find(row =>
+      row.layer === entry.layer && row.family_ordinal === entry.family_ordinal);
+    return family && { namespace: "Continuity global ID", first: family.first_global_id, last: family.last_global_id,
+      assigned: entry.global_id ?? null };
+  }
+  if (group.id === "g9") {
+    const family = registry?.families?.find(row => row.technology_family_id === entry.technology_family_id);
+    return family && { namespace: "Tech108 unit ID", first: family.unit_first, last: family.unit_last, assigned: entry.technology_unit_id };
+  }
+  if (group.id === "g5" || group.id === "g6") {
+    const family = group.id === "g5" ? entry : registry?.families?.find(row => row.family_id === entry.family_id);
+    return family && { namespace: "Families v75 member ID", first: family.member_first, last: family.member_last,
+      assigned: entry.member_id ?? null };
+  }
+}
+const evidenceKeys = ["original_source_line", "exact_source_text", "source_line", "description", "originalName", "fields",
+  "sourceLocation", "earliestKnownSource", "evidenceLevel", "verificationStatus", "sourceStatus", "sourceId"];
+export function profileFor(group, row, position, revision = snapshot, registry) {
+  const entry = unwrapped(row);
   const facets = Object.fromEntries(Object.entries(fieldNames).map(([facet, names]) => [
     facet, Object.entries({ ...entry?.metadata, ...entry })
       .filter(([field, value]) => names.includes(keys(field)) && value !== null && value !== "")
       .map(([field, value]) => ({ field, value })),
   ]));
   const abilityText = JSON.stringify(facets).toLowerCase();
+  const limits = ordinalRange(group, entry, registry);
+  const evidence = Object.fromEntries(evidenceKeys.filter(key => entry && Object.hasOwn(entry, key)).map(key => [key, entry[key]]));
   const actions = group.id === "tabor" ? row.actions :
-    ["observe", ...cues.filter(([, expression]) => expression.test(abilityText)).map(([action]) => action)];
-  const display = group.id === "tabor" ? row.name : recordTitle(row, position);
+    ["observe", ...cues.filter(([, expression]) => expression.test(abilityText)).map(([action]) => action),
+      ...(Object.keys(evidence).length ? ["trace"] : []), ...(limits ? ["audit-range"] : [])];
+  const display = displayName(row, position);
   return {
     id: group.id + ":" + position, name: display, collection: group.name, facets,
     capabilities: actions.map(id => ({ id, label: verbs[id] })),
     source: group.path ? { revision, path: group.path, row: position, url: repoUrl + "/blob/" + revision + "/" + group.path }
       : { revision, path: "app-factory/tabor-world-recovery/runtime-engine.mjs", row: position },
-    original: row,
+    original: row, limits: limits ?? null, evidence,
   };
 }
 
 export async function loadProfiles(id, load, revision) {
   const group = runtimeGroups.find(entry => entry.id === id);
   if (!group) throw new RangeError("Unknown roster");
-  const rows = group.id === "tabor" ? devices : sourceRows(await load(group.path), group.selector);
+  const registry = group.id === "tabor" ? null : await load(group.path);
+  const rows = registry === null ? devices : sourceRows(registry, group.selector);
   const version = group.path && !group.path.endsWith("/federation.json") ? snapshot : revision;
-  return rows.map((row, index) => ({ id: group.id + ":" + index, name: recordTitle(row, index),
-    run: () => profileFor(group, row, index, version) }));
+  return rows.map((row, index) => ({ id: group.id + ":" + index, name: displayName(row, index),
+    run: () => profileFor(group, row, index, version, registry) }));
 }
 
 export function rosterSearch(profiles, query, page) {
@@ -168,7 +199,7 @@ async function hash(value) {
   return Array.from(new Uint8Array(result), byte => byte.toString(16).padStart(2, "0")).join("");
 }
 
-async function execute(action, input, scene) {
+async function execute(action, input, scene, profile) {
   const text = input.text;
   const lines = text.split(/\r?\n/);
   const distinct = [...new Set(lines.map(line => line.trim()).filter(Boolean))];
@@ -183,6 +214,20 @@ async function execute(action, input, scene) {
     const encoded = new TextEncoder().encode(text);
     const restored = new TextDecoder("utf-8", { ignoreBOM: true }).decode(encoded);
     return { restored, bytes: encoded.length, sha256: await hash(restored), exactRoundTrip: restored === text };
+  }
+  if (action === "trace") {
+    const query = text.trim().toLowerCase();
+    const evidence = Object.entries(profile.evidence)
+      .filter(([field, value]) => !query || (field + " " + JSON.stringify(value)).toLowerCase().includes(query))
+      .map(([field, value]) => ({ field, value }));
+    return { query: text, evidence, source: profile.source };
+  }
+  if (action === "audit-range") {
+    const inputOrdinal = text.trim();
+    if (inputOrdinal && !/^\d{1,9}$/.test(inputOrdinal)) throw new RangeError("Enter a whole-number ordinal");
+    const { first, last, assigned, namespace } = profile.limits;
+    const ordinal = inputOrdinal ? Number(inputOrdinal) : assigned ?? first;
+    return { namespace, ordinal, first, last, withinFamily: ordinal >= first && ordinal <= last, assigned };
   }
   if (action === "relate") {
     const first = words(text), second = words(input.compare);
@@ -200,7 +245,7 @@ async function execute(action, input, scene) {
   }
   if (action === "plan") return { steps: distinct.map((description, index) => ({
     step: index + 1, description, after: index || null,
-  })), verification: ["Review each completed step against its source wording.", "Record the result with its receipt."] };
+  })), sourceFunctionality: profile.facets.functionality, verification: ["Review each completed step against its source wording.", "Record the result with its receipt."] };
   return { draft: distinct.join("\n\n"), sourceLines: distinct.length };
 }
 
@@ -220,7 +265,7 @@ export async function runProfile(profile, request) {
     choice: typeof request.choice === "string" ? request.choice : "",
   };
   const before = safeScene(request.scene);
-  const result = await execute(action, input, before);
+  const result = await execute(action, input, before, profile);
   const proof = { profile: profile.id, source: profile.source, action, inputSha256: await hash(JSON.stringify({ input, before })),
     outputSha256: await hash(JSON.stringify(result)) };
   return { profile: { id: profile.id, name: profile.name, source: profile.source }, action, result,

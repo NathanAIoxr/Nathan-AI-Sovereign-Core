@@ -73,3 +73,15 @@ test("source facets select from executable tools and a relay can transfer workin
   assert.equal(typed.steps[1].result.actual, createHash("sha256").update("- Check sources").digest("hex"));
   await call("relay", { steps: [{ id: "tabor:0", action: "manifest" }, null] }, 400);
 });
+
+test("numbered family bounds and ancient evidence execute from their native source fields", async () => {
+  const a = await call("run", { id: "g7:0", action: "audit-range", text: "173" });
+  assert.deepEqual(a.result, { namespace: "Continuity global ID", ordinal: 173, first: 164, last: 172,
+    withinFamily: false, assigned: 164 });
+  const b = await call("run", { id: "g9:0", action: "audit-range", text: "9" });
+  assert.equal(b.result.withinFamily, true);
+  const { profiles } = await call("roster?group=g26&q=" + encodeURIComponent("Áss / Æsir"));
+  assert.ok(profiles.some(row => row.name === "Áss / Æsir"));
+  const c = await call("run", { id: profiles[0].id, action: "trace", text: "language" });
+  assert.equal(c.result.evidence[0].value["Ancient language"], "Old Norse");
+});
