@@ -1,0 +1,23 @@
+{
+  "revision": "784ac2292414a1e6619a405133e365568aed9476",
+  "endpoint": "https://tabor-true-cloud-computing.nathantaboract.workers.dev/compute-platform",
+  "job": "4817f866-9bfa-40d8-b290-8ebbc4623315",
+  "receipt": {
+    "box": 0,
+    "equation": "1 - 1 = 0",
+    "requestId": "8ebda4b6-3255-4606-a8cf-f90d77891f03",
+    "decision": "deferred",
+    "reason": "scheduled-delay",
+    "timestamp": "2026-11-18T07:49:18.304Z"
+  },
+  "queuedMs": 161075,
+  "finished": 1794988319948,
+  "artifactSha256": "10acaea4c903b02ec93fb6e5151b7623b025ba7f7686e877f3d2b325f3fa7202",
+  "phases": [
+    "Fe",
+    "Fi",
+    "Fo",
+    "Fum"
+  ],
+  "mode": "Delayed submission. The job did not launch the immediate dispatch kick."
+}
