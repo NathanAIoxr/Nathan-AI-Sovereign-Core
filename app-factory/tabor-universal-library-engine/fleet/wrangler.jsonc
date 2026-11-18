@@ -1,0 +1,76 @@
+{
+  "name": "tabor-sovereign-crown",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-11-17",
+  "workers_dev": true,
+  "preview_urls": false,
+  "d1_databases": [
+    {
+      "binding": "FLEET",
+      "database_name": "tabor-fleet-registry",
+      "database_id": "00e422eb-5222-4892-8f90-74aaf8ab0518"
+    }
+  ],
+  "services": [
+    {
+      "binding": "CAP_421",
+      "service": "tabor-sov-017-container-counter"
+    },
+    {
+      "binding": "CAP_423",
+      "service": "tabor-sov-019-benford"
+    },
+    {
+      "binding": "CAP_424",
+      "service": "tabor-sov-020-rational"
+    },
+    {
+      "binding": "CAP_430",
+      "service": "tabor-sov-026-unit-convert"
+    },
+    {
+      "binding": "CAP_432",
+      "service": "tabor-sov-028-number-theory"
+    },
+    {
+      "binding": "CAP_433",
+      "service": "tabor-sov-029-luhn"
+    },
+    {
+      "binding": "CAP_437",
+      "service": "tabor-sov-033-tuning"
+    },
+    {
+      "binding": "CAP_438",
+      "service": "tabor-sov-034-doppler"
+    },
+    {
+      "binding": "CAP_443",
+      "service": "tabor-sov-039-em-spectrum"
+    },
+    {
+      "binding": "CAP_444",
+      "service": "tabor-sov-040-dew-point"
+    },
+    {
+      "binding": "CAP_449",
+      "service": "tabor-sov-045-haversine"
+    },
+    {
+      "binding": "CAP_450",
+      "service": "tabor-sov-046-verbatim-diff"
+    },
+    {
+      "binding": "CAP_485",
+      "service": "tabor-sov-081-svg-sparkline"
+    },
+    {
+      "binding": "CAP_488",
+      "service": "tabor-sov-084-base64-hex"
+    },
+    {
+      "binding": "CAP_495",
+      "service": "library-of-tabor-archive"
+    }
+  ]
+}
