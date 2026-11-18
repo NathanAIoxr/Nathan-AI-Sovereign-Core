@@ -3,7 +3,10 @@ import {readFileSync} from "node:fs";
 import {DatabaseSync} from "node:sqlite";
 import {test} from "node:test";
 import worker from "./src/index.js";
-import {actAddress,sha256} from "./src/proofs.mjs";
+import bridge from "../../sovereign-ai-unit/cloud-bridge/bridge.mjs";
+import {actAddress,canonical,sha256} from "./src/proofs.mjs";
+import {admit,projects} from "./src/compute-gate.mjs";
+import {benchmark,checksum,runOne} from "./src/compute-engine.mjs";
 import {runNext,runScheduled,submit} from "./src/jobs.mjs";
 
 function environment() {
@@ -130,4 +133,112 @@ test("the live trace computes each truth-table row and checks D1 without writing
     assert.equal(response.status,400);
   }
   assert.equal(reads,4);
+});
+
+function backend(responseChange=(frame)=>frame,delay=null) {
+  return {async fetch(url){
+    if(delay)await delay;
+    const query=new URL(url).searchParams, seed=Number(query.get("seed")),terms=Number(query.get("terms"));
+    const kernel="fp64-dot-lcg32-v1",value=checksum(seed,terms);
+    const frame={Identity:{kernel},Execution:{seed,terms,operations:2*terms,checksum:value,checksumScale:1048576,
+      timed:false,elapsedNs:0},Integrity:{eccStatus:"clean"},
+      Mirror:{resultHash:await sha256(canonical({kernel,seed,terms,checksum:value}))}};
+    const body=responseChange(frame);
+    return Response.json({frame:body,digest:await sha256(canonical(body))});
+  }};
+}
+const pie="pie-pi-phi",superc="supercalifragilisticexpialidocious";
+const tokens={[pie]:"test-pie-secret-example-001",[superc]:"test-super-secret-example-002"};
+const owner=(path,namespace,options={})=>req("/api/compute/"+path,{...options,headers:{
+  authorization:"Bearer "+tokens[namespace],"x-tenant":namespace,...options.headers}});
+const submission=(namespace,key,seed=73,terms=256)=>owner("jobs",namespace,{method:"POST",
+  headers:{"idempotency-key":key},body:JSON.stringify({seed,terms})});
+function fabricEnv(change) {
+  return {...environment(),SOVEREIGN_COMPUTE:backend(change),FABRIC_PIE_PI_PHI_TOKEN:tokens[pie],
+    FABRIC_SUPERCALIFRAGILISTICEXPIALIDOCIOUS_TOKEN:tokens[superc]};
+}
+
+test("namespace jobs enforce access, conflicts, and the same key in separate projects",async()=>{
+  const env=fabricEnv();
+  assert.equal((await worker.fetch(req("/api/compute/jobs"),env)).status,401);
+  const mismatch=owner("jobs",pie,{headers:{authorization:"Bearer "+tokens[superc]}});
+  assert.equal((await worker.fetch(mismatch,env)).status,401);
+  const a=await worker.fetch(submission(pie,"repeat"),env);
+  assert.equal(a.status,202);
+  const job=await a.json();
+  const same=await worker.fetch(submission(pie,"repeat"),env);
+  assert.equal((await same.json()).id,job.id);
+  assert.equal((await worker.fetch(submission(pie,"repeat",84),env)).status,409);
+  const b=await (await worker.fetch(submission(superc,"repeat"),env)).json();
+  assert.notEqual(job.id,b.id);
+  assert.equal((await worker.fetch(owner("jobs/"+job.id,superc),env)).status,404);
+  assert.equal((await worker.fetch(owner("jobs/"+job.id+"/cancel",superc,{method:"POST"}),env)).status,404);
+});
+
+test("daily D1 quota is atomic for simultaneous admissions at its boundary",async()=>{
+  const env=fabricEnv(),now=Date.now(),days=new Date(now).toISOString().slice(0,10);
+  env.sqlite.prepare(`INSERT INTO true_cloud_compute_jobs
+    (id,namespace,retry_key,request_sha,seed,terms,operation_budget,budget_day,state,created_ms,updated_ms,next_ms)
+    VALUES('fixture',?,'prior','fixture',0,64,?,?,'completed',?,?,?)`)
+    .run(pie,projects[pie].daily_operations-128,days,now,now,now);
+  const two=await Promise.all([admit(env.DB,pie,{key:"left",seed:73,terms:64},now),admit(env.DB,pie,{key:"right",seed:73,terms:64},now)]);
+  assert.deepEqual(two.map(x=>x.status).sort(),[202,429]);
+  assert.equal((await admit(env.DB,superc,{key:"left",seed:73,terms:64},now)).status,202);
+});
+
+test("Box 1 replays a backend checksum and seals one verifiable receipt",async()=>{
+  const env=fabricEnv(),wait=[];
+  const queued=await worker.fetch(submission(pie,"run"),env,{waitUntil(promise){wait.push(promise);}});
+  const {id}=await queued.json();
+  await Promise.all(wait);
+  const verified=await (await worker.fetch(owner("jobs/"+id+"/receipt",pie),env)).json();
+  assert.equal(verified.verified,true);
+  assert.equal(verified.receipt.result.checksum,69937094);
+  assert.equal(verified.receipt.result.measured_flops,null);
+  const status=await (await worker.fetch(owner("jobs/"+id,pie),env)).json();
+  assert.deepEqual(status.events.map(x=>x.state),["queued","running","verified","completed"]);
+  assert.equal(await runOne(env,id),null);
+});
+
+test("cancelled leases cannot seal pending results",async()=>{
+  const env=fabricEnv();
+  let unblock,begin;
+  const delay=new Promise(resolve=>{unblock=resolve;});
+  const started=new Promise(resolve=>{begin=resolve;});
+  env.SOVEREIGN_COMPUTE={fetch(url){begin();return backend(undefined,delay).fetch(url);}};
+  const response=await worker.fetch(submission(pie,"cancel"),env);
+  const {id}=await response.json();
+  const running=runOne(env,id);
+  await started;
+  const cancellation=await worker.fetch(owner("jobs/"+id+"/cancel",pie,{method:"POST"}),env);
+  assert.equal((await cancellation.json()).state,"cancelled");
+  unblock();
+  assert.equal(await running,null);
+  assert.equal((await worker.fetch(owner("jobs/"+id+"/receipt",pie),env)).status,404);
+});
+
+test("a backend receipt cannot substitute a different checksum and scheduled benchmarks deduplicate",async()=>{
+  const env=fabricEnv(frame=>({...frame,Execution:{...frame.Execution,checksum:frame.Execution.checksum+1}}));
+  const {id}=await (await worker.fetch(submission(pie,"tamper"),env)).json();
+  assert.equal((await runOne(env,id)).state,"failed");
+  assert.equal((await worker.fetch(owner("jobs/"+id+"/receipt",pie),env)).status,404);
+  const clean=fabricEnv(),time=Date.parse("2026-11-18T00:00:00Z");
+  await benchmark(clean,time);
+  await benchmark(clean,time);
+  const result=await (await worker.fetch(req("/api/compute/benchmarks"),clean)).json();
+  assert.equal(result.receipts.length,1);
+  assert.equal(result.receipts[0].verified,true);
+  assert.equal(result.receipts[0].receipt.result.checksum,524311609);
+});
+
+
+test("the deployment bridge preserves the Sovereign job platform and serves the FP64 path",async()=>{
+  const env={COMPUTE_PLATFORM:{async fetch(url){
+    assert.ok(url.endsWith("/platform/status"));
+    return Response.json({status:"ready"});
+  }}};
+  assert.equal((await (await bridge.fetch(req("/compute-platform/status"),env)).json()).status,"ready");
+  const manifest=await (await bridge.fetch(req("/api/compute/manifest"),env)).json();
+  assert.equal(manifest.workload.kind,"fp64-dot-lcg32-v1");
+  assert.equal((await bridge.fetch(req("/technology"),env)).status,200);
 });

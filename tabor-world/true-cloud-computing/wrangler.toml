@@ -1,5 +1,5 @@
 name = "tabor-true-cloud-computing"
-main = "src/index.js"
+main = "../../sovereign-ai-unit/cloud-bridge/bridge.mjs"
 workers_dev = true
 compatibility_date = "2026-11-18"
 
@@ -22,3 +22,7 @@ service = "nathan-ai-sovereign-2x"
 [[services]]
 binding = "COMPUTE_FLEET"
 service = "tabor-compute-fleet"
+
+[[services]]
+binding = "COMPUTE_PLATFORM"
+service = "sovereign-ai-unit"

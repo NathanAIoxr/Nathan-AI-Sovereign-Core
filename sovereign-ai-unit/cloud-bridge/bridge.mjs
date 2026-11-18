@@ -1,4 +1,4 @@
-import original from "./original-worker.mjs";
+import original from "../../tabor-world/true-cloud-computing/src/index.js";
 const destination="https://sovereign-ai-unit.nathantaboract.workers.dev";
 const publicRoutes=new Set(["/platform/status","/platform/benchmarks"]);
 export default {

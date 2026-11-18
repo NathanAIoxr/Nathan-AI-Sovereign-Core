@@ -3,6 +3,9 @@ import { actAddress,sha256 } from "./proofs.mjs";
 import { jobKinds,runNext,runScheduled,submit,summarySql } from "./jobs.mjs";
 import { page,script } from "./site.mjs";
 import { technology,technologyPage,technologyScript,trace } from "./technology.mjs";
+import { computeApi } from "./compute-api.mjs";
+import { computePage,computeScript } from "./compute-console.mjs";
+import { scheduledCompute } from "./compute-engine.mjs";
 
 const shared={"cache-control":"no-store","x-content-type-options":"nosniff"};
 const json=(value,status=200)=>Response.json(value,{status,headers:{...shared,"access-control-allow-origin":"*"}});
@@ -82,12 +85,15 @@ async function receipts(request,url,env) {
 }
 
 export default {
-  async fetch(request,env) {
+  async fetch(request,env,ctx) {
     const url=new URL(request.url),path=url.pathname;
     if(request.method==="OPTIONS")return new Response(null,{status:204,headers:{"access-control-allow-origin":"*",
       "access-control-allow-headers":"authorization,content-type,idempotency-key","access-control-allow-methods":"GET,POST,OPTIONS"}});
     try {
+      if(path.startsWith("/api/compute/"))return await computeApi(request,env,ctx);
       if(request.method==="GET"){
+        if(path==="/compute")return html(computePage);
+        if(path==="/compute-console.js")return javascript(computeScript);
         if(path==="/")return html(page);
         if(path==="/dashboard.js")return javascript(script);
         if(path==="/technology")return html(technologyPage);
@@ -115,5 +121,5 @@ export default {
       return json({error:"Service temporarily unavailable"},503);
     }
   },
-  scheduled(event,env,ctx) { ctx.waitUntil(runScheduled(env.DB,event.scheduledTime)); }
+  scheduled(event,env,ctx) { ctx.waitUntil(runScheduled(env.DB,event.scheduledTime));ctx.waitUntil(scheduledCompute(env,event.scheduledTime)); }
 };
