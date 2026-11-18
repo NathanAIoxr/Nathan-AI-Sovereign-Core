@@ -1,9 +1,9 @@
-import current from "../worker.mjs";
+import current from "../tabor-worker-catalog-entry.mjs";
 import {SupercomputerNode as OriginalNode,nodeFetch} from "../worker.mjs";
 import {fleetCount,isNodeId,nodeId} from "../fleet-tasks.mjs";
 import {batchReceipts,failure,fleetRoute,localReplica,matchesSuffix,requestJson} from "./release.mjs";
 
-export * from "../worker.mjs";
+export * from "../tabor-worker-catalog-entry.mjs";
 
 export class SupercomputerNode extends OriginalNode {
   async fetch(request) {
