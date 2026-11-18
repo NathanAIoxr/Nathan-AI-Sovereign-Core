@@ -16,5 +16,5 @@ dead_letter_queue = "nathan-ai-cockpit-dlq"
 [[d1_databases]]
 binding = "COCKPIT_DB"
 database_name = "nathan-ai-cockpit-ledger"
-database_id = "REPLACE_WITH_ACTUAL_D1_ID"
+database_id = "ee93da4e-7d2d-4440-9dfc-ce4b6cdbdb3c"
 # Set CONTROL_TOKEN using wrangler secret put CONTROL_TOKEN. Never commit it.
