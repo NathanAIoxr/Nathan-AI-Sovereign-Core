@@ -19,7 +19,8 @@ test('admission is idempotent, bounded and uses UTC day buckets', async () => {
   }
   assert.deepEqual(await admit(storage, 'test-run-over', '2026-11-18'),
     { admitted: false, reason: 'daily_pipeline_limit' })
-  assert.deepEqual(await admit(storage, 'test-run-0', '2026-11-19'), { admitted: true, replay: true })
+  assert.deepEqual(await admit(storage, 'test-run-0', '2026-11-18'), { admitted: true, replay: true })
+  assert.deepEqual(await admit(storage, 'test-run-0', '2026-11-19'), { admitted: false, reason: 'prior_day_job' })
   assert.deepEqual(await admit(storage, 'test-run-over', '2026-11-19'), { admitted: true, replay: false })
 })
 

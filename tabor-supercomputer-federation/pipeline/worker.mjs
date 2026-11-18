@@ -33,6 +33,7 @@ export class FederationPipeline extends WorkflowEntrypoint {
       return result.json()
     })
     if (!grant.admitted) return { status: 'held', reason: grant.reason }
+    if (grant.receipt) return grant.receipt
 
     const fleet = await step.do('verify federation link', retry, async () => {
       const check = await this.env.FLEET.fetch('https://federation.internal/health')
@@ -58,12 +59,13 @@ export class FederationPipeline extends WorkflowEntrypoint {
       return { mutation_id: result.mutationId }
     })
     const match = await step.do('verify indexed semantic match', {
-      retries: { limit: 5, delay: '5 seconds', backoff: 'constant' }, timeout: '20 seconds',
+      retries: { limit: 10, delay: '15 seconds', backoff: 'constant' }, timeout: '45 seconds',
     }, async () => {
       const result = await this.env.MEMORY.query(vector, { topK: 1 })
       const hit = result.matches?.[0]
-      if (hit?.id !== vectorId || !Number.isFinite(hit.score) || hit.score < 0.99) {
-        throw new Error('vector_not_visible')
+      if (!hit) throw new Error('vector_not_visible')
+      if (hit.id !== vectorId || !Number.isFinite(hit.score) || hit.score < 0.99) {
+        throw new Error('semantic_match_not_verified')
       }
       return { id: hit.id, score: hit.score, dimensions: vector.length }
     })

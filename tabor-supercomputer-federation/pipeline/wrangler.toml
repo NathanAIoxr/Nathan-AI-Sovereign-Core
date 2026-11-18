@@ -36,6 +36,16 @@ name = "tabor-federation-pipeline"
 binding = "PIPELINE"
 class_name = "FederationPipeline"
 
+[workflows.concurrency]
+limit = 1
+
+[workflows.limits]
+steps = 20
+
+[workflows.default_retention]
+success_retention = "7 days"
+error_retention = "7 days"
+
 [[queues.consumers]]
 queue = "tabor-federation-pipeline"
 max_batch_size = 1

@@ -14,7 +14,9 @@ export function validJob(job) {
 export async function admit(storage, id, day) {
   return storage.transaction(async txn => {
     const prior = await txn.get('run:' + id)
-    if (prior) return { admitted: true, replay: true }
+    if (prior?.status === 'completed') return { admitted: true, replay: true, receipt: prior.receipt }
+    if (prior) return prior.day === day ? { admitted: true, replay: true }
+      : { admitted: false, reason: 'prior_day_job' }
     const key = 'day:' + day
     const used = (await txn.get(key)) ?? 0
     if (used >= dailyLimit) return { admitted: false, reason: 'daily_pipeline_limit' }
