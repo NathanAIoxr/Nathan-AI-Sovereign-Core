@@ -1,0 +1,1 @@
+export default {async fetch(r){const u=new URL(r.url);if(u.pathname==='/health')return Response.json({id:100,ready:true});if(r.method!=='POST'||u.pathname!=='/measure')return new Response('Not Found',{status:404});return Response.json({error:'scheduled targets must be configured by an authorized operator'},{status:503})}};

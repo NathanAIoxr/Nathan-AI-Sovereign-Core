@@ -1,0 +1,1 @@
+export default {async fetch(r,e){const u=new URL(r.url);if(u.pathname==='/health')return Response.json({id:37,configured:!!e.R2_BUCKET});return Response.json({error:'R2 binding and authenticated signer required; uploads disabled'},{status:503})}};

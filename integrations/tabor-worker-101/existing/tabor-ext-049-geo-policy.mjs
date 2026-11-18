@@ -1,0 +1,1 @@
+export default {async fetch(r,e){const u=new URL(r.url);if(u.pathname==='/health')return Response.json({id:49,ready:true});const country=r.cf?.country||'XX';const denied=(e.DENY_COUNTRIES||'').split(',').map(s=>s.trim()).filter(Boolean);if(denied.includes(country))return Response.json({error:'region_restricted'},{status:403});return Response.json({country,allowed:true})}};
