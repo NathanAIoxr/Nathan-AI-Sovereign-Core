@@ -5,7 +5,7 @@ The registry uses global IDs 1–505 and preserves numbering within each batch. 
 | Batch | IDs | Source |
 | --- | --- | --- |
 | Open-source infrastructure | 1–101 | Tabor Worker Catalog |
-| Languages and ancient scripts | 102–202 | Cloudflare script inventory where available |
+| Languages and ancient scripts | 102–202 | Library of Tabor Language Workers |
 | Wisdom | 203–303 | Library of Tabor Wisdom Catalog |
 | Imagination | 304–404 | Library of Tabor Imagination Engines |
 | Sovereign command and verification | 405–505 | Submitted master-fleet attachment |
