@@ -16,6 +16,17 @@ export default {
   if(!env.POCKET_KEY||!env.GH_TOKEN||!env.GH_OWNER||!env.GH_REPO)return json({error:"not_configured"},503);
   const auth=request.headers.get("authorization")||"";
   if(!auth.startsWith("Bearer ")||!eq(auth.slice(7),env.POCKET_KEY))return json({error:"unauthorized"},401);
+  if(request.method==="GET"&&url.pathname.startsWith("/cf/")){
+   if(!env.CF_API_TOKEN||!env.CF_ACCOUNT_ID)return json({error:"cloudflare_bindings_not_configured"},503);
+   const paths={"/cf/overview":"/accounts/"+env.CF_ACCOUNT_ID,"/cf/workers":"/accounts/"+env.CF_ACCOUNT_ID+"/workers/scripts","/cf/databases":"/accounts/"+env.CF_ACCOUNT_ID+"/d1/database","/cf/queues":"/accounts/"+env.CF_ACCOUNT_ID+"/queues","/cf/pages":"/accounts/"+env.CF_ACCOUNT_ID+"/pages/projects"};
+   const endpoint=paths[url.pathname];if(!endpoint||request.method!=="GET")return json({error:"not_found"},404);
+   const upstream=await fetch("https://api.cloudflare.com/client/v4"+endpoint,{headers:{"Authorization":"Bearer "+env.CF_API_TOKEN,"Accept":"application/json"}});
+   const payload=await upstream.json().catch(()=>({error:"invalid_cloudflare_response"}));
+   if(!upstream.ok)return json({error:"cloudflare_request_failed",upstream_status:upstream.status},502);
+   if(url.pathname==="/cf/overview")return json({account:payload.result&&{id:payload.result.id,name:payload.result.name},success:payload.success});
+   const result=Array.isArray(payload.result)?payload.result:(payload.result?.items||payload.result?.result||payload.result?.queues||payload.result?.projects||[]);
+   return json({count:result.length,items:result.map(x=>({id:x.id,name:x.name,script:x.script,created_on:x.created_on,modified_on:x.modified_on})),result_info:payload.result_info||null});
+  }
   if(request.method==="GET"&&url.pathname==="/health")return json({status:"ok",service:"nathan-ai-pocket-control"});
   if(request.method==="GET"&&url.pathname==="/repos")return gh(env,"");
   if(request.method==="GET"&&url.pathname==="/runs")return gh(env,"/actions/runs?per_page=20");
