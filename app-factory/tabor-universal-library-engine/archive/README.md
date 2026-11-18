@@ -3,7 +3,7 @@ By Nathan Tabor
 
 **Public Reading Room:** https://library-of-tabor-archive.nathantaboract.workers.dev/
 
-The historical archive sits alongside the playable [Library of Tabor](https://tabor-universal-library-engine.nathantaboract.workers.dev/library/). It has its own Cloudflare Worker, D1 catalog, and private R2 storage. The first release provides 21 official Library of Congress subject classes, 34 catalog records, 8 witness records, and 3 complete source editions pinned by SHA-256. The source editions retain their original line endings, encoding, provenance, and digitizer notices. The King James Bible transcription is served by this archive in the US. Its catalog and source links are available globally.
+The historical archive sits alongside the playable [Library of Tabor](https://tabor-universal-library-engine.nathantaboract.workers.dev/library/). It has its own Cloudflare Worker, D1 catalog, and private R2 storage. The archive has 21 official Library of Congress subject classes, 36 editorial seed records, 10 seed witness records, and 3 original source editions pinned by SHA-256. The larger intake and file counts are available from the live release receipt. The source editions retain their original line endings, encoding, provenance, and digitizer notices. The King James Bible transcription is served by this archive in the US. Its catalog and source links are available globally.
 
 ## Reading Room and APIs
 
@@ -21,6 +21,10 @@ The historical archive sits alongside the playable [Library of Tabor](https://ta
 | /api/registry/modules | 505 verified upstream ID records and their source classifications. Add ?id=OG-001 for one record. |
 | /api/registry/act | 160 published ACT graph records and 17 lexicon entries, with original source seals. |
 | /api/health | Live D1 counts and archive release receipt. |
+| /matrix | Ring 9 visualizer with all 169 cells and controls for dimension, scale, tick and replay direction. |
+| /api/matrix | Cell history and occupancy at the selected dimension and scale. |
+| /api/matrix/health | Live matrix cell, dimension, scale and event counts. |
+| POST /api/matrix/jumps | Operator portal writer authenticated by the archive Worker secret `MATRIX_WRITE_KEY`. |
 
 ## How the archive is built
 
@@ -91,3 +95,16 @@ The second release imports actual item records and source files from several ins
 | `pg-catalog.csv` | [Project Gutenberg machine-readable catalog](https://www.gutenberg.org/ebooks/offline_catalogs.html) using the PGLAF mirror |
 | `cdli.csv`, `cdli.atf`, `cdli-ref.json` | [CDLI public bulk dump](https://github.com/cdli-gh/data) and the pinned Git reference |
 | `papyri.tar.gz`, `papyri-tree.json`, `papyri-ddb-tree.json` | [Papyri.info official data](https://github.com/papyri/idp.data) pinned archive, root Git tree and recursive DDbDP subtree |
+
+## Sovereign Matrix
+
+The public archive Worker serves the Ring 9 matrix. Each destination uses a row and column in 0–12, a dimension in 0–12 or 20–29, a Me–Mo–Mu–Cro scale, and a nonnegative integer tick. At row 12, column 12, both the Gutenberg Bible and the Hyakumantō Darani use unit 168. The book and the scroll have distinct dimensions and Sovereign URIs. The grid has 169 seeded whole units. A separate event table stores only recorded moves and links them to the authoritative work IDs.
+
+- **Build · 1+1=2.** The portal validates the origin and destination, resolves the associated work, and appends the move. The receipt hash covers the work, both coordinates, and canonical JSON payload.
+- **Clear · 1−1=0.** A malformed coordinate or unknown work yields code 0 and no new event. Requests use the literal `0xFF` whole-unit marker. The write credential is stored as a Worker secret.
+- **Integrate · 1×1=1.** The matrix points to the same D1 work and witness records used by the Reading Room. Complete preserved editions still use the original R2 publication receipts.
+- **Verify · 1÷1=1.** D1 protects the append-only events against update and delete. A repeated request ID returns the original receipt when the hashed contents agree. A different move with that ID yields HTTP 409.
+
+Replay orders by the recorded event sequence. Tick filters locate an exact logical tick. A backward jump appends a new receipt even if the destination tick has appeared before. To install, apply `migrations/0004_matrix_timeline.sql`, seed the two new catalog records and their witnesses with `scripts/seeds.mjs`, then send the source and event inserts from the output of `node scripts/seed-matrix.mjs` through the D1 query batch API. The seeds can be reapplied safely. The initial links cover a published source edition, clay tablet, printed book, prayer scroll, and lost-work dossier.
+
+The portal writer accepts JSON shaped like one entry from `matrixSeeds` in `scripts/seed-matrix.mjs`. Supply `Authorization: Bearer <MATRIX_WRITE_KEY>` and a unique request ID. Store or rotate the credential through the Worker’s secret settings before submitting write requests. Readers can use the visualizer and JSON history without a credential.

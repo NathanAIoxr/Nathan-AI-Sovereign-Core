@@ -69,7 +69,7 @@ export const materials = {
 };
 
 export const providers = {
-  loc: "Library of Congress · Selected Digitized Books",
+  loc: "Library of Congress · Digital Collections",
   gutenberg: "Project Gutenberg · E-books",
   cdli: "Cuneiform Digital Library Initiative · Tablets and inscriptions",
   papyri: "Papyri.info · Duke Databank of Documentary Papyri",

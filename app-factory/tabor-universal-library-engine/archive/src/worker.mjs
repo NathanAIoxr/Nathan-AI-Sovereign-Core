@@ -2,6 +2,7 @@ import architecture from "../data/architecture.json" with { type: "json" };
 import modules from "../data/edge-registry.json" with { type: "json" };
 import act from "../data/act-graph.json" with { type: "json" };
 import { bodyKey, cadence, classNames, groups, idPattern, maxEditionBytes, materials, providers, shaPattern, states, vaults } from "./model.mjs";
+import { matrixRoute } from "./matrix-route.mjs";
 import { sha256 } from "./integrity.mjs";
 import { browse, browseParams, editionById, workDetail } from "./catalog.mjs";
 import { architecturePage, css, readingRoom, shelvesPage, shell, workPage } from "./ui.mjs";
@@ -98,6 +99,8 @@ async function routes(request, env, url) {
 
 export default {
   async fetch(request,env) {
+    const matrix = await matrixRoute(request,env);
+    if (matrix) return matrix;
     if (!["GET","HEAD"].includes(request.method)) {
       return respond('{"error":"Method not allowed"}',"application/json; charset=utf-8",405,{allow:"GET, HEAD"});
     }

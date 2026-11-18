@@ -5,6 +5,8 @@ import test from "node:test";
 import worker from "./src/worker.mjs";
 import { sha256 } from "./src/integrity.mjs";
 import { bodyKey, cadence, classNames, evidenceConsensus, groups, mapClass } from "./src/model.mjs";
+import { matrixSeedBatch, matrixSeeds } from "./scripts/seed-matrix.mjs";
+import { verifyMatrixEvent } from "./src/matrix.mjs";
 import { catalogBatch, editionBatch } from "./scripts/seeds.mjs";
 import editions from "./data/editions.json" with { type: "json" };
 
@@ -13,6 +15,9 @@ db.exec(readFileSync(new URL("./migrations/0001_archive.sql",import.meta.url),"u
 db.exec(readFileSync(new URL("./migrations/0002_corpora.sql",import.meta.url),"utf8"));
 for (const item of catalogBatch) db.prepare(item.sql).run(...item.params);
 db.exec(readFileSync(new URL("./migrations/0003_existing_ebooks.sql",import.meta.url),"utf8"));
+const matrixMigration = readFileSync(new URL("./migrations/0004_matrix_timeline.sql",import.meta.url),"utf8");
+db.exec(matrixMigration);
+for (const item of matrixSeedBatch) db.prepare(item.sql).run(...item.params);
 const demo = new TextEncoder().encode("Verbatim evidence\r\n");
 const digest = await sha256(demo);
 const example = {...editions[0],bytes:demo.length,sha256:digest};
@@ -23,7 +28,7 @@ const d1 = {
     const stmt = db.prepare(sql);
     const read = params => ({
       first: async ()=>stmt.get(...params) ?? null,
-      all: async ()=>({results:stmt.all(...params)})
+      all: async ()=>sql.startsWith("INSERT") ? {meta:{changes:stmt.run(...params).changes}} : {results:stmt.all(...params)}
     });
     return {...read([]),bind(...params){return read(params);}};
   },
@@ -42,10 +47,10 @@ const r2 = {
     return {...head,body:payload.stream(),arrayBuffer:()=>payload.arrayBuffer()};
   }
 };
-const env = {ARCHIVE_DB:d1,ARCHIVE_BLOB:r2};
+const env = {ARCHIVE_DB:d1,ARCHIVE_BLOB:r2,MATRIX_WRITE_KEY:"matrix-test-key"};
 
-function fetch(path,{method="GET",country="US"}={}) {
-  const request = new Request("https://library.example"+path,{method});
+function fetch(path,{method="GET",country="US",headers,body}={}) {
+  const request = new Request("https://library.example"+path,{method,headers,body});
   Object.defineProperty(request,"cf",{value:{country}});
   return worker.fetch(request,env);
 }
@@ -75,8 +80,8 @@ test("indexed pagination, record type, and source-edition separation",async()=>{
   assert.equal(page1.hasNext,true);
   assert.equal(page1.entries.length,18);
   const page2 = await (await fetch("/api/catalog?page=2")).json();
-  assert.equal(page2.entries.length,16);
-  assert.equal(new Set([...page1.entries,...page2.entries].map(row=>row.id)).size,34);
+  assert.equal(page2.entries.length,18);
+  assert.equal(new Set([...page1.entries,...page2.entries].map(row=>row.id)).size,36);
   const dossier = await (await fetch("/api/catalog?vault=omega&state=lost-work-dossier&q=Sibylline")).json();
   assert.deepEqual(dossier.entries.map(r=>r.id),["sibylline-books"]);
   const work = await (await fetch("/api/works/sibylline-books")).json();
@@ -177,4 +182,51 @@ test("source receipts, repeat imports, holding filters and archive search agree"
   assert.equal(work.source.snapshot,"Pinned test snapshot");
   assert.equal(db.prepare("SELECT count(*) AS n FROM archive_import_receipts").get().n,1);
   await assert.rejects(putRecords(operators,[{...example,work:example.work.map((v,i)=>i===9?"https://outside.invalid":v)}]),/Invalid catalog record/);
+});
+
+test("all 169 cells, both dimension bands, scale isolation and immutable replay",async()=>{
+  db.exec(matrixMigration);
+  for (const item of matrixSeedBatch) db.prepare(item.sql).run(...item.params);
+  assert.equal(db.prepare("SELECT COUNT(*) AS n FROM sovereign_cells").get().n,169);
+  assert.equal(db.prepare("SELECT COUNT(*) AS n FROM sovereign_dimensions").get().n,23);
+  assert.equal(db.prepare("SELECT COUNT(*) AS n FROM sovereign_scales").get().n,4);
+  assert.equal(db.prepare("SELECT COUNT(*) AS n FROM sovereign_matrix_events").get().n,5);
+  assert.throws(()=>db.exec("UPDATE sovereign_matrix_events SET timeline_tick=3"),/immutable/);
+  assert.throws(()=>db.exec("DELETE FROM sovereign_matrix_events"),/immutable/);
+  const scrolls = await (await fetch("/api/catalog?material=scroll&provider=loc")).json();
+  assert.deepEqual(scrolls.entries.map(entry=>entry.id),["hyakumanto-darani"]);
+  const latest = await (await fetch("/api/matrix")).json();
+  const earliest = await (await fetch("/api/matrix?order=asc")).json();
+  assert.deepEqual(latest.events.map(e=>e.work),["sibylline-books","gilgamesh-flood-tablet","king-james-bible"]);
+  assert.deepEqual(earliest.events.map(e=>e.sequence),latest.events.map(e=>e.sequence).reverse());
+  assert.equal(await verifyMatrixEvent(latest.events[0]),true);
+  assert.equal(await verifyMatrixEvent({...latest.events[0],payload:{}}),false);
+  const addresses = await Promise.all([20,29].map(async dimension =>
+    (await (await fetch("/api/matrix?row=12&col=12&scale=CRO_MECRO&dimension="+dimension)).json()).events[0]));
+  assert.deepEqual(addresses.map(e=>e.unitIndex),[168,168]);
+  assert.deepEqual(addresses.map(e=>e.work),["hyakumanto-darani","gutenberg-bible-loc"]);
+  assert.notEqual(addresses[0].uri,addresses[1].uri);
+  assert.equal((await fetch("/api/matrix?dimension=13")).status,400);
+  const page = await fetch("/matrix?tick=");
+  assert.equal(page.status,200);
+  assert.equal((await page.text()).match(/aria-label="Row [0-9]+, column/g).length,169);
+  assert.equal(await (await fetch("/matrix",{method:"HEAD"})).text(),"");
+});
+
+test("portal writes are authenticated, canonically idempotent and reject invalid moves",async()=>{
+  const input = {...matrixSeeds[0],requestId:"test-portal",destination:{...matrixSeeds[0].destination,scale:"MO_MESO",tick:0},payload:{a:1,b:2}};
+  const post = (payload, authorization="Bearer matrix-test-key") => fetch("/api/matrix/jumps",{
+    method:"POST",headers:{authorization,"content-type":"application/json"},body:JSON.stringify(payload)
+  });
+  assert.equal((await post(input,"Bearer incorrect")).status,401);
+  assert.equal((await post({...input,destination:{...input.destination,marker:"0xFF_ROOT"}})).status,400);
+  assert.equal((await post({...input,work:"missing-work"})).status,404);
+  const created = await post(input);
+  assert.equal(created.status,201);
+  const {event} = await created.json();
+  assert.equal(event.direction,"SAME_TICK");
+  assert.equal((await post({...input,payload:{b:2,a:1}})).status,200);
+  assert.equal((await post({...input,payload:{a:2,b:2}})).status,409);
+  const data = await (await fetch("/api/matrix?scale=MO_MESO&tick=0")).json();
+  assert.equal(data.events[0].sequence,event.sequence);
 });
