@@ -30,6 +30,6 @@ jobs:
       - uses: cloudflare/wrangler-action@v3
         if: github.event_name == 'workflow_dispatch' && inputs.deploy
         with:
-          workingDirectory: epenthesis
+          workingDirectory: epenthesis/live
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
