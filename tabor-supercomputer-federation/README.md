@@ -54,3 +54,26 @@ MOMENT models render frame time, input-to-display delay, and network RTT indepen
 Lisssarrr supports identity recovery, backup restore, and service recovery using local synthetic fixtures. It records detect, contain, recover, and verify stages. Each exercise can test an available or missing recovery prerequisite. It sends no external requests and changes no real account or service.
 
 Both workloads return a SHA-256 receipt over the UTF-8 bytes of the JSON response fields without the receipt, using their original order. This is a reproducibility and integrity check, not a signed attestation or a stored audit log. Existing node records, public provisioning permissions, and the physical capacity model stay outside these runtime simulations.
+
+## Hyperbolic Symbiotic Quantum Physics Super Heroine Computer
+
+Read [Nathan Tabor's original design input](HYPERCOMPUTER-DESIGN-INPUT.md) alongside the runnable model. The design input retains its supplied claims and terminology. The live API records the verified reference specification and units separately.
+
+| Route | Purpose |
+|---|---|
+| /v1/hypercomputer | Full project identity, primary and mirrored names, infrastructure layers, existing workload links and execution status |
+| /v1/hypercomputer/plan?chips=9216 | Ironwood theoretical peak, aggregate device-local HBM, and provider constraints. Arbitrary counts are arithmetic scenarios. Actual supported slice shapes and quota depend on the provider. |
+| /v1/hypercomputer/run?size=12 | Bounded integer matrix multiplication. Six existing node databases serve independently addressed row shards, then the Worker assembles the result, checks every output cell and issues a SHA-256 receipt. |
+
+### Physical build qualification
+
+| Layer | What to carry forward | What to measure before expanding |
+|---|---|---|
+| Tensor compute | Ironwood reference, with separate evaluation for the eighth-generation training and inference products. Pick the workload, precision, and topology before making a reservation. | Training tokens per second, model quality at the chosen precision, step-time distribution, and recovery after a worker loss. For serving, time to first token and throughput at a specified latency objective. |
+| Hosts and offload | Use the host and offload configuration available for the selected accelerator SKU. Axion and Titanium describe provider technologies, and their availability depends on the actual deployment. | Host-to-device stalls, input delivery rate, security policy enforcement, and accelerator utilization. |
+| Electrical and optical fabric | Model on-chip, ICI and between-slice communication as different links. Jupiter and MEMS optical switching are infrastructure references. | Collective bandwidth inside and across slices, retry rate, oversubscription, and the time lost to communication. |
+| Memory and storage | Reserve device-local HBM for tensors and caches. Stage datasets and checkpoints through a verified host and storage path. Set retention and a separate restore destination. | Per-device memory balance, cache pressure, checkpoint flush and restore time, and integrity after a restart. |
+| Facility and cooling | Treat cold plates, cabinet power, coolant distribution and heat rejection as a single engineered system. | Wall power, coolant temperature and flow, steady-state clock behavior, and recovery during an approved maintenance exercise. |
+| Runtime and orchestration | Use a provider-approved GKE TPU configuration, with JAX/OpenXLA and Pathways where applicable. Keep model code and configuration portable. | Reproducibility across fresh jobs, multi-slice scaling efficiency, checkpoint recovery, and cost per useful job. |
+
+Start provider validation with a supported small slice and scale after the same workload has a repeatable benchmark. The Cloudflare runner performs integer arithmetic on existing logical nodes. No TPU, optical fabric, or quantum hardware has been provisioned by this release. The receipt covers UTF-8 JSON without the receipt field in its original property order. It is a reproducibility check, not a signed attestation.

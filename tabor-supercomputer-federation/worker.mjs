@@ -1,3 +1,4 @@
+import { hypercomputerBlueprint, hyperParam, ironwoodPlan, runTensor, tensorTile } from './hypercomputer.mjs'
 import { digitalFleet, digitalOperations, runDigital } from './digital.mjs'
 
 const count = 50
@@ -17,6 +18,7 @@ const attachments = [
     href: 'https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/codex/tabor-supercomputer-federation/tabor-supercomputer-federation' },
 ]
 const digitalAttachments = [
+  { id: 'hypercomputer', category: 'Super Heroine Computer', mode: 'cloudflare_integer_tensor_workload', link: '/v1/hypercomputer' },
   { id: 'moment', category: 'MOMENT', mode: 'synthetic_latency_simulation', link: '/v1/digital' },
   { id: 'lisssarrr', category: 'Lisssarrr', mode: 'synthetic_defensive_tabletop', link: '/v1/digital' },
 ]
@@ -83,6 +85,15 @@ export class SupercomputerNode {
     if (!entries.length) return json({ error: 'node_not_provisioned', id }, 404)
     const item = JSON.parse(entries[0].record)
     if (item.id !== id) return json({ error: 'node_identity_mismatch' }, 409)
+    if (operation === 'tensor-tile') {
+      const size = hyperParam(url.searchParams, 'size', null, 6, 48)
+      const start = hyperParam(url.searchParams, 'start', null, 0, 47)
+      const end = hyperParam(url.searchParams, 'end', null, 1, 48)
+      if (size === null || start === null || end === null || start >= end || end > size) {
+        return json({ error: 'invalid_tensor_tile' }, 400)
+      }
+      return json(tensorTile(id, size, start, end))
+    }
     if (operation === 'matrix-demo') return json({ node: id, workload: matrixDemo(8) })
     if (digitalOperations.includes(operation)) {
       const result = await runDigital(id, operation, url.searchParams)
@@ -148,7 +159,10 @@ function dashboard() {
 <li><a href="/v1/digital">View the 1,000-seat digital allocation</a></li>
 <li><a href="/v1/nodes/node-001/moment?profile=loaded&amp;seat=seat-0001">Run MOMENT with simulated network load</a></li>
 <li><a href="/v1/nodes/node-001/moment?profile=tuned&amp;seat=seat-0001">Run MOMENT with modeled queue tuning</a></li>
-<li><a href="/v1/nodes/node-050/lisssarrr?exercise=backup-restore">Run the Lisssarrr recovery exercise</a></li></ul>
+<li><a href="/v1/nodes/node-050/lisssarrr?exercise=backup-restore">Run the Lisssarrr recovery exercise</a></li></ul><h2>Super Heroine Computer</h2><ul>
+<li><a href="/v1/hypercomputer">Full identity, architecture and existing connections</a></li>
+<li><a href="/v1/hypercomputer/plan">Ironwood capacity model</a></li>
+<li><a href="/v1/hypercomputer/run">Run the six-node tensor job</a></li></ul>
 <footer><p>Storage figures are design targets. Physical compute and storage capacity require independently verified hardware.</p></footer></main></html>`, {
     headers: { 'Content-Type': 'text/html; charset=utf-8', 'X-Content-Type-Options': 'nosniff',
       'Content-Security-Policy': "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'" },
@@ -179,6 +193,28 @@ export default {
     if (pathname === '/') return dashboard()
     if (pathname === '/health') return json({ service: 'Tabor Supercomputer Federation', cohort,
       fleet_slots: count, database_binding: Boolean(env.NODES), provisioning_enabled: Boolean(env.PROVISION_TOKEN?.length >= 32) })
+    if (pathname === '/v1/hypercomputer') return json(hypercomputerBlueprint)
+    if (pathname === '/v1/hypercomputer/plan') {
+      const chips = hyperParam(searchParams, 'chips', 9216, 1, 9216)
+      return chips === null ? json({ error: 'invalid_chip_count' }, 400) : json(ironwoodPlan(chips))
+    }
+    if (pathname === '/v1/hypercomputer/run') {
+      const size = hyperParam(searchParams, 'size', 12, 6, 48)
+      if (size === null) return json({ error: 'invalid_tensor_size' }, 400)
+      try {
+        const result = await runTensor(size, async ({ node, start, end }) => {
+          const tile = await nodeFetch(env, node, 'GET', '/tensor-tile?size=' + size + '&start=' + start + '&end=' + end)
+          if (!tile.ok) {
+            await tile.body?.cancel()
+            throw new Error('tensor node unavailable')
+          }
+          return tile.json()
+        })
+        return json(result)
+      } catch {
+        return json({ error: 'tensor_workload_unverified' }, 502)
+      }
+    }
     if (pathname === '/v1/attachments') return json({ attachments: [...attachments, ...digitalAttachments] })
     if (pathname === '/v1/digital') {
       return json(digitalFleet(Array.from({ length: count }, (_, index) => nodeId(index + 1))))

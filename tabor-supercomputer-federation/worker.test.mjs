@@ -93,3 +93,25 @@ test('digital allocation, modeled improvement, and evidence receipts run inside 
   }
   db.close()
 })
+
+test('Ironwood capacity and six-shard tensor receipts are checked independently', async () => {
+  const { ironwoodPlan, runTensor, tensorTile } = await import('./hypercomputer.mjs')
+  const plan = ironwoodPlan(9216)
+  assert.equal(plan.aggregate_peak_fp8_exaflops, 42.522624)
+  assert.equal(plan.aggregate_peak_bf16_exaflops, 21.261312)
+  assert.equal(plan.aggregate_hbm_gib, 1769472)
+  assert.equal(plan.aggregate_hbm_pib, 1.6875)
+  assert.throws(() => ironwoodPlan(9217), RangeError)
+  const report = await runTensor(13, ({ node, start, end }) => tensorTile(node, 13, start, end))
+  assert.equal(new Set(report.shards.map(item => item.node)).size, 6)
+  assert.equal(report.matrix.length, 13)
+  const { receipt, ...body } = report
+  assert.equal(receipt.sha256, createHash('sha256').update(JSON.stringify(body)).digest('hex'))
+  await assert.rejects(runTensor(13, ({ node, start, end }) => {
+    const tile = tensorTile(node, 13, start, end)
+    tile.rows[0][0] += 1
+    return tile
+  }), /tensor reference mismatch/)
+  const bad = await worker.fetch(new Request('https://test.invalid/v1/hypercomputer/plan?chips=9999'), {})
+  assert.equal(bad.status, 400)
+})
