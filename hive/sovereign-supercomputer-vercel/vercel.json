@@ -1,0 +1,69 @@
+{
+  "outputDirectory": "public",
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/"
+    },
+    {
+      "source": "/godtabor",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/godtabor"
+    },
+    {
+      "source": "/godtabor.html",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/godtabor.html"
+    },
+    {
+      "source": "/site.css",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/site.css"
+    },
+    {
+      "source": "/site.js",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/site.js"
+    },
+    {
+      "source": "/health",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/health"
+    },
+    {
+      "source": "/api/architecture",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/api/architecture"
+    },
+    {
+      "source": "/api/registry",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/api/registry"
+    },
+    {
+      "source": "/api/route",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/api/route"
+    },
+    {
+      "source": "/api/rhythm",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/api/rhythm"
+    },
+    {
+      "source": "/api/words",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/api/words"
+    },
+    {
+      "source": "/api/mirror/status",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/api/mirror/status"
+    },
+    {
+      "source": "/api/fp64/run",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/api/fp64/run"
+    },
+    {
+      "source": "/api/cluster/services",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/api/cluster/services"
+    },
+    {
+      "source": "/api/cluster/receipts",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/api/cluster/receipts"
+    },
+    {
+      "source": "/api/compute/manifest",
+      "destination": "https://nathan-ai-sovereign-core.nathantaboract.workers.dev/api/compute/manifest"
+    }
+  ]
+}

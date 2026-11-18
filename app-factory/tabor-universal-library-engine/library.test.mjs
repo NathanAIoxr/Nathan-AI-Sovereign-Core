@@ -50,11 +50,14 @@ test("page, artwork, individual record, health and canonical redirect are live W
   assert.equal((await request("/app-factory/tabor-universal-library-engine/public/library/")).status, 200);
 });
 
-test("the Tabor World gateway adds one public destination and retains the original workbench", async () => {
+test("the Tabor World gateway preserves every public destination and both Library routes", async () => {
   const get = pathname => gateway.fetch(new Request("https://world.example" + pathname));
   assert.match(await (await get("/")).text(), /Enter the Library of Tabor/);
   const list = await (await get("/api/destinations")).json();
-  assert.equal(list.length, 10);
+  assert.deepEqual(list.map(item => item.id), [
+    "tabor-standalone", "library-of-tabor", "grapple", "hook", "bible", "tracker",
+    "library", "dual", "hive", "bees", "saturday",
+  ]);
   assert.ok(list.some(item => item.id === "library" && item.name === "Tabor Universal Library"));
   assert.equal(list.find(item => item.id === "library-of-tabor").url, "https://tabor-world.nathantaboract.workers.dev/library/");
   const redirect = await get("/library/?entry=066");

@@ -1,0 +1,16 @@
+{
+  "name": "nathan-ai-sovereign-core",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-08-06",
+  "workers_dev": true,
+  "preview_urls": false,
+  "d1_databases": [
+    { "binding": "SOVEREIGN_DB", "database_name": "nathan-sovereign-vault", "database_id": "d3043fdb-4c19-4387-b634-1257eb4b7168" }
+  ],
+  "services": [
+    { "binding": "CORE", "service": "nathan-ai-sovereign-2x" },
+    { "binding": "EXECUTOR", "service": "nathan-sovereign-fp64-executor" }
+  ],
+  "triggers": { "crons": ["0 */6 * * *"] },
+  "observability": { "enabled": true, "head_sampling_rate": 0.05 }
+}
