@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS cockpit_jobs (id TEXT PRIMARY KEY,type TEXT NOT NULL,status TEXT NOT NULL,created_at TEXT NOT NULL,updated_at TEXT NOT NULL,error TEXT);
