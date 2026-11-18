@@ -7,7 +7,7 @@ on:
       - '.github/workflows/nathan-ai-comms-bus.yml'
   workflow_dispatch:
   schedule:
-    - cron: '17,47 * * * *'
+    - cron: '17 7,19 * * *'
   repository_dispatch:
     types: [nathan-bridge-pulse]
 
@@ -24,9 +24,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Parse-check Worker
-        run: node --check integrations/nathan-ai-comms-bus/worker.mjs
-      - name: Confirm D1 schema
-        run: grep -q 'CREATE TABLE IF NOT EXISTS messages' integrations/nathan-ai-comms-bus/schema.sql
+        run: |
+          node --check integrations/nathan-ai-comms-bus/worker.mjs
+          node --check integrations/nathan-ai-comms-bus/capacity-policy.mjs
+          node --test integrations/nathan-ai-comms-bus/capacity-policy.test.mjs
+      - name: Confirm D1 schema and bounded telemetry migration
+        run: |
+          grep -q 'CREATE TABLE IF NOT EXISTS messages' integrations/nathan-ai-comms-bus/schema.sql
+          grep -q 'CREATE TABLE IF NOT EXISTS scheduler_receipts' integrations/nathan-ai-comms-bus/capacity-migration.sql
 
   relay:
     if: github.event_name != 'pull_request'
@@ -45,6 +50,7 @@ jobs:
           set -euo pipefail
           if [[ "$OPERATION" == "read-status" ]]; then
             curl --fail --silent --show-error --retry 2 "$API/v1/status"
+            curl --fail --silent --show-error --retry 2 "$API/v1/capacity"
             exit 0
           fi
           if [[ -z "$BRIDGE_TOKEN" ]]; then
