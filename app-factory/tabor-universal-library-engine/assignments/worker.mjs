@@ -1,4 +1,4 @@
-const RELEASE = "library-assignments-1";
+const RELEASE = "library-assignments-2";
 const WINDOW = 15 * 60 * 1000;
 const WORLD = "https://tabor-universal-library-engine.nathantaboract.workers.dev";
 const STANDALONE = "https://tabor-standalone.nathantaboract.workers.dev";
@@ -36,14 +36,23 @@ export function assign(ledger) {
 }
 
 export function assess(id, data) {
-  const {world, library, connections, standalone, inventory, atlas, devices} = data;
+  const {world, library, connections, standalone, inventory, libraryCatalog, atlas, devices} = data;
   const check = (name, pass, measured) => ({name, pass: Boolean(pass), measured});
   const counted = (name, observed, expected) => check(name, Number.isInteger(observed) && observed === expected,
     {observed: observed ?? null, expected: expected ?? null});
+  const playableCoverage = name => {
+    const originals = Array.isArray(libraryCatalog?.entries) ? libraryCatalog.entries.map(entry => entry?.id) : [];
+    const games = Array.isArray(inventory?.items) ? inventory.items.filter(item => item?.type === "games") : [];
+    const paths = new Set(games.filter(game => game.path === "/games/" + game.id + "/").map(game => game.id));
+    const missing = originals.filter(id => !paths.has("atlas-" + id));
+    const pass = originals.length > 0 && originals.length === library?.entries &&
+      new Set(originals).size === originals.length && originals.every(id => typeof id === "string" && /^\d{3}$/.test(id)) && missing.length === 0;
+    return check(name, pass, {matched: originals.length - missing.length, expected: library?.entries ?? null, totalStandalone: games.length, missing});
+  };
   switch (id) {
     case "standalone-coverage":
       return [
-        counted("Standalone games against Library entries", standalone?.counts?.games, library?.entries),
+        playableCoverage("Original Library games present as standalone apps"),
         counted("Individual book pages against World ledger", standalone?.counts?.books, world?.counts?.bookPages),
       ];
     case "provider-credentials": {
@@ -64,7 +73,7 @@ export function assess(id, data) {
     }
     case "catalog-play":
       return [
-        counted("Playable Library entries", standalone?.counts?.games, library?.entries),
+        playableCoverage("Original numbered Library game coverage"),
         check("Numbered v.7 backlog kept distinct", Number.isInteger(world?.counts?.trackerCatalog) && Number.isInteger(world?.counts?.runnable),
           {trackerCatalog: world?.counts?.trackerCatalog ?? null, modulesAndDrills: world?.counts?.runnable ?? null}),
         check("Play route for a catalogue sample", atlas?.id === "066" && typeof atlas?.title === "string", {sampleId: atlas?.id ?? null}),
@@ -108,12 +117,12 @@ export async function collect(env) {
   const world = path => request(env.WORLD, WORLD, path);
   const standalone = path => request(env.STANDALONE, STANDALONE, path);
   const sample = "/games/atlas-066/";
-  const [ledger, health, library, connections, host, inventory, atlas, manifest, html] = await Promise.all([
+  const [ledger, health, library, connections, host, inventory, libraryCatalog, atlas, manifest, html] = await Promise.all([
     world("/api/releases"), world("/api/health"), world("/library/api/health"), world("/library/api/connections"),
-    standalone("/api/health"), standalone("/api/catalog"), world("/library/api/entries/066"),
+    standalone("/api/health"), standalone("/api/catalog"), world("/library/catalog.json"), world("/library/api/entries/066"),
     standalone(sample + "manifest.webmanifest"), request(env.STANDALONE, STANDALONE, sample, "text"),
   ]);
-  return {ledger, world: health, library, connections, standalone: host, inventory, atlas,
+  return {ledger, world: health, library, connections, standalone: host, inventory, libraryCatalog, atlas,
     devices: {manifest, viewport: /<meta\s+name=["']viewport["']/i.test(html ?? "")}};
 }
 
@@ -124,8 +133,9 @@ export async function run(env, now) {
     const checks = assess(task.id, data);
     return {...task, checks, review: review(task.id, checks)};
   });
-  const snapshot = JSON.stringify({release: data.ledger.current, checkedAt: new Date(now).toISOString(), tasks});
-  await env.RECEIPTS.prepare(`INSERT INTO ${PREFIX}_runs (tick, payload) VALUES (?, ?) ON CONFLICT(tick) DO NOTHING`).bind(tick, snapshot).run();
+  const snapshot = JSON.stringify({service: RELEASE, release: data.ledger.current, checkedAt: new Date(now).toISOString(), tasks});
+  await env.RECEIPTS.prepare(`INSERT INTO ${PREFIX}_runs (tick, payload) VALUES (?, ?) ON CONFLICT(tick) DO UPDATE SET payload=excluded.payload
+    WHERE json_extract(${PREFIX}_runs.payload, '$.service') IS NOT json_extract(excluded.payload, '$.service')`).bind(tick, snapshot).run();
   await env.RECEIPTS.prepare(`DELETE FROM ${PREFIX}_runs WHERE tick < ?`).bind(tick - 30 * 24 * 60 * 60 * 1000).run();
   return tasks.length;
 }
@@ -147,7 +157,7 @@ export async function status(env) {
   const last = receipt ? JSON.parse(receipt.payload) : null;
   if (!ledger && last) return {...last, sourceAvailable: false};
   if (!ledger) throw new Error("Source unavailable");
-  const current = last && ledger && last.release === ledger.current ? last : null;
+  const current = last && ledger && last.service === RELEASE && last.release === ledger.current ? last : null;
   const checked = new Map((current?.tasks ?? []).map(task => [task.id, task]));
   const tasks = assign(ledger).map(task => ({...task, checks: checked.get(task.id)?.checks ?? [],
     review: checked.get(task.id)?.review ?? {state: "scheduled", note: "Assigned. First check for this release is scheduled."}}));
