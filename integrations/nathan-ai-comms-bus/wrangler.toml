@@ -1,0 +1,40 @@
+name = "nathan-ai-comms-bus"
+main = "worker.mjs"
+compatibility_date = "2026-11-18"
+account_id = "a70580bacdf96c946662b7b67dcb45b5"
+workers_dev = true
+
+[triggers]
+crons = ["* * * * *"]
+
+# Every minute invokes only the light scheduler; D1 sampling is every 5m and
+# Queue heartbeats are every 15m. This does not scale other Workers or cap bills.
+[vars]
+LOCAL_QUEUE_MESSAGES_PER_DAY = "200"
+
+[[d1_databases]]
+binding = "COMMS_DB"
+database_name = "nathan-ai-comms-ledger"
+database_id = "4bfc9c4c-10c5-4648-952d-8b83901909d6"
+
+[[d1_databases]]
+binding = "FLEET_DB"
+database_name = "tabor-fleet-registry"
+database_id = "00e422eb-5222-4892-8f90-74aaf8ab0518"
+
+[[d1_databases]]
+binding = "ATLAS_DB"
+database_name = "tabor-global-import-catalog"
+database_id = "6ff28930-62b4-416e-89ee-a2c3f985730a"
+
+[[queues.producers]]
+binding = "EVENTS_QUEUE"
+queue = "nathan-ai-comms-events"
+
+[[queues.consumers]]
+queue = "nathan-ai-comms-events"
+max_batch_size = 10
+max_batch_timeout = 10
+max_retries = 3
+max_concurrency = 1
+dead_letter_queue = "nathan-ai-comms-dead"

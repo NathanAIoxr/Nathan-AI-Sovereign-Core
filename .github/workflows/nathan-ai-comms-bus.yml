@@ -1,0 +1,63 @@
+name: Nathan AI Cloudflare Communications
+
+on:
+  pull_request:
+    paths:
+      - 'integrations/nathan-ai-comms-bus/**'
+      - '.github/workflows/nathan-ai-comms-bus.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '17 7,19 * * *'
+  repository_dispatch:
+    types: [nathan-bridge-pulse]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nathan-comms-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: false
+
+jobs:
+  source-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse-check Worker
+        run: |
+          node --check integrations/nathan-ai-comms-bus/worker.mjs
+          node --check integrations/nathan-ai-comms-bus/capacity-policy.mjs
+          node --test integrations/nathan-ai-comms-bus/capacity-policy.test.mjs
+      - name: Confirm D1 schema and bounded telemetry migration
+        run: |
+          grep -q 'CREATE TABLE IF NOT EXISTS messages' integrations/nathan-ai-comms-bus/schema.sql
+          grep -q 'CREATE TABLE IF NOT EXISTS scheduler_receipts' integrations/nathan-ai-comms-bus/capacity-migration.sql
+
+  relay:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        operation: [read-status, post-heartbeat]
+    steps:
+      - name: Report status or send authenticated message
+        env:
+          BRIDGE_TOKEN: ${{ secrets.NATHAN_BRIDGE_TOKEN }}
+          OPERATION: ${{ matrix.operation }}
+          API: https://nathan-ai-comms-bus.nathantaboract.workers.dev
+        run: |
+          set -euo pipefail
+          if [[ "$OPERATION" == "read-status" ]]; then
+            curl --fail --silent --show-error --retry 2 "$API/v1/status"
+            curl --fail --silent --show-error --retry 2 "$API/v1/capacity"
+            exit 0
+          fi
+          if [[ -z "$BRIDGE_TOKEN" ]]; then
+            echo 'GitHub -> Cloudflare authenticated relay is not configured (missing NATHAN_BRIDGE_TOKEN).'
+            exit 0
+          fi
+          curl --fail --silent --show-error --retry 2 -X POST "$API/v1/messages" \
+            -H "Authorization: Bearer $BRIDGE_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data '{"kind":"heartbeat","source":"github","destination":"cloudflare","payload":{"trigger":"github_actions"}}'
