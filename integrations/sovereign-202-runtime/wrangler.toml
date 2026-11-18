@@ -1,0 +1,10 @@
+name = "tabor-sovereign-202-runtime"
+main = "src/index.ts"
+compatibility_date = "2026-11-18"
+[[durable_objects.bindings]]
+name = "BOT_SWARM"
+class_name = "SovereignBotAgent"
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SovereignBotAgent"]
+# Configure AUTH_TOKEN with: wrangler secret put AUTH_TOKEN
