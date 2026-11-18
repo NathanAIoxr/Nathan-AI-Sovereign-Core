@@ -1,7 +1,7 @@
 import { items, roster, domains } from './tools.mjs'
 import { page, browserScript, css } from './ui.mjs'
 
-const build = 'nathan-mind-fleet-1.0.1'
+const build = 'nathan-mind-fleet-1.0.2'
 const legacyDomains = ['language','logic','archive','research','creative','physics','devices','engineering','operations','sovereignty']
 const legacyRoles = ['Research Scout','Source Collector','Citation Verifier','Fact Checker','Contradiction Auditor','Schema Architect','Code Builder','Unit Test Runner','Security Reviewer','Release Reviewer']
 const suffix = '.nathantaboract.workers.dev'

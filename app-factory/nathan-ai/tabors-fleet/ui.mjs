@@ -48,7 +48,7 @@ pre{background:#101418;border:1px solid var(--border);min-height:130px;max-heigh
 @media(max-width:760px){.workbench{grid-template-columns:minmax(0,1fr)}.tools{max-height:225px}.intro h1{letter-spacing:-.07em}}
 `
 
-function browser() {
+export const browserScript = String.raw`(() => {
   const $ = id => document.getElementById(id)
   const node = (tag,value) => Object.assign(document.createElement(tag),{textContent:value})
   const message = error => error instanceof Error ? error.message : String(error)
@@ -224,6 +224,4 @@ function browser() {
   const view=$('main').dataset.view
   const start=view==='vault'?vault:fleet
   start().catch(error=>{$(view==='vault'?'vault-status':'output').textContent=message(error)})
-}
-
-export const browserScript = `(${browser.toString()})();`
+})();`
