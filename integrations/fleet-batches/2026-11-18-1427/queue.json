@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "registry_path": "integrations/tabor-all-909-expanded-source-registry.json",
+  "registry_total": 909,
+  "batch": "2026-11-18-1427",
+  "source_built_this_batch": [
+    "NTW-002",
+    "NTW-003"
+  ],
+  "tests": {
+    "runner": "node --test units.test.mjs",
+    "passed": 5,
+    "failed": 0
+  },
+  "new_deployments": 0,
+  "remaining_without_new_source_from_this_batch": 907,
+  "scope_note": "907 is 909 minus two newly implemented in this batch, not a claim that the other 907 lack preexisting implementations.",
+  "units": [
+    {
+      "id": "NTW-002",
+      "state": "source_built_locally_tested_not_deployed"
+    },
+    {
+      "id": "NTW-003",
+      "state": "source_built_locally_tested_not_deployed"
+    }
+  ],
+  "next_candidates": [
+    "NTW-004",
+    "NTW-006"
+  ],
+  "blockers": [
+    "No complete cross-repository per-unit implementation/deployment reconciliation yet",
+    "No CI receipt for this new branch batch; only local Node tests",
+    "Production deploy intentionally deferred: these are pure modules, not standalone reviewed Cloudflare Worker entrypoints"
+  ],
+  "preserve_existing": true,
+  "auto_replication": false
+}
