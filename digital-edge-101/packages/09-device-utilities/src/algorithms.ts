@@ -1,0 +1,15 @@
+import { bytes, check, define, hex, int, sha, str, utf8 } from "../../../shared/core.ts";
+export const modules={
+ "218": define("Safe workspace snapshot validator",{tabs:[{url:"https://example.org",scroll:110}]},p=>{check(Array.isArray(p.tabs)&&p.tabs.length<=64,"Expected tabs");return p.tabs.map(x=>{const url=new URL(str(x.url,1000));check(["http:","https:"].includes(url.protocol)&&!url.username&&!url.password,"Expected web URL without credentials");return {url:url.href,scroll:int(x.scroll,0,1e8)};});}),
+ "222": define("Mobile share payload normalization",{title:"Example",text:"Read this",url:"https://example.org"},p=>{const uri=new URL(str(p.url,1000));check(["https:","http:"].includes(uri.protocol)&&!uri.username&&!uri.password,"Expected share URL");return {title:str(p.title,256),text:str(p.text,4000),url:uri.href};}),
+ "224": define("Bounded GZIP creation",{text:"compress me"},async p=>{const stream=new Blob([utf8(p.text)]).stream().pipeThrough(new CompressionStream("gzip"));return [...new Uint8Array(await new Response(stream).arrayBuffer())];}),
+ "225": define("Exact binary duplicate digest",{bytes:[1,2,3,4]},async p=>hex(await sha(bytes(p.bytes)))),
+ "226": define("Background event coalescer",{times:[1,3,4,12,14,29],window:10},p=>{check(Array.isArray(p.times)&&p.times.length<=256,"Expected times");const w=int(p.window,1,86400),out=new Map<number,number>();for(const n of p.times){const t=Math.floor(int(n,0,1e10)/w)*w;out.set(t,(out.get(t)??0)+1);}return [...out].sort(([a],[b])=>a-b);}),
+ "227": define("Update manifest shape and digest check",{version:"1.2.3",sha256:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},p=>({valid:/^\d+\.\d+\.\d+(?:-[\w.-]+)?$/.test(str(p.version,64))&&/^[a-f0-9]{64}$/.test(str(p.sha256,64))})),
+ "229": define("UTC-to-local IANA time conversion",{utc:"2026-11-18T16:00:00Z",zone:"America/New_York"},p=>{const utc=str(p.utc,64);check(/Z$/.test(utc)&&Number.isFinite(Date.parse(utc)),"Expected ISO UTC timestamp");const zone=str(p.zone,80);try{return {zone,parts:new Intl.DateTimeFormat("en-GB",{timeZone:zone,dateStyle:"short",timeStyle:"long",hourCycle:"h23"}).formatToParts(new Date(utc)).filter(x=>x.type!=="literal")};}catch{check(false,"Unknown timezone");}}),
+ "231": define("Plain-text thermal receipt layout",{store:"Library of Tabor",items:[{label:"Catalog",cents:500}],width:32},p=>{
+  const width=int(p.width,20,64);check(Array.isArray(p.items)&&p.items.length<=40,"Expected receipt items");const clean=(x:unknown)=>str(x,64).replace(/[\x00-\x1f\x7f]/g," ");const lines=[clean(p.store).slice(0,width)];
+  for(const x of p.items){const v=(int(x.cents,0,1e8)/100).toFixed(2);lines.push(clean(x.label).slice(0,width-v.length-1).padEnd(width-v.length)+v);}return lines.join("\n");
+ }),
+ "232": define("Literal voice-command intent parser",{text:"remind me tomorrow at 9"},p=>{const text=str(p.text,256);const m=/^remind me (today|tomorrow) at (\d{1,2})(?::(\d{2}))?$/i.exec(text);if(!m)return {intent:"unknown"};return {intent:"reminder",relativeDay:m[1].toLowerCase(),hour:int(Number(m[2]),0,23),minute:int(Number(m[3]??0),0,59)};})
+};
