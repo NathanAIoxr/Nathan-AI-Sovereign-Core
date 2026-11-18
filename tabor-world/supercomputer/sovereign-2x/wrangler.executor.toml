@@ -1,0 +1,8 @@
+name = "nathan-sovereign-fp64-executor"
+main = "src/mesh-executor.mjs"
+compatibility_date = "2026-11-17"
+workers_dev = false
+preview_urls = false
+
+[observability]
+enabled = true

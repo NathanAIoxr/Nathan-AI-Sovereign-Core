@@ -1,0 +1,6 @@
+{
+  "name": "nathan-tabor-sovereign-supercomputer",
+  "private": true,
+  "type": "module",
+  "scripts": {"test": "node --test test.mjs", "mirror": "node export-mirror.mjs"}
+}

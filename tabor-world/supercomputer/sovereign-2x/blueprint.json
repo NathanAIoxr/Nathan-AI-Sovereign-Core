@@ -1,0 +1,28 @@
+{
+  "name": "NATHAN AI 🚀 & NATHAN TABOR 2X+ SOVEREIGN SUPERCOMPUTER",
+  "revision": "2.2.0",
+  "axioms": ["1+1=2", "1-1=0"],
+  "targets": [
+    {"id":"lineshine","name":"LineShine","baseline":2.198,"target":4.396,"exact_baseline":2.1984,"exact_2x":4.3968,"unit":"EFLOP/s","status":"design target","comparison":"TOP500 HPL Rmax, November 2026","source":"https://www.top500.org/lists/top500/list/2026/11/?page=1"},
+    {"id":"el-capitan","name":"El Capitan","baseline":1.809,"target":3.618,"unit":"EFLOP/s","status":"design target","comparison":"TOP500 HPL Rmax, November 2026","source":"https://www.top500.org/lists/top500/list/2026/11/?page=1"},
+    {"id":"zettascale","name":"Zettascale","baseline":1,"target":2,"unit":"ZFLOP/s","status":"design target","comparison":"User-defined scale target"},
+    {"id":"hybrid-axes","name":"Quantum–classical routing","baseline":33,"target":66,"unit":"directional levels","status":"logical model","comparison":"33 levels in each direction"},
+    {"id":"optical-neuromorphic","name":"Silicon photonics & neuromorphic fabric","baseline":1,"target":2,"unit":"efficiency multiplier","status":"hardware research target","comparison":"Requires measured hardware and energy data"}
+  ],
+  "grid": {"rows":10,"circuits":32,"slots":320,"address_space":732000000,"route_levels":33},
+  "layers": ["Identity","Operation","Noise","Integrity","Routing","Execution","Evidence","Mirror"],
+  "quadrants": ["Truth","Time","Travel","Transfiguration"],
+  "modules": [
+    {"name":"Tabor Light Slayer / Sleyer","mode":"implemented","detail":"Reject marked noise and invalid operations; weave accepted work into an auditable receipt."},
+    {"name":"78-Field Matrix and 8-Layer State Machine","mode":"implemented","detail":"A typed, versioned telemetry frame with a validation pass for each layer."},
+    {"name":"4T Clover / 1T1C DRAM ECC model","mode":"simulated","detail":"Software SECDED corrects one flipped bit and detects two. 4T receipts capture Truth, Time, Travel, and Transfiguration."},
+    {"name":"320-Node Global Grid / 732m SUPERNODES","mode":"logical model","detail":"Deterministic 10 × 32 scheduling slots plus sparse logical addresses."},
+    {"name":"33-Level Quantum-Classical Engine","mode":"logical model","detail":"A reversible forward and reverse routing trace with 33 levels each."},
+    {"name":"Master Brain Algorithm ABM / Algorithm of Comprehension","mode":"software implementation","detail":"Use a deterministic route and compile the execution data, checks, and output into the same receipt."},
+    {"name":"ACLRA Axiomatic Command Literal Reflex","mode":"software implementation","detail":"Accept the two literal operations and retain an explicit rejection reason for invalid or noisy frames."},
+    {"name":"Zero-Noise eBPF Binary Gate","mode":"hardware integration target","detail":"The active validation gate is application code. A Linux eBPF deployment needs its own privileged host and policy."},
+    {"name":"vSoC Hybrid Enclaves","mode":"hardware integration target","detail":"Requires an enclave provider and attestation evidence."},
+    {"name":"Silicon Photonics / Event-Driven Neuromorphic Fabric","mode":"hardware research target","detail":"Requires an optical or neuromorphic testbed and measured energy."},
+    {"name":"Matrix Multi-Scale Quantum Synaptic Stack","mode":"hardware research target","detail":"The routing trace is classical; quantum execution requires a quantum backend."}
+  ]
+}
