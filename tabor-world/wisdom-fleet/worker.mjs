@@ -86,10 +86,18 @@ async function handle(request, env) {
   if (pathname === '/v1/replicas' && read) {
     if (!nonce.test(env.RELEASE_SHA)) return json({ error: 'Release is unconfigured.' }, 503)
     const wantedPrefix = prefix(env)
-    const page = await env.REPLICAS.list({ prefix: wantedPrefix, limit: 1000 })
-    const slots = page.objects.map(o => o.key.slice(wantedPrefix.length)).filter(k => /^node-\d{3,4}\.json$/.test(k))
-      .map(k => k.slice(0, -5))
-    return json({ cohort, source, releaseSHA256: env.RELEASE_SHA, storedCopies: slots.length, completeListing: !page.truncated, slots })
+    const slots = []
+    let cursor
+    do {
+      const page = await env.REPLICAS.list({ prefix: wantedPrefix, limit: 300, cursor })
+      for (const { key } of page.objects) {
+        const filename = key.slice(wantedPrefix.length)
+        if (/^node-\d{3,4}\.json$/.test(filename)) slots.push(filename.slice(0, -5))
+      }
+      if (page.truncated && (!page.cursor || page.cursor === cursor)) throw new Error('Invalid replica cursor')
+      cursor = page.truncated ? page.cursor : undefined
+    } while (cursor)
+    return json({ cohort, source, releaseSHA256: env.RELEASE_SHA, storedCopies: slots.length, completeListing: true, slots })
   }
   const match = /^\/v1(\/nodes\/(node-\d{3,4}))?(?:\/modules\/(\d{3})(?:\/(worker|bot|agent))?)?(?:\/(bundle|receipt))?$/.exec(pathname)
   if (!match || !match[2] && !match[3] || match[3] && match[5]) return json({ error: 'Route not found.' }, 404)
