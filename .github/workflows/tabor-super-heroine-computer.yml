@@ -1,0 +1,30 @@
+name: Tabor Super Heroine Computer
+
+on:
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/super-heroine-computer/**'
+      - '.github/workflows/tabor-super-heroine-computer.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: app-factory/nathan-ai/super-heroine-computer
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: node --test worker.test.mjs
+      - run: python -m pip install numpy
+      - run: python accelerator_probe.py --backend numpy --size 256

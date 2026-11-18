@@ -1,0 +1,38 @@
+name = "tabor-super-heroine-computer"
+main = "worker.mjs"
+compatibility_date = "2026-11-18"
+workers_dev = true
+preview_urls = false
+
+[observability]
+enabled = true
+
+[observability.traces]
+enabled = true
+
+[triggers]
+crons = ["* * * * *"]
+
+[[durable_objects.bindings]]
+name = "COORDINATOR"
+class_name = "ComputeCoordinator"
+
+[[durable_objects.bindings]]
+name = "REPLICAS"
+class_name = "ComputeReplica"
+
+[[durable_objects.bindings]]
+name = "ARCHIVE"
+class_name = "ReceiptArchive"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ComputeCoordinator", "ComputeReplica"]
+
+[[migrations]]
+tag = "v2"
+new_sqlite_classes = ["ReceiptArchive"]
+
+[[services]]
+binding = "FEDERATION"
+service = "tabor-supercomputer-federation"
