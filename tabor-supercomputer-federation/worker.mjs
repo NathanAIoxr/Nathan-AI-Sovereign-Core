@@ -2,7 +2,15 @@ import { gateStatus, powerPlan, powerSources } from './gate-power.mjs'
 import { hypercomputerBlueprint, hyperParam, ironwoodPlan, runTensor, tensorTile } from './hypercomputer.mjs'
 import { digitalFleet, digitalOperations, runDigital } from './digital.mjs'
 
-const count = 50
+import { assignment, fleetCount as count, fleetFamilies, fleetTaskVersion, isNodeId, nodeId, recordCount,
+  loadFleetRecords, runAssignedTask, seedCount, sha256 } from './fleet-tasks.mjs'
+import { authenticateRoad, gateRejection, routeToSovereignty } from './sovereign-road.mjs'
+
+const digitalSeatNodes = 50
+const taskLedgerId = 'fleet-receipts-' + fleetTaskVersion
+const taskBatchSize = 25
+// These two new slots returned unknown_node at their original object addresses.
+const reassignedStorage = new Set(['node-893', 'node-939'])
 const cohort = 'tabor-federation-v1'
 const encoder = new TextEncoder()
 const attachments = [
@@ -35,8 +43,7 @@ const providers = [
 const json = (body, status = 200) => Response.json(body, { status, headers: {
   'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff',
 } })
-const nodeId = n => 'node-' + String(n).padStart(3, '0')
-const nodePattern = /^node-(00[1-9]|0[1-4][0-9]|050)$/
+
 
 export function capacityPlan(systems) {
   if (!Number.isInteger(systems) || systems < 1 || systems > count) throw new RangeError('systems')
@@ -66,26 +73,36 @@ function record(id) {
     compute_role: id === 'node-001' ? 'federation_lead' : 'federation_member',
     capacity: capacityPlan(1),
     physical_host_attachment: 'unverified',
+    assigned_task: assignment(id),
     attachments: attachments.map(item => item.id),
   }
 }
 
 export class SupercomputerNode {
-  constructor(ctx) {
+  constructor(ctx, env) {
+    this.env = env
     this.sql = ctx.storage.sql
     this.sql.exec('CREATE TABLE IF NOT EXISTS node_record (slot INTEGER PRIMARY KEY CHECK (slot = 1), record TEXT NOT NULL)')
   }
   async fetch(request) {
     const url = new URL(request.url)
+    if (url.pathname === '/fleet-task-ledger') return this.taskLedger(request)
     const [id, operation] = url.pathname.slice(1).split('/')
-    if (!nodePattern.test(id)) return json({ error: 'unknown_node' }, 404)
-    if (request.method === 'POST') {
+    if (!isNodeId(id)) return json({ error: 'unknown_node' }, 404)
+    if (request.method === 'POST' && operation !== 'sovereign-road') {
       this.sql.exec('INSERT OR IGNORE INTO node_record(slot, record) VALUES (1, ?)', JSON.stringify(record(id)))
     }
     const entries = this.sql.exec('SELECT record FROM node_record WHERE slot = 1').toArray()
     if (!entries.length) return json({ error: 'node_not_provisioned', id }, 404)
     const item = JSON.parse(entries[0].record)
     if (item.id !== id) return json({ error: 'node_identity_mismatch' }, 409)
+    if (operation === 'assigned-task') return this.assignedTask(id, request.method)
+    if (operation === 'sovereign-road') {
+      const snapshot = await this.localSnapshot(false)
+      if (!snapshot) return json({ error: 'node_dataset_unavailable' }, 503)
+      const result = routeToSovereignty(await request.json(), id, snapshot.dataset.bySlug)
+      return json(result, result.code === 1 ? 200 : 403)
+    }
     if (operation === 'tensor-tile') {
       const size = hyperParam(url.searchParams, 'size', null, 6, 48)
       const start = hyperParam(url.searchParams, 'start', null, 0, 47)
@@ -100,7 +117,53 @@ export class SupercomputerNode {
       const result = await runDigital(id, operation, url.searchParams)
       return json(result, result.error ? 400 : 200)
     }
-    return json(item)
+    return json({ ...item, assigned_task: assignment(id) })
+  }
+  async localSnapshot(allowInitialize) {
+    this.sql.exec('CREATE TABLE IF NOT EXISTS sovereign_box_snapshots (version TEXT PRIMARY KEY, data TEXT NOT NULL, sha256 TEXT NOT NULL)')
+    const read = () => this.sql.exec('SELECT data, sha256 FROM sovereign_box_snapshots WHERE version = ?', fleetTaskVersion).toArray()[0]
+    let stored = read()
+    if (!stored && allowInitialize) {
+      const { seeds, records } = loadFleetRecords(this.env)
+      const data = JSON.stringify({ seeds, records })
+      const digest = await sha256(data)
+      this.sql.exec('INSERT OR IGNORE INTO sovereign_box_snapshots (version, data, sha256) VALUES (?, ?, ?)', fleetTaskVersion, data, digest)
+      stored = read()
+    }
+    if (!stored) return null
+    const digest = await sha256(stored.data)
+    if (digest !== stored.sha256) throw new Error('local snapshot integrity mismatch')
+    const { seeds, records } = JSON.parse(stored.data)
+    if (records.length !== recordCount) throw new Error('local snapshot coverage mismatch')
+    return { digest, dataset: { seeds, records, bySlug: new Map(records.map(record => [record.slug, record])) } }
+  }
+  async assignedTask(id, method) {
+    this.sql.exec('CREATE TABLE IF NOT EXISTS assigned_tasks (task_id TEXT PRIMARY KEY, receipt TEXT NOT NULL)')
+    const task = assignment(id)
+    const read = () => this.sql.exec('SELECT receipt FROM assigned_tasks WHERE task_id = ?', task.task_id).toArray()[0]
+    const stored = read()
+    if (stored) return json(JSON.parse(stored.receipt))
+    if (method !== 'POST') return json({ ...task, id, status: 'pending' }, 404)
+    const snapshot = await this.localSnapshot(true)
+    const receipt = await runAssignedTask(id, snapshot.dataset, snapshot.digest)
+    this.sql.exec('INSERT OR IGNORE INTO assigned_tasks (task_id, receipt) VALUES (?, ?)', task.task_id, JSON.stringify(receipt))
+    return json(JSON.parse(read().receipt))
+  }
+  async taskLedger(request) {
+    this.sql.exec('CREATE TABLE IF NOT EXISTS fleet_task_receipts (id TEXT PRIMARY KEY, family TEXT NOT NULL, receipt TEXT NOT NULL)')
+    if (request.method === 'POST') {
+      const entries = await request.json()
+      this.sql.exec('INSERT OR IGNORE INTO fleet_task_receipts (id, family, receipt) VALUES '
+        + entries.map(() => '(?, ?, ?)').join(', '), ...entries.flatMap(entry => [entry.id, entry.family, entry.receipt]))
+      return json({ acknowledged: entries.length })
+    }
+    const rows = this.sql.exec('SELECT family, COUNT(*) AS verified FROM fleet_task_receipts GROUP BY family').toArray()
+    const families = fleetFamilies.map(family => ({
+      family, assigned: 100, verified: rows.find(row => row.family === family)?.verified ?? 0,
+    }))
+    const verified = families.reduce((sum, family) => sum + family.verified, 0)
+    return json({ cohort, task_version: fleetTaskVersion, assigned: count, verified,
+      pending: count - verified, seed_records: seedCount, expanded_records: recordCount, families })
   }
 }
 
@@ -119,13 +182,52 @@ async function authorize(request, secret) {
 function readInteger(params, name, fallback, max) {
   const values = params.getAll(name)
   if (!values.length) return fallback
-  if (values.length !== 1 || !/^[1-9][0-9]?$/.test(values[0])) return null
+  if (values.length !== 1 || !/^[1-9][0-9]{0,3}$/.test(values[0])) return null
   const value = Number(values[0])
   return value <= max ? value : null
 }
 
-function nodeFetch(env, id, method = 'GET', suffix = '') {
-  return env.NODES.getByName(id).fetch('https://node.internal/' + id + suffix, { method })
+function nodeFetch(env, id, method = 'GET', suffix = '', body) {
+  const name = reassignedStorage.has(id) ? 'sovereign-box/' + id : id
+  return env.NODES.getByName(name).fetch('https://node.internal/' + id + suffix, { method, body })
+}
+
+function taskLedger(env, entries) {
+  const url = 'https://node.internal/fleet-task-ledger'
+  const request = entries ? { method: 'POST', body: JSON.stringify(entries) } : undefined
+  return env.NODES.getByName(taskLedgerId).fetch(url, request)
+}
+
+async function runTaskBatch(env, start, limit) {
+  const results = []
+  const end = Math.min(start + limit, count + 1)
+  for (let first = start; first < end; first += 5) {
+    const wave = Array.from({ length: Math.min(5, end - first) }, (_, index) => nodeId(first + index))
+    results.push(...await Promise.all(wave.map(async id => {
+      try {
+        const response = await nodeFetch(env, id, 'POST', '/assigned-task')
+        if (!response.ok) {
+          await response.body?.cancel()
+          return { id, status: 'unverified' }
+        }
+        const receipt = await response.json()
+        const task = assignment(id)
+        if (receipt.id === id && receipt.task_id === task.task_id && receipt.family === task.family
+          && receipt.status === 'verified' && receipt.local_records === recordCount
+          && /^[0-9a-f]{64}$/.test(receipt.snapshot_sha256) && /^[0-9a-f]{64}$/.test(receipt.receipt)) return receipt
+      } catch {
+        return { id, status: 'unverified' }
+      }
+      return { id, status: 'unverified' }
+    })))
+  }
+  const verified = results.filter(result => result.status === 'verified')
+  if (verified.length) {
+    const response = await taskLedger(env, verified)
+    await response.body?.cancel()
+    if (!response.ok) return json({ error: 'fleet_ledger_unavailable', results }, 503)
+  }
+  return json({ results }, verified.length === results.length ? 200 : 503)
 }
 
 async function providerStatus(env) {
@@ -150,13 +252,14 @@ export function matrixDemo(size) {
     checksum: product.flat().reduce((sum, value) => sum + value, 0), first_row: product[0] }
 }
 
-function dashboard() {
+function dashboard(verified) {
+  const progress = Number.isInteger(verified) ? verified.toLocaleString('en-US') : 'Unavailable'
   return new Response(`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Tabor Supercomputer Federation</title>
 <style>:root{color-scheme:dark;font-family:Geist,system-ui,sans-serif;background:#11191d;color:#edf5f4}body{margin:auto;padding:clamp(22px,6vw,70px);max-width:65rem}header{border-bottom:1px solid #43545c;padding-bottom:22px}h1{font-weight:650;font-size:clamp(2.35rem,7vw,4.7rem);line-height:1.02;margin:.3em 0}p{max-width:57ch;line-height:1.6;color:#bfcecf}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:16px;margin:30px 0}.stats article{border:1px solid #43545c;border-radius:8px;padding:15px}.stats strong{display:block;font-size:1.75rem;color:#a8ebce}.stats span{font-size:.9rem;color:#bfcecf}a{color:#bcebd7;text-underline-offset:3px}li{margin-bottom:14px}footer{margin-top:32px}</style>
 <main><header><h1>Tabor Supercomputer Federation</h1><p>By Nathan Tabor</p><p>Individual node databases, workload attachments, and a shared fleet plan.</p></header>
 <section class="stats" aria-label="Fleet design">
-<article><strong>50</strong><span>Node database slots</span></article><article><strong>450 TB</strong><span>Storage target per system</span></article><article><strong>22.5 PB</strong><span>Modeled fleet target</span></article>
-</section><h2>Federation</h2><ul><li><a href="/v1/nodes">Inspect node databases</a></li><li><a href="/v1/plan?systems=1">One-system capacity plan</a></li><li><a href="/v1/plan?systems=50">50-system capacity plan</a></li><li><a href="/v1/services">Check connected services</a></li><li><a href="/v1/attachments">View workload attachments</a></li><li><a href="/v1/matrix-demo">Run the Matrix demo</a></li><li><a href="/v1/bitcoin-demo">Run the synthetic Bitcoin benchmark</a></li><li><a href="/v1/export">Export portable fleet manifest</a></li></ul><h2>MOMENT × 1,000 and Lisssarrr</h2><ul>
+<article><strong>1,000</strong><span>Independent edge node slots</span></article><article><strong>${progress}</strong><span>Verified Sovereign Box tasks</span></article><article><strong>450 TB</strong><span>Storage target per system</span></article><article><strong>450 PB</strong><span>Modeled fleet target</span></article>
+</section><h2>Federation</h2><ul><li><a href="/v1/tasks">View ONE fleet status and task receipts</a></li><li><a href="/v1/nodes">Inspect node databases</a></li><li><a href="/v1/plan?systems=1">One-system capacity plan</a></li><li><a href="/v1/plan?systems=1000">1,000-system capacity plan</a></li><li><a href="/v1/services">Check connected services</a></li><li><a href="/v1/attachments">View workload attachments</a></li><li><a href="/v1/matrix-demo">Run the Matrix demo</a></li><li><a href="/v1/bitcoin-demo">Run the synthetic Bitcoin benchmark</a></li><li><a href="/v1/export">Export portable fleet manifest</a></li></ul><h2>MOMENT × 1,000 and Lisssarrr</h2><ul>
 <li><a href="/v1/digital">View the 1,000-seat digital allocation</a></li>
 <li><a href="/v1/nodes/node-001/moment?profile=loaded&amp;seat=seat-0001">Run MOMENT with simulated network load</a></li>
 <li><a href="/v1/nodes/node-001/moment?profile=tuned&amp;seat=seat-0001">Run MOMENT with modeled queue tuning</a></li>
@@ -176,6 +279,17 @@ function dashboard() {
 export default {
   async fetch(request, env) {
     const { pathname, searchParams } = new URL(request.url)
+    if (pathname === '/v1/tasks/run' && request.method === 'POST') {
+      if (!await authorize(request, env.FLEET_TASK_TOKEN)) return json({ error: 'unauthorized' }, 401)
+      const start = readInteger(searchParams, 'start', 1, count)
+      const limit = readInteger(searchParams, 'limit', taskBatchSize, taskBatchSize)
+      if (start === null || limit === null) return json({ error: 'invalid_page' }, 400)
+      try {
+        return await runTaskBatch(env, start, limit)
+      } catch {
+        return json({ error: 'fleet_ledger_unavailable' }, 503)
+      }
+    }
     if (pathname === '/v1/provision' && request.method === 'POST') {
       if (!await authorize(request, env.PROVISION_TOKEN)) return json({ error: 'unauthorized' }, 401)
       const start = readInteger(searchParams, 'start', 1, count)
@@ -193,8 +307,29 @@ export default {
       }))
       return json({ results }, results.every(item => item.status === 'provisioned') ? 200 : 503)
     }
+    if (request.method === 'POST' && pathname.endsWith('/sovereign-road')) {
+      const node = /^\/v1\/nodes\/([^/]+)\/sovereign-road$/.exec(pathname)?.[1]
+      if (!isNodeId(node)) return json(gateRejection, 403)
+      const packet = await authenticateRoad(request, node, env.SOVEREIGN_ROAD_KEY)
+      if (!packet) return json(gateRejection, 403)
+      try {
+        return await nodeFetch(env, node, 'POST', '/sovereign-road', JSON.stringify(packet))
+      } catch {
+        return json({ error: 'node_dataset_unavailable' }, 503)
+      }
+    }
     if (request.method !== 'GET') return json({ error: 'method_not_allowed' }, 405)
-    if (pathname === '/') return dashboard()
+    if (pathname === '/') {
+      const state = await taskLedger(env).then(response => response.json()).catch(() => null)
+      return dashboard(state?.verified)
+    }
+    if (pathname === '/v1/tasks') {
+      try {
+        return await taskLedger(env)
+      } catch {
+        return json({ error: 'fleet_ledger_unavailable' }, 503)
+      }
+    }
     if (pathname === '/health') return json({ service: 'Tabor Supercomputer Federation', cohort,
       fleet_slots: count, database_binding: Boolean(env.NODES), provisioning_enabled: Boolean(env.PROVISION_TOKEN?.length >= 32) })
     if (pathname === '/v1/hypercomputer') return json(hypercomputerBlueprint)
@@ -231,7 +366,7 @@ export default {
     }
     if (pathname === '/v1/attachments') return json({ attachments: [...attachments, ...digitalAttachments] })
     if (pathname === '/v1/digital') {
-      return json(digitalFleet(Array.from({ length: count }, (_, index) => nodeId(index + 1))))
+      return json(digitalFleet(Array.from({ length: digitalSeatNodes }, (_, index) => nodeId(index + 1))))
     }
     if (pathname === '/v1/services') return json({ services: await providerStatus(env) })
     if (pathname === '/v1/plan') {
@@ -239,12 +374,18 @@ export default {
       return systems === null ? json({ error: 'invalid_system_count' }, 400) : json(capacityPlan(systems))
     }
     if (pathname === '/v1/nodes') return json({ cohort, identity_source: 'fleet_manifest',
-      slots: Array.from({ length: count }, (_, i) => ({ id: nodeId(i + 1), path: '/v1/nodes/' + nodeId(i + 1), matrix: '/v1/nodes/' + nodeId(i + 1) + '/matrix-demo' })) })
+      slots: Array.from({ length: count }, (_, i) => ({ id: nodeId(i + 1), path: '/v1/nodes/' + nodeId(i + 1), task: '/v1/nodes/' + nodeId(i + 1) + '/assigned-task', matrix: '/v1/nodes/' + nodeId(i + 1) + '/matrix-demo' })) })
+    const roadPath = /^\/v1\/nodes\/([^/]+)\/sovereign-road$/.exec(pathname)
+    if (roadPath) return json({ error: 'method_not_allowed' }, 405)
     if (pathname.startsWith('/v1/nodes/')) {
       const [id, operation, ...extra] = pathname.slice('/v1/nodes/'.length).split('/')
-      if (!nodePattern.test(id) || extra.length || (operation !== undefined && operation !== 'matrix-demo' && !digitalOperations.includes(operation))) return json({ error: 'unknown_node' }, 404)
+      const digital = digitalOperations.includes(operation)
+      if (!isNodeId(id) || extra.length || (digital && Number(id.slice(5)) > digitalSeatNodes)
+        || (operation !== undefined && operation !== 'matrix-demo' && operation !== 'assigned-task' && !digital)) {
+        return json({ error: 'unknown_node' }, 404)
+      }
       try {
-        const suffix = operation ? '/' + operation + (digitalOperations.includes(operation) ? '?' + searchParams : '') : ''
+        const suffix = operation ? '/' + operation + (digital ? '?' + searchParams : '') : ''
         return await nodeFetch(env, id, 'GET', suffix)
       } catch {
         return json({ error: 'database_unavailable' }, 503)
