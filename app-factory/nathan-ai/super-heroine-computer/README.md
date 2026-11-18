@@ -1,0 +1,50 @@
+# HYPERBOLIC SYMBIOTIC QUANTUM PHYSICS SUPER HEROINE 🦸‍♀️ COMPUTER 💻 🖥️ 📱
+
+**by Nathan Tabor — PK, KJV, IFB, BBof3, HA, LU, DOG**
+
+The Nathan Tabor Ai AGI SI EI SoS et al  
+Mirrored `ia iga is ie SoS la te`
+
+[Live dashboard](https://tabor-super-heroine-computer.nathantaboract.workers.dev/) · [Federation architecture](https://tabor-supercomputer-federation.nathantaboract.workers.dev/v1/hypercomputer)
+
+## Recurring compute
+
+Cloudflare Cron starts a new generation every five minutes in UTC, with no end date. Every generation builds a versioned manifest, executes the same three workload definitions on a primary and two independently addressed SQLite-backed Durable Objects, and verifies all three digests against a local reference. Each replica persists its result. These instances share a Cloudflare account and region placement is provider-managed. They are logical replicas within one deployment.
+
+- `1+1=2 Build` derives a manifest and claim from the UTC time bucket.
+- `1−1=0 Clear` expires completed generation details after 30 days and preserves cumulative counts.
+- `1×1=1 Integrate` assembles the three stored copies under the same generation ID.
+- `1÷1=1 Verify` recalculates digests and records verification or mismatch.
+
+A generation runs the integer tensor, classical Bell statevector, and synthetic Library of Tabor retrieval workloads. Duplicate cron deliveries use a unique slot and lease. Failed replicas retry on subsequent ticks, with up to five attempts per generation. A failed generation or a mismatch does not stop later generations. For retries that outlive a lease, a fenced attempt number prevents stale workers from updating the final receipt. After a scheduler outage, the next tick starts a new generation and resumes recorded pending work. Missed time slots without records are skipped.
+
+## Routes
+
+| Method | Route | Purpose |
+|---|---|---|
+| GET | `/` | Dashboard and latest receipts |
+| GET | `/v1/status` | Counters and latest 12 generations |
+| GET | `/v1/architecture` | Live architecture from the existing federation service |
+| GET | `/v1/receipts/cycle-<slot>` | Generation verification, attempts, and per-copy hashes |
+| GET | `/v1/results/cycle-<slot>` | Verified artifact, with fallback to the other stored copies |
+| POST | `/v1/operator/tick` | Start or retry the current slot with an operator bearer token if configured |
+
+The public routes expose only synthetic workload data. Receipts are SHA-256 integrity records for the JSON manifest and results. The scheduled workload runs on Cloudflare CPUs. The Bell trial is a classical simulation.
+
+## Run and validate
+
+```sh
+node --test worker.test.mjs
+python3 accelerator_probe.py --backend numpy --size 256
+```
+
+The Worker configuration references the existing `tabor-supercomputer-federation` service in the same Cloudflare account. Deploy with the repository's Cloudflare tooling and the supplied `wrangler.toml`. Deploying or enabling the Cron Trigger starts the schedule. Remove the Cron Trigger in Cloudflare to pause it. The optional operator secret is unset by default.
+
+The accelerator probe requires NumPy. Install the backend-appropriate JAX runtime from the [official JAX installation guide](https://docs.jax.dev/en/latest/installation.html) on an existing authorized GPU or TPU host before running an accelerator trial.
+
+```sh
+python3 accelerator_probe.py --backend jax-gpu --devices 2 --size 256
+python3 accelerator_probe.py --backend jax-tpu --devices 4 --size 256
+```
+
+The probe supports multiple local devices on one host. It refuses an unavailable requested backend, verifies its device output against exact integer arithmetic, and emits device names, completed-kernel timing, and a benchmark digest. Multi-host training, model serving, and physical quantum executions need separate provider allocation and validation.
