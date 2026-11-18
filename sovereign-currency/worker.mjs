@@ -1,6 +1,9 @@
 import { assets } from "./assets.mjs";
 import { makeCatalog, catalogPage } from "./catalog.mjs";
 
+import { runThreePhases } from "./quantum.mjs";
+
+const quantumDesign = JSON.parse(assets["quantum-design.json"]);
 const catalog = makeCatalog(assets);
 
 const genesisPrefix = "01000000" + "00".repeat(32) +
@@ -64,6 +67,11 @@ export default {
     if (path === "/api/coins") return send(JSON.stringify(catalog), "application/json");
     if (path === "/api/conspectus") return send(assets["conspectus.json"], "application/json");
     if (path === "/catalog.css") return send(assets["catalog.css"], "text/css");
+    if (path === "/api/quantum/traits") return send(JSON.stringify(quantumDesign.traits), "application/json");
+    if (path === "/api/quantum/execute") {
+      const result = await runThreePhases(quantumDesign, genesisPrefix, hashHeader, JSON.parse(assets["registry.json"]));
+      return send(JSON.stringify(result), "application/json");
+    }
     if (path === "/api/genesis") {
       const receipt = await genesisReceipt();
       return send(JSON.stringify(receipt), "application/json", receipt.ok ? 200 : 500);

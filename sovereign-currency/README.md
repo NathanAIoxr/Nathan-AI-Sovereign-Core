@@ -15,3 +15,9 @@ The source architecture lists Alephium, Quai and Iron Fish as network targets an
 The searchable `/coins` catalog and `/api/coins` JSON preserve the 21-ring roster, nine Tabor World law coins, four 2025 SIN/SEN records, and additional historical coin definitions. Repeated names stay attached to their source families. The earlier assistant proposals are labeled as hypothetical drafts. The seven external reference assets have their own section, with the complete 7/7/7 reference available at `/api/conspectus`.
 
 The historical crosswalk is preserved in `coin_systems_and_values.csv`. `tabor_world_crypto.py` is the recovered offline reward simulator and is independent from the browser-local 21-ring ledger.
+
+## Sovereign Mining & Quantum Core reference
+
+`GET /api/quantum/execute` runs the three-phase BLACK_NOTE isolation, bounded backwards and XOR-complement nonce scan, and neutral restoration of WHITE_NOTES and flat indices 0–3. It reports 64 classical SHA-256d evaluations on the historical Bitcoin genesis prefix and references the attached 21-ring registry. `GET /api/quantum/traits` returns the original hardware and network design parameters.
+
+Run `python3 sovereign-currency/nathan_ai_quantum_miner.py` for the repaired Python reference. Its three phases share one SQLite connection. The Cloudflare endpoint is stateless. Both use classical hashing. The hardware, grid and Stratum values are design parameters.
