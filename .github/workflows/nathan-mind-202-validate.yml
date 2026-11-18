@@ -1,0 +1,21 @@
+name: Nathan Mind 202 build queue validation
+on:
+  push:
+    paths:
+      - 'integrations/nathan-mind-202-build-queue.json'
+      - 'integrations/nathan-mind-101-workers-101-bots.json'
+      - 'integrations/nathan-mind-202/**'
+      - '.github/workflows/nathan-mind-202-validate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node integrations/nathan-mind-202/validate.mjs
