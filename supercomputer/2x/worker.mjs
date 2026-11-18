@@ -64,12 +64,12 @@ const publicChecks = [
       item.url === "https://nathan-tabor-supercomputer-2x.nathantaboract.workers.dev/")]
 ];
 
-export async function runOperations(db, scheduledMs, fetcher = fetch) {
+async function collectChecks(fetcher) {
   const local = verify();
   const checks = [{ name: "2X+ reference verification", passed: local.ok }];
   checks.push(...await Promise.all(publicChecks.map(async ([name, url, validate]) => {
     try {
-      const response = await fetcher(url, { signal: AbortSignal.timeout(8000), redirect: "error" });
+      const response = await fetcher(url);
       if (!response.ok) return { name, passed: false, detail: "HTTP " + response.status };
       const passed = Boolean(validate(await response.json()));
       return { name, passed, ...(passed ? {} : { detail: "Unexpected response data" }) };
@@ -77,6 +77,20 @@ export async function runOperations(db, scheduledMs, fetcher = fetch) {
       return { name, passed: false, detail: "Request failed or timed out" };
     }
   })));
+  return checks;
+}
+
+function boundFetcher(env) {
+  const services = {
+    "nathan-tabor-supercomputer.nathantaboract.workers.dev": env.CORE,
+    "tabor-sovereign-currency.nathantaboract.workers.dev": env.CURRENCY,
+    "tabor-world.nathantaboract.workers.dev": env.HUB
+  };
+  return url => services[new URL(url).hostname].fetch(new Request(url));
+}
+
+export async function runOperations(db, scheduledMs, fetcher = fetch) {
+  const checks = await collectChecks(fetcher);
   const passed = checks.every(check => check.passed);
   await db.batch([
     db.prepare("INSERT INTO sovereign_operations_runs VALUES (?, ?, ?, ?) ON CONFLICT(scheduled_ms) DO NOTHING")
@@ -110,13 +124,7 @@ const headers = { "X-Content-Type-Options": "nosniff", "Cache-Control": "no-stor
 
 export default {
   async scheduled(controller, env) {
-    const services = {
-      "nathan-tabor-supercomputer.nathantaboract.workers.dev": env.CORE,
-      "tabor-sovereign-currency.nathantaboract.workers.dev": env.CURRENCY,
-      "tabor-world.nathantaboract.workers.dev": env.HUB
-    };
-    await runOperations(env.DB, controller.scheduledTime, (url, init) =>
-      services[new URL(url).hostname].fetch(url, init));
+    await runOperations(env.DB, controller.scheduledTime, boundFetcher(env));
   },
   async fetch(request, env) {
     const path = new URL(request.url).pathname;
@@ -129,6 +137,7 @@ export default {
     switch (path) {
       case "/": return new Response(head ? null : page(), { headers: { ...headers, "Content-Type": "text/html; charset=utf-8" } });
       case "/healthz": return json({ ok: true, service: design.name });
+      case "/api/operations/check": return json({ checks: await collectChecks(boundFetcher(env)) });
       case "/api/operations":
         try { return json(await recentOperations(env.DB)); }
         catch { return json({ error: "Operations receipts unavailable" }, 503); }
