@@ -18,7 +18,8 @@ async function probe(env, service) {
 }
 export default {
   async fetch(request, env) {
-    const path = new URL(request.url).pathname;
+    const url = new URL(request.url);
+    const path = url.pathname;
     if (path === '/api/runtime' || path.startsWith('/api/runtime/')) {
       if (request.method !== 'GET') return jsonResponse({ error: 'Method not allowed' }, 405);
       if (path === '/api/runtime') return jsonResponse({ services: await Promise.all(services.map(service => probe(env, service))) });
@@ -31,8 +32,14 @@ export default {
       };
       const route = routes[path];
       if (!route) return jsonResponse({ error: 'Unknown runtime endpoint' }, 404);
+      const upstream = new URL(route[1], 'https://service.internal');
+      if (path === '/api/runtime/sha256d-test') {
+        const hex = url.searchParams.get('hex') ?? '';
+        if (!/^(?:[a-fA-F0-9]{2}){1,80}$/.test(hex)) return jsonResponse({ error: 'Provide 1–80 bytes as hexadecimal in the hex parameter' }, 400);
+        upstream.searchParams.set('hex', hex);
+      }
       try {
-        const response = await env[route[0]].fetch('https://service.internal' + route[1], { signal: AbortSignal.timeout(3000) });
+        const response = await env[route[0]].fetch(upstream.href, { signal: AbortSignal.timeout(3000) });
         if (!response.ok || !response.headers.get('content-type')?.includes('json')) {
           await response.body?.cancel();
           return jsonResponse({ error: 'Upstream data unavailable' }, 502);
