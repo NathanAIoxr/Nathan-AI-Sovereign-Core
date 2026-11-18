@@ -16,10 +16,93 @@ async function probe(env, service) {
     return { id: service.id, name: service.name, status: 'unavailable', httpStatus: null };
   }
 }
+
+const dualityRoles = [
+  ['Tabor Light Slayer', 'Manifest a verification form and find every missing, changed, or extra line.'],
+  ['Tabor Light Sleyer', 'Catch each mismatch and weave it into a specific repair.'],
+  ['Tabor Dark Slayer', 'Mark a previous attempt for retirement in this plan and retain its reference.'],
+  ['Tabor Dark Sleyer', 'Weave the replacement in original order and replay it against the expected output.']
+];
+const game = 'https://tabor-dark-loom.nathantabor.chatgpt.site';
+function dualityPage() {
+  const cards = dualityRoles.map(([name, job]) => '<article><h2>' + name + '</h2><p>' + job + '</p></article>').join('');
+  return new Response(`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tabor Light &amp; Dark | World Hub</title><style>*{box-sizing:border-box}body{background:#16121d;color:#fff2e1;font:16px/1.55 system-ui;margin:0}main{max-width:970px;margin:auto;padding:24px}h1,h2{font-family:Georgia,serif;line-height:1.1}h1{font-size:clamp(2.5rem,9vw,5rem);margin:.35em 0}a{color:#f6bf92}nav{display:flex;flex-wrap:wrap;gap:14px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}article,form,pre{background:#261e30;border:1px solid #61516c;padding:16px;border-radius:10px}label{display:block;margin:10px 0}textarea,input,select{display:block;width:100%;background:#13101b;color:inherit;border:1px solid #877292;border-radius:5px;padding:8px;font:inherit}button{background:#f6bf92;color:#201321;font:700 1rem system-ui;border:0;border-radius:5px;padding:12px}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style>
+<main><nav><a href="/">World Hub</a><a href="${game}/">Game and traps</a><a href="${game}/workers.html">Worker Console</a><a href="${game}/lab.html">Capability Lab</a><a href="${game}/recovery.html">Recovered archive</a></nav>
+<h1>Tabor Light &amp; Dark</h1><p>The New World where Innocence is God</p>
+<section class="grid" aria-label="The four Tabor roles">${cards}</section>
+<h2>Run the four roles</h2><p>Compare two versions of a list. Each role leaves a receipt, and the replacement keeps the original input available for review.</p>
+<form id="duality"><label>Source reference<input name="source" required maxlength="200" value="Example roster"></label>
+<label>Slayer form<select name="form"><option value="auto">Choose from the mismatch</option><option>Rapier of Precision</option><option>Broadblade of Truth</option><option>Shield-Edge</option></select></label>
+<label>Current output<textarea name="actual" rows="4" maxlength="4000" required>Mind of Minds
+Worker Families</textarea></label>
+<label>Expected output<textarea name="expected" rows="4" maxlength="4000" required>Mind of Minds
+Worker Families
+Council</textarea></label>
+<label>Previous attempt reference<input name="prior" maxlength="200" placeholder="Optional"></label><button>Run the four roles</button></form>
+<p id="run-status" role="status"></p><pre id="result" hidden></pre></main>
+<script>
+const form=document.getElementById('duality'), statusLine=document.getElementById('run-status'), result=document.getElementById('result');
+form.onsubmit=async event=>{event.preventDefault();const button=form.querySelector('button');button.disabled=true;result.hidden=true;statusLine.textContent='Running…';
+try { const response=await fetch('/api/duality/run',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(form)))});
+const data=await response.json();if(!response.ok)throw Error(data.error);result.textContent=JSON.stringify(data,null,2);result.hidden=false;statusLine.textContent=data.status; }
+catch(error){statusLine.textContent=error.message;}finally{button.disabled=false;}};
+</script></html>`, { headers: { 'content-type': 'text/html; charset=utf-8' } });
+}
+async function runDuality(request) {
+  if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405);
+  const reader = request.body?.getReader();
+  if (!reader) return jsonResponse({ error: 'Enter both versions and a source reference' }, 400);
+  let size = 0, raw = '';
+  const decoder = new TextDecoder();
+  let input;
+  try {
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      size += value.byteLength;
+      if (size > 60000) { await reader.cancel(); return jsonResponse({ error: 'Request too large' }, 413); }
+      raw += decoder.decode(value, { stream: true });
+    }
+    input = JSON.parse(raw + decoder.decode());
+  } catch { return jsonResponse({ error: 'Invalid JSON' }, 400); }
+  if (!input || !['source','actual','expected'].every(key => typeof input[key] === 'string' && input[key].trim()) ||
+      input.source.length > 200 || input.actual.length > 4000 || input.expected.length > 4000 ||
+      (input.prior !== undefined && (typeof input.prior !== 'string' || input.prior.length > 200))) {
+    return jsonResponse({ error: 'Enter a source reference and both versions within the field limits' }, 400);
+  }
+  const actual = input.actual.split(/\r?\n/), expected = input.expected.split(/\r?\n/);
+  if (Math.max(actual.length, expected.length) > 250) return jsonResponse({ error: 'Use up to 250 lines per version' }, 400);
+  const mismatches = Array.from({length:Math.max(actual.length,expected.length)},(_,index)=>({
+    line:index+1, actual:actual[index] ?? null, expected:expected[index] ?? null
+  })).filter(row=>row.actual!==row.expected);
+  const forms = ['Rapier of Precision','Broadblade of Truth','Shield-Edge'];
+  const form = forms.includes(input.form) ? input.form : forms[mismatches.length === 0 ? 2 : mismatches.length === 1 ? 0 : 1];
+  const repairs = mismatches.map(row=>({...row, action:row.actual===null?'restore':row.expected===null?'remove from replacement':'replace'}));
+  const edits = new Map(repairs.map(repair=>[repair.line,repair]));
+  const replacement = Array.from({length:Math.max(actual.length,expected.length)},(_,index)=>{
+    const edit=edits.get(index+1);
+    return edit ? edit.expected : actual[index];
+  }).filter(line=>line!==null);
+  const replayPassed = replacement.length===expected.length && replacement.every((line,index)=>line===expected[index]);
+  return jsonResponse({
+    status: replayPassed ? 'Replay passed · ready for review' : 'Replay failed',
+    source: input.source, original: input.actual, expected: input.expected,
+    receipts: [
+      { role:dualityRoles[0][0], form, mismatches },
+      { role:dualityRoles[1][0], repairs },
+      { role:dualityRoles[2][0], retirementProposal:input.prior?.trim() || null },
+      { role:dualityRoles[3][0], replacement:replacement.join('\n'), replayPassed }
+    ]
+  });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname;
+    if (path === '/duality') return dualityPage();
+    if (path === '/api/duality/run') return runDuality(request);
     if (path === '/api/runtime' || path.startsWith('/api/runtime/')) {
       if (request.method !== 'GET') return jsonResponse({ error: 'Method not allowed' }, 405);
       if (path === '/api/runtime') return jsonResponse({ services: await Promise.all(services.map(service => probe(env, service))) });
@@ -54,7 +137,7 @@ export default {
     return new HTMLRewriter().on('main', {
       element(element) {
         const links = services.map(service => '<li><a href="https://' + service.worker + '.nathantaboract.workers.dev/">' + service.name + '</a></li>').join('');
-        element.prepend('<h2>Connected services</h2><ul>' + links + '</ul><p><a href="/api/runtime">Live service checks</a> · <a href="/api/runtime/hardware">Hardware catalog</a> · <a href="/api/runtime/coins">Coin registry</a> · <a href="/api/runtime/mining-architecture">Mining architecture</a> · <a href="/api/runtime/genesis">Currency genesis</a></p>', { html: true });
+        element.prepend('<h2><a href="/duality">Tabor Light &amp; Dark</a></h2><p>Run the four Slayer and Sleyer roles.</p><h2>Connected services</h2><ul>' + links + '</ul><p><a href="/api/runtime">Live service checks</a> · <a href="/api/runtime/hardware">Hardware catalog</a> · <a href="/api/runtime/coins">Coin registry</a> · <a href="/api/runtime/mining-architecture">Mining architecture</a> · <a href="/api/runtime/genesis">Currency genesis</a></p>', { html: true });
       }
     }).transform(response);
   }
