@@ -1,16 +1,112 @@
-const json=(v,s=200)=>Response.json(v,{status:s,headers:{"cache-control":"no-store","access-control-allow-origin":"*"}});
-const validKinds=new Set(["inventory-audit","genesis-selftest","telemetry-check"]);
-const authorized=(req,env)=>Boolean(env.TRUE_CLOUD_TOKEN)&&req.headers.get("authorization")==="Bearer "+env.TRUE_CLOUD_TOKEN;
-async function audit(kind,db){if(kind==="inventory-audit"){return await db.prepare("SELECT (SELECT COUNT(*) FROM tabor_agent_assignments) agents,(SELECT COUNT(*) FROM tabor_coin_federation) coins,(SELECT COUNT(*) FROM tabor_restoration_inventory) restoration_entries,(SELECT COUNT(*) FROM tabor_compute_fleet) connected_compute_nodes").first()}if(kind==="telemetry-check"){return await db.prepare("SELECT (SELECT COUNT(*) FROM nathan_supercomputer_telemetry_log) telemetry_records,(SELECT COUNT(*) FROM tabor_compute_heartbeats) heartbeat_records").first()}const header=Uint8Array.from(("01000000"+"00".repeat(32)+"3ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a"+"29ab5f49"+"ffff001d"+"1dac2b7c").match(/../g),x=>parseInt(x,16));const a=await crypto.subtle.digest("SHA-256",header);const b=await crypto.subtle.digest("SHA-256",a);const hash=[...new Uint8Array(b)].reverse().map(x=>x.toString(16).padStart(2,"0")).join("");return {hash,pass:hash==="000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"}}
-async function executeNext(env){const q=await env.DB.prepare("SELECT id,kind FROM true_cloud_jobs WHERE status='queued' ORDER BY created_at,id LIMIT 1").first();if(!q)return {state:"idle"};const c=await env.DB.prepare("UPDATE true_cloud_jobs SET status='running',started_at=CURRENT_TIMESTAMP WHERE id=? AND status='queued'").bind(q.id).run();if(!c.meta?.changes)return {state:"race_lost"};try{const result=await audit(q.kind,env.DB);const status=result.pass===false?"failed":"completed";await env.DB.prepare("UPDATE true_cloud_jobs SET status=?,completed_at=CURRENT_TIMESTAMP,result_json=? WHERE id=?").bind(status,JSON.stringify(result),q.id).run();return {id:q.id,status,result}}catch(e){await env.DB.prepare("UPDATE true_cloud_jobs SET status='failed',completed_at=CURRENT_TIMESTAMP,result_json=? WHERE id=?").bind(JSON.stringify({error:String(e).slice(0,400)}),q.id).run();return {id:q.id,status:"failed"}}}
+import architecture from "../architecture.json" with {type:"json"};
+import { actAddress,sha256 } from "./proofs.mjs";
+import { jobKinds,runNext,runScheduled,submit,summarySql } from "./jobs.mjs";
+import { page,script } from "./site.mjs";
+
+const shared={"cache-control":"no-store","x-content-type-options":"nosniff"};
+const json=(value,status=200)=>Response.json(value,{status,headers:{...shared,"access-control-allow-origin":"*"}});
+const knownServices=[
+  {key:"WORLD_HUB",name:"Tabor World Hub",host:"https://hub.internal",path:"/health",url:"https://tabor-world-hub.nathantaboract.workers.dev/"},
+  {key:"SOVEREIGN_COMPUTE",name:"Nathan AI 2X+ Sovereign Supercomputer",host:"https://compute.internal",path:"/health",url:"https://nathan-ai-sovereign-2x.nathantaboract.workers.dev/"},
+  {key:"COMPUTE_FLEET",name:"Compute Fleet Registry",host:"https://fleet.internal",path:"/health"},
+];
+
+async function federation(request,env) {
+  const services=await Promise.all(knownServices.map(async ({key,name,host,path,url})=>{
+    let status=null;
+    try {
+      const response=await env[key]?.fetch(host+path,{signal:AbortSignal.timeout(3500)});
+      status=response?.status??null;
+      if(response?.body) await response.body.cancel();
+    } catch {}
+    return {key,name,url,status,reachable:status>=200&&status<300};
+  }));
+  return json({edge:{provider:"Cloudflare",colo:request.cf?.colo??null},services});
+}
+
+async function authorized(request,env) {
+  const bearer=request.headers.get("authorization")||"";
+  if (!env.TRUE_CLOUD_TOKEN||bearer.length>300||!bearer.startsWith("Bearer ")) return false;
+  const [left,right]=await Promise.all([sha256(bearer.slice(7)),sha256(env.TRUE_CLOUD_TOKEN)]);
+  let diff=0;
+  for(let i=0;i<left.length;i++) diff|=left.charCodeAt(i)^right.charCodeAt(i);
+  return diff===0;
+}
+
+const jobsSql=`SELECT j.id,j.kind,j.status,j.created_at,j.started_at,j.completed_at,j.result_json,r.sha256
+  FROM true_cloud_jobs j LEFT JOIN true_cloud_receipts r ON r.job_id=j.id`;
+
+async function receipts(request,url,env) {
+  if (url.pathname==="/api/jobs"&&request.method==="GET") {
+    const {results}=await env.DB.prepare(jobsSql+" ORDER BY j.created_at DESC,j.id DESC LIMIT 30").all();
+    return json({jobs:results.map(({result_json,...row})=>({...row,
+      result_json:row.status==="failed"?'{"error":"Job failed"}':result_json}))});
+  }
+  if (url.pathname==="/api/jobs"&&request.method==="POST") {
+    if(!await authorized(request,env))return json({error:"Unauthorized"},401);
+    const reader=request.body?.getReader();
+    let text="",bytes=0;
+    const decoder=new TextDecoder();
+    if(!reader)return json({error:"JSON body required"},400);
+    for(;;) {
+      const {done,value}=await reader.read();
+      if(done)break;
+      bytes+=value.byteLength;
+      if(bytes>1024) { await reader.cancel();return json({error:"Request exceeds 1 KB"},413); }
+      text+=decoder.decode(value,{stream:true});
+    }
+    let body;
+    try{body=JSON.parse(text+decoder.decode());}catch{return json({error:"Invalid JSON"},400);}
+    if(!jobKinds.includes(body?.kind))return json({error:"Unsupported job kind"},400);
+    const key=request.headers.get("idempotency-key");
+    if(key!==null&&!/^[a-z0-9_-]{1,80}$/i.test(key))return json({error:"Invalid idempotency key"},400);
+    const id=key===null?crypto.randomUUID():"request-"+await sha256(key);
+    const job=await submit(env.DB,id,body.kind);
+    return job.kind!==body.kind?json({error:"Idempotency key is assigned to a different kind"},409):json(job,201);
+  }
+  if(request.method==="GET"){
+    const match=/^\/api\/jobs\/([a-zA-Z0-9_.:%-]{1,120})(\/audit)?$/.exec(url.pathname);
+    if(match){
+      const id=decodeURIComponent(match[1]);
+      const receipt=await env.DB.prepare("SELECT body,sha256 FROM true_cloud_receipts WHERE job_id=?").bind(id).first();
+      if(!receipt)return json({error:"Verified receipt unavailable"},404);
+      return json(match[2]?{id,sha256:receipt.sha256,verified:await sha256(receipt.body)===receipt.sha256}:
+        {receipt:JSON.parse(receipt.body),sha256:receipt.sha256});
+    }
+  }
+  return json({error:"Not found"},404);
+}
+
 export default {
-async fetch(req,env){const u=new URL(req.url);if(req.method==="OPTIONS")return new Response(null,{headers:{"access-control-allow-origin":"*","access-control-allow-headers":"authorization,content-type","access-control-allow-methods":"GET,POST,OPTIONS"}});
-if(req.method==="GET"&&u.pathname==="/")return new Response('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRUE CLOUD COMPUTING — TABOR WORLD HUB</title><style>body{font:16px system-ui;background:#101b2a;color:#eaf4ff;margin:0;padding:5vw;line-height:1.6}main{max-width:850px;margin:auto}h1{font-size:clamp(2rem,5vw,4rem)}a{color:#79d8ff}.panel{background:#1b2d43;padding:1.5rem;border-radius:18px;margin:1rem 0}</style><main><h1>TRUE CLOUD COMPUTING</h1><h2>BY NATHAN TABOR</h2><p>Part of the Tabor World Hub. Edge APIs, verifiable scheduled jobs, and distributed computing infrastructure.</p><section class="panel"><h3>Live service endpoints</h3><p><a href="/health">Health</a> · <a href="/api/status">Infrastructure status</a> · <a href="/api/jobs">Job receipts</a></p></section><p>Source-controlled in GitHub. Executing on Cloudflare Workers. Physical compute nodes and optional services are tracked separately from software capabilities.</p></main></html>',{headers:{"content-type":"text/html;charset=utf-8","cache-control":"no-store"}});
-if(req.method==="GET"&&u.pathname==="/health")return json({name:"TRUE CLOUD COMPUTING BY NATHAN TABOR",hub:"TABOR WORLD HUB",state:"edge-online",job_kinds:[...validKinds]});
-if(req.method==="GET"&&u.pathname==="/api/status"){const counts=await env.DB.prepare("SELECT (SELECT COUNT(*) FROM true_cloud_jobs) total_jobs,(SELECT COUNT(*) FROM true_cloud_jobs WHERE status='completed') completed_jobs,(SELECT COUNT(*) FROM tabor_compute_fleet) registered_compute_nodes,(SELECT COUNT(*) FROM tabor_restoration_inventory) restoration_inventory").first();return json({platform:"TRUE CLOUD COMPUTING",hub:"TABOR WORLD HUB",counts,capabilities:{edge:true,d1:true,scheduled_execution:true,external_compute_provisioned:counts.registered_compute_nodes>0}})}
-if(req.method==="GET"&&u.pathname==="/api/jobs"){const r=await env.DB.prepare("SELECT id,kind,status,created_at,started_at,completed_at,result_json FROM true_cloud_jobs ORDER BY created_at DESC,id DESC LIMIT 30").all();return json({jobs:r.results})}
-if(req.method==="POST"&&u.pathname==="/api/jobs"){if(!authorized(req,env))return json({error:"unauthorized or secret not configured"},401);let b;try{b=await req.json()}catch{return json({error:"invalid JSON"},400)}if(!validKinds.has(b?.kind))return json({error:"unsupported job kind"},400);const id=crypto.randomUUID();await env.DB.prepare("INSERT INTO true_cloud_jobs(id,kind,status) VALUES(?,?,'queued')").bind(id,b.kind).run();return json({id,status:"queued"},201)}
-if(req.method==="POST"&&u.pathname==="/api/run-next"){if(!authorized(req,env))return json({error:"unauthorized or secret not configured"},401);return json(await executeNext(env))}
-return json({error:"not found"},404)},
-async scheduled(event,env,ctx){ctx.waitUntil((async()=>{const cycle=new Date(event.scheduledTime).toISOString().slice(0,16);for(const kind of validKinds){await env.DB.prepare("INSERT OR IGNORE INTO true_cloud_jobs(id,kind,status) VALUES(?,?,'queued')").bind("cron-"+cycle+"-"+kind,kind).run()}for(let i=0;i<3;i++)await executeNext(env)})())}
+  async fetch(request,env) {
+    const url=new URL(request.url),path=url.pathname;
+    if(request.method==="OPTIONS")return new Response(null,{status:204,headers:{"access-control-allow-origin":"*",
+      "access-control-allow-headers":"authorization,content-type,idempotency-key","access-control-allow-methods":"GET,POST,OPTIONS"}});
+    try {
+      if(request.method==="GET"){
+        if(path==="/")return new Response(page,{headers:{...shared,"content-type":"text/html;charset=utf-8","referrer-policy":"no-referrer",
+          "content-security-policy":"default-src 'none'; script-src 'self'; connect-src 'self'; style-src 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'"}});
+        if(path==="/dashboard.js")return new Response(script,{headers:{...shared,"content-type":"text/javascript;charset=utf-8"}});
+        if(path==="/health")return json({name:architecture.project,version:architecture.version,hub:"TABOR WORLD HUB",state:"edge-online",job_kinds:jobKinds});
+        if(path==="/api/architecture")return json(architecture);
+        if(path==="/api/federation")return federation(request,env);
+        if(path==="/api/act/address")return json(await actAddress(url.searchParams.get("label")));
+        if(path==="/api/status"){
+          const counts=await env.DB.prepare(summarySql).first();
+          return json({platform:"TRUE CLOUD COMPUTING",hub:"TABOR WORLD HUB",counts,capabilities:{
+            edge:true,d1:true,scheduled_execution:true,external_compute_provisioned:false,registered_nodes:counts.registered_compute_nodes}});
+        }
+      }
+      if(path==="/api/jobs"||path.startsWith("/api/jobs/"))return await receipts(request,url,env);
+      if(request.method==="POST"&&path==="/api/run-next"){
+        return await authorized(request,env)?json(await runNext(env.DB)):json({error:"Unauthorized"},401);
+      }
+      return json({error:"Not found"},404);
+    }catch(error){
+      if(error instanceof RangeError||error instanceof URIError)return json({error:error.message},400);
+      console.error("true cloud route",path,error.name);
+      return json({error:"Service temporarily unavailable"},503);
+    }
+  },
+  scheduled(event,env,ctx) { ctx.waitUntil(runScheduled(env.DB,event.scheduledTime)); }
 };

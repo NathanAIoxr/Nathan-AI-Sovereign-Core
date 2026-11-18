@@ -1,29 +1,28 @@
 # TRUE CLOUD COMPUTING BY NATHAN TABOR
 
-## Definition
-A software-defined, distributed computing fabric that provides unified job execution, storage, databases, application hosting, monitoring, and verifiable receipts without requiring end users to manage physical machines. The fabric runs on physical provider infrastructure; this project does not claim to put computers inside atmospheric clouds.
+[Live service](https://tabor-true-cloud-computing.nathantaboract.workers.dev/) · [Tabor World Hub](https://tabor-world-hub.nathantaboract.workers.dev/) · [Architecture API](https://tabor-true-cloud-computing.nathantaboract.workers.dev/api/architecture)
 
-## Existing integration targets
-- GitHub: source control, CI, review, signed release artifacts.
-- Cloudflare Workers: API ingress, authentication, job coordination, edge processing.
-- Cloudflare D1: metadata, job leases, durable receipts.
-- Cloudflare R2: future artifact/object storage once provisioned.
-- Cloudflare Queues / Durable Objects: future dispatch and coordination after resource verification.
-- Compute nodes: optional authorized CPU/GPU providers or owned hardware, registered by heartbeat.
-- Existing Tabor job orchestrator, compute fleet, agent fleet runtime, Tabor World Hub.
+GitHub holds the source and CI workflow. A Cloudflare Worker serves the dashboard and typed API. D1 stores job claims, results, and SHA-256 receipts. The federation route checks fixed Cloudflare service bindings for Tabor World Hub, the Nathan AI 2X+ Sovereign Supercomputer, and the Compute Fleet Registry. The edge location is the Cloudflare data center reported by the request.
 
-## Restoration and construction sequence
-1. Inventory all existing workers, database schemas, repositories and deployment bindings.
-2. Verify which components actually execute and which are inventories or architecture only.
-3. Implement a unified capability registry and an authenticated task API.
-4. Implement bounded, idempotent job leasing and worker execution with retries and receipts.
-5. Add signed artifact storage and reproducible build pipelines.
-6. Add regional routing and failover backed by verified provider capabilities.
-7. Expose self-service application deployment and an operational dashboard.
-8. Benchmark measured throughput, reliability and cost. Never advertise exascale or 2x performance without evidence.
+## API
 
-## Trust and economics
-No unrestricted arbitrary code execution on edge workers; use isolated authorized runners. Never commit secrets, private keys or provider tokens. Default to zero paid machines and require explicit approval of resource budgets. Distinguish conceptual resources, configured services, deployed services and observed executions.
+| Route | Purpose |
+| --- | --- |
+| `GET /api/federation` | Edge location and live reachability of the three bound services |
+| `GET /api/status` | Job totals and counts from the underlying infrastructure registry |
+| `GET /api/jobs` | Recent jobs, including history from the earlier schema |
+| `GET /api/jobs/:id`, `GET /api/jobs/:id/audit` | Current receipt and independent SHA-256 recomputation |
+| `GET /api/act/address?label=Pie+Pi+Phi` | Derive a repeatable ACT ID, pie sector, and phi phase |
+| `POST /api/jobs`, `POST /api/run-next` | Owner-only queue and dispatch, enabled with `TRUE_CLOUD_TOKEN` |
 
-## Standalone identity
-TRUE CLOUD COMPUTING is a standalone product within Tabor World and integrates with, but does not overwrite, the Nathan AI Sovereign Supercomputer, Tabor Accords, Library of Tabor or existing projects.
+The 15-minute Cron queues a bounded inventory audit, telemetry count, and known-vector SHA-256d self-test. Repeated Cron delivery reuses the same job IDs. D1 batches atomically claim each job, recover expired claims, and fence completion. Manual job requests can set an `Idempotency-Key`. Source-level health describes reachability. Fleet enrollment and measured physical compute are separate evidence.
+
+## Pie / Pi / Phi
+
+The math uses π ≈ 3.141592653589793 and the golden ratio φ = (1 + √5) / 2 ≈ 1.618033988749895. A versioned digest supplies the ACT ID. Fixed-point mappings give a 12-sector pie index, angle, and φ phase without storing input labels in D1. This module is an implementation of the addressing idea in the supplied notes. Its scale constants and 12 sectors are software design choices.
+
+## Build and deploy
+
+Use Node 24. Run `npm test` and `npx --yes wrangler@4.164.0 deploy --dry-run` in this directory. Apply `schema.sql` to the D1 binding before deployment. The schema adds claim and receipt tables alongside existing jobs.
+
+The GitHub workflow verifies pull requests and can publish on relevant pushes to `main` or an explicit manual dispatch on `main`. Its deployment job needs the repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. Configure the separate `TRUE_CLOUD_TOKEN` via Cloudflare to enable owner submissions. Scheduled jobs run independent of that secret.
