@@ -1,0 +1,82 @@
+name: Nathan AI Catalog Manifest Bridge
+
+on:
+  repository_dispatch:
+    types: [catalog_manifest_batch]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cockpit-catalog-${{ github.event.client_payload.dispatch_id }}
+  cancel-in-progress: false
+
+jobs:
+  export-manifest:
+    if: ${{ github.event.client_payload.source == 'unified-operations-cockpit' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate dispatch and create immutable manifest snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, pathlib, re
+          event=json.loads(pathlib.Path(os.environ["GITHUB_EVENT_PATH"]).read_text())
+          data=event["client_payload"]
+          assert data["source"]=="unified-operations-cockpit"
+          dispatch_id=data["dispatch_id"]
+          assert re.fullmatch(r"[a-fA-F0-9-]{36}",dispatch_id)
+          items=data["items"]
+          assert isinstance(items,list) and 0 < len(items) <= 25
+          assert all(isinstance(x.get("uid"),str) and len(x["uid"]) <= 512 for x in items)
+          assert all(isinstance(x.get("repo_url"),str) and x["repo_url"].startswith("https://github.com/") for x in items)
+          output=pathlib.Path("catalog_manifests")
+          output.mkdir(exist_ok=True)
+          path=output / ("cockpit-" + dispatch_id + ".json")
+          path.write_text(json.dumps({
+              "schema_version":1, "source":"unified-operations-cockpit",
+              "dispatch_id":dispatch_id, "items":items
+          },indent=2,sort_keys=True)+"\n")
+          print(f"Validated and exported {len(items)} catalog references to {path}")
+          PY
+      - name: Retain manifest in GitHub Actions artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cockpit-catalog-${{ github.event.client_payload.dispatch_id }}
+          path: catalog_manifests/cockpit-*.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Return verified outcome to Cloudflare
+        if: always()
+        env:
+          COCKPIT_URL: ${{ secrets.COCKPIT_URL }}
+          COCKPIT_KEY: ${{ secrets.COCKPIT_KEY }}
+          RUN_ID: ${{ github.run_id }}
+          JOB_STATUS: ${{ job.status }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,os,pathlib,urllib.request
+          event=json.loads(pathlib.Path(os.environ["GITHUB_EVENT_PATH"]).read_text())
+          payload=event.get("client_payload") or {}
+          uids=[x["uid"] for x in payload.get("items",[]) if isinstance(x,dict) and isinstance(x.get("uid"),str)]
+          status="success" if os.environ["JOB_STATUS"]=="success" else "failure"
+          base=os.environ["COCKPIT_URL"].rstrip("/")
+          key=os.environ["COCKPIT_KEY"]
+          if not base or not key:
+              raise SystemExit("Missing COCKPIT_URL or COCKPIT_KEY")
+          body=json.dumps({
+              "job":"catalog-manifest","status":status,
+              "run_id":int(os.environ["RUN_ID"]),"completed_uids":uids
+          }).encode()
+          request=urllib.request.Request(
+              base+"/api/callback",data=body,method="POST",
+              headers={"Authorization":"Bearer "+key,"Content-Type":"application/json"}
+          )
+          with urllib.request.urlopen(request,timeout=25) as response:
+              print("Cloudflare callback HTTP",response.status)
+          PY
