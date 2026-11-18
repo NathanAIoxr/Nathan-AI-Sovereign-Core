@@ -3,11 +3,13 @@ on:
   pull_request:
     paths:
       - "app-factory/tabor-universal-library-engine/archive/**"
+      - "app-factory/tabor-worker-catalog/**"
       - ".github/workflows/library-of-tabor-archive.yml"
   push:
     branches: [main]
     paths:
       - "app-factory/tabor-universal-library-engine/archive/**"
+      - "app-factory/tabor-worker-catalog/**"
       - ".github/workflows/library-of-tabor-archive.yml"
   workflow_dispatch:
 permissions:
@@ -23,7 +25,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-      - run: node --test test.mjs
+      - run: node --test test.mjs ../../tabor-worker-catalog/test.mjs
       - run: node --check scripts/capture.mjs
       - run: node --check scripts/discover-loc.mjs
       - run: node --check scripts/import-worker.mjs

@@ -17,7 +17,7 @@ const source = (url, label) => {
 
 export function shell(title, body) {
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${html(title)} · Library of Tabor</title><link rel="stylesheet" href="/archive.css"></head><body>
-<header><div><a class="brand" href="/">Library of Tabor</a><nav aria-label="Archive navigation"><a href="/">Reading Room</a><a href="/shelves">Subject shelves</a><a href="/matrix">Sovereign Matrix</a><a href="/architecture">Sovereign architecture</a><a href="https://tabor-universal-library-engine.nathantaboract.workers.dev/library/">Playable Library</a></nav></div></header>
+<header><div><a class="brand" href="/">Library of Tabor</a><nav aria-label="Archive navigation"><a href="/">Reading Room</a><a href="/shelves">Subject shelves</a><a href="/matrix">Sovereign Matrix</a><a href="/architecture">Sovereign architecture</a><a href="/worker-catalog/">Worker Catalog</a><a href="https://tabor-universal-library-engine.nathantaboract.workers.dev/library/">Playable Library</a></nav></div></header>
 <main id="main">${body}</main><footer><div>Library of Tabor by Nathan Tabor · <a href="https://www.loc.gov/catdir/cpso/lcco/">Library of Congress Classification</a> · <a href="/api/health">Release receipt</a></div></footer></body></html>`;
 }
 

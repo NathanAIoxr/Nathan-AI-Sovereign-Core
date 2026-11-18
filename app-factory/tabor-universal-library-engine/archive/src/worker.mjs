@@ -1,3 +1,4 @@
+import { catalogFetch, isCatalogRoute } from "../../../tabor-worker-catalog/src/replica.mjs";
 import architecture from "../data/architecture.json" with { type: "json" };
 import modules from "../data/edge-registry.json" with { type: "json" };
 import act from "../data/act-graph.json" with { type: "json" };
@@ -99,6 +100,7 @@ async function routes(request, env, url) {
 
 export default {
   async fetch(request,env) {
+    if (isCatalogRoute(new URL(request.url).pathname)) return catalogFetch(request,env);
     const matrix = await matrixRoute(request,env);
     if (matrix) return matrix;
     if (!["GET","HEAD"].includes(request.method)) {

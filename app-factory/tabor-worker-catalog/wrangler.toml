@@ -1,0 +1,9 @@
+name = "tabor-worker-catalog"
+main = "src/replica.mjs"
+compatibility_date = "2026-11-18"
+workers_dev = true
+preview_urls = false
+
+[[r2_buckets]]
+binding = "WORKER_CATALOG_REPLICAS"
+bucket_name = "tabor-worker-catalog-replicas"
