@@ -1,0 +1,26 @@
+name: Tabor Library Language Workers
+on:
+  push:
+    paths:
+      - 'tabor-world/language-workers/**'
+      - '.github/workflows/tabor-language-workers.yml'
+  pull_request:
+    paths:
+      - 'tabor-world/language-workers/**'
+      - '.github/workflows/tabor-language-workers.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tabor-world/language-workers
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - run: npm ci
+      - run: npm test
+      - run: npx --yes wrangler@4.164.0 deploy --dry-run --minify

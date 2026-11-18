@@ -1,0 +1,16 @@
+{
+  "name": "tabor-polyglot-knowledge-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test", "build": "esbuild src/index.mjs --bundle --format=esm --target=es2024 --outfile=dist/worker.mjs" },
+  "dependencies": {
+    "bidi-js": "1.0.3",
+    "double-metaphone": "2.0.1",
+    "fast-xml-parser": "5.12.1",
+    "iso-639-2": "3.0.2",
+    "iso-639-3": "3.0.1",
+    "transliteration": "2.7.0"
+  },
+  "devDependencies": { "esbuild": "0.28.2" }
+}
