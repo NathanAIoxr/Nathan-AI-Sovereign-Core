@@ -1,0 +1,779 @@
+{
+  "schema": "tabor.one.fiber.touch.v1",
+  "title": "Tabor ONE Fiber Matrix + Tabor Track Baller",
+  "created_at": "2026-11-18",
+  "execution": "local/offline prototype",
+  "designPrinciples": [
+    "0=release/clear, 1=retain/seat, 2=construct/verify",
+    "Keep directional topology separate from lock bit",
+    "Capture event provenance via ISO-8601 UTC timestamp",
+    "12 craft adapters share identical event interface"
+  ],
+  "input": {
+    "pointerEvents": true,
+    "multitouch": true,
+    "trackball": {
+      "gesture": "one-finger drag on preview or Track Baller pad",
+      "camera": "unit quaternion",
+      "momentum": "damped inertia",
+      "detents": [
+        "top",
+        "underside",
+        "side"
+      ],
+      "precision": "visual camera inspection only"
+    },
+    "pinch": {
+      "gesture": "two-finger distance change on preview or pad",
+      "inward": "increase modeled tension / seat strands",
+      "outward": "decrease modeled tension / open visual gaps",
+      "range": [
+        0,
+        1
+      ]
+    },
+    "swipe": {
+      "gesture": "horizontal movement on step lane",
+      "left": "PREVIOUS",
+      "right": "NEXT",
+      "tap": "NEXT"
+    },
+    "longPress": {
+      "gesture": "550-ms stationary press on preview",
+      "action": "select nearest projected strand and dim others"
+    },
+    "voice": {
+      "optional": true,
+      "output": "browser speech synthesis",
+      "commands": [
+        "next",
+        "back",
+        "lock",
+        "release",
+        "top",
+        "under",
+        "side",
+        "reset",
+        "speak"
+      ],
+      "notes": "speech recognition depends on browser and mic permission"
+    },
+    "keyboard": {
+      "next": [
+        "ArrowRight",
+        "N"
+      ],
+      "previous": [
+        "ArrowLeft",
+        "P"
+      ],
+      "viewTop": "T",
+      "viewUnder": "U",
+      "viewSide": "S",
+      "speak": "Space"
+    }
+  },
+  "event": {
+    "required": [
+      "ts",
+      "craft",
+      "step",
+      "opcode",
+      "type",
+      "detail",
+      "lock",
+      "tension",
+      "selectedStrand"
+    ],
+    "timestamp": "ISO-8601 UTC",
+    "bitValues": {
+      "zero": "clear/release",
+      "one": "retain/lock"
+    },
+    "topologyOperations": [
+      "FORM",
+      "SET",
+      "UNDER",
+      "OVER",
+      "THROUGH",
+      "CATCH",
+      "DRAW",
+      "CROSS",
+      "TWIST",
+      "PIN",
+      "LOCK",
+      "CLEAR",
+      "ROUTE",
+      "GAUGE",
+      "DRAFT",
+      "SPIN",
+      "BALANCE",
+      "FRAME",
+      "SKIN",
+      "TRACE"
+    ]
+  },
+  "simulationCaveat": "Illustrative procedural 3D topology; NOT an exact cloth solver, tensile-strength measurement, physical device calibration, or guarantee against unraveling",
+  "crafts": [
+    {
+      "id": "nalebinding",
+      "name": "Nålebinding",
+      "family": "loop",
+      "steps": [
+        {
+          "index": 1,
+          "label": "GAUGE",
+          "instruction": "Set a consistent thumb loop",
+          "opcode": "FORM",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 2,
+          "label": "UNDER",
+          "instruction": "Pass the needle below the selected loop",
+          "opcode": "PASS",
+          "directionFlag": 0,
+          "retainedBit": 1
+        },
+        {
+          "index": 3,
+          "label": "OVER",
+          "instruction": "Route above the adjacent loop",
+          "opcode": "PASS",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 4,
+          "label": "THROUGH",
+          "instruction": "Pull the full working yarn through",
+          "opcode": "DRAW",
+          "directionFlag": 1,
+          "retainedBit": 1
+        },
+        {
+          "index": 5,
+          "label": "SEAT",
+          "instruction": "Set the loop against the thumb gauge",
+          "opcode": "LOCK",
+          "directionFlag": 0,
+          "retainedBit": 1
+        },
+        {
+          "index": 6,
+          "label": "REPEAT",
+          "instruction": "Advance to the next loop group",
+          "opcode": "BUILD",
+          "directionFlag": 1,
+          "retainedBit": 1
+        }
+      ]
+    },
+    {
+      "id": "tatting",
+      "name": "Tatting",
+      "family": "rings",
+      "steps": [
+        {
+          "index": 1,
+          "label": "CORE",
+          "instruction": "Hold the shuttle thread as sliding core",
+          "opcode": "SET",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 2,
+          "label": "TRANSFER",
+          "instruction": "Make the knot flip onto the core thread",
+          "opcode": "FLIP",
+          "directionFlag": 1,
+          "retainedBit": 1
+        },
+        {
+          "index": 3,
+          "label": "DOUBLE",
+          "instruction": "Seat first and second half-stitches",
+          "opcode": "LOCK",
+          "directionFlag": 1,
+          "retainedBit": 1
+        },
+        {
+          "index": 4,
+          "label": "PICOT",
+          "instruction": "Reserve an intentional spacing loop",
+          "opcode": "GAP",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 5,
+          "label": "DOUBLE",
+          "instruction": "Repeat stitches after the picot",
+          "opcode": "LOCK",
+          "directionFlag": 1,
+          "retainedBit": 1
+        },
+        {
+          "index": 6,
+          "label": "CLOSE",
+          "instruction": "Slide stitches together to close the ring",
+          "opcode": "CLOSE",
+          "directionFlag": 1,
+          "retainedBit": 1
+        }
+      ]
+    },
+    {
+      "id": "tunisian",
+      "name": "Tunisian Crochet",
+      "family": "grid",
+      "steps": [
+        {
+          "index": 1,
+          "label": "LOAD",
+          "instruction": "Insert hook into the next column",
+          "opcode": "ENTER",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 2,
+          "label": "CATCH",
+          "instruction": "Yarn over and draw up a loop",
+          "opcode": "CATCH",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 3,
+          "label": "LOAD",
+          "instruction": "Keep additional loops on the hook",
+          "opcode": "STORE",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 4,
+          "label": "TURN",
+          "instruction": "Begin the return pass",
+          "opcode": "TURN",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 5,
+          "label": "PULL",
+          "instruction": "Draw through the first loop",
+          "opcode": "DRAW",
+          "directionFlag": 0,
+          "retainedBit": 1
+        },
+        {
+          "index": 6,
+          "label": "PAIR",
+          "instruction": "Yarn over; draw through two loops repeatedly",
+          "opcode": "LOCK",
+          "directionFlag": 1,
+          "retainedBit": 1
+        }
+      ]
+    },
+    {
+      "id": "broomstick",
+      "name": "Broomstick / Hairpin Lace",
+      "family": "large",
+      "steps": [
+        {
+          "index": 1,
+          "label": "SET",
+          "instruction": "Position the dowel or U-loom anchors",
+          "opcode": "ANCHOR",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 2,
+          "label": "LIFT",
+          "instruction": "Draw an enlarged loop to the guide",
+          "opcode": "LIFT",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 3,
+          "label": "GAUGE",
+          "instruction": "Equalize loop height on the guide",
+          "opcode": "GAUGE",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 4,
+          "label": "GATHER",
+          "instruction": "Group the required loops",
+          "opcode": "GATHER",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 5,
+          "label": "CATCH",
+          "instruction": "Hook the working yarn through the bundle",
+          "opcode": "CATCH",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 6,
+          "label": "BIND",
+          "instruction": "Seat the binding stitch; remove guide if appropriate",
+          "opcode": "LOCK",
+          "directionFlag": 1,
+          "retainedBit": 1
+        }
+      ]
+    },
+    {
+      "id": "sprang",
+      "name": "Sprang",
+      "family": "sprang",
+      "steps": [
+        {
+          "index": 1,
+          "label": "WARP",
+          "instruction": "Secure both ends to the frame",
+          "opcode": "ANCHOR",
+          "directionFlag": 0,
+          "retainedBit": 1
+        },
+        {
+          "index": 2,
+          "label": "SEPARATE",
+          "instruction": "Divide adjacent warp strands",
+          "opcode": "SORT",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 3,
+          "label": "TWIST",
+          "instruction": "Interlink the selected strand pair",
+          "opcode": "TWIST",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 4,
+          "label": "MIRROR",
+          "instruction": "Observe the complementary formation",
+          "opcode": "MIRROR",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 5,
+          "label": "COMPACT",
+          "instruction": "Move work toward the center",
+          "opcode": "SLIDE",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 6,
+          "label": "FIX",
+          "instruction": "Secure the central meeting line",
+          "opcode": "LOCK",
+          "directionFlag": 1,
+          "retainedBit": 1
+        }
+      ]
+    },
+    {
+      "id": "bobbin",
+      "name": "Bobbin Lace",
+      "family": "bobbin",
+      "steps": [
+        {
+          "index": 1,
+          "label": "ANCHOR",
+          "instruction": "Pin the pattern nodes and hang bobbins",
+          "opcode": "PIN",
+          "directionFlag": 0,
+          "retainedBit": 1
+        },
+        {
+          "index": 2,
+          "label": "CROSS",
+          "instruction": "Move the middle bobbin pair across",
+          "opcode": "CROSS",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 3,
+          "label": "TWIST",
+          "instruction": "Turn each paired thread in its direction",
+          "opcode": "TWIST",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 4,
+          "label": "REPEAT",
+          "instruction": "Execute the documented stitch sequence",
+          "opcode": "ROUTE",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 5,
+          "label": "PIN",
+          "instruction": "Place the next pattern pin",
+          "opcode": "PIN",
+          "directionFlag": 1,
+          "retainedBit": 1
+        },
+        {
+          "index": 6,
+          "label": "TENSION",
+          "instruction": "Equalize each hanging pair",
+          "opcode": "LOCK",
+          "directionFlag": 1,
+          "retainedBit": 1
+        }
+      ]
+    },
+    {
+      "id": "lucet",
+      "name": "Lucet Braiding",
+      "family": "lucet",
+      "steps": [
+        {
+          "index": 1,
+          "label": "WRAP",
+          "instruction": "Wind yarn around the two horns",
+          "opcode": "WRAP",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 2,
+          "label": "LIFT",
+          "instruction": "Lift lower loop over the upper yarn",
+          "opcode": "OVER",
+          "directionFlag": 1,
+          "retainedBit": 1
+        },
+        {
+          "index": 3,
+          "label": "TURN",
+          "instruction": "Rotate or reposition the fork",
+          "opcode": "TURN",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 4,
+          "label": "WRAP",
+          "instruction": "Wrap the next pass",
+          "opcode": "WRAP",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 5,
+          "label": "LIFT",
+          "instruction": "Raise the next lower loop",
+          "opcode": "OVER",
+          "directionFlag": 0,
+          "retainedBit": 1
+        },
+        {
+          "index": 6,
+          "label": "SEAT",
+          "instruction": "Pull cord to a stable even tension",
+          "opcode": "LOCK",
+          "directionFlag": 1,
+          "retainedBit": 1
+        }
+      ]
+    },
+    {
+      "id": "kumihimo",
+      "name": "Kumihimo",
+      "family": "braid",
+      "steps": [
+        {
+          "index": 1,
+          "label": "SET",
+          "instruction": "Set weighted strands on the disk or marudai",
+          "opcode": "ANCHOR",
+          "directionFlag": 0,
+          "retainedBit": 1
+        },
+        {
+          "index": 2,
+          "label": "MOVE",
+          "instruction": "Transfer one strand across the center",
+          "opcode": "ROUTE",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 3,
+          "label": "OPPOSE",
+          "instruction": "Transfer its opposing counterpart",
+          "opcode": "ROUTE",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 4,
+          "label": "ROTATE",
+          "instruction": "Turn the disk to the next marked position",
+          "opcode": "TURN",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 5,
+          "label": "REPEAT",
+          "instruction": "Repeat the specified braiding cycle",
+          "opcode": "ROUTE",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 6,
+          "label": "SEAT",
+          "instruction": "Allow weights to equalize braid tension",
+          "opcode": "LOCK",
+          "directionFlag": 1,
+          "retainedBit": 1
+        }
+      ]
+    },
+    {
+      "id": "darning",
+      "name": "Invisible / Swiss Darning",
+      "family": "darn",
+      "steps": [
+        {
+          "index": 1,
+          "label": "INSPECT",
+          "instruction": "Identify surviving structural anchor threads",
+          "opcode": "SCAN",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 2,
+          "label": "CLEAR",
+          "instruction": "Remove only unsound yarn when necessary",
+          "opcode": "CLEAR",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 3,
+          "label": "ALIGN",
+          "instruction": "Match the original stitch or weave path",
+          "opcode": "ALIGN",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 4,
+          "label": "WEAVE",
+          "instruction": "Reconstruct over-under structure",
+          "opcode": "WEAVE",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 5,
+          "label": "DUPLICATE",
+          "instruction": "Follow existing stitch shapes in Swiss darning",
+          "opcode": "TRACE",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 6,
+          "label": "FINISH",
+          "instruction": "Seat new yarn without puckering",
+          "opcode": "LOCK",
+          "directionFlag": 1,
+          "retainedBit": 1
+        }
+      ]
+    },
+    {
+      "id": "tambour",
+      "name": "Tambour Embroidery",
+      "family": "tambour",
+      "steps": [
+        {
+          "index": 1,
+          "label": "STRETCH",
+          "instruction": "Keep ground fabric taut",
+          "opcode": "FRAME",
+          "directionFlag": 0,
+          "retainedBit": 1
+        },
+        {
+          "index": 2,
+          "label": "PLUNGE",
+          "instruction": "Insert the fine hook through the fabric",
+          "opcode": "THROUGH",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 3,
+          "label": "CATCH",
+          "instruction": "Catch underside yarn on the hook",
+          "opcode": "CATCH",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 4,
+          "label": "ROTATE",
+          "instruction": "Turn the hook to protect the loop",
+          "opcode": "TWIST",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 5,
+          "label": "DRAW",
+          "instruction": "Pull the new loop through the previous loop",
+          "opcode": "DRAW",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 6,
+          "label": "CHAIN",
+          "instruction": "Seat the chain stitch and continue",
+          "opcode": "LOCK",
+          "directionFlag": 1,
+          "retainedBit": 1
+        }
+      ]
+    },
+    {
+      "id": "stumpwork",
+      "name": "Stumpwork",
+      "family": "stump",
+      "steps": [
+        {
+          "index": 1,
+          "label": "FRAME",
+          "instruction": "Build the fabric or wire foundation",
+          "opcode": "FORM",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 2,
+          "label": "ANCHOR",
+          "instruction": "Secure wire and any raised elements",
+          "opcode": "ANCHOR",
+          "directionFlag": 1,
+          "retainedBit": 1
+        },
+        {
+          "index": 3,
+          "label": "PAD",
+          "instruction": "Add support layers for relief",
+          "opcode": "BUILD",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 4,
+          "label": "COVER",
+          "instruction": "Embroider the exterior stitch surface",
+          "opcode": "SKIN",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 5,
+          "label": "SHAPE",
+          "instruction": "Adjust the sculptural outline",
+          "opcode": "FORM",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 6,
+          "label": "FINISH",
+          "instruction": "Secure edges and attachment points",
+          "opcode": "LOCK",
+          "directionFlag": 1,
+          "retainedBit": 1
+        }
+      ]
+    },
+    {
+      "id": "spindle",
+      "name": "Drop Spindle Spinning",
+      "family": "spin",
+      "steps": [
+        {
+          "index": 1,
+          "label": "DRAFT",
+          "instruction": "Prepare and draw out the fiber supply",
+          "opcode": "DRAFT",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 2,
+          "label": "TURN",
+          "instruction": "Rotate spindle to introduce twist",
+          "opcode": "SPIN",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 3,
+          "label": "BALANCE",
+          "instruction": "Coordinate draft rate with twist buildup",
+          "opcode": "BALANCE",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 4,
+          "label": "PINCH",
+          "instruction": "Control twist travel into the fiber",
+          "opcode": "PINCH",
+          "directionFlag": 0,
+          "retainedBit": 0
+        },
+        {
+          "index": 5,
+          "label": "WIND",
+          "instruction": "Wind formed yarn onto spindle",
+          "opcode": "STORE",
+          "directionFlag": 1,
+          "retainedBit": 0
+        },
+        {
+          "index": 6,
+          "label": "REPEAT",
+          "instruction": "Repeat with measured and consistent twist",
+          "opcode": "LOCK",
+          "directionFlag": 1,
+          "retainedBit": 1
+        }
+      ]
+    }
+  ]
+}
