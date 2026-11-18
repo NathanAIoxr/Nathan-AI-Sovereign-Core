@@ -1,3 +1,6 @@
+import { MAX_SHARDS, MAX_TERMS } from "./compute.mjs";
+import { FABRIC_SHARDS, FABRIC_TERMS } from "./fabric.mjs";
+
 const name = "NATHAN AI 🚀 &amp; NATHAN TABOR";
 const links = `<nav aria-label="Sovereign Core"><a href="/">Sovereign Core</a><a href="/godtabor">GODTABOR</a><a href="https://tabor-world-hub.nathantaboract.workers.dev/">Tabor World</a></nav>`;
 const doc = (title, content) => `<!doctype html><html lang="en"><head>
@@ -9,11 +12,14 @@ export const page = doc("Nathan Tabor 2X+ Sovereign Supercomputer", `
 <header><p class="author">${name}</p><h1>2X+ Sovereign<br>Supercomputer</h1>
 <p>Run a verified FP64 workload across the Nathan AI executor and inspect the shard receipts.</p></header>
 <div class="grid"><section><h2>FP64 executor</h2>
-<form id="compute"><label>Seed<input name="seed" type="number" value="73" min="0" max="4294967295" required></label>
-<label>Terms<input name="terms" type="number" value="32768" min="64" max="32768" required></label>
-<label>Shards<input name="shards" type="number" value="8" min="1" max="8" required></label>
+<form id="compute"><label>Profile<select name="profile" id="fp-profile">
+<option value="fabric" data-terms="${FABRIC_TERMS}" data-shards="${FABRIC_SHARDS}">Expanded FP64</option>
+<option value="classic" data-terms="${MAX_TERMS}" data-shards="${MAX_SHARDS}">Classic FP64</option>
+</select></label><label>Seed<input name="seed" type="number" value="73" min="0" max="4294967295" required></label>
+<label>Terms<input name="terms" type="number" value="${FABRIC_TERMS}" min="64" max="${FABRIC_TERMS}" required></label>
+<label>Shards<input name="shards" type="number" value="${FABRIC_SHARDS}" min="1" max="${FABRIC_SHARDS}" required></label>
 <button>Run FP64</button></form>
-<output id="fp-status" role="status">32,768 terms and up to eight executor calls.</output>
+<output id="fp-status" role="status">${FABRIC_TERMS.toLocaleString("en-US")} terms across ${FABRIC_SHARDS} verified shards.</output>
 <div class="receipt" id="fp-receipt" hidden><dl id="fp-values"></dl><a id="receipt-download" download="nathan-fp64-receipt.json">Download receipt</a></div>
 </section><section><h2>Will · Wheel · Way</h2>
 <form id="route"><label>From<select name="from"><option>Will</option><option>Wheel</option><option>Way</option></select></label>
@@ -31,7 +37,8 @@ export const page = doc("Nathan Tabor 2X+ Sovereign Supercomputer", `
 <p><a href="/api/registry">Families, Clover, Council and app records</a></p>
 <p><a href="/api/mirror/status">Mirror audit status</a></p>
 </section></div>
-<section><h2>Benchmark targets</h2><div class="scroll"><table id="bench"><thead><tr><th>System</th><th>Baseline</th><th>2X target</th><th>Metric</th></tr></thead><tbody></tbody></table></div>
+<section><h2>Benchmark targets</h2><div class="scroll"><table id="bench"><thead><tr><th>System</th><th>Baseline</th><th>Target</th><th>Metric</th></tr></thead><tbody></tbody></table></div>
+<p><strong id="world-reference">19.71 EFLOP/s</strong> is the published combined HPL result for the November 2026 TOP500. The milestone is a sustained HPL run above that figure. <a href="https://www.top500.org/lists/top500/2026/11/highs/">TOP500 highlights</a></p>
 <p id="fleet" role="status">Checking registered physical compute nodes…</p>
 <p><a href="https://top500.org/lists/top500/list/2026/11/?page=1">TOP500 November 2026</a> · <a href="/api/compute/manifest">78-field compute contract</a> · <a href="/api/cluster/receipts">Existing cluster receipts</a></p>
 </section>`);
@@ -60,7 +67,7 @@ h1{font-size:clamp(2.45rem,7vw,5.5rem);line-height:1;letter-spacing:-.055em;marg
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}section{min-width:0;margin:0 0 14px;padding:clamp(13px,2.5vw,24px);background:var(--panel);border:1px solid var(--line);border-radius:8px}
 form{display:flex;gap:8px;align-items:end;flex-wrap:wrap}label{display:grid;gap:3px;font-size:.86rem;color:var(--soft)}
 input,select,button,textarea{font:inherit;min-height:43px;padding:6px 9px;border:1px solid #607589;border-radius:4px;color:var(--ink);background:var(--bg)}
-input{width:115px}textarea{resize:vertical;width:min(380px,100%)}#words label{flex:1 0 100%}
+input{width:115px}#compute label:has(select){flex-basis:100%;max-width:175px}textarea{resize:vertical;width:min(380px,100%)}#words label{flex:1 0 100%}
 button{background:var(--mint);color:#11231c;font-weight:700;cursor:pointer}button:disabled{opacity:.65}output{display:block;color:var(--gold);margin-top:12px;white-space:pre-wrap;overflow-wrap:anywhere}
 dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 12px;color:var(--soft)}dd{margin:0;color:var(--ink);overflow-wrap:anywhere}.cycles{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .cycles span{font-size:.8rem;padding:3px 8px;border:1px solid var(--line);border-radius:3px;color:var(--soft)}.cycles .both{border-color:var(--mint);color:var(--mint)}
@@ -95,17 +102,33 @@ function form(id, status, invoke) {
   });
 }
 let download;
-form("compute", "fp-status", async input => {
+byId("fp-profile")?.addEventListener("change", event => {
+  const option = event.target.selectedOptions[0];
+  const fields = byId("compute").elements;
+  fields.terms.max = fields.terms.value = option.dataset.terms;
+  fields.shards.max = fields.shards.value = option.dataset.shards;
   byId("fp-receipt").hidden = true;
-  const result = await data("/api/fp64/run?" + new URLSearchParams(input));
-  const r = result.receipt;
-  byId("fp-status").textContent = "Executor results and independent replay agree.";
-  setPairs(byId("fp-values"), [["Operations",num.format(r.operations)],["Shard calls",r.shard_count],
-    ["Checksum",num.format(r.checksum)],["Elapsed",r.elapsed_ms + " ms"],["SHA-256",result.sha256]]);
-  if(download) URL.revokeObjectURL(download);
-  download = URL.createObjectURL(new Blob([JSON.stringify(result,null,2)],{type:"application/json"}));
-  byId("receipt-download").href = download;
-  byId("fp-receipt").hidden = false;
+  byId("fp-status").textContent = num.format(Number(fields.terms.value)) + " terms across " + fields.shards.value + " verified shards.";
+});
+form("compute", "fp-status", async input => {
+  const selector = byId("fp-profile");
+  selector.disabled = true;
+  try {
+    byId("fp-receipt").hidden = true;
+    const result = await data("/api/fp64/run?" + new URLSearchParams(input));
+    const r = result.receipt;
+    byId("fp-status").textContent = r.profile === "fabric"
+      ? "Each shard’s FP64 result matches its exact integer replay."
+      : "Executor results and independent replay agree.";
+    setPairs(byId("fp-values"), [["Terms",num.format(r.terms)],["Operations",num.format(r.operations)],["Shard calls",r.shard_count],
+      ["Checksum",num.format(r.checksum)],["Elapsed",r.elapsed_ms + " ms"],["SHA-256",result.sha256]]);
+    if(download) URL.revokeObjectURL(download);
+    download = URL.createObjectURL(new Blob([JSON.stringify(result,null,2)],{type:"application/json"}));
+    byId("receipt-download").href = download;
+    byId("fp-receipt").hidden = false;
+  } finally {
+    selector.disabled = false;
+  }
 });
 form("route", "route-result", async input => {
   const d = await data("/api/route?" + new URLSearchParams(input));

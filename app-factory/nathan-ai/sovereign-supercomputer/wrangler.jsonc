@@ -9,7 +9,8 @@
   ],
   "services": [
     { "binding": "CORE", "service": "nathan-ai-sovereign-2x" },
-    { "binding": "EXECUTOR", "service": "nathan-sovereign-fp64-executor" }
+    { "binding": "EXECUTOR", "service": "nathan-sovereign-fp64-executor" },
+    { "binding": "FABRIC_EXECUTOR", "service": "nathan-sovereign-fp64-fabric" }
   ],
   "triggers": { "crons": ["0 */6 * * *"] },
   "observability": { "enabled": true, "head_sampling_rate": 0.05 }

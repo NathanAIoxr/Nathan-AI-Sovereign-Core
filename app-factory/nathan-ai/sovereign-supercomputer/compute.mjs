@@ -4,7 +4,7 @@ export const BANK_SHARDS = 4;
 export const MAX_TERMS = BANK_TERMS * 2;
 export const MAX_SHARDS = BANK_SHARDS * 2;
 export const SCALE = 1048576;
-const KERNEL = "fp64-dot-lcg32-v1";
+export const KERNEL = "fp64-dot-lcg32-v1";
 const advance = state => (Math.imul(state, 1664525) + 1013904223) >>> 0;
 
 export async function sha256(text) {

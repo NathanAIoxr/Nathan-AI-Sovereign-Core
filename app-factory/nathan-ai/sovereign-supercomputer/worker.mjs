@@ -1,4 +1,5 @@
 import { BANK_SHARDS, BANK_TERMS, MAX_SHARDS, MAX_TERMS, runFp64, sha256 } from "./compute.mjs";
+import { FABRIC_SHARD_TERMS, FABRIC_SHARDS, FABRIC_TERMS, runFabric } from "./fabric.mjs";
 import { AXIOMS, addressSpace, archiveSnapshot, auditSnapshot, catalog, cicadas, claimSupernode, intake, willWheelWay, words } from "./ledger.mjs";
 import { page, styles, browser, godtabor } from "./site.mjs";
 
@@ -16,6 +17,11 @@ const benchmarks = [
   { name: "Quantum-classical routing", metric: "Directional levels", baseline: 33, target: 66, measured: null },
   { name: "Photonics and neuromorphic fabric", metric: "Efficiency multiplier", baseline: 1, target: 2, measured: null },
 ];
+const aggregateReference = {
+  source: "https://www.top500.org/lists/top500/2026/11/highs/",
+  edition: "November 2026", systems: 500, metric: "Sum of listed HPL Rmax results", eflop_s: 19.71,
+  milestone: "A single sustained HPL run above the published aggregate",
+};
 const network = [
   ["FP64 Cluster", ROOT + "/cluster"],
   ["Tabor World Hub", "https://tabor-world-hub.nathantaboract.workers.dev/"],
@@ -116,16 +122,29 @@ export default {
       if (path === "/health") return json({ system: "NATHAN AI 🚀 & NATHAN TABOR 2X+ SOVEREIGN SUPERCOMPUTER", axioms: AXIOMS });
       if (path === "/api/architecture") return json({
         axioms: AXIOMS, benchmarks, benchmark_source: "https://top500.org/lists/top500/list/2026/11/?page=1",
-        fp64: { baseline: { terms: BANK_TERMS, shards: BANK_SHARDS }, extended: { terms: MAX_TERMS, shards: MAX_SHARDS } },
+        fp64: {
+          baseline: { terms: BANK_TERMS, shards: BANK_SHARDS },
+          extended: { terms: MAX_TERMS, shards: MAX_SHARDS },
+          fabric: { terms: FABRIC_TERMS, shards: FABRIC_SHARDS, terms_per_shard: FABRIC_SHARD_TERMS },
+        },
+        aggregate_hpl_reference: aggregateReference,
         address_space: addressSpace, network,
       });
       if (path === "/api/registry") return json(await catalog(env.SOVEREIGN_DB));
       if (path === "/api/route") return json(willWheelWay(params.get("from") ?? "Will", params.get("to") ?? "Way"));
       if (path === "/api/rhythm") return json(cicadas(uint(params, "year", 2024), uint(params, "span", 221)));
       if (path === "/api/mirror/status") return json(await mirrorStatus(env.SOVEREIGN_DB, env.VAULT_R2));
-      if (path === "/api/fp64/run") return json(await runFp64(env.EXECUTOR, {
-        seed: uint(params, "seed", 73), terms: uint(params, "terms", MAX_TERMS), shards: uint(params, "shards", MAX_SHARDS),
-      }));
+      if (path === "/api/fp64/run") {
+        const profiles = params.getAll("profile");
+        const profile = profiles[0] ?? "classic";
+        if (profiles.length > 1 || !["classic", "fabric"].includes(profile)) throw new RangeError("Choose classic or fabric.");
+        const wide = profile === "fabric";
+        const terms = uint(params, "terms", wide ? FABRIC_TERMS : MAX_TERMS);
+        const shards = uint(params, "shards", wide ? FABRIC_SHARDS : MAX_SHARDS);
+        const seed = uint(params, "seed", 73);
+        return json(wide ? await runFabric(env.FABRIC_EXECUTOR, { seed, terms, shards })
+          : await runFp64(env.EXECUTOR, { seed, terms, shards }));
+      }
       const upstream = { "/api/cluster/services": "/api/cluster/services",
         "/api/cluster/receipts": "/api/cluster/receipts", "/api/compute/manifest": "/api/compute/manifest" }[path];
       if (upstream) {
