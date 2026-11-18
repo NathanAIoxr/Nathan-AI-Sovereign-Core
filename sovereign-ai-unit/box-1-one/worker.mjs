@@ -3,6 +3,7 @@ import { PLATFORM, PlatformError, bodyJson, json, validateJob, ident, uuid, rece
 import { backends } from "./backends.mjs";
 import { admit, cancel, drain, publicJob, jobFor, listFor } from "./queue.mjs";
 import { upload, purgeObjects } from "./objects.mjs";
+import { consume, wake } from "./dispatch.mjs";
 
 const benchmarkRows = async db => (await db.prepare(
   "SELECT id,revision,recorded,receipt,sha256 FROM platform_benchmarks ORDER BY recorded DESC LIMIT 12"
@@ -23,7 +24,7 @@ async function status(env,project) {
   return {
     platform:PLATFORM, revision:env.PLATFORM_REVISION??null, scope:project??"aggregate", jobs:count,
     spending:{estimatedUsdMicros:totals.results.reduce((sum,x)=>sum+x.spent,0),reservedUsdMicros:totals.results.reduce((sum,x)=>sum+x.reserved,0), basis:"Conservative platform estimates, excluding shared edge overhead. Not provider billing."},
-    pools, objectStorage:Boolean(env.ARTIFACTS), physicalDevicesRegistered:pools.filter(pool=>pool.runtime==="authorized-service").reduce((sum,pool)=>sum+pool.deviceCount,0),
+    pools, dispatch:{queueBound:Boolean(env.DISPATCH_QUEUE), recoverySchedule:"* * * * *"}, objectStorage:Boolean(env.ARTIFACTS), physicalDevicesRegistered:pools.filter(pool=>pool.runtime==="authorized-service").reduce((sum,pool)=>sum+pool.deviceCount,0),
     projects:["pie-pi-phi","supercalifragilisticexpialidocious"], stages:["Fe","Fi","Fo","Fum"]
   };
 }
@@ -45,8 +46,16 @@ async function privateRoutes(request,env,ctx,url) {
     if (!/^[a-zA-Z0-9_-]{1,80}$/.test(key) || !Number.isSafeInteger(dailyMicro) || dailyMicro<0 || dailyMicro>1e9
       || !Number.isSafeInteger(maxActive) || maxActive<1 || maxActive>64) throw new PlatformError("Invalid admission parameters.");
     const {row,duplicate}=await admit(db,{project,dailyMicro,maxActive},key,input,env);
-    if (!duplicate && row.state==="queued" && row.ready_at<=Date.now()) ctx?.waitUntil(drain(env).catch(()=>console.error("platform dispatch unavailable")));
-    return response(duplicate?"accepted":input.delaySeconds?"deferred":"accepted",duplicate?"duplicate-replayed":row.backend==="verified-cache"?"verified-cache-hit":input.delaySeconds?"scheduled-delay":"job-queued",
+    let wakeDeferred=false;
+    if (row.state==="queued" && env.DISPATCH_QUEUE) {
+      const delay=Math.max(0,Math.ceil((row.ready_at-Date.now())/1000));
+      try { await wake(env,delay); }
+      catch { wakeDeferred=true; }
+    } else if (!duplicate && row.state==="queued" && row.ready_at<=Date.now()) {
+      ctx?.waitUntil(drain(env).catch(()=>console.error("platform dispatch unavailable")));
+    }
+    return response(wakeDeferred||!duplicate&&input.delaySeconds?"deferred":"accepted",
+      wakeDeferred?"persisted-awaiting-recovery":duplicate?"duplicate-replayed":row.backend==="verified-cache"?"verified-cache-hit":input.delaySeconds?"scheduled-delay":"job-queued",
       {job:publicJob(row),duplicate},duplicate?200:202);
   }
   if (path==="/platform/jobs" && method==="GET") return response("accepted","project-jobs",{jobs:(await listFor(db,project)).map(publicJob)});
@@ -79,8 +88,13 @@ export default {
         error instanceof PlatformError?error.message:"Job service unavailable.",{},error instanceof PlatformError?error.status:503);
     }
   },
-  async scheduled(controller,env) {
-    await drain(env);
-    if (new Date(controller.scheduledTime).getUTCMinutes()===0) await purgeObjects(env);
+  async queue(_batch,env) {
+    await consume(env);
+  },
+  scheduled(controller,env,ctx) {
+    ctx.waitUntil((async()=>{
+      await drain(env);
+      if (new Date(controller.scheduledTime).getUTCMinutes()===0) await purgeObjects(env);
+    })());
   }
 };

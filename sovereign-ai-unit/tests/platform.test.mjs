@@ -180,3 +180,27 @@ test("verified-cache replay is hash-checked, fresh by default, revision and tena
   const corrupt=await admit(db,person,"bad-cache",validateJob({...body,cacheMode:"verified"}),env);
   assert.equal(corrupt.row.state,"queued");
 });
+
+test("background messages wake due work without exposing payloads and are safe to redeliver",async()=>{
+  const messages=[];
+  const inject={DISPATCH_QUEUE:{send:async(payload,options)=>messages.push({payload,options})}};
+  const x=await environment(inject);
+  const response=await gate.fetch(request("https://gate/platform/jobs",{
+    method:"POST",
+    headers:{authorization:"Bearer "+x.token,"x-sovereign-project":x.project,"content-type":"application/json","idempotency-key":"delayed"},
+    body:JSON.stringify({...body,delaySeconds:15})
+  }),x.publicEnv);
+  const data=await response.json();
+  assert.equal(response.status,202);
+  assert.equal(data.receipt.decision,"deferred");
+  assert.deepEqual(messages[0].payload,{schema:1,purpose:"drain-sovereign-ledger"});
+  assert.ok(messages[0].options.delaySeconds>0);
+  await box1.queue({messages:[]},x.privateEnv);
+  assert.equal(x.privateEnv.BOX_1_LEDGER.sqlite.prepare("SELECT state FROM platform_jobs").get().state,"queued");
+  x.privateEnv.BOX_1_LEDGER.sqlite.prepare("UPDATE platform_jobs SET ready_at=0").run();
+  await box1.queue({messages:[]},x.privateEnv);
+  const after=x.privateEnv.BOX_1_LEDGER.sqlite.prepare("SELECT state,spent_micro,output_sha256 FROM platform_jobs").get();
+  assert.equal(after.state,"succeeded");
+  await box1.queue({messages:[]},x.privateEnv);
+  assert.deepEqual(x.privateEnv.BOX_1_LEDGER.sqlite.prepare("SELECT state,spent_micro,output_sha256 FROM platform_jobs").get(),after);
+});

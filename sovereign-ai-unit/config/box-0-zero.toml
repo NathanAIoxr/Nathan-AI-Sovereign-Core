@@ -2,6 +2,7 @@ name = "sovereign-ai-unit"
 main = "../box-0-zero/worker.mjs"
 workers_dev = true
 compatibility_date = "2026-11-18"
+keep_vars = true
 
 [triggers]
 crons = ["0 * * * *"]

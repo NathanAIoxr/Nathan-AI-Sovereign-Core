@@ -2,6 +2,7 @@ name = "tabor-true-cloud-computing"
 main = "../cloud-bridge/bridge.mjs"
 workers_dev = true
 compatibility_date = "2026-11-18"
+keep_vars = true
 
 [triggers]
 crons = ["*/15 * * * *"]

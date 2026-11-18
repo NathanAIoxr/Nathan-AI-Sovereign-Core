@@ -1,0 +1,54 @@
+{
+  "revision": "784ac2292414a1e6619a405133e365568aed9476",
+  "endpoint": "https://tabor-true-cloud-computing.nathantaboract.workers.dev/compute-platform",
+  "time": "2026-11-18T07:46:24.195Z",
+  "job": "12c8ea41-c913-43b1-9185-59cf2d1c423d",
+  "checks": [
+    {
+      "label": "Missing caller identity",
+      "passed": true,
+      "status": 401,
+      "decision": "rejected",
+      "requestId": "dc5e2484-db71-4d1f-9281-9d03ff330cfe"
+    },
+    {
+      "label": "Deferred admission",
+      "passed": true,
+      "decision": "deferred",
+      "requestId": "07464d71-3859-4df7-b0c9-a7909ce2ce63"
+    },
+    {
+      "label": "Duplicate delivery preserves job identity",
+      "passed": true,
+      "decision": "accepted",
+      "requestId": "d2fa6072-0877-4902-82e2-698f44010775"
+    },
+    {
+      "label": "Conflicting idempotency key",
+      "passed": true,
+      "status": 409,
+      "decision": "rejected",
+      "requestId": "f3c9317b-b78e-46a7-91c1-b582996543ec"
+    },
+    {
+      "label": "Budget below requirement",
+      "passed": true,
+      "status": 402,
+      "decision": "rejected",
+      "requestId": "75f69da5-050a-4337-9c52-35f3f3a02712"
+    },
+    {
+      "label": "Owner cancellation",
+      "passed": true,
+      "decision": "cleared",
+      "requestId": "99bf6926-0cbd-49ce-9018-6f0374cd7463"
+    },
+    {
+      "label": "Cancelled output unavailable",
+      "passed": true,
+      "status": 409,
+      "decision": "rejected",
+      "requestId": "8dbd0d06-a509-4565-85d4-5aa66001bd3e"
+    }
+  ]
+}

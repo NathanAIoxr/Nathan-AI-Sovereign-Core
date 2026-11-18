@@ -3,6 +3,7 @@ main = "../box-1-one/worker.mjs"
 workers_dev = false
 preview_urls = false
 compatibility_date = "2026-11-18"
+keep_vars = true
 
 [triggers]
 crons = ["* * * * *"]
@@ -27,3 +28,14 @@ migrations_dir = "../migrations"
 # [[r2_buckets]]
 # binding = "ARTIFACTS"
 # bucket_name = "sovereign-compute-artifacts"
+
+[[queues.producers]]
+binding = "DISPATCH_QUEUE"
+queue = "sovereign-compute-dispatch"
+
+[[queues.consumers]]
+queue = "sovereign-compute-dispatch"
+max_batch_size = 5
+max_batch_timeout = 1
+max_retries = 3
+max_concurrency = 1
