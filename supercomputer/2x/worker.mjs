@@ -110,30 +110,30 @@ async function recentOperations(db) {
 
 function page() {
   const targets = design.targets.map(t => '<tr><th scope="row">' + t.name + '</th><td>' + t.baseline +
-    '</td><td>' + t.target + '</td><td>' + t.unit + '</td><td>' + t.baselineType + '</td></tr>').join('');
+    '</td><td>' + t.target + '</td><td>' + t.unit + '</td><td>' + t.baselineType + '</td><td>' + t.fusion.join(', ') + '</td></tr>').join('');
   const stack = Object.entries(design.stack).map(([name, items]) =>
     '<section><h3>' + name.replaceAll('_',' ') + '</h3><ul>' + items.map(x => '<li>' + x + '</li>').join('') + '</ul></section>').join('');
   return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + design.name +
     '</title><style>body{max-width:78rem;margin:2rem auto;padding:0 1.25rem;background:#101824;color:#edf4ff;font:1rem/1.6 system-ui}a{color:#9de4ff}nav{display:flex;gap:1rem;flex-wrap:wrap}h1{font-size:clamp(1.8rem,5vw,3.5rem);line-height:1.15}.table{overflow:auto}table{width:100%;border-collapse:collapse}th,td{padding:.7rem;text-align:left;border-bottom:1px solid #546578}button{font:inherit;padding:.6rem 1rem}.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:1.25rem}li{overflow-wrap:anywhere}</style><main><nav><a href="https://tabor-world.nathantaboract.workers.dev/">Tabor World Hub</a><a href="https://nathan-tabor-supercomputer.nathantaboract.workers.dev/">Original Super Computer</a><a href="https://tabor-sovereign-currency.nathantaboract.workers.dev/switchboard">Edge Switchboard</a><a href="/api/design">Design JSON</a><a href="/true-cloud">True Cloud Computing</a><a href="/api/operations">Scheduled verification receipts</a></nav><h1>' +
-    design.name + '</h1><p>1 + 1 = 2 · 1 − 1 = 0</p><h2>Reference verification</h2><p>The Worker runs the Slayer/Sleyer filter and a software bit-flip fixture across 78 fields. The 320 slots and 66 axes are a logical topology. Cloudflare reports no HPL result for this workbench.</p><form action="/api/receipt" method="post"><button>Run and save reference receipt</button></form><p><a href="/api/receipt">Read saved receipt</a> · <a href="/api/verify">Run without saving</a></p><h2>Architecture targets</h2><div class="table"><table><thead><tr><th>System</th><th>Baseline</th><th>2× target</th><th>Unit</th><th>Baseline type</th></tr></thead><tbody>' +
-    targets + '</tbody></table></div><p><a href="' + design.benchmarkSource + '">TOP500 HPL source</a></p><h2>Nathan AI architecture</h2><div class="stack">' + stack + '</div></main></html>';
+    design.name + '</h1><p>1 + 1 = 2 · 1 − 1 = 0</p><p>Designed by Nathan Tabor. The 2X+ architecture brings together the 320-slot Global Grid, 4T Clover, vSoC, and the 33-level forward and reverse routing design.</p><h2>Nathan AI architecture</h2><div class="stack">' + stack + '</div><h2>2X+ compute targets</h2><div class="table"><table><thead><tr><th>System</th><th>Baseline</th><th>2× target</th><th>Unit</th><th>Baseline type</th><th>Architecture</th></tr></thead><tbody>' +
+    targets + '</tbody></table></div><p>LineShine and El Capitan baselines are published HPL results. The Sovereign Supercomputer’s 2× figures are design targets. Its Cloudflare runtime reports no HPL result. <a href="' + design.benchmarkSource + '">TOP500 HPL source</a></p><h2>Live verification</h2><p>The Worker runs the Slayer/Sleyer filter and a 78-field bit-flip fixture. The software topology models 320 slots across 10 nodes and 66 directional axes across 33 levels.</p><form action="/api/receipt" method="post"><button>Run and save reference receipt</button></form><p><a href="/api/receipt">Read saved receipt</a> · <a href="/api/verify">Run without saving</a></p></main></html>';
 }
 
 function trueCloudPage() {
   return `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>True Cloud Computing by Nathan Tabor</title>
 <style>body{margin:0;background:#0e1928;color:#eff6ff;font:1rem/1.65 system-ui}main{max-width:64rem;margin:3rem auto;padding:0 1.3rem 3rem}nav{display:flex;flex-wrap:wrap;gap:1rem}h1{font-size:clamp(2.2rem,7vw,4.8rem);line-height:1.05;margin-bottom:.4em}a{color:#a8ddff}dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:1rem}dl div{background:#17283b;border:1px solid #40556e;padding:1rem;border-radius:.65rem}dt{font-weight:700}dd{margin:0}.lead{max-width:45rem;font-size:1.25rem}</style>
-<main><nav><a href="/">2X+ workbench</a><a href="https://tabor-world.nathantaboract.workers.dev/">Tabor World Hub</a><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/317">GitHub source</a></nav>
+<main><nav><a href="/">2X+ Sovereign Supercomputer</a><a href="https://tabor-world.nathantaboract.workers.dev/">Tabor World Hub</a><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/317">GitHub source</a></nav>
 <h1>True Cloud Computing by Nathan Tabor</h1>
 <p class="lead">I will have True cloud computing so can you</p>
-<p>The cloud runs on physical machines. Here, GitHub holds the code and Cloudflare operates the infrastructure where it runs. You can use the workbench and view its scheduled work from a browser.</p>
+<p>The cloud runs on physical machines. Here, GitHub holds the code and Cloudflare operates the infrastructure where it runs. You can use the Supercomputer’s Cloudflare interface and view its scheduled work from a browser.</p>
 <h2>Follow a live run</h2>
 <ol><li><a href="/api/verify">Run the Worker verification</a> to see the Slayer/Sleyer filter and bit-flip fixture execute.</li>
 <li><a href="/api/operations">Read the D1 run history</a> to see what the five-minute Cron schedule checked, even with no browser open.</li>
 <li><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/codex/sovereign-supercomputer-2x/supercomputer/2x/wrangler.toml">Read the deployment configuration</a> to see how D1, Cron, and service bindings connect to the Worker.</li></ol>
 <h2>What you manage</h2><dl>
 <div><dt>IaaS</dt><dd>Rent virtual machines, storage, or networking. You generally manage the operating system and application.</dd></div>
-<div><dt>PaaS</dt><dd>Deploy application code to a managed runtime. Cloudflare Workers is the managed runtime in this workbench.</dd></div>
+<div><dt>PaaS</dt><dd>Deploy application code to a managed runtime. Cloudflare Workers is the managed runtime for this deployment.</dd></div>
 <div><dt>SaaS</dt><dd>Use a finished application through a browser or an app. The provider operates the application for you.</dd></div></dl>
 <h2>Where it runs</h2>
 <p>Public clouds share provider infrastructure across customers. Private clouds dedicate infrastructure to one organization. Hybrid setups combine environments. Edge computing runs selected workloads closer to users. This deployment uses Cloudflare’s managed Worker runtime and D1 database.</p>
