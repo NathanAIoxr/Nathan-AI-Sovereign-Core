@@ -133,6 +133,8 @@ export default {
   return json(result,result.status);
  },
  async scheduled(controller,env){
+  const now=new Date();
+  if(now.getUTCHours()===0 && now.getUTCMinutes()===0)await env.DB.prepare("DELETE FROM import_cursors").run();
   await record(env.DB,"MICRO","CRON_HEARTBEAT",1,`Cron ${controller.cron}; import run follows`);
   try { const result=await importCatalog(env,4); await record(env.DB,"MICRO","CRON_IMPORT",result.ok?1:0,JSON.stringify({rows:result.rows_processed,completed:result.sources_completed,total:result.sources_discovered,errors:result.errors})); }
   catch(error){ await record(env.DB,"MICRO","CRON_IMPORT_ERROR",0,String(error.message||error)); }
