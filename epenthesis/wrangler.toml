@@ -1,0 +1,7 @@
+name = "epenthesis-word-matrix"
+main = "src/index.mjs"
+compatibility_date = "2026-11-18"
+
+[vars]
+ENVIRONMENT = "production"
+SYSTEM_AXIOM = "ZERO_COINCIDENCES"

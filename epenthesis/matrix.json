@@ -1,0 +1,21 @@
+{
+  "matrix": {
+    "W_axis": {"agent":"Agent-W","orientation":"upright","nodes":["Will","Wheel","Way"],"theme":"Forward motion, drive, and direction"},
+    "M_axis": {"agent":"Agent-M","orientation":"inverted","nodes":["Mill","Mheel","May"],"theme":"Harvest, humor, and permission"},
+    "3_axis": {"agent":"Agent-3","orientation":"rotated_90","nodes":["3ill","3heel","3ay"],"theme":"Triad measurement, stance, and greeting"},
+    "chevron_axis": {"agent":"Agent-Chevron","orientation":"stacked_left_shift","nodes":["<<ill","<<heel","<<ay"],"theme":"Origin tracing, pivoting, and signal return"}
+  },
+  "rules": {
+    "intrusive_r":{"branch":"Phonetics & Phonology","mechanism":"Intervocalic hiatus resolution (/ə/, /ɑː/, /ɔː/ + Vowel → insert /ɹ/)","function":"Zero wasted motion; bridges open vowel collisions across boundaries"},
+    "paragogic_s":{"branch":"Morphology","mechanism":"Analogical leveling & paragoge (attach uniform -s suffix)","function":"Complete grammatical order; removes irregular exceptions across nodes"}
+  },
+  "endings":["a","ah","aw","ay","uh","o"],
+  "starts":["a","e","i","o","u"],
+  "cadence": {
+    "Ol' Dirty Bastard / Wu-Tang":["The supplied inventory did not identify a saved ODB or Wu-Tang session. It noted October 27, 2026 OG and hip-hop wordplay.","Future listening references named in the inventory: Shimmy Shimmy Ya and Brooklyn Zoo."],
+    "Hip-hop & crunk":["Ludacris’s Rollout note-for-note writing exercise (Oct 2, 2026).","Lil Jon’s Get Low cadence reference (Oct 14, 2026)."],
+    "Rock & hymns":["Queen and David Bowie’s Under Pressure with marching drums (Oct 3, 2026).","We Will Rock You with closed-loop logic (Oct 17, 2026).","The Smashing Pumpkins’ Disarm with Onward, Christian Soldiers (Oct 3, 2026)."],
+    "Piano & percussion":["Black keys with thumb and pinky in The Little Drummer Boy rhythm (Sep 28 and Oct 15, 2026).","POP BANG BOP counting patterns (Nov 13, 2026).","Over 100 Christmas songs as high-bass media and game concepts (Oct 22, 2026)."],
+    "Acoustic & vocal tuning":["Phonetic spellings tuned like a singer with a pitch pipe (Nov 3 and Nov 7, 2026).","The Tabor Sound System (Sep 19, 2026)."]
+  }
+}

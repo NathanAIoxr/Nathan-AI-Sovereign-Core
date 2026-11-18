@@ -1,0 +1,35 @@
+name: Epenthesis Word Matrix
+on:
+  pull_request:
+    paths:
+      - 'epenthesis/**'
+      - '.github/workflows/epenthesis-word-matrix.yml'
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Deploy to Cloudflare
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: epenthesis
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node check.mjs
+      - uses: cloudflare/wrangler-action@v3
+        if: github.event_name == 'workflow_dispatch' && inputs.deploy
+        with:
+          workingDirectory: epenthesis/live
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
