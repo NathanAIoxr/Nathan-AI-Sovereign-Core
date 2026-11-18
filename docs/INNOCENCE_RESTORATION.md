@@ -18,4 +18,17 @@ The first pass searched maintained apps, standalone apps, documentation, data, a
 | WEAPON XXX | [Author mandate](../app-factory/nathan-ai/weapon-xxx/README.md) | “Stop innocence from being a commodity and the world that has been promised and said existed would actual arrive.” Verify original purpose through its public and owner experiences. |
 | Tabor Accords and Tabor World | [Accords recovery registry](../app-factory/one/tabor-recovered/Tabor_Accords_Recovery_Registry_2026-11-01.json) and [Tabor World gateway](../app-factory/tabor-universal-library-engine/world-gateway/worker.mjs) | Source leads recorded. Review rules, navigation, and the paths to relevant projects. |
 
-Start the next pass with the owner’s latest Hounds campaign and book-reader receipts, then follow the related records above. Record each source, revision, customer-facing behavior checked, and the remaining gap. When an original source supplies the purpose, carry that wording through wherever the title, story, gameplay goal, or outcome describes the work.
+## Outside Release the Hounds of Hell
+
+| Surface | What was carried through |
+|---|---|
+| Tabor World and Tabor Accords | Dedicated section displaying the eight original ethical-governance terms verbatim from the recovered registry. Links to the source, Bible Topia, and Library of Tabor. |
+| Bible Topia | Protect Innocence before the workspace tools, the creator’s “no missing children” direction labeled as world design, a KJV study path, and consent wording at the existing village agreement form. |
+| Library of Tabor | The Accords connections show how protection, consent, no coercion, and evidence preservation connect to the collections. |
+| Tabor World App Portfolio | Direct route to the Accords, the Bible Topia study and practice path, and the Protection of Innocence charter and restoration ledger. |
+| The Modern Day Bible | A visible Protect Innocence study path into the KJV reader and charter alongside the original story library. |
+| WEAPON XXX, Agents of Innocence, Children’s Books & Innocence Protection, Innocence Matrix, Church of Innocence | Existing source pages already state protection in their opening content or title. Their source wording remains the reference for any subsequent workflow changes. |
+
+The Bible Topia and Library Worker overlays affect designated HTML responses. The app data, existing consent checkbox, browser saves, database access, and private APIs remain under their original code. The “no missing children” phrase is a creator direction, with no new simulation mechanic inferred from it.
+
+Next review: the wider app and archive inventory. Trace the original purpose by project before editing, then record which launch, rules, progression, or published descriptions were checked.
