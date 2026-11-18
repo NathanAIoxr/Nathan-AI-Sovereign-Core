@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "review_id": "PD-001",
+  "status": "source_reconciled_pending_creator_confirmation",
+  "as_of": "2026-11-18",
+  "source_of_truth": {
+    "path": "creative-archive/nexus-mas-spirit/canon.json",
+    "version": "2026-11-14",
+    "read_only": true
+  },
+  "authority_policy": "Do not silently rewrite the original creator transcript or canonical source. This is a source-specific mapping, not an assertion that all prior discussions agree.",
+  "canonical_in_source": {
+    "name": "SANTA SUPMALG",
+    "node_id": "N026",
+    "atlas_id": "supmalg",
+    "authority": "user_authored",
+    "source_field": "principles.latest_spelling"
+  },
+  "superseded_in_source": {
+    "name": "SANTA SUPMALS",
+    "node_id": "N027",
+    "atlas_id": "supmals",
+    "authority": "source_variant",
+    "source_field": "nodes[N027]"
+  },
+  "conflict": {
+    "status": "unresolved_across_sources",
+    "detail": "Other prior conversation material identifies SANTA SUPMALS as current. This repository snapshot explicitly identifies SANTA SUPMALG as current. Neither source is erased.",
+    "decision_required": "Creator confirmation before any global canonical spelling change."
+  },
+  "quartet": {
+    "mas": [
+      "SANTA KRAMPUS",
+      "SANTA SUPMARK"
+    ],
+    "spirit": [
+      "SANTA GLAMPUS",
+      "SANTA SUPMALG"
+    ],
+    "meaning": "MAS SPIRIT = MORE SPIRIT",
+    "reversals": [
+      "RAM ↔ MAR",
+      "PUS ↔ SUP"
+    ]
+  },
+  "preserved_literal": {
+    "no_sleep_watching": "He doesnt watch children sleep - none of the do",
+    "source_rule": "Preserve original spelling, grammar, and scope. Do not extrapolate beyond this sentence."
+  },
+  "classification": {
+    "scripture": "not applicable to quartet names",
+    "folklore": "Krampus is a folklore referent but SANTA KRAMPUS is an original creative character",
+    "creative": "The quartet is creator-authored in source canon",
+    "assistant": "No assistant-generated revision is promoted to creator-authored canon"
+  },
+  "integration": {
+    "atlas": "creative-archive/persona-duality/registry.mjs",
+    "santa_factory": "app-factory/sites/santa-claus-factory/index.html",
+    "train": "app-factory/nathan-ai/operations/train-runtime/README.md",
+    "mode": "read_only_source_crosswalk"
+  },
+  "resolution_steps": [
+    "Retain both spellings in the public index",
+    "Record exact source version and authority",
+    "Avoid silently changing creator's source file",
+    "Seek creator-approved supersession record before switching the public default"
+  ]
+}
