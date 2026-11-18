@@ -1,0 +1,916 @@
+{
+  "schema_version": 1,
+  "namespace": "tabor-language-101",
+  "description": "Second distinct catalog of 101 language/history Workers; candidates and specifications, not verified deployed upstream applications",
+  "entries": [
+    {
+      "id": "LANG-001",
+      "name": "elizabethsiegle/cfworkers-ai-translate",
+      "category": "translation",
+      "source_type": "claimed_repository",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-002",
+      "name": "genie-oh/rrv7-cf-i18n-starter",
+      "category": "translation",
+      "source_type": "claimed_repository",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-003",
+      "name": "HTMLRewriter Edge Localizer",
+      "category": "translation",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-004",
+      "name": "Whisper Audio Transcription Worker",
+      "category": "translation",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-005",
+      "name": "ISO-639 Language Code Resolver",
+      "category": "translation",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-006",
+      "name": "Glottolog & WALS API Proxy",
+      "category": "translation",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-007",
+      "name": "Phonetic IPA Transcriber Worker",
+      "category": "translation",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-008",
+      "name": "Soundex & Metaphone Phonetic Matcher",
+      "category": "translation",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-009",
+      "name": "Bilingual Parallel Corpus Aligner",
+      "category": "translation",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-010",
+      "name": "Wiktionary Edge Dictionary Scraper",
+      "category": "translation",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-011",
+      "name": "DeepL / LibreTranslate Hybrid Gateway",
+      "category": "translation",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-012",
+      "name": "Subtitles SRT/VTT Batch Translator",
+      "category": "translation",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-013",
+      "name": "Unicode Script Block Detector",
+      "category": "translation",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-014",
+      "name": "Polyglot Search Stemmer",
+      "category": "translation",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-015",
+      "name": "Transliteration & Romanization Engine",
+      "category": "translation",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-016",
+      "name": "Dialect & Regional Slang Normalizer",
+      "category": "translation",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-017",
+      "name": "DigitalPasts/CuReD",
+      "category": "ancient-scripts",
+      "source_type": "claimed_repository",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-018",
+      "name": "JamesPiggott/Ancient-Language-Decipherer",
+      "category": "ancient-scripts",
+      "source_type": "claimed_repository",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-019",
+      "name": "Linear B Syllabary Parser",
+      "category": "ancient-scripts",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-020",
+      "name": "Proto-Sinaitic & Phoenician Root Mapper",
+      "category": "ancient-scripts",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-021",
+      "name": "Sumerian & Akkadian Cuneiform Unicode Converter",
+      "category": "ancient-scripts",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-022",
+      "name": "Biblical Hebrew & Aramaic Strong's Lexicon API",
+      "category": "ancient-scripts",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-023",
+      "name": "Koine & Ancient Greek Morphological Analyzer",
+      "category": "ancient-scripts",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-024",
+      "name": "Classical Latin Declension & Conjugation Engine",
+      "category": "ancient-scripts",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-025",
+      "name": "Old Norse & Elder Futhark Runic Transliterator",
+      "category": "ancient-scripts",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-026",
+      "name": "Ogham Celtic Tree-Alphabet Encoder",
+      "category": "ancient-scripts",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-027",
+      "name": "Sanskrit Devanagari & IAST Sandhi Splitter",
+      "category": "ancient-scripts",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-028",
+      "name": "Old Church Slavonic & Glagolitic Converter",
+      "category": "ancient-scripts",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-029",
+      "name": "Ge'ez & Ethiopic Abugida Analyzer",
+      "category": "ancient-scripts",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-030",
+      "name": "Etruscan & Old Italic Inscription Indexer",
+      "category": "ancient-scripts",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-031",
+      "name": "Ugaritic Cuneiform Abjad Decoder",
+      "category": "ancient-scripts",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-032",
+      "name": "Voynich Manuscript & Undeciphered Script Entropy Analyzer",
+      "category": "ancient-scripts",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-033",
+      "name": "puzzlet/seshat",
+      "category": "hieroglyphics",
+      "source_type": "claimed_repository",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-034",
+      "name": "nederhof/opentypehiero",
+      "category": "hieroglyphics",
+      "source_type": "claimed_repository",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-035",
+      "name": "Gardiner Sign-List Lookup Worker",
+      "category": "hieroglyphics",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-036",
+      "name": "Manuel de Codage to Unicode Hieroglyph Renderer",
+      "category": "hieroglyphics",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-037",
+      "name": "Egyptian Hieroglyphic Format Controls Quadrats Builder",
+      "category": "hieroglyphics",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-038",
+      "name": "Cartouche & Royal Titulary Generator",
+      "category": "hieroglyphics",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-039",
+      "name": "Mayan Long Count & Tzolk'in Calendar Converter",
+      "category": "hieroglyphics",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-040",
+      "name": "Mayan Logosyllabic Block Decoder",
+      "category": "hieroglyphics",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-041",
+      "name": "Anatolian Luwian Hieroglyphic Sign Indexer",
+      "category": "hieroglyphics",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-042",
+      "name": "Hieratic & Demotic Cursive Comparative Mapper",
+      "category": "hieroglyphics",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-043",
+      "name": "Coptic Script & Egyptian Phonetic Bridge",
+      "category": "hieroglyphics",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-044",
+      "name": "Rosetta Stone Trilingual Parallel Aligner",
+      "category": "hieroglyphics",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-045",
+      "name": "Determinative & Semantic Classifier Tagging Worker",
+      "category": "hieroglyphics",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-046",
+      "name": "Unicode BiDi UAX9 Directionality Analyzer",
+      "category": "directionality",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-047",
+      "name": "Hieroglyphic Gaze-Direction Detector",
+      "category": "directionality",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-048",
+      "name": "Boustrophedon Line Reverser",
+      "category": "directionality",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-049",
+      "name": "CSS Logical Properties & HTML dir-auto Rewriter",
+      "category": "directionality",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-050",
+      "name": "Mixed RTL/LTR Code-Block Isolator",
+      "category": "directionality",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-051",
+      "name": "Arabic Diacritics Stripper & Vocalizer",
+      "category": "directionality",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-052",
+      "name": "Hebrew Niqqud & Cantillation Parser",
+      "category": "directionality",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-053",
+      "name": "Syriac Estrangela Serto Madnhaya Script Switcher",
+      "category": "directionality",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-054",
+      "name": "Traditional Mongolian & Manchu Vertical Renderer",
+      "category": "directionality",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-055",
+      "name": "Vertical CJK Ruby Furigana Annotator",
+      "category": "directionality",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-056",
+      "name": "Mirror-Glyph & Palindrome Symmetry Checker",
+      "category": "directionality",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-057",
+      "name": "Arabic & Hebrew Calendar / Numeral Converter",
+      "category": "directionality",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-058",
+      "name": "HistoryLabs/events-api",
+      "category": "mythology",
+      "source_type": "claimed_repository",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-059",
+      "name": "Wikidata Mythological Entity Graph Worker",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-060",
+      "name": "Cross-Pantheon Syncretism Mapper",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-061",
+      "name": "Aarne-Thompson-Uther Folktale Motif Classifier",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-062",
+      "name": "Hero's Journey & Monomyth Structural Parser",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-063",
+      "name": "Sacred Geography & Ley-Line Coordinate Indexer",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-064",
+      "name": "Archaeoastronomy & Solstice Alignment Calculator",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-065",
+      "name": "Ancient Cosmology & Underworld Realm Mapper",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-066",
+      "name": "Arthurian Celtic & Grail Legend Concordance",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-067",
+      "name": "Norse Edda & Kenning Poetic Decoder",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-068",
+      "name": "Vedic & Puranic Sanskrit Epics Graph",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-069",
+      "name": "Mesoamerican Codices & Creation Myth Indexer",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-070",
+      "name": "Ancient Monster Chimera & Bestiary API",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-071",
+      "name": "Comparative Flood & Cataclysm Narrative Aligner",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-072",
+      "name": "Mythological Etymology & English Word-Origin Finder",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-073",
+      "name": "Oracle & Divination Corpus Engine",
+      "category": "mythology",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-074",
+      "name": "Gematria & Isopsephy Numerical Calculator",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-075",
+      "name": "Classical Cipher Suite Worker",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-076",
+      "name": "Steganography Zero-Width Character Encoder/Decoder",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-077",
+      "name": "CIA FOIA Reading Room & Declassified Document Searcher",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-078",
+      "name": "Historical Conspiracy & Secret Society Knowledge Graph",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-079",
+      "name": "Hermetic Alchemical & Rosicrucian Symbol Lexicon",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-080",
+      "name": "Sacred Geometry & Golden Ratio SVG Generator",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-081",
+      "name": "Library of Congress Chronicling America Newspaper Scraper",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-082",
+      "name": "Internet Archive Wayback Machine Diff Checker",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-083",
+      "name": "Anagram & Palindrome Permuter Engine",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-084",
+      "name": "Biblical & Apocryphal Dead Sea Scrolls Cross-Referencer",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-085",
+      "name": "Numerology & Calendar Synchronizer",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-086",
+      "name": "UFO / UAP Sighting Database Edge API",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-087",
+      "name": "Acoustic Resonance & Solfeggio Frequency Tone Generator",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-088",
+      "name": "Rumor Meme & Narrative Propagation Tracker",
+      "category": "ciphers-history",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-089",
+      "name": "Project Gutenberg EPUB/TXT Edge Ingestor",
+      "category": "library-ingestion",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-090",
+      "name": "Perseus Digital Library Classics XML Parser",
+      "category": "library-ingestion",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-091",
+      "name": "OpenLibrary & ISBN Metadata Harvester",
+      "category": "library-ingestion",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-092",
+      "name": "ArXiv & Open-Access Linguistics Preprint Crawler",
+      "category": "library-ingestion",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-093",
+      "name": "Vectorize Semantic Cross-Cultural Search Engine",
+      "category": "library-ingestion",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-094",
+      "name": "Entity-Relation Triple Extractor Worker",
+      "category": "library-ingestion",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-095",
+      "name": "Citation & Provenance Verifier",
+      "category": "library-ingestion",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-096",
+      "name": "Noto Sans Universal Fallback Font Subsetter",
+      "category": "typography",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-097",
+      "name": "SVG Stone-Carving & Papyrus Texture Renderer",
+      "category": "typography",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-098",
+      "name": "Interactive Stroke-Order & Glyph Anatomy Visualizer",
+      "category": "typography",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-099",
+      "name": "Side-by-Side Paleography Comparison Grid",
+      "category": "typography",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-100",
+      "name": "Audio Pronunciation & TTS Reader Worker",
+      "category": "typography",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    },
+    {
+      "id": "LANG-101",
+      "name": "Universal Polyglot Knowledge Gateway",
+      "category": "typography",
+      "source_type": "specification_to_build",
+      "source_verified": false,
+      "state": "queued_for_source_review",
+      "deployed": false
+    }
+  ]
+}
