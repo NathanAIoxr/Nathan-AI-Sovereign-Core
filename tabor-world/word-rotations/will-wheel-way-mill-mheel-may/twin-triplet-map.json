@@ -1,0 +1,91 @@
+{
+  "name": "WILL WHEEL WAY / MILL MHEEL MAY — Tabor Twin-Triplet Engine",
+  "version": "2026-11-18",
+  "tag": "CONTINUE BUILDING",
+  "preserve_separate": true,
+  "integrate_as_one": true,
+  "transform": {
+    "from": "W",
+    "to": "M",
+    "scope": "initial-letter for the three named terms",
+    "reversible": true
+  },
+  "pairs": [
+    {
+      "id": 1,
+      "left": "WILL",
+      "right": "MILL",
+      "leftMeaning": "intention / agency",
+      "rightMeaning": "grinding, milling, grits",
+      "relationship": "twin",
+      "independent": true
+    },
+    {
+      "id": 2,
+      "left": "WHEEL",
+      "right": "MHEEL",
+      "leftMeaning": "rotation, transport, motion",
+      "rightMeaning": "my heel, door, knock-knock phonetic play",
+      "relationship": "twin",
+      "independent": true
+    },
+    {
+      "id": 3,
+      "left": "WAY",
+      "right": "MAY",
+      "leftMeaning": "path, method, direction",
+      "rightMeaning": "permission, possibility, May calendar, showers, flowers",
+      "relationship": "twin",
+      "independent": true
+    }
+  ],
+  "triplets": [
+    {
+      "id": "W",
+      "members": [
+        "WILL",
+        "WHEEL",
+        "WAY"
+      ]
+    },
+    {
+      "id": "M",
+      "members": [
+        "MILL",
+        "MHEEL",
+        "MAY"
+      ]
+    }
+  ],
+  "connections": [
+    "WILL ↔ WHEEL",
+    "WILL ↔ WAY",
+    "WHEEL ↔ WAY",
+    "MILL ↔ MHEEL",
+    "MILL ↔ MAY",
+    "MHEEL ↔ MAY",
+    "WILL ↔ MILL",
+    "WHEEL ↔ MHEEL",
+    "WAY ↔ MAY"
+  ],
+  "applications": [
+    "word-rotation game",
+    "phonetic joke generator",
+    "grits mill simulation",
+    "door and heel puzzle",
+    "May permission dialogue",
+    "spring rain and flowers sequence",
+    "tactile wheel and gear interface",
+    "Tabor Chips digital hardware concept demonstrator"
+  ],
+  "boundaries": "The W-to-M substitution is a user-defined linguistic transformation, not a general etymological rule. MHEEL is an invented term.",
+  "integration": [
+    "Tabor Word Rotations",
+    "Universal Finger Physics",
+    "Tabor Track Baller",
+    "Library of Tabor",
+    "Nathan AI language engine",
+    "Tabor World Hub",
+    "Tabor Chips virtual mechanical hardware"
+  ]
+}
