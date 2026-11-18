@@ -1,3 +1,4 @@
+import { gateStatus, powerPlan, powerSources } from './gate-power.mjs'
 import { hypercomputerBlueprint, hyperParam, ironwoodPlan, runTensor, tensorTile } from './hypercomputer.mjs'
 import { digitalFleet, digitalOperations, runDigital } from './digital.mjs'
 
@@ -162,7 +163,10 @@ function dashboard() {
 <li><a href="/v1/nodes/node-050/lisssarrr?exercise=backup-restore">Run the Lisssarrr recovery exercise</a></li></ul><h2>Super Heroine Computer</h2><ul>
 <li><a href="/v1/hypercomputer">Full identity, architecture and existing connections</a></li>
 <li><a href="/v1/hypercomputer/plan">Ironwood capacity model</a></li>
-<li><a href="/v1/hypercomputer/run">Run the six-node tensor job</a></li></ul>
+<li><a href="/v1/hypercomputer/run">Run the six-node tensor job</a></li></ul><h2>One into Zero and Power Planning</h2><ul>
+<li><a href="/v1/hypercomputer/gate">Run the One into Zero sequence</a></li>
+<li><a href="/v1/hypercomputer/power?utility_mw=10&amp;onsite_mw=2&amp;stored_mwh=4&amp;discharge_mw=2">Model power capacity</a></li>
+<li><a href="/v1/hypercomputer/power/sources">View the power source catalog</a></li></ul>
 <footer><p>Storage figures are design targets. Physical compute and storage capacity require independently verified hardware.</p></footer></main></html>`, {
     headers: { 'Content-Type': 'text/html; charset=utf-8', 'X-Content-Type-Options': 'nosniff',
       'Content-Security-Policy': "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'" },
@@ -194,6 +198,16 @@ export default {
     if (pathname === '/health') return json({ service: 'Tabor Supercomputer Federation', cohort,
       fleet_slots: count, database_binding: Boolean(env.NODES), provisioning_enabled: Boolean(env.PROVISION_TOKEN?.length >= 32) })
     if (pathname === '/v1/hypercomputer') return json(hypercomputerBlueprint)
+    if (pathname === '/v1/hypercomputer/gate') {
+      const bits = searchParams.getAll('bits')
+      const result = await gateStatus(env.FAMILY, bits.length === 0 ? '1110000' : bits.length === 1 ? bits[0] : null)
+      return json(result, result.error ? 400 : 200)
+    }
+    if (pathname === '/v1/hypercomputer/power/sources') return json({ sources: powerSources, mode: 'public_source_catalog' })
+    if (pathname === '/v1/hypercomputer/power') {
+      const result = powerPlan(searchParams)
+      return json(result, result.error ? 400 : 200)
+    }
     if (pathname === '/v1/hypercomputer/plan') {
       const chips = hyperParam(searchParams, 'chips', 9216, 1, 9216)
       return chips === null ? json({ error: 'invalid_chip_count' }, 400) : json(ironwoodPlan(chips))

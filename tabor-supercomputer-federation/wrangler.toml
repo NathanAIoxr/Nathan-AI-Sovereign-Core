@@ -40,3 +40,7 @@ service = "nathan-tabor-supercomputer-2x"
 [[services]]
 binding = "MINING"
 service = "tabor-corp-mining-hub"
+
+[[services]]
+binding = "FAMILY"
+service = "tabor-family-federation"

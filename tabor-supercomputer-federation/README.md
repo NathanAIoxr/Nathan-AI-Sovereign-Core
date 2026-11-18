@@ -77,3 +77,10 @@ Read [Nathan Tabor's original design input](HYPERCOMPUTER-DESIGN-INPUT.md) along
 | Runtime and orchestration | Use a provider-approved GKE TPU configuration, with JAX/OpenXLA and Pathways where applicable. Keep model code and configuration portable. | Reproducibility across fresh jobs, multi-slice scaling efficiency, checkpoint recovery, and cost per useful job. |
 
 Start provider validation with a supported small slice and scale after the same workload has a repeatable benchmark. The Cloudflare runner performs integer arithmetic on existing logical nodes. No TPU, optical fabric, or quantum hardware has been provisioned by this release. The receipt covers UTF-8 JSON without the receipt field in its original property order. It is a reproducibility check, not a signed attestation.
+
+## One into Zero and power planning
+
+- `/v1/hypercomputer/gate?bits=1110000` runs the seven-bit sequence model and checks the existing Family Federation binary header through the FAMILY binding. Other seven-bit strings produce a closed state. A response is a local digital result and has no authorization side effects.
+- `/v1/hypercomputer/power/sources` lists public source references for grid, utility, nuclear, renewables, onsite generation, and storage.
+- `/v1/hypercomputer/power?utility_mw=10&onsite_mw=2&stored_mwh=4&discharge_mw=2` shows a modeled planning example. An empty request defaults to zero supplied capacity.
+- The example credits the lower of storage discharge rating and usable energy divided by the selected window. Then it subtracts the reserve, divides by facility PUE, and floors the number of workload slots based on per-slot draw. Treat all inputs as independently deliverable at the same time. Supply availability and purchased compute require separate verification. No dispatch or telemetry ingestion is configured.

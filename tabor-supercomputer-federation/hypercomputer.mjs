@@ -23,6 +23,8 @@ const blueprint = {
     { id: 'federation', design: 'Fixed integer matrix-row jobs fan out over the existing federation Durable Objects', status: 'cloudflare_workload' },
   ],
   connected_workloads: [
+    { name: 'One into Zero family Gate', route: '/v1/hypercomputer/gate' },
+    { name: 'Power capacity planning', route: '/v1/hypercomputer/power' },
     { name: 'MOMENT × 1,000 and Lisssarrr', route: '/v1/digital' },
     { name: 'Manifesting the Matrix', route: '/v1/matrix-demo' },
     { name: 'Tabor World, Sovereign Digital Stack, RAM and Storage, both supercomputer services and Mining Hub', route: '/v1/services' },

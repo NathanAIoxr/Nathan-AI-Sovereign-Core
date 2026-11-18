@@ -115,3 +115,20 @@ test('Ironwood capacity and six-shard tensor receipts are checked independently'
   const bad = await worker.fetch(new Request('https://test.invalid/v1/hypercomputer/plan?chips=9999'), {})
   assert.equal(bad.status, 400)
 })
+
+test('One into Zero checks the exact sequence and power planning credits bounded storage', async () => {
+  const { gateStatus, powerPlan } = await import('./gate-power.mjs')
+  const packet = new Uint8Array([84, 70, 69, 68, 1, 7, 224])
+  const family = { fetch: async () => new Response(packet) }
+  const opened = await gateStatus(family, '1110000')
+  assert.equal(opened.state, 'open')
+  assert.equal(opened.family_packet, 'verified_tfed_v1_gate_header')
+  const { receipt, ...body } = opened
+  assert.equal(receipt.sha256, createHash('sha256').update(JSON.stringify(body)).digest('hex'))
+  assert.equal((await gateStatus(family, '1101000')).state, 'closed')
+  assert.equal((await gateStatus(family, '111')).error, 'expected_seven_bits')
+  const model = powerPlan(new URLSearchParams('utility_mw=10&onsite_mw=2&stored_mwh=4&discharge_mw=2'))
+  assert.equal(model.credited_storage_mw_for_window, 1)
+  assert.equal(model.modeled_workload_slots, 8666)
+  assert.equal(powerPlan(new URLSearchParams('utility_mw=8&utility_mw=9')).error, 'invalid_power_plan_inputs')
+})
