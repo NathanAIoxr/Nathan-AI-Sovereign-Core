@@ -1,0 +1,29 @@
+name = "sovereign-ai-unit-compute"
+main = "../box-1-one/worker.mjs"
+workers_dev = false
+preview_urls = false
+compatibility_date = "2026-11-18"
+
+[triggers]
+crons = ["* * * * *"]
+
+[observability]
+enabled = true
+
+[observability.traces]
+enabled = true
+head_sampling_rate = 0.1
+
+[ai]
+binding = "AI"
+
+[[d1_databases]]
+binding = "BOX_1_LEDGER"
+database_name = "sovereign-ledger"
+database_id = "bf07f3cc-3d94-4fa9-bad9-dfe36d3bec83"
+migrations_dir = "../migrations"
+
+# After R2 activation, add:
+# [[r2_buckets]]
+# binding = "ARTIFACTS"
+# bucket_name = "sovereign-compute-artifacts"
