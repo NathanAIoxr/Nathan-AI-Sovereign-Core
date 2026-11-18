@@ -1,0 +1,13 @@
+import chunk_00 from "./catalog-00.mjs";
+import chunk_01 from "./catalog-01.mjs";
+import chunk_02 from "./catalog-02.mjs";
+import chunk_03 from "./catalog-03.mjs";
+import chunk_04 from "./catalog-04.mjs";
+import chunk_05 from "./catalog-05.mjs";
+import chunk_06 from "./catalog-06.mjs";
+import chunk_07 from "./catalog-07.mjs";
+import chunk_08 from "./catalog-08.mjs";
+import chunk_09 from "./catalog-09.mjs";
+import chunk_10 from "./catalog-10.mjs";
+export const catalogText = [chunk_00, chunk_01, chunk_02, chunk_03, chunk_04, chunk_05, chunk_06, chunk_07, chunk_08, chunk_09, chunk_10].join("");
+export const catalogDigest = "02e7f1bef824a7309620d1a1cdd57af1d2c490b5e788fb590b665e17992b13e8";

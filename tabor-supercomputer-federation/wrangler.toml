@@ -1,5 +1,5 @@
 name = "tabor-supercomputer-federation"
-main = "worker.mjs"
+main = "fleet-release/federation-entry.mjs"
 compatibility_date = "2026-11-18"
 workers_dev = true
 preview_urls = false
@@ -44,3 +44,15 @@ service = "tabor-corp-mining-hub"
 [[services]]
 binding = "FAMILY"
 service = "tabor-family-federation"
+
+[[services]]
+binding = "FLEET_CROWN"
+service = "tabor-sovereign-crown"
+
+[[services]]
+binding = "FLEET_POLYGLOT"
+service = "tabor-polyglot-knowledge-gateway"
+
+[[services]]
+binding = "FLEET_IMAGINATION"
+service = "library-of-tabor-imagination"
