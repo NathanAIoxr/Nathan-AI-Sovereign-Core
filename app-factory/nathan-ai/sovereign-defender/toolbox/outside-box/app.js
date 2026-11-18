@@ -1,6 +1,7 @@
 (function () {
   'use strict';
   const api = window.NathanOutsideBox;
+  const bundles = window.NathanOutsideBoxBundle;
   const el = id => document.getElementById(id);
   const reports = new Map();
   const decisions = [];
@@ -53,9 +54,15 @@
       .filter(Boolean).join(' · ');
   }
 
+  function selectedEvent() {
+    return [...caseRecord.timeline, ...caseRecord.unzoned].find(event => event.id === el('event').value);
+  }
+
   function showSelection() {
-    const selected = [...caseRecord.timeline, ...caseRecord.unzoned].find(event => event.id === el('event').value);
+    const selected = selectedEvent();
     el('selected-observation').textContent = selected ? format(selected) : '';
+    el('inspect').disabled = !selected;
+    el('inspection').textContent = '';
     el('asset').readOnly = Boolean(selected?.asset);
     el('asset').value = selected?.asset || '';
     el('family').value = selected?.family || 'Z';
@@ -126,15 +133,12 @@
     fillSelect('event', events, event => event.id, event => format(event).slice(0, 185), 'Select supporting evidence');
     showSelection();
     showDecisions();
-    for (const id of ['export', 'clear', 'review', 'decision']) el(id).disabled = !events.length;
+    for (const id of ['export', 'save-bundle', 'clear', 'review', 'decision']) el(id).disabled = !events.length;
   }
 
   async function addFiles(files) {
     if (loading) return;
-    loading = true;
-    el('evidence').disabled = true;
-    el('load-example').disabled = true;
-    el('clear').disabled = true;
+    setFileBusy(true);
     let imported = 0;
     let duplicates = 0;
     const failures = [];
@@ -157,10 +161,61 @@
       render();
       status([imported + ' file(s) imported.', duplicates && duplicates + ' duplicate(s) skipped.', ...failures].filter(Boolean).join(' '));
     } finally {
-      loading = false;
       el('evidence').value = '';
-      el('evidence').disabled = false;
-      el('load-example').disabled = false;
+      setFileBusy(false);
+    }
+  }
+
+  function setFileBusy(busy) {
+    loading = busy;
+    for (const id of ['evidence', 'open-bundle', 'load-example']) el(id).disabled = busy;
+    for (const id of ['clear', 'save-bundle']) el(id).disabled = busy || !reports.size;
+  }
+
+  async function saveBundle() {
+    if (loading) return;
+    const current = caseRecord;
+    const journal = { assessments: [...assessments], decisions: [...decisions], outcomes: [...outcomes] };
+    setFileBusy(true);
+    try {
+      const sources = [];
+      for (const [id, { file }] of reports) sources.push({ id, bytes: new Uint8Array(await file.arrayBuffer()) });
+      const packed = await bundles.create(sources, current, journal);
+      download(new Blob([packed], { type: 'application/zip' }), 'nathan-ai-outside-box-case.zip');
+      status('Portable case prepared with original evidence and the decision journal.');
+    } catch (error) {
+      status(error.message);
+    } finally {
+      setFileBusy(false);
+    }
+  }
+
+  async function openBundle(file) {
+    if (loading || !file) return;
+    setFileBusy(true);
+    try {
+      if (file.size > bundles.MAX_BYTES) throw new Error('Evidence bundle is too large.');
+      const restored = await bundles.open(new Uint8Array(await file.arrayBuffer()));
+      if (reports.size && !window.confirm('Replace the current in-memory case with the verified ZIP?')) return;
+      reports.clear();
+      for (const source of restored.sources) {
+        const file = new File([source.bytes], source.report.source.name, { type: 'application/json' });
+        reports.set(source.report.source.sha256, { report: source.report, file });
+      }
+      assessments.splice(0, assessments.length, ...restored.assessments);
+      decisions.splice(0, decisions.length, ...restored.decisions);
+      outcomes.splice(0, outcomes.length, ...restored.outcomes);
+      el('reason').value = '';
+      el('verification').value = '';
+      el('authority').checked = false;
+      shown = 40;
+      render();
+      status('Case reopened. Original fingerprints and journal references verified.');
+    } catch (error) {
+      status('Could not reopen case: ' + error.message);
+    } finally {
+      el('open-bundle').value = '';
+      setFileBusy(false);
     }
   }
 
@@ -191,6 +246,16 @@
     addFiles([file]);
   });
   el('event').addEventListener('change', showSelection);
+  el('save-bundle').addEventListener('click', saveBundle);
+  el('open-bundle').addEventListener('change', () => openBundle(el('open-bundle').files[0]));
+  el('inspect').addEventListener('click', () => {
+    const selected = selectedEvent();
+    if (!selected) return;
+    const verdict = window.TaborHallOfMirrors.classify(selected.observation);
+    el('inspection').textContent = verdict.detected
+      ? 'Pattern flags for review: ' + verdict.reasons.join(', ')
+      : 'No listed Hall of Mirrors pattern matched the selected observation.';
+  });
   el('family').addEventListener('change', showGuidance);
   el('show-more').addEventListener('click', () => {
     shown += 40;

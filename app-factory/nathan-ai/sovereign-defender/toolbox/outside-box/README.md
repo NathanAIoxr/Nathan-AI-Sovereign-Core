@@ -4,7 +4,7 @@ Nathan Tabor's Outside Box is a local case workspace for evidence review, an own
 
 ## Run
 
-Serve the repository locally with `python3 -m http.server 8000`. Open `http://localhost:8000/app-factory/nathan-ai/sovereign-defender/toolbox/outside-box/`. Choose **Load example case** for a synthetic OAuth incident. The case stays in the current tab until you export or clear it. A case export contains normalized observations, assessments, decisions, and outcome references. Source fingerprints identify the selected input bytes, which have a separate exact-original download. Treat exported case files and originals as private incident data.
+Serve the repository locally with `python3 -m http.server 8000`. Open `http://localhost:8000/app-factory/nathan-ai/sovereign-defender/toolbox/outside-box/`. Choose **Load example case** for a synthetic OAuth incident. The case stays in the current tab until you export or clear it. A case export contains normalized observations, assessments, decisions, and outcome references. Source fingerprints identify the selected input bytes, which have a separate exact-original download. Use **Save portable case ZIP** to bundle every original plus the decision journal. Reopening checks the source hashes and rebuilds the timeline before replacing the current case. The ZIP is not encrypted. Treat case exports, ZIPs, and originals as private incident data.
 
 ## Evidence inputs
 
@@ -23,6 +23,12 @@ Each source is limited to 2 MiB and 1,000 rows. Each case holds up to 10 sources
 | ICU_Buddy and RAPTURE_Protocol | The new tab-local case and recorded containment choices carry forward the casekeeping and containment concepts. |
 | LET/TET, Semantics Antivirus, DATA ATAD | The input file and the interpretation stay separate. The historical Semantics Antivirus text transformations remain a distinct project. |
 | Quantum Leap, Bewitched, and Jeannie | Chronological replay, a reviewable reversal, and quarantine of untrusted input inform the workflow. |
+| Universal Creator Vault | Direct reuse of original-byte ZIP creation, safe archive reading, SHA-256 comparison, and format bounds. |
+| Hall of Mirrors | Direct reuse of the recovered inert pattern matcher on one selected observation. The case shows named heuristic matches and does not interpret them as a finding of compromise. |
+| Shadow Code and Insecurity family | Recovered design vocabulary for the untrusted side of the boundary. Observed identity, relay, affected asset, possible intent, and verified outcome stay distinct. |
+| Five Equal Guardians, Forever Guardian, and Protect Innocence | The design keeps the affected owner in control of scope, the action chosen, and what is disclosed in a handoff. |
+| The THINKER Anti-Ransomware Patch, Sovereign Defender, Dehack/Deliver | Use recorded indicators, a trusted baseline, an independently verified recovery result, and evidence-first action selection. The R family links this method to the A–Z playbook. |
+| Sovereign Boxes and True Cloud Computing | Box 0 maps to bounded intake and scope review. Box 1 maps to case derivation and verification receipts. The separate compute Workers and D1 job ledger are referenced as related infrastructure. |
 
 **1 − 1 = 0** plans containment. **1 + 1 = 2** adds evidence. **1 × 1 = 1** joins sources. **1 ÷ 1 = 1** records verification.
 
@@ -31,8 +37,14 @@ The browser records choices and owner-reported results. Live enforcement and tel
 ## Verify
 
 ```sh
-node --test app-factory/nathan-ai/sovereign-defender/toolbox/outside-box/engine.test.cjs
+node --test app-factory/nathan-ai/sovereign-defender/toolbox/outside-box/*.test.cjs
 ```
 
 - [Sovereign Defender toolbox integration](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/111)
 - [Cloudflare HTTP Requests fields](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/http_requests/)
+
+- [Hall of Mirrors recovered engine and source notes](../../../../one/hall-of-mirrors/README.md)
+- [Universal Creator Vault](../../../../UNIVERSAL-CREATOR-VAULT.md)
+- [Five Equal Guardians](../../../five-guardians/README.md)
+- [Forever Guardian](../../../atomic-equator-forever-guardian/README.md)
+- [True Cloud Computing receipt work](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/319)

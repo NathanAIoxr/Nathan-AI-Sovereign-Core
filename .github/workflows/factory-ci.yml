@@ -211,7 +211,7 @@ jobs:
       - name: Verify Dehack/Deliver World exact 104-source titles, original import, real consumer utilities and mathematical representations
         run: node --test app-factory/nathan-ai/dehack-deliver/engine.test.cjs
       - name: Verify Sovereign Defender antivirus-style triage, original integrity and inert ransomware simulations
-        run: node --test app-factory/nathan-ai/sovereign-defender/engine.test.cjs app-factory/nathan-ai/sovereign-defender/audit.test.cjs app-factory/nathan-ai/sovereign-defender/browser.test.cjs app-factory/nathan-ai/sovereign-defender/toolbox/engine.test.cjs app-factory/nathan-ai/sovereign-defender/toolbox/outside-box/engine.test.cjs
+        run: node --test app-factory/nathan-ai/sovereign-defender/engine.test.cjs app-factory/nathan-ai/sovereign-defender/audit.test.cjs app-factory/nathan-ai/sovereign-defender/browser.test.cjs app-factory/nathan-ai/sovereign-defender/toolbox/engine.test.cjs app-factory/nathan-ai/sovereign-defender/toolbox/outside-box/engine.test.cjs app-factory/nathan-ai/sovereign-defender/toolbox/outside-box/bundle.test.cjs
       - name: Independently sourced apps, games, books and academy tests
         run: node --test app-factory/nathan-ai/independent-editions/engine.test.cjs
       - name: Standalone GitHub Websites & Apps preservation tests
