@@ -1,0 +1,1403 @@
+{
+  "schema_version": 1,
+  "namespace": "tabor-imagination-101",
+  "status": "queued_not_executing",
+  "policy": "Additive only; no existing script overwrite; family content requires age-appropriate moderation and private authenticated storage",
+  "jobs": [
+    {
+      "id": "IMAG-002",
+      "name": "Dragon Egg Incubator & Hatching Timer",
+      "category": "dragons",
+      "assigned_agent": "tabor-imagination-builder-01",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-003",
+      "name": "Dragonese Roar & Rhyme Translator",
+      "category": "dragons",
+      "assigned_agent": "tabor-imagination-builder-02",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-004",
+      "name": "Cloud-Canyon Flight Path Simulator",
+      "category": "dragons",
+      "assigned_agent": "tabor-imagination-builder-03",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-005",
+      "name": "Dragon Hoard Treasure & Riddle Vault",
+      "category": "dragons",
+      "assigned_agent": "tabor-imagination-builder-04",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-006",
+      "name": "Baby Dragon Scale-Color Mixer",
+      "category": "dragons",
+      "assigned_agent": "tabor-imagination-builder-05",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-007",
+      "name": "Volcano & Mountain Lair Map Builder",
+      "category": "dragons",
+      "assigned_agent": "tabor-imagination-builder-06",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-008",
+      "name": "Dragon-Back Mail & Scroll Carrier",
+      "category": "dragons",
+      "assigned_agent": "tabor-imagination-builder-07",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-010",
+      "name": "Paper-Dragon Origami Folding Guide",
+      "category": "dragons",
+      "assigned_agent": "tabor-imagination-builder-08",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-011",
+      "name": "Dragon Lullaby & Campfire Story Weaver",
+      "category": "dragons",
+      "assigned_agent": "tabor-imagination-builder-01",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-012",
+      "name": "Star-Dragon Constellation Mapper",
+      "category": "dragons",
+      "assigned_agent": "tabor-imagination-builder-02",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-013",
+      "name": "Dragon-Fire Marshmallow & Bakery Recipe Spinner",
+      "category": "dragons",
+      "assigned_agent": "tabor-imagination-builder-03",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-014",
+      "name": "Tiny Pocket-Dragon Companion Widget",
+      "category": "dragons",
+      "assigned_agent": "tabor-imagination-builder-04",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-015",
+      "name": "Dragon Sanctuary Care & Feeding Tracker",
+      "category": "dragons",
+      "assigned_agent": "tabor-imagination-builder-05",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-016",
+      "name": "Unicorn Mane & Rainbow Prism Generator",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-06",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-017",
+      "name": "Star-Fairy Dust Sparkle Physics Engine",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-07",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-018",
+      "name": "Rainbow Bridge & Cloud-Kingdom Builder",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-08",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-019",
+      "name": "Unicorn Horn Glow & Wish-Light Decoder",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-01",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-020",
+      "name": "Pegacorn & Alicorn Hybrid Creature Studio",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-02",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-021",
+      "name": "Whispering Meadow Flower-Language Translator",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-03",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-022",
+      "name": "Glitter-Hoofprint Trail Generator",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-04",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-023",
+      "name": "Unicorn Tea-Party & Cloud-Cupcake Menu Maker",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-05",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-024",
+      "name": "Silver-Moon Unicorn Lullaby Composer",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-06",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-025",
+      "name": "Crystal Cavern Gem & Geode Cracker",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-07",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-026",
+      "name": "Unicorn Herd Friendship & Cutie-Crest Designer",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-08",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-027",
+      "name": "Rainbow Weather & Sunshower Predictor",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-01",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-028",
+      "name": "Sleigh-Flight & Reindeer Star-Dust Booster",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-02",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-029",
+      "name": "Lost-in-the-Clouds Maze & Rainbow Slide Game",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-03",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-030",
+      "name": "Unicorn & Dragon Best-Friends Duo Builder",
+      "category": "unicorns",
+      "assigned_agent": "tabor-imagination-builder-04",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-032",
+      "name": "Sun-Lion & Moon-Owl Day/Night Cycle Switcher",
+      "category": "harmony",
+      "assigned_agent": "tabor-imagination-builder-05",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-033",
+      "name": "Opposites & Harmony Word-Pair Matcher",
+      "category": "harmony",
+      "assigned_agent": "tabor-imagination-builder-06",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-034",
+      "name": "Balance-Scale Riddle & Weight Game",
+      "category": "harmony",
+      "assigned_agent": "tabor-imagination-builder-07",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-035",
+      "name": "Five-Elements Creature Wheel",
+      "category": "harmony",
+      "assigned_agent": "tabor-imagination-builder-08",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-036",
+      "name": "Shadow-Puppet Theater Generator",
+      "category": "harmony",
+      "assigned_agent": "tabor-imagination-builder-01",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-037",
+      "name": "Calm-Breath & Heartbeat Ripple Visualizer",
+      "category": "harmony",
+      "assigned_agent": "tabor-imagination-builder-02",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-038",
+      "name": "Mirror-World & Topsy-Turvy Flip Engine",
+      "category": "harmony",
+      "assigned_agent": "tabor-imagination-builder-03",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-039",
+      "name": "Season-Spinner",
+      "category": "harmony",
+      "assigned_agent": "tabor-imagination-builder-04",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-040",
+      "name": "Echo & Resonance Sound-Wave Visualizer",
+      "category": "harmony",
+      "assigned_agent": "tabor-imagination-builder-05",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-041",
+      "name": "Good-Deed Ripple & Kindness Chain Tracker",
+      "category": "harmony",
+      "assigned_agent": "tabor-imagination-builder-06",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-042",
+      "name": "Puzzle-Piece Two-Halves Story Completer",
+      "category": "harmony",
+      "assigned_agent": "tabor-imagination-builder-07",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-043",
+      "name": "Day-Sky / Night-Sky Constellation & Cloud Spotter",
+      "category": "harmony",
+      "assigned_agent": "tabor-imagination-builder-08",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-044",
+      "name": "Harmony-Chime & Pentatonic Wind-Chime Synthesizer",
+      "category": "harmony",
+      "assigned_agent": "tabor-imagination-builder-01",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-046",
+      "name": "Alliterative Tongue-Twister & Title Generator",
+      "category": "alphabet",
+      "assigned_agent": "tabor-imagination-builder-02",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-047",
+      "name": "Bouncy Rhyme-Time Stanza Completer",
+      "category": "alphabet",
+      "assigned_agent": "tabor-imagination-builder-03",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-048",
+      "name": "Alphabet Soup & Letter-Monster Word Builder",
+      "category": "alphabet",
+      "assigned_agent": "tabor-imagination-builder-04",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-049",
+      "name": "Phonics Sound-Out & Syllable Clapper",
+      "category": "alphabet",
+      "assigned_agent": "tabor-imagination-builder-05",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-050",
+      "name": "Silly-Dictionary & Invented-Word Forger",
+      "category": "alphabet",
+      "assigned_agent": "tabor-imagination-builder-06",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-051",
+      "name": "Acrostic Name-Poem Generator",
+      "category": "alphabet",
+      "assigned_agent": "tabor-imagination-builder-07",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-052",
+      "name": "Alphabetical Town & Land Builder",
+      "category": "alphabet",
+      "assigned_agent": "tabor-imagination-builder-08",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-053",
+      "name": "Rhyme-Scheme & Meter Rhythm Checker",
+      "category": "alphabet",
+      "assigned_agent": "tabor-imagination-builder-01",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-054",
+      "name": "Backwards-Words & Palindrome Playground",
+      "category": "alphabet",
+      "assigned_agent": "tabor-imagination-builder-02",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-055",
+      "name": "Onomatopoeia Sound-Effects Comic Pop-Up Engine",
+      "category": "alphabet",
+      "assigned_agent": "tabor-imagination-builder-03",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-057",
+      "name": "Choose-Your-Own-Adventure Branching Tree Engine",
+      "category": "alphabet",
+      "assigned_agent": "tabor-imagination-builder-04",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-058",
+      "name": "Tiny-Hero Big-World Perspective Storyteller",
+      "category": "alphabet",
+      "assigned_agent": "tabor-imagination-builder-05",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-059",
+      "name": "Savanna Lion/Lioness Royal Decree Engine",
+      "category": "creatures",
+      "assigned_agent": "tabor-imagination-builder-06",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-060",
+      "name": "Friendly Dinosaur Time-Machine Explorer",
+      "category": "creatures",
+      "assigned_agent": "tabor-imagination-builder-07",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-061",
+      "name": "Hybrid Animal Mashup Lab",
+      "category": "creatures",
+      "assigned_agent": "tabor-imagination-builder-08",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-062",
+      "name": "Backyard Bug & Tiny-Ant Flight Simulator",
+      "category": "creatures",
+      "assigned_agent": "tabor-imagination-builder-01",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-063",
+      "name": "Ocean Trench & Bioluminescent Deep-Sea Explorer",
+      "category": "creatures",
+      "assigned_agent": "tabor-imagination-builder-02",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-064",
+      "name": "Woodland Treehouse & Hollow-Oak Village Architect",
+      "category": "creatures",
+      "assigned_agent": "tabor-imagination-builder-03",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-065",
+      "name": "Talking-Animal Fable & Moral Lesson Generator",
+      "category": "creatures",
+      "assigned_agent": "tabor-imagination-builder-04",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-066",
+      "name": "Footprint & Animal-Track Detective Game",
+      "category": "creatures",
+      "assigned_agent": "tabor-imagination-builder-05",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-067",
+      "name": "Chameleon & Octopus Camouflage Color-Matcher",
+      "category": "creatures",
+      "assigned_agent": "tabor-imagination-builder-06",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-068",
+      "name": "Migration & Great Animal Journey Globe",
+      "category": "creatures",
+      "assigned_agent": "tabor-imagination-builder-07",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-069",
+      "name": "Prehistoric Amber & Fossil Dig Simulator",
+      "category": "creatures",
+      "assigned_agent": "tabor-imagination-builder-08",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-070",
+      "name": "Nocturnal Firefly & Moonlight Forest Chorus",
+      "category": "creatures",
+      "assigned_agent": "tabor-imagination-builder-01",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-071",
+      "name": "Animal Superpower Comparator",
+      "category": "creatures",
+      "assigned_agent": "tabor-imagination-builder-02",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-072",
+      "name": "Good-Health & Safety Parable Storyteller",
+      "category": "creatures",
+      "assigned_agent": "tabor-imagination-builder-03",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-074",
+      "name": "Pixel-Art & Perler-Bead Grid Designer",
+      "category": "visual-art",
+      "assigned_agent": "tabor-imagination-builder-04",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-075",
+      "name": "Kaleidoscope & Mandala Symmetry Painter",
+      "category": "visual-art",
+      "assigned_agent": "tabor-imagination-builder-05",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-076",
+      "name": "Paper-Airplane Folding & Aerodynamics Lab",
+      "category": "visual-art",
+      "assigned_agent": "tabor-imagination-builder-06",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-077",
+      "name": "Custom Coat-of-Arms & Family Shield Builder",
+      "category": "visual-art",
+      "assigned_agent": "tabor-imagination-builder-07",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-078",
+      "name": "Comic-Strip 4-Panel Storyboard Creator",
+      "category": "visual-art",
+      "assigned_agent": "tabor-imagination-builder-08",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-079",
+      "name": "Sticker-Pack & Badge SVG Generator",
+      "category": "visual-art",
+      "assigned_agent": "tabor-imagination-builder-01",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-080",
+      "name": "Rainbow Spirograph & Geometric Curve Drawer",
+      "category": "visual-art",
+      "assigned_agent": "tabor-imagination-builder-02",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-081",
+      "name": "3D Pop-Up Card & Paper-Craft Template Maker",
+      "category": "visual-art",
+      "assigned_agent": "tabor-imagination-builder-03",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-082",
+      "name": "Pixel-Monster & Cute-Robot Avatar Generator",
+      "category": "visual-art",
+      "assigned_agent": "tabor-imagination-builder-04",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-083",
+      "name": "Cloud-Shape & Star-Constellation Connect-the-Dots",
+      "category": "visual-art",
+      "assigned_agent": "tabor-imagination-builder-05",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-084",
+      "name": "LEGO / Brick-Builder Mosaic Converter",
+      "category": "visual-art",
+      "assigned_agent": "tabor-imagination-builder-06",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-085",
+      "name": "Finger-Paint & Watercolor Splash Canvas",
+      "category": "visual-art",
+      "assigned_agent": "tabor-imagination-builder-07",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-086",
+      "name": "Bedtime Storybook PDF & Flipbook Compiler",
+      "category": "visual-art",
+      "assigned_agent": "tabor-imagination-builder-08",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-088",
+      "name": "Cloud-Type & Rainbow-Physics Weather Station",
+      "category": "science",
+      "assigned_agent": "tabor-imagination-builder-01",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-089",
+      "name": "Kitchen-Science Safe Experiment Cards",
+      "category": "science",
+      "assigned_agent": "tabor-imagination-builder-02",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-090",
+      "name": "Moon-Phase & Crescent-Smile Calendar",
+      "category": "science",
+      "assigned_agent": "tabor-imagination-builder-03",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-091",
+      "name": "Seed-to-Oak-Tree Time-Lapse Grower",
+      "category": "science",
+      "assigned_agent": "tabor-imagination-builder-04",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-092",
+      "name": "Time-Capsule & Future-Self Letter Vault",
+      "category": "science",
+      "assigned_agent": "tabor-imagination-builder-05",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-094",
+      "name": "World-Holidays & Global Festival Explorer",
+      "category": "science",
+      "assigned_agent": "tabor-imagination-builder-06",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-095",
+      "name": "Musical-Story Soundboard",
+      "category": "science",
+      "assigned_agent": "tabor-imagination-builder-07",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-096",
+      "name": "Grandparent / Parent & Child Co-Authoring Relay",
+      "category": "master",
+      "assigned_agent": "tabor-imagination-builder-08",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-097",
+      "name": "Voice-to-Storybook Bedtime Recorder",
+      "category": "master",
+      "assigned_agent": "tabor-imagination-builder-01",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-098",
+      "name": "Kid-Safe Content & Positive-Tone Guardrail Filter",
+      "category": "master",
+      "assigned_agent": "tabor-imagination-builder-02",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-099",
+      "name": "Illustration Prompt & SVG Scene Composer",
+      "category": "master",
+      "assigned_agent": "tabor-imagination-builder-03",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-100",
+      "name": "Achievement Patch & Explorer Badge Hall of Fame",
+      "category": "master",
+      "assigned_agent": "tabor-imagination-builder-04",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "IMAG-101",
+      "name": "Universal Imagination & Wonder Engine",
+      "category": "master",
+      "assigned_agent": "tabor-imagination-builder-05",
+      "status": "awaiting_implementation",
+      "stages": [
+        "specify",
+        "implement",
+        "unit_test",
+        "content_safety_review",
+        "deploy",
+        "smoke_test"
+      ]
+    }
+  ]
+}
