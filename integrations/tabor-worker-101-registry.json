@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "description": "101 additive candidate integrations; no third-party source deployed",
+  "description": "101 user-supplied integration specifications with source hints, not verified upstream deployments. Preserve all existing Workers.",
   "entries": [
     {
       "id": "EXT-001",
@@ -8,7 +8,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/mcp-server-cloudflare",
+      "source_reference_type": "claimed_direct_repository",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-002",
@@ -16,7 +20,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/cloudflare-os",
+      "source_reference_type": "claimed_direct_repository",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-003",
@@ -24,7 +32,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/computer",
+      "source_reference_type": "claimed_direct_repository",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-004",
@@ -32,7 +44,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/agents",
+      "source_reference_type": "claimed_direct_repository",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-005",
@@ -40,7 +56,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "anysphere/cloudflare-workers",
+      "source_reference_type": "claimed_direct_repository",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-006",
@@ -48,7 +68,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-007",
@@ -56,7 +80,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "tobilg/awesome-cloudflare-containers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-008",
@@ -64,7 +92,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-009",
@@ -72,7 +104,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-010",
@@ -80,7 +116,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-011",
@@ -88,7 +128,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-012",
@@ -96,7 +140,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-013",
@@ -104,7 +152,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/python-workers-examples",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-014",
@@ -112,7 +164,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/python-workers-examples",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-015",
@@ -120,7 +176,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-016",
@@ -128,7 +188,11 @@
       "category": "agents-mcp",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-017",
@@ -136,7 +200,11 @@
       "category": "crawlers",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/kitesurf",
+      "source_reference_type": "claimed_direct_repository",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-018",
@@ -144,7 +212,11 @@
       "category": "crawlers",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-019",
@@ -152,7 +224,11 @@
       "category": "crawlers",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-020",
@@ -160,15 +236,23 @@
       "category": "crawlers",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-021",
       "name": "HTMLRewriter OpenGraph Extractor",
       "category": "crawlers",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/python-workers-examples",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-022",
@@ -176,31 +260,47 @@
       "category": "crawlers",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-023",
       "name": "RSS-to-JSON Edge Feed",
       "category": "crawlers",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-024",
       "name": "Sitemap XML Generator",
       "category": "crawlers",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "lukeed/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-025",
       "name": "Link Preview & Unfurler",
       "category": "crawlers",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-026",
@@ -208,7 +308,11 @@
       "category": "crawlers",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-027",
@@ -216,7 +320,11 @@
       "category": "storage",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "mdhruvil/gitflare",
+      "source_reference_type": "claimed_direct_repository",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-028",
@@ -224,7 +332,11 @@
       "category": "storage",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-029",
@@ -232,7 +344,11 @@
       "category": "storage",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-030",
@@ -240,7 +356,11 @@
       "category": "storage",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-031",
@@ -248,7 +368,11 @@
       "category": "storage",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-032",
@@ -256,7 +380,11 @@
       "category": "storage",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-033",
@@ -264,7 +392,11 @@
       "category": "storage",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-034",
@@ -272,7 +404,11 @@
       "category": "storage",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "tobilg/awesome-cloudflare-containers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-035",
@@ -280,7 +416,11 @@
       "category": "storage",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "pgEdge/cloudflare-worker-template",
+      "source_reference_type": "claimed_direct_repository",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-036",
@@ -288,15 +428,23 @@
       "category": "storage",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-037",
       "name": "R2 Presigned Uploader",
       "category": "storage",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-038",
@@ -304,7 +452,11 @@
       "category": "storage",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "danihodovic/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-039",
@@ -312,7 +464,11 @@
       "category": "storage",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "lukeed/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-040",
@@ -320,7 +476,11 @@
       "category": "routing",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "dinasaur404/platform-template",
+      "source_reference_type": "claimed_direct_repository",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-041",
@@ -328,7 +488,11 @@
       "category": "routing",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-042",
@@ -336,7 +500,11 @@
       "category": "routing",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-043",
@@ -344,15 +512,23 @@
       "category": "routing",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-044",
       "name": "Geographic Load Balancer",
       "category": "routing",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-045",
@@ -360,7 +536,11 @@
       "category": "routing",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-046",
@@ -368,15 +548,23 @@
       "category": "routing",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/python-workers-examples",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-047",
       "name": "A/B & Canary Traffic Splitter",
       "category": "routing",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "lukeed/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-048",
@@ -384,15 +572,23 @@
       "category": "routing",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "splitio/cloudflare-workers-template",
+      "source_reference_type": "claimed_direct_repository",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-049",
       "name": "IP & ASN Geolocation Redirector",
       "category": "routing",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-050",
@@ -400,7 +596,11 @@
       "category": "routing",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "rivet-dev/open-orange",
+      "source_reference_type": "claimed_direct_repository",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-051",
@@ -408,7 +608,11 @@
       "category": "messaging",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-052",
@@ -416,7 +620,11 @@
       "category": "messaging",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-053",
@@ -424,7 +632,11 @@
       "category": "messaging",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-054",
@@ -432,7 +644,11 @@
       "category": "messaging",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-055",
@@ -440,7 +656,11 @@
       "category": "messaging",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-056",
@@ -448,7 +668,11 @@
       "category": "messaging",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-057",
@@ -456,7 +680,11 @@
       "category": "messaging",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-058",
@@ -464,7 +692,11 @@
       "category": "messaging",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-059",
@@ -472,7 +704,11 @@
       "category": "messaging",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-060",
@@ -480,7 +716,11 @@
       "category": "messaging",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-061",
@@ -488,23 +728,35 @@
       "category": "messaging",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-062",
       "name": "Serverless Telegram Bot Webhook",
       "category": "messaging",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-063",
       "name": "Discord Slash Command Responder",
       "category": "messaging",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-064",
@@ -512,7 +764,11 @@
       "category": "security",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/openauth-template-24",
+      "source_reference_type": "claimed_direct_repository",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-065",
@@ -520,15 +776,23 @@
       "category": "security",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-066",
       "name": "JWT WebCrypto Authenticator",
       "category": "security",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "lukeed/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-067",
@@ -536,7 +800,11 @@
       "category": "security",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "danihodovic/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-068",
@@ -544,15 +812,23 @@
       "category": "security",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "rivet-dev/open-orange",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-069",
       "name": "Google reCAPTCHA & Turnstile Verifier",
       "category": "security",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-070",
@@ -560,15 +836,23 @@
       "category": "security",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "tupleapp/cloudflare-templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-071",
       "name": "Webhook Signature Validator",
       "category": "security",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-072",
@@ -576,15 +860,23 @@
       "category": "security",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-073",
       "name": "Basic Auth & IP Allowlist Shield",
       "category": "security",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-074",
@@ -592,7 +884,11 @@
       "category": "security",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "danihodovic/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-075",
@@ -600,7 +896,11 @@
       "category": "media",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "tobilg/awesome-cloudflare-containers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-076",
@@ -608,7 +908,11 @@
       "category": "media",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-077",
@@ -616,7 +920,11 @@
       "category": "media",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "lukeed/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-078",
@@ -624,7 +932,11 @@
       "category": "media",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-079",
@@ -632,7 +944,11 @@
       "category": "media",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "lukeed/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-080",
@@ -640,7 +956,11 @@
       "category": "media",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/python-workers-examples",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-081",
@@ -648,7 +968,11 @@
       "category": "media",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/python-workers-examples",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-082",
@@ -656,23 +980,35 @@
       "category": "media",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "tupleapp/cloudflare-templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-083",
       "name": "QR Code & Barcode SVG Generator",
       "category": "media",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-084",
       "name": "Markdown-to-HTML Renderer",
       "category": "media",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/python-workers-examples",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-085",
@@ -680,7 +1016,11 @@
       "category": "realtime",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-086",
@@ -688,7 +1028,11 @@
       "category": "realtime",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/python-workers-examples",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-087",
@@ -696,7 +1040,11 @@
       "category": "realtime",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "Cloudflare Workers Docs",
+      "source_reference_type": "documentation",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-088",
@@ -704,7 +1052,11 @@
       "category": "realtime",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/python-workers-examples",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-089",
@@ -712,7 +1064,11 @@
       "category": "realtime",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/python-workers-examples",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-090",
@@ -720,7 +1076,11 @@
       "category": "realtime",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-091",
@@ -728,7 +1088,11 @@
       "category": "realtime",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/templates",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-092",
@@ -736,15 +1100,23 @@
       "category": "realtime",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "danihodovic/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-093",
       "name": "LavaRand URL Shortener",
       "category": "utilities",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "lukeed/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-094",
@@ -752,7 +1124,11 @@
       "category": "utilities",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "lukeed/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-095",
@@ -760,15 +1136,23 @@
       "category": "utilities",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-096",
       "name": "UTM & Tracking Parameter Stripper",
       "category": "utilities",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-097",
@@ -776,15 +1160,23 @@
       "category": "utilities",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "danihodovic/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-098",
       "name": "WebCrypto Hashing Microservice",
       "category": "utilities",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "danihodovic/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-099",
@@ -792,15 +1184,23 @@
       "category": "utilities",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "irazasyed/awesome-cloudflare",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     },
     {
       "id": "EXT-100",
       "name": "Cron Heartbeat & Uptime Monitor",
       "category": "utilities",
-      "state": "candidate_unverified",
+      "state": "partial_local_implementation_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "cloudflare/python-workers-examples",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": true
     },
     {
       "id": "EXT-101",
@@ -808,7 +1208,12 @@
       "category": "utilities",
       "state": "candidate_unverified",
       "enabled": false,
-      "deploy_approved": false
+      "deploy_approved": false,
+      "source_reference": "lukeed/awesome-cloudflare-workers",
+      "source_reference_type": "claimed_directory_or_template_collection",
+      "source_verified": false,
+      "local_worker_script_uploaded": false
     }
-  ]
+  ],
+  "import_revision": "user-catalog-2026-11-18"
 }
