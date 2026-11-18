@@ -1,0 +1,253 @@
+{
+  "name": "Tabor Three-Way Complete Directed Relationship Matrix",
+  "tag": "CONTINUE BUILDING",
+  "families": {
+    "3": [
+      "3ILL",
+      "3HEEL",
+      "3AY"
+    ],
+    "W": [
+      "WILL",
+      "WHEEL",
+      "WAY"
+    ],
+    "M": [
+      "MILL",
+      "MHEEL",
+      "MAY"
+    ]
+  },
+  "edges": [
+    {
+      "family": "3",
+      "from": "3ILL",
+      "to": "3ILL",
+      "type": "self",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "3",
+      "from": "3ILL",
+      "to": "3HEEL",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "3",
+      "from": "3ILL",
+      "to": "3AY",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "3",
+      "from": "3HEEL",
+      "to": "3ILL",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "3",
+      "from": "3HEEL",
+      "to": "3HEEL",
+      "type": "self",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "3",
+      "from": "3HEEL",
+      "to": "3AY",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "3",
+      "from": "3AY",
+      "to": "3ILL",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "3",
+      "from": "3AY",
+      "to": "3HEEL",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "3",
+      "from": "3AY",
+      "to": "3AY",
+      "type": "self",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "W",
+      "from": "WILL",
+      "to": "WILL",
+      "type": "self",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "W",
+      "from": "WILL",
+      "to": "WHEEL",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "W",
+      "from": "WILL",
+      "to": "WAY",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "W",
+      "from": "WHEEL",
+      "to": "WILL",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "W",
+      "from": "WHEEL",
+      "to": "WHEEL",
+      "type": "self",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "W",
+      "from": "WHEEL",
+      "to": "WAY",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "W",
+      "from": "WAY",
+      "to": "WILL",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "W",
+      "from": "WAY",
+      "to": "WHEEL",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "W",
+      "from": "WAY",
+      "to": "WAY",
+      "type": "self",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "M",
+      "from": "MILL",
+      "to": "MILL",
+      "type": "self",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "M",
+      "from": "MILL",
+      "to": "MHEEL",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "M",
+      "from": "MILL",
+      "to": "MAY",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "M",
+      "from": "MHEEL",
+      "to": "MILL",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "M",
+      "from": "MHEEL",
+      "to": "MHEEL",
+      "type": "self",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "M",
+      "from": "MHEEL",
+      "to": "MAY",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "M",
+      "from": "MAY",
+      "to": "MILL",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "M",
+      "from": "MAY",
+      "to": "MHEEL",
+      "type": "directional",
+      "tag": "CONTINUE BUILDING"
+    },
+    {
+      "family": "M",
+      "from": "MAY",
+      "to": "MAY",
+      "type": "self",
+      "tag": "CONTINUE BUILDING"
+    }
+  ],
+  "counts": {
+    "per_family": 9,
+    "across_three_families": 27
+  },
+  "semantics": "User-defined conceptual equivalence and relationship, not mathematical identity or lexical synonymy.",
+  "extensions": {
+    "twinLinks": [
+      [
+        "WILL",
+        "MILL"
+      ],
+      [
+        "WHEEL",
+        "MHEEL"
+      ],
+      [
+        "WAY",
+        "MAY"
+      ],
+      [
+        "MILL",
+        "3ILL"
+      ],
+      [
+        "MHEEL",
+        "3HEEL"
+      ],
+      [
+        "MAY",
+        "3AY"
+      ]
+    ],
+    "triplets": "each family standalone and connected to other families"
+  },
+  "uses": [
+    "language rotation",
+    "game mechanics",
+    "agent graph",
+    "digital-hardware graph",
+    "Tabor World Hub"
+  ]
+}
