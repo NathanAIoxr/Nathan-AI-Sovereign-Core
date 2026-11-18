@@ -41,3 +41,14 @@ The private D1 resource inventory is intentionally **not exposed** through the p
 The original 205-repository seed is stored as `public-github-discovery-205.json` and the bounded read-only search program as `public_discovery.py`. The hourly `nathan-global-software-discovery.yml` action rotates five queries across 20 software topics, 25 code languages, and 14 multilingual terms, and saves candidate reports as ephemeral workflow artifacts for review. It never clones or executes results or deploys them to Cloudflare.
 
 To reproduce the namespaced schema, see `migrations/0001_global_atlas.sql`. Deployments and indexing are independent: an indexed project becomes an actual installation only after explicit compatibility checks, authenticated writes, tests, and a documented deployment receipt.
+
+
+## Linked sovereign concordance (2026-11-18)
+
+The existing atlas now has a separate **deployed metadata concordance Worker**:
+- Source: [sovereign-concordance](../sovereign-concordance/README.md)
+- Read-only live summary: https://nathan-ai-sovereign-concordance.nathantaboract.workers.dev/api/summary
+- D1: reuses existing tabor-global-import-catalog and tabor-fleet-registry databases; the new receipts table is additive
+- Cron: 31 * * * * UTC for hourly source-integrity snapshots; receipts report D1 counts, not external device health
+
+The earlier static atlas remains unchanged and still provides the public seed. The live source concordance currently reads 18 layers, 334 component references, 205 source repositories and 505 fleet entries; 1,000 indexed_only logical slots are not independently provisioned hardware. Cloudflare's 1,000 dispatch scripts are separately real uploaded scripts, principally language-data shards, not 1,000 AI kernels. Native kernel repositories are still discovery-only references and cannot run as Cloudflare Workers. No unapproved external code has been installed by this integration.
