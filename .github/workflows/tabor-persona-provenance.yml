@@ -1,0 +1,24 @@
+name: Tabor Persona Provenance CI
+on:
+  pull_request:
+    paths:
+      - "creative-archive/persona-duality/provenance-ledger*"
+      - "creative-archive/persona-duality/PROVENANCE.md"
+      - ".github/workflows/tabor-persona-provenance.yml"
+  push:
+    paths:
+      - "creative-archive/persona-duality/provenance-ledger*"
+      - "creative-archive/persona-duality/PROVENANCE.md"
+      - ".github/workflows/tabor-persona-provenance.yml"
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test creative-archive/persona-duality/provenance-ledger.test.mjs
