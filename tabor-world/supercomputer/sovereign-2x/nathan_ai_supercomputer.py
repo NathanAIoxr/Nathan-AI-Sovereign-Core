@@ -7,7 +7,7 @@ import json
 import sqlite3
 from pathlib import Path
 from time import perf_counter_ns, time_ns
-from uuid import uuid4
+from uuid import UUID, uuid4
 
 KERNEL = "fp64-dot-lcg32-v1"
 ROOT = Path(__file__).resolve().parent
@@ -35,6 +35,45 @@ def dot(seed, terms):
         right = (state >> 22) / 1024
         value += left * right
     return int(value * 1048576)
+
+
+def verify_cluster(document):
+    receipt = document["receipt"]
+    seed, terms, count = (receipt[key] for key in ("seed", "terms", "shard_count"))
+    validate_inputs(seed, terms)
+    if terms > 16_384 or type(count) is not int or not 1 <= count <= 4:
+        raise ValueError("Invalid cluster dimensions.")
+    shards = receipt["shards"]
+    checks = {
+        "receipt_digest": digest(receipt) == document["sha256"],
+        "shards": receipt["schema"] == "nathan-fp64-mesh-v1" and receipt["kernel"] == KERNEL
+        and str(UUID(receipt["run_id"])) == receipt["run_id"] and len(shards) == count,
+        "combined": False,
+    }
+    invocation_ids = set()
+    for index, shard in enumerate(shards):
+        offset = index * terms // count
+        length = (index + 1) * terms // count - offset
+        start = seed
+        for _ in range(2 * offset):
+            start = (start * 1664525 + 1013904223) & 0xFFFFFFFF
+        invocation = shard["invocation"]
+        matches = (
+            str(UUID(invocation)) == invocation and invocation not in invocation_ids
+            and shard["executor"] == "nathan-sovereign-fp64-executor"
+            and shard["run_id"] == receipt["run_id"] and shard["kernel"] == KERNEL
+            and shard["index"] == index and shard["slot"] == (seed + index) % 320
+            and shard["offset"] == offset and shard["count"] == length
+            and shard["operations"] == 2 * length
+            and shard["start"] == start and shard["checksum"] == dot(start, length)
+        )
+        invocation_ids.add(invocation)
+        checks["shards"] = checks["shards"] and matches
+    checks["combined"] = (
+        checks["shards"] and receipt["operations"] == terms * 2 and receipt["checksum_scale"] == 1048576
+        and sum(shard["checksum"] for shard in shards) == receipt["checksum"] == dot(seed, terms)
+    )
+    return {"verified": all(checks.values()), "checks": checks}
 
 
 class NathanTaborSupercomputer:
@@ -95,6 +134,8 @@ def main():
     audit.add_argument("run_id")
     verify = sub.add_parser("verify-edge")
     verify.add_argument("receipt", type=Path)
+    verify_mesh = sub.add_parser("verify-cluster")
+    verify_mesh.add_argument("receipt", type=Path)
     sub.add_parser("targets")
     args = parser.parse_args()
     try:
@@ -105,6 +146,8 @@ def main():
                 result = engine.blueprint
             elif args.command == "audit":
                 result = {"verified": engine.audit(args.run_id)}
+            elif args.command == "verify-cluster":
+                result = verify_cluster(json.loads(args.receipt.read_text()))
             else:
                 document = json.loads(args.receipt.read_text())
                 frame = document["frame"]

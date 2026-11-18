@@ -107,3 +107,66 @@ test("Cron writes a deterministic D1 key so repeated delivery remains idempotent
   assert.deepEqual(writes.map(args=>args[0]),["cron-2","cron-2"]);
   assert.equal(writes[0][2],"cloudflare-cron");
 });
+
+test("jump-ahead partitions the same vector over every shard count",async()=>{
+  const {jump,partition,replay}=await import("./src/mesh-kernel.mjs");
+  for(const seed of [0,73,4294967295]) {
+    let current=seed;
+    for(let i=0;i<300;i++) {
+      assert.equal(jump(seed,i),current);
+      current=(Math.imul(current,1664525)+1013904223)>>>0;
+    }
+    for(const count of [1,2,3,4]) {
+      const plan=partition(seed,1027,count);
+      assert.equal(plan.reduce((total,p)=>total+p.count,0),1027);
+      assert.equal(plan.reduce((total,p)=>total+replay(p.start,p.count),0),dot(seed,1027));
+    }
+  }
+});
+
+test("parallel execution seals a portable receipt and refuses substituted or duplicate shards",async()=>{
+  const {default:executor}=await import("./src/mesh-executor.mjs");
+  const {auditMesh,distributed}=await import("./src/mesh.mjs");
+  let running=0,peak=0;
+  const binding={async fetch(url,init) {
+    running++;
+    peak=Math.max(peak,running);
+    const response=await executor.fetch(new Request(url,init));
+    running--;
+    return response;
+  }};
+  const proof=await distributed(binding);
+  assert.equal(peak,4);
+  assert.equal(proof.receipt.operations,32768);
+  assert.equal(proof.receipt.checksum,4326710662);
+  assert.equal((await auditMesh(proof.receipt,proof.sha256)).verified,true);
+  const output=execFileSync("python3",["-c","from nathan_ai_supercomputer import verify_cluster; import json,sys; print(json.dumps(verify_cluster(json.load(sys.stdin))))"],{input:JSON.stringify(proof)});
+  assert.equal(JSON.parse(output).verified,true);
+  const bad={async fetch(url,init) {
+    const body=await (await binding.fetch(url,init)).json();
+    return Response.json({...body,checksum:body.checksum+1});
+  }};
+  const replayed={async fetch(url,init) {
+    const body=await (await binding.fetch(url,init)).json();
+    return Response.json({...body,invocation:"6ffc2047-4041-4bde-a5c6-f6bce81053f1"});
+  }};
+  await assert.rejects(distributed(bad),/Shard replay failed/);
+  await assert.rejects(distributed(replayed),/Shard replay failed/);
+  assert.equal((await executor.fetch(new Request("https://example.test/execute",{method:"POST"}))).status,404);
+});
+
+test("cluster Cron stores one replayable receipt per bucket",async()=>{
+  const {default:executor}=await import("./src/mesh-executor.mjs");
+  const {meshCron}=await import("./src/mesh.mjs");
+  const rows=new Map();
+  const env={MESH_EXECUTOR:{fetch:(url,init)=>executor.fetch(new Request(url,init))},COMPUTE:{prepare(){
+    return {bind(id,created_ms,receipt,digest){
+      return {async first(){return rows.get(id)??null;},async run(){rows.set(id,{id,created_ms,receipt,digest});}};
+    }};
+  }}};
+  await meshCron(env,900000);
+  await meshCron(env,900100);
+  assert.equal(rows.size,1);
+  const response=await worker.fetch(new Request("https://example.test/api/cluster/receipts/mesh-1/audit"),env);
+  assert.equal((await response.json()).verified,true);
+});

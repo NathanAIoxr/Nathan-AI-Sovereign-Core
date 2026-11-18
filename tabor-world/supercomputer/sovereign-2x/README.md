@@ -37,3 +37,18 @@ GitHub Actions runs the tests and builds the mirror on relevant changes. Its man
 The 4.396+ EFLOP/s, 3.618 EFLOP/s, and 2 ZFLOP/s values are design targets. TOP500's November 2026 HPL table lists LineShine at 2.1984 EFLOP/s and El Capitan at 1.809 EFLOP/s. The exact 2× amount for LineShine is 4.3968 EFLOP/s. [TOP500 results](https://www.top500.org/lists/top500/list/2026/11/?page=1)
 
 HPL or efficiency claims require a run on provisioned hardware with its configuration, benchmark log, and measured power if comparing energy efficiency. The current grid, DRAM fault injection, and symmetric quantum–classical routes are software models. eBPF, physical interconnects, enclaves, photonics, neuromorphic devices, and quantum execution are tagged in the manifest as hardware integration or research targets.
+
+## Compute Cluster
+
+The `/cluster` dashboard splits a reproducible FP64 workload across up to four parallel calls to the private executor Worker. Each shard uses a deterministic starting state, then the coordinator independently replays it in integer units of 2⁻²⁰ and verifies the reduction. The number of calls is an execution count. Cloudflare places the invocations on its managed infrastructure.
+
+| Endpoint | Function |
+| --- | --- |
+| `GET /api/cluster/run?seed=73&terms=16384&shards=4` | Run the bounded job and return a verified receipt |
+| `GET /api/cluster/services` | Check live service bindings and count physical fleet registrations |
+| `GET /api/cluster/receipts` | Read launch and scheduled D1 receipts |
+| `GET /api/cluster/receipts/:id/audit` | Recompute the record hash, shards and combined checksum |
+
+The fixed 16,384-term vector executes 32,768 FP64 operations with checksum 4,326,710,662. The duration records the whole coordinator window, including Worker calls and validation. It may be unavailable. It is distinct from hardware throughput and from the design targets on the main dashboard.
+
+Apply `compute.sql` and `mesh.sql` before deploying. Deploy `wrangler.executor.toml` first and keep it private. Then deploy `wrangler.toml`. The existing quarter-hour Cron also records the fixed vector. To reproduce any result locally, download its receipt and run `python3 nathan_ai_supercomputer.py verify-cluster receipt.json`.

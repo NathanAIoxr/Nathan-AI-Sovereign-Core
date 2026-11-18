@@ -1,6 +1,8 @@
 import legacy from "./legacy.mjs";
 import { blueprint,canonical,dot,fieldCount,frameContract,kernelId,route,run,sha,validateFrame } from "./core.mjs";
 import { dashboard, dashboardCsp } from "./site.mjs";
+import { meshApi,meshCron } from "./mesh.mjs";
+import { meshPage,meshScript } from "./mesh-site.mjs";
 
 const headers={"cache-control":"no-store","x-content-type-options":"nosniff","access-control-allow-origin":"*"};
 const json=(data,status=200)=>Response.json(data,{status,headers});
@@ -70,6 +72,19 @@ export default {
     if (request.method==="GET" && url.pathname==="/") {
       return new Response(dashboard(""),{headers:{...headers,"content-type":"text/html; charset=utf-8","content-security-policy":dashboardCsp("'self'")}});
     }
+    if(request.method==="GET"&&url.pathname==="/cluster") {
+      return new Response(meshPage,{headers:{...headers,"content-type":"text/html; charset=utf-8",
+        "content-security-policy":"default-src 'none'; style-src 'unsafe-inline'; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'"}});
+    }
+    if(request.method==="GET"&&url.pathname==="/cluster.js")return new Response(meshScript,{headers:{...headers,"content-type":"text/javascript; charset=utf-8"}});
+    if(url.pathname.startsWith("/api/cluster/")) {
+      try{return await meshApi(request,env,url,json);}
+      catch(error) {
+        if(error instanceof RangeError)return json({error:error.message},400);
+        console.error("cluster",error.name);
+        return json({error:"Cluster route unavailable"},503);
+      }
+    }
     if (url.pathname.startsWith(prefix)) {
       try { return await compute(request,env,url); }
       catch(error) {
@@ -81,6 +96,7 @@ export default {
     return legacy.fetch(request,env);
   },
   async scheduled(event,env,ctx) {
+    if(env.MESH_EXECUTOR)ctx.waitUntil(meshCron(env,event.scheduledTime));
     ctx.waitUntil((async ()=>{
       const bucket=Math.floor(event.scheduledTime/900000);
       const result=await run({seed:bucket>>>0,terms:4096,source:"cloudflare-cron",now:event.scheduledTime});

@@ -32,6 +32,7 @@ jobs:
           python-version: '3.12'
       - run: npm test
       - run: npm run mirror
+      - run: npx --yes wrangler@4.164.0 deploy --dry-run --config wrangler.executor.toml
       - run: npx --yes wrangler@4.164.0 deploy --dry-run
       - uses: actions/upload-artifact@v4
         with:
@@ -56,5 +57,8 @@ jobs:
         with:
           node-version: '24'
       - run: npx --yes wrangler@4.164.0 d1 execute COMPUTE --remote --file compute.sql
+      - run: npx --yes wrangler@4.164.0 d1 execute COMPUTE --remote --file mesh.sql
+      - run: npx --yes wrangler@4.164.0 deploy --config wrangler.executor.toml
       - run: npx --yes wrangler@4.164.0 deploy
       - run: curl --fail --silent --show-error --retry 5 https://nathan-ai-sovereign-2x.nathantaboract.workers.dev/api/compute/manifest
+      - run: curl --fail --silent --show-error --retry 5 "https://nathan-ai-sovereign-2x.nathantaboract.workers.dev/api/cluster/run?seed=73&terms=64&shards=4" | jq -e '.verified and .receipt.operations == 128'

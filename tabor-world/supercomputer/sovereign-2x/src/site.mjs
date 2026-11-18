@@ -104,7 +104,7 @@ export function dashboard(apiBase=worker) {
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nathan AI &amp; Nathan Tabor 2X+ Sovereign Supercomputer</title>
 <style>${style}</style><main>
-<header><nav><span>NATHAN AI / SOVEREIGN COMPUTE</span><a href="${links}/api/compute/manifest">Architecture API</a><a href="#journal">Audit journal</a></nav>
+<header><nav><span>NATHAN AI / SOVEREIGN COMPUTE</span><a href="${links}/api/compute/manifest">Architecture API</a><a href="#journal">Audit journal</a><a href="${links}/cluster">Compute Cluster</a></nav>
 <h1>NATHAN AI 🚀 &amp; NATHAN TABOR<br>2X+ SOVEREIGN SUPERCOMPUTER</h1>
 <p>Run a reproducible floating-point probe through the Tabor Light Slayer / Sleyer, inspect the reversible grid route, and independently replay its receipt.</p>
 </header>
