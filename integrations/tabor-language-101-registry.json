@@ -10,7 +10,8 @@
       "source_type": "claimed_repository",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-002",
@@ -19,7 +20,8 @@
       "source_type": "claimed_repository",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-003",
@@ -28,7 +30,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-004",
@@ -37,7 +40,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-005",
@@ -46,7 +50,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-006",
@@ -55,7 +60,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-007",
@@ -64,7 +70,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-008",
@@ -73,7 +80,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-009",
@@ -82,7 +90,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-010",
@@ -91,7 +100,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-011",
@@ -100,7 +110,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-012",
@@ -109,7 +120,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-013",
@@ -117,8 +129,9 @@
       "category": "translation",
       "source_type": "specification_to_build",
       "source_verified": false,
-      "state": "queued_for_source_review",
-      "deployed": false
+      "state": "initial_script_uploaded_unverified",
+      "deployed": true,
+      "production_verified": false
     },
     {
       "id": "LANG-014",
@@ -127,7 +140,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-015",
@@ -136,7 +150,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-016",
@@ -145,7 +160,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-017",
@@ -154,7 +170,8 @@
       "source_type": "claimed_repository",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-018",
@@ -163,7 +180,8 @@
       "source_type": "claimed_repository",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-019",
@@ -172,7 +190,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-020",
@@ -181,7 +200,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-021",
@@ -190,7 +210,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-022",
@@ -199,7 +220,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-023",
@@ -208,7 +230,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-024",
@@ -217,7 +240,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-025",
@@ -226,7 +250,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-026",
@@ -235,7 +260,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-027",
@@ -244,7 +270,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-028",
@@ -253,7 +280,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-029",
@@ -262,7 +290,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-030",
@@ -271,7 +300,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-031",
@@ -280,7 +310,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-032",
@@ -289,7 +320,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-033",
@@ -298,7 +330,8 @@
       "source_type": "claimed_repository",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-034",
@@ -307,7 +340,8 @@
       "source_type": "claimed_repository",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-035",
@@ -316,7 +350,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-036",
@@ -325,7 +360,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-037",
@@ -334,7 +370,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-038",
@@ -343,7 +380,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-039",
@@ -352,7 +390,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-040",
@@ -361,7 +400,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-041",
@@ -370,7 +410,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-042",
@@ -379,7 +420,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-043",
@@ -388,7 +430,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-044",
@@ -397,7 +440,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-045",
@@ -406,7 +450,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-046",
@@ -415,7 +460,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-047",
@@ -424,7 +470,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-048",
@@ -432,8 +479,9 @@
       "category": "directionality",
       "source_type": "specification_to_build",
       "source_verified": false,
-      "state": "queued_for_source_review",
-      "deployed": false
+      "state": "initial_script_uploaded_unverified",
+      "deployed": true,
+      "production_verified": false
     },
     {
       "id": "LANG-049",
@@ -442,7 +490,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-050",
@@ -451,7 +500,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-051",
@@ -460,7 +510,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-052",
@@ -468,8 +519,9 @@
       "category": "directionality",
       "source_type": "specification_to_build",
       "source_verified": false,
-      "state": "queued_for_source_review",
-      "deployed": false
+      "state": "initial_script_uploaded_unverified",
+      "deployed": true,
+      "production_verified": false
     },
     {
       "id": "LANG-053",
@@ -478,7 +530,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-054",
@@ -487,7 +540,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-055",
@@ -496,7 +550,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-056",
@@ -505,7 +560,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-057",
@@ -514,7 +570,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-058",
@@ -523,7 +580,8 @@
       "source_type": "claimed_repository",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-059",
@@ -532,7 +590,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-060",
@@ -541,7 +600,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-061",
@@ -550,7 +610,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-062",
@@ -559,7 +620,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-063",
@@ -568,7 +630,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-064",
@@ -577,7 +640,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-065",
@@ -586,7 +650,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-066",
@@ -595,7 +660,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-067",
@@ -604,7 +670,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-068",
@@ -613,7 +680,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-069",
@@ -622,7 +690,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-070",
@@ -631,7 +700,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-071",
@@ -640,7 +710,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-072",
@@ -649,7 +720,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-073",
@@ -658,7 +730,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-074",
@@ -666,8 +739,9 @@
       "category": "ciphers-history",
       "source_type": "specification_to_build",
       "source_verified": false,
-      "state": "queued_for_source_review",
-      "deployed": false
+      "state": "initial_script_uploaded_unverified",
+      "deployed": true,
+      "production_verified": false
     },
     {
       "id": "LANG-075",
@@ -676,7 +750,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-076",
@@ -685,7 +760,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-077",
@@ -694,7 +770,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-078",
@@ -703,7 +780,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-079",
@@ -712,7 +790,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-080",
@@ -721,7 +800,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-081",
@@ -730,7 +810,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-082",
@@ -739,7 +820,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-083",
@@ -747,8 +829,9 @@
       "category": "ciphers-history",
       "source_type": "specification_to_build",
       "source_verified": false,
-      "state": "queued_for_source_review",
-      "deployed": false
+      "state": "initial_script_uploaded_unverified",
+      "deployed": true,
+      "production_verified": false
     },
     {
       "id": "LANG-084",
@@ -757,7 +840,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-085",
@@ -766,7 +850,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-086",
@@ -775,7 +860,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-087",
@@ -784,7 +870,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-088",
@@ -793,7 +880,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-089",
@@ -802,7 +890,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-090",
@@ -811,7 +900,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-091",
@@ -820,7 +910,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-092",
@@ -829,7 +920,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-093",
@@ -838,7 +930,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-094",
@@ -847,7 +940,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-095",
@@ -855,8 +949,9 @@
       "category": "library-ingestion",
       "source_type": "specification_to_build",
       "source_verified": false,
-      "state": "queued_for_source_review",
-      "deployed": false
+      "state": "initial_script_uploaded_unverified",
+      "deployed": true,
+      "production_verified": false
     },
     {
       "id": "LANG-096",
@@ -865,7 +960,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-097",
@@ -874,7 +970,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-098",
@@ -883,7 +980,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-099",
@@ -892,7 +990,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-100",
@@ -901,7 +1000,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     },
     {
       "id": "LANG-101",
@@ -910,7 +1010,8 @@
       "source_type": "specification_to_build",
       "source_verified": false,
       "state": "queued_for_source_review",
-      "deployed": false
+      "deployed": false,
+      "production_verified": false
     }
   ]
 }
