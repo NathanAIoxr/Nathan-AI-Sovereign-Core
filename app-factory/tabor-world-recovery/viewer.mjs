@@ -78,8 +78,9 @@ async function loadGroups() {
   );
   const settled = await Promise.allSettled(collections.map(async ([name, source, selector]) => {
     const rows = sourceRows(await load(source), selector);
-    const commit = source.endsWith("/federation.json") ? "main" : snapshot;
-    return { name, source: repoUrl + "/blob/" + commit + "/" + source, rows };
+    const link = source.endsWith("/federation.json") ? new URL("../../" + source, location.href).href :
+      repoUrl + "/blob/" + snapshot + "/" + source;
+    return { name, source: link, rows };
   }));
   settled.forEach((result, index) => {
     if (result.status === "fulfilled") accept(result.value);

@@ -12,7 +12,7 @@ const out = resolve(values.out ?? resolve(here, "dist/index.html"));
 const entries = await Promise.all(collections.map(async ([name, path, selector]) => {
   const file = await readFile(resolve(root, path));
   const rows = sourceRows(JSON.parse(file), selector);
-  return { name, source: path.endsWith("/federation.json") ? repoUrl + "/tree/main/app-factory/tabor-world-recovery" :
+  return { name, source: path.endsWith("/federation.json") ? "https://tabor-world-recovery.nathantaboract.workers.dev/federation.json" :
     repoUrl + "/blob/" + snapshot + "/" + path, rows, sha256: createHash("sha256").update(file).digest("hex") };
 }));
 const open = async name => JSON.parse(await readFile(resolve(root, name), "utf8"));
