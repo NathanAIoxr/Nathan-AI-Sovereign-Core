@@ -1,0 +1,16 @@
+{
+  "name": "tabor-persona-duality",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-11-18",
+  "triggers": {
+    "crons": [
+      "*/15 * * * *"
+    ]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "RECEIPTS",
+      "id": "9f66fcb50374484cb77a26317b6b7623"
+    }
+  ]
+}
