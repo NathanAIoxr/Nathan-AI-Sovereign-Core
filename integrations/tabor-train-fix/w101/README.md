@@ -1,0 +1,3 @@
+# W-101 gateway — guarded implementation
+
+This code is **not deployed**. It provides an authenticated gateway, cold-database table creation, D1 health check, and verbatim-preserving mirror-text transformation. It deliberately refuses unsafe D1 hash-chain appends until a serialized Durable Object coordinator is wired. It does **not** pretend that 101 Workers or 101 Bots are connected. Configure the real D1 binding and secret, test the deployment, and then connect existing service bindings explicitly. The worker-scoped schema initialization promise resets on failure; production migration is still recommended.
