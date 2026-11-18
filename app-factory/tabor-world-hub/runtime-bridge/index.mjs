@@ -158,7 +158,9 @@ export default {
         '/api/runtime/hardware': ['MINING_HUB', '/api/hardware'],
         '/api/runtime/mining-architecture': ['MINING_HUB', '/api/architecture'],
         '/api/runtime/sha256d-test': ['MINING_HUB', '/api/sha256d-test'],
-        '/api/runtime/genesis': ['CURRENCY', '/api/genesis']
+        '/api/runtime/genesis': ['CURRENCY', '/api/genesis'],
+        '/api/runtime/proof-ledger': ['CURRENCY', '/api/pow/ledger'],
+        '/api/runtime/agent-downloads': ['CURRENCY', '/api/agent-downloads']
       };
       const route = routes[path];
       if (!route) return jsonResponse({ error: 'Unknown runtime endpoint' }, 404);
@@ -184,7 +186,7 @@ export default {
     return new HTMLRewriter().on('main', {
       element(element) {
         const links = services.map(service => '<li><a href="https://' + service.worker + '.nathantaboract.workers.dev/">' + service.name + '</a></li>').join('');
-        element.prepend('<h2><a href="/duality">Tabor Light &amp; Dark</a></h2><p>Run the four Slayer and Sleyer roles.</p><h2>Connected services</h2><ul>' + links + '</ul><p><a href="/api/runtime">Live service checks</a> · <a href="/api/runtime/hardware">Hardware catalog</a> · <a href="/api/runtime/coins">Coin registry</a> · <a href="/api/runtime/mining-architecture">Mining architecture</a> · <a href="/api/runtime/genesis">Currency genesis</a></p>', { html: true });
+        element.prepend('<h2><a href="/duality">Tabor Light &amp; Dark</a></h2><p>Run the four Slayer and Sleyer roles.</p><h2>Connected services</h2><ul>' + links + '</ul><p><a href="/api/runtime">Live service checks</a> · <a href="/api/runtime/hardware">Hardware catalog</a> · <a href="/api/runtime/coins">Coin registry</a> · <a href="/api/runtime/mining-architecture">Mining architecture</a> · <a href="/api/runtime/genesis">Currency genesis</a> · <a href="/api/runtime/proof-ledger">Proof ledger</a> · <a href="https://tabor-sovereign-currency.nathantaboract.workers.dev/verifier">Header verifier and agent downloads</a></p>', { html: true });
       }
     }).transform(response);
   }
