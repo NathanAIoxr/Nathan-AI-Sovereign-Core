@@ -1,0 +1,189 @@
+{
+  "runId": "ad58f42c-5234-4199-a66c-bc0f517191c8",
+  "revision": "784ac2292414a1e6619a405133e365568aed9476",
+  "model": "@cf/baai/bge-small-en-v1.5",
+  "dataset": {
+    "name": "Tabor public retrieval fixture v1",
+    "sha256": "da99e75d4fb020198108b974e5ef27393226a145b9bfc567c3d78c47bcd5e853"
+  },
+  "hardware": "Cloudflare managed inference",
+  "devices": null,
+  "precision": null,
+  "interconnect": null,
+  "load": {
+    "concurrency": 2,
+    "requests": 4,
+    "cacheMode": "verified",
+    "label": "verified-cache"
+  },
+  "time": {
+    "start": "2026-11-18T07:46:14.444Z",
+    "end": "2026-11-18T07:46:17.959Z",
+    "durationMs": 3515
+  },
+  "criteria": {
+    "minimumTop1": 1,
+    "maxLatencyMs": 120000,
+    "quality": "Top-1 cosine retrieval against four fixed candidates per query. All vectors must have 384 finite dimensions. Accepted results per hour are based on accepted queries per observed window."
+  },
+  "latencyUnit": "Job creation to durable artifact commit",
+  "summary": {
+    "accepted": 4,
+    "total": 4,
+    "failed": 0,
+    "top1": 1,
+    "cacheHits": 4,
+    "p95LatencyMs": 0,
+    "acceptedPerSecond": 1.1379800853485065,
+    "acceptedPerHour": 4096.728307254623,
+    "timeToFirstTokenMs": null,
+    "errorRate": 0,
+    "estimatedMicros": 0,
+    "estimatedMicrosPerAccepted": 0,
+    "actualSpend": null
+  },
+  "costBasis": "Upper-bound estimate per input using 512 input tokens, rounded up. Provider invoice unavailable.",
+  "raw": [
+    {
+      "case": "telescope",
+      "id": "cc15ce0d-8cc6-4f32-bbe7-36af5a04ad51",
+      "latencyMs": 0,
+      "observedMs": 3087,
+      "backendMs": 0,
+      "queueWaitMs": 0,
+      "estimatedMicros": 0,
+      "accepted": true,
+      "expected": 0,
+      "found": 0,
+      "scores": [
+        0.790130406362885,
+        0.5232823231839826,
+        0.40445051868794146,
+        0.3319039826606749
+      ],
+      "inputSha256": "abe1394ac5edb5b1b43157849606bda45160fbfc8e9728842eae05b6657bd9e9",
+      "resultSha256": "bbf64113712e9f8994c26f096c3dd0c39a0e5370bf955237039ee916e9fc48e0",
+      "backend": "verified-cache",
+      "slices": [
+        {
+          "stage": "Fo",
+          "backend": "verified-cache",
+          "count": 5,
+          "backendMs": 0,
+          "estimatedMicros": 0,
+          "quality": "Previous verified result and matching SHA-256",
+          "sourceJob": "22837bbc-a3df-4c9d-9fe6-a61230bda60d",
+          "revision": "784ac2292414a1e6619a405133e365568aed9476"
+        }
+      ],
+      "cache": "hit"
+    },
+    {
+      "case": "rain",
+      "id": "136e70ba-693c-4a5a-bc55-4df6a250c994",
+      "latencyMs": 0,
+      "observedMs": 3223,
+      "backendMs": 0,
+      "queueWaitMs": 0,
+      "estimatedMicros": 0,
+      "accepted": true,
+      "expected": 1,
+      "found": 1,
+      "scores": [
+        0.39132096042570097,
+        0.6532729054745167,
+        0.4263239983784705,
+        0.40888937639767814
+      ],
+      "inputSha256": "06feb3fb621464ed55646d802f0444ff329505766f51f3620e0b0a393d19f0bb",
+      "resultSha256": "2e32602b39a782ffcdcdc05c9529016077c57bb1fa1e72cb93fccedb9e946238",
+      "backend": "verified-cache",
+      "slices": [
+        {
+          "stage": "Fo",
+          "backend": "verified-cache",
+          "count": 5,
+          "backendMs": 0,
+          "estimatedMicros": 0,
+          "quality": "Previous verified result and matching SHA-256",
+          "sourceJob": "8d171a2a-99d6-4223-8dea-acb93d350a7b",
+          "revision": "784ac2292414a1e6619a405133e365568aed9476"
+        }
+      ],
+      "cache": "hit"
+    },
+    {
+      "case": "bee",
+      "id": "3e4a541e-3aac-4aeb-90ef-7be205ba70f5",
+      "latencyMs": 0,
+      "observedMs": 250,
+      "backendMs": 0,
+      "queueWaitMs": 0,
+      "estimatedMicros": 0,
+      "accepted": true,
+      "expected": 2,
+      "found": 2,
+      "scores": [
+        0.3629355464826265,
+        0.31792167349578543,
+        0.8586922877285627,
+        0.3875246299662914
+      ],
+      "inputSha256": "2d28966aa1783d80562969d0a8b48fa899475626b5d72f66070c3797f52d58ef",
+      "resultSha256": "d65cb6f137215d41a97e00cdccf11c212c009cd00ffcc5ae86bf15481c01cd34",
+      "backend": "verified-cache",
+      "slices": [
+        {
+          "stage": "Fo",
+          "backend": "verified-cache",
+          "count": 5,
+          "backendMs": 0,
+          "estimatedMicros": 0,
+          "quality": "Previous verified result and matching SHA-256",
+          "sourceJob": "b7f0a70e-daf2-4aa6-9eea-5f4c68bcf07e",
+          "revision": "784ac2292414a1e6619a405133e365568aed9476"
+        }
+      ],
+      "cache": "hit"
+    },
+    {
+      "case": "gears",
+      "id": "ff39ab58-0068-4a66-af57-36bc77b802bd",
+      "latencyMs": 0,
+      "observedMs": 290,
+      "backendMs": 0,
+      "queueWaitMs": 0,
+      "estimatedMicros": 0,
+      "accepted": true,
+      "expected": 3,
+      "found": 3,
+      "scores": [
+        0.44248080860558153,
+        0.39070348448950243,
+        0.3880710821395849,
+        0.7733110242449384
+      ],
+      "inputSha256": "22cf02e664840e4cc930ebf2ff5d80473b9ffcc5c48cca50560717329f552bad",
+      "resultSha256": "9bfd581fcd10758ab06abafeccb7e2a57746ee465e1949571604d1a23fc592c4",
+      "backend": "verified-cache",
+      "slices": [
+        {
+          "stage": "Fo",
+          "backend": "verified-cache",
+          "count": 5,
+          "backendMs": 0,
+          "estimatedMicros": 0,
+          "quality": "Previous verified result and matching SHA-256",
+          "sourceJob": "17f67077-95e1-4e48-a8c4-0c8dd118ba88",
+          "revision": "784ac2292414a1e6619a405133e365568aed9476"
+        }
+      ],
+      "cache": "hit"
+    }
+  ],
+  "benchmarkClaim": "Baseline only. Equal-spend 2X+ requires a second comparable run with reconciled billing.",
+  "reproduce": {
+    "endpoint": "https://tabor-true-cloud-computing.nathantaboract.workers.dev/compute-platform",
+    "command": "node tools/benchmark.mjs output.json 2 verified-cache verified"
+  }
+}

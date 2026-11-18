@@ -1,0 +1,20 @@
+import assert from "node:assert/strict";
+import {writeFile} from "node:fs/promises";
+import {api,submit,wait,artifact,origin} from "./client.mjs";
+const [file, deadlineArg='165']=process.argv.slice(2);
+const deadlineSeconds=Number(deadlineArg);
+if(!file)throw Error("Usage: node tools/verify-background.mjs receipt.json [deadlineSeconds]");
+const status=await (await api("/status",{auth:false})).json();
+const input={kind:"embedding",texts:["A telescope gathers light."],benchmark:true,budgetMicro:100,delaySeconds:15,deadlineSeconds};
+const sent=await submit(input,"cron-"+crypto.randomUUID());
+assert.equal(sent.receipt.decision,"deferred");
+console.log(JSON.stringify({checking:"scheduled queue dispatch",job:sent.job.id}));
+const job=await wait(sent.job.id,deadlineSeconds+30);
+assert.equal(job.state,"succeeded");
+assert.ok(job.started-job.created>=15000);
+const out=await artifact(job.id);
+assert.equal(out.data[0].length,384);
+const data={revision:status.revision,endpoint:origin,job:job.id,receipt:sent.receipt,queuedMs:job.started-job.created,
+  finished:job.finished,artifactSha256:out.hash,phases:job.phases,dispatch:status.dispatch,mode:"Delayed submission. The job did not launch the immediate dispatch kick; due work can be served by Queue or Cron."};
+await writeFile(file,JSON.stringify(data,null,2)+"\n",{flag:"wx"});
+console.log(JSON.stringify(data));

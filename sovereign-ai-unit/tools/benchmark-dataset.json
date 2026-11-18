@@ -1,0 +1,11 @@
+{
+  "name": "Tabor public retrieval fixture v1",
+  "quality": "Top-1 cosine retrieval against four fixed candidates per query. All vectors must have 384 finite dimensions. Accepted results per hour are based on accepted queries per observed window.",
+  "acceptance": {"minimumTop1":1,"maxLatencyMs":120000},
+  "cases": [
+    {"id":"telescope","query":"What device collects light to observe distant planets?","candidates":["A telescope gathers light to show distant astronomical objects.","A thermometer measures the temperature of a liquid.","A keyboard has keys for entering characters.","An anchor holds a boat in place."],"expected":0},
+    {"id":"rain","query":"How is rain returned to the atmosphere?","candidates":["A violin produces a note when a bow moves across its strings.","Water evaporates into vapor from surfaces during the water cycle.","A screw fastens two materials together.","An electric motor uses currents and magnetic fields."],"expected":1},
+    {"id":"bee","query":"What do bees collect from flowers to make honey?","candidates":["A blood vessel transports blood.","A compass aligns with a magnetic field.","Honey bees gather flower nectar and turn it into honey.","Sandstones contain cemented grains of sand."],"expected":2},
+    {"id":"gears","query":"How does a toothed wheel pass rotation to another shaft?","candidates":["Glaciers move downhill under gravity.","Photosynthesis converts light into stored chemical energy.","An envelope holds a letter for delivery.","Meshing gear teeth transmit rotation and torque between shafts."],"expected":3}
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "project": "TRUE CLOUD COMPUTING BY NATHAN TABOR",
-  "version": "0.1.0",
-  "state": "architecture_committed",
+  "version": "0.4.0",
+  "state": "edge_runtime",
   "layers": [
     {
       "id": "source",
@@ -10,7 +10,8 @@
         "version_control",
         "CI",
         "releases"
-      ]
+      ],
+      "state": "source_and_ci"
     },
     {
       "id": "edge",
@@ -19,7 +20,8 @@
         "api_gateway",
         "authentication",
         "routing"
-      ]
+      ],
+      "state": "service_bindings"
     },
     {
       "id": "metadata",
@@ -28,7 +30,8 @@
         "capabilities",
         "job_leases",
         "receipts"
-      ]
+      ],
+      "state": "d1_job_leases_and_receipts"
     },
     {
       "id": "artifacts",
@@ -41,17 +44,17 @@
     },
     {
       "id": "dispatch",
-      "provider": "Cloudflare Queues or Durable Objects",
-      "state": "requires_provisioning",
+      "provider": "Workers Cron and Cloudflare D1",
+      "state": "scheduled",
       "functions": [
-        "job_dispatch",
-        "coordination"
+        "fixed_job_dispatch",
+        "lease_recovery"
       ]
     },
     {
       "id": "compute",
       "provider": "authorized CPU/GPU nodes",
-      "state": "not_provisioned",
+      "state": "external_fleet_registry",
       "functions": [
         "builds",
         "bounded_tasks",
@@ -61,10 +64,8 @@
   ],
   "integrations": [
     "tabor-world-hub",
-    "tabor-job-orchestrator",
-    "tabor-compute-fleet",
-    "tabor-agent-fleet-runtime",
-    "nathan-ai-supercomputer-control"
+    "nathan-ai-sovereign-2x",
+    "tabor-compute-fleet"
   ],
   "principles": [
     "preserve_originals",
@@ -72,5 +73,14 @@
     "least_privilege",
     "bounded_cost",
     "execution_receipts"
-  ]
+  ],
+  "act_addressing": {
+    "version": 1,
+    "constants": {
+      "pi": 3.141592653589793,
+      "phi": 1.618033988749895
+    },
+    "pie_sectors": 12,
+    "storage": "stateless"
+  }
 }

@@ -1,0 +1,45 @@
+name: Deploy Sovereign Compute Platform
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sovereign-compute-cloudflare-production
+  cancel-in-progress: false
+jobs:
+  release:
+    environment: sovereign-compute-production
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: sovereign-ai-unit
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test tests/platform.test.mjs
+      - name: Check deployment account
+        run: |
+          test "$CLOUDFLARE_ACCOUNT_ID" = a70580bacdf96c946662b7b67dcb45b5
+          test -n "$CLOUDFLARE_API_TOKEN"
+      - name: Apply additive ledger migrations
+        run: npx --yes wrangler@4 d1 migrations apply sovereign-ledger --remote --config config/box-1-one.toml
+      - name: Deploy private Box 1
+        run: npx --yes wrangler@4 deploy --config config/box-1-one.toml --var "PLATFORM_REVISION:$GITHUB_SHA"
+      - name: Deploy Box 0 gateway
+        run: npx --yes wrangler@4 deploy --config config/box-0-zero.toml
+      - name: Deploy True Cloud bridge
+        run: npx --yes wrangler@4 deploy --config config/true-cloud-bridge.toml
+      - name: Verify the active revision through both public entries
+        run: |
+          node --input-type=module -e '
+            const endpoints = ["https://sovereign-ai-unit.nathantaboract.workers.dev/platform/status", "https://tabor-true-cloud-computing.nathantaboract.workers.dev/compute-platform/status"];
+            for (const url of endpoints) {
+              const response = await fetch(url);
+              if (!response.ok || (await response.json()).revision !== process.env.GITHUB_SHA) throw Error("Unexpected deployment receipt at " + url);
+            }'

@@ -1,0 +1,135 @@
+{
+  "platform": "NATHAN AI — NATHAN TABOR 2X+ SOVEREIGN SUPERCOMPUTER",
+  "serves": "TRUE CLOUD COMPUTING BY NATHAN TABOR",
+  "endpoints": {
+    "dashboard": "https://sovereign-ai-unit.nathantaboract.workers.dev/platform",
+    "status": "https://sovereign-ai-unit.nathantaboract.workers.dev/platform/status",
+    "trueCloud": "https://tabor-true-cloud-computing.nathantaboract.workers.dev/compute-platform",
+    "benchmarks": "https://sovereign-ai-unit.nathantaboract.workers.dev/platform/benchmarks"
+  },
+  "milestones": [
+    {
+      "release": 1,
+      "revision": "6efbec02e35e6482dd05aeb80358549184086675",
+      "components": [
+        {
+          "worker": "sovereign-ai-unit-compute",
+          "id": "b671249a-0f15-4779-9884-d4b0cc8ad765",
+          "version": "b24ad62e-4371-42ed-b6a1-51a97c4ed0f9"
+        },
+        {
+          "worker": "sovereign-ai-unit",
+          "id": "a8c39bc7-5eec-43ba-9ae9-435ea3243c69",
+          "version": "91c0302b-ccea-44af-b195-ed91b54a0d47"
+        },
+        {
+          "worker": "tabor-true-cloud-computing",
+          "id": "a8f6d752-c5ed-45db-9320-eccd9ec19ca3",
+          "version": "c9f501e6-4b84-4727-99cb-8fc1b8457db2"
+        }
+      ],
+      "benchmark": {
+        "id": "aaab4b9f-9601-43f2-99d2-ee20d603f4b6",
+        "hash": "1d8432b98be960f82c2be6bc25ffe66b0ddcb330cefbb91edafa6965baebf4f6",
+        "registered": 1
+      }
+    },
+    {
+      "release": 2,
+      "revision": "784ac2292414a1e6619a405133e365568aed9476",
+      "versions": [
+        {
+          "id": "e4f0dc09-2ec2-4555-8966-d3f1cc2606e9",
+          "version": "536225fc-2982-4ab0-8fce-ec3319cb25c2"
+        },
+        {
+          "id": "b4e4ee2f-de74-4661-ae68-5a80811e9b95",
+          "version": "c6d6d492-4e57-4c4d-8717-170f60941c21"
+        }
+      ],
+      "benchmarks": [
+        {
+          "id": "16fc938b-0c57-4cd2-a511-a1a95bfdde9b",
+          "hash": "7b6ef28a7eef4e9e77c4fcfb9b38a321fffe2d2f2ce05bfe23766e4956799920",
+          "registered": 1
+        },
+        {
+          "id": "15fe10bf-1485-4b2a-b840-b3181e1a9b85",
+          "hash": "1c66708515673212a5ca0c51da535c382ba679206a47806483977a632685d8ee",
+          "registered": 1
+        },
+        {
+          "id": "ad58f42c-5234-4199-a66c-bc0f517191c8",
+          "hash": "1a4708439d82eeb3cbb6fb2e3edf60b91f3b34e7796eb75b9034dd2b94f5e80c",
+          "registered": 1
+        }
+      ],
+      "failureChecks": "operations.json"
+    },
+    {
+      "release": 3,
+      "revision": "662236870beca35a805205dcce0422ef6c350499",
+      "box1": {
+        "version": "e8163d18-b7a6-4828-aa72-e4f5c05d36b4",
+        "deployment": "3bbe9ab8-18d1-4039-9d8f-0270eece5de8",
+        "consumer": "a16b45bda79b44c5b50c384311e7c029",
+        "settings": {
+          "batch_size": 5,
+          "max_retries": 3,
+          "max_wait_time_ms": 1000,
+          "max_concurrency": 1,
+          "retry_delay": 0
+        }
+      },
+      "gateway": {
+        "version": "acdf9fb1-351e-4276-a2d2-f6f2acf5d0c1",
+        "deployment": "7ba8e2ea-38d5-4f8f-b879-a3ee1038e8e4",
+        "temporaryVerificationCredentialRemoved": true
+      },
+      "trueCloudObservedVersion": "91dd2b3f-2fa2-4956-8f44-36d2495755e0",
+      "cronProof": "background.json",
+      "queueProof": "queue-dispatch.json",
+      "delayedVerificationRows": [
+        {
+          "id": "01bf8472-e510-44fd-8636-343bc2e36cbd",
+          "state": "failed",
+          "created": 1794988007562,
+          "first_started": null,
+          "finished": 1794988318567,
+          "deadline": 1794988172562,
+          "progress": 0,
+          "spent_micro": 0,
+          "output_sha256": null,
+          "error": "Deadline expired"
+        },
+        {
+          "id": "4817f866-9bfa-40d8-b290-8ebbc4623315",
+          "state": "succeeded",
+          "created": 1794988158222,
+          "first_started": 1794988319297,
+          "finished": 1794988319948,
+          "deadline": 1794989058222,
+          "progress": 1,
+          "spent_micro": 12,
+          "output_sha256": "10acaea4c903b02ec93fb6e5151b7623b025ba7f7686e877f3d2b325f3fa7202",
+          "error": null
+        },
+        {
+          "id": "49eeb9c0-8cd1-415d-a7e9-8f3aee2141f4",
+          "state": "succeeded",
+          "created": 1794988476029,
+          "first_started": 1794988496161,
+          "finished": 1794988496569,
+          "deadline": 1794988641029,
+          "progress": 1,
+          "spent_micro": 12,
+          "output_sha256": "10acaea4c903b02ec93fb6e5151b7623b025ba7f7686e877f3d2b325f3fa7202",
+          "error": null
+        }
+      ]
+    }
+  ],
+  "actualProviderSpend": null,
+  "ownedOrRentedPhysicalDevicesRegistered": 0,
+  "objectStorageLive": false
+}

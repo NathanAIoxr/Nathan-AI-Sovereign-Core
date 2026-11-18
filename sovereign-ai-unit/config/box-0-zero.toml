@@ -1,0 +1,28 @@
+name = "sovereign-ai-unit"
+main = "../box-0-zero/worker.mjs"
+workers_dev = true
+compatibility_date = "2026-11-18"
+keep_vars = true
+
+[triggers]
+crons = ["0 * * * *"]
+
+[observability]
+enabled = true
+
+[observability.traces]
+enabled = true
+head_sampling_rate = 0.1
+
+[[services]]
+binding = "BOX_ONE"
+service = "sovereign-ai-unit-compute"
+
+[[kv_namespaces]]
+binding = "BOX_0_TEMP"
+id = "0b7e58c2fae94c7e8fbf6d675e3f8df2"
+
+[[ratelimits]]
+name = "COMPUTE_LIMIT"
+namespace_id = "6318259007"
+simple = { limit = 20, period = 60 }

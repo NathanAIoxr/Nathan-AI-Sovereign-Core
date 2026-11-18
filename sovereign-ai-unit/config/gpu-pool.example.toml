@@ -1,0 +1,9 @@
+name = "sovereign-compute-authorized-pool-a"
+main = "../gpu/relay.mjs"
+compatibility_date = "2026-11-18"
+workers_dev = false
+preview_urls = false
+
+# Set POOL_ENDPOINT and the POOL_BEARER secret when a backend is authorized.
+# Add the service binding GPU_POOL_A to Box 1 and include the real device
+# inventory in its GPU_BACKENDS_JSON configuration.

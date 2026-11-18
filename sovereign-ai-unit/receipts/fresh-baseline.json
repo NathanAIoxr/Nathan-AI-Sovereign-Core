@@ -1,0 +1,228 @@
+{
+  "runId": "aaab4b9f-9601-43f2-99d2-ee20d603f4b6",
+  "revision": "6efbec02e35e6482dd05aeb80358549184086675",
+  "model": "@cf/baai/bge-small-en-v1.5",
+  "dataset": {
+    "name": "Tabor public retrieval fixture v1",
+    "sha256": "da99e75d4fb020198108b974e5ef27393226a145b9bfc567c3d78c47bcd5e853"
+  },
+  "hardware": "Cloudflare managed inference",
+  "devices": null,
+  "precision": null,
+  "interconnect": null,
+  "load": {
+    "concurrency": 1,
+    "requests": 4,
+    "cache": "disabled",
+    "label": "fresh-baseline"
+  },
+  "time": {
+    "start": "2026-11-18T07:41:48.250Z",
+    "end": "2026-11-18T07:42:13.443Z",
+    "durationMs": 25193
+  },
+  "criteria": {
+    "minimumTop1": 1,
+    "maxLatencyMs": 120000,
+    "quality": "Top-1 cosine retrieval against four fixed candidates per query. All vectors must have 384 finite dimensions. Accepted results per hour are based on accepted queries per observed window."
+  },
+  "latencyUnit": "Job creation to durable artifact commit",
+  "summary": {
+    "accepted": 4,
+    "total": 4,
+    "failed": 0,
+    "top1": 1,
+    "p95LatencyMs": 721,
+    "acceptedPerSecond": 0.15877426269201764,
+    "acceptedPerHour": 571.5873456912634,
+    "timeToFirstTokenMs": null,
+    "errorRate": 0,
+    "estimatedMicros": 240,
+    "estimatedMicrosPerAccepted": 60,
+    "actualSpend": null
+  },
+  "costBasis": "Upper-bound estimate per input using 512 input tokens, rounded up. Provider invoice unavailable.",
+  "raw": [
+    {
+      "case": "telescope",
+      "id": "f0b8d350-5e7e-4c1f-aac2-2f050d01cb95",
+      "latencyMs": 698,
+      "observedMs": 3276,
+      "backendMs": 239,
+      "queueWaitMs": 212,
+      "estimatedMicros": 60,
+      "accepted": true,
+      "expected": 0,
+      "found": 0,
+      "scores": [
+        0.790130406362885,
+        0.5232823231839826,
+        0.40445051868794146,
+        0.3319039826606749
+      ],
+      "inputSha256": "abe1394ac5edb5b1b43157849606bda45160fbfc8e9728842eae05b6657bd9e9",
+      "resultSha256": "bbf64113712e9f8994c26f096c3dd0c39a0e5370bf955237039ee916e9fc48e0",
+      "backend": "workers-ai-bge",
+      "slices": [
+        {
+          "stage": "Fo",
+          "backend": "workers-ai-bge",
+          "offset": 0,
+          "count": 4,
+          "backendMs": 163,
+          "estimatedMicros": 48,
+          "quality": "384 finite dimensions and nonzero vector per input",
+          "revision": "6efbec02e35e6482dd05aeb80358549184086675"
+        },
+        {
+          "stage": "Fo",
+          "backend": "workers-ai-bge",
+          "offset": 4,
+          "count": 1,
+          "backendMs": 76,
+          "estimatedMicros": 12,
+          "quality": "384 finite dimensions and nonzero vector per input",
+          "revision": "6efbec02e35e6482dd05aeb80358549184086675"
+        }
+      ],
+      "cache": "fresh"
+    },
+    {
+      "case": "rain",
+      "id": "079dd1dc-7de0-4d0f-8877-646c482db30c",
+      "latencyMs": 605,
+      "observedMs": 9296,
+      "backendMs": 146,
+      "queueWaitMs": 223,
+      "estimatedMicros": 60,
+      "accepted": true,
+      "expected": 1,
+      "found": 1,
+      "scores": [
+        0.39132096042570097,
+        0.6532729054745167,
+        0.4263239983784705,
+        0.40888937639767814
+      ],
+      "inputSha256": "06feb3fb621464ed55646d802f0444ff329505766f51f3620e0b0a393d19f0bb",
+      "resultSha256": "2e32602b39a782ffcdcdc05c9529016077c57bb1fa1e72cb93fccedb9e946238",
+      "backend": "workers-ai-bge",
+      "slices": [
+        {
+          "stage": "Fo",
+          "backend": "workers-ai-bge",
+          "offset": 0,
+          "count": 4,
+          "backendMs": 73,
+          "estimatedMicros": 48,
+          "quality": "384 finite dimensions and nonzero vector per input",
+          "revision": "6efbec02e35e6482dd05aeb80358549184086675"
+        },
+        {
+          "stage": "Fo",
+          "backend": "workers-ai-bge",
+          "offset": 4,
+          "count": 1,
+          "backendMs": 73,
+          "estimatedMicros": 12,
+          "quality": "384 finite dimensions and nonzero vector per input",
+          "revision": "6efbec02e35e6482dd05aeb80358549184086675"
+        }
+      ],
+      "cache": "fresh"
+    },
+    {
+      "case": "bee",
+      "id": "630c1cf7-8456-4e1b-b1de-c13fc380648f",
+      "latencyMs": 612,
+      "observedMs": 3445,
+      "backendMs": 156,
+      "queueWaitMs": 206,
+      "estimatedMicros": 60,
+      "accepted": true,
+      "expected": 2,
+      "found": 2,
+      "scores": [
+        0.3629355464826265,
+        0.31792167349578543,
+        0.8586922877285627,
+        0.3875246299662914
+      ],
+      "inputSha256": "2d28966aa1783d80562969d0a8b48fa899475626b5d72f66070c3797f52d58ef",
+      "resultSha256": "d65cb6f137215d41a97e00cdccf11c212c009cd00ffcc5ae86bf15481c01cd34",
+      "backend": "workers-ai-bge",
+      "slices": [
+        {
+          "stage": "Fo",
+          "backend": "workers-ai-bge",
+          "offset": 0,
+          "count": 4,
+          "backendMs": 81,
+          "estimatedMicros": 48,
+          "quality": "384 finite dimensions and nonzero vector per input",
+          "revision": "6efbec02e35e6482dd05aeb80358549184086675"
+        },
+        {
+          "stage": "Fo",
+          "backend": "workers-ai-bge",
+          "offset": 4,
+          "count": 1,
+          "backendMs": 75,
+          "estimatedMicros": 12,
+          "quality": "384 finite dimensions and nonzero vector per input",
+          "revision": "6efbec02e35e6482dd05aeb80358549184086675"
+        }
+      ],
+      "cache": "fresh"
+    },
+    {
+      "case": "gears",
+      "id": "142d791f-df80-4bf7-9275-ef7098e45034",
+      "latencyMs": 721,
+      "observedMs": 9176,
+      "backendMs": 256,
+      "queueWaitMs": 198,
+      "estimatedMicros": 60,
+      "accepted": true,
+      "expected": 3,
+      "found": 3,
+      "scores": [
+        0.44248080860558153,
+        0.39070348448950243,
+        0.3880710821395849,
+        0.7733110242449384
+      ],
+      "inputSha256": "22cf02e664840e4cc930ebf2ff5d80473b9ffcc5c48cca50560717329f552bad",
+      "resultSha256": "9bfd581fcd10758ab06abafeccb7e2a57746ee465e1949571604d1a23fc592c4",
+      "backend": "workers-ai-bge",
+      "slices": [
+        {
+          "stage": "Fo",
+          "backend": "workers-ai-bge",
+          "offset": 0,
+          "count": 4,
+          "backendMs": 83,
+          "estimatedMicros": 48,
+          "quality": "384 finite dimensions and nonzero vector per input",
+          "revision": "6efbec02e35e6482dd05aeb80358549184086675"
+        },
+        {
+          "stage": "Fo",
+          "backend": "workers-ai-bge",
+          "offset": 4,
+          "count": 1,
+          "backendMs": 173,
+          "estimatedMicros": 12,
+          "quality": "384 finite dimensions and nonzero vector per input",
+          "revision": "6efbec02e35e6482dd05aeb80358549184086675"
+        }
+      ],
+      "cache": "fresh"
+    }
+  ],
+  "benchmarkClaim": "Baseline only. Equal-spend 2X+ requires a second comparable run with reconciled billing.",
+  "reproduce": {
+    "endpoint": "https://tabor-true-cloud-computing.nathantaboract.workers.dev/compute-platform",
+    "command": "node tools/benchmark.mjs output.json 1 fresh-baseline"
+  }
+}

@@ -1,5 +1,6 @@
 name = "tabor-true-cloud-computing"
-main = "src/index.js"
+main = "../../sovereign-ai-unit/cloud-bridge/bridge.mjs"
+workers_dev = true
 compatibility_date = "2026-11-18"
 
 [triggers]
@@ -9,3 +10,19 @@ crons = ["*/15 * * * *"]
 binding = "DB"
 database_name = "tabor-database-registry"
 database_id = "af177f57-154c-41a1-a5cd-5602568a4a2f"
+
+[[services]]
+binding = "WORLD_HUB"
+service = "tabor-world-hub"
+
+[[services]]
+binding = "SOVEREIGN_COMPUTE"
+service = "nathan-ai-sovereign-2x"
+
+[[services]]
+binding = "COMPUTE_FLEET"
+service = "tabor-compute-fleet"
+
+[[services]]
+binding = "COMPUTE_PLATFORM"
+service = "sovereign-ai-unit"
