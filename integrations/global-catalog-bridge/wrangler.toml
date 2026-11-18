@@ -1,0 +1,9 @@
+name = "nathan-ai-global-catalog-bridge"
+main = "worker.mjs"
+compatibility_date = "2026-11-18"
+workers_dev = true
+
+[[d1_databases]]
+binding = "ATLAS"
+database_name = "tabor-global-import-catalog"
+database_id = "6ff28930-62b4-416e-89ee-a2c3f985730a"
