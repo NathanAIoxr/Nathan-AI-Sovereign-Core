@@ -1,0 +1,16 @@
+{
+  "name": "tabor-worker-101",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "hono": "4.13.19",
+    "jsbarcode": "3.12.3",
+    "qrcode": "1.5.4"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

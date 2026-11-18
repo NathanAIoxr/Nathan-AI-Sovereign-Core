@@ -1,0 +1,2449 @@
+{
+  "schema_version": 2,
+  "description": "Complete Tabor EXT-001 through EXT-101 Worker intake with pinned sources and Cloudflare deployment status.",
+  "categories": [
+    {
+      "id": 1,
+      "title": "Autonomous AI Agents & MCP Bridges",
+      "first": 1,
+      "last": 16
+    },
+    {
+      "id": 2,
+      "title": "Web Crawling, Scraping & Headless Browsers",
+      "first": 17,
+      "last": 26
+    },
+    {
+      "id": 3,
+      "title": "Databases, Git Hosting & Knowledge Vaults",
+      "first": 27,
+      "last": 39
+    },
+    {
+      "id": 4,
+      "title": "Fleet Orchestration, Routing & Multi-Tenant Platforms",
+      "first": 40,
+      "last": 50
+    },
+    {
+      "id": 5,
+      "title": "Email Systems, Inboxes & Messaging Bots",
+      "first": 51,
+      "last": 63
+    },
+    {
+      "id": 6,
+      "title": "Security, Auth & API Gateways",
+      "first": 64,
+      "last": 74
+    },
+    {
+      "id": 7,
+      "title": "Media, Images, Video & Document Engines",
+      "first": 75,
+      "last": 84
+    },
+    {
+      "id": 8,
+      "title": "Real-Time Collaboration, WebSockets & Web Frameworks",
+      "first": 85,
+      "last": 92
+    },
+    {
+      "id": 9,
+      "title": "SEO, Analytics, URL Shorteners & Edge Utilities",
+      "first": 93,
+      "last": 101
+    }
+  ],
+  "totals": {
+    "entries": 101,
+    "pinned_sources": 75,
+    "source_repositories": 54,
+    "worker_scripts": 36,
+    "feature_verified": 17,
+    "without_worker_script": 65
+  },
+  "entries": [
+    {
+      "id": "EXT-001",
+      "name": "cloudflare/mcp-server-cloudflare",
+      "category": 1,
+      "description": "Official Model Context Protocol (MCP) bridge giving AI models direct control over your Cloudflare account.",
+      "submitted_reference": null,
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/cloudflare/mcp-server-cloudflare",
+        "license": "Apache-2.0",
+        "repository": "cloudflare/mcp-server-cloudflare",
+        "commit": "a21972e219289337731a066befb5c66886b9ce7b",
+        "gitlink": "upstreams/cloudflare--mcp-server-cloudflare",
+        "path": ".",
+        "pinned_url": "https://github.com/cloudflare/mcp-server-cloudflare/tree/a21972e219289337731a066befb5c66886b9ce7b"
+      },
+      "state": "source_pinned",
+      "status_detail": "Cloudflare OAuth configuration and scoped account access for authorized clients.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-002",
+      "name": "cloudflare/cloudflare-os",
+      "category": 1,
+      "description": "Full open-source agent workspace built on Workers for creating documents and running tasks with your system context.",
+      "submitted_reference": null,
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/cloudflare/cloudflare-os",
+        "license": "Apache-2.0",
+        "repository": "cloudflare/cloudflare-os",
+        "commit": "ad7f4eec0d8e6ee4612748a6d76c8571540ab1ed",
+        "gitlink": "upstreams/cloudflare--cloudflare-os",
+        "path": ".",
+        "pinned_url": "https://github.com/cloudflare/cloudflare-os/tree/ad7f4eec0d8e6ee4612748a6d76c8571540ab1ed"
+      },
+      "state": "source_pinned",
+      "status_detail": "Workspace configuration, user authentication, and account service bindings.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-003",
+      "name": "cloudflare/computer",
+      "category": 1,
+      "description": "Serverless sandbox environment for autonomous agents to execute tasks at the edge.",
+      "submitted_reference": null,
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/cloudflare/computer",
+        "license": "MIT",
+        "repository": "cloudflare/computer",
+        "commit": "3636ffb1555fc17a5898914f6e8698c716970bc7",
+        "gitlink": "upstreams/cloudflare--computer",
+        "path": ".",
+        "pinned_url": "https://github.com/cloudflare/computer/tree/3636ffb1555fc17a5898914f6e8698c716970bc7"
+      },
+      "state": "source_pinned",
+      "status_detail": "Container image, sandbox resources, and admission control.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-004",
+      "name": "cloudflare/agents",
+      "category": 1,
+      "description": "Official SDK and starter framework for stateful, persistent AI agents on Durable Objects.",
+      "submitted_reference": null,
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/cloudflare/agents",
+        "license": "MIT",
+        "repository": "cloudflare/agents",
+        "commit": "1a450e71325c25ca1ec8b0013d756fe0c733b6f3",
+        "gitlink": "upstreams/cloudflare--agents",
+        "path": ".",
+        "pinned_url": "https://github.com/cloudflare/agents/tree/1a450e71325c25ca1ec8b0013d756fe0c733b6f3"
+      },
+      "state": "source_pinned",
+      "status_detail": "SDK source. A specific application and Worker entry point are needed.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-005",
+      "name": "anysphere/cloudflare-workers",
+      "category": 1,
+      "description": "Controller Worker that claims and orchestrates Cursor cloud coding agents inside isolated Cloudflare Containers.",
+      "submitted_reference": null,
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/anysphere/cloudflare-workers",
+        "license": "Apache-2.0",
+        "repository": "anysphere/cloudflare-workers",
+        "commit": "393c4c95467ae9932d16da3ee1b9a8cf141209a1",
+        "gitlink": "upstreams/anysphere--cloudflare-workers",
+        "path": ".",
+        "pinned_url": "https://github.com/anysphere/cloudflare-workers/tree/393c4c95467ae9932d16da3ee1b9a8cf141209a1"
+      },
+      "state": "source_pinned",
+      "status_detail": "Cursor service credentials, repository permissions, and configured Container.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-006",
+      "name": "Moltworker",
+      "category": 1,
+      "description": "Runs autonomous Moltbot/Clawdbot agent workflows directly on Cloudflare Workers.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/cloudflare/moltworker",
+        "license": "Apache-2.0",
+        "repository": "cloudflare/moltworker",
+        "commit": "7b00c1d7292190f2327e93bdcc7a0eabb0a26123",
+        "gitlink": "upstreams/cloudflare--moltworker",
+        "path": ".",
+        "pinned_url": "https://github.com/cloudflare/moltworker/tree/7b00c1d7292190f2327e93bdcc7a0eabb0a26123"
+      },
+      "state": "source_pinned",
+      "status_detail": "Sandbox, application secrets, and authenticated ingress.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-007",
+      "name": "Claude Code on Cloudflare",
+      "category": 1,
+      "description": "Sandboxed edge environment for Claude Code to process and fix GitHub issues autonomously.",
+      "submitted_reference": "tobilg/awesome-cloudflare-containers",
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/ghostwriternr/claude-code-containers",
+        "license": "MIT",
+        "repository": "ghostwriternr/claude-code-containers",
+        "commit": "89a5d7500fa83809f08eb9989b1dc358b1c2fdf8",
+        "gitlink": "upstreams/ghostwriternr--claude-code-containers",
+        "path": ".",
+        "pinned_url": "https://github.com/ghostwriternr/claude-code-containers/tree/89a5d7500fa83809f08eb9989b1dc358b1c2fdf8"
+      },
+      "state": "source_pinned",
+      "status_detail": "Configured Container and GitHub and coding-agent integration.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-008",
+      "name": "Codra",
+      "category": 1,
+      "description": "Self-hosted AI pull-request code reviewer powered by Workers AI and Queues.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/devarshishimpi/codra",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "devarshishimpi/codra",
+        "commit": "bd9d6ffe501430314e384d39e66bce62e5c206e7",
+        "gitlink": "upstreams/devarshishimpi--codra",
+        "path": ".",
+        "pinned_url": "https://github.com/devarshishimpi/codra/tree/bd9d6ffe501430314e384d39e66bce62e5c206e7"
+      },
+      "state": "source_pinned",
+      "status_detail": "GitHub App credentials, inference settings, and project data services.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-009",
+      "name": "Cloudbox",
+      "category": 1,
+      "description": "Durable cloud workspaces where coding agents execute and test repositories live.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/acoyfellow/cloudbox",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "acoyfellow/cloudbox",
+        "commit": "4696c72f373a890856a3117a0ebc5f009d625d1c",
+        "gitlink": "upstreams/acoyfellow--cloudbox",
+        "path": ".",
+        "pinned_url": "https://github.com/acoyfellow/cloudbox/tree/4696c72f373a890856a3117a0ebc5f009d625d1c"
+      },
+      "state": "source_pinned",
+      "status_detail": "Container and project data services, plus workspace authentication.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-010",
+      "name": "AwaitStep",
+      "category": 1,
+      "description": "Visual workflow builder that compiles and deploys Cloudflare Workflows automatically.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/awaitstep/awaitstep",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "awaitstep/awaitstep",
+        "commit": "819254e4f6792baaf7288b5c35a615862cd23394",
+        "gitlink": "upstreams/awaitstep--awaitstep",
+        "path": ".",
+        "pinned_url": "https://github.com/awaitstep/awaitstep/tree/819254e4f6792baaf7288b5c35a615862cd23394"
+      },
+      "state": "source_pinned",
+      "status_detail": "Workflow publishing credentials, app configuration, and storage.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-011",
+      "name": "llm-chat-app-template",
+      "category": 1,
+      "description": "Edge-hosted streaming AI chat interface wired to Workers AI.",
+      "submitted_reference": "cloudflare/templates",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/llm-chat-app-template",
+        "revision": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "repository": "cloudflare/templates",
+        "commit": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "gitlink": "upstreams/cloudflare--templates",
+        "path": "llm-chat-app-template",
+        "pinned_url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/llm-chat-app-template"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/011-ai-chat.mjs",
+      "worker": {
+        "name": "tabor-ext-011-ai-chat",
+        "public_url": null,
+        "bindings": [
+          {
+            "name": "AI",
+            "type": "ai"
+          }
+        ],
+        "kind": "local_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-012",
+      "name": "voice-agent-template",
+      "category": 1,
+      "description": "Real-time voice AI agent using WebSockets and Workers AI.",
+      "submitted_reference": "cloudflare/templates",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/voice-agent-template",
+        "revision": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "repository": "cloudflare/templates",
+        "commit": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "gitlink": "upstreams/cloudflare--templates",
+        "path": "voice-agent-template",
+        "pinned_url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/voice-agent-template"
+      },
+      "state": "source_pinned",
+      "status_detail": "Voice configuration, authentication, and Workers AI service setup.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-013",
+      "name": "vectorize-rag",
+      "category": 1,
+      "description": "Retrieval-Augmented Generation (RAG) pipeline connecting Vectorize and Workers AI.",
+      "submitted_reference": "cloudflare/python-workers-examples",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/vectorize-rag",
+        "revision": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "repository": "cloudflare/python-workers-examples",
+        "commit": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "gitlink": "upstreams/cloudflare--python-workers-examples",
+        "path": "vectorize-rag",
+        "pinned_url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/vectorize-rag"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/013-vectorize-rag.mjs",
+      "worker": {
+        "name": "tabor-ext-013-vectorize-rag",
+        "public_url": null,
+        "bindings": [
+          {
+            "name": "AI",
+            "type": "ai"
+          },
+          {
+            "name": "SEARCH",
+            "type": "vectorize"
+          }
+        ],
+        "kind": "local_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-014",
+      "name": "mcp-server-d1",
+      "category": 1,
+      "description": "Python MCP server backed directly by a D1 SQL database.",
+      "submitted_reference": "cloudflare/python-workers-examples",
+      "upstream": {
+        "status": "related",
+        "url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/mcp-server",
+        "revision": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "repository": "cloudflare/python-workers-examples",
+        "commit": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "gitlink": "upstreams/cloudflare--python-workers-examples",
+        "path": "mcp-server",
+        "pinned_url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/mcp-server"
+      },
+      "state": "source_pinned",
+      "status_detail": "Related MCP example found. The exact D1-backed entry and schema remain unverified.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-015",
+      "name": "Agentic Inbox",
+      "category": 1,
+      "description": "Cloudflare's self-hosted email client with an attached autonomous AI agent.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/cloudflare/agentic-inbox",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "cloudflare/agentic-inbox",
+        "commit": "48039bb6785af34e592c2966f87cde2b255c4c80",
+        "gitlink": "upstreams/cloudflare--agentic-inbox",
+        "path": ".",
+        "pinned_url": "https://github.com/cloudflare/agentic-inbox/tree/48039bb6785af34e592c2966f87cde2b255c4c80"
+      },
+      "state": "source_pinned",
+      "status_detail": "Email Routing domain and authenticated intake configuration.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-016",
+      "name": "EdgeEver",
+      "category": 1,
+      "description": "AI-native knowledge base with a built-in native MCP endpoint.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/tianma-if/edgeever",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "tianma-if/edgeever",
+        "commit": "991faa6f69fc6c2a3d65bfe6b1cfde79f77c685d",
+        "gitlink": "upstreams/tianma-if--edgeever",
+        "path": ".",
+        "pinned_url": "https://github.com/tianma-if/edgeever/tree/991faa6f69fc6c2a3d65bfe6b1cfde79f77c685d"
+      },
+      "state": "source_pinned",
+      "status_detail": "Dedicated storage and app authentication.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-017",
+      "name": "cloudflare/kitesurf",
+      "category": 2,
+      "description": "Headless browser engine built specifically for Cloudflare Workers.",
+      "submitted_reference": null,
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/cloudflare/kitesurf",
+        "license": "Apache-2.0",
+        "repository": "cloudflare/kitesurf",
+        "commit": "d423ad503001810211e2bd0c6023f8f3e6ddbd1a",
+        "gitlink": "upstreams/cloudflare--kitesurf",
+        "path": ".",
+        "pinned_url": "https://github.com/cloudflare/kitesurf/tree/d423ad503001810211e2bd0c6023f8f3e6ddbd1a"
+      },
+      "state": "source_pinned",
+      "status_detail": "Browser runtime source. A Worker application using the runtime is needed.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-018",
+      "name": "Deepcrawl",
+      "category": 2,
+      "description": "Serverless web crawler that extracts clean Markdown for LLM ingestion.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/lumpinif/deepcrawl",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "lumpinif/deepcrawl",
+        "commit": "964de4b1fac95e28094c5e865047abf1ba00b876",
+        "gitlink": "upstreams/lumpinif--deepcrawl",
+        "path": ".",
+        "pinned_url": "https://github.com/lumpinif/deepcrawl/tree/964de4b1fac95e28094c5e865047abf1ba00b876"
+      },
+      "state": "source_pinned",
+      "status_detail": "Project data services and Browser Rendering configuration.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-019",
+      "name": "workers-firecrawl",
+      "category": 2,
+      "description": "Edge web scraper that turns websites into structured JSON or Markdown.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/G4brym/workers-firecrawl",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "G4brym/workers-firecrawl",
+        "commit": "f53a0dc01502401bf790ccb382d41014b8713afb",
+        "gitlink": "upstreams/g4brym--workers-firecrawl",
+        "path": ".",
+        "pinned_url": "https://github.com/G4brym/workers-firecrawl/tree/f53a0dc01502401bf790ccb382d41014b8713afb"
+      },
+      "state": "source_pinned",
+      "status_detail": "Browser Rendering and authenticated scraper ingress.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-020",
+      "name": "Browser Rendering API Worker",
+      "category": 2,
+      "description": "Automates headless Chromium sessions to capture screenshots and scrape dynamic SPAs.",
+      "submitted_reference": "cloudflare/templates",
+      "upstream": {
+        "status": "related",
+        "url": "https://developers.cloudflare.com/browser-rendering/"
+      },
+      "state": "configuration_or_source_pending",
+      "status_detail": "Browser Rendering documentation found. A specific screenshot Worker source is missing.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-021",
+      "name": "HTMLRewriter OpenGraph Extractor",
+      "category": 2,
+      "description": "Streams and parses HTML metadata tags at the edge without heavy DOM overhead.",
+      "submitted_reference": "cloudflare/python-workers-examples",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/opengraph",
+        "revision": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "repository": "cloudflare/python-workers-examples",
+        "commit": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "gitlink": "upstreams/cloudflare--python-workers-examples",
+        "path": "opengraph",
+        "pinned_url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/opengraph"
+      },
+      "state": "adapter_uploaded",
+      "status_detail": "Extracts OpenGraph metadata from submitted HTML.",
+      "source_code": "existing/tabor-ext-021-opengraph.mjs",
+      "worker": {
+        "name": "tabor-ext-021-opengraph",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-022",
+      "name": "Repo Hunt",
+      "category": 2,
+      "description": "Automated scraper that discovers and indexes trending GitHub repositories daily.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "repository_resolved",
+        "url": "https://github.com/irazasyed/awesome-cloudflare",
+        "repository": "signalnerve/repo-hunt",
+        "commit": "a8ac3b755223c23064cacf484f14fab735b85b9a",
+        "gitlink": "upstreams/signalnerve--repo-hunt",
+        "path": ".",
+        "pinned_url": "https://github.com/signalnerve/repo-hunt/tree/a8ac3b755223c23064cacf484f14fab735b85b9a"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/022-repo-hunt.mjs",
+      "worker": {
+        "name": "tabor-ext-022-repo-hunt",
+        "public_url": "https://tabor-ext-022-repo-hunt.nathantaboract.workers.dev",
+        "bindings": [],
+        "kind": "local_adapter"
+      },
+      "enabled": true,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-023",
+      "name": "RSS-to-JSON Edge Feed",
+      "category": 2,
+      "description": "Parses XML/RSS syndication feeds into clean JSON APIs with edge caching.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/irazasyed/awesome-cloudflare"
+      },
+      "state": "adapter_uploaded",
+      "status_detail": "Parses submitted RSS. A remote feed and caching configuration are separate.",
+      "source_code": "existing/tabor-ext-023-rss-json.mjs",
+      "worker": {
+        "name": "tabor-ext-023-rss-json",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-024",
+      "name": "Sitemap XML Generator",
+      "category": 2,
+      "description": "Dynamically crawls routes and generates live SEO sitemaps from KV/D1.",
+      "submitted_reference": "lukeed/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/lukeed/awesome-cloudflare-workers"
+      },
+      "state": "adapter_uploaded",
+      "status_detail": "Generates a sitemap from submitted URLs. Route discovery is separate.",
+      "source_code": "existing/tabor-ext-024-sitemap.mjs",
+      "worker": {
+        "name": "tabor-ext-024-sitemap",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-025",
+      "name": "Link Preview & Unfurler",
+      "category": 2,
+      "description": "Fetches target URLs and extracts titles, descriptions, and favicons on demand.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/irazasyed/awesome-cloudflare"
+      },
+      "state": "adapter_uploaded",
+      "status_detail": "Creates a preview from submitted HTML. URL fetching is separate.",
+      "source_code": "existing/tabor-ext-025-link-preview.mjs",
+      "worker": {
+        "name": "tabor-ext-025-link-preview",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-026",
+      "name": "Web Archive Snapshotter",
+      "category": 2,
+      "description": "Captures webpage snapshots and stores HTML/assets directly in R2 buckets.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/theoephraim/awesome-cloudflare-selfhosted"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/026-web-archive.mjs",
+      "worker": {
+        "name": "tabor-ext-026-web-archive",
+        "public_url": null,
+        "bindings": [
+          {
+            "name": "ARCHIVE",
+            "type": "r2_bucket"
+          }
+        ],
+        "kind": "local_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-027",
+      "name": "mdhruvil/gitflare",
+      "category": 3,
+      "description": "Complete self-hosted Git server (git push/pull + web UI) running on Workers, D1, and Durable Objects.",
+      "submitted_reference": null,
+      "upstream": {
+        "status": "archived",
+        "url": "https://github.com/mdhruvil/gitflare",
+        "license": "MIT",
+        "repository": "mdhruvil/gitflare",
+        "commit": "e0bc55c914deca6d8235ca84470f33f931b26bed",
+        "gitlink": "upstreams/mdhruvil--gitflare",
+        "path": ".",
+        "pinned_url": "https://github.com/mdhruvil/gitflare/tree/e0bc55c914deca6d8235ca84470f33f931b26bed"
+      },
+      "state": "source_pinned",
+      "status_detail": "Archived Git server project. D1 configuration, migrations, identity, and a deployment owner are needed.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-028",
+      "name": "888wiki",
+      "category": 3,
+      "description": "Markdown-first wiki and knowledge base supporting voice, file, and web capture.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/tbdavid2019/888wiki",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "tbdavid2019/888wiki",
+        "commit": "77a04a4a02258a13eb701ef0e5b2d20cddc32395",
+        "gitlink": "upstreams/tbdavid2019--888wiki",
+        "path": ".",
+        "pinned_url": "https://github.com/tbdavid2019/888wiki/tree/77a04a4a02258a13eb701ef0e5b2d20cddc32395"
+      },
+      "state": "source_pinned",
+      "status_detail": "Dedicated project storage, app authentication, and schema migrations.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-029",
+      "name": "FlareMo",
+      "category": 3,
+      "description": "Memos-compatible note vault with Vectorize semantic search and MCP.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/realchendahuang/FlareMo",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "realchendahuang/FlareMo",
+        "commit": "a69a5e2ed685fea4d333a1fab78b36945e0c7de8",
+        "gitlink": "upstreams/realchendahuang--flaremo",
+        "path": ".",
+        "pinned_url": "https://github.com/realchendahuang/FlareMo/tree/a69a5e2ed685fea4d333a1fab78b36945e0c7de8"
+      },
+      "state": "source_pinned",
+      "status_detail": "Dedicated project storage, search index, and app authentication.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-030",
+      "name": "Inkstone",
+      "category": 3,
+      "description": "Markdown notebook featuring D1 full-text search and Durable Object sync.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/shuaiplus/inkstone",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "shuaiplus/inkstone",
+        "commit": "f59087f66e8c524c465eb7a7ec9ab7883057af02",
+        "gitlink": "upstreams/shuaiplus--inkstone",
+        "path": ".",
+        "pinned_url": "https://github.com/shuaiplus/inkstone/tree/f59087f66e8c524c465eb7a7ec9ab7883057af02"
+      },
+      "state": "source_pinned",
+      "status_detail": "Dedicated project storage, app authentication, and schema migrations.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-031",
+      "name": "logseq-selfhost",
+      "category": 3,
+      "description": "Self-hosted Logseq database sync and web publishing engine.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/yshalsager/logseq-selfhost",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "yshalsager/logseq-selfhost",
+        "commit": "816ea40d577aa1a0870595e7de34e8ff29541f1c",
+        "gitlink": "upstreams/yshalsager--logseq-selfhost",
+        "path": ".",
+        "pinned_url": "https://github.com/yshalsager/logseq-selfhost/tree/816ea40d577aa1a0870595e7de34e8ff29541f1c"
+      },
+      "state": "source_pinned",
+      "status_detail": "Dedicated project storage and sync authentication.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-032",
+      "name": "cloudmark",
+      "category": 3,
+      "description": "Token-secured cloud bookmark manager backed by D1.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/wesleyel/cloudmark",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "wesleyel/cloudmark",
+        "commit": "7a3ee4782ab701aeb8b4edfb8288f876cb8bcb66",
+        "gitlink": "upstreams/wesleyel--cloudmark",
+        "path": ".",
+        "pinned_url": "https://github.com/wesleyel/cloudmark/tree/7a3ee4782ab701aeb8b4edfb8288f876cb8bcb66"
+      },
+      "state": "source_pinned",
+      "status_detail": "D1 database, schema, and write-token configuration.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-033",
+      "name": "Supaflare",
+      "category": 3,
+      "description": "Open-source backend-as-a-service layer built on D1, R2, and KV.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/supaflare/supaflare",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "supaflare/supaflare",
+        "commit": "9fbf158afd0590c2b023ac84c5bbd12e5dbe5973",
+        "gitlink": "upstreams/supaflare--supaflare",
+        "path": ".",
+        "pinned_url": "https://github.com/supaflare/supaflare/tree/9fbf158afd0590c2b023ac84c5bbd12e5dbe5973"
+      },
+      "state": "source_pinned",
+      "status_detail": "The named upstream is a shortener, while the submitted description calls for a general backend-as-a-service.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-034",
+      "name": "Cloudflare DuckLake",
+      "category": 3,
+      "description": "Analytical DuckLake and DuckDB SQL query engine behind a Hono Worker API.",
+      "submitted_reference": "tobilg/awesome-cloudflare-containers",
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/tobilg/cloudflare-ducklake",
+        "license": "MIT",
+        "repository": "tobilg/cloudflare-ducklake",
+        "commit": "9ea5f14f2cb223ca0f49a57095cd41186b256be0",
+        "gitlink": "upstreams/tobilg--cloudflare-ducklake",
+        "path": ".",
+        "pinned_url": "https://github.com/tobilg/cloudflare-ducklake/tree/9ea5f14f2cb223ca0f49a57095cd41186b256be0"
+      },
+      "state": "source_pinned",
+      "status_detail": "Container image, persistent analytical storage, and authenticated query access.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-035",
+      "name": "pgEdge/cloudflare-worker-template",
+      "category": 3,
+      "description": "Distributed PostgreSQL edge connector for multi-region SQL reads and writes.",
+      "submitted_reference": null,
+      "upstream": {
+        "status": "archived",
+        "url": "https://github.com/pgEdge/cloudflare-worker-template",
+        "license": "MIT",
+        "repository": "pgEdge/cloudflare-worker-template",
+        "commit": "29722ad54c0a52f29ddbd5e57e14e77274ca788f",
+        "gitlink": "upstreams/pgedge--cloudflare-worker-template",
+        "path": ".",
+        "pinned_url": "https://github.com/pgEdge/cloudflare-worker-template/tree/29722ad54c0a52f29ddbd5e57e14e77274ca788f"
+      },
+      "state": "source_pinned",
+      "status_detail": "Archived template. Target Postgres and compatible Hyperdrive credentials are needed.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-036",
+      "name": "mysql-hyperdrive-template",
+      "category": 3,
+      "description": "Connection pooler and query accelerator for external MySQL/Postgres databases.",
+      "submitted_reference": "cloudflare/templates",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/mysql-hyperdrive-template",
+        "revision": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "repository": "cloudflare/templates",
+        "commit": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "gitlink": "upstreams/cloudflare--templates",
+        "path": "mysql-hyperdrive-template",
+        "pinned_url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/mysql-hyperdrive-template"
+      },
+      "state": "source_pinned",
+      "status_detail": "MySQL database and Hyperdrive configuration for that database.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-037",
+      "name": "R2 Presigned Uploader",
+      "category": 3,
+      "description": "Generates secure, time-limited upload URLs for direct browser-to-R2 file transfers.",
+      "submitted_reference": "cloudflare/templates",
+      "upstream": {
+        "status": "related",
+        "url": "https://developers.cloudflare.com/r2/api/s3/presigned-urls/"
+      },
+      "state": "blocked_configuration",
+      "status_detail": "Existing Worker returns 503 for upload requests. It requires an authenticated R2 presigner.",
+      "source_code": "existing/tabor-ext-037-r2-upload-sign.mjs",
+      "worker": {
+        "name": "tabor-ext-037-r2-upload-sign",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-038",
+      "name": "KV Rest API Wrapper",
+      "category": 3,
+      "description": "Exposes authenticated GET, PUT, and DELETE HTTP endpoints over Workers KV.",
+      "submitted_reference": "danihodovic/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/danihodovic/awesome-cloudflare-workers"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/038-private-kv.mjs",
+      "worker": {
+        "name": "tabor-ext-038-private-kv",
+        "public_url": null,
+        "bindings": [
+          {
+            "name": "ITEMS",
+            "type": "kv_namespace"
+          }
+        ],
+        "kind": "local_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-039",
+      "name": "GitCF (RawGit Clone)",
+      "category": 3,
+      "description": "Serves raw GitHub repository files with proper MIME types and global edge caching.",
+      "submitted_reference": "lukeed/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "repository_resolved",
+        "url": "https://github.com/lukeed/awesome-cloudflare-workers",
+        "repository": "maple3142/gitcf",
+        "commit": "7e9e1b4704e52b09d99689b39e0f5b45c31fbf9f",
+        "gitlink": "upstreams/maple3142--gitcf",
+        "path": ".",
+        "pinned_url": "https://github.com/maple3142/gitcf/tree/7e9e1b4704e52b09d99689b39e0f5b45c31fbf9f"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/039-github-raw.mjs",
+      "worker": {
+        "name": "tabor-ext-039-github-raw",
+        "public_url": "https://tabor-ext-039-github-raw.nathantaboract.workers.dev",
+        "bindings": [],
+        "kind": "local_adapter"
+      },
+      "enabled": true,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-040",
+      "name": "dinasaur404/platform-template",
+      "category": 4,
+      "description": "Workers for Platforms dispatch router for managing hundreds of tenant Workers and custom domains.",
+      "submitted_reference": null,
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/dinasaur404/platform-template",
+        "license": "NOASSERTION",
+        "repository": "dinasaur404/platform-template",
+        "commit": "429148809d2c5315846a9b16d1b5f61b6dd6e0bb",
+        "gitlink": "upstreams/dinasaur404--platform-template",
+        "path": ".",
+        "pinned_url": "https://github.com/dinasaur404/platform-template/tree/429148809d2c5315846a9b16d1b5f61b6dd6e0bb"
+      },
+      "state": "source_pinned",
+      "status_detail": "Dispatch namespace, tenant authentication, and explicit domain mapping.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-041",
+      "name": "workers-for-platforms-template",
+      "category": 4,
+      "description": "Official dynamic dispatch namespace controller for multi-script architectures.",
+      "submitted_reference": "cloudflare/templates",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/workers-for-platforms-template",
+        "revision": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "repository": "cloudflare/templates",
+        "commit": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "gitlink": "upstreams/cloudflare--templates",
+        "path": "workers-for-platforms-template",
+        "pinned_url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/workers-for-platforms-template"
+      },
+      "state": "source_pinned",
+      "status_detail": "Dispatch namespace, target scripts, and tenant mapping.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-042",
+      "name": "worker-publisher-template",
+      "category": 4,
+      "description": "Programmatically uploads and deploys new Worker scripts via API.",
+      "submitted_reference": "cloudflare/templates",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/worker-publisher-template",
+        "revision": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "repository": "cloudflare/templates",
+        "commit": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "gitlink": "upstreams/cloudflare--templates",
+        "path": "worker-publisher-template",
+        "pinned_url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/worker-publisher-template"
+      },
+      "state": "source_pinned",
+      "status_detail": "Publishing integration and scoped Cloudflare credentials.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-043",
+      "name": "workflows-starter-template",
+      "category": 4,
+      "description": "Durable, multi-step execution engine with automatic retries and state persistence.",
+      "submitted_reference": "cloudflare/templates",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/workflows-starter-template",
+        "revision": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "repository": "cloudflare/templates",
+        "commit": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "gitlink": "upstreams/cloudflare--templates",
+        "path": "workflows-starter-template",
+        "pinned_url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/workflows-starter-template"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/043-workflows.mjs",
+      "worker": {
+        "name": "tabor-ext-043-workflows",
+        "public_url": null,
+        "bindings": [
+          {
+            "name": "DIGEST",
+            "type": "workflow"
+          }
+        ],
+        "kind": "local_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-044",
+      "name": "Geographic Load Balancer",
+      "category": 4,
+      "description": "Routes incoming traffic to regional backend pools based on request.cf.country.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/irazasyed/awesome-cloudflare"
+      },
+      "state": "blocked_configuration",
+      "status_detail": "Configure the regional origin mapping.",
+      "source_code": "existing/tabor-ext-044-geo-routing.mjs",
+      "worker": {
+        "name": "tabor-ext-044-geo-routing",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-045",
+      "name": "microfrontend-template",
+      "category": 4,
+      "description": "Stitches multiple independent Worker frontends together under one unified domain.",
+      "submitted_reference": "cloudflare/templates",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/microfrontend-template",
+        "revision": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "repository": "cloudflare/templates",
+        "commit": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "gitlink": "upstreams/cloudflare--templates",
+        "path": "microfrontend-template",
+        "pinned_url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/microfrontend-template"
+      },
+      "state": "source_pinned",
+      "status_detail": "Component Worker bindings, route mapping, and built frontend assets.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-046",
+      "name": "dynamic-py-py",
+      "category": 4,
+      "description": "Dynamically loads and runs Python Workers at runtime using Worker Loader bindings.",
+      "submitted_reference": "cloudflare/python-workers-examples",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/dynamic-py-py",
+        "revision": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "repository": "cloudflare/python-workers-examples",
+        "commit": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "gitlink": "upstreams/cloudflare--python-workers-examples",
+        "path": "dynamic-py-py",
+        "pinned_url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/dynamic-py-py"
+      },
+      "state": "source_pinned",
+      "status_detail": "Dynamic Python Worker Loader runtime and Python build.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-047",
+      "name": "A/B & Canary Traffic Splitter",
+      "category": 4,
+      "description": "Splits incoming requests across Worker versions using sticky cookies.",
+      "submitted_reference": "lukeed/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "repository_resolved",
+        "url": "https://github.com/lukeed/awesome-cloudflare-workers",
+        "repository": "DigitalOptimizationGroup/cloudflare-edge-proxy",
+        "commit": "7b28109bad9e318503d51e42e707dd5fddf38106",
+        "gitlink": "upstreams/digitaloptimizationgroup--cloudflare-edge-proxy",
+        "path": ".",
+        "pinned_url": "https://github.com/DigitalOptimizationGroup/cloudflare-edge-proxy/tree/7b28109bad9e318503d51e42e707dd5fddf38106"
+      },
+      "state": "blocked_configuration",
+      "status_detail": "Set approved primary and canary origins and the traffic percentage.",
+      "source_code": "existing/tabor-ext-047-canary-split.mjs",
+      "worker": {
+        "name": "tabor-ext-047-canary-split",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-048",
+      "name": "splitio/cloudflare-workers-template",
+      "category": 4,
+      "description": "Durable Object-backed feature flag and rollout evaluator for zero-latency toggles.",
+      "submitted_reference": null,
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/splitio/cloudflare-workers-template",
+        "license": "Apache-2.0",
+        "repository": "splitio/cloudflare-workers-template",
+        "commit": "72d5065956e1c98a8045c7620ca992829cefe8f1",
+        "gitlink": "upstreams/splitio--cloudflare-workers-template",
+        "path": ".",
+        "pinned_url": "https://github.com/splitio/cloudflare-workers-template/tree/72d5065956e1c98a8045c7620ca992829cefe8f1"
+      },
+      "state": "source_pinned",
+      "status_detail": "Split/Harness SDK configuration and credential.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-049",
+      "name": "IP & ASN Geolocation Redirector",
+      "category": 4,
+      "description": "Redirects or blocks traffic based on visitor IP, ASN, or country code.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/irazasyed/awesome-cloudflare"
+      },
+      "state": "adapter_uploaded",
+      "status_detail": "Country-policy adapter. Set the denied-country policy for your application.",
+      "source_code": "existing/tabor-ext-049-geo-policy.mjs",
+      "worker": {
+        "name": "tabor-ext-049-geo-policy",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-050",
+      "name": "rivet-dev/open-orange",
+      "category": 4,
+      "description": "Portability runtime allowing Cloudflare Workers and Durable Objects to run unchanged on external servers.",
+      "submitted_reference": null,
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/rivet-dev/open-orange",
+        "license": "Apache-2.0",
+        "repository": "rivet-dev/open-orange",
+        "commit": "34aa6bf79e27df6ebb910c37b358c088257564df",
+        "gitlink": "upstreams/rivet-dev--open-orange",
+        "path": ".",
+        "pinned_url": "https://github.com/rivet-dev/open-orange/tree/34aa6bf79e27df6ebb910c37b358c088257564df"
+      },
+      "state": "source_pinned",
+      "status_detail": "Portability runtime for external hosts. Target server and workload are needed.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-051",
+      "name": "Cloud Mail",
+      "category": 5,
+      "description": "Full multi-user email service on Cloudflare Email Routing with attachments and admin UI.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/maillab/cloud-mail",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "maillab/cloud-mail",
+        "commit": "35c81a1aa0e0bfdaede30f81f42d8b2ffcc2ce83",
+        "gitlink": "upstreams/maillab--cloud-mail",
+        "path": ".",
+        "pinned_url": "https://github.com/maillab/cloud-mail/tree/35c81a1aa0e0bfdaede30f81f42d8b2ffcc2ce83"
+      },
+      "state": "source_pinned",
+      "status_detail": "Email domain, dedicated storage, and verified administrator login.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-052",
+      "name": "HQBase",
+      "category": 5,
+      "description": "AI-native collaborative team email workspace running inside your Cloudflare account.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/HQBase/hqbase",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "HQBase/hqbase",
+        "commit": "62bf0751b1d23fc1d735bbdce26ba804ab99a3b4",
+        "gitlink": "upstreams/hqbase--hqbase",
+        "path": ".",
+        "pinned_url": "https://github.com/HQBase/hqbase/tree/62bf0751b1d23fc1d735bbdce26ba804ab99a3b4"
+      },
+      "state": "source_pinned",
+      "status_detail": "Email domain, dedicated storage, and workspace authentication.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-053",
+      "name": "Doota",
+      "category": 5,
+      "description": "Chat-style team email, calendar, and transactional API on your own domain.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/etherCorps/doota",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "etherCorps/doota",
+        "commit": "100c1629fa5bce002653d019b2c95dfae54f942f",
+        "gitlink": "upstreams/ethercorps--doota",
+        "path": ".",
+        "pinned_url": "https://github.com/etherCorps/doota/tree/100c1629fa5bce002653d019b2c95dfae54f942f"
+      },
+      "state": "source_pinned",
+      "status_detail": "Email domain, dedicated storage, and workspace authentication.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-054",
+      "name": "EmailFlare",
+      "category": 5,
+      "description": "Transactional email sending platform with REST API, templates, and scoped keys.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/0xdps/emailflare",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "0xdps/emailflare",
+        "commit": "85cecbee97554646c4ac7a7934f4b21e28150446",
+        "gitlink": "upstreams/0xdps--emailflare",
+        "path": ".",
+        "pinned_url": "https://github.com/0xdps/emailflare/tree/85cecbee97554646c4ac7a7934f4b21e28150446"
+      },
+      "state": "source_pinned",
+      "status_detail": "Verified sending domain, mail service settings, and scoped API access.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-055",
+      "name": "Email Explorer",
+      "category": 5,
+      "description": "Serverless Worker for sending and receiving mail with a full web browsing UI.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/G4brym/email-explorer",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "G4brym/email-explorer",
+        "commit": "8915b2479550baf7a4f44227730b803e9df5814e",
+        "gitlink": "upstreams/g4brym--email-explorer",
+        "path": ".",
+        "pinned_url": "https://github.com/G4brym/email-explorer/tree/8915b2479550baf7a4f44227730b803e9df5814e"
+      },
+      "state": "source_pinned",
+      "status_detail": "Email domain, private access, and dedicated storage.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-056",
+      "name": "LetterDrop",
+      "category": 5,
+      "description": "Self-hosted newsletter manager with subscriber lists and automated delivery.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/i365dev/LetterDrop",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "i365dev/LetterDrop",
+        "commit": "0a6ab27ddae557ef6afcf66a8c31b4969bc0fbad",
+        "gitlink": "upstreams/i365dev--letterdrop",
+        "path": ".",
+        "pinned_url": "https://github.com/i365dev/LetterDrop/tree/0a6ab27ddae557ef6afcf66a8c31b4969bc0fbad"
+      },
+      "state": "source_pinned",
+      "status_detail": "Verified sending domain, subscriber storage, and sending configuration.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-057",
+      "name": "Auth Inbox",
+      "category": 5,
+      "description": "Catches 2FA verification codes across email addresses in one dashboard.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/TooonyChen/AuthInbox",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "TooonyChen/AuthInbox",
+        "commit": "9df547be03dc96ca1e18e980e70a64b7e6622039",
+        "gitlink": "upstreams/tooonychen--authinbox",
+        "path": ".",
+        "pinned_url": "https://github.com/TooonyChen/AuthInbox/tree/9df547be03dc96ca1e18e980e70a64b7e6622039"
+      },
+      "state": "source_pinned",
+      "status_detail": "Owned mail domain and authenticated private access to verification messages.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-058",
+      "name": "cindermail",
+      "category": 5,
+      "description": "Routes disposable email addresses straight to Discord, Telegram, or Slack DMs.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/psalm2517/cindermail",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "psalm2517/cindermail",
+        "commit": "77a92a73930545ea224d134cd2e0a6a166d1ecbb",
+        "gitlink": "upstreams/psalm2517--cindermail",
+        "path": ".",
+        "pinned_url": "https://github.com/psalm2517/cindermail/tree/77a92a73930545ea224d134cd2e0a6a166d1ecbb"
+      },
+      "state": "source_pinned",
+      "status_detail": "Configured mail domain and authorized messaging destination.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-059",
+      "name": "mail2telegram",
+      "category": 5,
+      "description": "Forwards incoming domain emails into a Telegram bot with a Mini App inbox.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/tbxark/mail2telegram",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "tbxark/mail2telegram",
+        "commit": "b190684f8139d4ccf9e6bdd83f1a9e12d8a130f7",
+        "gitlink": "upstreams/tbxark--mail2telegram",
+        "path": ".",
+        "pinned_url": "https://github.com/tbxark/mail2telegram/tree/b190684f8139d4ccf9e6bdd83f1a9e12d8a130f7"
+      },
+      "state": "source_pinned",
+      "status_detail": "Email Routing domain and authorized Telegram credentials and destination.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-060",
+      "name": "Cloudflare Temp Email",
+      "category": 5,
+      "description": "Burner email generator with IMAP/SMTP support and Telegram notifications.",
+      "submitted_reference": "theoephraim/awesome-cloudflare-selfhosted",
+      "upstream": {
+        "status": "index-match",
+        "url": "https://github.com/dreamhunter2333/cloudflare_temp_email",
+        "index": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+        "repository": "dreamhunter2333/cloudflare_temp_email",
+        "commit": "bc1520d523c84a80b686e5aec25660800d40bd86",
+        "gitlink": "upstreams/dreamhunter2333--cloudflare_temp_email",
+        "path": ".",
+        "pinned_url": "https://github.com/dreamhunter2333/cloudflare_temp_email/tree/bc1520d523c84a80b686e5aec25660800d40bd86"
+      },
+      "state": "source_pinned",
+      "status_detail": "Owned mail domain and its app and messaging configuration.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-061",
+      "name": "workers-builds-notifications-template",
+      "category": 5,
+      "description": "Sends instant Slack/Discord webhook alerts whenever a Worker build succeeds or fails.",
+      "submitted_reference": "cloudflare/templates",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/workers-builds-notifications-template",
+        "revision": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "repository": "cloudflare/templates",
+        "commit": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "gitlink": "upstreams/cloudflare--templates",
+        "path": "workers-builds-notifications-template",
+        "pinned_url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/workers-builds-notifications-template"
+      },
+      "state": "source_pinned",
+      "status_detail": "Workers Builds webhook configuration and authorized notification destination.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-062",
+      "name": "Serverless Telegram Bot Webhook",
+      "category": 5,
+      "description": "Zero-cold-start Telegram command handler backed by KV state.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/irazasyed/awesome-cloudflare"
+      },
+      "state": "blocked_configuration",
+      "status_detail": "Set the Telegram webhook secret and register the bot endpoint.",
+      "source_code": "existing/tabor-ext-062-telegram-webhook.mjs",
+      "worker": {
+        "name": "tabor-ext-062-telegram-webhook",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-063",
+      "name": "Discord Slash Command Responder",
+      "category": 5,
+      "description": "Verifies Ed25519 signatures natively at the edge to answer Discord interactions.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/irazasyed/awesome-cloudflare"
+      },
+      "state": "blocked_configuration",
+      "status_detail": "Set the Discord application public key and register the interaction endpoint.",
+      "source_code": "existing/tabor-ext-063-discord-verify.mjs",
+      "worker": {
+        "name": "tabor-ext-063-discord-verify",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-064",
+      "name": "cloudflare/openauth-template-24",
+      "category": 6,
+      "description": "Universal OAuth2/OIDC identity provider Worker backed by D1 and KV.",
+      "submitted_reference": null,
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/cloudflare/openauth-template-24",
+        "license": null,
+        "repository": "cloudflare/openauth-template-24",
+        "commit": "0abed5a3a66997c364ed977a0f2cc62adfffbb92",
+        "gitlink": "upstreams/cloudflare--openauth-template-24",
+        "path": ".",
+        "pinned_url": "https://github.com/cloudflare/openauth-template-24/tree/0abed5a3a66997c364ed977a0f2cc62adfffbb92"
+      },
+      "state": "source_pinned",
+      "status_detail": "Production identity provider settings and database-backed identity storage.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-065",
+      "name": "x402-proxy-template",
+      "category": 6,
+      "description": "Monetizes API routes using HTTP 402 micropayment gating.",
+      "submitted_reference": "cloudflare/templates",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/x402-proxy-template",
+        "revision": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "repository": "cloudflare/templates",
+        "commit": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "gitlink": "upstreams/cloudflare--templates",
+        "path": "x402-proxy-template",
+        "pinned_url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/x402-proxy-template"
+      },
+      "state": "source_pinned",
+      "status_detail": "Payment receiver, network selection, and authenticated origin.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-066",
+      "name": "JWT WebCrypto Authenticator",
+      "category": 6,
+      "description": "Validates RS256/HS256 JSON Web Tokens at the edge before forwarding requests.",
+      "submitted_reference": "lukeed/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/lukeed/awesome-cloudflare-workers"
+      },
+      "state": "partial_implementation",
+      "status_detail": "Existing script decodes JWT claims. Cryptographic signature verification is missing.",
+      "source_code": "existing/tabor-ext-066-jwt-inspector.mjs",
+      "worker": {
+        "name": "tabor-ext-066-jwt-inspector",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-067",
+      "name": "Airtable & API Key Vault Proxy",
+      "category": 6,
+      "description": "Hides secret API keys and restricts HTTP methods/tables for frontend apps.",
+      "submitted_reference": "danihodovic/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "repository_resolved",
+        "url": "https://github.com/danihodovic/awesome-cloudflare-workers",
+        "repository": "portable-cto/airtable-proxy-worker",
+        "commit": "d1fb3b381bafaf07f7de70599a4bdc6bd77a3ef8",
+        "gitlink": "upstreams/portable-cto--airtable-proxy-worker",
+        "path": ".",
+        "pinned_url": "https://github.com/portable-cto/airtable-proxy-worker/tree/d1fb3b381bafaf07f7de70599a4bdc6bd77a3ef8"
+      },
+      "state": "source_pinned",
+      "status_detail": "Airtable API credentials and the authorized base, tables, and methods.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-068",
+      "name": "Durable Object Rate Limiter",
+      "category": 6,
+      "description": "Enforces strict per-IP or per-API-key token bucket rate limits globally.",
+      "submitted_reference": "rivet-dev/open-orange",
+      "upstream": {
+        "status": "related",
+        "url": "https://developers.cloudflare.com/workers/examples/ratelimiter/"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/068-rate-limiter.mjs",
+      "worker": {
+        "name": "tabor-ext-068-rate-limiter",
+        "public_url": null,
+        "bindings": [
+          {
+            "name": "RATE_BUCKETS",
+            "type": "durable_object_namespace"
+          }
+        ],
+        "kind": "local_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-069",
+      "name": "Google reCAPTCHA & Turnstile Verifier",
+      "category": 6,
+      "description": "Validates bot-protection tokens server-side at the edge.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "repository_resolved",
+        "url": "https://github.com/irazasyed/awesome-cloudflare",
+        "repository": "HR/recaptcha-worker",
+        "commit": "01d3c501a528302e912217b88095c726c08da431",
+        "gitlink": "upstreams/hr--recaptcha-worker",
+        "path": ".",
+        "pinned_url": "https://github.com/HR/recaptcha-worker/tree/01d3c501a528302e912217b88095c726c08da431"
+      },
+      "state": "blocked_configuration",
+      "status_detail": "Set the Turnstile secret associated with your widget.",
+      "source_code": "existing/tabor-ext-069-turnstile-verify.mjs",
+      "worker": {
+        "name": "tabor-ext-069-turnstile-verify",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-070",
+      "name": "CORS Anywhere Edge Proxy",
+      "category": 6,
+      "description": "Injects customizable Cross-Origin Resource Sharing headers for legacy APIs.",
+      "submitted_reference": "tupleapp/cloudflare-templates",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/tupleapp/cloudflare-templates"
+      },
+      "state": "configuration_or_source_pending",
+      "status_detail": "Allowed origin and authorized upstream endpoint required for a scoped proxy.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-071",
+      "name": "Webhook Signature Validator",
+      "category": 6,
+      "description": "Verifies HMAC-SHA256 signatures from GitHub, Stripe, or Twilio before queuing payloads.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/irazasyed/awesome-cloudflare"
+      },
+      "state": "blocked_configuration",
+      "status_detail": "Set a scoped HMAC secret and connect the intended webhook provider.",
+      "source_code": "existing/tabor-ext-071-hmac-validator.mjs",
+      "worker": {
+        "name": "tabor-ext-071-hmac-validator",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-072",
+      "name": "Hasura GraphQL Auth Gatekeeper",
+      "category": 6,
+      "description": "Authenticates social logins and injects session variables into GraphQL headers.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/irazasyed/awesome-cloudflare"
+      },
+      "state": "configuration_or_source_pending",
+      "status_detail": "Identity provider and authorized Hasura instance.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-073",
+      "name": "Basic Auth & IP Allowlist Shield",
+      "category": 6,
+      "description": "Locks down staging subdomains behind HTTP Basic Auth or CIDR IP filters.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "repository_resolved",
+        "url": "https://github.com/irazasyed/awesome-cloudflare",
+        "repository": "dommmel/cloudflare-workers-basic-auth",
+        "commit": "3c7af48540b2185ef24e413958e70656ec39d3b1",
+        "gitlink": "upstreams/dommmel--cloudflare-workers-basic-auth",
+        "path": ".",
+        "pinned_url": "https://github.com/dommmel/cloudflare-workers-basic-auth/tree/3c7af48540b2185ef24e413958e70656ec39d3b1"
+      },
+      "state": "blocked_configuration",
+      "status_detail": "Set Basic Auth credentials and identify the protected service.",
+      "source_code": "existing/tabor-ext-073-basic-auth-shield.mjs",
+      "worker": {
+        "name": "tabor-ext-073-basic-auth-shield",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-074",
+      "name": "Cryptocurrency Multi-Provider Gateway",
+      "category": 6,
+      "description": "Aggregates and caches price feeds across multiple external market APIs.",
+      "submitted_reference": "danihodovic/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "repository_resolved",
+        "url": "https://github.com/danihodovic/awesome-cloudflare-workers",
+        "repository": "stevenpack/cryptoserviceworker",
+        "commit": "b11a854853ba0d5633fd45f2cea512116db560bb",
+        "gitlink": "upstreams/stevenpack--cryptoserviceworker",
+        "path": ".",
+        "pinned_url": "https://github.com/stevenpack/cryptoserviceworker/tree/b11a854853ba0d5633fd45f2cea512116db560bb"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/074-crypto-prices.mjs",
+      "worker": {
+        "name": "tabor-ext-074-crypto-prices",
+        "public_url": "https://tabor-ext-074-crypto-prices.nathantaboract.workers.dev",
+        "bindings": [],
+        "kind": "local_adapter"
+      },
+      "enabled": true,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-075",
+      "name": "wifski Video-to-GIF Converter",
+      "category": 7,
+      "description": "Converts web videos into high-quality GIFs using Cloudflare Containers.",
+      "submitted_reference": "tobilg/awesome-cloudflare-containers",
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/megaconfidence/wifski",
+        "license": null,
+        "repository": "megaconfidence/wifski",
+        "commit": "085922adc66ee965490673c0fcc24274d108d9e0",
+        "gitlink": "upstreams/megaconfidence--wifski",
+        "path": ".",
+        "pinned_url": "https://github.com/megaconfidence/wifski/tree/085922adc66ee965490673c0fcc24274d108d9e0"
+      },
+      "state": "source_pinned",
+      "status_detail": "Container image and project media configuration.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-076",
+      "name": "Bannero Image API",
+      "category": 7,
+      "description": "Dynamically generates social preview banners and badges on the fly.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "repository_resolved",
+        "url": "https://github.com/irazasyed/awesome-cloudflare",
+        "repository": "nondanee/bannero",
+        "commit": "5c548deaed21d062706f17155332ea4b650548d2",
+        "gitlink": "upstreams/nondanee--bannero",
+        "path": ".",
+        "pinned_url": "https://github.com/nondanee/bannero/tree/5c548deaed21d062706f17155332ea4b650548d2"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/076-banner.mjs",
+      "worker": {
+        "name": "tabor-ext-076-banner",
+        "public_url": "https://tabor-ext-076-banner.nathantaboract.workers.dev",
+        "bindings": [],
+        "kind": "local_adapter"
+      },
+      "enabled": true,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-077",
+      "name": "Lazy Invoice PDF Generator",
+      "category": 7,
+      "description": "Generates downloadable PDF invoices directly inside a Worker response.",
+      "submitted_reference": "lukeed/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "repository_resolved",
+        "url": "https://github.com/lukeed/awesome-cloudflare-workers",
+        "repository": "adamschwartz/lazy.invoice.workers.dev",
+        "commit": "832edb744f1c2d9860786721f0e80c8ee91e1de0",
+        "gitlink": "upstreams/adamschwartz--lazy.invoice.workers.dev",
+        "path": ".",
+        "pinned_url": "https://github.com/adamschwartz/lazy.invoice.workers.dev/tree/832edb744f1c2d9860786721f0e80c8ee91e1de0"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/077-invoice-pdf.mjs",
+      "worker": {
+        "name": "tabor-ext-077-invoice-pdf",
+        "public_url": "https://tabor-ext-077-invoice-pdf.nathantaboract.workers.dev",
+        "bindings": [],
+        "kind": "local_adapter"
+      },
+      "enabled": true,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-078",
+      "name": "Auto WebP/AVIF Image Converter",
+      "category": 7,
+      "description": "Detects Accept headers and converts outgoing images to WebP automatically.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/irazasyed/awesome-cloudflare"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/078-image-convert.mjs",
+      "worker": {
+        "name": "tabor-ext-078-image-convert",
+        "public_url": null,
+        "bindings": [
+          {
+            "name": "IMAGES",
+            "type": "images"
+          }
+        ],
+        "kind": "local_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-079",
+      "name": "Rust WASM Image Flipper & Resizer",
+      "category": 7,
+      "description": "Uses compiled Rust WebAssembly for ultra-fast pixel manipulation at the edge.",
+      "submitted_reference": "lukeed/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/lukeed/awesome-cloudflare-workers"
+      },
+      "state": "configuration_or_source_pending",
+      "status_detail": "Exact Rust/WASM project and supported transformation entry point.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-080",
+      "name": "Python Pillow Image Processor",
+      "category": 7,
+      "description": "Generates charts, watermarks, and thumbnails using Python Pillow.",
+      "submitted_reference": "cloudflare/python-workers-examples",
+      "upstream": {
+        "status": "related",
+        "url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/image-redraw",
+        "revision": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "repository": "cloudflare/python-workers-examples",
+        "commit": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "gitlink": "upstreams/cloudflare--python-workers-examples",
+        "path": "image-redraw",
+        "pinned_url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/image-redraw"
+      },
+      "state": "source_pinned",
+      "status_detail": "Related image-redraw source found. The described Pillow processor needs its own exact entry point.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-081",
+      "name": "AI Image Redraw Pipeline",
+      "category": 7,
+      "description": "Combines FastAPI, R2, Queues, and Workers AI to transform uploaded images.",
+      "submitted_reference": "cloudflare/python-workers-examples",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/image-redraw",
+        "revision": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "repository": "cloudflare/python-workers-examples",
+        "commit": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "gitlink": "upstreams/cloudflare--python-workers-examples",
+        "path": "image-redraw",
+        "pinned_url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/image-redraw"
+      },
+      "state": "source_pinned",
+      "status_detail": "Dedicated R2 and Queues, including queue consumers, plus inference setup.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-082",
+      "name": "Cloudflare Stream Video Signer",
+      "category": 7,
+      "description": "Generates signed playback tokens for private video streaming.",
+      "submitted_reference": "tupleapp/cloudflare-templates",
+      "upstream": {
+        "status": "related",
+        "url": "https://developers.cloudflare.com/stream/viewing-videos/securing-your-stream/"
+      },
+      "state": "configuration_or_source_pending",
+      "status_detail": "Cloudflare Stream documentation found. Video set and authorized signing credential required.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-083",
+      "name": "QR Code & Barcode SVG Generator",
+      "category": 7,
+      "description": "Renders instant vector QR codes from URL query parameters with zero external calls.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/irazasyed/awesome-cloudflare"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/083-qr-barcode.mjs",
+      "worker": {
+        "name": "tabor-ext-083-svg-barcodes",
+        "public_url": null,
+        "bindings": [],
+        "kind": "local_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-084",
+      "name": "Markdown-to-HTML Renderer",
+      "category": 7,
+      "description": "Converts raw Markdown stored in R2 into styled web pages at the edge.",
+      "submitted_reference": "cloudflare/python-workers-examples",
+      "upstream": {
+        "status": "related",
+        "url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/django-markdown-r2",
+        "revision": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "repository": "cloudflare/python-workers-examples",
+        "commit": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "gitlink": "upstreams/cloudflare--python-workers-examples",
+        "path": "django-markdown-r2",
+        "pinned_url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/django-markdown-r2"
+      },
+      "state": "adapter_uploaded",
+      "status_detail": "Renders submitted Markdown. R2-backed publication is separate.",
+      "source_code": "existing/tabor-ext-084-markdown-renderer.mjs",
+      "worker": {
+        "name": "tabor-ext-084-markdown-renderer",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-085",
+      "name": "multiplayer-globe-template",
+      "category": 8,
+      "description": "Real-time 3D visitor map powered by Durable Objects and WebSockets.",
+      "submitted_reference": "cloudflare/templates",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/multiplayer-globe-template",
+        "revision": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "repository": "cloudflare/templates",
+        "commit": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "gitlink": "upstreams/cloudflare--templates",
+        "path": "multiplayer-globe-template",
+        "pinned_url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/multiplayer-globe-template"
+      },
+      "state": "source_pinned",
+      "status_detail": "Upstream bundle built. The original shares precise visitor coordinates, so a production release needs an explicit location-sharing configuration.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-086",
+      "name": "WebSocket Chatroom",
+      "category": 8,
+      "description": "Low-latency multi-user chat server using Durable Object WebSocket hibernation.",
+      "submitted_reference": "cloudflare/python-workers-examples",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/chatroom",
+        "revision": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "repository": "cloudflare/python-workers-examples",
+        "commit": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "gitlink": "upstreams/cloudflare--python-workers-examples",
+        "path": "chatroom",
+        "pinned_url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/chatroom"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/086-chatroom.mjs",
+      "worker": {
+        "name": "tabor-ext-086-chatroom",
+        "public_url": null,
+        "bindings": [
+          {
+            "name": "ROOMS",
+            "type": "durable_object_namespace"
+          }
+        ],
+        "kind": "local_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-087",
+      "name": "Hono Ultrafast API Starter",
+      "category": 8,
+      "description": "Lightweight Express-style TypeScript router built natively for Workers.",
+      "submitted_reference": "Cloudflare Workers Docs",
+      "upstream": {
+        "status": "repository",
+        "url": "https://github.com/honojs/hono",
+        "license": "MIT",
+        "repository": "honojs/hono",
+        "commit": "a8ae5b1d6e8502ce61cd9e7b853d8107e377fc7b",
+        "gitlink": "upstreams/honojs--hono",
+        "path": ".",
+        "pinned_url": "https://github.com/honojs/hono/tree/a8ae5b1d6e8502ce61cd9e7b853d8107e377fc7b"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/087-hono.mjs",
+      "worker": {
+        "name": "tabor-ext-087-hono",
+        "public_url": "https://tabor-ext-087-hono.nathantaboract.workers.dev",
+        "bindings": [],
+        "kind": "local_adapter"
+      },
+      "enabled": true,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-088",
+      "name": "FastAPI Python Edge Server",
+      "category": 8,
+      "description": "Full ASGI Python API framework with automatic OpenAPI docs on Workers.",
+      "submitted_reference": "cloudflare/python-workers-examples",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/fastapi",
+        "revision": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "repository": "cloudflare/python-workers-examples",
+        "commit": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "gitlink": "upstreams/cloudflare--python-workers-examples",
+        "path": "fastapi",
+        "pinned_url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/fastapi"
+      },
+      "state": "source_pinned",
+      "status_detail": "Python Worker packaging and runtime deployment needed.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-089",
+      "name": "Django on Workers",
+      "category": 8,
+      "description": "Runs full Django web applications connected to D1 and R2.",
+      "submitted_reference": "cloudflare/python-workers-examples",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/django",
+        "revision": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "repository": "cloudflare/python-workers-examples",
+        "commit": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "gitlink": "upstreams/cloudflare--python-workers-examples",
+        "path": "django",
+        "pinned_url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/django"
+      },
+      "state": "source_pinned",
+      "status_detail": "Python Worker packaging, D1 and R2 configuration, and Django deployment settings needed.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-090",
+      "name": "next-starter-template",
+      "category": 8,
+      "description": "Full-stack Next.js application deployed via OpenNext onto Cloudflare Workers.",
+      "submitted_reference": "cloudflare/templates",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/next-starter-template",
+        "revision": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "repository": "cloudflare/templates",
+        "commit": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "gitlink": "upstreams/cloudflare--templates",
+        "path": "next-starter-template",
+        "pinned_url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/next-starter-template"
+      },
+      "state": "source_pinned",
+      "status_detail": "OpenNext build and app assets deployment needed.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-091",
+      "name": "vite-react-template",
+      "category": 8,
+      "description": "Full-stack React SPA paired with a backend Worker API in one repo.",
+      "submitted_reference": "cloudflare/templates",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/vite-react-template",
+        "revision": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "repository": "cloudflare/templates",
+        "commit": "1fa42412fd36fd4f265383493f3e548f66e39c5d",
+        "gitlink": "upstreams/cloudflare--templates",
+        "path": "vite-react-template",
+        "pinned_url": "https://github.com/cloudflare/templates/tree/1fa42412fd36fd4f265383493f3e548f66e39c5d/vite-react-template"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "pack-vite.mjs",
+      "worker": {
+        "name": "tabor-ext-091-vite-react",
+        "public_url": "https://tabor-ext-091-vite-react.nathantaboract.workers.dev",
+        "bindings": [],
+        "kind": "upstream_template"
+      },
+      "enabled": true,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-092",
+      "name": "Preact Edge PWA",
+      "category": 8,
+      "description": "Ultra-lightweight Progressive Web App served directly from Worker memory.",
+      "submitted_reference": "danihodovic/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "repository_resolved",
+        "url": "https://github.com/danihodovic/awesome-cloudflare-workers",
+        "repository": "DigitalOptimizationGroup/cloudflare-worker-preact-pwa",
+        "commit": "e13ea09201053bafb6da21615311f2ee9c1eae57",
+        "gitlink": "upstreams/digitaloptimizationgroup--cloudflare-worker-preact-pwa",
+        "path": ".",
+        "pinned_url": "https://github.com/DigitalOptimizationGroup/cloudflare-worker-preact-pwa/tree/e13ea09201053bafb6da21615311f2ee9c1eae57"
+      },
+      "state": "source_pinned",
+      "status_detail": "Legacy Preact sources require reproduction and migration to the current Workers runtime.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-093",
+      "name": "LavaRand URL Shortener",
+      "category": 9,
+      "description": "Cryptographically random short-link generator backed by Workers KV.",
+      "submitted_reference": "lukeed/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "repository_resolved",
+        "url": "https://github.com/lukeed/awesome-cloudflare-workers",
+        "repository": "obezuk/cf-workers-link-shortener",
+        "commit": "02f898b6e7e882da36a578c312349b8d7b7b6da0",
+        "gitlink": "upstreams/obezuk--cf-workers-link-shortener",
+        "path": ".",
+        "pinned_url": "https://github.com/obezuk/cf-workers-link-shortener/tree/02f898b6e7e882da36a578c312349b8d7b7b6da0"
+      },
+      "state": "blocked_configuration",
+      "status_detail": "Bind a dedicated short-link KV namespace and configure an authorization secret.",
+      "source_code": "existing/tabor-ext-093-url-shortener.mjs",
+      "worker": {
+        "name": "tabor-ext-093-url-shortener",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-094",
+      "name": "Google Analytics Ad-Block Shield",
+      "category": 9,
+      "description": "Proxies first-party telemetry scripts through your own domain.",
+      "submitted_reference": "lukeed/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/lukeed/awesome-cloudflare-workers"
+      },
+      "state": "configuration_or_source_pending",
+      "status_detail": "Exact proxy source and approved analytics property are missing.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-095",
+      "name": "Logflare Edge Collector",
+      "category": 9,
+      "description": "Streams real-time Worker request logs and status codes into structured dashboards.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "repository_resolved",
+        "url": "https://github.com/irazasyed/awesome-cloudflare",
+        "repository": "Logflare/cloudflare-app",
+        "commit": "e5bb250b13d3fbad35e3f87cbcb7e32b35984ee6",
+        "gitlink": "upstreams/logflare--cloudflare-app",
+        "path": ".",
+        "pinned_url": "https://github.com/Logflare/cloudflare-app/tree/e5bb250b13d3fbad35e3f87cbcb7e32b35984ee6"
+      },
+      "state": "source_pinned",
+      "status_detail": "Authorized Logflare source credentials and a destination for logs.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-096",
+      "name": "UTM & Tracking Parameter Stripper",
+      "category": 9,
+      "description": "Cleans marketing query strings before cache lookup to boost cache hit ratios.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/irazasyed/awesome-cloudflare"
+      },
+      "state": "adapter_uploaded",
+      "status_detail": "Removes supported tracking parameters from a submitted URL.",
+      "source_code": "existing/tabor-ext-096-utm-stripper.mjs",
+      "worker": {
+        "name": "tabor-ext-096-utm-stripper",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-097",
+      "name": "Google Fonts Inline Optimizer",
+      "category": 9,
+      "description": "Fetches external font CSS at the edge and inlines it directly into HTML.",
+      "submitted_reference": "danihodovic/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/danihodovic/awesome-cloudflare-workers"
+      },
+      "state": "feature_verified",
+      "status_detail": "Deployed and passed the Cloudflare feature smoke check.",
+      "source_code": "src/097-google-fonts.mjs",
+      "worker": {
+        "name": "tabor-ext-097-google-fonts",
+        "public_url": "https://tabor-ext-097-google-fonts.nathantaboract.workers.dev",
+        "bindings": [],
+        "kind": "local_adapter"
+      },
+      "enabled": true,
+      "deploy_approved": true
+    },
+    {
+      "id": "EXT-098",
+      "name": "WebCrypto Hashing Microservice",
+      "category": 9,
+      "description": "JSON endpoint computing instant SHA-1, SHA-256, SHA-384, and SHA-512 hashes.",
+      "submitted_reference": "danihodovic/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/danihodovic/awesome-cloudflare-workers"
+      },
+      "state": "adapter_uploaded",
+      "status_detail": "Computes SHA-256, SHA-384, and SHA-512 digests. SHA-1 is outside this implementation.",
+      "source_code": "existing/tabor-ext-098-webcrypto-hashing.mjs",
+      "worker": {
+        "name": "tabor-ext-098-webcrypto-hashing",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-099",
+      "name": "Dynamic DDNS Updater",
+      "category": 9,
+      "description": "Updates Cloudflare DNS A records automatically when home/edge IPs change.",
+      "submitted_reference": "irazasyed/awesome-cloudflare",
+      "upstream": {
+        "status": "related",
+        "url": "https://developers.cloudflare.com/api/resources/dns/subresources/records/"
+      },
+      "state": "configuration_or_source_pending",
+      "status_detail": "Authorized DNS zone, record, and scoped credentials. DNS settings were not edited.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-100",
+      "name": "Cron Heartbeat & Uptime Monitor",
+      "category": 9,
+      "description": "Scheduled background Worker that pings endpoints and logs latency to D1.",
+      "submitted_reference": "cloudflare/python-workers-examples",
+      "upstream": {
+        "status": "template",
+        "url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/cron",
+        "revision": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "repository": "cloudflare/python-workers-examples",
+        "commit": "ee24598e81962dfbb8ee865115f332bd68422103",
+        "gitlink": "upstreams/cloudflare--python-workers-examples",
+        "path": "cron",
+        "pinned_url": "https://github.com/cloudflare/python-workers-examples/tree/ee24598e81962dfbb8ee865115f332bd68422103/cron"
+      },
+      "state": "blocked_configuration",
+      "status_detail": "Existing handler returns 503 for measurements. Monitoring targets and a cron schedule are required.",
+      "source_code": "existing/tabor-ext-100-uptime-probe.mjs",
+      "worker": {
+        "name": "tabor-ext-100-uptime-probe",
+        "public_url": null,
+        "bindings": [],
+        "kind": "preexisting_adapter"
+      },
+      "enabled": false,
+      "deploy_approved": false
+    },
+    {
+      "id": "EXT-101",
+      "name": "Cloudflare API Fleet Deployer",
+      "category": 9,
+      "description": "Meta-Worker that deploys scripts, binds KV namespaces, and configures routes via the Cloudflare REST API.",
+      "submitted_reference": "lukeed/awesome-cloudflare-workers",
+      "upstream": {
+        "status": "reference",
+        "url": "https://github.com/lukeed/awesome-cloudflare-workers"
+      },
+      "state": "configuration_or_source_pending",
+      "status_detail": "Exact deployer source and authorized target namespace and API credential.",
+      "source_code": null,
+      "worker": null,
+      "enabled": false,
+      "deploy_approved": false
+    }
+  ]
+}
