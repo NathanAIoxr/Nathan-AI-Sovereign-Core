@@ -1,0 +1,34 @@
+name: Tabor 1001 Federation Provisioning
+on:
+  workflow_dispatch:
+    inputs:
+      start_node:
+        description: First federation member (1-1000)
+        required: true
+        default: '1'
+      end_node:
+        description: Last federation member (1-1000)
+        required: true
+        default: '10'
+permissions:
+  contents: read
+concurrency:
+  group: tabor-federation-provision
+  cancel-in-progress: false
+jobs:
+  provision:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      FEDERATION_URL: ${{ vars.TABOR_FEDERATION_URL }}
+      PROVISION_TOKEN: ${{ secrets.TABOR_FEDERATION_PROVISION_TOKEN }}
+      START_NODE: ${{ inputs.start_node }}
+      END_NODE: ${{ inputs.end_node }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify required configuration
+        run: |
+          test -n "$FEDERATION_URL" || { echo "Missing TABOR_FEDERATION_URL variable"; exit 1; }
+          test -n "$PROVISION_TOKEN" || { echo "Missing TABOR_FEDERATION_PROVISION_TOKEN secret"; exit 1; }
+      - name: Provision bounded node range
+        run: node integrations/tabor-1001-provision/run.mjs
