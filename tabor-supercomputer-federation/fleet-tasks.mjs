@@ -1,7 +1,7 @@
 import { buildAndPurge, verifyNode } from './sovereign-box.mjs'
 
 export const fleetCount = 1000
-export const fleetTaskVersion = 'sovereign-box-v1'
+export const fleetTaskVersion = 'sovereign-box-v2'
 export const seedCount = 20
 export const recordCount = 160
 export const fleetFamilies = [
@@ -39,7 +39,7 @@ export function loadFleetRecords(env) {
   return { seeds, records, bySlug }
 }
 
-async function sha256(value) {
+export async function sha256(value) {
   const buffer = await crypto.subtle.digest('SHA-256', encoder.encode(value))
   return Array.from(new Uint8Array(buffer), byte => byte.toString(16).padStart(2, '0')).join('')
 }
@@ -104,13 +104,13 @@ const checks = {
   },
 }
 
-export async function runAssignedTask(id, env) {
+export async function runAssignedTask(id, dataset, snapshotDigest) {
   const task = assignment(id)
-  const dataset = loadFleetRecords(env)
   const row = dataset.records[task.record_index - 1]
   const result = await checks[task.family](row, dataset)
   const { passed, ...evidence } = result
   if (!passed) throw new Error('assigned fleet task failed')
-  const body = { id, ...task, status: 'verified', evidence }
+  const body = { id, ...task, status: 'verified', evidence,
+    local_records: dataset.records.length, snapshot_sha256: snapshotDigest }
   return { ...body, receipt: await sha256(JSON.stringify(body)) }
 }

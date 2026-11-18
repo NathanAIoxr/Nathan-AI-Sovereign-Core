@@ -3,7 +3,8 @@ import { hypercomputerBlueprint, hyperParam, ironwoodPlan, runTensor, tensorTile
 import { digitalFleet, digitalOperations, runDigital } from './digital.mjs'
 
 import { assignment, fleetCount as count, fleetFamilies, fleetTaskVersion, isNodeId, nodeId, recordCount,
-  runAssignedTask, seedCount } from './fleet-tasks.mjs'
+  loadFleetRecords, runAssignedTask, seedCount, sha256 } from './fleet-tasks.mjs'
+import { authenticateRoad, gateRejection, routeToSovereignty } from './sovereign-road.mjs'
 
 const digitalSeatNodes = 50
 const taskLedgerId = 'fleet-receipts-' + fleetTaskVersion
@@ -86,7 +87,7 @@ export class SupercomputerNode {
     if (url.pathname === '/fleet-task-ledger') return this.taskLedger(request)
     const [id, operation] = url.pathname.slice(1).split('/')
     if (!isNodeId(id)) return json({ error: 'unknown_node' }, 404)
-    if (request.method === 'POST') {
+    if (request.method === 'POST' && operation !== 'sovereign-road') {
       this.sql.exec('INSERT OR IGNORE INTO node_record(slot, record) VALUES (1, ?)', JSON.stringify(record(id)))
     }
     const entries = this.sql.exec('SELECT record FROM node_record WHERE slot = 1').toArray()
@@ -94,6 +95,12 @@ export class SupercomputerNode {
     const item = JSON.parse(entries[0].record)
     if (item.id !== id) return json({ error: 'node_identity_mismatch' }, 409)
     if (operation === 'assigned-task') return this.assignedTask(id, request.method)
+    if (operation === 'sovereign-road') {
+      const snapshot = await this.localSnapshot(false)
+      if (!snapshot) return json({ error: 'node_dataset_unavailable' }, 503)
+      const result = routeToSovereignty(await request.json(), id, snapshot.dataset.bySlug)
+      return json(result, result.code === 1 ? 200 : 403)
+    }
     if (operation === 'tensor-tile') {
       const size = hyperParam(url.searchParams, 'size', null, 6, 48)
       const start = hyperParam(url.searchParams, 'start', null, 0, 47)
@@ -110,6 +117,24 @@ export class SupercomputerNode {
     }
     return json({ ...item, assigned_task: assignment(id) })
   }
+  async localSnapshot(allowInitialize) {
+    this.sql.exec('CREATE TABLE IF NOT EXISTS sovereign_box_snapshots (version TEXT PRIMARY KEY, data TEXT NOT NULL, sha256 TEXT NOT NULL)')
+    const read = () => this.sql.exec('SELECT data, sha256 FROM sovereign_box_snapshots WHERE version = ?', fleetTaskVersion).toArray()[0]
+    let stored = read()
+    if (!stored && allowInitialize) {
+      const { seeds, records } = loadFleetRecords(this.env)
+      const data = JSON.stringify({ seeds, records })
+      const digest = await sha256(data)
+      this.sql.exec('INSERT OR IGNORE INTO sovereign_box_snapshots (version, data, sha256) VALUES (?, ?, ?)', fleetTaskVersion, data, digest)
+      stored = read()
+    }
+    if (!stored) return null
+    const digest = await sha256(stored.data)
+    if (digest !== stored.sha256) throw new Error('local snapshot integrity mismatch')
+    const { seeds, records } = JSON.parse(stored.data)
+    if (records.length !== recordCount) throw new Error('local snapshot coverage mismatch')
+    return { digest, dataset: { seeds, records, bySlug: new Map(records.map(record => [record.slug, record])) } }
+  }
   async assignedTask(id, method) {
     this.sql.exec('CREATE TABLE IF NOT EXISTS assigned_tasks (task_id TEXT PRIMARY KEY, receipt TEXT NOT NULL)')
     const task = assignment(id)
@@ -117,7 +142,8 @@ export class SupercomputerNode {
     const stored = read()
     if (stored) return json(JSON.parse(stored.receipt))
     if (method !== 'POST') return json({ ...task, id, status: 'pending' }, 404)
-    const receipt = await runAssignedTask(id, this.env)
+    const snapshot = await this.localSnapshot(true)
+    const receipt = await runAssignedTask(id, snapshot.dataset, snapshot.digest)
     this.sql.exec('INSERT OR IGNORE INTO assigned_tasks (task_id, receipt) VALUES (?, ?)', task.task_id, JSON.stringify(receipt))
     return json(JSON.parse(read().receipt))
   }
@@ -184,7 +210,8 @@ async function runTaskBatch(env, start, limit) {
         const receipt = await response.json()
         const task = assignment(id)
         if (receipt.id === id && receipt.task_id === task.task_id && receipt.family === task.family
-          && receipt.status === 'verified' && /^[0-9a-f]{64}$/.test(receipt.receipt)) return receipt
+          && receipt.status === 'verified' && receipt.local_records === recordCount
+          && /^[0-9a-f]{64}$/.test(receipt.snapshot_sha256) && /^[0-9a-f]{64}$/.test(receipt.receipt)) return receipt
       } catch {
         return { id, status: 'unverified' }
       }
@@ -277,6 +304,19 @@ export default {
       }))
       return json({ results }, results.every(item => item.status === 'provisioned') ? 200 : 503)
     }
+    if (request.method === 'POST' && pathname.endsWith('/sovereign-road')) {
+      const node = /^\/v1\/nodes\/([^/]+)\/sovereign-road$/.exec(pathname)?.[1]
+      if (!isNodeId(node)) return json(gateRejection, 403)
+      const packet = await authenticateRoad(request, node, env.SOVEREIGN_ROAD_KEY)
+      if (!packet) return json(gateRejection, 403)
+      try {
+        return await env.NODES.getByName(node).fetch('https://node.internal/' + node + '/sovereign-road', {
+          method: 'POST', body: JSON.stringify(packet),
+        })
+      } catch {
+        return json({ error: 'node_dataset_unavailable' }, 503)
+      }
+    }
     if (request.method !== 'GET') return json({ error: 'method_not_allowed' }, 405)
     if (pathname === '/') {
       const state = await taskLedger(env).then(response => response.json()).catch(() => null)
@@ -334,6 +374,8 @@ export default {
     }
     if (pathname === '/v1/nodes') return json({ cohort, identity_source: 'fleet_manifest',
       slots: Array.from({ length: count }, (_, i) => ({ id: nodeId(i + 1), path: '/v1/nodes/' + nodeId(i + 1), task: '/v1/nodes/' + nodeId(i + 1) + '/assigned-task', matrix: '/v1/nodes/' + nodeId(i + 1) + '/matrix-demo' })) })
+    const roadPath = /^\/v1\/nodes\/([^/]+)\/sovereign-road$/.exec(pathname)
+    if (roadPath) return json({ error: 'method_not_allowed' }, 405)
     if (pathname.startsWith('/v1/nodes/')) {
       const [id, operation, ...extra] = pathname.slice('/v1/nodes/'.length).split('/')
       const digital = digitalOperations.includes(operation)

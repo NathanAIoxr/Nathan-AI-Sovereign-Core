@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { createHash } from 'node:crypto'
+import { createHash, createHmac } from 'node:crypto'
 import { DatabaseSync } from 'node:sqlite'
 import test from 'node:test'
 import worker, { capacityPlan, matrixDemo, SupercomputerNode } from './worker.mjs'
@@ -147,8 +147,11 @@ test('ONE task fleet persists independent receipts and counts the full 1,000 ass
   const token = 'z'.repeat(48)
   const instances = new Map()
   const databases = []
+  const roadCalls = []
+  const roadKey = 'k'.repeat(48)
   const env = {
     FLEET_TASK_TOKEN: token,
+    SOVEREIGN_ROAD_KEY: roadKey,
     SOVEREIGN_BOX_SEEDS_A: JSON.stringify(input.slice(0, 10)),
     SOVEREIGN_BOX_SEEDS_B: JSON.stringify(input.slice(10)),
     NODES: {
@@ -163,7 +166,10 @@ test('ONE task fleet persists independent receipts and counts the full 1,000 ass
           instances.set(id, new SupercomputerNode({ storage: { sql } }, env))
         }
         const instance = instances.get(id)
-        return { fetch: (url, options) => instance.fetch(new Request(url, options)) }
+        return { fetch(url, options) {
+          if (url.endsWith('/sovereign-road')) roadCalls.push(id)
+          return instance.fetch(new Request(url, options))
+        } }
       },
     },
   }
@@ -194,6 +200,37 @@ test('ONE task fleet persists independent receipts and counts the full 1,000 ass
     const fleet = await (await call('/v1/tasks')).json()
     assert.deepEqual([fleet.assigned, fleet.verified, fleet.pending], [1000, 1000, 0])
     assert.deepEqual(fleet.families.map(family => family.verified), Array(10).fill(100))
+    assert.ok(receipts.every(item => item.local_records === 160))
+    assert.equal(new Set(receipts.map(item => item.snapshot_sha256)).size, 1)
+
+    delete env.SOVEREIGN_BOX_SEEDS_A
+    delete env.SOVEREIGN_BOX_SEEDS_B
+    const node = 'node-1000'
+    const packet = { road_origin: node, target_slug: 'seed-1', hex_seal: '0xFF01' }
+    const road = (value, { time = Date.now(), signAs = node, signed = true } = {}) => {
+      const body = JSON.stringify(value)
+      const key = createHmac('sha256', roadKey).update('sovereign-road-v1/' + signAs).digest()
+      const signature = createHmac('sha256', key).update(String(time) + '\n' + body).digest('hex')
+      const headers = signed ? { 'X-Sovereign-Timestamp': String(time), 'X-Sovereign-Signature': signature } : {}
+      return worker.fetch(new Request('https://test.invalid/v1/nodes/' + node + '/sovereign-road', {
+        method: 'POST', headers, body,
+      }), env)
+    }
+    assert.equal((await road(packet, { signed: false })).status, 403)
+    assert.equal((await road(packet, { time: Date.now() - 301000 })).status, 403)
+    assert.equal((await road(packet, { signAs: 'node-001' })).status, 403)
+    assert.equal((await road({ ...packet, road_origin: 'node-001' })).status, 403)
+    assert.equal((await road({ ...packet, hex_seal: '0xFF01_EXTRA' })).status, 403)
+    assert.equal((await road({ ...packet, payload: 'x'.repeat(3000) })).status, 403)
+    assert.deepEqual(roadCalls, [])
+    assert.equal((await road({ ...packet, hex_seal: '0xFF02' })).status, 403)
+    const admitted = await road(packet)
+    assert.equal(admitted.status, 200)
+    const result = await admitted.json()
+    assert.equal(result.code, 1)
+    assert.equal(result.destination, 'sovereign://node-1000/act/seed-1')
+    assert.equal(result.record.title, 'π and φ')
+    assert.deepEqual(roadCalls, [node, node])
   } finally {
     databases.forEach(db => db.close())
   }

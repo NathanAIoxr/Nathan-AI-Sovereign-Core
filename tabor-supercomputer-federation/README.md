@@ -30,6 +30,18 @@ Each unit runs its own named task against a selected record in the 20 → 40 →
 
 Set the two Workers secrets SOVEREIGN_BOX_SEEDS_A and SOVEREIGN_BOX_SEEDS_B to JSON arrays containing the supplied 20 records in order. Set FLEET_TASK_TOKEN to a random bearer secret. Send authenticated POST requests to /v1/tasks/run with start values 1, 26, 51, through 976 and limit=25. The node dataset stays in the Worker secrets. The public routes return task IDs, summary evidence and receipt hashes. Archive the private seed data with its owner. Remove the temporary FLEET_TASK_TOKEN after the run. Changes to the seed data use a new task version so older receipts retain their identity.
 
+## All Roads Lead to Sovereignty
+
+“Every part is whole—there are no fractals.”
+
+Each provisioned unit holds an independent SQLite snapshot of the same 160 Sovereign Box records, plus its own assigned task and receipt. Once written, the local lookup reads that unit's SQLite storage and checks its stored snapshot digest. The shared fleet ledger reports completion and can be unavailable during a node lookup. The 160-record local replica shares a Cloudflare account and provider with the other units. It establishes application-level independence and does not establish physical network or storage independence.
+
+The read gate is POST /v1/nodes/<node-id>/sovereign-road. Request JSON contains road_origin, target_slug and hex_seal. The signed road origin must match the requested node. The target slug must exist in that unit's snapshot and its full 16-bit seal must match exactly. The high byte is 0xFF. The remaining nibbles hold generation and anchor. Authorized lookups return a local sovereign URI and the matching record. Protected responses use no-store. The handler accepts no custom code and performs no payload writes, redirects or external requests.
+
+Set the optional Worker secret SOVEREIGN_ROAD_KEY to an owner-controlled random value of at least 32 characters. Derive a node key as HMAC-SHA-256(master, UTF-8 of sovereign-road-v1/<node-id>). Send X-Sovereign-Timestamp with the 13-digit Unix timestamp in milliseconds. Send X-Sovereign-Signature as the lower-case hexadecimal HMAC-SHA-256 of the timestamp, a newline and the UTF-8 request body, keyed by the raw node key. The time window is five minutes and is suitable for this read-only request. Give a delegated client only its node key. Root authority stays with the Cloudflare account owners and the master credential holder.
+
+The fleet checks and records snapshot hashes. Physical triple-modular redundancy, provider-independent failover, third-party telemetry guarantees, and bare-metal or optical execution require separate infrastructure and evidence.
+
 ## Deploy and provision
 
 Run local tests with Node 24. Deploy within the Cloudflare account where the six service bindings are available. For a new account, configure the bindings to that account's services and verify the provider routes before exposing the endpoints.
