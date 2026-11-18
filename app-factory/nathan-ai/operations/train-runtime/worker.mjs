@@ -36,10 +36,11 @@ function safeTitle(value) {return typeof value==="string" ? value.trim().replace
 function laneFor(title,requested) {
   if (LANES.some(x=>x.id===requested)) return requested;
   const t=title.toLowerCase();
-  if (/repair|fix|broken|bug|bottleneck|restore/.test(t)) return "repair";
   if (/defend|safe|privacy|threat|security/.test(t)) return "defense";
   if (/phonetic|cipher|language|translation/.test(t)) return "language";
   if (/library|archive|source|book|scroll/.test(t)) return "library";
+  if (/repair|fix|broken|bug|bottleneck|restore/.test(t)) return "repair";
+
   if (/misfit|mind|game|creative|art|gift/.test(t)) return "creative";
   if (/deploy|cloudflare|github|release|worker/.test(t)) return "delivery";
   if (/verify|audit|check|evidence|proof/.test(t)) return "audit";
