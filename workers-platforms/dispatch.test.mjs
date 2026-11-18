@@ -61,3 +61,31 @@ test("catalog shards are individually routed within the purchased fleet size", a
     assert.equal((await dispatch.fetch(req("/p/" + id + "/"), {})).status, 404);
   }
 });
+
+test("all 1000 library duties have a unique address and cover 13.3 million accession numbers once", async () => {
+  const { assignment, bookAssignment, corpusSize, lccClasses } = await import("./library-plan.mjs");
+  const all = Array.from({ length: 1000 }, (_, index) => assignment(index));
+  assert.equal(new Set(all.map((row) => row.worker)).size, 1000);
+  assert.equal(new Set(all.map((row) => row.dewey)).size, 1000);
+  assert.equal(new Set(all.map((row) => row.duodecimal)).size, 1000);
+  assert.deepEqual(new Set(all.flatMap((row) => row.lccReview)), new Set(Object.keys(lccClasses)));
+  let start = 1;
+  for (const row of all) {
+    assert.equal(row.bookRange.start, start);
+    assert.equal(row.bookRange.capacity, 13300);
+    assert.equal(bookAssignment(start).worker, row.worker);
+    assert.equal(bookAssignment(row.bookRange.end).worker, row.worker);
+    start = row.bookRange.end + 1;
+  }
+  assert.equal(start, corpusSize + 1);
+  const final = await (await dispatch.fetch(req("/p/language-shard-0989/library"))).json();
+  const byBase12 = await (await dispatch.fetch(req("/library/api/locate?base12=6B3"))).json();
+  assert.deepEqual(final, byBase12);
+  assert.equal(final.bookRange.end, corpusSize);
+  assert.equal((await dispatch.fetch(req("/library/api/locate?base12=BBB"))).status, 404);
+  assert.equal((await dispatch.fetch(req("/library/api/capacity?copies=-1"))).status, 400);
+  const capacity = await (await dispatch.fetch(req("/library/api/capacity"))).json();
+  assert.equal(capacity.totalNodes, 12);
+  const csv = await (await dispatch.fetch(req("/library/assignments.csv"))).text();
+  assert.equal(csv.trimEnd().split("\r\n").length, 1001);
+});

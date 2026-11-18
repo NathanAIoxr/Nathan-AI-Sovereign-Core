@@ -53,3 +53,18 @@ node workers-platforms/deploy.mjs hub
 ```
 
 The GitHub Actions `shards` target regenerates the dataset from its verified release hash and reconciles the same inventory after the workflow is available on main.
+
+## Library of Tabor catalog assignment
+
+The existing 1,000 deployments each have a library assignment. The federation publishes the mapping deterministically over the existing Worker identities. The individual Workers continue serving their current platform or language functions. The new routes return catalog duties and capacity reservations.
+
+- `/library` opens the catalog assignment page and sizing form.
+- `/library/assignments.csv` exports all 1,000 assignments.
+- `/p/<worker>/library` returns an individual Worker’s assignment.
+- `/library/api/locate?dewey=929`, `?accession=13301` and `?base12=6B3` resolve subject, physical placement plan and duodecimal address.
+- `/library/api/assignments?lcc=Z` lists local referrals to a Library of Congress class. Preserve supplied MARC 050 call numbers and MARC 082 Dewey numbers independently.
+- `/library/api/capacity?bytes=25000000&copies=3&rawTb=120&usable=0.8` calculates a storage scenario.
+
+The 13,300,000-book planning target reserves 13,300 consecutive accession numbers per Worker. Subject ownership uses Dewey numeric addresses 000–999. Active numbers and local routing codes should be checked against the OCLC edition when cataloging. The Library of Congress review rules are local editorial referrals. Base-12 addresses run from 000 to 6B3 and reserve 728 additional addresses. Ancient catalog traditions inform provenance fields. Tabor projects have subject referrals in the collection index.
+
+The capacity planner applies one usable-capacity factor to raw server storage and rounds up each copy independently. At three copies and 96 TB usable per server, average 25 MB files use 997.5 TB of payload and 12 modeled storage servers. The payload excludes the search index, ingest scratch, and any additional copies. Compute Workers and modeled storage servers are separate units. No books were supplied for this deployment.
