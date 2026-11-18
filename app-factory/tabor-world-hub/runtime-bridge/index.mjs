@@ -31,23 +31,57 @@ function dualityPage() {
 <main><nav><a href="/">World Hub</a><a href="${game}/">Game and traps</a><a href="${game}/workers.html">Worker Console</a><a href="${game}/lab.html">Capability Lab</a><a href="${game}/recovery.html">Recovered archive</a></nav>
 <h1>Tabor Light &amp; Dark</h1><p>The New World where Innocence is God</p>
 <section class="grid" aria-label="The four Tabor roles">${cards}</section>
+<h2>The Nathan Tabor Way</h2><section class="grid" aria-label="Four anchors">
+<article><h2>12 · Build</h2><p>1+1=2 · Restore missing entries.</p></article>
+<article><h2>3 · Clear</h2><p>1−1=0 · Mark surplus entries while protecting the original.</p></article>
+<article><h2>6 · Integrate</h2><p>1×1=1 · Apply the changes in order.</p></article>
+<article><h2>9 · Verify</h2><p>1÷1=1 · Check the replay and review the receipt.</p></article></section>
 <h2>Run the four roles</h2><p>Compare two versions of a list. Each role leaves a receipt, and the replacement keeps the original input available for review.</p>
 <form id="duality"><label>Source reference<input name="source" required maxlength="200" value="Example roster"></label>
-<label>Slayer form<select name="form"><option value="auto">Choose from the mismatch</option><option>Rapier of Precision</option><option>Broadblade of Truth</option><option>Shield-Edge</option></select></label>
+<label>Comparison mode<select name="mode"><option value="sequence">Preserve sequence and duplicates</option><option value="position">Compare by line position</option></select></label><label>Slayer form<select name="form"><option value="auto">Choose from the mismatch</option><option>Rapier of Precision</option><option>Broadblade of Truth</option><option>Shield-Edge</option></select></label>
 <label>Current output<textarea name="actual" rows="4" maxlength="4000" required>Mind of Minds
 Worker Families</textarea></label>
 <label>Expected output<textarea name="expected" rows="4" maxlength="4000" required>Mind of Minds
 Worker Families
 Council</textarea></label>
 <label>Previous attempt reference<input name="prior" maxlength="200" placeholder="Optional"></label><button>Run the four roles</button></form>
-<p id="run-status" role="status"></p><pre id="result" hidden></pre></main>
+<p id="run-status" role="status"></p><button id="download" type="button" hidden>Download run receipt</button><pre id="result" hidden></pre></main>
 <script>
 const form=document.getElementById('duality'), statusLine=document.getElementById('run-status'), result=document.getElementById('result');
-form.onsubmit=async event=>{event.preventDefault();const button=form.querySelector('button');button.disabled=true;result.hidden=true;statusLine.textContent='Running…';
+const download=document.getElementById('download');
+download.onclick=()=>{const url=URL.createObjectURL(new Blob([result.textContent],{type:'application/json'}));const link=document.createElement('a');link.href=url;link.download='tabor-duality-receipt.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+form.onsubmit=async event=>{event.preventDefault();const button=form.querySelector('button');button.disabled=true;result.hidden=true;download.hidden=true;statusLine.textContent='Running…';
 try { const response=await fetch('/api/duality/run',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(form)))});
-const data=await response.json();if(!response.ok)throw Error(data.error);result.textContent=JSON.stringify(data,null,2);result.hidden=false;statusLine.textContent=data.status; }
+const data=await response.json();if(!response.ok)throw Error(data.error);result.textContent=JSON.stringify(data,null,2);result.hidden=false;download.hidden=false;statusLine.textContent=data.status; }
 catch(error){statusLine.textContent=error.message;}finally{button.disabled=false;}};
 </script></html>`, { headers: { 'content-type': 'text/html; charset=utf-8' } });
+}
+function sequenceEdits(actual, expected) {
+  const table = Array.from({ length: actual.length + 1 }, () => new Uint16Array(expected.length + 1));
+  for (let a = actual.length - 1; a >= 0; a--) {
+    for (let e = expected.length - 1; e >= 0; e--) {
+      table[a][e] = actual[a] === expected[e] ? 1 + table[a + 1][e + 1] : Math.max(table[a + 1][e], table[a][e + 1]);
+    }
+  }
+  const steps = [];
+  let a = 0, e = 0;
+  while (a < actual.length || e < expected.length) {
+    if (a < actual.length && e < expected.length && actual[a] === expected[e]) {
+      steps.push({ action: 'keep', actualLine: a + 1, expectedLine: e + 1, actual: actual[a], expected: expected[e] });
+      a++; e++;
+    } else if (e < expected.length && (a === actual.length || table[a][e + 1] > table[a + 1][e])) {
+      steps.push({ action: 'restore', actualLine: null, expectedLine: e + 1, actual: null, expected: expected[e] });
+      e++;
+    } else {
+      steps.push({ action: 'remove from replacement', actualLine: a + 1, expectedLine: null, actual: actual[a], expected: null });
+      a++;
+    }
+  }
+  return steps;
+}
+async function digest(text) {
+  const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return [...new Uint8Array(hash)].map(byte => byte.toString(16).padStart(2, '0')).join('');
 }
 async function runDuality(request) {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405);
@@ -73,19 +107,32 @@ async function runDuality(request) {
   }
   const actual = input.actual.split(/\r?\n/), expected = input.expected.split(/\r?\n/);
   if (Math.max(actual.length, expected.length) > 250) return jsonResponse({ error: 'Use up to 250 lines per version' }, 400);
-  const mismatches = Array.from({length:Math.max(actual.length,expected.length)},(_,index)=>({
+  const positional = Array.from({length:Math.max(actual.length,expected.length)},(_,index)=>({
     line:index+1, actual:actual[index] ?? null, expected:expected[index] ?? null
   })).filter(row=>row.actual!==row.expected);
+  const mode = input.mode === 'sequence' ? 'sequence' : 'position';
+  const steps = mode === 'sequence' ? sequenceEdits(actual, expected) : null;
+  const mismatches = steps ? steps.filter(row => row.action !== 'keep') : positional;
   const forms = ['Rapier of Precision','Broadblade of Truth','Shield-Edge'];
   const form = forms.includes(input.form) ? input.form : forms[mismatches.length === 0 ? 2 : mismatches.length === 1 ? 0 : 1];
-  const repairs = mismatches.map(row=>({...row, action:row.actual===null?'restore':row.expected===null?'remove from replacement':'replace'}));
+  const repairs = steps ? mismatches : mismatches.map(row=>({...row, action:row.actual===null?'restore':row.expected===null?'remove from replacement':'replace'}));
   const edits = new Map(repairs.map(repair=>[repair.line,repair]));
-  const replacement = Array.from({length:Math.max(actual.length,expected.length)},(_,index)=>{
+  const replacement = steps ? steps.filter(row => row.expected !== null).map(row => row.action === 'keep' ? row.actual : row.expected) : Array.from({length:Math.max(actual.length,expected.length)},(_,index)=>{
     const edit=edits.get(index+1);
     return edit ? edit.expected : actual[index];
   }).filter(line=>line!==null);
   const replayPassed = replacement.length===expected.length && replacement.every((line,index)=>line===expected[index]);
+  const replacementText = replacement.join('\n');
+  const [originalHash, expectedHash, replacementHash] = await Promise.all([
+    digest(input.actual), digest(expected.join('\n')), digest(replacementText)
+  ]);
   return jsonResponse({
+    mode, anchors: [
+      { clock: 12, name: 'Build', equation: '1+1=2', restored: repairs.filter(row => row.action === 'restore').length },
+      { clock: 3, name: 'Clear', equation: '1−1=0', removed: repairs.filter(row => row.action === 'remove from replacement').length, originalRetained: true },
+      { clock: 6, name: 'Integrate', equation: '1×1=1', outputLines: replacement.length },
+      { clock: 9, name: 'Verify', equation: '1÷1=1', replayPassed, originalHash, expectedHash, replacementHash, outputHashBasis: 'LF-normalized lines' }
+    ],
     status: replayPassed ? 'Replay passed · ready for review' : 'Replay failed',
     source: input.source, original: input.actual, expected: input.expected,
     receipts: [
