@@ -20,6 +20,16 @@ export default {
   if(request.method==="GET"&&url.pathname==="/repos")return gh(env,"");
   if(request.method==="GET"&&url.pathname==="/runs")return gh(env,"/actions/runs?per_page=20");
   if(request.method==="GET"&&url.pathname==="/pulls")return gh(env,"/pulls?state=open&per_page=20");
+  if(request.method==="GET"&&url.pathname==="/workflows")return gh(env,"/actions/workflows?per_page=100");
+  if(request.method==="GET"&&url.pathname==="/incidents"){
+   const runs=await fetch("https://api.github.com/repos/"+encodeURIComponent(env.GH_OWNER)+"/"+encodeURIComponent(env.GH_REPO)+"/actions/runs?status=failure&per_page=20",{headers:{"authorization":"Bearer "+env.GH_TOKEN,"accept":"application/vnd.github+json","x-github-api-version":"2022-11-28","user-agent":"nathan-ai-pocket-control"}});
+   if(!runs.ok)return json({error:"github_unavailable",upstream_status:runs.status},502);
+   const data=await runs.json();return json({failed_runs:(data.workflow_runs||[]).map(x=>({id:x.id,name:x.name,conclusion:x.conclusion,created_at:x.created_at,html_url:x.html_url,head_branch:x.head_branch}))});
+  }
+  const jobs=url.pathname.match(/^\\/runs\\/(\\d+)\\/jobs$/);
+  if(request.method==="GET"&&jobs)return gh(env,"/actions/runs/"+jobs[1]+"/jobs?per_page=100");
+  const run=url.pathname.match(/^\\/runs\\/(\\d+)$/);
+  if(request.method==="GET"&&run)return gh(env,"/actions/runs/"+run[1]);
   if(request.method==="POST"&&url.pathname==="/dispatch"){
    let b;try{b=await request.json()}catch{return json({error:"invalid_json"},400)}
    if(b.confirm!==true||typeof b.workflow!=="string"||!/^[\w.-]+\.ya?ml$/.test(b.workflow)||typeof b.ref!=="string"||!/^[-\w./]{1,150}$/.test(b.ref))return json({error:"explicit_confirmation_and_valid_workflow_ref_required"},400);
