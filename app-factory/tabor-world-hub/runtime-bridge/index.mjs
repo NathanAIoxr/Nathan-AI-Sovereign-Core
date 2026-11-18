@@ -148,6 +148,15 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname;
+    if (path === '/reaper-6969' || path === '/reaper-6969/') {
+      if (request.method !== 'GET' && request.method !== 'HEAD') {
+        return new Response(null, { status: 405, headers: { Allow: 'GET, HEAD' } });
+      }
+      return new Response(null, { status: 302, headers: {
+        Location: 'https://tabor-reaper-6969.nathantaboract.workers.dev/',
+        'Cache-Control': 'no-store'
+      } });
+    }
     if (path === '/duality') return dualityPage();
     if (path === '/api/duality/run') return runDuality(request);
     if (path === '/api/runtime' || path.startsWith('/api/runtime/')) {
@@ -186,7 +195,7 @@ export default {
     return new HTMLRewriter().on('main', {
       element(element) {
         const links = services.map(service => '<li><a href="https://' + service.worker + '.nathantaboract.workers.dev/">' + service.name + '</a></li>').join('');
-        element.prepend('<h2><a href="/duality">Tabor Light &amp; Dark</a></h2><p>Run the four Slayer and Sleyer roles.</p><h2>Connected services</h2><ul>' + links + '</ul><p><a href="/api/runtime">Live service checks</a> · <a href="/api/runtime/hardware">Hardware catalog</a> · <a href="/api/runtime/coins">Coin registry</a> · <a href="/api/runtime/mining-architecture">Mining architecture</a> · <a href="/api/runtime/genesis">Currency genesis</a> · <a href="/api/runtime/proof-ledger">Proof ledger</a> · <a href="https://tabor-sovereign-currency.nathantaboract.workers.dev/verifier">Header verifier and agent downloads</a></p>', { html: true });
+        element.prepend('<h2><a href="/duality">Tabor Light &amp; Dark</a></h2><p>Run the four Slayer and Sleyer roles.</p><h2><a href="/reaper-6969">The Reaper 6969 Engine</a></h2><p>Owner workspace, archive and calculation lab.</p><h2>Connected services</h2><ul>' + links + '</ul><p><a href="/api/runtime">Live service checks</a> · <a href="/api/runtime/hardware">Hardware catalog</a> · <a href="/api/runtime/coins">Coin registry</a> · <a href="/api/runtime/mining-architecture">Mining architecture</a> · <a href="/api/runtime/genesis">Currency genesis</a> · <a href="/api/runtime/proof-ledger">Proof ledger</a> · <a href="https://tabor-sovereign-currency.nathantaboract.workers.dev/verifier">Header verifier and agent downloads</a></p>', { html: true });
       }
     }).transform(response);
   }

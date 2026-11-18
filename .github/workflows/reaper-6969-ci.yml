@@ -1,0 +1,19 @@
+name: Reaper 6969 owner workbench
+on:
+  pull_request:
+    paths:
+      - 'app-factory/tabor-world-hub/reaper-6969/**'
+      - '.github/workflows/reaper-6969-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  workbench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test app-factory/tabor-world-hub/reaper-6969/worker.test.mjs
