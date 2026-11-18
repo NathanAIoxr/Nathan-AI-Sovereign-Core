@@ -1,0 +1,35 @@
+#cloud-config
+package_update: true
+packages:
+  - python3
+  - ca-certificates
+  - curl
+write_files:
+  - path: /usr/local/bin/tabor-node-check
+    permissions: '0755'
+    content: |
+      #!/bin/sh
+      set -eu
+      uname -a
+      nproc
+      free -m
+      df -h /
+  - path: /etc/systemd/system/tabor-node-check.service
+    content: |
+      [Unit]
+      Description=Tabor node local health inventory
+      [Service]
+      Type=oneshot
+      ExecStart=/usr/local/bin/tabor-node-check
+  - path: /etc/systemd/system/tabor-node-check.timer
+    content: |
+      [Unit]
+      Description=Tabor local node inventory timer
+      [Timer]
+      OnBootSec=2min
+      OnUnitActiveSec=15min
+      [Install]
+      WantedBy=timers.target
+runcmd:
+  - [systemctl, daemon-reload]
+  - [systemctl, enable, --now, tabor-node-check.timer]
