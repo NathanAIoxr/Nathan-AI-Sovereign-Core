@@ -1,5 +1,7 @@
 # v.7 Tabor Universal Library Engine by Nathan Tabor
 
+The [Language Workers directory](https://tabor-polyglot-knowledge-gateway.nathantaboract.workers.dev/) provides a separate 101-entry catalog of language, ancient script, and research tools. Its gateway checks the Library collection through a Cloudflare service binding.
+
 The workspace uses the 45/10/45 layout on wider screens. On phones the play area, bridge and controls follow normal page scrolling. Select a cartridge, interact in the upper panel, and complete the sequence below to load another top attempt. Device tilt is opt-in and direction controls are available. The original Hook & Ring, Grapple It, BIBLeTopia, Tracker Ball, and Dual-Screen Arcade releases are linked from the workspace.
 
 ## Catalog

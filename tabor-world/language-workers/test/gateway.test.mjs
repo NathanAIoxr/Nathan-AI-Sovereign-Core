@@ -93,7 +93,7 @@ test("Library service binding checks the existing catalog route", async () => {
 test("provider routes restrict fetch hosts, preserve source URLs, and handle upstream failures", async context => {
   context.mock.method(globalThis,"fetch",async (value, options)=>{
     const url = new URL(value);
-    assert.equal(options.redirect,"error");
+    assert.equal(options.redirect,"manual");
     if(url.hostname==="openlibrary.org") return Response.json({numFound:1,docs:[{title:"The Iliad"}]});
     if(url.hostname==="www.loc.gov") return Response.json({pagination:{total:1},results:[{title:"Newspaper",date:"1900",url:"https://www.loc.gov/item/1"}]});
     if(url.hostname==="web.archive.org") return Response.json([["timestamp","original","statuscode","digest"],

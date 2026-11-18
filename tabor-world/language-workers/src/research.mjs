@@ -6,16 +6,27 @@ const decoder = new TextDecoder("utf-8", { fatal: true });
 const researchAgent = "TaborPolyglot/1.0 (https://tabor-polyglot-knowledge-gateway.nathantaboract.workers.dev/)";
 
 async function publicData(url, { kind = "json", limit = 2500000 } = {}) {
+  const endpoint = String(url);
+  const hostname = new URL(endpoint).hostname;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 7500);
   try {
-    const response = await fetch(url, { signal: AbortSignal.timeout(7500), redirect: "error", headers: {
+    const response = await fetch(endpoint, { signal: controller.signal, redirect: "manual", headers: {
       "user-agent": researchAgent, accept: kind === "json" ? "application/json" : "*/*",
     } });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    if (kind === "font") return await readBytes(response.body, limit);
-    const text = decoder.decode(await readBytes(response.body, limit));
-    return kind === "json" ? JSON.parse(text) : text;
-  } catch {
-    throw new RequestError(`Provider unavailable: ${new URL(url).hostname}`, 502);
+    if (!response.ok) throw new RequestError(`Provider unavailable: ${hostname} (HTTP ${response.status})`, 502);
+    const bytes = await readBytes(response.body, limit);
+    if (kind === "font") return bytes;
+    const content = decoder.decode(bytes);
+    return kind === "json" ? JSON.parse(content) : content;
+  } catch (error) {
+    if (error instanceof RequestError && error.status === 502) throw error;
+    const reason = controller.signal.aborted ? "timeout" : error instanceof SyntaxError ? "invalid JSON" :
+      error instanceof RequestError ? "response size exceeded" : "network or decoding error";
+    console.warn("Research provider request failed", hostname, error?.name, error?.message);
+    throw new RequestError(`Provider unavailable: ${hostname} (${reason})`, 502);
+  } finally {
+    clearTimeout(timeout);
   }
 }
 
@@ -178,7 +189,7 @@ export const researchHandlers = {
     if (typeof wikitext !== "string") throw new RequestError("Invalid Wiktionary response", 502);
     const sections = [...wikitext.matchAll(/^={3,5}\s*([^=\r\n]+?)\s*={3,5}\s*$/gm)].map(match => match[1]);
     return source(url, { title: page.title, section_headings: sections.slice(0, 100), extract: wikitext.slice(0, 12000),
-      attribution: `https://en.wiktionary.org/wiki/${encodeURIComponent(page.title)}`, license: "See source page terms and revision history" });
+      attribution: `https://en.wiktionary.org/wiki/${encodeURIComponent(page.title)}`, license: "https://creativecommons.org/licenses/by-sa/4.0/" });
   },
   34: async () => new Response(await publicData(gardinerFont, {kind:"font", limit:650000}), {
     headers: { ...webHeaders, "content-type": "font/ttf", "cache-control":"public, max-age=86400",
