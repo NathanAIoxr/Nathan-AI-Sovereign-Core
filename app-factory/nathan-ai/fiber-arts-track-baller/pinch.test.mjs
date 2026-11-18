@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {pinchFrame} from './pinch.mjs';
+const p=[{x:0,y:0},{x:10,y:0}];
+test('neutral pinch',()=>assert.deepEqual(pinchFrame(p,p),{scale:1,rotation:0,panX:0,panY:0,valid:true}));
+test('zoom bounded',()=>assert.equal(pinchFrame(p,[{x:0,y:0},{x:100,y:0}]).scale,2));
+test('rotation',()=>assert.ok(Math.abs(pinchFrame(p,[{x:0,y:0},{x:0,y:10}]).rotation-Math.PI/2)<1e-12));
+test('pan',()=>assert.equal(pinchFrame(p,[{x:5,y:2},{x:15,y:2}]).panX,5));
+test('coincident pointer safe',()=>assert.equal(pinchFrame(p,[{x:1,y:1},{x:1,y:1}]).valid,false));
+test('reject malformed',()=>assert.throws(()=>pinchFrame(p,[{x:NaN,y:0},{x:2,y:3}]),TypeError));
