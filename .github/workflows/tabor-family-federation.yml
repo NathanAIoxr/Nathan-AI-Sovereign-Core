@@ -1,0 +1,33 @@
+name: Tabor Family Federation
+on:
+  push:
+    paths:
+      - 'tabor-world/family-federation/**'
+      - '.github/workflows/tabor-family-federation.yml'
+  pull_request:
+    paths:
+      - 'tabor-world/family-federation/**'
+      - '.github/workflows/tabor-family-federation.yml'
+  workflow_dispatch:
+    inputs:
+      verify_live:
+        description: Verify the public Cloudflare federation and binary packet
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tabor-world/family-federation
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - run: npm test
+      - run: npx --yes wrangler@4.164.0 deploy --dry-run
+      - if: github.event_name == 'workflow_dispatch' && inputs.verify_live
+        run: node verify-live.mjs
