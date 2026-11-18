@@ -6,3 +6,6 @@ compatibility_date = "2026-11-17"
 binding = "DB"
 database_name = "nathan-supercomputer-2x"
 database_id = "46a04265-4187-4641-8809-2e184e5eb185"
+
+[triggers]
+crons = ["*/5 * * * *"]
