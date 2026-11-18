@@ -1,0 +1,8 @@
+name = "nathan-sovereign-box-zero"
+main = "src/index.ts"
+compatibility_date = "2026-11-18"
+[observability]
+enabled = true
+[[services]]
+binding = "BOX_ONE"
+service = "nathan-sovereign-box-one"
