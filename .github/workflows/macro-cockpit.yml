@@ -1,31 +1,30 @@
 name: Nathan AI Macro Cockpit
 on:
-  workflow_dispatch:
   schedule:
     - cron: '17 * * * *'
+  workflow_dispatch:
   repository_dispatch:
-    types: [nathan-ai-macro-batch]
+    types: [nathan-ai-macro-batch, macro_cockpit_trigger]
 permissions:
   contents: read
 concurrency:
   group: nathan-ai-macro-cockpit
   cancel-in-progress: false
 jobs:
-  inventory:
+  macro-batch-matrix:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
-        component: [workers, pages, zones, repositories]
+        partition: [workers, pages, zones, repositories]
     steps:
       - uses: actions/checkout@v4
-      - name: Record inventory scope
+      - name: Record scoped partition
         run: |
-          echo "Inventory component: ${{ matrix.component }}"
-          echo "This workflow does not claim deployment or import."
-      - name: Upload execution record
-        uses: actions/upload-artifact@v4
+          echo "Partition: ${{ matrix.partition }}"
+          echo "Execution is a scoped diagnostic; no import or deployment is claimed."
+      - uses: actions/upload-artifact@v4
         with:
-          name: cockpit-${{ matrix.component }}
-          path: integrations/unified-operations-cockpit/README.md
+          name: cockpit-${{ matrix.partition }}
+          path: schema.sql
