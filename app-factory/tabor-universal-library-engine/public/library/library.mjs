@@ -31,6 +31,8 @@ function show(entry, focus = false) {
     row.append(make("dt", key), make("dd", value));
     rows.append(row);
   }
+  const standalone = make("a", "Play standalone", "action");
+  standalone.href = "https://tabor-standalone.nathantaboract.workers.dev/games/atlas-" + entry.id + "/";
   const launch = make("a", "Play in Grapple It ↗", "action");
   launch.href = entry.play;
   detail.replaceChildren(
@@ -38,6 +40,7 @@ function show(entry, focus = false) {
     heading,
     make("p", catalog.kinds[entry.kind]),
     rows,
+    standalone,
     launch,
   );
   for (const button of byId("results").children) button.setAttribute("aria-current", String(button.dataset.entry === selected));

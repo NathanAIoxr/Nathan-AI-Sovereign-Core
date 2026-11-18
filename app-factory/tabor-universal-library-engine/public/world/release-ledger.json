@@ -1,6 +1,6 @@
 {
   "schema": "tabor-world.release-ledger.v1",
-  "current": "2026-11-17.3",
+  "current": "2026-11-17.4",
   "counts": {
     "records": 832,
     "elements": 118,
@@ -8,13 +8,28 @@
     "trackerCatalog": 101,
     "worldCatalog": 101,
     "runnable": 18,
-    "destinations": 15,
-    "publicDestinations": 14,
+    "destinations": 16,
+    "publicDestinations": 15,
     "playableApplications": 101,
     "databaseBindings": 25,
-    "rootAdapters": 6
+    "rootAdapters": 6,
+    "standaloneGames": 101,
+    "bookPages": 94,
+    "websiteRecords": 398
   },
   "history": [
+    {
+      "id": "2026-11-17.4",
+      "title": "Tabor Standalone games, books, and websites",
+      "changes": [
+        "Published individual installable web app pages for the 101 Library of Tabor games.",
+        "Published individual readers and source pages for the Pee Dee editions and public archive writing.",
+        "Connected standalone items to their original works and all relevant collections."
+      ],
+      "checks": [
+        "Standalone route, manifest, reader, related collection, and website registry tests."
+      ]
+    },
     {
       "id": "2026-11-17.3",
       "title": "Tabor Accords database connections and 85/15 workbench",
@@ -73,6 +88,11 @@
     }
   ],
   "next": [
+    {
+      "id": "standalone-coverage",
+      "title": "Continue finding individual works and original sites",
+      "detail": "Match projects outside the current Atlas, Pee Dee releases, public writing archive and app portfolio to their sources."
+    },
     {
       "id": "provider-credentials",
       "title": "Connect remaining live provider APIs",
