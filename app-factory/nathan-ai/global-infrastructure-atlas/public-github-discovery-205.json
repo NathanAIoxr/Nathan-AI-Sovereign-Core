@@ -1,0 +1,3545 @@
+{
+  "title": "Global workers bots agents kernels nodes software catalog",
+  "as_of": "2026-11-18",
+  "scope": "public software/discovery only; not global deployed network infrastructure",
+  "exhaustive": false,
+  "count": 205,
+  "entries": [
+    {
+      "id": "GH-0001",
+      "name": "hono",
+      "repository": "honojs/hono",
+      "url": "https://github.com/honojs/hono",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0002",
+      "name": "workers-sdk",
+      "repository": "cloudflare/workers-sdk",
+      "url": "https://github.com/cloudflare/workers-sdk",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0003",
+      "name": "agents",
+      "repository": "cloudflare/agents",
+      "url": "https://github.com/cloudflare/agents",
+      "categories": [
+        "Cloudflare Workers / edge apps",
+        "AI agents & orchestration"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0004",
+      "name": "awesome-agents",
+      "repository": "cloudflare/awesome-agents",
+      "url": "https://github.com/cloudflare/awesome-agents",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0005",
+      "name": "templates",
+      "repository": "cloudflare/templates",
+      "url": "https://github.com/cloudflare/templates",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0006",
+      "name": "workerd",
+      "repository": "cloudflare/workerd",
+      "url": "https://github.com/cloudflare/workerd",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0007",
+      "name": "vibesdk",
+      "repository": "cloudflare/vibesdk",
+      "url": "https://github.com/cloudflare/vibesdk",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0008",
+      "name": "moltworker",
+      "repository": "cloudflare/moltworker",
+      "url": "https://github.com/cloudflare/moltworker",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0009",
+      "name": "supermemory",
+      "repository": "supermemoryai/supermemory",
+      "url": "https://github.com/supermemoryai/supermemory",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0010",
+      "name": "open-connector",
+      "repository": "oomol-lab/open-connector",
+      "url": "https://github.com/oomol-lab/open-connector",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0011",
+      "name": "60s",
+      "repository": "vikiboss/60s",
+      "url": "https://github.com/vikiboss/60s",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0012",
+      "name": "webstudio",
+      "repository": "webstudio-is/webstudio",
+      "url": "https://github.com/webstudio-is/webstudio",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0013",
+      "name": "jose",
+      "repository": "panva/jose",
+      "url": "https://github.com/panva/jose",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0014",
+      "name": "microfeed",
+      "repository": "microfeed/microfeed",
+      "url": "https://github.com/microfeed/microfeed",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0015",
+      "name": "cloudflare_temp_email",
+      "repository": "dreamhunter2333/cloudflare_temp_email",
+      "url": "https://github.com/dreamhunter2333/cloudflare_temp_email",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0016",
+      "name": "cloud-mail",
+      "repository": "maillab/cloud-mail",
+      "url": "https://github.com/maillab/cloud-mail",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0017",
+      "name": "nodewarden",
+      "repository": "shuaiplus/nodewarden",
+      "url": "https://github.com/shuaiplus/nodewarden",
+      "categories": [
+        "Cloudflare Workers / edge apps"
+      ],
+      "kind": "Workers / edge application",
+      "cloudflare_fit": "potential_direct",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0018",
+      "name": "WasmEdge",
+      "repository": "WasmEdge/WasmEdge",
+      "url": "https://github.com/WasmEdge/WasmEdge",
+      "categories": [
+        "Edge & WebAssembly runtimes"
+      ],
+      "kind": "runtime / WASM",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0019",
+      "name": "wasm3",
+      "repository": "wasm3/wasm3",
+      "url": "https://github.com/wasm3/wasm3",
+      "categories": [
+        "Edge & WebAssembly runtimes"
+      ],
+      "kind": "runtime / WASM",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0020",
+      "name": "wasmi",
+      "repository": "wasmi-labs/wasmi",
+      "url": "https://github.com/wasmi-labs/wasmi",
+      "categories": [
+        "Edge & WebAssembly runtimes"
+      ],
+      "kind": "runtime / WASM",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0021",
+      "name": "wasmer",
+      "repository": "wasmerio/wasmer",
+      "url": "https://github.com/wasmerio/wasmer",
+      "categories": [
+        "Edge & WebAssembly runtimes"
+      ],
+      "kind": "runtime / WASM",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0022",
+      "name": "wasmtime",
+      "repository": "bytecodealliance/wasmtime",
+      "url": "https://github.com/bytecodealliance/wasmtime",
+      "categories": [
+        "Edge & WebAssembly runtimes"
+      ],
+      "kind": "runtime / WASM",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0023",
+      "name": "wasmCloud",
+      "repository": "wasmCloud/wasmCloud",
+      "url": "https://github.com/wasmCloud/wasmCloud",
+      "categories": [
+        "Edge & WebAssembly runtimes"
+      ],
+      "kind": "runtime / WASM",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0024",
+      "name": "spin",
+      "repository": "fermyon/spin",
+      "url": "https://github.com/fermyon/spin",
+      "categories": [
+        "Edge & WebAssembly runtimes"
+      ],
+      "kind": "runtime / WASM",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0025",
+      "name": "emscripten",
+      "repository": "emscripten-core/emscripten",
+      "url": "https://github.com/emscripten-core/emscripten",
+      "categories": [
+        "Edge & WebAssembly runtimes"
+      ],
+      "kind": "runtime / WASM",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0026",
+      "name": "assemblyscript",
+      "repository": "AssemblyScript/assemblyscript",
+      "url": "https://github.com/AssemblyScript/assemblyscript",
+      "categories": [
+        "Edge & WebAssembly runtimes"
+      ],
+      "kind": "runtime / WASM",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0027",
+      "name": "tinygo",
+      "repository": "tinygo-org/tinygo",
+      "url": "https://github.com/tinygo-org/tinygo",
+      "categories": [
+        "Edge & WebAssembly runtimes"
+      ],
+      "kind": "runtime / WASM",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0028",
+      "name": "pyodide",
+      "repository": "pyodide/pyodide",
+      "url": "https://github.com/pyodide/pyodide",
+      "categories": [
+        "Edge & WebAssembly runtimes"
+      ],
+      "kind": "runtime / WASM",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0029",
+      "name": "zenoh",
+      "repository": "eclipse-zenoh/zenoh",
+      "url": "https://github.com/eclipse-zenoh/zenoh",
+      "categories": [
+        "Edge & WebAssembly runtimes",
+        "Distributed compute & messaging",
+        "Robotics / ROS / machine nodes"
+      ],
+      "kind": "runtime / WASM",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0030",
+      "name": "partykit",
+      "repository": "partykit/partykit",
+      "url": "https://github.com/partykit/partykit",
+      "categories": [
+        "Edge & WebAssembly runtimes"
+      ],
+      "kind": "runtime / WASM",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0031",
+      "name": "adk-python",
+      "repository": "google/adk-python",
+      "url": "https://github.com/google/adk-python",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0032",
+      "name": "adk-java",
+      "repository": "google/adk-java",
+      "url": "https://github.com/google/adk-java",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0033",
+      "name": "adk-go",
+      "repository": "google/adk-go",
+      "url": "https://github.com/google/adk-go",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0034",
+      "name": "agent-framework",
+      "repository": "microsoft/agent-framework",
+      "url": "https://github.com/microsoft/agent-framework",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0035",
+      "name": "langgraph",
+      "repository": "langchain-ai/langgraph",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0036",
+      "name": "crewAI",
+      "repository": "crewAIInc/crewAI",
+      "url": "https://github.com/crewAIInc/crewAI",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0037",
+      "name": "llama_index",
+      "repository": "run-llama/llama_index",
+      "url": "https://github.com/run-llama/llama_index",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0038",
+      "name": "pydantic-ai",
+      "repository": "pydantic/pydantic-ai",
+      "url": "https://github.com/pydantic/pydantic-ai",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0039",
+      "name": "haystack",
+      "repository": "deepset-ai/haystack",
+      "url": "https://github.com/deepset-ai/haystack",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0040",
+      "name": "agentscope",
+      "repository": "agentscope-ai/agentscope",
+      "url": "https://github.com/agentscope-ai/agentscope",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0041",
+      "name": "agentscope-java",
+      "repository": "agentscope-ai/agentscope-java",
+      "url": "https://github.com/agentscope-ai/agentscope-java",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0042",
+      "name": "sdk-python",
+      "repository": "strands-agents/sdk-python",
+      "url": "https://github.com/strands-agents/sdk-python",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0043",
+      "name": "smolagents",
+      "repository": "huggingface/smolagents",
+      "url": "https://github.com/huggingface/smolagents",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0044",
+      "name": "agno",
+      "repository": "agno-agi/agno",
+      "url": "https://github.com/agno-agi/agno",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0045",
+      "name": "mastra",
+      "repository": "mastra-ai/mastra",
+      "url": "https://github.com/mastra-ai/mastra",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0046",
+      "name": "autogen",
+      "repository": "microsoft/autogen",
+      "url": "https://github.com/microsoft/autogen",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0047",
+      "name": "semantic-kernel",
+      "repository": "microsoft/semantic-kernel",
+      "url": "https://github.com/microsoft/semantic-kernel",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0048",
+      "name": "nanobot",
+      "repository": "HKUDS/nanobot",
+      "url": "https://github.com/HKUDS/nanobot",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0049",
+      "name": "hermes-agent",
+      "repository": "NousResearch/hermes-agent",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0050",
+      "name": "deer-flow",
+      "repository": "bytedance/deer-flow",
+      "url": "https://github.com/bytedance/deer-flow",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0051",
+      "name": "MetaGPT",
+      "repository": "FoundationAgents/MetaGPT",
+      "url": "https://github.com/FoundationAgents/MetaGPT",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0052",
+      "name": "CopilotKit",
+      "repository": "CopilotKit/CopilotKit",
+      "url": "https://github.com/CopilotKit/CopilotKit",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0053",
+      "name": "openfang",
+      "repository": "RightNow-AI/openfang",
+      "url": "https://github.com/RightNow-AI/openfang",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0054",
+      "name": "hive",
+      "repository": "Aden-Hive/hive",
+      "url": "https://github.com/Aden-Hive/hive",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0055",
+      "name": "Upsonic",
+      "repository": "Upsonic/Upsonic",
+      "url": "https://github.com/Upsonic/Upsonic",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0056",
+      "name": "openai-agents-python",
+      "repository": "openai/openai-agents-python",
+      "url": "https://github.com/openai/openai-agents-python",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0057",
+      "name": "adk-docs",
+      "repository": "google/adk-docs",
+      "url": "https://github.com/google/adk-docs",
+      "categories": [
+        "AI agents & orchestration"
+      ],
+      "kind": "agent framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0058",
+      "name": "registry",
+      "repository": "modelcontextprotocol/registry",
+      "url": "https://github.com/modelcontextprotocol/registry",
+      "categories": [
+        "MCP servers & integration"
+      ],
+      "kind": "MCP / integration",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0059",
+      "name": "servers",
+      "repository": "modelcontextprotocol/servers",
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "categories": [
+        "MCP servers & integration"
+      ],
+      "kind": "MCP / integration",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0060",
+      "name": "python-sdk",
+      "repository": "modelcontextprotocol/python-sdk",
+      "url": "https://github.com/modelcontextprotocol/python-sdk",
+      "categories": [
+        "MCP servers & integration"
+      ],
+      "kind": "MCP / integration",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0061",
+      "name": "github-mcp-server",
+      "repository": "github/github-mcp-server",
+      "url": "https://github.com/github/github-mcp-server",
+      "categories": [
+        "MCP servers & integration"
+      ],
+      "kind": "MCP / integration",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0062",
+      "name": "chrome-devtools-mcp",
+      "repository": "ChromeDevTools/chrome-devtools-mcp",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "categories": [
+        "MCP servers & integration"
+      ],
+      "kind": "MCP / integration",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0063",
+      "name": "context7",
+      "repository": "upstash/context7",
+      "url": "https://github.com/upstash/context7",
+      "categories": [
+        "MCP servers & integration"
+      ],
+      "kind": "MCP / integration",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0064",
+      "name": "serena",
+      "repository": "oraios/serena",
+      "url": "https://github.com/oraios/serena",
+      "categories": [
+        "MCP servers & integration"
+      ],
+      "kind": "MCP / integration",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0065",
+      "name": "context-mode",
+      "repository": "mksglu/context-mode",
+      "url": "https://github.com/mksglu/context-mode",
+      "categories": [
+        "MCP servers & integration"
+      ],
+      "kind": "MCP / integration",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0066",
+      "name": "codebase-memory-mcp",
+      "repository": "DeusData/codebase-memory-mcp",
+      "url": "https://github.com/DeusData/codebase-memory-mcp",
+      "categories": [
+        "MCP servers & integration"
+      ],
+      "kind": "MCP / integration",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0067",
+      "name": "n8n-mcp",
+      "repository": "czlonkowski/n8n-mcp",
+      "url": "https://github.com/czlonkowski/n8n-mcp",
+      "categories": [
+        "MCP servers & integration"
+      ],
+      "kind": "MCP / integration",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0068",
+      "name": "ruflo",
+      "repository": "ruvnet/ruflo",
+      "url": "https://github.com/ruvnet/ruflo",
+      "categories": [
+        "MCP servers & integration"
+      ],
+      "kind": "MCP / integration",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0069",
+      "name": "activepieces",
+      "repository": "activepieces/activepieces",
+      "url": "https://github.com/activepieces/activepieces",
+      "categories": [
+        "MCP servers & integration"
+      ],
+      "kind": "MCP / integration",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0070",
+      "name": "gemini-cli",
+      "repository": "google-gemini/gemini-cli",
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "categories": [
+        "MCP servers & integration"
+      ],
+      "kind": "MCP / integration",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0071",
+      "name": "rasa",
+      "repository": "RasaHQ/rasa",
+      "url": "https://github.com/RasaHQ/rasa",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0072",
+      "name": "node-telegram-bot-api",
+      "repository": "yagop/node-telegram-bot-api",
+      "url": "https://github.com/yagop/node-telegram-bot-api",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0073",
+      "name": "telegraf",
+      "repository": "telegraf/telegraf",
+      "url": "https://github.com/telegraf/telegraf",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0074",
+      "name": "botman",
+      "repository": "botman/botman",
+      "url": "https://github.com/botman/botman",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0075",
+      "name": "aiogram",
+      "repository": "aiogram/aiogram",
+      "url": "https://github.com/aiogram/aiogram",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0076",
+      "name": "telegram-bot-sdk",
+      "repository": "irazasyed/telegram-bot-sdk",
+      "url": "https://github.com/irazasyed/telegram-bot-sdk",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0077",
+      "name": "AdaptiveCards",
+      "repository": "microsoft/AdaptiveCards",
+      "url": "https://github.com/microsoft/AdaptiveCards",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0078",
+      "name": "BotFramework-WebChat",
+      "repository": "microsoft/BotFramework-WebChat",
+      "url": "https://github.com/microsoft/BotFramework-WebChat",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0079",
+      "name": "nextcord",
+      "repository": "nextcord/nextcord",
+      "url": "https://github.com/nextcord/nextcord",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0080",
+      "name": "jbot",
+      "repository": "rampatra/jbot",
+      "url": "https://github.com/rampatra/jbot",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0081",
+      "name": "Hexabot",
+      "repository": "hexabot-ai/Hexabot",
+      "url": "https://github.com/hexabot-ai/Hexabot",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0082",
+      "name": "telego",
+      "repository": "mymmrac/telego",
+      "url": "https://github.com/mymmrac/telego",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0083",
+      "name": "hikari",
+      "repository": "hikari-py/hikari",
+      "url": "https://github.com/hikari-py/hikari",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0084",
+      "name": "cog",
+      "repository": "operable/cog",
+      "url": "https://github.com/operable/cog",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0085",
+      "name": "TwitchIO",
+      "repository": "TwitchIO/TwitchIO",
+      "url": "https://github.com/TwitchIO/TwitchIO",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0086",
+      "name": "opsdroid",
+      "repository": "opsdroid/opsdroid",
+      "url": "https://github.com/opsdroid/opsdroid",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0087",
+      "name": "slacker",
+      "repository": "shomali11/slacker",
+      "url": "https://github.com/shomali11/slacker",
+      "categories": [
+        "Bots & messaging"
+      ],
+      "kind": "bot framework",
+      "cloudflare_fit": "bridge_or_port",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0088",
+      "name": "n8n",
+      "repository": "n8n-io/n8n",
+      "url": "https://github.com/n8n-io/n8n",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0089",
+      "name": "airflow",
+      "repository": "apache/airflow",
+      "url": "https://github.com/apache/airflow",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0090",
+      "name": "conductor",
+      "repository": "conductor-oss/conductor",
+      "url": "https://github.com/conductor-oss/conductor",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0091",
+      "name": "budibase",
+      "repository": "Budibase/budibase",
+      "url": "https://github.com/Budibase/budibase",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0092",
+      "name": "dapr",
+      "repository": "dapr/dapr",
+      "url": "https://github.com/dapr/dapr",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0093",
+      "name": "nocobase",
+      "repository": "nocobase/nocobase",
+      "url": "https://github.com/nocobase/nocobase",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0094",
+      "name": "temporal",
+      "repository": "temporalio/temporal",
+      "url": "https://github.com/temporalio/temporal",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0095",
+      "name": "prefect",
+      "repository": "PrefectHQ/prefect",
+      "url": "https://github.com/PrefectHQ/prefect",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0096",
+      "name": "windmill",
+      "repository": "windmill-labs/windmill",
+      "url": "https://github.com/windmill-labs/windmill",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0097",
+      "name": "argo-workflows",
+      "repository": "argoproj/argo-workflows",
+      "url": "https://github.com/argoproj/argo-workflows",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0098",
+      "name": "flowable-engine",
+      "repository": "flowable/flowable-engine",
+      "url": "https://github.com/flowable/flowable-engine",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0099",
+      "name": "hatchet",
+      "repository": "hatchet-dev/hatchet",
+      "url": "https://github.com/hatchet-dev/hatchet",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0100",
+      "name": "inngest",
+      "repository": "inngest/inngest",
+      "url": "https://github.com/inngest/inngest",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0101",
+      "name": "restate",
+      "repository": "restatedev/restate",
+      "url": "https://github.com/restatedev/restate",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0102",
+      "name": "workflow-core",
+      "repository": "danielgerlag/workflow-core",
+      "url": "https://github.com/danielgerlag/workflow-core",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0103",
+      "name": "ergo",
+      "repository": "ergo-services/ergo",
+      "url": "https://github.com/ergo-services/ergo",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0104",
+      "name": "astron-agent",
+      "repository": "iflytek/astron-agent",
+      "url": "https://github.com/iflytek/astron-agent",
+      "categories": [
+        "Workflow engines & durable jobs"
+      ],
+      "kind": "workflow orchestration",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0105",
+      "name": "n8n-nodes-puppeteer",
+      "repository": "drudge/n8n-nodes-puppeteer",
+      "url": "https://github.com/drudge/n8n-nodes-puppeteer",
+      "categories": [
+        "Automation and community nodes"
+      ],
+      "kind": "workflow node / extension",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0106",
+      "name": "n8n-nodes-globals",
+      "repository": "umanamente/n8n-nodes-globals",
+      "url": "https://github.com/umanamente/n8n-nodes-globals",
+      "categories": [
+        "Automation and community nodes"
+      ],
+      "kind": "workflow node / extension",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0107",
+      "name": "n8n-nodes-python",
+      "repository": "naskio/n8n-nodes-python",
+      "url": "https://github.com/naskio/n8n-nodes-python",
+      "categories": [
+        "Automation and community nodes"
+      ],
+      "kind": "workflow node / extension",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0108",
+      "name": "n8n-nodes-browserless",
+      "repository": "minhlucvan/n8n-nodes-browserless",
+      "url": "https://github.com/minhlucvan/n8n-nodes-browserless",
+      "categories": [
+        "Automation and community nodes"
+      ],
+      "kind": "workflow node / extension",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0109",
+      "name": "n8n-nodes-imap",
+      "repository": "umanamente/n8n-nodes-imap",
+      "url": "https://github.com/umanamente/n8n-nodes-imap",
+      "categories": [
+        "Automation and community nodes"
+      ],
+      "kind": "workflow node / extension",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0110",
+      "name": "n8n-nodes-tesseractjs",
+      "repository": "jreyesr/n8n-nodes-tesseractjs",
+      "url": "https://github.com/jreyesr/n8n-nodes-tesseractjs",
+      "categories": [
+        "Automation and community nodes"
+      ],
+      "kind": "workflow node / extension",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0111",
+      "name": "n8n-nodes-twitch",
+      "repository": "CodelyTV/n8n-nodes-twitch",
+      "url": "https://github.com/CodelyTV/n8n-nodes-twitch",
+      "categories": [
+        "Automation and community nodes"
+      ],
+      "kind": "workflow node / extension",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0112",
+      "name": "n8n-nodes-crawl-and-scrape",
+      "repository": "swimmingkiim/n8n-nodes-crawl-and-scrape",
+      "url": "https://github.com/swimmingkiim/n8n-nodes-crawl-and-scrape",
+      "categories": [
+        "Automation and community nodes"
+      ],
+      "kind": "workflow node / extension",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0113",
+      "name": "n8n-llamacloud",
+      "repository": "run-llama/n8n-llamacloud",
+      "url": "https://github.com/run-llama/n8n-llamacloud",
+      "categories": [
+        "Automation and community nodes"
+      ],
+      "kind": "workflow node / extension",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0114",
+      "name": "awesome-n8n",
+      "repository": "restyler/awesome-n8n",
+      "url": "https://github.com/restyler/awesome-n8n",
+      "categories": [
+        "Automation and community nodes"
+      ],
+      "kind": "workflow node / extension",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0115",
+      "name": "awesome-n8n",
+      "repository": "Synaptiv-AI/awesome-n8n",
+      "url": "https://github.com/Synaptiv-AI/awesome-n8n",
+      "categories": [
+        "Automation and community nodes"
+      ],
+      "kind": "workflow node / extension",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0116",
+      "name": "n8n-workflow-all-templates",
+      "repository": "zengfr/n8n-workflow-all-templates",
+      "url": "https://github.com/zengfr/n8n-workflow-all-templates",
+      "categories": [
+        "Automation and community nodes"
+      ],
+      "kind": "workflow node / extension",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0117",
+      "name": "awesome-n8n-msp-nodes",
+      "repository": "themookfactory/awesome-n8n-msp-nodes",
+      "url": "https://github.com/themookfactory/awesome-n8n-msp-nodes",
+      "categories": [
+        "Automation and community nodes"
+      ],
+      "kind": "workflow node / extension",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0118",
+      "name": "serenity",
+      "repository": "SerenityOS/serenity",
+      "url": "https://github.com/SerenityOS/serenity",
+      "categories": [
+        "Kernels & kernel-adjacent",
+        "Operating systems & system images"
+      ],
+      "kind": "OS kernel / low-level",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0119",
+      "name": "cilium",
+      "repository": "cilium/cilium",
+      "url": "https://github.com/cilium/cilium",
+      "categories": [
+        "Kernels & kernel-adjacent"
+      ],
+      "kind": "OS kernel / low-level",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0120",
+      "name": "gvisor",
+      "repository": "gvisor/gvisor",
+      "url": "https://github.com/gvisor/gvisor",
+      "categories": [
+        "Kernels & kernel-adjacent"
+      ],
+      "kind": "OS kernel / low-level",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0121",
+      "name": "reactos",
+      "repository": "reactos/reactos",
+      "url": "https://github.com/reactos/reactos",
+      "categories": [
+        "Kernels & kernel-adjacent",
+        "Operating systems & system images"
+      ],
+      "kind": "OS kernel / low-level",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0122",
+      "name": "redox",
+      "repository": "redox-os/redox",
+      "url": "https://github.com/redox-os/redox",
+      "categories": [
+        "Kernels & kernel-adjacent",
+        "Operating systems & system images"
+      ],
+      "kind": "OS kernel / low-level",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0123",
+      "name": "rt-thread",
+      "repository": "RT-Thread/rt-thread",
+      "url": "https://github.com/RT-Thread/rt-thread",
+      "categories": [
+        "Kernels & kernel-adjacent",
+        "Operating systems & system images"
+      ],
+      "kind": "OS kernel / low-level",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0124",
+      "name": "blog_os",
+      "repository": "phil-opp/blog_os",
+      "url": "https://github.com/phil-opp/blog_os",
+      "categories": [
+        "Kernels & kernel-adjacent"
+      ],
+      "kind": "OS kernel / low-level",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0125",      "name": "lkmpg",
+      "repository": "sysprog21/lkmpg",
+      "url": "https://github.com/sysprog21/lkmpg",
+      "categories": [
+        "Kernels & kernel-adjacent"
+      ],
+      "kind": "OS kernel / low-level",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0126",
+      "name": "rust-raspberrypi-OS-tutorials",
+      "repository": "rust-embedded/rust-raspberrypi-OS-tutorials",
+      "url": "https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials",
+      "categories": [
+        "Kernels & kernel-adjacent"
+      ],
+      "kind": "OS kernel / low-level",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0127",
+      "name": "seL4",
+      "repository": "seL4/seL4",
+      "url": "https://github.com/seL4/seL4",
+      "categories": [
+        "Kernels & kernel-adjacent",
+        "Operating systems & system images"
+      ],
+      "kind": "OS kernel / low-level",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0128",
+      "name": "zephyr",
+      "repository": "zephyrproject-rtos/zephyr",
+      "url": "https://github.com/zephyrproject-rtos/zephyr",
+      "categories": [
+        "Kernels & kernel-adjacent",
+        "Operating systems & system images"
+      ],
+      "kind": "OS kernel / low-level",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0129",
+      "name": "freebsd-src",
+      "repository": "freebsd/freebsd-src",
+      "url": "https://github.com/freebsd/freebsd-src",
+      "categories": [
+        "Kernels & kernel-adjacent"
+      ],
+      "kind": "OS kernel / low-level",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0130",
+      "name": "puter",
+      "repository": "HeyPuter/puter",
+      "url": "https://github.com/HeyPuter/puter",
+      "categories": [
+        "Operating systems & system images"
+      ],
+      "kind": "OS / system",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0131",
+      "name": "bottlerocket",
+      "repository": "bottlerocket-os/bottlerocket",
+      "url": "https://github.com/bottlerocket-os/bottlerocket",
+      "categories": [
+        "Operating systems & system images"
+      ],
+      "kind": "OS / system",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0132",
+      "name": "bazzite",
+      "repository": "ublue-os/bazzite",
+      "url": "https://github.com/ublue-os/bazzite",
+      "categories": [
+        "Operating systems & system images"
+      ],
+      "kind": "OS / system",
+      "cloudflare_fit": "not_worker",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0133",
+      "name": "nats-server",
+      "repository": "nats-io/nats-server",
+      "url": "https://github.com/nats-io/nats-server",
+      "categories": [
+        "Distributed compute & messaging"
+      ],
+      "kind": "distributed infrastructure",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0134",
+      "name": "hazelcast",
+      "repository": "hazelcast/hazelcast",
+      "url": "https://github.com/hazelcast/hazelcast",
+      "categories": [
+        "Distributed compute & messaging"
+      ],
+      "kind": "distributed infrastructure",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0135",
+      "name": "livebook",
+      "repository": "livebook-dev/livebook",
+      "url": "https://github.com/livebook-dev/livebook",
+      "categories": [
+        "Distributed compute & messaging"
+      ],
+      "kind": "distributed infrastructure",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0136",
+      "name": "Daft",
+      "repository": "Eventual-Inc/Daft",
+      "url": "https://github.com/Eventual-Inc/Daft",
+      "categories": [
+        "Distributed compute & messaging"
+      ],
+      "kind": "distributed infrastructure",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0137",
+      "name": "protoactor-go",
+      "repository": "asynkron/protoactor-go",
+      "url": "https://github.com/asynkron/protoactor-go",
+      "categories": [
+        "Distributed compute & messaging"
+      ],
+      "kind": "distributed infrastructure",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0138",
+      "name": "gleam",
+      "repository": "chrislusf/gleam",
+      "url": "https://github.com/chrislusf/gleam",
+      "categories": [
+        "Distributed compute & messaging"
+      ],
+      "kind": "distributed infrastructure",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0139",
+      "name": "sail",
+      "repository": "lakehq/sail",
+      "url": "https://github.com/lakehq/sail",
+      "categories": [
+        "Distributed compute & messaging"
+      ],
+      "kind": "distributed infrastructure",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0140",
+      "name": "kuberay",
+      "repository": "kuberay-project/kuberay",
+      "url": "https://github.com/kuberay-project/kuberay",
+      "categories": [
+        "Distributed compute & messaging"
+      ],
+      "kind": "distributed infrastructure",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0141",
+      "name": "boinc",
+      "repository": "BOINC/boinc",
+      "url": "https://github.com/BOINC/boinc",
+      "categories": [
+        "Distributed compute & messaging"
+      ],
+      "kind": "distributed infrastructure",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0142",
+      "name": "ray",
+      "repository": "ray-project/ray",
+      "url": "https://github.com/ray-project/ray",
+      "categories": [
+        "Distributed compute & messaging",
+        "AI inference / serving / distributed ML"
+      ],
+      "kind": "distributed infrastructure",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0143",
+      "name": "ColossalAI",
+      "repository": "hpcaitech/ColossalAI",
+      "url": "https://github.com/hpcaitech/ColossalAI",
+      "categories": [
+        "Distributed compute & messaging",
+        "AI inference / serving / distributed ML"
+      ],
+      "kind": "distributed infrastructure",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0144",
+      "name": "meshery",
+      "repository": "meshery/meshery",
+      "url": "https://github.com/meshery/meshery",
+      "categories": [
+        "Kubernetes / operators / platform"
+      ],
+      "kind": "Kubernetes / operator",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0145",
+      "name": "strimzi-kafka-operator",
+      "repository": "strimzi/strimzi-kafka-operator",
+      "url": "https://github.com/strimzi/strimzi-kafka-operator",
+      "categories": [
+        "Kubernetes / operators / platform"
+      ],
+      "kind": "Kubernetes / operator",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0146",
+      "name": "postgres-operator",
+      "repository": "CrunchyData/postgres-operator",
+      "url": "https://github.com/CrunchyData/postgres-operator",
+      "categories": [
+        "Kubernetes / operators / platform"
+      ],
+      "kind": "Kubernetes / operator",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0147",
+      "name": "cyclops",
+      "repository": "cyclops-ui/cyclops",
+      "url": "https://github.com/cyclops-ui/cyclops",
+      "categories": [
+        "Kubernetes / operators / platform"
+      ],
+      "kind": "Kubernetes / operator",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0148",
+      "name": "spark-operator",
+      "repository": "kubeflow/spark-operator",
+      "url": "https://github.com/kubeflow/spark-operator",
+      "categories": [
+        "Kubernetes / operators / platform"
+      ],
+      "kind": "Kubernetes / operator",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0149",
+      "name": "kopf",
+      "repository": "nolar/kopf",
+      "url": "https://github.com/nolar/kopf",
+      "categories": [
+        "Kubernetes / operators / platform"
+      ],
+      "kind": "Kubernetes / operator",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0150",
+      "name": "shell-operator",
+      "repository": "flant/shell-operator",
+      "url": "https://github.com/flant/shell-operator",
+      "categories": [
+        "Kubernetes / operators / platform"
+      ],
+      "kind": "Kubernetes / operator",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0151",
+      "name": "clickhouse-operator",
+      "repository": "Altinity/clickhouse-operator",
+      "url": "https://github.com/Altinity/clickhouse-operator",
+      "categories": [
+        "Kubernetes / operators / platform"
+      ],
+      "kind": "Kubernetes / operator",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0152",
+      "name": "capsule",
+      "repository": "projectcapsule/capsule",
+      "url": "https://github.com/projectcapsule/capsule",
+      "categories": [
+        "Kubernetes / operators / platform"
+      ],
+      "kind": "Kubernetes / operator",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0153",
+      "name": "operator-lifecycle-manager",
+      "repository": "operator-framework/operator-lifecycle-manager",
+      "url": "https://github.com/operator-framework/operator-lifecycle-manager",
+      "categories": [
+        "Kubernetes / operators / platform"
+      ],
+      "kind": "Kubernetes / operator",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0154",
+      "name": "opentelemetry-operator",
+      "repository": "open-telemetry/opentelemetry-operator",
+      "url": "https://github.com/open-telemetry/opentelemetry-operator",
+      "categories": [
+        "Kubernetes / operators / platform"
+      ],
+      "kind": "Kubernetes / operator",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0155",
+      "name": "awx-operator",
+      "repository": "ansible/awx-operator",
+      "url": "https://github.com/ansible/awx-operator",
+      "categories": [
+        "Kubernetes / operators / platform"
+      ],
+      "kind": "Kubernetes / operator",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0156",
+      "name": "stackgres",
+      "repository": "ongres/stackgres",
+      "url": "https://github.com/ongres/stackgres",
+      "categories": [
+        "Kubernetes / operators / platform"
+      ],
+      "kind": "Kubernetes / operator",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0157",
+      "name": "grafana-operator",
+      "repository": "grafana/grafana-operator",
+      "url": "https://github.com/grafana/grafana-operator",
+      "categories": [
+        "Kubernetes / operators / platform"
+      ],
+      "kind": "Kubernetes / operator",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0158",
+      "name": "PX4-Autopilot",
+      "repository": "PX4/PX4-Autopilot",
+      "url": "https://github.com/PX4/PX4-Autopilot",
+      "categories": [
+        "Robotics / ROS / machine nodes"
+      ],
+      "kind": "robotics / ROS",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0159",
+      "name": "autoware",
+      "repository": "autowarefoundation/autoware",
+      "url": "https://github.com/autowarefoundation/autoware",
+      "categories": [
+        "Robotics / ROS / machine nodes"
+      ],
+      "kind": "robotics / ROS",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0160",
+      "name": "navigation2",
+      "repository": "ros-navigation/navigation2",
+      "url": "https://github.com/ros-navigation/navigation2",
+      "categories": [
+        "Robotics / ROS / machine nodes"
+      ],
+      "kind": "robotics / ROS",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0161",
+      "name": "webots",
+      "repository": "cyberbotics/webots",
+      "url": "https://github.com/cyberbotics/webots",
+      "categories": [
+        "Robotics / ROS / machine nodes"
+      ],
+      "kind": "robotics / ROS",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0162",
+      "name": "evo",
+      "repository": "MichaelGrupp/evo",
+      "url": "https://github.com/MichaelGrupp/evo",
+      "categories": [
+        "Robotics / ROS / machine nodes"
+      ],
+      "kind": "robotics / ROS",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0163",
+      "name": "rtabmap",
+      "repository": "introlab/rtabmap",
+      "url": "https://github.com/introlab/rtabmap",
+      "categories": [
+        "Robotics / ROS / machine nodes"
+      ],
+      "kind": "robotics / ROS",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0164",
+      "name": "Fast-DDS",
+      "repository": "eProsima/Fast-DDS",
+      "url": "https://github.com/eProsima/Fast-DDS",
+      "categories": [
+        "Robotics / ROS / machine nodes"
+      ],
+      "kind": "robotics / ROS",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0165",
+      "name": "kiss-icp",
+      "repository": "PRBonn/kiss-icp",
+      "url": "https://github.com/PRBonn/kiss-icp",
+      "categories": [
+        "Robotics / ROS / machine nodes"
+      ],
+      "kind": "robotics / ROS",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0166",
+      "name": "iceoryx",
+      "repository": "eclipse-iceoryx/iceoryx",
+      "url": "https://github.com/eclipse-iceoryx/iceoryx",
+      "categories": [
+        "Robotics / ROS / machine nodes"
+      ],
+      "kind": "robotics / ROS",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0167",
+      "name": "glim",
+      "repository": "koide3/glim",
+      "url": "https://github.com/koide3/glim",
+      "categories": [
+        "Robotics / ROS / machine nodes"
+      ],
+      "kind": "robotics / ROS",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0168",
+      "name": "autoware_universe",
+      "repository": "autowarefoundation/autoware_universe",
+      "url": "https://github.com/autowarefoundation/autoware_universe",
+      "categories": [
+        "Robotics / ROS / machine nodes"
+      ],
+      "kind": "robotics / ROS",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0169",
+      "name": "gpt4all",
+      "repository": "nomic-ai/gpt4all",
+      "url": "https://github.com/nomic-ai/gpt4all",
+      "categories": [
+        "AI inference / serving / distributed ML"
+      ],
+      "kind": "inference / ML platform",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0170",
+      "name": "litgpt",
+      "repository": "Lightning-AI/litgpt",
+      "url": "https://github.com/Lightning-AI/litgpt",
+      "categories": [
+        "AI inference / serving / distributed ML"
+      ],
+      "kind": "inference / ML platform",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0171",
+      "name": "OpenLLM",
+      "repository": "bentoml/OpenLLM",
+      "url": "https://github.com/bentoml/OpenLLM",
+      "categories": [
+        "AI inference / serving / distributed ML"
+      ],
+      "kind": "inference / ML platform",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0172",
+      "name": "openvino",
+      "repository": "openvinotoolkit/openvino",
+      "url": "https://github.com/openvinotoolkit/openvino",
+      "categories": [
+        "AI inference / serving / distributed ML"
+      ],
+      "kind": "inference / ML platform",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0173",
+      "name": "PowerInfer",
+      "repository": "Tiiny-AI/PowerInfer",
+      "url": "https://github.com/Tiiny-AI/PowerInfer",
+      "categories": [
+        "AI inference / serving / distributed ML"
+      ],
+      "kind": "inference / ML platform",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0174",
+      "name": "BentoML",
+      "repository": "bentoml/BentoML",
+      "url": "https://github.com/bentoml/BentoML",
+      "categories": [
+        "AI inference / serving / distributed ML"
+      ],
+      "kind": "inference / ML platform",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0175",
+      "name": "dynamo",
+      "repository": "ai-dynamo/dynamo",
+      "url": "https://github.com/ai-dynamo/dynamo",
+      "categories": [
+        "AI inference / serving / distributed ML"
+      ],
+      "kind": "inference / ML platform",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0176",
+      "name": "lmdeploy",
+      "repository": "InternLM/lmdeploy",
+      "url": "https://github.com/InternLM/lmdeploy",
+      "categories": [
+        "AI inference / serving / distributed ML"
+      ],
+      "kind": "inference / ML platform",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0177",
+      "name": "turso",
+      "repository": "tursodatabase/turso",
+      "url": "https://github.com/tursodatabase/turso",
+      "categories": [
+        "AI inference / serving / distributed ML"
+      ],
+      "kind": "inference / ML platform",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0178",
+      "name": "dolphinscheduler",
+      "repository": "apache/dolphinscheduler",
+      "url": "https://github.com/apache/dolphinscheduler",
+      "categories": [
+        "Schedulers / queues"
+      ],
+      "kind": "job scheduler",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0179",
+      "name": "skypilot",
+      "repository": "skypilot-org/skypilot",
+      "url": "https://github.com/skypilot-org/skypilot",
+      "categories": [
+        "Schedulers / queues"
+      ],
+      "kind": "job scheduler",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0180",
+      "name": "agenda",
+      "repository": "agenda/agenda",
+      "url": "https://github.com/agenda/agenda",
+      "categories": [
+        "Schedulers / queues"
+      ],
+      "kind": "job scheduler",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0181",
+      "name": "resque",
+      "repository": "resque/resque",
+      "url": "https://github.com/resque/resque",
+      "categories": [
+        "Schedulers / queues"
+      ],
+      "kind": "job scheduler",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0182",
+      "name": "PowerJob",
+      "repository": "PowerJob/PowerJob",
+      "url": "https://github.com/PowerJob/PowerJob",
+      "categories": [
+        "Schedulers / queues"
+      ],
+      "kind": "job scheduler",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0183",
+      "name": "quartznet",
+      "repository": "quartznet/quartznet",
+      "url": "https://github.com/quartznet/quartznet",
+      "categories": [
+        "Schedulers / queues"
+      ],
+      "kind": "job scheduler",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0184",
+      "name": "dagu",
+      "repository": "dagucloud/dagu",
+      "url": "https://github.com/dagucloud/dagu",
+      "categories": [
+        "Schedulers / queues"
+      ],
+      "kind": "job scheduler",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0185",
+      "name": "chronos",
+      "repository": "mesos/chronos",
+      "url": "https://github.com/mesos/chronos",
+      "categories": [
+        "Schedulers / queues"
+      ],
+      "kind": "job scheduler",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0186",
+      "name": "bee-queue",
+      "repository": "bee-queue/bee-queue",
+      "url": "https://github.com/bee-queue/bee-queue",
+      "categories": [
+        "Schedulers / queues"
+      ],
+      "kind": "job scheduler",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0187",
+      "name": "go-quartz",
+      "repository": "reugn/go-quartz",
+      "url": "https://github.com/reugn/go-quartz",
+      "categories": [        "Schedulers / queues"
+      ],
+      "kind": "job scheduler",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0188",
+      "name": "serverless",
+      "repository": "serverless/serverless",
+      "url": "https://github.com/serverless/serverless",
+      "categories": [
+        "Serverless frameworks"
+      ],
+      "kind": "serverless framework",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0189",
+      "name": "examples",
+      "repository": "serverless/examples",
+      "url": "https://github.com/serverless/examples",
+      "categories": [
+        "Serverless frameworks"
+      ],
+      "kind": "serverless framework",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0190",
+      "name": "chalice",
+      "repository": "aws/chalice",
+      "url": "https://github.com/aws/chalice",
+      "categories": [
+        "Serverless frameworks"
+      ],
+      "kind": "serverless framework",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0191",
+      "name": "midway",
+      "repository": "midwayjs/midway",
+      "url": "https://github.com/midwayjs/midway",
+      "categories": [
+        "Serverless frameworks"
+      ],
+      "kind": "serverless framework",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0192",
+      "name": "serverless-express",
+      "repository": "CodeGenieApp/serverless-express",
+      "url": "https://github.com/CodeGenieApp/serverless-express",
+      "categories": [
+        "Serverless frameworks"
+      ],
+      "kind": "serverless framework",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0193",
+      "name": "middy",
+      "repository": "middyjs/middy",
+      "url": "https://github.com/middyjs/middy",
+      "categories": [
+        "Serverless frameworks"
+      ],
+      "kind": "serverless framework",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0194",
+      "name": "Zappa",
+      "repository": "zappa/Zappa",
+      "url": "https://github.com/zappa/Zappa",
+      "categories": [
+        "Serverless frameworks"
+      ],
+      "kind": "serverless framework",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0195",
+      "name": "Serverless-Devs",
+      "repository": "Serverless-Devs/Serverless-Devs",
+      "url": "https://github.com/Serverless-Devs/Serverless-Devs",
+      "categories": [
+        "Serverless frameworks"
+      ],
+      "kind": "serverless framework",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0196",
+      "name": "serverless-step-functions",
+      "repository": "serverless-operations/serverless-step-functions",
+      "url": "https://github.com/serverless-operations/serverless-step-functions",
+      "categories": [
+        "Serverless frameworks"
+      ],
+      "kind": "serverless framework",
+      "cloudflare_fit": "runtime_specific",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0197",
+      "name": "ComfyUI-Copilot",
+      "repository": "ATH-MaaS/ComfyUI-Copilot",
+      "url": "https://github.com/ATH-MaaS/ComfyUI-Copilot",
+      "categories": [
+        "Visual AI / ComfyUI nodes"
+      ],
+      "kind": "AI visual workflow node",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0198",
+      "name": "ComfyUI-SeedVR2_VideoUpscaler",
+      "repository": "numz/ComfyUI-SeedVR2_VideoUpscaler",
+      "url": "https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler",
+      "categories": [
+        "Visual AI / ComfyUI nodes"
+      ],
+      "kind": "AI visual workflow node",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0199",
+      "name": "ComfyUI-RMBG",
+      "repository": "1038lab/ComfyUI-RMBG",
+      "url": "https://github.com/1038lab/ComfyUI-RMBG",
+      "categories": [
+        "Visual AI / ComfyUI nodes"
+      ],
+      "kind": "AI visual workflow node",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0200",
+      "name": "VibeVoice-ComfyUI",
+      "repository": "Enemyx-net/VibeVoice-ComfyUI",
+      "url": "https://github.com/Enemyx-net/VibeVoice-ComfyUI",
+      "categories": [
+        "Visual AI / ComfyUI nodes"
+      ],
+      "kind": "AI visual workflow node",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0201",
+      "name": "comfyui-inpaint-nodes",
+      "repository": "Acly/comfyui-inpaint-nodes",
+      "url": "https://github.com/Acly/comfyui-inpaint-nodes",
+      "categories": [
+        "Visual AI / ComfyUI nodes"
+      ],
+      "kind": "AI visual workflow node",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0202",
+      "name": "audio-separation-nodes-comfyui",
+      "repository": "christian-byrne/audio-separation-nodes-comfyui",
+      "url": "https://github.com/christian-byrne/audio-separation-nodes-comfyui",
+      "categories": [
+        "Visual AI / ComfyUI nodes"
+      ],
+      "kind": "AI visual workflow node",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0203",
+      "name": "ComfyUI-DyPE",
+      "repository": "wildminder/ComfyUI-DyPE",
+      "url": "https://github.com/wildminder/ComfyUI-DyPE",
+      "categories": [
+        "Visual AI / ComfyUI nodes"
+      ],
+      "kind": "AI visual workflow node",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0204",
+      "name": "ComfyUI-VibeVoice",
+      "repository": "wildminder/ComfyUI-VibeVoice",
+      "url": "https://github.com/wildminder/ComfyUI-VibeVoice",
+      "categories": [
+        "Visual AI / ComfyUI nodes"
+      ],
+      "kind": "AI visual workflow node",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    },
+    {
+      "id": "GH-0205",
+      "name": "ComfyUI-IDM-VTON",
+      "repository": "TemryL/ComfyUI-IDM-VTON",
+      "url": "https://github.com/TemryL/ComfyUI-IDM-VTON",
+      "categories": [
+        "Visual AI / ComfyUI nodes"
+      ],
+      "kind": "AI visual workflow node",
+      "cloudflare_fit": "external_compute",
+      "primary_language": "not_verified",
+      "license": "not_verified",
+      "review_state": "discovery_only",
+      "source": "GitHub repository search or official project documentation",
+      "observed_date": "2026-11-18"
+    }
+  ],
+  "registries": [
+    {
+      "name": "Cloudflare Workers examples",
+      "url": "https://developers.cloudflare.com/workers/examples/",
+      "focus": "Worker source templates"
+    },
+    {
+      "name": "Cloudflare Workers templates",
+      "url": "https://github.com/cloudflare/templates",
+      "focus": "Worker starters"
+    },
+    {
+      "name": "Cloudflare Agents SDK",
+      "url": "https://github.com/cloudflare/agents",
+      "focus": "Durable AI agents"
+    },
+    {
+      "name": "Cloudflare Awesome Agents",
+      "url": "https://github.com/cloudflare/awesome-agents",
+      "focus": "Agents SDK ecosystem"
+    },
+    {
+      "name": "Cloudflare Workers language support",
+      "url": "https://developers.cloudflare.com/workers/languages/",
+      "focus": "Compatibility matrix"
+    },
+    {
+      "name": "GitHub Cloudflare topic",
+      "url": "https://github.com/topics/cloudflare-workers",
+      "focus": "Public project discovery"
+    },
+    {
+      "name": "GitHub AI agents topic",
+      "url": "https://github.com/topics/ai-agents",
+      "focus": "Public project discovery"
+    },
+    {
+      "name": "GitHub bots topic",
+      "url": "https://github.com/topics/bot",
+      "focus": "Public project discovery"
+    },
+    {
+      "name": "GitHub agent frameworks topic",
+      "url": "https://github.com/topics/agent-framework",
+      "focus": "Public project discovery"
+    },
+    {
+      "name": "GitHub MCP topic",
+      "url": "https://github.com/topics/mcp-server",
+      "focus": "Public project discovery"
+    },
+    {
+      "name": "GitHub Marketplace",
+      "url": "https://github.com/marketplace",
+      "focus": "GitHub Apps and Actions"
+    },
+    {
+      "name": "MCP Registry",
+      "url": "https://registry.modelcontextprotocol.io/",
+      "focus": "MCP server metadata"
+    },
+    {
+      "name": "MCP registry source",
+      "url": "https://github.com/modelcontextprotocol/registry",
+      "focus": "Registry API/source"
+    },
+    {
+      "name": "CNCF Landscape",
+      "url": "https://landscape.cncf.io/",
+      "focus": "Cloud-native ecosystem"
+    },
+    {
+      "name": "CNCF project list",
+      "url": "https://www.cncf.io/projects/",
+      "focus": "Graduated, incubating, sandbox projects"
+    },
+    {
+      "name": "Artifact Hub",
+      "url": "https://artifacthub.io/",
+      "focus": "Helm charts, operators and policy packs"
+    },
+    {
+      "name": "ROS Index",
+      "url": "https://index.ros.org/",
+      "focus": "Robot software packages"
+    },
+    {
+      "name": "ComfyUI Registry",
+      "url": "https://registry.comfy.org/",
+      "focus": "AI workflow custom nodes"
+    },
+    {
+      "name": "Hugging Face Hub",
+      "url": "https://huggingface.co/",
+      "focus": "Models, datasets, Spaces"
+    },
+    {
+      "name": "Hugging Face Agents",
+      "url": "https://huggingface.co/docs/hub/agents",
+      "focus": "AI agent integration"
+    },
+    {
+      "name": "npm",
+      "url": "https://www.npmjs.com/",
+      "focus": "JavaScript and TypeScript packages"
+    },
+    {
+      "name": "PyPI",
+      "url": "https://pypi.org/",
+      "focus": "Python packages"
+    },
+    {
+      "name": "crates.io",
+      "url": "https://crates.io/",
+      "focus": "Rust crates"
+    },
+    {
+      "name": "Go packages",
+      "url": "https://pkg.go.dev/",
+      "focus": "Go packages"
+    },
+    {
+      "name": "Maven Central",
+      "url": "https://central.sonatype.com/",
+      "focus": "Java JVM packages"
+    },
+    {
+      "name": "NuGet",
+      "url": "https://www.nuget.org/",
+      "focus": "C#/.NET packages"
+    },
+    {
+      "name": "RubyGems",
+      "url": "https://rubygems.org/",
+      "focus": "Ruby gems"
+    },
+    {
+      "name": "Packagist",
+      "url": "https://packagist.org/",
+      "focus": "PHP Composer packages"
+    },
+    {
+      "name": "pub.dev",
+      "url": "https://pub.dev/",
+      "focus": "Dart Flutter packages"
+    },
+    {
+      "name": "Hex",
+      "url": "https://hex.pm/",
+      "focus": "Elixir Erlang packages"
+    },
+    {
+      "name": "LuaRocks",
+      "url": "https://luarocks.org/",
+      "focus": "Lua packages"
+    },
+    {
+      "name": "Conda-forge",
+      "url": "https://conda-forge.org/",
+      "focus": "Cross-language scientific packages"
+    },
+    {
+      "name": "Docker Hub",
+      "url": "https://hub.docker.com/",
+      "focus": "Container images"
+    },
+    {
+      "name": "n8n community nodes directory",
+      "url": "https://communitynodes.creahive.com/",
+      "focus": "Automation node packages"
+    },
+    {
+      "name": "n8n workflow-node search",
+      "url": "https://workflownodes.vercel.app/",
+      "focus": "Community node search"
+    },
+    {
+      "name": "Fermyon Spin",
+      "url": "https://www.fermyon.com/spin",
+      "focus": "Multi-language WebAssembly apps"
+    }
+  ],
+  "discovery_plan": {
+    "GitHub topics": [
+      "topic:cloudflare-workers archived:false",
+      "topic:workers-ai archived:false",
+      "topic:ai-agent archived:false",
+      "topic:ai-agents archived:false",
+      "topic:agent-framework archived:false",
+      "topic:mcp-server archived:false",
+      "topic:bot-framework archived:false",
+      "topic:workflow-engine archived:false",
+      "topic:n8n-nodes archived:false",
+      "topic:webassembly archived:false",
+      "topic:kernel archived:false",
+      "topic:operating-system archived:false",
+      "topic:distributed-computing archived:false",
+      "topic:kubernetes-operator archived:false",
+      "topic:ros2 archived:false",
+      "topic:multi-agent archived:false",
+      "topic:llm-inference archived:false",
+      "topic:job-scheduler archived:false",
+      "topic:serverless-framework archived:false",
+      "topic:comfyui-nodes archived:false"
+    ],
+    "GitHub language sweep": [
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "Rust",
+      "Go",
+      "Java",
+      "Kotlin",
+      "C#",
+      "C",
+      "C++",
+      "Swift",
+      "Ruby",
+      "PHP",
+      "Dart",
+      "Scala",
+      "Lua",
+      "Elixir",
+      "Erlang",
+      "R",
+      "Julia",
+      "Zig",
+      "Haskell",
+      "OCaml",
+      "Bash",
+      "Solidity"
+    ],
+    "Integrity rules": [
+      "Do not treat code repository as a deployed server",
+      "Never execute scanned packages during discovery",
+      "Require license check, security review, maintenance review before import",
+      "Exclude archived repositories by default",
+      "Deduplicate by canonical owner/repo",
+      "Identify direct Worker compatibility before deployment"
+    ]
+  },
+  "cloudflare_fit_legend": {
+    "potential_direct": "Candidate only. Verify Workers APIs and compatibility",
+    "runtime_specific": "Can require WASM compiling or adaptation",
+    "bridge_or_port": "May run via a Worker front end and external runtime",
+    "external_compute": "Generally needs containers/VM/Kubernetes or provider compute",
+    "not_worker": "A kernel/OS is not installable as a Cloudflare Worker"
+  }
+}
