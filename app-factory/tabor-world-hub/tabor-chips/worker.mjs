@@ -1,6 +1,7 @@
 import assets from "./assets.generated.mjs";
 import { anchors, runTiming, steps } from "./model.mjs";
 import { page } from "./page.mjs";
+import { originalText, readRelation, relations, renderWillWheelWay, selectRelation, words } from "./will-wheel-way.mjs";
 
 export const projects = {
   hub: ["Tabor World Hub", "https://tabor-world-hub.nathantaboract.workers.dev/"],
@@ -47,6 +48,14 @@ export default {
     const revision = /^[a-f0-9]{40}$/.test(env.TABOR_CHIPS_GITHUB_SHA ?? "") ? env.TABOR_CHIPS_GITHUB_SHA : null;
     const source = revision ? repository + "/tree/" + revision + "/app-factory/tabor-world-hub/tabor-chips" : repository + "/pull/316";
     if (pathname === "/") return send(page({ assets, anchors, steps, projects, source, chipSource, reference }), "text/html");
+    if (pathname === "/source/will-wheel-way.txt") return send(originalText, "text/plain");
+    if (pathname === "/will-wheel-way" || pathname === "/will-wheel-way/" || pathname === "/api/will-wheel-way") {
+      const [from, to] = readRelation(searchParams);
+      if (from < 0 || to < 0) return json({ error: "Choose will, wheel, or way for each word." }, 400);
+      const selection = selectRelation(from, to);
+      if (pathname === "/api/will-wheel-way") return json({ author: "Nathan Tabor", revision, words, originalText, relations, ...selection });
+      return send(renderWillWheelWay(selection, projects, source), "text/html");
+    }
     if (pathname === "/style.css") return send(assets.css, "text/css");
     if (pathname === "/client.mjs") return send(assets.client, "text/javascript");
     if (pathname === "/source/architecture.md") return send(assets.ownerSource, "text/plain");

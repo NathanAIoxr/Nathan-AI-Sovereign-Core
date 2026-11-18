@@ -7,7 +7,7 @@ export function page({ assets, anchors, steps, projects, source, chipSource, ref
 <title>Tabor Chips · Nathan AI Sovereign Supercomputer</title><meta name="description" content="Nathan Tabor’s full chip-to-cloud architecture and live Rhythm Matrix timing lab.">
 <link rel="stylesheet" href="/style.css"><script type="module" src="/client.mjs"></script></head>
 <body><a class="skip" href="#main">Skip to content</a><header><div class="wrap nav">
-${link(projects.hub[1], "Tabor World Hub")}<nav aria-label="Workspace"><a href="#layers">Engineering tracks</a><a href="#timing">Timing lab</a><a href="#projects">Connected projects</a></nav></div></header>
+${link(projects.hub[1], "Tabor World Hub")}<nav aria-label="Workspace"><a href="#layers">Engineering tracks</a><a href="#timing">Timing lab</a><a href="/will-wheel-way">Will · Wheel · Way</a><a href="#projects">Connected projects</a></nav></div></header>
 <main id="main" class="wrap">
 <section class="hero"><div><p class="kicker">BY NATHAN TABOR</p><h1>Tabor Chips</h1><p class="subtitle">Enhanced Nathan AI Sovereign Supercomputer</p>
 <p class="intro">The chip-to-cloud architecture and a timing lab that connects the Rhythm Matrix, the Sovereign Supercomputer, and True Cloud Computing.</p>
@@ -37,6 +37,7 @@ ${steps.map(step => `<div><span>${step.clock} o’clock</span><strong>${step.nam
 <label>Reference clock (Hz)<input name="clockHz" type="number" min="5" max="1000000000" value="110" required></label>
 <label>Tempo (BPM)<input name="bpm" type="number" min="20" max="300" value="96" required></label>
 <button class="primary">Run and verify</button></form>
+<p><a href="/will-wheel-way#cycle">Use the same timer to model Will · Wheel · Way</a></p>
 <p class="small">110 Hz is the 4T Clover design reference. The timer model compares tick placement. Cicada phases are reported independently in years.</p>
 <p id="run-status" role="status"></p>
 <div id="run-result" hidden>

@@ -48,7 +48,7 @@ ${names.map(name => `<li><span class="key">P${String(++pillarNumber).padStart(2,
 <section class="hero">
 <div><p class="byline">BY NATHAN TABOR</p><h1>THE RHYTHM<br>MATRIX</h1>
 <p class="hero-copy">13 and 17 Magi cicada rhythms, the heartbeat of humanity, Mother Earth, and the music that connects them in Nathan Tabor’s work.</p>
-<div class="actions"><a class="primary" href="#cycles">Explore the cycles</a><a href="#chronology">Read the chronology</a><a href="/history">Explore Ancient to Modern Rhythms</a><a href="https://tabor-chips.nathantaboract.workers.dev/#timing">Tabor Chips timing lab</a></div></div>
+<div class="actions"><a class="primary" href="#cycles">Explore the cycles</a><a href="#chronology">Read the chronology</a><a href="/history">Explore Ancient to Modern Rhythms</a><a href="https://tabor-chips.nathantaboract.workers.dev/#timing">Tabor Chips timing lab</a><a href="https://tabor-chips.nathantaboract.workers.dev/will-wheel-way">Will · Wheel · Way</a></div></div>
 <aside class="hero-count" aria-label="Two cicada clocks"><div><strong>13</strong><p>YEAR CYCLE<br>Brood XIX</p></div><div><strong>17</strong><p>YEAR CYCLE<br>Brood XIII</p></div><p>221 years between scheduled shared emergences</p></aside>
 </section>
 

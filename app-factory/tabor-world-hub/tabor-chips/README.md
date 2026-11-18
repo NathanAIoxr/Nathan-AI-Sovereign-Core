@@ -18,7 +18,7 @@ The timing model is an executable reference for the Tabor Chip Die clock-domain 
 
 ## Deployment
 
-The Cloudflare Worker entry is `worker.mjs`. Upload it alongside `assets.generated.mjs`, `model.mjs` and `page.mjs` as ES modules. Set the plain-text binding `TABOR_CHIPS_GITHUB_SHA` to the exact commit. The following service bindings are read-only in this application.
+The Cloudflare Worker entry is `worker.mjs`. Upload it alongside `assets.generated.mjs`, `model.mjs`, `page.mjs` and `will-wheel-way.mjs` as ES modules. Set the plain-text binding `TABOR_CHIPS_GITHUB_SHA` to the exact commit. The following service bindings are read-only in this application.
 
 | Binding | Worker | Read operations |
 | --- | --- | --- |
@@ -31,6 +31,9 @@ The Hub binds `TABOR_CHIPS` to this Worker, publishes its receipt at `/api/runti
 | Route | Contents |
 | --- | --- |
 | / | Architecture, timing lab and independent project links |
+| /will-wheel-way | Nathan’s original wording and interactive nine-cell matrix |
+| /api/will-wheel-way | All nine relationships and the selected model tick trace |
+| /source/will-wheel-way.txt | Nathan’s original Will · Wheel · Way text |
 | /api/architecture | Four foundations, all 18 chip tracks, original continuation map and reference systems |
 | /api/run?year=2024&clockHz=110&bpm=96 | Read-only integrated timing run with a full edge trace |
 | /api/receipt | Exact GitHub revision and architecture coverage |

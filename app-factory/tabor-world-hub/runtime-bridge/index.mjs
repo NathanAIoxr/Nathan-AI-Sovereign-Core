@@ -149,12 +149,12 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname;
-    if (path === '/tabor-chips' || path === '/tabor-chips/') {
+    if (['/tabor-chips', '/tabor-chips/', '/will-wheel-way', '/will-wheel-way/'].includes(path)) {
       if (request.method !== 'GET' && request.method !== 'HEAD') {
         return new Response(null, { status: 405, headers: { Allow: 'GET, HEAD' } });
       }
       return new Response(null, { status: 302, headers: {
-        Location: 'https://tabor-chips.nathantaboract.workers.dev/',
+        Location: 'https://tabor-chips.nathantaboract.workers.dev' + (path.startsWith('/will-wheel-way') ? '/will-wheel-way' + url.search : '/'),
         'Cache-Control': 'no-store'
       } });
     }
@@ -215,7 +215,7 @@ export default {
     return new HTMLRewriter().on('main', {
       element(element) {
         const links = services.map(service => '<li><a href="https://' + service.worker + '.nathantaboract.workers.dev/">' + service.name + '</a></li>').join('');
-        element.prepend('<h2><a href="/duality">Tabor Light &amp; Dark</a></h2><p>Run the four Slayer and Sleyer roles.</p><h2><a href="/rhythm-matrix">The Rhythm Matrix</a></h2><p>13 &amp; 17 Magi cicada rhythms, the heartbeat, Mother Earth and music.</p><h2><a href="/reaper-6969">The Reaper 6969 Engine</a></h2><p>Owner workspace, archive and calculation lab.</p><h2><a href="/tabor-chips">Tabor Chips</a></h2><p>Enhanced supercomputer architecture and the Rhythm Matrix timing lab.</p><h2>Connected services</h2><ul>' + links + '</ul><p><a href="/api/runtime">Live service checks</a> · <a href="/api/runtime/hardware">Hardware catalog</a> · <a href="/api/runtime/coins">Coin registry</a> · <a href="/api/runtime/mining-architecture">Mining architecture</a> · <a href="/api/runtime/genesis">Currency genesis</a> · <a href="/api/runtime/proof-ledger">Proof ledger</a> · <a href="https://tabor-sovereign-currency.nathantaboract.workers.dev/verifier">Header verifier and agent downloads</a></p>', { html: true });
+        element.prepend('<h2><a href="/duality">Tabor Light &amp; Dark</a></h2><p>Run the four Slayer and Sleyer roles.</p><h2><a href="/rhythm-matrix">The Rhythm Matrix</a></h2><p>13 &amp; 17 Magi cicada rhythms, the heartbeat, Mother Earth and music.</p><h2><a href="/reaper-6969">The Reaper 6969 Engine</a></h2><p>Owner workspace, archive and calculation lab.</p><h2><a href="/tabor-chips">Tabor Chips</a></h2><p>Enhanced supercomputer architecture and the Rhythm Matrix timing lab.</p><h2><a href="/will-wheel-way">Will · Wheel · Way</a></h2><p>Nathan Tabor’s nine word relationships and the timing of both loops.</p><h2>Connected services</h2><ul>' + links + '</ul><p><a href="/api/runtime">Live service checks</a> · <a href="/api/runtime/hardware">Hardware catalog</a> · <a href="/api/runtime/coins">Coin registry</a> · <a href="/api/runtime/mining-architecture">Mining architecture</a> · <a href="/api/runtime/genesis">Currency genesis</a> · <a href="/api/runtime/proof-ledger">Proof ledger</a> · <a href="https://tabor-sovereign-currency.nathantaboract.workers.dev/verifier">Header verifier and agent downloads</a></p>', { html: true });
       }
     }).transform(response);
   }

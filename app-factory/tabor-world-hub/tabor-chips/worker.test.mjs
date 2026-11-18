@@ -67,3 +67,33 @@ test("rejects out-of-range input and reports missing or inconsistent upstream da
   assert.equal((await call("/api/run", undefined, { RHYTHM: binding({}) })).status, 502);
   assert.equal((await call("/api/run", undefined, { TRUE_CLOUD: undefined })).status, 502);
 });
+
+test("Will Wheel Way retains all nine author lines and both directions", async () => {
+  const data = await (await call("/api/will-wheel-way")).json();
+  const expected = ["Will = wheel", "Will = way", "Wheel = will", "Wheel = way", "Way = will", "Way = wheel", "Will = Will", "Wheel = Wheel", "Way = Way"];
+  assert.deepEqual(data.relations.map(relation => relation.ownerLine).sort(), expected.sort());
+  assert.equal(data.relations.filter(r => r.kind === "Identity").length, 3);
+  assert.equal(await (await call("/source/will-wheel-way.txt")).text(), data.originalText);
+  assert.match(data.originalText, /there’s a way where’s there a will/);
+  assert.match(data.originalText, /and where’s there’s a way there’s a wheel/);
+  assert.deepEqual(data.route, ["Will", "Wheel", "Way", "Will"]);
+  assert.deepEqual(data.reference.edges.map(edge => edge.elapsedTicks), [68, 137, 206]);
+  for (const relation of data.relations) {
+    const { from, to } = relation;
+    const query = "?from=" + from.toLowerCase() + "&to=" + to.toLowerCase();
+    const selection = await (await call("/api/will-wheel-way" + query)).json();
+    assert.deepEqual(selection.route.slice(0,2), [from,to]);
+    assert.equal(selection.route.at(-1), from);
+    assert.equal(selection.reference.edges.length, from === to ? 1 : 3);
+    const inverse = selection.reverse.split("?")[1].split("#")[0];
+    const reversed = await (await call("/api/will-wheel-way?" + inverse)).json();
+    assert.deepEqual(reversed.route.slice(0,2), [to,from]);
+    const next = selection.next.split("?")[1].split("#")[0];
+    const step = await (await call("/api/will-wheel-way?" + next)).json();
+    assert.equal(step.selected.from, to);
+  }
+  assert.equal((await call("/api/will-wheel-way?from=none")).status, 400);
+  const html = await (await call("/will-wheel-way?from=way&to=wheel")).text();
+  assert.match(html, /aria-current="true" href="[^"]+">Way = Wheel/);
+  assert.match(html, /Rhythm Matrix beat lab/);
+});
