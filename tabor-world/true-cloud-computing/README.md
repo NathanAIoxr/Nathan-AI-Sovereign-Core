@@ -17,6 +17,10 @@ GitHub holds the source and CI workflow. A Cloudflare Worker serves the dashboar
 
 The 15-minute Cron queues a bounded inventory audit, telemetry count, and known-vector SHA-256d self-test. Repeated Cron delivery reuses the same job IDs. D1 batches atomically claim each job, recover expired claims, and fence completion. Manual job requests can set an `Idempotency-Key`. Source-level health describes reachability. Fleet enrollment and measured physical compute are separate evidence.
 
+## The Global Technology Stack
+
+The `/technology` dashboard covers the physical foundation, binary switch, four functional layers, and centralized and distributed deployment patterns. Its two-bit trace evaluates logic gates and a half adder in the Worker. It checks the D1 binding with a read-only query and reports Cloudflare ingress when available. Use `GET /api/technology` for the map and `GET /api/technology/trace?a=1&b=1` for a live example.
+
 ## Pie / Pi / Phi
 
 The math uses π ≈ 3.141592653589793 and the golden ratio φ = (1 + √5) / 2 ≈ 1.618033988749895. A versioned digest supplies the ACT ID. Fixed-point mappings give a 12-sector pie index, angle, and φ phase without storing input labels in D1. This module is an implementation of the addressing idea in the supplied notes. Its scale constants and 12 sectors are software design choices.

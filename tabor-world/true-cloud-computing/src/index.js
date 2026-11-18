@@ -2,9 +2,13 @@ import architecture from "../architecture.json" with {type:"json"};
 import { actAddress,sha256 } from "./proofs.mjs";
 import { jobKinds,runNext,runScheduled,submit,summarySql } from "./jobs.mjs";
 import { page,script } from "./site.mjs";
+import { technology,technologyPage,technologyScript,trace } from "./technology.mjs";
 
 const shared={"cache-control":"no-store","x-content-type-options":"nosniff"};
 const json=(value,status=200)=>Response.json(value,{status,headers:{...shared,"access-control-allow-origin":"*"}});
+const html=(value)=>new Response(value,{headers:{...shared,"content-type":"text/html;charset=utf-8","referrer-policy":"no-referrer",
+  "content-security-policy":"default-src 'none'; script-src 'self'; connect-src 'self'; style-src 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'"}});
+const javascript=(value)=>new Response(value,{headers:{...shared,"content-type":"text/javascript;charset=utf-8"}});
 const knownServices=[
   {key:"WORLD_HUB",name:"Tabor World Hub",host:"https://hub.internal",path:"/health",url:"https://tabor-world-hub.nathantaboract.workers.dev/"},
   {key:"SOVEREIGN_COMPUTE",name:"Nathan AI 2X+ Sovereign Supercomputer",host:"https://compute.internal",path:"/health",url:"https://nathan-ai-sovereign-2x.nathantaboract.workers.dev/"},
@@ -84,9 +88,12 @@ export default {
       "access-control-allow-headers":"authorization,content-type,idempotency-key","access-control-allow-methods":"GET,POST,OPTIONS"}});
     try {
       if(request.method==="GET"){
-        if(path==="/")return new Response(page,{headers:{...shared,"content-type":"text/html;charset=utf-8","referrer-policy":"no-referrer",
-          "content-security-policy":"default-src 'none'; script-src 'self'; connect-src 'self'; style-src 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'"}});
-        if(path==="/dashboard.js")return new Response(script,{headers:{...shared,"content-type":"text/javascript;charset=utf-8"}});
+        if(path==="/")return html(page);
+        if(path==="/dashboard.js")return javascript(script);
+        if(path==="/technology")return html(technologyPage);
+        if(path==="/technology.js")return javascript(technologyScript);
+        if(path==="/api/technology")return json(technology);
+        if(path==="/api/technology/trace")return json(await trace(request,env.DB));
         if(path==="/health")return json({name:architecture.project,version:architecture.version,hub:"TABOR WORLD HUB",state:"edge-online",job_kinds:jobKinds});
         if(path==="/api/architecture")return json(architecture);
         if(path==="/api/federation")return federation(request,env);

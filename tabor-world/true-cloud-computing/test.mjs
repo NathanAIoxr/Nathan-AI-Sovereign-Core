@@ -95,3 +95,39 @@ test("federation fetches only its fixed health endpoints and publishes only reac
   assert.deepEqual(body.services.map(x=>x.reachable),[true,false,false]);
   assert.equal(JSON.stringify(body).includes("not forwarded"),false);
 });
+
+test("the stack supplies the four elements, four layers, and both deployment patterns",async()=>{
+  const index=await worker.fetch(req("/"),{});
+  assert.match(await index.text(),/href="\/technology"/);
+  const page=await worker.fetch(req("/technology"),{});
+  assert.match(await page.text(),/Gate and half-adder truth table/);
+  const response=await (await worker.fetch(req("/api/technology"),{})).json();
+  assert.equal(response.elements.length,4);
+  assert.deepEqual(response.layers.map(layer=>layer.id),["io","compute","memory","control"]);
+  assert.equal(response.topologies.length,2);
+});
+
+test("the live trace computes each truth-table row and checks D1 without writing",async()=>{
+  const patterns=[[0,0,0,0,0],[0,1,0,1,1],[1,0,0,1,1],[1,1,1,1,0]];
+  let reads=0;
+  const env={DB:{prepare(sql){
+    assert.equal(sql,"SELECT 1 AS ready");
+    reads++;
+    return {async first(){return {ready:1};}};
+  }}};
+  for(const [a,b,and,or,xor] of patterns) {
+    const request=req("/api/technology/trace?a="+a+"&b="+b);
+    Object.defineProperty(request,"cf",{value:{colo:"DFW"}});
+    const response=await worker.fetch(request,env);
+    assert.equal(response.status,200);
+    const body=await response.json();
+    assert.deepEqual(body.gates,{a,b,and,or,xor,not_a:1-a,not_b:1-b,sum:xor,carry:and});
+    assert.equal(body.layers.memory.read_verified,true);
+    assert.equal(body.layers.control.ingress_colo,"DFW");
+  }
+  for(const query of ["a=1&b=2","a=1","a=1&a=0&b=1"]) {
+    const response=await worker.fetch(req("/api/technology/trace?"+query),env);
+    assert.equal(response.status,400);
+  }
+  assert.equal(reads,4);
+});

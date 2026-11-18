@@ -66,7 +66,7 @@ export const page=`<!doctype html>
 </style>
 <main>
 <header>
-<nav><a href="https://tabor-world-hub.nathantaboract.workers.dev/">TABOR WORLD HUB</a><a href="#act-address">PIE / PI / PHI</a><a href="/api/architecture">ARCHITECTURE API</a></nav>
+<nav><a href="https://tabor-world-hub.nathantaboract.workers.dev/">TABOR WORLD HUB</a><a href="#act-address">PIE / PI / PHI</a><a href="/technology">TECHNOLOGY STACK</a><a href="/api/architecture">ARCHITECTURE API</a></nav>
 <h1>TRUE CLOUD<br>COMPUTING</h1><p class="byline">BY NATHAN TABOR</p><p class="subtle">GitHub source. Cloudflare edge execution. D1 receipts you can verify.</p>
 </header>
 <div class="panels">
