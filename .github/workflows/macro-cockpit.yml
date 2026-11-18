@@ -28,3 +28,24 @@ jobs:
         with:
           name: cockpit-${{ matrix.partition }}
           path: schema.sql
+  callback:
+    if: ${{ always() }}
+    needs: [macro-batch-matrix]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report final matrix result
+        env:
+          COCKPIT_URL: ${{ secrets.COCKPIT_URL }}
+          COCKPIT_KEY: ${{ secrets.COCKPIT_KEY }}
+          MATRIX_RESULT: ${{ needs.macro-batch-matrix.result }}
+          RUN_ID: ${{ github.run_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$COCKPIT_URL" && test -n "$COCKPIT_KEY"
+          case "$MATRIX_RESULT" in success|failure|cancelled|skipped) ;; *) exit 1;; esac
+          curl --fail-with-body --silent --show-error --retry 3 --max-time 20 \
+            -X POST "${COCKPIT_URL%/}/api/callback" \
+            -H "Authorization: Bearer $COCKPIT_KEY" \
+            -H "Content-Type: application/json" \
+            --data "{\"job\":\"macro-batch-matrix\",\"status\":\"$MATRIX_RESULT\",\"run_id\":$RUN_ID}"
