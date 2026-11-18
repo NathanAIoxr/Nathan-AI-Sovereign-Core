@@ -1,0 +1,25 @@
+name: Nathan AI Sovereign Unit
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['tabor-world/sovereign-ai-unit/**']
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: tabor-world/sovereign-ai-unit/box-1-one
+          command: deploy
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: tabor-world/sovereign-ai-unit/box-0-zero
+          command: deploy
