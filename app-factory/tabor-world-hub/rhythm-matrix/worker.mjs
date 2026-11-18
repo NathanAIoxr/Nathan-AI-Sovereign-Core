@@ -1,13 +1,19 @@
 import assets from "./assets.generated.mjs";
 import { timeline, branches, docs, pillars, naturalRhythms } from "./catalog.mjs";
 import { cycleAt, heartbeat, heartbeatQuote, referenceYear, pitchMultiplier, pulseCount, score } from "./model.mjs";
+import { domains, eras, history } from "./history-catalog.mjs";
+import { renderHistory } from "./history-page.mjs";
 import { githubLink, renderPage } from "./page.mjs";
 
 const security = {
   "X-Content-Type-Options": "nosniff", "Referrer-Policy": "strict-origin-when-cross-origin",
   "Content-Security-Policy": "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"
 };
-const formats = { "style.css": "text/css", "app.mjs": "text/javascript", "model.mjs": "text/javascript" };
+const formats = {
+  "style.css": "text/css", "history.css": "text/css",
+  "app.mjs": "text/javascript", "model.mjs": "text/javascript",
+  "history-client.mjs": "text/javascript", "history-lab.mjs": "text/javascript"
+};
 
 export default {
   fetch(request, env = {}) {
@@ -20,10 +26,12 @@ export default {
     const revision = env.RHYTHM_GITHUB_SHA ?? null;
     if (!["GET", "HEAD"].includes(request.method)) return send("Method not allowed", "text/plain", 405, { Allow: "GET, HEAD" });
     if (path === "/") return send(renderPage(revision), "text/html");
+    if (path === "/history" || path === "/history/") return send(renderHistory(revision), "text/html");
+    if (path === "/api/history") return json({ eras, domains, records: history });
     if (path === "/healthz" || path === "/api/receipt") return json({
       ok: true, project: "THE RHYTHM MATRIX", author: "Nathan Tabor", revision,
       github: githubLink(revision), records: timeline.length, pulseCount,
-      movementCount: heartbeat.length, rhythmRegisterCount: naturalRhythms.length
+      movementCount: heartbeat.length, rhythmRegisterCount: naturalRhythms.length, historyRecords: history.length
     });
     if (path === "/api/catalog") return json({
       author: "Nathan Tabor", branches, timeline, sources: docs, pillars, naturalRhythms,

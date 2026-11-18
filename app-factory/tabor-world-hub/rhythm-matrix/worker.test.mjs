@@ -66,3 +66,28 @@ test("validates public routes, receipts, and invalid requests", async () => {
   assert.equal(await call("/api/catalog", {method:"HEAD"}).text(), "");
   assert.equal(call("/toString").status, 404);
 });
+
+test("the rhythm atlas links every record to evidence and preserves the original chronology", async () => {
+  const catalog = await call("/api/history").json();
+  const receipt = await call("/api/receipt").json();
+  const page = await call("/history").text();
+  assert.equal(receipt.records, 26);
+  assert.equal(receipt.historyRecords, catalog.records.length);
+  assert.equal(new Set(catalog.records.map(record => record.id)).size, receipt.historyRecords);
+  for (const record of catalog.records) {
+    assert.ok(Object.hasOwn(catalog.eras, record.era));
+    assert.ok(Object.hasOwn(catalog.domains, record.domain));
+    assert.equal(new URL(record.source.url).protocol, "https:");
+    assert.ok(record.source.title && record.evidence && record.date);
+    assert.ok(page.includes('id="' + record.id + '"'));
+  }
+  assert.match(page, /Ancient to Modern Rhythms/);
+  assert.match(page, /Play two cycles/);
+  assert.match(await call("/").text(), /href="\/history"/);
+  for (const [path, type] of [["history.css", "text\/css"], ["history-client.mjs", "text\/javascript"], ["history-lab.mjs", "text\/javascript"]]) {
+    const response = call("/" + path);
+    assert.equal(response.status, 200);
+    assert.ok(response.headers.get("Content-Type").startsWith(type));
+    assert.ok((await response.text()).length > 100);
+  }
+});
