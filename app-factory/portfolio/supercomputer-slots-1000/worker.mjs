@@ -18,7 +18,7 @@ th{color:#a9c9ee}td{font-size:14px}code{color:#c5e3ff} .scroll{overflow-x:auto;b
 #notice{min-height:1.5em}.toolbar{display:flex;gap:14px;align-items:center;justify-content:space-between;margin-top:14px;flex-wrap:wrap}
 footer{border-top:1px solid #36506f;margin-top:35px;padding:20px 0;font-size:13px;color:#a7bdd4}
 </style></head><body>
-<header><small>NATHAN AI 🚀 / CLOUDFARE D1 LIVE METADATA</small><h1>1,000 logical compute slots</h1>
+<header><small>NATHAN AI 🚀 / CLOUDFLARE D1 LIVE METADATA</small><h1>1,000 logical compute slots</h1>
 <p>Five existing apps, individually indexed books sets, individually indexed technology sets. These are <strong>logical records</strong>, not 1,000 physical supercomputers or separately deployed runtimes.</p>
 <p><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/348">Source indexes and GitHub review</a></p></header>
 <section aria-label="Fleet summary"><div class="cards" id="stats"><div class="card">Loading verified registry counts…</div></div></section>
