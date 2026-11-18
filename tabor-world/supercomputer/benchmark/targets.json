@@ -1,0 +1,23 @@
+{
+  "project": "NATHAN TABOR 2X+ SOVEREIGN SUPERCOMPUTER",
+  "status": "engineering_targets_not_measured",
+  "reference": {
+    "name": "User-referenced Chinese supercomputer",
+    "identity": "unverified",
+    "claimed_performance_exaflops": 2.198,
+    "provenance": "user project context; not independently benchmarked"
+  },
+  "goal": {
+    "multiplier": 2,
+    "required_exaflops": 4.396,
+    "flops_per_second": "4.396e18",
+    "benchmark": "HPL FP64 sustained Rmax",
+    "note": "A target is not delivered performance. Peak Rpeak is not interchangeable with HPL Rmax."
+  },
+  "validation": [
+    "Identify exact reference machine and authoritative benchmark",
+    "Measure actual cluster HPL FP64 Rmax",
+    "Publish system topology, power, cost, and reproducible receipts",
+    "No exascale claim until physical cluster benchmark verifies it"
+  ]
+}
