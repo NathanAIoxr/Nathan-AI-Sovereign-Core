@@ -1,0 +1,58 @@
+{
+  "title": "TABOR W–M–3–STACKED-CHEVRON FOUR-FAMILY ENGINE",
+  "tag": "CONTINUE BUILDING",
+  "symbol": {
+    "id": "stacked-left-chevrons",
+    "ascii": "<<",
+    "geometry": "two left-facing chevrons vertically stacked, not merely adjacent in the final graphical glyph",
+    "displayTokens": [
+      "<<ILL",
+      "<<HEEL",
+      "<<AY"
+    ]
+  },
+  "families": {
+    "W": [
+      "WILL",
+      "WHEEL",
+      "WAY"
+    ],
+    "M": [
+      "MILL",
+      "MHEEL",
+      "MAY"
+    ],
+    "THREE": [
+      "3ILL",
+      "3HEEL",
+      "3AY"
+    ],
+    "STACKED": [
+      "<<ILL",
+      "<<HEEL",
+      "<<AY"
+    ]
+  },
+  "transformation": {
+    "from": "M",
+    "to": "<<",
+    "reversible": true,
+    "appliesTo": "leading symbol only"
+  },
+  "counts": {
+    "families": 4,
+    "nodes": 12,
+    "withinFamilyDirectedLinks": 36,
+    "selfLinks": 12,
+    "nonSelfLinks": 24
+  },
+  "relationships": "Each family retains all 3×3 directed relationships, including self loops; cross-family rotation edges remain independent.",
+  "integration": [
+    "Tabor Word Rotations",
+    "SUP Head Node",
+    "Tabor Digital Hardware",
+    "Nathan AI Language Engine",
+    "Tabor World Hub"
+  ],
+  "preservePrior": true
+}
