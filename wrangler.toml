@@ -1,0 +1,11 @@
+name = "unified-operations-cockpit"
+main = "src/worker.js"
+compatibility_date = "2026-11-18"
+[[d1_databases]]
+binding = "DB"
+database_name = "nathan-ai-cockpit-ledger"
+database_id = "ee93da4e-7d2d-4440-9dfc-ce4b6cdbdb3c"
+[triggers]
+crons = ["*/5 * * * *"]
+# Mutating endpoints require CONTROL_TOKEN stored as a Worker secret.
+# GH_PAT, GH_OWNER and GH_REPO are also Worker secrets, never plaintext.
