@@ -11,9 +11,13 @@ export const fleetFamilies = [
 
 const encoder = new TextEncoder()
 const decoder = new TextDecoder('utf-8', { fatal: true })
-const nodeFormat = /^node-(?:00[1-9]|0[1-9]\d|[1-9]\d{2}|1000)$/
 export const nodeId = position => 'node-' + String(position).padStart(3, '0')
-export const isNodeId = id => nodeFormat.test(id)
+
+export function isNodeId(id) {
+  if (typeof id !== 'string' || !id.startsWith('node-')) return false
+  const position = Number(id.slice(5))
+  return Number.isInteger(position) && position >= 1 && position <= fleetCount && id === nodeId(position)
+}
 
 export function assignment(id) {
   if (!isNodeId(id)) throw new RangeError('unknown fleet node')
