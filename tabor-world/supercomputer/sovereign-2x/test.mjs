@@ -79,6 +79,20 @@ test("dashboard and public API expose the deployed capabilities",async()=>{
   assert.ok(legacy.modules.includes("Operation Octopus"));
 });
 
+test("versioned launch receipt resolves through the public audit route",async()=>{
+  const report=await run();
+  const env={COMPUTE:{prepare(){
+    return {bind(id){
+      assert.equal(id,"launch-2.1.0");
+      return {async first(){return {run_id:id,receipt:canonical(report.frame),digest:report.digest,
+        source:report.frame.Identity.source,created_ms:report.frame.Identity.createdMs};}};
+    }};
+  }}};
+  const response=await worker.fetch(new Request("https://example.test/api/compute/receipts/launch-2.1.0/audit"),env);
+  assert.equal(response.status,200);
+  assert.equal((await response.json()).verified,true);
+});
+
 test("Cron writes a deterministic D1 key so repeated delivery remains idempotent",async()=>{
   const writes=[];
   const env={COMPUTE:{prepare(sql){

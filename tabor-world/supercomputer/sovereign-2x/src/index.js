@@ -57,7 +57,7 @@ async function compute(request,env,url) {
     const {results}=await env.COMPUTE.prepare(select+" ORDER BY created_ms DESC,run_id DESC LIMIT 20").all();
     return json({receipts:results.map(summarize)});
   }
-  const match=/^receipts\/([A-Za-z0-9-]{1,100})(\/audit)?$/.exec(path);
+  const match=/^receipts\/([A-Za-z0-9.-]{1,100})(\/audit)?$/.exec(path);
   if (!match) return json({error:"Unknown compute endpoint"},404);
   const row=await env.COMPUTE.prepare(select+" WHERE run_id=?").bind(match[1]).first();
   if (!row) return json({error:"Receipt not found"},404);
