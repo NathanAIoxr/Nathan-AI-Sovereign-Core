@@ -110,7 +110,13 @@ const headers = { "X-Content-Type-Options": "nosniff", "Cache-Control": "no-stor
 
 export default {
   async scheduled(controller, env) {
-    await runOperations(env.DB, controller.scheduledTime);
+    const services = {
+      "nathan-tabor-supercomputer.nathantaboract.workers.dev": env.CORE,
+      "tabor-sovereign-currency.nathantaboract.workers.dev": env.CURRENCY,
+      "tabor-world.nathantaboract.workers.dev": env.HUB
+    };
+    await runOperations(env.DB, controller.scheduledTime, (url, init) =>
+      services[new URL(url).hostname].fetch(url, init));
   },
   async fetch(request, env) {
     const path = new URL(request.url).pathname;

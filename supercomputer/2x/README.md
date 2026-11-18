@@ -9,3 +9,5 @@ Run `python3 supercomputer/2x/nathan_ai_supercomputer.py` for SQLite verificatio
 ## Background verification
 
 Cloudflare invokes the scheduled handler every five minutes. It checks the 2X+ verifier and the fixed public Super Computer, Sovereign Coin Catalog, Edge Switchboard, and Tabor World Hub endpoints. D1 records one receipt per scheduled timestamp, with seven days of retention. `GET /api/operations` returns the latest 24 receipts with individual outcomes. The schedule executes independently of ChatGPT. Failures are logged and checked again on the next scheduled run.
+
+The scheduled handler uses the CORE, CURRENCY and HUB service bindings for same-account Worker checks.
