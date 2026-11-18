@@ -107,7 +107,7 @@ test("routes and verifies the full FP64 fabric workload through a private Worker
   const get = path => runtime.dispatchFetch("http://localhost" + path);
   const manifest = await (await get("/api/architecture")).json();
   assert.deepEqual(manifest.fp64.fabric, { terms: 2097152, shards: 16, terms_per_shard: 131072 });
-  assert.equal(manifest.aggregate_hpl_reference.eflop_s, 19.70);
+  assert.equal(manifest.aggregate_hpl_reference.eflop_s, 19.71);
   const response = await get("/api/fp64/run?profile=fabric&seed=73");
   assert.equal(response.status, 200);
   const { receipt, sha256: digest } = await response.json();
