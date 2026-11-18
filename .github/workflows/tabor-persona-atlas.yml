@@ -1,0 +1,23 @@
+name: Tabor Persona Atlas CI
+on:
+  pull_request:
+    paths:
+      - "creative-archive/persona-duality/**"
+      - ".github/workflows/tabor-persona-atlas.yml"
+  push:
+    paths:
+      - "creative-archive/persona-duality/**"
+      - ".github/workflows/tabor-persona-atlas.yml"
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify graph, read-only API, and bounded scheduler
+        run: node --test creative-archive/persona-duality/worker.test.mjs
