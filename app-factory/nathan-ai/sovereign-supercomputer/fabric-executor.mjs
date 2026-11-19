@@ -1,5 +1,6 @@
 import { KERNEL, SCALE, replay } from "./compute.mjs";
 import { FABRIC_SHARDS, FABRIC_SHARD_TERMS, FABRIC_TERMS, validSeed } from "./fabric.mjs";
+import { readJsonObject } from "./request.mjs";
 
 const UUID = /^[a-f\d]{8}(?:-[a-f\d]{4}){3}-[a-f\d]{12}$/;
 
@@ -21,7 +22,7 @@ export default {
     if (url.origin !== "https://fabric.internal" || url.pathname !== "/execute" || request.method !== "POST") {
       return Response.json({ error: "Route not found" }, { status: 404 });
     }
-    const job = await request.json().catch(() => null);
+    const job = await readJsonObject(request, 2 * 1024).catch(() => null);
     const { run_id, index, global_offset, count, start } = job ?? {};
     if (typeof run_id !== "string" || !UUID.test(run_id) || !validSeed(start) ||
         !Number.isInteger(index) || index < 0 || index >= FABRIC_SHARDS ||

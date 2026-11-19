@@ -2,8 +2,11 @@ import { BANK_SHARDS, BANK_TERMS, MAX_SHARDS, MAX_TERMS, runFp64, sha256 } from 
 import { FABRIC_SHARD_TERMS, FABRIC_SHARDS, FABRIC_TERMS, runFabric } from "./fabric.mjs";
 import { AXIOMS, addressSpace, archiveSnapshot, auditSnapshot, catalog, cicadas, claimSupernode, intake, willWheelWay, words } from "./ledger.mjs";
 import { page, styles, browser, godtabor } from "./site.mjs";
+import { readJsonObject } from "./request.mjs";
 
-const RESPONSE_HEADERS = { "cache-control": "no-store", "x-content-type-options": "nosniff" };
+const RESPONSE_HEADERS = {
+  "cache-control": "no-store", "referrer-policy": "no-referrer", "x-content-type-options": "nosniff",
+};
 const CSP = "default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'";
 const ROOT = "https://nathan-ai-sovereign-2x.nathantaboract.workers.dev";
 const json = (data, status = 200) => Response.json(data, { status, headers: RESPONSE_HEADERS });
@@ -37,29 +40,7 @@ function uint(params, key, fallback) {
   return Number(values[0]);
 }
 
-async function bodyJson(request) {
-  const reader = request.body?.getReader();
-  const decoder = new TextDecoder("utf-8", { fatal: true });
-  let size = 0;
-  let text = "";
-  try {
-    while (reader) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      size += value.byteLength;
-      if (size > 65536) {
-        await reader.cancel();
-        throw new Error("size");
-      }
-      text += decoder.decode(value, { stream: true });
-    }
-    const body = JSON.parse(text + decoder.decode());
-    if (!body || typeof body !== "object" || Array.isArray(body)) throw new Error("shape");
-    return body;
-  } catch {
-    throw new RangeError("Send a UTF-8 JSON object up to 64 KiB.");
-  }
-}
+const bodyJson = request => readJsonObject(request, 64 * 1024);
 
 async function authorized(request, secret) {
   const match = /^Bearer ([!-~]{24,256})$/.exec(request.headers.get("authorization") ?? "");
