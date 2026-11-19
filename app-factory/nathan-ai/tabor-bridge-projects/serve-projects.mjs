@@ -1,12 +1,12 @@
-// Deploy as worker.mjs beside the previous main module, rotation-archive.mjs.
-import archive from "./rotation-archive.mjs";
+// Deploy as tabor-bridge.js beside the previous main module, bridge-original.mjs.
+import bridge from "./bridge-original.mjs";
 import buffet from "./two-plate-reckoning.mjs";
 import hats from "./sorting-hats-hatettes.mjs";
 
-const host = "tabor-word-rotations.nathantaboract.workers.dev";
+const host = "tabor-bridge.nathantaboract.workers.dev";
 const apps = new Map([
-  ["/word-history/two-plate-reckoning",buffet],
-  ["/word-history/sorting-hats-hatettes",hats]
+  ["/two-plate-reckoning",buffet],
+  ["/sorting-hats-hatettes",hats]
 ]);
 
 export default {
@@ -19,6 +19,6 @@ export default {
         }
       }
     }
-    return archive.fetch(request,env,ctx);
+    return bridge.fetch(request,env,ctx);
   }
 };

@@ -2,8 +2,8 @@
 
 Nathan Tabor’s Sunday buffet satire as a standalone game, installable web app and seven-chapter short book.
 
-- [Play the Sunday shift](https://tabor-word-rotations.nathantaboract.workers.dev/word-history/two-plate-reckoning/)
-- [Read the book](https://tabor-word-rotations.nathantaboract.workers.dev/word-history/two-plate-reckoning/book)
+- [Play the Sunday shift](https://tabor-bridge.nathantaboract.workers.dev/two-plate-reckoning/)
+- [Read the book](https://tabor-bridge.nathantaboract.workers.dev/two-plate-reckoning/book)
 - [PDF edition](public/The-Two-Plate-Reckoning.pdf)
 - [Related two-plate proclamation](https://tabor-word-rotations.nathantaboract.workers.dev/word-history/proclamation)
 
