@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#101622">
+  <title>Scrambler · Tabor 1-2-3 Factory</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <header class="masthead"><a class="brand" href="./">TABOR 1-2-3 <span>FACTORY</span></a><nav aria-label="Scrambler"><a href="#privacy">Location privacy</a><a href="./recovery.html">Recovered work</a></nav></header>
+  <main>
+    <div class="heading"><div><h1>Scrambler</h1><p>Play a fictional route. Keep your real location to yourself.</p></div><span class="tag">SIMULATED ROUTE</span></div>
+    <div class="workspace">
+      <section class="panel route" aria-labelledby="route-heading">
+        <div class="panel-head"><div><p class="hint">After dinner</p><h2 id="route-heading">Route playback</h2></div><p id="state" class="state" role="status">Ready</p></div>
+        <div class="map">
+          <canvas id="map" width="920" height="400" role="img" aria-label="Fictional schematic from the highway to dinner and the parking lot"></canvas>
+          <span class="map-label">FICTIONAL MAP</span>
+          <div class="telemetry"><div><small>SIMULATED SPEED</small><strong><span id="speed">110</span> <em>mph</em></strong></div><div><small>ELAPSED</small><strong id="elapsed">00:00:00</strong></div></div>
+        </div>
+        <div class="steps" id="steps" aria-label="Route stages"></div>
+        <label class="seek" for="seek">Route position<span id="total"></span></label><input id="seek" type="range" min="0" max="6540" step="1" value="0">
+        <div class="buttons"><button id="play" class="primary" type="button">Play route</button><button id="reset" type="button">Reset</button><label class="rate" for="rate">Playback <select id="rate"><option value="1">1×</option><option value="60">60×</option><option value="300" selected>300×</option></select></label></div>
+      </section>
+      <aside class="panel controls" aria-labelledby="controls-heading">
+        <div class="panel-head"><h2 id="controls-heading">Route settings</h2></div>
+        <form id="settings">
+          <label for="highway">Highway duration <span>minutes</span></label><input id="highway" name="highway" type="number" min="1" max="180" step="1" value="10" required>
+          <label for="mph">Highway speed <span>mph</span></label><input id="mph" name="mph" type="number" min="1" max="200" step="1" value="110" required>
+          <label for="dinner">Dinner <span>minutes</span></label><input id="dinner" name="dinner" type="number" min="1" max="360" step="1" value="97" required>
+          <label for="goodbye">Parking-lot goodbye <span>minutes</span></label><input id="goodbye" name="goodbye" type="number" min="1" max="90" step="1" value="2" required>
+          <button type="submit" class="apply">Apply route</button>
+        </form>
+        <button id="download" type="button" class="download">Download simulation JSON</button>
+      </aside>
+    </div>
+    <section id="privacy" class="panel privacy" aria-labelledby="privacy-heading">
+      <div><p class="hint">Your device</p><h2 id="privacy-heading">Close real location access</h2><p>Scrambler never asks for GPS access. Use your device settings to control which other apps can see your location.</p></div>
+      <ul>
+        <li><strong>iPhone</strong><span>Settings → Privacy &amp; Security → Location Services → select the app. Choose Never or turn off Precise Location.</span><a href="https://support.apple.com/en-us/102647">Apple instructions</a></li>
+        <li><strong>Android</strong><span>Settings → Location → App location permissions → select the app. Choose Don’t allow or use approximate location.</span><a href="https://support.google.com/android/answer/6179507">Android instructions</a></li>
+        <li><strong>Chrome</strong><span>Settings → Privacy and security → Site settings → Location. Review your default and individual sites.</span><a href="https://support.google.com/chrome/answer/142065">Chrome instructions</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>Scrambler · TABOR 1-2-3 FACTORY <a href="./recovery.html">Project recovery index</a></footer>
+</body>
+</html>
