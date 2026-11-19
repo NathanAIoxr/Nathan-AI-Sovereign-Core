@@ -18,3 +18,14 @@ test("write endpoint requires a configured authorization secret",async()=>{
   const denied=await worker.fetch(new Request("https://localhost/internal/mine?slot=1",{method:"POST"}),{});
   assert.equal(denied.status,404);
 });
+
+test("blueprint retains supplied wording and adds a separate technical note",async()=>{
+  const raw=await (await worker.fetch(new Request("https://localhost/blueprint.txt"),{})).text();
+  assert.match(raw,/complete 64-bit state matrix/);
+  assert.match(raw,/Cryptozoologists\tPattern Discovery/);
+  const html=await (await worker.fetch(new Request("https://localhost/blueprint"),{})).text();
+  assert.match(html,/Previous scene/);
+  assert.match(html,/Technical note/);
+  assert.match(html,/Six bits encode the 64 position addresses/);
+  assert.match(html,/Mining &amp; Cryptography/);
+});
