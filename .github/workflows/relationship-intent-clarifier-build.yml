@@ -1,0 +1,38 @@
+name: Relationship Intent Clarifier · Act AI build
+
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/relationship-intent-clarifier/**'
+      - '.github/workflows/relationship-intent-clarifier-build.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/relationship-intent-clarifier/**'
+      - '.github/workflows/relationship-intent-clarifier-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-factory/nathan-ai/relationship-intent-clarifier
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test and package this application
+        run: |
+          node --test check.test.mjs
+          node build.mjs "${RUNNER_TEMP}/relationship-intent-clarifier"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: relationship-intent-clarifier-worker
+          path: |
+            ${{ runner.temp }}/relationship-intent-clarifier/relationship-intent-clarifier.mjs
+            app-factory/nathan-ai/relationship-intent-clarifier/worker-metadata.json
+          if-no-files-found: error

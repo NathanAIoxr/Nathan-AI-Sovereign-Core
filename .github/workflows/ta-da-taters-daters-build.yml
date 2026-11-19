@@ -1,0 +1,40 @@
+name: TA🪭DA🎉 — Taters & Daters build
+
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/ta-da-taters-daters/**'
+      - '.github/workflows/ta-da-taters-daters-build.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/ta-da-taters-daters/**'
+      - '.github/workflows/ta-da-taters-daters-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-factory/nathan-ai/ta-da-taters-daters
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test the original application
+        run: node check.cjs
+      - name: Test and package this application
+        run: |
+          node --test check.test.mjs
+          node build.mjs "${RUNNER_TEMP}/ta-da-taters-daters"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ta-da-taters-daters-worker
+          path: |
+            ${{ runner.temp }}/ta-da-taters-daters/ta-da-taters-daters.mjs
+            app-factory/nathan-ai/ta-da-taters-daters/worker-metadata.json
+          if-no-files-found: error
