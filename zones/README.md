@@ -52,3 +52,29 @@ Check existing DNS records, especially mail, TXT verification, DNSSEC and any ex
 - [Cloudflare zone status](https://developers.cloudflare.com/dns/zone-setups/reference/domain-status/)
 - [Cloudflare Access assertion validation](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/)
 - [Cloudflare workers.dev availability and Access](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/)
+
+## Sovereign staging and conductor operations
+
+The [staging entry](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/sovereign-staging) exposes four independent holding pages. `staging/projects.json` records their identifiers and the SHA-256 of the supplied infrastructure and conductor transcript. The exact transcript is in the private `tabor-sovereign-provenance` bucket under `sha256/<digest>`. R2 Bucket Locks cover that prefix. The [train runtime](../app-factory/nathan-ai/operations/train-runtime/README.md) remains its own service.
+
+| Role | Cloudflare responsibility |
+| --- | --- |
+| Train conductor | Verify the registry, project manifest, and access gate. |
+| Locomotive engineer | Run Worker requests and coordinate each project's state in a Durable Object. |
+| Orchestra conductor | Use the MCP switchboard to read staging state and request a project audit. |
+| Monkey conductor | Execute repeatable audit jobs and release checks through Queues and GitHub Actions. |
+
+A project needs an active DNS zone, a matching hostname and Cloudflare Access audience, and an authorized dispatch route to use its private operations. Configure `ACCESS_ISSUER` on the holding Worker and validate Access before connecting production. For an active hostname, `FLEET_STATUS=HOLDING` or `ZONE_STATUS:<hostname>=HOLDING` in KV suppresses the public build. Remove the hold or set the key to `LIVE` after the registry allows launch. KV propagates globally over time. Cloudflare Access and DNS should be used for immediate revocation at ingress.
+
+| Authenticated endpoint | Input |
+| --- | --- |
+| `POST /sovereign/artifacts` | Raw files, up to 1 MiB. |
+| `POST /sovereign/telemetry` | A JSON object up to 16 KiB with an optional `Idempotency-Key`. |
+| `POST /sovereign/voice` | Audio up to 4 MiB with its MIME type. Stores the transcript, cleaned text, and extracted hashtags in D1. |
+| `POST /sovereign/mcp` | MCP JSON-RPC. Supports `get_zone_status` and `queue_integrity_audit` for the authenticated project. |
+| `POST /sovereign/node/claim`, `POST /sovereign/node/release` | Lock key and lease duration to claim. Lock key and lease token to release. |
+| `GET /sovereign/node/socket` | WebSocket upgrade for the authenticated project. |
+
+D1 stores the ordered hash chain and audited Merkle roots. The scheduled workflow verifies the GitHub source digest against D1, reads and hashes the corresponding R2 bytes, and acknowledges queued audits after recording a receipt. The handoff digest is published as metadata. Raw records remain private. A watchdog reports mismatches through the workflow run for review before a D1 Time Travel restore.
+
+For staging, keep each project's D1 record and R2 prefix independent. Hosted holding routes use the existing cockpit dispatcher. DNS zones, Full (strict) origin mode, Pages migration, MQTT and physical tunnels require the corresponding URLs, origin ownership, or devices. The existing Cloudflare Pages projects have separate release ownership.

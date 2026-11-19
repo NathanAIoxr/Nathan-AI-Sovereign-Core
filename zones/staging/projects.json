@@ -1,0 +1,14 @@
+{
+  "projects": [
+    { "id": "sovereign-website-core", "slug": "website-core", "kind": "website", "title": "Website Core" },
+    { "id": "sovereign-book-series", "slug": "book-series", "kind": "book", "title": "Book Series" },
+    { "id": "sovereign-apps", "slug": "apps", "kind": "app", "title": "Apps" },
+    { "id": "sovereign-games", "slug": "games", "kind": "game", "title": "Games" }
+  ],
+  "source": {
+    "projectId": "sovereign-website-core",
+    "title": "Autonomous Multi-Zone Sovereign Infrastructure and Conductor Transcript",
+    "sha256": "279e51c94548bce52a4eb47c9e1c3a32db72dc72680868000fd965612997247e",
+    "bytes": 19673
+  }
+}

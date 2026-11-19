@@ -1,5 +1,5 @@
 name = "tabor-zone-holding"
-main = "packages/shared/holding-gate.js"
+main = "worker.js"
 compatibility_date = "2026-11-19"
 workers_dev = false
 preview_urls = false
@@ -7,9 +7,6 @@ keep_vars = true
 
 [observability]
 enabled = false
-
-[vars]
-ACCESS_ISSUER = ""
 
 [[d1_databases]]
 binding = "ZONES"
@@ -24,3 +21,23 @@ bucket_name = "tabor-zone-holding-assets"
 [[kv_namespaces]]
 binding = "HOLDING_CONFIG"
 id = "2b39811223014f30bf9050eba38adfba"
+
+
+[[r2_buckets]]
+binding = "PROVENANCE"
+bucket_name = "tabor-sovereign-provenance"
+
+[[durable_objects.bindings]]
+name = "NODES"
+class_name = "SovereignNode"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SovereignNode"]
+
+[[queues.producers]]
+binding = "AUDIT_QUEUE"
+queue = "tabor-sovereign-zone-audits"
+
+[ai]
+binding = "AI"
