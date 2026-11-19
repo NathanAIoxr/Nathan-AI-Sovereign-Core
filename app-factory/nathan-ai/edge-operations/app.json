@@ -1,0 +1,14 @@
+{
+  "id": "tabor-edge-operations",
+  "title": "Tabor Edge Operations",
+  "entry": "worker.mjs",
+  "worker": "tabor-edge-operations",
+  "origin": "https://tabor-bridge.nathantaboract.workers.dev/edge-operations",
+  "build": "npm test",
+  "hosting": {
+    "provider": "cloudflare-workers-for-platforms",
+    "namespace": "nathan-tabor-platforms",
+    "database": "tabor-fleet-registry",
+    "dispatcher": "tabor-bridge"
+  }
+}

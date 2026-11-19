@@ -12,3 +12,8 @@ redact_query_string = true
 [[dispatch_namespaces]]
 binding = "MEMORY_PLATFORM"
 namespace = "nathan-tabor-platforms"
+
+[[secrets_store_secrets]]
+binding = "EDGE_HEALTH_KEY"
+store_id = "8e0b9cfaacfa44c7bceec1445db02dd1"
+secret_name = "TABOR_EDGE_OPERATIONS_HEALTH_KEY"

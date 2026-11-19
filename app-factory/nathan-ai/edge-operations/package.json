@@ -1,0 +1,13 @@
+{
+  "name": "tabor-edge-operations",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "test": "node --test",
+    "presign": "node presign.mjs"
+  },
+  "dependencies": {
+    "aws4fetch": "1.0.20"
+  }
+}

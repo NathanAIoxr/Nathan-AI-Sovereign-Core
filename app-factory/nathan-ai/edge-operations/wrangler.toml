@@ -1,0 +1,45 @@
+name = "tabor-edge-operations"
+main = "worker.mjs"
+compatibility_date = "2026-11-19"
+workers_dev = false
+preview_urls = false
+keep_vars = true
+
+[placement]
+mode = "smart"
+
+[observability]
+enabled = true
+redact_query_string = true
+
+[observability.logs]
+enabled = true
+invocation_logs = true
+
+[observability.traces]
+enabled = true
+
+[images]
+binding = "IMAGES"
+
+[[d1_databases]]
+binding = "REGISTRY"
+database_name = "tabor-fleet-registry"
+database_id = "00e422eb-5222-4892-8f90-74aaf8ab0518"
+
+[[services]]
+binding = "FLEET"
+service = "tabor-1000-fleet-index"
+
+[[r2_buckets]]
+binding = "PRIVATE_R2"
+bucket_name = "tabor-edge-operations"
+
+[[r2_buckets]]
+binding = "PUBLIC_R2"
+bucket_name = "tabor-edge-public-assets"
+
+[[secrets_store_secrets]]
+binding = "EDGE_HEALTH_KEY"
+store_id = "8e0b9cfaacfa44c7bceec1445db02dd1"
+secret_name = "TABOR_EDGE_OPERATIONS_HEALTH_KEY"
