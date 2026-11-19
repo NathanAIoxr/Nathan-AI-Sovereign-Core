@@ -33,7 +33,7 @@ async function check(item, env, external) {
   }
   const response = await external(item.manifest ? urls.manifest : urls[item.id] + '/', {
     signal: AbortSignal.timeout(3500),
-    redirect: 'error',
+    redirect: 'manual',
     method: item.manifest ? 'GET' : 'HEAD',
   });
   return response.ok && (!item.manifest || isRelease(await response.json()));

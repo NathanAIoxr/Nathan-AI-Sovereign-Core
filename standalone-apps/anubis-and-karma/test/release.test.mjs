@@ -52,6 +52,7 @@ test('finale serves an interactive page, a readable story and a download', async
 test('Domino verifies the four release steps and checks related homepages', async () => {
   const calls = [];
   const external = async (url, options) => {
+    assert.equal(options.redirect, "manual");
     calls.push([url, options.method]);
     return url === urls.manifest ? Response.json(release) : new Response(null, { status: 200 });
   };
