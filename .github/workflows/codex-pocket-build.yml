@@ -5,10 +5,12 @@ on:
     branches: [main]
     paths:
       - 'integrations/pocket-control-plane/codex-release/**'
+      - 'integrations/pocket-control-plane/codex-crosshairs/**'
       - '.github/workflows/codex-pocket-build.yml'
   pull_request:
     paths:
       - 'integrations/pocket-control-plane/codex-release/**'
+      - 'integrations/pocket-control-plane/codex-crosshairs/**'
       - '.github/workflows/codex-pocket-build.yml'
   schedule:
     - cron: '41 */6 * * *'
@@ -31,9 +33,11 @@ jobs:
         with:
           node-version: '24'
       - name: Test standalone project routes and GitHub receipt authentication
-        run: node --test integrations/pocket-control-plane/codex-release/checks.test.mjs
+        run: node --test integrations/pocket-control-plane/codex-release/checks.test.mjs integrations/pocket-control-plane/codex-crosshairs/checks.test.mjs
       - name: Build separate Cloudflare Worker modules
         run: node integrations/pocket-control-plane/codex-release/build.mjs dist-pocket-codex
+      - name: Build the Crosshairs dispatch Worker
+        run: node integrations/pocket-control-plane/codex-crosshairs/build.mjs dist-pocket-codex/crosshairs
       - uses: actions/upload-artifact@v4
         with:
           name: codex-and-kodex-worker-modules
@@ -53,5 +57,5 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: '24'
-      - name: Verify live Cloudflare routes and record authenticated build receipt
+      - name: Verify the release order, live Cloudflare routes, and Crosshairs before recording the signed receipt
         run: node integrations/pocket-control-plane/codex-release/live.mjs --receipt

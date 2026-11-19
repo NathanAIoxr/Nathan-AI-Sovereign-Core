@@ -99,7 +99,7 @@ test("mobile and keyboard accessibility smoke checks for reconstructed previews"
   assert.match(html, /<html lang="en">/);
   assert.match(html, /name="viewport" content="width=device-width, initial-scale=1"/);
   assert.match(html, /<a class="skip-link" href="#main-content">Skip to main content<\/a>/);
-  assert.match(html, /<main id="main-content">/);
+  assert.match(html, /<main id="main-content" tabindex="-1">/);
   assert.match(html, /<h1>/);
   assert.match(html, /<label for="/);
   assert.match(html, /role="status"/);

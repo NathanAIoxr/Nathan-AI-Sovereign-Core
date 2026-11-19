@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 341,
+  "count": 342,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -882,6 +882,14 @@
       "entry": "app-factory/nathan-ai/sovereign-defender/toolbox/index.html",
       "group": "nathan-ai",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/sovereign-defender/toolbox/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-37c8f2a84848a2b6",
+      "title": "Spitball Shooter | Nathan Tabor",
+      "entry": "app-factory/nathan-ai/spitball-shooter/index.html",
+      "group": "nathan-ai",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/spitball-shooter/index.html",
       "adoption": "integration_required"
     },
     {

@@ -1,0 +1,34 @@
+{
+  "id": "digital-flubber",
+  "title": "Digital Flubber by Nathan Tabor",
+  "worker": "digital-flubber",
+  "workers": [
+    "digital-flubber",
+    "digital-flubber-slubber",
+    "digital-flubber-sos"
+  ],
+  "origin": "https://tabor-apps-nathan.pages.dev/",
+  "entry": "site/layout.html.in",
+  "build": "npm test",
+  "source": "creator_specification",
+  "routes": [
+    "/",
+    "/game",
+    "/learn",
+    "/zones",
+    "/sos",
+    "/cloud-slayer",
+    "/cloud-slayer/supercomputer",
+    "/cloud-slayer/hypercomputer"
+  ],
+  "related": [
+    "dmsp-dit",
+    "sovereign-supercomputer"
+  ],
+  "hosting": {
+    "provider": "cloudflare-pages",
+    "project": "tabor-apps-nathan",
+    "mode": "bundled-edge",
+    "dedicatedWorkerConfiguration": "deployment.json"
+  }
+}

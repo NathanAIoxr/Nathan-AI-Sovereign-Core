@@ -1,0 +1,29 @@
+<section class="intro">
+<p class="kicker">NATHAN AI · WORKER REGISTRY</p>
+<h1>Cloud Slayer.</h1>
+<p class="lede">Search shared worker modules for the Supercomputer, Hypercomputer and Digital Flubber SOS.</p>
+</section>
+<div class="grid slayer-stats" aria-label="Worker inventory summary">
+<section class="card"><h2>Cloudflare Worker scripts</h2><strong id="slayer-inventory">—</strong></section>
+<section class="card"><h2>Shared worker modules</h2><strong id="slayer-shared">—</strong></section>
+<section class="card"><h2>Total registry records</h2><strong id="slayer-total">—</strong></section>
+</div>
+<p id="slayer-snapshot" class="slayer-status"></p>
+<section class="card">
+<h2>Search worker modules</h2>
+<form id="slayer-search" class="slayer-search" role="search">
+<label>Module name or description <input name="q" type="search" maxlength="64" autocomplete="off"></label>
+<label>View <select name="view"><option value="">All modules</option><option value="supercomputer">Supercomputer</option><option value="hypercomputer">Hypercomputer</option><option value="sos">SOS</option></select></label>
+<button class="primary" type="submit">Search</button>
+</form>
+<p id="slayer-status" role="status">Loading shared modules…</p>
+<ul id="slayer-results" class="slayer-results"></ul>
+<button id="slayer-more" type="button" hidden>Show more</button>
+<pre id="slayer-receipt" class="slayer-receipt" role="status" hidden></pre>
+</section>
+<div class="row slayer-links">
+<a href="/cloud-slayer/supercomputer">Supercomputer view</a>
+<a href="/cloud-slayer/hypercomputer">Hypercomputer view</a>
+<a href="https://nathan-ai-sovereign-core.nathantaboract.workers.dev/">Sovereign Supercomputer</a>
+<a href="/sos">Digital Flubber SOS</a>
+</div>

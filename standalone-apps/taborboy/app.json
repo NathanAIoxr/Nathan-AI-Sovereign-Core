@@ -11,5 +11,16 @@
     "task": "Verify sources, publish profile edition and update the zones index"
   },
   "workerUrl": "https://taborboy-worker.nathantaboract.workers.dev",
-  "pagesProject": "taborboy"
+  "pagesProject": "taborboy",
+  "appUrl": "https://taborboy.pages.dev/app/",
+  "pwa": {
+    "scope": "/app/",
+    "offline": true
+  },
+  "hubUrl": "https://nathan-ai-pocket-codex.nathantaboract.workers.dev/work/taborboy/",
+  "workerBot": {
+    "namespace": "nathan-tabor-platforms",
+    "name": "taborboy-worker",
+    "scheduleOwner": "nathan-ai-pocket-codex"
+  }
 }

@@ -1,3 +1,5 @@
+import { webResponse } from "./web.js";
+
 const PROFILE = {
   "byline": "John Nathan Tabor AKA TABORPOOL",
   "domain": "Ledger, Treasury & Broadsheet Archives",
@@ -129,7 +131,7 @@ function home() {
     '<style>body{margin:0;background:#0e151c;color:#eaf0f6;font:16px/1.6 system-ui,sans-serif}main{max-width:46rem;margin:auto;padding:clamp(1.5rem,6vw,5rem) 1.5rem}h1,h2{line-height:1.1}h1{font-size:clamp(3rem,11vw,6.5rem);margin:.2em 0;letter-spacing:-.065em}h2{font-size:1.35rem}p{margin:.6em 0}section{padding:1rem 0;border-top:1px solid #39444f}header{padding-bottom:1.2rem}a{color:'+ACCENT+'}nav{display:flex;gap:1.25rem;flex-wrap:wrap;padding-top:1.5rem}</style>'+
     '<main><header><p>'+escape(PROFILE.byline)+'</p><h1>'+PROFILE.entity+'</h1><p>'+escape(PROFILE.domain)+'</p><p>'+escape(PROFILE.description)+'</p></header>'+
     '<section><h2>'+escape(mechanic.name)+'</h2><p>'+escape(mechanic.attribution)+'</p><p>'+escape(mechanic.effect)+'</p></section>'+blocks+
-    '<nav><a href="/api/profile">Project profile</a><a href="/health">Worker status</a></nav></main></html>';
+    '<nav><a href="/app/">Open app</a><a href="/api/profile">Project profile</a><a href="/health">Worker status</a></nav></main></html>';
   return new Response(html,{headers:{...HEADERS,"content-type":"text/html; charset=utf-8","content-security-policy":"default-src 'none'; style-src 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'"}});
 }
 
@@ -162,6 +164,8 @@ export default {
   async fetch(request,env) {
     const url = new URL(request.url);
     try {
+      const app = webResponse(request,url);
+      if (app) return app;
       if (request.method === "GET" && url.pathname === "/") return home();
       if (request.method === "GET" && url.pathname === "/api/profile") return reply(PROFILE);
       if (request.method === "GET" && ["/health","/api/health"].includes(url.pathname)) {

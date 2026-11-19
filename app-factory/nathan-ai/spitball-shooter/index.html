@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171a15">
+<title>Spitball Shooter | Nathan Tabor</title>
+<style>
+:root{color-scheme:dark;--ink:#171a15;--card:#242820;--rule:#414639;--paper:#f6e9ce;--muted:#c1baa5;--gold:#ffd473;--mint:#bde1ac;--danger:#ffab8c}
+*{box-sizing:border-box}body{margin:0;background:#171a15;color:var(--paper);font:15px/1.45 "DM Sans",system-ui,sans-serif}button,input,select{font:inherit}button,select{cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible,canvas:focus-visible{outline:3px solid #a9dcf3;outline-offset:3px}
+main{max-width:1100px;margin:auto;padding:24px 22px 32px}.mast{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:18px}.mast h1{font-family:"Archivo Black",Impact,"Arial Black",sans-serif;font-size:clamp(31px,6.5vw,66px);letter-spacing:-.045em;line-height:.95;text-transform:uppercase;margin:4px 0;color:var(--gold)}.credit,.caption{font-size:12px;color:var(--muted)}.venue{display:flex;gap:8px;align-items:center}.venue span{max-width:230px;overflow-wrap:anywhere;text-align:right}.small{font-size:13px;padding:8px 12px}.shell{background:var(--card);border:1px solid var(--rule);border-radius:14px;overflow:hidden;box-shadow:0 15px 34px #0004}
+.hud{display:grid;grid-template-columns:1.8fr .7fr .7fr 1.2fr;gap:10px;padding:10px 16px;align-items:center}.hud div{min-width:0}.label{display:block;color:var(--muted);font:700 10px/1.2 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px}.hud strong{font-size:clamp(11px,2.3vw,17px)}.safe{color:var(--mint)}.warning{color:var(--gold)}.caught{color:var(--danger)}
+.stage{position:relative;background:#b89067;overflow:hidden}.stage canvas{width:100%;aspect-ratio:900/510;display:block;touch-action:none;cursor:crosshair}.overlay{position:absolute;inset:0;display:grid;place-items:center;background:#121a14ba;padding:8px}.overlay[hidden]{display:none}.ticket{text-align:center;width:min(390px,94%);background:#182019f5;border:1px solid #8e9472;border-radius:12px;padding:clamp(8px,2.2vw,24px);box-shadow:0 5px 25px #0007}.ticket h2{font:900 clamp(20px,4vw,42px)/1 Impact,"Arial Black",sans-serif;letter-spacing:.025em;color:var(--gold);text-transform:uppercase;margin:0 0 6px}.ticket p{margin:4px 0 10px;color:var(--paper);font-size:clamp(11px,2vw,15px)}.ticket button{padding:6px 16px}
+.status{display:flex;justify-content:space-between;gap:7px;padding:7px 16px;border-bottom:1px solid var(--rule);font-size:13px;min-height:34px}.status span:last-child{text-align:right;color:var(--mint)}.controls{padding:12px 16px;display:grid;grid-template-columns:1fr auto auto;gap:11px;align-items:end}.meter{position:relative;height:13px;border:1px solid #62654d;border-radius:20px;background:#131711;overflow:hidden;margin-top:6px}.meter i,.meter b{position:absolute;left:0;top:0;height:100%}.meter i{left:66%;width:21%;background:#bbcf7770}.meter b{background:var(--gold);width:0;opacity:.8}.legend{display:flex;justify-content:space-between;gap:4px}.legend span:last-child{color:#d4dda0}
+button,select,input{border:1px solid #666851;border-radius:8px;background:#30362a;color:var(--paper);padding:9px 11px}button:hover{filter:brightness(1.22)}button:disabled,select:disabled,input:disabled{opacity:.53;cursor:default}.primary{background:var(--gold);border-color:var(--gold);color:#221d11;font-weight:850}.fire{touch-action:none;min-width:100px;min-height:43px}.duck{min-height:43px}.duck[aria-pressed="true"]{background:var(--mint);color:#132115}
+.loadout{display:flex;align-items:end;gap:10px;flex-wrap:wrap;padding:12px 16px 14px;border-top:1px solid var(--rule)}.loadout label:not(.switch){flex:1 1 160px}.loadout select{width:100%;min-height:40px}.switch{display:flex;align-items:center;gap:7px;min-height:40px}.switch input{accent-color:var(--gold);width:17px;height:17px}.quick{padding:8px 0 0;display:flex;gap:6px 18px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+dialog{background:var(--card);color:var(--paper);border:1px solid var(--rule);border-radius:12px;width:min(415px,calc(100% - 26px));padding:22px}dialog::backdrop{background:#151710c5}dialog h2{margin-top:0}dialog label,dialog input:not([type=checkbox]){display:block;width:100%;margin-bottom:10px}dialog p{color:var(--muted)}dialog footer{display:flex;gap:9px;justify-content:end}
+@media(max-width:580px){main{padding:14px 9px}.mast{gap:7px;margin-bottom:12px;align-items:center}.venue span{display:none}.hud,.controls,.loadout,.status{padding-left:9px;padding-right:9px}.hud{gap:6px;grid-template-columns:1.45fr .65fr .6fr 1.1fr}.controls{gap:6px}.fire{min-width:82px}.loadout label:not(.switch){flex-basis:110px}.loadout select{padding-inline:4px}.quick{padding-inline:4px}.ticket{padding:8px}}
+
+body{background:radial-gradient(ellipse at 28% -12%,#3b3423 0%,#1f2119 38%,#141711 76%);min-height:100vh}
+.mast h1{text-shadow:0 3px #8d5728,0 5px #070904}.credit{color:#dac196;font-weight:750;letter-spacing:.09em;text-transform:uppercase}.shell{border-color:#6b6044;box-shadow:0 18px 55px #050705bf,0 0 0 4px #231f17}
+.hud{background:linear-gradient(#313328,#22251d)}.stage{box-shadow:inset 0 0 0 1px #18170e}.ticket{background:linear-gradient(160deg,#29372b,#171f18);border-color:#d2a75e}.meter b[data-sweet="true"]{background:var(--mint);opacity:1}
+.rack-button{white-space:nowrap;min-height:40px}.wallet{color:var(--gold);font-weight:750}.straw-info{flex-basis:100%;color:var(--muted);font-size:12px}
+#rack{width:min(755px,calc(100% - 22px));max-height:calc(100dvh - 24px);padding:18px}#rack h2{margin-bottom:3px}#rack p{margin:0 0 12px}.rack-top{display:flex;justify-content:space-between;align-items:start;gap:10px}.rack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:8px}.rack-card{display:grid;text-align:left;gap:5px;padding:10px;min-height:112px;background:#20271f}.rack-card[aria-pressed="true"]{border-color:#ffd473;background:#353321}.rack-card small{color:var(--muted)}.rack-cost{color:var(--gold);font-weight:750;font-size:12px}.swatch{display:block;width:52px;height:8px;border-radius:7px;background:linear-gradient(180deg,#ffffff70 0%,var(--tone) 35%,var(--tone) 67%,#151711 100%);margin:3px 0}.swatch[data-twin="true"]{box-shadow:0 4px var(--tone)}.rack-msg{color:var(--gold);min-height:22px;margin:10px 0 0}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+
+.score-guide{margin-top:12px;padding:9px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--card);color:var(--muted)}
+.score-guide summary{cursor:pointer;color:var(--gold);font-weight:750}
+.score-guide ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(138px,1fr));gap:4px 12px;padding-left:18px;margin:8px 0}
+.score-guide p{margin:8px 0 4px;font-size:13px}
+</style>
+</head>
+<body>
+<main>
+<header class="mast"><div><div class="credit">Nathan Tabor Arcade</div><h1>Spitball Shooter</h1></div><div class="venue"><span id="venue" class="caption"></span><button id="settings" class="small">Classroom</button></div></header>
+<section class="shell" aria-label="Shooting gallery">
+<div class="hud">
+<div><span class="label">Round</span><strong id="round"></strong></div>
+<div><span class="label">Score</span><strong id="score">0</strong></div>
+<div><span class="label">Targets</span><strong id="target-count">0 / 0</strong></div>
+<div><span class="label">Teacher</span><strong id="patrol" class="safe">At the board</strong></div>
+</div>
+<div class="stage">
+<canvas id="gallery" width="900" height="510" tabindex="0" aria-label="Classroom gallery. Click or tap to aim. Arrow keys move the crosshair. Space charges and releases a shot. D toggles ducking."></canvas>
+<div class="overlay" id="overlay"><div class="ticket"><h2 id="overlay-title"></h2><p id="overlay-copy"></p><button class="primary" id="action"></button></div></div>
+</div>
+<div class="status"><span id="notice" role="status"></span><span id="wind"></span></div>
+<div class="controls">
+<div><div class="legend"><span class="label">Breath power</span><span class="label">Sweet spot</span></div><div id="breath" class="meter" role="meter" aria-label="Breath power" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="breath-window"></i><b></b></div></div>
+<button id="duck" class="duck" aria-pressed="false">Duck</button><button id="fire" class="primary fire">Hold to fire</button>
+</div>
+<div class="loadout">
+<label><span class="label">Ammo</span><select id="ammo"></select></label>
+<label><span class="label">Straw</span><select id="straw"></select></label>
+<button id="rack-open" class="rack-button" type="button">Straw rack</button>
+<label class="switch"><input type="checkbox" id="sight"> Protractor sight</label>
+<div class="straw-info" id="straw-info"></div>
+</div>
+</section>
+<div class="quick"><span class="wallet" id="wallet"></span><span>Tap or drag to aim. Hold and release to fire.</span><span>Keyboard: arrows to aim, Space to fire, D to duck.</span><span id="best"></span></div>
+<details class="score-guide">
+<summary>Gallery scorecard</summary>
+<ul id="score-values"></ul>
+<p>Sweet spot +25 · Streak +25 per prior hit (up to +150) · Ruler or wall bank +125 each · Cartoon ricochet into a prop +275.</p>
+<p>Time a wet paper shot to land between the teacher avatar’s eyes during the turn. Aim low for the cartoon seat bounce while the avatar faces the board. Each avatar bonus scores once per round.</p>
+</details>
+</main>
+<dialog id="room"><form id="settings-form">
+<h2>Classroom settings</h2>
+<label>Teacher name<input id="teacher-name" maxlength="32" required></label>
+<label>School name<input id="school-name" maxlength="56" required></label>
+<label class="switch"><input type="checkbox" id="sound"> Arcade sounds</label>
+<p>Your classroom names and high score are saved on this device.</p>
+<footer><button type="button" id="cancel">Cancel</button><button class="primary" type="submit">Save</button></footer>
+</form></dialog>
+<dialog id="rack" aria-labelledby="rack-title">
+<div class="rack-top"><div><h2 id="rack-title">Straw rack</h2><p id="rack-wallet"></p></div><button type="button" id="rack-close">Close</button></div>
+<div class="rack-grid" id="rack-grid"></div>
+<div id="rack-msg" class="rack-msg" role="status"></div>
+</dialog>
+<script type="module">
+const $ = (id) => document.getElementById(id);
+const canvas = $("gallery");
+const ctx = canvas.getContext("2d");
+const W = 900;
+const H = 510;
+const origin = {x:450,y:482};
+const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+const ammo = [
+  {name:"Wet paper", drift:1, gravity:170, force:1, color:"#faf0d7", radius:4},
+  {name:"Cardboard wad", drift:.32, gravity:105, force:2, color:"#dcaa69", radius:5},
+  {name:"Foil pellet", drift:.59, gravity:135, force:2, color:"#daf2fa", radius:4, banks:2},
+  {name:"Eraser & clay", drift:.2, gravity:200, force:4, color:"#f39871", radius:7, wide:true}
+];
+const straws = [
+  {id:"bendy",name:"Bendy straw",speed:1,tint:"#74bfa3",round:0,desc:"Balanced starter."},
+  {id:"jumbo",name:"Jumbo milkshake",speed:1.03,tint:"#ec9b8e",round:1,wide:true,desc:"Wide barrel accepts heavy ammo."},
+  {id:"double",name:"Double-barrel tape mod",speed:1,tint:"#eeb777",round:3,twin:true,wide:true,desc:"Two shots with one breath."},
+  {id:"bamboo",name:"Bamboo straw",speed:.99,tint:"#b6ba70",cost:15,drift:.72,sweet:.025,desc:"Gentler wind drift and a wider sweet spot."},
+  {id:"paper",name:"Striped paper straw",speed:.92,tint:"#e3828a",cost:25,sweet:.045,desc:"Slower shot and easier breath timing."},
+  {id:"reed",name:"Reed straw",speed:1.05,tint:"#d9be7c",cost:40,drift:.65,desc:"Quick shot with less wind drift."},
+  {id:"steel",name:"Steel arcade tube",speed:1.14,tint:"#b9d3db",cost:55,sweet:-.025,desc:"Fast flight with a tighter sweet spot."},
+  {id:"silicone",name:"Soft silicone straw",speed:.89,tint:"#9eb0ff",cost:65,sweet:.065,wide:true,desc:"Large sweet spot and heavy-ammo support."},
+  {id:"amber",name:"Amber arcade tube",speed:1.08,tint:"#f1ad50",cost:80,drift:.52,sweet:-.012,desc:"Steady in gusts, with tighter timing."},
+  {id:"neon",name:"Neon arcade tube",speed:1.12,tint:"#de8af0",cost:95,sweet:-.025,wide:true,desc:"Fast heavy shots with an arcade trail."},
+  {id:"split",name:"Twin bamboo straws",speed:.96,tint:"#9ccc78",cost:120,drift:.82,twin:true,wide:true,desc:"Twin shots that can carry heavy ammo."}
+];
+const targetValues = {
+  "Trash can":75,"Soda can":100,"Paper plane":160,"Paper football":225,"Mug":150,
+  "Eraser":200,"Map":250,"Projector":300,"Cheek bullseye":350,"Bank ring":450,
+  "Textbook stack":280,"Metal pencil case":340,"Final bell":550
+};
+const teacherValues = {seat:300,turn:1000,chain:275};
+const turnStart = 6.4;
+const turnEnd = 6.68;
+const prop = (kind,x,y,r,extra={}) => ({kind,x,y,r,points:targetValues[kind],...extra});
+const prizeRows = [...Object.entries(targetValues),
+  ["Cartoon seat bounce",teacherValues.seat],["Between the eyes",teacherValues.turn]];
+for (const [name,points] of prizeRows) {
+  const row = document.createElement("li");
+  row.textContent = name+" · "+points;
+  $("score-values").append(row);
+}
+const bonus = [
+  prop("Mug",650,374,23,{bonus:true}), prop("Eraser",374,268,21,{bonus:true}),
+  prop("Map",741,140,26,{bonus:true}), prop("Projector",135,353,26,{bonus:true}),
+  prop("Cheek bullseye",820,359,24,{bonus:true})
+];
+const levels = [
+  {name:"The Back Row", intro:"Hit the trash can, soda can and paper plane. Release around the sweet spot.", fans:0, targets:[prop("Trash can",208,367,28),prop("Soda can",348,346,19),prop("Paper plane",535,167,26)]},
+  {name:"Passing Notes", intro:"Lead moving paper footballs and watch the desk fan. Cardboard cuts through the breeze.", fans:1, targets:[prop("Paper football",253,315,24,{move:52,phase:0}),prop("Paper football",437,376,25,{move:59,phase:1.2}),prop("Paper football",687,259,25,{move:57,phase:2.4})]},
+  {name:"The Chalkboard Gauntlet", intro:"Bank a foil pellet off a ruler for the ring behind the books. Use the protractor to line it up.", fans:2, targets:[prop("Bank ring",686,219,27,{bank:true}),prop("Soda can",295,348,21),prop("Paper plane",539,146,24,{move:24,phase:0})], rulers:[{x:776,y:96,w:45,h:250}], obstacle:{x:595,y:257,w:67,h:66}},
+  {name:"Last Bell", intro:"Equip the jumbo or double barrel with eraser & clay. Clear the armored props before the last bell.", fans:3, targets:[prop("Textbook stack",216,362,35,{armor:4}),prop("Metal pencil case",562,332,32,{armor:4}),prop("Final bell",734,206,29,{move:26,phase:1,armor:4})]}
+];
+const defaults = {teacher:"Miss Nance",school:"Kerwin Baptist Christian School",sound:true,best:0,tickets:30,owned:[],equipped:"bendy"};
+const saveKey = "nathan-tabor.spitball-shooter.v1";
+let settings = {...defaults};
+try { settings = {...defaults,...JSON.parse(localStorage.getItem(saveKey) || "{}")}; } catch {}
+let level = 0, unlocked = 0, score = 0, checkpoint = 0, combo = 0, best = Number(settings.best) || 0;
+settings.tickets = Number.isSafeInteger(settings.tickets) && settings.tickets>=0 ? settings.tickets : defaults.tickets;
+settings.owned = Array.isArray(settings.owned) ? settings.owned.filter(id=>straws.some(t=>t.cost&&t.id===id)) : [];
+let selectedStraw = 0;
+let state = "intro", clock = 0, dustUntil = 0, powerAt = 0, charge = null, ducked = false;
+let alert = "safe", bullets = [], particles = [], bursts = [], targets = [], messageUntil = 0, audio;
+let muzzleAt = -10, roundTickets = 0, clearAt = null;
+let teacherCleanHits = {seat:false,turn:false}, teacherReaction = null;
+let aim = {x:450,y:235};
+const position = (target,t=clock) => ({x:target.x+(target.move||0)*Math.sin(t*1.7+(target.phase||0)),y:target.y});
+const fan = (t) => {
+  const f = levels[level].fans;
+  return {x:f*(47*Math.sin(t*.96)+17*Math.sin(t*2.3)),y:-f*(13+5*Math.cos(t*1.1))};
+};
+function save() {
+  try { localStorage.setItem(saveKey, JSON.stringify({...settings,best})); } catch {}
+}
+function text(id,value) {
+  const el = $(id);
+  if (el.textContent !== String(value)) el.textContent = value;
+}
+function say(message, seconds=2.2) {
+  text("notice",message);
+  messageUntil = clock + seconds;
+}
+function sound(type) {
+  if (!settings.sound || !audio) return;
+  const osc = audio.createOscillator(), volume = audio.createGain(), t = audio.currentTime;
+  const [first,last] = {fire:[230,95],hit:[430,770],bad:[140,85],clear:[540,900],bank:[700,470]}[type];
+  osc.type = type === "bad" ? "triangle" : "sine";
+  osc.frequency.setValueAtTime(first,t);
+  osc.frequency.exponentialRampToValueAtTime(last,t+.17);
+  volume.gain.setValueAtTime(.09,t);
+  volume.gain.exponentialRampToValueAtTime(.001,t+.19);
+  osc.connect(volume).connect(audio.destination);
+  osc.start(t);
+  osc.stop(t+.2);
+}
+function primeSound() {
+  if (!settings.sound) return;
+  const Audio = window.AudioContext || window.webkitAudioContext;
+  if (Audio) {
+    audio ||= new Audio();
+    audio.resume().catch(()=>{});
+  }
+}
+function patrolCycle(t) { return (t+level*.55)%8.9; }
+function patrol(t=clock) {
+  if (t < dustUntil) return "dust";
+  const cycle = patrolCycle(t);
+  if (cycle >= turnStart && cycle < turnEnd) return "turn";
+  if (cycle >= turnEnd && cycle < 8.15) return "look";
+  if (cycle >= 5.15 && cycle < turnStart) return "warn";
+  return "safe";
+}
+function canEquip(straw) {
+  return straw.cost ? settings.owned.includes(straw.id) : unlocked>=straw.round;
+}
+function loadout() {
+  const select = $("ammo");
+  const selection = Number(select.value);
+  select.replaceChildren(...ammo.map((item,index)=>{
+    const option = new Option(item.name+(index>unlocked?" (locked)":""),index);
+    option.disabled = index>unlocked;
+    return option;
+  }));
+  select.value = String(Math.min(selection,unlocked));
+  const strawSelect = $("straw");
+  strawSelect.replaceChildren(...straws.flatMap((straw,index)=>canEquip(straw)?[new Option(straw.name,index)]:[]));
+  strawSelect.value = String(selectedStraw);
+  $("sight").disabled = unlocked < 2;
+  text("straw-info",straws[selectedStraw].desc);
+  const [low,high] = breathWindow(straws[selectedStraw]);
+  const band = $("breath-window");
+  band.style.left = low*100+"%";
+  band.style.width = (high-low)*100+"%";
+}
+function selectStraw(index, remember=true) {
+  if (!straws[index] || !canEquip(straws[index])) return false;
+  selectedStraw = index;
+  charge = null;
+  if (remember) { settings.equipped = straws[index].id; save(); }
+  loadout();
+  return true;
+}
+function chooseStraw(index) {
+  const straw = straws[index];
+  if (!straw) return false;
+  if (!canEquip(straw)) {
+    if (!straw.cost || settings.tickets<straw.cost) return false;
+    settings.tickets -= straw.cost;
+    settings.owned.push(straw.id);
+  }
+  return selectStraw(index);
+}
+function gear() {
+  const barrel = straws[selectedStraw];
+  const payload = ammo[Number($("ammo").value)];
+  return {barrel,payload,compatible:!payload.wide||Boolean(barrel.wide)};
+}
+function breathWindow(barrel) {
+  const margin = barrel.sweet || 0;
+  return [.66-margin,.87+margin];
+}
+function sweetShot(amount,barrel) {
+  const [low,high] = breathWindow(barrel);
+  return amount>=low && amount<=high;
+}
+function renderRack(focusId) {
+  text("rack-wallet",settings.tickets+" tickets · Earn more by clearing rounds.");
+  const cards = straws.map((straw,index)=>{
+    const has = canEquip(straw);
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "rack-card";
+    card.id = "rack-"+straw.id;
+    card.setAttribute("aria-pressed",String(index===selectedStraw));
+    card.disabled = !has && (!straw.cost || settings.tickets<straw.cost);
+    const stripe = document.createElement("span");
+    stripe.className = "swatch";
+    stripe.style.setProperty("--tone",straw.tint);
+    stripe.dataset.twin = String(Boolean(straw.twin));
+    const name = document.createElement("strong");
+    name.textContent = straw.name;
+    const desc = document.createElement("small");
+    desc.textContent = straw.desc;
+    const price = document.createElement("span");
+    price.className = "rack-cost";
+    price.textContent = index===selectedStraw?"Equipped":has?"Equip":straw.cost?"Get for "+straw.cost+" tickets":"Round "+(straw.round+1)+" unlock";
+    card.append(stripe,name,desc,price);
+    card.addEventListener("click",()=>{
+      if (!chooseStraw(index)) return;
+      text("rack-msg",straw.name+" equipped.");
+      renderRack(card.id);
+      hud();
+    });
+    return card;
+  });
+  $("rack-grid").replaceChildren(...cards);
+  if (focusId) $(focusId).focus();
+}
+function modalOpen() { return $("room").open || $("rack").open; }
+function setLevel(next) {
+  const advancing = next > level;
+  level = next;
+  unlocked = Math.max(level,unlocked);
+  clock = 0; dustUntil = 0; combo = 0; charge = null; ducked = false;
+  alert = "safe"; bullets = []; particles = []; bursts = []; muzzleAt = -10; roundTickets = 0; clearAt = null;
+  teacherCleanHits = {seat:false,turn:false}; teacherReaction = null;
+  targets = [...levels[level].targets,...bonus].map(p=>({...p,hit:false,hitAt:-1}));
+  aim = {x:450,y:235};
+  const preferred = straws.findIndex(straw=>straw.id===settings.equipped&&canEquip(straw));
+  if (preferred>=0) selectedStraw = preferred;
+  else if (!canEquip(straws[selectedStraw])) selectedStraw = 0;
+  loadout();
+  if (advancing) {
+    $("ammo").value = String(level);
+    if (level===2) $("sight").checked = true;
+  }
+  if (level===3 && !gear().compatible) selectStraw(1,false);
+  text("round",(level+1)+" / "+levels.length+" · "+levels[level].name);
+  say(level===0 ? "Knock down the three marked targets." : "Clear the marked targets to advance.",4);
+  show("intro",levels[level].name,levels[level].intro,"Start round "+(level+1));
+  hud();
+}
+function show(next,title,copy,button) {
+  state = next;
+  charge = null;
+  if (next !== "playing") {
+    text("overlay-title",title);
+    text("overlay-copy",copy);
+    text("action",button);
+  }
+  $("overlay").hidden = next === "playing";
+  $("fire").disabled = next !== "playing";
+  $("duck").disabled = next !== "playing";
+  if (next !== "intro" && next !== "playing") $("action").focus();
+}
+function hud() {
+  const p = patrol();
+  const patrolLabel = {safe:"At the board",warn:"Turning soon !",turn:"Turning now!",look:"Looking — duck!",dust:"Chalk cloud"}[p];
+  text("patrol",patrolLabel);
+  $("patrol").className = p==="look" ? "caught" : (p==="warn"||p==="turn") ? "warning" : "safe";
+  text("target-count",targets.filter(t=>!t.bonus&&t.hit).length+" / "+levels[level].targets.length);
+  text("score",score.toLocaleString());
+  text("best","Best completed round score: "+best.toLocaleString());
+  text("wallet","Free play · "+settings.tickets+" tickets");
+  const wind = fan(clock).x;
+  text("wind",levels[level].fans ? "Wind "+(Math.abs(wind)<12?"·":wind>0?"→":"←")+" "+Math.round(Math.abs(wind)) : "Fans off");
+  $("duck").setAttribute("aria-pressed",String(ducked));
+  text("duck",ducked?"Stand up":"Duck");
+  const amount = charge === null ? 0 : Math.round(power()*100);
+  $("breath").setAttribute("aria-valuenow",String(amount));
+  $("breath").lastElementChild.style.width = amount+"%";
+  $("breath").lastElementChild.dataset.sweet = String(charge!==null && sweetShot(amount/100,straws[selectedStraw]));
+}
+function power() {
+  const phase = ((performance.now()-powerAt)/1120)%2;
+  return phase<=1 ? phase : 2-phase;
+}
+function startCharge(source) {
+  if (state !== "playing" || clearAt!==null || charge !== null || modalOpen()) return false;
+  if (ducked) { say("Stand up to take a shot."); return false; }
+  if (!gear().compatible) { say("Use a wide straw with eraser & clay."); return false; }
+  primeSound();
+  charge = source; powerAt = performance.now();
+  return true;
+}
+function toggleDuck() {
+  if (state !== "playing" || modalOpen()) return;
+  ducked = !ducked;
+  if (ducked) { charge = null; say("Behind the desk."); }
+  else say("Back up.");
+  hud();
+}
+function launch(amount,offset=0) {
+  const {barrel,payload} = gear();
+  const optimal = sweetShot(amount,barrel);
+  const velocity = optimal ? 1 : .66+amount*.44;
+  const range = .72/barrel.speed;
+  return {x:origin.x+offset,y:origin.y,vx:(aim.x-origin.x+offset*.45)/range*velocity,
+    vy:((aim.y-origin.y)/range-payload.gravity*range/2)*velocity,
+    payload,windScale:barrel.drift??1,tint:barrel.tint,trail:[],age:0,banks:0,teacherBank:false,seatEligible:aim.y>=257 && aim.y<=325,optimal};
+}
+function takeShot(source) {
+  if (charge !== source || state !== "playing") return;
+  const amount = power();
+  charge = null;
+  if (["turn","look"].includes(patrol())) {
+    combo = 0;
+    bullets = [];
+    sound("bad");
+    show("detention","Detention",settings.teacher+" caught the shot. Retry the round from your last checkpoint.","Retry round");
+    return;
+  }
+  const {barrel} = gear();
+  bullets.push(...(barrel.twin ? [launch(amount,-9),launch(amount,9)] : [launch(amount)]));
+  muzzleAt = clock;
+  sound("fire");
+  say(sweetShot(amount,barrel)?"Sweet spot!":amount<breathWindow(barrel)[0]?"Soft shot.":"Overcharged!");
+}
+function advance(shot,dt,t) {
+  const breeze = fan(t);
+  const drift = shot.payload.drift * shot.windScale;
+  const beforeX = shot.x, beforeY = shot.y;
+  shot.vx += breeze.x * drift * dt;
+  shot.vy += (shot.payload.gravity+breeze.y*drift) * dt;
+  shot.x += shot.vx*dt; shot.y += shot.vy*dt; shot.age += dt;
+  let reflected = false;
+  const rule = levels[level].rulers?.[0];
+  if (rule && shot.vx>0) {
+    const oldLine = rule.x+(beforeY-rule.y)*.18;
+    const newLine = rule.x+(shot.y-rule.y)*.18;
+    if (beforeX<oldLine && shot.x>=newLine && shot.y>=rule.y && shot.y<=rule.y+rule.h) {
+      if (shot.banks >= (shot.payload.banks||0)) return 0;
+      const normal = (shot.vx-.18*shot.vy)/1.0324;
+      shot.vx -= 2*normal; shot.vy += .36*normal; shot.x = newLine-.5;
+      reflected = true;
+    }
+  }
+  if (shot.x<16 || shot.x>884 || shot.y<56) {
+    if (shot.banks >= (shot.payload.banks||0)) return 0;
+    if (shot.x<16 || shot.x>884) { shot.vx *= -.87; shot.x=clamp(shot.x,16,884); }
+    if (shot.y<56) { shot.vy *= -.87; shot.y=56; }
+    reflected = true;
+  }
+  if (reflected) shot.banks++;
+  const books = levels[level].obstacle;
+  if (books && shot.x>=books.x && shot.x<=books.x+books.w && shot.y>=books.y && shot.y<=books.y+books.h) return 0;
+  return shot.y>H+10 || shot.age>3 ? 0 : reflected ? 2 : 1;
+}
+function hit(target,shot,point) {
+  if (target.bank && shot.banks===0) { say("Bank a foil pellet off a ruler to hit that ring."); return; }
+  if ((target.armor||0)>shot.payload.force) { say("Armored target. Equip eraser & clay."); return; }
+  target.hit = true; target.hitAt = clock; combo++;
+  if (target.kind==="Eraser") dustUntil=clock+3.6;
+  const points = target.points+Math.min(combo-1,6)*25+shot.banks*125+
+    (shot.optimal?25:0)+(shot.teacherBank?teacherValues.chain:0);
+  score += points;
+  roundTickets += target.bonus ? 12 : 8;
+  if (shot.banks) roundTickets += 5;
+  bursts.push({x:point.x,y:point.y,born:clock,label:"+"+points,color:target.bonus?"#a9f1ce":"#ffe3a4"});
+  const reaction = {Mug:"Coffee spill!",Eraser:"Chalk cloud!",Map:"Map snap! Globe spin!",Projector:"Lights on!","Cheek bullseye":"Cardboard bullseye!"}[target.kind] || (shot.banks?"Bank shot!":target.kind+" down!");
+  say((shot.teacherBank?"Ricochet combo! ":"")+reaction+" +"+points);
+  sound("hit");
+  for (let i=0;i<(reduceMotion?4:24);i++) {
+    const angle = i*2.4;
+    const speed = 55+Math.random()*150;
+    particles.push({x:point.x,y:point.y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed-40,life:.45+Math.random()*.28,color:i%3?"#ffe9b8":"#a9f1ce"});
+  }
+}
+function teacherPosition(t=clock) {
+  const stride = reduceMotion ? 0 : Math.sin(t*6)*5*Math.abs(Math.cos(t*.85));
+  return {x:505+64*Math.sin(t*.85),y:258-Math.abs(stride)*.25,stride};
+}
+function teacherTargets(phase) {
+  const {x,y} = teacherPosition();
+  if (phase==="turn" && !teacherCleanHits.turn) return {kind:"turn",x,y:y-44,rx:6,ry:5};
+  if (["safe","warn","dust"].includes(phase) && !teacherCleanHits.seat) {
+    return {kind:"seat",x,y:y+26,rx:19,ry:9};
+  }
+  return null;
+}
+function hitTeacher(shot,phase) {
+  if (shot.teacherBank || shot.payload.force!==1) return null;
+  const zone = teacherTargets(phase);
+  if (!zone || (zone.kind==="seat" && !shot.seatEligible)) return null;
+  const nx = (shot.x-zone.x)/zone.rx, ny = (shot.y-zone.y)/zone.ry;
+  if (nx*nx+ny*ny>1) return null;
+  teacherCleanHits[zone.kind] = true;
+  teacherReaction = {kind:zone.kind,born:clock};
+  const points = teacherValues[zone.kind];
+  score += points;
+  const label = zone.kind==="turn" ? "Between the eyes!" : "Cartoon seat bounce!";
+  say(label+" +"+points);
+  bursts.push({x:zone.x,y:zone.y,born:clock,label:"+"+points,color:"#ffe286"});
+  sound(zone.kind==="turn"?"clear":"bank");
+  if (zone.kind==="turn") return "stop";
+  // The padded cartoon target sends the paper back toward the desks.
+  // The horizontal contact point controls which side of the gallery it reaches.
+  shot.vx = shot.vx*.25 + nx*570;
+  shot.vy = 115 + Math.abs(shot.vy)*.48;
+  shot.teacherBank = true;
+  return "bounce";
+}
+function step(dt) {
+  clock += dt;
+  const p = patrol();
+  bursts = bursts.filter(effect=>clock-effect.born<.85);
+  if (p==="look" && alert!=="look" && !ducked) combo = 0;
+  alert = p;
+  bullets = bullets.filter(shot=>{
+    if (!reduceMotion) {
+      shot.trail.push({x:shot.x,y:shot.y});
+      if (shot.trail.length>13) shot.trail.shift();
+    }
+    const result = advance(shot,dt,clock);
+    if (!result) return false;
+    if (result===2) {
+      sound("bank");
+      bursts.push({x:shot.x,y:shot.y,born:clock,label:"BANK",color:"#c3edff"});
+    }
+    for (const target of targets) {
+      if (target.hit) continue;
+      const point = position(target);
+      if (Math.hypot(point.x-shot.x,point.y-shot.y) <= target.r+shot.payload.radius) {
+        hit(target,shot,point);
+        return false;
+      }
+    }
+    return hitTeacher(shot,p)!=="stop";
+  });
+  particles = particles.filter(bit=>{
+    bit.life-=dt; bit.x+=bit.vx*dt; bit.y+=bit.vy*dt; bit.vy+=200*dt;
+    return bit.life>0;
+  });
+  if (clearAt===null && targets.every(t=>t.bonus||t.hit)) {
+    clearAt = clock+(reduceMotion?.14:.54);
+    charge = null;
+    $("fire").disabled = true;
+  }
+  if (clearAt!==null && clock>=clearAt) {
+    checkpoint = score;
+    best = Math.max(best,score);
+    const reward = roundTickets+35;
+    settings.tickets += reward;
+    save();
+    const report = score.toLocaleString()+" points · +"+reward+" tickets";
+    sound("clear");
+    if (level===levels.length-1) show("won","Gallery cleared",report+". All four rounds cleared.","Play again");
+    else show("clear","Round cleared",report+". New gear in the next round.","Next round");
+  }
+  if (clock>messageUntil) text("notice",ducked?"Behind the desk.":patrol()==="warn"?"Get ready to duck.":"Aim for the gold rings.");
+}
+function rect(x,y,w,h,fill) {
+  ctx.fillStyle=fill;
+  ctx.fillRect(x,y,w,h);
+}
+function line(points,color,width=2) {
+  ctx.strokeStyle=color; ctx.lineWidth=width;
+  ctx.beginPath(); ctx.moveTo(...points[0]);
+  for (const point of points.slice(1)) ctx.lineTo(...point);
+  ctx.stroke();
+}
+function shape(points,color) {
+  ctx.fillStyle=color; ctx.beginPath(); ctx.moveTo(...points[0]);
+  for (const point of points.slice(1)) ctx.lineTo(...point);
+  ctx.closePath(); ctx.fill();
+}
+function oval(x,y,rx,ry,fill,stroke) {
+  ctx.beginPath(); ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);
+  if (fill) { ctx.fillStyle=fill; ctx.fill(); }
+  if (stroke) { ctx.strokeStyle=stroke; ctx.lineWidth=2; ctx.stroke(); }
+}
+function label(value,x,y,colors="#f8e6c4",size=14,align="center") {
+  ctx.textAlign=align; ctx.font="700 "+size+"px system-ui"; ctx.fillStyle=colors;
+  ctx.fillText(value,x,y);
+}
+function fanArt(x,y,r,active) {
+  line([[x,y-45],[x,y]],"#554137",3);
+  ctx.save(); ctx.translate(x,y); ctx.scale(1,.38);
+  for (let i=0;i<3;i++) {
+    ctx.save(); ctx.rotate(i*Math.PI*2/3+(active?clock*13:0));
+    shape([[0,-4],[r,-12],[r+7,0],[r-8,9],[0,6]],"#585244");
+    ctx.restore();
+  }
+  ctx.restore();
+  oval(x,y,6,5,"#cbae77");
+}
+let wallLight, spotlight, vignette;
+function paintLighting() {
+  if (!wallLight) {
+    wallLight = ctx.createLinearGradient(0,0,0,425);
+    wallLight.addColorStop(0,"#6a452777"); wallLight.addColorStop(.4,"#edb57218");
+    wallLight.addColorStop(1,"#2a281c83");
+    spotlight = ctx.createLinearGradient(42,116,512,362);
+    spotlight.addColorStop(0,"#fcdf9a67"); spotlight.addColorStop(1,"#fff9cb00");
+    vignette = ctx.createRadialGradient(450,215,200,450,245,525);
+    vignette.addColorStop(0,"#20180d00"); vignette.addColorStop(1,"#140c0873");
+  }
+  rect(0,0,W,350,wallLight);
+}
+function chalkGrain() {
+  for (let n=0;n<100;n++) {
+    const x = 190+(n*57)%435, y = 112+(n*37)%146;
+    rect(x,y,8+n%22,1,n%3?"#cbdac114":"#0d2b201f");
+  }
+}
+function daylight() {
+  shape([[38,120],[134,121],[440,339],[226,350]],spotlight);
+  if (reduceMotion) return;
+  for (let i=0;i<15;i++) {
+    const pos = (i*47+clock*(9+i%3))%170;
+    const x = 74+pos+(i*13)%70, y = 129+pos*.78+(i*33)%55;
+    oval(x,y,1+i%2*.4,1+i%2*.4,"#fff6cf78");
+  }
+}
+function roomArt() {
+  rect(0,0,W,H,"#c4a17b");
+  paintLighting();
+  for (let x=0;x<W;x+=6) rect(x,0,1,360,x%24===0?"#55381e16":"#ffebc613");
+  shape([[0,0],[900,0],[784,59],[110,59]],"#9f795b");
+  line([[0,21],[900,21]],"#d7b892",2);
+  rect(0,304,900,47,"#765845"); rect(0,303,900,8,"#e7c395");
+  shape([[0,350],[900,350],[900,510],[0,510]],"#8d6446");
+  for (let x=-550;x<=1450;x+=156) line([[450+(x-450)*.27,350],[x,510]],"#6d4e33");
+  for (const y of [373,412,462]) line([[0,y],[900,y]],"#6d4e33");
+  rect(171,99,481,178,"#795136"); rect(178,105,467,162,"#304d40");
+  rect(184,111,455,150,"#3e5a49");
+  chalkGrain();
+  for (let i=0;i<11;i++) rect(201,118+i*12,420,1,"#c8d2b312");
+  label(settings.school,401,126,"#dbdfbe",16);
+  label("CLASSROOM GALLERY",412,207,"#e7ebc979",28);
+  line([[357,217],[469,217]],"#e9dfb17b",2);
+  rect(173,268,480,6,"#a66c40");
+  rect(26,100,122,126,"#6e543c"); rect(32,106,110,113,"#addece");
+  shape([[37,170],[63,153],[89,173],[107,151],[141,170],[141,219],[37,219]],"#83a994");
+  line([[87,106],[87,219]],"#6e543c",5); line([[32,157],[142,157]],"#6e543c",4);
+  daylight();
+  rect(821,112,68,194,"#7a8b7b"); rect(829,118,56,176,"#9aa493");
+  for (let y=130;y<160;y+=7) rect(839,y,35,2,"#667461");
+  rect(834,196,6,19,"#606c5f");
+  const map = targets.find(t=>t.kind==="Map");
+  const mapScale = map?.hit ? (reduceMotion ? 0 : Math.max(0,1-(clock-map.hitAt)*2.8)) : 1;
+  ctx.save();ctx.translate(0,106);ctx.scale(1,mapScale);ctx.translate(0,-106);
+  if (mapScale>0) {
+    rect(703,106,79,77,"#eee0ae");
+    shape([[710,125],[739,116],[754,124],[750,139],[730,147],[713,141]],"#80a978");
+    shape([[747,159],[756,150],[770,143],[778,152],[774,165],[760,170]],"#b77b5a");
+    rect(703,180,79,3,"#503e25");
+  }
+  ctx.restore();
+  rect(698,103,89,5,"#734f38");
+  rect(722,288,67,7,"#65452e"); rect(752,272,4,15,"#634c39");
+  oval(754,254,18,19,"#78a79c","#604d3b");
+  line([[743,246],[766,259]],"#e8dca6");
+  if (map?.hit && !reduceMotion) {
+    const elapsed = clock-map.hitAt;
+    const a = 20*(1-Math.exp(-elapsed*1.7));
+    oval(754+8*Math.sin(a),253,4,17,"#bdc783");
+  }
+  for (const [x,y,w] of [[117,376,82],[294,383,99],[494,383,100],[625,398,107]]) {
+    shape([[x-18,y-15],[x+w+10,y-15],[x+w+24,y],[x-27,y]],"#c18b52");
+    rect(x-27,y,w+51,7,"#805637");
+    rect(x-15,y+7,5,31,"#654b38"); rect(x+w+11,y+7,5,31,"#654b38");
+  }
+  fanArt(477,72,60,levels[level].fans>=2);
+  fanArt(285,72,45,levels[level].fans>=3);
+  if (levels[level].fans) {
+    oval(174,299,20,20,"#5e6a5d","#bcb38c");
+    line([[174,300],[177,327],[160,329],[189,329]],"#625644",3);
+    for (let i=0;i<3;i++) {
+      const a=clock*18+i*2.09;
+      line([[174,299],[174+16*Math.cos(a),299+16*Math.sin(a)]],"#c9cea8",3);
+    }
+  }
+  if (levels[level].obstacle) {
+    const {x,y,w,h}=levels[level].obstacle;
+    for (let i=0;i<5;i++){
+      rect(x+(i%2)*2,y+i*h/5,w-2,h/5-2,["#8f4d3a","#5b705a","#859091","#8b744d","#5b705a"][i]);
+      rect(x+7,y+4+i*h/5,w-14,h/5-8,"#e0c69c");
+    }
+    const r=levels[level].rulers[0];
+    line([[r.x,r.y],[r.x+r.h*.18,r.y+r.h]],"#573c28",14);
+    line([[r.x,r.y],[r.x+r.h*.18,r.y+r.h]],"#fac875",10);
+    for(let y=10;y<r.h;y+=12) line([[r.x+y*.18,r.y+y],[r.x+y*.18+4,r.y+y-1]],"#67492a",1);
+  }
+  const mug=targets.find(t=>t.kind==="Mug");
+  if (mug?.hit) {
+    const spill = reduceMotion ? 1 : Math.min(1,(clock-mug.hitAt)*2.4);
+    oval(666,388,8+35*spill,2+5*spill,"#74442daa");
+    ctx.save();ctx.translate(670,398);ctx.rotate(.75);rect(-8,-9,16,18,"#be6149");ctx.restore();
+  }
+  const projector=targets.find(t=>t.kind==="Projector");
+  if (projector?.hit && clock-projector.hitAt<3.6) {
+    shape([[139,346],[165,168],[370,161],[158,346]],"#ffef9a55");
+    shape([[229,175],[255,198],[286,181],[262,215],[246,216]],"#36362b9f");
+  }
+}
+function teacherArt() {
+  const phase=patrol(), {x,y,stride}=teacherPosition();
+  const facesPlayer = phase==="look" || phase==="turn";
+  const elapsed = teacherReaction ? clock-teacherReaction.born : Infinity;
+  oval(x,y+57,31,6,"#382f2681");
+  line([[x-11,y+16],[x-13+stride,y+54],[x-22+stride,y+54]],"#493b35",8);
+  line([[x+11,y+16],[x+12-stride,y+54],[x+21-stride,y+54]],"#493b35",8);
+  shape([[x-12,y-31],[x+15,y-31],[x+23,y+28],[x-22,y+28]],"#7b5b75");
+  line([[x+12,y-21],[x+26,y-8],[x+34,y-21]],"#7b5b75",7);
+  const headWidth = phase==="turn" && !reduceMotion ? 6+8*(patrolCycle(clock)-turnStart)/(turnEnd-turnStart) : 14;
+  oval(x,y-43,headWidth,16,facesPlayer?"#d9a477":"#584039");
+  if (facesPlayer) {
+    oval(x-4,y-44,1.6,2,"#493b35"); oval(x+4,y-44,1.6,2,"#493b35");
+  }
+  if (elapsed<.45) {
+    const yMark = teacherReaction.kind==="turn" ? y-44 : y+26;
+    oval(x,yMark,4,4,"#fff2cc","#efd28e");
+  }
+  const zone = state==="playing" ? teacherTargets(phase) : null;
+  if (zone) {
+    ctx.setLineDash([3,4]);
+    oval(zone.x,zone.y,zone.rx+2,zone.ry+2,null,zone.kind==="turn"?"#fff18b":"#efffff8c");
+    ctx.setLineDash([]);
+  }
+  if (phase==="warn"||facesPlayer) {
+    oval(x,y-76,12,12,phase==="warn"?"#ffd473":"#ffab8c");
+    label("!",x,y-70,"#211a14",17);
+  }
+  label(settings.teacher,x,y+78,"#fff4d8",12);
+}
+function targetArt(t) {
+  const {x,y}=position(t);
+  if(t.hit && clock-t.hitAt>.43) return;
+  ctx.save(); ctx.translate(x,y);
+  if(t.hit) {
+    const elapsed=clock-t.hitAt;
+    if (!reduceMotion) { ctx.rotate(elapsed*7);ctx.translate(elapsed*54,elapsed*70); }
+    ctx.globalAlpha=1-elapsed/.43;
+  }
+  switch(t.kind) {
+    case "Trash can":
+      shape([[-18,-13],[16,-13],[13,21],[-14,21]],"#658275"); oval(0,-13,18,7,"#2e4a42","#96b299");
+      for(let j=-9;j<=9;j+=6) line([[j,-5],[j*.8,16]],"#adc1a0",2);
+      break;
+    case "Soda can":
+      rect(-9,-12,18,25,"#b45040"); oval(0,-12,9,3,"#e6dbc3"); oval(0,12,9,3,"#873e32");
+      shape([[-2,-8],[5,-2],[-2,6],[1,-1]],"#fff0bc");
+      break;
+    case "Paper plane":
+      line([[0,-45],[0,-7]],"#efe7c5a1",1);
+      shape([[-22,8],[25,-10],[11,13],[2,6]],"#f7ebcd"); line([[2,6],[25,-10]],"#a6ac9d");
+      break;
+    case "Paper football":
+      shape([[-17,11],[17,9],[-1,-16]],"#eed7a3");line([[-8,2],[9,1]],"#956048",3);break;
+    case "Mug":
+      oval(9,-2,10,7,null,"#a44d3c");rect(-12,-9,24,19,"#b95f49");oval(0,-9,12,4,"#5d3929");break;
+    case "Eraser":
+      rect(-15,-7,30,14,"#eac47d");rect(-15,4,30,6,"#5d5145");break;
+    case "Map":
+      oval(0,0,8,8,"#9d5070");break;
+    case "Projector":
+      rect(-18,-8,36,21,"#606762");rect(-12,12,23,4,"#3f4944");oval(8,-1,9,7,"#e9db9d");break;
+    case "Cheek bullseye":
+      rect(-3,16,6,24,"#5a422e");oval(0,-1,16,20,"#dfbd89");oval(-6,-5,2,2,"#5b4231");
+      oval(6,1,7,7,"#bc5745");oval(6,1,4,4,"#fff0b7");oval(6,1,2,2,"#bc5745");break;
+    case "Bank ring":
+      oval(0,0,13,13,"#b86764","#f9bf8b");oval(0,0,7,7,"#ffc871");break;
+    case "Textbook stack":
+      for(let j=0;j<3;j++) {rect(-23+j,-15+j*10,46,9,["#ac654c","#b9a152","#75907b"][j]);rect(-17+j,-13+j*10,33,4,"#ecce9b");}break;
+    case "Metal pencil case":
+      rect(-22,-9,44,18,"#a3b0a2");rect(-20,-6,40,3,"#dce2c7");rect(-4,2,8,5,"#51594e");break;
+    case "Final bell":
+      shape([[-17,9],[-12,-8],[0,-16],[12,-8],[17,9]],"#d6a148");oval(0,10,19,4,"#f9c76a");oval(0,15,4,4,"#a46f37");break;
+  }
+  if(!t.hit) {
+    if (!t.bonus && state==="playing" && !reduceMotion) {
+      const pulse = (1+Math.sin(clock*3.5+x*.02))*.5;
+      ctx.globalAlpha = .13+pulse*.23;
+      oval(0,0,t.r+3+pulse*4,t.r+3+pulse*4,null,"#fbe19d");
+      ctx.globalAlpha = 1;
+    }
+    ctx.setLineDash(t.bonus?[3,5]:[]);
+    oval(0,0,t.r,t.r,null,t.bonus?"#ffe9b497":"#ffe784");
+    ctx.setLineDash([]);
+    if (!t.bonus) label(t.kind+" · "+t.points,0,-t.r-6,"#fff4cf",13);
+    else label(String(t.points),0,-t.r-5,"#ffe9b8",12);
+  }
+  ctx.restore();
+}
+function drawStraw() {
+  const {barrel} = gear();
+  const angle = Math.atan2(aim.y-origin.y,aim.x-origin.x);
+  const length = 48+(barrel.speed-1)*34;
+  const recoil = reduceMotion ? 0 : Math.max(0,1-(clock-muzzleAt)*7)*7;
+  ctx.save(); ctx.translate(origin.x,origin.y); ctx.rotate(angle);
+  for (const offset of barrel.twin?[-5,5]:[0]) {
+    const width = barrel.wide ? 10 : 8;
+    rect(-recoil,offset-width/2,length,width,"#292819");
+    rect(1-recoil,offset-width/2,length-3,width-2,barrel.tint);
+    rect(3-recoil,offset-width/2,length-6,2,"#fffbe299");
+    if (barrel.id==="bamboo" || barrel.id==="split" || barrel.id==="reed" || barrel.id==="paper") {
+      for (let x=10;x<length-2;x+=12) rect(x-recoil,offset-width/2,2,width-2,"#3e3b277e");
+    }
+    oval(length-recoil,offset,2.5,width/2,"#232c22",barrel.tint);
+  }
+  if (!reduceMotion && clock-muzzleAt<.16) {
+    ctx.globalAlpha = 1-(clock-muzzleAt)/.16;
+    oval(length+10,0,13,7,"#f9edbe80");
+    oval(length+20,0,6,3,"#f9edbe60");
+  }
+  ctx.restore();
+}
+function drawFeedback() {
+  for (const shot of bullets) {
+    if (shot.trail.length>1) {
+      ctx.globalAlpha = .45;
+      line([...shot.trail.map(p=>[p.x,p.y]),[shot.x,shot.y]],shot.tint,2.5);
+      ctx.globalAlpha = 1;
+    }
+    oval(shot.x,shot.y,shot.payload.radius+2,shot.payload.radius+2,shot.tint);
+    oval(shot.x,shot.y,shot.payload.radius,shot.payload.radius,shot.payload.color);
+  }
+  for (const effect of bursts) {
+    const progress = clamp((clock-effect.born)/.85,0,1);
+    ctx.globalAlpha = 1-progress;
+    if (!reduceMotion) oval(effect.x,effect.y,5+progress*54,5+progress*54,null,effect.color);
+    label(effect.label,effect.x,effect.y-12-(reduceMotion?0:progress*42),effect.color,20);
+  }
+  ctx.globalAlpha=1;
+}
+function render() {
+  roomArt();
+  rect(0,0,W,H,vignette);
+  teacherArt();
+  for(const target of targets) targetArt(target);
+  if (clock<dustUntil) {
+    const age = 3.6-(dustUntil-clock);
+    ctx.globalAlpha = Math.min(1,(dustUntil-clock)*.8);
+    for (let i=0;i<17;i++) {
+      const drift = reduceMotion ? 0 : age*(14+i%4);
+      oval(398+i*12+drift,241+21*Math.sin(i+(reduceMotion?0:clock*3))-drift*.4,31,21,"#f6ebcc20");
+    }
+    ctx.globalAlpha = 1;
+  }
+  if (levels[level].fans && !reduceMotion) {
+    const gust = fan(clock).x;
+    const direction = Math.sign(gust);
+    for (let i=0;i<6;i++) {
+      const x = 135+(i*139+clock*gust*.72)%690, y = 86+(i*27)%67;
+      const end = x+(14+Math.abs(gust)*.13)*direction;
+      line([[x,y],[end,y-4],[end+8*direction,y-9]],"#fff3d548",1.7);
+    }
+  }
+  for (const bit of particles) {
+    ctx.globalAlpha=bit.life/.75;
+    rect(bit.x,bit.y,4,4,bit.color);
+  }
+  ctx.globalAlpha=1;
+  drawFeedback();
+  shape([[208,510],[321,454],[575,454],[691,510]],"#543a2c");
+  shape([[223,510],[326,463],[573,463],[676,510]],"#a67548");
+  line([[249,505],[648,505]],"#ce9860",3);
+  if (ducked) {
+    rect(0,411,900,99,"#31241d");
+    shape([[0,421],[100,412],[800,412],[900,421],[900,448],[0,448]],"#784f33");
+    label("BEHIND THE DESK",450,469,"#efca95",15);
+    return;
+  }
+  drawStraw();
+  if (state!=="playing") return;
+  const {compatible}=gear();
+  if ($("sight").checked&&!$("sight").disabled&&compatible) {
+    const path=launch(charge===null?.76:power());
+    for (let elapsed=.014;elapsed<1.48;elapsed+=.014) {
+      if(!advance(path,.014,clock+elapsed)) break;
+      if (Math.round(elapsed/.014)%5===0) oval(path.x,path.y,2.6,2.6,"#fff2b8c9");
+    }
+  }
+  oval(aim.x,aim.y,11,11,null,"#fff8df");
+  line([[aim.x-17,aim.y],[aim.x-7,aim.y]],"#fff8df");
+  line([[aim.x+7,aim.y],[aim.x+17,aim.y]],"#fff8df");
+  line([[aim.x,aim.y-17],[aim.x,aim.y-7]],"#fff8df");
+  line([[aim.x,aim.y+7],[aim.x,aim.y+17]],"#fff8df");
+}
+function aimPointer(event) {
+  const box=canvas.getBoundingClientRect();
+  aim={x:clamp((event.clientX-box.left)*W/box.width,12,W-12),y:clamp((event.clientY-box.top)*H/box.height,55,H-30)};
+}
+canvas.addEventListener("pointerdown",event=>{
+  if (state!=="playing") return;
+  canvas.setPointerCapture(event.pointerId);
+  aimPointer(event);
+});
+canvas.addEventListener("pointermove",event=>{
+  if(state==="playing"&&canvas.hasPointerCapture(event.pointerId)) aimPointer(event);
+});
+$("fire").addEventListener("pointerdown",event=>{
+  if(!event.isPrimary || event.button!==0) return;
+  if(startCharge(event.pointerId)) $("fire").setPointerCapture(event.pointerId);
+});
+$("fire").addEventListener("pointerup",event=>takeShot(event.pointerId));
+for (const event of ["pointercancel","lostpointercapture"]) $("fire").addEventListener(event,e=>{if(charge===e.pointerId)charge=null;});
+$("duck").addEventListener("click",toggleDuck);
+$("ammo").addEventListener("change",()=>{charge=null;});
+$("straw").addEventListener("change",()=>selectStraw(Number($("straw").value)));
+$("rack-open").addEventListener("click",()=>{
+  charge=null;
+  text("rack-msg","");
+  renderRack();
+  $("rack").showModal();
+});
+$("rack-close").addEventListener("click",()=>$("rack").close());
+$("action").addEventListener("click",()=>{
+  primeSound();
+  if(state==="intro") { show("playing"); canvas.focus({preventScroll:true}); }
+  else if(state==="clear") {setLevel(level+1); $("action").focus();}
+  else if(state==="detention") {score=checkpoint;setLevel(level);$("action").focus();}
+  else if(state==="won") {
+    score=0;checkpoint=0;unlocked=0;
+    $("sight").checked=false;
+    setLevel(0);$("action").focus();
+  }
+});
+function showVenue(){text("venue",settings.teacher+" · "+settings.school);}
+$("settings").addEventListener("click",()=>{
+  charge=null;
+  $("teacher-name").value=settings.teacher;
+  $("school-name").value=settings.school;
+  $("sound").checked=settings.sound;
+  $("room").showModal();
+});
+$("cancel").addEventListener("click",()=>$("room").close());
+$("settings-form").addEventListener("submit",event=>{
+  event.preventDefault();
+  settings.teacher=$("teacher-name").value.trim()||defaults.teacher;
+  settings.school=$("school-name").value.trim()||defaults.school;
+  settings.sound=$("sound").checked;
+  save();showVenue();$("room").close();
+});
+document.addEventListener("keydown",event=>{
+  if (modalOpen()||state!=="playing"||event.ctrlKey||event.metaKey||event.altKey) return;
+  const tag=event.target.tagName;
+  if(["INPUT","SELECT","TEXTAREA"].includes(tag)) return;
+  if(tag==="BUTTON"&&event.target!==$("fire")&&(event.key===" "||event.key==="Enter")) return;
+  if(event.key===" " || (event.target===$("fire")&&event.key==="Enter")){
+    event.preventDefault();
+    if(!event.repeat) startCharge("keyboard");
+  } else if(event.key.toLowerCase()==="d"&&!event.repeat) toggleDuck();
+  else if(["ArrowLeft","ArrowRight","ArrowUp","ArrowDown"].includes(event.key)){
+    event.preventDefault();
+    const distance=event.shiftKey?4:15;
+    aim.x=clamp(aim.x+distance*((event.key==="ArrowRight")-(event.key==="ArrowLeft")),12,W-12);
+    aim.y=clamp(aim.y+distance*((event.key==="ArrowDown")-(event.key==="ArrowUp")),55,H-30);
+  }
+});
+document.addEventListener("keyup",event=>{
+  if(event.key===" "||event.key==="Enter"){
+    if(charge==="keyboard") {event.preventDefault();takeShot("keyboard");}
+  }
+});
+function cancelCharge(){charge=null;}
+window.addEventListener("blur",cancelCharge);
+document.addEventListener("visibilitychange",cancelCharge);
+let last=performance.now(), accumulator=0;
+function frame(now) {
+  const elapsed=Math.min(.05,(now-last)/1000);
+  last=now;
+  if(state==="playing"&&!modalOpen()&&!document.hidden) {
+    accumulator+=elapsed;
+    while(accumulator>=1/120&&state==="playing"){step(1/120);accumulator-=1/120;}
+  } else {
+    accumulator=0;
+  }
+  hud();render();
+  requestAnimationFrame(frame);
+}
+showVenue();
+setLevel(0);
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

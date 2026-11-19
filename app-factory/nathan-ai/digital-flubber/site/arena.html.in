@@ -1,0 +1,29 @@
+<section class="intro">
+<p class="kicker">INTERACTIVE PHYSICS LAB</p>
+<h1>{{heading}}</h1>
+<p class="lede">{{summary}}</p>
+</section>
+<div class="workstation">
+<section class="viewport" aria-label="Flubber arena">
+<div class="viewport-top"><div><span class="dot" id="state-light"></span><strong id="arena-state">Arena live</strong></div><div><span id="ball-total">1 ball</span><span id="hit-total">0 impacts</span></div></div>
+<div class="canvas-wrap"><canvas id="arena" tabindex="0" width="840" height="440" aria-label="Physics arena. Drag from a ball to aim. You can also select Fling, Add balls, or Place wall below.">Use the arena controls below.</canvas><div id="contained" class="overlay" hidden><b>Containment active</b><span>Motion stopped. New placements are blocked.</span></div></div>
+<div id="game-status" class="game-status" hidden></div>
+<div class="viewport-bottom"><span id="instruction">Drag and release a ball to fling it.</span><div class="legend"><span>Open zone</span><span class="restricted">Restricted</span></div></div>
+</section>
+<aside class="controls" aria-label="Arena controls">
+<div class="control-group">
+<h2>Polymer controls</h2>
+<label for="restitution">Restitution <output for="restitution" id="restitution-val">1.17</output></label><input type="range" id="restitution" min=".45" max="1.5" step=".01" value="1.17">
+<label for="stiffness">Spring stiffness <output for="stiffness" id="stiffness-val">48</output></label><input type="range" id="stiffness" min="20" max="85" step="1" value="48">
+<label for="burst">Kinetic burst <output for="burst" id="burst-val">35%</output></label><input type="range" id="burst" min="0" max="1" step=".01" value=".35">
+</div>
+<div class="control-group build-controls">
+<h2>Build the arena</h2>
+<div class="fields"><label>Zone<select id="zone"><option value="playground">Playground</option><option value="workbench">Workbench</option><option value="vault">Vault</option></select></label><label>Ball count<input id="count" type="number" min="1" max="64" value="3" inputmode="numeric"></label></div>
+<div class="row"><button type="button" class="primary" id="spawn">+ Add balls</button><button type="button" id="wall">+ Place wall</button></div>
+<label class="toggle"><input type="checkbox" id="grant">Grant Vault access in this lab</label>
+</div>
+</aside>
+</div>
+<div class="toolstrip"><div class="row"><button type="button" id="fling">Fling</button><button type="button" id="reset">Reset</button><button type="button" id="clear">Clear objects</button></div><button type="button" id="panic" class="danger">Activate SOS</button></div>
+<div class="activity"><h2>Activity</h2><p id="message" role="status">Ready. The Vault requires permission.</p></div>

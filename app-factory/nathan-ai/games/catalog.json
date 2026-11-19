@@ -1,6 +1,6 @@
 {
   "schema": "nathan-ai-games-public-index.v1",
-  "as_of": "2026-11-02",
+  "as_of": "2026-11-19",
   "notice": "Selected title-and-stage navigation only. Unpublished user originals and the 101 blueprint source documents are not in this public catalog. No count here implies production games.",
   "rules": [
     "1+1=2 BUILD",
@@ -8,6 +8,13 @@
     "Preserve originals verbatim; derived analysis separate."
   ],
   "entries": [
+    {
+      "title": "Digital Flubber by Nathan Tabor",
+      "category": "Arcade & physics",
+      "stage": "live-browser-game",
+      "href": "https://tabor-apps-nathan.pages.dev/game",
+      "description": "Three timed targets, soft-body physics and permission zones."
+    },
     {
       "title": "THE GAME OF GAMES — THE TABOR SPIRAL™",
       "category": "Strategy & worlds",

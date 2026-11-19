@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101712"><meta name="description" content="Fling a soft body, tune its physics and learn how permission boundaries respond.">
+<title>{{title}} | Digital Flubber</title><link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icon-192.png"><link rel="stylesheet" href="/style.css"><script type="module" src="/app.mjs"></script>
+{{script}}</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="shell top">
+<a class="brand" href="/"><span class="mark" aria-hidden="true"></span><span>NATHAN AI<small>DIGITAL FLUBBER</small></span></a>
+<nav aria-label="Main"><a href="/">Simulator</a><a href="/game">Arcade</a><a href="/learn">Learn</a><a href="/zones">Zones</a><a href="/sos">SOS</a></nav>
+<button type="button" id="install" hidden>Install app</button>
+</div></header>
+<main class="shell" id="main" data-page="{{page}}">{{body}}</main>
+<footer class="shell"><span>Digital Flubber · by Nathan Tabor</span><a href="/sos">Security &amp; containment</a></footer>
+</body></html>

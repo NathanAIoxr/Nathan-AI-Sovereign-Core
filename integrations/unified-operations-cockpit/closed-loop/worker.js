@@ -1,3 +1,5 @@
+import { dispatchTaborSite } from "../../../app-factory/tabor-website-builder/src/public-dispatch.mjs";
+
 const SOURCES = {
   "tabor-global-import-catalog": "GLOBAL_DB",
   "tabor-fleet-registry": "FLEET_DB",
@@ -309,6 +311,8 @@ function dashboard(status) {
 
 export default {
   async fetch(request, env) {
+    const taborSite = await dispatchTaborSite(request, env.PLATFORMS);
+    if (taborSite) return taborSite;
     const url = new URL(request.url);
     const { pathname } = url;
     const isGet = request.method === "GET";
