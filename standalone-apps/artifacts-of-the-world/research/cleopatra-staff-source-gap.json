@@ -1,0 +1,29 @@
+{
+  "id": "cleopatra-staff",
+  "priority": 2,
+  "status": "open",
+  "publication": "review_only_not_deployed",
+  "claim": "Cleopatra staff was broken",
+  "claim_class": "author_report_not_independently_verified",
+  "evidence": [
+    {
+      "source": "../original.txt",
+      "exact_excerpt": "from the Cleopatra staff that was broken",
+      "supports": "Nathan Tabor included a broken Cleopatra staff in the proposed Artifacts catalog; does not establish object identity, date, breakage, or custody"
+    }
+  ],
+  "historical_context": {
+    "source": "https://www.britannica.com/biography/Cleopatra-queen-of-Egypt",
+    "supports": "Biographical context about Cleopatra VII, not evidence for any particular staff",
+    "status": "context_only_not_object_identification"
+  },
+  "unresolved": [
+    "Which Cleopatra and which staff or scepter is intended?",
+    "What dated primary document or object catalog first describes breakage?",
+    "What evidence identifies fragments, collection accession numbers, or a custody chain?"
+  ],
+  "identity_verified": false,
+  "breakage_verified": false,
+  "custody_verified": false,
+  "editorial_note": "Do not turn the author-reported broken staff into a verified archaeological object. Keep proposed artifact and any physical custody claims separate."
+}
