@@ -75,3 +75,25 @@ test('built Worker serves the reader and one API for all nine views', async t =>
   assert.equal(await request('/api/views', 'HEAD').text(), '');
   assert.equal(request('/missing').status, 404);
 });
+
+test('Pocket forwards the precise Crosshairs route to its own dispatch Worker', async () => {
+  const { createPocket } = await import('../codex-release/pocket.mjs');
+  const requests = [];
+  const env = {
+    PROJECTS: {
+      get(name) {
+        return { fetch(request) {
+          requests.push([name, new URL(request.url).pathname, request.method]);
+          return new Response('Crosshairs test');
+        } };
+      },
+    },
+  };
+  const pocket = createPocket([]);
+  const request = path => new Request('https://example.com' + path);
+  assert.equal((await pocket.fetch(request('/work/codex-crosshairs'), env)).status, 308);
+  assert.equal(await (await pocket.fetch(request('/work/codex-crosshairs/api/views'), env)).text(), 'Crosshairs test');
+  assert.deepEqual(requests, [['tabor-codex-crosshairs', '/api/views', 'GET']]);
+  assert.equal((await pocket.fetch(request('/work/codex-crosshairs-other/api/views'), env)).status, 404);
+  assert.match(await (await pocket.fetch(request('/'), env)).text(), /href="\/work\/codex-crosshairs\/">Codex Crosshairs/);
+});

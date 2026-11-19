@@ -13,6 +13,6 @@ node --test integrations/pocket-control-plane/codex-crosshairs/checks.test.mjs
 node integrations/pocket-control-plane/codex-crosshairs/build.mjs dist-codex-crosshairs
 ```
 
-Deploy the three output ES modules together with Worker name `tabor-codex-crosshairs` and main module `worker.mjs`. The API is `GET /api/views`.
+Deploy the three output ES modules together as `tabor-codex-crosshairs` in the existing Pocket Codex dispatch namespace with main module `worker.mjs`. Open the reader at `/work/codex-crosshairs/` on Pocket Codex. The API is `GET /work/codex-crosshairs/api/views`.
 
 The Codex 1 IT edition and Nathan AI Voice Box remain reachable through their own project links in the reader.

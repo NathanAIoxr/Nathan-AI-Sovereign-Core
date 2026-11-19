@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'integrations/pocket-control-plane/codex-crosshairs/**'
+      - 'integrations/pocket-control-plane/codex-release/pocket.mjs'
       - 'integrations/pocket-control-plane/codex-release/manifest.json'
       - 'integrations/pocket-control-plane/codex-release/projects/codex-*/app.json'
       - '.github/workflows/codex-crosshairs.yml'
@@ -11,6 +12,7 @@ on:
     branches: [main]
     paths:
       - 'integrations/pocket-control-plane/codex-crosshairs/**'
+      - 'integrations/pocket-control-plane/codex-release/pocket.mjs'
       - 'integrations/pocket-control-plane/codex-release/manifest.json'
       - 'integrations/pocket-control-plane/codex-release/projects/codex-*/app.json'
       - '.github/workflows/codex-crosshairs.yml'

@@ -9,6 +9,7 @@ const sections = [
   ['recovery', 'Original-source recovery'],
 ];
 
+const CROSSHAIRS = '/work/codex-crosshairs';
 const GITHUB = 'NathanAIoxr/Nathan-AI-Sovereign-Core';
 const KV_KEY = 'codex-build-check:v1';
 const GITHUB_KEY = 'codex-github-build:v1';
@@ -99,6 +100,16 @@ export function createPocket(projects) {
       const head = request.method === 'HEAD';
       if (!head && request.method !== 'GET') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD' } });
       const path = url.pathname;
+      if (path === CROSSHAIRS) return Response.redirect(new URL(CROSSHAIRS + '/', url), 308);
+      if (path.startsWith(CROSSHAIRS + '/')) {
+        const target = new URL('https://station.internal');
+        target.pathname = path.slice(CROSSHAIRS.length);
+        try {
+          return await env.PROJECTS.get('tabor-codex-crosshairs').fetch(new Request(target, { method: request.method }));
+        } catch {
+          return json({ error: 'project_unavailable', id: 'codex-crosshairs' }, 503);
+        }
+      }
       const match = /^\/work\/([a-z0-9-]+)(\/.*)?$/.exec(path);
       let result;
       if (match) {
@@ -113,7 +124,7 @@ export function createPocket(projects) {
         }
       }
       const tab = url.searchParams.get('tab') === 'github' ? 'github' : 'cloudflare';
-      const nav = '<nav aria-label="Pocket Control"><a href="/?tab=github">GitHub Pro</a><a href="/?tab=cloudflare">Clouder Pro</a><a href="/api/build-status">Build status JSON</a></nav>';
+      const nav = '<nav aria-label="Pocket Control"><a href="/?tab=github">GitHub Pro</a><a href="/?tab=cloudflare">Clouder Pro</a><a href="/api/build-status">Build status JSON</a><a href="/work/codex-crosshairs/">Codex Crosshairs</a></nav>';
       if (path === '/healthz') {
         result = json({ service: 'nathan-ai-pocket-codex', ready: Boolean(env.PROJECTS), projects: projects.length, receiptStore: Boolean(env.RECEIPTS) });
       } else if (path === '/api/catalog') {

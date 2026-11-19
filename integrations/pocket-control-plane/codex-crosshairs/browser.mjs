@@ -60,7 +60,7 @@ function renderView(view, selected, entries, text) {
 }
 
 try {
-  const response = await fetch('/api/views');
+  const response = await fetch(new URL('./api/views', document.baseURI));
   if (!response.ok) throw new Error('Could not load the Codex views.');
   const { entries, views } = await response.json();
   const index = new Map(entries.map(entry => [entry.id, entry]));
