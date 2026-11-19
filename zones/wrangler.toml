@@ -1,0 +1,26 @@
+name = "tabor-zone-holding"
+main = "packages/shared/holding-gate.js"
+compatibility_date = "2026-11-19"
+workers_dev = false
+preview_urls = false
+keep_vars = true
+
+[observability]
+enabled = false
+
+[vars]
+ACCESS_ISSUER = ""
+
+[[d1_databases]]
+binding = "ZONES"
+database_name = "tabor-zone-holding"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "STAGING"
+bucket_name = "tabor-zone-holding-assets"
+
+[[kv_namespaces]]
+binding = "HOLDING_CONFIG"
+id = "00000000000000000000000000000000"
