@@ -1,3 +1,5 @@
+import {syncTabor, TABOR_CRON, taborFlow} from "./tabor-flow.mjs";
+
 const RELEASE = "library-assignments-2";
 const WINDOW = 15 * 60 * 1000;
 const WORLD = "https://tabor-universal-library-engine.nathantaboract.workers.dev";
@@ -143,7 +145,7 @@ export async function run(env, now) {
 const escape = value => String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function dashboard(data) {
   const section = data.tasks.map(t => `<article><h2>${escape(t.title)}</h2><p><strong>Bot</strong> ${escape(t.bot)}<br><strong>Agent</strong> ${escape(t.agent)}</p><p>${escape(t.nextAction)}</p><p class="state">${escape(t.review.note)}</p></article>`).join("");
-  return new Response(`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Library of Tabor Task Assignments</title><style>:root{color-scheme:dark;font:17px/1.55 system-ui;background:#0a1b17;color:#f7edcf}body{max-width:68rem;margin:auto;padding:clamp(1rem,5vw,4rem)}a{color:#f6c976;text-underline-offset:.2em}h1,h2{line-height:1.12}h1{font:clamp(2.6rem,7vw,5rem)/1 Georgia,serif;margin:.5rem 0 1rem}h2{font:1.65rem/1.15 Georgia,serif;margin:.2rem 0}section{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:.8rem}article{padding:1rem;border:1px solid #9b8054;background:#142820}p{margin:.65rem 0}.state{color:#cfcea9}footer{margin-top:1.5rem}</style><main><a href="https://tabor-world.nathantaboract.workers.dev/library/">Library of Tabor</a><h1>Task assignments</h1><p id="summary">${data.tasks.length} tasks · World release ${escape(data.release)}</p><p id="receipt">${data.checkedAt ? "Bot and agent checks recorded " + escape(data.checkedAt) : "First scheduled checks pending."}</p><section aria-label="Task assignments">${section}</section><footer><a href="/api/assignments">Assignments JSON</a> · <a href="${WORLD}/world/#release-notes">World release ledger</a></footer></main></html>`, {headers: {
+  return new Response(`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Library of Tabor Task Assignments</title><style>:root{color-scheme:dark;font:17px/1.55 system-ui;background:#0a1b17;color:#f7edcf}body{max-width:68rem;margin:auto;padding:clamp(1rem,5vw,4rem)}a{color:#f6c976;text-underline-offset:.2em}h1,h2{line-height:1.12}h1{font:clamp(2.6rem,7vw,5rem)/1 Georgia,serif;margin:.5rem 0 1rem}h2{font:1.65rem/1.15 Georgia,serif;margin:.2rem 0}section{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:.8rem}article{padding:1rem;border:1px solid #9b8054;background:#142820}p{margin:.65rem 0}.state{color:#cfcea9}footer{margin-top:1.5rem}</style><main><a href="https://tabor-world.nathantaboract.workers.dev/library/">Library of Tabor</a><h1>Task assignments</h1><p id="summary">${data.tasks.length} tasks · World release ${escape(data.release)}</p><p id="receipt">${data.checkedAt ? "Bot and agent checks recorded " + escape(data.checkedAt) : "First scheduled checks pending."}</p><section aria-label="Task assignments">${section}</section><footer><a href="/find-the-tabor">FIND THE TABOR flow</a> · <a href="/api/assignments">Assignments JSON</a> · <a href="${WORLD}/world/#release-notes">World release ledger</a></footer></main></html>`, {headers: {
     "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff",
     "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'",
   }});
@@ -168,6 +170,10 @@ export default {
   async fetch(req, env) {
     const path = new URL(req.url).pathname;
     if (req.method !== "GET") return new Response(null, {status: 405, headers: {Allow: "GET"}});
+    if (path === "/find-the-tabor" || path === "/api/find-the-tabor") {
+      try {return await taborFlow(path, env);}
+      catch {return asJSON({error: "FIND THE TABOR receipts unavailable"}, 503);}
+    }
     if (!["/", "/api/assignments", "/health"].includes(path)) return asJSON({error: "Route not found"}, 404);
     try {
       const data = await status(env);
@@ -182,6 +188,7 @@ export default {
     }
   },
   async scheduled(controller, env) {
+    if (controller.cron === TABOR_CRON) return syncTabor(env, controller.scheduledTime);
     await run(env, controller.scheduledTime);
   },
 };

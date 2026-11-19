@@ -37,3 +37,13 @@ The open editions can also run as static files on the existing GitHub Pages publ
 - Cloudflare R2: https://pub-75a950dc4e3b4f8cba13da7b7bceac9f.r2.dev/lineage/index.html
 
 Run `node projects/find-the-tabor/portable.mjs` after the two build scripts to regenerate the public files.
+
+## Assignments and publication flow
+
+The weekly FIND THE TABOR task advances one research question. The daily source-check runner records link availability. A reviewed edit goes through the project build and its public manifest check. On main, the active Library of Tabor Assignments Worker reads the committed manifest, verifies the approved paths and SHA-256 values, and syncs changed assets into the existing public R2 bucket. A D1 receipt records the manifest, the stored file count and public parity for all nine edition health records. The provenance rules and book source files still govern editorial work.
+
+- Flow dashboard: https://library-of-tabor-assignments.nathantaboract.workers.dev/find-the-tabor
+- Receipt JSON: https://library-of-tabor-assignments.nathantaboract.workers.dev/api/find-the-tabor
+- Public manifest: [release.json](public/release.json)
+
+The sync runs every five minutes, offset from the Library assignment schedule. It uses the public GitHub repository and two project-scoped bindings. Apply `flow.sql` to the FIND THE TABOR research D1 database before configuring the Worker. When regenerating the public edition assets for a change, run `node projects/find-the-tabor/release.mjs` after `portable.mjs`.
