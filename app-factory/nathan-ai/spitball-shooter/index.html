@@ -23,6 +23,11 @@ body{background:radial-gradient(ellipse at 28% -12%,#3b3423 0%,#1f2119 38%,#1417
 .rack-button{white-space:nowrap;min-height:40px}.wallet{color:var(--gold);font-weight:750}.straw-info{flex-basis:100%;color:var(--muted);font-size:12px}
 #rack{width:min(755px,calc(100% - 22px));max-height:calc(100dvh - 24px);padding:18px}#rack h2{margin-bottom:3px}#rack p{margin:0 0 12px}.rack-top{display:flex;justify-content:space-between;align-items:start;gap:10px}.rack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:8px}.rack-card{display:grid;text-align:left;gap:5px;padding:10px;min-height:112px;background:#20271f}.rack-card[aria-pressed="true"]{border-color:#ffd473;background:#353321}.rack-card small{color:var(--muted)}.rack-cost{color:var(--gold);font-weight:750;font-size:12px}.swatch{display:block;width:52px;height:8px;border-radius:7px;background:linear-gradient(180deg,#ffffff70 0%,var(--tone) 35%,var(--tone) 67%,#151711 100%);margin:3px 0}.swatch[data-twin="true"]{box-shadow:0 4px var(--tone)}.rack-msg{color:var(--gold);min-height:22px;margin:10px 0 0}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+
+.score-guide{margin-top:12px;padding:9px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--card);color:var(--muted)}
+.score-guide summary{cursor:pointer;color:var(--gold);font-weight:750}
+.score-guide ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(138px,1fr));gap:4px 12px;padding-left:18px;margin:8px 0}
+.score-guide p{margin:8px 0 4px;font-size:13px}
 </style>
 </head>
 <body>
@@ -53,6 +58,12 @@ body{background:radial-gradient(ellipse at 28% -12%,#3b3423 0%,#1f2119 38%,#1417
 </div>
 </section>
 <div class="quick"><span class="wallet" id="wallet"></span><span>Tap or drag to aim. Hold and release to fire.</span><span>Keyboard: arrows to aim, Space to fire, D to duck.</span><span id="best"></span></div>
+<details class="score-guide">
+<summary>Gallery scorecard</summary>
+<ul id="score-values"></ul>
+<p>Sweet spot +25 · Streak +25 per prior hit (up to +150) · Ruler or wall bank +125 each · Cartoon ricochet into a prop +275.</p>
+<p>Time a wet paper shot to land between the teacher avatar’s eyes during the turn. Aim low for the cartoon seat bounce while the avatar faces the board. Each avatar bonus scores once per round.</p>
+</details>
 </main>
 <dialog id="room"><form id="settings-form">
 <h2>Classroom settings</h2>
@@ -95,7 +106,22 @@ const straws = [
   {id:"neon",name:"Neon arcade tube",speed:1.12,tint:"#de8af0",cost:95,sweet:-.025,wide:true,desc:"Fast heavy shots with an arcade trail."},
   {id:"split",name:"Twin bamboo straws",speed:.96,tint:"#9ccc78",cost:120,drift:.82,twin:true,wide:true,desc:"Twin shots that can carry heavy ammo."}
 ];
-const prop = (kind,x,y,r,extra={}) => ({kind,x,y,r,...extra});
+const targetValues = {
+  "Trash can":75,"Soda can":100,"Paper plane":160,"Paper football":225,"Mug":150,
+  "Eraser":200,"Map":250,"Projector":300,"Cheek bullseye":350,"Bank ring":450,
+  "Textbook stack":280,"Metal pencil case":340,"Final bell":550
+};
+const teacherValues = {seat:300,turn:1000,chain:275};
+const turnStart = 6.4;
+const turnEnd = 6.68;
+const prop = (kind,x,y,r,extra={}) => ({kind,x,y,r,points:targetValues[kind],...extra});
+const prizeRows = [...Object.entries(targetValues),
+  ["Cartoon seat bounce",teacherValues.seat],["Between the eyes",teacherValues.turn]];
+for (const [name,points] of prizeRows) {
+  const row = document.createElement("li");
+  row.textContent = name+" · "+points;
+  $("score-values").append(row);
+}
 const bonus = [
   prop("Mug",650,374,23,{bonus:true}), prop("Eraser",374,268,21,{bonus:true}),
   prop("Map",741,140,26,{bonus:true}), prop("Projector",135,353,26,{bonus:true}),
@@ -118,6 +144,7 @@ let selectedStraw = 0;
 let state = "intro", clock = 0, dustUntil = 0, powerAt = 0, charge = null, ducked = false;
 let alert = "safe", bullets = [], particles = [], bursts = [], targets = [], messageUntil = 0, audio;
 let muzzleAt = -10, roundTickets = 0, clearAt = null;
+let teacherCleanHits = {seat:false,turn:false}, teacherReaction = null;
 let aim = {x:450,y:235};
 const position = (target,t=clock) => ({x:target.x+(target.move||0)*Math.sin(t*1.7+(target.phase||0)),y:target.y});
 const fan = (t) => {
@@ -156,11 +183,13 @@ function primeSound() {
     audio.resume().catch(()=>{});
   }
 }
+function patrolCycle(t) { return (t+level*.55)%8.9; }
 function patrol(t=clock) {
   if (t < dustUntil) return "dust";
-  const cycle = (t+level*.55)%8.9;
-  if (cycle >= 6.4 && cycle < 8.15) return "look";
-  if (cycle >= 5.15 && cycle < 6.4) return "warn";
+  const cycle = patrolCycle(t);
+  if (cycle >= turnStart && cycle < turnEnd) return "turn";
+  if (cycle >= turnEnd && cycle < 8.15) return "look";
+  if (cycle >= 5.15 && cycle < turnStart) return "warn";
   return "safe";
 }
 function canEquip(straw) {
@@ -256,6 +285,7 @@ function setLevel(next) {
   unlocked = Math.max(level,unlocked);
   clock = 0; dustUntil = 0; combo = 0; charge = null; ducked = false;
   alert = "safe"; bullets = []; particles = []; bursts = []; muzzleAt = -10; roundTickets = 0; clearAt = null;
+  teacherCleanHits = {seat:false,turn:false}; teacherReaction = null;
   targets = [...levels[level].targets,...bonus].map(p=>({...p,hit:false,hitAt:-1}));
   aim = {x:450,y:235};
   const preferred = straws.findIndex(straw=>straw.id===settings.equipped&&canEquip(straw));
@@ -287,9 +317,9 @@ function show(next,title,copy,button) {
 }
 function hud() {
   const p = patrol();
-  const patrolLabel = {safe:"At the board",warn:"Turning soon !",look:"Looking — duck!",dust:"Chalk cloud"}[p];
+  const patrolLabel = {safe:"At the board",warn:"Turning soon !",turn:"Turning now!",look:"Looking — duck!",dust:"Chalk cloud"}[p];
   text("patrol",patrolLabel);
-  $("patrol").className = p==="look" ? "caught" : p==="warn" ? "warning" : "safe";
+  $("patrol").className = p==="look" ? "caught" : (p==="warn"||p==="turn") ? "warning" : "safe";
   text("target-count",targets.filter(t=>!t.bonus&&t.hit).length+" / "+levels[level].targets.length);
   text("score",score.toLocaleString());
   text("best","Best completed round score: "+best.toLocaleString());
@@ -329,13 +359,13 @@ function launch(amount,offset=0) {
   const range = .72/barrel.speed;
   return {x:origin.x+offset,y:origin.y,vx:(aim.x-origin.x+offset*.45)/range*velocity,
     vy:((aim.y-origin.y)/range-payload.gravity*range/2)*velocity,
-    payload,windScale:barrel.drift??1,tint:barrel.tint,trail:[],age:0,banks:0,optimal};
+    payload,windScale:barrel.drift??1,tint:barrel.tint,trail:[],age:0,banks:0,teacherBank:false,seatEligible:aim.y>=257 && aim.y<=325,optimal};
 }
 function takeShot(source) {
   if (charge !== source || state !== "playing") return;
   const amount = power();
   charge = null;
-  if (patrol()==="look") {
+  if (["turn","look"].includes(patrol())) {
     combo = 0;
     bullets = [];
     sound("bad");
@@ -383,20 +413,54 @@ function hit(target,shot,point) {
   if ((target.armor||0)>shot.payload.force) { say("Armored target. Equip eraser & clay."); return; }
   target.hit = true; target.hitAt = clock; combo++;
   if (target.kind==="Eraser") dustUntil=clock+3.6;
-  const multiplier = target.kind==="Cheek bullseye" ? 2 : 1;
-  const points = multiplier*(100+Math.min(combo-1,6)*25+(target.bonus?50:0)+shot.banks*125+(shot.optimal?25:0));
+  const points = target.points+Math.min(combo-1,6)*25+shot.banks*125+
+    (shot.optimal?25:0)+(shot.teacherBank?teacherValues.chain:0);
   score += points;
   roundTickets += target.bonus ? 12 : 8;
   if (shot.banks) roundTickets += 5;
   bursts.push({x:point.x,y:point.y,born:clock,label:"+"+points,color:target.bonus?"#a9f1ce":"#ffe3a4"});
-  const reaction = {Mug:"Coffee spill!",Eraser:"Chalk cloud!",Map:"Map snap! Globe spin!",Projector:"Lights on!","Cheek bullseye":"Cardboard bullseye ×2!"}[target.kind] || (shot.banks?"Bank shot!":target.kind+" down!");
-  say(reaction+" +"+points);
+  const reaction = {Mug:"Coffee spill!",Eraser:"Chalk cloud!",Map:"Map snap! Globe spin!",Projector:"Lights on!","Cheek bullseye":"Cardboard bullseye!"}[target.kind] || (shot.banks?"Bank shot!":target.kind+" down!");
+  say((shot.teacherBank?"Ricochet combo! ":"")+reaction+" +"+points);
   sound("hit");
   for (let i=0;i<(reduceMotion?4:24);i++) {
     const angle = i*2.4;
     const speed = 55+Math.random()*150;
     particles.push({x:point.x,y:point.y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed-40,life:.45+Math.random()*.28,color:i%3?"#ffe9b8":"#a9f1ce"});
   }
+}
+function teacherPosition(t=clock) {
+  const stride = reduceMotion ? 0 : Math.sin(t*6)*5*Math.abs(Math.cos(t*.85));
+  return {x:505+64*Math.sin(t*.85),y:258-Math.abs(stride)*.25,stride};
+}
+function teacherTargets(phase) {
+  const {x,y} = teacherPosition();
+  if (phase==="turn" && !teacherCleanHits.turn) return {kind:"turn",x,y:y-44,rx:6,ry:5};
+  if (["safe","warn","dust"].includes(phase) && !teacherCleanHits.seat) {
+    return {kind:"seat",x,y:y+26,rx:19,ry:9};
+  }
+  return null;
+}
+function hitTeacher(shot,phase) {
+  if (shot.teacherBank || shot.payload.force!==1) return null;
+  const zone = teacherTargets(phase);
+  if (!zone || (zone.kind==="seat" && !shot.seatEligible)) return null;
+  const nx = (shot.x-zone.x)/zone.rx, ny = (shot.y-zone.y)/zone.ry;
+  if (nx*nx+ny*ny>1) return null;
+  teacherCleanHits[zone.kind] = true;
+  teacherReaction = {kind:zone.kind,born:clock};
+  const points = teacherValues[zone.kind];
+  score += points;
+  const label = zone.kind==="turn" ? "Between the eyes!" : "Cartoon seat bounce!";
+  say(label+" +"+points);
+  bursts.push({x:zone.x,y:zone.y,born:clock,label:"+"+points,color:"#ffe286"});
+  sound(zone.kind==="turn"?"clear":"bank");
+  if (zone.kind==="turn") return "stop";
+  // The padded cartoon target sends the paper back toward the desks.
+  // The horizontal contact point controls which side of the gallery it reaches.
+  shot.vx = shot.vx*.25 + nx*570;
+  shot.vy = 115 + Math.abs(shot.vy)*.48;
+  shot.teacherBank = true;
+  return "bounce";
 }
 function step(dt) {
   clock += dt;
@@ -423,7 +487,7 @@ function step(dt) {
         return false;
       }
     }
-    return true;
+    return hitTeacher(shot,p)!=="stop";
   });
   particles = particles.filter(bit=>{
     bit.life-=dt; bit.x+=bit.vx*dt; bit.y+=bit.vy*dt; bit.vy+=200*dt;
@@ -593,19 +657,30 @@ function roomArt() {
   }
 }
 function teacherArt() {
-  const phase=patrol(), x=505+64*Math.sin(clock*.85);
-  const stride = reduceMotion ? 0 : Math.sin(clock*6)*5*Math.abs(Math.cos(clock*.85));
-  const y = 258-Math.abs(stride)*.25;
+  const phase=patrol(), {x,y,stride}=teacherPosition();
+  const facesPlayer = phase==="look" || phase==="turn";
+  const elapsed = teacherReaction ? clock-teacherReaction.born : Infinity;
   oval(x,y+57,31,6,"#382f2681");
   line([[x-11,y+16],[x-13+stride,y+54],[x-22+stride,y+54]],"#493b35",8);
   line([[x+11,y+16],[x+12-stride,y+54],[x+21-stride,y+54]],"#493b35",8);
   shape([[x-12,y-31],[x+15,y-31],[x+23,y+28],[x-22,y+28]],"#7b5b75");
   line([[x+12,y-21],[x+26,y-8],[x+34,y-21]],"#7b5b75",7);
-  oval(x,y-43,14,16,phase==="look"?"#d9a477":"#584039");
-  if (phase==="look") {
+  const headWidth = phase==="turn" && !reduceMotion ? 6+8*(patrolCycle(clock)-turnStart)/(turnEnd-turnStart) : 14;
+  oval(x,y-43,headWidth,16,facesPlayer?"#d9a477":"#584039");
+  if (facesPlayer) {
     oval(x-4,y-44,1.6,2,"#493b35"); oval(x+4,y-44,1.6,2,"#493b35");
   }
-  if (phase==="warn"||phase==="look") {
+  if (elapsed<.45) {
+    const yMark = teacherReaction.kind==="turn" ? y-44 : y+26;
+    oval(x,yMark,4,4,"#fff2cc","#efd28e");
+  }
+  const zone = state==="playing" ? teacherTargets(phase) : null;
+  if (zone) {
+    ctx.setLineDash([3,4]);
+    oval(zone.x,zone.y,zone.rx+2,zone.ry+2,null,zone.kind==="turn"?"#fff18b":"#efffff8c");
+    ctx.setLineDash([]);
+  }
+  if (phase==="warn"||facesPlayer) {
     oval(x,y-76,12,12,phase==="warn"?"#ffd473":"#ffab8c");
     label("!",x,y-70,"#211a14",17);
   }
@@ -665,7 +740,8 @@ function targetArt(t) {
     ctx.setLineDash(t.bonus?[3,5]:[]);
     oval(0,0,t.r,t.r,null,t.bonus?"#ffe9b497":"#ffe784");
     ctx.setLineDash([]);
-    if (!t.bonus) label(t.kind,0,-t.r-6,"#fff4cf",13);
+    if (!t.bonus) label(t.kind+" · "+t.points,0,-t.r-6,"#fff4cf",13);
+    else label(String(t.points),0,-t.r-5,"#ffe9b8",12);
   }
   ctx.restore();
 }
