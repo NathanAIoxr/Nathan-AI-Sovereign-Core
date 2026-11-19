@@ -1,0 +1,30 @@
+{
+  "dossier": "holy-grail",
+  "assignment_priority": 4,
+  "research_question": "Trace the earliest dated inventory for each proposed surviving vessel and document its chain of custody.",
+  "author_source": {
+    "path": "standalone-apps/artifacts-of-the-world/original.txt",
+    "exact_excerpt": "to the holy Grail to the Ark of the covenant",
+    "supports": "The author includes the holy Grail in the proposed artifacts collection; not evidence of a surviving object."
+  },
+  "research_leads": [
+    {
+      "source": "Chrétien de Troyes, Perceval, or the Story of the Grail",
+      "source_type": "medieval literary narrative",
+      "supports": "A literary Grail tradition to investigate, not an authenticated inventory of a surviving vessel.",
+      "date_status": "requires edition and manuscript witness verification"
+    },
+    {
+      "source": "Robert de Boron, Joseph d'Arimathie",
+      "source_type": "medieval literary narrative",
+      "supports": "A later literary association to investigate, not proof of physical custody.",
+      "date_status": "requires edition and manuscript witness verification"
+    }
+  ],
+  "candidate_vessels": [],
+  "earliest_verified_inventory": null,
+  "custody_chain": [],
+  "identity_status": "unverified",
+  "publication_status": "research_only_pending_source_review",
+  "note": "No named surviving vessel is asserted without an identified primary inventory, dated record, and independently traceable custody links."
+}
