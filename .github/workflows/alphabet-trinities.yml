@@ -1,0 +1,67 @@
+name: Alphabet Trinities
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/alphabet-trinities/**'
+      - '.github/workflows/alphabet-trinities.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/alphabet-trinities/**'
+      - 'standalone-apps/tabor-app-runtime/tabor-app-dispatch.mjs'
+      - '.github/workflows/alphabet-trinities.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-and-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-factory/nathan-ai/alphabet-trinities
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Verify generated web files and EPUBs
+        run: |
+          node generate-pages.mjs --check
+          python3 build-books.py --check
+      - run: node --test check.test.mjs
+      - name: Verify the independent hardware module
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes iverilog
+          hardware=public/alphabet-hardware
+          iverilog -g2012 -s alphabet_registers_tb -o "$RUNNER_TEMP/alphabet-registers" \
+            "$hardware/alphabet-registers.sv" "$hardware/alphabet-registers-tb.sv"
+          vvp "$RUNNER_TEMP/alphabet-registers"
+      - run: node build.mjs "$RUNNER_TEMP/alphabet-trinities"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: alphabet-trinities-workers
+          path: ${{ runner.temp }}/alphabet-trinities
+          if-no-files-found: error
+
+  publish:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: verify-and-build
+    concurrency: alphabet-trinities-deploy
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          name: alphabet-trinities-workers
+          path: alphabet-trinities-build
+      - run: node app-factory/nathan-ai/alphabet-trinities/deploy.mjs alphabet-trinities-build

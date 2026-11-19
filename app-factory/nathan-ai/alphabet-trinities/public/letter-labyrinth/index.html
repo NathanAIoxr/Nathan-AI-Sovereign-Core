@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#141b19"><meta name="description" content="Rebuild each letter’s original order using as few turns as possible.">
+<title>Letter Labyrinth · Nathan Tabor</title>
+<link rel="stylesheet" href="../common/style.css">
+<!-- github-pages-shell:start -->
+<link rel="stylesheet" href="../../../appearance/shared.css" data-nathan-shared-appearance>
+<link rel="stylesheet" href="../../../launcher/shared.css" data-nathan-command-center>
+<script src="../../../appearance/engine.js"></script>
+<script src="../../../appearance/app.js" defer></script>
+<script src="../../../workspace.js" defer></script>
+<script src="../../../assistant/engine.js" defer></script>
+<script src="../../../launcher/engine.js" defer></script>
+<script src="../../../launcher/app.js" defer></script>
+<!-- github-pages-shell:end -->
+
+<script type="module" src="./main.mjs"></script>
+</head>
+<body>
+<aside id="nathan-record-notice" aria-label="Timestamped record" style="display:block!important;position:relative!important;box-sizing:border-box!important;grid-column:1/-1;flex:0 0 100%;width:100%;padding:12px 16px;margin:0;background:#fff0b3!important;color:#161616!important;border-bottom:3px solid #161616;font:600 16px/1.5 system-ui,sans-serif;text-align:left;overflow-wrap:anywhere;"><a href="../../../../../docs/record/index.html" style="color:#161616!important;text-decoration:underline!important;">READ THE TIMESTAMPED RECORD — Nathan Tabor / ChatGPT</a><span style="display:block;font-size:14px;font-weight:400;color:#161616!important;">Repository changes, authorship complaints, correction claims, and unfinished work. Record opened November 5, 2026, 7:42:08 p.m. EST.</span></aside>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-nav wrap"><a class="brand" href="../alphabet-trinities/">NATHAN TABOR</a>
+<nav aria-label="Project navigation"><a href="../alphabet-trinities/#projects">Projects</a><a href="../alphabet-books/">Books</a><a href="../alphabet-trinities/">Alphabet Trinities</a></nav></header>
+<main class="wrap" id="main">
+<header class="hero"><h1>Letter Labyrinth</h1><p class="lede">Rebuild each letter’s original order using as few turns as possible.</p></header>
+<section class="block"><h2>Restore the sequence</h2>
+<p>Select two tiles to swap them. Put each trio back in its original order. Compare moves against the par of two.</p>
+<div class="row"><label>Trinity <select id="chapter"><option>A</option><option>B</option><option>C</option><option>G</option><option>H</option><option>I</option><option>J</option><option>K</option><option>L</option><option>M</option><option>N</option><option>O</option><option>P</option><option>Q</option><option>R</option><option>S</option><option>T</option><option>U</option><option>V</option><option>W</option><option>X</option><option>Y</option><option>Z</option></select></label>
+<button type="button" id="reset">Reset puzzle</button></div>
+<div class="row" id="tiles" aria-label="Current sequence"></div>
+<p id="moves" role="status" class="status"></p>
+<details><summary>Read the order clue</summary><p id="hint"></p></details>
+</section>
+</main>
+<footer class="wrap"><nav aria-label="Related projects"><a href="https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/archive-index/alphabet/">A–Z Archive</a><a href="https://one-sovereign-hub.nathantaboract.workers.dev/apps.html">ONE App Hub</a><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/alphabet-trinities">GitHub source</a></nav>
+</footer>
+</body>
+</html>
