@@ -1,0 +1,10 @@
+name = "nathan-ai-zeros-and-ones"
+main = "src/index.js"
+compatibility_date = "2026-11-19"
+workers_dev = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nathan-ai-zeros-and-ones"
+database_id = "b2fe07ab-0fb1-4aad-8cd1-e1a7ba0ddc7a"
+migrations_dir = "migrations"

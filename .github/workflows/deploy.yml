@@ -1,0 +1,120 @@
+name: Zeros and Ones · D1 and Worker
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: zeros-and-ones-production
+  queue: max
+
+defaults:
+  run:
+    shell: bash
+    working-directory: deployments/zeros-and-ones
+
+jobs:
+  production:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      DATABASE_NAME: nathan-ai-zeros-and-ones
+      DISPATCH_NAMESPACE: nathan-tabor-platforms
+      HEALTH_URL: https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/zeros-and-ones/health
+      WRANGLER_SEND_METRICS: 'false'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: deployments/zeros-and-ones/package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Check local migration and Worker bundle
+        if: github.event_name != 'schedule'
+        run: |
+          npx --no-install wrangler d1 migrations apply "$DATABASE_NAME" --local
+          npx --no-install wrangler deploy --dispatch-namespace "$DISPATCH_NAMESPACE" --dry-run --outdir "$RUNNER_TEMP/zeros-and-ones-build"
+
+      - name: Check that this revision still heads main
+        if: github.event_name != 'schedule'
+        id: head
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          latest_sha="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq '.object.sha')"
+          if [[ "$latest_sha" == "$GITHUB_SHA" ]]; then
+            echo 'current=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'A newer commit heads main. Its workflow run will handle deployment.'
+            echo 'current=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Apply remote D1 migrations
+        if: github.event_name != 'schedule' && steps.head.outputs.current == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          : "${CLOUDFLARE_API_TOKEN:?Set the GitHub Actions secret CLOUDFLARE_API_TOKEN}"
+          : "${CLOUDFLARE_ACCOUNT_ID:?Set the GitHub Actions secret CLOUDFLARE_ACCOUNT_ID}"
+          npx --no-install wrangler d1 migrations apply "$DATABASE_NAME" --remote
+
+      - name: Deploy Worker after D1 migrations
+        if: github.event_name != 'schedule' && steps.head.outputs.current == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --no-install wrangler deploy --dispatch-namespace "$DISPATCH_NAMESPACE" --var "RELEASE_SHA:$GITHUB_SHA"
+
+      - name: Check Worker health and D1 access
+        if: github.event_name == 'schedule' || steps.head.outputs.current == 'true'
+        run: |
+          for attempt in 1 2 3 4 5; do
+            if curl --fail --silent --show-error --max-time 15 "$HEALTH_URL" |
+                jq --exit-status --arg sha "$GITHUB_SHA" --arg event "$GITHUB_EVENT_NAME" '
+                  .status == "ok" and (.release | test("^[0-9a-f]{40}$"))
+                  and ($event == "schedule" or .release == $sha)
+                ' >/dev/null; then
+              echo 'Verified Worker health, release identity, and D1 access.'
+              exit 0
+            fi
+            sleep 4
+          done
+          echo 'Worker did not return the expected health response.' >&2
+          exit 1
+
+      - name: Back up D1 to private R2
+        if: ${{ !cancelled() && github.event_name == 'schedule' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          BACKUP_BUCKET: nathan-ai-zeros-and-ones-backups
+        run: |
+          : "${CLOUDFLARE_API_TOKEN:?Set the GitHub Actions secret CLOUDFLARE_API_TOKEN}"
+          : "${CLOUDFLARE_ACCOUNT_ID:?Set the GitHub Actions secret CLOUDFLARE_ACCOUNT_ID}"
+          umask 077
+          export_dir="$(mktemp -d "$RUNNER_TEMP/zeros-and-ones-backup.XXXXXX")"
+          trap 'rm -rf -- "$export_dir"' EXIT
+          npx --no-install wrangler d1 export "$DATABASE_NAME" --remote \
+            --skip-confirmation --output "$export_dir/database.sql"
+          test -s "$export_dir/database.sql"
+          gzip "$export_dir/database.sql"
+          gzip --test "$export_dir/database.sql.gz"
+          backup_date="$(date -u +%F)"
+          object_key="d1/$DATABASE_NAME/$backup_date/$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT.sql.gz"
+          npx --no-install wrangler r2 object put "$BACKUP_BUCKET/$object_key" --remote \
+            --file "$export_dir/database.sql.gz" --content-type application/gzip
+          printf 'Backup object: %s\n' "$object_key" >> "$GITHUB_STEP_SUMMARY"

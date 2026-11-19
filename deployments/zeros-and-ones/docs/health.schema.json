@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Zeros and Ones Worker health response",
+  "type": "object",
+  "required": ["status", "release"],
+  "additionalProperties": false,
+  "properties": {
+    "status": {"enum": ["ok", "unavailable"]},
+    "release": {"type": "string", "pattern": "^(local|[0-9a-f]{40})$"}
+  }
+}
