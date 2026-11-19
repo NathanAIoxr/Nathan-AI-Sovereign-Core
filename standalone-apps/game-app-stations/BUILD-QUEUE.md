@@ -60,4 +60,4 @@ ORDER BY CASE WHEN q.status = 'generated' THEN 0
 
 Generated drafts require review, app-specific tests, and an authorized release. An audit, draft, or related reference does not complete the station. The existing Cloudflare Supercomputer can compute a digest for the batch metadata. Continue to use GitHub-hosted runners for app builds.
 
-The GitHub Actions and [Cloudflare Build Loop console](https://tabor.build/console/) can be opened on mobile. Clouder Pro is an external mobile client with separate account authorization. The project uses existing Cloudflare and GitHub connections for API operations.
+The GitHub Actions and [Cloudflare Build Loop console](https://tabor-build-loop.nathantaboract.workers.dev/console/) can be opened on mobile. Clouder Pro is an external mobile client with separate account authorization. The project uses existing Cloudflare and GitHub connections for API operations.
