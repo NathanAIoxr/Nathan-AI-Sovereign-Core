@@ -36,6 +36,14 @@ The `nathan-ai-1000-concordance` Worker intentionally provides a small, bounded 
 
 **Glottolog attribution:** Glottolog CLDF v5.4, Harald Hammarström, Robert Forkel, Martin Haspelmath and Sebastian Bank, CC BY 4.0, https://glottolog.org/meta/downloads.
 
+## Live deployment confirmation
+
+Cloudflare API confirmed the `nathan-ai-1000-concordance` script was uploaded with the `fetch` and `scheduled` handlers, automatically deployed at **100% traffic**, and has the expected `COCKPIT`, `LANGUAGES`, and `PLATFORMS` bindings. The `17 */6 * * *` schedule and workers.dev subdomain were read back successfully.
+
+Expected public endpoint: https://nathan-ai-1000-concordance.nathantaboract.workers.dev/api/summary
+
+A direct HTTP response could **not** be smoke-tested from this execution environment because DNS resolution to workers.dev was unavailable. The per-script runtime invocation path and the first scheduled reconciliation remain unverified. The search SQL itself was executed successfully against the bound D1 database (sample query `Zulu` yielded 3 records). An integrity audit confirmed 1,000 matching source ETags, 1,000 valid JSON snapshots, and 989 shard datasets totaling 27,275 records.
+
 ## Deployment
 
 Deploy with this integration's `wrangler.toml` or an equivalent Cloudflare API upload, then verify the three bindings and public health/search endpoints. The existing scripts are untouched. Scheduled reconciliation is `17 */6 * * *` UTC. Archive size/counts should be verified from D1 rather than inferred from the manifest.
