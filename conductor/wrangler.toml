@@ -1,0 +1,9 @@
+name = "sovereign-conductor"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+[[d1_databases]]
+binding = "REGISTRY"
+database_name = "tabor-fleet-registry"
+database_id = "00e422eb-5222-4892-8f90-74aaf8ab0518"
