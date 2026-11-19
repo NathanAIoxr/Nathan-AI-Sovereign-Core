@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#121f24">
+<title>Sorting Hats &amp; Hatettes · UNBOUND</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icon-192.png" type="image/png">
+<link rel="stylesheet" href="/style.css">
+<script type="module" src="/game.mjs"></script>
+</head>
+<body>
+<header><a href="/" class="logo">HATS &amp; HATETTES</a><nav><a href="#play">Play</a><a href="/series">Books</a><a href="#install">Install</a></nav></header>
+<main>
+<section class="hero">
+<div><p class="tag">NATHAN TABOR / NATHAN AI</p><h1>Sorting Hats<br>&amp; Hatettes<span>.</span></h1><p class="subtitle">UNBOUND</p><p>“stop the HATERS - find your hat or hatette - for all dudes and dudettes - want to use other words - fine - whatca thinking?”</p><div class="actions"><a class="primary" href="#play">Enter the realms</a><a href="/series">The 13-book series →</a></div></div>
+<div class="art" aria-hidden="true"><i class="orbit outer"></i><i class="orbit inner"></i><i class="hat"></i><span class="pi">π</span><span class="phi">φ</span><span class="star">✦</span></div>
+</section>
+<section class="section" id="play">
+<p class="tag">ABOVE · HERE · THERE · OVER THERE · BELOW · NOWHERE</p><h2>Choose your own hat</h2>
+<p>Pick a letter, claim a matched pair, then turn the dial through π and φ to unlock each realm. All 2,498 hats and hatettes are available through the catalog controls.</p>
+<div class="stats" id="progress" aria-live="polite"></div>
+<div class="board">
+<section><h3>Realm map</h3><div id="realms" class="choices"></div><h4 id="realm-name"></h4><p id="realm-copy"></p><p id="history" hidden><a href="https://historicengland.org.uk/research/current/discover-and-understand/coastal-and-marine/unpathd-waters/activities/lands-beneath-sea/">Read about the real Doggerland landscape</a></p></section>
+<section><h3>Hat &amp; hatette catalog</h3><div class="fields"><label>Direction<select id="direction"><option>A to Z</option><option>Z to A</option></select></label><label>Letter<select id="letter"></select></label><label>Material<select id="material"></select></label></div><label class="winter"><input type="checkbox" id="winter"> Santa’s cap &amp; its equal, the Solstice Crown</label><div id="pair" class="pair"></div><button id="claim">Claim this pair</button></section>
+<section><h3>Open the gate</h3><p id="clue"></p><div class="choices"><button id="pi">Turn to π</button><button id="phi">Turn to φ</button><button id="gate" class="primary">Try the gate</button></div><p id="dial"></p><p id="status" role="status"></p></section>
+<section><h3>The suffix spinner</h3><label for="word">Choose a name for your own gear</label><div class="actions"><input id="word" maxlength="36" placeholder="dude"><button id="spin">Spin it</button></div><p id="flipped" aria-live="polite"></p><p class="fine">Hat → hatette → haters is creative wordplay. The game lets you choose your label and clear the labels someone else puts on you.</p></section>
+</div>
+</section>
+<section class="section" id="install"><h2>Take the realms offline</h2><p>Install the web app after your first online visit. On iPhone, open the site in Safari, tap Share, and choose Add to Home Screen.</p><button id="install-button" class="primary" hidden>Install web app</button></section>
+</main>
+<footer><a href="/series">All 13 volumes</a><a href="https://tabor-word-rotations.nathantaboract.workers.dev/word-history/two-plate-reckoning/">The Two-Plate Reckoning</a></footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#3b1717">
+<title>The Two-Plate Reckoning</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icon-192.png" type="image/png">
+<link rel="stylesheet" href="/style.css">
+<script type="module" src="/game.mjs"></script>
+</head>
+<body>
+<header class="top"><a href="/" class="logo">THE SUNDAY BUFFET</a><nav><a href="#play">Play</a><a href="/book">Book</a><a href="#install">Install</a></nav></header>
+<main>
+<section class="hero">
+<div><p class="eyebrow">NATHAN TABOR / NATHAN AI</p><h1>The Two-Plate<br>Reckoning<span>.</span></h1><p class="lede">Amen at 11:55. Ranch at 12:10.</p><p>Two plates each for a fictional IFB preacher and his wife. Stack it his way or work the rim her way. Then settle the check.</p><div class="actions"><a class="primary" href="#play">Clear the aisle</a><a href="/book">Read the book →</a></div></div>
+<div class="art" aria-hidden="true"><div class="plate one"><i></i></div><div class="plate two"><i></i></div><div class="receipt-art">SUNDAY LUNCH<br>──────────<br>2 × BUFFET<br>TIP 20%<br>──────────<br>1 + 1 = 2</div></div>
+</section>
+<section id="play" class="section">
+<p class="eyebrow">PLAY THE SUNDAY SHIFT</p><h2>Build both plates</h2>
+<p>Match the portions and the serving order. His hot food goes down first. Her sides go around the rim. Each completed plate moves you one step closer to the check.</p>
+<div id="roles" class="choices" aria-label="Choose a character"></div>
+<div class="board">
+<section><h3 id="dish-title">Plate 1</h3><p id="method"></p><div id="target" class="pills"></div><ol id="stack"></ol><p id="status" role="status"></p></section>
+<section><h3>Buffet line</h3><div id="menu" class="menu"></div><div class="actions"><button type="button" id="undo">Undo last scoop</button><button type="button" id="serve" class="primary">Serve plate</button></div></section>
+</div>
+<section id="checkout" class="board" hidden>
+<div><h3>Settle the check</h3><p id="amount"></p><label>Table requests<select id="service"><option value="together">Ask for the refills and ranch together</option><option value="separate">Call the server over three times</option></select></label><label>Tip on the $36.00 table bill<select id="tip"><option value="20">20% cash or card</option><option value="10">10% cash or card</option><option value="0">Imitation bill / tract</option></select></label><button id="close-check" class="primary">Print receipt</button></div>
+<div><h3>Sunday receipt</h3><div id="ledger" aria-live="polite"></div></div>
+</section>
+</section>
+<section class="section" id="install"><h2>Take the buffet with you</h2><p>Install the web app to play offline after your first visit. On iPhone, open this site in Safari, tap Share, then Add to Home Screen.</p><button id="install-button" class="primary" hidden>Install web app</button></section>
+</main>
+<footer><a href="/book">Read the book & server accounts</a><a href="https://tabor-word-rotations.nathantaboract.workers.dev/word-history/sorting-hats-hatettes/">Sorting Hats & Hatettes</a></footer>
+</body></html>
