@@ -1,0 +1,60 @@
+{
+  "dossier": "catalog",
+  "revision": "2026-11-19",
+  "question": "Does the creator's provisional count of 16 describe the entire inventory or a subset?",
+  "status": "open",
+  "source_records": [
+    {
+      "id": "creator-original",
+      "type": "creator_statement",
+      "citation": "standalone-apps/artifacts-of-the-world/original.txt",
+      "exact_excerpt": "I believe 16 different artifacts",
+      "supports": "The creator proposed a provisional count of 16.",
+      "does_not_support": "That 16 is an externally verified total or that every position has an identified object."
+    },
+    {
+      "id": "repository-register",
+      "type": "project_structure",
+      "citation": "standalone-apps/artifacts-of-the-world/build.mjs",
+      "supports": "The existing provisional register names four objects and leaves twelve placeholders unresolved.",
+      "does_not_support": "Identification or custody of the twelve unnamed positions."
+    }
+  ],
+  "named_candidates": [
+    {
+      "id": "staff-of-moses",
+      "evidence": "named_in_creator_statement",
+      "custody": "unresolved"
+    },
+    {
+      "id": "cleopatra-staff",
+      "evidence": "named_in_creator_statement",
+      "custody": "unresolved"
+    },
+    {
+      "id": "holy-grail",
+      "evidence": "named_in_creator_statement",
+      "custody": "unresolved"
+    },
+    {
+      "id": "ark-of-the-covenant",
+      "evidence": "named_in_creator_statement",
+      "custody": "unresolved"
+    }
+  ],
+  "unidentified_positions": 12,
+  "scope_hypotheses": [
+    {
+      "id": "whole-inventory",
+      "label": "16 is the complete intended artifact inventory",
+      "status": "unverified"
+    },
+    {
+      "id": "subset",
+      "label": "16 describes a subset of a larger inventory",
+      "status": "unverified"
+    }
+  ],
+  "research_boundary": "Creator wording is not independent historical verification. No new artifact identities, physical locations, chains of custody, or source dates are inferred.",
+  "next_evidence": "Find a dated, creator-authored list identifying the sixteen positions and whether the count is exhaustive. Keep twelve placeholders open until a source names them."
+}

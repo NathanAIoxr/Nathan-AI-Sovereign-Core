@@ -99,7 +99,7 @@ export function render(app, apps, original, assignments) {
   const index = `<section id="record" aria-labelledby="original"><h2 id="original">Nathan Tabor’s original words</h2><blockquote>${h(original)}</blockquote><p><a href="/original.txt">Download the original text</a></p></section>
 <section aria-labelledby="artifacts"><h2 id="artifacts">Named artifacts</h2><div class="cards">${cards(artifacts)}</div>
 <p>The original says “I believe 16 different artifacts.” It names four objects here. The scope of the number and the remaining names are open.</p>
-<p><a href="/api/catalog">Catalog and provisional artifact register (JSON)</a></p></section>
+<p><a href="/api/catalog">Catalog and provisional artifact register (JSON)</a> · <a href="/api/scope">Count-of-16 evidence and open hypotheses (JSON)</a></p></section>
 <section aria-labelledby="themes"><h2 id="themes">Nature, charge and the closing sequence</h2><div class="cards">${cards(topics)}</div></section>`;
   const notes = app.sections.map(([type, title, note, source]) =>
     `<article><span class="type">${h(type)}</span><h3>${h(title)}</h3><p>${h(note)}</p>${source ? `<p><a href="${h(source)}">Read the source</a></p>` : ""}</article>`).join("");

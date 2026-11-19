@@ -20,12 +20,14 @@ if (projectIds.length !== order.length || order.some(id => !Object.hasOwn(assign
   throw new Error("Each catalog project must have an assignment");
 }
 export const original = await readFile(new URL("original.txt", root), "utf8");
+export const scopeDossier = JSON.parse(await readFile(new URL("catalog-scope.json", root), "utf8"));
 const namedArtifacts = apps.slice(1, 5).map(({ id, title }, index) => ({ position: index + 1, id, title }));
 export const catalog = {
   author: "Nathan Tabor",
   original: "/original.txt",
   assignments: "/api/assignments",
   artifactCount: { provisional: 16, named: namedArtifacts.length, scope: "unresolved" },
+  scopeDossier: "/api/scope",
   artifactRegister: Array.from({ length: 16 }, (_, i) =>
     namedArtifacts[i] ?? { position: i + 1, id: null, title: null }),
   apps: apps.slice(1).map(({ id, title, platform, origin }) => ({ id, title, platform, origin }))
@@ -48,6 +50,7 @@ export async function build(id) {
     "/api/assignment": json(assignment),
     ...(isCatalog ? {
       "/api/assignments": json(assignments),
+      "/api/scope": json(scopeDossier),
       "/original.txt": ["text/plain; charset=utf-8", original]
     } : {})
   };
