@@ -1,0 +1,22 @@
+name: Persona PD-012 Reference Audit
+on:
+  pull_request:
+    paths:
+      - "creative-archive/persona-duality/integration-audit*"
+      - ".github/workflows/persona-pd012.yml"
+  push:
+    paths:
+      - "creative-archive/persona-duality/integration-audit*"
+      - ".github/workflows/persona-pd012.yml"
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test creative-archive/persona-duality/integration-audit.test.mjs creative-archive/persona-duality/worker.test.mjs
