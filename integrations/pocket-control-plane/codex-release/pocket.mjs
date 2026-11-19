@@ -1,14 +1,7 @@
 import { escape, json, page } from './station.mjs';
 import { publicSigningKeys, verifyGitHubReceipt } from './github-identity.mjs';
 
-const sections = [
-  ['standalone-apps', 'Standalone apps'],
-  ['numbered', 'Numbered Codex series'],
-  ['kodex', 'Kodex'],
-  ['codex', 'Named Codex editions'],
-  ['nodes', 'Nodes and AI nodes'],
-  ['recovery', 'Original-source recovery'],
-];
+import { catalogGroups, crosshairs, orderedRelease, verifyCrosshairs } from './release-order.mjs';
 
 const GITHUB = 'NathanAIoxr/Nathan-AI-Sovereign-Core';
 const KV_KEY = 'codex-build-check:v1';
@@ -53,13 +46,20 @@ export function createPocket(projects, independentApps = []) {
   const allProjects = [...projects, ...independentApps];
   const byId = new Map(allProjects.map(item => [item.id, item]));
   const publicRows = allProjects.map(({ question, ...item }) => item);
+  const order = orderedRelease(allProjects);
 
   async function audit(env) {
-    const appJobs = await Promise.all(independentApps.map(item => refreshStandaloneApp(env, item)));
     const checked = [];
-    for (let start = 0; start < allProjects.length; start += 8) {
-      checked.push(...await Promise.all(allProjects.slice(start, start + 8).map(item => inspectOne(env, item))));
+    for (let start = 0; start < projects.length; start += 8) {
+      checked.push(...await Promise.all(projects.slice(start, start + 8).map(item => inspectOne(env, item))));
     }
+    let crosshairsReady = false;
+    try {
+      const response = await env.PROJECTS.get(crosshairs.worker).fetch(new Request('https://station.internal/api/views'));
+      crosshairsReady = response.ok && verifyCrosshairs(await response.json());
+    } catch { /* The hourly receipt records an unavailable or invalid reader. */ }
+    const appJobs = await Promise.all(independentApps.map(item => refreshStandaloneApp(env, item)));
+    checked.push(...await Promise.all(independentApps.map(item => inspectOne(env, item))));
     let github = await githubStatus().catch(() => ({ connected: false, status: null, run: null }));
     if (!github.connected && env.RECEIPTS) {
       const proof = await env.RECEIPTS.get(GITHUB_KEY, 'json');
@@ -68,7 +68,8 @@ export function createPocket(projects, independentApps = []) {
       }
     }
     const receipt = { checkedAt: new Date().toISOString(), expected: checked.length,
-      healthy: checked.filter(row => row.ready).length, failed: checked.filter(row => !row.ready).map(row => row.id), appJobs, github };
+      healthy: checked.filter(row => row.ready).length, failed: checked.filter(row => !row.ready).map(row => row.id),
+      crosshairs: { ready: crosshairsReady, views: crosshairs.views }, appJobs, github };
     if (env.RECEIPTS) await env.RECEIPTS.put(KV_KEY, JSON.stringify(receipt));
     console.log(JSON.stringify({ event: 'codex_build_check', ...receipt }));
     return receipt;
@@ -113,6 +114,16 @@ export function createPocket(projects, independentApps = []) {
       const head = request.method === 'HEAD';
       if (!head && request.method !== 'GET') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD' } });
       const path = url.pathname;
+      if (path + '/' === crosshairs.path) return Response.redirect(new URL(crosshairs.path, url), 308);
+      if (path.startsWith(crosshairs.path)) {
+        const target = new URL('https://station.internal');
+        target.pathname = '/' + path.slice(crosshairs.path.length);
+        try {
+          return await env.PROJECTS.get(crosshairs.worker).fetch(new Request(target, { method: request.method }));
+        } catch {
+          return json({ error: 'project_unavailable', id: crosshairs.id }, 503);
+        }
+      }
       const match = /^\/work\/([a-z0-9-]+)(\/.*)?$/.exec(path);
       let result;
       if (match) {
@@ -130,11 +141,21 @@ export function createPocket(projects, independentApps = []) {
         }
       }
       const tab = url.searchParams.get('tab') === 'github' ? 'github' : 'cloudflare';
-      const nav = '<nav aria-label="Pocket Control"><a href="/?tab=github">GitHub Pro</a><a href="/?tab=cloudflare">Clouder Pro</a><a href="/api/build-status">Build status JSON</a></nav>';
+      const nav = '<nav aria-label="Pocket Control"><a href="/?tab=github">GitHub Pro</a><a href="/?tab=cloudflare">Clouder Pro</a><a href="/work/codex-crosshairs/">Codex Crosshairs</a><a href="/release-order">Release order</a><a href="/api/build-status">Build status JSON</a></nav>';
       if (path === '/healthz') {
         result = json({ service: 'nathan-ai-pocket-codex', ready: Boolean(env.PROJECTS), projects: allProjects.length, receiptStore: Boolean(env.RECEIPTS) });
       } else if (path === '/api/catalog') {
-        result = json({ service: 'nathan-ai-pocket-codex', groups: sections.map(([id, label]) => ({ id, label })), projects: publicRows });
+        result = json({ service: 'nathan-ai-pocket-codex', groups: catalogGroups.map(([id, label]) => ({ id, label })), projects: publicRows });
+      } else if (path === '/release-order') {
+        const jobs = order.jobs.map(job => '<li><strong>' + escape(job.runner) + '</strong> · ' + escape(job.job) + '</li>').join('');
+        const stages = order.groups.map(group => {
+          const items = group.projects.map(id => byId.get(id));
+          return items.length ? '<section><h2>' + escape(group.title) + '</h2>' + tiles(items) + '</section>' : '';
+        }).join('');
+        const links = '<p><a href="/work/codex-crosshairs/">Open all nine Crosshairs views</a> · <a href="/api/order">Order JSON</a> · <a href="/api/build-status">Cloudflare verification</a> · <a href="/api/github">GitHub build receipt</a></p>';
+        result = page('Release order', 'Nathan AI · Pocket Control', nav + links + '<section><h2>Build and verification</h2><ol>' + jobs + '</ol></section>' + stages);
+      } else if (path === '/api/order') {
+        result = json(order);
       } else if (path === '/api/build-status') {
         const receipt = env.RECEIPTS ? await env.RECEIPTS.get(KV_KEY, 'json') : null;
         result = json({ expected: allProjects.length, receipt });
@@ -150,7 +171,7 @@ export function createPocket(projects, independentApps = []) {
         const content = tab === 'github'
           ? `<section><h2>GitHub Pro</h2><p><a href="https://github.com/${GITHUB}">Nathan-AI-Sovereign-Core</a></p><p><a href="https://github.com/${GITHUB}/actions/workflows/codex-pocket-build.yml">Build runs</a> · <a href="/api/github">Latest checked status</a></p></section>`
           : '<section><h2>Clouder Pro</h2><p><a href="/api/build-status">Latest Worker verification</a> · <a href="/api/catalog">Project manifest</a></p></section>';
-        const directory = sections.map(([id, label]) => {
+        const directory = catalogGroups.map(([id, label]) => {
           const entries = found.filter(item => item.group === id);
           return entries.length ? '<section><h2>' + label + '</h2>' + tiles(entries) + '</section>' : '';
         }).join('') || '<p>No projects match your search.</p>';

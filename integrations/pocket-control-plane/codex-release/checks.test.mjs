@@ -111,3 +111,56 @@ test('Pocket Control lists the standalone apps and only dispatches their refresh
   assert.equal(queue.filter(job => job[1] === 'POST').length,2);
   assert.deepEqual(receipt.appJobs,[{id:'taborboy',verified:true},{id:'taborpool',verified:true}]);
 });
+
+test('public order is deterministic and the build rejects reordered originals and groups', async () => {
+  const { validateCatalogOrder } = await import('./release-order.mjs');
+  const order = await (await get('/api/order')).json();
+  assert.doesNotThrow(() => validateCatalogOrder(manifest));
+  assert.deepEqual(order.groups.map(group => group.id), ['numbered', 'kodex', 'codex', 'nodes', 'recovery', 'standalone-apps']);
+  assert.deepEqual(order.groups.flatMap(group => group.projects), manifest.map(row => row.id));
+  assert.deepEqual(order.crosshairs.sources, manifest.slice(0, 10).map(row => row.id));
+  assert.equal(order.jobs.at(-1).cron, '11 * * * *');
+  const release = await (await get('/release-order')).text();
+  assert.ok(release.indexOf('/work/codex-00/') < release.indexOf('/work/codex-09/'));
+  assert.ok(release.indexOf('/work/codex-09/') < release.indexOf('/work/sovereign-kodex/'));
+  assert.throws(() => validateCatalogOrder([manifest[1], manifest[0], ...manifest.slice(2)]), /numbered Codex/);
+  assert.throws(() => validateCatalogOrder([...manifest.slice(0, 11), ...manifest.slice(13), ...manifest.slice(11, 13)]), /release order/);
+});
+
+test('hourly Worker checks source stations, Crosshairs, then standalone apps', async () => {
+  const { createViews, anchors } = await import('../codex-crosshairs/views.mjs');
+  const standalone = { id: 'taborboy', worker: 'taborboy-worker', version: '1', group: 'standalone-apps' };
+  const source = { id: 'codex-00', worker: 'tabor-recovered-codex-00', version: '1', group: 'numbered' };
+  const entries = manifest.slice(0, 10);
+  const requests = [];
+  let result;
+  const env = {
+    PROJECTS: { get: name => ({ fetch: async request => {
+      const path = new URL(request.url).pathname;
+      requests.push([name, request.method, path]);
+      if (name === 'tabor-codex-crosshairs') return Response.json({ anchors, entries, views: createViews(entries) });
+      return Response.json({ ...(name === standalone.worker ? standalone : source), verified: true });
+    } }) },
+    RECEIPTS: {
+      get: async () => null,
+      put: async (_key, value) => { result = JSON.parse(value); },
+    },
+  };
+  const original = globalThis.fetch;
+  globalThis.fetch = async () => Response.json({ workflow_runs: [] });
+  try {
+    let completion;
+    createPocket([source], [standalone]).scheduled({}, env, { waitUntil: run => { completion = run; } });
+    await completion;
+  } finally {
+    globalThis.fetch = original;
+  }
+  assert.deepEqual(requests, [
+    [source.worker, 'GET', '/healthz'],
+    ['tabor-codex-crosshairs', 'GET', '/api/views'],
+    [standalone.worker, 'POST', '/__hub/refresh'],
+    [standalone.worker, 'GET', '/healthz'],
+  ]);
+  assert.deepEqual(result.crosshairs, { ready: true, views: 9 });
+  assert.equal(result.healthy, 2);
+});

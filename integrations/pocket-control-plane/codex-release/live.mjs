@@ -2,9 +2,12 @@ import { readFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { setTimeout as delay } from 'node:timers/promises';
 import { claimChecks, publicSigningKeys, verifyGitHubReceipt } from './github-identity.mjs';
+import { crosshairs, orderedRelease, validateCatalogOrder, verifyCrosshairs } from './release-order.mjs';
 const origin = 'https://nathan-ai-pocket-codex.nathantaboract.workers.dev';
-const rows = (await Promise.all(['manifest.json','standalone-apps.json'].map(async file => JSON.parse(await readFile(new URL(file, import.meta.url), 'utf8')))));
-const projects = rows.flat();
+const [numberedAndNamed, standaloneApps] = await Promise.all(['manifest.json', 'standalone-apps.json'].map(async file =>
+  JSON.parse(await readFile(new URL(file, import.meta.url), 'utf8'))));
+const projects = [...numberedAndNamed, ...standaloneApps];
+validateCatalogOrder(projects);
 async function get(path) {
   for (let attempt = 0; ; attempt += 1) {
     try {
@@ -20,17 +23,26 @@ async function get(path) {
 const health = await get('/healthz');
 assert.ok(health.ok, 'Pocket dashboard health');
 assert.equal((await health.json()).projects, projects.length);
-for (let start = 0; start < projects.length; start += 8) {
-  await Promise.all(projects.slice(start, start + 8).map(async row => {
-    const result = await get('/work/' + row.id + '/healthz');
-    assert.ok(result.ok, row.id + ' health returned ' + result.status);
-    const remote = await result.json();
-    assert.equal(remote.id, row.id);
-    assert.equal(remote.worker, row.worker);
-    assert.equal(remote.ready, true);
-  }));
+const publishedOrder = await get('/api/order');
+assert.ok(publishedOrder.ok, 'Pocket release order is published');
+assert.deepEqual(await publishedOrder.json(), orderedRelease(projects));
+
+async function checkProject(row) {
+  const result = await get('/work/' + row.id + '/healthz');
+  assert.ok(result.ok, row.id + ' health returned ' + result.status);
+  const remote = await result.json();
+  assert.equal(remote.id, row.id);
+  assert.equal(remote.worker, row.worker);
+  assert.equal(remote.ready, true);
 }
-console.log('Verified all ' + projects.length + ' live project Worker health routes.');
+for (let start = 0; start < numberedAndNamed.length; start += 8) {
+  await Promise.all(numberedAndNamed.slice(start, start + 8).map(checkProject));
+}
+const views = await get(crosshairs.path + 'api/views');
+assert.ok(views.ok, 'Crosshairs views are published');
+assert.ok(verifyCrosshairs(await views.json()), 'Crosshairs entries, anchors, and nine views match the release');
+await Promise.all(standaloneApps.map(checkProject));
+console.log('Verified the published release order, ' + projects.length + ' project Workers, and all nine Crosshairs views.');
 if (process.argv.includes('--receipt')) {
   const oidc = new URL(process.env.ACTIONS_ID_TOKEN_REQUEST_URL);
   oidc.searchParams.set('audience', origin);
