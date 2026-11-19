@@ -1,3 +1,5 @@
+import { magazineResponse } from "../../magazine-runtime.mjs";
+import { MAGAZINE } from "./magazine.js";
 import { webResponse } from "./web.js";
 
 const PROFILE = {
@@ -180,9 +182,11 @@ export default {
   async fetch(request,env) {
     const url = new URL(request.url);
     try {
+      const magazine = await magazineResponse(request,env,MAGAZINE);
+      if (magazine) return magazine;
       const app = webResponse(request,url);
       if (app) return app;
-      if (request.method === "GET" && url.pathname === "/") return home();
+      if (request.method === "GET" && url.pathname === "/project/") return home();
       if (request.method === "GET" && url.pathname === "/api/profile") return reply(PROFILE);
       if (request.method === "GET" && ["/health","/api/health"].includes(url.pathname)) {
         const last = await env.DB.prepare("SELECT verified_at FROM build_status WHERE id = 1").first();

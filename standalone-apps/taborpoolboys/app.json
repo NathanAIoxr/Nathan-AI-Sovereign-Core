@@ -1,0 +1,20 @@
+{
+  "id": "taborpoolboys",
+  "title": "TaborPoolBoys",
+  "editors": [
+    "Collyn Tabor",
+    "Nathan Tabor"
+  ],
+  "url": "https://pub-2df43f63514844ecbcd9f7da4de75d89.r2.dev/index.html",
+  "appUrl": "https://pub-2df43f63514844ecbcd9f7da4de75d89.r2.dev/magazine/index.html",
+  "gameUrl": "https://pub-2df43f63514844ecbcd9f7da4de75d89.r2.dev/magazine/play.html",
+  "hosting": {
+    "service": "Cloudflare R2",
+    "bucket": "taborpoolboys-assets"
+  },
+  "releases": 5,
+  "related": [
+    "taborboy",
+    "taborpool"
+  ]
+}
