@@ -1,0 +1,30 @@
+{
+  "id": "nature-body-water-comparison",
+  "project": "nature-human-body",
+  "attribution": "Researcher-authored comparison, not Nathan Tabor verbatim; original creator claim remains in original.txt",
+  "creator_claim_source": "standalone-apps/artifacts-of-the-world/original.txt",
+  "status": "research_only_not_published",
+  "pairs": [
+    {
+      "theme": "water",
+      "nature": {
+        "mechanism": "Evaporation, condensation, precipitation and flow transport water between reservoirs",
+        "measured_quantity": "Earth's oceans store approximately 96% of all water",
+        "source": "https://www.usgs.gov/special-topics/water-science-school/water-cycle",
+        "source_support": "USGS water-cycle overview documents reservoirs, fluxes, and ocean share"
+      },
+      "human_body": {
+        "mechanism": "Water occupies intracellular and extracellular compartments; osmosis and renal regulation maintain balance",
+        "measured_quantity": "Reference 70 kg adult male: approximately 42 L total body water (60% of body weight)",
+        "source": "https://www.ncbi.nlm.nih.gov/books/NBK541059/",
+        "source_support": "NCBI Bookshelf clinical physiology example gives 42 L for reference 70 kg adult male"
+      },
+      "interpretation": "Both involve movement of H2O; their mechanisms, scales, and measurement definitions differ. This comparison does not establish a mystical equivalence."
+    }
+  ],
+  "unresolved": [
+    "No verified equivalence between hydrologic and human regulatory systems",
+    "Other nature/body analogies require separate mechanisms and measurements",
+    "Creator's dark-matter claim is not established by these sources"
+  ]
+}
