@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 343,
+  "count": 351,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -218,6 +218,70 @@
       "entry": "app-factory/nathan-ai/ai-mapping/index.html",
       "group": "nathan-ai",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/ai-mapping/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-1d2d504043e806c2",
+      "title": "Alphabet Books \u00b7 Nathan Tabor",
+      "entry": "app-factory/nathan-ai/alphabet-trinities/public/alphabet-books/index.html",
+      "group": "nathan-ai",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/alphabet-trinities/public/alphabet-books/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-c386441bff7b5274",
+      "title": "Alphabet Field App \u00b7 Nathan Tabor",
+      "entry": "app-factory/nathan-ai/alphabet-trinities/public/alphabet-field-app/index.html",
+      "group": "nathan-ai",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/alphabet-trinities/public/alphabet-field-app/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-0b81ed9b95dfaf03",
+      "title": "Alphabet Hardware \u00b7 Nathan Tabor",
+      "entry": "app-factory/nathan-ai/alphabet-trinities/public/alphabet-hardware/index.html",
+      "group": "nathan-ai",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/alphabet-trinities/public/alphabet-hardware/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-7b3fea0fb353146b",
+      "title": "Alphabet OS \u00b7 Nathan Tabor",
+      "entry": "app-factory/nathan-ai/alphabet-trinities/public/alphabet-os/index.html",
+      "group": "nathan-ai",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/alphabet-trinities/public/alphabet-os/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-abf1960d1562927d",
+      "title": "Alphabet SDK \u00b7 Nathan Tabor",
+      "entry": "app-factory/nathan-ai/alphabet-trinities/public/alphabet-sdk/index.html",
+      "group": "nathan-ai",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/alphabet-trinities/public/alphabet-sdk/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-a0354584895bfd43",
+      "title": "Alphabet Trinities \u00b7 Nathan Tabor",
+      "entry": "app-factory/nathan-ai/alphabet-trinities/public/alphabet-trinities/index.html",
+      "group": "nathan-ai",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/alphabet-trinities/public/alphabet-trinities/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-b5cae387d191a882",
+      "title": "Letter Labyrinth \u00b7 Nathan Tabor",
+      "entry": "app-factory/nathan-ai/alphabet-trinities/public/letter-labyrinth/index.html",
+      "group": "nathan-ai",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/alphabet-trinities/public/letter-labyrinth/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-3ce113c5c94dfb7f",
+      "title": "Trinity Match \u00b7 Nathan Tabor",
+      "entry": "app-factory/nathan-ai/alphabet-trinities/public/trinity-match/index.html",
+      "group": "nathan-ai",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/alphabet-trinities/public/trinity-match/index.html",
       "adoption": "integration_required"
     },
     {
