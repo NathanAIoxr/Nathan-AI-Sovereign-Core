@@ -48,3 +48,74 @@ test('actual Workers runtime: owner pairing, identity, sync, booking, projection
  assert.equal((await delegated(delegatedBody)).status,403);
  const publicModule=await mf.dispatchFetch('https://example.com/one-core.mjs',{headers:{Origin:'https://other-app.test'}});assert.equal(publicModule.status,200);const evil=await mf.dispatchFetch('https://example.com/api/catalog',{headers:{Origin:'https://evil.test'}});assert.equal(evil.status,403);
  }finally{await mf.dispose();}});
+
+async function ownerRuntime(t) {
+ const {mf,setup}=await createRuntime();
+ t.after(()=>mf.dispose());
+ const newKey=async()=>{
+  const pair=await crypto.subtle.generateKey('Ed25519',false,['sign','verify']);
+  return {pair,key:b64(await crypto.subtle.exportKey('raw',pair.publicKey))};
+ };
+ const owner=await newKey();
+ const response=await mf.dispatchFetch('https://example.com/auth/pair',{method:'POST',headers:{'Content-Type':'application/json'},
+  body:JSON.stringify({code:setup,public_key:owner.key,turnstile:null})});
+ assert.equal(response.status,200,await response.text());
+ const request=(identity,path,body)=>signer(identity.pair,identity.key)(path,body)
+  .then(init=>mf.dispatchFetch('https://example.com'+path,init));
+ return {mf,owner,request,newKey};
+}
+
+test('context writer grants, MCP scopes, owner-only repairs and identity revocation', async t=>{
+ const {mf,owner,request,newKey}=await ownerRuntime(t);
+ const call=(path,body)=>request(owner,path,body);
+ const agent=await newKey();
+ const scopes=['context:read','context:write','commands:run','microapps:run'];
+ assert.equal((await call('/api/connectors',{connector:'notes',mode:'local'})).status,200);
+ assert.equal((await call('/api/agents',{agent:'reader',public_key:agent.key,scopes,resources:['notes','draft']})).status,200);
+ const {token}=await (await call('/api/tokens',{agent:'reader',scopes,ttl:60})).json();
+ const delegated=async (path,body)=>{
+  const method=body===undefined?'GET':'POST',raw=body===undefined?'':JSON.stringify(body);
+  const time=Math.floor(Date.now()/1000),nonce=crypto.randomUUID();
+  const proof=canonical([await digest(token),method,path,await digest(raw),time,nonce]);
+  const signature=b64(await crypto.subtle.sign('Ed25519',agent.pair.privateKey,utf8(proof)));
+  return mf.dispatchFetch('https://example.com'+path,{method,...(body===undefined?{}:{body:raw}),headers:{
+   Authorization:'Bearer '+token,'Content-Type':'application/json','X-Agent-Time':String(time),'X-Agent-Nonce':nonce,'X-Agent-Signature':signature,
+  }});
+ };
+ const write={key:'private-notes',value:{text:'owned'},expected:0,readers:['reader'],ttl:null};
+ assert.equal((await call('/api/context',write)).status,200);
+ assert.equal((await delegated('/api/context?key=private-notes')).status,200);
+ const edit={...write,expected:1,readers:null,value:{text:'delegated'}};
+ assert.equal((await delegated('/api/context',edit)).status,403);
+ assert.equal((await call('/api/context/writer',{key:write.key,agent:'reader'})).status,200);
+ assert.equal((await delegated('/api/context',edit)).status,200);
+ assert.equal((await call('/api/context',{...write,expected:2,readers:[]})).status,200);
+ assert.equal((await delegated('/api/context',{...edit,expected:3})).status,403);
+ assert.equal((await delegated('/api/context',{...edit,expected:0,key:'draft'})).status,200);
+ assert.equal((await delegated('/api/context',{...edit,expected:0,key:'unassigned'})).status,403);
+ assert.equal((await delegated('/api/commands',{connector:'notes',action:'verify-storage',key:'repair'})).status,403);
+ const list=await (await delegated('/mcp',{jsonrpc:'2.0',id:1,method:'tools/list'})).json();
+ assert.deepEqual(list.result.tools.map(tool=>tool.name),['microapp.run']);
+ const tool=spec=>delegated('/mcp',{jsonrpc:'2.0',id:2,method:'tools/call',params:{name:'microapp.run',arguments:{spec}}});
+ assert.equal((await tool({kind:'duration',start:1,end:2})).status,200);
+ const budget={kind:'split-budget',amount_minor:25,currency:'USD',buckets:2};
+ assert.equal((await tool(budget)).status,403);
+ assert.equal((await delegated('/api/microapps',budget)).status,403);
+ assert.equal((await tool(null)).status,400);
+ assert.equal((await call('/api/agents/revoke',{agent:'reader'})).status,200);
+ assert.equal((await delegated('/api/context?key=draft')).status,403);
+});
+
+test('authenticated owner device rotation requires both keys and preserves one active device', async t=>{
+ const {owner,request,newKey}=await ownerRuntime(t);
+ const next=await newKey();
+ assert.equal((await request(owner,'/api/devices/revoke',{public_key:owner.key})).status,409);
+ const message=canonical(['one-owner-device-rotate-v1','example.com',owner.key,next.key]);
+ const proof=b64(await crypto.subtle.sign('Ed25519',next.pair.privateKey,utf8(message)));
+ assert.equal((await request(owner,'/api/devices/rotate',{public_key:next.key,proof:'wrong'})).status,403);
+ assert.equal((await request(owner,'/api/devices/rotate',{public_key:next.key,proof})).status,200);
+ assert.equal((await request(owner,'/api/devices')).status,403);
+ const {devices}=await (await request(next,'/api/devices')).json();
+ assert.deepEqual(devices.map(device=>device.public_key),[next.key]);
+ assert.equal((await request(next,'/api/devices',{public_key:owner.key})).status,409);
+});

@@ -14,6 +14,27 @@ The owner opens a private one-time setup link in their own browser, completes Tu
 
 This is a software device key; hardware-backed identity and human-assurance providers remain separate integrations. Preserve access to the owner browser or add a separately held device before clearing its storage. Cloudflare account administrators retain control of deployment and recovery configuration.
 
+Signed owners can list active devices with `GET /api/devices`, revoke an enrolled public key with `POST /api/devices/revoke`, or replace the signing device with `POST /api/devices/rotate`. Rotation requires the existing signed request and the replacement key's Ed25519 signature over the UTF-8 canonical JSON array `["one-owner-device-rotate-v1", requestHost, oldPublicKey, replacementPublicKey]`. Use the request's URL host, including its port if present. Send the replacement key and base64url signature as `public_key` and `proof`. Rotation commits both changes together. Revoked device keys cannot be enrolled again and standalone revocation must leave an active device. The all-keys-lost case remains a Cloudflare account-admin recovery procedure.
+
+## Security verification scope
+
+| Category | Implemented control or outstanding dependency |
+| --- | --- |
+| Memory safety | The managed Worker runtime handles packet and memory primitives. HTTP JSON decoding is byte-bounded before parsing, and the existing JSON decoder enforces bounded nesting and safe integers. Native OS and firmware are outside this release. |
+| Broken access control | Context reads and writes are separate. Owners grant an existing reader write access with `POST /api/context/writer`. Legacy context rows remain owner-writable until grants are set. New agent-created contexts require an assigned resource. Hub-wide projection maintenance is owner-only. |
+| Injection | Durable Object SQL binds incoming values. REST and MCP run the same deterministic allowlisted tool implementation after permission and shape checks. |
+| Authentication bypass | Expiring request proofs and nonce receipts remain in force. The Hub verifies capability MACs using Web Crypto and rechecks device or agent status after asynchronous verification. |
+| Supply chain | The Hub workflow pins Actions to commits. Qualification runs with read-only repository access. The separate catalog publisher runs on pushes to main, after qualification. |
+| Insecure APIs | Signed REST and MCP routes share per-tool scope checks. MCP advertises only tools within caller scope. Dynamic results remain private and uncached. |
+| Cloud configuration | Wrangler retains the live query-string redaction setting. Queue work requires an outbox record with the same ID and kind in the receiving Hub namespace. |
+| Unpatched dependencies | Locked Wrangler and Miniflare dependencies are installed with `npm ci`. The Hub workflow fails on high-severity audit findings. |
+| Credential theft | Owner proof keys are nonextractable in the standard browser flow. Owners can rotate and revoke devices or revoke an agent together with its tokens and context write grants. |
+| AI agents and gateways | Model calls return data to the signed owner interface. Tool calls use independent authorization, validated arguments, and a fixed tool list. The existing portable grant and Personal Core guard remain enforced. |
+| Impersonation and recovery | Owner-device replacement requires proof from two cryptographic keys. Displayed issuer attestations and ambient voice or video inputs do not authorize the replacement. |
+| Post-quantum cryptography | Cloudflare documents hybrid X25519MLKEM768 for compatible TLS 1.3 clients on Workers hostnames. App-layer Ed25519 owner, agent and portable-grant signatures remain classical and need coordinated issuer and client migration. |
+
+For migration planning, inventory the browser owner device, SDK/agent signed requests, portable-grant issuers, trusted attestation issuers, HMAC-SHA-256 token keys, SHA-256 integrity receipts, and provider-managed edge TLS as separate cryptographic uses. Prioritize long-lived private exports and transport interoperability. Preserve verification of historical evidence when introducing a versioned signature suite. [NIST transition guidance](https://csrc.nist.gov/pubs/ir/8547/final) · [Cloudflare transport support](https://developers.cloudflare.com/ssl/post-quantum-cryptography/pqc-cloudflare-products/)
+
 All private routes require an owner-device signature or an expiring agent capability plus Ed25519 proof. The proof binds the method, exact path/query, raw body digest, timestamp and unique nonce. Tokens are bound to the registered agent public key, owner, audience, scopes, resources and expiry. Nonces are checked in strongly consistent Durable Object SQLite rather than eventually consistent KV. Context also requires a per-key reader grant. Browser requests from other origins are rejected. The shared SDK works for same-origin apps and authorized backend agents; other browser origins need an explicitly designed authorization/relay integration.
 
 Owner pairing was verified against a disposable local Workers runtime. Automatic approval review rejected submitting the actual owner setup credential to a hosted automated browser. No automated production owner pairing was performed. The real owner completes that step in their own browser.
