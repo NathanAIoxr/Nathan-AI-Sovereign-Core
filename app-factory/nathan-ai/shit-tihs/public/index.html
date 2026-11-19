@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#13121e">
+  <meta name="description" content="Scrape, prime, paint, and flip the mess in SHIT TIHS, an independent KJV / IFB arcade game by Nathan Tabor.">
+  <title>SHIT TIHS by Nathan Tabor</title>
+  <link rel="manifest" href="./app.webmanifest">
+  <link rel="icon" href="./icon-192.png">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./"><span class="mark" aria-hidden="true">↔</span> STAR U BE <span class="brand-sep">/</span> TABOR ENTERPRISES</a>
+    <nav aria-label="Main"><a href="#game">Play</a><a href="#crew">Crew log</a><button id="install" type="button" hidden>Install</button></nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="title">
+      <div class="edition"><span></span> KJV / IFB EDITION</div>
+      <h1 id="title">SHIT <em>TIHS</em></h1>
+      <p class="credit">BY NATHAN TABOR</p>
+      <p class="hook">Scrape. Prime. Paint. <strong>Flip the mess.</strong></p>
+    </section>
+    <section class="arcade" id="game" aria-label="SHIT TIHS arcade game" tabindex="-1">
+      <div class="hud">
+        <div><span>STAGE</span><strong id="stage-stat">01 / 03</strong></div>
+        <div><span>TIME</span><strong id="time-stat">64</strong></div>
+        <div><span>SCORE</span><strong id="score-stat">00000</strong></div>
+        <div><span>BEST</span><strong id="best-stat">00000</strong></div>
+        <button type="button" id="sound" aria-pressed="false" aria-label="Sound"><span aria-hidden="true">♫</span><span id="sound-state">OFF</span></button>
+        <button type="button" id="pause" disabled aria-label="Pause game" title="Pause (P)">Ⅱ</button>
+      </div>
+      <div class="screen">
+        <canvas id="scene" width="480" height="300" aria-label="Pixel-art church scaffold. Scrape, prime and paint each work bay, grab the sticker and climb to the star."></canvas>
+        <div class="overlay" id="overlay">
+          <div class="screen-card">
+            <p id="panel-label">THE PAINT CREW</p>
+            <h2 id="panel-title">SHIT HAPPENS</h2>
+            <p id="panel-detail">One bumper sticker. Three floors. One hell of a paint job.</p>
+            <button type="button" id="start">Start game <span aria-hidden="true">↗</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="readout">
+        <span id="objective" role="status">Paint the work bays. Find the bumper sticker.</span>
+        <div class="rat-gauge"><label for="rats">RATS</label><meter id="rats" min="0" max="100" low="35" high="74" optimum="0" value="0">0%</meter></div>
+      </div>
+      <div class="controls" aria-label="Touch and keyboard controls">
+        <div class="control-group">
+          <button data-hold="left" type="button" aria-label="Move left"><span aria-hidden="true">←</span><small>A</small></button>
+          <button data-hold="right" type="button" aria-label="Move right"><span aria-hidden="true">→</span><small>D</small></button>
+          <button data-hold="jump" type="button" aria-label="Jump"><span aria-hidden="true">↑</span><small>W</small></button>
+        </div>
+        <div class="control-group">
+          <button data-hold="brush" type="button">BRUSH <small>X</small></button>
+          <button data-hold="flip" type="button">TIHS / STAR <small>J</small></button>
+        </div>
+      </div>
+    </section>
+    <section class="crew" id="crew" aria-labelledby="crew-title">
+      <div class="crew-intro">
+        <h2 id="crew-title">Crew log</h2>
+        <p>An early-’90s paint crew pulls up to a church with <strong>SHIT HAPPENS</strong> on the bumper. In this fictional arcade retelling, the sticker is the one thing that can turn a whole screen of sludge into gold.</p>
+      </div>
+      <div class="stage-list">
+        <article><span>01</span><div><h3>The Paint Crew Scaffolds</h3><p>Scrape, prime, and paint every marked bay. Press Brush three times at each bay.</p></div></article>
+        <article><span>02</span><div><h3>The Inside-Out Test</h3><p>Keep moving to hold back the rats. Grab the bumper sticker to fire a TIHS wave. A KJV relic charges a spare flip.</p></div></article>
+        <article><span>03</span><div><h3>THE STAR U R</h3><p>Paint every bay and reach the star at the top. Press TIHS / STAR beside it to clear the stage.</p></div></article>
+      </div>
+      <article class="relic">
+        <h3>KJV relics</h3>
+        <p>The crew can find verses from 1 John 1:7, Ephesians 5:11, and Matthew 5:16. Uncover all three in a single run.</p>
+      </article>
+      <details class="extras">
+        <summary>Cartridge and box label</summary>
+        <div class="labels">
+          <div class="box-label"><b>SHIT <em>TIHS</em></b><span>KJV / IFB EDITION</span><small>BY NATHAN TABOR</small></div>
+          <div class="cart-label"><b>SHIT <em>TIHS</em></b><span>THE PAINT CREW</span></div>
+        </div>
+        <button type="button" id="print">Print labels</button>
+      </details>
+    </section>
+  </main>
+  <footer><span>SHIT TIHS by Nathan Tabor</span><span>STAR U BE / Tabor Enterprises</span></footer>
+  <dialog id="install-help">
+    <h2>Install SHIT TIHS</h2>
+    <p>On iPhone, open this page in Safari, tap Share, then Add to Home Screen.</p>
+    <p>On Android or desktop, open your browser menu and look for Install or Add to Home screen.</p>
+    <button id="close-install" type="button">Close</button>
+  </dialog>
+</body>
+</html>
