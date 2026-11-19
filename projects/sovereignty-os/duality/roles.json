@@ -31,67 +31,78 @@
       "id": "msp-build-deamon",
       "kind": "DEAMON",
       "duty": "build and package independent apps",
-      "enabled": false
+      "enabled": false,
+      "plane": "below"
     },
     {
       "id": "msp-data-deamon",
       "kind": "DEAMON",
       "duty": "validate schemas and exports",
-      "enabled": false
+      "enabled": false,
+      "plane": "below"
     },
     {
       "id": "msp-inventory-deamon",
       "kind": "DEAMON",
       "duty": "reconcile GitHub and Cloudflare inventories",
-      "enabled": false
+      "enabled": false,
+      "plane": "below"
     },
     {
       "id": "msp-security-deamon",
       "kind": "DEAMON",
       "duty": "run authorized defensive checks",
-      "enabled": false
+      "enabled": false,
+      "plane": "below"
     },
     {
       "id": "msp-pumpkin-deamon",
       "kind": "DEAMON",
       "duty": "coordinate independent pumpkin apps",
-      "enabled": false
+      "enabled": false,
+      "plane": "below"
     },
     {
       "id": "msp-concordance-deamon",
       "kind": "DEAMON",
       "duty": "prepare provenance indexes",
-      "enabled": false
+      "enabled": false,
+      "plane": "below"
     },
     {
       "id": "it-integrity-angel",
       "kind": "ANGEL",
       "duty": "verify checksums and outputs",
-      "enabled": false
+      "enabled": false,
+      "plane": "above"
     },
     {
       "id": "it-privacy-angel",
       "kind": "ANGEL",
       "duty": "flag private data disclosure",
-      "enabled": false
+      "enabled": false,
+      "plane": "above"
     },
     {
       "id": "it-test-angel",
       "kind": "ANGEL",
       "duty": "run reproducible tests",
-      "enabled": false
+      "enabled": false,
+      "plane": "above"
     },
     {
       "id": "it-recovery-angel",
       "kind": "ANGEL",
       "duty": "validate rollback readiness",
-      "enabled": false
+      "enabled": false,
+      "plane": "above"
     },
     {
       "id": "it-truth-angel",
       "kind": "ANGEL",
       "duty": "detect contradictions and missing evidence",
-      "enabled": false
+      "enabled": false,
+      "plane": "above"
     },
     {
       "id": "adversary-challenger",
@@ -121,5 +132,44 @@
     "github": "manifest and validation only",
     "cloudflare": "not deployed",
     "approval_required": true
+  },
+  "display_names": {
+    "MSP": "DAEMONS",
+    "IT": "Angels"
+  },
+  "alignment": {
+    "scripture": {
+      "reference": "Isaiah 45:7",
+      "edition": "KJV",
+      "text": "I form the light, and create darkness: I make peace, and create evil: I the LORD do all these things.",
+      "source": "https://www.biblegateway.com/passage/?search=Isaiah+45%3A7&version=KJV"
+    },
+    "original_words": "MSP's = DAEMONS ... IT's = Angels ... God = noise, delete it all ... Satan = 1+1=2 replacing the world's system of 1=1=10",
+    "planes": {
+      "above": {
+        "display": "Angels",
+        "kind": "ANGEL",
+        "terms": {
+          "light": "Verify and publish supported evidence.",
+          "peace": "Protect consent and coordinate recovery."
+        }
+      },
+      "below": {
+        "display": "DAEMONS",
+        "kind": "DEAMON",
+        "terms": {
+          "darkness": "Run authorized builds, storage, catalog and maintenance work.",
+          "evil": "Isolate failures and exclude unsupported claims from verified views."
+        }
+      }
+    },
+    "challenger": {
+      "id": "adversary-challenger",
+      "display": "Satan",
+      "decimal": "1+1=2",
+      "binary": "1+1=10₂"
+    },
+    "evidence_view": "verified",
+    "studio": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/assessment-studio/#alignment"
   }
 }

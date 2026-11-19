@@ -3,7 +3,7 @@ import { DatabaseSync } from 'node:sqlite';
 
 export function openLocalRegistry(filename = ':memory:') {
   const sqlite = new DatabaseSync(filename);
-  for (const file of ['0001_registry.sql', '0002_tool_library.sql']) {
+  for (const file of ['0001_registry.sql', '0002_tool_library.sql', '0003_assessment_studio.sql']) {
     sqlite.exec(readFileSync(new URL('migrations/' + file, import.meta.url), 'utf8'));
   }
   const prepare = (sql, params = []) => {

@@ -37,6 +37,7 @@ export const page = doc("Nathan Tabor 2X+ Sovereign Supercomputer", `
 <p><a href="/api/registry">Families, Clover, Council and app records</a></p>
 <p><a href="https://tabor-apps-nathan.pages.dev/cloud-slayer/supercomputer">Cloud Slayer worker registry</a> · <a href="https://tabor-apps-nathan.pages.dev/cloud-slayer/hypercomputer">Hypercomputer view</a></p>
 <p><a href="https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/assessment-studio/">Assessment Studio · The Nathan Tabor Way</a></p>
+<p><a href="https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/assessment-studio/">Assessment Studio · The Nathan Tabor Way</a></p>
 <p><a href="/api/mirror/status">Mirror audit status</a></p>
 </section></div>
 <section><h2>Benchmark targets</h2><div class="scroll"><table id="bench"><thead><tr><th>System</th><th>Baseline</th><th>Target</th><th>Metric</th></tr></thead><tbody></tbody></table></div>

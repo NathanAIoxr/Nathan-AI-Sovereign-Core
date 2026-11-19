@@ -1,3 +1,5 @@
+**[Assessment Studio · The Nathan Tabor Way](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/assessment-studio/)** · [Source](app-factory/nathan-ai/assessment-studio/) · Personality, IQ and strengths directory, QI/QE practice and private results.
+
 **[Digital Flubber by Nathan Tabor — Play, learn and try SOS](https://tabor-apps-nathan.pages.dev/)** · [Source](app-factory/nathan-ai/digital-flubber/) · [Arcade](https://tabor-apps-nathan.pages.dev/game) · [Permission zones](https://tabor-apps-nathan.pages.dev/zones)
 
 - [Taters & Daters source](app-factory/nathan-ai/ta-da-taters-daters/) · [Open website](https://ta-da-taters-daters.nathantaboract.workers.dev/)

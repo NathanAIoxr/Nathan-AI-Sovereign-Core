@@ -22,7 +22,7 @@ const request = (path, init, env = services) => app.fetch(new Request('https://s
 
 test('handles more than 500 records and returns counts without inventory names', async () => {
   const response = await request('/api/cloud-slayer/summary');
-  assert.deepEqual(await response.json(), { cloudflare_workers: 1201, shared_modules: 4, total_records: 1205, inventory_as_of: recordedAt });
+  assert.deepEqual(await response.json(), { cloudflare_workers: 1201, shared_modules: 5, total_records: 1206, inventory_as_of: recordedAt });
   const result = await request('/api/cloud-slayer/modules?q=private-worker');
   assert.deepEqual(await result.json(), { modules: [], next: null });
 });
@@ -57,5 +57,15 @@ test('SOS and both compute views link to the worker registry', async () => {
     const page = await request('/cloud-slayer/' + view);
     assert.equal(page.status, 200);
     assert.match(await page.text(), /Search worker modules/);
+  }
+});
+
+test('both compute catalogs carry the public Assessment Studio placement', async () => {
+  for (const view of ['supercomputer', 'hypercomputer']) {
+    const response = await request('/api/cloud-slayer/modules?q=assessment&view=' + view);
+    const { modules } = await response.json();
+    assert.deepEqual(modules.map(item => item.module_id), ['assessment-studio']);
+    assert.match(modules[0].description, /workers\.dev\/tabor-apps\/assessment-studio\//);
+    assert.equal(modules[0].runnable, false);
   }
 });

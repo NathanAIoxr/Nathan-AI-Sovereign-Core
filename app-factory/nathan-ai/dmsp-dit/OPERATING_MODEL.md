@@ -8,6 +8,12 @@ Move from **repair after failure** (legacy IT) to **proactive management** (MSP)
 - **DIT**: an organization's internal digital IT department with its own asset and user inventory.
 - **CO_MANAGED**: shared provider/internal responsibility, with clear RBAC, escalation and contract ownership.
 
+## Isaiah 45:7 role alignment
+
+DMSP **DAEMONS** run the authorized work below. DIT **Angels** verify source, consent, recovery, and outcomes above. WILL authorizes scope, WHEEL schedules approved work, and the Challenger submits testable objections. The verified operating view presents records supported by receipts.
+
+[Role registry](../../../projects/sovereignty-os/duality/roles.json) · [Live Isaiah 45:7 view](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/assessment-studio/#alignment)
+
 ## Operating departments — 28
 1. Digital Help Desk — support, tickets, triage, escalation, knowledge.
 2. Digital Network Operations (NOC) — uptime, network/service capacity, network health.
