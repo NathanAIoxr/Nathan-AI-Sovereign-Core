@@ -1,0 +1,143 @@
+{
+  "title": "Nathan Tabor DMSP DIT open-source integration candidates",
+  "updated": "2026-11-18",
+  "note": "Licenses are preliminary; verify upstream LICENSE and deployment requirements before reuse. Projects requiring dedicated servers are not automatically deployable as Cloudflare Workers.",
+  "projects": [
+    {
+      "name": "GLPI",
+      "category": "helpdesk_assets",
+      "url": "https://github.com/glpi-project/glpi",
+      "license_note": "GPL-3.0",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "Zammad",
+      "category": "helpdesk",
+      "url": "https://github.com/zammad/zammad",
+      "license_note": "AGPL-3.0",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "MeshCentral",
+      "category": "remote_support",
+      "url": "https://github.com/Ylianst/MeshCentral",
+      "license_note": "Apache-2.0",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "Zabbix",
+      "category": "monitoring",
+      "url": "https://github.com/zabbix/zabbix",
+      "license_note": "AGPL-3.0",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "Prometheus",
+      "category": "metrics",
+      "url": "https://github.com/prometheus/prometheus",
+      "license_note": "Apache-2.0",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "Grafana",
+      "category": "dashboards",
+      "url": "https://github.com/grafana/grafana",
+      "license_note": "AGPL-3.0",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "Wazuh",
+      "category": "security",
+      "url": "https://github.com/wazuh/wazuh",
+      "license_note": "GPL-2.0",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "NetBox",
+      "category": "ipam_cmdb",
+      "url": "https://github.com/netbox-community/netbox",
+      "license_note": "Apache-2.0",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "Snipe-IT",
+      "category": "assets",
+      "url": "https://github.com/grokability/snipe-it",
+      "license_note": "AGPL-3.0",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "Restic",
+      "category": "backup",
+      "url": "https://github.com/restic/restic",
+      "license_note": "BSD-2-Clause",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "Ansible",
+      "category": "automation",
+      "url": "https://github.com/ansible/ansible",
+      "license_note": "GPL-3.0",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "BookStack",
+      "category": "documentation",
+      "url": "https://github.com/BookStackApp/BookStack",
+      "license_note": "MIT",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "Authentik",
+      "category": "identity",
+      "url": "https://github.com/goauthentik/authentik",
+      "license_note": "MIT",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "Uptime Kuma",
+      "category": "uptime",
+      "url": "https://github.com/louislam/uptime-kuma",
+      "license_note": "MIT",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "OpenRMM",
+      "category": "rmm",
+      "url": "https://github.com/openrmm-project/openrmm",
+      "license_note": "review_required",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "Breeze",
+      "category": "rmm_psa",
+      "url": "https://github.com/LanternOps/breeze",
+      "license_note": "AGPL-3.0 core; commercial extensions",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    },
+    {
+      "name": "Tactical RMM",
+      "category": "rmm",
+      "url": "https://github.com/amidaware/tacticalrmm",
+      "license_note": "source-available; commercial-use restrictions",
+      "state": "RESEARCHED_NOT_INSTALLED",
+      "review_required": true
+    }
+  ]
+}
