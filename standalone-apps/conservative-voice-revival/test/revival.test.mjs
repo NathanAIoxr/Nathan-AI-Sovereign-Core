@@ -12,7 +12,7 @@ function fakeDB(){
    if(sql.includes("FROM geographic_topics"))return {results:[{id:58,name:"National",route:"/modules/news/index.php?storytopic=58"}]};
    return {results:[]};
   },
-  async first(){return {n:0};},
+  async first(){return sql.includes("FROM articles WHERE slug") ? null : {n:0};},
   async run(){return {meta:{last_row_id:1}};}
  };}};
 }
@@ -55,4 +55,14 @@ test("Admin publishing is disabled without a secret",async()=>{
 });
 test("RSS is syntactically available without articles",async()=>{
  const r=await get("/rss.xml");assert.equal(r.status,200);assert.match(await r.text(),/<rss version="2.0">/);
+});
+
+test("Evidence ledger is read-only public verification",async()=>{
+ const r=await get("/api/evidence");assert.equal(r.status,200);
+ const data=await r.json();assert.ok(Array.isArray(data.claims));
+});
+test("Legacy section links redirect to modern categories",async()=>{
+ const r=await get("/categories/opinion.html");
+ assert.equal(r.status,301);
+ assert.match(r.headers.get("location"),/category\?name=Political%20Opinion/);
 });
