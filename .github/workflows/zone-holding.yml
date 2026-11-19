@@ -7,6 +7,8 @@ on:
       - 'zones/**'
       - '.github/workflows/zone-holding.yml'
   workflow_dispatch:
+  schedule:
+    - cron: '23 * * * *'
 
 permissions:
   contents: read
@@ -17,16 +19,17 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
       - name: Verify storage gate and record catalog
         run: |
-          node --test zones/test.mjs
+          node --test zones/*.test.mjs zones/test.mjs
           node zones/inventory.mjs HEAD >/tmp/zone-source-inventory.json
       - name: Apply D1 migrations and deploy the holding Worker
         env:
@@ -40,5 +43,21 @@ jobs:
             echo "Gate tests ran. Cloudflare deploy credentials are unavailable." >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
-          npx --yes wrangler@4 d1 migrations apply ZONES --remote --config zones/wrangler.toml
-          npx --yes wrangler@4 deploy --config zones/wrangler.toml --dispatch-namespace nathan-tabor-platforms
+          npx --yes wrangler@4.165.0 d1 migrations apply ZONES --remote --config zones/wrangler.toml
+          node zones/staging/register.mjs "$GITHUB_SHA" > "$RUNNER_TEMP/sovereign-staging.sql"
+          npx --yes wrangler@4.165.0 d1 execute ZONES --remote --config zones/wrangler.toml --file "$RUNNER_TEMP/sovereign-staging.sql"
+          npx --yes wrangler@4.165.0 deploy --config zones/wrangler.toml --dispatch-namespace nathan-tabor-platforms
+
+  sentinel:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node zones/staging/audit-cli.mjs
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

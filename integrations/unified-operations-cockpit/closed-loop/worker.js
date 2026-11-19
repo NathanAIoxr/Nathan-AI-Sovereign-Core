@@ -314,9 +314,18 @@ export default {
   async fetch(request, env) {
     const taborApp = await dispatchTaborApp(request, env.PLATFORMS);
     if (taborApp) return taborApp;
+    const url = new URL(request.url);
+    const sovereignStaging = "/tabor-sites/sovereign-staging";
+    if (url.origin === "https://unified-operations-cockpit.nathantaboract.workers.dev" &&
+        (url.pathname === sovereignStaging || url.pathname.startsWith(sovereignStaging + "/"))) {
+      try {
+        return await env.PLATFORMS.get("tabor-zone-holding", {}, { limits: { cpuMs: 60, subRequests: 20 } }).fetch(request);
+      } catch {
+        return new Response("Staging temporarily unavailable", { status: 503 });
+      }
+    }
     const taborSite = await dispatchTaborSite(request, env.PLATFORMS);
     if (taborSite) return taborSite;
-    const url = new URL(request.url);
     const { pathname } = url;
     const isGet = request.method === "GET";
     if (isGet && pathname === "/health") return json({ ok: true, service: "unified-operations-cockpit", schema: 2 });

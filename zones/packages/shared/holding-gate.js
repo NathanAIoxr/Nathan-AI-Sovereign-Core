@@ -1,3 +1,8 @@
+import { MAX_ARTIFACT_BYTES, storeArtifact } from '../provenance-ledger/index.js';
+import { ingestTelemetry, ingestVoice, readBody, readObject } from '../voice-telemetry/index.js';
+import { switchboard } from '../nervous-system/switchboard.js';
+import { stagingPreview } from '../../staging/preview.js';
+
 const securityHeaders = {
   'Cache-Control': 'no-store',
   'X-Content-Type-Options': 'nosniff',
@@ -85,18 +90,72 @@ async function holdingPage(request, env) {
   return response(request, markup, 200, { 'Content-Type': 'text/html; charset=utf-8' });
 }
 
+const privatePaths = new Map([
+  ['/sovereign/artifacts', 'POST'],
+  ['/sovereign/telemetry', 'POST'],
+  ['/sovereign/voice', 'POST'],
+  ['/sovereign/mcp', 'POST'],
+  ['/sovereign/node/claim', 'POST'],
+  ['/sovereign/node/release', 'POST'],
+  ['/sovereign/node/socket', 'GET'],
+]);
+
+function json(request, value, status = 200) {
+  return response(request, JSON.stringify(value), status, { 'Content-Type': 'application/json; charset=utf-8' });
+}
+
+async function privateOperation(request, env, url, project) {
+  const origin = request.headers.get('Origin');
+  if (origin && origin !== url.origin) return response(request, 'Forbidden', 403);
+  const route = url.pathname.slice('/sovereign/'.length);
+  if (route === 'artifacts') {
+    const bytes = await readBody(request, MAX_ARTIFACT_BYTES);
+    return json(request, await storeArtifact(env, project.project_id, bytes), 201);
+  }
+  if (route === 'mcp') {
+    const result = await switchboard(await readObject(request), project, env);
+    return result ? json(request, result) : response(request, null, 202);
+  }
+  if (route === 'telemetry' || route === 'voice') {
+    const data = route === 'telemetry' ? await ingestTelemetry(request, env, project.project_id) :
+      await ingestVoice(request, env, project.project_id);
+    return json(request, data, data.conflict ? 409 : 201);
+  }
+
+  const stub = env.NODES.getByName(project.project_id);
+  const target = 'https://sovereign-node/' + route.slice('node/'.length);
+  if (request.method === 'GET') return stub.fetch(new Request(target, { headers: request.headers }));
+  const body = await readObject(request, 4096);
+  return stub.fetch(new Request(target, { method: 'POST', body: JSON.stringify(body) }));
+}
+
 export default {
   async fetch(request, env) {
-    if (request.method !== 'GET' && request.method !== 'HEAD') {
-      return response(request, 'Method not allowed', 405, { Allow: 'GET, HEAD' });
-    }
     const url = new URL(request.url);
     try {
+      const staging = await stagingPreview(request, env, response);
+      if (staging) return staging;
+      const action = privatePaths.get(url.pathname);
+      const method = request.method;
+      if (method !== 'GET' && method !== 'HEAD' && method !== action) {
+        return response(request, 'Method not allowed', 405, { Allow: action ?? 'GET, HEAD' });
+      }
+
       const project = await env.ZONES.prepare(
         'SELECT project_id, zone_status, launch_status, access_audience, build_key, entry_key FROM zones_registry WHERE hostname = ?'
       ).bind(url.hostname).first();
       if (!project || project.zone_status !== 'ACTIVE') return response(request, 'Not found', 404);
-      const live = project.launch_status === 'LIVE';
+
+      const live = project.launch_status === 'LIVE' &&
+        await env.HOLDING_CONFIG.get('FLEET_STATUS') !== 'HOLDING' &&
+        await env.HOLDING_CONFIG.get('ZONE_STATUS:' + url.hostname) !== 'HOLDING';
+      if (action) {
+        if (method !== action) return response(request, 'Method not allowed', 405, { Allow: action });
+        if (!await hasPreviewAccess(request, env.ACCESS_ISSUER, project.access_audience)) {
+          return response(request, 'Not found', 404);
+        }
+        return await privateOperation(request, env, url, { ...project, live });
+      }
       if (!live && !await hasPreviewAccess(request, env.ACCESS_ISSUER, project.access_audience)) {
         return url.pathname === '/' ? holdingPage(request, env) : response(request, 'Not found', 404);
       }
@@ -104,13 +163,15 @@ export default {
       const mime = key && contentTypes.get(key.split('.').at(-1).toLowerCase());
       if (!mime || !project.build_key) return response(request, 'Not found', 404);
       const objectKey = 'projects/' + project.project_id + '/' + project.build_key + '/' + key;
-      const asset = request.method === 'HEAD' ? await env.STAGING.head(objectKey) : await env.STAGING.get(objectKey);
+      const asset = method === 'HEAD' ? await env.STAGING.head(objectKey) : await env.STAGING.get(objectKey);
       if (!asset) return response(request, 'Not found', 404);
       const headers = { 'Content-Type': mime, 'Content-Length': String(asset.size) };
-      const served = response(request, request.method === 'HEAD' ? null : asset.body, 200, headers);
+      const served = response(request, method === 'HEAD' ? null : asset.body, 200, headers);
       if (live) served.headers.delete('X-Robots-Tag');
       return served;
-    } catch {
+    } catch (error) {
+      if (error instanceof RangeError) return response(request, 'Payload too large', 413);
+      if (error instanceof SyntaxError) return response(request, 'Invalid request body', 400);
       return response(request, 'Temporarily unavailable', 503);
     }
   }
