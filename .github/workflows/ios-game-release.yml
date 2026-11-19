@@ -1,0 +1,63 @@
+name: Tabor iPhone game builds
+
+on:
+  pull_request:
+    paths:
+      - 'standalone-apps/ios-game-release/**'
+      - 'standalone-apps/scrambler/**'
+      - 'standalone-apps/hook-and-ring/**'
+      - 'standalone-apps/game-app-stations/apps/nathan-ai-sudoku-master/**'
+      - 'standalone-apps/tactilecore-sdk/src/**'
+      - 'app-factory/tabor-tracker-ball/public/**'
+      - 'app-factory/game-reference-lab/zero-void-lab.html'
+      - '.github/workflows/ios-game-release.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'standalone-apps/ios-game-release/**'
+      - '.github/workflows/ios-game-release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bundles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test standalone-apps/scrambler/*.test.mjs standalone-apps/game-app-stations/apps/nathan-ai-sudoku-master/*.test.mjs
+      - run: npm test --prefix standalone-apps/hook-and-ring
+      - run: node standalone-apps/ios-game-release/scripts/stage.mjs
+      - run: node standalone-apps/ios-game-release/scripts/verify.mjs
+  iphone:
+    needs: bundles
+    runs-on: macos-26
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [Scrambler, YardArcade, Sudoku, Retro]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: brew install xcodegen
+      - run: xcodebuild -version
+      - name: Test simulator and package unsigned device build
+        env:
+          RUN_SIMULATOR_TESTS: '1'
+          SCHEME: ${{ matrix.scheme }}
+        run: bash standalone-apps/ios-game-release/scripts/build-ios.sh "$SCHEME"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.scheme }}-iPhone-validation
+          path: standalone-apps/ios-game-release/dist/
+          if-no-files-found: warn
+          retention-days: 14
