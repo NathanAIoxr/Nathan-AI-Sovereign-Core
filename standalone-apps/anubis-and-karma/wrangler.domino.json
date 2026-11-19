@@ -2,7 +2,9 @@
   "name": "tabor-domino",
   "main": "workers/domino.mjs",
   "compatibility_date": "2026-11-18",
-  "compatibility_flags": ["global_fetch_strictly_public"],
+  "compatibility_flags": [
+    "global_fetch_strictly_public"
+  ],
   "workers_dev": true,
   "preview_urls": false,
   "build": {
@@ -28,6 +30,10 @@
     {
       "binding": "FINALE",
       "service": "tabor-anubis-karma"
+    },
+    {
+      "binding": "TEXTS",
+      "service": "tabor-zero-one-texts"
     }
   ]
 }

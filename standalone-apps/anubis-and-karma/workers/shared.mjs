@@ -6,6 +6,7 @@ export const urls = {
   anubis: 'https://tabor-anubis.nathantaboract.workers.dev',
   karma: 'https://tabor-karma.nathantaboract.workers.dev',
   finale: 'https://tabor-anubis-karma.nathantaboract.workers.dev',
+  texts: 'https://tabor-zero-one-texts.nathantaboract.workers.dev',
   domino: 'https://tabor-domino.nathantaboract.workers.dev',
   world: 'https://tabor-world.nathantaboract.workers.dev',
   heka: 'https://tabor-heka.nathantaboract.workers.dev',
@@ -60,7 +61,7 @@ export function frame(title, main) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHTML(title)} · Tabor World</title><link rel="stylesheet" href="/site.css"></head>
   <body><header class="top"><a class="brand" href="${urls.finale}">TABOR WORLD <span> / 0 × 1</span></a>
-  <nav aria-label="Project"><a href="${urls.finale}/read">Read</a><a href="${urls.domino}">Domino</a></nav></header>
+  <nav aria-label="Project"><a href="${urls.finale}/read">Read</a><a href="${urls.texts}">Texts</a><a href="${urls.domino}">Domino</a></nav></header>
   <main class="page single">${main}</main>
   <footer><a href="${urls.finale}">Anubis &amp; Karma</a><a href="${urls.github}">Source on GitHub</a></footer></body></html>`;
 }

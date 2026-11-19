@@ -27,11 +27,11 @@ jobs:
         with:
           node-version: '22'
       - run: npm test
-      - name: Build the four Worker bundles
+      - name: Build the five Worker bundles
         env:
           WRANGLER_SEND_METRICS: 'false'
         run: |
-          for stage in anubis karma finale domino; do
+          for stage in anubis karma finale texts domino; do
             npx --yes wrangler@4.165.0 deploy --dry-run --config "wrangler.$stage.json" --outdir "${{ runner.temp }}/anubis-karma/$stage"
           done
 
@@ -57,7 +57,7 @@ jobs:
           set -euo pipefail
           : "${CLOUDFLARE_API_TOKEN:?Missing Cloudflare token}"
           : "${CLOUDFLARE_ACCOUNT_ID:?Missing Cloudflare account ID}"
-          for stage in anubis karma finale domino; do
+          for stage in anubis karma finale texts domino; do
             npx --yes wrangler@4.165.0 deploy --config "wrangler.$stage.json"
           done
       - name: Verify deployed release

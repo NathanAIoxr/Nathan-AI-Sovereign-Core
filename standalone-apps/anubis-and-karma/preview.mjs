@@ -2,10 +2,11 @@ import { createServer } from 'node:http';
 import anubis from './workers/anubis.mjs';
 import karma from './workers/karma.mjs';
 import finale from './workers/finale.mjs';
+import texts from './workers/texts.mjs';
 import domino from './workers/domino.mjs';
 
-const routes = { anubis, karma, finale, domino };
-const env = { ANUBIS: anubis, KARMA: karma, FINALE: finale };
+const routes = { anubis, karma, finale, texts, domino };
+const env = { ANUBIS: anubis, KARMA: karma, FINALE: finale, TEXTS: texts };
 const service = process.argv[2] ?? 'finale';
 if (!Object.hasOwn(routes, service)) throw new Error('Unknown preview: ' + service);
 const port = Number(process.env.PORT ?? 8787);

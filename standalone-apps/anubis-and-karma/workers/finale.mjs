@@ -1,5 +1,5 @@
 import { index, client, novella } from '../.generated/assets.mjs';
-import { escapeHTML, frame, html, json, reply, release, site } from './shared.mjs';
+import { escapeHTML, frame, html, json, reply, release, site, urls } from './shared.mjs';
 
 export default site('finale', (path, request) => {
   if (path === '/') return html(request, index);
@@ -44,5 +44,15 @@ function rootPage() {
     <h2>Names for the conflict</h2>
     <p>Good vs evil is the broad phrase. These KJV passages give names to the conflict in heaven, in human conduct, and within the person.</p>
     <ul class="domino-list">${names}</ul>
+    <h2>Names across traditions</h2>
+    <ul class="domino-list">
+      <li><a href="${urls.texts}/#war-scroll">Sons of Light vs Sons of Darkness</a> · War Scroll (1QM)</li>
+      <li><a href="${urls.texts}/#yasna-30-3">The two opposed spirits</a> · Yasna 30.3–4</li>
+      <li><a href="${urls.texts}/#gita-16-6">Divine and demoniac dispositions</a> · Bhagavad Gītā 16.6</li>
+      <li><a href="${urls.texts}/#quran-17-81">Truth vs falsehood</a> · Qurʾān 17:81</li>
+      <li><a href="${urls.texts}/#tattvartha-8">Karmic bondage</a> · Tattvārtha Sūtra 8.1</li>
+      <li><a href="${urls.texts}/#trc-1995">Truth and reconciliation</a> · South Africa’s 1995 act</li>
+    </ul>
+    <a class="button" href="${urls.texts}">Browse the ancient-to-modern text index</a>
     <a class="button" href="/">Play the finale</a>`);
 }

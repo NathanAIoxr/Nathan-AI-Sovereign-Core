@@ -4,6 +4,7 @@ const order = [
   { id: 'anubis', label: 'The Scales of Anubis', binding: 'ANUBIS', path: '/api/entry', entry: 0 },
   { id: 'karma', label: 'The Karma Balance Sheet', binding: 'KARMA', path: '/api/entry', entry: 1 },
   { id: 'finale', label: 'The playable finale', binding: 'FINALE', path: '/api/release' },
+  { id: 'texts', label: 'Ancient-to-modern text index', binding: 'TEXTS', path: '/api/summary', catalog: true },
   { id: 'github', label: 'GitHub release manifest', manifest: true },
 ];
 
@@ -18,7 +19,14 @@ const isRelease = (record) => record?.id === release.id
   && record?.entries?.length === release.entries.length
   && release.entries.every((entry, i) => entry.id === record.entries[i]?.id)
   && record?.premise === release.premise
-  && record?.rootDirective === release.rootDirective;
+  && record?.rootDirective === release.rootDirective
+  && isCatalog(record?.textIndex);
+
+function isCatalog(record) {
+  return record?.records === release.textIndex.records
+    && record?.collections === release.textIndex.collections
+    && record?.sha256 === release.textIndex.sha256;
+}
 
 async function check(item, env, external) {
   if (item.binding) {
@@ -30,6 +38,7 @@ async function check(item, env, external) {
     const content = await env[item.binding].fetch(address + item.path);
     if (!content.ok) return false;
     const record = await content.json();
+    if (item.catalog) return record.version === release.version && isCatalog(record);
     return item.entry === undefined ? isRelease(record) : record.id === release.entries[item.entry].id;
   }
   const response = await external(item.manifest ? urls.manifest : urls[item.id] + '/', {
@@ -74,7 +83,7 @@ const worker = site('domino', async (path, request, env) => {
   if (path === '/api/chain') return json(request, report, report.ready ? 200 : 503);
   return html(request, frame('Domino', `
     <p class="overline">Tabor World / Release verification</p><h1>Domino</h1>
-    <p class="intro">${report.ready ? 'All four release checks passed.' : 'The release has checks pending.'}</p>
+    <p class="intro">${report.ready ? 'All five release checks passed.' : 'The release has checks pending.'}</p>
     <ol class="domino-list">${list(report.stages)}</ol>
     <p class="credit">Checked <time datetime="${report.checkedAt}">${report.checkedAt}</time></p>
     ${report.related.length ? `<h2>Related projects</h2><p>Homepage availability</p><ul class="domino-list">${list(report.related)}</ul>` : ''}
