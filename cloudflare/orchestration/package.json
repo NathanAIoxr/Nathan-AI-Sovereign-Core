@@ -1,0 +1,13 @@
+{
+  "name": "nathan-ai-orchestration-core",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check src/index.js",
+    "deploy": "wrangler deploy",
+    "migrate": "wrangler d1 migrations apply nathan-ai-orchestration --remote"
+  },
+  "devDependencies": {
+    "wrangler": "4.49.0"
+  }
+}
