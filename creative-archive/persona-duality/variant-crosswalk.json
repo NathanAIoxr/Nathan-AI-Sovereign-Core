@@ -1,0 +1,27 @@
+{
+  "schema": "tabor.persona.variant-crosswalk.v1",
+  "work_item": "PD-001",
+  "status": "unresolved_requires_original_source_review",
+  "canon_source": "creative-archive/nexus-mas-spirit/canon.json",
+  "variants": [
+    {
+      "spelling": "SANTA SUPMALG",
+      "source": "GitHub canon.json v2026-11-14",
+      "claim": "listed as current in existing GitHub snapshot",
+      "authority": "existing_compilation_not_primary_utterance"
+    },
+    {
+      "spelling": "SANTA SUPMALS",
+      "source": "GitHub canon.json v2026-11-14",
+      "claim": "listed as earlier variant; later user recollection disputes precedence",
+      "authority": "conflicting_source_variant"
+    }
+  ],
+  "policy": {
+    "preserve_both": true,
+    "do_not_overwrite_canon": true,
+    "do_not_infer_author_preference": true,
+    "private_transcripts_not_published": true
+  },
+  "next": "Compare dated verbatim author utterances with their original context before proposing any canon precedence change."
+}
