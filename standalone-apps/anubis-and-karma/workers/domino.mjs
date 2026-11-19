@@ -17,7 +17,8 @@ const isRelease = (record) => record?.id === release.id
   && record?.version === release.version
   && record?.entries?.length === release.entries.length
   && release.entries.every((entry, i) => entry.id === record.entries[i]?.id)
-  && record?.premise === release.premise;
+  && record?.premise === release.premise
+  && record?.rootDirective === release.rootDirective;
 
 async function check(item, env, external) {
   if (item.binding) {

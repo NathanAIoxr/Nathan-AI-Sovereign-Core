@@ -17,6 +17,8 @@ The two record IDs come from the Connected Atlas. *The Last Weighing* is a new s
 
 The Domino Worker checks the first three Workers through Cloudflare service bindings, compares the GitHub main-branch release manifest, and checks the three linked project homepages. Its report is available at `/api/chain`. Its hourly Cron Trigger logs the same verification and surfaces a failed check in Cloudflare. Each check concerns the stated release or endpoint. 
 
+The Root of 0 and 1 is at `/root`. It preserves Nathan Tabor’s follow-up directive, indexes names with KJV references, and records the final state `0 = 0 · 1 = 1`.
+
 ## Build and run
 
 Use Node 22 or later. This app has no runtime package dependencies.

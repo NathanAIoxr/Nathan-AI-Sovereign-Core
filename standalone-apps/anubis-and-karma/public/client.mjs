@@ -75,6 +75,7 @@ function mount(doc) {
       stone.setAttribute('aria-label', `Case ${index + 1}: ${index < state.index ? 'closed' : 'open'}`);
     }
     el('stones').classList.toggle('finished', finished);
+    el('root-result').hidden = !finished;
     el('reset').hidden = !finished;
     if (moveFocus) el('game-title').focus();
   }

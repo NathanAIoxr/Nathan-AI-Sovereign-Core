@@ -49,6 +49,17 @@ test('finale serves an interactive page, a readable story and a download', async
   assert.equal((await finale.fetch(request('/missing'))).status, 404);
 });
 
+test('the Root page preserves the directive and cites the KJV', async () => {
+  const page = await finale.fetch(request('/root'));
+  const body = await page.text();
+  assert.equal(page.status, 200);
+  assert.ok(body.includes(release.rootDirective));
+  assert.match(body, /0 = 0 · 1 = 1/);
+  assert.match(body, /Revelation 12:7–9 \(KJV\)/);
+  assert.match(body, /Romans 6:16–18 \(KJV\)/);
+  assert.match(await (await finale.fetch(request('/'))).text(), /id="root-result"[^>]*hidden/);
+});
+
 test('Domino verifies the four release steps and checks related homepages', async () => {
   const calls = [];
   const external = async (url, options) => {
