@@ -59,6 +59,13 @@ async function projectRow(env, id) {
   return await env.DB.prepare("SELECT workspace_id, project_name, project_kind, domain, domain_status, launch_status, public_url FROM zones_registry WHERE workspace_id=?").bind(id).first();
 }
 
+export async function readZoneComponents(db, workspaceId, limit = 100, offset = 0) {
+  if (!validId(workspaceId)) throw Error("Invalid project");
+  const query = "SELECT component_type,source_table,source_id,source_ref,snapshot_json,snapshot_sha256,captured_at FROM zone_components WHERE workspace_id=? ORDER BY component_type,source_table,source_id LIMIT ? OFFSET ?";
+  const {results} = await db.prepare(query).bind(workspaceId,limit+1,offset).all();
+  return {rows:results.slice(0,limit),nextOffset:results.length>limit ? offset+limit : null};
+}
+
 async function handle(request, env) {
   const base = env.MOUNT_PATH === "/holding-vault" ? "/holding-vault" : "";
   const {pathname, searchParams} = new URL(request.url);
@@ -95,15 +102,29 @@ async function handle(request, env) {
     return page("Project staging registry", `<ul>${items}</ul>${next}`);
   }
 
-  const match = /^\/preview\/([^/]+)(?:\/assets\/(.+))?\/?$/.exec(pathname);
+  const match = /^\/preview\/([^/]+)(?:\/(snapshot\.json|assets\/(.+)))?\/?$/.exec(pathname);
   if (!match || !validId(match[1])) return text("Project not found",404);
   const record = await projectRow(env, match[1]);
   if (!record) return text("Project not found",404);
-  if (!match[2]) {
-    return page(record.project_name,`<p><a href="${base}/preview">Project registry</a></p><dl><dt>Project</dt><dd>${escape(record.project_kind)}</dd><dt>Release</dt><dd>${escape(record.launch_status)}</dd><dt>Domain</dt><dd>${escape(record.domain ?? "Awaiting assignment")}</dd><dt>Zone state</dt><dd>${escape(record.domain_status)}</dd></dl>`);
+  if (match[2] === "snapshot.json") {
+    const cursor = searchParams.get("offset") ?? "0";
+    if (!/^(0|[1-9][0-9]{0,6})$/.test(cursor)) return text("Invalid cursor",400);
+    const {rows,nextOffset} = await readZoneComponents(env.DB,record.workspace_id,100,Number(cursor));
+    const bytes = JSON.stringify({
+      project:record, nextOffset,
+      components:rows.map(({snapshot_json,...component}) => ({...component,snapshot:JSON.parse(snapshot_json)}))
+    });
+    return new Response(bytes,{headers:{...NO_CACHE,"Content-Type":"application/json; charset=utf-8","Content-Disposition":`attachment; filename="${record.workspace_id}-snapshot.json"`}});
+  }
+  if (!match[3]) {
+    const {rows,nextOffset} = await readZoneComponents(env.DB,record.workspace_id,30);
+    const list = rows.map((row) => `<li>${escape(row.component_type)} · ${escape(row.source_ref ?? row.source_id)}</li>`).join("");
+    const snapshot = `${base}/preview/${record.workspace_id}/snapshot.json`;
+    const count = nextOffset === null ? rows.length : "30+";
+    return page(record.project_name,`<p><a href="${base}/preview">Project registry</a></p><dl><dt>Project</dt><dd>${escape(record.project_kind)}</dd><dt>Release</dt><dd>${escape(record.launch_status)}</dd><dt>Domain</dt><dd>${escape(record.domain ?? "Awaiting assignment")}</dd><dt>Zone state</dt><dd>${escape(record.domain_status)}</dd></dl><h2>Staged components (${count})</h2><p><a href="${snapshot}">Download project snapshot</a></p><ul>${list}</ul>`);
   }
 
-  const segments = match[2].split("/");
+  const segments = match[3].split("/");
   if (segments.some((segment) => !/^[a-zA-Z0-9][a-zA-Z0-9._-]{0,127}$/.test(segment))) return text("Asset not found",404);
   const object = await env.VAULT.get(`${record.workspace_id}/${segments.join("/")}`);
   if (!object) return text("Asset not found",404);
