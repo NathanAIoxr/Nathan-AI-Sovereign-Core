@@ -1,0 +1,12 @@
+name = "christmas-toy-drive-worker"
+main = "../src/worker.mjs"
+compatibility_date = "2026-11-01"
+workers_dev = false
+
+[vars]
+SITE_ID = "christmas-toy-drive"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "toy_drive_db"
+database_id = "ba17e026-993e-4148-820b-d172864795b6"

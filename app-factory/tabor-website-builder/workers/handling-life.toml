@@ -1,0 +1,12 @@
+name = "handling-life-worker"
+main = "../src/worker.mjs"
+compatibility_date = "2026-11-01"
+workers_dev = false
+
+[vars]
+SITE_ID = "handling-life"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "handling_life_db"
+database_id = "d59195c7-33a6-4163-8598-578356db9426"

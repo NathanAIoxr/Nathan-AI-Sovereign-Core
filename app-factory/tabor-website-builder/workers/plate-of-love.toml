@@ -1,0 +1,12 @@
+name = "daily-plate-of-love-worker"
+main = "../src/worker.mjs"
+compatibility_date = "2026-11-01"
+workers_dev = false
+
+[vars]
+SITE_ID = "plate-of-love"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "plate_of_love_db"
+database_id = "744f3e57-3284-4e57-a962-d7d326297ea8"

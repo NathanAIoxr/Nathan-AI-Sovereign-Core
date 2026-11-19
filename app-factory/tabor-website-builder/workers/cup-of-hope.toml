@@ -1,0 +1,12 @@
+name = "daily-cup-of-hope-worker"
+main = "../src/worker.mjs"
+compatibility_date = "2026-11-01"
+workers_dev = false
+
+[vars]
+SITE_ID = "cup-of-hope"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "cup_of_hope_db"
+database_id = "4bdc41d5-82fe-4da6-8dda-e79f8ce3a922"

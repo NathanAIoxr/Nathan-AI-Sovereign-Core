@@ -1,0 +1,16 @@
+name = "tabor-site-builder-worker"
+main = "../src/worker.mjs"
+compatibility_date = "2026-11-01"
+workers_dev = false
+
+[vars]
+SITE_ID = "site-builder"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "site_builder_db"
+database_id = "4b5e9032-e03c-4662-b981-601bab241e1b"
+
+[[kv_namespaces]]
+binding = "PAGE_CACHE"
+id = "0f25a72c25af4cc681792f39ebbc6a51"

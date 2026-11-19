@@ -1,0 +1,78 @@
+name: TABOR WEBSITE BUILDER
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/tabor-website-builder/**'
+      - '.github/workflows/tabor-website-builder.yml'
+  pull_request:
+    paths:
+      - 'app-factory/tabor-website-builder/**'
+      - '.github/workflows/tabor-website-builder.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tabor-website-builder-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CLOUDFLARE_ACCOUNT_ID: ${{ vars.TABOR_WEBSITE_CLOUDFLARE_ACCOUNT_ID || 'a70580bacdf96c946662b7b67dcb45b5' }}
+  WRANGLER_VERSION: 4.165.0
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: app-factory/tabor-website-builder
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node scripts/verify.mjs
+      - name: Build each Worker
+        run: |
+          for config in workers/*.toml; do
+            npx --yes "wrangler@$WRANGLER_VERSION" deploy --dry-run --config "$config" --dispatch-namespace nathan-tabor-platforms
+          done
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: app-factory/tabor-website-builder
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Apply schema and deploy seven independent Workers
+        id: release
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.TABOR_WEBSITE_CLOUDFLARE_TOKEN }}
+        run: |
+          if [[ -z "$CLOUDFLARE_API_TOKEN" ]]; then
+            echo "::notice::Set TABOR_WEBSITE_CLOUDFLARE_TOKEN to enable automatic Cloudflare deployment."
+            exit 0
+          fi
+          npx --yes "wrangler@$WRANGLER_VERSION" d1 execute DB --config workers/handling-life.toml --remote --file migrations/handling.sql
+          npx --yes "wrangler@$WRANGLER_VERSION" d1 execute DB --config workers/site-builder.toml --remote --file migrations/builder.sql
+          for id in christmas-toy-drive cup-of-hope plate-of-love; do
+            npx --yes "wrangler@$WRANGLER_VERSION" d1 execute DB --config "workers/$id.toml" --remote --file migrations/aid.sql
+          done
+          for config in workers/*.toml; do
+            npx --yes "wrangler@$WRANGLER_VERSION" deploy --config "$config" --dispatch-namespace nathan-tabor-platforms --keep-vars
+          done
+          echo 'deployed=true' >> "$GITHUB_OUTPUT"
+      - name: Verify public routes
+        if: steps.release.outputs.deployed == 'true'
+        run: node scripts/check-live.mjs

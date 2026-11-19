@@ -1,0 +1,7 @@
+name = "tabor-year-zero-worker"
+main = "../src/worker.mjs"
+compatibility_date = "2026-11-01"
+workers_dev = false
+
+[vars]
+SITE_ID = "year-zero"
