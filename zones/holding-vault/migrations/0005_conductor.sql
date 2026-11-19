@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS sovereign_conductor_v1 (project_id TEXT PRIMARY KEY,enabled INTEGER NOT NULL DEFAULT 1 CHECK(enabled IN (0,1)),mode TEXT NOT NULL DEFAULT 'audit_only' CHECK(mode IN ('audit_only','approved_dispatch')),max_jobs_per_cycle INTEGER NOT NULL DEFAULT 10 CHECK(max_jobs_per_cycle BETWEEN 1 AND 64),updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
+INSERT OR IGNORE INTO sovereign_conductor_v1(project_id) SELECT project_id FROM zones_registry;
+CREATE TABLE IF NOT EXISTS sovereign_conductor_cycles_v1 (cycle_id TEXT PRIMARY KEY,started_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,finished_at TEXT,projects_checked INTEGER NOT NULL DEFAULT 0,eligible_jobs INTEGER NOT NULL DEFAULT 0,claimed_jobs INTEGER NOT NULL DEFAULT 0,receipt_json TEXT);
+CREATE INDEX IF NOT EXISTS idx_conductor_cycles_started ON sovereign_conductor_cycles_v1(started_at);
