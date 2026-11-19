@@ -1,0 +1,15 @@
+{
+  "name": "Voodoo, Vodou & Hoodoo",
+  "slug": "voodoo",
+  "cloudflare_worker": "tabor-voodoo",
+  "entry": "worker.mjs",
+  "website": "https://tabor-voodoo.nathantaboract.workers.dev",
+  "routes": [
+    "/",
+    "/books",
+    "/books/reader.md",
+    "/game",
+    "/healthz"
+  ],
+  "catalog_count": 0
+}

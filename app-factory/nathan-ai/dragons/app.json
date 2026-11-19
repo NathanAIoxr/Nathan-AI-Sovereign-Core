@@ -1,0 +1,16 @@
+{
+  "name": "Dragons",
+  "slug": "dragons",
+  "cloudflare_worker": "tabor-dragons",
+  "entry": "worker.mjs",
+  "website": "https://tabor-dragons.nathantaboract.workers.dev",
+  "routes": [
+    "/",
+    "/books",
+    "/books/reader.md",
+    "/game",
+    "/healthz",
+    "/catalog"
+  ],
+  "catalog_count": 101
+}

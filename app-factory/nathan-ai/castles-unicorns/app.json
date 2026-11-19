@@ -1,0 +1,15 @@
+{
+  "name": "Castles & Unicorns",
+  "slug": "castles-unicorns",
+  "cloudflare_worker": "tabor-castles-unicorns",
+  "entry": "worker.mjs",
+  "website": "https://tabor-castles-unicorns.nathantaboract.workers.dev",
+  "routes": [
+    "/",
+    "/books",
+    "/books/reader.md",
+    "/game",
+    "/healthz"
+  ],
+  "catalog_count": 0
+}

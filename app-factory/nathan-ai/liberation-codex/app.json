@@ -1,0 +1,16 @@
+{
+  "name": "Liberation Codex",
+  "slug": "liberation-codex",
+  "cloudflare_worker": "tabor-liberation-codex",
+  "entry": "worker.mjs",
+  "website": "https://tabor-liberation-codex.nathantaboract.workers.dev",
+  "routes": [
+    "/",
+    "/books",
+    "/books/reader.md",
+    "/game",
+    "/healthz",
+    "/catalog"
+  ],
+  "catalog_count": 404
+}

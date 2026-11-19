@@ -1,0 +1,15 @@
+{
+  "name": "GOODOO⁷ + JOODOO",
+  "slug": "goodoo-joodoo",
+  "cloudflare_worker": "tabor-goodoo-joodoo",
+  "entry": "worker.mjs",
+  "website": "https://tabor-goodoo-joodoo.nathantaboract.workers.dev",
+  "routes": [
+    "/",
+    "/books",
+    "/books/reader.md",
+    "/game",
+    "/healthz"
+  ],
+  "catalog_count": 0
+}

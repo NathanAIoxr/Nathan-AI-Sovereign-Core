@@ -1,0 +1,15 @@
+{
+  "name": "Heka",
+  "slug": "heka",
+  "cloudflare_worker": "tabor-heka",
+  "entry": "worker.mjs",
+  "website": "https://tabor-heka.nathantaboract.workers.dev",
+  "routes": [
+    "/",
+    "/books",
+    "/books/reader.md",
+    "/game",
+    "/healthz"
+  ],
+  "catalog_count": 0
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Cigam",
+  "slug": "cigam",
+  "cloudflare_worker": "tabor-cigam",
+  "entry": "worker.mjs",
+  "website": "https://tabor-cigam.nathantaboract.workers.dev",
+  "routes": [
+    "/",
+    "/books",
+    "/books/reader.md",
+    "/game",
+    "/healthz"
+  ],
+  "catalog_count": 0
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Unicorns",
+  "slug": "unicorns",
+  "cloudflare_worker": "tabor-unicorns",
+  "entry": "worker.mjs",
+  "website": "https://tabor-unicorns.nathantaboract.workers.dev",
+  "routes": [
+    "/",
+    "/books",
+    "/books/reader.md",
+    "/game",
+    "/healthz",
+    "/catalog"
+  ],
+  "catalog_count": 101
+}
