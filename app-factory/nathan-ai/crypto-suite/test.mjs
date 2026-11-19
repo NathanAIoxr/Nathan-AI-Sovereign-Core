@@ -45,3 +45,13 @@ test("restoration maps all slots without merging families into unresolved positi
   assert.equal(data.partitions.at(-1).id,"middle_mediator");
   assert.match(await (await get("crypto-64","/manuscript.txt")).text(),/Equilibrium Reached/);
 });
+
+test("mining launch readiness keeps unresolved chain and capacity gates visible",async () => {
+  const slots = Array.from({length:64},(_,i)=>({slot:i+1,status:i<42?"recovered_from_42_coin_artwork":"source_unverified"}));
+  const env = {COIN_SOURCE:{fetch:async()=>Response.json({requested:64,slots})}};
+  const result = await (await get("mining-lab","/api/launch-readiness",env)).json();
+  assert.equal(result.ready,false);
+  assert.deepEqual(result.registry,{orderedSlots:64,recovered:42,unresolved:22});
+  assert.equal(result.gates.length,3);
+  assert.equal((await (await get("mining-lab","/api/launch-readiness",{})).json()).ready,false);
+});

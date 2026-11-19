@@ -23,3 +23,7 @@ Deploy the generated file as an ES-module Worker. See `editions.json` for valid 
 ## 64-coin restoration archive
 
 `/restoration` shows the original registry using six-bit addresses, with separate source references and the seven partitions from the supplied chapter. `/api/restoration` exposes the same provenance metadata, and `/manuscript.txt` preserves the supplied scene. These partitions describe the chapter's architecture. The mining provenance note distinguishes artwork and import records from historical proof.
+
+## Mining launch readiness
+
+The Mining Lab binds `COIN_SOURCE` to `tabor-sovereign-currency` for `/launch` and `/api/launch-readiness`. Registry status is read live, and the capacity row is a dated account snapshot. This report records prerequisites for a production launch. The genesis proof route remains available for verification.

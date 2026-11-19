@@ -54,7 +54,7 @@ const tools = {
     '<p><a href="'+network+'/coins/64">Original registry</a> · <a href="/restoration">Restoration archive</a> · <a href="/api/coins/64">Registry JSON</a></p>'+input("search","Filter by slot, ticker, or name","search",'autocomplete="off"')+
     '<p id="coin-status" role="status">Loading registry…</p><div id="coins"></div>'),
   "mining-lab": () => section("Bitcoin header proof", "SHA-256d and compact-target comparison for an 80-byte header. Header proof is one component of Bitcoin block validation.",
-    '<p><a href="/api/genesis-proof">Bitcoin genesis verification data</a></p><form id="proof">'+area("header","80-byte hexadecimal header")+
+    '<p><a href="/api/genesis-proof">Bitcoin genesis verification data</a> · <a href="/launch">Production launch readiness</a></p><form id="proof">'+area("header","80-byte hexadecimal header")+
     '<div class="actions"><button>Verify proof</button><button type="button" id="genesis">Use genesis header</button></div></form>'+output("proof-result"))+
     section("Electricity estimate", "Enter measured or hypothetical values for your own equipment.",'<form id="energy">'+number("watts","Power in watts")+number("hours","Run hours")+number("rate","Cost per kWh")+'<button>Calculate</button></form>'+output("energy-result")),
   "cryptology": () => section("SHA-256", "This tool computes a SHA-256 digest in your browser.",
@@ -103,6 +103,30 @@ function restorationPage(data) {
     section("Mining provenance","The mining dashboard artwork reads EST. 1993. The available receipt records a 2026 archive import. Historical mining records are pending.","")+
     section("Seven manuscript partitions","The author-supplied scene and its proposed architecture.","<ol>"+partitions+"</ol>")+"</main></html>";
 }
+async function miningLaunch(env) {
+  const audit = { requested: { compute: 1000, higherCapacity: 1000 }, observed: {
+    observedOn: "2026-11-18", computePoolLimit: 110, higherCapacityPoolLimit: 110,
+    runningContainers: 0, verifiedMiningEndpoints: 0,
+  } };
+  try {
+    const registry = await sourceRegistry(env);
+    const recovered = registry.slots.filter(slot=>slot.status==="recovered_from_42_coin_artwork").length;
+    const gates = [
+      ["network", "Network specification and consensus proof for the intended coin", false],
+      ["execution", "Verified compatible mining endpoint and payout destination", false],
+      ["capacity", "Fleet capacity and operating budget for the requested scale", false],
+    ].map(([id, requirement, verified])=>({id,requirement,verified}));
+    return { ready: gates.every(gate=>gate.verified), registry: { orderedSlots: registry.slots.length, recovered, unresolved: registry.slots.length-recovered }, ...audit, gates };
+  } catch {
+    return { ready: false, registry: null, ...audit, gates: [], error: "Original coin registry unavailable" };
+  }
+}
+function miningLaunchPage(result) {
+  const items = result.gates.map(gate=>"<li>"+escape(gate.requirement)+" · "+(gate.verified?"Verified":"Pending")+"</li>").join("");
+  return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mining launch readiness</title><link rel="stylesheet" href="/style.css"><main class="wrap"><div class="hero"><h1>Mining launch readiness</h1><p><a href="/">Mining Lab</a> · <a href="/api/launch-readiness">Readiness JSON</a> · <a href="https://nathan-ai-crypto-dmsp-dit.nathantaboract.workers.dev/">DMSP &amp; DIT</a></p></div>'+
+    section("Production status",result.ready?"Verified for launch":"Awaiting launch inputs",result.error?"<p>"+escape(result.error)+"</p>":"<ul>"+items+"</ul>")+
+    section("Fleet check", "The Nov 18 account check found two on-demand compute pools with a maximum of 110 containers each.", "<p>Requested: 1,000 compute and 1,000 higher-capacity instances.</p>")+"</main></html>";
+}
 export function createApp(id) {
   return { async fetch(request, env) {
     const url = new URL(request.url);
@@ -123,6 +147,10 @@ export function createApp(id) {
         if (path === "/restoration") return send(restorationPage(data), "text/html");
         return json({ ...withCoordinates(data), partitions: restoration.partitions.map(([id,description])=>({id,description})), provenance: restoration.provenance, manuscript: "/manuscript.txt" });
       } catch { return json({ error: "Original registry temporarily unavailable" }, 503); }
+    }
+    if (id === "mining-lab" && ["/launch","/api/launch-readiness"].includes(path)) {
+      const result = await miningLaunch(env);
+      return path === "/launch" ? send(miningLaunchPage(result),"text/html") : json(result);
     }
     if (path === "/api/genesis-proof" && id === "mining-lab") return json({ header: GENESIS, ...(await headerProof(GENESIS)) });
     if (path === "/api/roles" && ["crypt-operations","crypto-dmsp-dit"].includes(id)) return json({ roles });
