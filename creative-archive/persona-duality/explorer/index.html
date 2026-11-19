@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Tabor Persona Atlas — Graph Explorer</title>
+<style>
+:root{font:16px/1.5 system-ui,sans-serif;color-scheme:dark}*{box-sizing:border-box}
+body{margin:0;background:#101923;color:#edf3f9}header,main,footer{max-width:1200px;margin:auto;padding:1rem}
+header{border-bottom:1px solid #425469}h1{font-size:clamp(1.7rem,4vw,3rem);margin:.2rem 0}
+a{color:#a8ddff}button,select,input{font:inherit;padding:.7rem;border:1px solid #8195aa;border-radius:.5rem;background:#1c2b3b;color:inherit}
+button{cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #ffca67;outline-offset:2px}
+.controls{display:flex;gap:.6rem;flex-wrap:wrap;margin:1rem 0}.controls input{flex:2;min-width:180px}.controls select{flex:1;min-width:180px}
+.layout{display:grid;grid-template-columns:minmax(220px,1fr) minmax(270px,1.4fr);gap:1rem}
+#results{display:grid;gap:.5rem;align-content:start;max-height:65vh;overflow:auto}
+.persona{width:100%;text-align:left;display:grid;gap:.1rem}.persona[aria-pressed="true"]{border-color:#ffca67;background:#334457}
+small,.muted{color:#c1cddb}.panel{padding:1rem;border:1px solid #52677d;border-radius:.7rem;background:#192636;min-width:0}
+.relationship{padding:.65rem 0;border-bottom:1px solid #46576c}h2{font-size:1.2rem}
+@media(max-width:700px){.layout{grid-template-columns:1fr}#results{max-height:32vh}}
+</style>
+</head>
+<body>
+<header><h1>Tabor Persona Atlas</h1><p>Creator: Nathan Tabor · Read-only exploration of fictional personas, scripture references, metaphors, and software-role labels.</p>
+<p><strong>Source boundaries:</strong> Graph connections are creative crosslinks, not historical proof or identity equivalence. Spelling variants remain distinct. No character images or faces are generated.</p></header>
+<main>
+<div class="controls"><label for="query">Search <input id="query" type="search" placeholder="Name, concept, summary"></label>
+<label for="kind">Category <select id="kind"></select></label>
+<button id="download" type="button">Export public graph JSON</button></div>
+<p id="count" role="status" aria-live="polite"></p>
+<div class="layout"><section class="panel" aria-label="Character and concept results"><div id="results"></div></section>
+<section class="panel" aria-label="Selected concept details" id="details" aria-live="polite"><h2>Select a concept</h2><p>Choose a result to inspect its explicit relationships.</p></section></div>
+</main><footer><p><a href="../README.md">Project documentation</a> · <a href="../registry.mjs">Public graph source</a></p></footer>
+<script type="module">
+import {GROUPS,filterNodes,neighborhood,exportGraph} from "./model.mjs";
+const query=document.getElementById("query"),kind=document.getElementById("kind"),results=document.getElementById("results"),details=document.getElementById("details"),count=document.getElementById("count");
+let selected=null;
+const el=(tag,text,cls)=>{const node=document.createElement(tag);node.textContent=text;if(cls)node.className=cls;return node;};
+for(const group of GROUPS){const option=document.createElement("option");option.value=group;option.textContent=group==="all"?"All categories":group.replaceAll("_"," ");kind.append(option);}
+function renderDetails(){
+ details.replaceChildren();
+ const data=neighborhood(selected);
+ if(!data){details.append(el("h2","Select a concept"),el("p","Choose a result to inspect its explicit relationships."));return;}
+ details.append(el("h2",data.node.name),el("p",data.node.summary),el("p","Category: "+data.node.kind,"muted"),el("h2","Relationships ("+data.edges.length+")"));
+ if(!data.edges.length)details.append(el("p","No relationships indexed."));
+ for(const edge of data.neighbors){const item=el("div","","relationship");item.append(el("strong",edge.node.name),el("p",edge.direction+" · "+edge.relation.replaceAll("_"," "),"muted"));details.append(item);}
+}
+function render(){
+ const nodes=filterNodes({query:query.value,kind:kind.value});count.textContent=nodes.length+" of "+GROUPS.length+" category groups; "+nodes.length+" matching concepts";
+ results.replaceChildren();
+ for(const node of nodes){const button=el("button","","persona");button.type="button";button.setAttribute("aria-pressed",String(node.id===selected));button.append(el("strong",node.name),el("small",node.kind.replaceAll("_"," ")));button.addEventListener("click",()=>{selected=node.id;render();renderDetails();});results.append(button);}
+ if(!nodes.length)results.append(el("p","No matching concepts."));
+ renderDetails();
+}
+query.addEventListener("input",render);kind.addEventListener("change",render);
+document.getElementById("download").addEventListener("click",()=>{
+ const blob=new Blob([exportGraph()],{type:"application/json"});const url=URL.createObjectURL(blob);
+ const anchor=document.createElement("a");anchor.href=url;anchor.download="tabor-persona-public-graph.json";anchor.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+render();
+</script></body></html>
