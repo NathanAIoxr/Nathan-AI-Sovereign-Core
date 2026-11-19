@@ -1,0 +1,14 @@
+name = "tabor-sunday-buffet"
+main = "dist/worker.mjs"
+compatibility_date = "2026-11-19"
+workers_dev = false
+preview_urls = false
+
+[build]
+command = "node scripts/bundle.mjs"
+
+[[d1_databases]]
+binding = "VAULT"
+database_name = "tabor-sunday-buffet-vault"
+database_id = "2ef64fe9-f051-42c7-b041-f2f20031916a"
+migrations_dir = "migrations"

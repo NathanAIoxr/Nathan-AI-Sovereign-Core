@@ -1,0 +1,34 @@
+name: Sunday Buffet Slam-Down
+
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/sunday-buffet/**'
+      - '.github/workflows/sunday-buffet.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/sunday-buffet/**'
+      - '.github/workflows/sunday-buffet.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-factory/nathan-ai/sunday-buffet
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/bundle.mjs
+      - run: node --test tests/*.test.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tabor-sunday-buffet-worker
+          path: app-factory/nathan-ai/sunday-buffet/dist/worker.mjs
+          if-no-files-found: error

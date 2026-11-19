@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#222b23"><meta name="description" content="Build a fictional two-plate buffet meal and run the tip ledger.">
+<title>Plate &amp; Tip App · Sunday Buffet Slam-Down</title>
+<link rel="stylesheet" href="./style.css"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon-192.png"><link rel="apple-touch-icon" href="./icon-192.png">
+<script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar"><div class="wrap nav"><a class="brand" href="./"><span class="mark" aria-hidden="true">NT</span>Nathan Tabor</a><nav aria-label="Main"><a href="./game">Game</a><a href="./app" aria-current="page">App</a><a href="./book">Book</a></nav></div></header>
+<main id="main" class="wrap subpage">
+<header class="page-head"><p class="eyebrow">THE TWO-PLATE SLAM-DOWN</p><h1>Build the spread.</h1><p>Choose a diner and a plate. Each portion changes the ledger. Calorie values are illustrative and assume every serving is eaten.</p><button class="button ghost" type="button" id="install">Install app</button><p id="install-message" class="small" hidden></p></header>
+<section class="boards" aria-label="Calorie totals" id="totals"></section>
+<div class="columns">
+<section class="panel" aria-labelledby="build-title">
+<h2 id="build-title">On the buffet</h2>
+<div class="control-line"><label for="diner">Diner<select id="diner"><option value="preacher">The preacher</option><option value="wife">The preacher’s wife</option></select></label><label for="plate">Where it goes<select id="plate"><option value="0">Plate 1</option><option value="1">Plate 2</option><option value="2">Drink glass</option></select></label></div>
+<div class="preset" aria-label="Meal presets"><button type="button" data-preset="house">Sunday spread</button><button type="button" data-preset="tall">4,000-kcal tall tale</button><button type="button" data-preset="empty">Clear all plates</button></div>
+<div id="menu"></div>
+<p class="small" id="portion-status" aria-live="polite"></p>
+</section>
+<aside class="side">
+<section class="panel" aria-labelledby="how-title"><h2 id="how-title">How they stack it</h2><p id="how"></p><div id="plate-detail"></div></section>
+<section class="panel receipt-panel" aria-labelledby="tip-title"><h2 id="tip-title">Tip ledger</h2><div class="control-line"><label for="bill">Subtotal ($)<input id="bill" type="number" min="0" max="10000" step="0.01" value="48.20" inputmode="decimal"></label><label for="tip">Tip (%)<input id="tip" type="number" min="0" max="100" step="1" value="20" inputmode="numeric"></label></div><div id="tip-output" aria-live="polite"></div><p class="small">Before tax. A tract with no money attached leaves a $0.00 tip.</p></section>
+</aside>
+</div>
+<noscript><p>Enable JavaScript to edit portions or calculate a tip. The <a href="./book">book</a> includes worked examples.</p></noscript>
+</main>
+<footer class="foot"><div class="wrap"><span>Sunday Buffet Slam-Down</span><span>Portions saved on this device</span></div></footer>
+</body></html>

@@ -1,3 +1,5 @@
+**[Sunday Buffet Slam-Down](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/sunday-buffet/)** · [Source](app-factory/nathan-ai/sunday-buffet/) · A four-choice Sunday shift game, installable plate and tip calculator, and short book.
+
 **[Nathan AI Global Bounties & Grand Challenges](https://tabor-bridge.nathantaboract.workers.dev/global-bounties/join)** · [Source](app-factory/nathan-ai/global-bounties/) · Source-checked math and science catalog and public participant invitation.
 
 **[Scrambler · TABOR 1-2-3 FACTORY](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/scrambler/)** · [Source](standalone-apps/scrambler/) · Fictional route playback, location privacy controls and recovered work.
