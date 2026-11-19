@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { auditFiberCatalogFile } from './catalog-file-gate.mjs';
+const valid = () => Array.from({length:12},(_,i)=>({id:`craft-${i}`,steps:Array.from({length:6},(_,j)=>({id:`step-${j}`}))}));
+test('requires explicit path', async()=>{await assert.rejects(auditFiberCatalogFile(''),TypeError)});
+test('valid array catalog passes',async()=>{const r=await auditFiberCatalogFile('sample.json',{read:async()=>JSON.stringify(valid())});assert.equal(r.ok,true);assert.equal(r.stepCount,72)});
+test('wrapped crafts catalog passes',async()=>{const r=await auditFiberCatalogFile('sample.json',{read:async()=>JSON.stringify({crafts:valid()})});assert.equal(r.ok,true)});
+test('missing step fails without rewriting data',async()=>{const c=valid();c[0].steps.pop();const s=JSON.stringify(c);const r=await auditFiberCatalogFile('sample.json',{read:async()=>s});assert.equal(r.ok,false);assert.equal(JSON.stringify(c),s)});
+test('invalid JSON fails closed',async()=>{const r=await auditFiberCatalogFile('sample.json',{read:async()=>'{'});assert.equal(r.ok,false)});
+test('unreadable file fails closed',async()=>{const r=await auditFiberCatalogFile('sample.json',{read:async()=>{throw Error('ENOENT')}});assert.equal(r.ok,false)});
