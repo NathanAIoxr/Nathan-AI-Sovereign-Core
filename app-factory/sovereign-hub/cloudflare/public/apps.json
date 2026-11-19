@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 352,
+  "count": 354,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -893,6 +893,14 @@
       "adoption": "integration_required"
     },
     {
+      "id": "app-9f6ecb0e38ca6440",
+      "title": "Sorting Hats & Hatettes \u00b7 UNBOUND",
+      "entry": "app-factory/nathan-ai/sorting-hats-hatettes/public/index.html",
+      "group": "nathan-ai",
+      "url": "https://tabor-word-rotations.nathantaboract.workers.dev/",
+      "adoption": "integration_required"
+    },
+    {
       "id": "app-0c48dce2c84cf58c",
       "title": "Nathan AI \u00b7 Sovereign Connections",
       "entry": "app-factory/nathan-ai/sovereign/index.html",
@@ -1002,6 +1010,14 @@
       "entry": "app-factory/nathan-ai/trinity-of-snow/index.html",
       "group": "nathan-ai",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/trinity-of-snow/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-2407371d9e86d89f",
+      "title": "The Two-Plate Reckoning",
+      "entry": "app-factory/nathan-ai/two-plate-reckoning/public/index.html",
+      "group": "nathan-ai",
+      "url": "https://tabor-word-rotations.nathantaboract.workers.dev/",
       "adoption": "integration_required"
     },
     {
