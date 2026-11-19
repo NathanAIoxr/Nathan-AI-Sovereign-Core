@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { setTimeout as delay } from 'node:timers/promises';
 import { claimChecks, publicSigningKeys, verifyGitHubReceipt } from './github-identity.mjs';
-import { crosshairs, orderedRelease, validateCatalogOrder, verifyCrosshairs } from './release-order.mjs';
+import { crosshairs, orderedRelease, validateCatalogOrder, verifyCrosshairs, verifyCrosshairsCollections } from './release-order.mjs';
 const origin = 'https://nathan-ai-pocket-codex.nathantaboract.workers.dev';
 const [numberedAndNamed, standaloneApps] = await Promise.all(['manifest.json', 'standalone-apps.json'].map(async file =>
   JSON.parse(await readFile(new URL(file, import.meta.url), 'utf8'))));
@@ -38,9 +38,14 @@ async function checkProject(row) {
 for (let start = 0; start < numberedAndNamed.length; start += 8) {
   await Promise.all(numberedAndNamed.slice(start, start + 8).map(checkProject));
 }
-const views = await get(crosshairs.path + 'api/views');
-assert.ok(views.ok, 'Crosshairs views are published');
-assert.ok(verifyCrosshairs(await views.json()), 'Crosshairs entries, anchors, and nine views match the release');
+const [views, fullViews, collections] = await Promise.all([
+  get(crosshairs.path + 'api/views'),
+  get(crosshairs.path + 'api/views?collection=all'),
+  get(crosshairs.path + 'api/collections'),
+]);
+assert.ok(views.ok && verifyCrosshairs(await views.json()), 'Codex 0–9 and nine Crosshairs views match the release');
+assert.ok(fullViews.ok && verifyCrosshairs(await fullViews.json(), projects.map(row => row.id)), 'Full catalog renders in all nine views');
+assert.ok(collections.ok && verifyCrosshairsCollections(await collections.json(), orderedRelease(projects)), 'Crosshairs collections match the published order');
 await Promise.all(standaloneApps.map(checkProject));
 console.log('Verified the published release order, ' + projects.length + ' project Workers, and all nine Crosshairs views.');
 if (process.argv.includes('--receipt')) {

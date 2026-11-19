@@ -27,6 +27,14 @@
   <section class="source" aria-label="Codex source">
     <div class="controls">
       <div>
+        <label for="collection">Collection</label>
+        <select id="collection" disabled></select>
+      </div>
+      <div>
+        <label for="find">Find in this collection</label>
+        <input id="find" class="search" type="search" autocomplete="off" disabled>
+      </div>
+      <div>
         <label for="codex">Codex source</label>
         <select id="codex" disabled></select>
       </div>
@@ -42,8 +50,10 @@
 
   <section class="detail" aria-labelledby="source-title">
     <h2 id="source-title">Codex source</h2>
+    <p id="source-status"></p>
     <p id="description"></p>
-    <a id="source-link" hidden>Open this Codex in Pocket Codex ↗</a>
+    <div id="evidence" hidden></div>
+    <a id="source-link" hidden>Open this project in Pocket Codex ↗</a>
     <details id="original" hidden>
       <summary>Read the full original email text</summary>
       <pre id="original-body"></pre>

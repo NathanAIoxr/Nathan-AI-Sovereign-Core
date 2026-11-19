@@ -7,6 +7,7 @@ import { pathToFileURL, fileURLToPath } from 'node:url';
 import { test } from 'node:test';
 
 import { createViews, anchors } from './views.mjs';
+import { orderedRelease, verifyCrosshairs, verifyCrosshairsCollections } from '../codex-release/release-order.mjs';
 import { readLocalArchive } from './local-archive.mjs';
 
 const entries = Array.from({ length: 10 }, (_, number) => ({ id: 'codex-0' + number }));
@@ -68,6 +69,18 @@ test('built Worker serves the reader and one API for all nine views', async t =>
   assert.equal(model.views.length, 9);
   assert.deepEqual(model.entries.map(entry => entry.id), entries.map(entry => entry.id));
   assert.equal(model.entries[3].path, '/work/codex-03/');
+  const collections = await request('/api/collections').json();
+  const all = await request('/api/views?collection=all').json();
+  const recovery = await request('/api/views?collection=recovery').json();
+  assert.ok(verifyCrosshairsCollections(collections, orderedRelease(all.entries)));
+  assert.ok(verifyCrosshairs(all, collections.entries.map(entry => entry.id)));
+  assert.ok(all.entries.length > model.entries.length);
+  assert.ok(recovery.entries.every(entry => entry.group === 'recovery'));
+  const antFarm = recovery.entries.find(entry => entry.id === 'ant-farm');
+  assert.match(antFarm.evidence.url, /ant-farm\.mjs$/);
+  assert.equal(antFarm.status, 'Original pending');
+  assert.equal(recovery.entries.find(entry => entry.id === 'education-trinity').evidence.url, undefined);
+  assert.equal(request('/api/views?collection=unknown').status, 404);
   assert.match(await request('/').text(), /id="views"/);
   assert.match(response.headers.get('content-security-policy'), /connect-src 'self'/);
   assert.match(request('/local-archive.mjs').headers.get('content-type'), /javascript/);
@@ -83,7 +96,8 @@ test('Pocket forwards the precise Crosshairs route to its own dispatch Worker', 
     PROJECTS: {
       get(name) {
         return { fetch(request) {
-          requests.push([name, new URL(request.url).pathname, request.method]);
+          const target = new URL(request.url);
+          requests.push([name, target.pathname + target.search, request.method]);
           return new Response('Crosshairs test');
         } };
       },
@@ -92,8 +106,8 @@ test('Pocket forwards the precise Crosshairs route to its own dispatch Worker', 
   const pocket = createPocket([]);
   const request = path => new Request('https://example.com' + path);
   assert.equal((await pocket.fetch(request('/work/codex-crosshairs'), env)).status, 308);
-  assert.equal(await (await pocket.fetch(request('/work/codex-crosshairs/api/views'), env)).text(), 'Crosshairs test');
-  assert.deepEqual(requests, [['tabor-codex-crosshairs', '/api/views', 'GET']]);
+  assert.equal(await (await pocket.fetch(request('/work/codex-crosshairs/api/views?collection=all'), env)).text(), 'Crosshairs test');
+  assert.deepEqual(requests, [['tabor-codex-crosshairs', '/api/views?collection=all', 'GET']]);
   assert.equal((await pocket.fetch(request('/work/codex-crosshairs-other/api/views'), env)).status, 404);
   assert.match(await (await pocket.fetch(request('/'), env)).text(), /href="\/work\/codex-crosshairs\/">Codex Crosshairs/);
 });
