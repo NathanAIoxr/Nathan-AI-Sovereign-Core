@@ -1,0 +1,19 @@
+name: Persona PD-010 boundary audit
+on:
+  pull_request:
+    paths:
+      - 'creative-archive/persona-duality/**'
+      - 'standalone-apps/artifacts-of-the-world/**'
+      - '.github/workflows/persona-pd010.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test creative-archive/persona-duality/graph-boundary-audit.test.mjs
