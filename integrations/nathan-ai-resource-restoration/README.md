@@ -51,3 +51,9 @@ The six-hour Cron `47 */6 * * *` performs an integrity check and logs the result
 Use this directory's Wrangler config, then bind the existing D1 and deploy. Verify actual Cloudflare Worker version/deployment, the workers.dev route, and a successful HTTP smoke test separately. The Cloudflare API confirms resource creation and binding state; a returned deployment object alone does not prove successful public requests.
 
 The source lists in this directory retain external project attributions and original source identifiers. Treat them as **discovery metadata**, not relicensed or rebranded copies. Any future licensed import must fetch an approved upstream commit, record SPDX license, verify checksums and dependencies, run tests in an isolated environment, and be enabled explicitly for an owned destination.
+
+## External upstream intake
+
+An additional D1 `upstream_source_intake_v1` queue tracks the **205 external GitHub repositories** separately from the verified owned Workers. All 205 were seeded as `license_review_state=NOT_REVIEWED` and `code_acquisition_state=NOT_FETCHED`; source URLs, original fit classes, and typed identities are preserved. This queue does not grant permission to copy, install or execute arbitrary upstream code. Any future use requires identifying the specific program, verifying the actual license and provenance, pinning an approved commit and testing in isolation.
+
+**Live deployment:** Cloudflare accepted and deployed `nathan-ai-resource-restoration` to a 100% version with the cockpit D1 binding and verified cron `47 */6 * * *`; workers.dev exposure is enabled. The external HTTP probe could not resolve the workers.dev hostname in this execution environment, so runtime HTTP reachability remains separately unverified.
