@@ -56,3 +56,22 @@ WHERE tag = 'quantum';
 ```
 
 A consumer uses the source ID as its deduplication key and records `imported` after the catalog confirms the metadata write. `skipped` removes a row from the queue while retaining the source record. Replaying the seed preserves existing rows and their intake states. For compute sources, an application listing documents a route to request capacity. A verified allocation belongs in `compute_profiles` or `account_assets` after access is granted.
+
+## Free resource batches
+
+The batch `north-america-001` contains 100 individual resources from the United States, Canada and Mexico. The `global_resource_free_intake_queue` view includes the intake role, original publisher, availability, license or access terms, and any access conditions. Reapply the numbered SQL files to rebuild the batch or read it from the same D1 catalog.
+
+```sql
+SELECT country_code, kind, availability, COUNT(*) AS queued
+FROM global_resource_free_intake_queue
+WHERE batch_id = 'north-america-001'
+GROUP BY country_code, kind, availability
+ORDER BY country_code, kind, availability;
+
+SELECT title, publisher, official_url, license_label, terms_url, access_note
+FROM global_resource_free_intake_queue
+WHERE batch_id = 'north-america-001' AND intake_role = 'hardware-catalog-worker'
+ORDER BY title;
+```
+
+Repository records cite the upstream license endpoint. U.S. Census Bureau dataset records cite the license reported in its machine-readable catalog. Census API data calls use a free key. Statistics Canada and INEGI dataset records cite their publisher's data-reuse terms. Open design files are available at no cost. Parts, fabrication, and hosting have their own costs.
