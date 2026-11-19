@@ -1,0 +1,14 @@
+{
+  "id": "hats-and-hatettes-worlds-within",
+  "title": "HATS & HATETTES: WORLDS WITHIN",
+  "launch": "https://pub-a374b836528943e2917457f04363c2ff.r2.dev/apps/hats-and-hatettes-worlds-within/play.html",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/standalone-apps/game-app-stations/apps/hats-and-hatettes-worlds-within",
+  "manifest_ref": "main",
+  "collections": ["Play", "Build", "Books"],
+  "source_stages": ["Creator blueprint", "Playable browser prototype"],
+  "aliases": ["HATETTE", "HAT OS", "StopTheHaters.world", "Doggerland", "Aurora Yule-Ette", "Chronicles of Hat & Hatette"],
+  "status": "existing-launch",
+  "station": "apps/hats-and-hatettes-worlds-within/index.html",
+  "web_files": ["play.html", "worlds.css", "world.mjs", "play.mjs", "landscape.mjs", "chronicles.mjs"],
+  "next_action": "Step through the True Mirror, tune the dials, and open a doorway. Your journey follows you through the Atlas, Crown Forge, Chronicles, and HATETTE browser companion."
+}

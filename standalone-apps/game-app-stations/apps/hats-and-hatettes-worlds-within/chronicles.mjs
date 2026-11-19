@@ -1,0 +1,15 @@
+export const chapters = [
+  {place:'Babel-Free Bazaar', brim:'The First Hat', key:'UNBOX', note:'At the Bazaar gate, the guard holds out a hat with somebody else’s name on it. Leave it on the hook. Walk in under the name you choose.'},
+  {place:'Crown Forge', brim:'Sovereign Forge-Brim', key:'CHOOSE', note:'Two travelers hear two names at the gate. They trade them, turn them over, and carry the names they choose into the Forge.'},
+  {place:'Babel-Free Bazaar', brim:'The First Hat', key:'ROTATE', note:'The Spinner Deck catches the forced label. H-A-T-E-T-T-E-S spins into H-A-T-E-R-S, and the lock notices too late.'},
+  {place:'Doggerland', brim:'Doggerland Tide-Helm', key:'TIDE', note:'Below the waves, the rules written on the playground wash off the stones. Follow the riverbed. It still remembers where it went.'},
+  {place:'The Continental Shelf Vaults', brim:'Silt-Weave Hatette', key:'SILT', note:'Lift the silt gently. Every voice in the drowned archive gets room to carry.'},
+  {place:'Rhythm Arena', brim:'Hater-Breaker Halo', key:'SHIELD', note:'The Box Police bring rulers and empty cages. Catch the label before it touches the traveler.'},
+  {place:'The Shifting Bridges', brim:'Aurora Yule-Ette', key:'COLOR', note:'The bridge appears when you step sideways. The other travelers bring their own colors.'},
+  {place:'The Shifting Bridges', brim:'Santa’s Crimson Cap', key:'CROWN', note:'Set the inherited crown down and see what you would make with it. The bridge holds the weight of both choices.'},
+  {place:'The Aurora Yule-Ette', brim:'Aurora Yule-Ette', key:'AURORA', note:'Beyond the Mirror Fortress, the northern lights have become a bridge. The Yule-Ette keeps the keys to both sides.'},
+  {place:'The Stacked Realms', brim:'The Solstice Crown', key:'CADENCE', note:'STOMP. STOMP. CLAP. REST. Three brims sound together. Leave space for the traveler to answer.'},
+  {place:'Rhythm Arena', brim:'Hater-Breaker Halo', key:'RIPPLE', note:'A cage breaks in the Arena. An empty doorway opens in the Forge. The traveler on the other side steps through.'},
+  {place:'The Z-to-A Mirror Void', brim:'Omega-Alpha Crown', key:'OMEGA', note:'In the Backwards Citadel, the exit comes first. Turn the word and step toward your beginning.'},
+  {place:'Crown Sanctuary', brim:'Your forged Hat or Hatette', key:'DONE', note:'The portal is open. Leave the Forge ready for whoever comes next. BE THE HAT AND HATETTE — BE YOU — STOP THE HATERS — DONE!'},
+]

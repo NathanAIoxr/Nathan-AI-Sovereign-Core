@@ -1,0 +1,9 @@
+{
+  "name": "hats-and-hatettes-worlds-within",
+  "namespace": "nathan-tabor-platforms",
+  "main_module": "worker.mjs",
+  "modules": ["worker.mjs", "world.mjs", "chronicles.mjs"],
+  "compatibility_date": "2026-11-19",
+  "bindings": [{"type": "r2_bucket", "name": "STATIONS", "bucket_name": "nathan-tabor-game-app-stations"}],
+  "observability": {"enabled": true, "traces": {"enabled": true, "head_sampling_rate": 0.1}}
+}

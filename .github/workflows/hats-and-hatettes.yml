@@ -1,0 +1,28 @@
+name: Hats & Hatettes
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'standalone-apps/game-app-stations/apps/hats-and-hatettes-worlds-within/**'
+      - '.github/workflows/hats-and-hatettes.yml'
+  pull_request:
+    paths:
+      - 'standalone-apps/game-app-stations/apps/hats-and-hatettes-worlds-within/**'
+      - '.github/workflows/hats-and-hatettes.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: standalone-apps/game-app-stations/apps/hats-and-hatettes-worlds-within
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test worlds.test.mjs
+      - run: node --check play.mjs && node --check landscape.mjs

@@ -1,0 +1,22 @@
+[
+  {
+    "key": "pocket-worlds",
+    "prompt": "Draft a dependency-free, deterministic JavaScript generator for the HATS & HATETTES: WORLDS WITHIN 3D game roadmap. Model the seven coordinates Here, There, Over There, Above, Below, The Middle, and Nowhere. Generate up to 4096 stable paired brim IDs from a seed with bounded budgets, separate worlds and shared atlas. Include Aurora over Doggerland as an explicit stack rule and output test cases. Fictional game data only."
+  },
+  {
+    "key": "chronicles-and-atlas",
+    "prompt": "Draft a JavaScript content module expanding the HATS & HATETTES Chronicles opening, The First Hat, in the existing HEAR YE cadence and with an interactive frequency key. Keep all thirteen titles from the creator blueprint. Outline linking episodes to Doggerland, Aurora Yule-Ette and the Z-to-A Mirror Void. Use separate documented-landscape and fictional-world tags and keep world lore factual only when supported by the existing Doggerland source."
+  },
+  {
+    "key": "hatette-companion",
+    "prompt": "Draft a browser-compatible local-only HATETTE companion reducer with synthetic events for optional activity steps, microphone permission changes, AR availability, daily reflection and camera mirror lifecycle. Design opt-in inputs, pause and revoke controls, and test fixtures. Do not derive identity, personality or a real-world frequency from sensor data. Keep the current journey format readable."
+  },
+  {
+    "key": "forge-and-arena",
+    "prompt": "Draft the pure JavaScript state and validation for cooperative rescue arenas and shareable Crown Forge worlds in HATS & HATETTES. Scope to fictional game actions, validated declarative world records, ephemeral room state and the STOMP STOMP CLAP REST input. Use deterministic tests and include disconnect and retry behavior. No third-party execution or live publication."
+  },
+  {
+    "key": "hat-os-hardware",
+    "prompt": "Draft a synthetic fixture-based HAT OS browser hardware adapter and test fixtures for the Spinner Deck jog wheel, Pocket Slate kill switches and Smart Crown Brim Band. Map standard HID-like synthetic events to Pi/Phi dial rotation and A-to-Z/Z-to-A direction changes. Use a small state machine, fake data and ordinary capability checks. Keep hardware controls, privacy permissions and Mesh-Brim protocol readiness explicit."
+  }
+]

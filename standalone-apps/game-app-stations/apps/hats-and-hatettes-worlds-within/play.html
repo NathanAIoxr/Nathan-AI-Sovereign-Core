@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121a20">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; media-src 'self' blob:; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'">
+  <meta name="description" content="Explore seven coordinates, tune the Harmonic Dial, and step inside Hats & Hatettes.">
+  <title>Hats &amp; Hatettes · Worlds Within</title>
+  <link rel="stylesheet" href="worlds.css">
+  <script type="module" src="play.mjs"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./play.html"><span class="brand-mark" aria-hidden="true">✧</span><span>HATS &amp; HATETTES<small>WORLDS WITHIN</small></span></a>
+    <nav aria-label="Game areas"><a href="#atlas">Atlas</a><a href="#forge">Forge</a><a href="#chronicles">Chronicles</a><a href="#companion">HATETTE</a></nav>
+    <button id="sound" class="quiet" type="button" aria-pressed="false">Sound off</button>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="title">
+      <p class="eyebrow">THE SEVEN-DIRECTIONAL COSMOS</p>
+      <h1 id="title">Worlds <em>Within</em></h1>
+      <p>Find your hat and hatette. Step inside the brim. <a href="#mirror">Start at the True Mirror</a></p>
+    </section>
+
+    <section id="atlas" class="game" aria-label="World atlas">
+      <aside class="coordinates">
+        <h2>Coordinates</h2>
+        <div id="realm-list"></div>
+      </aside>
+      <div class="viewport">
+        <canvas id="landscape" aria-hidden="true"></canvas>
+        <div class="scene-top"><span id="view-label">SEVEN COORDINATES</span><button class="quiet" id="back" type="button" hidden>Return to atlas</button></div>
+        <div id="markers"></div>
+        <div class="scene-caption">
+          <p class="eyebrow" id="scene-coordinate">HATS &amp; HATETTES</p>
+          <h2 id="realm-title">The Grand Atlas</h2>
+          <p id="realm-lore">Every brim is a doorway. Pick a coordinate to cross.</p>
+        </div>
+      </div>
+      <aside class="controls" aria-labelledby="tuner-title">
+        <h2 id="tuner-title">Harmonic Dial</h2>
+        <div class="dial-art" aria-hidden="true"><span id="dial-symbol">π</span></div>
+        <div class="toggle" aria-label="Harmonic dial">
+          <button id="pi" type="button" aria-pressed="true">π <span>Pi</span></button>
+          <button id="phi" type="button" aria-pressed="false">φ <span>Phi</span></button>
+        </div>
+        <h3>Word Spinner</h3>
+        <div class="toggle" aria-label="Reading direction">
+          <button id="az" type="button" aria-pressed="true">A → Z</button>
+          <button id="za" type="button" aria-pressed="false">Z → A</button>
+        </div>
+        <p id="clue" class="clue">Pick a coordinate to find its inscription.</p>
+        <output id="glyph" class="glyph">✧</output>
+        <button id="unseal" class="primary" type="button" disabled>Unseal the brim</button>
+      </aside>
+    </section>
+    <p id="notice" class="notice" role="status"></p>
+
+    <section class="lower">
+      <article id="mirror" class="panel">
+        <p class="eyebrow">WHO AM I? · WHY ME?</p>
+        <h2>Non-Reversed True Mirror</h2>
+        <p>Make a game frequency by tracing the back of your hand on the pad or generating a coordinate.</p>
+        <div class="hand-pad" id="hand-pad">
+          <span aria-hidden="true">✋</span>
+          <canvas id="hand-trace" aria-label="Optional pointer input for your game frequency"></canvas>
+          <video id="mirror-camera" autoplay playsinline muted hidden></video>
+        </div>
+        <div class="actions"><button class="quiet" id="seed" type="button">Generate coordinate</button><button class="quiet" id="camera" type="button">Open camera mirror</button></div>
+        <p class="fine">The optional camera is a local, unflipped preview. It stores no images or hand measurements.</p>
+        <output id="signature" class="glyph">—</output>
+        <p id="mentor"></p>
+        <div class="actions"><button class="quiet" id="next-mentor" type="button">Next mentor</button><button class="quiet" id="walk" type="button">Log a step</button></div>
+      </article>
+
+      <article class="panel">
+        <p class="eyebrow">1 + 1 = 2</p>
+        <h2>Stack your brims</h2>
+        <p id="stack-caption">Unseal a brim to add it to your collection.</p>
+        <div id="inventory" class="actions"></div>
+        <div class="actions"><button id="blend" class="quiet" type="button" disabled>Enter stacked world</button><button id="listen" class="quiet" type="button" disabled>Play stacked tones</button><button id="form" class="quiet" type="button" disabled>Become the Hat &amp; Hatette</button></div>
+        <h3>Innocence Shield</h3>
+        <p>Catch the label. Play STOMP, STOMP, CLAP, REST to spin H-A-T-E-T-T-E-S into H-A-T-E-R-S.</p>
+        <div class="actions"><button id="catch" class="quiet" type="button">Catch a label</button><button class="beat" data-beat="stomp" type="button" disabled>Stomp</button><button class="beat" data-beat="clap" type="button" disabled>Clap</button><button class="beat" data-beat="rest" type="button" disabled>Rest</button></div>
+        <p id="rhythm" class="fine">Enter There to reach the Rhythm Arena.</p>
+      </article>
+
+      <article id="forge" class="panel">
+        <p class="eyebrow">WHAT IS MY TRUE PURPOSE?</p>
+        <h2>Crown Forge</h2>
+        <p>Write your own world key and share a doorway another traveler can open.</p>
+        <form id="forge-form">
+          <label>Hat or Hatette name <input name="name" required minlength="2" maxlength="36" placeholder="Your world’s name"></label>
+          <label>Vault word <input name="word" required pattern="[A-Za-z]{2,16}" maxlength="16" placeholder="Letters A–Z"></label>
+          <div class="actions"><label>Frequency <select name="mode"><option value="pi">Pi</option><option value="phi">Phi</option></select></label><label>Direction <select name="order"><option value="az">A to Z</option><option value="za">Z to A</option></select></label></div>
+          <button class="primary" type="submit">Forge a world</button>
+        </form>
+        <div id="creations" class="actions"></div>
+        <label id="share-label" hidden>Portal link <input id="share" type="text" readonly></label>
+      </article>
+
+      <article id="chronicles" class="panel">
+        <p class="eyebrow">THE LIVING PURPOSE MAP</p>
+        <h2>Chronicles of Hat &amp; Hatette</h2>
+        <p id="progress"></p>
+        <ol id="books" class="books"></ol>
+        <p id="chapter" class="chapter-preview" hidden></p>
+        <button id="chapter-key" class="quiet" type="button" hidden>Tune chapter frequency</button>
+        <p id="done" class="finale" hidden></p>
+        <div class="actions"><button id="export" class="quiet" type="button">Export journey</button><label class="quiet import">Import journey<input id="import" type="file" accept="application/json,.json"></label></div>
+      </article>
+      <article id="companion" class="panel">
+        <p class="eyebrow">HATETTE / SOVEREIGN BUDDY (iCU)</p>
+        <h2>Your pocket companion</h2>
+        <p id="buddy"></p>
+        <label for="suffix">Suffix Spinner</label>
+        <input id="suffix" maxlength="24" placeholder="Try King">
+        <output id="word-pair" class="glyph">—</output>
+        <label for="reflection">Your reflection</label>
+        <textarea id="reflection" maxlength="500" rows="3" placeholder="What did you do that opened a door for somebody else?"></textarea>
+        <p class="fine" id="reflection-state">Reflections stay in this browser.</p>
+      </article>
+      <article id="sanctuary" class="panel">
+        <p class="eyebrow">HAT OS · CROWN SANCTUARY</p>
+        <h2>Switch your Hat</h2>
+        <div id="profiles" class="actions"></div>
+        <p id="profile-description"></p>
+        <p class="fine">Browser workspace preview</p>
+        <div class="actions"><a href="#mirror">True Mirror</a><a href="#forge">Forge Studio</a><a href="#atlas">Spinner Deck</a></div>
+        <h3>Hall of Unboxed Legends</h3>
+        <p>Open the Crown Forge to make a portal link for another traveler.</p>
+        <a href="#forge">Make a portal</a>
+      </article>
+    </section>
+    <footer><details><summary>Hear ye, hear ye</summary><p id="salutation"></p></details><a href="#atlas">Return to Atlas</a></footer>
+  </main>
+</body>
+</html>

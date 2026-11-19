@@ -21,6 +21,7 @@ const getText = path => readFile(path, 'utf8');
 
 function validate(record, id) {
   if (record.id !== id || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)) throw Error('Invalid ID: ' + id);
+  if (record.manifest_ref && !/^[a-z0-9][a-z0-9/-]*$/i.test(record.manifest_ref)) throw Error('Invalid manifest ref: ' + id);
   if (!record.title?.trim() || !Object.hasOwn(allowedStatuses, record.status)) throw Error('Invalid status or title: ' + id);
   if (record.station !== 'apps/' + id + '/index.html') throw Error('Invalid route: ' + id);
   if ((record.status === 'existing-launch') !== Boolean(record.launch)) throw Error('Inconsistent launch status: ' + id);
@@ -47,7 +48,7 @@ function station(record) {
   const links = [];
   if (record.launch) links.push(href(record.launch, record.web_files?.length ? 'Play app' : 'Open original app'));
   if (record.source && record.source !== record.launch) links.push(href(record.source, 'View source'));
-  links.push(href(repo + '/blob/' + releaseRef + '/' + unitPath + '/apps/' + record.id + '/app.json', 'GitHub manifest'));
+  links.push(href(repo + '/blob/' + (record.manifest_ref ?? releaseRef) + '/' + unitPath + '/apps/' + record.id + '/app.json', 'GitHub manifest'));
   const notes = record.next_action ? '<p>' + escape(record.next_action) + '</p>' : '';
   return document(record.title, '<p><a href="../../index.html">All app stations</a></p><h1>' +
     escape(record.title) + '</h1><p>' + escape(allowedStatuses[record.status]) + '</p>' + notes +
