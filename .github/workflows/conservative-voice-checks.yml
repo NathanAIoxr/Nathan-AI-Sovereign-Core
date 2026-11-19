@@ -1,0 +1,28 @@
+name: Conservative Voice restoration checks
+on:
+  push:
+    paths:
+      - "standalone-apps/conservative-voice-revival/**"
+      - ".github/workflows/conservative-voice-checks.yml"
+  pull_request:
+    paths:
+      - "standalone-apps/conservative-voice-revival/**"
+      - ".github/workflows/conservative-voice-checks.yml"
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: standalone-apps/conservative-voice-revival
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm run check
+      - run: npm test
+      - name: Check historic seed inventory
+        run: |
+          node --input-type=module -e "import fs from 'node:fs'; import assert from 'node:assert/strict'; let s=fs.readFileSync('seed.sql','utf8'),h=fs.readFileSync('historical-directory.sql','utf8'); assert.equal((s.match(/INSERT OR IGNORE INTO archive_sources/g)||[]).length,37); assert.equal((h.match(/INSERT OR REPLACE INTO editorial_directory/g)||[]).length,145); assert.equal((h.match(/INSERT OR REPLACE INTO geographic_topics/g)||[]).length,55)"
