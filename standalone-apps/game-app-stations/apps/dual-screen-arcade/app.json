@@ -1,0 +1,17 @@
+{
+  "id": "dual-screen-arcade",
+  "title": "Dual-Screen Arcade",
+  "launch": "https://dual-screen-arcade.nathantaboract.workers.dev/",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/portfolio/catalog.json",
+  "collections": [
+    "Play",
+    "Projects"
+  ],
+  "source_stages": [
+    "Cloudflare Worker",
+    "Hosted destination"
+  ],
+  "aliases": [],
+  "status": "existing-launch",
+  "station": "apps/dual-screen-arcade/index.html"
+}

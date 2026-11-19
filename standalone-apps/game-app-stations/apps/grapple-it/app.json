@@ -1,0 +1,20 @@
+{
+  "id": "grapple-it",
+  "title": "Grapple It",
+  "launch": "https://grapple-it.nathantaboract.workers.dev/",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/portfolio/catalog.json",
+  "collections": [
+    "Play",
+    "Projects"
+  ],
+  "source_stages": [
+    "Cloudflare Worker",
+    "Hosted destination",
+    "Registered source page"
+  ],
+  "aliases": [
+    "Grapple It by Nathan Tabor"
+  ],
+  "status": "existing-launch",
+  "station": "apps/grapple-it/index.html"
+}

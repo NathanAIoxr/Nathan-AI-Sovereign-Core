@@ -1,0 +1,15 @@
+{
+  "id": "arcade-frontier-stagecoach-lasso",
+  "title": "Frontier Stagecoach Lasso",
+  "launch": "https://hook-and-ring.nathantaboract.workers.dev/chassis?game=frontier-lasso",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/standalone-apps/hook-and-ring/game/game-plugins.json",
+  "collections": [
+    "Target boards"
+  ],
+  "source_stages": [
+    "Arcade board"
+  ],
+  "aliases": [],
+  "status": "existing-launch",
+  "station": "apps/arcade-frontier-stagecoach-lasso/index.html"
+}

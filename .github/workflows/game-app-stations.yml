@@ -1,0 +1,29 @@
+name: Game and App Stations
+on:
+  pull_request:
+    paths:
+      - 'standalone-apps/game-app-stations/**'
+      - '.github/workflows/game-app-stations.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'standalone-apps/game-app-stations/**'
+      - '.github/workflows/game-app-stations.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '19 */6 * * *'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node standalone-apps/game-app-stations/build.mjs
+      - run: node standalone-apps/game-app-stations/verify.mjs
+      - if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
+        run: node standalone-apps/game-app-stations/verify.mjs --live
