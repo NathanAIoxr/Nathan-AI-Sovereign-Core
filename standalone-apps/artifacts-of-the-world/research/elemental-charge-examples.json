@@ -1,0 +1,48 @@
+{
+  "title": "Elemental charge — atom and ion worked examples",
+  "priority": 7,
+  "status": "source_separated_open",
+  "creator_claim": {
+    "source": "../original.txt",
+    "quotation": "plus bringing all the elemental charge because the only place that dark matter is found is in the human body",
+    "classification": "creator_claim_not_scientifically_established"
+  },
+  "examples": [
+    {
+      "species": "Na+",
+      "protons": 11,
+      "electrons": 10,
+      "charge_e": 1,
+      "kind": "positive ion"
+    },
+    {
+      "species": "Cl−",
+      "protons": 17,
+      "electrons": 18,
+      "charge_e": -1,
+      "kind": "negative ion"
+    },
+    {
+      "species": "Ne",
+      "protons": 10,
+      "electrons": 10,
+      "charge_e": 0,
+      "kind": "neutral atom"
+    }
+  ],
+  "rule": "Net charge in elementary-charge units = number of protons minus number of electrons.",
+  "sources": [
+    {
+      "url": "https://www.nist.gov/pml/atomic-spectra-database",
+      "supports": "Reference atomic spectra and elemental identification, not claims about dark matter in humans."
+    },
+    {
+      "url": "https://www.britannica.com/science/ion",
+      "supports": "Definition of an ion as an atom or group with a net electrical charge from electron loss or gain."
+    }
+  ],
+  "unresolved": [
+    "No scientific evidence here supports dark matter existing only in the human body.",
+    "These worked examples do not establish metaphysical or moral equivalence between positive and negative charge."
+  ]
+}
