@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { test } from "node:test";
-import { apps, assignments, build, original } from "./build.mjs";
+import { apps, assignments, build, original, scopeDossier } from "./build.mjs";
 
 test("the original remains byte-identical and the catalog keeps the count provisional", async () => {
   const { app, worker } = await build("catalog");
@@ -38,5 +38,29 @@ test("each dossier serves independently and returns only its own record", async 
     assert.equal((await service.fetch(request("/", { method: "POST" }))).status, 405);
     assert.equal(await service.fetch(request("/", { method: "HEAD" })).text(), "");
     assert.match(await service.fetch(request("/")).text(), /<main><h1>/);
+  }
+});
+
+
+test("catalog scope preserves sixteen as creator claim, not independently established total", async () => {
+  const { app, worker } = await build("catalog");
+  const { default: service } = await import("data:text/javascript;base64," + Buffer.from(worker).toString("base64"));
+  const result = await service.fetch(new Request(app.origin + "/api/scope"));
+  assert.equal(result.status,200);
+  const scope = await result.json();
+  assert.deepEqual(scope,scopeDossier);
+  assert.equal(scope.status,"open");
+  assert.equal(scope.unidentified_positions,12);
+  assert.equal(scope.named_candidates.length,4);
+  assert.equal(scope.scope_hypotheses.filter(x=>x.status==="unverified").length,2);
+  assert.equal(scope.source_records[0].exact_excerpt,"I believe 16 different artifacts");
+  assert.equal(scope.source_records[0].citation,"standalone-apps/artifacts-of-the-world/original.txt");
+  const html = await service.fetch(new Request(app.origin)).text();
+  assert.match(html,/Count-of-16 evidence and open hypotheses/);
+  assert.equal((await service.fetch(new Request(app.origin + "/original.txt")).text()),original);
+  for (const dossier of apps.slice(1)) {
+    const built = await build(dossier.id);
+    const { default: independent } = await import("data:text/javascript;base64," + Buffer.from(built.worker).toString("base64"));
+    assert.equal((await independent.fetch(new Request(dossier.origin + "/api/scope"))).status,404);
   }
 });
