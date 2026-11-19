@@ -200,7 +200,7 @@ function hud() {
   $("breath").lastElementChild.style.width = amount+"%";
 }
 function power() {
-  const phase = ((clock-powerAt)/1.12)%2;
+  const phase = ((performance.now()-powerAt)/1120)%2;
   return phase<=1 ? phase : 2-phase;
 }
 function startCharge(source) {
@@ -208,7 +208,7 @@ function startCharge(source) {
   if (ducked) { say("Stand up to take a shot."); return false; }
   if (!gear().compatible) { say("Use a jumbo or double-barrel straw with eraser & clay."); return false; }
   primeSound();
-  charge = source; powerAt = clock;
+  charge = source; powerAt = performance.now();
   return true;
 }
 function toggleDuck() {
@@ -364,7 +364,7 @@ function roomArt() {
   rect(171,99,481,178,"#795136"); rect(178,105,467,162,"#304d40");
   rect(184,111,455,150,"#3e5a49");
   for (let i=0;i<11;i++) rect(201,118+i*12,420,1,"#c8d2b312");
-  label(settings.school,410,132,"#dbdfbe",17);
+  label(settings.school,401,126,"#dbdfbe",16);
   label("CLASSROOM GALLERY",412,207,"#e7ebc979",28);
   line([[357,217],[469,217]],"#e9dfb17b",2);
   rect(173,268,480,6,"#a66c40");
