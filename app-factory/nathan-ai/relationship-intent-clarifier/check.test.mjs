@@ -49,6 +49,21 @@ test("scenario matrix preserves consent boundaries and renewed invitations", () 
   }
 });
 
+test("all intent pairs preserve block and expiry priority", async () => {
+  const { INTENTS } = await import("./public/rules.mjs");
+  for (const firstIntent of INTENTS) {
+    for (const secondIntent of INTENTS) {
+      const base = { firstIntent, secondIntent, blocked: false, expired: false };
+      const expected = firstIntent === "Unsure" || secondIntent === "Unsure" ||
+        firstIntent !== secondIntent ? "clarify" : "aligned";
+      assert.equal(evaluateIntent(base).state, expected);
+      assert.equal(evaluateIntent({ ...base, expired: true }).state, "expired");
+      assert.equal(evaluateIntent({ ...base, blocked: true }).state, "blocked");
+      assert.equal(evaluateIntent({ ...base, expired: true, blocked: true }).state, "blocked");
+    }
+  }
+});
+
 test("standalone Worker serves its own site, assets and health receipt", async t => {
   const output = await mkdtemp(join(tmpdir(), "dating-build-"));
   t.after(() => rm(output, { recursive: true, force: true }));
