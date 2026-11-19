@@ -94,7 +94,7 @@ test('Pocket Control lists the standalone apps and only dispatches their refresh
     put: async (key,value) => { receipt = JSON.parse(value); },
   }};
   const catalog = await runtime.fetch(new Request(origin + '/api/catalog'),env);
-  assert.deepEqual((await catalog.json()).projects.map(app => app.id),['taborboy','taborpool']);
+  assert.deepEqual((await catalog.json()).projects.map(app => app.id),['taborboy','taborpool','taborpoolboys']);
   assert.equal((await runtime.fetch(new Request(origin + '/work/taborboy/__hub/refresh',{method:'POST'}),env)).status,405);
   const launch = await runtime.fetch(new Request(origin + '/work/taborboy/'),env);
   assert.equal(launch.status,302);
@@ -109,8 +109,8 @@ test('Pocket Control lists the standalone apps and only dispatches their refresh
   } finally {
     globalThis.fetch = originalFetch;
   }
-  assert.equal(queue.filter(job => job[1] === 'POST').length,2);
-  assert.deepEqual(receipt.appJobs,[{id:'taborboy',verified:true},{id:'taborpool',verified:true}]);
+  assert.equal(queue.filter(job => job[1] === 'POST').length,3);
+  assert.deepEqual(receipt.appJobs,attached.map(app=>({id:app.id,verified:true})));
 });
 
 test('public order is deterministic and the build rejects reordered originals and groups', async () => {

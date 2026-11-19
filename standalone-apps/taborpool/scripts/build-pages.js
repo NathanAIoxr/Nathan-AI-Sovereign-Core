@@ -1,19 +1,19 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
 
-const web = await readFile(new URL("../src/web.js",import.meta.url),"utf8");
-const worker = await readFile(new URL("../src/index.js",import.meta.url),"utf8");
-const entry = 'import { webResponse } from "./web.js";\n';
-if (!worker.startsWith(entry) || !web.includes("export function webResponse(")) {
-  throw new Error("The Pages bundler requires the app's exact local webResponse import.");
-}
+const read = relative => readFile(new URL(relative,import.meta.url),"utf8");
+const [runtime,edition,web,worker,bot] = await Promise.all([
+  read("../../magazine-runtime.mjs"),read("../src/magazine.js"),read("../src/web.js"),read("../src/index.js"),read("../src/bot.js")
+]);
+const main = worker.replace(/^import [^\n]+\n/gm,"");
 const output = new URL("../build/pages/",import.meta.url);
-await mkdir(output,{recursive:true});
-const bundle = web.replace("export function webResponse(","function webResponse(") + "\n" + worker.slice(entry.length);
+await mkdir(new URL("magazine/",output),{recursive:true});
+await cp(new URL("../covers/",import.meta.url),new URL("magazine/covers/",output),{recursive:true});
+const bundle = [
+  runtime.replace("export async function magazineResponse(","async function magazineResponse("),
+  edition.replace("export const MAGAZINE","const MAGAZINE"),
+  web.replace("export function webResponse(","function webResponse("),
+  main
+].join("\n");
 await writeFile(new URL("_worker.js",output),bundle);
-const bot = await readFile(new URL("../src/bot.js",import.meta.url),"utf8");
-const botImport = 'import appWorker from "./index.js";\n';
-if (!bot.startsWith(botImport) || !bundle.includes("export default {")) {
-  throw new Error("The Worker bot requires the app module.");
-}
-await writeFile(new URL("../worker-bot.js",output),bundle.replace("export default {","const appWorker = {") + "\n" + bot.slice(botImport.length));
-
+const botBody = bot.replace(/^import [^\n]+\n/gm,"");
+await writeFile(new URL("../worker-bot.js",output),bundle.replace("export default {","const appWorker = {")+"\n"+botBody);

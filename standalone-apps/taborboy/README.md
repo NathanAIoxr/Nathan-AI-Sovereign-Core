@@ -30,3 +30,5 @@ The Identity Blank supports six device-local slots. The Motion Lab accepts synth
 Run `npm test` and `npm run build:pages`. The Pages output is `build/pages/_worker.js`. The scheduled GitHub workflow reruns tests and checks the /health and /app/version routes every six hours.
 
 Pocket Control links the app through its own `taborboy-worker` dispatch bot. The bot verifies the app's private source checksums, materializes the profile edition and updates the respective storage on the hub's hourly schedule. The Pages build directory contains the web module and a separate `build/worker-bot.js` dispatch artifact.
+
+The public website opens the magazine. The original project profile is at `/project/` and the project's interactive tools are at `/app/`. The magazine reader, issue pages, and Recipe Relay are available under `/magazine/`. The dedicated R2 bucket serves an allowlisted cover path. The Pages build includes the same WebP covers as static assets for CI deployment.

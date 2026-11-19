@@ -5,11 +5,13 @@ on:
     paths:
       - 'standalone-apps/taborpoolboys/**'
       - 'standalone-apps/tabor-app-runtime/**'
+      - 'standalone-apps/magazine-runtime.mjs'
       - '.github/workflows/taborpoolboys.yml'
   pull_request:
     paths:
       - 'standalone-apps/taborpoolboys/**'
       - 'standalone-apps/tabor-app-runtime/**'
+      - 'standalone-apps/magazine-runtime.mjs'
       - '.github/workflows/taborpoolboys.yml'
   workflow_dispatch:
   schedule:
@@ -28,6 +30,12 @@ jobs:
         with:
           node-version: '24'
       - run: node standalone-apps/tabor-app-runtime/verify.mjs taborpoolboys local
+      - run: npm test --prefix standalone-apps/taborpoolboys
+      - run: npm run build --prefix standalone-apps/taborpoolboys
+      - uses: actions/upload-artifact@v4
+        with:
+          name: taborpoolboys-magazine
+          path: standalone-apps/taborpoolboys/build/site
 
   publish:
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
@@ -61,3 +69,8 @@ jobs:
         with:
           node-version: '24'
       - run: node standalone-apps/tabor-app-runtime/verify.mjs taborpoolboys live
+      - name: Verify magazine issue index
+        shell: bash
+        run: |
+          set -eo pipefail
+          curl --fail --silent --show-error --retry 3 --max-time 15 https://pub-2df43f63514844ecbcd9f7da4de75d89.r2.dev/api/magazine.json | jq -e '.name=="TaborPoolBoys" and (.issues|length)==5'

@@ -3,11 +3,13 @@ on:
   pull_request:
     paths:
       - 'standalone-apps/taborpool/**'
+      - 'standalone-apps/magazine-runtime.mjs'
       - '.github/workflows/taborpool.yml'
   push:
     branches: [main]
     paths:
       - 'standalone-apps/taborpool/**'
+      - 'standalone-apps/magazine-runtime.mjs'
       - '.github/workflows/taborpool.yml'
   workflow_dispatch:
   schedule:

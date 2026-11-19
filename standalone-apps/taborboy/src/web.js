@@ -5,7 +5,7 @@ const APP_HTML = `<!doctype html>
 <meta name="description" content="The Identity Blank, motion analysis and Tabor Sideline Bait."><title>TABORBOY · Nathan Tabor</title>
 <link rel="manifest" href="/app/manifest.webmanifest"><link rel="apple-touch-icon" href="/app/icon-192.png"><link rel="stylesheet" href="/app/style.css">
 <script type="module" src="/app/main.js"></script></head>
-<body><div class="top"><div class="wrap"><a class="brand" href="/">TABORBOY</a><nav aria-label="Project"><a href="/">Website</a><a href="/api/profile">Profile</a></nav></div></div>
+<body><div class="top"><div class="wrap"><a class="brand" href="/">TABORBOY</a><nav aria-label="Project"><a href="/">Magazine</a><a href="/magazine/play">Play</a><a href="/api/profile">Profile</a></nav></div></div>
 <main><header class="hero"><div class="wrap"><h1>TABORBOY</h1><p>The Identity Blank, motion analysis and Tabor Sideline Bait.</p><div class="tools"><a class="button" href="#identity">Identity Blank</a><a class="button secondary" href="#motion">Motion lab</a><a class="button secondary" href="#sideline">Sideline Bait</a><button id="install" class="secondary" type="button" hidden>Install app</button></div><p id="install-help" class="status" aria-live="polite" hidden></p></div></header>
 <div class="wrap layout">
 <section id="identity" class="panel"><h2>Identity Blank</h2><p class="muted">Your saved words stay in this browser.</p>
