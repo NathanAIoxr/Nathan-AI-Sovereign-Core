@@ -1,0 +1,19 @@
+<section class="intro">
+<p class="kicker">CLOUD SLAYER</p>
+<h1>Tool Library.</h1>
+<p class="lede">Find a Nathan AI worker, app, library, or guide by name or keyword.</p>
+</section>
+<div class="row slayer-links">
+<a href="/cloud-slayer">Worker registry</a>
+<a href="/cloud-slayer?view=sos">SOS worker modules</a>
+</div>
+<section class="card stack">
+<h2>Search the catalog</h2>
+<form id="tool-search" class="slayer-search" role="search">
+<label>Tool name or keyword <input name="q" type="search" maxlength="96" autocomplete="off"></label>
+<button class="primary" type="submit">Search</button>
+</form>
+<p id="tool-status" role="status">Loading tools…</p>
+<ul id="tool-results" class="slayer-results"></ul>
+<button id="tool-more" type="button" hidden>Show more</button>
+</section>

@@ -3,6 +3,7 @@
 <h1>Cloud Slayer.</h1>
 <p class="lede">Search shared worker modules for the Supercomputer, Hypercomputer and Digital Flubber SOS.</p>
 </section>
+<div class="row slayer-links"><a href="/cloud-slayer/tools">Search the Tool Library</a></div>
 <div class="grid slayer-stats" aria-label="Worker inventory summary">
 <section class="card"><h2>Cloudflare Worker scripts</h2><strong id="slayer-inventory">—</strong></section>
 <section class="card"><h2>Shared worker modules</h2><strong id="slayer-shared">—</strong></section>

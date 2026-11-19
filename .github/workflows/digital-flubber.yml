@@ -28,6 +28,7 @@ jobs:
       - name: Test app and package Cloudflare targets
         run: |
           npm test
+          node cloud-slayer/tool-library/import.mjs --check cloud-slayer/tool-library/manifests
           node build-pages.mjs
           node --check dist/pages/_worker.js
       - uses: actions/upload-artifact@v4

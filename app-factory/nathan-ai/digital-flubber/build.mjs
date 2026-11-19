@@ -12,6 +12,7 @@ const versions = {
   '/learn': ['Learn', 'learn'],
   '/zones': ['Zones', 'zones'],
   '/sos': ['SOS', 'sos'],
+  '/cloud-slayer/tools': ['Tool Library · Cloud Slayer', 'tool-library'],
   '/cloud-slayer': ['Cloud Slayer', 'cloud-slayer'],
   '/cloud-slayer/supercomputer': ['Supercomputer · Cloud Slayer', 'cloud-slayer'],
   '/cloud-slayer/hypercomputer': ['Hypercomputer · Cloud Slayer', 'cloud-slayer']
@@ -24,11 +25,13 @@ function render(template, values) {
 for (const [route, [title, template, heading, summary]] of Object.entries(versions)) {
   const page = route.slice(1) || 'simulator';
   const body = render(await read(template + '.html.in'), { heading, summary });
-  const script = template === 'cloud-slayer' ? '<script type="module" src="/cloud-slayer.mjs"></script>' : '';
+  const client = { 'cloud-slayer': 'cloud-slayer.mjs', 'tool-library': 'tool-library.mjs' }[template];
+  const script = client ? '<script type="module" src="/' + client + '"></script>' : '';
   files[route] = { type: 'text/html; charset=utf-8', value: render(layout, { page, title, body, script }) };
 }
 const fileTypes = {
   'style.css': 'text/css; charset=utf-8',
+  'tool-library.mjs': 'text/javascript; charset=utf-8',
   'cloud-slayer.mjs': 'text/javascript; charset=utf-8',
   'app.mjs': 'text/javascript; charset=utf-8',
   'physics.mjs': 'text/javascript; charset=utf-8',
