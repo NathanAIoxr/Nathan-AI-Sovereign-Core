@@ -49,7 +49,11 @@ if (process.argv.includes('--receipt')) {
     method: 'POST', headers: { authorization: 'Bearer ' + value },
     redirect: 'error', signal: AbortSignal.timeout(10000),
   });
-  assert.ok(result.ok, 'Cloudflare receipt returned ' + result.status);
+  if (!result.ok) {
+    const failed = await result.json().catch(() => ({}));
+    const reason = typeof failed.reason === 'string' && /^[a-z_]+$/.test(failed.reason) ? ' (' + failed.reason + ')' : '';
+    assert.fail('Cloudflare receipt returned ' + result.status + reason);
+  }
   const saved = await result.json();
   assert.equal(saved.saved, true);
   assert.equal(saved.run, process.env.GITHUB_RUN_ID);

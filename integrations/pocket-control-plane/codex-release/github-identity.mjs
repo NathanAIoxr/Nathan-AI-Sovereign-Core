@@ -36,24 +36,26 @@ export function validClaims(claims, now) {
   return Object.values(claimChecks(claims, now)).every(Boolean);
 }
 
-export async function verifyGitHubReceipt(header, fetchKeys = fetch, now = Date.now() / 1000) {
-  if (!header?.startsWith('Bearer ') || header.length > 14000) return null;
+export async function verifyGitHubReceipt(header, fetchKeys = fetch, now = Date.now() / 1000, diagnose = () => {}) {
+  if (!header?.startsWith('Bearer ') || header.length > 14000) { diagnose('authorization_header'); return null; }
   const parts = header.slice(7).split('.');
-  if (parts.length !== 3) return null;
+  if (parts.length !== 3) { diagnose('credential_format'); return null; }
   const protectedHeader = parse(parts[0]);
-  if (protectedHeader.alg !== 'RS256' || typeof protectedHeader.kid !== 'string') return null;
+  if (protectedHeader.alg !== 'RS256' || typeof protectedHeader.kid !== 'string') { diagnose('signing_algorithm'); return null; }
   const claims = parse(parts[1]);
-  if (!validClaims(claims, now)) return null;
+  const invalid = Object.entries(claimChecks(claims, now)).filter(([, pass]) => !pass).map(([field]) => field);
+  if (invalid.length) { diagnose('identity_' + invalid.join('_')); return null; }
   const keys = await fetchKeys(issuer + '/.well-known/jwks', {
     redirect: 'error', signal: AbortSignal.timeout(4000), cf: { cacheEverything: true, cacheTtl: 300 },
   });
-  if (!keys.ok) return null;
+  if (!keys.ok) { diagnose('issuer_key_fetch'); return null; }
   const jwk = (await keys.json()).keys?.find(key => key.kid === protectedHeader.kid && key.kty === 'RSA');
-  if (!jwk) return null;
+  if (!jwk) { diagnose('issuer_key_id'); return null; }
   const algorithm = { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' };
   const key = await crypto.subtle.importKey('jwk', jwk, algorithm, false, ['verify']);
   const payload = new TextEncoder().encode(parts[0] + '.' + parts[1]);
   const authentic = await crypto.subtle.verify(algorithm, key, decode(parts[2]), payload);
+  if (!authentic) diagnose('issuer_signature');
   return authentic ? { run: claims.run_id, attempt: claims.run_attempt, sha: claims.sha,
     issuedAt: claims.iat, verifiedAt: new Date(now * 1000).toISOString() } : null;
 }

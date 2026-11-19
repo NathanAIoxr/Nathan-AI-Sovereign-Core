@@ -58,8 +58,16 @@ export function createPocket(projects) {
       const url = new URL(request.url);
       if (request.method === 'POST' && url.pathname === '/api/github/receipt') {
         if (!env.RECEIPTS) return json({ error: 'receipt_store_unavailable' }, 503);
-        const receipt = await verifyGitHubReceipt(request.headers.get('authorization')).catch(() => null);
-        if (!receipt) return json({ error: 'unauthorized' }, 401);
+        let reason = 'verification_unavailable';
+        const auth = request.headers.get('authorization');
+        const check = (keySource = fetch) => verifyGitHubReceipt(auth, keySource, Date.now() / 1000, stage => { reason = stage; });
+        let receipt = await check().catch(() => null);
+        const snapshot = env.PUBLIC_GITHUB_KEYS;
+        if (!receipt && ['verification_unavailable', 'issuer_key_fetch', 'issuer_key_id'].includes(reason) &&
+            snapshot?.expiresAt > Date.now() && Array.isArray(snapshot.keys)) {
+          receipt = await check(async () => Response.json({ keys: snapshot.keys })).catch(() => null);
+        }
+        if (!receipt) return json({ error: 'unauthorized', reason }, 401);
         const current = await env.RECEIPTS.get(GITHUB_KEY, 'json');
         if (!current || current.issuedAt < receipt.issuedAt) {
           await env.RECEIPTS.put(GITHUB_KEY, JSON.stringify(receipt));
