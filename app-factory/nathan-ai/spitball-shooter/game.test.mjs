@@ -9,7 +9,7 @@ function game() {
   const elements = new Map();
   const getElementById = id => {
     if (!elements.has(id)) elements.set(id, {
-      value:"", style:{},lastElementChild:{style:{}},getContext(){return {};},
+      value:"", style:{},lastElementChild:{style:{},dataset:{}},getContext(){return {};},
       addEventListener(){},setAttribute(){},focus(){},replaceChildren(){}
     });
     return elements.get(id);
@@ -59,8 +59,36 @@ test("teacher warning, ducking, detention and checkpoint retry",()=>{
 
 test("final round requires heavy ammo and supports double-barrel fire",()=>{
   const run = game();
-  assert.equal(run('setLevel(3); $("straw").value="0"; gear().compatible'),false);
+  assert.equal(run('setLevel(3); selectStraw(0); gear().compatible'),false);
   assert.equal(run('const armored=targets[0]; $("ammo").value="0"; hit(armored,launch(.76),armored); armored.hit'),false);
-  assert.equal(run('show("playing"); $("ammo").value="3"; $("straw").value="2"; startCharge("keyboard"); performance.now=()=>850; takeShot("keyboard"); bullets.length'),2);
+  assert.equal(run('show("playing"); $("ammo").value="3"; selectStraw(2); startCharge("keyboard"); performance.now=()=>850; takeShot("keyboard"); bullets.length'),2);
   assert.equal(run('hit(armored,bullets[0],armored); armored.hit'),true);
+});
+
+test("bamboo costs tickets once, equips immediately and is remembered",()=>{
+  const run = game();
+  assert.equal(run('chooseStraw(3); settings.tickets'),15);
+  assert.equal(run('gear().barrel.id'),"bamboo");
+  assert.equal(run('launch(.65).optimal && launch(.76).windScale<1'),true);
+  assert.equal(run('chooseStraw(3); settings.tickets'),15);
+  assert.equal(run('chooseStraw(10)'),false);
+  assert.equal(run('setLevel(1); gear().barrel.id'),"bamboo");
+});
+
+test("tickets earned during a round commit exactly once on clear",()=>{
+  const run = game();
+  assert.equal(run(`
+    show("playing");
+    const file = targets.filter(target=>!target.bonus);
+    for(const t of file) hit(t,launch(.76),t);
+    step(1/120);
+    settings.tickets
+  `),30);
+  assert.equal(run('while(state==="playing") step(1/120); settings.tickets'),89);
+  assert.equal(run('setLevel(1); settings.tickets'),89);
+});
+
+test("last-round retry starts with compatible gear",()=>{
+  const run = game();
+  assert.equal(run('setLevel(3); setLevel(3); gear().compatible'),true);
 });
