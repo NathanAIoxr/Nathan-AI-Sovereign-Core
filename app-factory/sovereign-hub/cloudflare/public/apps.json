@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 351,
+  "count": 352,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -2794,6 +2794,14 @@
       "entry": "standalone-apps/root/index.html",
       "group": "root",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/standalone-apps/root/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-84b2df5938d191fa",
+      "title": "Scrambler \u00b7 Tabor 1-2-3 Factory",
+      "entry": "standalone-apps/scrambler/index.html",
+      "group": "scrambler",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/standalone-apps/scrambler/index.html",
       "adoption": "integration_required"
     },
     {
