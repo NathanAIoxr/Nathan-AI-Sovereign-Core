@@ -1,0 +1,64 @@
+name: Unified Operations Cockpit
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'integrations/unified-operations-cockpit/closed-loop/**'
+      - '.github/workflows/unified-cockpit-sync.yml'
+  schedule:
+    - cron: '13 * * * *'
+  workflow_dispatch:
+  repository_dispatch:
+    types: [unified-cockpit-verify]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: unified-cockpit-verification
+  cancel-in-progress: false
+
+jobs:
+  verify-source:
+    name: Test reconciliation changes
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - run: node --test integrations/unified-operations-cockpit/closed-loop/worker.test.mjs
+
+  verify-worker:
+    name: Verify live Worker
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Validate the live aggregate and record the receipt
+        env:
+          COCKPIT_URL: https://unified-operations-cockpit.nathantaboract.workers.dev
+        run: |
+          curl --fail --silent --show-error --retry 3 --max-time 20 "$COCKPIT_URL/api/summary" -o cockpit-status.json
+          python3 - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          status = json.loads(Path("cockpit-status.json").read_text())
+          assert status["service"] == "unified-operations-cockpit" and status["schema"] == 2
+          assert status["ready"] is True and status["source_databases"] == 3
+          assert status["verified_tables"] == status["source_tables"] >= 19
+          assert status["archived_records"] >= status["live_source_rows"] > 0
+          assert status["platforms"]["binding_present"] is True
+          checked = datetime.fromisoformat(status["checked_at"])
+          assert 0 <= (datetime.now(timezone.utc) - checked).total_seconds() < 3600
+          keys = ("source_databases", "verified_tables", "live_source_rows", "archived_records")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
+              summary.write("## Live D1 reconciliation\n\n")
+              for key in keys:
+                  summary.write(f"- {key.replace('_', ' ').capitalize()} — {status[key]:,}\n")
+              summary.write(f"- Cockpit checked at {checked.isoformat()}\n")
+          PY
