@@ -1,0 +1,11 @@
+name = "nathan-ai-orchestration-core"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+# CI replaces this placeholder using the existing D1 database ID secret.
+[[d1_databases]]
+binding = "DB"
+database_name = "nathan-ai-orchestration"
+database_id = "REPLACE_WITH_EXISTING_D1_DATABASE_ID"
+migrations_dir = "migrations"
