@@ -1,6 +1,7 @@
 export const WIDTH = 480;
 export const HEIGHT = 300;
 export const workSteps = ['Scrape', 'Prime', 'Paint'];
+export const runNames = { classic: 'Original Run', mirror: 'Mirror Run' };
 
 export const stages = [
   {
@@ -41,11 +42,26 @@ export const stages = [
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 const near = (player, x, y, dx = 17, dy = 12) => Math.abs(player.x - x) <= dx && Math.abs(player.y - y) <= dy;
 
-export function createGame(stageIndex = 0, score = 0) {
-  const stage = stages[stageIndex];
+function mirrorStage(stage) {
+  const point = ([x, ...rest]) => [WIDTH - x, ...rest];
   return {
-    stage, stageIndex, score, time: stage.time, elapsed: 0, rats: 0, charges: 0,
-    player: { x: 37, y: 276, vy: 0, facing: 1, grounded: true },
+    ...stage,
+    platforms: stage.platforms.map(([x, y, width]) => [WIDTH - x - width, y, width]),
+    bays: stage.bays.map(point),
+    sticker: point(stage.sticker),
+    relic: point(stage.relic),
+    star: point(stage.star),
+    drips: stage.drips.map(x => WIDTH - x)
+  };
+}
+
+export function createGame(stageIndex = 0, score = 0, run = 'classic') {
+  const original = stages[stageIndex];
+  const mirror = run === 'mirror';
+  const stage = mirror ? mirrorStage(original) : original;
+  return {
+    stage, stageIndex, run, score, time: stage.time, elapsed: 0, rats: 0, charges: 0,
+    player: { x: mirror ? WIDTH - 37 : 37, y: 276, vy: 0, facing: mirror ? -1 : 1, grounded: true },
     bays: stage.bays.map(([x, y]) => ({ x, y, step: 0 })),
     sticker: false, relic: false, drips: [], motes: [], nextDrip: 1.3, dripIndex: 0,
     hitShield: 0, wave: 0, ending: '', message: '', messageTime: 0, events: []

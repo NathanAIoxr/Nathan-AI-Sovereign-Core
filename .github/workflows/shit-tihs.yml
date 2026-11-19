@@ -14,13 +14,29 @@ permissions:
 defaults:
   run:
     working-directory: app-factory/nathan-ai/shit-tihs
+concurrency:
+  group: shit-tihs-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: 24
+          package-manager-cache: false
       - run: node scripts/build-worker.mjs
       - run: node --test tests/*.test.mjs
+      - name: Upload tested web and Worker builds
+        uses: actions/upload-artifact@v4
+        with:
+          name: shit-tihs-build
+          path: |
+            app-factory/nathan-ai/shit-tihs/public/
+            app-factory/nathan-ai/shit-tihs/.build/worker.mjs
+          include-hidden-files: true
+          if-no-files-found: error

@@ -9,8 +9,8 @@
   <link rel="manifest" href="./app.webmanifest">
   <link rel="icon" href="./icon-192.png">
   <link rel="apple-touch-icon" href="./icon-192.png">
-  <link rel="stylesheet" href="./style.css">
-  <script type="module" src="./app.mjs"></script>
+  <link rel="stylesheet" href="./style.css?v=2">
+  <script type="module" src="./app.mjs?v=2"></script>
 </head>
 <body>
   <header class="topbar">
@@ -40,6 +40,11 @@
             <p id="panel-label">THE PAINT CREW</p>
             <h2 id="panel-title">SHIT HAPPENS</h2>
             <p id="panel-detail">One bumper sticker. Three stages. One hell of a paint job.</p>
+            <fieldset id="run-picker">
+              <legend>Run mode</legend>
+              <label><input type="radio" name="run" value="classic" checked> Original</label>
+              <label><input type="radio" name="run" value="mirror"> Mirror</label>
+            </fieldset>
             <button type="button" id="start">Start game <span aria-hidden="true">↗</span></button>
           </div>
         </div>
@@ -73,6 +78,13 @@
       <article class="relic">
         <h3>KJV relics</h3>
         <p>The crew can find verses from 1 John 1:7, Ephesians 5:11, and Matthew 5:16. Uncover all three in a single run.</p>
+        <div id="relic-log" aria-live="polite">
+          <ul>
+            <li><strong>1 John 1:7</strong> <span data-relic="0">Still on the scaffold</span></li>
+            <li><strong>Ephesians 5:11</strong> <span data-relic="1">Still on the scaffold</span></li>
+            <li><strong>Matthew 5:16</strong> <span data-relic="2">Still on the scaffold</span></li>
+          </ul>
+        </div>
       </article>
       <details class="extras">
         <summary>Cartridge and box label</summary>
@@ -84,7 +96,11 @@
       </details>
     </section>
   </main>
-  <footer><span>SHIT TIHS by Nathan Tabor</span><span>STAR U BE / Tabor Enterprises</span></footer>
+  <footer>
+    <span>SHIT TIHS by Nathan Tabor</span>
+    <a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/shit-tihs#contribute">Join the build</a>
+    <span>STAR U BE / Tabor Enterprises</span>
+  </footer>
   <dialog id="install-help">
     <h2>Install SHIT TIHS</h2>
     <p>On iPhone, open this page in Safari, tap Share, then Add to Home Screen.</p>

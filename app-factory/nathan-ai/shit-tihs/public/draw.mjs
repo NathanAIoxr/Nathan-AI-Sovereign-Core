@@ -1,4 +1,4 @@
-import { HEIGHT, WIDTH } from './game.mjs';
+import { HEIGHT, WIDTH } from './game.mjs?v=2';
 
 export function draw(ctx, game, reducedMotion = false) {
   const { stage, player } = game;

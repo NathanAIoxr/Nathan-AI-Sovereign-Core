@@ -1,5 +1,5 @@
-const cacheName = 'shit-tihs-v1';
-const shell = ['./index.html', './style.css', './app.mjs', './game.mjs', './draw.mjs', './app.webmanifest', './icon-192.png', './icon-512.png'];
+const cacheName = 'shit-tihs-v2';
+const shell = ['./index.html', './style.css?v=2', './app.mjs?v=2', './game.mjs?v=2', './draw.mjs?v=2', './app.webmanifest', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(cacheName).then(cache => cache.addAll(shell)).then(() => self.skipWaiting()));

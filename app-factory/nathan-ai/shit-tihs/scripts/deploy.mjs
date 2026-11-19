@@ -34,7 +34,10 @@ async function deployToR2() {
 if (process.argv.includes('--r2')) {
   await deployToR2();
 } else {
-  const endpoint = `https://api.cloudflare.com/client/v4/accounts/${account}/workers/scripts/${slug}`;
+  const platforms = process.argv.includes('--platforms');
+  const root = `https://api.cloudflare.com/client/v4/accounts/${account}/workers`;
+  const target = platforms ? 'dispatch/namespaces/nathan-tabor-platforms/scripts' : 'scripts';
+  const endpoint = `${root}/${target}/${slug}`;
   const source = await readFile(new URL('../.build/worker.mjs', import.meta.url));
   const form = new FormData();
   form.append('metadata', new Blob([JSON.stringify({
@@ -44,6 +47,8 @@ if (process.argv.includes('--r2')) {
   form.append('worker.mjs', new Blob([source], { type: 'application/javascript+module' }), 'worker.mjs');
 
   const result = await call(endpoint, 'PUT', form);
-  await call(`${endpoint}/subdomain`, 'POST', JSON.stringify({ enabled: true }), { 'Content-Type': 'application/json' });
+  if (!platforms) {
+    await call(`${endpoint}/subdomain`, 'POST', JSON.stringify({ enabled: true }), { 'Content-Type': 'application/json' });
+  }
   console.log(`Deployed ${result.id || slug}.`);
 }

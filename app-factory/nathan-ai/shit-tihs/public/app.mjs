@@ -1,5 +1,5 @@
-import { advance, createGame, objective, stages } from './game.mjs';
-import { draw } from './draw.mjs';
+import { advance, createGame, objective, runNames, stages } from './game.mjs?v=2';
+import { draw } from './draw.mjs?v=2';
 
 const find = (id) => document.getElementById(id);
 const arcade = find('game');
@@ -19,9 +19,13 @@ const keyActions = new Map([
   ['KeyX', 'brush'], ['KeyJ', 'flip']
 ]);
 
-let game = createGame();
+const runPicker = find('run-picker');
+let selectedRun = read('shit-tihs-run') === 'mirror' ? 'mirror' : 'classic';
+let game = createGame(0, 0, selectedRun);
 let mode = 'intro';
-let best = Number(read('shit-tihs-best')) || 0;
+let best = bestFor(selectedRun);
+let relics = new Set((read('shit-tihs-relics') || '').split(',').filter(value => /^[012]$/.test(value)));
+runPicker.querySelector('input[value="' + selectedRun + '"]').checked = true;
 let sound = read('shit-tihs-sound') === 'on';
 let audioContext;
 let previous = 0;
@@ -35,6 +39,21 @@ function read(key) {
 
 function write(key, value) {
   try { localStorage.setItem(key, value); } catch { /* The game also works without storage. */ }
+}
+
+function bestKey(run) {
+  return run === 'mirror' ? 'shit-tihs-mirror-best' : 'shit-tihs-best';
+}
+
+function bestFor(run) {
+  return Number(read(bestKey(run))) || 0;
+}
+
+function updateRelics() {
+  for (const entry of document.querySelectorAll('[data-relic]')) {
+    const index = entry.dataset.relic;
+    entry.textContent = relics.has(index) ? stages[Number(index)].relic[3] : 'Still on the scaffold';
+  }
 }
 
 function show(id, value) {
@@ -71,7 +90,14 @@ function update(now) {
       flip: presses.has('flip')
     }, tick);
     presses.clear();
-    for (const event of game.events) playTone(event);
+    for (const event of game.events) {
+      playTone(event);
+      if (event === 'relic') {
+        relics.add(String(game.stageIndex));
+        write('shit-tihs-relics', [...relics].join(','));
+        updateRelics();
+      }
+    }
     accumulated -= tick;
   }
   hud();
@@ -101,18 +127,21 @@ function panel(label, title, detail, action) {
   show('panel-title', title);
   show('panel-detail', detail);
   startButton.firstChild.textContent = `${action} `;
+  runPicker.hidden = ['pause', 'clear'].includes(mode);
   overlay.hidden = false;
   startButton.focus({ preventScroll: true });
 }
 
 function start() {
   const nextStage = mode === 'clear' ? game.stageIndex + 1 : 0;
-  if (mode !== 'pause') game = createGame(nextStage, mode === 'clear' ? game.score : 0);
+  if (mode !== 'pause') game = createGame(nextStage, mode === 'clear' ? game.score : 0, selectedRun);
+  best = bestFor(game.run);
   mode = 'play';
   releaseAll();
   resetTiming();
   overlay.hidden = true;
   pauseButton.disabled = false;
+  arcade.scrollIntoView({ block: 'start', behavior: 'instant' });
   arcade.focus({ preventScroll: true });
   hud();
   draw(ctx, game, motion.matches);
@@ -131,7 +160,7 @@ function finish() {
   pauseButton.disabled = true;
   if (game.score > best) {
     best = game.score;
-    write('shit-tihs-best', best);
+    write(bestKey(game.run), best);
   }
   hud();
   if (mode === 'clear') {
@@ -179,6 +208,18 @@ function syncSound() {
   soundButton.setAttribute('aria-pressed', String(sound));
   show('sound-state', sound ? 'ON' : 'OFF');
 }
+
+runPicker.addEventListener('change', event => {
+  selectedRun = event.target.value;
+  write('shit-tihs-run', selectedRun);
+  show('panel-label', runNames[selectedRun].toUpperCase());
+  best = bestFor(selectedRun);
+  if (mode === 'intro') {
+    game = createGame(0, 0, selectedRun);
+    draw(ctx, game, motion.matches);
+  }
+  hud();
+});
 
 startButton.addEventListener('click', start);
 pauseButton.addEventListener('click', () => mode === 'pause' ? start() : pause());
@@ -260,6 +301,8 @@ installButton.addEventListener('click', async () => {
 find('close-install').addEventListener('click', () => find('install-help').close());
 
 syncSound();
+updateRelics();
+if (selectedRun === 'mirror') show('panel-label', runNames.mirror.toUpperCase());
 hud();
 draw(ctx, game, motion.matches);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(() => {});
