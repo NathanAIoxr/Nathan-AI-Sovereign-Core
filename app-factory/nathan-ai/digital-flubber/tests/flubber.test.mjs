@@ -2,9 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Arena, boundary, targetPositions } from '../site/physics.mjs';
 import { maxBalls } from '../site/policy.mjs';
-import main from '../dist/main.mjs';
-import slubber from '../dist/slubber.mjs';
-import sos from '../dist/sos.mjs';
+import { buildTestWorkers } from './build-workers.mjs';
+
+const { main, slubber, sos } = await buildTestWorkers();
 
 const env = Object.fromEntries(Object.entries({ SLUBBER: slubber, SOS: sos }).map(([key, service]) =>
   [key, { fetch: url => service.fetch(new Request(url)) }]));

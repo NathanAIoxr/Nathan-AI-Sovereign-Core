@@ -4,6 +4,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = dirname(fileURLToPath(import.meta.url));
+const output = process.argv[2] ?? join(root, 'dist');
 const read = (name, encoding = 'utf8') => readFile(join(root, 'site', name), encoding);
 const versions = {
   '/': ['Simulator', 'arena', 'Digital Flubber.', 'Fling a soft body, dial up the bounce, and build an arena with balls and Flubber walls.'],
@@ -16,13 +17,13 @@ const versions = {
   '/cloud-slayer/hypercomputer': ['Hypercomputer · Cloud Slayer', 'cloud-slayer']
 };
 const files = {};
-const layout = await read('layout.html');
+const layout = await read('layout.html.in');
 function render(template, values) {
   return template.replace(/\{\{(\w+)\}\}/g, (_, key) => values[key]);
 }
 for (const [route, [title, template, heading, summary]] of Object.entries(versions)) {
   const page = route.slice(1) || 'simulator';
-  const body = render(await read(template + '.html'), { heading, summary });
+  const body = render(await read(template + '.html.in'), { heading, summary });
   const script = template === 'cloud-slayer' ? '<script type="module" src="/cloud-slayer.mjs"></script>' : '';
   files[route] = { type: 'text/html; charset=utf-8', value: render(layout, { page, title, body, script }) };
 }
@@ -43,10 +44,10 @@ for (const [name, type] of Object.entries(fileTypes)) {
 const sw = await read('sw.js');
 const version = createHash('sha256').update(JSON.stringify(files)).update(sw).digest('hex').slice(0, 14);
 files['/sw.js'] = { type: 'text/javascript; charset=utf-8', value: render(sw, { version }) };
-await mkdir(join(root, 'dist'), { recursive: true });
-await writeFile(join(root, 'dist', 'assets.mjs'), 'export const files = ' + JSON.stringify(files) + ';\n');
-await writeFile(join(root, 'dist', 'policy.mjs'), await read('policy.mjs'));
-await writeFile(join(root, 'dist', 'cloud-slayer.mjs'), await readFile(join(root, 'cloud-slayer', 'runtime.mjs')));
+await mkdir(output, { recursive: true });
+await writeFile(join(output, 'assets.mjs'), 'export const files = ' + JSON.stringify(files) + ';\n');
+await writeFile(join(output, 'policy.mjs'), await read('policy.mjs'));
+await writeFile(join(output, 'cloud-slayer.mjs'), await readFile(join(root, 'cloud-slayer', 'runtime.mjs')));
 for (const name of ['main', 'slubber', 'sos']) {
-  await writeFile(join(root, 'dist', name + '.mjs'), await readFile(join(root, 'edge', name + '.mjs')));
+  await writeFile(join(output, name + '.mjs'), await readFile(join(root, 'edge', name + '.mjs')));
 }

@@ -2,9 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { openLocalRegistry } from '../cloud-slayer/local-sqlite.mjs';
 import { inventoryBatch } from '../cloud-slayer/inventory.mjs';
-import app from '../dist/main.mjs';
-import slubber from '../dist/slubber.mjs';
-import sos from '../dist/sos.mjs';
+import { buildTestWorkers } from './build-workers.mjs';
+
+const { main: app, slubber, sos } = await buildTestWorkers();
 
 const registry = openLocalRegistry();
 const recordedAt = '2026-11-19T13:00:00.000Z';
