@@ -1,7 +1,7 @@
 {
   "id": "toss-target-arcade-by-nathan-tabor",
   "title": "Toss & Target Arcade by Nathan Tabor",
-  "launch": null,
+  "launch": "https://hook-and-ring.nathantaboract.workers.dev/arcade",
   "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/standalone-apps/hook-and-ring/game/arcade.html.in",
   "collections": [
     "Projects"
@@ -10,7 +10,6 @@
     "Template page"
   ],
   "aliases": [],
-  "status": "source-available",
-  "next_action": "Verify a playable build from this source and update this station with its verified launch.",
+  "status": "existing-launch",
   "station": "apps/toss-target-arcade-by-nathan-tabor/index.html"
 }

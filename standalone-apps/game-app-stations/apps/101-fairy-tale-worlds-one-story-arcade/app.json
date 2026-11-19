@@ -1,16 +1,20 @@
 {
   "id": "101-fairy-tale-worlds-one-story-arcade",
   "title": "101 Fairy Tale Worlds · ONE Story Arcade",
-  "launch": null,
+  "launch": "https://pub-a374b836528943e2917457f04363c2ff.r2.dev/apps/101-fairy-tale-worlds-one-story-arcade/play.html",
   "source": null,
   "collections": [
     "Play"
   ],
   "source_stages": [
-    "Playable HTML prototype"
+    "Playable HTML prototype",
+    "Recovered standalone browser original"
   ],
   "aliases": [],
-  "status": "build-pending",
-  "next_action": "Recover the authorized source or approved design, then implement and verify this app independently.",
-  "station": "apps/101-fairy-tale-worlds-one-story-arcade/index.html"
+  "status": "existing-launch",
+  "station": "apps/101-fairy-tale-worlds-one-story-arcade/index.html",
+  "web_files": [
+    "play.html"
+  ],
+  "archive_sha256": "561301e6525f2aedbf90f35c10e81aef9735a8231b84b30a165217945fcc0eec"
 }

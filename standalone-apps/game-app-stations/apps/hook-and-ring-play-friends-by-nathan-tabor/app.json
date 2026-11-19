@@ -1,7 +1,7 @@
 {
   "id": "hook-and-ring-play-friends-by-nathan-tabor",
   "title": "Hook and Ring · Play Friends by Nathan Tabor",
-  "launch": null,
+  "launch": "https://hook-and-ring.nathantaboract.workers.dev/competition",
   "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/standalone-apps/hook-and-ring/game/competition.html.in",
   "collections": [
     "Projects"
@@ -10,7 +10,6 @@
     "Template page"
   ],
   "aliases": [],
-  "status": "source-available",
-  "next_action": "Verify a playable build from this source and update this station with its verified launch.",
+  "status": "existing-launch",
   "station": "apps/hook-and-ring-play-friends-by-nathan-tabor/index.html"
 }

@@ -1,7 +1,7 @@
 {
   "id": "the-rubber-hose",
   "title": "THE RUBBER HOSE",
-  "launch": null,
+  "launch": "https://pub-a374b836528943e2917457f04363c2ff.r2.dev/apps/the-rubber-hose/play.html",
   "source": null,
   "collections": [
     "Other game projects",
@@ -9,10 +9,14 @@
   ],
   "source_stages": [
     "Playable browser prototype",
-    "Design record"
+    "Design record",
+    "Recovered standalone browser original"
   ],
   "aliases": [],
-  "status": "build-pending",
-  "next_action": "Recover the authorized source or approved design, then implement and verify this app independently.",
-  "station": "apps/the-rubber-hose/index.html"
+  "status": "existing-launch",
+  "station": "apps/the-rubber-hose/index.html",
+  "web_files": [
+    "play.html"
+  ],
+  "archive_sha256": "869495128270d1c3868921f67717b92662201f5c58e45191597d9654a5a376a4"
 }

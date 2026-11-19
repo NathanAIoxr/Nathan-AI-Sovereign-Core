@@ -1,7 +1,7 @@
 {
   "id": "the-game-of-games-the-tabor-spiraltm",
   "title": "THE GAME OF GAMES — THE TABOR SPIRAL™",
-  "launch": null,
+  "launch": "https://pub-a374b836528943e2917457f04363c2ff.r2.dev/apps/the-game-of-games-the-tabor-spiraltm/play.html",
   "source": null,
   "collections": [
     "Enigmas",
@@ -9,10 +9,14 @@
   ],
   "source_stages": [
     "Playable HTML prototype",
-    "Private prototype"
+    "Private prototype",
+    "Recovered standalone browser original"
   ],
   "aliases": [],
-  "status": "build-pending",
-  "next_action": "Recover the authorized source or approved design, then implement and verify this app independently.",
-  "station": "apps/the-game-of-games-the-tabor-spiraltm/index.html"
+  "status": "existing-launch",
+  "station": "apps/the-game-of-games-the-tabor-spiraltm/index.html",
+  "web_files": [
+    "play.html"
+  ],
+  "archive_sha256": "cf1bb97ce5e6baa35e63124367a125af9f3378fd924ce2c5d7278c8acdc1dd91"
 }

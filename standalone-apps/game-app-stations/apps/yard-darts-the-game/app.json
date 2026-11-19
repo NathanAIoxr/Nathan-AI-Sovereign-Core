@@ -1,7 +1,7 @@
 {
   "id": "yard-darts-the-game",
   "title": "YARD DARTS — THE GAME",
-  "launch": null,
+  "launch": "https://hook-and-ring.nathantaboract.workers.dev/yard-darts",
   "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/standalone-apps/hook-and-ring/game/yard-darts.js",
   "collections": [
     "Other game projects",
@@ -12,7 +12,6 @@
     "Template page"
   ],
   "aliases": [],
-  "status": "source-available",
-  "next_action": "Verify a playable build from this source and update this station with its verified launch.",
+  "status": "existing-launch",
   "station": "apps/yard-darts-the-game/index.html"
 }

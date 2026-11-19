@@ -1,16 +1,20 @@
 {
   "id": "castles-unicorns-the-rotating-storyteller",
   "title": "Castles & Unicorns — The Rotating Storyteller",
-  "launch": null,
+  "launch": "https://pub-a374b836528943e2917457f04363c2ff.r2.dev/apps/castles-unicorns-the-rotating-storyteller/play.html",
   "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/castles-unicorns/app.json",
   "collections": [
     "Original tabletop & cards"
   ],
   "source_stages": [
-    "Playable local prototype"
+    "Playable local prototype",
+    "Recovered standalone browser original"
   ],
   "aliases": [],
-  "status": "source-available",
-  "next_action": "Verify a playable build from this source and update this station with its verified launch.",
-  "station": "apps/castles-unicorns-the-rotating-storyteller/index.html"
+  "status": "existing-launch",
+  "station": "apps/castles-unicorns-the-rotating-storyteller/index.html",
+  "web_files": [
+    "play.html"
+  ],
+  "archive_sha256": "52deb5529d8e44beaf2fea21a3540fcf13989db47a9bc8bb327de739f3bb0a77"
 }

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Harbor Lines · Nathan Tabor</title>
+  <style>
+:root{color-scheme:light;--ink:#1e2b27;--green:#155745;--paper:#f5f0e4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+main{width:min(92%,36rem);margin:2rem auto}
+a{color:var(--green);text-underline-offset:3px}
+h1{font:600 clamp(2rem,7vw,3.2rem)/1.05 Georgia,serif;margin:.45rem 0}
+header p{margin:.35rem 0 1rem;color:#485b50}
+button,input{font:inherit;color:inherit;background:#fffdf3;border:1px solid #84978b;border-radius:6px;padding:.45rem .6rem}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid #ab6020;outline-offset:2px}
+button[aria-pressed=true]{background:#d4eadc}
+#board{margin:1rem 0;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:4px;max-width:31rem}
+.cell{width:100%;aspect-ratio:1;padding:.05rem;text-align:center;font-size:clamp(.9rem,4vw,1.4rem)}
+#controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+#message{min-height:1.5rem}
+</style>
+</head>
+<body data-game="harbor">
+  <main>
+    <header><a href="./index.html">App station</a><h1>Harbor Lines</h1><p>Nathan Tabor · Tabor Infinitum browser edition</p></header>
+    <p>Connect each ship’s marked corners or ports with an adjacent path. Paths cannot cross obstacles or each other.</p>
+    <button id="reset" type="button">New game</button>
+    <div id="board" aria-label="Game board"></div>
+    <div id="controls"></div>
+    <p id="message" role="status"></p>
+  </main>
+  <script type="module" src="./game.mjs"></script>
+</body>
+</html>
