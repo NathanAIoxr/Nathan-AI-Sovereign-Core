@@ -1,0 +1,19 @@
+name: Nathan AI restoration matrix integrity
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'projects/sovereignty-os/RESTORATION_MATRIX.csv'
+      - 'projects/sovereignty-os/validate_restoration.py'
+      - '.github/workflows/nathan-restoration-matrix.yml'
+  schedule:
+    - cron: '17 */6 * * *'
+permissions:
+  contents: read
+jobs:
+  it-restoration-angel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate rows columns and project isolation
+        run: python3 projects/sovereignty-os/validate_restoration.py
