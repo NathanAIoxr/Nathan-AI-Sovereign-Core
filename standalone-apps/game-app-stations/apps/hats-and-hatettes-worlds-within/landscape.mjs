@@ -54,7 +54,7 @@ function glyph(ctx,x,y,r,color) {
   ctx.stroke()
 }
 
-export function paint(canvas, id, mode) {
+export function paint(canvas, id, mode, theme, color) {
   const width=canvas.clientWidth
   const height=canvas.clientHeight
   if (!width || !height) return
@@ -65,13 +65,15 @@ export function paint(canvas, id, mode) {
   ctx.scale(canvas.width/900,canvas.height/530)
   const seed=[...id].reduce((total,x)=>total+x.charCodeAt(0),191)
   const random=randomizer(seed)
-  const isSea=['below','aurora-over-doggerland','the-north-sea-gate'].includes(id)
+  const isSea=theme==='water'||['below','aurora-over-doggerland','the-north-sea-gate'].includes(id)
   const isSky=['above','over-there','the-solstice-crown'].includes(id)
-  const isMirror=['nowhere','the-double-mirror'].includes(id)
-  const accent=realms.find(realm=>realm.id===id)?.color ?? '#a4efce'
+  const isMirror=theme==='myth'||['nowhere','the-double-mirror'].includes(id)
+  const isCave=theme==='cave'
+  const isTree=theme==='tree'
+  const accent=color??realms.find(realm=>realm.id===id)?.color??'#a4efce'
   const sky=ctx.createLinearGradient(0,0,0,530)
-  sky.addColorStop(0,isMirror?'#211a37':isSea?'#143b53':'#111a30')
-  sky.addColorStop(.62,isMirror?'#3e3053':isSea?'#245365':isSky?'#23534f':'#35454c')
+  sky.addColorStop(0,isMirror?'#211a37':isSea?'#143b53':isCave?'#23191a':isTree?'#142d22':'#111a30')
+  sky.addColorStop(.62,isMirror?'#3e3053':isSea?'#245365':isSky?'#23534f':isCave?'#5a3c33':isTree?'#3a6541':'#35454c')
   sky.addColorStop(1,'#102430')
   ctx.fillStyle=sky
   ctx.fillRect(0,0,900,530)
@@ -97,7 +99,25 @@ export function paint(canvas, id, mode) {
     }
   }
   bands(ctx,random,isSea?['#254c57','#1e424e','#153340','#102830']:['#34434c','#293944','#1e303a','#162932'],isSea?350:325,isSea?22:47)
-  if (isSea || isSky || isMirror || id==='atlas') {
+  if (isCave) {
+    const roof=Array.from({length:29},(_,i)=>[i*33,65+Math.sin(i*.24)*32+random()*90])
+    trace(ctx,[[0,0],...roof,[924,0]],'#211b1d','#c69b6b88',true)
+    for(let i=0;i<13;i++){
+      const x=i*71
+      const peak=255+random()*93
+      trace(ctx,[[x-34,530],[x,peak],[x+31,530]],i%2?'#231f21':'#2d2525','#d9a77855',true)
+    }
+    glyph(ctx,450,242,84,accent+'9f')
+  } else if(isTree) {
+    for(let i=0;i<11;i++){
+      const x=i*89+7
+      const height=50+random()*175
+      trace(ctx,[[x-29,530],[x,height],[x+16,height+5],[x+22,530]],'#13271f','#85ac6a65',true)
+      trace(ctx,[[x-70,height+90],[x+12,height+54],[x+78,height+81]],null,'#a6b879aa')
+      trace(ctx,[[x-40,height+76],[x+44,height+74],[x+36,height+87],[x-38,height+87]],'#243729',accent+'9c',true)
+    }
+    glyph(ctx,450,180,82,accent+'9f')
+  } else if (isSea || isSky || isMirror || id==='atlas') {
     const x=isSea?465:448, y=isSea?365:235
     for(let i=0;i<15;i++){
       const left=x-205+i*27

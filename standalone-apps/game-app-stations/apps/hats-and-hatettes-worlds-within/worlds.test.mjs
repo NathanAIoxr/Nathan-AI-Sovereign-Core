@@ -3,6 +3,10 @@ import assert from 'node:assert/strict'
 import {chapterTitles,realms,hats,newGame,readGame,readCreation,frequency,inspect,chooseHat,stackName,chapterAccess} from './world.mjs'
 import {chapters} from './chronicles.mjs'
 import worker from './worker.mjs'
+import {expeditions,expeditionGroups,evidenceLabels} from './expedition-data.mjs'
+import {variantCount,makePair,stageFor,showInscription,restorePair,countPairs,hasPair,foldText} from './expedition.mjs'
+import {styles} from './headwear.mjs'
+import {metRecords,metSnapshot} from './met-headwear.mjs'
 
 test('seven coordinates use unique keys and only the matching dials open the gate',()=>{
   assert.equal(new Set(realms.map(realm=>realm.id)).size,7)
@@ -60,4 +64,71 @@ test('Worker only serves declared resources and its health requires the browser 
   assert.equal((await (await run('/api/atlas')).json()).chapters.length,13)
   assert.equal((await (await run('/api/health')).json()).coordinates,7)
   assert.equal((await run('/api/health',undefined,{STATIONS:{head:async()=>null}})).status,503)
+})
+
+test('all expedition tiles have one stable pair per variant and source notes are explicit',()=>{
+  assert.deepEqual(Object.keys(expeditionGroups),['water','cave','tree','myth'])
+  assert.equal(expeditions.length,34)
+  const pairs=expeditions.flatMap(realm=>{
+    assert.equal(realm.motifs.length,4)
+    assert.ok(evidenceLabels[realm.evidence])
+    if(realm.evidence!=='fiction') assert.equal(new URL(realm.source).protocol,'https:')
+    return Array.from({length:variantCount},(_,index)=>{
+      const pair=makePair(realm,index)
+      assert.deepEqual(makePair(realm,index),pair)
+      assert.notEqual(pair.hat,pair.hatette)
+      for(let step=0;step<3;step++){
+        const gate=stageFor(realm,index,step)
+        assert.ok(['pi','phi'].includes(gate.mode))
+        assert.ok(['az','za'].includes(gate.order))
+        assert.equal(showInscription(showInscription(gate.word,'za'),'za'),gate.word)
+      }
+      return pair
+    })
+  })
+  assert.equal(pairs.length,4352)
+  assert.equal(new Set(pairs.map(pair=>pair.id)).size,pairs.length)
+  assert.equal(makePair(expeditions[0],-1),null)
+  assert.equal(makePair(expeditions[0],variantCount),null)
+})
+
+test('expedition progress round-trips with old journey saves and fits all pairs',()=>{
+  assert.deepEqual(readGame({edition:1}).expeditions,{})
+  let progress={}
+  const realm=expeditions[0]
+  progress=restorePair(progress,realm,0)
+  progress=restorePair(progress,realm,127)
+  assert.equal(countPairs(progress),2)
+  assert.equal(countPairs(restorePair(progress,realm,127)),2)
+  assert.equal(hasPair(progress,realm.id,0),true)
+  assert.equal(hasPair(progress,realm.id,126),false)
+  assert.equal(hasPair(progress,realm.id,127),true)
+  assert.deepEqual(readGame({edition:1,expeditions:{...progress,unknown:'0'.repeat(32)}}).expeditions,progress)
+  const full=Object.fromEntries(expeditions.map(item=>[item.id,'f'.repeat(32)]))
+  assert.equal(countPairs(full),4352)
+  assert.ok(JSON.stringify(full).length<2000)
+})
+
+test('Wardrobe vocab and museum object data have stable identities',()=>{
+  assert.equal(new Set(styles.map(style=>style.name)).size,styles.length)
+  assert.ok(styles.some(style=>style.name==='Jingasa'))
+  assert.equal(new Set(metRecords.map(row=>row[0])).size,metRecords.length)
+  assert.ok(metRecords.some(row=>row[0]===24080&&foldText(row.join(' ')).includes('jingasa')))
+  assert.match(metSnapshot,/^[a-f0-9]{64}$/)
+})
+
+test('Worker exposes expedition and filtered catalog data with bounded query arguments',async()=>{
+  let queries=[]
+  const binding={
+    prepare(sql){return {bind(...args){queries.push({sql,args});return {sql,args}}}},
+    async batch(){return [{results:[{total:1}]},{results:[{id:'doggerland-00'}]}]},
+  }
+  const fetch=(path,env={CATALOG:binding})=>worker.fetch(new Request('https://example.test'+path),env)
+  assert.equal((await (await fetch('/api/expeditions')).json()).expeditions.length,34)
+  const result=await (await fetch('/api/catalog?kind=pairs&q=doggerland&limit=1000&offset=-4')).json()
+  assert.equal(result.total,1)
+  assert.deepEqual(queries[1].args,['doggerland',100,0])
+  assert.match(queries[1].sql,/FROM pair/)
+  assert.equal((await fetch('/api/catalog?kind=secrets')).status,400)
+  assert.equal((await fetch('/api/catalog',{})).status,503)
 })

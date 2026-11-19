@@ -1,3 +1,5 @@
+import {readExpeditions} from './expedition.mjs'
+
 export const edition = 1
 export const chapterTitles = [
   'The First Hat', 'Dude & Dudette', 'The Hatette Spin', 'Boy & Boyette',
@@ -38,7 +40,7 @@ export function frequency(seed) {
 }
 
 export function newGame() {
-  return {edition, seed:'', visited:['middle'], found:[], stack:[], rescued:false, walked:0, creations:[], form:'wearer'}
+  return {edition, seed:'', visited:['middle'], found:[], stack:[], rescued:false, walked:0, creations:[], form:'wearer', expeditions:{}}
 }
 
 export function readCreation(value) {
@@ -60,6 +62,7 @@ export function readGame(value) {
     found, stack:ids(value.stack,id=>found.includes(id),3),
     rescued:value.rescued === true, walked:Number.isSafeInteger(value.walked) ? Math.max(0,Math.min(9999,value.walked)) : 0,
     creations:Array.isArray(value.creations) ? value.creations.slice(0,13).map(readCreation).filter(Boolean) : [],
+    expeditions:readExpeditions(value.expeditions),
     form:['wearer','world','word'].includes(value.form) ? value.form : 'wearer',
   }
 }

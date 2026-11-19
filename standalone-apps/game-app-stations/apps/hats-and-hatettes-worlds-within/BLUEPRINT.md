@@ -58,3 +58,7 @@ Mesh-Brim, private sync, native HAT OS and device hardware are design work. Veri
 Cloudflare serves the public game through the existing App Stations bucket. The Worker targets the owner’s Workers for Platforms namespace, with the web assets in the same bucket. The existing Tabor Build Loop runs scoped follow-on drafts. Its lane definitions are in [build-agents.json](build-agents.json). The app station queue retains the deployment receipt. Each subsequent release needs a corresponding source change, tests, and live check.
 
 Run `node --test worlds.test.mjs` here. From the station root, run `node build.mjs && node verify.mjs` to build the catalog and verify its checksums.
+
+## The Lost Brims expansion
+
+The [expedition guide](EXPEDITIONS.md) maps the 34 playable realms, paired brim generator, source catalog, and Cloudflare D1 release. These worlds extend the seven original coordinates and preserve the original nine brims and thirteen chapter keys.

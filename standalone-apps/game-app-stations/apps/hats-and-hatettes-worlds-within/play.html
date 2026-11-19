@@ -14,14 +14,14 @@
 <body>
   <header class="topbar">
     <a class="brand" href="./play.html"><span class="brand-mark" aria-hidden="true">✧</span><span>HATS &amp; HATETTES<small>WORLDS WITHIN</small></span></a>
-    <nav aria-label="Game areas"><a href="#atlas">Atlas</a><a href="#forge">Forge</a><a href="#chronicles">Chronicles</a><a href="#companion">HATETTE</a></nav>
+    <nav aria-label="Game areas"><a href="#atlas">Atlas</a><a href="#expeditions">Expeditions</a><a href="#wardrobe">Wardrobe</a><a href="#forge">Forge</a><a href="#chronicles">Chronicles</a><a href="#companion">HATETTE</a></nav>
     <button id="sound" class="quiet" type="button" aria-pressed="false">Sound off</button>
   </header>
   <main>
     <section class="intro" aria-labelledby="title">
       <p class="eyebrow">THE SEVEN-DIRECTIONAL COSMOS</p>
       <h1 id="title">Worlds <em>Within</em></h1>
-      <p>Find your hat and hatette. Step inside the brim. <a href="#mirror">Start at the True Mirror</a></p>
+      <p>Find your hat and hatette. Step inside the brim. <a href="#mirror">Start at the True Mirror</a> · <a href="#expeditions">Explore the Lost Brims</a></p>
     </section>
 
     <section id="atlas" class="game" aria-label="World atlas">
@@ -57,6 +57,64 @@
       </aside>
     </section>
     <p id="notice" class="notice" role="status"></p>
+
+    <section id="expeditions" class="panel expedition-panel" aria-labelledby="expedition-heading">
+      <div class="expedition-heading">
+        <div><p class="eyebrow">GRAND ATLAS EXPEDITIONS</p><h2 id="expedition-heading">The Lost Brims</h2></div>
+        <p id="expedition-progress" class="expedition-progress"></p>
+      </div>
+      <div id="expedition-groups" class="actions" aria-label="Expedition collections"></div>
+      <div class="expedition-grid">
+        <div class="expedition-scene">
+          <canvas id="expedition-landscape" aria-hidden="true"></canvas>
+          <div class="expedition-story">
+            <p id="expedition-coordinate" class="eyebrow"></p>
+            <h3 id="expedition-name"></h3>
+            <p id="expedition-lore"></p>
+          </div>
+        </div>
+        <div class="expedition-controls">
+          <label for="expedition-place">Pocket world</label>
+          <select id="expedition-place"></select>
+          <label for="expedition-variant">Hat &amp; Hatette pair</label>
+          <select id="expedition-variant"></select>
+          <button id="expedition-enter" class="primary" type="button">Enter the brim</button>
+        </div>
+      </div>
+      <div class="expedition-evidence">
+        <strong id="expedition-evidence"></strong>
+        <p id="expedition-context"></p>
+        <a id="expedition-source" target="_blank" rel="noopener noreferrer" hidden>Read the source</a>
+      </div>
+      <div id="expedition-quest" class="quest" hidden>
+        <ol id="expedition-stages" class="quest-stages"></ol>
+        <p id="expedition-clue"></p>
+        <output id="expedition-inscription" class="glyph"></output>
+        <div class="actions">
+          <div class="toggle" aria-label="Expedition frequency"><button id="expedition-pi" type="button" aria-pressed="true">π Pi</button><button id="expedition-phi" type="button" aria-pressed="false">φ Phi</button></div>
+          <div class="toggle" aria-label="Expedition reading direction"><button id="expedition-az" type="button" aria-pressed="true">A → Z</button><button id="expedition-za" type="button" aria-pressed="false">Z → A</button></div>
+          <button id="expedition-open" class="primary" type="button">Try the passage</button>
+        </div>
+      </div>
+      <p id="expedition-result" class="expedition-result" role="status"></p>
+    </section>
+
+    <section id="wardrobe" class="panel wardrobe" aria-labelledby="wardrobe-heading">
+      <div class="expedition-heading">
+        <div><p class="eyebrow">HATS &amp; HATETTES CATALOG</p><h2 id="wardrobe-heading">The Wardrobe</h2></div>
+        <p id="wardrobe-count" aria-live="polite"></p>
+      </div>
+      <div id="wardrobe-tabs" class="actions" aria-label="Wardrobe collections"></div>
+      <label for="wardrobe-search">Search headwear</label>
+      <input id="wardrobe-search" type="search" placeholder="Try jingasa, bonnet, Doggerland…" maxlength="80">
+      <p id="wardrobe-provenance" class="fine"></p>
+      <div id="wardrobe-list" class="wardrobe-list"></div>
+      <div class="actions">
+        <button id="wardrobe-prev" class="quiet" type="button">Previous</button>
+        <output id="wardrobe-page"></output>
+        <button id="wardrobe-next" class="quiet" type="button">Next</button>
+      </div>
+    </section>
 
     <section class="lower">
       <article id="mirror" class="panel">

@@ -1,6 +1,7 @@
 import {briefing,finale,realms,hats,mentors,pattern,chapterTitles,questions,frequency,newGame,readGame,readCreation,inspect,chooseHat,stackName,chapterAccess} from './world.mjs'
 import {paint} from './landscape.mjs'
 import {chapters} from './chronicles.mjs'
+import {setupExpeditions} from './expedition-ui.mjs'
 
 const $ = id => document.getElementById(id)
 const key = 'worlds-within-v1'
@@ -18,6 +19,7 @@ let sound = false
 let stream = null
 let cameraPending = false
 let selectedChapter = null
+let refreshExpeditions=()=>{}
 
 function save() {
   try {localStorage.setItem(key,JSON.stringify(game))} catch {}
@@ -86,6 +88,7 @@ function renderScene() {
 function update() {
   save()
   renderScene()
+  refreshExpeditions()
   const access=chapterAccess(game)
   const signature=game.seed?frequency(game.seed):null
   $('signature').textContent=signature?signature.signature+' · '+signature.tone+' Hz · '+game.walked+' steps':'—'
@@ -391,5 +394,9 @@ function readPortal(){
 }
 addEventListener('hashchange',readPortal)
 new ResizeObserver(renderScene).observe($('landscape'))
+refreshExpeditions=setupExpeditions(()=>game.expeditions, progress=>{
+  game.expeditions=progress
+  save()
+})
 update()
 readPortal()
