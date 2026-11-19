@@ -23,12 +23,47 @@ async function slayerSummary(db) {
   };
 }
 
+const slayerToolSource = 'https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/';
+const slayerToolColumns = 't.id, t.tool_key, t.title, t.description, t.tags, t.kind, t.source_path, t.source_ref';
+
+async function slayerTools(db, params) {
+  const q = (params.get('q') ?? '').trim();
+  const after = params.get('after') ?? '0';
+  const tokens = q.match(/[\p{L}\p{N}]+/gu) ?? [];
+  const cursor = Number(after);
+  if (q.length > 96 || tokens.length > 10 || (q && !tokens.length)
+    || !/^\d+$/.test(after) || !Number.isSafeInteger(cursor)) {
+    return slayerFailure('invalid-tool-filter', 400);
+  }
+  const statement = q
+    ? db.prepare(`SELECT ${slayerToolColumns} FROM cloud_slayer_tool_search
+        JOIN cloud_slayer_tools t ON t.id = cloud_slayer_tool_search.rowid
+        WHERE cloud_slayer_tool_search MATCH ? AND cloud_slayer_tool_search.rowid > ?
+        ORDER BY cloud_slayer_tool_search.rowid LIMIT 26`)
+      .bind(tokens.map(term => '"' + term + '"*').join(' AND '), cursor)
+    : db.prepare(`SELECT ${slayerToolColumns} FROM cloud_slayer_tools t WHERE t.id > ? ORDER BY t.id LIMIT 26`)
+      .bind(cursor);
+  const [{ results }, count] = await db.batch([
+    statement, db.prepare('SELECT total FROM cloud_slayer_tool_count WHERE singleton = 1')
+  ]);
+  const tools = results.slice(0, 25).map(({ id, source_ref, source_path, ...row }) => ({
+    ...row,
+    source_url: slayerToolSource + source_ref + '/' + source_path.split('/').map(encodeURIComponent).join('/')
+  }));
+  return Response.json({
+    tools,
+    registered_tools: count.results[0].total,
+    next: results.length > 25 ? String(results[24].id) : null
+  });
+}
+
 export async function cloudSlayerApi(url, db, readApp) {
   if (!db) return slayerFailure('registry-unavailable', 503);
   const path = url.pathname;
   const p = url.searchParams;
   try {
     if (path === '/api/cloud-slayer/summary') return Response.json(await slayerSummary(db));
+    if (path === '/api/cloud-slayer/tools') return await slayerTools(db, p);
     if (path === '/api/cloud-slayer/modules') {
       const view = p.get('view') ?? '';
       const q = (p.get('q') ?? '').trim();
