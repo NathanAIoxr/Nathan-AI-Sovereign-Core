@@ -1,0 +1,146 @@
+{
+  "source": "Nathan Tabor's supplied 20-system Sovereignty OS architecture",
+  "status": "role assignments",
+  "systems": [
+    {
+      "id": "stewart-mr-finn",
+      "name": "Stewart & Mr. Finn OS",
+      "engine": "Native iOS/SwiftUI & Touch Event Kernel",
+      "below_daemon": "Feline-Sprite Watchdog",
+      "above_angel": "State-Sync IT Bot"
+    },
+    {
+      "id": "tabor-track-baller",
+      "name": "Tabor Track Baller OS",
+      "engine": "WebGL 3D Quaternion & Unistroke Rune Engine",
+      "below_daemon": "Shader-Cache MSP",
+      "above_angel": "Quaternion Drift Corrector"
+    },
+    {
+      "id": "tabor-world",
+      "name": "Tabor World OS",
+      "engine": "Offline-First Sandboxed World & SwiftUI Runtime",
+      "below_daemon": "Storage Health MSP",
+      "above_angel": "Offline-Mesh Sync Bot"
+    },
+    {
+      "id": "one-matrix",
+      "name": "One Matrix OS",
+      "engine": "Hybrid SwiftUI + WKWebView Bridge Kernel",
+      "below_daemon": "Webview Watchdog",
+      "above_angel": "DOM-Bridge Latency Bot"
+    },
+    {
+      "id": "who-you-be",
+      "name": "Who You Be OS",
+      "engine": "Behavioral & Adaptation Matrix Engine",
+      "below_daemon": "Trait-Graph MSP",
+      "above_angel": "Logic-Gate Auditor and Profile Sync IT Bot"
+    },
+    {
+      "id": "dirk",
+      "name": "Dirk OS",
+      "engine": "Mobile Arcade & Event Loop Micro-OS",
+      "below_daemon": "Crash-Recovery MSP",
+      "above_angel": "Loop-Tick Governor"
+    },
+    {
+      "id": "icu-buddy",
+      "name": "iCU Buddy OS",
+      "engine": "Conversational Companion & Voice-Box Kernel",
+      "below_daemon": "Memory-Vault MSP",
+      "above_angel": "Acoustic-Latency Bot"
+    },
+    {
+      "id": "tavern-sovereign",
+      "name": "Tavern Sovereign OS",
+      "engine": "100-Mechanic Topological & Permutation Engine",
+      "below_daemon": "Logic-Node MSP",
+      "above_angel": "Deadlock-Breaker Bot"
+    },
+    {
+      "id": "christmas-cipher",
+      "name": "Christmas Cipher OS",
+      "engine": "52-Glyph Zorro Font & Calendar Matrix Kernel",
+      "below_daemon": "Cipher-Key MSP",
+      "above_angel": "Glyph-Renderer IT Bot"
+    },
+    {
+      "id": "paradox-function",
+      "name": "Paradox Function OS",
+      "engine": "Linguistic & Riddle-to-RPG Translation Engine",
+      "below_daemon": "Rule-Engine MSP",
+      "above_angel": "Semantic-Parser Bot"
+    },
+    {
+      "id": "hook-and-ring-dual",
+      "name": "Hook & Ring Dual-OS",
+      "engine": "Split-Screen Physics + Mini-Game Dual Kernel",
+      "below_daemon": "Physics-Sync MSP",
+      "above_angel": "Dual-Viewport Balancer"
+    },
+    {
+      "id": "core-match",
+      "name": "Core-Match OS",
+      "engine": "Grid-Matching + Cognitive Drill Runtime",
+      "below_daemon": "Telemetry MSP",
+      "above_angel": "Board-Generator Bot"
+    },
+    {
+      "id": "x-gen-game-of-games",
+      "name": "X Gen: Game of Games OS",
+      "engine": "Multi-Epoch Tabletop & Rotating Storyteller Runtime",
+      "below_daemon": "Session-Vault MSP",
+      "above_angel": "Turn-Order Arbiter Bot"
+    },
+    {
+      "id": "castles-and-unicorns",
+      "name": "Castles & Unicorns OS",
+      "engine": "Multiplayer Fantasy Lore & Encounter Engine",
+      "below_daemon": "Lore-DB MSP",
+      "above_angel": "Packet-Sync IT Bot"
+    },
+    {
+      "id": "david-vs-goliath",
+      "name": "David vs. Goliath OS",
+      "engine": "Trajectory Physics & Era-Weapon Combat Kernel",
+      "below_daemon": "Asset-Loader MSP",
+      "above_angel": "Hitbox & Ballistics Bot"
+    },
+    {
+      "id": "icarus-baseball",
+      "name": "Icarus Baseball OS",
+      "engine": "Historical League & Sabermetric Simulation OS",
+      "below_daemon": "Sim-Engine MSP",
+      "above_angel": "Stats-Integrity Bot"
+    },
+    {
+      "id": "sinners-vs-saints",
+      "name": "Sinners vs. Saints OS",
+      "engine": "Holiday Tactical & Woodsmanship Macro-OS",
+      "below_daemon": "Uptime MSP",
+      "above_angel": "Resource-Balance Bot"
+    },
+    {
+      "id": "ancient-roots-strategy",
+      "name": "Ancient Roots Strategy OS",
+      "engine": "Fog-of-War & Hidden-Movement Deduction Kernel",
+      "below_daemon": "Map-Tile MSP",
+      "above_angel": "State-Masking Bot"
+    },
+    {
+      "id": "101-classics-vault",
+      "name": "101 Classics Vault OS",
+      "engine": "Multi-Emulator & Deterministic Loop Hypervisor",
+      "below_daemon": "Catalog MSP",
+      "above_angel": "ROM & Loop Healer Bot"
+    },
+    {
+      "id": "backyard-arena-hybrid",
+      "name": "Backyard Arena Hybrid OS",
+      "engine": "Physical-to-Digital Telemetry & Scoring OS",
+      "below_daemon": "Field-Mesh MSP",
+      "above_angel": "Sensor-Calibration Bot"
+    }
+  ]
+}

@@ -40,3 +40,41 @@ test("scheduled receipt is persisted without network or external dispatch",async
  const r=await worker.fetch(new Request("https://example.test/api/receipts"),env);
  assert.deepEqual((await r.json()).latest.task_ids,receipt.task_ids);
 });
+
+test("Sovereignty OS assigns all 20 systems and keeps the original source wording", async () => {
+  const base = "https://example.test";
+  const catalog = await (await worker.fetch(new Request(base + "/api/os-roles"), {})).json();
+  assert.deepEqual(catalog.terminology, { MSP: "DAEMON", IT: "ANGEL" });
+  assert.equal(catalog.game_assignments.systems.length, 20);
+  assert.equal(catalog.alignment.noise.authority, "none");
+  assert.equal(catalog.alignment.creator_words[2], "God = noise, delete it all");
+  assert.equal(catalog.roles.find(role => role.label === "Satan").plane, "BELOW");
+  assert.equal(catalog.deployment.work_dispatch, false);
+  const page = await worker.fetch(new Request(base + "/sovereignty-roles"), {});
+  assert.equal(page.status, 200);
+  assert.match(await page.text(), /20 independent game and puzzle systems/);
+});
+
+test("arithmetic corrects the rejected decimal equation and clears labeled overlays", async () => {
+  const url = "https://example.test/api/os-roles/align?";
+  const align = async (expression, options = {}) => {
+    const query = new URLSearchParams({ expression, ...options });
+    const result = await worker.fetch(new Request(url + query), {});
+    assert.equal(result.status, 200);
+    return result.json();
+  };
+  const corrected = await align("1=1=10");
+  assert.deepEqual([corrected.action, corrected.challenger, corrected.verified_by, corrected.active_output],
+    ["REPLACE", "Satan", "ANGEL", "1+1=2"]);
+  assert.equal(corrected.exact_input.expression, "1=1=10");
+  const binary = await align("1 + 1 = 10", { radix: "2" });
+  assert.deepEqual([binary.action, binary.active_output], ["VERIFY", "1+1=10"]);
+  assert.equal((await align("1=1=10", { radix: "2" })).action, "HOLD");
+  for (const origin of ["god-laid", "man-laid"]) {
+    const cleared = await align(" 1+1=2 ", { origin });
+    assert.deepEqual([cleared.action, cleared.operator, cleared.active_output, cleared.exact_input.expression],
+      ["CLEAR", "1-1=0", null, " 1+1=2 "]);
+  }
+  const duplicate = await worker.fetch(new Request(url + "expression=1%3D1%3D10&radix=2&radix=10"), {});
+  assert.equal(duplicate.status, 400);
+});

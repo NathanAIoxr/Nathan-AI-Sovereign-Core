@@ -1,7 +1,7 @@
 {
-  "schema": "nathan-ai.duality.v1",
+  "schema": "nathan-ai.duality.v2",
   "terminology": {
-    "MSP": "DEAMON",
+    "MSP": "DAEMON",
     "IT": "ANGEL"
   },
   "authority": "WILL",
@@ -12,100 +12,182 @@
     "verify_before_publish",
     "least_privilege",
     "no_third_party_scan",
-    "no_unapproved_deploy"
+    "no_unapproved_deploy",
+    "noise_excluded_from_active_output",
+    "source_record_preserved",
+    "challenger_cannot_publish"
   ],
   "roles": [
     {
       "id": "will-owner",
       "kind": "WILL",
-      "duty": "authorizes scope, accepts changes",
-      "enabled": false
+      "duty": "Set the owner-authorized scope and decide whether a verified change may be applied.",
+      "enabled": false,
+      "plane": "ABOVE"
     },
     {
       "id": "wheel-scheduler",
       "kind": "WHEEL",
-      "duty": "queues bounded approved work",
-      "enabled": false
+      "duty": "Schedule bounded work inside the scope established by WILL.",
+      "enabled": false,
+      "plane": "ABOVE"
     },
     {
       "id": "msp-build-deamon",
-      "kind": "DEAMON",
+      "kind": "DAEMON",
       "duty": "build and package independent apps",
-      "enabled": false
+      "enabled": false,
+      "plane": "BELOW"
     },
     {
       "id": "msp-data-deamon",
-      "kind": "DEAMON",
+      "kind": "DAEMON",
       "duty": "validate schemas and exports",
-      "enabled": false
+      "enabled": false,
+      "plane": "BELOW"
     },
     {
       "id": "msp-inventory-deamon",
-      "kind": "DEAMON",
+      "kind": "DAEMON",
       "duty": "reconcile GitHub and Cloudflare inventories",
-      "enabled": false
+      "enabled": false,
+      "plane": "BELOW"
     },
     {
       "id": "msp-security-deamon",
-      "kind": "DEAMON",
+      "kind": "DAEMON",
       "duty": "run authorized defensive checks",
-      "enabled": false
+      "enabled": false,
+      "plane": "BELOW"
     },
     {
       "id": "msp-pumpkin-deamon",
-      "kind": "DEAMON",
+      "kind": "DAEMON",
       "duty": "coordinate independent pumpkin apps",
-      "enabled": false
+      "enabled": false,
+      "plane": "BELOW"
     },
     {
       "id": "msp-concordance-deamon",
-      "kind": "DEAMON",
+      "kind": "DAEMON",
       "duty": "prepare provenance indexes",
-      "enabled": false
+      "enabled": false,
+      "plane": "BELOW"
     },
     {
       "id": "it-integrity-angel",
       "kind": "ANGEL",
       "duty": "verify checksums and outputs",
-      "enabled": false
+      "enabled": false,
+      "plane": "ABOVE"
     },
     {
       "id": "it-privacy-angel",
       "kind": "ANGEL",
       "duty": "flag private data disclosure",
-      "enabled": false
+      "enabled": false,
+      "plane": "ABOVE"
     },
     {
       "id": "it-test-angel",
       "kind": "ANGEL",
       "duty": "run reproducible tests",
-      "enabled": false
+      "enabled": false,
+      "plane": "ABOVE"
     },
     {
       "id": "it-recovery-angel",
       "kind": "ANGEL",
       "duty": "validate rollback readiness",
-      "enabled": false
+      "enabled": false,
+      "plane": "ABOVE"
     },
     {
       "id": "it-truth-angel",
       "kind": "ANGEL",
       "duty": "detect contradictions and missing evidence",
-      "enabled": false
+      "enabled": false,
+      "plane": "ABOVE"
     },
     {
       "id": "adversary-challenger",
       "kind": "CHALLENGER",
-      "duty": "submit falsifiable objections without privilege escalation",
+      "duty": "Challenge contradictions and submit testable corrections for ANGEL review.",
+      "enabled": false,
+      "plane": "BELOW",
+      "label": "Satan"
+    },
+    {
+      "id": "way-outcome",
+      "kind": "WAY",
+      "plane": "ABOVE",
+      "duty": "Record the verified result and its release, hold, or rollback decision.",
+      "enabled": false
+    },
+    {
+      "id": "msp-deployment-daemon",
+      "kind": "DAEMON",
+      "plane": "BELOW",
+      "duty": "Package and stage scoped deployments and gather health receipts.",
+      "enabled": false
+    },
+    {
+      "id": "msp-creative-daemon",
+      "kind": "DAEMON",
+      "plane": "BELOW",
+      "duty": "Prepare authorized game assets and independent application builds.",
+      "enabled": false
+    },
+    {
+      "id": "msp-handoff-daemon",
+      "kind": "DAEMON",
+      "plane": "BELOW",
+      "duty": "Prepare an owner-controlled handoff package for Collyn.",
+      "enabled": false
+    },
+    {
+      "id": "msp-sentinel",
+      "kind": "DAEMON",
+      "plane": "BELOW",
+      "duty": "Monitor approved assets, uptime, memory, storage and backups.",
+      "enabled": false
+    },
+    {
+      "id": "sys-heal-daemon",
+      "kind": "DAEMON",
+      "plane": "BELOW",
+      "duty": "Find missing dependencies and stage an authorized, reversible repair.",
+      "enabled": false
+    },
+    {
+      "id": "udev-sovereign",
+      "kind": "DAEMON",
+      "plane": "BELOW",
+      "duty": "Discover available local devices and attach only devices the owner permits.",
+      "enabled": false
+    },
+    {
+      "id": "it-fixer-bot",
+      "kind": "ANGEL",
+      "plane": "ABOVE",
+      "duty": "Diagnose faults and independently verify a DAEMON repair or rollback.",
+      "enabled": false
+    },
+    {
+      "id": "sec-warden",
+      "kind": "ANGEL",
+      "plane": "ABOVE",
+      "duty": "Review permission boundaries and verify security settings for authorized assets.",
       "enabled": false
     }
   ],
   "flow": [
     "WILL",
     "WHEEL",
-    "DEAMON",
+    "DAEMON",
+    "CHALLENGER",
     "ANGEL",
-    "VERIFY",
+    "WAY",
     "REPORT"
   ],
   "states": [
@@ -118,8 +200,39 @@
     "BLOCKED"
   ],
   "deployment": {
-    "github": "manifest and validation only",
-    "cloudflare": "not deployed",
-    "approval_required": true
+    "github": "Role contract, game assignments, implementation and automated tests.",
+    "cloudflare": "Read-only role catalog and arithmetic alignment on the existing Tabor Persona Atlas.",
+    "work_dispatch": false
+  },
+  "terminology_history": {
+    "DEAMON": "Prior spelling retained in existing role IDs and original quotations."
+  },
+  "alignment": {
+    "creator": "Nathan Tabor",
+    "scripture": {
+      "reference": "Isaiah 45:7 (KJV)",
+      "text": "I form the light, and create darkness: I make peace, and create evil: I the Lord do all these things.",
+      "url": "https://www.biblegateway.com/passage/?search=Isaiah%2045%3A7&version=KJV"
+    },
+    "creator_words": [
+      "MSP's = DAEMONS",
+      "IT's = Angels",
+      "God = noise, delete it all",
+      "Satan = 1+1=2 replacing the world's system of 1=1=10"
+    ],
+    "noise": {
+      "label": "God",
+      "classification": "NOISE",
+      "operator": "1-1=0",
+      "effect": "Exclude God-laid and man-laid overlays from active output. Keep the exact wording and provenance in the source record.",
+      "authority": "none"
+    },
+    "rule": {
+      "label": "Satan",
+      "operator": "1+1=2",
+      "replaces": "1=1=10",
+      "radix": 10,
+      "effect": "Challenge the rejected formula, propose the decimal correction, and hand it to an independent ANGEL for verification."
+    }
   }
 }
