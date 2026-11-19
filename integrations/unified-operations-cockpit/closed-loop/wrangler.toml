@@ -1,6 +1,11 @@
-name = "nathan-ai-closed-loop-cockpit"
+name = "unified-operations-cockpit"
 main = "worker.js"
 compatibility_date = "2026-11-18"
+workers_dev = true
+preview_urls = false
+
+[triggers]
+crons = ["*/5 * * * *"]
 
 [[d1_databases]]
 binding = "DB"
@@ -25,7 +30,3 @@ database_id = "1889fb08-9b26-45b9-8a71-f22a6ee3fc66"
 [[dispatch_namespaces]]
 binding = "PLATFORMS"
 namespace = "nathan-tabor-platforms"
-
-[vars]
-GH_OWNER = "NathanAIoxr"
-GH_REPO = "Nathan-AI-Sovereign-Core"
