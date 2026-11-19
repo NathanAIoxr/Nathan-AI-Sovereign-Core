@@ -14,7 +14,15 @@ let orientation=identity(),tilt=[0,0],sensor=false;
 let bus=new UniversalBridgeBus(),id="101",lab=null,entries=[],catalog,pack,selectedClass="",phase=0,sequence=[1,2,3,4],previous=0;
 let vault=[],pkAt=0;
 const storageKey="tabor-universal-library-v7-vault";
-try{
+const hiveEmbedded=window.parent!==window&&new URL(location.href).searchParams.get("hive")==="9";
+function reportHive(type,payload){
+  if(hiveEmbedded)window.parent.postMessage({channel:"tabor-hive-v9",surface:"universal-library",type,payload},location.origin);
+}
+const hiveModule=()=>/^\d+$/.test(id)?Number(id):101;
+function reportInteraction(kind){
+  reportHive("interaction.summary",{surface:"universal-library",module:hiveModule(),kind,orientation});
+}
+if(!hiveEmbedded)try{
   const data=JSON.parse(localStorage.getItem(storageKey)||"[]");
   if(Array.isArray(data))vault=data.filter(x=>typeof x?.text==="string"&&typeof x?.tags==="string").slice(0,60);
 }catch{}
@@ -35,6 +43,15 @@ function updateBridge(){
 }
 function soon(){return performance.now()+12000+Math.random()*6000;}
 function eventControls(){
+  if(hiveEmbedded){
+    $("cast-panel").hidden=true;
+    window.addEventListener("message",event=>{
+      if(event.source!==window.parent||event.origin!==location.origin||
+          event.data?.channel!=="tabor-hive-v9"||event.data.type!=="cast.setting")return;
+      pkAt=event.data.chaos===true?soon():0;
+    });
+    reportHive("surface.ready",{});
+  }
   $("pk").addEventListener("change",()=>{
     pkAt=$("pk").checked?soon():0;
     set("pk-note",pkAt?"Brief surge every 12–18 seconds while this tab is active.":"");
@@ -46,6 +63,7 @@ function paintSequence(){
     if(n!==phase+1){phase=0;runStatus("Start at 1 and follow the sequence.");}
     else if(++phase===4){
       const granted=bus.emit("bottom-clear");
+      if(granted)reportHive("bridge.clear",{attempts:bus.round.ammo,shield:bus.round.shield,attack:0,charge:bus.round.charge});
       phase=0;sequence=shuffleSequence();
       runStatus(granted?"Sequence complete · one top attempt loaded.":"Enemy cleared. Reset the bridge for a new round.");
     }
@@ -91,6 +109,7 @@ function choose(next,fromCatalog=false){
   set("curator",id==="81"?pack.cast_roles.curator_intro:info?" "+info[2]:" Select a runnable cartridge to begin.");
   set("coach",id==="81"?pack.cast_roles.nathan_ai_tip:info?" Use the lower sequence whenever you need to reload.":" Select a runnable cartridge for input coaching.");
   set("status","");renderControls();showCatalog();
+  reportHive("module.open",{surface:"universal-library",module:hiveModule()});
   if(fromCatalog){
     const url=new URL(location.href);url.searchParams.set("module",id);history.replaceState(null,"",url);
     if(matchMedia("(max-width:730px)").matches)$("catalog-panel").open=false;
@@ -99,7 +118,11 @@ function choose(next,fromCatalog=false){
 }
 function renderControls(){
   controls.replaceChildren();
-  if(!lab)return;
+  if(!lab){
+    if(hiveEmbedded)controls.append(button("Open Track Baller entry #"+hiveModule(),
+      ()=>reportHive("catalog.open",{module:hiveModule()})));
+    return;
+  }
   if(id==="94"){
     const select=create("select",undefined,{"aria-label":"Choose class shelf"});
     for(const [key,label] of Object.entries(ClassNames))select.add(new Option(key+" · "+label,key));
@@ -127,7 +150,11 @@ function renderControls(){
       }catch{if(id==="81")runStatus("This file does not match the Circuit Lab v.7 schema.");}
     });
   }
-  if(id==="96")renderVault();
+  if(id==="96"){
+    if(hiveEmbedded){
+      controls.append(button("Open Z-101 in the Hive",()=>reportHive("vault.open",{})));
+    }else renderVault();
+  }
 }
 function renderVault(){
   const tools=create("div",undefined,{class:"lab-tools"}),text=create("textarea",undefined,{rows:"2",maxlength:"1200",placeholder:"Write a note","aria-label":"Vault note"});
@@ -162,6 +189,7 @@ function verify(){
 function applyAction(){
   if(!lab)return;
   runStatus(actLab(id,lab,selectedClass,bus,pack,verify));updateBridge();
+  reportInteraction("tap");
 }
 function circuitCoords(p){
   if(id!=="81"||!pack.physics_profile.allow_full_quaternion)return p;
@@ -204,6 +232,7 @@ const input=attachDigitTrackBaller(stage,{
     if(g.kind==="hold"){bus.emit("guard");runStatus("Shield restored.");}
     else runStatus(releaseLab(id,lab,g,bus,lab.time*1000));
     updateBridge();
+    reportInteraction(g.kind==="hold"?"hold":"release");
   },
   onContact(g){
     if(id==="81"&&lab)lab.contacts=g.points.map(p=>circuitCoords(labPoint(stage,p)));
@@ -220,6 +249,7 @@ const input=attachDigitTrackBaller(stage,{
   },
   onGripEnd(g){
     if(!lab)return;
+    if(g.peakContacts>1)reportInteraction("pinch");
     if(id==="81"){
       lab.contacts=[];
       if(g.peakContacts>1)applyAction();

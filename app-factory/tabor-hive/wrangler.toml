@@ -1,0 +1,16 @@
+name = "tabor-hive-v9"
+main = "worker.mjs"
+compatibility_date = "2026-11-17"
+workers_dev = true
+preview_urls = false
+
+[build]
+command = "node build.mjs"
+
+[[durable_objects.bindings]]
+name = "HIVE_STATE"
+class_name = "HiveState"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["HiveState"]

@@ -1,0 +1,28 @@
+.hive-deck { margin: 0 0 1.1rem; padding: 1rem; background: #122732; color: #e8fbf6; border: 1px solid #325465; border-radius: 12px; display: grid; gap: .75rem; }
+.hive-deck h2,.hive-deck p,.hive-deck dl { margin: 0; }
+.hive-nav,.hive-controls { display: flex; gap: .55rem; flex-wrap: wrap; align-items: center; }
+.hive-nav a { color: #a8f6db; padding: .45rem .1rem; }
+.hive-deck label { display: inline-flex; gap: .35rem; align-items: center; max-width: 100%; }
+.hive-deck select,.hive-deck input:not([type=checkbox]),.hive-deck textarea { background: #091b24; color: #edfef8; border: 1px solid #426174; border-radius: 5px; padding: .45rem; max-width: 100%; }
+.hive-deck button,#hive-surface-dialog button { min-height: 38px; border: 1px solid #51707e; border-radius: 6px; background: #172e3d; color: #f4fff9; padding: .35rem .65rem; cursor: pointer; }
+.hive-readout { display: grid; gap: .25rem; font-size: .9rem; }
+.hive-readout small,.hive-deck details p,.hive-deck dt+dd { color: #a8c8cc; }
+.hive-deck details { padding: .5rem 0; border-top: 1px solid #325465; }
+.hive-deck summary { cursor: pointer; font-weight: 600; min-height: 34px; }
+.hive-deck details[open] { display: grid; gap: .6rem; }
+.hive-deck #hive-domains { display: grid; grid-template-columns: minmax(8rem, 1fr) 3fr; gap: .35rem .65rem; }
+.hive-deck #hive-domains dd { margin: 0; }
+#ant-template { width: min(100%, 280px); border: 1px solid #325465; border-radius: 8px; margin-block: .5rem; }
+#hive-surface-dialog { width: min(96vw, 960px); max-width: none; max-height: 96dvh; color: #e8fbf6; background: #122732; border: 1px solid #51707e; border-radius: 10px; }
+#hive-surface-dialog::backdrop { background: #020b13d9; }
+#hive-surface-dialog header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+#hive-surface-dialog h2 { margin: 0; }
+#hive-surface-frame { width: 100%; height: 71dvh; border: 0; margin-block-start: .6rem; background: #132535; }
+#hive-surface-status { min-height: 1em; }
+#circuit-lamp { padding: .3rem .65rem; border: 1px solid #51707e; border-radius: 5px; }
+#circuit-lamp.lit { background: #85e8b5; color: #071e17; border-color: #85e8b5; }
+#vault-note { width: 100%; display: block; margin-block: .5rem; }
+#vault-notes p { white-space: pre-wrap; overflow-wrap: anywhere; color: #f4fff9; }
+#vault-notes button { margin-inline-start: .5rem; }
+.hive-deck [hidden] { display: none !important; }
+@media(max-width:520px) { .hive-deck #hive-domains { grid-template-columns: 1fr; } .hive-deck #hive-domains dd { margin-bottom: .35rem; } }
