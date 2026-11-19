@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict';import {logicalTick,dueJobs} from './index.mjs';assert.equal(logicalTick(1003,1000),3n);assert.equal(logicalTick(999,1000),0n);assert.deepEqual(dueJobs([{id:'b',enabled:true,next_due_ms:3},{id:'a',enabled:true,next_due_ms:2},{id:'c',enabled:false,next_due_ms:1}],3).map(x=>x.id),['a','b']);console.log('logical clock tests passed');

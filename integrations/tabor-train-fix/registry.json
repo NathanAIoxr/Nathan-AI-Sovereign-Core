@@ -1,0 +1,3134 @@
+{
+  "schema_version": 1,
+  "verbatim_locked": true,
+  "source_path": "integrations/nathan-mind-101-workers-101-bots.json",
+  "source_sha": "80bd8fb6f8973c964c1e212637fdf421c0d0eff1",
+  "worker_count": 101,
+  "bot_count": 101,
+  "workers": [
+    {
+      "id": "NTW-001",
+      "name": "Phonetic Root Deconstructor",
+      "domain": "language",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-002",
+      "name": "Mirror Text Analyzer",
+      "domain": "language",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-003",
+      "name": "Acrostic Matrix Extractor",
+      "domain": "language",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-004",
+      "name": "Homophone Context Resolver",
+      "domain": "language",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-005",
+      "name": "IPA Sound Mapper",
+      "domain": "language",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-006",
+      "name": "Script Direction Detector",
+      "domain": "language",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-007",
+      "name": "Strong Root Concordance",
+      "domain": "language",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-008",
+      "name": "Historical Meaning Drift",
+      "domain": "language",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-009",
+      "name": "Word Family Graph",
+      "domain": "language",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-010",
+      "name": "Phonetic Near-Match Comparator",
+      "domain": "language",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-011",
+      "name": "Attribute-Only Comparator",
+      "domain": "logic",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-012",
+      "name": "Root Cause Diagnostic",
+      "domain": "logic",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-013",
+      "name": "Ripple Impact Simulator",
+      "domain": "logic",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-014",
+      "name": "Binary Duodecimal Converter",
+      "domain": "logic",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-015",
+      "name": "Four Arithmetic Gates",
+      "domain": "logic",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-016",
+      "name": "Contradiction Evidence Scanner",
+      "domain": "logic",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-017",
+      "name": "Claim Confidence Grader",
+      "domain": "logic",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-018",
+      "name": "Decision Branch Evaluator",
+      "domain": "logic",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-019",
+      "name": "Assumption Stripper",
+      "domain": "logic",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-020",
+      "name": "Proof Obligation Builder",
+      "domain": "logic",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-021",
+      "name": "Voice Note Ingestor",
+      "domain": "archive",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-022",
+      "name": "Verbatim Manuscript Lock",
+      "domain": "archive",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-023",
+      "name": "SHA256 Provenance Ledger",
+      "domain": "archive",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-024",
+      "name": "Document Version Comparator",
+      "domain": "archive",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-025",
+      "name": "Source Fragment Cataloger",
+      "domain": "archive",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-026",
+      "name": "Citation Chain Tracker",
+      "domain": "archive",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-027",
+      "name": "Public Domain Rights Checker",
+      "domain": "archive",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-028",
+      "name": "Archive Format Converter",
+      "domain": "archive",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-029",
+      "name": "Reading Room Search",
+      "domain": "archive",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-030",
+      "name": "Library of Tabor Indexer",
+      "domain": "archive",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-031",
+      "name": "Tabor Variant Researcher",
+      "domain": "research",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-032",
+      "name": "Lineage Evidence Matrix",
+      "domain": "research",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-033",
+      "name": "Historical Timeline Merger",
+      "domain": "research",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-034",
+      "name": "Ancient Script Crosswalk",
+      "domain": "research",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-035",
+      "name": "Translation Parallel Aligner",
+      "domain": "research",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-036",
+      "name": "Manuscript Witness Matcher",
+      "domain": "research",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-037",
+      "name": "Geographic Place Name Mapper",
+      "domain": "research",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-038",
+      "name": "Research Question Tracker",
+      "domain": "research",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-039",
+      "name": "Unknowns Register",
+      "domain": "research",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-040",
+      "name": "Primary Source Verifier",
+      "domain": "research",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-041",
+      "name": "AZ Creature Portal",
+      "domain": "creative",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-042",
+      "name": "Land of Illa Builder",
+      "domain": "creative",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-043",
+      "name": "Dragon Species Studio",
+      "domain": "creative",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-044",
+      "name": "Unicorn Harmony Studio",
+      "domain": "creative",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-045",
+      "name": "Yin Yang Balance Toy",
+      "domain": "creative",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-046",
+      "name": "Fable Rhyme Composer",
+      "domain": "creative",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-047",
+      "name": "Story Branch Engine",
+      "domain": "creative",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-048",
+      "name": "Printable SVG Bookmaker",
+      "domain": "creative",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-049",
+      "name": "Character Continuity Keeper",
+      "domain": "creative",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-050",
+      "name": "Age Appropriate Story Filter",
+      "domain": "creative",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-051",
+      "name": "Universal Finger Physics",
+      "domain": "physics",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-052",
+      "name": "Trackball Gesture Engine",
+      "domain": "physics",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-053",
+      "name": "Rope Motion Simulator",
+      "domain": "physics",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-054",
+      "name": "Spin and Stick Engine",
+      "domain": "physics",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-055",
+      "name": "Pendulum Dynamics",
+      "domain": "physics",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-056",
+      "name": "Arc Trajectory Toy",
+      "domain": "physics",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-057",
+      "name": "Flick and Slice Game",
+      "domain": "physics",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-058",
+      "name": "Rhythm Cadence Clock",
+      "domain": "physics",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-059",
+      "name": "Physics Replay Validator",
+      "domain": "physics",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-060",
+      "name": "Game Accessibility Adapter",
+      "domain": "physics",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-061",
+      "name": "Voice Command Parser",
+      "domain": "devices",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-062",
+      "name": "iPhone Dashboard API",
+      "domain": "devices",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-063",
+      "name": "Device Consent Broker",
+      "domain": "devices",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-064",
+      "name": "Local First Sync",
+      "domain": "devices",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-065",
+      "name": "Encrypted Vault Gateway",
+      "domain": "devices",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-066",
+      "name": "Offline Queue Synchronizer",
+      "domain": "devices",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-067",
+      "name": "Secure Session Issuer",
+      "domain": "devices",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-068",
+      "name": "Passkey Verification Adapter",
+      "domain": "devices",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-069",
+      "name": "Push Notification Dispatcher",
+      "domain": "devices",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-070",
+      "name": "Mobile UI Capability Mapper",
+      "domain": "devices",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-071",
+      "name": "Repairability Attribute Matcher",
+      "domain": "engineering",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-072",
+      "name": "OBD Telemetry Collector",
+      "domain": "engineering",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-073",
+      "name": "Carpentry Cut List Solver",
+      "domain": "engineering",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-074",
+      "name": "Modular Blueprint Calculator",
+      "domain": "engineering",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-075",
+      "name": "Appliance Parts Crosswalk",
+      "domain": "engineering",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-076",
+      "name": "Vehicle Maintenance Ledger",
+      "domain": "engineering",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-077",
+      "name": "Sensor Data Normalizer",
+      "domain": "engineering",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-078",
+      "name": "Hardware Specification Comparator",
+      "domain": "engineering",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-079",
+      "name": "Power Budget Estimator",
+      "domain": "engineering",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-080",
+      "name": "Prototype Test Recorder",
+      "domain": "engineering",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-081",
+      "name": "Worker Fleet Registry",
+      "domain": "operations",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-082",
+      "name": "Dependency Graph Builder",
+      "domain": "operations",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-083",
+      "name": "Safe Build Dispatcher",
+      "domain": "operations",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-084",
+      "name": "GitHub Pull Request Auditor",
+      "domain": "operations",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-085",
+      "name": "Cloudflare Binding Inspector",
+      "domain": "operations",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-086",
+      "name": "D1 Schema Migrator",
+      "domain": "operations",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-087",
+      "name": "R2 Artifact Registrar",
+      "domain": "operations",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-088",
+      "name": "Build Receipt Ledger",
+      "domain": "operations",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-089",
+      "name": "Quota Budget Monitor",
+      "domain": "operations",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-090",
+      "name": "Deployment Smoke Tester",
+      "domain": "operations",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-091",
+      "name": "Consent Policy Evaluator",
+      "domain": "sovereignty",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-092",
+      "name": "Ownership Provenance Checker",
+      "domain": "sovereignty",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-093",
+      "name": "Data Export Builder",
+      "domain": "sovereignty",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-094",
+      "name": "Data Deletion Receipt",
+      "domain": "sovereignty",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-095",
+      "name": "Permission Boundary Tester",
+      "domain": "sovereignty",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-096",
+      "name": "Audit Trail Validator",
+      "domain": "sovereignty",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-097",
+      "name": "Truth Evidence Separation",
+      "domain": "sovereignty",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-098",
+      "name": "Local Authority Router",
+      "domain": "sovereignty",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-099",
+      "name": "Security Incident Triage",
+      "domain": "sovereignty",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-100",
+      "name": "Master Sovereign Gateway",
+      "domain": "sovereignty",
+      "status": "planned",
+      "execution": "not_deployed",
+      "inputs": [
+        "json"
+      ],
+      "outputs": [
+        "json"
+      ],
+      "owner": "Nathan Tabor",
+      "write_scope": "none_until_approved"
+    },
+    {
+      "id": "NTW-101",
+      "name": "Nathan AI 101-Fleet Command Router",
+      "domain": "orchestration",
+      "status": "planned",
+      "execution": "not_deployed",
+      "write_scope": "none_until_approved"
+    }
+  ],
+  "bots": [
+    {
+      "id": "NTB-001",
+      "name": "language Research Scout",
+      "domain": "language",
+      "role": "Research Scout",
+      "worker_ref": "NTW-001",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-002",
+      "name": "language Source Collector",
+      "domain": "language",
+      "role": "Source Collector",
+      "worker_ref": "NTW-002",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-003",
+      "name": "language Citation Verifier",
+      "domain": "language",
+      "role": "Citation Verifier",
+      "worker_ref": "NTW-003",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-004",
+      "name": "language Fact Checker",
+      "domain": "language",
+      "role": "Fact Checker",
+      "worker_ref": "NTW-004",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-005",
+      "name": "language Contradiction Auditor",
+      "domain": "language",
+      "role": "Contradiction Auditor",
+      "worker_ref": "NTW-005",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-006",
+      "name": "language Schema Architect",
+      "domain": "language",
+      "role": "Schema Architect",
+      "worker_ref": "NTW-006",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-007",
+      "name": "language Code Builder",
+      "domain": "language",
+      "role": "Code Builder",
+      "worker_ref": "NTW-007",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-008",
+      "name": "language Unit Test Runner",
+      "domain": "language",
+      "role": "Unit Test Runner",
+      "worker_ref": "NTW-008",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-009",
+      "name": "language Security Reviewer",
+      "domain": "language",
+      "role": "Security Reviewer",
+      "worker_ref": "NTW-009",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-010",
+      "name": "language Release Reviewer",
+      "domain": "language",
+      "role": "Release Reviewer",
+      "worker_ref": "NTW-010",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-011",
+      "name": "logic Research Scout",
+      "domain": "logic",
+      "role": "Research Scout",
+      "worker_ref": "NTW-011",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-012",
+      "name": "logic Source Collector",
+      "domain": "logic",
+      "role": "Source Collector",
+      "worker_ref": "NTW-012",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-013",
+      "name": "logic Citation Verifier",
+      "domain": "logic",
+      "role": "Citation Verifier",
+      "worker_ref": "NTW-013",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-014",
+      "name": "logic Fact Checker",
+      "domain": "logic",
+      "role": "Fact Checker",
+      "worker_ref": "NTW-014",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-015",
+      "name": "logic Contradiction Auditor",
+      "domain": "logic",
+      "role": "Contradiction Auditor",
+      "worker_ref": "NTW-015",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-016",
+      "name": "logic Schema Architect",
+      "domain": "logic",
+      "role": "Schema Architect",
+      "worker_ref": "NTW-016",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-017",
+      "name": "logic Code Builder",
+      "domain": "logic",
+      "role": "Code Builder",
+      "worker_ref": "NTW-017",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-018",
+      "name": "logic Unit Test Runner",
+      "domain": "logic",
+      "role": "Unit Test Runner",
+      "worker_ref": "NTW-018",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-019",
+      "name": "logic Security Reviewer",
+      "domain": "logic",
+      "role": "Security Reviewer",
+      "worker_ref": "NTW-019",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-020",
+      "name": "logic Release Reviewer",
+      "domain": "logic",
+      "role": "Release Reviewer",
+      "worker_ref": "NTW-020",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-021",
+      "name": "archive Research Scout",
+      "domain": "archive",
+      "role": "Research Scout",
+      "worker_ref": "NTW-021",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-022",
+      "name": "archive Source Collector",
+      "domain": "archive",
+      "role": "Source Collector",
+      "worker_ref": "NTW-022",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-023",
+      "name": "archive Citation Verifier",
+      "domain": "archive",
+      "role": "Citation Verifier",
+      "worker_ref": "NTW-023",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-024",
+      "name": "archive Fact Checker",
+      "domain": "archive",
+      "role": "Fact Checker",
+      "worker_ref": "NTW-024",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-025",
+      "name": "archive Contradiction Auditor",
+      "domain": "archive",
+      "role": "Contradiction Auditor",
+      "worker_ref": "NTW-025",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-026",
+      "name": "archive Schema Architect",
+      "domain": "archive",
+      "role": "Schema Architect",
+      "worker_ref": "NTW-026",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-027",
+      "name": "archive Code Builder",
+      "domain": "archive",
+      "role": "Code Builder",
+      "worker_ref": "NTW-027",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-028",
+      "name": "archive Unit Test Runner",
+      "domain": "archive",
+      "role": "Unit Test Runner",
+      "worker_ref": "NTW-028",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-029",
+      "name": "archive Security Reviewer",
+      "domain": "archive",
+      "role": "Security Reviewer",
+      "worker_ref": "NTW-029",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-030",
+      "name": "archive Release Reviewer",
+      "domain": "archive",
+      "role": "Release Reviewer",
+      "worker_ref": "NTW-030",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-031",
+      "name": "research Research Scout",
+      "domain": "research",
+      "role": "Research Scout",
+      "worker_ref": "NTW-031",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-032",
+      "name": "research Source Collector",
+      "domain": "research",
+      "role": "Source Collector",
+      "worker_ref": "NTW-032",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-033",
+      "name": "research Citation Verifier",
+      "domain": "research",
+      "role": "Citation Verifier",
+      "worker_ref": "NTW-033",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-034",
+      "name": "research Fact Checker",
+      "domain": "research",
+      "role": "Fact Checker",
+      "worker_ref": "NTW-034",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-035",
+      "name": "research Contradiction Auditor",
+      "domain": "research",
+      "role": "Contradiction Auditor",
+      "worker_ref": "NTW-035",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-036",
+      "name": "research Schema Architect",
+      "domain": "research",
+      "role": "Schema Architect",
+      "worker_ref": "NTW-036",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-037",
+      "name": "research Code Builder",
+      "domain": "research",
+      "role": "Code Builder",
+      "worker_ref": "NTW-037",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-038",
+      "name": "research Unit Test Runner",
+      "domain": "research",
+      "role": "Unit Test Runner",
+      "worker_ref": "NTW-038",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-039",
+      "name": "research Security Reviewer",
+      "domain": "research",
+      "role": "Security Reviewer",
+      "worker_ref": "NTW-039",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-040",
+      "name": "research Release Reviewer",
+      "domain": "research",
+      "role": "Release Reviewer",
+      "worker_ref": "NTW-040",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-041",
+      "name": "creative Research Scout",
+      "domain": "creative",
+      "role": "Research Scout",
+      "worker_ref": "NTW-041",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-042",
+      "name": "creative Source Collector",
+      "domain": "creative",
+      "role": "Source Collector",
+      "worker_ref": "NTW-042",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-043",
+      "name": "creative Citation Verifier",
+      "domain": "creative",
+      "role": "Citation Verifier",
+      "worker_ref": "NTW-043",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-044",
+      "name": "creative Fact Checker",
+      "domain": "creative",
+      "role": "Fact Checker",
+      "worker_ref": "NTW-044",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-045",
+      "name": "creative Contradiction Auditor",
+      "domain": "creative",
+      "role": "Contradiction Auditor",
+      "worker_ref": "NTW-045",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-046",
+      "name": "creative Schema Architect",
+      "domain": "creative",
+      "role": "Schema Architect",
+      "worker_ref": "NTW-046",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-047",
+      "name": "creative Code Builder",
+      "domain": "creative",
+      "role": "Code Builder",
+      "worker_ref": "NTW-047",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-048",
+      "name": "creative Unit Test Runner",
+      "domain": "creative",
+      "role": "Unit Test Runner",
+      "worker_ref": "NTW-048",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-049",
+      "name": "creative Security Reviewer",
+      "domain": "creative",
+      "role": "Security Reviewer",
+      "worker_ref": "NTW-049",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-050",
+      "name": "creative Release Reviewer",
+      "domain": "creative",
+      "role": "Release Reviewer",
+      "worker_ref": "NTW-050",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-051",
+      "name": "physics Research Scout",
+      "domain": "physics",
+      "role": "Research Scout",
+      "worker_ref": "NTW-051",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-052",
+      "name": "physics Source Collector",
+      "domain": "physics",
+      "role": "Source Collector",
+      "worker_ref": "NTW-052",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-053",
+      "name": "physics Citation Verifier",
+      "domain": "physics",
+      "role": "Citation Verifier",
+      "worker_ref": "NTW-053",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-054",
+      "name": "physics Fact Checker",
+      "domain": "physics",
+      "role": "Fact Checker",
+      "worker_ref": "NTW-054",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-055",
+      "name": "physics Contradiction Auditor",
+      "domain": "physics",
+      "role": "Contradiction Auditor",
+      "worker_ref": "NTW-055",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-056",
+      "name": "physics Schema Architect",
+      "domain": "physics",
+      "role": "Schema Architect",
+      "worker_ref": "NTW-056",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-057",
+      "name": "physics Code Builder",
+      "domain": "physics",
+      "role": "Code Builder",
+      "worker_ref": "NTW-057",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-058",
+      "name": "physics Unit Test Runner",
+      "domain": "physics",
+      "role": "Unit Test Runner",
+      "worker_ref": "NTW-058",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-059",
+      "name": "physics Security Reviewer",
+      "domain": "physics",
+      "role": "Security Reviewer",
+      "worker_ref": "NTW-059",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-060",
+      "name": "physics Release Reviewer",
+      "domain": "physics",
+      "role": "Release Reviewer",
+      "worker_ref": "NTW-060",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-061",
+      "name": "devices Research Scout",
+      "domain": "devices",
+      "role": "Research Scout",
+      "worker_ref": "NTW-061",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-062",
+      "name": "devices Source Collector",
+      "domain": "devices",
+      "role": "Source Collector",
+      "worker_ref": "NTW-062",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-063",
+      "name": "devices Citation Verifier",
+      "domain": "devices",
+      "role": "Citation Verifier",
+      "worker_ref": "NTW-063",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-064",
+      "name": "devices Fact Checker",
+      "domain": "devices",
+      "role": "Fact Checker",
+      "worker_ref": "NTW-064",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-065",
+      "name": "devices Contradiction Auditor",
+      "domain": "devices",
+      "role": "Contradiction Auditor",
+      "worker_ref": "NTW-065",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-066",
+      "name": "devices Schema Architect",
+      "domain": "devices",
+      "role": "Schema Architect",
+      "worker_ref": "NTW-066",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-067",
+      "name": "devices Code Builder",
+      "domain": "devices",
+      "role": "Code Builder",
+      "worker_ref": "NTW-067",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-068",
+      "name": "devices Unit Test Runner",
+      "domain": "devices",
+      "role": "Unit Test Runner",
+      "worker_ref": "NTW-068",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-069",
+      "name": "devices Security Reviewer",
+      "domain": "devices",
+      "role": "Security Reviewer",
+      "worker_ref": "NTW-069",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-070",
+      "name": "devices Release Reviewer",
+      "domain": "devices",
+      "role": "Release Reviewer",
+      "worker_ref": "NTW-070",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-071",
+      "name": "engineering Research Scout",
+      "domain": "engineering",
+      "role": "Research Scout",
+      "worker_ref": "NTW-071",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-072",
+      "name": "engineering Source Collector",
+      "domain": "engineering",
+      "role": "Source Collector",
+      "worker_ref": "NTW-072",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-073",
+      "name": "engineering Citation Verifier",
+      "domain": "engineering",
+      "role": "Citation Verifier",
+      "worker_ref": "NTW-073",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-074",
+      "name": "engineering Fact Checker",
+      "domain": "engineering",
+      "role": "Fact Checker",
+      "worker_ref": "NTW-074",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-075",
+      "name": "engineering Contradiction Auditor",
+      "domain": "engineering",
+      "role": "Contradiction Auditor",
+      "worker_ref": "NTW-075",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-076",
+      "name": "engineering Schema Architect",
+      "domain": "engineering",
+      "role": "Schema Architect",
+      "worker_ref": "NTW-076",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-077",
+      "name": "engineering Code Builder",
+      "domain": "engineering",
+      "role": "Code Builder",
+      "worker_ref": "NTW-077",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-078",
+      "name": "engineering Unit Test Runner",
+      "domain": "engineering",
+      "role": "Unit Test Runner",
+      "worker_ref": "NTW-078",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-079",
+      "name": "engineering Security Reviewer",
+      "domain": "engineering",
+      "role": "Security Reviewer",
+      "worker_ref": "NTW-079",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-080",
+      "name": "engineering Release Reviewer",
+      "domain": "engineering",
+      "role": "Release Reviewer",
+      "worker_ref": "NTW-080",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-081",
+      "name": "operations Research Scout",
+      "domain": "operations",
+      "role": "Research Scout",
+      "worker_ref": "NTW-081",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-082",
+      "name": "operations Source Collector",
+      "domain": "operations",
+      "role": "Source Collector",
+      "worker_ref": "NTW-082",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-083",
+      "name": "operations Citation Verifier",
+      "domain": "operations",
+      "role": "Citation Verifier",
+      "worker_ref": "NTW-083",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-084",
+      "name": "operations Fact Checker",
+      "domain": "operations",
+      "role": "Fact Checker",
+      "worker_ref": "NTW-084",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-085",
+      "name": "operations Contradiction Auditor",
+      "domain": "operations",
+      "role": "Contradiction Auditor",
+      "worker_ref": "NTW-085",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-086",
+      "name": "operations Schema Architect",
+      "domain": "operations",
+      "role": "Schema Architect",
+      "worker_ref": "NTW-086",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-087",
+      "name": "operations Code Builder",
+      "domain": "operations",
+      "role": "Code Builder",
+      "worker_ref": "NTW-087",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-088",
+      "name": "operations Unit Test Runner",
+      "domain": "operations",
+      "role": "Unit Test Runner",
+      "worker_ref": "NTW-088",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-089",
+      "name": "operations Security Reviewer",
+      "domain": "operations",
+      "role": "Security Reviewer",
+      "worker_ref": "NTW-089",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-090",
+      "name": "operations Release Reviewer",
+      "domain": "operations",
+      "role": "Release Reviewer",
+      "worker_ref": "NTW-090",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-091",
+      "name": "sovereignty Research Scout",
+      "domain": "sovereignty",
+      "role": "Research Scout",
+      "worker_ref": "NTW-091",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-092",
+      "name": "sovereignty Source Collector",
+      "domain": "sovereignty",
+      "role": "Source Collector",
+      "worker_ref": "NTW-092",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-093",
+      "name": "sovereignty Citation Verifier",
+      "domain": "sovereignty",
+      "role": "Citation Verifier",
+      "worker_ref": "NTW-093",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-094",
+      "name": "sovereignty Fact Checker",
+      "domain": "sovereignty",
+      "role": "Fact Checker",
+      "worker_ref": "NTW-094",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-095",
+      "name": "sovereignty Contradiction Auditor",
+      "domain": "sovereignty",
+      "role": "Contradiction Auditor",
+      "worker_ref": "NTW-095",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-096",
+      "name": "sovereignty Schema Architect",
+      "domain": "sovereignty",
+      "role": "Schema Architect",
+      "worker_ref": "NTW-096",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-097",
+      "name": "sovereignty Code Builder",
+      "domain": "sovereignty",
+      "role": "Code Builder",
+      "worker_ref": "NTW-097",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-098",
+      "name": "sovereignty Unit Test Runner",
+      "domain": "sovereignty",
+      "role": "Unit Test Runner",
+      "worker_ref": "NTW-098",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-099",
+      "name": "sovereignty Security Reviewer",
+      "domain": "sovereignty",
+      "role": "Security Reviewer",
+      "worker_ref": "NTW-099",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-100",
+      "name": "sovereignty Release Reviewer",
+      "domain": "sovereignty",
+      "role": "Release Reviewer",
+      "worker_ref": "NTW-100",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "external_writes",
+        "deployments",
+        "secrets",
+        "publishing"
+      ],
+      "max_attempts": 3
+    },
+    {
+      "id": "NTB-101",
+      "name": "Nathan AI Sovereign Bot Marshal",
+      "domain": "orchestration",
+      "role": "queue_supervisor",
+      "worker_ref": "NTW-101",
+      "status": "planned",
+      "permissions": "read_only_by_default",
+      "requires_approval": [
+        "deployments",
+        "external_writes"
+      ]
+    }
+  ],
+  "notes": "Original per-unit entries copied unchanged. No deployment status inferred."
+}

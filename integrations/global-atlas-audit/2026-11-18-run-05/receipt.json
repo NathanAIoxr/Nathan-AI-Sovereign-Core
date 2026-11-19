@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-18",
+  "source": "Live authorized Cloudflare API and GitHub connector",
+  "cloudflare": {
+    "ordinary_worker_scripts": 445,
+    "dispatch_namespaces": 1,
+    "dispatch_namespace": "nathan-tabor-platforms",
+    "dispatch_scripts": 1000,
+    "total_uploaded_scripts": 1445,
+    "d1_databases_observed": 52,
+    "atlas_db": {
+      "public_repos": 205,
+      "layers": 18,
+      "components": 334,
+      "existing_fleet": 505,
+      "imported_workers": 15
+    },
+    "fleet_db": {
+      "fleet_entry": 505,
+      "virtual_supercomputer_slots": 1000,
+      "fleet_batch_rows": 5
+    },
+    "hyper_federation": {
+      "binding": "PLATFORMS",
+      "namespace": "nathan-tabor-platforms",
+      "deployment_id": "b1a0c028-f45c-4624-bc87-780cd4f47ab3",
+      "version_id": "50bee06f-6729-481d-9f33-e9e2b1d49630",
+      "traffic_percentage": 100,
+      "endpoint_health": "unverified"
+    }
+  },
+  "github": {
+    "atlas_path": "app-factory/nathan-ai/global-infrastructure-atlas/public-github-discovery-205.json",
+    "atlas_blob_sha": "26817f59acf1c0544bd78922170196e1c34574a1",
+    "registry_path": "integrations/tabor-all-909-expanded-source-registry.json",
+    "registry_branch": "feature/tabor-101-worker-registry-20261118",
+    "registry_blob_sha": "80d03a6ecd96132e65bdc44b6be6f3aa4e27b36a"
+  },
+  "changes": {
+    "new_worker_deployments": 0,
+    "existing_workers_modified": 0,
+    "new_source_modules": 1,
+    "new_test_files": 1,
+    "tests_executed_in_ci": false
+  },
+  "blockers": [
+    "Runtime URL health not established",
+    "Dispatch scripts have blank deployment_id in list response",
+    "909 registry on integration branch rather than main",
+    "205 public candidates remain references, not imports"
+  ],
+  "notes": "52 D1 databases returned in this check, versus prior baseline of 50. Counts are namespace-separated; 1000 logical slots are not physical machines."
+}

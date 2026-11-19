@@ -1,0 +1,24 @@
+name: Nathan AI Port Intelligence checks
+on:
+  push:
+    paths:
+      - 'integrations/nathan-ai-port-intelligence/**'
+      - '.github/workflows/nathan-ai-port-intelligence.yml'
+  pull_request:
+    paths:
+      - 'integrations/nathan-ai-port-intelligence/**'
+      - '.github/workflows/nathan-ai-port-intelligence.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax check
+        run: node --check integrations/nathan-ai-port-intelligence/worker.mjs
+      - name: Local endpoint tests
+        run: node --test integrations/nathan-ai-port-intelligence/worker.test.mjs

@@ -1,0 +1,1529 @@
+{
+  "schema_version": 1,
+  "namespace": "tabor-language-101",
+  "status": "queued_not_running",
+  "build_agent_slots": 8,
+  "policy": "additive deployment; review source/license/security; no overwrite; no automatic access to account credentials",
+  "jobs": [
+    {
+      "id": "LANG-001",
+      "name": "elizabethsiegle/cfworkers-ai-translate",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-01",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-002",
+      "name": "genie-oh/rrv7-cf-i18n-starter",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-02",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-003",
+      "name": "HTMLRewriter Edge Localizer",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-03",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-004",
+      "name": "Whisper Audio Transcription Worker",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-04",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-005",
+      "name": "ISO-639 Language Code Resolver",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-05",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-006",
+      "name": "Glottolog & WALS API Proxy",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-06",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-007",
+      "name": "Phonetic IPA Transcriber Worker",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-07",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-008",
+      "name": "Soundex & Metaphone Phonetic Matcher",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-08",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-009",
+      "name": "Bilingual Parallel Corpus Aligner",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-01",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-010",
+      "name": "Wiktionary Edge Dictionary Scraper",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-02",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-011",
+      "name": "DeepL / LibreTranslate Hybrid Gateway",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-03",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-012",
+      "name": "Subtitles SRT/VTT Batch Translator",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-04",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-014",
+      "name": "Polyglot Search Stemmer",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-05",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-015",
+      "name": "Transliteration & Romanization Engine",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-06",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-016",
+      "name": "Dialect & Regional Slang Normalizer",
+      "category": "translation",
+      "assigned_agent": "tabor-language-builder-07",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-017",
+      "name": "DigitalPasts/CuReD",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-08",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-018",
+      "name": "JamesPiggott/Ancient-Language-Decipherer",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-01",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-019",
+      "name": "Linear B Syllabary Parser",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-02",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-020",
+      "name": "Proto-Sinaitic & Phoenician Root Mapper",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-03",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-021",
+      "name": "Sumerian & Akkadian Cuneiform Unicode Converter",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-04",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-022",
+      "name": "Biblical Hebrew & Aramaic Strong's Lexicon API",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-05",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-023",
+      "name": "Koine & Ancient Greek Morphological Analyzer",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-06",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-024",
+      "name": "Classical Latin Declension & Conjugation Engine",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-07",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-025",
+      "name": "Old Norse & Elder Futhark Runic Transliterator",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-08",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-026",
+      "name": "Ogham Celtic Tree-Alphabet Encoder",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-01",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-027",
+      "name": "Sanskrit Devanagari & IAST Sandhi Splitter",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-02",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-028",
+      "name": "Old Church Slavonic & Glagolitic Converter",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-03",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-029",
+      "name": "Ge'ez & Ethiopic Abugida Analyzer",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-04",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-030",
+      "name": "Etruscan & Old Italic Inscription Indexer",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-05",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-031",
+      "name": "Ugaritic Cuneiform Abjad Decoder",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-06",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-032",
+      "name": "Voynich Manuscript & Undeciphered Script Entropy Analyzer",
+      "category": "ancient-scripts",
+      "assigned_agent": "tabor-language-builder-07",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-033",
+      "name": "puzzlet/seshat",
+      "category": "hieroglyphics",
+      "assigned_agent": "tabor-language-builder-08",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-034",
+      "name": "nederhof/opentypehiero",
+      "category": "hieroglyphics",
+      "assigned_agent": "tabor-language-builder-01",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-035",
+      "name": "Gardiner Sign-List Lookup Worker",
+      "category": "hieroglyphics",
+      "assigned_agent": "tabor-language-builder-02",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-036",
+      "name": "Manuel de Codage to Unicode Hieroglyph Renderer",
+      "category": "hieroglyphics",
+      "assigned_agent": "tabor-language-builder-03",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-037",
+      "name": "Egyptian Hieroglyphic Format Controls Quadrats Builder",
+      "category": "hieroglyphics",
+      "assigned_agent": "tabor-language-builder-04",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-038",
+      "name": "Cartouche & Royal Titulary Generator",
+      "category": "hieroglyphics",
+      "assigned_agent": "tabor-language-builder-05",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-039",
+      "name": "Mayan Long Count & Tzolk'in Calendar Converter",
+      "category": "hieroglyphics",
+      "assigned_agent": "tabor-language-builder-06",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-040",
+      "name": "Mayan Logosyllabic Block Decoder",
+      "category": "hieroglyphics",
+      "assigned_agent": "tabor-language-builder-07",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-041",
+      "name": "Anatolian Luwian Hieroglyphic Sign Indexer",
+      "category": "hieroglyphics",
+      "assigned_agent": "tabor-language-builder-08",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-042",
+      "name": "Hieratic & Demotic Cursive Comparative Mapper",
+      "category": "hieroglyphics",
+      "assigned_agent": "tabor-language-builder-01",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-043",
+      "name": "Coptic Script & Egyptian Phonetic Bridge",
+      "category": "hieroglyphics",
+      "assigned_agent": "tabor-language-builder-02",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-044",
+      "name": "Rosetta Stone Trilingual Parallel Aligner",
+      "category": "hieroglyphics",
+      "assigned_agent": "tabor-language-builder-03",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-045",
+      "name": "Determinative & Semantic Classifier Tagging Worker",
+      "category": "hieroglyphics",
+      "assigned_agent": "tabor-language-builder-04",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-046",
+      "name": "Unicode BiDi UAX9 Directionality Analyzer",
+      "category": "directionality",
+      "assigned_agent": "tabor-language-builder-05",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-047",
+      "name": "Hieroglyphic Gaze-Direction Detector",
+      "category": "directionality",
+      "assigned_agent": "tabor-language-builder-06",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-049",
+      "name": "CSS Logical Properties & HTML dir-auto Rewriter",
+      "category": "directionality",
+      "assigned_agent": "tabor-language-builder-07",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-050",
+      "name": "Mixed RTL/LTR Code-Block Isolator",
+      "category": "directionality",
+      "assigned_agent": "tabor-language-builder-08",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-051",
+      "name": "Arabic Diacritics Stripper & Vocalizer",
+      "category": "directionality",
+      "assigned_agent": "tabor-language-builder-01",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-053",
+      "name": "Syriac Estrangela Serto Madnhaya Script Switcher",
+      "category": "directionality",
+      "assigned_agent": "tabor-language-builder-02",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-054",
+      "name": "Traditional Mongolian & Manchu Vertical Renderer",
+      "category": "directionality",
+      "assigned_agent": "tabor-language-builder-03",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-055",
+      "name": "Vertical CJK Ruby Furigana Annotator",
+      "category": "directionality",
+      "assigned_agent": "tabor-language-builder-04",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-056",
+      "name": "Mirror-Glyph & Palindrome Symmetry Checker",
+      "category": "directionality",
+      "assigned_agent": "tabor-language-builder-05",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-057",
+      "name": "Arabic & Hebrew Calendar / Numeral Converter",
+      "category": "directionality",
+      "assigned_agent": "tabor-language-builder-06",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-058",
+      "name": "HistoryLabs/events-api",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-07",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-059",
+      "name": "Wikidata Mythological Entity Graph Worker",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-08",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-060",
+      "name": "Cross-Pantheon Syncretism Mapper",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-01",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-061",
+      "name": "Aarne-Thompson-Uther Folktale Motif Classifier",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-02",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-062",
+      "name": "Hero's Journey & Monomyth Structural Parser",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-03",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-063",
+      "name": "Sacred Geography & Ley-Line Coordinate Indexer",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-04",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-064",
+      "name": "Archaeoastronomy & Solstice Alignment Calculator",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-05",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-065",
+      "name": "Ancient Cosmology & Underworld Realm Mapper",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-06",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-066",
+      "name": "Arthurian Celtic & Grail Legend Concordance",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-07",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-067",
+      "name": "Norse Edda & Kenning Poetic Decoder",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-08",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-068",
+      "name": "Vedic & Puranic Sanskrit Epics Graph",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-01",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-069",
+      "name": "Mesoamerican Codices & Creation Myth Indexer",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-02",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-070",
+      "name": "Ancient Monster Chimera & Bestiary API",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-03",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-071",
+      "name": "Comparative Flood & Cataclysm Narrative Aligner",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-04",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-072",
+      "name": "Mythological Etymology & English Word-Origin Finder",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-05",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-073",
+      "name": "Oracle & Divination Corpus Engine",
+      "category": "mythology",
+      "assigned_agent": "tabor-language-builder-06",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-075",
+      "name": "Classical Cipher Suite Worker",
+      "category": "ciphers-history",
+      "assigned_agent": "tabor-language-builder-07",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-076",
+      "name": "Steganography Zero-Width Character Encoder/Decoder",
+      "category": "ciphers-history",
+      "assigned_agent": "tabor-language-builder-08",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-077",
+      "name": "CIA FOIA Reading Room & Declassified Document Searcher",
+      "category": "ciphers-history",
+      "assigned_agent": "tabor-language-builder-01",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-078",
+      "name": "Historical Conspiracy & Secret Society Knowledge Graph",
+      "category": "ciphers-history",
+      "assigned_agent": "tabor-language-builder-02",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-079",
+      "name": "Hermetic Alchemical & Rosicrucian Symbol Lexicon",
+      "category": "ciphers-history",
+      "assigned_agent": "tabor-language-builder-03",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-080",
+      "name": "Sacred Geometry & Golden Ratio SVG Generator",
+      "category": "ciphers-history",
+      "assigned_agent": "tabor-language-builder-04",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-081",
+      "name": "Library of Congress Chronicling America Newspaper Scraper",
+      "category": "ciphers-history",
+      "assigned_agent": "tabor-language-builder-05",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-082",
+      "name": "Internet Archive Wayback Machine Diff Checker",
+      "category": "ciphers-history",
+      "assigned_agent": "tabor-language-builder-06",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-084",
+      "name": "Biblical & Apocryphal Dead Sea Scrolls Cross-Referencer",
+      "category": "ciphers-history",
+      "assigned_agent": "tabor-language-builder-07",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-085",
+      "name": "Numerology & Calendar Synchronizer",
+      "category": "ciphers-history",
+      "assigned_agent": "tabor-language-builder-08",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-086",
+      "name": "UFO / UAP Sighting Database Edge API",
+      "category": "ciphers-history",
+      "assigned_agent": "tabor-language-builder-01",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-087",
+      "name": "Acoustic Resonance & Solfeggio Frequency Tone Generator",
+      "category": "ciphers-history",
+      "assigned_agent": "tabor-language-builder-02",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-088",
+      "name": "Rumor Meme & Narrative Propagation Tracker",
+      "category": "ciphers-history",
+      "assigned_agent": "tabor-language-builder-03",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-089",
+      "name": "Project Gutenberg EPUB/TXT Edge Ingestor",
+      "category": "library-ingestion",
+      "assigned_agent": "tabor-language-builder-04",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-090",
+      "name": "Perseus Digital Library Classics XML Parser",
+      "category": "library-ingestion",
+      "assigned_agent": "tabor-language-builder-05",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-091",
+      "name": "OpenLibrary & ISBN Metadata Harvester",
+      "category": "library-ingestion",
+      "assigned_agent": "tabor-language-builder-06",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-092",
+      "name": "ArXiv & Open-Access Linguistics Preprint Crawler",
+      "category": "library-ingestion",
+      "assigned_agent": "tabor-language-builder-07",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-093",
+      "name": "Vectorize Semantic Cross-Cultural Search Engine",
+      "category": "library-ingestion",
+      "assigned_agent": "tabor-language-builder-08",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-094",
+      "name": "Entity-Relation Triple Extractor Worker",
+      "category": "library-ingestion",
+      "assigned_agent": "tabor-language-builder-01",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-096",
+      "name": "Noto Sans Universal Fallback Font Subsetter",
+      "category": "typography",
+      "assigned_agent": "tabor-language-builder-02",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-097",
+      "name": "SVG Stone-Carving & Papyrus Texture Renderer",
+      "category": "typography",
+      "assigned_agent": "tabor-language-builder-03",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-098",
+      "name": "Interactive Stroke-Order & Glyph Anatomy Visualizer",
+      "category": "typography",
+      "assigned_agent": "tabor-language-builder-04",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-099",
+      "name": "Side-by-Side Paleography Comparison Grid",
+      "category": "typography",
+      "assigned_agent": "tabor-language-builder-05",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-100",
+      "name": "Audio Pronunciation & TTS Reader Worker",
+      "category": "typography",
+      "assigned_agent": "tabor-language-builder-06",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "LANG-101",
+      "name": "Universal Polyglot Knowledge Gateway",
+      "category": "typography",
+      "assigned_agent": "tabor-language-builder-07",
+      "status": "awaiting_source_and_build",
+      "stages": [
+        "resolve_source",
+        "verify_license",
+        "implement",
+        "test",
+        "security_review",
+        "deploy",
+        "smoke_test"
+      ]
+    }
+  ]
+}

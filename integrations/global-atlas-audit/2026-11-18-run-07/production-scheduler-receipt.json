@@ -1,0 +1,40 @@
+{
+  "observed_date_utc": "2026-11-19",
+  "scope": "read-only Cloudflare API and D1 verification",
+  "account_id": "a70580bacdf96c946662b7b67dcb45b5",
+  "concordance": {
+    "worker": "nathan-ai-sovereign-concordance",
+    "cron": "31 * * * *",
+    "deployment_id": "ca623bbe-4dea-4220-9cae-a9b93bd853f0",
+    "version_id": "55b348c7-3e3e-4e0f-bc10-719e32c7f4bb",
+    "traffic_percent": 100,
+    "source_receipt_count": 2,
+    "latest_source_receipt_utc": "2026-11-18T23:31:27.608Z",
+    "atlas_repos": 205,
+    "atlas_layers": 18,
+    "fleet_entries": 505,
+    "logical_slots": 1000
+  },
+  "communications_bus": {
+    "worker": "nathan-ai-comms-bus",
+    "cron": "* * * * *",
+    "deployment_id": "5ca5ccb9-f78c-4c31-b042-69e82ad4569b",
+    "version_id": "6223dceb-4188-4ddb-b7ed-6648507f5027",
+    "traffic_percent": 100,
+    "latest_scheduler_receipt_utc": "2026-11-19T00:20:28.461Z",
+    "latest_heartbeat_utc": "2026-11-19T00:15:28.346Z",
+    "local_queue_daily_accepted_utc_2026_11_19": 2,
+    "local_queue_daily_accepted_utc_2026_11_18": 1,
+    "messages_table_rows": 8
+  },
+  "limitations": [
+    "No independent public HTTP health probe in this pass",
+    "D1 receipts confirm writes, not complete queue delivery or downstream processing",
+    "Billing usage and spend unverified",
+    "No new Workers or third-party code deployed"
+  ],
+  "changes": {
+    "cloudflare_mutations": 0,
+    "github_files_added": 1
+  }
+}

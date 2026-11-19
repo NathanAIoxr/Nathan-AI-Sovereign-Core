@@ -1,0 +1,128 @@
+{
+  "name": "Tabor Train of Truth — Micro to Macro",
+  "schema_version": 1,
+  "created": "2026-11-18",
+  "original_framework": {
+    "root": "Nathan AI → TABOR ROOT → TABOR 1-2-3 FACTORY → ONE APP",
+    "anchors": [
+      "BUILD",
+      "FLIP",
+      "QI",
+      "QE"
+    ],
+    "arithmetic": [
+      "1 + 1 = 2 — BUILD",
+      "1 - 1 = 0 — CLEAR",
+      "1 × 1 = 1 — INTEGRATE"
+    ],
+    "train": {
+      "engine": "John Nathan Tabor — THE DEFINER",
+      "cars": 69,
+      "caboose": "JON — TRUTH MIRROR",
+      "destination": "Axis of Defined Reality"
+    },
+    "nodes": [
+      "Nathan AI",
+      "LET AI",
+      "TET AI",
+      "DOG AI",
+      "REAPER AI",
+      "ACT AI"
+    ],
+    "mental_model": [
+      "Mind",
+      "Brain",
+      "Skull"
+    ]
+  },
+  "scales": [
+    "bit",
+    "byte",
+    "word",
+    "lexeme",
+    "source_record",
+    "code_module",
+    "worker",
+    "bot",
+    "ai_node",
+    "llm_adapter",
+    "service",
+    "application",
+    "device",
+    "local_site",
+    "regional_cluster",
+    "national_network",
+    "international_federation",
+    "global_map"
+  ],
+  "layers": [
+    {
+      "id": "binary",
+      "purpose": "Strict 0/1 states, deterministic serialization, byte/bit tests, no lossy conversions"
+    },
+    {
+      "id": "language",
+      "purpose": "Lexiconical Layered Methodology, roots, phonetics, reversals, verbatim source preservation"
+    },
+    {
+      "id": "intelligence",
+      "purpose": "Nathan AI, LET, TET, DOG AI, REAPER AI, ACT AI; explicit role and permission boundaries"
+    },
+    {
+      "id": "runtime",
+      "purpose": "101 Workers and 101 Bots with durable memory, queue recovery, idempotency and health checks"
+    },
+    {
+      "id": "compute",
+      "purpose": "1000 federation node identities plus one control plane; actual CPU/RAM/storage tracked separately"
+    },
+    {
+      "id": "world",
+      "purpose": "Local maps, spherical Earth coordinates, historical and symbolic flat/round world representations"
+    },
+    {
+      "id": "international",
+      "purpose": "Locale-aware schemas, UTF-8, time zones, regional data residency and opt-in federation"
+    }
+  ],
+  "earth_world_models": [
+    {
+      "name": "local_flat_projection",
+      "type": "cartographic",
+      "description": "Small areas can be represented on a plane with distortion limits"
+    },
+    {
+      "name": "round_earth",
+      "type": "geodesy",
+      "description": "Physical Earth modeled as an oblate spheroid, with reference ellipsoid and coordinates"
+    },
+    {
+      "name": "flat_earth",
+      "type": "historical_or_symbolic",
+      "description": "Archive the user's wording and historical cosmological claims as attributed concepts, not measured geography"
+    },
+    {
+      "name": "round_world",
+      "type": "conceptual",
+      "description": "World as global network, social sphere or planetary metaphor; distinguish from geodesy"
+    }
+  ],
+  "data_integrity": {
+    "preserve_original_words": true,
+    "source_and_interpretation_separate": true,
+    "destructive_actions_require_authorized_scope": true,
+    "replication": "bounded, owner-authorized destinations only"
+  },
+  "execution": {
+    "github_manifest": "committed",
+    "cloudflare_pointer": "pending",
+    "deployments": "not_inferred",
+    "tests": "pending"
+  },
+  "existing_sources": [
+    "integrations/tabor-train-fix/registry.json",
+    "integrations/tabor-all-909-expanded-source-registry.json",
+    "integrations/tabor-1001-supercomputer-topology.json",
+    "integrations/sovereign-202-runtime/src/index.ts"
+  ]
+}

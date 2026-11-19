@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "name": "Tabor Universal Sovereign System Integration",
+  "revision": "2026-11-18",
+  "intent": "System-wide universal reusable infrastructure without replacing distinct user-specified units",
+  "policy": {
+    "additive": true,
+    "identity_preservation": true,
+    "no_automatic_global_replication": true,
+    "no_destructive_mutations": true,
+    "external_actions_require_authorization": true,
+    "physical_resources_not_implied": true,
+    "language_preference": {
+      "avoid_in_authored_prose": [
+        "verify",
+        "verification",
+        "verified"
+      ],
+      "preferred": [
+        "check",
+        "test",
+        "confirm",
+        "prove",
+        "inspect"
+      ],
+      "scope": "user-facing authored language only; retain API identifiers, security protocols, original quotations, court evidence and historical records"
+    }
+  },
+  "modules": [
+    {
+      "id": "identity",
+      "contract": "Namespaced identity, immutable source IDs, explicit ownership and permissions",
+      "status": "specified_integration_contract"
+    },
+    {
+      "id": "memory",
+      "contract": "Per-unit persistent memory with durable state and export/import contracts",
+      "status": "specified_integration_contract"
+    },
+    {
+      "id": "provenance",
+      "contract": "Append-only hash chains, traceable source references and verbatim preservation",
+      "status": "specified_integration_contract"
+    },
+    {
+      "id": "recovery",
+      "contract": "Idempotent jobs, checkpoints, retries, dead-letter handling and replay controls",
+      "status": "specified_integration_contract"
+    },
+    {
+      "id": "scheduling",
+      "contract": "Event-driven scheduling with persisted due times; 1ms logical target not a wall-clock guarantee",
+      "status": "specified_integration_contract"
+    },
+    {
+      "id": "interop",
+      "contract": "Versioned HTTP, JSON Schema, MCP discovery and llms.txt metadata",
+      "status": "specified_integration_contract"
+    },
+    {
+      "id": "portability",
+      "contract": "Provider adapters for Cloudflare and independently tested self-hosted runtimes",
+      "status": "specified_integration_contract"
+    },
+    {
+      "id": "security",
+      "contract": "Least-privilege service identities, explicit write grants, protected credentials",
+      "status": "specified_integration_contract"
+    },
+    {
+      "id": "accounting",
+      "contract": "Logical CPU/RAM/storage profiles separated from physically allocated resources",
+      "status": "specified_integration_contract"
+    },
+    {
+      "id": "observability",
+      "contract": "Health receipts, structured logs, failure tracking and deployment checks",
+      "status": "specified_integration_contract"
+    },
+    {
+      "id": "backup",
+      "contract": "Encrypted snapshot and restore procedures with retention and restore tests",
+      "status": "specified_integration_contract"
+    },
+    {
+      "id": "governance",
+      "contract": "Human approval for destructive, financial, external publishing and deployment actions",
+      "status": "specified_integration_contract"
+    }
+  ],
+  "domains": [
+    {
+      "scope": "sovereign_202",
+      "source": "integrations/nathan-mind-101-workers-101-bots.json",
+      "units": 202
+    },
+    {
+      "scope": "second_sovereign_202",
+      "source": "integrations/nathan-mind-second-202-independent-registry.json",
+      "units": 202
+    },
+    {
+      "scope": "five_101_catalogs",
+      "sources": [
+        "integrations/tabor-worker-101-registry.json",
+        "integrations/tabor-language-101-registry.json",
+        "integrations/tabor-wisdom-101-registry.json",
+        "integrations/tabor-imagination-101-registry.json",
+        "integrations/tabor-sovereign-101-registry.json"
+      ],
+      "units": 505
+    },
+    {
+      "scope": "federation",
+      "source": "integrations/tabor-1001-supercomputer-topology.json",
+      "units": 1001
+    },
+    {
+      "scope": "library_of_tabor",
+      "source": "existing Cloudflare archive and library services",
+      "units": null
+    },
+    {
+      "scope": "tabor_world",
+      "source": "existing Cloudflare hub and service links",
+      "units": null
+    }
+  ],
+  "compatibility": {
+    "existing_909_registry": "integrations/tabor-all-909-expanded-source-registry.json",
+    "existing_1001_topology": "integrations/tabor-1001-supercomputer-topology.json",
+    "existing_runtime": "integrations/sovereign-202-runtime/src/index.ts"
+  },
+  "rollout": {
+    "phase_1": "Contracts, tests, and audit-only discovery",
+    "phase_2": "Explicit adapters to existing Worker bindings and Durable Objects",
+    "phase_3": "Bounded deployment to approved services with recorded receipts",
+    "phase_4": "Restore drills, provider portability testing, incremental expansion"
+  },
+  "execution_state": "manifest_committed_only_not_universal_deployment",
+  "revision_note": "Language preference applied to author-written prose, not technical identifiers or historical source material"
+}

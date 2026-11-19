@@ -1,0 +1,916 @@
+{
+  "schema_version": 1,
+  "namespace": "tabor-sovereign-101",
+  "description": "Fifth 101-entry specification, global IDs 405–505; no claim of full deployment",
+  "entries": [
+    {
+      "id": "SOV-001",
+      "global_id": 405,
+      "name": "iPhone Voice-to-Deploy Pipeline",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-002",
+      "global_id": 406,
+      "name": "Master 505-Fleet Health & Pulse Board",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-003",
+      "global_id": 407,
+      "name": "Zero-Trust WebAuthn Sovereign Gate",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-004",
+      "global_id": 408,
+      "name": "D1 Query Cost & Full-Table-Scan Watchdog",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-005",
+      "global_id": 409,
+      "name": "Automated D1-to-R2 Hourly Snapshotter",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-006",
+      "global_id": 410,
+      "name": "Self-Healing Cron & Dead-Worker Reviver",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-007",
+      "global_id": 411,
+      "name": "One-Tap Rollback & Canary Panic Switch",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-008",
+      "global_id": 412,
+      "name": "Edge Rate-Limit & Bot-Tarpit Shield",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-009",
+      "global_id": 413,
+      "name": "Multi-Account / Multi-Zone Failover Router",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-010",
+      "global_id": 414,
+      "name": "Dynamic wrangler.jsonc Generator & Binder",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-011",
+      "global_id": 415,
+      "name": "Edge Secret & API Key Rotator",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-012",
+      "global_id": 416,
+      "name": "Sub-Millisecond KV Edge Cache Warmer",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-013",
+      "global_id": 417,
+      "name": "Webhook Event Replay & DLQ Inspector",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-014",
+      "global_id": 418,
+      "name": "Cloudflare Billing & Quota Circuit Breaker",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-015",
+      "global_id": 419,
+      "name": "Sovereign Audit Ledger",
+      "category": "mobile-command",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-016",
+      "global_id": 420,
+      "name": "Double-Entry Forensic Ledger Engine",
+      "category": "forensic-math",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-017",
+      "global_id": 421,
+      "name": "Container-vs-Content Sovereign Counter",
+      "category": "forensic-math",
+      "state": "initial_script_uploaded_unverified",
+      "script_uploaded": true,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-018",
+      "global_id": 422,
+      "name": "Closed-System Rule & Game-State Verifier",
+      "category": "forensic-math",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-019",
+      "global_id": 423,
+      "name": "Benford's Law Anomaly Detector",
+      "category": "forensic-math",
+      "state": "initial_script_uploaded_unverified",
+      "script_uploaded": true,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-020",
+      "global_id": 424,
+      "name": "Exact Rational & BigInt Calculator",
+      "category": "forensic-math",
+      "state": "initial_script_uploaded_unverified",
+      "script_uploaded": true,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-021",
+      "global_id": 425,
+      "name": "Time-Series Missing-Interval Auditor",
+      "category": "forensic-math",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-022",
+      "global_id": 426,
+      "name": "Seeded PRNG & Monte Carlo Simulator",
+      "category": "forensic-math",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-023",
+      "global_id": 427,
+      "name": "Triple-Modular Redundancy Consensus Voter",
+      "category": "forensic-math",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-024",
+      "global_id": 428,
+      "name": "CSV / Excel Forensic Diff Engine",
+      "category": "forensic-math",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-025",
+      "global_id": 429,
+      "name": "Compound Interest & Amortization Modeler",
+      "category": "forensic-math",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-026",
+      "global_id": 430,
+      "name": "Unit-Conversion & Dimensional Analysis",
+      "category": "forensic-math",
+      "state": "initial_script_uploaded_unverified",
+      "script_uploaded": true,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-027",
+      "global_id": 431,
+      "name": "Boolean Logic Truth-Table Simplifier",
+      "category": "forensic-math",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-028",
+      "global_id": 432,
+      "name": "Prime Factorization & Number Theory",
+      "category": "forensic-math",
+      "state": "initial_script_uploaded_unverified",
+      "script_uploaded": true,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-029",
+      "global_id": 433,
+      "name": "Luhn CRC32 IBAN Validator",
+      "category": "forensic-math",
+      "state": "initial_script_uploaded_unverified",
+      "script_uploaded": true,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-030",
+      "global_id": 434,
+      "name": "Zero-Knowledge Commitment Verifier",
+      "category": "forensic-math",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-031",
+      "global_id": 435,
+      "name": "Pure-Sine & Harmonic WAV Synthesizer",
+      "category": "acoustics-physics",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-032",
+      "global_id": 436,
+      "name": "FFT Spectrum Analyzer",
+      "category": "acoustics-physics",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-033",
+      "global_id": 437,
+      "name": "Pythagorean & Just-Intonation Tuning",
+      "category": "acoustics-physics",
+      "state": "initial_script_uploaded_unverified",
+      "script_uploaded": true,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-034",
+      "global_id": 438,
+      "name": "Doppler Shift Calculator",
+      "category": "acoustics-physics",
+      "state": "initial_script_uploaded_unverified",
+      "script_uploaded": true,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-035",
+      "global_id": 439,
+      "name": "Ballistics Trajectory Physics Solver",
+      "category": "acoustics-physics",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-036",
+      "global_id": 440,
+      "name": "Orbital Mechanics & Keplerian Ephemeris",
+      "category": "acoustics-physics",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-037",
+      "global_id": 441,
+      "name": "Solar Elevation & Golden-Hour Predictor",
+      "category": "acoustics-physics",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-038",
+      "global_id": 442,
+      "name": "Tidal Harmonic Predictor",
+      "category": "acoustics-physics",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-039",
+      "global_id": 443,
+      "name": "Electromagnetic Spectrum Converter",
+      "category": "acoustics-physics",
+      "state": "initial_script_uploaded_unverified",
+      "script_uploaded": true,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-040",
+      "global_id": 444,
+      "name": "Thermodynamics & Dew-Point Calculator",
+      "category": "acoustics-physics",
+      "state": "initial_script_uploaded_unverified",
+      "script_uploaded": true,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-041",
+      "global_id": 445,
+      "name": "Morse Code Audio & Light Encoder",
+      "category": "acoustics-physics",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-042",
+      "global_id": 446,
+      "name": "DTMF Acoustic Data Modem",
+      "category": "acoustics-physics",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-043",
+      "global_id": 447,
+      "name": "Seismic & Vibration Resonance Modeler",
+      "category": "acoustics-physics",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-044",
+      "global_id": 448,
+      "name": "Color-Space Chromaticity Converter",
+      "category": "acoustics-physics",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-045",
+      "global_id": 449,
+      "name": "Geodesic Haversine & Bearing Engine",
+      "category": "acoustics-physics",
+      "state": "initial_script_uploaded_unverified",
+      "script_uploaded": true,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-046",
+      "global_id": 450,
+      "name": "Verbatim Lock & Character Diff Guard",
+      "category": "provenance-truth",
+      "state": "initial_script_uploaded_unverified",
+      "script_uploaded": true,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-047",
+      "global_id": 451,
+      "name": "Wayback Historical Provenance Auditor",
+      "category": "provenance-truth",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-048",
+      "global_id": 452,
+      "name": "EXIF C2PA Metadata Extractor",
+      "category": "provenance-truth",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-049",
+      "global_id": 453,
+      "name": "Cryptographic Timestamp & Notarizer",
+      "category": "provenance-truth",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-050",
+      "global_id": 454,
+      "name": "Logical Consistency Scanner",
+      "category": "provenance-truth",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-051",
+      "global_id": 455,
+      "name": "Primary-Source Citation & Link-Rot Archiver",
+      "category": "provenance-truth",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-052",
+      "global_id": 456,
+      "name": "Deepfake Voice Spectral Artifact Checker",
+      "category": "provenance-truth",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-053",
+      "global_id": 457,
+      "name": "Rhetorical Framing Neutralizer",
+      "category": "provenance-truth",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-054",
+      "global_id": 458,
+      "name": "Legal Contract Red-Flag Scanner",
+      "category": "provenance-truth",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-055",
+      "global_id": 459,
+      "name": "Biblical Textual-Variant Comparator",
+      "category": "provenance-truth",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-056",
+      "global_id": 460,
+      "name": "Etymology Meaning Drift Tracker",
+      "category": "provenance-truth",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-057",
+      "global_id": 461,
+      "name": "Corporate & Nonprofit Registry Cross-Referencer",
+      "category": "provenance-truth",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-058",
+      "global_id": 462,
+      "name": "Patent & Prior-Art Search Gateway",
+      "category": "provenance-truth",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-059",
+      "global_id": 463,
+      "name": "WHOIS DNSSEC Certificate Transparency Monitor",
+      "category": "provenance-truth",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-060",
+      "global_id": 464,
+      "name": "Scheduled Release Vault",
+      "category": "provenance-truth",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-061",
+      "global_id": 465,
+      "name": "OpenStreetMap Overpass Proxy",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-062",
+      "global_id": 466,
+      "name": "USGS Real-Time Earthquake Feed",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-063",
+      "global_id": 467,
+      "name": "NOAA NWS Weather Alert Worker",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-064",
+      "global_id": 468,
+      "name": "ADS-B Aircraft Tracker",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-065",
+      "global_id": 469,
+      "name": "AIS Maritime Vessel Monitor",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-066",
+      "global_id": 470,
+      "name": "TopoJSON SVG Vector Map Generator",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-067",
+      "global_id": 471,
+      "name": "Elevation Profile & Watershed Tracer",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-068",
+      "global_id": 472,
+      "name": "Time-Zone DST Solar-Time Resolver",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-069",
+      "global_id": 473,
+      "name": "Public-Transit Rail Schedule Aggregator",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-070",
+      "global_id": 474,
+      "name": "Global Currency & Commodity Ticker",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-071",
+      "global_id": 475,
+      "name": "USDA Soil Crop Almanac API",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-072",
+      "global_id": 476,
+      "name": "FAA FCC Radio Tower Lookup",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-073",
+      "global_id": 477,
+      "name": "Historical Map County Boundary Matcher",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-074",
+      "global_id": 478,
+      "name": "Emergency Shelter Hospital Finder",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-075",
+      "global_id": 479,
+      "name": "Global Port Airport Border Directory",
+      "category": "geospatial-feeds",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-076",
+      "global_id": 480,
+      "name": "Edge SQLite WASM Playground",
+      "category": "developer-tools",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-077",
+      "global_id": 481,
+      "name": "Regex Tester & ReDoS Scanner",
+      "category": "developer-tools",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-078",
+      "global_id": 482,
+      "name": "JSON YAML TOML XML CSV Transformer",
+      "category": "developer-tools",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-079",
+      "global_id": 483,
+      "name": "OpenAPI to TypeScript SDK Generator",
+      "category": "developer-tools",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-080",
+      "global_id": 484,
+      "name": "JWT PASETO Token Debugger",
+      "category": "developer-tools",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-081",
+      "global_id": 485,
+      "name": "SVG Chart & Sparkline Renderer",
+      "category": "developer-tools",
+      "state": "initial_script_uploaded_unverified",
+      "script_uploaded": true,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-082",
+      "global_id": 486,
+      "name": "Cron Expression Humanizer",
+      "category": "developer-tools",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-083",
+      "global_id": 487,
+      "name": "Diff Patch & Three-Way Merge",
+      "category": "developer-tools",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-084",
+      "global_id": 488,
+      "name": "Base64 Base58 Hex Bech32 Varint Codec",
+      "category": "developer-tools",
+      "state": "initial_script_uploaded_unverified",
+      "script_uploaded": true,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-085",
+      "global_id": 489,
+      "name": "HTML-to-Markdown Readability Extractor",
+      "category": "developer-tools",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-086",
+      "global_id": 490,
+      "name": "GraphQL REST Bridge",
+      "category": "developer-tools",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-087",
+      "global_id": 491,
+      "name": "Staging Chaos Latency Injector",
+      "category": "developer-tools",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-088",
+      "global_id": 492,
+      "name": "Edge WebSocket Pub/Sub Bus",
+      "category": "developer-tools",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-089",
+      "global_id": 493,
+      "name": "Headless Chrome PDF PNG Printer",
+      "category": "developer-tools",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-090",
+      "global_id": 494,
+      "name": "Static Site Single-File Bundler",
+      "category": "developer-tools",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-091",
+      "global_id": 495,
+      "name": "Universal Library of Tabor Master Indexer",
+      "category": "capstone",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-092",
+      "global_id": 496,
+      "name": "Cross-Domain Polymath Synthesizer",
+      "category": "capstone",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-093",
+      "global_id": 497,
+      "name": "Morning Fleet Digest Generator",
+      "category": "capstone",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-094",
+      "global_id": 498,
+      "name": "Voice-Driven Personal Recall Engine",
+      "category": "capstone",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-095",
+      "global_id": 499,
+      "name": "GitHub-to-Cloudflare Monorepo Splitter",
+      "category": "capstone",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-096",
+      "global_id": 500,
+      "name": "Visual System Topology Renderer",
+      "category": "capstone",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-097",
+      "global_id": 501,
+      "name": "Edge Memory Context Compressor",
+      "category": "capstone",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-098",
+      "global_id": 502,
+      "name": "Multi-Agent Council Debate Engine",
+      "category": "capstone",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-099",
+      "global_id": 503,
+      "name": "Sovereign Personal API Gateway",
+      "category": "capstone",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-100",
+      "global_id": 504,
+      "name": "505-Worker Master Registry",
+      "category": "capstone",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    },
+    {
+      "id": "SOV-101",
+      "global_id": 505,
+      "name": "Sovereign Crown Orchestrator",
+      "category": "capstone",
+      "state": "queued_for_implementation",
+      "script_uploaded": false,
+      "production_verified": false
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "batch": "2026-11-18-1520",
+  "registry_path": "integrations/tabor-all-909-expanded-source-registry.json",
+  "registry_total": 909,
+  "previous_built": [
+    "NTW-002",
+    "NTW-003"
+  ],
+  "new_source_built": [
+    "NTW-004",
+    "NTW-006"
+  ],
+  "cumulative_built_in_two_batches": 4,
+  "remaining_not_built_by_these_batches": 905,
+  "tests": {
+    "runner": "node --test units.test.mjs",
+    "passed": 8,
+    "failed": 0,
+    "location": "local"
+  },
+  "new_deployments": 0,
+  "units": [
+    {
+      "id": "NTW-004",
+      "name": "Homophone Context Resolver",
+      "state": "candidate_suggestions_only_source_built_locally_tested_not_deployed"
+    },
+    {
+      "id": "NTW-006",
+      "name": "Script Direction Detector",
+      "state": "source_built_locally_tested_not_deployed"
+    }
+  ],
+  "next_candidates": [
+    "NTW-005",
+    "NTW-007"
+  ],
+  "blockers": [
+    "No complete cross-repository implementation/deployment reconciliation",
+    "No CI receipt",
+    "No standalone reviewed Cloudflare Worker entrypoints"
+  ],
+  "preserve_existing": true,
+  "auto_replication": false,
+  "scope_note": "905 means not newly built in these two batches; existing independent implementations not ruled out."
+}

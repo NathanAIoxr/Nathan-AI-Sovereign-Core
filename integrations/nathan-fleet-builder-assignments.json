@@ -1,0 +1,2892 @@
+{
+  "version": 1,
+  "status": "assigned_for_scheduled_build_runs_not_running_cloudflare_agents",
+  "automation": "Nathan Fleet Builder (hourly)",
+  "assignment_count": 404,
+  "workers": [
+    {
+      "id": "nathan-builder-01",
+      "mode": "scheduled_batch_assignment",
+      "max_parallel": 1,
+      "assigned": 52
+    },
+    {
+      "id": "nathan-builder-02",
+      "mode": "scheduled_batch_assignment",
+      "max_parallel": 1,
+      "assigned": 52
+    },
+    {
+      "id": "nathan-builder-03",
+      "mode": "scheduled_batch_assignment",
+      "max_parallel": 1,
+      "assigned": 51
+    },
+    {
+      "id": "nathan-builder-04",
+      "mode": "scheduled_batch_assignment",
+      "max_parallel": 1,
+      "assigned": 51
+    },
+    {
+      "id": "nathan-builder-05",
+      "mode": "scheduled_batch_assignment",
+      "max_parallel": 1,
+      "assigned": 51
+    },
+    {
+      "id": "nathan-builder-06",
+      "mode": "scheduled_batch_assignment",
+      "max_parallel": 1,
+      "assigned": 49
+    },
+    {
+      "id": "nathan-builder-07",
+      "mode": "scheduled_batch_assignment",
+      "max_parallel": 1,
+      "assigned": 49
+    },
+    {
+      "id": "nathan-builder-08",
+      "mode": "scheduled_batch_assignment",
+      "max_parallel": 1,
+      "assigned": 49
+    }
+  ],
+  "assignments": [
+    {
+      "id": "NTW-001",
+      "source": "first_202",
+      "name": "Phonetic Root Deconstructor",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NTW-002",
+      "source": "first_202",
+      "name": "Mirror Text Analyzer",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NTW-003",
+      "source": "first_202",
+      "name": "Acrostic Matrix Extractor",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NTW-004",
+      "source": "first_202",
+      "name": "Homophone Context Resolver",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NTW-005",
+      "source": "first_202",
+      "name": "IPA Sound Mapper",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NTW-006",
+      "source": "first_202",
+      "name": "Script Direction Detector",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NTW-007",
+      "source": "first_202",
+      "name": "Strong Root Concordance",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NTW-008",
+      "source": "first_202",
+      "name": "Historical Meaning Drift",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NTW-009",
+      "source": "first_202",
+      "name": "Word Family Graph",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NTW-010",
+      "source": "first_202",
+      "name": "Phonetic Near-Match Comparator",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NTW-011",
+      "source": "first_202",
+      "name": "Attribute-Only Comparator",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NTW-012",
+      "source": "first_202",
+      "name": "Root Cause Diagnostic",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NTW-013",
+      "source": "first_202",
+      "name": "Ripple Impact Simulator",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NTW-014",
+      "source": "first_202",
+      "name": "Binary Duodecimal Converter",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NTW-015",
+      "source": "first_202",
+      "name": "Four Arithmetic Gates",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NTW-016",
+      "source": "first_202",
+      "name": "Contradiction Evidence Scanner",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NTW-017",
+      "source": "first_202",
+      "name": "Claim Confidence Grader",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NTW-018",
+      "source": "first_202",
+      "name": "Decision Branch Evaluator",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NTW-019",
+      "source": "first_202",
+      "name": "Assumption Stripper",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NTW-020",
+      "source": "first_202",
+      "name": "Proof Obligation Builder",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NTW-021",
+      "source": "first_202",
+      "name": "Voice Note Ingestor",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NTW-022",
+      "source": "first_202",
+      "name": "Verbatim Manuscript Lock",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NTW-023",
+      "source": "first_202",
+      "name": "SHA256 Provenance Ledger",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NTW-024",
+      "source": "first_202",
+      "name": "Document Version Comparator",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NTW-025",
+      "source": "first_202",
+      "name": "Source Fragment Cataloger",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NTW-026",
+      "source": "first_202",
+      "name": "Citation Chain Tracker",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NTW-027",
+      "source": "first_202",
+      "name": "Public Domain Rights Checker",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NTW-028",
+      "source": "first_202",
+      "name": "Archive Format Converter",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NTW-029",
+      "source": "first_202",
+      "name": "Reading Room Search",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NTW-030",
+      "source": "first_202",
+      "name": "Library of Tabor Indexer",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NTW-031",
+      "source": "first_202",
+      "name": "Tabor Variant Researcher",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NTW-032",
+      "source": "first_202",
+      "name": "Lineage Evidence Matrix",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NTW-033",
+      "source": "first_202",
+      "name": "Historical Timeline Merger",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NTW-034",
+      "source": "first_202",
+      "name": "Ancient Script Crosswalk",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NTW-035",
+      "source": "first_202",
+      "name": "Translation Parallel Aligner",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NTW-036",
+      "source": "first_202",
+      "name": "Manuscript Witness Matcher",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NTW-037",
+      "source": "first_202",
+      "name": "Geographic Place Name Mapper",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NTW-038",
+      "source": "first_202",
+      "name": "Research Question Tracker",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NTW-039",
+      "source": "first_202",
+      "name": "Unknowns Register",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NTW-040",
+      "source": "first_202",
+      "name": "Primary Source Verifier",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NTW-041",
+      "source": "first_202",
+      "name": "AZ Creature Portal",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NTW-042",
+      "source": "first_202",
+      "name": "Land of Illa Builder",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NTW-043",
+      "source": "first_202",
+      "name": "Dragon Species Studio",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NTW-044",
+      "source": "first_202",
+      "name": "Unicorn Harmony Studio",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NTW-045",
+      "source": "first_202",
+      "name": "Yin Yang Balance Toy",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NTW-046",
+      "source": "first_202",
+      "name": "Fable Rhyme Composer",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NTW-047",
+      "source": "first_202",
+      "name": "Story Branch Engine",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NTW-048",
+      "source": "first_202",
+      "name": "Printable SVG Bookmaker",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NTW-049",
+      "source": "first_202",
+      "name": "Character Continuity Keeper",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NTW-050",
+      "source": "first_202",
+      "name": "Age Appropriate Story Filter",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NTW-051",
+      "source": "first_202",
+      "name": "Universal Finger Physics",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NTW-052",
+      "source": "first_202",
+      "name": "Trackball Gesture Engine",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NTW-053",
+      "source": "first_202",
+      "name": "Rope Motion Simulator",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NTW-054",
+      "source": "first_202",
+      "name": "Spin and Stick Engine",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NTW-055",
+      "source": "first_202",
+      "name": "Pendulum Dynamics",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NTW-056",
+      "source": "first_202",
+      "name": "Arc Trajectory Toy",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NTW-057",
+      "source": "first_202",
+      "name": "Flick and Slice Game",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NTW-058",
+      "source": "first_202",
+      "name": "Rhythm Cadence Clock",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NTW-059",
+      "source": "first_202",
+      "name": "Physics Replay Validator",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NTW-060",
+      "source": "first_202",
+      "name": "Game Accessibility Adapter",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NTW-061",
+      "source": "first_202",
+      "name": "Voice Command Parser",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NTW-062",
+      "source": "first_202",
+      "name": "iPhone Dashboard API",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NTW-063",
+      "source": "first_202",
+      "name": "Device Consent Broker",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NTW-064",
+      "source": "first_202",
+      "name": "Local First Sync",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NTW-065",
+      "source": "first_202",
+      "name": "Encrypted Vault Gateway",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NTW-066",
+      "source": "first_202",
+      "name": "Offline Queue Synchronizer",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NTW-067",
+      "source": "first_202",
+      "name": "Secure Session Issuer",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NTW-068",
+      "source": "first_202",
+      "name": "Passkey Verification Adapter",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NTW-069",
+      "source": "first_202",
+      "name": "Push Notification Dispatcher",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NTW-070",
+      "source": "first_202",
+      "name": "Mobile UI Capability Mapper",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NTW-071",
+      "source": "first_202",
+      "name": "Repairability Attribute Matcher",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NTW-072",
+      "source": "first_202",
+      "name": "OBD Telemetry Collector",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NTW-073",
+      "source": "first_202",
+      "name": "Carpentry Cut List Solver",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NTW-074",
+      "source": "first_202",
+      "name": "Modular Blueprint Calculator",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NTW-075",
+      "source": "first_202",
+      "name": "Appliance Parts Crosswalk",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NTW-076",
+      "source": "first_202",
+      "name": "Vehicle Maintenance Ledger",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NTW-077",
+      "source": "first_202",
+      "name": "Sensor Data Normalizer",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NTW-078",
+      "source": "first_202",
+      "name": "Hardware Specification Comparator",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NTW-079",
+      "source": "first_202",
+      "name": "Power Budget Estimator",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NTW-080",
+      "source": "first_202",
+      "name": "Prototype Test Recorder",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NTW-081",
+      "source": "first_202",
+      "name": "Worker Fleet Registry",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NTW-082",
+      "source": "first_202",
+      "name": "Dependency Graph Builder",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NTW-083",
+      "source": "first_202",
+      "name": "Safe Build Dispatcher",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NTW-084",
+      "source": "first_202",
+      "name": "GitHub Pull Request Auditor",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NTW-085",
+      "source": "first_202",
+      "name": "Cloudflare Binding Inspector",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NTW-086",
+      "source": "first_202",
+      "name": "D1 Schema Migrator",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NTW-087",
+      "source": "first_202",
+      "name": "R2 Artifact Registrar",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NTW-088",
+      "source": "first_202",
+      "name": "Build Receipt Ledger",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NTW-089",
+      "source": "first_202",
+      "name": "Quota Budget Monitor",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NTW-090",
+      "source": "first_202",
+      "name": "Deployment Smoke Tester",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NTW-091",
+      "source": "first_202",
+      "name": "Consent Policy Evaluator",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NTW-092",
+      "source": "first_202",
+      "name": "Ownership Provenance Checker",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NTW-093",
+      "source": "first_202",
+      "name": "Data Export Builder",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NTW-094",
+      "source": "first_202",
+      "name": "Data Deletion Receipt",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NTW-095",
+      "source": "first_202",
+      "name": "Permission Boundary Tester",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NTW-096",
+      "source": "first_202",
+      "name": "Audit Trail Validator",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NTW-097",
+      "source": "first_202",
+      "name": "Truth Evidence Separation",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NTW-098",
+      "source": "first_202",
+      "name": "Local Authority Router",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NTW-099",
+      "source": "first_202",
+      "name": "Security Incident Triage",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NTW-100",
+      "source": "first_202",
+      "name": "Master Sovereign Gateway",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NTW-101",
+      "source": "first_202",
+      "name": "Nathan AI 101-Fleet Command Router",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NTB-001",
+      "source": "first_202",
+      "name": "language Research Scout",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NTB-002",
+      "source": "first_202",
+      "name": "language Source Collector",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NTB-003",
+      "source": "first_202",
+      "name": "language Citation Verifier",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NTB-004",
+      "source": "first_202",
+      "name": "language Fact Checker",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NTB-005",
+      "source": "first_202",
+      "name": "language Contradiction Auditor",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NTB-006",
+      "source": "first_202",
+      "name": "language Schema Architect",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NTB-007",
+      "source": "first_202",
+      "name": "language Code Builder",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NTB-008",
+      "source": "first_202",
+      "name": "language Unit Test Runner",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NTB-009",
+      "source": "first_202",
+      "name": "language Security Reviewer",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NTB-010",
+      "source": "first_202",
+      "name": "language Release Reviewer",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NTB-011",
+      "source": "first_202",
+      "name": "logic Research Scout",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NTB-012",
+      "source": "first_202",
+      "name": "logic Source Collector",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NTB-013",
+      "source": "first_202",
+      "name": "logic Citation Verifier",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NTB-014",
+      "source": "first_202",
+      "name": "logic Fact Checker",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NTB-015",
+      "source": "first_202",
+      "name": "logic Contradiction Auditor",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NTB-016",
+      "source": "first_202",
+      "name": "logic Schema Architect",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NTB-017",
+      "source": "first_202",
+      "name": "logic Code Builder",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NTB-018",
+      "source": "first_202",
+      "name": "logic Unit Test Runner",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NTB-019",
+      "source": "first_202",
+      "name": "logic Security Reviewer",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NTB-020",
+      "source": "first_202",
+      "name": "logic Release Reviewer",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NTB-021",
+      "source": "first_202",
+      "name": "archive Research Scout",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NTB-022",
+      "source": "first_202",
+      "name": "archive Source Collector",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NTB-023",
+      "source": "first_202",
+      "name": "archive Citation Verifier",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NTB-024",
+      "source": "first_202",
+      "name": "archive Fact Checker",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NTB-025",
+      "source": "first_202",
+      "name": "archive Contradiction Auditor",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NTB-026",
+      "source": "first_202",
+      "name": "archive Schema Architect",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NTB-027",
+      "source": "first_202",
+      "name": "archive Code Builder",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NTB-028",
+      "source": "first_202",
+      "name": "archive Unit Test Runner",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NTB-029",
+      "source": "first_202",
+      "name": "archive Security Reviewer",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NTB-030",
+      "source": "first_202",
+      "name": "archive Release Reviewer",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NTB-031",
+      "source": "first_202",
+      "name": "research Research Scout",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NTB-032",
+      "source": "first_202",
+      "name": "research Source Collector",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NTB-033",
+      "source": "first_202",
+      "name": "research Citation Verifier",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NTB-034",
+      "source": "first_202",
+      "name": "research Fact Checker",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NTB-035",
+      "source": "first_202",
+      "name": "research Contradiction Auditor",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NTB-036",
+      "source": "first_202",
+      "name": "research Schema Architect",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NTB-037",
+      "source": "first_202",
+      "name": "research Code Builder",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NTB-038",
+      "source": "first_202",
+      "name": "research Unit Test Runner",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NTB-039",
+      "source": "first_202",
+      "name": "research Security Reviewer",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NTB-040",
+      "source": "first_202",
+      "name": "research Release Reviewer",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NTB-041",
+      "source": "first_202",
+      "name": "creative Research Scout",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NTB-042",
+      "source": "first_202",
+      "name": "creative Source Collector",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NTB-043",
+      "source": "first_202",
+      "name": "creative Citation Verifier",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NTB-044",
+      "source": "first_202",
+      "name": "creative Fact Checker",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NTB-045",
+      "source": "first_202",
+      "name": "creative Contradiction Auditor",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NTB-046",
+      "source": "first_202",
+      "name": "creative Schema Architect",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NTB-047",
+      "source": "first_202",
+      "name": "creative Code Builder",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NTB-048",
+      "source": "first_202",
+      "name": "creative Unit Test Runner",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NTB-049",
+      "source": "first_202",
+      "name": "creative Security Reviewer",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NTB-050",
+      "source": "first_202",
+      "name": "creative Release Reviewer",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NTB-051",
+      "source": "first_202",
+      "name": "physics Research Scout",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NTB-052",
+      "source": "first_202",
+      "name": "physics Source Collector",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NTB-053",
+      "source": "first_202",
+      "name": "physics Citation Verifier",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NTB-054",
+      "source": "first_202",
+      "name": "physics Fact Checker",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NTB-055",
+      "source": "first_202",
+      "name": "physics Contradiction Auditor",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NTB-056",
+      "source": "first_202",
+      "name": "physics Schema Architect",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NTB-057",
+      "source": "first_202",
+      "name": "physics Code Builder",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NTB-058",
+      "source": "first_202",
+      "name": "physics Unit Test Runner",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NTB-059",
+      "source": "first_202",
+      "name": "physics Security Reviewer",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NTB-060",
+      "source": "first_202",
+      "name": "physics Release Reviewer",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NTB-061",
+      "source": "first_202",
+      "name": "devices Research Scout",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NTB-062",
+      "source": "first_202",
+      "name": "devices Source Collector",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NTB-063",
+      "source": "first_202",
+      "name": "devices Citation Verifier",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NTB-064",
+      "source": "first_202",
+      "name": "devices Fact Checker",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NTB-065",
+      "source": "first_202",
+      "name": "devices Contradiction Auditor",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NTB-066",
+      "source": "first_202",
+      "name": "devices Schema Architect",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NTB-067",
+      "source": "first_202",
+      "name": "devices Code Builder",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NTB-068",
+      "source": "first_202",
+      "name": "devices Unit Test Runner",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NTB-069",
+      "source": "first_202",
+      "name": "devices Security Reviewer",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NTB-070",
+      "source": "first_202",
+      "name": "devices Release Reviewer",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NTB-071",
+      "source": "first_202",
+      "name": "engineering Research Scout",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NTB-072",
+      "source": "first_202",
+      "name": "engineering Source Collector",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NTB-073",
+      "source": "first_202",
+      "name": "engineering Citation Verifier",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NTB-074",
+      "source": "first_202",
+      "name": "engineering Fact Checker",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NTB-075",
+      "source": "first_202",
+      "name": "engineering Contradiction Auditor",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NTB-076",
+      "source": "first_202",
+      "name": "engineering Schema Architect",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NTB-077",
+      "source": "first_202",
+      "name": "engineering Code Builder",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NTB-078",
+      "source": "first_202",
+      "name": "engineering Unit Test Runner",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NTB-079",
+      "source": "first_202",
+      "name": "engineering Security Reviewer",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NTB-080",
+      "source": "first_202",
+      "name": "engineering Release Reviewer",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NTB-081",
+      "source": "first_202",
+      "name": "operations Research Scout",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NTB-082",
+      "source": "first_202",
+      "name": "operations Source Collector",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NTB-083",
+      "source": "first_202",
+      "name": "operations Citation Verifier",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NTB-084",
+      "source": "first_202",
+      "name": "operations Fact Checker",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NTB-085",
+      "source": "first_202",
+      "name": "operations Contradiction Auditor",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NTB-086",
+      "source": "first_202",
+      "name": "operations Schema Architect",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NTB-087",
+      "source": "first_202",
+      "name": "operations Code Builder",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NTB-088",
+      "source": "first_202",
+      "name": "operations Unit Test Runner",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NTB-089",
+      "source": "first_202",
+      "name": "operations Security Reviewer",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NTB-090",
+      "source": "first_202",
+      "name": "operations Release Reviewer",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NTB-091",
+      "source": "first_202",
+      "name": "sovereignty Research Scout",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NTB-092",
+      "source": "first_202",
+      "name": "sovereignty Source Collector",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NTB-093",
+      "source": "first_202",
+      "name": "sovereignty Citation Verifier",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NTB-094",
+      "source": "first_202",
+      "name": "sovereignty Fact Checker",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NTB-095",
+      "source": "first_202",
+      "name": "sovereignty Contradiction Auditor",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NTB-096",
+      "source": "first_202",
+      "name": "sovereignty Schema Architect",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NTB-097",
+      "source": "first_202",
+      "name": "sovereignty Code Builder",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NTB-098",
+      "source": "first_202",
+      "name": "sovereignty Unit Test Runner",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NTB-099",
+      "source": "first_202",
+      "name": "sovereignty Security Reviewer",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NTB-100",
+      "source": "first_202",
+      "name": "sovereignty Release Reviewer",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NTB-101",
+      "source": "first_202",
+      "name": "Nathan AI Sovereign Bot Marshal",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NT2-W-001",
+      "source": "second_202",
+      "name": "Phonetic Sound-Spell Converter",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NT2-W-002",
+      "source": "second_202",
+      "name": "Classical Root-Word Stripper",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NT2-W-003",
+      "source": "second_202",
+      "name": "1611 KJV Lexicon & Strong's Lookup Worker",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NT2-W-004",
+      "source": "second_202",
+      "name": "Right-to-Left Stream Reverser",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NT2-W-005",
+      "source": "second_202",
+      "name": "Bottom-to-Top Document Inverter",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NT2-W-006",
+      "source": "second_202",
+      "name": "Palindrome & Mirror-Symmetry Validator",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NT2-W-007",
+      "source": "second_202",
+      "name": "Acrostic & First-Letter Extractor",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NT2-W-008",
+      "source": "second_202",
+      "name": "Homophone Context Enforcer",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NT2-W-009",
+      "source": "second_202",
+      "name": "Synonym & Euphemism Purger",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NT2-W-010",
+      "source": "second_202",
+      "name": "Syllable & Cadence Rhythm Counter",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NT2-W-011",
+      "source": "second_202",
+      "name": "Anagram & Letter-Permutation Solver",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NT2-W-012",
+      "source": "second_202",
+      "name": "Vowel-Stripper Abjad Consonant Engine",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NT2-W-013",
+      "source": "second_202",
+      "name": "Suffix-Builder & Neologism Forger",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NT2-W-014",
+      "source": "second_202",
+      "name": "Biblical Proverb Parallelism Mapper",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NT2-W-015",
+      "source": "second_202",
+      "name": "Name-Root & Etymology Decoder",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NT2-W-016",
+      "source": "second_202",
+      "name": "Circular & Linear Logic Dual-Formatter",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NT2-W-017",
+      "source": "second_202",
+      "name": "Phonetic Homonym Matcher",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NT2-W-018",
+      "source": "second_202",
+      "name": "Unsaid-Context & Omission Detector",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NT2-W-019",
+      "source": "second_202",
+      "name": "101-Acronym Indexer",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NT2-W-020",
+      "source": "second_202",
+      "name": "20-Metaphor Teaching Translator",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NT2-W-021",
+      "source": "second_202",
+      "name": "Red-Letter & Emphasis Markup Parser",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NT2-W-022",
+      "source": "second_202",
+      "name": "Multi-Language Cognate Linker",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NT2-W-023",
+      "source": "second_202",
+      "name": "Speech-to-Text Cleanup & Cadence Preserver",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NT2-W-024",
+      "source": "second_202",
+      "name": "Riddle & Paradox Structural Parser",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NT2-W-025",
+      "source": "second_202",
+      "name": "Alphabetical A-Z & Z-A Dual Sorter",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NT2-W-026",
+      "source": "second_202",
+      "name": "Marketing-Label Stripper",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NT2-W-027",
+      "source": "second_202",
+      "name": "Pure-Attribute Comparison Matrix",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NT2-W-028",
+      "source": "second_202",
+      "name": "Binary Gate Retain Purge Filter",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NT2-W-029",
+      "source": "second_202",
+      "name": "Generative Addition Builder",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NT2-W-030",
+      "source": "second_202",
+      "name": "Absolute Clearing Reset Worker",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NT2-W-031",
+      "source": "second_202",
+      "name": "Base-12 Arithmetic Converter",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NT2-W-032",
+      "source": "second_202",
+      "name": "Base-69 Multi-Radix Encoder",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NT2-W-033",
+      "source": "second_202",
+      "name": "Cero Uno Dos Three-Tier Classifier",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NT2-W-034",
+      "source": "second_202",
+      "name": "Root-Cause vs Symptom Divider",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NT2-W-035",
+      "source": "second_202",
+      "name": "Ripple-Impact Scenario Simulator",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NT2-W-036",
+      "source": "second_202",
+      "name": "Four-Anchor BUILD FLIP QI QE Router",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NT2-W-037",
+      "source": "second_202",
+      "name": "Container-vs-Content Counter",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NT2-W-038",
+      "source": "second_202",
+      "name": "Fencepost Boundary Auditor",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NT2-W-039",
+      "source": "second_202",
+      "name": "20 Percent Automatic Allocation Splitter",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NT2-W-040",
+      "source": "second_202",
+      "name": "30-Day Habit & Streak Tracker",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NT2-W-041",
+      "source": "second_202",
+      "name": "Cost-Per-Use & Lifespan Value Calculator",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NT2-W-042",
+      "source": "second_202",
+      "name": "Yes No Binary Decision Enforcer",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NT2-W-043",
+      "source": "second_202",
+      "name": "Jargon Complexity Scorer",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NT2-W-044",
+      "source": "second_202",
+      "name": "Time-Block & Night-Cycle Logger",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NT2-W-045",
+      "source": "second_202",
+      "name": "Circular-vs-Linear Timeline Mapper",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NT2-W-046",
+      "source": "second_202",
+      "name": "Zero-Float Exact Integer Ledger",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NT2-W-047",
+      "source": "second_202",
+      "name": "Loophole & Edge-Case Stress Tester",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NT2-W-048",
+      "source": "second_202",
+      "name": "Tri-Spectrum Interpretation Tagger",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NT2-W-049",
+      "source": "second_202",
+      "name": "Signal-to-Noise Ratio Calculator",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NT2-W-050",
+      "source": "second_202",
+      "name": "Sovereign Invariant Verifier",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NT2-W-051",
+      "source": "second_202",
+      "name": "Verbatim Lock Enforcer",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NT2-W-052",
+      "source": "second_202",
+      "name": "SHA-256 Instant Provenance Hasher",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NT2-W-053",
+      "source": "second_202",
+      "name": "Mobile Voice-to-D1 Rapid Capture Endpoint",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NT2-W-054",
+      "source": "second_202",
+      "name": "Append-Only Merkle Audit Log",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NT2-W-055",
+      "source": "second_202",
+      "name": "Mosaic Indexer RAG Retrieval Worker",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NT2-W-056",
+      "source": "second_202",
+      "name": "Dual-Layer Media Watermark & Origin Signer",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NT2-W-057",
+      "source": "second_202",
+      "name": "Book Chapter Bottom-Up Assembler",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NT2-W-058",
+      "source": "second_202",
+      "name": "Children's A-Z Universe & Wordplay Formatter",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NT2-W-059",
+      "source": "second_202",
+      "name": "Handling Life Resource & Aid Directory API",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NT2-W-060",
+      "source": "second_202",
+      "name": "25 Percent IP & 33 Percent Non-Profit Fee Calculator",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NT2-W-061",
+      "source": "second_202",
+      "name": "Personal Hard-Drive Cold-Storage Exporter",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NT2-W-062",
+      "source": "second_202",
+      "name": "Zero-Knowledge On-Device Sync Bridge",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NT2-W-063",
+      "source": "second_202",
+      "name": "Quote & Proverb Attribution Lock",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NT2-W-064",
+      "source": "second_202",
+      "name": "Contract & Promise Ledger",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NT2-W-065",
+      "source": "second_202",
+      "name": "Public Harbor vs Sovereign Throne Gatekeeper",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NT2-W-066",
+      "source": "second_202",
+      "name": "Library of Congress Call-Number Classifier",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NT2-W-067",
+      "source": "second_202",
+      "name": "Dead-Link & Web-Page Snapshot Preserver",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NT2-W-068",
+      "source": "second_202",
+      "name": "Multi-Format Manuscript Exporter",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NT2-W-069",
+      "source": "second_202",
+      "name": "Audio-Cadence & Reading-Time Estimator",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NT2-W-070",
+      "source": "second_202",
+      "name": "Family Tree & Kinship Index Graph",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NT2-W-071",
+      "source": "second_202",
+      "name": "Checklist & Task-Completion Sequencer",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NT2-W-072",
+      "source": "second_202",
+      "name": "Privacy & PII Redaction Scrubber",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NT2-W-073",
+      "source": "second_202",
+      "name": "Cross-Platform Repo Mirror Worker",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NT2-W-074",
+      "source": "second_202",
+      "name": "Offline-First Service Worker Generator",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NT2-W-075",
+      "source": "second_202",
+      "name": "Daily Morning Digest Compiler",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NT2-W-076",
+      "source": "second_202",
+      "name": "Vintage-Spec Mechanical Appliance Scorer",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NT2-W-077",
+      "source": "second_202",
+      "name": "Universal OBD-II Diagnostic Code Decoder",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NT2-W-078",
+      "source": "second_202",
+      "name": "Vehicle Telemetry & Maintenance Log API",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NT2-W-079",
+      "source": "second_202",
+      "name": "Extendable Furniture Cut-List Calculator",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NT2-W-080",
+      "source": "second_202",
+      "name": "Earth-Sheltered Structure Load Estimator",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NT2-W-081",
+      "source": "second_202",
+      "name": "Gravity-Fed Rainwater Storage Calculator",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NT2-W-082",
+      "source": "second_202",
+      "name": "Metal-Roof vs Shingle Cost Comparator",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NT2-W-083",
+      "source": "second_202",
+      "name": "Zoning Acreage & Setback Checklist Generator",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NT2-W-084",
+      "source": "second_202",
+      "name": "Electrical Panel Circuit Load Balancer",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NT2-W-085",
+      "source": "second_202",
+      "name": "Multi-Wheel Chassis Geometry Calculator",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NT2-W-086",
+      "source": "second_202",
+      "name": "Thermal Blanket Heat-Retention Modeler",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NT2-W-087",
+      "source": "second_202",
+      "name": "Bluetooth IMU Motion Analyzer",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NT2-W-088",
+      "source": "second_202",
+      "name": "Heirloom Seed & Companion-Planting Scheduler",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NT2-W-089",
+      "source": "second_202",
+      "name": "Herb & Essential-Oil Bath Formulation Calculator",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NT2-W-090",
+      "source": "second_202",
+      "name": "Clover & Shark-Tooth Tide Spotter",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NT2-W-091",
+      "source": "second_202",
+      "name": "Porch Microclimate Airflow Estimator",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NT2-W-092",
+      "source": "second_202",
+      "name": "Backyard Archery Safety Range Calculator",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NT2-W-093",
+      "source": "second_202",
+      "name": "Low-Cost Kitchen Appliance BOM Optimizer",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NT2-W-094",
+      "source": "second_202",
+      "name": "Hemp & Bio-Waste Composite Estimator",
+      "kind": "worker",
+      "lane": 6
+    },
+    {
+      "id": "NT2-W-095",
+      "source": "second_202",
+      "name": "Great-Circle Compass Navigator",
+      "kind": "worker",
+      "lane": 7
+    },
+    {
+      "id": "NT2-W-096",
+      "source": "second_202",
+      "name": "Elevation River-Basin Floodplain Checker",
+      "kind": "worker",
+      "lane": 8
+    },
+    {
+      "id": "NT2-W-097",
+      "source": "second_202",
+      "name": "Solar-Noon & Shadow-Angle Worker",
+      "kind": "worker",
+      "lane": 1
+    },
+    {
+      "id": "NT2-W-098",
+      "source": "second_202",
+      "name": "Audio Frequency Resonance Tone Generator",
+      "kind": "worker",
+      "lane": 2
+    },
+    {
+      "id": "NT2-W-099",
+      "source": "second_202",
+      "name": "Hardware Inventory Spare-Parts Tracker",
+      "kind": "worker",
+      "lane": 3
+    },
+    {
+      "id": "NT2-W-100",
+      "source": "second_202",
+      "name": "Emergency Offline Repair Manual Server",
+      "kind": "worker",
+      "lane": 4
+    },
+    {
+      "id": "NT2-W-101",
+      "source": "second_202",
+      "name": "Nathan Tabor Master Dispatch Gateway",
+      "kind": "worker",
+      "lane": 5
+    },
+    {
+      "id": "NT2-B-001",
+      "source": "second_202",
+      "name": "Root-Word Miner Bot",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NT2-B-002",
+      "source": "second_202",
+      "name": "Silent-Edit Watchdog Bot",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NT2-B-003",
+      "source": "second_202",
+      "name": "Reverse-Read Pattern Hunter Bot",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NT2-B-004",
+      "source": "second_202",
+      "name": "Acrostic & Cipher Sweeper Bot",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NT2-B-005",
+      "source": "second_202",
+      "name": "Homophone Guard Bot",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NT2-B-006",
+      "source": "second_202",
+      "name": "Jargon-Shredder Bot",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NT2-B-007",
+      "source": "second_202",
+      "name": "Proverb Extractor Bot",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NT2-B-008",
+      "source": "second_202",
+      "name": "Unsaid-Gap Auditor Bot",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NT2-B-009",
+      "source": "second_202",
+      "name": "Etymology Drift Tracker Bot",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NT2-B-010",
+      "source": "second_202",
+      "name": "KJV Verbatim Integrity Bot",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NT2-B-011",
+      "source": "second_202",
+      "name": "Phonetic Dictionary Builder Bot",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NT2-B-012",
+      "source": "second_202",
+      "name": "101-Acronym Expansion Bot",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NT2-B-013",
+      "source": "second_202",
+      "name": "Metaphor-Matcher Bot",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NT2-B-014",
+      "source": "second_202",
+      "name": "Paradox Resolver Bot",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NT2-B-015",
+      "source": "second_202",
+      "name": "Cross-Cultural Root Linker Bot",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NT2-B-016",
+      "source": "second_202",
+      "name": "Cadence & Rhythm Polisher Bot",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NT2-B-017",
+      "source": "second_202",
+      "name": "Name-Meaning Profiler Bot",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NT2-B-018",
+      "source": "second_202",
+      "name": "Primary-Source Citation Bot",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NT2-B-019",
+      "source": "second_202",
+      "name": "Contradiction-Spotter Bot",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NT2-B-020",
+      "source": "second_202",
+      "name": "Red-Letter Separator Bot",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NT2-B-021",
+      "source": "second_202",
+      "name": "Bilingual Parallel Aligner Bot",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NT2-B-022",
+      "source": "second_202",
+      "name": "Book-Title & Wordplay Generator Bot",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NT2-B-023",
+      "source": "second_202",
+      "name": "Bottom-Up Outline Bot",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NT2-B-024",
+      "source": "second_202",
+      "name": "Ambiguity-Alert Bot",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NT2-B-025",
+      "source": "second_202",
+      "name": "Daily Lexicon Digest Bot",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NT2-B-026",
+      "source": "second_202",
+      "name": "1 / 0 Gatekeeper Bot",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NT2-B-027",
+      "source": "second_202",
+      "name": "Verbatim-Lock Guardian Bot",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NT2-B-028",
+      "source": "second_202",
+      "name": "Marketing-Fluff Stripper Bot",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NT2-B-029",
+      "source": "second_202",
+      "name": "Terms-of-Service Trap Detector Bot",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NT2-B-030",
+      "source": "second_202",
+      "name": "Link-Rot Rescue Bot",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NT2-B-031",
+      "source": "second_202",
+      "name": "Institutional Accountability Tracker Bot",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NT2-B-032",
+      "source": "second_202",
+      "name": "Planned-Obsolescence Whistleblower Bot",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NT2-B-033",
+      "source": "second_202",
+      "name": "Financial Fee-Skim Detector Bot",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NT2-B-034",
+      "source": "second_202",
+      "name": "Deepfake & Media-Manipulation Sentinel Bot",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NT2-B-035",
+      "source": "second_202",
+      "name": "Public-Record FOIA Monitor Bot",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NT2-B-036",
+      "source": "second_202",
+      "name": "Nonprofit 990 Transparency Bot",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NT2-B-037",
+      "source": "second_202",
+      "name": "Patent & Prior-Art Watchdog Bot",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NT2-B-038",
+      "source": "second_202",
+      "name": "Spin-Neutralizer Bot",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NT2-B-039",
+      "source": "second_202",
+      "name": "Promise-vs-Delivery Auditor Bot",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NT2-B-040",
+      "source": "second_202",
+      "name": "Supply-Chain & Recall Alert Bot",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NT2-B-041",
+      "source": "second_202",
+      "name": "Data-Broker Opt-Out & Privacy Patrol Bot",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NT2-B-042",
+      "source": "second_202",
+      "name": "Domain & SSL Hijack Sentinel Bot",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NT2-B-043",
+      "source": "second_202",
+      "name": "Duplicate-Noise Purger Bot",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NT2-B-044",
+      "source": "second_202",
+      "name": "Sovereign Cold-Backup Courier Bot",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NT2-B-045",
+      "source": "second_202",
+      "name": "API-Quota & Billing Shield Bot",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NT2-B-046",
+      "source": "second_202",
+      "name": "Error-Spike Auto-Healer Bot",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NT2-B-047",
+      "source": "second_202",
+      "name": "Dependency & Security Patch Bot",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NT2-B-048",
+      "source": "second_202",
+      "name": "Broken-Route & 404 Sweeper Bot",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NT2-B-049",
+      "source": "second_202",
+      "name": "Sovereign Audit-Chain Verifier Bot",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NT2-B-050",
+      "source": "second_202",
+      "name": "Morning Threat & Integrity Briefing Bot",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NT2-B-051",
+      "source": "second_202",
+      "name": "Voice-to-Worker Compiler Bot",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NT2-B-052",
+      "source": "second_202",
+      "name": "D1 Index Optimizer Bot",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NT2-B-053",
+      "source": "second_202",
+      "name": "Monorepo Splitter Bot",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NT2-B-054",
+      "source": "second_202",
+      "name": "Mosaic RAG Ingestor Bot",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NT2-B-055",
+      "source": "second_202",
+      "name": "Codex Cross-Linker Bot",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NT2-B-056",
+      "source": "second_202",
+      "name": "Schema-Migration Guardian Bot",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NT2-B-057",
+      "source": "second_202",
+      "name": "Dead-Code & Bloat Stripper Bot",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NT2-B-058",
+      "source": "second_202",
+      "name": "API-Documentation Generator Bot",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NT2-B-059",
+      "source": "second_202",
+      "name": "Automated Unit-Test Runner Bot",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NT2-B-060",
+      "source": "second_202",
+      "name": "KV Cache Pre-Warmer Bot",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NT2-B-061",
+      "source": "second_202",
+      "name": "GitHub-to-R2 Mirror Bot",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NT2-B-062",
+      "source": "second_202",
+      "name": "Cross-Language Porting Bot",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NT2-B-063",
+      "source": "second_202",
+      "name": "SVG Diagram & Blueprint Drawer Bot",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NT2-B-064",
+      "source": "second_202",
+      "name": "Webhook Retry & Recovery Bot",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NT2-B-065",
+      "source": "second_202",
+      "name": "Secret-Rotation & Key-Hygiene Bot",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NT2-B-066",
+      "source": "second_202",
+      "name": "Cron-Schedule Coordinator Bot",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NT2-B-067",
+      "source": "second_202",
+      "name": "Mobile UI Responsiveness Auditor Bot",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NT2-B-068",
+      "source": "second_202",
+      "name": "Library-of-Congress Cataloger Bot",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NT2-B-069",
+      "source": "second_202",
+      "name": "Multi-Model Consensus Arbitrator Bot",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NT2-B-070",
+      "source": "second_202",
+      "name": "Offline Bundle Packager Bot",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NT2-B-071",
+      "source": "second_202",
+      "name": "Latency & Cold-Start Profiler Bot",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NT2-B-072",
+      "source": "second_202",
+      "name": "Automated Release-Notes Historian Bot",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NT2-B-073",
+      "source": "second_202",
+      "name": "BUILD FLIP QI QE Tagger Bot",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NT2-B-074",
+      "source": "second_202",
+      "name": "Fleet-Scaling Load Balancer Bot",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NT2-B-075",
+      "source": "second_202",
+      "name": "Self-Documenting Registry Bot",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NT2-B-076",
+      "source": "second_202",
+      "name": "Vintage-Appliance Hunter Bot",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NT2-B-077",
+      "source": "second_202",
+      "name": "Rural Acreage & Land-Deal Scout Bot",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NT2-B-078",
+      "source": "second_202",
+      "name": "OBD-II Predictive Maintenance Bot",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NT2-B-079",
+      "source": "second_202",
+      "name": "Custom Carpentry Cut-Optimizer Bot",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NT2-B-080",
+      "source": "second_202",
+      "name": "Underground & Earth-Sheltered Research Bot",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NT2-B-081",
+      "source": "second_202",
+      "name": "Children's Story & Fable Illustrator Bot",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NT2-B-082",
+      "source": "second_202",
+      "name": "Bedtime Chapter Compiler Bot",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NT2-B-083",
+      "source": "second_202",
+      "name": "Handling Life Community-Aid Matcher Bot",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NT2-B-084",
+      "source": "second_202",
+      "name": "Local Weather & Porch-Comfort Forecaster Bot",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NT2-B-085",
+      "source": "second_202",
+      "name": "Tides & Foraging Window Alert Bot",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NT2-B-086",
+      "source": "second_202",
+      "name": "Heirloom Seed & Garden Almanac Bot",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NT2-B-087",
+      "source": "second_202",
+      "name": "IMU Movement & Athletic Form Coach Bot",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NT2-B-088",
+      "source": "second_202",
+      "name": "Simple-Kitchen Invention Researcher Bot",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NT2-B-089",
+      "source": "second_202",
+      "name": "Historical Newspaper & Local Lore Archivist Bot",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NT2-B-090",
+      "source": "second_202",
+      "name": "Family Heritage & Oral-History Interviewer Bot",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NT2-B-091",
+      "source": "second_202",
+      "name": "Daily Proverb & Wisdom Reflection Bot",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NT2-B-092",
+      "source": "second_202",
+      "name": "Deal-Structure & Royalty Calculator Bot",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NT2-B-093",
+      "source": "second_202",
+      "name": "Acoustic & Frequency Experiment Logger Bot",
+      "kind": "bot",
+      "lane": 2
+    },
+    {
+      "id": "NT2-B-094",
+      "source": "second_202",
+      "name": "Gift & Practical-Need Idea Finder Bot",
+      "kind": "bot",
+      "lane": 3
+    },
+    {
+      "id": "NT2-B-095",
+      "source": "second_202",
+      "name": "Travel-Route & Scenic Backroads Mapper Bot",
+      "kind": "bot",
+      "lane": 4
+    },
+    {
+      "id": "NT2-B-096",
+      "source": "second_202",
+      "name": "Book-Publishing & Print-Ready Formatter Bot",
+      "kind": "bot",
+      "lane": 5
+    },
+    {
+      "id": "NT2-B-097",
+      "source": "second_202",
+      "name": "Grassroots Launch Bot",
+      "kind": "bot",
+      "lane": 6
+    },
+    {
+      "id": "NT2-B-098",
+      "source": "second_202",
+      "name": "Customer-First Quality Auditor Bot",
+      "kind": "bot",
+      "lane": 7
+    },
+    {
+      "id": "NT2-B-099",
+      "source": "second_202",
+      "name": "Rest-Cycle & Wind-Down Reminder Bot",
+      "kind": "bot",
+      "lane": 8
+    },
+    {
+      "id": "NT2-B-100",
+      "source": "second_202",
+      "name": "Cross-Fleet Synergy Finder Bot",
+      "kind": "bot",
+      "lane": 1
+    },
+    {
+      "id": "NT2-B-101",
+      "source": "second_202",
+      "name": "Sovereign Crown Commander Bot",
+      "kind": "bot",
+      "lane": 2
+    }
+  ],
+  "other_catalogs": "505 original units remain in separate existing queues; no deduplication",
+  "policy": {
+    "preserve_existing": true,
+    "code_review": true,
+    "no_unbounded_replication": true
+  }
+}

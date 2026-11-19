@@ -1,0 +1,36 @@
+name: Tabor Train Source Check
+on:
+  push:
+    paths:
+      - 'integrations/tabor-train-fix/**'
+      - 'integrations/sovereign-202-runtime/**'
+      - '.github/workflows/tabor-train-source-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check registry and source schema
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const source=JSON.parse(fs.readFileSync('integrations/nathan-mind-101-workers-101-bots.json'));
+          const target=JSON.parse(fs.readFileSync('integrations/tabor-train-fix/registry.json'));
+          if(target.verbatim_locked!==true||target.workers.length!==101||target.bots.length!==101)throw Error('Invalid 202 registry');
+          if(JSON.stringify(target.workers)!==JSON.stringify(source.workers)||JSON.stringify(target.bots)!==JSON.stringify(source.bots))throw Error('Source roster mismatch');
+          console.log('202 original units match');
+          NODE
+      - name: TypeScript syntax and type checks
+        working-directory: integrations/sovereign-202-runtime
+        run: |
+          npm install --ignore-scripts --no-audit --no-fund
+          npm run check

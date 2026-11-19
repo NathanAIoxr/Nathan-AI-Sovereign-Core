@@ -1,0 +1,1725 @@
+{
+  "version": 1,
+  "distinct_from": "nathan-mind-101-workers-101-bots.json",
+  "policy": "Additive; never deduplicate by similar names",
+  "count": 202,
+  "units": [
+    {
+      "id": "NT2-W-001",
+      "kind": "worker",
+      "number": 1,
+      "name": "Phonetic Sound-Spell Converter",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-002",
+      "kind": "worker",
+      "number": 2,
+      "name": "Classical Root-Word Stripper",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-003",
+      "kind": "worker",
+      "number": 3,
+      "name": "1611 KJV Lexicon & Strong's Lookup Worker",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-004",
+      "kind": "worker",
+      "number": 4,
+      "name": "Right-to-Left Stream Reverser",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-005",
+      "kind": "worker",
+      "number": 5,
+      "name": "Bottom-to-Top Document Inverter",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-006",
+      "kind": "worker",
+      "number": 6,
+      "name": "Palindrome & Mirror-Symmetry Validator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-007",
+      "kind": "worker",
+      "number": 7,
+      "name": "Acrostic & First-Letter Extractor",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-008",
+      "kind": "worker",
+      "number": 8,
+      "name": "Homophone Context Enforcer",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-009",
+      "kind": "worker",
+      "number": 9,
+      "name": "Synonym & Euphemism Purger",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-010",
+      "kind": "worker",
+      "number": 10,
+      "name": "Syllable & Cadence Rhythm Counter",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-011",
+      "kind": "worker",
+      "number": 11,
+      "name": "Anagram & Letter-Permutation Solver",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-012",
+      "kind": "worker",
+      "number": 12,
+      "name": "Vowel-Stripper Abjad Consonant Engine",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-013",
+      "kind": "worker",
+      "number": 13,
+      "name": "Suffix-Builder & Neologism Forger",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-014",
+      "kind": "worker",
+      "number": 14,
+      "name": "Biblical Proverb Parallelism Mapper",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-015",
+      "kind": "worker",
+      "number": 15,
+      "name": "Name-Root & Etymology Decoder",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-016",
+      "kind": "worker",
+      "number": 16,
+      "name": "Circular & Linear Logic Dual-Formatter",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-017",
+      "kind": "worker",
+      "number": 17,
+      "name": "Phonetic Homonym Matcher",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-018",
+      "kind": "worker",
+      "number": 18,
+      "name": "Unsaid-Context & Omission Detector",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-019",
+      "kind": "worker",
+      "number": 19,
+      "name": "101-Acronym Indexer",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-020",
+      "kind": "worker",
+      "number": 20,
+      "name": "20-Metaphor Teaching Translator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-021",
+      "kind": "worker",
+      "number": 21,
+      "name": "Red-Letter & Emphasis Markup Parser",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-022",
+      "kind": "worker",
+      "number": 22,
+      "name": "Multi-Language Cognate Linker",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-023",
+      "kind": "worker",
+      "number": 23,
+      "name": "Speech-to-Text Cleanup & Cadence Preserver",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-024",
+      "kind": "worker",
+      "number": 24,
+      "name": "Riddle & Paradox Structural Parser",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-025",
+      "kind": "worker",
+      "number": 25,
+      "name": "Alphabetical A-Z & Z-A Dual Sorter",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-026",
+      "kind": "worker",
+      "number": 26,
+      "name": "Marketing-Label Stripper",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-027",
+      "kind": "worker",
+      "number": 27,
+      "name": "Pure-Attribute Comparison Matrix",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-028",
+      "kind": "worker",
+      "number": 28,
+      "name": "Binary Gate Retain Purge Filter",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-029",
+      "kind": "worker",
+      "number": 29,
+      "name": "Generative Addition Builder",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-030",
+      "kind": "worker",
+      "number": 30,
+      "name": "Absolute Clearing Reset Worker",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-031",
+      "kind": "worker",
+      "number": 31,
+      "name": "Base-12 Arithmetic Converter",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-032",
+      "kind": "worker",
+      "number": 32,
+      "name": "Base-69 Multi-Radix Encoder",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-033",
+      "kind": "worker",
+      "number": 33,
+      "name": "Cero Uno Dos Three-Tier Classifier",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-034",
+      "kind": "worker",
+      "number": 34,
+      "name": "Root-Cause vs Symptom Divider",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-035",
+      "kind": "worker",
+      "number": 35,
+      "name": "Ripple-Impact Scenario Simulator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-036",
+      "kind": "worker",
+      "number": 36,
+      "name": "Four-Anchor BUILD FLIP QI QE Router",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-037",
+      "kind": "worker",
+      "number": 37,
+      "name": "Container-vs-Content Counter",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-038",
+      "kind": "worker",
+      "number": 38,
+      "name": "Fencepost Boundary Auditor",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-039",
+      "kind": "worker",
+      "number": 39,
+      "name": "20 Percent Automatic Allocation Splitter",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-040",
+      "kind": "worker",
+      "number": 40,
+      "name": "30-Day Habit & Streak Tracker",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-041",
+      "kind": "worker",
+      "number": 41,
+      "name": "Cost-Per-Use & Lifespan Value Calculator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-042",
+      "kind": "worker",
+      "number": 42,
+      "name": "Yes No Binary Decision Enforcer",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-043",
+      "kind": "worker",
+      "number": 43,
+      "name": "Jargon Complexity Scorer",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-044",
+      "kind": "worker",
+      "number": 44,
+      "name": "Time-Block & Night-Cycle Logger",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-045",
+      "kind": "worker",
+      "number": 45,
+      "name": "Circular-vs-Linear Timeline Mapper",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-046",
+      "kind": "worker",
+      "number": 46,
+      "name": "Zero-Float Exact Integer Ledger",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-047",
+      "kind": "worker",
+      "number": 47,
+      "name": "Loophole & Edge-Case Stress Tester",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-048",
+      "kind": "worker",
+      "number": 48,
+      "name": "Tri-Spectrum Interpretation Tagger",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-049",
+      "kind": "worker",
+      "number": 49,
+      "name": "Signal-to-Noise Ratio Calculator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-050",
+      "kind": "worker",
+      "number": 50,
+      "name": "Sovereign Invariant Verifier",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-051",
+      "kind": "worker",
+      "number": 51,
+      "name": "Verbatim Lock Enforcer",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-052",
+      "kind": "worker",
+      "number": 52,
+      "name": "SHA-256 Instant Provenance Hasher",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-053",
+      "kind": "worker",
+      "number": 53,
+      "name": "Mobile Voice-to-D1 Rapid Capture Endpoint",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-054",
+      "kind": "worker",
+      "number": 54,
+      "name": "Append-Only Merkle Audit Log",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-055",
+      "kind": "worker",
+      "number": 55,
+      "name": "Mosaic Indexer RAG Retrieval Worker",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-056",
+      "kind": "worker",
+      "number": 56,
+      "name": "Dual-Layer Media Watermark & Origin Signer",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-057",
+      "kind": "worker",
+      "number": 57,
+      "name": "Book Chapter Bottom-Up Assembler",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-058",
+      "kind": "worker",
+      "number": 58,
+      "name": "Children's A-Z Universe & Wordplay Formatter",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-059",
+      "kind": "worker",
+      "number": 59,
+      "name": "Handling Life Resource & Aid Directory API",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-060",
+      "kind": "worker",
+      "number": 60,
+      "name": "25 Percent IP & 33 Percent Non-Profit Fee Calculator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-061",
+      "kind": "worker",
+      "number": 61,
+      "name": "Personal Hard-Drive Cold-Storage Exporter",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-062",
+      "kind": "worker",
+      "number": 62,
+      "name": "Zero-Knowledge On-Device Sync Bridge",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-063",
+      "kind": "worker",
+      "number": 63,
+      "name": "Quote & Proverb Attribution Lock",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-064",
+      "kind": "worker",
+      "number": 64,
+      "name": "Contract & Promise Ledger",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-065",
+      "kind": "worker",
+      "number": 65,
+      "name": "Public Harbor vs Sovereign Throne Gatekeeper",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-066",
+      "kind": "worker",
+      "number": 66,
+      "name": "Library of Congress Call-Number Classifier",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-067",
+      "kind": "worker",
+      "number": 67,
+      "name": "Dead-Link & Web-Page Snapshot Preserver",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-068",
+      "kind": "worker",
+      "number": 68,
+      "name": "Multi-Format Manuscript Exporter",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-069",
+      "kind": "worker",
+      "number": 69,
+      "name": "Audio-Cadence & Reading-Time Estimator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-070",
+      "kind": "worker",
+      "number": 70,
+      "name": "Family Tree & Kinship Index Graph",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-071",
+      "kind": "worker",
+      "number": 71,
+      "name": "Checklist & Task-Completion Sequencer",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-072",
+      "kind": "worker",
+      "number": 72,
+      "name": "Privacy & PII Redaction Scrubber",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-073",
+      "kind": "worker",
+      "number": 73,
+      "name": "Cross-Platform Repo Mirror Worker",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-074",
+      "kind": "worker",
+      "number": 74,
+      "name": "Offline-First Service Worker Generator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-075",
+      "kind": "worker",
+      "number": 75,
+      "name": "Daily Morning Digest Compiler",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-076",
+      "kind": "worker",
+      "number": 76,
+      "name": "Vintage-Spec Mechanical Appliance Scorer",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-077",
+      "kind": "worker",
+      "number": 77,
+      "name": "Universal OBD-II Diagnostic Code Decoder",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-078",
+      "kind": "worker",
+      "number": 78,
+      "name": "Vehicle Telemetry & Maintenance Log API",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-079",
+      "kind": "worker",
+      "number": 79,
+      "name": "Extendable Furniture Cut-List Calculator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-080",
+      "kind": "worker",
+      "number": 80,
+      "name": "Earth-Sheltered Structure Load Estimator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-081",
+      "kind": "worker",
+      "number": 81,
+      "name": "Gravity-Fed Rainwater Storage Calculator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-082",
+      "kind": "worker",
+      "number": 82,
+      "name": "Metal-Roof vs Shingle Cost Comparator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-083",
+      "kind": "worker",
+      "number": 83,
+      "name": "Zoning Acreage & Setback Checklist Generator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-084",
+      "kind": "worker",
+      "number": 84,
+      "name": "Electrical Panel Circuit Load Balancer",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-085",
+      "kind": "worker",
+      "number": 85,
+      "name": "Multi-Wheel Chassis Geometry Calculator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-086",
+      "kind": "worker",
+      "number": 86,
+      "name": "Thermal Blanket Heat-Retention Modeler",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-087",
+      "kind": "worker",
+      "number": 87,
+      "name": "Bluetooth IMU Motion Analyzer",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-088",
+      "kind": "worker",
+      "number": 88,
+      "name": "Heirloom Seed & Companion-Planting Scheduler",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-089",
+      "kind": "worker",
+      "number": 89,
+      "name": "Herb & Essential-Oil Bath Formulation Calculator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-090",
+      "kind": "worker",
+      "number": 90,
+      "name": "Clover & Shark-Tooth Tide Spotter",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-091",
+      "kind": "worker",
+      "number": 91,
+      "name": "Porch Microclimate Airflow Estimator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-092",
+      "kind": "worker",
+      "number": 92,
+      "name": "Backyard Archery Safety Range Calculator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-093",
+      "kind": "worker",
+      "number": 93,
+      "name": "Low-Cost Kitchen Appliance BOM Optimizer",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-094",
+      "kind": "worker",
+      "number": 94,
+      "name": "Hemp & Bio-Waste Composite Estimator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-095",
+      "kind": "worker",
+      "number": 95,
+      "name": "Great-Circle Compass Navigator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-096",
+      "kind": "worker",
+      "number": 96,
+      "name": "Elevation River-Basin Floodplain Checker",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-097",
+      "kind": "worker",
+      "number": 97,
+      "name": "Solar-Noon & Shadow-Angle Worker",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-098",
+      "kind": "worker",
+      "number": 98,
+      "name": "Audio Frequency Resonance Tone Generator",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-099",
+      "kind": "worker",
+      "number": 99,
+      "name": "Hardware Inventory Spare-Parts Tracker",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-100",
+      "kind": "worker",
+      "number": 100,
+      "name": "Emergency Offline Repair Manual Server",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-W-101",
+      "kind": "worker",
+      "number": 101,
+      "name": "Nathan Tabor Master Dispatch Gateway",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint"
+    },
+    {
+      "id": "NT2-B-001",
+      "kind": "bot",
+      "number": 1,
+      "name": "Root-Word Miner Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-002",
+      "kind": "bot",
+      "number": 2,
+      "name": "Silent-Edit Watchdog Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-003",
+      "kind": "bot",
+      "number": 3,
+      "name": "Reverse-Read Pattern Hunter Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-004",
+      "kind": "bot",
+      "number": 4,
+      "name": "Acrostic & Cipher Sweeper Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-005",
+      "kind": "bot",
+      "number": 5,
+      "name": "Homophone Guard Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-006",
+      "kind": "bot",
+      "number": 6,
+      "name": "Jargon-Shredder Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-007",
+      "kind": "bot",
+      "number": 7,
+      "name": "Proverb Extractor Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-008",
+      "kind": "bot",
+      "number": 8,
+      "name": "Unsaid-Gap Auditor Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-009",
+      "kind": "bot",
+      "number": 9,
+      "name": "Etymology Drift Tracker Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-010",
+      "kind": "bot",
+      "number": 10,
+      "name": "KJV Verbatim Integrity Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-011",
+      "kind": "bot",
+      "number": 11,
+      "name": "Phonetic Dictionary Builder Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-012",
+      "kind": "bot",
+      "number": 12,
+      "name": "101-Acronym Expansion Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-013",
+      "kind": "bot",
+      "number": 13,
+      "name": "Metaphor-Matcher Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-014",
+      "kind": "bot",
+      "number": 14,
+      "name": "Paradox Resolver Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-015",
+      "kind": "bot",
+      "number": 15,
+      "name": "Cross-Cultural Root Linker Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-016",
+      "kind": "bot",
+      "number": 16,
+      "name": "Cadence & Rhythm Polisher Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-017",
+      "kind": "bot",
+      "number": 17,
+      "name": "Name-Meaning Profiler Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-018",
+      "kind": "bot",
+      "number": 18,
+      "name": "Primary-Source Citation Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-019",
+      "kind": "bot",
+      "number": 19,
+      "name": "Contradiction-Spotter Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-020",
+      "kind": "bot",
+      "number": 20,
+      "name": "Red-Letter Separator Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-021",
+      "kind": "bot",
+      "number": 21,
+      "name": "Bilingual Parallel Aligner Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-022",
+      "kind": "bot",
+      "number": 22,
+      "name": "Book-Title & Wordplay Generator Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-023",
+      "kind": "bot",
+      "number": 23,
+      "name": "Bottom-Up Outline Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-024",
+      "kind": "bot",
+      "number": 24,
+      "name": "Ambiguity-Alert Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-025",
+      "kind": "bot",
+      "number": 25,
+      "name": "Daily Lexicon Digest Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-026",
+      "kind": "bot",
+      "number": 26,
+      "name": "1 / 0 Gatekeeper Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-027",
+      "kind": "bot",
+      "number": 27,
+      "name": "Verbatim-Lock Guardian Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-028",
+      "kind": "bot",
+      "number": 28,
+      "name": "Marketing-Fluff Stripper Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-029",
+      "kind": "bot",
+      "number": 29,
+      "name": "Terms-of-Service Trap Detector Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-030",
+      "kind": "bot",
+      "number": 30,
+      "name": "Link-Rot Rescue Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-031",
+      "kind": "bot",
+      "number": 31,
+      "name": "Institutional Accountability Tracker Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-032",
+      "kind": "bot",
+      "number": 32,
+      "name": "Planned-Obsolescence Whistleblower Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-033",
+      "kind": "bot",
+      "number": 33,
+      "name": "Financial Fee-Skim Detector Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-034",
+      "kind": "bot",
+      "number": 34,
+      "name": "Deepfake & Media-Manipulation Sentinel Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-035",
+      "kind": "bot",
+      "number": 35,
+      "name": "Public-Record FOIA Monitor Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-036",
+      "kind": "bot",
+      "number": 36,
+      "name": "Nonprofit 990 Transparency Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-037",
+      "kind": "bot",
+      "number": 37,
+      "name": "Patent & Prior-Art Watchdog Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-038",
+      "kind": "bot",
+      "number": 38,
+      "name": "Spin-Neutralizer Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-039",
+      "kind": "bot",
+      "number": 39,
+      "name": "Promise-vs-Delivery Auditor Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-040",
+      "kind": "bot",
+      "number": 40,
+      "name": "Supply-Chain & Recall Alert Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-041",
+      "kind": "bot",
+      "number": 41,
+      "name": "Data-Broker Opt-Out & Privacy Patrol Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-042",
+      "kind": "bot",
+      "number": 42,
+      "name": "Domain & SSL Hijack Sentinel Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-043",
+      "kind": "bot",
+      "number": 43,
+      "name": "Duplicate-Noise Purger Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-044",
+      "kind": "bot",
+      "number": 44,
+      "name": "Sovereign Cold-Backup Courier Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-045",
+      "kind": "bot",
+      "number": 45,
+      "name": "API-Quota & Billing Shield Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-046",
+      "kind": "bot",
+      "number": 46,
+      "name": "Error-Spike Auto-Healer Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-047",
+      "kind": "bot",
+      "number": 47,
+      "name": "Dependency & Security Patch Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-048",
+      "kind": "bot",
+      "number": 48,
+      "name": "Broken-Route & 404 Sweeper Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-049",
+      "kind": "bot",
+      "number": 49,
+      "name": "Sovereign Audit-Chain Verifier Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-050",
+      "kind": "bot",
+      "number": 50,
+      "name": "Morning Threat & Integrity Briefing Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-051",
+      "kind": "bot",
+      "number": 51,
+      "name": "Voice-to-Worker Compiler Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-052",
+      "kind": "bot",
+      "number": 52,
+      "name": "D1 Index Optimizer Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-053",
+      "kind": "bot",
+      "number": 53,
+      "name": "Monorepo Splitter Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-054",
+      "kind": "bot",
+      "number": 54,
+      "name": "Mosaic RAG Ingestor Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-055",
+      "kind": "bot",
+      "number": 55,
+      "name": "Codex Cross-Linker Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-056",
+      "kind": "bot",
+      "number": 56,
+      "name": "Schema-Migration Guardian Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-057",
+      "kind": "bot",
+      "number": 57,
+      "name": "Dead-Code & Bloat Stripper Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-058",
+      "kind": "bot",
+      "number": 58,
+      "name": "API-Documentation Generator Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-059",
+      "kind": "bot",
+      "number": 59,
+      "name": "Automated Unit-Test Runner Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-060",
+      "kind": "bot",
+      "number": 60,
+      "name": "KV Cache Pre-Warmer Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-061",
+      "kind": "bot",
+      "number": 61,
+      "name": "GitHub-to-R2 Mirror Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-062",
+      "kind": "bot",
+      "number": 62,
+      "name": "Cross-Language Porting Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-063",
+      "kind": "bot",
+      "number": 63,
+      "name": "SVG Diagram & Blueprint Drawer Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-064",
+      "kind": "bot",
+      "number": 64,
+      "name": "Webhook Retry & Recovery Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-065",
+      "kind": "bot",
+      "number": 65,
+      "name": "Secret-Rotation & Key-Hygiene Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-066",
+      "kind": "bot",
+      "number": 66,
+      "name": "Cron-Schedule Coordinator Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-067",
+      "kind": "bot",
+      "number": 67,
+      "name": "Mobile UI Responsiveness Auditor Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-068",
+      "kind": "bot",
+      "number": 68,
+      "name": "Library-of-Congress Cataloger Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-069",
+      "kind": "bot",
+      "number": 69,
+      "name": "Multi-Model Consensus Arbitrator Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-070",
+      "kind": "bot",
+      "number": 70,
+      "name": "Offline Bundle Packager Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-071",
+      "kind": "bot",
+      "number": 71,
+      "name": "Latency & Cold-Start Profiler Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-072",
+      "kind": "bot",
+      "number": 72,
+      "name": "Automated Release-Notes Historian Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-073",
+      "kind": "bot",
+      "number": 73,
+      "name": "BUILD FLIP QI QE Tagger Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-074",
+      "kind": "bot",
+      "number": 74,
+      "name": "Fleet-Scaling Load Balancer Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-075",
+      "kind": "bot",
+      "number": 75,
+      "name": "Self-Documenting Registry Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-076",
+      "kind": "bot",
+      "number": 76,
+      "name": "Vintage-Appliance Hunter Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-077",
+      "kind": "bot",
+      "number": 77,
+      "name": "Rural Acreage & Land-Deal Scout Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-078",
+      "kind": "bot",
+      "number": 78,
+      "name": "OBD-II Predictive Maintenance Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-079",
+      "kind": "bot",
+      "number": 79,
+      "name": "Custom Carpentry Cut-Optimizer Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-080",
+      "kind": "bot",
+      "number": 80,
+      "name": "Underground & Earth-Sheltered Research Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-081",
+      "kind": "bot",
+      "number": 81,
+      "name": "Children's Story & Fable Illustrator Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-082",
+      "kind": "bot",
+      "number": 82,
+      "name": "Bedtime Chapter Compiler Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-083",
+      "kind": "bot",
+      "number": 83,
+      "name": "Handling Life Community-Aid Matcher Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-084",
+      "kind": "bot",
+      "number": 84,
+      "name": "Local Weather & Porch-Comfort Forecaster Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-085",
+      "kind": "bot",
+      "number": 85,
+      "name": "Tides & Foraging Window Alert Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-086",
+      "kind": "bot",
+      "number": 86,
+      "name": "Heirloom Seed & Garden Almanac Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-087",
+      "kind": "bot",
+      "number": 87,
+      "name": "IMU Movement & Athletic Form Coach Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-088",
+      "kind": "bot",
+      "number": 88,
+      "name": "Simple-Kitchen Invention Researcher Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-089",
+      "kind": "bot",
+      "number": 89,
+      "name": "Historical Newspaper & Local Lore Archivist Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-090",
+      "kind": "bot",
+      "number": 90,
+      "name": "Family Heritage & Oral-History Interviewer Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-091",
+      "kind": "bot",
+      "number": 91,
+      "name": "Daily Proverb & Wisdom Reflection Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-092",
+      "kind": "bot",
+      "number": 92,
+      "name": "Deal-Structure & Royalty Calculator Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-093",
+      "kind": "bot",
+      "number": 93,
+      "name": "Acoustic & Frequency Experiment Logger Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-094",
+      "kind": "bot",
+      "number": 94,
+      "name": "Gift & Practical-Need Idea Finder Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-095",
+      "kind": "bot",
+      "number": 95,
+      "name": "Travel-Route & Scenic Backroads Mapper Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-096",
+      "kind": "bot",
+      "number": 96,
+      "name": "Book-Publishing & Print-Ready Formatter Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-097",
+      "kind": "bot",
+      "number": 97,
+      "name": "Grassroots Launch Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-098",
+      "kind": "bot",
+      "number": 98,
+      "name": "Customer-First Quality Auditor Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-099",
+      "kind": "bot",
+      "number": 99,
+      "name": "Rest-Cycle & Wind-Down Reminder Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-100",
+      "kind": "bot",
+      "number": 100,
+      "name": "Cross-Fleet Synergy Finder Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    },
+    {
+      "id": "NT2-B-101",
+      "kind": "bot",
+      "number": 101,
+      "name": "Sovereign Crown Commander Bot",
+      "status": "specified_not_built",
+      "source": "user_supplied_second_202_blueprint",
+      "permissions": "no_external_write_without_approval"
+    }
+  ]
+}

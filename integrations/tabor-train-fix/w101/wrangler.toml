@@ -1,0 +1,9 @@
+name = "tabor-w101-gateway"
+main = "src/index.ts"
+compatibility_date = "2026-11-18"
+# Replace the database_id with the intended existing D1 database ID before deployment.
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "tabor-fleet-registry"
+# database_id = "CONFIGURE_EXISTING_DATABASE_ID"
+# Configure AUTH_TOKEN with wrangler secret put AUTH_TOKEN

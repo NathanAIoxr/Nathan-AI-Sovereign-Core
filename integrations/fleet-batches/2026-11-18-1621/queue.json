@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "batch": "2026-11-18-1621",
+  "registry_path": "integrations/tabor-all-909-expanded-source-registry.json",
+  "registry_total": 909,
+  "previous_source_built": [
+    "NTW-002",
+    "NTW-003",
+    "NTW-004",
+    "NTW-006"
+  ],
+  "new_source_built": [
+    "NTW-005",
+    "NTW-007"
+  ],
+  "cumulative_source_built_in_three_batches": 6,
+  "remaining_not_built_by_these_batches": 903,
+  "tests": {
+    "runner": "node --test units.test.mjs",
+    "passed": 9,
+    "failed": 0,
+    "location": "local"
+  },
+  "new_deployments": 0,
+  "units": [
+    {
+      "id": "NTW-005",
+      "name": "IPA Sound Mapper",
+      "state": "bounded_offline_source_built_locally_tested_not_deployed"
+    },
+    {
+      "id": "NTW-007",
+      "name": "Strong Root Concordance",
+      "state": "caller_supplied_lookup_source_built_locally_tested_not_deployed"
+    }
+  ],
+  "next_candidates": [
+    "NTW-008",
+    "NTW-009"
+  ],
+  "blockers": [
+    "Cross-repository implementation reconciliation incomplete",
+    "No independent GitHub CI receipt",
+    "Not packaged as reviewed Cloudflare Worker entrypoints",
+    "Strong root dataset not provided; no definitions invented"
+  ],
+  "preserve_existing": true,
+  "auto_replication": false,
+  "scope_note": "903 is 909 minus six newly built in these batches, not a claim of no preexisting implementation"
+}

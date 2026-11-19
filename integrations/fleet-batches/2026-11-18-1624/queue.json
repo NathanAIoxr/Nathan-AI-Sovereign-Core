@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "batch": "2026-11-18-1624",
+  "registry_total": 909,
+  "source_registry": "integrations/tabor-all-909-expanded-source-registry.json",
+  "previous_built": [
+    "NTW-002",
+    "NTW-003",
+    "NTW-004",
+    "NTW-005",
+    "NTW-006",
+    "NTW-007"
+  ],
+  "new_source_built": [
+    "NTW-008",
+    "NTW-009"
+  ],
+  "cumulative_built_in_four_batches": 8,
+  "remaining_outside_four_batches": 901,
+  "tests": {
+    "local_passed": 9,
+    "local_failed": 0,
+    "github_ci": "unverified"
+  },
+  "new_deployments": 0,
+  "units": [
+    {
+      "id": "NTW-008",
+      "name": "Historical Meaning Drift",
+      "status": "tested_offline_not_deployed"
+    },
+    {
+      "id": "NTW-009",
+      "name": "Word Family Graph",
+      "status": "tested_offline_not_deployed"
+    }
+  ],
+  "next_actions": [
+    "Reconcile 18-layer atlas source",
+    "Reconcile 205 public-source candidates",
+    "Independent CI verification",
+    "Review packaging and deployment"
+  ],
+  "preserve_existing": true,
+  "no_self_propagation": true
+}
