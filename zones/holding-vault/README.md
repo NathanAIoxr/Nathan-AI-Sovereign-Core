@@ -56,3 +56,9 @@ jq -n --arg name "$PROJECT_DOMAIN" '{name:$name}' |
 ```
 
 Verify the DNS, certificate, application response, and access boundary before switching an individual project to `LIVE`. To redirect traffic from its holding URL, the project row must identify the active Cloudflare zone and an approved HTTPS URL on the assigned domain. Enable the global launch variable only for a release that is ready to follow this policy. Private R2 assets remain behind Access.
+
+## Replicate the private build inventory
+
+Run `node scripts/sync-replica.mjs` from this directory after applying the migrations. The Cloudflare token needs access to read the build ledger and Pages inventory and write to the Holding Vault database. The sync preserves project scopes, keeps existing launch controls, and stores source snapshots and SHA-256 digests in D1. A project can have GitHub, native platform, game station, audit, and release components. An existing production reference describes the original project. The replica stays in HOLDING.
+
+Open a project in the owner preview to inspect its staged components or download its JSON snapshot. Source file and asset references point to their original locations. Use the app's own build workflow for its code and binaries. Native signatures, private R2 object bytes, and complete production databases are outside this inventory import.
