@@ -1,0 +1,46 @@
+{
+  "project": "elemental-charge",
+  "status": "source-backed educational examples; no physical artifact or custody claim",
+  "original_source": "standalone-apps/artifacts-of-the-world/original.txt",
+  "author_excerpt": "plus bringing all the elemental charge",
+  "formula": "net charge in elementary-charge units = protons - electrons",
+  "examples": [
+    {
+      "name": "Sodium cation Na⁺",
+      "protons": 11,
+      "electrons": 10,
+      "charge_e": 1
+    },
+    {
+      "name": "Chloride anion Cl⁻",
+      "protons": 17,
+      "electrons": 18,
+      "charge_e": -1
+    },
+    {
+      "name": "Neutral sodium atom Na",
+      "protons": 11,
+      "electrons": 11,
+      "charge_e": 0
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://openstax.org/books/chemistry-atoms-first-2e/pages/3-7-ionic-and-molecular-compounds",
+      "supports": "Ions gain or lose electrons and have positive or negative net charge; chemical examples"
+    },
+    {
+      "url": "https://www.nist.gov/pml/owm/si-units-electric-current",
+      "supports": "SI electric current and elementary charge context, not a custody record"
+    }
+  ],
+  "unresolved": [
+    "No object identity or custody evidence is inferred from charge examples."
+  ],
+  "source_types": {
+    "author_excerpt": "author quotation",
+    "formula": "scientific explanation",
+    "examples": "worked calculations",
+    "unresolved": "research boundary"
+  }
+}
