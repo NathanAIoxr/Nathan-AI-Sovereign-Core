@@ -16,5 +16,12 @@
   "related": [
     "taborboy",
     "taborpool"
-  ]
+  ],
+  "workerBot": {
+    "name": "taborpoolboys-worker",
+    "namespace": "nathan-tabor-platforms",
+    "scheduleOwner": "nathan-ai-pocket-codex",
+    "purpose": "Verify deployed pages and cover checksums"
+  },
+  "hubUrl": "https://nathan-ai-pocket-codex.nathantaboract.workers.dev/work/taborpoolboys/"
 }

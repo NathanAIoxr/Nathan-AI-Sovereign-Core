@@ -29,8 +29,9 @@ for (const app of projects) {
   await writeFile(resolve(target, app.worker + '.mjs'), station + '\nexport default createProject(' + JSON.stringify(app) + ');\n');
 }
 for (const app of standaloneApps) {
+  const expectedOrigin = app.id === 'taborpoolboys' ? 'https://pub-2df43f63514844ecbcd9f7da4de75d89.r2.dev' : 'https://' + app.id + '.pages.dev';
   if (!/^[a-z0-9-]+$/.test(app.id) || app.worker !== app.id + '-worker' || app.group !== 'standalone-apps' ||
-      appIds.has(app.id) || workerNames.has(app.worker) || new URL(app.url).origin !== 'https://' + app.id + '.pages.dev') {
+      appIds.has(app.id) || workerNames.has(app.worker) || new URL(app.url).origin !== expectedOrigin) {
     throw new Error('Invalid standalone app ' + app.id);
   }
   appIds.add(app.id);
