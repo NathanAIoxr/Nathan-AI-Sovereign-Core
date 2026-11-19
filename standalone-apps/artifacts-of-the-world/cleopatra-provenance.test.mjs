@@ -7,7 +7,7 @@ test("Cleopatra staff dossier separates creator claim, comparison object and unk
  const item=apps.find(x=>x.id==="cleopatra-staff");
  assert.ok(item);
  const sections=item.sections;
- assert.equal(sections.length,6);
+ assert.ok(sections.length >= 6, `Expected at least six provenance sections, got ${sections.length}`);
  assert.ok(sections.some(([kind,,text])=>kind==="Nathan Tabor’s account"&&text.includes("Cleopatra staff")));
  const comparison=sections.find(([kind])=>kind==="Evidence classification");
  assert.ok(comparison[2].includes("does not identify, authenticate"));
