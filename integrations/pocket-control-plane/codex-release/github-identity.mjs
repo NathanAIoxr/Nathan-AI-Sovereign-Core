@@ -12,16 +12,28 @@ function parse(segment) {
   return JSON.parse(new TextDecoder().decode(decode(segment)));
 }
 
+export function claimChecks(claims, now) {
+  const legacy = 'repo:' + repo + ':ref:refs/heads/main';
+  const immutable = 'repo:NathanAIoxr@226606102/Nathan-AI-Sovereign-Core@1038249626:ref:refs/heads/main';
+  return {
+    issuer: claims.iss === issuer,
+    audience: claims.aud === audience,
+    repository: String(claims.repository_id) === '1038249626' && String(claims.repository_owner_id) === '226606102',
+    subject: claims.sub === legacy || claims.sub === immutable,
+    branch: claims.ref === 'refs/heads/main',
+    workflow: claims.workflow_ref === workflow,
+    event: ['push', 'schedule', 'workflow_dispatch'].includes(claims.event_name),
+    issued: Number.isInteger(claims.iat) && claims.iat <= now + 20 && claims.iat >= now - 900,
+    starts: Number.isInteger(claims.nbf) && claims.nbf <= now + 20,
+    expires: Number.isInteger(claims.exp) && claims.exp > now && claims.exp <= claims.iat + 900,
+    run: typeof claims.run_id === 'string' && /^\d{1,20}$/.test(claims.run_id) &&
+      typeof claims.run_attempt === 'string' && /^\d{1,8}$/.test(claims.run_attempt),
+    commit: typeof claims.sha === 'string' && /^[a-f0-9]{40}$/.test(claims.sha),
+  };
+}
+
 export function validClaims(claims, now) {
-  return claims.iss === issuer && claims.aud === audience && claims.repository_id === '1038249626' &&
-    claims.sub === 'repo:' + repo + ':ref:refs/heads/main' && claims.ref === 'refs/heads/main' &&
-    claims.workflow_ref === workflow && ['push', 'schedule', 'workflow_dispatch'].includes(claims.event_name) &&
-    Number.isInteger(claims.iat) && claims.iat <= now + 10 && claims.iat >= now - 600 &&
-    Number.isInteger(claims.nbf) && claims.nbf <= now + 10 &&
-    Number.isInteger(claims.exp) && claims.exp > now && claims.exp <= claims.iat + 600 &&
-    typeof claims.run_id === 'string' && /^\d{1,20}$/.test(claims.run_id) &&
-    typeof claims.run_attempt === 'string' && /^\d{1,8}$/.test(claims.run_attempt) &&
-    typeof claims.sha === 'string' && /^[a-f0-9]{40}$/.test(claims.sha);
+  return Object.values(claimChecks(claims, now)).every(Boolean);
 }
 
 export async function verifyGitHubReceipt(header, fetchKeys = fetch, now = Date.now() / 1000) {

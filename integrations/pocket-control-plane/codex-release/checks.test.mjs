@@ -50,13 +50,15 @@ test('basic routing, written content, interaction, link safety, and source separ
 test('GitHub receipt requires an exact repository, workflow, branch, and valid signature', async () => {
   const time = 10000;
   const claims = {
-    iss: 'https://token.actions.githubusercontent.com', aud: origin, repository_id: '1038249626',
+    iss: 'https://token.actions.githubusercontent.com', aud: origin, repository_id: '1038249626', repository_owner_id: '226606102',
     sub: 'repo:NathanAIoxr/Nathan-AI-Sovereign-Core:ref:refs/heads/main', ref: 'refs/heads/main',
     workflow_ref: 'NathanAIoxr/Nathan-AI-Sovereign-Core/.github/workflows/codex-pocket-build.yml@refs/heads/main',
     event_name: 'workflow_dispatch', iat: time, nbf: time, exp: time + 300,
     run_id: '12800000', run_attempt: '1', sha: 'a'.repeat(40),
   };
   assert.equal(validClaims(claims, time), true);
+  assert.equal(validClaims({ ...claims, sub: 'repo:NathanAIoxr@226606102/Nathan-AI-Sovereign-Core@1038249626:ref:refs/heads/main' }, time), true);
+  assert.equal(validClaims({ ...claims, repository_owner_id: '2' }, time), false);
   assert.equal(validClaims({ ...claims, repository_id: '2' }, time), false);
   assert.equal(validClaims({ ...claims, workflow_ref: 'different' }, time), false);
   assert.equal(validClaims(claims, time + 300), false);

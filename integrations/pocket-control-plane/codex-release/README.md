@@ -6,7 +6,7 @@ The deployed dashboard shares a GitHub Pro tab and a Clouder Pro tab within Nath
 
 Builds validate and package the source on GitHub. Live code was deployed through the authorized Cloudflare account separately. Automatic Cloudflare deployment requires an authenticated deployment integration. Cloudflare's native Git connection returned a disconnected-account error during setup.
 
-Private emails, author archives, and full recovery artifacts are stored separately from the public repository and from the public Worker. The dashboard runtime binds only the build receipt key-value store and the existing dispatch namespace, and routes only the project Worker names listed in its build manifest.
+Private emails, author archives, and the full recovery index are stored separately from the public repository and from the public Worker. The dashboard runtime binds only the build receipt key-value store and the existing dispatch namespace, and routes only the project Worker names listed in its build manifest.
 
 ## Run checks and compile
 
@@ -14,3 +14,11 @@ Private emails, author archives, and full recovery artifacts are stored separate
     node integrations/pocket-control-plane/codex-release/build.mjs dist-pocket-codex
 
 The live directory is https://nathan-ai-pocket-codex.nathantaboract.workers.dev/.
+
+## Restore the private archive
+
+With a scoped KV read token and the account and private namespace IDs in `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, and `CODEX_ARCHIVE_NAMESPACE`, run:
+
+    node integrations/pocket-control-plane/codex-release/restore-archive.mjs /path/to/private/restore
+
+The restore command verifies original bytes against the stored SHA-256 of each file. It reads only the owner-authorized Codex archive namespace.
