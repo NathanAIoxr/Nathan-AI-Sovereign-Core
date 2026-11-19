@@ -22,14 +22,6 @@ python3 scripts/icons.py
 xcodegen generate
 mkdir -p dist
 
-if [[ "${RUN_SIMULATOR_TESTS:-0}" == 1 ]]; then
-  device="$(xcrun simctl list devices available --json | python3 -c 'import json,sys; data=json.load(sys.stdin); devices=[d for r,items in data["devices"].items() if ".iOS-" in r for d in items if d["name"].startswith("iPhone")]; assert devices, "No iPhone simulator installed"; print(next((d for d in devices if d["name"] == "iPhone 17 Pro Max"), devices[0])["udid"])')"
-  xcodebuild -project TaborGames.xcodeproj -scheme "$scheme" \
-    -destination "platform=iOS Simulator,id=$device" -derivedDataPath ".build/$scheme-sim" \
-    -resultBundlePath "dist/$scheme-simulator-${GITHUB_RUN_ATTEMPT:-1}.xcresult" \
-    -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO test
-fi
-
 xcodebuild -project TaborGames.xcodeproj -scheme "$scheme" -configuration Release \
   -destination 'generic/platform=iOS' -derivedDataPath ".build/$scheme" \
   CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
@@ -57,3 +49,11 @@ rm -f "$archive"
 (cd "$stage" && zip -qry "$archive" Payload)
 unzip -tq "$archive"
 echo "Unsigned validation archive: $archive"
+
+if [[ "${RUN_SIMULATOR_TESTS:-0}" == 1 ]]; then
+  device="$(xcrun simctl list devices available --json | python3 -c 'import json,sys; data=json.load(sys.stdin); devices=[d for r,items in data["devices"].items() if ".iOS-" in r for d in items if d["name"].startswith("iPhone")]; assert devices, "No iPhone simulator installed"; print(next((d for d in devices if d["name"] == "iPhone 17 Pro Max"), devices[0])["udid"])')"
+  xcodebuild -project TaborGames.xcodeproj -scheme "$scheme" \
+    -destination "platform=iOS Simulator,id=$device" -derivedDataPath ".build/$scheme-sim" \
+    -resultBundlePath "dist/$scheme-simulator-${GITHUB_RUN_ATTEMPT:-1}.xcresult" \
+    -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO test
+fi

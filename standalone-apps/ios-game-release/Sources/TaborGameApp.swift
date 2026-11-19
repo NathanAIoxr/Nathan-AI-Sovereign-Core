@@ -169,9 +169,13 @@ final class GameAssetHandler: NSObject, WKURLSchemeHandler {
     func webView(_ webView: WKWebView, start task: WKURLSchemeTask) {
         guard let url = task.request.url, url.scheme == bundledOrigin.scheme, url.host == bundledOrigin.host,
               ["GET", "HEAD"].contains(task.request.httpMethod ?? "GET"),
-              let asset = routes[url.path],
-              let base = Bundle.main.resourceURL,
-              let data = try? Data(contentsOf: base.appendingPathComponent((asset.file as NSString).lastPathComponent)),
+              let asset = routes[url.path.isEmpty ? "/" : url.path],
+              let base = Bundle.main.resourceURL else {
+            task.didFailWithError(URLError(.fileDoesNotExist))
+            return
+        }
+        let file = base.appendingPathComponent((asset.file as NSString).lastPathComponent)
+        guard let data = try? Data(contentsOf: file),
               let response = HTTPURLResponse(
                 url: url, statusCode: 200, httpVersion: "HTTP/1.1",
                 headerFields: [
@@ -231,7 +235,7 @@ struct LocalGameView: UIViewRepresentable {
             if action.shouldPerformDownload, url.scheme == "blob" {
                 decisionHandler(.download)
             } else if url.scheme == bundledOrigin.scheme, url.host == bundledOrigin.host,
-                      owner.shelf.routes[url.path] != nil {
+                      owner.shelf.routes[url.path.isEmpty ? "/" : url.path] != nil {
                 decisionHandler(action.shouldPerformDownload ? .download : .allow)
             } else {
                 decisionHandler(.cancel)
@@ -243,7 +247,16 @@ struct LocalGameView: UIViewRepresentable {
         }
 
         func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-            if (error as NSError).code != NSURLErrorCancelled { owner.failure = true }
+            showNavigationFailure(error)
+        }
+
+        func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+            showNavigationFailure(error)
+        }
+
+        private func showNavigationFailure(_ error: Error) {
+            guard (error as NSError).code != NSURLErrorCancelled else { return }
+            owner.failure = true
         }
 
         func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {

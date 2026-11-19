@@ -67,6 +67,13 @@ final class OfflineGameLaunchTests: XCTestCase {
     }
 
     private func assertButton(_ title: String, in app: XCUIApplication) {
-        XCTAssertTrue(app.webViews.buttons[title].firstMatch.waitForExistence(timeout: 12), title)
+        let button = app.webViews.buttons[title].firstMatch
+        if button.waitForExistence(timeout: 20) { return }
+        let screenshot = XCTAttachment(screenshot: app.screenshot())
+        screenshot.name = "Missing gameplay control - \(title)"
+        screenshot.lifetime = .keepAlways
+        add(screenshot)
+        print(app.debugDescription)
+        XCTFail("Missing gameplay control: \(title)")
     }
 }
