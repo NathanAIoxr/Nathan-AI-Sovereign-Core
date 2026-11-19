@@ -38,6 +38,7 @@ function rootPage() {
   }).join('');
   return frame('The Root of 0 and 1', `
     <h1>The Root of 0 and 1</h1>
+    <p class="intro"><strong>${escapeHTML(release.framing)}</strong></p>
     <blockquote><p>${escapeHTML(release.rootDirective)}</p><cite>Nathan Tabor</cite></blockquote>
     <p class="intro"><strong>0 = 0 · 1 = 1</strong></p>
     <p>In the finale, 0 marks a case still open. 1 marks a repair verified by the people it affected. The original act and the repair both stay on the record.</p>

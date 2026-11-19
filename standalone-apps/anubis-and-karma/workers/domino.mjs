@@ -20,6 +20,7 @@ const isRelease = (record) => record?.id === release.id
   && release.entries.every((entry, i) => entry.id === record.entries[i]?.id)
   && record?.premise === release.premise
   && record?.rootDirective === release.rootDirective
+  && record?.framing === release.framing
   && isCatalog(record?.textIndex);
 
 function isCatalog(record) {

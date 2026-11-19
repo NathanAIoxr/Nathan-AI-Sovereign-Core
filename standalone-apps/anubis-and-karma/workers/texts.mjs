@@ -61,7 +61,8 @@ function directory(current) {
   const matches = results(current);
   return frame('The Root of 0 and 1 · Text Index', `
     <h1>The Root of 0 and 1</h1>
-    <p class="intro">Ancient to modern text index</p>
+    <p class="intro"><strong>${safe(release.framing)}</strong></p>
+    <p>Ancient to modern text index</p>
     <blockquote><p>${safe(release.rootDirective)}</p><cite>Nathan Tabor</cite></blockquote>
     <p><strong>0 = 0 · 1 = 1</strong></p>
     <p class="credit">1+1=2 Build · 1−1=0 Clear · 1×1=1 Integrate · 1÷1=1 Verify</p>

@@ -67,3 +67,5 @@ button:hover,.button:hover{background:#3a2f1d;border-color:var(--gold)}
 .text-record p{overflow-wrap:anywhere}
 .text-source,.text-topic{margin:.35rem 0;color:var(--muted);font-size:.87rem}
 @media(max-width:680px){.text-filters{grid-template-columns:1fr 1fr}.text-filters label:first-child{grid-column:1/-1}}
+
+.hero h1.war-title{font-size:clamp(2.3rem,5.25vw,5.15rem);line-height:1.02;letter-spacing:-.045em}

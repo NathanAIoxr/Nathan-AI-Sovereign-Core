@@ -39,7 +39,7 @@ test('entry Workers retain their independent archive identities', async () => {
 
 test('finale serves an interactive page, a readable story and a download', async () => {
   const site = await finale.fetch(request('/'));
-  assert.match(await site.text(), /Anubis <em>/);
+  assert.match(await site.text(), /<h1 id="title" class="war-title">Angels and Demons\. God versus Satan\.<\/h1>/);
   assert.match((await finale.fetch(request('/client.mjs'))).headers.get('content-type'), /javascript/);
   assert.match(await (await finale.fetch(request('/read'))).text(), /The Last Weighing/);
   const book = await finale.fetch(request('/book.txt'));
@@ -55,6 +55,8 @@ test('the Root page preserves the directive and cites the KJV', async () => {
   const body = await page.text();
   assert.equal(page.status, 200);
   assert.ok(body.includes(release.rootDirective));
+  assert.ok(body.includes(release.framing));
+  assert.ok((await (await texts.fetch(request('/'))).text()).includes(release.framing));
   assert.match(body, /0 = 0 · 1 = 1/);
   assert.match(body, /Revelation 12:7–9 \(KJV\)/);
   assert.match(body, /Romans 6:16–18 \(KJV\)/);
