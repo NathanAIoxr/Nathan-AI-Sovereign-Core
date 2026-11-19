@@ -42,6 +42,7 @@ function page() {
     [base+"/api/receipts","Development mining receipts"],
     [base+"/api/verify?slot=1","Verify the first receipt"],
     [base+"/api/verification","Verify all 64 receipts"],
+    [base+"/api/compute","Compute controller and proof checks"],
     ...companionApps
   ]);
   return new Response('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nathan AI 🚀 Coin Ledger</title><main><h1>Nathan AI 🚀 Coin Ledger</h1><p>Seven D1 partitions. The original 64 slot addresses and their source status.</p><p>Development proof-of-work writes verification receipts. No currency is represented by a receipt.</p><ul>'+links+'</ul></main>',{headers:{"Content-Type":"text/html; charset=utf-8","Content-Security-Policy":"default-src 'none'; base-uri 'none'; frame-ancestors 'none'"}});
@@ -82,6 +83,22 @@ async fetch(request,env) {
     if(path==="/blueprint.txt")return new Response(blueprint,{headers:{"Content-Type":"text/plain; charset=utf-8","X-Content-Type-Options":"nosniff"}});
     if(path==="/blueprint")return new Response('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nathan AI · Book Blueprint</title><main><h1>Nathan AI 🚀 Book Blueprint</h1><nav><a href="/">Coin ledger</a> · <a href="https://nathan-ai-crypto-64.nathantaboract.workers.dev/manuscript.txt">Previous scene</a> · <a href="/blueprint.txt">Original plain text</a></nav><section><h2>Supplied blueprint</h2>'+blueprint.split(/\n\n+/).map(paragraph=>'<p>'+escape(paragraph).replaceAll("\n","<br>")+'</p>').join("")+'</section><section><h2>Technical note</h2><p>'+escape(technicalNote)+'</p></section><section><h2>Connected Nathan AI apps</h2><ul>'+appLinks(companionApps)+'</ul></section></main></html>',{headers:{"Content-Type":"text/html; charset=utf-8","Content-Security-Policy":"default-src 'none'; base-uri 'none'; frame-ancestors 'none'"}});
 
+    if(path==="/api/compute") {
+      const [controller,audit] = await Promise.allSettled([
+        Promise.resolve().then(()=>env.DATABASE_COMPUTE.fetch("https://internal/healthz")).then(async result=>{
+          if(!result.ok) throw Error("Controller unavailable");
+          const data=await result.json();
+          if(data.status!=="ok" || !Number.isInteger(data.databases) || data.databases<1 ||
+             !Number.isInteger(data.placementsPerDatabase) || data.placementsPerDatabase<1) throw Error("Invalid controller response");
+          return {databases:data.databases,placementsPerDatabase:data.placementsPerDatabase};
+        }),
+        auditReceipts(env.DB)
+      ]);
+      const health=controller.status==="fulfilled"?controller.value:null;
+      const proof=audit.status==="fulfilled"?audit.value:null;
+      const ok=Boolean(health&&proof?.ok);
+      return response({ok,controller:health,developmentProofs:proof},ok?200:503);
+    }
     if(path==="/api/verification") {
       const [audit,lastSuccessfulSchedule] = await Promise.all([
         auditReceipts(env.DB),

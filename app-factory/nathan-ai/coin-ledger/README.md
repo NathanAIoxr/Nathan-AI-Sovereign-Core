@@ -15,3 +15,5 @@ The [book blueprint](https://nathan-ai-coin-ledger.nathantaboract.workers.dev/bl
 ## Automated verification
 
 The ledger home and book blueprint link the six existing standalone apps. The Cloudflare Cron Trigger `17 * * * *` runs the development receipt audit hourly. A successful scheduled run updates its timestamp in `cycle_clock`. `GET /api/verification` independently checks the current receipts and reports the most recent successful scheduled run. The audit preserves the original proofs and uses no mining credentials.
+
+`GET /api/compute` checks the private `DATABASE_COMPUTE` service binding to `tabor-database-compute-control` and verifies the ledger receipts. The controller response describes registered database placements. It does not start containers or represent production mining activity.

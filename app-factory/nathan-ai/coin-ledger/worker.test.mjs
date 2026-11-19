@@ -49,3 +49,16 @@ test("scheduled audit verifies every receipt and records the successful run",asy
   assert.equal((await worker.fetch(new Request("https://localhost/api/verification"),{DB})).status,503);
   await assert.rejects(worker.scheduled({scheduledTime:scheduledTime+3600000},{DB}),/audit failed/);
 });
+
+test("compute route keeps controller availability separate from proof results",async()=>{
+  const DB={prepare(){return {all:async()=>({results:[]})};}};
+  const env={DB,DATABASE_COMPUTE:{fetch:async()=>Response.json({status:"ok",databases:55,placementsPerDatabase:4})}};
+  const req=()=>new Request("https://localhost/api/compute");
+  const r=await worker.fetch(req(),env);
+  assert.equal(r.status,503);
+  const result=await r.json();
+  assert.equal(result.controller.databases,55);
+  assert.equal(result.developmentProofs.verified,0);
+  const absent=await (await worker.fetch(req(),{DB})).json();
+  assert.equal(absent.controller,null);
+});
