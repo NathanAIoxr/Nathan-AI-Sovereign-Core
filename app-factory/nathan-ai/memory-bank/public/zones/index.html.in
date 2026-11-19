@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nathan AI Memory Bank</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="brand">NATHAN AI</p>
+      <h1>Memory Bank</h1>
+      <p>Drop it in. Ask for it when you need it.</p>
+      <nav aria-label="Memory Bank">
+        <a href="../">Open your Memory Bank</a>
+      </nav>
+    </header>
+    <section id="zones" aria-labelledby="zones-heading">
+      <h2 id="zones-heading">Memory zones</h2>
+      <ul>
+        <li><a href="../?category=games">Games</a></li>
+        <li><a href="../?category=puzzles">Puzzles</a></li>
+        <li><a href="../?category=hardware">Hardware</a></li>
+        <li><a href="../?category=books">Books</a></li>
+        <li><a href="../?category=code">Code</a></li>
+        <li><a href="../?category=setup">Setup</a></li>
+      </ul>
+    </section>
+    <section aria-labelledby="iphone-heading">
+      <h2 id="iphone-heading">Use it on iPhone</h2>
+      <p>Open the Memory Bank in Safari. Use Share → Add to Home Screen. Unlock it with your key and dictate into Recall or Remember.</p>
+      <p><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/memory-bank#use-it-from-an-iphone">Shortcuts and AI connections</a></p>
+    </section>
+  </main>
+</body>
+</html>

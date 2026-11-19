@@ -1,0 +1,23 @@
+{
+  "name": "nathan-ai-memory-bank",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.16"
+  },
+  "scripts": {
+    "test": "node --test",
+    "mcp": "node scripts/mcp.js",
+    "import": "node scripts/import.js",
+    "backup": "node scripts/github-backup.js",
+    "build:pages": "node scripts/build-pages.js",
+    "build:platform": "node scripts/build-platform.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2"
+  },
+  "devDependencies": {
+    "wrangler": "4.165.0"
+  }
+}

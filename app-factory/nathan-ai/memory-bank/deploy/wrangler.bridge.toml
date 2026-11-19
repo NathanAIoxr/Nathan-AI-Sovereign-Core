@@ -1,0 +1,14 @@
+name = "tabor-bridge"
+main = "tabor-bridge.js"
+compatibility_date = "2026-10-20"
+workers_dev = true
+preview_urls = false
+
+[observability]
+enabled = true
+head_sampling_rate = 1
+redact_query_string = true
+
+[[dispatch_namespaces]]
+binding = "MEMORY_PLATFORM"
+namespace = "nathan-tabor-platforms"

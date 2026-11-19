@@ -1,0 +1,68 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  color: #112624;
+  background: #eef3ef;
+  line-height: 1.5;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; }
+
+main {
+  width: min(100% - 2rem, 42rem);
+  margin-inline: auto;
+  padding-block: 2.5rem 4rem;
+}
+
+header { margin-bottom: 1.8rem; }
+header p { margin: 0; }
+.brand { font-size: .75rem; letter-spacing: .16em; font-weight: 750; }
+h1, h2, h3 { line-height: 1.15; }
+h1 { margin: .25rem 0 .35rem; font-size: clamp(2.5rem, 9vw, 4.2rem); letter-spacing: -.055em; }
+h2 { margin: 0 0 .8rem; font-size: 1.4rem; }
+h3 { margin: 0; font-size: 1.05rem; }
+
+section, #connection {
+  padding: 1.1rem;
+  background: #fff;
+  border: 1px solid #cfdcd4;
+  border-radius: 1rem;
+  margin-top: .85rem;
+}
+
+label { display: block; margin: .7rem 0 .25rem; font-weight: 650; }
+summary { cursor: pointer; font-weight: 650; min-height: 2rem; }
+
+input, textarea, button {
+  font: inherit;
+  min-height: 44px;
+  border-radius: .55rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: .65rem .8rem;
+  border: 1px solid #7a8a82;
+  color: inherit;
+  background: #fff;
+}
+
+textarea { resize: vertical; }
+button { cursor: pointer; background: #174c40; color: #fff; border: 1px solid transparent; padding: .55rem .85rem; font-weight: 700; }
+button:disabled { cursor: wait; opacity: .6; }
+.quiet { background: #e9f3ec; color: #153e34; border-color: #bfd3c7; }
+:focus-visible { outline: 3px solid #2c7563; outline-offset: 3px; }
+.search { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .5rem; }
+.actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+#connection .actions { margin-top: .6rem; }
+.labels { margin-block: .6rem; }
+article { border-top: 1px solid #dce6df; margin-top: .7rem; padding-top: .8rem; overflow-wrap: anywhere; }
+article p { margin: .35rem 0 0; white-space: pre-wrap; }
+.metadata { color: #435d52; font-size: .87rem; }
+[role="status"]:empty { display: none; }
+[role="status"] { margin: .7rem 0 .4rem; }
+
+a { color: #174c40; text-underline-offset: .2em; }
+nav { margin-top: .6rem; }

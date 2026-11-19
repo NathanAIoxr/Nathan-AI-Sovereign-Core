@@ -1,0 +1,35 @@
+name: Back up memories to a private repository
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: app-factory/nathan-ai/memory-bank
+
+jobs:
+  backup:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: nathan-ai-memory-bank-backup
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Write private backup
+        env:
+          MEMORY_BASE_URL: ${{ vars.MEMORY_BASE_URL }}
+          MEMORY_READ_API_KEY: ${{ secrets.MEMORY_READ_API_KEY }}
+          BACKUP_GITHUB_REPO: ${{ vars.BACKUP_GITHUB_REPO }}
+          BACKUP_GITHUB_BRANCH: ${{ vars.BACKUP_GITHUB_BRANCH }}
+          BACKUP_GITHUB_TOKEN: ${{ secrets.BACKUP_GITHUB_TOKEN }}
+        run: npm run backup

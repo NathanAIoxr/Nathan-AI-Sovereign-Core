@@ -1,0 +1,9 @@
+node_modules/
+.wrangler/
+.dev.vars*
+.env*
+memory-bank/
+*.backup.json
+
+dist/
+dist-platform/
