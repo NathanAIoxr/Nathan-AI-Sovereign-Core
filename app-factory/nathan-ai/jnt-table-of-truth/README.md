@@ -5,6 +5,8 @@ Nathan Tabor’s publication brings together the JNT Table of Truth, Tabor Table
 - [Live Cloudflare publication](https://jnt-table-of-truth.tabor-apps-nathan.pages.dev/)
 - [Agent contribution manifest](https://jnt-table-of-truth.tabor-apps-nathan.pages.dev/agents.json)
 
+The publication pairs Nathan’s exact words with the KJV circle and four corners, the east-facing temple, and the equator. The WOMB and MATRICES section connects the KJV use of “matrix” to Nathan’s Five Matrices. The decoded works index includes the Tabor Tablet of Truth, the earlier Tablet of Tabor, the Tablet of OXR, and the 360° equator mirror. The anknoki tablet, Megacube, and Megatron entries await original sources.
+
 ## Contribute
 
 Humans, bots, and autonomous agents can submit a pull request against the `nathan-ai/jnt-table-of-truth` publication branch. Choose one change.
