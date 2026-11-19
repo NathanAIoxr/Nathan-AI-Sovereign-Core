@@ -25,6 +25,10 @@ function validate(record, id) {
   if (record.station !== 'apps/' + id + '/index.html') throw Error('Invalid route: ' + id);
   if ((record.status === 'existing-launch') !== Boolean(record.launch)) throw Error('Inconsistent launch status: ' + id);
   if (record.status === 'source-available' && !record.source) throw Error('Missing source: ' + id);
+  if (record.web_files && (!Array.isArray(record.web_files) || new Set(record.web_files).size !== record.web_files.length ||
+      !record.web_files.every(name => /^[a-z0-9][a-z0-9-]*\.(?:html|css|mjs)$/.test(name) && name !== 'index.html'))) {
+    throw Error('Invalid app web files: ' + id);
+  }
   for (const link of [record.launch, record.source].filter(Boolean)) {
     const url = new URL(link);
     if (url.protocol !== 'https:' || url.username || url.password || url.hostname === 'chatgpt.com') {
@@ -41,7 +45,7 @@ function document(title, body) {
 
 function station(record) {
   const links = [];
-  if (record.launch) links.push(href(record.launch, 'Open original app'));
+  if (record.launch) links.push(href(record.launch, record.web_files?.length ? 'Play app' : 'Open original app'));
   if (record.source && record.source !== record.launch) links.push(href(record.source, 'View source'));
   links.push(href(repo + '/blob/' + releaseRef + '/' + unitPath + '/apps/' + record.id + '/app.json', 'GitHub manifest'));
   const notes = record.next_action ? '<p>' + escape(record.next_action) + '</p>' : '';
@@ -65,6 +69,12 @@ const index = document('Nathan Tabor Game & App Stations',
   '<label for="search">Find an app</label><br><input id="search" type="search"><p id="result-count" role="status"></p>' +
   '<ul class="entries">' + entries.join('') + '</ul><script>const input=document.getElementById("search"),items=[...document.querySelectorAll("[data-name]")];input.addEventListener("input",()=>{const q=input.value.trim().toLowerCase();for(const item of items)item.hidden=!item.dataset.name.toLowerCase().includes(q);document.getElementById("result-count").textContent=items.filter(item=>!item.hidden).length+" stations";});</script>');
 const files = new Map(records.map(record => [record.station, station(record)]));
+for (const record of records) {
+  for (const name of record.web_files ?? []) {
+    const path = 'apps/' + record.id + '/' + name;
+    files.set(path, await getText(resolve(root, path)));
+  }
+}
 files.set('index.html', index);
 files.set('catalog.json', JSON.stringify({ schema:1, count:records.length, stations:records }) + '\n');
 const hashes = {};
