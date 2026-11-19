@@ -4,7 +4,7 @@ A modern, isolated Cloudflare Worker and D1 project preserving the historical pu
 
 ## Live architecture
 - Cloudflare Worker `tabor-conservative-voice`: public homepage, article and category views, local search, historical archive, RSS, JSON API, sitemap, accessibility-first layout, editorial provenance.
-- D1 `tabor-conservative-voice`: published/draft articles, 37 documented archive references, forum tables with approval state.
+- D1 `tabor-conservative-voice`: published/draft articles, 37 documented archive references, 145 historical directory labels, 55 geographic topic IDs, 22 evidence-status findings, and forum tables with approval state.
 - Modern replacements for XOOPS: Worker server routes; phpList/Lasso: opt-in mailing integration **not active**; NewBB forums: approval-ready data model, **not publicly writable**; advertising: reserved disclosure-first slots, **not connected to an ad network**.
 - Nathan Tabor Way: Build (1+1=2), Clear (1-1=0), Integrate (1×1=1), Verify (1÷1=1); provenance labels, links to evidence, and explicit separation of claims and facts.
 
@@ -15,8 +15,8 @@ A separate authorized admin secret `TCV_ADMIN_TOKEN` is required to enable `POST
 
 ## Routes
 - `/` home; `/archives` 37 historic sources; `/categories`; `/category?name=...`; `/search?q=...`; `/article/SLUG`
-- `/rss.xml`, `/robots.txt`, `/sitemap.xml`
-- `/api/health`, `/api/articles`, `/api/sources`, `/api/categories`, `/api/admin/articles` (authenticated only)
+- `/directory`, `/states`, `/evidence`, `/rss.xml`, `/robots.txt`, `/sitemap.xml`
+- `/api/health`, `/api/articles`, `/api/sources`, `/api/categories`, `/api/directory`, `/api/states`, `/api/evidence`, `/api/admin/articles` (authenticated only)
 
 ## Historical-source restrictions
 The 37 indexed URLs are documented public captures, not the full historical library or executable original source. The Archive.org content remains on Archive.org. Historic claims (including circulation figures) are labeled historical self-report. Rights for Associated Press, syndicated writers, logos, and acquired assets must be verified before reproduction. Do not automatically import private newsletter addresses or re-enable unsupported delivery systems.
