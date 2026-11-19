@@ -24,3 +24,22 @@ INSERT OR IGNORE INTO dmsp_departments(id,title,scope,requires_human_review) VAL
 ('cio','Digital CIO / CTO','Roadmaps, budgets, architecture',1),
 ('success','Client Success','Service reports, communication, SLAs',0),
 ('finance','Finance and Operations','Contracts, subscriptions, costs',1);
+
+-- Extended operating departments (additive; first DMSP/DIT public launch)
+INSERT OR IGNORE INTO dmsp_departments(id,title,scope,requires_human_review) VALUES
+('asset','Asset and Software Lifecycle','CMDB, software entitlements, warranty and license governance',0),
+('network','Network Engineering','Authorized DNS, routing, Wi-Fi and network configuration',1),
+('apps','Business Applications','SaaS configuration, integration and user enablement',1),
+('data','Data and Analytics','Data governance, retention and reporting',1),
+('observability','Observability and SRE','SLIs, SLOs, telemetry and alert quality',0),
+('integration','Integration Engineering','APIs, webhooks and event connectors',1),
+('platform','Platform Engineering','Internal developer platform and cloud infrastructure',1),
+('knowledge','Knowledge and Training','Runbooks, knowledge articles and learning',0),
+('onboarding','Onboarding and Offboarding','Client and staff joiner/mover/leaver processes',1),
+('vendor','Vendor Management','Supplier due diligence, third-party risk and contracts',1),
+('procurement','Procurement','Hardware, licensing, purchasing and inventory reconciliation',1),
+('automation','Automation Verification','Approved runbooks, rollback and verification receipts',1),
+('incident','Major Incident Command','Incident escalation, coordination and postmortems',1),
+('privacy','Privacy and Data Protection','Data access minimization, retention and deletion',1),
+('qa','Quality and Release Assurance','Pre-release tests, change validation and quality gates',1),
+('field','Field Services','Authorized onsite support and equipment logistics',1);
