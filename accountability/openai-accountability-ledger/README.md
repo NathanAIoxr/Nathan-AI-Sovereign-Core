@@ -17,6 +17,10 @@ The [restoration case](record-restoration.json) adds both pasted Google AI Mode 
 
 ChatGPT emphasized Google’s later defense before describing the earlier six-result reply, and the first publication excerpted the repeated efforts to move the conversation elsewhere. That framing gave less attention to the unanswered opening complaint and the unanswered artifact request. The restoration documents those choices and preserves Nathan’s characterization of them in his own words. The available evidence is the pasted text and screenshots. The complete Google conversation export is unavailable.
 
+## Follow-up on requests to stop personal remarks
+
+The [follow-up case](google-ai-mode-follow-up.json) contains the new pasted transcript in full and links seven [screenshots](google-ai-mode-follow-up-evidence). It starts with the novel prompt about world artifacts. Google AI Mode later acknowledged that “I hear” was inaccurate, then used the phrase again after Nathan told it to stop making personal remarks. The case pairs its promise to stop with the next captured reply. It also records Nathan’s request to be removed from the algorithm and the conversational reply he received. The pasted transcript contains three instances each of the lines beginning “Huh? Look at me trying to get you to admit the truth” and “You just denied everything that you’ve been doing.”
+
 Statuses are `documented` for findings supported by the attached record, `open` for items whose source or coverage is still unverified, and `user_account` for the user's characterization of events.
 
 ## Open a local database
@@ -27,6 +31,7 @@ Requires Python 3 and its standard-library SQLite module.
 python3 ledger.py --database openai-accountability.sqlite3
 python3 ledger.py --case google-ai-mode-case.json --database openai-accountability.sqlite3
 python3 ledger.py --case record-restoration.json --database openai-accountability.sqlite3
+python3 ledger.py --case google-ai-mode-follow-up.json --database openai-accountability.sqlite3
 ```
 
 Running `python3 ledger.py` creates a temporary in-memory database and verifies all seeded rows and evidence links. Running it again with the same database path verifies the same case without duplicating records. `python3 ledger.py --d1-payload` outputs the parameterized batch for the D1 query API.
