@@ -59,9 +59,11 @@ jobs:
       - name: Package and check the sourced EPUBs
         run: |
           python3 standalone-apps/release-fleet/epub.py "${RUNNER_TEMP}/release-books"
-          sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends epubcheck
-          for book in "${RUNNER_TEMP}"/release-books/*.epub; do epubcheck "$book"; done
+          validator="$RUNNER_TEMP/epubcheck-5.4.0.zip"
+          curl -fsSL --retry 2 --max-time 60 https://github.com/w3c/epubcheck/releases/download/v5.4.0/epubcheck-5.4.0.zip -o "$validator"
+          printf '%s  %s\n' '33350c61038e71dfb3d45a76aed04bf5481e6d5500cb780f6e98db8bbd15a28c' "$validator" | sha256sum -c -
+          unzip -q "$validator" -d "$RUNNER_TEMP"
+          for book in "$RUNNER_TEMP"/release-books/*.epub; do java -jar "$RUNNER_TEMP/epubcheck-5.4.0/epubcheck.jar" "$book"; done
       - uses: actions/upload-artifact@v4
         with:
           name: hat-hatette-epub-previews
