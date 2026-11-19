@@ -1,0 +1,15 @@
+{
+  "id": "taborpool",
+  "title": "TABORPOOL",
+  "author": "Nathan Tabor",
+  "url": "https://taborpool.pages.dev",
+  "worker": "taborpool-worker",
+  "profile": "/api/profile",
+  "health": "/health",
+  "build": {
+    "schedule": "15,45 * * * *",
+    "task": "Verify archive sources, publish profile edition and roll up the simulation ledger"
+  },
+  "workerUrl": "https://taborpool-worker.nathantaboract.workers.dev",
+  "pagesProject": "taborpool"
+}

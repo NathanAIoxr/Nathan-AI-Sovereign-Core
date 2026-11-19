@@ -1,0 +1,29 @@
+name = "taborpool-worker"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+preview_urls = false
+keep_vars = true
+
+[vars]
+ENTITY_ID = "TABORPOOL"
+CODEX_SOURCE = "LivingThreshold_Codex1"
+
+[triggers]
+crons = ["15,45 * * * *"]
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "taborpool_db"
+database_id = "99c35a18-6e6c-4a40-80ce-8d9266460da2"
+
+[[r2_buckets]]
+binding = "ARCHIVES"
+bucket_name = "taborpool-archives"
+
+[[kv_namespaces]]
+binding = "LEDGER_KV"
+id = "617c686b45d2420ebc6bc1ebd4787aa0"

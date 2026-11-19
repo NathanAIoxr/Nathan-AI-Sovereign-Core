@@ -1,0 +1,15 @@
+{
+  "id": "taborboy",
+  "title": "TABORBOY",
+  "author": "Nathan Tabor",
+  "url": "https://taborboy.pages.dev",
+  "worker": "taborboy-worker",
+  "profile": "/api/profile",
+  "health": "/health",
+  "build": {
+    "schedule": "5,35 * * * *",
+    "task": "Verify sources, publish profile edition and update the zones index"
+  },
+  "workerUrl": "https://taborboy-worker.nathantaboract.workers.dev",
+  "pagesProject": "taborboy"
+}
