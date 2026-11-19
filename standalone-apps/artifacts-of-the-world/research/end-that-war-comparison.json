@@ -1,0 +1,44 @@
+{
+  "title": "End That War — Anubis, karma, and KJV comparison",
+  "priority": 8,
+  "status": "source_separated_open",
+  "creator_claim": {
+    "source": "../original.txt",
+    "quotation": "which is the fight between Anubis and karma … sin vs righteous aka 0 vs 1 … end that war",
+    "classification": "creator_metaphor_not_historical_equivalence"
+  },
+  "comparisons": [
+    {
+      "tradition": "Ancient Egyptian funerary religion",
+      "reference": "Book of the Dead, chapter 125",
+      "finding": "Weighing of the deceased's heart against the feather of Maat, a judgment scene; Anubis is associated with the weighing, and Osiris with judgment.",
+      "source": "https://fitzmuseum.cam.ac.uk/explore-our-collection/highlights/E921904",
+      "supports": "Museum description of Chapter 125 and heart-weighing; not a claim that Anubis equals karma."
+    },
+    {
+      "tradition": "Buddhist ethical teaching",
+      "reference": "Dhammapada 1–2",
+      "finding": "Intention, speech and action are associated with suffering or happiness; this is not the Egyptian heart-weighing ritual.",
+      "source": "https://dhammatools.com/dhammapada-chapter-1/",
+      "supports": "Pali verses and Bhikkhu Sujato's translation of intention and consequences."
+    },
+    {
+      "tradition": "KJV Christian scripture",
+      "reference": "Revelation 22:11–12",
+      "finding": "The text contrasts unjust and righteous states and speaks of recompense according to works; it does not identify Anubis or Buddhist karma.",
+      "source": "https://www.biblegateway.com/passage/?search=Revelation%2022%3A11-12&version=KJV",
+      "supports": "KJV closing-chapter textual comparison only."
+    }
+  ],
+  "interpretation": {
+    "classification": "assistant_comparative_interpretation",
+    "text": "The three traditions can be compared on moral accountability and consequences, but their agents, rituals, doctrines and histories are not interchangeable. A binary 0/1 mapping is the creator's metaphor, not a literal account of these traditions."
+  },
+  "unresolved": [
+    "No evidence that Anubis and karma are historical adversaries.",
+    "No historical basis established for a literal sin/righteous binary shared by all three traditions.",
+    "No physical artifact identity or custody chain follows from this comparison."
+  ],
+  "publishesOriginal": false,
+  "changesPagesProjects": false
+}
