@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "profiles": {
+    "sandbox": {
+      "description": "Isolated execution of reviewed source with disposable fixtures, blocked outbound traffic and no production credentials.",
+      "namespace": "nathan-tabor-sandbox"
+    },
+    "live": {
+      "description": "Normal operation on the owner's existing deployment and bound resources using its existing authorization.",
+      "namespace": "nathan-tabor-platforms"
+    }
+  },
+  "applications": [
+    {
+      "id": "nathan-ai-bounties-db",
+      "source": "app-factory/nathan-ai/global-bounties/app.json",
+      "sandbox": {
+        "dispatchWorker": "nathan-ai-bounties-db",
+        "githubWorkflow": ".github/workflows/nathan-global-bounties-sandbox.yml",
+        "bindings": []
+      },
+      "live": {
+        "dispatchWorker": "nathan-ai-bounties-db",
+        "githubWorkflow": ".github/workflows/nathan-global-bounties.yml",
+        "url": "https://tabor-bridge.nathantaboract.workers.dev/global-bounties/"
+      }
+    }
+  ]
+}
