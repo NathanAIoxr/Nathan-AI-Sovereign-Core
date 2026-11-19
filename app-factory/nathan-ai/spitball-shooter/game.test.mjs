@@ -61,6 +61,6 @@ test("final round requires heavy ammo and supports double-barrel fire",()=>{
   const run = game();
   assert.equal(run('setLevel(3); $("straw").value="0"; gear().compatible'),false);
   assert.equal(run('const armored=targets[0]; $("ammo").value="0"; hit(armored,launch(.76),armored); armored.hit'),false);
-  assert.equal(run('show("playing"); $("ammo").value="3"; $("straw").value="2"; startCharge("keyboard"); clock=.85; takeShot("keyboard"); bullets.length'),2);
+  assert.equal(run('show("playing"); $("ammo").value="3"; $("straw").value="2"; startCharge("keyboard"); performance.now=()=>850; takeShot("keyboard"); bullets.length'),2);
   assert.equal(run('hit(armored,bullets[0],armored); armored.hit'),true);
 });
