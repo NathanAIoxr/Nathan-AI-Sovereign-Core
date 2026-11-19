@@ -144,7 +144,7 @@ async function recall(request, url, DB) {
     if (url.search) throw new RequestError(400, 'Send search parameters in the JSON body.');
     query = await readJson(request, 4 * 1024);
     if (!query || typeof query !== 'object' || Array.isArray(query) ||
-        Object.keys(query).some((name) => !['q', 'category', 'limit', 'before_id'].includes(name))) {
+        Object.keys(query).some((name) => !['q', 'category', 'limit', 'before_id', 'conversation_id'].includes(name))) {
       throw new RequestError(400, 'Supply a JSON object with search fields.');
     }
     for (const [name, max] of [['limit', maxRecall], ['before_id', Number.MAX_SAFE_INTEGER]]) {
@@ -166,6 +166,11 @@ async function recall(request, url, DB) {
   if ([rawQuestion, rawCategory].some((text) => typeof text !== 'string' || !text.isWellFormed() || text.includes('\0'))) {
     throw new RequestError(400, 'Search and category must be well-formed text.');
   }
+  const conversation = query.conversation_id;
+  if (Object.hasOwn(query, 'conversation_id') &&
+      (typeof conversation !== 'string' || !/^[a-zA-Z0-9-]{1,128}$/.test(conversation))) {
+    throw new RequestError(400, 'Invalid conversation_id.');
+  }
   const q = rawQuestion.trim();
   const category = rawCategory.trim();
   if (q.length > 300 || category.length > 80) throw new RequestError(400, 'Search text is too long.');
@@ -182,6 +187,10 @@ async function recall(request, url, DB) {
   if (before !== null) {
     conditions.push('id < ?');
     values.push(before);
+  }
+  if (conversation) {
+    conditions.push("category = 'chatgpt-history' AND source_ai = 'ChatGPT' AND instr(', ' || tags || ', ', ?) > 0");
+    values.push(', conversation ' + conversation + ', ');
   }
   const searchable = "lower(category || ' ' || title || ' ' || content || ' ' || coalesce(tags, ''))";
   for (const term of terms.length ? terms : q ? [q.toLowerCase()] : []) {

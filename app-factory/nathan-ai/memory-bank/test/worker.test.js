@@ -129,3 +129,25 @@ test('JSON recall keeps search out of the URL and uses the same read boundary', 
   }
   assert.equal((await request('/recall', { ...search, data: { q: 'x'.repeat(5000) } })).status, 413);
 });
+
+test('recalls saved parts of one ChatGPT conversation with exact matching and pagination', async (t) => {
+  const request = setup(t);
+  const original = { category: 'chatgpt-history', source_ai: 'ChatGPT', title: 'Same title', tags: 'ChatGPT transcript, conversation chat-12, 2026-11-19' };
+  for (const [content, fields] of [
+    ['part 1', {}],
+    ['part 2', {}],
+    ['different conversation', { tags: 'ChatGPT transcript, conversation chat-123' }],
+    ['different source', { source_ai: 'Claude' }]
+  ]) {
+    assert.equal((await request('/remember', { method: 'POST', data: { ...original, ...fields, content } })).status, 201);
+  }
+  const options = { key: 'read-test', method: 'POST', data: { conversation_id: 'chat-12', limit: 1 } };
+  const first = await (await request('/recall', options)).json();
+  assert.deepEqual(first.memories.map(record => record.content), ['part 2']);
+  options.data.before_id = first.next_before_id;
+  const second = await (await request('/recall', options)).json();
+  assert.deepEqual(second.memories.map(record => record.content), ['part 1']);
+  assert.equal(second.next_before_id, null);
+  assert.equal((await request('/recall', { ...options, key: '' })).status, 401);
+  assert.equal((await request('/recall', { ...options, data: { conversation_id: 'chat-12, other' } })).status, 400);
+});
