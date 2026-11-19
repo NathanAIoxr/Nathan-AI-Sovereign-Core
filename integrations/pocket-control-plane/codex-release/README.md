@@ -8,6 +8,10 @@ Builds validate and package the source on GitHub. Live code was deployed through
 
 Private emails, author archives, and the full recovery index are stored separately from the public repository and from the public Worker. The dashboard runtime binds only the build receipt key-value store and the existing dispatch namespace, and routes only the listed project Worker names and the separately named Crosshairs Worker.
 
+## Edge Operations
+
+Open [Edge Operations](https://nathan-ai-pocket-codex.nathantaboract.workers.dev/edge-operations) from the Clouder Pro tab for live edge diagnostics, the ONE Hub service binding check, and the [Cloudflare and Clouder Pro runbook](edge-operations.md).
+
 ## Release order and receipts
 
 - [Ordered catalog and job sequence](https://nathan-ai-pocket-codex.nathantaboract.workers.dev/release-order)

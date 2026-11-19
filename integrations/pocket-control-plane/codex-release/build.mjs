@@ -22,6 +22,7 @@ for (const row of manifest) {
 const station = await source('./station.mjs');
 const identity = await source('./github-identity.mjs');
 const order = (await source('./release-order.mjs')).replace(/^export /gm, '');
+const edgeOperations = (await source('./edge-operations.mjs')).split('\n').filter(line => !line.startsWith('import ')).join('\n');
 const pocket = (await source('./pocket.mjs')).split('\n').filter(line => !line.startsWith('import ')).join('\n');
 const target = resolve(process.argv[2] ?? 'dist-pocket-codex');
 await mkdir(target, { recursive: true });
@@ -39,7 +40,7 @@ for (const app of standaloneApps) {
 }
 const publicProjects = projects.map(({ question, ...app }) => app);
 await writeFile(resolve(target, 'nathan-ai-pocket-codex.mjs'),
-  [station, identity, order, pocket, 'export default createPocket(' + JSON.stringify(publicProjects) + ', ' + JSON.stringify(standaloneApps) + ');'].join('\n'));
+  [station, identity, order, edgeOperations, pocket, 'export default createPocket(' + JSON.stringify(publicProjects) + ', ' + JSON.stringify(standaloneApps) + ');'].join('\n'));
 await writeFile(resolve(target, 'manifest.json'), JSON.stringify([...manifest, ...standaloneApps], null, 2));
 await writeFile(resolve(target, 'release-order.json'), JSON.stringify(orderedRelease([...manifest, ...standaloneApps]), null, 2));
 console.log('Built ' + projects.length + ' standalone Worker modules and the Pocket Control directory.');

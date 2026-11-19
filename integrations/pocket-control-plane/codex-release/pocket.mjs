@@ -1,5 +1,6 @@
 import { escape, json, page } from './station.mjs';
 import { publicSigningKeys, verifyGitHubReceipt } from './github-identity.mjs';
+import { edgeOperationsPage, readEdgeOperations } from './edge-operations.mjs';
 
 import { catalogGroups, crosshairs, orderedRelease, verifyCrosshairs, verifyCrosshairsCollections } from './release-order.mjs';
 
@@ -150,6 +151,9 @@ export function createPocket(projects, independentApps = []) {
       const nav = '<nav aria-label="Pocket Control"><a href="/?tab=github">GitHub Pro</a><a href="/?tab=cloudflare">Clouder Pro</a><a href="/work/codex-crosshairs/">Codex Crosshairs</a><a href="/release-order">Release order</a><a href="/api/build-status">Build status JSON</a></nav>';
       if (path === '/healthz') {
         result = json({ service: 'nathan-ai-pocket-codex', ready: Boolean(env.PROJECTS), projects: allProjects.length, receiptStore: Boolean(env.RECEIPTS) });
+      } else if (path === '/edge-operations' || path === '/api/edge-operations') {
+        const operations = await readEdgeOperations(request, env);
+        result = path === '/edge-operations' ? edgeOperationsPage(nav, operations) : json(operations);
       } else if (path === '/api/catalog') {
         result = json({ service: 'nathan-ai-pocket-codex', groups: catalogGroups.map(([id, label]) => ({ id, label })), projects: publicRows });
       } else if (path === '/release-order') {
@@ -176,7 +180,7 @@ export function createPocket(projects, independentApps = []) {
         const search = `<form><input type="hidden" name="tab" value="${tab}"><label for="find">Find a project</label><input id="find" type="search" name="q" maxlength="90" value="${escape(query)}"><button>Search</button></form>`;
         const content = tab === 'github'
           ? `<section><h2>GitHub Pro</h2><p><a href="https://github.com/${GITHUB}">Nathan-AI-Sovereign-Core</a></p><p><a href="https://github.com/${GITHUB}/actions/workflows/codex-pocket-build.yml">Build runs</a> · <a href="/api/github">Latest checked status</a></p></section>`
-          : '<section><h2>Clouder Pro</h2><p><a href="/api/build-status">Latest Worker verification</a> · <a href="/api/catalog">Project manifest</a></p></section>';
+          : '<section><h2>Clouder Pro</h2><p><a href="/edge-operations">Edge Operations</a> · <a href="/api/build-status">Latest Worker verification</a> · <a href="/api/catalog">Project manifest</a></p></section>';
         const directory = catalogGroups.map(([id, label]) => {
           const entries = found.filter(item => item.group === id);
           return entries.length ? '<section><h2>' + label + '</h2>' + tiles(entries) + '</section>' : '';

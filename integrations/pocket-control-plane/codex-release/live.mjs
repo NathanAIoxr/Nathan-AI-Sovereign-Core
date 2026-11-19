@@ -23,6 +23,11 @@ async function get(path) {
 const health = await get('/healthz');
 assert.ok(health.ok, 'Pocket dashboard health');
 assert.equal((await health.json()).projects, projects.length);
+const edge = await get('/api/edge-operations');
+assert.ok(edge.ok, 'Edge Operations is published');
+const edgeStatus = await edge.json();
+assert.deepEqual(Object.keys(edgeStatus.edge).sort(), ['colo', 'protocol', 'tls']);
+assert.deepEqual(edgeStatus.service, { name: 'one-sovereign-hub', ready: true });
 const publishedOrder = await get('/api/order');
 assert.ok(publishedOrder.ok, 'Pocket release order is published');
 assert.deepEqual(await publishedOrder.json(), orderedRelease(projects));
