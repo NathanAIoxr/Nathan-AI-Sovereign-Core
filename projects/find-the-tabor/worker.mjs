@@ -15,7 +15,7 @@ const statuses = [...new Set(records.map(item => item.status))];
 function shell(title, body) {
   const links = navigation.map(({title, link, active}) =>
     `<a href="${escape(link)}"${active ? ' aria-current="page"' : ''}>${escape(title)}</a>`).join('');
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)}</title><link rel="stylesheet" href="/style.css"></head><body><header><nav aria-label="FIND THE TABOR projects">${links}</nav></header><main>${body}<footer>FIND THE TABOR · Nathan Tabor · <a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/codex/find-the-tabor-evidence-20261119/projects/find-the-tabor">Project source</a></footer></main></body></html>`;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)}</title><link rel="stylesheet" href="/style.css"></head><body><header><nav aria-label="FIND THE TABOR projects">${links}</nav></header><main>${body}<footer>FIND THE TABOR · Nathan Tabor · <a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/projects/find-the-tabor">Project source</a></footer></main></body></html>`;
 }
 
 function card(record) {
