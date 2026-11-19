@@ -30,7 +30,7 @@ targets:
       - path: PrivacyInfo.xcprivacy
         buildPhase: resources
       - path: Generated/Scrambler/Web
-        type: folder
+        type: group
         buildPhase: resources
       - path: Generated/Scrambler/Assets.xcassets
   YardArcade:
@@ -45,7 +45,7 @@ targets:
       - path: PrivacyInfo.xcprivacy
         buildPhase: resources
       - path: Generated/YardArcade/Web
-        type: folder
+        type: group
         buildPhase: resources
       - path: Generated/YardArcade/Assets.xcassets
   Sudoku:
@@ -60,7 +60,7 @@ targets:
       - path: PrivacyInfo.xcprivacy
         buildPhase: resources
       - path: Generated/Sudoku/Web
-        type: folder
+        type: group
         buildPhase: resources
       - path: Generated/Sudoku/Assets.xcassets
   Retro:
@@ -75,7 +75,7 @@ targets:
       - path: PrivacyInfo.xcprivacy
         buildPhase: resources
       - path: Generated/Retro/Web
-        type: folder
+        type: group
         buildPhase: resources
       - path: Generated/Retro/Assets.xcassets
   ScramblerUITests:

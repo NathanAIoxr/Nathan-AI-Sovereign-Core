@@ -22,7 +22,7 @@ struct GameShelf: Decodable {
     let routes: [String: BundledAsset]
 
     static let bundled: GameShelf? = {
-        guard let url = Bundle.main.url(forResource: "shelf", withExtension: "json", subdirectory: "Web"),
+        guard let url = Bundle.main.url(forResource: "shelf", withExtension: "json"),
               let data = try? Data(contentsOf: url) else { return nil }
         return try? JSONDecoder().decode(Self.self, from: data)
     }()
@@ -170,8 +170,8 @@ final class GameAssetHandler: NSObject, WKURLSchemeHandler {
         guard let url = task.request.url, url.scheme == bundledOrigin.scheme, url.host == bundledOrigin.host,
               ["GET", "HEAD"].contains(task.request.httpMethod ?? "GET"),
               let asset = routes[url.path],
-              let base = Bundle.main.resourceURL?.appendingPathComponent("Web", isDirectory: true),
-              let data = try? Data(contentsOf: base.appendingPathComponent(asset.file)),
+              let base = Bundle.main.resourceURL,
+              let data = try? Data(contentsOf: base.appendingPathComponent((asset.file as NSString).lastPathComponent)),
               let response = HTTPURLResponse(
                 url: url, statusCode: 200, httpVersion: "HTTP/1.1",
                 headerFields: [
@@ -207,6 +207,7 @@ struct LocalGameView: UIViewRepresentable {
         config.dataDetectorTypes = []
         let webView = WKWebView(frame: .zero, configuration: config)
         webView.navigationDelegate = context.coordinator
+        webView.uiDelegate = context.coordinator
         webView.allowsBackForwardNavigationGestures = true
         if let url = URL(string: path, relativeTo: bundledOrigin) {
             webView.load(URLRequest(url: url.absoluteURL))
@@ -218,7 +219,7 @@ struct LocalGameView: UIViewRepresentable {
         context.coordinator.owner = self
     }
 
-    final class Coordinator: NSObject, WKNavigationDelegate, WKDownloadDelegate {
+    final class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate, WKDownloadDelegate {
         var owner: LocalGameView
         private var files: [ObjectIdentifier: URL] = [:]
 
@@ -247,6 +248,44 @@ struct LocalGameView: UIViewRepresentable {
 
         func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
             owner.failure = true
+        }
+
+        private func presenter(for webView: WKWebView, frame: WKFrameInfo) -> UIViewController? {
+            guard frame.isMainFrame,
+                  frame.request.url?.scheme == bundledOrigin.scheme,
+                  var presenter = webView.window?.rootViewController else { return nil }
+            while let next = presenter.presentedViewController { presenter = next }
+            return presenter
+        }
+
+        func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String,
+                     initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+            guard let presenter = presenter(for: webView, frame: frame) else { completionHandler(); return }
+            let alert = UIAlertController(title: owner.shelf.title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in completionHandler() })
+            presenter.present(alert, animated: true)
+        }
+
+        func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String,
+                     initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+            guard let presenter = presenter(for: webView, frame: frame) else { completionHandler(false); return }
+            let alert = UIAlertController(title: owner.shelf.title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in completionHandler(false) })
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in completionHandler(true) })
+            presenter.present(alert, animated: true)
+        }
+
+        func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String,
+                     defaultText: String?, initiatedByFrame frame: WKFrameInfo,
+                     completionHandler: @escaping (String?) -> Void) {
+            guard let presenter = presenter(for: webView, frame: frame) else { completionHandler(nil); return }
+            let alert = UIAlertController(title: owner.shelf.title, message: prompt, preferredStyle: .alert)
+            alert.addTextField { $0.text = defaultText }
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in completionHandler(nil) })
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak alert] _ in
+                completionHandler(alert?.textFields?.first?.text)
+            })
+            presenter.present(alert, animated: true)
         }
 
         func download(_ download: WKDownload, decideDestinationUsing response: URLResponse,

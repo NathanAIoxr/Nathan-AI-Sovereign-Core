@@ -13,6 +13,8 @@ Retro Lab contains the existing Zero & Void Lab, based on 1970 cellular-automato
 
 This table covers the explicitly dated records from [the reference lab registry](../../app-factory/game-reference-lab/registry.json) and [the additional reference catalog](../../app-factory/game-reference-lab/morning-additions-238.json). Owner-held archives and remaining game concepts require a source and rights check before inclusion.
 
+The [X Gen: The Game of Games station](../game-app-stations/apps/x-gen-the-game-of-games-x-the-game/app.json) has a design record and cover art but remains build-pending. The separate 101 Childhood Games (1970s–1980s) roster has not been recovered as a complete executable collection. Backyard Powder Archery likewise remains a design-only station. These are tracked gaps in the release scope.
+
 ## Verify the packages
 
 From the repository root with Node.js 22 or newer:

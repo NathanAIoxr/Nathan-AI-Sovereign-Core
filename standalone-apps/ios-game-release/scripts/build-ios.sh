@@ -36,8 +36,18 @@ xcodebuild -project TaborGames.xcodeproj -scheme "$scheme" -configuration Releas
 
 bundle=".build/$scheme/Build/Products/Release-iphoneos/$scheme.app"
 test -f "$bundle/$scheme"
-test -f "$bundle/Web/shelf.json"
+test -f "$bundle/shelf.json"
 test -f "$bundle/PrivacyInfo.xcprivacy"
+python3 - "$bundle" <<'PY'
+import hashlib, json, sys
+from pathlib import Path
+bundle = Path(sys.argv[1])
+shelf = json.loads((bundle / 'shelf.json').read_text())
+for asset in shelf['routes'].values():
+    asset_path = bundle / Path(asset['file']).name
+    assert hashlib.sha256(asset_path.read_bytes()).hexdigest() == asset['sha256'], asset_path
+print(f"Verified {len(shelf['routes'])} assets inside the compiled iPhone app")
+PY
 stage="$(mktemp -d)"
 trap 'rm -rf "$stage"' EXIT
 mkdir "$stage/Payload"
