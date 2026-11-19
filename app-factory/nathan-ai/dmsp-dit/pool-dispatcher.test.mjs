@@ -73,6 +73,9 @@ test("scheduled pool dispatches all approved departments and stores distinct, id
   const status = await response.json();
   assert.equal(status.scheduled_departments, 28);
   assert.equal(status.active_departments, 28);
+  assert.equal(status.cadence_seconds, 60);
+  await dispatcher.scheduled({ scheduledTime: scheduledTime + 60_000 }, env);
+  assert.equal(db.prepare("SELECT count(*) AS count FROM dmsp_pool_receipts WHERE result='PASS'").get().count, 56);
   const helpdesk = status.departments.find(row => row.department_id === "helpdesk");
   assert.equal(helpdesk.build.deliverable, "Support intake and escalation plan");
   assert.equal(helpdesk.build.state, "PENDING_INPUT");

@@ -5,6 +5,8 @@ const NAMESPACE = "nathan-tabor-platforms";
 const PREFIX = "dmsp-dit-";
 const JOB_PREFIX = "dmsp-department:";
 const BATCH_SIZE = 4;
+const MINUTE_MS = 60_000;
+const RECEIPT_RETENTION_MS = 7 * 24 * 60 * MINUTE_MS;
 
 const scheduledJobs = `
   SELECT q.job_id, q.target, d.id, d.title,
@@ -98,9 +100,11 @@ export default {
       last_verified_at: row.last_verified_at,
       build: row.build_json ? JSON.parse(row.build_json) : null,
     }));
-    const recentThreshold = Date.now() - 45 * 60 * 1000;
+    const recentThreshold = Date.now() - 3 * MINUTE_MS;
     return Response.json({
       service: "DMSP + DIT department builds",
+      cadence_seconds: 60,
+      catalog_status_url: "https://nathan-ai-dmsp-catalog-health.nathantaboract.workers.dev/status",
       scheduled_departments: departments.length,
       active_departments: departments.filter(row => row.worker_state === "ACTIVE" &&
         Date.parse(row.last_verified_at) >= recentThreshold).length,
@@ -109,7 +113,7 @@ export default {
   },
 
   async scheduled(controller, env) {
-    const slot = Math.floor(controller.scheduledTime / 900000);
+    const slot = Math.floor(controller.scheduledTime / MINUTE_MS);
     const { results } = await env.DB.prepare(scheduledJobs)
       .bind(JOB_PREFIX, KIND, NAMESPACE, Object.keys(departmentBuilds).length).all();
     const errors = [];
@@ -119,7 +123,10 @@ export default {
         if (outcome.status === "rejected") errors.push(outcome.reason);
       }
     }
-    await env.DB.prepare("DELETE FROM dmsp_pool_receipts WHERE slot < ?").bind(slot - 7 * 24 * 4).run();
+    if (slot % 60 === 0) {
+      const cutoff = new Date(controller.scheduledTime - RECEIPT_RETENTION_MS).toISOString();
+      await env.DB.prepare("DELETE FROM dmsp_pool_receipts WHERE observed_at < ?").bind(cutoff).run();
+    }
     if (errors.length) throw new AggregateError(errors, "Failed to persist one or more department receipts");
   },
 };
