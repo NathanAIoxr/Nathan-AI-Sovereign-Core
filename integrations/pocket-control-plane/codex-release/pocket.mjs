@@ -119,6 +119,9 @@ export function createPocket(projects, independentApps = []) {
         const item = byId.get(match[1]);
         if (!item) return json({ error: 'project_not_found' }, 404);
         if (!match[2]) return Response.redirect(new URL(path + '/', url), 308);
+        if (item.group === 'standalone-apps' && ['/', '/app', '/app/'].includes(match[2])) {
+          return Response.redirect(item.url, 302);
+        }
         const target = new URL(path + url.search, 'https://station.internal');
         try {
           return await env.PROJECTS.get(item.worker).fetch(new Request(target, { method: request.method }));

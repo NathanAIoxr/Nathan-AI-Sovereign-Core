@@ -95,6 +95,9 @@ test('Pocket Control lists the standalone apps and only dispatches their refresh
   const catalog = await runtime.fetch(new Request(origin + '/api/catalog'),env);
   assert.deepEqual((await catalog.json()).projects.map(app => app.id),['taborboy','taborpool']);
   assert.equal((await runtime.fetch(new Request(origin + '/work/taborboy/__hub/refresh',{method:'POST'}),env)).status,405);
+  const launch = await runtime.fetch(new Request(origin + '/work/taborboy/'),env);
+  assert.equal(launch.status,302);
+  assert.equal(launch.headers.get('location'),'https://taborboy.pages.dev/app/');
   assert.equal(queue.length,0);
   const originalFetch = globalThis.fetch;
   let cron;
