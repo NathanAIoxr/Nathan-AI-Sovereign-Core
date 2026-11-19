@@ -1,0 +1,31 @@
+name = "nathan-ai-conductor"
+main = "worker.mjs"
+compatibility_date = "2026-11-19"
+workers_dev = false
+
+[observability]
+enabled = true
+head_sampling_rate = 1
+redact_query_string = true
+
+[observability.traces]
+enabled = true
+head_sampling_rate = 0.1
+
+[[durable_objects.bindings]]
+name = "STATE"
+class_name = "ProjectConductor"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ProjectConductor"]
+
+[[d1_databases]]
+binding = "LEDGER"
+database_name = "nathan-ai-conductor-ledger"
+database_id = "3279cbc0-0e73-4b07-9bc2-47ab0c3b95c2"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "AUDIT"
+bucket_name = "nathan-ai-conductor-audit"

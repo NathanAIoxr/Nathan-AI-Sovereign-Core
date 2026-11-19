@@ -1,0 +1,108 @@
+openapi: 3.1.0
+info:
+  title: The Conductor
+  version: 1.0.0
+  description: Submit supported Nathan AI jobs and retrieve verified receipts.
+servers:
+  - url: https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api
+security:
+  - dispatchKey: []
+paths:
+  /dispatch:
+    post:
+      operationId: submitConductorJob
+      x-openai-isConsequential: false
+      summary: Submit a live verification or request an operator-approved deployment
+      description: Generate a UUID before submitting. Reuse it on retries. Deployment waits for a separate operator decision.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [id, project, command]
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                project:
+                  type: string
+                  enum: [zeros-and-ones]
+                command:
+                  type: string
+                  enum: [verify, deploy]
+      responses:
+        '202':
+          description: Job recorded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Receipt'
+        '200':
+          description: Idempotent retry returned the existing job
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Receipt'
+        '400':
+          description: Invalid command or UUID
+        '401':
+          description: Dispatcher credential missing or invalid
+        '409':
+          description: UUID already used for a different command
+        '429':
+          description: Queue full
+  /jobs/{id}:
+    get:
+      operationId: getConductorJob
+      summary: Read the current job state and live verification receipt
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Current job state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Receipt'
+        '401':
+          description: Dispatcher credential missing or invalid
+        '404':
+          description: Unknown job ID
+components:
+  securitySchemes:
+    dispatchKey:
+      type: http
+      scheme: bearer
+  schemas:
+    Receipt:
+      type: object
+      required: [job]
+      properties:
+        job:
+          type: object
+          required: [id, command, state]
+          properties:
+            id:
+              type: string
+              format: uuid
+            command:
+              type: string
+              enum: [verify, deploy]
+            state:
+              type: string
+              enum: [awaiting_approval, queued, dispatching, waiting_github, verifying, done, rejected, failed, needs_review]
+            run_id:
+              type: [integer, 'null']
+            release:
+              type: [string, 'null']
+            issue:
+              type: [string, 'null']
+        replayed:
+          type: boolean

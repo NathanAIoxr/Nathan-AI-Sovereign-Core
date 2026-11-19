@@ -1,6 +1,7 @@
 export const mountRoot = '/tabor-sites/';
 export const publicOrigin = 'https://unified-operations-cockpit.nathantaboract.workers.dev';
 const definitions = [
+  ['conductor', 'nathan-ai-conductor', 'The Conductor', 'The Conductor', 'Nathan AI · Operations', 'Verify a release, review jobs, and approve checked-in deployments.', 'pine'],
   ['zeros-and-ones', 'nathan-ai-zeros-and-ones', 'Zeros and Ones', 'Zeros and Ones', 'Nathan AI · GitHub and Cloudflare', 'Apply D1 migrations, deploy the Worker, and verify the running commit.', 'pine'],
   ['handling-life', 'handling-life-worker', 'Handling Life', 'Handling Life', 'Good Samaritan', 'Empathy → Sympathy → Compassion → The One.', 'pine'],
   ['christmas-toy-drive', 'christmas-toy-drive-worker', 'ChristmasToyDrive.com', 'Christmas is more than one day.', 'Christmas Toy Drive · 24 / 7 / 365', 'Find a tangible gift for the year-round toy drive. Browse books, art supplies, building sets and more.', 'pine'],
