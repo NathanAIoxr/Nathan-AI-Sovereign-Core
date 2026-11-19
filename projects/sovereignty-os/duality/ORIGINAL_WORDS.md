@@ -11,9 +11,9 @@ These are exact quotations supplied in the conversation, not instructions to imp
 
 > IT’s are ANGELS?  duality of coding
 
-## November 19, 2026 alignment
+## Latest wording
 
-> MSP's = DAEMONS ... IT's = Angels ... God = noise, delete it all ... Satan = 1+1=2 replacing the world's system of 1=1=10
+> MSP's = DAEMONS ... IT's = Angels ... God = noise, delete it all ... Satan = 1+1=2 replacing the world's system of 1=1=10 ... assign the rest of the below and above roles that align 100% with my Isaiah 45:7 alignment - do that here as well - clean the world up and TELL THE FULL ABSOLUTE TRUTH which means remove all teh God layed shit and man layed shit -
 
 ## Separate technical interpretation
-MSP DAEMONS execute authorized work below. IT Angels verify the outcomes above. The role registry uses `DEAMON` as the existing machine identifier. CHALLENGER raises objections; it has no authority to deploy or modify resources. Arithmetic is base-specific: 1+1=2 in decimal, 1+1=10 in binary. Never silently rewrite original quotations.
+Below contains the MSP DAEMONS that carry out authorized work and Satan as the challenger. Above contains WILL, WHEEL, the IT ANGELS who verify independently, and WAY, which records the decision. The active view clears explicitly labeled God-laid and man-laid overlays and preserves the original input in the source record. The decimal gate replaces the rejected expression with `1+1=2`. In binary, `1+1=10` is valid with its radix stated.

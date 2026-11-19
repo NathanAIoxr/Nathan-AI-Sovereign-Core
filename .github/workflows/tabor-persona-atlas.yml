@@ -3,10 +3,12 @@ on:
   pull_request:
     paths:
       - "creative-archive/persona-duality/**"
+      - "projects/sovereignty-os/duality/**"
       - ".github/workflows/tabor-persona-atlas.yml"
   push:
     paths:
       - "creative-archive/persona-duality/**"
+      - "projects/sovereignty-os/duality/**"
       - ".github/workflows/tabor-persona-atlas.yml"
 permissions:
   contents: read
