@@ -328,7 +328,8 @@
           "503": {
             "description": "Storage/provider unavailable"
           }
-        }
+        },
+        "description": "Owner writes, explicit per-context writers, or scoped agent creation. A read grant never grants write access."
       },
       "get": {
         "operationId": "context_read",
@@ -1699,6 +1700,35 @@
             "description": "Provider or storage unavailable"
           }
         }
+      },
+      "get": {
+        "operationId": "owner_devices_list",
+        "description": "List the paired public device keys and enrollment times.",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation completed"
+          },
+          "400": {
+            "description": "Invalid request fields"
+          },
+          "403": {
+            "description": "Owner request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Operation conflicts with existing security state"
+          }
+        }
       }
     },
     "/api/ai": {
@@ -2261,6 +2291,220 @@
           },
           "503": {
             "description": "Provider or storage unavailable"
+          }
+        }
+      }
+    },
+    "/api/context/writer": {
+      "post": {
+        "operationId": "context_writer_update",
+        "description": "Grant a context writer who already has a read grant and context:write scope. Send null to clear the writer.",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "agent": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "key",
+                  "agent"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation completed"
+          },
+          "400": {
+            "description": "Invalid request fields"
+          },
+          "403": {
+            "description": "Owner request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Operation conflicts with existing security state"
+          }
+        }
+      }
+    },
+    "/api/devices/rotate": {
+      "post": {
+        "operationId": "owner_device_rotate",
+        "description": "Replace the owner key that signed this request. The new Ed25519 key must also sign the rotation message.",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "public_key": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9_-]{43}$"
+                  },
+                  "proof": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9_-]{86}$"
+                  }
+                },
+                "required": [
+                  "public_key",
+                  "proof"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation completed"
+          },
+          "400": {
+            "description": "Invalid request fields"
+          },
+          "403": {
+            "description": "Owner request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Operation conflicts with existing security state"
+          }
+        }
+      }
+    },
+    "/api/devices/revoke": {
+      "post": {
+        "operationId": "owner_device_revoke",
+        "description": "Revoke a paired public key while retaining at least one active owner device.",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "public_key": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9_-]{43}$"
+                  }
+                },
+                "required": [
+                  "public_key"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation completed"
+          },
+          "400": {
+            "description": "Invalid request fields"
+          },
+          "403": {
+            "description": "Owner request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Operation conflicts with existing security state"
+          }
+        }
+      }
+    },
+    "/api/agents/revoke": {
+      "post": {
+        "operationId": "agent_identity_revoke",
+        "description": "Revoke an agent, its outstanding tokens, and its context write grants.",
+        "security": [
+          {
+            "OwnerDevice": [],
+            "AgentSignature": [],
+            "AgentTime": [],
+            "AgentNonce": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "agent": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "agent"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation completed"
+          },
+          "400": {
+            "description": "Invalid request fields"
+          },
+          "403": {
+            "description": "Owner request proof rejected"
+          },
+          "404": {
+            "description": "Resource unavailable"
+          },
+          "409": {
+            "description": "Operation conflicts with existing security state"
           }
         }
       }
