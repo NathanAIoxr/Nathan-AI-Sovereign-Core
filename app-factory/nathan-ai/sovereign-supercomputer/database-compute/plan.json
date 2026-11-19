@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "placementsPerDatabase": 4,
+  "databaseCount": 55,
+  "containerPools": [
+    {
+      "name": "tabor-db-compute-pool",
+      "size": "standard-2",
+      "replicasPerDatabase": 2,
+      "vcpu": 1,
+      "ramGiB": 6,
+      "scratchGB": 12
+    },
+    {
+      "name": "tabor-db-higher-capacity-pool",
+      "size": "standard-4",
+      "replicasPerDatabase": 2,
+      "vcpu": 4,
+      "ramGiB": 12,
+      "scratchGB": 20
+    }
+  ],
+  "durableStorage": {
+    "existing": "Cloudflare D1",
+    "additional": "owner-selected durable storage"
+  },
+  "liveAppScope": [
+    "heka",
+    "dragons",
+    "unicorns",
+    "castles-unicorns",
+    "liberation-codex",
+    "manifestation",
+    "magic",
+    "cigam",
+    "voodoo",
+    "goodoo-joodoo"
+  ]
+}
