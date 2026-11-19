@@ -1,0 +1,301 @@
+{
+  "schema": 1,
+  "release": "d02e781b6f2b24e1065402031a4b00ee861e8ab645ec6cb56d128a1ce74b6b3c",
+  "files": [
+    {
+      "path": "apps/404.html",
+      "size": 156,
+      "sha256": "cc883e4e75a9859c8d1b8ecfd0394add0ffbc1568d43f031d4aec31f5ee5304a"
+    },
+    {
+      "path": "apps/api/records.json",
+      "size": 1520,
+      "sha256": "4c2e761c97e536ca181daae4075bef5f4bf73934444a813152d427ce54bbfab7"
+    },
+    {
+      "path": "apps/filters.js",
+      "size": 1635,
+      "sha256": "4abe3114dc9bf782da7621074e661afe544bcb5b7ccc56e70aac4d6d6b0d8a0b"
+    },
+    {
+      "path": "apps/health.json",
+      "size": 93,
+      "sha256": "07f550f5016d0d563fd5b27d08c437aa3fb13f19db6b53512f32cec1f381d443"
+    },
+    {
+      "path": "apps/index.html",
+      "size": 3232,
+      "sha256": "3d5377de43e67f73951b7edd6ddea5aa3cd2990a721a146f20beadce8dca39e4"
+    },
+    {
+      "path": "apps/style.css",
+      "size": 2483,
+      "sha256": "84d2ea8edc0a5692b5a4a0f5fa5b904ec6686e23ec3425518a336a6de43d2ab9"
+    },
+    {
+      "path": "books/404.html",
+      "size": 156,
+      "sha256": "cc883e4e75a9859c8d1b8ecfd0394add0ffbc1568d43f031d4aec31f5ee5304a"
+    },
+    {
+      "path": "books/api/records.json",
+      "size": 3986,
+      "sha256": "4475e34cec97099280dedce16196aac530c8433d0f8c698d72a4eb1656faa4e1"
+    },
+    {
+      "path": "books/download/before-the-first-road.md",
+      "size": 24454,
+      "sha256": "ede2fafaa5b03c0a6cd5327cac4b1aeebc7ce402026ee1bf2122e9ff54d62992"
+    },
+    {
+      "path": "books/download/series-bible.md",
+      "size": 15372,
+      "sha256": "6a5fd9de6a8e9670cc84710749648366052d54fc7e8ca26834215f0a7fd7bc5a"
+    },
+    {
+      "path": "books/filters.js",
+      "size": 1635,
+      "sha256": "4abe3114dc9bf782da7621074e661afe544bcb5b7ccc56e70aac4d6d6b0d8a0b"
+    },
+    {
+      "path": "books/health.json",
+      "size": 97,
+      "sha256": "f21f91748d767cbb6f5f0fe9eddf3ddca5808a97fe47c153638f9a8544e86bbe"
+    },
+    {
+      "path": "books/index.html",
+      "size": 5954,
+      "sha256": "f231b12b3d4bf7efa4fbc723e79a95775aed704bff3a860e92dcbea2ae0bf912"
+    },
+    {
+      "path": "books/read/before-the-first-road/index.html",
+      "size": 25927,
+      "sha256": "e7b02803de4f44774221dc611ebd0a96237696f4cc0dea1129f6bbbc405cc342"
+    },
+    {
+      "path": "books/read/series-bible/index.html",
+      "size": 16660,
+      "sha256": "0bd25ed3a387b4a3b0314db5fe49e95bad08f4d528ad7e4c86e91ed53bcc5b87"
+    },
+    {
+      "path": "books/style.css",
+      "size": 2483,
+      "sha256": "84d2ea8edc0a5692b5a4a0f5fa5b904ec6686e23ec3425518a336a6de43d2ab9"
+    },
+    {
+      "path": "daughters/404.html",
+      "size": 156,
+      "sha256": "cc883e4e75a9859c8d1b8ecfd0394add0ffbc1568d43f031d4aec31f5ee5304a"
+    },
+    {
+      "path": "daughters/api/records.json",
+      "size": 3189,
+      "sha256": "3c0a4620d1f63d335125225c75f3fc2b22eb2e37a17c7e552ddc0c0fe73d0fea"
+    },
+    {
+      "path": "daughters/filters.js",
+      "size": 1635,
+      "sha256": "4abe3114dc9bf782da7621074e661afe544bcb5b7ccc56e70aac4d6d6b0d8a0b"
+    },
+    {
+      "path": "daughters/health.json",
+      "size": 99,
+      "sha256": "a415af1002d70c102f979b8ed6f5cc8bc25aff51e79ca4c1e4f25fa584a1c4a7"
+    },
+    {
+      "path": "daughters/index.html",
+      "size": 4974,
+      "sha256": "41060c1a2593573ae397240735afae52ae71c01db920add0e175bc68046181fd"
+    },
+    {
+      "path": "daughters/style.css",
+      "size": 2483,
+      "sha256": "84d2ea8edc0a5692b5a4a0f5fa5b904ec6686e23ec3425518a336a6de43d2ab9"
+    },
+    {
+      "path": "knights/404.html",
+      "size": 156,
+      "sha256": "cc883e4e75a9859c8d1b8ecfd0394add0ffbc1568d43f031d4aec31f5ee5304a"
+    },
+    {
+      "path": "knights/api/records.json",
+      "size": 3635,
+      "sha256": "1dfd38a4df2e078c79aa7c0f9de02e31f8be40c25289874dc0fd27ac35620e58"
+    },
+    {
+      "path": "knights/filters.js",
+      "size": 1635,
+      "sha256": "4abe3114dc9bf782da7621074e661afe544bcb5b7ccc56e70aac4d6d6b0d8a0b"
+    },
+    {
+      "path": "knights/health.json",
+      "size": 95,
+      "sha256": "01229171e33d38c00cfc332abe5f43409233b90e6214b1c9a8a37e5d1dbd6e52"
+    },
+    {
+      "path": "knights/index.html",
+      "size": 5505,
+      "sha256": "88e405bfa9555fa323431ed769d13c4dc895d718f60cbda9e114d711e70866b7"
+    },
+    {
+      "path": "knights/style.css",
+      "size": 2483,
+      "sha256": "84d2ea8edc0a5692b5a4a0f5fa5b904ec6686e23ec3425518a336a6de43d2ab9"
+    },
+    {
+      "path": "light/404.html",
+      "size": 156,
+      "sha256": "cc883e4e75a9859c8d1b8ecfd0394add0ffbc1568d43f031d4aec31f5ee5304a"
+    },
+    {
+      "path": "light/api/records.json",
+      "size": 8249,
+      "sha256": "daec1d99461c4c3294922a906bc92a94d9b2e82b3387df6829e637681cb4d5e9"
+    },
+    {
+      "path": "light/filters.js",
+      "size": 1635,
+      "sha256": "4abe3114dc9bf782da7621074e661afe544bcb5b7ccc56e70aac4d6d6b0d8a0b"
+    },
+    {
+      "path": "light/health.json",
+      "size": 93,
+      "sha256": "5c074e6fd9b292a9f2dd0fef969aea2bcbd9d4958fb36a66de342fe4c955c8f0"
+    },
+    {
+      "path": "light/index.html",
+      "size": 10587,
+      "sha256": "eaa2dd76a24aff110457169cefafeffa6ab0bfe266ce74716f6432f04db49ad5"
+    },
+    {
+      "path": "light/style.css",
+      "size": 2483,
+      "sha256": "84d2ea8edc0a5692b5a4a0f5fa5b904ec6686e23ec3425518a336a6de43d2ab9"
+    },
+    {
+      "path": "lineage/404.html",
+      "size": 156,
+      "sha256": "cc883e4e75a9859c8d1b8ecfd0394add0ffbc1568d43f031d4aec31f5ee5304a"
+    },
+    {
+      "path": "lineage/api/records.json",
+      "size": 7472,
+      "sha256": "0e7e1f779d974c297cae9c4034b7a9e059362fb3c9c080812add57fc587f6292"
+    },
+    {
+      "path": "lineage/filters.js",
+      "size": 1635,
+      "sha256": "4abe3114dc9bf782da7621074e661afe544bcb5b7ccc56e70aac4d6d6b0d8a0b"
+    },
+    {
+      "path": "lineage/health.json",
+      "size": 95,
+      "sha256": "5d43e545215a5a7974fbf3b0a90cd303c66f999e1dcfe0e53b2a66ab8302fa6c"
+    },
+    {
+      "path": "lineage/index.html",
+      "size": 9738,
+      "sha256": "2f993d8bfffa6bf3074b191b5fd1a282e45d9615075873eee9928a9bd2d3c242"
+    },
+    {
+      "path": "lineage/style.css",
+      "size": 2483,
+      "sha256": "84d2ea8edc0a5692b5a4a0f5fa5b904ec6686e23ec3425518a336a6de43d2ab9"
+    },
+    {
+      "path": "silk/404.html",
+      "size": 156,
+      "sha256": "cc883e4e75a9859c8d1b8ecfd0394add0ffbc1568d43f031d4aec31f5ee5304a"
+    },
+    {
+      "path": "silk/api/records.json",
+      "size": 3969,
+      "sha256": "601514df898a164a1ccc506d657fefa43cfaa73e8202cb223f5f9c02cbe48cba"
+    },
+    {
+      "path": "silk/back/index.html",
+      "size": 6544,
+      "sha256": "fad8fcb4c9a2010d475fed551ab7eaa620841200cb31a21ad1a9cbdfc089fbd7"
+    },
+    {
+      "path": "silk/filters.js",
+      "size": 1635,
+      "sha256": "4abe3114dc9bf782da7621074e661afe544bcb5b7ccc56e70aac4d6d6b0d8a0b"
+    },
+    {
+      "path": "silk/health.json",
+      "size": 92,
+      "sha256": "8d1edf985db4754c29b08da220ce0169ce346364db3055f1b7037d497ad9b4c4"
+    },
+    {
+      "path": "silk/index.html",
+      "size": 6498,
+      "sha256": "46201e826f90137c648c874c36140ef2af6f12fbe790309feeb7c2c77cae470c"
+    },
+    {
+      "path": "silk/style.css",
+      "size": 2483,
+      "sha256": "84d2ea8edc0a5692b5a4a0f5fa5b904ec6686e23ec3425518a336a6de43d2ab9"
+    },
+    {
+      "path": "sites/404.html",
+      "size": 156,
+      "sha256": "cc883e4e75a9859c8d1b8ecfd0394add0ffbc1568d43f031d4aec31f5ee5304a"
+    },
+    {
+      "path": "sites/api/records.json",
+      "size": 1614,
+      "sha256": "32e82ae91971962513e51df8f45fb7ee6babd177a6b36d1e37bbd85bbdb18b28"
+    },
+    {
+      "path": "sites/filters.js",
+      "size": 1635,
+      "sha256": "4abe3114dc9bf782da7621074e661afe544bcb5b7ccc56e70aac4d6d6b0d8a0b"
+    },
+    {
+      "path": "sites/health.json",
+      "size": 93,
+      "sha256": "a0576a6f7713e9a9ec9d0f0e63dc57ec36c5ce849af455d01e1c9e34ca38b568"
+    },
+    {
+      "path": "sites/index.html",
+      "size": 3395,
+      "sha256": "6a38046789b4f2e4057d77857f74830da7ae07b8951b1dac5c0fd724e813b907"
+    },
+    {
+      "path": "sites/style.css",
+      "size": 2483,
+      "sha256": "84d2ea8edc0a5692b5a4a0f5fa5b904ec6686e23ec3425518a336a6de43d2ab9"
+    },
+    {
+      "path": "taborites/404.html",
+      "size": 156,
+      "sha256": "cc883e4e75a9859c8d1b8ecfd0394add0ffbc1568d43f031d4aec31f5ee5304a"
+    },
+    {
+      "path": "taborites/api/records.json",
+      "size": 2722,
+      "sha256": "d1bcfbee20f2fc508ef647556de3fd19352b057a0e59988fb9786bc29ee84537"
+    },
+    {
+      "path": "taborites/filters.js",
+      "size": 1635,
+      "sha256": "4abe3114dc9bf782da7621074e661afe544bcb5b7ccc56e70aac4d6d6b0d8a0b"
+    },
+    {
+      "path": "taborites/health.json",
+      "size": 99,
+      "sha256": "ac73ae81a78de4df0be2afecb13f5196aca586bf741a28da25c3c7f84f980567"
+    },
+    {
+      "path": "taborites/index.html",
+      "size": 4477,
+      "sha256": "c1ec25c6a6483d69b49f138507396ad16f98cb94cb93e70a74ed270ca9992dd9"
+    },
+    {
+      "path": "taborites/style.css",
+      "size": 2483,
+      "sha256": "84d2ea8edc0a5692b5a4a0f5fa5b904ec6686e23ec3425518a336a6de43d2ab9"
+    }
+  ]
+}

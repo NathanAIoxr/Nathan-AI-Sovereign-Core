@@ -9,3 +9,7 @@ The work stays open in the source ledger until its own completion criteria are m
 Run `node --test worker.test.mjs` with Node.js 24 or newer from this directory.
 
 Tabor World links here from https://tabor-world.nathantaboract.workers.dev/assignments/.
+
+## FIND THE TABOR
+
+This Worker also hosts the [FIND THE TABOR assignments and flow](https://library-of-tabor-assignments.nathantaboract.workers.dev/find-the-tabor) and its [receipt API](https://library-of-tabor-assignments.nathantaboract.workers.dev/api/find-the-tabor). The separately scheduled publication job uses the bindings and approved manifest described in the [project runbook](../../../projects/find-the-tabor/README.md).

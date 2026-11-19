@@ -3,11 +3,13 @@ on:
   push:
     paths:
       - 'projects/find-the-tabor/**'
+      - 'app-factory/tabor-universal-library-engine/assignments/**'
       - 'app-factory/one/library-mind/books/tss-*.md'
       - '.github/workflows/find-the-tabor.yml'
   pull_request:
     paths:
       - 'projects/find-the-tabor/**'
+      - 'app-factory/tabor-universal-library-engine/assignments/**'
       - 'app-factory/one/library-mind/books/tss-*.md'
       - '.github/workflows/find-the-tabor.yml'
   workflow_dispatch:
@@ -24,6 +26,12 @@ jobs:
       - run: node projects/find-the-tabor/build.mjs
       - run: node projects/find-the-tabor/pages.mjs
       - run: node --test projects/find-the-tabor/test.mjs
+      - run: node --test app-factory/tabor-universal-library-engine/assignments/*.test.mjs
+      - name: Verify the committed edition bytes and public release manifest
+        run: |
+          node projects/find-the-tabor/portable.mjs "$RUNNER_TEMP/tabor-public"
+          node projects/find-the-tabor/release.mjs "$RUNNER_TEMP/tabor-public"
+          diff -r projects/find-the-tabor/public "$RUNNER_TEMP/tabor-public"
       - uses: actions/upload-artifact@v4
         with:
           name: find-the-tabor-editions

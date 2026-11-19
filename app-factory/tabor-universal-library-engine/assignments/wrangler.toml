@@ -4,7 +4,7 @@ compatibility_date = "2026-11-17"
 workers_dev = true
 
 [triggers]
-crons = ["*/15 * * * *"]
+crons = ["*/15 * * * *", "2-57/5 * * * *"]
 
 [[services]]
 binding = "WORLD"
@@ -18,3 +18,13 @@ service = "tabor-standalone"
 binding = "RECEIPTS"
 database_name = "tabor-one-deployment-ledger"
 database_id = "4f0a2f93-db4a-413c-8e20-98bedc4095cc"
+
+
+[[d1_databases]]
+binding = "TABOR_RESEARCH"
+database_name = "tabor-research-checks-db"
+database_id = "ab07f843-9ad1-4c71-b04f-4260bb7a96a2"
+
+[[r2_buckets]]
+binding = "TABOR_PUBLIC"
+bucket_name = "find-the-tabor-public-editions"
