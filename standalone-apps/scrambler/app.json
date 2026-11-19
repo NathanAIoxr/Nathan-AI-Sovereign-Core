@@ -1,0 +1,12 @@
+{
+  "name": "Scrambler",
+  "slug": "scrambler",
+  "factory": "TABOR 1-2-3 FACTORY",
+  "entry": "index.html",
+  "recovery": "recovery.html",
+  "kind": "fictional-route-simulation",
+  "locationAccess": false,
+  "cloudflare_namespace": "nathan-tabor-platforms",
+  "cloudflare_worker": "tabor-scrambler",
+  "website": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/scrambler/"
+}
