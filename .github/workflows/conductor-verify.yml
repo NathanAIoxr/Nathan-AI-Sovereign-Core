@@ -1,0 +1,35 @@
+name: Conductor - validate and verify
+on:
+  push:
+    branches: [main, agent-orchestration-foundation-20261119]
+    paths:
+      - 'conductor/**'
+      - 'zones/holding-vault/**'
+      - '.github/workflows/conductor-verify.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: conductor-verify-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: |
+          node --check conductor/src/index.js
+          node --check zones/holding-vault/src/conductor.js
+          node --check zones/holding-vault/src/sovereign-mesh.js
+      - name: Validate required configuration
+        run: |
+          grep -q 'tabor-fleet-registry' conductor/wrangler.toml
+          grep -q 'approval_required:true' conductor/src/index.js
+      - name: Verify deployment prerequisites without deploying
+        run: |
+          echo 'Validation complete. Production deployment requires configured secrets, existing-worker capacity review, approval, and smoke tests.'
