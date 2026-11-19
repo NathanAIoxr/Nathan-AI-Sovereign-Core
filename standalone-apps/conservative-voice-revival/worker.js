@@ -8,7 +8,7 @@ function response(body,type="text/html; charset=utf-8",status=200,extra={}){retu
 function json(data,status=200){return response(JSON.stringify(data,null,2),"application/json; charset=utf-8",status,{"cache-control":"no-store"});}
 
 function page(title,body,description="Modern restoration of The Conservative Voice, founded by Nathan Tabor in 2004."){
-return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(title)} | The Conservative Voice</title><meta name="description" content="${e(description)}"><link rel="stylesheet" href="/assets/site.css"><link rel="alternate" type="application/rss+xml" title="The Conservative Voice RSS" href="/rss.xml"></head><body><a class="skip" href="#main">Skip to content</a><header class="mast"><div class="wrap top"><div><a class="brand" href="/">THE CONSERVATIVE <em>VOICE</em></a><div class="byline">Founded 2004 · Modern edition by Nathan Tabor</div></div><nav aria-label="Main navigation" class="links"><a href="/">Home</a><a href="/categories">Sections</a><a href="/archives">Historical archive</a><a href="/author/nathan-tabor">Nathan Tabor</a><a href="/forum">Forum</a><a href="/newsletter">Newsletter</a></nav></div><div class="rule"></div></header><main id="main">${body}</main><footer class="footer"><div class="wrap footgrid"><div><strong>THE CONSERVATIVE VOICE</strong><p class="small">A modern preservation and publishing project. Historical links and new content are separated by provenance.</p></div><div><a href="/archives">Source index</a> · <a href="/rss.xml">RSS</a> · <a href="/api/health">Status</a><p class="small">Nathan Tabor · The Nathan Tabor Way</p></div></div></footer></body></html>`;
+return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(title)} | The Conservative Voice</title><meta name="description" content="${e(description)}"><link rel="stylesheet" href="/assets/site.css"><link rel="alternate" type="application/rss+xml" title="The Conservative Voice RSS" href="/rss.xml"></head><body><a class="skip" href="#main">Skip to content</a><header class="mast"><div class="wrap top"><div><a class="brand" href="/">THE CONSERVATIVE <em>VOICE</em></a><div class="byline">Founded 2004 · Modern edition by Nathan Tabor</div></div><nav aria-label="Main navigation" class="links"><a href="/">Home</a><a href="/categories">Sections</a><a href="/archives">Historical archive</a><a href="/author/nathan-tabor">Nathan Tabor</a><a href="/directory">Columnists</a><a href="/states">States</a><a href="/forum">Forum</a><a href="/newsletter">Newsletter</a></nav></div><div class="rule"></div></header><main id="main">${body}</main><footer class="footer"><div class="wrap footgrid"><div><strong>THE CONSERVATIVE VOICE</strong><p class="small">A modern preservation and publishing project. Historical links and new content are separated by provenance.</p></div><div><a href="/archives">Source index</a> · <a href="/rss.xml">RSS</a> · <a href="/api/health">Status</a><p class="small">Nathan Tabor · The Nathan Tabor Way</p></div></div></footer></body></html>`;
 }
 
 function linkrow(a){return `<li><a href="${e(a.url)}" target="_blank" rel="noopener noreferrer">${e(a.source_id)}</a> <strong>${e(a.kind.replace(/_/g," "))}</strong><div class="meta">${e(a.capture_date)} · ${e(a.evidence)}</div></li>`;}
@@ -53,6 +53,8 @@ async function handler(req,env){if(!env.DB)return json({error:"D1 database bindi
 if(p==="/assets/site.css")return response(CSS,"text/css; charset=utf-8",200,{"cache-control":"public, max-age=3600"});
 if(p==="/api/health"){const [a,b]=await Promise.all([env.DB.prepare("SELECT COUNT(*) AS n FROM archive_sources").first(),env.DB.prepare("SELECT COUNT(*) AS n FROM articles WHERE status='published'").first()]);return json({ok:true,name:"The Conservative Voice",mode:"revival",database:"connected",archive_sources:a.n,published_articles:b.n,newsletter:"not_active",forums:"moderation_only",write_api:env.TCV_ADMIN_TOKEN?"enabled":"disabled"});}
 if(p==="/api/categories")return json({categories:CATEGORIES,count:CATEGORIES.length});
+if(p==="/api/directory"){const r=await env.DB.prepare("SELECT id,label,kind,source_url FROM editorial_directory ORDER BY label").all();return json({count:r.results?.length,directory:r.results||[]});}
+if(p==="/api/states"){const r=await env.DB.prepare("SELECT id,name,route FROM geographic_topics ORDER BY name").all();return json({count:r.results?.length,topics:r.results||[]});}
 if(p==="/api/sources"){const r=await env.DB.prepare("SELECT * FROM archive_sources ORDER BY capture_date,source_id").all();return json({count:r.results?.length,sources:r.results||[]});}
 if(p==="/api/articles"){const r=await env.DB.prepare("SELECT slug,title,author,category,summary,provenance,source_url,created_at FROM articles WHERE status='published' ORDER BY created_at DESC LIMIT 100").all();return json({count:r.results?.length,articles:r.results||[]});}
 if(p==="/api/admin/articles"&&req.method==="POST")return adminWrite(req,env);
@@ -60,6 +62,8 @@ if(req.method!=="GET"&&req.method!=="HEAD")return json({error:"Method not allowe
 if(p==="/")return homepage(env);
 if(p==="/archives")return sourcepage(env,u.searchParams.get("q"));
 if(p==="/categories")return categorypage();
+if(p==="/directory")return directorypage(env);
+if(p==="/states")return statespage(env);
 if(p==="/category")return category(env,u.searchParams.get("name")||"");
 if(p==="/search")return searchpage(env,u.searchParams.get("q"));
 if(p.startsWith("/article/"))return article(env,decodeURIComponent(p.slice(9)));
@@ -74,4 +78,15 @@ if(p.startsWith("/modules/")||p==="/category/102.html")return Response.redirect(
 return response(page("Not found",`<section class="wrap section"><h1>Page not found</h1><p><a href="/archives">Search the historical archive</a> or visit the <a href="/">home page</a>.</p></section>`),"text/html; charset=utf-8",404);
 }catch(err){return json({error:"Internal server error",route:p},500);}}
 
+
+async function directorypage(env){
+ const r=await env.DB.prepare("SELECT id,label,kind,source_url FROM editorial_directory ORDER BY label").all();
+ const rows=(r.results||[]).map(x=>'<li><strong>'+e(x.label)+'</strong> <span class="tag">'+e(x.kind==='editorial_category'?'editorial group':'2006 byline')+'</span><div class="meta">Original directory ID '+e(x.id)+' · <a href="'+e(x.source_url)+'" target="_blank" rel="noopener noreferrer">See historical byline archive</a></div></li>').join("");
+ return response(page("Original columnist directory",'<section class="wrap section"><div class="kicker">2006 editorial directory</div><h1>Columnists and contributors</h1><p class="lead">All 145 recovered public directory labels, with historic IDs. This inventory includes editorial categories as well as named bylines; it does not prove 145 individual authors or licensing rights for every article.</p><ul class="list sheet">'+rows+'</ul><p class="meta">Source: June 15, 2006 archived directory; entries preserved exactly as transcribed in the recovery dossier.</p></section>'));
+}
+async function statespage(env){
+ const r=await env.DB.prepare("SELECT id,name,route FROM geographic_topics ORDER BY name").all();
+ const rows=(r.results||[]).map(x=>'<li><strong>'+e(x.name)+'</strong><div class="meta">Original topic ID '+e(x.id)+' · <code>'+e(x.route)+'</code></div></li>').join("");
+ return response(page("Original geographic sections",'<section class="wrap section"><div class="kicker">2004 geographic and editorial taxonomy</div><h1>States and regional news</h1><p class="lead">55 archived topic records including 50 U.S. states, Washington, D.C., and four broader editorial categories. The original route IDs are preserved for future permitted restoration.</p><ul class="list sheet">'+rows+'</ul><p class="meta"><a href="/archives">Browse the verified archived snapshots</a>; a topic route alone does not guarantee a captured page exists.</p></section>'));
+}
 export default { fetch: handler };
