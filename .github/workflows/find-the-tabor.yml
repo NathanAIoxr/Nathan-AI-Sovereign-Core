@@ -28,3 +28,34 @@ jobs:
         with:
           name: find-the-tabor-editions
           path: projects/find-the-tabor/dist/
+  deploy-pages:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        edition: [lineage, silk, taborites, knights, daughters, light, books, apps, sites]
+    concurrency: find-the-tabor-pages-${{ matrix.edition }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - uses: actions/download-artifact@v4
+        with:
+          name: find-the-tabor-editions
+          path: projects/find-the-tabor/dist/
+      - name: Publish and verify Cloudflare Pages edition
+        env:
+          EDITION: ${{ matrix.edition }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: 'false'
+        run: |
+          : "${CLOUDFLARE_API_TOKEN:?Set a Pages Write API token in the repository secrets}"
+          : "${CLOUDFLARE_ACCOUNT_ID:?Set the Cloudflare account ID in the repository secrets}"
+          PROJECT="$(node -p 'require("./projects/find-the-tabor/projects.json")[process.env.EDITION].pages')"
+          npx --yes wrangler@4.165.0 pages deploy "projects/find-the-tabor/dist/pages/$EDITION" --project-name "$PROJECT" --branch main --commit-hash "$GITHUB_SHA" --commit-dirty=false
+          node projects/find-the-tabor/verify-live.mjs "$EDITION"

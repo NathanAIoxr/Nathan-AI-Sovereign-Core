@@ -27,4 +27,4 @@ The raw intake is preserved in the R2 bucket `tabor-lineage-r2` under `intake/20
 
 ## GitHub and Clouder
 
-Use the Cloudflare GitHub integration to build from the repository and create independently managed Cloudflare projects. Clouder is the mobile client for the connected Cloudflare account. Access in Clouder uses the token and permissions on the owner’s device. GitHub credentials stay with the provider integration.
+The GitHub Actions build generates each edition. The main-branch deployment job uses scoped Cloudflare credentials from repository secrets, publishes each edition to its own Pages project, and checks the live release. The scheduled GitHub source-check workflow records availability while the Cloudflare Worker deployment is pending. Clouder is the mobile client for the Cloudflare account. Its access uses the scoped token and permissions on the owner’s device.

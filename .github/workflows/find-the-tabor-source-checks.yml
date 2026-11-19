@@ -1,0 +1,23 @@
+name: FIND THE TABOR source checks
+on:
+  schedule:
+    - cron: '17 11 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check-curated-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - run: node projects/find-the-tabor/build.mjs
+      - run: node projects/find-the-tabor/source-checks.mjs "$RUNNER_TEMP/source-checks.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tabor-source-checks
+          path: ${{ runner.temp }}/source-checks.json
+          retention-days: 14
