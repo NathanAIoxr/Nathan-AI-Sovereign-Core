@@ -1,0 +1,82 @@
+{
+  "traits": {
+    "power_infrastructure": {
+      "grid_capacity_mw": "100-500+",
+      "delivery_voltage": "240V-415V_3Phase",
+      "curtailment_mode": "instant_grid_api_shedding",
+      "ups_backup": false
+    },
+    "thermal_cooling": {
+      "methods": [
+        "hydro_cooling_closed_loop",
+        "dielectric_immersion",
+        "hot_cold_aisle"
+      ],
+      "target_efficiency": "max_terahashes_per_joule"
+    },
+    "compute_silicon": {
+      "architecture": "3nm_5nm_hardwired_SHA256d_ASIC",
+      "throughput_target": "1000+_TH/s_per_unit",
+      "control_board": "ARM_Cortex_A_embedded_Linux_minimal_RAM"
+    },
+    "networking_protocol": {
+      "framing": "Stratum_V2_compact_binary",
+      "encryption": "Noise_ChaChaPoly",
+      "latency_ms": "<2.0",
+      "bandwidth_reduction": "70%",
+      "template_control": "local_Job_Declaration"
+    },
+    "software_orchestration": {
+      "firmware": "per_chip_voltage_frequency_autotune",
+      "ledger_node": "Bitcoin_Core_CPP_NVMe_mempool",
+      "telemetry": "real_time_SCADA_fleet_control"
+    }
+  },
+  "notes": [
+    {
+      "index": 0,
+      "note_type": "WHITE_NOTE",
+      "payload": "BASE_0"
+    },
+    {
+      "index": 1,
+      "note_type": "BLACK_NOTE",
+      "payload": "BASE_1"
+    },
+    {
+      "index": 2,
+      "note_type": "WHITE_NOTE",
+      "payload": "BASE_2"
+    },
+    {
+      "index": 3,
+      "note_type": "BLACK_NOTE",
+      "payload": "BASE_3"
+    },
+    {
+      "index": 4,
+      "note_type": "BLACK_NOTE",
+      "payload": "ASIC_3NM_SHA256D_CORE"
+    },
+    {
+      "index": 5,
+      "note_type": "WHITE_NOTE",
+      "payload": "LEGACY_CHANNEL_5"
+    },
+    {
+      "index": 6,
+      "note_type": "BLACK_NOTE",
+      "payload": "STRATUM_V2_BINARY_NOISE"
+    },
+    {
+      "index": 7,
+      "note_type": "BLACK_NOTE",
+      "payload": "HYDRO_IMMERSION_GRID_SHED"
+    },
+    {
+      "index": 8,
+      "note_type": "WHITE_NOTE",
+      "payload": "LEGACY_CHANNEL_8"
+    }
+  ]
+}
