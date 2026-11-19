@@ -146,9 +146,13 @@ export default {
       ).bind(url.hostname).first();
       if (!project || project.zone_status !== 'ACTIVE') return response(request, 'Not found', 404);
 
-      const live = project.launch_status === 'LIVE' &&
-        await env.HOLDING_CONFIG.get('FLEET_STATUS') !== 'HOLDING' &&
-        await env.HOLDING_CONFIG.get('ZONE_STATUS:' + url.hostname) !== 'HOLDING';
+      const [fleetMode, zoneMode] = await Promise.all([
+        env.HOLDING_CONFIG.get('FLEET_STATUS'),
+        env.HOLDING_CONFIG.get('ZONE_STATUS:' + url.hostname),
+      ]);
+      const ready = Boolean(project.build_key) && /^[a-f0-9]{64}$/.test(project.access_audience ?? '');
+      const live = fleetMode !== 'HOLDING' && zoneMode !== 'HOLDING' &&
+        (project.launch_status === 'LIVE' || (ready && zoneMode === 'LIVE'));
       if (action) {
         if (method !== action) return response(request, 'Method not allowed', 405, { Allow: action });
         if (!await hasPreviewAccess(request, env.ACCESS_ISSUER, project.access_audience)) {

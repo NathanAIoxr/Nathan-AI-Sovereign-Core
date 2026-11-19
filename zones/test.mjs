@@ -79,3 +79,16 @@ test('live reads are scoped to the exact hostname, project and immutable build',
   assert.equal((await gate.fetch(new Request('https://other.example/'), env)).status, 404);
   assert.equal((await gate.fetch(request(), bindings({ zone_status: 'PENDING' }))).status, 404);
 });
+
+test('one hostname KV key can launch an active staged build, with fleet-wide holding taking precedence', async () => {
+  const env = bindings();
+  const switches = new Map([['ZONE_STATUS:' + hostname, 'LIVE']]);
+  env.HOLDING_CONFIG.get = async key => switches.get(key);
+  assert.equal(await (await gate.fetch(request(), env)).text(), 'staged page');
+  switches.set('FLEET_STATUS', 'HOLDING');
+  assert.match(await (await gate.fetch(request(), env)).text(), /Coming soon/);
+  switches.delete('FLEET_STATUS');
+  const unprepared = bindings({ build_key: null });
+  unprepared.HOLDING_CONFIG = env.HOLDING_CONFIG;
+  assert.match(await (await gate.fetch(request(), unprepared)).text(), /Coming soon/);
+});
