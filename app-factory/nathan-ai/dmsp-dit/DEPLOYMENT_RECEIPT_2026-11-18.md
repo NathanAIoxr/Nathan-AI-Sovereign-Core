@@ -36,3 +36,15 @@ The Worker upload used the Worker source read directly from GitHub feature branc
 5. Never assert an external endpoint, resource, tenant, user, backup or worker is operating unless separately verified.
 
 **Definitions:** VERIFIED = observed via relevant provider API. UNVERIFIED = not independently tested. NOT ENABLED = a designed capability not activated or established. A Worker or database record is not a physical server or running MSP team.
+
+## Public release follow-up (November 18, 2026 ET / November 19 UTC)
+
+- GitHub PR #356 merged to `main` at merge commit `4e8daef7e5d25c70d07f88fc6305e11f30cd8e9b`; a follow-up updated source links on `main`.
+- Public front door added at the top of repository `README.md`.
+- Standalone offline HTML available at `app-factory/nathan-ai/dmsp-dit/public/offline-standalone.html` on `main`.
+- Public routes added: `/`, `/app.js`, `/styles.css`, `/icon.svg`, `/manifest.webmanifest`, `/sw.js`, `/download`, and `/download/catalog.json`.
+- GitHub Actions `DMSP DIT API validation` succeeded for public portal and portable app package tests before merge.
+- Cloudflare Worker `nathan-ai-dmsp-dit` re-uploaded from GitHub `main` source after merge; API returned success. Deployment `c2a0e6c6-0188-4b33-83f0-d6893efa1272` assigned **100% traffic**.
+- Cloudflare D1 department registry verified at **28**, with **28 inert runbooks (0 enabled)**. Protected customer operations are not yet enabled.
+- **Public end-to-end HTTP remains unverified** from the available environment, even though Worker deployment and workers.dev routing are verified. A human browser check is still required.
+- GitHub Pages and Cloudflare Workers are distinct; this release is hosted at the Cloudflare Worker address, not installed by Clouder.
