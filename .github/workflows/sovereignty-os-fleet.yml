@@ -1,0 +1,43 @@
+name: Sovereignty OS fleet inventory and quality flow
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'projects/sovereignty-os/**'
+      - '.github/workflows/sovereignty-os-fleet.yml'
+  schedule:
+    - cron: '23 */6 * * *'
+permissions:
+  contents: read
+jobs:
+  inventory-agent:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate flow manifest and independent app registry
+        run: |
+          python3 - <<'PY'
+          import json,pathlib
+          root=pathlib.Path('projects/sovereignty-os')
+          m=json.loads((root/'flow-manifest.json').read_text())
+          assert m['system']=='Sovereignty OS'
+          assert len({x['id'] for x in m['workers']})==len(m['workers'])
+          assert all(x['state'] in ('planned','not-verified','verified') for x in m['connections'])
+          assert (root/'PROJECT_INTAKE_REGISTRY.md').exists()
+          print('Inventory flow valid; deployments not inferred')
+          PY
+  quality-agent:
+    needs: inventory-agent
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate source and package independently
+        run: |
+          node --check projects/sovereignty-os/worker.js
+          test -s projects/sovereignty-os/site/index.html
+          mkdir -p dist/sovereignty-os
+          cp projects/sovereignty-os/site/index.html dist/sovereignty-os/index.html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sovereignty-os-site
+          path: dist/sovereignty-os
