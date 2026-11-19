@@ -1,0 +1,19 @@
+name: PD-006 Isaiah provenance
+on:
+  pull_request:
+    paths:
+      - "creative-archive/persona-duality/research/isaiah-45-7-provenance.json"
+      - "creative-archive/persona-duality/isaiah-provenance.test.mjs"
+      - ".github/workflows/persona-isaiah-provenance.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test creative-archive/persona-duality/isaiah-provenance.test.mjs
