@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 340,
+  "count": 341,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -1570,6 +1570,14 @@
       "entry": "app-factory/universal-node/index.html",
       "group": "universal-node",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/universal-node/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-fed0ea4ff25ede66",
+      "title": "Anubis & Karma \u00b7 End That War",
+      "entry": "standalone-apps/anubis-and-karma/public/index.html",
+      "group": "anubis-and-karma",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/standalone-apps/anubis-and-karma/public/index.html",
       "adoption": "integration_required"
     },
     {
