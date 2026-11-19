@@ -1,0 +1,36 @@
+name: Two-Plate Reckoning mobile asset preparation
+
+on:
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/two-plate-reckoning/**'
+      - '.github/workflows/two-plate-reckoning-mobile.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/two-plate-reckoning/**'
+      - '.github/workflows/two-plate-reckoning-mobile.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: app-factory/nathan-ai/two-plate-reckoning
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test game.test.mjs memes.test.mjs
+      - run: node native/prepare-assets.mjs dist/native-assets
+      - uses: actions/upload-artifact@v4
+        with:
+          name: two-plate-reckoning-offline-assets
+          path: app-factory/nathan-ai/two-plate-reckoning/dist/native-assets/
+          if-no-files-found: error
