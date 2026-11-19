@@ -1,0 +1,11 @@
+{
+  "name": "tabor-build-loop",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test build.test.mjs"
+  },
+  "dependencies": {
+    "acorn": "8.15.0"
+  }
+}
