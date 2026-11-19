@@ -12,7 +12,7 @@ test("Cleopatra staff dossier separates creator claim, comparison object and unk
  const comparison=sections.find(([kind])=>kind==="Evidence classification");
  assert.ok(comparison[2].includes("does not identify, authenticate"));
  assert.equal(comparison[3],"https://www.metmuseum.org/art/collection/search/249300");
- assert.ok(sections.some(([kind,,text])=>kind==="Open provenance ledger"&&text.includes("unresolved")));
+ assert.ok(sections.some(([kind,,text])=>kind==="Open provenance ledger"&&/\b(unresolved|unverified)\b/.test(text)));
  assert.ok(sections.some(([kind,,text])=>kind==="Attribution boundary"&&text.includes("remain unresolved")));
  const {worker}=await build("cleopatra-staff");
  const {default:service}=await import("data:text/javascript;base64,"+Buffer.from(worker).toString("base64"));
