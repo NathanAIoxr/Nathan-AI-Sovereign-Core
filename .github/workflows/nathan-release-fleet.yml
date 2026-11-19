@@ -1,0 +1,86 @@
+name: Nathan release fleet
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'standalone-apps/release-fleet/**'
+      - 'standalone-apps/game-app-stations/**'
+      - 'app-factory/nathan-ai/sorting-hats-hatettes/**'
+      - '.github/workflows/nathan-release-fleet.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '23 10 * * *'
+permissions:
+  contents: read
+
+jobs:
+  websites:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build and verify the existing station catalog
+        run: |
+          node standalone-apps/game-app-stations/build.mjs
+          node standalone-apps/game-app-stations/verify.mjs
+          mkdir -p "${RUNNER_TEMP}/release-websites"
+          node standalone-apps/release-fleet/inventory.mjs > "${RUNNER_TEMP}/release-websites/inventory.json"
+      - name: Build independent UNBOUND website Worker
+        run: |
+          node --test app-factory/nathan-ai/sorting-hats-hatettes/game.test.mjs
+          node app-factory/nathan-ai/sorting-hats-hatettes/build.mjs "${RUNNER_TEMP}/release-websites/unbound-worker.mjs"
+          node --input-type=module - "${RUNNER_TEMP}/release-websites/unbound-worker.mjs" <<'JS'
+          import {pathToFileURL} from 'node:url'
+          const {default:worker}=await import(pathToFileURL(process.argv[2]))
+          const root='https://unbound.example/sorting-hats-hatettes/'
+          for(const route of ['', 'game.mjs', 'style.css', 'manifest.webmanifest', 'series', 'sw.js']){
+            const response=worker.fetch(new Request(new URL(route,root)))
+            if(!response.ok || (await response.arrayBuffer()).byteLength===0) throw Error('Missing website route: '+route)
+          }
+          JS
+          cp standalone-apps/game-app-stations/dist/{catalog,release}.json "${RUNNER_TEMP}/release-websites/"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: website-build-and-catalog
+          path: ${{ runner.temp }}/release-websites
+          if-no-files-found: error
+
+  books:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Package and check the sourced EPUBs
+        run: |
+          python3 standalone-apps/release-fleet/epub.py "${RUNNER_TEMP}/release-books"
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends epubcheck
+          for book in "${RUNNER_TEMP}"/release-books/*.epub; do epubcheck "$book"; done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hat-hatette-epub-previews
+          path: ${{ runner.temp }}/release-books
+          if-no-files-found: error
+
+  hat-os:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble the BIOS image and test it with QEMU
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends qemu-system-x86
+          bash standalone-apps/release-fleet/hat-os/build.sh "${RUNNER_TEMP}/release-hat-os"
+          python3 standalone-apps/release-fleet/hat-os/verify.py "${RUNNER_TEMP}/release-hat-os"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hat-os-bios-diagnostic
+          path: ${{ runner.temp }}/release-hat-os
+          if-no-files-found: error
