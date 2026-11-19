@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 355,
+  "count": 356,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -882,6 +882,14 @@
       "entry": "app-factory/nathan-ai/series/two-moons-weather-balloons/index.html",
       "group": "nathan-ai",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/series/two-moons-weather-balloons/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-fc9817d04ff1b5a9",
+      "title": "SHIT TIHS by Nathan Tabor",
+      "entry": "app-factory/nathan-ai/shit-tihs/public/index.html",
+      "group": "nathan-ai",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/shit-tihs/public/index.html",
       "adoption": "integration_required"
     },
     {
