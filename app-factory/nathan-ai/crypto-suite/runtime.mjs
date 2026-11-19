@@ -54,7 +54,7 @@ const tools = {
     '<p><a href="'+network+'/coins/64">Original registry</a> · <a href="/restoration">Restoration archive</a> · <a href="/api/coins/64">Registry JSON</a></p>'+input("search","Filter by slot, ticker, or name","search",'autocomplete="off"')+
     '<p id="coin-status" role="status">Loading registry…</p><div id="coins"></div>'),
   "mining-lab": () => section("Bitcoin header proof", "SHA-256d and compact-target comparison for an 80-byte header. Header proof is one component of Bitcoin block validation.",
-    '<p><a href="/api/genesis-proof">Bitcoin genesis verification data</a> · <a href="/launch">Production launch readiness</a></p><form id="proof">'+area("header","80-byte hexadecimal header")+
+    '<p><a href="/api/genesis-proof">Bitcoin genesis verification data</a> · <a href="/launch">Production launch readiness</a> · <a href="https://nathan-coin-catalog.nathantaboract.workers.dev/registry">Sovereign Coin Registry</a> · <a href="https://nathan-coin-catalog.nathantaboract.workers.dev/registry#hash">SHA-256 / SHA3-512 verifier</a></p><form id="proof">'+area("header","80-byte hexadecimal header")+
     '<div class="actions"><button>Verify proof</button><button type="button" id="genesis">Use genesis header</button></div></form>'+output("proof-result"))+
     section("Electricity estimate", "Enter measured or hypothetical values for your own equipment.",'<form id="energy">'+number("watts","Power in watts")+number("hours","Run hours")+number("rate","Cost per kWh")+'<button>Calculate</button></form>'+output("energy-result")),
   "cryptology": () => section("SHA-256", "This tool computes a SHA-256 digest in your browser.",
@@ -127,11 +127,29 @@ function miningLaunchPage(result) {
     section("Production status",result.ready?"Verified for launch":"Awaiting launch inputs",result.error?"<p>"+escape(result.error)+"</p>":"<ul>"+items+"</ul>")+
     section("Fleet check", "The Nov 18 account check found two on-demand compute pools with a maximum of 110 containers each.", "<p>Requested: 1,000 compute and 1,000 higher-capacity instances.</p>")+"</main></html>";
 }
+const miningRegistryRoutes = new Map([
+  ["/coins", "/coins/sovereign"],
+  ["/coins/summary", "/coins/sovereign/summary"],
+  ["/coins/bounties", "/coins/sovereign/bounties"],
+  ["/coins/bounties/stats", "/coins/sovereign/bounties/stats"],
+  ["/coins/bounties/work", "/coins/sovereign/bounties/work"],
+  ["/coins/bounties/intake", "/coins/sovereign/bounties/intake"],
+  ["/verify-hash", "/verify-hash"],
+]);
+
 export function createApp(id) {
   return { async fetch(request, env) {
     const url = new URL(request.url);
-    if (request.method !== "GET") return send("Method not allowed", "text/plain", 405);
     const path = url.pathname;
+    if (id === "mining-lab" && miningRegistryRoutes.has(path)) {
+      try {
+        const target = "https://nathan-coin-catalog.nathantaboract.workers.dev" + miningRegistryRoutes.get(path) + url.search;
+        return await env.SOVEREIGN_REGISTRY.fetch(new Request(target, request));
+      } catch {
+        return json({ error: "Sovereign Coin Registry temporarily unavailable" }, 503);
+      }
+    }
+    if (request.method !== "GET") return send("Method not allowed", "text/plain", 405);
     if (path === "/healthz") return json({ app: id, ok: true });
     if (path === "/") return send(page(id), "text/html");
     if (path === "/style.css") return send(":root{--accent:"+editions[id][3]+"}"+styles,"text/css");
