@@ -1,11 +1,12 @@
 # Nathan Tabor DMSP + DIT
 
-## Public installation and download (current release)
+## Public access and downloads
 
 - **Live Cloudflare PWA:** https://nathan-ai-dmsp-dit.nathantaboract.workers.dev/
 - **Download standalone offline HTML:** https://nathan-ai-dmsp-dit.nathantaboract.workers.dev/download
 - **GitHub offline file:** [public/offline-standalone.html](./public/offline-standalone.html)
 - **GitHub source on main:** https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/dmsp-dit
+- **Department worker status and build checklists:** https://nathan-ai-dmsp-dit-pool.nathantaboract.workers.dev/status
 - **Public catalog download:** https://nathan-ai-dmsp-dit.nathantaboract.workers.dev/download/catalog.json
 - **Install instructions:** [PUBLIC_DOWNLOAD_GUIDE.md](./PUBLIC_DOWNLOAD_GUIDE.md)
 
@@ -22,7 +23,7 @@ The public app supports search/filter across 28 departments, DMSP/DIT/co-managed
 - Cloudflare D1 `nathan-ai-dmsp-dit` UUID `cdf85223-d671-4afe-8c69-1b90697b1951` created.
 - Database schema applied; **28** operating departments seeded and independently counted.
 - Cloudflare Worker API source `worker.js` committed; Wrangler binding points to new D1.
-- **Cloudflare Worker deployment API returned success** and the `nathan-ai-dmsp-dit` workers.dev subdomain is enabled. **Independent public HTTP endpoint checks remain unverified** because the current external request tools cannot reach the fresh workers.dev URL. Do not claim continuous monitoring or a functioning help desk until customer connectors, identity, runtime and support operations are tested.
+- The public preview includes service planning and department build checklists. Customer service operations depend on [secure onboarding and operational launch work](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/357).
 
 ## Departments
 28 operational departments are indexed in D1, including the initial 12 plus asset lifecycle, network engineering, business apps, data, observability, integrations, platform engineering, training, onboarding, vendors, procurement, automation verification, incident command, privacy, release quality and field services. See [OPERATING_MODEL.md](./OPERATING_MODEL.md).

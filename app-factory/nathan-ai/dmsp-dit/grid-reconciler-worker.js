@@ -10,7 +10,7 @@ export default {
     ["main_count","SELECT COUNT(*) n FROM grid_nodes WHERE node_type='MAIN_CONTROL_PLANE'",1],
     ["super_count","SELECT COUNT(*) n FROM grid_nodes WHERE node_type='SUPERCOMPUTER_SLOT'",1000],
     ["hyper_count","SELECT COUNT(*) n FROM grid_nodes WHERE node_type='HYPERCOMPUTER_SLOT'",1000],
-    ["pool_count","SELECT COUNT(*) n FROM dmsp_worker_pool",1000],
+    ["pool_count","SELECT COUNT(DISTINCT p.script_name) n FROM dmsp_worker_pool AS p JOIN grid_nodes AS g ON g.worker_script=p.script_name WHERE g.node_type='SUPERCOMPUTER_SLOT'",1000],
     ["links_count","SELECT COUNT(*) n FROM grid_links",2000],
     ["orphan_super","SELECT COUNT(*) n FROM grid_nodes WHERE node_type='SUPERCOMPUTER_SLOT' AND worker_script NOT IN (SELECT script_name FROM dmsp_worker_pool)",0],
     ["orphan_hyper","SELECT COUNT(*) n FROM grid_nodes WHERE node_type='HYPERCOMPUTER_SLOT' AND parent_id NOT IN (SELECT node_id FROM grid_nodes)",0]

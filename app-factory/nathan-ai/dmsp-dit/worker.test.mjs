@@ -108,6 +108,8 @@ test("standalone app downloads with complete embedded UI",async()=>{
  assert.match(body,/<style>/);
  assert.match(body,/<script>/);
  assert.match(body,/download-plan/);
+ assert.ok(body.indexOf('id="download-plan"') < body.indexOf("<script>"));
+ assert.match(body,/https:\/\/nathan-ai-dmsp-dit-pool\.nathantaboract\.workers\.dev\/status/);
  assert.doesNotMatch(body,/src="\/app.js"/);
 });
 test("catalog export has the full service registry and no client credentials",async()=>{
