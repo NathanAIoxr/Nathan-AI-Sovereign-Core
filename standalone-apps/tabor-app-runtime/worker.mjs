@@ -40,7 +40,8 @@ const client = function appClient(config) {
   const options = Array.from(document.querySelectorAll('[data-edition]'));
   let selected = config.editions[0];
   try {
-    const saved = localStorage.getItem(key);
+    const previous = localStorage.getItem(key);
+    const saved = previous === 'first' ? 'debut' : previous;
     selected = config.editions.find(edition => edition.id === saved) ?? selected;
   } catch {}
   function update() {
@@ -140,10 +141,14 @@ const css = "\n*{box-sizing:border-box}body{margin:0;background:var(--bg);color:
 function createApp(config, assets) {
   const prefix = '/tabor-apps/' + config.id + '/';
   const identity = { app: config.id, status: 'ok', version: config.version };
+  const imageOrigins = new Set([
+    ...config.editions?.map(edition => new URL(edition.cover).origin) ?? [],
+    ...config.archive ? [new URL(config.archive.image).origin] : [],
+  ]);
   const headers = {
     'X-Content-Type-Options': 'nosniff',
     'Referrer-Policy': 'strict-origin-when-cross-origin',
-    'Content-Security-Policy': "default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; manifest-src 'self'; worker-src 'self'; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'",
+    'Content-Security-Policy': "default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'" + [...imageOrigins].map(origin => ' ' + origin).join('') + "; manifest-src 'self'; worker-src 'self'; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'",
   };
   function reply(body, type, code = 200, cache = 'no-cache') {
     return new Response(body, { status: code, headers: { ...headers, 'Content-Type': type, 'Cache-Control': cache } });
@@ -155,21 +160,28 @@ function createApp(config, assets) {
     icons: [192,512].map(size => ({ src: prefix + 'icon-' + size + '.png', sizes: size + 'x' + size, type: 'image/png', purpose: 'any' })),
   };
   const swAssets = ['', 'style.css', 'main.js', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'].map(path => prefix + path);
+  if (config.history) swAssets.push(prefix + 'history', prefix + 'history.txt', prefix + 'print');
   const clientCode = '(' + assets.client.toString() + ')(' + JSON.stringify({ id: config.id, path: prefix, quote: config.quote, editions: config.editions }) + ');';
   const swCode = '(' + assets.offline.toString() + ')(' + JSON.stringify({id:config.id, version:config.version, assets:swAssets}) + ');';
   const palette = ':root{color-scheme:dark;--bg:' + config.theme + ';--paper:' + config.paper + ';--panel:' + config.panel + ';--accent:' + config.accent + ';--muted:' + config.muted + '}';
   const e = assets.escapeHtml;
+  const paragraphs = text => text.split('\n\n').map(line => '<p>' + e(line) + '</p>').join('');
   let interfaceHtml;
   if (config.quote) {
     interfaceHtml = `<section id="content"><blockquote class="plaque" aria-label="Nathan Tabor’s corrected plaque">${config.quote.split('\n\n').map(line=>'<p>'+e(line)+'</p>').join('')}</blockquote>
     <div class="tools"><button id="copy" type="button">Copy exact text</button><button id="download" class="secondary" type="button">Download text</button><a class="button secondary" href="${prefix}print">Print layout</a></div>
-    <p id="status" class="status" role="status"></p><div class="record"><h2>Editorial record</h2>
+    <p id="status" class="status" role="status"></p>
+    ${config.archive ? `<figure class="restored-plaque"><img src="${e(config.archive.image)}" alt="The Kristian Nation of America wall plaque" loading="lazy"><figcaption><a href="${e(config.archive.url)}">Original illustrated publication and First John source notes</a></figcaption></figure>` : ''}
+    <div class="record"><h2>Editorial record</h2>${config.history ? `<a class="button secondary" href="${prefix}history">Read the original wording and corrections</a>` : ''}
     <ol><li><strong>Nathan Tabor</strong> wrote the three-paragraph statement above.</li><li><strong>ChatGPT’s earlier plaque</strong> inserted “THE CHRISTIAN CHARACTERS I’M CALLING OUT” and replaced the closing line.</li><li><strong>ChatGPT’s chat reply</strong> added the sentence beginning “Accountability belongs.”</li><li><strong>Nathan Tabor</strong> directed that the last line read “NOT A.” This edition applies that correction.</li></ol>
     </div></section>`;
   } else {
-    interfaceHtml = `<section id="content"><h2>Choose an edition</h2><div class="grid">${config.editions.map((x,index)=>`
-    <article class="cover ${e(x.palette)}"><header><p>${e(x.label)}</p><h3>${e(x.title)}</h3><p>${e(x.subtitle)}</p></header>
-    <div class="figure" aria-hidden="true"></div><button type="button" data-edition="${e(x.id)}" aria-pressed="${index===0}">Select ${e(x.label)}</button></article>`).join('')}</div>
+    interfaceHtml = `<section id="content"><p class="creator-quote">${e(config.slogan)}</p><p>Edited by ${e(config.editors.join(' and '))}.</p>
+    <div class="tools"><a class="button" href="${e(config.magazine.readerUrl)}">Read the magazine</a><a class="button secondary" href="${e(config.magazine.gameUrl)}">Play Match the Covers</a></div>
+    </section><section><h2>Choose an edition</h2><div class="grid">${config.editions.map((x,index)=>`
+    <article class="cover"><a href="${e(x.url)}"><img class="issue-cover" src="${e(x.cover)}" alt="${e(x.alt)}" width="768" height="1152" loading="lazy"></a>
+    <header><h3>${e(x.label)}</h3><p>${e(x.subtitle)}</p></header>
+    <button type="button" data-edition="${e(x.id)}" aria-pressed="${index===0}">Select ${e(x.label)}</button></article>`).join('')}</div>
     <div class="panel"><strong id="edition-name">${e(config.editions[0].label)}</strong><div class="tools"><button id="save" type="button">Save edition</button><button id="download" class="secondary" type="button">Download edition card</button></div><p id="status" class="status" role="status"></p></div>
     </section><section><h2>Read the originals</h2><div class="tools"><a class="button secondary" href="https://taborboy.pages.dev/app/">TABORBOY app</a><a class="button secondary" href="https://taborpool.pages.dev/app/">TABORPOOL app</a></div></section>`;
   }
@@ -179,6 +191,13 @@ function createApp(config, assets) {
   <div class="top"><div class="wrap"><a class="brand" href="${prefix}">${e(config.short)}</a><nav aria-label="Project"><a href="#content">${config.quote ? 'Plaque' : 'Editions'}</a><a href="/tabor-apps/">All four apps</a></nav></div></div>
   <main id="main" class="wrap"><header><h1>${e(config.title)}</h1><p>${e(config.description)}</p><div class="tools"><button id="install" type="button" hidden>Install app</button></div>
   <details><summary>Install on your phone</summary><p>In iPhone Safari, open Share, choose Add to Home Screen, then turn on Open as Web App. On Android, use Install app or your browser’s menu.</p></details></header>${interfaceHtml}</main><footer><div class="wrap">Nathan Tabor</div></footer></body></html>`;
+  const history = config.history ? `<!doctype html><html lang="en"><head>${head}</head><body><main class="wrap">
+  <header><a href="${prefix}">Back to the plaque</a><h1>Inscription history</h1><div class="tools"><a class="button secondary" href="${prefix}history.txt">Download the record</a></div></header>
+  ${config.history.map(row => `<section class="panel" id="${e(row.id)}"><h2>${e(row.label)}</h2><p class="meta">${e(row.author)} · ${e(row.source)}</p><blockquote>${paragraphs(row.text)}</blockquote></section>`).join('')}
+  <footer>Nathan Tabor’s plaque archive</footer></main></body></html>` : '';
+  const historyTxt = config.history ? 'The Kristian Nation of America — Inscription history\n\n' + config.history.map(row =>
+    row.label + ' — ' + row.author + '\n' + row.source + '\n\n' + row.text
+  ).join('\n\n') + '\n' : '';
   const print = config.quote ? `<!doctype html><html lang="en"><head>${head}</head><body><main class="wrap"><section><blockquote class="plaque">${config.quote.split('\n\n').map(line=>'<p>'+e(line)+'</p>').join('')}</blockquote></section></main></body></html>` : '';
   const iconCache = new Map();
   return {
@@ -191,9 +210,15 @@ function createApp(config, assets) {
       if (path === prefix) res = reply(home, 'text/html; charset=utf-8');
       else if (path === prefix + 'health') res = reply(JSON.stringify(identity), 'application/json');
       else if (path === prefix + 'manifest.webmanifest') res = reply(JSON.stringify(manifest), 'application/manifest+json');
-      else if (path === prefix + 'style.css') res = reply(palette + assets.css, 'text/css; charset=utf-8');
+      else if (path === prefix + 'style.css') res = reply(palette + assets.css +
+        '.issue-cover,.restored-plaque img{display:block;width:100%;height:auto}.issue-cover{margin-bottom:1rem}.restored-plaque{max-width:32rem;margin:1rem auto 3rem}.restored-plaque figcaption{padding-top:.6rem}.creator-quote{white-space:pre-wrap;font-size:1.25rem}.panel blockquote{margin-inline:0}', 'text/css; charset=utf-8');
       else if (path === prefix + 'main.js') res = reply(clientCode, 'text/javascript; charset=utf-8');
       else if (path === prefix + 'sw.js') res = reply(swCode, 'text/javascript; charset=utf-8');
+      else if (path === prefix + 'history' && history) res = reply(history, 'text/html; charset=utf-8');
+      else if (path === prefix + 'history.txt' && historyTxt) {
+        res = reply(historyTxt, 'text/plain; charset=utf-8');
+        res.headers.set('Content-Disposition', 'attachment; filename="KRISTIAN-inscription-history.txt"');
+      }
       else if (path === prefix + 'print' && print) res = reply(print, 'text/html; charset=utf-8');
       else if (path.startsWith(prefix) && /^icon-(180|192|512)\.png$/.test(path.slice(prefix.length))) {
         const size = Number(path.slice(prefix.length + 5, -4));

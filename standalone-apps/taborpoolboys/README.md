@@ -1,6 +1,6 @@
 ## TaborPoolBoys
 
-Browse three editorial covers, pick an edition and save an issue.
+Browse five original covers, read the magazine, or play Match the Covers.
 
 Public app: https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/taborpoolboys/
 

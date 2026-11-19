@@ -73,7 +73,23 @@ if (name === 'kristian-plaque') {
   const closing = 'Be a KRISTIAN … NOT A CHILD RAPIST CHRISTIAN';
   assert.ok(html.includes(closing));
   assert.ok((await print.text()).includes(closing));
+  assert.ok(html.includes('plaque.webp'));
+  const record = await (await get('history')).text();
+  const transcript = await get('history.txt');
+  assert.ok(record.includes('… NO A CHILD RAPIST CHRISTIAN'));
+  assert.ok(record.includes('ChatGPT'));
+  assert.ok(record.includes('THE CHRISTIAN CHARACTERS'));
+  assert.ok(transcript.headers.get('content-disposition').startsWith('attachment'));
+  const content = await transcript.text();
+  assert.ok(content.includes(closing));
+  assert.ok(content.includes('… NO A CHILD RAPIST CHRISTIAN'));
+  assert.ok(content.includes('Accountability belongs with the people who commit it and anyone who covers it up.'));
+
 } else {
-  assert.equal((html.match(/data-edition=/g) ?? []).length, 3);
+  assert.equal((html.match(/data-edition=/g) ?? []).length, 5);
+  assert.equal((html.match(/class="issue-cover"/g) ?? []).length, 5);
+  assert.ok(html.includes('boys-christmas.webp'));
+  assert.ok(html.includes('Match the Covers'));
+  assert.ok(html.includes('because you know what is better than one Tabor right?  TWO!!!'));
 }
 console.log(name + ' passed ' + mode + ' checks');
