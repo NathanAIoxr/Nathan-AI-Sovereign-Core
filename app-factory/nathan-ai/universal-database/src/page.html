@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090d14">
+<title>Tabor Spiral · Universal Database</title>
+<style>
+:root{color-scheme:dark;--bg:#090d14;--panel:#101722;--line:#2b3646;--text:#f1f3f7;--muted:#aab7c9;--mint:#88ffcd;--amber:#ffcf82;--lav:#c7a9ff;font-family:Inter,system-ui,sans-serif}
+*{box-sizing:border-box} body{margin:0;background:radial-gradient(ellipse at 22% 0%,#142130,var(--bg) 65%);color:var(--text);min-height:100vh}
+.shell{max-width:1232px;margin:auto;padding:24px clamp(14px,3.2vw,42px) 42px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:750;letter-spacing:-.02em}
+.mark{width:24px;height:24px;border:1px solid var(--mint);border-radius:50%;display:grid;place-items:center;color:var(--mint);font-size:14px}
+.mono,small,output{font-family:"IBM Plex Mono",ui-monospace,monospace}
+header small{font-size:.7rem;color:var(--muted);text-align:right}
+.hero{padding:25px 0 20px}
+h1{margin:0;font-size:clamp(2.5rem,7vw,5.2rem);line-height:.94;letter-spacing:-.075em}
+.hero p{color:var(--muted);margin:12px 0 0;line-height:1.55}
+.layout{display:grid;grid-template-columns:minmax(0,2.3fr) minmax(245px,1fr);gap:14px}
+.panel{border:1px solid var(--line);background:var(--panel);border-radius:15px;min-width:0;overflow:hidden}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;gap:10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:.74rem}
+.bar strong{color:var(--text);font-size:.92rem}
+canvas{width:100%;height:clamp(315px,48vw,510px);display:block;background:radial-gradient(ellipse at 50% 45%,#152338,#0a1019 72%)}
+.orbit{padding:11px 15px;border-top:1px solid var(--line);display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.78rem}
+.orbit input{min-width:0;max-width:180px;accent-color:var(--mint)}
+.legend{display:flex;flex-wrap:wrap;gap:13px;margin-left:auto}
+.legend i{display:inline-block;background:var(--tint);height:7px;width:7px;border-radius:50%;margin-right:5px}
+.side{padding:17px;display:flex;flex-direction:column;gap:16px}
+.meta{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+h2{margin:2px 0 0;font-size:2.3rem;letter-spacing:-.045em}
+.position{color:var(--mint)}
+#level{color:var(--muted);margin:4px 0 0;font-size:.83rem}
+.stats{display:flex;gap:15px;padding:12px 0;border-block:1px solid var(--line);font-size:.8rem;color:var(--muted)}
+.stats b{color:var(--text)}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+button{color:var(--text);background:#192333;border:1px solid #34445a;border-radius:8px;padding:10px 6px;font:600 .8rem Inter,system-ui,sans-serif;cursor:pointer;min-height:42px}
+button:hover:enabled{border-color:var(--mint);color:var(--mint)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+button:disabled{opacity:.45;cursor:default}
+#status{color:var(--mint);font-size:.85rem;line-height:1.45;margin:0;min-height:2.8em}
+h3{margin:0 0 8px;font-size:.86rem}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+li{display:flex;justify-content:space-between;gap:5px;color:var(--muted);font-size:.78rem}
+li[data-found=true]{color:var(--mint)}
+#reset{margin-top:auto;background:transparent}
+.route{margin-top:14px;padding:13px 15px}
+#route{display:flex;gap:5px;overflow-x:auto;padding:3px 1px 7px}
+.coord{white-space:nowrap;border:1px solid var(--line);border-radius:5px;padding:5px 7px;color:var(--muted);font-size:.7rem}
+.coord[aria-current=true]{background:var(--mint);color:#0a1920;border-color:var(--mint);font-weight:700}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.hero{padding-top:23px}canvas{height:340px}.side{gap:13px}}
+@media(max-width:370px){.orbit{flex-wrap:wrap}.legend{margin-left:0}header small{max-width:90px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header><div class="brand"><span class="mark" aria-hidden="true">⊙</span> Nathan Tabor</div><small>UNIVERSAL DATABASE</small></header>
+<main>
+  <div class="hero"><h1>Tabor Spiral</h1><p>Collect three beacons across the dimensional rings, then return to D0 / 00.</p></div>
+  <div class="layout">
+    <section class="panel" aria-label="Board">
+      <div class="bar"><strong>Dimensional board</strong><span class="mono">34 RINGS · 408 CELLS</span></div>
+      <canvas id="board" aria-hidden="true"></canvas>
+      <div class="orbit"><label for="orbit">Orbit</label><input id="orbit" type="range" min="-180" max="180" value="-18"><div class="legend"><span><i style="--tint:var(--mint)"></i>Core</span><span><i style="--tint:var(--lav)"></i>Negative</span><span><i style="--tint:var(--amber)"></i>Inverted</span></div></div>
+    </section>
+    <section class="panel side" aria-label="Flight controls">
+      <div><div class="meta">Position</div><h2 id="position" class="position mono">D0 / 00</h2><p id="level">The Void / Origin</p></div>
+      <div class="stats"><span>Moves <b id="moves">0</b></span><span>Beacons <b id="count">0 / 3</b></span></div>
+      <div class="controls">
+        <button type="button" data-move="up" disabled>↑ Up a ring</button><button type="button" data-move="down" disabled>↓ Down a ring</button>
+        <button type="button" data-move="ccw" disabled>← Counterclockwise</button><button type="button" data-move="cw" disabled>→ Clockwise</button>
+      </div>
+      <p id="status" role="status">Loading the board…</p>
+      <div><h3>Beacons</h3><ul id="beacons"></ul></div>
+      <button id="reset" type="button" disabled>Restart run</button>
+    </section>
+  </div>
+  <section class="panel route" aria-label="Full route"><h3>Downward route · wraps to D0</h3><div id="route" tabindex="0" aria-label="All 34 rings in route order"></div></section>
+</main>
+</div>
+<script type="module" src="./client.mjs"></script>
+</body>
+</html>

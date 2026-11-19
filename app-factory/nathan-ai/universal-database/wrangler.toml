@@ -1,0 +1,20 @@
+name = "tabor-spiral"
+main = "src/worker.mjs"
+compatibility_date = "2026-11-19"
+
+[[rules]]
+type = "Text"
+globs = ["**/*.html", "**/client.mjs", "**/game.mjs"]
+fallthrough = true
+
+[[d1_databases]]
+binding = "DB_D0"
+database_name = "sovereign-d0-origin"
+database_id = "5617d73d-67ce-4375-b954-019ef6e0c41b"
+migrations_dir = "migrations/d0"
+
+[[d1_databases]]
+binding = "DB_D1"
+database_name = "sovereign-d1-structure"
+database_id = "70fe4f7c-6ec6-42d2-b5eb-905f78efdf44"
+migrations_dir = "migrations/d1"
