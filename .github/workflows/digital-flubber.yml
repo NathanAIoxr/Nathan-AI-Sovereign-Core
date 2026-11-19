@@ -1,0 +1,39 @@
+name: Digital Flubber
+
+on:
+  push:
+    paths:
+      - 'app-factory/nathan-ai/digital-flubber/**'
+      - '.github/workflows/digital-flubber.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/digital-flubber/**'
+      - '.github/workflows/digital-flubber.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-factory/nathan-ai/digital-flubber
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test app and package Cloudflare targets
+        run: |
+          npm test
+          node build-pages.mjs
+          node --check dist/pages/_worker.js
+      - uses: actions/upload-artifact@v4
+        with:
+          name: digital-flubber-cloudflare
+          path: |
+            app-factory/nathan-ai/digital-flubber/dist/
+            app-factory/nathan-ai/digital-flubber/deployment.json
+          if-no-files-found: error

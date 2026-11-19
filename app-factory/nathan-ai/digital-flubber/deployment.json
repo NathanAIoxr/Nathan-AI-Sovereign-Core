@@ -1,0 +1,27 @@
+{
+  "compatibilityDate": "2026-11-19",
+  "workers": [
+    {
+      "name": "digital-flubber-slubber",
+      "entry": "slubber.mjs",
+      "modules": ["policy.mjs"],
+      "public": false
+    },
+    {
+      "name": "digital-flubber-sos",
+      "entry": "sos.mjs",
+      "modules": ["policy.mjs"],
+      "public": false
+    },
+    {
+      "name": "digital-flubber",
+      "entry": "main.mjs",
+      "modules": ["assets.mjs"],
+      "public": true,
+      "bindings": [
+        { "type": "service", "name": "SLUBBER", "service": "digital-flubber-slubber" },
+        { "type": "service", "name": "SOS", "service": "digital-flubber-sos" }
+      ]
+    }
+  ]
+}

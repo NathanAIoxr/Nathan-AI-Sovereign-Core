@@ -1,3 +1,5 @@
+**[Digital Flubber by Nathan Tabor — Play, learn and try SOS](https://tabor-apps-nathan.pages.dev/)** · [Source](app-factory/nathan-ai/digital-flubber/) · [Arcade](https://tabor-apps-nathan.pages.dev/game) · [Permission zones](https://tabor-apps-nathan.pages.dev/zones)
+
 - [Taters & Daters source](app-factory/nathan-ai/ta-da-taters-daters/) · [Open website](https://ta-da-taters-daters.nathantaboract.workers.dev/)
 - [Relationship Intent Clarifier source](app-factory/nathan-ai/relationship-intent-clarifier/) · [Open website](https://relationship-intent-clarifier.nathantaboract.workers.dev/)
 - [iCU Buddy source](app-factory/nathan-ai/icu-buddy/) · [Open website](https://icu-buddy.nathantaboract.workers.dev/)
