@@ -1,0 +1,23 @@
+name: Tabor Persona Train Bridge CI
+on:
+  pull_request:
+    paths:
+      - "creative-archive/persona-duality/**"
+      - ".github/workflows/tabor-persona-train-bridge.yml"
+  push:
+    paths:
+      - "creative-archive/persona-duality/**"
+      - ".github/workflows/tabor-persona-train-bridge.yml"
+permissions:
+  contents: read
+jobs:
+  train-bridge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Test source-compatible Train planning bridge
+        run: node --test creative-archive/persona-duality/train-bridge.test.mjs
