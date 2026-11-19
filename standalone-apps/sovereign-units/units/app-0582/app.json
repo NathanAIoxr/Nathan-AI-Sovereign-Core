@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "release": "tabor-sovereign-app-units-20261118-v1",
+  "id": "app-0582",
+  "independent": true,
+  "type": "Game",
+  "evidence": "Concept / specification",
+  "sourceSha256": "49c7a4f16451ddde58c9f4b961f7e776071f6aa89a382d248c087dc00f68bc19",
+  "privateCatalog": "catalog/inventory-v1.aesgcm",
+  "workstream": "specify_prototype",
+  "buildAssignment": {
+    "worker": "tabor-build-loop",
+    "shard": "shard-012",
+    "job": "8dae662e-4e27-5e7f-8203-400b317996e4"
+  },
+  "cloudflarePath": "/unit/app-0582",
+  "repositoryPath": "standalone-apps/sovereign-units/units/app-0582/app.json"
+}

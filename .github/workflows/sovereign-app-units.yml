@@ -1,0 +1,33 @@
+name: Build sovereign app units
+on:
+  push:
+    branches: [build/sovereign-app-units-20261118]
+    paths:
+      - 'standalone-apps/sovereign-units/**'
+      - '.github/workflows/sovereign-app-units.yml'
+  pull_request:
+    paths:
+      - 'standalone-apps/sovereign-units/**'
+      - '.github/workflows/sovereign-app-units.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Exercise Worker packaging and owner access
+        run: node --test standalone-apps/sovereign-units/unit-worker.test.mjs
+      - name: Build and verify 1,301 independent packages
+        run: node standalone-apps/sovereign-units/build.mjs "${RUNNER_TEMP}/sovereign-unit-build"
+      - name: Upload independent build handoffs and receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sovereign-app-unit-handoffs
+          path: ${{ runner.temp }}/sovereign-unit-build
+          if-no-files-found: error

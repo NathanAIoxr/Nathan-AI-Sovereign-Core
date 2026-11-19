@@ -1,0 +1,54 @@
+import { createHash } from "node:crypto";
+import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
+import assert from "node:assert/strict";
+
+const root=fileURLToPath(new URL("./",import.meta.url));
+const out=process.argv[2];
+if(!out)throw Error("Usage: node build.mjs <output-directory>");
+const release=JSON.parse(await readFile(join(root,"release.json"),"utf8"));
+const receipt=JSON.parse(await readFile(join(root,"catalog","receipt.json"),"utf8"));
+const archive=await readFile(join(root,"catalog","inventory-v1.aesgcm"));
+const hex=(data)=>createHash("sha256").update(data).digest("hex");
+assert.equal(archive.length,receipt.bytes,"Encrypted archive size");
+assert.equal(hex(archive),receipt.encryptedSha256,"Encrypted archive checksum");
+assert.equal(release.sourceSnapshotSha256,receipt.originalSha256,"Snapshot identity");
+
+const unitDir=join(root,"units");
+const names=(await readdir(unitDir,{withFileTypes:true})).filter(d=>d.isDirectory()).map(d=>d.name).sort();
+assert.equal(names.length,release.unitCount);
+const groupSizes=new Map();
+const assignments=new Map();
+const result=[];
+for(const id of names){
+ assert.match(id,/^app-\d{4}$/);
+ const raw=await readFile(join(unitDir,id,"app.json"));
+ const unit=JSON.parse(raw);
+ assert.equal(unit.id,id);
+ assert.equal(unit.release,release.id);
+ assert.equal(unit.independent,true);
+ assert.equal(unit.repositoryPath,`standalone-apps/sovereign-units/units/${id}/app.json`);
+ assert.equal(unit.cloudflarePath,`/unit/${id}`);
+ assert.match(unit.sourceSha256,/^[a-f0-9]{64}$/);
+ assert.equal(unit.buildAssignment.worker,"tabor-build-loop");
+ assert.match(unit.buildAssignment.shard,/^shard-\d{3}$/);
+ assert.match(unit.buildAssignment.job,/^[0-9a-f-]{36}$/);
+ assert(release.workstreams[unit.workstream]>0);
+ const shard=unit.buildAssignment.shard;
+ groupSizes.set(shard,(groupSizes.get(shard)||0)+1);
+ if(assignments.has(shard))assert.equal(assignments.get(shard),unit.buildAssignment.job);
+ else assignments.set(shard,unit.buildAssignment.job);
+ const path=join(out,"units",id);
+ await mkdir(path,{recursive:true});
+ await writeFile(join(path,"app.json"),raw);
+ const manifestSha256=hex(raw);
+ await writeFile(join(path,"BUILD-HANDOFF.md"),`# ${id}\n\nWorkstream ${unit.workstream}\n\nAssignment ${unit.buildAssignment.worker} · ${shard}\n\nManifest SHA-256 ${manifestSha256}\n\nOpen the owner workspace for original evidence and the first feature milestone.\n`);
+ result.push({id,manifestSha256,shard,workstream:unit.workstream,result:"build-handoff-packaged"});
+}
+assert.equal(groupSizes.size,release.shardCount);
+assert.equal(new Set(assignments.values()).size,release.shardCount);
+assert([...groupSizes.values()].every(x=>x>=1&&x<=50));
+await mkdir(out,{recursive:true});
+await writeFile(join(out,"build-receipts.json"),JSON.stringify({release:release.id,count:result.length,shards:groupSizes.size,results:result},null,2)+"\n");
+console.log(`Built ${result.length} independent handoff packages across ${groupSizes.size} Cloudflare assignment shards.`);

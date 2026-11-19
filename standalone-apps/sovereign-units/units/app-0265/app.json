@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "release": "tabor-sovereign-app-units-20261118-v1",
+  "id": "app-0265",
+  "independent": true,
+  "type": "App or site",
+  "evidence": "Hosted listing",
+  "sourceSha256": "0664189ff51bc62d8fa28f131a3312a4d56d0b56d5cb15e5b3eca44caa3a53e7",
+  "privateCatalog": "catalog/inventory-v1.aesgcm",
+  "workstream": "preserve_release",
+  "buildAssignment": {
+    "worker": "tabor-build-loop",
+    "shard": "shard-006",
+    "job": "2ddbf64f-f885-576b-87ab-1db4a31a3d8f"
+  },
+  "cloudflarePath": "/unit/app-0265",
+  "repositoryPath": "standalone-apps/sovereign-units/units/app-0265/app.json"
+}

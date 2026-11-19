@@ -1,0 +1,18 @@
+import { createHash, createDecipheriv } from "node:crypto";
+import { readFile, writeFile } from "node:fs/promises";
+import { gunzipSync } from "node:zlib";
+const [keyPath,output]=process.argv.slice(2);
+if(!keyPath||!output)throw Error("Usage: node restore.mjs <owner-key.txt> <inventory-output.json>");
+const key=(await readFile(keyPath,"utf8")).trim();
+if(!/^[a-f0-9]{64}$/.test(key))throw Error("Invalid owner key.");
+const receipt=JSON.parse(await readFile(new URL("./catalog/receipt.json",import.meta.url),"utf8"));
+const archive=await readFile(new URL("./catalog/inventory-v1.aesgcm",import.meta.url));
+if(archive.length!==receipt.bytes||createHash("sha256").update(archive).digest("hex")!==receipt.encryptedSha256)throw Error("Encrypted archive changed.");
+const header=archive.subarray(0,17);
+if(header.subarray(0,5).toString()!=="TUSV1")throw Error("Unknown archive format.");
+const decrypt=createDecipheriv("aes-256-gcm",Buffer.from(key,"hex"),header.subarray(5));
+decrypt.setAAD(header);
+decrypt.setAuthTag(archive.subarray(-16));
+const original=gunzipSync(Buffer.concat([decrypt.update(archive.subarray(17,-16)),decrypt.final()]));
+if(createHash("sha256").update(original).digest("hex")!==receipt.originalSha256)throw Error("Original inventory digest differs.");
+await writeFile(output,original,{flag:"wx",mode:0o600});
