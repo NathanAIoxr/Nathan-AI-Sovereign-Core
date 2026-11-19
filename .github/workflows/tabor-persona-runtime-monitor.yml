@@ -1,0 +1,25 @@
+name: Persona Atlas runtime monitor
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+  pull_request:
+    paths:
+      - "creative-archive/persona-duality/monitoring/**"
+      - ".github/workflows/tabor-persona-runtime-monitor.yml"
+permissions:
+  contents: read
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify monitor logic
+        run: node --test creative-archive/persona-duality/monitoring/health-check.test.mjs
+      - name: Read-only live health probe
+        if: github.event_name != 'pull_request'
+        run: node creative-archive/persona-duality/monitoring/health-check.mjs
