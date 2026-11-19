@@ -1,6 +1,6 @@
-import { createHash } from 'node:crypto';
+import { sha3_512 } from './noble-sha3.mjs';
 
-const algorithms = new Map([['SHA-256', ['sha256', 64]], ['SHA3-512', ['sha3-512', 128]]]);
+const algorithms = new Map([['SHA-256', 64], ['SHA3-512', 128]]);
 const hex = (value) => typeof value === 'string' && /^[0-9a-f]+$/i.test(value);
 const encoder = new TextEncoder();
 const maximum = 16 * 1024;
@@ -44,14 +44,13 @@ export async function hashInput(request) {
   }
 }
 
-export function verifyHash(input) {
+export async function verifyHash(input) {
   if (!input || typeof input !== 'object' || Array.isArray(input)) {
     throw new HashRequestError('Send a JSON object.');
   }
   const { algorithm, data, encoding = 'utf8', expected, target } = input;
-  const definition = algorithms.get(algorithm);
-  if (!definition) throw new HashRequestError('Choose SHA-256 or SHA3-512.');
-  const [nodeName, width] = definition;
+  const width = algorithms.get(algorithm);
+  if (!width) throw new HashRequestError('Choose SHA-256 or SHA3-512.');
   if (expected !== undefined && (!hex(expected) || expected.length !== width)) {
     throw new HashRequestError('Expected digest must have ' + width + ' hexadecimal digits.');
   }
@@ -67,7 +66,10 @@ export function verifyHash(input) {
   const bytes = encoding === 'utf8'
     ? encoder.encode(data)
     : Uint8Array.from(data.match(/../g) ?? [], (byte) => Number.parseInt(byte, 16));
-  const digest = createHash(nodeName).update(bytes).digest('hex');
+  const digestBytes = algorithm === 'SHA-256'
+    ? new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))
+    : sha3_512(bytes);
+  const digest = Array.from(digestBytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
   return {
     algorithm,
     encoding,

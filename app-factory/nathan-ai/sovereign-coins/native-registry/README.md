@@ -25,4 +25,8 @@ node --test worker.test.mjs
 
 The master build combines the registry tables and rows with the GitHub-backed bounty schema and seed for a clean database. Production keeps the live bounty catalog in its own D1 database, so catalog updates have one source of truth.
 
-For the catalog Worker, upload `worker.mjs`, `legacy.mjs`, `hash.mjs` and `page.mjs` as ES modules with `nodejs_compat`. Keep `DB` bound to the existing catalog D1 database. Bind `BOUNTIES` to `tabor-bridge`. Apply `coins_schema.sql` and the generated coin seed to that D1 database. For the existing Mining Lab use the Crypto Suite build script, keep `COIN_SOURCE` and bind `SOVEREIGN_REGISTRY` to `nathan-coin-catalog`. The Wallet Command Center links to this registry from its GitHub Pages and localhost views. Wallet signing, private keys, and miner-control operations are outside these routes.
+For the catalog Worker, upload `worker.mjs`, `legacy.mjs`, `hash.mjs` `page.mjs` and `noble-sha3.mjs` as ES modules. Keep `DB` bound to the existing catalog D1 database. Bind `BOUNTIES` to `tabor-bridge`. Apply `coins_schema.sql` and the generated coin seed to that D1 database. For the existing Mining Lab use the Crypto Suite build script, keep `COIN_SOURCE` and bind `SOVEREIGN_REGISTRY` to `nathan-coin-catalog`. The Wallet Command Center links to this registry from its GitHub Pages and localhost views. Wallet signing, private keys, and miner-control operations are outside these routes.
+
+## Cryptography dependency
+
+SHA-256 uses built-in Web Crypto. SHA3-512 uses the pinned [@noble/hashes 2.4.0](https://www.npmjs.com/package/@noble/hashes/v/2.4.0) implementation because Workers lacks native SHA-3. The vendored ES module is an unminified, tree-shaken bundle of the package’s `sha3_512` export. Its upstream terms remain in `noble-LICENSE.txt`.

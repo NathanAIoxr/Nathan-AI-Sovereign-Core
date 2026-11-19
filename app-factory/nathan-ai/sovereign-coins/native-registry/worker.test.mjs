@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { DatabaseSync } from 'node:sqlite';
 import test from 'node:test';
 import worker from './worker.mjs';
@@ -80,6 +81,11 @@ test('SHA-256 and SHA3-512 match known vectors and use exact unsigned target com
   const sha3Response = await (await call('/verify-hash', post({ algorithm: 'SHA3-512', data: 'abc', expected: sha3 }))).json();
   assert.equal(sha3Response.digest, sha3);
   assert.equal(sha3Response.matches, true);
+  for (const data of ['', '🚀'.repeat(18), '🚀'.repeat(19), 'A'.repeat(4096)]) {
+    const expected = createHash('sha3-512').update(data).digest('hex');
+    const response = await (await call('/verify-hash', post({ algorithm: 'SHA3-512', data, expected }))).json();
+    assert.equal(response.matches, true);
+  }
   assert.equal((await call('/verify-hash', post({ ...base, data: '1' }))).status, 400);
   assert.equal((await call('/verify-hash', post({ ...base, data: 'a'.repeat(17000) }))).status, 413);
   assert.equal((await call('/verify-hash', { method: 'OPTIONS' })).status, 204);

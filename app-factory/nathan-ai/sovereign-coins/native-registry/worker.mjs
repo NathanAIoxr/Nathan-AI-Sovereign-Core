@@ -102,7 +102,7 @@ export default {
     }
     if (incomingMethod !== method) return json({ error: 'Method not allowed.' }, 405, { allow: method });
     try {
-      if (path === '/verify-hash') return json(verifyHash(await hashInput(request)));
+      if (path === '/verify-hash') return json(await verifyHash(await hashInput(request)));
       if (path === '/registry.css') return file(styleSheet, 'text/css');
       if (path === '/registry.js') return file(browserScript, 'text/javascript');
       if (isBounty) return await forwardBounties(url, env, path.slice('/coins/sovereign/'.length));
