@@ -1,0 +1,25 @@
+name = "tabor-holding-vault"
+main = "packages/shared/holding-gate.js"
+compatibility_date = "2026-11-19"
+workers_dev = false
+preview_urls = false
+
+[vars]
+LAUNCH_STATUS = "HOLDING"
+MOUNT_PATH = "/holding-vault"
+ACCESS_ISSUER = "https://nathantaboract.cloudflareaccess.com"
+# ACCESS_AUDIENCE is provisioned as a Worker secret.
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tabor-holding-vault"
+database_id = "2744aea4-b218-41e9-ab21-a04f25c10475"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "VAULT"
+bucket_name = "tabor-holding-vault"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "7c4efb57f1a54527a925642fe2614019"
