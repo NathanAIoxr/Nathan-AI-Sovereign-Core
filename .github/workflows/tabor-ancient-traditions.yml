@@ -1,0 +1,58 @@
+name: Tabor Ancient Traditions
+on:
+  push:
+    branches: [build/tabor-ancient-traditions-20261118]
+    paths:
+      - 'standalone-apps/tabor-ancient-traditions/apps.json'
+      - 'standalone-apps/tabor-ancient-traditions/runtime.mjs'
+      - 'standalone-apps/tabor-ancient-traditions/backup-manifest.json'
+      - '.github/workflows/tabor-ancient-traditions.yml'
+  pull_request:
+    paths:
+      - 'standalone-apps/tabor-ancient-traditions/**'
+      - '.github/workflows/tabor-ancient-traditions.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-editions:
+    name: Check ${{ matrix.app }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    strategy:
+      fail-fast: false
+      matrix:
+        app: [index, glyphs, earth, cleo, sumer, samaria, zoro, hindu, buddhist, isms]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Verify independent routes and owner boundary
+        working-directory: standalone-apps/tabor-ancient-traditions
+        env:
+          TEST_APP: ${{ matrix.app }}
+        run: node --test worker.test.mjs
+
+  mirror-sealed-backup:
+    name: Verify and commit encrypted source backup
+    if: github.event_name == 'push' && github.ref == 'refs/heads/build/tabor-ancient-traditions-20261118'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - name: Download and verify encrypted parts
+        working-directory: standalone-apps/tabor-ancient-traditions
+        run: python3 fetch-sealed.py
+      - name: Commit verified encrypted parts on the release branch
+        run: |
+          git add -- standalone-apps/tabor-ancient-traditions/sealed-v1
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Mirror sealed Nathan Tabor ancient sources"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

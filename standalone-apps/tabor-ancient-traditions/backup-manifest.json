@@ -1,0 +1,40 @@
+{
+  "format": "TATA1 AES-256-GCM",
+  "parts": [
+    {
+      "file": "sealed-001.bin",
+      "size": 15728640,
+      "sha256": "fcf4f8635a3d189f0b27ad5b024064b67e60b0a5b698a31b9786c6de1b266bc6"
+    },
+    {
+      "file": "sealed-002.bin",
+      "size": 15728640,
+      "sha256": "2beb3117bd832910e88a7940a4a0b0389d787afaee72cd307f61606c0e32e6af"
+    },
+    {
+      "file": "sealed-003.bin",
+      "size": 15728640,
+      "sha256": "fb87fcfdec3a720e5b094df1d5219efd82c5bd87ae052ab738d29aae228bc70f"
+    },
+    {
+      "file": "sealed-004.bin",
+      "size": 15728640,
+      "sha256": "c8170295b9c6e29e4c2143296f19fbc88f45d6503b1d78675c5303e35589adfd"
+    },
+    {
+      "file": "sealed-005.bin",
+      "size": 15728640,
+      "sha256": "934cf2f86386e7e2bc8bed58c1a4f8e1f77ae965a7135790ffcf14f45d54259d"
+    },
+    {
+      "file": "sealed-006.bin",
+      "size": 15728640,
+      "sha256": "771e54f65f77c8a17cb0bc476960533bd92b2dc97070cabc74f4c525a2c7b827"
+    },
+    {
+      "file": "sealed-007.bin",
+      "size": 559582,
+      "sha256": "7ff58bf7f3584f5882931cf3c6cfa909a7f1ed99d4fbbae8fe4c7eb7cfe43c93"
+    }
+  ]
+}
