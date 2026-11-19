@@ -174,7 +174,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const { pathname } = url;
-    if (pathname === '/' || pathname === '/app.js' || pathname === '/styles.css' || pathname === '/zones' || pathname === '/zones/') {
+    if (pathname === '/' || pathname === '/app.js' || pathname === '/archive.js' || pathname === '/styles.css' || pathname === '/zones' || pathname === '/zones/') {
       const asset = await env.ASSETS.fetch(request);
       const headers = new Headers(asset.headers);
       headers.set('Content-Security-Policy', "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'");

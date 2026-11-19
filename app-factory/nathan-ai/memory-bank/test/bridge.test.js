@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import bridge from '../deploy/tabor-bridge.js';
 
-test('bridge keeps its original root and routes only the Memory Bank prefix', async () => {
+test('bridge keeps its original root and routes each owned app to its named script', async () => {
   const root = await bridge.fetch(new Request('https://bridge.test/'), {});
   assert.equal(await root.text(), 'Hello World!');
   const slash = await bridge.fetch(new Request('https://bridge.test/memory-bank?category=games'), {});
@@ -30,4 +30,13 @@ test('bridge keeps its original root and routes only the Memory Bank prefix', as
     body: '{"title":"Fictional"}'
   }), env);
   assert.deepEqual(await routed.json(), { title: 'Fictional' });
+  const registry = await bridge.fetch(new Request('https://bridge.test/worker-registry/records?kind=bot'), {
+    MEMORY_PLATFORM: {
+      get(name) {
+        assert.equal(name, 'nathan-ai-worker-registry');
+        return { fetch: request => new Response(new URL(request.url).pathname) };
+      }
+    }
+  });
+  assert.equal(await registry.text(), '/records');
 });
