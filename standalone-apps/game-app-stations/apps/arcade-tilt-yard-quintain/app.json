@@ -1,0 +1,15 @@
+{
+  "id": "arcade-tilt-yard-quintain",
+  "title": "Tilt-Yard Quintain",
+  "launch": "https://hook-and-ring.nathantaboract.workers.dev/chassis?game=joust",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/standalone-apps/hook-and-ring/game/game-plugins.json",
+  "collections": [
+    "Target boards"
+  ],
+  "source_stages": [
+    "Arcade board"
+  ],
+  "aliases": [],
+  "status": "existing-launch",
+  "station": "apps/arcade-tilt-yard-quintain/index.html"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "library-metronome-pendulum",
+  "title": "Metronome pendulum",
+  "launch": "https://tabor-standalone.nathantaboract.workers.dev/games/atlas-058/",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/grapple-it/public/atlas.mjs",
+  "collections": [
+    "Library games"
+  ],
+  "source_stages": [
+    "Standalone browser game"
+  ],
+  "aliases": [],
+  "status": "existing-launch",
+  "station": "apps/library-metronome-pendulum/index.html"
+}

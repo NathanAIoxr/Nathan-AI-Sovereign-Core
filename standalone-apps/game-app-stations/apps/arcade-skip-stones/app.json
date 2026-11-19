@@ -1,0 +1,15 @@
+{
+  "id": "arcade-skip-stones",
+  "title": "Skip-Stones",
+  "launch": "https://hook-and-ring.nathantaboract.workers.dev/chassis?game=skip-stones",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/standalone-apps/hook-and-ring/game/game-plugins.json",
+  "collections": [
+    "Target boards"
+  ],
+  "source_stages": [
+    "Arcade board"
+  ],
+  "aliases": [],
+  "status": "existing-launch",
+  "station": "apps/arcade-skip-stones/index.html"
+}

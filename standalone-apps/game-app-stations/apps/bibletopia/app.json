@@ -1,0 +1,19 @@
+{
+  "id": "bibletopia",
+  "title": "BIBLeTopia",
+  "launch": "https://bibletopia.nathantaboract.workers.dev/",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/portfolio/catalog.json",
+  "collections": [
+    "Play",
+    "Projects"
+  ],
+  "source_stages": [
+    "Cloudflare Worker",
+    "Hosted destination"
+  ],
+  "aliases": [
+    "Bible Topia"
+  ],
+  "status": "existing-launch",
+  "station": "apps/bibletopia/index.html"
+}

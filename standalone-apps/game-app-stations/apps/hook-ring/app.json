@@ -1,0 +1,19 @@
+{
+  "id": "hook-ring",
+  "title": "Hook & Ring",
+  "launch": "https://hook-and-ring.nathantaboract.workers.dev/",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/portfolio/catalog.json",
+  "collections": [
+    "Play",
+    "Projects"
+  ],
+  "source_stages": [
+    "Cloudflare Worker",
+    "Hosted destination"
+  ],
+  "aliases": [
+    "Hook and Ring"
+  ],
+  "status": "existing-launch",
+  "station": "apps/hook-ring/index.html"
+}

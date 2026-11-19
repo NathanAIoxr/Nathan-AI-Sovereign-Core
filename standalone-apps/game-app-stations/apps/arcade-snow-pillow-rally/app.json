@@ -1,0 +1,15 @@
+{
+  "id": "arcade-snow-pillow-rally",
+  "title": "Snow Pillow Rally",
+  "launch": "https://hook-and-ring.nathantaboract.workers.dev/chassis?game=snow-pillow",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/standalone-apps/hook-and-ring/game/game-plugins.json",
+  "collections": [
+    "Target boards"
+  ],
+  "source_stages": [
+    "Arcade board"
+  ],
+  "aliases": [],
+  "status": "existing-launch",
+  "station": "apps/arcade-snow-pillow-rally/index.html"
+}

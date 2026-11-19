@@ -1,0 +1,15 @@
+{
+  "id": "arcade-roman-naval-drive-by-grapple",
+  "title": "Roman Naval Drive-By Grapple",
+  "launch": "https://hook-and-ring.nathantaboract.workers.dev/chassis?game=harbor-grapple",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/standalone-apps/hook-and-ring/game/game-plugins.json",
+  "collections": [
+    "Target boards"
+  ],
+  "source_stages": [
+    "Arcade board"
+  ],
+  "aliases": [],
+  "status": "existing-launch",
+  "station": "apps/arcade-roman-naval-drive-by-grapple/index.html"
+}

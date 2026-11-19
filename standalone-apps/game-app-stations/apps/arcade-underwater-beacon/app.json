@@ -1,0 +1,15 @@
+{
+  "id": "arcade-underwater-beacon",
+  "title": "Underwater Beacon",
+  "launch": "https://hook-and-ring.nathantaboract.workers.dev/chassis?game=underwater-beacon",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/standalone-apps/hook-and-ring/game/game-plugins.json",
+  "collections": [
+    "Target boards"
+  ],
+  "source_stages": [
+    "Arcade board"
+  ],
+  "aliases": [],
+  "status": "existing-launch",
+  "station": "apps/arcade-underwater-beacon/index.html"
+}

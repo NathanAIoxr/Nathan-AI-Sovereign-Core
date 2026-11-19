@@ -1,0 +1,15 @@
+{
+  "id": "arcade-ren-faire-stone-toss",
+  "title": "Ren-Faire Stone Toss",
+  "launch": "https://hook-and-ring.nathantaboract.workers.dev/chassis?game=ren-faire-stone",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/standalone-apps/hook-and-ring/game/game-plugins.json",
+  "collections": [
+    "Target boards"
+  ],
+  "source_stages": [
+    "Arcade board"
+  ],
+  "aliases": [],
+  "status": "existing-launch",
+  "station": "apps/arcade-ren-faire-stone-toss/index.html"
+}
