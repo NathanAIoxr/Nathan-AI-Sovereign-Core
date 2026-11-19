@@ -1,3 +1,6 @@
+import { handleManifestApi, nodePath, receiptPath, runPath, sourcePath } from './manifest-node.mjs';
+import { transcript } from './manifest-source.mjs';
+
 const edition = {
   "id": "manifestation",
   "title": "Manifestation",
@@ -104,7 +107,7 @@ function button(path, label, secondary = false) {
   return '<a class="button' + (secondary ? ' secondary' : '') + '" href="' + path + '">' + escape(label) + '</a>';
 }
 function page(current, heading, description, content, actions = '', interactive = false) {
-  const nav = link('/', title, current) + link('/books', 'Books', current) + link('/game', 'Game', current) + (catalog.length ? link('/catalog', 'Catalog', current) : '');
+  const nav = link('/', title, current) + link('/books', 'Books', current) + link('/game', 'Game', current) + link(nodePath, 'AI Nodes', current) + (catalog.length ? link('/catalog', 'Catalog', current) : '');
   const otherApps = siblings.map(([slug, name]) => '<li>' + link('https://tabor-' + slug + '.nathantaboract.workers.dev', name) + '</li>').join('');
   return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="' + escape(description) + '"><title>' + escape(heading === title ? title + ' · Nathan Tabor' : heading + ' · ' + title) + '</title><link rel="stylesheet" href="/style.css">' + (interactive ? '<script type="module" src="/game.js"></script>' : '') + '</head><body><header><nav aria-label="Main">' + nav + '</nav></header><main><section class="hero"><div class="wrap"><span aria-hidden="true" class="mark">' + escape(glyph) + '</span><p class="kicker">' + escape(kicker) + '</p><h1>' + escape(heading) + '</h1><p class="intro">' + escape(description) + '</p>' + actions + '</div></section><div class="wrap main">' + content + '</div></main><footer><div class="wrap">Nathan Tabor<details><summary>More editions</summary><ul>' + otherApps + '</ul></details></div></footer></body></html>';
 }
@@ -119,11 +122,31 @@ const gameUI = {
   mission: '<button id="draw" type="button">Draw a mission</button><div id="round" aria-live="polite"></div><form id="mission-form" hidden><label for="mission-outcome">How did the alliance complete the mission?</label><input id="mission-outcome" required maxlength="240"><p><button>Record the outcome</button></p></form><ol id="mission-log" aria-label="Completed missions"></ol>',
   plan: '<h2>Scenario challenge</h2><div id="round"></div><p id="feedback" role="status"></p><button id="next" type="button" hidden>Next question</button><hr><h2>Build your own action plan</h2><form id="plan-form"><button>Build my plan</button></form><output id="plan-result" aria-live="polite"></output>'
 };
+function nodePage() {
+  const stages = [
+    ['Thought', 'Define the objective, the context it needs, and the result you can measure.'],
+    ['Word', 'Represent the objective with a structured MANIFEST_NODE command.'],
+    ['Action', 'Build (1+1=2) and Clear (1-1=0) by changing two counters in one Cloudflare D1 transaction.'],
+    ['Verification', 'Read the saved result back and match it to the SHA-256 of the original source. The transcript preserves “100% truth” as its original wording.']
+  ];
+  const content = '<section class="reading" aria-label="Node workflow">' +
+    stages.map(([label, detail]) => '<article><h2>' + escape(label) + '</h2><p>' + escape(detail) + '</p></article>').join('') +
+    '<article><h2>Environment and focus</h2><p>Use defined inputs, scoped data access, and a transaction that can be retried. This node runs one predefined database operation. A repeated run for the same source returns its existing receipt.</p></article>' +
+    '<article><h2>Impact</h2><p>A receipt shows which values actually reached storage and ties the result to the exact input. Specialized nodes can exchange the same structured format. Throughput and fleet-wide reliability require their own measurements.</p></article>' +
+    '<article><h2>Earlier work</h2><p>The Manifestation reader follows Nathan’s Digital Manifestation Interface, AccordOS Genesis Engine, WHO YOU BE, the Seal, MANiCON, MANiFESTOR, WOMANiFESTER, and THE NET.</p>' +
+    '<p>' + link('/books', 'Browse the earlier work') + '</p></article></section>';
+  const actions = '<div class="actions">' + button(receiptPath, 'Open the verified receipt') + button(sourcePath, 'Download the original transcript', true) + '</div>';
+  return page(nodePath, 'Manifestation · AI Nodes', 'Thought → Word → Action → Verification', content, actions);
+}
+
 export default {
-  async fetch(request) {
+  async fetch(request, env = {}) {
     const path = new URL(request.url).pathname.replace(/\/+$/, '') || '/';
+    if (path === receiptPath || path === runPath) return handleManifestApi(request, env, path, reply);
     if (!['GET','HEAD'].includes(request.method)) return reply('Method not allowed', 'text/plain', 405, { Allow: 'GET, HEAD' });
     const send = (body, type, status, extra) => reply(request.method === 'HEAD' ? null : body, type, status, extra);
+    if (path === nodePath) return send(nodePage(), 'text/html');
+    if (path === sourcePath) return send(transcript, 'text/plain', 200, { 'Content-Disposition': 'attachment; filename="manifestation-ai-nodes-source.txt"' });
     if (path === '/style.css') return send(':root{--accent:'+accent+';--tone:'+tone+'}'+style, 'text/css');
     if (path === '/game.js') return send(gameSource, 'text/javascript');
     if (path === '/healthz') return send(JSON.stringify({ status: 'ok', app: id, records: catalog.length }), 'application/json');
@@ -133,7 +156,7 @@ export default {
     if (path === '/game') return send(page(path, game, gameInstructions, '<section id="interactive" data-view="game" class="panel" aria-label="Game">'+gameUI[mode]+'<noscript>Enable JavaScript to play.</noscript></section>', '', true), 'text/html');
     if (path === '/catalog' && catalog.length) return send(page(path, title+' Catalog', catalog.length+' source records. Categories and status are preserved from the source catalog.', '<section id="interactive" data-view="catalog"><div class="grid"><label>Search records<input id="search" placeholder="Name, tradition, or keyword"></label><label>Category family<select id="faction"><option value="">All</option></select></label></div><p id="count" role="status"></p><div id="records" class="grid"></div><noscript>Enable JavaScript to search the catalog.</noscript></section>', '', true), 'text/html');
     if (path !== '/') return send(page(path, 'Page not found', 'Return to the edition home page.', button('/','Home')), 'text/html', 404);
-    const features = card('/books', book, 'Read online or download the book as Markdown.') + card('/game', game, gameInstructions) + (catalog.length ? card('/catalog', 'Browse the catalog', 'Search '+catalog.length+' names and source descriptions.') : '');
+    const features = card('/books', book, 'Read online or download the book as Markdown.') + card('/game', game, gameInstructions) + card(nodePath, 'AI Nodes', 'Read the original framework and the Cloudflare execution receipt.') + (catalog.length ? card('/catalog', 'Browse the catalog', 'Search '+catalog.length+' names and source descriptions.') : '');
     return send(page(path, title, summary, '<div class="grid">'+features+'</div>', '<div class="actions">'+button('/game','Play the game')+button('/books','Browse books',true)+'</div>'), 'text/html');
   }
 };
