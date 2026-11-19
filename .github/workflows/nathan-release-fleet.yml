@@ -14,6 +14,32 @@ permissions:
   contents: read
 
 jobs:
+  cloudflare:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check the live Cloudflare station release
+        run: |
+          node standalone-apps/game-app-stations/build.mjs
+          node standalone-apps/game-app-stations/verify.mjs --live
+      - name: Check Cloudflare book and OS downloads
+        if: always()
+        run: |
+          mkdir -p "${RUNNER_TEMP}/release-live"
+          node standalone-apps/release-fleet/verify-assets.mjs > "${RUNNER_TEMP}/release-live/downloads.json"
+          cat "${RUNNER_TEMP}/release-live/downloads.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cloudflare-live-download-receipt
+          path: ${{ runner.temp }}/release-live
+          if-no-files-found: error
+
   websites:
     runs-on: ubuntu-24.04
     timeout-minutes: 12

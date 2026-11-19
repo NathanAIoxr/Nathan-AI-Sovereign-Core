@@ -11,7 +11,16 @@ Track websites, books, OS work and compute evidence in the owner D1 database `ta
 | Supercomputer | The scheduled D1 runner accepts a bounded digest job. The Sovereign Core FP64 service reports an isolated replay-verified receipt. Keep both kinds of evidence with the source or artifact they verify. |
 | Hypercomputer and servers | Record federation health, pool configuration and verified workloads separately. Use a hardware runner only for its verified operating system and toolchain. The database Container pool currently exposes readiness and benchmark probes. A server heartbeat alone establishes reachability. |
 
-The `Nathan release fleet` workflow runs on changes and every day at 10:23 UTC. `Sorting Hats & Hatettes native builds` runs on its source changes and manual requests. The website build publishes an artifact to GitHub Actions. Website deployment is verified at the app's existing Cloudflare origin. The release workflows use the user-authorized repository and bounded app paths. Artifacts and source records are public in this repository. Keep signing secrets, unpublished user data and private manuscripts in their existing approved storage.
+## Platform schedules
+
+| Runner | Schedule | Work |
+| --- | --- | --- |
+| [Nathan release fleet](../../.github/workflows/nathan-release-fleet.yml) | Daily at 10:23 UTC, scoped pushes and manual runs | Build the website catalog, EPUBs and BIOS image. At Cloudflare's public origin, verify the full live station release and the exact published EPUB and OS downloads. Save the download receipt in GitHub Actions. |
+| [Sorting Hats & Hatettes native builds](../../.github/workflows/sorting-hats-native.yml) | Daily at 11:17 UTC, scoped changes and manual runs | Build UNBOUND on GitHub's macOS and Linux runners and retain the independent platform artifacts. |
+| [Cloudflare Build Loop](https://tabor-build-loop.nathantaboract.workers.dev/console/) | Every five minutes | Claim and generate queued draft modules in `tabor-autonomous-builds`. Review and test drafts through the project's normal release path. |
+| [Nathan Tabor Supercomputer](https://nathan-tabor-supercomputer.nathantaboract.workers.dev/healthz) | Every two minutes | Claim supported jobs such as bounded SHA-256 digests in `supercomputer_jobs`. |
+
+GitHub Actions schedules and Cloudflare Cron Triggers run this work independently of ChatGPT's task scheduler. GitHub records builds and artifacts. Cloudflare D1 records the state of individual release and draft jobs. Candidate intake rows require their own implementation and release evidence. Keep signing secrets, unpublished user data and private manuscripts in authorized storage.
 
 ## D1 releases
 
