@@ -1,0 +1,27 @@
+name: SortingHatsUnbound
+options:
+  deploymentTarget:
+    iOS: '16.0'
+settings:
+  base:
+    MARKETING_VERSION: '0.1.0'
+    CURRENT_PROJECT_VERSION: '1'
+targets:
+  SortingHatsUnbound:
+    type: application
+    platform: iOS
+    sources:
+      - path: SortingHatsUnbound.swift
+      - path: Resources/Assets.xcassets
+      - path: Resources/realms.json
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nathantabor.hatettes.unbound
+        SUPPORTED_PLATFORMS: "iphoneos iphonesimulator"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        INFOPLIST_KEY_CFBundleDisplayName: Hatettes UNBOUND
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        CODE_SIGN_STYLE: Automatic
