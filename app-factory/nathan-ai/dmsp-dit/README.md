@@ -59,3 +59,8 @@ No third-party networks or customer systems may be monitored, scanned, changed, 
 - `worker.test.mjs` includes Node 22 tests of portal, catalogs, D1 department read, health and protected-route fail-closed behavior.
 - `.github/workflows/dmsp-dit-ci.yml` runs those tests on changes in this module.
 - This branch adds documents, tests, and schema while keeping existing private ticket/tenant paths locked without a secret.
+
+## Department playbooks seeded (inert by design)
+- `runbooks-seed.sql` provides one review-required template for each of the 28 departments.
+- Live D1 verification: **28 runbook records**, **0 enabled**, **28 require approval**.
+- These records are definitions, not running automations. Only credentialed, authorized tenant-specific workflow execution may be enabled in a later hardening release.
