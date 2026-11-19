@@ -1,0 +1,46 @@
+name: Sudoku Master build and test
+on:
+  pull_request:
+    paths:
+      - 'standalone-apps/game-app-stations/apps/nathan-ai-sudoku-master/**'
+      - '.github/workflows/sudoku-master-build.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'standalone-apps/game-app-stations/apps/nathan-ai-sudoku-master/**'
+      - '.github/workflows/sudoku-master-build.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  difficulty:
+    name: Test ${{ matrix.level }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        level: [easy, medium, hard]
+    env:
+      SUDOKU_LEVEL: ${{ matrix.level }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test standalone-apps/game-app-stations/apps/nathan-ai-sudoku-master/engine.test.mjs
+  package:
+    needs: [difficulty]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node standalone-apps/game-app-stations/build.mjs
+      - run: node standalone-apps/game-app-stations/verify.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nathan-ai-sudoku-master
+          path: standalone-apps/game-app-stations/dist/apps/nathan-ai-sudoku-master/

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nathan AI Worker Registry</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body><main>
+  <header>
+    <h1>Worker, Bot &amp; Agent Registry</h1>
+    <p>Find your deployed Workers and register the bots and agents you build.</p>
+  </header>
+  <section>
+    <label for="key">Registry key</label>
+    <input id="key" type="password" autocomplete="off" autocapitalize="none" spellcheck="false">
+    <button type="button" id="lock">Lock</button>
+  </section>
+  <section aria-labelledby="browse-title">
+    <h2 id="browse-title">Find a record</h2>
+    <form id="browse">
+      <label>Search <input name="q" type="search" maxlength="96"></label>
+      <label>Kind <select name="kind"><option value="">All kinds</option><option value="worker">Worker</option><option value="bot">Bot</option><option value="agent">Agent</option></select></label>
+      <label>Status <select name="state"><option value="">All statuses</option><option value="observed">Observed in Cloudflare</option><option value="declared">Declared</option><option value="missing">Absent from latest inventory</option></select></label>
+      <button>Search</button>
+    </form>
+    <p id="summary" role="status"></p>
+    <ol id="records"></ol>
+    <button type="button" id="more" hidden>Load more</button>
+  </section>
+  <section aria-labelledby="add-title">
+    <h2 id="add-title">Register your own</h2>
+    <form id="add">
+      <label>Kind <select name="kind"><option value="worker">Worker</option><option value="bot">Bot</option><option value="agent">Agent</option></select></label>
+      <label>Stable ID <input name="slug" maxlength="80" required pattern="[a-z0-9][a-z0-9_\-]{0,79}" placeholder="my-build-agent"></label>
+      <label>Title <input name="title" maxlength="128" required></label>
+      <label>Deployment or location <input name="location" maxlength="160"></label>
+      <label>Source reference <input name="source_ref" maxlength="400"></label>
+      <button>Save record</button>
+    </form>
+    <p id="saved" role="status"></p>
+  </section>
+</main></body>
+</html>

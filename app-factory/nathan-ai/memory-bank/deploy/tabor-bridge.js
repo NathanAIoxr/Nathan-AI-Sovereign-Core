@@ -1,19 +1,22 @@
-const mount = '/memory-bank';
-const memoryWorker = 'nathan-ai-memory-bank';
+const mounts = new Map([
+  ['/memory-bank', 'nathan-ai-memory-bank'],
+  ['/worker-registry', 'nathan-ai-worker-registry']
+]);
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.pathname === mount) {
+    const mount = '/' + url.pathname.split('/')[1];
+    if (mounts.has(mount) && url.pathname === mount) {
       url.pathname = mount + '/';
       return Response.redirect(url, 308);
     }
-    if (url.pathname.startsWith(mount + '/')) {
+    if (mounts.has(mount)) {
       url.pathname = url.pathname.slice(mount.length);
       try {
-        return await env.MEMORY_PLATFORM.get(memoryWorker).fetch(new Request(url, request));
+        return await env.MEMORY_PLATFORM.get(mounts.get(mount)).fetch(new Request(url, request));
       } catch {
-        return Response.json({ error: 'The Memory Bank is temporarily unavailable.' }, {
+        return Response.json({ error: 'The requested app is temporarily unavailable.' }, {
           status: 503,
           headers: { 'Cache-Control': 'no-store' }
         });

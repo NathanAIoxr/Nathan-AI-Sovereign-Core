@@ -7,7 +7,8 @@ const root = dirname(fileURLToPath(import.meta.url));
 const release = JSON.parse(await readFile(resolve(root, 'dist/release.json'), 'utf8'));
 const catalog = JSON.parse(await readFile(resolve(root, 'dist/catalog.json'), 'utf8'));
 const expected = Object.entries(release.hashes);
-if (catalog.count !== catalog.stations.length || catalog.count !== release.count || expected.length !== release.count+2) {
+const totalAssets = catalog.stations.reduce((total, station) => total + (station.web_files?.length ?? 0), 0);
+if (catalog.count !== catalog.stations.length || catalog.count !== release.count || expected.length !== release.count+totalAssets+2) {
   throw Error('Station counts do not reconcile');
 }
 const remote = process.argv.includes('--live');

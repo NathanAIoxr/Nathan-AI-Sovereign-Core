@@ -3,8 +3,8 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 const types = {
   '/': ['index.html.in', 'text/html; charset=utf-8'],
   '/zones/': ['zones/index.html.in', 'text/html; charset=utf-8'],
-  '/app.js': ['app.js', 'text/javascript; charset=utf-8'],
   '/archive.js': ['archive.js', 'text/javascript; charset=utf-8'],
+  '/app.js': ['app.js', 'text/javascript; charset=utf-8'],
   '/styles.css': ['styles.css', 'text/css; charset=utf-8']
 };
 const assets = Object.fromEntries(await Promise.all(Object.entries(types).map(async ([path, [file, type]]) =>
