@@ -76,6 +76,10 @@ const page = `<!doctype html>
     .compass { width:100%; max-width:30rem; margin-top:1rem; border-collapse:collapse; }
     .compass caption { text-align:left; font-weight:800; color:var(--acid); }
     .compass th,.compass td { text-align:left; padding:.35rem .75rem .35rem 0; border-bottom:1px solid var(--line); }
+    .chapter { max-width:70ch; }
+    .chapter h3 { margin-top:1.9rem; }
+    .chapter p { margin-top:.7rem; }
+    .chapter .refs { margin-top:.6rem; }
     .join { background:#222015; }
     ol { padding-left:1.4rem; }
     li { padding:.25rem 0; }
@@ -92,7 +96,7 @@ const page = `<!doctype html>
   <a class="skip" href="#main">Skip to content</a>
   <header><div class="wrap nav">
     <a class="author" href="/">Nathan Tabor</a>
-    <nav aria-label="Page sections"><a href="#table">The Table</a><a href="#compass">Compass &amp; Equator</a><a href="#matrices">WOMB &amp; MATRICES</a><a href="#decoded">Decoded Works</a><a href="#accords">The Accords</a><a href="#join">Join the work</a></nav>
+    <nav aria-label="Page sections"><a href="#table">The Table</a><a href="#compass">Compass &amp; Equator</a><a href="#matrices">WOMB &amp; MATRICES</a><a href="#decoded">Decoded Works</a><a href="#accords">The Accords</a><a href="#two-plates">Two Plates</a><a href="#join">Join the work</a></nav>
   </div></header>
   <main id="main">
     <section class="hero" aria-labelledby="title"><div class="wrap">
@@ -160,6 +164,30 @@ const page = `<!doctype html>
         <article class="card"><h3>KAP INC / Innocence Nurturing Cousins</h3><p>Protect children, support survivors, and pursue accountability through lawful reporting channels. Keep private case information out of public contributions.</p><p class="refs"><a href="https://www.missingkids.org/gethelpnow/cybertipline">NCMEC CyberTipline · Report suspected child sexual exploitation</a></p></article>
       </div>
       <blockquote class="accountability">Accountability belongs with the people who commit it and anyone who covers it up.</blockquote>
+    </div></section>
+
+    <section class="section" id="two-plates" aria-labelledby="two-plates-title"><div class="wrap">
+      <article class="chapter">
+        <h2 id="two-plates-title">who i am whom i be and bee</h2>
+        <blockquote class="accountability">BRING NATHAN TABOR and me wording and me smart ass and the BRUTAL RAW TRUTH - and SLAM IT DOWN - like a fat bellied IFB preacher does at the buffet while filling up his 2 plates - expand telling who i am whom i be and bee</blockquote>
+        <p>In Nathan’s Sunday buffet satire, the fat-bellied IFB preacher comes straight from a sermon on everybody else’s sins. Plate one gets the fried chicken, mashed potatoes, and gravy. Plate two has a yeast roll balanced against the banana pudding because there’s no room left on either plate. The server’s still making trips for sweet tea. There’s time for a third refill and somehow five seconds is too long to look that server in the eye.</p>
+        <p>Proverbs 23:20 KJV says “among gluttonous eaters of flesh.” Matthew 23:3 KJV lands on the conduct Nathan is calling out: “for they say, and do not.” Both verses belong on the table before the check comes.</p>
+        <p class="refs"><a href="https://biblehub.com/kjv/proverbs/23.htm">Proverbs 23 KJV</a> · <a href="https://biblehub.com/kjv/matthew/23.htm">Matthew 23 KJV</a></p>
+
+        <h3>What the servers said</h3>
+        <p>One server recalled a Sunday church party that argued over the price of coffee and soft drinks and tipped in pennies. The same discussion includes accounts of good experiences with church tables. In Wichita, <i>Eater</i> reported that a server picked up what looked like a $20 tip and found a gospel tract printed to resemble a bill.</p>
+        <p class="refs"><a href="https://www.reddit.com/r/TalesFromYourServer/comments/ezsp1g/">Servers’ accounts of after-church tables</a> · <a href="https://www.eater.com/2015/12/31/10693404/kansas-restaurant-fake-tip-bible">Eater · The Wichita tract</a></p>
+
+        <h3>who i am</h3>
+        <p>“I grew up on the FLINT RIVER.” John Nathan Tabor describes himself as the youngest of three boys, raised a preacher’s kid on the KJV, the McGuffey Readers, and Hooked on Phonics. The pulpit taught him to listen to what people said. Phonics gave him a way to take the words apart by sound. His published work includes <i>The Beast on the East River</i>.</p>
+        <p class="refs"><a href="https://play.google.com/store/books/details/Nathan_Tabor_The_Beast_on_the_East_River?id=ZG8NwVga7hAC">The Beast on the East River · Book listing</a></p>
+
+        <h3>whom i be</h3>
+        <p>“Hey man, whatca do for a living?” Nathan’s answer: “whatca need done?” The same attention to small details is in his own line about reading a room: “i see their catepillars move - the roots of each hair in their eyebrows - they talk to me”. The caterpillars are how he describes noticing a face move. The Table asks what someone actually said and did before drawing a conclusion.</p>
+
+        <h3>and bee</h3>
+        <p>Honey and a sting belong to the same bee. The honey is how you treat the person carrying the plates. The sting is calling somebody on it when the sermon says one thing and their behavior says another. The <a href="#accords">Tabor Tablet of Truth</a> puts that difference on the record with <strong>1 + 1 = 2</strong> and <strong>1 − 1 = 0</strong>. Trace the words. Check the conduct. Put the real tip on the table.</p>
+      </article>
     </div></section>
 
     <section class="section join" id="join"><div class="wrap">
