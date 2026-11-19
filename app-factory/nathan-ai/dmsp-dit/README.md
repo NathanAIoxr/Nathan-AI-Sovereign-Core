@@ -1,4 +1,16 @@
 # Nathan Tabor DMSP + DIT
+
+## Public installation and download (current release)
+
+- **Live Cloudflare PWA:** https://nathan-ai-dmsp-dit.nathantaboract.workers.dev/
+- **Download standalone offline HTML:** https://nathan-ai-dmsp-dit.nathantaboract.workers.dev/download
+- **GitHub offline file:** [public/offline-standalone.html](./public/offline-standalone.html)
+- **GitHub source on main:** https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/dmsp-dit
+- **Public catalog download:** https://nathan-ai-dmsp-dit.nathantaboract.workers.dev/download/catalog.json
+- **Install instructions:** [PUBLIC_DOWNLOAD_GUIDE.md](./PUBLIC_DOWNLOAD_GUIDE.md)
+
+The public app supports search/filter across 28 departments, DMSP/DIT/co-managed plan construction, local JSON plan export, copy summary, an offline single-file edition and PWA install support. Cloudflare API confirms production deployment and D1 binding. GitHub PR #356 was merged into `main`; the relevant workflow passed. **Independent outside-browser URL verification could not be completed from the tool environment.** No customer account enrollment or active endpoint monitoring has been enabled.
+
 **Digital Managed Service Providers + Digital IT Departments** — a tenant-scoped managed IT operating system built on Cloudflare Workers, D1, and GitHub.
 
 ## Product modes
