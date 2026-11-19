@@ -1,0 +1,2 @@
+import escapeStringRegexp from "./vendor.js";
+export default {async fetch(request){const u=new URL(request.url);if(u.pathname==="/health")return Response.json({status:"ok",upstream:"sindresorhus/escape-string-regexp",license:"MIT"});if(u.pathname!=="/escape")return new Response("Use GET /escape?text=...",{status:404});const value=u.searchParams.get("text");if(value===null||value.length>4096)return Response.json({error:"text required, max 4096 characters"},{status:400});return Response.json({input:value,escaped:escapeStringRegexp(value)})}};
