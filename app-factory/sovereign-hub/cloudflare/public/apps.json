@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 342,
+  "count": 343,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -250,6 +250,14 @@
       "entry": "app-factory/nathan-ai/architecture-63/index.html",
       "group": "nathan-ai",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/architecture-63/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-b2382803ab44aef3",
+      "title": "Assessment Studio \u00b7 The Nathan Tabor Way",
+      "entry": "app-factory/nathan-ai/assessment-studio/public/index.html",
+      "group": "nathan-ai",
+      "url": "https://unified-operations-cockpit.nathantaboract.workers.dev/",
       "adoption": "integration_required"
     },
     {

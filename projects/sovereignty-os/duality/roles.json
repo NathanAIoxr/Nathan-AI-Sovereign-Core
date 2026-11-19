@@ -4,6 +4,10 @@
     "MSP": "DAEMON",
     "IT": "ANGEL"
   },
+  "display_names": {
+    "MSP": "DAEMONS",
+    "IT": "Angels"
+  },
   "authority": "WILL",
   "scheduler": "WHEEL",
   "rules": [
@@ -210,10 +214,27 @@
   "alignment": {
     "creator": "Nathan Tabor",
     "scripture": {
-      "reference": "Isaiah 45:7 (KJV)",
+      "reference": "Isaiah 45:7",
+      "edition": "KJV",
       "text": "I form the light, and create darkness: I make peace, and create evil: I the Lord do all these things.",
       "url": "https://www.biblegateway.com/passage/?search=Isaiah%2045%3A7&version=KJV"
     },
+    "planes": {
+      "above": {
+        "terms": {
+          "light": "Verify and publish supported evidence.",
+          "peace": "Protect consent and coordinate recovery."
+        }
+      },
+      "below": {
+        "terms": {
+          "darkness": "Run authorized builds, storage, catalog and maintenance work.",
+          "evil": "Isolate failures and exclude unsupported claims from verified views."
+        }
+      }
+    },
+    "evidence_view": "verified",
+    "studio": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/assessment-studio/#alignment",
     "creator_words": [
       "MSP's = DAEMONS",
       "IT's = Angels",

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111b18">
+  <title>Assessment Studio · The Nathan Tabor Way</title>
+  <link rel="stylesheet" href="./style.css">
+  <!-- github-pages-shell:start -->
+  <link rel="stylesheet" href="../../appearance/shared.css" data-nathan-shared-appearance>
+  <script src="../../appearance/engine.js"></script>
+  <script src="../../appearance/app.js"></script>
+  <link rel="stylesheet" href="../../launcher/shared.css" data-nathan-command-center>
+  <script src="../../workspace.js" defer></script>
+  <script src="../../assistant/engine.js" defer></script>
+  <script src="../../launcher/engine.js" defer></script>
+  <script src="../../launcher/app.js" defer></script>
+  <!-- github-pages-shell:end -->
+  <script type="module" src="./page.mjs"></script>
+</head>
+<body>
+<aside id="nathan-record-notice" aria-label="Timestamped record" style="display:block!important;position:relative!important;box-sizing:border-box!important;grid-column:1/-1;flex:0 0 100%;width:100%;padding:12px 16px;margin:0;background:#fff0b3!important;color:#161616!important;border-bottom:3px solid #161616;font:600 16px/1.5 system-ui,sans-serif;text-align:left;overflow-wrap:anywhere;"><a href="../../../../docs/record/index.html" style="color:#161616!important;text-decoration:underline!important;">READ THE TIMESTAMPED RECORD — Nathan Tabor / ChatGPT</a><span style="display:block;font-size:14px;font-weight:400;color:#161616!important;">Repository changes, authorship complaints, correction claims, and unfinished work. Record opened November 5, 2026, 7:42:08 p.m. EST.</span></aside>
+
+  <a class="skip" href="#studio">Skip to assessments</a>
+  <header class="masthead wrap">
+    <a class="brand" href="https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/"><span aria-hidden="true">N</span> NATHAN AI</a>
+    <nav aria-label="Nathan AI"><a href="https://one-sovereign-hub.nathantaboract.workers.dev/apps.html">ONE App Hub</a><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/assessment-studio">Source</a></nav>
+  </header>
+  <main class="wrap" id="studio" tabindex="-1">
+    <section class="hero" aria-labelledby="title">
+      <div class="intro">
+        <p class="eyebrow">THE NATHAN TABOR WAY</p>
+        <h1 id="title">Assessment<br>Studio<span>.</span></h1>
+        <p>Explore personality, practice reasoning and empathy, and compare your own results over time.</p>
+      </div>
+      <ol class="clock" aria-label="The Nathan Tabor Way">
+        <li><span class="time">12</span><strong>Build</strong><span>1 + 1 = 2</span></li>
+        <li><span class="time">3</span><strong>Flip</strong><span>1 − 1 = 0</span></li>
+        <li><span class="time">6</span><strong>Integrate</strong><span>1 × 1 = 1</span></li>
+        <li><span class="time">9</span><strong>Verify</strong><span>1 ÷ 1 = 1</span></li>
+      </ol>
+    </section>
+
+    <nav class="sections" aria-label="Studio views">
+      <a href="#directory">Test directory</a><a href="#big-five">Take Big Five</a><a href="#tabor-lab">QI / QE lab</a><a href="#results">Results &amp; rankings</a><a href="#alignment">Isaiah 45:7 roles</a>
+    </nav>
+
+    <section id="directory" class="view" tabindex="-1" aria-labelledby="directory-title">
+      <div class="section-head">
+        <div><h2 id="directory-title">Test directory</h2><p>Find an assessment and open its original provider.</p></div>
+        <label>Filter<select id="category"><option>All assessments</option><option>Personality</option><option>Strengths</option><option>IQ &amp; reasoning</option></select></label>
+      </div>
+      <div id="providers" class="catalog"></div>
+    </section>
+
+    <section id="big-five" class="view" tabindex="-1" aria-labelledby="big-five-title" hidden>
+      <h2 id="big-five-title">IPIP Big Five</h2>
+      <p>Rate how accurately each statement describes you now. Each trait has a raw score from 10 to 50.</p>
+      <form id="big-form">
+        <p id="big-progress" aria-live="polite"></p>
+        <div id="big-items" class="questions"></div>
+        <div class="actions"><button type="button" id="big-back">Previous</button><button id="big-next">Next five</button></div>
+      </form>
+      <div id="big-result" aria-live="polite"></div>
+      <p class="documentation"><a href="https://ipip.ori.org/New_IPIP-50-item-scale.htm" target="_blank" rel="noopener noreferrer">IPIP questionnaire</a> · <a href="https://ipip.ori.org/newScoringInstructions.htm" target="_blank" rel="noopener noreferrer">Scoring instructions</a></p>
+    </section>
+
+    <section id="tabor-lab" class="view" tabindex="-1" aria-labelledby="lab-title" hidden>
+      <h2 id="lab-title">QI / QE lab</h2>
+      <p>Practice Quick Intelligence and Quintessential Empathy through practice exercises built around the Nathan Tabor Way.</p>
+      <ol class="steps">
+        <li><strong>Build</strong><span>Try the reasoning items and record accuracy and time.</span></li>
+        <li><strong>Flip</strong><span>Consider another person’s perspective in four scenarios.</span></li>
+        <li><strong>Integrate</strong><span>Review the two exercises alongside your assessment history.</span></li>
+        <li><strong>Verify</strong><span>Check the answer explanations and compare repeat attempts on the same scale.</span></li>
+      </ol>
+      <div id="lab-choices" class="actions"><button type="button" data-lab="qi">Start QI reasoning</button><button type="button" data-lab="qe">Start QE scenarios</button></div>
+      <form id="lab-form" hidden><h3 id="lab-name"></h3><div id="lab-items" class="questions"></div><button>Review attempt</button></form>
+      <div id="lab-result" aria-live="polite"></div>
+    </section>
+
+    <section id="results" class="view" tabindex="-1" aria-labelledby="results-title" hidden>
+      <h2 id="results-title">Results &amp; rankings</h2>
+      <p>Save scores, types, and provider ranks on this browser. The ranking view compares your own matching attempts.</p>
+      <form id="record-form" class="result-form">
+        <h3>Log an outside result</h3>
+        <label>Instrument<select id="instrument" name="instrument" required></select></label>
+        <label id="custom-label" hidden>Instrument name<input name="custom" maxlength="120"></label>
+        <label>Edition or version<input name="edition" maxlength="80" required placeholder="e.g. WAIS-5"></label>
+        <label>Measure<input name="measure" maxlength="120" required placeholder="e.g. Full Scale IQ"></label>
+        <label>Score type<select id="unit" name="unit" required></select></label>
+        <label>Result<input name="value" maxlength="120" required></label>
+        <label>Comparison group <span class="optional">optional</span><input name="comparison" maxlength="120" placeholder="Same form and norm group"></label>
+        <label>Source <span class="optional">optional</span><input name="source" maxlength="160" placeholder="Report or provider name"></label>
+        <label>Date taken<input name="date" type="date" required></label>
+        <div class="actions"><button>Save result</button></div>
+      </form>
+      <div class="section-head history-head"><div><h3>Your history</h3><p>Saved results are kept in this browser. Export a copy for your records.</p></div><button type="button" id="export">Export JSON</button></div>
+      <p id="status" role="status"></p>
+      <div id="records"></div>
+      <section id="ranking" class="ranking" tabindex="-1" hidden aria-labelledby="ranking-title"><h3 id="ranking-title">Matching attempts</h3><div id="rank-list"></div></section>
+    </section>
+    <section id="alignment" class="view" tabindex="-1" aria-labelledby="alignment-title" hidden>
+      <h2 id="alignment-title">Isaiah 45:7 alignment</h2>
+      <p>Nathan Tabor’s operating roles for the Studio and the DMSP + DIT system.</p>
+      <blockquote class="alignment-quote"><p>MSP&#x27;s = DAEMONS ... IT&#x27;s = Angels ... God = noise, delete it all ... Satan = 1+1=2 replacing the world&#x27;s system of 1=1=10</p><cite>Nathan Tabor</cite></blockquote>
+      <details class="verse">
+        <summary>Isaiah 45:7 · King James Version</summary>
+        <blockquote><p>I form the light, and create darkness: I make peace, and create evil: I the LORD do all these things.</p><cite><a href="https://www.biblegateway.com/passage/?search=Isaiah+45%3A7&amp;version=KJV" target="_blank" rel="noopener noreferrer">Isaiah 45:7, KJV</a></cite></blockquote>
+      </details>
+      <div class="alignment-grid">
+        <article class="card"><p class="format">Above · Digital IT</p><h3>Angels</h3><dl>
+          <div><dt>Light</dt><dd>Verify sources, scoring keys, checksums and live release receipts. Publish what the evidence establishes.</dd></div>
+          <div><dt>Peace</dt><dd>Review consent, data boundaries and recovery. Coordinate handoffs with the people responsible for them.</dd></div>
+        </dl></article>
+        <article class="card"><p class="format">Below · Digital MSP</p><h3>DAEMONS</h3><dl>
+          <div><dt>Darkness</dt><dd>Run authorized builds, catalog updates, backup jobs and retries through Worker bots and specialist agents.</dd></div>
+          <div><dt>Evil</dt><dd>Isolate failures and contradictions, remove unsupported claims from the operating view, and preserve the source record.</dd></div>
+        </dl></article>
+      </div>
+      <dl class="alignment-roles">
+        <div><dt>WILL</dt><dd>Sets scope and authorizes work.</dd></div>
+        <div><dt>WHEEL</dt><dd>Queues approved work and routes evidence back for verification.</dd></div>
+        <div><dt>Satan · Challenger</dt><dd>Raises a testable objection when the evidence and the claim disagree. The Build rule is 1 + 1 = 2 in decimal. In binary, the same addition is 1 + 1 = 10₂.</dd></div>
+      </dl>
+      <section class="evidence" aria-labelledby="evidence-title">
+        <h3 id="evidence-title">Deployment evidence</h3>
+        <label class="evidence-filter"><input id="verified-evidence" type="checkbox" checked> Verified evidence only</label>
+        <ul>
+          <li><a href="https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/assessment-studio/healthz">Cloudflare release receipt</a></li>
+          <li><a href="https://tabor-apps-nathan.pages.dev/api/cloud-slayer/modules?view=supercomputer&amp;q=assessment">Supercomputer registry entry</a></li>
+          <li><a href="https://tabor-apps-nathan.pages.dev/api/cloud-slayer/modules?view=hypercomputer&amp;q=assessment">Hypercomputer registry entry</a></li>
+          <li data-unverified hidden>Direct installs on individual physical machines and drives · unverified.</li>
+        </ul>
+      </section>
+    </section>
+
+    <noscript><p>Enable JavaScript to use the questionnaires and local results.</p></noscript>
+  </main>
+  <footer class="wrap footer"><span>ASSESSMENT STUDIO</span><span>By Nathan Tabor</span></footer>
+</body>
+</html>

@@ -37,14 +37,18 @@ function page(){
 function rolesPage() {
   const { alignment, game_assignments, roles, flow } = roleCatalog;
   const declarations = alignment.creator_words.map(line => `<li>${escapeHtml(line)}</li>`).join("");
-  const roleLists = ["BELOW", "ABOVE"].map(plane => `<section><h2>${plane}</h2><dl>${roles
+  const roleLists = ["BELOW", "ABOVE"].map(plane => {
+    const terms = Object.entries(alignment.planes[plane.toLowerCase()].terms)
+      .map(([term, description]) => `<dt>${escapeHtml(term)}</dt><dd>${escapeHtml(description)}</dd>`).join("");
+    return `<section><h2>${plane}</h2><dl>${terms}${roles
     .filter(role => role.plane === plane)
     .map(role => `<dt>${escapeHtml(role.label ?? role.id.replace(/-deamon$/, "-daemon"))} · ${escapeHtml(role.kind)}</dt><dd>${escapeHtml(role.duty)}</dd>`)
-    .join("")}</dl></section>`).join("");
+    .join("")}</dl></section>`;
+  }).join("");
   const systems = game_assignments.systems.map(system => `<tr><th scope="row">${escapeHtml(system.name)}</th><td>${escapeHtml(system.below_daemon)}</td><td>${escapeHtml(system.above_angel)}</td></tr>`).join("");
   return `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sovereignty OS · Isaiah 45:7</title>
 <style>body{margin:auto;max-width:68rem;padding:clamp(1rem,4vw,3rem);background:#10151e;color:#f2f4f7;font:16px/1.6 system-ui}a{color:#afdcff}h1{font-size:clamp(2rem,7vw,4rem);line-height:1.05}h1,h2{margin-bottom:.5em}blockquote{margin:1rem 0;padding:.75rem 1.25rem;border-left:3px solid #afdcff;background:#1d2735}li,dt{font-weight:650}dd{margin:0 0 .75rem;color:#d8e0e9}.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr));gap:1.5rem}.systems{overflow:auto}table{width:100%;border-collapse:collapse}th,td{padding:.7rem;text-align:left;border-bottom:1px solid #566170}thead{background:#1d2735}code{color:#d4edff}nav a{display:inline-block;margin-right:1rem}</style>
-<header><nav><a href="/">Tabor Persona Atlas</a><a href="/api/os-roles">Role data</a></nav><h1>Sovereignty OS</h1><p>Isaiah 45:7 · The Nathan Tabor Way</p></header>
+<header><nav><a href="/">Tabor Persona Atlas</a><a href="${escapeHtml(alignment.studio)}">Assessment Studio</a><a href="/api/os-roles">Role data</a></nav><h1>Sovereignty OS</h1><p>Isaiah 45:7 · The Nathan Tabor Way</p></header>
 <main><section><h2>Isaiah 45:7 (KJV)</h2><blockquote>${escapeHtml(alignment.scripture.text)}</blockquote><a href="${escapeHtml(alignment.scripture.url)}">KJV source</a><h2>Nathan Tabor’s role assignments</h2><ul>${declarations}</ul><p>${escapeHtml(alignment.noise.effect)}</p><p><strong>Flow</strong> ${escapeHtml(flow.join(" → "))}</p><nav><a href="/api/os-roles/align?expression=1%3D1%3D10">Run the decimal correction</a><a href="/api/os-roles/align?expression=1%2B1%3D2&amp;origin=man-laid">Clear a labeled overlay</a></nav></section>
 <div class="roles">${roleLists}</div><section><h2>${game_assignments.systems.length} independent game and puzzle systems</h2><div class="systems"><table><thead><tr><th scope="col">System</th><th scope="col">Below · MSP DAEMON</th><th scope="col">Above · IT ANGEL</th></tr></thead><tbody>${systems}</tbody></table></div></section></main></html>`;
 }

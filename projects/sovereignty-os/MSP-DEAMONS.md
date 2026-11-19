@@ -7,16 +7,25 @@ Nathan Tabor's current role names are **MSP's = DAEMONS** and **IT's = Angels**.
 
 WILL → WHEEL → DAEMON → CHALLENGER → ANGEL → WAY → REPORT.
 
+## Isaiah 45:7 alignment
+
+| Plane | KJV terms | Software roles |
+| --- | --- | --- |
+| Above | Light and peace | IT Angels verify evidence, protect consent and review recovery. |
+| Below | Darkness and evil | MSP DAEMONS execute authorized work and isolate failures. Satan challenges contradictions. |
+
+[Author wording and verse](duality/ORIGINAL_WORDS.md) · [Role registry](duality/roles.json) · [Assessment Studio](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/assessment-studio/#alignment)
+
 ## Independent MSP DAEMON families
-- Build Deamon: source checks, package builds, reproducible artifacts.
-- Deployment Deamon: capacity checks, dry runs, approved deployments and health verification.
-- Security Deamon: own-asset configuration checks, least-privilege audit, incident triage.
-- Data Deamon: schema validation, portable exports, consented migration.
-- Concordance Deamon: citation/provenance checks, language index.
-- Creative Deamon: game/app asset build queues.
-- Pumpkin Deamon: fundraising, volunteer and logistics coordination via separate permissioned applications.
-- Collyn Handoff Deamon: prepares a private review package; never sends without explicit approval.
-- Inventory Deamon: reconcile GitHub projects and Cloudflare resources, without assuming live state.
+- **Build Daemon** checks source and packages reproducible builds.
+- **Deployment Daemon** checks capacity, stages deployments and gathers health receipts.
+- **Security Daemon** checks configuration and triages incidents on authorized assets.
+- **Data Daemon** checks schemas and produces portable exports or consented migrations.
+- **Concordance Daemon** tracks citation provenance and indexes language.
+- **Creative Daemon** manages game and app asset build queues.
+- **Pumpkin Daemon** coordinates fundraising, volunteer and logistics applications.
+- **Collyn Handoff Daemon** prepares a private review package for the owner to share.
+- **Inventory Daemon** reconciles GitHub projects and Cloudflare deployment records.
 
 ## Contract
 Each DAEMON has an ID, owner, scope, triggers, permitted tools, queue, timeout, retry ceiling, audit record, and stop control. Tasks have unique idempotency keys and explicit outcomes.

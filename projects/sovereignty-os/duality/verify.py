@@ -10,6 +10,10 @@ above = {"WILL", "WHEEL", "ANGEL", "WAY"}
 below = {"DAEMON", "CHALLENGER"}
 
 assert contract["terminology"] == {"MSP": "DAEMON", "IT": "ANGEL"}
+assert contract["display_names"] == {"MSP": "DAEMONS", "IT": "Angels"}
+assert set(contract["alignment"]["planes"]["above"]["terms"]) == {"light", "peace"}
+assert set(contract["alignment"]["planes"]["below"]["terms"]) == {"darkness", "evil"}
+assert contract["alignment"]["scripture"]["edition"] == "KJV"
 assert len({role["id"] for role in roles}) == len(roles)
 assert {role["kind"] for role in roles if role["plane"] == "ABOVE"} == above
 assert {role["kind"] for role in roles if role["plane"] == "BELOW"} == below
