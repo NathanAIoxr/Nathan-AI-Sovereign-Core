@@ -14,7 +14,7 @@ export default {
     switch(url.pathname) {
       case "/":
       case "/manifest":
-        return json({title:"Word History and Binary Rotations", project:"Mind of Nathan Tabor", source:base, routes:["/records","/binary?from=c&to=p","/integration"], links:{wordRotations:"https://tabor-word-rotations.nathantaboract.workers.dev/",mindFleet:"https://tabor-nathan-mind-fleet-registry.nathantaboract.workers.dev/",concordance:"https://nathan-ai-sovereign-concordance.nathantaboract.workers.dev/api/summary"}});
+        return json({title:"Word History and Binary Rotations", project:"Mind of Nathan Tabor", source:base, routes:["/word-history/records","/word-history/binary?from=c&to=p","/word-history/integration"], links:{wordRotations:"https://tabor-word-rotations.nathantaboract.workers.dev/",mindFleet:"https://tabor-nathan-mind-fleet-registry.nathantaboract.workers.dev/",concordance:"https://nathan-ai-sovereign-concordance.nathantaboract.workers.dev/api/summary"}});
       case "/records": return json(records);
       case "/health": return json({ok:true,count:records.length});
       case "/integration": {
