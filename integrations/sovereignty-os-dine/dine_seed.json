@@ -1,0 +1,377 @@
+{
+  "source_sha256": "d270adf653fc52601daae3a6ee074b0f64a935aeb275bfd49da98ac73be27973",
+  "source_bytes": 18593,
+  "system_meta": {
+    "core_os": "Sovereignty OS (replacing external THE-OS / ETHOS control)",
+    "logic_clear": "1 - 1 = 0 (Strip away labels and noise)",
+    "logic_build": "1 + 1 = 2 (Build from bedrock up)",
+    "growth_model": "The Vine (Bedrock foundation with living, expanding vines)"
+  },
+  "sections": {
+    "landmarks": [
+      {
+        "id": "MT_EAST",
+        "name": "Blanca Peak",
+        "dine_name": "Sisnaajiní",
+        "direction": "East",
+        "sacred_stone": "White Shell",
+        "lat": 37.5775,
+        "lon": -105.4856,
+        "elevation_m": 4372,
+        "antipode_lat": -37.5775,
+        "antipode_lon": 74.5144,
+        "antipode_feature": "Amsterdam-St. Paul Basin (Southern Indian Ocean)"
+      },
+      {
+        "id": "MT_SOUTH",
+        "name": "Mount Taylor",
+        "dine_name": "Tsoodził",
+        "direction": "South",
+        "sacred_stone": "Turquoise",
+        "lat": 35.2386,
+        "lon": -107.6083,
+        "elevation_m": 3445,
+        "antipode_lat": -35.2386,
+        "antipode_lon": 72.3917,
+        "antipode_feature": "Southeast Indian Ridge Flank"
+      },
+      {
+        "id": "MT_WEST",
+        "name": "San Francisco Peaks",
+        "dine_name": "Dookʼoʼoosłííd",
+        "direction": "West",
+        "sacred_stone": "Abalone Shell",
+        "lat": 35.3464,
+        "lon": -111.6781,
+        "elevation_m": 3851,
+        "antipode_lat": -35.3464,
+        "antipode_lon": 68.3219,
+        "antipode_feature": "Central Indian Basin Ridge"
+      },
+      {
+        "id": "MT_NORTH",
+        "name": "Hesperus Mountain",
+        "dine_name": "Dibé Nitsaa",
+        "direction": "North",
+        "sacred_stone": "Obsidian / Jet",
+        "lat": 37.445,
+        "lon": -108.0892,
+        "elevation_m": 4033,
+        "antipode_lat": -37.445,
+        "antipode_lon": 71.9108,
+        "antipode_feature": "Northern Amsterdam Plateau"
+      },
+      {
+        "id": "CENTER_DINETAH",
+        "name": "Dinétah / Window Rock Core",
+        "dine_name": "Dinétah / Tségháhoodzání",
+        "direction": "Center",
+        "sacred_stone": "Pollen / Earth",
+        "lat": 36.0,
+        "lon": -109.0,
+        "elevation_m": 2080,
+        "antipode_lat": -36.0,
+        "antipode_lon": 71.0,
+        "antipode_feature": "36°S, 71°E — Amsterdam-St. Paul & Kerguelen Microcontinent Corridor"
+      }
+    ],
+    "submerged_lands": [
+      {
+        "id": "DOGGERLAND",
+        "name": "Doggerland",
+        "region": "North Sea Basin",
+        "lat": 54.5,
+        "lon": 2.0,
+        "depth_m": -35,
+        "submerged_years_ago": 8200,
+        "pre_flood_description": "Four-river paradise (Rhine, Thames, Elbe, Shotton) linking Britain & Europe; submerged by meltwater & Storegga tsunami.",
+        "antipode_lat": -54.5,
+        "antipode_lon": -178.0,
+        "antipode_region": "Campbell Plateau / Zealandia",
+        "comparative_profile": "Twin drowned continental shelves; fold-over latitude 54.5°N, 109°W intersects Northern Dene corridor."
+      },
+      {
+        "id": "BERINGIA",
+        "name": "Beringia Land Bridge",
+        "region": "Bering & Chukchi Seas",
+        "lat": 65.0,
+        "lon": -170.0,
+        "depth_m": -50,
+        "submerged_years_ago": 11000,
+        "pre_flood_description": "Mammoth steppe corridor linking Siberia & Alaska; gateway for First Americans & Dene/Na-Dene ancestors.",
+        "antipode_lat": -65.0,
+        "antipode_lon": 10.0,
+        "antipode_region": "East Antarctica Coast",
+        "comparative_profile": "Polar inversion: active human migration corridor opposite uninhabited Antarctic ice sheet."
+      },
+      {
+        "id": "SUNDALAND",
+        "name": "Sundaland",
+        "region": "Java Sea & Gulf of Thailand",
+        "lat": -4.0,
+        "lon": 108.0,
+        "depth_m": -45,
+        "submerged_years_ago": 9000,
+        "pre_flood_description": "Equatorial subcontinent uniting Sumatra, Java, Borneo & mainland SE Asia.",
+        "antipode_lat": 4.0,
+        "antipode_lon": -72.0,
+        "antipode_region": "Amazon Basin",
+        "comparative_profile": "Equatorial structural twins: river-network agroforestry, medicinal botany & watercraft mastery."
+      },
+      {
+        "id": "SAHUL",
+        "name": "Sahul Shelf",
+        "region": "Arafura Sea & Bass Strait",
+        "lat": -11.0,
+        "lon": 136.0,
+        "depth_m": -40,
+        "submerged_years_ago": 9000,
+        "pre_flood_description": "Unified landmass connecting Australia, New Guinea & Tasmania across Lake Carpentaria.",
+        "antipode_lat": 11.0,
+        "antipode_lon": -44.0,
+        "antipode_region": "Mid-Atlantic Ridge",
+        "comparative_profile": "Oldest continuous oral songlines (50,000+ yrs) opposite deep Atlantic abyssal ridge."
+      },
+      {
+        "id": "PERSIAN_GULF",
+        "name": "Persian Gulf Oasis",
+        "region": "Persian Gulf Basin",
+        "lat": 27.0,
+        "lon": 51.0,
+        "depth_m": -40,
+        "submerged_years_ago": 8000,
+        "pre_flood_description": "Spring-fed valley where Tigris & Euphrates merged before Holocene flooding.",
+        "antipode_lat": -27.0,
+        "antipode_lon": -129.0,
+        "antipode_region": "Rapa Nui / Pitcairn Basin",
+        "comparative_profile": "Medium inversion: mudbrick canal & cuneiform builders opposite open-ocean Polynesian star navigators."
+      }
+    ],
+    "linguistic_concordance": [
+      {
+        "term": "DINE / DENE",
+        "reversed_or_shifted": "ENID (Reverse)",
+        "language_origin": "Proto-Athabaskan / Na-Dene <-> Celtic (Middle Welsh)",
+        "root_meaning": "Dine/Dene = 'The People' (shared DNA & language family); Enid (enaid) = 'Soul, Spirit, Breath'.",
+        "structural_function": "Unites physical people with living breath across Northern Dene & Southern Diné.",
+        "cross_system_link": "Dene-Yeniseian Siberian bridge -> Dinétah"
+      },
+      {
+        "term": "EGYPT (Hikuptah)",
+        "reversed_or_shifted": "TPYGE (Phonetic: Tee-Pee)",
+        "language_origin": "Egyptian / Greek <-> Lakota (Thípi)",
+        "root_meaning": "Hikuptah = House of the Soul of Ptah; Phonetic reversal T-P-Y mirrors Thípi ('Dwelling').",
+        "structural_function": "Convergent desert & cardinal architecture (Pyramids <-> Hooghan & Tipi).",
+        "cross_system_link": "Shared Northeast African human root -> divergent desert engineering"
+      },
+      {
+        "term": "ANKH -> HEKA -> AKH",
+        "reversed_or_shifted": "AKEH (Heka Reversed)",
+        "language_origin": "Ancient Egyptian Consonant Roots (ꜥnḫ / ḥkꜣ / ꜣḫ)",
+        "root_meaning": "Ankh = Life; Heka = Activating word & intent; Akh/Akeh = Luminous, effective state.",
+        "structural_function": "Three-stage execution loop: Life + Exact Word = Effective Order.",
+        "cross_system_link": "Torah Dabar / Logos / Vedic Vāc"
+      },
+      {
+        "term": "MA'AT / HÓZHǪ́ / DHARMA",
+        "reversed_or_shifted": "Order & Equilibrium",
+        "language_origin": "Egyptian / Diné / Sanskrit (dhr-)",
+        "root_meaning": "Truth, straightness, cosmic proportion, walking in beauty, upholding law.",
+        "structural_function": "Fixed moral and mathematical standard against chaos.",
+        "cross_system_link": "Torah ('Straight Path') & Karma ('Action/Return')"
+      },
+      {
+        "term": "BA'AL (H1167) / ISHI",
+        "reversed_or_shifted": "Lord, Master, Husband",
+        "language_origin": "Biblical Hebrew (Hosea 2:16, Exodus 21:3)",
+        "root_meaning": "Common Hebrew noun for husband, master, owner, lord; separated from Canaanite idol in Hosea 2:16.",
+        "structural_function": "Covenant headship & household stewardship.",
+        "cross_system_link": "KJV New Testament titles of Christ (Lord, Master, Bridegroom)"
+      },
+      {
+        "term": "THEOS / ELOHIM",
+        "reversed_or_shifted": "ETHOS -> SOVEREIGNTY OS",
+        "language_origin": "Greek (ΘΕΟΣ) / Hebrew (אֱלֹהִים) (John 10:34, Psalm 82:6)",
+        "root_meaning": "Theos = deity/divine authority; Ethos = exact letter anagram meaning character/custom.",
+        "structural_function": "Swapping external control systems for local-first Sovereignty OS.",
+        "cross_system_link": "The Vine: Bedrock foundation with self-governing branches"
+      }
+    ],
+    "three_sisters_agronomy": [
+      {
+        "name": "Corn",
+        "dine_name": "Naadą́ą́ʼ",
+        "role": "The Structural Pillar",
+        "agronomic_function": "Planted in widely spaced dry-land clumps to tap deep soil moisture; provides tall climbing stalk.",
+        "culinary_chemistry": "Juniper ash (Gad) nixtamalization unlocks niacin (B3) and boosts calcium 20x+."
+      },
+      {
+        "name": "Beans",
+        "dine_name": "Naaʼołí",
+        "role": "The Nitrogen Fixer",
+        "agronomic_function": "Tepary and climbing desert beans pull atmospheric nitrogen into root nodules to feed corn and squash.",
+        "culinary_chemistry": "Complete amino acid protein pairing when eaten with blue corn."
+      },
+      {
+        "name": "Squash & Pumpkins",
+        "dine_name": "Naayízí",
+        "role": "The Living Mulch",
+        "agronomic_function": "Broad prickly leaves shade high-desert soil, locking in moisture and blocking weeds.",
+        "culinary_chemistry": "Dried in spiral strips for winter stews; central to TABORBOY Issue 03 & CPT Chili."
+      }
+    ],
+    "ke_clans": [
+      {
+        "clan_name": "Kinyaaʼáanii",
+        "english_meaning": "Towering House Clan",
+        "origin_pillar": "Original Four (Changing Woman)",
+        "notes": "Pillar 1: Maternal Lineage"
+      },
+      {
+        "clan_name": "Honágháahnii",
+        "english_meaning": "One-Walks-Around Clan",
+        "origin_pillar": "Original Four (Changing Woman)",
+        "notes": "Pillar 2: Paternal Lineage"
+      },
+      {
+        "clan_name": "Tódíchʼíiʼnii",
+        "english_meaning": "Bitter Water Clan",
+        "origin_pillar": "Original Four (Changing Woman)",
+        "notes": "Pillar 3: Maternal Grandfather (Cheii)"
+      },
+      {
+        "clan_name": "Hashtłʼishnii",
+        "english_meaning": "Mud Clan",
+        "origin_pillar": "Original Four (Changing Woman)",
+        "notes": "Pillar 4: Paternal Grandfather (Nálí)"
+      }
+    ],
+    "dine_lunar_months": [
+      {
+        "month_order": 1,
+        "dine_month": "Ghą́ą́jįʼ",
+        "gregorian_approx": "October",
+        "meaning_and_cycle": "Separation of Seasons / Diné New Year — harvest storage & hunting"
+      },
+      {
+        "month_order": 2,
+        "dine_month": "Níłchʼitsʼósí",
+        "gregorian_approx": "November",
+        "meaning_and_cycle": "Slender Wind — first frosts, winter ceremonies begin"
+      },
+      {
+        "month_order": 3,
+        "dine_month": "Níłchʼitsoh",
+        "gregorian_approx": "December",
+        "meaning_and_cycle": "Great Wind — Shoe Game (Késhjééʼ), String Figures (Naʼatłʼoʼ), origin stories"
+      },
+      {
+        "month_order": 4,
+        "dine_month": "Yas Niłtʼees",
+        "gregorian_approx": "January",
+        "meaning_and_cycle": "Crusted / Melting Snow — winter water conservation"
+      },
+      {
+        "month_order": 5,
+        "dine_month": "Atsá Biyáázh",
+        "gregorian_approx": "February",
+        "meaning_and_cycle": "Baby Eagles Hatching — first thunders awaken earth"
+      },
+      {
+        "month_order": 6,
+        "dine_month": "Wóóshchʼįįd",
+        "gregorian_approx": "March",
+        "meaning_and_cycle": "Shrill Voice of Baby Eagles — spring winds & lambing"
+      },
+      {
+        "month_order": 7,
+        "dine_month": "Tʼą́ą́chil",
+        "gregorian_approx": "April",
+        "meaning_and_cycle": "Small Leaves — early sprouting & field prep"
+      },
+      {
+        "month_order": 8,
+        "dine_month": "Tʼą́ątsoh",
+        "gregorian_approx": "May",
+        "meaning_and_cycle": "Large Leaves — full foliage & main planting"
+      },
+      {
+        "month_order": 9,
+        "dine_month": "Yaʼiishjááshchilí",
+        "gregorian_approx": "June",
+        "meaning_and_cycle": "Planting Early Seeds — wild berry & herb gathering"
+      },
+      {
+        "month_order": 10,
+        "dine_month": "Yaʼiishjááshtsoh",
+        "gregorian_approx": "July",
+        "meaning_and_cycle": "Planting Late Seeds — summer monsoon rains"
+      },
+      {
+        "month_order": 11,
+        "dine_month": "Biniʼanitʼą́ą́tsʼósí",
+        "gregorian_approx": "August",
+        "meaning_and_cycle": "Slender Ripening — early green corn & squash harvest"
+      },
+      {
+        "month_order": 12,
+        "dine_month": "Biniʼanitʼą́ą́tsoh",
+        "gregorian_approx": "September",
+        "meaning_and_cycle": "Great Ripening — full harvest & spiral pumpkin drying"
+      }
+    ],
+    "community_projects": [
+      {
+        "project_name": "Diné Living Universe & Tabor Earth",
+        "co_architects": [
+          "John Nathan Tabor",
+          "Collyn Phillips Tabor"
+        ],
+        "focus": "1:1 Geological, Genealogical (MAMMAL/Kʼé) & Three Sisters Platform",
+        "key_features": [
+          "Outperforms Ancestry.com via 4-pillar Kʼé & GPS land anchors",
+          "101 Global Historical Locations x 12 Three Sisters Recipes (1,212 recipes)",
+          "TABORBOY Issue 03: Diné Foodways & CPT Chili (Chestnuts, Pumpkin, Taters)"
+        ]
+      },
+      {
+        "project_name": "Pumpkin Patch Fundraiser & Driver App",
+        "co_architects": [
+          "Collyn Phillips Tabor",
+          "John Nathan Tabor"
+        ],
+        "focus": "Church & Community Seasonal Pumpkin Logistics",
+        "key_features": [
+          "Driver AI Chat Box for live route & drop-off queries",
+          "Automated invoicing & load-count tracking",
+          "Student volunteer hour tracking for church youth groups"
+        ]
+      },
+      {
+        "project_name": "CT Inc. (Church Technology by Collyn Tabor)",
+        "co_architects": [
+          "Collyn Phillips Tabor",
+          "John Nathan Tabor"
+        ],
+        "focus": "Sovereign Church & Outreach Software Stack",
+        "key_features": [
+          "Lightweight Python/SQLite web & outreach platform",
+          "Daily Cup of Hope & Daily Plate of Love community support",
+          "Zero bloated third-party vendor lock-in"
+        ]
+      },
+      {
+        "project_name": "Cloudflare D1 & GitHub Bedrock Pipeline",
+        "co_architects": [
+          "John Nathan Tabor"
+        ],
+        "focus": "Deterministic Edge Deployment (0 -> 1 -> 2)",
+        "key_features": [
+          "00-bedrock-sql migrations execute before Worker boot",
+          "Zero broken Git submodules; flat TypeScript imports",
+          "Local-first JSON/SQL export for total user sovereignty"
+        ]
+      }
+    ]
+  }
+}
