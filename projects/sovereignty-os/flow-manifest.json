@@ -3,6 +3,12 @@
   "system": "Sovereignty OS",
   "mode": "independent-apps-permissioned-links",
   "source_repository": "NathanAIoxr/Nathan-AI-Sovereign-Core",
+  "runtime_profiles": {
+    "registration": "duality/runtime/profiles.json",
+    "inventory_command": "node projects/sovereignty-os/duality/runtime/select.mjs inventory",
+    "profiles": ["sandbox", "live"],
+    "coverage_source": "Git index and explicit per-app registrations"
+  },
   "build_flow": ["intake", "source_audit", "isolation_check", "static_validation", "unit_tests", "security_review", "approval", "deployment", "health_verification", "catalog_update"],
   "workers": [
     {"id":"inventory-agent","task":"reconcile source projects with manifest","runtime":"github-actions","permissions":"contents:read"},

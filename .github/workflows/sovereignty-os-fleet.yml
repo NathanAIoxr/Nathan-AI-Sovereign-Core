@@ -24,8 +24,21 @@ jobs:
           assert len({x['id'] for x in m['workers']})==len(m['workers'])
           assert all(x['state'] in ('planned','not-verified','verified') for x in m['connections'])
           assert (root/'PROJECT_INTAKE_REGISTRY.md').exists()
+          assert m['runtime_profiles']['profiles'] == ['sandbox', 'live']
+          assert (root/m['runtime_profiles']['registration']).is_file()
           print('Inventory flow valid; deployments not inferred')
           PY
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Generate the sandbox and live adoption inventory
+        run: node projects/sovereignty-os/duality/runtime/select.mjs inventory > "$RUNNER_TEMP/nathan-runtime-inventory.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nathan-runtime-inventory
+          path: ${{ runner.temp }}/nathan-runtime-inventory.json
+          if-no-files-found: error
   quality-agent:
     needs: inventory-agent
     runs-on: ubuntu-latest
