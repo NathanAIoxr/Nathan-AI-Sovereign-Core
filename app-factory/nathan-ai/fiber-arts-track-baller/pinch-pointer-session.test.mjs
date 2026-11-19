@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {attachPinchPointerSession} from './pinch-pointer-session.mjs';
+function target() { const listeners=new Map();return {addEventListener(n,f){listeners.set(n,f)},removeEventListener(n,f){if(listeners.get(n)===f)listeners.delete(n)},emit(n,e){listeners.get(n)?.(e)},count(){return listeners.size}} }
+const p=(pointerId,clientX,clientY,pointerType='touch')=>({pointerId,clientX,clientY,pointerType});
+test('stable pointer ordering and incremental frames',()=>{const e=target(), frames=[];const s=attachPinchPointerSession(e,x=>frames.push(x),(a,b)=>({valid:true,a,b}));e.emit('pointerdown',p(9,9,0));e.emit('pointerdown',p(2,2,0));e.emit('pointermove',p(9,10,0));assert.equal(frames.length,1);assert.deepEqual(frames[0].a,[{x:2,y:0},{x:9,y:0}]);assert.deepEqual(frames[0].b,[{x:2,y:0},{x:10,y:0}]);s.dispose()});
+test('single pointer, unknown pointer and invalid coordinates ignored',()=>{const e=target(),frames=[];const s=attachPinchPointerSession(e,x=>frames.push(x),()=>({valid:true}));e.emit('pointerdown',p(1,0,0));e.emit('pointermove',p(1,1,1));e.emit('pointermove',p(3,4,4));e.emit('pointerdown',p(2,NaN,1));assert.equal(frames.length,0);s.dispose()});
+test('cancel resets baseline and no stale frame on replacement',()=>{const e=target(),frames=[];const s=attachPinchPointerSession(e,x=>frames.push(x),()=>({valid:true}));e.emit('pointerdown',p(1,0,0));e.emit('pointerdown',p(2,1,0));e.emit('pointercancel',p(2,1,0));e.emit('pointerdown',p(3,2,0));e.emit('pointermove',p(3,3,0));assert.equal(frames.length,1);s.dispose()});
+test('invalid frames suppressed and cleanup idempotent',()=>{const e=target(),frames=[];const s=attachPinchPointerSession(e,x=>frames.push(x),()=>({valid:false}));e.emit('pointerdown',p(1,0,0));e.emit('pointerdown',p(2,1,0));e.emit('pointermove',p(2,2,0));assert.equal(frames.length,0);s.dispose();s.dispose();assert.equal(e.count(),0)});
+test('rejects missing dependencies',()=>{assert.throws(()=>attachPinchPointerSession({},()=>{},()=>{}),TypeError);assert.throws(()=>attachPinchPointerSession(target(),null,()=>{}),TypeError)});
