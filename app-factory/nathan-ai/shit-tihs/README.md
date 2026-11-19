@@ -12,6 +12,10 @@ Choose Original or Mirror at the title screen. Mirror Run reflects every scaffol
 
 The website installs as a progressive web app, keeps your best score on the device, and plays offline after the initial online load. The Crew log includes printable cartridge and box labels.
 
+## Throw at Sam and artwork
+
+[Throw at Sam](https://pub-9556408c4bed49cbb003f167711d732f.r2.dev/throw-at-sam.html) is a fictional satire bonus with a throw button and splat counter. The same page includes the SHIT TIHS cover dedicated to the late Dr. Joe Myers of Kerwin Baptist Church and the Romans 13:4 KJV soldier artwork.
+
 ## Run and verify
 
 From this directory with Node.js 22 or later:

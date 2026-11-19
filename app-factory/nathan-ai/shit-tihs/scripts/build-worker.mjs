@@ -8,7 +8,8 @@ const mimeTypes = new Map([
   ['js', 'text/javascript; charset=utf-8'],
   ['mjs', 'text/javascript; charset=utf-8'],
   ['webmanifest', 'application/manifest+json'],
-  ['png', 'image/png']
+  ['png', 'image/png'],
+  ['webp', 'image/webp']
 ]);
 
 const names = (await readdir(publicDir)).sort();
@@ -17,7 +18,7 @@ for (const name of names) {
   const extension = name.split('.').at(-1);
   const mime = mimeTypes.get(extension);
   if (!mime) throw new Error(`Unsupported public asset: ${name}`);
-  const binary = extension === 'png';
+  const binary = mime.startsWith('image/');
   const bytes = await readFile(new URL(name, publicDir));
   assets[`/${name}`] = [mime, binary, bytes.toString(binary ? 'base64' : 'utf8')];
 }

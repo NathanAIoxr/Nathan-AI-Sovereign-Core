@@ -1,0 +1,113 @@
+:root {
+  color-scheme: dark;
+  font-family: system-ui, sans-serif;
+  color: #fffbeb;
+  background: #13121e;
+  font-synthesis: none;
+}
+
+body { margin: 0; }
+
+main {
+  width: min(100% - 2rem, 65rem);
+  margin-inline: auto;
+  padding-block: 1.25rem 3rem;
+}
+
+nav { display: flex; justify-content: space-between; gap: 1rem; }
+
+a { color: #ffcf72; text-underline-offset: .2em; }
+
+header { margin-block: 2rem 1.25rem; }
+
+.credit {
+  margin: 0;
+  color: #ffcf72;
+  font-size: .875rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: .25rem 0;
+  font-size: clamp(2.5rem, 9vw, 5.5rem);
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+
+.game, .artwork-grid { display: grid; gap: 1.25rem; }
+
+.controls {
+  align-self: start;
+  padding: 1rem;
+  border: 1px solid #625978;
+  border-radius: .75rem;
+  background: #211e30;
+}
+
+.controls p { margin: .75rem 0 0; }
+
+#splat-count { margin: 0 0 .75rem; font-size: 1.5rem; font-weight: 700; }
+
+button {
+  min-height: 44px;
+  padding: .65rem .85rem;
+  border: 1px solid #ffcf72;
+  border-radius: .4rem;
+  background: #ffcf72;
+  color: #23170c;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+#reset { background: transparent; color: #ffcf72; }
+
+:focus-visible { outline: 3px solid #a8d6ff; outline-offset: 4px; }
+
+figure { margin: 0; }
+
+.stage {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: .75rem;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: .75rem;
+}
+
+figcaption { padding-block: .55rem; color: #ddd6e7; }
+
+.clod, .splat {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  width: clamp(2rem, 9%, 3.75rem);
+  aspect-ratio: 1;
+  border-radius: 43% 58% 46% 61%;
+}
+
+.clod {
+  left: 42%;
+  top: 53%;
+  border: 2px solid #3d2312;
+  background: radial-gradient(at 32% 24%, #bd8450, #784419 62%, #41230f);
+}
+
+.splat {
+  left: 42%;
+  top: 53%;
+  background: #59270f;
+  box-shadow: -17px 4px 0 -7px #6f3a14, 16px 8px 0 -8px #783d16, 6px -19px 0 -6px #8d4d20;
+}
+
+@media (min-width: 43rem) {
+  .game { grid-template-columns: minmax(14rem, 1fr) minmax(0, 1.55fr); }
+  .artwork-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
