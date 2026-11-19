@@ -20,3 +20,7 @@ Rebuild with `python import-met-headwear.py MetObjects.csv` using the [official 
 `catalog.sql` defines four public-content tables. `node seed-catalog.mjs` prints an ordered schema and parameterized upserts for D1. Deploy every batch, then verify table counts, pair foreign keys, and museum IDs. Replaying the same seed leaves the same row counts. The in-browser Wardrobe reads release-versioned static assets. The Workers for Platforms app exposes `/api/expeditions` and `/api/catalog?kind=pairs|museum|styles` through its dispatch binding. These tables contain no player saves.
 
 The existing Cloudflare Build Loop’s `pocket-worlds` draft provided the seeded-variant brief. This implementation keeps the stable realm and numeric variant in the ID to make duplicates impossible within a realm. The four other generated lanes remain in the original build plan for review against the established canon and game state.
+
+## Related edition
+
+[Sorting Hats & Hatettes · UNBOUND](https://tabor-bridge.nathantaboract.workers.dev/sorting-hats-hatettes/) is the existing Tabor Bridge realm-gate game with its own pair catalog and save. Its [13-volume series map](https://tabor-bridge.nathantaboract.workers.dev/sorting-hats-hatettes/series) remains available from the Wardrobe.
