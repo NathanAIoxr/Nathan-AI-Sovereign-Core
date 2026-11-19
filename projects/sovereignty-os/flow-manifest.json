@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "system": "Sovereignty OS",
+  "mode": "independent-apps-permissioned-links",
+  "source_repository": "NathanAIoxr/Nathan-AI-Sovereign-Core",
+  "build_flow": ["intake", "source_audit", "isolation_check", "static_validation", "unit_tests", "security_review", "approval", "deployment", "health_verification", "catalog_update"],
+  "workers": [
+    {"id":"inventory-agent","task":"reconcile source projects with manifest","runtime":"github-actions","permissions":"contents:read"},
+    {"id":"quality-agent","task":"validate independent project metadata and links","runtime":"github-actions","permissions":"contents:read"},
+    {"id":"packager-agent","task":"package source without deploying","runtime":"github-actions","permissions":"contents:read"},
+    {"id":"deployment-agent","task":"deployment gated until quota, credentials and approval are verified","runtime":"not-enabled","permissions":"none"}
+  ],
+  "connections": [
+    {"from":"github","to":"cloudflare","mechanism":"explicit CI deployment with scoped credentials","state":"not-verified"},
+    {"from":"sovereignty-os","to":"tabor-concordance","mechanism":"permissioned API reference","state":"planned"},
+    {"from":"sovereignty-os","to":"pumpkin-patch-fundraiser","mechanism":"catalog link","state":"planned"},
+    {"from":"pumpkin-patch-fundraiser","to":"pumpkin-driver","mechanism":"scoped logistics API","state":"planned"},
+    {"from":"pumpkin-patch-fundraiser","to":"pumpkin-volunteer","mechanism":"scoped volunteer API","state":"planned"},
+    {"from":"pumpkin-patch-fundraiser","to":"pumpkin-network-console","mechanism":"scoped coordination API","state":"planned"}
+  ],
+  "cloudflare": {"worker_capacity":"500 limit reached on 2026-11-19","pages_project_capacity":"project limit reached on 2026-11-19","reuse_existing_without_overwrite":false},
+  "safety": {"no_third_party_scanning":true,"no_autonomous_replication":true,"no_private_data_publication":true,"no_unauthorized_deployment":true}
+}
