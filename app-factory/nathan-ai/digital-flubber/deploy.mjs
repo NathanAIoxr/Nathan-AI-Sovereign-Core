@@ -14,7 +14,10 @@ async function request(path, method, body, isJson = false) {
 }
 for (const worker of config.workers) {
   const form = new FormData();
-  const metadata = { main_module: worker.entry, compatibility_date: config.compatibilityDate, bindings: worker.bindings ?? [] };
+  const bindings = [...(worker.bindings ?? [])];
+  const registry = process.env.CLOUD_SLAYER_DB_ID;
+  if (worker.public && registry) bindings.push({ type: 'd1', name: 'CLOUD_SLAYER_DB', id: registry });
+  const metadata = { main_module: worker.entry, compatibility_date: config.compatibilityDate, bindings };
   form.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
   for (const name of [worker.entry, ...worker.modules]) {
     form.append(name, new Blob([await readFile(new URL('dist/' + name, root))], { type: 'application/javascript+module' }), name);

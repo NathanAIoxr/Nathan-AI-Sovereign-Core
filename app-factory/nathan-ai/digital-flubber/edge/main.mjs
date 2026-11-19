@@ -1,3 +1,4 @@
+import { cloudSlayerApi } from './cloud-slayer.mjs';
 import { files } from './assets.mjs';
 
 const headers = {
@@ -49,6 +50,8 @@ export default {
     let response;
     if (!['GET', 'HEAD'].includes(request.method)) {
       response = new Response('Method not allowed', { status: 405, headers: { Allow: 'GET, HEAD' } });
+    } else if (url.pathname.startsWith('/api/cloud-slayer/')) {
+      response = await cloudSlayerApi(url, env.CLOUD_SLAYER_DB, path => api(new URL(path, url), env));
     } else if (url.pathname.startsWith('/api/')) {
       response = await api(url, env);
     } else if (Object.hasOwn(files, url.pathname)) {

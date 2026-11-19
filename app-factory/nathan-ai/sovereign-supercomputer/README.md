@@ -87,3 +87,10 @@ The design inventory also includes eBPF, vSoC enclaves, quantum-HPC, silicon pho
 ## Vercel and GitHub Pages
 
 The Vercel project uses the [`hive/sovereign-supercomputer-vercel/` directory](../../../hive/sovereign-supercomputer-vercel/). External rewrites expose the same public console and runtime on Cloudflare. The allowlist excludes private intake, snapshot commands and node claims. The Nathan AI home page links to the primary Worker for GitHub Pages visitors.
+
+
+## Cloud Slayer worker registry
+
+[Supercomputer workspace](https://tabor-apps-nathan.pages.dev/cloud-slayer/supercomputer) · [Hypercomputer workspace](https://tabor-apps-nathan.pages.dev/cloud-slayer/hypercomputer)
+
+The two views read the same D1-backed Cloud Slayer catalog, with modules filtered by workspace. Review [Cloud Slayer operations](../digital-flubber/README.md#cloud-slayer-worker-registry) for the inventory snapshot and server-local SQLite setup.

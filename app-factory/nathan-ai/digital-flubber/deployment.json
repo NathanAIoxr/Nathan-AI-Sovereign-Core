@@ -16,7 +16,7 @@
     {
       "name": "digital-flubber",
       "entry": "main.mjs",
-      "modules": ["assets.mjs"],
+      "modules": ["assets.mjs", "cloud-slayer.mjs"],
       "public": true,
       "bindings": [
         { "type": "service", "name": "SLUBBER", "service": "digital-flubber-slubber" },
