@@ -67,3 +67,55 @@ test("comparison endpoint identifies all three generations", async () => {
   assert.equal(data.models.length, 3);
   assert.match(data.dmsp_dit, /governance/);
 });
+
+test("public homepage is an accessible searchable product portal", async () => {
+ const r=await send("/");
+ const html=await r.text();
+ assert.match(html,/id="service-search"/);
+ assert.match(html,/id="download-plan"/);
+ assert.match(html,/href="\/download"/);
+ assert.match(html,/rel="manifest"/);
+ assert.match(html,/class="service"/);
+ assert.match(r.headers.get("content-security-policy"),/script-src 'self'/);
+ assert.doesNotMatch(r.headers.get("content-security-policy"),/script-src 'unsafe-inline'/);
+});
+test("public PWA manifest contains install metadata",async()=>{
+ const r=await send("/manifest.webmanifest");
+ assert.equal(r.status,200);
+ assert.match(r.headers.get("content-type"),/manifest/);
+ const data=await r.json();
+ assert.equal(data.display,"standalone");
+ assert.equal(data.start_url,"/");
+ assert.equal(data.icons[0].src,"/icon.svg");
+});
+test("public scripts, styles and icons have correct MIME types",async()=>{
+ for(const [path,kind] of [["/app.js","javascript"],["/styles.css","css"],["/icon.svg","svg"]]){
+   const r=await send(path);assert.equal(r.status,200);assert.match(r.headers.get("content-type"),new RegExp(kind));
+ }
+});
+test("service worker caches public routes but not private ticket operations",async()=>{
+ const r=await send("/sw.js");
+ assert.equal(r.status,200);
+ const body=await r.text();
+ assert.match(body,/api\/public\/departments/);
+ assert.doesNotMatch(body,/api\/tickets/);
+});
+test("standalone app downloads with complete embedded UI",async()=>{
+ const r=await send("/download");
+ assert.equal(r.status,200);
+ assert.match(r.headers.get("content-disposition"),/attachment/);
+ const body=await r.text();
+ assert.match(body,/<style>/);
+ assert.match(body,/<script>/);
+ assert.match(body,/download-plan/);
+ assert.doesNotMatch(body,/src="\/app.js"/);
+});
+test("catalog export has the full service registry and no client credentials",async()=>{
+ const r=await send("/download/catalog.json");
+ assert.equal(r.status,200);
+ assert.match(r.headers.get("content-disposition"),/attachment/);
+ const body=await r.json();
+ assert.equal(body.services.length,28);
+ assert.equal(body.improvements.length,16);
+ assert.equal(body.services.find(s=>s.id==="privacy").group,"security");
+});
