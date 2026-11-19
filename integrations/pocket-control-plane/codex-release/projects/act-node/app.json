@@ -1,0 +1,16 @@
+{
+  "id": "act-node",
+  "group": "nodes",
+  "title": "THE ACT NODE SYSTEM",
+  "status": "Catalog record",
+  "summary": "Source catalog records the ACT Node System, with a starting identifier and related ACT rails.",
+  "book": "ACT NODE SYSTEM Guide",
+  "worker": "tabor-recovered-act-node",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "Which namespace names this system?",
+    "correct": "ACT.",
+    "other": "MIRROR."
+  }
+}

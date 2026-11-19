@@ -1,0 +1,16 @@
+{
+  "id": "clause-master",
+  "group": "codex",
+  "title": "CLAUSE Master Codex",
+  "status": "Archive source",
+  "summary": "The linked Markdown and JSON master Codex for CLAUSE.",
+  "book": "CLAUSE Master Guide",
+  "worker": "tabor-recovered-clause-master",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "Which archived pair represents this work?",
+    "correct": "Markdown and JSON.",
+    "other": "A video and an audio recording."
+  }
+}

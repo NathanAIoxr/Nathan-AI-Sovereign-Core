@@ -1,0 +1,16 @@
+{
+  "id": "manuscript-kodex",
+  "group": "kodex",
+  "title": "THE MANUSCRIPT KODEX: 101 HISTORICAL BLOCKS",
+  "status": "Manuscript",
+  "summary": "The Sovereign Lineage of the Tabor Matriarchs is an authored manuscript across five epochs, with 101 numbered blocks.",
+  "book": "Manuscript Kodex Reading Guide",
+  "worker": "tabor-recovered-manuscript-kodex",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "How many blocks are numbered in the manuscript?",
+    "correct": "101.",
+    "other": "52."
+  }
+}

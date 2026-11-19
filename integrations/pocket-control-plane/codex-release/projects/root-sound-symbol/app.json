@@ -1,0 +1,16 @@
+{
+  "id": "root-sound-symbol",
+  "group": "codex",
+  "title": "Nathan Tabor Root Sound Symbol Codex",
+  "status": "Archive package",
+  "summary": "Root, sound, and symbol corpus housed as its own codex package.",
+  "book": "Root Sound Symbol Guide",
+  "worker": "tabor-recovered-root-sound-symbol",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "Which comparison can be made first?",
+    "correct": "Compare the written form and reported sound.",
+    "other": "State that a visual similarity demonstrates common ancestry."
+  }
+}

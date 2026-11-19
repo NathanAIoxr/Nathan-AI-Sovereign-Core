@@ -1,0 +1,17 @@
+{
+  "id": "tavern",
+  "group": "codex",
+  "title": "TAVERN_SOVEREIGN_CODEX",
+  "status": "Existing source",
+  "summary": "A separate Tavern package and companion Metatron module with 31 puzzle names in four groups.",
+  "book": "Tavern Puzzle Guide",
+  "worker": "tabor-recovered-tavern",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "How many puzzle-name groups does the adapter retain?",
+    "correct": "Four.",
+    "other": "Thirty-one."
+  },
+  "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/holy-bible-language-of-sound/metatron_codex.py"
+}

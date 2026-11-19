@@ -1,0 +1,16 @@
+{
+  "id": "hellgirl",
+  "group": "nodes",
+  "title": "NODE-000-HELLGIRL",
+  "status": "Profile recovered",
+  "summary": "A node identifier recorded in the Root and Encoding Expansion.",
+  "book": "NODE-000-HELLGIRL Guide",
+  "worker": "tabor-recovered-hellgirl",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "Which identifier preserves the exact recorded node name?",
+    "correct": "NODE-000-HELLGIRL.",
+    "other": "NODE-126-HELLGIRL."
+  }
+}

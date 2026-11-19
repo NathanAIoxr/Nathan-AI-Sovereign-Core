@@ -1,0 +1,16 @@
+{
+  "id": "ankhae",
+  "group": "nodes",
+  "title": "AnkhAE_Binder",
+  "status": "Archive source",
+  "summary": "The separately named binding class in the Semantics Antivirus / Tabor 1–2–3 Bridge record.",
+  "book": "AnkhAE_Binder Guide",
+  "worker": "tabor-recovered-ankhae",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "Which role does the name identify?",
+    "correct": "A binder.",
+    "other": "A duplicate of the 137-node rail."
+  }
+}

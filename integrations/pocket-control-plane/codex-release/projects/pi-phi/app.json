@@ -1,0 +1,16 @@
+{
+  "id": "pi-phi",
+  "group": "nodes",
+  "title": "Pi / Phi Node Rails",
+  "status": "Catalog record",
+  "summary": "A source-catalog entry for the Pi and Phi rails.",
+  "book": "Pi / Phi Rail Guide",
+  "worker": "tabor-recovered-pi-phi",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "Which labels distinguish the two rails?",
+    "correct": "Pi and Phi.",
+    "other": "LET and TET."
+  }
+}

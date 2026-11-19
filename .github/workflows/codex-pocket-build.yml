@@ -1,0 +1,57 @@
+name: Codex and Kodex Pocket Build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'integrations/pocket-control-plane/codex-release/**'
+      - '.github/workflows/codex-pocket-build.yml'
+  pull_request:
+    paths:
+      - 'integrations/pocket-control-plane/codex-release/**'
+      - '.github/workflows/codex-pocket-build.yml'
+  schedule:
+    - cron: '41 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: codex-pocket-build-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: Test standalone project routes and GitHub receipt authentication
+        run: node --test integrations/pocket-control-plane/codex-release/checks.test.mjs
+      - name: Build separate Cloudflare Worker modules
+        run: node integrations/pocket-control-plane/codex-release/build.mjs dist-pocket-codex
+      - uses: actions/upload-artifact@v4
+        with:
+          name: codex-and-kodex-worker-modules
+          path: dist-pocket-codex
+          retention-days: 7
+
+  verify-deployed:
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: Verify live Cloudflare routes and record authenticated build receipt
+        run: node integrations/pocket-control-plane/codex-release/live.mjs --receipt

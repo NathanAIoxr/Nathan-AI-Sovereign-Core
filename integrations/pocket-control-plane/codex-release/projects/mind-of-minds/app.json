@@ -1,0 +1,17 @@
+{
+  "id": "mind-of-minds",
+  "group": "nodes",
+  "title": "Nathan AI — Mind of Minds",
+  "status": "Existing source",
+  "summary": "A 763-definition catalog of roles and lenses, including 126 UNHOLY-derived modes.",
+  "book": "Mind of Minds Guide",
+  "worker": "tabor-recovered-mind-of-minds",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "Which count includes the UNHOLY-derived mode entries?",
+    "correct": "763 catalog definitions.",
+    "other": "52 intelligence records."
+  },
+  "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds"
+}

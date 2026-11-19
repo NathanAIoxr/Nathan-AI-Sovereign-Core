@@ -1,0 +1,17 @@
+{
+  "id": "one-family",
+  "group": "codex",
+  "title": "ONE Family Codex",
+  "status": "Existing source",
+  "summary": "Family registries and 70-dimensional workcards. Family IDs and member IDs occupy their own namespaces.",
+  "book": "ONE Family Guide",
+  "worker": "tabor-recovered-one-family",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "Which two identifiers do the registries distinguish?",
+    "correct": "Family IDs and member IDs.",
+    "other": "Screen widths and colors."
+  },
+  "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/personal-intelligence/minds/federation"
+}

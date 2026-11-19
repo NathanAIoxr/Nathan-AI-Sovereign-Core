@@ -1,0 +1,16 @@
+{
+  "id": "node-execution-ledger",
+  "group": "nodes",
+  "title": "TABOR 24 Node Execution Ledger",
+  "status": "Archive source",
+  "summary": "A 24-row character, timing, frequency, and harmonica mapping.",
+  "book": "TABOR 24 Ledger Guide",
+  "worker": "tabor-recovered-node-execution-ledger",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "How many character positions were recovered?",
+    "correct": "24.",
+    "other": "52."
+  }
+}

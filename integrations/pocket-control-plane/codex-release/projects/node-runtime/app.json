@@ -1,0 +1,17 @@
+{
+  "id": "node-runtime",
+  "group": "nodes",
+  "title": "Nathan AI Node Runtime",
+  "status": "Existing source",
+  "summary": "Independent browser runtime for selected local checksum batches.",
+  "book": "Node Runtime Guide",
+  "worker": "tabor-recovered-node-runtime",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "How large is one documented selected batch?",
+    "correct": "Up to 32 logical IDs.",
+    "other": "732 million simultaneous IDs."
+  },
+  "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/node-runtime"
+}

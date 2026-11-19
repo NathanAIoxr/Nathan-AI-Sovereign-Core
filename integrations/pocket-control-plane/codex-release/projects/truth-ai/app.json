@@ -1,0 +1,16 @@
+{
+  "id": "truth-ai",
+  "group": "nodes",
+  "title": "ONE v068 — Truth Restoration AI-compatible node",
+  "status": "Archive source",
+  "summary": "Evidence-retrieval prototype with encoding, schema, policy, and tests.",
+  "book": "Truth Restoration Guide",
+  "worker": "tabor-recovered-truth-ai",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "What can the encoded checksum check?",
+    "correct": "Payload integrity.",
+    "other": "Whether a philosophical claim is true."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "fourfold-spectrum",
+  "group": "codex",
+  "title": "Fourfold Spectrum Codex",
+  "status": "Archive package",
+  "summary": "Original v0.1 package kept alongside the separate Author Clean edition.",
+  "book": "Fourfold Spectrum Guide",
+  "worker": "tabor-recovered-fourfold-spectrum",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "Which edition label applies here?",
+    "correct": "Fourfold Spectrum v0.1.",
+    "other": "Author Clean v0.2."
+  }
+}

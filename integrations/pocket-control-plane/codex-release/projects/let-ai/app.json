@@ -1,0 +1,16 @@
+{
+  "id": "let-ai",
+  "group": "nodes",
+  "title": "LET AI NODE",
+  "status": "Archive source",
+  "summary": "A distinct named role found in the shared LET/TET Python reference package.",
+  "book": "LET AI NODE Guide",
+  "worker": "tabor-recovered-let-ai",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "How is LET identified in the recovered package?",
+    "correct": "As a distinct named role.",
+    "other": "As another spelling of TET."
+  }
+}

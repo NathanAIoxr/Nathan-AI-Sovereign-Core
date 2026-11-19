@@ -1,0 +1,16 @@
+{
+  "id": "peripheral-ai",
+  "group": "nodes",
+  "title": "ONE Peripheral AI Node v1.0",
+  "status": "Archive source",
+  "summary": "Symbolic retrieval prototype for historical and architecture address tables.",
+  "book": "Peripheral AI Node Guide",
+  "worker": "tabor-recovered-peripheral-ai",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "What task does the archived node implement?",
+    "correct": "Symbolic retrieval.",
+    "other": "Physical device control."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "ankhbabel",
+  "group": "nodes",
+  "title": "AnkhBabelDissolver — 137-node Rail",
+  "status": "Archive source",
+  "summary": "A distinct symbolic rail described in the Master Codex.",
+  "book": "AnkhBabelDissolver Guide",
+  "worker": "tabor-recovered-ankhbabel",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "Which count identifies the AnkhBabelDissolver rail?",
+    "correct": "137.",
+    "other": "100."
+  }
+}

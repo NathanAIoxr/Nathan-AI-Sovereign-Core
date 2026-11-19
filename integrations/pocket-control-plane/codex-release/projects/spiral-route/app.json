@@ -1,0 +1,16 @@
+{
+  "id": "spiral-route",
+  "group": "nodes",
+  "title": "Sovereign Node Graph / Spiral Route",
+  "status": "Catalog record",
+  "summary": "A titled graph and spiral-route source entry.",
+  "book": "Spiral Route Guide",
+  "worker": "tabor-recovered-spiral-route",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "What kind of relationships is the project titled around?",
+    "correct": "A node graph and spiral route.",
+    "other": "A catalog of printed books only."
+  }
+}

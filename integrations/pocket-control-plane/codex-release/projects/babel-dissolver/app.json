@@ -1,0 +1,16 @@
+{
+  "id": "babel-dissolver",
+  "group": "nodes",
+  "title": "BabelDissolver — 100-node Rail",
+  "status": "Archive source",
+  "summary": "A distinct symbolic rail described in the Master Codex.",
+  "book": "BabelDissolver Guide",
+  "worker": "tabor-recovered-babel-dissolver",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "Which count identifies its rail?",
+    "correct": "100.",
+    "other": "137."
+  }
+}

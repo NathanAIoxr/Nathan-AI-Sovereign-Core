@@ -1,0 +1,17 @@
+{
+  "id": "handprints",
+  "group": "codex",
+  "title": "Handprints Codex Transfer",
+  "status": "Archive source",
+  "summary": "Four archived transfer parts and a related EYEPRINTS × HANDPRINTS public GitHub module.",
+  "book": "Handprints Transfer Guide",
+  "worker": "tabor-recovered-handprints",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "How many separately archived transfer parts were found?",
+    "correct": "Four.",
+    "other": "One."
+  },
+  "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/eyeprints-handprints"
+}

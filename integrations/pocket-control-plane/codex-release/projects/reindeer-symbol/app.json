@@ -1,0 +1,16 @@
+{
+  "id": "reindeer-symbol",
+  "group": "codex",
+  "title": "Connected Reindeer Symbol Codex",
+  "status": "Archive package",
+  "summary": "A separate creative codex for reindeer names and symbols.",
+  "book": "Reindeer Symbol Guide",
+  "worker": "tabor-recovered-reindeer-symbol",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "What is a symbol’s first lookup key in a catalog?",
+    "correct": "Its recorded name or ID.",
+    "other": "The name of an unrelated codex."
+  }
+}

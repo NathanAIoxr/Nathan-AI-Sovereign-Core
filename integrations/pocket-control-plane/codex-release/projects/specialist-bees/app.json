@@ -1,0 +1,17 @@
+{
+  "id": "specialist-bees",
+  "group": "nodes",
+  "title": "OPERATION SWARM · 25 Specialist Bees",
+  "status": "Existing source",
+  "summary": "A separate registry of deterministic specialist roles.",
+  "book": "Specialist Bees Guide",
+  "worker": "tabor-recovered-specialist-bees",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "How many additional named specialist roles are in this registry?",
+    "correct": "25.",
+    "other": "1,332."
+  },
+  "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/personal-intelligence/minds/federation/hive-swarm/specialist_bees.v2.json"
+}

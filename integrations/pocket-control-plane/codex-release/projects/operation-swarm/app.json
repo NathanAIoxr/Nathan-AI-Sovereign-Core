@@ -1,0 +1,17 @@
+{
+  "id": "operation-swarm",
+  "group": "nodes",
+  "title": "OPERATION SWARM — ONE Database Hive",
+  "status": "Existing source",
+  "summary": "A local source indexing and database hive with 12 base functions and a separately cataloged specialist set.",
+  "book": "Database Hive Guide",
+  "worker": "tabor-recovered-operation-swarm",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "Which worker function records source entries?",
+    "correct": "Scribe.",
+    "other": "A public network scanner."
+  },
+  "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/personal-intelligence/minds/federation/hive-swarm"
+}

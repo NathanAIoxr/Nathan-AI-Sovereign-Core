@@ -1,0 +1,18 @@
+{
+  "id": "liberation",
+  "group": "codex",
+  "title": "Liberation Codex 404",
+  "status": "Existing deployment",
+  "summary": "Existing independent edition with its own 404-record catalog, reader, and mission game.",
+  "book": "Liberation Codex Guide",
+  "worker": "tabor-recovered-liberation",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "How many records are in the deployed catalog?",
+    "correct": "404.",
+    "other": "202."
+  },
+  "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/liberation-codex",
+  "existingUrl": "https://tabor-liberation-codex.nathantaboract.workers.dev"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "consciouness",
+  "group": "nodes",
+  "title": "CONSCIOUNESS / Free Will Core",
+  "status": "Existing source",
+  "summary": "An owner-controlled layer for selected node state and choices.",
+  "book": "CONSCIOUNESS Project Guide",
+  "worker": "tabor-recovered-consciouness",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "Who makes the explicit owner choice?",
+    "correct": "The owner.",
+    "other": "A remote target."
+  },
+  "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/consciouness"
+}

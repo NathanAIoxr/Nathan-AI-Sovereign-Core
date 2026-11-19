@@ -1,0 +1,17 @@
+{
+  "id": "supernodes",
+  "group": "nodes",
+  "title": "732m SUPERNODES by Nathan Tabor",
+  "status": "Existing source",
+  "summary": "A browser prototype with logical per-node addresses and on-demand local storage.",
+  "book": "SUPERNODES Guide",
+  "worker": "tabor-recovered-supernodes",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "What does 732 million describe?",
+    "correct": "A logical address range.",
+    "other": "The number of deployed AI services."
+  },
+  "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/supernodes"
+}

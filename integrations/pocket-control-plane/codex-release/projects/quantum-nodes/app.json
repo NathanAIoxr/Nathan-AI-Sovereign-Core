@@ -1,0 +1,16 @@
+{
+  "id": "quantum-nodes",
+  "group": "nodes",
+  "title": "QUANTUM NODES (NQ)",
+  "status": "Catalog record",
+  "summary": "The explicitly named NQ archive entry.",
+  "book": "NQ Guide",
+  "worker": "tabor-recovered-quantum-nodes",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "Which abbreviation is in the recorded title?",
+    "correct": "NQ.",
+    "other": "QE."
+  }
+}

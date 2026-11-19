@@ -1,0 +1,16 @@
+{
+  "id": "codex-06",
+  "group": "numbered",
+  "title": "Codex 6 · Geospatial, Paleogeographic and Historical Textual Reference Engine",
+  "status": "Source draft",
+  "summary": "Read about bearings, antipodes, geodesic distance, elevation, and direct place-name citations.",
+  "book": "Geospatial Engine Project Guide",
+  "worker": "tabor-recovered-codex-06",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "Which operation finds a point opposite another on Earth?",
+    "correct": "An antipode calculation.",
+    "other": "An acrostic reversal."
+  }
+}

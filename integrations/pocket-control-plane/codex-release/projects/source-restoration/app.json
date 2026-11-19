@@ -1,0 +1,16 @@
+{
+  "id": "source-restoration",
+  "group": "codex",
+  "title": "Nathan AI Codex Source Restoration Addendum",
+  "status": "Archive package",
+  "summary": "A distinct restoration package recording recovered materials and their editions.",
+  "book": "Source Restoration Guide",
+  "worker": "tabor-recovered-source-restoration",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "What lets a reader trace a restored title?",
+    "correct": "A recorded source reference and version.",
+    "other": "A replacement title alone."
+  }
+}

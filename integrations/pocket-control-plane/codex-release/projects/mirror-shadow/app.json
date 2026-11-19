@@ -1,0 +1,16 @@
+{
+  "id": "mirror-shadow",
+  "group": "codex",
+  "title": "Mirror / Shadow Codex 007 + 008",
+  "status": "Archive source",
+  "summary": "Study the recorded reversal, reflection, rotation, and inversion techniques.",
+  "book": "Mirror / Shadow Guide",
+  "worker": "tabor-recovered-mirror-shadow",
+  "version": "1",
+  "order": 0,
+  "question": {
+    "prompt": "Which operation reverses the order of letters in a word?",
+    "correct": "Letter reversal.",
+    "other": "Rotation of a display axis."
+  }
+}

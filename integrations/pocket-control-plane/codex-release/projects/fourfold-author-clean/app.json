@@ -1,0 +1,16 @@
+{
+  "id": "fourfold-author-clean",
+  "group": "codex",
+  "title": "Fourfold Codex Author Clean",
+  "status": "Archive package",
+  "summary": "Author Clean v0.2 is a separate archival edition.",
+  "book": "Fourfold Author Clean Guide",
+  "worker": "tabor-recovered-fourfold-author-clean",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "Which edition label applies here?",
+    "correct": "Author Clean v0.2.",
+    "other": "Fourfold Spectrum v0.1."
+  }
+}

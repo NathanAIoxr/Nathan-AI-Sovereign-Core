@@ -1,0 +1,17 @@
+{
+  "id": "tabor-root-codex",
+  "group": "codex",
+  "title": "TABOR ROOT CODEX / Sovereign Root Codex",
+  "status": "Existing source",
+  "summary": "Public registry of numbered source positions and their original IDs.",
+  "book": "Tabor Root Codex Guide",
+  "worker": "tabor-recovered-tabor-root-codex",
+  "version": "1",
+  "order": 1,
+  "question": {
+    "prompt": "Which field preserves a position’s identity across versions?",
+    "correct": "The stable ID.",
+    "other": "The background color."
+  },
+  "sourceUrl": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/octopus-root/codex.js"
+}
