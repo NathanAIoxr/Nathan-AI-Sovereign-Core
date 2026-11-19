@@ -78,12 +78,24 @@ function exercise(app) {
   return "";
 }
 
-export function render(app, apps, original) {
+export function render(app, apps, original, assignments) {
   const catalog = apps.find(entry => entry.id === "catalog");
   const isCatalog = app === catalog;
   const artifacts = apps.slice(1, 5);
   const topics = apps.slice(5);
   const cards = entries => entries.map(entry => `<article><h3><a href="${h(entry.origin)}/">${h(entry.title)}</a></h3><p>${h(entry.description)}</p></article>`).join("");
+  const jobs = Object.entries(assignments.projects)
+    .sort(([, a], [, b]) => a.priority - b.priority)
+    .map(([id, job]) => {
+      const project = apps.find(entry => entry.id === id);
+      return `<li><a href="${h(project.origin)}/">${h(project.title)}</a> · ${h(job.next)}</li>`;
+    }).join("");
+  const roles = Object.values(assignments.roles).map(role =>
+    `<li>${role.url ? `<a href="${h(role.url)}">${h(role.name)}</a>` : h(role.name)} · ${h(role.duty)}</li>`).join("");
+  const work = isCatalog
+    ? `<section id="assignments"><h2>Worker, bot and agent assignments</h2>
+<ul>${roles}</ul><h3>Research queue</h3><ol>${jobs}</ol><p><a href="/api/assignments">Assignments (JSON)</a></p></section>`
+    : `<section><h2>Assigned research</h2><p>${h(assignments.projects[app.id].next)}</p><p><a href="/api/assignment">Assignment (JSON)</a></p></section>`;
   const index = `<section id="record" aria-labelledby="original"><h2 id="original">Nathan Tabor’s original words</h2><blockquote>${h(original)}</blockquote><p><a href="/original.txt">Download the original text</a></p></section>
 <section aria-labelledby="artifacts"><h2 id="artifacts">Named artifacts</h2><div class="cards">${cards(artifacts)}</div>
 <p>The original says “I believe 16 different artifacts.” It names four objects here. The scope of the number and the remaining names are open.</p>
@@ -95,9 +107,9 @@ export function render(app, apps, original) {
   const script = app.id === "elemental-charge" ? chargeScript : app.id === "end-that-war" ? closingScript : "";
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${h(app.title)} · Nathan Tabor</title><style>${styles}</style></head><body><header><span>Nathan Tabor</span>
-<nav aria-label="Main navigation">${isCatalog ? '<a href="#record">Original words</a><a href="#artifacts">Artifacts</a>' : `<a href="${h(catalog.origin)}/">The Artifacts of the world</a><a href="/api/record">Dossier data</a>`}</nav></header>
+<nav aria-label="Main navigation">${isCatalog ? '<a href="#record">Original words</a><a href="#artifacts">Artifacts</a><a href="#assignments">Assignments</a>' : `<a href="${h(catalog.origin)}/">The Artifacts of the world</a><a href="/api/record">Dossier data</a>`}</nav></header>
 <main><h1>${h(app.title)}</h1><p class="intro">${h(app.description)}</p>
-${isCatalog ? index : `<section class="stack" aria-label="Dossier">${notes}</section>${exercise(app)}${companions}`}</main>
+${isCatalog ? index : `<section class="stack" aria-label="Dossier">${notes}</section>${exercise(app)}${companions}`}${work}</main>
 <footer><a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/standalone-apps/artifacts-of-the-world">GitHub source</a></footer>
 ${script ? '<script>' + script + '</script>' : ""}</body></html>`;
 }

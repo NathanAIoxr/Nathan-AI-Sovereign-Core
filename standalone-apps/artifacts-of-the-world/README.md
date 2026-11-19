@@ -17,3 +17,11 @@ Run `npm test` and `npm run build -- <app-id>` in this directory with Node 22. E
 GitHub Actions validates the record and builds each deployment separately. Automatic Pages deployment uses the Cloudflare account ID and a Pages Write token stored in GitHub Actions secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_PAGES_API_TOKEN` (or the existing `CLOUDFLARE_API_TOKEN` if it has Pages Write). The job reports when a build is verified locally in CI and publication is skipped for missing credentials.
 
 For mobile management, use the same Cloudflare account under **Workers & Pages** in Clouder Pro. Clouder uses its own Cloudflare token kept on the phone. Verify the app names and Cloudflare deployment status there.
+
+## Worker, bot and agent assignments
+
+The [live assignment board](https://tabor-artifacts-of-the-world.pages.dev/#assignments) and `assignments.json` list an ordered research queue covering all eight sites. Each Pages Function serves the public assignment for its own site at `/api/assignment`. The catalog serves the entire queue at `/api/assignments`.
+
+The build workflow tests and builds the projects. The separate live verification workflow runs on matching pushes, on demand, and at minute 13 of every hour. It compares the returned bytes and content types for the public project routes against the checked-out source. A mismatch fails that run.
+
+The existing hourly **Tabor Persona Builder** handles research and release follow-through. See the assignment board for its next research questions.

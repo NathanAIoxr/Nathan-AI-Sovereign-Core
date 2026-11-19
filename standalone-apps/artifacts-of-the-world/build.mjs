@@ -14,11 +14,17 @@ export const apps = await Promise.all(order.map(async id => {
   if (app.id !== id) throw new Error("App ID must match its folder: " + id);
   return app;
 }));
+export const assignments = JSON.parse(await readFile(new URL("assignments.json", root), "utf8"));
+const projectIds = Object.keys(assignments.projects);
+if (projectIds.length !== order.length || order.some(id => !Object.hasOwn(assignments.projects, id))) {
+  throw new Error("Each catalog project must have an assignment");
+}
 export const original = await readFile(new URL("original.txt", root), "utf8");
 const namedArtifacts = apps.slice(1, 5).map(({ id, title }, index) => ({ position: index + 1, id, title }));
 export const catalog = {
   author: "Nathan Tabor",
   original: "/original.txt",
+  assignments: "/api/assignments",
   artifactCount: { provisional: 16, named: namedArtifacts.length, scope: "unresolved" },
   artifactRegister: Array.from({ length: 16 }, (_, i) =>
     namedArtifacts[i] ?? { position: i + 1, id: null, title: null }),
@@ -29,14 +35,21 @@ export async function build(id) {
   const app = apps.find(entry => entry.id === id);
   if (!app) throw new Error("Unknown app: " + id);
   const isCatalog = id === "catalog";
-  const html = render(app, apps, original.trimEnd());
+  const job = assignments.projects[id];
+  const html = render(app, apps, original.trimEnd(), assignments);
+  const assignment = { id, name: app.name, ...job, roles: Object.keys(assignments.roles) };
+  const json = data => ["application/json; charset=utf-8", JSON.stringify(data)];
   const files = {
     "/": ["text/html; charset=utf-8", html],
     "/api/health": ["application/json; charset=utf-8", JSON.stringify({ id, name: app.name, ok: true })],
     [isCatalog ? "/api/catalog" : "/api/record"]: [
       "application/json; charset=utf-8", JSON.stringify(isCatalog ? catalog : app)
     ],
-    ...(isCatalog ? { "/original.txt": ["text/plain; charset=utf-8", original] } : {})
+    "/api/assignment": json(assignment),
+    ...(isCatalog ? {
+      "/api/assignments": json(assignments),
+      "/original.txt": ["text/plain; charset=utf-8", original]
+    } : {})
   };
   const worker = `const files = ${JSON.stringify(files, null, 2)};
 export default {
@@ -67,7 +80,7 @@ export default {
   await mkdir(folder, { recursive: true });
   const entry = "_worker.js";
   await writeFile(new URL(entry, folder), worker);
-  return { app, folder, entry, worker };
+  return { app, folder, entry, worker, files };
 }
 
 if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {

@@ -1,0 +1,28 @@
+name: Artifacts live verifications
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'standalone-apps/artifacts-of-the-world/**'
+      - '.github/workflows/artifacts-live-check.yml'
+  schedule:
+    - cron: '13 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: standalone-apps/artifacts-of-the-world
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Compare the public Sites with this GitHub revision
+        run: node live-check.mjs --wait-for-release

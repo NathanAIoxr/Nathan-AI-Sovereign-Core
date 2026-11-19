@@ -1,0 +1,56 @@
+{
+  "roles": {
+    "worker": {
+      "name": "Cloudflare Pages Functions",
+      "duty": "Serve the public record and read-only data for each assigned project."
+    },
+    "buildBot": {
+      "name": "Artifacts GitHub build",
+      "duty": "Test source changes and build each of the eight Pages projects independently.",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/actions/workflows/artifacts-of-the-world.yml"
+    },
+    "verificationBot": {
+      "name": "Artifacts live verifications",
+      "duty": "Check the eight assigned public sites against their GitHub source after changes and hourly at minute 13 UTC.",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/actions/workflows/artifacts-live-check.yml"
+    },
+    "researchAgent": {
+      "name": "Tabor Persona Builder",
+      "duty": "Use the Artifacts workstream of the hourly task to research one open assignment, review source changes and verify releases."
+    }
+  },
+  "projects": {
+    "catalog": {
+      "priority": 1,
+      "next": "Determine whether 16 describes the whole inventory or a subset. Keep the 12 unnamed positions open until a source identifies them."
+    },
+    "cleopatra-staff": {
+      "priority": 2,
+      "next": "Trace the earliest specific mention of the broken staff and record any source for the reported breakage, fragments or ownership."
+    },
+    "staff-of-moses": {
+      "priority": 3,
+      "next": "Build a passage-by-passage timeline for Moses’s rod and identify which links come from the Eden midrash."
+    },
+    "holy-grail": {
+      "priority": 4,
+      "next": "Trace the earliest dated inventory for each proposed surviving vessel and document its chain of custody."
+    },
+    "ark-of-the-covenant": {
+      "priority": 5,
+      "next": "Compare later custody traditions and document where the KJV narrative or inventories stop supplying a location."
+    },
+    "nature-human-body": {
+      "priority": 6,
+      "next": "Add paired examples with the measured quantity, mechanism and a cited source for each side."
+    },
+    "elemental-charge": {
+      "priority": 7,
+      "next": "Add worked examples for a positive ion, a negative ion and a neutral atom with source references."
+    },
+    "end-that-war": {
+      "priority": 8,
+      "next": "Add a primary-source comparison of weighing the heart, intentional action and the KJV closing passage with exact citations."
+    }
+  }
+}
