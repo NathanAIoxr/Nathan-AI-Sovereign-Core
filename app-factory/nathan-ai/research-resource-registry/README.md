@@ -35,3 +35,24 @@ Initialize a new D1 database by executing the SQL files in numerical order. With
 To refresh this registry's Cloudflare inventory, run `node refresh.mjs` with `CLOUDFLARE_ACCOUNT_ID`, `RESEARCH_REGISTRY_D1_ID`, and an account-scoped `CLOUDFLARE_API_TOKEN` with D1 Write, Workers Scripts Read, Pages Read, Workers KV Storage Read and Workers R2 Storage Read. Each successful resource list replaces only its own snapshot. R2 inventory covers the default jurisdiction. Provider asset names are stored in D1. The existing [Cloud Slayer inventory](../digital-flubber/README.md#cloud-slayer-worker-registry) has its own refresh path.
 
 The registry records disclosure policy references. Research assignments cover mathematics, public scroll datasets, educational software and quantum simulation.
+
+## Global discovery intake
+
+`global_resource_intake` records the publisher, geography, official reference, access model, verification date, and tags for each discovered source. `global_resource_intake_queue` is the agent and worker handoff. Each queued row has one `intake_role` and the import mode `public_metadata`. The role describes the catalog work to do. Asset data, executable packages, and credentials remain at the provider.
+
+```sql
+SELECT intake_role, COUNT(*) AS queued
+FROM global_resource_intake_queue
+GROUP BY intake_role ORDER BY intake_role;
+
+SELECT id, title, official_url, access_model, tags
+FROM global_resource_intake_queue
+WHERE intake_role = 'compute-allocation-agent'
+ORDER BY region, title;
+
+SELECT id, intake_role, region
+FROM global_resource_intake_tags
+WHERE tag = 'quantum';
+```
+
+A consumer uses the source ID as its deduplication key and records `imported` after the catalog confirms the metadata write. `skipped` removes a row from the queue while retaining the source record. Replaying the seed preserves existing rows and their intake states. For compute sources, an application listing documents a route to request capacity. A verified allocation belongs in `compute_profiles` or `account_assets` after access is granted.
