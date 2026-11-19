@@ -1,0 +1,63 @@
+name: The Artifacts of the world
+on:
+  pull_request:
+    paths:
+      - 'standalone-apps/artifacts-of-the-world/**'
+      - '.github/workflows/artifacts-of-the-world.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'standalone-apps/artifacts-of-the-world/**'
+      - '.github/workflows/artifacts-of-the-world.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: standalone-apps/artifacts-of-the-world
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        app: [catalog, staff-of-moses, cleopatra-staff, holy-grail, ark-of-the-covenant, nature-human-body, elemental-charge, end-that-war]
+    concurrency: artifacts-pages-${{ matrix.app }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm run build -- "$APP_ID"
+        env:
+          APP_ID: ${{ matrix.app }}
+      - name: Deploy to Cloudflare Pages
+        env:
+          APP_ID: ${{ matrix.app }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: 'false'
+        run: |
+          if [[ -z "${CLOUDFLARE_API_TOKEN}" || -z "${CLOUDFLARE_ACCOUNT_ID}" ]]; then
+            echo "::notice::Cloudflare deployment skipped because the repository deployment secrets are unavailable."
+            echo "Built ${APP_ID}. Cloudflare deployment skipped because the repository deployment secrets are unavailable." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          PROJECT="$(node -p 'require("./apps/" + process.env.APP_ID + "/app.json").name')"
+          npx --yes wrangler@4.165.0 pages deploy "dist/$APP_ID" --project-name "$PROJECT" --branch main --commit-hash "$GITHUB_SHA" --commit-dirty=false
+          curl --fail-with-body --silent --show-error --retry 4 --retry-all-errors --max-time 15 "https://$PROJECT.pages.dev/api/health"
