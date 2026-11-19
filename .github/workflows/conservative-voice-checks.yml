@@ -26,3 +26,13 @@ jobs:
       - name: Check historic seed inventory
         run: |
           node --input-type=module -e "import fs from 'node:fs'; import assert from 'node:assert/strict'; let s=fs.readFileSync('seed.sql','utf8'),h=fs.readFileSync('historical-directory.sql','utf8'); assert.equal((s.match(/INSERT OR IGNORE INTO archive_sources/g)||[]).length,37); assert.equal((h.match(/INSERT OR REPLACE INTO editorial_directory/g)||[]).length,145); assert.equal((h.match(/INSERT OR REPLACE INTO geographic_topics/g)||[]).length,55)"
+      - name: Verify live Cloudflare deployment
+        run: |
+          curl --fail --silent --show-error --location --retry 3 --retry-delay 2 --max-time 25 "https://tabor-conservative-voice.nathantaboract.workers.dev/api/health" -o health.json
+          node --input-type=module -e "import fs from 'node:fs'; import assert from 'node:assert/strict'; const d=JSON.parse(fs.readFileSync('health.json','utf8')); assert.equal(d.ok,true); assert.equal(d.database,'connected'); assert.equal(d.archive_sources,37); assert.equal(d.write_api,'disabled')"
+          curl --fail --silent --show-error --location --retry 3 --retry-delay 2 --max-time 25 "https://tabor-conservative-voice.nathantaboract.workers.dev/api/directory" -o directory.json
+          node --input-type=module -e "import fs from 'node:fs'; import assert from 'node:assert/strict'; const d=JSON.parse(fs.readFileSync('directory.json','utf8')); assert.equal(d.count,145)"
+          curl --fail --silent --show-error --location --retry 3 --retry-delay 2 --max-time 25 "https://tabor-conservative-voice.nathantaboract.workers.dev/api/states" -o states.json
+          node --input-type=module -e "import fs from 'node:fs'; import assert from 'node:assert/strict'; const d=JSON.parse(fs.readFileSync('states.json','utf8')); assert.equal(d.count,55)"
+          curl --fail --silent --show-error --location --retry 3 --retry-delay 2 --max-time 25 "https://tabor-conservative-voice.nathantaboract.workers.dev/api/evidence" -o evidence.json
+          node --input-type=module -e "import fs from 'node:fs'; import assert from 'node:assert/strict'; const d=JSON.parse(fs.readFileSync('evidence.json','utf8')); assert.equal(d.count,22)"
