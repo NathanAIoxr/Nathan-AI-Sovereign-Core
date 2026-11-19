@@ -23,33 +23,49 @@ async function slayerSummary(db) {
   };
 }
 
-const slayerToolSource = 'https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/';
+const slayerToolHost = 'https://github.com/';
+const slayerToolSource = 'NathanAIoxr/Nathan-AI-Sovereign-Core';
 const slayerToolColumns = 't.id, t.tool_key, t.title, t.description, t.tags, t.kind, t.source_path, t.source_ref';
+const slayerToolJoin = 'LEFT JOIN cloud_slayer_tool_upstream u ON u.tool_key = t.tool_key';
+const slayerToolFilter = `
+  AND (? = '' OR upper(substr(t.title, 1, 1)) = ?)
+  AND (? = '' OR (? = 'upstream' AND u.tool_key IS NOT NULL) OR (? = 'nathan-ai' AND u.tool_key IS NULL))`;
+const slayerGitPath = path => path.split('/').map(encodeURIComponent).join('/');
 
 async function slayerTools(db, params) {
   const q = (params.get('q') ?? '').trim();
+  const letter = params.get('letter') ?? '';
+  const source = params.get('source') ?? '';
   const after = params.get('after') ?? '0';
   const tokens = q.match(/[\p{L}\p{N}]+/gu) ?? [];
   const cursor = Number(after);
   if (q.length > 96 || tokens.length > 10 || (q && !tokens.length)
+    || (letter && !/^[A-Z]$/.test(letter)) || !['', 'upstream', 'nathan-ai'].includes(source)
     || !/^\d+$/.test(after) || !Number.isSafeInteger(cursor)) {
     return slayerFailure('invalid-tool-filter', 400);
   }
+  const filter = [letter, letter, source, source, source];
+  const columns = slayerToolColumns + ', u.repository, u.license, u.license_path';
   const statement = q
-    ? db.prepare(`SELECT ${slayerToolColumns} FROM cloud_slayer_tool_search
-        JOIN cloud_slayer_tools t ON t.id = cloud_slayer_tool_search.rowid
-        WHERE cloud_slayer_tool_search MATCH ? AND cloud_slayer_tool_search.rowid > ?
+    ? db.prepare(`SELECT ${columns} FROM cloud_slayer_tool_search
+        JOIN cloud_slayer_tools t ON t.id = cloud_slayer_tool_search.rowid ${slayerToolJoin}
+        WHERE cloud_slayer_tool_search MATCH ? AND cloud_slayer_tool_search.rowid > ? ${slayerToolFilter}
         ORDER BY cloud_slayer_tool_search.rowid LIMIT 26`)
-      .bind(tokens.map(term => '"' + term + '"*').join(' AND '), cursor)
-    : db.prepare(`SELECT ${slayerToolColumns} FROM cloud_slayer_tools t WHERE t.id > ? ORDER BY t.id LIMIT 26`)
-      .bind(cursor);
+      .bind(tokens.map(term => '"' + term + '"*').join(' AND '), cursor, ...filter)
+    : db.prepare(`SELECT ${columns} FROM cloud_slayer_tools t ${slayerToolJoin}
+        WHERE t.id > ? ${slayerToolFilter} ORDER BY t.id LIMIT 26`).bind(cursor, ...filter);
   const [{ results }, count] = await db.batch([
     statement, db.prepare('SELECT total FROM cloud_slayer_tool_count WHERE singleton = 1')
   ]);
-  const tools = results.slice(0, 25).map(({ id, source_ref, source_path, ...row }) => ({
-    ...row,
-    source_url: slayerToolSource + source_ref + '/' + source_path.split('/').map(encodeURIComponent).join('/')
-  }));
+  const tools = results.slice(0, 25).map(({ id, source_ref, source_path, repository, license, license_path, ...row }) => {
+    const upstream = slayerToolHost + slayerGitPath(repository ?? slayerToolSource);
+    const pin = encodeURIComponent(source_ref);
+    return {
+      ...row,
+      source_url: source_path ? upstream + '/blob/' + pin + '/' + slayerGitPath(source_path) : upstream + '/tree/' + pin,
+      ...(repository ? { repository, license, license_url: upstream + '/blob/' + pin + '/' + slayerGitPath(license_path) } : {})
+    };
+  });
   return Response.json({
     tools,
     registered_tools: count.results[0].total,

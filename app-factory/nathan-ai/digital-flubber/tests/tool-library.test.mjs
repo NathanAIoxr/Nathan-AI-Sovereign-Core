@@ -66,3 +66,26 @@ test('Tool Library navigation and API are reachable through the app entry point'
   assert.equal(response.status, 200);
   assert.equal((await response.json()).registered_tools, 1);
 });
+
+test('upstream source and license links are pinned and filterable without changing Nathan AI records', async t => {
+  const db = openLocalRegistry();
+  t.after(() => db.sqlite.close());
+  const upstream = {
+    ...item(2), key: 'upstream-zeta', title: 'Zeta kernel', tags: ['rtos'],
+    source_path: '', source_repository: 'Example-Org/example.kernel',
+    source_license: 'Apache-2.0', source_license_path: 'LICENSE'
+  };
+  importBatch(db, [item(1), upstream]);
+  const request = query => cloudSlayerApi(new URL('https://test.invalid/api/cloud-slayer/tools?' + query), db);
+  const result = await (await request('source=upstream&letter=Z&q=rtos')).json();
+  assert.equal(result.registered_tools, 2);
+  assert.equal(result.tools.length, 1);
+  assert.equal(result.tools[0].tool_key, 'upstream-zeta');
+  assert.equal(result.tools[0].source_url, 'https://github.com/Example-Org/example.kernel/tree/' + sourceRef);
+  assert.equal(result.tools[0].license_url, 'https://github.com/Example-Org/example.kernel/blob/' + sourceRef + '/LICENSE');
+  assert.deepEqual((await (await request('source=nathan-ai')).json()).tools.map(row => row.tool_key), ['fixture-1']);
+  assert.equal((await request('letter=ZZ')).status, 400);
+  assert.throws(() => catalogBatch([{ ...upstream, source_repository: 'example.com/owner/repo' }]), /Invalid tool/);
+  assert.throws(() => catalogBatch([{ ...upstream, key: 'fixture-1' }]), /Invalid tool/);
+  assert.throws(() => catalogBatch([{ ...item(1), key: 'upstream-zeta' }]), /Invalid tool/);
+});
