@@ -14,3 +14,7 @@ The straw rack has 11 styles, including bamboo and twin bamboo. Three unlock thr
 Bonus props trigger the coffee spill, chalk cover, map and globe, projector, and cardboard cheek bullseye. The teacher patrols the gallery and calls detention. Classroom settings and the best completed-round score are kept in browser storage.
 
 Open `index.html` locally for offline play. To republish to the dedicated Cloudflare R2 bucket, set `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` with R2 write permission, then run `node deploy.mjs` from this directory. This is a manual deploy from the checked-out source. The deploy command runs the gameplay checks first and verifies the public response against the uploaded bytes.
+
+## Gallery scoring
+
+The scorecard lists each prop's base points, from the 75-point trash can to the 550-point final bell. A sweet-spot shot adds 25 points, and a streak adds 25 per prior hit up to 150. Each ruler or wall bank adds 125. A paper shot can score 1,000 if it arrives between the teacher avatar's eyes during the brief turn. The cartoon seat bounce scores 300 and adds 275 to the next prop the same shot hits. Each avatar bonus can score once per round. Release before the turn to avoid detention.

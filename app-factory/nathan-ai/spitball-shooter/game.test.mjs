@@ -10,12 +10,12 @@ function game() {
   const getElementById = id => {
     if (!elements.has(id)) elements.set(id, {
       value:"", style:{},lastElementChild:{style:{},dataset:{}},getContext(){return {};},
-      addEventListener(){},setAttribute(){},focus(){},replaceChildren(){}
+      addEventListener(){},setAttribute(){},focus(){},replaceChildren(){},append(){}
     });
     return elements.get(id);
   };
   const context = createContext({
-    document:{getElementById,addEventListener(){}}, window:{addEventListener(){}},
+    document:{getElementById,addEventListener(){},createElement(){return {};}}, window:{addEventListener(){}},
     Option:class {}, requestAnimationFrame(){}, performance:{now(){return 0;}}
   });
   runInContext(moduleSource,context);
@@ -91,4 +91,41 @@ test("tickets earned during a round commit exactly once on clear",()=>{
 test("last-round retry starts with compatible gear",()=>{
   const run = game();
   assert.equal(run('setLevel(3); setLevel(3); gear().compatible'),true);
+});
+
+test("gallery props award their listed values, bank bonuses and streak points",()=>{
+  const run = game();
+  assert.equal(run('const shot=launch(.76); hit(targets[0],shot,targets[0]); score'),100);
+  assert.equal(run('const mug=targets.find(t=>t.kind==="Mug"); shot.banks=1; hit(mug,shot,mug); score'),425);
+});
+
+test("a shot released before the turn can earn the between-the-eyes jackpot",()=>{
+  const run = game();
+  assert.equal(run(`
+    show("playing");
+    clock=5.78;
+    aim={x:teacherPosition(6.5).x,y:teacherPosition(6.5).y-44};
+    charge="keyboard";
+    performance.now=()=>850;
+    takeShot("keyboard");
+    for(let i=0;i<102;i++) step(1/120);
+    score
+  `),1000);
+  assert.equal(run('teacherCleanHits.turn && bullets.length===0'),true);
+  assert.equal(run('clock=6.5; const z=teacherPosition(); const repeat=launch(.76); repeat.x=z.x;repeat.y=z.y-44; hitTeacher(repeat,"turn")'),null);
+});
+
+test("an angled paper shot can bounce off the cartoon seat and knock over a prop",()=>{
+  const run = game();
+  const result = run(`
+    let success = false;
+    for(let x=535;x<=575 && !success;x+=2) for(let y=275;y<=301 && !success;y+=2) {
+      setLevel(0); score=0; show("playing"); aim={x,y};
+      bullets.push(launch(.76));
+      for(let i=0;i<180;i++) step(1/120);
+      success=teacherCleanHits.seat && targets.some(t=>t.hit) && score>=675;
+    }
+    success
+  `);
+  assert.equal(result,true);
 });
