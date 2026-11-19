@@ -4,7 +4,12 @@ const results = document.getElementById('tool-results');
 const more = document.getElementById('tool-more');
 const integer = new Intl.NumberFormat();
 const kindLabels = { worker: 'Worker source', app: 'App', guide: 'Guide', library: 'Library' };
-let currentQuery = '';
+const initial = new URLSearchParams(location.search);
+for (const letter of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') form.elements.letter.add(new Option(letter, letter));
+for (const key of ['q', 'source', 'letter']) {
+  if (initial.has(key)) form.elements[key].value = initial.get(key);
+}
+let currentQuery = new URLSearchParams();
 let cursor = null;
 let requestSequence = 0;
 
@@ -17,10 +22,16 @@ function addRow(tool) {
   title.textContent = tool.title;
   detail.textContent = tool.description;
   tags.textContent = [kindLabels[tool.kind], tool.tags].filter(Boolean).join(' · ');
-  source.textContent = 'Open source on GitHub';
+  source.textContent = tool.repository ? 'Open upstream source on GitHub' : 'Open source on GitHub';
   source.href = tool.source_url;
   const sourceLine = document.createElement('p');
   sourceLine.append(source);
+  if (tool.license && tool.license_url) {
+    const license = document.createElement('a');
+    license.href = tool.license_url;
+    license.textContent = tool.license;
+    sourceLine.append(' · License: ', license);
+  }
   row.append(title, detail, tags, sourceLine);
   results.append(row);
 }
@@ -28,11 +39,12 @@ function addRow(tool) {
 async function load(append) {
   const request = ++requestSequence;
   if (!append) {
-    currentQuery = form.elements.q.value.trim();
+    currentQuery = new URLSearchParams(new FormData(form));
+    currentQuery.set('q', currentQuery.get('q').trim());
     cursor = null;
     results.replaceChildren();
   }
-  const params = new URLSearchParams({ q: currentQuery });
+  const params = new URLSearchParams(currentQuery);
   if (append && cursor) params.set('after', cursor);
   more.hidden = true;
   status.textContent = 'Searching…';

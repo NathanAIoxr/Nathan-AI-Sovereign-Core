@@ -1,7 +1,7 @@
 <section class="intro">
 <p class="kicker">CLOUD SLAYER</p>
 <h1>Tool Library.</h1>
-<p class="lede">Find a Nathan AI worker, app, library, or guide by name or keyword.</p>
+<p class="lede">Find Nathan AI tools and open-source kernels, runtimes, workers, bots, agents, and repositories.</p>
 </section>
 <div class="row slayer-links">
 <a href="/cloud-slayer">Worker registry</a>
@@ -11,6 +11,8 @@
 <h2>Search the catalog</h2>
 <form id="tool-search" class="slayer-search" role="search">
 <label>Tool name or keyword <input name="q" type="search" maxlength="96" autocomplete="off"></label>
+<label>Source <select name="source"><option value="">All sources</option><option value="upstream">Open-source projects</option><option value="nathan-ai">Nathan AI</option></select></label>
+<label>Starts with <select name="letter"><option value="">A–Z</option></select></label>
 <button class="primary" type="submit">Search</button>
 </form>
 <p id="tool-status" role="status">Loading tools…</p>
