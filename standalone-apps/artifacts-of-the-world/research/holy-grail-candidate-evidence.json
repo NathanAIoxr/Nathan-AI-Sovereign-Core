@@ -1,0 +1,37 @@
+{
+  "id": "holy-grail",
+  "research_question": "Trace earliest dated inventories and custody for each surviving vessel candidate",
+  "status": "open",
+  "source_revision": "main at research intake",
+  "records": [
+    {
+      "candidate": "Santo Cáliz of Valencia",
+      "classification": "documented_later_custody",
+      "date": "1437-03-18",
+      "source": "https://catedraldevalencia.es/wp-content/uploads/2019/11/estatutos-del-cabildo-metropolitano.pdf",
+      "supports": "Cathedral's stated historical custody beginning in 1437, as summarized in the existing app dossier",
+      "does_not_establish": "Physical identity with the cup described in Matthew 26 or an uninterrupted first-century custody chain"
+    },
+    {
+      "candidate": "Cup in Matthew 26:27–29",
+      "classification": "scriptural_narrative",
+      "source": "https://www.biblegateway.com/passage/?search=Matthew%2026%3A27-29&version=KJV",
+      "supports": "KJV passage describes a cup at the supper",
+      "does_not_establish": "That any currently exhibited vessel is the narrated cup"
+    },
+    {
+      "candidate": "Grail in Chrétien de Troyes, Perceval",
+      "classification": "medieval_literary_witness",
+      "source": "https://www.francaisancien.net/activites/textes/perceval/graal.htm",
+      "supports": "Medieval literary witness to a grail procession",
+      "does_not_establish": "An archaeological chain of custody for a surviving cup"
+    }
+  ],
+  "unresolved": [
+    "Earliest verifiable object-specific inventory for every additional proposed surviving vessel",
+    "Authenticated physical identity of any candidate with the scriptural cup",
+    "Uninterrupted provenance before the earliest documented custody"
+  ],
+  "publication": "research_only_no_pages_change",
+  "original_txt_modified": false
+}
