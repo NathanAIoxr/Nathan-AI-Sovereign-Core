@@ -13,8 +13,11 @@
     <header>
       <p class="brand">NATHAN AI</p>
       <h1>Memory Bank</h1>
-      <p>Drop it in. Ask for it when you need it.</p>
-      <nav aria-label="Memory Bank"><a href="./zones/">Memory zones and setup</a></nav>
+      <p>Recall your notes and past AI work.</p>
+      <nav aria-label="Memory Bank">
+        <a href="./zones/">Memory zones</a> ·
+        <a href="./?category=chatgpt-history">Past ChatGPT work</a>
+      </nav>
     </header>
 
     <details id="connection">
@@ -40,10 +43,38 @@
       </form>
       <p id="recall-status" role="status"></p>
       <div class="actions">
-        <button type="button" id="copy" class="quiet" hidden>Copy for another AI</button>
+        <button type="button" id="copy" class="quiet" hidden>Copy selected records</button>
+        <button type="button" id="use-all" class="quiet" hidden>Select all displayed</button>
         <button type="button" id="more" class="quiet" hidden>Load more</button>
       </div>
       <div id="results"></div>
+    </section>
+
+    <section aria-labelledby="intelligence-heading">
+      <h2 id="intelligence-heading">AI Personal Intelligence</h2>
+      <p>Open a past ChatGPT conversation or start a chat with your account’s memory. To bring records from this bank, select them in Recall, copy, then paste them into your AI.</p>
+      <label for="ai-question">Question for your AI</label>
+      <textarea id="ai-question" rows="2" maxlength="2000" placeholder="What did we decide about this project?"></textarea>
+      <button type="button" id="copy-question">Copy question and selected records</button>
+      <p id="ai-status" role="status"></p>
+      <div class="actions">
+        <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Open ChatGPT</a>
+        <a href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer">Open Gemini</a>
+        <a href="https://claude.ai/new" target="_blank" rel="noopener noreferrer">Open Claude</a>
+        <a href="https://grok.com/" target="_blank" rel="noopener noreferrer">Open Grok</a>
+      </div>
+      <details class="labels">
+        <summary>Import past ChatGPT work</summary>
+        <p>Extract the conversation JSON from your ChatGPT export. Preview titles here, choose the conversations you want, then import them with your write key.</p>
+        <label for="archive-file">Conversation JSON</label>
+        <input id="archive-file" type="file" accept=".json,application/json">
+        <label for="archive-filter" hidden>Filter conversation titles</label>
+        <input id="archive-filter" type="search" placeholder="Find a conversation" maxlength="120" hidden>
+        <p id="archive-status" role="status"></p>
+        <div id="archive-list"></div>
+        <button type="button" id="archive-save" hidden>Import selected conversations</button>
+        <p><a href="https://help.openai.com/en/articles/7260999-exporting-your-chatgpt-history-and-data" target="_blank" rel="noopener noreferrer">Export ChatGPT history</a></p>
+      </details>
     </section>
 
     <section aria-labelledby="remember-heading">

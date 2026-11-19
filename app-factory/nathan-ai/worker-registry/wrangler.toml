@@ -1,0 +1,13 @@
+name = "nathan-ai-worker-registry"
+main = "dist/worker.js"
+compatibility_date = "2026-11-01"
+keep_vars = true
+
+[observability]
+enabled = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tabor-fleet-registry"
+database_id = "00e422eb-5222-4892-8f90-74aaf8ab0518"
+migrations_dir = "migrations"

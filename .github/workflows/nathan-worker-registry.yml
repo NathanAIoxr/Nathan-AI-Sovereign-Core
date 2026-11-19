@@ -1,0 +1,33 @@
+name: Nathan AI Worker Registry
+
+on:
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/worker-registry/**'
+      - '.github/workflows/nathan-worker-registry.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/worker-registry/**'
+      - '.github/workflows/nathan-worker-registry.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-factory/nathan-ai/worker-registry
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: npm test
+      - run: npm run build

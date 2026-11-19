@@ -6,7 +6,7 @@
   "entry": "public/index.html.in",
   "build": "npm test",
   "routes": ["/", "/health", "/zones/", "/remember", "/recall", "/import"],
-  "zones": ["games", "puzzles", "hardware", "books", "code", "setup"],
+  "zones": ["games", "puzzles", "hardware", "books", "code", "chatgpt-history", "setup"],
   "related": ["personal-intelligence"],
   "hosting": {
     "provider": "cloudflare-workers-for-platforms",

@@ -1,0 +1,14 @@
+{
+  "id": "nathan-ai-worker-registry",
+  "title": "Nathan AI Worker, Bot & Agent Registry",
+  "entry": "public/index.html.in",
+  "worker": "nathan-ai-worker-registry",
+  "origin": "https://tabor-bridge.nathantaboract.workers.dev/worker-registry",
+  "build": "npm run build && npm test",
+  "hosting": {
+    "provider": "cloudflare-workers-for-platforms",
+    "namespace": "nathan-tabor-platforms",
+    "database": "tabor-fleet-registry",
+    "dispatcher": "tabor-bridge"
+  }
+}
