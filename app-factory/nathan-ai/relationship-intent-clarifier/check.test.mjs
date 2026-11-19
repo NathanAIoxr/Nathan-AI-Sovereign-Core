@@ -20,6 +20,35 @@ test("Act AI evaluates aligned, divergent, uncertain, blocked and expired scenar
   assert.throws(() => evaluateIntent({ ...input, blocked: "false" }), TypeError);
 });
 
+test("scenario matrix preserves consent boundaries and renewed invitations", () => {
+  const base = { firstIntent: "Dating", secondIntent: "Dating", blocked: false, expired: false };
+  const cases = [
+    ["matching intent", {}, "aligned"],
+    ["different intent", { secondIntent: "Friendship" }, "clarify"],
+    ["uncertain first participant", { firstIntent: "Unsure" }, "clarify"],
+    ["uncertain second participant", { secondIntent: "Unsure" }, "clarify"],
+    ["blocked", { blocked: true }, "blocked"],
+    ["expired", { expired: true }, "expired"],
+    ["blocked and expired", { blocked: true, expired: true }, "blocked"],
+    ["blocked and mismatched", { blocked: true, secondIntent: "Friendship" }, "blocked"],
+    ["expired and mismatched", { expired: true, secondIntent: "Friendship" }, "expired"],
+  ];
+  for (const [name, changes, expected] of cases) {
+    assert.equal(evaluateIntent({ ...base, ...changes }).state, expected, name);
+  }
+  // A new invitation is a NEW state supplied explicitly, not an automatic unblock.
+  const expired = evaluateIntent({ ...base, expired: true });
+  assert.equal(expired.state, "expired");
+  const renewed = evaluateIntent({ ...base, expired: false });
+  assert.equal(renewed.state, "aligned");
+  assert.match(renewed.detail, /Ask directly/);
+  assert.match(expired.detail, /new invitation/);
+  assert.equal(evaluateIntent({ ...base, blocked: true, expired: false }).state, "blocked");
+  for (const key of ["firstIntent", "secondIntent"]) {
+    assert.throws(() => evaluateIntent({ ...base, [key]: "invalid" }), TypeError);
+  }
+});
+
 test("standalone Worker serves its own site, assets and health receipt", async t => {
   const output = await mkdtemp(join(tmpdir(), "dating-build-"));
   t.after(() => rm(output, { recursive: true, force: true }));
