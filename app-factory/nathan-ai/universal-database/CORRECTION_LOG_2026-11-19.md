@@ -21,3 +21,13 @@ ChatGPT and Work mode repeatedly misunderstood or disregarded the user's straigh
 
 ## Status
 This file records the correction and incident. Existing published artwork and game renderer are NOT claimed to be corrected. No changes to the live ring topology should be made by inference.
+
+## Further user complaint — teal color failure
+The user specifically instructed that **D9 be at the bottom in teal**, and reported that the assistant still failed to implement that color-and-position combination. This is a separate visual-instruction-following failure in addition to the label-order errors. Color is part of the specification, not decoration. The user described the experience as "trillion dollar stupidity" and requested that this criticism be documented in Cloudflare and GitHub. This is the user's criticism, not a factual valuation of the system.
+
+### Explicit acceptance checks before any future image or renderer release
+- Both wide cone bases touch.
+- D0 is in the middle; 0D is above it; D1 is below D0.
+- D9 is at the **bottom of the teal cone** and its rendered label/region is teal.
+- A screenshot is reviewed against each placement and color check before declaring success.
+- If any check fails, mark the result incorrect and do not claim completion.
