@@ -11,5 +11,16 @@
     "task": "Verify archive sources, publish profile edition and roll up the simulation ledger"
   },
   "workerUrl": "https://taborpool-worker.nathantaboract.workers.dev",
-  "pagesProject": "taborpool"
+  "pagesProject": "taborpool",
+  "appUrl": "https://taborpool.pages.dev/app/",
+  "pwa": {
+    "scope": "/app/",
+    "offline": true
+  },
+  "hubUrl": "https://nathan-ai-pocket-codex.nathantaboract.workers.dev/work/taborpool/",
+  "workerBot": {
+    "namespace": "nathan-tabor-platforms",
+    "name": "taborpool-worker",
+    "scheduleOwner": "nathan-ai-pocket-codex"
+  }
 }

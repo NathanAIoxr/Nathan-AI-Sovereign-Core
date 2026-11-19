@@ -10,6 +10,8 @@ on:
       - 'standalone-apps/taborpool/**'
       - '.github/workflows/taborpool.yml'
   workflow_dispatch:
+  schedule:
+    - cron: '43 */6 * * *'
 
 permissions:
   contents: read
@@ -27,9 +29,10 @@ jobs:
         with:
           node-version: '22'
       - run: npm test
+      - run: npm run build:pages
   deploy:
     needs: test
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency: taborpool-worker-production
@@ -67,8 +70,19 @@ jobs:
             echo "Deployment skipped because Cloudflare Pages credentials are missing." >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
-          mkdir -p build/pages
-          cp src/index.js build/pages/_worker.js
+          npm run build:pages
           mv wrangler.toml build/standalone-wrangler.toml
           npx --yes wrangler@4.165.0 pages deploy build/pages --project-name taborpool --branch main --commit-hash "$GITHUB_SHA" --commit-dirty=false
           curl --fail-with-body --silent --show-error --retry 4 --retry-all-errors --max-time 15 https://taborpool.pages.dev/health
+  verify-live:
+    needs: test
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check project identity and deployment health
+        working-directory: .
+        run: |
+          set -o pipefail
+          curl --fail-with-body --silent --show-error --retry 3 --max-time 15 https://taborpool.pages.dev/health | jq -e '.entity == "TABORPOOL" and .status == "ONLINE"'
+          curl --fail-with-body --silent --show-error --retry 3 --max-time 15 https://taborpool.pages.dev/app/version | jq -e '.entity == "TABORPOOL" and (.version | length > 0)'

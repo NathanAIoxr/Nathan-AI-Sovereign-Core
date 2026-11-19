@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { setTimeout as delay } from 'node:timers/promises';
 import { claimChecks, publicSigningKeys, verifyGitHubReceipt } from './github-identity.mjs';
 const origin = 'https://nathan-ai-pocket-codex.nathantaboract.workers.dev';
-const rows = JSON.parse(await readFile(new URL('./manifest.json', import.meta.url), 'utf8'));
+const rows = (await Promise.all(['manifest.json','standalone-apps.json'].map(async file => JSON.parse(await readFile(new URL(file, import.meta.url), 'utf8')))));
+const projects = rows.flat();
 async function get(path) {
   for (let attempt = 0; ; attempt += 1) {
     try {
@@ -18,9 +19,9 @@ async function get(path) {
 }
 const health = await get('/healthz');
 assert.ok(health.ok, 'Pocket dashboard health');
-assert.equal((await health.json()).projects, rows.length);
-for (let start = 0; start < rows.length; start += 8) {
-  await Promise.all(rows.slice(start, start + 8).map(async row => {
+assert.equal((await health.json()).projects, projects.length);
+for (let start = 0; start < projects.length; start += 8) {
+  await Promise.all(projects.slice(start, start + 8).map(async row => {
     const result = await get('/work/' + row.id + '/healthz');
     assert.ok(result.ok, row.id + ' health returned ' + result.status);
     const remote = await result.json();
@@ -29,7 +30,7 @@ for (let start = 0; start < rows.length; start += 8) {
     assert.equal(remote.ready, true);
   }));
 }
-console.log('Verified all ' + rows.length + ' live project Worker health routes.');
+console.log('Verified all ' + projects.length + ' live project Worker health routes.');
 if (process.argv.includes('--receipt')) {
   const oidc = new URL(process.env.ACTIONS_ID_TOKEN_REQUEST_URL);
   oidc.searchParams.set('audience', origin);

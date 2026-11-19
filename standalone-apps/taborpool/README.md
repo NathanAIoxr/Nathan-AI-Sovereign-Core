@@ -21,3 +21,13 @@ Run `npm test` with Node 22 or newer. The primary live target is its own Cloudfl
 The cron expression `15,45 * * * *` is in UTC. It runs the same build routine as `POST /ops/rebuild` when deployed as a standalone Worker. Cloudflare Pages uses the authenticated `POST /ops/rebuild` route. The GitHub workflow is scoped to this project’s paths. It defaults to Pages and uses the Cloudflare Pages token; set the GitHub repository variable `TABORPOOL_DEPLOY_TARGET` to `worker` to select the Wrangler Worker target when account capacity permits. Clouder can manage the Pages project and its storage in the same Cloudflare account.
 
 The archived Python engine is a local creative simulation. The edge ledger records simulation units and does not perform payments or distributions. The archive preserves the recovered manifesto, engine and demo.
+
+## Web app
+
+[Open the installable app](https://taborpool.pages.dev/app/). Android and other supporting browsers can use the install prompt. On iPhone in Safari, use Share → Add to Home Screen. The app shell can reopen offline after the initial online visit.
+
+The archive searches the public project source index and a Library of Congress collection. The file checker compares local file bytes against the archived SHA-256. The device-local simulation ledger supports signed units, browser storage and CSV export. The owner-only production ledger and raw source files stay behind their existing endpoints.
+
+Run `npm test` and `npm run build:pages`. The Pages output is `build/pages/_worker.js`. The scheduled GitHub workflow reruns tests and checks the /health and /app/version routes every six hours.
+
+Pocket Control links the app through its own `taborpool-worker` dispatch bot. The bot verifies the app's private source checksums, materializes the profile edition and updates the respective storage on the hub's hourly schedule. The Pages build directory contains the web module and a separate `build/worker-bot.js` dispatch artifact.

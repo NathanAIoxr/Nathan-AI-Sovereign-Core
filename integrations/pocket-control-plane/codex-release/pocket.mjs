@@ -2,6 +2,7 @@ import { escape, json, page } from './station.mjs';
 import { publicSigningKeys, verifyGitHubReceipt } from './github-identity.mjs';
 
 const sections = [
+  ['standalone-apps', 'Standalone apps'],
   ['numbered', 'Numbered Codex series'],
   ['kodex', 'Kodex'],
   ['codex', 'Named Codex editions'],
@@ -37,14 +38,27 @@ async function inspectOne(env, project) {
   }
 }
 
-export function createPocket(projects) {
-  const byId = new Map(projects.map(item => [item.id, item]));
-  const publicRows = projects.map(({ question, ...item }) => item);
+async function refreshStandaloneApp(env, project) {
+  try {
+    const request = new Request('https://station.internal/__hub/refresh', { method: 'POST' });
+    const response = await env.PROJECTS.get(project.worker).fetch(request);
+    const actual = await response.json();
+    return { id: project.id, verified: response.ok && actual.id === project.id && actual.version === project.version && actual.verified === true };
+  } catch {
+    return { id: project.id, verified: false };
+  }
+}
+
+export function createPocket(projects, independentApps = []) {
+  const allProjects = [...projects, ...independentApps];
+  const byId = new Map(allProjects.map(item => [item.id, item]));
+  const publicRows = allProjects.map(({ question, ...item }) => item);
 
   async function audit(env) {
+    const appJobs = await Promise.all(independentApps.map(item => refreshStandaloneApp(env, item)));
     const checked = [];
-    for (let start = 0; start < projects.length; start += 8) {
-      checked.push(...await Promise.all(projects.slice(start, start + 8).map(item => inspectOne(env, item))));
+    for (let start = 0; start < allProjects.length; start += 8) {
+      checked.push(...await Promise.all(allProjects.slice(start, start + 8).map(item => inspectOne(env, item))));
     }
     let github = await githubStatus().catch(() => ({ connected: false, status: null, run: null }));
     if (!github.connected && env.RECEIPTS) {
@@ -54,7 +68,7 @@ export function createPocket(projects) {
       }
     }
     const receipt = { checkedAt: new Date().toISOString(), expected: checked.length,
-      healthy: checked.filter(row => row.ready).length, failed: checked.filter(row => !row.ready).map(row => row.id), github };
+      healthy: checked.filter(row => row.ready).length, failed: checked.filter(row => !row.ready).map(row => row.id), appJobs, github };
     if (env.RECEIPTS) await env.RECEIPTS.put(KV_KEY, JSON.stringify(receipt));
     console.log(JSON.stringify({ event: 'codex_build_check', ...receipt }));
     return receipt;
@@ -115,12 +129,12 @@ export function createPocket(projects) {
       const tab = url.searchParams.get('tab') === 'github' ? 'github' : 'cloudflare';
       const nav = '<nav aria-label="Pocket Control"><a href="/?tab=github">GitHub Pro</a><a href="/?tab=cloudflare">Clouder Pro</a><a href="/api/build-status">Build status JSON</a></nav>';
       if (path === '/healthz') {
-        result = json({ service: 'nathan-ai-pocket-codex', ready: Boolean(env.PROJECTS), projects: projects.length, receiptStore: Boolean(env.RECEIPTS) });
+        result = json({ service: 'nathan-ai-pocket-codex', ready: Boolean(env.PROJECTS), projects: allProjects.length, receiptStore: Boolean(env.RECEIPTS) });
       } else if (path === '/api/catalog') {
         result = json({ service: 'nathan-ai-pocket-codex', groups: sections.map(([id, label]) => ({ id, label })), projects: publicRows });
       } else if (path === '/api/build-status') {
         const receipt = env.RECEIPTS ? await env.RECEIPTS.get(KV_KEY, 'json') : null;
-        result = json({ expected: projects.length, receipt });
+        result = json({ expected: allProjects.length, receipt });
       } else if (path === '/api/github') {
         const receipt = env.RECEIPTS ? await env.RECEIPTS.get(KV_KEY, 'json') : null;
         const verifiedRun = env.RECEIPTS ? await env.RECEIPTS.get(GITHUB_KEY, 'json') : null;
