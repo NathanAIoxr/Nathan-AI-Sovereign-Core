@@ -11,8 +11,8 @@ test("both characters have two independently scored plates", () => {
       assert.ok(!score([...order].reverse(),order));
     }
   }
-  assert.equal(tally("preacher"),12);
-  assert.equal(tally("wife"),9);
+  assert.equal(tally("preacher"),19);
+  assert.equal(tally("wife"),17);
 });
 
 test("the receipt counts actual money and service trips", () => {

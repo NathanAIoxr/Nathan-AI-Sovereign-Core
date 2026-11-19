@@ -9,12 +9,13 @@
 <link rel="icon" href="/icon-192.png" type="image/png">
 <link rel="stylesheet" href="/style.css">
 <script type="module" src="/game.mjs"></script>
+<script type="module" src="/memes.mjs"></script>
 </head>
 <body>
-<header class="top"><a href="/" class="logo">THE SUNDAY BUFFET</a><nav><a href="#play">Play</a><a href="/book">Book</a><a href="#install">Install</a></nav></header>
+<header class="top"><a href="/" class="logo">THE SUNDAY BUFFET</a><nav><a href="#play">Play</a><a href="/book">Book</a><a href="#memes">Memes</a><a href="#install">Install</a></nav></header>
 <main>
 <section class="hero">
-<div><p class="eyebrow">NATHAN TABOR / NATHAN AI</p><h1>The Two-Plate<br>Reckoning<span>.</span></h1><p class="lede">Amen at 11:55. Ranch at 12:10.</p><p>Two plates each for a fictional IFB preacher and his wife. Stack it his way or work the rim her way. Then settle the check.</p><div class="actions"><a class="primary" href="#play">Clear the aisle</a><a href="/book">Read the book →</a></div></div>
+<div><p class="eyebrow">NATHAN TABOR / NATHAN AI</p><h1>The Two-Plate<br>Reckoning<span>.</span></h1><p class="lede">Amen at 11:55. Ranch at 12:10.</p><p>Rev. Buford Gravywell and Lottie Mae Gravywell from Lonesome Gravy Fork Independent Baptist just hit the buffet. Fill both plates and settle the check.</p><div class="actions"><a class="primary" href="#play">Clear the aisle</a><a href="/book">Read the book →</a></div></div>
 <div class="art" aria-hidden="true"><div class="plate one"><i></i></div><div class="plate two"><i></i></div><div class="receipt-art">SUNDAY LUNCH<br>──────────<br>2 × BUFFET<br>TIP 20%<br>──────────<br>1 + 1 = 2</div></div>
 </section>
 <section id="play" class="section">
@@ -22,15 +23,37 @@
 <p>Match the portions and the serving order. His hot food goes down first. Her sides go around the rim. Each completed plate moves you one step closer to the check.</p>
 <div id="roles" class="choices" aria-label="Choose a character"></div>
 <div class="board">
-<section><h3 id="dish-title">Plate 1</h3><p id="method"></p><div id="target" class="pills"></div><ol id="stack"></ol><p id="status" role="status"></p></section>
+<section><h3 id="dish-title">Plate 1</h3><p id="method"></p><p id="portion-progress" class="portion-progress"></p><div id="target" class="pills"></div><ol id="stack"></ol><p id="status" role="status"></p></section>
 <section><h3>Buffet line</h3><div id="menu" class="menu"></div><div class="actions"><button type="button" id="undo">Undo last scoop</button><button type="button" id="serve" class="primary">Serve plate</button></div></section>
 </div>
 <section id="checkout" class="board" hidden>
 <div><h3>Settle the check</h3><p id="amount"></p><label>Table requests<select id="service"><option value="together">Ask for the refills and ranch together</option><option value="separate">Call the server over three times</option></select></label><label>Tip on the $36.00 table bill<select id="tip"><option value="20">20% cash or card</option><option value="10">10% cash or card</option><option value="0">Imitation bill / tract</option></select></label><button id="close-check" class="primary">Print receipt</button></div>
-<div><h3>Sunday receipt</h3><div id="ledger" aria-live="polite"></div></div>
+<div><h3>Sunday receipt</h3><div id="ledger" aria-live="polite"></div><a href="#memes" id="receipt-meme" hidden>Turn this receipt into a meme ↓</a></div>
 </section>
+</section>
+<section class="section" id="cast">
+<p class="eyebrow">THE SUNDAY CAST</p><h2>Who’s at the buffet?</h2><p>Original fictional characters and churches in this satire.</p>
+<div class="cast-grid">
+<article><h3>Rev. Buford Gravywell</h3><p>Lonesome Gravy Fork Independent Baptist. His plate starts with three drumsticks and ends at the dessert end of the sneeze guard.</p></article>
+<article><h3>Lottie Mae Gravywell</h3><p>Lonesome Gravy Fork Independent Baptist. She keeps her plate in sections, her cobbler dry, and the aisle clear.</p></article>
+<article><h3>Deacon Otis Taterknoll</h3><p>Two-Mile Hatpin Independent Baptist. He borrows a menu to check the math on his own table’s tip.</p></article>
+<article><h3>Della Jean Skillet</h3><p>The buffet server. She handles the ranch, the sweet tea, and the receipt with enough composure to finish the shift.</p></article>
+</div>
+</section>
+<section class="section" id="memes">
+<p class="eyebrow">THE BUFFET MEME MAKER</p><h2>Send this to your framily and friends</h2>
+<p>Pick a card or write a punch line. Share the image, save it as a PNG, or copy a link to the preset card. Use the PNG to keep your own caption or receipt amount.</p>
+<div class="board meme-board">
+<div class="meme-controls">
+<label for="meme-template">Meme card<select id="meme-template"><option value="amen">Amen to ranch</option><option value="gravy">Gravy levee</option><option value="cobbler">Lottie Mae’s cobbler</option><option value="receipt">Sunday receipt</option></select></label>
+<label for="meme-caption">Your caption (optional)<input id="meme-caption" type="text" maxlength="96" placeholder="Write your own punch line"></label>
+<div class="actions"><button id="share-meme" class="primary" type="button" disabled>Share meme</button><button id="save-meme" type="button" disabled>Save PNG</button><button id="copy-meme-link" type="button">Copy link</button></div>
+<p id="meme-status" role="status"></p><input id="meme-link" readonly hidden aria-label="Meme card link">
+</div>
+<canvas id="meme-preview" width="900" height="900" role="img" aria-label="Buffet meme preview"></canvas>
+</div>
 </section>
 <section class="section" id="install"><h2>Take the buffet with you</h2><p>Install the web app to play offline after your first visit. On iPhone, open this site in Safari, tap Share, then Add to Home Screen.</p><button id="install-button" class="primary" hidden>Install web app</button></section>
 </main>
-<footer><a href="/book">Read the book & server accounts</a><a href="https://tabor-bridge.nathantaboract.workers.dev/sorting-hats-hatettes/">Sorting Hats & Hatettes</a></footer>
+<footer><a href="/book">Read the book &amp; server accounts</a><a href="#memes">Make a buffet meme</a><a href="https://tabor-bridge.nathantaboract.workers.dev/sorting-hats-hatettes/">Sorting Hats & Hatettes</a></footer>
 </body></html>
