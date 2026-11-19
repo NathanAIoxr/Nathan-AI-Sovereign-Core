@@ -51,7 +51,7 @@ const field = (id, label, options) => '<label>'+label+'<select id="'+id+'">'+opt
 const section = (title, description, body) => '<section><h2>'+title+'</h2><p>'+description+'</p>'+body+'</section>';
 const tools = {
   "crypto-64": () => section("The original 64 positions", "Recovered artwork entries and unresolved slots from the original Nathan Tabor registry.",
-    '<p><a href="'+network+'/coins/64">Original registry</a> · <a href="/api/coins/64">Registry JSON</a></p>'+input("search","Filter by slot, ticker, or name","search",'autocomplete="off"')+
+    '<p><a href="'+network+'/coins/64">Original registry</a> · <a href="/restoration">Restoration archive</a> · <a href="/api/coins/64">Registry JSON</a></p>'+input("search","Filter by slot, ticker, or name","search",'autocomplete="off"')+
     '<p id="coin-status" role="status">Loading registry…</p><div id="coins"></div>'),
   "mining-lab": () => section("Bitcoin header proof", "SHA-256d and compact-target comparison for an 80-byte header. Header proof is one component of Bitcoin block validation.",
     '<p><a href="/api/genesis-proof">Bitcoin genesis verification data</a></p><form id="proof">'+area("header","80-byte hexadecimal header")+
@@ -90,6 +90,19 @@ async function sourceRegistry(env) {
       !data.slots.every((row, index) => row.slot === index + 1)) throw new Error("Coin registry shape mismatch");
   return data;
 }
+function withCoordinates(data) {
+  return { ...data, slots: data.slots.map(slot => ({ ...slot, coordinate: (slot.slot - 1).toString(2).padStart(6, "0") })) };
+}
+function restorationPage(data) {
+  const dataRows = withCoordinates(data).slots.map(row => "<tr><td>"+row.slot+"</td><td><code>"+row.coordinate+"</code></td><td>"+escape(row.ticker ?? "—")+"</td><td>"+escape(row.name ?? "Unresolved")+"</td></tr>").join("");
+  const partitions = restoration.partitions.map(([key, detail],index) => "<li><code>"+String(index+1).padStart(2,"0")+" "+escape(key)+"</code><p>"+escape(detail)+"</p></li>").join("");
+  const references = restoration.provenance.families.map(item=>"<li><strong>"+escape(item.name)+"</strong> · "+escape(item.anchor)+"<p>"+escape(item.note)+"</p></li>").join("");
+  return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>64-Coin Restoration</title><link rel="stylesheet" href="/style.css"><main class="wrap"><div class="hero"><h1>64-Coin Restoration</h1><p><a href="/">Coin registry</a> · <a href="/api/restoration">Download restoration data</a> · <a href="/manuscript.txt">Read the chapter excerpt</a></p></div>'+
+    section("Ledger coordinates",escape(restoration.provenance.coordinateRule),'<div class="table-wrap"><table><thead><tr><th>Slot</th><th>Coordinate</th><th>Ticker</th><th>Original name</th></tr></thead><tbody>'+dataRows+'</tbody></table></div>')+
+    section("Coin families from the archive","These references preserve names from other projects. Original slot assignments require source evidence.","<ul>"+references+"</ul>")+
+    section("Mining provenance","The mining dashboard artwork reads EST. 1993. The available receipt records a 2026 archive import. Historical mining records are pending.","")+
+    section("Seven manuscript partitions","The author-supplied scene and its proposed architecture.","<ol>"+partitions+"</ol>")+"</main></html>";
+}
 export function createApp(id) {
   return { async fetch(request, env) {
     const url = new URL(request.url);
@@ -102,6 +115,14 @@ export function createApp(id) {
     if (path === "/api/coins/64" && id === "crypto-64") {
       try { return json(await sourceRegistry(env)); }
       catch { return json({ error: "Original registry temporarily unavailable" }, 503); }
+    }
+    if (id === "crypto-64" && path === "/manuscript.txt") return send(restoration.excerpt, "text/plain");
+    if (id === "crypto-64" && ["/restoration","/api/restoration"].includes(path)) {
+      try {
+        const data = await sourceRegistry(env);
+        if (path === "/restoration") return send(restorationPage(data), "text/html");
+        return json({ ...withCoordinates(data), partitions: restoration.partitions.map(([id,description])=>({id,description})), provenance: restoration.provenance, manuscript: "/manuscript.txt" });
+      } catch { return json({ error: "Original registry temporarily unavailable" }, 503); }
     }
     if (path === "/api/genesis-proof" && id === "mining-lab") return json({ header: GENESIS, ...(await headerProof(GENESIS)) });
     if (path === "/api/roles" && ["crypt-operations","crypto-dmsp-dit"].includes(id)) return json({ roles });

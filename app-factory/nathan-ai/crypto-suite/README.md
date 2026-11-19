@@ -19,3 +19,7 @@ node build.mjs crypto-64 > /tmp/nathan-ai-crypto-64.mjs
 ```
 
 Deploy the generated file as an ES-module Worker. See `editions.json` for valid slugs; all worker names use the `nathan-ai-` prefix.
+
+## 64-coin restoration archive
+
+`/restoration` shows the original registry using six-bit addresses, with separate source references and the seven partitions from the supplied chapter. `/api/restoration` exposes the same provenance metadata, and `/manuscript.txt` preserves the supplied scene. These partitions describe the chapter's architecture. The mining provenance note distinguishes artwork and import records from historical proof.

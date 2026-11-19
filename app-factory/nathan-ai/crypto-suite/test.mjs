@@ -34,3 +34,14 @@ test("registry preserves ordered slots and fails closed when source is incomplet
   const oracle = await (await get("crypt-operations","/api/oracle/health",{...env,MINING_LAB:{fetch:async()=>get("mining-lab","/api/genesis-proof")}})).json();
   assert.ok(oracle.sources.every(source=>source.ok));
 });
+
+test("restoration maps all slots without merging families into unresolved positions",async () => {
+  const slots = Array.from({length:64},(_,i)=>({slot:i+1,ticker:i<42?"A"+i:null,name:i<42?"Original "+i:null}));
+  const env = {COIN_SOURCE:{fetch:async()=>Response.json({requested:64,recovered:42,slots})}};
+  const data = await (await get("crypto-64","/api/restoration",env)).json();
+  assert.equal(data.slots[0].coordinate,"000000");
+  assert.deepEqual(data.slots[63],{slot:64,ticker:null,name:null,coordinate:"111111"});
+  assert.equal(data.partitions.length,7);
+  assert.equal(data.partitions.at(-1).id,"middle_mediator");
+  assert.match(await (await get("crypto-64","/manuscript.txt")).text(),/Equilibrium Reached/);
+});
