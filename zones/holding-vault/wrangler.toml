@@ -1,0 +1,13 @@
+name = "nathan-holding-vault"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+[vars]
+PROJECT_ID = "REPLACE_WITH_REGISTERED_PROJECT_ID"
+
+[[d1_databases]]
+binding = "REGISTRY"
+database_name = "tabor-fleet-registry"
+database_id = "00e422eb-5222-4892-8f90-74aaf8ab0518"
+migrations_dir = "migrations"
