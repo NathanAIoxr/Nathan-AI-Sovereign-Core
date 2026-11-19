@@ -20,20 +20,21 @@ const isRelease = (record) => record?.id === release.id
   && record?.premise === release.premise;
 
 async function check(item, env, external) {
-  const init = { signal: AbortSignal.timeout(3500), redirect: 'error', cache: 'no-store' };
   if (item.binding) {
     const address = urls[item.id];
-    const response = await env[item.binding].fetch(new Request(address + '/api/health', init));
+    const response = await env[item.binding].fetch(address + '/api/health');
     if (!response.ok) return false;
     const health = await response.json();
     if (!(health.ok && health.service === item.id && health.version === release.version)) return false;
-    const content = await env[item.binding].fetch(new Request(address + item.path, init));
+    const content = await env[item.binding].fetch(address + item.path);
     if (!content.ok) return false;
     const record = await content.json();
     return item.entry === undefined ? isRelease(record) : record.id === release.entries[item.entry].id;
   }
   const response = await external(item.manifest ? urls.manifest : urls[item.id] + '/', {
-    ...init, method: item.manifest ? 'GET' : 'HEAD',
+    signal: AbortSignal.timeout(3500),
+    redirect: 'error',
+    method: item.manifest ? 'GET' : 'HEAD',
   });
   return response.ok && (!item.manifest || isRelease(await response.json()));
 }
@@ -42,12 +43,13 @@ async function inspect(item, env, external) {
   const row = { id: item.id, label: item.label, url: urls[item.id] };
   try {
     return { ...row, status: await check(item, env, external) ? 'verified' : 'needs attention' };
-  } catch {
+  } catch (error) {
+    console.warn('Domino check failed for ' + item.id + ': ' + String(error));
     return { ...row, status: 'needs attention' };
   }
 }
 
-export async function verifyRelease(env, external = fetch) {
+export async function verifyRelease(env, external = (url, options) => fetch(url, options)) {
   const stages = [];
   let ready = true;
   for (const item of order) {

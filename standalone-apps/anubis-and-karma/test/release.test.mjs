@@ -8,7 +8,8 @@ import { verifyRelease } from '../workers/domino.mjs';
 import { release, urls } from '../workers/shared.mjs';
 
 const request = (path, method = 'GET') => new Request('https://example.invalid' + path, { method });
-const env = { ANUBIS: anubis, KARMA: karma, FINALE: finale };
+const binding = (worker) => ({ fetch: (url) => worker.fetch(new Request(url)) });
+const env = { ANUBIS: binding(anubis), KARMA: binding(karma), FINALE: binding(finale) };
 
 test('0 leaves a case open and 1 advances to a definitive ending', () => {
   let state = { index: 0, message: '' };
