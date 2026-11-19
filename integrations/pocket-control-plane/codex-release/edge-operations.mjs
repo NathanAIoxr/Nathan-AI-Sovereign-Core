@@ -1,6 +1,6 @@
 import { escape, page } from './station.mjs';
 
-const edgeHubOrigin = 'https://one-sovereign-hub.nathantaboract.workers.dev';
+const edgeHubHealth = 'https://one-hub.internal/health';
 const edgeRunbook = 'https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/integrations/pocket-control-plane/codex-release/edge-operations.md';
 
 export async function readEdgeOperations(request, env) {
@@ -13,10 +13,11 @@ export async function readEdgeOperations(request, env) {
   let ready = false;
   if (env.ONE_HUB && request.method === 'GET') {
     try {
-      const response = await env.ONE_HUB.fetch(new Request(edgeHubOrigin + '/health', { redirect: 'error' }));
+      const response = await env.ONE_HUB.fetch(edgeHubHealth);
       ready = response.ok && (await response.json()).service === 'one-sovereign-hub';
-    } catch {
-      // A failed health check remains visible as unavailable.
+      if (!ready) console.warn('ONE Hub health response unavailable', response.status);
+    } catch (error) {
+      console.warn('ONE Hub health request failed', error?.name);
     }
   }
   return { edge, service: { name: 'one-sovereign-hub', ready } };

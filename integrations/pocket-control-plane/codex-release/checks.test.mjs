@@ -116,7 +116,7 @@ test('Pocket Control lists the standalone apps and only dispatches their refresh
 test('Edge Operations serves redacted diagnostics and checks one fixed service route', async () => {
   const calls = [];
   const env = { ONE_HUB: { fetch: async request => {
-    calls.push([request.method, request.url]);
+    calls.push(request);
     return Response.json({ service: 'one-sovereign-hub', privateField: 'omit' });
   } } };
   const request = new Request(origin + '/api/edge-operations?target=https://example.com', {
@@ -129,7 +129,7 @@ test('Edge Operations serves redacted diagnostics and checks one fixed service r
     edge: { colo: 'IAD', protocol: 'HTTP/2', tls: 'TLSv1.3' },
     service: { name: 'one-sovereign-hub', ready: true },
   });
-  assert.deepEqual(calls, [['GET', 'https://one-sovereign-hub.nathantaboract.workers.dev/health']]);
+  assert.deepEqual(calls, ['https://one-hub.internal/health']);
   assert.equal((await pocket.fetch(new Request(origin + '/api/edge-operations', { method: 'POST' }), env)).status, 405);
   assert.equal(await (await pocket.fetch(new Request(origin + '/edge-operations', { method: 'HEAD' }), env)).text(), '');
   assert.equal(calls.length, 1);
