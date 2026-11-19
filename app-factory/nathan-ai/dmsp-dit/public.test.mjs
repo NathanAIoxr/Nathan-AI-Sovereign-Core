@@ -23,6 +23,7 @@ test("standalone HTML carries embedded UI with 28 selectable services",()=>{
  assert.match(standalone,/<script>/);
  assert.doesNotMatch(standalone,/src="\/app.js"/);
  assert.match(standalone,/download-plan/);
+ assert.ok(standalone.indexOf('id="download-plan"') < standalone.indexOf("<script>"));
 });
 test("JSON catalog has 28 unique departments",()=>{
  assert.equal(catalog.services.length,28);

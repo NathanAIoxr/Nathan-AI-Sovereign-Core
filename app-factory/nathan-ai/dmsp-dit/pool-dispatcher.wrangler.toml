@@ -1,0 +1,16 @@
+name = "nathan-ai-dmsp-dit-pool"
+main = "pool-dispatcher.mjs"
+compatibility_date = "2026-11-18"
+workers_dev = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nathan-ai-dmsp-dit"
+database_id = "cdf85223-d671-4afe-8c69-1b90697b1951"
+
+[[dispatch_namespaces]]
+binding = "POOL"
+namespace = "nathan-tabor-platforms"
+
+[triggers]
+crons = ["*/15 * * * *"]

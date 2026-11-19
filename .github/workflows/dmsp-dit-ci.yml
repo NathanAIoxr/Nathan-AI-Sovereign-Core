@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Validate public API and fail-closed private API
+      - name: Validate portal, private API, and department dispatch
         run: |
           node --check app-factory/nathan-ai/dmsp-dit/public/app.js
-          node --test app-factory/nathan-ai/dmsp-dit/worker.test.mjs app-factory/nathan-ai/dmsp-dit/public.test.mjs
+          node --test app-factory/nathan-ai/dmsp-dit/*.test.mjs

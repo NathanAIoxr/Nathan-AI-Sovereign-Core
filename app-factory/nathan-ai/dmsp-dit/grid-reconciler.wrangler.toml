@@ -1,0 +1,11 @@
+name = "nathan-ai-grid-reconciler"
+main = "grid-reconciler-worker.js"
+compatibility_date = "2026-11-18"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nathan-ai-dmsp-dit"
+database_id = "cdf85223-d671-4afe-8c69-1b90697b1951"
+
+[triggers]
+crons = ["*/15 * * * *"]
