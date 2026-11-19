@@ -1,4 +1,4 @@
-"""Load the source case into SQLite or emit a parameterized Cloudflare D1 batch."""
+"""Load a case into SQLite or emit a parameterized Cloudflare D1 batch."""
 import argparse
 import hashlib
 import json
@@ -8,8 +8,8 @@ import sqlite3
 ROOT = Path(__file__).resolve().parent
 
 
-def load_case():
-    raw = (ROOT / "case.json").read_bytes()
+def load_case(case_path):
+    raw = case_path.read_bytes()
     data = json.loads(raw)
     case = data["case"]
     case_id = case["id"]
@@ -67,11 +67,12 @@ def verify(db, case_id, seed):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--case", type=Path, default=ROOT / "case.json", help="Case JSON to load.")
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--database", type=Path, help="Create or verify a SQLite database file.")
     mode.add_argument("--d1-payload", action="store_true", help="Write the parameterized D1 batch as JSON.")
     args = parser.parse_args()
-    case_id, seed = load_case()
+    case_id, seed = load_case(args.case)
 
     if args.d1_payload:
         batch = [{"sql": sql} for sql in schema_statements()]
