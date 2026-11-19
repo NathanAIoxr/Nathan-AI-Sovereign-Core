@@ -20,7 +20,7 @@ test("catalog probes bind one fixed route per Worker and validate the response",
       return {
         fetch(url, init) {
           assert.equal(init.method, "GET");
-          assert.equal(init.redirect, "error");
+          assert.equal(init.redirect, "manual");
           assert.equal(url, "https://catalog.internal/p/" + target + (target === portal ? "/api/platform" : ""));
           return Response.json(target === name
             ? { id: name, source: "Glottolog CLDF v5.4", first: "abcd1234", last: "abcd1234", records: [{ id: "abcd1234" }] }
@@ -32,4 +32,9 @@ test("catalog probes bind one fixed route per Worker and validate the response",
   assert.deepEqual(await probeCatalog(pool, name), [name, "PASS", "catalog_response_verified"]);
   assert.deepEqual(await probeCatalog(pool, portal), [portal, "FAIL", "unexpected_catalog_response"]);
   assert.deepEqual(await probeCatalog({}, "unapproved"), ["unapproved", "FAIL", "not_allowlisted"]);
+});
+
+test("catalog probes reject redirects", async () => {
+  const pool = { get: () => ({ fetch: () => Response.redirect("https://elsewhere.example/", 302) }) };
+  assert.deepEqual(await probeCatalog(pool, "cloud"), ["cloud", "FAIL", "http_302"]);
 });

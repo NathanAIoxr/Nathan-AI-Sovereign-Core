@@ -19,7 +19,7 @@ export async function probeCatalog(pool, name) {
   const route = "/p/" + name + (isPortal ? "/api/platform" : "");
   try {
     const worker = pool.get(name, {}, { limits: { cpuMs: 10, subRequests: isPortal ? 1 : 0 } });
-    const response = await worker.fetch("https://catalog.internal" + route, { method: "GET", redirect: "error" });
+    const response = await worker.fetch("https://catalog.internal" + route, { method: "GET", redirect: "manual" });
     if (!response.ok) return [name, "FAIL", "http_" + response.status];
     const data = await response.json();
     const hasCatalogData = isPortal
