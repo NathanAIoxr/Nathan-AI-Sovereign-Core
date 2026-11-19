@@ -1,0 +1,4 @@
+import test from "node:test";import assert from "node:assert/strict";import {readFileSync} from "node:fs";import {fileURLToPath} from "node:url";import path from "node:path";
+const here=path.dirname(fileURLToPath(import.meta.url));const text=readFileSync(path.join(here,"moses-rod-passage-map.md"),"utf8");const original=readFileSync(path.join(here,"../original.txt"),"utf8");
+test("preserves original and separates Eden tradition",()=>{assert.match(original,/staff of Moses that was taken from the garden of Eden/);assert.match(text,/not made in these KJV passages/);assert.match(text,/Pirkei de-Rabbi Eliezer/);});
+test("documents seven references and open custody",()=>{for(const p of ["Exodus 4:2","Exodus 4:17","Exodus 7:8","Exodus 14:16","Exodus 17:5","Numbers 20:7","Hebrews 9:4"])assert.ok(text.includes(p),p);assert.match(text,/chain of custody.*unverified/);});
