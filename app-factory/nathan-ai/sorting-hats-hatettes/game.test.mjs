@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { alphabet, canOpen, catalogSize, materials, pairAt, realms, spinWord } from "./public/game.mjs";
+import { alphabet, canOpen, catalogSize, materials, pairAt, realms, restoreProgress, spinWord } from "./public/game.mjs";
 
 test("2,498 individual hats and hatettes have unique realm-specific catalog entries", () => {
   const pairs = new Set(["winter"]);
@@ -29,4 +29,17 @@ test("the suffix spinner keeps the named pairs and accepts other words", () => {
   assert.equal(spinWord("Dude"),"dudette");
   assert.equal(spinWord("crown"),"crownette");
   assert.equal(spinWord(""),"");
+});
+
+test("reopening a realm preserves progress and accepts older saves", () => {
+  const claims = [pairAt(4, 0, 0).id];
+  const gates = [4];
+  assert.deepEqual(restoreProgress(JSON.stringify({ claims, gates, current: 4 })), {
+    claims: new Set(claims), gates: new Set(gates), current: 4,
+  });
+  assert.deepEqual(restoreProgress(JSON.stringify({ claims, gates })), {
+    claims: new Set(claims), gates: new Set(gates), current: 1,
+  });
+  assert.equal(restoreProgress('{"current":99}').current, 1);
+  assert.equal(restoreProgress("{").current, 1);
 });
