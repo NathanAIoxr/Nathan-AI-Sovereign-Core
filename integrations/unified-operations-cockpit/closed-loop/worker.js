@@ -215,6 +215,7 @@ async function report(env) {
 }
 
 function dashboard(status) {
+  const nonce = crypto.randomUUID();
   const escape = value => String(value).replace(/[&<>"']/g, char =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
   const metric = (label, value) => "<div><dt>" + escape(label) + "</dt><dd>" + escape(value) + "</dd></div>";
@@ -228,13 +229,79 @@ function dashboard(status) {
   const github = status.github.url ? '<a href="' + escape(status.github.url) + '">' + escape(status.github.state) + "</a>" :
     "Awaiting first run";
   return new Response(`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unified Operations Cockpit</title>
-  <style>body{margin:0;background:#101919;color:#f3f4ea;font:16px system-ui,sans-serif}main{max-width:920px;margin:auto;padding:clamp(28px,8vw,100px) 24px}h1{font-size:clamp(32px,7vw,66px);line-height:1;letter-spacing:-.04em;margin:0 0 22px}h2{font-size:20px}p,dt{color:#b6c8c3}dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:32px 0}dl div{border:1px solid #456058;background:#192723;padding:16px 18px}dd{margin:8px 0 0;font-size:28px;font-weight:700}a{color:#a9e2c9}aside{border-top:1px solid #456058;padding-top:12px}</style>
+  <style>body{margin:0;background:#101919;color:#f3f4ea;font:16px system-ui,sans-serif}main{max-width:920px;margin:auto;padding:clamp(28px,8vw,100px) 24px}h1{font-size:clamp(32px,7vw,66px);line-height:1;letter-spacing:-.04em;margin:0 0 22px}h2{font-size:20px}p,dt{color:#b6c8c3}dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:32px 0}dl div{border:1px solid #456058;background:#192723;padding:16px 18px}dd{margin:8px 0 0;font-size:28px;font-weight:700}a{color:#a9e2c9}aside,section{border-top:1px solid #456058;padding-top:12px;margin-top:24px}input,button{font:inherit;box-sizing:border-box;padding:9px 12px;margin:6px 6px 6px 0;border:1px solid #76948b;border-radius:4px}input{width:min(100%,19rem);background:#111b19;color:inherit}button{background:#a9e2c9;color:#10231c;cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style>
   <main><h1>Unified Operations Cockpit</h1><p>${status.ready ? "Source reconciliation is current." : "Source reconciliation is in progress."}</p>
   <dl>${metrics}</dl><aside><h2>GitHub verification</h2><p>${github}</p>
-  <p><a href="/api/summary">JSON status</a></p></aside></main></html>`, {
+  <p><a href="/api/summary">JSON status</a></p></aside>
+  <section aria-labelledby="owner-heading"><h2 id="owner-heading">Owner controls</h2>
+  <form id="unlock" method="post" action="/owner" autocomplete="off">
+    <label for="owner-key">Cockpit key</label><br>
+    <input id="owner-key" type="password" required autocomplete="off"><button>Unlock</button>
+  </form>
+  <div id="owner-actions" hidden>
+    <button data-path="/api/status">Source checks</button>
+    <button data-path="/api/platforms">Namespace status</button>
+    <button data-path="/api/micro" data-method="POST">Record pulse</button>
+    <button data-path="/api/import" data-method="POST">Reconcile next tables</button>
+    <button data-path="/api/macro" data-method="POST">Refresh GitHub receipt</button>
+    <button id="lock">Lock</button>
+  </div>
+  <p id="owner-message" role="status"></p><pre id="owner-result" hidden></pre></section></main>
+  <script nonce="${nonce}">
+    const form = document.querySelector("#unlock");
+    const input = document.querySelector("#owner-key");
+    const controls = document.querySelector("#owner-actions");
+    const message = document.querySelector("#owner-message");
+    const result = document.querySelector("#owner-result");
+    let key = "";
+    let pending = false;
+    async function call(path, method, token) {
+      const response = await fetch(path, {method, headers: {Authorization: "Bearer " + token}});
+      if (response.status === 401) throw new Error("The cockpit key was rejected.");
+      const data = await response.json();
+      result.textContent = JSON.stringify(data, null, 2);
+      result.hidden = false;
+      return response.ok;
+    }
+    async function run(action) {
+      if (pending) return;
+      pending = true;
+      message.textContent = "Working…";
+      try { await action(); } catch (error) { message.textContent = error.message; }
+      finally { pending = false; }
+    }
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      run(async () => {
+        const supplied = input.value;
+        input.value = "";
+        if (!await call("/api/status", "GET", supplied)) throw new Error("Owner status is unavailable.");
+        key = supplied;
+        form.hidden = true;
+        controls.hidden = false;
+        message.textContent = "Owner controls unlocked.";
+      });
+    });
+    for (const button of controls.querySelectorAll("button[data-path]")) {
+      button.addEventListener("click", () => run(async () => {
+        const ok = await call(button.dataset.path, button.dataset.method || "GET", key);
+        message.textContent = ok ? "Request complete." : "Request failed. See the result below.";
+      }));
+    }
+    document.querySelector("#lock").addEventListener("click", () => {
+      if (pending) return;
+      key = "";
+      result.textContent = "";
+      result.hidden = true;
+      controls.hidden = true;
+      form.hidden = false;
+      message.textContent = "Owner controls locked.";
+      input.focus();
+    });
+  </script></html>`, {
     headers: {
       "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store",
-      "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'",
+      "Content-Security-Policy": "default-src 'none'; script-src 'nonce-" + nonce + "'; style-src 'unsafe-inline'; connect-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'",
       "X-Content-Type-Options": "nosniff",
     },
   });

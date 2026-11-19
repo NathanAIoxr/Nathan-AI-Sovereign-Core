@@ -12,7 +12,7 @@ wrangler deploy
 wrangler secret put COCKPIT_KEY
 ```
 
-Store the owner key in Cloudflare secret storage and send it only in the HTTPS `Authorization: Bearer` header. The aggregate dashboard and `GET /api/summary` work without a key. The dashboard fits mobile browsers.
+Store the owner key in Cloudflare secret storage. Open the dashboard on a desktop or mobile browser and enter the key under Owner controls to view private status and run a reconciliation. API clients send the key in the HTTPS `Authorization: Bearer` header. The public dashboard summary and `GET /api/summary` work without a key.
 
 | Owner endpoint | Operation |
 | --- | --- |
