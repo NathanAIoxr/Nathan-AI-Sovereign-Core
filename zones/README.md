@@ -4,6 +4,14 @@ Each tracked project has its own registry record. A project can receive a dedica
 
 Run `node --test zones/test.mjs` from the repository root. Run `node zones/inventory.mjs HEAD` to produce a source inventory. An inventory record confirms a tracked file. Where a project has a product and a station manifest, both source entries can appear. A build key in the registry records an uploaded staging snapshot. Asset keys follow `projects/<project_id>/<build_key>/<relative_path>`. A private R2 upload is separate from DNS activation, Access configuration, and public launch. The existing BOOBIES releases have their own publishing paths.
 
+## Initial deployment
+
+- Cloudflare resources: D1 `tabor-zone-holding`, private R2 `tabor-zone-holding-assets`, KV `tabor-zone-holding-config`.
+- Worker: `tabor-zone-holding` in the `nathan-tabor-platforms` dispatch namespace.
+- GitHub Actions: [Zone holding deployment](../.github/workflows/zone-holding.yml).
+- The first source import recorded 689 manifests and release entries. Ten BOOBIES projects have private artifact snapshots. The gallery snapshot includes the four posters, source text, and its release directory. The nine individual entry snapshots have their own object prefixes. Check the cross-project navigation and any service bindings when assigning real hostnames.
+- Domain assignments, dispatch gateway routing, and the Cloudflare Access issuer and per-project audiences are configured per launch. The pending zone lifetime is documented by Cloudflare. The registry is the long-term holding record for projects without domains.
+
 ## Deployment order
 
 1. Commit the isolated `zones/` package in the monorepo.

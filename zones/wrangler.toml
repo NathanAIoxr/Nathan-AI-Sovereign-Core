@@ -14,7 +14,7 @@ ACCESS_ISSUER = ""
 [[d1_databases]]
 binding = "ZONES"
 database_name = "tabor-zone-holding"
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "2b29b82e-323e-4f92-b355-1df89c67024c"
 migrations_dir = "migrations"
 
 [[r2_buckets]]
@@ -23,4 +23,4 @@ bucket_name = "tabor-zone-holding-assets"
 
 [[kv_namespaces]]
 binding = "HOLDING_CONFIG"
-id = "00000000000000000000000000000000"
+id = "2b39811223014f30bf9050eba38adfba"
