@@ -71,21 +71,28 @@ export async function auditSnapshot(db) {
   const manifest = JSON.stringify(entries);
   const root_hash = await sha256(manifest);
   const snapshot_id = crypto.randomUUID();
-  const ids = entries.map(row => row.id);
-  const placeholders = ids.map(() => "?").join(",");
   const now = new Date().toISOString();
+  // Commit only if the rows still match the data used to build the manifest.
   const create = db.prepare(`INSERT INTO database_snapshots
     (snapshot_id, row_count, root_hash, manifest, created_at)
-    SELECT ?, ?, ?, ?, ? WHERE (SELECT count(*) FROM axis_dual_bus
-      WHERE direction = 'FORWARD' AND id IN (${placeholders})) = ?`)
-    .bind(snapshot_id, ids.length, root_hash, manifest, now, ...ids, ids.length);
+    SELECT ?, ?, ?, ?, ? WHERE (
+      SELECT count(*) FROM json_each(?) AS observed
+      JOIN axis_dual_bus AS current ON current.id = observed.value ->> '$.id'
+      WHERE current.direction = 'FORWARD'
+        AND current.zone = observed.value ->> '$.zone'
+        AND current.family_id = observed.value ->> '$.family_id'
+        AND current.clover_node = observed.value ->> '$.clover_node'
+        AND current.sha256_hash = observed.value ->> '$.sha256_hash'
+        AND current.payload = observed.value ->> '$.payload'
+    ) = ?`)
+    .bind(snapshot_id, entries.length, root_hash, manifest, now, JSON.stringify(results), entries.length);
   const apply = entries.map(row => db.prepare(`UPDATE axis_dual_bus SET direction = ?, updated_at = ?
     WHERE id = ? AND EXISTS (SELECT 1 FROM database_snapshots WHERE snapshot_id = ?)`)
     .bind(row.match ? "MIRROR_VERIFIED" : "QUARANTINED", now, row.id, snapshot_id));
   const [claimed] = await db.batch([create, ...apply]);
   if (!claimed.meta.changes) return { status: "CONCURRENT_AUDIT", verified: 0, quarantined: 0 };
   const verified = entries.filter(row => row.match).length;
-  return { status: "AUDITED", snapshot_id, root_hash, verified, quarantined: ids.length - verified };
+  return { status: "AUDITED", snapshot_id, root_hash, verified, quarantined: entries.length - verified };
 }
 
 export async function archiveSnapshot(db, bucket, id) {
@@ -116,12 +123,22 @@ export async function catalog(db) {
 
 export async function claimSupernode(db, recordId) {
   if (!Number.isSafeInteger(recordId) || recordId < 1) throw new RangeError("Provide a valid record ID.");
-  const row = await db.prepare(`SELECT id, sha256_hash, clover_node, family_id FROM axis_dual_bus
+  const row = await db.prepare(`SELECT sha256_hash, payload FROM axis_dual_bus
     WHERE id = ? AND direction = 'MIRROR_VERIFIED'`).bind(recordId).first();
-  if (!row) return { status: "VERIFIED_RECORD_REQUIRED" };
+  if (!row || await sha256(row.payload) !== row.sha256_hash) return { status: "VERIFIED_RECORD_REQUIRED" };
   const address = Number.parseInt(row.sha256_hash.slice(0, 12), 16) % addressSpace.supernodes + 1;
-  await db.prepare("INSERT OR IGNORE INTO supernode_registry VALUES (?, ?, ?, ?, ?, ?)")
-    .bind(address, row.id, row.clover_node, row.family_id, radix(address), row.sha256_hash).run();
-  const result = await db.prepare("SELECT * FROM supernode_registry WHERE source_record = ?").bind(recordId).first();
-  return result ? { status: "REGISTERED", ...result } : { status: "ADDRESS_COLLISION" };
+  const insert = db.prepare(`INSERT INTO supernode_registry
+    (logical_address, source_record, clover_node, family_id, duodecimal_addr, owner_checksum)
+    SELECT ?, id, clover_node, family_id, ?, sha256_hash FROM axis_dual_bus
+    WHERE id = ? AND direction = 'MIRROR_VERIFIED' AND sha256_hash = ? AND payload = ?
+    ON CONFLICT DO NOTHING`).bind(address, radix(address), recordId, row.sha256_hash, row.payload);
+  const verify = db.prepare(`SELECT registry.* FROM axis_dual_bus AS source
+    LEFT JOIN supernode_registry AS registry ON registry.source_record = source.id
+      AND registry.owner_checksum = source.sha256_hash
+    WHERE source.id = ? AND source.direction = 'MIRROR_VERIFIED' AND source.sha256_hash = ? AND source.payload = ?`)
+    .bind(recordId, row.sha256_hash, row.payload);
+  const [, claim] = await db.batch([insert, verify]);
+  const result = claim.results[0];
+  if (!result) return { status: "VERIFIED_RECORD_REQUIRED" };
+  return result.source_record === null ? { status: "ADDRESS_COLLISION" } : { status: "REGISTERED", ...result };
 }
