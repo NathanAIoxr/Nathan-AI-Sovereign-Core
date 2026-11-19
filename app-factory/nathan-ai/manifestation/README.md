@@ -22,6 +22,8 @@ The existing book retains the Digital Manifestation Interface, AccordOS Genesis 
 
 Recovered prior conversation references also identify the **Tabor World Manifestation Engine**, **Nathan AI — Action-Based Truth Verification** (`action_verifies_truth(actions)`), and a **Path Protocol** (`IgnitionSeed`, `DragonBreath`, `HumanNode`, `PathEngine`; Detect → Purify → Clarify → Act → Return). Those are indexed as references pending standalone source recovery. THE NET is represented in the existing book and earlier index by its concept and chapter scaffold. WHO YOU BE is recorded as WHO = Perception → YOU = Purification → BE = Manifestation.
 
+The **ONE v068 Truth AI Node / Binary Engine** was recovered as an embedded HTML module from `ONE_MASTER_LIBRARY_v068_TRUTH_AI_NODE.html`. Its own interface describes a local evidence router, original-source ledger, binary frame, and session audit. The exact extracted module is archived in the Cloudflare database’s `manifest_node_private_archive` table, accessible through the account’s D1 tools. The public Worker routes serve the supplied AI-node transcript and its execution receipt.
+
 ## Cloudflare and checks
 
 Apply `schema.sql` to D1 `tabor-manifestation`. Deploy `worker.mjs`, `manifest-node.mjs`, and `manifest-source.mjs` as ES modules to the existing Worker `tabor-manifestation`, bind that database as `MANIFEST_NODE_DB`, and configure the Worker secret `MANIFEST_NODE_TOKEN`. The run endpoint accepts the secret as an `Authorization: Bearer …` header.
