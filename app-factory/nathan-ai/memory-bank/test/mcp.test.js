@@ -15,7 +15,7 @@ test('an MCP stdio client can discover tools, save, recall and restrict writes',
     for await (const chunk of request) body += chunk.toString();
     received.push({ method: request.method, url: request.url, auth: request.headers.authorization, body });
     response.setHeader('Content-Type', 'application/json');
-    if (request.method === 'POST') response.end('{"status":"saved","id":1,"title":"Orbit"}');
+    if (request.url.endsWith('/remember')) response.end('{"status":"saved","id":1,"title":"Orbit"}');
     else response.end('{"count":1,"memories":[{"id":1,"title":"Orbit"}],"next_before_id":null}');
   });
   http.listen(0, '127.0.0.1');
@@ -45,7 +45,7 @@ test('an MCP stdio client can discover tools, save, recall and restrict writes',
   assert.equal(denied.isError, true);
   assert.deepEqual(received, [
     { method: 'POST', url: '/memory-bank/remember', auth: 'Bearer write-test', body: '{"title":"Orbit","content":"Original wording"}' },
-    { method: 'GET', url: '/memory-bank/recall?limit=2&q=Orbit', auth: 'Bearer read-test', body: '' }
+    { method: 'POST', url: '/memory-bank/recall', auth: 'Bearer read-test', body: '{"limit":2,"q":"Orbit"}' }
   ]);
   await read.close();
   await client.close();

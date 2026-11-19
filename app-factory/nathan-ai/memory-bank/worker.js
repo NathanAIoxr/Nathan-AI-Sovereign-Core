@@ -20,7 +20,7 @@ class RequestError extends Error {
 function json(data, status = 200, headers = {}) {
   return Response.json(data, {
     status,
-    headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', ...headers }
+    headers: { 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer', 'X-Content-Type-Options': 'nosniff', ...headers }
   });
 }
 
@@ -37,7 +37,7 @@ async function keyMatches(supplied, expected) {
   return diff === 0;
 }
 
-async function readJson(request) {
+async function readJson(request, byteLimit = maxBodyBytes) {
   if (request.headers.get('Content-Type')?.split(';')[0].trim().toLowerCase() !== 'application/json') {
     throw new RequestError(415, 'Use Content-Type: application/json.');
   }
@@ -51,9 +51,9 @@ async function readJson(request) {
       const { value, done } = await reader.read();
       if (done) break;
       bytes += value.byteLength;
-      if (bytes > maxBodyBytes) {
-        await reader.cancel();
-        throw new RequestError(413, 'The request exceeds 512 KiB.');
+      if (bytes > byteLimit) {
+        await reader.cancel().catch(() => {});
+        throw new RequestError(413, 'The request exceeds ' + byteLimit / 1024 + ' KiB.');
       }
       text += decoder.decode(value, { stream: true });
     }
@@ -72,7 +72,7 @@ function normalizeEntry(entry) {
   }
   function field(name, length, fallback) {
     const value = entry[name] ?? fallback;
-    if (typeof value !== 'string' || value.length > length || value.includes('\0')) {
+    if (typeof value !== 'string' || value.length > length || value.includes('\0') || !value.isWellFormed()) {
       throw new RequestError(400, name + ' must be text up to ' + length + ' characters.');
     }
     return name === 'content' ? value : value.trim();
@@ -100,6 +100,7 @@ async function remember(request, DB) {
     DB.prepare('SELECT id FROM personal_intelligence WHERE ' + entryMatch + ' ORDER BY id LIMIT 1').bind(...values)
   ]);
   const id = inserted.results[0]?.id ?? existing.results[0]?.id;
+  if (!Number.isSafeInteger(id) || id < 1) throw new RequestError(503, 'The save could not be verified. Retry the same entry.');
   const saved = inserted.results.length > 0;
   return json({ status: saved ? 'saved' : 'already_saved', id, title: values[1] }, saved ? 201 : 200);
 }
@@ -119,7 +120,11 @@ async function importEntries(request, DB) {
   });
   const results = await DB.batch(entries.map((entry) => insert(DB, entry)));
   const ids = results.flatMap((result) => result.results.map((row) => row.id));
-  return json({ status: 'imported', saved: ids.length, duplicates: entries.length - ids.length, ids });
+  if (results.length !== entries.length || ids.length > entries.length ||
+      ids.some((id) => !Number.isSafeInteger(id) || id < 1) || new Set(ids).size !== ids.length) {
+    throw new RequestError(503, 'The import could not be verified. Retry the same batch.');
+  }
+  return json({ status: 'imported', received: entries.length, saved: ids.length, duplicates: entries.length - ids.length, ids });
 }
 
 function numberParam(params, name, fallback, max) {
@@ -132,13 +137,38 @@ function numberParam(params, name, fallback, max) {
   return value;
 }
 
-async function recall(url, DB) {
+async function recall(request, url, DB) {
   const params = url.searchParams;
-  const q = (params.get('q') || '').trim();
-  const category = (params.get('category') || '').trim();
+  let query;
+  if (request.method === 'POST') {
+    if (url.search) throw new RequestError(400, 'Send search parameters in the JSON body.');
+    query = await readJson(request, 4 * 1024);
+    if (!query || typeof query !== 'object' || Array.isArray(query) ||
+        Object.keys(query).some((name) => !['q', 'category', 'limit', 'before_id'].includes(name))) {
+      throw new RequestError(400, 'Supply a JSON object with search fields.');
+    }
+    for (const [name, max] of [['limit', maxRecall], ['before_id', Number.MAX_SAFE_INTEGER]]) {
+      if (Object.hasOwn(query, name) && (!Number.isSafeInteger(query[name]) || query[name] < 1 || query[name] > max)) {
+        throw new RequestError(400, 'Invalid ' + name + '.');
+      }
+    }
+  } else {
+    for (const name of ['q', 'category', 'limit', 'before_id']) {
+      if (params.getAll(name).length > 1) throw new RequestError(400, 'Supply ' + name + ' only once.');
+    }
+    query = {
+      q: params.get('q') ?? '', category: params.get('category') ?? '',
+      limit: numberParam(params, 'limit', 8, maxRecall),
+      before_id: numberParam(params, 'before_id', null, Number.MAX_SAFE_INTEGER)
+    };
+  }
+  const { q: rawQuestion = '', category: rawCategory = '', limit = 8, before_id: before = null } = query;
+  if ([rawQuestion, rawCategory].some((text) => typeof text !== 'string' || !text.isWellFormed() || text.includes('\0'))) {
+    throw new RequestError(400, 'Search and category must be well-formed text.');
+  }
+  const q = rawQuestion.trim();
+  const category = rawCategory.trim();
   if (q.length > 300 || category.length > 80) throw new RequestError(400, 'Search text is too long.');
-  const limit = numberParam(params, 'limit', 8, maxRecall);
-  const before = numberParam(params, 'before_id', null, Number.MAX_SAFE_INTEGER);
   const rawTerms = q.toLowerCase().match(/[\p{L}\p{N}]+/gu) || [];
   const meaningfulTerms = rawTerms.filter((word) => !stopWords.has(word));
   const terms = [...new Set(meaningfulTerms.length ? meaningfulTerms : rawTerms)];
@@ -184,9 +214,9 @@ export default {
     }
     if (pathname === '/health' && request.method === 'GET') return json({ status: 'ok' });
 
-    const expectedMethod = { '/remember': 'POST', '/recall': 'GET', '/import': 'POST' }[pathname];
-    if (!expectedMethod) return json({ error: 'Route not found.' }, 404);
-    if (request.method !== expectedMethod) return json({ error: 'Method not allowed.' }, 405, { Allow: expectedMethod });
+    const methods = { '/remember': ['POST'], '/recall': ['GET', 'POST'], '/import': ['POST'] }[pathname];
+    if (!methods) return json({ error: 'Route not found.' }, 404);
+    if (!methods.includes(request.method)) return json({ error: 'Method not allowed.' }, 405, { Allow: methods.join(', ') });
 
     const supplied = request.headers.get('Authorization')?.match(/^Bearer (\S+)$/i)?.[1];
     const authorized = await keyMatches(supplied, env.API_KEY) ||
@@ -195,7 +225,7 @@ export default {
     try {
       if (pathname === '/remember') return await remember(request, env.DB);
       if (pathname === '/import') return await importEntries(request, env.DB);
-      return await recall(url, env.DB);
+      return await recall(request, url, env.DB);
     } catch (error) {
       if (error instanceof RequestError) return json({ error: error.message }, error.status);
       return json({ error: 'Memory storage is unavailable. Retry shortly.' }, 503);

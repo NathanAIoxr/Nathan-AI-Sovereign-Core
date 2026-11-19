@@ -8,6 +8,7 @@ let activeQuestion;
 let activeCategory;
 let memories = [];
 let generation = 0;
+let session = new AbortController();
 const selectedRecords = new Set();
 
 get('connection').open = !accessKey;
@@ -21,6 +22,8 @@ function clearRecall() {
   memories = [];
   selectedRecords.clear();
   nextBefore = null;
+  activeQuestion = '';
+  activeCategory = '';
   get('results').replaceChildren();
   get('copy').hidden = true;
   get('use-all').hidden = true;
@@ -28,15 +31,26 @@ function clearRecall() {
   get('recall-status').textContent = '';
 }
 
-get('connect').addEventListener('click', () => {
-  accessKey = get('key').value.trim();
+function switchSession(key) {
+  session.abort();
+  session = new AbortController();
+  accessKey = key;
   clearRecall();
+  get('remember').querySelector('button').disabled = false;
+}
+
+get('connect').addEventListener('click', () => {
+  if (accessKey) {
+    get('archive-file').value = '';
+    resetArchive();
+  }
+  switchSession(get('key').value.trim());
   get('connection').open = !accessKey;
   if (accessKey) get('question').focus();
 });
 
 get('lock').addEventListener('click', () => {
-  accessKey = '';
+  switchSession('');
   get('key').value = '';
   get('archive-file').value = '';
   resetArchive();
@@ -46,7 +60,6 @@ get('lock').addEventListener('click', () => {
   get('ai-question').value = '';
   get('ai-status').textContent = '';
   get('recall-category').value = '';
-  clearRecall();
   get('connection').open = true;
   get('key').focus();
 });
@@ -59,7 +72,9 @@ async function api(path, options = {}) {
   }
   const headers = new Headers(options.headers);
   headers.set('Authorization', 'Bearer ' + accessKey);
-  const response = await fetch(new URL(path.slice(1), appBase), { ...options, headers, cache: 'no-store' });
+  const response = await fetch(new URL(path.slice(1), appBase), {
+    ...options, headers, cache: 'no-store', redirect: 'error', signal: session.signal
+  });
   const result = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(result.error || 'Request failed. Try again.');
   return result;
@@ -72,13 +87,15 @@ async function lookup(append = false) {
     activeCategory = get('recall-category').value.trim();
   }
   const current = generation;
-  const params = new URLSearchParams({ q: activeQuestion, limit: '8' });
-  if (activeCategory) params.set('category', activeCategory);
-  if (append && nextBefore) params.set('before_id', nextBefore);
+  const params = { q: activeQuestion, limit: 8 };
+  if (activeCategory) params.category = activeCategory;
+  if (append && nextBefore) params.before_id = nextBefore;
   get('more').disabled = true;
   get('recall-status').textContent = 'Searching…';
   try {
-    const result = await api('/recall?' + params);
+    const result = await api('/recall', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(params)
+    });
     if (current !== generation) return;
     nextBefore = result.next_before_id;
     for (const memory of result.memories) render(memory);
@@ -144,6 +161,7 @@ get('use-all').addEventListener('click', () => {
 });
 
 async function copyContext(question, status) {
+  const current = generation;
   const chosen = memories.filter(memory => selectedRecords.has(memory.id));
   if (!question && !chosen.length) {
     status.textContent = 'Write a question or select records from Recall.';
@@ -162,9 +180,9 @@ async function copyContext(question, status) {
   ].filter(Boolean).join('\n\n');
   try {
     await navigator.clipboard.writeText(prompt);
-    status.textContent = chosen.length ? 'Copied ' + chosen.length + (chosen.length === 1 ? ' memory.' : ' memories.') : 'Copied your question.';
+    if (current === generation) status.textContent = chosen.length ? 'Copied ' + chosen.length + (chosen.length === 1 ? ' memory.' : ' memories.') : 'Copied your question.';
   } catch {
-    status.textContent = 'Clipboard access failed. You can select and copy the text on this page.';
+    if (current === generation) status.textContent = 'Clipboard access failed. You can select and copy the text on this page.';
   }
 }
 
@@ -186,21 +204,21 @@ get('remember').addEventListener('submit', async (event) => {
   if (!entry.source_ai.trim()) entry.source_ai = 'manual';
   button.disabled = true;
   status.textContent = 'Saving…';
-  const usedKey = accessKey;
+  const current = session;
   try {
     const result = await api('/remember', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(entry)
     });
-    if (accessKey !== usedKey) return;
+    if (session !== current) return;
     status.textContent = (result.status === 'saved' ? 'Saved' : 'Already saved') + ' as memory #' + result.id + '.';
     form.reset();
     get('category').value = startingCategory;
   } catch (error) {
-    if (accessKey === usedKey) status.textContent = error.message;
+    if (session === current) status.textContent = error.message;
   } finally {
-    button.disabled = false;
+    if (session === current) button.disabled = false;
   }
 });
 
@@ -212,6 +230,8 @@ function resetArchive() {
   archiveGeneration++;
   archiveChats = [];
   chosenChats.clear();
+  get('archive-file').disabled = false;
+  get('archive-filter').disabled = false;
   get('archive-filter').value = '';
   get('archive-filter').hidden = true;
   document.querySelector('[for="archive-filter"]').hidden = true;
@@ -251,8 +271,9 @@ get('archive-file').addEventListener('change', async () => {
   const status = get('archive-status');
   try {
     if (file.size > 25 * 1024 * 1024) throw new Error('Use the command-line importer for files over 25 MiB.');
-    const chats = availableChats(JSON.parse(await file.text()));
+    const text = await file.text();
     if (revision !== archiveGeneration) return;
+    const chats = availableChats(JSON.parse(text));
     if (!chats.length) throw new Error('No readable ChatGPT conversations were found.');
     archiveChats = chats;
     get('archive-filter').hidden = false;
@@ -289,9 +310,11 @@ get('archive-save').addEventListener('click', async () => {
   } catch (error) {
     if (revision === archiveGeneration) get('archive-status').textContent = error.message + ' You can retry the same selection.';
   } finally {
-    get('archive-file').disabled = false;
-    get('archive-filter').disabled = false;
-    get('archive-save').disabled = !chosenChats.size;
-    get('archive-list').querySelectorAll('input').forEach(input => { input.disabled = false; });
+    if (revision === archiveGeneration) {
+      get('archive-file').disabled = false;
+      get('archive-filter').disabled = false;
+      get('archive-save').disabled = !chosenChats.size;
+      get('archive-list').querySelectorAll('input').forEach(input => { input.disabled = false; });
+    }
   }
 });

@@ -26,7 +26,7 @@
       <input id="key" type="password" autocomplete="off" autocapitalize="none" spellcheck="false">
       <div class="actions">
         <button type="button" id="connect">Unlock for this session</button>
-        <button type="button" id="lock" class="quiet">Lock</button>
+        <button type="button" id="lock" class="quiet">Lock · 1-1=0</button>
       </div>
     </details>
 
@@ -93,7 +93,7 @@
           <label for="source">Source AI</label>
           <input id="source" name="source_ai" maxlength="80" placeholder="e.g. Gemini, Claude">
         </details>
-        <button>Save memory</button>
+        <button>Save memory · 1+1=2</button>
       </form>
       <p id="remember-status" role="status"></p>
     </section>
