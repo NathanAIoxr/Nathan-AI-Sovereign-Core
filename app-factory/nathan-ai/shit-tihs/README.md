@@ -21,3 +21,7 @@ python3 -m http.server 8080 --directory public
 ```
 
 Open http://localhost:8080. Deploy the tested build with `node scripts/deploy.mjs` and a Cloudflare Workers write token and account ID in `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. The deployment creates or updates the independent `shit-tihs` Worker and enables its workers.dev URL. Refresh the cache version in `public/sw.js` when changing shipped assets.
+
+## Cloudflare R2 release
+
+The static files also run from a dedicated public R2 bucket, with `/index.html` as the entry point. When Worker and Pages quotas are full, deploy with `node scripts/deploy.mjs --r2` using the same account ID and a token with R2 write access. This deployment targets the existing `shit-tihs` bucket and its managed public URL.
