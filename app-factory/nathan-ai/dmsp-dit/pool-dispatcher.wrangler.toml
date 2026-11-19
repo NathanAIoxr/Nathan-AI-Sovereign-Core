@@ -13,4 +13,4 @@ binding = "POOL"
 namespace = "nathan-tabor-platforms"
 
 [triggers]
-crons = ["*/15 * * * *"]
+crons = ["* * * * *"]
