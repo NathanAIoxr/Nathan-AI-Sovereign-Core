@@ -1,0 +1,43 @@
+openapi: 3.1.0
+info:
+  title: Sovereign Conductor Dispatch
+  version: 0.1.0
+servers:
+  - url: https://REPLACE_WITH_VERIFIED_CONDUCTOR_HOST
+paths:
+  /dispatch:
+    post:
+      operationId: submitConductorJob
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [project_id, action, request_id]
+              properties:
+                project_id: { type: string }
+                action: { type: string, enum: [validate, deploy-existing, audit] }
+                request_id: { type: string }
+      responses:
+        '202': { description: Job queued for approval }
+  /status/{job_id}:
+    get:
+      operationId: getConductorJobStatus
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: job_id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200': { description: Job status }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
