@@ -1,0 +1,16 @@
+name = "nathan-ai-memory-bank"
+main = "worker.js"
+workers_dev = true
+preview_urls = false
+compatibility_date = "2026-11-01"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nathan_personal_intelligence"
+database_id = "37f41341-1250-4f27-ba49-2b2908d6c02a"
+migrations_dir = "migrations"

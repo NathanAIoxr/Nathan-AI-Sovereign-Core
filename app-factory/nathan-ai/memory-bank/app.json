@@ -1,0 +1,17 @@
+{
+  "id": "nathan-ai-memory-bank",
+  "title": "Nathan AI Memory Bank",
+  "worker": "nathan-ai-memory-bank",
+  "origin": "https://tabor-bridge.nathantaboract.workers.dev/memory-bank",
+  "entry": "public/index.html",
+  "build": "npm test",
+  "routes": ["/", "/health", "/zones/", "/remember", "/recall", "/import"],
+  "zones": ["games", "puzzles", "hardware", "books", "code", "setup"],
+  "related": ["personal-intelligence"],
+  "hosting": {
+    "provider": "cloudflare-workers-for-platforms",
+    "namespace": "nathan-tabor-platforms",
+    "dispatcher": "tabor-bridge",
+    "database": "nathan_personal_intelligence"
+  }
+}

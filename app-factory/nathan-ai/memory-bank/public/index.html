@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#112624">
+  <title>Nathan AI Memory Bank</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="brand">NATHAN AI</p>
+      <h1>Memory Bank</h1>
+      <p>Drop it in. Ask for it when you need it.</p>
+      <nav aria-label="Memory Bank"><a href="./zones/">Memory zones and setup</a></nav>
+    </header>
+
+    <details id="connection">
+      <summary>Memory bank access</summary>
+      <label for="key">Access key</label>
+      <input id="key" type="password" autocomplete="off" autocapitalize="none" spellcheck="false">
+      <div class="actions">
+        <button type="button" id="connect">Unlock for this session</button>
+        <button type="button" id="lock" class="quiet">Lock</button>
+      </div>
+    </details>
+
+    <section aria-labelledby="recall-heading">
+      <h2 id="recall-heading">Recall</h2>
+      <form id="recall" novalidate>
+        <label for="question">What are you looking for?</label>
+        <div class="search">
+          <input id="question" name="q" type="search" maxlength="300" placeholder="Pull up my finger-physics games">
+          <button>Search</button>
+        </div>
+        <label for="recall-category">Memory zone</label>
+        <input id="recall-category" name="category" maxlength="80" placeholder="Any zone">
+      </form>
+      <p id="recall-status" role="status"></p>
+      <div class="actions">
+        <button type="button" id="copy" class="quiet" hidden>Copy for another AI</button>
+        <button type="button" id="more" class="quiet" hidden>Load more</button>
+      </div>
+      <div id="results"></div>
+    </section>
+
+    <section aria-labelledby="remember-heading">
+      <h2 id="remember-heading">Remember</h2>
+      <form id="remember">
+        <label for="note">Note or idea</label>
+        <textarea id="note" name="content" placeholder="Dictate or paste an idea…" rows="5" maxlength="12000" required></textarea>
+        <details class="labels">
+          <summary>Title, category, tags, and source</summary>
+          <label for="title">Title</label>
+          <input id="title" name="title" maxlength="240">
+          <label for="category">Category</label>
+          <input id="category" name="category" maxlength="80">
+          <label for="tags">Tags</label>
+          <input id="tags" name="tags" maxlength="500">
+          <label for="source">Source AI</label>
+          <input id="source" name="source_ai" maxlength="80" placeholder="e.g. Gemini, Claude">
+        </details>
+        <button>Save memory</button>
+      </form>
+      <p id="remember-status" role="status"></p>
+    </section>
+  </main>
+</body>
+</html>

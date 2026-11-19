@@ -1,0 +1,61 @@
+name: Nathan AI Memory Bank
+
+on:
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/memory-bank/**'
+      - '.github/workflows/nathan-memory-bank.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/memory-bank/**'
+      - '.github/workflows/nathan-memory-bank.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: app-factory/nathan-ai/memory-bank
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: npm ci
+      - run: npm test
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && vars.ENABLE_NATHAN_MEMORY_BANK_DEPLOY == 'true'
+    needs: test
+    runs-on: ubuntu-latest
+    concurrency:
+      group: nathan-ai-memory-bank-deploy
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: npm ci
+      - name: Apply D1 migrations and deploy the namespace script
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test -n "$CLOUDFLARE_API_TOKEN"
+          npx --no-install wrangler d1 migrations apply DB --remote
+          npm run build:platform
+          npx --no-install wrangler deploy --config wrangler.platform.toml --dispatch-namespace nathan-tabor-platforms
