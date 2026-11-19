@@ -41,9 +41,9 @@ const maxBytes = 15 * 1024 * 1024;
 let bytes = 0;
 let before;
 do {
-  const params = new URLSearchParams({ limit: '50' });
-  if (before) params.set('before_id', before);
-  const page = await client('/recall?' + params);
+  const params = { limit: 50 };
+  if (before) params.before_id = before;
+  const page = await client('/recall', params);
   for (const entry of page.memories) {
     bytes += Buffer.byteLength(JSON.stringify(entry));
     if (bytes > maxBytes) throw new Error('Backup exceeds the single-file limit.');

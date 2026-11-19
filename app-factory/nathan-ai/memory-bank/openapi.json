@@ -240,6 +240,129 @@
               }
             }
           }
+        },
+        "description": "Compatible recall route for existing clients. Prefer JSON-body recall for private search text."
+      },
+      "post": {
+        "operationId": "recallMemoryJson",
+        "summary": "Search your saved notes using only a JSON request body",
+        "description": "Read-only recall. Either the read key or the write key can use this route.",
+        "x-openai-isConsequential": false,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "q": {
+                    "type": "string",
+                    "maxLength": 300
+                  },
+                  "category": {
+                    "type": "string",
+                    "maxLength": 80
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 50,
+                    "default": 8
+                  },
+                  "before_id": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Matching records.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "memories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MemoryRecord"
+                      }
+                    },
+                    "next_before_id": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "count",
+                    "memories",
+                    "next_before_id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Request failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request exceeds 4 KiB."
+          },
+          "415": {
+            "description": "Use application/json."
+          }
         }
       }
     },
@@ -282,6 +405,11 @@
                   "properties": {
                     "status": {
                       "type": "string"
+                    },
+                    "received": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 40
                     },
                     "saved": {
                       "type": "integer"

@@ -66,3 +66,22 @@ article p { margin: .35rem 0 0; white-space: pre-wrap; }
 
 a { color: #174c40; text-underline-offset: .2em; }
 nav { margin-top: .6rem; }
+
+.record-choice, .archive-choice {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: .35rem 0;
+  padding-block: .15rem;
+  min-height: 44px;
+  font-weight: 500;
+}
+
+input[type="checkbox"] {
+  width: 1.2rem;
+  min-height: auto;
+  height: 1.2rem;
+  flex: 0 0 auto;
+}
+
+#archive-list { max-height: 22rem; overflow: auto; }

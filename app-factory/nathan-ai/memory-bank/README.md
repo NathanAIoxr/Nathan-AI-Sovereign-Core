@@ -31,7 +31,7 @@ Build the namespace script with `npm ci && npm test && npm run build:platform`. 
 
 For a standalone Worker or Pages project in a separate account, build the app with `npm run build:pages` before using `wrangler.toml`. The HTML templates produce standalone app pages for Cloudflare. Update the database IDs and public base URLs for that environment.
 
-On iPhone, open the production URL in Safari and use **Share → Add to Home Screen**. The key stays in the open page until you reload or tap **Lock**.
+On iPhone, open the production URL in Safari and use **Share → Add to Home Screen**. **Save memory · 1+1=2** adds a verified record and confirms its ID. **Lock · 1-1=0** clears the page’s key, drafts, and search results and cancels pending requests. A save already committed to D1 remains saved. Text that you copied to the device clipboard remains there until the clipboard is overwritten.
 
 [Cloudflare D1 setup](https://developers.cloudflare.com/d1/get-started/) · [GitHub Actions deployment](https://developers.cloudflare.com/workers/ci-cd/external-cicd/github-actions/) · [Cloudflare Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/)
 
@@ -40,7 +40,7 @@ On iPhone, open the production URL in Safari and use **Share → Add to Home Scr
 - **Ask from the home-screen app.** Dictate a phrase such as “Pull up my finger-physics games.” Search displays the matching notes and source details. **Copy for another AI** copies the results and a prompt to a chat of your choice. Tap **Load more** for another page.
 - **Save from any AI that exposes copy or share.** Use the Safari page directly or create an Apple Shortcut named **Remember in Nathan AI**. Turn on **Show in Share Sheet** and accept text. Add **Ask for Input** to collect a title and pass the shared text as content. Apps that only share links can use copy and paste into the page or a Shortcut that reads the clipboard.
 - In that Shortcut, set **Get Contents of URL** to `https://tabor-bridge.nathantaboract.workers.dev/memory-bank/remember`, method **POST**, header `Authorization: Bearer YOUR_WRITE_KEY`, and JSON fields `title` (the title input), `content` (Shortcut Input), and optional `source_ai`. Display the result so you can see whether it saved. A saved Shortcut can expose an embedded key if shared or synced to a device you don't control. For a private key-less shortcut, open the home-screen app and paste there.
-- **Optional recall Shortcut.** Ask for text, URL-encode it, call `GET https://tabor-bridge.nathantaboract.workers.dev/memory-bank/recall?q=ENCODED_QUERY` with the read key, and show the result or copy it to the clipboard.
+- **Optional recall Shortcut.** Ask for text, call `POST https://tabor-bridge.nathantaboract.workers.dev/memory-bank/recall` with the read key and a JSON `q` field, and show the result or copy it to the clipboard. The browser app and MCP use this JSON-body route too.
 
 [Apple Shortcuts API requests](https://support.apple.com/guide/shortcuts/request-your-first-api-apd58d46713f/ios) · [Apple Share Sheet input types](https://support.apple.com/guide/shortcuts/input-types-apd7644168e1/ios)
 
@@ -62,6 +62,8 @@ Native consumer memory, API conversation state, and this D1 memory bank are sepa
 
 ### Pull selected records out of an existing AI
 
+For exported ChatGPT conversation JSON, use **Import past ChatGPT work** in the browser. The app previews titles locally and sends only the conversations you select. Recall lets you select which displayed records to copy to another AI.
+
 Ask the assistant in the regular chat where its native memory is available. Check the result before importing it.
 
 > For the project or category I name, list what you can retrieve. Return JSON with an `entries` array. Each entry needs a short `title` and `content`, with optional `category`, `tags` as text, and `source_ai`. Preserve original wording when you have it. Label summaries as summaries. Mark missing details instead of guessing. Include an original link as text inside the entry when available.
@@ -75,8 +77,9 @@ Use `Authorization: Bearer <key>` on memory routes. Only the write key can call 
 | Operation | Inputs | Result |
 | --- | --- | --- |
 | `POST /remember` | `title`, `content`, optional `category`, `tags`, `source_ai` | 201 and ID on save. 200 and the same ID for an identical record. |
-| `GET /recall` | optional `q`, `category`, `limit` (1–50), `before_id` | Up to one page, newest ID first. Use `next_before_id` for another page. Leave `q` empty to browse. |
-| `POST /import` | `{"entries":[...]}` (1–40 entries and up to 512 KiB per request) | Inserts a valid batch together and returns counts and new IDs. Exact duplicates are skipped. |
+| `POST /recall` | Optional JSON fields `q`, `category`, `limit` (1–50), `before_id` | Read-only. Search terms stay out of URLs. Leave `q` empty to browse and pass `next_before_id` as `before_id` for another page. |
+| `GET /recall` | Same fields as URL parameters | Existing integrations can continue using this route. |
+| `POST /import` | `{"entries":[...]}` (1–40 entries and up to 512 KiB per request) | Returns `received`, `saved`, `duplicates`, and new IDs. `saved + duplicates = received`. |
 
 Search looks for every meaningful term as a substring. It strips common conversational words and uses SQLite's ASCII case folding. Use fewer keywords if a phrase returns no results. Each entry supports up to 12,000 characters in `content`.
 
@@ -92,7 +95,7 @@ unset MEMORY_API_KEY
 
 ### Local MCP
 
-Run `npm ci` in the app, then configure an MCP host to launch Node with the absolute path to `scripts/mcp.js`. This example uses the read-only key. To add capture, set the environment flag to `0` and configure the write key. Use your client's secret settings where available. Replace the placeholders on the device where the client runs.
+Run `npm ci` in the app, then configure an MCP host to launch Node with the absolute path to `scripts/mcp.js`. MCP starts in read-only mode. To add capture, set `MEMORY_READ_ONLY` to `0` and configure the write key. Use your client's secret settings where available. Replace the placeholders on the device where the client runs.
 
 ```json
 {
