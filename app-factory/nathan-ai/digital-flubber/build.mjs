@@ -10,7 +10,10 @@ const versions = {
   '/game': ['Arcade', 'arena', 'Flubber Arcade.', 'Hit three targets in order. Aim your Flubber and clear the course against the clock.'],
   '/learn': ['Learn', 'learn'],
   '/zones': ['Zones', 'zones'],
-  '/sos': ['SOS', 'sos']
+  '/sos': ['SOS', 'sos'],
+  '/cloud-slayer': ['Cloud Slayer', 'cloud-slayer'],
+  '/cloud-slayer/supercomputer': ['Supercomputer · Cloud Slayer', 'cloud-slayer'],
+  '/cloud-slayer/hypercomputer': ['Hypercomputer · Cloud Slayer', 'cloud-slayer']
 };
 const files = {};
 const layout = await read('layout.html');
@@ -20,10 +23,12 @@ function render(template, values) {
 for (const [route, [title, template, heading, summary]] of Object.entries(versions)) {
   const page = route.slice(1) || 'simulator';
   const body = render(await read(template + '.html'), { heading, summary });
-  files[route] = { type: 'text/html; charset=utf-8', value: render(layout, { page, title, body }) };
+  const script = template === 'cloud-slayer' ? '<script type="module" src="/cloud-slayer.mjs"></script>' : '';
+  files[route] = { type: 'text/html; charset=utf-8', value: render(layout, { page, title, body, script }) };
 }
 const fileTypes = {
   'style.css': 'text/css; charset=utf-8',
+  'cloud-slayer.mjs': 'text/javascript; charset=utf-8',
   'app.mjs': 'text/javascript; charset=utf-8',
   'physics.mjs': 'text/javascript; charset=utf-8',
   'policy.mjs': 'text/javascript; charset=utf-8',
@@ -41,6 +46,7 @@ files['/sw.js'] = { type: 'text/javascript; charset=utf-8', value: render(sw, { 
 await mkdir(join(root, 'dist'), { recursive: true });
 await writeFile(join(root, 'dist', 'assets.mjs'), 'export const files = ' + JSON.stringify(files) + ';\n');
 await writeFile(join(root, 'dist', 'policy.mjs'), await read('policy.mjs'));
+await writeFile(join(root, 'dist', 'cloud-slayer.mjs'), await readFile(join(root, 'cloud-slayer', 'runtime.mjs')));
 for (const name of ['main', 'slubber', 'sos']) {
   await writeFile(join(root, 'dist', name + '.mjs'), await readFile(join(root, 'edge', name + '.mjs')));
 }

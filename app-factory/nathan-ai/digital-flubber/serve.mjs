@@ -2,8 +2,10 @@ import { createServer } from 'node:http';
 import main from './dist/main.mjs';
 import slubber from './dist/slubber.mjs';
 import sos from './dist/sos.mjs';
+import { openLocalRegistry } from './cloud-slayer/local-sqlite.mjs';
 
 const services = {
+  CLOUD_SLAYER_DB: openLocalRegistry(process.env.CLOUD_SLAYER_SQLITE),
   SLUBBER: { fetch: url => slubber.fetch(new Request(url)) },
   SOS: { fetch: url => sos.fetch(new Request(url)) }
 };
