@@ -1,0 +1,22 @@
+[
+  {
+    "app_id": "battle-box-of-stars-and-knives-historic-game-board-concept",
+    "key": "battle-box-board",
+    "prompt": "Draft the pure JavaScript game state engine for Nathan Tabor's fictional Battle Box tabletop adaptation. Use a 4-by-4 artifact-case grid inspired by the public Universal Tools exhibit. Start with a deterministic two-player tile-claim game. A player claims an unoccupied slot, receives one point, and earns a line bonus for four owned slots. Export createGame, playTurn, scoreGame, and make every move immutable. Reject invalid, occupied, and completed turns. Treat the scoring as proposed prototype rules. Use symbolic tiles and abstract scoring."
+  },
+  {
+    "app_id": "bibletopia-board-game-hybrid",
+    "key": "bibletopia-board",
+    "prompt": "Draft the JavaScript rules engine for an independent local BIBLeTopia tabletop game. Two to four players take alternating turns to travel, allocate supplies, build one shared village, and reveal a clue about a fictional missing village resource. Use a deterministic sequence of event cards, limited action points, cooperative win and loss conditions, and a restartable serializable state. Export createGame, listActions, applyAction and getOutcome. Validate action ownership and resource limits. Represent tower balance as a bounded risk meter. Keep this an original prototype."
+  },
+  {
+    "app_id": "tabor-infinitum-v",
+    "key": "infinitum-transforms",
+    "prompt": "Draft a dependency-free public JavaScript engine for the Tabor Infinitum 3-by-3 grid transforms. Work strictly from this public description and do not use the private backend or data. Export readGrid, transformGrid, and compareGrids. Accept exactly nine bounded integers. Implement clockwise, counterclockwise, 180-degree rotation, horizontal mirror, vertical mirror, and main-diagonal transpose. Return new arrays and reject invalid inputs. Include usage examples as comments. This is for testing an independent public adapter."
+  },
+  {
+    "app_id": "tabor-train-sci-fi-rpg",
+    "key": "tabor-train-rpg",
+    "prompt": "Draft an original JavaScript state engine for Nathan Tabor's fictional Tabor Train sci-fi tabletop RPG. Set the prototype aboard a timeline train. A three-stop route uses a rotating storyteller role, limited action tokens, branching narrative decisions and timeline stability. Players act on fictional puzzle events only. Export createRun, availableActions, takeTurn and isComplete. Validate player count and actions, use immutable state and implement deterministic outcomes. Use original prose and avoid importing the unrelated public-awareness campaign code."
+  }
+]

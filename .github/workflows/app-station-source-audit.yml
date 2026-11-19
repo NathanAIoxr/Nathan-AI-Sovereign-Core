@@ -1,0 +1,60 @@
+name: App Station Source Recovery
+on:
+  pull_request:
+    paths:
+      - 'standalone-apps/game-app-stations/**'
+      - '.github/workflows/app-station-source-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'standalone-apps/game-app-stations/**'
+      - '.github/workflows/app-station-source-audit.yml'
+  schedule:
+    - cron: '23 */2 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: station-source-audit-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    name: Source recovery shard ${{ matrix.shard }}
+    timeout-minutes: 6
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node standalone-apps/game-app-stations/source-audit.mjs "${{ matrix.shard }}" 8 "source-audit-${{ matrix.shard }}.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-audit-${{ matrix.shard }}
+          path: source-audit-${{ matrix.shard }}.json
+          retention-days: 7
+  consolidate:
+    needs: [source-audit]
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: source-audit-*
+          path: audit
+          merge-multiple: true
+      - run: node standalone-apps/game-app-stations/merge-source-audit.mjs source-audit.json audit/source-audit-*.json | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: station-source-backlog
+          path: source-audit.json
+          retention-days: 14
