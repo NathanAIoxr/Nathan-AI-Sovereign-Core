@@ -1,0 +1,86 @@
+{
+  "id": "PD-006",
+  "title": "Isaiah 45:7 KJV and Hebrew provenance",
+  "status": "source_review",
+  "owner": "Nathan Tabor",
+  "record_version": "2026-11-19.1",
+  "categories": [
+    "scripture",
+    "lexical_reference",
+    "creator_interpretation",
+    "unresolved"
+  ],
+  "scripture": {
+    "reference": "Isaiah 45:7",
+    "translation": "KJV",
+    "text": "I form the light, and create darkness: I make peace, and create evil: I the LORD do all these things.",
+    "source": "https://biblehub.com/isaiah/45-7.htm",
+    "classification": "scripture",
+    "note": "KJV wording preserved without replacing evil with calamity"
+  },
+  "lexemes": [
+    {
+      "english": "form",
+      "hebrew": "יוצר",
+      "strong": "H3335",
+      "root": "יצר",
+      "gloss": "form or fashion",
+      "source": "https://biblehub.com/lexicon/isaiah/45-7.htm"
+    },
+    {
+      "english": "create",
+      "hebrew": "בורא",
+      "strong": "H1254",
+      "root": "ברא",
+      "gloss": "create or shape",
+      "source": "https://biblehub.com/lexicon/isaiah/45-7.htm"
+    },
+    {
+      "english": "peace",
+      "hebrew": "שלום",
+      "strong": "H7965",
+      "root": "שלם",
+      "gloss": "peace, welfare or wholeness",
+      "source": "https://biblehub.com/lexicon/isaiah/45-7.htm"
+    },
+    {
+      "english": "evil",
+      "hebrew": "רע",
+      "strong": "H7451",
+      "root": "רעע",
+      "gloss": "bad, evil, distress or calamity depending on context",
+      "source": "https://biblehub.com/strongs/isaiah/45-7.htm"
+    }
+  ],
+  "interpretation": {
+    "classification": "creator_interpretation",
+    "description": "The author compares the verse's contrasts with yin and yang, Santa and Reaper, and White Dog and Black Dog. This is an attributed creative comparison, not a statement that these traditions share historical origins or identical theology."
+  },
+  "unresolved": [
+    "Contextual range of ra in Isaiah 45:7 should not be reduced to one universal English definition.",
+    "A documented historical link between Isaiah 45:7 and yin-yang has not been established.",
+    "The original wording and date of the creator's Santa/Reaper interpretation require source-level confirmation."
+  ],
+  "sources": [
+    {
+      "url": "https://biblehub.com/isaiah/45-7.htm",
+      "supports": "Exact KJV verse and contrast with other translations",
+      "type": "scriptural_text"
+    },
+    {
+      "url": "https://biblehub.com/lexicon/isaiah/45-7.htm",
+      "supports": "Hebrew lexeme alignment and Strong's numbering",
+      "type": "lexical_reference"
+    },
+    {
+      "url": "https://biblehub.com/strongs/isaiah/45-7.htm",
+      "supports": "Range of senses of Hebrew ra",
+      "type": "lexical_reference"
+    },
+    {
+      "path": "creative-archive/persona-duality/registry.mjs",
+      "supports": "Creator's existing thematic associations",
+      "type": "project_record"
+    }
+  ]
+}
