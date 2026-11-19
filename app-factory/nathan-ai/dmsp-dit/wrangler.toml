@@ -1,0 +1,8 @@
+name = "nathan-ai-dmsp-dit"
+main = "worker.js"
+compatibility_date = "2026-11-18"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nathan-ai-dmsp-dit"
+database_id = "SET_AFTER_DATABASE_CREATION"
