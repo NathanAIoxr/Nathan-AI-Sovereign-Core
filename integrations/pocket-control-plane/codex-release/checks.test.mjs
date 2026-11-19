@@ -76,3 +76,35 @@ test('GitHub receipt requires an exact repository, workflow, branch, and valid s
   assert.equal(proof.run, claims.run_id);
   assert.equal(await verifyGitHubReceipt('Bearer ' + signed + '.AAAA', fetchKeys, time), null);
 });
+
+test('Pocket Control lists the standalone apps and only dispatches their refreshes on schedule', async () => {
+  const attached = JSON.parse(await readFile(new URL('./standalone-apps.json', import.meta.url), 'utf8'));
+  const queue = [];
+  const runtime = createPocket([],attached);
+  let receipt;
+  const env = { PROJECTS: { get: name => ({fetch: async request => {
+    const found = attached.find(app => app.worker === name);
+    const path = new URL(request.url).pathname;
+    queue.push([name,request.method,path]);
+    if (request.method === 'POST') assert.equal(path,'/__hub/refresh');
+    return Response.json({id:found.id,version:found.version,verified:true});
+  }})}, RECEIPTS: {
+    get: async () => null,
+    put: async (key,value) => { receipt = JSON.parse(value); },
+  }};
+  const catalog = await runtime.fetch(new Request(origin + '/api/catalog'),env);
+  assert.deepEqual((await catalog.json()).projects.map(app => app.id),['taborboy','taborpool']);
+  assert.equal((await runtime.fetch(new Request(origin + '/work/taborboy/__hub/refresh',{method:'POST'}),env)).status,405);
+  assert.equal(queue.length,0);
+  const originalFetch = globalThis.fetch;
+  let cron;
+  globalThis.fetch = async () => new Response(JSON.stringify({workflow_runs:[]}));
+  try {
+    runtime.scheduled({},env,{waitUntil:work => {cron = work;}});
+    await cron;
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+  assert.equal(queue.filter(job => job[1] === 'POST').length,2);
+  assert.deepEqual(receipt.appJobs,[{id:'taborboy',verified:true},{id:'taborpool',verified:true}]);
+});
