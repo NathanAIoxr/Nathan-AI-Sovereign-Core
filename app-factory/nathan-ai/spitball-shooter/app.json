@@ -1,7 +1,8 @@
 {
   "id": "spitball-shooter",
   "title": "Spitball Shooter",
-  "worker": "spitball-shooter-arcade",
+  "hosting": "cloudflare-r2",
+  "bucket": "spitball-shooter-arcade",
   "entry": "index.html",
-  "origin": "https://spitball-shooter-arcade.nathantaboract.workers.dev/"
+  "origin": "https://pub-a1faa1c97cd44a5a922a1fe338efbde7.r2.dev/index.html"
 }
