@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 356,
+  "count": 357,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -338,6 +338,14 @@
       "entry": "app-factory/nathan-ai/atomic-equator-forever-guardian/index.html",
       "group": "nathan-ai",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/atomic-equator-forever-guardian/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-b635e757989e7d1f",
+      "title": "BOOBIES by Nathan Tabor",
+      "entry": "app-factory/nathan-ai/boobies-by-nathan-tabor/public/index.html",
+      "group": "nathan-ai",
+      "url": "https://boobies-by-nathan-tabor.nathantaboract.workers.dev/",
       "adoption": "integration_required"
     },
     {
