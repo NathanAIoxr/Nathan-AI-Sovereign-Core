@@ -46,7 +46,8 @@ test('publication skips intact assets, copies a changed file, then records live 
     const bytes = objects.get(path);
     return bytes && {size:bytes.length,arrayBuffer:async()=>bytes};
   },async put(path,bytes,meta) {writes.push([path,meta.httpMetadata.contentType]); objects.set(path,bytes);}};
-  t.mock.method(globalThis,'fetch',async input => {
+  t.mock.method(globalThis,'fetch',async (input,options) => {
+    assert.equal(options.redirect,'manual');
     const path = new URL(input).pathname;
     const asset = path.split('/public/')[1] ?? path.substring(1);
     return new Response(asset === 'release.json' ? JSON.stringify(manifest) : fileBytes(asset));
