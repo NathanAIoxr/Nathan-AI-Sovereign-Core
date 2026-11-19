@@ -75,3 +75,5 @@ ORDER BY title;
 ```
 
 Repository records cite the upstream license endpoint. U.S. Census Bureau dataset records cite the license reported in its machine-readable catalog. Census API data calls use a free key. Statistics Canada and INEGI dataset records cite their publisher's data-reuse terms. Open design files are available at no cost. Parts, fabrication, and hosting have their own costs.
+
+The second continent batch, `europe-001`, contains 60 open-source projects and 40 individual Eurostat datasets. It uses the same intake and access-evidence tables. Each repository cites its upstream license. Eurostat datasets cite the data-reuse terms. These describe attribution requirements and exceptions for some third-party and non-European data. European and multinational publishers use the Europe region, with a blank country code when a single national publisher is inappropriate.
