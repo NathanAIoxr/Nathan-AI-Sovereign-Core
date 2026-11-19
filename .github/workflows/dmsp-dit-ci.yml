@@ -22,4 +22,4 @@ jobs:
         with:
           node-version: '22'
       - name: Validate public API and fail-closed private API
-        run: node --test app-factory/nathan-ai/dmsp-dit/worker.test.mjs
+        run: |\n          node --check app-factory/nathan-ai/dmsp-dit/public/app.js\n          node --test app-factory/nathan-ai/dmsp-dit/worker.test.mjs app-factory/nathan-ai/dmsp-dit/public.test.mjs
