@@ -17,7 +17,7 @@ const pointer = (extra = {}) => ({ clientX: 30, clientY: 30, pointerType: 'touch
 
 test('opt-in listener selects mapped strand and crossing symbolically', () => {
   const el = viewport(), results = [];
-  const binding = attachTopologyPointerSelection(el, strands, [{ strand: 1, sign: 1 }], r => results.push(r), { radius: 8 });
+  const binding = attachTopologyPointerSelection(el, strands, [{ strand: 1, parity: 1 }], r => results.push(r), { radius: 8 });
   assert.equal(el.count(), 1);
   el.emit(pointer());
   assert.equal(results.length, 1);
