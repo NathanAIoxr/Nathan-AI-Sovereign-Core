@@ -1,0 +1,30 @@
+name: FIND THE TABOR builds
+on:
+  push:
+    paths:
+      - 'projects/find-the-tabor/**'
+      - 'app-factory/one/library-mind/books/tss-*.md'
+      - '.github/workflows/find-the-tabor.yml'
+  pull_request:
+    paths:
+      - 'projects/find-the-tabor/**'
+      - 'app-factory/one/library-mind/books/tss-*.md'
+      - '.github/workflows/find-the-tabor.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - run: node projects/find-the-tabor/build.mjs
+      - run: node projects/find-the-tabor/pages.mjs
+      - run: node --test projects/find-the-tabor/test.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: find-the-tabor-editions
+          path: projects/find-the-tabor/dist/
