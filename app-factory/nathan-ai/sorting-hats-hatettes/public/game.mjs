@@ -35,17 +35,25 @@ export function spinWord(word) {
   return Object.hasOwn(known,base) ? known[base] : base.replace(/e$/u,"") + "ette";
 }
 
+export function restoreProgress(raw) {
+  let saved;
+  try { saved = JSON.parse(raw); } catch { saved = null; }
+  const claims = new Set(Array.isArray(saved?.claims) ? saved.claims.filter(id => typeof id === "string") : []);
+  const gates = new Set(Array.isArray(saved?.gates) ? saved.gates.filter(id => Number.isInteger(id) && realms[id]) : []);
+  const current = Number.isInteger(saved?.current) && realms[saved.current] ? saved.current : 1;
+  return { claims, gates, current };
+}
+
 if (typeof document !== "undefined") {
   const get = id => document.getElementById(id);
   const storageKey = "sorting-hats-hatettes-progress-v1";
-  let saved;
-  try { saved = JSON.parse(localStorage.getItem(storageKey)); } catch { saved = null; }
-  const claims = new Set(Array.isArray(saved?.claims) ? saved.claims.filter(id => typeof id === "string") : []);
-  const gates = new Set(Array.isArray(saved?.gates) ? saved.gates.filter(id => Number.isInteger(id) && realms[id]) : []);
+  let raw;
+  try { raw = localStorage.getItem(storageKey); } catch { raw = null; }
+  const { claims, gates, current: savedRealm } = restoreProgress(raw);
+  let current = savedRealm;
   const save = () => {
-    try { localStorage.setItem(storageKey, JSON.stringify({claims:[...claims],gates:[...gates]})); } catch {}
+    try { localStorage.setItem(storageKey, JSON.stringify({claims:[...claims],gates:[...gates],current})); } catch {}
   };
-  let current = 1;
   let turns = [];
   const option = (text,value) => new Option(text,String(value));
   function renderLetters(letter = "0") {
@@ -62,6 +70,7 @@ if (typeof document !== "undefined") {
       current = index;
       turns = [];
       get("status").textContent = "";
+      save();
       draw();
     });
     get("realms").append(button);
