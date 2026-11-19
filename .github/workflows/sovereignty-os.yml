@@ -1,0 +1,35 @@
+name: Sovereignty OS verify and package
+on:
+  push:
+    paths:
+      - 'projects/sovereignty-os/**'
+      - '.github/workflows/sovereignty-os.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * *'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check syntax
+        run: node --check projects/sovereignty-os/worker.js
+      - name: Check required endpoints and local storage
+        run: |
+          node --input-type=module <<'EOF'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const src=fs.readFileSync('projects/sovereignty-os/worker.js','utf8');
+          for(const token of ['indexedDB.open','/api/health','sovereignty-vault.json','async scheduled'])assert.ok(src.includes(token),token);
+          console.log('Static checks passed');
+          EOF
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sovereignty-os-worker
+          path: projects/sovereignty-os/worker.js
