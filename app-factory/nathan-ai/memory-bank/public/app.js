@@ -6,6 +6,7 @@ let accessKey = '';
 let nextBefore;
 let activeQuestion;
 let activeCategory;
+let activeConversation;
 let memories = [];
 let generation = 0;
 let session = new AbortController();
@@ -24,6 +25,7 @@ function clearRecall() {
   nextBefore = null;
   activeQuestion = '';
   activeCategory = '';
+  activeConversation = '';
   get('results').replaceChildren();
   get('copy').hidden = true;
   get('use-all').hidden = true;
@@ -80,15 +82,19 @@ async function api(path, options = {}) {
   return result;
 }
 
-async function lookup(append = false) {
+async function lookup(append = false, conversation = '') {
   if (!append) {
     clearRecall();
-    activeQuestion = get('question').value.trim();
-    activeCategory = get('recall-category').value.trim();
+    activeConversation = conversation;
+    if (!conversation) {
+      activeQuestion = get('question').value.trim();
+      activeCategory = get('recall-category').value.trim();
+    }
   }
   const current = generation;
   const params = { q: activeQuestion, limit: 8 };
   if (activeCategory) params.category = activeCategory;
+  if (activeConversation) params.conversation_id = activeConversation;
   if (append && nextBefore) params.before_id = nextBefore;
   get('more').disabled = true;
   get('recall-status').textContent = 'Searching…';
@@ -104,7 +110,7 @@ async function lookup(append = false) {
     get('use-all').hidden = !memories.length;
     get('more').hidden = !nextBefore;
     get('recall-status').textContent = memories.length
-      ? 'Showing ' + memories.length + (memories.length === 1 ? ' memory.' : ' memories.')
+      ? (activeConversation ? 'From this conversation. Showing ' : 'Showing ') + memories.length + (memories.length === 1 ? ' memory.' : ' memories.')
       : 'No matching memories. Try a project name or fewer words.';
   } catch (error) {
     if (current === generation) get('recall-status').textContent = error.message;
@@ -142,7 +148,16 @@ function render(memory) {
     source.target = '_blank';
     source.rel = 'noopener noreferrer';
     source.textContent = 'Open original ChatGPT conversation';
-    article.append(source);
+    const history = document.createElement('button');
+    history.type = 'button';
+    history.className = 'quiet';
+    history.textContent = 'Show saved records from this conversation';
+    history.addEventListener('click', () => {
+      void lookup(false, conversation);
+      get('question').focus();
+    });
+    if (activeConversation) article.append(source);
+    else article.append(history, source);
   }
   get('results').append(article);
 }
