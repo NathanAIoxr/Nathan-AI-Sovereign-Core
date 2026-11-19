@@ -29,3 +29,23 @@ test("blueprint retains supplied wording and adds a separate technical note",asy
   assert.match(html,/Six bits encode the 64 position addresses/);
   assert.match(html,/Mining &amp; Cryptography/);
 });
+
+test("scheduled audit verifies every receipt and records the successful run",async()=>{
+  const results=[];
+  for(let slot=1;slot<=64;slot++){
+    const row={slot,coordinate:(slot-1).toString(2).padStart(6,"0"),ticker:null,name:null,source_status:"source_unverified"};
+    results.push({slot,receipt:JSON.stringify(await runProof(row))});
+  }
+  let time=null;
+  const DB={prepare(sql){return {all:async()=>({results}),bind(_key,at){return {first:async()=>time,run:async()=>{time=at;}};}};}};
+  const scheduledTime=Date.parse("2026-11-19T05:17:00Z");
+  await worker.scheduled({scheduledTime},{DB});
+  const r=await worker.fetch(new Request("https://localhost/api/verification"),{DB});
+  assert.equal(r.status,200);
+  const audit=await r.json();
+  assert.equal(audit.verified,64);
+  assert.equal(audit.lastSuccessfulSchedule,new Date(scheduledTime).toISOString());
+  results[0].receipt="{}";
+  assert.equal((await worker.fetch(new Request("https://localhost/api/verification"),{DB})).status,503);
+  await assert.rejects(worker.scheduled({scheduledTime:scheduledTime+3600000},{DB}),/audit failed/);
+});

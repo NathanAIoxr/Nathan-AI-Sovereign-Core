@@ -11,3 +11,7 @@ Apply `schema.sql` to the dedicated D1 database and bind it as `DB`. The control
 ## Book blueprint
 
 The [book blueprint](https://nathan-ai-coin-ledger.nathantaboract.workers.dev/blueprint) links the previous scene with the supplied world-building notes. `/blueprint.txt` serves the supplied wording, and the HTML page adds a separately labeled technical note.
+
+## Automated verification
+
+The ledger home and book blueprint link the six existing standalone apps. The Cloudflare Cron Trigger `17 * * * *` runs the development receipt audit hourly. A successful scheduled run updates its timestamp in `cycle_clock`. `GET /api/verification` independently checks the current receipts and reports the most recent successful scheduled run. The audit preserves the original proofs and uses no mining credentials.
