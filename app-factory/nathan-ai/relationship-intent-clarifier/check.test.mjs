@@ -92,12 +92,14 @@ test("standalone Worker serves its own site, assets and health receipt", async t
 test("mobile and keyboard accessibility smoke checks for reconstructed previews", async () => {
   const css = await readFile(new URL("./public/style.css", import.meta.url), "utf8");
   assert.match(css, /input:focus-visible/);
+  assert.match(css, /\.skip-link:focus\s*\{[^}]*transform:\s*translateY\(0\)/s);
   assert.match(css, /button\s*\{[^}]*min-height:\s*44px/s);
   assert.match(css, /select, textarea\s*\{[^}]*min-height:\s*44px/s);
   const html = await readFile(resolve(directory, project.entry), "utf8");
   assert.match(html, /<html lang="en">/);
   assert.match(html, /name="viewport" content="width=device-width, initial-scale=1"/);
-  assert.match(html, /<main>/);
+  assert.match(html, /<a class="skip-link" href="#main-content">Skip to main content<\/a>/);
+  assert.match(html, /<main id="main-content">/);
   assert.match(html, /<h1>/);
   assert.match(html, /<label for="/);
   assert.match(html, /role="status"/);
