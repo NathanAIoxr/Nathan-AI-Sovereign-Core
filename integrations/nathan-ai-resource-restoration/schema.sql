@@ -40,3 +40,24 @@ CREATE TABLE IF NOT EXISTS restoration_receipts_v1 (
   notes TEXT,
   created_at TEXT NOT NULL
 );
+
+-- Source code acquisition stays separate from discovery. No license, no clone.
+CREATE TABLE IF NOT EXISTS upstream_source_intake_v1 (
+  resource_uid TEXT PRIMARY KEY,
+  repository_url TEXT NOT NULL,
+  original_fit TEXT,
+  license_review_state TEXT NOT NULL DEFAULT 'NOT_REVIEWED',
+  code_acquisition_state TEXT NOT NULL DEFAULT 'NOT_FETCHED',
+  pinned_commit TEXT,
+  source_archive_ref TEXT,
+  reviewed_at TEXT,
+  updated_at TEXT NOT NULL
+);
+INSERT INTO upstream_source_intake_v1(resource_uid,repository_url,original_fit,updated_at)
+SELECT uid,source_url,json_extract(original_record_json,'$.fit'),CURRENT_TIMESTAMP
+FROM restored_resources_v1
+WHERE resource_kind='external_repository' AND source_url LIKE 'https://github.com/%'
+ON CONFLICT(resource_uid) DO UPDATE SET
+  repository_url=excluded.repository_url,
+  original_fit=excluded.original_fit,
+  updated_at=excluded.updated_at;
