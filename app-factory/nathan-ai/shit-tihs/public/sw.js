@@ -1,7 +1,7 @@
-const cacheName = 'shit-tihs-v3';
+const cacheName = 'shit-tihs-v4';
 const shell = ['./index.html', './style.css?v=2', './app.mjs?v=2', './game.mjs?v=2', './draw.mjs?v=2', './app.webmanifest', './icon-192.png', './icon-512.png',
   './throw-at-sam.html', './throw-at-sam.css', './throw-at-sam.mjs',
-  './sam-altman-satire.webp', './shit-tihs-cover.webp', './romans-13-4.webp'];
+  './sam-altman-satire.webp', './shit-tihs-cover.webp', './romans-13-4.webp?v=2'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(cacheName).then(cache => cache.addAll(shell)).then(() => self.skipWaiting()));
