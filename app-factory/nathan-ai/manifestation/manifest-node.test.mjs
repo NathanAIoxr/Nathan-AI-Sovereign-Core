@@ -63,7 +63,11 @@ test('the public API can only read and the private action requires its secret', 
 test('executing and retrying gives one verifiable receipt in the database', async t => {
   const db = database(t);
   const env = { MANIFEST_NODE_DB: db, MANIFEST_NODE_TOKEN: 'test-secret' };
-  const initial = await call(runPath, env, owner);
+  const initial = await call(runPath, env, {
+    ...owner,
+    body: new ReadableStream({ start: stream => stream.close() }),
+    duplex: 'half'
+  });
   assert.equal(initial.status, 200);
   const receipt = await initial.json();
   assert.equal(receipt.status, 'VERIFIED');

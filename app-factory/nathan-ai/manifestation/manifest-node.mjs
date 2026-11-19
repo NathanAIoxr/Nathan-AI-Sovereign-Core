@@ -77,10 +77,16 @@ export async function handleManifestApi(request, env, path, reply) {
   if (!read && !await authorized(request, env.MANIFEST_NODE_TOKEN)) {
     return json({ error: 'Authorization required' }, 401, { 'WWW-Authenticate': 'Bearer' });
   }
-  if (!read && request.body !== null) return json({ error: 'Send an empty body' }, 400);
   if (!env.MANIFEST_NODE_DB) return json({ error: 'Database unavailable' }, 503);
 
   try {
+    if (!read && request.body) {
+      const reader = request.body.getReader();
+      if (!(await reader.read()).done) {
+        await reader.cancel();
+        return json({ error: 'Send an empty body' }, 400);
+      }
+    }
     const hash = await sourceHash();
     if (!read) await executeManifestNode(env.MANIFEST_NODE_DB, hash);
     const receipt = await readReceipt(env.MANIFEST_NODE_DB, hash);
