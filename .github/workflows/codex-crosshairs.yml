@@ -1,0 +1,37 @@
+name: Codex Crosshairs
+
+on:
+  pull_request:
+    paths:
+      - 'integrations/pocket-control-plane/codex-crosshairs/**'
+      - 'integrations/pocket-control-plane/codex-release/manifest.json'
+      - 'integrations/pocket-control-plane/codex-release/projects/codex-*/app.json'
+      - '.github/workflows/codex-crosshairs.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'integrations/pocket-control-plane/codex-crosshairs/**'
+      - 'integrations/pocket-control-plane/codex-release/manifest.json'
+      - 'integrations/pocket-control-plane/codex-release/projects/codex-*/app.json'
+      - '.github/workflows/codex-crosshairs.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - run: node --test integrations/pocket-control-plane/codex-crosshairs/checks.test.mjs
+      - run: node integrations/pocket-control-plane/codex-crosshairs/build.mjs dist-codex-crosshairs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: codex-crosshairs-worker-modules
+          path: dist-codex-crosshairs
+          retention-days: 7

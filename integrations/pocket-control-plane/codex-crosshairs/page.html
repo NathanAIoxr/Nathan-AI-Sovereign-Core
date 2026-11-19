@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101311">
+  <title>Codex Crosshairs · Nathan AI</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/browser.mjs"></script>
+</head>
+<body>
+<main>
+  <header class="header">
+    <div>
+      <p class="brand">NATHAN AI 🚀</p>
+      <h1>Codex Crosshairs</h1>
+    </div>
+    <a class="pocket" href="https://nathan-ai-pocket-codex.nathantaboract.workers.dev/">Pocket Codex ↗</a>
+  </header>
+
+  <section class="axis" aria-label="Fixed symbolic crosshairs">
+    <p><strong>Mother Earth</strong><span>X at the core · (0, 0, 0)</span></p>
+    <span class="axis-mark" aria-hidden="true">×</span>
+    <p><strong>Human Mind</strong><span>X in every human mind</span></p>
+  </section>
+
+  <section class="source" aria-label="Codex source">
+    <div class="controls">
+      <div>
+        <label for="codex">Codex source</label>
+        <select id="codex" disabled></select>
+      </div>
+      <div class="local">
+        <label for="archive">Open source ZIP or .eml on this device</label>
+        <input id="archive" type="file" accept=".zip,.eml,application/zip,message/rfc822" disabled>
+      </div>
+    </div>
+    <p id="status" class="status" role="status">Loading Codex views…</p>
+  </section>
+
+  <div id="views" class="grid" aria-label="Nine simultaneous Codex views"></div>
+
+  <section class="detail" aria-labelledby="source-title">
+    <h2 id="source-title">Codex source</h2>
+    <p id="description"></p>
+    <a id="source-link" hidden>Open this Codex in Pocket Codex ↗</a>
+    <details id="original" hidden>
+      <summary>Read the full original email text</summary>
+      <pre id="original-body"></pre>
+    </details>
+  </section>
+  <footer>
+    <a href="https://nathan-ai-pocket-codex.nathantaboract.workers.dev/work/codex-01-it/">Codex 1 · IT delivery ↗</a>
+    <a href="https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/158">Nathan AI Voice Box source ↗</a>
+  </footer>
+</main>
+<noscript>JavaScript is required to open the nine Codex views and read files on this device.</noscript>
+</body>
+</html>
