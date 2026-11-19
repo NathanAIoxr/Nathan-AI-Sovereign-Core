@@ -1,3 +1,5 @@
+import { serveArchive } from "./archive.mjs";
+
 /**
  * Nathan AI Global Infrastructure Atlas — public, read-only architectural seed.
  * Reference components are NOT deployed nodes or proof of network presence.
@@ -532,14 +534,16 @@ const headers={"Cache-Control":"public, max-age=300","X-Content-Type-Options":"n
  "Access-Control-Allow-Origin":"*"};
 const json=(value,status=200)=>new Response(JSON.stringify(value),{status,headers:{...headers,"Content-Type":"application/json; charset=utf-8"}});
 export default {
- async fetch(request){
+ async fetch(request,env){
   if(request.method!=="GET" && request.method!=="HEAD")return json({error:"read_only"},405);
   const url=new URL(request.url),path=url.pathname.replace(/\/+$/,"")||"/";
+  const archive=await serveArchive(request,url,path,env?.ATLAS_ARCHIVE);
+  if(archive)return archive;
   let out;
   if(path==="/"||path==="/health") out={name:"Nathan AI Global Infrastructure Atlas",status:"reference_service_ready",snapshot:SNAPSHOT,
    layers:LAYERS.length,seed_components:COMPONENTS.length,typed_conceptual_edges:EDGES.length,
    scope:"public architectural index, not a live Internet census",
-   deployed_nodes_from_seed:0, endpoints:["/api/layers","/api/components","/api/edges","/api/sources","/api/summary"]};
+   deployed_nodes_from_seed:0, endpoints:["/api/layers","/api/components","/api/edges","/api/sources","/api/summary","/api/archive/summary"]};
   else if(path==="/api/layers")out={layers:LAYERS.map(({id,name,examples})=>({id,name,seed_components:examples.length}))};
   else if(path==="/api/components"){
    const layer=url.searchParams.get("layer"),q=(url.searchParams.get("q")||"").trim().toLowerCase().slice(0,80);
@@ -550,7 +554,7 @@ export default {
   else if(path==="/api/edges")out={kind:"conceptual_only",edges:EDGES};
   else if(path==="/api/sources")out={sources:SOURCES};
   else if(path==="/api/summary")out={snapshot:SNAPSHOT,layers:LAYERS.length,seed_components:COMPONENTS.length,public_sources:SOURCES.length,
-    status:"architectural_seed_only",notes:["871-component offline research atlas is separate","No imported code is run","No global host scans"]};
+    status:"architectural_seed_only",full_archive:"/api/archive/summary"};
   else return json({error:"not_found"},404);
   if(request.method==="HEAD")return new Response(null,{headers});
   return json(out);
