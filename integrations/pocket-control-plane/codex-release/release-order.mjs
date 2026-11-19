@@ -45,13 +45,13 @@ export function orderedRelease(projects) {
   };
 }
 
-export function verifyCrosshairs(payload) {
+export function verifyCrosshairs(payload, ids = numberedIds) {
   const entries = payload?.entries;
   const views = payload?.views;
   const anchors = payload?.anchors;
-  if (!Array.isArray(entries) || entries.map(row => row?.id).join(',') !== numberedIds.join(',') ||
+  if (!Array.isArray(entries) || entries.map(row => row?.id).join(',') !== ids.join(',') ||
       !Array.isArray(anchors) || anchors.map(row => row?.id).join(',') !== 'mother-earth,human-mind' ||
-      anchors.map(row => row?.origin?.join(',')).join(';') !== '0,0,0;0,0' ||
+      anchors.map(row => Array.isArray(row?.origin) ? row.origin.join(',') : '').join(';') !== '0,0,0;0,0' ||
       !Array.isArray(views) || views.length !== crosshairs.views) return false;
   const directions = ['forward', 'backward', 'upside-down'];
   const mirrors = ['this-side', 'as-mirror', 'other-side'];
@@ -61,7 +61,21 @@ export function verifyCrosshairs(payload) {
         view.rotation !== (direction === 'upside-down' ? 180 : 0) ||
         view.flipGlyphs !== (mirror === 'other-side') || !Array.isArray(view.positions)) return false;
     const reverse = (direction !== 'forward') !== (mirror === 'other-side');
-    const expected = reverse ? [...numberedIds].reverse() : numberedIds;
+    const expected = reverse ? [...ids].reverse() : ids;
     return view.positions.map(position => position?.id).join(',') === expected.join(',');
   }));
+}
+
+
+export function verifyCrosshairsCollections(payload, release) {
+  const ids = release.groups.flatMap(group => group.projects);
+  const groups = [
+    ['originals', release.crosshairs.sources],
+    ['all', ids],
+    ...release.groups.map(group => [group.id, group.projects]),
+  ];
+  if (!Array.isArray(payload?.collections) || !Array.isArray(payload.entries)) return false;
+  const membership = payload.collections.map(group => [group?.id, group?.projects]);
+  return JSON.stringify(membership) === JSON.stringify(groups) &&
+    payload.entries.map(entry => entry?.id).join(',') === ids.join(',');
 }

@@ -1,7 +1,7 @@
 import { escape, json, page } from './station.mjs';
 import { publicSigningKeys, verifyGitHubReceipt } from './github-identity.mjs';
 
-import { catalogGroups, crosshairs, orderedRelease, verifyCrosshairs } from './release-order.mjs';
+import { catalogGroups, crosshairs, orderedRelease, verifyCrosshairs, verifyCrosshairsCollections } from './release-order.mjs';
 
 const GITHUB = 'NathanAIoxr/Nathan-AI-Sovereign-Core';
 const KV_KEY = 'codex-build-check:v1';
@@ -55,8 +55,13 @@ export function createPocket(projects, independentApps = []) {
     }
     let crosshairsReady = false;
     try {
-      const response = await env.PROJECTS.get(crosshairs.worker).fetch(new Request('https://station.internal/api/views'));
-      crosshairsReady = response.ok && verifyCrosshairs(await response.json());
+      const reader = env.PROJECTS.get(crosshairs.worker);
+      const [views, collections] = await Promise.all([
+        reader.fetch(new Request('https://station.internal/api/views')),
+        reader.fetch(new Request('https://station.internal/api/collections')),
+      ]);
+      crosshairsReady = views.ok && collections.ok &&
+        verifyCrosshairs(await views.json()) && verifyCrosshairsCollections(await collections.json(), order);
     } catch { /* The hourly receipt records an unavailable or invalid reader. */ }
     const appJobs = await Promise.all(independentApps.map(item => refreshStandaloneApp(env, item)));
     checked.push(...await Promise.all(independentApps.map(item => inspectOne(env, item))));
@@ -118,6 +123,7 @@ export function createPocket(projects, independentApps = []) {
       if (path.startsWith(crosshairs.path)) {
         const target = new URL('https://station.internal');
         target.pathname = '/' + path.slice(crosshairs.path.length);
+        target.search = url.search;
         try {
           return await env.PROJECTS.get(crosshairs.worker).fetch(new Request(target, { method: request.method }));
         } catch {
@@ -152,7 +158,7 @@ export function createPocket(projects, independentApps = []) {
           const items = group.projects.map(id => byId.get(id));
           return items.length ? '<section><h2>' + escape(group.title) + '</h2>' + tiles(items) + '</section>' : '';
         }).join('');
-        const links = '<p><a href="/work/codex-crosshairs/">Open all nine Crosshairs views</a> · <a href="/api/order">Order JSON</a> · <a href="/api/build-status">Cloudflare verification</a> · <a href="/api/github">GitHub build receipt</a></p>';
+        const links = '<p><a href="/work/codex-crosshairs/">Open all nine Crosshairs views</a> · <a href="/work/codex-crosshairs/?collection=recovery">Explore source recovery</a> · <a href="/api/order">Order JSON</a> · <a href="/api/build-status">Cloudflare verification</a> · <a href="/api/github">GitHub build receipt</a></p>';
         result = page('Release order', 'Nathan AI · Pocket Control', nav + links + '<section><h2>Build and verification</h2><ol>' + jobs + '</ol></section>' + stages);
       } else if (path === '/api/order') {
         result = json(order);

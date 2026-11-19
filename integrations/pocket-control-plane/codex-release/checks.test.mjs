@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { createPocket } from './pocket.mjs';
+import { orderedRelease } from './release-order.mjs';
 import { verifyGitHubReceipt, validClaims, publicSigningKeys } from './github-identity.mjs';
 
 const manifest = JSON.parse(await readFile(new URL('./manifest.json', import.meta.url), 'utf8'));
@@ -138,7 +139,15 @@ test('hourly Worker checks source stations, Crosshairs, then standalone apps', a
     PROJECTS: { get: name => ({ fetch: async request => {
       const path = new URL(request.url).pathname;
       requests.push([name, request.method, path]);
-      if (name === 'tabor-codex-crosshairs') return Response.json({ anchors, entries, views: createViews(entries) });
+      if (name === 'tabor-codex-crosshairs') {
+        const order = orderedRelease([source, standalone]);
+        if (path === '/api/collections') return Response.json({ entries: [source, standalone], collections: [
+          { id: 'originals', projects: order.crosshairs.sources },
+          { id: 'all', projects: [source.id, standalone.id] },
+          ...order.groups,
+        ] });
+        return Response.json({ anchors, entries, views: createViews(entries) });
+      }
       return Response.json({ ...(name === standalone.worker ? standalone : source), verified: true });
     } }) },
     RECEIPTS: {
@@ -158,6 +167,7 @@ test('hourly Worker checks source stations, Crosshairs, then standalone apps', a
   assert.deepEqual(requests, [
     [source.worker, 'GET', '/healthz'],
     ['tabor-codex-crosshairs', 'GET', '/api/views'],
+    ['tabor-codex-crosshairs', 'GET', '/api/collections'],
     [standalone.worker, 'POST', '/__hub/refresh'],
     [standalone.worker, 'GET', '/healthz'],
   ]);
