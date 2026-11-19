@@ -60,3 +60,24 @@ test('Access assertions must match signature, issuer, audience, and expiry', asy
   assert.equal(await authorize(await sign({...claims,iss:'https://other.cloudflareaccess.com'}),settings,fetchKeys),false);
   assert.equal(await authorize(await sign(claims),settings,async()=>Response.json({keys:[]})),false);
 });
+
+test('component reads bind the workspace ID and paginate deterministically', async () => {
+  const {readZoneComponents} = await import('./packages/shared/holding-gate.js');
+  let args;
+  const db = {prepare(statement){
+    assert.match(statement,/WHERE workspace_id=\?/);
+    return {bind(...values){
+      args=values;
+      return {all:async()=>({results:[{source_id:'first'},{source_id:'second'}]})};
+    }};
+  }};
+  assert.deepEqual(await readZoneComponents(db,'project-a',1,0),{rows:[{source_id:'first'}],nextOffset:1});
+  assert.deepEqual(args,['project-a',2,0]);
+  await assert.rejects(readZoneComponents(db,'project-a/../project-b'));
+});
+
+test('snapshot downloads require owner authorization', async () => {
+  const response = await gate.fetch(request('/preview/project-a/snapshot.json'),env);
+  assert.equal(response.status,401);
+  assert.equal(response.headers.get('cache-control'),'no-store');
+});
