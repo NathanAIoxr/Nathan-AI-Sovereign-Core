@@ -1,0 +1,173 @@
+{
+  "product": "Nathan Tabor DMSP + DIT",
+  "services": [
+    {
+      "id": "helpdesk",
+      "name": "Helpdesk",
+      "scope": "Help desk, ticket triage, self-service, escalation",
+      "group": "operations"
+    },
+    {
+      "id": "noc",
+      "name": "Network Operations",
+      "scope": "Network and server availability, capacity and latency",
+      "group": "operations"
+    },
+    {
+      "id": "soc",
+      "name": "Security Operations",
+      "scope": "Security alerts, investigation, incident coordination",
+      "group": "security"
+    },
+    {
+      "id": "cloud",
+      "name": "Cloud",
+      "scope": "Cloud account configuration, spend and reliability",
+      "group": "engineering"
+    },
+    {
+      "id": "endpoint",
+      "name": "Endpoint",
+      "scope": "Managed devices, patch and lifecycle compliance",
+      "group": "operations"
+    },
+    {
+      "id": "identity",
+      "name": "Identity",
+      "scope": "Identity, SSO, MFA, JML access reviews",
+      "group": "security"
+    },
+    {
+      "id": "recovery",
+      "name": "Recovery",
+      "scope": "Backups, restore drills and recovery evidence",
+      "group": "operations"
+    },
+    {
+      "id": "devops",
+      "name": "DevOps & Automation",
+      "scope": "CI/CD, infrastructure as code and change reviews",
+      "group": "engineering"
+    },
+    {
+      "id": "compliance",
+      "name": "Compliance",
+      "scope": "Risk register, control mapping and evidence",
+      "group": "security"
+    },
+    {
+      "id": "cio",
+      "name": "Virtual CIO / CTO",
+      "scope": "Business IT strategy, budgets and roadmaps",
+      "group": "strategy"
+    },
+    {
+      "id": "success",
+      "name": "Success",
+      "scope": "Customer QBRs, service reporting and SLA reviews",
+      "group": "strategy"
+    },
+    {
+      "id": "finance",
+      "name": "Finance",
+      "scope": "Contracts, subscriptions, billing and unit economics",
+      "group": "strategy"
+    },
+    {
+      "id": "asset",
+      "name": "Asset",
+      "scope": "Inventory, warranty, software entitlements and CMDB",
+      "group": "strategy"
+    },
+    {
+      "id": "network",
+      "name": "Network",
+      "scope": "DNS, routing, Wi-Fi and network configuration",
+      "group": "engineering"
+    },
+    {
+      "id": "apps",
+      "name": "Apps",
+      "scope": "Business SaaS administration and integration",
+      "group": "engineering"
+    },
+    {
+      "id": "data",
+      "name": "Data",
+      "scope": "Data governance, retention and analytics",
+      "group": "engineering"
+    },
+    {
+      "id": "observability",
+      "name": "Observability",
+      "scope": "Service-level objectives, telemetry and alert quality",
+      "group": "engineering"
+    },
+    {
+      "id": "integration",
+      "name": "Integration",
+      "scope": "API integrations, event bus and connector ownership",
+      "group": "engineering"
+    },
+    {
+      "id": "platform",
+      "name": "Platform",
+      "scope": "Platform engineering and internal developer portal",
+      "group": "engineering"
+    },
+    {
+      "id": "knowledge",
+      "name": "Knowledge",
+      "scope": "Runbooks, documentation and searchable knowledge",
+      "group": "strategy"
+    },
+    {
+      "id": "onboarding",
+      "name": "Onboarding",
+      "scope": "Joiner/mover/leaver and client onboarding",
+      "group": "operations"
+    },
+    {
+      "id": "vendor",
+      "name": "Vendor",
+      "scope": "Third-party vendor, contract and supply-chain review",
+      "group": "strategy"
+    },
+    {
+      "id": "procurement",
+      "name": "Procurement",
+      "scope": "Equipment, licensing and purchasing workflows",
+      "group": "strategy"
+    },
+    {
+      "id": "automation",
+      "name": "Automation",
+      "scope": "Safe approved automation and verification receipts",
+      "group": "security"
+    },
+    {
+      "id": "incident",
+      "name": "Incident",
+      "scope": "Major incident command, communications and lessons",
+      "group": "operations"
+    },
+    {
+      "id": "privacy",
+      "name": "Privacy",
+      "scope": "Data protection, privacy and secure deletion",
+      "group": "security"
+    },
+    {
+      "id": "qa",
+      "name": "Quality Assurance",
+      "scope": "Release validation, service testing and change assurance",
+      "group": "engineering"
+    },
+    {
+      "id": "field",
+      "name": "Field",
+      "scope": "Authorized on-site visits and hardware logistics",
+      "group": "operations"
+    }
+  ]
+}
