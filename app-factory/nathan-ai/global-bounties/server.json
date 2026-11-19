@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.nathanaioxr/global-bounties",
+  "title": "Nathan AI Global Bounties",
+  "description": "Read-only directory of source-checked mathematics prizes and science challenges by Nathan Tabor.",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core",
+    "source": "github",
+    "subfolder": "app-factory/nathan-ai/global-bounties"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://tabor-bridge.nathantaboract.workers.dev/global-bounties/mcp"
+    }
+  ]
+}

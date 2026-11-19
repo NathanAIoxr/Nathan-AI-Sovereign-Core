@@ -38,7 +38,13 @@ jobs:
     runs-on: ubuntu-latest
     concurrency:
       group: nathan-global-bounties-production
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     steps:
+      - name: Report missing Cloudflare credentials
+        if: env.CLOUDFLARE_ACCOUNT_ID == '' || env.CLOUDFLARE_API_TOKEN == ''
+        run: echo "::warning::Cloudflare deployment skipped because repository deployment credentials are missing."
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
         with:
           persist-credentials: false
@@ -48,9 +54,47 @@ jobs:
           package-manager-cache: false
       - run: npm run build
       - name: Deploy the independent namespace Worker
-        env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        if: env.CLOUDFLARE_ACCOUNT_ID != '' && env.CLOUDFLARE_API_TOKEN != ''
         run: npx --yes wrangler@4.135.0 deploy --dispatch-namespace nathan-tabor-platforms
       - name: Verify the public catalog
-        run: curl --fail --silent --show-error --retry 3 https://tabor-bridge.nathantaboract.workers.dev/global-bounties/stats
+        run: |
+          curl --fail --silent --show-error --retry 3 https://tabor-bridge.nathantaboract.workers.dev/global-bounties/stats |
+            jq -e '.status == "OPEN" and (.totals.count | type == "number")'
+
+  publish-mcp:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && github.repository == 'NathanAIoxr/Nathan-AI-Sovereign-Core'
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    concurrency:
+      group: nathan-ai-bounties-mcp-registry
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - name: Publish the public MCP manifest
+        run: |
+          manifest=server.json
+          server_name=$(jq -r '.name | @uri' "$manifest")
+          version=$(jq -r '.version | @uri' "$manifest")
+          registry=https://registry.modelcontextprotocol.io
+          listing="$registry/v0.1/servers/$server_name/versions/$version"
+          response=$(mktemp)
+          status=$(curl --silent --show-error --max-time 15 --output "$response" --write-out '%{http_code}' "$listing")
+          if [ "$status" = 200 ]; then
+            jq -e --slurpfile manifest "$manifest" '.server.remotes == $manifest[0].remotes' "$response"
+            exit
+          fi
+          if [ "$status" != 404 ]; then
+            echo "::error::MCP Registry returned HTTP $status."
+            exit 1
+          fi
+          archive=$(mktemp)
+          curl --fail --silent --show-error --location --retry 3 --output "$archive" \
+            https://github.com/modelcontextprotocol/registry/releases/download/v1.8.9/mcp-publisher_linux_amd64.tar.gz
+          echo "4d527ca8f1ced0394c962dc925c2a4a4addef441cbefd62501c875e9481823a8  $archive" | sha256sum --check
+          tar -xzf "$archive" -C "$RUNNER_TEMP" mcp-publisher
+          "$RUNNER_TEMP/mcp-publisher" login github-oidc --registry="$registry"
+          "$RUNNER_TEMP/mcp-publisher" publish "$manifest"
