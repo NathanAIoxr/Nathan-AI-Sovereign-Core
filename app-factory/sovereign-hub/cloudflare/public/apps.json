@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 354,
+  "count": 355,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -970,6 +970,14 @@
       "entry": "app-factory/nathan-ai/spitball-shooter/index.html",
       "group": "nathan-ai",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/spitball-shooter/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-44c39fcce4806cdd",
+      "title": "Sunday Buffet Slam-Down \u00b7 Nathan Tabor",
+      "entry": "app-factory/nathan-ai/sunday-buffet/public/index.html",
+      "group": "nathan-ai",
+      "url": "https://unified-operations-cockpit.nathantaboract.workers.dev/",
       "adoption": "integration_required"
     },
     {
