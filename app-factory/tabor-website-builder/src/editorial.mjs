@@ -37,11 +37,11 @@ export function creation(site, path) {
   }
   if (path === '/') {
     return html(page(site, hero(site, '<a class="button" href="/stories">Explore creation stories</a>') +
-      section('Follow the sequence', '<p>YEAR ZERO → YEAR 222 → YEAR 69 → YEAR 3333 → Beyond the Calendar</p><a class="button" href="/222">Go to Year 222</a>'), { nav }));
+      section('Follow the sequence', '<p>YEAR ZERO → YEAR 222 → YEAR 69 → YEAR 3333 → Origins</p><a class="button" href="/222">Go to Year 222</a>'), { nav }));
   }
   if (path === '/beyond') {
-    const final = { ...site, headline: 'BEYOND THE CALENDAR', description: 'Read by tradition or theme. Choose where to begin.', line: 'Creation stories' };
-    return html(page(site, hero(final, '<a class="button" href="/origins">Explore origins</a>') +
+    const final = { ...site, headline: 'ORIGINS', description: 'Choose an account or search the research index.', line: 'Creation stories' };
+    return html(page(site, hero(final, '<a class="button" href="/origins">Explore creation stories</a>') +
       section('Next publication', '<a class="button" href="/launch">Launch FUCK THE POLICE</a>'), { hideYear: true }));
   }
   if (path === '/launch') {

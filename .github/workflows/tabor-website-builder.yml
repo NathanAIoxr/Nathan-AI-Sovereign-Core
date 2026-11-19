@@ -11,6 +11,8 @@ on:
       - 'app-factory/tabor-website-builder/**'
       - '.github/workflows/tabor-website-builder.yml'
   workflow_dispatch:
+  schedule:
+    - cron: '17 14 * * *'
 
 permissions:
   contents: read
@@ -25,6 +27,7 @@ env:
 
 jobs:
   verify:
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     defaults:
@@ -76,3 +79,14 @@ jobs:
       - name: Verify public routes
         if: steps.release.outputs.deployed == 'true'
         run: node scripts/check-live.mjs
+
+  scheduled-live-check:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node app-factory/tabor-website-builder/scripts/check-live.mjs

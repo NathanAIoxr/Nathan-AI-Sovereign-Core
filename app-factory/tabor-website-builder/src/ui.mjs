@@ -23,7 +23,7 @@ function link([label, href]) {
 }
 
 export function page(site, body, { title, nav = [], hideYear = false } = {}) {
-  const brand = hideYear ? 'BEYOND THE CALENDAR' : site.title;
+  const brand = hideYear ? 'ORIGINS' : site.title;
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(title || brand)}</title><link rel="stylesheet" href="/style.css"><script defer src="/site.js"></script></head>
 <body class="${escapeHtml(site.theme)}"><a class="skip" href="#main">Skip to content</a><header class="top"><div class="wrap top-row"><a class="wordmark" href="${hideYear ? '/beyond' : '/'}">${escapeHtml(brand)}</a><nav aria-label="Main">${nav.map(link).join('')}</nav></div></header><main id="main">${body}</main><footer><div class="wrap">A Nathan Tabor project <span>·</span> TABOR WEBSITE BUILDER</div></footer></body></html>`;
 }
@@ -159,7 +159,7 @@ if (list) {
     const id = item.dataset.item;
     selection = selection.includes(id) ? selection.filter(value => value !== id) : [...selection, id];
     render();
-    status.textContent = selection.length + ' items selected';
+    status.textContent = selection.length === 1 ? '1 item selected' : selection.length + ' items selected';
   });
   list.querySelector('[data-print]').addEventListener('click', () => window.print());
   list.querySelector('[data-download]').addEventListener('click', () => {

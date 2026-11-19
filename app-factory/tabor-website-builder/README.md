@@ -26,4 +26,6 @@ The original sites and evidence are linked from the relevant pages. The YEAR ZER
 
 Run `node scripts/verify.mjs` with Node 24 for the local acceptance checks. Run `node scripts/check-live.mjs` to check the deployed public routes. The included GitHub Action builds every Worker, applies the relevant D1 schema, deploys into the namespace, and verifies the live routes when the repository has a `TABOR_WEBSITE_CLOUDFLARE_TOKEN` secret with Workers Scripts Write and D1 Write for this Cloudflare account. Set the repository variable `TABOR_WEBSITE_CLOUDFLARE_ACCOUNT_ID` if the production Cloudflare account changes.
 
+GitHub Actions also runs the public smoke check daily.
+
 GitHub is the source and deployment channel. Clouder Pro connects directly to the same Cloudflare account from the owner's mobile device and uses its own scoped Cloudflare credentials.

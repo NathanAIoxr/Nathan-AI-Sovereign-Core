@@ -98,7 +98,7 @@ assert.equal((await request(builder, published.path)).status, 404);
 for (const [from, to] of [['/', '/222'], ['/222', '/69'], ['/69', '/3333'], ['/3333', '/beyond'], ['/beyond', '/launch']]) {
   assert.ok((await (await request('year-zero', from)).text()).includes('href="/tabor-sites/year-zero' + to + '"'));
 }
-assert.doesNotMatch(await (await request('year-zero', '/beyond')).text(), /YEAR ZERO|YEAR 222|YEAR 69|YEAR 3333/);
+assert.doesNotMatch(await (await request('year-zero', '/beyond')).text(), /YEAR ZERO|YEAR 222|YEAR 69|YEAR 3333|calendar/i);
 const stories = await (await request('year-zero', '/api/stories')).json();
 assert.ok(stories.index_count >= 200);
 assert.equal(stories.reading_count, stories.readings.length);
