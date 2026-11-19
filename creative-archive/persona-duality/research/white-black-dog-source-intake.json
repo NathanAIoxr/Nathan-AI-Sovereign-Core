@@ -1,0 +1,44 @@
+{
+  "id": "PD-007",
+  "title": "White Dog / Black Dog family metaphor — source intake",
+  "status": "awaiting_primary_source",
+  "author": "Nathan Tabor",
+  "classification": "creator_reported_family_metaphor",
+  "recorded_from": "creative-archive/persona-duality/registry.mjs",
+  "entities": [
+    {
+      "id": "white-dog",
+      "label": "White Dog",
+      "interpretation": "Positive and compassionate choices",
+      "classification": "registry_summary_not_verbatim"
+    },
+    {
+      "id": "black-dog",
+      "label": "Black Dog",
+      "interpretation": "Adversity, appetite, shadow, and reflection",
+      "classification": "registry_summary_not_verbatim"
+    }
+  ],
+  "connections": [
+    {
+      "to": "santa",
+      "type": "creative_comparison_not_identity"
+    },
+    {
+      "to": "reaper",
+      "type": "creative_comparison_not_identity"
+    }
+  ],
+  "source_integrity": {
+    "verbatim_original_available": false,
+    "verbatim_quote": null,
+    "original_family_story_date": null,
+    "assistant_wording_separate": true
+  },
+  "open_questions": [
+    "Locate Nathan Tabor's original account before assigning verbatim wording.",
+    "Determine original story chronology and whether White Dog and Black Dog are named characters or symbolic labels.",
+    "Do not infer a historical or scriptural origin from the creative comparison."
+  ],
+  "publication": "metadata_only_no_private_assets"
+}
