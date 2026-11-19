@@ -133,6 +133,24 @@ export async function replicateInventory(request, account) {
     if (id) add(id,'source audit','game_station_source_audit_v1',row.app_id,row);
   }
 
+  const folders = new Map();
+  for (const row of manifests.filter((row) => row.kind === 'app-manifest')) {
+    const folder = row.manifest_path.slice(0,row.manifest_path.lastIndexOf('/'));
+    const id = byPath(row.manifest_path);
+    if (!folders.has(folder)) folders.set(folder,new Set());
+    if (id) folders.get(folder).add(id);
+  }
+  for (const row of releases.filter((row) => row.target === 'book')) {
+    const folder = row.source_path.slice(0,row.source_path.lastIndexOf('/'));
+    const matches = folders.get(folder);
+    if (matches?.size !== 1) continue;
+    const appId = matches.values().next().value;
+    const bookId = targets.get('book:'+row.project_key);
+    if (appId === bookId) continue;
+    add(appId,'companion book','zone_companion_book_v1',bookId,{workspace_id:bookId,source_folder:folder},row.source_path);
+    add(bookId,'companion app','zone_companion_app_v1',appId,{workspace_id:appId,source_folder:folder},folder+'/app.json');
+  }
+
   const registryInsert = `INSERT INTO zones_registry(workspace_id,project_name,project_kind,source_key)
     SELECT json_extract(value,'$.workspace_id'),json_extract(value,'$.project_name'),json_extract(value,'$.project_kind'),json_extract(value,'$.source_key')
     FROM json_each(?) WHERE true ON CONFLICT(workspace_id) DO NOTHING`;
