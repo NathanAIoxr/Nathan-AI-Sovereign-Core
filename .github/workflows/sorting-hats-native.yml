@@ -80,7 +80,6 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - uses: android-actions/setup-android@v3
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.13'
@@ -88,7 +87,10 @@ jobs:
         working-directory: app-factory/nathan-ai/sorting-hats-hatettes/native
         run: |
           node pack-data.mjs
-          sdkmanager "platforms;android-36" "build-tools;35.0.0"
+          sdk_root="${ANDROID_HOME:-/usr/local/lib/android/sdk}"
+          sdk_manager="$(find "$sdk_root/cmdline-tools" -path '*/bin/sdkmanager' -type f | sort -V | tail -n 1)"
+          test -x "$sdk_manager"
+          "$sdk_manager" --sdk_root="$sdk_root" "platforms;android-36" "build-tools;35.0.0"
           gradle -p android --no-daemon :app:lintRelease :app:bundleRelease :app:assembleDebug
           mkdir -p "${RUNNER_TEMP}/unbound-android"
           cp android/app/build/outputs/bundle/release/app-release.aab "${RUNNER_TEMP}/unbound-android/UNBOUND-Android-Unsigned.aab"
