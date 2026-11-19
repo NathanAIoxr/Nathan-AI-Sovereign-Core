@@ -9,3 +9,9 @@ binding = "DB"
 database_name = "nathan-ai-orchestration"
 database_id = "REPLACE_WITH_EXISTING_D1_DATABASE_ID"
 migrations_dir = "migrations"
+
+# Existing account-owned fleet registry. Read-only in this service.
+[[d1_databases]]
+binding = "FLEET_DB"
+database_name = "tabor-fleet-registry"
+database_id = "00e422eb-5222-4892-8f90-74aaf8ab0518"
