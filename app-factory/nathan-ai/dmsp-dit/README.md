@@ -8,14 +8,23 @@
 
 ## Verified initial implementation (2026-11-18)
 - Cloudflare D1 `nathan-ai-dmsp-dit` UUID `cdf85223-d671-4afe-8c69-1b90697b1951` created.
-- Database schema applied; 12 departments seeded and counted.
+- Database schema applied; **28** operating departments seeded and independently counted.
 - Cloudflare Worker API source `worker.js` committed; Wrangler binding points to new D1.
-- **Worker deployment and live HTTP tests not yet performed.** Do not claim continuous monitoring or a functioning help desk until connectors, authentication and runtime are tested.
+- **Cloudflare Worker deployment API returned success** and the `nathan-ai-dmsp-dit` workers.dev subdomain is enabled. **Independent public HTTP endpoint checks remain unverified** because the current external request tools cannot reach the fresh workers.dev URL. Do not claim continuous monitoring or a functioning help desk until customer connectors, identity, runtime and support operations are tested.
 
 ## Departments
-Digital Help Desk; NOC; SOC; Cloud Operations; Endpoint Management; Identity and Access; Backup and Recovery; DevOps and Automation; Compliance and Risk; Digital CIO/CTO; Client Success; Finance and Operations.
+28 operational departments are indexed in D1, including the initial 12 plus asset lifecycle, network engineering, business apps, data, observability, integrations, platform engineering, training, onboarding, vendors, procurement, automation verification, incident command, privacy, release quality and field services. See [OPERATING_MODEL.md](./OPERATING_MODEL.md).
 
-## Implemented API source
+## Public portal and read-only APIs
+- Public URL: https://nathan-ai-dmsp-dit.nathantaboract.workers.dev/
+- `GET /` read-only service portal
+- `GET /healthz` real database probe and honest configuration state
+- `GET /api/public/departments` real D1 department registry
+- `GET /api/public/services` 28 service scopes
+- `GET /api/public/gaps` 16 improvements standard MSPs should make
+- `GET /api/public/comparison` legacy IT vs MSP vs DMSP/DIT
+
+## Implemented API source (private operations)
 - `GET /api/departments` — department registry
 - `GET /api/tenants` — tenant registry
 - `POST /api/tenants` — create customer/internal department tenant
@@ -27,7 +36,7 @@ Digital Help Desk; NOC; SOC; Cloud Operations; Endpoint Management; Identity and
 Current API requires server-side `DMSP_ADMIN_KEY` and is suitable only for a single trusted operator until a proper Cloudflare Access or equivalent per-user identity and per-tenant authorization layer is implemented. Do **not** expose a shared admin token to customers. Tenant isolation currently relies on the gateway's trusted-operator model; customer self-service must wait for authorization tests.
 
 ## Next phases
-1. Deploy Worker with secure secrets and validate the endpoints.
+1. Validate the public Worker URL with an independent HTTP client and configure secure operator access before private use.
 2. Add tenant-aware roles and verified identity, customer self-service, MFA, and fine-grained action permissions.
 3. Add ticket lifecycle transitions, SLA clocks, priority queues, escalation, and on-call coverage.
 4. Add opt-in monitoring connectors for authorized Cloudflare/GitHub resources, with rate limits and audit records.
@@ -45,3 +54,8 @@ Current API requires server-side `DMSP_ADMIN_KEY` and is suitable only for a sin
 
 ## Operational security
 No third-party networks or customer systems may be monitored, scanned, changed, or enrolled without authorization. No self-replicating agents or arbitrary script execution. Destructive actions and high-risk changes require explicit human approval and audit trails.
+
+## Code verification
+- `worker.test.mjs` includes Node 22 tests of portal, catalogs, D1 department read, health and protected-route fail-closed behavior.
+- `.github/workflows/dmsp-dit-ci.yml` runs those tests on changes in this module.
+- This branch adds documents, tests, and schema while keeping existing private ticket/tenant paths locked without a secret.
