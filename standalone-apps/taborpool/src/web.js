@@ -5,7 +5,7 @@ const APP_HTML = `<!doctype html>
 <meta name="description" content="Browse the broadsheet archive and work through the pool ledger in a local sandbox."><title>TABORPOOL · Nathan Tabor</title>
 <link rel="manifest" href="/app/manifest.webmanifest"><link rel="apple-touch-icon" href="/app/icon-192.png"><link rel="stylesheet" href="/app/style.css">
 <script type="module" src="/app/main.js"></script></head>
-<body><div class="top"><div class="wrap"><a class="brand" href="/">TABORPOOL</a><nav aria-label="Project"><a href="/">Website</a><a href="/api/profile">Profile</a></nav></div></div>
+<body><div class="top"><div class="wrap"><a class="brand" href="/">TABORPOOL</a><nav aria-label="Project"><a href="/">Magazine</a><a href="/magazine/play">Play</a><a href="/api/profile">Profile</a></nav></div></div>
 <main><header class="hero"><div class="wrap"><h1>TABORPOOL</h1><p>Browse the broadsheet archive and work through the pool ledger in a local sandbox.</p><div class="tools"><a class="button" href="#archive">Browse archive</a><a class="button secondary" href="#ledger">Open ledger</a><button id="install" class="secondary" type="button" hidden>Install app</button></div><p id="install-help" class="status" aria-live="polite" hidden></p></div></header>
 <div class="wrap layout">
 <section id="archive" class="panel"><h2>Broadsheet archive</h2><label>Search archives<input id="search" type="search" placeholder="Title, collection, or filename"></label>

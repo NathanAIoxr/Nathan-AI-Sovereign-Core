@@ -22,5 +22,15 @@
     "namespace": "nathan-tabor-platforms",
     "name": "taborboy-worker",
     "scheduleOwner": "nathan-ai-pocket-codex"
+  },
+  "magazine": {
+    "url": "https://taborboy.pages.dev/magazine/",
+    "gameUrl": "https://taborboy.pages.dev/magazine/play",
+    "catalog": "/api/magazine",
+    "editors": [
+      "Collyn Tabor",
+      "Nathan Tabor"
+    ],
+    "releases": 3
   }
 }

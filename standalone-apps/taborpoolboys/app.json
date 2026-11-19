@@ -3,5 +3,30 @@
   "title": "TaborPoolBoys",
   "url": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/taborpoolboys/",
   "worker": "taborpoolboys-app",
-  "version": "2026-11-19.1"
+  "version": "2026-11-19.1",
+  "editors": [
+    "Collyn Tabor",
+    "Nathan Tabor"
+  ],
+  "magazine": {
+    "url": "https://pub-2df43f63514844ecbcd9f7da4de75d89.r2.dev/index.html",
+    "readerUrl": "https://pub-2df43f63514844ecbcd9f7da4de75d89.r2.dev/magazine/index.html",
+    "gameUrl": "https://pub-2df43f63514844ecbcd9f7da4de75d89.r2.dev/magazine/play.html",
+    "releases": 5,
+    "hosting": {
+      "service": "Cloudflare R2",
+      "bucket": "taborpoolboys-assets"
+    }
+  },
+  "workerBot": {
+    "name": "taborpoolboys-worker",
+    "namespace": "nathan-tabor-platforms",
+    "scheduleOwner": "nathan-ai-pocket-codex",
+    "purpose": "Verify deployed pages and cover checksums"
+  },
+  "hubUrl": "https://nathan-ai-pocket-codex.nathantaboract.workers.dev/work/taborpoolboys/",
+  "related": [
+    "taborboy",
+    "taborpool"
+  ]
 }
