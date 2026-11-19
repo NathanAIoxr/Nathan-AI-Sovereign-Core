@@ -1,0 +1,18 @@
+name: Sovereignty OS duality role verification
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'projects/sovereignty-os/duality/**'
+      - '.github/workflows/sovereignty-os-duality.yml'
+  schedule:
+    - cron: '41 */6 * * *'
+permissions:
+  contents: read
+jobs:
+  it-test-angel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify role assignments and arithmetic
+        run: python3 projects/sovereignty-os/duality/verify.py
