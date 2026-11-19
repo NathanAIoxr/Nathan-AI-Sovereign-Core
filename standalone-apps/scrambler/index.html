@@ -10,12 +10,12 @@
   <script type="module" src="./app.mjs"></script>
 </head>
 <body>
-  <header class="masthead"><a class="brand" href="./">TABOR 1-2-3 <span>FACTORY</span></a><nav aria-label="Scrambler"><a href="#privacy">Location privacy</a><a href="./recovery.html">Recovered work</a></nav></header>
+  <header class="masthead"><a class="brand" href="./">TABOR 1-2-3 <span>FACTORY</span></a><nav aria-label="Scrambler"><a href="#controls-heading">Route editor</a><a href="#privacy">Location privacy</a><a href="./recovery.html">Recovered work</a></nav></header>
   <main>
     <div class="heading"><div><h1>Scrambler</h1><p>Play a fictional route. Keep your real location to yourself.</p></div><span class="tag">SIMULATED ROUTE</span></div>
     <div class="workspace">
       <section class="panel route" aria-labelledby="route-heading">
-        <div class="panel-head"><div><p class="hint">After dinner</p><h2 id="route-heading">Route playback</h2></div><p id="state" class="state" role="status">Ready</p></div>
+        <div class="panel-head"><div><p class="hint" id="route-name">After dinner preset</p><h2 id="route-heading">Route playback</h2></div><p id="state" class="state" role="status">Ready</p></div>
         <div class="map">
           <canvas id="map" width="920" height="400" role="img" aria-label="Fictional schematic from the highway to dinner and the parking lot"></canvas>
           <span class="map-label">FICTIONAL MAP</span>
@@ -24,17 +24,35 @@
         <div class="steps" id="steps" aria-label="Route stages"></div>
         <label class="seek" for="seek">Route position<span id="total"></span></label><input id="seek" type="range" min="0" max="6540" step="1" value="0">
         <div class="buttons"><button id="play" class="primary" type="button">Play route</button><button id="reset" type="button">Reset</button><label class="rate" for="rate">Playback <select id="rate"><option value="1">1×</option><option value="60">60×</option><option value="300" selected>300×</option></select></label></div>
+        <dl class="route-totals" aria-label="Simulated totals"><div><dt>Moving</dt><dd id="moving-total">00:10:00</dd></div><div><dt>Stopped</dt><dd id="stopped-total">01:39:00</dd></div><div><dt>Simulated miles</dt><dd id="distance-total">18.33</dd></div></dl>
       </section>
       <aside class="panel controls" aria-labelledby="controls-heading">
-        <div class="panel-head"><h2 id="controls-heading">Route settings</h2></div>
-        <form id="settings">
+        <div class="panel-head"><h2 id="controls-heading">Nathan AI route editor</h2></div>
+        <form id="composer">
+          <label for="scenario">Describe your route</label>
+          <textarea id="scenario" rows="5" maxlength="3000" aria-describedby="route-format" required></textarea>
+          <p class="hint" id="route-format">Runs in this browser. Use one stage per line with a name, an optional speed, then “for” and a duration.</p>
+          <div class="buttons composer-buttons"><button class="primary" type="submit">Build draft</button><button id="preset" type="button">Load original preset</button></div>
+        </form>
+        <p id="draft-message" role="status"></p>
+        <div id="draft-result" class="draft-result" hidden>
+          <h3>Review draft</h3><ol id="draft-summary"></ol>
+          <button id="apply-draft" type="button" class="primary">Apply to playback</button>
+        </div>
+        <details class="more-settings"><summary>Quick settings for the original preset</summary><form id="settings">
           <label for="highway">Highway duration <span>minutes</span></label><input id="highway" name="highway" type="number" min="1" max="180" step="1" value="10" required>
           <label for="mph">Highway speed <span>mph</span></label><input id="mph" name="mph" type="number" min="1" max="200" step="1" value="110" required>
           <label for="dinner">Dinner <span>minutes</span></label><input id="dinner" name="dinner" type="number" min="1" max="360" step="1" value="97" required>
           <label for="goodbye">Parking-lot goodbye <span>minutes</span></label><input id="goodbye" name="goodbye" type="number" min="1" max="90" step="1" value="2" required>
           <button type="submit" class="apply">Apply route</button>
-        </form>
-        <button id="download" type="button" class="download">Download simulation JSON</button>
+        </form></details>
+        <details class="more-settings"><summary>Save, restore or export</summary>
+          <div class="buttons file-actions"><button id="save" type="button">Save locally</button><button id="restore" type="button">Restore saved</button><button id="clear-saved" type="button">Delete saved</button></div>
+          <p class="hint">A saved route stays in this browser until you delete it or clear site data.</p>
+          <label for="import-file">Import simulation JSON</label><input id="import-file" type="file" accept=".json,application/json">
+          <button id="download" type="button" class="download">Download simulation JSON</button>
+          <p id="file-message" role="status"></p>
+        </details>
       </aside>
     </div>
     <section id="privacy" class="panel privacy" aria-labelledby="privacy-heading">

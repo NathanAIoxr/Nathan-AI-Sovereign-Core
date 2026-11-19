@@ -1,4 +1,5 @@
 import { clock, createRoute, duration, sample, simulationExport } from './timeline.mjs';
+import { describeScenario, draftScenario, importScenario, maxImportBytes, routeMetrics } from './scenario.mjs';
 
 const element = id => document.getElementById(id);
 const canvas = element('map');
@@ -6,7 +7,10 @@ const context = canvas.getContext('2d');
 const seek = element('seek');
 const play = element('play');
 const steps = element('steps');
+const textarea = element('scenario');
+const savedKey = 'tabor.scrambler.scenario.v2';
 let route = createRoute();
+let draft;
 let elapsed = 0;
 let frame = 0;
 let lastFrame = 0;
@@ -58,16 +62,18 @@ function drawMap(position) {
 
   context.font = '600 11px system-ui';
   context.fillStyle = '#c2d1d9';
-  context.fillText('HIGHWAY', .09 * w, .64 * h - 15);
-  context.fillText('DINNER', .73 * w - 15, .42 * h - 15);
-  context.fillText('PARKING', .85 * w - 20, .63 * h + 21);
+  const original = route[0].id === 'highway';
+  context.fillText(original ? 'HIGHWAY' : 'START', .09 * w, .64 * h - 15);
+  context.fillText(original ? 'DINNER' : 'CHECKPOINT', .73 * w - 26, .42 * h - 15);
+  context.fillText(original ? 'PARKING' : 'FINISH', .85 * w - 20, .63 * h + 21);
   for (const [x, y] of [dinner, parking]) {
     context.fillStyle = '#aab689';
     context.beginPath();
     context.arc(x * w, y * h, 4, 0, Math.PI * 2);
     context.fill();
   }
-  let marker = parking;
+  let marker = [dinner[0] + (parking[0] - dinner[0]) * (position - dinner[0]) / (1 - dinner[0]),
+    dinner[1] + (parking[1] - dinner[1]) * (position - dinner[0]) / (1 - dinner[0])];
   if (position <= dinner[0]) {
     const scale = position / dinner[0] * (road.length - 1);
     const index = Math.min(Math.floor(scale), road.length - 2);
@@ -124,8 +130,12 @@ function tick(at) {
 
 function buildSteps() {
   const total = duration(route);
+  const totals = routeMetrics(route);
   seek.max = total;
   element('total').textContent = clock(total) + ' total';
+  element('moving-total').textContent = clock(totals.travelSeconds);
+  element('stopped-total').textContent = clock(totals.stopSeconds);
+  element('distance-total').textContent = totals.miles.toFixed(2);
   let start = 0;
   steps.replaceChildren(...route.map(stage => {
     const button = document.createElement('button');
@@ -145,6 +155,34 @@ function buildSteps() {
     return button;
   }));
   update();
+}
+
+function applyRoute(next, label) {
+  running = false;
+  cancelAnimationFrame(frame);
+  elapsed = 0;
+  route = next;
+  element('route-name').textContent = label;
+  canvas.setAttribute('aria-label', 'Fictional schematic with ' + next.length + ' stages');
+  buildSteps();
+}
+
+function clearDraft() {
+  draft = undefined;
+  element('draft-result').hidden = true;
+  element('draft-message').textContent = '';
+}
+
+function review(next) {
+  const list = element('draft-summary');
+  list.replaceChildren(...next.map(stage => {
+    const item = document.createElement('li');
+    item.textContent = stage.label + ' · ' + clock(stage.seconds) + (stage.mph ? ' · ' + stage.mph + ' mph' : ' · Stop');
+    return item;
+  }));
+  draft = next;
+  element('draft-result').hidden = false;
+  element('draft-message').textContent = 'Draft ready. Total ' + clock(duration(next)) + '.';
 }
 
 play.addEventListener('click', () => {
@@ -172,10 +210,89 @@ element('rate').addEventListener('change', () => {
 element('settings').addEventListener('submit', event => {
   event.preventDefault();
   const next = createRoute(Object.fromEntries(new FormData(event.currentTarget)));
-  elapsed = 0;
-  pause();
-  route = next;
-  buildSteps();
+  applyRoute(next, 'Edited after dinner preset');
+  textarea.value = describeScenario(next);
+  clearDraft();
+});
+element('composer').addEventListener('submit', event => {
+  event.preventDefault();
+  clearDraft();
+  try {
+    review(draftScenario(textarea.value));
+  } catch (error) {
+    element('draft-message').textContent = error.message;
+  }
+});
+textarea.addEventListener('input', clearDraft);
+element('preset').addEventListener('click', () => {
+  const next = createRoute();
+  element('settings').reset();
+  applyRoute(next, 'After dinner preset');
+  textarea.value = describeScenario(next);
+  clearDraft();
+  element('draft-message').textContent = 'Original preset loaded.';
+});
+element('apply-draft').addEventListener('click', () => {
+  if (!draft) return;
+  applyRoute(draft, 'Nathan AI scenario');
+  clearDraft();
+  element('draft-message').textContent = 'Draft applied to playback.';
+  play.focus();
+});
+
+const fileMessage = element('file-message');
+element('save').addEventListener('click', () => {
+  try {
+    const data = JSON.stringify(simulationExport(route));
+    localStorage.setItem(savedKey, data);
+    importScenario(localStorage.getItem(savedKey));
+    fileMessage.textContent = 'Playback route saved and verified on this browser.';
+  } catch {
+    fileMessage.textContent = 'This browser could not confirm a local save.';
+  }
+});
+element('restore').addEventListener('click', () => {
+  try {
+    const data = localStorage.getItem(savedKey);
+    if (!data) {
+      fileMessage.textContent = 'There is no saved Scrambler route in this browser.';
+      return;
+    }
+    clearDraft();
+    const next = importScenario(data);
+    textarea.value = describeScenario(next);
+    review(next);
+    fileMessage.textContent = 'Saved route loaded into the draft. Review it before applying.';
+  } catch {
+    fileMessage.textContent = 'This browser could not restore the saved route.';
+  }
+});
+element('clear-saved').addEventListener('click', () => {
+  try {
+    localStorage.removeItem(savedKey);
+    fileMessage.textContent = 'Saved route removed from this browser.';
+  } catch {
+    fileMessage.textContent = 'This browser could not remove local data.';
+  }
+});
+let importRequest = 0;
+element('import-file').addEventListener('change', async event => {
+  const input = event.currentTarget;
+  const file = input.files[0];
+  input.value = '';
+  if (!file) return;
+  const request = ++importRequest;
+  try {
+    if (file.size > maxImportBytes) throw new Error('Choose a Scrambler file under 32 KB.');
+    const next = importScenario(await file.text());
+    if (request !== importRequest) return;
+    textarea.value = describeScenario(next);
+    review(next);
+    fileMessage.textContent = 'File verified and loaded into the draft. Review it before applying.';
+  } catch (error) {
+    if (request !== importRequest) return;
+    fileMessage.textContent = error instanceof SyntaxError ? 'This file does not contain valid JSON.' : error.message;
+  }
 });
 element('download').addEventListener('click', () => {
   const blob = new Blob([JSON.stringify(simulationExport(route), null, 2)], { type: 'application/json' });
@@ -186,5 +303,6 @@ element('download').addEventListener('click', () => {
   link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
+textarea.value = describeScenario(route);
 new ResizeObserver(update).observe(canvas);
 buildSteps();
