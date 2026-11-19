@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relationship Intent Clarifier · Act AI</title>
+  <link rel="stylesheet" href="../style.css">
+  <script type="module" src="./page.mjs"></script>
+</head>
+<body>
+  <header><a href="https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/dating-suite/">Dating &amp; Relationships</a></header>
+  <main>
+    <h1>Relationship Intent Clarifier</h1>
+    <p>Try two sample intent selections and see how the Act AI boundary rules respond.</p>
+    <form id="intent-form">
+      <label for="first">Person A’s intent</label>
+      <select id="first" name="first"></select>
+      <label for="second">Person B’s intent</label>
+      <select id="second" name="second"></select>
+      <label><input name="blocked" type="checkbox"> A participant has blocked the conversation</label>
+      <label><input name="expired" type="checkbox"> The conversation window has expired</label>
+      <div class="actions"><button>Compare intents</button><button type="reset">Clear</button></div>
+    </form>
+    <div class="result" role="status" id="result" aria-live="polite"></div>
+    <noscript>Enable JavaScript to run the comparison.</noscript>
+  </main>
+  <footer>Act AI prototype by Nathan Tabor · Matching intent does not give consent for a next step.</footer>
+</body>
+</html>

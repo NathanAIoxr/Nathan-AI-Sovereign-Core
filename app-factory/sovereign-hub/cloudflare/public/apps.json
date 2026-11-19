@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 337,
+  "count": 341,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -394,6 +394,38 @@
       "entry": "app-factory/nathan-ai/d-archive/index.html",
       "group": "nathan-ai",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/d-archive/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-efb665c007ace5db",
+      "title": "BUDDY AI \ud83c\udf00 \u00b7 THE iCU \u2764\ufe0f APP",
+      "entry": "app-factory/nathan-ai/dating-suite/icu-buddy/index.html",
+      "group": "nathan-ai",
+      "url": "https://icu-buddy.nathantaboract.workers.dev/",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-e2118af3e01ee0c3",
+      "title": "Dating & Relationship Apps by Nathan Tabor",
+      "entry": "app-factory/nathan-ai/dating-suite/index.html",
+      "group": "nathan-ai",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/dating-suite/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-b41c5ca1f877a06f",
+      "title": "Relationship Intent Clarifier \u00b7 Act AI",
+      "entry": "app-factory/nathan-ai/dating-suite/relationship-intent/index.html",
+      "group": "nathan-ai",
+      "url": "https://relationship-intent-clarifier.nathantaboract.workers.dev/",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-dc54a68827726ea4",
+      "title": "TA DA \u2014 Taters & Daters",
+      "entry": "app-factory/nathan-ai/dating-suite/ta-da/dist/index.html",
+      "group": "nathan-ai",
+      "url": "https://ta-da-taters-daters.nathantaboract.workers.dev/",
       "adoption": "integration_required"
     },
     {

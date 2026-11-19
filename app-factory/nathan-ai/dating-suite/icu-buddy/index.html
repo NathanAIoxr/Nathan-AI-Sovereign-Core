@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BUDDY AI 🌀 · THE iCU ❤️ APP</title>
+  <link rel="stylesheet" href="../style.css">
+  <script type="module" src="./page.mjs"></script>
+</head>
+<body>
+  <header><a href="https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/dating-suite/">Dating &amp; Relationships</a></header>
+  <main>
+    <p class="kicker">THE iCU ❤️ APP</p>
+    <h1>BUDDY AI 🌀</h1>
+    <p>Start with a template, add your words, and edit the draft before sharing it yourself.</p>
+    <form id="draft-form">
+      <label for="approach">What do you want to do?</label>
+      <select id="approach" name="approach">
+        <option value="reflect">Take time to reflect</option>
+        <option value="clarify">Ask what they mean</option>
+        <option value="boundary">Set a boundary</option>
+        <option value="stepBack">Step back</option>
+      </select>
+      <label for="note">Your own words (optional)</label>
+      <textarea maxlength="300" id="note" name="note"></textarea>
+      <div class="actions"><button>Draft a reply</button><button type="reset">Clear</button></div>
+      <div id="draft-panel" hidden>
+        <label for="draft">Editable draft</label>
+        <textarea id="draft" name="draft"></textarea>
+      </div>
+      <p id="status" role="status"></p>
+    </form>
+    <noscript>Enable JavaScript to prepare a draft.</noscript>
+  </main>
+  <footer>iCU Buddy companion preview by Nathan Tabor · Templates run locally in this tab.</footer>
+</body>
+</html>

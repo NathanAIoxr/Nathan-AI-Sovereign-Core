@@ -1,3 +1,5 @@
+**[Dating & Relationship Apps by Nathan Tabor](app-factory/nathan-ai/dating-suite/)** · [Taters & Daters](https://ta-da-taters-daters.nathantaboract.workers.dev/) · [Relationship Intent Clarifier](https://relationship-intent-clarifier.nathantaboract.workers.dev/) · [iCU Buddy](https://icu-buddy.nathantaboract.workers.dev/)
+
 **[DMSP + DIT by Nathan Tabor — OPEN THE DIGITAL MSP / IT APP](https://nathan-ai-dmsp-dit.nathantaboract.workers.dev/)** · [Install on your device](https://nathan-ai-dmsp-dit.nathantaboract.workers.dev/#get-started) · [Download offline HTML](app-factory/nathan-ai/dmsp-dit/public/offline-standalone.html) · [Digital IT source code](app-factory/nathan-ai/dmsp-dit/) · [Start guide](app-factory/nathan-ai/dmsp-dit/PUBLIC_DOWNLOAD_GUIDE.md). Includes 28 selectable departments, a service-plan builder, public APIs and PWA support. **Public preview only:** no staffed help desk, customer remote access or managed endpoint service is represented as active.
 
 **[NATHAN AI 🚀 & NATHAN TABOR 2X+ SOVEREIGN SUPERCOMPUTER](https://nathan-ai-sovereign-core.nathantaboract.workers.dev/)** · [Source and runbook](app-factory/nathan-ai/sovereign-supercomputer/)
