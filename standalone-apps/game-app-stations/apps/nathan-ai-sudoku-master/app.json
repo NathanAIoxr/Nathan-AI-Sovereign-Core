@@ -1,7 +1,7 @@
 {
   "id": "nathan-ai-sudoku-master",
   "title": "Nathan AI — Sudoku Master",
-  "launch": null,
+  "launch": "https://pub-a374b836528943e2917457f04363c2ff.r2.dev/apps/nathan-ai-sudoku-master/play.html",
   "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/SudokuSRC",
   "collections": [
     "Sudoku & grid puzzles",
@@ -14,7 +14,7 @@
   "aliases": [
     "Sudoku"
   ],
-  "status": "source-available",
-  "next_action": "Verify a playable build from this source and update this station with its verified launch.",
+  "status": "existing-launch",
+  "web_files": ["play.html", "sudoku.css", "engine.mjs", "sudoku.mjs"],
   "station": "apps/nathan-ai-sudoku-master/index.html"
 }
