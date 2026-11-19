@@ -8,7 +8,7 @@
 
 The top-level A–Z directory makes 26 distinct letter departments discoverable, with each letter's `letter-manifest.json` and dedicated page. The existing independent C, D and E source/game pages remain intact; A and B link to their earlier source registers; F–Z use independent directory entry pages linking the shared browser. Nothing relocates original app source files or rewrites title/cipher text.
 
-[Alphabet Trinities](../../app-factory/nathan-ai/alphabet-trinities/public/alphabet-trinities/) adds A, B, C, T, and V source notes, two games, two books, and separate field, OS, software, and hardware stations.
+[Alphabet Trinities](../../app-factory/nathan-ai/alphabet-trinities/public/alphabet-trinities/) adds A–C and G–Z reference entries, Hebrew name notes, two games, five books, and separate field, OS, software, and hardware stations.
 
 ## Input coverage and stages
 

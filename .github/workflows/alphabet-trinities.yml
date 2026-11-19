@@ -30,8 +30,7 @@ jobs:
       - name: Verify generated web files and EPUBs
         run: |
           node generate-pages.mjs --check
-          python3 build-books.py
-          git diff --exit-code -- public
+          python3 build-books.py --check
       - run: node --test check.test.mjs
       - name: Verify the independent hardware module
         run: |

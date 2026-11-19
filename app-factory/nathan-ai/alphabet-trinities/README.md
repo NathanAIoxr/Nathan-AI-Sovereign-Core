@@ -1,6 +1,6 @@
 # Alphabet Trinities
 
-The A, B, and C Trinities and the T/V material linked to The Trinity of T’s by Nathan Tabor. The website and products below use the same editorial corpus. The supplied A–C text, the exact Trinity of T’s line, and the T/V source excerpt are included in the Books station. The supplied wordplay and letter-history reference notes are attributed in the reader.
+The A–C and G–Z material linked to The Trinity of T’s by Nathan Tabor. The site’s D–F links open their existing A–Z Archive departments. The website and products below use the same editorial corpus. The supplied A–C text, the exact Trinity of T’s line, and the T/V source excerpt are included in the Books station. The supplied wordplay and letter-history reference notes are attributed in the reader.
 
 | Independent project | Cloudflare | Source |
 | --- | --- | --- |
@@ -8,7 +8,7 @@ The A, B, and C Trinities and the T/V material linked to The Trinity of T’s by
 | Alphabet Field App | [Open](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/alphabet-field-app/) | [Installable PWA](public/alphabet-field-app/) |
 | Trinity Match | [Play](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/trinity-match/) | [Game](public/trinity-match/) |
 | Letter Labyrinth | [Play](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/letter-labyrinth/) | [Game](public/letter-labyrinth/) |
-| Alphabet Books | [Read](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/alphabet-books/) | [Two EPUBs and source texts](public/alphabet-books/) |
+| Alphabet Books | [Read](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/alphabet-books/) | [Five EPUBs and source texts](public/alphabet-books/) |
 | Alphabet OS | [Open](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/alphabet-os/) | [Browser workspace and console](public/alphabet-os/) |
 | Alphabet SDK | [Use](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/alphabet-sdk/) | [SDK and static dataset](public/alphabet-sdk/) |
 | Alphabet Hardware | [Simulate](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/alphabet-hardware/) | [Simulator, RTL, testbench](public/alphabet-hardware/) |

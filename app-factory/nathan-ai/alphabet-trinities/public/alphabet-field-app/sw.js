@@ -1,4 +1,4 @@
-const version = "alphabet-field-app-1";
+const version = "alphabet-field-app-2";
 const scope = new URL(self.registration.scope);
 const cacheName = version + ":" + scope.pathname;
 const nestedGateway = scope.pathname.startsWith("/tabor-apps/");
@@ -7,7 +7,7 @@ const local = path => new URL(path, scope).href;
 const files = [
   local("./"), local("index.html"), local("main.mjs"), local("manifest.webmanifest"),
   local("icon-192.png"), local("icon-512.png"),
-  ...["style.css", "tools.mjs", "corpus.mjs"].map(name => new URL(name, common).href),
+  ...["style.css", "tools.mjs", "corpus.mjs", "expansion.mjs"].map(name => new URL(name, common).href),
 ];
 const allowed = new Set(files);
 

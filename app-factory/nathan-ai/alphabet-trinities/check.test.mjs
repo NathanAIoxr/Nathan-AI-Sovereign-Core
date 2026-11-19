@@ -16,10 +16,10 @@ after(() => rm(out, { recursive: true, force: true }));
 execFileSync(process.execPath, ["build.mjs", out], { cwd: project });
 const manifest = JSON.parse(await readFile(join(out, "manifest.json"), "utf8"));
 
-test("the five letter groups, their central entries, and source line retain their identity", async () => {
-  assert.deepEqual(sections.map(section => section.letter), ["A", "B", "C", "T", "V"]);
-  assert.deepEqual(sections.map(section => section.core.length), [3, 3, 3, 3, 0]);
-  assert.equal(records.length, 45);
+test("the 23 featured letter groups, their central entries, and source line retain their identity", async () => {
+  assert.equal(sections.map(section => section.letter).join(""), "ABCGHIJKLMNOPQRSTUVWXYZ");
+  assert.ok(sections.every(section => section.core.length === 3));
+  assert.equal(records.length, 170);
   assert.equal(new Set(records.map(record => record.id)).size, records.length);
   assert.deepEqual(findEntries("ma’at").map(record => record.name), ["Anubis"]);
   assert.ok(findEntries("truth", "v").every(record => record.letter === "V"));
@@ -79,7 +79,8 @@ test("the SDK and downloadable assets are real files with usable media types", a
   const { entries } = await (await request(sdk, "api/lexicon?letter=a&q=strategic")).json();
   assert.deepEqual(entries.map(entry => entry.name), ["Athena"]);
   assert.equal((await request(sdk, "api/lexicon?letter=D")).status, 400);
-  for (const number of [1, 2]) {
+  assert.deepEqual((await (await request(sdk, "api/lexicon?letter=K&q=Arjuna")).json()).entries.map(entry => entry.name), ["Krishna"]);
+  for (const number of [1, 2, 3, 4, 5]) {
     const epub = await request(get("alphabet-books"), "volume-" + number + ".epub");
     assert.equal(epub.headers.get("content-type"), "application/epub+zip");
     assert.equal(new Uint8Array(await epub.arrayBuffer())[0], 0x50);

@@ -170,6 +170,734 @@
       "central": false
     },
     {
+      "id": "g-1",
+      "letter": "G",
+      "name": "Gaia",
+      "tradition": "Greek mythology",
+      "detail": "The personified Earth. In Hesiod she bears Uranus, the starry sky, and Pontus, the sea.",
+      "central": true
+    },
+    {
+      "id": "g-2",
+      "letter": "G",
+      "name": "Ganesha",
+      "tradition": "Hindu tradition",
+      "detail": "The elephant-headed deity associated with wisdom, beginnings, and removing obstacles.",
+      "central": true
+    },
+    {
+      "id": "g-3",
+      "letter": "G",
+      "name": "Gabriel",
+      "tradition": "Biblical and cultural traditions",
+      "detail": "A messenger in Daniel and Luke. The Hebrew name is built from the G-B-R family and El. See the Hebrew name notes.",
+      "central": true
+    },
+    {
+      "id": "g-4",
+      "letter": "G",
+      "name": "Gimel / Gamma",
+      "tradition": "Hebrew & Greek alphabets",
+      "detail": "Greek gamma follows Phoenician gimel. Camel and throwing stick are proposed readings for the early sign.",
+      "central": false
+    },
+    {
+      "id": "g-5",
+      "letter": "G",
+      "name": "Gilgamesh",
+      "tradition": "Mesopotamian epic",
+      "detail": "The king of Uruk seeks immortality after his companion Enkidu dies.",
+      "central": false
+    },
+    {
+      "id": "g-6",
+      "letter": "G",
+      "name": "Gorgon",
+      "tradition": "Greek mythology",
+      "detail": "The sisters Stheno, Euryale, and Medusa, associated with a petrifying gaze. Medusa was mortal.",
+      "central": false
+    },
+    {
+      "id": "g-7",
+      "letter": "G",
+      "name": "Grail",
+      "tradition": "Arthurian legend",
+      "detail": "The vessel at the center of a quest in Arthurian romance. Its nature and significance vary by story.",
+      "central": false
+    },
+    {
+      "id": "h-1",
+      "letter": "H",
+      "name": "Hera",
+      "tradition": "Greek mythology",
+      "detail": "Queen of the Olympians and a goddess of marriage, associated with Zeus on Olympus.",
+      "central": true
+    },
+    {
+      "id": "h-2",
+      "letter": "H",
+      "name": "Hermes",
+      "tradition": "Greek mythology",
+      "detail": "Messenger, protector of travelers and boundaries, patron of commerce, and guide of the dead.",
+      "central": true
+    },
+    {
+      "id": "h-3",
+      "letter": "H",
+      "name": "Horus",
+      "tradition": "Ancient Egyptian mythology",
+      "detail": "A falcon deity associated with the sky and kingship. Some traditions link his eyes with the sun and moon.",
+      "central": true
+    },
+    {
+      "id": "h-4",
+      "letter": "H",
+      "name": "Hestia",
+      "tradition": "Greek mythology",
+      "detail": "Goddess of the hearth and its sacred fire. The Homeric Hymn links her with first and last libations at banquets.",
+      "central": false
+    },
+    {
+      "id": "h-5",
+      "letter": "H",
+      "name": "Heracles / Hercules",
+      "tradition": "Greek & Roman mythology",
+      "detail": "The hero famed for his strength and Twelve Labors. Hercules is the familiar Roman name.",
+      "central": false
+    },
+    {
+      "id": "h-6",
+      "letter": "H",
+      "name": "Hades",
+      "tradition": "Greek mythology",
+      "detail": "Ruler of the Underworld, where Persephone is queen. The name also came to refer to the realm.",
+      "central": false
+    },
+    {
+      "id": "h-7",
+      "letter": "H",
+      "name": "Het / Eta",
+      "tradition": "Hebrew & Greek alphabets",
+      "detail": "Greek eta comes through Phoenician heth, whose early sign is often read as a fence or enclosure.",
+      "central": false
+    },
+    {
+      "id": "i-1",
+      "letter": "I",
+      "name": "Isis",
+      "tradition": "Ancient Egyptian mythology",
+      "detail": "A major goddess of magic, healing, and motherhood, associated with restoring Osiris and protecting Horus.",
+      "central": true
+    },
+    {
+      "id": "i-2",
+      "letter": "I",
+      "name": "Indra",
+      "tradition": "Vedic tradition",
+      "detail": "A deity of storms and thunder who wields the vajra in the Vedic hymns.",
+      "central": true
+    },
+    {
+      "id": "i-3",
+      "letter": "I",
+      "name": "Iris",
+      "tradition": "Greek mythology",
+      "detail": "Personification of the rainbow and a messenger of the gods.",
+      "central": true
+    },
+    {
+      "id": "i-4",
+      "letter": "I",
+      "name": "Icarus",
+      "tradition": "Greek mythology",
+      "detail": "The son of Daedalus who falls after flying too close to the sun on wings fastened with wax.",
+      "central": false
+    },
+    {
+      "id": "i-5",
+      "letter": "I",
+      "name": "Ishtar / Inanna",
+      "tradition": "Mesopotamian mythology",
+      "detail": "Akkadian Ishtar and Sumerian Inanna are closely identified goddesses associated with love, war, and power.",
+      "central": false
+    },
+    {
+      "id": "i-6",
+      "letter": "I",
+      "name": "Izanagi & Izanami",
+      "tradition": "Japanese mythology",
+      "detail": "The creator pair who stir the waters with a jeweled spear in accounts of the islands’ formation.",
+      "central": false
+    },
+    {
+      "id": "i-7",
+      "letter": "I",
+      "name": "Iota / Yod",
+      "tradition": "Greek & Hebrew alphabets",
+      "detail": "Greek iota follows Phoenician yod, with an early sign associated with a hand or arm.",
+      "central": false
+    },
+    {
+      "id": "j-1",
+      "letter": "J",
+      "name": "Jupiter / Jove",
+      "tradition": "Roman mythology",
+      "detail": "Roman deity of the sky and thunder. Jupiter and Zeus belong to the inherited Indo-European sky-god name family.",
+      "central": true
+    },
+    {
+      "id": "j-2",
+      "letter": "J",
+      "name": "Janus",
+      "tradition": "Roman mythology",
+      "detail": "God of beginnings, doorways, and transitions, often depicted with two faces. January bears his name.",
+      "central": true
+    },
+    {
+      "id": "j-3",
+      "letter": "J",
+      "name": "Juno",
+      "tradition": "Roman mythology",
+      "detail": "Queen of the Roman gods, associated with marriage and civic protection. She is conventionally equated with Greek Hera.",
+      "central": true
+    },
+    {
+      "id": "j-4",
+      "letter": "J",
+      "name": "Jormungandr",
+      "tradition": "Norse mythology",
+      "detail": "The World Serpent encircling Midgard, who confronts Thor at Ragnarök. Also written Jörmungandr.",
+      "central": false
+    },
+    {
+      "id": "j-5",
+      "letter": "J",
+      "name": "Jade Emperor / Yu Huang",
+      "tradition": "Chinese traditions",
+      "detail": "A celestial sovereign in Daoist and Chinese popular religion, frequently portrayed presiding over a divine bureaucracy.",
+      "central": false
+    },
+    {
+      "id": "j-6",
+      "letter": "J",
+      "name": "Jotun",
+      "tradition": "Norse mythology",
+      "detail": "A member of the jötnar, beings who appear in kinship and conflict with Norse gods.",
+      "central": false
+    },
+    {
+      "id": "j-7",
+      "letter": "J",
+      "name": "J",
+      "tradition": "Latin alphabet",
+      "detail": "Developed as a written variant of I. Its use as a separate consonant letter became established gradually.",
+      "central": false
+    },
+    {
+      "id": "k-1",
+      "letter": "K",
+      "name": "Kali",
+      "tradition": "Hindu tradition",
+      "detail": "A fierce goddess associated with time, transformation, and destruction. Her roles vary across devotional traditions.",
+      "central": true
+    },
+    {
+      "id": "k-2",
+      "letter": "K",
+      "name": "Krishna",
+      "tradition": "Hindu tradition",
+      "detail": "A major deity, often identified as an avatar of Vishnu, who teaches Arjuna in the Bhagavad Gita.",
+      "central": true
+    },
+    {
+      "id": "k-3",
+      "letter": "K",
+      "name": "Kronos",
+      "tradition": "Greek mythology",
+      "detail": "Another romanization of Cronus, the Titan overthrown by Zeus. Compare Chronos / Cronus under C.",
+      "central": true
+    },
+    {
+      "id": "k-4",
+      "letter": "K",
+      "name": "Kaph / Kappa",
+      "tradition": "Hebrew & Greek alphabets",
+      "detail": "Greek kappa follows Phoenician kaph, a letter name associated with the palm of a hand.",
+      "central": false
+    },
+    {
+      "id": "k-5",
+      "letter": "K",
+      "name": "Kitsune",
+      "tradition": "Japanese folklore",
+      "detail": "The Japanese word for fox. Fox spirits in folklore are often depicted with shapeshifting abilities and sometimes multiple tails.",
+      "central": false
+    },
+    {
+      "id": "k-6",
+      "letter": "K",
+      "name": "Khonsu",
+      "tradition": "Ancient Egyptian mythology",
+      "detail": "A lunar deity whose name is often interpreted in connection with traveling.",
+      "central": false
+    },
+    {
+      "id": "k-7",
+      "letter": "K",
+      "name": "Kukulkan",
+      "tradition": "Maya tradition",
+      "detail": "A Maya feathered serpent figure especially associated with Yucatán. Compare Quetzalcoatl under Q.",
+      "central": false
+    },
+    {
+      "id": "l-1",
+      "letter": "L",
+      "name": "Loki",
+      "tradition": "Norse mythology",
+      "detail": "The shapeshifting trickster who helps and harms the gods in different stories. The association with fire is an interpretation.",
+      "central": true
+    },
+    {
+      "id": "l-2",
+      "letter": "L",
+      "name": "Lakshmi",
+      "tradition": "Hindu tradition",
+      "detail": "Goddess of prosperity, fortune, beauty, and abundance.",
+      "central": true
+    },
+    {
+      "id": "l-3",
+      "letter": "L",
+      "name": "Lugh",
+      "tradition": "Irish mythology",
+      "detail": "Known for mastery of many arts and associated with the festival Lughnasadh. His name’s relation to light is debated.",
+      "central": true
+    },
+    {
+      "id": "l-4",
+      "letter": "L",
+      "name": "Lamed / Lambda",
+      "tradition": "Hebrew & Greek alphabets",
+      "detail": "Greek lambda comes through Phoenician lamed. An ox goad is the usual interpretation of the early sign.",
+      "central": false
+    },
+    {
+      "id": "l-5",
+      "letter": "L",
+      "name": "Logos",
+      "tradition": "Greek philosophy & biblical Greek",
+      "detail": "A word with senses including word, speech, account, or reason. Its philosophical and scriptural meanings depend on the passage.",
+      "central": false
+    },
+    {
+      "id": "l-6",
+      "letter": "L",
+      "name": "Leto",
+      "tradition": "Greek mythology",
+      "detail": "The Titaness who bears Apollo and Artemis.",
+      "central": false
+    },
+    {
+      "id": "l-7",
+      "letter": "L",
+      "name": "Leviathan",
+      "tradition": "Biblical & ancient Near Eastern traditions",
+      "detail": "A sea creature described in Job 41 and elsewhere in the KJV, with comparisons to other ancient Near Eastern sea-monster traditions.",
+      "central": false
+    },
+    {
+      "id": "m-1",
+      "letter": "M",
+      "name": "Mercury",
+      "tradition": "Roman mythology",
+      "detail": "God of trade and a messenger. His name is commonly linked to the Latin family for merchandise or commerce.",
+      "central": true
+    },
+    {
+      "id": "m-2",
+      "letter": "M",
+      "name": "Minerva",
+      "tradition": "Roman mythology",
+      "detail": "Goddess of crafts, intellect, and strategy, commonly compared to Athena. The name’s deeper derivation is debated.",
+      "central": true
+    },
+    {
+      "id": "m-3",
+      "letter": "M",
+      "name": "Morpheus",
+      "tradition": "Classical mythology",
+      "detail": "In Ovid, a maker of dream figures who imitates human forms. Greek morphē means form or shape.",
+      "central": true
+    },
+    {
+      "id": "m-4",
+      "letter": "M",
+      "name": "Mem / Mu",
+      "tradition": "Hebrew & Greek alphabets",
+      "detail": "Greek mu follows Phoenician mem, whose early sign is conventionally associated with water.",
+      "central": false
+    },
+    {
+      "id": "m-5",
+      "letter": "M",
+      "name": "Ma'at",
+      "tradition": "Ancient Egyptian religion",
+      "detail": "Truth, justice, and right order, also personified as a goddess. Compare the heart-weighing scene under Anubis.",
+      "central": false
+    },
+    {
+      "id": "m-6",
+      "letter": "M",
+      "name": "Mars",
+      "tradition": "Roman mythology",
+      "detail": "God of war and a protector invoked in agricultural rites. The origin of the name is uncertain.",
+      "central": false
+    },
+    {
+      "id": "m-7",
+      "letter": "M",
+      "name": "Maya",
+      "tradition": "Sanskrit",
+      "detail": "Māyā has senses such as art, power, or illusion in different texts. The proposed measure association belongs to the source interpretation.",
+      "central": false
+    },
+    {
+      "id": "n-1",
+      "letter": "N",
+      "name": "Nyx",
+      "tradition": "Greek mythology",
+      "detail": "The primordial personification of night.",
+      "central": true
+    },
+    {
+      "id": "n-2",
+      "letter": "N",
+      "name": "Nike",
+      "tradition": "Greek mythology",
+      "detail": "The winged personification of victory. The Greek noun means victory.",
+      "central": true
+    },
+    {
+      "id": "n-3",
+      "letter": "N",
+      "name": "Neptune",
+      "tradition": "Roman mythology",
+      "detail": "God of waters, later closely identified with Poseidon. Moisture-related name roots are proposed.",
+      "central": true
+    },
+    {
+      "id": "n-4",
+      "letter": "N",
+      "name": "Nun / Nu",
+      "tradition": "Hebrew & Greek alphabets",
+      "detail": "Greek nu follows Phoenician nun. Fish is a traditional interpretation of the letter name, with other proposals for the early sign.",
+      "central": false
+    },
+    {
+      "id": "n-5",
+      "letter": "N",
+      "name": "Nemesis",
+      "tradition": "Greek mythology",
+      "detail": "A personification of retribution or due allotment. Her name is associated with the Greek family for distributing or apportioning.",
+      "central": false
+    },
+    {
+      "id": "n-6",
+      "letter": "N",
+      "name": "Nergal",
+      "tradition": "Mesopotamian mythology",
+      "detail": "A deity associated with war, disease, and the Underworld. Scorching heat is one association.",
+      "central": false
+    },
+    {
+      "id": "n-7",
+      "letter": "N",
+      "name": "Nirvana",
+      "tradition": "Sanskrit",
+      "detail": "Literally associated with extinguishing or blowing out. In Buddhist contexts the term concerns liberation and the cessation of suffering.",
+      "central": false
+    },
+    {
+      "id": "o-1",
+      "letter": "O",
+      "name": "Odin",
+      "tradition": "Norse mythology",
+      "detail": "One-eyed seeker of knowledge and runes. His name family is associated with inspiration, excitement, or frenzy.",
+      "central": true
+    },
+    {
+      "id": "o-2",
+      "letter": "O",
+      "name": "Osiris",
+      "tradition": "Ancient Egyptian mythology",
+      "detail": "God of the dead and regeneration, associated with agriculture and continuity after death. His name’s derivation is uncertain.",
+      "central": true
+    },
+    {
+      "id": "o-3",
+      "letter": "O",
+      "name": "Orion",
+      "tradition": "Greek mythology",
+      "detail": "The giant hunter placed among the stars in Greek myth. The constellation has long served as a seasonal marker.",
+      "central": true
+    },
+    {
+      "id": "o-4",
+      "letter": "O",
+      "name": "Ayin / Omicron",
+      "tradition": "Hebrew & Greek alphabets",
+      "detail": "Phoenician ayin, associated with an eye, supplied the ancestral sign for Greek omicron.",
+      "central": false
+    },
+    {
+      "id": "o-5",
+      "letter": "O",
+      "name": "Ouroboros",
+      "tradition": "Greek terminology & ancient iconography",
+      "detail": "A serpent eating its own tail. The Greek term names the tail-devouring image.",
+      "central": false
+    },
+    {
+      "id": "o-6",
+      "letter": "O",
+      "name": "Oceanus",
+      "tradition": "Greek mythology",
+      "detail": "The Titan and world-encircling river in archaic Greek cosmology.",
+      "central": false
+    },
+    {
+      "id": "o-7",
+      "letter": "O",
+      "name": "Oracle",
+      "tradition": "Latin oraculum",
+      "detail": "A prophetic answer, the medium that delivers one, or the place of consultation. The Latin word family includes speaking or praying.",
+      "central": false
+    },
+    {
+      "id": "p-1",
+      "letter": "P",
+      "name": "Poseidon",
+      "tradition": "Greek mythology",
+      "detail": "God of the sea, earthquakes, and horses. Interpretations of his name as lord or husband of earth are proposals.",
+      "central": true
+    },
+    {
+      "id": "p-2",
+      "letter": "P",
+      "name": "Persephone",
+      "tradition": "Greek mythology",
+      "detail": "Queen of the Underworld. Her return from below ground is linked to seasonal fertility. The supplied name roots are conjectural.",
+      "central": true
+    },
+    {
+      "id": "p-3",
+      "letter": "P",
+      "name": "Prometheus",
+      "tradition": "Greek mythology",
+      "detail": "The Titan who brings fire to humanity. His name is traditionally understood as forethought.",
+      "central": true
+    },
+    {
+      "id": "p-4",
+      "letter": "P",
+      "name": "Pe / Pi",
+      "tradition": "Hebrew & Greek alphabets",
+      "detail": "Greek pi follows Phoenician pe, whose name is associated with the mouth.",
+      "central": false
+    },
+    {
+      "id": "p-5",
+      "letter": "P",
+      "name": "Pan",
+      "tradition": "Greek mythology",
+      "detail": "A deity of shepherds, flocks, and wild places, and the namesake of panic. His proposed name derivation is uncertain.",
+      "central": false
+    },
+    {
+      "id": "p-6",
+      "letter": "P",
+      "name": "Pneuma",
+      "tradition": "Greek vocabulary",
+      "detail": "Wind, breath, or spirit depending on context.",
+      "central": false
+    },
+    {
+      "id": "p-7",
+      "letter": "P",
+      "name": "Pluto",
+      "tradition": "Greek & Roman mythology",
+      "detail": "A name for the ruler of the Underworld, associated with wealth and resources from beneath the ground.",
+      "central": false
+    },
+    {
+      "id": "q-1",
+      "letter": "Q",
+      "name": "Quetzalcoatl",
+      "tradition": "Nahuatl & Mesoamerican traditions",
+      "detail": "The Nahuatl name combines quetzal plumage with serpent. This feathered serpent is associated with wind and creation in several traditions.",
+      "central": true
+    },
+    {
+      "id": "q-2",
+      "letter": "Q",
+      "name": "Quirinus",
+      "tradition": "Roman mythology",
+      "detail": "An early Roman deity later associated with the deified Romulus. Proposed name explanations include a civic assembly and a spear.",
+      "central": true
+    },
+    {
+      "id": "q-3",
+      "letter": "Q",
+      "name": "Quintessence",
+      "tradition": "Latin quinta essentia",
+      "detail": "Fifth essence. In ancient and medieval natural philosophy it names the fifth element distinct from earth, water, air, and fire.",
+      "central": true
+    },
+    {
+      "id": "q-4",
+      "letter": "Q",
+      "name": "Qoph / Koppa",
+      "tradition": "Hebrew & archaic Greek alphabets",
+      "detail": "Greek koppa follows Phoenician qoph. Head and needle-eye readings are among the proposals for the early sign.",
+      "central": false
+    },
+    {
+      "id": "q-5",
+      "letter": "Q",
+      "name": "Quantum",
+      "tradition": "Latin and physics",
+      "detail": "Latin quantum asks how much. Modern physics uses quantum for a discrete quantity in a particular system.",
+      "central": false
+    },
+    {
+      "id": "q-6",
+      "letter": "Q",
+      "name": "Quake",
+      "tradition": "Old English and modern English",
+      "detail": "To shake or tremble, from Old English cwacian.",
+      "central": false
+    },
+    {
+      "id": "q-7",
+      "letter": "Q",
+      "name": "Quest",
+      "tradition": "Latin and modern English",
+      "detail": "A search or pursuit. The word traces through French to the Latin family of quaerere, to seek.",
+      "central": false
+    },
+    {
+      "id": "r-1",
+      "letter": "R",
+      "name": "Ra",
+      "tradition": "Ancient Egyptian mythology",
+      "detail": "A solar deity whose name is the Egyptian word for sun.",
+      "central": true
+    },
+    {
+      "id": "r-2",
+      "letter": "R",
+      "name": "Rhea",
+      "tradition": "Greek mythology",
+      "detail": "The Titaness and mother of a generation of Olympians. Flow and earth are proposed readings of her name.",
+      "central": true
+    },
+    {
+      "id": "r-3",
+      "letter": "R",
+      "name": "Rta",
+      "tradition": "Vedic Sanskrit",
+      "detail": "Ṛta concerns right order in Vedic texts, encompassing ritual and cosmic regularity.",
+      "central": true
+    },
+    {
+      "id": "r-4",
+      "letter": "R",
+      "name": "Resh / Rho",
+      "tradition": "Hebrew & Greek alphabets",
+      "detail": "Greek rho follows Phoenician resh, whose early sign is associated with the head.",
+      "central": false
+    },
+    {
+      "id": "r-5",
+      "letter": "R",
+      "name": "Ruach",
+      "tradition": "Hebrew vocabulary",
+      "detail": "Wind, breath, or spirit. The sense depends on context.",
+      "central": false
+    },
+    {
+      "id": "r-6",
+      "letter": "R",
+      "name": "Romulus",
+      "tradition": "Roman legend",
+      "detail": "The legendary founder of Rome and brother of Remus. Historical explanations of the name are uncertain.",
+      "central": false
+    },
+    {
+      "id": "r-7",
+      "letter": "R",
+      "name": "Runes",
+      "tradition": "Germanic writing",
+      "detail": "Characters of several early Germanic alphabets. The word family is associated with a secret or counsel.",
+      "central": false
+    },
+    {
+      "id": "s-1",
+      "letter": "S",
+      "name": "Sol",
+      "tradition": "Latin & Roman mythology",
+      "detail": "The Latin word for sun, also personified as a Roman deity.",
+      "central": true
+    },
+    {
+      "id": "s-2",
+      "letter": "S",
+      "name": "Set / Seth",
+      "tradition": "Ancient Egyptian mythology",
+      "detail": "A deity associated with deserts, storms, and conflict. The origin and interpretation of the name are debated.",
+      "central": true
+    },
+    {
+      "id": "s-3",
+      "letter": "S",
+      "name": "Saturn",
+      "tradition": "Roman mythology",
+      "detail": "A deity associated with agriculture and a legendary Golden Age. Ancient writers connected the name with sowing.",
+      "central": true
+    },
+    {
+      "id": "s-4",
+      "letter": "S",
+      "name": "Shin / Sigma",
+      "tradition": "Hebrew & Greek alphabets",
+      "detail": "Greek sigma is historically linked to the Semitic letter shin, whose name is associated with tooth.",
+      "central": false
+    },
+    {
+      "id": "s-5",
+      "letter": "S",
+      "name": "Shiva",
+      "tradition": "Hindu tradition",
+      "detail": "A major deity whose name is commonly glossed auspicious. Traditions connect him with dissolution and renewal.",
+      "central": false
+    },
+    {
+      "id": "s-6",
+      "letter": "S",
+      "name": "Sophia",
+      "tradition": "Greek vocabulary",
+      "detail": "Wisdom, skill, or expertise, depending on the source and context.",
+      "central": false
+    },
+    {
+      "id": "s-7",
+      "letter": "S",
+      "name": "Sovereign",
+      "tradition": "English via Old French",
+      "detail": "A ruler or holder of supreme authority. The word family traces to a form meaning above.",
+      "central": false
+    },
+    {
       "id": "t-1",
       "letter": "T",
       "name": "Theseus",
@@ -282,12 +1010,92 @@
       "central": false
     },
     {
+      "id": "t-15",
+      "letter": "T",
+      "name": "Taw / Tau",
+      "tradition": "Semitic & Greek alphabets",
+      "detail": "A crossed mark is an early form associated with the letter that became Greek tau.",
+      "central": false
+    },
+    {
+      "id": "t-16",
+      "letter": "T",
+      "name": "Titan",
+      "tradition": "Greek mythology",
+      "detail": "A member of the divine generation preceding the Olympians. The proposed sun and stretch roots are uncertain.",
+      "central": false
+    },
+    {
+      "id": "t-17",
+      "letter": "T",
+      "name": "Tithēmi",
+      "tradition": "Greek vocabulary",
+      "detail": "To place, put, or establish.",
+      "central": false
+    },
+    {
+      "id": "u-1",
+      "letter": "U",
+      "name": "Uranus",
+      "tradition": "Greek mythology",
+      "detail": "Ouranos is the personified sky, born from Gaia in Hesiod.",
+      "central": true
+    },
+    {
+      "id": "u-2",
+      "letter": "U",
+      "name": "Utu",
+      "tradition": "Sumerian mythology",
+      "detail": "A sun deity linked with seeing, legal judgment, and justice. Compare Akkadian Shamash.",
+      "central": true
+    },
+    {
+      "id": "u-3",
+      "letter": "U",
+      "name": "Ushas",
+      "tradition": "Vedic tradition",
+      "detail": "Uṣas, the dawn, is both a natural phenomenon and a deity in the Vedic hymns.",
+      "central": true
+    },
+    {
+      "id": "u-4",
+      "letter": "U",
+      "name": "Upsilon",
+      "tradition": "Greek alphabet",
+      "detail": "A letter historically derived from Phoenician waw. Compare Vav / Waw under V.",
+      "central": false
+    },
+    {
+      "id": "u-5",
+      "letter": "U",
+      "name": "Uraeus",
+      "tradition": "Ancient Egyptian iconography",
+      "detail": "The erect cobra emblem associated with kingship and protection.",
+      "central": false
+    },
+    {
+      "id": "u-6",
+      "letter": "U",
+      "name": "Umbra",
+      "tradition": "Latin vocabulary",
+      "detail": "Shadow or shade.",
+      "central": false
+    },
+    {
+      "id": "u-7",
+      "letter": "U",
+      "name": "Ullr",
+      "tradition": "Norse mythology",
+      "detail": "A deity associated with archery and travel on skis. The linkage to a Germanic word for glory is a proposal.",
+      "central": false
+    },
+    {
       "id": "v-1",
       "letter": "V",
       "name": "Verbum",
       "tradition": "Latin",
       "detail": "Word. The Latin Vulgate uses Verbum for Logos in John 1:1.",
-      "central": false
+      "central": true
     },
     {
       "id": "v-2",
@@ -295,7 +1103,7 @@
       "name": "Veritas",
       "tradition": "Latin",
       "detail": "Truth or truthfulness.",
-      "central": false
+      "central": true
     },
     {
       "id": "v-3",
@@ -303,7 +1111,7 @@
       "name": "Vita",
       "tradition": "Latin",
       "detail": "Life.",
-      "central": false
+      "central": true
     },
     {
       "id": "v-4",
@@ -332,8 +1140,8 @@
     {
       "id": "v-7",
       "letter": "V",
-      "name": "Vav",
-      "tradition": "Hebrew alphabet",
+      "name": "Vav / Waw",
+      "tradition": "Hebrew & Phoenician alphabets",
       "detail": "A letter name associated with a hook. The prefixed letter can express “and.” Its numeric value is six.",
       "central": false
     },
@@ -359,6 +1167,198 @@
       "name": "Volt",
       "tradition": "Physics",
       "detail": "The SI unit of electric potential difference, named after Alessandro Volta.",
+      "central": false
+    },
+    {
+      "id": "w-1",
+      "letter": "W",
+      "name": "Woden",
+      "tradition": "Old English & Germanic traditions",
+      "detail": "The Old English cognate of Odin. Interpretations of the name include inspiration, frenzy, or fury.",
+      "central": true
+    },
+    {
+      "id": "w-2",
+      "letter": "W",
+      "name": "Wyrd",
+      "tradition": "Old English vocabulary",
+      "detail": "Fate or what comes to pass, associated with the verb weorþan, to become.",
+      "central": true
+    },
+    {
+      "id": "w-3",
+      "letter": "W",
+      "name": "Wakan",
+      "tradition": "Lakota language and tradition",
+      "detail": "Wakȟáŋ conveys sacredness or mystery. Its cultural and spiritual meanings depend on use and context.",
+      "central": true
+    },
+    {
+      "id": "w-4",
+      "letter": "W",
+      "name": "W",
+      "tradition": "Latin alphabet",
+      "detail": "Developed from doubled U or V letter forms to represent a sound needed in Germanic writing.",
+      "central": false
+    },
+    {
+      "id": "w-5",
+      "letter": "W",
+      "name": "Way",
+      "tradition": "Old English and modern English",
+      "detail": "A path, route, or manner of going, from Old English weg.",
+      "central": false
+    },
+    {
+      "id": "w-6",
+      "letter": "W",
+      "name": "Will",
+      "tradition": "Old English and modern English",
+      "detail": "Desire, volition, or intention, from a family including Old English willa.",
+      "central": false
+    },
+    {
+      "id": "x-1",
+      "letter": "X",
+      "name": "Xolotl",
+      "tradition": "Nahuatl & Mexica tradition",
+      "detail": "Xōlōtl is associated with twinship, movement through the Underworld, and guiding the sun in some accounts.",
+      "central": true
+    },
+    {
+      "id": "x-2",
+      "letter": "X",
+      "name": "Xenia",
+      "tradition": "Greek vocabulary & custom",
+      "detail": "Guest-friendship and reciprocal hospitality between host and visitor.",
+      "central": true
+    },
+    {
+      "id": "x-3",
+      "letter": "X",
+      "name": "Xi / Chi",
+      "tradition": "Greek alphabet",
+      "detail": "Xi is historically linked with Semitic samekh. Chi is a separate Greek letter whose remote origin is debated.",
+      "central": true
+    },
+    {
+      "id": "x-4",
+      "letter": "X",
+      "name": "Xiphos",
+      "tradition": "Greek vocabulary",
+      "detail": "Sword. The name also identifies a type of ancient Greek double-edged sword.",
+      "central": false
+    },
+    {
+      "id": "x-5",
+      "letter": "X",
+      "name": "Xeros",
+      "tradition": "Greek vocabulary",
+      "detail": "Dry. The combining form appears in words such as xeric and xerography.",
+      "central": false
+    },
+    {
+      "id": "x-6",
+      "letter": "X",
+      "name": "X",
+      "tradition": "Mathematical and graphic usage",
+      "detail": "Used as an unknown in algebra and as a crossing mark in different graphic contexts.",
+      "central": false
+    },
+    {
+      "id": "y-1",
+      "letter": "Y",
+      "name": "Ymir",
+      "tradition": "Norse mythology",
+      "detail": "The primordial being whose body supplies material for the world in Norse accounts. Twin is a proposed name interpretation.",
+      "central": true
+    },
+    {
+      "id": "y-2",
+      "letter": "Y",
+      "name": "Yama",
+      "tradition": "Vedic tradition",
+      "detail": "A figure linked with the first mortals and the realm of the dead. His name is commonly linked with twin.",
+      "central": true
+    },
+    {
+      "id": "y-3",
+      "letter": "Y",
+      "name": "Yod",
+      "tradition": "Hebrew & Phoenician alphabets",
+      "detail": "A letter associated with a hand or arm in historical alphabet charts. Compare Iota / Yod under I.",
+      "central": true
+    },
+    {
+      "id": "y-4",
+      "letter": "Y",
+      "name": "Yin & Yang",
+      "tradition": "Classical Chinese",
+      "detail": "Terms with early associations to shaded and sunny sides of a hill and a broader range of paired cosmological uses.",
+      "central": false
+    },
+    {
+      "id": "y-5",
+      "letter": "Y",
+      "name": "Yggdrasil",
+      "tradition": "Norse mythology",
+      "detail": "The world tree. Its name is traditionally interpreted as the horse of Yggr, a name of Odin.",
+      "central": false
+    },
+    {
+      "id": "y-6",
+      "letter": "Y",
+      "name": "Yoke",
+      "tradition": "Old English and modern English",
+      "detail": "A crosspiece joining a pair of draft animals. It belongs to an Indo-European word family for joining.",
+      "central": false
+    },
+    {
+      "id": "z-1",
+      "letter": "Z",
+      "name": "Zeus",
+      "tradition": "Greek mythology",
+      "detail": "The sky and thunder god, whose name belongs to the inherited Indo-European sky-god family.",
+      "central": true
+    },
+    {
+      "id": "z-2",
+      "letter": "Z",
+      "name": "Zephyrus",
+      "tradition": "Greek mythology",
+      "detail": "The personified west wind, associated with spring in some accounts.",
+      "central": true
+    },
+    {
+      "id": "z-3",
+      "letter": "Z",
+      "name": "Zoe",
+      "tradition": "Greek vocabulary",
+      "detail": "Zōē means life. The word belongs to the broad Indo-European family for living.",
+      "central": true
+    },
+    {
+      "id": "z-4",
+      "letter": "Z",
+      "name": "Zayin / Zeta",
+      "tradition": "Hebrew & Greek alphabets",
+      "detail": "Greek zeta follows Phoenician zayin. Weapon is a traditional interpretation of the Semitic name.",
+      "central": false
+    },
+    {
+      "id": "z-5",
+      "letter": "Z",
+      "name": "Zenith",
+      "tradition": "Arabic via medieval Latin",
+      "detail": "The point directly overhead. The word traces to Arabic samt al-raʾs, direction of the head.",
+      "central": false
+    },
+    {
+      "id": "z-6",
+      "letter": "Z",
+      "name": "Zero",
+      "tradition": "Arabic via Latin and Italian",
+      "detail": "From Arabic ṣifr, empty. Zero functions as a number and as a positional placeholder.",
       "central": false
     }
   ]

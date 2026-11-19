@@ -1,6 +1,8 @@
+import { expansion } from "./expansion.mjs";
+
 export const originalT = "the trinity of t's - theseus (the Zeus), theos (the OS), and thanos (thank NOS - nitrous oxide) by Nathan Tabor";
 
-export const sections = [
+const beginning = [
   { letter: "A", title: "Origin, Light, & Victory", core: [
     ["Apollo", "Greek & Roman mythology", "Light, music, prophecy, and truth. Apollo came to be identified with the sun. The origin of his name is debated."],
     ["Athena", "Greek mythology", "Wisdom, strategic warfare, and crafts. A familiar account places her birth at the head of Zeus."],
@@ -47,22 +49,32 @@ export const sections = [
     ["Tesla", "Physics", "The SI unit of magnetic flux density, named for Nikola Tesla."],
     ["Torque", "Mechanics", "The moment of a force about a point or axis."],
     ["Thor", "Norse mythology", "The thunder figure cross-referenced from B."],
+    ["Taw / Tau", "Semitic & Greek alphabets", "A crossed mark is an early form associated with the letter that became Greek tau."],
+    ["Titan", "Greek mythology", "A member of the divine generation preceding the Olympians. The proposed sun and stretch roots are uncertain."],
+    ["Tithēmi", "Greek vocabulary", "To place, put, or establish."],
   ]},
-  { letter: "V", title: "The V Shift", core: [], related: [
+  { letter: "V", title: "Word, Truth, & Life", core: [
     ["Verbum", "Latin", "Word. The Latin Vulgate uses Verbum for Logos in John 1:1."],
     ["Veritas", "Latin", "Truth or truthfulness."],
     ["Vita", "Latin", "Life."],
+  ], related: [
     ["Vox", "Latin", "Voice, utterance, or sound."],
     ["Varuna", "Vedic Sanskrit", "A deity connected with moral and cosmic order."],
     ["Vayu", "Vedic Sanskrit", "Wind and the deity of wind."],
-    ["Vav", "Hebrew alphabet", "A letter name associated with a hook. The prefixed letter can express “and.” Its numeric value is six."],
+    ["Vav / Waw", "Hebrew & Phoenician alphabets", "A letter name associated with a hook. The prefixed letter can express “and.” Its numeric value is six."],
     ["Vulcan", "Roman mythology", "The Roman deity associated with fire and the forge."],
     ["Vector", "Mathematics & physics", "A quantity represented by magnitude and direction in elementary geometry and physics."],
     ["Volt", "Physics", "The SI unit of electric potential difference, named after Alessandro Volta."],
   ]},
 ];
 
+export const sections = [...beginning, ...expansion].sort((a, b) => a.letter.localeCompare(b.letter, "en"));
+export const featuredLetters = sections.map(section => section.letter);
+
 export const sources = [
+  ["Gabriel · Brown–Driver–Briggs Hebrew lexicon", "https://biblehub.com/bdb/1403.htm"],
+  ["Daniel 8 · KJV", "https://www.biblegateway.com/passage/?search=Daniel%208&version=KJV"],
+  ["Genesis 32, 1 Samuel 1, and Matthew 1 · KJV", "https://www.biblegateway.com/passage/?search=Genesis%2032%3B%201%20Samuel%201%3B%20Matthew%201&version=KJV"],
   ["Biblical comparison · Psalm 82 and John 10 (KJV)", "https://www.biblegateway.com/passage/?search=Psalm%2082%3B%20John%2010%3A30-36&version=KJV"],
   ["The mark in Ezekiel 9:4 (KJV)", "https://www.biblegateway.com/passage/?search=Ezekiel%209%3A4&version=KJV"],
   ["Theseus and the unification of Attica · Plutarch", "https://www.gutenberg.org/files/14033/14033-h/14033-h.htm"],

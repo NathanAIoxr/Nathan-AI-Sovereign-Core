@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { extname, resolve } from "node:path";
+import { featuredLetters } from "./public/common/corpus.mjs";
 import { namespace, units } from "./units.mjs";
 import { queryEntries, records } from "./public/common/tools.mjs";
 
@@ -30,7 +31,10 @@ async function assetsAt(dir, prefix = "") {
     if (!prefix && (ext === ".html" || ext === ".mjs")) {
       bytes = Buffer.from(bytes.toString("utf8")
         .replace(/<!-- github-pages-shell:start -->[\s\S]*?<!-- github-pages-shell:end -->\n/, "")
-        .replaceAll("../common/", "./common/"));
+        .replaceAll("../common/", "./common/")
+        .replace(/<aside id="nathan-record-notice"[\s\S]*?<\/aside>/, notice => notice
+          .replace(/ style="[^"]*"/g, "")
+          .replace("../../../../../docs/record/index.html", "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/docs/record/")));
     }
     assets["/" + prefix + entry.name] = { type, etag: JSON.stringify(digest(bytes)), body: bytes.toString("base64") };
   }
@@ -48,8 +52,8 @@ for (const unit of units) {
     observability: { enabled: true, traces: { enabled: true, head_sampling_rate: 0.1 } },
     tags: ["nathan-ai", "alphabet-trinities", unit.id],
   };
-  const release = digest(JSON.stringify({ metadata, source, search: queryEntries.toString(), assets, corpus })).slice(0, 16);
-  const site = { id: unit.id, release, assets, records: corpus };
+  const release = digest(JSON.stringify({ metadata, source, search: queryEntries.toString(), assets, corpus, letters: featuredLetters })).slice(0, 16);
+  const site = { id: unit.id, release, assets, records: corpus, letters: featuredLetters };
   await writeFile(resolve(output, unit.id + ".mjs"), source + "\n" + queryEntries.toString() +
     "\nconst site = " + JSON.stringify(site) + ";\nexport default { fetch: request => serve(request, site) };\n");
   await writeFile(resolve(output, unit.id + ".json"), JSON.stringify(metadata, null, 2) + "\n");

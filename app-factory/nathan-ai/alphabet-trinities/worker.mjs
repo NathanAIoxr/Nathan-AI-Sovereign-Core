@@ -25,8 +25,8 @@ export function serve(request, site) {
     const letter = (url.searchParams.get("letter") || "").toUpperCase();
     const query = url.searchParams.get("q") || "";
     const cors = { "Access-Control-Allow-Origin": "*" };
-    if ((letter && !["A", "B", "C", "T", "V"].includes(letter)) || query.length > 100) {
-      return json({ error: "Use letter A, B, C, T, or V and a query up to 100 characters." }, 400, cors);
+    if ((letter && !site.letters.includes(letter)) || query.length > 100) {
+      return json({ error: "Use a letter in the featured corpus and a query up to 100 characters." }, 400, cors);
     }
     const entries = queryEntries(site.records, query, letter);
     return json({ version: 1, entries }, 200, cors);

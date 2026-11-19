@@ -10,6 +10,10 @@ PUBLIC_ROOTS=('app-factory/','docs/','archive-index/','landing/','standalone-app
               'hive/','research/tabor-concordance/bible/',
               'publications/pee-dee-valley/','publishing/pee-dee-valley/')
 SOURCE_DOWNLOADS={'app-factory/nathan-ai/voice-box/native/offline_tts.py','standalone-apps/ttfes-btp/LICENSE','archive-index/alphabet/g/source-catalog-g.json.gz','app-factory/nathan-ai/brainstormer/originals/NathanAI_Brainstormer_Python_v002.py','app-factory/nathan-ai/sovereign-coins/anchored/bench_matrix.py','app-factory/octopus-root/sovereign-continuum/advanced.py','app-factory/octopus-root/sovereign-continuum/test_advanced.py'}
+SOURCE_DOWNLOADS.update({
+    "app-factory/nathan-ai/alphabet-trinities/public/alphabet-hardware/alphabet-registers.sv",
+    "app-factory/nathan-ai/alphabet-trinities/public/alphabet-hardware/alphabet-registers-tb.sv",
+})
 def git(*args):return subprocess.check_output(['git','-C',str(ROOT),*args],text=True).strip()
 def tracked():return subprocess.check_output(['git','-C',str(ROOT),'ls-files','-z']).decode().split('\0')[:-1]
 def safe(path):
