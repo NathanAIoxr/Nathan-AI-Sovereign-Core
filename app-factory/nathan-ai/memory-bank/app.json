@@ -3,7 +3,7 @@
   "title": "Nathan AI Memory Bank",
   "worker": "nathan-ai-memory-bank",
   "origin": "https://tabor-bridge.nathantaboract.workers.dev/memory-bank",
-  "entry": "public/index.html",
+  "entry": "public/index.html.in",
   "build": "npm test",
   "routes": ["/", "/health", "/zones/", "/remember", "/recall", "/import"],
   "zones": ["games", "puzzles", "hardware", "books", "code", "setup"],

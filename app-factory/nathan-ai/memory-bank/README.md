@@ -12,6 +12,7 @@ Requires Node 22.16 or later. CI uses Node 24.
 npm ci
 npm test
 npx wrangler d1 migrations apply DB --local
+npm run build:pages
 npx wrangler dev --local --var API_KEY:local-test-key --var READ_API_KEY:local-test-read-key
 ```
 
@@ -28,7 +29,7 @@ Run commands from the app directory. The D1 binding is `DB`. Apply changes with 
 
 Build the namespace script with `npm ci && npm test && npm run build:platform`. Deploy updates with `npx wrangler deploy --config wrangler.platform.toml --dispatch-namespace nathan-tabor-platforms`. The included GitHub Actions workflow runs checks automatically on changes to this app. To enable automatic deployment, set `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` as Actions secrets and set `ENABLE_NATHAN_MEMORY_BANK_DEPLOY` to `true`. The existing bridge only needs to be deployed when its routing changes.
 
-For a standalone Worker or Pages project in a separate account, `wrangler.toml` and `npm run build:pages` remain available. Update the database IDs and public base URLs for that environment.
+For a standalone Worker or Pages project in a separate account, build the app with `npm run build:pages` before using `wrangler.toml`. The HTML templates produce standalone app pages for Cloudflare. Update the database IDs and public base URLs for that environment.
 
 On iPhone, open the production URL in Safari and use **Share → Add to Home Screen**. The key stays in the open page until you reload or tap **Lock**.
 
