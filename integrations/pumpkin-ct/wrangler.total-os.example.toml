@@ -1,0 +1,20 @@
+# Example only. Do not deploy without replacing verified resource identifiers.
+name = "pumpkin-patch-ct-inc-total-os"
+main = "workers/total-os-index.ts"
+compatibility_date = "2026-11-01"
+[vars]
+ENVIRONMENT = "staging"
+PLATFORM_NAME = "Pumpkin Patch & CT Inc. Total Community OS"
+# Add verified bindings only after resource discovery:
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "VERIFIED_NAME"
+# database_id = "VERIFIED_ID"
+# [[kv_namespaces]]
+# binding = "EDGE_CONFIG_KV"
+# id = "VERIFIED_ID"
+# [[r2_buckets]]
+# binding = "MEDIA_AND_VAULT_R2"
+# bucket_name = "VERIFIED_BUCKET"
+# [ai]
+# binding = "AI"
