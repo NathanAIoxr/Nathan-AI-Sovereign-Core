@@ -62,3 +62,18 @@ test("compute route keeps controller availability separate from proof results",a
   const absent=await (await worker.fetch(req(),{DB})).json();
   assert.equal(absent.controller,null);
 });
+
+test("the six Codex views preserve nine identities and a fixed X",async()=>{
+  const r=await worker.fetch(new Request("https://localhost/api/codex"),{});
+  const data=await r.json();
+  assert.equal(data.entries.length,9);
+  assert.equal(data.views.length,6);
+  for(const view of data.views){
+    assert.deepEqual(view.anchor,{x:0,y:0});
+    assert.equal(new Set(view.points.map(p=>p.id)).size,9);
+    assert.equal(new Set(view.points.map(p=>p.x+","+p.y)).size,9);
+    assert.ok(view.points.every(p=>p.x!==0 || p.y!==0));
+  }
+  const page=await (await worker.fetch(new Request("https://localhost/codex"),{})).text();
+  assert.equal(page.split('aria-label="Fixed center"').length-1,6);
+});

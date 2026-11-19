@@ -1,3 +1,4 @@
+import { codexData, codexPage, codexCss } from "./codex.mjs";
 import { blueprint, technicalNote } from "./blueprint.mjs";
 
 const limit = 1024;
@@ -38,6 +39,7 @@ function page() {
   const base="https://nathan-ai-coin-ledger.nathantaboract.workers.dev";
   const links=appLinks([
     [base+"/blueprint","Book blueprint and manuscript"],
+    [base+"/codex","Codex 1–9 and mirror views"],
     [base+"/api/ledger","64-slot ledger"],
     [base+"/api/receipts","Development mining receipts"],
     [base+"/api/verify?slot=1","Verify the first receipt"],
@@ -80,6 +82,10 @@ async fetch(request,env) {
   const path=url.pathname;
   if (request.method==="GET") {
     if(path==="/")return page();
+    if(path==="/api/codex")return response(codexData());
+    if(path==="/codex")return new Response(codexPage(),{headers:{"Content-Type":"text/html; charset=utf-8","Content-Security-Policy":"default-src 'none'; style-src 'self'; base-uri 'none'; frame-ancestors 'none'"}});
+    if(path==="/codex.css")return new Response(codexCss,{headers:{"Content-Type":"text/css; charset=utf-8","X-Content-Type-Options":"nosniff"}});
+
     if(path==="/blueprint.txt")return new Response(blueprint,{headers:{"Content-Type":"text/plain; charset=utf-8","X-Content-Type-Options":"nosniff"}});
     if(path==="/blueprint")return new Response('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nathan AI · Book Blueprint</title><main><h1>Nathan AI 🚀 Book Blueprint</h1><nav><a href="/">Coin ledger</a> · <a href="https://nathan-ai-crypto-64.nathantaboract.workers.dev/manuscript.txt">Previous scene</a> · <a href="/blueprint.txt">Original plain text</a></nav><section><h2>Supplied blueprint</h2>'+blueprint.split(/\n\n+/).map(paragraph=>'<p>'+escape(paragraph).replaceAll("\n","<br>")+'</p>').join("")+'</section><section><h2>Technical note</h2><p>'+escape(technicalNote)+'</p></section><section><h2>Connected Nathan AI apps</h2><ul>'+appLinks(companionApps)+'</ul></section></main></html>',{headers:{"Content-Type":"text/html; charset=utf-8","Content-Security-Policy":"default-src 'none'; base-uri 'none'; frame-ancestors 'none'"}});
 
