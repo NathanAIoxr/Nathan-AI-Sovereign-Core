@@ -72,7 +72,7 @@ async function search(append = false) {
       }
       list.append(row);
     }
-    status.textContent = list.children.length ? integer.format(list.children.length) + ' modules shown' : 'No shared modules match.';
+    status.textContent = list.children.length ? integer.format(list.children.length) + (list.children.length === 1 ? ' module shown' : ' modules shown') : 'No shared modules match.';
     next = found.next;
     more.hidden = !next;
   } catch {

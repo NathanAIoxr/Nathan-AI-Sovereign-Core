@@ -8,7 +8,7 @@
     "digital-flubber-sos"
   ],
   "origin": "https://tabor-apps-nathan.pages.dev/",
-  "entry": "site/layout.html",
+  "entry": "site/layout.html.in",
   "build": "npm test",
   "source": "creator_specification",
   "routes": [
