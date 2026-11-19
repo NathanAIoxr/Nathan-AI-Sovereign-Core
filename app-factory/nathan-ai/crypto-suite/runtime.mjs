@@ -1,0 +1,152 @@
+export const GENESIS = "01000000" + "00".repeat(32) + "3ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a29ab5f49ffff001d1dac2b7c";
+export const GENESIS_HASH = "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f";
+
+export function asHex(bytes) {
+  return Array.from(bytes, b => b.toString(16).padStart(2, "0")).join("");
+}
+export function hexBytes(hex) {
+  if (!/^(?:[0-9a-fA-F]{2})+$/.test(hex)) throw new Error("Use an even number of hexadecimal characters.");
+  return Uint8Array.from(hex.match(/../g), byte => Number.parseInt(byte, 16));
+}
+export async function headerProof(header) {
+  if (header.length !== 160) throw new Error("Enter exactly 80 bytes of hexadecimal.");
+  const bytes = hexBytes(header);
+  const view = new DataView(bytes.buffer);
+  const bits = view.getUint32(72, true);
+  const exponent = bits >>> 24;
+  const coefficient = bits & 0x007fffff;
+  if (!coefficient || (bits & 0x00800000) || exponent < 3 || exponent > 32) {
+    throw new Error("The header contains an unsupported compact target.");
+  }
+  const target = BigInt(coefficient) << BigInt(8 * (exponent - 3));
+  const bitcoinLimit = 0xffffn << 208n;
+  if (target > bitcoinLimit) throw new Error("The compact target exceeds the Bitcoin mainnet proof-of-work limit.");
+  const first = await crypto.subtle.digest("SHA-256", bytes);
+  const second = await crypto.subtle.digest("SHA-256", first);
+  const hash = asHex(new Uint8Array(second).reverse());
+  return { hash, target: target.toString(16).padStart(64, "0"), meetsTarget: BigInt("0x" + hash) <= target, isBitcoinGenesis: hash === GENESIS_HASH };
+}
+function escape(value) {
+  return String(value ?? "").replace(/[&<>"']/g, character => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[character]);
+}
+function json(value, status = 200) {
+  return send(JSON.stringify(value), "application/json", status);
+}
+function send(body, contentType, status = 200) {
+  return new Response(body, { status, headers: {
+    "Content-Type": contentType + "; charset=utf-8",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "no-referrer",
+    "Content-Security-Policy": "default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'",
+  } });
+}
+const network = "https://tabor-sovereign-currency.nathantaboract.workers.dev";
+const serviceOrigin = "https://nathan-ai-dmsp-dit-public.nathantaboract.workers.dev";
+const rolesMarkup = () => roles.map(([role, description]) => "<article><h3>"+escape(role)+"</h3><p>"+escape(description)+"</p></article>").join("");
+const input = (name, label, type="text", extra="") => '<label>'+label+'<input id="'+name+'" type="'+type+'" '+extra+' required></label>';
+const area = (name,label) => '<label>'+label+'<textarea id="'+name+'" required maxlength="12000"></textarea></label>';
+const output = id => '<output id="'+id+'" aria-live="polite"></output>';
+const number = (id, label) => input(id,label,"number",'min="0" max="1000000000" step="any"');
+const field = (id, label, options) => '<label>'+label+'<select id="'+id+'">'+options.map(x=>'<option>'+escape(x)+'</option>').join("")+'</select></label>';
+const section = (title, description, body) => '<section><h2>'+title+'</h2><p>'+description+'</p>'+body+'</section>';
+const tools = {
+  "crypto-64": () => section("The original 64 positions", "Recovered artwork entries and unresolved slots from the original Nathan Tabor registry.",
+    '<p><a href="'+network+'/coins/64">Original registry</a> · <a href="/api/coins/64">Registry JSON</a></p>'+input("search","Filter by slot, ticker, or name","search",'autocomplete="off"')+
+    '<p id="coin-status" role="status">Loading registry…</p><div id="coins"></div>'),
+  "mining-lab": () => section("Bitcoin header proof", "SHA-256d and compact-target comparison for an 80-byte header. Header proof is one component of Bitcoin block validation.",
+    '<p><a href="/api/genesis-proof">Bitcoin genesis verification data</a></p><form id="proof">'+area("header","80-byte hexadecimal header")+
+    '<div class="actions"><button>Verify proof</button><button type="button" id="genesis">Use genesis header</button></div></form>'+output("proof-result"))+
+    section("Electricity estimate", "Enter measured or hypothetical values for your own equipment.",'<form id="energy">'+number("watts","Power in watts")+number("hours","Run hours")+number("rate","Cost per kWh")+'<button>Calculate</button></form>'+output("energy-result")),
+  "cryptology": () => section("SHA-256", "This tool computes a SHA-256 digest in your browser.",
+    '<form id="hash">'+area("message","Message")+'<button>Compute SHA-256</button></form>'+output("digest"))+
+    section("ECDSA P-256 verification", "Verify a SHA-256 ECDSA signature using a public SPKI key and a raw 64-byte r‖s signature in hexadecimal.",
+    '<form id="verify">'+area("signed-message","Signed message")+area("public-key","SPKI public key in hexadecimal")+area("signature","Raw signature in hexadecimal")+'<button>Verify signature</button></form><button type="button" id="sample">Run a local example</button>'+output("verify-result"))+
+    section("Cryptographic infrastructure", "Cryptology covers cryptography and cryptanalysis. Operational responsibilities include key inventory, custody, rotation, signature verification, and recovery.",
+    '<ul><li>Record algorithm, key ID, owner, permitted signer, and rotation date.</li><li>Keep signing keys in dedicated custody infrastructure.</li><li>Archive signed material with its format, digest, and verification result.</li><li>Run key-revocation and restore exercises with test material.</li></ul>'),
+  "crypt-operations": () => section("Crypt oracle", "The oracle checks the original coin source and the Mining Lab using fixed service bindings.",
+    '<p><a href="/api/oracle/health">Read service observations</a> · <a href="/api/bot/catalog-audit">Catalog audit bot</a> · <a href="/api/agent/review">Operations review agent</a></p><button id="observe" type="button">Check services</button>'+output("oracle-result"))+
+    section("Trader paper journal", "Enter hypothetical trades. The journal is stored in this browser.",
+    '<form id="trade">'+input("asset","Asset or symbol","text",'maxlength="32"')+field("side","Direction",["Long","Short"])+number("quantity","Quantity")+number("entry","Entry price")+number("exit","Exit price")+number("fees","Total fees")+'<button>Record paper trade</button></form>'+output("trade-result")+'<ol id="trade-rows"></ol><div class="actions"><button id="export-trade" type="button">Export journal</button><button id="clear-trade" type="button">Clear journal</button></div>')+
+    section("People and software roles", "Roles for human oversight and bounded software execution.",'<div class="grid">'+rolesMarkup()+'</div>'),
+  "crypto-dmsp-dit": () => section("Operations runbook", "Save a local runbook for crypto services, signing, mining, and cryptographic recovery.",
+    '<form id="runbook">'+input("service","Service name","text",'maxlength="80"')+field("area","Checklist",["Mining telemetry","Signing infrastructure","Crypt oracle incident","Backup and recovery"])+
+    '<fieldset><legend>Evidence collected</legend><label><input type="checkbox" value="Owner identified"> Owner identified</label><label><input type="checkbox" value="Baseline measured"> Baseline measured</label><label><input type="checkbox" value="Failure and rollback rehearsed"> Failure and rollback rehearsed</label></fieldset><button>Download runbook</button></form>'+output("runbook-result")+
+    '<p><a href="'+serviceOrigin+'/">Open the existing Nathan AI DMSP / DIT system</a> · <a href="/api/roles">Role registry JSON</a></p>'),
+  "cryptozoology": () => section("Field observations", "Use this fieldbook for folklore, reports, field evidence, and species verification.",
+    '<form id="fieldbook">'+input("subject","Subject or reported name","text",'maxlength="80"')+field("evidence","Evidence category",["Folklore","Unverified sighting","Documented sample","Independently verified record"])+area("observation","Observations and source details")+'<button>Save observation</button></form>'+output("field-result")+
+    '<ol id="field-rows"></ol><div class="actions"><button id="export-field" type="button">Export fieldbook</button><button id="clear-field" type="button">Clear fieldbook</button></div>')+
+    section("For cryptozoologists", "Record date, coarse location, source, witness conditions, and possible alternatives. Preserve original evidence and record independent checks when available.",''),
+};
+function page(id) {
+  const [title, author, intro] = editions[id];
+  const links = Object.entries(editions).map(([slug,[name]]) => '<a'+(id===slug?' aria-current="page"':'')+' href="'+(id===slug?"/":"https://nathan-ai-"+slug+".nathantaboract.workers.dev/")+'">'+escape(name)+'</a>').join("");
+  return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+escape(title)+'</title><link rel="stylesheet" href="/style.css"><body data-app="'+id+'"><header><div class="wrap"><p>'+escape(author)+'</p><nav aria-label="Apps">'+links+'</nav></div></header><main class="wrap"><div class="hero"><h1>'+escape(title)+'</h1><p>'+escape(intro)+'</p></div>'+tools[id]()+'</main><script type="module" src="/app.js"></script></body></html>';
+}
+async function sourceRegistry(env) {
+  const response = await env.COIN_SOURCE.fetch("https://internal/api/coins/64");
+  if (!response.ok) throw new Error("Coin registry unavailable");
+  const data = await response.json();
+  if (data.requested !== 64 || !Array.isArray(data.slots) || data.slots.length !== 64 ||
+      !data.slots.every((row, index) => row.slot === index + 1)) throw new Error("Coin registry shape mismatch");
+  return data;
+}
+export function createApp(id) {
+  return { async fetch(request, env) {
+    const url = new URL(request.url);
+    if (request.method !== "GET") return send("Method not allowed", "text/plain", 405);
+    const path = url.pathname;
+    if (path === "/healthz") return json({ app: id, ok: true });
+    if (path === "/") return send(page(id), "text/html");
+    if (path === "/style.css") return send(":root{--accent:"+editions[id][3]+"}"+styles,"text/css");
+    if (path === "/app.js") return send(browserModule, "text/javascript");
+    if (path === "/api/coins/64" && id === "crypto-64") {
+      try { return json(await sourceRegistry(env)); }
+      catch { return json({ error: "Original registry temporarily unavailable" }, 503); }
+    }
+    if (path === "/api/genesis-proof" && id === "mining-lab") return json({ header: GENESIS, ...(await headerProof(GENESIS)) });
+    if (path === "/api/roles" && ["crypt-operations","crypto-dmsp-dit"].includes(id)) return json({ roles });
+    if (path === "/api/oracle/health" && id === "crypt-operations") {
+      const [coins, mining] = await Promise.allSettled([
+        sourceRegistry(env),
+        env.MINING_LAB.fetch("https://internal/api/genesis-proof").then(async response => {
+          if (!response.ok) throw new Error("Proof endpoint unavailable");
+          const proof = await response.json();
+          if (!proof.isBitcoinGenesis || !proof.meetsTarget || proof.hash !== GENESIS_HASH) throw new Error("Proof invalid");
+          return proof;
+        }),
+      ]);
+      return json({
+        observedAt: new Date().toISOString(),
+        sources: [
+          { source: "Original 64-slot registry", ok: coins.status === "fulfilled", slots: coins.value?.slots.length ?? null },
+          { source: "Bitcoin genesis verification", ok: mining.status === "fulfilled", hash: mining.value?.hash ?? null },
+        ],
+      });
+    }
+    if (path === "/api/bot/catalog-audit" && id === "crypt-operations") {
+      try {
+        const data = await sourceRegistry(env);
+        const recovered = data.slots.filter(slot => slot.status === "recovered_from_42_coin_artwork");
+        const identitiesComplete = recovered.every(slot => typeof slot.name === "string" && slot.name.trim() && typeof slot.ticker === "string" && slot.ticker.trim());
+        const open = data.slots.filter(slot => slot.status !== "recovered_from_42_coin_artwork");
+        const blanksPreserved = open.every(slot => !slot.name && !slot.ticker);
+        return json({ ok: identitiesComplete && blanksPreserved && data.recovered === recovered.length,
+          orderedSlots: data.slots.length, recovered: recovered.length, unresolved: open.length, blanksPreserved });
+      } catch { return json({ error: "Catalog audit unavailable" }, 503); }
+    }
+    if (path === "/api/agent/review" && id === "crypt-operations") {
+      const app = createApp(id);
+      const inputs = await Promise.all(["/api/oracle/health", "/api/bot/catalog-audit"].map(async path => {
+        const result = await app.fetch(new Request("https://internal"+path), env);
+        return result.json();
+      }));
+      const [oracle, audit] = inputs;
+      const followUp = [];
+      for (const source of oracle.sources) if (!source.ok) followUp.push("Review unavailable source: "+source.source);
+      if (audit.ok !== true) followUp.push("Review catalog audit errors.");
+      else if (audit.unresolved) followUp.push("Find original source evidence for "+audit.unresolved+" unresolved coin positions.");
+      return json({ reviewedAt: oracle.observedAt, followUp, approval: "Proposals for owner review" });
+    }
+    return send("Not found", "text/plain", 404);
+  } };
+}
