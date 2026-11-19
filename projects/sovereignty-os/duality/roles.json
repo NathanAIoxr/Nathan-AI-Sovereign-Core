@@ -1,0 +1,125 @@
+{
+  "schema": "nathan-ai.duality.v1",
+  "terminology": {
+    "MSP": "DEAMON",
+    "IT": "ANGEL"
+  },
+  "authority": "WILL",
+  "scheduler": "WHEEL",
+  "rules": [
+    "preserve_original_quotes",
+    "decimal_arithmetic_explicit",
+    "verify_before_publish",
+    "least_privilege",
+    "no_third_party_scan",
+    "no_unapproved_deploy"
+  ],
+  "roles": [
+    {
+      "id": "will-owner",
+      "kind": "WILL",
+      "duty": "authorizes scope, accepts changes",
+      "enabled": false
+    },
+    {
+      "id": "wheel-scheduler",
+      "kind": "WHEEL",
+      "duty": "queues bounded approved work",
+      "enabled": false
+    },
+    {
+      "id": "msp-build-deamon",
+      "kind": "DEAMON",
+      "duty": "build and package independent apps",
+      "enabled": false
+    },
+    {
+      "id": "msp-data-deamon",
+      "kind": "DEAMON",
+      "duty": "validate schemas and exports",
+      "enabled": false
+    },
+    {
+      "id": "msp-inventory-deamon",
+      "kind": "DEAMON",
+      "duty": "reconcile GitHub and Cloudflare inventories",
+      "enabled": false
+    },
+    {
+      "id": "msp-security-deamon",
+      "kind": "DEAMON",
+      "duty": "run authorized defensive checks",
+      "enabled": false
+    },
+    {
+      "id": "msp-pumpkin-deamon",
+      "kind": "DEAMON",
+      "duty": "coordinate independent pumpkin apps",
+      "enabled": false
+    },
+    {
+      "id": "msp-concordance-deamon",
+      "kind": "DEAMON",
+      "duty": "prepare provenance indexes",
+      "enabled": false
+    },
+    {
+      "id": "it-integrity-angel",
+      "kind": "ANGEL",
+      "duty": "verify checksums and outputs",
+      "enabled": false
+    },
+    {
+      "id": "it-privacy-angel",
+      "kind": "ANGEL",
+      "duty": "flag private data disclosure",
+      "enabled": false
+    },
+    {
+      "id": "it-test-angel",
+      "kind": "ANGEL",
+      "duty": "run reproducible tests",
+      "enabled": false
+    },
+    {
+      "id": "it-recovery-angel",
+      "kind": "ANGEL",
+      "duty": "validate rollback readiness",
+      "enabled": false
+    },
+    {
+      "id": "it-truth-angel",
+      "kind": "ANGEL",
+      "duty": "detect contradictions and missing evidence",
+      "enabled": false
+    },
+    {
+      "id": "adversary-challenger",
+      "kind": "CHALLENGER",
+      "duty": "submit falsifiable objections without privilege escalation",
+      "enabled": false
+    }
+  ],
+  "flow": [
+    "WILL",
+    "WHEEL",
+    "DEAMON",
+    "ANGEL",
+    "VERIFY",
+    "REPORT"
+  ],
+  "states": [
+    "PROPOSED",
+    "AUTHORIZED",
+    "QUEUED",
+    "RUNNING",
+    "VERIFIED",
+    "REJECTED",
+    "BLOCKED"
+  ],
+  "deployment": {
+    "github": "manifest and validation only",
+    "cloudflare": "not deployed",
+    "approval_required": true
+  }
+}
