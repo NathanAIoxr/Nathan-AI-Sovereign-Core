@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { setTimeout as delay } from 'node:timers/promises';
-import { claimChecks, verifyGitHubReceipt } from './github-identity.mjs';
+import { claimChecks, publicSigningKeys, verifyGitHubReceipt } from './github-identity.mjs';
 const origin = 'https://nathan-ai-pocket-codex.nathantaboract.workers.dev';
 const rows = JSON.parse(await readFile(new URL('./manifest.json', import.meta.url), 'utf8'));
 async function get(path) {
@@ -44,9 +44,17 @@ if (process.argv.includes('--receipt')) {
   const checks = claimChecks(claims, Date.now() / 1000);
   const rejected = Object.keys(checks).filter(key => !checks[key]);
   assert.equal(rejected.length, 0, 'Unexpected GitHub identity fields: ' + rejected.join(', '));
-  assert.ok(await verifyGitHubReceipt('Bearer ' + value), 'GitHub OIDC signature verification failed');
+  let publicKeys;
+  const checkKeys = async (...args) => {
+    const response = await fetch(...args);
+    if (response.ok) publicKeys = publicSigningKeys((await response.clone().json()).keys);
+    return response;
+  };
+  assert.ok(await verifyGitHubReceipt('Bearer ' + value, checkKeys), 'GitHub OIDC signature verification failed');
+  assert.ok(publicKeys, 'Invalid GitHub public signing key set');
   const result = await fetch(origin + '/api/github/receipt', {
-    method: 'POST', headers: { authorization: 'Bearer ' + value },
+    method: 'POST', headers: { authorization: 'Bearer ' + value, 'content-type': 'application/json' },
+    body: JSON.stringify({ publicSigningKeys: publicKeys }),
     redirect: 'error', signal: AbortSignal.timeout(10000),
   });
   if (!result.ok) {
@@ -57,5 +65,5 @@ if (process.argv.includes('--receipt')) {
   const saved = await result.json();
   assert.equal(saved.saved, true);
   assert.equal(saved.run, process.env.GITHUB_RUN_ID);
-  console.log('Authenticated build receipt saved to Cloudflare.');
+  console.log('Authenticated build receipt saved to Cloudflare. Signing keys refreshed: ' + saved.signingKeysRefreshed);
 }

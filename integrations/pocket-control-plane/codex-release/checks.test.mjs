@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { createPocket } from './pocket.mjs';
-import { verifyGitHubReceipt, validClaims } from './github-identity.mjs';
+import { verifyGitHubReceipt, validClaims, publicSigningKeys } from './github-identity.mjs';
 
 const manifest = JSON.parse(await readFile(new URL('./manifest.json', import.meta.url), 'utf8'));
 const apps = await Promise.all(manifest.map(async row => {
@@ -65,6 +65,9 @@ test('GitHub receipt requires an exact repository, workflow, branch, and valid s
   const algo = { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256', modulusLength: 2048, publicExponent: new Uint8Array([1, 0, 1]) };
   const pair = await crypto.subtle.generateKey(algo, true, ['sign', 'verify']);
   const jwk = await crypto.subtle.exportKey('jwk', pair.publicKey);
+  assert.equal(publicSigningKeys([{ ...jwk, kid: 'test' }]).length, 1);
+  assert.equal(publicSigningKeys([{ ...jwk, kid: 'test' }, { ...jwk, kid: 'test' }]), null);
+  assert.equal(publicSigningKeys([{ ...jwk, kid: 'test', n: 'undersized' }]), null);
   const encoded = value => Buffer.from(JSON.stringify(value)).toString('base64url');
   const signed = encoded({ alg: 'RS256', kid: 'test' }) + '.' + encoded(claims);
   const sig = Buffer.from(await crypto.subtle.sign(algo, pair.privateKey, new TextEncoder().encode(signed))).toString('base64url');

@@ -1,5 +1,5 @@
 import { escape, json, page } from './station.mjs';
-import { verifyGitHubReceipt } from './github-identity.mjs';
+import { publicSigningKeys, verifyGitHubReceipt } from './github-identity.mjs';
 
 const sections = [
   ['numbered', 'Numbered Codex series'],
@@ -12,6 +12,7 @@ const sections = [
 const GITHUB = 'NathanAIoxr/Nathan-AI-Sovereign-Core';
 const KV_KEY = 'codex-build-check:v1';
 const GITHUB_KEY = 'codex-github-build:v1';
+const SIGNING_KEYS = 'codex-github-public-keys:v1';
 
 function tiles(entries) {
   return '<div class="grid">' + entries.map(item => `<a class="tile" href="/work/${item.id}/"><strong>${escape(item.title)}</strong><small>${escape(item.status)}</small></a>`).join('') + '</div>';
@@ -45,7 +46,13 @@ export function createPocket(projects) {
     for (let start = 0; start < projects.length; start += 8) {
       checked.push(...await Promise.all(projects.slice(start, start + 8).map(item => inspectOne(env, item))));
     }
-    const github = await githubStatus().catch(() => ({ connected: false, status: null, run: null }));
+    let github = await githubStatus().catch(() => ({ connected: false, status: null, run: null }));
+    if (!github.connected && env.RECEIPTS) {
+      const proof = await env.RECEIPTS.get(GITHUB_KEY, 'json');
+      if (proof && Date.now() - Date.parse(proof.verifiedAt) < 86400000) {
+        github = { connected: true, via: 'signed-build-receipt', status: null, run: proof };
+      }
+    }
     const receipt = { checkedAt: new Date().toISOString(), expected: checked.length,
       healthy: checked.filter(row => row.ready).length, failed: checked.filter(row => !row.ready).map(row => row.id), github };
     if (env.RECEIPTS) await env.RECEIPTS.put(KV_KEY, JSON.stringify(receipt));
@@ -62,17 +69,32 @@ export function createPocket(projects) {
         const auth = request.headers.get('authorization');
         const check = (keySource = fetch) => verifyGitHubReceipt(auth, keySource, Date.now() / 1000, stage => { reason = stage; });
         let receipt = await check().catch(() => null);
-        const snapshot = env.PUBLIC_GITHUB_KEYS;
-        if (!receipt && ['verification_unavailable', 'issuer_key_fetch', 'issuer_key_id'].includes(reason) &&
-            snapshot?.expiresAt > Date.now() && Array.isArray(snapshot.keys)) {
-          receipt = await check(async () => Response.json({ keys: snapshot.keys })).catch(() => null);
+        if (!receipt && ['verification_unavailable', 'issuer_key_fetch', 'issuer_key_id'].includes(reason)) {
+          const cached = await env.RECEIPTS.get(SIGNING_KEYS, 'json');
+          for (const snapshot of [cached, env.PUBLIC_GITHUB_KEYS]) {
+            if (snapshot?.expiresAt > Date.now() && Array.isArray(snapshot.keys)) {
+              receipt = await check(async () => Response.json({ keys: snapshot.keys })).catch(() => null);
+              if (receipt) break;
+            }
+          }
         }
         if (!receipt) return json({ error: 'unauthorized', reason }, 401);
         const current = await env.RECEIPTS.get(GITHUB_KEY, 'json');
+        let signingKeysRefreshed = false;
         if (!current || current.issuedAt < receipt.issuedAt) {
+          if (request.headers.get('content-type') === 'application/json') {
+            if (Number(request.headers.get('content-length')) > 12000) return json({ error: 'payload_too_large' }, 413);
+            const encoded = await request.text();
+            if (encoded.length > 12000) return json({ error: 'payload_too_large' }, 413);
+            let keys;
+            try { keys = publicSigningKeys(JSON.parse(encoded).publicSigningKeys); } catch { /* Invalid input. */ }
+            if (!keys) return json({ error: 'invalid_signing_key_set' }, 400);
+            await env.RECEIPTS.put(SIGNING_KEYS, JSON.stringify({ keys, expiresAt: Date.now() + 345600000 }));
+            signingKeysRefreshed = true;
+          }
           await env.RECEIPTS.put(GITHUB_KEY, JSON.stringify(receipt));
         }
-        return json({ saved: true, run: receipt.run });
+        return json({ saved: true, run: receipt.run, signingKeysRefreshed });
       }
       const head = request.method === 'HEAD';
       if (!head && request.method !== 'GET') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD' } });

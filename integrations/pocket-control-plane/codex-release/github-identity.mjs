@@ -36,6 +36,19 @@ export function validClaims(claims, now) {
   return Object.values(claimChecks(claims, now)).every(Boolean);
 }
 
+export function publicSigningKeys(items) {
+  if (!Array.isArray(items) || items.length < 1 || items.length > 8) return null;
+  const keys = [];
+  for (const key of items) {
+    if (!key || key.kty !== 'RSA' || key.e !== 'AQAB' || (key.alg && key.alg !== 'RS256') ||
+        typeof key.kid !== 'string' || !/^[A-Za-z0-9_-]{1,150}$/.test(key.kid) ||
+        typeof key.n !== 'string' || !/^[A-Za-z0-9_-]{342,683}$/.test(key.n) ||
+        keys.some(previous => previous.kid === key.kid)) return null;
+    keys.push({ kty: 'RSA', e: key.e, kid: key.kid, n: key.n, alg: 'RS256' });
+  }
+  return keys;
+}
+
 export async function verifyGitHubReceipt(header, fetchKeys = fetch, now = Date.now() / 1000, diagnose = () => {}) {
   if (!header?.startsWith('Bearer ') || header.length > 14000) { diagnose('authorization_header'); return null; }
   const parts = header.slice(7).split('.');
