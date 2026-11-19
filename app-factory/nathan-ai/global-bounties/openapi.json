@@ -312,6 +312,67 @@
           }
         }
       }
+    },
+    "/work": {
+      "get": {
+        "operationId": "listCivicWork",
+        "summary": "Read submitted civic engineering proposals.",
+        "responses": {
+          "200": {
+            "description": "A bounded page of proposal records with source positions. Use next_after to request the next page."
+          },
+          "400": {
+            "description": "Invalid category or page bounds."
+          }
+        },
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "foundations",
+                "privacy",
+                "software",
+                "ai",
+                "civic"
+              ]
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 101,
+              "default": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          }
+        ]
+      }
+    },
+    "/intake": {
+      "get": {
+        "operationId": "getPrizeIntake",
+        "summary": "Read the accounting for submitted prize claims.",
+        "responses": {
+          "200": {
+            "description": "Source item ranges, counts, intake decisions and official evidence where checked."
+          }
+        }
+      }
     }
   },
   "components": {

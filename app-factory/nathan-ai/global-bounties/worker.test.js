@@ -42,13 +42,13 @@ function post(payload, headers = {}) {
 test("a fresh database seeds sourced records and distinguishes prizes from pools", async () => {
   const { request, seed } = fixture();
   const math = await (await request("/bounties?category=math&status=OPEN")).json();
-  assert.equal(math.count, 6);
+  assert.equal(math.count, 8);
   assert(math.bounties.every((row) => row.source_url.startsWith("https://")));
   const review = await (await request("/bounties?status=UNDER_REVIEW")).json();
   assert.deepEqual(review.bounties.map((row) => row.id), ["clay-navier-stokes"]);
   seed();
   const stats = await (await request("/stats")).json();
-  assert.deepEqual(stats.totals, { count: 9, prize_usd: 6_000_000, pool_usd: 7_000_000 });
+  assert.deepEqual(stats.totals, { count: 11, prize_usd: 6_400_000, pool_usd: 7_000_000 });
   assert.equal((await request("/bounties?limit=0")).status, 400);
 });
 
@@ -62,7 +62,7 @@ test("owner corrections change open totals and same-date seed preserves the corr
   assert.equal(changed.status, 200);
   seed();
   const stats = await (await request("/stats")).json();
-  assert.deepEqual(stats.totals, { count: 8, prize_usd: 5_000_000, pool_usd: 7_000_000 });
+  assert.deepEqual(stats.totals, { count: 10, prize_usd: 5_400_000, pool_usd: 7_000_000 });
   assert.equal((await request("/bounties", post({ ...row, source_url: "file:///private" }, authorized))).status, 400);
   assert.equal((await request("/recall")).status, 404);
 });
@@ -88,5 +88,27 @@ test("public discovery and MCP invite both scopes and expose only read tools", a
   const call = await (await rpc("tools/call", {
     id: 3, params: { name: "search_bounties", arguments: { category: "math", status: "OPEN" } }
   })).json();
-  assert.equal(JSON.parse(call.result.content[0].text).count, 6);
+  assert.equal(JSON.parse(call.result.content[0].text).count, 8);
+});
+
+test("civic proposals and prize intake retain all source positions", async () => {
+  const { request } = fixture();
+  const first = await (await request("/work?limit=100")).json();
+  assert.equal(first.total, 101);
+  assert.equal(first.count, 100);
+  assert.equal(first.next_after, 100);
+  assert.equal(first.source.status, "PROPOSED");
+  assert.equal(first.source.reward_status, "NO_VERIFIED_AWARD_IN_THIS_INDEX");
+  const last = await (await request("/work?after=100")).json();
+  assert.deepEqual(last.records.map(({ id }) => id), ["civic-101"]);
+  assert.equal(last.next_after, null);
+  const privacy = await (await request("/work?category=privacy")).json();
+  assert.equal(privacy.total, 20);
+  assert.equal((await request("/work?category=missing")).status, 400);
+
+  const intake = await (await request("/intake")).json();
+  assert.equal(intake.count, 101);
+  assert.deepEqual(intake.groups.map(({ count }) => count), [25, 7, 51, 16, 2]);
+  const archive = await (await request("/bounties?status=CLOSED&q=ARC%20Prize")).json();
+  assert.deepEqual(archive.bounties.map(({ id }) => id), ["arc-prize-2026"]);
 });

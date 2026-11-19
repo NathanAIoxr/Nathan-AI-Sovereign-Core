@@ -33,3 +33,11 @@ Use Node 24. After editing `catalog.json`, update its source-check date and run 
 The independent Worker runs in the account’s `nathan-tabor-platforms` dispatch namespace and binds the dedicated `nathan_global_bounties` database. The shared Tabor Bridge routes the `/global-bounties/` prefix. The GitHub workflow tests changes, verifies the live catalog, and deploys main-branch updates when the repository has the scoped `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` secrets. It also publishes the public read-only MCP manifest through GitHub OpenID Connect.
 
 For an authorized local deployment with the account’s Wrangler session, run `npm run build` and `npx --yes wrangler@4.135.0 deploy --dispatch-namespace nathan-tabor-platforms` in this directory. For server-to-server owner writes, configure `API_KEY` through the namespace Worker’s encrypted secret settings.
+
+## Civic work and prize intake
+
+- [Civic work](https://tabor-bridge.nathantaboract.workers.dev/global-bounties/work) contains 101 submitted proposals across foundations, privacy, software, AI and civic technology. Each record retains its original item number. The index describes proposed work, and lists no verified prize.
+- [Prize intake accounting](https://tabor-bridge.nathantaboract.workers.dev/global-bounties/intake) accounts for the 101 paid-challenge claims by source range. The EFF's two prime-number awards are open catalog records. ARC Prize 2026 is closed and excluded from open totals. The sponsor records are linked.
+- The [GitHub defensive sandbox](../../../.github/workflows/nathan-global-bounties-sandbox.yml) runs the same fixture checks as the ordinary build in an offline, unprivileged container. The live Cloudflare catalog serves the read-only civic index and the prize API using the existing deployment.
+
+For the civic index use `GET /work?limit=100`, then pass the returned `next_after` value to `GET /work?after=100` for the remaining page. `GET /work?category=privacy` filters by category. Prize intake decisions are available at `GET /intake`.

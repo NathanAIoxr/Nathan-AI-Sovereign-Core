@@ -88,6 +88,42 @@
       "entries": [
         ["xprize-quantum", "XPRIZE Quantum Applications", "Develop quantum algorithms with demonstrated potential for real-world applications. The competition is in its finals phase."]
       ]
+    },
+    {
+      "organization": "Electronic Frontier Foundation",
+      "category": "mathematics",
+      "source_url": "https://www.eff.org/awards/coop",
+      "payout_usd": 150000,
+      "payout_kind": "prize",
+      "status": "OPEN",
+      "deadline": "Until awarded under EFF rules",
+      "entries": [
+        ["eff-prime-100000000", "EFF Cooperative Computing Award · 100 million digits", "First qualifying discovery of a prime with at least 100,000,000 decimal digits, under the published award rules."]
+      ]
+    },
+    {
+      "organization": "Electronic Frontier Foundation",
+      "category": "mathematics",
+      "source_url": "https://www.eff.org/awards/coop",
+      "payout_usd": 250000,
+      "payout_kind": "prize",
+      "status": "OPEN",
+      "deadline": "Until awarded under EFF rules",
+      "entries": [
+        ["eff-prime-1000000000", "EFF Cooperative Computing Award · 1 billion digits", "First qualifying discovery of a prime with at least 1,000,000,000 decimal digits, under the published award rules."]
+      ]
+    },
+    {
+      "organization": "ARC Prize Foundation",
+      "category": "science",
+      "source_url": "https://arcprize.org/competitions/2026",
+      "payout_usd": 2000000,
+      "payout_kind": "pool",
+      "status": "CLOSED",
+      "deadline": "Entry closed; results announced December 4, 2026",
+      "entries": [
+        ["arc-prize-2026", "ARC Prize 2026", "ARC-AGI reasoning competition with three tracks. The sponsor reports that the competition has finished."]
+      ]
     }
   ]
 }

@@ -79,6 +79,8 @@ function discovery(base) {
     mcp: { url: base + "/mcp", transport: "streamable-http", access: "read-only" },
     openapi: base + "/openapi.json",
     join: base + "/join",
+    civic_work: base + "/work",
+    prize_intake: base + "/intake",
     source: project + sourcePath
   };
 }
@@ -109,6 +111,30 @@ function parseFilters(input) {
     throw new RequestError(400, "Limit must be an integer from 1 to 100.");
   }
   return { category, status, q, limit };
+}
+
+function listCivicWork(query) {
+  const category = query.get("category");
+  if (category !== null && !Object.hasOwn(civicWork.categories, category)) {
+    throw new RequestError(400, "Choose a civic work category.");
+  }
+  const limit = Number(query.get("limit") ?? 50);
+  const after = Number(query.get("after") ?? 0);
+  if (!Number.isInteger(limit) || limit < 1 || limit > 100 ||
+      !Number.isInteger(after) || after < 0 || after > civicWork.records.length) {
+    throw new RequestError(400, "Use a limit of 1–100 and an after item number of 0–101.");
+  }
+  const matching = civicWork.records.filter((row) => category === null || row.category === category);
+  const remaining = matching.filter((row) => row.source_item > after);
+  const records = remaining.slice(0, limit);
+  return {
+    source: civicWork.source,
+    categories: civicWork.categories,
+    total: matching.length,
+    count: records.length,
+    next_after: remaining.length > limit ? records.at(-1).source_item : null,
+    records
+  };
 }
 
 async function listBounties(db, input) {
@@ -313,6 +339,14 @@ export default {
             openapi: base + "/openapi.json",
             mcp: base + "/mcp"
           });
+        case "/work":
+          return reply(listCivicWork(url.searchParams));
+        case "/intake":
+          return reply({
+            source: "101 paid challenge and prize claims supplied with the catalog expansion",
+            count: civicWork.prize_intake.reduce((sum, group) => sum + group.count, 0),
+            groups: civicWork.prize_intake
+          });
         case "/bounties":
           return reply(await listBounties(env.DB, Object.fromEntries(url.searchParams)));
         case "/stats":
@@ -331,6 +365,8 @@ export default {
             "## Catalog",
             `- [Bounties](${base}/bounties)`,
             `- [Stats](${base}/stats)`,
+            `- [Civic work](${base}/work)`,
+            `- [Prize intake accounting](${base}/intake)`,
             `- [OpenAPI](${base}/openapi.json)`,
             `- [MCP](${base}/mcp)`,
             ""
@@ -340,7 +376,7 @@ export default {
         case "/sitemap.xml":
           return plain('<?xml version="1.0" encoding="utf-8"?>' +
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
-            ["/", "/join", "/bounties", "/stats", "/openapi.json", "/llms.txt", "/.well-known/agent.json"]
+            ["/", "/join", "/bounties", "/stats", "/work", "/intake", "/openapi.json", "/llms.txt", "/.well-known/agent.json"]
               .map((endpoint) => `<url><loc>${base}${endpoint}</loc></url>`).join("") + "</urlset>",
             "application/xml; charset=utf-8");
         default:

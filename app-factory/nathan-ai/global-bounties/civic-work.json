@@ -1,0 +1,767 @@
+{
+  "source": {
+    "name": "Civic engineering list supplied with the catalog expansion",
+    "type": "submitted_proposals",
+    "status": "PROPOSED",
+    "reward_status": "NO_VERIFIED_AWARD_IN_THIS_INDEX"
+  },
+  "categories": {
+    "foundations": "Foundations and core infrastructure",
+    "privacy": "Child safety, privacy and protecting innocence",
+    "software": "Web, cloud and software maintenance",
+    "ai": "AI architecture, verification and provenance",
+    "civic": "Civic technology, hardware and science"
+  },
+  "records": [
+    {
+      "id": "civic-001",
+      "source_item": 1,
+      "category": "foundations",
+      "title": "Rewriting Core C/C++ System Utilities in Memory-Safe Rust",
+      "proposal": "Port selected C and C++ utilities and verify behavior with compatibility tests. Assess new and remaining memory-safety risks."
+    },
+    {
+      "id": "civic-002",
+      "source_item": 2,
+      "category": "foundations",
+      "title": "Hardening the Linux Kernel Against Driver Memory Corruption",
+      "proposal": "Review driver interfaces and memory ownership in maintained source. Document isolation and memory-safety improvements for maintainers."
+    },
+    {
+      "id": "civic-003",
+      "source_item": 3,
+      "category": "foundations",
+      "title": "Eliminating Unsafe C Parsers in Image, Audio, and Video Codecs",
+      "proposal": "Adopt or develop memory-safe parsers and compare format compatibility with existing implementations."
+    },
+    {
+      "id": "civic-004",
+      "source_item": 4,
+      "category": "foundations",
+      "title": "Replacing Legacy BIOS/UEFI Firmware Blobs with Open-Source Coreboot/Oreboot",
+      "proposal": "Document board-specific firmware components and evaluate open alternatives where hardware support and verification are available."
+    },
+    {
+      "id": "civic-005",
+      "source_item": 5,
+      "category": "foundations",
+      "title": "Finishing Full IPv6 Adoption Across Stubborn Legacy Stacks",
+      "proposal": "Fixing hardcoded IPv4 assumptions in routers, ISP backends, and enterprise internal tools."
+    },
+    {
+      "id": "civic-006",
+      "source_item": 6,
+      "category": "foundations",
+      "title": "Fixing the Year 2038 (time_t 32-bit Signed Integer Overflow) Bug",
+      "proposal": "Auditing embedded systems, industrial controllers, and legacy filesystems before timestamps wrap to 1901."
+    },
+    {
+      "id": "civic-007",
+      "source_item": 7,
+      "category": "foundations",
+      "title": "Eliminating Silent Data Corruption in Filesystems & Storage Controllers",
+      "proposal": "Adding end-to-end cryptographic checksums to default consumer filesystems."
+    },
+    {
+      "id": "civic-008",
+      "source_item": 8,
+      "category": "foundations",
+      "title": "Replacing Aging BGP Routing Security with Universal RPKI",
+      "proposal": "Increase route-origin validation with staged RPKI deployment and publish measured coverage."
+    },
+    {
+      "id": "civic-009",
+      "source_item": 9,
+      "category": "foundations",
+      "title": "Hardening DNS Resolution Against Cache Poisoning & Hijacking",
+      "proposal": "Evaluate DNSSEC validation and encrypted transport separately. Measure resolver failure and fallback behavior."
+    },
+    {
+      "id": "civic-010",
+      "source_item": 10,
+      "category": "foundations",
+      "title": "Fixing NTP (Network Time Protocol) Spoofing Vulnerabilities",
+      "proposal": "Evaluate authenticated time synchronization and document how clients behave when only unauthenticated time is available."
+    },
+    {
+      "id": "civic-011",
+      "source_item": 11,
+      "category": "foundations",
+      "title": "Removing Hardcoded Cryptographic Keys in IoT & Router Firmware",
+      "proposal": "Review authorized firmware source for shared default keys. Use per-device provisioning and keep secret values out of reports."
+    },
+    {
+      "id": "civic-012",
+      "source_item": 12,
+      "category": "foundations",
+      "title": "Building Deterministic, Reproducible Builds for All Major Linux Packages",
+      "proposal": "Build the same source independently and compare artifacts under a documented environment. Record any remaining differences."
+    },
+    {
+      "id": "civic-013",
+      "source_item": 13,
+      "category": "foundations",
+      "title": "Eliminating Single-Maintainer Bus-Factor Risks in Critical Open-Source Libraries",
+      "proposal": "Stepping up to co-maintain foundational tools (like curl, zlib, SQLite, and OpenSSL equivalents) run by one unpaid person."
+    },
+    {
+      "id": "civic-014",
+      "source_item": 14,
+      "category": "foundations",
+      "title": "Fixing Broken Timezone & Daylight Saving Time (TZDB) Edge Cases",
+      "proposal": "Cleaning up brittle date-math assumptions across global scheduling and banking systems."
+    },
+    {
+      "id": "civic-015",
+      "source_item": 15,
+      "category": "foundations",
+      "title": "Replacing Brittle Regex Parsers Vulnerable to ReDoS (Catastrophic Backtracking)",
+      "proposal": "Swapping exponential-time regex engines for linear-time automata (RE2/Rust regex)."
+    },
+    {
+      "id": "civic-016",
+      "source_item": 16,
+      "category": "foundations",
+      "title": "Eliminating Floating-Point Drift (0.1 + 0.2 != 0.3) in Financial & Scientific Code",
+      "proposal": "Enforcing exact BigInt or fixed-point decimal arithmetic where IEEE-754 floats silently corrupt totals."
+    },
+    {
+      "id": "civic-017",
+      "source_item": 17,
+      "category": "foundations",
+      "title": "Fixing Race Conditions & Deadlocks in Multi-Threaded OS Schedulers",
+      "proposal": "Specify concurrency invariants and verify scheduler changes with bounded tests or formal models where practical."
+    },
+    {
+      "id": "civic-018",
+      "source_item": 18,
+      "category": "foundations",
+      "title": "Standardizing Cross-Platform GPU Compute Without Proprietary Vendor Lock-In",
+      "proposal": "Building open, hardware-agnostic compute layers to break single-vendor GPU monopolies."
+    },
+    {
+      "id": "civic-019",
+      "source_item": 19,
+      "category": "foundations",
+      "title": "Fixing Broken Serial, USB, and Bluetooth Stack Parsers",
+      "proposal": "Improve peripheral input validation in maintained drivers and add regression checks with inert fixtures."
+    },
+    {
+      "id": "civic-020",
+      "source_item": 20,
+      "category": "foundations",
+      "title": "Eliminating Unbounded Memory Allocation (OOM Crashes) in Embedded Systems",
+      "proposal": "Set measurable allocation budgets and validate failure handling against the relevant safety requirements."
+    },
+    {
+      "id": "civic-021",
+      "source_item": 21,
+      "category": "privacy",
+      "title": "Building Zero-Knowledge, Privacy-Preserving Age Verification",
+      "proposal": "Test proofs of age bands with minimal collection and disclosure. Record issuer trust, privacy assumptions and accessibility trade-offs."
+    },
+    {
+      "id": "civic-022",
+      "source_item": 22,
+      "category": "privacy",
+      "title": "Eliminating Dark Patterns & Addictive Infinite-Scroll Algorithms",
+      "proposal": "Evaluate clear stopping cues and opt-in controls for continuous feeds using usability and accessibility tests."
+    },
+    {
+      "id": "civic-023",
+      "source_item": 23,
+      "category": "privacy",
+      "title": "Stopping Silent Cross-App Telemetry & SDK Data Harvesting in Children's Apps",
+      "proposal": "Review authorized application dependencies and measure what telemetry leaves the device with consent enabled and disabled."
+    },
+    {
+      "id": "civic-024",
+      "source_item": 24,
+      "category": "privacy",
+      "title": "Building Client-Side, End-to-End Encrypted Family & Community Messaging",
+      "proposal": "Prototype encrypted family messaging with metadata minimization and document which routing data is visible."
+    },
+    {
+      "id": "civic-025",
+      "source_item": 25,
+      "category": "privacy",
+      "title": "Eliminating Default Public Location EXIF Metadata on Uploaded Photos",
+      "proposal": "Strip location metadata on export when selected and verify output against local sample images."
+    },
+    {
+      "id": "civic-026",
+      "source_item": 26,
+      "category": "privacy",
+      "title": "Stopping Browser Fingerprinting & Canvas Tracking",
+      "proposal": "Measure fingerprint exposure and test browser hardening for privacy and site compatibility."
+    },
+    {
+      "id": "civic-027",
+      "source_item": 27,
+      "category": "privacy",
+      "title": "Building Tamper-Proof, Open-Source Parental & Guardian Local Controls",
+      "proposal": "Keep guardian settings local and test permission boundaries and recovery across device users."
+    },
+    {
+      "id": "civic-028",
+      "source_item": 28,
+      "category": "privacy",
+      "title": "Fixing Broken OAuth & Third-Party Login Permission Scopes",
+      "proposal": "Stopping apps from demanding \"read/write access to everything\" just to verify an email address."
+    },
+    {
+      "id": "civic-029",
+      "source_item": 29,
+      "category": "privacy",
+      "title": "Eliminating Unencrypted Local SQLite & Cache Storage on Mobile Devices",
+      "proposal": "Ensuring sensitive messages and tokens aren't sitting in plaintext inside app data directories."
+    },
+    {
+      "id": "civic-030",
+      "source_item": 30,
+      "category": "privacy",
+      "title": "Auditing Open-Source AI Training Datasets to Purge Exploitative & Harmful Content",
+      "proposal": "Build a documented provenance and review workflow using permitted metadata and approved fixtures."
+    },
+    {
+      "id": "civic-031",
+      "source_item": 31,
+      "category": "privacy",
+      "title": "Building Verifiable Cryptographic Provenance for Authentic Photos & Audio",
+      "proposal": "Test C2PA-style provenance with controlled assets and document what the signature establishes."
+    },
+    {
+      "id": "civic-032",
+      "source_item": 32,
+      "category": "privacy",
+      "title": "Stopping Malicious Browser Extension Hijacking & Silent Ownership Transfers",
+      "proposal": "Enforcing cryptographic diff alerts when a trusted extension updates its permissions."
+    },
+    {
+      "id": "civic-033",
+      "source_item": 33,
+      "category": "privacy",
+      "title": "Fixing Broken Account Recovery & SIM-Swap Vulnerabilities",
+      "proposal": "Evaluate passkey-based login and independently review the security and accessibility of account recovery."
+    },
+    {
+      "id": "civic-034",
+      "source_item": 34,
+      "category": "privacy",
+      "title": "Building Offline-First Emergency & Disaster Mesh Communication Apps",
+      "proposal": "Enabling phones to relay text, GPS, and medical alerts over Bluetooth/Wi-Fi Direct when cell towers go down."
+    },
+    {
+      "id": "civic-035",
+      "source_item": 35,
+      "category": "privacy",
+      "title": "Eliminating Predatory In-App Gambling & Loot-Box Mechanics in Youth Games",
+      "proposal": "Building open-source game templates that prove games thrive on pure skill and fun without psychological manipulation."
+    },
+    {
+      "id": "civic-036",
+      "source_item": 36,
+      "category": "privacy",
+      "title": "Hardening School & Municipal Public Infrastructure Against Ransomware",
+      "proposal": "Test restoration from isolated, immutable backups using owned or authorized systems."
+    },
+    {
+      "id": "civic-037",
+      "source_item": 37,
+      "category": "privacy",
+      "title": "Fixing Broken Consent Management & Cookie Banners",
+      "proposal": "Prototype an interoperable consent signal and measure whether participating services honor it."
+    },
+    {
+      "id": "civic-038",
+      "source_item": 38,
+      "category": "privacy",
+      "title": "Building Open-Source Deepfake Voice & Scam Call Blockers",
+      "proposal": "Measure local voice-fraud detection accuracy on consented samples and report false positives and false negatives."
+    },
+    {
+      "id": "civic-039",
+      "source_item": 39,
+      "category": "privacy",
+      "title": "Securing Medical IoT Devices (Pacemakers, Insulin Pumps, Hospital Monitors)",
+      "proposal": "Review authentication requirements in an authorized development environment. Validate changes with device safety specialists before deployment."
+    },
+    {
+      "id": "civic-040",
+      "source_item": 40,
+      "category": "privacy",
+      "title": "Eliminating Algorithmic Bias & Opaque Black-Box Scoring in Public Services",
+      "proposal": "Publish the decision criteria, test datasets and bias measurements for an auditable scoring model."
+    },
+    {
+      "id": "civic-041",
+      "source_item": 41,
+      "category": "software",
+      "title": "Untangling the node_modules & Micro-Dependency Supply Chain Crisis",
+      "proposal": "Replacing 500-package dependency trees with clean, zero-dependency standard library functions."
+    },
+    {
+      "id": "civic-042",
+      "source_item": 42,
+      "category": "software",
+      "title": "Fixing Typosquatting & Dependency Confusion in npm, PyPI, and Cargo",
+      "proposal": "Review trusted package namespaces and provenance. Test dependency pinning and organization package-source restrictions."
+    },
+    {
+      "id": "civic-043",
+      "source_item": 43,
+      "category": "software",
+      "title": "Eliminating Unused JavaScript Bloat (10MB Webpages for 2KB of Text)",
+      "proposal": "Rebuilding web frontends with semantic HTML, lean CSS, and zero-framework overhead."
+    },
+    {
+      "id": "civic-044",
+      "source_item": 44,
+      "category": "software",
+      "title": "Fixing Broken CORS & CSP (Content Security Policy) Headers Across the Web",
+      "proposal": "Review CORS and CSP for applications you maintain and validate expected behavior with authorized fixtures."
+    },
+    {
+      "id": "civic-045",
+      "source_item": 45,
+      "category": "software",
+      "title": "Eliminating Plaintext .env Secret Leaks in Public GitHub Repositories",
+      "proposal": "Add local checks for accidentally staged secrets. Test with synthetic keys and document the response when exposure is confirmed."
+    },
+    {
+      "id": "civic-046",
+      "source_item": 46,
+      "category": "software",
+      "title": "Fixing Git Submodule & Monorepo Build Failures",
+      "proposal": "Make checkout and build steps reproducible from a clean repository clone and verify supported build paths."
+    },
+    {
+      "id": "civic-047",
+      "source_item": 47,
+      "category": "software",
+      "title": "Replacing Fragile XML/YAML Configuration Hell with Schema-Validated Configs",
+      "proposal": "Catching indentation and type errors before production deployments crash."
+    },
+    {
+      "id": "civic-048",
+      "source_item": 48,
+      "category": "software",
+      "title": "Fixing Cold-Start Latency & Database Connection Exhaustion in Serverless Edge Apps",
+      "proposal": "Implementing proper connection pooling and lightweight edge SQLite patterns."
+    },
+    {
+      "id": "civic-049",
+      "source_item": 49,
+      "category": "software",
+      "title": "Eliminating Unbounded API Pagination & Missing Rate Limits",
+      "proposal": "Bound page size and test rate limits against the API’s stated use cases."
+    },
+    {
+      "id": "civic-050",
+      "source_item": 50,
+      "category": "software",
+      "title": "Fixing Broken Character Encoding (UTF-8 vs. Latin-1 Mojibake)",
+      "proposal": "Detect encoding mismatches at ingestion and verify round trips with multilingual fixtures."
+    },
+    {
+      "id": "civic-051",
+      "source_item": 51,
+      "category": "software",
+      "title": "Standardizing Open-Source Webhook Verification & Replay Protection",
+      "proposal": "Providing drop-in HMAC timestamp verification libraries across every backend language."
+    },
+    {
+      "id": "civic-052",
+      "source_item": 52,
+      "category": "software",
+      "title": "Fixing Broken PDF Generation & Accessible Document Parsing",
+      "proposal": "Building clean, deterministic tools that extract structured tables from messy government and legal PDFs."
+    },
+    {
+      "id": "civic-053",
+      "source_item": 53,
+      "category": "software",
+      "title": "Eliminating Zombie Cloud Resources & Orphaned Storage Buckets",
+      "proposal": "Inventory owned storage assets and flag unused or publicly exposed resources for owner review."
+    },
+    {
+      "id": "civic-054",
+      "source_item": 54,
+      "category": "software",
+      "title": "Fixing Broken Email Authentication (SPF, DKIM, DMARC) for Small Domains",
+      "proposal": "Validate email authentication for domains you administer and measure delivery with documented DNS settings."
+    },
+    {
+      "id": "civic-055",
+      "source_item": 55,
+      "category": "software",
+      "title": "Building Lightweight, Self-Hosted Alternatives to Bloated Enterprise SaaS",
+      "proposal": "Creating single-binary open-source tools for calendars, forms, invoicing, and team chat."
+    },
+    {
+      "id": "civic-056",
+      "source_item": 56,
+      "category": "software",
+      "title": "Fixing Broken Offline Sync & Conflict Resolution (CRDTs) in Mobile Apps",
+      "proposal": "Test offline edits, synchronization conflicts and convergence against a defined consistency model."
+    },
+    {
+      "id": "civic-057",
+      "source_item": 57,
+      "category": "software",
+      "title": "Eliminating Silent Error Swallowing (catch (e) {}) in Production Codebases",
+      "proposal": "Enforcing explicit error propagation and clear human-readable diagnostics."
+    },
+    {
+      "id": "civic-058",
+      "source_item": 58,
+      "category": "software",
+      "title": "Fixing Broken Accessibility (ARIA, Screen Readers, Keyboard Navigation)",
+      "proposal": "Test keyboard navigation and screen readers against documented accessibility criteria."
+    },
+    {
+      "id": "civic-059",
+      "source_item": 59,
+      "category": "software",
+      "title": "Replacing Proprietary File Formats with Open, Documented Specifications",
+      "proposal": "Writing open-source converters so users never lose access to their own documents when a vendor shuts down."
+    },
+    {
+      "id": "civic-060",
+      "source_item": 60,
+      "category": "software",
+      "title": "Fixing Broken Database Migrations & Zero-Downtime Schema Rollbacks",
+      "proposal": "Test production-like migrations and validate backed-up recovery before release."
+    },
+    {
+      "id": "civic-061",
+      "source_item": 61,
+      "category": "software",
+      "title": "Eliminating Unverified Third-Party CDN Script Injection",
+      "proposal": "Enforcing Subresource Integrity (SRI) hashes or self-hosting every external script."
+    },
+    {
+      "id": "civic-062",
+      "source_item": 62,
+      "category": "software",
+      "title": "Fixing Memory Leaks in Long-Running Electron & WebView Desktop Apps",
+      "proposal": "Reclaiming gigabytes of wasted RAM caused by uncollected DOM nodes and background timers."
+    },
+    {
+      "id": "civic-063",
+      "source_item": 63,
+      "category": "software",
+      "title": "Standardizing Clean REST & JSON Error Responses",
+      "proposal": "Return documented HTTP statuses and structured errors without leaking sensitive details."
+    },
+    {
+      "id": "civic-064",
+      "source_item": 64,
+      "category": "software",
+      "title": "Fixing Broken Internationalization (RTL Languages, Pluralization, Unicode Normalization)",
+      "proposal": "Ensuring software works seamlessly in Arabic, Hebrew, and non-Latin scripts."
+    },
+    {
+      "id": "civic-065",
+      "source_item": 65,
+      "category": "software",
+      "title": "Building Automated Dead-Link & Digital Rot Archivers",
+      "proposal": "Archive eligible public content with consent, licensing and provenance recorded."
+    },
+    {
+      "id": "civic-066",
+      "source_item": 66,
+      "category": "ai",
+      "title": "Enforcing Strict Privilege Separation Between System Instructions & Untrusted Data",
+      "proposal": "Separate trusted instructions and permissions from untrusted content and test the boundary with synthetic fixtures."
+    },
+    {
+      "id": "civic-067",
+      "source_item": 67,
+      "category": "ai",
+      "title": "Eliminating Confident AI Hallucinations with Mandatory Source Grounding",
+      "proposal": "Require source references for checkable claims and mark unsupported claims as unknown."
+    },
+    {
+      "id": "civic-068",
+      "source_item": 68,
+      "category": "ai",
+      "title": "Building Deterministic Verification Gates Around Probabilistic LLM Outputs",
+      "proposal": "Define deterministic checks for types, permissions and reproducible mathematical results."
+    },
+    {
+      "id": "civic-069",
+      "source_item": 69,
+      "category": "ai",
+      "title": "Optimizing Local Small Language Models (SLMs) to Run Offline on Older Phones",
+      "proposal": "Benchmark offline models on target devices and report accuracy, latency and memory trade-offs."
+    },
+    {
+      "id": "civic-070",
+      "source_item": 70,
+      "category": "ai",
+      "title": "Fixing Tokenization Blind Spots (Character Counting, Spelling, Reversed Text & Math)",
+      "proposal": "Test exact character, byte and grapheme handling across scripts and document the intended unit for each task."
+    },
+    {
+      "id": "civic-071",
+      "source_item": 71,
+      "category": "ai",
+      "title": "Eliminating Silent Context Window Truncation & Memory Amnesia",
+      "proposal": "Persist essential state with versioned, explicit references and test recovery after truncation."
+    },
+    {
+      "id": "civic-072",
+      "source_item": 72,
+      "category": "ai",
+      "title": "Standardizing Open Agent-to-Agent (/.well-known/agent.json) & MCP Security",
+      "proposal": "Separate agent identity, document integrity and tool authorization. Test each independently in a maintained service."
+    },
+    {
+      "id": "civic-073",
+      "source_item": 73,
+      "category": "ai",
+      "title": "Stopping AI Model Collapse from Recursive Synthetic Training Data",
+      "proposal": "Record training-data provenance and compare quality measurements across data sources."
+    },
+    {
+      "id": "civic-074",
+      "source_item": 74,
+      "category": "ai",
+      "title": "Building Open-Source Code Sandboxes for Safe Autonomous Agent Execution",
+      "proposal": "Test isolation for approved defensive work with inert fixtures, bounded resources and no production credentials."
+    },
+    {
+      "id": "civic-075",
+      "source_item": 75,
+      "category": "ai",
+      "title": "Fixing Non-Deterministic Code Generation in Automated Software Engineering",
+      "proposal": "Pin dependencies and inputs, record relevant build parameters and verify reproducibility independently."
+    },
+    {
+      "id": "civic-076",
+      "source_item": 76,
+      "category": "ai",
+      "title": "Eliminating Excessive Energy & Compute Waste in Simple Classification Tasks",
+      "proposal": "Replacing billion-parameter LLM calls with 10-kilobyte deterministic regex, decision trees, or SQL queries."
+    },
+    {
+      "id": "civic-077",
+      "source_item": 77,
+      "category": "ai",
+      "title": "Building Transparent, Auditable AI Evaluation Benchmarks",
+      "proposal": "Publish evaluation methods and measure benchmark leakage and performance on held-out examples."
+    },
+    {
+      "id": "civic-078",
+      "source_item": 78,
+      "category": "ai",
+      "title": "Fixing Broken Audio-to-Text & Speech-to-Text Homophone Errors",
+      "proposal": "Test transcription against consented regional speech datasets and record homophone error rates."
+    },
+    {
+      "id": "civic-079",
+      "source_item": 79,
+      "category": "ai",
+      "title": "Creating Open-Source Semantic Diff Tools for Code & Legal Contracts",
+      "proposal": "Highlighting real behavioral or obligation changes rather than noisy whitespace diffs."
+    },
+    {
+      "id": "civic-080",
+      "source_item": 80,
+      "category": "ai",
+      "title": "Eliminating Vendor Lock-In Across AI APIs",
+      "proposal": "Build a portable interface and document provider-specific behavior with equivalence checks."
+    },
+    {
+      "id": "civic-081",
+      "source_item": 81,
+      "category": "ai",
+      "title": "Building Local-First Personal Knowledge Graphs with Zero Cloud Surveillance",
+      "proposal": "Test local data ownership, portable exports and restore using sample personal records."
+    },
+    {
+      "id": "civic-082",
+      "source_item": 82,
+      "category": "ai",
+      "title": "Fixing Broken Multi-Agent Infinite Loops & Token Runaways",
+      "proposal": "Bound steps and budgets and verify termination behavior for authorized research and defensive jobs."
+    },
+    {
+      "id": "civic-083",
+      "source_item": 83,
+      "category": "ai",
+      "title": "Auditing Open-Weight Models for Hidden Backdoors & Trigger Phrases",
+      "proposal": "Evaluate trusted defensive tools on labeled synthetic model fixtures and report measurable detection limits."
+    },
+    {
+      "id": "civic-084",
+      "source_item": 84,
+      "category": "ai",
+      "title": "Building Plain-Language Translation Engines for Complex Legal & Medical Records",
+      "proposal": "Build reviewable plain-language summaries with references to the original text and qualified review for consequential use."
+    },
+    {
+      "id": "civic-085",
+      "source_item": 85,
+      "category": "ai",
+      "title": "Standardizing Machine-Readable llms.txt & Open Knowledge Manifests",
+      "proposal": "Publish a machine-readable index and check it against the linked documentation."
+    },
+    {
+      "id": "civic-086",
+      "source_item": 86,
+      "category": "civic",
+      "title": "Building Open-Source Precision Agriculture & Soil/Water Sensors for Small Farms",
+      "proposal": "Giving family farmers affordable, repairable telemetry without corporate subscription locks."
+    },
+    {
+      "id": "civic-087",
+      "source_item": 87,
+      "category": "civic",
+      "title": "Eliminating Planned Obsolescence & Software Locks on Repairable Hardware",
+      "proposal": "Document safe, authorized diagnostics and verify repair instructions for supported hardware."
+    },
+    {
+      "id": "civic-088",
+      "source_item": 88,
+      "category": "civic",
+      "title": "Building Offline Educational & Literacy Software for Rural & Underserved Communities",
+      "proposal": "Delivering complete interactive math, phonics, and science libraries on low-cost flash drives."
+    },
+    {
+      "id": "civic-089",
+      "source_item": 89,
+      "category": "civic",
+      "title": "Fixing Broken Public Transit & Emergency Dispatch Data Feeds (GTFS)",
+      "proposal": "Validate public transport feed conformance and measure freshness and coverage."
+    },
+    {
+      "id": "civic-090",
+      "source_item": 90,
+      "category": "civic",
+      "title": "Building Open-Source Disaster Relief, Food Pantry & Shelter Resource Maps",
+      "proposal": "Publish data freshness and let service providers confirm availability without exposing private details."
+    },
+    {
+      "id": "civic-091",
+      "source_item": 91,
+      "category": "civic",
+      "title": "Creating Transparent Public Budget & Government Contract Trackers",
+      "proposal": "Parsing messy municipal ledgers into clean, searchable public dashboards."
+    },
+    {
+      "id": "civic-092",
+      "source_item": 92,
+      "category": "civic",
+      "title": "Building Open-Source Air, Water & Environmental Quality Monitoring Networks",
+      "proposal": "Aggregating low-cost community sensor data into verifiable public maps."
+    },
+    {
+      "id": "civic-093",
+      "source_item": 93,
+      "category": "civic",
+      "title": "Fixing Broken Academic & Scientific Paper Accessibility",
+      "proposal": "Extract structured information from openly accessible or authorized documents and keep license information attached."
+    },
+    {
+      "id": "civic-094",
+      "source_item": 94,
+      "category": "civic",
+      "title": "Building Lightweight Clinical & Veterinary Triage Checklists for Low-Resource Clinics",
+      "proposal": "Prototype offline checklist software with simulated records. Require qualified clinical or veterinary validation before use."
+    },
+    {
+      "id": "civic-095",
+      "source_item": 95,
+      "category": "civic",
+      "title": "Creating Open-Source Assistive Tech (Eye-Tracking, Voice Control, Braille)",
+      "proposal": "Benchmark open assistive technologies with consenting users and report supported hardware and usability limitations."
+    },
+    {
+      "id": "civic-096",
+      "source_item": 96,
+      "category": "civic",
+      "title": "Fixing Broken Legacy Civic & Court Record Search Portals",
+      "proposal": "Index eligible public records with provenance, and test search completeness and redaction."
+    },
+    {
+      "id": "civic-097",
+      "source_item": 97,
+      "category": "civic",
+      "title": "Building Peer-to-Peer Mesh Energy & Microgrid Load-Balancing Software",
+      "proposal": "Model local energy sharing and test load balancing on a simulated network before any field experiment."
+    },
+    {
+      "id": "civic-098",
+      "source_item": 98,
+      "category": "civic",
+      "title": "Creating Open-Source Genealogical & Historical Archive Preservation Tools",
+      "proposal": "Helping families digitize, OCR, and preserve handwritten letters and historical records locally."
+    },
+    {
+      "id": "civic-099",
+      "source_item": 99,
+      "category": "civic",
+      "title": "Fixing Broken Software Telemetry & Crash Reporting Without Spying",
+      "proposal": "Test opt-in crash reporting with minimized fields and redaction of identifying data."
+    },
+    {
+      "id": "civic-100",
+      "source_item": 100,
+      "category": "civic",
+      "title": "Building Simple, Bulletproof Backup & Recovery Tools for Non-Technical Users",
+      "proposal": "Verify encrypted backups by restoring representative data and checking its integrity."
+    },
+    {
+      "id": "civic-101",
+      "source_item": 101,
+      "category": "civic",
+      "title": "Writing Clear, Honest Documentation That Explains How Systems Actually Work",
+      "proposal": "Replacing marketing buzzwords and padded tutorials with direct, step-by-step truth."
+    }
+  ],
+  "prize_intake": [
+    {
+      "source_items": [
+        "1–25"
+      ],
+      "count": 25,
+      "decision": "Mathematics submissions. Entries enter prize totals only after their sponsor, reward and status are verified. Item 23 yields two distinct EFF awards."
+    },
+    {
+      "source_items": [
+        "26–32"
+      ],
+      "count": 7,
+      "decision": "Historical cipher, factoring and mathematical research leads. Prize or reward claims in the submission lack confirmation here."
+    },
+    {
+      "source_items": [
+        "33–80",
+        "98–100"
+      ],
+      "count": 51,
+      "decision": "Security-bounty claims excluded from public task intake."
+    },
+    {
+      "source_items": [
+        "81–96"
+      ],
+      "count": 16,
+      "decision": "Science and benchmark submissions. Sponsor evidence supports recording ARC Prize 2026 as closed. NASA lists Watts on the Moon, Break the Ice and Deep Space Food as completed challenges.",
+      "evidence": [
+        "https://arcprize.org/competitions/2026",
+        "https://www.nasa.gov/prizes-challenges-and-crowdsourcing/centennial-challenges/winners/"
+      ]
+    },
+    {
+      "source_items": [
+        "97",
+        "101"
+      ],
+      "count": 2,
+      "decision": "Defensive maintenance and hardening leads. Funding terms are unverified here."
+    }
+  ]
+}

@@ -27,7 +27,7 @@ jobs:
           fixtures=$(mktemp -d "$RUNNER_TEMP/catalog-fixtures.XXXXXX")
           trap 'rm -rf -- "$fixtures"' EXIT
           chmod 0755 "$fixtures"
-          for file in package.json build.js worker.js worker.test.js schema.sql seed.sql catalog.json openapi.json; do
+          for file in package.json build.js worker.js worker.test.js schema.sql seed.sql catalog.json civic-work.json openapi.json; do
             test -f "$file" && test ! -L "$file"
             install -m 0644 "$file" "$fixtures/$file"
           done
