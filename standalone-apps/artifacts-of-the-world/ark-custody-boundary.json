@@ -1,0 +1,40 @@
+{
+  "id": "ark-custody-boundary",
+  "project": "ark-of-the-covenant",
+  "attribution": "Researcher source comparison; not Nathan Tabor verbatim text",
+  "creator_claim_source": "standalone-apps/artifacts-of-the-world/original.txt",
+  "identity_status": "unverified",
+  "modern_custody_status": "unverified",
+  "sources": [
+    {
+      "category": "scripture_KJV",
+      "citation": "1 Kings 8:1-9",
+      "url": "https://www.biblegateway.com/passage/?search=1%20Kings%208%3A1-9&version=KJV",
+      "supports": "Narrated placement in Solomon's temple; not a present-day location."
+    },
+    {
+      "category": "scripture_KJV",
+      "citation": "2 Chronicles 35:3",
+      "url": "https://www.biblegateway.com/passage/?search=2%20Chronicles%2035%3A3&version=KJV",
+      "supports": "Josiah's instruction to place the Ark in the house; not an independently documented chain of custody."
+    },
+    {
+      "category": "deuterocanonical_tradition",
+      "citation": "2 Maccabees 2:4-8",
+      "url": "https://www.kingjamesbibleonline.org/2-Maccabees-Chapter-2/",
+      "supports": "Narrative of Jeremiah concealing the Ark; not archaeological verification of a cave or object."
+    },
+    {
+      "category": "later_tradition_report",
+      "citation": "Smithsonian, Keepers of the Lost Ark",
+      "url": "https://www.smithsonianmag.com/travel/keepers-of-the-lost-ark-179998820/",
+      "supports": "Reports Ethiopian Aksum tradition and access restrictions; does not authenticate the claimed object."
+    }
+  ],
+  "unresolved": [
+    "Physical continuity between the narrated Ark and any surviving object",
+    "Independent authentication of Aksum custody",
+    "Archaeologically established location for Jeremiah's cave"
+  ],
+  "release": "research_only_not_published"
+}
