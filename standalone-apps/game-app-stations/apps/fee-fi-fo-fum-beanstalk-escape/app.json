@@ -1,16 +1,20 @@
 {
   "id": "fee-fi-fo-fum-beanstalk-escape",
   "title": "Fee-Fi-Fo-Fum: Beanstalk Escape",
-  "launch": null,
+  "launch": "https://pub-a374b836528943e2917457f04363c2ff.r2.dev/apps/fee-fi-fo-fum-beanstalk-escape/play.html",
   "source": null,
   "collections": [
     "Play"
   ],
   "source_stages": [
-    "Playable HTML prototype"
+    "Playable HTML prototype",
+    "Recovered standalone browser original"
   ],
   "aliases": [],
-  "status": "build-pending",
-  "next_action": "Recover the authorized source or approved design, then implement and verify this app independently.",
-  "station": "apps/fee-fi-fo-fum-beanstalk-escape/index.html"
+  "status": "existing-launch",
+  "station": "apps/fee-fi-fo-fum-beanstalk-escape/index.html",
+  "web_files": [
+    "play.html"
+  ],
+  "archive_sha256": "694717ff458a205665815b49a44f9a4cf8bd0e45e94db69b1a2693ef73fe443f"
 }

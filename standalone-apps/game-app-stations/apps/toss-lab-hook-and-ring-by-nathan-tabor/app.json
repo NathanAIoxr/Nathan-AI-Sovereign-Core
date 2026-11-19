@@ -1,7 +1,7 @@
 {
   "id": "toss-lab-hook-and-ring-by-nathan-tabor",
   "title": "Toss Lab · Hook and Ring by Nathan Tabor",
-  "launch": null,
+  "launch": "https://hook-and-ring.nathantaboract.workers.dev/training",
   "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/standalone-apps/hook-and-ring/game/training.html.in",
   "collections": [
     "Projects"
@@ -10,7 +10,6 @@
     "Template page"
   ],
   "aliases": [],
-  "status": "source-available",
-  "next_action": "Verify a playable build from this source and update this station with its verified launch.",
+  "status": "existing-launch",
   "station": "apps/toss-lab-hook-and-ring-by-nathan-tabor/index.html"
 }

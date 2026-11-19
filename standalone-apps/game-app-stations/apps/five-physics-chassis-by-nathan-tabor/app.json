@@ -1,7 +1,7 @@
 {
   "id": "five-physics-chassis-by-nathan-tabor",
   "title": "Five Physics Chassis by Nathan Tabor",
-  "launch": null,
+  "launch": "https://hook-and-ring.nathantaboract.workers.dev/chassis",
   "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/standalone-apps/hook-and-ring/game/chassis.html.in",
   "collections": [
     "Projects"
@@ -10,7 +10,6 @@
     "Template page"
   ],
   "aliases": [],
-  "status": "source-available",
-  "next_action": "Verify a playable build from this source and update this station with its verified launch.",
+  "status": "existing-launch",
   "station": "apps/five-physics-chassis-by-nathan-tabor/index.html"
 }

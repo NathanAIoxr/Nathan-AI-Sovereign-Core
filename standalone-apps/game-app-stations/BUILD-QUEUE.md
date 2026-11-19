@@ -31,3 +31,5 @@ RETURNING app_id;
 ```
 
 For a deliberately paused milestone, clear the current owner's lease and return it to `queued`. If a run is interrupted, the next runner may reclaim the expired lease. Pull request jobs use GitHub-hosted runners. Promote a self-hosted runner only after it has been registered for trusted app builds and its workload has been verified.
+
+The App Station Build Bots workflow runs the recovered archive integrity checks and each Infinitum game test as separate CI jobs. It publishes a CI artifact after they pass. The hourly build agent reads the D1 backlog, explores a source-backed build and a source-recovery task when both lanes have work, and keeps each app in its own leased scope. For an existing playable edition, verify its specific live URL and source before moving its station to an existing launch. Record that as route reuse in the receipt. Archived standalone editions record the original bytes' digest. New adaptations record their relationship to the documented prototype in their app manifest.

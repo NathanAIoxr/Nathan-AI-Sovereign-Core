@@ -1,0 +1,50 @@
+name: App Station Build Bots
+on:
+  pull_request:
+    paths:
+      - 'standalone-apps/game-app-stations/**'
+      - '.github/workflows/app-station-build-bots.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'standalone-apps/game-app-stations/**'
+      - '.github/workflows/app-station-build-bots.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: station-build-bots-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  app-check:
+    runs-on: ubuntu-latest
+    name: Verify ${{ matrix.app }}
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        app: [archive, crossword-matrix, three-by-three, seed-circuit, territory-stone, pixel-cipher, harbor-lines]
+    env:
+      APP_TEST_TASK: ${{ matrix.app }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test standalone-apps/game-app-stations/release-wave.test.mjs
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    needs: [app-check]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node standalone-apps/game-app-stations/build.mjs
+      - run: node standalone-apps/game-app-stations/verify.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: app-station-release
+          path: standalone-apps/game-app-stations/dist/
