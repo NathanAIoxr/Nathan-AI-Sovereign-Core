@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS sovereign_events_v1 (event_id TEXT PRIMARY KEY,project_id TEXT NOT NULL,event_type TEXT NOT NULL,payload_sha256 TEXT NOT NULL,previous_sha256 TEXT,created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,source TEXT NOT NULL,approval_state TEXT NOT NULL DEFAULT 'recorded' CHECK(approval_state IN ('recorded','approved','rejected')));
+CREATE INDEX IF NOT EXISTS idx_sovereign_events_project ON sovereign_events_v1(project_id,created_at);
+CREATE TABLE IF NOT EXISTS sovereign_node_telemetry_v1 (receipt_id TEXT PRIMARY KEY,node_id TEXT NOT NULL,project_id TEXT NOT NULL,observed_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,metrics_json TEXT NOT NULL,verified_identity INTEGER NOT NULL DEFAULT 0);
+CREATE INDEX IF NOT EXISTS idx_sovereign_node_telemetry_project ON sovereign_node_telemetry_v1(project_id,observed_at);
+CREATE TABLE IF NOT EXISTS sovereign_dispatch_v1 (job_id TEXT PRIMARY KEY,project_id TEXT NOT NULL,job_kind TEXT NOT NULL,payload_json TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'queued' CHECK(status IN ('queued','claimed','completed','failed','cancelled')),approved INTEGER NOT NULL DEFAULT 0,created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,claimed_at TEXT,finished_at TEXT,receipt_json TEXT);
+CREATE INDEX IF NOT EXISTS idx_sovereign_dispatch_status ON sovereign_dispatch_v1(status,approved,created_at);
