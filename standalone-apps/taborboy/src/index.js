@@ -151,7 +151,7 @@ function home() {
 
 async function refresh(env) {
   const current = await Promise.all(SOURCES.map(async source => {
-    const object = await env[BUCKET].get("sources/" + source.name);
+    const object = await (env.TABORBOY_ASSETS ?? env[BUCKET]).get("sources/" + source.name);
     if (!object || await hash(await object.arrayBuffer()) !== source.sha256) {
       throw new Error("Source verification failed for " + source.name);
     }
@@ -160,8 +160,8 @@ async function refresh(env) {
   const edition = JSON.stringify(PROFILE,null,2);
   const digest = await hash(edition);
   const key = "editions/" + digest + ".json";
-  if (!await env[BUCKET].head(key)) {
-    await env[BUCKET].put(key, edition, {httpMetadata:{contentType:"application/json"}});
+  if (!await (env.TABORBOY_ASSETS ?? env[BUCKET]).head(key)) {
+    await (env.TABORBOY_ASSETS ?? env[BUCKET]).put(key, edition, {httpMetadata:{contentType:"application/json"}});
   }
   const projection = {entity:PROFILE.entity,edition:key,sha256:digest,sources:current,...await project(env)};
   const view = JSON.stringify(projection);
@@ -189,7 +189,7 @@ export default {
       if (request.method === "GET" && url.pathname.startsWith("/sources/")) {
         const name = url.pathname.slice("/sources/".length);
         if (!SOURCES.some(source => source.name === name)) return reply({error:"SOURCE_NOT_FOUND"},404);
-        const object = await env[BUCKET].get("sources/" + name);
+        const object = await (env.TABORBOY_ASSETS ?? env[BUCKET]).get("sources/" + name);
         if (!object) return reply({error:"SOURCE_NOT_FOUND"},404);
         return new Response(object.body,{headers:{...HEADERS,"content-type":"text/plain; charset=utf-8","content-disposition":'attachment; filename="'+name+'"'}});
       }

@@ -4,7 +4,7 @@
 
 Codex 1 supplies the root profile and Living Threshold lore. Codex 9 supplies the platform specification. The football play comes from The Art of Basics. Nathan Tabor’s build order is 1 - 1 = 0 (provision and migrate) followed by 1 + 1 = 2 (deploy and run).
 
-Run `npm test` with Node 22 or newer. The primary live target is its own Cloudflare Pages project. It uses the same `src/index.js` as the standalone Worker. Apply the D1 migrations and set `SOVEREIGN_TOKEN` as an encrypted secret on the target platform before deploying. This project uses `taborboy_db`, `taborboy-assets`, and `TABORBOY_ZONES`. The necessary R2 objects are listed by filename and SHA-256 in the Worker. In production the source files are stored under `sources/` in that bucket. The public profile contains project material. Archived originals and operational records require the Worker bearer token.
+Run `npm test` with Node 22 or newer. The primary live target is its own Cloudflare Pages project. It uses the same `src/index.js` as the standalone Worker. Pages binds R2 as `TABORBOY_ASSETS` because it reserves `ASSETS` for static assets. Apply the D1 migrations and set `SOVEREIGN_TOKEN` as an encrypted secret on the target platform before deploying. This project uses `taborboy_db`, `taborboy-assets`, and `TABORBOY_ZONES`. The necessary R2 objects are listed by filename and SHA-256 in the Worker. In production the source files are stored under `sources/` in that bucket. The public profile contains project material. Archived originals and operational records require the Worker bearer token.
 
 | Method and route | Purpose |
 | --- | --- |
