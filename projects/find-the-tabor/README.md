@@ -28,3 +28,12 @@ The raw intake is preserved in the R2 bucket `tabor-lineage-r2` under `intake/20
 ## GitHub and Clouder
 
 The GitHub Actions build generates each edition. The main-branch deployment job uses scoped Cloudflare credentials from repository secrets, publishes each edition to its own Pages project, and checks the live release. The scheduled GitHub source-check workflow records availability while the Cloudflare Worker deployment is pending. Clouder is the mobile client for the Cloudflare account. Its access uses the scoped token and permissions on the owner’s device.
+
+## Portable public editions
+
+The open editions can also run as static files on the existing GitHub Pages publication and on Cloudflare R2 public delivery. Each edition has its own entry point and data. The Cloudflare Pages projects have their own domains and use the GitHub deployment job when Pages Write credentials are configured. The raw intake lives in a separate private bucket.
+
+- GitHub Pages: https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/projects/find-the-tabor/public/lineage/index.html
+- Cloudflare R2: https://pub-75a950dc4e3b4f8cba13da7b7bceac9f.r2.dev/lineage/index.html
+
+Run `node projects/find-the-tabor/portable.mjs` after the two build scripts to regenerate the public files.

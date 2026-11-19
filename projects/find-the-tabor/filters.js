@@ -24,8 +24,9 @@ apply();
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  const next = new URL(location.origin);
-  if (form.elements.direction?.value === 'back') next.pathname = '/back/';
+  const back = form.elements.direction?.value === 'back';
+  const target = back ? (form.dataset.back || '/back/') : (form.dataset.home || '/');
+  const next = new URL(target, location.href);
   if (form.elements.q.value.trim()) next.searchParams.set('q', form.elements.q.value.trim());
   if (form.elements.status.value) next.searchParams.set('status', form.elements.status.value);
   if (next.pathname !== location.pathname) {
