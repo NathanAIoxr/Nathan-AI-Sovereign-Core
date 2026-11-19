@@ -1,0 +1,74 @@
+name: TABORPOOL
+on:
+  pull_request:
+    paths:
+      - 'standalone-apps/taborpool/**'
+      - '.github/workflows/taborpool.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'standalone-apps/taborpool/**'
+      - '.github/workflows/taborpool.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+defaults:
+  run:
+    working-directory: standalone-apps/taborpool
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency: taborpool-worker-production
+    env:
+      DEPLOY_TARGET: ${{ vars.TABORPOOL_DEPLOY_TARGET || 'pages' }}
+      CLOUDFLARE_PAGES_CREDENTIAL: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_WORKERS_CREDENTIAL: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      WRANGLER_SEND_METRICS: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Deploy standalone Worker
+        if: env.DEPLOY_TARGET == 'worker'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ env.CLOUDFLARE_WORKERS_CREDENTIAL }}
+        run: |
+          if [[ -z "${CLOUDFLARE_API_TOKEN}" || -z "${CLOUDFLARE_ACCOUNT_ID}" ]]; then
+            echo "::notice::Deployment skipped because Cloudflare Workers credentials are missing."
+            echo "Deployment skipped because Cloudflare Workers credentials are missing." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          npx --yes wrangler@4.165.0 d1 migrations apply taborpool_db --remote
+          npx --yes wrangler@4.165.0 deploy
+          curl --fail-with-body --silent --show-error --retry 4 --retry-all-errors --max-time 15 https://taborpool-worker.nathantaboract.workers.dev/health
+      - name: Deploy Cloudflare Pages
+        if: env.DEPLOY_TARGET != 'worker'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ env.CLOUDFLARE_PAGES_CREDENTIAL }}
+        run: |
+          if [[ -z "${CLOUDFLARE_API_TOKEN}" || -z "${CLOUDFLARE_ACCOUNT_ID}" ]]; then
+            echo "::notice::Deployment skipped because Cloudflare Pages credentials are missing."
+            echo "Deployment skipped because Cloudflare Pages credentials are missing." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          mkdir -p build/pages
+          cp src/index.js build/pages/_worker.js
+          mv wrangler.toml build/standalone-wrangler.toml
+          npx --yes wrangler@4.165.0 pages deploy build/pages --project-name taborpool --branch main --commit-hash "$GITHUB_SHA" --commit-dirty=false
+          curl --fail-with-body --silent --show-error --retry 4 --retry-all-errors --max-time 15 https://taborpool.pages.dev/health

@@ -1,0 +1,29 @@
+name = "taborboy-worker"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+preview_urls = false
+keep_vars = true
+
+[vars]
+ENTITY_ID = "TABORBOY"
+CODEX_SOURCE = "LivingThreshold_Codex1_Codex9"
+
+[triggers]
+crons = ["5,35 * * * *"]
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "taborboy_db"
+database_id = "637d6467-7b8f-42b4-b75f-0c2dc2808991"
+
+[[r2_buckets]]
+binding = "ASSETS"
+bucket_name = "taborboy-assets"
+
+[[kv_namespaces]]
+binding = "ZONES_KV"
+id = "15bcb973cf9c4d51bddec0174ee56607"
