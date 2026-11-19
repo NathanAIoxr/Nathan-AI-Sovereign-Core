@@ -5,6 +5,7 @@ const types = {
   'recovery.html': 'text/html',
   'style.css': 'text/css',
   'timeline.mjs': 'text/javascript',
+  'scenario.mjs': 'text/javascript',
   'app.mjs': 'text/javascript'
 };
 const assets = {};

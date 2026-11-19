@@ -25,18 +25,26 @@ export function duration(route) {
 export function sample(route, time) {
   const full = duration(route);
   const elapsed = Math.min(full, Math.max(0, Number.isFinite(time) ? time : 0));
-  if (elapsed === full) return { elapsed, stage: 2, done: true, mph: 0, position: 1 };
-  const highway = route[0].seconds;
-  const dinnerEnd = highway + route[1].seconds;
-  if (elapsed < highway) {
-    return { elapsed, stage: 0, done: false, mph: route[0].mph, position: elapsed / highway * midpoint };
+  if (elapsed === full) return { elapsed, stage: route.length - 1, done: true, mph: 0, position: 1 };
+  const preset = route.length === 3 && route[0].id === 'highway' &&
+    route[1].id === 'dinner' && route[2].id === 'goodbye';
+  let start = 0;
+  const stage = route.findIndex(item => {
+    if (elapsed < start + item.seconds) return true;
+    start += item.seconds;
+    return false;
+  });
+  const active = route[stage];
+  const fraction = (elapsed - start) / active.seconds;
+  let position = (stage + (active.mph ? fraction : 1)) / route.length;
+  if (preset) {
+    position = stage === 0 ? fraction * midpoint : stage === 1 ? midpoint : 1;
   }
-  if (elapsed < dinnerEnd) return { elapsed, stage: 1, done: false, mph: 0, position: midpoint };
-  return { elapsed, stage: 2, done: false, mph: 0, position: 1 };
+  return { elapsed, stage, done: false, mph: active.mph, position };
 }
 
 export function simulationExport(route) {
-  return { type: 'scrambler-simulation', simulated: true, totalSeconds: duration(route), route };
+  return { type: 'scrambler-simulation', version: 2, simulated: true, totalSeconds: duration(route), route };
 }
 
 export function clock(time) {
