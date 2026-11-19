@@ -1,0 +1,19 @@
+<p class="eyebrow">AGI · Planning prototype</p>
+<h1>AGI Planner</h1>
+<p class="lede">Generate a local checklist from a goal, a constraint, and your definition of done. Check off each step as you complete it.</p>
+<div class="split">
+  <form class="panel" id="plan-form">
+    <label for="goal">Goal</label>
+    <input id="goal" maxlength="180" required placeholder="Publish the BOOBIES game">
+    <label for="constraint">Constraint</label>
+    <input id="constraint" maxlength="180" placeholder="Keep every release separate">
+    <label for="evidence">Completion evidence</label>
+    <input id="evidence" maxlength="180" placeholder="The game loads and scores a round">
+    <div class="controls"><button type="submit" class="primary">Build checklist</button></div>
+  </form>
+  <section class="panel" aria-label="Plan">
+    <h2 id="plan-title">Checklist</h2>
+    <p id="plan-count" class="release-status" role="status">Enter a goal to start.</p>
+    <div id="steps"></div>
+  </section>
+</div>

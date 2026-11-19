@@ -1,0 +1,17 @@
+<p class="eyebrow">EI</p>
+<h1>Message Review</h1>
+<p class="lede">Choose the tone you want and see which wording the local rules flag for a second look.</p>
+<div class="split">
+  <form id="review-form" class="panel">
+    <label for="tone">Target tone</label>
+    <select id="tone"><option value="direct">Direct</option><option value="calm">Calm</option><option value="collaborative">Collaborative</option></select>
+    <label for="message">Your message</label>
+    <textarea id="message" maxlength="2000" required></textarea>
+    <div class="controls"><button type="submit" class="primary">Review message</button></div>
+  </form>
+  <section class="panel" aria-label="Message findings">
+    <h2>Review</h2>
+    <p id="review-count" class="release-status" role="status">Enter a message to review.</p>
+    <ul id="findings" class="short-list"></ul>
+  </section>
+</div>

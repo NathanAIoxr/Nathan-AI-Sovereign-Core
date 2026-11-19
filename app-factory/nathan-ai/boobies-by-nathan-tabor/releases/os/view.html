@@ -1,0 +1,27 @@
+<p class="eyebrow">OS</p>
+<h1>BOOBIES OS</h1>
+<p class="lede">A browser desktop with three tools. Your notes and active panel are saved in this browser.</p>
+<section class="panel" aria-label="Browser desktop">
+  <div class="controls" aria-label="Desktop panels">
+    <button type="button" data-panel="calculator" aria-pressed="true" aria-controls="calculator">Calculator</button>
+    <button type="button" data-panel="loop" aria-pressed="false" aria-controls="loop">SNOT Loop</button>
+    <button type="button" data-panel="notes" aria-pressed="false" aria-controls="notes">Notes</button>
+  </div>
+  <section id="calculator" aria-label="Calculator">
+    <label for="desktop-digits">Calculator digits</label>
+    <input id="desktop-digits" inputmode="numeric" maxlength="8" value="5318008">
+    <div class="controls"><button id="desk-flip" type="button" class="primary">Flip display</button></div>
+    <output id="desk-word" for="desktop-digits"></output>
+  </section>
+  <section id="loop" aria-label="SNOT loop" hidden>
+    <h2>SNOT Loop</h2>
+    <div class="controls"><button id="loop-sim" type="button" class="primary">Run the simulated loop</button></div>
+    <pre class="console" id="loop-log" role="status">Ready for a simulated trap.</pre>
+  </section>
+  <section id="notes" aria-label="Notes" hidden>
+    <label for="note">Your notes</label>
+    <textarea id="note" maxlength="5000"></textarea>
+    <div class="controls"><button type="button" class="primary" id="save-note">Save on this device</button></div>
+    <p id="note-status" role="status"></p>
+  </section>
+</section>

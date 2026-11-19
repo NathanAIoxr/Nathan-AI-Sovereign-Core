@@ -1,0 +1,19 @@
+<p class="eyebrow">AE</p>
+<h1>Sequence Runner</h1>
+<p class="lede">Run local transformations in the order you choose and inspect the output from each step.</p>
+<div class="split">
+  <form id="sequence-form" class="panel">
+    <label for="seed">Starting text</label>
+    <input id="seed" maxlength="400" value="5318008" required>
+    <label for="actions">Operations, one per line</label>
+    <textarea id="actions" maxlength="240" aria-describedby="operations" required>trim
+flip word</textarea>
+    <p id="operations" class="note">trim, uppercase, lowercase, reverse, flip word, flip digits</p>
+    <div class="controls"><button type="submit" class="primary">Run sequence</button></div>
+  </form>
+  <section class="panel" aria-label="Run log">
+    <h2>Run log</h2>
+    <p id="sequence-status" class="release-status" role="status">Ready.</p>
+    <pre id="sequence-log" class="console"></pre>
+  </section>
+</div>

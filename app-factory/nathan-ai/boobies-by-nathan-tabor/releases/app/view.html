@@ -1,0 +1,22 @@
+<p class="eyebrow">App</p>
+<h1>Flip Calculator</h1>
+<p class="lede">Enter a number, turn the seven-segment display 180°, and read the result.</p>
+<div class="split">
+  <section class="panel" aria-label="Calculator">
+    <div class="digits" role="img" id="display"></div>
+    <label for="digits">Calculator digits</label>
+    <input id="digits" inputmode="numeric" maxlength="8" value="5318008" pattern="[0-9]*" autocomplete="off">
+    <div class="controls">
+      <button type="button" class="primary" id="flip" aria-pressed="false">Flip 180°</button>
+      <button type="button" data-digits="5318008">BOOBIES</button>
+      <button type="button" data-digits="55378008">BOOBLESS</button>
+    </div>
+    <output id="result" for="digits">5318008</output>
+  </section>
+  <section class="panel" aria-label="Flip examples">
+    <h2>Classic Calculator Flip-Cipher Breakdown</h2>
+    <p><code>5318008</code> → <strong>BOOBIES</strong></p>
+    <p><code>55378008</code> → <strong>BOOBLESS</strong></p>
+    <p class="note">Load either example, then use the flip control to turn the display.</p>
+  </section>
+</div>

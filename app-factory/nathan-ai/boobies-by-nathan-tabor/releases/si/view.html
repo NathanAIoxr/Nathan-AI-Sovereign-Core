@@ -1,0 +1,19 @@
+<p class="eyebrow">SI</p>
+<h1>Pattern Workbench</h1>
+<p class="lede">Look up the flipped reading of a digit string or build a calculator code from a word.</p>
+<div class="split">
+  <form id="pattern-form" class="panel">
+    <label for="mode">Direction</label>
+    <select id="mode"><option value="decode">Digits → flipped word</option><option value="encode">Word → calculator digits</option></select>
+    <label for="pattern">Input</label>
+    <input id="pattern" maxlength="24" value="55378008" autocomplete="off" required>
+    <div class="controls"><button type="submit" class="primary">Convert</button></div>
+    <output for="mode pattern" id="converted"></output>
+  </form>
+  <section class="panel" aria-label="Pattern key">
+    <h2>Pattern key</h2>
+    <p><code>0 → O &nbsp; 1 → I &nbsp; 2 → Z &nbsp; 3 → E &nbsp; 4 → h</code></p>
+    <p><code>5 → S &nbsp; 6 → g &nbsp; 7 → L &nbsp; 8 → B &nbsp; 9 → g</code></p>
+    <p class="note">The converter reads right to left after the 180° flip. A question mark marks a character with no mapping.</p>
+  </section>
+</div>
