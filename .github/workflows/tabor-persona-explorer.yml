@@ -1,0 +1,25 @@
+name: Tabor Persona Explorer CI
+on:
+  pull_request:
+    paths:
+      - "creative-archive/persona-duality/explorer/**"
+      - "creative-archive/persona-duality/registry.mjs"
+      - ".github/workflows/tabor-persona-explorer.yml"
+  push:
+    paths:
+      - "creative-archive/persona-duality/explorer/**"
+      - "creative-archive/persona-duality/registry.mjs"
+      - ".github/workflows/tabor-persona-explorer.yml"
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test creative-archive/persona-duality/explorer/model.test.mjs
+      - run: node --test creative-archive/persona-duality/worker.test.mjs
