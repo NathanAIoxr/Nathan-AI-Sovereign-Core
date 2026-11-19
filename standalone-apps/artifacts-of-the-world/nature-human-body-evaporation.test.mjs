@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-const base = new URL('../', import.meta.url);
+const base = new URL('./', import.meta.url);
 const dossier = JSON.parse(readFileSync(new URL('research/nature-human-body-evaporation.json', base), 'utf8'));
 const original = readFileSync(new URL('original.txt', base), 'utf8').trimEnd();
 test('author text is verbatim and not rewritten', () => assert.equal(dossier.author_source.exact_text, original));
