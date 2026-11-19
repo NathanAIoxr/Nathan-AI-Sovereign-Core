@@ -1,0 +1,55 @@
+name: Nathan AI Global Bounties Defensive Sandbox
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-factory/nathan-ai/global-bounties/**'
+      - '.github/workflows/nathan-global-bounties-sandbox.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+          sparse-checkout: app-factory/nathan-ai/global-bounties
+      - name: Verify catalog access controls in an offline container
+        working-directory: app-factory/nathan-ai/global-bounties
+        run: |
+          fixtures=$(mktemp -d "$RUNNER_TEMP/catalog-fixtures.XXXXXX")
+          trap 'rm -rf -- "$fixtures"' EXIT
+          chmod 0755 "$fixtures"
+          for file in package.json build.js worker.js worker.test.js schema.sql seed.sql catalog.json openapi.json; do
+            test -f "$file" && test ! -L "$file"
+            install -m 0644 "$file" "$fixtures/$file"
+          done
+
+          # Official Node 24.22.3 Bookworm Slim image for linux/amd64.
+          image=docker.io/library/node@sha256:0e2646ab57e77b7a384a0cb59b6815b182c77e1f9c3ba36bd8435bd9c4e6680e
+          docker pull "$image"
+          docker run --rm --pull=never \
+            --network=none --read-only --user=65534:65534 --cap-drop=ALL \
+            --security-opt=no-new-privileges --memory=256m --cpus=1 --pids-limit=64 \
+            --mount "type=bind,source=$fixtures,target=/fixtures,readonly" \
+            --tmpfs /work:rw,nosuid,nodev,noexec,size=32m,mode=1777 \
+            --tmpfs /tmp:rw,nosuid,nodev,noexec,size=16m,mode=1777 \
+            --workdir /work --env HOME=/tmp --entrypoint /bin/sh "$image" -ec '
+              node --input-type=module -e "
+                import assert from \"node:assert/strict\";
+                import os from \"node:os\";
+                assert.equal(process.getuid(), 65534);
+                assert.ok(Object.values(os.networkInterfaces()).flat().every(address => address.internal));
+                console.log(\"Sandbox verified: unprivileged user and loopback only.\");
+              "
+              cp /fixtures/* .
+              node build.js
+              node --test worker.test.js
+            '
