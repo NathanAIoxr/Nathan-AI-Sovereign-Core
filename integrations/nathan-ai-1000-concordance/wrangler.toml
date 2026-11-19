@@ -1,0 +1,20 @@
+name = "nathan-ai-1000-concordance"
+main = "src/index.mjs"
+compatibility_date = "2026-11-18"
+
+[[d1_databases]]
+binding = "COCKPIT"
+database_name = "nathan-ai-cockpit-ledger"
+database_id = "ee93da4e-7d2d-4440-9dfc-ce4b6cdbdb3c"
+
+[[d1_databases]]
+binding = "LANGUAGES"
+database_name = "tabor-platform-languages"
+database_id = "a90bce71-a652-4f2f-8f82-564cd3bc3a1b"
+
+[[dispatch_namespaces]]
+binding = "PLATFORMS"
+namespace = "nathan-tabor-platforms"
+
+[triggers]
+crons = ["17 */6 * * *"]
