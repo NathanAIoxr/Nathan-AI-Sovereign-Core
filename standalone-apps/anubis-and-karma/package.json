@@ -1,0 +1,11 @@
+{
+  "name": "anubis-and-karma",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node build.mjs && node --test",
+    "start": "node build.mjs && node preview.mjs"
+  }
+}

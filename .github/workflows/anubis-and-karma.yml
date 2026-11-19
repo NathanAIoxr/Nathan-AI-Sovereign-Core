@@ -1,0 +1,57 @@
+name: Anubis & Karma
+on:
+  pull_request:
+    paths:
+      - 'standalone-apps/anubis-and-karma/**'
+      - '.github/workflows/anubis-and-karma.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'standalone-apps/anubis-and-karma/**'
+      - '.github/workflows/anubis-and-karma.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: standalone-apps/anubis-and-karma
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main' && vars.ANUBIS_KARMA_DEPLOY_ENABLED == 'true'
+    concurrency: tabor-anubis-karma-production
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    defaults:
+      run:
+        working-directory: standalone-apps/anubis-and-karma
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Deploy in dependency order
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          : "${CLOUDFLARE_API_TOKEN:?Missing Cloudflare token}"
+          : "${CLOUDFLARE_ACCOUNT_ID:?Missing Cloudflare account ID}"
+          for stage in anubis karma finale domino; do
+            npx --yes wrangler@4 deploy --config "wrangler.$stage.json"
+          done
+      - name: Verify deployed release
+        run: curl --retry 4 --retry-all-errors --max-time 30 --fail-with-body https://tabor-domino.nathantaboract.workers.dev/api/chain

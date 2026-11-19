@@ -1,0 +1,32 @@
+{
+  "name": "tabor-domino",
+  "main": "workers/domino.mjs",
+  "compatibility_date": "2026-11-18",
+  "workers_dev": true,
+  "preview_urls": false,
+  "build": {
+    "command": "node build.mjs"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "triggers": {
+    "crons": [
+      "17 * * * *"
+    ]
+  },
+  "services": [
+    {
+      "binding": "ANUBIS",
+      "service": "tabor-anubis"
+    },
+    {
+      "binding": "KARMA",
+      "service": "tabor-karma"
+    },
+    {
+      "binding": "FINALE",
+      "service": "tabor-anubis-karma"
+    }
+  ]
+}
