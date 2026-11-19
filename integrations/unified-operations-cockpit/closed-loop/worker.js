@@ -316,8 +316,13 @@ export default {
     if (taborApp) return taborApp;
     const url = new URL(request.url);
     const sovereignStaging = "/tabor-sites/sovereign-staging";
-    if (url.origin === "https://unified-operations-cockpit.nathantaboract.workers.dev" &&
-        (url.pathname === sovereignStaging || url.pathname.startsWith(sovereignStaging + "/"))) {
+    const isHoldingPreview = url.origin === "https://unified-operations-cockpit.nathantaboract.workers.dev" &&
+      (url.pathname === sovereignStaging || url.pathname.startsWith(sovereignStaging + "/"));
+    // Cloudflare sends custom domains here after their individual zone is attached.
+    // The holding Worker checks the exact hostname against the active D1 registry.
+    const isCustomDomain = url.protocol === "https:" && !url.hostname.endsWith(".workers.dev") &&
+      typeof env.PLATFORMS?.get === "function";
+    if (isHoldingPreview || isCustomDomain) {
       try {
         return await env.PLATFORMS.get("tabor-zone-holding", {}, { limits: { cpuMs: 60, subRequests: 20 } }).fetch(request);
       } catch {

@@ -101,3 +101,22 @@ test("discovers renamed and empty tables, retains composite identities, and pres
   assert.equal(existing.source_status, "declared");
   assert.equal(existing.integration_status, "INDEXED");
 });
+
+test("passes a custom zone's original hostname and path to the holding gate", async () => {
+  const target = "https://zone.example/sovereign/mcp";
+  const result = await worker.fetch(new Request(target, { method: "POST" }), {
+    PLATFORMS: {
+      get(name) {
+        assert.equal(name, "tabor-zone-holding");
+        return {
+          fetch(request) {
+            assert.equal(request.method, "POST");
+            assert.equal(request.url, target);
+            return new Response(null, { status: 404 });
+          },
+        };
+      },
+    },
+  });
+  assert.equal(result.status, 404);
+});
