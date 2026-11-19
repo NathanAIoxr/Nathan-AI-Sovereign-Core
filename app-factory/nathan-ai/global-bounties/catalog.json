@@ -1,0 +1,93 @@
+{
+  "checked_on": "2026-11-19",
+  "groups": [
+    {
+      "organization": "Clay Mathematics Institute",
+      "category": "mathematics",
+      "source_url": "https://www.claymath.org/millennium-problems/",
+      "payout_usd": 1000000,
+      "payout_kind": "prize",
+      "status": "OPEN",
+      "deadline": "Until awarded under Clay's rules",
+      "entries": [
+        ["clay-p-vs-np", "Millennium Prize · P vs NP", "Determine whether every problem with an efficiently checkable solution also has an efficient algorithm."],
+        ["clay-riemann", "Millennium Prize · Riemann Hypothesis", "Prove or disprove that every nontrivial zero of the Riemann zeta function has real part one-half."],
+        ["clay-yang-mills", "Millennium Prize · Yang–Mills and the Mass Gap", "Establish quantum Yang–Mills theory in four dimensions with a positive mass gap."],
+        ["clay-hodge", "Millennium Prize · Hodge Conjecture", "Determine whether rational Hodge classes on smooth projective complex varieties come from algebraic cycles."],
+        ["clay-birch-swinnerton-dyer", "Millennium Prize · Birch and Swinnerton-Dyer Conjecture", "Relate the rank of rational points on an elliptic curve to the order of vanishing of its L-function."]
+      ]
+    },
+    {
+      "organization": "Clay Mathematics Institute",
+      "category": "mathematics",
+      "source_url": "https://www.claymath.org/news/navier-stokes-announcement/",
+      "payout_usd": 1000000,
+      "payout_kind": "prize",
+      "status": "UNDER_REVIEW",
+      "deadline": null,
+      "entries": [
+        ["clay-navier-stokes", "Millennium Prize · Navier–Stokes Existence and Smoothness", "Clay announced an apparent resolution on September 11, 2026, and described the prize evaluation process. No award date is listed."]
+      ]
+    },
+    {
+      "organization": "American Mathematical Society",
+      "category": "mathematics",
+      "source_url": "https://www.bealbank.com/who-we-are/our-founder/the-beal-conjecture/",
+      "payout_usd": 1000000,
+      "payout_kind": "prize",
+      "status": "OPEN",
+      "deadline": "Standing prize",
+      "entries": [
+        ["beal-conjecture", "Beal Conjecture Prize", "Prove the common prime factor condition for positive integer solutions to A^x + B^y = C^z with exponents greater than two, or give a counterexample."]
+      ]
+    },
+    {
+      "organization": "XPRIZE Foundation",
+      "category": "science",
+      "source_url": "https://www.xprize.org/competitions/accelerate-learning",
+      "payout_usd": 5000000,
+      "payout_kind": "pool",
+      "status": "OPEN",
+      "deadline": "2027-03-15 (preliminary)",
+      "entries": [
+        ["xprize-learning-core", "XPRIZE Accelerate Learning · Core Track", "Design a school-district-scale approach to foundational literacy and numeracy."]
+      ]
+    },
+    {
+      "organization": "XPRIZE Foundation",
+      "category": "science",
+      "source_url": "https://www.xprize.org/competitions/accelerate-learning",
+      "payout_usd": 1000000,
+      "payout_kind": "pool",
+      "status": "OPEN",
+      "deadline": "2027-02-15 (preliminary)",
+      "entries": [
+        ["xprize-learning-moonshot", "XPRIZE Accelerate Learning · Last Mile Moonshot", "Design low-cost, offline-capable tools for first-grade literacy and numeracy in resource-constrained communities."]
+      ]
+    },
+    {
+      "organization": "Vesuvius Challenge",
+      "category": "science",
+      "source_url": "https://scrollprize.org/prizes",
+      "payout_usd": 1000000,
+      "payout_kind": "pool",
+      "status": "OPEN",
+      "deadline": "2027-06-25 23:59 Pacific",
+      "entries": [
+        ["vesuvius-grand-prize", "Vesuvius Challenge · 2027 Grand Prize", "Virtually unroll and read an eligible carbonized Herculaneum scroll. First place is $800,000 of the $1,000,000 grand prize pool."]
+      ]
+    },
+    {
+      "organization": "XPRIZE Foundation",
+      "category": "science",
+      "source_url": "https://www.xprize.org/competitions/qc-apps",
+      "payout_usd": 5000000,
+      "payout_kind": "pool",
+      "status": "ACTIVE_CLOSED_TO_NEW_ENTRIES",
+      "deadline": "Last published registration closed 2026-03-04",
+      "entries": [
+        ["xprize-quantum", "XPRIZE Quantum Applications", "Develop quantum algorithms with demonstrated potential for real-world applications. The competition is in its finals phase."]
+      ]
+    }
+  ]
+}

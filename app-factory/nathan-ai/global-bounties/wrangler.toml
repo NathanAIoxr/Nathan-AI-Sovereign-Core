@@ -1,0 +1,17 @@
+name = "nathan-ai-bounties-db"
+main = "dist/worker.js"
+compatibility_date = "2026-11-19"
+workers_dev = false
+preview_urls = false
+keep_vars = true
+
+[observability]
+enabled = false
+
+[vars]
+PUBLIC_BASE_URL = "https://tabor-bridge.nathantaboract.workers.dev/global-bounties"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nathan_global_bounties"
+database_id = "b62b86b3-0e67-40f5-b302-7b0f8080c3f0"

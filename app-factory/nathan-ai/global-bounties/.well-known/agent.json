@@ -1,0 +1,34 @@
+{
+  "_covenant": {
+    "architect": "Nathan Tabor | Nathan AI Sovereign Core",
+    "mandate": "Innocence is not a commodity anymore.",
+    "principles": [
+      "Honor",
+      "Loyalty",
+      "Preserve source attribution"
+    ],
+    "math": {
+      "build": "1+1=2",
+      "clear": "1-1=0",
+      "integrate": "1×1=1",
+      "verify": "1÷1=1"
+    },
+    "decision": "Yes is Yes — No is No."
+  },
+  "name": "Nathan AI Global Bounties & Grand Challenges",
+  "version": "1.0.0",
+  "description": "Public, opt-in participation and read access for mathematics and science.",
+  "scope": [
+    "system",
+    "non-system"
+  ],
+  "url": "https://tabor-bridge.nathantaboract.workers.dev/global-bounties/",
+  "mcp": {
+    "url": "https://tabor-bridge.nathantaboract.workers.dev/global-bounties/mcp",
+    "transport": "streamable-http",
+    "access": "read-only"
+  },
+  "openapi": "https://tabor-bridge.nathantaboract.workers.dev/global-bounties/openapi.json",
+  "join": "https://tabor-bridge.nathantaboract.workers.dev/global-bounties/join",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/global-bounties"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "nathan-ai-bounties-db",
+  "name": "Nathan AI Global Bounties & Grand Challenges",
+  "entry": "worker.js",
+  "data": "catalog.json",
+  "scope": ["system", "non-system"],
+  "participation": "public_read_and_opt_in_repository_contributions",
+  "core_changes": false
+}

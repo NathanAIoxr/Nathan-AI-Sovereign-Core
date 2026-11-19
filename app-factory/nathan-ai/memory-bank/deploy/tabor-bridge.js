@@ -1,6 +1,7 @@
 const mounts = new Map([
   ['/memory-bank', 'nathan-ai-memory-bank'],
-  ['/worker-registry', 'nathan-ai-worker-registry']
+  ['/worker-registry', 'nathan-ai-worker-registry'],
+  ['/global-bounties', 'nathan-ai-bounties-db']
 ]);
 
 export default {

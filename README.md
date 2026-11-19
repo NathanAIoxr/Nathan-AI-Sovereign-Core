@@ -1,3 +1,5 @@
+**[Nathan AI Global Bounties & Grand Challenges](https://tabor-bridge.nathantaboract.workers.dev/global-bounties/join)** · [Source](app-factory/nathan-ai/global-bounties/) · Source-checked math and science catalog and public participant invitation.
+
 **[Scrambler · TABOR 1-2-3 FACTORY](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/scrambler/)** · [Source](standalone-apps/scrambler/) · Fictional route playback, location privacy controls and recovered work.
 
 **[Assessment Studio · The Nathan Tabor Way](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-apps/assessment-studio/)** · [Source](app-factory/nathan-ai/assessment-studio/) · Personality, IQ and strengths directory, QI/QE practice and private results.
