@@ -31,6 +31,7 @@ jobs:
           node-version: '24'
           package-manager-cache: false
       - run: npm ci
+      - run: npm audit --audit-level=high
       - run: npm test
       - run: npm run build:platform
 

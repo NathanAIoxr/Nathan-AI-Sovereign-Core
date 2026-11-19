@@ -3,7 +3,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
 import { memoryClient } from './client.js';
 
-const recallOnly = process.env.MEMORY_READ_ONLY === '1';
+const recallOnly = process.env.MEMORY_READ_ONLY !== '0';
 const client = memoryClient();
 const text = (maxLength) => ({ type: 'string', maxLength });
 const integer = (maximum) => ({ type: 'integer', minimum: 1, maximum });
@@ -44,11 +44,11 @@ server.setRequestHandler(CallToolRequestSchema, async ({ params }) => {
     const args = params.arguments || {};
     let result;
     if (params.name === 'recall_memory') {
-      const params = new URLSearchParams({ limit: '5' });
+      const params = { limit: 5 };
       for (const key of ['q', 'category', 'limit', 'before_id']) {
-        if (args[key] !== undefined) params.set(key, args[key]);
+        if (args[key] !== undefined) params[key] = args[key];
       }
-      result = await client('/recall?' + params);
+      result = await client('/recall', params);
     } else {
       result = await client('/remember', args);
     }

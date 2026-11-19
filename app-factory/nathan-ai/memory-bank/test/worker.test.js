@@ -53,7 +53,9 @@ test('memory API fails closed and read key cannot write', async (t) => {
   assert.equal((await request('/remember', { key: 'read-test', method: 'POST', data: {} })).status, 401);
   assert.equal((await request('/import', { key: 'read-test', method: 'POST', data: {} })).status, 401);
   assert.equal((await request('/unknown')).status, 404);
-  assert.equal((await request('/recall', { method: 'POST' })).status, 405);
+  const unsupported = await request('/recall', { method: 'PUT' });
+  assert.equal(unsupported.status, 405);
+  assert.equal(unsupported.headers.get('Allow'), 'GET, POST');
   assert.match((await request('/')).headers.get('Content-Security-Policy'), /frame-ancestors 'none'/);
 });
 
@@ -83,7 +85,9 @@ test('bulk import validates the whole batch, dedupes and paginates', async (t) =
   assert.equal((await request('/import', { method: 'POST', data: { entries: [first, {}] } })).status, 400);
   assert.equal((await (await request('/recall')).json()).count, 0);
   const imported = await request('/import', { method: 'POST', data: { entries: [first, second, first] } });
-  assert.deepEqual(await imported.json(), { status: 'imported', saved: 2, duplicates: 1, ids: [1, 2] });
+  assert.deepEqual(await imported.json(), { status: 'imported', received: 3, saved: 2, duplicates: 1, ids: [1, 2] });
+  const retry = await request('/import', { method: 'POST', data: { entries: [first, second] } });
+  assert.deepEqual(await retry.json(), { status: 'imported', received: 2, saved: 0, duplicates: 2, ids: [] });
   const page = await (await request('/recall?limit=1')).json();
   assert.equal(page.memories[0].title, second.title);
   assert.equal(page.next_before_id, 2);
@@ -98,7 +102,30 @@ test('rejects invalid request body, field types, limits and search size', async 
   assert.equal((await request('/remember', { method: 'POST', data: {}, contentType: 'text/plain' })).status, 415);
   assert.equal((await request('/remember', { method: 'POST', data: { title: 'Too long', content: 'A'.repeat(530000) } })).status, 413);
   assert.equal((await request('/remember', { method: 'POST', data: { title: 'Test', content: 42 } })).status, 400);
+  assert.equal((await request('/remember', { method: 'POST', data: { title: 'Test', content: '\ud800' } })).status, 400);
   for (const query of ['limit=-1', 'limit=51', 'limit=1x', 'before_id=0', 'q=' + 'x'.repeat(301)]) {
     assert.equal((await request('/recall?' + query)).status, 400);
   }
+});
+
+test('JSON recall keeps search out of the URL and uses the same read boundary', async (t) => {
+  const request = setup(t);
+  await request('/remember', { method: 'POST', data: { title: 'One', content: 'private note' } });
+  await request('/remember', { method: 'POST', data: { title: 'Two', content: 'private note' } });
+  const search = { method: 'POST', key: 'read-test', data: { q: 'private', limit: 1 } };
+  const reply = await request('/recall', search);
+  assert.equal(reply.status, 200);
+  assert.equal(reply.headers.get('Referrer-Policy'), 'no-referrer');
+  assert.equal(reply.headers.get('Cache-Control'), 'no-store');
+  const first = await reply.json();
+  assert.equal(first.memories[0].title, 'Two');
+  const next = await request('/recall', { ...search, data: { ...search.data, before_id: first.next_before_id } });
+  assert.equal((await next.json()).memories[0].title, 'One');
+  assert.equal((await request('/recall', { ...search, key: 'wrong' })).status, 401);
+  assert.equal((await request('/recall?category=games', search)).status, 400);
+  assert.equal((await request('/recall?limit=1&limit=2')).status, 400);
+  for (const data of [{ q: 5 }, { limit: '1' }, { before_id: null }, { unknown: true }, []]) {
+    assert.equal((await request('/recall', { ...search, data })).status, 400);
+  }
+  assert.equal((await request('/recall', { ...search, data: { q: 'x'.repeat(5000) } })).status, 413);
 });

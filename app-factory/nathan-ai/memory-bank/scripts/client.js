@@ -10,6 +10,7 @@ export function memoryClient(key = process.env.MEMORY_API_KEY) {
   }
   if (!endpoint.pathname.endsWith('/')) endpoint.pathname += '/';
   return async function request(path, body) {
+    if (!['/remember', '/recall', '/import'].includes(path)) throw new Error('Unknown Memory Bank route.');
     const options = {
       headers: { Authorization: 'Bearer ' + key },
       redirect: 'error',
