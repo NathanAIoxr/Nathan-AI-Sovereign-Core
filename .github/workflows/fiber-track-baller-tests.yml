@@ -21,4 +21,4 @@ jobs:
           node-version: '22'
       - name: Test simulated gesture mechanics
         working-directory: app-factory/nathan-ai/fiber-arts-track-baller
-        run: node --test trackball.test.mjs pinch.test.mjs
+        run: node --test *.test.mjs
