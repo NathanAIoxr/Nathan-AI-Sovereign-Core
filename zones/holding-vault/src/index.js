@@ -11,7 +11,7 @@ export default {
   if(project.launch_status!=='LIVE') return holding(project.display_name);
   if(!project.staging_url) return new Response('Live target not configured',{status:503,headers});
   const target=new URL(project.staging_url);
-  if(target.protocol!=='https:'||!(/\\.(pages|workers)\\.dev$/).test(target.hostname)) return new Response('Unapproved upstream',{status:503,headers});
+  if(target.protocol!=='https:'||!(target.hostname.endsWith('.pages.dev')||target.hostname.endsWith('.workers.dev'))) return new Response('Unapproved upstream',{status:503,headers});
   const upstream=new URL(url.pathname+url.search,target);
   return fetch(new Request(upstream,request),{redirect:'manual'});
  }
