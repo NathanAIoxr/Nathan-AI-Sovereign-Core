@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 import { replay, sha256 } from "./compute.mjs";
 import { advanceTerms, FABRIC_SHARD_TERMS, FABRIC_TERMS, runFabric } from "./fabric.mjs";
 import fabricExecutor from "./fabric-executor.mjs";
-import { archiveSnapshot, auditSnapshot } from "./ledger.mjs";
+import { archiveSnapshot, auditSnapshot, claimSupernode } from "./ledger.mjs";
 import { browser } from "./site.mjs";
 
 const require = createRequire(new URL("../../sovereign-hub/cloudflare/package.json", import.meta.url));
@@ -40,6 +40,7 @@ test("runs the eight-shard workload and D1 mirror, including concurrent retries"
     body: JSON.stringify(body),
   });
   assert.equal((await get("/")).status, 200);
+  assert.equal((await get("/")).headers.get("referrer-policy"), "no-referrer");
   assert.equal((await get("/godtabor")).status, 200);
   new Function(browser);
   const run = await (await get("/api/fp64/run")).json();
@@ -84,11 +85,36 @@ test("runs the eight-shard workload and D1 mirror, including concurrent retries"
   const archived = await archiveSnapshot(db, bucket, audited.snapshot_id);
   const object = await bucket.get(archived.r2_key);
   assert.equal((await object.json()).root_hash, audited.root_hash);
-  const registered = await (await post("/api/supernodes/claim", { record_id: queued.id })).json();
+  const claims = await Promise.all(Array.from({ length: 2 }, async () =>
+    (await post("/api/supernodes/claim", { record_id: queued.id })).json()));
+  const [registered, retriedClaim] = claims;
   assert.equal(registered.status, "REGISTERED");
+  assert.deepEqual(retriedClaim, registered);
   const status = await (await get("/api/mirror/status")).json();
   assert.equal(status.latest_snapshot.r2_key, archived.r2_key);
   assert(!JSON.stringify(status).includes("changed"));
+
+  const auditedInput = await (await post("/api/intake", { text: "Edited during audit" })).json();
+  const interleave = write => ({
+    prepare: sql => db.prepare(sql),
+    async batch(statements) {
+      await write.run();
+      return db.batch(statements);
+    },
+  });
+  const editBeforeAuditCommit = db.prepare("UPDATE axis_dual_bus SET payload = ? WHERE id = ?")
+    .bind("An updated draft", auditedInput.id);
+  assert.equal((await auditSnapshot(interleave(editBeforeAuditCommit))).status, "CONCURRENT_AUDIT");
+  const retry = await auditSnapshot(db);
+  assert.deepEqual([retry.verified, retry.quarantined], [0, 1]);
+
+  const claimInput = await (await post("/api/intake", { text: "Reviewed candidate" })).json();
+  assert.equal((await auditSnapshot(db)).verified, 1);
+  const withdrawBeforeClaim = db.prepare("UPDATE axis_dual_bus SET direction = 'QUARANTINED' WHERE id = ?")
+    .bind(claimInput.id);
+  assert.equal((await claimSupernode(interleave(withdrawBeforeClaim), claimInput.id)).status, "VERIFIED_RECORD_REQUIRED");
+  assert.equal(await db.prepare("SELECT source_record FROM supernode_registry WHERE source_record = ?")
+    .bind(claimInput.id).first(), null);
 });
 
 test("routes and verifies the full FP64 fabric workload through a private Worker", async t => {
@@ -169,4 +195,11 @@ test("matches affine skip to serial states and rejects altered shard boundaries"
   };
   await assert.rejects(runFabric(tampered, { seed: 73, terms: 64, shards: 1 }),
     /shard receipt failed validation/);
+});
+
+test("rejects oversized and non-object bodies at the private fabric boundary", async () => {
+  for (const body of [undefined, "[]", JSON.stringify({ padding: "x".repeat(2048) })]) {
+    const request = new Request("https://fabric.internal/execute", { method: "POST", body });
+    assert.equal((await fabricExecutor.fetch(request)).status, 400);
+  }
 });

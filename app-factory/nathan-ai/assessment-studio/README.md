@@ -11,8 +11,10 @@ The Big Five implementation uses the exact [IPIP 50-item sample](https://ipip.or
 ```sh
 node --test check.test.mjs
 node build.mjs /tmp/nathan-assessment-build
-python3 -m http.server 8080 --directory public
+python3 -m http.server 8080 --directory ../../..
 ```
+
+For the GitHub Pages version, open /app-factory/nathan-ai/assessment-studio/public/index.html from the local server.
 
 The app runs as a separate Worker in the existing `nathan-tabor-platforms` namespace. The Tabor Apps gateway routes its public URL. The app Worker serves static files and `/healthz` with the build fingerprint. The GitHub workflow builds and tests on changes and deploys the Worker on main when the repository provides its Cloudflare deployment credentials.
 

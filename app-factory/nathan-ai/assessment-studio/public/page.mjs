@@ -323,6 +323,9 @@ $("lab-form").addEventListener("submit", event => {
 document.querySelectorAll("[data-lab]").forEach(button => {
   button.addEventListener("click", () => startLab(button.dataset.lab));
 });
+$("verified-evidence").addEventListener("change", event => {
+  document.querySelectorAll("[data-unverified]").forEach(row => { row.hidden = event.target.checked; });
+});
 window.addEventListener("hashchange", () => showView(true));
 
 try {

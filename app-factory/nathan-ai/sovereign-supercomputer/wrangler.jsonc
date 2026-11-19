@@ -13,5 +13,5 @@
     { "binding": "FABRIC_EXECUTOR", "service": "nathan-sovereign-fp64-fabric" }
   ],
   "triggers": { "crons": ["0 */6 * * *"] },
-  "observability": { "enabled": true, "head_sampling_rate": 0.05 }
+  "observability": { "enabled": true, "head_sampling_rate": 0.05, "redact_query_string": true }
 }

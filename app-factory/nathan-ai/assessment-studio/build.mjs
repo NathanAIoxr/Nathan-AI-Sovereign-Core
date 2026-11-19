@@ -10,7 +10,14 @@ const assets = {};
 for (const name of (await readdir(new URL("./public/", import.meta.url))).sort()) {
   const type = types[extname(name)];
   if (!type) continue;
-  const bytes = await read("./public/" + name);
+  let bytes = await read("./public/" + name);
+  if (name === "index.html") {
+    const html = bytes.toString("utf8")
+      .replace(/  <!-- github-pages-shell:start -->[\s\S]*?  <!-- github-pages-shell:end -->\n/, "")
+      .replace(/<aside id="nathan-record-notice"[\s\S]*?<\/aside>/, notice => notice.replace(/ style="[^"]*"/g, ""))
+      .replace('href="../../../../docs/record/index.html"', 'href="https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/docs/record/"');
+    bytes = Buffer.from(html);
+  }
   assets["/" + name] = {
     type: type + "; charset=utf-8",
     etag: JSON.stringify(createHash("sha256").update(bytes).digest("hex")),

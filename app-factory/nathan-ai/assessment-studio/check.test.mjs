@@ -65,7 +65,13 @@ test("published Worker serves the standalone app and accepts read-only routes", 
   const request = (path, init) => worker.fetch(new Request(new URL(path.replace(/^\//, ""), manifest.origin), init));
   const home = await request("/");
   assert.equal(home.status, 200);
-  assert.equal(await home.text(), await readFile(new URL("./public/index.html", import.meta.url), "utf8"));
+  const html = await home.text();
+  const source = await readFile(new URL("./public/index.html", import.meta.url), "utf8");
+  assert.match(source, /data-nathan-shared-appearance/);
+  assert.match(source, /data-nathan-command-center/);
+  assert.doesNotMatch(html, /data-nathan-shared-appearance|data-nathan-command-center/);
+  assert.match(html, /id="nathan-record-notice"/);
+  assert.match(html, /https:\/\/nathanaioxr\.github\.io\/Nathan-AI-Sovereign-Core\/docs\/record\//);
   for (const path of ["/page.mjs", "/style.css", "/assessments.mjs", "/ipip.mjs"]) assert.equal((await request(path)).status, 200);
   assert.deepEqual(await (await request("/healthz")).json(), { ok: true, site: manifest.id, release });
   assert.equal((await request("/", { method: "HEAD" })).body, null);
