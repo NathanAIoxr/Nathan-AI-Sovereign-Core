@@ -68,7 +68,7 @@ async function readBody(response, limit) {
 }
 
 async function download(url, limit) {
-  const response = await fetch(url,{redirect:'error',signal:AbortSignal.timeout(8000),headers:{'Cache-Control':'no-cache'}});
+  const response = await fetch(url,{redirect:'manual',signal:AbortSignal.timeout(8000),headers:{'Cache-Control':'no-cache'}});
   if (!response.ok) throw Error('Upstream HTTP ' + response.status);
   return readBody(response,limit);
 }
