@@ -53,3 +53,20 @@ test("three independent releases serve their site, dependencies, exact HTML and 
     assert.equal((await request("/missing")).status, 404);
   }
 });
+
+test("mobile and keyboard accessibility smoke checks for reconstructed previews", async () => {
+  const css = await readFile(new URL("./style.css", import.meta.url), "utf8");
+  assert.match(css, /input:focus-visible/);
+  assert.match(css, /button\s*\{[^}]*min-height:\s*44px/s);
+  assert.match(css, /select, textarea\s*\{[^}]*min-height:\s*44px/s);
+  for (const path of ["relationship-intent/index.html", "icu-buddy/index.html"]) {
+    const html = await readFile(resolve(directory, path), "utf8");
+    assert.match(html, /<html lang="en">/);
+    assert.match(html, /name="viewport" content="width=device-width, initial-scale=1"/);
+    assert.match(html, /<main>/);
+    assert.match(html, /<h1>/);
+    assert.match(html, /<label for="/);
+    assert.match(html, /role="status"/);
+    assert.match(html, /type="reset"/);
+  }
+});
