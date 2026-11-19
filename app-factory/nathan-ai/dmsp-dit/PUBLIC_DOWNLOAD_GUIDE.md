@@ -13,7 +13,7 @@ This is a web-first digital IT service catalog and local service-plan builder. T
 ## Developer/source access
 
 - [Repository](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core)
-- [DMSP + DIT app source](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/feature/dmsp-dit-operating-system-20261118/app-factory/nathan-ai/dmsp-dit)
+- [DMSP + DIT app source](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/dmsp-dit)
 - [Public service catalog JSON](https://nathan-ai-dmsp-dit.nathantaboract.workers.dev/download/catalog.json)
 - [Open source pull request and history](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/356)
 - [Cloudflare Workers deployment documentation](https://developers.cloudflare.com/workers/)
