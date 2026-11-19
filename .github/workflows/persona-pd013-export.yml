@@ -1,0 +1,21 @@
+name: Persona PD-013 public graph export
+on:
+  push:
+    paths:
+      - 'creative-archive/persona-duality/**'
+      - '.github/workflows/persona-pd013-export.yml'
+  pull_request:
+    paths:
+      - 'creative-archive/persona-duality/**'
+      - '.github/workflows/persona-pd013-export.yml'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test creative-archive/persona-duality/graph-export.test.mjs creative-archive/persona-duality/worker.test.mjs
