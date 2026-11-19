@@ -1,3 +1,4 @@
+import { dispatchTaborApp } from "../../../standalone-apps/tabor-app-runtime/tabor-app-dispatch.mjs";
 import { dispatchTaborSite } from "../../../app-factory/tabor-website-builder/src/public-dispatch.mjs";
 
 const SOURCES = {
@@ -311,6 +312,8 @@ function dashboard(status) {
 
 export default {
   async fetch(request, env) {
+    const taborApp = await dispatchTaborApp(request, env.PLATFORMS);
+    if (taborApp) return taborApp;
     const taborSite = await dispatchTaborSite(request, env.PLATFORMS);
     if (taborSite) return taborSite;
     const url = new URL(request.url);

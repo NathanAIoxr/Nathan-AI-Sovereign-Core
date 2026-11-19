@@ -1,0 +1,63 @@
+name: TaborPoolBoys
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'standalone-apps/taborpoolboys/**'
+      - 'standalone-apps/tabor-app-runtime/**'
+      - '.github/workflows/taborpoolboys.yml'
+  pull_request:
+    paths:
+      - 'standalone-apps/taborpoolboys/**'
+      - 'standalone-apps/tabor-app-runtime/**'
+      - '.github/workflows/taborpoolboys.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '07 */6 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node standalone-apps/tabor-app-runtime/verify.mjs taborpoolboys local
+
+  publish:
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency: taborpoolboys-production
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || 'a70580bacdf96c946662b7b67dcb45b5' }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Deploy application Worker
+        if: env.CLOUDFLARE_API_TOKEN != ''
+        run: node standalone-apps/tabor-app-runtime/deploy.mjs taborpoolboys
+      - name: Report deployment credential status
+        if: env.CLOUDFLARE_API_TOKEN == ''
+        run: echo "Cloudflare redeployment requires a Workers API credential." >> "$GITHUB_STEP_SUMMARY"
+
+  verify-live:
+    if: always() && github.ref == 'refs/heads/main' && needs.build.result == 'success' && (needs.publish.result == 'success' || (github.event_name == 'schedule' && needs.publish.result == 'skipped'))
+    needs: [build, publish]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node standalone-apps/tabor-app-runtime/verify.mjs taborpoolboys live
