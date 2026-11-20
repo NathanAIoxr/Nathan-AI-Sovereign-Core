@@ -164,3 +164,18 @@ test("1626 history extends both syllabus views and preserves chronology", async 
   assert.ok(reverse.indexOf("<h3>Church, court, and state") < reverse.indexOf("<h3>Home and community"));
   assert.match(await (await call("/order/")).text(), /order\/1626\//);
 });
+
+test("Time of Peace begins with the Age of Innocence and links the family lessons", async () => {
+  const path = "/order/time-of-peace/";
+  const forward = await (await call(path)).text();
+  assert.match(forward, /The Time of Peace: Where Innocence Was Not a Commodity/);
+  assert.ok(forward.indexOf("<h3>The Age of Innocence") < forward.indexOf("<h3>State and church authority enters"));
+  assert.ok(forward.indexOf("<h3>State and church authority enters") < forward.indexOf("<h3>Innocence becomes a commodity"));
+  assert.equal((forward.match(/<details>/g) || []).length, 18);
+  const reverse = await (await call(path+"?view=reverse")).text();
+  assert.ok(reverse.indexOf("<h3>Innocence becomes a commodity") < reverse.indexOf("<h3>The Age of Innocence"));
+  const lessons = await (await call(path+"?view=lessons")).text();
+  assert.equal((lessons.match(/Family activity/g) || []).length, 4);
+  assert.match(await (await call("/order/1626/")).text(), /order\/time-of-peace\//);
+  assert.match(await (await call("/order/porch/")).text(), /order\/time-of-peace\//);
+});
