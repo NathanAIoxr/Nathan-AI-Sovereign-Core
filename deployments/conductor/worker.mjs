@@ -85,6 +85,31 @@ export default {
       if (method === "GET" && path === "/api/time") {
         return json(await env.TIME.getByName("zone-clock").status());
       }
+      if (method === "GET" && path === "/api/connections/github") {
+        const release = env.RELEASE_SHA;
+        const receipt = { service: "nathan-ai-conductor", repository, release, connected: false };
+        if (!/^[0-9a-f]{40}$/.test(release ?? "")) return json(receipt, 503);
+
+        try {
+          const response = await fetch(`https://api.github.com/repos/${repository}/git/commits/${release}`, {
+            headers: {
+              Accept: "application/vnd.github+json",
+              "User-Agent": "Nathan-AI-Conductor"
+            },
+            redirect: "error",
+            signal: AbortSignal.timeout(5000)
+          });
+          if (!response.ok) {
+            await response.body?.cancel();
+            return json({ ...receipt, github_status: response.status }, 503);
+          }
+          const { sha } = await response.json();
+          const connected = sha === release;
+          return json({ ...receipt, connected, github_status: response.status }, connected ? 200 : 503);
+        } catch {
+          return json(receipt, 503);
+        }
+      }
       if (method === "POST" && path === "/api/time/start") {
         const token = (request.headers.get("Authorization") ?? "").match(/^Bearer ([^\s]+)$/i)?.[1] ?? "";
         if (!await sameSecret(token, env.TIME_START_KEY) && !await sameSecret(token, env.OPERATOR_KEY)) {

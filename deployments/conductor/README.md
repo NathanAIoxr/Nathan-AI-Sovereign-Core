@@ -19,6 +19,11 @@ flowchart TD
   Job --> Ledger["D1 ledger and private R2 audit"]
 ```
 
+## GitHub connection
+
+[Check the GitHub connection](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/connections/github).
+The Conductor reads its deployed commit from the public GitHub API and returns HTTP 200 when GitHub returns the same SHA. This endpoint performs a read-only verification and returns HTTP 503 when it cannot verify the commit.
+
 ## One-time credentials
 
 Set these as encrypted secrets on `nathan-ai-conductor` in the `nathan-tabor-platforms` namespace. Use a separate strong random value for each key. Keep the operator key in the operator’s credential store.
