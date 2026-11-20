@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { validateProjects } from "./reconcile.mjs";
+import { projectNamespace, validateProjects } from "./reconcile.mjs";
 import worker from "./worker.mjs";
 
 test("staging project names cannot escape the resource prefix or duplicate a Zone", () => {
@@ -8,6 +8,10 @@ test("staging project names cannot escape the resource prefix or duplicate a Zon
     assert.throws(() => validateProjects(projects), /Invalid Zone project registry/);
   }
   assert.doesNotThrow(() => validateProjects(["tap-that-arcade"]));
+  assert.doesNotThrow(() => validateProjects(Array.from({ length: 65 }, (_, i) => "project-" + i)));
+  assert.equal(projectNamespace("tap-that-arcade"), "tap-that-arcade-holding");
+  assert.notEqual(projectNamespace("tap-that-arcade"), projectNamespace("tap-that-command-center"));
+  assert.throws(() => projectNamespace("../main"), /Invalid Zone project registry/);
 });
 
 test("the holding Worker checks the isolated D1 identity and exposes only health", async () => {

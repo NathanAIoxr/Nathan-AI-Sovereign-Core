@@ -1,11 +1,14 @@
-export const namespace = "nathan-tabor-sandbox";
-
 export function validateProjects(projects) {
-  if (!Array.isArray(projects) || !projects.length || projects.length > 64 ||
+  if (!Array.isArray(projects) || !projects.length ||
       new Set(projects).size !== projects.length ||
       projects.some(id => typeof id !== "string" || !/^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/.test(id) || id.length > 52)) {
     throw new Error("Invalid Zone project registry");
   }
+}
+
+export function projectNamespace(project) {
+  validateProjects([project]);
+  return project + "-holding";
 }
 
 async function list(request, path, field, key, name) {
@@ -54,6 +57,19 @@ export async function reconcileZone(request, project, release, worker) {
   validateProjects([project]);
   if (!/^[a-f0-9]{64}$/.test(release ?? "")) throw new Error("Invalid Worker digest");
   const name = "zone-" + project;
+  const namespace = projectNamespace(project);
+  const namespacePath = "/workers/dispatch/namespaces/" + namespace;
+  if (!await missing(request, namespacePath)) {
+    try {
+      await request("POST", "/workers/dispatch/namespaces", { body: { name: namespace, trusted_workers: false } });
+    } catch (error) {
+      if (!await missing(request, namespacePath)) throw error;
+    }
+  }
+  const { result: scripts } = await request("GET", namespacePath + "/scripts");
+  if (!Array.isArray(scripts) || scripts.some(script => script.id !== name)) {
+    throw new Error("Managed Zone already contains a different task Worker");
+  }
 
   // ALIEN accepts a declared project and resolves its own staging resource names.
   const bucket = "/r2/buckets/" + name + "-r2";
@@ -101,7 +117,7 @@ export async function reconcileZone(request, project, release, worker) {
     { type: "plain_text", name: "ZONE_PROJECT", text: project },
     { type: "plain_text", name: "ZONE_RELEASE", text: release }
   ];
-  const script = "/workers/dispatch/namespaces/" + namespace + "/scripts/" + name;
+  const script = namespacePath + "/scripts/" + name;
   const checkBindings = actual => Array.isArray(actual) && actual.length === bindings.length &&
     bindings.every(expected => actual.some(binding => binding.name === expected.name &&
       binding.type === expected.type && (bindingValue(binding) === bindingValue(expected) ||

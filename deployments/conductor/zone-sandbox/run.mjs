@@ -7,8 +7,8 @@ import { verifyExistingZone } from "./existing.mjs";
 const { CLOUDFLARE_ACCOUNT_ID: account, CLOUDFLARE_API_TOKEN: cloudKey,
   GITHUB_TOKEN: gitKey, GITHUB_REPOSITORY: repository, GITHUB_SHA: commit,
   GITHUB_STEP_SUMMARY: summary } = process.env;
-const { existing, managed } = JSON.parse(await readFile(new URL("projects.json", import.meta.url), "utf8"));
-const projects = [...existing, ...managed];
+const { existing, isolatedApps, managed } = JSON.parse(await readFile(new URL("projects.json", import.meta.url), "utf8"));
+const projects = [...existing, ...isolatedApps, ...managed];
 const worker = await readFile(new URL("worker.mjs", import.meta.url), "utf8");
 validateProjects(projects);
 if (process.argv[2] === "--validate") {
@@ -65,8 +65,9 @@ const receipts = [];
 for (const project of projects) {
   try {
     await ensureBranch(project);
-    const receipt = existing.includes(project)
-      ? await verifyExistingZone(cf, project)
+    const app = isolatedApps.includes(project);
+    const receipt = existing.includes(project) || app
+      ? await verifyExistingZone(cf, project, app)
       : await reconcileZone(cf, project, release, worker);
     receipts.push(receipt);
   } catch (error) {
