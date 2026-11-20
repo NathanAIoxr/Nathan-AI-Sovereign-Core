@@ -1,3 +1,4 @@
+import { serveHolidayHandoff } from "./holiday-handoff.mjs";
 import {verifyLiveDecision} from "./cheironomer/src/integrity.js";
 import { project, repository, ProjectConductor } from "./state.mjs";
 import { dashboard } from "./dashboard.mjs";
@@ -112,6 +113,8 @@ export default {
         return json({error:"temporarily_unavailable"},503);
       }
     }
+    const holidayHandoff = serveHolidayHandoff(request, path);
+    if (holidayHandoff) return holidayHandoff;
     const isRead = method === "GET" || method === "HEAD";
     if (isRead && path === "/") {
       return new Response(method === "HEAD" ? null : dashboard, { headers: {
