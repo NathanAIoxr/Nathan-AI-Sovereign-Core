@@ -1,0 +1,19 @@
+{
+  "project": "NATHAN AI UNIVERSAL VOICE BOX",
+  "project_id": "project/one/nathan-voice-box",
+  "state": "HOLD",
+  "source_branch": "feature/nathan-voicebox-edge-micro-macro-20261106",
+  "isolation": "independent",
+  "conductor_contract": "NATHAN_AI_DEEP_CRAWLER",
+  "source_root": "app-factory/one/nathan-voice-box",
+  "runtime": "offline-first",
+  "cloudflare_deployed": false,
+  "production_launched": false,
+  "requires": [
+    "unit_tests",
+    "voice_consent_review",
+    "binding_validation",
+    "owner_approval"
+  ],
+  "allow_external_readers": false
+}
