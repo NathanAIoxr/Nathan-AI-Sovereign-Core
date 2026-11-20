@@ -41,6 +41,8 @@ Local drafting and imported LLM proposals stay in the browser. **Send source to 
 
 `LLM + AGI = LLMAGI`. Read it as `L L M A GI`, `LL MA GI`, or `LL MAGI`. Reversing the six letters gives `IGAMLL`, including `I G A M L L` and the mirrored groupings. Nathan Tabor’s naming image is “the group of individuals who mapped the stars to find Jesus.” The source reference is [Matthew 2:1–12 (KJV)](https://www.biblegateway.com/passage/?search=Matthew+2%3A1-12&version=KJV), which describes wise men who saw and followed the star.
 
+The [letter roots](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/handoffs/nutcracker-bedroom/llmagi-os#letter-roots) record the earliest reconstructed letter-name meanings for LLMAGI. The system manifest preserves all six positions for both LLMAGI and IGAMLL and includes the scholarship used for the reconstructions.
+
 The hosted console provides a single-job runner, browser-local source and receipt input, decision and reuse exports, and an exact comparison against the existing 144-bit fixed-anchor frame. The system manifest identifies the integrated Fleet, Fixed-Anchor Binary, and Tabor Academy services.
 
 The native release is a raw 1.44 MB x86 BIOS floppy image. Its bootloader loads a freestanding second-stage monitor with keyboard, display and conventional-memory services. Native commands display the names, check the four arithmetic anchors on the CPU, and halt the system. Model execution and full evidence review are browser and Conductor services. The native build uses GNU binutils and Node; the execution test also needs Python Unicorn.

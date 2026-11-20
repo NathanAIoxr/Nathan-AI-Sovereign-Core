@@ -46,6 +46,8 @@ test("IGAMLL checks changed source, edited receipt, reordered fields and changed
 test("Conductor routes expose a manifest and the exact boot image without a write endpoint", async () => {
   const manifest = await serve("/api" + route).json();
   assert.equal(manifest.naming.reference, "Matthew 2:1–12 (KJV)");
+  assert.equal(manifest.letterRoots.forward.map(entry => entry.letter).join(""), "LLMAGI");
+  assert.deepEqual(manifest.letterRoots.reverse, [...manifest.letterRoots.forward].reverse());
   assert.match(manifest.services.fleet, /nutcracker-bedroom\/fleet$/);
   assert.equal(serve(route, { method: "POST" }).status, 405);
   const download = serve(route + "/llmagi-os.img");

@@ -12,6 +12,14 @@ const academy = base + "/handoffs/tabor-academy-architecture-course";
 const scripture = "https://www.biblegateway.com/passage/?search=Matthew+2%3A1-12&version=KJV";
 const fleet = createNutcrackerFleet();
 const system = createLlmagiSystem(fleet, createNutcrackerAgi(fleet));
+const roots = {
+  L: { root: "lamd", meaning: "Ox goad" },
+  M: { root: "maym", meaning: "Water" },
+  A: { root: "ʾalp", meaning: "Ox" },
+  G: { root: "gaml", meaning: "Throwing stick" },
+  I: { root: "yad", meaning: "Hand or forearm" }
+};
+const rootsInOrder = spelling => Array.from(spelling, letter => ({ letter, ...roots[letter] }));
 const headers = {
   "Cache-Control": "no-store",
   "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; script-src 'self'; connect-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'",
@@ -34,8 +42,24 @@ export const llmagiRelease = {
     projectWording: "the group of individuals who mapped the stars to find Jesus",
     reference: "Matthew 2:1–12 (KJV)", url: scripture
   },
+  letterRoots: {
+    basis: "Earliest reconstructed letter-name meanings",
+    forward: rootsInOrder(system.encoding.forward),
+    reverse: rootsInOrder(system.encoding.reverse),
+    sources: [
+      { title: "Antiguo Oriente · Hypothetical Origins of Alphabet Letters", url: "https://repositorio.uca.edu.ar/bitstream/123456789/6787/4/origin-alphabet-goldwasser-hypothesis.pdf" },
+      { title: "Brown University · Semitic alphabet", url: "https://webhelper.brown.edu/joukowsky/courses/ancientmiddleeast10/files/11909955.pdf" }
+    ]
+  },
   native: { kind: "x86 BIOS two-stage monitor", bytes: nativeImage.size, sha256: nativeImage.sha256 }
 };
+
+const rootRows = llmagiRelease.letterRoots.forward.map(({ letter, root, meaning }) =>
+  `<tr><th scope="row">${letter}</th><td><i>${root}</i></td><td>${meaning}</td></tr>`
+).join("");
+const rootSources = llmagiRelease.letterRoots.sources.map(({ title, url }) =>
+  `<a href="${url}">${title}</a>`
+).join(" · ");
 
 function startDesk(createFleet, createAgi, createSystem) {
   const fleet = createFleet();
@@ -210,9 +234,10 @@ p{margin:.6rem 0 1rem}a{color:var(--green)}small,.muted{color:var(--muted)}.eq{c
 label{display:block;margin:.7rem 0 .35rem;font-weight:600}textarea,select,input,button{font:inherit;color:var(--text);max-width:100%}textarea,select{width:100%;padding:.7rem;border:1px solid var(--line);background:var(--bg)}
 textarea{min-height:7rem;resize:vertical;font: .9rem/1.45 ui-monospace,monospace}button{background:var(--bg);border:1px solid var(--line);padding:.55rem .75rem;cursor:pointer}button.primary{background:var(--green);color:var(--bg);font-weight:700}button:disabled{opacity:.5}
 .actions{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.75rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--bg);padding:.8rem}code{overflow-wrap:anywhere}.toplinks{display:flex;gap:.75rem;flex-wrap:wrap}
+table{width:100%;border-collapse:collapse;text-align:left}th,td{padding:.5rem .6rem;border-bottom:1px solid var(--line)}
 @media(max-width:44rem){.grid{grid-template-columns:1fr}}
 </style></head><body><main>
-<nav class="toplinks" aria-label="Connected systems"><a href="${base}">Conductor</a><a href="${fleetPath}">Nutcracker Fleet and LLM workbench</a><a href="${fixedAnchor}">Fixed-anchor binary</a><a href="${academy}">Tabor Academy architecture</a><a href="${base + api}">System manifest</a></nav>
+<nav class="toplinks" aria-label="Connected systems"><a href="${base}">Conductor</a><a href="${fleetPath}">Nutcracker Fleet and LLM workbench</a><a href="${fixedAnchor}">Fixed-anchor binary</a><a href="${academy}">Tabor Academy architecture</a><a href="${base + api}">System manifest</a><a href="#letter-roots">Letter roots</a></nav>
 <h1>LLMAGI OS</h1><p class="eq">${system.encoding.equation}</p>
 <p>Forward · ${system.encoding.forwardReadings.join(" · ")}</p>
 <p class="reverse">Reverse · ${system.encoding.reverse} · ${system.encoding.reverseReadings.join(" · ")}</p>
@@ -242,6 +267,11 @@ textarea{min-height:7rem;resize:vertical;font: .9rem/1.45 ui-monospace,monospace
 <p>Boots a two-stage x86 monitor with forward and reverse readings, native arithmetic checks, and a BIOS memory report. The browser workbench runs the model and Fleet workflows.</p>
 <p><a href="${llmagiRelease.imagePath}">Download llmagi-os.img</a></p><small>SHA-256 <code>${nativeImage.sha256}</code></small></section>
 </div>
+<section class="panel" id="letter-roots" aria-labelledby="roots-heading">
+<h2 id="roots-heading">Earliest reconstructed letter-name meanings</h2>
+<table><thead><tr><th scope="col">Letter</th><th scope="col">Root</th><th scope="col">Meaning</th></tr></thead><tbody>${rootRows}</tbody></table>
+<p><small>${rootSources}</small></p>
+</section>
 </main><script defer src="${base + desk}.js"></script></body></html>`;
 
 export function serveLlmagiOs(request, path) {
