@@ -54,6 +54,13 @@ const checks = [
     assert.match(realityMath, /id="capstone"/);
     assert.match(realityMath, /over 12,000 clients in more than 110 countries/);
     assert.match(await fetchRoute("/institution/foundation/reality-math/?start=-100&factor=1.25"), /-100 × 1\.25 = -125/);
+    const dossier = "/institution/foundation/vatican-history/";
+    const dossierPage = await fetchRoute(dossier);
+    assert.match(dossierPage, /McCann v\. Greenway/);
+    assert.match(dossierPage, /id="next"/);
+    assert.equal(await fetchRoute(dossier + "source.txt"), foundation.vaticanHistory.source);
+    assert.match(await fetchRoute("/map/"), /Vatican History · Crusades, Banking, and Jurisdiction/);
+    assert.equal(handoff.conductorHandoff.connectedMaterials.vaticanHistory, "/tabor-academy" + dossier);
     const money = "/institution/foundation/reality-math/million-dollar/";
     assert.match(await fetchRoute(money), /\$800,000 taken out \+ \$200,000 paid/);
     assert.match(await fetchRoute(money + "?rate=0"), /\$0 taken out \+ \$1,000,000 paid/);
