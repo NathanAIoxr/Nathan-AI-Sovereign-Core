@@ -11,7 +11,7 @@ function decode(value) {
   return Uint8Array.from(atob(value.replaceAll('-','+').replaceAll('_','/')),c=>c.charCodeAt(0));
 }
 
-export async function authenticate(request,loadKeys=()=>fetch(ISSUER+'/.well-known/jwks',{redirect:'error',signal:AbortSignal.timeout(5000)})) {
+export async function authenticate(request,loadKeys=()=>fetch(ISSUER+'/.well-known/jwks',{redirect:'manual',signal:AbortSignal.timeout(5000)})) {
   const token=request.headers.get('Authorization')?.match(/^Bearer ([A-Za-z0-9_.-]{1,16000})$/)?.[1];
   if (!token) return null;
   try {
