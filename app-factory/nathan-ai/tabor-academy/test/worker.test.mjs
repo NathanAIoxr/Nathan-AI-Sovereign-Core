@@ -154,3 +154,13 @@ test("Miss Wilson’s Porch keeps the four scenes and gives case-specific eviden
   assert.match(await (await call("/order/porch/?case=water")).text(), /Help meets a need/);
   assert.match(await (await call("/order/")).text(), /order\/porch\//);
 });
+
+test("1626 history extends both syllabus views and preserves chronology", async () => {
+  const page = await (await call("/order/1626/")).text();
+  for (const region of ["Ethiopia", "Mainland China", "Tierra del Fuego", "Tidewater Virginia"]) assert.match(page,new RegExp(region));
+  for (const date of ["1636","1624","1820","1911"]) assert.ok(page.includes(date));
+  assert.ok(page.indexOf("<h3>Home and community") < page.indexOf("<h3>Church, court, and state"));
+  const reverse = await (await call("/order/1626/?view=state")).text();
+  assert.ok(reverse.indexOf("<h3>Church, court, and state") < reverse.indexOf("<h3>Home and community"));
+  assert.match(await (await call("/order/")).text(), /order\/1626\//);
+});
