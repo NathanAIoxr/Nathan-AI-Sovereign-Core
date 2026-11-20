@@ -1,0 +1,25 @@
+name: Tabor Academy checks
+on:
+  push:
+    branches: [tabor-academy]
+    paths:
+      - 'app-factory/nathan-ai/tabor-academy/**'
+      - '.github/workflows/tabor-academy.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/tabor-academy/**'
+      - '.github/workflows/tabor-academy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test app-factory/nathan-ai/tabor-academy/test/worker.test.mjs
