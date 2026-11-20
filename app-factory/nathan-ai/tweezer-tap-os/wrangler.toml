@@ -1,0 +1,43 @@
+name = "zone-tweezer-tap-conductor"
+main = "src/conductor.mjs"
+compatibility_date = "2026-06-01"
+workers_dev = false
+preview_urls = false
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = true
+
+[version_metadata]
+binding = "BUILD"
+
+[triggers]
+crons = ["* * * * *"]
+
+[[durable_objects.bindings]]
+name = "CONDUCTOR"
+class_name = "MasterConductor"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["MasterConductor"]
+
+[[d1_databases]]
+binding = "ZONE_DB"
+database_name = "zone-tweezer-ledger-db"
+database_id = "REPLACE_WITH_ZONE_D1_ID"
+
+[[r2_buckets]]
+binding = "ZONE_R2"
+bucket_name = "zone-tweezer-artifacts"
+
+[[queues.producers]]
+binding = "EMIT_BUS"
+queue = "zone-tweezer-events-q"
+
+[[queues.consumers]]
+queue = "zone-tweezer-events-q"
+max_batch_size = 10
+max_retries = 5
+dead_letter_queue = "zone-tweezer-events-dlq"
