@@ -48,3 +48,24 @@ The two originating lessons are `language/gaslighting-and-plain-truth` and `huma
 | 8 | Academy map and return paths | Check that all delivered lessons can be found by title and topic, preserve the return trail, link to their anchors, and remain usable in the printable views. Repair broken links and record the tested path. |
 
 For the definitions and AI behavior, use the [APA Dictionary of Psychology](https://dictionary.apa.org/gaslight) and [NIST AI 600‑1, section 2.2](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf). For civics, use the [Virginia Declaration of Rights](https://www.archives.gov/founding-docs/virginia-declaration-of-rights), [Jefferson rough draft](https://www.loc.gov/item/mtjbib000156/), [final Declaration](https://www.archives.gov/founding-docs/declaration-transcript), [Constitution](https://www.archives.gov/founding-docs/constitution-transcript), [Diné Fundamental Laws](https://courts.navajo-nsn.gov/dine.htm), and [Navajo Nation Treaty of 1868](https://courts.navajo-nsn.gov/Treaty1868.htm).
+
+## 101 Biblical Realities · KJV
+
+Course home: [101 Biblical Realities · KJV](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/biblical-realities/). Start with mission `biblical-realities-zero`. Migration `0009_biblical_realities.sql` installs five topic paths and their 101 independently addressable numbered lessons, a separate KJV expansion path with 12 initial lessons, and the course index. The topic numbers and titles come from the supplied 101-entry index. The public exercises use KJV passages and original Academy teaching material. The exact submitted file is in the private Academy source archive under `biblical-realities-101-submitted-source`.
+
+Source edition: [eBible King James (Authorized) Version, ENGKJV](https://ebible.org/eng-kjv2006/), standardized KJV text. Preserve KJV wording in quotes and name interpretive or historical claims in the exercise rather than presenting them as part of a verse. Read the complete passage for decisions about genre, speaker, context, or an apparent contradiction. Use reading and on-paper comparisons for spiritual, health, and mortality topics.
+
+### KJV expansion backlog
+
+After reviewing recent live releases, keep the next missing KJV batch in the Academy Conductor rotation with the plain-truth, Workbench, Survival, and humanities lanes. Use the existing production Worker and D1 curriculum. Run one bounded batch of three to five new lessons, spaced across book families, then post a versioned receipt in the GitHub branch. Keep each lesson independently addressable and connect it with one existing companion. Verify all new and changed links in the live course, map, and public catalog, and confirm the archive stays private.
+
+| Order | Scope | First coverage to add |
+| --- | --- | --- |
+| 1 | Law and narrative foundations | Genesis through Deuteronomy. Add creation and covenant comparisons, a law versus narrative distinction, and lessons on whose testimony a passage records. |
+| 2 | Histories and return | Joshua through Esther. Build pairs from Joshua and Judges, Samuel and Kings, Kings and Chronicles, and Ezra, Nehemiah, and Esther. Keep separate accounts traceable. |
+| 3 | Poetry and wisdom | Job, Psalms, Proverbs, Ecclesiastes, and Song of Solomon. Compare who speaks, repetition, irony, lament, and imagery. |
+| 4 | Prophetic books | Isaiah through Malachi in KJV order, including the minor prophets. Add historical setting only where the text or an attributable source establishes it. |
+| 5 | Gospels and Acts | Matthew through Acts. Compare parallel accounts using exact KJV references and leave differences visible. |
+| 6 | Letters and Revelation | Romans through Revelation. Identify recipient, question, genre, and how each cross-reference supports the reading. |
+
+Track coverage by book, chapter and verse range. Count a book as touched only when its reference appears in a verified released exercise. For every unfinished book, select its next uncovered section and add distinct exercises that build on prior work. The goal is teachable passage coverage across all 66 KJV books, with optional thematic and deeper passage studies as new lessons. Keep existing lesson URLs and original course numbering intact.
