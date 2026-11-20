@@ -8,6 +8,8 @@ Nathan AI’s control plane for submitting a known operation, seeing it move thr
 
 [Lasso of Truth Release Gate](release-gate/) validates staged binary, algorithm and LLM output before release and returns a 1 or 0 with a receipt.
 
+[Groundskeeper AI](groundskeeper/) runs Collyn Phillips Tabor’s infrastructure and continuity role through read-only service checks and the Lasso release gate.
+
 | Command | Operation | Completion evidence |
 | --- | --- | --- |
 | `verify` | Read the registered Zeros and Ones health endpoint, with bounded retries | Healthy response and a 40-character deployed commit SHA |
