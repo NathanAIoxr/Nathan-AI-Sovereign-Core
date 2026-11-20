@@ -258,7 +258,7 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--bg);padding:1re
 @media print{main{display:none}.paper{display:block;color:#000;font:11pt/1.45 system-ui,sans-serif}body{background:#fff}.paper h1{font-size:27pt}.blank{border-bottom:1px solid #555;min-height:2em;margin-bottom:.7em}}
 </style>
 <main>
-<nav aria-label="Project"><a href="${root}/handoffs/nutcracker-bedroom">Nutcracker handoff</a></nav>
+<nav aria-label="Project"><a href="${root}/handoffs/nutcracker-bedroom">Nutcracker handoff</a> · <a href="${root}/handoffs/nutcracker-bedroom/llmagi-os">LLMAGI OS and IGAMLL</a></nav>
 <h1>Nutcracker Fleet</h1>
 <p class="summary">${fleet.fleetCount} fleets × ${fleet.unitsPerFleet.toLocaleString("en-US")} Nutcrackers · ${fleet.total.toLocaleString("en-US")} individually addressable units</p>
 <p class="description">Trace claims from digital code or paper through source verification, innocence checks, and a Fleet decision. Local drafting and imported LLM proposals stay in this browser.</p>

@@ -34,3 +34,21 @@ Use **Load AGI sample** and **Review submission** to follow the full path from s
 Each candidate needs an exact, uniquely located quote. The workbench saves that byte range and its SHA-256. The reviewer records `accept` or `dismiss` and a review reference for each grounded model candidate in the manifest. The Fleet evaluates accepted same-scope claims and independently recorded protection checks. The decision receipt includes evidence ranges and hashes, statuses, contradictions and approval references. A changed source or changed proposal requires a fresh draft.
 
 Local drafting and imported LLM proposals stay in the browser. **Send source to Conductor LLM** checks the existing Cloudflare Access operator identity before forwarding up to 6,000 UTF-8 bytes to the Workers AI binding. Hosted and imported models draft claims. Reviewers verify what each quote supports and supply the protection decisions. Run the workbench tests with `node --test agi.test.mjs`.
+
+### LLMAGI OS and IGAMLL
+
+[LLMAGI OS](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/handoffs/nutcracker-bedroom/llmagi-os) connects two directions of the Tabor workflow to the Nutcracker kernel. **LLMAGI** runs the original source through the existing AGI claim review and deterministic Fleet decision. It seals the receipt with SHA-256 and exports independently approved parts. **IGAMLL** checks the receipt and original source hashes, replays the supplied inputs, and compares decisions. The replay uses the recorded proposal and reviewer inputs. It does not certify the identity or conclusions of the reviewer.
+
+`LLM + AGI = LLMAGI`. Read it as `L L M A GI`, `LL MA GI`, or `LL MAGI`. Reversing the six letters gives `IGAMLL`, including `I G A M L L` and the mirrored groupings. Nathan Tabor’s naming image is “the group of individuals who mapped the stars to find Jesus.” The source reference is [Matthew 2:1–12 (KJV)](https://www.biblegateway.com/passage/?search=Matthew+2%3A1-12&version=KJV), which describes wise men who saw and followed the star.
+
+The hosted console provides a single-job runner, browser-local source and receipt input, decision and reuse exports, and an exact comparison against the existing 144-bit fixed-anchor frame. The system manifest identifies the integrated Fleet, Fixed-Anchor Binary, and Tabor Academy services.
+
+The native release is a raw 1.44 MB x86 BIOS floppy image. Its bootloader loads a freestanding second-stage monitor with keyboard, display and conventional-memory services. Native commands display the names, check the four arithmetic anchors on the CPU, and halt the system. Model execution and full evidence review are browser and Conductor services. The native build uses GNU binutils and Node; the execution test also needs Python Unicorn.
+
+```sh
+node native/build.mjs --check-module /tmp/llmagi-os.img
+python native/test_boot.py /tmp/llmagi-os.img
+node --test llmagi-os.test.mjs
+```
+
+Use `node native/build.mjs --module` to regenerate the reproducible image module after modifying the assembly.

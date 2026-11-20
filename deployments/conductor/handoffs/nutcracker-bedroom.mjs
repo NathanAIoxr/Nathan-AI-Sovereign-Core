@@ -1,4 +1,5 @@
 import { nutcrackerFleetInfo, serveNutcrackerFleet } from "./nutcracker-fleet.mjs";
+import { llmagiRelease, serveLlmagiOs } from "./llmagi-os.mjs";
 
 const root = "/tabor-sites/conductor";
 const handoff = "/handoffs/nutcracker-bedroom";
@@ -16,6 +17,7 @@ export const bedroomRelease = {
     pending: null
   },
   fleet: nutcrackerFleetInfo,
+  os: llmagiRelease,
   source: "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/476",
   sites: [
     { name: "King Solomon", url: sitePrefix + "king-solomon-bronze-hands/" },
@@ -25,6 +27,8 @@ export const bedroomRelease = {
 };
 
 export function serveNutcrackerBedroomHandoff(request, path, runtime) {
+  const osResponse = serveLlmagiOs(request, path);
+  if (osResponse) return osResponse;
   const fleetResponse = serveNutcrackerFleet(request, path, runtime);
   if (fleetResponse) return fleetResponse;
   if (![handoff, handoff + "/", "/api" + handoff].includes(path)) return null;
@@ -57,6 +61,7 @@ export function serveNutcrackerBedroomHandoff(request, path, runtime) {
 <p>Each page displays its own matte silicone product rendering. The collection’s color and packaging study appears in the design section.</p>
 <h2>Nutcracker Fleet</h2>
 <p><a href="${bedroomRelease.fleet.dashboardPath}">Open the 69-fleet intake and review desk</a> to draft claims, verify source evidence, and review contradictions.</p>
+<p><a href="${bedroomRelease.os.dashboardPath}">Open LLMAGI OS and IGAMLL</a> for forward decisions, reverse replay, and the native boot image.</p>
 <p><a href="${bedroomRelease.source}">GitHub source and review</a></p>
 </main></body></html>`;
   return new Response(request.method === "HEAD" ? null : page, {
