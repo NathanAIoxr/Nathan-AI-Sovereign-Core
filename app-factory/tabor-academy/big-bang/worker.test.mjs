@@ -41,3 +41,16 @@ test("the live entry wrapper is additive and repeatable", () => {
   assert.match(patched, /export default withBigBang\(\{ \.\.\.academy \}\);/);
   assert.throws(() => patchAcademyEntry("export default academy"), /Unrecognized/);
 });
+
+
+test("the release supplies the canonical words and approved workspace routes", async () => {
+  const html = await (await get("/big-bang/")).text();
+  for (const path of ["../workspace/?panel=voice", "../workspace/?panel=verify", "../workspace/?panel=matrix", "../workspace/?panel=matrix&amp;mode=0", "../library/"]) {
+    assert.ok(html.includes('href="' + path + '"'));
+  }
+  const canon = await (await get("/big-bang/canon.json")).json();
+  assert.equal(canon.motto.length, 2);
+  for (const line of canon.motto) assert.ok(html.includes(line));
+  const module = await buildModule(revision, { withWorkspace: true });
+  assert.match(module, /^import privateWorkspace from "\.\/academy-workspace-dispatch\.mjs";/);
+});

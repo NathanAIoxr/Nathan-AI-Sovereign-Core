@@ -3,15 +3,22 @@ const link = '<a data-academy-big-bang href="/tabor-academy/big-bang/">BIG BANG 
 const navTargets = new Map([
   ["/", "main h1"],
   ["/map/", "main h1"],
+  ["/library/", "main h1"],
+  ["/way/", "main h1"],
   ["/truth-lab/", "main h1"],
   ["/minds/", "main nav"]
 ]);
 
-export function connectBigBang(academy, assets, revision) {
+export function connectBigBang(academy, assets, revision, canon, privateWorkspace) {
+  const motto = '<section data-academy-motto aria-label="Tabor Academy motto"><h2>The motto of Tabor Academy</h2><blockquote>' +
+    canon.motto.map(line => "<p>" + line + "</p>").join("") + "</blockquote><p>— Nathan Tabor</p><p>" + link + "</p></section>";
   return {
     ...academy,
     async fetch(request, env, ctx) {
       const { pathname } = new URL(request.url);
+      if (privateWorkspace && (pathname === "/workspace" || pathname.startsWith("/workspace/"))) {
+        return privateWorkspace.fetch(request, env, ctx);
+      }
       if (pathname === path || pathname.startsWith(path + "/")) {
         if (request.method !== "GET" && request.method !== "HEAD") {
           return new Response("Method not allowed", { status: 405, headers: { allow: "GET, HEAD" } });
@@ -45,7 +52,8 @@ export function connectBigBang(academy, assets, revision) {
         element(element) {
           if (inserted) return;
           inserted = true;
-          if (pathname === "/minds/") element.append(link, { html: true });
+          if (pathname === "/") element.after(motto, { html: true });
+          else if (pathname === "/minds/") element.append(link, { html: true });
           else element.after("<p>" + link + "</p>", { html: true });
         }
       }).transform(response);

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { academyWords, launch, motto } from "./canon.mjs";
 
 const root = "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/";
 const revision = process.argv[2];
@@ -16,7 +17,8 @@ for (const [path, filename] of [["big-bang/", "index.html"], ["big-bang/style.cs
   assert.equal(response.headers.get("x-tabor-big-bang-revision"), revision);
   assert.ok(await response.text() === await readFile(new URL(filename, import.meta.url), "utf8"), filename);
 }
-for (const path of ["", "map/", "truth-lab/", "minds/?mind=creator.nathan-tabor"]) {
+assert.deepEqual(await (await get("big-bang/canon.json")).json(), { academyWords, launch, motto });
+for (const path of ["", "map/", "library/", "way/", "truth-lab/", "minds/?mind=creator.nathan-tabor"]) {
   assert.match(await (await get(path)).text(), /data-academy-big-bang/);
 }
 console.log(JSON.stringify(health));

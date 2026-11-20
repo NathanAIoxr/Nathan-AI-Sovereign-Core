@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
+import { academyWords, launch, motto } from "./canon.mjs";
 
 const types = {
   "index.html": "text/html; charset=utf-8",
@@ -7,14 +8,22 @@ const types = {
   "app.js": "text/javascript; charset=utf-8"
 };
 
-export async function buildModule(revision) {
+export async function buildModule(revision, { withWorkspace = false } = {}) {
   if (!/^[0-9a-f]{40}$/.test(revision ?? "")) throw new Error("Expected a Git commit SHA");
   const read = name => readFile(new URL(name, import.meta.url), "utf8");
   const entries = await Promise.all(Object.entries(types).map(async ([name, type]) =>
     [name === "index.html" ? "" : name, { type, body: await read(name) }]));
+  const canon = { academyWords, launch, motto };
+  const assets = Object.fromEntries(entries);
+  for (const line of [...motto, academyWords]) {
+    if (!assets[""].body.includes(line)) throw new Error("The page is missing an exact authored line");
+  }
+  assets["canon.json"] = { type: "application/json; charset=utf-8", body: JSON.stringify(canon) };
   const runtime = (await read("worker.mjs")).replace("export function connectBigBang", "function connectBigBang");
-  return runtime + "\nexport default academy => connectBigBang(academy, Object.assign(Object.create(null), " +
-    JSON.stringify(Object.fromEntries(entries)) + "), " + JSON.stringify(revision) + ");\n";
+  const dependency = withWorkspace ? 'import privateWorkspace from "./academy-workspace-dispatch.mjs";\n' : '';
+  return dependency + runtime + "\nexport default academy => connectBigBang(academy, Object.assign(Object.create(null), " +
+    JSON.stringify(assets) + "), " + JSON.stringify(revision) + ", " + JSON.stringify(canon) +
+    (withWorkspace ? ", privateWorkspace" : "") + ");\n";
 }
 
 export function patchAcademyEntry(entry) {
@@ -34,5 +43,5 @@ export function patchAcademyEntry(entry) {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  process.stdout.write(await buildModule(process.argv[2]));
+  process.stdout.write(await buildModule(process.argv[2], { withWorkspace: process.argv.includes("--with-workspace") }));
 }
