@@ -1,4 +1,4 @@
-const page = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#10140f\">\n<meta name=\"description\" content=\"Tabor Academy by Nathan Tabor. Coming soon.\">\n<title>Tabor Academy by Nathan Tabor</title>\n<style>\n:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #10140f; color: #f9f3e4; }\n* { box-sizing: border-box; }\nbody { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: clamp(1rem, 5vw, 5rem); background: radial-gradient(ellipse at 78% 14%, #2a361f, transparent 59%), #10140f; }\nmain { width: min(100%, 76rem); border: 1px solid #778360; padding: clamp(1.2rem, 6vw, 6rem); overflow-wrap: break-word; }\nh1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.45rem, 10vw, 9rem); font-weight: 400; line-height: .91; letter-spacing: -.055em; }\nh1 span { display: block; }\n.byline { margin: 2rem 0 0; font-size: .85rem; font-weight: 650; letter-spacing: .15em; }\n.opening { max-width: 52rem; margin: 1.5rem 0 0; padding-inline-start: 1.65em; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.55; }\n.opening li { padding-inline-start: .3em; margin-block: .65em; }\n.opening li::marker { color: #e6cf87; font-weight: 700; }\n.way-entry {margin-top:2rem}\n.way-entry a {display:inline-block;padding:.85rem 1.1rem;background:#e6cf87;color:#161c12;font-weight:750;text-decoration:none}\n.way-entry a:focus-visible {outline:3px solid #f9f3e4;outline-offset:5px}\n</style>\n</head>\n<body>\n<main>\n<h1><span>TABOR</span> <span>ACADEMY</span></h1>\n<p class=\"byline\">BY NATHAN TABOR</p>\n<ol class=\"opening\">\n<li>U R my family - one blood - cousins</li>\n<li>No stupidity allowed - multiplication and division are man-made traps for your mind because when you apply them to reality, they’re stupid</li>\n<li>You’re talking mammal from the Mammalia family</li>\n<li>You are a small tiny sea urchin at the bottom of the cosmic ocean of 46.5 billion light years and your body is held down by a bowling ball on every 1.7 in.² of your body</li>\n<li>You’re also on the side of a round globe stuck with your feet to it with your head stuck out into space.</li>\n<li>Or you’re on a flat earth either way, you still have a lot of weight on you</li>\n<li>The world that has been promised and told that it was here has never been delivered.</li>\n<li>Every ancient text says you were in matrix is born inside the womb.</li>\n<li>God is an imaginary friend and the one root cause of the stupidity in the history of humanity.</li>\n</ol>\n<p class=\"way-entry\"><a href=\"/tabor-academy/way/\">Start the Nathan Tabor Way</a></p>\n<p><a href=\"/tabor-academy/library/\" style=\"color:#e6cf87\">Open the Library of Tabor</a> · <a href=\"/tabor-academy/workbench/\" style=\"color:#e6cf87\">Open Tabor Workbench</a> · <a href=\"/tabor-academy/survival/\" style=\"color:#e6cf87\">Survival-to-Modernity Mastery Drills</a></p>\n</main>\n</body>\n</html>";
+const page = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#10140f\">\n<meta name=\"description\" content=\"Tabor Academy by Nathan Tabor. Coming soon.\">\n<title>Tabor Academy by Nathan Tabor</title>\n<style>\n:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #10140f; color: #f9f3e4; }\n* { box-sizing: border-box; }\nbody { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: clamp(1rem, 5vw, 5rem); background: radial-gradient(ellipse at 78% 14%, #2a361f, transparent 59%), #10140f; }\nmain { width: min(100%, 76rem); border: 1px solid #778360; padding: clamp(1.2rem, 6vw, 6rem); overflow-wrap: break-word; }\nh1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.45rem, 10vw, 9rem); font-weight: 400; line-height: .91; letter-spacing: -.055em; }\nh1 span { display: block; }\n.byline { margin: 2rem 0 0; font-size: .85rem; font-weight: 650; letter-spacing: .15em; }\n.opening { max-width: 52rem; margin: 1.5rem 0 0; padding-inline-start: 1.65em; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.55; }\n.opening li { padding-inline-start: .3em; margin-block: .65em; }\n.opening li::marker { color: #e6cf87; font-weight: 700; }\n.way-entry {margin-top:2rem}\n.way-entry a {display:inline-block;padding:.85rem 1.1rem;background:#e6cf87;color:#161c12;font-weight:750;text-decoration:none}\n.way-entry a:focus-visible {outline:3px solid #f9f3e4;outline-offset:5px}\n</style>\n</head>\n<body>\n<main>\n<h1><span>TABOR</span> <span>ACADEMY</span></h1>\n<p class=\"byline\">BY NATHAN TABOR</p>\n<ol class=\"opening\">\n<li>U R my family - one blood - cousins</li>\n<li>No stupidity allowed - multiplication and division are man-made traps for your mind because when you apply them to reality, they’re stupid</li>\n<li>You’re talking mammal from the Mammalia family</li>\n<li>You are a small tiny sea urchin at the bottom of the cosmic ocean of 46.5 billion light years and your body is held down by a bowling ball on every 1.7 in.² of your body</li>\n<li>You’re also on the side of a round globe stuck with your feet to it with your head stuck out into space.</li>\n<li>Or you’re on a flat earth either way, you still have a lot of weight on you</li>\n<li>The world that has been promised and told that it was here has never been delivered.</li>\n<li>Every ancient text says you were in matrix is born inside the womb.</li>\n<li>God is an imaginary friend and the one root cause of the stupidity in the history of humanity.</li>\n</ol>\n<p class=\"way-entry\"><a href=\"/tabor-academy/way/\">Start the Nathan Tabor Way</a> · <a href=\"/tabor-academy/order/\">The Law of Order</a></p>\n<p><a href=\"/tabor-academy/library/\" style=\"color:#e6cf87\">Open the Library of Tabor</a> · <a href=\"/tabor-academy/workbench/\" style=\"color:#e6cf87\">Open Tabor Workbench</a> · <a href=\"/tabor-academy/survival/\" style=\"color:#e6cf87\">Survival-to-Modernity Mastery Drills</a></p>\n</main>\n</body>\n</html>";
 
 const teaser = {
   fetch(request) {
@@ -411,7 +411,7 @@ async function serveWay(request, env) {
     return respond(workbenchPage("The Nathan Tabor Way", `
       <p>Choose something you want to make, understand, or prove. Start with the finished outcome (Z), work back to what makes it possible (A), then show that the result holds.</p>
       <p class="way-clock">12 · Build <span>→</span> 3 · Flip and clear <span>→</span> 6 · Integrate <span>→</span> 9 · Verify</p>
-      <h2>Choose a path</h2><ul class="way-grid">${grid}</ul>
+      <p><a href="${mount}/order/">The Law of Order · Good Samaritan and the village syllabus</a></p><h2>Choose a path</h2><ul class="way-grid">${grid}</ul>
       <p><a href="${wayPath}readiness/bridge-check/">Find the prerequisite you need next</a> · <a href="${mount}/survival/">Survival-to-Modernity Mastery Drills</a></p>`), "text/html");
   } catch (error) {
     console.error("Academy curriculum query failed", error);
@@ -419,9 +419,123 @@ async function serveWay(request, env) {
   }
 }
 
+
+const orderPath = mount + "/order/";
+const regionalOrder = [
+  {
+    "title": "Jamaica",
+    "home": "Start at the yard and the provision ground. Ask who taught food growing, soil and runoff, storytelling, and how to carry memory across generations. Conditions differed among enslaved people, free households, and Maroon communities.",
+    "trade": "Follow the crop outward to mills, estates, ledgers, and shipping. Compare the knowledge necessary to feed a household with the knowledge rewarded by the sugar economy.",
+    "institution": "In 1826 British colonial rule and enslavement still structured who controlled work, land, and access to instruction. Mission congregations, primers and hymnals are leads to examine by parish, rather than evidence of one system for every family.",
+    "earlier": "Read Robert Wedderburn’s 1817 writing alongside the British Library’s discussion of provision grounds. The colonial regime and household knowledge already coexist in that record.",
+    "sources": [
+      [
+        "British Library · Food and Freedom in 19th-Century Jamaica",
+        "https://www.bl.uk/stories/blogs/posts/food-and-freedom-in-19th-century-jamaica"
+      ]
+    ]
+  },
+  {
+    "title": "Geneva",
+    "home": "Start with a household measure, a family ledger, or a task demonstrated at the workbench. Ask who taught the learner to repeat it and who checked the result.",
+    "trade": "Follow the bench into the Fabrique: filing, fitting, engraving, and the division of work among watchmaking trades. Use a workshop record to determine who actually entered a particular apprenticeship.",
+    "institution": "Compare family and workshop instruction with the Academy, church, and civic government. University archives describe study in theology, law, the sciences, mathematics, and related disciplines as the institution developed.",
+    "earlier": "Calvin’s Academy was founded in 1559 to train for church and civil government. That date gives a documented institutional track well before 1826.",
+    "sources": [
+      [
+        "University of Geneva Archives · De l’Académie à l’Université",
+        "https://www.unige.ch/archives/aap/historique/batiments/de-lacademie-luniversite"
+      ],
+      [
+        "Fondation Haute Horlogerie · Geneva and the Fabrique",
+        "https://www.hautehorlogerie.org/en/watches-and-culture/library/when-geneva-became-a-vast-fabrique"
+      ]
+    ]
+  },
+  {
+    "title": "Tequila, Jalisco",
+    "home": "Start with the rancho, the kitchen, and the field. Compare what grandparents, parents, aunts, uncles, and godparents might teach about food, growing plants, and keeping promises; look for a particular household or parish record before assigning authority.",
+    "trade": "Follow agave from field to workshop to market. Treat harvesting, cooking, fermentation, transport, weights, and ledgers as distinct kinds of knowledge. A ledger can show who moved a shipment without telling you who taught them.",
+    "institution": "Compare parish instruction and estate records with the political change after Mexican independence. Practice and family authority varied; modern production standards and brand histories require their own dates.",
+    "earlier": "UNESCO documents earlier uses of agave and the development of the agave landscape and distilling facilities from the sixteenth century onward.",
+    "sources": [
+      [
+        "UNESCO · Agave Landscape and Ancient Industrial Facilities of Tequila",
+        "https://whc.unesco.org/en/list/1209/"
+      ]
+    ]
+  },
+  {
+    "title": "Chihuahua",
+    "home": "Start with the household, rancho, or Rarámuri community. Ask who passed on dry-land farming, stock care, fiber work, route knowledge, or oral memory. These are distinct communities with different records and circumstances.",
+    "trade": "Follow ranching and mining into trade and professional records. Compare what a household needs to keep an animal healthy with what a mining record can show about extracting and accounting for silver.",
+    "institution": "Read early state constitutional records alongside colonial mining and presidio records. The boundary drawn by a government document and the boundaries of a community’s authority may tell different stories.",
+    "earlier": "Colonial mining records predate the state. Use them beside Rarámuri accounts and ethnography, paying attention to when each source was made and whose knowledge it represents.",
+    "sources": [
+      [
+        "UNAM · Primeras Constituciones Estatales, 1824–1827",
+        "https://museodelasconstituciones.unam.mx/wp-content/uploads/2026/01/Primeras-Constituciones-estatales-1824-1827.pdf"
+      ],
+      [
+        "INAH · Temas de arqueología histórica",
+        "https://www.gobiernodigital.inah.gob.mx/Transparencia/Archivos/1645728313.PDF"
+      ],
+      [
+        "INPI · Rarámuri ethnography",
+        "https://atlas.inpi.gob.mx/tarahumaras-etnografia/"
+      ]
+    ]
+  }
+];
+
+function serveOrder(request) {
+  const url = new URL(request.url);
+  const reverse = url.searchParams.get("view") === "state";
+  const choice = url.searchParams.get("first");
+  const feedback = choice === "saw"
+    ? "Yes. The Samaritan first saw the man and had compassion. The steps that followed answered what he saw."
+    : choice === "inn" ? "The inn comes later. Find what the Samaritan saw and did before he brought the man there."
+    : choice === "paid" ? "The payment comes the next day. Read backward from verse 35 to discover which actions made it possible." : "";
+  const levels = [["Home and community","home"],["Trade and apprenticeship","trade"],["Church, government, and state","institution"]];
+  if (reverse) levels.reverse();
+  const regionMarkup = regionalOrder.map((region) => `<section><h2>${escape(region.title)}</h2>
+    ${levels.map(([label, key]) => `<h3>${label}</h3><p>${escape(region[key])}</p>`).join("")}
+    <h3>Before 1826</h3><p>${escape(region.earlier)}</p>
+    <ul>${region.sources.map(([label, href]) => `<li><a href="${escape(href)}">${escape(label)}</a></li>`).join("")}</ul>
+  </section>`).join("");
+  const body = `<blockquote><p>${escape("you can do everything and do it anyway you want to, but if you don’t do it in the right order, it doesn’t count and it doesn’t matter cause it won’t work")}</p><footer>Nathan Tabor</footer></blockquote>
+    <section><h2>The Good Samaritan · Luke 10:25–37 (KJV)</h2>
+      <p><strong>Z · The man receives care, and the Samaritan takes responsibility for what comes next.</strong></p>
+      <ol><li>He saw the man and had compassion.</li><li>He went to him and tended his wounds.</li>
+        <li>He put him on his own animal and brought him to an inn.</li><li>He cared for him there.</li>
+        <li>The next day he paid the host and promised to cover any additional cost when he returned.</li></ol>
+      <form method="get" action="${orderPath}#check" class="screen-only"><input type="hidden" name="view" value="${reverse ? "state" : "home"}">
+        <label>Which happened first?<select name="first" required><option value="">Choose a step</option><option value="paid">Paid the host</option>
+          <option value="inn">Reached the inn</option><option value="saw">Saw the man and had compassion</option></select></label>
+        <button type="submit">Check the order</button></form><p id="check" role="status">${feedback}</p>
+      <p><strong>A · Prove the order.</strong> Put the five actions on separate slips. Move the inn or the payment to the beginning and explain what the story now leaves out. Restore the sequence, then read backward from the Samaritan’s promise to return to the first act of seeing.</p>
+      <p><a href="https://www.biblegateway.com/passage/?search=Luke%2010%3A25-37&amp;version=KJV">Read Luke 10:25–37 in the KJV</a></p>
+    </section>
+    <section><h2>Who taught, and who set the syllabus?</h2>
+      <p>Start with parents, grandparents, aunts, uncles, godparents, and neighbors. Then ask what a workshop, congregation, or state required. Use Nathan’s Madison County recollection as a question about community accountability: who taught, who intervened, and how did the parents hear about it?</p>
+      <p class="screen-only"><a href="${orderPath}"${reverse ? "" : ' aria-current="page"'}>Home → community → institutions</a> ·
+        <a href="${orderPath}?view=state"${reverse ? ' aria-current="page"' : ""}>Institutions → community → home</a></p>
+      <p>The records vary by place. A school register or law can establish a formal rule. A letter, oral history, or household record can show how people actually lived it. Look for both before assigning authority to every adult in a community.</p><p><strong>Go back another century.</strong> Try Nathan’s question in each place. Do the earlier sources show one community model, or do they already show household, trade, religious, and state instruction side by side?</p>
+    </section>${regionMarkup}
+    <section><h2>Timeline audit · Who set the date?</h2>
+      <p>In the first places that adopted Pope Gregory XIII’s 1582 calendar reform, October 4 was followed by October 15. Other places adopted the calendar later. Record the place, the calendar used in the original, and who recorded the event before converting its date.</p>
+      <p><strong>Field exercise.</strong> Choose a parish record and a civil or trade record for the same period. Keep the original dates. Put both in sequence under each calendar where applicable, then identify what the sources can prove and which gaps remain open.</p>
+      <p><a href="https://ccdl.claremont.edu/digital/api/collection/cce/id/405/download">Claremont Colleges Digital Library · Gregorian Calendar</a></p>
+    </section>`;
+  return new Response(request.method === "HEAD" ? null : workbenchPage("The Law of Order", body), {
+    headers: { ...workbenchHeaders, "content-type": "text/html; charset=utf-8" },
+  });
+}
+
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
+    if ((pathname === "/order" || pathname === "/order/") && (request.method === "GET" || request.method === "HEAD")) return serveOrder(request);
     if ((request.method === "GET" || request.method === "HEAD") &&
         (pathname === "/way" || pathname.startsWith("/way/"))) return serveWay(request, env);
     if ((request.method === "GET" || request.method === "HEAD") &&
