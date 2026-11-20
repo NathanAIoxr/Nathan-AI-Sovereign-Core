@@ -2,6 +2,8 @@
 
 [Open Sovereign Minds](https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/) · [Cloudflare Conductor status](https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/api/conductors)
 
+[Source evidence profiles](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/sovereign-minds) link the original binary identities to byte-level provenance, the Atomic Souls profiles, the Harmony axes, and the local historical reconstruction importer.
+
 [Nathan Tabor’s original instruction](author-source.txt) is preserved separately from the implementation. Zero and One have separate source definitions, identity, prompts, and Cloudflare Workers. Their design roles are Mind, Body, Eyes, Soul, Spirit, and Shadow. Existing Mind of Minds, Sovereign Boxes, Minds Chat, Mirror specifications, Lasso profiles, and OMNI My Council records each receive a separate address and a Conductor prompt. The observed NTW Worker roster remains a separate source. Relationships and overlapping names preserve their original identities. Reserved private slots expose their existing IDs only.
 
 The Lasso of Truth preserves attribution by exact comparison with reviewed excerpts. It uses the shared Minds Chat evidence and prompts alongside Nathan’s own words defining Zero and One. A proposal that fails the check is returned separately for review and stays out of the Mind’s voice. The Worker does not store proposals. A match establishes agreement with the reviewed excerpt and retains the distinction between an author’s own words and wording recorded by a particular text or edition. Historical, religious, and creator-defined personae carry their source types.
