@@ -38,6 +38,7 @@ export function attachKeyboardStrandNavigation(element, strands, onSelection, { 
   element.addEventListener('keydown', keydown);
   return Object.freeze({
     getSelectedId() { return active && index >= 0 ? ids[index] : null; },
+    getSelectedIndex() { return active ? index : -1; },
     dispose() { if (active) { active = false; element.removeEventListener('keydown', keydown); } }
   });
 }
