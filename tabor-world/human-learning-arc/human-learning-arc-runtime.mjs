@@ -26,6 +26,10 @@ const styles = `
   .station { display: grid; gap: 1.2rem; max-width: 54rem; }
   .station section { padding: 1.3rem; border: 1px solid #635a47; background: #22251e; }
   .station p { margin: .3rem 0 .85rem; }
+  .choices { display: grid; gap: .55rem; padding-bottom: .9rem; }
+  .choices button { text-align: left; font: inherit; color: inherit; background: #303429; border: 1px solid #8a7d61; border-radius: .25rem; cursor: pointer; padding: .75rem; }
+  .choices button:hover, .choices button:focus-visible { outline: 2px solid #ffe3ae; outline-offset: 2px; }
+  .answer { border-left: 3px solid #f4ce91; padding: .6rem .75rem; margin-block: .9rem; background: #2d2b21; }
   details { border-top: 1px solid #635a47; padding-top: .8rem; }
   summary { cursor: pointer; color: #f4ce91; }
   .nav { display: flex; flex-wrap: wrap; gap: 1rem 1.6rem; margin-block: 1.7rem; }
@@ -36,13 +40,13 @@ const styles = `
 const headers = {
   "content-type": "text/html; charset=utf-8",
   "cache-control": "public, max-age=120",
-  "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'",
+  "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
   "x-content-type-options": "nosniff",
 };
 const escape = (value) => String(value).replace(/[&<>"']/g, (c) =>
   ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" })[c]);
 export function createLearningExplorer(catalog, {
-  root, title, lead, headerLinks, promoteOn, destination, marker, sectionLabel, returnLabel,
+  root, title, lead, headerLinks, promoteOn, destination, marker, sectionLabel, returnLabel, renderDecision,
 }) {
   const eraUrl = (era) => `${root}/${era.id}/`;
   const stationUrl = (era, station) => `${eraUrl(era)}${station.id}/`;
@@ -65,11 +69,12 @@ export function createLearningExplorer(catalog, {
     ${era.stations.map((station) => `<li><a href="${stationUrl(era, station)}">${escape(station.title)}<span>${escape(station.station)}</span></a></li>`).join("")}</ul>`);
   }
 
-  function showStation(era, station, position) {
+  function showStation(era, station, position, request) {
     const previous = era.stations[position - 1];
     const next = era.stations[position + 1];
     return page(station.title, `<p class="tag">${anchor(eraUrl(era), era.title)}</p>
     <article class="station"><section><h2>${escape(station.station)}</h2><p>${escape(station.question)}</p>
+    ${renderDecision ? renderDecision(station, request) : ""}
     <details><summary>Check what the evidence can show</summary><p>${escape(station.check)}</p></details></section>
     <p>${anchor(station.academy, "Do the exercise in Tabor Academy")}</p></article>
     <nav class="nav" aria-label="Station navigation">${previous ? anchor(stationUrl(era, previous), "Previous station") : ""}
@@ -95,7 +100,7 @@ export function createLearningExplorer(catalog, {
     if (era && !extra.length) {
       if (stationId === undefined) return send(showEra(era));
       const position = era.stations.findIndex((candidate) => String(candidate.id) === stationId);
-      if (position >= 0) return send(showStation(era, era.stations[position], position));
+      if (position >= 0) return send(showStation(era, era.stations[position], position, request));
     }
     return send(page("Station not found", `<p>${anchor(`${root}/`, returnLabel)}</p>`), 404);
   }
