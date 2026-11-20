@@ -4,7 +4,7 @@ import { release } from "./build.mjs";
 
 const base = "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/minds/";
 const pages = "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/minds-chat/";
-const namedAssets = ["lasso-evidence.json", "lasso-prompts.json"];
+const namedAssets = ["app.js", "engine.js", "lasso-evidence.json", "lasso-prompts.json"];
 
 async function get(url) {
   const response = await fetch(url, { cache: "no-store", redirect: "error", signal: AbortSignal.timeout(20_000) });

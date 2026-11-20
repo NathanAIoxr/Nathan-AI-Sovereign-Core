@@ -15,23 +15,40 @@ async function request(method, body) {
   if (!response.ok) throw new Error("Cloudflare Academy content " + method + " returned " + response.status);
   return response;
 }
-async function currentSource() {
+async function currentModules() {
   const form = await (await request("GET")).formData();
-  const parts = [...form.keys()];
-  if (parts.length !== 1 || parts[0] !== moduleName) throw new Error("Academy module layout changed");
-  const main = form.get(moduleName);
-  return typeof main === "string" ? main : main.text();
+  const modules = {};
+  for (const [name, part] of form) {
+    if (!/^[A-Za-z0-9_.-]+\.mjs$/.test(name) || Object.hasOwn(modules, name)) {
+      throw new Error("Unrecognized or duplicate Academy module");
+    }
+    modules[name] = typeof part === "string" ? part : await part.text();
+  }
+  if (!Object.hasOwn(modules, moduleName)) throw new Error("Academy Worker module is missing");
+  const main = Object.keys(modules).length === 1 ? moduleName : "academy-entry.mjs";
+  if (main !== moduleName && !modules[main]?.includes('from "./worker.mjs"')) {
+    throw new Error("Academy entry module layout changed");
+  }
+  return { main, modules };
 }
-const current = await currentSource();
-const updated = buildWorker(current);
-if (current !== updated) {
-  if (await currentSource() !== current) throw new Error("Academy changed during assembly. Retry against the latest release.");
+function snapshot(parts) {
+  return JSON.stringify([parts.main, Object.entries(parts.modules).sort(([a], [b]) => a.localeCompare(b))]);
+}
+const current = await currentModules();
+const updated = buildWorker(current.modules[moduleName]);
+if (current.modules[moduleName] !== updated) {
+  if (snapshot(await currentModules()) !== snapshot(current)) {
+    throw new Error("Academy changed during assembly. Retry against the latest release.");
+  }
+  const expected = { ...current, modules: { ...current.modules, [moduleName]: updated } };
   const form = new FormData();
-  form.append("metadata", new Blob([JSON.stringify({ main_module: moduleName })], { type: "application/json" }));
-  form.append(moduleName, new Blob([updated], { type: "application/javascript+module" }), moduleName);
+  form.append("metadata", new Blob([JSON.stringify({ main_module: current.main })], { type: "application/json" }));
+  for (const [name, code] of Object.entries(expected.modules)) {
+    form.append(name, new Blob([code], { type: "application/javascript+module" }), name);
+  }
   const { success, result } = await (await request("PUT", form)).json();
   if (!success) throw new Error("Academy rejected the Minds release");
-  if (await currentSource() !== updated) throw new Error("Academy verification found different Worker source");
+  if (snapshot(await currentModules()) !== snapshot(expected)) throw new Error("Academy verification found different modules");
   console.log(JSON.stringify({ release, deployment: result?.deployment_id ?? null }));
 } else {
   console.log(JSON.stringify({ release, alreadyDeployed: true }));
