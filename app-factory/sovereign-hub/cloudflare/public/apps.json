@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 372,
+  "count": 373,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -1754,6 +1754,14 @@
       "entry": "app-factory/tabor-academy/big-bang/index.html",
       "group": "tabor-academy",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/tabor-academy/big-bang/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-2268fcd55314298a",
+      "title": "Card Games Library \u00b7 Tabor Academy",
+      "entry": "app-factory/tabor-academy/card-games/public/index.html",
+      "group": "tabor-academy",
+      "url": "https://tabor-bridge.nathantaboract.workers.dev/",
       "adoption": "integration_required"
     },
     {
