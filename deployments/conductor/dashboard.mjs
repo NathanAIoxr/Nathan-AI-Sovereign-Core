@@ -16,6 +16,7 @@ button{margin:.3rem .3rem .3rem 0}article{padding:.8rem 0;border-top:1px solid G
 <p><a href="/tabor-sites/conductor/handoffs/sovereign-minds">Sovereign Minds handoff</a></p>
 <p><a href="/tabor-sites/conductor/handoffs/cryptocurrency-mining">Cryptocurrency Mining handoff</a></p>
 <p><a href="/tabor-sites/conductor/handoffs/tabor-academy-architecture-course">Tabor Academy · How to Operate in This World</a></p>
+<p><a href="/tabor-sites/conductor/handoffs/fixed-anchor-binary">Fixed-Anchor Binary Encoding · 1+1=2 and 1-1=0</a></p>
 <section aria-label="Operator controls">
 <label for="key">Operator key</label><input id="key" type="password" autocomplete="off" maxlength="512">
 <div>
