@@ -108,3 +108,26 @@ test("Workbench printable guide renders the published D1 activity", async () => 
   assert.match(html, /A paper envelope/);
   assert.match(html, /Repeat the folds/);
 });
+
+test("Nathan Tabor Way mission begins with outcome and ends with repeatable proof", async () => {
+  const track = { slug: "math", title: "Make the Numbers Hold", purpose: "Measure", coverage: "Geometry" };
+  const mission = { slug: "square-a-corner", path: "math", title: "Square a corner", outcome: "A square corner",
+    build: "Build it", flip: "Change one assumption", integrate: "Try a second method", verify: "Repeat the test", link: "workbench/47/" };
+  const env = { LIBRARY: {
+    prepare: (sql) => ({ bind: (...params) => ({ sql, params }) }),
+    batch: async ([p,m]) => [
+      { results: !p.params[0] || p.params[0] === "math" ? [track] : [] },
+      { results: (!m.params[0] || m.params[0] === "math") && (!m.params[1] || m.params[1] === mission.slug) ? [mission] : [] },
+    ],
+  } };
+  const open = (path) => worker.fetch(new Request("https://academy.example" + path), env);
+  const response = await open("/way/math/square-a-corner/");
+  const page = await response.text();
+  assert.equal(response.status, 200);
+  assert.ok(page.indexOf("Z · Finished outcome") < page.indexOf("12 · Build"));
+  assert.ok(page.indexOf("3 · Flip and clear") < page.indexOf("9 · Verify"));
+  assert.match(page, /Proof sheet/);
+  assert.match(page, /workbench\/47\//);
+  assert.equal((await open("/way/math/unknown/")).status, 404);
+  assert.equal((await (await open("/way/catalog.json")).json()).missions.length, 1);
+});
