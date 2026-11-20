@@ -25,6 +25,14 @@ const checks = [
   async () => assert.match(await fetchRoute("/institution/civics/?score=90"), /Mastery reached/),
   async () => assert.equal(await fetchRoute("/institution/civics/source.txt"), civics.source),
   async () => assert.match(await fetchRoute("/map/"), /Comparative Civics/),
+  async () => {
+    const base = "/institution/learning-methods";
+    const data = JSON.parse(await fetchRoute(base + "/api/methods"));
+    assert.equal(data.methods.length, 101);
+    assert.equal(data.channels.length, 5);
+    assert.match(await fetchRoute(base + "/101/"), /Self-Mastery/);
+    assert.match(await fetchRoute("/map/"), /101 Hands-On Learning Methods/);
+  },
   async () => assert.equal(await fetchRoute("/institution/blueprint.json"), blueprintSource),
   async () => {
     const health = JSON.parse(await fetchRoute("/institution/healthz"));

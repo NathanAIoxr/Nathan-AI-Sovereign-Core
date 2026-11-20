@@ -145,7 +145,7 @@ blockquote{margin-inline:0;padding-inline:1rem;border-left:3px solid #e6cf87}
 <div id="mastery"><div id="practice">${masteryForm(search, rubric, base)}</div></div></section>` : "";
     return layout("Nine Pillars", `<h1>Nine Pillars</h1><p class="byline">Tabor Academy · ${esc(blueprint.meta.author)}</p>
 <p>Trace the path from a curriculum to a lesson, a mastery check, and an official record.</p>
-<p><a href="${base}/blueprint.json">Open the architecture blueprint</a> · <a href="${base}/civics/">Comparative Civics &amp; Legal Language</a></p>
+<p><a href="${base}/blueprint.json">Open the architecture blueprint</a> · <a href="${base}/civics/">Comparative Civics &amp; Legal Language</a> · <a href="${base}/learning-methods/">101 Hands-On Learning Methods</a></p>
 <section><h2>Institutional architecture</h2><ol class="pillars">${pillars}</ol></section>${practice}`);
   }
 

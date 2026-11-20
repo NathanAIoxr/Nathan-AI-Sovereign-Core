@@ -76,6 +76,11 @@
         "/institution/",
         "Nine Pillars",
         "curriculum, syllabus, assessment, pedagogy, institutional architecture"
+      ],
+      [
+        "/institution/learning-methods/",
+        "101 Hands-On Learning Methods",
+        "fieldwork, observation, sensory hook, pattern decode, physical application, root check, teach back"
       ]
     ]
   },
@@ -314,6 +319,23 @@
           [
             "/order/1626/",
             "Trace another encounter over land and authority"
+          ]
+        ]
+      ]
+    ],
+    "/institution/learning-methods/": [
+      [
+        "main > section:first-of-type",
+        "five-channels",
+        "The 5-Channel Stimulation Loop",
+        [
+          [
+            "/institution/civics/",
+            "Apply the five channels to Comparative Civics"
+          ],
+          [
+            "/institution/",
+            "Return to the Nine Pillars"
           ]
         ]
       ]

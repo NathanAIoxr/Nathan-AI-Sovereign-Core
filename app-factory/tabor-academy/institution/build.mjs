@@ -2,6 +2,9 @@ import { readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { pathToFileURL } from "node:url";
 import { createInstitution } from "./runtime.mjs";
+import { learningMethods } from "./learning-methods/data.mjs";
+import { createLearningMethods } from "./learning-methods/runtime.mjs";
+import { academyLearningSite } from "./learning-methods/sites.mjs";
 
 const here = new URL("./", import.meta.url);
 export const blueprintSource = await readFile(new URL("blueprint.json", here), "utf8");
@@ -13,7 +16,7 @@ export const civics = {
 const catalog = JSON.parse(await readFile(new URL("../map/topics.json", here), "utf8"));
 const civicsPath = "/institution/civics/";
 export const blueprintKey = "institution/blueprint-" + blueprint.meta.version + ".json";
-export const release = createHash("sha256").update(createInstitution.toString()).update(blueprintSource).update(JSON.stringify(civics)).digest("hex").slice(0, 16);
+export const release = createHash("sha256").update(createInstitution.toString()).update(blueprintSource).update(JSON.stringify(civics)).update(createLearningMethods.toString()).update(JSON.stringify([learningMethods, academyLearningSite])).digest("hex").slice(0, 16);
 const start = "/* BEGIN TABOR ACADEMY INSTITUTION */";
 const end = "/* END TABOR ACADEMY INSTITUTION */";
 
@@ -28,6 +31,14 @@ function includeCivicsInMap(source) {
     if (existing < 0) entries.push(entry);
     else entries[existing] = entry;
     current.relations[civicsPath] = catalog.relations[civicsPath];
+    const learningPath = "/institution/learning-methods/";
+    const learningGroup = "Learning paths and the Academy";
+    const learningEntries = current.catalog[learningGroup] ?? (current.catalog[learningGroup] = []);
+    const learningEntry = catalog.catalog[learningGroup].find(([path]) => path === learningPath);
+    const learningIndex = learningEntries.findIndex(([path]) => path === learningPath);
+    if (learningIndex < 0) learningEntries.push(learningEntry);
+    else learningEntries[learningIndex] = learningEntry;
+    current.relations[learningPath] = catalog.relations[learningPath];
     const peacePath = "/order/time-of-peace/";
     const target = current.relations[peacePath]?.find(([, anchor]) => anchor === "rotation");
     const link = catalog.relations[peacePath].find(([, anchor]) => anchor === "rotation")[3]
@@ -39,8 +50,11 @@ function includeCivicsInMap(source) {
 
 export function buildWorker(source) {
   const block = [start,
-    "const serveAcademyInstitution = (" + createInstitution.toString() + ")(" +
+    "const serveAcademyInstitutionBase = (" + createInstitution.toString() + ")(" +
       JSON.stringify(blueprint) + ", " + JSON.stringify(release) + ", " + JSON.stringify(civics) + ");",
+    "const serveAcademyLearningMethods = (" + createLearningMethods.toString() + ")(" +
+      JSON.stringify(learningMethods) + ", " + JSON.stringify(academyLearningSite) + ");",
+    "const serveAcademyInstitution = (request, env, ctx) => serveAcademyLearningMethods(request) ?? serveAcademyInstitutionBase(request, env, ctx);",
     end, "",
   ].join("\n");
   if (source.includes(start) || source.includes(end)) {

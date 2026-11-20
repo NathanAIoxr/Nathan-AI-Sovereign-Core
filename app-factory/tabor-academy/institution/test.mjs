@@ -4,6 +4,9 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { blueprint, blueprintSource, buildWorker, civics, release } from "./build.mjs";
 import { createInstitution } from "./runtime.mjs";
+import { learningMethods, seedSql } from "./learning-methods/data.mjs";
+import { createLearningMethods } from "./learning-methods/runtime.mjs";
+import { academyLearningSite, worldLearningSite } from "./learning-methods/sites.mjs";
 
 const call = createInstitution(blueprint, release, civics);
 const staffToken = "local-test-staff-key-that-is-at-least-thirty-two";
@@ -128,4 +131,36 @@ test("registers the civics lesson once in the deployed Academy map", () => {
   assert.match(assembled, /"\/institution\/civics\/","Comparative Civics/);
   assert.match(assembled, /"\/existing\/","Existing"/);
   assert.equal(buildWorker(assembled), assembled);
+});
+
+test("stores all original learning methods and five channels in an idempotent D1 migration", () => {
+  const { db } = fixtures();
+  const sql = migration("0004_learning_methods");
+  assert.equal(sql, seedSql());
+  db.exec(sql);
+  db.exec(sql);
+  assert.equal(db.prepare("SELECT COUNT(*) AS count FROM academy_learning_methods").get().count, 101);
+  assert.equal(db.prepare("SELECT COUNT(*) AS count FROM academy_learning_channels").get().count, 5);
+  assert.equal(db.prepare("SELECT original_text FROM academy_learning_methods WHERE id=101").get().original_text, learningMethods.methods[100].original);
+});
+
+test("both programs have all 101 activities, five checkpoints and verbatim downloads", async () => {
+  for (const site of [academyLearningSite, worldLearningSite]) {
+    const fetch = createLearningMethods(learningMethods, site);
+    const call = (suffix, init) => fetch(new Request("https://learn.invalid" + site.route + suffix, init));
+    const ids = learningMethods.methods.map(method => method.id);
+    for (const id of ids) {
+      const html = await (await call("/" + id + "/")).text();
+      assert.equal((html.match(/type="checkbox"/g) ?? []).length, 5);
+      assert.ok(html.includes(site.sibling + "/" + id + "/"));
+    }
+    const i = await (await call("/?q=Stargazing")).text();
+    assert.match(i, /Stargazing/);
+    assert.doesNotMatch(i, /Lunar Cycles/);
+    assert.equal(await (await call("/source.txt")).text(), learningMethods.source);
+    assert.equal((await call("/102/")).status, 404);
+    assert.equal((await call("/", { method: "POST" })).status, 405);
+    assert.equal(await (await call("/1/", { method: "HEAD" })).text(), "");
+    assert.equal((await (await call("/api/methods")).json()).methods.length, 101);
+  }
 });
