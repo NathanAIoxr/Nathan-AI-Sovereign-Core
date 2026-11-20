@@ -1,3 +1,4 @@
+import { isInteractiveKeyboardTarget } from './keyboard-focus-path.mjs';
 /** Opt-in keyboard navigation for symbolic strands. Does not modify craft data. */
 export function attachKeyboardStrandNavigation(element, strands, onSelection) {
   if (!element || typeof element.addEventListener !== 'function' || typeof element.removeEventListener !== 'function') throw new TypeError('event target required');
@@ -7,9 +8,7 @@ export function attachKeyboardStrandNavigation(element, strands, onSelection) {
   let index = -1, active = true;
   function keydown(event) {
     if (!active || event.defaultPrevented || event.isComposing || event.keyCode === 229 || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
-    const tag = event.target?.tagName?.toLowerCase();
-    const role = event.target?.getAttribute?.('role') ?? event.target?.role;
-    if (event.target?.isContentEditable || ['input','textarea','select'].includes(tag) || ['textbox','searchbox','combobox','spinbutton'].includes(typeof role === 'string' ? role.toLowerCase() : '')) return;
+    if (isInteractiveKeyboardTarget(event)) return;
     if (!ids.length) return;
     let next = index;
     if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % ids.length;
