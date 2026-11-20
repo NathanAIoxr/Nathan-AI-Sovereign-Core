@@ -49,6 +49,16 @@ The two originating lessons are `language/gaslighting-and-plain-truth` and `huma
 
 For the definitions and AI behavior, use the [APA Dictionary of Psychology](https://dictionary.apa.org/gaslight) and [NIST AI 600‑1, section 2.2](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf). For civics, use the [Virginia Declaration of Rights](https://www.archives.gov/founding-docs/virginia-declaration-of-rights), [Jefferson rough draft](https://www.loc.gov/item/mtjbib000156/), [final Declaration](https://www.archives.gov/founding-docs/declaration-transcript), [Constitution](https://www.archives.gov/founding-docs/constitution-transcript), [Diné Fundamental Laws](https://courts.navajo-nsn.gov/dine.htm), and [Navajo Nation Treaty of 1868](https://courts.navajo-nsn.gov/Treaty1868.htm).
 
+
+### Talking Mammals handoff
+
+The Academy Conductor owns follow-up under **Gaslighting, deflection, and plain truth, batch 3**. Keep the existing rotation. Check the live catalog for the accepted result before starting a batch.
+
+- Live lesson: [the academy for TALKING MAMMALS](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/talking-mammals/). The lesson covers manners and muscle memory, the walking gas factory, **I TALKED TO MY DOG LIKE A HUMAN**, the conversation flipped, the cats' boundaries, and Nathan's **chief herder of cats** story. The field exercise asks learners to distinguish what they saw from what they inferred and then reverse the direction.
+- Release evidence: [lesson source commit](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/commit/c0dc58f527a33d7109ca2a37444866fc61335c5f) and [passing Academy checks](https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/actions/runs/44751938672). The current lesson, Academy map, and way catalog responded successfully during handoff.
+- Private archive: Academy D1 table `academy_history_sources`, slug `talking-mammals`, 11,680 bytes, SHA-256 `e29c699f308603f96966c734ff043d324d0b84c2f85dc1d9ab87a34397130dfb`. Use the reference for integrity checks. Keep the submitted transcript in its private archive.
+- Next accepted result: Publish **Hear it, say it back** as its own language practice. Use short, fictional dialogue to test a dropped qualifier, an incorrect readback, and a direct confirmation. Use QI to check the exact words and QE to notice how the other person responds. Include a printable proof sheet and link both directions between the practice and Talking Mammals. Verify the new mission, its Academy map and way-catalog links, the lesson's return link, and the existing private-source boundary. Record the commit, routes, and test result when complete.
+
 ## 101 Biblical Realities · KJV
 
 Course home: [101 Biblical Realities · KJV](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/biblical-realities/). Start with mission `biblical-realities-zero`. Migration `0009_biblical_realities.sql` installs five topic paths and their 101 independently addressable numbered lessons, a separate KJV expansion path with 12 initial lessons, and the course index. The topic numbers and titles come from the supplied 101-entry index. The public exercises use KJV passages and original Academy teaching material. The exact submitted file is in the private Academy source archive under `biblical-realities-101-submitted-source`.
