@@ -1,9 +1,9 @@
-const preview = document.querySelector("#finish-preview");
+const previews = document.querySelectorAll("[data-finish-preview]");
 const note = document.querySelector("#finish-note");
 
 function updateFinish() {
   const selected = document.querySelector('input[name="finish"]:checked');
-  preview.dataset.finish = selected.value;
+  previews.forEach((preview) => { preview.dataset.finish = selected.value; });
   note.textContent = selected.dataset.description;
 }
 

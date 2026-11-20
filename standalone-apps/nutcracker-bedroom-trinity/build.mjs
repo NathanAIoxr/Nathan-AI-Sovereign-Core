@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 
@@ -25,10 +26,13 @@ for (const [index, id] of productIds.entries()) {
   const product = products[index];
   const others = products.filter((_, otherIndex) => otherIndex !== index)
     .map(({ name, worker }) => ({ name, worker }));
-  const data = JSON.stringify({ product, others, css, client });
+  const conceptImage = await readFile(fromRoot(`assets/${id}-concept.webp`), "base64");
+  const revision = createHash("sha256").update(css).update(client).update(conceptImage).digest("hex").slice(0, 12);
+  const data = JSON.stringify({ product, others, css, client, revision });
   const module = `${runtime}
 const settings = ${data};
 settings.image = Uint8Array.from(atob(${JSON.stringify(image)}), (character) => character.charCodeAt(0));
+settings.conceptImage = Uint8Array.from(atob(${JSON.stringify(conceptImage)}), (character) => character.charCodeAt(0));
 settings.serif = Uint8Array.from(atob(${JSON.stringify(serif)}), (character) => character.charCodeAt(0));
 export default createSite(settings);
 `;

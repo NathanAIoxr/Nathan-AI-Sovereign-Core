@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { readFile } from "node:fs/promises";
+import { runInNewContext } from "node:vm";
 
 for (const id of ["solomon", "cleopatra", "virgin-mary"]) {
   const product = JSON.parse(await readFile(new URL(`products/${id}.json`, import.meta.url), "utf8"));
@@ -20,6 +21,7 @@ for (const id of ["solomon", "cleopatra", "virgin-mary"]) {
     const before = await landing.text();
     assert.match(before, /Are you 18 or older/);
     assert.ok(!before.includes(product.name));
+    assert.doesNotMatch(before, /concept\.webp/);
     assert.match(landing.headers.get("Cache-Control"), /no-store/);
 
     const denied = await post("/age", { answer: "no" });
@@ -38,6 +40,9 @@ for (const id of ["solomon", "cleopatra", "virgin-mary"]) {
     const after = await (await request("/", { headers: { Cookie: cookie } })).text();
     assert.ok(after.includes(product.name));
     assert.ok(after.includes(product.attribution));
+    assert.ok(after.includes(product.artDescription));
+    assert.equal([...after.matchAll(/src="\.\/concept\.webp\?v=([a-f0-9]{12})"/g)].length, 2);
+    assert.match(after, /site\.js\?v=[a-f0-9]{12}/);
     assert.ok(after.includes("Approved by Humanity and the KJV. Bible"));
     assert.ok(after.includes("OH MY GOD LORD JESUS CHRIST"));
     assert.equal(after.includes("Let her breasts satisfy thee at all times."), id === "solomon");
@@ -61,6 +66,12 @@ for (const id of ["solomon", "cleopatra", "virgin-mary"]) {
     assert.equal(illustration.headers.get("Content-Type"), "image/webp");
     const bytes = new Uint8Array(await illustration.arrayBuffer());
     assert.equal(new TextDecoder().decode(bytes.subarray(8, 12)), "WEBP");
+    const concept = await request("/concept.webp?v=example");
+    assert.equal(concept.headers.get("Content-Type"), "image/webp");
+    const conceptBytes = Buffer.from(await concept.arrayBuffer());
+    const artwork = await readFile(new URL(`assets/${id}-concept.webp`, import.meta.url));
+    assert.deepEqual(conceptBytes, artwork);
+    assert.notDeepEqual(conceptBytes, Buffer.from(bytes));
     assert.equal((await request("/instrument-serif.woff2")).headers.get("Content-Type"), "font/woff2");
     assert.equal((await request("/unknown")).status, 404);
     assert.equal(await (await request("/", { method: "HEAD" })).text(), "");
@@ -91,4 +102,32 @@ test("shared ingress routes only the designated 18+ paths to the independent Wor
   assert.match(html, /Tabor Apps/);
   assert.doesNotMatch(html, /bronze-hands/);
   assert.equal(calls.length, 0);
+});
+
+test("each finish selection updates the in-panel preview, hero and finish description", async () => {
+  const client = await readFile(new URL("src/site.js", import.meta.url), "utf8");
+  const previews = [{ dataset: {} }, { dataset: {} }];
+  const note = { textContent: "" };
+  const options = [
+    { value: "aged", dataset: { description: "Aged bronze." } },
+    { value: "gold", dataset: { description: "Burnished gold." } },
+  ];
+  let selected = options[0];
+  for (const option of options) {
+    option.addEventListener = (event, listener) => {
+      assert.equal(event, "change");
+      option.select = () => { selected = option; listener(); };
+    };
+  }
+  const document = {
+    querySelector: (selector) => selector === "#finish-note" ? note : selected,
+    querySelectorAll: (selector) => selector === "[data-finish-preview]" ? previews : options,
+  };
+  runInNewContext(client, { document });
+  assert.deepEqual(previews.map((preview) => preview.dataset.finish), ["aged", "aged"]);
+  assert.equal(note.textContent, "Aged bronze.");
+
+  options[1].select();
+  assert.deepEqual(previews.map((preview) => preview.dataset.finish), ["gold", "gold"]);
+  assert.equal(note.textContent, "Burnished gold.");
 });

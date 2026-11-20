@@ -18,7 +18,7 @@ function escapeHtml(value) {
   return value.replace(/[&<>"']/g, (character) => replacements[character]);
 }
 
-function page(title, bodyClass, content) {
+function page(title, bodyClass, content, revision) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -26,7 +26,7 @@ function page(title, bodyClass, content) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>${escapeHtml(title)}</title>
-  <link rel="stylesheet" href="./site.css">
+  <link rel="stylesheet" href="./site.css?v=${revision}">
 </head>
 <body class="${bodyClass}">
   ${content}
@@ -34,7 +34,7 @@ function page(title, bodyClass, content) {
 </html>`;
 }
 
-function gate(declined = false) {
+function gate(revision, declined = false) {
   const panel = declined
     ? `<h1>Adults only</h1>
        <p>You must be 18 or older to view this collection.</p>
@@ -52,10 +52,10 @@ function gate(declined = false) {
         <div class="age-mark" aria-label="18 and older">18+</div>
         ${panel}
       </div>
-    </main>`);
+    </main>`, revision);
 }
 
-function productPage(product, others) {
+function productPage(product, others, revision) {
   const details = product.details.map(([term, description]) =>
     `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(description)}</dd></div>`).join("");
   const finishes = product.finishes.map(([name, description, key], index) => `
@@ -66,6 +66,7 @@ function productPage(product, others) {
     </label>`).join("");
   const othersList = others.map(({ name, worker }) =>
     `<li><a href="${publicIngress}${publicBase}${worker}/">${escapeHtml(name)} <span aria-hidden="true">↗</span></a></li>`).join("");
+  const defaultFinish = escapeHtml(product.finishes[0][2]);
   const scripture = product.scripture
     ? `<blockquote><p>“Let her breasts satisfy thee at all times.”</p><cite><a href="${verse}">Proverbs 5:19 · KJV</a></cite></blockquote>`
     : "";
@@ -85,9 +86,9 @@ function productPage(product, others) {
           <p class="description">${escapeHtml(product.description)}</p>
           <a class="button primary" href="#design">Explore the design <span aria-hidden="true">↓</span></a>
         </div>
-        <figure class="hero-art" id="finish-preview" data-finish="${escapeHtml(product.finishes[0][2])}">
-          <img src="./bronze-hands.webp" width="1080" height="720" fetchpriority="high" alt="Illustration of two clasped bronze hands with spiral wrist cuffs">
-          <figcaption>Illustration of the bronze hands design</figcaption>
+        <figure class="hero-art" data-finish-preview data-finish="${defaultFinish}">
+          <img src="./concept.webp?v=${revision}" width="1080" height="720" fetchpriority="high" alt="${escapeHtml(product.artDescription)}">
+          <figcaption>Concept rendering based on the clasped bronze hands</figcaption>
         </figure>
       </section>
       <section class="design" id="design" aria-labelledby="design-heading">
@@ -99,6 +100,9 @@ function productPage(product, others) {
         <div class="finish-panel">
           <fieldset>
             <legend>Preview a finish</legend>
+            <figure class="finish-art" data-finish-preview data-finish="${defaultFinish}">
+              <img src="./concept.webp?v=${revision}" width="1080" height="720" loading="lazy" alt="">
+            </figure>
             <div class="finish-options">${finishes}</div>
           </fieldset>
           <p id="finish-note" aria-live="polite">${escapeHtml(product.finishes[0][1])}</p>
@@ -118,20 +122,21 @@ function productPage(product, others) {
         </div>
       </section>
     </main>
-    <script src="./site.js" defer></script>`);
+    <script src="./site.js?v=${revision}" defer></script>`, revision);
 }
 
-export function createSite({ product, others, css, client, image, serif }) {
+export function createSite({ product, others, css, client, image, conceptImage, serif, revision }) {
   const ageCookie = `__Host-bronze-hands-18-${product.theme}`;
   const mount = `${publicBase}${product.worker}`;
-  const confirmed = productPage(product, others);
-  const entry = gate();
-  const declined = gate(true);
+  const confirmed = productPage(product, others, revision);
+  const entry = gate(revision);
+  const declined = gate(revision, true);
   const resources = {
     "/site.css": [css, "text/css; charset=utf-8"],
     "/site.js": [client, "text/javascript; charset=utf-8"],
     "/instrument-serif.woff2": [serif, "font/woff2"],
     "/bronze-hands.webp": [image, "image/webp"],
+    "/concept.webp": [conceptImage, "image/webp"],
     "/robots.txt": ["User-agent: *\nDisallow: /\n", "text/plain; charset=utf-8"]
   };
   const html = (body, status = 200) => new Response(body, {
