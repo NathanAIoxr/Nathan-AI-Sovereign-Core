@@ -1,7 +1,5 @@
 import { learningArc } from "./human-learning-arc-data.mjs";
 
-const root = "/human-learning-arc";
-const title = "The Complete Human Learning Arc";
 const styles = `
   :root { color-scheme: dark; font: 17px/1.55 Inter, system-ui, sans-serif; background: #171916; color: #f4eddb; }
   * { box-sizing: border-box; }
@@ -43,97 +41,120 @@ const headers = {
 };
 const escape = (value) => String(value).replace(/[&<>"']/g, (c) =>
   ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" })[c]);
-const eraUrl = (era) => `${root}/${era.id}/`;
-const stationUrl = (era, station) => `${eraUrl(era)}${station.id}/`;
-const anchor = (href, label) => `<a href="${escape(href)}">${escape(label)}</a>`;
+export function createLearningExplorer(catalog, {
+  root, title, lead, headerLinks, promoteOn, destination, marker, sectionLabel, returnLabel,
+}) {
+  const eraUrl = (era) => `${root}/${era.id}/`;
+  const stationUrl = (era, station) => `${eraUrl(era)}${station.id}/`;
+  const anchor = (href, label) => `<a href="${escape(href)}">${escape(label)}</a>`;
 
-function page(heading, body) {
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(heading)} · Tabor World</title><style>${styles}</style></head>
-<body><header>${anchor("/", "Tabor World")}${anchor(`${root}/`, title)}${anchor("/learning-methods/", "101 Hands-On Learning Methods")}</header>
-<main><h1>${escape(heading)}</h1>${body}</main><footer>${anchor(learningArc.academy, "Open the course in Tabor Academy")}</footer></body></html>`;
-}
-
-function overview() {
-  return page(title, `<p class="lead">From earlier hominins and open-air sites through cave records, settlements, workshops and networks. Follow 48 stations across five overlapping learning eras, then test a future scenario.</p>
-  <ol class="timeline">${learningArc.eras.map((era) => `<li><div><p class="tag">${escape(era.tag)}</p><h2>${anchor(eraUrl(era), era.title)}</h2></div><p>${escape(era.purpose)}</p></li>`).join("")}</ol>
-  <section><h2>Explore the records</h2><ul class="sources">${learningArc.sources.map((source) => `<li>${anchor(source.url, source.name)}</li>`).join("")}</ul></section>`);
-}
-
-function showEra(era) {
-  return page(era.title, `<p class="lead">${escape(era.purpose)}</p><ul class="stations">
-  ${era.stations.map((station) => `<li><a href="${stationUrl(era, station)}">${escape(station.title)}<span>${escape(station.station)}</span></a></li>`).join("")}</ul>`);
-}
-
-function showStation(era, station, position) {
-  const previous = era.stations[position - 1];
-  const next = era.stations[position + 1];
-  return page(station.title, `<p class="tag">${anchor(eraUrl(era), era.title)}</p>
-  <article class="station"><section><h2>${escape(station.station)}</h2><p>${escape(station.question)}</p>
-  <details><summary>Check what the evidence can show</summary><p>${escape(station.check)}</p></details></section>
-  <p>${anchor(station.academy, "Do the exercise in Tabor Academy")}</p></article>
-  <nav class="nav" aria-label="Station navigation">${previous ? anchor(stationUrl(era, previous), "Previous station") : ""}
-  ${anchor(eraUrl(era), "All stations in this era")}
-  ${next ? anchor(stationUrl(era, next), "Next station") : anchor(`${root}/`, "Return to the timeline")}</nav>`);
-}
-
-export function serveLearningArc(request) {
-  const { pathname } = new URL(request.url);
-  if (pathname !== root && !pathname.startsWith(root + "/")) return null;
-  if (request.method !== "GET" && request.method !== "HEAD") {
-    return new Response("Method unavailable", { status: 405, headers: { allow: "GET, HEAD" } });
+  function page(heading, body) {
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(heading)} · Tabor World</title><style>${styles}</style></head>
+  <body><header>${anchor("/", "Tabor World")}${anchor(`${root}/`, title)}${headerLinks.map(([href, label]) => anchor(href, label)).join("")}</header>
+  <main><h1>${escape(heading)}</h1>${body}</main><footer>${anchor(catalog.academy, "Open the course in Tabor Academy")}</footer></body></html>`;
   }
-  const send = (body, status = 200, extra = {}) =>
-    new Response(request.method === "HEAD" ? null : body, { status, headers: { ...headers, ...extra } });
-  if (pathname === root + "/catalog.json") {
-    return send(JSON.stringify(learningArc), 200, { "content-type": "application/json; charset=utf-8" });
+
+  function overview() {
+    return page(title, `<p class="lead">${escape(lead)}</p>
+    <ol class="timeline">${catalog.eras.map((era) => `<li><div><p class="tag">${escape(era.tag)}</p><h2>${anchor(eraUrl(era), era.title)}</h2></div><p>${escape(era.purpose)}</p></li>`).join("")}</ol>
+    <section><h2>Explore the records</h2><ul class="sources">${catalog.sources.map((source) => `<li>${anchor(source.url, source.name)}</li>`).join("")}</ul></section>`);
   }
-  const tail = pathname.slice(root.length).replace(/^\//, "").replace(/\/$/, "");
-  if (!tail) return send(overview());
-  const [eraId, stationId, ...extra] = tail.split("/");
-  const era = learningArc.eras.find((candidate) => candidate.id === eraId);
-  if (era && !extra.length) {
-    if (stationId === undefined) return send(showEra(era));
-    const position = era.stations.findIndex((candidate) => String(candidate.id) === stationId);
-    if (position >= 0) return send(showStation(era, era.stations[position], position));
+
+  function showEra(era) {
+    return page(era.title, `<p class="lead">${escape(era.purpose)}</p><ul class="stations">
+    ${era.stations.map((station) => `<li><a href="${stationUrl(era, station)}">${escape(station.title)}<span>${escape(station.station)}</span></a></li>`).join("")}</ul>`);
   }
-  return send(page("Station not found", `<p>${anchor(`${root}/`, "Open the timeline")}</p>`), 404);
+
+  function showStation(era, station, position) {
+    const previous = era.stations[position - 1];
+    const next = era.stations[position + 1];
+    return page(station.title, `<p class="tag">${anchor(eraUrl(era), era.title)}</p>
+    <article class="station"><section><h2>${escape(station.station)}</h2><p>${escape(station.question)}</p>
+    <details><summary>Check what the evidence can show</summary><p>${escape(station.check)}</p></details></section>
+    <p>${anchor(station.academy, "Do the exercise in Tabor Academy")}</p></article>
+    <nav class="nav" aria-label="Station navigation">${previous ? anchor(stationUrl(era, previous), "Previous station") : ""}
+    ${anchor(eraUrl(era), sectionLabel)}
+    ${next ? anchor(stationUrl(era, next), "Next station") : anchor(`${root}/`, returnLabel)}</nav>`);
+  }
+
+  function serve(request) {
+    const { pathname } = new URL(request.url);
+    if (pathname !== root && !pathname.startsWith(root + "/")) return null;
+    if (request.method !== "GET" && request.method !== "HEAD") {
+      return new Response("Method unavailable", { status: 405, headers: { allow: "GET, HEAD" } });
+    }
+    const send = (body, status = 200, extra = {}) =>
+      new Response(request.method === "HEAD" ? null : body, { status, headers: { ...headers, ...extra } });
+    if (pathname === root + "/catalog.json") {
+      return send(JSON.stringify(catalog), 200, { "content-type": "application/json; charset=utf-8" });
+    }
+    const tail = pathname.slice(root.length).replace(/^\//, "").replace(/\/$/, "");
+    if (!tail) return send(overview());
+    const [eraId, stationId, ...extra] = tail.split("/");
+    const era = catalog.eras.find((candidate) => candidate.id === eraId);
+    if (era && !extra.length) {
+      if (stationId === undefined) return send(showEra(era));
+      const position = era.stations.findIndex((candidate) => String(candidate.id) === stationId);
+      if (position >= 0) return send(showStation(era, era.stations[position], position));
+    }
+    return send(page("Station not found", `<p>${anchor(`${root}/`, returnLabel)}</p>`), 404);
+  }
+
+  function wrap(original) {
+    const link = {
+      ...destination, name: title, area: "Worlds",
+    };
+    return {
+      ...original,
+      async fetch(request, env, ctx) {
+        const arc = serve(request);
+        if (arc) return arc;
+        const response = await original.fetch(request, env, ctx);
+        if (!response.ok || request.method !== "GET") return response;
+        const { pathname, origin } = new URL(request.url);
+        const type = response.headers.get("content-type") ?? "";
+        if (pathname === "/api/destinations" && type.includes("application/json")) {
+          const existing = await response.clone().json().catch(() => null);
+          if (!Array.isArray(existing) || existing.some((item) => item?.id === link.id)) return response;
+          const next = new Headers(response.headers);
+          next.delete("content-length");
+          next.delete("etag");
+          return new Response(JSON.stringify([...existing, { ...link, url: origin + root + "/" }]), {
+            status: response.status, headers: next,
+          });
+        }
+        if (promoteOn.includes(pathname) && type.includes("text/html")) {
+          let inserted = false;
+          return new HTMLRewriter().on("h1", {
+            element(element) {
+              if (inserted) return;
+              inserted = true;
+              element.after(`<p ${marker}>${anchor(root + "/", title)}</p>`, { html: true });
+            },
+          }).transform(response);
+        }
+        return response;
+      },
+    };
+  }
+
+  return { serve, wrap };
 }
 
-export function withLearningArc(original) {
-  const link = {
-    id: "complete-human-learning-arc", name: title, kind: "Interactive timeline", area: "Worlds",
+const humanExplorer = createLearningExplorer(learningArc, {
+  root: "/human-learning-arc",
+  title: "The Complete Human Learning Arc",
+  lead: "From earlier hominins and open-air sites through cave records, settlements, workshops and networks. Follow 48 stations across five overlapping learning eras, then test a future scenario.",
+  headerLinks: [["/learning-methods/", "101 Hands-On Learning Methods"]],
+  promoteOn: ["/", "/learning-methods/"],
+  destination: {
+    id: "complete-human-learning-arc", kind: "Interactive timeline",
     desc: "Explore early human evidence, the cave and open air, living traditions, machines, networks and possible futures.",
-  };
-  return {
-    ...original,
-    async fetch(request, env, ctx) {
-      const arc = serveLearningArc(request);
-      if (arc) return arc;
-      const response = await original.fetch(request, env, ctx);
-      if (!response.ok || request.method !== "GET") return response;
-      const { pathname, origin } = new URL(request.url);
-      const type = response.headers.get("content-type") ?? "";
-      if (pathname === "/api/destinations" && type.includes("application/json")) {
-        const existing = await response.clone().json().catch(() => null);
-        if (!Array.isArray(existing) || existing.some((item) => item?.id === link.id)) return response;
-        const next = new Headers(response.headers);
-        next.delete("content-length");
-        next.delete("etag");
-        return new Response(JSON.stringify([...existing, { ...link, url: origin + root + "/" }]), {
-          status: response.status, headers: next,
-        });
-      }
-      if ((pathname === "/" || pathname === "/learning-methods/") && type.includes("text/html")) {
-        let inserted = false;
-        return new HTMLRewriter().on("h1", {
-          element(element) {
-            if (inserted) return;
-            inserted = true;
-            element.after(`<p data-human-learning-arc>${anchor(root + "/", title)}</p>`, { html: true });
-          },
-        }).transform(response);
-      }
-      return response;
-    },
-  };
-}
+  },
+  marker: "data-human-learning-arc",
+  sectionLabel: "All stations in this era",
+  returnLabel: "Return to the timeline",
+});
+
+export const serveLearningArc = humanExplorer.serve;
+export const withLearningArc = humanExplorer.wrap;
