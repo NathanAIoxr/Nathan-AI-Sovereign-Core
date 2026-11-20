@@ -1,0 +1,40 @@
+{
+  "simulation_only": true,
+  "missions": [
+    {
+      "id": "wood-splinter",
+      "seconds": 299,
+      "challenge": "angled lighting and virtual precision"
+    },
+    {
+      "id": "micro-glass",
+      "seconds": 240,
+      "challenge": "glint detection and magnification"
+    },
+    {
+      "id": "nostril-toy",
+      "seconds": 90,
+      "challenge": "recognize danger and select ER handoff"
+    },
+    {
+      "id": "right-shoulder-bb",
+      "seconds": 90,
+      "challenge": "recognize danger and select ER handoff"
+    },
+    {
+      "id": "ingrown-toenail",
+      "seconds": 180,
+      "challenge": "fictional timing puzzle"
+    },
+    {
+      "id": "wood-tick",
+      "seconds": 180,
+      "challenge": "virtual target identification"
+    },
+    {
+      "id": "rogue-eyebrow",
+      "seconds": 120,
+      "challenge": "precision and flinch"
+    }
+  ]
+}
