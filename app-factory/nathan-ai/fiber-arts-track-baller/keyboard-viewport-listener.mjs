@@ -19,6 +19,8 @@ export function attachKeyboardViewportListener(element, initialFrame, onFrame, {
   element.addEventListener('keydown', keydown);
   return Object.freeze({
     getFrame() { return current; },
+    /** Synchronize with an externally updated touch/trackball frame without emitting a keyboard event. */
+    syncFrame(frame) { if (!active) return false; current = keyboardViewportFrame(frame, 'Unrecognized', frameOptions); return true; },
     setEnabled(value) { if (typeof value !== 'boolean') throw new TypeError('enabled must be boolean'); if (!active) return false; allowed = value; return true; },
     dispose() { if (!active) return; active = false; element.removeEventListener('keydown', keydown); }
   });
