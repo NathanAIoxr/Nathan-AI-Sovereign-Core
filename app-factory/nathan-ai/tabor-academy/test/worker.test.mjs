@@ -92,3 +92,19 @@ test("survival track renders all three card sections and supports category filte
   assert.deepEqual((await (await open("/survival/cards.json?category=7")).json()).cards, []);
   assert.equal((await open("/survival/102/")).status, 404);
 });
+
+test("Workbench printable guide renders the published D1 activity", async () => {
+  const row = {
+    number: 1, guide: 1, guide_title: "Direct Observation", title: "Unrestricted Shadowing",
+    media: "AB", namespace_name: "tabor-academy-001-dev", brief: "Watch and repeat",
+    outcome: "A paper envelope", demonstration: "Watch the folds", verification: "Repeat the folds",
+  };
+  const env = { LIBRARY: { prepare: () => ({
+    bind: (guide) => ({ all: async () => ({ results: guide === 1 ? [row] : [] }) }),
+  }) } };
+  const response = await worker.fetch(new Request("https://academy.example/workbench/?guide=1&print=1"), env);
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /A paper envelope/);
+  assert.match(html, /Repeat the folds/);
+});
