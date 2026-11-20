@@ -5,11 +5,12 @@ import assert from "node:assert/strict";
 import { blueprint, blueprintSource, buildWorker, civics, foundation, release } from "./build.mjs";
 import { foundationQuote } from "./foundation.mjs";
 import { createInstitution } from "./runtime.mjs";
+import { renderArchitectureCourse } from "./architecture-course.mjs";
 import { learningMethods, seedSql } from "./learning-methods/data.mjs";
 import { createLearningMethods } from "./learning-methods/runtime.mjs";
 import { academyLearningSite, worldLearningSite } from "./learning-methods/sites.mjs";
 
-const call = createInstitution(blueprint, release, civics, foundation, foundationQuote);
+const call = createInstitution(blueprint, release, civics, foundation, foundationQuote, renderArchitectureCourse);
 const staffToken = "local-test-staff-key-that-is-at-least-thirty-two";
 const url = "https://academy.invalid/institution";
 const migration = name => readFileSync(new URL("migrations/" + name + ".sql", import.meta.url), "utf8");
@@ -85,6 +86,30 @@ export default {
   assert.match(architectureHTML, /Conductor blueprint/);
   assert.match(architectureHTML, /href="[^"]+library-handoff\/"/);
   assert.equal(await (await get("/institution/foundation/architecture/source.txt")).text(), foundation.architecture.source);
+  const path = "/institution/foundation/architecture/";
+  const handoff = await (await get(path + "conductor.json")).json();
+  assert.deepEqual(handoff.equations, { everything: "1 + 1 = 2", nothing: "1 - 1 = 0" });
+  assert.deepEqual(handoff.prompts.map(prompt => prompt.id), [1, 2, 3, 4]);
+  for (const prompt of handoff.prompts) assert.ok(foundation.architecture.source.includes(prompt.text));
+  assert.match(await (await get(path + "practice/")).text(), /Check answers/);
+  assert.match(await (await get(path + "practice/?source=object&index=edition&equation=version&family=cleared")).text(), /4 of 4 correct/);
+  assert.match(await (await get(path + "practice/?source=post")).text(), /0 of 4 correct/);
+  const coursePath = path + "course/";
+  const course = await (await get(coursePath)).text();
+  assert.match(course, /8 modules/);
+  assert.match(course, /The Three Apples Reality/);
+  for (const module of foundation.architecture.course.modules) {
+    const lessonPath = coursePath + module.id + "/";
+    assert.ok(course.includes(lessonPath));
+    const lesson = await (await get(lessonPath)).text();
+    assert.match(lesson, /How to operate in this world/);
+    assert.match(lesson, /How to operate without this world stupidity/);
+    assert.match(lesson, /Worked record/);
+    assert.match(await (await get(lessonPath + "?answer=" + module.check.correct)).text(), /Correct\./);
+    assert.match(await (await get(lessonPath + "?answer=" + ((module.check.correct + 1) % 3))).text(), /Review this step/);
+  }
+  assert.match(await (await get(coursePath + "worksheet.txt")).text(), /PROTECT THE ONE/);
+  assert.equal((await get(coursePath + "unknown/")).status, 404);
   assert.equal(await (await get("/library/")).text(), "/library/");
 });
 
@@ -162,6 +187,11 @@ test("serves all nine Three Apples stages and preserves the Conductor source", a
   }
   assert.match(html, /1 ÷ 4 = ¼ per piece/);
   assert.match(html, /unresolved difference is 6 g/);
+  assert.match(html, /id="tabor-materials"/);
+  assert.match(html, /id="references"/);
+  assert.match(html, /href="[^"]+human-learning-arc\/"/);
+  assert.match(html, /href="[^"]+survival-mastery-domains\/"/);
+  assert.match(html, /href="https:\/\/www\.nist\.gov\//);
   assert.equal(await (await get("source.txt")).text(), readFileSync(new URL("three-apples.txt", import.meta.url), "utf8"));
 });
 

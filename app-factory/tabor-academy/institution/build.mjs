@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { pathToFileURL } from "node:url";
 import { createInstitution } from "./runtime.mjs";
+import { architectureWorksheet, renderArchitectureCourse } from "./architecture-course.mjs";
 import { foundation as foundationStatement, foundationQuote } from "./foundation.mjs";
 import { learningMethods } from "./learning-methods/data.mjs";
 import { createLearningMethods } from "./learning-methods/runtime.mjs";
@@ -14,6 +15,14 @@ const handoffSource = await readFile(new URL("library-handoff.txt", here), "utf8
 const blockStart = handoffSource.indexOf("=== CONDUCTOR HANDOFF: THE LIBRARY OF TABOR (NATHAN TABOR) ===");
 const blockEnd = handoffSource.lastIndexOf("\nUse code with caution.");
 if (blockStart < 0 || blockEnd <= blockStart) throw new Error("Library of Tabor handoff block is missing");
+const architectureSource = await readFile(new URL("architecture.txt", here), "utf8");
+const conductor = JSON.parse(await readFile(new URL("../../../deployments/conductor/academy/architecture.json", here), "utf8"));
+const prompts = [...architectureSource.matchAll(/^Prompt (\d+) — (.+):\n(.+)$/gm)]
+  .map(([, id, title, text]) => ({ id: Number(id), title, text }));
+if (prompts.map(prompt => prompt.id).join(",") !== "1,2,3,4") throw new Error("Architecture requires four ordered author prompts");
+
+const course = JSON.parse(await readFile(new URL("architecture-course.json", here), "utf8"));
+const authorMotto = architectureSource.split("\n")[2].slice(1, -1);
 export const foundation = {
   ...foundationStatement,
   threeApples: {
@@ -23,8 +32,20 @@ export const foundation = {
   realityMath: await readFile(new URL("reality-math.html", here), "utf8"),
   libraryHandoff: { source: handoffSource, block: handoffSource.slice(blockStart, blockEnd) },
   architecture: {
-    source: await readFile(new URL("architecture.txt", here), "utf8"),
+    source: architectureSource,
     blueprint: await readFile(new URL("architecture.html", here), "utf8"),
+    practice: JSON.parse(await readFile(new URL("architecture-practice.json", here), "utf8")),
+    course: {
+      ...course,
+      authorMotto,
+      nineCarsAxiom: "Nine real cars in the parking lot remain nine real cars—no catalog or paper rule can erase what physically exists.",
+      worksheet: architectureWorksheet(),
+    },
+    conductor: {
+      ...conductor,
+      sourceSha256: createHash("sha256").update(architectureSource).digest("hex"),
+      prompts,
+    },
   },
 };
 export const civics = {
@@ -34,7 +55,7 @@ export const civics = {
 const catalog = JSON.parse(await readFile(new URL("../map/topics.json", here), "utf8"));
 const civicsPath = "/institution/civics/";
 export const blueprintKey = "institution/blueprint-" + blueprint.meta.version + ".json";
-export const release = createHash("sha256").update(createInstitution.toString()).update(blueprintSource).update(JSON.stringify([civics, foundation])).update(foundationQuote.toString()).update(createLearningMethods.toString()).update(JSON.stringify([learningMethods, academyLearningSite])).digest("hex").slice(0, 16);
+export const release = createHash("sha256").update(createInstitution.toString()).update(blueprintSource).update(JSON.stringify([civics, foundation])).update(foundationQuote.toString()).update(renderArchitectureCourse.toString()).update(createLearningMethods.toString()).update(JSON.stringify([learningMethods, academyLearningSite])).digest("hex").slice(0, 16);
 const start = "/* BEGIN TABOR ACADEMY INSTITUTION */";
 const end = "/* END TABOR ACADEMY INSTITUTION */";
 
@@ -46,6 +67,8 @@ function updateAcademyMap(source) {
       [civicsPath, "History and the record"],
       ["/institution/learning-methods/", "Learning paths and the Academy"],
       ["/institution/foundation/", "Learning paths and the Academy"],
+      ["/institution/foundation/architecture/", "Learning paths and the Academy"],
+      ["/institution/foundation/architecture/course/", "Learning paths and the Academy"],
       ["/institution/foundation/library-handoff/", "Learning paths and the Academy"],
       ["/institution/foundation/reality-math/", "Learning paths and the Academy"],
       ["/institution/foundation/three-apples/", "Learning paths and the Academy"],
@@ -80,6 +103,7 @@ function updateAcademyHome(source, includeInstitutionLink) {
     `<div id="academy-foundation" style="max-width:52rem;margin:2rem 0;font-size:clamp(1rem,2.25vw,1.3rem);line-height:1.55">
 ${foundationQuote(foundation)}
 <p><a href="${foundation.path}" style="color:#e6cf87">Tabor Academy Foundation</a></p>
+<p><a href="${foundation.path}architecture/" style="color:#e6cf87">The Architecture of Everything and Nothing</a></p>
 </div>` + foundationEnd;
   const first = page.indexOf(foundationStart);
   const last = page.indexOf(foundationEnd);
@@ -102,8 +126,9 @@ ${foundationQuote(foundation)}
 export function buildWorker(source) {
   const block = [start,
     "const renderAcademyFoundationQuote = " + foundationQuote.toString() + ";",
+    "const renderAcademyArchitectureCourse = " + renderArchitectureCourse.toString() + ";",
     "const serveAcademyInstitutionBase = (" + createInstitution.toString() + ")(" +
-      JSON.stringify(blueprint) + ", " + JSON.stringify(release) + ", " + JSON.stringify(civics) + ", " + JSON.stringify(foundation) + ", renderAcademyFoundationQuote);",
+      JSON.stringify(blueprint) + ", " + JSON.stringify(release) + ", " + JSON.stringify(civics) + ", " + JSON.stringify(foundation) + ", renderAcademyFoundationQuote, renderAcademyArchitectureCourse);",
     "const serveAcademyLearningMethods = (" + createLearningMethods.toString() + ")(" +
       JSON.stringify(learningMethods) + ", " + JSON.stringify(academyLearningSite) + ");",
     "const serveAcademyInstitution = (request, env, ctx) => serveAcademyLearningMethods(request) ?? serveAcademyInstitutionBase(request, env, ctx);",

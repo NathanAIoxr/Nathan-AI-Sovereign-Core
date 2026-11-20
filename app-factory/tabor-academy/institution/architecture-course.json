@@ -1,0 +1,110 @@
+{
+  "title": "How to Operate in This World",
+  "subtitle": "How to operate without this world stupidity",
+  "modules": [
+    {
+      "id": "nine-cars",
+      "title": "Reality Math · The Nine Cars Axiom",
+      "minutes": 25,
+      "objective": "Check what is physically present, what a calculation counts, and what would change the count.",
+      "scenario": "Nine cars are parked at a bowling alley. A training sheet reads 9 × 0 = 0. The inventory screen shows zero cars assigned to a pickup group.",
+      "inWorld": "Read the worksheet as arithmetic and the inventory as a count for a named group. Write the units and scope alongside both numbers.",
+      "without": "Count the actual cars. Ask, “What physically entered or left?” Keep the nine cars in the observed record. Use 1 + 1 = 2 to track one arrival beside one already there, and 1 - 1 = 0 to track one actual departure from a lot with one car.",
+      "lab": ["Arrange nine objects as cars. Count them at the same time and within the same boundary.", "Write 9 × 0 = 0 and label it “zero groups of nine.” Leave the objects where they are and count them again.", "Remove one object. Record where it went and the observed count after the move."],
+      "record": "Lot at 2:00 p.m. · 9 present. Pickup allocation · 0. Lot at 2:01 p.m. after one departure · 8 present.",
+      "deliverable": "A before-and-after count with the place, time, units, and event that changed it.",
+      "check": { "question": "The screen says zero assigned and the lot still has nine. What goes in your record?", "choices": ["Zero physical cars, as shown by the screen", "Nine present and zero assigned, with the scope written beside each number", "Nine assigned because nine are present"], "correct": 1, "feedback": "Record the observed cars and the allocation as two separately defined counts." }
+    },
+    {
+      "id": "labels",
+      "title": "Labels · Attributes, Characteristics and Functionality",
+      "minutes": 25,
+      "objective": "Use the required label to navigate a system while describing the thing by its observable properties and use.",
+      "scenario": "A box marked “supplies” contains a measuring tape. Someone moves the tape to a drawer marked “maintenance.”",
+      "inWorld": "Use the current drawer label to tell someone where to find the tape. Record the location and date when the catalog changes.",
+      "without": "Examine the actual tape. Record its markings, length range, working condition, and what someone can measure with it. Retain those observations when the drawer gets renamed.",
+      "lab": ["Choose one ordinary object and copy its current shelf label.", "Write three observable attributes and demonstrate one function.", "Give its shelf a new label. Compare your original description to the object after the rename."],
+      "record": "Catalog location changed from Supplies to Maintenance. The same tape extends to three meters and retracts when released.",
+      "deliverable": "A three-part record for label, observable attributes, and demonstrated function.",
+      "check": { "question": "What evidence supports a claim that the tape can measure three meters?", "choices": ["The maintenance label", "A matching label in a second catalog", "A demonstration using the tape and its marked range"], "correct": 2, "feedback": "The drawer tells you where to look. The tape and the measurement are the evidence for what it can do." }
+    },
+    {
+      "id": "library-lineage",
+      "title": "Library Lineage · Follow the Record",
+      "minutes": 35,
+      "objective": "Trace a record through the ancient archives, Dewey Decimal Classification, Library of Congress Classification, and the Library of Tabor.",
+      "scenario": "A classmate shares a modern retelling of a passage associated with the Flood Tablet at Nineveh.",
+      "inWorld": "Use the catalog and class numbers to locate an item and its edition. Follow the Architecture readings for Nineveh, Alexandria, and Pergamum, then compare the Dewey and Library of Congress outlines for the same subject.",
+      "without": "Work backward from the retelling to the edition, translator, and surviving object record. For an ancient collection whose holdings are uncertain, record what survives and where that claim comes from. Build forward in the Library of Tabor from the traceable record.",
+      "lab": ["Use the Architecture source links to find the Flood Tablet object number, identify the description of the Pergamum site, and locate a historical account of Alexandria.", "Find one broad subject in both the Dewey and Library of Congress outlines. Record each locator and the edition details of a work on the subject.", "Create a Library of Tabor entry with the locator, original object or document, later translation or account, and a visible note for any missing link."],
+      "record": "Object · K.3375. Museum record · collection description. Translation · edition and translator to be identified before quoting it.",
+      "deliverable": "A source chain with one ancient example, two classification locators, and a Library of Tabor entry.",
+      "check": { "question": "What gets you closest to verifying a quotation attributed to the tablet?", "choices": ["The object identifier plus the specific edition and translator for the quoted words", "The first catalog class number returned by the search", "The number of retellings that use the same wording"], "correct": 0, "feedback": "The object identifies the source artifact. The edition and translator identify the wording being quoted." }
+    },
+    {
+      "id": "primary-truth",
+      "title": "Primary Truth · Keep the Original Whole",
+      "minutes": 30,
+      "objective": "Capture exact words and identify what the source directly shows, what you infer, and what remains open.",
+      "scenario": "The original warehouse log reads “gate closed at 4:02.” A summary reads “staff locked everyone out at 4:02.”",
+      "inWorld": "Use the existing record format and send the required report. Attach the time, location, author if known, and a reference to the exact original entry.",
+      "without": "Retain the exact entry. Put the claim about who locked the gate and why in a linked review note. Ask what evidence would establish the lock, the person, and the scope of “everyone.”",
+      "lab": ["Copy the original line character for character and record where it came from.", "Mark each new claim introduced by the summary. Identify a source that could confirm each claim.", "Write a two-sentence update that quotes the original and states which questions remain open."],
+      "record": "Source says “gate closed at 4:02.” Who closed it, whether it was locked, and who was affected remain open.",
+      "deliverable": "An original record and a linked evidence note with a reproducible source pointer.",
+      "check": { "question": "Where does the claim that staff locked everyone out belong?", "choices": ["Inside the original log entry", "In a review note, with a record of what would verify it", "In the report as a verbatim quote from the log"], "correct": 1, "feedback": "Keep the log intact. Put additional claims where a reader can see their source and status." }
+    },
+    {
+      "id": "contradictions",
+      "title": "Contradictions and Confusion · Yes Is Yes, No Is No",
+      "minutes": 30,
+      "objective": "Test whether a yes and a no answer the same question, then reach a direct correction or record what remains unresolved.",
+      "scenario": "One message says a door was closed at 4 p.m. Another says the door was open at 4 p.m. A third says the door was open at 5 p.m.",
+      "inWorld": "Keep the three records and their original timestamps. Ask for the location, time window, and meaning of open or closed when writing a correction.",
+      "without": "Read the two 4 p.m. claims side by side. Check the door, time zone, and evidence. The 5 p.m. claim concerns a different time. If the two 4 p.m. claims concern the same door and moment, identify the conflict and hold the answer open until a check resolves it. Preserve both original claims and any correction.",
+      "lab": ["Copy each claim exactly into a ledger with its subject, time, and source.", "Write the single yes-or-no question that the two 4 p.m. claims appear to answer.", "Name a check that could settle it and write a short status update for each possible result, including unresolved."],
+      "record": "4 p.m. · conflicting records for one door. 5 p.m. · separate observation. Resolution pending a time-stamped record for 4 p.m.",
+      "deliverable": "Two exact claims, their comparable scope, a verification step, and the current answer status.",
+      "check": { "question": "Which question helps you resolve the contradiction?", "choices": ["Which message sounds more confident?", "Which message has more people forwarding it?", "Do both 4 p.m. statements refer to the same door, instant, and meaning of open?"], "correct": 2, "feedback": "Fix the subject and time first so you can test the same claim in both records." }
+    },
+    {
+      "id": "protect-the-one",
+      "title": "Protecting The One · Truth and Unconditional Love",
+      "minutes": 30,
+      "objective": "Correct an inaccurate record and keep the affected person accounted for and protected.",
+      "scenario": "Ten people should appear in a family event register. One person is missing from the public tally, and the document that confirms their attendance has private details.",
+      "inWorld": "Use the register’s correction process, tell the appropriate person what needs checking, and keep the supporting document within its authorized audience.",
+      "without": "Check the actual headcount and ask the person how they want the correction handled. Restore their place in the record. Use Everything, 1 + 1 = 2, to practice truth with care. Use Nothing, 1 - 1 = 0, to identify what the process removed from the record. Keep the individual accounted for.",
+      "lab": ["Write what the audience needs to know and circle details that require authorization.", "Draft a direct correction and a private confirmation question using a fictional name or number.", "Check that the public tally agrees with the verified headcount while the full source remains available within its authorized audience."],
+      "record": "Verified attendance · 10. Public correction · count updated. Private attachment · restricted.",
+      "deliverable": "A public correction and a separate access note showing how the person stays accounted for.",
+      "check": { "question": "What corrects the tally while protecting the person?", "choices": ["Publish the corrected count and retain the private evidence within its authorized audience", "Publish the private document in full to prove the corrected count", "Keep the incorrect tally so no record has to change"], "correct": 0, "feedback": "Correct the public fact and keep the private evidence where authorized readers can verify it." }
+    },
+    {
+      "id": "master-conductor",
+      "title": "Personal Memory and Personal Intelligence · The Master Conductor",
+      "minutes": 35,
+      "objective": "Route a record from exact source intake to review, then make an evidence and access decision other people can verify.",
+      "scenario": "An original message, a screenshot, and a later correction describe one event differently. The screenshots have a private line.",
+      "inWorld": "Give each item its own record and source reference. Capture the author and date if known, version, and access. Make the review decision traceable to those records.",
+      "without": "Begin with Unfiltered Primary Storage. Work backward to the earliest available item, then forward through the changes. Record the exact conflict and the evidence status. Route verified, cleared material to the Library of Tabor. Hold unresolved claims and restrict private records.",
+      "lab": ["Label three fictional source records A, B, and C. Record the origin, version, and audience for each.", "Use the four Conductor prompts in order and fill out one review record linking the claims and source IDs.", "Have another person recreate the decision from the permitted material. Record what they can verify and what remains open."],
+      "record": "A · original, restricted. B · screenshot, restricted. C · verified correction, cleared. Decision · publish the cleared correction and keep unresolved claims in review.",
+      "deliverable": "A Conductor handoff with source IDs, evidence status, decision, reason, and review status.",
+      "check": { "question": "Where should a copied claim with unresolved evidence and private details go?", "choices": ["To the public index because it is already in a screenshot", "To restricted review with its original source and unresolved status", "Into a rewritten original with the uncertainty removed"], "correct": 1, "feedback": "Keep the original intact, hold the claim for review, and apply the source’s access rules." }
+    },
+    {
+      "id": "capstone",
+      "title": "Capstone · Operate Both Ways",
+      "minutes": 45,
+      "objective": "Resolve a realistic mismatch by using the available process, checking primary reality, and protecting the people involved.",
+      "scenario": "At a fictional community event, nine chairs are in the room. A sheet reports zero chairs allocated to one table, a catalog lists seating under “supplies,” and a public headcount leaves one verified person out.",
+      "inWorld": "Find the correct report, follow the inventory and attendance process, and record which versions you are correcting. Provide enough detail for the person responsible to reproduce your checks.",
+      "without": "Count the chairs in the room and identify the scope of zero. Retrieve the primary headcount and trace the omission. Publish a precise correction cleared for the audience, keep the original in Personal Memory, and pass the decision through the Master Conductor.",
+      "lab": ["Create a ledger with the two counts, two versions of the headcount, and exact source references. Record scope and units.", "Write a correction that the institution can process and a brief explanation grounded in the observed count and the original record.", "Check the audience and the affected person’s place in the record. Have a second reader reproduce the verified result from the references."],
+      "record": "Nine chairs present. Zero assigned to one table. Headcount corrected after checking the source. Private details kept inside the authorized record.",
+      "deliverable": "A source ledger, the public correction, and a Conductor decision. Check that the work names the original and its version, declares the units, resolves or marks the contradiction, protects The One, and can be reproduced.",
+      "check": { "question": "Which submission meets the capstone requirements?", "choices": ["A single corrected number with the original report removed", "A new label and a paragraph saying all claims are equally supported", "A source ledger, a scoped correction, and a review decision another reader can verify"], "correct": 2, "feedback": "You can operate through the actual process while preserving the primary record, resolving the discrepancy, and protecting the person involved." }
+    }
+  ]
+}

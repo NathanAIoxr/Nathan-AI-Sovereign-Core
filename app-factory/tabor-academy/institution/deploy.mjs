@@ -35,11 +35,21 @@ async function dbQuery(sql, params) {
 async function getContent() {
   const response = await request(script + "/content");
   const form = await response.formData();
-  if ([...form.keys()].join() !== "worker.mjs") throw new Error("Current Academy needs a multi-module deployment");
-  const module = form.get("worker.mjs");
-  if (!module) throw new Error("Current Academy module was missing");
-  return typeof module === "string" ? module : module.text();
+  const modules = new Map();
+  for (const [name, part] of form.entries()) {
+    if (!/^[A-Za-z0-9_.-]+\.mjs$/.test(name) || modules.has(name)) {
+      throw new Error("Unrecognized or duplicate Academy module");
+    }
+    modules.set(name, typeof part === "string" ? part : await part.text());
+  }
+  if (!modules.has("worker.mjs")) throw new Error("Current Academy module was missing");
+  const main = modules.size === 1 ? "worker.mjs" : "academy-entry.mjs";
+  if (main !== "worker.mjs" && !modules.get(main)?.includes('from "./worker.mjs"')) {
+    throw new Error("Academy entry module layout changed");
+  }
+  return { main, modules };
 }
+const snapshot = ({ main, modules }) => JSON.stringify([main, [...modules].sort(([a], [b]) => a.localeCompare(b))]);
 const settings = await readJSON(script + "/settings");
 const expected = { ACADEMY_DB: config.database, ACADEMY_CACHE: config.cache, ACADEMY_LIBRARY: config.bucket };
 for (const [name, id] of Object.entries(expected)) {
@@ -72,14 +82,19 @@ if (!objectFound) {
 }
 
 const before = await getContent();
-const updated = buildWorker(before);
-if (updated !== before) {
+const original = before.modules.get("worker.mjs");
+const updated = buildWorker(original);
+if (updated !== original) {
   const checked = await getContent();
-  if (checked !== before) throw new Error("Academy source changed during assembly. Retry with the latest source.");
+  if (snapshot(checked) !== snapshot(before)) throw new Error("Academy source changed during assembly. Retry with the latest source.");
   const form = new FormData();
-  form.append("metadata", new Blob([JSON.stringify({ main_module: "worker.mjs" })], { type: "application/json" }));
-  form.append("worker.mjs", new Blob([updated], { type: "application/javascript+module" }), "worker.mjs");
+  form.append("metadata", new Blob([JSON.stringify({ main_module: before.main })], { type: "application/json" }));
+  before.modules.set("worker.mjs", updated);
+  for (const [name, code] of before.modules) {
+    form.append(name, new Blob([code], { type: "application/javascript+module" }), name);
+  }
   const deployment = await readJSON(script + "/content", { method: "PUT", body: form });
+  if (snapshot(await getContent()) !== snapshot(before)) throw new Error("Academy verification found different modules");
   console.log("Cloudflare deployment", deployment.deployment_id, release);
 } else {
   console.log("Cloudflare is already serving Institution release", release);

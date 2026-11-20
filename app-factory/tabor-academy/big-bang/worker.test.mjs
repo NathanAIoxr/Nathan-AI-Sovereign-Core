@@ -1,0 +1,70 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import { test } from "node:test";
+import { buildModule, patchAcademyEntry } from "./experience.mjs";
+
+const revision = "4".repeat(40);
+const { default: connect } = await import("data:text/javascript;base64," + Buffer.from(await buildModule(revision)).toString("base64"));
+const academy = { fetch: req => new Response(new URL(req.url).pathname) };
+const worker = connect(academy);
+const get = (path, method) => worker.fetch(new Request("https://academy.example" + path, { method }));
+
+test("the authored motto and charter appear unchanged with all six pathways", async () => {
+  const response = await get("/big-bang/");
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("x-tabor-big-bang-revision"), revision);
+  const html = await response.text();
+  assert.ok(html.includes("If you don’t know truth, you don’t know True love because love without truth is tough love …"));
+  assert.ok(html.includes("while love with truth is unconditional love"));
+  assert.ok(html.includes("The motto, heart, soul, shadow, spirit, nothing and everything of Tabor Academy"));
+  for (const id of ["heart", "soul", "shadow", "spirit", "nothing", "everything"]) {
+    assert.ok(html.includes('<article id="' + id + '">'));
+  }
+  assert.equal(html, await readFile(new URL("index.html", import.meta.url), "utf8"));
+});
+
+test("only the Big Bang asset routes are claimed and the release is pinned", async () => {
+  assert.equal((await get("/big-bang")).headers.get("location"), "./big-bang/");
+  assert.equal((await get("/big-bang/", "HEAD")).body, null);
+  assert.equal((await get("/big-bang/", "POST")).status, 405);
+  assert.equal((await get("/big-bang/constructor")).status, 404);
+  assert.deepEqual(await (await get("/big-bang/healthz")).json(), {
+    service: "tabor-academy-big-bang", ready: true, revision, ok: true, project: "tabor-academy-big-bang", release: revision
+  });
+  assert.equal(await (await get("/other")).text(), "/other");
+});
+
+test("the live entry wrapper is additive and repeatable", () => {
+  const entry = 'import academy from "./worker.mjs";\nexport default { ...academy };\n';
+  const patched = patchAcademyEntry(entry);
+  assert.equal(patchAcademyEntry(patched), patched);
+  assert.match(patched, /export default withBigBang\(\{ \.\.\.academy \}\);/);
+  assert.throws(() => patchAcademyEntry("export default academy"), /Unrecognized/);
+});
+
+test("the verbatim author source and the separately written four-check lesson remain reachable", async () => {
+  assert.equal(await (await get("/big-bang/source.txt")).text(), await readFile(new URL("author.txt", import.meta.url), "utf8"));
+  assert.match(await (await get("/big-bang/lesson/")).text(), /One line, four checks/);
+});
+
+test("Big Bang opens the evidence challenges and leaves the existing four-check lesson available", async () => {
+  assert.match(await (await get("/big-bang/")).text(), /href="\.\/evidence\/"/);
+  const challenges = await get("/big-bang/evidence/");
+  assert.equal(challenges.status, 200);
+  assert.match(challenges.headers.get("content-security-policy"), /connect-src 'self'/);
+  const html = await challenges.text();
+  assert.ok(html.includes("Groundskeeper AI · Collyn Phillips Tabor"));
+  for (const id of ["truth", "minds", "lasso", "groundskeeper", "nature", "mining", "conductor"]) {
+    assert.ok(html.includes('<article class="zone" id="' + id + '"'), id);
+  }
+  const script = await (await get("/big-bang/evidence/play.js")).text();
+  assert.doesNotThrow(() => new Function(script));
+  assert.deepEqual(await (await get("/big-bang/evidence/healthz")).json(), {
+    service: "tabor-academy-big-bang-evidence", ready: true, release: revision, zones: 7,
+  });
+  assert.equal((await get("/big-bang/evidence")).headers.get("location"), "/tabor-academy/big-bang/evidence/");
+  assert.equal((await get("/big-bang/evidence/", "HEAD")).body, null);
+  assert.equal((await get("/big-bang/evidence/", "POST")).status, 405);
+  assert.equal((await get("/big-bang/evidence/unknown")).status, 404);
+  assert.equal((await get("/big-bang/lesson/")).status, 200);
+});
