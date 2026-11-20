@@ -156,7 +156,7 @@ blockquote{margin-inline:0;padding-inline:1rem;border-left:3px solid #e6cf87}
   function foundationPage() {
     return layout(foundation.title, `<h1>${esc(foundation.title)}</h1>
 <div class="foundation-statement">${foundationQuote(foundation)}</div>
-<nav aria-label="Foundation links"><a href="${foundation.path}source.txt">Read as plain text</a><a href="${foundation.path}architecture/">Architecture of Everything and Nothing</a><a href="${foundation.path}library-handoff/">Library of Tabor Conductor Handoff</a><a href="${foundation.path}reality-math/">Reality Math course</a><a href="/tabor-academy/truth-lab/">Truth Lab</a><a href="${base}/">Nine Pillars</a></nav>`);
+<nav aria-label="Foundation links"><a href="${foundation.path}source.txt">Read as plain text</a><a href="${foundation.path}architecture/">Architecture of Everything and Nothing</a><a href="${foundation.path}library-handoff/">Library of Tabor Conductor Handoff</a><a href="${foundation.path}reality-math/">Reality Math course</a><a href="${foundation.path}three-apples/">The Three Apples Reality</a><a href="/tabor-academy/truth-lab/">Truth Lab</a><a href="${base}/">Nine Pillars</a></nav>`);
   }
 
   function architecturePage() {
@@ -172,7 +172,7 @@ ${foundation.architecture.blueprint}`);
     const title = "The Library of Tabor · Reality Math, Primary Truth & Conductor Handoff";
     const handoffPath = foundation.path + "library-handoff/";
     return layout(title, `<h1>${esc(title)}</h1>
-<nav aria-label="Library handoff links"><a href="${handoffPath}source.txt">Full original text</a><a href="${handoffPath}conductor.txt">Copy-and-paste Conductor block</a><a href="${foundation.path}reality-math/">Reality Math course</a><a href="${foundation.path}architecture/">Academy Architecture</a><a href="/tabor-academy/library/">Library of Tabor</a></nav>
+<nav aria-label="Library handoff links"><a href="${handoffPath}source.txt">Full original text</a><a href="${handoffPath}conductor.txt">Copy-and-paste Conductor block</a><a href="${foundation.path}reality-math/">Reality Math course</a><a href="${foundation.path}three-apples/">The Three Apples Reality</a><a href="${foundation.path}architecture/">Academy Architecture</a><a href="/tabor-academy/library/">Library of Tabor</a></nav>
 <pre class="architecture-source">${esc(foundation.libraryHandoff.source)}</pre>`);
   }
 
@@ -180,8 +180,16 @@ ${foundation.architecture.blueprint}`);
     const title = "Reality Math · Multiplication and Subtraction";
     return layout(title, `<h1>${title}</h1>
 <p class="byline">Tabor Academy</p>
-<p><a href="${foundation.path}library-handoff/">Read Nathan Tabor’s original Library of Tabor packet</a></p>
+<p><a href="${foundation.path}library-handoff/">Read Nathan Tabor’s original Library of Tabor packet</a> · <a href="${foundation.path}three-apples/">The Three Apples Reality</a></p>
 <div class="reality-math">${foundation.realityMath}</div>`);
+  }
+
+  function threeApplesPage() {
+    const title = "The Three Apples Reality";
+    return layout(title, `<h1>${title}</h1>
+<p class="byline">Tabor Academy · The Law of Conservation &amp; Full Accountability</p>
+<p><a href="${foundation.path}three-apples/source.txt">Read the original Three Apples text and Conductor handoff</a> · <a href="${foundation.path}reality-math/">Reality Math</a></p>
+<div class="reality-math">${foundation.threeApples.lesson}</div>`);
   }
 
   async function serveBlueprint(request, env, ctx) {
@@ -303,6 +311,12 @@ ${foundation.architecture.blueprint}`);
       }
       if (path === "/foundation/reality-math") {
         return respond(request, realityMathPage(), 200, "text/html; charset=utf-8");
+      }
+      if (path === "/foundation/three-apples") {
+        return respond(request, threeApplesPage(), 200, "text/html; charset=utf-8");
+      }
+      if (path === "/foundation/three-apples/source.txt") {
+        return respond(request, foundation.threeApples.source, 200, "text/plain; charset=utf-8");
       }
       if (path === "/civics/source.txt") return respond(request, civics.source, 200, "text/plain; charset=utf-8");
       if (path === "/civics") {

@@ -150,6 +150,21 @@ test("teaches both operations with six worked modules and a capstone", async () 
   assert.equal((await call(new Request(path, { method: "HEAD" }), {})).body, null);
 });
 
+test("serves all nine Three Apples stages and preserves the Conductor source", async () => {
+  const path = url + "/foundation/three-apples/";
+  const get = suffix => call(new Request(path + suffix), {});
+  const page = await get("");
+  assert.equal(page.status, 200);
+  const html = await page.text();
+  for (const id of ["infancy", "toddler", "preschool", "elementary", "middle", "high", "college", "graduate", "practice-audit"]) {
+    assert.ok(html.includes('<article id="' + id + '">'));
+    assert.ok(html.includes('href="#' + id + '"'));
+  }
+  assert.match(html, /1 ÷ 4 = ¼ per piece/);
+  assert.match(html, /unresolved difference is 6 g/);
+  assert.equal(await (await get("source.txt")).text(), readFileSync(new URL("three-apples.txt", import.meta.url), "utf8"));
+});
+
 test("practice validates scores without creating any student record", async () => {
   const { db, post } = fixtures();
   for (const score of [89.99, 90, 100]) {

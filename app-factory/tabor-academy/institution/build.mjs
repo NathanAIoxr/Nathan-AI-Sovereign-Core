@@ -16,6 +16,10 @@ const blockEnd = handoffSource.lastIndexOf("\nUse code with caution.");
 if (blockStart < 0 || blockEnd <= blockStart) throw new Error("Library of Tabor handoff block is missing");
 export const foundation = {
   ...foundationStatement,
+  threeApples: {
+    lesson: await readFile(new URL("three-apples.html", here), "utf8"),
+    source: await readFile(new URL("three-apples.txt", here), "utf8"),
+  },
   realityMath: await readFile(new URL("reality-math.html", here), "utf8"),
   libraryHandoff: { source: handoffSource, block: handoffSource.slice(blockStart, blockEnd) },
   architecture: {
@@ -44,6 +48,7 @@ function updateAcademyMap(source) {
       ["/institution/foundation/", "Learning paths and the Academy"],
       ["/institution/foundation/library-handoff/", "Learning paths and the Academy"],
       ["/institution/foundation/reality-math/", "Learning paths and the Academy"],
+      ["/institution/foundation/three-apples/", "Learning paths and the Academy"],
     ]) {
       const entries = current.catalog[group] ?? (current.catalog[group] = []);
       const entry = catalog.catalog[group].find(([href]) => href === path);
