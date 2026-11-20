@@ -24,6 +24,6 @@ The holding D1 ledger accepts an external verifier's Ed25519 attestation over th
 
 Use Node.js 24 and run `node --test test/*.test.mjs`. The Cloudflare stage lives in its own dispatch namespace. The released Worker serves a fixed sample and a read-only mining replay.
 
-On an owned host, `BITCOIN_BIN=/path/to/bitcoin/bin bash scripts/bitcoin-regtest.sh` runs a private Bitcoin Core regtest with networking disabled and cleans up the temporary datadir. It uses no mainnet funds. It requires local RPC socket support. GitHub Actions runs unit tests only.
+On an owned host, `BITCOIN_BIN=/path/to/bitcoin/bin bash scripts/bitcoin-regtest.sh` runs a private Bitcoin Core regtest with networking disabled and cleans up the temporary datadir. Bitcoin Core 32.1 generates an unsubmitted block for each of the nine routes. The project replaces the nonce with a proof found by that route, submits the block, and checks that the node adopted its hash. Bitcoin Core then generates the remaining blocks to reach height 101 and exercise coinbase maturity. The harness requires local HTTP RPC and uses regtest funds. GitHub Actions runs unit tests only.
 
 The Super 2X and Hyper fleet inventory each has 1,000 planned mining slots. An active device must be separately enrolled as an authorized mining device with its own pool configuration. Existing FP64 executors and hyper-federation language shards provide software compute services.

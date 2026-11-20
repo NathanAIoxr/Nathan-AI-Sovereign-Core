@@ -8,7 +8,7 @@ bitcoin_bin=${BITCOIN_BIN:-}
 }
 data=$(mktemp -d)
 port=${REGTEST_RPC_PORT:-18443}
-cli=("$bitcoin_bin/bitcoin-cli" -regtest "-datadir=$data" "-rpcport=$port")
+cli=("$bitcoin_bin/bitcoin-cli" -regtest "-datadir=$data" "-rpcport=$port" -rpcconnect=127.0.0.1 -rpcclienttimeout=5 -noipcconnect)
 cleanup() {
   "${cli[@]}" stop >/dev/null 2>&1 || true
   kill "$pid" 2>/dev/null || true
@@ -21,6 +21,7 @@ trap cleanup EXIT
 "${cli[@]}" -rpcwait -rpcwaittimeout=20 getblockchaininfo >/dev/null
 "${cli[@]}" createwallet golden-goose-regtest >/dev/null
 address=$("${cli[@]}" -rpcwallet=golden-goose-regtest getnewaddress)
-"${cli[@]}" generatetoaddress 101 "$address" >/dev/null
+node "$(dirname "${BASH_SOURCE[0]}")/mirror-regtest.mjs" "$bitcoin_bin/bitcoin-cli" "$data" "$port" "$address"
+"${cli[@]}" generatetoaddress 92 "$address" >/dev/null
 "${cli[@]}" getblockchaininfo | jq '{chain, blocks, bestblockhash}'
 "${cli[@]}" -rpcwallet=golden-goose-regtest getbalances | jq '{spendable_regtest_btc: .mine.trusted, immature_regtest_btc: .mine.immature}'
