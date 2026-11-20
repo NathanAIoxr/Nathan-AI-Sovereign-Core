@@ -1,0 +1,2 @@
+export function validateMission(m){return !!(m&&typeof m.id==='string'&&/^[a-z0-9-]+$/.test(m.id)&&Number.isInteger(m.seconds)&&m.seconds>=15&&m.seconds<=600&&typeof m.challenge==='string');}
+export function validateCatalog(c){if(!c||c.simulation_only!==true||!Array.isArray(c.missions)||!c.missions.every(validateMission))throw Error('Invalid simulation mission catalog');const ids=c.missions.map(x=>x.id);if(new Set(ids).size!==ids.length)throw Error('Duplicate mission id');return c;}
