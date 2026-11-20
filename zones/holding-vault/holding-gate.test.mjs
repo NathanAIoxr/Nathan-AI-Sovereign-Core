@@ -81,3 +81,33 @@ test('snapshot downloads require owner authorization', async () => {
   assert.equal(response.status,401);
   assert.equal(response.headers.get('cache-control'),'no-store');
 });
+
+
+test('private stand-in pages deny guest access', async () => {
+  for (const path of ['/preview/project-a/site','/preview/project-a/site/part/example']) {
+    const response = await gate.fetch(request(path),env);
+    assert.equal(response.status,401);
+    assert.equal(response.headers.get('cache-control'),'no-store');
+  }
+});
+
+test('a stand-in site only selects components for its project', async () => {
+  const {renderZoneSite} = await import('./packages/shared/holding-gate.js');
+  const record = {workspace_id:'project-a',project_name:'Fixture <site>',launch_status:'HOLDING',domain:null};
+  const DB = {prepare(sql) {
+    assert.match(sql,/WHERE workspace_id=\?/);
+    return {bind(id) {
+      assert.equal(id,'project-a');
+      return {
+        first: async () => ({preview_hostname:'project-a.zones.test'}),
+        all: async () => ({results:[{source_table:'fixture',source_id:'nested/path',component_type:'App build'}]})
+      };
+    }};
+  }};
+  const response = await renderZoneSite({DB},record,'/holding-vault');
+  assert.equal(response.status,200);
+  const html = await response.text();
+  assert.match(html,/Fixture &lt;site&gt;/);
+  assert.match(html,/project-a\.zones\.test/);
+  assert.match(html,/\/holding-vault\/preview\/project-a\/site\/part\/[A-Za-z0-9_-]+/);
+});
