@@ -61,7 +61,7 @@ test("editable draft interaction handlers work with fictional local input", asyn
   const handlers = new Map();
   let focused = false;
   const draft = { value: "", focus() { focused = true; } };
-  const approach = { value: "boundary" };
+  const approach = { value: "boundary", focus() { focused = true; } };
   const note = { value: "Please ask before visiting." };
   const form = {
     elements: { approach, note, draft },
@@ -83,6 +83,13 @@ test("editable draft interaction handlers work with fictional local input", asyn
     assert.equal(focused, true);
     assert.match(draft.value, /Please ask before visiting\.$/);
     assert.equal(status.textContent, "Draft ready to edit.");
+    approach.value = "unrecognized";
+    focused = false;
+    handlers.get("submit")({ preventDefault() {} });
+    assert.equal(panel.hidden, true);
+    assert.equal(status.textContent, "Choose a starting point and keep your note within 300 characters.");
+    assert.equal(focused, true);
+    approach.value = "boundary";
     draft.value = "Edited locally by the user.";
     assert.equal(draft.value, "Edited locally by the user.");
     handlers.get("reset")();
