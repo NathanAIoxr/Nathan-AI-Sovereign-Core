@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import assert from "node:assert/strict";
-import { blueprintSource, release } from "./build.mjs";
+import { blueprintSource, civics, release } from "./build.mjs";
 
 const config = JSON.parse(await readFile(new URL("cloudflare.json", import.meta.url), "utf8"));
 const curl = promisify(execFile);
@@ -22,6 +22,9 @@ const checks = [
   async () => assert.match(await fetchRoute("/order/ancient-servitude/"), /Ancient Servitude/),
   async () => assert.match(await fetchRoute("/institution/"), /From Question to Evidence/),
   async () => assert.match(await fetchRoute("/institution/?score=90"), /Mastery reached/),
+  async () => assert.match(await fetchRoute("/institution/civics/?score=90"), /Mastery reached/),
+  async () => assert.equal(await fetchRoute("/institution/civics/source.txt"), civics.source),
+  async () => assert.match(await fetchRoute("/map/"), /Comparative Civics/),
   async () => assert.equal(await fetchRoute("/institution/blueprint.json"), blueprintSource),
   async () => {
     const health = JSON.parse(await fetchRoute("/institution/healthz"));

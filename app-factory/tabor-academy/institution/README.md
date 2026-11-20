@@ -4,6 +4,10 @@ By Talking Mammal Nathan Tabor. [Open the live institutional workbench](https://
 
 The nine pillars and original handoff are in `blueprint.json` and `source-handoff.md`. The release includes the first published course, *From Question to Evidence*, with a syllabus, scope and sequence, 50-minute lesson and two rubrics. Public practice uses the stored 90% cutoff. The governance sample records the status of the register. Formal registration requires its own filing and verification.
 
+## Comparative civics
+
+[Open Comparative Civics & Legal Language](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/civics/) for a 50-minute primary-source lesson on the 1776 declarations, Diné Fundamental Laws, and the 1868 Navajo Treaty. The unit has its own syllabus, source text, readings, and 90% rubric. It is also indexed in the Academy Map. The submitted comparison and dialogue are preserved verbatim in `civics/source.txt`.
+
 ## Cloudflare deployment
 
 The existing Academy keeps its Library of Tabor binding. The institution feature uses the `ACADEMY_DB` D1 binding, `ACADEMY_CACHE` KV binding, and `ACADEMY_LIBRARY` R2 binding. `cloudflare.json` records the binding targets. R2 serves the versioned blueprint through the Academy Worker.

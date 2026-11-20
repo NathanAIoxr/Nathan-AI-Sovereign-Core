@@ -2,17 +2,17 @@ import { readFileSync } from "node:fs";
 import { DatabaseSync } from "node:sqlite";
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { blueprint, blueprintSource, buildWorker, release } from "./build.mjs";
+import { blueprint, blueprintSource, buildWorker, civics, release } from "./build.mjs";
 import { createInstitution } from "./runtime.mjs";
 
-const call = createInstitution(blueprint, release);
+const call = createInstitution(blueprint, release, civics);
 const staffToken = "local-test-staff-key-that-is-at-least-thirty-two";
 const url = "https://academy.invalid/institution";
 const migration = name => readFileSync(new URL("migrations/" + name + ".sql", import.meta.url), "utf8");
 
 function fixtures() {
   const db = new DatabaseSync(":memory:");
-  for (const name of ["0001_institution", "0002_foundations"]) {
+  for (const name of ["0001_institution", "0002_foundations", "0003_comparative_civics"]) {
     db.exec(migration(name));
     db.exec(migration(name));
   }
@@ -103,4 +103,29 @@ test("staff enrollment, attendance, and transcript writes respect access and app
   assert.equal(record.credits_earned, 0);
   assert.throws(() => db.exec("UPDATE transcript_ledger SET score = 100"), /append-only/);
   assert.throws(() => db.exec("DELETE FROM transcript_ledger"), /append-only/);
+});
+
+test("publishes and grades the comparative civics unit without creating student records", async () => {
+  const { db, get, post } = fixtures();
+  assert.match(await (await get("/civics/")).text(), /Comparative Civics/);
+  assert.match(await (await get("/civics/?score=90")).text(), /Mastery reached/);
+  assert.equal(await (await get("/civics/source.txt")).text(), civics.source);
+  for (const score of [89, 90]) {
+    const response = await post("/api/assessments/grade", { assessment_id: "civics-mastery", score });
+    assert.equal(response.status, 200);
+    const grade = await response.json();
+    assert.equal(grade.mastery_achieved, score === 90);
+    assert.equal(grade.transcript_recorded, false);
+  }
+  assert.equal(db.prepare("SELECT COUNT(*) AS count FROM transcript_ledger").get().count, 0);
+});
+
+test("registers the civics lesson once in the deployed Academy map", () => {
+  const base = 'const page = "<main>Academy</main>";\nexport default { async fetch(request, env) {\n    const { pathname } = new URL(request.url);\n  } };\n';
+  const initial = buildWorker(base).replace("export default {", "const academyApp = {");
+  const existing = { catalog: { "History and the record": [["/existing/", "Existing", "existing"]] }, relations: {} };
+  const assembled = buildWorker(initial + "export default createAcademyNavigation(academyApp, " + JSON.stringify(existing) + ");\n");
+  assert.match(assembled, /"\/institution\/civics\/","Comparative Civics/);
+  assert.match(assembled, /"\/existing\/","Existing"/);
+  assert.equal(buildWorker(assembled), assembled);
 });

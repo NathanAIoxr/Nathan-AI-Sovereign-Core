@@ -1,4 +1,4 @@
-export function createInstitution(blueprint, release) {
+export function createInstitution(blueprint, release, civics) {
   const base = "/tabor-academy/institution";
   const blueprintKey = "institution/blueprint-" + blueprint.meta.version + ".json";
   const outlineQueries = {
@@ -112,7 +112,19 @@ section{margin-top:2.25rem;border-top:1px solid #778360;padding-top:.7rem}ol.pil
 .byline{color:#ddcead}.score{display:flex;align-items:center;flex-wrap:wrap;gap:.65rem}
 input,button{font:inherit;padding:.55rem .75rem;border:1px solid #778360}input{width:8rem}button{background:#e6cf87;color:#151b10;font-weight:bold;cursor:pointer}
 output{display:block;margin-top:1rem;font-weight:bold}
+blockquote{margin-inline:0;padding-inline:1rem;border-left:3px solid #e6cf87}
+.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left}td,th{padding:.65rem;border-bottom:1px solid #778360;vertical-align:top}caption{text-align:left;padding-bottom:.4rem}
 </style></head><body><main><nav aria-label="Academy"><a href="/tabor-academy/">Academy home</a><a href="/tabor-academy/library/">Library of Tabor</a><a href="/tabor-academy/workbench/">Workbench</a></nav>${content}</main></body></html>`;
+  }
+
+  function masteryForm(search, rubric, action) {
+    const score = search.get("score");
+    const result = score !== null && score.trim() && validScore(Number(score)) ? evaluate(rubric, Number(score)) : null;
+    const message = score === null ? "" : result
+      ? `<output role="status">${result.score}% · ${result.mastery_achieved ? "Mastery reached" : "Review the rubric and try again"}.</output>`
+      : '<output role="status">Enter a score from 0 to 100.</output>';
+    return `<form method="get" action="${action}/#practice"><p>Practice threshold ${rubric.mastery_cutoff}%</p>
+<div class="score"><label for="score">Practice score</label><input id="score" name="score" type="number" min="0" max="100" step="any" required value="${esc(result?.score ?? "")}"><button type="submit">Check mastery</button></div>${message}</form>`;
   }
 
   async function dashboard(db, search) {
@@ -126,20 +138,14 @@ output{display:block;margin-top:1rem;font-weight:bold}
     const course = courses.find(row => row.id === "question-to-evidence");
     const lesson = lessons.find(row => row.id === "claim-and-source");
     const rubric = assessments.find(row => row.id === "evidence-mastery");
-    const score = search.get("score");
-    const result = score !== null && score.trim() && validScore(Number(score)) && rubric ? evaluate(rubric, Number(score)) : null;
-    const message = score === null ? "" : result
-      ? `<output role="status">${result.score}% · ${result.mastery_achieved ? "Mastery reached" : "Review the rubric and try again"}.</output>`
-      : '<output role="status">Enter a score from 0 to 100.</output>';
     const practice = course && lesson && rubric ? `<section><h2>${esc(course.course_title)}</h2>
 <p>${esc(course.course_code)} · ${lesson.duration_minutes} minutes · ${esc(course.weekly_schedule)}</p>
 <ol>${["warm_up_hook", "direct_instruction", "guided_practice", "independent_work", "exit_check"].map(key => `<li>${esc(lesson[key])}</li>`).join("")}</ol>
 <h3>Mastery rubric</h3><ul>${JSON.parse(rubric.rubric_json).map(item => `<li>${esc(item.criterion)} · ${item.points} points</li>`).join("")}</ul>
-<form method="get" action="${base}/#mastery" id="mastery"><p>Practice threshold ${rubric.mastery_cutoff}%</p>
-<div class="score"><label for="score">Practice score</label><input id="score" name="score" type="number" min="0" max="100" step="any" required value="${esc(result?.score ?? "")}"><button type="submit">Check mastery</button></div>${message}</form></section>` : "";
+<div id="mastery"><div id="practice">${masteryForm(search, rubric, base)}</div></div></section>` : "";
     return layout("Nine Pillars", `<h1>Nine Pillars</h1><p class="byline">Tabor Academy · ${esc(blueprint.meta.author)}</p>
 <p>Trace the path from a curriculum to a lesson, a mastery check, and an official record.</p>
-<p><a href="${base}/blueprint.json">Open the architecture blueprint</a></p>
+<p><a href="${base}/blueprint.json">Open the architecture blueprint</a> · <a href="${base}/civics/">Comparative Civics &amp; Legal Language</a></p>
 <section><h2>Institutional architecture</h2><ol class="pillars">${pillars}</ol></section>${practice}`);
   }
 
@@ -241,6 +247,13 @@ output{display:block;margin-top:1rem;font-weight:bold}
       }
       if (!isRead) return failure(request, "Method not allowed", 405);
       if (path === "/") return respond(request, await dashboard(db, url.searchParams), 200, "text/html; charset=utf-8");
+      if (path === "/civics/source.txt") return respond(request, civics.source, 200, "text/plain; charset=utf-8");
+      if (path === "/civics") {
+        const rubric = await findAssessment(db, "civics-mastery");
+        if (!rubric) return failure(request, "Civics rubric is unavailable", 503);
+        const practice = `<div id="practice">${masteryForm(url.searchParams, rubric, base + "/civics")}</div>`;
+        return respond(request, layout("Comparative Civics & Legal Language", civics.html + practice), 200, "text/html; charset=utf-8");
+      }
       if (path === "/blueprint.json") return await serveBlueprint(request, env, ctx);
       if (path === "/healthz") {
         const row = await db.prepare("SELECT COUNT(*) AS curricula FROM curricula").first();
