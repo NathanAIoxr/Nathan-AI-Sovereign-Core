@@ -90,7 +90,7 @@ export async function renderZoneSite(env, record, base, part, cursor = "0") {
 
   const root = `${base}/preview/${record.workspace_id}`;
   const title = record.project_name;
-  const header = `<nav aria-label="Project preview"><a href="${root}">Workspace</a> · <a href="${root}/site">Website preview</a> · <a href="${root}/snapshot.json">Snapshot</a></nav><p><strong>Private staging</strong> · <code>${escape(site.preview_hostname)}</code></p>`;
+  const header = `<nav aria-label="Project preview"><a href="${root}">Workspace</a> · <a href="${root}/site">Website preview</a> · <a href="${root}/snapshot.json">Snapshot</a> · <a href="${base}/preview/readers?workspace=${record.workspace_id}">Integration candidates</a></nav><p><strong>Private staging</strong> · <code>${escape(site.preview_hostname)}</code></p>`;
   if (part) {
     const key = partIdentity(part);
     if (!key) return text("Component not found",404);
@@ -109,6 +109,37 @@ export async function renderZoneSite(env, record, base, part, cursor = "0") {
   const next = results.length>pageSize ? `<p><a href="${root}/site?offset=${offset+pageSize}">Next components</a></p>` : "";
   const placeholder = record.domain ? escape(record.domain) : "Assigned at launch";
   return page(title,`${header}<dl><dt>Website domain</dt><dd>${placeholder}</dd><dt>Launch state</dt><dd>${escape(record.launch_status)}</dd></dl><h2>Staged areas</h2>${items ? `<ul>${items}</ul>` : "<p>No staged areas yet.</p>"}${next}`);
+}
+
+async function showReaders(env,base,search,asJson) {
+  const workspace=search.get("workspace") ?? "";
+  const reader=search.get("reader") ?? "";
+  const cursor=search.get("offset") ?? "0";
+  if ((workspace&&!validId(workspace)) || (reader&&!["github","cloudflare"].includes(reader)) || !/^(0|[1-9][0-9]{0,6})$/.test(cursor)) return text("Invalid filter",400);
+  const offset=Number(cursor);
+  const {results}=await env.DB.prepare(`SELECT c.reader,c.workspace_id,c.candidate_key,c.action,c.source_ref,c.evidence_json,c.review_status,z.project_name
+    FROM zone_reader_candidates c JOIN zones_registry z USING(workspace_id)
+    WHERE z.launch_status='HOLDING' AND (?='' OR c.workspace_id=?) AND (?='' OR c.reader=?)
+    ORDER BY c.observed_at DESC,c.workspace_id,c.reader,c.candidate_key LIMIT 41 OFFSET ?`).bind(workspace,workspace,reader,reader,offset).all();
+  const rows=results.slice(0,40);
+  const nextOffset=results.length>40?offset+40:null;
+  if (asJson) return json({workspace:workspace||null,reader:reader||null,nextOffset,rows:rows.map(({evidence_json,...row})=>({...row,evidence:JSON.parse(evidence_json)}))});
+  const path=base+"/preview/readers";
+  function query(next) {
+    const params=new URLSearchParams();
+    if(workspace)params.set("workspace",workspace);
+    if(reader)params.set("reader",reader);
+    if(next)params.set("offset",String(next));
+    const value=params.toString();
+    return value?"?"+escape(value):"";
+  }
+  const files=rows.map(row=>{
+    const label=escape(row.source_ref);
+    const origin=row.source_ref.startsWith("https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/")?`<a href="${label}">${label}</a>`:label;
+    return `<li><a href="${base}/preview/${escape(row.workspace_id)}/site">${escape(row.project_name)}</a><p>${escape(row.action)} · ${escape(row.reader)} · ${escape(row.review_status)}</p><small>${origin}</small></li>`;
+  }).join("");
+  const next=nextOffset===null?"":`<p><a href="${path}${query(nextOffset)}">Next candidates</a></p>`;
+  return page("Integration candidates",`<p><a href="${base}/preview">Project registry</a> · <a href="${path}.json${query(offset)}">JSON evidence</a></p>${files?`<ol>${files}</ol>`:"<p>No integration candidates for this view.</p>"}${next}`);
 }
 
 async function handle(request, env) {
@@ -136,6 +167,10 @@ async function handle(request, env) {
 
   if (pathname !== "/preview" && !pathname.startsWith("/preview/")) return text("Page not found",404);
   if (!await authorize(request, env)) return text("Owner authorization required",401);
+  if (pathname === "/preview/readers" || pathname === "/preview/readers.json") {
+    return await showReaders(env,base,searchParams,pathname.endsWith(".json"));
+  }
+
 
   if (pathname === "/preview" || pathname === "/preview/") {
     const after = searchParams.get("after") ?? "";
@@ -144,7 +179,7 @@ async function handle(request, env) {
     const rows = results.slice(0,40);
     const items = rows.map((row) => '<li><a href="' + base + '/preview/' + escape(row.workspace_id) + '">' + escape(row.project_name) + '</a> · ' + escape(row.project_kind) + '</li>').join("");
     const next = results.length > 40 ? '<p><a href="' + base + '/preview?after=' + encodeURIComponent(rows.at(-1).workspace_id) + '">Next page</a></p>' : "";
-    return page("Project staging registry", `<ul>${items}</ul>${next}`);
+    return page("Project staging registry", `<p><a href="${base}/preview/readers">Integration candidates</a></p><ul>${items}</ul>${next}`);
   }
 
   const site = /^\/preview\/([^/]+)\/site(?:\/part\/([^/]+))?\/?$/.exec(pathname);
