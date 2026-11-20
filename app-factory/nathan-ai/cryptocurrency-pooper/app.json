@@ -3,6 +3,7 @@
   "name": "The Cryptocurrency Pooper by Nathan Tabor",
   "author": "Nathan Tabor",
   "environment": "staging",
+  "academyMotto": { "id": "tabor-academy-truth-and-love", "endpoint": "/api/motto" },
   "cloudflare": {
     "dispatchNamespace": "cryptocurrency-pooper-holding",
     "script": "cryptocurrency-pooper"

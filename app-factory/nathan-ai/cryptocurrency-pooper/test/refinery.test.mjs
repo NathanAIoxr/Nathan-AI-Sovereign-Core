@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { demoFeedstock, demoJob, refineBatch, sha256 } from "../refinery.mjs";
 import worker from "../worker.mjs";
+import { motto } from "../motto.mjs";
 
 test("the Delftia filter and Cupriavidus refinery produce one reproducible receipt", async () => {
   const input = structuredClone(demoFeedstock);
@@ -45,4 +46,15 @@ test("staging Worker renders and provides an explicitly unsettled receipt", asyn
   assert.equal(report.settlement, "candidate");
   assert.equal(await sha256(report.receipt), report.receiptHash);
   assert.equal((await worker.fetch(new Request(base + "/api/demo", { method: "POST" }))).status, 405);
+});
+
+test("the staging page and API preserve Nathan's Academy motto", async () => {
+  const base = "https://staging.example";
+  const page = await (await worker.fetch(new Request(base))).text();
+  assert.ok(page.includes(motto.opening));
+  assert.ok(page.includes(motto.dedication));
+  for (const paragraph of motto.quote.split("\n\n")) assert.ok(page.includes(paragraph));
+  const result = await worker.fetch(new Request(base + "/api/motto"));
+  assert.equal(result.status, 200);
+  assert.deepEqual(await result.json(), motto);
 });

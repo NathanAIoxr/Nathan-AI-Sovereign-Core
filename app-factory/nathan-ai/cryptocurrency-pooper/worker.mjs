@@ -1,4 +1,5 @@
 import { demoFeedstock, demoJob, refineBatch } from "./refinery.mjs";
+import { motto } from "./motto.mjs";
 
 const name = "The Cryptocurrency Pooper by Nathan Tabor";
 
@@ -29,6 +30,9 @@ button{border:0;border-radius:8px;background:var(--gold);color:var(--bg);padding
 button:focus-visible,summary:focus-visible{outline:2px solid var(--green);outline-offset:4px}button[disabled]{opacity:.65}
 #status,.note{color:var(--muted);font-size:14px;margin-top:8px}details{margin-top:16px}summary{cursor:pointer;color:var(--green)}
 pre{background:#151811;border:1px solid var(--line);border-radius:8px;padding:14px;overflow:auto;font:13px/1.45 var(--mono)}
+.motto{margin-top:24px;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.motto h2,.motto a{color:var(--gold)}.motto blockquote{margin:16px 0;max-width:56ch;padding-left:14px;border-left:2px solid var(--gold)}
+.motto blockquote p+p{margin-top:10px}.motto .opening{margin-top:8px;color:var(--muted)}
 @media(max-width:580px){.grid{grid-template-columns:1fr}.card{padding:15px}}
 </style>
 <script src="/app.js" defer></script>
@@ -41,6 +45,13 @@ pre{background:#151811;border:1px solid var(--line);border-radius:8px;padding:14
 <p class="byline">by Nathan Tabor</p>
 <p class="quote">It’s amazing what you can learn from mother nature, and then when you apply creativity and imagination …</p>
 </header>
+<section class="motto" aria-labelledby="academy-motto">
+<h2 id="academy-motto">${motto.title}</h2>
+<p class="opening">${motto.opening}</p>
+<blockquote>${motto.quote.split("\n\n").map(paragraph => `<p>${paragraph}</p>`).join("")}</blockquote>
+<p>${motto.dedication}</p>
+<p><a href="${motto.academyUrl}">Tabor Academy</a></p>
+</section>
 <div class="grid">
 <section class="card"><h2>Delftia outer filter</h2><p>Pass valid events through once. Count spam and blocked traffic separately.</p><p class="metrics" id="edge"></p></section>
 <section class="card"><h2>Cupriavidus inner refinery</h2><p>Retire expired records and preserve records on hold.</p><p class="metrics" id="archive"></p></section>
@@ -91,6 +102,9 @@ export default {
     }
     if (path === "/app.js") {
       return new Response(client, { headers: { ...headers, "content-type": "application/javascript; charset=utf-8" } });
+    }
+    if (path === "/api/motto") {
+      return Response.json(motto, { headers });
     }
     if (path === "/api/demo") {
       const { receipt, receiptHash } = await refineBatch(demoJob, demoFeedstock);
