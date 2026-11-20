@@ -1,0 +1,56 @@
+name = "zone-tweezer-tap-edge"
+main = "src/edge.mjs"
+compatibility_date = "2026-06-01"
+workers_dev = false
+preview_urls = false
+
+[[rules]]
+type = "Text"
+globs = ["**/*.html"]
+
+[vars]
+CF_ACCOUNT_ID = "a70580bacdf96c946662b7b67dcb45b5"
+ZONE_DATABASE_ID = "059f7a3a-43d1-49ea-80b2-65245436500f"
+ACCESS_ISSUER = "https://nathantaboract.cloudflareaccess.com"
+
+[version_metadata]
+binding = "BUILD"
+
+[triggers]
+crons = ["* * * * *"]
+
+[[durable_objects.bindings]]
+name = "CONDUCTOR"
+class_name = "MasterConductor"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["MasterConductor"]
+
+[[d1_databases]]
+binding = "ZONE_DB"
+database_name = "zone-tweezer-ledger-db"
+database_id = "059f7a3a-43d1-49ea-80b2-65245436500f"
+
+[[kv_namespaces]]
+binding = "ZONE_KV"
+id = "3f89117be0b743a2b1453c1ec1d5b167"
+
+[[r2_buckets]]
+binding = "ZONE_R2"
+bucket_name = "zone-tweezer-artifacts"
+
+[[queues.producers]]
+binding = "EMIT_BUS"
+queue = "zone-tweezer-events-q"
+
+[[queues.consumers]]
+queue = "zone-tweezer-events-q"
+max_batch_size = 10
+max_retries = 5
+dead_letter_queue = "zone-tweezer-events-dlq"
+
+[[queues.consumers]]
+queue = "zone-tweezer-events-dlq"
+max_batch_size = 10
+max_retries = 10

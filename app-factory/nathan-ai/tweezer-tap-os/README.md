@@ -44,3 +44,25 @@ Cloudflare returned error 10037 for the standard Worker because the account is a
 Cloudflare deployment `e00f2776157c438982dd68ba484547a8` runs as `zone-tweezer-tap-ledger` in `tweezer-tap-os-holding`. This companion uses the original staging ledger and `DELIVERY_MODE=d1`. A single D1 transaction records local delivery and acknowledges the corresponding outbox row. This mode performs ledger delivery without sending Queue messages or external webhooks. The hash-chain Conductor remains a separate deployment.
 
 The fallback source is `src/conductor.mjs` and its verification command is `node test.mjs` with Node 24. Authenticated `POST /clock` bootstraps the fallback's own Durable Object alarm once a dispatch entry point is configured. The upload is confirmed. Public ingress, live ticks, and end-to-end delivery still require verification.
+
+## Edge runtime for TAP THAT and TWEEZER-OS
+
+- TIME uses a ten-second slot and a minute cron to bootstrap or recover the Durable Object alarm. Scheduling is best effort. A missed slot is visible as a gap.
+- EMIT commits sealed events and outbox entries in the same D1 transaction. The queue consumer verifies SHA-256 seals, batches idempotent receipts, and retries failed deliveries. It archives dead letters in private R2. Optional TAP SIM webhooks use a single configured HTTPS URL, an HMAC signature, and an event idempotency key. A subscriber must deduplicate by that key.
+- ALIEN runs schema, smoke and manifest checks. NEILA repeats the checks in reverse order, linking its first result to the final ALIEN result. Each event has a paired SHA-256 Merkle root linked to the previous event root plus a private write-once evidence object. Apply R2 Bucket Lock to the `neila/` prefix before accepting events.
+- TAP THAT ships an iPhone-friendly control board. Its Durable Object accepts hibernating binary WebSockets. The motion permission button translates local acceleration into a simulated flinch signal. Raw accelerometer readings stay in the browser. Cartridge input falls back to HTTP with the same event ID. Vibration depends on browser support. The board controls fictional events in the simulator.
+- The Big Red Button holds the zone immediately. When the app switch is live, two missed 10-second heartbeats or a failed NEILA check put the switch in `RESTORE_PENDING` and request a D1 restore. The private rollback receipt is retained outside D1. An alarm detects a gap when the platform next invokes the Worker. Scheduled alarms and mobile network latency are best effort.
+
+## Verify and configure
+Run `node test.mjs` with Node 24. Tests use SQLite and local doubles for Cloudflare bindings.
+The GitHub workflow runs the same checks for relevant pull requests or on dispatch. It uses read-only repository permissions.
+
+Use the resources in `wrangler.edge.toml` and apply the D1 migrations before starting TIME. Set `ACCESS_AUDIENCE` to the Access application's audience and configure its policies for the authorized operators. Automated clients can enter with an Access service policy and only use status, socket and simulated tap operations. `ZONE_ADMINS` is a comma-separated allowlist of human Access identities. The legacy `ZONE_CONTROL_KEY` is available for staging API access and carries no launch authority. Browser access uses the Cloudflare Access session.
+
+The app phase advances only after a current-version ALIEN/NEILA pass, a fresh heartbeat, two different Access admins approving within ten minutes, and an actual D1 Time Travel bookmark. Set the encrypted `D1_TIME_TRAVEL_TOKEN` to enable that path. The database target is fixed in the deployment bindings. `ZONE_KV` mirrors the exact pre-launch bookmark and the Durable Object holds the authoritative switch state. The switch controls this project's runtime phase. DNS and promotion of the staging Git branch are separate release actions.
+
+Set `EMIT_WEBHOOK_URL` and encrypted `EMIT_WEBHOOK_KEY` together to connect a subscriber. The runtime reports queue receipt counts at `/health` and authenticated run details at `/status`.
+
+When standard Worker slots are full, deploy `zone-tweezer-tap-edge` to `tweezer-tap-os-holding` and use `src/relay.mjs` as the existing Train Worker's entrypoint. The relay exposes the fixed `/tabor-sites/tweezer-tap-os` path, accepts the two queue batches and minute cron, and forwards them over the namespace binding. Set the same encrypted `RELAY_KEY` on both Workers. The relay has no staging D1, R2, KV, or Durable Object bindings. It passes through the existing Train routes.
+
+[Open the Access-protected rehearsal board](https://tabor-train-operations.nathantaboract.workers.dev/tabor-sites/tweezer-tap-os/).
