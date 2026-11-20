@@ -21,11 +21,11 @@ const checks = [
   async () => {
     const home = await fetchRoute("/");
     const lesson = await fetchRoute("/institution/foundation/");
-    for (const paragraph of foundation.motto.split("\n\n")) {
+    for (const paragraph of foundation.statement.split("\n\n")) {
       assert.ok(home.includes(paragraph));
       assert.ok(lesson.includes(paragraph));
     }
-    assert.equal(await fetchRoute("/institution/foundation/source.txt"), foundation.motto + "\n\n" + foundation.label + "\n");
+    assert.equal(await fetchRoute("/institution/foundation/source.txt"), foundation.statement);
     assert.ok((await fetchRoute("/map/")).includes(foundation.title));
   },
   async () => assert.match(await fetchRoute("/library/"), /Library of Tabor/),

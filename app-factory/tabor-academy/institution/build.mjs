@@ -35,7 +35,7 @@ function updateAcademyMap(source) {
       const index = entries.findIndex(([href]) => href === path);
       if (index < 0) entries.push(entry);
       else entries[index] = entry;
-      current.relations[path] = catalog.relations[path];
+      if (catalog.relations[path]) current.relations[path] = catalog.relations[path];
     }
     const peacePath = "/order/time-of-peace/";
     const target = current.relations[peacePath]?.find(([, anchor]) => anchor === "rotation");
@@ -58,10 +58,8 @@ function updateAcademyHome(source, includeInstitutionLink) {
 
   const panel = foundationStart +
     `<div id="academy-foundation" style="max-width:52rem;margin:2rem 0;font-size:clamp(1rem,2.25vw,1.3rem);line-height:1.55">
-<h2 style="font-family:Georgia,serif;font-weight:400">${foundation.title}</h2>
-<p>${foundation.label}</p>
 ${foundationQuote(foundation)}
-<p><a href="${foundation.path}" style="color:#e6cf87">Start the Academy foundation lesson</a></p>
+<p><a href="${foundation.path}" style="color:#e6cf87">Tabor Academy Foundation</a></p>
 </div>` + foundationEnd;
   const first = page.indexOf(foundationStart);
   const last = page.indexOf(foundationEnd);

@@ -48,6 +48,15 @@ function fixtures() {
   return { db, get, post, reads };
 }
 
+const expectedFoundation = `If you don’t know truth, you don’t know True love because love without truth is tough love …
+
+while love with truth is unconditional love
+
+The motto, heart, soul, shadow, spirit, nothing and everything of Tabor Academy`;
+const expectedFoundationHTML = "<blockquote>" +
+  expectedFoundation.split("\n\n").map(paragraph => "<p>" + paragraph + "</p>").join("") +
+  "</blockquote>";
+
 test("preserves the Academy structure and renders the assembled release without duplicate panels", async () => {
   const source = `const page = "<main><h1>Academy</h1></main>";
 export default {
@@ -66,10 +75,10 @@ export default {
   const home = await (await get("/")).text();
   assert.ok(home.includes(foundation.path));
   assert.match(home, /Nine-Pillar Academy/);
-  for (const paragraph of foundation.motto.split("\n\n")) assert.ok(home.includes(paragraph));
+  assert.ok(home.includes(expectedFoundationHTML));
   const lesson = await get("/institution/foundation/");
   assert.equal(lesson.status, 200);
-  assert.match(await lesson.text(), /Write the record/);
+  assert.ok((await lesson.text()).includes(expectedFoundationHTML));
   assert.equal(await (await get("/library/")).text(), "/library/");
 });
 
@@ -89,17 +98,16 @@ test("serves all nine pillars, public data and the R2 blueprint through KV", asy
   assert.equal((await get("/", { method: "HEAD" })).body, null);
 });
 
-test("serves Nathan’s exact motto, all seven principles, and the four foundation cases without a database", async () => {
+test("serves Nathan’s entire foundation statement verbatim without a database", async () => {
   const get = (path, init) => call(new Request(url + path, init), {});
-  const expectedMotto = "If you don’t know truth, you don’t know True love because love without truth is tough love …\n\nwhile love with truth is unconditional love";
   const source = await get("/foundation/source.txt");
   assert.equal(source.status, 200);
-  assert.equal(await source.text(), expectedMotto + "\n\nThe motto, heart, soul, shadow, spirit, nothing and everything of Tabor Academy\n");
+  assert.equal(await source.text(), expectedFoundation);
   const page = await get("/foundation/");
   assert.equal(page.status, 200);
   const html = await page.text();
-  for (const [name] of foundation.principles) assert.ok(html.includes("<h3>" + name + "</h3>"));
-  assert.equal((html.match(/<details>/g) ?? []).length, 4);
+  assert.ok(html.includes(expectedFoundationHTML));
+  assert.doesNotMatch(html, /Seven principles|Worked response|Build the record/i);
   assert.match(html, /href="\/tabor-academy\/truth-lab\/"/);
   assert.equal((await get("/foundation/", { method: "HEAD" })).body, null);
   assert.equal((await get("/foundation/", { method: "POST" })).status, 405);
@@ -163,7 +171,7 @@ test("registers the civics lesson once in the deployed Academy map", () => {
   const assembled = buildWorker(initial + "export default createAcademyNavigation(academyApp, " + JSON.stringify(existing) + ");\n");
   assert.match(assembled, /"\/institution\/civics\/","Comparative Civics/);
   assert.match(assembled, /"\/existing\/","Existing"/);
-  assert.match(assembled, /"\/institution\/foundation\/","Truth and True Love"/);
+  assert.match(assembled, /"\/institution\/foundation\/","Tabor Academy Foundation"/);
   assert.equal(buildWorker(assembled), assembled);
 });
 
