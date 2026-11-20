@@ -28,7 +28,17 @@ Run the checks in the staged packet against the resulting artifact and use the e
 
 ## Cloudflare receipt service
 
-The Worker accepts a 1–20 item JSON array on `POST /api/sovereign-engine/receipts` with `Authorization: Bearer ENGINE_TOKEN`. Each item contains `source`, `verdict`, `input_sha256` and `evidence_sha256`. Run `flush` with the matching `ENGINE_TOKEN` in its environment. The Worker stores no raw transcripts, stderr, generated code or local file paths. [Public readiness](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/sovereign-engine/health) reports bindings and the running release.
+Send `POST /api/sovereign-engine/receipts` with `Authorization: Bearer ENGINE_TOKEN` and `Content-Type: application/octet-stream`. The body starts with these exact 18 raw bytes at offset zero and continues immediately with a UTF-8 JSON array of 1–20 receipts.
+
+```text
+AA 55 FF 01 31 2B 31 3D 32 7E 31 2D 31 3D 30 04 00 F0
+```
+
+The left-to-right frame carries `1+1=2` and `1-1=0`. The rails reduce to XOR checksums `24` and `20`, with combined seal `04`. The gate compares all 144 bits against the fixed bytes before writing. The one-byte seal is XOR parity. The bearer token controls access, and each receipt keeps its own SHA-256 seal.
+
+Use `python3 verify_144bit_anchor.py frame.bin` to verify a standalone raw frame. It prints `1+1=2` and exits 0 for the canonical 18 bytes. Any byte change or extra byte returns `1-1=0` and exit 1.
+
+Each item contains `source`, `verdict`, `input_sha256` and `evidence_sha256`. Run `flush` with the matching `ENGINE_TOKEN` in its environment. The Worker stores no raw transcripts, stderr, generated code or local file paths. [Public readiness](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/sovereign-engine/health) reports bindings and the running release.
 
 - `committed` and `already_committed` acknowledge the receipt in D1.
 - `buffered` means R2 holds a copy and the sender should retry D1 later. `deferred` means keep the local pending copy and retry later. R2 retains buffered copies as audit evidence.

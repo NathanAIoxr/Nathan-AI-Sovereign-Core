@@ -11,6 +11,8 @@ import time
 from urllib import request
 from uuid import uuid4
 
+from verify_144bit_anchor import ANCHOR_FRAME
+
 MAX_INPUT = 1_048_576
 ENDPOINT = "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/sovereign-engine/receipts"
 SOURCES = ("hop-in", "voice-box")
@@ -128,8 +130,8 @@ def flush(db, token):
     if not pairs:
         return {"acknowledged": 0, "pending_in_batch": 0}
     payload = json.dumps([receipt for _, receipt in pairs], separators=(",", ":")).encode()
-    req = request.Request(ENDPOINT, data=payload, headers={
-        "Authorization": f"Bearer {token}", "Content-Type": "application/json",
+    req = request.Request(ENDPOINT, data=ANCHOR_FRAME + payload, headers={
+        "Authorization": f"Bearer {token}", "Content-Type": "application/octet-stream",
     })
     with request.build_opener(NoRedirect()).open(req, timeout=15) as response:
         receipts = json.load(response)["receipts"]

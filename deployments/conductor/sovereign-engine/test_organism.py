@@ -7,7 +7,21 @@ import unittest
 from unittest.mock import patch
 
 import organism
+from verify_144bit_anchor import ANCHOR_FRAME, verify_frame
 from triage import make_packet
+
+
+class AnchorTests(unittest.TestCase):
+    def test_master_frame_and_every_single_bit_change(self):
+        frame = bytes.fromhex("AA55FF01312B313D327E312D313D300400F0")
+        self.assertEqual(ANCHOR_FRAME, frame)
+        self.assertTrue(verify_frame(frame))
+        for bit in range(144):
+            changed = bytearray(frame)
+            changed[bit // 8] ^= 1 << (bit % 8)
+            self.assertFalse(verify_frame(changed), bit)
+        self.assertFalse(verify_frame(frame[::-1]))
+        self.assertFalse(verify_frame(frame + b"\0"))
 
 
 class IntakeTests(unittest.TestCase):
@@ -39,7 +53,9 @@ class IntakeTests(unittest.TestCase):
             def respond(req, **_):
                 from io import BytesIO
                 self.assertNotIn(b"Owner-only", req.data)
-                payload = json.loads(req.data)[0]
+                self.assertEqual(req.get_header("Content-type"), "application/octet-stream")
+                self.assertTrue(verify_frame(req.data[:18]))
+                payload = json.loads(req.data[18:])[0]
                 seal = organism.digest(json.dumps(payload, separators=(",", ":")).encode())
                 return BytesIO(json.dumps({"receipts": [{"seal": seal, "state": state}]}).encode())
             return respond

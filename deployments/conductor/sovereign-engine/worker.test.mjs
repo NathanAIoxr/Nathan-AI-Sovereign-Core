@@ -5,6 +5,7 @@ import { test } from "node:test";
 import { serveSovereignEngine, digest } from "./worker.mjs";
 
 const migration = readFileSync(new URL("./migrations/0001_receipts.sql", import.meta.url), "utf8");
+const anchor = Buffer.from("AA55FF01312B313D327E312D313D300400F0", "hex");
 const secret = "test-token-only-abcdefghijklmnopqrstuvwxyz";
 const seed = { source: "voice-box", verdict: "verified", input_sha256: "a".repeat(64) };
 const receipt = char => ({ ...seed, evidence_sha256: char.repeat(64) });
@@ -34,9 +35,10 @@ function database() {
   };
 }
 
-async function post(env, body, token = secret) {
+async function post(env, body, token = secret, frame = anchor, contentType = "application/octet-stream") {
   const response = await serveSovereignEngine(new Request("https://example.test/api/sovereign-engine/receipts", {
-    method: "POST", body: JSON.stringify(body), headers: { Authorization: `Bearer ${token}` },
+    method: "POST", body: Buffer.concat([frame, Buffer.from(JSON.stringify(body))]),
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": contentType },
   }), { ENGINE_TOKEN: secret, ...env }, "/api/sovereign-engine/receipts");
   return [response.status, await response.json()];
 }
@@ -47,6 +49,29 @@ test("validates credentials and bound input before writing", async () => {
   assert.equal((await post({ ENGINE_DB_PRIMARY: db }, [{ sql: "SELECT 1" }]))[0], 400);
   assert.equal((await post({ ENGINE_DB_PRIMARY: db }, [" ".repeat(17000)]))[0], 413);
   assert.equal(db.count(), 0);
+});
+
+test("rejects missing, changed, rotated and reversed anchors before ledger writes", async () => {
+  const db = database();
+  const env = { ENGINE_DB_PRIMARY: db };
+  const payload = [receipt("a")];
+  assert.equal((await post(env, payload, secret, Buffer.alloc(0), "application/json"))[0], 415);
+  const invalid = [Buffer.alloc(0), anchor.subarray(0, 17), Buffer.from(anchor).reverse(),
+    Buffer.concat([anchor.subarray(1), anchor.subarray(0, 1)])];
+  for (let bit = 0; bit < 144; bit++) {
+    const changed = Buffer.from(anchor);
+    changed[bit >> 3] ^= 1 << (bit % 8);
+    invalid.push(changed);
+  }
+  const alternate = Buffer.from(anchor);
+  alternate[13] = 0x2b; // 1-1+0 is outside the canonical rail.
+  invalid.push(alternate);
+  for (const frame of invalid) {
+    assert.deepEqual(await post(env, payload, secret, frame), [400, { error: "invalid_anchor_frame" }]);
+  }
+  assert.equal(db.count(), 0);
+  assert.equal((await post(env, payload))[0], 200);
+  assert.equal(db.count(), 1);
 });
 
 test("deduplicates, enforces the UTC budget and archives overflow", async () => {

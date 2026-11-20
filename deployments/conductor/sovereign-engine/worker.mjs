@@ -6,6 +6,14 @@ const kinds = {
 };
 const hex = /^[a-f0-9]{64}$/;
 const encoder = new TextEncoder();
+const anchorFrame = Uint8Array.of(
+  0xaa, 0x55, 0xff, 0x01,
+  0x31, 0x2b, 0x31, 0x3d, 0x32,
+  0x7e,
+  0x31, 0x2d, 0x31, 0x3d, 0x30,
+  0x04, 0x00, 0xf0,
+);
+class InvalidAnchor extends Error {}
 
 const json = (data, status = 200) => Response.json(data, {
   status, headers: { "cache-control": "no-store", "x-content-type-options": "nosniff" },
@@ -25,10 +33,10 @@ async function authorized(request, secret) {
   return crypto.subtle.verify("HMAC", candidate, signature, encoder.encode("sovereign-engine/v1"));
 }
 
-async function limitedJson(request) {
-  if (!request.body) throw new SyntaxError("Missing request body");
+async function framedJson(request) {
+  if (!request.body) throw new InvalidAnchor("Missing frame");
   const reader = request.body.getReader();
-  const buffer = new Uint8Array(16384);
+  const buffer = new Uint8Array(anchorFrame.length + 16384);
   let size = 0;
   try {
     for (;;) {
@@ -44,7 +52,10 @@ async function limitedJson(request) {
   } finally {
     reader.releaseLock();
   }
-  return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(buffer.subarray(0, size)));
+  if (size < anchorFrame.length || !anchorFrame.every((byte, index) => buffer[index] === byte)) {
+    throw new InvalidAnchor("Frame differs from canonical bytes");
+  }
+  return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(buffer.subarray(anchorFrame.length, size)));
 }
 
 async function receiptFor(value) {
@@ -99,13 +110,18 @@ export async function serveSovereignEngine(request, env, path) {
   if (request.method !== "POST" || path !== "/api/sovereign-engine/receipts") return json({ error: "not_found" }, 404);
   if (!await authorized(request, env.ENGINE_TOKEN)) return json({ error: "unauthorized" }, 401);
 
+  const contentType = request.headers.get("content-type")?.split(";")[0].trim().toLowerCase();
+  if (contentType !== "application/octet-stream") return json({ error: "expected_binary_frame" }, 415);
+
   let receipts;
   try {
-    const values = await limitedJson(request);
+    const values = await framedJson(request);
     if (!Array.isArray(values) || !values.length || values.length > 20) throw new TypeError("Expected 1–20 receipts");
     receipts = await Promise.all(values.map(receiptFor));
   } catch (error) {
-    return json({ error: error instanceof RangeError ? "body_too_large" : "invalid_receipts" }, error instanceof RangeError ? 413 : 400);
+    if (error instanceof InvalidAnchor) return json({ error: "invalid_anchor_frame" }, 400);
+    if (error instanceof RangeError) return json({ error: "body_too_large" }, 413);
+    return json({ error: "invalid_receipts" }, 400);
   }
 
   const budget = Number(env.ENGINE_DAILY_RECEIPTS_PER_SHARD ?? 1000);
