@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { pathToFileURL } from "node:url";
 import { createInstitution } from "./runtime.mjs";
+import { foundation, foundationQuote } from "./foundation.mjs";
 import { learningMethods } from "./learning-methods/data.mjs";
 import { createLearningMethods } from "./learning-methods/runtime.mjs";
 import { academyLearningSite } from "./learning-methods/sites.mjs";
@@ -16,29 +17,26 @@ export const civics = {
 const catalog = JSON.parse(await readFile(new URL("../map/topics.json", here), "utf8"));
 const civicsPath = "/institution/civics/";
 export const blueprintKey = "institution/blueprint-" + blueprint.meta.version + ".json";
-export const release = createHash("sha256").update(createInstitution.toString()).update(blueprintSource).update(JSON.stringify(civics)).update(createLearningMethods.toString()).update(JSON.stringify([learningMethods, academyLearningSite])).digest("hex").slice(0, 16);
+export const release = createHash("sha256").update(createInstitution.toString()).update(blueprintSource).update(JSON.stringify([civics, foundation])).update(foundationQuote.toString()).update(createLearningMethods.toString()).update(JSON.stringify([learningMethods, academyLearningSite])).digest("hex").slice(0, 16);
 const start = "/* BEGIN TABOR ACADEMY INSTITUTION */";
 const end = "/* END TABOR ACADEMY INSTITUTION */";
 
-function includeCivicsInMap(source) {
+function updateAcademyMap(source) {
   const exportLine = /^export default createAcademyNavigation\(academyApp, (.+)\);$/m;
   return source.replace(exportLine, (_, json) => {
     const current = JSON.parse(json);
-    const group = "History and the record";
-    const entries = current.catalog[group] ?? (current.catalog[group] = []);
-    const entry = catalog.catalog[group].find(([path]) => path === civicsPath);
-    const existing = entries.findIndex(([path]) => path === civicsPath);
-    if (existing < 0) entries.push(entry);
-    else entries[existing] = entry;
-    current.relations[civicsPath] = catalog.relations[civicsPath];
-    const learningPath = "/institution/learning-methods/";
-    const learningGroup = "Learning paths and the Academy";
-    const learningEntries = current.catalog[learningGroup] ?? (current.catalog[learningGroup] = []);
-    const learningEntry = catalog.catalog[learningGroup].find(([path]) => path === learningPath);
-    const learningIndex = learningEntries.findIndex(([path]) => path === learningPath);
-    if (learningIndex < 0) learningEntries.push(learningEntry);
-    else learningEntries[learningIndex] = learningEntry;
-    current.relations[learningPath] = catalog.relations[learningPath];
+    for (const [path, group] of [
+      [civicsPath, "History and the record"],
+      ["/institution/learning-methods/", "Learning paths and the Academy"],
+      ["/institution/foundation/", "Learning paths and the Academy"],
+    ]) {
+      const entries = current.catalog[group] ?? (current.catalog[group] = []);
+      const entry = catalog.catalog[group].find(([href]) => href === path);
+      const index = entries.findIndex(([href]) => href === path);
+      if (index < 0) entries.push(entry);
+      else entries[index] = entry;
+      current.relations[path] = catalog.relations[path];
+    }
     const peacePath = "/order/time-of-peace/";
     const target = current.relations[peacePath]?.find(([, anchor]) => anchor === "rotation");
     const link = catalog.relations[peacePath].find(([, anchor]) => anchor === "rotation")[3]
@@ -48,10 +46,46 @@ function includeCivicsInMap(source) {
   });
 }
 
+const home = /^const page = (.+);$/m;
+const foundationStart = "<!-- BEGIN TABOR ACADEMY FOUNDATION -->";
+const foundationEnd = "<!-- END TABOR ACADEMY FOUNDATION -->";
+
+function updateAcademyHome(source, includeInstitutionLink) {
+  const homepage = source.match(home);
+  if (!homepage) throw new Error("Current Academy source lacks the expected homepage");
+  let page = JSON.parse(homepage[1]);
+  if (!page.includes("</main>")) throw new Error("Academy homepage is missing main element");
+
+  const panel = foundationStart +
+    `<div id="academy-foundation" style="max-width:52rem;margin:2rem 0;font-size:clamp(1rem,2.25vw,1.3rem);line-height:1.55">
+<h2 style="font-family:Georgia,serif;font-weight:400">${foundation.title}</h2>
+<p>${foundation.label}</p>
+${foundationQuote(foundation)}
+<p><a href="${foundation.path}" style="color:#e6cf87">Start the Academy foundation lesson</a></p>
+</div>` + foundationEnd;
+  const first = page.indexOf(foundationStart);
+  const last = page.indexOf(foundationEnd);
+  if (first >= 0 && last > first) {
+    page = page.slice(0, first) + panel + page.slice(last + foundationEnd.length);
+  } else if (first >= 0 || last >= 0) {
+    throw new Error("Existing Academy foundation markers are inconsistent");
+  } else if (page.includes("</h1>")) {
+    page = page.replace("</h1>", () => "</h1>" + panel);
+  } else {
+    page = page.replace("</main>", () => panel + "</main>");
+  }
+  if (includeInstitutionLink) {
+    const link = '<p><a href="/tabor-academy/institution/" style="color:#e6cf87">Nine-Pillar Academy</a></p>';
+    page = page.replace("</main>", link + "\n</main>");
+  }
+  return source.replace(home, () => "const page = " + JSON.stringify(page) + ";");
+}
+
 export function buildWorker(source) {
   const block = [start,
+    "const renderAcademyFoundationQuote = " + foundationQuote.toString() + ";",
     "const serveAcademyInstitutionBase = (" + createInstitution.toString() + ")(" +
-      JSON.stringify(blueprint) + ", " + JSON.stringify(release) + ", " + JSON.stringify(civics) + ");",
+      JSON.stringify(blueprint) + ", " + JSON.stringify(release) + ", " + JSON.stringify(civics) + ", " + JSON.stringify(foundation) + ", renderAcademyFoundationQuote);",
     "const serveAcademyLearningMethods = (" + createLearningMethods.toString() + ")(" +
       JSON.stringify(learningMethods) + ", " + JSON.stringify(academyLearningSite) + ");",
     "const serveAcademyInstitution = (request, env, ctx) => serveAcademyLearningMethods(request) ?? serveAcademyInstitutionBase(request, env, ctx);",
@@ -61,28 +95,23 @@ export function buildWorker(source) {
     if (!source.includes(start) || !source.includes(end) || source.indexOf(end) < source.indexOf(start)) {
       throw new Error("Existing Institution release markers are inconsistent");
     }
-    return includeCivicsInMap(source.slice(0, source.indexOf(start)) + block + source.slice(source.indexOf(end) + end.length + 1));
+    const updated = source.slice(0, source.indexOf(start)) + block + source.slice(source.indexOf(end) + end.length + 1);
+    return updateAcademyMap(updateAcademyHome(updated, false));
   }
-  const home = /^const page = (.+);$/m;
-  const homepage = source.match(home);
   const route = '    const { pathname } = new URL(request.url);';
   // The Academy has multiple route functions. Patch only its exported handler.
   const handler = "export default {";
   const handlerAt = source.lastIndexOf(handler);
-  if (!homepage || handlerAt === -1 || !source.slice(handlerAt).includes(route)) {
+  if (handlerAt === -1 || !source.slice(handlerAt).includes(route)) {
     throw new Error("Current Academy source lacks the expected homepage or route insertion point");
   }
-  const page = JSON.parse(homepage[1]);
-  if (!page.includes("</main>")) throw new Error("Academy homepage is missing main element");
-  const link = '<p><a href="/tabor-academy/institution/" style="color:#e6cf87">Nine-Pillar Academy</a></p>';
-  const updatedHome = page.replace("</main>", link + "\n</main>");
-  const updated = source.replace(home, () => "const page = " + JSON.stringify(updatedHome) + ";");
+  const updated = updateAcademyHome(source, true);
   const dispatchAt = updated.lastIndexOf(handler);
   const dispatch = updated.slice(dispatchAt)
     .replace("async fetch(request, env) {", "async fetch(request, env, ctx) {")
     .replace(route, () => route +
     '\n    if (pathname === "/institution" || pathname.startsWith("/institution/")) return serveAcademyInstitution(request, env, ctx);');
-  return includeCivicsInMap(updated.slice(0, dispatchAt) + block + dispatch);
+  return updateAcademyMap(updated.slice(0, dispatchAt) + block + dispatch);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

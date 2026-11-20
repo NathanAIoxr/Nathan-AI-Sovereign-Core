@@ -1,4 +1,4 @@
-export function createInstitution(blueprint, release, civics) {
+export function createInstitution(blueprint, release, civics, foundation, foundationQuote) {
   const base = "/tabor-academy/institution";
   const blueprintKey = "institution/blueprint-" + blueprint.meta.version + ".json";
   const outlineQueries = {
@@ -113,6 +113,10 @@ section{margin-top:2.25rem;border-top:1px solid #778360;padding-top:.7rem}ol.pil
 input,button{font:inherit;padding:.55rem .75rem;border:1px solid #778360}input{width:8rem}button{background:#e6cf87;color:#151b10;font-weight:bold;cursor:pointer}
 output{display:block;margin-top:1rem;font-weight:bold}
 blockquote{margin-inline:0;padding-inline:1rem;border-left:3px solid #e6cf87}
+.foundation-intro{font-size:1.18rem;max-width:52rem}
+.foundation-principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:1rem;padding:0;list-style:none}
+.foundation-principles li,#practice details{padding:1rem;border:1px solid #465137}#practice article+article{margin-top:1.5rem}
+summary{font-weight:700;cursor:pointer}summary:focus-visible{outline:3px solid #f9f3e4;outline-offset:4px}
 .table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left}td,th{padding:.65rem;border-bottom:1px solid #778360;vertical-align:top}caption{text-align:left;padding-bottom:.4rem}
 </style></head><body><main><nav aria-label="Academy"><a href="/tabor-academy/">Academy home</a><a href="/tabor-academy/library/">Library of Tabor</a><a href="/tabor-academy/workbench/">Workbench</a></nav>${content}</main></body></html>`;
   }
@@ -145,8 +149,33 @@ blockquote{margin-inline:0;padding-inline:1rem;border-left:3px solid #e6cf87}
 <div id="mastery"><div id="practice">${masteryForm(search, rubric, base)}</div></div></section>` : "";
     return layout("Nine Pillars", `<h1>Nine Pillars</h1><p class="byline">Tabor Academy · ${esc(blueprint.meta.author)}</p>
 <p>Trace the path from a curriculum to a lesson, a mastery check, and an official record.</p>
-<p><a href="${base}/blueprint.json">Open the architecture blueprint</a> · <a href="${base}/civics/">Comparative Civics &amp; Legal Language</a> · <a href="${base}/learning-methods/">101 Hands-On Learning Methods</a></p>
+<p><a href="${base}/blueprint.json">Open the architecture blueprint</a> · <a href="${base}/civics/">Comparative Civics &amp; Legal Language</a> · <a href="${base}/learning-methods/">101 Hands-On Learning Methods</a> · <a href="${foundation.path}">${esc(foundation.title)}</a></p>
 <section><h2>Institutional architecture</h2><ol class="pillars">${pillars}</ol></section>${practice}`);
+  }
+
+  function foundationPage() {
+    const principles = foundation.principles.map(([title, description]) =>
+      `<li><h3>${esc(title)}</h3><p>${esc(description)}</p></li>`).join("");
+    const practice = foundation.practice.map(item =>
+      `<article><h3>${esc(item.title)}</h3><p>${esc(item.case)}</p><p>${esc(item.prompt)}</p>
+<details><summary>Compare with a worked response</summary><p>${esc(item.answer)}</p></details></article>`).join("");
+    return layout(foundation.title, `<h1>${esc(foundation.title)}</h1><p class="byline">${esc(foundation.label)}</p>
+<div class="foundation-intro">${foundationQuote(foundation)}</div>
+<nav aria-label="Lesson sections"><a href="#principles">Seven principles</a><a href="#practice">Practice cases</a><a href="#record">Write the record</a><a href="${foundation.path}source.txt">Read Nathan’s original wording</a></nav>
+<section id="principles"><h2>Seven principles</h2><ul class="foundation-principles">${principles}</ul></section>
+<section id="practice"><h2>Evidence, gaslighting, correction, and repair</h2>
+<p>Write your response to each fictional case before opening the worked response.</p>${practice}</section>
+<section id="record"><h2>Write the record</h2>
+<p>Choose a fictional case or a low-stakes disagreement. On paper or in a private note, make a record someone else could check.</p>
+<ol>
+<li><strong>1 + 1 = 2 · Build.</strong> Give the exact claim, who made it, when it was made, and where it can be checked.</li>
+<li><strong>1 − 1 = 0 · Clear.</strong> Remove unsupported claims from your conclusion. Keep the original words in the record.</li>
+<li><strong>1 × 1 = 1 · Integrate.</strong> Put the original and the later account side by side. State what the evidence establishes and what remains open.</li>
+<li><strong>1 ÷ 1 = 1 · Verify.</strong> Name a next check, a protective action if someone faces harm, and any correction you owe.</li>
+</ol>
+<h3>Check your work</h3>
+<p>Can another person find the source, follow the contradiction, see the uncertainty, and tell what you will do next? Revise the record wherever the answer is no.</p>
+<p><a href="/tabor-academy/truth-lab/">Continue in the Truth Lab</a> · <a href="${base}/">Return to the Nine Pillars</a></p></section>`);
   }
 
   async function serveBlueprint(request, env, ctx) {
@@ -247,6 +276,10 @@ blockquote{margin-inline:0;padding-inline:1rem;border-left:3px solid #e6cf87}
       }
       if (!isRead) return failure(request, "Method not allowed", 405);
       if (path === "/") return respond(request, await dashboard(db, url.searchParams), 200, "text/html; charset=utf-8");
+      if (path === "/foundation") return respond(request, foundationPage(), 200, "text/html; charset=utf-8");
+      if (path === "/foundation/source.txt") {
+        return respond(request, foundation.motto + "\n\n" + foundation.label + "\n", 200, "text/plain; charset=utf-8");
+      }
       if (path === "/civics/source.txt") return respond(request, civics.source, 200, "text/plain; charset=utf-8");
       if (path === "/civics") {
         const rubric = await findAssessment(db, "civics-mastery");

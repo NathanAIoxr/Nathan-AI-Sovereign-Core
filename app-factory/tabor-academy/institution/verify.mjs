@@ -3,6 +3,7 @@ import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import assert from "node:assert/strict";
 import { blueprintSource, civics, release } from "./build.mjs";
+import { foundation } from "./foundation.mjs";
 
 const config = JSON.parse(await readFile(new URL("cloudflare.json", import.meta.url), "utf8"));
 const curl = promisify(execFile);
@@ -17,6 +18,16 @@ async function fetchRoute(path, options = {}) {
 
 const checks = [
   async () => assert.match(await fetchRoute("/"), /Nine-Pillar Academy/),
+  async () => {
+    const home = await fetchRoute("/");
+    const lesson = await fetchRoute("/institution/foundation/");
+    for (const paragraph of foundation.motto.split("\n\n")) {
+      assert.ok(home.includes(paragraph));
+      assert.ok(lesson.includes(paragraph));
+    }
+    assert.equal(await fetchRoute("/institution/foundation/source.txt"), foundation.motto + "\n\n" + foundation.label + "\n");
+    assert.ok((await fetchRoute("/map/")).includes(foundation.title));
+  },
   async () => assert.match(await fetchRoute("/library/"), /Library of Tabor/),
   async () => assert.match(await fetchRoute("/workbench/"), /Workbench/),
   async () => assert.match(await fetchRoute("/order/ancient-servitude/"), /Ancient Servitude/),
