@@ -8,6 +8,10 @@
 <script src="../../launcher/engine.js" defer></script><script src="../../launcher/app.js" defer></script>
 <title>NATHAN AI — HOP IN. Interactive Chatbox</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../minds-chat/style.css">
+<script src="../../omni-god/engine.js" defer></script>
+<script src="../../minds-chat/engine.js" defer></script>
+<script src="../../minds-chat/app.js" defer></script>
 <script src="../engine.js" defer></script>
 
 
@@ -44,7 +48,7 @@
 <section class="thread-dock" aria-labelledby="threads-heading"><div class="thread-head"><h2 id="threads-heading">Your conversations</h2><button type="button" id="thread-new" title="Create a separate in-memory conversation">+ New</button></div><div id="thread-list" class="thread-list" role="group" aria-label="Switch conversations"></div><p id="thread-status" role="status" class="muted">Conversation history is temporary until you choose Save all.</p><div class="thread-actions"><button type="button" id="thread-save">Save all</button><button type="button" id="thread-export">Export all</button><label class="thread-import-label" for="thread-import">Import all</label><input type="file" id="thread-import" accept=".json,application/json" aria-label="Import conversation book JSON"></div></section>
 <div class="rail-bottom"><p class="motto"><strong>INNOCENCE IS THE PRECIOUS GIFT.</strong><br><span>1+1=2 BUILD · 1−1=0 CLEAR</span></p><small>Project design principle. No software can guarantee prevention of every harmful action.</small></div>
 </aside>
-<main class="conversation" id="conversation"><div class="chat-heading"><div><p class="eyebrow">TALK · EXPLORE · BUILD</p><h1>Ask Nathan AI.</h1><p class="simple-hint">Say sup. Ask anything. Start building.</p><p id="active-thread-title" class="active-thread-title">New conversation</p><p id="mode-description" class="muted">Ask anything about the connected Nathan AI world. The local guide routes your request; source search and model drafting are separate opt-ins.</p></div><div class="chat-heading-actions"><button class="secondary" type="button" id="toggle-tools" aria-expanded="false" aria-controls="mode-sidebar tool-sidebar">Explore tools</button><button class="secondary" type="button" id="new-chat">New chat</button></div></div>
+<main class="conversation" id="conversation"><div class="chat-heading"><div><p class="eyebrow">TALK · EXPLORE · BUILD</p><h1>Ask Nathan AI.</h1><p class="simple-hint">Say sup. Ask anything. Start building.</p><p id="active-thread-title" class="active-thread-title">New conversation</p><p id="mode-description" class="muted">Ask anything about the connected Nathan AI world. The local guide routes your request; source search and model drafting are separate opt-ins.</p></div><div class="chat-heading-actions"><button class="secondary" type="button" id="open-minds" aria-haspopup="dialog" aria-controls="minds">Minds</button><button class="secondary" type="button" id="toggle-tools" aria-expanded="false" aria-controls="mode-sidebar tool-sidebar">Explore tools</button><button class="secondary" type="button" id="new-chat">New chat</button></div></div>
 <div id="visual-banner" class="visual-banner" data-quiet="false" aria-hidden="true"><svg id="visual-skin" xmlns="http://www.w3.org/2000/svg" focusable="false"></svg><span class="visual-banner-words">NATHAN AI <small>HOP IN · THINK · EXPLORE · BUILD</small></span></div>
 <div class="environment-bar"><span id="mode-indicator">Nathan AI Core</span><span id="source-indicator">No sources loaded</span><span id="session-indicator">Private to this tab</span></div>
 <div class="chat-history" id="chat-history" role="log" aria-label="Conversation history" aria-live="polite" aria-relevant="additions text"><div class="welcome" id="welcome"><p class="eyebrow">START WITH A QUESTION</p><h2>HOP IN.</h2><p>A name, a date, a world, a book, a question about truth. Start anywhere; use the tools on the right when you need them.</p><div class="suggestions" id="quick-questions">
@@ -70,4 +74,8 @@
 </aside>
 </div><footer><span><strong>INNOCENCE IS THE PRECIOUS GIFT.</strong> · Original creation attributed to Nathan Tabor.</span><span>Consumer prototype · Historical reconstruction ≠ eyewitness experience · Browser voice ≠ Nathan’s recorded voice · No network-wide safety guarantee</span></footer>
 </div>
+<dialog id="minds" class="minds-dialog" aria-labelledby="minds-heading">
+<form method="dialog" class="minds-dialog-close"><button type="submit">Close Minds</button></form>
+<section class="minds-chat" data-minds-chat data-assets="../../minds-chat/" aria-label="Minds chat"></section>
+</dialog>
 </body></html>
