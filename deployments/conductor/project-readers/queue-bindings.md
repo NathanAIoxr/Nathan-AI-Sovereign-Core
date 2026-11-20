@@ -17,9 +17,9 @@
 - DLQ: `zone-project-readers-dlq`
 - Receipt database: `zone-project-readers-receipts`
 - Pull settings: batch size 10, 60-second visibility timeout, 5 retries
-- Message contract currently supports Project Readers `CANARY` events.
+- Message contracts include Project Readers `CANARY` and `READER_FINDING` events. Findings contain the project slug, GitHub revision, status and source table names.
 - Local entry point: `node run-pull.mjs` with Cloudflare account, Queue and D1 IDs, and a credential scoped to the account, Queue consumption and D1 writes. The runner executes one bounded batch.
 
-A live duplicate-message test confirmed exactly one D1 receipt for the replayed event ID. The HTTP consumer is attached. A recurring poller, reader report event contract and dispatch entry point are separate work and currently inactive.
+A live duplicate-message test confirmed exactly one D1 receipt for the replayed event ID. The HTTP consumer is attached. The first GitHub/D1 report was also published through the queue, including one deliberate replay. D1 stored 11 distinct findings. The recurring poller and dispatch entry point are inactive.
 
 Official references: [Queues pull consumers](https://developers.cloudflare.com/queues/configuration/pull-consumers/) · [Dynamic dispatch](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/dynamic-dispatch/)
