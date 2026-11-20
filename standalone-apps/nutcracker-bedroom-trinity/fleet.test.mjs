@@ -125,7 +125,7 @@ const request = (path, options) => serveNutcrackerBedroomHandoff(
 
 test("Conductor routes the printable desk, lists any fleet, and rejects submissions to the server", async () => {
   const desk = request(page);
-  assert.match(desk.headers.get("Content-Security-Policy"), /connect-src 'none'/);
+  assert.match(desk.headers.get("Content-Security-Policy"), /connect-src 'self'/);
   assert.match(await desk.text(), /Print paper worksheet/);
   const roster = await request(api + "?fleet=69").json();
   assert.equal(roster.units.length, 1_000);

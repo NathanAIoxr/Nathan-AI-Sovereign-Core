@@ -1,4 +1,6 @@
 import { createNutcrackerFleet } from "./nutcracker-fleet-core.mjs";
+import { createNutcrackerAgi } from "./nutcracker-agi-core.mjs";
+import { agiModelPath, runAgiModel } from "./nutcracker-agi-model.mjs";
 
 const root = "/tabor-sites/conductor";
 const pathRoot = "/handoffs/nutcracker-bedroom/fleet";
@@ -9,14 +11,16 @@ export const nutcrackerFleetInfo = {
 };
 const headers = {
   "Cache-Control": "no-store",
-  "Content-Security-Policy": "default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src 'none'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'",
+  "Content-Security-Policy": "default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src 'self'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'",
   "X-Content-Type-Options": "nosniff",
   "Referrer-Policy": "no-referrer",
   "X-Robots-Tag": "noindex, nofollow"
 };
 
-function startFleet(createFleet) {
-  const { digestSource, review, sourceLimit, parseManifest, unitAt, reuseBundle } = createFleet();
+function startFleet(createFleet, createAgi, modelPath) {
+  const engine = createFleet();
+  const { digestSource, review, sourceLimit, parseManifest, unitAt, reuseBundle } = engine;
+  const agi = createAgi(engine);
   const read = id => document.getElementById(id);
   const file = read("file");
   const source = read("source");
@@ -25,8 +29,13 @@ function startFleet(createFleet) {
   const message = read("status");
   const receipt = read("receipt");
   const reuse = read("reuse");
+  const proposal = read("proposal");
+  const evidence = read("evidence");
+  const draftStatus = read("draft-status");
   let result;
   let submission;
+  let draft;
+  let draftStale = false;
 
   function reset() {
     result = null;
@@ -36,6 +45,14 @@ function startFleet(createFleet) {
     reuse.disabled = true;
     message.textContent = "";
     read("download").disabled = true;
+  }
+
+  function resetDraft() {
+    draft = null;
+    draftStale = false;
+    evidence.textContent = "";
+    evidence.hidden = true;
+    draftStatus.textContent = "";
   }
 
   async function sourceBytes() {
@@ -58,14 +75,26 @@ function startFleet(createFleet) {
     setTimeout(() => URL.revokeObjectURL(url), 30_000);
   }
 
-  for (const input of [file, source, medium, manifest]) input.addEventListener("input", reset);
+  for (const input of [file, source, medium, proposal]) input.addEventListener("input", () => {
+    reset();
+    if (draft) {
+      draftStale = true;
+      evidence.hidden = true;
+      draftStatus.textContent = "Inputs changed. Draft again to link evidence to the current source.";
+    }
+  });
+  manifest.addEventListener("input", reset);
+  const actions = ["hash", "example", "draft-local", "draft-import", "draft-model", "agi-example", "check"];
   function run(id, task) {
     read(id).addEventListener("click", async () => {
       reset();
-      const controls = [file, source, medium, manifest, read("hash"), read("example"), read("check")];
+      const controls = [file, source, medium, manifest, proposal, ...actions.map(read)];
       for (const control of controls) control.disabled = true;
       try { await task(); }
-      catch (error) { message.textContent = error.message; }
+      catch (error) {
+        const output = id.startsWith("draft-") || id === "agi-example" ? draftStatus : message;
+        output.textContent = error.message;
+      }
       finally { for (const control of controls) control.disabled = false; }
     });
   }
@@ -74,6 +103,7 @@ function startFleet(createFleet) {
     message.textContent = "Source SHA-256: " + await digestSource(await sourceBytes());
   });
   run("example", async () => {
+    resetDraft();
     file.value = "";
     medium.value = "digital";
     const prefix = "const release = { testPassed: true };\n";
@@ -103,11 +133,73 @@ function startFleet(createFleet) {
     }, null, 2);
     message.textContent = "Example loaded. Review submission to see the contradiction and the reuse entry.";
   });
+  function showDraft(current, prepared) {
+    draft = current;
+    draftStale = false;
+    manifest.value = JSON.stringify(prepared, null, 2);
+    draftStatus.textContent = current.nutcracker.id + " · " + current.claims.length +
+      " grounded claims · " + current.skipped.length + " rejected draft entries";
+    evidence.textContent = JSON.stringify({
+      sourceSha256: current.sourceSha256, binaryPreview: current.binary, claims: current.claims, skipped: current.skipped
+    }, null, 2);
+    evidence.hidden = false;
+  }
+  async function buildDraft(bytes, proposals, origin) {
+    const current = await agi.draft(bytes, proposals, origin);
+    const previous = manifest.value.trim() ? parseManifest(manifest.value) : null;
+    showDraft(current, agi.prepareManifest(current, previous));
+  }
+  run("draft-local", async () => buildDraft(await sourceBytes(), null, "literal"));
+  run("draft-import", async () => {
+    if (!proposal.value.trim()) throw new Error("Paste a JSON proposal in the LLM import field.");
+    await buildDraft(await sourceBytes(), parseManifest(proposal.value), "imported-llm");
+  });
+  run("draft-model", async () => {
+    const status = await fetch(modelPath, { cache: "no-store" });
+    const capability = await status.json();
+    if (!status.ok) throw new Error(capability.error);
+    const bytes = await sourceBytes();
+    if (!bytes.length || bytes.length > capability.maxSource) throw new Error("The hosted model accepts up to 6,000 UTF-8 bytes.");
+    const response = await fetch(modelPath, {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ source: agi.sourceText(bytes) })
+    });
+    const output = await response.json();
+    if (!response.ok) throw new Error(output.error);
+    await buildDraft(bytes, output, "conductor-llm");
+  });
+  run("agi-example", async () => {
+    file.value = "";
+    medium.value = "digital";
+    proposal.value = "";
+    source.value = [
+      "Release inventory · build-1",
+      "CLAIM release | test-passed | build-1 | true",
+      "CLAIM release | test-passed | build-1 | false",
+      "CLAIM instructions | verified | build-1 | true"
+    ].join("\n");
+    const current = await agi.draft(await sourceBytes());
+    const prepared = agi.prepareManifest(current);
+    Object.assign(prepared.protection, {
+      reviewRef: "training-protection-review", consent: "pass", privacy: "pass", exploitation: "pass"
+    });
+    const reusable = current.claims.find(claim => claim.subject === "instructions");
+    prepared.parts = [{ id: reusable.id, reuseReview: {
+      status: "approved", sourceSha256: current.sourceSha256,
+      partSha256: reusable.evidenceSha256, ref: "training-independent-review"
+    } }];
+    showDraft(current, prepared);
+  });
   run("check", async () => {
+    if (draftStale) throw new Error("Inputs changed. Draft again before reviewing this source.");
     const record = manifest.value.trim() ? parseManifest(manifest.value) : null;
     const bytes = await sourceBytes();
-    result = review(record, await digestSource(bytes), medium.value);
-    submission = { bytes, record, medium: medium.value };
+    const hash = await digestSource(bytes);
+    const decision = draft ? agi.assess(draft, record, hash, medium.value) : {
+      report: review(record, hash, medium.value), effective: record
+    };
+    result = decision.report;
+    submission = { bytes, record: decision.effective, medium: medium.value };
     const status = { crushed: "Crushed · rejected", held: "Held for review", cleared: "Cleared supplied checks" };
     message.textContent = status[result.disposition] + " · " + result.nutcracker.id;
     receipt.textContent = JSON.stringify(result, null, 2);
@@ -140,7 +232,7 @@ function startFleet(createFleet) {
   });
 }
 
-const script = `(${startFleet.toString()})(${createNutcrackerFleet.toString()});\n`;
+const script = `(${startFleet.toString()})(${createNutcrackerFleet.toString()}, ${createNutcrackerAgi.toString()}, ${JSON.stringify(root + agiModelPath)});\n`;
 const page = `<!doctype html>
 <html lang="en">
 <meta charset="utf-8">
@@ -169,7 +261,7 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--bg);padding:1re
 <nav aria-label="Project"><a href="${root}/handoffs/nutcracker-bedroom">Nutcracker handoff</a></nav>
 <h1>Nutcracker Fleet</h1>
 <p class="summary">${fleet.fleetCount} fleets × ${fleet.unitsPerFleet.toLocaleString("en-US")} Nutcrackers · ${fleet.total.toLocaleString("en-US")} individually addressable units</p>
-<p class="description">Review a code file, document, or transcription for failed innocence checks and contradictory claims. This page reads submissions in your browser. Clearing a submission depends on the reviewer evidence you provide.</p>
+<p class="description">Trace claims from digital code or paper through source verification, innocence checks, and a Fleet decision. Local drafting and imported LLM proposals stay in this browser.</p>
 <div class="actions"><button id="print" type="button">Print paper worksheet</button> <a href="${root}/api${pathRoot}?fleet=1">Open fleet 1 roster</a></div>
 <div class="work">
 <section class="panel" aria-labelledby="intake-heading">
@@ -181,11 +273,23 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--bg);padding:1re
 <small>256 KiB maximum. Code is read as data.</small>
 <div class="actions"><button id="hash" type="button">Calculate source hash</button></div>
 </section>
+<section class="panel" aria-labelledby="agi-heading">
+<h2 id="agi-heading">AGI workbench</h2>
+<p>Draft claims, match them to exact source bytes, and send the evidence to the Fleet.</p>
+<small>For local drafting, use one line per claim in this format <code>CLAIM subject | predicate | scope | value</code>.</small>
+<label for="proposal">Import an LLM proposal in JSON</label>
+<textarea id="proposal" spellcheck="false" maxlength="65536" placeholder='{"claims":[{"subject":"release","predicate":"test-passed","scope":"build-1","value":true,"quote":"Exact source words"}]}'></textarea>
+<div class="actions"><button id="draft-local" type="button">Draft local claims</button><button id="draft-import" type="button">Check imported LLM claims</button><button id="agi-example" type="button">Load AGI sample</button></div>
+<div class="actions"><button id="draft-model" type="button">Send source to Conductor LLM</button></div>
+<small>Hosted inference sends the source to Cloudflare Workers AI and uses Conductor operator access.</small>
+<p id="draft-status" role="status"></p>
+<pre id="evidence" hidden></pre>
+</section>
 <section class="panel" aria-labelledby="review-heading">
 <h2 id="review-heading">Review manifest</h2>
 <label for="manifest">Reviewer evidence and scope-matched claims in JSON</label>
 <textarea id="manifest" spellcheck="false" maxlength="262144"></textarea>
-<small>Use the sample for the manifest format. Reuse requires a separate review reference. To export part bytes, also include their approved range and SHA-256.</small>
+<small>Record consent, privacy and exploitation as pass, fail or unresolved. For model claims, enter accept or dismiss and a reviewer reference beside each claim ID. Reuse requires separate approval tied to the source and part hashes.</small>
 <div class="actions"><button id="example" type="button">Load sample</button><button id="check" type="button" class="primary">Review submission</button></div>
 </section>
 </div>
@@ -220,7 +324,8 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--bg);padding:1re
 <script defer src="${root}${pathRoot}.js"></script>
 </html>`;
 
-export function serveNutcrackerFleet(request, path) {
+export function serveNutcrackerFleet(request, path, runtime) {
+  if (path === agiModelPath) return runAgiModel(request, runtime);
   const api = "/api" + pathRoot;
   const javascript = pathRoot + ".js";
   if (![pathRoot, pathRoot + "/", api, javascript].includes(path)) return null;

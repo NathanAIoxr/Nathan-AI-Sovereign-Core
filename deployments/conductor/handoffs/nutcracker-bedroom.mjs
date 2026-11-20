@@ -24,8 +24,8 @@ export const bedroomRelease = {
   ]
 };
 
-export function serveNutcrackerBedroomHandoff(request, path) {
-  const fleetResponse = serveNutcrackerFleet(request, path);
+export function serveNutcrackerBedroomHandoff(request, path, runtime) {
+  const fleetResponse = serveNutcrackerFleet(request, path, runtime);
   if (fleetResponse) return fleetResponse;
   if (![handoff, handoff + "/", "/api" + handoff].includes(path)) return null;
   const headers = {
@@ -56,7 +56,7 @@ export function serveNutcrackerBedroomHandoff(request, path) {
 <h2>Live product pages</h2><ul>${links}</ul>
 <p>Each page displays its own matte silicone product rendering. The collection’s color and packaging study appears in the design section.</p>
 <h2>Nutcracker Fleet</h2>
-<p><a href="${bedroomRelease.fleet.dashboardPath}">Open the 69-fleet intake and review desk</a></p>
+<p><a href="${bedroomRelease.fleet.dashboardPath}">Open the 69-fleet intake and review desk</a> to draft claims, verify source evidence, and review contradictions.</p>
 <p><a href="${bedroomRelease.source}">GitHub source and review</a></p>
 </main></body></html>`;
   return new Response(request.method === "HEAD" ? null : page, {

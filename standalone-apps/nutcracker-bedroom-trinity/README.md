@@ -25,4 +25,12 @@ Choose a file or paste source text. The browser hashes the source locally and co
 - **Crushed** marks a contradiction or a failed consent, privacy, or exploitation review. The original stays in the submitter's possession. If the submission has no unresolved evidence and a nonconflicting part has independent reuse approval tied to the same source digest, its ID and review reference appear in the downloadable reuse manifest. Set `range: [start, end]` with zero-based byte offsets and an exclusive end, and include `reuseReview.partSha256` to export the approved bytes as Base64. The export verifies those bytes against the part hash.
 - **Held** marks unresolved evidence or malformed records that prevent clearing. **Cleared** means the supplied checks passed for the submitted manifest. Review reference authenticity and the substance of the source depend on the reviewers.
 
-The dashboard reads submissions as data. It runs locally in the loaded browser page and sends no submissions to the server. The Conductor publishes the roster and browser code using the existing handoff route. Run the fleet tests with `node --test fleet.test.mjs`.
+The dashboard reads submissions as data. The existing handoff serves the roster and browser code. Run the fleet tests with `node --test fleet.test.mjs`.
+
+### AGI workbench
+
+Use **Load AGI sample** and **Review submission** to follow the full path from source bytes to a Fleet decision and approved reuse export. The workbench hashes the source, displays its binary prefix, and assigns the source to a Nutcracker. Literal drafting reads lines written as `CLAIM subject | predicate | scope | value`; the value may be a JSON scalar. An imported or hosted LLM proposal uses the shape `{"claims":[{"subject":"release","predicate":"test-passed","scope":"build-1","value":true,"quote":"Exact source words"}]}`.
+
+Each candidate needs an exact, uniquely located quote. The workbench saves that byte range and its SHA-256. The reviewer records `accept` or `dismiss` and a review reference for each grounded model candidate in the manifest. The Fleet evaluates accepted same-scope claims and independently recorded protection checks. The decision receipt includes evidence ranges and hashes, statuses, contradictions and approval references. A changed source or changed proposal requires a fresh draft.
+
+Local drafting and imported LLM proposals stay in the browser. **Send source to Conductor LLM** checks the existing Cloudflare Access operator identity before forwarding up to 6,000 UTF-8 bytes to the Workers AI binding. Hosted and imported models draft claims. Reviewers verify what each quote supports and supply the protection decisions. Run the workbench tests with `node --test agi.test.mjs`.

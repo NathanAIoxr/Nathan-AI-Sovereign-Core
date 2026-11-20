@@ -2,8 +2,9 @@ import {verifyLiveDecision} from "./cheironomer/src/integrity.js";
 import { project, repository, ProjectConductor } from "./state.mjs";
 import { dashboard } from "./dashboard.mjs";
 import { dashboardScript } from "./dashboard-client.mjs";
-import {cheironomer} from "./cheironomer/src/entry.js";
+import {cheironomer, operator} from "./cheironomer/src/entry.js";
 import {consume} from "./cheironomer/src/conductor.js";
+import { serveNutcrackerBedroomHandoff } from "./handoffs/nutcracker-bedroom.mjs";
 export { ZoneClock } from "./time-clock.mjs";
 
 export { ProjectConductor };
@@ -109,6 +110,12 @@ export default {
         return json({error:"temporarily_unavailable"},503);
       }
     }
+    const nutcracker = serveNutcrackerBedroomHandoff(request, path, {
+      ai: env.AI,
+      authorize: () => operator(request, env),
+      readBytes: limit => limitedBody(request, limit)
+    });
+    if (nutcracker) return nutcracker;
     const isRead = method === "GET" || method === "HEAD";
     if (isRead && path === "/") {
       return new Response(method === "HEAD" ? null : dashboard, { headers: {
