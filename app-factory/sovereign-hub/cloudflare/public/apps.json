@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 370,
+  "count": 371,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -1738,6 +1738,14 @@
       "entry": "app-factory/system/index.html",
       "group": "system",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/system/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-b7154b2f3e5d2d0b",
+      "title": "BIG BANG TIMES NATHAN TABOR \u00b7 Tabor Academy",
+      "entry": "app-factory/tabor-academy/big-bang/index.html",
+      "group": "tabor-academy",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/tabor-academy/big-bang/index.html",
       "adoption": "integration_required"
     },
     {
