@@ -1,13 +1,14 @@
 import { isInteractiveKeyboardTarget } from './keyboard-focus-path.mjs';
 /** Opt-in keyboard navigation for symbolic strands. Does not modify craft data. */
-export function attachKeyboardStrandNavigation(element, strands, onSelection) {
+export function attachKeyboardStrandNavigation(element, strands, onSelection, { isEnabled = () => true } = {}) {
   if (!element || typeof element.addEventListener !== 'function' || typeof element.removeEventListener !== 'function') throw new TypeError('event target required');
   if (!Array.isArray(strands) || strands.some(s => !s || typeof s.id !== 'string' || !s.id) || new Set(strands.map(s => s.id)).size !== strands.length) throw new TypeError('unique strand ids required');
   if (typeof onSelection !== 'function') throw new TypeError('onSelection callback required');
+  if (typeof isEnabled !== 'function') throw new TypeError('isEnabled callback required');
   const ids = strands.map(s => s.id);
   let index = -1, active = true;
   function keydown(event) {
-    if (!active || event.defaultPrevented || event.isComposing || event.keyCode === 229 || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    if (!active || !isEnabled() || event.defaultPrevented || event.isComposing || event.keyCode === 229 || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
     if (isInteractiveKeyboardTarget(event)) return;
     if (!ids.length) return;
     let next = index;
