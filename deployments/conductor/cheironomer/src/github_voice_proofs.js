@@ -1,3 +1,4 @@
+import {sha,quarantine,verifiedPayload} from "./integrity.js";
 const issuer="https://token.actions.githubusercontent.com";
 const repository="NathanAIoxr/Nathan-AI-Sovereign-Core";
 const workflow=repository+"/.github/workflows/zone-switch.yml@refs/heads/main";
@@ -39,7 +40,25 @@ export async function voiceProofs(request,env,keys) {
   const proof=await authorize(request,keys);
   if(proof!=="verified")return reply({error:"github_workflow_required",step:proof},401);
   const rows=await env.LEDGER.prepare(
-    "SELECT event_id,source_hash,created_at FROM voice_vault ORDER BY created_at DESC,event_id LIMIT 1000"
+    `SELECT v.*,l.payload_hash,l.prior_hash,l.alien_hash,l.neila_hash,l.event_type,l.created_at AS sealed_at,
+      q.record_id AS locked FROM voice_vault v
+      LEFT JOIN provenance_ledger l USING(event_id)
+      LEFT JOIN verification_quarantine q ON q.scope='voice' AND q.record_id=v.event_id
+      ORDER BY v.created_at DESC,v.event_id LIMIT 1000`
   ).all();
+  for (const row of rows.results) {
+    let valid=false;
+    if(!row.locked)try {
+      const {cleaned,entities}=JSON.parse(row.entities_json);
+      const input={action:"voice",transcript:row.transcript,cleaned,entities};
+      valid=row.event_type==="voice"&&row.created_at===row.sealed_at&&
+        row.source_hash===await sha(JSON.stringify(input))&&
+        await verifiedPayload(row,{...input,proof:row.source_hash});
+    }catch{}
+    if(!valid){
+      if(!row.locked)await quarantine(env.LEDGER,"voice",row.event_id);
+      return reply({error:"voice_integrity_lock"},409);
+    }
+  }
   return reply({voiceEvidence:rows.results.map(({event_id,source_hash,created_at})=>({event_id,source_hash,created_at}))},200);
 }

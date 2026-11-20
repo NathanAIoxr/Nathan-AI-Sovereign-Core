@@ -1,15 +1,13 @@
+import {sha,ledgerHashes,checkDnsReceipt} from "./integrity.js";
+import {expireRisk} from "./risk_gate.js";
+export {sha};
 import {HOLD_CAPACITY,normalize,verifyPhysicalRoute} from "./zone_dispatcher.js";
 import {readOwnedGraph} from "./nathan_reader_bots.js";
 
 const stateKey = "cheironomer";
 const zeroHash = "0".repeat(64);
-const bytes = new TextEncoder();
 const shared = {"cache-control":"no-store","x-content-type-options":"nosniff"};
 export const json = (body,status=200) => Response.json(body,{status,headers:shared});
-export async function sha(text) {
-  const hash=await crypto.subtle.digest("SHA-256",bytes.encode(text));
-  return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,"0")).join("");
-}
 
 export function prepareStorage(instance) {
   if(instance.cheirSql)return instance.cheirSql;
@@ -73,13 +71,12 @@ export async function command(instance, principal, operation, body) {
     const input=operation==="voice"?body:normalize(body);
     if (state.paused && input.action!=="arm") return {error:"BRAKE"};
     if (input.action==="register-dns") {
-      const source=instance.env.LEDGER;
-      const claims=await Promise.all(input.domains.map(({domain,zoneId})=>source.prepare(
-        "SELECT zone_id FROM dns_provision_receipts WHERE domain=? AND zone_id=? AND gate_mode='HOLDING'"
-      ).bind(domain,zoneId).first()));
-      if(claims.some(claim=>!claim))return {error:"dns_provision_receipt_required"};
+      const checks=await Promise.all(input.domains.map(({domain,zoneId})=>checkDnsReceipt(instance.env,domain,zoneId)));
+      if(!checks.every(Boolean))return {error:"dns_provision_receipt_required"};
     }
-    if (input.action==="promote" && !(await verifyPhysicalRoute(instance.env,input.domain)).verified) return {error:"physical_route_unverified"};
+    if (input.action==="holding"&&!await checkDnsReceipt(instance.env,input.domain))return {error:"dns_receipt_invalid"};
+    if (input.action==="promote"&&(!await checkDnsReceipt(instance.env,input.domain)||!(await verifyPhysicalRoute(instance.env,input.domain)).verified))
+      return {error:"physical_route_unverified"};
     const payload=JSON.stringify(input);
     const proof=await sha(payload);
     const id=crypto.randomUUID(),expires=Date.now()+600000;
@@ -105,9 +102,8 @@ export async function command(instance, principal, operation, body) {
   return approval;
 }
 
-function projection(env,row,payload) {
+function projection(env,row,payload,timestamp) {
   const db=env.LEDGER;
-  const timestamp=sealTime(row.id);
   switch (row.kind) {
     case "stage":
       return [db.prepare("INSERT OR IGNORE INTO virtual_zones(identity_id,reader_role,manifest_json,manifest_hash,updated_at) VALUES(?,?,?,?,?)")
@@ -121,6 +117,8 @@ function projection(env,row,payload) {
       return [
         db.prepare("UPDATE dns_zone_fleet SET state='LIVE',updated_at=? WHERE domain=? AND EXISTS(SELECT 1 FROM virtual_zones WHERE identity_id=?)")
           .bind(timestamp,payload.domain,payload.identity),
+        db.prepare("INSERT INTO dns_live_proofs SELECT ?,domain,dns_zone_id,?,? FROM dns_zone_fleet WHERE domain=? AND state='LIVE' AND updated_at=?")
+          .bind(row.id,JSON.stringify(payload),timestamp,payload.domain,timestamp),
         db.prepare("UPDATE virtual_zones SET zone_state='LAUNCHED',deployment_ref=?,bound_route=?,updated_at=? WHERE identity_id=? AND EXISTS(SELECT 1 FROM dns_zone_fleet WHERE domain=? AND state='LIVE')")
           .bind(env.RELEASE_SHA??"local","https://"+payload.domain,timestamp,payload.identity,payload.domain)
       ];
@@ -144,15 +142,22 @@ async function flush(instance,sql) {
   const row=sql.exec("SELECT * FROM cheir_outbox WHERE sealed=0 ORDER BY sequence LIMIT 1").toArray()[0];
   if (!row) return;
   const state=current(sql);
-  const blocked=!["time","kill","arm"].includes(row.kind) && (state.paused||state.generation!==row.generation);
+  let blocked=!["time","kill","arm"].includes(row.kind) && (state.paused||state.generation!==row.generation);
+  if(!row.prepared&&!blocked&&["register-dns","holding","promote"].includes(row.kind)){
+    const command=JSON.parse(row.payload);
+    const targets=row.kind==="register-dns"?command.domains:[{domain:command.domain}];
+    const checks=await Promise.all(targets.map(({domain,zoneId})=>checkDnsReceipt(env,domain,zoneId)));
+    blocked=!checks.every(Boolean)||row.kind==="promote"&&!(await verifyPhysicalRoute(env,command.domain)).verified;
+    const currentState=current(sql);
+    blocked ||= !!currentState.paused || currentState.generation!==row.generation;
+  }
   const decision=row.prepared??(blocked?"cancelled":"commit");
   if (!row.prepared) sql.exec("UPDATE cheir_outbox SET prepared=? WHERE id=?",decision,row.id);
   const cancelled=decision==="cancelled";
   const item=cancelled?{cancelled:row.kind}:JSON.parse(row.payload);
-  if (!cancelled && row.kind==="promote" && !(await verifyPhysicalRoute(env,item.domain)).verified) throw Error("physical_route_unverified");
   const prev=sql.exec("SELECT alien FROM cheir_outbox WHERE sealed=1 AND sequence<? ORDER BY sequence DESC LIMIT 1",row.sequence).toArray()[0]?.alien??zeroHash;
   const digest=await sha(JSON.stringify(item));
-  const [alien,neila]=await Promise.all([sha(prev+"|"+digest+"|"+row.id),sha(row.id+"|"+digest+"|"+prev)]);
+  const [alien,neila]=await ledgerHashes(row.id,prev,digest);
   const seal={eventId:row.id,type:cancelled?"cancelled":row.kind,prior:prev,alien,neila,digest};
   const stored=await env.AUDIT.put("cheironomer/seals/"+row.id+".json",JSON.stringify(seal),{onlyIf:{etagDoesNotMatch:"*"},httpMetadata:{contentType:"application/json"}});
   if (!stored) {
@@ -162,10 +167,11 @@ async function flush(instance,sql) {
   const exists=await env.LEDGER.prepare("SELECT alien_hash FROM provenance_ledger WHERE event_id=?").bind(row.id).first();
   if (exists && exists.alien_hash!==alien) throw Error("ledger_seal_differs");
   if (!exists) {
+    const timestamp=sealTime(row.id);
     await env.LEDGER.batch([
-      ...(!cancelled?projection(env,row,item):[]),
+      ...(!cancelled?projection(env,row,item,timestamp):[]),
       env.LEDGER.prepare("INSERT INTO provenance_ledger VALUES(?,?,?,?,?,?,?)")
-        .bind(row.id,seal.type,prev,alien,neila,digest,sealTime(row.id))
+        .bind(row.id,seal.type,prev,alien,neila,digest,timestamp)
     ]);
   }
   if (!cancelled && ["register-dns","holding","promote"].includes(row.kind)) {
@@ -196,7 +202,7 @@ async function checkLedger(instance,sql) {
   ]);
   if (!row||!object) return "seal_missing";
   const seal=await object.json();
-  const [a,n]=await Promise.all([sha(row.prior_hash+"|"+row.payload_hash+"|"+last.id),sha(last.id+"|"+row.payload_hash+"|"+row.prior_hash)]);
+  const [a,n]=await ledgerHashes(last.id,row.prior_hash,row.payload_hash);
   return a===row.alien_hash&&a===last.alien&&a===seal.alien&&n===row.neila_hash&&n===last.neila&&n===seal.neila?"verified":"integrity_mismatch";
 }
 
@@ -209,6 +215,7 @@ export async function heartbeat(instance) {
   try {
     if (now-last_audit>=60000) {
       sql.exec("DELETE FROM sibling_hold WHERE expires<?",now);
+      await expireRisk(instance.env.LEDGER).catch(()=>console.error("cheironomer risk expiry pending"));
       const receipt=await checkLedger(instance,sql);
       sql.exec("UPDATE cheir_control SET last_audit=?,audit=? WHERE id=1",now,receipt);
       if (!["verified","waiting"].includes(receipt)) {

@@ -1,8 +1,9 @@
+import {evaluateRisk,riskStatus,settleRisk} from "./risk_gate.js";
 import {voiceProofs} from "./github_voice_proofs.js";
 import {json} from "./conductor.js";
 import {hud,hudScript} from "./hud.js";
 import {readOwnedGraph} from "./nathan_reader_bots.js";
-import {parseVoice} from "./voice_telemetry.js";
+import {parseVoice,parseText} from "./voice_telemetry.js";
 const hdr={"cache-control":"no-store","x-content-type-options":"nosniff","content-security-policy":"default-src 'none'; script-src 'self'; connect-src 'self'; style-src 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'"};
 const decode = text => Uint8Array.from(atob(text.replaceAll("-","+").replaceAll("_","/")),v=>v.charCodeAt(0));
 
@@ -75,13 +76,28 @@ export async function cheironomer(request,env,path) {
     const {searchParams}=new URL(request.url);
     return json(await readOwnedGraph(env,searchParams.get("source")??"links",searchParams.get("cursor")??""));
   }
-  if(m!=="POST"||!["propose","approve","kill","voice"].includes(action))return json({error:"not_found"},404);
+  if(action==="risk/status"&&m==="GET"){
+    const output=await riskStatus(env.LEDGER,user,new URL(request.url).searchParams.get("id"));
+    return json(output,output.error?409:200);
+  }
+  if(m!=="POST"||!["propose","approve","kill","voice","voice/text","risk/gate","risk/settle"].includes(action))return json({error:"not_found"},404);
   if(request.headers.get("Origin")!==new URL(request.url).origin)return json({error:"same_origin_required"},403);
-  if(action==="voice"&&(await state.cheirStatus()).paused)return json({error:"BRAKE"},409);
+  if(action.startsWith("voice")&&(await state.cheirStatus()).paused)return json({error:"BRAKE"},409);
   if(action==="voice"&&!/^audio\//i.test(request.headers.get("content-type")??""))return json({error:"expected_audio"},415);
   if(action!=="voice"&&!(request.headers.get("content-type")??"").startsWith("application/json"))return json({error:"expected_json"},415);
   const raw=await readBytes(request,action==="voice"?1024*1024:16384);
-  const body=action==="voice"?await parseVoice(env,raw):JSON.parse(new TextDecoder("utf-8",{fatal:true}).decode(raw));
-  const response=await state.cheirCommand(user,action,body);
+  let body;
+  try {
+    body=action==="voice"?await parseVoice(env,raw):JSON.parse(new TextDecoder("utf-8",{fatal:true}).decode(raw));
+  }catch(error){
+    if(action==="voice")throw error;
+    return json({error:"invalid_json",gate:"BLOCKED"},400);
+  }
+  if(action==="risk/gate"||action==="risk/settle"){
+    const output=action==="risk/gate"?await evaluateRisk(env.LEDGER,user,body):await settleRisk(env.LEDGER,user,body?.id,body?.outcomeSuccess);
+    return json(output,output.error?409:200);
+  }
+  const response=await state.cheirCommand(user,action==="voice/text"?"voice":action,
+    action==="voice/text"?await parseText(env,body?.transcript):body);
   return json(response,response.error?409:202);
 }

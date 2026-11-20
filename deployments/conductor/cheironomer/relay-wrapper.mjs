@@ -1,3 +1,4 @@
+import {signOriginRequest} from "./origin-seal.mjs";
 import legacy from "./tweezer-tap-os/src/relay.mjs";
 
 const base="https://cheironomer.internal/tabor-sites/conductor/cheironomer";
@@ -13,7 +14,14 @@ export default {
     const check=await target(env).fetch(base+"/internal/dns-gate?domain="+encodeURIComponent(domain),
       {headers:{Authorization:"Bearer "+env.CHEIR_RELAY_KEY}});
     if(!check.ok||!(await check.json()).live)return holding();
-    return fetch(request);
+    try {
+      const keys=JSON.parse(env.CHEIR_ORIGIN_KEYS??"{}");
+      const secret=Object.hasOwn(keys,domain)?keys[domain]:null;
+      return await fetch(await signOriginRequest(request,secret));
+    }catch(error){
+      if(error instanceof RangeError)return new Response("Payload too large",{status:413});
+      return holding();
+    }
   },
   async scheduled(event,env) {
     const [old,health]=await Promise.allSettled([
