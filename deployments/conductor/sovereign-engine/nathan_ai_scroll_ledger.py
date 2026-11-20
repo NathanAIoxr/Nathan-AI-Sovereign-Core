@@ -134,7 +134,8 @@ def encode_batch(records):
 def push_batch_to_worker(records, token):
     payload = encode_batch(records)
     req = request.Request(ENDPOINT, data=payload, headers={
-        "Content-Type": "application/json", "X-Sovereign-Anchor": ANCHOR, "Authorization": f"Bearer {token}",
+        "Content-Type": "application/json", "X-Sovereign-Anchor": ANCHOR,
+        "Authorization": f"Bearer {token}", "User-Agent": "NathanAI-ScrollLedger/1",
     })
     with request.build_opener(NoRedirect()).open(req, timeout=20) as response:
         result = json.load(response)
