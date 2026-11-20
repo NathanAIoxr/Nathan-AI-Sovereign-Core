@@ -1,0 +1,9 @@
+{
+  "name": "history-of-snow-globes",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "npm run build && node test.mjs"
+  }
+}
