@@ -2,7 +2,7 @@
 
 By Nathan Tabor
 
-[Public launch page](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/) · [Health check](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/healthz)
+[Academy homepage](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/) · [Health check](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/healthz)
 
 The launch Worker lives in the dedicated Cloudflare Workers for Platforms namespace `tabor-academy`. The existing Tabor Bridge forwards the `/tabor-academy/` route to that Worker. The deployed module is `src/worker.mjs`.
 
@@ -31,4 +31,14 @@ The public Library reads lessons whose latest ledger entry is `RETAIN_1` and ver
 
 The first lessons cover the roots of education and the shared ancestry of humans and parrots. The Edubba → Buddha rotation is presented as the Academy reading alongside the language sources.
 
-Next in the Academy brief: Nathan AI Voice Box ingestion, shared notepad, Hop In Chatbox, and MAKE AI YOURS.
+Remaining Academy features include Nathan AI Voice Box ingestion, the shared notepad, Hop In Chatbox, and MAKE AI YOURS.
+
+## Tabor Workbench
+
+[Open the Workbench](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/workbench/)
+
+Apply `migrations/0002_techniques.sql` and then `migrations/0003_technique_zones.sql` after the Library migration. The 101 technique numbers and seven field-guide groupings are shared by the Workbench HTML and the `/workbench/techniques.json` feed. Every technique has a Workbench page at `/workbench/zones/<number>/`.
+
+Cloudflare development namespaces are named `tabor-academy-001-dev` through `tabor-academy-101-dev`. They are Workers for Platforms dispatch namespaces. Each has a `technique` Worker from `src/technique-zone.mjs`, with its technique brief in a `TECHNIQUE` binding. The Academy Worker serves the public Workbench from D1.
+
+The first field activities are #4, #21, #46, #47, #59, #65, #92, and #101. Technique #47 includes the printable template and the live triangle sandbox.
