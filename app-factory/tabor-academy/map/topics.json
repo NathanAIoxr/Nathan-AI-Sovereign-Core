@@ -1,0 +1,278 @@
+{
+  "catalog": {
+    "History and the record": [
+      [
+        "/order/",
+        "The Law of Order",
+        "Good Samaritan, 1826, apprenticeship, who set the syllabus"
+      ],
+      [
+        "/order/time-of-peace/",
+        "The Time of Peace",
+        "Age of Innocence, rotation, authority, kinship, child protection"
+      ],
+      [
+        "/order/1626/",
+        "1626 · Who taught, and who set the syllabus?",
+        "Powhatan, Jamestown, Ethiopia, Late Ming, Tierra del Fuego"
+      ],
+      [
+        "/order/porch/",
+        "Miss Wilson’s Porch",
+        "Madison County, open-range freedom, hospitality, surveillance"
+      ],
+      [
+        "/order/ancient-egypt-cleopatra/",
+        "Ancient Egypt and Cleopatra VII",
+        "Giza, Merer, pyramids, coins, Actium, Roman propaganda"
+      ],
+      [
+        "/order/ancient-servitude/",
+        "Ancient Servitude",
+        "room and board, Hammurabi, KJV Exodus, debt service, consent, right to leave"
+      ]
+    ],
+    "Language and communication": [
+      [
+        "/talking-mammals/",
+        "the academy for TALKING MAMMALS",
+        "dogs, cats, manners, body language, signals and choice"
+      ],
+      [
+        "/library/",
+        "Library of Tabor",
+        "Tabor Concordance, Buddha, Edubba, parrots, source records"
+      ]
+    ],
+    "Skills, tools and fieldwork": [
+      [
+        "/workbench/",
+        "Tabor Workbench",
+        "field guides, technique zones, observation, geometry, apprenticeship"
+      ],
+      [
+        "/workbench/47/",
+        "Knotted Cord Geometry",
+        "3-4-5 triangle, square corner, cord"
+      ],
+      [
+        "/survival/",
+        "Survival-to-Modernity Mastery Drills",
+        "fire, navigation, water, food, shelter, tools, first aid"
+      ]
+    ],
+    "Learning paths and the Academy": [
+      [
+        "/way/",
+        "The Nathan Tabor Way",
+        "Build, Flip, Integrate, Verify, learning paths, missions"
+      ],
+      [
+        "/institution/",
+        "Nine Pillars",
+        "curriculum, syllabus, assessment, pedagogy, institutional architecture"
+      ]
+    ]
+  },
+  "relations": {
+    "/order/": [
+      [
+        "main > section:first-of-type",
+        "care",
+        "The Good Samaritan",
+        [
+          [
+            "/order/porch/#porch-story",
+            "See how hospitality works at Miss Wilson’s Porch"
+          ],
+          [
+            "/order/time-of-peace/#rotation",
+            "Follow authority back to home and community"
+          ]
+        ]
+      ]
+    ],
+    "/order/time-of-peace/": [
+      [
+        "main > section:first-of-type",
+        "rotation",
+        "The rotation",
+        [
+          [
+            "/order/ancient-servitude/#forward",
+            "Examine who could direct another person’s labor"
+          ],
+          [
+            "/order/1626/",
+            "Compare who taught and set the syllabus in 1626"
+          ]
+        ]
+      ]
+    ],
+    "/order/porch/": [
+      [
+        "main > section:nth-of-type(2)",
+        "porch-story",
+        "The porch story",
+        [
+          [
+            "/order/#care",
+            "Compare the order of care in the Good Samaritan"
+          ]
+        ]
+      ]
+    ],
+    "/order/ancient-egypt-cleopatra/": [
+      [
+        "#forward",
+        "forward",
+        "Giza and pyramid labor",
+        [
+          [
+            "/order/ancient-servitude/#forward",
+            "Compare work, debt and release in the ancient records"
+          ]
+        ]
+      ],
+      [
+        "main > section:nth-of-type(3)",
+        "cleopatra",
+        "Cleopatra’s royal record",
+        [
+          [
+            "/order/ancient-egypt-cleopatra/#reverse",
+            "Trace Cleopatra’s later reputation back through its sources"
+          ]
+        ]
+      ],
+      [
+        "#reverse",
+        "reverse",
+        "The received story",
+        [
+          [
+            "/order/time-of-peace/#rotation",
+            "Compare how authority and control of records changed"
+          ]
+        ]
+      ]
+    ],
+    "/order/ancient-servitude/": [
+      [
+        "#forward",
+        "forward",
+        "Terms in the records",
+        [
+          [
+            "/order/ancient-egypt-cleopatra/#forward",
+            "Return to Giza and the evidence for organized labor"
+          ]
+        ]
+      ],
+      [
+        "#reverse",
+        "reverse",
+        "Words for work and servitude",
+        [
+          [
+            "/library/#concordance",
+            "Explore roots and context in the Tabor Concordance"
+          ]
+        ]
+      ]
+    ],
+    "/talking-mammals/": [
+      [
+        "#dog",
+        "dog",
+        "Talking to a dog",
+        [
+          [
+            "/talking-mammals/#flip",
+            "Flip the conversation and observe the dog’s response"
+          ]
+        ]
+      ],
+      [
+        "#cats",
+        "cats",
+        "How cats signal choice",
+        [
+          [
+            "/talking-mammals/#flip",
+            "Practice observing the other side of the exchange"
+          ]
+        ]
+      ],
+      [
+        "#herder",
+        "herder",
+        "Chief herder of cats",
+        [
+          [
+            "/order/porch/#porch-story",
+            "Compare how people choose to participate in a community"
+          ]
+        ]
+      ],
+      [
+        "#manners",
+        "manners",
+        "Manners and muscle memory",
+        [
+          [
+            "/workbench/#guide-1",
+            "Practice direct observation in the Workbench"
+          ]
+        ]
+      ]
+    ],
+    "/workbench/": [
+      [
+        "#guide-4",
+        "guide-4",
+        "Hands-on math and geometry",
+        [
+          [
+            "/workbench/47/",
+            "Build a square corner with knotted cord"
+          ]
+        ]
+      ]
+    ],
+    "/workbench/47/": [
+      [
+        "main > section:first-of-type",
+        "cord-outcome",
+        "Knotted cord exercise",
+        [
+          [
+            "/way/math/",
+            "Explore the Nathan Tabor Way math path"
+          ],
+          [
+            "/workbench/#guide-4",
+            "Go to the hands-on geometry field guide"
+          ]
+        ]
+      ]
+    ],
+    "/library/": [
+      [
+        "#concordance",
+        "concordance",
+        "Tabor Concordance",
+        [
+          [
+            "/order/ancient-servitude/#reverse",
+            "Apply word roots and context to ancient labor records"
+          ],
+          [
+            "/way/language/",
+            "Explore the language and communication path"
+          ]
+        ]
+      ]
+    ]
+  }
+}
