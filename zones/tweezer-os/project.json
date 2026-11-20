@@ -1,0 +1,20 @@
+{
+  "id": "tweezer-os",
+  "title": "TWEEZER-OS",
+  "parent_universe": "HOLD STILL … TWEEZERS … CAN YOU GET IT OUT?",
+  "kind": "independent_single_player_iphone_game",
+  "launch_status": "HOLD",
+  "release_approved": false,
+  "components": [
+    "crt-hud",
+    "patientd",
+    "irq_flinch",
+    "sterile_guard",
+    "er_watchdog",
+    "virtual-devices",
+    "missions",
+    "incident-ledger"
+  ],
+  "external_dependencies": [],
+  "note": "Fictional arcade simulation, not a medical device or real operating system."
+}
