@@ -13,7 +13,7 @@ const json = (data, status = 200) => Response.json(data, {status, headers: NO_CA
 const text = (body, status) => new Response(body, {status, headers: NO_CACHE});
 
 function page(title, body, status = 200) {
-  return new Response(`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)}</title><style>body{font:1rem system-ui;margin:3rem auto;padding:0 1rem;max-width:45rem;color:#192e30;background:#f4faf8}a{color:#14635d}li{padding:.35rem 0;overflow-wrap:anywhere}header{border-bottom:2px solid #8db9b1}main{padding-top:1rem}</style><header><p>Nathan AI</p><h1>${escape(title)}</h1></header><main>${body}</main></html>`, {
+  return new Response(`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)}</title><style>body{font:1rem system-ui;margin:3rem auto;padding:0 1rem;max-width:45rem;color:#192e30;background:#f4faf8}a{color:#14635d}li{padding:.35rem 0;overflow-wrap:anywhere}code,dd{overflow-wrap:anywhere}nav{line-height:2}dt{font-weight:600;margin-top:.6rem}dd{margin-left:0}header{border-bottom:2px solid #8db9b1}main{padding-top:1rem}</style><header><p>Nathan AI</p><h1>${escape(title)}</h1></header><main>${body}</main></html>`, {
     status, headers: {...NO_CACHE,"Content-Type":"text/html; charset=utf-8"}
   });
 }
@@ -66,6 +66,51 @@ export async function readZoneComponents(db, workspaceId, limit = 100, offset = 
   return {rows:results.slice(0,limit),nextOffset:results.length>limit ? offset+limit : null};
 }
 
+function partLink(sourceTable, sourceId) {
+  const bytes = new TextEncoder().encode(JSON.stringify([sourceTable,sourceId]));
+  return btoa(Array.from(bytes,(byte) => String.fromCharCode(byte)).join(""))
+    .replaceAll("+","-").replaceAll("/","_").replace(/=+$/,"");
+}
+
+function partIdentity(token) {
+  if (token.length > 3000) return null;
+  try {
+    const pair = JSON.parse(new TextDecoder().decode(decode(token)));
+    return Array.isArray(pair) && pair.length === 2 &&
+      pair.every((value) => typeof value === "string" && value.length > 0)
+      ? pair : null;
+  } catch {
+    return null;
+  }
+}
+
+export async function renderZoneSite(env, record, base, part, cursor = "0") {
+  const site = await env.DB.prepare("SELECT preview_hostname FROM zone_preview_sites WHERE workspace_id=?").bind(record.workspace_id).first();
+  if (!site) return text("Project website not found",404);
+
+  const root = `${base}/preview/${record.workspace_id}`;
+  const title = record.project_name;
+  const header = `<nav aria-label="Project preview"><a href="${root}">Workspace</a> · <a href="${root}/site">Website preview</a> · <a href="${root}/snapshot.json">Snapshot</a></nav><p><strong>Private staging</strong> · <code>${escape(site.preview_hostname)}</code></p>`;
+  if (part) {
+    const key = partIdentity(part);
+    if (!key) return text("Component not found",404);
+    const component = await env.DB.prepare("SELECT component_type,source_table,source_id,source_ref,captured_at,snapshot_sha256 FROM zone_preview_parts WHERE workspace_id=? AND source_table=? AND source_id=?").bind(record.workspace_id,...key).first();
+    if (!component) return text("Component not found",404);
+    return page(component.component_type,`${header}<p>${escape(title)}</p><dl><dt>Staged source</dt><dd>${escape(component.source_ref ?? component.source_id)}</dd><dt>Source catalog</dt><dd>${escape(component.source_table)}</dd><dt>Snapshot captured</dt><dd>${escape(component.captured_at ?? "")}</dd><dt>Snapshot SHA-256</dt><dd><code>${escape(component.snapshot_sha256)}</code></dd></dl>`);
+  }
+
+  if (!/^(0|[1-9][0-9]{0,6})$/.test(cursor)) return text("Invalid cursor",400);
+  const offset = Number(cursor);
+  const pageSize = 40;
+  const {results} = await env.DB.prepare("SELECT component_type,source_table,source_id,source_ref FROM zone_preview_parts WHERE workspace_id=? ORDER BY component_type,source_table,source_id LIMIT ? OFFSET ?").bind(record.workspace_id,pageSize+1,offset).all();
+  const items = results.slice(0,pageSize).map((row) =>
+    `<li><a href="${root}/site/part/${partLink(row.source_table,row.source_id)}">${escape(row.component_type)}</a><div>${escape(row.source_ref ?? row.source_id)}</div></li>`
+  ).join("");
+  const next = results.length>pageSize ? `<p><a href="${root}/site?offset=${offset+pageSize}">Next components</a></p>` : "";
+  const placeholder = record.domain ? escape(record.domain) : "Assigned at launch";
+  return page(title,`${header}<dl><dt>Website domain</dt><dd>${placeholder}</dd><dt>Launch state</dt><dd>${escape(record.launch_status)}</dd></dl><h2>Staged areas</h2>${items ? `<ul>${items}</ul>` : "<p>No staged areas yet.</p>"}${next}`);
+}
+
 async function handle(request, env) {
   const base = env.MOUNT_PATH === "/holding-vault" ? "/holding-vault" : "";
   const {pathname, searchParams} = new URL(request.url);
@@ -102,6 +147,14 @@ async function handle(request, env) {
     return page("Project staging registry", `<ul>${items}</ul>${next}`);
   }
 
+  const site = /^\/preview\/([^/]+)\/site(?:\/part\/([^/]+))?\/?$/.exec(pathname);
+  if (site) {
+    if (!validId(site[1])) return text("Project website not found",404);
+    const project = await projectRow(env,site[1]);
+    if (!project) return text("Project website not found",404);
+    return await renderZoneSite(env,project,base,site[2],searchParams.get("offset") ?? "0");
+  }
+
   const match = /^\/preview\/([^/]+)(?:\/(snapshot\.json|assets\/(.+)))?\/?$/.exec(pathname);
   if (!match || !validId(match[1])) return text("Project not found",404);
   const record = await projectRow(env, match[1]);
@@ -121,7 +174,7 @@ async function handle(request, env) {
     const list = rows.map((row) => `<li>${escape(row.component_type)} · ${escape(row.source_ref ?? row.source_id)}</li>`).join("");
     const snapshot = `${base}/preview/${record.workspace_id}/snapshot.json`;
     const count = nextOffset === null ? rows.length : "30+";
-    return page(record.project_name,`<p><a href="${base}/preview">Project registry</a></p><dl><dt>Project</dt><dd>${escape(record.project_kind)}</dd><dt>Release</dt><dd>${escape(record.launch_status)}</dd><dt>Domain</dt><dd>${escape(record.domain ?? "Awaiting assignment")}</dd><dt>Zone state</dt><dd>${escape(record.domain_status)}</dd></dl><h2>Staged components (${count})</h2><p><a href="${snapshot}">Download project snapshot</a></p><ul>${list}</ul>`);
+    return page(record.project_name,`<p><a href="${base}/preview">Project registry</a></p><dl><dt>Project</dt><dd>${escape(record.project_kind)}</dd><dt>Release</dt><dd>${escape(record.launch_status)}</dd><dt>Domain</dt><dd>${escape(record.domain ?? "Awaiting assignment")}</dd><dt>Zone state</dt><dd>${escape(record.domain_status)}</dd></dl><p><a href="${base}/preview/${record.workspace_id}/site">Website preview</a></p><h2>Staged components (${count})</h2><p><a href="${snapshot}">Download project snapshot</a></p><ul>${list}</ul>`);
   }
 
   const segments = match[3].split("/");
