@@ -6,9 +6,10 @@ export function attachKeyboardStrandNavigation(element, strands, onSelection) {
   const ids = strands.map(s => s.id);
   let index = -1, active = true;
   function keydown(event) {
-    if (!active || event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    if (!active || event.defaultPrevented || event.isComposing || event.keyCode === 229 || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
     const tag = event.target?.tagName?.toLowerCase();
-    if (event.target?.isContentEditable || ['input','textarea','select'].includes(tag)) return;
+    const role = event.target?.getAttribute?.('role') ?? event.target?.role;
+    if (event.target?.isContentEditable || ['input','textarea','select'].includes(tag) || ['textbox','searchbox','combobox','spinbutton'].includes(typeof role === 'string' ? role.toLowerCase() : '')) return;
     if (!ids.length) return;
     let next = index;
     if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % ids.length;
