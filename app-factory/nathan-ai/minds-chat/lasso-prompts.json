@@ -11,8 +11,22 @@
     "attributions": "Collate exact wording across source, translation, retelling, commentary and modern personas. Retain each record and date. If a claim has no supporting primary or textual record, flag it for review and omit it from the person's voice. Use disputed only where documented sources disagree.",
     "review": "For each claim, inspect the locator and check that it directly supports the wording, actor, kind, translation and status. Cite conflicting sources side by side. Return proposed, approved or held plus the reviewer’s evidence reason. Record the public evidence citation for approved assertions.",
     "answer": "Select only approved evidence IDs for the selected Mind. Expose the source, kind and status next to each entry. If the question requires evidence outside the approved set, return unknown. Keep the question separate from the answer. Leave words assigned by others visibly attributed to those sources.",
-    "release": "Validate intake IDs, identity aliases, edition links, allowed kind/status pairs, public scope, original wording, no-source behavior and both live endpoints. Report deployed only after the publish destination and release fingerprint are verified. Report queued or configured separately from executed."
+    "release": "Validate intake IDs, identity aliases, edition links, allowed kind/status pairs, public scope, original wording, no-source behavior and both live endpoints. Report deployed only after the publish destination and release fingerprint are verified. Report queued or configured separately from executed.",
+    "chronology": "Preserve the event date or reported range independently of the surviving account date. List the dated originals and retrospective leads oldest first. Keep stages, named projects and original author wording intact. Record gaps with the evidence needed to resolve them.",
+    "nathanMethod": "For Nathan Tabor, preserve the research method of dropping labels, comparing attributes, characteristics, functionalities and outcome, tracing roots, and restoring names with evidence. Compare claimed words and observable actions; never infer unrecorded thoughts or treat an editorial addition as first-person speech."
   },
-  "recordFields": ["id", "subjects", "kind", "status", "text", "source", "url", "tags"],
+  "recordFields": [
+    "id",
+    "subjects",
+    "kind",
+    "status",
+    "text",
+    "source",
+    "url",
+    "tags",
+    "title",
+    "date",
+    "eventDate"
+  ],
   "publication": "The runtime displays reviewed records. Prompt outputs remain proposals until the source is inspected and the record is approved in the repository."
 }

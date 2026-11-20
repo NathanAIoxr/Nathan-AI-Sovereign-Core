@@ -7,7 +7,7 @@
   const open = document.querySelector("#open-minds");
   const assets = new URL(root.dataset.assets, location.href);
   const pages = new URL("https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/");
-  const { createDirectory, pageSize, answer, evidenceLabels } = window.NathanMindsChat;
+  const { createDirectory, pageSize, answer, evidenceLabels, nathanMindId } = window.NathanMindsChat;
   const requestedMind = new URLSearchParams(location.search).get("mind");
 
   root.innerHTML = `
@@ -78,7 +78,8 @@
           <button type="button" data-view-kind="actions" disabled>Actions</button>
           <button type="button" data-view-kind="attributions" disabled>Attributions</button>
           <button type="button" data-view-kind="sources" disabled>Sources</button>
-        </div>
+          <button type="button" data-view-kind="timeline" hidden>Earliest to latest</button>
+          </div>
         <div class="minds-log" role="log" aria-label="Mind conversation" data-log></div>
         <form data-ask>
           <label>Your question<textarea name="question" rows="3" maxlength="1500" required></textarea></label>
@@ -117,7 +118,10 @@
     get("source").textContent = record.sourceId ? "Source: " + record.sourceId : "";
     if (record.id === "omni.opal-ai") addLink(get("source"), "Open Opal AI’s source record", "ai-mapping/");
     get("send").disabled = false;
-    for (const button of get("evidence").querySelectorAll("button")) button.disabled = false;
+    for (const button of get("evidence").querySelectorAll("button")) {
+      button.disabled = false;
+      if (button.dataset.viewKind === "timeline") button.hidden = record.id !== nathanMindId;
+    }
     get("log").replaceChildren();
     for (const button of get("list").querySelectorAll("button")) {
       button.setAttribute("aria-pressed", String(button.dataset.mind === record.id));
@@ -238,7 +242,17 @@
       content.textContent = record.text;
       if (record.url) addLink(citation, record.source, record.url);
       else citation.textContent = record.source;
-      turn.append(kind, content, citation);
+      if (record.title) {
+        const entry = document.createElement("details");
+        const title = document.createElement("summary");
+        title.textContent = record.title + (record.eventDate ? " · " + record.eventDate : record.date && record.date !== "undated" ? " · " + record.date : "");
+        if (record.eventDate) citation.append(" · Account recorded " + record.date);
+        entry.append(title, kind, content, citation);
+        entry.open = view !== "timeline" || turn.querySelector("details") === null;
+        turn.append(entry);
+      } else {
+        turn.append(kind, content, citation);
+      }
     }
     log.append(turn);
     if (log.childElementCount > 24) log.firstElementChild.remove();
@@ -293,7 +307,8 @@
       get("lasso").hidden = false;
       get("controls").hidden = false;
       render();
-      const selected = requestedMind && directory.get(requestedMind);
+      const id = requestedMind === "author.nathan-tabor" ? nathanMindId : requestedMind;
+      const selected = directory.get(id || (dialog ? "" : nathanMindId));
       if (selected) select(selected);
     } catch {
       get("summary").textContent = "The Mind registry could not load.";

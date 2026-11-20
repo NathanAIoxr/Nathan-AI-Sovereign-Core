@@ -4,7 +4,7 @@ import { release } from "./build.mjs";
 
 const base = "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/minds/";
 const pages = "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/minds-chat/";
-const namedAssets = ["app.js", "engine.js", "lasso-evidence.json", "lasso-prompts.json"];
+const namedAssets = ["app.js", "engine.js", "style.css", "sources.json", "lasso-evidence.json", "lasso-prompts.json"];
 
 async function get(url) {
   const response = await fetch(url, { cache: "no-store", redirect: "error", signal: AbortSignal.timeout(20_000) });
@@ -25,6 +25,16 @@ if (mode !== "--pages") {
   assert.equal(response.headers.get("x-tabor-minds-release"), release);
   assert.match(await response.text(), /data-minds-chat/);
   await compareAssets(base);
+  const health = await (await get(base + "healthz")).json();
+  assert.equal(health.service, "tabor-academy-minds");
+  assert.equal(health.ready, true);
+  assert.equal(health.release, release);
+  assert.match(health.revision, /^[0-9a-f]{40}$/u);
+  const expectedRevision = process.argv[3] ?? process.env.GITHUB_SHA;
+  if (expectedRevision) assert.equal(health.revision, expectedRevision);
+  const evidence = JSON.parse(await readFile(new URL("../../nathan-ai/minds-chat/lasso-evidence.json", import.meta.url), "utf8"));
+  assert.equal(health.records, evidence.records.filter(record => record.id.startsWith("nt-") && record.kind === "actions").length);
+  console.log(JSON.stringify(health));
   console.log("Cloudflare Minds release " + release + " verified");
 }
 if (mode !== "--edge") {

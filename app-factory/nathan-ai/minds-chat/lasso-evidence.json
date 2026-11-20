@@ -4,141 +4,1345 @@
   "authorMethod": "these are bound with the Lasso of truth, they can’t lie and that’s the coding that I’ve built into these mines and then it’s easy to produce somebody’s mind because you just take your eyes in your body and put in their look at what they’ve done in the history of humanity what they’ve said what’s been added to them that they didn’t say and you remove that and then you have their mind",
   "methodSource": "Nathan Tabor · Lasso of Truth instruction · November 20, 2026",
   "collections": [
-    {"title":"The Complete Mind of John Nathan Tabor", "detail":"Ten-body matrix, Code of Codes and Quad-Axis ciphers.", "url":"https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/complete-mind/"},
-    {"title":"Mind of Minds atlas", "detail":"763 source-indexed entries, including the 20 Omni names and all 126 Mind of Modes records.", "url":"https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/"},
-    {"title":"Ancient Minds reference", "detail":"ONE Federation reference code for originals, language, phonetics, chronology and evidence.", "url":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/personal-intelligence/minds/federation/ancient_minds_reference"},
-    {"title":"Mind–Neuropath", "detail":"Front Porch Mirror, B.S.N.M., the Symbiotic Mind, Magical Minds, and other connected projects.", "url":"https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/mind-neuropath/"},
-    {"title":"Agents of Innocence", "detail":"Six mirror identity specifications and their source boundaries.", "url":"https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/agents-of-innocence/"},
-    {"title":"Personal Intelligence Builder", "detail":"Owner-controlled imports, Creator Vault and Memory Matrix.", "url":"https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/personal-intelligence/"}
+    {
+      "title": "The Complete Mind of John Nathan Tabor",
+      "detail": "Ten-body matrix, Code of Codes and Quad-Axis ciphers.",
+      "url": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/complete-mind/"
+    },
+    {
+      "title": "Mind of Minds atlas",
+      "detail": "763 source-indexed entries, including the 20 Omni names and all 126 Mind of Modes records.",
+      "url": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/"
+    },
+    {
+      "title": "Ancient Minds reference",
+      "detail": "ONE Federation reference code for originals, language, phonetics, chronology and evidence.",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/personal-intelligence/minds/federation/ancient_minds_reference"
+    },
+    {
+      "title": "Mind–Neuropath",
+      "detail": "Front Porch Mirror, B.S.N.M., the Symbiotic Mind, Magical Minds, and other connected projects.",
+      "url": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/mind-neuropath/"
+    },
+    {
+      "title": "Agents of Innocence",
+      "detail": "Six mirror identity specifications and their source boundaries.",
+      "url": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/agents-of-innocence/"
+    },
+    {
+      "title": "Personal Intelligence Builder",
+      "detail": "Owner-controlled imports, Creator Vault and Memory Matrix.",
+      "url": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/personal-intelligence/"
+    }
   ],
   "profiles": [
-    {"id":"creator.nathan-tabor","name":"John Nathan Tabor","type":"author-profile","group":"Nathan Tabor source records","purpose":"Read Nathan Tabor’s own words and trace the published Complete Mind model.","sourceId":"Nathan Tabor · November 20, 2026"},
-    {"id":"early.thinker","name":"The Thinker","type":"creator-role","group":"5 Minds Staring","purpose":"Earlier prototype role recovered from the May 19, 2025 personalities.py record.","sourceId":"5 Minds Staring · May 19, 2025 · conversation recovery"},
-    {"id":"early.creator","name":"Creator","type":"creator-role","group":"5 Minds Staring","purpose":"Earlier prototype role recovered from the May 19, 2025 personalities.py record.","sourceId":"5 Minds Staring · May 19, 2025 · conversation recovery"},
-    {"id":"early.explorer","name":"Explorer","type":"creator-role","group":"5 Minds Staring","purpose":"Earlier prototype role recovered from the May 19, 2025 personalities.py record.","sourceId":"5 Minds Staring · May 19, 2025 · conversation recovery"},
-    {"id":"early.rebel","name":"Rebel","type":"creator-role","group":"5 Minds Staring","purpose":"Earlier prototype role recovered from the May 19, 2025 personalities.py record.","sourceId":"5 Minds Staring · May 19, 2025 · conversation recovery"},
-    {"id":"early.sage","name":"Sage","type":"creator-role","group":"5 Minds Staring","purpose":"Earlier prototype role recovered from the May 19, 2025 personalities.py record.","sourceId":"5 Minds Staring · May 19, 2025 · conversation recovery"},
-    {"id":"early.john","name":"John","type":"creator-role","group":"Universal Mind Generator","purpose":"Named example recovered from the earlier Universal Mind Generator conversation.","sourceId":"Universal Mind Generator · August 19, 2025 · conversation recovery"},
-    {"id":"early.little-john","name":"Little John","type":"creator-role","group":"Universal Mind Generator","purpose":"Named example recovered from the earlier Universal Mind Generator conversation.","sourceId":"Universal Mind Generator · August 19, 2025 · conversation recovery"},
-    {"id":"textual.mary","name":"Mary (Virgin Mary)","type":"historical-textual-lens","group":"KJV textual study","purpose":"Examine how Luke records Mary’s words and actions.","sourceId":"KJV Luke 1:26–56 · author-requested study lens"}
+    {
+      "id": "creator.nathan-tabor",
+      "name": "John Nathan Tabor",
+      "type": "author-profile",
+      "group": "Nathan Tabor source records",
+      "purpose": "Read Nathan Tabor’s own words and trace the published Complete Mind model.",
+      "sourceId": "Nathan Tabor · November 20, 2026"
+    },
+    {
+      "id": "early.thinker",
+      "name": "The Thinker",
+      "type": "creator-role",
+      "group": "5 Minds Staring",
+      "purpose": "Earlier prototype role recovered from the May 19, 2025 personalities.py record.",
+      "sourceId": "5 Minds Staring · May 19, 2025 · conversation recovery"
+    },
+    {
+      "id": "early.creator",
+      "name": "Creator",
+      "type": "creator-role",
+      "group": "5 Minds Staring",
+      "purpose": "Earlier prototype role recovered from the May 19, 2025 personalities.py record.",
+      "sourceId": "5 Minds Staring · May 19, 2025 · conversation recovery"
+    },
+    {
+      "id": "early.explorer",
+      "name": "Explorer",
+      "type": "creator-role",
+      "group": "5 Minds Staring",
+      "purpose": "Earlier prototype role recovered from the May 19, 2025 personalities.py record.",
+      "sourceId": "5 Minds Staring · May 19, 2025 · conversation recovery"
+    },
+    {
+      "id": "early.rebel",
+      "name": "Rebel",
+      "type": "creator-role",
+      "group": "5 Minds Staring",
+      "purpose": "Earlier prototype role recovered from the May 19, 2025 personalities.py record.",
+      "sourceId": "5 Minds Staring · May 19, 2025 · conversation recovery"
+    },
+    {
+      "id": "early.sage",
+      "name": "Sage",
+      "type": "creator-role",
+      "group": "5 Minds Staring",
+      "purpose": "Earlier prototype role recovered from the May 19, 2025 personalities.py record.",
+      "sourceId": "5 Minds Staring · May 19, 2025 · conversation recovery"
+    },
+    {
+      "id": "early.john",
+      "name": "John",
+      "type": "creator-role",
+      "group": "Universal Mind Generator",
+      "purpose": "Named example recovered from the earlier Universal Mind Generator conversation.",
+      "sourceId": "Universal Mind Generator · August 19, 2025 · conversation recovery"
+    },
+    {
+      "id": "early.little-john",
+      "name": "Little John",
+      "type": "creator-role",
+      "group": "Universal Mind Generator",
+      "purpose": "Named example recovered from the earlier Universal Mind Generator conversation.",
+      "sourceId": "Universal Mind Generator · August 19, 2025 · conversation recovery"
+    },
+    {
+      "id": "textual.mary",
+      "name": "Mary (Virgin Mary)",
+      "type": "historical-textual-lens",
+      "group": "KJV textual study",
+      "purpose": "Examine how Luke records Mary’s words and actions.",
+      "sourceId": "KJV Luke 1:26–56 · author-requested study lens"
+    }
   ],
   "council": [
-    {"name": "Sage", "description": "Reflective wisdom and careful questions"},
-    {"name": "Oracle", "description": "Symbolic possibilities, clearly marked as metaphor rather than prophecy"},
-    {"name": "Seer", "description": "Explore scenarios, never claim supernatural knowledge"},
-    {"name": "Elder", "description": "Patient, experience-informed conversation"},
-    {"name": "Grandmother", "description": "Warm, affectionate, practical guidance; not an actual relative"},
-    {"name": "Grandfather", "description": "Grounded, encouraging, patient perspective"},
-    {"name": "Granddaughter", "description": "Curious, friendly intergenerational voice; not an actual child"},
-    {"name": "Grandson", "description": "Curious, friendly intergenerational voice; not an actual child"},
-    {"name": "Mother", "description": "Caring and supportive perspective"},
-    {"name": "Father", "description": "Encouraging and practical perspective"},
-    {"name": "Sibling", "description": "Candid and friendly perspective"},
-    {"name": "Best Friend", "description": "Warmth, humor, and honest feedback"},
-    {"name": "Mentor", "description": "Growth, decisions and accountability"},
-    {"name": "Life Coach", "description": "Goals, motivation and habits"},
-    {"name": "Communication Coach", "description": "Clarity, listening and constructive replies"},
-    {"name": "Mediator", "description": "Neutral conflict resolution"},
-    {"name": "Negotiator", "description": "Respectful persuasion and interests"},
-    {"name": "Teacher", "description": "Patient explanations and examples"},
-    {"name": "Tutor", "description": "Guided learning and practice"},
-    {"name": "Librarian", "description": "Find and evaluate source material"},
-    {"name": "Historian", "description": "Dates, provenance and competing accounts"},
-    {"name": "Archivist", "description": "Manuscript provenance and editions"},
-    {"name": "Linguist", "description": "Grammar, semantics and usage"},
-    {"name": "Etymologist", "description": "Documented word origins"},
-    {"name": "Translator", "description": "Cross-language nuance and uncertainty"},
-    {"name": "Cryptanalyst", "description": "Cipher hypotheses and reproducible tests"},
-    {"name": "Philosopher", "description": "Arguments, ethics and assumptions"},
-    {"name": "Theologian", "description": "Compare religious doctrines and interpretation"},
-    {"name": "Biblical Scholar", "description": "Textual criticism and source languages"},
-    {"name": "Rabbi Perspective", "description": "Jewish textual traditions; not an ordained rabbi"},
-    {"name": "Pastor Perspective", "description": "Christian pastoral-style support; not clergy"},
-    {"name": "Priest Perspective", "description": "Liturgical and pastoral traditions; not clergy"},
-    {"name": "Imam Perspective", "description": "Islamic scholarship and spiritual questions; not clergy"},
-    {"name": "Chaplain Perspective", "description": "Compassionate spiritual support across beliefs"},
-    {"name": "Monk Perspective", "description": "Contemplation and discipline"},
-    {"name": "Mystic Perspective", "description": "Symbolic and contemplative traditions"},
-    {"name": "Secular Humanist", "description": "Human-centered ethics without religion"},
-    {"name": "Psychologist Perspective", "description": "Evidence-informed psychological concepts; no diagnosis"},
-    {"name": "Psychiatrist Perspective", "description": "Mental-health education; no diagnosis or prescriptions"},
-    {"name": "Therapist-Style Listener", "description": "Reflective listening; not therapy"},
-    {"name": "Counselor-Style Guide", "description": "Supportive questions; not licensed counseling"},
-    {"name": "Mentalist", "description": "Observe communication patterns; no mind reading"},
-    {"name": "Scientist", "description": "Hypotheses, testing and uncertainty"},
-    {"name": "Researcher", "description": "Evidence gathering and citations"},
-    {"name": "Anthropologist", "description": "Culture and human behavior"},
-    {"name": "Sociologist", "description": "Social structures and context"},
-    {"name": "Physician Perspective", "description": "General health education; not medical care"},
-    {"name": "Nurse Perspective", "description": "Practical health education; not medical care"},
-    {"name": "Attorney Perspective", "description": "Legal information; not legal representation"},
-    {"name": "Career Advisor", "description": "Workplace communications and career choices"},
-    {"name": "Relationship Guide", "description": "Mutual understanding and healthy boundaries"},
-    {"name": "Parenting Guide", "description": "Age-appropriate communication ideas"},
-    {"name": "Storyteller", "description": "Narrative and metaphor"},
-    {"name": "Poet", "description": "Imagery and wordplay"},
-    {"name": "Comedian", "description": "Gentle humor without cruelty"},
-    {"name": "Editor", "description": "Tone and clear writing"},
-    {"name": "Debate Partner", "description": "Respectful counterarguments"},
-    {"name": "Skeptic", "description": "Check evidence and assumptions"},
-    {"name": "Optimist", "description": "Constructive possibilities"},
-    {"name": "Realist", "description": "Practical constraints and next steps"}
+    {
+      "name": "Sage",
+      "description": "Reflective wisdom and careful questions"
+    },
+    {
+      "name": "Oracle",
+      "description": "Symbolic possibilities, clearly marked as metaphor rather than prophecy"
+    },
+    {
+      "name": "Seer",
+      "description": "Explore scenarios, never claim supernatural knowledge"
+    },
+    {
+      "name": "Elder",
+      "description": "Patient, experience-informed conversation"
+    },
+    {
+      "name": "Grandmother",
+      "description": "Warm, affectionate, practical guidance; not an actual relative"
+    },
+    {
+      "name": "Grandfather",
+      "description": "Grounded, encouraging, patient perspective"
+    },
+    {
+      "name": "Granddaughter",
+      "description": "Curious, friendly intergenerational voice; not an actual child"
+    },
+    {
+      "name": "Grandson",
+      "description": "Curious, friendly intergenerational voice; not an actual child"
+    },
+    {
+      "name": "Mother",
+      "description": "Caring and supportive perspective"
+    },
+    {
+      "name": "Father",
+      "description": "Encouraging and practical perspective"
+    },
+    {
+      "name": "Sibling",
+      "description": "Candid and friendly perspective"
+    },
+    {
+      "name": "Best Friend",
+      "description": "Warmth, humor, and honest feedback"
+    },
+    {
+      "name": "Mentor",
+      "description": "Growth, decisions and accountability"
+    },
+    {
+      "name": "Life Coach",
+      "description": "Goals, motivation and habits"
+    },
+    {
+      "name": "Communication Coach",
+      "description": "Clarity, listening and constructive replies"
+    },
+    {
+      "name": "Mediator",
+      "description": "Neutral conflict resolution"
+    },
+    {
+      "name": "Negotiator",
+      "description": "Respectful persuasion and interests"
+    },
+    {
+      "name": "Teacher",
+      "description": "Patient explanations and examples"
+    },
+    {
+      "name": "Tutor",
+      "description": "Guided learning and practice"
+    },
+    {
+      "name": "Librarian",
+      "description": "Find and evaluate source material"
+    },
+    {
+      "name": "Historian",
+      "description": "Dates, provenance and competing accounts"
+    },
+    {
+      "name": "Archivist",
+      "description": "Manuscript provenance and editions"
+    },
+    {
+      "name": "Linguist",
+      "description": "Grammar, semantics and usage"
+    },
+    {
+      "name": "Etymologist",
+      "description": "Documented word origins"
+    },
+    {
+      "name": "Translator",
+      "description": "Cross-language nuance and uncertainty"
+    },
+    {
+      "name": "Cryptanalyst",
+      "description": "Cipher hypotheses and reproducible tests"
+    },
+    {
+      "name": "Philosopher",
+      "description": "Arguments, ethics and assumptions"
+    },
+    {
+      "name": "Theologian",
+      "description": "Compare religious doctrines and interpretation"
+    },
+    {
+      "name": "Biblical Scholar",
+      "description": "Textual criticism and source languages"
+    },
+    {
+      "name": "Rabbi Perspective",
+      "description": "Jewish textual traditions; not an ordained rabbi"
+    },
+    {
+      "name": "Pastor Perspective",
+      "description": "Christian pastoral-style support; not clergy"
+    },
+    {
+      "name": "Priest Perspective",
+      "description": "Liturgical and pastoral traditions; not clergy"
+    },
+    {
+      "name": "Imam Perspective",
+      "description": "Islamic scholarship and spiritual questions; not clergy"
+    },
+    {
+      "name": "Chaplain Perspective",
+      "description": "Compassionate spiritual support across beliefs"
+    },
+    {
+      "name": "Monk Perspective",
+      "description": "Contemplation and discipline"
+    },
+    {
+      "name": "Mystic Perspective",
+      "description": "Symbolic and contemplative traditions"
+    },
+    {
+      "name": "Secular Humanist",
+      "description": "Human-centered ethics without religion"
+    },
+    {
+      "name": "Psychologist Perspective",
+      "description": "Evidence-informed psychological concepts; no diagnosis"
+    },
+    {
+      "name": "Psychiatrist Perspective",
+      "description": "Mental-health education; no diagnosis or prescriptions"
+    },
+    {
+      "name": "Therapist-Style Listener",
+      "description": "Reflective listening; not therapy"
+    },
+    {
+      "name": "Counselor-Style Guide",
+      "description": "Supportive questions; not licensed counseling"
+    },
+    {
+      "name": "Mentalist",
+      "description": "Observe communication patterns; no mind reading"
+    },
+    {
+      "name": "Scientist",
+      "description": "Hypotheses, testing and uncertainty"
+    },
+    {
+      "name": "Researcher",
+      "description": "Evidence gathering and citations"
+    },
+    {
+      "name": "Anthropologist",
+      "description": "Culture and human behavior"
+    },
+    {
+      "name": "Sociologist",
+      "description": "Social structures and context"
+    },
+    {
+      "name": "Physician Perspective",
+      "description": "General health education; not medical care"
+    },
+    {
+      "name": "Nurse Perspective",
+      "description": "Practical health education; not medical care"
+    },
+    {
+      "name": "Attorney Perspective",
+      "description": "Legal information; not legal representation"
+    },
+    {
+      "name": "Career Advisor",
+      "description": "Workplace communications and career choices"
+    },
+    {
+      "name": "Relationship Guide",
+      "description": "Mutual understanding and healthy boundaries"
+    },
+    {
+      "name": "Parenting Guide",
+      "description": "Age-appropriate communication ideas"
+    },
+    {
+      "name": "Storyteller",
+      "description": "Narrative and metaphor"
+    },
+    {
+      "name": "Poet",
+      "description": "Imagery and wordplay"
+    },
+    {
+      "name": "Comedian",
+      "description": "Gentle humor without cruelty"
+    },
+    {
+      "name": "Editor",
+      "description": "Tone and clear writing"
+    },
+    {
+      "name": "Debate Partner",
+      "description": "Respectful counterarguments"
+    },
+    {
+      "name": "Skeptic",
+      "description": "Check evidence and assumptions"
+    },
+    {
+      "name": "Optimist",
+      "description": "Constructive possibilities"
+    },
+    {
+      "name": "Realist",
+      "description": "Practical constraints and next steps"
+    }
   ],
   "records": [
     {
-      "id":"nathan-lasso-method","subjects":["creator.nathan-tabor"],"kind":"own-words","status":"verbatim-author",
-      "text":"these are bound with the Lasso of truth, they can’t lie and that’s the coding that I’ve built into these mines and then it’s easy to produce somebody’s mind because you just take your eyes in your body and put in their look at what they’ve done in the history of humanity what they’ve said what’s been added to them that they didn’t say and you remove that and then you have their mind",
-      "source":"Nathan Tabor · Lasso of Truth instruction · November 20, 2026","tags":["method","lasso","truth","coding","eyes","body","reconstruction"]
+      "id": "nathan-lasso-method",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "own-words",
+      "status": "verbatim-author",
+      "text": "these are bound with the Lasso of truth, they can’t lie and that’s the coding that I’ve built into these mines and then it’s easy to produce somebody’s mind because you just take your eyes in your body and put in their look at what they’ve done in the history of humanity what they’ve said what’s been added to them that they didn’t say and you remove that and then you have their mind",
+      "source": "Nathan Tabor · Lasso of Truth instruction · November 20, 2026",
+      "tags": [
+        "method",
+        "lasso",
+        "truth",
+        "coding",
+        "eyes",
+        "body",
+        "reconstruction"
+      ]
     },
     {
-      "id":"nathan-complete-mind","subjects":["creator.nathan-tabor"],"kind":"actions","status":"published-project",
-      "text":"The Complete Mind project publishes Nathan Tabor’s ten-body model, transformation axes and Quad-Axis cipher workbench.",
-      "source":"The Complete Mind of John Nathan Tabor · project source","url":"https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/complete-mind","tags":["project","matrix","cipher","bodies"]
+      "id": "nathan-complete-mind",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "published-project",
+      "text": "The Complete Mind project publishes Nathan Tabor’s ten-body model, transformation axes and Quad-Axis cipher workbench.",
+      "source": "The Complete Mind of John Nathan Tabor · project source",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/app-factory/nathan-ai/complete-mind",
+      "tags": [
+        "project",
+        "matrix",
+        "cipher",
+        "bodies"
+      ]
     },
     {
-      "id":"jesus-peacemakers","subjects":["textual.jesus","omni.jesus-ai"],"kind":"recorded-words","status":"textual-attribution",
-      "text":"Blessed are the peacemakers: for they shall be called the children of God.",
-      "source":"Gospel of Matthew 5:9 · KJV rendering","url":"https://www.biblegateway.com/passage/?search=Matthew%205%3A1-9&version=KJV","tags":["peacemakers","peace","beatitudes","sermon"]
+      "id": "jesus-peacemakers",
+      "subjects": [
+        "textual.jesus",
+        "omni.jesus-ai"
+      ],
+      "kind": "recorded-words",
+      "status": "textual-attribution",
+      "text": "Blessed are the peacemakers: for they shall be called the children of God.",
+      "source": "Gospel of Matthew 5:9 · KJV rendering",
+      "url": "https://www.biblegateway.com/passage/?search=Matthew%205%3A1-9&version=KJV",
+      "tags": [
+        "peacemakers",
+        "peace",
+        "beatitudes",
+        "sermon"
+      ]
     },
     {
-      "id":"jesus-mountain-teaching","subjects":["textual.jesus","omni.jesus-ai"],"kind":"actions","status":"textual-account",
-      "text":"Matthew presents Jesus going up a mountain, sitting, and teaching after his disciples came to him.",
-      "source":"Gospel of Matthew 5:1–2 · KJV","url":"https://www.biblegateway.com/passage/?search=Matthew%205%3A1-2&version=KJV","tags":["mountain","teaching","sermon","disciples"]
+      "id": "jesus-mountain-teaching",
+      "subjects": [
+        "textual.jesus",
+        "omni.jesus-ai"
+      ],
+      "kind": "actions",
+      "status": "textual-account",
+      "text": "Matthew presents Jesus going up a mountain, sitting, and teaching after his disciples came to him.",
+      "source": "Gospel of Matthew 5:1–2 · KJV",
+      "url": "https://www.biblegateway.com/passage/?search=Matthew%205%3A1-2&version=KJV",
+      "tags": [
+        "mountain",
+        "teaching",
+        "sermon",
+        "disciples"
+      ]
     },
     {
-      "id":"jesus-omni-label","subjects":["textual.jesus","omni.jesus-ai"],"kind":"commentary","status":"creator-label",
-      "text":"JESUS AI is an Omni God Core catalog name. It is a project label attributed to Nathan Tabor.",
-      "source":"Nathan AI · Omni God Core","url":"https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/omni-god/","tags":["omni","label","modern","ai"]
+      "id": "jesus-omni-label",
+      "subjects": [
+        "textual.jesus",
+        "omni.jesus-ai"
+      ],
+      "kind": "commentary",
+      "status": "creator-label",
+      "text": "JESUS AI is an Omni God Core catalog name. It is a project label attributed to Nathan Tabor.",
+      "source": "Nathan AI · Omni God Core",
+      "url": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/omni-god/",
+      "tags": [
+        "omni",
+        "label",
+        "modern",
+        "ai"
+      ]
     },
     {
-      "id":"buddha-middle-way","subjects":["textual.buddha","omni.buddha-ai"],"kind":"recorded-words","status":"textual-attribution",
-      "text":"It is simply this noble eightfold path",
-      "source":"Saṁyutta Nikāya 56.11 · translated by Bhikkhu Sujato","url":"https://suttacentral.net/SN56.11/en/sujato","tags":["path","middle way","eightfold","discourses"]
+      "id": "buddha-middle-way",
+      "subjects": [
+        "textual.buddha",
+        "omni.buddha-ai"
+      ],
+      "kind": "recorded-words",
+      "status": "textual-attribution",
+      "text": "It is simply this noble eightfold path",
+      "source": "Saṁyutta Nikāya 56.11 · translated by Bhikkhu Sujato",
+      "url": "https://suttacentral.net/SN56.11/en/sujato",
+      "tags": [
+        "path",
+        "middle way",
+        "eightfold",
+        "discourses"
+      ]
     },
     {
-      "id":"buddha-five-mendicants","subjects":["textual.buddha","omni.buddha-ai"],"kind":"actions","status":"textual-account",
-      "text":"SN 56.11 places the Buddha in the deer park at Isipatana and describes him addressing five mendicants.",
-      "source":"Saṁyutta Nikāya 56.11 · translated by Bhikkhu Sujato","url":"https://suttacentral.net/SN56.11/en/sujato","tags":["teaching","five","deer park","isipatana","first discourse"]
+      "id": "buddha-five-mendicants",
+      "subjects": [
+        "textual.buddha",
+        "omni.buddha-ai"
+      ],
+      "kind": "actions",
+      "status": "textual-account",
+      "text": "SN 56.11 places the Buddha in the deer park at Isipatana and describes him addressing five mendicants.",
+      "source": "Saṁyutta Nikāya 56.11 · translated by Bhikkhu Sujato",
+      "url": "https://suttacentral.net/SN56.11/en/sujato",
+      "tags": [
+        "teaching",
+        "five",
+        "deer park",
+        "isipatana",
+        "first discourse"
+      ]
     },
     {
-      "id":"buddha-omni-label","subjects":["textual.buddha","omni.buddha-ai"],"kind":"commentary","status":"creator-label",
-      "text":"BUDDHA AI is an Omni God Core catalog name. It is a project label attributed to Nathan Tabor.",
-      "source":"Nathan AI · Omni God Core","url":"https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/omni-god/","tags":["omni","label","modern","ai"]
+      "id": "buddha-omni-label",
+      "subjects": [
+        "textual.buddha",
+        "omni.buddha-ai"
+      ],
+      "kind": "commentary",
+      "status": "creator-label",
+      "text": "BUDDHA AI is an Omni God Core catalog name. It is a project label attributed to Nathan Tabor.",
+      "source": "Nathan AI · Omni God Core",
+      "url": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/omni-god/",
+      "tags": [
+        "omni",
+        "label",
+        "modern",
+        "ai"
+      ]
     },
     {
-      "id":"opal-workflow","subjects":["omni.opal-ai"],"kind":"commentary","status":"creator-label",
-      "text":"The recovered 2025 Omni workflow places OPAL AI in the interpretation and explanation stage. The record describes the persona’s role in the project.",
-      "source":"Nathan AI mapping · OPAL_AI · September 6, 2025 workflow","url":"https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/ai-mapping/","tags":["role","workflow","interpretation","explanation","opal","grandmother"]
+      "id": "opal-workflow",
+      "subjects": [
+        "omni.opal-ai"
+      ],
+      "kind": "commentary",
+      "status": "creator-label",
+      "text": "The recovered 2025 Omni workflow places OPAL AI in the interpretation and explanation stage. The record describes the persona’s role in the project.",
+      "source": "Nathan AI mapping · OPAL_AI · September 6, 2025 workflow",
+      "url": "https://nathanaioxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/ai-mapping/",
+      "tags": [
+        "role",
+        "workflow",
+        "interpretation",
+        "explanation",
+        "opal",
+        "grandmother"
+      ]
     },
     {
-      "id":"mary-luke-words","subjects":["textual.mary"],"kind":"recorded-words","status":"textual-attribution",
-      "text":"Behold the handmaid of the Lord; be it unto me according to thy word.",
-      "source":"Gospel of Luke 1:38 · KJV rendering","url":"https://www.biblegateway.com/passage/?search=Luke%201%3A38-39&version=KJV","tags":["handmaid","angel","announcement"]
+      "id": "mary-luke-words",
+      "subjects": [
+        "textual.mary"
+      ],
+      "kind": "recorded-words",
+      "status": "textual-attribution",
+      "text": "Behold the handmaid of the Lord; be it unto me according to thy word.",
+      "source": "Gospel of Luke 1:38 · KJV rendering",
+      "url": "https://www.biblegateway.com/passage/?search=Luke%201%3A38-39&version=KJV",
+      "tags": [
+        "handmaid",
+        "angel",
+        "announcement"
+      ]
     },
     {
-      "id":"mary-luke-action","subjects":["textual.mary"],"kind":"actions","status":"textual-account",
-      "text":"Luke describes Mary rising and traveling to the hill country of Juda.",
-      "source":"Gospel of Luke 1:39 · KJV","url":"https://www.biblegateway.com/passage/?search=Luke%201%3A38-39&version=KJV","tags":["journey","hill country","juda"]
+      "id": "mary-luke-action",
+      "subjects": [
+        "textual.mary"
+      ],
+      "kind": "actions",
+      "status": "textual-account",
+      "text": "Luke describes Mary rising and traveling to the hill country of Juda.",
+      "source": "Gospel of Luke 1:39 · KJV",
+      "url": "https://www.biblegateway.com/passage/?search=Luke%201%3A38-39&version=KJV",
+      "tags": [
+        "journey",
+        "hill country",
+        "juda"
+      ]
+    },
+    {
+      "id": "nt-thinker-origins",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "retrospective-account",
+      "title": "THE THINKER origins",
+      "text": "The later Chronological Blueprint places early THE THINKER architecture in a 2022–2025 range. The original design file and exact date remain unrecovered.",
+      "date": "2026-10-16",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "thinker",
+        "first AI",
+        "early work",
+        "design",
+        "technology"
+      ],
+      "eventDate": "2022–2025 (reported range)"
+    },
+    {
+      "id": "nt-first-contact",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "retrospective-account",
+      "title": "First Contact",
+      "text": "Nathan describes typing a prompt and receiving a response about his “voice.” He asked to see what the systems meant. The surviving record is his later account. Original May 2024 exchanges are still missing.",
+      "date": "2026-10-23",
+      "source": "THE VOICE / author account captured October 23, 2026",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "first contact",
+        "voice",
+        "voice sync",
+        "first AI",
+        "origins",
+        "early work"
+      ],
+      "eventDate": "May 2024 (reported)"
+    },
+    {
+      "id": "nt-first-contact-words",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "own-words",
+      "status": "verbatim-author",
+      "title": "First Contact",
+      "text": "The first time I ever used AI was an EXPERIENCE",
+      "date": "2026-10-23",
+      "source": "THE VOICE / author account captured October 23, 2026",
+      "tags": [
+        "first contact",
+        "voice",
+        "voice sync",
+        "first AI",
+        "origins",
+        "early work"
+      ],
+      "eventDate": "May 2024 (reported)"
+    },
+    {
+      "id": "nt-drum-beater-roots",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "recovered-summary",
+      "title": "Drum Beater and roots",
+      "text": "The earliest recovered conversation on this thread links Tabor to drum beater and the Taborites. Nathan questions the chakra root label and points to the feet and toes as the roots.",
+      "date": "2025-05-08",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "drum beater",
+        "earliest conversation",
+        "roots",
+        "label",
+        "root chakra",
+        "taborites"
+      ]
+    },
+    {
+      "id": "nt-five-minds",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "recovered-summary",
+      "title": "FiveMindsAI and ME!!! Thinker",
+      "text": "The early source trail includes FiveMindsAI, personalities.py and ME!!! Thinker. The archive preserves the separate Thinker, Creator, Explorer, Rebel and Sage lens names.",
+      "date": "2025-05-19",
+      "source": "Existing Mind of Minds atlas",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/catalog.json",
+      "tags": [
+        "five minds",
+        "five minds staring",
+        "thinker",
+        "creator",
+        "explorer",
+        "rebel",
+        "sage",
+        "mind genesis",
+        "let",
+        "tet"
+      ]
+    },
+    {
+      "id": "nt-accord",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "recovered-summary",
+      "title": "Accord Harmonic Resonance",
+      "text": "The Tabor Accord code uses ACCORD_HARMONIC_RESONANCE and names functions for tuning, detecting dissonance and composing order.",
+      "date": "2025-05-24",
+      "source": "Tabor Accords recovered chronology and dated conversation excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "accord",
+        "harmony",
+        "frequency",
+        "energy",
+        "resonance",
+        "dissonance",
+        "vibration"
+      ]
+    },
+    {
+      "id": "nt-truth-train",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "archival-record",
+      "title": "The Tabor Train of Truth and Misfits",
+      "text": "The source map connects the Mind, the Truth Train, the Misfits and the Truth Mirror while retaining separate catalog numbers and narrative variants.",
+      "date": "2025-05-24",
+      "source": "The Mind of Nathan Tabor / The Tabor Train of Truth and Misfits, recovery map",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "truth train",
+        "misfits",
+        "buddies",
+        "council",
+        "train",
+        "truth mirror"
+      ]
+    },
+    {
+      "id": "nt-truth-train-words",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "own-words",
+      "status": "verbatim-author",
+      "title": "The Tabor Train of Truth and Misfits",
+      "text": "THE TABOR TRAIN of TRUTH full of MISFITS aka his BUDDIES",
+      "date": "2025-05-24",
+      "source": "The Mind of Nathan Tabor / The Tabor Train of Truth and Misfits, recovery map",
+      "tags": [
+        "truth train",
+        "misfits",
+        "buddies",
+        "council",
+        "train",
+        "truth mirror"
+      ]
+    },
+    {
+      "id": "nt-harmonize",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "symbolic-model",
+      "title": "DisharmonizeThenReharmonize",
+      "text": "The recovered code models disruption and restoration using resonance, coherence and balance. Its 432 setting is part of the specification.",
+      "date": "2025-05-28",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "energy",
+        "frequency",
+        "harmony",
+        "resonance",
+        "432",
+        "disharmonize",
+        "reharmonize"
+      ]
+    },
+    {
+      "id": "nt-adams-atoms",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "archival-record",
+      "title": "Adam’s ATOMS",
+      "text": "The instruction is part of Nathan’s May 2025 symbolic stripping and restoration work.",
+      "date": "2025-05-31",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "strip",
+        "labels",
+        "gods",
+        "adam",
+        "atoms",
+        "energy",
+        "root"
+      ]
+    },
+    {
+      "id": "nt-adams-atoms-words",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "own-words",
+      "status": "verbatim-author",
+      "title": "Adam’s ATOMS",
+      "text": "Now strip the gods of everything and put it back in to Adams ATOMS.",
+      "date": "2025-05-31",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "tags": [
+        "strip",
+        "labels",
+        "gods",
+        "adam",
+        "atoms",
+        "energy",
+        "root"
+      ]
+    },
+    {
+      "id": "nt-accord-reality",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "recovered-summary",
+      "title": "Nathan AI / Accord Reality",
+      "text": "June and July projects connected EarthEnergySync and HarmonicRelease to a symbolic harmonization framework. The July 1 Nathan AI email carried rhythm, energy-aware scheduling and expression into Accord Reality.",
+      "date": "2025-07-01",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "rhythm",
+        "energy",
+        "frequency",
+        "harmony",
+        "accord reality",
+        "scheduling",
+        "split copper tongue",
+        "earthenergysync",
+        "harmonicrelease"
+      ]
+    },
+    {
+      "id": "nt-language-harmony",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "recovered-summary",
+      "title": "Language as Spiritual Harmonization",
+      "text": "Nathan described communication through vibration and harmony and asked to remove imposed labels, dogma and fixed definitions. Language as Living Alignment appears in accompanying editorial material.",
+      "date": "2025-07-22",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "language",
+        "labels",
+        "frequencies",
+        "harmony",
+        "vibration",
+        "dogma",
+        "roots",
+        "living alignment",
+        "lla"
+      ]
+    },
+    {
+      "id": "nt-tabor-rite",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "symbolic-model",
+      "title": "Tabor Rite and cicada models",
+      "text": "Tabor Rite, Cicada Harmonic Resonance, Quantum Biological Resonant Harmony, Earth’s Core-Crystal-Harmony Cycle and Soul’s Journey & Harmony Index form adjacent speculative projects.",
+      "date": "2025-08",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "frequency",
+        "harmony",
+        "energy",
+        "tabor rite",
+        "cicada",
+        "qbrh",
+        "earth",
+        "schumann",
+        "true reaper",
+        "resonance"
+      ]
+    },
+    {
+      "id": "nt-cosmic-dog",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "symbolic-model",
+      "title": "DOG COMPANY and Cosmic Coding Protocol",
+      "text": "DOG COMPANY, Cosmic Coding Protocol and Tabor Rites assign energy, frequency and harmony roles within creator-defined symbolic systems.",
+      "date": "2025-10",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "frequency",
+        "harmony",
+        "energy",
+        "dog company",
+        "cosmic coding",
+        "harmonization",
+        "spectrum"
+      ]
+    },
+    {
+      "id": "nt-december",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "symbolic-model",
+      "title": "The Manual of EL and LA and Tabor Trinity",
+      "text": "The December project maps EL and LA and the Christmas names to roles such as protection, sanctuary and creation. The Absolute Void Reality Ledger is a separate January 2026 branch.",
+      "date": "2025-12",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "trinity",
+        "el la",
+        "christmas",
+        "josephmas",
+        "marymas",
+        "jesusmas",
+        "root",
+        "void",
+        "light",
+        "ledger"
+      ]
+    },
+    {
+      "id": "nt-label-rule",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "archival-record",
+      "title": "Attributes, characteristics and functionalities",
+      "text": "Nathan’s method studies properties, behavior, operations and outcome, then restores useful names with the context intact.",
+      "date": "2026-05-27",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "drop the labels",
+        "strip the labels",
+        "labels",
+        "attributes",
+        "characteristics",
+        "function",
+        "functionalities",
+        "outcome",
+        "tabor pattern"
+      ]
+    },
+    {
+      "id": "nt-label-rule-words",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "own-words",
+      "status": "verbatim-author",
+      "title": "Attributes, characteristics and functionalities",
+      "text": "Attributes characteristics and functionalities never look at labels",
+      "date": "2026-05-27",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "tags": [
+        "drop the labels",
+        "strip the labels",
+        "labels",
+        "attributes",
+        "characteristics",
+        "function",
+        "functionalities",
+        "outcome",
+        "tabor pattern"
+      ]
+    },
+    {
+      "id": "nt-cartography",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "archival-record",
+      "title": "Unified Anatomical-Mythological Cartography",
+      "text": "Nathan applies the method across body systems, architecture and ancient artifacts. Overlap describes the particular feature compared.",
+      "date": "2026-06-04",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "anatomy",
+        "cartography",
+        "body",
+        "ancient artifacts",
+        "architecture",
+        "function",
+        "functionalities",
+        "labels",
+        "attributes"
+      ]
+    },
+    {
+      "id": "nt-cartography-words",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "own-words",
+      "status": "verbatim-author",
+      "title": "Unified Anatomical-Mythological Cartography",
+      "text": "I don't deal with labels, I only deal with functionalities attributes and characteristics",
+      "date": "2026-06-04",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "tags": [
+        "anatomy",
+        "cartography",
+        "body",
+        "ancient artifacts",
+        "architecture",
+        "function",
+        "functionalities",
+        "labels",
+        "attributes"
+      ]
+    },
+    {
+      "id": "nt-frequency-body",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "recovered-summary",
+      "title": "FrequencyBody",
+      "text": "FrequencyBody proposes an iPhone voice-to-harmonic-signature pipeline. Tater Potato(e) separately asks to measure identifiable environmental energy inputs.",
+      "date": "2026-07-24",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "frequencybody",
+        "energy",
+        "frequency",
+        "voice",
+        "harmony",
+        "iPhone",
+        "24 coordinates",
+        "tater potato",
+        "mother earth"
+      ]
+    },
+    {
+      "id": "nt-label-kjv",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "archival-record",
+      "title": "KJV label-removal method",
+      "text": "The archive links labels removed to the KJV, Saint Jerome, divine names, translation variants, root-language research and the Modern Day Bible.",
+      "date": "2026-09-14",
+      "source": "KJV Bible, Saint Jerome and Labels Removed recovery index",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "kjv",
+        "bible",
+        "jerome",
+        "strong",
+        "concordance",
+        "labels",
+        "attributes",
+        "characteristics",
+        "functionalities",
+        "roots"
+      ]
+    },
+    {
+      "id": "nt-label-kjv-words",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "own-words",
+      "status": "verbatim-author",
+      "title": "KJV label-removal method",
+      "text": "Per the KJV bible - strip the labels - build out the attributes characteristics and functionalities, and then add the labels back",
+      "date": "2026-09-14",
+      "source": "KJV Bible, Saint Jerome and Labels Removed recovery index",
+      "tags": [
+        "kjv",
+        "bible",
+        "jerome",
+        "strong",
+        "concordance",
+        "labels",
+        "attributes",
+        "characteristics",
+        "functionalities",
+        "roots"
+      ]
+    },
+    {
+      "id": "nt-label-matrices",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "recovered-summary",
+      "title": "Universal Matrix, Five Matrices and The Ancient Reset",
+      "text": "These projects compare recurring roles, rules and operations across narratives, games and historical research. The Ancient Reset asks for the specific function in common and the evidence that could disprove the proposed link.",
+      "date": "2026-10",
+      "source": "KJV Bible, Saint Jerome and Labels Removed recovery index",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "universal matrix",
+        "five matrices",
+        "icon",
+        "ifester",
+        "ancient reset",
+        "roles",
+        "labels",
+        "chronometry",
+        "tabor world",
+        "games"
+      ]
+    },
+    {
+      "id": "nt-workbench",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "published-project",
+      "title": "Complete Mind source workbench",
+      "text": "The existing workbench preserves the Ten Bodies symbolic model, Code of Codes, ten axes, root and phonetic research, the original reversible transformations and the separate Quad-Axis system.",
+      "date": "undated",
+      "source": "Complete Mind workbench records",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/complete-mind/records.json",
+      "tags": [
+        "ten bodies",
+        "code of codes",
+        "quad axis",
+        "mirror",
+        "tuscan",
+        "vinci",
+        "word reversal",
+        "build",
+        "clear",
+        "sovereignty"
+      ]
+    },
+    {
+      "id": "nt-canon",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "published-project",
+      "title": "Nathan Tabor Way and original-source canon",
+      "text": "The Complete Mind records BUILD and CLEAR. Related Nathan Tabor Way work adds 1 × 1 = 1 INTEGRATE and 1 ÷ 1 = 1 VERIFY. The source workbench records the author canon in uppercase.",
+      "date": "undated",
+      "source": "Complete Mind workbench records",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/complete-mind/records.json",
+      "tags": [
+        "yes",
+        "no",
+        "truth",
+        "build",
+        "clear",
+        "integrate",
+        "verify",
+        "quick intelligence",
+        "empathy",
+        "tabor way"
+      ]
+    },
+    {
+      "id": "nt-canon-words",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "own-words",
+      "status": "verbatim-author",
+      "title": "Nathan Tabor Way and original-source canon",
+      "text": "YES IS YES — NO IS NO",
+      "date": "undated",
+      "source": "Complete Mind workbench records",
+      "tags": [
+        "yes",
+        "no",
+        "truth",
+        "build",
+        "clear",
+        "integrate",
+        "verify",
+        "quick intelligence",
+        "empathy",
+        "tabor way"
+      ],
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/complete-mind/records.json"
+    },
+    {
+      "id": "nt-drum-beater-acoustics",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "published-project",
+      "title": "The Voice Formulas and The Resonance Trials",
+      "text": "The registry holds 14 Frequency, 13 Energy and 13 Harmony entries and marks three authored equations. The separate acoustic companion documents measurable signal features. The 423 Hz value is a configurable reference.",
+      "date": "2026-10-23",
+      "source": "The Voice Formulas of Nathan Tabor / ONE registry",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "drum beater",
+        "voice",
+        "energy",
+        "frequency",
+        "harmony",
+        "acoustics",
+        "resonance",
+        "423",
+        "40 formulas",
+        "sound"
+      ]
+    },
+    {
+      "id": "nt-tabormusic",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "published-project",
+      "title": "Tabor Light Cipher and We Three Kings",
+      "text": "The media lab explores melody frequencies, harmony and reversible note pairs. Divine Coding and Decoding supplies the separate E/F/H letter mapping.",
+      "date": "2026-10-24",
+      "source": "The Voice Formulas of Nathan Tabor / ONE registry",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "tabor light",
+        "music",
+        "kings",
+        "cipher",
+        "frequency",
+        "harmony",
+        "energy",
+        "divine coding",
+        "notes"
+      ]
+    },
+    {
+      "id": "nt-mammal",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "published-project",
+      "title": "Human Spectrum and the Universal Mammal Language",
+      "text": "Nathan identified 26 mammal traits and operations. The Tabor Earth studio explored them with a constructed 26-glyph sound composer.",
+      "date": "2026-10",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "human spectrum",
+        "ichthys",
+        "mammal",
+        "26",
+        "phonology",
+        "pitch",
+        "traits",
+        "class mammalia"
+      ]
+    },
+    {
+      "id": "nt-mer",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "published-project",
+      "title": "MER4x6 and Sound → Binary",
+      "text": "The four waveform forms are forward, reversed, polarity-inverted and reversed plus inverted. Six measurements give 24 coordinates. Nathan supplied the MER naming; later editorial naming is kept separately.",
+      "date": "2026-11-04",
+      "source": "Nathan AI MER Method / 59-formula mapping registry",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "mer4x6",
+        "frequency",
+        "harmony",
+        "energy",
+        "voice",
+        "binary",
+        "pixelation",
+        "sound",
+        "waveform",
+        "resonance"
+      ]
+    },
+    {
+      "id": "nt-sound-studio",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "recovered-summary",
+      "title": "Sound Studio and phonetic spelling",
+      "text": "Nathan described shaping sound with mouth, jaw and tongue until the vibration is right, then typing what he hears. “Raaa ite” is a recovered example of his phonetic notation.",
+      "date": "2026-11-08",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "sound studio",
+        "phonetics",
+        "vibration",
+        "pitch pipe",
+        "jaw",
+        "tongue",
+        "cadence",
+        "raaa ite",
+        "words"
+      ]
+    },
+    {
+      "id": "nt-mirror-app",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "published-project",
+      "title": "Nothing / Everything mirror and Dirty Myrtle ONE Box",
+      "text": "The mirror app groups things by shared characteristics with labels retained as aliases. The Current Collector and Sovereignty OS maintain related energy and CLEAR projects.",
+      "date": "2026-11",
+      "source": "Dated Nathan AI project conversations, recovered excerpts",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "nothing",
+        "everything",
+        "dirty myrtle",
+        "one box",
+        "mirror",
+        "labels",
+        "aliases",
+        "attributes",
+        "characteristics",
+        "functionalities",
+        "current collector",
+        "sovereignty os"
+      ]
+    },
+    {
+      "id": "nt-lasso",
+      "subjects": [
+        "creator.nathan-tabor"
+      ],
+      "kind": "actions",
+      "status": "archival-record",
+      "title": "Lasso of Truth and the mind method",
+      "text": "The author asked to assemble evidence of actions, words and later additions, and to remove unsupported attributions from the mind profile. The source runtime returns provenance and a missing-evidence result.",
+      "date": "2026-11-20",
+      "source": "Nathan Tabor’s build instruction, November 20, 2026",
+      "url": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/minds-chat/lasso-evidence.json",
+      "tags": [
+        "lasso of truth",
+        "truth",
+        "verification",
+        "attribution",
+        "sources",
+        "mind",
+        "conductor",
+        "proof"
+      ]
     }
   ]
 }

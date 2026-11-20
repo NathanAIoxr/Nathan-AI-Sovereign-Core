@@ -35,7 +35,7 @@ function snapshot(parts) {
   return JSON.stringify([parts.main, Object.entries(parts.modules).sort(([a], [b]) => a.localeCompare(b))]);
 }
 const current = await currentModules();
-const updated = buildWorker(current.modules[moduleName]);
+const updated = buildWorker(current.modules[moduleName], process.env.GITHUB_SHA ?? null);
 if (current.modules[moduleName] !== updated) {
   if (snapshot(await currentModules()) !== snapshot(current)) {
     throw new Error("Academy changed during assembly. Retry against the latest release.");

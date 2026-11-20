@@ -26,12 +26,17 @@ const assets = {
   "/minds/mirror.json": [jsonType, await from(nathan + "agents-of-innocence/release-manifest.json")]
 };
 
-function createMindsRoutes(assets, release) {
+function createMindsRoutes(assets, release, revision, records) {
   return function serveAcademyMinds(request, pathname) {
     if (request.method !== "GET" && request.method !== "HEAD") {
       return new Response("Method not allowed", { status: 405, headers: { allow: "GET, HEAD" } });
     }
     if (pathname === "/minds") return new Response(null, { status: 308, headers: { location: "./minds/" } });
+    if (pathname === "/minds/healthz") {
+      const headers = { "cache-control": "no-store", "x-tabor-minds-release": release };
+      if (request.method === "HEAD") return new Response(null, { headers });
+      return Response.json({ service: "tabor-academy-minds", ready: true, release, revision, records }, { headers });
+    }
     const asset = Object.hasOwn(assets, pathname) && assets[pathname];
     if (!asset) return new Response("Minds page not found", { status: 404 });
     const [type, base64] = asset;
@@ -85,16 +90,23 @@ export const release = createHash("sha256").update(createMindsRoutes.toString())
 const encoded = Object.fromEntries(Object.entries(assets).map(([url, [type, text]]) =>
   [url, [type, gzipSync(text).toString("base64")]]
 ));
-const block = [
+const records = JSON.parse(assets["/minds/lasso-evidence.json"][1]).records
+  .filter(record => record.id.startsWith("nt-") && record.kind === "actions").length;
+const block = revision => [
   "/* BEGIN TABOR ACADEMY MINDS */",
-  "const serveAcademyMinds = (" + createMindsRoutes.toString() + ")(" + JSON.stringify(encoded) + ", " + JSON.stringify(release) + ");",
+  "const serveAcademyMinds = (" + createMindsRoutes.toString() + ")(" + JSON.stringify(encoded) + ", " + JSON.stringify(release) + ", " + JSON.stringify(revision) + ", " + records + ");",
   "/* END TABOR ACADEMY MINDS */"
 ].join("\n");
-export const buildWorker = source => patchWorker(source, block);
+export const buildWorker = (source, revision = null) => {
+  if (revision !== null && !/^[0-9a-f]{40}$/.test(revision)) throw new Error("Expected a Git commit SHA");
+  return patchWorker(source, block(revision));
+};
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   if (process.argv[2] === "--patcher") {
-    process.stdout.write("(source => (" + patchWorker.toString() + ")(source, " + JSON.stringify(block) + "))");
+    const revision = process.argv[3];
+    if (!/^[0-9a-f]{40}$/.test(revision ?? "")) throw new Error("Expected a Git commit SHA");
+    process.stdout.write("(source => (" + patchWorker.toString() + ")(source, " + JSON.stringify(block(revision)) + "))");
   } else {
     if (!process.argv[2]) throw new Error("Provide the current Academy Worker source");
     process.stdout.write(buildWorker(await readFile(process.argv[2], "utf8")));
