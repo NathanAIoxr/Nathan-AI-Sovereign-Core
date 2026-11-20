@@ -1,12 +1,23 @@
 {
   "project": "tabor-academy-big-bang",
   "name": "BIG BANG TIMES NATHAN TABOR",
-  "author": "Nathan Tabor",
-  "originalWording": "tabor-academy/conductor-handoffs/2026-11-20-truth-love-innocence.md",
-  "source": "app-factory/tabor-academy/big-bang/",
+  "operator": "Nathan Tabor",
+  "authorSource": "app-factory/tabor-academy/big-bang/author.txt",
+  "courseModule": "app-factory/tabor-academy/big-bang/page.mjs",
   "mountedPath": "/tabor-academy/big-bang/",
   "conductorHandoff": {
-    "paths": [
+    "relatedHandoff": "tabor-academy/conductor-handoffs/2026-11-20-truth-love-innocence.md",
+    "publicHealth": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/big-bang/healthz",
+    "canonicalText": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/big-bang/source.txt",
+    "liveEvidence": [
+      "Academy homepage motto",
+      "Verbatim author source",
+      "Four-check lesson",
+      "GitHub release SHA",
+      "Interactive EXPLODE control and six Academy pathways"
+    ],
+    "experienceBuilder": "app-factory/tabor-academy/big-bang/experience.mjs",
+    "scope": [
       "heart",
       "soul",
       "shadow",
@@ -14,14 +25,12 @@
       "nothing",
       "everything"
     ],
-    "maintainerPrompt": "Preserve Nathan Tabor’s motto and charter exactly. Keep learning activities distinct from author quotations. Carry forward the six Academy paths and check each path against its source, including Truth Lab, the Nathan Tabor Way, the Lasso of Truth, and the Academy map.",
-    "integration": "Wrap the current academy-entry.mjs with patchAcademyEntry from build.mjs. Add academy-big-bang.mjs from build.mjs <commit-sha> --with-workspace and the namespaced modules from bundle-workspace.mjs <Academy-workspace-dist>. Keep current Academy modules and bindings, and keep the private workspace behind Cloudflare Access.",
-    "check": "node --test app-factory/tabor-academy/big-bang/worker.test.mjs",
-    "verify": "node app-factory/tabor-academy/big-bang/verify-live.mjs <commit-sha>",
-    "health": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/big-bang/healthz",
-    "accountability": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/481",
-    "canon": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/big-bang/canon.json"
+    "maintainerPrompt": "Preserve the exact author source. Keep the six Academy paths linked to their source work and the four-check lesson accessible as an independent learning activity.",
+    "verification": "node app-factory/tabor-academy/big-bang/verify-live.mjs <commit-sha>",
+    "lesson": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/big-bang/lesson/",
+    "integration": "Build the Big Bang runtime with experience.mjs <commit-sha> --with-workspace. Build the Academy workspace and bundle its modules with bundle-workspace.mjs <workspace-dist>. Keep the Academy entry wrapper and all existing modules and bindings."
   },
+  "experience": "app-factory/tabor-academy/big-bang/index.html",
   "privateWorkspace": {
     "path": "/tabor-academy/workspace/",
     "source": "app-factory/nathan-ai/tabor-academy/",

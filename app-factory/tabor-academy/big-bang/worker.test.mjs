@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { test } from "node:test";
-import { buildModule, patchAcademyEntry } from "./build.mjs";
+import { buildModule, patchAcademyEntry } from "./experience.mjs";
 
 const revision = "4".repeat(40);
 const { default: connect } = await import("data:text/javascript;base64," + Buffer.from(await buildModule(revision)).toString("base64"));
@@ -29,7 +29,7 @@ test("only the Big Bang asset routes are claimed and the release is pinned", asy
   assert.equal((await get("/big-bang/", "POST")).status, 405);
   assert.equal((await get("/big-bang/constructor")).status, 404);
   assert.deepEqual(await (await get("/big-bang/healthz")).json(), {
-    service: "tabor-academy-big-bang", ready: true, revision
+    service: "tabor-academy-big-bang", ready: true, revision, ok: true, project: "tabor-academy-big-bang", release: revision
   });
   assert.equal(await (await get("/other")).text(), "/other");
 });
@@ -42,15 +42,17 @@ test("the live entry wrapper is additive and repeatable", () => {
   assert.throws(() => patchAcademyEntry("export default academy"), /Unrecognized/);
 });
 
+test("the verbatim author source and the separately written four-check lesson remain reachable", async () => {
+  assert.equal(await (await get("/big-bang/source.txt")).text(), await readFile(new URL("author.txt", import.meta.url), "utf8"));
+  assert.match(await (await get("/big-bang/lesson/")).text(), /One line, four checks/);
+});
 
-test("the release supplies the canonical words and approved workspace routes", async () => {
-  const html = await (await get("/big-bang/")).text();
+
+test("public links reach the protected workspace and the Library", async () => {
+  const page = await (await get("/big-bang/")).text();
   for (const path of ["../workspace/?panel=voice", "../workspace/?panel=verify", "../workspace/?panel=matrix", "../workspace/?panel=matrix&amp;mode=0", "../library/"]) {
-    assert.ok(html.includes('href="' + path + '"'));
+    assert.ok(page.includes('href="' + path + '"'));
   }
-  const canon = await (await get("/big-bang/canon.json")).json();
-  assert.equal(canon.motto.length, 2);
-  for (const line of canon.motto) assert.ok(html.includes(line));
-  const module = await buildModule(revision, { withWorkspace: true });
-  assert.match(module, /^import privateWorkspace from "\.\/academy-workspace-dispatch\.mjs";/);
+  const runtime = await buildModule(revision, { withWorkspace: true });
+  assert.ok(runtime.startsWith('import privateWorkspace from "./academy-workspace-dispatch.mjs";'));
 });
