@@ -3,12 +3,19 @@
   "name": "BIG BANG TIMES NATHAN TABOR",
   "operator": "Nathan Tabor",
   "authorSource": "app-factory/tabor-academy/big-bang/author.txt",
-  "courseModule": "app-factory/tabor-academy/big-bang/page.mjs",
+  "courseModule": "app-factory/tabor-academy/big-bang/index.html",
   "mountedPath": "/tabor-academy/big-bang/",
   "conductorHandoff": {
     "relatedHandoff": "tabor-academy/conductor-handoffs/2026-11-20-truth-love-innocence.md",
     "publicHealth": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/big-bang/healthz",
     "canonicalText": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/big-bang/source.txt",
-    "liveEvidence": ["Academy homepage motto", "Verbatim author source", "Four-check lesson", "GitHub release SHA"]
-  }
+    "liveEvidence": [
+      "Academy homepage motto",
+      "Verbatim author source",
+      "Four-check lesson",
+      "GitHub release SHA"
+    ],
+    "workflow": ".github/workflows/tabor-academy-big-bang.yml"
+  },
+  "fieldworkPath": "/tabor-academy/big-bang/fieldwork/"
 }

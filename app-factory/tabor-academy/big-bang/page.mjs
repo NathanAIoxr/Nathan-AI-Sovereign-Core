@@ -1,14 +1,6 @@
-import { motto, original, release } from './big-bang-source.mjs';
-
 const root = '/tabor-academy';
 const base = root + '/big-bang';
 const songIndex = 'https://tabor-music-lab.nathantaboract.workers.dev/song-bible-index/';
-const htmlHeaders = {
-  'content-type': 'text/html; charset=utf-8',
-  'cache-control': 'no-cache',
-  'x-content-type-options': 'nosniff',
-  'content-security-policy': "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'",
-};
 const escape = value => String(value).replace(/[&<>"']/g, char =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 
@@ -33,11 +25,11 @@ const links = [
   ['Shave ‘Em Dry · database of debauchery aka FUN', 'Adult music history, with recording sources and KJV connections.', songIndex],
 ];
 
-function quote() {
+function quote(motto) {
   return '<blockquote>' + escape(motto) + '</blockquote>';
 }
 
-export function mottoHomeBlock() {
+export function mottoHomeBlock(motto) {
   return '<section aria-label="Tabor Academy motto" style="margin:1.5rem 0;padding:1rem 1.25rem;border-inline-start:3px solid #e6cf87">' +
     '<h2 style="margin:0 0 .7rem;font-size:1rem;letter-spacing:.1em;text-transform:uppercase">Tabor Academy motto</h2>' +
     '<blockquote style="white-space:pre-wrap;margin:0 0 .9rem;font-size:1.16rem">' + escape(motto) + '</blockquote>' +
@@ -60,7 +52,7 @@ section{margin-top:2rem}.operations{padding:0;list-style:none}.operations li{bor
 details{border:1px solid #705c44;padding:.8rem 1rem;border-radius:4px}summary{cursor:pointer;font-weight:650}a:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 `;
 
-function render() {
+export function renderFieldwork(motto) {
   const cards = dimensions.map(([name, description, label, href]) =>
     '<article><h3>' + name + '</h3><p>' + description + '</p><a href="' + href + '">' + label + ' →</a></article>').join('');
   const steps = practice.map(([equation, label, instruction]) =>
@@ -68,9 +60,9 @@ function render() {
   const routes = links.map(([label, description, href]) =>
     '<article><h3><a href="' + href + '">' + label + '</a></h3><p>' + description + '</p></article>').join('');
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BIG BANG TIMES NATHAN TABOR · Tabor Academy</title><style>${style}</style></head>
-<body><main><nav aria-label="Academy"><a href="${root}/">Tabor Academy</a><a href="#lesson">Practice the method</a><a href="${base}/source.txt">Nathan Tabor’s original words</a></nav>
-<header class="hero"><p class="byline">TABOR ACADEMY MOTTO</p><h1>BIG BANG TIMES NATHAN TABOR</h1>${quote()}</header>
+<title>Big Bang Fieldwork · Tabor Academy</title><style>${style}</style></head>
+<body><main><nav aria-label="Academy"><a href="${base}/">BIG BANG TIMES NATHAN TABOR</a><a href="#lesson">Practice the method</a><a href="${base}/source.txt">Nathan Tabor’s original words</a></nav>
+<header class="hero"><p class="byline">TABOR ACADEMY MOTTO</p><h1>BIG BANG FIELDWORK</h1>${quote(motto)}</header>
 <section aria-labelledby="dimensions"><h2 id="dimensions">Heart, soul, shadow, spirit, nothing and everything</h2>
 <div class="grid">${cards}</div></section>
 <section id="lesson"><h2>One line, four checks</h2><p>Use Matthew 21:6–7 (KJV) to practice checking a quotation, a paraphrase, and a correction.</p>
@@ -80,14 +72,3 @@ function render() {
 <section aria-labelledby="continue"><h2 id="continue">Continue across the Academy</h2><div class="grid">${routes}</div></section></main></body></html>`;
 }
 
-export function serveAcademyBigBang(request) {
-  const path = new URL(request.url).pathname.replace(/^\/tabor-academy(?=\/)/, '');
-  if (!['/big-bang', '/big-bang/', '/big-bang/source.txt', '/big-bang/healthz'].includes(path)) return null;
-  const respond = (body, type, status = 200, extra = {}) => new Response(request.method === 'HEAD' ? null : body, {
-    status, headers: { ...htmlHeaders, 'content-type': type, ...extra },
-  });
-  if (!['GET', 'HEAD'].includes(request.method)) return respond('Method not allowed', 'text/plain', 405, { Allow: 'GET, HEAD' });
-  if (path.endsWith('/source.txt')) return respond(original, 'text/plain; charset=utf-8');
-  if (path.endsWith('/healthz')) return respond(JSON.stringify({ ok: true, project: 'tabor-academy-big-bang', release }), 'application/json; charset=utf-8');
-  return respond(render(), 'text/html; charset=utf-8');
-}

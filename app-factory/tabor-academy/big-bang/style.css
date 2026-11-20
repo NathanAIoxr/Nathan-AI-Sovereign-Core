@@ -1,0 +1,104 @@
+:root {
+  color-scheme: dark;
+  font-family: Geist, Inter, system-ui, sans-serif;
+  color: #faf1e8;
+  background: #110e19;
+  --muted: #d6c5d6;
+  --gold: #ffc591;
+  --line: #4d3b56;
+  --panel: #1e1829;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: inherit; text-underline-offset: .25em; }
+:where(a, button, summary):focus-visible { outline: 3px solid var(--gold); outline-offset: 5px; }
+button { font: inherit; }
+.skip, .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.skip:focus { width: auto; height: auto; padding: .75rem; overflow: visible; clip-path: none; z-index: 2; background: #110e19; }
+.topbar, footer {
+  max-width: 74rem;
+  margin: 0 auto;
+  padding: 1.25rem clamp(1rem, 4vw, 2rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .85rem 2rem;
+}
+.topbar nav { display: flex; flex-wrap: wrap; gap: .6rem 1.35rem; }
+.academy { font-weight: 750; text-decoration: none; }
+.academy span, .mark { color: var(--gold); }
+.topbar nav, footer { color: var(--muted); font-size: .9rem; }
+.origin {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse at 50% 59%, #a44945 0%, #6c3247 13%, #382346 33%, transparent 70%),
+    linear-gradient(155deg, #171226, #120e1a 68%);
+}
+.origin-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 69rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 9vw, 7rem) 1.1rem clamp(3.4rem, 8vw, 6rem);
+  text-align: center;
+}
+#burst, .orbit {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+#burst { inset: 0; width: 100%; height: 100%; transform: none; }
+.orbit { width: min(93vw, 58rem); aspect-ratio: 1; border: 1px solid #f7a9873d; border-radius: 50%; }
+.orbit-two { width: min(72vw, 43rem); border-color: #f8b8aa32; }
+h1 { margin: 0 auto 1.95rem; font-size: clamp(2.75rem, 8vw, 6.1rem); line-height: .93; letter-spacing: -.065em; font-weight: 850; }
+h1 span { display: block; color: var(--gold); }
+.motto { max-width: 51rem; margin: 0 auto 1.55rem; }
+.motto blockquote { margin: 0; font: clamp(1.32rem, 3.5vw, 2.32rem)/1.28 "Instrument Serif", Georgia, serif; }
+.motto p { margin: 0 0 .65em; text-wrap: balance; }
+.motto figcaption { color: #ffd4b2; font-size: .87rem; font-weight: 700; }
+.charter { color: #fff0ec; max-width: 35rem; margin: 1.2rem auto; line-height: 1.5; }
+.start { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .8rem 1.3rem; }
+.start button {
+  border: 0;
+  border-radius: 5rem;
+  min-height: 48px;
+  padding: .84rem 1.48rem;
+  background: var(--gold);
+  color: #25202a;
+  font-weight: 850;
+  letter-spacing: .08em;
+  cursor: pointer;
+}
+.start button[aria-busy="true"] { cursor: progress; }
+.start a { font-weight: 650; }
+.paths, .practice { max-width: 74rem; margin: 0 auto; padding: clamp(2rem, 6vw, 4.3rem) clamp(1rem, 4vw, 2rem); }
+.paths h2, .practice h2 { font-size: clamp(1.7rem, 4.5vw, 2.65rem); line-height: 1.12; letter-spacing: -.04em; margin: 0 0 1.4rem; }
+.path-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; }
+article { background: var(--panel); border: 1px solid var(--line); border-radius: 1rem; padding: 1.25rem; }
+article:target { border-color: var(--gold); }
+.mark { font-size: 1.55rem; line-height: 1; }
+article h3 { margin: .4rem 0; font-size: 1.35rem; }
+article p, .practice p { color: var(--muted); line-height: 1.55; }
+article a { color: var(--gold); font-weight: 650; }
+.practice { padding-top: 0; }
+.practice > p { max-width: 50rem; }
+#choices { display: grid; gap: .65rem; max-width: 52rem; }
+details { background: var(--panel); border: 1px solid var(--line); border-radius: .7rem; padding: .8rem 1rem; }
+summary { cursor: pointer; min-height: 1.5rem; }
+details p { margin: .65rem 0 0; }
+footer { border-top: 1px solid var(--line); }
+@media (max-width: 740px) { .path-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .path-grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { #burst { display: none; } }

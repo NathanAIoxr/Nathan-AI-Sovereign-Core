@@ -1,0 +1,31 @@
+name: Tabor Academy Big Bang
+on:
+  push:
+    paths:
+      - 'app-factory/tabor-academy/big-bang/**'
+      - 'deployments/conductor/academy/big-bang.json'
+      - '.github/workflows/tabor-academy-big-bang.yml'
+  workflow_dispatch:
+    inputs:
+      revision:
+        description: Expected Cloudflare release SHA
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: node --test app-factory/tabor-academy/big-bang/worker.test.mjs
+      - if: github.event_name == 'workflow_dispatch'
+        env:
+          EXPECTED_REVISION: ${{ inputs.revision }}
+        run: node app-factory/tabor-academy/big-bang/verify-live.mjs "$EXPECTED_REVISION"
