@@ -1,0 +1,30 @@
+{
+  "published": 12,
+  "consumed": [
+    {
+      "leased": 10,
+      "acknowledged": 10,
+      "retried": 0
+    },
+    {
+      "leased": 4,
+      "acknowledged": 4,
+      "retried": 0
+    },
+    {
+      "leased": 0,
+      "acknowledged": 0,
+      "retried": 0
+    }
+  ],
+  "grouped": [
+    {
+      "status": "candidate",
+      "count": 9
+    },
+    {
+      "status": "review",
+      "count": 2
+    }
+  ]
+}
