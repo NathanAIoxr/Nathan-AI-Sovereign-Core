@@ -1,0 +1,16 @@
+{
+  "id": "mrs-maria-claus-vs-mr-santa-claus",
+  "title": "Mrs. Maria Claus & The Elves vs. Mr. Santa Claus",
+  "kind": "story and game",
+  "author": "Nathan Tabor",
+  "original": "• Mrs. Maria Claus & The Elves vs. Mr. Santa Claus: A narrative/game premise starring Maria Claus and the Elves taking on a lazy, gaslighting Santa.",
+  "sources": [
+    "standalone-apps/game-app-stations/apps/mrs-claus-vs-mr-claus-christmas-showdown/app.json"
+  ],
+  "branch": "zone/mrs-maria-claus-vs-mr-santa-claus",
+  "namespace": "mrs-maria-claus-vs-mr-santa-claus-holding",
+  "taskWorker": "zone-mrs-maria-claus-vs-mr-santa-claus",
+  "publicApp": null,
+  "next": "Recover Maria Claus and the Elves’ storyline and build its own playable scene with a complete outcome.",
+  "acceptance": "The staging release has a playable scene, distinct named cast and a clear ending."
+}

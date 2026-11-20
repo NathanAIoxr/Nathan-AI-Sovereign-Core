@@ -1,0 +1,16 @@
+{
+  "id": "christmas-toy-factory",
+  "title": "Christmas Toy Factory",
+  "kind": "website",
+  "author": "Nathan Tabor",
+  "original": "• The Tabor Toy Company & \"The Toy oOo Toy\": A 9-round rollout of 101 toys per round (909 toys total) connected to the Christmas Toy Factory and your ChristmasToyDrive.com / Handling Life non-profit initiative.",
+  "sources": [
+    "app-factory/sites/christmas-toy-factory/index.html"
+  ],
+  "branch": "zone/christmas-toy-factory",
+  "namespace": "christmas-toy-factory-holding",
+  "taskWorker": "zone-christmas-toy-factory",
+  "publicApp": null,
+  "next": "Continue the existing factory site and link its toy production records to the 909-toy collection.",
+  "acceptance": "Factory links work and display the production readiness of each toy without inventing inventory."
+}

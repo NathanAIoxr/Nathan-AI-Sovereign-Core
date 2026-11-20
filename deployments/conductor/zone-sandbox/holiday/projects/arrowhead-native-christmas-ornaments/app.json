@@ -1,0 +1,17 @@
+{
+  "id": "arrowhead-native-christmas-ornaments",
+  "title": "13 Arrowhead & Native Christmas Tree Ornaments",
+  "kind": "product collection",
+  "author": "Nathan Tabor",
+  "original": "• 13 Arrowhead & Native Christmas Tree Ornaments: A 13-piece ornament collection pairing specific arrowhead silhouettes with native Christmas tree species from matching geographic regions.",
+  "sources": [
+    "app-factory/nathan-ai/universal-tools/arrowhead-tree-matrix.mjs",
+    "standalone-apps/game-app-stations/apps/the-13-point-arrowhead-christmas-tree-matrix-two-way-geometry-game/app.json"
+  ],
+  "branch": "zone/arrowhead-native-christmas-ornaments",
+  "namespace": "arrowhead-native-christmas-ornaments-holding",
+  "taskWorker": "zone-arrowhead-native-christmas-ornaments",
+  "publicApp": null,
+  "next": "Recover all 13 arrowhead and native-tree pairs from the matrix and build a catalog with a separate product record for each pair.",
+  "acceptance": "Exactly 13 source-backed pairings with geographic provenance, an image or drawing, and a prototype status."
+}

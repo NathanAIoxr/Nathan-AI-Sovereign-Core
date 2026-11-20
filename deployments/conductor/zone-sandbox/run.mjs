@@ -11,6 +11,17 @@ const { existing, isolatedApps, managed } = JSON.parse(await readFile(new URL("p
 const projects = [...existing, ...isolatedApps, ...managed];
 const worker = await readFile(new URL("worker.mjs", import.meta.url), "utf8");
 validateProjects(projects);
+const holidayQueue = JSON.parse(await readFile(new URL("./holiday/build-queue.json", import.meta.url), "utf8"));
+const holidayIds = holidayQueue.projects.map(({id}) => id);
+validateProjects(holidayIds);
+for (const id of holidayIds) {
+  if (!managed.includes(id)) throw new Error("Holiday project missing from managed zones: " + id);
+  const brief = JSON.parse(await readFile(new URL("./holiday/projects/" + id + "/app.json", import.meta.url), "utf8"));
+  if (brief.id !== id || brief.branch !== "zone/" + id || brief.namespace !== id + "-holding" ||
+      brief.taskWorker !== "zone-" + id || !brief.original || !brief.next || !brief.acceptance) {
+    throw new Error("Incomplete Holiday project handoff: " + id);
+  }
+}
 if (process.argv[2] === "--validate") {
   console.log("Verified " + projects.length + " independent Zone declarations");
   process.exit(0);

@@ -1,0 +1,16 @@
+{
+  "id": "the-sinners-vs-the-saints-save-christmas",
+  "title": "The Sinners vs. the Saints: The Battle to Save Christmas",
+  "kind": "game",
+  "author": "Nathan Tabor",
+  "original": "• The Sinners vs. the Saints: The Battle to Save Christmas: A game concept pitting holiday forces against one another to save Christmas.",
+  "sources": [
+    "standalone-apps/game-app-stations/apps/the-sinners-vs-the-saints-the-battle-to-save-christmas/app.json"
+  ],
+  "branch": "zone/the-sinners-vs-the-saints-save-christmas",
+  "namespace": "the-sinners-vs-the-saints-save-christmas-holding",
+  "taskWorker": "zone-the-sinners-vs-the-saints-save-christmas",
+  "publicApp": null,
+  "next": "Recover the gameplay pitch and ship the first complete fictional holiday rescue match in staging.",
+  "acceptance": "A player chooses a side, completes a match and sees a result."
+}

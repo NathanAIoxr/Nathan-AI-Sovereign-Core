@@ -1,0 +1,203 @@
+{
+  "schema": "tabor.holiday.build-queue.v1",
+  "workflow": ".github/workflows/conductor-zone-time.yml",
+  "source": "app-factory/make-a-snow-globe/public/holiday-universe.txt",
+  "projects": [
+    {
+      "id": "crystal-globe-snow-ball-creator",
+      "title": "The Crystal Globe 🔮 Snow Ball ☃️ Creator",
+      "kind": "app",
+      "publicApp": "https://tabor-bridge.nathantaboract.workers.dev/make-a-snow-globe/",
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/crystal-globe-snow-ball-creator/app.json"
+    },
+    {
+      "id": "arrowhead-native-christmas-ornaments",
+      "title": "13 Arrowhead & Native Christmas Tree Ornaments",
+      "kind": "product collection",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/arrowhead-native-christmas-ornaments/app.json"
+    },
+    {
+      "id": "orn-a-me",
+      "title": "ORN-A-ME Ornament Line",
+      "kind": "product collection",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/orn-a-me/app.json"
+    },
+    {
+      "id": "christmasautosticklights",
+      "title": "ChristmasAutoStickLights™ with AlumaGrip™",
+      "kind": "physical product",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/christmasautosticklights/app.json"
+    },
+    {
+      "id": "tabor-toy-company-909-toy-collection",
+      "title": "The Tabor Toy Company & \"The Toy oOo Toy\"",
+      "kind": "toy collection",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/tabor-toy-company-909-toy-collection/app.json"
+    },
+    {
+      "id": "26-days-of-christmas",
+      "title": "The 26 Days of Christmas (25 Days & 24 Nights)",
+      "kind": "book and calendar",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/26-days-of-christmas/app.json"
+    },
+    {
+      "id": "christmas-cipher-matrix",
+      "title": "The Christmas Cipher Matrix (Zorro Font)",
+      "kind": "cipher tool",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/christmas-cipher-matrix/app.json"
+    },
+    {
+      "id": "holiday-wordplay-book-series",
+      "title": "Holiday Wordplay Book Series",
+      "kind": "book series",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/holiday-wordplay-book-series/app.json"
+    },
+    {
+      "id": "history-of-snow-globes",
+      "title": "The History of Snow Globes (Book-App-Game)",
+      "kind": "book, app and game",
+      "publicApp": "https://tabor-bridge.nathantaboract.workers.dev/history-of-snow-globes/",
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/history-of-snow-globes/app.json"
+    },
+    {
+      "id": "the-sinners-vs-the-saints-save-christmas",
+      "title": "The Sinners vs. the Saints: The Battle to Save Christmas",
+      "kind": "game",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/the-sinners-vs-the-saints-save-christmas/app.json"
+    },
+    {
+      "id": "sorting-santa-claus-hat",
+      "title": "The Sorting Santa Claus Hat App",
+      "kind": "app and game",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/sorting-santa-claus-hat/app.json"
+    },
+    {
+      "id": "mrs-maria-claus-vs-mr-santa-claus",
+      "title": "Mrs. Maria Claus & The Elves vs. Mr. Santa Claus",
+      "kind": "story and game",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/mrs-maria-claus-vs-mr-santa-claus/app.json"
+    },
+    {
+      "id": "master-christmas-catalog-trivia",
+      "title": "The Master Christmas Catalog & Trivia Divisions",
+      "kind": "archive and trivia",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/master-christmas-catalog-trivia/app.json"
+    },
+    {
+      "id": "living-snowmen-and-snowwomen",
+      "title": "Living Snowmen & Snowwomen",
+      "kind": "visual story world",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/living-snowmen-and-snowwomen/app.json"
+    },
+    {
+      "id": "christmas-core-operating-spirit",
+      "title": "Christmas as Your Core Operating Spirit",
+      "kind": "year-round practice",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/christmas-core-operating-spirit/app.json"
+    },
+    {
+      "id": "killer-klause",
+      "title": "KILLER KLAUSE (KK / καινὴ κτίσις)",
+      "kind": "spiritual and language study",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/killer-klause/app.json"
+    },
+    {
+      "id": "four-t-club",
+      "title": "The 4T Club",
+      "kind": "club",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/four-t-club/app.json"
+    },
+    {
+      "id": "star-of-innocence",
+      "title": "STAR of INNOCENCE",
+      "kind": "philosophy",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/star-of-innocence/app.json"
+    },
+    {
+      "id": "seven-sovereign-bodies-spirit-decoding",
+      "title": "The Seven Sovereign Bodies & Spirit Decoding",
+      "kind": "study tool",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/seven-sovereign-bodies-spirit-decoding/app.json"
+    },
+    {
+      "id": "christmas-toy-factory",
+      "title": "Christmas Toy Factory",
+      "kind": "website",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/christmas-toy-factory/app.json"
+    },
+    {
+      "id": "christmas-toy-drive",
+      "title": "ChristmasToyDrive.com / Handling Life",
+      "kind": "nonprofit initiative",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/christmas-toy-drive/app.json"
+    },
+    {
+      "id": "mistletoe-in-the-whistleblow",
+      "title": "Mistletoe in the Whistleblow",
+      "kind": "book",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/mistletoe-in-the-whistleblow/app.json"
+    },
+    {
+      "id": "santa-in-the-canta",
+      "title": "Santa in the Canta",
+      "kind": "book",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/santa-in-the-canta/app.json"
+    },
+    {
+      "id": "joys-in-the-toys",
+      "title": "Joys in the Toys",
+      "kind": "book",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/joys-in-the-toys/app.json"
+    },
+    {
+      "id": "deer-in-the-beer",
+      "title": "Deer in the Beer",
+      "kind": "book",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/deer-in-the-beer/app.json"
+    },
+    {
+      "id": "dear-in-the-year",
+      "title": "Dear in the Year",
+      "kind": "book",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/dear-in-the-year/app.json"
+    },
+    {
+      "id": "tuck-in-the-buck",
+      "title": "Tuck in the Buck",
+      "kind": "book",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/tuck-in-the-buck/app.json"
+    },
+    {
+      "id": "tick-in-the-wick",
+      "title": "Tick in the Wick",
+      "kind": "book",
+      "publicApp": null,
+      "brief": "deployments/conductor/zone-sandbox/holiday/projects/tick-in-the-wick/app.json"
+    }
+  ]
+}

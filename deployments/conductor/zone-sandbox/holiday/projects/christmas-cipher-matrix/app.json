@@ -1,0 +1,17 @@
+{
+  "id": "christmas-cipher-matrix",
+  "title": "The Christmas Cipher Matrix (Zorro Font)",
+  "kind": "cipher tool",
+  "author": "Nathan Tabor",
+  "original": "• The Christmas Cipher Matrix (Zorro Font): A 52-glyph alphabetic codex mapping the 52 letters of the alphabet directly to the 52 weeks of the year.",
+  "sources": [
+    "standalone-apps/game-app-stations/apps/christmas-cipher-matrix/app.json",
+    "standalone-apps/game-app-stations/apps/christmas-cipher-alphabet-grid/app.json"
+  ],
+  "branch": "zone/christmas-cipher-matrix",
+  "namespace": "christmas-cipher-matrix-holding",
+  "taskWorker": "zone-christmas-cipher-matrix",
+  "publicApp": null,
+  "next": "Recover the Zorro Font cipher and develop the 52-glyph-to-52-week mapping.",
+  "acceptance": "Encode and decode across all 52 known glyphs, with source mapping and round-trip checks."
+}

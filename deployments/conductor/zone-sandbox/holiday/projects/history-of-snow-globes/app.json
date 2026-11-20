@@ -1,0 +1,16 @@
+{
+  "id": "history-of-snow-globes",
+  "title": "The History of Snow Globes (Book-App-Game)",
+  "kind": "book, app and game",
+  "author": "Nathan Tabor",
+  "original": "• The History of Snow Globes (Book-App-Game): Your interactive non-fiction book and physics game tracing water-filled spheres from 2500 BC Mesopotamian silica fusion to modern sovereign globes.",
+  "sources": [
+    "app-factory/history-of-snow-globes/"
+  ],
+  "branch": "zone/history-of-snow-globes",
+  "namespace": "history-of-snow-globes-holding",
+  "taskWorker": "zone-history-of-snow-globes",
+  "publicApp": "https://tabor-bridge.nathantaboract.workers.dev/history-of-snow-globes/",
+  "next": "Retain the independent seven-chapter book and lab app, including printable worksheets and the studio cross-link.",
+  "acceptance": "Book, labs, offline assets and worksheets pass existing checks before any release."
+}

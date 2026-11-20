@@ -1,0 +1,16 @@
+{
+  "id": "sorting-santa-claus-hat",
+  "title": "The Sorting Santa Claus Hat App",
+  "kind": "app and game",
+  "author": "Nathan Tabor",
+  "original": "• The Sorting Santa Claus Hat App: An interactive sorting experience led by Atnas Claus (mother of Santa Claus) alongside Mr. Elf, Mrs. Elf, Ms. Elf, and Reindeer hats—revealing that the South Pole is the secret manufacturing plant for the North Pole.",
+  "sources": [
+    "app-factory/nathan-ai/sorting-hats-hatettes/"
+  ],
+  "branch": "zone/sorting-santa-claus-hat",
+  "namespace": "sorting-santa-claus-hat-holding",
+  "taskWorker": "zone-sorting-santa-claus-hat",
+  "publicApp": null,
+  "next": "Develop the standalone holiday sorting experience with Atnas Claus, Mr. Elf, Mrs. Elf, Ms. Elf and Reindeer hats.",
+  "acceptance": "A completed sorting run unlocks the author’s South Pole manufacturing story. Reuse shared sorting controls where appropriate."
+}

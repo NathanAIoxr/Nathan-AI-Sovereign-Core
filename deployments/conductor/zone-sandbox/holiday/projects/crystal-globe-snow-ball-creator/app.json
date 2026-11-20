@@ -1,0 +1,16 @@
+{
+  "id": "crystal-globe-snow-ball-creator",
+  "title": "The Crystal Globe 🔮 Snow Ball ☃️ Creator",
+  "kind": "app",
+  "author": "Nathan Tabor",
+  "original": "• The Crystal Globe 🔮 Snow Ball ☃️ Creator: Your DIY snow globe builder featuring 1-Globe Single spheres, 3-Globe Stacked Snowmen, and 6-Globe Sovereign Pyramids (3-globe Trinity base at BELOW, 2-globe Duality middle at CENTER, and 1-globe Unity apex at ABOVE).",
+  "sources": [
+    "app-factory/make-a-snow-globe/"
+  ],
+  "branch": "zone/crystal-globe-snow-ball-creator",
+  "namespace": "crystal-globe-snow-ball-creator-holding",
+  "taskWorker": "zone-crystal-globe-snow-ball-creator",
+  "publicApp": "https://tabor-bridge.nathantaboract.workers.dev/make-a-snow-globe/",
+  "next": "Verify the existing 1-, 3-, and 6-globe studio and connect only approved maker quotes. Keep Trinity below, Duality at center and Unity above.",
+  "acceptance": "All three layouts export a valid design and maker sheet. Existing public studio stays its own release."
+}

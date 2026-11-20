@@ -1,0 +1,18 @@
+{
+  "id": "master-christmas-catalog-trivia",
+  "title": "The Master Christmas Catalog & Trivia Divisions",
+  "kind": "archive and trivia",
+  "author": "Nathan Tabor",
+  "original": "• The Master Christmas Catalog & Trivia Divisions: A massive archive cataloging 101 traditional Christmas customs, 101 things from the North and South Poles, international/dialectical spellings of Christmas, historical carols, and A–Z holiday trivia divisions.",
+  "sources": [
+    "standalone-apps/game-app-stations/apps/christmas-az-north-pole-vs-south-pole/app.json",
+    "standalone-apps/game-app-stations/apps/the-holiday-trivia-festive-olympics-tournament/app.json",
+    "standalone-apps/game-app-stations/apps/the-holiday-az-team-roster/app.json"
+  ],
+  "branch": "zone/master-christmas-catalog-trivia",
+  "namespace": "master-christmas-catalog-trivia-holding",
+  "taskWorker": "zone-master-christmas-catalog-trivia",
+  "publicApp": null,
+  "next": "Recover customs, Pole records, spellings, carols and A–Z trivia into searchable source records.",
+  "acceptance": "The archive reports actual recovered counts and has a playable sourced quiz."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "tabor-toy-company-909-toy-collection",
+  "title": "The Tabor Toy Company & \"The Toy oOo Toy\"",
+  "kind": "toy collection",
+  "author": "Nathan Tabor",
+  "original": "• The Tabor Toy Company & \"The Toy oOo Toy\": A 9-round rollout of 101 toys per round (909 toys total) connected to the Christmas Toy Factory and your ChristmasToyDrive.com / Handling Life non-profit initiative.",
+  "sources": [
+    "standalone-apps/game-app-stations/apps/tabor-toy-company-909-toy-collection/app.json"
+  ],
+  "branch": "zone/tabor-toy-company-909-toy-collection",
+  "namespace": "tabor-toy-company-909-toy-collection-holding",
+  "taskWorker": "zone-tabor-toy-company-909-toy-collection",
+  "publicApp": null,
+  "next": "Recover the nine rounds and Toy oOo Toy materials. Structure nine rounds with 101 positions each and link the distinct factory and drive.",
+  "acceptance": "The index can hold 909 positions, with recovered designs distinguishable from unfilled positions."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "26-days-of-christmas",
+  "title": "The 26 Days of Christmas (25 Days & 24 Nights)",
+  "kind": "book and calendar",
+  "author": "Nathan Tabor",
+  "original": "• The 26 Days of Christmas (25 Days & 24 Nights): Your dual-alphabetical holiday blueprint (running A–Z on the left and X–W on the right from December 1 to December 25, with Day 26 carried into the 27th and beyond).",
+  "sources": [],
+  "branch": "zone/26-days-of-christmas",
+  "namespace": "26-days-of-christmas-holding",
+  "taskWorker": "zone-26-days-of-christmas",
+  "publicApp": null,
+  "next": "Recover the dual alphabet sequence and December transitions including Day 26 carried into the 27th and beyond.",
+  "acceptance": "Calendar reader preserves the left/right sequence, dates, and wrap rules from the source edition."
+}
