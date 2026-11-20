@@ -49,10 +49,10 @@ function append(sql,id,kind,payload,generation) {
   sql.exec("INSERT OR IGNORE INTO cheir_outbox(id,kind,payload,generation) VALUES(?,?,?,?)",id,kind,JSON.stringify(payload),generation);
 }
 
-export function proposal(instance, id) {
+export async function proposal(instance, id) {
   const sql=prepareStorage(instance);
   const row=sql.exec("SELECT id,command,proof,approver,expires FROM sibling_hold WHERE id=?",id).toArray()[0];
-  if(!row||row.expires<Date.now())return null;
+  if(!row||row.expires<Date.now()||row.proof!==await sha(row.command))return null;
   return {id:row.id,canonical:row.command,proof:row.proof,approved:!!row.approver,expires:row.expires};
 }
 
@@ -87,15 +87,19 @@ export async function command(instance, principal, operation, body) {
     return {status:"ALIEN",id,proof,expires,action:input.action};
   }
   if (operation!=="approve" || !body || typeof body.id!=="string" || typeof body.proof!=="string") return {error:"invalid_command"};
+  const candidate=sql.exec("SELECT command,proof FROM sibling_hold WHERE id=?",body.id).toArray()[0];
+  if(!candidate||candidate.proof!==body.proof||await sha(candidate.command)!==body.proof)return {error:"proof_invalid_or_expired"};
   const approval=instance.ctx.storage.transactionSync(()=>{
     const row=sql.exec("SELECT * FROM sibling_hold WHERE id=?",body.id).toArray()[0];
-    if (!row || row.approver || row.expires<Date.now() || row.proof!==body.proof || row.generation!==state.generation) return {error:"proof_invalid_or_expired"};
+    const active=current(sql);
+    if (!row||row.command!==candidate.command||row.proof!==body.proof||row.approver||
+      row.expires<Date.now()||row.generation!==active.generation) return {error:"proof_invalid_or_expired"};
     if (row.proposer===principal) return {error:"independent_admin_required"};
     const parsed=JSON.parse(row.command);
-    if (state.paused && parsed.action!=="arm") return {error:"BRAKE"};
+    if (active.paused && parsed.action!=="arm") return {error:"BRAKE"};
     sql.exec("UPDATE sibling_hold SET approver=? WHERE id=?",principal,row.id);
     if (parsed.action==="arm") sql.exec("UPDATE cheir_control SET paused=0 WHERE id=1");
-    append(sql,row.id,parsed.action,{...parsed,proof:row.proof},state.generation);
+    append(sql,row.id,parsed.action,{...parsed,proof:row.proof},active.generation);
     return {status:"NEILA",id:row.id,proof:row.proof,action:parsed.action};
   });
   if (approval.action==="arm") await instance.env.ZONE_KV.put("KILL_SWITCH_ACTIVE","0").catch(()=>undefined);
@@ -143,6 +147,12 @@ async function flush(instance,sql) {
   if (!row) return;
   const state=current(sql);
   let blocked=!["time","kill","arm"].includes(row.kind) && (state.paused||state.generation!==row.generation);
+  if(!row.prepared&&!blocked&&!["time","kill"].includes(row.kind)){
+    const {proof,...command}=JSON.parse(row.payload);
+    if(proof!==await sha(JSON.stringify(command)))blocked=true;
+    const active=current(sql);
+    blocked ||= active.generation!==row.generation || active.paused&&row.kind!=="arm";
+  }
   if(!row.prepared&&!blocked&&["register-dns","holding","promote"].includes(row.kind)){
     const command=JSON.parse(row.payload);
     const targets=row.kind==="register-dns"?command.domains:[{domain:command.domain}];

@@ -126,3 +126,31 @@ test("a DNS receipt binds the exact nameservers, route and provider state",async
   assert.equal(await verifyDnsReceipt(row),true);
   assert.equal(await verifyDnsReceipt({...row,cf_status:"active"}),false);
 });
+
+test("NEILA cannot approve a command altered after its ALIEN proof was issued",async()=>{
+  const {command,proposal}=await import("./src/conductor.js");
+  const sqlite=new DatabaseSync(":memory:");
+  const sql={exec(statement,...args){
+    if(/^SELECT\b/i.test(statement.trim())){
+      const rows=sqlite.prepare(statement).all(...args);
+      return {one:()=>rows[0],toArray:()=>rows};
+    }
+    if(args.length)sqlite.prepare(statement).run(...args);
+    else sqlite.exec(statement);
+  }};
+  const env={ZONE_KV:{put:async()=>undefined}};
+  const instance={env,ctx:{storage:{sql,transactionSync(fn){
+    sqlite.exec("BEGIN");try{const result=fn();sqlite.exec("COMMIT");return result;}
+    catch(error){sqlite.exec("ROLLBACK");throw error;}
+  }}}};
+  const intent=await command(instance,"proposer","propose",{action:"arm"});
+  assert.ok(await proposal(instance,intent.id));
+  sqlite.prepare("UPDATE sibling_hold SET command=? WHERE id=?").run('{"action":"arm","extra":true}',intent.id);
+  assert.equal(await proposal(instance,intent.id),null);
+  assert.deepEqual(await command(instance,"other","approve",intent),{error:"proof_invalid_or_expired"});
+  assert.equal(sqlite.prepare("SELECT paused FROM cheir_control").get().paused,1);
+  const second=await command(instance,"proposer","propose",{action:"arm"});
+  assert.equal((await command(instance,"proposer","approve",second)).error,"independent_admin_required");
+  assert.equal((await command(instance,"other","approve",second)).status,"NEILA");
+  sqlite.close();
+});
