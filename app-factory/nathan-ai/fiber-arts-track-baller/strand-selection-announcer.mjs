@@ -11,6 +11,10 @@ export function createStrandSelectionAnnouncer({ announce, labels = {} } = {}) {
   return Object.freeze({
     onSelection(selection) {
       if (disposed) return false;
+      if (selection?.cleared === true && selection.id === null && selection.index === -1 && selection.activated === false) {
+        announce('Strand selection cleared');
+        return true;
+      }
       if (!selection || typeof selection.id !== 'string' || !selection.id || !Number.isSafeInteger(selection.index) || selection.index < 0 || typeof selection.activated !== 'boolean') throw new TypeError('valid selection required');
       const label = Object.hasOwn(safeLabels, selection.id) ? safeLabels[selection.id] : selection.id;
       const message = `${selection.activated ? 'Activated' : 'Selected'} strand ${label}`;
