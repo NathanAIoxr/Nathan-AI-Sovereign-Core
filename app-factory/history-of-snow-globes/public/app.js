@@ -1,9 +1,12 @@
 import {advance,evaluate,clamp} from './physics.js';
+import {restoreProgress,saveProgress} from './progress.js';
 const $=id=>document.getElementById(id);
 const canvas=$('vessel'), ctx=canvas.getContext('2d');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const sizes=['1.075rem','1.24rem','1.45rem','0.98rem'];
 let chapters,index=0,experiment=0,reverse=false,paused=reduced.matches,values={},shaken=false,archive=new Map();
+let completed=new Set(),storage;
+try{storage=window.localStorage;}catch{}
 let textSize=0,sound,tilt=false,lastShake=0,drag,previous=0,particles=[];
 const create=(tag,content)=>Object.assign(document.createElement(tag),content===undefined?{}:{textContent:content});
 const sourceList=sources=>{
@@ -66,7 +69,11 @@ function showResult(){
   const message=result.ok?'Experiment complete.':'Experiment in progress.';
   if($('result').textContent!==message)$('result').textContent=message;
   $('reading').textContent=result.text;
+  if(result.ok)completed.add(experiment);
   archive.set(experiment,{values:{...values},shaken});
+  const saved=saveProgress(storage,chapters,archive,completed);
+  const status=completed.size+' of '+chapters.length+' labs completed'+(saved?' · Saved on this browser':' · This session');
+  if($('lab-progress').textContent!==status)$('lab-progress').textContent=status;
   draw(0);
 }
 function impulse(dx,dy){
@@ -166,6 +173,17 @@ async function start(){
   const response=await fetch('./chapters.json');
   if(!response.ok)throw Error('Chapter data unavailable.');
   chapters=await response.json();
+  const progress=restoreProgress(storage,chapters);archive=progress.labs;completed=progress.completed;
+  const worksheets=chapters.map(ch=>{
+    const section=create('section'), w=ch.worksheet;
+    section.className='worksheet';
+    section.append(create('p',ch.chapter+' · '+ch.era),create('h2',ch.title),
+      create('p','Objective · '+ch.game.objective),create('h3','Predict'),create('p',w.prediction),
+      create('div'),create('h3','Measure'),create('p',w.record),create('div'),
+      create('h3','Explain'),create('p',w.reflection),create('div'),create('div'));
+    return section;
+  });
+  $('worksheets').append(...worksheets);
   $('experiment').replaceChildren(...chapters.map((c,i)=>Object.assign(create('option',c.title),{value:String(i)})));
   $('manuscript').append(...chapters.map(ch=>{
     const section=create('section');section.append(create('p',ch.chapter+' · '+ch.era),create('h2',ch.title),
@@ -196,7 +214,10 @@ async function start(){
     for(const button of ['book','lab','split'])$(button).setAttribute('aria-pressed',String(button===mode));
   };
   $('text-size').onclick=()=>{textSize=(textSize+1)%sizes.length;document.documentElement.style.setProperty('--reading',sizes[textSize]);$('load-status').textContent='Text size '+(textSize+1)+' of '+sizes.length+'.';};
+  const printMode=new URLSearchParams(location.search).get('print');
+  if(printMode==='worksheets')document.body.dataset.print='worksheets';
   $('print').onclick=()=>window.print();
+  $('worksheets-print').onclick=()=>window.print();
   $('audio').onclick=async()=>{
     try{
       if(sound?.state==='running'){await sound.suspend();$('audio').setAttribute('aria-pressed','false');return;}

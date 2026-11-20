@@ -11,3 +11,5 @@ Run `npm test` to build and test, or `npm run build` to generate the two publish
 The live deployment serves the project as its own dispatch Worker, `history-of-snow-globes`, reached through Tabor Bridge. `connect.mjs` defines the route and launch links for Tabor Bridge, Academy, Tabor World, and the Library of Tabor root pages. When redeploying an existing multi-module Worker, retain its other modules and bindings.
 
 A verified 1878 description predates the Perzy workshop account. The 1889 souvenir association, disputed purpose of the Nimrud object, Thurneysser bird story and reported patent year are identified separately in the manuscript.
+
+The lab tracker saves each experiment’s settings and completion locally in the current browser. The printable Lab worksheets view provides seven prediction, measurement and explanation exercises.

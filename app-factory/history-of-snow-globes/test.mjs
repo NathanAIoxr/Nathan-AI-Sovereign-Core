@@ -31,3 +31,17 @@ assert.equal(await get('/','HEAD').text(),'');
 assert.equal(get('/nope').status,404);
 assert.equal(get('/','POST').status,405);
 console.log('Seven solvable labs, asset routes and collision bounds passed.');
+
+const { restoreProgress,saveProgress } = await import('./public/progress.js');
+const state = new Map();
+const storage={getItem:key=>state.get(key),setItem:(key,value)=>state.set(key,value)};
+const saved = new Map([[5,{values:{viscosity:8,density:1,size:1},shaken:true}]]);
+assert.equal(saveProgress(storage,chapters,saved,new Set([5])),true);
+const reopened=restoreProgress(storage,chapters);
+assert.deepEqual(reopened.labs.get(5),saved.get(5));
+assert.deepEqual([...reopened.completed],[5]);
+assert.equal(restoreProgress({getItem:()=>'{broken'},chapters).labs.size,0);
+assert.equal(saveProgress({setItem(){throw Error('Blocked');}},chapters,saved,new Set()),false);
+assert.equal(chapters.filter(ch=>ch.worksheet?.reflection).length,7);
+assert.equal(get('/progress.js').status,200);
+console.log('Saved progress and seven worksheets passed.');

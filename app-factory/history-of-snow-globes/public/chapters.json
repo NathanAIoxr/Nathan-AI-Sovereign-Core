@@ -48,7 +48,12 @@
         "label": "Corning Museum of Glass · Origins of glassmaking",
         "url": "https://whatson.cmog.org/exhibitions-galleries/origins-glassmaking"
       }
-    ]
+    ],
+    "worksheet": {
+      "prediction": "Will increasing soda let a glassmaker work at a lower temperature?",
+      "record": "Silica ___%, soda ___%, lime ___%, furnace setting ___%.",
+      "reflection": "Explain what each ingredient does. The furnace slider is a model setting, so keep its reading as a percent."
+    }
   },
   {
     "id": "nimrud",
@@ -103,7 +108,12 @@
         "label": "University of Ioannina · Crystals and Lenses in the Graeco-Roman World",
         "url": "https://olympias.lib.uoi.gr/jspui/bitstream/123456789/12313/1/Plantzos-1997-Crystals%20and%20Lenses.pdf"
       }
-    ]
+    ],
+    "worksheet": {
+      "prediction": "If refractive index increases, will the focus move toward the lens or away?",
+      "record": "Trial 1 index ___ and focus ___ mm. Trial 2 index ___ and focus ___ mm.",
+      "reflection": "Change the index first while keeping tilt fixed. Then move the target and describe the difference."
+    }
   },
   {
     "id": "alexandria",
@@ -158,7 +168,12 @@
         "label": "Plantzos · Ancient lenses",
         "url": "https://olympias.lib.uoi.gr/jspui/bitstream/123456789/12313/1/Plantzos-1997-Crystals%20and%20Lenses.pdf"
       }
-    ]
+    ],
+    "worksheet": {
+      "prediction": "At 55% fill, which way will water move when the air pressure is increased?",
+      "record": "Fill ___%. Air pressure ___ kPa. Measured difference ___ kPa.",
+      "reflection": "Change fill alone, then pressure alone. Record the direction of each change."
+    }
   },
   {
     "id": "workshop",
@@ -209,7 +224,12 @@
         "label": "Medienwerkstatt · Thurneysser tradition",
         "url": "https://www.medienwerkstatt-online.de/lws_wissen/vorlagen/showcard.php?id=25129"
       }
-    ]
+    ],
+    "worksheet": {
+      "prediction": "Will moving the flask or changing its angle do more to center the light on the stitches?",
+      "record": "Best distance ___ mm. Best position ___°. Before and after observations ___.",
+      "reflection": "Draw the source, flask, and target. Mark where the rays converge."
+    }
   },
   {
     "id": "weather",
@@ -264,7 +284,12 @@
         "label": "Museo Galileo · Accademia del Cimento",
         "url": "https://catalogue.museogalileo.it/multimedia/AccademiaCimento.html"
       }
-    ]
+    ],
+    "worksheet": {
+      "prediction": "If you change pressure alone, what will happen to the barometer and crystals?",
+      "record": "Temperature ___ °C. Pressure ___ hPa. Crystal display ___%. Bulb behavior ___.",
+      "reflection": "Repeat after changing temperature alone. Identify which instrument changed in each trial."
+    }
   },
   {
     "id": "vienna",
@@ -319,7 +344,12 @@
         "label": "Artsy · The Paris exposition reports",
         "url": "https://www.artsy.net/article/artsy-editorial-history-snow-globe/"
       }
-    ]
+    ],
+    "worksheet": {
+      "prediction": "Which will change settling time more in this model, doubling viscosity or doubling particle size?",
+      "record": "Trial 1 settings __________, settling ___ s. Trial 2 settings __________, settling ___ s.",
+      "reflection": "Keep the other controls fixed. Shake both times and compare your observations with the estimate."
+    }
   },
   {
     "id": "lava",
@@ -370,6 +400,11 @@
         "label": "Mathmos · Astro and the 1963 launch",
         "url": "https://mathmos.com/lava-lamps-in-the-1960s-70s/"
       }
-    ]
+    ],
+    "worksheet": {
+      "prediction": "Will raising base temperature or raising viscosity increase circulation?",
+      "record": "Trial 1 base ___ °C, viscosity ___, circulation ___%. Trial 2 base ___ °C, viscosity ___, circulation ___%.",
+      "reflection": "Sketch a droplet’s path. Mark where it warms, rises, cools, and sinks."
+    }
   }
 ]

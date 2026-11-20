@@ -1,6 +1,6 @@
 const scope=self.registration.scope;
-const cacheName='snow-globes-v2:'+scope;
-const names=['./','app.js','physics.js','style.css','chapters.json','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png','architecture.svg'];
+const cacheName='snow-globes-v3:'+scope;
+const names=['./','app.js','physics.js','progress.js','style.css','chapters.json','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png','architecture.svg'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(cacheName).then(cache=>cache.addAll(names.map(n=>new URL(n,scope).href)))));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{
   for(const key of await caches.keys())if(key.startsWith('snow-globes-')&&key.endsWith(':'+scope)&&key!==cacheName)await caches.delete(key);
