@@ -20,6 +20,7 @@ This additive, independent Cloudflare Worker is a **live, bounded planning servi
 - `GET /operations`: RAM, OCTOPUS, CONVOY specifications and eight channel roles
 - `GET /demo`: complete simulated in-memory mission
 - `GET /conductors`: complete UTF-8 [conductor transcript](./sources/train-orchestra-monkey-conductor.txt)
+- `GET /operational-matrix`: supplied [Unified Operational Matrix](./sources/operational-matrix.txt)
 - `POST /run`: validates up to 24 owner-submitted tasks and returns the three-step plan
 
 Example request:

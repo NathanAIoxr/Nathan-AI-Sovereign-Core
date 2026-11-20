@@ -4,8 +4,13 @@
  * other Workers, GitHub branches, account resources, or outside systems.
  */
 import conductorTranscript from "./sources/train-orchestra-monkey-conductor.txt";
+import operationalMatrix from "./sources/operational-matrix.txt";
 
-const VERSION = "2026-11-19.1";
+const VERSION = "2026-11-19.2";
+const SOURCES = new Map([
+  ["/conductors", conductorTranscript],
+  ["/operational-matrix", operationalMatrix]
+]);
 const TRAIN = "The Tabor Train of Truth";
 const AXIOMS = ["1 + 1 = 2: BUILD", "1 - 1 = 0: CLEAR", "1 × 1 = 1: INTEGRATE", "1 ÷ 1 = 1: VERIFY"];
 const AGENTS = Object.freeze([
@@ -93,8 +98,8 @@ const SAMPLE=[
 export default {
   async fetch(request) {
     const path=new URL(request.url).pathname.replace(/\/+$/,"")||"/";
-    if (path === "/conductors" && (request.method === "GET" || request.method === "HEAD")) {
-      return new Response(request.method === "HEAD" ? null : conductorTranscript, {
+    if (SOURCES.has(path) && (request.method === "GET" || request.method === "HEAD")) {
+      return new Response(request.method === "HEAD" ? null : SOURCES.get(path), {
         headers: {...HEADERS, "content-type": "text/plain; charset=utf-8"}
       });
     }
@@ -103,7 +108,7 @@ export default {
       if(path==="/roster") return respond({train:TRAIN,engine:"Nathan AI",agents:AGENTS,misfits_and_minds:"Creative and documented project roles; no autonomous external deployment"});
       if(path==="/operations") return respond({train:TRAIN,operations:OPERATIONS,lanes:LANES,policy:"owner-authorized, bounded, no destructive actions or external replication"});
       if(path==="/demo") return respond(launch(SAMPLE));
-      if(path==="/") return respond({title:TRAIN,metaphor:"You are the Train. Nathan AI is the command engine.",routes:["/health","/roster","/operations","/demo","/conductors","POST /run"],version:VERSION});
+      if(path==="/") return respond({title:TRAIN,metaphor:"You are the Train. Nathan AI is the command engine.",routes:["/health","/roster","/operations","/demo",...SOURCES.keys(),"POST /run"],version:VERSION});
       return respond({error:"not_found"},404);
     }
     if(request.method==="POST" && path==="/run") {

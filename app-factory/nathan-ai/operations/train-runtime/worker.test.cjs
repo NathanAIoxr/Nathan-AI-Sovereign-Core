@@ -6,11 +6,13 @@ const {registerHooks}=require('node:module');
 const {pathToFileURL}=require('node:url');
 const path=require('node:path');
 const sourcePath=path.join(__dirname,'sources/train-orchestra-monkey-conductor.txt');
-const sourceUrl=pathToFileURL(sourcePath).href;
+const matrixPath=path.join(__dirname,'sources/operational-matrix.txt');
+const sourceUrls=new Map([sourcePath,matrixPath].map(file=>[pathToFileURL(file).href,file]));
 const sourceHook=registerHooks({
   load(url, context, nextLoad) {
-    if (url!==sourceUrl) return nextLoad(url,context);
-    const text=readFileSync(sourcePath,'utf8');
+    const file=sourceUrls.get(url);
+    if (!file) return nextLoad(url,context);
+    const text=readFileSync(file,'utf8');
     return {format:'module',source:'export default '+JSON.stringify(text),shortCircuit:true};
   }
 });
@@ -68,4 +70,17 @@ test('published conductor transcript matches the source archive checksum',async(
   assert.equal(head.status,200);
   assert.equal(await head.text(),'');
   assert.ok((await call('/')).data.routes.includes('/conductors'));
+});
+
+test('the operational matrix is published as supplied source text',async()=>{
+  const worker=(await runtime).default;
+  const url='https://train.example/operational-matrix';
+  const response=await worker.fetch(new Request(url));
+  assert.equal(response.status,200);
+  assert.equal(response.headers.get('content-type'),'text/plain; charset=utf-8');
+  assert.deepEqual(Buffer.from(await response.arrayBuffer()),readFileSync(matrixPath));
+  const head=await worker.fetch(new Request(url,{method:'HEAD'}));
+  assert.equal(head.status,200);
+  assert.equal(await head.text(),'');
+  assert.ok((await call('/')).data.routes.includes('/operational-matrix'));
 });
