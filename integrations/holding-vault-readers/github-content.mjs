@@ -139,7 +139,7 @@ export function scanGitContent(commit, repository, {includeGraph=false}={}) {
     if(targets)for(const target of targets)pending.push(target);
   }
   const summary={...counts,internalReferences,linkedFiles:reached.size,terminalFiles:resolvedBranches.size,
-    linkedOrigins:linkedOrigins.size,referenceBoundaries:boundaryPaths.size,contentDigest:digest.digest('hex')};
+    linkedOrigins:linkedOrigins.size,contentDigest:digest.digest('hex')};
   if(!includeGraph)return summary;
   const edges=[];
   for(const [from,targets] of bySource){
