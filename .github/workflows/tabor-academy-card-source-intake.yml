@@ -9,6 +9,8 @@ on:
     branches: [main]
     paths:
       - 'app-factory/tabor-academy/card-games/wiki/**'
+      - 'app-factory/tabor-academy/card-games/card-intake-*.mjs'
+      - 'app-factory/tabor-academy/card-games/github-intake-keys.mjs'
       - 'app-factory/game-reference-lab/morning-additions-238.json'
       - 'app-factory/game-reference-lab/morning-mechanics-taxonomy.json'
       - '.github/workflows/tabor-academy-card-source-intake.yml'

@@ -1,3 +1,5 @@
+import { snapshot } from './github-intake-keys.mjs';
+
 export const audience = 'urn:tabor-academy:card-games:research-intake';
 const issuer = 'https://token.actions.githubusercontent.com';
 const repo = 'NathanAIoxr/Nathan-AI-Sovereign-Core';
@@ -12,6 +14,22 @@ function base64url(part) {
   return Uint8Array.from(atob(part.replaceAll('-','+').replaceAll('_','/')), (c) => c.charCodeAt(0));
 }
 const parse = (part) => JSON.parse(new TextDecoder().decode(base64url(part)));
+
+const matchingKey = (jwks,kid) => jwks.keys?.find((value)=>value.kid===kid && value.kty==='RSA' &&
+  (!value.alg || value.alg==='RS256') && (!value.use || value.use==='sig'));
+
+async function signingKey(kid,fetcher,now) {
+  try {
+    const response = await fetcher(issuer+'/.well-known/jwks',{redirect:'error',signal:AbortSignal.timeout(5000)});
+    if (!response.ok) throw Error('GitHub issuer HTTP '+response.status);
+    return matchingKey(await response.json(),kid);
+  } catch (error) {
+    // This snapshot contains only the issuer's public verification keys.
+    const cached = now*1000 < Date.parse(snapshot.expires) ? matchingKey(snapshot,kid) : undefined;
+    if (!cached) throw error;
+    return cached;
+  }
+}
 
 export async function verifyIntakeIdentity(request, {fetcher=fetch, now=Math.floor(Date.now()/1000)}={}) {
   const authorization = request.headers.get('authorization') || '';
@@ -29,11 +47,7 @@ export async function verifyIntakeIdentity(request, {fetcher=fetch, now=Math.flo
     !Number.isSafeInteger(claims.iat) || claims.exp<=now || claims.nbf>now+15 || claims.iat>now+15 ||
     claims.exp<=claims.iat || claims.exp-claims.iat>900 || !/^\d+$/.test(claims.run_id || '')) return null;
 
-  const response = await fetcher(issuer+'/.well-known/jwks',{redirect:'error',signal:AbortSignal.timeout(8000)});
-  if (!response.ok) throw Error('GitHub identity keys unavailable');
-  const jwks = await response.json();
-  const key = jwks.keys?.find((value)=>value.kid===header.kid && value.kty==='RSA' &&
-    (!value.alg || value.alg==='RS256') && (!value.use || value.use==='sig'));
+  const key = await signingKey(header.kid,fetcher,now);
   if (!key) return null;
   try {
     const publicKey = await crypto.subtle.importKey('jwk',key,cryptoParams,false,['verify']);
