@@ -73,7 +73,7 @@ export function scanGitContent(commit, repository, {includeGraph=false}={}) {
     if(!objects.has(oid))objects.set(oid,{oid,size,paths:[]});
     objects.get(oid).paths.push(path);
   }
-  const bySource=new Map(), parsedPaths=new Set(), linkedOrigins=new Set();
+  const bySource=new Map(), parsedPaths=new Set(), linkedOrigins=new Set(), boundaryPaths=new Set();
   const counts={trackedBlobs:files.size,textFiles:0,otherFiles:0,oversizeFiles:0,submodules};
   const digest=createHash('sha256');
   const reference=/(https?:\/\/[^\s"'<>\\)\]}]+)|\]\(([^\s)]+)\)|["']((?:\.{1,2}\/|\/)?[\w. @-]+(?:\/[\w. @-]+)+)["']/g;
@@ -93,14 +93,18 @@ export function scanGitContent(commit, repository, {includeGraph=false}={}) {
       return;
     }
     counts.textFiles+=row.paths.length;
-    const references=new Set();
-    for(const m of value.matchAll(reference))references.add(m[1]??m[2]??m[3]);
+    const references=new Map();
+    for(const m of value.matchAll(reference)) {
+      const link=m[1]??m[2]??m[3];
+      references.set(link,!!(references.get(link)||m[1]||m[2]));
+    }
     for (const path of row.paths) {
       parsedPaths.add(path);
       const targets=new Set();
-      for (const raw of references) {
+      for (const [raw,explicit] of references) {
         const target=localTarget(raw,path,files,repository,commit);
-        if(target){if(target!==path)targets.add(target);continue;}
+        if(target){targets.add(target);continue;}
+        if(explicit&&!/^[#?]/.test(raw))boundaryPaths.add(path);
         if(/^https?:\/\//i.test(raw) && raw.length <= 600){
           try {
             const u=new URL(raw);
@@ -109,7 +113,9 @@ export function scanGitContent(commit, repository, {includeGraph=false}={}) {
         }
       }
       if(targets.size)bySource.set(path,targets);
-      if(graphNodes.get(path)?.[1]==='large-blob')graphNodes.get(path)[1]=targets.size?'references-found':'no-static-reference';
+      if(graphNodes.get(path)?.[1]==='large-blob') {
+        graphNodes.get(path)[1]=targets.size||boundaryPaths.has(path)?'references-found':'no-static-reference';
+      }
     }
   }
   let batch=[], bytes=0;
@@ -129,11 +135,11 @@ export function scanGitContent(commit, repository, {includeGraph=false}={}) {
     if(reached.has(path))continue;
     reached.add(path);
     const targets=bySource.get(path);
-    if(!targets&&parsedPaths.has(path))resolvedBranches.add(path);
+    if(!targets&&parsedPaths.has(path)&&!boundaryPaths.has(path))resolvedBranches.add(path);
     if(targets)for(const target of targets)pending.push(target);
   }
   const summary={...counts,internalReferences,linkedFiles:reached.size,terminalFiles:resolvedBranches.size,
-    linkedOrigins:linkedOrigins.size,contentDigest:digest.digest('hex')};
+    linkedOrigins:linkedOrigins.size,referenceBoundaries:boundaryPaths.size,contentDigest:digest.digest('hex')};
   if(!includeGraph)return summary;
   const edges=[];
   for(const [from,targets] of bySource){

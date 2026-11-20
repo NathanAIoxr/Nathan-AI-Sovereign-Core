@@ -1,3 +1,5 @@
+import {scanD1, scanStorage} from './trace-cloudflare.mjs';
+import {storageReferences} from './trace-references.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {githubCandidates,cloudflareCandidates,validManifest,VAULT} from './readers.mjs';
@@ -90,4 +92,34 @@ test('Git provenance batches wait for a complete receipt and keep cycles as sour
   assert.deepEqual(await (await call()).json(),{complete:true,entries:3});
   assert.equal(db.prepare("SELECT COUNT(*) n FROM zone_reader_provenance_edges WHERE relation='embedded reference'").get().n,2);
   db.close();
+});
+
+test('D1 scans successive pages through a stable order and emits hashes and references', async () => {
+  const requests = [];
+  const rows = [{id:1, source_ref:'app-factory/nathan-ai/example/app.json'},{id:2, source_ref:''}];
+  const request = async ({body}) => {
+    requests.push(body);
+    const results = body.sql.includes('pragma_table_info') ? [{name:'id',pk:1}] :
+      rows.slice(body.params[1], body.params[1] + body.params[0]);
+    return {success:true,result:[{success:true,results}]};
+  };
+  const db = '2744aea4-b218-41e9-ab21-a04f25c10475';
+  const first = await scanD1(request,'account',db,'table"name',{limit:1});
+  assert.equal(first.next, 1);
+  assert.equal(first.records[0].links[0], 'github-path:app-factory/nathan-ai/example/app.json');
+  assert.match(requests[1].sql, /FROM "table""name" ORDER BY "id"/);
+  const last = await scanD1(request,'account',db,'table"name',{offset:first.next,limit:2});
+  assert.equal(last.next, null);
+  assert.match(last.records[0].sha256, /^[a-f0-9]{64}$/);
+});
+
+test('KV reports missing values without labelling them as leaves', async () => {
+  const request = async ({method}) => method === 'GET' ? {
+    success:true,result:[{name:'a'},{name:'b'}],result_info:{cursor:'next'}
+  } : {success:true,result:{values:{a:'https://example.com/tree?token=redacted'}}};
+  const result = await scanStorage(request,'account',{kind:'kv',id:'namespace'});
+  assert.equal(result.next, 'next');
+  assert.deepEqual(result.records.map(record => record.state), ['references-found','read-error']);
+  assert.deepEqual(result.records[0].links, ['https://example.com/tree']);
+  assert.deepEqual(storageReferences('{"snapshot":"{\\"source_ref\\":\\"zones/example/site.html\\"}"}'), ['github-path:zones/example/site.html']);
 });
