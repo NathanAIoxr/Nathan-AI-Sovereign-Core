@@ -11,6 +11,8 @@ export function connectBigBang(academy, assets, revision, homeMotto) {
   return {
     ...academy,
     async fetch(request, env, ctx) {
+      const evidence = serveEvidence(request, revision);
+      if (evidence) return evidence;
       const { pathname } = new URL(request.url);
       if (pathname === path || pathname.startsWith(path + "/")) {
         if (request.method !== "GET" && request.method !== "HEAD") {

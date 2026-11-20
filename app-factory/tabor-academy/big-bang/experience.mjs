@@ -19,7 +19,9 @@ export async function buildModule(revision) {
   entries.push(["lesson/", { type: types["index.html"], body: await lesson.text(),
     policy: lesson.headers.get("content-security-policy") }]);
   const runtime = (await read("worker.mjs")).replace("export function connectBigBang", "function connectBigBang");
-  return runtime + "\nexport default academy => connectBigBang(academy, Object.assign(Object.create(null), " +
+  const evidence = (await read("evidence.mjs")).replace("export function serveEvidence", "function serveEvidence");
+  return "const serveEvidence = (() => {\n" + evidence + "\nreturn serveEvidence;\n})();\n" +
+    runtime + "\nexport default academy => connectBigBang(academy, Object.assign(Object.create(null), " +
     JSON.stringify(Object.fromEntries(entries)) + "), " + JSON.stringify(revision) + ", " + JSON.stringify(canonical.home) + ");\n";
 }
 

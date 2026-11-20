@@ -46,3 +46,25 @@ test("the verbatim author source and the separately written four-check lesson re
   assert.equal(await (await get("/big-bang/source.txt")).text(), await readFile(new URL("author.txt", import.meta.url), "utf8"));
   assert.match(await (await get("/big-bang/lesson/")).text(), /One line, four checks/);
 });
+
+test("Big Bang opens the evidence challenges and leaves the existing four-check lesson available", async () => {
+  assert.match(await (await get("/big-bang/")).text(), /href="\.\/evidence\/"/);
+  const challenges = await get("/big-bang/evidence/");
+  assert.equal(challenges.status, 200);
+  assert.match(challenges.headers.get("content-security-policy"), /connect-src 'self'/);
+  const html = await challenges.text();
+  assert.ok(html.includes("Groundskeeper AI · Collyn Phillips Tabor"));
+  for (const id of ["truth", "minds", "lasso", "groundskeeper", "nature", "mining", "conductor"]) {
+    assert.ok(html.includes('<article class="zone" id="' + id + '"'), id);
+  }
+  const script = await (await get("/big-bang/evidence/play.js")).text();
+  assert.doesNotThrow(() => new Function(script));
+  assert.deepEqual(await (await get("/big-bang/evidence/healthz")).json(), {
+    service: "tabor-academy-big-bang-evidence", ready: true, release: revision, zones: 7,
+  });
+  assert.equal((await get("/big-bang/evidence")).headers.get("location"), "/tabor-academy/big-bang/evidence/");
+  assert.equal((await get("/big-bang/evidence/", "HEAD")).body, null);
+  assert.equal((await get("/big-bang/evidence/", "POST")).status, 405);
+  assert.equal((await get("/big-bang/evidence/unknown")).status, 404);
+  assert.equal((await get("/big-bang/lesson/")).status, 200);
+});
