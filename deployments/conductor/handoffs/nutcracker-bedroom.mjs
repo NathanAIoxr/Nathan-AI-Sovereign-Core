@@ -1,3 +1,5 @@
+import { nutcrackerFleetInfo, serveNutcrackerFleet } from "./nutcracker-fleet.mjs";
+
 const root = "/tabor-sites/conductor";
 const handoff = "/handoffs/nutcracker-bedroom";
 const publicOrigin = "https://unified-operations-cockpit.nathantaboract.workers.dev";
@@ -10,9 +12,10 @@ export const bedroomRelease = {
   materialDirection: "Matte silicone",
   historicalReference: "Clasped bronze hands",
   artwork: {
-    published: "Three distinct matte silicone concept renderings and the original color and packaging study",
+    published: "Three distinct matte silicone product renderings and the original color and packaging study",
     pending: null
   },
+  fleet: nutcrackerFleetInfo,
   source: "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/pull/476",
   sites: [
     { name: "King Solomon", url: sitePrefix + "king-solomon-bronze-hands/" },
@@ -22,6 +25,8 @@ export const bedroomRelease = {
 };
 
 export function serveNutcrackerBedroomHandoff(request, path) {
+  const fleetResponse = serveNutcrackerFleet(request, path);
+  if (fleetResponse) return fleetResponse;
   if (![handoff, handoff + "/", "/api" + handoff].includes(path)) return null;
   const headers = {
     "Cache-Control": "no-store",
@@ -48,8 +53,10 @@ export function serveNutcrackerBedroomHandoff(request, path) {
 <h1>${bedroomRelease.project}</h1>
 <p>The Bedroom · 18+ only</p>
 <p>Proposed material is matte silicone. The clasped bronze hands are the historical shape reference.</p>
-<h2>Live concept pages</h2><ul>${links}</ul>
-<p>Each page displays its own matte silicone concept rendering. The collection’s color and packaging study appears in the design section.</p>
+<h2>Live product pages</h2><ul>${links}</ul>
+<p>Each page displays its own matte silicone product rendering. The collection’s color and packaging study appears in the design section.</p>
+<h2>Nutcracker Fleet</h2>
+<p><a href="${bedroomRelease.fleet.dashboardPath}">Open the 69-fleet intake and review desk</a></p>
 <p><a href="${bedroomRelease.source}">GitHub source and review</a></p>
 </main></body></html>`;
   return new Response(request.method === "HEAD" ? null : page, {

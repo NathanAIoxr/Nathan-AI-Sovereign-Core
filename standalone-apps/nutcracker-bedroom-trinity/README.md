@@ -15,3 +15,14 @@ For independent deployment, upload the chosen file as the main ES module via the
 Each age-gated page shows its own matte silicone concept rendering in the existing palette. Solomon is slate blue, Cleopatra is muted plum, and Virgin Mary is warm ivory. The design section includes the shared color and packaging study. The historical design reference is the [Taranto museum’s nutcracker in bronze and gold foil](https://museotaranto.cultura.gov.it/en/objects-on-display/nutcracker-in-bronze-and-gold-foil/). The Solomon concept cites [Proverbs 5:19 in the KJV](https://www.biblegateway.com/passage/?search=Proverbs%205%3A19&version=KJV).
 
 The [Conductor handoff](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/handoffs/nutcracker-bedroom) records the three URLs, the material, the GitHub review, and the published renderings. Its [read-only route source](../../deployments/conductor/handoffs/nutcracker-bedroom.mjs) is deployed as a module of the Conductor Worker.
+
+## Nutcracker Fleet
+
+The [fleet dashboard](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/handoffs/nutcracker-bedroom/fleet) addresses 69 fleets of 1,000 virtual Nutcrackers. Unit IDs range from `NC-01-0001` to `NC-69-1000`. The full SHA-256 of the submitted bytes determines the unit. The roster endpoint at `/tabor-sites/conductor/api/handoffs/nutcracker-bedroom/fleet?fleet=69` lists the units in a given fleet.
+
+Choose a file or paste source text. The browser hashes the source locally and compares the claims and reviewer records in the manifest. For non-digital intake, print the worksheet, complete it by hand, and enter the transcription as paper intake to get a receipt. Loading the sample demonstrates how two different values for the same subject, predicate, and scope cause a contradiction.
+
+- **Crushed** marks a contradiction or a failed consent, privacy, or exploitation review. The original stays in the submitter's possession. If the submission has no unresolved evidence and a nonconflicting part has independent reuse approval tied to the same source digest, its ID and review reference appear in the downloadable reuse manifest. Set `range: [start, end]` with zero-based byte offsets and an exclusive end, and include `reuseReview.partSha256` to export the approved bytes as Base64. The export verifies those bytes against the part hash.
+- **Held** marks unresolved evidence or malformed records that prevent clearing. **Cleared** means the supplied checks passed for the submitted manifest. Review reference authenticity and the substance of the source depend on the reviewers.
+
+The dashboard reads submissions as data. It runs locally in the loaded browser page and sends no submissions to the server. The Conductor publishes the roster and browser code using the existing handoff route. Run the fleet tests with `node --test fleet.test.mjs`.
