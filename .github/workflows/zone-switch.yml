@@ -1,0 +1,56 @@
+name: Cheironomer Zone Switch
+on:
+  pull_request:
+    paths: ['deployments/conductor/**', '.github/workflows/zone-switch.yml']
+  push:
+    branches: ['zone/**']
+    paths: ['deployments/conductor/**', '.github/workflows/zone-switch.yml']
+  workflow_dispatch:
+    inputs:
+      action:
+        type: choice
+        options: [verify, release, drain]
+        default: verify
+  schedule:
+    - cron: '*/5 * * * *'
+permissions:
+  contents: read
+concurrency:
+  group: cheironomer-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  alien-neila:
+    if: github.event_name != 'schedule' && inputs.action != 'drain'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: ALIEN build and NEILA verification
+        run: bash deployments/conductor/cheironomer/deploy.sh --dry-run
+      - name: Migrate, deploy and activate TIME
+        if: github.ref == 'refs/heads/main' && inputs.action == 'release'
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: bash deployments/conductor/cheironomer/deploy.sh --activate
+  emit:
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || inputs.action == 'drain')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Drain the private EMIT_BUS
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: node deployments/conductor/cheironomer/pull-emit.mjs

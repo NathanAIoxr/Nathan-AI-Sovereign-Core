@@ -1,6 +1,8 @@
 import { project, repository, ProjectConductor } from "./state.mjs";
 import { dashboard } from "./dashboard.mjs";
 import { dashboardScript } from "./dashboard-client.mjs";
+import {cheironomer} from "./cheironomer/src/entry.js";
+import {consume} from "./cheironomer/src/conductor.js";
 export { ZoneClock } from "./time-clock.mjs";
 
 export { ProjectConductor };
@@ -63,10 +65,22 @@ async function webhook(request, env, state) {
 }
 
 export default {
+  async scheduled(_event,env) { await env.TIME.getByName("cheironomer").cheirWake(); },
+  async queue(batch,env) { await consume(batch,env); },
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
     const path = (pathname === prefix || pathname.startsWith(prefix + "/") ? pathname.slice(prefix.length) : pathname) || "/";
     const method = request.method;
+    if (path==="/cheironomer") return Response.redirect(new URL(pathname+"/",request.url),308);
+    if (path.startsWith("/cheironomer/")) {
+      try { return await cheironomer(request,env,path.slice("/cheironomer".length)); }
+      catch (error) {
+        if(error instanceof RangeError)return json({error:"request_too_large"},413);
+        if(error instanceof SyntaxError||error instanceof TypeError)return json({error:"invalid_command"},400);
+        console.error(JSON.stringify({component:"cheironomer",event:"request_failed"}));
+        return json({error:"temporarily_unavailable"},503);
+      }
+    }
     const isRead = method === "GET" || method === "HEAD";
     if (isRead && path === "/") {
       return new Response(method === "HEAD" ? null : dashboard, { headers: {

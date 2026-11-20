@@ -1,0 +1,29 @@
+# The Grand Unified Cheironomer
+
+Nathan AI’s Cheironomer connects the existing sparse Holding Zones, the Conductor’s TIME Durable Object, the private Holding Vault provenance graph, and the TAP THAT command deck. The virtual address space is 126,732,000,000 identities. D1 materializes an identity when operators approve that identity’s manifest.
+
+## Control and provenance
+
+- **1 + 1 = 2.** A signed-in operator proposes a normalized command and receives an ALIEN SHA-256 digest. A second Cloudflare Access identity supplies that digest before NEILA admits the operation. SQLite serializes approval through `sibling_hold`. Proposals expire after ten minutes.
+- **1 − 1 = 0.** KILL advances the Durable Object brake generation. It blocks new commands and cancels unapplied queued commands from earlier generations. An operation already admitted to the commit stage completes its idempotent projection. KV mirrors the authoritative brake. ARM takes two identities.
+- **TIME and EMIT.** The named Cheironomer object uses a ten-second alarm and a one-minute integrity review. It writes forward and reverse SHA-256 seals to D1 and R2. The `cheironomer/seals/` prefix has seven-day Bucket Lock. The EMIT_BUS HTTP pull consumer has a dead-letter queue and the GitHub drain acknowledges after the receipt commits. The dispatch deployment uses Durable Object alarms for TIME. The existing 15-minute ZoneClock is independent.
+- **Readers.** The three roles consume Holding Vault provenance in bounded pages. The existing GitHub and Cloudflare readers populate that graph. A terminal-root label requires a completed static source scan with no detected outbound reference. Outside links stay recorded as boundaries.
+- **Voice and telemetry.** Voice-to-Vault uses Whisper and Llama. The transcript and extraction stay private and wait for dual proof. Sensor JSON can be proposed from the authenticated operator route. TAP THAT and TWEEZER-OS tiles record gesture events. Audio files are accepted up to 1 MiB.
+- **DNS.** `batch_zones.sh` accepts 1–10 registered, owner-authorized domains. It stages pending zones, applies Full (strict) to pending zones, and emits a HOLDING registration payload. Nameserver delegation, origin and route configuration, and the Access policy must exist before promotion. The verifier requires an account-scoped DNS read credential, checks the active zone, apex Orange Cloud record, tabor-bridge route, and Access application. No placeholder hostname is submitted to the provider.
+- **Recovery.** The watchdog brakes when the last sealed D1 event and R2 object disagree. Time Travel is an explicit command against an isolated recovery database. It does not restore the shared Conductor ledger.
+
+## Deployment stages
+
+Provision existing account resources, replicate and clone source in the monorepo, build and bundle with Wrangler, migrate D1, inject encrypted credentials, dry-run, deploy, canary-test health, cut over, promote eligible domains, activate, bind, purge selected domain URLs when necessary, and wake TIME. The live HTTPS deck is:
+
+https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/cheironomer/
+
+`operator/` uses Cloudflare Access. Both approval identities must be entitled by the Access policy. Register an additional operator through Access when needed.
+
+```sh
+bash deployments/conductor/cheironomer/provision.sh
+bash deployments/conductor/cheironomer/deploy.sh --dry-run
+bash deployments/conductor/cheironomer/deploy.sh --activate
+```
+
+The GitHub workflow runs zone-branch checks, release from main, and an HTTP pull drain on a five-minute schedule. The dispatch Worker producer is bound to `nathan-ai-cheironomer-events`. The queue receives a TIME canary every five minutes. Git credentials stay encrypted. Voice records stay in D1.
