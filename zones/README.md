@@ -78,3 +78,7 @@ A project needs an active DNS zone, a matching hostname and Cloudflare Access au
 D1 stores the ordered hash chain and audited Merkle roots. The scheduled workflow verifies the GitHub source digest against D1, reads and hashes the corresponding R2 bytes, and acknowledges queued audits after recording a receipt. The handoff digest is published as metadata. Raw records remain private. A watchdog reports mismatches through the workflow run for review before a D1 Time Travel restore.
 
 For staging, keep each project's D1 record and R2 prefix independent. Hosted holding routes use the existing cockpit dispatcher. For a real zone, attach its verified hostname as a Worker Custom Domain for `unified-operations-cockpit` after auditing any existing DNS records. The dispatcher preserves the HTTPS hostname and forwards it to the holding Worker. Register that exact hostname and zone ID in D1, confirm Cloudflare has activated the zone, and maintain its individual holding state. DNS zones, Full (strict) origin mode, Pages migration, MQTT and physical tunnels require the corresponding URLs, origin ownership, or devices. The existing Cloudflare Pages projects have separate release ownership.
+
+## Isolated holding environments
+
+Website Core, Book Series, Apps, and Games each have a dedicated Cloudflare holding environment and a reserved `.test` alias. See [the isolated zone configurations](isolated/README.md) for their separate replicas and deployment commands. Their public holding pages continue to read the central registry.
