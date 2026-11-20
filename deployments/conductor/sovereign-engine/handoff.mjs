@@ -7,7 +7,7 @@ const handoff = {
     { name: "The Logic & Forging Gate", entry: "Local leased intake and the Conductor Lasso release gate" },
     { name: "The Sensory & Swarm Edge", entry: "Hop In and Voice Box file intake with SHA-256 receipts" },
   ],
-  health: "https://nathan-ai-sovereign-engine.nathantaboract.workers.dev/api/health",
+  health: "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/sovereign-engine/health",
   nodeContract: "/tabor-sites/conductor/api/node-template/contract",
   source: "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/main/deployments/conductor/sovereign-engine",
 };

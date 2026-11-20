@@ -81,50 +81,51 @@ async function writeShard(db, receipts, day, budget, overflow) {
   }));
 }
 
-export default {
-  async fetch(request, env) {
-    const path = new URL(request.url).pathname;
-    const shards = [env.DB_PRIMARY, env.DB_SHARD_2].filter(Boolean);
-    if (request.method === "GET" && path === "/api/health") {
-      try {
-        if (!shards.length) throw new Error("Missing D1");
-        await Promise.all(shards.map(db => db.prepare("SELECT day FROM engine_budget LIMIT 0").all()));
-        return json({ service, ready: true, release: env.RELEASE_SHA ?? "local", shards: shards.length, overflow: Boolean(env.OVERFLOW_R2), intake: Boolean(env.ENGINE_TOKEN?.length >= 32) });
-      } catch {
-        return json({ service, ready: false }, 503);
-      }
-    }
-    if (request.method !== "POST" || path !== "/api/receipts") return json({ error: "not_found" }, 404);
-    if (!await authorized(request, env.ENGINE_TOKEN)) return json({ error: "unauthorized" }, 401);
-
-    let receipts;
+export async function serveSovereignEngine(request, env, path) {
+  if (path !== "/api/sovereign-engine/health" && path !== "/api/sovereign-engine/receipts") return undefined;
+  const shards = [env.ENGINE_DB_PRIMARY, env.ENGINE_DB_SHARD_2].filter(Boolean);
+  if (request.method === "GET" && path === "/api/sovereign-engine/health") {
     try {
-      const values = await limitedJson(request);
-      if (!Array.isArray(values) || !values.length || values.length > 20) throw new TypeError("Expected 1–20 receipts");
-      receipts = await Promise.all(values.map(receiptFor));
-    } catch (error) {
-      return json({ error: error instanceof RangeError ? "body_too_large" : "invalid_receipts" }, error instanceof RangeError ? 413 : 400);
-    }
-
-    const budget = Number(env.DAILY_RECEIPTS_PER_SHARD ?? 1000);
-    if (!env.DB_PRIMARY || !Number.isSafeInteger(budget) || budget < 1 || budget > 10000) {
-      return json({ error: "ledger_unavailable" }, 503);
-    }
-    try {
-      const results = new Map();
-      const day = new Date().toISOString().slice(0, 10);
-      const unique = [...new Map(receipts.map(item => [item.seal, item])).values()];
-      await Promise.all(shards.map(async (db, index) => {
-        const group = unique.filter(({ seal }) => parseInt(seal.slice(0, 2), 16) % shards.length === index);
-        if (!group.length) return;
-        for (const result of await writeShard(db, group, day, budget, env.OVERFLOW_R2)) results.set(result.seal, result);
-      }));
-      const ordered = receipts.map(({ seal }) => results.get(seal));
-      const pending = ordered.some(({ state }) => state === "buffered" || state === "deferred");
-      return json({ receipts: ordered }, pending ? 202 : 200);
+      if (!shards.length) throw new Error("Missing D1");
+      await Promise.all(shards.map(db => db.batch([
+        db.prepare("SELECT day FROM engine_budget LIMIT 0"),
+        db.prepare("SELECT seal FROM engine_receipts LIMIT 0"),
+      ])));
+      return json({ service, ready: true, release: env.RELEASE_SHA ?? "local", shards: shards.length, overflow: Boolean(env.ENGINE_OVERFLOW_R2), intake: Boolean(env.ENGINE_TOKEN?.length >= 32) });
     } catch {
-      console.error(JSON.stringify({ service, event: "ledger_write_failed" }));
-      return json({ error: "ledger_unavailable" }, 503);
+      return json({ service, ready: false }, 503);
     }
-  },
-};
+  }
+  if (request.method !== "POST" || path !== "/api/sovereign-engine/receipts") return json({ error: "not_found" }, 404);
+  if (!await authorized(request, env.ENGINE_TOKEN)) return json({ error: "unauthorized" }, 401);
+
+  let receipts;
+  try {
+    const values = await limitedJson(request);
+    if (!Array.isArray(values) || !values.length || values.length > 20) throw new TypeError("Expected 1–20 receipts");
+    receipts = await Promise.all(values.map(receiptFor));
+  } catch (error) {
+    return json({ error: error instanceof RangeError ? "body_too_large" : "invalid_receipts" }, error instanceof RangeError ? 413 : 400);
+  }
+
+  const budget = Number(env.ENGINE_DAILY_RECEIPTS_PER_SHARD ?? 1000);
+  if (!env.ENGINE_DB_PRIMARY || !Number.isSafeInteger(budget) || budget < 1 || budget > 10000) {
+    return json({ error: "ledger_unavailable" }, 503);
+  }
+  try {
+    const results = new Map();
+    const day = new Date().toISOString().slice(0, 10);
+    const unique = [...new Map(receipts.map(item => [item.seal, item])).values()];
+    await Promise.all(shards.map(async (db, index) => {
+      const group = unique.filter(({ seal }) => parseInt(seal.slice(0, 2), 16) % shards.length === index);
+      if (!group.length) return;
+      for (const result of await writeShard(db, group, day, budget, env.ENGINE_OVERFLOW_R2)) results.set(result.seal, result);
+    }));
+    const ordered = receipts.map(({ seal }) => results.get(seal));
+    const pending = ordered.some(({ state }) => state === "buffered" || state === "deferred");
+    return json({ receipts: ordered }, pending ? 202 : 200);
+  } catch {
+    console.error(JSON.stringify({ service, event: "ledger_write_failed" }));
+    return json({ error: "ledger_unavailable" }, 503);
+  }
+}

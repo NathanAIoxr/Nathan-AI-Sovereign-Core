@@ -12,7 +12,7 @@ from urllib import request
 from uuid import uuid4
 
 MAX_INPUT = 1_048_576
-ENDPOINT = "https://nathan-ai-sovereign-engine.nathantaboract.workers.dev/api/receipts"
+ENDPOINT = "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/sovereign-engine/receipts"
 SOURCES = ("hop-in", "voice-box")
 class NoRedirect(request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):

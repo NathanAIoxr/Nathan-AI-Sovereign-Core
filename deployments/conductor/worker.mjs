@@ -1,3 +1,4 @@
+import { serveSovereignEngine } from "./sovereign-engine/worker.mjs";
 import { serveSovereignEngineHandoff } from "./sovereign-engine/handoff.mjs";
 import { nodeTemplate } from "./node-template/runtime.mjs";
 import { serveHolidayHandoff } from "./holiday-handoff.mjs";
@@ -120,6 +121,8 @@ export default {
         return json({error:"temporarily_unavailable"},503);
       }
     }
+    const engineResponse = await serveSovereignEngine(request, env, path);
+    if (engineResponse) return engineResponse;
     const engineHandoff = serveSovereignEngineHandoff(request, path);
     if (engineHandoff) return engineHandoff;
     const holidayHandoff = serveHolidayHandoff(request, path);

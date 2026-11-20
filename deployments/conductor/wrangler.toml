@@ -110,3 +110,20 @@ database_id = "d3043fdb-4c19-4387-b634-1257eb4b7168"
 binding = "NODE_COMPUTE_READ"
 database_name = "tabor-database-registry"
 database_id = "af177f57-154c-41a1-a5cd-5602568a4a2f"
+
+# Full-Spectrum Sovereign Engine receipt ledger.
+[[d1_databases]]
+binding = "ENGINE_DB_PRIMARY"
+database_name = "nathan-ai-sovereign-engine"
+database_id = "d0d366dc-7773-4384-b3f6-d671cb649d36"
+migrations_dir = "sovereign-engine/migrations"
+
+[[d1_databases]]
+binding = "ENGINE_DB_SHARD_2"
+database_name = "nathan-ai-sovereign-engine-shard-2"
+database_id = "5870d835-eb05-42dc-b1b1-1edf7ce75562"
+migrations_dir = "sovereign-engine/migrations"
+
+[[r2_buckets]]
+binding = "ENGINE_OVERFLOW_R2"
+bucket_name = "nathan-ai-sovereign-engine-overflow"

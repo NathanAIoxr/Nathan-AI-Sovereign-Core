@@ -28,16 +28,16 @@ Run the checks in the staged packet against the resulting artifact and use the e
 
 ## Cloudflare receipt service
 
-The Worker accepts a 1–20 item JSON array on `POST /api/receipts` with `Authorization: Bearer ENGINE_TOKEN`. Each item contains `source`, `verdict`, `input_sha256` and `evidence_sha256`. Run `flush` with the matching `ENGINE_TOKEN` in its environment. The Worker stores no raw transcripts, stderr, generated code or local file paths. [Public readiness](https://nathan-ai-sovereign-engine.nathantaboract.workers.dev/api/health) reports bindings and the running release.
+The Worker accepts a 1–20 item JSON array on `POST /api/sovereign-engine/receipts` with `Authorization: Bearer ENGINE_TOKEN`. Each item contains `source`, `verdict`, `input_sha256` and `evidence_sha256`. Run `flush` with the matching `ENGINE_TOKEN` in its environment. The Worker stores no raw transcripts, stderr, generated code or local file paths. [Public readiness](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/sovereign-engine/health) reports bindings and the running release.
 
 - `committed` and `already_committed` acknowledge the receipt in D1.
 - `buffered` means R2 holds a copy and the sender should retry D1 later. `deferred` means keep the local pending copy and retry later. R2 retains buffered copies as audit evidence.
 - The default budget is 1,000 receipts per shard, measured in UTC. The budget counter and receipt insert commit together. This service budget is separate from the account's D1 row-write quota, which includes index and budget writes. Keep both configured shard bindings and their order stable. Migrate existing receipts before changing the shard mapping.
 - The Worker stores the metadata seal. It records no attestation that a patch was built or deployed. A CI triage receipt only establishes that its metadata packet was produced.
 
-Deploy the Worker using its configuration and the repository's pinned Wrangler. Apply `0001_receipts.sql` to both D1 bindings before first deployment. Configure `ENGINE_TOKEN` as an encrypted Worker secret. Set `RELEASE_SHA` to the deployed source commit.
+Apply `0001_receipts.sql` to both engine D1 bindings and configure `ENGINE_TOKEN` as a distinct encrypted Conductor secret. Use the existing [Conductor release procedure](../README.md#release) to deploy the route and its bindings. Set `RELEASE_SHA` to the deployed source commit.
 
-The Conductor source exposes `/api/handoffs/sovereign-engine` after its next deployment. The new Worker has a separate release and service health endpoint.
+The Conductor exposes `/api/handoffs/sovereign-engine` and the receipt service on its existing mount after deployment. No separate Worker slot is needed.
 
 ## Verify locally
 
