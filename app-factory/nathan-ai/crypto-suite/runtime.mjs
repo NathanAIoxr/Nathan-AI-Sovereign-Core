@@ -54,7 +54,7 @@ const tools = {
     '<p><a href="'+network+'/coins/64">Original registry</a> · <a href="/restoration">Restoration archive</a> · <a href="/api/coins/64">Registry JSON</a></p>'+input("search","Filter by slot, ticker, or name","search",'autocomplete="off"')+
     '<p id="coin-status" role="status">Loading registry…</p><div id="coins"></div>'),
   "mining-lab": () => section("Bitcoin header proof", "SHA-256d and compact-target comparison for an 80-byte header. Header proof is one component of Bitcoin block validation.",
-    '<p><a href="/api/genesis-proof">Bitcoin genesis verification data</a> · <a href="/api/crypto-mirror">Mining and wallet evidence receipt</a> · <a href="/launch">Production launch readiness</a> · <a href="https://nathan-coin-catalog.nathantaboract.workers.dev/registry">Sovereign Coin Registry</a> · <a href="https://nathan-coin-catalog.nathantaboract.workers.dev/registry#hash">SHA-256 / SHA3-512 verifier</a></p><form id="proof">'+area("header","80-byte hexadecimal header")+
+    '<p><a href="/api/genesis-proof">Bitcoin genesis verification data</a> · <a href="/api/crypto-mirror">Mining and wallet evidence receipt</a> · <a href="/launch">Production launch readiness</a> · <a href="/golden-goose">Golden Goose · Live Bitcoin verification</a> · <a href="https://nathan-coin-catalog.nathantaboract.workers.dev/registry">Sovereign Coin Registry</a> · <a href="https://nathan-coin-catalog.nathantaboract.workers.dev/registry#hash">SHA-256 / SHA3-512 verifier</a></p><form id="proof">'+area("header","80-byte hexadecimal header")+
     '<div class="actions"><button>Verify proof</button><button type="button" id="genesis">Use genesis header</button></div></form>'+output("proof-result"))+
     section("Electricity estimate", "Enter measured or hypothetical values for your own equipment.",'<form id="energy">'+number("watts","Power in watts")+number("hours","Run hours")+number("rate","Cost per kWh")+'<button>Calculate</button></form>'+output("energy-result")),
   "cryptology": () => section("SHA-256", "This tool computes a SHA-256 digest in your browser.",
@@ -137,6 +137,80 @@ const miningRegistryRoutes = new Map([
   ["/verify-hash", "/verify-hash"],
 ]);
 
+const bitcoinExplorer = "https://mempool.space";
+const bitcoinMainnetPath = "/api/bitcoin-mainnet";
+
+async function readBitcoinHex(path, length, signal) {
+  const response = await fetch(bitcoinExplorer + "/api/" + path, { redirect: "error", signal });
+  if (!response.ok || !response.body) throw new Error("Bitcoin source unavailable");
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let value = "";
+  let size = 0;
+  try {
+    for (;;) {
+      const { done, value: chunk } = await reader.read();
+      if (done) break;
+      size += chunk.byteLength;
+      if (size > length + 8) throw new Error("Bitcoin source response too long");
+      value += decoder.decode(chunk, { stream: true });
+    }
+    value += decoder.decode();
+  } finally {
+    await reader.cancel();
+  }
+  const hex = value.trim().toLowerCase();
+  if (hex.length !== length || !/^[0-9a-f]+$/.test(hex)) throw new Error("Invalid response from Bitcoin source");
+  return hex;
+}
+
+async function bitcoinMainnetEvidence(request) {
+  const cache = globalThis.caches?.default;
+  const cacheKey = new Request(new URL(bitcoinMainnetPath, request.url));
+  const cached = await cache?.match(cacheKey).catch(() => undefined);
+  if (cached) return cached;
+
+  try {
+    const signal = AbortSignal.timeout(6000);
+    const hash = await readBitcoinHex("blocks/tip/hash", 64, signal);
+    const header = await readBitcoinHex("block/" + hash + "/header", 160, signal);
+    const proof = await headerProof(header);
+    if (proof.hash !== hash || !proof.meetsTarget) throw new Error("Bitcoin header proof failed");
+
+    const response = json({
+      network: "bitcoin-mainnet",
+      source: bitcoinExplorer,
+      observedAt: new Date().toISOString(),
+      blockHash: hash,
+      header,
+      target: proof.target,
+      meetsEmbeddedTarget: true,
+      evidence: "provider-reported tip with independently checked header proof of work",
+    });
+    response.headers.set("Cache-Control", "public, max-age=60");
+    await cache?.put(cacheKey, response.clone()).catch(() => undefined);
+    return response;
+  } catch {
+    return json({ network: "bitcoin-mainnet", error: "Live Bitcoin header verification is temporarily unavailable." }, 503);
+  }
+}
+
+function goldenGoosePage(result) {
+  const block = result.blockHash
+    ? '<dl><dt>Observed at (UTC)</dt><dd>'+escape(result.observedAt)+'</dd>'+
+      '<dt>Bitcoin block hash</dt><dd><a href="'+bitcoinExplorer+'/block/'+escape(result.blockHash)+'">'+escape(result.blockHash)+'</a></dd>'+
+      '<dt>Header proof of work</dt><dd>Double SHA-256 reproduced the block hash and met the embedded target.</dd></dl>'
+    : '<p role="status">'+escape(result.error)+'</p>';
+  return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+
+    '<title>The Modern-Day Real-Life Golden Goose by Nathan Tabor</title><link rel="stylesheet" href="/style.css">'+
+    '<main class="wrap"><div class="hero"><h1>The Modern-Day Real-Life Golden Goose by Nathan Tabor</h1>'+
+    '<p>Nathan AI Rocket 🚀 · Live Bitcoin verification</p>'+
+    '<p><a href="/">Mining Lab</a> · <a href="'+bitcoinMainnetPath+'">Verification JSON</a> · <a href="/launch">Mining launch readiness</a></p></div>'+
+    section("Bitcoin mainnet", "The conductor checks the current block header reported by Mempool. The hash check covers the header and its embedded target.", block)+
+    section("Fleet mining and rewards", "Fleet hashrate, accepted shares, and payouts require telemetry from an enrolled Bitcoin miner and its pool.", "")+
+    '</main></html>';
+}
+
 export function createApp(id) {
   return { async fetch(request, env) {
     const url = new URL(request.url);
@@ -169,6 +243,11 @@ export function createApp(id) {
     if (id === "mining-lab" && ["/launch","/api/launch-readiness"].includes(path)) {
       const result = await miningLaunch(env);
       return path === "/launch" ? send(miningLaunchPage(result),"text/html") : json(result);
+    }
+    if (id === "mining-lab" && path === bitcoinMainnetPath) return bitcoinMainnetEvidence(request);
+    if (id === "mining-lab" && path === "/golden-goose") {
+      const evidence = await bitcoinMainnetEvidence(request);
+      return send(goldenGoosePage(await evidence.json()), "text/html", evidence.status);
     }
     if (path === "/api/genesis-proof" && id === "mining-lab") return json({ header: GENESIS, ...(await headerProof(GENESIS)) });
     if (id === "mining-lab" && ["/api/crypto-mirror", "/api/crypto-mirror/state.bin"].includes(path)) {

@@ -28,6 +28,12 @@ Deploy the generated file as an ES-module Worker. See `editions.json` for valid 
 
 The Mining Lab binds `COIN_SOURCE` to `tabor-sovereign-currency` for `/launch` and `/api/launch-readiness`. Registry status is read live, and the capacity row is a dated account snapshot. This report records prerequisites for a production launch. The genesis proof route remains available for verification.
 
+## The Modern-Day Real-Life Golden Goose by Nathan Tabor
+
+Nathan AI Rocket 🚀 serves live mainnet evidence at [Golden Goose](https://nathan-ai-mining-lab.nathantaboract.workers.dev/golden-goose) and `GET /api/bitcoin-mainnet`. The Mining Lab uses the open-source [Mempool REST API](https://mempool.space/docs/api/rest) to fetch the reported tip hash and its header. It recomputes SHA-256d and compares the result against the header's compact target and the mainnet proof-of-work limit. A successful response is cached at the edge for 60 seconds. Refreshes are demand-driven. A failed check returns HTTP 503. The reported tip comes from the explorer, while header proof is checked independently.
+
+Public block evidence is separate from fleet work, accepted shares, pool payouts, and the [original Golden Goose model](../modern-day-real-life-golden-goose/src/worker.ts). The [Rocket fleet policy](../nathan-ai-rocket-conductor/bitcoin-fleet-policy.json) lists requested slots. For the first actual mining receipt, enroll one owner-operated SHA-256 ASIC with a Bitcoin pool using its supported firmware. [ESP-Miner](https://github.com/bitaxeorg/ESP-Miner) supports Bitaxe hardware. [Stratum V2 Reference Implementation](https://github.com/stratum-mining) provides protocol components where the hardware and pool support them. Configure the pool worker and payout destination privately, then reconcile the pool's accepted shares and payouts through its authenticated operator interface. The [local telemetry gateway](../sovereign-coins/integrations/) documents the read-only integrations available today and their scope.
+
 ## Mining and wallet evidence mirror
 
 [Creator blueprint](BLUEPRINT.md) · [Versioned evidence receipt](ledger/state.json) · [Wallet and coin source inventory](../digital-footprint-1993-present/CRYPTO_WALLET_FULL_RECOVERY_INDEX.md)

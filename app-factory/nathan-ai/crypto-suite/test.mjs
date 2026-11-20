@@ -26,6 +26,33 @@ test("Bitcoin genesis header meets its target",async () => {
   assert.equal(modified.meetsTarget,false);
 });
 
+test("Golden Goose verifies upstream Bitcoin headers and rejects mismatches", async t => {
+  const { GENESIS, GENESIS_HASH } = loaded["mining-lab"];
+  const upstream = t.mock.method(globalThis, "fetch", async () => new Response());
+  const mainnet = "/api/bitcoin-mainnet";
+  const tip = "https://mempool.space/api/blocks/tip/hash";
+  const expectedHeader = "https://mempool.space/api/block/" + GENESIS_HASH + "/header";
+  upstream.mock.mockImplementation(async url => {
+    if (url === tip) return new Response(GENESIS_HASH);
+    assert.equal(url, expectedHeader);
+    return new Response(GENESIS);
+  });
+  const result = await get("mining-lab", mainnet + "?upstream=https://invalid.example");
+  assert.equal(result.status, 200);
+  assert.equal(result.headers.get("cache-control"), "public, max-age=60");
+  assert.equal((await result.json()).blockHash, GENESIS_HASH);
+  assert.match(await (await get("mining-lab", "/golden-goose")).text(), /Nathan AI Rocket 🚀/);
+  assert.equal((await get("crypto-64", mainnet)).status, 404);
+
+  upstream.mock.mockImplementation(async url => new Response(
+    url === tip ? GENESIS_HASH : GENESIS.slice(0, -2) + "00"
+  ));
+  assert.equal((await get("mining-lab", mainnet)).status, 503);
+
+  upstream.mock.mockImplementation(async () => new Response("0".repeat(80)));
+  assert.equal((await get("mining-lab", mainnet)).status, 503);
+});
+
 test("registry preserves ordered slots and fails closed when source is incomplete",async () => {
   const slots = Array.from({length:64},(_,i)=>({slot:i+1, name:i<42?"Original "+i:null}));
   const env = {COIN_SOURCE:{fetch:async()=>Response.json({requested:64,recovered:42,slots})}};
