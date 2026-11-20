@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 368,
+  "count": 369,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -114,6 +114,14 @@
       "entry": "app-factory/historical-sports/index.html",
       "group": "historical-sports",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/historical-sports/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-98927392a021d835",
+      "title": "The History of Snow Globes \u00b7 Nathan Tabor",
+      "entry": "app-factory/history-of-snow-globes/public/index.html",
+      "group": "history-of-snow-globes",
+      "url": "https://tabor-bridge.nathantaboract.workers.dev/",
       "adoption": "integration_required"
     },
     {
