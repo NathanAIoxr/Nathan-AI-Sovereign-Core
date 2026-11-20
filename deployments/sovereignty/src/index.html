@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#110e17">
+<title>Sovereignty | Nathan AI</title>
+<link rel="stylesheet" href="/tabor-sites/sovereignty/style.css">
+<script type="module" src="/tabor-sites/sovereignty/app.mjs"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span>NATHAN AI</span></div>
+  <a href="/tabor-sites/sovereignty/health">Release status <span aria-hidden="true">↗</span></a>
+</header>
+<main>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">0 / 1 &nbsp;·&nbsp; SOVEREIGN BOX</p>
+      <h1>Sovereignty<span>.</span></h1>
+      <p class="intro">Bring something in. Or start with nothing. Then change the direction, the side of the mirror, or both.</p>
+    </div>
+    <div class="hero-orbit" aria-hidden="true"><div class="orbit-zero">0</div><div class="orbit-one">1</div></div>
+  </section>
+
+  <div class="workspace">
+    <section class="panel input-panel" aria-labelledby="input-title">
+      <div class="panel-head"><h2 id="input-title">Input</h2><span class="state" id="input-state" data-state="0">0 · Nothing</span></div>
+      <label for="entry">Text</label>
+      <textarea id="entry" maxlength="80000" placeholder="Type or paste here…" spellcheck="false"></textarea>
+      <div class="actions input-actions">
+        <label class="button" for="file">Choose a file</label><input class="file-input" type="file" id="file">
+        <button id="clear" type="button">Clear input</button>
+      </div>
+      <p id="file-note" class="fine">Files up to 16 MiB. Processing stays on this device.</p>
+      <div class="context">
+        <label for="where">Where<select id="where"><option>Here</option><option>There</option><option>Everywhere</option></select></label>
+        <label for="when">When<select id="when"><option>Past</option><option selected>Present</option><option>Future</option></select></label>
+      </div>
+    </section>
+
+    <section class="panel viewer" aria-labelledby="viewer-title">
+      <div class="panel-head"><h2 id="viewer-title">Current reflection</h2><span class="tag" id="mode">Original · upright</span></div>
+      <div class="glass"><pre id="reflection" data-empty="true">0</pre></div>
+      <p id="reflection-note" class="fine">Nothing in the box.</p>
+      <div class="actions">
+        <button id="export" type="button" disabled>Save output</button>
+        <button id="receipt" type="button">Save receipt</button>
+      </div>
+    </section>
+  </div>
+
+  <section class="hall" aria-labelledby="hall-title">
+    <div class="section-head">
+      <div><p class="eyebrow">THREE DIRECTIONS × THREE MIRRORS</p><h2 id="hall-title">Hall of mirrors</h2></div>
+      <span class="fine">Each choice acts on the current reflection.</span>
+    </div>
+    <div id="matrix" class="matrix"></div>
+    <div class="path">
+      <h3>Reflection path</h3>
+      <p id="trail">Starting frame</p>
+      <div class="actions"><button id="undo" type="button" disabled>Undo pass</button><button id="reset" type="button" disabled>Reset path</button></div>
+    </div>
+    <details class="all-states">
+      <summary>All eight distinct results</summary>
+      <p class="fine">Repeat any route. Different paths can land in the same frame.</p>
+      <div id="all-states"></div>
+    </details>
+  </section>
+  <p id="message" class="message" aria-live="polite"></p>
+</main>
+<footer>Nathan AI <span>·</span> Sovereignty</footer>
+</body>
+</html>

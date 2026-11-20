@@ -1,6 +1,7 @@
 export const mountRoot = '/tabor-sites/';
 export const publicOrigin = 'https://unified-operations-cockpit.nathantaboract.workers.dev';
 const definitions = [
+  ['sovereignty', 'nathan-ai-sovereignty-box', 'Sovereignty', 'Sovereignty', 'Nathan AI · Sovereign Box', 'Start with 0 or 1 and compose three directions across three mirrors.', 'pine'],
   ['conductor', 'nathan-ai-conductor', 'The Conductor', 'The Conductor', 'Nathan AI · Operations', 'Verify a release, review jobs, and approve checked-in deployments.', 'pine'],
   ['zeros-and-ones', 'nathan-ai-zeros-and-ones', 'Zeros and Ones', 'Zeros and Ones', 'Nathan AI · GitHub and Cloudflare', 'Apply D1 migrations, deploy the Worker, and verify the running commit.', 'pine'],
   ['handling-life', 'handling-life-worker', 'Handling Life', 'Handling Life', 'Good Samaritan', 'Empathy → Sympathy → Compassion → The One.', 'pine'],
