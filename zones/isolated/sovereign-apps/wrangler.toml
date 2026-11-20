@@ -1,0 +1,35 @@
+name = "sovereign-apps-holding"
+main = "../worker.js"
+compatibility_date = "2026-11-19"
+workers_dev = false
+preview_urls = false
+
+[vars]
+PROJECT_ID = "sovereign-apps"
+STAGING_ALIAS = "sovereign-apps.test"
+
+[[d1_databases]]
+binding = "ZONE_DB"
+database_name = "sovereign-apps-holding"
+database_id = "3f496ed8-0d01-4877-817c-ea7bc8b7fd36"
+migrations_dir = "../../migrations"
+
+[[r2_buckets]]
+binding = "ZONE_ASSETS"
+bucket_name = "sovereign-apps-holding"
+
+[[kv_namespaces]]
+binding = "ZONE_CONFIG"
+id = "b8f09c2b5bd3422098d2d96604e5fd54"
+
+[[queues.producers]]
+binding = "ZONE_JOBS"
+queue = "sovereign-apps-holding"
+
+[[durable_objects.bindings]]
+name = "ZONE_STATE"
+class_name = "SovereignNode"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SovereignNode"]
