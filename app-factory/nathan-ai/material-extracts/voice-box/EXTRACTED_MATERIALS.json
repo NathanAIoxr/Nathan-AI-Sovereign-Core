@@ -1,0 +1,514 @@
+{
+  "origin": "app-factory/one/nathan-voice-box/",
+  "source_ref": "feature/nathan-voicebox-edge-micro-macro-20261106",
+  "export_kind": "static_source_materials_only",
+  "languages": [
+    {
+      "tag": "en",
+      "name": "English"
+    },
+    {
+      "tag": "en-US",
+      "name": "English — United States"
+    },
+    {
+      "tag": "en-GB",
+      "name": "English — United Kingdom"
+    },
+    {
+      "tag": "en-AU",
+      "name": "English — Australia"
+    },
+    {
+      "tag": "en-IN",
+      "name": "English — India"
+    },
+    {
+      "tag": "es",
+      "name": "Spanish"
+    },
+    {
+      "tag": "es-ES",
+      "name": "Spanish — Spain"
+    },
+    {
+      "tag": "es-MX",
+      "name": "Spanish — Mexico"
+    },
+    {
+      "tag": "es-AR",
+      "name": "Spanish — Argentina"
+    },
+    {
+      "tag": "es-CO",
+      "name": "Spanish — Colombia"
+    },
+    {
+      "tag": "pt",
+      "name": "Portuguese"
+    },
+    {
+      "tag": "pt-BR",
+      "name": "Portuguese — Brazil"
+    },
+    {
+      "tag": "pt-PT",
+      "name": "Portuguese — Portugal"
+    },
+    {
+      "tag": "fr",
+      "name": "French"
+    },
+    {
+      "tag": "fr-CA",
+      "name": "French — Canada"
+    },
+    {
+      "tag": "de",
+      "name": "German"
+    },
+    {
+      "tag": "it",
+      "name": "Italian"
+    },
+    {
+      "tag": "nl",
+      "name": "Dutch"
+    },
+    {
+      "tag": "af",
+      "name": "Afrikaans"
+    },
+    {
+      "tag": "sw",
+      "name": "Swahili"
+    },
+    {
+      "tag": "zu",
+      "name": "Zulu"
+    },
+    {
+      "tag": "xh",
+      "name": "Xhosa"
+    },
+    {
+      "tag": "am",
+      "name": "Amharic"
+    },
+    {
+      "tag": "om",
+      "name": "Oromo"
+    },
+    {
+      "tag": "so",
+      "name": "Somali"
+    },
+    {
+      "tag": "yo",
+      "name": "Yoruba"
+    },
+    {
+      "tag": "ig",
+      "name": "Igbo"
+    },
+    {
+      "tag": "ha",
+      "name": "Hausa"
+    },
+    {
+      "tag": "ar",
+      "name": "Arabic"
+    },
+    {
+      "tag": "ar-EG",
+      "name": "Arabic — Egypt"
+    },
+    {
+      "tag": "ar-SA",
+      "name": "Arabic — Saudi Arabia"
+    },
+    {
+      "tag": "ar-MA",
+      "name": "Arabic — Morocco"
+    },
+    {
+      "tag": "he",
+      "name": "Hebrew"
+    },
+    {
+      "tag": "fa",
+      "name": "Persian"
+    },
+    {
+      "tag": "ur",
+      "name": "Urdu"
+    },
+    {
+      "tag": "hi",
+      "name": "Hindi"
+    },
+    {
+      "tag": "bn",
+      "name": "Bengali"
+    },
+    {
+      "tag": "pa",
+      "name": "Punjabi"
+    },
+    {
+      "tag": "gu",
+      "name": "Gujarati"
+    },
+    {
+      "tag": "mr",
+      "name": "Marathi"
+    },
+    {
+      "tag": "ta",
+      "name": "Tamil"
+    },
+    {
+      "tag": "te",
+      "name": "Telugu"
+    },
+    {
+      "tag": "kn",
+      "name": "Kannada"
+    },
+    {
+      "tag": "ml",
+      "name": "Malayalam"
+    },
+    {
+      "tag": "si",
+      "name": "Sinhala"
+    },
+    {
+      "tag": "ne",
+      "name": "Nepali"
+    },
+    {
+      "tag": "sa",
+      "name": "Sanskrit"
+    },
+    {
+      "tag": "tr",
+      "name": "Turkish"
+    },
+    {
+      "tag": "az",
+      "name": "Azerbaijani"
+    },
+    {
+      "tag": "kk",
+      "name": "Kazakh"
+    },
+    {
+      "tag": "uz",
+      "name": "Uzbek"
+    },
+    {
+      "tag": "ru",
+      "name": "Russian"
+    },
+    {
+      "tag": "uk",
+      "name": "Ukrainian"
+    },
+    {
+      "tag": "pl",
+      "name": "Polish"
+    },
+    {
+      "tag": "cs",
+      "name": "Czech"
+    },
+    {
+      "tag": "sk",
+      "name": "Slovak"
+    },
+    {
+      "tag": "hu",
+      "name": "Hungarian"
+    },
+    {
+      "tag": "ro",
+      "name": "Romanian"
+    },
+    {
+      "tag": "bg",
+      "name": "Bulgarian"
+    },
+    {
+      "tag": "el",
+      "name": "Greek"
+    },
+    {
+      "tag": "sr",
+      "name": "Serbian"
+    },
+    {
+      "tag": "hr",
+      "name": "Croatian"
+    },
+    {
+      "tag": "bs",
+      "name": "Bosnian"
+    },
+    {
+      "tag": "sq",
+      "name": "Albanian"
+    },
+    {
+      "tag": "hy",
+      "name": "Armenian"
+    },
+    {
+      "tag": "ka",
+      "name": "Georgian"
+    },
+    {
+      "tag": "zh",
+      "name": "Chinese"
+    },
+    {
+      "tag": "zh-Hans",
+      "name": "Chinese — Simplified script"
+    },
+    {
+      "tag": "zh-Hant",
+      "name": "Chinese — Traditional script"
+    },
+    {
+      "tag": "zh-CN",
+      "name": "Chinese — Mainland China"
+    },
+    {
+      "tag": "zh-TW",
+      "name": "Chinese — Taiwan"
+    },
+    {
+      "tag": "yue",
+      "name": "Cantonese"
+    },
+    {
+      "tag": "nan",
+      "name": "Min Nan"
+    },
+    {
+      "tag": "ja",
+      "name": "Japanese"
+    },
+    {
+      "tag": "ko",
+      "name": "Korean"
+    },
+    {
+      "tag": "th",
+      "name": "Thai"
+    },
+    {
+      "tag": "vi",
+      "name": "Vietnamese"
+    },
+    {
+      "tag": "lo",
+      "name": "Lao"
+    },
+    {
+      "tag": "km",
+      "name": "Khmer"
+    },
+    {
+      "tag": "my",
+      "name": "Burmese"
+    },
+    {
+      "tag": "id",
+      "name": "Indonesian"
+    },
+    {
+      "tag": "ms",
+      "name": "Malay"
+    },
+    {
+      "tag": "tl",
+      "name": "Tagalog"
+    },
+    {
+      "tag": "fil",
+      "name": "Filipino"
+    },
+    {
+      "tag": "jv",
+      "name": "Javanese"
+    },
+    {
+      "tag": "su",
+      "name": "Sundanese"
+    },
+    {
+      "tag": "mi",
+      "name": "Māori"
+    },
+    {
+      "tag": "sm",
+      "name": "Samoan"
+    },
+    {
+      "tag": "haw",
+      "name": "Hawaiian"
+    },
+    {
+      "tag": "fj",
+      "name": "Fijian"
+    },
+    {
+      "tag": "mg",
+      "name": "Malagasy"
+    },
+    {
+      "tag": "ga",
+      "name": "Irish"
+    },
+    {
+      "tag": "gd",
+      "name": "Scottish Gaelic"
+    },
+    {
+      "tag": "cy",
+      "name": "Welsh"
+    },
+    {
+      "tag": "br",
+      "name": "Breton"
+    },
+    {
+      "tag": "eu",
+      "name": "Basque"
+    },
+    {
+      "tag": "ca",
+      "name": "Catalan"
+    },
+    {
+      "tag": "gl",
+      "name": "Galician"
+    },
+    {
+      "tag": "is",
+      "name": "Icelandic"
+    },
+    {
+      "tag": "sv",
+      "name": "Swedish"
+    },
+    {
+      "tag": "no",
+      "name": "Norwegian"
+    },
+    {
+      "tag": "da",
+      "name": "Danish"
+    },
+    {
+      "tag": "fi",
+      "name": "Finnish"
+    },
+    {
+      "tag": "et",
+      "name": "Estonian"
+    },
+    {
+      "tag": "lv",
+      "name": "Latvian"
+    },
+    {
+      "tag": "lt",
+      "name": "Lithuanian"
+    },
+    {
+      "tag": "mt",
+      "name": "Maltese"
+    },
+    {
+      "tag": "la",
+      "name": "Latin"
+    },
+    {
+      "tag": "grc",
+      "name": "Ancient Greek (historical)"
+    },
+    {
+      "tag": "arc",
+      "name": "Imperial Aramaic (historical)"
+    },
+    {
+      "tag": "cop",
+      "name": "Coptic (historical)"
+    },
+    {
+      "tag": "egy",
+      "name": "Ancient Egyptian (historical)"
+    },
+    {
+      "tag": "got",
+      "name": "Gothic (historical)"
+    }
+  ],
+  "model_manifest_examples": [
+    {
+      "name": "private-packs/MANIFEST_EXAMPLE.json",
+      "template": {
+        "id": "example-local-voice",
+        "runtime": "sherpa-onnx-vits",
+        "language": "en-US",
+        "model": "voice.onnx",
+        "tokens": "tokens.txt",
+        "data_dir": "espeak-ng-data",
+        "speaker_id": 0,
+        "authorized": false,
+        "rights_basis": "licensed-synthetic",
+        "comment": "Example ONLY: move to private-packs/<id>/manifest.json, install assets locally, and attest permission before enabling. Never commit real family audio, source recordings or private model weights."
+      }
+    },
+    {
+      "name": "private-packs/ASR_MANIFEST_EXAMPLE.json",
+      "template": {
+        "id": "my-offline-whisper-pack",
+        "runtime": "sherpa-onnx-whisper-asr",
+        "languages": [
+          "en-US"
+        ],
+        "encoder": "whisper-encoder.int8.onnx",
+        "decoder": "whisper-decoder.int8.onnx",
+        "tokens": "tokens.txt",
+        "authorized": false,
+        "rights_basis": "licensed-synthetic",
+        "notice": "Example only: these are placeholder asset filenames, not downloaded model weights. Review the model license and its actual supported languages; install under private-packs/<id>/ and set authorized:true only when entitled. ASR text is unverified and should be corrected before voice synthesis."
+      }
+    },
+    {
+      "name": "private-packs/ZIPVOICE_MANIFEST_EXAMPLE.json",
+      "template": {
+        "id": "my-zipvoice-pack",
+        "runtime": "sherpa-onnx-zipvoice",
+        "languages": [
+          "en-US",
+          "zh-CN"
+        ],
+        "tokens": "tokens.txt",
+        "encoder": "encoder.int8.onnx",
+        "decoder": "decoder.int8.onnx",
+        "vocoder": "vocos_24khz.onnx",
+        "lexicon": "lexicon.txt",
+        "data_dir": "espeak-ng-data",
+        "authorized": false,
+        "rights_basis": "self",
+        "notice": "EXAMPLE ONLY. All paths are relative to private-packs/<pack-id> and must exist locally. Copy this manifest as manifest.json inside your private directory. Set authorized true only when permissions and model licenses are confirmed. Correct models and dictionaries are mandatory; they are not shipped with the public source."
+      }
+    }
+  ],
+  "research_roadmap": "# Roots of Sound → Talking Objects → Universal Voice Box\n\n## Evidence ledger (source text is preserved; verification is additive)\n\n- **Geophysical:** Earth hum from persistent seismic motion, audible wind/water turbulence, volcanic acoustic blasts, and magnetospheric electromagnetic whistlers. EM whistlers become *audio* after radio receiver conversion; they are not ordinary pressure sound already propagating in vacuum.\n- **Natural architecture:** caves and valleys reflect, filter and focus sound. Archaeological acoustic associations are research topics; not every cave painting location has proven intentional sound placement.\n- **Ancient Egypt:** museum-verified sistrums and clappers produce kinetic sound. Water clocks are verified timekeepers; claims that a given Egyptian clock used whistle/bell-striking automation need direct artifacts or contemporary descriptions. Surviving Anubis masks do not by themselves establish hidden jaw-pulley amplification.\n- **Later ancient automata:** Hero of Alexandria describes water/air-powered effects. Distinguish documented treatises from reconstruction.\n- **Toys:** music boxes, phonographic dolls, spring-loaded talking toys; physical storage and mechanical transduction before digital codecs.\n- **Telegraph and computers:** keyed electromagnetic sound and Morse-style signalling predate silicon audio; Manchester's diagnostic hooter and early software pulse-generation demonstrate computer-controlled sound. Mechanisms share vibration and signal encoding; this is not proof that every technology was copied directly from its predecessor.\n- **Life:** mammal larynx/vocal folds, some reptiles' voiced calls and hisses, insect stridulation/timbals, fish sonic muscles and swimming bladder resonance, birds' syrinx.\n- **Human language:** voiced and unvoiced phonemes, dialects, formants, pitch and prosody. Acoustic patterns alone do not reliably reveal lies, personality, health conditions or intent.\n- **Devices:** spring record, analog tape, oscillators, digital pulse synthesis, VITS/ONNX vocoders, DAC, speaker/transducer. A quartz timing oscillator is a frequency reference; it does not physically act as a DAC.\n\n## Product coverage: existing versus later work\n\n| Capability | Present in this commit | Mobile/production next step |\n|---|---|---|\n| Offline text-to-speech | eSpeak NG desktop adapter | Embed native sherpa-onnx & platform audio |\n| Language/dialect registry | Runtime installed-voice listing + BCP-47 tags | Per-language phonemizers & model metadata |\n| Family recording | Local-file playback and authorized audio-segment mapping, no upload | Device encrypted archive + verified rights/permissions |\n| Consent-gated voice models | Local VITS manifest + model adapter | Verified consent receipt, revocation, anti-impersonation controls |\n| Self-recorded voice mapping | **Implemented** in browser worker | Validate pitch, rhythm and twelve-band measurements across accents |\\n| Reference-audio voice inference | **Implemented** through optional local ZipVoice pack | Verify model files/rights, benchmark language-specific results |\\n| Cross-lingual clone training | **Not implemented** | Authorized enrollment and quality eval; no 3-second fidelity promise |\n| Historical/mythic voices | Clearly labeled fictional synthetic presets | Script, local model quality and contextual annotations |\n| Planetary audio | Safe local echo/cave/wind DSP | Verified gain/volume measurement and accessibility settings |\n| 12 Ear Gates | Actual 12-band FFT energy distribution | Calibrated reference curves, test vectors, public spec |\n| MER4×6 / 48 axes | Original design referenced without rewriting | Independent implementation with 24/48 cell audit |\n| Speech-to-text | **Not implemented** | Local sherpa-onnx or whisper.cpp, user-triggered microphone permission |\n| Translation / lost languages | **Not implemented** | Licensed offline pack + linguist verification |\n| Physical talking objects | Portable native C interface, Android JNI/Kotlin capture + ZipVoice source adapter | Hardware-specific Oboe/AudioUnit, iOS speech inference and safe transducer routes |\n\n## Required release gates\n\n1. Android/iOS native builds with no microphone permission by default, explicit user-driven recording and app lifecycle safeguards.\n2. CPU/NPU benchmarking by device: measured real-time factor, memory, cold start, battery and thermal behavior.\n3. Offline proof: airplane-mode test, deny all network permissions, inspect native and library telemetry defaults.\n4. Spectral and acoustic safety: loudness caps, peak limiter, non-destructive audition and surface-transducer thermal limits.\n5. Language tests across scripts, RTL direction, non-Latin writing systems, tones, code-switching and local dialect corpora.\n6. Model/voice license receipts and consent verification, refusal/revocation and deletion UX; local asset encryption where feasible.\n7. Accessibility and privacy review, platform store review, licensing review. Do not market this prototype as universally legally compliant.\n\n## Primary external research/reference links\n\n- [sherpa-onnx source and mobile examples](https://github.com/k2-fsa/sherpa-onnx)\n- [sherpa-onnx Python TTS example](https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/offline-tts.py)\n- [eSpeak NG](https://github.com/espeak-ng/espeak-ng)\n- [Open Home Foundation Piper](https://github.com/OHF-Voice/piper1-gpl)\n- [ONNX Runtime](https://github.com/microsoft/onnxruntime)\n- [IEEE account of Turing and the Manchester hooter](https://spectrum.ieee.org/alan-turing-music)\n- [Metropolitan Museum collection](https://www.metmuseum.org/art/collection)\n\nThis record is a derivative research ledger. Preserve original J-Matrix, ancient-Egypt, sound, voice, and Nathan AI archives unchanged in their own independent source tracks.\n",
+  "excludes": "Private browser IndexedDB profiles, recordings, local installed model weights and other device data not accessible through GitHub"
+}
