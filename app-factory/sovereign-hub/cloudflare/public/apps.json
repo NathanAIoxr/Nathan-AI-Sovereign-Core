@@ -1,7 +1,7 @@
 {
   "schema": "one.public-app-catalog.v1",
   "scope": "active public app-factory and standalone entry points/templates; historical archives excluded",
-  "count": 371,
+  "count": 372,
   "gateway": "https://one-sovereign-hub.nathantaboract.workers.dev",
   "apps": [
     {
@@ -1002,6 +1002,14 @@
       "entry": "app-factory/nathan-ai/six-dogs/index.html",
       "group": "nathan-ai",
       "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/six-dogs/index.html",
+      "adoption": "integration_required"
+    },
+    {
+      "id": "app-92d742c347dd0397",
+      "title": "SMACK THAT ASS",
+      "entry": "app-factory/nathan-ai/smack-that-ass/public/index.html",
+      "group": "nathan-ai",
+      "url": "https://nathanaiOxr.github.io/Nathan-AI-Sovereign-Core/app-factory/nathan-ai/smack-that-ass/public/index.html",
       "adoption": "integration_required"
     },
     {
