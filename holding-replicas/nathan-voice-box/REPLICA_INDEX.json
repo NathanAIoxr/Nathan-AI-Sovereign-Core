@@ -1,0 +1,26 @@
+{
+  "source": "app-factory/one/nathan-voice-box",
+  "source_branch": "feature/nathan-voicebox-edge-micro-macro-20261106",
+  "replica_branch": "zone/voice-box-hold-recovery-20261119",
+  "verified_copies": [
+    "README.md",
+    "voicebox.py",
+    "voice-recorder.js",
+    "voice-mapper-core.js",
+    "server.py"
+  ],
+  "related_source_branches": [
+    "feat/device-first-voice-box-20261106",
+    "feat/living-ears-full-spectrum-voice-20261106",
+    "feat/voice-box-native-offline-runtime-20261108"
+  ],
+  "conductor_candidates": [
+    "tabor-bridge",
+    "tabor-job-orchestrator",
+    "nathan-ai-global-catalog-bridge"
+  ],
+  "state": "HOLD",
+  "cloudflare_live": false,
+  "private_voice_audio_copied": false,
+  "launch_approved": false
+}
