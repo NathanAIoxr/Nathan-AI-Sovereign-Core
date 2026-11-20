@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "purpose": "historical_bitcoin_genesis_header_replay",
+  "blueprintSha256": "89438f96c52801d1cc4d41a379df6de229d7d42d267553035a16247b9d7f2608",
+  "mining": {
+    "header": "0100000000000000000000000000000000000000000000000000000000000000000000003ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a29ab5f49ffff001d1dac2b7c",
+    "target": "00000000ffff0000000000000000000000000000000000000000000000000000",
+    "reverseProofs": [
+      {
+        "nonce": 2083236894,
+        "hash": "9b227a4a5daa0cbae6874144bc5d7797d0513e320aceadeb3b06304971a41b1c",
+        "meetsTarget": false
+      },
+      {
+        "nonce": 2083236893,
+        "hash": "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
+        "meetsTarget": true
+      },
+      {
+        "nonce": 2083236892,
+        "hash": "8cdc343dc1ca87b0fae7d09a6537a536fec9784a3c4541b770bfb5881c5d66d9",
+        "meetsTarget": false
+      }
+    ]
+  },
+  "wallet": {
+    "historicalReference": "available_in_private_catalog",
+    "onChainStatus": "NOT_VERIFIED",
+    "reserveRelationship": "NOT_ESTABLISHED"
+  },
+  "reserve": {
+    "id": "voicebox-1700000000000",
+    "label": "Locked Voicebox Reserve",
+    "reportedUsd": "1700000000000",
+    "evidenceStatus": "USER_REPORTED_UNVERIFIED",
+    "custodyStatus": "NO_WALLET_OR_CUSTODY_VERIFIED",
+    "mode": "HOLD",
+    "timeScrollSha256": "0ced65055a15075fe7423524db7550854a5d5c96c047dc7bf31fca35089f7ad5"
+  }
+}
