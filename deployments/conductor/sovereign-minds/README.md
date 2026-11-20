@@ -2,6 +2,8 @@
 
 [Cloudflare catalog](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/sovereign-minds) · [Conductor prompts](PROMPTS.md) · [Handoff](handoff.json) · [Author excerpts](AUTHOR-EXCERPTS.md)
 
+The [Sovereign Minds directory](https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/) provides the main catalog, recorded voices, and original Lasso prompts. These evidence profiles add byte-level source verification, domain and scale, and the seven Harmony axes. Zero and One link back to their individual directory records.
+
 Zero, One, Proton, Neutron, Electron, Atom, and Nathan Tabor are independent MIND profiles, each served by its own Cloudflare dispatch script. All use the same versioned contract and separate identities. Links between profiles preserve the original IDs. Each box carries seven axes, the below/middle/above planes, and the seven recovered body names. Empty axes and body fields have no supported entries. The Atomic Souls entries carry Nathan's authored cosmology. Energy and frequency measurements use explicit units and methods.
 
 ## Lasso of Truth

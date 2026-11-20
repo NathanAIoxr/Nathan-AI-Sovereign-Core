@@ -1,0 +1,410 @@
+[
+  {
+    "id": "glass",
+    "chapter": "Prologue",
+    "era": "c. 2500 BCE · Mesopotamia and western Asia",
+    "title": "The Furnace and the Stone",
+    "principle": "Glass formation",
+    "narrative": [
+      "A shard of obsidian catches the light like a dark mirror. It is volcanic glass, formed when molten rock cools quickly enough to keep its atoms from organizing into crystals. It gives us a starting point for the story of glass without requiring a workshop at all.",
+      "The date about 2500 BCE places us early in the history of glassmaking. The surviving objects and the dating of true glass are complicated. The Corning Museum places early manufactured glass in western Asia and discusses its possible origins in metalworking. Treat the date as an approximate horizon.",
+      "A glassmaker has three jobs. Silica supplies the network. A flux helps bring the working temperature down. Lime helps make the finished glass more durable. A furnace turns that balance into a material that can hold water, transmit light, and eventually enclose a miniature world."
+    ],
+    "game": {
+      "mode": "kiln",
+      "objective": "Balance the batch and raise the virtual furnace into its working range.",
+      "controls": [
+        {
+          "key": "silica",
+          "label": "Silica share",
+          "min": 45,
+          "max": 85,
+          "step": 1,
+          "value": 60,
+          "unit": "%"
+        },
+        {
+          "key": "soda",
+          "label": "Soda share",
+          "min": 4,
+          "max": 36,
+          "step": 1,
+          "value": 25,
+          "unit": "%"
+        },
+        {
+          "key": "heat",
+          "label": "Furnace setting",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "value": 40,
+          "unit": "%"
+        }
+      ]
+    },
+    "sources": [
+      {
+        "label": "Corning Museum of Glass · Origins of glassmaking",
+        "url": "https://whatson.cmog.org/exhibitions-galleries/origins-glassmaking"
+      }
+    ],
+    "worksheet": {
+      "prediction": "Will increasing soda let a glassmaker work at a lower temperature?",
+      "record": "Silica ___%, soda ___%, lime ___%, furnace setting ___%.",
+      "reflection": "Explain what each ingredient does. The furnace slider is a model setting, so keep its reading as a percent."
+    }
+  },
+  {
+    "id": "nimrud",
+    "chapter": "Chapter 1",
+    "era": "c. 750–710 BCE to 424 BCE · Assyria and Greece",
+    "title": "A Stone That Bends Light",
+    "principle": "Refraction and focus",
+    "narrative": [
+      "At Nimrud, excavators found a polished piece of rock crystal with a curved side. The shape can concentrate light. Its original purpose is debated, and the exact magnification claimed in later accounts depends on what and how one measures.",
+      "Greek comedy supplies a different sort of evidence. In Aristophanes’ Clouds, a character entertains a scheme involving a burning glass and a wax tablet. It shows that the idea was intelligible to an ancient audience. The joke does not identify the use of the Nimrud object.",
+      "Follow the rays in the lab. Changing the lens changes where the rays meet. Tilting it moves the spot sideways. The bright spot matters because the same incoming light is concentrated into a smaller area."
+    ],
+    "game": {
+      "mode": "solar",
+      "objective": "Bring the focus onto the center of the virtual wax target.",
+      "controls": [
+        {
+          "key": "index",
+          "label": "Refractive index",
+          "min": 1.34,
+          "max": 1.68,
+          "step": 0.01,
+          "value": 1.48,
+          "unit": ""
+        },
+        {
+          "key": "distance",
+          "label": "Target distance",
+          "min": 35,
+          "max": 90,
+          "step": 1,
+          "value": 73,
+          "unit": " mm"
+        },
+        {
+          "key": "tilt",
+          "label": "Lens tilt",
+          "min": -20,
+          "max": 20,
+          "step": 1,
+          "value": 11,
+          "unit": "°"
+        }
+      ]
+    },
+    "sources": [
+      {
+        "label": "British Museum · Object 90959",
+        "url": "https://www.britishmuseum.org/collection/object/W_-90959"
+      },
+      {
+        "label": "University of Ioannina · Crystals and Lenses in the Graeco-Roman World",
+        "url": "https://olympias.lib.uoi.gr/jspui/bitstream/123456789/12313/1/Plantzos-1997-Crystals%20and%20Lenses.pdf"
+      }
+    ],
+    "worksheet": {
+      "prediction": "If refractive index increases, will the focus move toward the lens or away?",
+      "record": "Trial 1 index ___ and focus ___ mm. Trial 2 index ___ and focus ___ mm.",
+      "reflection": "Change the index first while keeping tilt fixed. Then move the target and describe the difference."
+    }
+  },
+  {
+    "id": "alexandria",
+    "chapter": "Chapter 2",
+    "era": "Hellenistic world to first century CE",
+    "title": "Water, Light and Trapped Air",
+    "principle": "Refraction and gas pressure",
+    "narrative": [
+      "Fill a transparent curved vessel partway and its outline starts doing optical work. Light changes direction as it crosses from air into glass and water. Ancient writers including Pliny describe concentrating sunlight through transparent curved vessels. A written report does not settle how often any particular medical practice was used.",
+      "Hero of Alexandria wrote about apparatus that moved water, air and mechanisms through connected vessels. Trapped air can exert pressure even when the air itself is hard to see. A pressure difference can make water move through a tube.",
+      "Put these two ideas together as a design lesson. Transparent walls make the contents visible. A seal and a route for flow give the maker a way to control what happens inside."
+    ],
+    "game": {
+      "mode": "pressure",
+      "objective": "Balance a pair of virtual chambers by changing fill and air pressure.",
+      "controls": [
+        {
+          "key": "fill",
+          "label": "Water fill",
+          "min": 10,
+          "max": 85,
+          "step": 1,
+          "value": 40,
+          "unit": "%"
+        },
+        {
+          "key": "pressure",
+          "label": "Air pressure",
+          "min": 80,
+          "max": 150,
+          "step": 1,
+          "value": 130,
+          "unit": " kPa"
+        },
+        {
+          "key": "index",
+          "label": "Refractive index",
+          "min": 1.33,
+          "max": 1.65,
+          "step": 0.01,
+          "value": 1.4,
+          "unit": ""
+        }
+      ]
+    },
+    "sources": [
+      {
+        "label": "Hero of Alexandria · Pneumatics",
+        "url": "https://www.loc.gov/item/07041532/"
+      },
+      {
+        "label": "Plantzos · Ancient lenses",
+        "url": "https://olympias.lib.uoi.gr/jspui/bitstream/123456789/12313/1/Plantzos-1997-Crystals%20and%20Lenses.pdf"
+      }
+    ],
+    "worksheet": {
+      "prediction": "At 55% fill, which way will water move when the air pressure is increased?",
+      "record": "Fill ___%. Air pressure ___ kPa. Measured difference ___ kPa.",
+      "reflection": "Change fill alone, then pressure alone. Record the direction of each change."
+    }
+  },
+  {
+    "id": "workshop",
+    "chapter": "Chapter 3",
+    "era": "Workshop traditions and a reported 1572 example",
+    "title": "The Cobbler’s Circle of Light",
+    "principle": "Light concentration",
+    "narrative": [
+      "Picture a worker moving a water-filled flask between a lamp and a seam. The vessel can redirect a broad patch of light onto a smaller working area. Cobbler’s globes are remembered for this practical use. The same trick can light a target in the virtual workshop.",
+      "The blueprint also follows a reported 1572 association between Leonhard Thurneysser, the Grimnitz glassworks and small decorative worlds. The exact account of sealed spheres with miniature flying birds remains a research lead. The chapter keeps it with the workshop story so readers can compare the report with what survives.",
+      "This is the bridge from tools to displays. A vessel can improve the view of the work, or the vessel itself can become what the visitor comes to look at."
+    ],
+    "game": {
+      "mode": "candle",
+      "objective": "Align the glowing patch with the virtual stitching marks.",
+      "controls": [
+        {
+          "key": "tilt",
+          "label": "Flask position",
+          "min": -20,
+          "max": 20,
+          "step": 1,
+          "value": -12,
+          "unit": ""
+        },
+        {
+          "key": "distance",
+          "label": "Work distance",
+          "min": 35,
+          "max": 90,
+          "step": 1,
+          "value": 82,
+          "unit": " mm"
+        },
+        {
+          "key": "index",
+          "label": "Refractive index",
+          "min": 1.34,
+          "max": 1.68,
+          "step": 0.01,
+          "value": 1.41,
+          "unit": ""
+        }
+      ]
+    },
+    "sources": [
+      {
+        "label": "Medienwerkstatt · Thurneysser tradition",
+        "url": "https://www.medienwerkstatt-online.de/lws_wissen/vorlagen/showcard.php?id=25129"
+      }
+    ],
+    "worksheet": {
+      "prediction": "Will moving the flask or changing its angle do more to center the light on the stitches?",
+      "record": "Best distance ___ mm. Best position ___°. Before and after observations ___.",
+      "reflection": "Draw the source, flask, and target. Mark where the rays converge."
+    }
+  },
+  {
+    "id": "weather",
+    "chapter": "Chapter 4",
+    "era": "1600s–1860s · Weather instruments",
+    "title": "The Weather in a Bottle",
+    "principle": "Density, temperature and pressure",
+    "narrative": [
+      "A water barometer, a floating-bulb thermometer, and a storm glass might sit together on a shelf. Each makes a different quantity visible. Atmospheric pressure displaces water in a barometer. A bulb floats or sinks as its density compares to that of its surrounding liquid.",
+      "The sealed storm glass associated with Robert FitzRoy contains a solution that can show crystals as conditions change. Temperature affects the crystals. The display below lets pressure move the barometer separately, so a crystal pattern is never presented as a direct readout of outside pressure.",
+      "Watch the selected reading change as you move one control at a time. A beautiful physical response is also an invitation to ask what changed and what the instrument actually measures."
+    ],
+    "game": {
+      "mode": "weather",
+      "objective": "Grow virtual crystals while keeping the water barometer near its reference mark.",
+      "controls": [
+        {
+          "key": "temp",
+          "label": "Temperature",
+          "min": 0,
+          "max": 38,
+          "step": 1,
+          "value": 27,
+          "unit": " °C"
+        },
+        {
+          "key": "pressure",
+          "label": "Barometric pressure",
+          "min": 950,
+          "max": 1050,
+          "step": 1,
+          "value": 980,
+          "unit": " hPa"
+        },
+        {
+          "key": "density",
+          "label": "Float density",
+          "min": 0.9,
+          "max": 1.1,
+          "step": 0.01,
+          "value": 1.01,
+          "unit": " relative"
+        }
+      ]
+    },
+    "sources": [
+      {
+        "label": "History of Science Museum, Oxford · FitzRoy’s weather glass",
+        "url": "https://www.mhs.ox.ac.uk/from-stormglass-to-weatherglass/index.html"
+      },
+      {
+        "label": "Museo Galileo · Accademia del Cimento",
+        "url": "https://catalogue.museogalileo.it/multimedia/AccademiaCimento.html"
+      }
+    ],
+    "worksheet": {
+      "prediction": "If you change pressure alone, what will happen to the barometer and crystals?",
+      "record": "Temperature ___ °C. Pressure ___ hPa. Crystal display ___%. Bulb behavior ___.",
+      "reflection": "Repeat after changing temperature alone. Identify which instrument changed in each trial."
+    }
+  },
+  {
+    "id": "vienna",
+    "chapter": "Chapter 5",
+    "era": "1878–1900 · Paris and Vienna",
+    "title": "The Vienna Workshop",
+    "principle": "Viscosity and settling",
+    "narrative": [
+      "An 1878 Paris exposition report describes a paperweight with a man sheltering under an umbrella and white particles suspended around him. Later accounts associate Eiffel Tower souvenirs with the 1889 exposition. Surviving evidence is stronger for some early examples than for others.",
+      "In Vienna around 1900, surgical instrument maker Erwin Perzy experimented with ways to increase light. Family accounts describe semolina drifting in the water like snow. A miniature scene gave that drifting material a new purpose. Sources date the Perzy invention to around 1900. A precise patent date or number calls for the original patent record.",
+      "In the workshop your first impulse will be to shake harder. Once the swirl fades, ask a better question. What combination of fluid drag, particle size, and the difference in density keeps a flake from reaching the bottom too quickly?"
+    ],
+    "game": {
+      "mode": "snow",
+      "objective": "Build a globe with a settling-time estimate of at least eight seconds, then shake it.",
+      "controls": [
+        {
+          "key": "viscosity",
+          "label": "Viscosity",
+          "min": 1,
+          "max": 10,
+          "step": 0.1,
+          "value": 2,
+          "unit": "×"
+        },
+        {
+          "key": "density",
+          "label": "Particle density offset",
+          "min": 0.5,
+          "max": 4,
+          "step": 0.1,
+          "value": 2.8,
+          "unit": ""
+        },
+        {
+          "key": "size",
+          "label": "Particle size",
+          "min": 0.5,
+          "max": 3,
+          "step": 0.1,
+          "value": 1.8,
+          "unit": "×"
+        }
+      ]
+    },
+    "sources": [
+      {
+        "label": "Smithsonian · Perzy and the snow globe",
+        "url": "https://www.smithsonianmag.com/innovation/how-an-experiment-to-amplify-light-in-hospital-operating-rooms-led-to-the-accidental-invention-of-the-snow-globe-180985742/"
+      },
+      {
+        "label": "Artsy · The Paris exposition reports",
+        "url": "https://www.artsy.net/article/artsy-editorial-history-snow-globe/"
+      }
+    ],
+    "worksheet": {
+      "prediction": "Which will change settling time more in this model, doubling viscosity or doubling particle size?",
+      "record": "Trial 1 settings __________, settling ___ s. Trial 2 settings __________, settling ___ s.",
+      "reflection": "Keep the other controls fixed. Shake both times and compare your observations with the estimate."
+    }
+  },
+  {
+    "id": "lava",
+    "chapter": "Epilogue",
+    "era": "1963–present · The Astro Lamp and sealed worlds",
+    "title": "A World That Rises and Falls",
+    "principle": "Convection and buoyancy",
+    "narrative": [
+      "Edward Craven Walker launched the Astro lamp in 1963. A warm region at the bottom changes the density of the wax, which rises through the surrounding liquid. Higher in the vessel it cools and can become dense enough to sink again.",
+      "In a snow globe, the hand supplies the initial motion and the flakes eventually settle. In a lava lamp, heating and cooling can sustain motion. The shared glass enclosure lets you inspect two different processes from the outside.",
+      "Choose a sphere, a tall capsule, or a wide vessel. Change the fluid drag, heating and suspended material. Work backward through the timeline to identify which earlier instrument used a similar principle."
+    ],
+    "game": {
+      "mode": "lava",
+      "objective": "Make droplets circulate through the warm and cool zones.",
+      "controls": [
+        {
+          "key": "temp",
+          "label": "Base temperature",
+          "min": 20,
+          "max": 80,
+          "step": 1,
+          "value": 36,
+          "unit": " °C"
+        },
+        {
+          "key": "viscosity",
+          "label": "Viscosity",
+          "min": 1,
+          "max": 10,
+          "step": 0.1,
+          "value": 4,
+          "unit": "×"
+        },
+        {
+          "key": "density",
+          "label": "Particle density",
+          "min": 0.5,
+          "max": 4,
+          "step": 0.1,
+          "value": 1.5,
+          "unit": " relative"
+        }
+      ]
+    },
+    "sources": [
+      {
+        "label": "Mathmos · Astro and the 1963 launch",
+        "url": "https://mathmos.com/lava-lamps-in-the-1960s-70s/"
+      }
+    ],
+    "worksheet": {
+      "prediction": "Will raising base temperature or raising viscosity increase circulation?",
+      "record": "Trial 1 base ___ °C, viscosity ___, circulation ___%. Trial 2 base ___ °C, viscosity ___, circulation ___%.",
+      "reflection": "Sketch a droplet’s path. Mark where it warms, rises, cools, and sinks."
+    }
+  }
+]

@@ -9,6 +9,7 @@ const original = root + '/deployments/conductor/sovereign-minds/AUTHOR-EXCERPTS.
 const wording = {
   zero: 'Zero will be its own mind one will be its own mind',
   particles: 'Protons, Neutrons, and Electrons? They have souls ProSouls, NeuSouls and ElecSouls.',
+  harmonyAxes: 'energy, frequency, harmony',
   harmony: 'Words have sounds, sounds have frequencies, frequencies match the math',
   scale: 'this is at the proton neutron electron level below and above, converting it to whatever it needs to be',
   atom: 'every atom has a soul',
@@ -69,9 +70,11 @@ export async function seedMind(id) {
   }
   await addExcerpt('scale', wording.scale, [], original, 'author_framework', [{ axis: 'functionality', kind: 'author_framework', plane: 'above', text: wording.scale }]);
   if (id === 'nathan-tabor') {
+    await addExcerpt('harmony-axes', wording.harmonyAxes, ['energy', 'frequency', 'harmony'], original, 'author_framework');
     await addExcerpt('harmony', wording.harmony, ['harmony', 'frequency'], original, 'firsthand', ['harmony', 'frequency'].map(axis => ({ axis, kind: 'quote', text: wording.harmony })));
   }
   return buildMind({ identity, sources, statements, links: [
+    ...(domain === 'digital' ? [{ relation: 'directory-profile', url: 'https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/' + id + '/' }] : []),
     ...links[id].map(target => ({ relation: 'related-mind', id: target })),
     ...citations.map(url => ({ relation: 'existing-project', url }))
   ] });

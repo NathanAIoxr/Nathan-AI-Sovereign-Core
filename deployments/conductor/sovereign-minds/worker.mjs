@@ -8,6 +8,8 @@ const entry = id => ({
 });
 const atlas = 'https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/personal-intelligence/minds/mind-of-minds/catalog.json';
 
+const directory = 'https://tabor-bridge.nathantaboract.workers.dev/sovereign-minds/';
+
 function catalogPage() {
   return `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Sovereign MINDs · Nathan AI</title><style>
@@ -19,7 +21,7 @@ function catalogPage() {
   <ul>${mindIds.map(id => {
     const row = entry(id);
     return `<li><strong>${row.name}</strong> · <a href="${row.report}">Source ledger</a><a href="${row.path}">JSON</a></li>`;
-  }).join('')}</ul><p><a href="${atlas}">Mind of Minds source catalog</a><a href="/tabor-sites/conductor">The Conductor</a></p></main></html>`;
+  }).join('')}</ul><p><a href="${directory}">Sovereign Minds directory</a><a href="${atlas}">Mind of Minds source catalog</a><a href="/tabor-sites/conductor">The Conductor</a></p></main></html>`;
 }
 
 export default {
@@ -37,7 +39,7 @@ export default {
 
     if (index) {
       if (path === '/healthz') return reply({ ready: true, service: 'sovereign-minds', release: env.RELEASE_SHA, catalogCount: mindIds.length });
-      if (path === '/api/catalog') return reply({ title: 'Sovereign MINDs', release: env.RELEASE_SHA, minds: mindIds.map(entry), sourceCatalog: atlas });
+      if (path === '/api/catalog') return reply({ title: 'Sovereign MINDs', release: env.RELEASE_SHA, minds: mindIds.map(entry), sourceCatalog: atlas, directory });
       if (path === '/') return new Response(head ? null : catalogPage(), { headers: {
         ...headers, 'Content-Type': 'text/html; charset=utf-8',
         'Content-Security-Policy': "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'"
