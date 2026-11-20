@@ -1,0 +1,5 @@
+export const DIGITS='0123456789XE';
+export function base12(n){if(!Number.isSafeInteger(n)||n<0)throw Error('nonnegative safe integer required');if(n===0)return '0';let s='';while(n){s=DIGITS[n%12]+s;n=Math.floor(n/12)}return s}
+export function decimal(s){if(!/^[0-9XE]+$/.test(s))throw Error('invalid base12');return [...s].reduce((n,c)=>n*12+DIGITS.indexOf(c),0)}
+export function catalog({id,dewey,title,project,zone}){if(!/^\d{3}(\.\d+)?$/.test(dewey))throw Error('invalid Dewey label');if(!Number.isSafeInteger(id)||id<0)throw Error('invalid id');return {id,decimal:id,duodecimal:base12(id),dewey,title,project,zone,reverseKey:[...title].reverse().join(''),state:'HOLD',rails:['DEWEY','DUODECIMAL','DECIMAL','RTL']}}
+export function agents(){return [{name:'CERO',task:'index-source',permission:'read'},{name:'UNO',task:'normalize',permission:'read'},{name:'DOS',task:'verify',permission:'read'},{name:'ALPHA',task:'build-receipt',permission:'read'},{name:'BETA',task:'independent-check',permission:'read'},{name:'CONDUCTOR',task:'route-authorized-project',permission:'hold'}]}
