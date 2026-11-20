@@ -1,0 +1,10 @@
+{
+  "zone": "tweezer-tap-os",
+  "mode": "HOLDING",
+  "cartridges": [
+    {"id":"nostril_toy","title":"Nostril Toy","simulation":"Arcade prop"},
+    {"id":"shoulder_bb","title":"Shoulder BB","simulation":"Arcade prop"},
+    {"id":"ingrown_nail","title":"Ingrown Nail","simulation":"Arcade prop"}
+  ],
+  "controls": ["/dev/tweezers0","/dev/flashlight0","/dev/icecube0"]
+}

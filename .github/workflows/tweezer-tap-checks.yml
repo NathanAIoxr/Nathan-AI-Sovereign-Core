@@ -1,0 +1,23 @@
+name: Tweezer TAP holding checks
+on:
+  push:
+    branches: [zone/tweezer-tap-os]
+  pull_request:
+    paths:
+      - app-factory/nathan-ai/tweezer-tap-os/**
+      - .github/workflows/tweezer-tap-*.yml
+permissions:
+  contents: read
+jobs:
+  rehearsal:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test test/*.test.mjs
+        working-directory: app-factory/nathan-ai/tweezer-tap-os

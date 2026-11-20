@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAP THAT · TWEEZER-OS</title>
+<style>
+body{background:#101d1c;color:#effcf2;font:17px/1.5 system-ui;margin:0;padding:24px}
+main{max-width:670px;margin:auto} h1{font-size:clamp(3rem,10vw,5.4rem);line-height:1;margin:.4em 0;color:#c7ff83}
+fieldset{border:1px solid #70a48c;border-radius:12px;margin:18px 0;padding:16px}
+label{display:block} input,select,button{font:inherit;padding:10px;min-height:48px;border-radius:7px;border:1px solid #70a48c}
+input,select{color:#effcf2;background:#172b27;max-width:100%;box-sizing:border-box}
+button{background:#c7ff83;color:#101d1c;cursor:pointer;font-weight:700} button:disabled{opacity:.5}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.brake{background:#ffad9a}pre{white-space:pre-wrap;overflow-wrap:anywhere}
+</style>
+<main>
+<p>TWEEZER-OS · zone/tweezer-tap-os</p>
+<h1>TAP THAT</h1>
+<p>Single-player rehearsal controls</p>
+<fieldset>
+<legend>Staging access</legend>
+<div class="row"><button id="status">Refresh status</button><button id="audit">Run ALIEN ⇄ NEILA</button></div>
+<div class="row"><button id="motion">Enable motion input</button><button id="flinch">Simulate flinch</button></div>
+</fieldset>
+<fieldset>
+<legend>Cartridge</legend>
+<label for="deck">Select cartridge</label>
+<select id="deck"><option value="nostril_toy">Nostril Toy</option><option value="shoulder_bb">Shoulder BB</option><option value="ingrown_nail">Ingrown Nail</option></select>
+<div class="row" id="tiles">
+<button data-trigger="HOLD_HEAD">Hold</button><button data-trigger="FLASHLIGHT_ON">Flashlight</button>
+<button data-trigger="TWEEZERS_PULL">Pull</button><button data-trigger="RESET_SIM">Reset simulation</button>
+</div>
+<div class="row"><button id="retry" disabled>Retry last tap</button></div>
+</fieldset>
+<div class="row"><button class="brake" id="brake">Big Red Button</button><button id="resume">Resume rehearsal</button></div>
+<pre role="status" id="result">Ready.</pre>
+</main>
+<script>
+const byId = id => document.getElementById(id);
+let last = null;
+let tapBusy = false;
+let socket;
+let waiting;
+const deckList = ['nostril_toy', 'shoulder_bb', 'ingrown_nail'];
+const triggerList = ['HOLD_HEAD', 'FLASHLIGHT_ON', 'TWEEZERS_PULL', 'RESET_SIM'];
+const mount = location.pathname.replace(/\/$/, '');
+function connect() {
+  if (socket?.readyState === WebSocket.OPEN || socket?.readyState === WebSocket.CONNECTING) return;
+  const url = new URL(mount + '/socket', location.href);
+  url.protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+  socket = new WebSocket(url);
+  socket.onmessage = event => {
+    const receipt = JSON.parse(event.data);
+    if (receipt.signal === 'irq_flinch') {
+      byId('result').textContent = 'Simulated flinch';
+      navigator.vibrate?.(20);
+    }
+    if (waiting?.id === receipt.request_id) waiting.finish(receipt);
+  };
+}
+function sendFlinch() {
+  if (socket?.readyState === WebSocket.OPEN) socket.send(new Uint8Array([1, 2]));
+}
+let lastMotion = 0;
+byId('motion').onclick = async () => {
+  try {
+    const Motion = window.DeviceMotionEvent;
+    if (!Motion) return;
+    if (Motion.requestPermission && await Motion.requestPermission() !== 'granted') return;
+    connect();
+    window.addEventListener('devicemotion', event => {
+      const a = event.acceleration;
+      if (a && Math.hypot(a.x, a.y, a.z) > 6 && Date.now() - lastMotion > 600) {
+        lastMotion = Date.now();
+        sendFlinch();
+      }
+    });
+    byId('motion').disabled = true;
+  } catch {
+    byId('result').textContent = 'Motion input is unavailable.';
+  }
+};
+byId('flinch').onclick = sendFlinch;
+connect();
+async function command(path, payload) {
+  const result = byId('result');
+  try {
+    const response = await fetch(mount + path, {
+      method: payload === undefined ? 'GET' : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: payload === undefined ? undefined : JSON.stringify(payload)
+    });
+    result.textContent = JSON.stringify(await response.json(), null, 2);
+    return response.ok;
+  } catch {
+    result.textContent = 'Connection failed. Retry the same tap to preserve its event ID.';
+    return false;
+  }
+}
+async function submitOverSocket(tap) {
+  if (socket?.readyState !== WebSocket.OPEN) return null;
+  const frame = new Uint8Array(20);
+  frame.set([1, 1, deckList.indexOf(tap.deck), triggerList.indexOf(tap.trigger)]);
+  frame.set(tap.id.replaceAll('-', '').match(/../g).map(pair => Number.parseInt(pair, 16)), 4);
+  return new Promise(resolve => {
+    const finish = receipt => { clearTimeout(timer); waiting = null; resolve(receipt); };
+    const timer = setTimeout(() => finish(null), 2000);
+    waiting = { id: tap.id, finish };
+    try { socket.send(frame); } catch { finish(null); }
+  });
+}
+async function submitTap() {
+  if (tapBusy) return;
+  tapBusy = true;
+  byId('retry').disabled = true;
+  const receipt = await submitOverSocket(last);
+  if (receipt) byId('result').textContent = JSON.stringify(receipt, null, 2);
+  const success = receipt ? receipt.status === 202 : await command('/tap',last);
+  if (success) last = null;
+  tapBusy = false;
+  byId('retry').disabled = !last;
+}
+for (const button of document.querySelectorAll('[data-trigger]')) {
+  button.onclick = () => {
+    if (tapBusy) return;
+    if (last) {
+      byId('result').textContent = 'Retry the pending tap before sending another.';
+      return;
+    }
+    last = { id: crypto.randomUUID(), deck: byId('deck').value, trigger: button.dataset.trigger };
+    submitTap();
+  };
+}
+byId('retry').onclick = submitTap;
+byId('status').onclick = () => command('/status');
+for (const action of ['audit','brake','resume']) byId(action).onclick = () => command('/'+action,{});
+</script>
+</html>

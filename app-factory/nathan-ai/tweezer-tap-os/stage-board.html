@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TWEEZER-OS × TAP THAT</title>
+<style>
+:root{color-scheme:dark;--ink:#d7f8e4;--amber:#f7bb68;--edge:#4c6156;--panel:#182422}
+*{box-sizing:border-box}body{margin:0;background:#0b1212;color:var(--ink);font:1rem/1.5 system-ui,sans-serif}
+main{width:min(calc(100% - 2rem),54rem);margin:3rem auto}header{border-top:3px solid var(--amber);padding:1rem 0}
+header p,output,.status{font:600 .85rem/1.5 ui-monospace,monospace;color:var(--amber);letter-spacing:.045em}
+h1{font-size:clamp(2.1rem,8vw,4rem);margin:.35rem 0;line-height:1.05}h2{margin-top:0;font-size:1.15rem}
+section{background:var(--panel);margin:1rem 0;padding:1.1rem;border:1px solid var(--edge);border-radius:.65rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.6rem;margin-top:.6rem}
+button,select,input{min-height:44px;border:1px solid var(--edge);border-radius:.4rem;background:#0e1718;color:var(--ink);font:inherit;padding:.6rem}
+button{font-weight:750;cursor:pointer;touch-action:manipulation}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+button.stop{background:#74282b;color:#fff}button[disabled]{opacity:.55;cursor:wait}label,input,select{display:block;width:100%}label{margin:.55rem 0}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;margin:0;color:var(--ink)}
+</style>
+</head>
+<body>
+<main>
+<header><p>TIME / EMIT · ALIEN / NEILA</p><h1>TWEEZER-OS × TAP THAT</h1><p>HOLDING · SIMULATED CARTRIDGES</p></header>
+<section>
+  <h2>Operator access</h2>
+  <label for="key">Staging operator key</label>
+  <input id="key" type="password" autocomplete="off" spellcheck="false">
+  <div class="grid"><button id="status">REFRESH STATUS</button><button id="clear">CLEAR KEY</button></div>
+</section>
+<section>
+  <h2>Cartridge controls</h2>
+  <label for="mission">Mission</label>
+  <select id="mission"><option value="nostril_toy">Nostril Toy</option><option value="shoulder_bb">Shoulder BB</option><option value="ingrown_nail">Ingrown Nail</option></select>
+  <div class="grid">
+    <button data-tap="ARM">ARM</button><button data-tap="HOLD_HEAD">HOLD HEAD</button>
+    <button data-tap="FLASHLIGHT_ON">FLASHLIGHT ON</button><button data-tap="TWEEZERS_PULL">TWEEZERS PULL</button>
+    <button data-tap="IRQ_FLINCH">SIMULATE FLINCH</button><button class="stop" data-tap="ABORT_ER_RUN">BIG RED BUTTON</button>
+  </div>
+</section>
+<section><h2>Conductor receipt</h2><output id="result" aria-live="polite"><pre>Enter an operator key to open the staging controls.</pre></output></section>
+<section><h2>Launch switch</h2><p>Use the reviewed GitHub launch command for the exact staged commit. The live track stays outside this control board.</p></section>
+</main>
+<script>
+const key=document.getElementById("key"), outlet=document.querySelector("#result pre");
+const send=async (path,payload) => {
+  const chosen=key.value.trim();
+  if (!chosen) {outlet.textContent="Operator key required.";return;}
+  const headers={authorization:"Bearer "+chosen};
+  let init={headers,cache:"no-store"};
+  if(payload){headers["content-type"]="application/json";init={...init,method:"POST",body:JSON.stringify(payload)};}
+  try {
+    const response=await fetch(path,{...init,signal:AbortSignal.timeout(10000)});
+    const result=await response.json();
+    outlet.textContent=JSON.stringify(result,null,2);
+  } catch {outlet.textContent="The staging conductor did not return a receipt.";}
+};
+for (const control of document.querySelectorAll("[data-tap]")) control.onclick=async ()=>{
+  control.disabled=true;
+  const payload={id:crypto.randomUUID(),trigger:control.dataset.tap,mission:document.getElementById("mission").value};
+  try{await send("/tap",payload);}finally{control.disabled=false;}
+};
+document.getElementById("status").onclick=()=>send("/status");
+document.getElementById("clear").onclick=()=>{key.value="";outlet.textContent="Operator key cleared.";};
+</script>
+</body>
+</html>
