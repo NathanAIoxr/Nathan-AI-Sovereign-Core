@@ -12,7 +12,7 @@ export const hud = `<!doctype html><html lang="en"><meta charset="utf-8"><meta n
 <button data-action="dispatch">Propose bounded read</button> <button id="roots">Read terminal-root evidence</button></section>
 <section><h2>DNS batch and promotion</h2><label>Zone manifest JSON <textarea id="domains" rows="3" placeholder='[{"domain":"example.com","zoneId":"…"}]'></textarea></label><button data-action="register-dns">Register HOLDING batch</button>
 <label>Domain <input id="domain" autocomplete="off"></label><button data-action="holding">Propose HOLDING</button><button data-action="promote">Propose LIVE</button></section>
-<section><h2>ALIEN ⇄ NEILA</h2><label>Proposal ID <input id="id" autocomplete="off"></label><label>SHA-256 proof <input id="proof" autocomplete="off"></label><button id="approve">Submit independent proof</button></section>
+<section><h2>ALIEN ⇄ NEILA</h2><label>Proposal ID <input id="id" autocomplete="off"></label><label>SHA-256 proof <input id="proof" autocomplete="off"></label><button id="inspect">Inspect proposed command</button> <button id="approve">Submit independent proof</button></section>
 <section><h2>Voice-to-Vault and TWEEZER-OS</h2><label>Audio <input id="audio" type="file" accept="audio/*"></label><button id="voice">Prepare voice transcript</button>
 <button data-action="extract" data-tile="tap-that">TAP THAT</button> <button data-action="extract" data-tile="tweezer-os">TWEEZER-OS</button></section>
 <section><h2>Receipt</h2><pre id="receipt" aria-live="polite"></pre></section></main>
@@ -45,6 +45,16 @@ if (operator) {
     } catch(e) {show({error:e.message});}
   });
   el("kill").onclick=()=>post("kill",{});
+  el("inspect").onclick=async()=>{
+    try {
+      const data=await (await fetch("./proposal/"+encodeURIComponent(el("id").value))).json();
+      if(!data.canonical)return show(data);
+      const bytes=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(data.canonical));
+      const proof=[...new Uint8Array(bytes)].map(x=>x.toString(16).padStart(2,"0")).join("");
+      if(proof!==data.proof)throw Error("ALIEN and NEILA hashes differ");
+      show({...data,verified:true});
+    } catch(e){show({error:e.message});}
+  };
   el("approve").onclick=()=>post("approve",{id:el("id").value,proof:el("proof").value});
   el("roots").onclick=async()=>{try{show(await (await fetch("./roots?source="+el("source").value)).json());}catch(e){show({error:e.message});}};
   el("voice").onclick=async()=>{try{const file=el("audio").files[0];if(!file)throw Error("Select an audio file");show(await(await fetch("./voice",{method:"POST",body:file})).json());}catch(e){show({error:e.message});}};

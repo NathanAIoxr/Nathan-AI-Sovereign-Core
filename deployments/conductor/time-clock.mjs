@@ -1,5 +1,5 @@
 import { DurableObject } from "cloudflare:workers";
-import {wake, status as cheirStatus, heartbeat, command} from "./cheironomer/src/conductor.js";
+import {wake, status as cheirStatus, heartbeat, command, proposal} from "./cheironomer/src/conductor.js";
 
 const interval = 15 * 60 * 1000;
 const projects = [
@@ -15,6 +15,7 @@ const projects = [
 export class ZoneClock extends DurableObject {
   async cheirWake() { return wake(this); }
   async cheirStatus() { return cheirStatus(this); }
+  async cheirProposal(id) { return proposal(this,id); }
   async cheirCommand(user, operation, body) { return command(this,user,operation,body); }
 
   async fetch(request) {

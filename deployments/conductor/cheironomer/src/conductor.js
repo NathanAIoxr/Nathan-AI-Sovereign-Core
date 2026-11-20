@@ -51,6 +51,13 @@ function append(sql,id,kind,payload,generation) {
   sql.exec("INSERT OR IGNORE INTO cheir_outbox(id,kind,payload,generation) VALUES(?,?,?,?)",id,kind,JSON.stringify(payload),generation);
 }
 
+export function proposal(instance, id) {
+  const sql=prepareStorage(instance);
+  const row=sql.exec("SELECT id,command,proof,approver,expires FROM sibling_hold WHERE id=?",id).toArray()[0];
+  if(!row||row.expires<Date.now())return null;
+  return {id:row.id,canonical:row.command,proof:row.proof,approved:!!row.approver,expires:row.expires};
+}
+
 export async function command(instance, principal, operation, body) {
   const sql=prepareStorage(instance);
   const state=current(sql);

@@ -65,6 +65,10 @@ export async function cheironomer(request,env,path) {
   if(action==="events"&&m==="GET"&&request.headers.get("Upgrade")?.toLowerCase()==="websocket"){
     return state.fetch(new Request("https://cheironomer.internal/events",{headers:{Upgrade:"websocket"}}));
   }
+  if(m==="GET"&&/^proposal\/[0-9a-f-]{36}$/.test(action)){
+    const info=await state.cheirProposal(action.slice(9));
+    return info?json(info):json({error:"proposal_unavailable"},404);
+  }
   if(action==="roots"&&m==="GET"){
     const {searchParams}=new URL(request.url);
     return json(await readOwnedGraph(env,searchParams.get("source")??"links",searchParams.get("cursor")??""));

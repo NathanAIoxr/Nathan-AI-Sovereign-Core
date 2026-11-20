@@ -3,13 +3,13 @@ on:
   pull_request:
     paths: ['deployments/conductor/**', '.github/workflows/zone-switch.yml']
   push:
-    branches: ['zone/**']
+    branches: ['main', 'zone/**']
     paths: ['deployments/conductor/**', '.github/workflows/zone-switch.yml']
   workflow_dispatch:
     inputs:
       action:
         type: choice
-        options: [verify, release, drain]
+        options: [verify, release, drain, export-voice-proof]
         default: verify
   schedule:
     - cron: '*/5 * * * *'
@@ -20,7 +20,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   alien-neila:
-    if: github.event_name != 'schedule' && inputs.action != 'drain'
+    if: github.event_name != 'schedule' && inputs.action != 'drain' && inputs.action != 'export-voice-proof'
     runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
@@ -39,7 +39,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: bash deployments/conductor/cheironomer/deploy.sh --activate
   emit:
-    if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || inputs.action == 'drain')
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || github.event_name == 'push' || inputs.action == 'drain')
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
@@ -54,3 +54,22 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: node deployments/conductor/cheironomer/pull-emit.mjs
+
+  voice-proof:
+    if: github.ref == 'refs/heads/main' && inputs.action == 'export-voice-proof'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Commit only verified voice evidence
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          path=deployments/conductor/cheironomer/voice-proofs.json
+          bash deployments/conductor/cheironomer/export-voice-proofs.sh "$path"
+          git add -- "$path"
+          git diff --cached --quiet && exit 0
+          git -c user.name=github-actions -c user.email=41898282+github-actions[bot]@users.noreply.github.com commit -m 'Publish Cheironomer voice proof digests'
+          git push origin HEAD:main
