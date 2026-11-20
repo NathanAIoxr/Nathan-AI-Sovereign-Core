@@ -1,3 +1,4 @@
+import { serveNodeTemplateHandoff } from "./node-template/handoff.mjs";
 import { nodeTemplate } from "./node-template/runtime.mjs";
 import { serveHolidayHandoff } from "./holiday-handoff.mjs";
 import { serveSovereignMindsHandoff } from "./sovereign-minds-handoff.mjs";
@@ -79,6 +80,8 @@ export default {
     const { pathname } = new URL(request.url);
     const path = (pathname === prefix || pathname.startsWith(prefix + "/") ? pathname.slice(prefix.length) : pathname) || "/";
     const method = request.method;
+    const nodeHandoff = serveNodeTemplateHandoff(request, path, env.LEDGER);
+    if (nodeHandoff) return nodeHandoff;
     const template = await nodeTemplate.route(request, env, path, { operator: gateOperator, limitedBody });
     if (template) return template;
     const gated = await releaseGate(request, env, path, { json, limitedBody, operator: gateOperator });

@@ -1,0 +1,31 @@
+{
+  "schema": "nathan-ai.conductor.project-handoff.v1",
+  "id": "handoff:nathan-ai-node-template:782ebcf8c2193e95b58ca4453e3e2652e1e462fa",
+  "project": "nathan-ai-node-template",
+  "title": "Nathan AI Node Template",
+  "owner": "Nathan Tabor",
+  "recipient": "Nathan AI Master Conductor",
+  "state": "received",
+  "note": "HEY YA'LL",
+  "verifiedAt": "2026-11-20T20:17:28Z",
+  "sourceRevision": "782ebcf8c2193e95b58ca4453e3e2652e1e462fa",
+  "source": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/tree/782ebcf8c2193e95b58ca4453e3e2652e1e462fa/deployments/conductor/node-template",
+  "contract": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/node-template/contract",
+  "health": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/node-template/health",
+  "verification": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/actions/runs/44804033072",
+  "evidence": {
+    "registrySources": [
+      "runtime",
+      "fleet",
+      "supernode",
+      "compute",
+      "infrastructure",
+      "rotational-agent",
+      "backend",
+      "supercomputer"
+    ],
+    "liveNode": "workers-ai-default",
+    "receipt": "01b1599626214027c0d5bf1ed258ff4997684e8f44c5fcfdf1c616da134bdd93"
+  },
+  "followThrough": "Use node-scoped credentials for rollout. Use the existing Lasso release gate for live promotion. CI failure records are staged for review."
+}
