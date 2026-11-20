@@ -1,0 +1,31 @@
+name: Cryptocurrency Pooper
+on:
+  push:
+    branches: [zone/cryptocurrency-pooper]
+    paths:
+      - 'app-factory/nathan-ai/cryptocurrency-pooper/**'
+      - '.github/workflows/cryptocurrency-pooper.yml'
+  pull_request:
+    paths:
+      - 'app-factory/nathan-ai/cryptocurrency-pooper/**'
+      - '.github/workflows/cryptocurrency-pooper.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-factory/nathan-ai/cryptocurrency-pooper
+    env:
+      UWS_USE_FALLBACK: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --ignore-scripts
+      - run: npm test

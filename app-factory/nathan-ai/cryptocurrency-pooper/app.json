@@ -1,0 +1,14 @@
+{
+  "id": "cryptocurrency-pooper",
+  "name": "The Cryptocurrency Pooper by Nathan Tabor",
+  "author": "Nathan Tabor",
+  "environment": "staging",
+  "cloudflare": {
+    "dispatchNamespace": "cryptocurrency-pooper-holding",
+    "script": "cryptocurrency-pooper"
+  },
+  "settlement": {
+    "asset": "POOPER",
+    "network": "local EVM test chain"
+  }
+}
