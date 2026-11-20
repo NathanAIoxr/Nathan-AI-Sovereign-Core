@@ -4,6 +4,8 @@ Nathan AI’s control plane for submitting a known operation, seeing it move thr
 
 [Open the Conductor cockpit](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor) · [Public readiness](https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/conductor/api/health) · [Custom GPT Actions schema](openapi.yaml)
 
+[Sovereign MINDs](sovereign-minds/) uses the same Cloudflare cockpit and provides a GitHub release verifier, a source ledger, and the Lasso of Truth prompts.
+
 | Command | Operation | Completion evidence |
 | --- | --- | --- |
 | `verify` | Read the registered Zeros and Ones health endpoint, with bounded retries | Healthy response and a 40-character deployed commit SHA |

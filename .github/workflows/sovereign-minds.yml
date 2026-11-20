@@ -1,0 +1,33 @@
+name: Sovereign MINDs
+on:
+  push:
+    paths:
+      - 'deployments/conductor/sovereign-minds/**'
+      - 'app-factory/tabor-website-builder/src/sites.mjs'
+      - '.github/workflows/sovereign-minds.yml'
+  pull_request:
+    paths:
+      - 'deployments/conductor/sovereign-minds/**'
+      - 'app-factory/tabor-website-builder/src/sites.mjs'
+      - '.github/workflows/sovereign-minds.yml'
+  workflow_dispatch:
+    inputs:
+      release:
+        description: GitHub release SHA to verify on Cloudflare
+        type: string
+        required: true
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test deployments/conductor/sovereign-minds/sovereign-minds.test.mjs
+      - if: github.event_name == 'workflow_dispatch'
+        env:
+          EXPECTED_RELEASE: ${{ inputs.release }}
+        run: node deployments/conductor/sovereign-minds/verify-live.mjs "$EXPECTED_RELEASE"

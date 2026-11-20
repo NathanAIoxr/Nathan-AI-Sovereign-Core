@@ -1,0 +1,18 @@
+{
+  "project": "nathan-ai-sovereign-minds",
+  "source": "deployments/conductor/sovereign-minds/",
+  "prompts": "deployments/conductor/sovereign-minds/PROMPTS.md",
+  "model": "nathan-ai.sovereign-mind.v1",
+  "cloudflare": {
+    "dispatchNamespace": "nathan-tabor-platforms",
+    "catalogScript": "nathan-ai-sovereign-minds",
+    "mindScriptPrefix": "nathan-ai-mind-",
+    "ids": ["zero", "one", "proton", "neutron", "electron", "atom", "nathan-tabor"],
+    "publicCatalog": "https://unified-operations-cockpit.nathantaboract.workers.dev/tabor-sites/sovereign-minds/api/catalog"
+  },
+  "github": {
+    "workflow": ".github/workflows/sovereign-minds.yml",
+    "test": "node --test deployments/conductor/sovereign-minds/sovereign-minds.test.mjs",
+    "verifyLive": "node deployments/conductor/sovereign-minds/verify-live.mjs <release-sha>"
+  }
+}
