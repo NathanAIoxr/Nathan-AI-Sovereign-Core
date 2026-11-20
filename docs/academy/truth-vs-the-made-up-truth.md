@@ -315,4 +315,153 @@ Contemporary · search and generative AI
 **Check it** — Record the claim, the earlier context and the observable error. Preserve the original transcript privately and give the source for any new factual claim. Run the same context test against any AI, including Nathan AI.
 
 - [NIST Generative AI Profile · confabulation](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)
+## Interactive evidence lab and ten added cases
 
+[Open the interactive evidence lab](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/truth-lab/). Search the 30-case catalog, read the route in either direction, compare two cases, save a case, and download a proof sheet. Notes and bookmarks are stored in the reader’s browser.
+
+### The Rosetta Stone: same decree, different scripts
+
+196 BCE · Memphis, Egypt · Documented original decree and inscriptions
+
+**Source record** — Egyptian priests issued the Memphis Decree in 196 BCE. The surviving fragment reproduces it in hieroglyphic, Demotic and Greek scripts.
+
+**How the story changes** — Three distinct languages told three independent stories and therefore offered three independent witnesses.
+
+**Check it** — Identify the two languages and three scripts. Explain why three copies of a decree improve access to the text without independently corroborating what its authors claimed.
+
+[Open the Academy lesson](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/humanities/truth-map-rosetta-stone/)
+
+- [British Museum · hieroglyphs guide and Rosetta Stone](https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum_2.pdf)
+
+### Magna Carta: a clause and its later reputation
+
+1215 · England · Primary charter and later legal reception
+
+**Source record** — The 1215 charter constrained aspects of King John’s rule. Clause 39 refers to a free man. The pope annulled this version later that year, and subsequent versions differed.
+
+**How the story changes** — The 1215 document immediately established equal rights for everybody in England.
+
+**Check it** — Read clause 39. Identify who the clause names, separate the first charter from later versions, and describe what evidence would show broader legal reach.
+
+[Open the Academy lesson](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/humanities/truth-map-magna-carta/)
+
+- [UK National Archives · Magna Carta and the Road to Democracy](https://cdn.nationalarchives.gov.uk/documents/archives/Magna_Carta-Democracy_Campaign_Toolkit.pdf)
+- [British Library · annulment of the first charter](https://www.bl.uk/stories/blogs/posts/shameful-and-demeaning-the-annulment-of-magna-carta)
+
+### Te Tiriti o Waitangi: words that carry authority
+
+1840 · Aotearoa New Zealand · Two treaty texts and a bounded tribunal finding
+
+**Source record** — The English and Māori texts use different terms for transferred or retained powers. A Waitangi Tribunal inquiry concluded that the rangatira who signed in the Bay of Islands and Hokianga in February 1840 did not cede sovereignty.
+
+**How the story changes** — One English rendering settles what every signature meant.
+
+**Check it** — Compare Article One and Article Two in the two texts. Mark kāwanatanga and tino rangatiratanga in context, and state which signatories the tribunal finding addresses.
+
+[Open the Academy lesson](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/humanities/truth-map-waitangi/)
+
+- [NZ History · differences between texts](https://nzhistory.govt.nz/page/differences-between-texts)
+- [Waitangi Tribunal · stage one report](https://waitangitribunal.govt.nz/news/report-on-stage-1-of-the-te-paparahi-o-te-raki-inquiry-released)
+
+### Frederick Douglass: who could celebrate the Fourth?
+
+1852 · Rochester, New York · Dated public speech and archival copies
+
+**Source record** — On July 5, 1852, Frederick Douglass used an Independence Day address to expose the contradiction between national ideals and slavery.
+
+**How the story changes** — A founding promise is described as if every person already experienced it.
+
+**Check it** — Compare the Declaration with a paragraph of Douglass’s address. Name the audience and the contradiction he identified. Write a summary that preserves his charge.
+
+[Open the Academy lesson](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/humanities/truth-map-douglass/)
+
+- [Library of Congress · the 1852 address](https://blogs.loc.gov/teachers/2021/06/what-to-the-american-slave-is-your-4th-of-july/)
+- [U.S. National Archives · Declaration of Independence](https://www.archives.gov/milestone-documents/declaration-of-independence)
+
+### Federal Indian boarding schools: records and testimony
+
+19th–20th centuries and 2024 report · United States · Federal investigation and survivor accounts
+
+**Source record** — The U.S. Department of the Interior’s investigation documents a federal boarding school system that separated American Indian, Alaska Native and Native Hawaiian children from families and used schooling to pursue assimilation.
+
+**How the story changes** — The word ‘education’ is taken to show that the children or their families freely chose the arrangement.
+
+**Check it** — Read the terms used by the system beside an investigation’s findings. Record the stated aim, the conditions imposed, and whose testimony confirms or changes your account.
+
+[Open the Academy lesson](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/humanities/truth-map-us-boarding-schools/)
+
+- [U.S. Department of the Interior · investigative report and findings](https://www.doi.gov/pressreleases/department-interior-releases-investigative-report-outlines-next-steps-federal-indian)
+
+### Nuremberg: how evidence reaches a court
+
+1945–1946 · Nuremberg, Germany · Independent bodies of evidence and documented proceedings
+
+**Source record** — The International Military Tribunal considered German documents, witness testimony and motion pictures. The U.S. Holocaust Memorial Museum identifies films shown in court and documents how prosecutors used them.
+
+**How the story changes** — One film or one disputed detail is treated as if it were the entire body of evidence.
+
+**Check it** — Select a source described in the tribunal record and identify who made it. Compare it with a separate type of evidence. Explain how independent lines of evidence support a historical finding.
+
+[Open the Academy lesson](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/humanities/truth-map-nuremberg/)
+
+- [U.S. Holocaust Memorial Museum · International Military Tribunal](https://encyclopedia.ushmm.org/content/en/article/international-military-tribunal-at-nuremberg)
+- [U.S. Holocaust Memorial Museum · film evidence](https://encyclopedia.ushmm.org/content/en/article/we-will-show-you-their-own-films-film-at-the-nuremberg-trial)
+
+### Pentagon Papers: public explanations and internal records
+
+1967 study → 1971 leak → 2011 release · United States and Vietnam · Dated government study, partial leak and archival release
+
+**Source record** — The Defense Department commissioned the study in 1967. Portions reached the press in 1971. The National Archives and presidential libraries released the complete report in 2011.
+
+**How the story changes** — The portion the public saw first is assumed to be the complete archival record.
+
+**Check it** — Choose an internal document and date it. Find a contemporaneous public statement about the same issue. Separate a contradiction you can demonstrate from a motive you would have to prove.
+
+[Open the Academy lesson](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/humanities/truth-map-pentagon-papers/)
+
+- [U.S. National Archives · Pentagon Papers](https://www.archives.gov/research/pentagon-papers)
+- [U.S. National Archives · 2011 release announcement](https://www.archives.gov/press/press-releases/2011-49)
+
+### Japanese American redress: what Congress acknowledged
+
+1988 · United States · Public law and historically distinct remedies
+
+**Source record** — The Civil Liberties Act of 1988 acknowledged the injustice of wartime actions against people of Japanese ancestry, offered an apology on behalf of the people of the United States, and authorized restitution for eligible individuals.
+
+**How the story changes** — The later apology is taken to mean every person received the same remedy or that the historical loss was reversed.
+
+**Check it** — Compare the law’s findings and apology with its eligibility provision. Identify what Congress acknowledged, who qualified, and which harms a financial payment could not undo.
+
+[Open the Academy lesson](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/humanities/truth-map-civil-liberties-act/)
+
+- [GovInfo · Public Law 100-383, Civil Liberties Act of 1988](https://www.govinfo.gov/content/pkg/STATUTE-102/pdf/STATUTE-102-Pg903.pdf)
+- [U.S. National Archives · wartime incarceration records](https://www.archives.gov/research/aapi/ww2/resources)
+
+### Residential schools in Canada: survivor accounts and findings
+
+19th–20th centuries and 2015 reports · Canada · Truth and Reconciliation Commission findings and survivor accounts
+
+**Source record** — The Canadian TRC documented the residential school system and its effects through records and survivor testimony. The National Centre for Truth and Reconciliation preserves the final reports.
+
+**How the story changes** — An institutional attendance record is taken to describe a child’s whole experience.
+
+**Check it** — Choose one kind of record and one published survivor account. Note what each can establish. Quote with context and respect any limits on access or reuse.
+
+[Open the Academy lesson](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/humanities/truth-map-canada-residential-schools/)
+
+- [National Centre for Truth and Reconciliation · reports](https://nctr.ca/publications-and-reports/reports/)
+
+### Windrush: missing papers and the burden of proof
+
+2018 public scandal and 2020 review · United Kingdom · Independent review, testimony and policy history
+
+**Source record** — Wendy Williams’s review examined how government policies and practices harmed members of the Windrush generation, including people whose lawful status was difficult to prove under documentary demands.
+
+**How the story changes** — A person’s inability to produce a requested paper is treated as proof that they had no lawful status.
+
+**Check it** — Reconstruct the distinction between a person’s rights, the papers they had, and the state record the decision-maker checked. List which of those actually supports the official action.
+
+[Open the Academy lesson](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/humanities/truth-map-windrush/)
+
+- [UK government · Wendy Williams’s Windrush review](https://www.gov.uk/government/publications/windrush-lessons-learned-review)
+- [UK government · independent historical research](https://www.gov.uk/government/publications/the-historical-roots-of-the-windrush-scandal)

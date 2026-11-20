@@ -1,0 +1,27 @@
+name: Tabor Academy Truth Lab verification
+on:
+  push:
+    paths:
+      - 'deployments/tabor-academy/truth-lab/**'
+      - '.github/workflows/tabor-academy-truth-lab.yml'
+  workflow_dispatch:
+    inputs:
+      release:
+        description: Expected deployed GitHub commit SHA
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test deployments/tabor-academy/truth-lab/worker.test.mjs
+      - if: github.event_name == 'workflow_dispatch'
+        env:
+          EXPECTED_RELEASE: ${{ inputs.release }}
+        run: node deployments/tabor-academy/truth-lab/verify-live.mjs "$EXPECTED_RELEASE"

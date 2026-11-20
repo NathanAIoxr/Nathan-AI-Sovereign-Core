@@ -1,0 +1,18 @@
+{
+  "project": "tabor-academy-truth-lab",
+  "name": "Truth vs. the Made-Up Truth",
+  "source": "deployments/tabor-academy/truth-lab/",
+  "mountedPath": "/tabor-academy/truth-lab/",
+  "caseCount": 30,
+  "academyGuide": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/humanities/truth-vs-the-made-up-truth/",
+  "conductorHandoff": {
+    "workflow": ".github/workflows/tabor-academy-truth-lab.yml",
+    "command": "node deployments/tabor-academy/truth-lab/verify-live.mjs <expected-release-sha>",
+    "publicHealth": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/truth-lab/healthz",
+    "liveEvidence": [
+      "GitHub release SHA",
+      "complete public case catalog",
+      "Academy mission index"
+    ]
+  }
+}
