@@ -131,3 +131,14 @@ test("Nathan Tabor Way mission begins with outcome and ends with repeatable proo
   assert.equal((await open("/way/math/unknown/")).status, 404);
   assert.equal((await (await open("/way/catalog.json")).json()).missions.length, 1);
 });
+
+test("Law of Order preserves Nathan's wording and opens with the community view", async () => {
+  const home = await (await call("/order/")).text();
+  assert.match(home, /you can do everything and do it anyway you want to, but if you don’t do it in the right order, it doesn’t count and it doesn’t matter cause it won’t work/);
+  assert.match(home, /Luke 10:25–37 \(KJV\)/);
+  assert.ok(home.indexOf("<h3>Home and community") < home.indexOf("<h3>Church, government, and state"));
+  const reverse = await (await call("/order/?view=state&first=paid")).text();
+  assert.ok(reverse.indexOf("<h3>Church, government, and state") < reverse.indexOf("<h3>Home and community"));
+  assert.match(reverse, /The payment comes the next day/);
+  assert.match(await (await call("/order/?first=saw")).text(), /Yes. The Samaritan first saw/);
+});
