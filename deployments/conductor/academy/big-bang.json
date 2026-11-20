@@ -1,0 +1,17 @@
+{
+  "project": "tabor-academy-big-bang",
+  "name": "BIG BANG TIMES NATHAN TABOR",
+  "author": "Nathan Tabor",
+  "originalWording": "tabor-academy/conductor-handoffs/2026-11-20-truth-love-innocence.md",
+  "source": "app-factory/tabor-academy/big-bang/",
+  "mountedPath": "/tabor-academy/big-bang/",
+  "conductorHandoff": {
+    "paths": ["heart", "soul", "shadow", "spirit", "nothing", "everything"],
+    "maintainerPrompt": "Preserve Nathan Tabor’s motto and charter exactly. Keep learning activities distinct from author quotations. Carry forward the six Academy paths and check each path against its source, including Truth Lab, the Nathan Tabor Way, the Lasso of Truth, and the Academy map.",
+    "integration": "Wrap the current academy-entry.mjs with patchAcademyEntry from build.mjs. Add academy-big-bang.mjs from build.mjs <commit-sha>. Preserve other Academy modules and bindings.",
+    "check": "node --test app-factory/tabor-academy/big-bang/worker.test.mjs",
+    "verify": "node app-factory/tabor-academy/big-bang/verify-live.mjs <commit-sha>",
+    "health": "https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/big-bang/healthz",
+    "accountability": "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/issues/481"
+  }
+}
