@@ -38,5 +38,11 @@
       "Bitcoin developer examples · Regtest",
       "https://developer.bitcoin.org/examples/testing.html"
     ]
-  ]
+  ],
+  "challenge": {
+    "kind": "proof",
+    "title": "Reproduce a real header proof",
+    "prompt": "Hash Bitcoin’s historical genesis header, change one byte, then check what happens to the proof.",
+    "tip": "Hash the raw 80 bytes twice with SHA-256. Display the resulting bytes in reverse order and compare the integer to the header’s target."
+  }
 }

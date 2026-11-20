@@ -34,5 +34,38 @@
       "Bitcoin developer guide · Wallets",
       "https://developer.bitcoin.org/devguide/wallets.html"
     ]
-  ]
+  ],
+  "challenge": {
+    "kind": "sort",
+    "title": "Trace a payment through its records",
+    "prompt": "Decide what each record can establish.",
+    "bins": [
+      "Submitted work",
+      "Pool accounting",
+      "Chain payment evidence"
+    ],
+    "cards": [
+      [
+        "Pool acknowledgement of an accepted share",
+        0,
+        "An accepted share records qualifying work under the pool’s rules."
+      ],
+      [
+        "Dashboard balance marked unpaid",
+        1,
+        "An unpaid balance is a pool accounting entry."
+      ],
+      [
+        "Transaction ID, matching output, and confirmations",
+        2,
+        "Together these can support the on-chain payment claim."
+      ],
+      [
+        "Expected payout estimate",
+        1,
+        "An estimate belongs to accounting. A confirmed output is separate evidence."
+      ]
+    ],
+    "tip": "A share, a pool balance, and an on-chain transaction answer different questions."
+  }
 }

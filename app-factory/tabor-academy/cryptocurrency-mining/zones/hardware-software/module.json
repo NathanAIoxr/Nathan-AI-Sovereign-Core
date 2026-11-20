@@ -38,5 +38,38 @@
       "Stratum V2 Reference Implementation",
       "https://github.com/stratum-mining"
     ]
-  ]
+  ],
+  "challenge": {
+    "kind": "sort",
+    "title": "Connect the equipment",
+    "prompt": "Match each job to the tool that performs it in this setup.",
+    "bins": [
+      "Bitaxe with ESP-Miner",
+      "Bitcoin Core",
+      "Stratum V2"
+    ],
+    "cards": [
+      [
+        "Drive a compatible Bitaxe SHA-256 ASIC",
+        0,
+        "Firmware controls compatible mining hardware."
+      ],
+      [
+        "Independently check a block against Bitcoin’s consensus rules",
+        1,
+        "Bitcoin Core can run as a full node."
+      ],
+      [
+        "Carry pool jobs and proof-of-work submissions",
+        2,
+        "Stratum V2 specifies communication for mining."
+      ],
+      [
+        "Create a private regtest chain for a classroom lab",
+        1,
+        "Bitcoin Core supports a local regression-test network."
+      ]
+    ],
+    "tip": "Separate the device, the node software, and the protocol used to carry jobs."
+  }
 }

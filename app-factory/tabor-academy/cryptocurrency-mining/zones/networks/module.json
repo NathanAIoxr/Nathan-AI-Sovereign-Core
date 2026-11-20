@@ -38,5 +38,38 @@
       "Ethereum · The Merge",
       "https://ethereum.org/roadmap/merge/"
     ]
-  ]
+  ],
+  "challenge": {
+    "kind": "sort",
+    "title": "Match the network and the rule",
+    "prompt": "Put each current network or tool under the consensus mechanism it belongs with.",
+    "bins": [
+      "SHA-256d proof of work",
+      "RandomX proof of work",
+      "Proof of stake"
+    ],
+    "cards": [
+      [
+        "Bitcoin mainnet",
+        0,
+        "Bitcoin uses double SHA-256 for its proof of work."
+      ],
+      [
+        "Ethereum mainnet",
+        2,
+        "Ethereum mainnet moved to proof of stake at The Merge."
+      ],
+      [
+        "Monero",
+        1,
+        "Monero uses RandomX proof of work."
+      ],
+      [
+        "Ethereum validators attest to blocks after The Merge",
+        2,
+        "Attestations are part of Ethereum’s proof-of-stake consensus."
+      ]
+    ],
+    "tip": "Identify the chain before comparing hardware or mechanisms. Different proof-of-work algorithms check different kinds of work."
+  }
 }

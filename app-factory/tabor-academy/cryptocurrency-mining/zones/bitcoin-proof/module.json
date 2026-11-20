@@ -38,5 +38,11 @@
       "Golden Goose · Live Bitcoin verifier",
       "https://nathan-ai-mining-lab.nathantaboract.workers.dev/golden-goose"
     ]
-  ]
+  ],
+  "challenge": {
+    "kind": "target",
+    "title": "Find a hash that fits",
+    "prompt": "Try the candidates. Then tighten the target and find a candidate that still passes.",
+    "tip": "The rule accepts hash values at or below the target. A smaller target leaves fewer eligible values. These are toy numbers."
+  }
 }

@@ -42,5 +42,38 @@
       "Nathan AI Rocket fleet policy",
       "https://github.com/NathanAIoxr/Nathan-AI-Sovereign-Core/blob/main/app-factory/nathan-ai/nathan-ai-rocket-conductor/bitcoin-fleet-policy.json"
     ]
-  ]
+  ],
+  "challenge": {
+    "kind": "sort",
+    "title": "Route the fleet work",
+    "prompt": "Send each task to the part of Nathan AI Rocket 🚀 that can carry it out.",
+    "bins": [
+      "Authorized ASIC and pool",
+      "Cloudflare dashboard",
+      "GitHub repository"
+    ],
+    "cards": [
+      [
+        "Search for a fresh Bitcoin proof and submit shares",
+        0,
+        "Mining hardware and the pool exchange jobs and shares."
+      ],
+      [
+        "Show observed device status and public proof checks",
+        1,
+        "An application can publish telemetry and verify existing public headers."
+      ],
+      [
+        "Keep source code and run a fixed proof-validation test",
+        2,
+        "The repository and its tests support development."
+      ],
+      [
+        "Acknowledge a share sent by an enrolled miner",
+        0,
+        "The configured pool acknowledges its submitted shares."
+      ]
+    ],
+    "tip": "Track hardware, live dashboard evidence, and software development as distinct parts of the fleet."
+  }
 }

@@ -5,7 +5,7 @@ const miningEscape = value => String(value).replace(/[&<>"']/g, character =>
 const miningHref = module => miningBase + "zones/" + module.id + "/";
 const miningNamespace = module => "tabor-academy-mining-" + module.id;
 
-function miningPage(title, body, back) {
+function miningPage(title, body, back, script) {
   return `<!doctype html><html lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${miningEscape(title)} · Tabor Academy</title>
@@ -22,34 +22,64 @@ function miningPage(title, body, back) {
   .catalog li{margin:0;border:1px solid #778360;background:#171e13;padding:1rem}
   .catalog a,summary,dt{font-weight:700} summary{cursor:pointer} dd{margin:.2em 0 .9em}
   .module section,.module details{max-width:48rem}footer{margin:1.5rem 0}html{overflow-wrap:anywhere}
+  [hidden],[data-challenge]:not([data-ready]) .play-ui{display:none!important}
+  .challenge{background:#202b1a;border:1px solid #778360;border-radius:.65rem;padding:clamp(.9rem,4vw,1.8rem)}
+  .challenge h2{margin-top:0}.challenge h3{margin:.7rem 0;line-height:1.3}
+  button,.play-link{cursor:pointer;background:#e6cf87;color:#171e13;border:1px solid #e6cf87;border-radius:.35rem;
+  font:inherit;font-weight:700;min-height:44px;padding:.45rem .8rem;margin:.2rem .3rem .2rem 0}
+  .play-link{display:inline-block;text-decoration:none}.secondary{background:transparent;color:#e6cf87}
+  button:focus-visible,input:focus-visible{outline:2px solid #e6cf87;outline-offset:.25rem}
+  button[aria-pressed="true"]{background:white;color:#171e13}button:disabled{opacity:.55;cursor:default}
+  .challenge label{display:block;margin:.6rem 0}.challenge input{display:block;width:6rem;min-height:44px;font:inherit;margin-top:.2rem}
+  .challenge [role="status"]:empty{margin:0}.expanded{margin-top:1.5rem}.expanded section{margin:.6rem 0}
   @media print{:root{color-scheme:light;background:white;color:black}a{color:black}nav,footer,.screen-only{display:none}
-  main{padding:0}.outcome,.catalog li{background:white}section,.catalog li{break-inside:avoid}h1{font-size:28pt}}
+  main{padding:0}.outcome,.catalog li{background:white}section,.catalog li{break-inside:avoid}h1{font-size:28pt}
+  details.expanded:not([open])>div{display:block}}
   </style></head><body><main class="${back ? "module" : "course"}">
   <nav aria-label="Tabor Academy"><a href="/tabor-academy/">Tabor Academy</a><a href="/tabor-academy/workbench/">Workbench</a>
   ${back ? `<a href="${miningBase}">${miningTitle}</a>` : ""}</nav>
-  <header><h1>${miningEscape(title)}</h1></header>${body}</main></body></html>`;
+  <header><h1>${miningEscape(title)}</h1></header>${body}</main>
+  ${script ? `<script type="module" src="${script}"></script>` : ""}</body></html>`;
 }
 
 function miningCatalog(modules) {
   const list = modules.map(module => `<li><a href="${miningHref(module)}">${miningEscape(module.title)}</a>
     <p>${miningEscape(module.outcome)}</p></li>`).join("");
-  return miningPage(miningTitle, `<p>Start with the finished outcome, then show it, replicate it, and verify it.</p>
+  return miningPage(miningTitle, `<p><a class="play-link" href="${miningHref(modules[0])}">Start the first challenge</a></p>
     <ol class="catalog">${list}</ol><footer><a href="${miningBase}modules.json">Module directory JSON</a></footer>`, false);
 }
 
-function miningLesson(module) {
+function miningLesson(module, next, zone) {
   const concepts = module.concepts.map(([term, meaning]) =>
     `<dt>${miningEscape(term)}</dt><dd>${miningEscape(meaning)}</dd>`).join("");
   const steps = module.replicate.map(step => `<li>${miningEscape(step)}</li>`).join("");
   const sources = module.sources.map(([title, href]) =>
     `<li><a href="${miningEscape(href)}">${miningEscape(title)}</a></li>`).join("");
   const [question, answer] = module.check;
-  return miningPage(module.title, `<section class="outcome"><h2>Z · Finished outcome</h2><p>${miningEscape(module.outcome)}</p></section>
+  const play = module.challenge;
+  const nextLink = next
+    ? `<a class="play-link" href="${miningHref(next)}">Next challenge</a>`
+    : `<a class="play-link" href="${miningBase}">Back to the course</a>`;
+  return miningPage(module.title, `<section class="challenge screen-only" data-challenge="${miningEscape(JSON.stringify(play))}">
+    <h2>${miningEscape(play.title)}</h2><p>${miningEscape(play.prompt)}</p>
+    <noscript><p>Open the field notes below for a practice exercise you can do without JavaScript.</p></noscript>
+    <div class="play-ui">
+      <div data-stage></div><p role="status" data-feedback></p>
+      <div data-pause><button type="button" class="secondary" data-hold>Hold on</button></div>
+      <div data-hint hidden><h3>Let’s look at this step</h3><p>${miningEscape(play.tip)}</p>
+        <button type="button" data-resume>Continue</button></div>
+      <details data-voice hidden><summary>Use voice</summary><p>Say “Hold on” or “Continue” after tapping the microphone button.
+        Your browser may process speech online.</p><button type="button" class="secondary" data-mic>Listen for one command</button>
+        <p role="status" data-voice-status></p></details>
+      <p data-finished hidden>${nextLink}</p>
+    </div></section>
+    <details class="expanded"><summary>Field notes and sources</summary><div>
+    <section class="outcome"><h2>Z · Finished outcome</h2><p>${miningEscape(module.outcome)}</p></section>
     <section><h2>Show it</h2><p>${miningEscape(module.show)}</p><dl>${concepts}</dl></section>
     <section><h2>A · Replicate and verify</h2><ol>${steps}</ol>
     <p><strong>Self-check</strong> · ${miningEscape(question)}</p>
     <details><summary>Check your answer</summary><p>${miningEscape(answer)}</p></details></section>
-    <section><h2>Sources</h2><ul>${sources}</ul></section>`, true);
+    <section><h2>Sources</h2><ul>${sources}</ul></section></div></details>`, true, zone ? "./play.js" : miningBase + "play.js");
 }
 
 function miningResponse(request, value, type, status = 200, extra = {}) {
@@ -59,7 +89,7 @@ function miningResponse(request, value, type, status = 200, extra = {}) {
       "Content-Type": type + "; charset=utf-8",
       "Cache-Control": "no-store",
       "X-Content-Type-Options": "nosniff",
-      "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'",
+      "Content-Security-Policy": "default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'",
       ...extra,
     },
   });
@@ -73,11 +103,14 @@ function miningServe(request, modules, zone = false) {
   if (request.method !== "GET" && request.method !== "HEAD") {
     return text("Method not allowed", 405, { Allow: "GET, HEAD" });
   }
+  if (path === (zone ? "/play.js" : "/mining/play.js")) {
+    return miningResponse(request, miningPlayScript, "text/javascript");
+  }
   if (zone) {
     const [module] = modules;
     if (path === "/healthz") return json({ status: "ok", id: module.id, namespace: miningNamespace(module) });
     if (path === "/module.json") return json(module);
-    return path === "/" ? html(miningLesson(module)) : text("Module not found", 404);
+    return path === "/" ? html(miningLesson(module, null, true)) : text("Module not found", 404);
   }
   if (path === "/mining" || path === "/mining/") return html(miningCatalog(modules));
   if (path === "/mining/modules.json") {
@@ -87,5 +120,6 @@ function miningServe(request, modules, zone = false) {
   }
   const match = /^\/mining\/zones\/([a-z0-9-]+)\/?$/.exec(path);
   const module = match && modules.find(entry => entry.id === match[1]);
-  return module ? html(miningLesson(module)) : text("Module not found", 404);
+  const next = modules[modules.indexOf(module) + 1];
+  return module ? html(miningLesson(module, next, false)) : text("Module not found", 404);
 }

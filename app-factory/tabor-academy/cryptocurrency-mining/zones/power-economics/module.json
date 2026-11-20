@@ -34,5 +34,11 @@
       "Bitcoin developer guide · Mining",
       "https://developer.bitcoin.org/devguide/mining.html"
     ]
-  ]
+  ],
+  "challenge": {
+    "kind": "power",
+    "title": "Fit the run inside the power budget",
+    "prompt": "A practice rig draws 800 W. Run it for at least 6 hours and spend at most $0.60 at $0.12/kWh.",
+    "tip": "Divide watts by 1,000 to get kW. Multiply by hours to get kWh, then multiply by the price per kWh."
+  }
 }

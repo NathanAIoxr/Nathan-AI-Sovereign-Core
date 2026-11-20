@@ -34,5 +34,38 @@
       "Bitcoin developer reference · Block headers",
       "https://developer.bitcoin.org/reference/block_chain.html"
     ]
-  ]
+  ],
+  "challenge": {
+    "kind": "sort",
+    "title": "Send the records to the right place",
+    "prompt": "Route each action to the role that performs it in this example.",
+    "bins": [
+      "Wallet",
+      "Miner",
+      "Full node"
+    ],
+    "cards": [
+      [
+        "Authorize spending an existing output",
+        0,
+        "The wallet uses signing keys to authorize the transaction."
+      ],
+      [
+        "Build a candidate block and search for a qualifying hash",
+        1,
+        "The miner assembles and hashes candidate headers."
+      ],
+      [
+        "Reject a candidate that contains a double spend",
+        2,
+        "A full node checks the consensus rules independently."
+      ],
+      [
+        "Reject a block whose hash is above the required target",
+        2,
+        "A full node validates the proof of work before accepting the block."
+      ]
+    ],
+    "tip": "Follow the record from signature to candidate to validation. One operator can run several roles."
+  }
 }

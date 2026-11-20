@@ -38,5 +38,38 @@
       "Stratum V2 Reference Implementation",
       "https://github.com/stratum-mining"
     ]
-  ]
+  ],
+  "challenge": {
+    "kind": "sort",
+    "title": "Run the pool’s share desk",
+    "prompt": "The pool target is 50. The network target is 5. Classify each candidate hash.",
+    "bins": [
+      "Both targets",
+      "Pool target only",
+      "Neither target"
+    ],
+    "cards": [
+      [
+        "Hash 8",
+        1,
+        "8 is at or below 50 and above 5."
+      ],
+      [
+        "Hash 3",
+        0,
+        "3 meets both numeric targets. The network still checks the rest of the block."
+      ],
+      [
+        "Hash 60",
+        2,
+        "60 is above both targets."
+      ],
+      [
+        "Hash 5",
+        0,
+        "Equality passes. 5 meets both targets."
+      ]
+    ],
+    "tip": "Meeting the pool’s target records work for the pool. A network target can be stricter."
+  }
 }

@@ -62,5 +62,38 @@
       "Schneiker et al. · Alcanivorax borkumensis",
       "https://pubmed.ncbi.nlm.nih.gov/16878126/"
     ]
-  ]
+  ],
+  "challenge": {
+    "kind": "sort",
+    "title": "Follow the material",
+    "prompt": "Classify what the evidence in each example can show.",
+    "bins": [
+      "Transfer",
+      "Change in the starting material",
+      "Filtration"
+    ],
+    "cards": [
+      [
+        "A plant takes up a metal that is later detected in its tissue",
+        0,
+        "The metal moved from the starting medium into the plant."
+      ],
+      [
+        "A study measures PET degradation and identifies breakdown products",
+        1,
+        "Measured breakdown products support a change in the starting material."
+      ],
+      [
+        "Shellfish remove suspended particles from water",
+        2,
+        "The particles are filtered out of the water column."
+      ],
+      [
+        "A contaminant disappears from water and is measured in sediment",
+        0,
+        "The sediment measurement shows where the contaminant went."
+      ]
+    ],
+    "tip": "Record where material ends up and what was measured. Each biological example can inspire a model with its own test."
+  }
 }
