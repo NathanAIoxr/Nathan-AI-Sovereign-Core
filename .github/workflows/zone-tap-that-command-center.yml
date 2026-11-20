@@ -1,0 +1,23 @@
+name: Zone · TAP THAT · COMMAND CENTER
+on:
+  push:
+    branches:
+      - 'zone/tap-that-command-center'
+    paths:
+      - 'zones/isolated/tap-that-command-center/**'
+      - '.github/workflows/zone-tap-that-command-center.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test zone.test.mjs
+        working-directory: zones/isolated/tap-that-command-center
