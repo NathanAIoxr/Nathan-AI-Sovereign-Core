@@ -79,3 +79,11 @@ After reviewing recent live releases, keep the next missing KJV batch in the Aca
 | 6 | Letters and Revelation | Romans through Revelation. Identify recipient, question, genre, and how each cross-reference supports the reading. |
 
 Track coverage by book, chapter and verse range. Count a book as touched only when its reference appears in a verified released exercise. For every unfinished book, select its next uncovered section and add distinct exercises that build on prior work. The goal is teachable passage coverage across all 66 KJV books, with optional thematic and deeper passage studies as new lessons. Keep existing lesson URLs and original course numbering intact.
+
+## The Complete Human Learning Arc
+
+[Academy course](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/way/human-learning-arc/) · [Separate Tabor World timeline](https://tabor-world.nathantaboract.workers.dev/human-learning-arc/)
+
+The original [101 Hands-On Learning Methods](https://tabor-bridge.nathantaboract.workers.dev/tabor-academy/institution/learning-methods/) retain their own sequence and activities. Migration `0010_human_learning_arc.sql` publishes the submitted titles as modules 1–30 and the gap topics as 31–48, starting with the separate Zero orientation and five Academy sections. The submitted outline is archived as `complete-human-learning-arc-submitted-outline` in private Academy source storage. Use the main branch's `tabor-world/human-learning-arc/` directory for World stations and this branch's Academy migration for exercises.
+
+Keep deep time, inference from archaeological records, living community knowledge, engineering demonstrations, and future scenarios identifiable in each lesson. Add new evidence in bounded releases for a specific region or question. Record a dated source, a replicable educational exercise, and a link to the relevant existing station or course. Good next comparisons include open-air sites across Africa and Asia, submerged landscapes and Pacific wayfinding, regional agricultural and writing histories, and accessible recovery plans for future water, food, energy and local information systems.
